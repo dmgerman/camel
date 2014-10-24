@@ -447,10 +447,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testAES128_GCM ()
+DECL|method|testAES128GCM ()
 specifier|public
 name|void
-name|testAES128_GCM
+name|testAES128GCM
 parameter_list|()
 throws|throws
 name|Exception
@@ -721,10 +721,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testAES192_GCM ()
+DECL|method|testAES192GCM ()
 specifier|public
 name|void
-name|testAES192_GCM
+name|testAES192GCM
 parameter_list|()
 throws|throws
 name|Exception
@@ -1005,10 +1005,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testAES256_GCM ()
+DECL|method|testAES256GCM ()
 specifier|public
 name|void
-name|testAES256_GCM
+name|testAES256GCM
 parameter_list|()
 throws|throws
 name|Exception
@@ -1147,10 +1147,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testTRIPLE_DES ()
+DECL|method|testTRIPLEDES ()
 specifier|public
 name|void
-name|testTRIPLE_DES
+name|testTRIPLEDES
 parameter_list|()
 throws|throws
 name|Exception
@@ -1279,10 +1279,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testSEED_128 ()
+DECL|method|testSEED128 ()
 specifier|public
 name|void
-name|testSEED_128
+name|testSEED128
 parameter_list|()
 throws|throws
 name|Exception
@@ -1411,10 +1411,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testCAMELLIA_128 ()
+DECL|method|testCAMELLIA128 ()
 specifier|public
 name|void
-name|testCAMELLIA_128
+name|testCAMELLIA128
 parameter_list|()
 throws|throws
 name|Exception
@@ -1543,10 +1543,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testCAMELLIA_192 ()
+DECL|method|testCAMELLIA192 ()
 specifier|public
 name|void
-name|testCAMELLIA_192
+name|testCAMELLIA192
 parameter_list|()
 throws|throws
 name|Exception
@@ -1685,10 +1685,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testCAMELLIA_256 ()
+DECL|method|testCAMELLIA256 ()
 specifier|public
 name|void
-name|testCAMELLIA_256
+name|testCAMELLIA256
 parameter_list|()
 throws|throws
 name|Exception

@@ -392,6 +392,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Node
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -743,18 +755,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Node
 import|;
 end_import
 
@@ -2152,10 +2152,10 @@ end_function
 begin_function
 annotation|@
 name|Test
-DECL|method|testRSASHA1_MGF1 ()
+DECL|method|testRSASHA1MGF1 ()
 specifier|public
 name|void
-name|testRSASHA1_MGF1
+name|testRSASHA1MGF1
 parameter_list|()
 throws|throws
 name|Exception
@@ -2179,10 +2179,10 @@ end_function
 begin_function
 annotation|@
 name|Test
-DECL|method|testRSASHA224_MGF1 ()
+DECL|method|testRSASHA224MGF1 ()
 specifier|public
 name|void
-name|testRSASHA224_MGF1
+name|testRSASHA224MGF1
 parameter_list|()
 throws|throws
 name|Exception
@@ -2206,10 +2206,10 @@ end_function
 begin_function
 annotation|@
 name|Test
-DECL|method|testRSASHA256_MGF1 ()
+DECL|method|testRSASHA256MGF1 ()
 specifier|public
 name|void
-name|testRSASHA256_MGF1
+name|testRSASHA256MGF1
 parameter_list|()
 throws|throws
 name|Exception
@@ -2233,10 +2233,10 @@ end_function
 begin_function
 annotation|@
 name|Test
-DECL|method|testRSASHA384_MGF1 ()
+DECL|method|testRSASHA384MGF1 ()
 specifier|public
 name|void
-name|testRSASHA384_MGF1
+name|testRSASHA384MGF1
 parameter_list|()
 throws|throws
 name|Exception
@@ -2260,10 +2260,10 @@ end_function
 begin_function
 annotation|@
 name|Test
-DECL|method|testRSASHA512_MGF1 ()
+DECL|method|testRSASHA512MGF1 ()
 specifier|public
 name|void
-name|testRSASHA512_MGF1
+name|testRSASHA512MGF1
 parameter_list|()
 throws|throws
 name|Exception

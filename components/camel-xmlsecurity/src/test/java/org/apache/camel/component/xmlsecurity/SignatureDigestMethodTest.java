@@ -382,6 +382,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Node
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -733,18 +745,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Node
 import|;
 end_import
 
@@ -1714,10 +1714,10 @@ end_function
 begin_function
 annotation|@
 name|Test
-DECL|method|testSHA3_224 ()
+DECL|method|testSHA3224 ()
 specifier|public
 name|void
-name|testSHA3_224
+name|testSHA3224
 parameter_list|()
 throws|throws
 name|Exception
@@ -1741,10 +1741,10 @@ end_function
 begin_function
 annotation|@
 name|Test
-DECL|method|testSHA3_256 ()
+DECL|method|testSHA3256 ()
 specifier|public
 name|void
-name|testSHA3_256
+name|testSHA3256
 parameter_list|()
 throws|throws
 name|Exception
@@ -1768,10 +1768,10 @@ end_function
 begin_function
 annotation|@
 name|Test
-DECL|method|testSHA3_384 ()
+DECL|method|testSHA3384 ()
 specifier|public
 name|void
-name|testSHA3_384
+name|testSHA3384
 parameter_list|()
 throws|throws
 name|Exception
@@ -1795,10 +1795,10 @@ end_function
 begin_function
 annotation|@
 name|Test
-DECL|method|testSHA3_512 ()
+DECL|method|testSHA3512 ()
 specifier|public
 name|void
-name|testSHA3_512
+name|testSHA3512
 parameter_list|()
 throws|throws
 name|Exception
