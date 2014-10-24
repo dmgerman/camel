@@ -32,18 +32,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|net
-operator|.
-name|ssl
-operator|.
-name|SSLContext
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|notnoop
@@ -51,6 +39,22 @@ operator|.
 name|apns
 operator|.
 name|ApnsServiceBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
 import|;
 end_import
 
@@ -184,11 +188,11 @@ name|IOException
 block|{
 name|apnsServiceFactory
 operator|.
-name|setSslContext
+name|setSslContextParameters
 argument_list|(
 name|mock
 argument_list|(
-name|SSLContext
+name|SSLContextParameters
 operator|.
 name|class
 argument_list|)
