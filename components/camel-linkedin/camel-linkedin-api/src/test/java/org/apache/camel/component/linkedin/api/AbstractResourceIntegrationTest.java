@@ -276,7 +276,7 @@ name|properties
 operator|.
 name|load
 argument_list|(
-name|PeopleResourceIntegrationTest
+name|AbstractResourceIntegrationTest
 operator|.
 name|class
 operator|.
@@ -468,6 +468,8 @@ argument_list|,
 literal|null
 argument_list|,
 literal|false
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
