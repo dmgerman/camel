@@ -261,6 +261,15 @@ specifier|private
 name|String
 name|jql
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|delay
+specifier|private
+name|int
+name|delay
+init|=
+literal|6000
+decl_stmt|;
 DECL|method|JIRAEndpoint (String uri, JIRAComponent component)
 specifier|public
 name|JIRAEndpoint
@@ -621,6 +630,32 @@ operator|.
 name|jql
 operator|=
 name|jql
+expr_stmt|;
+block|}
+DECL|method|getDelay ()
+specifier|public
+name|int
+name|getDelay
+parameter_list|()
+block|{
+return|return
+name|delay
+return|;
+block|}
+DECL|method|setDelay (int delay)
+specifier|public
+name|void
+name|setDelay
+parameter_list|(
+name|int
+name|delay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|delay
+operator|=
+name|delay
 expr_stmt|;
 block|}
 block|}

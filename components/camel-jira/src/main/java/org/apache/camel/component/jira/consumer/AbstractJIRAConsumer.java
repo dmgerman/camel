@@ -276,10 +276,13 @@ name|endpoint
 operator|=
 name|endpoint
 expr_stmt|;
-comment|// Use a more reasonable default.
+comment|// support to set the delay from JIRA Endpoint
 name|setDelay
 argument_list|(
-literal|6000
+name|endpoint
+operator|.
+name|getDelay
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|JerseyJiraRestClientFactory

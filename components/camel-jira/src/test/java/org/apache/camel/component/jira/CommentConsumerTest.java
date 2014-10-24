@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|atlassian
@@ -234,16 +244,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
 begin_class
 DECL|class|CommentConsumerTest
 specifier|public
@@ -297,6 +297,8 @@ literal|"xU3xjhay9yjEaZq"
 decl_stmt|;
 DECL|field|JIRA_CREDENTIALS
 specifier|private
+specifier|static
+specifier|final
 name|String
 name|JIRA_CREDENTIALS
 init|=
@@ -383,6 +385,8 @@ operator|+
 name|JIRA_CREDENTIALS
 operator|+
 literal|"&jql=RAW(project=CAMELJIRA)"
+operator|+
+literal|"&delay=500"
 argument_list|)
 operator|.
 name|process
@@ -403,13 +407,6 @@ return|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|timeout
-operator|=
-literal|60
-operator|*
-literal|1000
-argument_list|)
 DECL|method|emptyAtStartupTest ()
 specifier|public
 name|void
@@ -433,16 +430,6 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|8
-operator|*
-literal|1000
-argument_list|)
-expr_stmt|;
-comment|// delay is 6 seconds
 name|mockResultEndpoint
 operator|.
 name|assertIsSatisfied
@@ -451,13 +438,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|timeout
-operator|=
-literal|60
-operator|*
-literal|1000
-argument_list|)
 DECL|method|singleIssueTest ()
 specifier|public
 name|void
@@ -532,16 +512,6 @@ argument_list|(
 name|comment1
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|8
-operator|*
-literal|1000
-argument_list|)
-expr_stmt|;
-comment|// delay is 6 seconds
 name|mockResultEndpoint
 operator|.
 name|assertIsSatisfied
@@ -645,16 +615,6 @@ argument_list|,
 name|comment2
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|8
-operator|*
-literal|1000
-argument_list|)
-expr_stmt|;
-comment|// delay is 6 seconds
 name|mockResultEndpoint
 operator|.
 name|assertIsSatisfied

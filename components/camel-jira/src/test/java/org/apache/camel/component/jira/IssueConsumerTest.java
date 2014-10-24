@@ -269,6 +269,8 @@ literal|"xU3xjhay9yjEaZq"
 decl_stmt|;
 DECL|field|JIRA_CREDENTIALS
 specifier|private
+specifier|static
+specifier|final
 name|String
 name|JIRA_CREDENTIALS
 init|=
@@ -377,6 +379,8 @@ operator|+
 literal|"&jql=project="
 operator|+
 name|PROJECT
+operator|+
+literal|"&delay=500"
 argument_list|)
 operator|.
 name|process
@@ -397,13 +401,6 @@ return|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|timeout
-operator|=
-literal|60
-operator|*
-literal|1000
-argument_list|)
 DECL|method|emptyAtStartupTest ()
 specifier|public
 name|void
@@ -420,28 +417,6 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 decl_stmt|;
-name|MockJiraRestClient
-name|client
-init|=
-operator|(
-name|MockJiraRestClient
-operator|)
-name|factory
-operator|.
-name|getClient
-argument_list|()
-decl_stmt|;
-name|MockSearchRestClient
-name|restClient
-init|=
-operator|(
-name|MockSearchRestClient
-operator|)
-name|client
-operator|.
-name|getSearchClient
-argument_list|()
-decl_stmt|;
 name|mockResultEndpoint
 operator|.
 name|expectedMessageCount
@@ -449,16 +424,6 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|8
-operator|*
-literal|1000
-argument_list|)
-expr_stmt|;
-comment|// delay is 6 seconds
 name|mockResultEndpoint
 operator|.
 name|assertIsSatisfied
@@ -467,13 +432,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|timeout
-operator|=
-literal|60
-operator|*
-literal|1000
-argument_list|)
 DECL|method|singleIssueTest ()
 specifier|public
 name|void
@@ -527,16 +485,6 @@ argument_list|(
 name|issue1
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|8
-operator|*
-literal|1000
-argument_list|)
-expr_stmt|;
-comment|// delay is 6 seconds
 name|mockResultEndpoint
 operator|.
 name|assertIsSatisfied
@@ -545,13 +493,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|timeout
-operator|=
-literal|60
-operator|*
-literal|1000
-argument_list|)
 DECL|method|multipleIssuesTest ()
 specifier|public
 name|void
@@ -625,16 +566,6 @@ argument_list|,
 name|issue1
 argument_list|)
 expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|8
-operator|*
-literal|1000
-argument_list|)
-expr_stmt|;
-comment|// delay is 6 seconds
 name|mockResultEndpoint
 operator|.
 name|assertIsSatisfied
