@@ -546,6 +546,15 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Connection failed, will start background thread to retry!"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 comment|// Open connection, and start message listener in background
 name|Integer
 name|networkRecoveryInterval
@@ -1630,7 +1639,7 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"Connection failed, will retry in {}"
 operator|+
