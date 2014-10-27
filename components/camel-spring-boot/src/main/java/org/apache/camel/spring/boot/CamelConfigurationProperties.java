@@ -47,6 +47,13 @@ specifier|public
 class|class
 name|CamelConfigurationProperties
 block|{
+DECL|field|jmxEnabled
+specifier|private
+name|boolean
+name|jmxEnabled
+init|=
+literal|true
+decl_stmt|;
 DECL|field|producerTemplateCacheSize
 specifier|private
 name|int
@@ -61,6 +68,32 @@ name|consumerTemplateCacheSize
 init|=
 literal|1000
 decl_stmt|;
+DECL|method|isJmxEnabled ()
+specifier|public
+name|boolean
+name|isJmxEnabled
+parameter_list|()
+block|{
+return|return
+name|jmxEnabled
+return|;
+block|}
+DECL|method|setJmxEnabled (boolean jmxEnabled)
+specifier|public
+name|void
+name|setJmxEnabled
+parameter_list|(
+name|boolean
+name|jmxEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jmxEnabled
+operator|=
+name|jmxEnabled
+expr_stmt|;
+block|}
 DECL|method|getProducerTemplateCacheSize ()
 specifier|public
 name|int

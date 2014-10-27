@@ -234,7 +234,11 @@ argument_list|)
 annotation|@
 name|IntegrationTest
 argument_list|(
+block|{
 literal|"camel.springboot.consumerTemplateCacheSize:100"
+block|,
+literal|"camel.springboot.jmxEnabled=false"
+block|}
 argument_list|)
 DECL|class|CamelAutoConfigurationTest
 specifier|public
