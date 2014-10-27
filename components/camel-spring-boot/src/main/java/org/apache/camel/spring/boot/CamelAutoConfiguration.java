@@ -321,7 +321,7 @@ condition|)
 block|{
 name|camelContextConfiguration
 operator|.
-name|postConfiguration
+name|beforeStart
 argument_list|(
 name|camelContext
 argument_list|)
