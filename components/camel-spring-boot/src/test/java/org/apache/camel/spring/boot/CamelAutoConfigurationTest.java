@@ -212,6 +212,30 @@ name|SpringJUnit4ClassRunner
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|mock
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|Mockito
+operator|.
+name|verify
+import|;
+end_import
+
 begin_class
 annotation|@
 name|RunWith
@@ -256,6 +280,12 @@ name|camelContext
 decl_stmt|;
 annotation|@
 name|Autowired
+DECL|field|camelContextConfiguration
+name|CamelContextConfiguration
+name|camelContextConfiguration
+decl_stmt|;
+annotation|@
+name|Autowired
 DECL|field|producerTemplate
 name|ProducerTemplate
 name|producerTemplate
@@ -279,6 +309,22 @@ name|routeId
 init|=
 literal|"testRoute"
 decl_stmt|;
+annotation|@
+name|Bean
+DECL|method|camelContextConfiguration ()
+name|CamelContextConfiguration
+name|camelContextConfiguration
+parameter_list|()
+block|{
+return|return
+name|mock
+argument_list|(
+name|CamelContextConfiguration
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Bean
 DECL|method|routeBuilder ()
@@ -497,6 +543,25 @@ argument_list|(
 name|hundred
 argument_list|,
 name|convertedLong
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|shouldCallCamelContextConfiguration ()
+specifier|public
+name|void
+name|shouldCallCamelContextConfiguration
+parameter_list|()
+block|{
+name|verify
+argument_list|(
+name|camelContextConfiguration
+argument_list|)
+operator|.
+name|postConfiguration
+argument_list|(
+name|camelContext
 argument_list|)
 expr_stmt|;
 block|}
