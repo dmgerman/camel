@@ -140,6 +140,17 @@ return|return
 name|name
 return|;
 block|}
+DECL|method|getClassName ()
+specifier|public
+specifier|static
+name|String
+name|getClassName
+parameter_list|()
+block|{
+return|return
+literal|"Animal"
+return|;
+block|}
 block|}
 end_class
 
