@@ -206,16 +206,88 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:start-async"
+argument_list|)
+operator|.
+name|loadBalance
+argument_list|()
+operator|.
+name|circuitBreaker
+argument_list|(
+literal|2
+argument_list|,
+literal|1000L
+argument_list|,
+name|MyCustomException
+operator|.
+name|class
+argument_list|)
+operator|.
+name|threads
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 return|;
 block|}
-DECL|method|testClosedCircuitPassesMessages ()
+DECL|method|testClosedCircuitPassesMessagesSync ()
 specifier|public
 name|void
-name|testClosedCircuitPassesMessages
+name|testClosedCircuitPassesMessagesSync
 parameter_list|()
 throws|throws
+name|Exception
+block|{
+name|String
+name|endpoint
+init|=
+literal|"direct:start"
+decl_stmt|;
+name|closedCircuitPassesMessages
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testClosedCircuitPassesMessagesAsync ()
+specifier|public
+name|void
+name|testClosedCircuitPassesMessagesAsync
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|endpoint
+init|=
+literal|"direct:start-async"
+decl_stmt|;
+name|closedCircuitPassesMessages
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|closedCircuitPassesMessages (String endpoint)
+specifier|private
+name|void
+name|closedCircuitPassesMessages
+parameter_list|(
+name|String
+name|endpoint
+parameter_list|)
+throws|throws
+name|InterruptedException
+throws|,
 name|Exception
 block|{
 name|expectsMessageCount
@@ -227,21 +299,21 @@ argument_list|)
 expr_stmt|;
 name|sendMessage
 argument_list|(
-literal|"direct:start"
+name|endpoint
 argument_list|,
 literal|"message one"
 argument_list|)
 expr_stmt|;
 name|sendMessage
 argument_list|(
-literal|"direct:start"
+name|endpoint
 argument_list|,
 literal|"message two"
 argument_list|)
 expr_stmt|;
 name|sendMessage
 argument_list|(
-literal|"direct:start"
+name|endpoint
 argument_list|,
 literal|"message three"
 argument_list|)
@@ -250,12 +322,55 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testFailedMessagesOpenCircuitToPreventMessageThree ()
+DECL|method|testFailedMessagesOpenCircuitToPreventMessageThreeSync ()
 specifier|public
 name|void
-name|testFailedMessagesOpenCircuitToPreventMessageThree
+name|testFailedMessagesOpenCircuitToPreventMessageThreeSync
 parameter_list|()
 throws|throws
+name|Exception
+block|{
+name|String
+name|endpoint
+init|=
+literal|"direct:start"
+decl_stmt|;
+name|failedMessagesOpenCircuitToPreventMessageThree
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testFailedMessagesOpenCircuitToPreventMessageThreeAsync ()
+specifier|public
+name|void
+name|testFailedMessagesOpenCircuitToPreventMessageThreeAsync
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|endpoint
+init|=
+literal|"direct:start-async"
+decl_stmt|;
+name|failedMessagesOpenCircuitToPreventMessageThree
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|failedMessagesOpenCircuitToPreventMessageThree (String endpoint)
+specifier|private
+name|void
+name|failedMessagesOpenCircuitToPreventMessageThree
+parameter_list|(
+name|String
+name|endpoint
+parameter_list|)
+throws|throws
+name|InterruptedException
+throws|,
 name|Exception
 block|{
 name|expectsMessageCount
@@ -303,7 +418,7 @@ name|exchangeOne
 init|=
 name|sendMessage
 argument_list|(
-literal|"direct:start"
+name|endpoint
 argument_list|,
 literal|"message one"
 argument_list|)
@@ -313,7 +428,7 @@ name|exchangeTwo
 init|=
 name|sendMessage
 argument_list|(
-literal|"direct:start"
+name|endpoint
 argument_list|,
 literal|"message two"
 argument_list|)
@@ -323,7 +438,7 @@ name|exchangeThree
 init|=
 name|sendMessage
 argument_list|(
-literal|"direct:start"
+name|endpoint
 argument_list|,
 literal|"message three"
 argument_list|)
@@ -362,12 +477,55 @@ name|RejectedExecutionException
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testHalfOpenCircuitClosesAfterTimeout ()
+DECL|method|testHalfOpenCircuitClosesAfterTimeoutSync ()
 specifier|public
 name|void
-name|testHalfOpenCircuitClosesAfterTimeout
+name|testHalfOpenCircuitClosesAfterTimeoutSync
 parameter_list|()
 throws|throws
+name|Exception
+block|{
+name|String
+name|endpoint
+init|=
+literal|"direct:start"
+decl_stmt|;
+name|halfOpenCircuitClosesAfterTimeout
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testHalfOpenCircuitClosesAfterTimeoutAsync ()
+specifier|public
+name|void
+name|testHalfOpenCircuitClosesAfterTimeoutAsync
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|endpoint
+init|=
+literal|"direct:start-async"
+decl_stmt|;
+name|halfOpenCircuitClosesAfterTimeout
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|halfOpenCircuitClosesAfterTimeout (String endpoint)
+specifier|private
+name|void
+name|halfOpenCircuitClosesAfterTimeout
+parameter_list|(
+name|String
+name|endpoint
+parameter_list|)
+throws|throws
+name|InterruptedException
+throws|,
 name|Exception
 block|{
 name|expectsMessageCount
@@ -412,21 +570,21 @@ argument_list|)
 expr_stmt|;
 name|sendMessage
 argument_list|(
-literal|"direct:start"
+name|endpoint
 argument_list|,
 literal|"message one"
 argument_list|)
 expr_stmt|;
 name|sendMessage
 argument_list|(
-literal|"direct:start"
+name|endpoint
 argument_list|,
 literal|"message two"
 argument_list|)
 expr_stmt|;
 name|sendMessage
 argument_list|(
-literal|"direct:start"
+name|endpoint
 argument_list|,
 literal|"message three"
 argument_list|)
@@ -455,7 +613,7 @@ argument_list|)
 expr_stmt|;
 name|sendMessage
 argument_list|(
-literal|"direct:start"
+name|endpoint
 argument_list|,
 literal|"message four"
 argument_list|)
