@@ -158,6 +158,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|restlet
 operator|.
 name|data
@@ -323,6 +339,11 @@ DECL|field|disableStreamCache
 specifier|private
 name|boolean
 name|disableStreamCache
+decl_stmt|;
+DECL|field|scp
+specifier|private
+name|SSLContextParameters
+name|scp
 decl_stmt|;
 DECL|method|RestletEndpoint (RestletComponent component, String remaining)
 specifier|public
@@ -920,6 +941,32 @@ operator|.
 name|disableStreamCache
 operator|=
 name|disableStreamCache
+expr_stmt|;
+block|}
+DECL|method|getSslContextParameters ()
+specifier|public
+name|SSLContextParameters
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|scp
+return|;
+block|}
+DECL|method|setSslContextParameters (SSLContextParameters scp)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|scp
+parameter_list|)
+block|{
+name|this
+operator|.
+name|scp
+operator|=
+name|scp
 expr_stmt|;
 block|}
 comment|// Update the endpointUri with the restlet method information
