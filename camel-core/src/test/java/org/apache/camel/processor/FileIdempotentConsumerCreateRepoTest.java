@@ -116,7 +116,7 @@ name|void
 name|shouldCreateParentOfRepositoryFileStore
 parameter_list|()
 throws|throws
-name|IOException
+name|Exception
 block|{
 comment|// Given
 name|File
@@ -153,6 +153,12 @@ argument_list|(
 name|store
 argument_list|)
 decl_stmt|;
+comment|// must start repo
+name|repo
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 comment|// When
 name|repo
 operator|.
@@ -169,6 +175,11 @@ operator|.
 name|exists
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|repo
+operator|.
+name|stop
+argument_list|()
 expr_stmt|;
 block|}
 block|}
