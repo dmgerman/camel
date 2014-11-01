@@ -555,10 +555,10 @@ operator|==
 literal|0
 condition|)
 block|{
-comment|// if not using timeout, then we cant retry, so rethrow
-throw|throw
-name|e
-throw|;
+comment|// if not using timeout, then we cant retry, so return false
+return|return
+literal|false
+return|;
 block|}
 name|LOG
 operator|.
