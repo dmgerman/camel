@@ -4854,11 +4854,17 @@ name|id
 init|=
 name|routeDefinition
 operator|.
-name|idOrCreate
-argument_list|(
-name|nodeIdFactory
-argument_list|)
+name|getId
+argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|id
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// remove existing route
 name|stopRoute
 argument_list|(
 name|id
@@ -4869,6 +4875,7 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
+block|}
 name|this
 operator|.
 name|routeDefinitions
