@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.apache.camel.pgasync
+DECL|package|org.apache.camel.component.pgevent
 package|package
 name|org
 operator|.
@@ -8,7 +8,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|pgasync
+name|component
+operator|.
+name|pgevent
 package|;
 end_package
 
@@ -19,6 +21,18 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
 import|;
 end_import
 
@@ -44,22 +58,67 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the component that manages {@link PGAsyncEndpoint}.  */
+comment|/**  * Represents the component that manages {@link PgEventEndpoint}.  */
 end_comment
 
 begin_class
-DECL|class|PGAsyncComponent
+DECL|class|PgEventComponent
 specifier|public
 class|class
-name|PGAsyncComponent
+name|PgEventComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
+DECL|method|PgEventComponent (CamelContext context, Class<? extends Endpoint> endpointClass)
+specifier|public
+name|PgEventComponent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Endpoint
+argument_list|>
+name|endpointClass
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|context
+argument_list|,
+name|endpointClass
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|PgEventComponent (Class<? extends Endpoint> endpointClass)
+specifier|public
+name|PgEventComponent
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Endpoint
+argument_list|>
+name|endpointClass
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointClass
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -86,7 +145,7 @@ name|Endpoint
 name|endpoint
 init|=
 operator|new
-name|PGAsyncEndpoint
+name|PgEventEndpoint
 argument_list|(
 name|uri
 argument_list|,
