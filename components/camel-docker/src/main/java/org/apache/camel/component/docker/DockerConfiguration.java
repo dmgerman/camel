@@ -92,7 +92,7 @@ specifier|final
 name|int
 name|DEFAULT_DOCKER_PORT
 init|=
-literal|5000
+literal|2375
 decl_stmt|;
 DECL|field|parameters
 specifier|private
