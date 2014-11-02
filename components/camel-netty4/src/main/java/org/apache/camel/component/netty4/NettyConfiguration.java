@@ -451,10 +451,10 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|clientPipelineFactory
+DECL|field|clientInitializerFactory
 specifier|private
 name|ClientInitializerFactory
-name|clientPipelineFactory
+name|clientInitializerFactory
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1027,7 +1027,8 @@ argument_list|,
 name|trustStoreResource
 argument_list|)
 expr_stmt|;
-name|clientPipelineFactory
+comment|// clientPipelineFactory is @deprecated and to be removed
+name|clientInitializerFactory
 operator|=
 name|component
 operator|.
@@ -1041,10 +1042,28 @@ name|ClientInitializerFactory
 operator|.
 name|class
 argument_list|,
-name|clientPipelineFactory
+name|clientInitializerFactory
 argument_list|)
 expr_stmt|;
-name|serverPipelineFactory
+name|clientInitializerFactory
+operator|=
+name|component
+operator|.
+name|getAndRemoveOrResolveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"clientInitializerFactory"
+argument_list|,
+name|ClientInitializerFactory
+operator|.
+name|class
+argument_list|,
+name|clientInitializerFactory
+argument_list|)
+expr_stmt|;
+comment|// serverPipelineFactory is @deprecated and to be removed
+name|serverInitializerFactory
 operator|=
 name|component
 operator|.
@@ -1058,7 +1077,24 @@ name|ServerInitializerFactory
 operator|.
 name|class
 argument_list|,
-name|serverPipelineFactory
+name|serverInitializerFactory
+argument_list|)
+expr_stmt|;
+name|serverInitializerFactory
+operator|=
+name|component
+operator|.
+name|getAndRemoveOrResolveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"serverInitializerFactory"
+argument_list|,
+name|ServerInitializerFactory
+operator|.
+name|class
+argument_list|,
+name|serverInitializerFactory
 argument_list|)
 expr_stmt|;
 comment|// set custom encoders and decoders first
@@ -2031,6 +2067,9 @@ operator|=
 name|allowDefaultCodec
 expr_stmt|;
 block|}
+comment|/**      * @deprecated use #setClientInitializerFactory      */
+annotation|@
+name|Deprecated
 DECL|method|setClientPipelineFactory (ClientInitializerFactory clientPipelineFactory)
 specifier|public
 name|void
@@ -2042,11 +2081,14 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|clientPipelineFactory
+name|clientInitializerFactory
 operator|=
 name|clientPipelineFactory
 expr_stmt|;
 block|}
+comment|/**      * @deprecated use #getClientInitializerFactory      */
+annotation|@
+name|Deprecated
 DECL|method|getClientPipelineFactory ()
 specifier|public
 name|ClientInitializerFactory
@@ -2054,8 +2096,34 @@ name|getClientPipelineFactory
 parameter_list|()
 block|{
 return|return
-name|clientPipelineFactory
+name|clientInitializerFactory
 return|;
+block|}
+DECL|method|getClientInitializerFactory ()
+specifier|public
+name|ClientInitializerFactory
+name|getClientInitializerFactory
+parameter_list|()
+block|{
+return|return
+name|clientInitializerFactory
+return|;
+block|}
+DECL|method|setClientInitializerFactory (ClientInitializerFactory clientInitializerFactory)
+specifier|public
+name|void
+name|setClientInitializerFactory
+parameter_list|(
+name|ClientInitializerFactory
+name|clientInitializerFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|clientInitializerFactory
+operator|=
+name|clientInitializerFactory
+expr_stmt|;
 block|}
 DECL|method|getMaximumPoolSize ()
 specifier|public

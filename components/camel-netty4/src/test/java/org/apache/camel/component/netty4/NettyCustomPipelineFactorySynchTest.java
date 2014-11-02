@@ -306,7 +306,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty4:tcp://localhost:{{port}}?serverPipelineFactory=#spf&sync=true&textline=true"
+literal|"netty4:tcp://localhost:{{port}}?serverInitializerFactory=#spf&sync=true&textline=true"
 argument_list|)
 operator|.
 name|process
@@ -363,7 +363,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty4:tcp://localhost:{{port}}?clientPipelineFactory=#cpf&sync=true&textline=true"
+literal|"netty4:tcp://localhost:{{port}}?clientInitializerFactory=#cpf&sync=true&textline=true"
 argument_list|,
 literal|"Forest Gump describing Vietnam..."
 argument_list|)

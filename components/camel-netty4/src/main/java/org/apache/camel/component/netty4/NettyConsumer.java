@@ -247,7 +247,7 @@ name|factory
 init|=
 name|configuration
 operator|.
-name|getServerPipelineFactory
+name|getServerInitializerFactory
 argument_list|()
 decl_stmt|;
 if|if

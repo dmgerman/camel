@@ -172,10 +172,10 @@ specifier|protected
 name|int
 name|backlog
 decl_stmt|;
-DECL|field|serverPipelineFactory
+DECL|field|serverInitializerFactory
 specifier|protected
 name|ServerInitializerFactory
-name|serverPipelineFactory
+name|serverInitializerFactory
 decl_stmt|;
 DECL|field|nettyServerBootstrapFactory
 specifier|protected
@@ -988,6 +988,9 @@ operator|=
 name|passphrase
 expr_stmt|;
 block|}
+comment|/**      * @deprecated use #getServerInitializerFactory      */
+annotation|@
+name|Deprecated
 DECL|method|getServerPipelineFactory ()
 specifier|public
 name|ServerInitializerFactory
@@ -995,9 +998,12 @@ name|getServerPipelineFactory
 parameter_list|()
 block|{
 return|return
-name|serverPipelineFactory
+name|serverInitializerFactory
 return|;
 block|}
+comment|/**      * @deprecated use #setServerInitializerFactory      */
+annotation|@
+name|Deprecated
 DECL|method|setServerPipelineFactory (ServerInitializerFactory serverPipelineFactory)
 specifier|public
 name|void
@@ -1009,9 +1015,35 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|serverPipelineFactory
+name|serverInitializerFactory
 operator|=
 name|serverPipelineFactory
+expr_stmt|;
+block|}
+DECL|method|getServerInitializerFactory ()
+specifier|public
+name|ServerInitializerFactory
+name|getServerInitializerFactory
+parameter_list|()
+block|{
+return|return
+name|serverInitializerFactory
+return|;
+block|}
+DECL|method|setServerInitializerFactory (ServerInitializerFactory serverInitializerFactory)
+specifier|public
+name|void
+name|setServerInitializerFactory
+parameter_list|(
+name|ServerInitializerFactory
+name|serverInitializerFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serverInitializerFactory
+operator|=
+name|serverInitializerFactory
 expr_stmt|;
 block|}
 DECL|method|getNettyServerBootstrapFactory ()
@@ -1414,11 +1446,11 @@ block|}
 elseif|else
 if|if
 condition|(
-name|serverPipelineFactory
+name|serverInitializerFactory
 operator|!=
 name|other
 operator|.
-name|serverPipelineFactory
+name|serverInitializerFactory
 condition|)
 block|{
 name|isCompatible
@@ -1912,9 +1944,9 @@ literal|", backlog="
 operator|+
 name|backlog
 operator|+
-literal|", serverPipelineFactory="
+literal|", serverInitializerFactory="
 operator|+
-name|serverPipelineFactory
+name|serverInitializerFactory
 operator|+
 literal|", nettyServerBootstrapFactory="
 operator|+

@@ -857,7 +857,7 @@ name|factory
 init|=
 name|configuration
 operator|.
-name|getClientPipelineFactory
+name|getClientInitializerFactory
 argument_list|()
 decl_stmt|;
 if|if

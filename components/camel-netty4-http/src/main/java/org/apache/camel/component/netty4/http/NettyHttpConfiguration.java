@@ -180,14 +180,14 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|setServerPipelineFactory
+name|setServerInitializerFactory
 argument_list|(
 operator|new
 name|HttpServerInitializerFactory
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|setClientPipelineFactory
+name|setClientInitializerFactory
 argument_list|(
 operator|new
 name|HttpClientInitializerFactory
