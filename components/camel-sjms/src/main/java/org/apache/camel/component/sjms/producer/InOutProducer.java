@@ -1709,6 +1709,12 @@ argument_list|,
 name|exchange
 argument_list|,
 literal|true
+argument_list|,
+name|getEndpoint
+argument_list|()
+operator|.
+name|getJmsKeyFormatStrategy
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
