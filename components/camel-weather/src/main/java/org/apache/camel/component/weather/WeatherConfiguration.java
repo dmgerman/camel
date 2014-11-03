@@ -56,6 +56,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParams
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|jackson
@@ -147,6 +161,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|UriParams
 DECL|class|WeatherConfiguration
 specifier|public
 class|class
