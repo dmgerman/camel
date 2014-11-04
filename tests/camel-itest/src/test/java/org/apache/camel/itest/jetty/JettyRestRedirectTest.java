@@ -111,10 +111,10 @@ name|port
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testClasspath ()
+DECL|method|testRedirectInvocation ()
 specifier|public
 name|void
-name|testClasspath
+name|testRedirectInvocation
 parameter_list|()
 throws|throws
 name|Exception
@@ -184,6 +184,11 @@ operator|.
 name|component
 argument_list|(
 literal|"jetty"
+argument_list|)
+operator|.
+name|host
+argument_list|(
+literal|"localhost"
 argument_list|)
 operator|.
 name|scheme
