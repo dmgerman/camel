@@ -5495,6 +5495,23 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"java.lang.Character"
+argument_list|,
+name|ObjectHelper
+operator|.
+name|convertPrimitiveTypeToWrapperType
+argument_list|(
+name|char
+operator|.
+name|class
+argument_list|)
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// non primitive just fall through
 name|assertEquals
 argument_list|(
