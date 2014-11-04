@@ -66,9 +66,11 @@ name|eclipse
 operator|.
 name|jetty
 operator|.
-name|client
+name|util
 operator|.
-name|RedirectListener
+name|ssl
+operator|.
+name|SslContextFactory
 import|;
 end_import
 
@@ -96,47 +98,37 @@ name|CamelHttpClient
 extends|extends
 name|HttpClient
 block|{
-DECL|field|context
-specifier|private
-name|SSLContext
-name|context
-decl_stmt|;
 DECL|field|supportRedirect
 specifier|private
 name|boolean
 name|supportRedirect
 decl_stmt|;
-annotation|@
-name|Override
-DECL|method|getSSLContext ()
-specifier|protected
-name|SSLContext
-name|getSSLContext
+DECL|method|CamelHttpClient ()
+specifier|public
+name|CamelHttpClient
 parameter_list|()
 block|{
-if|if
-condition|(
-name|context
-operator|==
-literal|null
-condition|)
-block|{
-name|this
-operator|.
-name|context
-operator|=
 name|super
-operator|.
-name|getSSLContext
 argument_list|()
 expr_stmt|;
 block|}
-return|return
-name|this
-operator|.
-name|context
-return|;
+DECL|method|CamelHttpClient (SslContextFactory sslContextFactory)
+specifier|public
+name|CamelHttpClient
+parameter_list|(
+name|SslContextFactory
+name|sslContextFactory
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|sslContextFactory
+argument_list|)
+expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
+comment|/**      * It does nothing here, please setup SslContextFactory directly, it will be removed in Camel 2.16.0      * @param context      */
 DECL|method|setSSLContext (SSLContext context)
 specifier|public
 name|void
@@ -146,12 +138,7 @@ name|SSLContext
 name|context
 parameter_list|)
 block|{
-name|this
-operator|.
-name|context
-operator|=
-name|context
-expr_stmt|;
+comment|// do nothing here, please setup SslContextFactory directly.
 block|}
 annotation|@
 name|Override

@@ -256,20 +256,8 @@ argument_list|(
 name|ksp
 argument_list|)
 expr_stmt|;
-name|TrustManagersParameters
-name|tmp
-init|=
-operator|new
-name|TrustManagersParameters
-argument_list|()
-decl_stmt|;
-name|tmp
-operator|.
-name|setKeyStore
-argument_list|(
-name|ksp
-argument_list|)
-expr_stmt|;
+comment|//TrustManagersParameters tmp = new TrustManagersParameters();
+comment|//tmp.setKeyStore(ksp);
 name|SSLContextParameters
 name|sslContextParameters
 init|=
@@ -284,13 +272,7 @@ argument_list|(
 name|kmp
 argument_list|)
 expr_stmt|;
-name|sslContextParameters
-operator|.
-name|setTrustManagers
-argument_list|(
-name|tmp
-argument_list|)
-expr_stmt|;
+comment|//sslContextParameters.setTrustManagers(tmp);
 name|JndiRegistry
 name|registry
 init|=
