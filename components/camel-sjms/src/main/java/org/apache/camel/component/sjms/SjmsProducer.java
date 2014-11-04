@@ -398,6 +398,14 @@ name|getProducerCount
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|getProducers
+argument_list|()
+operator|.
+name|setLifo
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|getEndpoint
@@ -456,7 +464,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Error starting listener container on destination: "
+literal|"Error filling producer pool for destination: "
 operator|+
 name|getDestinationName
 argument_list|()
