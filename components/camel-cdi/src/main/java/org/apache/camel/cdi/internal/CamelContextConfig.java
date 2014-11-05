@@ -74,6 +74,20 @@ name|inject
 operator|.
 name|spi
 operator|.
+name|AnnotatedType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|enterprise
+operator|.
+name|inject
+operator|.
+name|spi
+operator|.
 name|Bean
 import|;
 end_import
@@ -89,20 +103,6 @@ operator|.
 name|spi
 operator|.
 name|BeanManager
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|enterprise
-operator|.
-name|inject
-operator|.
-name|spi
-operator|.
-name|ProcessAnnotatedType
 import|;
 end_import
 
@@ -210,7 +210,7 @@ specifier|private
 specifier|final
 name|Set
 argument_list|<
-name|ProcessAnnotatedType
+name|AnnotatedType
 argument_list|<
 name|?
 argument_list|>
@@ -220,7 +220,7 @@ init|=
 operator|new
 name|LinkedHashSet
 argument_list|<
-name|ProcessAnnotatedType
+name|AnnotatedType
 argument_list|<
 name|?
 argument_list|>
@@ -261,7 +261,7 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|ProcessAnnotatedType
+name|AnnotatedType
 argument_list|<
 name|?
 argument_list|>
@@ -285,9 +285,6 @@ operator|.
 name|getBeans
 argument_list|(
 name|pat
-operator|.
-name|getAnnotatedType
-argument_list|()
 operator|.
 name|getJavaClass
 argument_list|()
@@ -532,13 +529,13 @@ throw|;
 block|}
 block|}
 block|}
-DECL|method|addRouteBuilderBean (final ProcessAnnotatedType<?> process)
+DECL|method|addRouteBuilderBean (final AnnotatedType<?> process)
 specifier|public
 name|void
 name|addRouteBuilderBean
 parameter_list|(
 specifier|final
-name|ProcessAnnotatedType
+name|AnnotatedType
 argument_list|<
 name|?
 argument_list|>

@@ -816,20 +816,20 @@ condition|)
 block|{
 name|addRouteBuilderBean
 argument_list|(
-name|process
+name|annotatedType
 argument_list|,
 name|annotation
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|addRouteBuilderBean (final ProcessAnnotatedType<?> process, ContextName annotation)
+DECL|method|addRouteBuilderBean (final AnnotatedType<?> process, ContextName annotation)
 specifier|private
 name|void
 name|addRouteBuilderBean
 parameter_list|(
 specifier|final
-name|ProcessAnnotatedType
+name|AnnotatedType
 argument_list|<
 name|?
 argument_list|>
