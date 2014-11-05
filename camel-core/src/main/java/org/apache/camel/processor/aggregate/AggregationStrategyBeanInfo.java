@@ -163,12 +163,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|camelContext
-specifier|private
-specifier|final
-name|CamelContext
-name|camelContext
-decl_stmt|;
 DECL|field|type
 specifier|private
 specifier|final
@@ -184,6 +178,8 @@ specifier|final
 name|Method
 name|method
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|method|AggregationStrategyBeanInfo (CamelContext camelContext, Class<?> type, Method method)
 specifier|public
 name|AggregationStrategyBeanInfo
@@ -202,11 +198,27 @@ name|method
 parameter_list|)
 block|{
 name|this
-operator|.
-name|camelContext
-operator|=
-name|camelContext
+argument_list|(
+name|type
+argument_list|,
+name|method
+argument_list|)
 expr_stmt|;
+block|}
+DECL|method|AggregationStrategyBeanInfo (Class<?> type, Method method)
+specifier|public
+name|AggregationStrategyBeanInfo
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+parameter_list|,
+name|Method
+name|method
+parameter_list|)
+block|{
 name|this
 operator|.
 name|type
@@ -740,10 +752,6 @@ return|return
 operator|new
 name|AggregationStrategyMethodInfo
 argument_list|(
-name|camelContext
-argument_list|,
-name|type
-argument_list|,
 name|method
 argument_list|,
 name|oldParameters

@@ -92,6 +92,10 @@ name|AsyncProcessorHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * Processor to set {@link org.apache.camel.ExchangePattern} on the {@link org.apache.camel.Exchange}.  */
+end_comment
+
 begin_class
 DECL|class|ExchangePatternProcessor
 specifier|public

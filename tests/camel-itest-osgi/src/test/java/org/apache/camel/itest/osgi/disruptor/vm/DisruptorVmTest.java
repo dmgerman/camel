@@ -56,24 +56,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|karaf
-operator|.
-name|tooling
-operator|.
-name|exam
-operator|.
-name|options
-operator|.
-name|KarafDistributionConfigurationFileExtendOption
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -89,6 +71,20 @@ operator|.
 name|runner
 operator|.
 name|RunWith
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|Configuration
 import|;
 end_import
 
@@ -118,7 +114,7 @@ name|exam
 operator|.
 name|junit
 operator|.
-name|Configuration
+name|PaxExam
 import|;
 end_import
 
@@ -132,9 +128,11 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|junit
+name|karaf
 operator|.
-name|JUnit4TestRunner
+name|options
+operator|.
+name|KarafDistributionConfigurationFileExtendOption
 import|;
 end_import
 
@@ -162,7 +160,7 @@ begin_class
 annotation|@
 name|RunWith
 argument_list|(
-name|JUnit4TestRunner
+name|PaxExam
 operator|.
 name|class
 argument_list|)

@@ -92,6 +92,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -331,6 +341,24 @@ block|,
 literal|"<c:child some_attr='d' anotherAttr='d' xmlns:g=\"urn:g\" xmlns:c=\"urn:c\"/>"
 block|}
 decl_stmt|;
+DECL|field|RESULTS_CHILD_MIXED_JAVA8
+specifier|private
+specifier|static
+specifier|final
+name|String
+index|[]
+name|RESULTS_CHILD_MIXED_JAVA8
+init|=
+block|{
+literal|"<child some_attr='a' anotherAttr='a' xmlns=\"urn:c\" xmlns:c=\"urn:c\" xmlns:g=\"urn:g\"></child>"
+block|,
+literal|"<x:child xmlns:x='urn:c' some_attr='b' anotherAttr='b' xmlns='urn:c' xmlns:c='urn:c' xmlns:g='urn:g'/>"
+block|,
+literal|"<child some_attr='c' anotherAttr='c' xmlns='urn:c' xmlns:g='urn:g' xmlns:c='urn:c'></child>"
+block|,
+literal|"<c:child some_attr='d' anotherAttr='d' xmlns:g=\"urn:g\" xmlns:c=\"urn:c\"/>"
+block|}
+decl_stmt|;
 DECL|field|RESULTS_CHILD_MIXED_WRAPPED
 specifier|private
 specifier|static
@@ -387,6 +415,28 @@ block|,
 literal|"<c:child some_attr='f' anotherAttr='f' xmlns:g=\"urn:g\" xmlns:d=\"urn:d\" xmlns:c=\"urn:c\"/>"
 block|}
 decl_stmt|;
+DECL|field|RESULTS_CHILD_JAVA8
+specifier|private
+specifier|static
+specifier|final
+name|String
+index|[]
+name|RESULTS_CHILD_JAVA8
+init|=
+block|{
+literal|"<c:child some_attr='a' anotherAttr='a' xmlns:c=\"urn:c\" xmlns:d=\"urn:d\" xmlns:g=\"urn:g\"></c:child>"
+block|,
+literal|"<c:child some_attr='b' anotherAttr='b' xmlns:c=\"urn:c\" xmlns:d=\"urn:d\" xmlns:g=\"urn:g\"/>"
+block|,
+literal|"<c:child some_attr='c' anotherAttr='c' xmlns:c=\"urn:c\" xmlns:d=\"urn:d\" xmlns:g=\"urn:g\"></c:child>"
+block|,
+literal|"<c:child some_attr='d' anotherAttr='d' xmlns:c=\"urn:c\" xmlns:d=\"urn:d\" xmlns:g=\"urn:g\"/>"
+block|,
+literal|"<c:child some_attr='e' anotherAttr='e' xmlns:c=\"urn:c\" xmlns:d=\"urn:d\" xmlns:g=\"urn:g\"></c:child>"
+block|,
+literal|"<c:child some_attr='f' anotherAttr='f' xmlns:c=\"urn:c\" xmlns:d=\"urn:d\" xmlns:g=\"urn:g\"/>"
+block|}
+decl_stmt|;
 DECL|field|RESULTS_CHILD_NO_NS_MIXED
 specifier|private
 specifier|static
@@ -397,6 +447,20 @@ name|RESULTS_CHILD_NO_NS_MIXED
 init|=
 block|{
 literal|"<child some_attr='a' anotherAttr='a' xmlns='' xmlns:g='urn:g' xmlns:c='urn:c'></child>"
+block|,
+literal|"<child some_attr='c' anotherAttr='c' xmlns:g=\"urn:g\" xmlns:c=\"urn:c\"></child>"
+block|,     }
+decl_stmt|;
+DECL|field|RESULTS_CHILD_NO_NS_MIXED_JAVA8
+specifier|private
+specifier|static
+specifier|final
+name|String
+index|[]
+name|RESULTS_CHILD_NO_NS_MIXED_JAVA8
+init|=
+block|{
+literal|"<child some_attr='a' anotherAttr='a' xmlns='' xmlns:c='urn:c' xmlns:g='urn:g'></child>"
 block|,
 literal|"<child some_attr='c' anotherAttr='c' xmlns:g=\"urn:g\" xmlns:c=\"urn:c\"></child>"
 block|,     }
@@ -434,6 +498,20 @@ name|RESULTS_CHILD_NS_MIXED
 init|=
 block|{
 literal|"<x:child xmlns:x='urn:c' some_attr='b' anotherAttr='b' xmlns='urn:c' xmlns:g='urn:g' xmlns:c='urn:c'/>"
+block|,
+literal|"<c:child some_attr='d' anotherAttr='d' xmlns:g=\"urn:g\" xmlns:c=\"urn:c\"/>"
+block|}
+decl_stmt|;
+DECL|field|RESULTS_CHILD_NS_MIXED_JAVA8
+specifier|private
+specifier|static
+specifier|final
+name|String
+index|[]
+name|RESULTS_CHILD_NS_MIXED_JAVA8
+init|=
+block|{
+literal|"<x:child xmlns:x='urn:c' some_attr='b' anotherAttr='b' xmlns='urn:c' xmlns:c='urn:c' xmlns:g='urn:g'/>"
 block|,
 literal|"<c:child some_attr='d' anotherAttr='d' xmlns:g=\"urn:g\" xmlns:c=\"urn:c\"/>"
 block|}
@@ -701,6 +779,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+index|[]
+name|result
+init|=
+name|RESULTS_CHILD
+decl_stmt|;
+if|if
+condition|(
+name|isJavaVersion
+argument_list|(
+literal|"1.8"
+argument_list|)
+condition|)
+block|{
+name|result
+operator|=
+name|RESULTS_CHILD_JAVA8
+expr_stmt|;
+block|}
 name|invokeAndVerify
 argument_list|(
 literal|"//C:child"
@@ -713,7 +810,7 @@ argument_list|(
 name|TEST_BODY
 argument_list|)
 argument_list|,
-name|RESULTS_CHILD
+name|result
 argument_list|)
 expr_stmt|;
 block|}
@@ -749,6 +846,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+index|[]
+name|result
+init|=
+name|RESULTS_CHILD_MIXED
+decl_stmt|;
+if|if
+condition|(
+name|isJavaVersion
+argument_list|(
+literal|"1.8"
+argument_list|)
+condition|)
+block|{
+name|result
+operator|=
+name|RESULTS_CHILD_MIXED_JAVA8
+expr_stmt|;
+block|}
 name|invokeAndVerify
 argument_list|(
 literal|"//*:child"
@@ -761,7 +877,7 @@ argument_list|(
 name|TEST_BODY_NS_MIXED
 argument_list|)
 argument_list|,
-name|RESULTS_CHILD_MIXED
+name|result
 argument_list|)
 expr_stmt|;
 block|}
@@ -797,6 +913,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+index|[]
+name|result
+init|=
+name|RESULTS_CHILD
+decl_stmt|;
+if|if
+condition|(
+name|isJavaVersion
+argument_list|(
+literal|"1.8"
+argument_list|)
+condition|)
+block|{
+name|result
+operator|=
+name|RESULTS_CHILD_JAVA8
+expr_stmt|;
+block|}
 name|invokeAndVerify
 argument_list|(
 literal|"//C:c*d"
@@ -809,7 +944,7 @@ argument_list|(
 name|TEST_BODY
 argument_list|)
 argument_list|,
-name|RESULTS_CHILD
+name|result
 argument_list|)
 expr_stmt|;
 block|}
@@ -869,6 +1004,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+index|[]
+name|result
+init|=
+name|RESULTS_CHILD_NO_NS_MIXED
+decl_stmt|;
+if|if
+condition|(
+name|isJavaVersion
+argument_list|(
+literal|"1.8"
+argument_list|)
+condition|)
+block|{
+name|result
+operator|=
+name|RESULTS_CHILD_NO_NS_MIXED_JAVA8
+expr_stmt|;
+block|}
 name|invokeAndVerify
 argument_list|(
 literal|"//child"
@@ -881,7 +1035,7 @@ argument_list|(
 name|TEST_BODY_NO_NS_MIXED
 argument_list|)
 argument_list|,
-name|RESULTS_CHILD_NO_NS_MIXED
+name|result
 argument_list|)
 expr_stmt|;
 block|}
@@ -935,6 +1089,25 @@ argument_list|,
 literal|"urn:c"
 argument_list|)
 expr_stmt|;
+name|String
+index|[]
+name|result
+init|=
+name|RESULTS_CHILD_NS_MIXED
+decl_stmt|;
+if|if
+condition|(
+name|isJavaVersion
+argument_list|(
+literal|"1.8"
+argument_list|)
+condition|)
+block|{
+name|result
+operator|=
+name|RESULTS_CHILD_NS_MIXED_JAVA8
+expr_stmt|;
+block|}
 name|invokeAndVerify
 argument_list|(
 literal|"//child"
@@ -947,7 +1120,7 @@ argument_list|(
 name|TEST_BODY_NO_NS_MIXED
 argument_list|)
 argument_list|,
-name|RESULTS_CHILD_NS_MIXED
+name|result
 argument_list|)
 expr_stmt|;
 block|}
@@ -963,6 +1136,25 @@ name|nsmap
 operator|=
 literal|null
 expr_stmt|;
+name|String
+index|[]
+name|result
+init|=
+name|RESULTS_CHILD_NO_NS_MIXED
+decl_stmt|;
+if|if
+condition|(
+name|isJavaVersion
+argument_list|(
+literal|"1.8"
+argument_list|)
+condition|)
+block|{
+name|result
+operator|=
+name|RESULTS_CHILD_NO_NS_MIXED_JAVA8
+expr_stmt|;
+block|}
 name|invokeAndVerify
 argument_list|(
 literal|"//child"
@@ -975,7 +1167,7 @@ argument_list|(
 name|TEST_BODY_NO_NS_MIXED
 argument_list|)
 argument_list|,
-name|RESULTS_CHILD_NO_NS_MIXED
+name|result
 argument_list|)
 expr_stmt|;
 block|}
@@ -1467,6 +1659,42 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|isJavaVersion (String version)
+specifier|public
+specifier|static
+name|boolean
+name|isJavaVersion
+parameter_list|(
+name|String
+name|version
+parameter_list|)
+block|{
+name|String
+name|javaVersion
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.version"
+argument_list|)
+decl_stmt|;
+return|return
+name|javaVersion
+operator|.
+name|contains
+argument_list|(
+name|version
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+argument_list|)
+return|;
 block|}
 block|}
 end_class

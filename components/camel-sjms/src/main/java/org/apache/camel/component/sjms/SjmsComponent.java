@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|jms
@@ -107,6 +119,24 @@ operator|.
 name|jms
 operator|.
 name|ConnectionResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sjms
+operator|.
+name|jms
+operator|.
+name|DefaultJmsKeyFormatStrategy
 import|;
 end_import
 
@@ -275,6 +305,10 @@ DECL|field|keyFormatStrategy
 specifier|private
 name|KeyFormatStrategy
 name|keyFormatStrategy
+init|=
+operator|new
+name|DefaultJmsKeyFormatStrategy
+argument_list|()
 decl_stmt|;
 DECL|field|connectionCount
 specifier|private
@@ -292,6 +326,11 @@ DECL|field|timedTaskManager
 specifier|private
 name|TimedTaskManager
 name|timedTaskManager
+decl_stmt|;
+DECL|field|asyncStartStopExecutorService
+specifier|private
+name|ExecutorService
+name|asyncStartStopExecutorService
 decl_stmt|;
 DECL|method|SjmsComponent ()
 specifier|public
@@ -395,7 +434,7 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * Helper method used to detect the type of endpoint and add the "queue"      * protocol if it is a default endpoint URI.      *       * @param uri The value passed into our call to create an endpoint      * @return String      * @throws Exception      */
+comment|/**      * Helper method used to detect the type of endpoint and add the "queue"      * protocol if it is a default endpoint URI.      *      * @param uri The value passed into our call to create an endpoint      * @return String      * @throws Exception      */
 DECL|method|normalizeUri (String uri)
 specifier|private
 specifier|static
@@ -583,7 +622,7 @@ return|return
 name|uri
 return|;
 block|}
-comment|/**      * Helper method used to verify that when there is a namedReplyTo value we      * are using the InOut MEP. If namedReplyTo is defined and the MEP is InOnly      * the endpoint won't be expecting a reply so throw an error to alert the      * user.      *       * @param parameters {@link Endpoint} parameters      * @throws Exception throws a {@link CamelException} when MEP equals InOnly      *             and namedReplyTo is defined.      */
+comment|/**      * Helper method used to verify that when there is a namedReplyTo value we      * are using the InOut MEP. If namedReplyTo is defined and the MEP is InOnly      * the endpoint won't be expecting a reply so throw an error to alert the      * user.      *      * @param parameters {@link Endpoint} parameters      * @throws Exception throws a {@link CamelException} when MEP equals InOnly      *                   and namedReplyTo is defined.      */
 DECL|method|validateMepAndReplyTo (Map<String, Object> parameters)
 specifier|private
 specifier|static
@@ -844,6 +883,81 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|asyncStartStopExecutorService
+operator|!=
+literal|null
+condition|)
+block|{
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdownNow
+argument_list|(
+name|asyncStartStopExecutorService
+argument_list|)
+expr_stmt|;
+name|asyncStartStopExecutorService
+operator|=
+literal|null
+expr_stmt|;
+block|}
+name|super
+operator|.
+name|doShutdown
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|getAsyncStartStopExecutorService ()
+specifier|protected
+specifier|synchronized
+name|ExecutorService
+name|getAsyncStartStopExecutorService
+parameter_list|()
+block|{
+if|if
+condition|(
+name|asyncStartStopExecutorService
+operator|==
+literal|null
+condition|)
+block|{
+comment|// use a cached thread pool for async start tasks as they can run for a while, and we need a dedicated thread
+comment|// for each task, and the thread pool will shrink when no more tasks running
+name|asyncStartStopExecutorService
+operator|=
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|newCachedThreadPool
+argument_list|(
+name|this
+argument_list|,
+literal|"AsyncStartStopListener"
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|asyncStartStopExecutorService
+return|;
+block|}
 comment|/**      * Sets the ConnectionFactory value of connectionFactory for this instance      * of SjmsComponent.      */
 DECL|method|setConnectionFactory (ConnectionFactory connectionFactory)
 specifier|public
@@ -861,7 +975,7 @@ operator|=
 name|connectionFactory
 expr_stmt|;
 block|}
-comment|/**      * Gets the ConnectionFactory value of connectionFactory for this instance      * of SjmsComponent.      *       * @return the connectionFactory      */
+comment|/**      * Gets the ConnectionFactory value of connectionFactory for this instance      * of SjmsComponent.      *      * @return the connectionFactory      */
 DECL|method|getConnectionFactory ()
 specifier|public
 name|ConnectionFactory
@@ -982,7 +1096,7 @@ return|return
 name|keyFormatStrategy
 return|;
 block|}
-comment|/**      * Gets the TransactionCommitStrategy value of transactionCommitStrategy for this      * instance of SjmsComponent.      *       * @return the transactionCommitStrategy      */
+comment|/**      * Gets the TransactionCommitStrategy value of transactionCommitStrategy for this      * instance of SjmsComponent.      *      * @return the transactionCommitStrategy      */
 DECL|method|getTransactionCommitStrategy ()
 specifier|public
 name|TransactionCommitStrategy

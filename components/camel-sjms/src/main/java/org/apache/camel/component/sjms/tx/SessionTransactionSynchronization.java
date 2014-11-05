@@ -171,7 +171,7 @@ name|commitStrategy
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @see      * org.apache.camel.spi.Synchronization#onFailure(org.apache.camel.Exchange)      * @param exchange      */
+comment|/**      * @param exchange      * @see org.apache.camel.spi.Synchronization#onFailure(org.apache.camel.Exchange)      */
 annotation|@
 name|Override
 DECL|method|onFailure (Exchange exchange)
@@ -247,7 +247,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * @see      * org.apache.camel.spi.Synchronization#onComplete(org.apache.camel.Exchange      * )      * @param exchange      */
+comment|/**      * @param exchange      * @see org.apache.camel.spi.Synchronization#onComplete(org.apache.camel.Exchange      *)      */
 annotation|@
 name|Override
 DECL|method|onComplete (Exchange exchange)

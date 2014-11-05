@@ -304,6 +304,11 @@ specifier|private
 name|Producer
 name|producer
 decl_stmt|;
+DECL|field|aggregateOnException
+specifier|private
+name|boolean
+name|aggregateOnException
+decl_stmt|;
 comment|/**      * Creates a new {@link Enricher}. The default aggregation strategy is to      * copy the additional data obtained from the enricher's resource over the      * input data. When using the copy aggregation strategy the enricher      * degenerates to a normal transformer.      *       * @param producer producer to resource endpoint.      */
 DECL|method|Enricher (Producer producer)
 specifier|public
@@ -362,6 +367,43 @@ operator|.
 name|aggregationStrategy
 operator|=
 name|aggregationStrategy
+expr_stmt|;
+block|}
+DECL|method|getAggregationStrategy ()
+specifier|public
+name|AggregationStrategy
+name|getAggregationStrategy
+parameter_list|()
+block|{
+return|return
+name|aggregationStrategy
+return|;
+block|}
+DECL|method|isAggregateOnException ()
+specifier|public
+name|boolean
+name|isAggregateOnException
+parameter_list|()
+block|{
+return|return
+name|aggregateOnException
+return|;
+block|}
+comment|/**      * Whether to call {@link org.apache.camel.processor.aggregate.AggregationStrategy#aggregate(org.apache.camel.Exchange, org.apache.camel.Exchange)} if      * an exception was thrown.      */
+DECL|method|setAggregateOnException (boolean aggregateOnException)
+specifier|public
+name|void
+name|setAggregateOnException
+parameter_list|(
+name|boolean
+name|aggregateOnException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|aggregateOnException
+operator|=
+name|aggregateOnException
 expr_stmt|;
 block|}
 comment|/**      * Sets the default aggregation strategy for this enricher.      */
@@ -526,6 +568,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|isAggregateOnException
+argument_list|()
+operator|&&
 name|resourceExchange
 operator|.
 name|isFailed
@@ -714,6 +760,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|isAggregateOnException
+argument_list|()
+operator|&&
 name|resourceExchange
 operator|.
 name|isFailed

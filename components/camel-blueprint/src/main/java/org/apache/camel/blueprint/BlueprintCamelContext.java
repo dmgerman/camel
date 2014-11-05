@@ -1004,7 +1004,7 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-comment|// allow to regsiter the BluerintCamelContext eager in the OSGi Service Registry, which ex is needed
+comment|// allow to register the BluerintCamelContext eager in the OSGi Service Registry, which ex is needed
 comment|// for unit testing with camel-test-blueprint
 name|boolean
 name|eager
@@ -1029,7 +1029,7 @@ block|{
 for|for
 control|(
 name|EventNotifier
-name|notifer
+name|notifier
 range|:
 name|getManagementStrategy
 argument_list|()
@@ -1040,7 +1040,7 @@ control|)
 block|{
 if|if
 condition|(
-name|notifer
+name|notifier
 operator|instanceof
 name|OsgiCamelContextPublisher
 condition|)
@@ -1051,7 +1051,7 @@ init|=
 operator|(
 name|OsgiCamelContextPublisher
 operator|)
-name|notifer
+name|notifier
 decl_stmt|;
 name|publisher
 operator|.

@@ -162,6 +162,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|CamelContextNameStrategy
@@ -458,6 +474,48 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|RestConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RestRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RoutePolicyFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RouteStartupOrder
 import|;
 end_import
@@ -677,6 +735,20 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Adds a service to this context.      *<p/>      * The service will also have {@link CamelContext} injected if its {@link CamelContextAware}.      * The service will also be enlisted in JMX for management (if JMX is enabled).      * The service will be started, if its not already started.      *<p/>      * If the option<tt>closeOnShutdown</tt> is<tt>true</tt> then this context will control the lifecycle, ensuring      * the service is stopped when the context stops.      * If the option<tt>closeOnShutdown</tt> is<tt>false</tt> then this context will not stop the service when the context stops.      *      * @param object the service      * @param closeOnShutdown whether to close the service when this CamelContext shutdown.      * @throws Exception can be thrown when starting the service      */
+DECL|method|addService (Object object, boolean closeOnShutdown)
+name|void
+name|addService
+parameter_list|(
+name|Object
+name|object
+parameter_list|,
+name|boolean
+name|closeOnShutdown
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Removes a service from this context.      *<p/>      * The service is assumed to have been previously added using {@link #addService(Object)} method.      * This method will<b>not</b> change the service lifecycle.      *      * @param object the service      * @throws Exception can be thrown if error removing the service      * @return<tt>true</tt> if the service was removed,<tt>false</tt> if no service existed      */
 DECL|method|removeService (Object object)
 name|boolean
@@ -695,6 +767,21 @@ name|hasService
 parameter_list|(
 name|Object
 name|object
+parameter_list|)
+function_decl|;
+comment|/**      * Has the given service type already been added to this context?      *      * @param type the class type      * @return the service instance or<tt>null</tt> if not already added.      */
+DECL|method|hasService (Class<T> type)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|hasService
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
 parameter_list|)
 function_decl|;
 comment|/**      * Adds the given listener to be invoked when {@link CamelContext} have just been started.      *<p/>      * This allows listeners to do any custom work after the routes and other services have been started and are running.      *<p/><b>Important:</b> The listener will always be invoked, also if the {@link CamelContext} has already been      * started, see the {@link org.apache.camel.StartupListener#onCamelContextStarted(CamelContext, boolean)} method.      *      * @param listener the listener      * @throws Exception can be thrown if {@link CamelContext} is already started and the listener is invoked      *                   and cause an exception to be thrown      */
@@ -889,6 +976,15 @@ parameter_list|)
 function_decl|;
 comment|// Route Management Methods
 comment|//-----------------------------------------------------------------------
+comment|/**      * Method to signal to {@link CamelContext} that the process to initialize setup routes is in progress.      *      * @param done<tt>false</tt> to start the process, call again with<tt>true</tt> to signal its done.      * @see #isSetupRoutes()      */
+DECL|method|setupRoutes (boolean done)
+name|void
+name|setupRoutes
+parameter_list|(
+name|boolean
+name|done
+parameter_list|)
+function_decl|;
 comment|/**      * Returns a list of the current route definitions      *      * @return list of the current route definitions      * @deprecated use {@link org.apache.camel.model.ModelCamelContext#getRouteDefinitions()}      */
 annotation|@
 name|Deprecated
@@ -910,6 +1006,48 @@ parameter_list|(
 name|String
 name|id
 parameter_list|)
+function_decl|;
+comment|/**      * Returns a list of the current REST definitions      *      * @return list of the current REST definitions      * @deprecated use {@link org.apache.camel.model.ModelCamelContext#getRestDefinitions()}      */
+annotation|@
+name|Deprecated
+DECL|method|getRestDefinitions ()
+name|List
+argument_list|<
+name|RestDefinition
+argument_list|>
+name|getRestDefinitions
+parameter_list|()
+function_decl|;
+comment|/**      * Adds a collection of rest definitions to the context      *      * @param restDefinitions the rest(s) definition to add      * @throws Exception if the rest definitions could not be created for whatever reason      */
+annotation|@
+name|Deprecated
+DECL|method|addRestDefinitions (Collection<RestDefinition> restDefinitions)
+name|void
+name|addRestDefinitions
+parameter_list|(
+name|Collection
+argument_list|<
+name|RestDefinition
+argument_list|>
+name|restDefinitions
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Sets a custom {@link org.apache.camel.spi.RestConfiguration}      *      * @param restConfiguration the REST configuration      */
+DECL|method|setRestConfiguration (RestConfiguration restConfiguration)
+name|void
+name|setRestConfiguration
+parameter_list|(
+name|RestConfiguration
+name|restConfiguration
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the current REST configuration      *      * @return the configuration, or<tt>null</tt> if none has been configured.      */
+DECL|method|getRestConfiguration ()
+name|RestConfiguration
+name|getRestConfiguration
+parameter_list|()
 function_decl|;
 comment|/**      * Returns the order in which the route inputs was started.      *<p/>      * The order may not be according to the startupOrder defined on the route.      * For example a route could be started manually later, or new routes added at runtime.      *      * @return a list in the order how routes was started      */
 DECL|method|getRouteStartupOrder ()
@@ -1030,6 +1168,14 @@ parameter_list|(
 name|RouteDefinition
 name|route
 parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Starts all the routes which currently is not started.      *      * @throws Exception is thrown if a route could not be started for whatever reason      */
+DECL|method|startAllRoutes ()
+name|void
+name|startAllRoutes
+parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
@@ -1200,6 +1346,12 @@ comment|/**      * Indicates whether current thread is starting route(s).      *
 DECL|method|isStartingRoutes ()
 name|boolean
 name|isStartingRoutes
+parameter_list|()
+function_decl|;
+comment|/**      * Indicates whether current thread is setting up route(s) as part of starting Camel from spring/blueprint.      *<p/>      * This can be useful to know by {@link LifecycleStrategy} or the likes, in case      * they need to react differently.      *<p/>      * As the startup procedure of {@link CamelContext} is slightly different when using plain Java versus      * Spring or Blueprint, then we need to know when Spring/Blueprint is setting up the routes, which      * can happen after the {@link CamelContext} itself is in started state, due the asynchronous event nature      * of especially Blueprint.      *      * @return<tt>true</tt> if current thread is setting up route(s), or<tt>false</tt> if not.      */
+DECL|method|isSetupRoutes ()
+name|boolean
+name|isSetupRoutes
 parameter_list|()
 function_decl|;
 comment|// Properties
@@ -1917,6 +2069,39 @@ parameter_list|(
 name|RuntimeEndpointRegistry
 name|runtimeEndpointRegistry
 parameter_list|)
+function_decl|;
+comment|/**      * Gets the {@link org.apache.camel.spi.RestRegistry} to use      */
+DECL|method|getRestRegistry ()
+name|RestRegistry
+name|getRestRegistry
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom {@link org.apache.camel.spi.RestRegistry} to use.      */
+DECL|method|setRestRegistry (RestRegistry restRegistry)
+name|void
+name|setRestRegistry
+parameter_list|(
+name|RestRegistry
+name|restRegistry
+parameter_list|)
+function_decl|;
+comment|/**      * Adds the given route policy factory      *      * @param routePolicyFactory the factory      */
+DECL|method|addRoutePolicyFactory (RoutePolicyFactory routePolicyFactory)
+name|void
+name|addRoutePolicyFactory
+parameter_list|(
+name|RoutePolicyFactory
+name|routePolicyFactory
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the route policy factories      *      * @return the list of current route policy factories      */
+DECL|method|getRoutePolicyFactories ()
+name|List
+argument_list|<
+name|RoutePolicyFactory
+argument_list|>
+name|getRoutePolicyFactories
+parameter_list|()
 function_decl|;
 block|}
 end_interface

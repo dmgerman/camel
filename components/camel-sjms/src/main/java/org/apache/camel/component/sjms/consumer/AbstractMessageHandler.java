@@ -207,7 +207,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract MessageListener   */
+comment|/**  * Abstract MessageListener  */
 end_comment
 
 begin_class
@@ -578,7 +578,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Method will be called to       */
+comment|/**      * Method will be called to      */
 DECL|method|close ()
 specifier|public
 specifier|abstract

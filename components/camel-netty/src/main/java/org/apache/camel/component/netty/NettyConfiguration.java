@@ -461,6 +461,8 @@ name|allowDefaultCodec
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|clientPipelineFactory
 specifier|private
 name|ClientPipelineFactory
@@ -1210,7 +1212,8 @@ condition|)
 block|{
 if|if
 condition|(
-name|allowDefaultCodec
+name|isAllowDefaultCodec
+argument_list|()
 condition|)
 block|{
 comment|// are we textline or object?

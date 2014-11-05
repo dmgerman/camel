@@ -218,11 +218,19 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// we need to skip the latest updated entry
 if|if
 condition|(
 name|lastUpdate
 operator|.
 name|after
+argument_list|(
+name|updated
+argument_list|)
+operator|||
+name|lastUpdate
+operator|.
+name|equals
 argument_list|(
 name|updated
 argument_list|)

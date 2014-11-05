@@ -541,14 +541,22 @@ argument_list|,
 name|exchange
 argument_list|,
 literal|false
+argument_list|,
+operator|(
+operator|(
+name|SjmsEndpoint
+operator|)
+name|endpoint
+operator|)
+operator|.
+name|getJmsKeyFormatStrategy
+argument_list|()
 argument_list|)
 return|;
 block|}
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
+name|Deprecated
+comment|/**      * Please use the one which has the parameter of keyFormatStrategy       */
 DECL|method|populateExchange (Message message, Exchange exchange, boolean out)
 specifier|public
 specifier|static
@@ -565,6 +573,45 @@ name|boolean
 name|out
 parameter_list|)
 block|{
+return|return
+name|populateExchange
+argument_list|(
+name|message
+argument_list|,
+name|exchange
+argument_list|,
+name|out
+argument_list|,
+operator|new
+name|DefaultJmsKeyFormatStrategy
+argument_list|()
+argument_list|)
+return|;
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|populateExchange (Message message, Exchange exchange, boolean out, KeyFormatStrategy keyFormatStrategy)
+specifier|public
+specifier|static
+name|Exchange
+name|populateExchange
+parameter_list|(
+name|Message
+name|message
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|,
+name|boolean
+name|out
+parameter_list|,
+name|KeyFormatStrategy
+name|keyFormatStrategy
+parameter_list|)
+block|{
 try|try
 block|{
 name|SjmsExchangeMessageHelper
@@ -576,6 +623,8 @@ argument_list|,
 name|exchange
 argument_list|,
 name|out
+argument_list|,
+name|keyFormatStrategy
 argument_list|)
 expr_stmt|;
 if|if
@@ -981,7 +1030,7 @@ return|return
 name|exchange
 return|;
 block|}
-comment|/**      * Removes the property from the JMS message.      *       * @param jmsMessage the JMS message      * @param name name of the property to remove      * @return the old value of the property or<tt>null</tt> if not exists      * @throws JMSException can be thrown      */
+comment|/**      * Removes the property from the JMS message.      *      * @param jmsMessage the JMS message      * @param name       name of the property to remove      * @return the old value of the property or<tt>null</tt> if not exists      * @throws JMSException can be thrown      */
 DECL|method|removeJmsProperty (Message jmsMessage, String name)
 specifier|public
 specifier|static
@@ -1144,7 +1193,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Tests whether a given property with the name exists      *       * @param jmsMessage the JMS message      * @param name name of the property to test if exists      * @return<tt>true</tt> if the property exists,<tt>false</tt> if not.      * @throws JMSException can be thrown      */
+comment|/**      * Tests whether a given property with the name exists      *      * @param jmsMessage the JMS message      * @param name       name of the property to test if exists      * @return<tt>true</tt> if the property exists,<tt>false</tt> if not.      * @throws JMSException can be thrown      */
 DECL|method|hasProperty (Message jmsMessage, String name)
 specifier|public
 specifier|static
@@ -1209,7 +1258,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Sets the property on the given JMS message.      *       * @param jmsMessage the JMS message      * @param name name of the property to set      * @param value the value      * @throws JMSException can be thrown      */
+comment|/**      * Sets the property on the given JMS message.      *      * @param jmsMessage the JMS message      * @param name       name of the property to set      * @param value      the value      * @throws JMSException can be thrown      */
 DECL|method|setProperty (Message jmsMessage, String name, Object value)
 specifier|public
 specifier|static
@@ -1418,7 +1467,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Sets the correlation id on the JMS message.      *<p/>      * Will ignore exception thrown      *       * @param message the JMS message      * @param correlationId the correlation id      */
+comment|/**      * Sets the correlation id on the JMS message.      *<p/>      * Will ignore exception thrown      *      * @param message       the JMS message      * @param correlationId the correlation id      */
 DECL|method|setCorrelationId (Message message, String correlationId)
 specifier|public
 specifier|static
@@ -1468,7 +1517,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Normalizes the destination name, by removing any leading queue or topic      * prefixes.      *       * @param destination the destination      * @return the normalized destination      */
+comment|/**      * Normalizes the destination name, by removing any leading queue or topic      * prefixes.      *      * @param destination the destination      * @return the normalized destination      */
 DECL|method|normalizeDestinationName (String destination)
 specifier|public
 specifier|static
@@ -1555,7 +1604,7 @@ name|destination
 return|;
 block|}
 block|}
-comment|/**      * Sets the JMSReplyTo on the message.      *       * @param message the message      * @param replyTo the reply to destination      */
+comment|/**      * Sets the JMSReplyTo on the message.      *      * @param message the message      * @param replyTo the reply to destination      */
 DECL|method|setJMSReplyTo (Message message, Destination replyTo)
 specifier|public
 specifier|static
@@ -1599,7 +1648,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Gets the JMSReplyTo from the message.      *       * @param message the message      * @return the reply to, can be<tt>null</tt>      */
+comment|/**      * Gets the JMSReplyTo from the message.      *      * @param message the message      * @return the reply to, can be<tt>null</tt>      */
 DECL|method|getJMSReplyTo (Message message)
 specifier|public
 specifier|static
@@ -1631,7 +1680,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Gets the JMSType from the message.      *       * @param message the message      * @return the type, can be<tt>null</tt>      */
+comment|/**      * Gets the JMSType from the message.      *      * @param message the message      * @return the type, can be<tt>null</tt>      */
 DECL|method|getJMSType (Message message)
 specifier|public
 specifier|static
@@ -1663,7 +1712,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Gets the JMSRedelivered from the message.      *       * @param message the message      * @return<tt>true</tt> if redelivered,<tt>false</tt> if not,      *<tt>null</tt> if not able to determine      */
+comment|/**      * Gets the JMSRedelivered from the message.      *      * @param message the message      * @return<tt>true</tt> if redelivered,<tt>false</tt> if not,      *<tt>null</tt> if not able to determine      */
 DECL|method|getJMSRedelivered (Message message)
 specifier|public
 specifier|static
@@ -1695,7 +1744,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Sets the JMSDeliveryMode on the message.      *       * @param exchange the exchange      * @param message the message      * @param deliveryMode the delivery mode, either as a String or integer      * @throws javax.jms.JMSException is thrown if error setting the delivery      *             mode      */
+comment|/**      * Sets the JMSDeliveryMode on the message.      *      * @param exchange     the exchange      * @param message      the message      * @param deliveryMode the delivery mode, either as a String or integer      * @throws javax.jms.JMSException is thrown if error setting the delivery      *                                mode      */
 DECL|method|setJMSDeliveryMode (Exchange exchange, Message message, Object deliveryMode)
 specifier|public
 specifier|static
@@ -2233,10 +2282,8 @@ name|jmsMessage
 return|;
 block|}
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
+name|Deprecated
+comment|/**      * Please use the one which has the parameter of keyFormatStrategy      */
 DECL|method|setJmsMessageHeaders (final Message jmsMessage, final Exchange exchange, boolean out)
 specifier|public
 specifier|static
@@ -2253,6 +2300,49 @@ name|exchange
 parameter_list|,
 name|boolean
 name|out
+parameter_list|)
+throws|throws
+name|JMSException
+block|{
+return|return
+name|setJmsMessageHeaders
+argument_list|(
+name|jmsMessage
+argument_list|,
+name|exchange
+argument_list|,
+name|out
+argument_list|,
+operator|new
+name|DefaultJmsKeyFormatStrategy
+argument_list|()
+argument_list|)
+return|;
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|setJmsMessageHeaders (final Message jmsMessage, final Exchange exchange, boolean out, KeyFormatStrategy keyFormatStrategy)
+specifier|public
+specifier|static
+name|Exchange
+name|setJmsMessageHeaders
+parameter_list|(
+specifier|final
+name|Message
+name|jmsMessage
+parameter_list|,
+specifier|final
+name|Exchange
+name|exchange
+parameter_list|,
+name|boolean
+name|out
+parameter_list|,
+name|KeyFormatStrategy
+name|keyFormatStrategy
 parameter_list|)
 throws|throws
 name|JMSException
@@ -2556,11 +2646,21 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
+name|String
+name|decodedName
+init|=
+name|keyFormatStrategy
+operator|.
+name|decodeKey
+argument_list|(
+name|key
+argument_list|)
+decl_stmt|;
 name|headers
 operator|.
 name|put
 argument_list|(
-name|key
+name|decodedName
 argument_list|,
 name|value
 argument_list|)

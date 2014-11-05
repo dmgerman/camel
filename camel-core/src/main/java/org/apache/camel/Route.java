@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/routes.html">Route</a>  * defines the processing used on an inbound message exchange  * from a specific {@link org.apache.camel.Endpoint} within a {@link org.apache.camel.CamelContext}  *<p/>  * Use the API from {@link org.apache.camel.CamelContext} to control the lifecycle of a route,  * such as starting and stopping using the {@link org.apache.camel.CamelContext#startRoute(String)}  * and {@link org.apache.camel.CamelContext#stopRoute(String)} methods.  */
+comment|/**  * A<a href="http://camel.apache.org/routes.html">Route</a>  * defines the processing used on an inbound message exchange  * from a specific {@link org.apache.camel.Endpoint} within a {@link org.apache.camel.CamelContext}.  *<p/>  * Use the API from {@link org.apache.camel.CamelContext} to control the lifecycle of a route,  * such as starting and stopping using the {@link org.apache.camel.CamelContext#startRoute(String)}  * and {@link org.apache.camel.CamelContext#stopRoute(String)} methods.  */
 end_comment
 
 begin_interface
@@ -75,6 +75,12 @@ name|String
 name|GROUP_PROPERTY
 init|=
 literal|"group"
+decl_stmt|;
+DECL|field|REST_PROPERTY
+name|String
+name|REST_PROPERTY
+init|=
+literal|"rest"
 decl_stmt|;
 comment|/**      * Gets the route id      *      * @return the route id      */
 DECL|method|getId ()

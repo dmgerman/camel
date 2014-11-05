@@ -228,7 +228,7 @@ if|if
 condition|(
 name|endpoint
 operator|.
-name|getZookeeperHost
+name|getZookeeperConnect
 argument_list|()
 operator|==
 literal|null
@@ -238,25 +238,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"zookeeper host must be specified"
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-name|endpoint
-operator|.
-name|getZookeeperPort
-argument_list|()
-operator|==
-literal|0
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"zookeeper port must be specified"
+literal|"zookeeper host or zookeeper connect must be specified"
 argument_list|)
 throw|;
 block|}
@@ -303,14 +285,7 @@ literal|"zookeeper.connect"
 argument_list|,
 name|endpoint
 operator|.
-name|getZookeeperHost
-argument_list|()
-operator|+
-literal|":"
-operator|+
-name|endpoint
-operator|.
-name|getZookeeperPort
+name|getZookeeperConnect
 argument_list|()
 argument_list|)
 expr_stmt|;

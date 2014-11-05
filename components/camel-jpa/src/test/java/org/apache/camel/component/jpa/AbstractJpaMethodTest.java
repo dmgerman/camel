@@ -1065,6 +1065,9 @@ name|entityManager
 operator|=
 name|endpoint
 operator|.
+name|getEntityManagerFactory
+argument_list|()
+operator|.
 name|createEntityManager
 argument_list|()
 expr_stmt|;

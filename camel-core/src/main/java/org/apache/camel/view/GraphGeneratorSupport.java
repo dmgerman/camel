@@ -151,6 +151,8 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|GraphGeneratorSupport
 specifier|public
 specifier|abstract
@@ -331,11 +333,6 @@ name|mkdirs
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 name|List
 argument_list|<
 name|RouteDefinition

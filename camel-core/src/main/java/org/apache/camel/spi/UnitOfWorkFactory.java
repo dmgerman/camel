@@ -28,6 +28,10 @@ name|Exchange
 import|;
 end_import
 
+begin_comment
+comment|/**  * Factory to create {@link org.apache.camel.spi.UnitOfWork}.  */
+end_comment
+
 begin_interface
 DECL|interface|UnitOfWorkFactory
 specifier|public

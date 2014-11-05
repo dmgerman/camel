@@ -449,7 +449,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * Default {@link org.apache.camel.spi.ExecutorServiceManager}.  *  * @version   */
 end_comment
 
 begin_class

@@ -289,7 +289,7 @@ argument_list|)
 expr_stmt|;
 name|apnsServiceFactory
 operator|.
-name|setSslContext
+name|setSslContextParameters
 argument_list|(
 name|ApnsUtils
 operator|.

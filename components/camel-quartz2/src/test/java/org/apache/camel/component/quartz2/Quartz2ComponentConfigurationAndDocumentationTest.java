@@ -187,7 +187,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"cron\": { \"type\": \"java.lang.String\" }"
+literal|"\"cron\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -231,7 +231,7 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Should have found some auto-generated HTML if on Java 7"
+literal|"Should have found some auto-generated HTML"
 argument_list|,
 name|html
 argument_list|)

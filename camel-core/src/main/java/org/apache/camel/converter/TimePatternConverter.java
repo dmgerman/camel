@@ -72,6 +72,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * Converter from String syntax to milli seconds.  */
+end_comment
+
 begin_class
 annotation|@
 name|Converter

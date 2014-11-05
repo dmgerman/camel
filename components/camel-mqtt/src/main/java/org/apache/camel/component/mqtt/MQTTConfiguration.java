@@ -54,6 +54,24 @@ name|MQTTConfiguration
 extends|extends
 name|MQTT
 block|{
+DECL|field|MQTT_SUBSCRIBE_TOPIC
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MQTT_SUBSCRIBE_TOPIC
+init|=
+literal|"CamelMQTTSubscribeTopic"
+decl_stmt|;
+DECL|field|MQTT_PUBLISH_TOPIC
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MQTT_PUBLISH_TOPIC
+init|=
+literal|"CamelMQTTPublishTopic"
+decl_stmt|;
 comment|/**      * These a properties that are looked for in an Exchange - to publish to      */
 DECL|field|mqttTopicPropertyName
 specifier|private
@@ -235,6 +253,9 @@ operator|=
 name|publishTopicName
 expr_stmt|;
 block|}
+comment|/**      * Please use MQTT_SUBSCRIBE_TOPIC and MQTT_PUBLISH_TOPIC to set or get the topic name      */
+annotation|@
+name|Deprecated
 DECL|method|getMqttTopicPropertyName ()
 specifier|public
 name|String
@@ -245,6 +266,9 @@ return|return
 name|mqttTopicPropertyName
 return|;
 block|}
+comment|/**      * Please use MQTT_SUBSCRIBE_TOPIC and MQTT_PUBLISH_TOPIC to set or get the topic name      */
+annotation|@
+name|Deprecated
 DECL|method|setMqttTopicPropertyName (String mqttTopicPropertyName)
 specifier|public
 name|void

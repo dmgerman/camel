@@ -32,6 +32,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -1122,9 +1132,16 @@ literal|"]"
 return|;
 block|}
 block|}
-comment|// is the body a stream cache
+comment|// is the body a stream cache or input stream
 name|StreamCache
 name|cache
+init|=
+literal|null
+decl_stmt|;
+name|InputStream
+name|is
+init|=
+literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1140,12 +1157,29 @@ name|StreamCache
 operator|)
 name|obj
 expr_stmt|;
+name|is
+operator|=
+literal|null
+expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|obj
+operator|instanceof
+name|InputStream
+condition|)
 block|{
 name|cache
 operator|=
 literal|null
+expr_stmt|;
+name|is
+operator|=
+operator|(
+name|InputStream
+operator|)
+name|obj
 expr_stmt|;
 block|}
 comment|// grab the message body as a string
@@ -1179,7 +1213,7 @@ operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|String
 operator|.
@@ -1196,7 +1230,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -1210,6 +1244,8 @@ operator|==
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|body
 operator|=
 name|obj
@@ -1217,6 +1253,15 @@ operator|.
 name|toString
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// ignore as the body is for logging purpose
+block|}
 block|}
 comment|// reset stream cache after use
 if|if
@@ -1231,6 +1276,36 @@ operator|.
 name|reset
 argument_list|()
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|is
+operator|!=
+literal|null
+operator|&&
+name|is
+operator|.
+name|markSupported
+argument_list|()
+condition|)
+block|{
+try|try
+block|{
+name|is
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
 block|}
 if|if
 condition|(
@@ -1632,7 +1707,7 @@ operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|String
 operator|.
@@ -1670,7 +1745,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -1954,10 +2029,11 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
+comment|// ignore as the body is for logging purpose
 return|return
 literal|""
 return|;
@@ -2221,7 +2297,7 @@ operator|.
 name|getId
 argument_list|()
 expr_stmt|;
-comment|// we need to avoid leak the sensibale information here
+comment|// we need to avoid leak the sensible information here
 name|label
 operator|=
 name|URISupport

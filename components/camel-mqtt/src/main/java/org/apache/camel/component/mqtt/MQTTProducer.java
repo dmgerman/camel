@@ -132,6 +132,36 @@ operator|=
 name|mqttEndpoint
 expr_stmt|;
 block|}
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// check the mqttEndpoint connection when it is started
+if|if
+condition|(
+operator|!
+name|mqttEndpoint
+operator|.
+name|isConnected
+argument_list|()
+condition|)
+block|{
+name|mqttEndpoint
+operator|.
+name|connect
+argument_list|()
+expr_stmt|;
+block|}
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|process (final Exchange exchange, final AsyncCallback callback)
@@ -252,17 +282,20 @@ operator|.
 name|getPublishTopicName
 argument_list|()
 decl_stmt|;
+comment|// get the topic name by using the header of MQTT_PUBLISH_TOPIC
 name|Object
 name|topicValue
 init|=
 name|exchange
 operator|.
-name|getProperty
-argument_list|(
-name|configuration
-operator|.
-name|getMqttTopicPropertyName
+name|getIn
 argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|MQTTConfiguration
+operator|.
+name|MQTT_PUBLISH_TOPIC
 argument_list|)
 decl_stmt|;
 if|if

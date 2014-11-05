@@ -887,6 +887,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// we may not have been started before, and now the end user calls resume, so lets handle that and start it first
+if|if
+condition|(
+operator|!
+name|initialized
+condition|)
+block|{
+name|doStart
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
 if|if
 condition|(
 name|listenerContainer
@@ -897,6 +910,7 @@ block|{
 name|startListenerContainer
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getDestinationName ()

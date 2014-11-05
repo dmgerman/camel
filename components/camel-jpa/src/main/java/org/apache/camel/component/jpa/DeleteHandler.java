@@ -28,6 +28,18 @@ name|EntityManager
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * A strategy for deleting entity beans which have been processed; either by a real delete or by an update of some  * application specific properties so that the entity bean will not be found in future polling queries.  *  * @version   */
 end_comment
@@ -41,8 +53,8 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-comment|/**      * Deletes the entity bean after it has been processed either by actually      * deleting the object or updating it in a way so that future queries do not return this object again.      *      * @param entityManager the entity manager      * @param entityBean    the entity bean that has been processed and should be deleted      */
-DECL|method|deleteObject (EntityManager entityManager, Object entityBean)
+comment|/**      * Deletes the entity bean after it has been processed either by actually      * deleting the object or updating it in a way so that future queries do not return this object again.      *      * @param entityManager the entity manager      * @param entityBean    the entity bean that has been processed and should be deleted      * @param exchange      the exchange that could be used to update the entityBean      */
+DECL|method|deleteObject (EntityManager entityManager, Object entityBean, Exchange exchange)
 name|void
 name|deleteObject
 parameter_list|(
@@ -51,6 +63,9 @@ name|entityManager
 parameter_list|,
 name|Object
 name|entityBean
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 function_decl|;
 block|}

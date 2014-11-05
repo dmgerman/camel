@@ -1798,7 +1798,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Evaluates an XML token expression on the message body with XML content      *       * @param path the xpath like path notation specifying the child nodes to tokenize      * @param mode one of 'i', 'w', or 'u' to inject the namespaces to the token, to      *        wrap the token with its ancestor contet, or to unwrap to its element child      * @param namespaces the namespace map to the namespace bindings       * @param group to group by the given number      * @return      */
+comment|/**      * Evaluates an XML token expression on the message body with XML content      *       * @param path the xpath like path notation specifying the child nodes to tokenize      * @param mode one of 'i', 'w', or 'u' to inject the namespaces to the token, to      *        wrap the token with its ancestor contet, or to unwrap to its element child      * @param namespaces the namespace map to the namespace bindings       * @param group to group by the given number      * @return the builder to continue processing the DSL      */
 DECL|method|xtokenize (String path, char mode, Namespaces namespaces, int group)
 specifier|public
 name|T

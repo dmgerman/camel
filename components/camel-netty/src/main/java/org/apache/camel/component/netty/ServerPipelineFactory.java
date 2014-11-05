@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory to create {@link ChannelPipeline} for clients, eg {@link NettyConsumer}.  *<p/>  * Implementators must support creating a new instance of this factory which is associated  * to the given {@link NettyConsumer} using the {@link #createPipelineFactory(NettyConsumer)}  * method.  *  * @see ChannelPipelineFactory  */
+comment|/**  * Factory to create {@link ChannelPipeline} for server, eg {@link NettyConsumer}.  *<p/>  * Implementators must support creating a new instance of this factory which is associated  * to the given {@link NettyConsumer} using the {@link #createPipelineFactory(NettyConsumer)}  * method.  *  * @see ChannelPipelineFactory  */
 end_comment
 
 begin_class
@@ -59,7 +59,7 @@ name|ServerPipelineFactory
 implements|implements
 name|ChannelPipelineFactory
 block|{
-comment|/**      * Creates a new {@link ClientPipelineFactory} using the given {@link NettyConsumer}      *      * @param consumer the associated consumer      * @return the {@link ClientPipelineFactory} associated to ghe given consumer.      */
+comment|/**      * Creates a new {@link ServerPipelineFactory} using the given {@link NettyConsumer}      *      * @param consumer the associated consumer      * @return the {@link ServerPipelineFactory} associated to the given consumer.      */
 DECL|method|createPipelineFactory (NettyConsumer consumer)
 specifier|public
 specifier|abstract

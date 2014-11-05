@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|NoSuchElementException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -82,7 +92,7 @@ name|junit
 operator|.
 name|Assert
 operator|.
-name|assertNotNull
+name|assertNotEquals
 import|;
 end_import
 
@@ -94,7 +104,7 @@ name|junit
 operator|.
 name|Assert
 operator|.
-name|assertNull
+name|assertNotNull
 import|;
 end_import
 
@@ -109,10 +119,6 @@ operator|.
 name|assertTrue
 import|;
 end_import
-
-begin_comment
-comment|/**  * TODO Add Class documentation for ConnectionFactoryResourceTest  */
-end_comment
 
 begin_class
 DECL|class|ConnectionFactoryResourceTest
@@ -138,7 +144,7 @@ operator|=
 operator|new
 name|ActiveMQConnectionFactory
 argument_list|(
-literal|"vm://broker?broker.persistent=false"
+literal|"vm://broker?broker.persistent=false&broker.useJmx=false"
 argument_list|)
 expr_stmt|;
 block|}
@@ -155,7 +161,6 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.jms.ConnectionFactoryResourceTest#createObject()}      * .      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testCreateObject ()
@@ -195,7 +200,7 @@ name|ActiveMQConnection
 operator|)
 name|pool
 operator|.
-name|borrowObject
+name|makeObject
 argument_list|()
 decl_stmt|;
 name|assertNotNull
@@ -217,7 +222,6 @@ name|drainPool
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.jms.ConnectionFactoryResourceTest#createObject()}      * .      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testDestroyObject ()
@@ -257,7 +261,7 @@ name|ActiveMQConnection
 operator|)
 name|pool
 operator|.
-name|borrowObject
+name|makeObject
 argument_list|()
 decl_stmt|;
 name|assertNotNull
@@ -289,9 +293,15 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.jms.ObjectPool#borrowObject()}.      *       * @throws Exception      */
 annotation|@
 name|Test
+argument_list|(
+name|expected
+operator|=
+name|NoSuchElementException
+operator|.
+name|class
+argument_list|)
 DECL|method|testBorrowObject ()
 specifier|public
 name|void
@@ -329,7 +339,7 @@ name|ActiveMQConnection
 operator|)
 name|pool
 operator|.
-name|borrowObject
+name|borrowConnection
 argument_list|()
 decl_stmt|;
 name|assertNotNull
@@ -345,29 +355,12 @@ name|isStarted
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ActiveMQConnection
-name|connection2
-init|=
-operator|(
-name|ActiveMQConnection
-operator|)
 name|pool
 operator|.
-name|borrowObject
-argument_list|()
-decl_stmt|;
-name|assertNull
-argument_list|(
-name|connection2
-argument_list|)
-expr_stmt|;
-name|pool
-operator|.
-name|drainPool
+name|borrowConnection
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Test method for      * {@link org.apache.camel.component.sjms.jms.ObjectPool#returnObject(java.lang.Object)}      * .      *       * @throws Exception      */
 annotation|@
 name|Test
 DECL|method|testReturnObject ()
@@ -407,7 +400,7 @@ name|ActiveMQConnection
 operator|)
 name|pool
 operator|.
-name|borrowObject
+name|borrowConnection
 argument_list|()
 decl_stmt|;
 name|assertNotNull
@@ -425,7 +418,7 @@ argument_list|)
 expr_stmt|;
 name|pool
 operator|.
-name|returnObject
+name|returnConnection
 argument_list|(
 name|connection
 argument_list|)
@@ -438,11 +431,102 @@ name|ActiveMQConnection
 operator|)
 name|pool
 operator|.
-name|borrowObject
+name|borrowConnection
 argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
+name|connection2
+argument_list|)
+expr_stmt|;
+name|pool
+operator|.
+name|drainPool
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testRoundRobbin ()
+specifier|public
+name|void
+name|testRoundRobbin
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ConnectionFactoryResource
+name|pool
+init|=
+operator|new
+name|ConnectionFactoryResource
+argument_list|(
+literal|2
+argument_list|,
+name|connectionFactory
+argument_list|)
+decl_stmt|;
+name|pool
+operator|.
+name|fillPool
+argument_list|()
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|pool
+argument_list|)
+expr_stmt|;
+name|ActiveMQConnection
+name|connection
+init|=
+operator|(
+name|ActiveMQConnection
+operator|)
+name|pool
+operator|.
+name|borrowConnection
+argument_list|()
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|connection
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|connection
+operator|.
+name|isStarted
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|pool
+operator|.
+name|returnConnection
+argument_list|(
+name|connection
+argument_list|)
+expr_stmt|;
+name|ActiveMQConnection
+name|connection2
+init|=
+operator|(
+name|ActiveMQConnection
+operator|)
+name|pool
+operator|.
+name|borrowConnection
+argument_list|()
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|connection2
+argument_list|)
+expr_stmt|;
+name|assertNotEquals
+argument_list|(
+name|connection
+argument_list|,
 name|connection2
 argument_list|)
 expr_stmt|;

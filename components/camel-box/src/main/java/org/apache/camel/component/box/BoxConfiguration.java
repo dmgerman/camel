@@ -108,6 +108,22 @@ name|UriParams
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
 begin_comment
 comment|/**  * Component configuration for Box component.  */
 end_comment
@@ -208,6 +224,13 @@ argument_list|,
 name|Object
 argument_list|>
 name|httpParams
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|sslContextParameters
+specifier|private
+name|SSLContextParameters
+name|sslContextParameters
 decl_stmt|;
 comment|/**      * Box.com login timeout in seconds, defaults to 30.      */
 annotation|@
@@ -539,6 +562,32 @@ operator|.
 name|httpParams
 operator|=
 name|httpParams
+expr_stmt|;
+block|}
+DECL|method|getSslContextParameters ()
+specifier|public
+name|SSLContextParameters
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|sslContextParameters
+return|;
+block|}
+DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
 expr_stmt|;
 block|}
 DECL|method|getLoginTimeout ()

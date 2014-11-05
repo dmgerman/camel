@@ -498,34 +498,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
-name|util
-operator|.
-name|HashedWheelTimer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
-name|util
-operator|.
-name|Timer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -625,11 +597,6 @@ argument_list|<
 name|Channel
 argument_list|>
 name|pool
-decl_stmt|;
-DECL|field|timer
-specifier|private
-name|Timer
-name|timer
 decl_stmt|;
 DECL|method|NettyProducer (NettyEndpoint nettyEndpoint, NettyConfiguration configuration)
 specifier|public
@@ -930,12 +897,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|timer
-operator|=
-operator|new
-name|HashedWheelTimer
-argument_list|()
-expr_stmt|;
 comment|// setup pipeline factory
 name|ClientPipelineFactory
 name|factory
@@ -1064,20 +1025,7 @@ operator|.
 name|awaitUninterruptibly
 argument_list|()
 expr_stmt|;
-comment|// and then release other resources
-if|if
-condition|(
-name|channelFactory
-operator|!=
-literal|null
-condition|)
-block|{
-name|channelFactory
-operator|.
-name|releaseExternalResources
-argument_list|()
-expr_stmt|;
-block|}
+comment|// release the external resource here and we keep the timer open
 comment|// and then shutdown the thread pools
 if|if
 condition|(
@@ -1152,23 +1100,6 @@ name|close
 argument_list|()
 expr_stmt|;
 name|pool
-operator|=
-literal|null
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|timer
-operator|!=
-literal|null
-condition|)
-block|{
-name|timer
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-name|timer
 operator|=
 literal|null
 expr_stmt|;
@@ -1848,7 +1779,11 @@ argument_list|()
 operator|.
 name|withTimer
 argument_list|(
-name|timer
+name|getEndpoint
+argument_list|()
+operator|.
+name|getTimer
+argument_list|()
 argument_list|)
 operator|.
 name|withBossCount
@@ -2735,6 +2670,15 @@ block|{
 comment|// put back in pool
 try|try
 block|{
+comment|// Only put the connected channel back to the pool
+if|if
+condition|(
+name|channel
+operator|.
+name|isConnected
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -2751,6 +2695,7 @@ argument_list|(
 name|channel
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -2852,6 +2797,14 @@ argument_list|,
 name|channel
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|channel
+operator|.
+name|isOpen
+argument_list|()
+condition|)
+block|{
 name|NettyHelper
 operator|.
 name|close
@@ -2859,6 +2812,7 @@ argument_list|(
 name|channel
 argument_list|)
 expr_stmt|;
+block|}
 name|allChannels
 operator|.
 name|remove
@@ -2916,6 +2870,15 @@ throws|throws
 name|Exception
 block|{
 comment|// noop
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"activateObject channel: {} -> {}"
+argument_list|,
+name|channel
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -2931,6 +2894,15 @@ throws|throws
 name|Exception
 block|{
 comment|// noop
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"passivateObject channel: {} -> {}"
+argument_list|,
+name|channel
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

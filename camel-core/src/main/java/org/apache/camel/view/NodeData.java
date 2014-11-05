@@ -279,6 +279,8 @@ comment|/**  * Represents a node in the EIP diagram tree  *  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|NodeData
 specifier|public
 class|class

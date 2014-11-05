@@ -360,6 +360,37 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// resolve properties before we create the data format
+try|try
+block|{
+name|ProcessorDefinitionHelper
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+name|routeContext
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Error resolving property placeholders on data format: "
+operator|+
+name|this
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 name|dataFormat
 operator|=
 name|createDataFormat

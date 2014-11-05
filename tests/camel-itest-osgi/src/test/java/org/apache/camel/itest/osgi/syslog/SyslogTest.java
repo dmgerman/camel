@@ -126,7 +126,7 @@ name|component
 operator|.
 name|syslog
 operator|.
-name|Rfc3164SyslogDataFormat
+name|SyslogDataFormat
 import|;
 end_import
 
@@ -208,6 +208,20 @@ name|pax
 operator|.
 name|exam
 operator|.
+name|Configuration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
 name|Option
 import|;
 end_import
@@ -224,23 +238,7 @@ name|exam
 operator|.
 name|junit
 operator|.
-name|Configuration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|junit
-operator|.
-name|JUnit4TestRunner
+name|PaxExam
 import|;
 end_import
 
@@ -264,7 +262,7 @@ begin_class
 annotation|@
 name|RunWith
 argument_list|(
-name|JUnit4TestRunner
+name|PaxExam
 operator|.
 name|class
 argument_list|)
@@ -465,7 +463,7 @@ name|DataFormat
 name|syslogDataFormat
 init|=
 operator|new
-name|Rfc3164SyslogDataFormat
+name|SyslogDataFormat
 argument_list|()
 decl_stmt|;
 comment|// we setup a Syslog  listener on a random port.
@@ -554,6 +552,8 @@ comment|// using the features to install the other camel components
 name|loadCamelFeatures
 argument_list|(
 literal|"camel-mina"
+argument_list|,
+literal|"camel-netty"
 argument_list|,
 literal|"camel-syslog"
 argument_list|)

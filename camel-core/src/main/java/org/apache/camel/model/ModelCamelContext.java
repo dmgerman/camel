@@ -68,6 +68,22 @@ name|CamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestDefinition
+import|;
+end_import
+
 begin_comment
 comment|/**  * Model level interface for the {@link CamelContext}  */
 end_comment
@@ -155,6 +171,29 @@ name|removeRouteDefinition
 parameter_list|(
 name|RouteDefinition
 name|routeDefinition
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Returns a list of the current REST definitions      *      * @return list of the current REST definitions      */
+DECL|method|getRestDefinitions ()
+name|List
+argument_list|<
+name|RestDefinition
+argument_list|>
+name|getRestDefinitions
+parameter_list|()
+function_decl|;
+comment|/**      * Adds a collection of rest definitions to the context      *      * @param restDefinitions the rest(s) definition to add      * @throws Exception if the rest definitions could not be created for whatever reason      */
+DECL|method|addRestDefinitions (Collection<RestDefinition> restDefinitions)
+name|void
+name|addRestDefinitions
+parameter_list|(
+name|Collection
+argument_list|<
+name|RestDefinition
+argument_list|>
+name|restDefinitions
 parameter_list|)
 throws|throws
 name|Exception

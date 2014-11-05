@@ -93,7 +93,7 @@ name|String
 name|baseUri
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the current parameters of the configuration (usually encoded as ?foo=bar&whatnot=something URI query parameters)      */
+comment|/**      * Returns the current parameters of the configuration (usually encoded as<tt>?foo=bar&whatnot=something</tt> URI query parameters)      */
 DECL|method|getParameters ()
 name|Map
 argument_list|<
@@ -184,7 +184,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Applies the current set of parameters to the given endpoint instance.      *<p/>      * Note that typically parts of the URI are not injected into the Endpoint; this method purely      *      * @param endpoint      */
+comment|/**      * Applies the current set of parameters to the given endpoint instance.      *<p/>      * Note that typically parts of the URI are not injected into the Endpoint; this method purely      *      * @param endpoint the endpoint instance      */
 DECL|method|configureEndpoint (Endpoint endpoint)
 name|void
 name|configureEndpoint
@@ -224,7 +224,7 @@ parameter_list|)
 throws|throws
 name|RuntimeCamelException
 function_decl|;
-comment|/**      * A helper method for tools such as CLIs, IDEs or web tools that provides a completion list for Endpoint Paths      * rather like bash tab completion or Karaf attribute or option completion handers.      *      * So given the current configuration data, return a list of completions given the specified text.      *      * e.g. return the files in a directory, the matching queues in a message broker, the database tables in a database component etc      *      * @param completionText the prefix text used to complete on (usually a matching bit of text)      *      * @return a list of matches      * @return a list of matches      */
+comment|/**      * A helper method for tools such as CLIs, IDEs or web tools that provides a completion list for Endpoint Paths      * rather like bash tab completion or Karaf attribute or option completion handlers.      *      * So given the current configuration data, return a list of completions given the specified text.      * e.g. return the files in a directory, the matching queues in a message broker, the database tables in a database component etc      *      * @param completionText the prefix text used to complete on (usually a matching bit of text)      * @return a list of matches      */
 DECL|method|completeEndpointPath (String completionText)
 name|List
 argument_list|<

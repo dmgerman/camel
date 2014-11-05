@@ -511,6 +511,28 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// Read without callback
+return|return
+name|read
+argument_list|(
+literal|null
+argument_list|)
+return|;
+block|}
+DECL|method|read (SplunkResultProcessor callback)
+specifier|public
+name|List
+argument_list|<
+name|SplunkEvent
+argument_list|>
+name|read
+parameter_list|(
+name|SplunkResultProcessor
+name|callback
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 switch|switch
 condition|(
 name|consumerType
@@ -522,7 +544,9 @@ case|:
 block|{
 return|return
 name|nonBlockingSearch
-argument_list|()
+argument_list|(
+name|callback
+argument_list|)
 return|;
 block|}
 case|case
@@ -531,7 +555,9 @@ case|:
 block|{
 return|return
 name|realtimeSearch
-argument_list|()
+argument_list|(
+name|callback
+argument_list|)
 return|;
 block|}
 case|case
@@ -540,7 +566,9 @@ case|:
 block|{
 return|return
 name|savedSearch
-argument_list|()
+argument_list|(
+name|callback
+argument_list|)
 return|;
 block|}
 default|default:
@@ -900,14 +928,17 @@ return|return
 name|eTime
 return|;
 block|}
-DECL|method|savedSearch ()
+DECL|method|savedSearch (SplunkResultProcessor callback)
 specifier|private
 name|List
 argument_list|<
 name|SplunkEvent
 argument_list|>
 name|savedSearch
-parameter_list|()
+parameter_list|(
+name|SplunkResultProcessor
+name|callback
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -1153,6 +1184,8 @@ argument_list|(
 name|job
 argument_list|,
 literal|false
+argument_list|,
+name|callback
 argument_list|)
 decl_stmt|;
 name|this
@@ -1165,14 +1198,17 @@ return|return
 name|data
 return|;
 block|}
-DECL|method|nonBlockingSearch ()
+DECL|method|nonBlockingSearch (SplunkResultProcessor callback)
 specifier|private
 name|List
 argument_list|<
 name|SplunkEvent
 argument_list|>
 name|nonBlockingSearch
-parameter_list|()
+parameter_list|(
+name|SplunkResultProcessor
+name|callback
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -1227,6 +1263,8 @@ argument_list|(
 name|queryArgs
 argument_list|,
 literal|false
+argument_list|,
+name|callback
 argument_list|)
 decl_stmt|;
 name|lastSuccessfulReadTime
@@ -1237,14 +1275,17 @@ return|return
 name|data
 return|;
 block|}
-DECL|method|realtimeSearch ()
+DECL|method|realtimeSearch (SplunkResultProcessor callback)
 specifier|private
 name|List
 argument_list|<
 name|SplunkEvent
 argument_list|>
 name|realtimeSearch
-parameter_list|()
+parameter_list|(
+name|SplunkResultProcessor
+name|callback
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -1308,6 +1349,8 @@ argument_list|(
 name|queryArgs
 argument_list|,
 literal|true
+argument_list|,
+name|callback
 argument_list|)
 decl_stmt|;
 name|lastSuccessfulReadTime
@@ -1318,7 +1361,7 @@ return|return
 name|data
 return|;
 block|}
-DECL|method|runQuery (JobArgs queryArgs, boolean realtime)
+DECL|method|runQuery (JobArgs queryArgs, boolean realtime, SplunkResultProcessor callback)
 specifier|private
 name|List
 argument_list|<
@@ -1331,6 +1374,9 @@ name|queryArgs
 parameter_list|,
 name|boolean
 name|realtime
+parameter_list|,
+name|SplunkResultProcessor
+name|callback
 parameter_list|)
 throws|throws
 name|Exception
@@ -1431,10 +1477,12 @@ argument_list|(
 name|job
 argument_list|,
 name|realtime
+argument_list|,
+name|callback
 argument_list|)
 return|;
 block|}
-DECL|method|extractData (Job job, boolean realtime)
+DECL|method|extractData (Job job, boolean realtime, SplunkResultProcessor callback)
 specifier|private
 name|List
 argument_list|<
@@ -1447,6 +1495,9 @@ name|job
 parameter_list|,
 name|boolean
 name|realtime
+parameter_list|,
+name|SplunkResultProcessor
+name|callback
 parameter_list|)
 throws|throws
 name|Exception
@@ -1616,6 +1667,23 @@ argument_list|(
 name|data
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|callback
+operator|!=
+literal|null
+condition|)
+block|{
+name|callback
+operator|.
+name|process
+argument_list|(
+name|splunkData
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|result
 operator|.
 name|add
@@ -1623,6 +1691,7 @@ argument_list|(
 name|splunkData
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|IOHelper
 operator|.
@@ -1737,6 +1806,23 @@ argument_list|(
 name|data
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|callback
+operator|!=
+literal|null
+condition|)
+block|{
+name|callback
+operator|.
+name|process
+argument_list|(
+name|splunkData
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|result
 operator|.
 name|add
@@ -1744,6 +1830,7 @@ argument_list|(
 name|splunkData
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|offset
 operator|+=

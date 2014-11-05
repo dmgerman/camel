@@ -484,6 +484,36 @@ return|;
 block|}
 comment|// Delegated properties from the configuration
 comment|//-------------------------------------------------------------------------
+DECL|method|getZookeeperConnect ()
+specifier|public
+name|String
+name|getZookeeperConnect
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getZookeeperConnect
+argument_list|()
+return|;
+block|}
+DECL|method|setZookeeperConnect (String zookeeperConnect)
+specifier|public
+name|void
+name|setZookeeperConnect
+parameter_list|(
+name|String
+name|zookeeperConnect
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setZookeeperConnect
+argument_list|(
+name|zookeeperConnect
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getZookeeperHost ()
 specifier|public
 name|String

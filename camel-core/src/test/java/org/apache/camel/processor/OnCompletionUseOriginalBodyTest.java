@@ -208,6 +208,9 @@ operator|.
 name|useOriginalBody
 argument_list|()
 operator|.
+name|parallelProcessing
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"mock:before"

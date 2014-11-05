@@ -646,7 +646,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables asynchronous delay which means the thread will<b>noy</b> block while delaying.      *      * @return the builder      */
+comment|/**      * Enables asynchronous delay which means the thread will<b>no</b> block while delaying.      *      * @return the builder      */
 DECL|method|asyncDelayed ()
 specifier|public
 name|ThrottleDefinition
@@ -662,7 +662,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Whether or not throttler throws the ThrottlerRejectedExecutionException when the exchange exceeds the request limit      *<p/>      * Is by default<tt>false</tt>      *      * @param throw the RejectExecutionException if the exchange exceeds the request limit       * @return the builder      */
+comment|/**      * Whether or not throttler throws the ThrottlerRejectedExecutionException when the exchange exceeds the request limit      *<p/>      * Is by default<tt>false</tt>      *      * @param rejectExecution throw the RejectExecutionException if the exchange exceeds the request limit       * @return the builder      */
 DECL|method|rejectExecution (boolean rejectExecution)
 specifier|public
 name|ThrottleDefinition
@@ -681,6 +681,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the ExecutorService which could be used by throttle definition      *      * @param executorService        * @return the builder      */
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|ThrottleDefinition
@@ -699,6 +700,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the ExecutorService which could be used by throttle definition      *      * @param executorServiceRef the reference id of the Executor Service        * @return the builder      */
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|ThrottleDefinition

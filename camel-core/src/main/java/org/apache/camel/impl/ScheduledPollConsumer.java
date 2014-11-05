@@ -1813,7 +1813,7 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-comment|// validate that if backoff multiplier is in use, the threshold values is set correclty
+comment|// validate that if backoff multiplier is in use, the threshold values is set correctly
 if|if
 condition|(
 name|backoffMultiplier

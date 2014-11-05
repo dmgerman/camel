@@ -402,7 +402,10 @@ name|contentType
 init|=
 name|response
 operator|.
-name|getHeader
+name|headers
+argument_list|()
+operator|.
+name|get
 argument_list|(
 name|Exchange
 operator|.

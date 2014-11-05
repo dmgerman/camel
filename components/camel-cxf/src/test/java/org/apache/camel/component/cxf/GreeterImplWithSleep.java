@@ -66,7 +66,9 @@ name|ignore
 parameter_list|)
 block|{          }
 return|return
-literal|""
+literal|"Greet "
+operator|+
+name|hi
 return|;
 block|}
 block|}

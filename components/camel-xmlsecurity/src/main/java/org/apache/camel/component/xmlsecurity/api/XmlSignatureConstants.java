@@ -75,6 +75,24 @@ name|HEADER_CONTENT_REFERENCE_TYPE
 init|=
 literal|"CamelXmlSignatureContentReferenceType"
 decl_stmt|;
+DECL|field|HEADER_SCHEMA_RESOURCE_URI
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_SCHEMA_RESOURCE_URI
+init|=
+literal|"CamelXmlSignatureSchemaResourceUri"
+decl_stmt|;
+DECL|field|HEADER_XPATHS_TO_ID_ATTRIBUTES
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_XPATHS_TO_ID_ATTRIBUTES
+init|=
+literal|"CamelXmlSignatureXpathsToIdAttributes"
+decl_stmt|;
 DECL|method|XmlSignatureConstants ()
 specifier|private
 name|XmlSignatureConstants

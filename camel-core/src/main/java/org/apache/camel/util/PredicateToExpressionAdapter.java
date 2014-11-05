@@ -52,6 +52,10 @@ name|Predicate
 import|;
 end_import
 
+begin_comment
+comment|/**  * To adapt {@link Predicate} as an {@link org.apache.camel.Expression}  */
+end_comment
+
 begin_class
 DECL|class|PredicateToExpressionAdapter
 specifier|public

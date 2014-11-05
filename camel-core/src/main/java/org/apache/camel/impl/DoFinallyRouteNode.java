@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * {@link org.apache.camel.RouteNode} representing do finally.  *  * @version   */
 end_comment
 
 begin_class

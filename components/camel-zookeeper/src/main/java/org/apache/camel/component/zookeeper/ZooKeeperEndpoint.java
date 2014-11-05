@@ -138,6 +138,34 @@ name|DefaultEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
 begin_comment
 comment|/**  *<code>ZooKeeperEndpoint</code>  */
 end_comment
@@ -150,6 +178,19 @@ name|description
 operator|=
 literal|"ZooKeeper Endpoint"
 argument_list|)
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"zookeeper"
+argument_list|,
+name|consumerClass
+operator|=
+name|ZooKeeperConsumer
+operator|.
+name|class
+argument_list|)
 DECL|class|ZooKeeperEndpoint
 specifier|public
 class|class
@@ -157,6 +198,8 @@ name|ZooKeeperEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
+annotation|@
+name|UriParam
 DECL|field|configuration
 specifier|private
 name|ZooKeeperConfiguration

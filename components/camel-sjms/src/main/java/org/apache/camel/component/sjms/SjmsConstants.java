@@ -18,10 +18,6 @@ name|sjms
 package|;
 end_package
 
-begin_comment
-comment|/**  * TODO Add Class documentation for SjmsConstants  */
-end_comment
-
 begin_class
 DECL|class|SjmsConstants
 specifier|public

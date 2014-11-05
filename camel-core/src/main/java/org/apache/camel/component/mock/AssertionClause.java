@@ -681,6 +681,8 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|onNewPredicate (Predicate predicate)
 specifier|protected
 name|Predicate
@@ -706,6 +708,25 @@ argument_list|)
 expr_stmt|;
 return|return
 name|predicate
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|onNewValueBuilder (Expression exp)
+specifier|protected
+name|ValueBuilder
+name|onNewValueBuilder
+parameter_list|(
+name|Expression
+name|exp
+parameter_list|)
+block|{
+return|return
+operator|new
+name|PredicateValueBuilder
+argument_list|(
+name|exp
+argument_list|)
 return|;
 block|}
 block|}

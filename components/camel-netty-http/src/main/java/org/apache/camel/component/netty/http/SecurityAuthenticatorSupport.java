@@ -288,6 +288,9 @@ return|;
 block|}
 comment|// check each role class name if they match the principal class name
 name|Iterator
+argument_list|<
+name|Object
+argument_list|>
 name|it
 init|=
 name|ObjectHelper

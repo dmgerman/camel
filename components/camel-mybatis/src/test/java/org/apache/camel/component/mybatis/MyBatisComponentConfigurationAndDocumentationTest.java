@@ -208,7 +208,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"maxMessagesPerPoll\": { \"type\": \"int\" }"
+literal|"\"maxMessagesPerPoll\": { \"type\": \"integer\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -218,7 +218,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"statement\": { \"type\": \"java.lang.String\" }"
+literal|"\"statement\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -252,7 +252,7 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Should have found some auto-generated HTML if on Java 7"
+literal|"Should have found some auto-generated HTML"
 argument_list|,
 name|html
 argument_list|)

@@ -269,6 +269,13 @@ name|orderedThreadPoolExecutor
 init|=
 literal|true
 decl_stmt|;
+DECL|field|cachedAddress
+specifier|private
+name|boolean
+name|cachedAddress
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
 specifier|public
@@ -971,6 +978,32 @@ name|orderedThreadPoolExecutor
 operator|=
 name|orderedThreadPoolExecutor
 expr_stmt|;
+block|}
+DECL|method|setCachedAddress (boolean shouldCacheAddress)
+specifier|public
+name|void
+name|setCachedAddress
+parameter_list|(
+name|boolean
+name|shouldCacheAddress
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cachedAddress
+operator|=
+name|shouldCacheAddress
+expr_stmt|;
+block|}
+DECL|method|isCachedAddress ()
+specifier|public
+name|boolean
+name|isCachedAddress
+parameter_list|()
+block|{
+return|return
+name|cachedAddress
+return|;
 block|}
 comment|// here we just shows the option setting of host, port, protocol
 DECL|method|getUriString ()

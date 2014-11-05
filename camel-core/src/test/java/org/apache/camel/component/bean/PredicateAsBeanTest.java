@@ -327,34 +327,6 @@ argument_list|)
 operator|)
 return|;
 block|}
-DECL|method|assertMatches (String text, Exchange exchange)
-specifier|public
-name|void
-name|assertMatches
-parameter_list|(
-name|String
-name|text
-parameter_list|,
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|AssertionError
-block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"assertMatches(text, exchange) called with: "
-operator|+
-name|text
-operator|+
-literal|", "
-operator|+
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 end_class

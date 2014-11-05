@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|security
+operator|.
+name|SecureRandom
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Random
+import|;
+end_import
+
+begin_import
+import|import
 name|ca
 operator|.
 name|uhn
@@ -380,9 +400,6 @@ expr_stmt|;
 name|String
 name|out
 init|=
-operator|(
-name|String
-operator|)
 name|template
 operator|.
 name|requestBody
@@ -398,6 +415,10 @@ name|in
 operator|.
 name|toString
 argument_list|()
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|String
@@ -480,7 +501,7 @@ expr_stmt|;
 name|String
 name|line1
 init|=
-literal|"MSH|^~\\&|MYSENDER|MYSENDERAPP|MYCLIENT|MYCLIENTAPP|200612211200||ADT^A01|1234|P|2.4"
+literal|"MSH|^~\\&|MYSENDER|MYSENDERAPP|MYCLIENT|MYCLIENTAPP|200612211200||ADT^A01|123|P|2.4"
 decl_stmt|;
 name|String
 name|line2
@@ -518,9 +539,6 @@ expr_stmt|;
 name|String
 name|out
 init|=
-operator|(
-name|String
-operator|)
 name|template
 operator|.
 name|requestBody
@@ -536,6 +554,10 @@ name|in
 operator|.
 name|toString
 argument_list|()
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|String
@@ -561,7 +583,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"PID|||123456||Doe^John"
+literal|"PID|||123||Doe^John"
 argument_list|,
 name|lines
 index|[
@@ -863,7 +885,23 @@ expr_stmt|;
 comment|// just return the same dummy response
 return|return
 name|createADT01Message
+argument_list|(
+operator|(
+operator|(
+name|ADT_A01
+operator|)
+name|msg
+operator|)
+operator|.
+name|getMSH
 argument_list|()
+operator|.
+name|getMessageControlID
+argument_list|()
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
 return|;
 block|}
 block|}
@@ -1032,12 +1070,15 @@ name|getMessage
 argument_list|()
 return|;
 block|}
-DECL|method|createADT01Message ()
+DECL|method|createADT01Message (String msgId)
 specifier|private
 specifier|static
 name|Message
 name|createADT01Message
-parameter_list|()
+parameter_list|(
+name|String
+name|msgId
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -1193,7 +1234,7 @@ argument_list|()
 operator|.
 name|setValue
 argument_list|(
-literal|"123456"
+name|msgId
 argument_list|)
 expr_stmt|;
 return|return

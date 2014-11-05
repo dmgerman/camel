@@ -26,6 +26,34 @@ name|apache
 operator|.
 name|cxf
 operator|.
+name|endpoint
+operator|.
+name|Client
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|endpoint
+operator|.
+name|Server
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
 name|frontend
 operator|.
 name|AbstractWSDLBasedEndpointFactory
@@ -42,12 +70,31 @@ specifier|public
 interface|interface
 name|CxfEndpointConfigurer
 block|{
+comment|/**      * Configure the CXF Server/Client factory bean      * @param factoryBean      */
 DECL|method|configure (AbstractWSDLBasedEndpointFactory factoryBean)
 name|void
 name|configure
 parameter_list|(
 name|AbstractWSDLBasedEndpointFactory
 name|factoryBean
+parameter_list|)
+function_decl|;
+comment|/**      * Configure the CXF Client such as setting some parameters on the client conduit       *      * @param client the CXF client      */
+DECL|method|configureClient (Client client)
+name|void
+name|configureClient
+parameter_list|(
+name|Client
+name|client
+parameter_list|)
+function_decl|;
+comment|/**      * Configure the CXF Server such as setting some parameters on the server destination       *      * @param server the CXF server      */
+DECL|method|configureServer (Server server)
+name|void
+name|configureServer
+parameter_list|(
+name|Server
+name|server
 parameter_list|)
 function_decl|;
 block|}

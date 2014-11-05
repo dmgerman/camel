@@ -110,6 +110,10 @@ name|IOHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * GZip {@link org.apache.camel.spi.DataFormat} for reading/writing data using gzip.  */
+end_comment
+
 begin_class
 DECL|class|GzipDataFormat
 specifier|public

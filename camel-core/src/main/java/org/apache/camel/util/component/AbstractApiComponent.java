@@ -1241,6 +1241,9 @@ try|try
 block|{
 specifier|final
 name|List
+argument_list|<
+name|Object
+argument_list|>
 name|arguments
 init|=
 name|helper

@@ -143,6 +143,8 @@ block|{
 comment|// ignore
 block|}
 comment|// trigger timeout
+try|try
+block|{
 name|value
 operator|.
 name|onTimeout
@@ -150,6 +152,35 @@ argument_list|(
 name|key
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// must ignore so we ensure we evict the element
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Error processing onTimeout for correlationID: "
+operator|+
+name|key
+operator|+
+literal|" due: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|". This exception is ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 comment|// return true to remove the element
 name|log
 operator|.

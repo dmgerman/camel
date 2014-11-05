@@ -499,12 +499,9 @@ argument_list|()
 decl_stmt|;
 name|connectionFactory
 operator|=
-operator|(
-name|PooledConnectionFactory
-operator|)
 name|CamelJmsTestHelper
 operator|.
-name|createConnectionFactory
+name|createPooledConnectionFactory
 argument_list|()
 expr_stmt|;
 name|camelContext

@@ -154,6 +154,22 @@ name|component
 operator|.
 name|sjms
 operator|.
+name|MessageProducerResources
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sjms
+operator|.
 name|SjmsProducer
 import|;
 end_import
@@ -414,12 +430,9 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Unable to create the MessageProducer: "
-operator|+
+literal|"Unable to create the MessageProducer"
+argument_list|,
 name|e
-operator|.
-name|getLocalizedMessage
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -449,7 +462,7 @@ block|}
 comment|/*      * @see      * org.apache.camel.component.sjms.SjmsProducer#sendMessage(org.apache.camel.Exchange, org.apache.camel.AsyncCallback)      * @param exchange      * @param callback      * @throws Exception      */
 annotation|@
 name|Override
-DECL|method|sendMessage (final Exchange exchange, final AsyncCallback callback)
+DECL|method|sendMessage (final Exchange exchange, final AsyncCallback callback, final MessageProducerResources producer)
 specifier|public
 name|void
 name|sendMessage
@@ -461,9 +474,15 @@ parameter_list|,
 specifier|final
 name|AsyncCallback
 name|callback
+parameter_list|,
+specifier|final
+name|MessageProducerResources
+name|producer
 parameter_list|)
 throws|throws
 name|Exception
+block|{
+try|try
 block|{
 name|Collection
 argument_list|<
@@ -480,24 +499,6 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
-name|MessageProducerResources
-name|producer
-init|=
-name|getProducers
-argument_list|()
-operator|.
-name|borrowObject
-argument_list|()
-decl_stmt|;
-try|try
-block|{
-if|if
-condition|(
-name|producer
-operator|!=
-literal|null
-condition|)
-block|{
 if|if
 condition|(
 name|exchange
@@ -752,21 +753,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-else|else
-block|{
-name|exchange
-operator|.
-name|setException
-argument_list|(
-operator|new
-name|Exception
-argument_list|(
-literal|"Unable to send message: connection not available"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 catch|catch
 parameter_list|(
 name|Exception
@@ -781,11 +767,8 @@ operator|new
 name|Exception
 argument_list|(
 literal|"Unable to complete sending the message: "
-operator|+
+argument_list|,
 name|e
-operator|.
-name|getLocalizedMessage
-argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -94,6 +94,22 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|crypto
+operator|.
+name|dsig
+operator|.
+name|spec
+operator|.
+name|XPathFilterParameterSpec
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -290,7 +306,13 @@ specifier|private
 name|String
 name|contentObjectId
 decl_stmt|;
-comment|/**      * The URI of the content reference. If<code>null</code> then the URI will      * be set to "" in the enveloped XML signature case or set to "#[object_id]"      * in the enveloping XML signature case. This value can be overwritten by      * the header {@link XmlSignatureConstants#HEADER_CONTENT_REFERENCE_URI}.      */
+comment|// default value is null so that a unique ID is generated.
+DECL|field|signatureId
+specifier|private
+name|String
+name|signatureId
+decl_stmt|;
+comment|/**      * The URI of the content reference. This value can be overwritten by the      * header {@link XmlSignatureConstants#HEADER_CONTENT_REFERENCE_URI}. Can      * only be used in connection with the enveloped case when you specify a      * schema (see {@link #setSchemaResourceUri(String)}. Will be ignored in the      * enveloping and detached case.      */
 DECL|field|contentReferenceUri
 specifier|private
 name|String
@@ -334,6 +356,24 @@ DECL|field|properties
 specifier|private
 name|XmlSignatureProperties
 name|properties
+decl_stmt|;
+DECL|field|xpathsToIdAttributes
+specifier|private
+name|List
+argument_list|<
+name|XPathFilterParameterSpec
+argument_list|>
+name|xpathsToIdAttributes
+init|=
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+decl_stmt|;
+DECL|field|parentXpath
+specifier|private
+name|XPathFilterParameterSpec
+name|parentXpath
 decl_stmt|;
 comment|/* references that should be resolved when the context changes */
 DECL|field|keyAccessorName
@@ -741,7 +781,7 @@ return|return
 name|signatureAlgorithm
 return|;
 block|}
-comment|/**      * Signature algorithm. Default value is      * "http://www.w3.org/2000/09/xmldsig#rsa-sha1".      *       * @param signatureAlgorithm signature algorithm      */
+comment|/**      * Signature algorithm. Default value is      * "http://www.w3.org/2000/09/xmldsig#rsa-sha1".      *       * @param signatureAlgorithm      *            signature algorithm      */
 DECL|method|setSignatureAlgorithm (String signatureAlgorithm)
 specifier|public
 name|void
@@ -794,7 +834,7 @@ return|return
 name|addKeyInfoReference
 return|;
 block|}
-comment|/**      * In order to protect the KeyInfo element from tampering you can add a      * reference to the signed info element so that it is protected via the      * signature value. The default value is<tt>true</tt>.      *<p>      * Only relevant when a KeyInfo is returned by {@link KeyAccessor}. and      * {@link KeyInfo#getId()} is not<code>null</code>.      *       * @param addKeyInfoReference boolean value      */
+comment|/**      * In order to protect the KeyInfo element from tampering you can add a      * reference to the signed info element so that it is protected via the      * signature value. The default value is<tt>true</tt>.      *<p>      * Only relevant when a KeyInfo is returned by {@link KeyAccessor}. and      * {@link KeyInfo#getId()} is not<code>null</code>.      *       * @param addKeyInfoReference      *            boolean value      */
 DECL|method|setAddKeyInfoReference (Boolean addKeyInfoReference)
 specifier|public
 name|void
@@ -821,7 +861,7 @@ return|return
 name|prefixForXmlSignatureNamespace
 return|;
 block|}
-comment|/**      * Namespace prefix for the XML signature namespace      * "http://www.w3.org/2000/09/xmldsig#". Default value is "ds".      *       * If<code>null</code> or an empty value is set then no prefix is used for      * the XML signature namespace.      *<p>      * See best practice      * http://www.w3.org/TR/xmldsig-bestpractices/#signing-xml-      * without-namespaces      *       * @param prefixForXmlSignatureNamespace prefix      */
+comment|/**      * Namespace prefix for the XML signature namespace      * "http://www.w3.org/2000/09/xmldsig#". Default value is "ds".      *       * If<code>null</code> or an empty value is set then no prefix is used for      * the XML signature namespace.      *<p>      * See best practice      * http://www.w3.org/TR/xmldsig-bestpractices/#signing-xml-      * without-namespaces      *       * @param prefixForXmlSignatureNamespace      *            prefix      */
 DECL|method|setPrefixForXmlSignatureNamespace (String prefixForXmlSignatureNamespace)
 specifier|public
 name|void
@@ -848,7 +888,7 @@ return|return
 name|parentLocalName
 return|;
 block|}
-comment|/**      * Local name of the parent element to which the XML signature element will      * be added. Only relevant for enveloped XML signature. Default value is      *<code>null</code>. The value must be<code>null</code> for enveloping XML      * signature.      *       * @param parentLocalName local name      */
+comment|/**      * Local name of the parent element to which the XML signature element will      * be added. Only relevant for enveloped XML signature. Alternatively you can       * also use {@link #setParentXpath(XPathFilterParameterSpec)}.      *       *<p> Default value is      *<code>null</code>. The value must be<code>null</code> for enveloping and      * detached XML signature.      *<p>      * This parameter or the parameter {@link #setParentXpath(XPathFilterParameterSpec)}      * for enveloped signature and the parameter {@link #setXpathsToIdAttributes(List)}       * for detached signature must not be set in the same configuration.      *<p>      * If the parameters<tt>parentXpath</tt> and<tt>parentLocalName</tt> are specified      * in the same configuration then an exception is thrown.      *       * @param parentLocalName      *            local name      */
 DECL|method|setParentLocalName (String parentLocalName)
 specifier|public
 name|void
@@ -905,6 +945,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// content object ID must always be set, because it is only used in enveloping case.
 name|contentObjectId
 operator|=
 literal|"_"
@@ -922,6 +963,7 @@ return|return
 name|contentObjectId
 return|;
 block|}
+comment|/**      * Sets the content object Id attribute value. By default a UUID is      * generated. If you set the<code>null</code> value, then a new UUID will      * be generated. Only used in the enveloping case.      *       * @param contentObjectId      */
 DECL|method|setContentObjectId (String contentObjectId)
 specifier|public
 name|void
@@ -938,6 +980,33 @@ operator|=
 name|contentObjectId
 expr_stmt|;
 block|}
+DECL|method|getSignatureId ()
+specifier|public
+name|String
+name|getSignatureId
+parameter_list|()
+block|{
+return|return
+name|signatureId
+return|;
+block|}
+comment|/**      * Sets the signature Id. If this parameter is not set (null value) then a      * unique ID is generated for the signature ID (default). If this parameter      * is set to "" (empty string) then no Id attribute is created in the      * signature element.      *       * @param signatureId      */
+DECL|method|setSignatureId (String signatureId)
+specifier|public
+name|void
+name|setSignatureId
+parameter_list|(
+name|String
+name|signatureId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|signatureId
+operator|=
+name|signatureId
+expr_stmt|;
+block|}
 DECL|method|getContentReferenceUri ()
 specifier|public
 name|String
@@ -948,6 +1017,7 @@ return|return
 name|contentReferenceUri
 return|;
 block|}
+comment|/**      * Reference URI for the content to be signed. Only used in the enveloped      * case. If the reference URI contains an ID attribute value, then the      * resource schema URI ( {@link #setSchemaResourceUri(String)}) must also be      * set because the schema validator will then find out which attributes are      * ID attributes. Will be ignored in the enveloping or detached case.      *       * @param referenceUri      */
 DECL|method|setContentReferenceUri (String referenceUri)
 specifier|public
 name|void
@@ -1239,6 +1309,91 @@ operator|.
 name|propertiesName
 operator|=
 name|propertiesName
+expr_stmt|;
+block|}
+DECL|method|getXpathsToIdAttributes ()
+specifier|public
+name|List
+argument_list|<
+name|XPathFilterParameterSpec
+argument_list|>
+name|getXpathsToIdAttributes
+parameter_list|()
+block|{
+return|return
+name|xpathsToIdAttributes
+return|;
+block|}
+comment|/**      * Define the elements which are signed in the detached case via XPATH      * expressions to ID attributes (attributes of type ID). For each element      * found via the XPATH expression a detached signature is created whose      * reference URI contains the corresponding attribute value (preceded by      * '#'). The signature becomes the last sibling of the signed element.      * Elements with deeper hierarchy level are signed first.      *<p>      * You can also set the XPATH list dynamically via the header      * {@link XmlSignatureConstants#HEADER_XPATHS_TO_ID_ATTRIBUTES}.      *<p>      * The parameter {@link #setParentLocalName(String)} or {@link #setParentXpath(XPathFilterParameterSpec)}      * for enveloped signature and this parameter for detached signature must not      * be set in the same configuration.      *       * @param xpathsToIdAttributes      */
+DECL|method|setXpathsToIdAttributes (List<XPathFilterParameterSpec> xpathsToIdAttributes)
+specifier|public
+name|void
+name|setXpathsToIdAttributes
+parameter_list|(
+name|List
+argument_list|<
+name|XPathFilterParameterSpec
+argument_list|>
+name|xpathsToIdAttributes
+parameter_list|)
+block|{
+if|if
+condition|(
+name|xpathsToIdAttributes
+operator|==
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|xpathsToIdAttributes
+operator|=
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|this
+operator|.
+name|xpathsToIdAttributes
+operator|=
+name|Collections
+operator|.
+name|unmodifiableList
+argument_list|(
+name|xpathsToIdAttributes
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|getParentXpath ()
+specifier|public
+name|XPathFilterParameterSpec
+name|getParentXpath
+parameter_list|()
+block|{
+return|return
+name|parentXpath
+return|;
+block|}
+comment|/** Sets the XPath to find the parent node in the enveloped case.       * Either you specify the parent node via this method or the local name and namespace of the parent       * with the methods {@link #setParentLocalName(String)} and {@link #setParentNamespace(String)}.       *<p>      * Default value is<code>null</code>. The value must be<code>null</code> for enveloping and      * detached XML signature.      *<p>      * If the parameters<tt>parentXpath</tt> and<tt>parentLocalName</tt> are specified      * in the same configuration then an exception is thrown.      *       * @param parentXpath xpath to the parent node, if the xpath returns several values then the first Element node is used      */
+DECL|method|setParentXpath (XPathFilterParameterSpec parentXpath)
+specifier|public
+name|void
+name|setParentXpath
+parameter_list|(
+name|XPathFilterParameterSpec
+name|parentXpath
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parentXpath
+operator|=
+name|parentXpath
 expr_stmt|;
 block|}
 block|}

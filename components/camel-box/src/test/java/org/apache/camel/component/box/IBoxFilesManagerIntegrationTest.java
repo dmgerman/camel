@@ -764,10 +764,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testDownloadFile_1 ()
+DECL|method|testDownloadFile1 ()
 specifier|public
 name|void
-name|testDownloadFile_1
+name|testDownloadFile1
 parameter_list|()
 throws|throws
 name|Exception
@@ -923,10 +923,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testDownloadFile_2 ()
+DECL|method|testDownloadFile2 ()
 specifier|public
 name|void
-name|testDownloadFile_2
+name|testDownloadFile2
 parameter_list|()
 throws|throws
 name|Exception

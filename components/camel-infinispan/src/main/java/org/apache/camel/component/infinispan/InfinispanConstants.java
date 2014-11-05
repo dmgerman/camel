@@ -20,6 +20,7 @@ end_package
 
 begin_interface
 DECL|interface|InfinispanConstants
+specifier|public
 interface|interface
 name|InfinispanConstants
 block|{

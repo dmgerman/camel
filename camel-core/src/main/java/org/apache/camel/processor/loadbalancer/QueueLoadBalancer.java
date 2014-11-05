@@ -138,7 +138,9 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
+name|Exception
+name|e
+init|=
 operator|new
 name|IllegalStateException
 argument_list|(
@@ -146,7 +148,14 @@ literal|"No processors could be chosen to process "
 operator|+
 name|exchange
 argument_list|)
-throw|;
+decl_stmt|;
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{

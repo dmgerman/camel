@@ -56,6 +56,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|osgi
 operator|.
 name|service
@@ -96,10 +110,13 @@ specifier|private
 name|String
 name|alias
 decl_stmt|;
+comment|/**      * The servlet name.      */
 DECL|field|servletName
 specifier|private
 name|String
 name|servletName
+init|=
+literal|"CamelServlet"
 decl_stmt|;
 comment|/**      * Servlet to be registered      */
 DECL|field|servlet
@@ -107,7 +124,7 @@ specifier|private
 name|HttpServlet
 name|servlet
 decl_stmt|;
-comment|/**      * HttpService to register with. Get this with osgi:reference in the spring      * context      */
+comment|/**      * HttpService to register with. Get this with osgi:reference in the blueprint/spring-dm file      */
 DECL|field|httpService
 specifier|private
 name|HttpService
@@ -122,6 +139,15 @@ DECL|field|alreadyRegistered
 specifier|private
 name|boolean
 name|alreadyRegistered
+decl_stmt|;
+comment|// The servlet will default have to match on uri prefix as some endpoints may do so
+DECL|field|matchOnUriPrefix
+specifier|private
+specifier|volatile
+name|boolean
+name|matchOnUriPrefix
+init|=
+literal|true
 decl_stmt|;
 DECL|method|setHttpService (HttpService httpService)
 specifier|public
@@ -203,6 +229,22 @@ operator|=
 name|httpContext
 expr_stmt|;
 block|}
+DECL|method|setMatchOnUriPrefix (boolean matchOnUriPrefix)
+specifier|public
+name|void
+name|setMatchOnUriPrefix
+parameter_list|(
+name|boolean
+name|matchOnUriPrefix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|matchOnUriPrefix
+operator|=
+name|matchOnUriPrefix
+expr_stmt|;
+block|}
 DECL|method|register ()
 specifier|public
 name|void
@@ -211,6 +253,28 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notEmpty
+argument_list|(
+name|alias
+argument_list|,
+literal|"alias"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notEmpty
+argument_list|(
+name|servletName
+argument_list|,
+literal|"servletName"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 name|HttpContext
 name|actualHttpContext
 init|=
@@ -245,14 +309,17 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// The servlet will always have to match on uri prefix as some endpoints may do so
 name|initParams
 operator|.
 name|put
 argument_list|(
 literal|"matchOnUriPrefix"
 argument_list|,
+name|matchOnUriPrefix
+condition|?
 literal|"true"
+else|:
+literal|"false"
 argument_list|)
 expr_stmt|;
 name|initParams

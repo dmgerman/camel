@@ -118,7 +118,7 @@ name|ExpressionAdapter
 block|{
 DECL|field|acknowledgementCode
 specifier|private
-name|AckCode
+name|AcknowledgmentCode
 name|acknowledgementCode
 decl_stmt|;
 DECL|field|errorMessage
@@ -138,6 +138,9 @@ parameter_list|()
 block|{
 name|this
 argument_list|(
+operator|(
+name|AcknowledgmentCode
+operator|)
 literal|null
 argument_list|,
 literal|null
@@ -148,6 +151,9 @@ name|APPLICATION_INTERNAL_ERROR
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @deprecated use {@link #AckExpression(ca.uhn.hl7v2.AcknowledgmentCode)}      */
+annotation|@
+name|Deprecated
 DECL|method|AckExpression (AckCode acknowledgementCode)
 specifier|public
 name|AckExpression
@@ -159,16 +165,13 @@ block|{
 name|this
 argument_list|(
 name|acknowledgementCode
-argument_list|,
-literal|null
-argument_list|,
-name|ErrorCode
 operator|.
-name|APPLICATION_INTERNAL_ERROR
+name|toAcknowledgmentCode
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @deprecated Use {@link #AckExpression(AckCode, String, ErrorCode)}      */
+comment|/**      * @deprecated Use {@link #AckExpression(AcknowledgmentCode, String, ErrorCode)}      */
 annotation|@
 name|Deprecated
 DECL|method|AckExpression (AckCode acknowledgementCode, String errorMessage, int errorCode)
@@ -200,11 +203,61 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @deprecated Use {@link #AckExpression(AcknowledgmentCode, String, ErrorCode)}      */
+annotation|@
+name|Deprecated
 DECL|method|AckExpression (AckCode acknowledgementCode, String errorMessage, ErrorCode errorCode)
 specifier|public
 name|AckExpression
 parameter_list|(
 name|AckCode
+name|acknowledgementCode
+parameter_list|,
+name|String
+name|errorMessage
+parameter_list|,
+name|ErrorCode
+name|errorCode
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|acknowledgementCode
+operator|.
+name|toAcknowledgmentCode
+argument_list|()
+argument_list|,
+name|errorMessage
+argument_list|,
+name|errorCode
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|AckExpression (AcknowledgmentCode acknowledgementCode)
+specifier|public
+name|AckExpression
+parameter_list|(
+name|AcknowledgmentCode
+name|acknowledgementCode
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|acknowledgementCode
+argument_list|,
+literal|null
+argument_list|,
+name|ErrorCode
+operator|.
+name|APPLICATION_INTERNAL_ERROR
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|AckExpression (AcknowledgmentCode acknowledgementCode, String errorMessage, ErrorCode errorCode)
+specifier|public
+name|AckExpression
+parameter_list|(
+name|AcknowledgmentCode
 name|acknowledgementCode
 parameter_list|,
 name|String
@@ -285,7 +338,7 @@ argument_list|(
 name|t
 argument_list|)
 decl_stmt|;
-name|AckCode
+name|AcknowledgmentCode
 name|code
 init|=
 name|acknowledgementCode
@@ -303,7 +356,7 @@ condition|)
 block|{
 name|code
 operator|=
-name|AckCode
+name|AcknowledgmentCode
 operator|.
 name|AE
 expr_stmt|;
@@ -322,9 +375,6 @@ operator|.
 name|AA
 else|:
 name|code
-operator|.
-name|toAcknowledgmentCode
-argument_list|()
 argument_list|,
 name|hl7e
 argument_list|)
@@ -373,10 +423,11 @@ name|acknowledgementCode
 operator|!=
 literal|null
 operator|&&
+operator|!
+name|isSuccess
+argument_list|(
 name|acknowledgementCode
-operator|.
-name|isError
-argument_list|()
+argument_list|)
 condition|)
 block|{
 name|hl7Exception
@@ -435,6 +486,27 @@ block|}
 block|}
 return|return
 name|hl7Exception
+return|;
+block|}
+DECL|method|isSuccess (AcknowledgmentCode code)
+specifier|private
+name|boolean
+name|isSuccess
+parameter_list|(
+name|AcknowledgmentCode
+name|code
+parameter_list|)
+block|{
+return|return
+name|code
+operator|.
+name|name
+argument_list|()
+operator|.
+name|endsWith
+argument_list|(
+literal|"A"
+argument_list|)
 return|;
 block|}
 block|}

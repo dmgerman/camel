@@ -484,7 +484,6 @@ specifier|private
 name|String
 name|responseText
 decl_stmt|;
-comment|/**          * TODO Add Constructor Javadoc          *          * @param request          * @param response          */
 DECL|method|MyMessageListener (String request, String response)
 specifier|public
 name|MyMessageListener

@@ -62,22 +62,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|http
-operator|.
-name|HttpComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
@@ -227,7 +211,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"servletName\": { \"type\": \"java.lang.String\" }"
+literal|"\"servletName\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -271,7 +255,7 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Should have found some auto-generated HTML if on Java 7"
+literal|"Should have found some auto-generated HTML"
 argument_list|,
 name|html
 argument_list|)

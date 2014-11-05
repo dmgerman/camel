@@ -42,13 +42,11 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|java
 operator|.
-name|net
+name|security
 operator|.
-name|ssl
-operator|.
-name|SSLContext
+name|GeneralSecurityException
 import|;
 end_import
 
@@ -268,6 +266,22 @@ name|ResourceHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
 begin_class
 DECL|class|ApnsServiceFactory
 specifier|public
@@ -328,10 +342,10 @@ specifier|private
 name|ReconnectionPolicy
 name|reconnectionPolicy
 decl_stmt|;
-DECL|field|sslContext
+DECL|field|sslContextParameters
 specifier|private
-name|SSLContext
-name|sslContext
+name|SSLContextParameters
+name|sslContextParameters
 decl_stmt|;
 DECL|field|poolSize
 specifier|private
@@ -681,30 +695,30 @@ operator|=
 name|connectionStrategy
 expr_stmt|;
 block|}
-DECL|method|getSslContext ()
+DECL|method|getSslContextParameters ()
 specifier|public
-name|SSLContext
-name|getSslContext
+name|SSLContextParameters
+name|getSslContextParameters
 parameter_list|()
 block|{
 return|return
-name|sslContext
+name|sslContextParameters
 return|;
 block|}
-DECL|method|setSslContext (SSLContext sslContext)
+DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
-name|setSslContext
+name|setSslContextParameters
 parameter_list|(
-name|SSLContext
-name|sslContext
+name|SSLContextParameters
+name|sslContextParameters
 parameter_list|)
 block|{
 name|this
 operator|.
-name|sslContext
+name|sslContextParameters
 operator|=
-name|sslContext
+name|sslContextParameters
 expr_stmt|;
 block|}
 DECL|method|getApnsDelegate ()
@@ -797,6 +811,21 @@ name|e
 argument_list|)
 throw|;
 block|}
+catch|catch
+parameter_list|(
+name|GeneralSecurityException
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 name|ApnsService
 name|apnsService
 init|=
@@ -832,10 +861,12 @@ name|builder
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|GeneralSecurityException
 block|{
 if|if
 condition|(
-name|getSslContext
+name|getSslContextParameters
 argument_list|()
 operator|!=
 literal|null
@@ -845,7 +876,10 @@ name|builder
 operator|.
 name|withSSLContext
 argument_list|(
-name|getSslContext
+name|getSslContextParameters
+argument_list|()
+operator|.
+name|createSSLContext
 argument_list|()
 argument_list|)
 expr_stmt|;

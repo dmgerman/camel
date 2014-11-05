@@ -133,6 +133,8 @@ comment|/**  * A<a href="http://www.graphviz.org/">DOT</a> file creator plugin w
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|RouteDotGenerator
 specifier|public
 class|class

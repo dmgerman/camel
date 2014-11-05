@@ -669,11 +669,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|poll (long streamPosition, final String streamType, final int limit, final EventCallback callback)
 specifier|public
 name|void

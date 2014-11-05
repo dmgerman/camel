@@ -298,6 +298,25 @@ return|;
 block|}
 annotation|@
 name|Converter
+DECL|method|toCharacter (String value)
+specifier|public
+specifier|static
+name|Character
+name|toCharacter
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+return|return
+name|toChar
+argument_list|(
+name|value
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Converter
 DECL|method|toChar (String value)
 specifier|public
 specifier|static

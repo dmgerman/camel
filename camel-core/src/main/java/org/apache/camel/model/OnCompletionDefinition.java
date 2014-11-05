@@ -288,6 +288,13 @@ argument_list|>
 block|{
 annotation|@
 name|XmlAttribute
+DECL|field|mode
+specifier|private
+name|OnCompletionMode
+name|mode
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|onCompleteOnly
 specifier|private
 name|Boolean
@@ -311,6 +318,13 @@ DECL|field|onWhen
 specifier|private
 name|WhenDefinition
 name|onWhen
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|parallelProcessing
+specifier|private
+name|Boolean
+name|parallelProcessing
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -667,7 +681,6 @@ name|routeContext
 argument_list|)
 expr_stmt|;
 block|}
-comment|// executor service is mandatory for on completion
 name|boolean
 name|shutdownThreadPool
 init|=
@@ -679,7 +692,8 @@ name|routeContext
 argument_list|,
 name|this
 argument_list|,
-literal|true
+name|isParallelProcessing
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|ExecutorService
@@ -695,8 +709,23 @@ literal|"OnCompletion"
 argument_list|,
 name|this
 argument_list|,
-literal|true
+name|isParallelProcessing
+argument_list|()
 argument_list|)
+decl_stmt|;
+comment|// should be after consumer by default
+name|boolean
+name|afterConsumer
+init|=
+name|mode
+operator|==
+literal|null
+operator|||
+name|mode
+operator|==
+name|OnCompletionMode
+operator|.
+name|AfterConsumer
 decl_stmt|;
 comment|// should be false by default
 name|boolean
@@ -738,6 +767,8 @@ argument_list|,
 name|when
 argument_list|,
 name|original
+argument_list|,
+name|afterConsumer
 argument_list|)
 decl_stmt|;
 return|return
@@ -832,6 +863,42 @@ name|super
 operator|.
 name|end
 argument_list|()
+return|;
+block|}
+comment|/**      * Sets the mode to be after route is done (default due backwards compatible).      *<p/>      * This executes the on completion work<i>after</i> the route consumer have written response      * back to the callee (if its InOut mode).      *      * @return the builder      */
+DECL|method|modeAfterConsumer ()
+specifier|public
+name|OnCompletionDefinition
+name|modeAfterConsumer
+parameter_list|()
+block|{
+name|setMode
+argument_list|(
+name|OnCompletionMode
+operator|.
+name|AfterConsumer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the mode to be before consumer is done.      *<p/>      * This allows the on completion work to execute<i>before</i> the route consumer, writes any response      * back to the callee (if its InOut mode).      *      * @return the builder      */
+DECL|method|modeBeforeConsumer ()
+specifier|public
+name|OnCompletionDefinition
+name|modeBeforeConsumer
+parameter_list|()
+block|{
+name|setMode
+argument_list|(
+name|OnCompletionMode
+operator|.
+name|BeforeConsumer
+argument_list|)
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
 comment|/**      * Will only synchronize when the {@link org.apache.camel.Exchange} completed successfully (no errors).      *      * @return the builder      */
@@ -997,6 +1064,22 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Doing the on completion work in parallel      *      * @return the builder      */
+DECL|method|parallelProcessing ()
+specifier|public
+name|OnCompletionDefinition
+name|parallelProcessing
+parameter_list|()
+block|{
+name|setParallelProcessing
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|getOutputs ()
 specifier|public
 name|List
@@ -1044,6 +1127,32 @@ block|{
 return|return
 literal|true
 return|;
+block|}
+DECL|method|getMode ()
+specifier|public
+name|OnCompletionMode
+name|getMode
+parameter_list|()
+block|{
+return|return
+name|mode
+return|;
+block|}
+DECL|method|setMode (OnCompletionMode mode)
+specifier|public
+name|void
+name|setMode
+parameter_list|(
+name|OnCompletionMode
+name|mode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mode
+operator|=
+name|mode
+expr_stmt|;
 block|}
 DECL|method|getOnCompleteOnly ()
 specifier|public
@@ -1230,6 +1339,46 @@ name|useOriginalMessagePolicy
 operator|=
 name|useOriginalMessagePolicy
 expr_stmt|;
+block|}
+DECL|method|getParallelProcessing ()
+specifier|public
+name|Boolean
+name|getParallelProcessing
+parameter_list|()
+block|{
+return|return
+name|parallelProcessing
+return|;
+block|}
+DECL|method|setParallelProcessing (Boolean parallelProcessing)
+specifier|public
+name|void
+name|setParallelProcessing
+parameter_list|(
+name|Boolean
+name|parallelProcessing
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parallelProcessing
+operator|=
+name|parallelProcessing
+expr_stmt|;
+block|}
+DECL|method|isParallelProcessing ()
+specifier|public
+name|boolean
+name|isParallelProcessing
+parameter_list|()
+block|{
+return|return
+name|parallelProcessing
+operator|!=
+literal|null
+operator|&&
+name|parallelProcessing
+return|;
 block|}
 block|}
 end_class

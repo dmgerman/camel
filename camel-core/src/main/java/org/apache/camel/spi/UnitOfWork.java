@@ -72,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Route
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Service
 import|;
 end_import
@@ -131,6 +143,30 @@ name|done
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|)
+function_decl|;
+comment|/**      * Invoked when this unit of work is about to be routed by the given route.      *      * @param exchange the current exchange      * @param route    the route      */
+DECL|method|beforeRoute (Exchange exchange, Route route)
+name|void
+name|beforeRoute
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Route
+name|route
+parameter_list|)
+function_decl|;
+comment|/**      * Invoked when this unit of work is done being routed by the given route.      *      * @param exchange the current exchange      * @param route    the route      */
+DECL|method|afterRoute (Exchange exchange, Route route)
+name|void
+name|afterRoute
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|Route
+name|route
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the unique ID of this unit of work, lazily creating one if it does not yet have one      *      * @return the unique ID      */

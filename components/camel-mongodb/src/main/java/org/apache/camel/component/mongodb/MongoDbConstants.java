@@ -196,6 +196,15 @@ name|WRITERESULT
 init|=
 literal|"CamelMongoWriteResult"
 decl_stmt|;
+DECL|field|OID
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OID
+init|=
+literal|"CamelMongoOid"
+decl_stmt|;
 DECL|method|MongoDbConstants ()
 specifier|private
 name|MongoDbConstants

@@ -24,7 +24,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|*
+name|Arrays
 import|;
 end_import
 
@@ -61,7 +61,6 @@ argument_list|(
 name|serverToTest
 argument_list|)
 expr_stmt|;
-comment|// TODO Auto-generated constructor stub
 block|}
 annotation|@
 name|Test

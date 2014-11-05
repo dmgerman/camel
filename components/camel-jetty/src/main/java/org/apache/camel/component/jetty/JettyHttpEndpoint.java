@@ -509,7 +509,8 @@ decl_stmt|;
 name|HttpClient
 name|httpClient
 init|=
-name|JettyHttpComponent
+name|getComponent
+argument_list|()
 operator|.
 name|createHttpClient
 argument_list|(

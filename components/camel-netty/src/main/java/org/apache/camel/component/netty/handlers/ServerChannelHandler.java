@@ -247,7 +247,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Client handler which cannot be shared  */
+comment|/**  * Server handler which cannot be shared  */
 end_comment
 
 begin_class
@@ -371,6 +371,16 @@ name|getChannel
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// make sure the event can be processed by other handlers
+name|super
+operator|.
+name|channelOpen
+argument_list|(
+name|ctx
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -421,6 +431,16 @@ name|e
 operator|.
 name|getChannel
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// make sure the event can be processed by other handlers
+name|super
+operator|.
+name|channelClosed
+argument_list|(
+name|ctx
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}

@@ -54,6 +54,10 @@ name|ThreadPoolProfile
 import|;
 end_import
 
+begin_comment
+comment|/**  * Builder to build {@link org.apache.camel.spi.ThreadPoolProfile}.  *<p/>  * Use the {@link #build()} method when done setting up the profile.  */
+end_comment
+
 begin_class
 DECL|class|ThreadPoolProfileBuilder
 specifier|public

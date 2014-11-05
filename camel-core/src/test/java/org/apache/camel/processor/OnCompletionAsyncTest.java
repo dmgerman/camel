@@ -146,6 +146,9 @@ block|{
 name|onCompletion
 argument_list|()
 operator|.
+name|parallelProcessing
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"mock:before"
@@ -297,6 +300,9 @@ throws|throws
 name|Exception
 block|{
 name|onCompletion
+argument_list|()
+operator|.
+name|parallelProcessing
 argument_list|()
 operator|.
 name|to
@@ -469,6 +475,9 @@ operator|.
 name|useOriginalBody
 argument_list|()
 operator|.
+name|parallelProcessing
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"mock:before"
@@ -623,6 +632,9 @@ name|onCompletion
 argument_list|()
 operator|.
 name|useOriginalBody
+argument_list|()
+operator|.
+name|parallelProcessing
 argument_list|()
 operator|.
 name|to
@@ -801,6 +813,9 @@ throws|throws
 name|Exception
 block|{
 name|onCompletion
+argument_list|()
+operator|.
+name|parallelProcessing
 argument_list|()
 operator|.
 name|to

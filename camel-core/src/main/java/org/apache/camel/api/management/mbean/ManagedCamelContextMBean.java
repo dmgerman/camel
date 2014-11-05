@@ -296,18 +296,6 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Message History"
-argument_list|)
-DECL|method|getMessageHistory ()
-name|Boolean
-name|getMessageHistory
-parameter_list|()
-function_decl|;
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
 literal|"Current number of inflight Exchanges"
 argument_list|)
 DECL|method|getInflightExchanges ()
@@ -579,6 +567,35 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
+literal|"Starts all the routes which currently is not started"
+argument_list|)
+DECL|method|startAllRoutes ()
+name|void
+name|startAllRoutes
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Whether its possible to send to the endpoint (eg the endpoint has a producer)"
+argument_list|)
+DECL|method|canSendToEndpoint (String endpointUri)
+name|boolean
+name|canSendToEndpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
 literal|"Send body (in only)"
 argument_list|)
 DECL|method|sendBody (String endpointUri, Object body)
@@ -707,6 +724,20 @@ name|Object
 argument_list|>
 name|headers
 parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Dumps the rests as XML"
+argument_list|)
+DECL|method|dumpRestsAsXml ()
+name|String
+name|dumpRestsAsXml
+parameter_list|()
 throws|throws
 name|Exception
 function_decl|;

@@ -35,7 +35,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The AWS S3 component configuration properties  *   */
+comment|/**  * The AWS S3 component configuration properties  */
 end_comment
 
 begin_class
@@ -93,6 +93,22 @@ specifier|private
 name|boolean
 name|deleteAfterWrite
 decl_stmt|;
+DECL|field|multiPartUpload
+specifier|private
+name|boolean
+name|multiPartUpload
+decl_stmt|;
+DECL|field|partSize
+specifier|private
+name|long
+name|partSize
+init|=
+literal|25
+operator|*
+literal|1024
+operator|*
+literal|1024
+decl_stmt|;
 DECL|field|amazonS3Endpoint
 specifier|private
 name|String
@@ -108,6 +124,58 @@ specifier|private
 name|String
 name|storageClass
 decl_stmt|;
+DECL|method|getPartSize ()
+specifier|public
+name|long
+name|getPartSize
+parameter_list|()
+block|{
+return|return
+name|partSize
+return|;
+block|}
+DECL|method|setPartSize (long partSize)
+specifier|public
+name|void
+name|setPartSize
+parameter_list|(
+name|long
+name|partSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|partSize
+operator|=
+name|partSize
+expr_stmt|;
+block|}
+DECL|method|isMultiPartUpload ()
+specifier|public
+name|boolean
+name|isMultiPartUpload
+parameter_list|()
+block|{
+return|return
+name|multiPartUpload
+return|;
+block|}
+DECL|method|setMultiPartUpload (boolean multiPartUpload)
+specifier|public
+name|void
+name|setMultiPartUpload
+parameter_list|(
+name|boolean
+name|multiPartUpload
+parameter_list|)
+block|{
+name|this
+operator|.
+name|multiPartUpload
+operator|=
+name|multiPartUpload
+expr_stmt|;
+block|}
 DECL|method|setAmazonS3Endpoint (String amazonS3Endpoint)
 specifier|public
 name|void

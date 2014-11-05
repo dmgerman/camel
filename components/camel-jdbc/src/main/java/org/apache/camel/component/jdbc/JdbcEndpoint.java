@@ -170,6 +170,8 @@ name|resetAutoCommit
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|dataSource
 specifier|private
 name|DataSource
@@ -194,6 +196,8 @@ name|useJDBC4ColumnNameAndLabelSemantics
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|prepareStatementStrategy
 specifier|private
 name|JdbcPrepareStatementStrategy
@@ -237,6 +241,8 @@ specifier|private
 name|String
 name|outputClass
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|beanRowMapper
 specifier|private
 name|BeanRowMapper

@@ -196,7 +196,7 @@ name|component
 operator|.
 name|bean
 operator|.
-name|ConstantTypeBeanHolder
+name|ConstantStaticTypeBeanHolder
 import|;
 end_import
 
@@ -820,7 +820,7 @@ block|{
 name|holder
 operator|=
 operator|new
-name|ConstantTypeBeanHolder
+name|ConstantStaticTypeBeanHolder
 argument_list|(
 name|beanType
 argument_list|,

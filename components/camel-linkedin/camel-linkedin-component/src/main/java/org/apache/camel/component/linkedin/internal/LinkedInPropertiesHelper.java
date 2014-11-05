@@ -28,11 +28,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
-operator|.
 name|component
 operator|.
-name|ApiMethodPropertiesHelper
+name|linkedin
+operator|.
+name|LinkedInConfiguration
 import|;
 end_import
 
@@ -44,11 +44,11 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|util
+operator|.
 name|component
 operator|.
-name|linkedin
-operator|.
-name|LinkedInConfiguration
+name|ApiMethodPropertiesHelper
 import|;
 end_import
 

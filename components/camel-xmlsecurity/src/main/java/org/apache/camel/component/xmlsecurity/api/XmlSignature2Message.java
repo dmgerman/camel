@@ -111,7 +111,7 @@ specifier|public
 interface|interface
 name|Input
 block|{
-comment|/**          * Returns the references.          *           * @return list of references, cannot be<code>null</code>          */
+comment|/**          * Returns the references. If there were several signatures then all          * references of all signatures are returned.          *           * @return list of references, cannot be<code>null</code>          */
 DECL|method|getReferences ()
 name|List
 argument_list|<
@@ -120,7 +120,7 @@ argument_list|>
 name|getReferences
 parameter_list|()
 function_decl|;
-comment|/**          * Returns the objects.          *           * @return objects, cannot be<code>null</code>          */
+comment|/**          * Returns the objects. If there were several signatures in the XML          * document then all objects of all signatures are returned.          *           * @return objects, cannot be<code>null</code>          */
 DECL|method|getObjects ()
 name|List
 argument_list|<
@@ -157,6 +157,12 @@ comment|/**          * Indicator whether the XML signature elements should be re
 DECL|method|getRemoveSignatureElements ()
 name|Boolean
 name|getRemoveSignatureElements
+parameter_list|()
+function_decl|;
+comment|/**          * The character encoding of the resulting XML document. Can be          *<code>null</code>. If<code>null</code> then the encoding of the          * original XML document is used.          *           */
+DECL|method|getOutputXmlEncoding ()
+name|String
+name|getOutputXmlEncoding
 parameter_list|()
 function_decl|;
 block|}

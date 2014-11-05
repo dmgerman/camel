@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -99,6 +87,12 @@ extends|extends
 name|DefaultProducer
 block|{
 comment|// Producer settings
+DECL|field|endpoint
+specifier|private
+specifier|final
+name|JGroupsEndpoint
+name|endpoint
+decl_stmt|;
 DECL|field|channel
 specifier|private
 specifier|final
@@ -112,11 +106,11 @@ name|String
 name|clusterName
 decl_stmt|;
 comment|// Constructor
-DECL|method|JGroupsProducer (Endpoint endpoint, Channel channel, String clusterName)
+DECL|method|JGroupsProducer (JGroupsEndpoint endpoint, Channel channel, String clusterName)
 specifier|public
 name|JGroupsProducer
 parameter_list|(
-name|Endpoint
+name|JGroupsEndpoint
 name|endpoint
 parameter_list|,
 name|Channel
@@ -130,6 +124,12 @@ name|super
 argument_list|(
 name|endpoint
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|endpoint
+operator|=
+name|endpoint
 expr_stmt|;
 name|this
 operator|.
@@ -160,12 +160,10 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-name|channel
+name|endpoint
 operator|.
 name|connect
-argument_list|(
-name|clusterName
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -178,7 +176,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|channel
+name|endpoint
 operator|.
 name|disconnect
 argument_list|()

@@ -128,6 +128,15 @@ name|HL7_VERSION_ID
 init|=
 literal|"CamelHL7VersionId"
 decl_stmt|;
+DECL|field|HL7_CONTEXT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HL7_CONTEXT
+init|=
+literal|"CamelHL7Context"
+decl_stmt|;
 DECL|method|HL7Constants ()
 specifier|private
 name|HL7Constants

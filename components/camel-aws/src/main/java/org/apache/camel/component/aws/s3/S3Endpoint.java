@@ -567,7 +567,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Quering whether bucket [{}] already exists..."
+literal|"Querying whether bucket [{}] already exists..."
 argument_list|,
 name|bucketName
 argument_list|)

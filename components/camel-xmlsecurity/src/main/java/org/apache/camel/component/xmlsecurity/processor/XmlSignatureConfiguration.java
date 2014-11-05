@@ -189,6 +189,16 @@ name|Boolean
 operator|.
 name|TRUE
 decl_stmt|;
+DECL|field|schemaResourceUri
+specifier|private
+name|String
+name|schemaResourceUri
+decl_stmt|;
+DECL|field|outputXmlEncoding
+specifier|private
+name|String
+name|outputXmlEncoding
+decl_stmt|;
 DECL|method|XmlSignatureConfiguration ()
 specifier|public
 name|XmlSignatureConfiguration
@@ -395,6 +405,60 @@ operator|.
 name|clearHeaders
 operator|=
 name|clearHeaders
+expr_stmt|;
+block|}
+DECL|method|getSchemaResourceUri ()
+specifier|public
+name|String
+name|getSchemaResourceUri
+parameter_list|()
+block|{
+return|return
+name|schemaResourceUri
+return|;
+block|}
+comment|/**      * Classpath to the XML Schema. Must be specified in the detached XML      * Signature case for determining the ID attributes, might be set in the      * enveloped and enveloping case. If set, then the XML document is validated      * with the specified XML schema. The schema resource URI can be overwritten      * by the header {@link XmlSignatureConstants#HEADER_SCHEMA_RESOURCE_URI}.      */
+DECL|method|setSchemaResourceUri (String schemaResourceUri)
+specifier|public
+name|void
+name|setSchemaResourceUri
+parameter_list|(
+name|String
+name|schemaResourceUri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|schemaResourceUri
+operator|=
+name|schemaResourceUri
+expr_stmt|;
+block|}
+DECL|method|getOutputXmlEncoding ()
+specifier|public
+name|String
+name|getOutputXmlEncoding
+parameter_list|()
+block|{
+return|return
+name|outputXmlEncoding
+return|;
+block|}
+comment|/**      * The character encoding of the resulting signed XML document. If      *<code>null</code> then the encoding of the original XML document is used.      *       * @param outputXmlEncoding      *            character encoding      */
+DECL|method|setOutputXmlEncoding (String outputXmlEncoding)
+specifier|public
+name|void
+name|setOutputXmlEncoding
+parameter_list|(
+name|String
+name|outputXmlEncoding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|outputXmlEncoding
+operator|=
+name|outputXmlEncoding
 expr_stmt|;
 block|}
 block|}

@@ -230,17 +230,6 @@ name|isEmpty
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-name|twitterEndpoint
-operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|getUseSSL
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -410,57 +399,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testUseSSLSetting ()
-specifier|public
-name|void
-name|testUseSSLSetting
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|Endpoint
-name|endpoint
-init|=
-name|context
-operator|.
-name|getEndpoint
-argument_list|(
-literal|"twitter:todo/todo?useSSL=false"
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Endpoint not a TwitterEndpoint: "
-operator|+
-name|endpoint
-argument_list|,
-name|endpoint
-operator|instanceof
-name|TwitterEndpoint
-argument_list|)
-expr_stmt|;
-name|TwitterEndpoint
-name|twitterEndpoint
-init|=
-operator|(
-name|TwitterEndpoint
-operator|)
-name|endpoint
-decl_stmt|;
-name|assertFalse
-argument_list|(
-name|twitterEndpoint
-operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|getUseSSL
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
 DECL|method|testComponentConfiguration ()
 specifier|public
 name|void
@@ -532,7 +470,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"accessToken\": { \"type\": \"java.lang.String\" }"
+literal|"\"accessToken\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -542,7 +480,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"consumerKey\": { \"type\": \"java.lang.String\" }"
+literal|"\"consumerKey\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -576,7 +514,7 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Should have found some auto-generated HTML if on Java 7"
+literal|"Should have found some auto-generated HTML"
 argument_list|,
 name|html
 argument_list|)

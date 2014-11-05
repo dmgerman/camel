@@ -470,6 +470,9 @@ decl_stmt|;
 name|List
 argument_list|<
 name|Class
+argument_list|<
+name|?
+argument_list|>
 index|[]
 argument_list|>
 name|converters
@@ -482,6 +485,9 @@ decl_stmt|;
 for|for
 control|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|entry
 range|:

@@ -431,7 +431,7 @@ specifier|public
 name|JpaEndpoint
 parameter_list|()
 block|{     }
-comment|/**      *       * @param endpointUri      * @deprecated use {@link JpaEndpoint#JpaEndpoint(String, JpaComponent)} instead      */
+comment|/**      * @deprecated use {@link JpaEndpoint#JpaEndpoint(String, JpaComponent)} instead      */
 annotation|@
 name|Deprecated
 DECL|method|JpaEndpoint (String endpointUri)
@@ -481,7 +481,7 @@ name|getTransactionManager
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      *       * @param endpointUri      * @param entityManagerFactory      * @deprecated use {@link JpaEndpoint#JpaEndpoint(String, JpaComponent)} instead      */
+comment|/**      * @deprecated use {@link JpaEndpoint#JpaEndpoint(String, JpaComponent)} instead      */
 annotation|@
 name|Deprecated
 DECL|method|JpaEndpoint (String endpointUri, EntityManagerFactory entityManagerFactory)
@@ -507,7 +507,7 @@ operator|=
 name|entityManagerFactory
 expr_stmt|;
 block|}
-comment|/**      *       * @param endpointUri      * @param entityManagerFactory      * @param transactionManager      * @deprecated use {@link JpaEndpoint#JpaEndpoint(String, JpaComponent)} instead      */
+comment|/**      * @deprecated use {@link JpaEndpoint#JpaEndpoint(String, JpaComponent)} instead      */
 annotation|@
 name|Deprecated
 DECL|method|JpaEndpoint (String endpointUri, EntityManagerFactory entityManagerFactory, PlatformTransactionManager transactionManager)
@@ -1224,6 +1224,9 @@ return|return
 name|tm
 return|;
 block|}
+comment|/**      * @deprecated use {@link #getEntityManagerFactory()} to get hold of factory and create an entity manager using the factory.      */
+annotation|@
+name|Deprecated
 DECL|method|createEntityManager ()
 specifier|protected
 name|EntityManager

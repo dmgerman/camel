@@ -643,12 +643,11 @@ name|LOGGER
 operator|.
 name|error
 argument_list|(
-literal|"Error creating a message of type: "
-operator|+
+literal|"Error creating a message of type: {}"
+argument_list|,
 name|messageType
-operator|.
-name|toString
-argument_list|()
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -686,7 +685,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Adds or updates the {@link Message} headers. Header names and values are      * checked for JMS 1.1 compliance.      *       * @param jmsMessage the {@link Message} to add or update the headers on      * @param messageHeaders a {@link Map} of String/Object pairs      * @param keyFormatStrategy the a {@link KeyFormatStrategy} to used to      *            format keys in a JMS 1.1 compliant manner. If null the      *            {@link DefaultJmsKeyFormatStrategy} will be used.      * @return {@link Message}      * @throws Exception a      */
+comment|/**      * Adds or updates the {@link Message} headers. Header names and values are      * checked for JMS 1.1 compliance.      *      * @param jmsMessage        the {@link Message} to add or update the headers on      * @param messageHeaders    a {@link Map} of String/Object pairs      * @param keyFormatStrategy the a {@link KeyFormatStrategy} to used to      *                          format keys in a JMS 1.1 compliant manner. If null the      *                          {@link DefaultJmsKeyFormatStrategy} will be used.      * @return {@link Message}      * @throws Exception a      */
 DECL|method|setJmsMessageHeaders (final Message jmsMessage, Map<String, Object> messageHeaders, KeyFormatStrategy keyFormatStrategy)
 specifier|public
 specifier|static
@@ -1299,7 +1298,7 @@ return|return
 name|jmsMessage
 return|;
 block|}
-comment|/**      * Sets the JMSDeliveryMode on the message.      *       * @param exchange the exchange      * @param message the message      * @param deliveryMode the delivery mode, either as a String or integer      * @throws javax.jms.JMSException is thrown if error setting the delivery      *             mode      */
+comment|/**      * Sets the JMSDeliveryMode on the message.      *      * @param exchange     the exchange      * @param message      the message      * @param deliveryMode the delivery mode, either as a String or integer      * @throws javax.jms.JMSException is thrown if error setting the delivery      *                                mode      */
 DECL|method|setJMSDeliveryMode (Message message, Object deliveryMode)
 specifier|public
 specifier|static
@@ -1479,7 +1478,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Sets the correlation id on the JMS message.      *<p/>      * Will ignore exception thrown      *       * @param message the JMS message      * @param type the correlation id      */
+comment|/**      * Sets the correlation id on the JMS message.      *<p/>      * Will ignore exception thrown      *      * @param message the JMS message      * @param type    the correlation id      */
 DECL|method|setMessageType (Message message, String type)
 specifier|public
 specifier|static
@@ -1509,14 +1508,6 @@ name|JMSException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOGGER
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOGGER
 operator|.
 name|debug
@@ -1524,12 +1515,13 @@ argument_list|(
 literal|"Error setting the message type: {}"
 argument_list|,
 name|type
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-comment|/**      * Sets the correlation id on the JMS message.      *<p/>      * Will ignore exception thrown      *       * @param message the JMS message      * @param correlationId the correlation id      */
+comment|/**      * Sets the correlation id on the JMS message.      *<p/>      * Will ignore exception thrown      *      * @param message       the JMS message      * @param correlationId the correlation id      */
 DECL|method|setCorrelationId (Message message, String correlationId)
 specifier|public
 specifier|static
@@ -1559,14 +1551,6 @@ name|JMSException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|LOGGER
-operator|.
-name|isDebugEnabled
-argument_list|()
-condition|)
-block|{
 name|LOGGER
 operator|.
 name|debug
@@ -1574,12 +1558,13 @@ argument_list|(
 literal|"Error setting the correlationId: {}"
 argument_list|,
 name|correlationId
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-comment|/**      * Sets the property on the given JMS message.      *       * @param jmsMessage the JMS message      * @param name name of the property to set      * @param value the value      * @throws JMSException can be thrown      */
+comment|/**      * Sets the property on the given JMS message.      *      * @param jmsMessage the JMS message      * @param name       name of the property to set      * @param value      the value      * @throws JMSException can be thrown      */
 DECL|method|setProperty (Message jmsMessage, String name, Object value)
 specifier|public
 specifier|static

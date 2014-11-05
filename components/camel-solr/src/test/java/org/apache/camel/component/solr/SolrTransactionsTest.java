@@ -51,7 +51,6 @@ argument_list|(
 name|serverToTest
 argument_list|)
 expr_stmt|;
-comment|// TODO Auto-generated constructor stub
 block|}
 annotation|@
 name|Test

@@ -778,24 +778,6 @@ name|GenericFileConfiguration
 name|configuration
 parameter_list|)
 block|{
-name|setConfiguration
-argument_list|(
-operator|(
-name|FtpConfiguration
-operator|)
-name|configuration
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|setConfiguration (FtpConfiguration configuration)
-specifier|public
-name|void
-name|setConfiguration
-parameter_list|(
-name|FtpConfiguration
-name|configuration
-parameter_list|)
-block|{
 if|if
 condition|(
 name|configuration

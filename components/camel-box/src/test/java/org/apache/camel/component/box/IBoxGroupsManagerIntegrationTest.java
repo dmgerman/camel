@@ -298,10 +298,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testCreateGroup_1 ()
+DECL|method|testCreateGroup1 ()
 specifier|public
 name|void
-name|testCreateGroup_1
+name|testCreateGroup1
 parameter_list|()
 throws|throws
 name|Exception
@@ -394,10 +394,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testCreateMembership_1 ()
+DECL|method|testCreateMembership1 ()
 specifier|public
 name|void
-name|testCreateMembership_1
+name|testCreateMembership1
 parameter_list|()
 throws|throws
 name|Exception
@@ -1221,10 +1221,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testUpdateMembership_1 ()
+DECL|method|testUpdateMembership1 ()
 specifier|public
 name|void
-name|testUpdateMembership_1
+name|testUpdateMembership1
 parameter_list|()
 throws|throws
 name|Exception

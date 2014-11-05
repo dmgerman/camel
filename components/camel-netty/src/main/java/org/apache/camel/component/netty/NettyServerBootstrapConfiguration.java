@@ -268,11 +268,22 @@ DECL|field|keyStoreFormat
 specifier|protected
 name|String
 name|keyStoreFormat
+init|=
+literal|"JKS"
 decl_stmt|;
 DECL|field|securityProvider
 specifier|protected
 name|String
 name|securityProvider
+init|=
+literal|"SunX509"
+decl_stmt|;
+DECL|field|enabledProtocols
+specifier|protected
+name|String
+name|enabledProtocols
+init|=
+literal|"TLSv1,TLSv1.1,TLSv1.2"
 decl_stmt|;
 DECL|field|passphrase
 specifier|protected
@@ -1173,6 +1184,32 @@ operator|=
 name|networkInterface
 expr_stmt|;
 block|}
+DECL|method|getEnabledProtocols ()
+specifier|public
+name|String
+name|getEnabledProtocols
+parameter_list|()
+block|{
+return|return
+name|enabledProtocols
+return|;
+block|}
+DECL|method|setEnabledProtocols (String enabledProtocols)
+specifier|public
+name|void
+name|setEnabledProtocols
+parameter_list|(
+name|String
+name|enabledProtocols
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enabledProtocols
+operator|=
+name|enabledProtocols
+expr_stmt|;
+block|}
 comment|/**      * Checks if the other {@link NettyServerBootstrapConfiguration} is compatible      * with this, as a Netty listener bound on port X shares the same common      * {@link NettyServerBootstrapConfiguration}, which must be identical.      */
 DECL|method|compatible (NettyServerBootstrapConfiguration other)
 specifier|public
@@ -1934,6 +1971,10 @@ operator|+
 literal|", needClientAuth="
 operator|+
 name|needClientAuth
+operator|+
+literal|", enabledProtocols='"
+operator|+
+name|enabledProtocols
 operator|+
 literal|", keyStoreFile="
 operator|+

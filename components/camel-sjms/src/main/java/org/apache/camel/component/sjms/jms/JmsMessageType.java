@@ -21,7 +21,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Enum for different {@link javax.jms.Message} types.  *  * @version   */
+comment|/**  * Enum for different {@link javax.jms.Message} types.  */
 end_comment
 
 begin_enum

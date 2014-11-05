@@ -43,13 +43,13 @@ implements|implements
 name|ContextPathMatcher
 block|{
 DECL|field|path
-specifier|private
+specifier|protected
 specifier|final
 name|String
 name|path
 decl_stmt|;
 DECL|field|matchOnUriPrefix
-specifier|private
+specifier|protected
 specifier|final
 name|boolean
 name|matchOnUriPrefix
@@ -85,18 +85,20 @@ operator|=
 name|matchOnUriPrefix
 expr_stmt|;
 block|}
-DECL|method|matches (String target)
+annotation|@
+name|Override
+DECL|method|matches (String path)
 specifier|public
 name|boolean
 name|matches
 parameter_list|(
 name|String
-name|target
+name|path
 parameter_list|)
 block|{
-name|target
+name|path
 operator|=
-name|target
+name|path
 operator|.
 name|toLowerCase
 argument_list|(
@@ -113,10 +115,12 @@ condition|)
 block|{
 comment|// exact match
 return|return
-name|target
+name|path
 operator|.
 name|equals
 argument_list|(
+name|this
+operator|.
 name|path
 argument_list|)
 return|;
@@ -125,14 +129,63 @@ else|else
 block|{
 comment|// match on prefix, then we just need to match the start of the context-path
 return|return
-name|target
+name|path
 operator|.
 name|startsWith
 argument_list|(
+name|this
+operator|.
 name|path
 argument_list|)
 return|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|matchesRest (String path, boolean wildcard)
+specifier|public
+name|boolean
+name|matchesRest
+parameter_list|(
+name|String
+name|path
+parameter_list|,
+name|boolean
+name|wildcard
+parameter_list|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|matchMethod (String method, String restrict)
+specifier|public
+name|boolean
+name|matchMethod
+parameter_list|(
+name|String
+name|method
+parameter_list|,
+name|String
+name|restrict
+parameter_list|)
+block|{
+comment|// always match as HttpServerChannelHandler will deal with HTTP method restrictions
+return|return
+literal|true
+return|;
+block|}
+DECL|method|getPath ()
+specifier|public
+name|String
+name|getPath
+parameter_list|()
+block|{
+return|return
+name|path
+return|;
 block|}
 annotation|@
 name|Override

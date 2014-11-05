@@ -145,7 +145,7 @@ name|component
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"optaplanner:/org/apache/camel/component/optaplanner/solverConfig.xml?"
+literal|"optaplanner:org/apache/camel/component/optaplanner/solverConfig.xml?"
 operator|+
 literal|"synchronous=false&contentCache=true"
 argument_list|)
@@ -189,7 +189,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"resourceUri\": { \"type\": \"java.lang.String\" }"
+literal|"\"resourceUri\": { \"type\": \"string\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -233,7 +233,7 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"Should have found some auto-generated HTML if on Java 7"
+literal|"Should have found some auto-generated HTML"
 argument_list|,
 name|html
 argument_list|)

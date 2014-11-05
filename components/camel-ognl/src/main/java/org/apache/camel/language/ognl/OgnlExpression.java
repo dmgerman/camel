@@ -235,6 +235,24 @@ operator|new
 name|OgnlContext
 argument_list|()
 decl_stmt|;
+comment|// setup the class resolver from camel
+name|oglContext
+operator|.
+name|setClassResolver
+argument_list|(
+operator|new
+name|CamelClassResolver
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getClassResolver
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|Object

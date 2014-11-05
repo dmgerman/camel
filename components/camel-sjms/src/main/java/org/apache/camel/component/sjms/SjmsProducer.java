@@ -32,21 +32,13 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|java
 operator|.
-name|jms
+name|util
 operator|.
-name|MessageProducer
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
+name|concurrent
 operator|.
-name|jms
-operator|.
-name|Session
+name|Future
 import|;
 end_import
 
@@ -112,24 +104,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|sjms
-operator|.
-name|jms
-operator|.
-name|ObjectPool
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultAsyncProducer
@@ -150,6 +124,36 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|pool
+operator|.
+name|BasePoolableObjectFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|pool
+operator|.
+name|impl
+operator|.
+name|GenericObjectPool
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base SjmsProducer class.  */
 end_comment
@@ -164,34 +168,22 @@ extends|extends
 name|DefaultAsyncProducer
 block|{
 comment|/**      * The {@link MessageProducerResources} pool for all {@link SjmsProducer}      * classes.      */
-DECL|class|MessageProducerPool
+DECL|class|MessageProducerResourcesFactory
 specifier|protected
 class|class
-name|MessageProducerPool
+name|MessageProducerResourcesFactory
 extends|extends
-name|ObjectPool
+name|BasePoolableObjectFactory
 argument_list|<
 name|MessageProducerResources
 argument_list|>
 block|{
-DECL|method|MessageProducerPool ()
-specifier|public
-name|MessageProducerPool
-parameter_list|()
-block|{
-name|super
-argument_list|(
-name|getProducerCount
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
-DECL|method|createObject ()
-specifier|protected
+DECL|method|makeObject ()
+specifier|public
 name|MessageProducerResources
-name|createObject
+name|makeObject
 parameter_list|()
 throws|throws
 name|Exception
@@ -204,7 +196,7 @@ block|}
 annotation|@
 name|Override
 DECL|method|destroyObject (MessageProducerResources model)
-specifier|protected
+specifier|public
 name|void
 name|destroyObject
 parameter_list|(
@@ -296,128 +288,26 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * The {@link MessageProducer} resources for all {@link SjmsProducer}      * classes.      */
-DECL|class|MessageProducerResources
-specifier|protected
-class|class
-name|MessageProducerResources
-block|{
-DECL|field|session
-specifier|private
-specifier|final
-name|Session
-name|session
-decl_stmt|;
-DECL|field|messageProducer
-specifier|private
-specifier|final
-name|MessageProducer
-name|messageProducer
-decl_stmt|;
-DECL|field|commitStrategy
-specifier|private
-specifier|final
-name|TransactionCommitStrategy
-name|commitStrategy
-decl_stmt|;
-DECL|method|MessageProducerResources (Session session, MessageProducer messageProducer)
-specifier|public
-name|MessageProducerResources
-parameter_list|(
-name|Session
-name|session
-parameter_list|,
-name|MessageProducer
-name|messageProducer
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|session
-argument_list|,
-name|messageProducer
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|MessageProducerResources (Session session, MessageProducer messageProducer, TransactionCommitStrategy commitStrategy)
-specifier|public
-name|MessageProducerResources
-parameter_list|(
-name|Session
-name|session
-parameter_list|,
-name|MessageProducer
-name|messageProducer
-parameter_list|,
-name|TransactionCommitStrategy
-name|commitStrategy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|session
-operator|=
-name|session
-expr_stmt|;
-name|this
-operator|.
-name|messageProducer
-operator|=
-name|messageProducer
-expr_stmt|;
-name|this
-operator|.
-name|commitStrategy
-operator|=
-name|commitStrategy
-expr_stmt|;
-block|}
-comment|/**          * Gets the Session value of session for this instance of          * MessageProducerResources.          *           * @return the session          */
-DECL|method|getSession ()
-specifier|public
-name|Session
-name|getSession
-parameter_list|()
-block|{
-return|return
-name|session
-return|;
-block|}
-comment|/**          * Gets the QueueSender value of queueSender for this instance of          * MessageProducerResources.          *           * @return the queueSender          */
-DECL|method|getMessageProducer ()
-specifier|public
-name|MessageProducer
-name|getMessageProducer
-parameter_list|()
-block|{
-return|return
-name|messageProducer
-return|;
-block|}
-comment|/**          * Gets the TransactionCommitStrategy value of commitStrategy for this          * instance of SjmsProducer.MessageProducerResources.          *           * @return the commitStrategy          */
-DECL|method|getCommitStrategy ()
-specifier|public
-name|TransactionCommitStrategy
-name|getCommitStrategy
-parameter_list|()
-block|{
-return|return
-name|commitStrategy
-return|;
-block|}
-block|}
 DECL|field|producers
 specifier|private
-name|MessageProducerPool
+name|GenericObjectPool
+argument_list|<
+name|MessageProducerResources
+argument_list|>
 name|producers
 decl_stmt|;
 DECL|field|executor
 specifier|private
-specifier|final
 name|ExecutorService
 name|executor
+decl_stmt|;
+DECL|field|asyncStart
+specifier|private
+name|Future
+argument_list|<
+name|?
+argument_list|>
+name|asyncStart
 decl_stmt|;
 DECL|method|SjmsProducer (Endpoint endpoint)
 specifier|public
@@ -430,25 +320,6 @@ block|{
 name|super
 argument_list|(
 name|endpoint
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|executor
-operator|=
-name|endpoint
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getExecutorServiceManager
-argument_list|()
-operator|.
-name|newDefaultThreadPool
-argument_list|(
-name|this
-argument_list|,
-literal|"SjmsProducer"
 argument_list|)
 expr_stmt|;
 block|}
@@ -467,6 +338,26 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
+name|executor
+operator|=
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|newDefaultThreadPool
+argument_list|(
+name|this
+argument_list|,
+literal|"SjmsProducer"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|getProducers
@@ -478,14 +369,166 @@ block|{
 name|setProducers
 argument_list|(
 operator|new
-name|MessageProducerPool
+name|GenericObjectPool
+argument_list|<
+name|MessageProducerResources
+argument_list|>
+argument_list|(
+operator|new
+name|MessageProducerResourcesFactory
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|getProducers
+argument_list|()
+operator|.
+name|setMaxActive
+argument_list|(
+name|getProducerCount
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|getProducers
 argument_list|()
 operator|.
-name|fillPool
+name|setMaxIdle
+argument_list|(
+name|getProducerCount
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|getProducers
+argument_list|()
+operator|.
+name|setLifo
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|isPrefillPool
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|isAsyncStartListener
+argument_list|()
+condition|)
+block|{
+name|asyncStart
+operator|=
+name|getEndpoint
+argument_list|()
+operator|.
+name|getComponent
+argument_list|()
+operator|.
+name|getAsyncStartStopExecutorService
+argument_list|()
+operator|.
+name|submit
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
+try|try
+block|{
+name|fillProducersPool
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Error filling producer pool for destination: "
+operator|+
+name|getDestinationName
+argument_list|()
+operator|+
+literal|". This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"AsyncStartListenerTask["
+operator|+
+name|getDestinationName
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|fillProducersPool
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
+block|}
+DECL|method|fillProducersPool ()
+specifier|private
+name|void
+name|fillProducersPool
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+while|while
+condition|(
+name|producers
+operator|.
+name|getNumIdle
+argument_list|()
+operator|<
+name|producers
+operator|.
+name|getMaxIdle
+argument_list|()
+condition|)
+block|{
+name|producers
+operator|.
+name|addObject
 argument_list|()
 expr_stmt|;
 block|}
@@ -507,16 +550,70 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+name|asyncStart
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|asyncStart
+operator|.
+name|isDone
+argument_list|()
+condition|)
+block|{
+name|asyncStart
+operator|.
+name|cancel
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|getProducers
 argument_list|()
 operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|isAsyncStopListener
+argument_list|()
+condition|)
+block|{
+name|getEndpoint
+argument_list|()
+operator|.
+name|getComponent
+argument_list|()
+operator|.
+name|getAsyncStartStopExecutorService
+argument_list|()
+operator|.
+name|submit
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
+try|try
+block|{
 name|getProducers
 argument_list|()
 operator|.
-name|drainPool
+name|close
 argument_list|()
 expr_stmt|;
 name|setProducers
@@ -525,6 +622,107 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Error stopping listener container on destination: "
+operator|+
+name|getDestinationName
+argument_list|()
+operator|+
+literal|". This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"AsyncStopListenerTask["
+operator|+
+name|getDestinationName
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|getProducers
+argument_list|()
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|setProducers
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|this
+operator|.
+name|executor
+operator|!=
+literal|null
+condition|)
+block|{
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdownGraceful
+argument_list|(
+name|this
+operator|.
+name|executor
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getEndpoint ()
+specifier|public
+name|SjmsEndpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|SjmsEndpoint
+operator|)
+name|super
+operator|.
+name|getEndpoint
+argument_list|()
+return|;
 block|}
 DECL|method|doCreateProducerModel ()
 specifier|public
@@ -535,7 +733,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-DECL|method|sendMessage (Exchange exchange, final AsyncCallback callback)
+DECL|method|sendMessage (Exchange exchange, final AsyncCallback callback, final MessageProducerResources producer)
 specifier|public
 specifier|abstract
 name|void
@@ -547,6 +745,10 @@ parameter_list|,
 specifier|final
 name|AsyncCallback
 name|callback
+parameter_list|,
+specifier|final
+name|MessageProducerResources
+name|producer
 parameter_list|)
 throws|throws
 name|Exception
@@ -589,6 +791,37 @@ argument_list|)
 expr_stmt|;
 block|}
 try|try
+block|{
+specifier|final
+name|MessageProducerResources
+name|producer
+init|=
+name|getProducers
+argument_list|()
+operator|.
+name|borrowObject
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|producer
+operator|==
+literal|null
+condition|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+operator|new
+name|Exception
+argument_list|(
+literal|"Unable to send message: connection not available"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 if|if
 condition|(
@@ -644,6 +877,8 @@ argument_list|(
 name|exchange
 argument_list|,
 name|callback
+argument_list|,
+name|producer
 argument_list|)
 expr_stmt|;
 block|}
@@ -697,8 +932,11 @@ argument_list|(
 name|exchange
 argument_list|,
 name|callback
+argument_list|,
+name|producer
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
@@ -810,7 +1048,7 @@ name|getConnectionResource
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the acknowledgment mode for this instance of DestinationProducer.      *       * @return int      */
+comment|/**      * Gets the acknowledgment mode for this instance of DestinationProducer.      *      * @return int      */
 DECL|method|getAcknowledgeMode ()
 specifier|public
 name|int
@@ -828,7 +1066,7 @@ name|intValue
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the synchronous value for this instance of DestinationProducer.      *       * @return true if synchronous, otherwise false      */
+comment|/**      * Gets the synchronous value for this instance of DestinationProducer.      *      * @return true if synchronous, otherwise false      */
 DECL|method|isSynchronous ()
 specifier|public
 name|boolean
@@ -843,7 +1081,7 @@ name|isSynchronous
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the replyTo for this instance of DestinationProducer.      *       * @return String      */
+comment|/**      * Gets the replyTo for this instance of DestinationProducer.      *      * @return String      */
 DECL|method|getReplyTo ()
 specifier|public
 name|String
@@ -858,7 +1096,7 @@ name|getNamedReplyTo
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the destinationName for this instance of DestinationProducer.      *       * @return String      */
+comment|/**      * Gets the destinationName for this instance of DestinationProducer.      *      * @return String      */
 DECL|method|getDestinationName ()
 specifier|public
 name|String
@@ -873,13 +1111,16 @@ name|getDestinationName
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the producer pool for this instance of SjmsProducer.      *       * @param producers A MessageProducerPool      */
-DECL|method|setProducers (MessageProducerPool producers)
+comment|/**      * Sets the producer pool for this instance of SjmsProducer.      *      * @param producers A MessageProducerPool      */
+DECL|method|setProducers (GenericObjectPool<MessageProducerResources> producers)
 specifier|public
 name|void
 name|setProducers
 parameter_list|(
-name|MessageProducerPool
+name|GenericObjectPool
+argument_list|<
+name|MessageProducerResources
+argument_list|>
 name|producers
 parameter_list|)
 block|{
@@ -890,10 +1131,13 @@ operator|=
 name|producers
 expr_stmt|;
 block|}
-comment|/**      * Gets the MessageProducerPool value of producers for this instance of      * SjmsProducer.      *       * @return the producers      */
+comment|/**      * Gets the MessageProducerPool value of producers for this instance of      * SjmsProducer.      *      * @return the producers      */
 DECL|method|getProducers ()
 specifier|public
-name|MessageProducerPool
+name|GenericObjectPool
+argument_list|<
+name|MessageProducerResources
+argument_list|>
 name|getProducers
 parameter_list|()
 block|{
@@ -901,7 +1145,7 @@ return|return
 name|producers
 return|;
 block|}
-comment|/**      * Test to verify if this endpoint is a JMS Topic or Queue.      *       * @return true if it is a Topic, otherwise it is a Queue      */
+comment|/**      * Test to verify if this endpoint is a JMS Topic or Queue.      *      * @return true if it is a Topic, otherwise it is a Queue      */
 DECL|method|isTopic ()
 specifier|public
 name|boolean
@@ -916,7 +1160,7 @@ name|isTopic
 argument_list|()
 return|;
 block|}
-comment|/**      * Test to determine if this endpoint should use a JMS Transaction.      *       * @return true if transacted, otherwise false      */
+comment|/**      * Test to determine if this endpoint should use a JMS Transaction.      *      * @return true if transacted, otherwise false      */
 DECL|method|isEndpointTransacted ()
 specifier|public
 name|boolean
@@ -931,7 +1175,7 @@ name|isTransacted
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the named reply to value for this producer      *       * @return true if it is a Topic, otherwise it is a Queue      */
+comment|/**      * Returns the named reply to value for this producer      *      * @return true if it is a Topic, otherwise it is a Queue      */
 DECL|method|getNamedReplyTo ()
 specifier|public
 name|String
@@ -946,7 +1190,7 @@ name|getNamedReplyTo
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the producerCount for this instance of SjmsProducer.      *       * @return int      */
+comment|/**      * Gets the producerCount for this instance of SjmsProducer.      *      * @return int      */
 DECL|method|getProducerCount ()
 specifier|public
 name|int
@@ -961,7 +1205,7 @@ name|getProducerCount
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets consumerCount for this instance of SjmsProducer.      *       * @return int      */
+comment|/**      * Gets consumerCount for this instance of SjmsProducer.      *      * @return int      */
 DECL|method|getConsumerCount ()
 specifier|public
 name|int
@@ -976,7 +1220,7 @@ name|getConsumerCount
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the executor for this instance of SjmsProducer.      *       * @return ExecutorService      */
+comment|/**      * Gets the executor for this instance of SjmsProducer.      *      * @return ExecutorService      */
 DECL|method|getExecutor ()
 specifier|public
 name|ExecutorService
@@ -987,7 +1231,7 @@ return|return
 name|executor
 return|;
 block|}
-comment|/**      * Gets the ttl for this instance of SjmsProducer.      *       * @return long      */
+comment|/**      * Gets the ttl for this instance of SjmsProducer.      *      * @return long      */
 DECL|method|getTtl ()
 specifier|public
 name|long
@@ -1002,7 +1246,7 @@ name|getTtl
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the boolean value of persistent for this instance of SjmsProducer.      *       * @return true if persistent, otherwise false      */
+comment|/**      * Gets the boolean value of persistent for this instance of SjmsProducer.      *      * @return true if persistent, otherwise false      */
 DECL|method|isPersistent ()
 specifier|public
 name|boolean
@@ -1017,7 +1261,7 @@ name|isPersistent
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets responseTimeOut for this instance of SjmsProducer.      *       * @return long      */
+comment|/**      * Gets responseTimeOut for this instance of SjmsProducer.      *      * @return long      */
 DECL|method|getResponseTimeOut ()
 specifier|public
 name|long
@@ -1032,7 +1276,7 @@ name|getResponseTimeOut
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets commitStrategy for this instance of SjmsProducer.      *       * @return TransactionCommitStrategy      */
+comment|/**      * Gets commitStrategy for this instance of SjmsProducer.      *      * @return TransactionCommitStrategy      */
 DECL|method|getCommitStrategy ()
 specifier|public
 name|TransactionCommitStrategy

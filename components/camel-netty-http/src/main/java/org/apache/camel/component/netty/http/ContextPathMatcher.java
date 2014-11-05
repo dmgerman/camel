@@ -30,13 +30,37 @@ specifier|public
 interface|interface
 name|ContextPathMatcher
 block|{
-comment|/**      * Whether the target context-path matches.      *      * @param target  the context-path from the incoming HTTP request      * @return<tt>true</tt> to match,<tt>false</tt> if not.      */
-DECL|method|matches (String target)
+comment|/**      * Whether the target context-path matches a regular url.      *      * @param path  the context-path from the incoming HTTP request      * @return<tt>true</tt> to match,<tt>false</tt> if not.      */
+DECL|method|matches (String path)
 name|boolean
 name|matches
 parameter_list|(
 name|String
-name|target
+name|path
+parameter_list|)
+function_decl|;
+comment|/**      * Whether the target context-path matches a REST url.      *      * @param path  the context-path from the incoming HTTP request      * @param wildcard whether to match strict or by wildcards      * @return<tt>true</tt> to match,<tt>false</tt> if not.      */
+DECL|method|matchesRest (String path, boolean wildcard)
+name|boolean
+name|matchesRest
+parameter_list|(
+name|String
+name|path
+parameter_list|,
+name|boolean
+name|wildcard
+parameter_list|)
+function_decl|;
+comment|/**      * Matches the given request HTTP method with the configured HTTP method of the consumer      *      * @param method    the request HTTP method      * @param restrict  the consumer configured HTTP restrict method      * @return<tt>true</tt> if matched,<tt>false</tt> otherwise      */
+DECL|method|matchMethod (String method, String restrict)
+name|boolean
+name|matchMethod
+parameter_list|(
+name|String
+name|method
+parameter_list|,
+name|String
+name|restrict
 parameter_list|)
 function_decl|;
 block|}

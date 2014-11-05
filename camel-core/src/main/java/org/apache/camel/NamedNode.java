@@ -14,6 +14,10 @@ name|camel
 package|;
 end_package
 
+begin_comment
+comment|/**  * Represents a node in the {@link org.apache.camel.model routes} which is identified by an id.  */
+end_comment
+
 begin_interface
 DECL|interface|NamedNode
 specifier|public

@@ -558,7 +558,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"deprecation"
 argument_list|)
-DECL|method|LinkedInOAuthRequestFilter (OAuthParams oAuthParams, Map<String, Object> httpParams, boolean lazyAuth)
+DECL|method|LinkedInOAuthRequestFilter (OAuthParams oAuthParams, Map<String, Object> httpParams, boolean lazyAuth, String[] enabledProtocols)
 specifier|public
 name|LinkedInOAuthRequestFilter
 parameter_list|(
@@ -575,6 +575,10 @@ name|httpParams
 parameter_list|,
 name|boolean
 name|lazyAuth
+parameter_list|,
+name|String
+index|[]
+name|enabledProtocols
 parameter_list|)
 block|{
 name|this
@@ -645,6 +649,13 @@ name|LOG
 operator|.
 name|isDebugEnabled
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|options
+operator|.
+name|setSSLClientProtocols
+argument_list|(
+name|enabledProtocols
 argument_list|)
 expr_stmt|;
 comment|// add HTTP proxy if set

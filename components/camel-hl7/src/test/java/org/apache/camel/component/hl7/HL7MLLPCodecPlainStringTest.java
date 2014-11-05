@@ -193,6 +193,10 @@ operator|+
 literal|"?sync=true&codec=#hl7codec"
 argument_list|,
 literal|"Hello World"
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertMockEndpointsSatisfied

@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provides a thread safe counter to track the number of {@link Exchange}  * objects that have been been processed.  *   */
+comment|/**  * Provides a thread safe counter to track the number of {@link Exchange}  * objects that have been been processed.  */
 end_comment
 
 begin_class

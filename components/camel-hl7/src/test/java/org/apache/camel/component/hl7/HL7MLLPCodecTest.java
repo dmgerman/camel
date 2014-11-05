@@ -413,9 +413,6 @@ expr_stmt|;
 name|String
 name|out
 init|=
-operator|(
-name|String
-operator|)
 name|template
 operator|.
 name|requestBody
@@ -431,6 +428,10 @@ name|in
 operator|.
 name|toString
 argument_list|()
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 comment|// END SNIPPET: e2

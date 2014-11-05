@@ -49,7 +49,7 @@ specifier|final
 name|String
 name|BROKER_URI
 init|=
-literal|"vm://bttc_test_broker?broker.persistent=false&broker.useJmx=true"
+literal|"vm://bttc_test_broker?broker.persistent=false&broker.useJmx=false"
 decl_stmt|;
 comment|/**      * We want to verify that when consuming from a single destination with      * multiple routes that we are thread safe and behave accordingly.      *       * @throws Exception      */
 annotation|@

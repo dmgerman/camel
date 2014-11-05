@@ -174,6 +174,22 @@ name|component
 operator|.
 name|bean
 operator|.
+name|ConstantStaticTypeBeanHolder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|bean
+operator|.
 name|ConstantTypeBeanHolder
 import|;
 end_import
@@ -308,6 +324,13 @@ DECL|field|cache
 specifier|private
 name|Boolean
 name|cache
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|multiParameterArray
+specifier|private
+name|Boolean
+name|multiParameterArray
 decl_stmt|;
 annotation|@
 name|XmlTransient
@@ -644,6 +667,32 @@ operator|=
 name|cache
 expr_stmt|;
 block|}
+DECL|method|getMultiParameterArray ()
+specifier|public
+name|Boolean
+name|getMultiParameterArray
+parameter_list|()
+block|{
+return|return
+name|multiParameterArray
+return|;
+block|}
+DECL|method|setMultiParameterArray (Boolean multiParameterArray)
+specifier|public
+name|void
+name|setMultiParameterArray
+parameter_list|(
+name|Boolean
+name|multiParameterArray
+parameter_list|)
+block|{
+name|this
+operator|.
+name|multiParameterArray
+operator|=
+name|multiParameterArray
+expr_stmt|;
+block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
 comment|/**      * Sets the ref String on camel bean      *      * @param ref  the bean's id in the registry      * @return the builder      * @deprecated not in use, will be removed in next Camel release      */
@@ -797,13 +846,11 @@ name|ref
 argument_list|)
 condition|)
 block|{
+comment|// lets cache by default
 if|if
 condition|(
-name|cache
-operator|!=
-literal|null
-operator|&&
-name|cache
+name|isCacheBean
+argument_list|()
 condition|)
 block|{
 comment|// cache the registry lookup which avoids repeat lookup in the registry
@@ -823,9 +870,18 @@ operator|.
 name|createCacheHolder
 argument_list|()
 expr_stmt|;
+comment|// bean holder will check if the bean exists
+name|bean
+operator|=
+name|beanHolder
+operator|.
+name|getBean
+argument_list|()
+expr_stmt|;
 block|}
 else|else
 block|{
+comment|// we do not cache so we invoke on-demand
 name|beanHolder
 operator|=
 operator|new
@@ -840,14 +896,6 @@ name|ref
 argument_list|)
 expr_stmt|;
 block|}
-comment|// bean holder will check if the bean exists
-name|bean
-operator|=
-name|beanHolder
-operator|.
-name|getBean
-argument_list|()
-expr_stmt|;
 name|answer
 operator|=
 operator|new
@@ -937,6 +985,9 @@ block|}
 comment|// create a bean if there is a default public no-arg constructor
 if|if
 condition|(
+name|isCacheBean
+argument_list|()
+operator|&&
 name|ObjectHelper
 operator|.
 name|hasDefaultPublicNoArgConstructor
@@ -994,12 +1045,15 @@ argument_list|)
 throw|;
 block|}
 comment|// the holder should either be bean or type based
-name|beanHolder
-operator|=
+if|if
+condition|(
 name|bean
 operator|!=
 literal|null
-condition|?
+condition|)
+block|{
+name|beanHolder
+operator|=
 operator|new
 name|ConstantBeanHolder
 argument_list|(
@@ -1010,7 +1064,55 @@ operator|.
 name|getCamelContext
 argument_list|()
 argument_list|)
-else|:
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|isCacheBean
+argument_list|()
+operator|&&
+name|ObjectHelper
+operator|.
+name|hasDefaultPublicNoArgConstructor
+argument_list|(
+name|clazz
+argument_list|)
+condition|)
+block|{
+comment|// we can only cache if we can create an instance of the bean, and for that we need a public constructor
+name|beanHolder
+operator|=
+operator|new
+name|ConstantTypeBeanHolder
+argument_list|(
+name|clazz
+argument_list|,
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|)
+operator|.
+name|createCacheHolder
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|hasDefaultPublicNoArgConstructor
+argument_list|(
+name|clazz
+argument_list|)
+condition|)
+block|{
+name|beanHolder
+operator|=
 operator|new
 name|ConstantTypeBeanHolder
 argument_list|(
@@ -1022,12 +1124,48 @@ name|getCamelContext
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// this is only for invoking static methods on the bean
+name|beanHolder
+operator|=
+operator|new
+name|ConstantStaticTypeBeanHolder
+argument_list|(
+name|clazz
+argument_list|,
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
 name|answer
 operator|=
 operator|new
 name|BeanProcessor
 argument_list|(
 name|beanHolder
+argument_list|)
+expr_stmt|;
+block|}
+comment|// check for multiParameterArray setting
+if|if
+condition|(
+name|multiParameterArray
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setMultiParameterArray
+argument_list|(
+name|multiParameterArray
 argument_list|)
 expr_stmt|;
 block|}
@@ -1047,6 +1185,14 @@ name|method
 argument_list|)
 expr_stmt|;
 comment|// check there is a method with the given name, and leverage BeanInfo for that
+comment|// which we only do if we are caching the bean as otherwise we will create a bean instance for this check
+comment|// which we only want to do if we cache the bean
+if|if
+condition|(
+name|isCacheBean
+argument_list|()
+condition|)
+block|{
 name|BeanInfo
 name|beanInfo
 init|=
@@ -1133,8 +1279,23 @@ throw|;
 block|}
 block|}
 block|}
+block|}
 return|return
 name|answer
+return|;
+block|}
+DECL|method|isCacheBean ()
+specifier|private
+name|boolean
+name|isCacheBean
+parameter_list|()
+block|{
+return|return
+name|cache
+operator|==
+literal|null
+operator|||
+name|cache
 return|;
 block|}
 block|}

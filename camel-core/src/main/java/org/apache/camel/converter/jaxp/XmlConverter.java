@@ -220,6 +220,30 @@ name|javax
 operator|.
 name|xml
 operator|.
+name|parsers
+operator|.
+name|SAXParser
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|parsers
+operator|.
+name|SAXParserFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
 name|stream
 operator|.
 name|XMLStreamException
@@ -482,6 +506,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|xml
+operator|.
+name|sax
+operator|.
+name|XMLReader
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -534,22 +570,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
-operator|.
-name|xml
-operator|.
-name|XPathBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|IOHelper
@@ -591,7 +611,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class to transform to and from various JAXB types such as {@link Source} and {@link Document}  *  * @version   */
+comment|/**  * A helper class to transform to and from various JAXB types such as {@link Source} and {@link Document}  *  * @version  */
 end_comment
 
 begin_class
@@ -660,7 +680,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|XPathBuilder
+name|XmlConverter
 operator|.
 name|class
 argument_list|)
@@ -908,7 +928,7 @@ name|document
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given Node to a Source      * @throws TransformerException       * @throws ParserConfigurationException       * @deprecated  use toDOMSource instead      */
+comment|/**      * Converts the given Node to a Source      * @throws TransformerException      * @throws ParserConfigurationException      * @deprecated  use toDOMSource instead      */
 annotation|@
 name|Deprecated
 DECL|method|toSource (Node node)
@@ -931,7 +951,7 @@ name|node
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given Node to a Source      * @throws TransformerException       * @throws ParserConfigurationException       */
+comment|/**      * Converts the given Node to a Source      * @throws TransformerException      * @throws ParserConfigurationException      */
 annotation|@
 name|Converter
 DECL|method|toDOMSource (Node node)
@@ -1366,9 +1386,9 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the source instance to a {@link DOMSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
+comment|/**      * Converts the source instance to a {@link DOMSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
-name|Converter
+name|Deprecated
 DECL|method|toDOMSource (Source source)
 specifier|public
 name|DOMSource
@@ -1376,6 +1396,41 @@ name|toDOMSource
 parameter_list|(
 name|Source
 name|source
+parameter_list|)
+throws|throws
+name|ParserConfigurationException
+throws|,
+name|IOException
+throws|,
+name|SAXException
+throws|,
+name|TransformerException
+block|{
+return|return
+name|toDOMSource
+argument_list|(
+name|source
+argument_list|,
+operator|(
+name|Exchange
+operator|)
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Converts the source instance to a {@link DOMSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
+annotation|@
+name|Converter
+DECL|method|toDOMSource (Source source, Exchange exchange)
+specifier|public
+name|DOMSource
+name|toDOMSource
+parameter_list|(
+name|Source
+name|source
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|ParserConfigurationException
@@ -1433,6 +1488,8 @@ operator|(
 name|StreamSource
 operator|)
 name|source
+argument_list|,
+name|exchange
 argument_list|)
 return|;
 block|}
@@ -1621,7 +1678,7 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the source instance to a {@link StAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      * @throws XMLStreamException       */
+comment|/**      * Converts the source instance to a {@link StAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      * @throws XMLStreamException      */
 annotation|@
 name|Converter
 DECL|method|toStAXSource (String source, Exchange exchange)
@@ -1802,7 +1859,7 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the source instance to a {@link StAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      * @throws XMLStreamException       */
+comment|/**      * Converts the source instance to a {@link StAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      * @throws XMLStreamException      */
 annotation|@
 name|Converter
 DECL|method|toStAXSource (InputStream source, Exchange exchange)
@@ -1885,7 +1942,7 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the source instance to a {@link StAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      * @throws FileNotFoundException       * @throws XMLStreamException       */
+comment|/**      * Converts the source instance to a {@link StAXSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      * @throws FileNotFoundException      * @throws XMLStreamException      */
 annotation|@
 name|Converter
 DECL|method|toStAXSource (File file, Exchange exchange)
@@ -2037,6 +2094,8 @@ operator|(
 name|StreamSource
 operator|)
 name|source
+argument_list|,
+name|exchange
 argument_list|)
 return|;
 block|}
@@ -2549,8 +2608,9 @@ name|result
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
-name|Converter
+name|Deprecated
 DECL|method|toSAXSourceFromStream (StreamSource source)
 specifier|public
 name|SAXSource
@@ -2559,6 +2619,36 @@ parameter_list|(
 name|StreamSource
 name|source
 parameter_list|)
+throws|throws
+name|SAXException
+block|{
+return|return
+name|toSAXSourceFromStream
+argument_list|(
+name|source
+argument_list|,
+operator|(
+name|Exchange
+operator|)
+literal|null
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|toSAXSourceFromStream (StreamSource source, Exchange exchange)
+specifier|public
+name|SAXSource
+name|toSAXSourceFromStream
+parameter_list|(
+name|StreamSource
+name|source
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|SAXException
 block|{
 name|InputSource
 name|inputSource
@@ -2619,10 +2709,152 @@ name|getPublicId
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|XMLReader
+name|xmlReader
+init|=
+literal|null
+decl_stmt|;
+name|SAXParserFactory
+name|sfactory
+init|=
+literal|null
+decl_stmt|;
+comment|//Need to setup XMLReader security feature by default
+try|try
+block|{
+comment|// use the SAXPaserFactory which is set from exchange
+if|if
+condition|(
+name|exchange
+operator|!=
+literal|null
+condition|)
+block|{
+name|sfactory
+operator|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|SAXPARSER_FACTORY
+argument_list|,
+name|SAXParserFactory
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|sfactory
+operator|==
+literal|null
+condition|)
+block|{
+name|sfactory
+operator|=
+name|SAXParserFactory
+operator|.
+name|newInstance
+argument_list|()
+expr_stmt|;
+try|try
+block|{
+name|sfactory
+operator|.
+name|setFeature
+argument_list|(
+name|javax
+operator|.
+name|xml
+operator|.
+name|XMLConstants
+operator|.
+name|FEATURE_SECURE_PROCESSING
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"SAXParser doesn't support the feature {} with value {}, due to {}."
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|javax
+operator|.
+name|xml
+operator|.
+name|XMLConstants
+operator|.
+name|FEATURE_SECURE_PROCESSING
+block|,
+literal|"true"
+block|,
+name|e
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+name|sfactory
+operator|.
+name|setNamespaceAware
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|SAXParser
+name|parser
+init|=
+name|sfactory
+operator|.
+name|newSAXParser
+argument_list|()
+decl_stmt|;
+name|xmlReader
+operator|=
+name|parser
+operator|.
+name|getXMLReader
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot create the SAXParser XMLReader, due to {}"
+argument_list|,
+name|ex
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 operator|new
 name|SAXSource
 argument_list|(
+name|xmlReader
+argument_list|,
 name|inputSource
 argument_list|)
 return|;
@@ -2707,8 +2939,9 @@ return|return
 name|r
 return|;
 block|}
+comment|/**     * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.     */
 annotation|@
-name|Converter
+name|Deprecated
 DECL|method|toDOMSource (InputStream is)
 specifier|public
 name|DOMSource
@@ -2716,6 +2949,38 @@ name|toDOMSource
 parameter_list|(
 name|InputStream
 name|is
+parameter_list|)
+throws|throws
+name|ParserConfigurationException
+throws|,
+name|IOException
+throws|,
+name|SAXException
+block|{
+return|return
+name|toDOMSource
+argument_list|(
+name|is
+argument_list|,
+operator|(
+name|Exchange
+operator|)
+literal|null
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|toDOMSource (InputStream is, Exchange exchange)
+specifier|public
+name|DOMSource
+name|toDOMSource
+parameter_list|(
+name|InputStream
+name|is
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|ParserConfigurationException
@@ -2744,7 +3009,12 @@ decl_stmt|;
 name|DocumentBuilder
 name|builder
 init|=
-name|createDocumentBuilder
+name|getDocumentBuilderFactory
+argument_list|(
+name|exchange
+argument_list|)
+operator|.
+name|newDocumentBuilder
 argument_list|()
 decl_stmt|;
 name|Document
@@ -2767,8 +3037,9 @@ name|systemId
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
-name|Converter
+name|Deprecated
 DECL|method|toDOMSource (File file)
 specifier|public
 name|DOMSource
@@ -2776,6 +3047,38 @@ name|toDOMSource
 parameter_list|(
 name|File
 name|file
+parameter_list|)
+throws|throws
+name|ParserConfigurationException
+throws|,
+name|IOException
+throws|,
+name|SAXException
+block|{
+return|return
+name|toDOMSource
+argument_list|(
+name|file
+argument_list|,
+operator|(
+name|Exchange
+operator|)
+literal|null
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|toDOMSource (File file, Exchange exchange)
+specifier|public
+name|DOMSource
+name|toDOMSource
+parameter_list|(
+name|File
+name|file
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|ParserConfigurationException
@@ -2802,11 +3105,14 @@ return|return
 name|toDOMSource
 argument_list|(
 name|is
+argument_list|,
+name|exchange
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
-name|Converter
+name|Deprecated
 DECL|method|toDOMSourceFromStream (StreamSource source)
 specifier|public
 name|DOMSource
@@ -2814,6 +3120,38 @@ name|toDOMSourceFromStream
 parameter_list|(
 name|StreamSource
 name|source
+parameter_list|)
+throws|throws
+name|ParserConfigurationException
+throws|,
+name|IOException
+throws|,
+name|SAXException
+block|{
+return|return
+name|toDOMSourceFromStream
+argument_list|(
+name|source
+argument_list|,
+operator|(
+name|Exchange
+operator|)
+literal|null
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Converter
+DECL|method|toDOMSourceFromStream (StreamSource source, Exchange exchange)
+specifier|public
+name|DOMSource
+name|toDOMSourceFromStream
+parameter_list|(
+name|StreamSource
+name|source
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|ParserConfigurationException
@@ -2836,7 +3174,12 @@ decl_stmt|;
 name|DocumentBuilder
 name|builder
 init|=
-name|createDocumentBuilder
+name|getDocumentBuilderFactory
+argument_list|(
+name|exchange
+argument_list|)
+operator|.
+name|newDocumentBuilder
 argument_list|()
 decl_stmt|;
 name|Reader
@@ -3441,7 +3784,7 @@ block|}
 block|}
 comment|/**      * Converts the given data to a DOM document      *      * @param data is the data to be parsed      * @return the parsed document      */
 annotation|@
-name|Converter
+name|Deprecated
 DECL|method|toDOMDocument (byte[] data)
 specifier|public
 name|Document
@@ -3458,11 +3801,47 @@ name|SAXException
 throws|,
 name|ParserConfigurationException
 block|{
+return|return
+name|toDOMDocument
+argument_list|(
+name|data
+argument_list|,
+operator|(
+name|Exchange
+operator|)
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Converts the given data to a DOM document      *      * @param data is the data to be parsed      * @param exchange is the exchange to be used when calling the converter      * @return the parsed document      */
+annotation|@
+name|Converter
+DECL|method|toDOMDocument (byte[] data, Exchange exchange)
+specifier|public
+name|Document
+name|toDOMDocument
+parameter_list|(
+name|byte
+index|[]
+name|data
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|IOException
+throws|,
+name|SAXException
+throws|,
+name|ParserConfigurationException
+block|{
 name|DocumentBuilder
 name|documentBuilder
 init|=
 name|getDocumentBuilderFactory
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 operator|.
 name|newDocumentBuilder
 argument_list|()
@@ -3480,9 +3859,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given {@link InputStream} to a DOM document      *      * @param in is the data to be parsed      * @return the parsed document      */
+comment|/**      * Converts the given {@link InputStream} to a DOM document      *      * @param in is the data to be parsed      * @return the parsed document      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
-name|Converter
+name|Deprecated
 DECL|method|toDOMDocument (InputStream in)
 specifier|public
 name|Document
@@ -3498,11 +3877,46 @@ name|SAXException
 throws|,
 name|ParserConfigurationException
 block|{
+return|return
+name|toDOMDocument
+argument_list|(
+name|in
+argument_list|,
+operator|(
+name|Exchange
+operator|)
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Converts the given {@link InputStream} to a DOM document      *      * @param in is the data to be parsed      * @param exchange is the exchange to be used when calling the converter      * @return the parsed document      */
+annotation|@
+name|Converter
+DECL|method|toDOMDocument (InputStream in, Exchange exchange)
+specifier|public
+name|Document
+name|toDOMDocument
+parameter_list|(
+name|InputStream
+name|in
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|IOException
+throws|,
+name|SAXException
+throws|,
+name|ParserConfigurationException
+block|{
 name|DocumentBuilder
 name|documentBuilder
 init|=
 name|getDocumentBuilderFactory
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 operator|.
 name|newDocumentBuilder
 argument_list|()
@@ -3516,9 +3930,9 @@ name|in
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given {@link InputStream} to a DOM document      *      * @param in is the data to be parsed      * @return the parsed document      */
+comment|/**      * Converts the given {@link InputStream} to a DOM document      *      * @param in is the data to be parsed      * @return the parsed document      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
-name|Converter
+name|Deprecated
 DECL|method|toDOMDocument (Reader in)
 specifier|public
 name|Document
@@ -3545,9 +3959,43 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given {@link InputSource} to a DOM document      *      * @param in is the data to be parsed      * @return the parsed document      */
+comment|/**      * Converts the given {@link InputStream} to a DOM document      *      * @param in is the data to be parsed      * @param exchange is the exchange to be used when calling the converter      * @return the parsed document      */
 annotation|@
 name|Converter
+DECL|method|toDOMDocument (Reader in, Exchange exchange)
+specifier|public
+name|Document
+name|toDOMDocument
+parameter_list|(
+name|Reader
+name|in
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|IOException
+throws|,
+name|SAXException
+throws|,
+name|ParserConfigurationException
+block|{
+return|return
+name|toDOMDocument
+argument_list|(
+operator|new
+name|InputSource
+argument_list|(
+name|in
+argument_list|)
+argument_list|,
+name|exchange
+argument_list|)
+return|;
+block|}
+comment|/**      * Converts the given {@link InputSource} to a DOM document      *      * @param in is the data to be parsed      * @return the parsed document      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
+annotation|@
+name|Deprecated
 DECL|method|toDOMDocument (InputSource in)
 specifier|public
 name|Document
@@ -3563,11 +4011,46 @@ name|SAXException
 throws|,
 name|ParserConfigurationException
 block|{
+return|return
+name|toDOMDocument
+argument_list|(
+name|in
+argument_list|,
+operator|(
+name|Exchange
+operator|)
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Converts the given {@link InputSource} to a DOM document      *      * @param in is the data to be parsed      * @param exchange is the exchange to be used when calling the converter      * @return the parsed document      */
+annotation|@
+name|Converter
+DECL|method|toDOMDocument (InputSource in, Exchange exchange)
+specifier|public
+name|Document
+name|toDOMDocument
+parameter_list|(
+name|InputSource
+name|in
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|IOException
+throws|,
+name|SAXException
+throws|,
+name|ParserConfigurationException
+block|{
 name|DocumentBuilder
 name|documentBuilder
 init|=
 name|getDocumentBuilderFactory
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 operator|.
 name|newDocumentBuilder
 argument_list|()
@@ -3581,9 +4064,9 @@ name|in
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given {@link String} to a DOM document      *      * @param text is the data to be parsed      * @return the parsed document      */
+comment|/**      * Converts the given {@link String} to a DOM document      *      * @param text is the data to be parsed      * @return the parsed document      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
 annotation|@
-name|Converter
+name|Deprecated
 DECL|method|toDOMDocument (String text)
 specifier|public
 name|Document
@@ -3610,9 +4093,43 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Converts the given {@link File} to a DOM document      *      * @param file is the data to be parsed      * @return the parsed document      */
+comment|/**      * Converts the given {@link String} to a DOM document      *      * @param text is the data to be parsed      * @param exchange is the exchange to be used when calling the converter      * @return the parsed document      */
 annotation|@
 name|Converter
+DECL|method|toDOMDocument (String text, Exchange exchange)
+specifier|public
+name|Document
+name|toDOMDocument
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|IOException
+throws|,
+name|SAXException
+throws|,
+name|ParserConfigurationException
+block|{
+return|return
+name|toDOMDocument
+argument_list|(
+operator|new
+name|StringReader
+argument_list|(
+name|text
+argument_list|)
+argument_list|,
+name|exchange
+argument_list|)
+return|;
+block|}
+comment|/**      * Converts the given {@link File} to a DOM document      *      * @param file is the data to be parsed      * @return the parsed document      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */
+annotation|@
+name|Deprecated
 DECL|method|toDOMDocument (File file)
 specifier|public
 name|Document
@@ -3628,11 +4145,46 @@ name|SAXException
 throws|,
 name|ParserConfigurationException
 block|{
+return|return
+name|toDOMDocument
+argument_list|(
+name|file
+argument_list|,
+operator|(
+name|Exchange
+operator|)
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Converts the given {@link File} to a DOM document      *      * @param file is the data to be parsed      * @param exchange is the exchange to be used when calling the converter      * @return the parsed document      */
+annotation|@
+name|Converter
+DECL|method|toDOMDocument (File file, Exchange exchange)
+specifier|public
+name|Document
+name|toDOMDocument
+parameter_list|(
+name|File
+name|file
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|IOException
+throws|,
+name|SAXException
+throws|,
+name|ParserConfigurationException
+block|{
 name|DocumentBuilder
 name|documentBuilder
 init|=
 name|getDocumentBuilderFactory
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 operator|.
 name|newDocumentBuilder
 argument_list|()
@@ -4284,6 +4836,62 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|getDocumentBuilderFactory (Exchange exchange)
+specifier|public
+name|DocumentBuilderFactory
+name|getDocumentBuilderFactory
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|DocumentBuilderFactory
+name|answer
+init|=
+name|getDocumentBuilderFactory
+argument_list|()
+decl_stmt|;
+comment|// Get the DocumentBuilderFactory from the exchange header first
+if|if
+condition|(
+name|exchange
+operator|!=
+literal|null
+condition|)
+block|{
+name|DocumentBuilderFactory
+name|factory
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|DOCUMENT_BUILDER_FACTORY
+argument_list|,
+name|DocumentBuilderFactory
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|factory
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|=
+name|factory
+expr_stmt|;
+block|}
+block|}
+return|return
+name|answer
+return|;
+block|}
 DECL|method|createDocumentBuilderFactory ()
 specifier|public
 name|DocumentBuilderFactory
@@ -4350,7 +4958,73 @@ index|[]
 block|{
 literal|"http://xml.org/sax/features/external-general-entities"
 block|,
-literal|true
+literal|false
+block|,
+name|e
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+comment|// setup the SecurityManager by default if it's apache xerces
+try|try
+block|{
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|smClass
+init|=
+name|ObjectHelper
+operator|.
+name|loadClass
+argument_list|(
+literal|"org.apache.xerces.util.SecurityManager"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|smClass
+operator|!=
+literal|null
+condition|)
+block|{
+name|Object
+name|sm
+init|=
+name|smClass
+operator|.
+name|newInstance
+argument_list|()
+decl_stmt|;
+comment|// Here we just use the default setting of the SeurityManager
+name|factory
+operator|.
+name|setAttribute
+argument_list|(
+literal|"http://apache.org/xml/properties/security-manager"
+argument_list|,
+name|sm
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"DocumentBuilderFactory doesn't support the attribute {}, due to {}."
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+literal|"http://apache.org/xml/properties/security-manager"
 block|,
 name|e
 block|}

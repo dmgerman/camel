@@ -172,6 +172,16 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
+comment|// use rest enabled resolver in case we use rest
+name|this
+operator|.
+name|setServletResolveConsumerStrategy
+argument_list|(
+operator|new
+name|ServletRestServletResolveConsumerStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|String
 name|ignore
 init|=

@@ -548,7 +548,6 @@ operator|=
 literal|"direct:input"
 argument_list|)
 DECL|field|producerTemplate
-specifier|private
 name|ProducerTemplate
 name|producerTemplate
 decl_stmt|;
@@ -560,7 +559,6 @@ operator|=
 literal|"mock:output"
 argument_list|)
 DECL|field|output
-specifier|private
 name|MockEndpoint
 name|output
 decl_stmt|;
@@ -2300,7 +2298,6 @@ argument_list|)
 return|;
 block|}
 DECL|method|buildArgs (Object commandArgument)
-specifier|private
 name|List
 argument_list|<
 name|String

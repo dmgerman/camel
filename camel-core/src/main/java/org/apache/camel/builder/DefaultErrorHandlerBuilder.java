@@ -911,6 +911,27 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|exchangeFormatterRef (String exchangeFormatterRef)
+specifier|public
+name|DefaultErrorHandlerBuilder
+name|exchangeFormatterRef
+parameter_list|(
+name|String
+name|exchangeFormatterRef
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|setExchangeFormatterRef
+argument_list|(
+name|exchangeFormatterRef
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Will allow asynchronous delayed redeliveries.      *      * @see org.apache.camel.processor.RedeliveryPolicy#setAsyncDelayedRedelivery(boolean)      * @return the builder      */
 DECL|method|asyncDelayedRedelivery ()
 specifier|public

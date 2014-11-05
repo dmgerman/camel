@@ -32,6 +32,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Future
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|jms
@@ -220,24 +232,6 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|jms
-operator|.
-name|ObjectPool
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|sjms
-operator|.
 name|taskmanager
 operator|.
 name|TimedTaskManager
@@ -344,8 +338,38 @@ name|Synchronization
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|pool
+operator|.
+name|BasePoolableObjectFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|pool
+operator|.
+name|impl
+operator|.
+name|GenericObjectPool
+import|;
+end_import
+
 begin_comment
-comment|/**  * The SjmsConsumer is the base class for the SJMS MessageListener pool.  *   */
+comment|/**  * The SjmsConsumer is the base class for the SJMS MessageListener pool.  */
 end_comment
 
 begin_class
@@ -358,64 +382,57 @@ name|DefaultConsumer
 block|{
 DECL|field|consumers
 specifier|protected
-name|MessageConsumerPool
+name|GenericObjectPool
+argument_list|<
+name|MessageConsumerResources
+argument_list|>
 name|consumers
 decl_stmt|;
 DECL|field|executor
 specifier|private
-specifier|final
 name|ExecutorService
 name|executor
 decl_stmt|;
+DECL|field|asyncStart
+specifier|private
+name|Future
+argument_list|<
+name|?
+argument_list|>
+name|asyncStart
+decl_stmt|;
 comment|/**      * A pool of MessageConsumerResources created at the initialization of the associated consumer.      */
-DECL|class|MessageConsumerPool
+DECL|class|MessageConsumerResourcesFactory
 specifier|protected
 class|class
-name|MessageConsumerPool
+name|MessageConsumerResourcesFactory
 extends|extends
-name|ObjectPool
+name|BasePoolableObjectFactory
 argument_list|<
 name|MessageConsumerResources
 argument_list|>
 block|{
-DECL|method|MessageConsumerPool ()
-specifier|public
-name|MessageConsumerPool
-parameter_list|()
-block|{
-name|super
-argument_list|(
-name|getConsumerCount
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**           * Creates a new MessageConsumerResources instance.          *          * @see org.apache.camel.component.sjms.jms.ObjectPool#createObject()          */
+comment|/**          * Creates a new MessageConsumerResources instance.          *          * @see org.apache.commons.pool.PoolableObjectFactory#makeObject()          */
 annotation|@
 name|Override
-DECL|method|createObject ()
-specifier|protected
+DECL|method|makeObject ()
+specifier|public
 name|MessageConsumerResources
-name|createObject
+name|makeObject
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|MessageConsumerResources
-name|model
-init|=
+return|return
 name|createConsumer
 argument_list|()
-decl_stmt|;
-return|return
-name|model
 return|;
 block|}
-comment|/**           * Cleans up the MessageConsumerResources.          *          * @see org.apache.camel.component.sjms.jms.ObjectPool#destroyObject(java.lang.Object)          */
+comment|/**          * Cleans up the MessageConsumerResources.          *          * @see org.apache.commons.pool.PoolableObjectFactory#destroyObject(java.lang.Object)          */
 annotation|@
 name|Override
 DECL|method|destroyObject (MessageConsumerResources model)
-specifier|protected
+specifier|public
 name|void
 name|destroyObject
 parameter_list|(
@@ -506,91 +523,6 @@ block|}
 block|}
 block|}
 block|}
-DECL|class|MessageConsumerResources
-specifier|protected
-class|class
-name|MessageConsumerResources
-block|{
-DECL|field|session
-specifier|private
-specifier|final
-name|Session
-name|session
-decl_stmt|;
-DECL|field|messageConsumer
-specifier|private
-specifier|final
-name|MessageConsumer
-name|messageConsumer
-decl_stmt|;
-DECL|method|MessageConsumerResources (MessageConsumer messageConsumer)
-specifier|public
-name|MessageConsumerResources
-parameter_list|(
-name|MessageConsumer
-name|messageConsumer
-parameter_list|)
-block|{
-name|this
-operator|.
-name|session
-operator|=
-literal|null
-expr_stmt|;
-name|this
-operator|.
-name|messageConsumer
-operator|=
-name|messageConsumer
-expr_stmt|;
-block|}
-DECL|method|MessageConsumerResources (Session session, MessageConsumer messageConsumer)
-specifier|public
-name|MessageConsumerResources
-parameter_list|(
-name|Session
-name|session
-parameter_list|,
-name|MessageConsumer
-name|messageConsumer
-parameter_list|)
-block|{
-name|this
-operator|.
-name|session
-operator|=
-name|session
-expr_stmt|;
-name|this
-operator|.
-name|messageConsumer
-operator|=
-name|messageConsumer
-expr_stmt|;
-block|}
-comment|/**          * Gets the Session value of session for this instance of          * MessageProducerModel.          *           * @return the session          */
-DECL|method|getSession ()
-specifier|public
-name|Session
-name|getSession
-parameter_list|()
-block|{
-return|return
-name|session
-return|;
-block|}
-comment|/**          * Gets the QueueSender value of queueSender for this instance of          * MessageProducerModel.          *           * @return the queueSender          */
-DECL|method|getMessageConsumer ()
-specifier|public
-name|MessageConsumer
-name|getMessageConsumer
-parameter_list|()
-block|{
-return|return
-name|messageConsumer
-return|;
-block|}
-block|}
 DECL|method|SjmsConsumer (Endpoint endpoint, Processor processor)
 specifier|public
 name|SjmsConsumer
@@ -607,25 +539,6 @@ argument_list|(
 name|endpoint
 argument_list|,
 name|processor
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|executor
-operator|=
-name|endpoint
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getExecutorServiceManager
-argument_list|()
-operator|.
-name|newDefaultThreadPool
-argument_list|(
-name|this
-argument_list|,
-literal|"SjmsConsumer"
 argument_list|)
 expr_stmt|;
 block|}
@@ -662,17 +575,178 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
+name|this
+operator|.
+name|executor
+operator|=
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|newDefaultThreadPool
+argument_list|(
+name|this
+argument_list|,
+literal|"SjmsConsumer"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|consumers
+operator|==
+literal|null
+condition|)
+block|{
 name|consumers
 operator|=
 operator|new
-name|MessageConsumerPool
+name|GenericObjectPool
+argument_list|<
+name|MessageConsumerResources
+argument_list|>
+argument_list|(
+operator|new
+name|MessageConsumerResourcesFactory
 argument_list|()
+argument_list|)
 expr_stmt|;
 name|consumers
 operator|.
-name|fillPool
+name|setMaxActive
+argument_list|(
+name|getConsumerCount
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|consumers
+operator|.
+name|setMaxIdle
+argument_list|(
+name|getConsumerCount
+argument_list|()
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|isAsyncStartListener
+argument_list|()
+condition|)
+block|{
+name|asyncStart
+operator|=
+name|getEndpoint
+argument_list|()
+operator|.
+name|getComponent
+argument_list|()
+operator|.
+name|getAsyncStartStopExecutorService
+argument_list|()
+operator|.
+name|submit
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
+try|try
+block|{
+name|fillConsumersPool
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Error starting listener container on destination: "
+operator|+
+name|getDestinationName
+argument_list|()
+operator|+
+literal|". This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"AsyncStartListenerTask["
+operator|+
+name|getDestinationName
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|fillConsumersPool
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
+DECL|method|fillConsumersPool ()
+specifier|private
+name|void
+name|fillConsumersPool
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+while|while
+condition|(
+name|consumers
+operator|.
+name|getNumIdle
+argument_list|()
+operator|<
+name|consumers
+operator|.
+name|getMaxIdle
+argument_list|()
+condition|)
+block|{
+name|consumers
+operator|.
+name|addObject
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -691,19 +765,154 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+name|asyncStart
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|asyncStart
+operator|.
+name|isDone
+argument_list|()
+condition|)
+block|{
+name|asyncStart
+operator|.
+name|cancel
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|consumers
 operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|isAsyncStopListener
+argument_list|()
+condition|)
+block|{
+name|getEndpoint
+argument_list|()
+operator|.
+name|getComponent
+argument_list|()
+operator|.
+name|getAsyncStartStopExecutorService
+argument_list|()
+operator|.
+name|submit
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
+try|try
+block|{
 name|consumers
 operator|.
-name|drainPool
+name|close
 argument_list|()
 expr_stmt|;
 name|consumers
 operator|=
 literal|null
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Error stopping listener container on destination: "
+operator|+
+name|getDestinationName
+argument_list|()
+operator|+
+literal|". This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"AsyncStopListenerTask["
+operator|+
+name|getDestinationName
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|consumers
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|consumers
+operator|=
+literal|null
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|this
+operator|.
+name|executor
+operator|!=
+literal|null
+condition|)
+block|{
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdownGraceful
+argument_list|(
+name|this
+operator|.
+name|executor
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -906,7 +1115,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Helper factory method used to create a MessageListener based on the MEP      *       * @param session a session is only required if we are a transacted consumer      * @return the listener      */
+comment|/**      * Helper factory method used to create a MessageListener based on the MEP      *      * @param session a session is only required if we are a transacted consumer      * @return the listener      */
 DECL|method|createMessageHandler (Session session)
 specifier|protected
 name|MessageListener
@@ -1179,7 +1388,7 @@ name|intValue
 argument_list|()
 return|;
 block|}
-comment|/**      * Use to determine if transactions are enabled or disabled.      *       * @return true if transacted, otherwise false      */
+comment|/**      * Use to determine if transactions are enabled or disabled.      *      * @return true if transacted, otherwise false      */
 DECL|method|isTransacted ()
 specifier|public
 name|boolean
@@ -1194,7 +1403,7 @@ name|isTransacted
 argument_list|()
 return|;
 block|}
-comment|/**      * Use to determine whether or not to process exchanges synchronously.      *       * @return true if synchronous      */
+comment|/**      * Use to determine whether or not to process exchanges synchronously.      *      * @return true if synchronous      */
 DECL|method|isSynchronous ()
 specifier|public
 name|boolean
@@ -1209,7 +1418,7 @@ name|isSynchronous
 argument_list|()
 return|;
 block|}
-comment|/**      * The destination name for this consumer.      *       * @return String      */
+comment|/**      * The destination name for this consumer.      *      * @return String      */
 DECL|method|getDestinationName ()
 specifier|public
 name|String
@@ -1224,7 +1433,7 @@ name|getDestinationName
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the number of consumer listeners.      *       * @return the consumerCount      */
+comment|/**      * Returns the number of consumer listeners.      *      * @return the consumerCount      */
 DECL|method|getConsumerCount ()
 specifier|public
 name|int
@@ -1239,7 +1448,7 @@ name|getConsumerCount
 argument_list|()
 return|;
 block|}
-comment|/**      * Flag set by the endpoint used by consumers and producers to determine if      * the consumer is a JMS Topic.      *       * @return the topic true if consumer is a JMS Topic, default is false      */
+comment|/**      * Flag set by the endpoint used by consumers and producers to determine if      * the consumer is a JMS Topic.      *      * @return the topic true if consumer is a JMS Topic, default is false      */
 DECL|method|isTopic ()
 specifier|public
 name|boolean
@@ -1269,7 +1478,7 @@ name|getMessageSelector
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the durable subscription Id.      *       * @return the durableSubscriptionId      */
+comment|/**      * Gets the durable subscription Id.      *      * @return the durableSubscriptionId      */
 DECL|method|getDurableSubscriptionId ()
 specifier|public
 name|String
@@ -1284,7 +1493,7 @@ name|getDurableSubscriptionId
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the commit strategy.      *       * @return the transactionCommitStrategy      */
+comment|/**      * Gets the commit strategy.      *      * @return the transactionCommitStrategy      */
 DECL|method|getTransactionCommitStrategy ()
 specifier|public
 name|TransactionCommitStrategy
@@ -1299,7 +1508,7 @@ name|getTransactionCommitStrategy
 argument_list|()
 return|;
 block|}
-comment|/**      * If transacted, returns the nubmer of messages to be processed before      * committing the transaction.      *       * @return the transactionBatchCount      */
+comment|/**      * If transacted, returns the nubmer of messages to be processed before      * committing the transaction.      *      * @return the transactionBatchCount      */
 DECL|method|getTransactionBatchCount ()
 specifier|public
 name|int
@@ -1314,7 +1523,7 @@ name|getTransactionBatchCount
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the timeout value for batch transactions.      *       * @return long      */
+comment|/**      * Returns the timeout value for batch transactions.      *      * @return long      */
 DECL|method|getTransactionBatchTimeout ()
 specifier|public
 name|long

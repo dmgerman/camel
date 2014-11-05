@@ -1594,7 +1594,7 @@ name|json
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the JSON data format      *      * @param type          the json type to use      * @param unmarshalType unmarshal type for json jackson type      * @param jsonView      the view type for json jackson type      */
+comment|/**      * Uses the Jackson JSON data format      *      * @param unmarshalType unmarshal type for json jackson type      * @param jsonView      the view type for json jackson type      */
 DECL|method|json (Class<?> unmarshalType, Class<?> jsonView)
 specifier|public
 name|T
@@ -1636,6 +1636,67 @@ operator|.
 name|setJsonView
 argument_list|(
 name|jsonView
+argument_list|)
+expr_stmt|;
+return|return
+name|dataFormat
+argument_list|(
+name|json
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the Jackson JSON data format      *      * @param unmarshalType unmarshal type for json jackson type      * @param jsonView      the view type for json jackson type      * @param include       include such as<tt>ALWAYS</tt>,<tt>NON_NULL</tt>, etc.      */
+DECL|method|json (Class<?> unmarshalType, Class<?> jsonView, String include)
+specifier|public
+name|T
+name|json
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|unmarshalType
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|jsonView
+parameter_list|,
+name|String
+name|include
+parameter_list|)
+block|{
+name|JsonDataFormat
+name|json
+init|=
+operator|new
+name|JsonDataFormat
+argument_list|(
+name|JsonLibrary
+operator|.
+name|Jackson
+argument_list|)
+decl_stmt|;
+name|json
+operator|.
+name|setUnmarshalType
+argument_list|(
+name|unmarshalType
+argument_list|)
+expr_stmt|;
+name|json
+operator|.
+name|setJsonView
+argument_list|(
+name|jsonView
+argument_list|)
+expr_stmt|;
+name|json
+operator|.
+name|setInclude
+argument_list|(
+name|include
 argument_list|)
 expr_stmt|;
 return|return
@@ -2378,7 +2439,7 @@ name|xsdf
 argument_list|)
 return|;
 block|}
-comment|/**      * @deprecated Use {@link #secureXML(String, Map, boolean, String, String, String, String) instead.      * Uses the XML Security data format      */
+comment|/**      * @deprecated Use {@link #secureXML(String, Map, boolean, String, String, String, String)} instead.      * Uses the XML Security data format      */
 annotation|@
 name|Deprecated
 DECL|method|secureXML (String secureTag, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm)

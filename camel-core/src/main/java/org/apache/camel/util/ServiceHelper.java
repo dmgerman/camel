@@ -1327,7 +1327,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Gathers all child services by navigating the service to recursively gather all child services.      *<p/>      * The returned set does<b>not</b> include the childern being error handler.      *      * @param service the service      * @return the services, including the parent service, and all its children      */
+comment|/**      * Gathers all child services by navigating the service to recursively gather all child services.      *<p/>      * The returned set does<b>not</b> include the children being error handler.      *      * @param service the service      * @return the services, including the parent service, and all its children      */
 DECL|method|getChildServices (Service service)
 specifier|public
 specifier|static

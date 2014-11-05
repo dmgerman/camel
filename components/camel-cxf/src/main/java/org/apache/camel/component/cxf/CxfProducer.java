@@ -442,6 +442,28 @@ name|createClient
 argument_list|()
 expr_stmt|;
 block|}
+comment|// Apply the server configurer if it is possible
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getCxfEndpointConfigurer
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|endpoint
+operator|.
+name|getCxfEndpointConfigurer
+argument_list|()
+operator|.
+name|configureClient
+argument_list|(
+name|client
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -1853,7 +1875,7 @@ return|return
 name|params
 return|;
 block|}
-comment|/**      * Get operation name from header and use it to lookup and return a       * {@link BindingOperationInfo}.      */
+comment|/**      *<p>Get operation name from header and use it to lookup and return a       * {@link BindingOperationInfo}.</p>      *<p>CxfProducer lookups the operation name lookup with below order, and it uses the first found one which is not null:</p>      *<ul>      *<li> Using the in message header "operationName".</li>      *<li> Using the defaultOperationName option value from the CxfEndpoint.</li>      *<li> Using the first operation which is find from the CxfEndpoint Operations list.</li>      *<ul>      */
 DECL|method|getBindingOperationInfo (Exchange ex)
 specifier|private
 name|BindingOperationInfo
@@ -1907,9 +1929,9 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"CxfProducer cannot find the {} from message header, try to use the defaultOperationName"
+literal|"CxfProducer cannot find the {} from message header, trying with defaultOperationName"
 argument_list|,
 name|CxfConstants
 operator|.
@@ -1933,7 +1955,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"CxfProducer cannot find the {} from message header and there is no DefaultOperationName setting, CxfProducer will pick up the first available operation."
 argument_list|,

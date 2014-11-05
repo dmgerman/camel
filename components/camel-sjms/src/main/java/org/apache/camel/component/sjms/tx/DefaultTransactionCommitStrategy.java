@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default commit strategy for all transaction.  *   */
+comment|/**  * The default commit strategy for all transaction.  */
 end_comment
 
 begin_class
@@ -60,7 +60,7 @@ name|DefaultTransactionCommitStrategy
 implements|implements
 name|TransactionCommitStrategy
 block|{
-comment|/**      * @see org.apache.camel.component.sjms.TransactionCommitStrategy#commit(org.apache.camel.Exchange)      *      * @param exchange      * @return      * @throws Exception      */
+comment|/**      * @param exchange      * @return      * @throws Exception      * @see org.apache.camel.component.sjms.TransactionCommitStrategy#commit(org.apache.camel.Exchange)      */
 annotation|@
 name|Override
 DECL|method|commit (Exchange exchange)
@@ -78,7 +78,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * @see org.apache.camel.component.sjms.TransactionCommitStrategy#rollback(org.apache.camel.Exchange)      *      * @param exchange      * @return      * @throws Exception      */
+comment|/**      * @param exchange      * @return      * @throws Exception      * @see org.apache.camel.component.sjms.TransactionCommitStrategy#rollback(org.apache.camel.Exchange)      */
 annotation|@
 name|Override
 DECL|method|rollback (Exchange exchange)

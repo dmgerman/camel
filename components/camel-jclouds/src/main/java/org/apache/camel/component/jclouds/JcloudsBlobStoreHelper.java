@@ -24,6 +24,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -431,6 +441,8 @@ parameter_list|,
 name|String
 name|blobName
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 name|InputStream
 name|is
@@ -488,7 +500,7 @@ operator|.
 name|getPayload
 argument_list|()
 operator|.
-name|getInput
+name|openStream
 argument_list|()
 expr_stmt|;
 block|}

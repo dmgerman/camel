@@ -4226,7 +4226,7 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Aggregate the {@link Exchange) with the current result.      * This method is unsynchronized and is called directly when parallelAggregate is enabled.      * In all other cases, this method is called from the doAggregate which is a synchronized method      *      * @param strategy      * @param result      * @param exchange      */
+comment|/**      * Aggregate the {@link Exchange} with the current result.      * This method is unsynchronized and is called directly when parallelAggregate is enabled.      * In all other cases, this method is called from the doAggregate which is a synchronized method      *      * @param strategy      * @param result      * @param exchange      */
 DECL|method|doAggregateInternal (AggregationStrategy strategy, AtomicExchange result, Exchange exchange)
 specifier|protected
 name|void

@@ -154,7 +154,7 @@ argument_list|()
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"<order id=\"1\" xmlns=\"http:acme.com\">Camel in Action</order><order id=\"2\" xmlns=\"http:acme.com\">ActiveMQ in Action</order>"
+literal|"<group><order id=\"1\" xmlns=\"http:acme.com\">Camel in Action</order><order id=\"2\" xmlns=\"http:acme.com\">ActiveMQ in Action</order></group>"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -169,7 +169,7 @@ argument_list|()
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"<order id=\"3\" xmlns=\"http:acme.com\">Spring in Action</order><order id=\"4\" xmlns=\"http:acme.com\">Scala in Action</order>"
+literal|"<group><order id=\"3\" xmlns=\"http:acme.com\">Spring in Action</order><order id=\"4\" xmlns=\"http:acme.com\">Scala in Action</order></group>"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -184,7 +184,7 @@ argument_list|()
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"<order id=\"5\" xmlns=\"http:acme.com\">Groovy in Action</order>"
+literal|"<group><order id=\"5\" xmlns=\"http:acme.com\">Groovy in Action</order></group>"
 argument_list|)
 expr_stmt|;
 name|String

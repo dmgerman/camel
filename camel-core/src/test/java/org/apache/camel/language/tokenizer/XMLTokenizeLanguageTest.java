@@ -60,6 +60,22 @@ name|Namespaces
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+import|;
+end_import
+
 begin_class
 DECL|class|XMLTokenizeLanguageTest
 specifier|public
@@ -329,10 +345,35 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|MockEndpoint
+name|result
+init|=
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|isJavaVersion
+argument_list|(
+literal|"1.8"
+argument_list|)
+condition|)
+block|{
+name|result
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"<c:child some_attr='a' anotherAttr='a' xmlns:c=\"urn:c\" xmlns:d=\"urn:d\" xmlns:g=\"urn:g\"></c:child>"
+argument_list|,
+literal|"<c:child some_attr='b' anotherAttr='b' xmlns:c=\"urn:c\" xmlns:d=\"urn:d\" xmlns:g=\"urn:g\"/>"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|result
 operator|.
 name|expectedBodiesReceived
 argument_list|(
@@ -341,6 +382,7 @@ argument_list|,
 literal|"<c:child some_attr='b' anotherAttr='b' xmlns:g=\"urn:g\" xmlns:d=\"urn:d\" xmlns:c=\"urn:c\"/>"
 argument_list|)
 expr_stmt|;
+block|}
 name|template
 operator|.
 name|sendBody

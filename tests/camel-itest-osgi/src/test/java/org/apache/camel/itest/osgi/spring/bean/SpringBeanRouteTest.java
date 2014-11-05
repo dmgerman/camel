@@ -72,7 +72,7 @@ name|exam
 operator|.
 name|junit
 operator|.
-name|JUnit4TestRunner
+name|PaxExam
 import|;
 end_import
 
@@ -96,7 +96,7 @@ begin_class
 annotation|@
 name|RunWith
 argument_list|(
-name|JUnit4TestRunner
+name|PaxExam
 operator|.
 name|class
 argument_list|)

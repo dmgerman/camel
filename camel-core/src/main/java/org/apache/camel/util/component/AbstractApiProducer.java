@@ -60,18 +60,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ExecutorService
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -200,6 +188,9 @@ DECL|field|propertiesHelper
 specifier|protected
 specifier|final
 name|ApiMethodPropertiesHelper
+argument_list|<
+name|T
+argument_list|>
 name|propertiesHelper
 decl_stmt|;
 comment|// method helper
@@ -228,13 +219,7 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// cached Endpoint executor service
-DECL|field|executorService
-specifier|private
-name|ExecutorService
-name|executorService
-decl_stmt|;
-DECL|method|AbstractApiProducer (AbstractApiEndpoint<E, T> endpoint, ApiMethodPropertiesHelper propertiesHelper)
+DECL|method|AbstractApiProducer (AbstractApiEndpoint<E, T> endpoint, ApiMethodPropertiesHelper<T> propertiesHelper)
 specifier|public
 name|AbstractApiProducer
 parameter_list|(
@@ -247,6 +232,9 @@ argument_list|>
 name|endpoint
 parameter_list|,
 name|ApiMethodPropertiesHelper
+argument_list|<
+name|T
+argument_list|>
 name|propertiesHelper
 parameter_list|)
 block|{
@@ -513,11 +501,6 @@ return|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|interceptProperties (Map<String, Object> properties)
 specifier|public
 name|void
@@ -593,11 +576,6 @@ return|;
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|interceptResult (Object methodResult, Exchange resultExchange)
 specifier|public
 name|void
@@ -613,7 +591,7 @@ block|{
 comment|// do nothing by default
 block|}
 DECL|method|findMethod (Exchange exchange, Map<String, Object> properties)
-specifier|private
+specifier|protected
 name|ApiMethod
 name|findMethod
 parameter_list|(

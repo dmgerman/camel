@@ -303,7 +303,7 @@ name|notNull
 argument_list|(
 name|path
 argument_list|,
-literal|"token"
+literal|"path"
 argument_list|)
 expr_stmt|;
 name|Expression
@@ -318,29 +318,6 @@ argument_list|,
 name|mode
 argument_list|)
 decl_stmt|;
-comment|// if group then wrap answer in group expression
-if|if
-condition|(
-name|group
-operator|>
-literal|0
-condition|)
-block|{
-comment|//REVISIT wrap the xml tokens with a group element to turn the result into xml?
-name|answer
-operator|=
-name|ExpressionBuilder
-operator|.
-name|groupIteratorExpression
-argument_list|(
-name|answer
-argument_list|,
-literal|null
-argument_list|,
-name|group
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|answer
 return|;

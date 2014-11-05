@@ -1306,14 +1306,15 @@ name|result
 return|;
 block|}
 block|}
-DECL|method|resloveStringParameter (CamelContext context, String value, Class<T> type)
+comment|/**      * Resolves a parameter, by doing a reference lookup if the parameter is a reference, and converting      * the parameter to the given type.      *      * @param<T>     type of object to convert the parameter value as.      * @param context Camel context to use for lookup.      * @param value   parameter or reference parameter value.      * @param type    type of object to lookup.      * @return lookup result if it was a reference parameter, or the value converted to the given type      * @throws IllegalArgumentException if referenced object was not found in registry.      */
+DECL|method|resolveParameter (CamelContext context, String value, Class<T> type)
 specifier|public
 specifier|static
 parameter_list|<
 name|T
 parameter_list|>
 name|T
-name|resloveStringParameter
+name|resolveParameter
 parameter_list|(
 name|CamelContext
 name|context
@@ -1330,8 +1331,6 @@ parameter_list|)
 block|{
 name|T
 name|result
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1376,6 +1375,42 @@ expr_stmt|;
 block|}
 return|return
 name|result
+return|;
+block|}
+comment|/**      * @deprecated use {@link #resolveParameter(org.apache.camel.CamelContext, String, Class)}      */
+annotation|@
+name|Deprecated
+DECL|method|resloveStringParameter (CamelContext context, String value, Class<T> type)
+specifier|public
+specifier|static
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|resloveStringParameter
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|String
+name|value
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+return|return
+name|resolveParameter
+argument_list|(
+name|context
+argument_list|,
+name|value
+argument_list|,
+name|type
+argument_list|)
 return|;
 block|}
 comment|/**      * Gets the route id for the given endpoint in which there is a consumer listening.      *      * @param endpoint  the endpoint      * @return the route id, or<tt>null</tt> if none found      */

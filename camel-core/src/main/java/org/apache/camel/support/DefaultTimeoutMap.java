@@ -290,6 +290,9 @@ DECL|field|future
 specifier|private
 specifier|volatile
 name|ScheduledFuture
+argument_list|<
+name|?
+argument_list|>
 name|future
 decl_stmt|;
 DECL|field|purgePollTime

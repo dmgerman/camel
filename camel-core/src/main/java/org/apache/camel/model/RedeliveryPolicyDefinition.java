@@ -302,6 +302,13 @@ specifier|private
 name|String
 name|allowRedeliveryWhileStopping
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|exchangeFormatterRef
+specifier|private
+name|String
+name|exchangeFormatterRef
+decl_stmt|;
 DECL|method|createRedeliveryPolicy (CamelContext context, RedeliveryPolicy parentPolicy)
 specifier|public
 name|RedeliveryPolicy
@@ -770,6 +777,21 @@ name|context
 argument_list|,
 name|allowRedeliveryWhileStopping
 argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|exchangeFormatterRef
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setExchangeFormatterRef
+argument_list|(
+name|exchangeFormatterRef
 argument_list|)
 expr_stmt|;
 block|}
@@ -1477,6 +1499,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the reference of the instance of {@link org.apache.camel.spi.ExchangeFormatter} to generate the log message from exchange.      *      * @param reference name of the instance of {@link org.apache.camel.spi.ExchangeFormatter}      * @return the builder      */
+DECL|method|exchangeFormatterRef (String exchangeFormatterRef)
+specifier|public
+name|RedeliveryPolicyDefinition
+name|exchangeFormatterRef
+parameter_list|(
+name|String
+name|exchangeFormatterRef
+parameter_list|)
+block|{
+name|setExchangeFormatterRef
+argument_list|(
+name|exchangeFormatterRef
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
 DECL|method|getMaximumRedeliveries ()
@@ -2048,6 +2089,32 @@ operator|.
 name|allowRedeliveryWhileStopping
 operator|=
 name|allowRedeliveryWhileStopping
+expr_stmt|;
+block|}
+DECL|method|getExchangeFormatterRef ()
+specifier|public
+name|String
+name|getExchangeFormatterRef
+parameter_list|()
+block|{
+return|return
+name|exchangeFormatterRef
+return|;
+block|}
+DECL|method|setExchangeFormatterRef (String exchangeFormatterRef)
+specifier|public
+name|void
+name|setExchangeFormatterRef
+parameter_list|(
+name|String
+name|exchangeFormatterRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exchangeFormatterRef
+operator|=
+name|exchangeFormatterRef
 expr_stmt|;
 block|}
 block|}

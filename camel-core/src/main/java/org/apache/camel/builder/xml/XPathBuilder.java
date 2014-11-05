@@ -637,7 +637,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates an XPath expression builder which creates a nodeset result by default.  * If you want to evaluate a String expression then call {@link #stringResult()}  *<p/>  * An XPath object is not thread-safe and not reentrant. In other words, it is the application's responsibility to make  * sure that one XPath object is not used from more than one thread at any given time, and while the evaluate method  * is invoked, applications may not recursively call the evaluate method.  *<p/>  * This implementation is thread safe by using thread locals and pooling to allow concurrency.  *<p/>  *<b>Important:</b> After configuring the {@link XPathBuilder} its adviced to invoke {@link #start()}  * to prepare the builder before using; though the builder will auto-start on first use.  *  * @see XPathConstants#NODESET  */
+comment|/**  * Creates an XPath expression builder which creates a nodeset result by default.  * If you want to evaluate a String expression then call {@link #stringResult()}  *<p/>  * An XPath object is not thread-safe and not reentrant. In other words, it is the application's responsibility to make  * sure that one XPath object is not used from more than one thread at any given time, and while the evaluate method  * is invoked, applications may not recursively call the evaluate method.  *<p/>  * This implementation is thread safe by using thread locals and pooling to allow concurrency.  *<p/>  *<b>Important:</b> After configuring the {@link XPathBuilder} its advised to invoke {@link #start()}  * to prepare the builder before using; though the builder will auto-start on first use.  *  * @see XPathConstants#NODESET  */
 end_comment
 
 begin_class
@@ -925,7 +925,7 @@ name|text
 argument_list|)
 return|;
 block|}
-comment|/**      * @param text The XPath expression      * @param resultType The result type that the XPath expression will return.      * @return A new XPathBuilder object      */
+comment|/**      * @param text       The XPath expression      * @param resultType The result type that the XPath expression will return.      * @return A new XPathBuilder object      */
 DECL|method|xpath (String text, Class<?> resultType)
 specifier|public
 specifier|static
@@ -1383,7 +1383,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the expression result type to the given {@code resultType}       *      * @return the current builder      */
+comment|/**      * Sets the expression result type to the given {@code resultType}      *      * @return the current builder      */
 DECL|method|resultType (Class<?> resultType)
 specifier|public
 name|XPathBuilder
@@ -1840,17 +1840,6 @@ parameter_list|)
 throws|throws
 name|XPathFunctionException
 block|{
-if|if
-condition|(
-name|exchange
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
 return|return
 name|exchange
 operator|.
@@ -1922,10 +1911,6 @@ name|XPathFunctionException
 block|{
 if|if
 condition|(
-name|exchange
-operator|!=
-literal|null
-operator|&&
 operator|!
 name|list
 operator|.
@@ -2274,10 +2259,6 @@ name|XPathFunctionException
 block|{
 if|if
 condition|(
-name|exchange
-operator|!=
-literal|null
-operator|&&
 operator|!
 name|list
 operator|.
@@ -2430,10 +2411,6 @@ name|XPathFunctionException
 block|{
 if|if
 condition|(
-name|exchange
-operator|!=
-literal|null
-operator|&&
 operator|!
 name|list
 operator|.
@@ -5019,7 +4996,9 @@ operator|==
 literal|null
 condition|)
 block|{
-name|initDefaultXPathFactory
+name|defaultXPathFactory
+operator|=
+name|createDefaultXPathFactory
 argument_list|()
 expr_stmt|;
 block|}
@@ -5027,58 +5006,20 @@ return|return
 name|defaultXPathFactory
 return|;
 block|}
-DECL|method|initDefaultXPathFactory ()
+DECL|method|createDefaultXPathFactory ()
 specifier|protected
-name|void
-name|initDefaultXPathFactory
+specifier|static
+name|XPathFactory
+name|createDefaultXPathFactory
 parameter_list|()
 throws|throws
 name|XPathFactoryConfigurationException
 block|{
-if|if
-condition|(
-name|defaultXPathFactory
-operator|==
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|objectModelUri
-operator|!=
-literal|null
-condition|)
-block|{
-name|defaultXPathFactory
-operator|=
 name|XPathFactory
-operator|.
-name|newInstance
-argument_list|(
-name|objectModelUri
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Using objectModelUri "
-operator|+
-name|objectModelUri
-operator|+
-literal|" when created default XPathFactory {}"
-argument_list|,
-name|defaultXPathFactory
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|defaultXPathFactory
-operator|==
+name|factory
+init|=
 literal|null
-condition|)
-block|{
+decl_stmt|;
 comment|// read system property and see if there is a factory set
 name|Properties
 name|properties
@@ -5148,7 +5089,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|defaultXPathFactory
+name|factory
 operator|=
 name|XPathFactory
 operator|.
@@ -5171,15 +5112,21 @@ name|key
 block|,
 name|uri
 block|,
-name|defaultXPathFactory
+name|factory
 block|}
 argument_list|)
 expr_stmt|;
 block|}
 block|}
 block|}
-block|}
-name|defaultXPathFactory
+if|if
+condition|(
+name|factory
+operator|==
+literal|null
+condition|)
+block|{
+name|factory
 operator|=
 name|XPathFactory
 operator|.
@@ -5192,10 +5139,13 @@ name|info
 argument_list|(
 literal|"Created default XPathFactory {}"
 argument_list|,
-name|defaultXPathFactory
+name|factory
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|factory
+return|;
 block|}
 block|}
 end_class

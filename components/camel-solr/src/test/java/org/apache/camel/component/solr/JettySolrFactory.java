@@ -1,4 +1,8 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
+begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
 begin_package
 DECL|package|org.apache.camel.component.solr
 package|package
@@ -84,31 +88,7 @@ name|net
 operator|.
 name|ssl
 operator|.
-name|HttpsURLConnection
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|net
-operator|.
-name|ssl
-operator|.
 name|SSLContext
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|net
-operator|.
-name|ssl
-operator|.
-name|SSLSocketFactory
 import|;
 end_import
 
@@ -148,22 +128,6 @@ name|conn
 operator|.
 name|ssl
 operator|.
-name|SSLConnectionSocketFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|http
-operator|.
-name|conn
-operator|.
-name|ssl
-operator|.
 name|SSLContextBuilder
 import|;
 end_import
@@ -181,20 +145,6 @@ operator|.
 name|ssl
 operator|.
 name|TrustSelfSignedStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|lucene
-operator|.
-name|util
-operator|.
-name|Constants
 import|;
 end_import
 
@@ -238,24 +188,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|client
-operator|.
-name|solrj
-operator|.
-name|impl
-operator|.
-name|HttpClientConfigurer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|eclipse
 operator|.
 name|jetty
@@ -277,12 +209,14 @@ end_comment
 begin_class
 DECL|class|JettySolrFactory
 specifier|public
+specifier|final
 class|class
 name|JettySolrFactory
 block|{
 DECL|field|TEST_KEYSTORE
 specifier|public
 specifier|static
+specifier|final
 name|File
 name|TEST_KEYSTORE
 init|=
@@ -292,25 +226,10 @@ argument_list|(
 literal|"./target/test-classes/solrtest.keystore"
 argument_list|)
 decl_stmt|;
-DECL|field|mockedSslClient
-specifier|private
-specifier|static
-name|boolean
-name|mockedSslClient
-init|=
-literal|false
-decl_stmt|;
-DECL|field|data_dir_no
-specifier|private
-specifier|static
-name|int
-name|data_dir_no
-init|=
-literal|0
-decl_stmt|;
 DECL|field|TEST_KEYSTORE_PATH
 specifier|private
 specifier|static
+specifier|final
 name|String
 name|TEST_KEYSTORE_PATH
 init|=
@@ -322,21 +241,31 @@ decl_stmt|;
 DECL|field|TEST_KEYSTORE_PASSWORD
 specifier|private
 specifier|static
+specifier|final
 name|String
 name|TEST_KEYSTORE_PASSWORD
 init|=
 literal|"secret"
 decl_stmt|;
-DECL|field|DEFAULT_CONFIGURER
+DECL|field|mockedSslClient
 specifier|private
 specifier|static
-name|HttpClientConfigurer
-name|DEFAULT_CONFIGURER
-init|=
-operator|new
-name|HttpClientConfigurer
-argument_list|()
+name|boolean
+name|mockedSslClient
 decl_stmt|;
+DECL|field|dataDirNo
+specifier|private
+specifier|static
+name|int
+name|dataDirNo
+decl_stmt|;
+DECL|method|JettySolrFactory ()
+specifier|private
+name|JettySolrFactory
+parameter_list|()
+block|{
+comment|// Util classs
+block|}
 DECL|method|buildSSLConfig (boolean useSsl, boolean sslClientAuth)
 specifier|private
 specifier|static
@@ -404,19 +333,7 @@ name|TrustSelfSignedStrategy
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|SSLConnectionSocketFactory
-name|sslsf
-init|=
-operator|new
-name|SSLConnectionSocketFactory
-argument_list|(
-name|builder
-operator|.
-name|build
-argument_list|()
-argument_list|)
-decl_stmt|;
-comment|//		// Create a trust manager that does not validate certificate chains
+comment|// // Create a trust manager that does not validate certificate chains
 specifier|final
 name|TrustManager
 index|[]
@@ -447,7 +364,7 @@ name|authType
 parameter_list|)
 block|{
 block|}
-function|@Override 	        public void checkServerTrusted
+function|@Override             public void checkServerTrusted
 parameter_list|(
 specifier|final
 name|X509Certificate
@@ -460,14 +377,14 @@ name|authType
 parameter_list|)
 block|{
 block|}
-function|@Override 	        public X509Certificate[] getAcceptedIssuers
+function|@Override             public X509Certificate[] getAcceptedIssuers
 parameter_list|()
 block|{
 return|return
 literal|null
 return|;
 block|}
-function|} };
+function|}};
 specifier|final
 name|SSLContext
 name|sslContext
@@ -503,12 +420,14 @@ parameter_list|(
 name|sslContext
 parameter_list|)
 constructor_decl|;
-comment|//	    // Install the all-trusting trust manager
-comment|//	    final SSLContext sslContext = SSLContext.getInstance( "SSL" );
-comment|//	    sslContext.init( null, trustAllCerts, new java.security.SecureRandom() );
-comment|//	    // Create an ssl socket factory with our all-trusting manager
-comment|//	    final SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
-comment|//        HttpsURLConnection.setDefaultSSLSocketFactory(sslSocketFactory);
+comment|// // Install the all-trusting trust manager
+comment|// final SSLContext sslContext = SSLContext.getInstance( "SSL" );
+comment|// sslContext.init( null, trustAllCerts, new
+comment|// java.security.SecureRandom() );
+comment|// // Create an ssl socket factory with our all-trusting manager
+comment|// final SSLSocketFactory sslSocketFactory =
+comment|// sslContext.getSocketFactory();
+comment|// HttpsURLConnection.setDefaultSSLSocketFactory(sslSocketFactory);
 block|}
 DECL|method|createJetty (String solrHome, String configFile, String schemaFile, String context, boolean stopAtShutdown, SortedMap<ServletHolder, String> extraServlets, boolean ssl)
 specifier|private
@@ -587,7 +506,7 @@ argument_list|,
 literal|"target/test-classes/solr/data"
 operator|+
 operator|(
-name|data_dir_no
+name|dataDirNo
 operator|++
 operator|)
 argument_list|)
@@ -650,14 +569,6 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|int
-name|port
-init|=
-name|jetty
-operator|.
-name|getLocalPort
-argument_list|()
-decl_stmt|;
 return|return
 name|jetty
 return|;

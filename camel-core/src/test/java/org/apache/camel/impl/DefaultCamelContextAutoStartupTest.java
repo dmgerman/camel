@@ -181,10 +181,10 @@ name|isStopped
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// now start camel again, to get it to start the routes
+comment|// now start all routes
 name|camel
 operator|.
-name|start
+name|startAllRoutes
 argument_list|()
 expr_stmt|;
 name|assertEquals
@@ -710,10 +710,10 @@ name|isStarted
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// now start camel again, to get it to start the routes
+comment|// now start all the routes
 name|camel
 operator|.
-name|start
+name|startAllRoutes
 argument_list|()
 expr_stmt|;
 name|assertEquals

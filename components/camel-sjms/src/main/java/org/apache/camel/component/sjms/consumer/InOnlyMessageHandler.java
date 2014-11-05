@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An InOnly {@link AbstractMessageHandler}  *   */
+comment|/**  * An InOnly {@link AbstractMessageHandler}  */
 end_comment
 
 begin_class

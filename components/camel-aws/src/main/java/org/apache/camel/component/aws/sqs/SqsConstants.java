@@ -36,6 +36,12 @@ name|ATTRIBUTES
 init|=
 literal|"CamelAwsSqsAttributes"
 decl_stmt|;
+DECL|field|MESSAGE_ATTRIBUTES
+name|String
+name|MESSAGE_ATTRIBUTES
+init|=
+literal|"CamelAwsSqsMessageAttributes"
+decl_stmt|;
 DECL|field|MD5_OF_BODY
 name|String
 name|MD5_OF_BODY

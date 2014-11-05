@@ -177,6 +177,7 @@ specifier|final
 class|class
 name|MessageDump
 block|{
+comment|/**      * A model of a message dump header.      */
 annotation|@
 name|XmlRootElement
 argument_list|(
@@ -297,6 +298,7 @@ name|value
 expr_stmt|;
 block|}
 block|}
+comment|/**      * A model of a message dump body.      */
 annotation|@
 name|XmlRootElement
 argument_list|(

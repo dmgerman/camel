@@ -353,11 +353,6 @@ block|}
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|interceptPropertyNames (Set<String> propertyNames)
 specifier|public
 name|void
@@ -374,11 +369,6 @@ comment|// do nothing by default
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|interceptProperties (Map<String, Object> properties)
 specifier|public
 name|void
@@ -482,11 +472,6 @@ block|}
 block|}
 annotation|@
 name|Override
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|interceptResult (Object result, Exchange resultExchange)
 specifier|public
 name|void
@@ -569,11 +554,6 @@ return|return
 name|splitResult
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|setSplitResult (boolean splitResult)
 specifier|public
 specifier|final

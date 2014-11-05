@@ -29,7 +29,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Access to a repository of Message IDs to implement the  *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *<p/>  * The<tt>add</tt> and<tt>contains</tt> methods is operating according to the {@link java.util.Set} contract.  *<p/>  * The repository supports eager (default) and non-eager mode.  *<ul>  *<li>eager: calls<tt>add</tt> and<tt>confirm</tt> if complete, or<tt>remove</tt> if failed</li>  *<li>non-eager: calls<tt>contains</tt> and<tt>add</tt> if complete, or<tt>remove</tt> if failed</li>  *</ul>  * Notice the remove callback, can be configured to be disabled.  *  * @version   */
+comment|/**  * Access to a repository of Message IDs to implement the  *<a href="http://camel.apache.org/idempotent-consumer.html">Idempotent Consumer</a> pattern.  *<p/>  * The<tt>add</tt> and<tt>contains</tt> methods is operating according to the {@link java.util.Set} contract.  *<p/>  * The repository supports eager (default) and non-eager mode.  *<ul>  *<li>eager: calls<tt>add</tt> and<tt>confirm</tt> if complete, or<tt>remove</tt> if failed</li>  *<li>non-eager: calls<tt>contains</tt> and<tt>add</tt> if complete, or<tt>remove</tt> if failed</li>  *</ul>  * Notice the remove callback, can be configured to be disabled.  *<p/>  * Implementations for the<a href="http://camel.apache.org/idempotent-consumer.html">idempotent consumer EIP</a>  * should favor using {@link org.apache.camel.spi.ExchangeIdempotentRepository} instead.  *  * @version  * @see org.apache.camel.spi.ExchangeIdempotentRepository  */
 end_comment
 
 begin_interface

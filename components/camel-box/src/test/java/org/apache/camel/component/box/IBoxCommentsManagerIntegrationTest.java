@@ -245,10 +245,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testAddComment_1 ()
+DECL|method|testAddComment1 ()
 specifier|public
 name|void
-name|testAddComment_1
+name|testAddComment1
 parameter_list|()
 throws|throws
 name|Exception

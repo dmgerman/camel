@@ -120,6 +120,20 @@ name|pax
 operator|.
 name|exam
 operator|.
+name|Configuration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
 name|Option
 import|;
 end_import
@@ -136,7 +150,7 @@ name|exam
 operator|.
 name|junit
 operator|.
-name|Configuration
+name|PaxExam
 import|;
 end_import
 
@@ -148,11 +162,11 @@ name|ops4j
 operator|.
 name|pax
 operator|.
-name|exam
+name|tinybundles
 operator|.
-name|junit
+name|core
 operator|.
-name|JUnit4TestRunner
+name|TinyBundles
 import|;
 end_import
 
@@ -194,45 +208,9 @@ name|pax
 operator|.
 name|exam
 operator|.
-name|CoreOptions
-operator|.
-name|scanFeatures
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
 name|OptionUtils
 operator|.
 name|combine
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|swissbox
-operator|.
-name|tinybundles
-operator|.
-name|core
-operator|.
-name|TinyBundles
-operator|.
-name|newBundle
 import|;
 end_import
 
@@ -240,7 +218,7 @@ begin_class
 annotation|@
 name|RunWith
 argument_list|(
-name|JUnit4TestRunner
+name|PaxExam
 operator|.
 name|class
 argument_list|)
@@ -363,7 +341,9 @@ argument_list|()
 argument_list|,
 name|provision
 argument_list|(
-name|newBundle
+name|TinyBundles
+operator|.
+name|bundle
 argument_list|()
 operator|.
 name|add

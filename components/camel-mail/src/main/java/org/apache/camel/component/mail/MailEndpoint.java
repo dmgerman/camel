@@ -42,6 +42,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|sun
+operator|.
+name|mail
+operator|.
+name|imap
+operator|.
+name|SortTerm
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -185,7 +199,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Endpoint for Camel Mail.  *  * @version   */
+comment|/**  * Endpoint for Camel Mail.  */
 end_comment
 
 begin_class
@@ -242,10 +256,27 @@ specifier|private
 name|int
 name|maxMessagesPerPoll
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|searchTerm
 specifier|private
 name|SearchTerm
 name|searchTerm
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|sortTerm
+specifier|private
+name|SortTerm
+index|[]
+name|sortTerm
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|postProcessAction
+specifier|private
+name|MailBoxPostProcessAction
+name|postProcessAction
 decl_stmt|;
 DECL|method|MailEndpoint ()
 specifier|public
@@ -777,6 +808,82 @@ operator|.
 name|searchTerm
 operator|=
 name|searchTerm
+expr_stmt|;
+block|}
+comment|/**      * @return Sorting order for messages. Only natively supported for IMAP. Emulated to some degree when using POP3      * or when IMAP server does not have the SORT capability.      * @see com.sun.mail.imap.SortTerm      */
+DECL|method|getSortTerm ()
+specifier|public
+name|SortTerm
+index|[]
+name|getSortTerm
+parameter_list|()
+block|{
+return|return
+name|sortTerm
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|sortTerm
+operator|.
+name|clone
+argument_list|()
+return|;
+block|}
+comment|/**      * @param sortTerm {@link #getSortTerm()}      */
+DECL|method|setSortTerm (SortTerm[] sortTerm)
+specifier|public
+name|void
+name|setSortTerm
+parameter_list|(
+name|SortTerm
+index|[]
+name|sortTerm
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sortTerm
+operator|=
+name|sortTerm
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|sortTerm
+operator|.
+name|clone
+argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * @return Post processor that can e.g. delete old email. Gets called once the messages have been polled and      * processed.      */
+DECL|method|getPostProcessAction ()
+specifier|public
+name|MailBoxPostProcessAction
+name|getPostProcessAction
+parameter_list|()
+block|{
+return|return
+name|postProcessAction
+return|;
+block|}
+comment|/**      * @param postProcessAction {@link #getPostProcessAction()}      */
+DECL|method|setPostProcessAction (MailBoxPostProcessAction postProcessAction)
+specifier|public
+name|void
+name|setPostProcessAction
+parameter_list|(
+name|MailBoxPostProcessAction
+name|postProcessAction
+parameter_list|)
+block|{
+name|this
+operator|.
+name|postProcessAction
+operator|=
+name|postProcessAction
 expr_stmt|;
 block|}
 block|}

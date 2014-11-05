@@ -134,6 +134,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * Default {@link org.apache.camel.impl.ScheduledBatchPollingConsumer}.  */
+end_comment
+
 begin_class
 DECL|class|DefaultScheduledPollConsumerScheduler
 specifier|public
