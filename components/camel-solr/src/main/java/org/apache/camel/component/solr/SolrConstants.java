@@ -106,6 +106,15 @@ name|OPERATION_ADD_BEAN
 init|=
 literal|"ADD_BEAN"
 decl_stmt|;
+DECL|field|OPERATION_ADD_BEANS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OPERATION_ADD_BEANS
+init|=
+literal|"ADD_BEANS"
+decl_stmt|;
 DECL|field|OPERATION_DELETE_BY_ID
 specifier|public
 specifier|static
