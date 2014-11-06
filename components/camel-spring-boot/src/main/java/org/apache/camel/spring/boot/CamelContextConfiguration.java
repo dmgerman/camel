@@ -36,9 +36,9 @@ specifier|public
 interface|interface
 name|CamelContextConfiguration
 block|{
-DECL|method|beforeStart (CamelContext camelContext)
+DECL|method|beforeApplicationStart (CamelContext camelContext)
 name|void
-name|beforeStart
+name|beforeApplicationStart
 parameter_list|(
 name|CamelContext
 name|camelContext

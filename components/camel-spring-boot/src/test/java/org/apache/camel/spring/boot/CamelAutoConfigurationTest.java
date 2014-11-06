@@ -539,7 +539,7 @@ argument_list|(
 name|camelContextConfiguration
 argument_list|)
 operator|.
-name|beforeStart
+name|beforeApplicationStart
 argument_list|(
 name|camelContext
 argument_list|)
