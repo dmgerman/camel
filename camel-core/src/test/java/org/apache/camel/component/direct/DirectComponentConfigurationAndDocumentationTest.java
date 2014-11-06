@@ -233,6 +233,61 @@ name|html
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|testComponentJsonSchema ()
+specifier|public
+name|void
+name|testComponentJsonSchema
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|CamelContext
+name|context
+init|=
+operator|new
+name|DefaultCamelContext
+argument_list|()
+decl_stmt|;
+name|String
+name|json
+init|=
+name|context
+operator|.
+name|getComponentParameterJsonSchema
+argument_list|(
+literal|"direct"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Should have found some auto-generated JSON"
+argument_list|,
+name|json
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+comment|// should include javadoc
+name|assertTrue
+argument_list|(
+literal|"Should include javadoc"
+argument_list|,
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"timeout\": { \"type\": \"integer\", \"description\": \"The timeout value to use if block is enabled. Is by default 30000.\" }"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

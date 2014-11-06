@@ -2701,6 +2701,25 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// favor using pre generated schema if component has that
+name|String
+name|json
+init|=
+name|context
+operator|.
+name|getComponentParameterJsonSchema
+argument_list|(
+name|componentName
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|json
+operator|==
+literal|null
+condition|)
+block|{
+comment|// okay this requires having the component on the classpath and being instantiated
 name|Component
 name|component
 init|=
@@ -2726,19 +2745,18 @@ operator|.
 name|createComponentConfiguration
 argument_list|()
 decl_stmt|;
-return|return
+name|json
+operator|=
 name|configuration
 operator|.
 name|createParameterJsonSchema
 argument_list|()
-return|;
+expr_stmt|;
 block|}
-else|else
-block|{
+block|}
 return|return
-literal|null
+name|json
 return|;
-block|}
 block|}
 DECL|method|reset (boolean includeRoutes)
 specifier|public

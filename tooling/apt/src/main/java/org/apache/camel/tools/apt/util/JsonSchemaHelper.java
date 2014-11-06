@@ -124,7 +124,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|": { \"type\":"
+literal|": { \"type\": "
 argument_list|)
 expr_stmt|;
 if|if
@@ -891,10 +891,30 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-return|return
+comment|// remove double whitespaces, and trim
+name|String
+name|s
+init|=
 name|sb
 operator|.
 name|toString
+argument_list|()
+decl_stmt|;
+name|s
+operator|=
+name|s
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\s+"
+argument_list|,
+literal|" "
+argument_list|)
+expr_stmt|;
+return|return
+name|s
+operator|.
+name|trim
 argument_list|()
 return|;
 block|}
