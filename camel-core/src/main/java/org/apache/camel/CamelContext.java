@@ -2015,6 +2015,20 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Returns a JSON schema representation of the endpoint parameters for the given endpoint uri      *      * @param uri the endpoint uri      * @param includeAllOptions whether to include non configured options also (eg default options)      */
+DECL|method|explainEndpointJson (String uri, boolean includeAllOptions)
+name|String
+name|explainEndpointJson
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|boolean
+name|includeAllOptions
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Creates a JSON representation of all the<b>static</b> and<b>dynamic</b> configured endpoints defined in the given route(s).      *      * @param routeId for a particular route, or<tt>null</tt> for all routes      * @return a JSON string      */
 DECL|method|createRouteStaticEndpointJson (String routeId)
 name|String

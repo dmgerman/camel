@@ -904,6 +904,27 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Returns a JSON schema representation of the endpoint parameters for the given endpoint uri      *      * @param uri the endpoint uri      * @param includeAllOptions whether to include non configured options also (eg default options)      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|" Returns a JSON schema representation of the endpoint parameters for the given endpoint uri"
+argument_list|)
+DECL|method|explainEndpointJson (String uri, boolean includeAllOptions)
+name|String
+name|explainEndpointJson
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|boolean
+name|includeAllOptions
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Resets all the performance counters.      *      * @param includeRoutes  whether to reset all routes as well.      * @throws Exception is thrown if error occurred      */
 annotation|@
 name|ManagedOperation

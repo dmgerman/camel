@@ -2758,6 +2758,31 @@ return|return
 name|json
 return|;
 block|}
+DECL|method|explainEndpointJson (String uri, boolean includeAllOptions)
+specifier|public
+name|String
+name|explainEndpointJson
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|boolean
+name|includeAllOptions
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+name|context
+operator|.
+name|explainEndpointJson
+argument_list|(
+name|uri
+argument_list|,
+name|includeAllOptions
+argument_list|)
+return|;
+block|}
 DECL|method|reset (boolean includeRoutes)
 specifier|public
 name|void
