@@ -141,10 +141,13 @@ name|description
 operator|=
 literal|"Explain how this endpoint is configured (option, value, description)"
 argument_list|)
-DECL|method|explain ()
+DECL|method|explain (boolean allOptions)
 name|TabularData
 name|explain
-parameter_list|()
+parameter_list|(
+name|boolean
+name|allOptions
+parameter_list|)
 function_decl|;
 block|}
 end_interface

@@ -341,8 +341,6 @@ block|{
 comment|// setup a new logger here
 name|CamelLogger
 name|camelLogger
-init|=
-literal|null
 decl_stmt|;
 name|LoggingLevel
 name|loggingLevel
@@ -597,6 +595,7 @@ name|toString
 argument_list|()
 return|;
 block|}
+comment|/**      * Logging level to use. Possible values: ERROR, WARN, INFO, DEBUG, TRACE, OFF.      *<p/>      * The default value is INFO.      */
 DECL|method|getLevel ()
 specifier|public
 name|String
@@ -607,6 +606,7 @@ return|return
 name|level
 return|;
 block|}
+comment|/**      * Logging level to use. Possible values: ERROR, WARN, INFO, DEBUG, TRACE, OFF.      *<p/>      * The default value is INFO.      */
 DECL|method|setLevel (String level)
 specifier|public
 name|void
@@ -623,6 +623,7 @@ operator|=
 name|level
 expr_stmt|;
 block|}
+comment|/**      * An optional Marker name to use.      */
 DECL|method|getMarker ()
 specifier|public
 name|String
@@ -633,6 +634,7 @@ return|return
 name|marker
 return|;
 block|}
+comment|/**      * An optional Marker name to use.      */
 DECL|method|setMarker (String marker)
 specifier|public
 name|void
@@ -649,6 +651,7 @@ operator|=
 name|marker
 expr_stmt|;
 block|}
+comment|/**      * An integer that specifies a group size for throughput logging.      */
 DECL|method|getGroupSize ()
 specifier|public
 name|Integer
@@ -659,6 +662,7 @@ return|return
 name|groupSize
 return|;
 block|}
+comment|/**      * An integer that specifies a group size for throughput logging.      */
 DECL|method|setGroupSize (Integer groupSize)
 specifier|public
 name|void
@@ -675,6 +679,7 @@ operator|=
 name|groupSize
 expr_stmt|;
 block|}
+comment|/**      * If specified will group message stats by this time interval (in millis)      */
 DECL|method|getGroupInterval ()
 specifier|public
 name|Long
@@ -685,6 +690,7 @@ return|return
 name|groupInterval
 return|;
 block|}
+comment|/**      * If specified will group message stats by this time interval (in millis)      */
 DECL|method|setGroupInterval (Long groupInterval)
 specifier|public
 name|void
@@ -701,6 +707,7 @@ operator|=
 name|groupInterval
 expr_stmt|;
 block|}
+comment|/**      * If true, will hide stats when no new messages have been received for a time interval, if false, show stats regardless of message traffic.      */
 DECL|method|getGroupActiveOnly ()
 specifier|public
 name|Boolean
@@ -711,6 +718,7 @@ return|return
 name|groupActiveOnly
 return|;
 block|}
+comment|/**      * If true, will hide stats when no new messages have been received for a time interval, if false, show stats regardless of message traffic.      */
 DECL|method|setGroupActiveOnly (Boolean groupActiveOnly)
 specifier|public
 name|void
@@ -727,6 +735,7 @@ operator|=
 name|groupActiveOnly
 expr_stmt|;
 block|}
+comment|/**      * Set the initial delay for stats (in millis)      */
 DECL|method|getGroupDelay ()
 specifier|public
 name|Long
@@ -737,6 +746,7 @@ return|return
 name|groupDelay
 return|;
 block|}
+comment|/**      * Set the initial delay for stats (in millis)      */
 DECL|method|setGroupDelay (Long groupDelay)
 specifier|public
 name|void
@@ -805,6 +815,7 @@ operator|=
 name|providedLogger
 expr_stmt|;
 block|}
+comment|/**      * The logger name to use      */
 DECL|method|getLoggerName ()
 specifier|public
 name|String
@@ -815,6 +826,7 @@ return|return
 name|loggerName
 return|;
 block|}
+comment|/**      * The logger name to use      */
 DECL|method|setLoggerName (String loggerName)
 specifier|public
 name|void
