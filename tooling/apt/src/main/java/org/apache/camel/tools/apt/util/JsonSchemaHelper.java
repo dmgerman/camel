@@ -72,17 +72,6 @@ name|String
 name|description
 parameter_list|)
 block|{
-comment|//        if (type.isEnum()) {
-comment|//            String typeName = "string";
-comment|//            CollectionStringBuffer sb = new CollectionStringBuffer();
-comment|//            for (Object value : parameterType.getEnumConstants()) {
-comment|//                sb.append(doubleQuote(value.toString()));
-comment|//            }
-comment|//            return doubleQuote(name) + ": { \"type\": " + doubleQuote(type) + ", \"enum\": [ " + sb.toString() + " ] }";
-comment|//        } else if (parameterType.isArray()) {
-comment|//            String typeName = "array";
-comment|//            return doubleQuote(name) + ": { \"type\": " + doubleQuote(type) + " }";
-comment|//        } else {
 name|String
 name|typeName
 init|=
@@ -93,6 +82,78 @@ argument_list|(
 name|type
 argument_list|)
 decl_stmt|;
+comment|// TODO: add support for enum and array
+name|StringBuilder
+name|sb
+init|=
+operator|new
+name|StringBuilder
+argument_list|()
+decl_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|doubleQuote
+argument_list|(
+name|name
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|": { \"type\":"
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|doubleQuote
+argument_list|(
+name|typeName
+argument_list|)
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+operator|!
+name|Strings
+operator|.
+name|isNullOrEmpty
+argument_list|(
+name|description
+argument_list|)
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", \"description\":"
+argument_list|)
+expr_stmt|;
+name|String
+name|text
+init|=
+name|sanitizeDescription
+argument_list|(
+name|description
+argument_list|)
+decl_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|doubleQuote
+argument_list|(
+name|text
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 literal|"object"
@@ -104,44 +165,49 @@ argument_list|)
 condition|)
 block|{
 comment|// for object then include the javaType as a description so we know that
-return|return
-name|doubleQuote
+name|sb
+operator|.
+name|append
 argument_list|(
-name|name
-argument_list|)
-operator|+
-literal|": { \"type\": "
-operator|+
-name|doubleQuote
-argument_list|(
-name|typeName
-argument_list|)
-operator|+
 literal|", \"properties\": { \"javaType\": { \"description\": \""
 operator|+
 name|type
 operator|+
-literal|"\", \"type\": \"string\" } } }"
-return|;
+literal|"\", \"type\": \"string\" } }"
+argument_list|)
+expr_stmt|;
 block|}
-else|else
-block|{
-return|return
-name|doubleQuote
+name|sb
+operator|.
+name|append
 argument_list|(
-name|name
-argument_list|)
-operator|+
-literal|": { \"type\": "
-operator|+
-name|doubleQuote
-argument_list|(
-name|typeName
-argument_list|)
-operator|+
 literal|" }"
+argument_list|)
+expr_stmt|;
+return|return
+name|sb
+operator|.
+name|toString
+argument_list|()
 return|;
-block|}
+comment|//        if (type.isEnum()) {
+comment|//            String typeName = "string";
+comment|//            CollectionStringBuffer sb = new CollectionStringBuffer();
+comment|//            for (Object value : parameterType.getEnumConstants()) {
+comment|//                sb.append(doubleQuote(value.toString()));
+comment|//            }
+comment|//            return doubleQuote(name) + ": { \"type\": " + doubleQuote(type) + ", \"enum\": [ " + sb.toString() + " ] }";
+comment|//        } else if (parameterType.isArray()) {
+comment|//            String typeName = "array";
+comment|//            return doubleQuote(name) + ": { \"type\": " + doubleQuote(type) + " }";
+comment|//        } else {
+comment|//        if ("object".equals(typeName)) {
+comment|//            for object then include the javaType as a description so we know that
+comment|//            return doubleQuote(name) + ": { \"type\": " + doubleQuote(typeName)
+comment|//                    + ", \"properties\": { \"javaType\": { \"description\": \"" + type + "\", \"type\": \"string\" } } }";
+comment|//        } else {
+comment|//            return doubleQuote(name) + ": { \"type\": " + doubleQuote(typeName) + " }";
+comment|//        }
 comment|//        }
 block|}
 comment|/**      * Gets the JSon schema type.      *      * @param   type the java type      * @return  the json schema type, is never null, but returns<tt>object</tt> as the generic type      */
@@ -567,6 +633,196 @@ return|;
 block|}
 return|return
 literal|null
+return|;
+block|}
+comment|/**      * Sanitizes the javadoc to removed invalid characters so it can be used as json description      *      * @param javadoc  the javadoc      * @return the text that is valid as json      */
+DECL|method|sanitizeDescription (String javadoc)
+specifier|public
+specifier|static
+name|String
+name|sanitizeDescription
+parameter_list|(
+name|String
+name|javadoc
+parameter_list|)
+block|{
+comment|// lets just use what java accepts as identifiers
+name|StringBuilder
+name|sb
+init|=
+operator|new
+name|StringBuilder
+argument_list|()
+decl_stmt|;
+comment|// split into lines
+name|String
+index|[]
+name|lines
+init|=
+name|javadoc
+operator|.
+name|split
+argument_list|(
+literal|"\n"
+argument_list|)
+decl_stmt|;
+name|boolean
+name|first
+init|=
+literal|true
+decl_stmt|;
+for|for
+control|(
+name|String
+name|line
+range|:
+name|lines
+control|)
+block|{
+name|line
+operator|=
+name|line
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
+comment|// skip lines that are javadoc references
+if|if
+condition|(
+name|line
+operator|.
+name|startsWith
+argument_list|(
+literal|"@"
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
+comment|// replace some known html tags
+name|javadoc
+operator|=
+name|javadoc
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\<tt\\>"
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+name|javadoc
+operator|=
+name|javadoc
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\</tt\\>"
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+name|javadoc
+operator|=
+name|javadoc
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\<code\\>"
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+name|javadoc
+operator|=
+name|javadoc
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\</code\\>"
+argument_list|,
+literal|""
+argument_list|)
+expr_stmt|;
+comment|// we are starting from a new line, so add a whitespace
+if|if
+condition|(
+operator|!
+name|first
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|' '
+argument_list|)
+expr_stmt|;
+block|}
+for|for
+control|(
+name|char
+name|c
+range|:
+name|line
+operator|.
+name|toCharArray
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|Character
+operator|.
+name|isJavaIdentifierPart
+argument_list|(
+name|c
+argument_list|)
+operator|||
+literal|'.'
+operator|==
+name|c
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+name|c
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|Character
+operator|.
+name|isWhitespace
+argument_list|(
+name|c
+argument_list|)
+condition|)
+block|{
+comment|// always use space as whitespace, also for line feeds etc
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|' '
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+name|first
+operator|=
+literal|false
+expr_stmt|;
+block|}
+return|return
+name|sb
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 block|}
