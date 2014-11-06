@@ -522,6 +522,15 @@ name|producerPoolEnabled
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|udpConnectionlessSend
+specifier|private
+name|boolean
+name|udpConnectionlessSend
+init|=
+literal|false
+decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
 specifier|public
@@ -2305,6 +2314,32 @@ operator|.
 name|producerPoolEnabled
 operator|=
 name|producerPoolEnabled
+expr_stmt|;
+block|}
+DECL|method|isUdpConnectionlessSend ()
+specifier|public
+name|boolean
+name|isUdpConnectionlessSend
+parameter_list|()
+block|{
+return|return
+name|udpConnectionlessSend
+return|;
+block|}
+DECL|method|setUdpConnectionlessSend (boolean udpConnectionlessSend)
+specifier|public
+name|void
+name|setUdpConnectionlessSend
+parameter_list|(
+name|boolean
+name|udpConnectionlessSend
+parameter_list|)
+block|{
+name|this
+operator|.
+name|udpConnectionlessSend
+operator|=
+name|udpConnectionlessSend
 expr_stmt|;
 block|}
 DECL|method|addToHandlersList (List<T> configured, List<T> handlers, Class<T> handlerType)

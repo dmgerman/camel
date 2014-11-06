@@ -2020,9 +2020,8 @@ name|pipelineFactory
 argument_list|)
 expr_stmt|;
 comment|// bind and store channel so we can close it when stopping
-name|ChannelFuture
-name|channelFuture
-init|=
+name|answer
+operator|=
 name|connectionlessClientBootstrap
 operator|.
 name|bind
@@ -2033,8 +2032,8 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|)
-decl_stmt|;
-name|channelFuture
+expr_stmt|;
+name|answer
 operator|.
 name|awaitUninterruptibly
 argument_list|()
@@ -2042,7 +2041,7 @@ expr_stmt|;
 name|Channel
 name|channel
 init|=
-name|channelFuture
+name|answer
 operator|.
 name|channel
 argument_list|()
@@ -2054,6 +2053,19 @@ argument_list|(
 name|channel
 argument_list|)
 expr_stmt|;
+comment|// if connectionless send is true we don't do a connect.
+comment|// we just send on the channel created with bind which means
+comment|// really fire and forget. You wont get an PortUnreachableException
+comment|// if no one is listen on the port
+if|if
+condition|(
+operator|!
+name|configuration
+operator|.
+name|isUdpConnectionlessSend
+argument_list|()
+condition|)
+block|{
 name|answer
 operator|=
 name|connectionlessClientBootstrap
@@ -2075,6 +2087,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|LOG
