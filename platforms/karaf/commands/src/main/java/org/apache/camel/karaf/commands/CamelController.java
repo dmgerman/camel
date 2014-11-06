@@ -158,7 +158,7 @@ name|String
 name|camelContextName
 parameter_list|)
 function_decl|;
-comment|/**      * Get all routes filtered by the regex.      *      * @param camelContextName the Camel context name. If null, all contexts are considered.      * @param filter the filter which supports * and ? as wildcards      * @return the list of the Camel routes.      */
+comment|/**      * Get all routes filtered by the regex.      *      * @param camelContextName the Camel context name. If null, all contexts are considered.      * @param filter           the filter which supports * and ? as wildcards      * @return the list of the Camel routes.      */
 DECL|method|getRoutes (String camelContextName, String filter)
 name|List
 argument_list|<
@@ -173,7 +173,7 @@ name|String
 name|filter
 parameter_list|)
 function_decl|;
-comment|/**      * Return the route with the given route ID.      *      * @param routeId the route ID.      * @param camelContextName the Camel context name.      * @return the route.      */
+comment|/**      * Return the route with the given route ID.      *      * @param routeId          the route ID.      * @param camelContextName the Camel context name.      * @return the route.      */
 DECL|method|getRoute (String routeId, String camelContextName)
 name|Route
 name|getRoute
@@ -185,7 +185,7 @@ name|String
 name|camelContextName
 parameter_list|)
 function_decl|;
-comment|/**      * Return the definition of a route identified by a ID and a Camel context.      *      * @param routeId the route ID.      * @param camelContextName the Camel context.      * @return the<code>RouteDefinition</code>.      */
+comment|/**      * Return the definition of a route identified by a ID and a Camel context.      *      * @param routeId          the route ID.      * @param camelContextName the Camel context.      * @return the<code>RouteDefinition</code>.      */
 DECL|method|getRouteDefinition (String routeId, String camelContextName)
 name|RouteDefinition
 name|getRouteDefinition
@@ -239,6 +239,23 @@ parameter_list|(
 name|String
 name|camelContextName
 parameter_list|)
+function_decl|;
+comment|/**      * Explains an endpoint uri      *      * @param camelContextName the Camel context.      * @param uri              the endpoint uri      * @param allOptions       whether to explain all options, or only the explicit configured options from the uri      * @return a JSON schema with explanation of the options      */
+DECL|method|explainEndpoint (String camelContextName, String uri, boolean allOptions)
+name|String
+name|explainEndpoint
+parameter_list|(
+name|String
+name|camelContextName
+parameter_list|,
+name|String
+name|uri
+parameter_list|,
+name|boolean
+name|allOptions
+parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 block|}
 end_interface
