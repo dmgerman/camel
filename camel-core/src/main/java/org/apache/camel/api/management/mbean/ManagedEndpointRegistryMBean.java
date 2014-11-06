@@ -22,6 +22,18 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|management
+operator|.
+name|openmbean
+operator|.
+name|TabularData
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -106,6 +118,18 @@ argument_list|)
 DECL|method|purge ()
 name|void
 name|purge
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Lists all the endpoints in the registry (url)"
+argument_list|)
+DECL|method|listEndpoints ()
+name|TabularData
+name|listEndpoints
 parameter_list|()
 function_decl|;
 block|}
