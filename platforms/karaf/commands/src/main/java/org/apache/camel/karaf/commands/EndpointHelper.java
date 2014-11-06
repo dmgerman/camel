@@ -102,7 +102,6 @@ name|String
 name|json
 parameter_list|)
 block|{
-comment|// parse line by line
 name|List
 argument_list|<
 name|String
@@ -115,6 +114,18 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|json
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+name|answer
+return|;
+block|}
+comment|// parse line by line
 comment|// skip first 2 lines as they are leading
 name|String
 index|[]
