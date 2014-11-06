@@ -136,6 +136,68 @@ name|className
 return|;
 block|}
 block|}
+comment|/**      * Returns the text wrapped double quotes      */
+DECL|method|doubleQuote (String text)
+specifier|public
+specifier|static
+name|String
+name|doubleQuote
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+return|return
+name|quote
+argument_list|(
+name|text
+argument_list|,
+literal|"\""
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns the text wrapped single quotes      */
+DECL|method|singleQuote (String text)
+specifier|public
+specifier|static
+name|String
+name|singleQuote
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+return|return
+name|quote
+argument_list|(
+name|text
+argument_list|,
+literal|"'"
+argument_list|)
+return|;
+block|}
+comment|/**      * Wraps the text in the given quote text      *      * @param text the text to wrap in quotes      * @param quote the quote text added to the prefix and postfix of the text      *      * @return the text wrapped in the given quotes      */
+DECL|method|quote (String text, String quote)
+specifier|public
+specifier|static
+name|String
+name|quote
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|String
+name|quote
+parameter_list|)
+block|{
+return|return
+name|quote
+operator|+
+name|text
+operator|+
+name|quote
+return|;
+block|}
 block|}
 end_class
 
