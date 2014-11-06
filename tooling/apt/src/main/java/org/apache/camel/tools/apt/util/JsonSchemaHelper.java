@@ -21,6 +21,16 @@ package|;
 end_package
 
 begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -56,7 +66,7 @@ specifier|private
 name|JsonSchemaHelper
 parameter_list|()
 block|{     }
-DECL|method|toJson (String name, String type, String description)
+DECL|method|toJson (String name, String type, String description, boolean enumType, Set<String> enums)
 specifier|public
 specifier|static
 name|String
@@ -70,6 +80,15 @@ name|type
 parameter_list|,
 name|String
 name|description
+parameter_list|,
+name|boolean
+name|enumType
+parameter_list|,
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|enums
 parameter_list|)
 block|{
 name|String
@@ -80,9 +99,10 @@ operator|.
 name|getType
 argument_list|(
 name|type
+argument_list|,
+name|enumType
 argument_list|)
 decl_stmt|;
-comment|// TODO: add support for enum and array
 name|StringBuilder
 name|sb
 init|=
@@ -107,6 +127,104 @@ argument_list|(
 literal|": { \"type\":"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+literal|"enum"
+operator|.
+name|equals
+argument_list|(
+name|typeName
+argument_list|)
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+name|doubleQuote
+argument_list|(
+literal|"string"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|CollectionStringBuffer
+name|enumValues
+init|=
+operator|new
+name|CollectionStringBuffer
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|Object
+name|value
+range|:
+name|enums
+control|)
+block|{
+name|enumValues
+operator|.
+name|append
+argument_list|(
+name|doubleQuote
+argument_list|(
+name|value
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", \"enum\": [ "
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|enumValues
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|" ]"
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"array"
+operator|.
+name|equals
+argument_list|(
+name|typeName
+argument_list|)
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+name|doubleQuote
+argument_list|(
+literal|"array"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|sb
 operator|.
 name|append
@@ -117,6 +235,7 @@ name|typeName
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -132,7 +251,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|", \"description\":"
+literal|", \"description\": "
 argument_list|)
 expr_stmt|;
 name|String
@@ -190,28 +309,9 @@ operator|.
 name|toString
 argument_list|()
 return|;
-comment|//        if (type.isEnum()) {
-comment|//            String typeName = "string";
-comment|//            CollectionStringBuffer sb = new CollectionStringBuffer();
-comment|//            for (Object value : parameterType.getEnumConstants()) {
-comment|//                sb.append(doubleQuote(value.toString()));
-comment|//            }
-comment|//            return doubleQuote(name) + ": { \"type\": " + doubleQuote(type) + ", \"enum\": [ " + sb.toString() + " ] }";
-comment|//        } else if (parameterType.isArray()) {
-comment|//            String typeName = "array";
-comment|//            return doubleQuote(name) + ": { \"type\": " + doubleQuote(type) + " }";
-comment|//        } else {
-comment|//        if ("object".equals(typeName)) {
-comment|//            for object then include the javaType as a description so we know that
-comment|//            return doubleQuote(name) + ": { \"type\": " + doubleQuote(typeName)
-comment|//                    + ", \"properties\": { \"javaType\": { \"description\": \"" + type + "\", \"type\": \"string\" } } }";
-comment|//        } else {
-comment|//            return doubleQuote(name) + ": { \"type\": " + doubleQuote(typeName) + " }";
-comment|//        }
-comment|//        }
 block|}
 comment|/**      * Gets the JSon schema type.      *      * @param   type the java type      * @return  the json schema type, is never null, but returns<tt>object</tt> as the generic type      */
-DECL|method|getType (String type)
+DECL|method|getType (String type, boolean enumType)
 specifier|public
 specifier|static
 name|String
@@ -219,14 +319,20 @@ name|getType
 parameter_list|(
 name|String
 name|type
+parameter_list|,
+name|boolean
+name|enumType
 parameter_list|)
 block|{
-comment|// TODO:
-comment|//        if (type.isEnum()) {
-comment|//            return "enum";
-comment|//        } else if (type.isArray()) {
-comment|//            return "array";
-comment|//        }
+if|if
+condition|(
+name|enumType
+condition|)
+block|{
+return|return
+literal|"enum"
+return|;
+block|}
 name|String
 name|primitive
 init|=
