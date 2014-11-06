@@ -1993,10 +1993,21 @@ name|LoadPropertiesException
 throws|,
 name|IOException
 function_decl|;
-comment|/**      * Returns the HTML documentation for the given camel component      */
+comment|/**      * Returns the HTML documentation for the given Camel component      */
 DECL|method|getComponentDocumentation (String componentName)
 name|String
 name|getComponentDocumentation
+parameter_list|(
+name|String
+name|componentName
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Returns the JSON schema representation of the endpoint parameters for the given component name      */
+DECL|method|getComponentParameterJsonSchema (String componentName)
+name|String
+name|getComponentParameterJsonSchema
 parameter_list|(
 name|String
 name|componentName
