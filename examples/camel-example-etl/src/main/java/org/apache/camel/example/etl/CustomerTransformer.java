@@ -199,14 +199,11 @@ name|entityManager
 init|=
 name|exchange
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
+name|getProperty
 argument_list|(
 name|JpaConstants
 operator|.
-name|ENTITYMANAGER
+name|ENTITY_MANAGER
 argument_list|,
 name|EntityManager
 operator|.
