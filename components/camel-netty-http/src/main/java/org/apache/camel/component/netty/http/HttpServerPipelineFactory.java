@@ -1181,6 +1181,20 @@ name|isNeedClientAuth
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|consumer
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getSslContextParameters
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+comment|// just set the enabledProtocols if the SslContextParameter doesn't set
 name|engine
 operator|.
 name|setEnabledProtocols
@@ -1199,6 +1213,7 @@ literal|","
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 operator|new
 name|SslHandler
