@@ -81,6 +81,7 @@ name|SpringPropertiesParser
 extends|extends
 name|DefaultPropertiesParser
 block|{
+comment|// Members
 annotation|@
 name|Autowired
 DECL|field|propertyResolver
@@ -88,6 +89,7 @@ specifier|private
 name|PropertyResolver
 name|propertyResolver
 decl_stmt|;
+comment|// Overridden
 annotation|@
 name|Override
 DECL|method|parseProperty (String key, String value, Properties properties)
