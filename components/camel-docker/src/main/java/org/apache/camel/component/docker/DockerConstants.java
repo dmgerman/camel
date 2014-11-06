@@ -122,6 +122,15 @@ name|DOCKER_API_REQUEST_TIMEOUT
 init|=
 literal|"CamelDockerRequestTimeout"
 decl_stmt|;
+DECL|field|DOCKER_CERT_PATH
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DOCKER_CERT_PATH
+init|=
+literal|"CamelDockerCertPath"
+decl_stmt|;
 comment|/** List Images **/
 DECL|field|DOCKER_FILTER
 specifier|public
@@ -892,6 +901,17 @@ argument_list|(
 name|DOCKER_SECURE
 argument_list|,
 name|Boolean
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|DOCKER_DEFAULT_PARAMETERS
+operator|.
+name|put
+argument_list|(
+name|DOCKER_CERT_PATH
+argument_list|,
+name|String
 operator|.
 name|class
 argument_list|)

@@ -192,6 +192,8 @@ operator|+
 literal|"&port="
 operator|+
 name|port
+operator|+
+literal|"&certPath=/Users/ablock/.docker/boot2docker-vm&secure=true"
 argument_list|)
 operator|.
 name|log
