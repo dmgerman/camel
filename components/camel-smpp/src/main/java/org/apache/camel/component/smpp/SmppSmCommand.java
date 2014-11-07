@@ -439,6 +439,16 @@ if|if
 condition|(
 name|providedAlphabet
 operator|==
+name|Alphabet
+operator|.
+name|ALPHA_UCS2
+operator|.
+name|value
+argument_list|()
+operator|||
+operator|(
+name|providedAlphabet
+operator|==
 name|SmppConstants
 operator|.
 name|UNKNOWN_ALPHABET
@@ -451,8 +461,10 @@ name|ALPHA_UCS2
 operator|.
 name|value
 argument_list|()
+operator|)
 condition|)
 block|{
+comment|// change charset to use multilang messages
 return|return
 name|Charset
 operator|.
@@ -463,7 +475,6 @@ operator|.
 name|UCS2_ENCODING
 argument_list|)
 return|;
-comment|// change charset to use multilang messages
 block|}
 return|return
 name|charset
