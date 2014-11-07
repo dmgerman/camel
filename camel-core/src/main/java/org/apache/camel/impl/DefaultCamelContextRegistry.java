@@ -247,16 +247,16 @@ block|}
 catch|catch
 parameter_list|(
 name|Throwable
-name|th
+name|e
 parameter_list|)
 block|{
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
-literal|"Error calling registry listener"
+literal|"Error calling registry listener. This exception is ignored."
 argument_list|,
-name|th
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -299,16 +299,16 @@ block|}
 catch|catch
 parameter_list|(
 name|Throwable
-name|th
+name|e
 parameter_list|)
 block|{
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
-literal|"Error calling registry listener"
+literal|"Error calling registry listener. This exception is ignored."
 argument_list|,
-name|th
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -505,7 +505,7 @@ name|Iterator
 argument_list|<
 name|CamelContext
 argument_list|>
-name|itctx
+name|it
 init|=
 name|getContexts
 argument_list|(
@@ -518,22 +518,24 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|itctx
+name|it
 operator|.
 name|hasNext
 argument_list|()
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Cannot obtain context for name: "
+literal|"Cannot find CamelContext with name: "
 operator|+
 name|name
 argument_list|)
 throw|;
+block|}
 return|return
-name|itctx
+name|it
 operator|.
 name|next
 argument_list|()
@@ -555,7 +557,7 @@ name|Iterator
 argument_list|<
 name|CamelContext
 argument_list|>
-name|itctx
+name|it
 init|=
 name|getContexts
 argument_list|(
@@ -566,12 +568,12 @@ name|iterator
 argument_list|()
 decl_stmt|;
 return|return
-name|itctx
+name|it
 operator|.
 name|hasNext
 argument_list|()
 condition|?
-name|itctx
+name|it
 operator|.
 name|next
 argument_list|()
