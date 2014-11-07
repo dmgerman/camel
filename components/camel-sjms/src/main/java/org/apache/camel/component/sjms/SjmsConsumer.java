@@ -915,11 +915,6 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Creates a {@link MessageConsumerResources} with a dedicated      * {@link Session} required for transacted and InOut consumers.      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|createConsumer ()
 specifier|private
 name|MessageConsumerResources
