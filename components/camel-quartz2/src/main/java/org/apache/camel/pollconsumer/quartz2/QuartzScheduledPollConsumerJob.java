@@ -134,11 +134,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|QuartzScheduledPollConsumerJob ()
-specifier|public
-name|QuartzScheduledPollConsumerJob
-parameter_list|()
-block|{     }
 annotation|@
 name|Override
 DECL|method|execute (JobExecutionContext context)
