@@ -283,7 +283,9 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timeout\": { \"type\": \"integer\", \"description\": \"The timeout value to use if block is enabled. Is by default 30000.\" }"
+literal|"\"timeout\": { \"type\": \"integer\", \"javaType\": \"long\","
+operator|+
+literal|" \"description\": \"The timeout value to use if block is enabled. Is by default 30000.\" },"
 argument_list|)
 argument_list|)
 expr_stmt|;

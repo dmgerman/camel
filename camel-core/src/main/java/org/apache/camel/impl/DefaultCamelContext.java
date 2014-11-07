@@ -7001,8 +7001,8 @@ parameter_list|,
 name|boolean
 name|includeAllOptions
 parameter_list|)
-throws|throws
-name|Exception
+block|{
+try|try
 block|{
 name|URI
 name|u
@@ -7614,6 +7614,18 @@ operator|.
 name|toString
 argument_list|()
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore and return empty response
+return|return
+literal|null
+return|;
+block|}
 block|}
 DECL|method|createRouteStaticEndpointJson (String routeId)
 specifier|public

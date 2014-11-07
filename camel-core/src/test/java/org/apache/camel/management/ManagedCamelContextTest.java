@@ -1530,15 +1530,6 @@ argument_list|(
 name|json
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|json
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|4
@@ -1573,7 +1564,9 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"groupDelay\": { \"value\": \"2000\", \"description\": \"Set the initial delay for stats in millis\" },"
+literal|"\"groupDelay\": { \"type\": \"integer\", \"javaType\": \"java.lang.Long\", \"value\": \"2000\","
+operator|+
+literal|" \"description\": \"Set the initial delay for stats in millis\" },"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1583,7 +1576,9 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"groupSize\": { \"value\": \"5\", \"description\": \"An integer that specifies a group size for throughput logging.\" }"
+literal|"\"groupSize\": { \"type\": \"integer\", \"javaType\": \"java.lang.Integer\", \"value\": \"5\","
+operator|+
+literal|" \"description\": \"An integer that specifies a group size for throughput logging.\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;

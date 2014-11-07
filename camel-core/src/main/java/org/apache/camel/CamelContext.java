@@ -1993,7 +1993,7 @@ name|LoadPropertiesException
 throws|,
 name|IOException
 function_decl|;
-comment|/**      * Returns the HTML documentation for the given Camel component      */
+comment|/**      * Returns the HTML documentation for the given Camel component      *      * @return the HTML or<tt>null</tt> if the component is<b>not</b> built with HTML document included.      */
 DECL|method|getComponentDocumentation (String componentName)
 name|String
 name|getComponentDocumentation
@@ -2004,7 +2004,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns the JSON schema representation of the endpoint parameters for the given component name      */
+comment|/**      * Returns the JSON schema representation of the endpoint parameters for the given component name.      *      * @return the json or<tt>null</tt> if the component is<b>not</b> built with JSon schema support      */
 DECL|method|getComponentParameterJsonSchema (String componentName)
 name|String
 name|getComponentParameterJsonSchema
@@ -2015,7 +2015,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns a JSON schema representation of the endpoint parameters for the given endpoint uri      *      * @param uri the endpoint uri      * @param includeAllOptions whether to include non configured options also (eg default options)      */
+comment|/**      * Returns a JSON schema representation of the endpoint parameters for the given endpoint uri.      *      * @param uri the endpoint uri      * @param includeAllOptions whether to include non configured options also (eg default options)      * @return the json or<tt>null</tt> if uri parameters is invalid, or the component is<b>not</b> built with JSon schema support      */
 DECL|method|explainEndpointJson (String uri, boolean includeAllOptions)
 name|String
 name|explainEndpointJson
@@ -2026,8 +2026,6 @@ parameter_list|,
 name|boolean
 name|includeAllOptions
 parameter_list|)
-throws|throws
-name|Exception
 function_decl|;
 comment|/**      * Creates a JSON representation of all the<b>static</b> and<b>dynamic</b> configured endpoints defined in the given route(s).      *      * @param routeId for a particular route, or<tt>null</tt> for all routes      * @return a JSON string      */
 DECL|method|createRouteStaticEndpointJson (String routeId)
