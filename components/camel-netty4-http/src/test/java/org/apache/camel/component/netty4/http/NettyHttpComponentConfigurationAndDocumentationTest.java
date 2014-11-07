@@ -203,7 +203,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"httpMethodRestrict\": { \"type\": \"string\" }"
+literal|"\"httpMethodRestrict\": { \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -213,7 +213,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"traceEnabled\": { \"type\": \"boolean\" }"
+literal|"\"traceEnabled\": { \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

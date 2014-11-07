@@ -201,7 +201,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"stateful\": { \"type\": \"boolean\" }"
+literal|"\"stateful\": { \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -211,7 +211,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"deleteJob\": { \"type\": \"boolean\" }"
+literal|"\"deleteJob\": { \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -201,7 +201,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"producerPoolMinEvictableIdle\": { \"type\": \"integer\" }"
+literal|"\"producerPoolMinEvictableIdle\": { \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -211,7 +211,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"allowDefaultCodec\": { \"type\": \"boolean\" }"
+literal|"\"allowDefaultCodec\": { \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

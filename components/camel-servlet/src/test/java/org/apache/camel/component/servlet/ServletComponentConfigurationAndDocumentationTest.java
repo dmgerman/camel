@@ -211,7 +211,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"servletName\": { \"type\": \"string\" }"
+literal|"\"servletName\": { \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -221,7 +221,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"matchOnUriPrefix\": { \"type\": \"boolean\" }"
+literal|"\"matchOnUriPrefix\": { \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

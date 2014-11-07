@@ -201,7 +201,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"httpClientMaxThreads\": { \"type\": \"integer\" }"
+literal|"\"httpClientMaxThreads\": { \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -211,7 +211,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"sessionSupport\": { \"type\": \"boolean\" }"
+literal|"\"sessionSupport\": { \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

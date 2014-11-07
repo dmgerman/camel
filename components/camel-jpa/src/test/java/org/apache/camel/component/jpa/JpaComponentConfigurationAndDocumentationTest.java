@@ -201,7 +201,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"persistenceUnit\": { \"type\": \"string\" }"
+literal|"\"persistenceUnit\": { \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -211,7 +211,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"usePassedInEntityManager\": { \"type\": \"boolean\" }"
+literal|"\"usePassedInEntityManager\": { \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -181,22 +181,13 @@ argument_list|(
 name|json
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|json
-argument_list|)
-expr_stmt|;
 name|assertTrue
 argument_list|(
 name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"lat\": { \"type\": \"string\" }"
+literal|"\"lat\": { \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -206,7 +197,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"location\": { \"type\": \"string\" }"
+literal|"\"location\": { \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -216,7 +207,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"mode\": { \"type\": \"string\", \"enum\": [ \"HTML\", \"JSON\", \"XML\" ] }"
+literal|"\"mode\": { \"type\": \"string\", \"javaType\": \"org.apache.camel.component.weather.WeatherMode\", \"enum\": [ \"HTML\", \"JSON\", \"XML\" ]"
 argument_list|)
 argument_list|)
 expr_stmt|;

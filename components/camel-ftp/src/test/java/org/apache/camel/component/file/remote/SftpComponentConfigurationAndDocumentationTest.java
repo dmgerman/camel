@@ -201,7 +201,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"maximumReconnectAttempts\": { \"type\": \"integer\" }"
+literal|"\"maximumReconnectAttempts\": { \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -211,7 +211,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"download\": { \"type\": \"boolean\" }"
+literal|"\"download\": { \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

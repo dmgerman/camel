@@ -213,7 +213,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"pattern\": { \"type\": \"string\" }"
+literal|"\"pattern\": { \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -223,7 +223,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"wantAppend\": { \"type\": \"boolean\" }"
+literal|"\"wantAppend\": { \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

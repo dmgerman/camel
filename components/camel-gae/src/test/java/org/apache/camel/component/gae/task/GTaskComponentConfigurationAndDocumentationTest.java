@@ -189,7 +189,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"workerRoot\": { \"type\": \"string\" }"
+literal|"\"workerRoot\": { \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -199,7 +199,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"disableStreamCache\": { \"type\": \"boolean\" }"
+literal|"\"disableStreamCache\": { \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

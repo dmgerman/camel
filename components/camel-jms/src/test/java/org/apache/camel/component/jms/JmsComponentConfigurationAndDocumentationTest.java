@@ -187,7 +187,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"replyToDestination\": { \"type\": \"string\" }"
+literal|"\"replyToDestination\": { \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -197,7 +197,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"transacted\": { \"type\": \"boolean\" }"
+literal|"\"transacted\": { \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

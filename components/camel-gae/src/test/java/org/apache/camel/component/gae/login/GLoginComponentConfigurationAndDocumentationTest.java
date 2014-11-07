@@ -201,7 +201,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"clientName\": { \"type\": \"string\" }"
+literal|"\"clientName\": { \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -211,7 +211,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"devMode\": { \"type\": \"boolean\" }"
+literal|"\"devMode\": { \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;
