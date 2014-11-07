@@ -72,6 +72,20 @@ name|DefaultCamelContext
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultCamelContextRegistry
+import|;
+end_import
+
 begin_class
 DECL|class|CamelContextRegistryTest
 specifier|public
@@ -158,6 +172,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// need to clear the listener for testing
+operator|(
+operator|(
+name|DefaultCamelContextRegistry
+operator|)
+name|CamelContextRegistry
+operator|.
+name|INSTANCE
+operator|)
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|MyListener
 name|listener
 init|=

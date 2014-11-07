@@ -153,6 +153,25 @@ name|Listener
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|/**      * Clear all contexts and listeners, such as for testing purpose.      */
+DECL|method|clear ()
+specifier|public
+specifier|synchronized
+name|void
+name|clear
+parameter_list|()
+block|{
+name|contexts
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|listeners
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|afterCreate (CamelContext camelContext)
 specifier|synchronized
 name|void
