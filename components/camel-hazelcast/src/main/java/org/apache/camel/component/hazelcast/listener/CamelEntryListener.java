@@ -46,6 +46,18 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|hazelcast
+operator|.
+name|core
+operator|.
+name|MapEvent
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -181,6 +193,28 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|mapEvicted (MapEvent mapEvent)
+specifier|public
+name|void
+name|mapEvicted
+parameter_list|(
+name|MapEvent
+name|mapEvent
+parameter_list|)
+block|{
+comment|// noop
+block|}
+DECL|method|mapCleared (MapEvent mapEvent)
+specifier|public
+name|void
+name|mapCleared
+parameter_list|(
+name|MapEvent
+name|mapEvent
+parameter_list|)
+block|{
+comment|// noop
 block|}
 DECL|method|entryRemoved (EntryEvent<Object, Object> event)
 specifier|public
