@@ -411,11 +411,6 @@ specifier|private
 name|boolean
 name|throwException
 decl_stmt|;
-DECL|field|cxfRsEndpoint
-specifier|private
-name|CxfRsEndpoint
-name|cxfRsEndpoint
-decl_stmt|;
 comment|// using a cache of factory beans instead of setting the address of a single cfb
 comment|// to avoid concurrent issues
 DECL|field|clientFactoryBeanCache
@@ -435,10 +430,6 @@ name|super
 argument_list|(
 name|endpoint
 argument_list|)
-expr_stmt|;
-name|cxfRsEndpoint
-operator|=
-name|endpoint
 expr_stmt|;
 name|this
 operator|.

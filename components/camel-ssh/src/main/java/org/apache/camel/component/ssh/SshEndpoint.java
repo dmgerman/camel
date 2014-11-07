@@ -462,6 +462,8 @@ name|client
 operator|.
 name|connect
 argument_list|(
+literal|null
+argument_list|,
 name|getHost
 argument_list|()
 argument_list|,
