@@ -3394,6 +3394,7 @@ name|clazz
 return|;
 block|}
 comment|/**      * Load a simple type      *      * @param name the name of the class to load      * @return the class or<tt>null</tt> if it could not be loaded      */
+comment|//CHECKSTYLE:OFF
 DECL|method|loadSimpleType (String name)
 specifier|public
 specifier|static
@@ -3864,6 +3865,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|//CHECKSTYLE:ON
 comment|/**      * Loads the given class with the provided classloader (may be null).      * Will ignore any class not found and return null.      *      * @param name    the name of the class to load      * @param loader  a provided loader (may be null)      * @return the class, or null if it could not be loaded      */
 DECL|method|doLoadClass (String name, ClassLoader loader)
 specifier|private
