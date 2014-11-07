@@ -457,7 +457,7 @@ name|rows
 init|=
 name|JsonSchemaHelper
 operator|.
-name|parseEndpointExplainJson
+name|parseJsonSchema
 argument_list|(
 name|json
 argument_list|)
@@ -495,6 +495,16 @@ operator|.
 name|get
 argument_list|(
 literal|"name"
+argument_list|)
+decl_stmt|;
+name|String
+name|type
+init|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"type"
 argument_list|)
 decl_stmt|;
 name|String
@@ -561,6 +571,8 @@ index|[]
 block|{
 literal|"option"
 block|,
+literal|"type"
+block|,
 literal|"value"
 block|,
 literal|"description"
@@ -571,6 +583,8 @@ name|Object
 index|[]
 block|{
 name|option
+block|,
+name|type
 block|,
 name|value
 block|,

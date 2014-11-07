@@ -439,6 +439,8 @@ index|[]
 block|{
 literal|"option"
 block|,
+literal|"type"
+block|,
 literal|"value"
 block|,
 literal|"description"
@@ -469,6 +471,8 @@ index|[]
 block|{
 literal|"option"
 block|,
+literal|"type"
+block|,
 literal|"value"
 block|,
 literal|"description"
@@ -480,6 +484,8 @@ index|[]
 block|{
 literal|"Option"
 block|,
+literal|"Type"
+block|,
 literal|"Value"
 block|,
 literal|"Description"
@@ -489,6 +495,10 @@ operator|new
 name|OpenType
 index|[]
 block|{
+name|SimpleType
+operator|.
+name|STRING
+block|,
 name|SimpleType
 operator|.
 name|STRING

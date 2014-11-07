@@ -152,6 +152,16 @@ operator|=
 name|separator
 expr_stmt|;
 block|}
+DECL|method|isEmpty ()
+specifier|public
+name|boolean
+name|isEmpty
+parameter_list|()
+block|{
+return|return
+name|first
+return|;
+block|}
 block|}
 end_class
 

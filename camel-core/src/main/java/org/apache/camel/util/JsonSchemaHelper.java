@@ -568,12 +568,127 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Extracts the description value from the blob of json with the given property name      *      * @param json the blob of json      * @param name the name of the property to extract the description      * @return the value of the description, or<tt>null</tt> if no description exists      */
-DECL|method|getDescription (String json, String name)
+comment|/**      * Extracts the type value from the blob of json with the given property name      *      * @param json the blob of json      * @param name the name of the property to extract the type      * @return the value of the type, or<tt>null</tt> if no type exists      */
+DECL|method|extractTypeFromJson (String json, String name)
 specifier|public
 specifier|static
 name|String
-name|getDescription
+name|extractTypeFromJson
+parameter_list|(
+name|String
+name|json
+parameter_list|,
+name|String
+name|name
+parameter_list|)
+block|{
+comment|// we dont have a json parser, but we know the structure, so just do this simple way
+name|String
+index|[]
+name|lines
+init|=
+name|json
+operator|.
+name|split
+argument_list|(
+literal|"\n"
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|String
+name|line
+range|:
+name|lines
+control|)
+block|{
+name|line
+operator|=
+name|line
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|line
+operator|.
+name|startsWith
+argument_list|(
+literal|"\""
+operator|+
+name|name
+operator|+
+literal|"\":"
+argument_list|)
+condition|)
+block|{
+comment|// grab text after type
+name|String
+name|value
+init|=
+name|ObjectHelper
+operator|.
+name|after
+argument_list|(
+name|line
+argument_list|,
+literal|"\"type\": \""
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
+name|int
+name|lastQuote
+init|=
+name|value
+operator|.
+name|lastIndexOf
+argument_list|(
+literal|'"'
+argument_list|)
+decl_stmt|;
+name|value
+operator|=
+name|value
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|lastQuote
+argument_list|)
+expr_stmt|;
+name|value
+operator|=
+name|StringHelper
+operator|.
+name|removeLeadingAndEndingQuotes
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+return|return
+name|value
+return|;
+block|}
+block|}
+block|}
+return|return
+literal|null
+return|;
+block|}
+comment|/**      * Extracts the description value from the blob of json with the given property name      *      * @param json the blob of json      * @param name the name of the property to extract the description      * @return the value of the description, or<tt>null</tt> if no description exists      */
+DECL|method|extractDescriptionFromJson (String json, String name)
+specifier|public
+specifier|static
+name|String
+name|extractDescriptionFromJson
 parameter_list|(
 name|String
 name|json
@@ -683,8 +798,8 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Parses the endpoint explain json      *      * @param json the json      * @return a list of all the options, where each row is a set of key value pairs with metadata      */
-DECL|method|parseEndpointExplainJson (String json)
+comment|/**      * Parses the json schema to split it into a list or rows, where each row contains key value pairs with the metadata      *      * @param json the json      * @return a list of all the rows, where each row is a set of key value pairs with metadata      */
+DECL|method|parseJsonSchema (String json)
 specifier|public
 specifier|static
 name|List
@@ -696,7 +811,7 @@ argument_list|,
 name|String
 argument_list|>
 argument_list|>
-name|parseEndpointExplainJson
+name|parseJsonSchema
 parameter_list|(
 name|String
 name|json
