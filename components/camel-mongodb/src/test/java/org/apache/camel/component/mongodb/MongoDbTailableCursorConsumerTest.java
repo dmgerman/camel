@@ -2280,12 +2280,7 @@ expr_stmt|;
 comment|// drop the capped collection and let each test create what it needs
 name|cappedTestCollectionName
 operator|=
-name|properties
-operator|.
-name|getProperty
-argument_list|(
-literal|"mongodb.cappedTestCollection"
-argument_list|)
+literal|"camelTestCapped"
 expr_stmt|;
 name|cappedTestCollection
 operator|=

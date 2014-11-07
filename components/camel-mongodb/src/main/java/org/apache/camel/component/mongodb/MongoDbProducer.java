@@ -1476,14 +1476,14 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|ObjectId
+name|Object
 argument_list|>
 name|oids
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|ObjectId
+name|Object
 argument_list|>
 argument_list|(
 name|insertObjects
@@ -1504,9 +1504,6 @@ name|oids
 operator|.
 name|add
 argument_list|(
-operator|(
-name|ObjectId
-operator|)
 name|insertObject
 operator|.
 name|get
