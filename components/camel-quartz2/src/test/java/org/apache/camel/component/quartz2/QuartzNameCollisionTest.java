@@ -264,7 +264,7 @@ name|reason
 operator|.
 name|indexOf
 argument_list|(
-literal|"Trigger key myGroup.myTimerName is already in used"
+literal|"Trigger key myGroup.myTimerName is already in use"
 argument_list|)
 operator|>=
 literal|0

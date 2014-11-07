@@ -1301,7 +1301,7 @@ literal|"Trigger key "
 operator|+
 name|triggerKey
 operator|+
-literal|" is already in used by "
+literal|" is already in use by "
 operator|+
 name|quartzEndpoint
 argument_list|)

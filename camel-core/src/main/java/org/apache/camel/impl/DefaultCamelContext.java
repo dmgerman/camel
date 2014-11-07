@@ -4373,7 +4373,6 @@ return|;
 block|}
 DECL|method|getRoutes ()
 specifier|public
-specifier|synchronized
 name|List
 argument_list|<
 name|Route
@@ -4399,6 +4398,11 @@ return|;
 block|}
 else|else
 block|{
+synchronized|synchronized
+init|(
+name|routes
+init|)
+block|{
 return|return
 operator|new
 name|ArrayList
@@ -4409,6 +4413,7 @@ argument_list|(
 name|routes
 argument_list|)
 return|;
+block|}
 block|}
 block|}
 DECL|method|getRoute (String id)
@@ -4474,7 +4479,6 @@ argument_list|)
 throw|;
 block|}
 DECL|method|removeRouteCollection (Collection<Route> routes)
-specifier|synchronized
 name|void
 name|removeRouteCollection
 parameter_list|(
@@ -4484,6 +4488,11 @@ name|Route
 argument_list|>
 name|routes
 parameter_list|)
+block|{
+synchronized|synchronized
+init|(
+name|routes
+init|)
 block|{
 name|this
 operator|.
@@ -4495,8 +4504,8 @@ name|routes
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 DECL|method|addRouteCollection (Collection<Route> routes)
-specifier|synchronized
 name|void
 name|addRouteCollection
 parameter_list|(
@@ -4509,6 +4518,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+synchronized|synchronized
+init|(
+name|routes
+init|)
+block|{
 name|this
 operator|.
 name|routes
@@ -4518,6 +4532,7 @@ argument_list|(
 name|routes
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|addRoutes (RoutesBuilder builder)
 specifier|public
