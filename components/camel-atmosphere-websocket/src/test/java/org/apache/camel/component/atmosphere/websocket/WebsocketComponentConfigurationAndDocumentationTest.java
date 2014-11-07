@@ -196,7 +196,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"useStreaming\": { \"type\": \"boolean\" }"
+literal|"\"useStreaming\": { \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -206,7 +206,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"sendToAll\": { \"type\": \"boolean\" }"
+literal|"\"sendToAll\": { \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;
