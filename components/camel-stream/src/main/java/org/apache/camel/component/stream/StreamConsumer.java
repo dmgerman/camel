@@ -780,6 +780,12 @@ name|initializeStream
 argument_list|()
 expr_stmt|;
 block|}
+comment|// sleep only if there is no input
+if|if
+condition|(
+name|eos
+condition|)
+block|{
 try|try
 block|{
 name|Thread
@@ -808,6 +814,7 @@ name|interrupt
 argument_list|()
 expr_stmt|;
 break|break;
+block|}
 block|}
 block|}
 block|}
