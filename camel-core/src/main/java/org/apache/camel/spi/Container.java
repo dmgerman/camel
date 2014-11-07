@@ -69,7 +69,11 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<code>Container</code> interface defines an object that can be used  * to customize all Camel CONTEXTS created.  *<p/>  * A container can be used to globally intercept and customize {@link org.apache.camel.CamelContext}s,  * by registering a<code>LifecycleStrategy</code>, a<code>ProcessorFactory</code>,  * or any other SPI object.  *<p/>  * This implementation is<b>not</b> thread-safe. The {@link #manage(org.apache.camel.CamelContext)} method  * may be invoked concurrently if multiple Camel applications is being started concurrently, such as from  * application servers that may start deployments concurrently.  */
+comment|/**  * The<code>Container</code> interface defines an object that can be used  * to customize all Camel CONTEXTS created.  *<p/>  * A container can be used to globally intercept and customize {@link org.apache.camel.CamelContext}s,  * by registering a<code>LifecycleStrategy</code>, a<code>ProcessorFactory</code>,  * or any other SPI object.  *<p/>  * This implementation is<b>not</b> thread-safe. The {@link #manage(org.apache.camel.CamelContext)} method  * may be invoked concurrently if multiple Camel applications is being started concurrently, such as from  * application servers that may start deployments concurrently.  *   * @deprecated use {@link CamelContextRegistry}  */
+end_comment
+
+begin_comment
+comment|// [TODO] Remove in 3.0
 end_comment
 
 begin_interface
