@@ -88,6 +88,12 @@ name|DONE_DATE
 init|=
 literal|"CamelSmppDoneDate"
 decl_stmt|;
+DECL|field|ENCODING
+name|String
+name|ENCODING
+init|=
+literal|"CamelSmppEncoding"
+decl_stmt|;
 DECL|field|ERROR
 name|String
 name|ERROR
