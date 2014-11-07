@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URI
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|atlassian
@@ -53,16 +63,6 @@ operator|.
 name|jersey
 operator|.
 name|JerseyJiraRestClientFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URI
 import|;
 end_import
 
