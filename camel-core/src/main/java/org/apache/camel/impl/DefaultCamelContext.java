@@ -7111,7 +7111,12 @@ name|selected
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<>
+argument_list|<
+name|String
+argument_list|,
+name|String
+index|[]
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// insert values from uri
