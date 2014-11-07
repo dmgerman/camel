@@ -280,6 +280,15 @@ argument_list|(
 name|typeName
 argument_list|)
 operator|+
+literal|", \"javaType\": \""
+operator|+
+name|parameterType
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|"\""
+operator|+
 literal|", \"enum\": [ "
 operator|+
 name|sb
@@ -317,7 +326,14 @@ argument_list|(
 name|typeName
 argument_list|)
 operator|+
-literal|" }"
+literal|", \"javaType\": \""
+operator|+
+name|parameterType
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|"\" }"
 return|;
 block|}
 else|else
@@ -332,17 +348,6 @@ argument_list|(
 name|parameterType
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-literal|"object"
-operator|.
-name|equals
-argument_list|(
-name|typeName
-argument_list|)
-condition|)
-block|{
-comment|// for object then include the javaType as a description so we know that
 return|return
 name|doubleQuote
 argument_list|(
@@ -356,34 +361,15 @@ argument_list|(
 name|typeName
 argument_list|)
 operator|+
-literal|", \"properties\": { \"javaType\": { \"description\": \""
+literal|", \"javaType\": \""
 operator|+
 name|parameterType
 operator|.
 name|getCanonicalName
 argument_list|()
 operator|+
-literal|"\", \"type\": \"string\" } } }"
+literal|"\" }"
 return|;
-block|}
-else|else
-block|{
-return|return
-name|doubleQuote
-argument_list|(
-name|name
-argument_list|)
-operator|+
-literal|": { \"type\": "
-operator|+
-name|doubleQuote
-argument_list|(
-name|typeName
-argument_list|)
-operator|+
-literal|" }"
-return|;
-block|}
 block|}
 block|}
 block|}

@@ -147,6 +147,17 @@ literal|"string"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", \"javaType\": \""
+operator|+
+name|type
+operator|+
+literal|"\""
+argument_list|)
+expr_stmt|;
 name|CollectionStringBuffer
 name|enumValues
 init|=
@@ -222,6 +233,17 @@ literal|"array"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", \"javaType\": \""
+operator|+
+name|type
+operator|+
+literal|"\""
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -233,6 +255,17 @@ name|doubleQuote
 argument_list|(
 name|typeName
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", \"javaType\": \""
+operator|+
+name|type
+operator|+
+literal|"\""
 argument_list|)
 expr_stmt|;
 block|}
@@ -270,29 +303,6 @@ name|doubleQuote
 argument_list|(
 name|text
 argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-literal|"object"
-operator|.
-name|equals
-argument_list|(
-name|typeName
-argument_list|)
-condition|)
-block|{
-comment|// for object then include the javaType as a description so we know that
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|", \"properties\": { \"javaType\": { \"description\": \""
-operator|+
-name|type
-operator|+
-literal|"\", \"type\": \"string\" } }"
 argument_list|)
 expr_stmt|;
 block|}
