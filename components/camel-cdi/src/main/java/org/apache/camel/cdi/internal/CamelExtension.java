@@ -560,8 +560,6 @@ name|AnnotationLiteral
 argument_list|<
 name|Inject
 argument_list|>
-implements|implements
-name|Inject
 block|{
 DECL|field|serialVersionUID
 specifier|private
@@ -680,7 +678,7 @@ name|context
 return|;
 block|}
 comment|/**      * Process camel context aware bean definitions.      *      * @param process Annotated type.      * @throws Exception In case of exceptions.      */
-DECL|method|contextAwareness (@bserves ProcessAnnotatedType<? extends CamelContextAware> process)
+DECL|method|contextAwareness (@bserves ProcessAnnotatedType<CamelContextAware> process)
 specifier|protected
 name|void
 name|contextAwareness
@@ -689,8 +687,6 @@ annotation|@
 name|Observes
 name|ProcessAnnotatedType
 argument_list|<
-name|?
-extends|extends
 name|CamelContextAware
 argument_list|>
 name|process
@@ -699,6 +695,9 @@ throws|throws
 name|Exception
 block|{
 name|AnnotatedType
+argument_list|<
+name|CamelContextAware
+argument_list|>
 name|at
 init|=
 name|process
@@ -724,6 +723,9 @@ name|class
 argument_list|)
 decl_stmt|;
 name|AnnotatedTypeBuilder
+argument_list|<
+name|CamelContextAware
+argument_list|>
 name|builder
 init|=
 operator|new
@@ -775,6 +777,9 @@ throws|throws
 name|Exception
 block|{
 name|AnnotatedType
+argument_list|<
+name|?
+argument_list|>
 name|annotatedType
 init|=
 name|process
@@ -795,6 +800,9 @@ name|class
 argument_list|)
 decl_stmt|;
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|javaClass
 init|=
 name|annotatedType
