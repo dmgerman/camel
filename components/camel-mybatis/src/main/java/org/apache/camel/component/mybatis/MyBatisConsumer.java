@@ -199,24 +199,20 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|class|DataHolder
-specifier|private
 specifier|static
 specifier|final
 class|class
 name|DataHolder
 block|{
 DECL|field|exchange
-specifier|private
 name|Exchange
 name|exchange
 decl_stmt|;
 DECL|field|data
-specifier|private
 name|Object
 name|data
 decl_stmt|;
 DECL|method|DataHolder ()
-specifier|private
 name|DataHolder
 parameter_list|()
 block|{         }
@@ -252,11 +248,6 @@ DECL|field|routeEmptyResultSet
 specifier|private
 name|boolean
 name|routeEmptyResultSet
-decl_stmt|;
-DECL|field|maxMessagesPerPoll
-specifier|private
-name|int
-name|maxMessagesPerPoll
 decl_stmt|;
 DECL|method|MyBatisConsumer (MyBatisEndpoint endpoint, Processor processor)
 specifier|public
