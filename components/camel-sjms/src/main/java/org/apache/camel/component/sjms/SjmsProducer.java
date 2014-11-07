@@ -632,7 +632,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Error stopping listener container on destination: "
+literal|"Error closing producers on destination: "
 operator|+
 name|getDestinationName
 argument_list|()

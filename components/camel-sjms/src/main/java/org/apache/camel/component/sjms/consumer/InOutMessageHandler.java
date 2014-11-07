@@ -234,24 +234,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|sjms
-operator|.
-name|jms
-operator|.
-name|JmsObjectFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|Synchronization
@@ -312,11 +294,11 @@ operator|new
 name|ReentrantReadWriteLock
 argument_list|()
 decl_stmt|;
-DECL|method|InOutMessageHandler (Endpoint endpoint, ExecutorService executor)
+DECL|method|InOutMessageHandler (SjmsEndpoint endpoint, ExecutorService executor)
 specifier|public
 name|InOutMessageHandler
 parameter_list|(
-name|Endpoint
+name|SjmsEndpoint
 name|endpoint
 parameter_list|,
 name|ExecutorService
@@ -331,11 +313,11 @@ name|executor
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|InOutMessageHandler (Endpoint endpoint, ExecutorService executor, Synchronization synchronization)
+DECL|method|InOutMessageHandler (SjmsEndpoint endpoint, ExecutorService executor, Synchronization synchronization)
 specifier|public
 name|InOutMessageHandler
 parameter_list|(
-name|Endpoint
+name|SjmsEndpoint
 name|endpoint
 parameter_list|,
 name|ExecutorService
@@ -398,8 +380,6 @@ condition|)
 block|{
 name|Destination
 name|replyTo
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -427,7 +407,11 @@ condition|)
 block|{
 name|replyTo
 operator|=
-name|JmsObjectFactory
+name|getEndpoint
+argument_list|()
+operator|.
+name|getDestinationCreationStrategy
+argument_list|()
 operator|.
 name|createDestination
 argument_list|(

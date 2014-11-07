@@ -76,6 +76,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|sjms
+operator|.
+name|SjmsEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Synchronization
@@ -95,11 +111,11 @@ extends|extends
 name|AbstractMessageHandler
 block|{
 comment|/**      * @param endpoint      * @param executor      */
-DECL|method|InOnlyMessageHandler (Endpoint endpoint, ExecutorService executor)
+DECL|method|InOnlyMessageHandler (SjmsEndpoint endpoint, ExecutorService executor)
 specifier|public
 name|InOnlyMessageHandler
 parameter_list|(
-name|Endpoint
+name|SjmsEndpoint
 name|endpoint
 parameter_list|,
 name|ExecutorService
@@ -115,11 +131,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * @param endpoint      * @param executor      * @param synchronization      */
-DECL|method|InOnlyMessageHandler (Endpoint endpoint, ExecutorService executor, Synchronization synchronization)
+DECL|method|InOnlyMessageHandler (SjmsEndpoint endpoint, ExecutorService executor, Synchronization synchronization)
 specifier|public
 name|InOnlyMessageHandler
 parameter_list|(
-name|Endpoint
+name|SjmsEndpoint
 name|endpoint
 parameter_list|,
 name|ExecutorService

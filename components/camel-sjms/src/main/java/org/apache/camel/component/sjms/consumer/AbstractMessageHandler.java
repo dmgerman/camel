@@ -82,18 +82,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -107,6 +95,22 @@ operator|.
 name|camel
 operator|.
 name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sjms
+operator|.
+name|SjmsEndpoint
 import|;
 end_import
 
@@ -241,7 +245,7 @@ name|executor
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
-name|Endpoint
+name|SjmsEndpoint
 name|endpoint
 decl_stmt|;
 DECL|field|processor
@@ -281,11 +285,11 @@ specifier|private
 name|TransactionCommitStrategy
 name|commitStrategy
 decl_stmt|;
-DECL|method|AbstractMessageHandler (Endpoint endpoint, ExecutorService executor)
+DECL|method|AbstractMessageHandler (SjmsEndpoint endpoint, ExecutorService executor)
 specifier|public
 name|AbstractMessageHandler
 parameter_list|(
-name|Endpoint
+name|SjmsEndpoint
 name|endpoint
 parameter_list|,
 name|ExecutorService
@@ -305,11 +309,11 @@ operator|=
 name|executor
 expr_stmt|;
 block|}
-DECL|method|AbstractMessageHandler (Endpoint endpoint, ExecutorService executor, Synchronization synchronization)
+DECL|method|AbstractMessageHandler (SjmsEndpoint endpoint, ExecutorService executor, Synchronization synchronization)
 specifier|public
 name|AbstractMessageHandler
 parameter_list|(
-name|Endpoint
+name|SjmsEndpoint
 name|endpoint
 parameter_list|,
 name|ExecutorService
@@ -614,7 +618,7 @@ return|;
 block|}
 DECL|method|getEndpoint ()
 specifier|public
-name|Endpoint
+name|SjmsEndpoint
 name|getEndpoint
 parameter_list|()
 block|{
