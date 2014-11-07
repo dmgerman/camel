@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.tools.apt.util
+DECL|package|org.apache.camel.tools.apt
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|tools
 operator|.
 name|apt
-operator|.
-name|util
 package|;
 end_package
 
@@ -30,33 +28,12 @@ name|Set
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|tools
-operator|.
-name|apt
-operator|.
-name|util
-operator|.
-name|Strings
-operator|.
-name|doubleQuote
-import|;
-end_import
-
 begin_comment
 comment|/**  * A helper class for<a href="http://json-schema.org/">JSON schema</a>.  */
 end_comment
 
 begin_class
 DECL|class|JsonSchemaHelper
-specifier|public
 specifier|final
 class|class
 name|JsonSchemaHelper
@@ -114,6 +91,8 @@ name|sb
 operator|.
 name|append
 argument_list|(
+name|Strings
+operator|.
 name|doubleQuote
 argument_list|(
 name|name
@@ -141,6 +120,8 @@ name|sb
 operator|.
 name|append
 argument_list|(
+name|Strings
+operator|.
 name|doubleQuote
 argument_list|(
 literal|"string"
@@ -177,6 +158,8 @@ name|enumValues
 operator|.
 name|append
 argument_list|(
+name|Strings
+operator|.
 name|doubleQuote
 argument_list|(
 name|value
@@ -227,6 +210,8 @@ name|sb
 operator|.
 name|append
 argument_list|(
+name|Strings
+operator|.
 name|doubleQuote
 argument_list|(
 literal|"array"
@@ -251,6 +236,8 @@ name|sb
 operator|.
 name|append
 argument_list|(
+name|Strings
+operator|.
 name|doubleQuote
 argument_list|(
 name|typeName
@@ -299,6 +286,8 @@ name|sb
 operator|.
 name|append
 argument_list|(
+name|Strings
+operator|.
 name|doubleQuote
 argument_list|(
 name|text

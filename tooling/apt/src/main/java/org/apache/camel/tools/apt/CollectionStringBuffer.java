@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.tools.apt.util
+DECL|package|org.apache.camel.tools.apt
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|tools
 operator|.
 name|apt
-operator|.
-name|util
 package|;
 end_package
 
@@ -26,7 +24,6 @@ end_comment
 
 begin_class
 DECL|class|CollectionStringBuffer
-specifier|public
 class|class
 name|CollectionStringBuffer
 block|{
