@@ -508,6 +508,16 @@ literal|"type"
 argument_list|)
 decl_stmt|;
 name|String
+name|javaType
+init|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"javaType"
+argument_list|)
+decl_stmt|;
+name|String
 name|value
 init|=
 name|row
@@ -573,6 +583,8 @@ literal|"option"
 block|,
 literal|"type"
 block|,
+literal|"java type"
+block|,
 literal|"value"
 block|,
 literal|"description"
@@ -585,6 +597,8 @@ block|{
 name|option
 block|,
 name|type
+block|,
+name|javaType
 block|,
 name|value
 block|,
