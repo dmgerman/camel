@@ -722,6 +722,7 @@ return|return
 name|processingStrategy
 return|;
 block|}
+comment|/**      * Allows to plugin to use a custom org.apache.camel.component.sql.SqlProcessingStrategy to execute queries when the consumer has processed the rows/batch.      */
 DECL|method|setProcessingStrategy (SqlProcessingStrategy processingStrategy)
 specifier|public
 name|void
@@ -748,6 +749,7 @@ return|return
 name|prepareStatementStrategy
 return|;
 block|}
+comment|/**      * Allows to plugin to use a custom org.apache.camel.component.sql.SqlPrepareStatementStrategy to control preparation of the query and prepared statement.      */
 DECL|method|setPrepareStatementStrategy (SqlPrepareStatementStrategy prepareStatementStrategy)
 specifier|public
 name|void
@@ -774,6 +776,7 @@ return|return
 name|onConsume
 return|;
 block|}
+comment|/**      * After processing each row then this query can be executed, if the Exchange was processed successfully, for example to mark the row as processed. The query can have parameter.      */
 DECL|method|setOnConsume (String onConsume)
 specifier|public
 name|void
@@ -800,6 +803,7 @@ return|return
 name|onConsumeFailed
 return|;
 block|}
+comment|/**      * After processing each row then this query can be executed, if the Exchange failed, for example to mark the row as failed. The query can have parameter.      */
 DECL|method|setOnConsumeFailed (String onConsumeFailed)
 specifier|public
 name|void
@@ -826,6 +830,7 @@ return|return
 name|onConsumeBatchComplete
 return|;
 block|}
+comment|/**      * After processing the entire batch, this query can be executed to bulk update rows etc. The query cannot have parameters.      */
 DECL|method|setOnConsumeBatchComplete (String onConsumeBatchComplete)
 specifier|public
 name|void
@@ -852,6 +857,7 @@ return|return
 name|allowNamedParameters
 return|;
 block|}
+comment|/**      * Whether to allow using named parameters in the queries.      */
 DECL|method|setAllowNamedParameters (boolean allowNamedParameters)
 specifier|public
 name|void
@@ -878,6 +884,7 @@ return|return
 name|alwaysPopulateStatement
 return|;
 block|}
+comment|/**      * If enabled then the populateStatement method from org.apache.camel.component.sql.SqlPrepareStatementStrategy is always invoked,      * also if there is no expected parameters to be prepared. When this is false then the populateStatement is only invoked if there      * is 1 or more expected parameters to be set; for example this avoids reading the message body/headers for SQL queries with no parameters.      */
 DECL|method|setAlwaysPopulateStatement (boolean alwaysPopulateStatement)
 specifier|public
 name|void
@@ -904,6 +911,7 @@ return|return
 name|separator
 return|;
 block|}
+comment|/**      * The separator to use when parameter values is taken from message body (if the body is a String type), to be inserted at # placeholders.      * Notice if you use named parameters, then a Map type is used instead.      *<p/>      * The default value is ,      */
 DECL|method|setSeparator (char separator)
 specifier|public
 name|void
@@ -930,6 +938,7 @@ return|return
 name|outputType
 return|;
 block|}
+comment|/**      * Make the output of consumer or producer to SelectList as List of Map, or SelectOne as single Java object in the following way:      * a) If the query has only single column, then that JDBC Column object is returned. (such as SELECT COUNT( * ) FROM PROJECT will return a Long object.      * b) If the query has more than one column, then it will return a Map of that result.      * c) If the outputClass is set, then it will convert the query result into an Java bean object by calling all the setters that match the column names. It will assume your class has a default constructor to create instance with.      * d) If the query resulted in more than one rows, it throws an non-unique result exception.      */
 DECL|method|setOutputType (SqlOutputType outputType)
 specifier|public
 name|void
@@ -956,6 +965,7 @@ return|return
 name|outputClass
 return|;
 block|}
+comment|/**      * Specify the full package and class name to use as conversion when outputType=SelectOne.      */
 DECL|method|setOutputClass (String outputClass)
 specifier|public
 name|void
@@ -982,6 +992,7 @@ return|return
 name|parametersCount
 return|;
 block|}
+comment|/**      * If set greater than zero, then Camel will use this count value of parameters to replace instead of querying via JDBC metadata API.      * This is useful if the JDBC vendor could not return correct parameters count, then user may override instead.      */
 DECL|method|setParametersCount (int parametersCount)
 specifier|public
 name|void
@@ -1008,6 +1019,7 @@ return|return
 name|noop
 return|;
 block|}
+comment|/**      * If set, will ignore the results of the SQL query and use the existing IN message as the OUT message for the continuation of processing      */
 DECL|method|setNoop (boolean noop)
 specifier|public
 name|void

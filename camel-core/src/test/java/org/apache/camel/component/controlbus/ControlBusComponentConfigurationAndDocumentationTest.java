@@ -195,7 +195,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"action\": { \"type\": \"string\" }"
+literal|"\"action\": { \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -205,7 +205,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"async\": { \"type\": \"boolean\" }"
+literal|"\"async\": { \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

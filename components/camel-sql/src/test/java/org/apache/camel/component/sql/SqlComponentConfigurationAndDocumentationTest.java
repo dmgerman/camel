@@ -145,7 +145,7 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"sql:select?dataSourceRef=jdbc/myDataSource&allowNamedParameters=true"
+literal|"sql:select?dataSourceRef=jdbc/myDataSource&allowNamedParameters=true&consumer.delay=5000"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -210,6 +210,64 @@ operator|.
 name|contains
 argument_list|(
 literal|"\"parametersCount\": { \"type\": \"integer\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testExplainEndpoint ()
+specifier|public
+name|void
+name|testExplainEndpoint
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|json
+init|=
+name|context
+operator|.
+name|explainEndpointJson
+argument_list|(
+literal|"sql:select?dataSourceRef=jdbc/myDataSource&allowNamedParameters=true&consumer.onConsume=foo"
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"onConsumeBatchComplete\": { \"type\": \"string\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"parametersCount\": { \"type\": \"integer\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|" \"onConsume\": { \"type\": \"string\", \"javaType\": \"java.lang.String\", \"value\": \"foo\""
 argument_list|)
 argument_list|)
 expr_stmt|;

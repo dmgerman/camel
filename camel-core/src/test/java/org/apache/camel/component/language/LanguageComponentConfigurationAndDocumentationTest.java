@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"script\": { \"type\": \"string\" }"
+literal|"\"script\": { \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"cacheScript\": { \"type\": \"boolean\" }"
+literal|"\"cacheScript\": { \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

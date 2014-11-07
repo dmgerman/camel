@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"exclude\": { \"type\": \"string\" }"
+literal|"\"exclude\": { \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"delete\": { \"type\": \"boolean\" }"
+literal|"\"delete\": { \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

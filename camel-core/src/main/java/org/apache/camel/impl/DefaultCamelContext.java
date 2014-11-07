@@ -7053,6 +7053,7 @@ argument_list|(
 name|json
 argument_list|)
 decl_stmt|;
+comment|// selected rows to use for answer
 name|Map
 argument_list|<
 name|String
@@ -7083,6 +7084,32 @@ argument_list|(
 name|u
 argument_list|)
 decl_stmt|;
+comment|// extract consumer. prefix options
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|consumerOptions
+init|=
+name|IntrospectionSupport
+operator|.
+name|extractProperties
+argument_list|(
+name|options
+argument_list|,
+literal|"consumer."
+argument_list|)
+decl_stmt|;
+comment|// and add back again without the consumer. prefix as that json schema omits that
+name|options
+operator|.
+name|putAll
+argument_list|(
+name|consumerOptions
+argument_list|)
+expr_stmt|;
 for|for
 control|(
 name|Map

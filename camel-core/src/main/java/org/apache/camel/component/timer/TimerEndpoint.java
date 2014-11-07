@@ -480,6 +480,7 @@ return|return
 name|timerName
 return|;
 block|}
+comment|/**      * The name of the timer      */
 annotation|@
 name|ManagedAttribute
 argument_list|(
@@ -520,6 +521,7 @@ return|return
 name|daemon
 return|;
 block|}
+comment|/**      * Specifies whether or not the thread associated with the timer endpoint runs as a daemon.      *<p/>      * The default value is true.      */
 annotation|@
 name|ManagedAttribute
 argument_list|(
@@ -560,6 +562,7 @@ return|return
 name|delay
 return|;
 block|}
+comment|/**      * The number of milliseconds to wait before the first event is generated. Should not be used in conjunction with the time option.      *<p/>      * The default value is 1000.      */
 annotation|@
 name|ManagedAttribute
 argument_list|(
@@ -600,6 +603,7 @@ return|return
 name|fixedRate
 return|;
 block|}
+comment|/**      * Events take place at approximately regular intervals, separated by the specified period.      */
 annotation|@
 name|ManagedAttribute
 argument_list|(
@@ -640,6 +644,7 @@ return|return
 name|period
 return|;
 block|}
+comment|/**      * If greater than 0, generate periodic events every period milliseconds.      *<p/>      * The default value is 1000.      */
 annotation|@
 name|ManagedAttribute
 argument_list|(
@@ -713,6 +718,7 @@ return|return
 name|time
 return|;
 block|}
+comment|/**      * A java.util.Date the first event should be generated. If using the URI, the pattern expected is: yyyy-MM-dd HH:mm:ss or yyyy-MM-dd'T'HH:mm:ss.      */
 DECL|method|setTime (Date time)
 specifier|public
 name|void
