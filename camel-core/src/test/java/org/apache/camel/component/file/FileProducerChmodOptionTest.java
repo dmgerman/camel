@@ -484,7 +484,7 @@ argument_list|()
 operator|.
 name|endsWith
 argument_list|(
-literal|"due to: chmod option [abc] is not valid"
+literal|"conversion possible: chmod option [abc] is not valid"
 argument_list|)
 argument_list|)
 expr_stmt|;
