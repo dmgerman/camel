@@ -194,6 +194,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|TypeConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -342,12 +354,8 @@ specifier|private
 name|JmsMessageHelper
 parameter_list|()
 block|{     }
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-DECL|method|createMessage (Session session, Object payload, Map<String, Object> messageHeaders, KeyFormatStrategy keyFormatStrategy)
+comment|//@SuppressWarnings("unchecked")
+DECL|method|createMessage (Session session, Object payload, Map<String, Object> messageHeaders, KeyFormatStrategy keyFormatStrategy, TypeConverter typeConverter)
 specifier|public
 specifier|static
 name|Message
@@ -369,6 +377,9 @@ name|messageHeaders
 parameter_list|,
 name|KeyFormatStrategy
 name|keyFormatStrategy
+parameter_list|,
+name|TypeConverter
+name|typeConverter
 parameter_list|)
 throws|throws
 name|Exception
@@ -383,7 +394,7 @@ name|messageType
 init|=
 name|JmsMessageHelper
 operator|.
-name|discoverMessgeTypeFromPayload
+name|discoverMessageTypeFromPayload
 argument_list|(
 name|payload
 argument_list|)
@@ -407,13 +418,15 @@ name|createBytesMessage
 argument_list|()
 decl_stmt|;
 name|bytesMessage
+operator|=
+name|typeConverter
 operator|.
-name|writeBytes
+name|convertTo
 argument_list|(
-operator|(
-name|byte
-index|[]
-operator|)
+name|BytesMessage
+operator|.
+name|class
+argument_list|,
 name|payload
 argument_list|)
 expr_stmt|;
@@ -560,10 +573,16 @@ decl_stmt|;
 name|InputStream
 name|is
 init|=
-operator|(
+name|typeConverter
+operator|.
+name|convertTo
+argument_list|(
 name|InputStream
-operator|)
+operator|.
+name|class
+argument_list|,
 name|payload
+argument_list|)
 decl_stmt|;
 name|int
 name|reads
@@ -1773,11 +1792,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|discoverMessgeTypeFromPayload (final Object payload)
+DECL|method|discoverMessageTypeFromPayload (final Object payload)
 specifier|public
 specifier|static
 name|JmsMessageType
-name|discoverMessgeTypeFromPayload
+name|discoverMessageTypeFromPayload
 parameter_list|(
 specifier|final
 name|Object

@@ -1184,6 +1184,15 @@ argument_list|()
 operator|.
 name|getJmsKeyFormatStrategy
 argument_list|()
+argument_list|,
+name|getSjmsEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// TODO just set the correlation id don't get it from the
