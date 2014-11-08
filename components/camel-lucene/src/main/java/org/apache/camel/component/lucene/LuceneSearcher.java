@@ -421,11 +421,11 @@ name|maxNumberOfHits
 argument_list|,
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_4_9
 argument_list|)
 return|;
 block|}
-DECL|method|search (String searchPhrase, int maxNumberOfHits, Version luenceVersion)
+DECL|method|search (String searchPhrase, int maxNumberOfHits, Version luceneVersion)
 specifier|public
 name|Hits
 name|search
@@ -437,7 +437,7 @@ name|int
 name|maxNumberOfHits
 parameter_list|,
 name|Version
-name|luenceVersion
+name|luceneVersion
 parameter_list|)
 throws|throws
 name|Exception
@@ -458,7 +458,7 @@ name|searchPhrase
 argument_list|,
 name|maxNumberOfHits
 argument_list|,
-name|luenceVersion
+name|luceneVersion
 argument_list|)
 decl_stmt|;
 name|searchHits
@@ -540,7 +540,7 @@ return|return
 name|searchHits
 return|;
 block|}
-DECL|method|doSearch (String searchPhrase, int maxNumberOfHits, Version luenceVersion)
+DECL|method|doSearch (String searchPhrase, int maxNumberOfHits, Version luceneVersion)
 specifier|private
 name|int
 name|doSearch
@@ -552,7 +552,7 @@ name|int
 name|maxNumberOfHits
 parameter_list|,
 name|Version
-name|luenceVersion
+name|luceneVersion
 parameter_list|)
 throws|throws
 name|NullPointerException
@@ -576,7 +576,7 @@ init|=
 operator|new
 name|QueryParser
 argument_list|(
-name|luenceVersion
+name|luceneVersion
 argument_list|,
 literal|"contents"
 argument_list|,
