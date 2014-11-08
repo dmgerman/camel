@@ -65,6 +65,7 @@ specifier|public
 interface|interface
 name|PersonOrBuilder
 extends|extends
+comment|// @@protoc_insertion_point(interface_extends:org.apache.camel.dataformat.protobuf.generated.Person)
 name|com
 operator|.
 name|google
@@ -73,7 +74,6 @@ name|protobuf
 operator|.
 name|MessageOrBuilder
 block|{
-comment|// required string name = 1;
 comment|/**      *<code>required string name = 1;</code>      */
 DECL|method|hasName ()
 name|boolean
@@ -102,7 +102,6 @@ DECL|method|getNameBytes ()
 name|getNameBytes
 parameter_list|()
 function_decl|;
-comment|// required int32 id = 2;
 comment|/**      *<code>required int32 id = 2;</code>      */
 DECL|method|hasId ()
 name|boolean
@@ -115,7 +114,6 @@ name|int
 name|getId
 parameter_list|()
 function_decl|;
-comment|// optional string email = 3;
 comment|/**      *<code>optional string email = 3;</code>      */
 DECL|method|hasEmail ()
 name|boolean
@@ -144,7 +142,6 @@ DECL|method|getEmailBytes ()
 name|getEmailBytes
 parameter_list|()
 function_decl|;
-comment|// repeated .org.apache.camel.dataformat.protobuf.generated.Person.PhoneNumber phone = 4;
 comment|/**      *<code>repeated .org.apache.camel.dataformat.protobuf.generated.Person.PhoneNumber phone = 4;</code>      */
 name|java
 operator|.
@@ -278,6 +275,7 @@ name|protobuf
 operator|.
 name|GeneratedMessage
 implements|implements
+comment|// @@protoc_insertion_point(message_implements:org.apache.camel.dataformat.protobuf.generated.Person)
 name|PersonOrBuilder
 block|{
 comment|// Use Person.newBuilder() to construct.
@@ -527,16 +525,27 @@ case|case
 literal|10
 case|:
 block|{
+name|com
+operator|.
+name|google
+operator|.
+name|protobuf
+operator|.
+name|ByteString
+name|bs
+init|=
+name|input
+operator|.
+name|readBytes
+argument_list|()
+decl_stmt|;
 name|bitField0_
 operator||=
 literal|0x00000001
 expr_stmt|;
 name|name_
 operator|=
-name|input
-operator|.
-name|readBytes
-argument_list|()
+name|bs
 expr_stmt|;
 break|break;
 block|}
@@ -561,16 +570,27 @@ case|case
 literal|26
 case|:
 block|{
+name|com
+operator|.
+name|google
+operator|.
+name|protobuf
+operator|.
+name|ByteString
+name|bs
+init|=
+name|input
+operator|.
+name|readBytes
+argument_list|()
+decl_stmt|;
 name|bitField0_
 operator||=
 literal|0x00000004
 expr_stmt|;
 name|email_
 operator|=
-name|input
-operator|.
-name|readBytes
-argument_list|()
+name|bs
 expr_stmt|;
 break|break;
 block|}
@@ -1354,6 +1374,7 @@ specifier|public
 interface|interface
 name|PhoneNumberOrBuilder
 extends|extends
+comment|// @@protoc_insertion_point(interface_extends:org.apache.camel.dataformat.protobuf.generated.Person.PhoneNumber)
 name|com
 operator|.
 name|google
@@ -1362,7 +1383,6 @@ name|protobuf
 operator|.
 name|MessageOrBuilder
 block|{
-comment|// required string number = 1;
 comment|/**        *<code>required string number = 1;</code>        */
 DECL|method|hasNumber ()
 name|boolean
@@ -1391,7 +1411,6 @@ DECL|method|getNumberBytes ()
 name|getNumberBytes
 parameter_list|()
 function_decl|;
-comment|// optional .org.apache.camel.dataformat.protobuf.generated.Person.PhoneType type = 2 [default = HOME];
 comment|/**        *<code>optional .org.apache.camel.dataformat.protobuf.generated.Person.PhoneType type = 2 [default = HOME];</code>        */
 DECL|method|hasType ()
 name|boolean
@@ -1437,6 +1456,7 @@ name|protobuf
 operator|.
 name|GeneratedMessage
 implements|implements
+comment|// @@protoc_insertion_point(message_implements:org.apache.camel.dataformat.protobuf.generated.Person.PhoneNumber)
 name|PhoneNumberOrBuilder
 block|{
 comment|// Use PhoneNumber.newBuilder() to construct.
@@ -1686,16 +1706,27 @@ case|case
 literal|10
 case|:
 block|{
+name|com
+operator|.
+name|google
+operator|.
+name|protobuf
+operator|.
+name|ByteString
+name|bs
+init|=
+name|input
+operator|.
+name|readBytes
+argument_list|()
+decl_stmt|;
 name|bitField0_
 operator||=
 literal|0x00000001
 expr_stmt|;
 name|number_
 operator|=
-name|input
-operator|.
-name|readBytes
-argument_list|()
+name|bs
 expr_stmt|;
 break|break;
 block|}
@@ -2067,7 +2098,6 @@ specifier|private
 name|int
 name|bitField0_
 decl_stmt|;
-comment|// required string number = 1;
 DECL|field|NUMBER_FIELD_NUMBER
 specifier|public
 specifier|static
@@ -2285,7 +2315,6 @@ name|ref
 return|;
 block|}
 block|}
-comment|// optional .org.apache.camel.dataformat.protobuf.generated.Person.PhoneType type = 2 [default = HOME];
 DECL|field|TYPE_FIELD_NUMBER
 specifier|public
 specifier|static
@@ -2418,17 +2447,21 @@ decl_stmt|;
 if|if
 condition|(
 name|isInitialized
-operator|!=
-operator|-
-literal|1
-condition|)
-block|{
-return|return
-name|isInitialized
 operator|==
 literal|1
+condition|)
+return|return
+literal|true
 return|;
-block|}
+if|if
+condition|(
+name|isInitialized
+operator|==
+literal|0
+condition|)
+return|return
+literal|false
+return|;
 if|if
 condition|(
 operator|!
@@ -2561,11 +2594,9 @@ operator|!=
 operator|-
 literal|1
 condition|)
-block|{
 return|return
 name|size
 return|;
-block|}
 name|size
 operator|=
 literal|0
@@ -3336,6 +3367,7 @@ argument_list|<
 name|Builder
 argument_list|>
 implements|implements
+comment|// @@protoc_insertion_point(builder_implements:org.apache.camel.dataformat.protobuf.generated.Person.PhoneNumber)
 name|org
 operator|.
 name|apache
@@ -4012,11 +4044,9 @@ operator|.
 name|getDefaultInstance
 argument_list|()
 condition|)
-block|{
 return|return
 name|this
 return|;
-block|}
 if|if
 condition|(
 name|other
@@ -4224,7 +4254,6 @@ specifier|private
 name|int
 name|bitField0_
 decl_stmt|;
-comment|// required string number = 1;
 DECL|field|number_
 specifier|private
 name|java
@@ -4289,14 +4318,15 @@ name|String
 operator|)
 condition|)
 block|{
-name|java
+name|com
 operator|.
-name|lang
+name|google
 operator|.
-name|String
-name|s
+name|protobuf
+operator|.
+name|ByteString
+name|bs
 init|=
-operator|(
 operator|(
 name|com
 operator|.
@@ -4307,15 +4337,32 @@ operator|.
 name|ByteString
 operator|)
 name|ref
-operator|)
+decl_stmt|;
+name|java
+operator|.
+name|lang
+operator|.
+name|String
+name|s
+init|=
+name|bs
 operator|.
 name|toStringUtf8
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|bs
+operator|.
+name|isValidUtf8
+argument_list|()
+condition|)
+block|{
 name|number_
 operator|=
 name|s
 expr_stmt|;
+block|}
 return|return
 name|s
 return|;
@@ -4533,7 +4580,6 @@ return|return
 name|this
 return|;
 block|}
-comment|// optional .org.apache.camel.dataformat.protobuf.generated.Person.PhoneType type = 2 [default = HOME];
 DECL|field|type_
 specifier|private
 name|org
@@ -4745,7 +4791,6 @@ specifier|private
 name|int
 name|bitField0_
 decl_stmt|;
-comment|// required string name = 1;
 DECL|field|NAME_FIELD_NUMBER
 specifier|public
 specifier|static
@@ -4963,7 +5008,6 @@ name|ref
 return|;
 block|}
 block|}
-comment|// required int32 id = 2;
 DECL|field|ID_FIELD_NUMBER
 specifier|public
 specifier|static
@@ -5008,7 +5052,6 @@ return|return
 name|id_
 return|;
 block|}
-comment|// optional string email = 3;
 DECL|field|EMAIL_FIELD_NUMBER
 specifier|public
 specifier|static
@@ -5226,7 +5269,6 @@ name|ref
 return|;
 block|}
 block|}
-comment|// repeated .org.apache.camel.dataformat.protobuf.generated.Person.PhoneNumber phone = 4;
 DECL|field|PHONE_FIELD_NUMBER
 specifier|public
 specifier|static
@@ -5471,17 +5513,21 @@ decl_stmt|;
 if|if
 condition|(
 name|isInitialized
-operator|!=
-operator|-
-literal|1
-condition|)
-block|{
-return|return
-name|isInitialized
 operator|==
 literal|1
+condition|)
+return|return
+literal|true
 return|;
-block|}
+if|if
+condition|(
+name|isInitialized
+operator|==
+literal|0
+condition|)
+return|return
+literal|false
+return|;
 if|if
 condition|(
 operator|!
@@ -5720,11 +5766,9 @@ operator|!=
 operator|-
 literal|1
 condition|)
-block|{
 return|return
 name|size
 return|;
-block|}
 name|size
 operator|=
 literal|0
@@ -6543,6 +6587,7 @@ argument_list|<
 name|Builder
 argument_list|>
 implements|implements
+comment|// @@protoc_insertion_point(builder_implements:org.apache.camel.dataformat.protobuf.generated.Person)
 name|org
 operator|.
 name|apache
@@ -7312,11 +7357,9 @@ operator|.
 name|getDefaultInstance
 argument_list|()
 condition|)
-block|{
 return|return
 name|this
 return|;
-block|}
 if|if
 condition|(
 name|other
@@ -7725,7 +7768,6 @@ specifier|private
 name|int
 name|bitField0_
 decl_stmt|;
-comment|// required string name = 1;
 DECL|field|name_
 specifier|private
 name|java
@@ -7790,14 +7832,15 @@ name|String
 operator|)
 condition|)
 block|{
-name|java
+name|com
 operator|.
-name|lang
+name|google
 operator|.
-name|String
-name|s
+name|protobuf
+operator|.
+name|ByteString
+name|bs
 init|=
-operator|(
 operator|(
 name|com
 operator|.
@@ -7808,15 +7851,32 @@ operator|.
 name|ByteString
 operator|)
 name|ref
-operator|)
+decl_stmt|;
+name|java
+operator|.
+name|lang
+operator|.
+name|String
+name|s
+init|=
+name|bs
 operator|.
 name|toStringUtf8
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|bs
+operator|.
+name|isValidUtf8
+argument_list|()
+condition|)
+block|{
 name|name_
 operator|=
 name|s
 expr_stmt|;
+block|}
 return|return
 name|s
 return|;
@@ -8034,7 +8094,6 @@ return|return
 name|this
 return|;
 block|}
-comment|// required int32 id = 2;
 DECL|field|id_
 specifier|private
 name|int
@@ -8122,7 +8181,6 @@ return|return
 name|this
 return|;
 block|}
-comment|// optional string email = 3;
 DECL|field|email_
 specifier|private
 name|java
@@ -8187,14 +8245,15 @@ name|String
 operator|)
 condition|)
 block|{
-name|java
+name|com
 operator|.
-name|lang
+name|google
 operator|.
-name|String
-name|s
+name|protobuf
+operator|.
+name|ByteString
+name|bs
 init|=
-operator|(
 operator|(
 name|com
 operator|.
@@ -8205,15 +8264,32 @@ operator|.
 name|ByteString
 operator|)
 name|ref
-operator|)
+decl_stmt|;
+name|java
+operator|.
+name|lang
+operator|.
+name|String
+name|s
+init|=
+name|bs
 operator|.
 name|toStringUtf8
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|bs
+operator|.
+name|isValidUtf8
+argument_list|()
+condition|)
+block|{
 name|email_
 operator|=
 name|s
 expr_stmt|;
+block|}
 return|return
 name|s
 return|;
@@ -8431,7 +8507,6 @@ return|return
 name|this
 return|;
 block|}
-comment|// repeated .org.apache.camel.dataformat.protobuf.generated.Person.PhoneNumber phone = 4;
 DECL|field|phone_
 specifier|private
 name|java
@@ -9241,7 +9316,15 @@ block|{
 name|ensurePhoneIsMutable
 argument_list|()
 expr_stmt|;
-name|super
+name|com
+operator|.
+name|google
+operator|.
+name|protobuf
+operator|.
+name|AbstractMessageLite
+operator|.
+name|Builder
 operator|.
 name|addAll
 argument_list|(
@@ -9867,6 +9950,7 @@ specifier|public
 interface|interface
 name|AddressBookOrBuilder
 extends|extends
+comment|// @@protoc_insertion_point(interface_extends:org.apache.camel.dataformat.protobuf.generated.AddressBook)
 name|com
 operator|.
 name|google
@@ -9875,7 +9959,6 @@ name|protobuf
 operator|.
 name|MessageOrBuilder
 block|{
-comment|// repeated .org.apache.camel.dataformat.protobuf.generated.Person person = 1;
 comment|/**      *<code>repeated .org.apache.camel.dataformat.protobuf.generated.Person person = 1;</code>      */
 name|java
 operator|.
@@ -10001,6 +10084,7 @@ name|protobuf
 operator|.
 name|GeneratedMessage
 implements|implements
+comment|// @@protoc_insertion_point(message_implements:org.apache.camel.dataformat.protobuf.generated.AddressBook)
 name|AddressBookOrBuilder
 block|{
 comment|// Use AddressBook.newBuilder() to construct.
@@ -10630,7 +10714,6 @@ return|return
 name|PARSER
 return|;
 block|}
-comment|// repeated .org.apache.camel.dataformat.protobuf.generated.Person person = 1;
 DECL|field|PERSON_FIELD_NUMBER
 specifier|public
 specifier|static
@@ -10853,17 +10936,21 @@ decl_stmt|;
 if|if
 condition|(
 name|isInitialized
-operator|!=
-operator|-
-literal|1
-condition|)
-block|{
-return|return
-name|isInitialized
 operator|==
 literal|1
+condition|)
+return|return
+literal|true
 return|;
-block|}
+if|if
+condition|(
+name|isInitialized
+operator|==
+literal|0
+condition|)
+return|return
+literal|false
+return|;
 for|for
 control|(
 name|int
@@ -11001,11 +11088,9 @@ operator|!=
 operator|-
 literal|1
 condition|)
-block|{
 return|return
 name|size
 return|;
-block|}
 name|size
 operator|=
 literal|0
@@ -11729,6 +11814,7 @@ argument_list|<
 name|Builder
 argument_list|>
 implements|implements
+comment|// @@protoc_insertion_point(builder_implements:org.apache.camel.dataformat.protobuf.generated.AddressBook)
 name|org
 operator|.
 name|apache
@@ -12376,11 +12462,9 @@ operator|.
 name|getDefaultInstance
 argument_list|()
 condition|)
-block|{
 return|return
 name|this
 return|;
-block|}
 if|if
 condition|(
 name|personBuilder_
@@ -12706,7 +12790,6 @@ specifier|private
 name|int
 name|bitField0_
 decl_stmt|;
-comment|// repeated .org.apache.camel.dataformat.protobuf.generated.Person person = 1;
 DECL|field|person_
 specifier|private
 name|java
@@ -13488,7 +13571,15 @@ block|{
 name|ensurePersonIsMutable
 argument_list|()
 expr_stmt|;
-name|super
+name|com
+operator|.
+name|google
+operator|.
+name|protobuf
+operator|.
+name|AbstractMessageLite
+operator|.
+name|Builder
 operator|.
 name|addAll
 argument_list|(
@@ -14083,6 +14174,7 @@ comment|// @@protoc_insertion_point(class_scope:org.apache.camel.dataformat.prot
 block|}
 specifier|private
 specifier|static
+specifier|final
 name|com
 operator|.
 name|google
@@ -14111,6 +14203,7 @@ name|internal_static_org_apache_camel_dataformat_protobuf_generated_Person_field
 decl_stmt|;
 specifier|private
 specifier|static
+specifier|final
 name|com
 operator|.
 name|google
@@ -14139,6 +14232,7 @@ name|internal_static_org_apache_camel_dataformat_protobuf_generated_Person_Phone
 decl_stmt|;
 specifier|private
 specifier|static
+specifier|final
 name|com
 operator|.
 name|google
@@ -14289,6 +14383,42 @@ name|descriptor
 operator|=
 name|root
 expr_stmt|;
+return|return
+literal|null
+return|;
+block|}
+block|}
+decl_stmt|;
+name|com
+operator|.
+name|google
+operator|.
+name|protobuf
+operator|.
+name|Descriptors
+operator|.
+name|FileDescriptor
+operator|.
+name|internalBuildGeneratedFileFrom
+argument_list|(
+name|descriptorData
+argument_list|,
+operator|new
+name|com
+operator|.
+name|google
+operator|.
+name|protobuf
+operator|.
+name|Descriptors
+operator|.
+name|FileDescriptor
+index|[]
+block|{         }
+argument_list|,
+name|assigner
+argument_list|)
+expr_stmt|;
 name|internal_static_org_apache_camel_dataformat_protobuf_generated_Person_descriptor
 operator|=
 name|getDescriptor
@@ -14414,42 +14544,6 @@ index|[]
 block|{
 literal|"Person"
 block|, }
-argument_list|)
-expr_stmt|;
-return|return
-literal|null
-return|;
-block|}
-block|}
-decl_stmt|;
-name|com
-operator|.
-name|google
-operator|.
-name|protobuf
-operator|.
-name|Descriptors
-operator|.
-name|FileDescriptor
-operator|.
-name|internalBuildGeneratedFileFrom
-argument_list|(
-name|descriptorData
-argument_list|,
-operator|new
-name|com
-operator|.
-name|google
-operator|.
-name|protobuf
-operator|.
-name|Descriptors
-operator|.
-name|FileDescriptor
-index|[]
-block|{         }
-argument_list|,
-name|assigner
 argument_list|)
 expr_stmt|;
 block|}
