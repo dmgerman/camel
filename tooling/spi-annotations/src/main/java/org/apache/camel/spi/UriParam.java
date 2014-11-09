@@ -104,13 +104,25 @@ specifier|public
 annotation_defn|@interface
 name|UriParam
 block|{
-comment|/**      * Returns the name of the parameter.      *      * If this is not specified then the name of the field or property which has this annotation is used.      */
+comment|/**      * Returns the name of the parameter.      *<p/>      * If this is not specified then the name of the field or property which has this annotation is used.      */
 DECL|method|name ()
 name|String
 name|name
 parameter_list|()
 default|default
 literal|""
+function_decl|;
+comment|/**      * The default value of the parameter.      *<p/>      * Note that this attribute is only for documentation purpose. The default value in use at runtime is the value the Java field was assigned.      */
+DECL|method|defaultValue ()
+name|String
+name|defaultValue
+parameter_list|()
+function_decl|;
+comment|/**      * A special note about the default value.      *<p/>      * This can be used to document special cases about the default value.      */
+DECL|method|defaultValueNote ()
+name|String
+name|defaultValueNote
+parameter_list|()
 function_decl|;
 block|}
 end_annotation_defn

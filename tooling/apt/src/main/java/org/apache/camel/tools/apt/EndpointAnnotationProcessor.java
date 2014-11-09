@@ -1313,6 +1313,13 @@ name|writer
 operator|.
 name|println
 argument_list|(
+literal|"<th>Default Value</th>"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|println
+argument_list|(
 literal|"<th>Description</th>"
 argument_list|)
 expr_stmt|;
@@ -1374,7 +1381,21 @@ literal|"<td>"
 operator|+
 name|option
 operator|.
-name|getDocumentation
+name|getDefaultValue
+argument_list|()
+operator|+
+literal|"</td>"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|println
+argument_list|(
+literal|"<td>"
+operator|+
+name|option
+operator|.
+name|getDocumentationWithNotes
 argument_list|()
 operator|+
 literal|"</td>"
@@ -1524,6 +1545,22 @@ name|prefix
 operator|+
 name|name
 expr_stmt|;
+name|String
+name|defaultValue
+init|=
+name|param
+operator|.
+name|defaultValue
+argument_list|()
+decl_stmt|;
+name|String
+name|defaultValueNote
+init|=
+name|param
+operator|.
+name|defaultValueNote
+argument_list|()
+decl_stmt|;
 comment|// if the field type is a nested parameter then iterate through its fields
 name|TypeMirror
 name|fieldType
@@ -1884,7 +1921,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// we could likely detect if the type is collection based?
 name|EndpointOption
 name|option
 init|=
@@ -1894,6 +1930,10 @@ argument_list|(
 name|name
 argument_list|,
 name|fieldTypeName
+argument_list|,
+name|defaultValue
+argument_list|,
+name|defaultValueNote
 argument_list|,
 name|docComment
 operator|.
@@ -2458,6 +2498,16 @@ specifier|private
 name|String
 name|type
 decl_stmt|;
+DECL|field|defaultValue
+specifier|private
+name|String
+name|defaultValue
+decl_stmt|;
+DECL|field|defaultValueNote
+specifier|private
+name|String
+name|defaultValueNote
+decl_stmt|;
 DECL|field|documentation
 specifier|private
 name|String
@@ -2476,7 +2526,7 @@ name|String
 argument_list|>
 name|enums
 decl_stmt|;
-DECL|method|EndpointOption (String name, String type, String documentation, boolean enumType, Set<String> enums)
+DECL|method|EndpointOption (String name, String type, String defaultValue, String defaultValueNote, String documentation, boolean enumType, Set<String> enums)
 specifier|private
 name|EndpointOption
 parameter_list|(
@@ -2485,6 +2535,12 @@ name|name
 parameter_list|,
 name|String
 name|type
+parameter_list|,
+name|String
+name|defaultValue
+parameter_list|,
+name|String
+name|defaultValueNote
 parameter_list|,
 name|String
 name|documentation
@@ -2510,6 +2566,18 @@ operator|.
 name|type
 operator|=
 name|type
+expr_stmt|;
+name|this
+operator|.
+name|defaultValue
+operator|=
+name|defaultValue
+expr_stmt|;
+name|this
+operator|.
+name|defaultValueNote
+operator|=
+name|defaultValueNote
 expr_stmt|;
 name|this
 operator|.
@@ -2550,12 +2618,47 @@ return|return
 name|type
 return|;
 block|}
+DECL|method|getDefaultValue ()
+specifier|public
+name|String
+name|getDefaultValue
+parameter_list|()
+block|{
+return|return
+name|defaultValue
+return|;
+block|}
 DECL|method|getDocumentation ()
 specifier|public
 name|String
 name|getDocumentation
 parameter_list|()
 block|{
+return|return
+name|documentation
+return|;
+block|}
+DECL|method|getDocumentationWithNotes ()
+specifier|public
+name|String
+name|getDocumentationWithNotes
+parameter_list|()
+block|{
+if|if
+condition|(
+name|defaultValueNote
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|documentation
+operator|+
+literal|". Default value notice: "
+operator|+
+name|defaultValueNote
+return|;
+block|}
 return|return
 name|documentation
 return|;
