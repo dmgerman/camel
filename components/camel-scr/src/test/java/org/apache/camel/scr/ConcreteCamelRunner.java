@@ -18,13 +18,171 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ThreadPoolExecutor
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|*
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ErrorHandlerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Route
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RoutesBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Service
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|VetoCamelContextStartException
 import|;
 end_import
 
@@ -68,28 +226,6 @@ name|BundleContext
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ThreadPoolExecutor
-import|;
-end_import
-
 begin_class
 DECL|class|ConcreteCamelRunner
 specifier|public
@@ -104,22 +240,16 @@ DECL|field|camelContextStarted
 specifier|protected
 name|int
 name|camelContextStarted
-init|=
-literal|0
 decl_stmt|;
 DECL|field|camelContextStopped
 specifier|protected
 name|int
 name|camelContextStopped
-init|=
-literal|0
 decl_stmt|;
 DECL|field|routeAdded
 specifier|protected
 name|int
 name|routeAdded
-init|=
-literal|0
 decl_stmt|;
 DECL|method|getDefaultProperties ()
 specifier|public
@@ -143,7 +273,11 @@ name|defaultProps
 init|=
 operator|new
 name|HashMap
-argument_list|<>
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|defaultProps
@@ -304,7 +438,9 @@ name|routesBuilders
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|RoutesBuilder
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|routesBuilders
@@ -374,7 +510,7 @@ parameter_list|,
 name|Component
 name|component
 parameter_list|)
-block|{}
+block|{     }
 annotation|@
 name|Override
 DECL|method|onComponentRemove (String s, Component component)
@@ -388,7 +524,7 @@ parameter_list|,
 name|Component
 name|component
 parameter_list|)
-block|{}
+block|{     }
 annotation|@
 name|Override
 DECL|method|onEndpointAdd (Endpoint endpoint)
@@ -399,7 +535,7 @@ parameter_list|(
 name|Endpoint
 name|endpoint
 parameter_list|)
-block|{}
+block|{     }
 annotation|@
 name|Override
 DECL|method|onEndpointRemove (Endpoint endpoint)
@@ -410,7 +546,7 @@ parameter_list|(
 name|Endpoint
 name|endpoint
 parameter_list|)
-block|{}
+block|{     }
 annotation|@
 name|Override
 DECL|method|onServiceAdd (CamelContext camelContext, Service service, Route route)
@@ -427,7 +563,7 @@ parameter_list|,
 name|Route
 name|route
 parameter_list|)
-block|{}
+block|{     }
 annotation|@
 name|Override
 DECL|method|onServiceRemove (CamelContext camelContext, Service service, Route route)
@@ -444,7 +580,7 @@ parameter_list|,
 name|Route
 name|route
 parameter_list|)
-block|{}
+block|{     }
 annotation|@
 name|Override
 DECL|method|onRoutesAdd (Collection<Route> routes)
@@ -476,7 +612,7 @@ name|Route
 argument_list|>
 name|routes
 parameter_list|)
-block|{}
+block|{     }
 annotation|@
 name|Override
 DECL|method|onRouteContextCreate (RouteContext routeContext)
@@ -487,7 +623,7 @@ parameter_list|(
 name|RouteContext
 name|routeContext
 parameter_list|)
-block|{}
+block|{     }
 annotation|@
 name|Override
 DECL|method|onErrorHandlerAdd (RouteContext routeContext, Processor processor, ErrorHandlerFactory errorHandlerFactory)
@@ -504,7 +640,7 @@ parameter_list|,
 name|ErrorHandlerFactory
 name|errorHandlerFactory
 parameter_list|)
-block|{}
+block|{     }
 annotation|@
 name|Override
 DECL|method|onErrorHandlerRemove (RouteContext routeContext, Processor processor, ErrorHandlerFactory errorHandlerFactory)
@@ -521,7 +657,7 @@ parameter_list|,
 name|ErrorHandlerFactory
 name|errorHandlerFactory
 parameter_list|)
-block|{}
+block|{     }
 annotation|@
 name|Override
 DECL|method|onThreadPoolAdd (CamelContext camelContext, ThreadPoolExecutor threadPoolExecutor, String s, String s2, String s3, String s4)
@@ -547,7 +683,7 @@ parameter_list|,
 name|String
 name|s4
 parameter_list|)
-block|{}
+block|{     }
 annotation|@
 name|Override
 DECL|method|onThreadPoolRemove (CamelContext camelContext, ThreadPoolExecutor threadPoolExecutor)
@@ -561,7 +697,7 @@ parameter_list|,
 name|ThreadPoolExecutor
 name|threadPoolExecutor
 parameter_list|)
-block|{}
+block|{     }
 block|}
 end_class
 

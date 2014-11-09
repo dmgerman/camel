@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|junit
@@ -103,16 +113,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -149,18 +149,6 @@ specifier|public
 class|class
 name|AbstractCamelRunnerTest
 block|{
-DECL|field|log
-name|Logger
-name|log
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|getClass
-argument_list|()
-argument_list|)
-decl_stmt|;
 annotation|@
 name|Rule
 DECL|field|testName
@@ -171,6 +159,19 @@ init|=
 operator|new
 name|TestName
 argument_list|()
+decl_stmt|;
+DECL|field|log
+specifier|private
+name|Logger
+name|log
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|getClass
+argument_list|()
+argument_list|)
 decl_stmt|;
 annotation|@
 name|Before
