@@ -539,6 +539,27 @@ else|:
 literal|""
 decl_stmt|;
 name|String
+name|defaultValue
+init|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"defaultValue"
+argument_list|)
+operator|!=
+literal|null
+condition|?
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"defaultValue"
+argument_list|)
+else|:
+literal|""
+decl_stmt|;
+name|String
 name|description
 init|=
 name|row
@@ -587,6 +608,8 @@ literal|"java type"
 block|,
 literal|"value"
 block|,
+literal|"default value"
+block|,
 literal|"description"
 block|}
 argument_list|,
@@ -601,6 +624,8 @@ block|,
 name|javaType
 block|,
 name|value
+block|,
+name|defaultValue
 block|,
 name|description
 block|}

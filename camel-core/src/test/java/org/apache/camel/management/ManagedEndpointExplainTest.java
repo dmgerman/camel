@@ -144,7 +144,7 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context=camel-1,type=endpoints,name=\"log://foo\\?groupDelay=2000&groupSize=5\""
+literal|"org.apache.camel:context=camel-1,type=endpoints,name=\"log://foo\\?groupDelay=2000&groupSize=5&level=WARN\""
 argument_list|)
 expr_stmt|;
 name|assertTrue
@@ -157,7 +157,7 @@ name|on
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// there should be 2 options
+comment|// there should be 3 options
 name|TabularData
 name|data
 init|=
@@ -189,7 +189,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|3
 argument_list|,
 name|data
 operator|.
@@ -268,7 +268,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"log:foo?groupDelay=2000&groupSize=5"
+literal|"log:foo?groupDelay=2000&groupSize=5&level=WARN"
 argument_list|)
 operator|.
 name|to

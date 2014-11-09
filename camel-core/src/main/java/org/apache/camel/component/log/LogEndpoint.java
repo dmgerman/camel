@@ -215,6 +215,11 @@ name|logger
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"INFO"
+argument_list|)
 DECL|field|level
 specifier|private
 name|String
@@ -243,6 +248,11 @@ name|groupInterval
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|groupActiveOnly
 specifier|private
 name|Boolean

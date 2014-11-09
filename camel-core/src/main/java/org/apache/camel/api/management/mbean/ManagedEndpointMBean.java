@@ -139,7 +139,7 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Explain how this endpoint is configured (option, value, description)"
+literal|"Explain how this endpoint is configured"
 argument_list|)
 DECL|method|explain (boolean allOptions)
 name|TabularData

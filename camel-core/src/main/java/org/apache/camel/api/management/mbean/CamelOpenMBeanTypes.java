@@ -445,6 +445,8 @@ literal|"java type"
 block|,
 literal|"value"
 block|,
+literal|"default value"
+block|,
 literal|"description"
 block|}
 argument_list|)
@@ -479,6 +481,8 @@ literal|"java type"
 block|,
 literal|"value"
 block|,
+literal|"default value"
+block|,
 literal|"description"
 block|}
 argument_list|,
@@ -494,6 +498,8 @@ literal|"Java Type"
 block|,
 literal|"Value"
 block|,
+literal|"Default Value"
+block|,
 literal|"Description"
 block|}
 argument_list|,
@@ -501,6 +507,10 @@ operator|new
 name|OpenType
 index|[]
 block|{
+name|SimpleType
+operator|.
+name|STRING
+block|,
 name|SimpleType
 operator|.
 name|STRING
