@@ -406,6 +406,24 @@ name|canonicalClassName
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|tools
+operator|.
+name|apt
+operator|.
+name|Strings
+operator|.
+name|isNullOrEmpty
+import|;
+end_import
+
 begin_comment
 comment|/**  * Processes all Camel {@link UriEndpoint}s and generate json schema and html documentation for the endpoint/component.  */
 end_comment
@@ -555,8 +573,6 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|Strings
-operator|.
 name|isNullOrEmpty
 argument_list|(
 name|scheme
@@ -999,8 +1015,6 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|Strings
-operator|.
 name|isNullOrEmpty
 argument_list|(
 name|classDoc
@@ -1147,7 +1161,12 @@ argument_list|()
 argument_list|,
 name|entry
 operator|.
-name|getDocumentation
+name|getDefaultValue
+argument_list|()
+argument_list|,
+name|entry
+operator|.
+name|getDocumentationWithNotes
 argument_list|()
 argument_list|,
 name|entry
@@ -1211,8 +1230,6 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|Strings
-operator|.
 name|isNullOrEmpty
 argument_list|(
 name|classDoc
@@ -1526,8 +1543,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|Strings
-operator|.
 name|isNullOrEmpty
 argument_list|(
 name|name
@@ -1635,8 +1650,6 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|Strings
-operator|.
 name|isNullOrEmpty
 argument_list|(
 name|extraPrefix
@@ -1674,8 +1687,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|Strings
-operator|.
 name|isNullOrEmpty
 argument_list|(
 name|docComment
@@ -1788,8 +1799,6 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|Strings
-operator|.
 name|isNullOrEmpty
 argument_list|(
 name|doc
@@ -2029,8 +2038,6 @@ block|{
 if|if
 condition|(
 operator|!
-name|Strings
-operator|.
 name|isNullOrEmpty
 argument_list|(
 name|className
@@ -2646,9 +2653,11 @@ parameter_list|()
 block|{
 if|if
 condition|(
+operator|!
+name|isNullOrEmpty
+argument_list|(
 name|defaultValueNote
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
 return|return

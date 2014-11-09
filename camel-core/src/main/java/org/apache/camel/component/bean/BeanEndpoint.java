@@ -122,6 +122,11 @@ name|beanHolder
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|cache
 specifier|private
 name|boolean
@@ -129,6 +134,11 @@ name|cache
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|multiParameterArray
 specifier|private
 name|boolean

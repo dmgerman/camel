@@ -117,12 +117,16 @@ DECL|method|defaultValue ()
 name|String
 name|defaultValue
 parameter_list|()
+default|default
+literal|""
 function_decl|;
 comment|/**      * A special note about the default value.      *<p/>      * This can be used to document special cases about the default value.      */
 DECL|method|defaultValueNote ()
 name|String
 name|defaultValueNote
 parameter_list|()
+default|default
+literal|""
 function_decl|;
 block|}
 end_annotation_defn

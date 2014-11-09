@@ -209,6 +209,11 @@ name|file
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|copyAndDeleteOnRenameFail
 specifier|private
 name|boolean
@@ -218,6 +223,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|renameUsingCopy
 specifier|private
 name|boolean
@@ -225,6 +235,11 @@ name|renameUsingCopy
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|forceWrites
 specifier|private
 name|boolean

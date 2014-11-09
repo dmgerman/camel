@@ -207,6 +207,11 @@ name|expectedMessageEndpoint
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"2000"
+argument_list|)
 DECL|field|timeout
 specifier|private
 name|long

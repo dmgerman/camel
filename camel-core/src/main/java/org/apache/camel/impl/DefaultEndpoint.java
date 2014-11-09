@@ -331,6 +331,11 @@ name|component
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"InOnly"
+argument_list|)
 DECL|field|exchangePattern
 specifier|private
 name|ExchangePattern
@@ -344,6 +349,11 @@ comment|// option to allow end user to dictate whether async processing should b
 comment|// used or not (if possible)
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|synchronous
 specifier|private
 name|boolean

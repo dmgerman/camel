@@ -273,6 +273,11 @@ name|script
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|transform
 specifier|private
 name|boolean
@@ -282,6 +287,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|binary
 specifier|private
 name|boolean
@@ -289,6 +299,11 @@ name|binary
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|contentResolvedFromResource
 specifier|private
 name|boolean
@@ -296,6 +311,11 @@ name|contentResolvedFromResource
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|cacheScript
 specifier|private
 name|boolean

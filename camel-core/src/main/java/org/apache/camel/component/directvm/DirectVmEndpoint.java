@@ -139,6 +139,11 @@ name|DefaultEndpoint
 block|{
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|block
 specifier|private
 name|boolean
@@ -146,6 +151,11 @@ name|block
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"30000"
+argument_list|)
 DECL|field|timeout
 specifier|private
 name|long

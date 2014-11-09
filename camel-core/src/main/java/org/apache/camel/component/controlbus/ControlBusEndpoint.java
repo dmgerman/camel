@@ -200,6 +200,11 @@ name|action
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|async
 specifier|private
 name|boolean
@@ -207,6 +212,11 @@ name|async
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"INFO"
+argument_list|)
 DECL|field|loggingLevel
 specifier|private
 name|LoggingLevel
