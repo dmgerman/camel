@@ -568,8 +568,8 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Parses the json schema to split it into a list or rows, where each row contains key value pairs with the metadata      *      * @param json the json      * @return a list of all the rows, where each row is a set of key value pairs with metadata      */
-DECL|method|parseJsonSchema (String json)
+comment|/**      * Parses the json schema to split it into a list or rows, where each row contains key value pairs with the metadata      *      * @param group the group to parse from such as<tt>component</tt>,<tt>componentProperties</tt>, or<tt>properties</tt>.      * @param json the json      * @return a list of all the rows, where each row is a set of key value pairs with metadata      */
+DECL|method|parseJsonSchema (String group, String json)
 specifier|public
 specifier|static
 name|List
@@ -583,6 +583,9 @@ argument_list|>
 argument_list|>
 name|parseJsonSchema
 parameter_list|(
+name|String
+name|group
+parameter_list|,
 name|String
 name|json
 parameter_list|)
@@ -621,8 +624,12 @@ return|return
 name|answer
 return|;
 block|}
+name|boolean
+name|found
+init|=
+literal|false
+decl_stmt|;
 comment|// parse line by line
-comment|// skip first 2 lines as they are leading
 name|String
 index|[]
 name|lines
@@ -636,29 +643,54 @@ argument_list|)
 decl_stmt|;
 for|for
 control|(
-name|int
-name|i
-init|=
-literal|2
-init|;
-name|i
-operator|<
-name|lines
-operator|.
-name|length
-condition|;
-name|i
-operator|++
-control|)
-block|{
 name|String
 name|line
-init|=
+range|:
 name|lines
-index|[
-name|i
-index|]
-decl_stmt|;
+control|)
+block|{
+comment|// we need to find the group first
+if|if
+condition|(
+operator|!
+name|found
+condition|)
+block|{
+name|found
+operator|=
+name|line
+operator|.
+name|startsWith
+argument_list|(
+literal|"  \""
+operator|+
+name|group
+operator|+
+literal|"\":"
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
+comment|// we should stop when we end the group
+if|if
+condition|(
+name|line
+operator|.
+name|equals
+argument_list|(
+literal|"  },"
+argument_list|)
+operator|||
+name|line
+operator|.
+name|equals
+argument_list|(
+literal|"  }"
+argument_list|)
+condition|)
+block|{
+break|break;
+block|}
 name|Map
 argument_list|<
 name|String
