@@ -75,11 +75,6 @@ specifier|private
 name|String
 name|accessToken
 decl_stmt|;
-DECL|field|function
-specifier|private
-name|String
-name|function
-decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|useJson
@@ -89,6 +84,11 @@ name|useJson
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"5000"
+argument_list|)
 DECL|field|delay
 specifier|private
 name|long
@@ -101,6 +101,11 @@ decl_stmt|;
 comment|// 3 sec per poll is enforced by yammer; add 2 sec for safety
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"-1"
+argument_list|)
 DECL|field|limit
 specifier|private
 name|int
@@ -112,6 +117,11 @@ decl_stmt|;
 comment|// default is unlimited
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"-1"
+argument_list|)
 DECL|field|olderThan
 specifier|private
 name|int
@@ -122,6 +132,11 @@ literal|1
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"-1"
+argument_list|)
 DECL|field|newerThan
 specifier|private
 name|int
@@ -143,6 +158,11 @@ DECL|field|userId
 specifier|private
 name|String
 name|userId
+decl_stmt|;
+DECL|field|function
+specifier|private
+name|String
+name|function
 decl_stmt|;
 DECL|field|requestor
 specifier|private
