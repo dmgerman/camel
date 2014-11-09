@@ -412,13 +412,6 @@ case|:
 name|BytesMessage
 name|bytesMessage
 init|=
-name|session
-operator|.
-name|createBytesMessage
-argument_list|()
-decl_stmt|;
-name|bytesMessage
-operator|=
 name|typeConverter
 operator|.
 name|convertTo
@@ -429,7 +422,7 @@ name|class
 argument_list|,
 name|payload
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|answer
 operator|=
 name|bytesMessage
@@ -704,7 +697,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Adds or updates the {@link Message} headers. Header names and values are      * checked for JMS 1.1 compliance.      *      * @param jmsMessage        the {@link Message} to add or update the headers on      * @param messageHeaders    a {@link Map} of String/Object pairs      * @param keyFormatStrategy the a {@link KeyFormatStrategy} to used to      *                          format keys in a JMS 1.1 compliant manner. If null the      *                          {@link DefaultJmsKeyFormatStrategy} will be used.      * @return {@link Message}      * @throws Exception a      */
+comment|/**      * Adds or updates the {@link Message} headers. Header names and values are      * checked for JMS 1.1 compliance.      *      * @param jmsMessage        the {@link Message} to add or update the headers on      * @param messageHeaders    a {@link Map} of String/Object pairs      * @param keyFormatStrategy the a {@link KeyFormatStrategy} to used to      *                          format keys in a JMS 1.1 compliant manner. If null the      *                          {@link DefaultJmsKeyFormatStrategy} will be used.      * @return {@link Message}      */
 DECL|method|setJmsMessageHeaders (final Message jmsMessage, Map<String, Object> messageHeaders, KeyFormatStrategy keyFormatStrategy)
 specifier|public
 specifier|static
@@ -1317,7 +1310,7 @@ return|return
 name|jmsMessage
 return|;
 block|}
-comment|/**      * Sets the JMSDeliveryMode on the message.      *      * @param exchange     the exchange      * @param message      the message      * @param deliveryMode the delivery mode, either as a String or integer      * @throws javax.jms.JMSException is thrown if error setting the delivery      *                                mode      */
+comment|/**      * Sets the JMSDeliveryMode on the message.      *      * @param message      the message      * @param deliveryMode the delivery mode, either as a String or integer      * @throws javax.jms.JMSException is thrown if error setting the delivery mode      */
 DECL|method|setJMSDeliveryMode (Message message, Object deliveryMode)
 specifier|public
 specifier|static
@@ -1335,8 +1328,6 @@ name|JMSException
 block|{
 name|Integer
 name|mode
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1481,13 +1472,6 @@ name|deliveryMode
 argument_list|)
 throw|;
 block|}
-if|if
-condition|(
-name|mode
-operator|!=
-literal|null
-condition|)
-block|{
 name|message
 operator|.
 name|setJMSDeliveryMode
@@ -1495,7 +1479,6 @@ argument_list|(
 name|mode
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Sets the correlation id on the JMS message.      *<p/>      * Will ignore exception thrown      *      * @param message the JMS message      * @param type    the correlation id      */
 DECL|method|setMessageType (Message message, String type)
