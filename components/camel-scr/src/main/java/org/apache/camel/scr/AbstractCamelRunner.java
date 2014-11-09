@@ -407,6 +407,21 @@ name|PROPERTY_PREFIX
 init|=
 literal|"camel.scr.properties.prefix"
 decl_stmt|;
+comment|// Configured fields
+comment|// TODO: can we make these private and have getter/setter
+DECL|field|camelContextId
+specifier|public
+name|String
+name|camelContextId
+init|=
+literal|"camel-runner-default"
+decl_stmt|;
+DECL|field|active
+specifier|public
+specifier|volatile
+name|boolean
+name|active
+decl_stmt|;
 DECL|field|log
 specifier|protected
 name|Logger
@@ -460,20 +475,6 @@ specifier|private
 specifier|volatile
 name|boolean
 name|started
-decl_stmt|;
-comment|// Configured fields
-DECL|field|camelContextId
-specifier|private
-name|String
-name|camelContextId
-init|=
-literal|"camel-runner-default"
-decl_stmt|;
-DECL|field|active
-specifier|private
-specifier|volatile
-name|boolean
-name|active
 decl_stmt|;
 DECL|method|activate (final BundleContext bundleContext, final Map<String, String> props)
 specifier|public
@@ -1097,7 +1098,7 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"Failed to start Camel context. Will try again when more Camel components have been registered."
 argument_list|,
@@ -1253,8 +1254,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Configuring "
-operator|+
+literal|"Configuring {}"
+argument_list|,
 name|clazz
 operator|.
 name|getName
@@ -1369,15 +1370,13 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Set field "
-operator|+
+literal|"Set field {} with value {}"
+argument_list|,
 name|field
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|" with value "
-operator|+
+argument_list|,
 name|propertyValue
 argument_list|)
 expr_stmt|;
@@ -1393,19 +1392,23 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Field "
+literal|"Error setting field "
 operator|+
 name|field
 operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" skipped: "
+literal|" due: "
 operator|+
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|+
+literal|". This exception is ignored."
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
