@@ -845,9 +845,21 @@ name|line
 operator|.
 name|replaceAll
 argument_list|(
-literal|"\\</?\\w+\\/?>"
+literal|"<.*?>"
 argument_list|,
 literal|""
+argument_list|)
+expr_stmt|;
+comment|// remove all inlined javadoc links
+name|line
+operator|=
+name|line
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\{\\@\\w+\\s(\\w+)\\}"
+argument_list|,
+literal|"$1"
 argument_list|)
 expr_stmt|;
 comment|// we are starting from a new line, so add a whitespace
