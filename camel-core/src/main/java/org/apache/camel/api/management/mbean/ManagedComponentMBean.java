@@ -75,18 +75,6 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Component Description"
-argument_list|)
-DECL|method|getComponentDescription ()
-name|String
-name|getComponentDescription
-parameter_list|()
-function_decl|;
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
 literal|"Component State"
 argument_list|)
 DECL|method|getState ()

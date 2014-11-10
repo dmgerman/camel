@@ -1978,6 +1978,15 @@ name|Boolean
 name|useBreadcrumb
 parameter_list|)
 function_decl|;
+comment|/**      * Resolves a component's default name from its java type.      *<p/>      * A component may be used with a non default name such as<tt>activemq</tt>,<tt>wmq</tt> for the JMS component.      * This method can resolve the default component name by its java type.      *      * @param javaType the FQN name of the java type      * @return the default component name.      */
+DECL|method|resolveComponentDefaultName (String javaType)
+name|String
+name|resolveComponentDefaultName
+parameter_list|(
+name|String
+name|javaType
+parameter_list|)
+function_decl|;
 comment|/**      * Find information about all the Camel components available in the classpath and {@link org.apache.camel.spi.Registry}.      *      * @return a map with the component name, and value with component details.      * @throws LoadPropertiesException is thrown if error during classpath discovery of the components      * @throws IOException is thrown if error during classpath discovery of the components      */
 DECL|method|findComponents ()
 name|Map

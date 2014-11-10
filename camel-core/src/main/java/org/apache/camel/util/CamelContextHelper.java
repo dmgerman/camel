@@ -2121,6 +2121,7 @@ argument_list|,
 name|name
 argument_list|)
 expr_stmt|;
+comment|// override default component if name clash
 name|map
 operator|.
 name|put

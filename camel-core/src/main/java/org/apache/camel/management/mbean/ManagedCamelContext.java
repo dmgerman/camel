@@ -2798,7 +2798,18 @@ decl_stmt|;
 name|String
 name|type
 init|=
-literal|null
+operator|(
+name|String
+operator|)
+name|entry
+operator|.
+name|getValue
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"class"
+argument_list|)
 decl_stmt|;
 name|String
 name|groupId
@@ -2815,6 +2826,29 @@ name|version
 init|=
 literal|null
 decl_stmt|;
+comment|// a component may have been given a different name, so resolve its default name by its java type
+comment|// as we can find the component json information from the default component name
+name|String
+name|defaultName
+init|=
+name|context
+operator|.
+name|resolveComponentDefaultName
+argument_list|(
+name|type
+argument_list|)
+decl_stmt|;
+name|String
+name|target
+init|=
+name|defaultName
+operator|!=
+literal|null
+condition|?
+name|defaultName
+else|:
+name|name
+decl_stmt|;
 comment|// load component json data, and parse it to gather the component meta-data
 name|String
 name|json
@@ -2823,7 +2857,7 @@ name|context
 operator|.
 name|getComponentParameterJsonSchema
 argument_list|(
-name|name
+name|target
 argument_list|)
 decl_stmt|;
 name|List

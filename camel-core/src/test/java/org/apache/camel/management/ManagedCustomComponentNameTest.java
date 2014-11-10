@@ -72,22 +72,38 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockComponent
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|ManagedUnregisterComponentTest
+DECL|class|ManagedCustomComponentNameTest
 specifier|public
 class|class
-name|ManagedUnregisterComponentTest
+name|ManagedCustomComponentNameTest
 extends|extends
 name|ManagementTestSupport
 block|{
-DECL|method|testUnregisterComponent ()
+DECL|method|testCustomName ()
 specifier|public
 name|void
-name|testUnregisterComponent
+name|testCustomName
 parameter_list|()
 throws|throws
 name|Exception
@@ -130,7 +146,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|3
 argument_list|,
 name|set
 operator|.
@@ -279,9 +295,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|addComponent
+argument_list|(
+literal|"foo"
+argument_list|,
+operator|new
+name|MockComponent
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:start"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"foo:foo"
 argument_list|)
 operator|.
 name|to
