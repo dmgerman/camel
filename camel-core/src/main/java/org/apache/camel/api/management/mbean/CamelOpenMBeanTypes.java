@@ -555,7 +555,7 @@ name|TabularType
 argument_list|(
 literal|"listComponents"
 argument_list|,
-literal|"Lists all the components in the registry"
+literal|"Lists all the components"
 argument_list|,
 name|ct
 argument_list|,
@@ -567,7 +567,7 @@ literal|"name"
 block|,
 literal|"description"
 block|,
-literal|"state"
+literal|"status"
 block|,
 literal|"type"
 block|,
