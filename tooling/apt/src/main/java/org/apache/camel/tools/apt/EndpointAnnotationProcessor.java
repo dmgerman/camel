@@ -1953,6 +1953,18 @@ name|idx
 argument_list|)
 expr_stmt|;
 block|}
+comment|// the javadoc may actually be empty, so only change the doc if we got something
+if|if
+condition|(
+operator|!
+name|Strings
+operator|.
+name|isNullOrEmpty
+argument_list|(
+name|doc
+argument_list|)
+condition|)
+block|{
 name|model
 operator|.
 name|setDescription
@@ -1960,6 +1972,7 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
