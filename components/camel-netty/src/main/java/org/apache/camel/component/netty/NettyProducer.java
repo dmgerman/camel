@@ -350,6 +350,20 @@ name|netty
 operator|.
 name|channel
 operator|.
+name|SucceededChannelFuture
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jboss
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
 name|group
 operator|.
 name|ChannelGroup
@@ -1404,6 +1418,41 @@ name|exchange
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|InetSocketAddress
+name|remoteAddress
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|isTcp
+argument_list|()
+operator|&&
+name|configuration
+operator|.
+name|isUdpConnectionlessSending
+argument_list|()
+condition|)
+block|{
+comment|// Need to specify the remoteAddress here
+name|remoteAddress
+operator|=
+operator|new
+name|InetSocketAddress
+argument_list|(
+name|configuration
+operator|.
+name|getHost
+argument_list|()
+argument_list|,
+name|configuration
+operator|.
+name|getPort
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// write body
 name|NettyHelper
 operator|.
@@ -1413,7 +1462,7 @@ name|LOG
 argument_list|,
 name|channel
 argument_list|,
-literal|null
+name|remoteAddress
 argument_list|,
 name|body
 argument_list|,
@@ -2279,6 +2328,19 @@ argument_list|(
 name|channel
 argument_list|)
 expr_stmt|;
+comment|// if udp connectionless sending is true we don't do a connect.
+comment|// we just send on the channel created with bind which means
+comment|// really fire and forget. You wont get an PortUnreachableException
+comment|// if no one is listen on the port
+if|if
+condition|(
+operator|!
+name|configuration
+operator|.
+name|isUdpConnectionlessSending
+argument_list|()
+condition|)
+block|{
 name|answer
 operator|=
 name|connectionlessClientBootstrap
@@ -2300,6 +2362,18 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|answer
+operator|=
+operator|new
+name|SucceededChannelFuture
+argument_list|(
+name|channel
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|LOG
@@ -2832,15 +2906,39 @@ name|Channel
 name|channel
 parameter_list|)
 block|{
-comment|// we need a connected channel to be valid
 name|boolean
 name|answer
 init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+name|configuration
+operator|.
+name|isUdpConnectionlessSending
+argument_list|()
+condition|)
+block|{
+comment|// we don't need check if the channel is connected
+name|answer
+operator|=
+name|channel
+operator|.
+name|isOpen
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// we need a connected channel to be valid
+name|answer
+operator|=
 name|channel
 operator|.
 name|isConnected
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
 name|LOG
 operator|.
 name|trace
