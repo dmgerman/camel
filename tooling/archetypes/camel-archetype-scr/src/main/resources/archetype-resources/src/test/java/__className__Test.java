@@ -200,6 +200,16 @@ end_empty_stmt
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -207,6 +217,8 @@ operator|.
 name|camel
 operator|.
 name|scr
+operator|.
+name|internal
 operator|.
 name|ScrHelper
 import|;
@@ -283,20 +295,6 @@ operator|.
 name|model
 operator|.
 name|RouteDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|io
-operator|.
-name|IOUtils
 import|;
 end_import
 
@@ -393,58 +391,6 @@ operator|.
 name|runners
 operator|.
 name|JUnit4
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|jayway
-operator|.
-name|restassured
-operator|.
-name|RestAssured
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|com
-operator|.
-name|jayway
-operator|.
-name|restassured
-operator|.
-name|matcher
-operator|.
-name|RestAssuredMatchers
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
-name|*
 import|;
 end_import
 
@@ -657,7 +603,7 @@ literal|"direct:start"
 argument_list|)
 expr_stmt|;
 comment|// Mock and skip result endpoint
-name|mockEndpointsAndSkip
+name|mockEndpoints
 argument_list|(
 literal|"log:*"
 argument_list|)
@@ -689,9 +635,6 @@ literal|"hello"
 argument_list|)
 expr_stmt|;
 comment|// If you want to check the contents
-comment|// You can also take the expected result from an external file
-comment|// String result = IOUtils.toString(context.getClassResolver().loadResourceAsStream("testdata/out/result.txt"));
-comment|// resultEndpoint.expectedBodiesReceived(result.replaceAll("\r?\n", "\n"));
 comment|// Start the integration
 name|integration
 operator|.
@@ -711,12 +654,6 @@ argument_list|,
 literal|"hello"
 argument_list|)
 expr_stmt|;
-comment|// You can also send an external file
-comment|// context.createProducerTemplate.sendBody("direct:start", context.getClassResolver().loadResourceAsStream("testdata/in/input.xml"));
-comment|// REST/HTTP services can be easily tested with RestAssured:
-comment|// get(context.resolvePropertyPlaceholders("{{restUrl}}")).then().statusCode(204).body(isEmptyOrNullString());
-comment|// given().param("status").get(context.resolvePropertyPlaceholders("{{restUrl}}")).then().statusCode(200).body(equalTo("active"));
-comment|// given().auth().basic("testuser", "testpass").body("hello").when().post(context.resolvePropertyPlaceholders("{{restUrl}}")).then().statusCode(200).body(equalTo("response"));
 name|resultEndpoint
 operator|.
 name|assertIsSatisfied
