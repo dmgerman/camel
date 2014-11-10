@@ -374,7 +374,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"direct:testStoreOid"
+literal|"direct:testStoreOidOnInsert"
 argument_list|,
 name|dbObject
 argument_list|,
@@ -430,7 +430,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"direct:testStoreOid"
+literal|"direct:testStoreOidOnInsert"
 argument_list|,
 name|asList
 argument_list|(
@@ -1416,7 +1416,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct:testStoreOid"
+literal|"direct:testStoreOidOnInsert"
 argument_list|)
 operator|.
 name|to
