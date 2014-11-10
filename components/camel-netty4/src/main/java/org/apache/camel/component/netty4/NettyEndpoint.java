@@ -102,18 +102,6 @@ end_import
 
 begin_import
 import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|util
-operator|.
-name|Timer
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
