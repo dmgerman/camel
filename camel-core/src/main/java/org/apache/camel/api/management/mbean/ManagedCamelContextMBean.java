@@ -74,6 +74,18 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|management
+operator|.
+name|openmbean
+operator|.
+name|TabularData
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -882,6 +894,21 @@ argument_list|<
 name|String
 argument_list|>
 name|findComponentNames
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Find information about all the Camel components available in the classpath and {@link org.apache.camel.spi.Registry}.      *      * @return a list with the data      * @throws Exception is thrown if error occurred      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"List all Camel components available in the classpath"
+argument_list|)
+DECL|method|listComponents ()
+name|TabularData
+name|listComponents
 parameter_list|()
 throws|throws
 name|Exception
