@@ -569,7 +569,7 @@ literal|null
 return|;
 block|}
 comment|/**      * Parses the json schema to split it into a list or rows, where each row contains key value pairs with the metadata      *      * @param group the group to parse from such as<tt>component</tt>,<tt>componentProperties</tt>, or<tt>properties</tt>.      * @param json the json      * @return a list of all the rows, where each row is a set of key value pairs with metadata      */
-DECL|method|parseJsonSchema (String group, String json)
+DECL|method|parseJsonSchema (String group, String json, boolean parseProperties)
 specifier|public
 specifier|static
 name|List
@@ -588,6 +588,9 @@ name|group
 parameter_list|,
 name|String
 name|json
+parameter_list|,
+name|boolean
+name|parseProperties
 parameter_list|)
 block|{
 name|List
@@ -656,13 +659,21 @@ operator|!
 name|found
 condition|)
 block|{
+name|String
+name|s
+init|=
+name|line
+operator|.
+name|trim
+argument_list|()
+decl_stmt|;
 name|found
 operator|=
-name|line
+name|s
 operator|.
 name|startsWith
 argument_list|(
-literal|"  \""
+literal|"\""
 operator|+
 name|group
 operator|+
@@ -718,12 +729,27 @@ argument_list|(
 name|line
 argument_list|)
 decl_stmt|;
-comment|// the first key is the name of the option
 name|String
 name|key
-init|=
-literal|"name"
 decl_stmt|;
+if|if
+condition|(
+name|parseProperties
+condition|)
+block|{
+comment|// when parsing properties the first key is given as name, so the first parsed token is the value of the name
+name|key
+operator|=
+literal|"name"
+expr_stmt|;
+block|}
+else|else
+block|{
+name|key
+operator|=
+literal|null
+expr_stmt|;
+block|}
 while|while
 condition|(
 name|matcher

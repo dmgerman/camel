@@ -462,6 +462,8 @@ argument_list|(
 literal|"properties"
 argument_list|,
 name|json
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|TabularData

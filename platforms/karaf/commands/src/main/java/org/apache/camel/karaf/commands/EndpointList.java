@@ -708,6 +708,8 @@ argument_list|(
 literal|"properties"
 argument_list|,
 name|json
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// lets sort the options by name

@@ -7099,6 +7099,8 @@ argument_list|(
 literal|"properties"
 argument_list|,
 name|json
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// selected rows to use for answer

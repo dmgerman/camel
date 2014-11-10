@@ -36,6 +36,22 @@ name|ManagedAttribute
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedOperation
+import|;
+end_import
+
 begin_interface
 DECL|interface|ManagedComponentMBean
 specifier|public
@@ -52,6 +68,18 @@ argument_list|)
 DECL|method|getComponentName ()
 name|String
 name|getComponentName
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Component Description"
+argument_list|)
+DECL|method|getComponentDescription ()
+name|String
+name|getComponentDescription
 parameter_list|()
 function_decl|;
 annotation|@
@@ -88,6 +116,18 @@ argument_list|)
 DECL|method|getCamelManagementName ()
 name|String
 name|getCamelManagementName
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Component information as JSon"
+argument_list|)
+DECL|method|informationJson ()
+name|String
+name|informationJson
 parameter_list|()
 function_decl|;
 block|}
