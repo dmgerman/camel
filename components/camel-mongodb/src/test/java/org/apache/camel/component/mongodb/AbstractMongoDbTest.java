@@ -403,7 +403,7 @@ operator|=
 operator|new
 name|AnnotationConfigApplicationContext
 argument_list|(
-name|MongoComponentTestConfiguration
+name|EmbedMongoConfiguration
 operator|.
 name|class
 argument_list|)
