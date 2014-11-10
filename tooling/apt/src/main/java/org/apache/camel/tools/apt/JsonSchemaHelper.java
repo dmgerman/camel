@@ -323,6 +323,8 @@ init|=
 name|sanitizeDescription
 argument_list|(
 name|description
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|sb
@@ -784,7 +786,7 @@ literal|null
 return|;
 block|}
 comment|/**      * Sanitizes the javadoc to removed invalid characters so it can be used as json description      *      * @param javadoc  the javadoc      * @return the text that is valid as json      */
-DECL|method|sanitizeDescription (String javadoc)
+DECL|method|sanitizeDescription (String javadoc, boolean summary)
 specifier|public
 specifier|static
 name|String
@@ -792,6 +794,9 @@ name|sanitizeDescription
 parameter_list|(
 name|String
 name|javadoc
+parameter_list|,
+name|boolean
+name|summary
 parameter_list|)
 block|{
 comment|// lets just use what java accepts as identifiers
@@ -859,14 +864,14 @@ argument_list|,
 literal|""
 argument_list|)
 expr_stmt|;
-comment|// remove all inlined javadoc links
+comment|// remove all inlined javadoc links, eg such as {@link org.apache.camel.spi.Registry}
 name|line
 operator|=
 name|line
 operator|.
 name|replaceAll
 argument_list|(
-literal|"\\{\\@\\w+\\s(\\w+)\\}"
+literal|"\\{\\@\\w+\\s([\\w.]+)\\}"
 argument_list|,
 literal|"$1"
 argument_list|)
@@ -886,6 +891,14 @@ literal|' '
 argument_list|)
 expr_stmt|;
 block|}
+comment|// create a new line
+name|StringBuilder
+name|cb
+init|=
+operator|new
+name|StringBuilder
+argument_list|()
+decl_stmt|;
 for|for
 control|(
 name|char
@@ -917,7 +930,7 @@ operator|-
 literal|1
 condition|)
 block|{
-name|sb
+name|cb
 operator|.
 name|append
 argument_list|(
@@ -937,7 +950,7 @@ argument_list|)
 condition|)
 block|{
 comment|// always use space as whitespace, also for line feeds etc
-name|sb
+name|cb
 operator|.
 name|append
 argument_list|(
@@ -945,6 +958,71 @@ literal|' '
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|// append data
+name|String
+name|s
+init|=
+name|cb
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|trim
+argument_list|()
+decl_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|s
+argument_list|)
+expr_stmt|;
+name|boolean
+name|empty
+init|=
+name|Strings
+operator|.
+name|isNullOrEmpty
+argument_list|(
+name|s
+argument_list|)
+decl_stmt|;
+name|boolean
+name|endWithDot
+init|=
+name|s
+operator|.
+name|endsWith
+argument_list|(
+literal|"."
+argument_list|)
+decl_stmt|;
+name|boolean
+name|haveText
+init|=
+name|sb
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|0
+decl_stmt|;
+if|if
+condition|(
+name|haveText
+operator|&&
+name|summary
+operator|&&
+operator|(
+name|empty
+operator|||
+name|endWithDot
+operator|)
+condition|)
+block|{
+comment|// if we only want a summary, then skip at first empty line we encounter, or if the sentence ends with a dot
+break|break;
 block|}
 name|first
 operator|=

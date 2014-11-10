@@ -1743,6 +1743,8 @@ argument_list|(
 name|sanitizeDescription
 argument_list|(
 name|doc
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1913,46 +1915,16 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// need to sanitize the description first
+comment|// need to sanitize the description first (we only want a summary)
 name|doc
 operator|=
 name|sanitizeDescription
 argument_list|(
 name|doc
-argument_list|)
-expr_stmt|;
-comment|// grab the first sentence only as this is for short description
-name|int
-name|idx
-init|=
-name|doc
-operator|.
-name|indexOf
-argument_list|(
-literal|'.'
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|idx
-operator|!=
-operator|-
-literal|1
-condition|)
-block|{
-comment|// do not include the dot, so do not use idx + 1
-name|doc
-operator|=
-name|doc
-operator|.
-name|substring
-argument_list|(
-literal|0
 argument_list|,
-name|idx
+literal|true
 argument_list|)
 expr_stmt|;
-block|}
 comment|// the javadoc may actually be empty, so only change the doc if we got something
 if|if
 condition|(
