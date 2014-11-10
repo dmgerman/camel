@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default {@link CamelContextRegistry}  */
+comment|/**  * The default {@link CamelContextRegistry}.  *   * This implementation gives package protected access to add/remove camel contexts  * to the camel runtime. Clients are not expected to manage the set of registered contexts.  *   * Registered listeners are owned by the client which registered the listener.  * Neither the camel runtime nor non-owning clients can control the set of registered listeners.   */
 end_comment
 
 begin_class
@@ -153,25 +153,6 @@ name|Listener
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/**      * Clear all contexts and listeners, such as for testing purpose.      */
-DECL|method|clear ()
-specifier|public
-specifier|synchronized
-name|void
-name|clear
-parameter_list|()
-block|{
-name|contexts
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|listeners
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|afterCreate (CamelContext camelContext)
 specifier|synchronized
 name|void
