@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Binding component using the URI form<code>binding:nameOfBinding:endpointURI</code>  * to extract the binding name which is then resolved from the registry and used to create a  * {@link BindingEndpoint} from the underlying {@link Endpoint}  */
+comment|/**  * To compose a Camel component with a Camel data-format as a single binding unit.  *<p/>  * A Binding component using the URI form<code>binding:nameOfBinding:endpointURI</code>  * to extract the binding name which is then resolved from the registry and used to create a  * {@link BindingEndpoint} from the underlying {@link Endpoint}  */
 end_comment
 
 begin_class
@@ -120,7 +120,7 @@ specifier|public
 class|class
 name|BindingNameComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|BAD_FORMAT_MESSAGE
 specifier|protected
@@ -131,6 +131,19 @@ name|BAD_FORMAT_MESSAGE
 init|=
 literal|"URI should be of the format binding:nameOfBinding:endpointURI"
 decl_stmt|;
+DECL|method|BindingNameComponent ()
+specifier|public
+name|BindingNameComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|BindingEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

@@ -111,10 +111,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A composite {@link org.apache.camel.Component} which creates a {@link BindingEndpoint} from a  * configured {@link Binding} instance and using the optional {@link #setUriPrefix(String)}  * and {@link #setUriPostfix(String)} to create the underlying endpoint from the remaining URI  */
+comment|/**  * A composite {@link org.apache.camel.Component} which creates a {@link BindingEndpoint} from a  * configured {@link Binding} instance and using the optional {@link #setUriPrefix(String)}  * and {@link #setUriPostfix(String)} to create the underlying endpoint from the remaining URI  *  * @deprecated use {@link org.apache.camel.component.binding.BindingNameComponent}  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|BindingComponent
 specifier|public
 class|class
