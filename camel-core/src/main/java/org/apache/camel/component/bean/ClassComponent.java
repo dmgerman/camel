@@ -53,7 +53,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/class.html">Class Component</a>  * will create an instance of the class from the {@link org.apache.camel.spi.Registry} and use that to handle message dispatching.  *  * @version   */
+comment|/**  * The<a href="http://camel.apache.org/class.html">Class Component</a> is for invoking Java classes from Camel.  *<p/>  * This component is an extension to the {@link org.apache.camel.component.bean.BeanComponent}.  *  * @version   */
 end_comment
 
 begin_class
@@ -64,6 +64,19 @@ name|ClassComponent
 extends|extends
 name|BeanComponent
 block|{
+DECL|method|ClassComponent ()
+specifier|public
+name|ClassComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|ClassEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -86,11 +99,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|BeanEndpoint
+name|ClassEndpoint
 name|endpoint
 init|=
 operator|new
-name|BeanEndpoint
+name|ClassEndpoint
 argument_list|(
 name|uri
 argument_list|,

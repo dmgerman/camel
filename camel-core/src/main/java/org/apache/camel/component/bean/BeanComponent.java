@@ -179,6 +179,25 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|BeanComponent (Class<? extends Endpoint> endpointClass)
+specifier|public
+name|BeanComponent
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Endpoint
+argument_list|>
+name|endpointClass
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointClass
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * A helper method to create a new endpoint from a bean with a generated URI      */
 DECL|method|createEndpoint (Object bean)
 specifier|public
