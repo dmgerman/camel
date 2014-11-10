@@ -304,7 +304,14 @@ name|buildConsumer
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|//        main.addRouteBuilder(buildProducer());
+name|main
+operator|.
+name|addRouteBuilder
+argument_list|(
+name|buildProducer
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|buildConsumer ()
 name|RouteBuilder

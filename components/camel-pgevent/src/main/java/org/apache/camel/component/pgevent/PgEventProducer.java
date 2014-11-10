@@ -314,7 +314,6 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-comment|/*         listener = new PGNotificationListener() {              @Override             public void notification(int processId, String channel, String payload) {                 Message out = exchange.getOut();                 out.setBody(payload);                 out.setHeader("channel", channel);                 exchange.setOut(out);                 callback.done(true);             }         };                  dbConnection.addNotificationListener(listener);         */
 try|try
 block|{
 if|if
@@ -414,6 +413,27 @@ expr_stmt|;
 return|return
 name|retVal
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doShutdown
+argument_list|()
+expr_stmt|;
+name|dbConnection
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
