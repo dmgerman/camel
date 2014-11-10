@@ -1472,8 +1472,6 @@ name|getMessage
 argument_list|()
 operator|+
 literal|". This exception is ignored."
-argument_list|,
-name|e
 argument_list|)
 expr_stmt|;
 block|}
