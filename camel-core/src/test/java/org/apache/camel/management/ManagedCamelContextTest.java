@@ -1566,7 +1566,7 @@ name|contains
 argument_list|(
 literal|"\"groupDelay\": { \"type\": \"integer\", \"javaType\": \"java.lang.Long\", \"value\": \"2000\","
 operator|+
-literal|" \"description\": \"Set the initial delay for stats in millis\" },"
+literal|" \"description\": \"Set the initial delay for stats (in millis)\" },"
 argument_list|)
 argument_list|)
 expr_stmt|;
