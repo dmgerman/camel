@@ -38,6 +38,15 @@ specifier|final
 class|class
 name|JsonSchemaHelper
 block|{
+DECL|field|VALID_CHARS
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|VALID_CHARS
+init|=
+literal|".-='/\\!&()"
+decl_stmt|;
 DECL|method|JsonSchemaHelper ()
 specifier|private
 name|JsonSchemaHelper
@@ -897,9 +906,15 @@ argument_list|(
 name|c
 argument_list|)
 operator|||
-literal|'.'
-operator|==
+name|VALID_CHARS
+operator|.
+name|indexOf
+argument_list|(
 name|c
+argument_list|)
+operator|!=
+operator|-
+literal|1
 condition|)
 block|{
 name|sb
