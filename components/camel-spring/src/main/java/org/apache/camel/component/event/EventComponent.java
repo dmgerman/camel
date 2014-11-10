@@ -66,6 +66,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|UriEndpointComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -143,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://camel.apache.org/event.html">Event Component</a>  * for working with Spring ApplicationEvents  *   * @version   */
+comment|/**  * An<a href="http://camel.apache.org/event.html">Event Component</a>  * for working with Spring ApplicationEvents.  *   * @version   */
 end_comment
 
 begin_class
@@ -152,7 +166,7 @@ specifier|public
 class|class
 name|EventComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 implements|implements
 name|ApplicationContextAware
 block|{
@@ -197,7 +211,15 @@ DECL|method|EventComponent ()
 specifier|public
 name|EventComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|EventEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|EventComponent (ApplicationContext applicationContext)
 specifier|public
 name|EventComponent
@@ -206,6 +228,13 @@ name|ApplicationContext
 name|applicationContext
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|EventEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|setApplicationContext
 argument_list|(
 name|applicationContext

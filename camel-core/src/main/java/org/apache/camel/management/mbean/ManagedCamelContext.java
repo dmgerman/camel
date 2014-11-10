@@ -2775,9 +2775,10 @@ init|=
 literal|null
 decl_stmt|;
 comment|// the status can be:
-comment|// - loaded = in use
+comment|// - in use = used by Camel
 comment|// - classpath = on the classpath
 comment|// - release = available from the Apache Camel release
+comment|// TODO: gather list of components in the Camel release
 name|String
 name|status
 init|=
@@ -2790,9 +2791,9 @@ argument_list|)
 operator|!=
 literal|null
 condition|?
-literal|"loaded"
+literal|"in use"
 else|:
-literal|"classpath"
+literal|"on classpath"
 decl_stmt|;
 name|String
 name|type

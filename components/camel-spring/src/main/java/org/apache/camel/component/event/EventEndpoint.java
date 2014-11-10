@@ -122,6 +122,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -197,6 +211,19 @@ comment|/**  * An<a href="http://camel.apache.org/event.html">Event Endpoint</a>
 end_comment
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"spring-event"
+argument_list|,
+name|consumerClass
+operator|=
+name|EventConsumer
+operator|.
+name|class
+argument_list|)
 DECL|class|EventEndpoint
 specifier|public
 class|class
@@ -244,7 +271,7 @@ name|getApplicationContext
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      *<b>Note:</b> It is preferred to create endpoints using the associated      * component.      * @param endpointUri      */
+comment|/**      *<b>Note:</b> It is preferred to create endpoints using the associated      * component.      * @deprecated      */
 annotation|@
 name|Deprecated
 DECL|method|EventEndpoint (String endpointUri)

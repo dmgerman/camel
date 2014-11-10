@@ -68,6 +68,32 @@ operator|=
 name|camelController
 expr_stmt|;
 block|}
+DECL|method|safeNull (String s)
+name|String
+name|safeNull
+parameter_list|(
+name|String
+name|s
+parameter_list|)
+block|{
+if|if
+condition|(
+name|s
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|""
+return|;
+block|}
+else|else
+block|{
+return|return
+name|s
+return|;
+block|}
+block|}
 block|}
 end_class
 
