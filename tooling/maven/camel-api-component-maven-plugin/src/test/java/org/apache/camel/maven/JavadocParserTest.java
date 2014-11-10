@@ -91,7 +91,7 @@ specifier|final
 name|String
 name|JAVA6_STRING
 init|=
-literal|"http://docs.oracle.com/javase/6/docs/api/java/lang/String.html"
+literal|"https://docs.oracle.com/javase/6/docs/api/java/lang/String.html"
 decl_stmt|;
 DECL|field|JAVA7_STRING
 specifier|private
@@ -100,7 +100,7 @@ specifier|final
 name|String
 name|JAVA7_STRING
 init|=
-literal|"http://docs.oracle.com/javase/7/docs/api/java/lang/String.html"
+literal|"https://docs.oracle.com/javase/7/docs/api/java/lang/String.html"
 decl_stmt|;
 DECL|field|JAVA8_STRING
 specifier|private
@@ -109,7 +109,7 @@ specifier|final
 name|String
 name|JAVA8_STRING
 init|=
-literal|"http://docs.oracle.com/javase/8/docs/api/java/lang/String.html"
+literal|"https://docs.oracle.com/javase/8/docs/api/java/lang/String.html"
 decl_stmt|;
 annotation|@
 name|Test
