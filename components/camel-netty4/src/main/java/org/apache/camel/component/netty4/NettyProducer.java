@@ -2053,7 +2053,7 @@ argument_list|(
 name|channel
 argument_list|)
 expr_stmt|;
-comment|// if connectionless send is true we don't do a connect.
+comment|// if udp connectionless sending is true we don't do a connect.
 comment|// we just send on the channel created with bind which means
 comment|// really fire and forget. You wont get an PortUnreachableException
 comment|// if no one is listen on the port
@@ -2062,7 +2062,7 @@ condition|(
 operator|!
 name|configuration
 operator|.
-name|isUdpConnectionlessSend
+name|isUdpConnectionlessSending
 argument_list|()
 condition|)
 block|{

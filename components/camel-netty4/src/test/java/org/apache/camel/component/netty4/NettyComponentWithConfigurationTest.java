@@ -347,7 +347,7 @@ name|comp
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"netty4://udp://localhost:8602?sync=false&udpConnectionlessSend=true"
+literal|"netty4://udp://localhost:8602?sync=false&udpConnectionlessSending=true"
 argument_list|)
 decl_stmt|;
 comment|// should not be same
@@ -408,7 +408,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|isUdpConnectionlessSend
+name|isUdpConnectionlessSending
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -421,7 +421,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|isUdpConnectionlessSend
+name|isUdpConnectionlessSending
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -524,12 +524,10 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|udpConnectionlessSend
+DECL|field|udpConnectionlessSending
 specifier|private
 name|boolean
-name|udpConnectionlessSend
-init|=
-literal|false
+name|udpConnectionlessSending
 decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
@@ -2316,30 +2314,30 @@ operator|=
 name|producerPoolEnabled
 expr_stmt|;
 block|}
-DECL|method|isUdpConnectionlessSend ()
+DECL|method|isUdpConnectionlessSending ()
 specifier|public
 name|boolean
-name|isUdpConnectionlessSend
+name|isUdpConnectionlessSending
 parameter_list|()
 block|{
 return|return
-name|udpConnectionlessSend
+name|udpConnectionlessSending
 return|;
 block|}
-DECL|method|setUdpConnectionlessSend (boolean udpConnectionlessSend)
+DECL|method|setUdpConnectionlessSending (boolean udpConnectionlessSending)
 specifier|public
 name|void
-name|setUdpConnectionlessSend
+name|setUdpConnectionlessSending
 parameter_list|(
 name|boolean
-name|udpConnectionlessSend
+name|udpConnectionlessSending
 parameter_list|)
 block|{
 name|this
 operator|.
-name|udpConnectionlessSend
+name|udpConnectionlessSending
 operator|=
-name|udpConnectionlessSend
+name|udpConnectionlessSending
 expr_stmt|;
 block|}
 DECL|method|addToHandlersList (List<T> configured, List<T> handlers, Class<T> handlerType)
