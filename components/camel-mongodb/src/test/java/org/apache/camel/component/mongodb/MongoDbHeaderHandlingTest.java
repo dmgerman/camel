@@ -82,16 +82,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -105,13 +95,11 @@ extends|extends
 name|AbstractMongoDbTest
 block|{
 annotation|@
-name|Ignore
-annotation|@
 name|Test
-DECL|method|testInHeadersTransferredToOut ()
+DECL|method|testInHeadersTransferredToOutOnCount ()
 specifier|public
 name|void
-name|testInHeadersTransferredToOut
+name|testInHeadersTransferredToOutOnCount
 parameter_list|()
 block|{
 comment|// a read operation
@@ -223,9 +211,18 @@ literal|"abc"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// a write operation
+block|}
+annotation|@
+name|Test
+DECL|method|testInHeadersTransferredToOutOnInsert ()
+specifier|public
+name|void
+name|testInHeadersTransferredToOutOnInsert
+parameter_list|()
+block|{
+name|Exchange
 name|result
-operator|=
+init|=
 name|template
 operator|.
 name|request
@@ -273,7 +270,7 @@ expr_stmt|;
 block|}
 block|}
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|assertTrue
 argument_list|(
 name|result

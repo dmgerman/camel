@@ -352,10 +352,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testStoreOid ()
+DECL|method|testStoreOidOnInsert ()
 specifier|public
 name|void
-name|testStoreOid
+name|testStoreOidOnInsert
 parameter_list|()
 throws|throws
 name|Exception
@@ -398,10 +398,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testStoreOids ()
+DECL|method|testStoreOidsOnInsert ()
 specifier|public
 name|void
-name|testStoreOids
+name|testStoreOidsOnInsert
 parameter_list|()
 throws|throws
 name|Exception
@@ -422,7 +422,7 @@ argument_list|()
 decl_stmt|;
 name|List
 argument_list|<
-name|ObjectId
+name|?
 argument_list|>
 name|oids
 init|=
