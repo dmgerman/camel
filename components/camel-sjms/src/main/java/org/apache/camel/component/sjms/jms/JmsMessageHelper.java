@@ -1935,7 +1935,7 @@ name|answer
 operator|=
 name|JmsMessageType
 operator|.
-name|Bytes
+name|Stream
 expr_stmt|;
 block|}
 elseif|else
