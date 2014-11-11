@@ -197,7 +197,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// there should be 6 options
+comment|// there should be 8 options
 name|data
 operator|=
 operator|(
@@ -228,7 +228,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|6
+literal|8
 argument_list|,
 name|data
 operator|.
