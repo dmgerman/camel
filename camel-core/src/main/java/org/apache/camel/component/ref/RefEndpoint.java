@@ -128,7 +128,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|UriParam
+name|UriPath
 import|;
 end_import
 
@@ -170,7 +170,7 @@ name|Endpoint
 name|endpoint
 decl_stmt|;
 annotation|@
-name|UriParam
+name|UriPath
 DECL|field|name
 specifier|private
 name|String
@@ -205,7 +205,7 @@ return|return
 name|name
 return|;
 block|}
-comment|/**      * Name of endpoint to lookup      */
+comment|/**      * Name of endpoint to lookup in the registry.      */
 DECL|method|setName (String name)
 specifier|public
 name|void

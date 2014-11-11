@@ -54,6 +54,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -296,7 +310,7 @@ name|class
 argument_list|)
 decl_stmt|;
 annotation|@
-name|UriParam
+name|UriPath
 DECL|field|resourceUri
 specifier|private
 name|String
@@ -685,6 +699,7 @@ return|return
 name|resourceUri
 return|;
 block|}
+comment|/**      * URL to a local resource on the classpath or a full URL to a remote resource or resource on the file system which contains the XSD to validate against.      */
 DECL|method|setResourceUri (String resourceUri)
 specifier|public
 name|void

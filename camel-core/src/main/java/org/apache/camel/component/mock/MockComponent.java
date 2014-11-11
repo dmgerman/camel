@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory of {@link MockEndpoint} instances  *  * @version   */
+comment|/**  * Component for testing with mock endpoints.  *  * @version   */
 end_comment
 
 begin_class

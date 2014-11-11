@@ -112,6 +112,20 @@ name|UriParam
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
 begin_comment
 comment|/**  * The direct-vm endpoint.  */
 end_comment
@@ -137,6 +151,18 @@ name|DirectVmEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
+annotation|@
+name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"Name of direct-vm endpoint"
+argument_list|)
+DECL|field|name
+specifier|private
+name|String
+name|name
+decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(

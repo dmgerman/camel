@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test Component.  *  * @version   */
+comment|/**  * Component for testing by polling test messages from another endpoint on startup as the expected message bodies to  * receive during testing.  *  * @version   */
 end_comment
 
 begin_class

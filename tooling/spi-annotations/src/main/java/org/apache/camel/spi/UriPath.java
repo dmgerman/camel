@@ -103,7 +103,24 @@ DECL|annotation|UriPath
 specifier|public
 annotation_defn|@interface
 name|UriPath
-block|{ }
+block|{
+comment|/**      * Returns the name of the uri path.      *<p/>      * This can be used to name the uri path something meaningful, such as a<tt>directory</tt>,<tt>queueName</tt> etc.      *<p/>      * If this is not specified then the name of the field or property which has this annotation is used.      */
+DECL|method|name ()
+name|String
+name|name
+parameter_list|()
+default|default
+literal|""
+function_decl|;
+comment|/**      * Returns a description of this uri path      *<p/>      * This is used for documentation and tooling only.      */
+DECL|method|description ()
+name|String
+name|description
+parameter_list|()
+default|default
+literal|""
+function_decl|;
+block|}
 end_annotation_defn
 
 end_unit

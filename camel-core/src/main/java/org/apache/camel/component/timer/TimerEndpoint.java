@@ -184,6 +184,20 @@ name|UriParam
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a timer endpoint that can generate periodic inbound exchanges triggered by a timer.  *  * @version   */
 end_comment
@@ -219,7 +233,7 @@ implements|implements
 name|MultipleConsumersSupport
 block|{
 annotation|@
-name|UriParam
+name|UriPath
 DECL|field|timerName
 specifier|private
 name|String

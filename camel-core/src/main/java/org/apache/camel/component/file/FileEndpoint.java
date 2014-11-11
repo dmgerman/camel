@@ -202,6 +202,11 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|name
+operator|=
+literal|"directoryName"
+argument_list|)
 DECL|field|file
 specifier|private
 name|File
@@ -709,6 +714,7 @@ return|return
 name|file
 return|;
 block|}
+comment|/**      * The starting directory      */
 DECL|method|setFile (File file)
 specifier|public
 name|void

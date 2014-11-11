@@ -204,6 +204,20 @@ name|UriEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
 begin_comment
 comment|/**  * An endpoint which maintains a {@link List} of {@link Exchange} instances  * which can be useful for tooling, debugging and visualising routes.  *  * @version   */
 end_comment
@@ -225,6 +239,18 @@ name|DefaultEndpoint
 implements|implements
 name|BrowsableEndpoint
 block|{
+annotation|@
+name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"A name which can be any string to uniquely identify the endpoint"
+argument_list|)
+DECL|field|name
+specifier|private
+name|String
+name|name
+decl_stmt|;
 DECL|field|exchanges
 specifier|private
 name|List
@@ -369,6 +395,32 @@ expr_stmt|;
 return|return
 name|answer
 return|;
+block|}
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
+block|}
+DECL|method|setName (String name)
+specifier|public
+name|void
+name|setName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|this
+operator|.
+name|name
+operator|=
+name|name
+expr_stmt|;
 block|}
 DECL|method|createExchangeList ()
 specifier|protected

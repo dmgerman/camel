@@ -138,6 +138,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|EndpointHelper
@@ -204,6 +218,18 @@ specifier|private
 specifier|final
 name|Endpoint
 name|expectedMessageEndpoint
+decl_stmt|;
+annotation|@
+name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"Name of endpoint to lookup in the registry to use for polling messages used for testing"
+argument_list|)
+DECL|field|name
+specifier|private
+name|String
+name|name
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -380,6 +406,7 @@ return|return
 name|timeout
 return|;
 block|}
+comment|/**      * The timeout to use when polling for message bodies from the URI      */
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void

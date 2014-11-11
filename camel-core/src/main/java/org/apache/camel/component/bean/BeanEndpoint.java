@@ -96,6 +96,20 @@ name|UriParam
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
 begin_comment
 comment|/**  * Endpoint for the bean component.  *  * @version   */
 end_comment
@@ -121,6 +135,13 @@ name|BeanHolder
 name|beanHolder
 decl_stmt|;
 annotation|@
+name|UriPath
+DECL|field|beanName
+specifier|private
+name|String
+name|beanName
+decl_stmt|;
+annotation|@
 name|UriParam
 argument_list|(
 name|defaultValue
@@ -143,13 +164,6 @@ DECL|field|multiParameterArray
 specifier|private
 name|boolean
 name|multiParameterArray
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|beanName
-specifier|private
-name|String
-name|beanName
 decl_stmt|;
 annotation|@
 name|UriParam

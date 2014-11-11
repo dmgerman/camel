@@ -156,13 +156,6 @@ argument_list|(
 literal|9
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|lan
-operator|!=
-literal|null
-condition|)
-block|{
 name|answer
 operator|.
 name|setLanguage
@@ -176,19 +169,6 @@ name|lan
 argument_list|)
 argument_list|)
 expr_stmt|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Language must be configured in endpoint uri: "
-operator|+
-name|uri
-argument_list|)
-throw|;
-block|}
 block|}
 name|setProperties
 argument_list|(
