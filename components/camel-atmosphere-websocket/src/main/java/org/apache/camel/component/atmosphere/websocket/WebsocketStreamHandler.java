@@ -152,7 +152,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"processing reader message {}"
 argument_list|,
@@ -180,7 +180,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"reader message sent"
 argument_list|)
@@ -208,7 +208,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"processing inputstream message {}"
 argument_list|,
@@ -236,7 +236,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"reader message sent"
 argument_list|)

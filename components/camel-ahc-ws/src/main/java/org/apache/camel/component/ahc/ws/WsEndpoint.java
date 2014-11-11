@@ -799,7 +799,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"websocket opened"
 argument_list|)
@@ -818,7 +818,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"websocket closed"
 argument_list|)
@@ -859,7 +859,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"received message --> {}"
 argument_list|,
@@ -902,13 +902,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isInfoEnabled
+name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"received fragment({}) --> {}"
 argument_list|,
@@ -999,7 +999,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"received message --> {}"
 argument_list|,
@@ -1041,13 +1041,13 @@ if|if
 condition|(
 name|LOG
 operator|.
-name|isInfoEnabled
+name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"received fragment({}) --> {}"
 argument_list|,

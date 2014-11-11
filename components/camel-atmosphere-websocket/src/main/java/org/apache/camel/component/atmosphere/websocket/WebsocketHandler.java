@@ -183,7 +183,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"closing websocket"
 argument_list|)
@@ -197,7 +197,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"websocket closed"
 argument_list|)
@@ -240,7 +240,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"opening websocket"
 argument_list|)
@@ -267,7 +267,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"websocket opened"
 argument_list|)
@@ -292,7 +292,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"processing text message {}"
 argument_list|,
@@ -320,7 +320,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"text message sent"
 argument_list|)
@@ -355,7 +355,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"processing byte message {}"
 argument_list|,
@@ -424,7 +424,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"byte message sent"
 argument_list|)
