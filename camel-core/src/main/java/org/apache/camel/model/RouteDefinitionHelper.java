@@ -2091,6 +2091,23 @@ name|e
 argument_list|)
 throw|;
 block|}
+name|boolean
+name|isRefPattern
+init|=
+name|pattern
+operator|.
+name|startsWith
+argument_list|(
+literal|"ref*"
+argument_list|)
+operator|||
+name|pattern
+operator|.
+name|startsWith
+argument_list|(
+literal|"ref:"
+argument_list|)
+decl_stmt|;
 name|match
 operator|=
 literal|false
@@ -2115,6 +2132,13 @@ operator|.
 name|getUri
 argument_list|()
 decl_stmt|;
+comment|// if the pattern is not a ref itself, then resolve the ref uris, so we can match the actual uri's with each other
+if|if
+condition|(
+operator|!
+name|isRefPattern
+condition|)
+block|{
 if|if
 condition|(
 name|uri
@@ -2130,6 +2154,16 @@ argument_list|)
 condition|)
 block|{
 comment|// its a ref: so lookup the endpoint to get its url
+name|String
+name|ref
+init|=
+name|uri
+operator|.
+name|substring
+argument_list|(
+literal|4
+argument_list|)
+decl_stmt|;
 name|uri
 operator|=
 name|CamelContextHelper
@@ -2138,7 +2172,7 @@ name|getMandatoryEndpoint
 argument_list|(
 name|context
 argument_list|,
-name|uri
+name|ref
 argument_list|)
 operator|.
 name|getEndpointUri
@@ -2165,8 +2199,6 @@ name|getMandatoryEndpoint
 argument_list|(
 name|context
 argument_list|,
-literal|"ref:"
-operator|+
 name|input
 operator|.
 name|getRef
@@ -2176,6 +2208,7 @@ operator|.
 name|getEndpointUri
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

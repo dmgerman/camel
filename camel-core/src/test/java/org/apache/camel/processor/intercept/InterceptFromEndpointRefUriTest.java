@@ -97,7 +97,6 @@ extends|extends
 name|ContextTestSupport
 block|{
 DECL|field|reg
-specifier|private
 name|SimpleRegistry
 name|reg
 init|=

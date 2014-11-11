@@ -444,7 +444,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|3
+literal|4
 argument_list|,
 name|set
 operator|.
@@ -468,7 +468,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|3
+literal|4
 condition|;
 name|i
 operator|++
@@ -525,6 +525,13 @@ operator|.
 name|equals
 argument_list|(
 literal|"direct://start"
+argument_list|)
+operator|||
+name|uri
+operator|.
+name|equals
+argument_list|(
+literal|"ref://foo"
 argument_list|)
 operator|||
 name|uri

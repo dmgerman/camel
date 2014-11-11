@@ -269,11 +269,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|doStart
-argument_list|()
-expr_stmt|;
 name|endpoint
 operator|=
 name|CamelContextHelper
@@ -289,6 +284,20 @@ name|Endpoint
 operator|.
 name|class
 argument_list|)
+expr_stmt|;
+comment|// add the endpoint as a service so Camel can manage the endpoint and enlist the endpoint in JMX etc.
+name|getCamelContext
+argument_list|()
+operator|.
+name|addService
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|doStart
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
