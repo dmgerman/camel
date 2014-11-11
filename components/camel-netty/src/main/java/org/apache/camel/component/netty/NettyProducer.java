@@ -2306,28 +2306,6 @@ argument_list|(
 name|pipelineFactory
 argument_list|)
 expr_stmt|;
-comment|// bind and store channel so we can close it when stopping
-name|Channel
-name|channel
-init|=
-name|connectionlessClientBootstrap
-operator|.
-name|bind
-argument_list|(
-operator|new
-name|InetSocketAddress
-argument_list|(
-literal|0
-argument_list|)
-argument_list|)
-decl_stmt|;
-name|allChannels
-operator|.
-name|add
-argument_list|(
-name|channel
-argument_list|)
-expr_stmt|;
 comment|// if udp connectionless sending is true we don't do a connect.
 comment|// we just send on the channel created with bind which means
 comment|// really fire and forget. You wont get an PortUnreachableException
@@ -2365,6 +2343,28 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// bind and store channel so we can close it when stopping
+name|Channel
+name|channel
+init|=
+name|connectionlessClientBootstrap
+operator|.
+name|bind
+argument_list|(
+operator|new
+name|InetSocketAddress
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|allChannels
+operator|.
+name|add
+argument_list|(
+name|channel
+argument_list|)
+expr_stmt|;
 name|answer
 operator|=
 operator|new
