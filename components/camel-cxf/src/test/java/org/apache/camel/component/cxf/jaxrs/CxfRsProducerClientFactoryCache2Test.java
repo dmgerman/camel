@@ -392,12 +392,13 @@ name|int
 name|clientPort
 parameter_list|)
 block|{
+comment|// use request as we want InOut
 name|Exchange
 name|exchange
 init|=
 name|template
 operator|.
-name|send
+name|request
 argument_list|(
 literal|"direct://http"
 argument_list|,
