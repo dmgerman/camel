@@ -460,6 +460,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|converter
 specifier|private
+specifier|final
 name|XmlConverter
 name|converter
 init|=
