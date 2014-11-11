@@ -375,6 +375,25 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|JmsComponent (Class<? extends Endpoint> endpointClass)
+specifier|public
+name|JmsComponent
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Endpoint
+argument_list|>
+name|endpointClass
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointClass
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|JmsComponent (CamelContext context)
 specifier|public
 name|JmsComponent
@@ -390,6 +409,30 @@ argument_list|,
 name|JmsEndpoint
 operator|.
 name|class
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|JmsComponent (CamelContext context, Class<? extends Endpoint> endpointClass)
+specifier|public
+name|JmsComponent
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Endpoint
+argument_list|>
+name|endpointClass
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|context
+argument_list|,
+name|endpointClass
 argument_list|)
 expr_stmt|;
 block|}
