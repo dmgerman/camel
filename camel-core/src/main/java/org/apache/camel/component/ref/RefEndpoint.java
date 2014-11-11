@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|DelegateEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -148,6 +160,8 @@ class|class
 name|RefEndpoint
 extends|extends
 name|DefaultEndpoint
+implements|implements
+name|DelegateEndpoint
 block|{
 DECL|field|endpoint
 specifier|private
@@ -257,6 +271,18 @@ parameter_list|()
 block|{
 return|return
 literal|true
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getEndpoint ()
+specifier|public
+name|Endpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+name|endpoint
 return|;
 block|}
 annotation|@
