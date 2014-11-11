@@ -102,6 +102,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangePattern
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -115,6 +127,20 @@ operator|.
 name|camel
 operator|.
 name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultEndpoint
 import|;
 end_import
 
@@ -315,6 +341,12 @@ specifier|final
 name|ProducerCache
 name|producerCache
 decl_stmt|;
+DECL|field|originalExchangePattern
+specifier|private
+specifier|final
+name|ExchangePattern
+name|originalExchangePattern
+decl_stmt|;
 DECL|method|RecipientProcessorExchangePair (int index, ProducerCache producerCache, Endpoint endpoint, Producer producer, Processor prepared, Exchange exchange)
 specifier|private
 name|RecipientProcessorExchangePair
@@ -373,6 +405,15 @@ operator|.
 name|exchange
 operator|=
 name|exchange
+expr_stmt|;
+name|this
+operator|.
+name|originalExchangePattern
+operator|=
+name|exchange
+operator|.
+name|getPattern
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getIndex ()
@@ -458,6 +499,65 @@ name|getIn
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// if the MEP on the endpoint is different then
+if|if
+condition|(
+name|endpoint
+operator|instanceof
+name|DefaultEndpoint
+condition|)
+block|{
+name|ExchangePattern
+name|pattern
+init|=
+operator|(
+operator|(
+name|DefaultEndpoint
+operator|)
+name|endpoint
+operator|)
+operator|.
+name|getExchangePattern
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|pattern
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|pattern
+operator|.
+name|equals
+argument_list|(
+name|exchange
+operator|.
+name|getPattern
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Using exchangePattern: {} on exchange: {}"
+argument_list|,
+name|pattern
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|setPattern
+argument_list|(
+name|pattern
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|done ()
 specifier|public
@@ -476,9 +576,17 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// when we are done we should release back in pool
 try|try
 block|{
+comment|// preserve original MEP
+name|exchange
+operator|.
+name|setPattern
+argument_list|(
+name|originalExchangePattern
+argument_list|)
+expr_stmt|;
+comment|// when we are done we should release back in pool
 name|producerCache
 operator|.
 name|releaseProducer
