@@ -2002,16 +2002,6 @@ name|getEnclosedElements
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|fieldElements
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-break|break;
-block|}
 for|for
 control|(
 name|VariableElement
