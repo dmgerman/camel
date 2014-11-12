@@ -439,6 +439,8 @@ index|[]
 block|{
 literal|"option"
 block|,
+literal|"kind"
+block|,
 literal|"type"
 block|,
 literal|"java type"
@@ -475,6 +477,8 @@ index|[]
 block|{
 literal|"option"
 block|,
+literal|"kind"
+block|,
 literal|"type"
 block|,
 literal|"java type"
@@ -492,6 +496,8 @@ index|[]
 block|{
 literal|"Option"
 block|,
+literal|"Kind"
+block|,
 literal|"Type"
 block|,
 literal|"Java Type"
@@ -507,6 +513,10 @@ operator|new
 name|OpenType
 index|[]
 block|{
+name|SimpleType
+operator|.
+name|STRING
+block|,
 name|SimpleType
 operator|.
 name|STRING

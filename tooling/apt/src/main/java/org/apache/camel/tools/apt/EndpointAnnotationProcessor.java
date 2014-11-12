@@ -1342,12 +1342,11 @@ argument_list|(
 literal|"\n  },"
 argument_list|)
 expr_stmt|;
-comment|// endpoint paths
 name|buffer
 operator|.
 name|append
 argument_list|(
-literal|"\n  \"endpointPaths\": {"
+literal|"\n  \"properties\": {"
 argument_list|)
 expr_stmt|;
 name|boolean
@@ -1355,6 +1354,7 @@ name|first
 init|=
 literal|true
 decl_stmt|;
+comment|// include paths in the top
 for|for
 control|(
 name|EndpointPath
@@ -1403,6 +1403,8 @@ operator|.
 name|getName
 argument_list|()
 argument_list|,
+literal|"path"
+argument_list|,
 name|path
 operator|.
 name|getType
@@ -1422,25 +1424,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|buffer
-operator|.
-name|append
-argument_list|(
-literal|"\n  },"
-argument_list|)
-expr_stmt|;
-comment|// endpoint properties was named properties at first, and hence we stick with that naming to be compatible
-name|buffer
-operator|.
-name|append
-argument_list|(
-literal|"\n  \"properties\": {"
-argument_list|)
-expr_stmt|;
-name|first
-operator|=
-literal|true
-expr_stmt|;
+comment|// and then regular parameter options
 for|for
 control|(
 name|EndpointOption
@@ -1506,6 +1490,8 @@ name|entry
 operator|.
 name|getName
 argument_list|()
+argument_list|,
+literal|"parameter"
 argument_list|,
 name|entry
 operator|.
@@ -1701,6 +1687,13 @@ name|writer
 operator|.
 name|println
 argument_list|(
+literal|"<th>Kind</th>"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|println
+argument_list|(
 literal|"<th>Type</th>"
 argument_list|)
 expr_stmt|;
@@ -1732,6 +1725,7 @@ argument_list|(
 literal|"</tr>"
 argument_list|)
 expr_stmt|;
+comment|// include paths in the top
 for|for
 control|(
 name|EndpointPath
@@ -1758,8 +1752,6 @@ operator|.
 name|getName
 argument_list|()
 operator|+
-literal|" (<i>endpoint path</i>) "
-operator|+
 literal|"</td>"
 argument_list|)
 expr_stmt|;
@@ -1782,6 +1774,8 @@ operator|.
 name|println
 argument_list|(
 literal|"<td>"
+operator|+
+literal|"path"
 operator|+
 literal|"</td>"
 argument_list|)
@@ -1817,6 +1811,7 @@ literal|"</tr>"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// and then regular parameter options
 for|for
 control|(
 name|EndpointOption
@@ -1856,6 +1851,17 @@ name|option
 operator|.
 name|getType
 argument_list|()
+operator|+
+literal|"</td>"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|println
+argument_list|(
+literal|"<td>"
+operator|+
+literal|"parameter"
 operator|+
 literal|"</td>"
 argument_list|)
@@ -3059,7 +3065,6 @@ name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// check the rounding env first
 name|baseTypeElement
 operator|=
 name|findTypeElement
@@ -3069,78 +3074,6 @@ argument_list|,
 name|superClassName
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|baseTypeElement
-operator|==
-literal|null
-condition|)
-block|{
-comment|// okay not found in rounding env, that means this component extends another component from another JAR
-comment|// so we need to find it using the package name instead of in the rounding environment
-name|int
-name|idx
-init|=
-name|superClassName
-operator|.
-name|lastIndexOf
-argument_list|(
-literal|'.'
-argument_list|)
-decl_stmt|;
-name|String
-name|name
-init|=
-name|superClassName
-operator|.
-name|substring
-argument_list|(
-literal|0
-argument_list|,
-name|idx
-argument_list|)
-decl_stmt|;
-comment|// skip java.lang package
-if|if
-condition|(
-operator|!
-literal|"java.lang"
-operator|.
-name|equals
-argument_list|(
-name|name
-argument_list|)
-condition|)
-block|{
-name|PackageElement
-name|pe
-init|=
-name|elementUtils
-operator|.
-name|getPackageElement
-argument_list|(
-name|name
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|pe
-operator|!=
-literal|null
-condition|)
-block|{
-name|baseTypeElement
-operator|=
-name|findTypeElement
-argument_list|(
-name|pe
-argument_list|,
-name|superClassName
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
 block|}
 if|if
 condition|(
@@ -3174,13 +3107,11 @@ parameter_list|)
 block|{
 if|if
 condition|(
-operator|!
 name|isNullOrEmpty
 argument_list|(
 name|className
 argument_list|)
-operator|&&
-operator|!
+operator|||
 literal|"java.lang.Object"
 operator|.
 name|equals
@@ -3189,6 +3120,10 @@ name|className
 argument_list|)
 condition|)
 block|{
+return|return
+literal|null
+return|;
+block|}
 name|Set
 argument_list|<
 name|?
@@ -3255,38 +3190,59 @@ return|;
 block|}
 block|}
 block|}
-block|}
-return|return
-literal|null
-return|;
-block|}
-DECL|method|findTypeElement (PackageElement element, String className)
-specifier|protected
-name|TypeElement
-name|findTypeElement
-parameter_list|(
-name|PackageElement
-name|element
-parameter_list|,
-name|String
+comment|// fallback using package name
+name|Elements
+name|elementUtils
+init|=
+name|processingEnv
+operator|.
+name|getElementUtils
+argument_list|()
+decl_stmt|;
+name|int
+name|idx
+init|=
 name|className
-parameter_list|)
-block|{
+operator|.
+name|lastIndexOf
+argument_list|(
+literal|'.'
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-operator|!
-name|isNullOrEmpty
-argument_list|(
+name|idx
+operator|>
+literal|0
+condition|)
+block|{
+name|String
+name|packageName
+init|=
 name|className
-argument_list|)
-operator|&&
-operator|!
-literal|"java.lang.Object"
 operator|.
-name|equals
+name|substring
 argument_list|(
-name|className
+literal|0
+argument_list|,
+name|idx
 argument_list|)
+decl_stmt|;
+name|PackageElement
+name|pe
+init|=
+name|elementUtils
+operator|.
+name|getPackageElement
+argument_list|(
+name|packageName
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|pe
+operator|!=
+literal|null
 condition|)
 block|{
 name|List
@@ -3295,9 +3251,9 @@ name|?
 extends|extends
 name|Element
 argument_list|>
-name|rootElements
+name|enclosedElements
 init|=
-name|element
+name|pe
 operator|.
 name|getEnclosedElements
 argument_list|()
@@ -3307,7 +3263,7 @@ control|(
 name|Element
 name|rootElement
 range|:
-name|rootElements
+name|enclosedElements
 control|)
 block|{
 if|if
@@ -3352,6 +3308,7 @@ block|{
 return|return
 name|typeElement
 return|;
+block|}
 block|}
 block|}
 block|}

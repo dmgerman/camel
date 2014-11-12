@@ -492,13 +492,23 @@ name|rows
 control|)
 block|{
 name|String
-name|option
+name|name
 init|=
 name|row
 operator|.
 name|get
 argument_list|(
 literal|"name"
+argument_list|)
+decl_stmt|;
+name|String
+name|kind
+init|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"kind"
 argument_list|)
 decl_stmt|;
 name|String
@@ -606,6 +616,8 @@ index|[]
 block|{
 literal|"option"
 block|,
+literal|"kind"
+block|,
 literal|"type"
 block|,
 literal|"java type"
@@ -621,7 +633,9 @@ operator|new
 name|Object
 index|[]
 block|{
-name|option
+name|name
+block|,
+name|kind
 block|,
 name|type
 block|,

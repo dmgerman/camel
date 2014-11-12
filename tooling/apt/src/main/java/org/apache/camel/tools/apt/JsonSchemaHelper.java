@@ -72,7 +72,7 @@ specifier|private
 name|JsonSchemaHelper
 parameter_list|()
 block|{     }
-DECL|method|toJson (String name, String type, String defaultValue, String description, boolean enumType, Set<String> enums)
+DECL|method|toJson (String name, String kind, String type, String defaultValue, String description, boolean enumType, Set<String> enums)
 specifier|public
 specifier|static
 name|String
@@ -80,6 +80,9 @@ name|toJson
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|String
+name|kind
 parameter_list|,
 name|String
 name|type
@@ -135,7 +138,26 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|": { \"type\": "
+literal|": { \"kind\": "
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|Strings
+operator|.
+name|doubleQuote
+argument_list|(
+name|kind
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", \"type\": "
 argument_list|)
 expr_stmt|;
 if|if

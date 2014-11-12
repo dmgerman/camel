@@ -6659,6 +6659,7 @@ name|javaType
 parameter_list|)
 block|{
 comment|// special for some components
+comment|// TODO: ActiveMQ 5.11 will include this out of the box, so not needed when its released
 if|if
 condition|(
 literal|"org.apache.activemq.camel.component.ActiveMQComponent"
@@ -7405,6 +7406,11 @@ init|=
 literal|null
 decl_stmt|;
 name|String
+name|kind
+init|=
+literal|null
+decl_stmt|;
+name|String
 name|javaType
 init|=
 literal|null
@@ -7456,6 +7462,15 @@ argument_list|(
 literal|"type"
 argument_list|)
 expr_stmt|;
+name|kind
+operator|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"kind"
+argument_list|)
+expr_stmt|;
 name|javaType
 operator|=
 name|row
@@ -7499,6 +7514,8 @@ index|[]
 block|{
 name|name
 block|,
+name|kind
+block|,
 name|type
 block|,
 name|javaType
@@ -7539,6 +7556,16 @@ operator|.
 name|get
 argument_list|(
 literal|"name"
+argument_list|)
+decl_stmt|;
+name|String
+name|kind
+init|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"kind"
 argument_list|)
 decl_stmt|;
 name|String
@@ -7624,6 +7651,8 @@ index|[]
 block|{
 name|name
 block|,
+name|kind
+block|,
 name|type
 block|,
 name|javaType
@@ -7701,7 +7730,7 @@ literal|0
 index|]
 decl_stmt|;
 name|String
-name|type
+name|kind
 init|=
 name|row
 index|[
@@ -7709,7 +7738,7 @@ literal|1
 index|]
 decl_stmt|;
 name|String
-name|javaType
+name|type
 init|=
 name|row
 index|[
@@ -7717,7 +7746,7 @@ literal|2
 index|]
 decl_stmt|;
 name|String
-name|value
+name|javaType
 init|=
 name|row
 index|[
@@ -7725,7 +7754,7 @@ literal|3
 index|]
 decl_stmt|;
 name|String
-name|defaultValue
+name|value
 init|=
 name|row
 index|[
@@ -7733,11 +7762,19 @@ literal|4
 index|]
 decl_stmt|;
 name|String
-name|description
+name|defaultValue
 init|=
 name|row
 index|[
 literal|5
+index|]
+decl_stmt|;
+name|String
+name|description
+init|=
+name|row
+index|[
+literal|6
 index|]
 decl_stmt|;
 comment|// add json of the option
@@ -7760,6 +7797,25 @@ operator|new
 name|CollectionStringBuffer
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|kind
+operator|!=
+literal|null
+condition|)
+block|{
+name|csb
+operator|.
+name|append
+argument_list|(
+literal|"\"kind\": \""
+operator|+
+name|kind
+operator|+
+literal|"\""
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|type
