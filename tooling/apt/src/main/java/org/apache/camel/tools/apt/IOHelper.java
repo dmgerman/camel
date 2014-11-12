@@ -70,6 +70,7 @@ end_import
 
 begin_class
 DECL|class|IOHelper
+specifier|final
 class|class
 name|IOHelper
 block|{
