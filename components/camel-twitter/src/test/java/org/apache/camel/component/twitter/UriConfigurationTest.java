@@ -470,7 +470,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"accessToken\": { \"type\": \"string\""
+literal|"\"accessToken\": { \"kind\": \"parameter\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -480,7 +480,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"consumerKey\": { \"type\": \"string\""
+literal|"\"consumerKey\": { \"kind\": \"parameter\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
