@@ -174,6 +174,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|IOHelper
@@ -258,7 +272,12 @@ index|[]
 name|buffer
 decl_stmt|;
 annotation|@
-name|UriParam
+name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"path to the resource"
+argument_list|)
 DECL|field|resourceUri
 specifier|private
 name|String
