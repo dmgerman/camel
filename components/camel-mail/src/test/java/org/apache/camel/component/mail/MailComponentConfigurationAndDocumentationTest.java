@@ -238,7 +238,7 @@ name|context
 operator|.
 name|getComponentDocumentation
 argument_list|(
-literal|"mail"
+literal|"smtp"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
