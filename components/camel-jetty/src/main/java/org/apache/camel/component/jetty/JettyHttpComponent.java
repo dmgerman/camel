@@ -5954,6 +5954,21 @@ operator|instanceof
 name|HandlerWrapper
 condition|)
 block|{
+comment|// avoid setting the security handler more than once
+if|if
+condition|(
+operator|!
+name|handler
+operator|.
+name|equals
+argument_list|(
+name|server
+operator|.
+name|getHandler
+argument_list|()
+argument_list|)
+condition|)
+block|{
 operator|(
 operator|(
 name|HandlerWrapper
@@ -5976,6 +5991,7 @@ argument_list|(
 name|handler
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{

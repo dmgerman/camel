@@ -456,6 +456,28 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
+name|out
+operator|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+literal|"http://localhost:{{port}}/anotherTest"
+argument_list|,
+literal|"Hello World"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"See you later"
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -605,6 +627,19 @@ argument_list|(
 name|constant
 argument_list|(
 literal|"Bye World"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"jetty://http://localhost:{{port}}/anotherTest?handlers=myAuthHandler"
+argument_list|)
+operator|.
+name|transform
+argument_list|(
+name|constant
+argument_list|(
+literal|"See you later"
 argument_list|)
 argument_list|)
 expr_stmt|;
