@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"preloadSize\": { \"type\": \"integer\""
+literal|"\"preloadSize\": { \"kind\": \"parameter\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"minRate\": { \"type\": \"integer\""
+literal|"\"minRate\": { \"kind\": \"parameter\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -203,7 +203,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"exchangePattern\": { \"type\": \"string\", \"javaType\": \"org.apache.camel.ExchangePattern\""
+literal|"\"exchangePattern\": { \"kind\": \"parameter\", \"type\": \"string\", \"javaType\": \"org.apache.camel.ExchangePattern\""
 operator|+
 literal|", \"enum\": [ \"InOnly\", \"RobustInOnly\", \"InOut\", \"InOptionalOut\", \"OutOnly\", \"RobustOutOnly\", \"OutIn\", \"OutOptionalIn\" ]"
 argument_list|)

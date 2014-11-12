@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"level\": { \"type\": \"string\""
+literal|"\"level\": { \"kind\": \"parameter\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"groupInterval\": { \"type\": \"integer\""
+literal|"\"groupInterval\": { \"kind\": \"parameter\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;

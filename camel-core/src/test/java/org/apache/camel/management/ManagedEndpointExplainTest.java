@@ -157,7 +157,7 @@ name|on
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// there should be 3 options
+comment|// there should be 3 parameters + 1 path = 4
 name|TabularData
 name|data
 init|=
@@ -189,7 +189,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|3
+literal|4
 argument_list|,
 name|data
 operator|.
@@ -197,7 +197,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// there should be 8 options
+comment|// there should be 10 in total
 name|data
 operator|=
 operator|(
@@ -228,7 +228,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|9
+literal|10
 argument_list|,
 name|data
 operator|.

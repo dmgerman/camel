@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timerName\": { \"type\": \"string\", \"javaType\": \"java.lang.String\", \"description\": \"The name of the timer\" }"
+literal|"\"timerName\": { \"kind\": \"path\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"description\": \"The name of the timer\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"delay\": { \"type\": \"integer\""
+literal|"\"delay\": { \"kind\": \"parameter\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;

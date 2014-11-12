@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"contentCache\": { \"type\": \"boolean\", \"javaType\": \"boolean\", \"defaultValue\": \"true\" }"
+literal|"\"contentCache\": { \"kind\": \"parameter\", \"type\": \"boolean\", \"javaType\": \"boolean\", \"defaultValue\": \"true\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"synchronous\": { \"type\": \"boolean\""
+literal|"\"synchronous\": { \"kind\": \"parameter\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

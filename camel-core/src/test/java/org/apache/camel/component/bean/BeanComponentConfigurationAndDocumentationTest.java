@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"method\": { \"type\": \"string\""
+literal|"\"method\": { \"kind\": \"parameter\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"cache\": { \"type\": \"boolean\""
+literal|"\"cache\": { \"kind\": \"parameter\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

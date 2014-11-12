@@ -1532,7 +1532,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|4
+literal|5
 argument_list|,
 name|StringHelper
 operator|.
@@ -1546,7 +1546,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|4
+literal|5
 argument_list|,
 name|StringHelper
 operator|.
@@ -1564,7 +1564,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"groupDelay\": { \"type\": \"integer\", \"javaType\": \"java.lang.Long\", \"value\": \"2000\","
+literal|"\"groupDelay\": { \"kind\": \"parameter\", \"type\": \"integer\", \"javaType\": \"java.lang.Long\", \"value\": \"2000\","
 operator|+
 literal|" \"description\": \"Set the initial delay for stats (in millis)\" },"
 argument_list|)
@@ -1576,9 +1576,21 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"groupSize\": { \"type\": \"integer\", \"javaType\": \"java.lang.Integer\", \"value\": \"5\","
+literal|"\"groupSize\": { \"kind\": \"parameter\", \"type\": \"integer\", \"javaType\": \"java.lang.Integer\", \"value\": \"5\","
 operator|+
 literal|" \"description\": \"An integer that specifies a group size for throughput logging.\" }"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"loggerName\": { \"kind\": \"path\", \"type\": \"string\", \"javaType\": \"java.lang.String\","
+operator|+
+literal|" \"value\": \"foo\", \"description\": \"The logger name to use\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
