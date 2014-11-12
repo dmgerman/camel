@@ -183,16 +183,6 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timerName\": { \"type\": \"string\""
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
 literal|"\"delay\": { \"type\": \"integer\""
 argument_list|)
 argument_list|)

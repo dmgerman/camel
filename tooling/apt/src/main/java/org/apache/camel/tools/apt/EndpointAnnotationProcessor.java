@@ -1410,7 +1410,7 @@ name|buffer
 operator|.
 name|append
 argument_list|(
-literal|"\n  }"
+literal|"\n  },"
 argument_list|)
 expr_stmt|;
 comment|// endpoint properties was named properties at first, and hence we stick with that naming to be compatible
