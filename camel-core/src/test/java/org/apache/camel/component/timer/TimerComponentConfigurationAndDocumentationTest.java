@@ -183,6 +183,16 @@ name|json
 operator|.
 name|contains
 argument_list|(
+literal|"\"timerName\": { \"type\": \"string\", \"javaType\": \"java.lang.String\", \"description\": \"The name of the timer\" }"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
 literal|"\"delay\": { \"type\": \"integer\""
 argument_list|)
 argument_list|)
