@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"contentCache\": { \"type\": \"boolean\", \"javaType\": \"boolean\" }"
+literal|"\"contentCache\": { \"type\": \"boolean\", \"javaType\": \"boolean\", \"defaultValue\": \"true\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
