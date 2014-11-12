@@ -280,7 +280,7 @@ name|UriEndpoint
 argument_list|(
 name|scheme
 operator|=
-literal|"http"
+literal|"http,https"
 argument_list|,
 name|consumerClass
 operator|=
