@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A type converter which is used to convert from String to enum type  * @version   */
+comment|/**  * A type converter which is used to convert from String to enum type  */
 end_comment
 
 begin_class
@@ -140,6 +140,56 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
+name|Class
+argument_list|<
+name|Enum
+argument_list|>
+name|enumClass
+init|=
+operator|(
+name|Class
+argument_list|<
+name|Enum
+argument_list|>
+operator|)
+name|type
+decl_stmt|;
+comment|// we want to match case insensitive for enums
+for|for
+control|(
+name|Enum
+name|enumValue
+range|:
+name|enumClass
+operator|.
+name|getEnumConstants
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|enumValue
+operator|.
+name|name
+argument_list|()
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+return|return
+name|type
+operator|.
+name|cast
+argument_list|(
+name|enumValue
+argument_list|)
+return|;
+block|}
+block|}
+comment|// fallback to the JDK valueOf which is case-sensitive and throws exception if not found
 name|Method
 name|method
 decl_stmt|;
