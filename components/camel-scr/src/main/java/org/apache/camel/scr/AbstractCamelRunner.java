@@ -1378,11 +1378,13 @@ range|:
 name|fields
 control|)
 block|{
-try|try
-block|{
 name|String
 name|propertyValue
-init|=
+decl_stmt|;
+try|try
+block|{
+name|propertyValue
+operator|=
 name|context
 operator|.
 name|resolvePropertyPlaceholders
@@ -1396,7 +1398,30 @@ argument_list|()
 operator|+
 literal|"}}"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Skipped field {}"
+argument_list|,
+name|field
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
+try|try
+block|{
 if|if
 condition|(
 operator|!
@@ -1435,7 +1460,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Set field {} with value {}"
+literal|"Configured field {} with value {}"
 argument_list|,
 name|field
 operator|.
@@ -1455,7 +1480,7 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|debug
+name|error
 argument_list|(
 literal|"Error setting field "
 operator|+
@@ -1472,6 +1497,8 @@ name|getMessage
 argument_list|()
 operator|+
 literal|". This exception is ignored."
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1742,7 +1769,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unknown type: "
+literal|"Unsupported type: "
 operator|+
 operator|(
 name|clazz
