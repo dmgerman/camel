@@ -397,6 +397,20 @@ return|return
 literal|"enum"
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|type
+operator|==
+literal|null
+condition|)
+block|{
+comment|// return generic type for unknown type
+return|return
+literal|"object"
+return|;
+block|}
+elseif|else
 if|if
 condition|(
 name|type
