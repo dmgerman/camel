@@ -32,6 +32,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashMap
@@ -251,7 +261,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://camel.apache.org/http.html">HTTP  * Component</a>  *  * @version   */
+comment|/**  * The<a href="http://camel.apache.org/http.html">HTTP Component</a>  *  * @version   */
 end_comment
 
 begin_class
@@ -1432,8 +1442,7 @@ comment|// create the endpoint and connectionManagerParams already be set
 name|HttpEndpoint
 name|endpoint
 init|=
-operator|new
-name|HttpEndpoint
+name|createHttpEndpoint
 argument_list|(
 name|endpointUri
 operator|.
@@ -1748,6 +1757,45 @@ argument_list|)
 expr_stmt|;
 return|return
 name|endpoint
+return|;
+block|}
+DECL|method|createHttpEndpoint (String uri, HttpComponent component, HttpClientParams clientParams, HttpConnectionManager connectionManager, HttpClientConfigurer configurer)
+specifier|protected
+name|HttpEndpoint
+name|createHttpEndpoint
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|HttpComponent
+name|component
+parameter_list|,
+name|HttpClientParams
+name|clientParams
+parameter_list|,
+name|HttpConnectionManager
+name|connectionManager
+parameter_list|,
+name|HttpClientConfigurer
+name|configurer
+parameter_list|)
+throws|throws
+name|URISyntaxException
+block|{
+return|return
+operator|new
+name|HttpEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|component
+argument_list|,
+name|clientParams
+argument_list|,
+name|connectionManager
+argument_list|,
+name|configurer
+argument_list|)
 return|;
 block|}
 annotation|@

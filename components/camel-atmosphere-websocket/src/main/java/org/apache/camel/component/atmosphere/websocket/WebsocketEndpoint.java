@@ -142,6 +142,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|httpclient
@@ -191,6 +205,13 @@ name|WebsocketEndpoint
 extends|extends
 name|ServletEndpoint
 block|{
+annotation|@
+name|UriPath
+DECL|field|servicePath
+specifier|private
+name|String
+name|servicePath
+decl_stmt|;
 DECL|field|store
 specifier|private
 name|WebSocketStore
@@ -198,6 +219,11 @@ name|store
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|sendToAll
 specifier|private
 name|boolean
@@ -205,6 +231,11 @@ name|sendToAll
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|useStreaming
 specifier|private
 name|boolean
@@ -282,17 +313,22 @@ name|endPointURI
 decl_stmt|;
 name|this
 operator|.
+name|servicePath
+operator|=
+name|name
+expr_stmt|;
+name|this
+operator|.
 name|store
 operator|=
 name|component
 operator|.
 name|getWebSocketStore
 argument_list|(
-name|name
+name|servicePath
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.Endpoint#createProducer()      */
 annotation|@
 name|Override
 DECL|method|createProducer ()
@@ -311,7 +347,6 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.Endpoint#createConsumer(org.apache.camel.Processor)      */
 annotation|@
 name|Override
 DECL|method|createConsumer (Processor processor)
@@ -335,7 +370,6 @@ name|processor
 argument_list|)
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.IsSingleton#isSingleton()      */
 annotation|@
 name|Override
 DECL|method|isSingleton ()

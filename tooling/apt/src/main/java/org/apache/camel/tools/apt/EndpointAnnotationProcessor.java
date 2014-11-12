@@ -1460,6 +1460,24 @@ argument_list|(
 literal|"\n    "
 argument_list|)
 expr_stmt|;
+comment|// as its json we need to sanitize the docs
+name|String
+name|doc
+init|=
+name|entry
+operator|.
+name|getDocumentationWithNotes
+argument_list|()
+decl_stmt|;
+name|doc
+operator|=
+name|sanitizeDescription
+argument_list|(
+name|doc
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
 name|buffer
 operator|.
 name|append
@@ -1483,10 +1501,7 @@ operator|.
 name|getDefaultValue
 argument_list|()
 argument_list|,
-name|entry
-operator|.
-name|getDocumentationWithNotes
-argument_list|()
+name|doc
 argument_list|,
 name|entry
 operator|.

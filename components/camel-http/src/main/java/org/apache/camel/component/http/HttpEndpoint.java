@@ -170,6 +170,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -318,6 +332,8 @@ specifier|private
 name|HttpComponent
 name|component
 decl_stmt|;
+annotation|@
+name|UriPath
 DECL|field|httpUri
 specifier|private
 name|URI
@@ -338,6 +354,13 @@ specifier|private
 name|HttpConnectionManager
 name|httpConnectionManager
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|throwExceptionOnFailure
 specifier|private
 name|boolean
@@ -347,6 +370,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|bridgeEndpoint
 specifier|private
 name|boolean
@@ -354,6 +382,11 @@ name|bridgeEndpoint
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|matchOnUriPrefix
 specifier|private
 name|boolean
@@ -361,6 +394,11 @@ name|matchOnUriPrefix
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|chunked
 specifier|private
 name|boolean
@@ -370,6 +408,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|disableStreamCache
 specifier|private
 name|boolean
@@ -405,6 +448,11 @@ name|transferException
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|traceEnabled
 specifier|private
 name|boolean
@@ -1225,6 +1273,7 @@ return|return
 name|httpUri
 return|;
 block|}
+comment|/**      * The url of the HTTP endpoint to call.      */
 DECL|method|setHttpUri (URI httpUri)
 specifier|public
 name|void

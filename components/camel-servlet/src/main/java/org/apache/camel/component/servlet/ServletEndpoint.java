@@ -238,6 +238,7 @@ name|clientConfigurer
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Name of the servlet to use      */
 DECL|method|setServletName (String name)
 specifier|public
 name|void
