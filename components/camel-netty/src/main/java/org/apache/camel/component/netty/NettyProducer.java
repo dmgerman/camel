@@ -1462,14 +1462,9 @@ condition|(
 operator|!
 name|isTcp
 argument_list|()
-operator|&&
-name|configuration
-operator|.
-name|isUdpConnectionlessSending
-argument_list|()
 condition|)
 block|{
-comment|// Need to specify the remoteAddress here
+comment|// Need to specify the remoteAddress for udp connection
 name|remoteAddress
 operator|=
 operator|new
