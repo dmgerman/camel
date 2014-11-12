@@ -567,10 +567,13 @@ argument_list|>
 name|o2
 parameter_list|)
 block|{
-comment|// sort by kind first, then name
+comment|// sort by kind first (need to -1 as we want path on top), then name
 name|int
 name|answer
 init|=
+operator|-
+literal|1
+operator|*
 name|o1
 operator|.
 name|get

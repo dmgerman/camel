@@ -92,6 +92,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Comparator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Date
 import|;
 end_import
@@ -7529,11 +7539,6 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|includeAllOptions
-condition|)
-block|{
 comment|// include other rows
 for|for
 control|(
@@ -7627,6 +7632,51 @@ argument_list|(
 literal|"description"
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+literal|"path"
+operator|.
+name|equals
+argument_list|(
+name|kind
+argument_list|)
+condition|)
+block|{
+comment|// if its the path option then we need to grab the actual value from the uri, which is the remainder path
+name|value
+operator|=
+name|URISupport
+operator|.
+name|extractRemainderPath
+argument_list|(
+name|u
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|value
+operator|=
+name|URISupport
+operator|.
+name|sanitizePath
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+block|}
+comment|// always include path options
+if|if
+condition|(
+name|includeAllOptions
+operator|||
+literal|"path"
+operator|.
+name|equals
+argument_list|(
+name|kind
+argument_list|)
+condition|)
+block|{
 comment|// add as selected row
 if|if
 condition|(
@@ -7786,7 +7836,10 @@ name|doubleQuote
 argument_list|(
 name|name
 argument_list|)
-operator|+
+argument_list|)
+operator|.
+name|append
+argument_list|(
 literal|": { "
 argument_list|)
 expr_stmt|;
