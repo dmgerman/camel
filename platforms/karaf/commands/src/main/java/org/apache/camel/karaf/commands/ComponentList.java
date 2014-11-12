@@ -299,8 +299,6 @@ argument_list|)
 DECL|field|verbose
 name|boolean
 name|verbose
-init|=
-literal|false
 decl_stmt|;
 DECL|method|doExecute ()
 specifier|protected
