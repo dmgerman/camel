@@ -673,6 +673,28 @@ name|scheme
 argument_list|)
 condition|)
 block|{
+comment|// support multiple schemes separated by comma, which maps to the exact same component
+comment|// for example camel-mail has a bunch of component schema names that does that
+name|String
+index|[]
+name|schemes
+init|=
+name|scheme
+operator|.
+name|split
+argument_list|(
+literal|","
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+specifier|final
+name|String
+name|alias
+range|:
+name|schemes
+control|)
+block|{
 comment|// write html documentation
 name|String
 name|name
@@ -708,7 +730,7 @@ decl_stmt|;
 name|String
 name|fileName
 init|=
-name|scheme
+name|alias
 operator|+
 literal|".html"
 decl_stmt|;
@@ -748,6 +770,8 @@ argument_list|,
 name|classElement
 argument_list|,
 name|uriEndpoint
+argument_list|,
+name|alias
 argument_list|)
 expr_stmt|;
 return|return
@@ -760,7 +784,7 @@ name|processFile
 argument_list|(
 name|packageName
 argument_list|,
-name|scheme
+name|alias
 argument_list|,
 name|fileName
 argument_list|,
@@ -770,7 +794,7 @@ expr_stmt|;
 comment|// write json schema
 name|fileName
 operator|=
-name|scheme
+name|alias
 operator|+
 literal|".json"
 expr_stmt|;
@@ -804,6 +828,8 @@ argument_list|,
 name|classElement
 argument_list|,
 name|uriEndpoint
+argument_list|,
+name|alias
 argument_list|)
 expr_stmt|;
 return|return
@@ -816,7 +842,7 @@ name|processFile
 argument_list|(
 name|packageName
 argument_list|,
-name|scheme
+name|alias
 argument_list|,
 name|fileName
 argument_list|,
@@ -826,7 +852,8 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|writeHtmlDocumentation (PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, UriEndpoint uriEndpoint)
+block|}
+DECL|method|writeHtmlDocumentation (PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, UriEndpoint uriEndpoint, String scheme)
 specifier|protected
 name|void
 name|writeHtmlDocumentation
@@ -842,6 +869,9 @@ name|classElement
 parameter_list|,
 name|UriEndpoint
 name|uriEndpoint
+parameter_list|,
+name|String
+name|scheme
 parameter_list|)
 block|{
 name|writer
@@ -858,14 +888,6 @@ argument_list|(
 literal|"<header>"
 argument_list|)
 expr_stmt|;
-name|String
-name|scheme
-init|=
-name|uriEndpoint
-operator|.
-name|scheme
-argument_list|()
-decl_stmt|;
 name|String
 name|title
 init|=
@@ -1067,7 +1089,7 @@ literal|"</html>"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|writeJSonSchemeDocumentation (PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, UriEndpoint uriEndpoint)
+DECL|method|writeJSonSchemeDocumentation (PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, UriEndpoint uriEndpoint, String scheme)
 specifier|protected
 name|void
 name|writeJSonSchemeDocumentation
@@ -1083,17 +1105,12 @@ name|classElement
 parameter_list|,
 name|UriEndpoint
 name|uriEndpoint
+parameter_list|,
+name|String
+name|scheme
 parameter_list|)
 block|{
 comment|// gather component information
-name|String
-name|scheme
-init|=
-name|uriEndpoint
-operator|.
-name|scheme
-argument_list|()
-decl_stmt|;
 name|ComponentModel
 name|componentModel
 init|=

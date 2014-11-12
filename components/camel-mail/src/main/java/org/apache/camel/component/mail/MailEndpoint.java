@@ -208,7 +208,7 @@ name|UriEndpoint
 argument_list|(
 name|scheme
 operator|=
-literal|"smtp"
+literal|"imap,imaps,pop3,pop3s,smtp,smtps"
 argument_list|,
 name|consumerClass
 operator|=
