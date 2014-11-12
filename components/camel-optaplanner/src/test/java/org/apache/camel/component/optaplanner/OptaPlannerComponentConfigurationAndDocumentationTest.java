@@ -189,7 +189,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"resourceUri\": { \"type\": \"string\""
+literal|"\"resourceUri\": { \"kind\": \"parameter\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -199,7 +199,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"synchronous\": { \"type\": \"boolean\""
+literal|"\"synchronous\": { \"kind\": \"parameter\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

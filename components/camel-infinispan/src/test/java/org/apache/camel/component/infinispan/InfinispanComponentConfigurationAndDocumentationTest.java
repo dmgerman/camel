@@ -204,7 +204,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"command\": { \"type\": \"string\""
+literal|"\"command\": { \"kind\": \"parameter\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -214,7 +214,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"sync\": { \"type\": \"boolean\""
+literal|"\"sync\": { \"kind\": \"parameter\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

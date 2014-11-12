@@ -199,7 +199,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"indexName\": { \"type\": \"string\""
+literal|"\"indexName\": { \"kind\": \"parameter\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -209,7 +209,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"local\": { \"type\": \"boolean\""
+literal|"\"local\": { \"kind\": \"parameter\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -199,7 +199,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"onConsumeBatchComplete\": { \"type\": \"string\""
+literal|"\"onConsumeBatchComplete\": { \"kind\": \"parameter\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -209,7 +209,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"parametersCount\": { \"type\": \"integer\""
+literal|"\"parametersCount\": { \"kind\": \"parameter\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -247,7 +247,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"onConsumeBatchComplete\": { \"type\": \"string\""
+literal|"\"onConsumeBatchComplete\": { \"kind\": \"parameter\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -257,7 +257,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"parametersCount\": { \"type\": \"integer\""
+literal|"\"parametersCount\": { \"kind\": \"parameter\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -267,7 +267,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|" \"onConsume\": { \"type\": \"string\", \"javaType\": \"java.lang.String\", \"value\": \"foo\""
+literal|" \"onConsume\": { \"kind\": \"parameter\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"value\": \"foo\""
 argument_list|)
 argument_list|)
 expr_stmt|;

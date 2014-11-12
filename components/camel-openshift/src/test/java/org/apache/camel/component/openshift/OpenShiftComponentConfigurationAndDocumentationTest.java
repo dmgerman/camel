@@ -199,7 +199,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"application\": { \"type\": \"string\""
+literal|"\"application\": { \"kind\": \"parameter\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -209,7 +209,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"clientId\": { \"type\": \"string\""
+literal|"\"clientId\": { \"kind\": \"parameter\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -219,7 +219,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"operation\": { \"type\": \"string\""
+literal|"\"operation\": { \"kind\": \"parameter\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;

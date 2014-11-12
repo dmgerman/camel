@@ -216,7 +216,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"deep\": { \"type\": \"boolean\""
+literal|"\"deep\": { \"kind\": \"parameter\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -226,7 +226,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"eventTypes\": { \"type\": \"integer\""
+literal|"\"eventTypes\": { \"kind\": \"parameter\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -236,7 +236,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"noLocal\": { \"type\": \"boolean\""
+literal|"\"noLocal\": { \"kind\": \"parameter\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

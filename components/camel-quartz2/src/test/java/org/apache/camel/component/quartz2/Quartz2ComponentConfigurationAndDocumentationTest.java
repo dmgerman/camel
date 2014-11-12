@@ -187,7 +187,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"cron\": { \"type\": \"string\""
+literal|"\"cron\": { \"kind\": \"parameter\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -197,7 +197,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"fireNow\": { \"type\": \"boolean\""
+literal|"\"fireNow\": { \"kind\": \"parameter\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

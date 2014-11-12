@@ -187,7 +187,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"channelProperties\": { \"type\": \"string\""
+literal|"\"channelProperties\": { \"kind\": \"parameter\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -197,7 +197,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"resolvedEnableViewMessages\": { \"type\": \"boolean\""
+literal|"\"resolvedEnableViewMessages\": { \"kind\": \"parameter\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;
