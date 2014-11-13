@@ -165,7 +165,7 @@ condition|)
 block|{
 name|out
 operator|.
-name|print
+name|println
 argument_list|(
 literal|"There are no REST services in CamelContext with name: "
 operator|+

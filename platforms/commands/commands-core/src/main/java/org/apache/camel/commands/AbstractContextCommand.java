@@ -123,30 +123,8 @@ literal|null
 return|;
 block|}
 comment|// Setting thread context classloader to the bundle classloader to enable legacy code that relies on it
-name|ClassLoader
-name|oldClassloader
-init|=
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|getContextClassLoader
-argument_list|()
-decl_stmt|;
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|setContextClassLoader
-argument_list|(
-name|camelContext
-operator|.
-name|getApplicationContextClassLoader
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//        ClassLoader oldClassloader = Thread.currentThread().getContextClassLoader();
+comment|//        Thread.currentThread().setContextClassLoader(camelContext.getApplicationContextClassLoader());
 try|try
 block|{
 return|return
@@ -164,16 +142,7 @@ return|;
 block|}
 finally|finally
 block|{
-name|Thread
-operator|.
-name|currentThread
-argument_list|()
-operator|.
-name|setContextClassLoader
-argument_list|(
-name|oldClassloader
-argument_list|)
-expr_stmt|;
+comment|//            Thread.currentThread().setContextClassLoader(oldClassloader);
 block|}
 block|}
 comment|/**      * Perform Context-specific command      *      * @param camelController the Camel controller      * @param camelContext    non-null {@link CamelContext}      * @param out             the output printer stream      * @param err             the error print stream      * @return response from command, or<tt>null</tt> if nothing to return      * @throws Exception is thrown if error executing command      */
