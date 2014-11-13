@@ -229,19 +229,19 @@ specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The output directory for generated components file      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/commands/catalog/components"      */
+comment|/**      * The output directory for components catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/components"      */
 DECL|field|outDir
 specifier|protected
 name|File
 name|outDir
 decl_stmt|;
-comment|/**      * The components directory where all the Apache Camel components are      *      * @parameter default-value="${project.build.directory}/../../../../components"      */
+comment|/**      * The components directory where all the Apache Camel components are      *      * @parameter default-value="${project.build.directory}/../../..//components"      */
 DECL|field|componentsDir
 specifier|protected
 name|File
 name|componentsDir
 decl_stmt|;
-comment|/**      * The camel-core directory where camel-core components are      *      * @parameter default-value="${project.build.directory}/../../../../camel-core"      */
+comment|/**      * The camel-core directory where camel-core components are      *      * @parameter default-value="${project.build.directory}/../../..//camel-core"      */
 DECL|field|coreDir
 specifier|protected
 name|File
@@ -475,7 +475,7 @@ name|File
 argument_list|(
 name|outDir
 argument_list|,
-literal|"../components-catalog"
+literal|"../components.properties"
 argument_list|)
 decl_stmt|;
 try|try

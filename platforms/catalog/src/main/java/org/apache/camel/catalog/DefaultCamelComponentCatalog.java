@@ -4,15 +4,13 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.commands.catalog
+DECL|package|org.apache.camel.catalog
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|commands
 operator|.
 name|catalog
 package|;
@@ -89,10 +87,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|CamelComponentCatalogService
+DECL|class|DefaultCamelComponentCatalog
 specifier|public
 class|class
-name|CamelComponentCatalogService
+name|DefaultCamelComponentCatalog
 implements|implements
 name|CamelComponentCatalog
 block|{
@@ -102,7 +100,7 @@ specifier|static
 name|String
 name|COMPONENTS_CATALOG
 init|=
-literal|"org/apache/camel/commands/catalog/components-catalog"
+literal|"org/apache/camel/catalog/components.properties"
 decl_stmt|;
 DECL|field|COMPONENTS_JSON
 specifier|private
@@ -110,7 +108,7 @@ specifier|static
 name|String
 name|COMPONENTS_JSON
 init|=
-literal|"org/apache/camel/commands/catalog/components"
+literal|"org/apache/camel/catalog/components"
 decl_stmt|;
 annotation|@
 name|Override
@@ -139,7 +137,7 @@ decl_stmt|;
 name|InputStream
 name|is
 init|=
-name|CamelComponentCatalogService
+name|DefaultCamelComponentCatalog
 operator|.
 name|class
 operator|.
@@ -206,7 +204,7 @@ decl_stmt|;
 name|InputStream
 name|is
 init|=
-name|CamelComponentCatalogService
+name|DefaultCamelComponentCatalog
 operator|.
 name|class
 operator|.

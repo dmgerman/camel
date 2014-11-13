@@ -140,8 +140,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|commands
-operator|.
 name|catalog
 operator|.
 name|CamelComponentCatalog
@@ -156,11 +154,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|commands
-operator|.
 name|catalog
 operator|.
-name|CamelComponentCatalogService
+name|DefaultCamelComponentCatalog
 import|;
 end_import
 
@@ -241,7 +237,7 @@ name|CamelComponentCatalog
 name|catalog
 init|=
 operator|new
-name|CamelComponentCatalogService
+name|DefaultCamelComponentCatalog
 argument_list|()
 decl_stmt|;
 DECL|method|getCamelContext (String name)
@@ -1736,13 +1732,6 @@ argument_list|,
 name|String
 argument_list|>
 argument_list|>
-argument_list|()
-decl_stmt|;
-name|CamelComponentCatalogService
-name|catalog
-init|=
-operator|new
-name|CamelComponentCatalogService
 argument_list|()
 decl_stmt|;
 name|List
