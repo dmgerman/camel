@@ -68,6 +68,10 @@ name|CamelContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * Command to list all {@link org.apache.camel.CamelContext} in the JVM.  */
+end_comment
+
 begin_class
 DECL|class|ContextListCommand
 specifier|public
@@ -244,13 +248,6 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Hello from commands-core"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|camelContexts

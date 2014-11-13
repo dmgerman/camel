@@ -97,20 +97,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Required
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -139,24 +125,41 @@ name|AbstractRouteCommand
 extends|extends
 name|AbstractCamelCommand
 block|{
-comment|/**      * The Camel route ID or a wildcard expression      */
-annotation|@
-name|Required
-DECL|method|getRoute ()
-specifier|public
-specifier|abstract
+DECL|field|route
+specifier|private
 name|String
-name|getRoute
-parameter_list|()
-function_decl|;
-comment|/**      * The name of the Camel context.      */
-DECL|method|getContext ()
-specifier|public
-specifier|abstract
+name|route
+decl_stmt|;
+DECL|field|context
+specifier|private
 name|String
-name|getContext
-parameter_list|()
-function_decl|;
+name|context
+decl_stmt|;
+comment|/**      * @param route The Camel route ID or a wildcard expression      * @param context The name of the Camel context.      */
+DECL|method|AbstractRouteCommand (String route, String context)
+specifier|protected
+name|AbstractRouteCommand
+parameter_list|(
+name|String
+name|route
+parameter_list|,
+name|String
+name|context
+parameter_list|)
+block|{
+name|this
+operator|.
+name|route
+operator|=
+name|route
+expr_stmt|;
+name|this
+operator|.
+name|context
+operator|=
+name|context
+expr_stmt|;
+block|}
 DECL|method|execute (CamelController camelController, PrintStream out, PrintStream err)
 specifier|public
 name|Object
@@ -184,15 +187,13 @@ name|camelController
 operator|.
 name|getRoutes
 argument_list|(
-name|getContext
-argument_list|()
+name|context
 argument_list|,
 name|RegexUtil
 operator|.
 name|wildcardAsRegex
 argument_list|(
-name|getRoute
-argument_list|()
+name|route
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -214,8 +215,7 @@ name|println
 argument_list|(
 literal|"Camel routes using "
 operator|+
-name|getRoute
-argument_list|()
+name|route
 operator|+
 literal|" not found."
 argument_list|)

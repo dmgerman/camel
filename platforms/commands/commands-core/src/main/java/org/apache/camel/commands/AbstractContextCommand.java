@@ -38,20 +38,6 @@ name|CamelContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Required
-import|;
-end_import
-
 begin_comment
 comment|/**  * Abstract command for working with a single {@link org.apache.camel.CamelContext}  */
 end_comment
@@ -65,16 +51,30 @@ name|AbstractContextCommand
 extends|extends
 name|AbstractCamelCommand
 block|{
-comment|/**      * The name of the Camel context.      */
-annotation|@
-name|Required
-DECL|method|getContext ()
-specifier|public
-specifier|abstract
+DECL|field|context
+specifier|private
 name|String
-name|getContext
-parameter_list|()
-function_decl|;
+name|context
+decl_stmt|;
+comment|/**      * @param context The name of the Camel context.      */
+DECL|method|AbstractContextCommand (String route, String context)
+specifier|protected
+name|AbstractContextCommand
+parameter_list|(
+name|String
+name|route
+parameter_list|,
+name|String
+name|context
+parameter_list|)
+block|{
+name|this
+operator|.
+name|context
+operator|=
+name|context
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|execute (CamelController camelController, PrintStream out, PrintStream err)
@@ -101,8 +101,7 @@ name|camelController
 operator|.
 name|getCamelContext
 argument_list|(
-name|getContext
-argument_list|()
+name|context
 argument_list|)
 decl_stmt|;
 if|if
@@ -118,8 +117,7 @@ name|println
 argument_list|(
 literal|"Camel context "
 operator|+
-name|getContext
-argument_list|()
+name|context
 operator|+
 literal|" not found."
 argument_list|)
