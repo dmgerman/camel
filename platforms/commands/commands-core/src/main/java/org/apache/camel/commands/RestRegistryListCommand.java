@@ -94,6 +94,10 @@ name|URISupport
 import|;
 end_import
 
+begin_comment
+comment|/**  * List the Camel REST services from the Rest registry available in the JVM.  */
+end_comment
+
 begin_class
 DECL|class|RestRegistryListCommand
 specifier|public

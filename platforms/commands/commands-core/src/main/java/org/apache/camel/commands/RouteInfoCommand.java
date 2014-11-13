@@ -162,6 +162,10 @@ name|ManagementAgent
 import|;
 end_import
 
+begin_comment
+comment|/**  * Command to display detailed information about a Camel route.  */
+end_comment
+
 begin_class
 DECL|class|RouteInfoCommand
 specifier|public

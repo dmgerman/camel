@@ -80,10 +80,6 @@ name|Option
 import|;
 end_import
 
-begin_comment
-comment|/**  * List the Camel REST services from the Rest registry available in the Karaf instance.  */
-end_comment
-
 begin_class
 annotation|@
 name|Command

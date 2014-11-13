@@ -38,6 +38,10 @@ name|CamelContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * Command to suspend a Camel context.  */
+end_comment
+
 begin_class
 DECL|class|ContextSuspendCommand
 specifier|public

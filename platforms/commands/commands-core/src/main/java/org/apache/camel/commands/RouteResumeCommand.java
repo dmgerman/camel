@@ -50,6 +50,10 @@ name|Route
 import|;
 end_import
 
+begin_comment
+comment|/**  * Command to resume a route.  */
+end_comment
+
 begin_class
 DECL|class|RouteResumeCommand
 specifier|public

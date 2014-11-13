@@ -68,6 +68,10 @@ name|CamelContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * List all the Camel components that are available in the JVM.  */
+end_comment
+
 begin_class
 DECL|class|ComponentListCommand
 specifier|public

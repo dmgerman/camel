@@ -50,6 +50,10 @@ name|Route
 import|;
 end_import
 
+begin_comment
+comment|/**  * Command to suspend a route.  */
+end_comment
+
 begin_class
 DECL|class|RouteSuspendCommand
 specifier|public

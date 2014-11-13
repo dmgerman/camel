@@ -80,6 +80,10 @@ name|ServiceStatus
 import|;
 end_import
 
+begin_comment
+comment|/**  * Command to list all Camel routes.  */
+end_comment
+
 begin_class
 DECL|class|RouteListCommand
 specifier|public

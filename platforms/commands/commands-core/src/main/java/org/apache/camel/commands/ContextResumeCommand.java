@@ -38,6 +38,10 @@ name|CamelContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * Command to resume a Camel context.  */
+end_comment
+
 begin_class
 DECL|class|ContextResumeCommand
 specifier|public

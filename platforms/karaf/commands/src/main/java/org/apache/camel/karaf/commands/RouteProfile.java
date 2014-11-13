@@ -62,10 +62,6 @@ name|Command
 import|;
 end_import
 
-begin_comment
-comment|/**  * Command to display profile information about a Camel route.  */
-end_comment
-
 begin_class
 annotation|@
 name|Command

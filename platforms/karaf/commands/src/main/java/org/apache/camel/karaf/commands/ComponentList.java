@@ -80,10 +80,6 @@ name|Option
 import|;
 end_import
 
-begin_comment
-comment|/**  * List the Camel components available in the Karaf instance.  */
-end_comment
-
 begin_class
 annotation|@
 name|Command

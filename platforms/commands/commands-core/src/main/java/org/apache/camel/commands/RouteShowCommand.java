@@ -78,6 +78,10 @@ name|RouteDefinition
 import|;
 end_import
 
+begin_comment
+comment|/**  * Command to show the route marshaled in XML.  */
+end_comment
+
 begin_class
 DECL|class|RouteShowCommand
 specifier|public

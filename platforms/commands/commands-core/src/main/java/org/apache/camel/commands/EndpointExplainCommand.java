@@ -130,6 +130,10 @@ name|URISupport
 import|;
 end_import
 
+begin_comment
+comment|/**  * Explain the Camel endpoints available in the JVM.  */
+end_comment
+
 begin_class
 DECL|class|EndpointExplainCommand
 specifier|public

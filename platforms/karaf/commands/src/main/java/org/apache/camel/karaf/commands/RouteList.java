@@ -64,10 +64,6 @@ name|Command
 import|;
 end_import
 
-begin_comment
-comment|/**  * Command to list all Camel routes.  */
-end_comment
-
 begin_class
 annotation|@
 name|Command

@@ -38,6 +38,10 @@ name|CamelContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * Command to start a Camel context.  */
+end_comment
+
 begin_class
 DECL|class|ContextStartCommand
 specifier|public

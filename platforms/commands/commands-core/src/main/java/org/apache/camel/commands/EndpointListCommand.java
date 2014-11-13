@@ -164,6 +164,10 @@ name|URISupport
 import|;
 end_import
 
+begin_comment
+comment|/**  * List the Camel endpoints available in the JVM.  */
+end_comment
+
 begin_class
 DECL|class|EndpointListCommand
 specifier|public

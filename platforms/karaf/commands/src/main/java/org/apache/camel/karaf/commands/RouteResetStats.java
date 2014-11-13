@@ -48,10 +48,6 @@ name|Command
 import|;
 end_import
 
-begin_comment
-comment|/**  * Command to reset route stats.  */
-end_comment
-
 begin_class
 annotation|@
 name|Command

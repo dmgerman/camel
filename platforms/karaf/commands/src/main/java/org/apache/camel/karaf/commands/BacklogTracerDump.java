@@ -80,10 +80,6 @@ name|Option
 import|;
 end_import
 
-begin_comment
-comment|/**  * Command to use the<a href="camel.apache.org/backlogtracer">Backlog Tracer</a>.  */
-end_comment
-
 begin_class
 annotation|@
 name|Command
