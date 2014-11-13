@@ -182,40 +182,34 @@ specifier|public
 class|class
 name|ContextInfoCommand
 extends|extends
-name|AbstractCamelCommand
+name|AbstractContextCommand
 block|{
 DECL|field|stringEscape
 specifier|private
 name|StringEscape
 name|stringEscape
 decl_stmt|;
-DECL|field|name
-specifier|private
-name|String
-name|name
-decl_stmt|;
 DECL|field|mode
 specifier|private
 name|String
 name|mode
 decl_stmt|;
-comment|/**      * @param name The name of the Camel context      * @param mode Allows for different display modes (--verbose, etc)      */
-DECL|method|ContextInfoCommand (String name, String mode)
+comment|/**      * @param context The name of the Camel context      * @param mode Allows for different display modes (--verbose, etc)      */
+DECL|method|ContextInfoCommand (String context, String mode)
 specifier|public
 name|ContextInfoCommand
 parameter_list|(
 name|String
-name|name
+name|context
 parameter_list|,
 name|String
 name|mode
 parameter_list|)
 block|{
-name|this
-operator|.
-name|name
-operator|=
-name|name
+name|super
+argument_list|(
+name|context
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -243,13 +237,16 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|execute (CamelController camelController, PrintStream out, PrintStream err)
-specifier|public
+DECL|method|performContextCommand (CamelController camelController, CamelContext camelContext, PrintStream out, PrintStream err)
+specifier|protected
 name|Object
-name|execute
+name|performContextCommand
 parameter_list|(
 name|CamelController
 name|camelController
+parameter_list|,
+name|CamelContext
+name|camelContext
 parameter_list|,
 name|PrintStream
 name|out
@@ -260,38 +257,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|CamelContext
-name|camelContext
-init|=
-name|camelController
-operator|.
-name|getCamelContext
-argument_list|(
-name|name
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|camelContext
-operator|==
-literal|null
-condition|)
-block|{
-name|err
-operator|.
-name|println
-argument_list|(
-literal|"Camel context "
-operator|+
-name|name
-operator|+
-literal|" not found."
-argument_list|)
-expr_stmt|;
-return|return
-literal|null
-return|;
-block|}
 name|out
 operator|.
 name|println
@@ -302,7 +267,7 @@ name|unescapeJava
 argument_list|(
 literal|"\u001B[1m\u001B[33mCamel Context "
 operator|+
-name|name
+name|context
 operator|+
 literal|"\u001B[0m"
 argument_list|)
@@ -1030,7 +995,7 @@ argument_list|()
 operator|+
 literal|":type=context,name=\""
 operator|+
-name|name
+name|context
 operator|+
 literal|"\",*"
 argument_list|)

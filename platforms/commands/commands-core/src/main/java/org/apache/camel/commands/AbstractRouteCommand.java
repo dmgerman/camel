@@ -284,6 +284,8 @@ try|try
 block|{
 name|executeOnRoute
 argument_list|(
+name|camelController
+argument_list|,
 name|camelContext
 argument_list|,
 name|camelRoute
@@ -312,12 +314,15 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|executeOnRoute (CamelContext camelContext, Route camelRoute, PrintStream out, PrintStream err)
+DECL|method|executeOnRoute (CamelController camelController, CamelContext camelContext, Route camelRoute, PrintStream out, PrintStream err)
 specifier|public
 specifier|abstract
 name|void
 name|executeOnRoute
 parameter_list|(
+name|CamelController
+name|camelController
+parameter_list|,
 name|CamelContext
 name|camelContext
 parameter_list|,

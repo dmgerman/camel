@@ -52,18 +52,14 @@ extends|extends
 name|AbstractCamelCommand
 block|{
 DECL|field|context
-specifier|private
 name|String
 name|context
 decl_stmt|;
 comment|/**      * @param context The name of the Camel context.      */
-DECL|method|AbstractContextCommand (String route, String context)
+DECL|method|AbstractContextCommand (String context)
 specifier|protected
 name|AbstractContextCommand
 parameter_list|(
-name|String
-name|route
-parameter_list|,
 name|String
 name|context
 parameter_list|)
@@ -153,15 +149,18 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+return|return
 name|performContextCommand
 argument_list|(
+name|camelController
+argument_list|,
 name|camelContext
 argument_list|,
 name|out
 argument_list|,
 name|err
 argument_list|)
-expr_stmt|;
+return|;
 block|}
 finally|finally
 block|{
@@ -176,17 +175,17 @@ name|oldClassloader
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-literal|null
-return|;
 block|}
-comment|/**      * Perform Context-specific command      *      * @param camelContext non-null {@link CamelContext}      * @param out          the output printer stream      * @param err          the error print stream      */
-DECL|method|performContextCommand (CamelContext camelContext, PrintStream out, PrintStream err)
+comment|/**      * Perform Context-specific command      *      * @param camelController the Camel controller      * @param camelContext    non-null {@link CamelContext}      * @param out             the output printer stream      * @param err             the error print stream      * @return response from command, or<tt>null</tt> if nothing to return      * @throws Exception is thrown if error executing command      */
+DECL|method|performContextCommand (CamelController camelController, CamelContext camelContext, PrintStream out, PrintStream err)
 specifier|protected
 specifier|abstract
-name|void
+name|Object
 name|performContextCommand
 parameter_list|(
+name|CamelController
+name|camelController
+parameter_list|,
 name|CamelContext
 name|camelContext
 parameter_list|,
