@@ -47,6 +47,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|AbstractContextCommand
 specifier|public
 specifier|abstract
