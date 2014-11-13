@@ -86,6 +86,10 @@ name|List
 import|;
 end_import
 
+begin_comment
+comment|/**  * Default {@link org.apache.camel.catalog.CamelComponentCatalog}.  */
+end_comment
+
 begin_class
 DECL|class|DefaultCamelComponentCatalog
 specifier|public
@@ -97,6 +101,7 @@ block|{
 DECL|field|COMPONENTS_CATALOG
 specifier|private
 specifier|static
+specifier|final
 name|String
 name|COMPONENTS_CATALOG
 init|=
@@ -105,6 +110,7 @@ decl_stmt|;
 DECL|field|COMPONENTS_JSON
 specifier|private
 specifier|static
+specifier|final
 name|String
 name|COMPONENTS_JSON
 init|=

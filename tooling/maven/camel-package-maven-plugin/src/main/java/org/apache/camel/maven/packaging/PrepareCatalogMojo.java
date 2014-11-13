@@ -201,14 +201,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Analyses the Camel plugins in a project and generates extra descriptor information for easier auto-discovery in Camel.  *  * @goal include-components-list  * @execute phase="process-resources"  */
+comment|/**  * Analyses the Camel plugins in a project and generates extra descriptor information for easier auto-discovery in Camel.  *  * @goal prepare-catalog  * @execute phase="process-resources"  */
 end_comment
 
 begin_class
-DECL|class|CommandsPrepareMojo
+DECL|class|PrepareCatalogMojo
 specifier|public
 class|class
-name|CommandsPrepareMojo
+name|PrepareCatalogMojo
 extends|extends
 name|AbstractMojo
 block|{
