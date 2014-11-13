@@ -4,15 +4,13 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.karaf.commands
+DECL|package|org.apache.camel.commands
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|karaf
 operator|.
 name|commands
 package|;
@@ -26,63 +24,27 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|commands
+name|util
 operator|.
-name|CamelController
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|karaf
-operator|.
-name|shell
-operator|.
-name|console
-operator|.
-name|OsgiCommandSupport
+name|ObjectHelper
 import|;
 end_import
 
 begin_comment
-comment|/**  * The abstract base class for karaf commands.  */
+comment|/**  * Abstract base command for {@link org.apache.camel.commands.CamelCommand}  */
 end_comment
 
 begin_class
-DECL|class|CamelCommandSupport
+DECL|class|AbstractCamelCommand
 specifier|public
 specifier|abstract
 class|class
-name|CamelCommandSupport
-extends|extends
-name|OsgiCommandSupport
+name|AbstractCamelCommand
+implements|implements
+name|CamelCommand
 block|{
-DECL|field|camelController
-specifier|protected
-name|CamelController
-name|camelController
-decl_stmt|;
-DECL|method|setCamelController (CamelController camelController)
-specifier|public
-name|void
-name|setCamelController
-parameter_list|(
-name|CamelController
-name|camelController
-parameter_list|)
-block|{
-name|this
-operator|.
-name|camelController
-operator|=
-name|camelController
-expr_stmt|;
-block|}
 DECL|method|safeNull (String s)
+specifier|public
 name|String
 name|safeNull
 parameter_list|(
@@ -92,9 +54,12 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
 name|s
-operator|==
-literal|null
+argument_list|)
 condition|)
 block|{
 return|return

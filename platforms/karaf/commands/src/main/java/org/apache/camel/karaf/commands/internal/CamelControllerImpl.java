@@ -144,8 +144,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|karaf
-operator|.
 name|commands
 operator|.
 name|CamelController

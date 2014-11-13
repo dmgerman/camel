@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.karaf.commands
+DECL|package|org.apache.camel.commands
 package|package
 name|org
 operator|.
@@ -12,104 +12,49 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|karaf
-operator|.
 name|commands
 package|;
 end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
-operator|.
-name|commands
-operator|.
-name|CamelController
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|karaf
-operator|.
-name|shell
-operator|.
-name|console
-operator|.
-name|OsgiCommandSupport
+name|PrintStream
 import|;
 end_import
 
 begin_comment
-comment|/**  * The abstract base class for karaf commands.  */
+comment|/**  * A Camel command.  */
 end_comment
 
-begin_class
-DECL|class|CamelCommandSupport
+begin_interface
+DECL|interface|CamelCommand
 specifier|public
-specifier|abstract
-class|class
-name|CamelCommandSupport
-extends|extends
-name|OsgiCommandSupport
+interface|interface
+name|CamelCommand
 block|{
-DECL|field|camelController
-specifier|protected
-name|CamelController
-name|camelController
-decl_stmt|;
-DECL|method|setCamelController (CamelController camelController)
-specifier|public
-name|void
-name|setCamelController
+comment|/**      * Executes the given command.      *      * @param camelController the Camel controller to access Camel information      * @param out             the output printer stream      * @param err             the error print stream      * @return response from command, or<tt>null</tt> if nothing to return      * @throws Exception is thrown if error executing command      */
+DECL|method|execute (CamelController camelController, PrintStream out, PrintStream err)
+name|Object
+name|execute
 parameter_list|(
 name|CamelController
 name|camelController
+parameter_list|,
+name|PrintStream
+name|out
+parameter_list|,
+name|PrintStream
+name|err
 parameter_list|)
-block|{
-name|this
-operator|.
-name|camelController
-operator|=
-name|camelController
-expr_stmt|;
+throws|throws
+name|Exception
+function_decl|;
 block|}
-DECL|method|safeNull (String s)
-name|String
-name|safeNull
-parameter_list|(
-name|String
-name|s
-parameter_list|)
-block|{
-if|if
-condition|(
-name|s
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|""
-return|;
-block|}
-else|else
-block|{
-return|return
-name|s
-return|;
-block|}
-block|}
-block|}
-end_class
+end_interface
 
 end_unit
 
