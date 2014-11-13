@@ -28,6 +28,10 @@ name|List
 import|;
 end_import
 
+begin_comment
+comment|/**  * Catalog of all the Camel components from this Apache Camel release.  */
+end_comment
+
 begin_interface
 DECL|interface|CamelComponentCatalog
 specifier|public
