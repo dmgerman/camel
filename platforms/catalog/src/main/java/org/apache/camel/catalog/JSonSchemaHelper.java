@@ -81,11 +81,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|JsonSchemaHelper
+DECL|class|JSonSchemaHelper
 specifier|public
 specifier|final
 class|class
-name|JsonSchemaHelper
+name|JSonSchemaHelper
 block|{
 DECL|field|PATTERN
 specifier|private
@@ -101,9 +101,9 @@ argument_list|(
 literal|"\"(.+?)\""
 argument_list|)
 decl_stmt|;
-DECL|method|JsonSchemaHelper ()
+DECL|method|JSonSchemaHelper ()
 specifier|private
-name|JsonSchemaHelper
+name|JSonSchemaHelper
 parameter_list|()
 block|{     }
 comment|/**      * Parses the json schema to split it into a list or rows, where each row contains key value pairs with the metadata      *      * @param group the group to parse from such as<tt>component</tt>,<tt>componentProperties</tt>, or<tt>properties</tt>.      * @param json the json      * @return a list of all the rows, where each row is a set of key value pairs with metadata      */
