@@ -198,6 +198,8 @@ name|mockConn
 argument_list|(
 name|client
 argument_list|)
+argument_list|,
+literal|""
 argument_list|)
 decl_stmt|;
 name|context

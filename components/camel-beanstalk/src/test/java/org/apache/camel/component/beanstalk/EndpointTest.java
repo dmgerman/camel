@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|FailedToCreateProducerException
+name|FailedToCreateRouteException
 import|;
 end_import
 
@@ -340,6 +340,9 @@ name|endpoint
 operator|.
 name|getCommand
 argument_list|()
+operator|.
+name|name
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -384,6 +387,9 @@ name|endpoint
 operator|.
 name|getCommand
 argument_list|()
+operator|.
+name|name
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -427,7 +433,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|FailedToCreateProducerException
+name|FailedToCreateRouteException
 operator|.
 name|class
 argument_list|)
