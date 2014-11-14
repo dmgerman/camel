@@ -581,6 +581,26 @@ else|:
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|clear ()
+specifier|public
+specifier|synchronized
+name|void
+name|clear
+parameter_list|()
+block|{
+name|contexts
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|listeners
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 end_class
 

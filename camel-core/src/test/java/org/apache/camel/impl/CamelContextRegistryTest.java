@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spi
+DECL|package|org.apache.camel.impl
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|impl
 package|;
 end_package
 
@@ -66,9 +66,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|DefaultCamelContext
+name|CamelContextRegistry
 import|;
 end_import
 
@@ -158,6 +158,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// must clear for testing purpose
+name|CamelContextRegistry
+operator|.
+name|INSTANCE
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|MyListener
 name|listener
 init|=

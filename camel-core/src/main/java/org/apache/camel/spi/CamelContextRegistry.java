@@ -175,6 +175,12 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
+comment|/**      * Needed for testing purposes.      */
+DECL|method|clear ()
+name|void
+name|clear
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
