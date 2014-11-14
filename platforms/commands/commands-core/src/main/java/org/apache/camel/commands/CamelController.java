@@ -303,11 +303,16 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Lists all the labels from the Camel components catalog      *      * @return a sorted set with all the label names      * @throws java.lang.Exception is thrown if error loading resources to gather component information      */
+comment|/**      * Lists all the labels from the Camel components catalog      *      * @return a map which key is the label, and the set is the component names that has the given label      * @throws java.lang.Exception is thrown if error loading resources to gather component information      */
 DECL|method|listLabelCatalog ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
 name|Set
 argument_list|<
 name|String
+argument_list|>
 argument_list|>
 name|listLabelCatalog
 parameter_list|()

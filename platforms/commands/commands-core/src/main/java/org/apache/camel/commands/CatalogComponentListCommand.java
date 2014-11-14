@@ -287,8 +287,6 @@ argument_list|(
 name|columnWidths
 argument_list|,
 literal|true
-argument_list|,
-name|verbose
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -300,8 +298,6 @@ argument_list|(
 name|columnWidths
 argument_list|,
 literal|false
-argument_list|,
-name|verbose
 argument_list|)
 decl_stmt|;
 if|if
@@ -945,7 +941,7 @@ name|retval
 return|;
 block|}
 block|}
-DECL|method|buildFormatString (Map<String, Integer> columnWidths, boolean isHeader, boolean isVerbose)
+DECL|method|buildFormatString (Map<String, Integer> columnWidths, boolean isHeader)
 specifier|private
 name|String
 name|buildFormatString
@@ -960,9 +956,6 @@ name|columnWidths
 parameter_list|,
 name|boolean
 name|isHeader
-parameter_list|,
-name|boolean
-name|isVerbose
 parameter_list|)
 block|{
 specifier|final
