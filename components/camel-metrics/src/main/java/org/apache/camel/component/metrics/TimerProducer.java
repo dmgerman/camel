@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.metrics.timer
+DECL|package|org.apache.camel.component.metrics
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|component
 operator|.
 name|metrics
-operator|.
-name|timer
 package|;
 end_package
 
@@ -72,42 +70,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|metrics
-operator|.
-name|AbstractMetricsProducer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|metrics
-operator|.
-name|timer
-operator|.
-name|TimerEndpoint
-operator|.
-name|TimerAction
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -142,26 +104,6 @@ name|HEADER_TIMER_ACTION
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|metrics
-operator|.
-name|timer
-operator|.
-name|TimerEndpoint
-operator|.
-name|ENDPOINT_URI
-import|;
-end_import
-
 begin_class
 DECL|class|TimerProducer
 specifier|public
@@ -169,9 +111,6 @@ class|class
 name|TimerProducer
 extends|extends
 name|AbstractMetricsProducer
-argument_list|<
-name|TimerEndpoint
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private
@@ -189,11 +128,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|TimerProducer (TimerEndpoint endpoint)
+DECL|method|TimerProducer (MetricsEndpoint endpoint)
 specifier|public
 name|TimerProducer
 parameter_list|(
-name|TimerEndpoint
+name|MetricsEndpoint
 name|endpoint
 parameter_list|)
 block|{
@@ -205,7 +144,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doProcess (Exchange exchange, TimerEndpoint endpoint, MetricRegistry registry, String metricsName)
+DECL|method|doProcess (Exchange exchange, MetricsEndpoint endpoint, MetricRegistry registry, String metricsName)
 specifier|protected
 name|void
 name|doProcess
@@ -213,7 +152,7 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|TimerEndpoint
+name|MetricsEndpoint
 name|endpoint
 parameter_list|,
 name|MetricRegistry
@@ -233,7 +172,7 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
-name|TimerAction
+name|MetricsTimerAction
 name|action
 init|=
 name|endpoint
@@ -241,7 +180,7 @@ operator|.
 name|getAction
 argument_list|()
 decl_stmt|;
-name|TimerAction
+name|MetricsTimerAction
 name|finalAction
 init|=
 name|in
@@ -252,7 +191,7 @@ name|HEADER_TIMER_ACTION
 argument_list|,
 name|action
 argument_list|,
-name|TimerAction
+name|MetricsTimerAction
 operator|.
 name|class
 argument_list|)
@@ -261,7 +200,7 @@ if|if
 condition|(
 name|finalAction
 operator|==
-name|TimerAction
+name|MetricsTimerAction
 operator|.
 name|start
 condition|)
@@ -281,7 +220,7 @@ if|if
 condition|(
 name|finalAction
 operator|==
-name|TimerAction
+name|MetricsTimerAction
 operator|.
 name|stop
 condition|)
@@ -469,7 +408,7 @@ return|return
 operator|new
 name|StringBuilder
 argument_list|(
-name|ENDPOINT_URI
+literal|"timer"
 argument_list|)
 operator|.
 name|append

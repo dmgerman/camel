@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.metrics.meter
+DECL|package|org.apache.camel.component.metrics
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|component
 operator|.
 name|metrics
-operator|.
-name|meter
 package|;
 end_package
 
@@ -160,18 +158,6 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|instanceOf
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|Matchers
-operator|.
 name|notNullValue
 import|;
 end_import
@@ -196,10 +182,10 @@ name|MockitoJUnitRunner
 operator|.
 name|class
 argument_list|)
-DECL|class|MeterEndpointTest
+DECL|class|HistogramEndpointTest
 specifier|public
 class|class
-name|MeterEndpointTest
+name|HistogramEndpointTest
 block|{
 DECL|field|METRICS_NAME
 specifier|private
@@ -231,7 +217,7 @@ name|registry
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
-name|MeterEndpoint
+name|MetricsEndpoint
 name|endpoint
 decl_stmt|;
 DECL|field|inOrder
@@ -252,9 +238,17 @@ block|{
 name|endpoint
 operator|=
 operator|new
-name|MeterEndpoint
+name|MetricsEndpoint
 argument_list|(
+literal|null
+argument_list|,
+literal|null
+argument_list|,
 name|registry
+argument_list|,
+name|MetricsType
+operator|.
+name|HISTOGRAM
 argument_list|,
 name|METRICS_NAME
 argument_list|)
@@ -287,10 +281,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testMeterEndpoint ()
+DECL|method|testHistogramEndpoint ()
 specifier|public
 name|void
-name|testMeterEndpoint
+name|testHistogramEndpoint
 parameter_list|()
 throws|throws
 name|Exception
@@ -368,22 +362,19 @@ name|producer
 argument_list|,
 name|is
 argument_list|(
-name|instanceOf
-argument_list|(
-name|MeterProducer
+name|HistogramProducer
 operator|.
 name|class
 argument_list|)
 argument_list|)
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testGetMark ()
+DECL|method|testGetValue ()
 specifier|public
 name|void
-name|testGetMark
+name|testGetValue
 parameter_list|()
 throws|throws
 name|Exception
@@ -392,7 +383,7 @@ name|assertThat
 argument_list|(
 name|endpoint
 operator|.
-name|getMark
+name|getValue
 argument_list|()
 argument_list|,
 name|is
@@ -405,10 +396,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testSetMark ()
+DECL|method|testSetValue ()
 specifier|public
 name|void
-name|testSetMark
+name|testSetValue
 parameter_list|()
 throws|throws
 name|Exception
@@ -417,7 +408,7 @@ name|assertThat
 argument_list|(
 name|endpoint
 operator|.
-name|getMark
+name|getValue
 argument_list|()
 argument_list|,
 name|is
@@ -429,7 +420,7 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
-name|setMark
+name|setValue
 argument_list|(
 name|VALUE
 argument_list|)
@@ -438,38 +429,12 @@ name|assertThat
 argument_list|(
 name|endpoint
 operator|.
-name|getMark
+name|getValue
 argument_list|()
 argument_list|,
 name|is
 argument_list|(
 name|VALUE
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testCreateEndpointUri ()
-specifier|public
-name|void
-name|testCreateEndpointUri
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|assertThat
-argument_list|(
-name|endpoint
-operator|.
-name|createEndpointUri
-argument_list|()
-argument_list|,
-name|is
-argument_list|(
-name|MeterEndpoint
-operator|.
-name|ENDPOINT_URI
 argument_list|)
 argument_list|)
 expr_stmt|;

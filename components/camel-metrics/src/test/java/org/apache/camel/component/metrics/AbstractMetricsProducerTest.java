@@ -270,7 +270,7 @@ annotation|@
 name|Mock
 DECL|field|endpoint
 specifier|private
-name|AbstractMetricsEndpoint
+name|MetricsEndpoint
 name|endpoint
 decl_stmt|;
 annotation|@
@@ -297,17 +297,11 @@ decl_stmt|;
 DECL|field|okProducer
 specifier|private
 name|AbstractMetricsProducer
-argument_list|<
-name|AbstractMetricsEndpoint
-argument_list|>
 name|okProducer
 decl_stmt|;
 DECL|field|failProducer
 specifier|private
 name|AbstractMetricsProducer
-argument_list|<
-name|AbstractMetricsEndpoint
-argument_list|>
 name|failProducer
 decl_stmt|;
 DECL|field|inOrder
@@ -329,9 +323,6 @@ name|okProducer
 operator|=
 operator|new
 name|AbstractMetricsProducer
-argument_list|<
-name|AbstractMetricsEndpoint
-argument_list|>
 argument_list|(
 name|endpoint
 argument_list|)
@@ -345,7 +336,7 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|AbstractMetricsEndpoint
+name|MetricsEndpoint
 name|endpoint
 parameter_list|,
 name|MetricRegistry
@@ -363,9 +354,6 @@ name|failProducer
 operator|=
 operator|new
 name|AbstractMetricsProducer
-argument_list|<
-name|AbstractMetricsEndpoint
-argument_list|>
 argument_list|(
 name|endpoint
 argument_list|)
@@ -379,7 +367,7 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|AbstractMetricsEndpoint
+name|MetricsEndpoint
 name|endpoint
 parameter_list|,
 name|MetricRegistry
