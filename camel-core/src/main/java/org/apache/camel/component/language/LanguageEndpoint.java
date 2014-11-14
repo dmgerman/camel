@@ -253,6 +253,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"language"
+argument_list|,
+name|label
+operator|=
+literal|"core,script"
 argument_list|)
 DECL|class|LanguageEndpoint
 specifier|public

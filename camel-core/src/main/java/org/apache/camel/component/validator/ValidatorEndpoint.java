@@ -285,6 +285,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"validator"
+argument_list|,
+name|label
+operator|=
+literal|"core,validation"
 argument_list|)
 DECL|class|ValidatorEndpoint
 specifier|public

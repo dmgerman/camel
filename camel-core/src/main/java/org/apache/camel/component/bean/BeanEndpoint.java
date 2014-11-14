@@ -121,6 +121,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"bean"
+argument_list|,
+name|label
+operator|=
+literal|"core,java"
 argument_list|)
 DECL|class|BeanEndpoint
 specifier|public

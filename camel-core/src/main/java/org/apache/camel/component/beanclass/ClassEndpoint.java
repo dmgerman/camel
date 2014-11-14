@@ -71,6 +71,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"class"
+argument_list|,
+name|label
+operator|=
+literal|"core,java"
 argument_list|)
 DECL|class|ClassEndpoint
 specifier|public

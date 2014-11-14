@@ -514,6 +514,24 @@ name|apt
 operator|.
 name|Strings
 operator|.
+name|getOrElse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|tools
+operator|.
+name|apt
+operator|.
+name|Strings
+operator|.
 name|isNullOrEmpty
 import|;
 end_import
@@ -664,6 +682,15 @@ operator|.
 name|scheme
 argument_list|()
 decl_stmt|;
+specifier|final
+name|String
+name|label
+init|=
+name|uriEndpoint
+operator|.
+name|label
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -772,6 +799,8 @@ argument_list|,
 name|uriEndpoint
 argument_list|,
 name|alias
+argument_list|,
+name|label
 argument_list|)
 expr_stmt|;
 return|return
@@ -830,6 +859,8 @@ argument_list|,
 name|uriEndpoint
 argument_list|,
 name|alias
+argument_list|,
+name|label
 argument_list|)
 expr_stmt|;
 return|return
@@ -853,7 +884,7 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|writeHtmlDocumentation (PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, UriEndpoint uriEndpoint, String scheme)
+DECL|method|writeHtmlDocumentation (PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, UriEndpoint uriEndpoint, String scheme, String label)
 specifier|protected
 name|void
 name|writeHtmlDocumentation
@@ -872,6 +903,9 @@ name|uriEndpoint
 parameter_list|,
 name|String
 name|scheme
+parameter_list|,
+name|String
+name|label
 parameter_list|)
 block|{
 name|writer
@@ -931,6 +965,59 @@ operator|+
 literal|"</h1>"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|label
+operator|!=
+literal|null
+condition|)
+block|{
+name|String
+index|[]
+name|labels
+init|=
+name|label
+operator|.
+name|split
+argument_list|(
+literal|","
+argument_list|)
+decl_stmt|;
+name|writer
+operator|.
+name|println
+argument_list|(
+literal|"<ul>"
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+name|String
+name|text
+range|:
+name|labels
+control|)
+block|{
+name|writer
+operator|.
+name|println
+argument_list|(
+literal|"<li>"
+operator|+
+name|text
+operator|+
+literal|"</li>"
+argument_list|)
+expr_stmt|;
+block|}
+name|writer
+operator|.
+name|println
+argument_list|(
+literal|"</ul>"
+argument_list|)
+expr_stmt|;
+block|}
 name|showDocumentationAndFieldInjections
 argument_list|(
 name|writer
@@ -983,8 +1070,6 @@ decl_stmt|;
 name|String
 name|consumerPrefix
 init|=
-name|Strings
-operator|.
 name|getOrElse
 argument_list|(
 name|uriEndpoint
@@ -1089,7 +1174,7 @@ literal|"</html>"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|writeJSonSchemeDocumentation (PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, UriEndpoint uriEndpoint, String scheme)
+DECL|method|writeJSonSchemeDocumentation (PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, UriEndpoint uriEndpoint, String scheme, String label)
 specifier|protected
 name|void
 name|writeJSonSchemeDocumentation
@@ -1108,6 +1193,9 @@ name|uriEndpoint
 parameter_list|,
 name|String
 name|scheme
+parameter_list|,
+name|String
+name|label
 parameter_list|)
 block|{
 comment|// gather component information
@@ -1119,6 +1207,8 @@ argument_list|(
 name|roundEnv
 argument_list|,
 name|scheme
+argument_list|,
+name|label
 argument_list|)
 decl_stmt|;
 comment|// get endpoint information which is divided into paths and options (though there should really only be one path)
@@ -1255,6 +1345,31 @@ operator|.
 name|append
 argument_list|(
 literal|"\","
+argument_list|)
+expr_stmt|;
+name|buffer
+operator|.
+name|append
+argument_list|(
+literal|"\n    \"label\": \""
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|getOrElse
+argument_list|(
+name|componentModel
+operator|.
+name|getLabel
+argument_list|()
+argument_list|,
+literal|""
+argument_list|)
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"\""
 argument_list|)
 expr_stmt|;
 name|buffer
@@ -1942,7 +2057,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|findComponentProperties (RoundEnvironment roundEnv, String scheme)
+DECL|method|findComponentProperties (RoundEnvironment roundEnv, String scheme, String label)
 specifier|protected
 name|ComponentModel
 name|findComponentProperties
@@ -1952,6 +2067,9 @@ name|roundEnv
 parameter_list|,
 name|String
 name|scheme
+parameter_list|,
+name|String
+name|label
 parameter_list|)
 block|{
 name|ComponentModel
@@ -1963,6 +2081,13 @@ argument_list|(
 name|scheme
 argument_list|)
 decl_stmt|;
+name|model
+operator|.
+name|setLabel
+argument_list|(
+name|label
+argument_list|)
+expr_stmt|;
 name|String
 name|data
 init|=
@@ -3962,6 +4087,11 @@ specifier|private
 name|String
 name|versionId
 decl_stmt|;
+DECL|field|label
+specifier|private
+name|String
+name|label
+decl_stmt|;
 DECL|method|ComponentModel (String scheme)
 specifier|private
 name|ComponentModel
@@ -4115,6 +4245,32 @@ operator|.
 name|versionId
 operator|=
 name|versionId
+expr_stmt|;
+block|}
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+name|label
+return|;
+block|}
+DECL|method|setLabel (String label)
+specifier|public
+name|void
+name|setLabel
+parameter_list|(
+name|String
+name|label
+parameter_list|)
+block|{
+name|this
+operator|.
+name|label
+operator|=
+name|label
 expr_stmt|;
 block|}
 block|}

@@ -269,6 +269,10 @@ operator|=
 name|DataSetConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"core,testing"
 argument_list|)
 DECL|class|DataSetEndpoint
 specifier|public

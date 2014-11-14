@@ -173,6 +173,10 @@ operator|=
 name|DirectConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"core,java,endpoint"
 argument_list|)
 DECL|class|DirectEndpoint
 specifier|public

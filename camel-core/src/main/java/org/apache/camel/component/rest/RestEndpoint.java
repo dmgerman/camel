@@ -203,6 +203,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"rest"
+argument_list|,
+name|label
+operator|=
+literal|"core,http,rest"
 argument_list|)
 DECL|class|RestEndpoint
 specifier|public

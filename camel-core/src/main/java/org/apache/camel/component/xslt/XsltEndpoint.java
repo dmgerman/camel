@@ -346,6 +346,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"xslt"
+argument_list|,
+name|label
+operator|=
+literal|"core,transformation"
 argument_list|)
 DECL|class|XsltEndpoint
 specifier|public

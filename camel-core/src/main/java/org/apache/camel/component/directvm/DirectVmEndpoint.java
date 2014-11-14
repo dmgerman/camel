@@ -143,6 +143,10 @@ operator|=
 name|DirectConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"core,endpoint"
 argument_list|)
 DECL|class|DirectVmEndpoint
 specifier|public
