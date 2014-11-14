@@ -98,6 +98,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -2201,6 +2211,26 @@ expr_stmt|;
 block|}
 return|return
 name|answer
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|listLabelCatalog ()
+specifier|public
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|listLabelCatalog
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+name|catalog
+operator|.
+name|findLabels
+argument_list|()
 return|;
 block|}
 block|}

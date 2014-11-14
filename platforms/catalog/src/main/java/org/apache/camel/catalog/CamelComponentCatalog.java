@@ -26,6 +26,16 @@ name|List
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
+
 begin_comment
 comment|/**  * Catalog of all the Camel components from this Apache Camel release.  */
 end_comment
@@ -65,6 +75,15 @@ parameter_list|(
 name|String
 name|name
 parameter_list|)
+function_decl|;
+comment|/**      * Find all the unique label names all the components are using.      *      * @return a set of all the labels.      */
+DECL|method|findLabels ()
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|findLabels
+parameter_list|()
 function_decl|;
 block|}
 end_interface
