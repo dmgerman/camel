@@ -176,7 +176,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"core,java,endpoint"
+literal|"core,endpoint"
 argument_list|)
 DECL|class|DirectEndpoint
 specifier|public
