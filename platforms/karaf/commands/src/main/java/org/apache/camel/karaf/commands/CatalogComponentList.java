@@ -118,6 +118,33 @@ DECL|field|verbose
 name|boolean
 name|verbose
 decl_stmt|;
+annotation|@
+name|Option
+argument_list|(
+name|name
+operator|=
+literal|"--label"
+argument_list|,
+name|aliases
+operator|=
+literal|"-l"
+argument_list|,
+name|description
+operator|=
+literal|"To filter components by their label(s), such as database"
+argument_list|,
+name|required
+operator|=
+literal|false
+argument_list|,
+name|multiValued
+operator|=
+literal|false
+argument_list|)
+DECL|field|label
+name|String
+name|label
+decl_stmt|;
 DECL|method|doExecute ()
 specifier|protected
 name|Object
@@ -133,6 +160,8 @@ operator|new
 name|CatalogComponentListCommand
 argument_list|(
 name|verbose
+argument_list|,
+name|label
 argument_list|)
 decl_stmt|;
 return|return

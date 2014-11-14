@@ -45,6 +45,18 @@ argument_list|>
 name|findComponentNames
 parameter_list|()
 function_decl|;
+comment|/**      * Find all the component names from the Camel catalog that matches the label      */
+DECL|method|findComponentNames (String label)
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|findComponentNames
+parameter_list|(
+name|String
+name|label
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the component information as JSon format.      *      * @param name the component name      * @return component details in JSon      */
 DECL|method|componentJSonSchema (String name)
 name|String

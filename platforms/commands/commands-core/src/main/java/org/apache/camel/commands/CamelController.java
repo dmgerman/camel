@@ -274,8 +274,8 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Lists all components from the Camel components catalog      *      * @return a list of key/value pairs with component information      * @throws java.lang.Exception is thrown if error loading resources to gather component information      */
-DECL|method|listComponentsCatalog ()
+comment|/**      * Lists all components from the Camel components catalog      *      * @param filter optional filter to filter by labels      * @return a list of key/value pairs with component information      * @throws java.lang.Exception is thrown if error loading resources to gather component information      */
+DECL|method|listComponentsCatalog (String filter)
 name|List
 argument_list|<
 name|Map
@@ -286,7 +286,10 @@ name|String
 argument_list|>
 argument_list|>
 name|listComponentsCatalog
-parameter_list|()
+parameter_list|(
+name|String
+name|filter
+parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
