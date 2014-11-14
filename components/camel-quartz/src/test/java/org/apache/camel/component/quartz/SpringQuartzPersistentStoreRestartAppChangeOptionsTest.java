@@ -76,7 +76,17 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|AfterClass
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|BeforeClass
 import|;
 end_import
 
@@ -178,6 +188,7 @@ name|TestSupport
 block|{
 DECL|field|db
 specifier|private
+specifier|static
 name|AbstractXmlApplicationContext
 name|db
 decl_stmt|;
@@ -192,9 +203,10 @@ name|AbstractXmlApplicationContext
 name|app2
 decl_stmt|;
 annotation|@
-name|Before
+name|BeforeClass
 DECL|method|prepareDB ()
 specifier|public
+specifier|static
 name|void
 name|prepareDB
 parameter_list|()
@@ -211,6 +223,21 @@ expr_stmt|;
 name|db
 operator|.
 name|start
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|AfterClass
+DECL|method|shutdownDB ()
+specifier|public
+specifier|static
+name|void
+name|shutdownDB
+parameter_list|()
+block|{
+name|db
+operator|.
+name|close
 argument_list|()
 expr_stmt|;
 block|}
@@ -232,8 +259,6 @@ argument_list|(
 name|app2
 argument_list|,
 name|app
-argument_list|,
-name|db
 argument_list|)
 expr_stmt|;
 block|}
