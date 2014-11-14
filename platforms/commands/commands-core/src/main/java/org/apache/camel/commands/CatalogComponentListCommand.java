@@ -57,14 +57,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * List all the Camel components from the Camel catalog  */
+comment|/**  * From the Camel catalog lists all the components.  */
 end_comment
 
 begin_class
-DECL|class|ComponentCatalogListCommand
+DECL|class|CatalogComponentListCommand
 specifier|public
 class|class
-name|ComponentCatalogListCommand
+name|CatalogComponentListCommand
 extends|extends
 name|AbstractCamelCommand
 block|{
@@ -182,9 +182,9 @@ specifier|private
 name|boolean
 name|verbose
 decl_stmt|;
-DECL|method|ComponentCatalogListCommand (boolean verbose)
+DECL|method|CatalogComponentListCommand (boolean verbose)
 specifier|public
-name|ComponentCatalogListCommand
+name|CatalogComponentListCommand
 parameter_list|(
 name|boolean
 name|verbose
