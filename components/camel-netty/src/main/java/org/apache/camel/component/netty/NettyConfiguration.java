@@ -468,8 +468,7 @@ specifier|private
 name|ClientPipelineFactory
 name|clientPipelineFactory
 decl_stmt|;
-annotation|@
-name|UriParam
+comment|//CAMEL-8031 Moved this option to NettyComponent
 DECL|field|maximumPoolSize
 specifier|private
 name|int
