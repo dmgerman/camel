@@ -56,29 +56,17 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
-import|;
-end_import
-
 begin_comment
-comment|/**  * List all the Camel components that are currently used/loaded in the JVM.  */
+comment|/**  * List all the Camel components from the Camel catalog  */
 end_comment
 
 begin_class
-DECL|class|ComponentListCommand
+DECL|class|ComponentCatalogListCommand
 specifier|public
 class|class
-name|ComponentListCommand
+name|ComponentCatalogListCommand
 extends|extends
-name|AbstractContextCommand
+name|AbstractCamelCommand
 block|{
 DECL|field|NAME_COLUMN_LABEL
 specifier|private
@@ -194,22 +182,14 @@ specifier|private
 name|boolean
 name|verbose
 decl_stmt|;
-DECL|method|ComponentListCommand (String context, boolean verbose)
+DECL|method|ComponentCatalogListCommand (boolean verbose)
 specifier|public
-name|ComponentListCommand
+name|ComponentCatalogListCommand
 parameter_list|(
-name|String
-name|context
-parameter_list|,
 name|boolean
 name|verbose
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|verbose
@@ -219,16 +199,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|performContextCommand (CamelController camelController, CamelContext camelContext, PrintStream out, PrintStream err)
-specifier|protected
+DECL|method|execute (CamelController camelController, PrintStream out, PrintStream err)
+specifier|public
 name|Object
-name|performContextCommand
+name|execute
 parameter_list|(
 name|CamelController
 name|camelController
-parameter_list|,
-name|CamelContext
-name|camelContext
 parameter_list|,
 name|PrintStream
 name|out
@@ -252,10 +229,8 @@ name|components
 init|=
 name|camelController
 operator|.
-name|listComponents
-argument_list|(
-name|context
-argument_list|)
+name|listComponentsCatalog
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

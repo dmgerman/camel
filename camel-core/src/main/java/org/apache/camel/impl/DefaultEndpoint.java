@@ -335,6 +335,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"InOnly"
+argument_list|,
+name|description
+operator|=
+literal|"Sets the default exchange pattern when creating an exchange"
 argument_list|)
 DECL|field|exchangePattern
 specifier|private
@@ -353,6 +357,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"false"
+argument_list|,
+name|description
+operator|=
+literal|"Sets whether synchronous processing should be strictly used, or Camel is allowed to use asynchronous processing (if supported)."
 argument_list|)
 DECL|field|synchronous
 specifier|private
@@ -888,7 +896,7 @@ name|pattern
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns the default exchange pattern to use for createExchange().      *       * @see #setExchangePattern(ExchangePattern exchangePattern)      */
+comment|/**      * Returns the default exchange pattern to use when creating an exchange.      */
 DECL|method|getExchangePattern ()
 specifier|public
 name|ExchangePattern
@@ -899,7 +907,7 @@ return|return
 name|exchangePattern
 return|;
 block|}
-comment|/**      * Sets the default exchange pattern to use for {@link #createExchange()}.      * The default value is {@link ExchangePattern#InOnly}      */
+comment|/**      * Sets the default exchange pattern when creating an exchange.      */
 DECL|method|setExchangePattern (ExchangePattern exchangePattern)
 specifier|public
 name|void
@@ -916,7 +924,7 @@ operator|=
 name|exchangePattern
 expr_stmt|;
 block|}
-comment|/**      * Returns whether synchronous processing should be strictly used.      *       * @see #setSynchronous(boolean synchronous)      */
+comment|/**      * Returns whether synchronous processing should be strictly used.      */
 DECL|method|isSynchronous ()
 specifier|public
 name|boolean

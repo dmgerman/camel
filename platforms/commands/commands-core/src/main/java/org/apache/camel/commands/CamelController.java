@@ -255,7 +255,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Lists all components and include information      *      * @param camelContextName the Camel context.      * @return a list of key/value pairs with component information      * @throws java.lang.Exception is thrown if error loading resources to gather component information      */
+comment|/**      * Lists Components which are in use or available on the classpath and include information      *      * @param camelContextName the Camel context.      * @return a list of key/value pairs with component information      * @throws java.lang.Exception is thrown if error loading resources to gather component information      */
 DECL|method|listComponents (String camelContextName)
 name|List
 argument_list|<
@@ -271,6 +271,22 @@ parameter_list|(
 name|String
 name|camelContextName
 parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Lists all components from the Camel components catalog      *      * @return a list of key/value pairs with component information      * @throws java.lang.Exception is thrown if error loading resources to gather component information      */
+DECL|method|listComponentsCatalog ()
+name|List
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|>
+name|listComponentsCatalog
+parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
