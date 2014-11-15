@@ -252,7 +252,7 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-comment|// property should be removed
+comment|// properties should be removed
 name|assertNull
 argument_list|(
 name|endExchange
