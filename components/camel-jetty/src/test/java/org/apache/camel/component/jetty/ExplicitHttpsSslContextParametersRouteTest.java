@@ -146,6 +146,20 @@ name|jetty
 operator|.
 name|server
 operator|.
+name|Connector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
+name|server
+operator|.
 name|ssl
 operator|.
 name|SslSelectChannelConnector
@@ -161,13 +175,16 @@ extends|extends
 name|HttpsRouteTest
 block|{
 comment|// START SNIPPET: e2
-DECL|method|createSslSocketConnector (CamelContext context)
+DECL|method|createSslSocketConnector (CamelContext context, int port)
 specifier|private
-name|SslSelectChannelConnector
+name|Connector
 name|createSslSocketConnector
 parameter_list|(
 name|CamelContext
 name|context
+parameter_list|,
+name|int
+name|port
 parameter_list|)
 throws|throws
 name|Exception
@@ -263,6 +280,13 @@ name|createSSLContext
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|sslSocketConnector
+operator|.
+name|setPort
+argument_list|(
+name|port
+argument_list|)
+expr_stmt|;
 return|return
 name|sslSocketConnector
 return|;
@@ -296,7 +320,7 @@ name|Map
 argument_list|<
 name|Integer
 argument_list|,
-name|SslSelectChannelConnector
+name|Connector
 argument_list|>
 name|connectors
 init|=
@@ -305,7 +329,7 @@ name|HashMap
 argument_list|<
 name|Integer
 argument_list|,
-name|SslSelectChannelConnector
+name|Connector
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -319,6 +343,8 @@ name|createSslSocketConnector
 argument_list|(
 name|getContext
 argument_list|()
+argument_list|,
+name|port1
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -332,6 +358,8 @@ name|createSslSocketConnector
 argument_list|(
 name|getContext
 argument_list|()
+argument_list|,
+name|port2
 argument_list|)
 argument_list|)
 expr_stmt|;

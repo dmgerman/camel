@@ -98,6 +98,20 @@ name|jetty
 operator|.
 name|server
 operator|.
+name|Connector
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
+name|server
+operator|.
 name|nio
 operator|.
 name|SelectChannelConnector
@@ -176,7 +190,7 @@ expr_stmt|;
 block|}
 DECL|method|createSocketConnector ()
 specifier|private
-name|SelectChannelConnector
+name|Connector
 name|createSocketConnector
 parameter_list|()
 block|{
@@ -206,6 +220,14 @@ operator|.
 name|setSoLingerTime
 argument_list|(
 literal|5000
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setPort
+argument_list|(
+name|getPort
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -240,7 +262,7 @@ name|Map
 argument_list|<
 name|Integer
 argument_list|,
-name|SelectChannelConnector
+name|Connector
 argument_list|>
 name|connectors
 init|=
@@ -249,7 +271,7 @@ name|HashMap
 argument_list|<
 name|Integer
 argument_list|,
-name|SelectChannelConnector
+name|Connector
 argument_list|>
 argument_list|()
 decl_stmt|;
