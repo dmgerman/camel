@@ -596,6 +596,10 @@ operator|=
 name|JmsConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"messaging"
 argument_list|)
 DECL|class|JmsEndpoint
 specifier|public

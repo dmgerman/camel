@@ -291,6 +291,10 @@ operator|=
 name|NettyHttpConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"http"
 argument_list|)
 DECL|class|NettyHttpEndpoint
 specifier|public

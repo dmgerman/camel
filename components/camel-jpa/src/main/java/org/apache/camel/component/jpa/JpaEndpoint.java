@@ -309,6 +309,10 @@ operator|=
 name|JpaConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"database"
 argument_list|)
 DECL|class|JpaEndpoint
 specifier|public

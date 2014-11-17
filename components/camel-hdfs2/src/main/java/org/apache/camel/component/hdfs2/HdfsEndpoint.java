@@ -141,6 +141,10 @@ operator|=
 name|HdfsConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"hadoop,file"
 argument_list|)
 DECL|class|HdfsEndpoint
 specifier|public

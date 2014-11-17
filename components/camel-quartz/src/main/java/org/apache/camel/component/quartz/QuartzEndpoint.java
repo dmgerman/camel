@@ -291,6 +291,10 @@ operator|=
 name|QuartzConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"scheduling"
 argument_list|)
 DECL|class|QuartzEndpoint
 specifier|public

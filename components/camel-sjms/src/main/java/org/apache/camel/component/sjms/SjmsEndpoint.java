@@ -309,6 +309,10 @@ operator|=
 name|SjmsConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"messaging"
 argument_list|)
 DECL|class|SjmsEndpoint
 specifier|public
