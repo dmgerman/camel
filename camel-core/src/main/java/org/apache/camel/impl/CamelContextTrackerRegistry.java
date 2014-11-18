@@ -22,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashSet
+name|LinkedHashSet
 import|;
 end_import
 
@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  */
+comment|/**  * A registry for {@link CamelContextTracker}.  */
 end_comment
 
 begin_class
@@ -93,6 +93,18 @@ specifier|final
 class|class
 name|CamelContextTrackerRegistry
 block|{
+comment|/**      * The registry singleton      */
+DECL|field|INSTANCE
+specifier|public
+specifier|static
+specifier|final
+name|CamelContextTrackerRegistry
+name|INSTANCE
+init|=
+operator|new
+name|CamelContextTrackerRegistry
+argument_list|()
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -109,18 +121,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|/**      * The registry singleton      */
-DECL|field|INSTANCE
-specifier|public
-specifier|static
-specifier|final
-name|CamelContextTrackerRegistry
-name|INSTANCE
-init|=
-operator|new
-name|CamelContextTrackerRegistry
-argument_list|()
-decl_stmt|;
 DECL|field|trackers
 specifier|private
 specifier|final
@@ -131,18 +131,19 @@ argument_list|>
 name|trackers
 init|=
 operator|new
-name|HashSet
+name|LinkedHashSet
 argument_list|<
 name|CamelContextTracker
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// Hide ctor
 DECL|method|CamelContextTrackerRegistry ()
 specifier|private
 name|CamelContextTrackerRegistry
 parameter_list|()
-block|{     }
+block|{
+comment|// hide constructor
+block|}
 DECL|method|addTracker (CamelContextTracker tracker)
 specifier|public
 specifier|synchronized
@@ -209,16 +210,16 @@ block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|ex
+name|e
 parameter_list|)
 block|{
 name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Error calling context tracker. This exception is ignored."
+literal|"Error calling CamelContext tracker. This exception is ignored."
 argument_list|,
-name|ex
+name|e
 argument_list|)
 expr_stmt|;
 block|}
