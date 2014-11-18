@@ -17,6 +17,22 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringQuoteHelper
+operator|.
+name|doubleQuote
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -83,16 +99,6 @@ operator|.
 name|util
 operator|.
 name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Comparator
 import|;
 end_import
 
@@ -986,20 +992,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|CamelContextRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|ClassResolver
 import|;
 end_import
@@ -1721,22 +1713,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|StringQuoteHelper
-operator|.
-name|doubleQuote
 import|;
 end_import
 
@@ -2641,18 +2617,13 @@ operator|=
 name|createManagementMBeanAssembler
 argument_list|()
 expr_stmt|;
-comment|// Register this context with the registry
-comment|// Note, this may register a partially constructed object
-operator|(
-operator|(
-name|DefaultCamelContextRegistry
-operator|)
-name|CamelContextRegistry
+comment|// Call all registered trackers with this context
+comment|// Note, this may use a partially constructed object
+name|CamelContextTrackerRegistry
 operator|.
 name|INSTANCE
-operator|)
 operator|.
-name|afterCreate
+name|contextCreated
 argument_list|(
 name|this
 argument_list|)
@@ -11092,22 +11063,6 @@ name|cl
 argument_list|)
 expr_stmt|;
 block|}
-comment|// We register the context again just before start. This ensures that is is registered on restart
-comment|// Listeners should only see one call to Listener.contextAdded(CamelContext)
-operator|(
-operator|(
-name|DefaultCamelContextRegistry
-operator|)
-name|CamelContextRegistry
-operator|.
-name|INSTANCE
-operator|)
-operator|.
-name|beforeStart
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|log
@@ -12164,21 +12119,6 @@ operator|.
 name|Instance
 operator|.
 name|unmanage
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
-comment|// Unregister this context from the registry
-operator|(
-operator|(
-name|DefaultCamelContextRegistry
-operator|)
-name|CamelContextRegistry
-operator|.
-name|INSTANCE
-operator|)
-operator|.
-name|afterStop
 argument_list|(
 name|this
 argument_list|)
