@@ -96,6 +96,26 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|rx
 operator|.
 name|Observer
@@ -135,6 +155,22 @@ parameter_list|>
 implements|implements
 name|Subscription
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|EndpointSubscription
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|endpoint
 specifier|private
 specifier|final
@@ -314,12 +350,6 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
-comment|// TODO should this fire the observer.onComplete()?
-name|observer
-operator|.
-name|onCompleted
-argument_list|()
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -327,10 +357,23 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|observer
+name|LOG
 operator|.
-name|onError
+name|warn
 argument_list|(
+literal|"Error stopping consumer: "
+operator|+
+name|consumer
+operator|+
+literal|" due "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|". This exception is ignored."
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;

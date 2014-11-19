@@ -146,6 +146,10 @@ argument_list|>
 name|subscriber
 parameter_list|)
 block|{
+name|subscriber
+operator|.
+name|add
+argument_list|(
 operator|new
 name|EndpointSubscription
 argument_list|<
@@ -157,6 +161,7 @@ argument_list|,
 name|subscriber
 argument_list|,
 name|converter
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
