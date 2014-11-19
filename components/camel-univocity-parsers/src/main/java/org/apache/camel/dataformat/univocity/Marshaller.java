@@ -228,6 +228,9 @@ block|{
 try|try
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|convertToType
@@ -308,6 +311,11 @@ throws|throws
 name|NoTypeConversionAvailableException
 block|{
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|map
 init|=
 name|convertToMandatoryType
