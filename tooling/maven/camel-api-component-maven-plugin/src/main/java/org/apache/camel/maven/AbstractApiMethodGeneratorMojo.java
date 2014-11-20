@@ -74,7 +74,7 @@ name|util
 operator|.
 name|regex
 operator|.
-name|Pattern
+name|Matcher
 import|;
 end_import
 
@@ -86,7 +86,7 @@ name|util
 operator|.
 name|regex
 operator|.
-name|Matcher
+name|Pattern
 import|;
 end_import
 
