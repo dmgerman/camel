@@ -252,7 +252,9 @@ operator|=
 name|dbCol
 operator|.
 name|findOne
-argument_list|()
+argument_list|(
+name|filter
+argument_list|)
 expr_stmt|;
 block|}
 comment|// keep only the _id, the rest is useless and causes more overhead during update
