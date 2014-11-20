@@ -407,21 +407,6 @@ name|PROPERTY_PREFIX
 init|=
 literal|"camel.scr.properties.prefix"
 decl_stmt|;
-comment|// Configured fields
-DECL|field|camelContextId
-specifier|private
-name|String
-name|camelContextId
-init|=
-literal|"camel-runner-default"
-decl_stmt|;
-DECL|field|active
-specifier|private
-name|boolean
-name|active
-init|=
-literal|false
-decl_stmt|;
 DECL|field|log
 specifier|protected
 name|Logger
@@ -448,6 +433,19 @@ init|=
 operator|new
 name|SimpleRegistry
 argument_list|()
+decl_stmt|;
+comment|// Configured fields
+DECL|field|camelContextId
+specifier|private
+name|String
+name|camelContextId
+init|=
+literal|"camel-runner-default"
+decl_stmt|;
+DECL|field|active
+specifier|private
+name|boolean
+name|active
 decl_stmt|;
 DECL|field|executor
 specifier|private
@@ -665,11 +663,6 @@ name|log
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|setupCamelContext (final BundleContext bundleContext, final String camelContextId)
 specifier|protected
 name|void
@@ -1156,11 +1149,6 @@ literal|false
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|getContext ()
 specifier|public
 name|ModelCamelContext
@@ -1171,11 +1159,6 @@ return|return
 name|context
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|gotCamelComponent (final ComponentResolver componentResolver)
 specifier|protected
 name|void
@@ -1199,11 +1182,6 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|lostCamelComponent (final ComponentResolver componentResolver)
 specifier|protected
 name|void
@@ -1284,6 +1262,9 @@ name|deep
 parameter_list|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|target
@@ -1570,6 +1551,9 @@ name|clazz
 operator|=
 operator|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|type
 expr_stmt|;
