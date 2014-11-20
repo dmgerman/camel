@@ -1220,7 +1220,9 @@ name|endpointPaths
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<>
+argument_list|<
+name|EndpointPath
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -1231,7 +1233,9 @@ name|endpointOptions
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<>
+argument_list|<
+name|EndpointOption
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|findClassProperties
@@ -1756,7 +1760,9 @@ name|endpointPaths
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<>
+argument_list|<
+name|EndpointPath
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|Set
@@ -1767,7 +1773,9 @@ name|endpointOptions
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<>
+argument_list|<
+name|EndpointOption
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|findClassProperties
@@ -2720,7 +2728,9 @@ name|enums
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<>
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|boolean
@@ -3179,7 +3189,9 @@ name|enums
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<>
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|boolean
