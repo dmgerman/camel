@@ -36,6 +36,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriParams
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|FileUtil
@@ -43,6 +57,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|UriParams
 DECL|class|GenericFileConfiguration
 specifier|public
 class|class
