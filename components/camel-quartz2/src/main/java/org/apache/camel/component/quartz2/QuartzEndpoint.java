@@ -258,7 +258,27 @@ name|org
 operator|.
 name|quartz
 operator|.
+name|ObjectAlreadyExistsException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|quartz
+operator|.
 name|Scheduler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|quartz
+operator|.
+name|SchedulerException
 import|;
 end_import
 
@@ -483,6 +503,14 @@ init|=
 literal|500
 decl_stmt|;
 comment|// in millis second
+comment|/** If it is true, the CamelContext name is used,      *  if it is false, use the CamelContext management name which could be changed during the deploy time       **/
+annotation|@
+name|UriParam
+DECL|field|usingFixedCamelContextName
+specifier|private
+name|boolean
+name|usingFixedCamelContextName
+decl_stmt|;
 comment|// An internal variables to track whether a job has been in scheduler or not, and has it paused or not.
 DECL|field|jobAdded
 specifier|private
@@ -717,6 +745,32 @@ operator|.
 name|recoverableJob
 operator|=
 name|recoverableJob
+expr_stmt|;
+block|}
+DECL|method|isUsingFixedCamelContextName ()
+specifier|public
+name|boolean
+name|isUsingFixedCamelContextName
+parameter_list|()
+block|{
+return|return
+name|usingFixedCamelContextName
+return|;
+block|}
+DECL|method|setUsingFixedCamelContextName (boolean usingFixedCamelContextName)
+specifier|public
+name|void
+name|setUsingFixedCamelContextName
+parameter_list|(
+name|boolean
+name|usingFixedCamelContextName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|usingFixedCamelContextName
+operator|=
+name|usingFixedCamelContextName
 expr_stmt|;
 block|}
 DECL|method|setTriggerParameters (Map<String, Object> triggerParameters)
@@ -1144,6 +1198,9 @@ name|jobDetail
 argument_list|,
 name|getEndpointUri
 argument_list|()
+argument_list|,
+name|isUsingFixedCamelContextName
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -1175,6 +1232,8 @@ block|}
 block|}
 else|else
 block|{
+try|try
+block|{
 comment|// Schedule it now. Remember that scheduler might not be started it, but we can schedule now.
 name|scheduler
 operator|.
@@ -1185,6 +1244,58 @@ argument_list|,
 name|trigger
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ObjectAlreadyExistsException
+name|ex
+parameter_list|)
+block|{
+comment|// some other VM might may have stored the job& trigger in DB in clustered mode, in the mean time
+if|if
+condition|(
+operator|!
+operator|(
+name|getComponent
+argument_list|()
+operator|.
+name|isClustered
+argument_list|()
+operator|)
+condition|)
+block|{
+throw|throw
+name|ex
+throw|;
+block|}
+else|else
+block|{
+name|trigger
+operator|=
+name|scheduler
+operator|.
+name|getTrigger
+argument_list|(
+name|triggerKey
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|trigger
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|SchedulerException
+argument_list|(
+literal|"Trigger could not be found in quartz scheduler."
+argument_list|)
+throw|;
+block|}
+block|}
+block|}
 block|}
 if|if
 condition|(
