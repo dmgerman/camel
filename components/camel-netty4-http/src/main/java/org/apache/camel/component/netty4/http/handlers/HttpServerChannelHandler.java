@@ -28,16 +28,6 @@ name|java
 operator|.
 name|net
 operator|.
-name|SocketAddress
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
 name|URI
 import|;
 end_import
@@ -111,18 +101,6 @@ operator|.
 name|buffer
 operator|.
 name|ByteBuf
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|netty
-operator|.
-name|channel
-operator|.
-name|ChannelFutureListener
 import|;
 end_import
 
@@ -239,22 +217,6 @@ operator|.
 name|camel
 operator|.
 name|LoggingLevel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|netty4
-operator|.
-name|NettyConsumer
 import|;
 end_import
 
@@ -425,24 +387,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|io
-operator|.
-name|netty
-operator|.
-name|handler
-operator|.
-name|codec
-operator|.
-name|http
-operator|.
-name|HttpHeaders
-operator|.
-name|isKeepAlive
 import|;
 end_import
 
@@ -721,6 +665,14 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
+name|ctx
+operator|.
+name|channel
+argument_list|()
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 return|return;
 block|}
 comment|// if its an OPTIONS request then return which methods is allowed
@@ -916,6 +868,14 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
+name|ctx
+operator|.
+name|channel
+argument_list|()
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 return|return;
 block|}
 if|if
@@ -989,6 +949,14 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
+name|ctx
+operator|.
+name|channel
+argument_list|()
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 return|return;
 block|}
 comment|// must include HOST header as required by HTTP 1.1
@@ -1059,6 +1027,14 @@ name|writeAndFlush
 argument_list|(
 name|response
 argument_list|)
+expr_stmt|;
+name|ctx
+operator|.
+name|channel
+argument_list|()
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 return|return;
 block|}

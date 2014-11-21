@@ -839,6 +839,11 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
+name|ctx
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 annotation|@
@@ -953,6 +958,11 @@ name|writeAndFlush
 argument_list|(
 name|response
 argument_list|)
+expr_stmt|;
+name|ctx
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}
