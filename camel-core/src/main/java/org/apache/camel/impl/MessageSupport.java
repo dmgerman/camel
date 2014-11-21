@@ -637,12 +637,50 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// the attachments may be the same instance if the end user has made some mistake
+comment|// and set the OUT message with the same attachment instance of the IN message etc
+name|boolean
+name|sameAttachments
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+name|hasAttachments
+argument_list|()
+operator|&&
+name|that
+operator|.
+name|hasAttachments
+argument_list|()
+operator|&&
+name|getAttachments
+argument_list|()
+operator|==
+name|that
+operator|.
+name|getAttachments
+argument_list|()
+condition|)
+block|{
+name|sameAttachments
+operator|=
+literal|true
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|sameAttachments
+condition|)
+block|{
 if|if
 condition|(
 name|hasAttachments
 argument_list|()
 condition|)
 block|{
+comment|// okay its safe to clear the attachments
 name|getAttachments
 argument_list|()
 operator|.
@@ -669,6 +707,7 @@ name|getAttachments
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getExchange ()
