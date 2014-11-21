@@ -125,6 +125,10 @@ operator|=
 name|VmConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"core,endpoint"
 argument_list|)
 DECL|class|VmEndpoint
 specifier|public

@@ -223,6 +223,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"dataformat"
+argument_list|,
+name|label
+operator|=
+literal|"core,transformation"
 argument_list|)
 DECL|class|DataFormatEndpoint
 specifier|public

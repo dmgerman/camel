@@ -269,6 +269,16 @@ argument_list|(
 name|scheme
 operator|=
 literal|"jetty"
+argument_list|,
+name|consumerClass
+operator|=
+name|HttpConsumer
+operator|.
+name|class
+argument_list|,
+name|label
+operator|=
+literal|"http"
 argument_list|)
 DECL|class|JettyHttpEndpoint
 specifier|public

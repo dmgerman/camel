@@ -139,6 +139,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"jdbc"
+argument_list|,
+name|label
+operator|=
+literal|"database"
 argument_list|)
 DECL|class|JdbcEndpoint
 specifier|public

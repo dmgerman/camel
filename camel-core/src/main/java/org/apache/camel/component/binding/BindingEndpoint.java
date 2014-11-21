@@ -203,6 +203,10 @@ operator|=
 name|BindingConsumerProcessor
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"core,transformation"
 argument_list|)
 DECL|class|BindingEndpoint
 specifier|public

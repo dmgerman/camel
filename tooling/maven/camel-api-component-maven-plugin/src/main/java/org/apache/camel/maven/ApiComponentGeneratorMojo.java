@@ -48,6 +48,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|regex
+operator|.
+name|Matcher
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -1078,9 +1090,14 @@ name|replaceAll
 argument_list|(
 literal|"\\."
 argument_list|,
+name|Matcher
+operator|.
+name|quoteReplacement
+argument_list|(
 name|File
 operator|.
 name|separator
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.

@@ -153,6 +153,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"ref"
+argument_list|,
+name|label
+operator|=
+literal|"core,endpoint"
 argument_list|)
 DECL|class|RefEndpoint
 specifier|public

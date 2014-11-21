@@ -213,6 +213,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"log"
+argument_list|,
+name|label
+operator|=
+literal|"core,monitoring"
 argument_list|)
 DECL|class|LogEndpoint
 specifier|public

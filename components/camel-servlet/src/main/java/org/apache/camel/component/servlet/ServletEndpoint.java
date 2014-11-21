@@ -177,6 +177,10 @@ operator|=
 name|ServletConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"http"
 argument_list|)
 DECL|class|ServletEndpoint
 specifier|public

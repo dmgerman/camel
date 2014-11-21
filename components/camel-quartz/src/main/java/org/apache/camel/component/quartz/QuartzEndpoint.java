@@ -291,6 +291,10 @@ operator|=
 name|QuartzConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"scheduling"
 argument_list|)
 DECL|class|QuartzEndpoint
 specifier|public
@@ -365,6 +369,14 @@ DECL|field|pauseJob
 specifier|private
 name|boolean
 name|pauseJob
+decl_stmt|;
+comment|/** If it is true, the CamelContext name is used,      *  if it is false, use the CamelContext management name which could be changed during the deploy time       **/
+annotation|@
+name|UriParam
+DECL|field|usingFixedCamelContextName
+specifier|private
+name|boolean
+name|usingFixedCamelContextName
 decl_stmt|;
 DECL|method|QuartzEndpoint (final String endpointUri, final QuartzComponent component)
 specifier|public
@@ -494,6 +506,33 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isUsingFixedCamelContextName
+argument_list|()
+condition|)
+block|{
+name|detail
+operator|.
+name|getJobDataMap
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|QuartzConstants
+operator|.
+name|QUARTZ_CAMEL_CONTEXT_NAME
+argument_list|,
+name|getCamelContext
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// must use management name as it should be unique in the same JVM
 name|detail
 operator|.
@@ -515,6 +554,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|detail
@@ -1111,6 +1151,32 @@ expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
+DECL|method|isUsingFixedCamelContextName ()
+specifier|public
+name|boolean
+name|isUsingFixedCamelContextName
+parameter_list|()
+block|{
+return|return
+name|usingFixedCamelContextName
+return|;
+block|}
+DECL|method|setUsingFixedCamelContextName (boolean usingFixedCamelContextName)
+specifier|public
+name|void
+name|setUsingFixedCamelContextName
+parameter_list|(
+name|boolean
+name|usingFixedCamelContextName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|usingFixedCamelContextName
+operator|=
+name|usingFixedCamelContextName
+expr_stmt|;
+block|}
 DECL|method|consumerStarted (final QuartzConsumer consumer)
 specifier|public
 specifier|synchronized

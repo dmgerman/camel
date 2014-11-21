@@ -108,11 +108,6 @@ specifier|public
 specifier|abstract
 class|class
 name|AbstractMetricsProducer
-parameter_list|<
-name|T
-extends|extends
-name|AbstractMetricsEndpoint
-parameter_list|>
 extends|extends
 name|DefaultProducer
 block|{
@@ -145,11 +140,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|AbstractMetricsProducer (T endpoint)
+DECL|method|AbstractMetricsProducer (MetricsEndpoint endpoint)
 specifier|public
 name|AbstractMetricsProducer
 parameter_list|(
-name|T
+name|MetricsEndpoint
 name|endpoint
 parameter_list|)
 block|{
@@ -158,6 +153,24 @@ argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getEndpoint ()
+specifier|public
+name|MetricsEndpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|MetricsEndpoint
+operator|)
+name|super
+operator|.
+name|getEndpoint
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override
@@ -172,20 +185,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-name|T
-name|endpoint
-init|=
-operator|(
-name|T
-operator|)
-name|getEndpoint
-argument_list|()
-decl_stmt|;
 name|Message
 name|in
 init|=
@@ -197,7 +196,8 @@ decl_stmt|;
 name|String
 name|defaultMetricsName
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getMetricsName
 argument_list|()
@@ -215,7 +215,8 @@ decl_stmt|;
 name|MetricRegistry
 name|registry
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getRegistry
 argument_list|()
@@ -226,7 +227,8 @@ name|doProcess
 argument_list|(
 name|exchange
 argument_list|,
-name|endpoint
+name|getEndpoint
+argument_list|()
 argument_list|,
 name|registry
 argument_list|,
@@ -240,39 +242,24 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|LOG
+name|exchange
 operator|.
-name|warn
+name|setException
 argument_list|(
-literal|"Failed to produce metrics for {} in {} - {}"
-argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
-name|finalMetricsName
-block|,
-name|getClass
-argument_list|()
-operator|.
-name|getSimpleName
-argument_list|()
-block|,
 name|e
-operator|.
-name|getMessage
-argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 block|}
+finally|finally
+block|{
 name|clearMetricsHeaders
 argument_list|(
 name|in
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doProcess (Exchange exchange, T endpoint, MetricRegistry registry, String metricsName)
+block|}
+DECL|method|doProcess (Exchange exchange, MetricsEndpoint endpoint, MetricRegistry registry, String metricsName)
 specifier|protected
 specifier|abstract
 name|void
@@ -281,7 +268,7 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|T
+name|MetricsEndpoint
 name|endpoint
 parameter_list|,
 name|MetricRegistry

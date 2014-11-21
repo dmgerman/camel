@@ -229,6 +229,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"browse"
+argument_list|,
+name|label
+operator|=
+literal|"core,monitoring"
 argument_list|)
 DECL|class|BrowseEndpoint
 specifier|public

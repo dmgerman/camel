@@ -92,16 +92,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Comparator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Date
 import|;
 end_import
@@ -638,6 +628,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|builder
+operator|.
+name|ErrorHandlerBuilderSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|properties
@@ -973,20 +977,6 @@ operator|.
 name|spi
 operator|.
 name|CamelContextNameStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|CamelContextRegistry
 import|;
 end_import
 
@@ -2641,18 +2631,13 @@ operator|=
 name|createManagementMBeanAssembler
 argument_list|()
 expr_stmt|;
-comment|// Register this context with the registry
-comment|// Note, this may register a partially constructed object
-operator|(
-operator|(
-name|DefaultCamelContextRegistry
-operator|)
-name|CamelContextRegistry
+comment|// Call all registered trackers with this context
+comment|// Note, this may use a partially constructed object
+name|CamelContextTrackerRegistry
 operator|.
 name|INSTANCE
-operator|)
 operator|.
-name|afterCreate
+name|contextCreated
 argument_list|(
 name|this
 argument_list|)
@@ -5865,6 +5850,32 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// remove the route from ErrorHandlerBuilder if possible
+if|if
+condition|(
+name|getErrorHandlerBuilder
+argument_list|()
+operator|instanceof
+name|ErrorHandlerBuilderSupport
+condition|)
+block|{
+name|ErrorHandlerBuilderSupport
+name|builder
+init|=
+operator|(
+name|ErrorHandlerBuilderSupport
+operator|)
+name|getErrorHandlerBuilder
+argument_list|()
+decl_stmt|;
+name|builder
+operator|.
+name|removeOnExceptionList
+argument_list|(
+name|routeId
+argument_list|)
+expr_stmt|;
+block|}
 name|RouteService
 name|routeService
 init|=
@@ -11092,22 +11103,6 @@ name|cl
 argument_list|)
 expr_stmt|;
 block|}
-comment|// We register the context again just before start. This ensures that is is registered on restart
-comment|// Listeners should only see one call to Listener.contextAdded(CamelContext)
-operator|(
-operator|(
-name|DefaultCamelContextRegistry
-operator|)
-name|CamelContextRegistry
-operator|.
-name|INSTANCE
-operator|)
-operator|.
-name|beforeStart
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|log
@@ -12164,21 +12159,6 @@ operator|.
 name|Instance
 operator|.
 name|unmanage
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
-comment|// Unregister this context from the registry
-operator|(
-operator|(
-name|DefaultCamelContextRegistry
-operator|)
-name|CamelContextRegistry
-operator|.
-name|INSTANCE
-operator|)
-operator|.
-name|afterStop
 argument_list|(
 name|this
 argument_list|)

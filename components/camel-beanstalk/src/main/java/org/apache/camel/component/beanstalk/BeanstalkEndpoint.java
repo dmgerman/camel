@@ -246,6 +246,20 @@ name|UriParam
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
 begin_class
 annotation|@
 name|UriEndpoint
@@ -259,6 +273,10 @@ operator|=
 name|BeanstalkConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"messaging"
 argument_list|)
 DECL|class|BeanstalkEndpoint
 specifier|public
@@ -273,18 +291,39 @@ name|ConnectionSettings
 name|conn
 decl_stmt|;
 annotation|@
-name|UriParam
-DECL|field|command
+name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"Connection settings host:port/tube"
+argument_list|)
+DECL|field|connectionSettings
 specifier|private
 name|String
-name|command
-init|=
-name|BeanstalkComponent
-operator|.
-name|COMMAND_PUT
+name|connectionSettings
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|command
+specifier|private
+name|BeanstalkCommand
+name|command
+init|=
+name|BeanstalkCommand
+operator|.
+name|put
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|""
+operator|+
+name|BeanstalkComponent
+operator|.
+name|DEFAULT_PRIORITY
+argument_list|)
 DECL|field|jobPriority
 specifier|private
 name|long
@@ -296,6 +335,15 @@ name|DEFAULT_PRIORITY
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|""
+operator|+
+name|BeanstalkComponent
+operator|.
+name|DEFAULT_DELAY
+argument_list|)
 DECL|field|jobDelay
 specifier|private
 name|int
@@ -307,6 +355,15 @@ name|DEFAULT_DELAY
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|""
+operator|+
+name|BeanstalkComponent
+operator|.
+name|DEFAULT_TIME_TO_RUN
+argument_list|)
 DECL|field|jobTimeToRun
 specifier|private
 name|int
@@ -320,15 +377,20 @@ annotation|@
 name|UriParam
 DECL|field|onFailure
 specifier|private
-name|String
+name|BeanstalkCommand
 name|onFailure
 init|=
-name|BeanstalkComponent
+name|BeanstalkCommand
 operator|.
-name|COMMAND_BURY
+name|bury
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|useBlockIO
 specifier|private
 name|boolean
@@ -338,6 +400,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|awaitJob
 specifier|private
 name|boolean
@@ -345,7 +412,7 @@ name|awaitJob
 init|=
 literal|true
 decl_stmt|;
-DECL|method|BeanstalkEndpoint (final String uri, final Component component, final ConnectionSettings conn)
+DECL|method|BeanstalkEndpoint (final String uri, final Component component, final ConnectionSettings conn, final String connectionSettings)
 specifier|public
 name|BeanstalkEndpoint
 parameter_list|(
@@ -360,6 +427,10 @@ parameter_list|,
 specifier|final
 name|ConnectionSettings
 name|conn
+parameter_list|,
+specifier|final
+name|String
+name|connectionSettings
 parameter_list|)
 block|{
 name|super
@@ -375,6 +446,22 @@ name|conn
 operator|=
 name|conn
 expr_stmt|;
+name|this
+operator|.
+name|connectionSettings
+operator|=
+name|connectionSettings
+expr_stmt|;
+block|}
+DECL|method|getConnectionSettings ()
+specifier|public
+name|String
+name|getConnectionSettings
+parameter_list|()
+block|{
+return|return
+name|connectionSettings
+return|;
 block|}
 DECL|method|getConnection ()
 specifier|public
@@ -398,7 +485,7 @@ return|;
 block|}
 DECL|method|getCommand ()
 specifier|public
-name|String
+name|BeanstalkCommand
 name|getCommand
 parameter_list|()
 block|{
@@ -406,12 +493,12 @@ return|return
 name|command
 return|;
 block|}
-DECL|method|setCommand (String command)
+DECL|method|setCommand (BeanstalkCommand command)
 specifier|public
 name|void
 name|setCommand
 parameter_list|(
-name|String
+name|BeanstalkCommand
 name|command
 parameter_list|)
 block|{
@@ -432,6 +519,7 @@ return|return
 name|jobPriority
 return|;
 block|}
+comment|/**      * Job priority. (0 is the highest, see Beanstalk protocol)      */
 DECL|method|setJobPriority (long jobPriority)
 specifier|public
 name|void
@@ -458,6 +546,7 @@ return|return
 name|jobDelay
 return|;
 block|}
+comment|/**      * Job delay in seconds.      */
 DECL|method|setJobDelay (int jobDelay)
 specifier|public
 name|void
@@ -484,6 +573,7 @@ return|return
 name|jobTimeToRun
 return|;
 block|}
+comment|/**      * Job time to run in seconds. (when 0, the beanstalkd daemon raises it to 1 automatically, see Beanstalk protocol)      */
 DECL|method|setJobTimeToRun (int jobTimeToRun)
 specifier|public
 name|void
@@ -502,7 +592,7 @@ expr_stmt|;
 block|}
 DECL|method|getOnFailure ()
 specifier|public
-name|String
+name|BeanstalkCommand
 name|getOnFailure
 parameter_list|()
 block|{
@@ -510,12 +600,13 @@ return|return
 name|onFailure
 return|;
 block|}
-DECL|method|setOnFailure (String onFailure)
+comment|/**      * Command to use when processing failed.      */
+DECL|method|setOnFailure (BeanstalkCommand onFailure)
 specifier|public
 name|void
 name|setOnFailure
 parameter_list|(
-name|String
+name|BeanstalkCommand
 name|onFailure
 parameter_list|)
 block|{
@@ -536,6 +627,7 @@ return|return
 name|useBlockIO
 return|;
 block|}
+comment|/**      * Whether to use blockIO.      */
 DECL|method|setUseBlockIO (boolean useBlockIO)
 specifier|public
 name|void
@@ -562,6 +654,7 @@ return|return
 name|awaitJob
 return|;
 block|}
+comment|/**      * Whether to wait for job to complete before ack the job from beanstalk      */
 DECL|method|setAwaitJob (boolean awaitJob)
 specifier|public
 name|void
@@ -601,6 +694,9 @@ operator|.
 name|equals
 argument_list|(
 name|command
+operator|.
+name|name
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -623,6 +719,9 @@ operator|.
 name|equals
 argument_list|(
 name|command
+operator|.
+name|name
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -645,6 +744,9 @@ operator|.
 name|equals
 argument_list|(
 name|command
+operator|.
+name|name
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -667,6 +769,9 @@ operator|.
 name|equals
 argument_list|(
 name|command
+operator|.
+name|name
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -689,6 +794,9 @@ operator|.
 name|equals
 argument_list|(
 name|command
+operator|.
+name|name
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -711,6 +819,9 @@ operator|.
 name|equals
 argument_list|(
 name|command
+operator|.
+name|name
+argument_list|()
 argument_list|)
 condition|)
 block|{

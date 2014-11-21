@@ -565,6 +565,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"mock"
+argument_list|,
+name|label
+operator|=
+literal|"core,testing"
 argument_list|)
 DECL|class|MockEndpoint
 specifier|public

@@ -94,7 +94,7 @@ literal|"component-list"
 argument_list|,
 name|description
 operator|=
-literal|"Lists all Camel components available in CamelContexts."
+literal|"Lists all Camel components that are in use in Karaf."
 argument_list|)
 DECL|class|ComponentList
 specifier|public

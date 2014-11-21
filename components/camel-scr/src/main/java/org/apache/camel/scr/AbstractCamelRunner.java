@@ -407,21 +407,6 @@ name|PROPERTY_PREFIX
 init|=
 literal|"camel.scr.properties.prefix"
 decl_stmt|;
-comment|// Configured fields
-DECL|field|camelContextId
-specifier|private
-name|String
-name|camelContextId
-init|=
-literal|"camel-runner-default"
-decl_stmt|;
-DECL|field|active
-specifier|private
-name|boolean
-name|active
-init|=
-literal|false
-decl_stmt|;
 DECL|field|log
 specifier|protected
 name|Logger
@@ -448,6 +433,19 @@ init|=
 operator|new
 name|SimpleRegistry
 argument_list|()
+decl_stmt|;
+comment|// Configured fields
+DECL|field|camelContextId
+specifier|private
+name|String
+name|camelContextId
+init|=
+literal|"camel-runner-default"
+decl_stmt|;
+DECL|field|active
+specifier|private
+name|boolean
+name|active
 decl_stmt|;
 DECL|field|executor
 specifier|private
@@ -665,11 +663,6 @@ name|log
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|setupCamelContext (final BundleContext bundleContext, final String camelContextId)
 specifier|protected
 name|void
@@ -1156,11 +1149,6 @@ literal|false
 expr_stmt|;
 block|}
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|getContext ()
 specifier|public
 name|ModelCamelContext
@@ -1171,11 +1159,6 @@ return|return
 name|context
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|gotCamelComponent (final ComponentResolver componentResolver)
 specifier|protected
 name|void
@@ -1199,11 +1182,6 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unused"
-argument_list|)
 DECL|method|lostCamelComponent (final ComponentResolver componentResolver)
 specifier|protected
 name|void
@@ -1284,6 +1262,9 @@ name|deep
 parameter_list|)
 block|{
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|clazz
 init|=
 name|target
@@ -1378,11 +1359,13 @@ range|:
 name|fields
 control|)
 block|{
-try|try
-block|{
 name|String
 name|propertyValue
-init|=
+decl_stmt|;
+try|try
+block|{
+name|propertyValue
+operator|=
 name|context
 operator|.
 name|resolvePropertyPlaceholders
@@ -1396,7 +1379,30 @@ argument_list|()
 operator|+
 literal|"}}"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Skipped field {}"
+argument_list|,
+name|field
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
+try|try
+block|{
 if|if
 condition|(
 operator|!
@@ -1435,7 +1441,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Set field {} with value {}"
+literal|"Configured field {} with value {}"
 argument_list|,
 name|field
 operator|.
@@ -1455,7 +1461,7 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|debug
+name|error
 argument_list|(
 literal|"Error setting field "
 operator|+
@@ -1472,6 +1478,8 @@ name|getMessage
 argument_list|()
 operator|+
 literal|". This exception is ignored."
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
 block|}
@@ -1543,6 +1551,9 @@ name|clazz
 operator|=
 operator|(
 name|Class
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|type
 expr_stmt|;
@@ -1742,7 +1753,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unknown type: "
+literal|"Unsupported type: "
 operator|+
 operator|(
 name|clazz

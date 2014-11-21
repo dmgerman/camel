@@ -177,6 +177,10 @@ operator|=
 name|FileConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"core,file"
 argument_list|)
 DECL|class|FileEndpoint
 specifier|public

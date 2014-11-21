@@ -104,7 +104,7 @@ specifier|public
 annotation_defn|@interface
 name|UriEndpoint
 block|{
-comment|/**      * Represents the URI scheme name of this endpoint      */
+comment|/**      * Represents the URI scheme name of this endpoint.      *<p/>      * Multiple scheme names can be defined as a comma separated value.      * For example to associate<tt>http</tt> and<tt>https</tt> to the same endpoint implementation.      */
 DECL|method|scheme ()
 name|String
 name|scheme
@@ -128,6 +128,14 @@ comment|/**      * The configuration parameter name prefix used on parameter nam
 DECL|method|consumerPrefix ()
 name|String
 name|consumerPrefix
+parameter_list|()
+default|default
+literal|""
+function_decl|;
+comment|/**      * To associate this endpoint with label(s).      *<p/>      * Multiple labels can be defined as a comma separated value.      *<p/>      * The labels is intended for grouping the endpoints, such as<tt>core</tt>,<tt>file</tt>,<tt>messaging</tt>,<tt>database</tt>, etc.      */
+DECL|method|label ()
+name|String
+name|label
 parameter_list|()
 default|default
 literal|""

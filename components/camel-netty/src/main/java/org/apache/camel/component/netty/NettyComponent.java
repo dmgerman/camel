@@ -205,6 +205,13 @@ specifier|private
 name|NettyConfiguration
 name|configuration
 decl_stmt|;
+DECL|field|maximumPoolSize
+specifier|private
+name|int
+name|maximumPoolSize
+init|=
+literal|16
+decl_stmt|;
 DECL|field|executorService
 specifier|private
 name|OrderedMemoryAwareThreadPoolExecutor
@@ -507,6 +514,32 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+DECL|method|getMaximumPoolSize ()
+specifier|public
+name|int
+name|getMaximumPoolSize
+parameter_list|()
+block|{
+return|return
+name|maximumPoolSize
+return|;
+block|}
+DECL|method|setMaximumPoolSize (int maximumPoolSize)
+specifier|public
+name|void
+name|setMaximumPoolSize
+parameter_list|(
+name|int
+name|maximumPoolSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maximumPoolSize
+operator|=
+name|maximumPoolSize
+expr_stmt|;
+block|}
 DECL|method|getTimer ()
 specifier|public
 specifier|static
@@ -649,8 +682,6 @@ return|return
 operator|new
 name|OrderedMemoryAwareThreadPoolExecutor
 argument_list|(
-name|configuration
-operator|.
 name|getMaximumPoolSize
 argument_list|()
 argument_list|,

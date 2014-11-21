@@ -913,7 +913,7 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Returns the JSON schema representation of the endpoint parameters for the given component name      *      * @param componentName the name of the component to lookup      * @throws Exception is thrown if error occurred      */
+comment|/**      * Returns the JSON schema representation with information about the component and the endpoint parameters it supports      *      * @param componentName the name of the component to lookup      * @throws Exception is thrown if error occurred      */
 annotation|@
 name|ManagedOperation
 argument_list|(

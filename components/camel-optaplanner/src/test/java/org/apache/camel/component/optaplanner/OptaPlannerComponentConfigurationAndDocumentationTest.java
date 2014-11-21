@@ -189,7 +189,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"resourceUri\": { \"kind\": \"parameter\", \"type\": \"string\""
+literal|"\"resourceUri\": { \"kind\": \"path\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;

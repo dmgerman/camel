@@ -577,6 +577,8 @@ literal|"name"
 block|,
 literal|"description"
 block|,
+literal|"label"
+block|,
 literal|"status"
 block|,
 literal|"type"
@@ -615,6 +617,8 @@ literal|"name"
 block|,
 literal|"description"
 block|,
+literal|"label"
+block|,
 literal|"status"
 block|,
 literal|"type"
@@ -634,6 +638,8 @@ literal|"Name"
 block|,
 literal|"Description"
 block|,
+literal|"Label"
+block|,
 literal|"Status"
 block|,
 literal|"Type"
@@ -649,6 +655,10 @@ operator|new
 name|OpenType
 index|[]
 block|{
+name|SimpleType
+operator|.
+name|STRING
+block|,
 name|SimpleType
 operator|.
 name|STRING

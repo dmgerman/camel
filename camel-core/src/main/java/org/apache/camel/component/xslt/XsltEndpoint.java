@@ -346,6 +346,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"xslt"
+argument_list|,
+name|label
+operator|=
+literal|"core,transformation"
 argument_list|)
 DECL|class|XsltEndpoint
 specifier|public
@@ -1581,7 +1585,11 @@ name|copy
 init|=
 operator|new
 name|HashMap
-argument_list|<>
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|(
 name|parameters
 argument_list|)

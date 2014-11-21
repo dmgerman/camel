@@ -276,7 +276,7 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"path to the resource"
+literal|"Path to the resource"
 argument_list|)
 DECL|field|resourceUri
 specifier|private
@@ -289,6 +289,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"false"
+argument_list|,
+name|description
+operator|=
+literal|"Sets whether to use resource content cache or not"
 argument_list|)
 DECL|field|contentCache
 specifier|private
@@ -578,7 +582,7 @@ name|name
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets whether to use resource content cache or not - default is<tt>false</tt>.      *      * @see #getResourceAsInputStream()      */
+comment|/**      * Sets whether to use resource content cache or not.      */
 DECL|method|setContentCache (boolean contentCache)
 specifier|public
 name|void
@@ -605,6 +609,7 @@ return|return
 name|resourceUri
 return|;
 block|}
+comment|/**      * Path to the resource      *      * @param resourceUri  the resource path      */
 DECL|method|setResourceUri (String resourceUri)
 specifier|public
 name|void

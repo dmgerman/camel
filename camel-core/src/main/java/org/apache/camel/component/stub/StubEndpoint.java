@@ -157,6 +157,10 @@ operator|=
 name|VmConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"core,testing"
 argument_list|)
 DECL|class|StubEndpoint
 specifier|public

@@ -273,6 +273,10 @@ operator|=
 name|SqlConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"database"
 argument_list|)
 DECL|class|SqlEndpoint
 specifier|public

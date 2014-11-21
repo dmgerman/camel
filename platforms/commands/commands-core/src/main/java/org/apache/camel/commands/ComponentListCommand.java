@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * List all the Camel components that are available in the JVM.  */
+comment|/**  * List all the Camel components that are currently used/loaded in the JVM.  */
 end_comment
 
 begin_class

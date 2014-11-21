@@ -328,7 +328,7 @@ block|}
 decl_stmt|;
 DECL|field|onFailure
 specifier|private
-name|String
+name|BeanstalkCommand
 name|onFailure
 decl_stmt|;
 DECL|field|useBlockIO
@@ -844,7 +844,7 @@ return|;
 block|}
 DECL|method|getOnFailure ()
 specifier|public
-name|String
+name|BeanstalkCommand
 name|getOnFailure
 parameter_list|()
 block|{
@@ -852,12 +852,12 @@ return|return
 name|onFailure
 return|;
 block|}
-DECL|method|setOnFailure (String onFailure)
+DECL|method|setOnFailure (BeanstalkCommand onFailure)
 specifier|public
 name|void
 name|setOnFailure
 parameter_list|(
-name|String
+name|BeanstalkCommand
 name|onFailure
 parameter_list|)
 block|{
@@ -1089,6 +1089,9 @@ operator|.
 name|equals
 argument_list|(
 name|onFailure
+operator|.
+name|name
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -1112,6 +1115,9 @@ operator|.
 name|equals
 argument_list|(
 name|onFailure
+operator|.
+name|name
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -1135,6 +1141,9 @@ operator|.
 name|equals
 argument_list|(
 name|onFailure
+operator|.
+name|name
+argument_list|()
 argument_list|)
 condition|)
 block|{

@@ -177,6 +177,10 @@ operator|=
 name|MyBatisConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"database"
 argument_list|)
 DECL|class|MyBatisEndpoint
 specifier|public

@@ -531,6 +531,12 @@ operator|.
 name|getContext
 argument_list|()
 block|;
+comment|// Disable JMX for test
+name|context
+operator|.
+name|disableJMX
+argument_list|()
+block|;
 comment|// Fake a component for test
 comment|// context.addComponent("amq", new MockComponent());
 block|}

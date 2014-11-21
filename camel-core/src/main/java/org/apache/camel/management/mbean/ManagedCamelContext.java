@@ -2774,11 +2774,11 @@ name|description
 init|=
 literal|null
 decl_stmt|;
-comment|// the status can be:
-comment|// - in use = used by Camel
-comment|// - classpath = on the classpath
-comment|// - release = available from the Apache Camel release
-comment|// TODO: gather list of components in the Camel release
+name|String
+name|label
+init|=
+literal|null
+decl_stmt|;
 name|String
 name|status
 init|=
@@ -2922,6 +2922,27 @@ name|row
 operator|.
 name|containsKey
 argument_list|(
+literal|"label"
+argument_list|)
+condition|)
+block|{
+name|label
+operator|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"label"
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|row
+operator|.
+name|containsKey
+argument_list|(
 literal|"javaType"
 argument_list|)
 condition|)
@@ -3024,6 +3045,8 @@ literal|"name"
 block|,
 literal|"description"
 block|,
+literal|"label"
+block|,
 literal|"status"
 block|,
 literal|"type"
@@ -3042,6 +3065,8 @@ block|{
 name|name
 block|,
 name|description
+block|,
+name|label
 block|,
 name|status
 block|,

@@ -185,6 +185,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"controlbus"
+argument_list|,
+name|label
+operator|=
+literal|"core,monitoring"
 argument_list|)
 DECL|class|ControlBusEndpoint
 specifier|public

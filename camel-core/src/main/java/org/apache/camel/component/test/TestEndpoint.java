@@ -189,6 +189,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"test"
+argument_list|,
+name|label
+operator|=
+literal|"core,testing"
 argument_list|)
 DECL|class|TestEndpoint
 specifier|public

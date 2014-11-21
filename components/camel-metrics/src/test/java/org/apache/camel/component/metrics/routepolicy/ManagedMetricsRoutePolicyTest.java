@@ -96,6 +96,36 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|metrics
+operator|.
+name|MetricsComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|JndiRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|test
 operator|.
 name|junit4
@@ -122,10 +152,10 @@ name|ManagedMetricsRoutePolicyTest
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|field|registry
+DECL|field|metricRegistry
 specifier|private
 name|MetricRegistry
-name|registry
+name|metricRegistry
 init|=
 operator|new
 name|MetricRegistry
@@ -162,6 +192,40 @@ name|getMBeanServer
 argument_list|()
 return|;
 block|}
+comment|// Setup the common MetricsRegistry for MetricsComponent and MetricsRoutePolicy to use
+annotation|@
+name|Override
+DECL|method|createRegistry ()
+specifier|protected
+name|JndiRegistry
+name|createRegistry
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|JndiRegistry
+name|registry
+init|=
+name|super
+operator|.
+name|createRegistry
+argument_list|()
+decl_stmt|;
+name|registry
+operator|.
+name|bind
+argument_list|(
+name|MetricsComponent
+operator|.
+name|METRIC_REGISTRY_NAME
+argument_list|,
+name|metricRegistry
+argument_list|)
+expr_stmt|;
+return|return
+name|registry
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|createCamelContext ()
@@ -192,13 +256,6 @@ operator|.
 name|setUseJmx
 argument_list|(
 literal|true
-argument_list|)
-expr_stmt|;
-name|factory
-operator|.
-name|setMetricsRegistry
-argument_list|(
-name|registry
 argument_list|)
 expr_stmt|;
 name|factory
@@ -293,12 +350,12 @@ block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// there should be 2 names
+comment|// there should be 3 names
 name|assertEquals
 argument_list|(
-literal|2
+literal|3
 argument_list|,
-name|registry
+name|metricRegistry
 operator|.
 name|getNames
 argument_list|()
@@ -307,7 +364,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// there should be 2 mbeans
+comment|// there should be 3 mbeans
 name|Set
 argument_list|<
 name|ObjectName
@@ -330,7 +387,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|3
 argument_list|,
 name|set
 operator|.
@@ -401,6 +458,16 @@ name|json
 operator|.
 name|contains
 argument_list|(
+literal|"test"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
 literal|"bar.responses"
 argument_list|)
 argument_list|)
@@ -448,6 +515,11 @@ operator|.
 name|routeId
 argument_list|(
 literal|"foo"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"metrics:counter:test"
 argument_list|)
 operator|.
 name|to
