@@ -803,6 +803,18 @@ name|write
 argument_list|(
 name|response
 argument_list|)
+operator|.
+name|syncUninterruptibly
+argument_list|()
+expr_stmt|;
+comment|// close the channel after send error message
+name|messageEvent
+operator|.
+name|getChannel
+argument_list|()
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -930,6 +942,18 @@ name|write
 argument_list|(
 name|response
 argument_list|)
+operator|.
+name|syncUninterruptibly
+argument_list|()
+expr_stmt|;
+comment|// close the channel after send error message
+name|ctx
+operator|.
+name|getChannel
+argument_list|()
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}
