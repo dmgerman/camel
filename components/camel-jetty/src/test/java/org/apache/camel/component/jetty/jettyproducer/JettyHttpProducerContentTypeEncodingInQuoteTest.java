@@ -225,11 +225,10 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// camel-jetty will remove quotes from charset
-name|assertEquals
-argument_list|(
-literal|"text/plain;charset=UTF-8"
-argument_list|,
+comment|// camel-jetty may remove quotes from charset
+name|String
+name|res
+init|=
 name|out
 operator|.
 name|getOut
@@ -239,6 +238,26 @@ name|getHeader
 argument_list|(
 literal|"Content-Type"
 argument_list|)
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
+name|res
+operator|=
+name|res
+operator|.
+name|replace
+argument_list|(
+literal|"\"UTF-8\""
+argument_list|,
+literal|"UTF-8"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"text/plain;charset=UTF-8"
+argument_list|,
+name|res
 argument_list|)
 expr_stmt|;
 block|}
@@ -355,11 +374,10 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// camel-jetty will remove quotes from charset
-name|assertEquals
-argument_list|(
-literal|"text/plain;charset=utf-8;action=\"http://somewhere.com/foo\""
-argument_list|,
+comment|// camel-jetty may remove quotes from charset
+name|String
+name|res
+init|=
 name|out
 operator|.
 name|getOut
@@ -369,6 +387,26 @@ name|getHeader
 argument_list|(
 literal|"Content-Type"
 argument_list|)
+operator|.
+name|toString
+argument_list|()
+decl_stmt|;
+name|res
+operator|=
+name|res
+operator|.
+name|replace
+argument_list|(
+literal|"\"utf-8\""
+argument_list|,
+literal|"utf-8"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"text/plain;charset=utf-8;action=\"http://somewhere.com/foo\""
+argument_list|,
+name|res
 argument_list|)
 expr_stmt|;
 block|}

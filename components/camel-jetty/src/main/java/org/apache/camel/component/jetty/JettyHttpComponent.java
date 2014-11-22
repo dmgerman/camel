@@ -6275,7 +6275,9 @@ name|setBinding
 argument_list|(
 operator|new
 name|JettyRestHttpBinding
-argument_list|()
+argument_list|(
+name|endpoint
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// configure consumer properties

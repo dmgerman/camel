@@ -58,6 +58,22 @@ name|component
 operator|.
 name|http
 operator|.
+name|HttpEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|http
+operator|.
 name|HttpMessage
 import|;
 end_import
@@ -70,6 +86,27 @@ name|JettyRestHttpBinding
 extends|extends
 name|DefaultHttpBinding
 block|{
+annotation|@
+name|Deprecated
+DECL|method|JettyRestHttpBinding ()
+specifier|public
+name|JettyRestHttpBinding
+parameter_list|()
+block|{     }
+DECL|method|JettyRestHttpBinding (HttpEndpoint ep)
+specifier|public
+name|JettyRestHttpBinding
+parameter_list|(
+name|HttpEndpoint
+name|ep
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|ep
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|populateRequestParameters (HttpServletRequest request, HttpMessage message)
