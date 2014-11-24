@@ -126,7 +126,7 @@ begin_class
 annotation|@
 name|MockEndpointsAndSkip
 argument_list|(
-literal|"seda:*"
+literal|"{{mock.skip}}"
 argument_list|)
 DECL|class|CamelSpringJUnit4ClassRunnerMockEndpointsAndSkipTest
 specifier|public
