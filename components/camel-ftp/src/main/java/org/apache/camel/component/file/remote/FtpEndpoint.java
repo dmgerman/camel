@@ -273,6 +273,13 @@ name|ftpClientConfigParameters
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|configuration
+specifier|protected
+name|FtpConfiguration
+name|configuration
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|soTimeout
 specifier|protected
 name|int
@@ -765,9 +772,6 @@ argument_list|()
 expr_stmt|;
 block|}
 return|return
-operator|(
-name|FtpConfiguration
-operator|)
 name|configuration
 return|;
 block|}
@@ -801,6 +805,9 @@ name|this
 operator|.
 name|configuration
 operator|=
+operator|(
+name|FtpConfiguration
+operator|)
 name|configuration
 expr_stmt|;
 block|}
