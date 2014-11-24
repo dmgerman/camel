@@ -126,6 +126,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -204,7 +218,7 @@ name|ExecutorType
 name|executorType
 decl_stmt|;
 annotation|@
-name|UriParam
+name|UriPath
 DECL|field|statement
 specifier|private
 name|String
@@ -399,6 +413,7 @@ return|return
 name|statement
 return|;
 block|}
+comment|/**      * The statement name in the MyBatis XML mapping file which maps to the query, insert, update or delete operation you wish to evaluate.      */
 DECL|method|setStatement (String statement)
 specifier|public
 name|void
@@ -425,6 +440,7 @@ return|return
 name|statementType
 return|;
 block|}
+comment|/**      * Mandatory to specify for the producer to control which kind of operation to invoke.      */
 DECL|method|setStatementType (StatementType statementType)
 specifier|public
 name|void
@@ -451,6 +467,7 @@ return|return
 name|executorType
 return|;
 block|}
+comment|/**      * The executor type to be used while executing statements.      *<ul>      *<li>simple - executor does nothing special.</li>      *<li>reuse - executor reuses prepared statements.</li>      *<li>batch - executor reuses statements and batches updates.</li>      *</ul>      */
 DECL|method|setExecutorType (ExecutorType executorType)
 specifier|public
 name|void
