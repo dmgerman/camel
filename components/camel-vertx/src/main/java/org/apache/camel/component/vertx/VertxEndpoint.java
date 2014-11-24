@@ -157,6 +157,10 @@ operator|=
 name|VertxConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"eventbus"
 argument_list|)
 DECL|class|VertxEndpoint
 specifier|public

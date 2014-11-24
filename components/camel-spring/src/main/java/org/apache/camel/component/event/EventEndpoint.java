@@ -237,6 +237,10 @@ operator|=
 name|EventConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"spring,eventbus"
 argument_list|)
 DECL|class|EventEndpoint
 specifier|public
