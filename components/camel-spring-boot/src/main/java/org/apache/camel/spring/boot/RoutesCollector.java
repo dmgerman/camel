@@ -168,10 +168,11 @@ name|required
 operator|=
 literal|false
 argument_list|)
-DECL|field|camelContextConfiguration
+DECL|field|camelContextConfigurations
 specifier|private
 name|CamelContextConfiguration
-name|camelContextConfiguration
+index|[]
+name|camelContextConfigurations
 decl_stmt|;
 annotation|@
 name|Override
@@ -297,10 +298,18 @@ block|}
 block|}
 if|if
 condition|(
-name|camelContextConfiguration
+name|camelContextConfigurations
 operator|!=
 literal|null
 condition|)
+block|{
+for|for
+control|(
+name|CamelContextConfiguration
+name|camelContextConfiguration
+range|:
+name|camelContextConfigurations
+control|)
 block|{
 name|LOG
 operator|.
@@ -320,6 +329,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
 return|return
 name|bean
 return|;
@@ -337,6 +347,13 @@ parameter_list|)
 throws|throws
 name|BeansException
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Injecting Spring application context into RoutesCollector: {}"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|applicationContext

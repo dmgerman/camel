@@ -96,6 +96,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|SpringCamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Assert
@@ -223,6 +237,24 @@ operator|.
 name|junit4
 operator|.
 name|SpringJUnit4ClassRunner
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|TestConfig
+operator|.
+name|CONTEXT_NAME
 import|;
 end_import
 
@@ -547,6 +579,25 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+DECL|method|shouldChangeContextNameViaConfigurationCallback ()
+specifier|public
+name|void
+name|shouldChangeContextNameViaConfigurationCallback
+parameter_list|()
+block|{
+name|assertEquals
+argument_list|(
+name|CONTEXT_NAME
+argument_list|,
+name|camelContext
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
 DECL|method|shouldStartRoute ()
 specifier|public
 name|void
@@ -602,6 +653,7 @@ DECL|class|TestConfig
 class|class
 name|TestConfig
 block|{
+comment|// Constants
 DECL|field|ROUTE_ID
 specifier|static
 specifier|final
@@ -610,6 +662,15 @@ name|ROUTE_ID
 init|=
 literal|"testRoute"
 decl_stmt|;
+DECL|field|CONTEXT_NAME
+specifier|static
+specifier|final
+name|String
+name|CONTEXT_NAME
+init|=
+literal|"customName"
+decl_stmt|;
+comment|// Test beans
 annotation|@
 name|Bean
 DECL|method|routeBuilder ()
@@ -664,6 +725,47 @@ name|CamelContextConfiguration
 operator|.
 name|class
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Bean
+DECL|method|nameConfiguration ()
+name|CamelContextConfiguration
+name|nameConfiguration
+parameter_list|()
+block|{
+return|return
+operator|new
+name|CamelContextConfiguration
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|beforeApplicationStart
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|SpringCamelContext
+name|springCamelContext
+init|=
+operator|(
+name|SpringCamelContext
+operator|)
+name|camelContext
+decl_stmt|;
+name|springCamelContext
+operator|.
+name|setName
+argument_list|(
+name|CONTEXT_NAME
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 return|;
 block|}
 block|}
