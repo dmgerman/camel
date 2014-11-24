@@ -1915,13 +1915,24 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// resovle the property place holders of the mockEndpoints
+name|String
+name|mockEndpointsValue
+init|=
+name|camelContext
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+name|mockEndpoints
+argument_list|)
+decl_stmt|;
 name|LOG
 operator|.
 name|info
 argument_list|(
 literal|"Enabling auto mocking and skipping of endpoints matching pattern [{}] on CamelContext with name [{}]."
 argument_list|,
-name|mockEndpoints
+name|mockEndpointsValue
 argument_list|,
 name|contextName
 argument_list|)
@@ -1933,7 +1944,7 @@ argument_list|(
 operator|new
 name|InterceptSendToMockEndpointStrategy
 argument_list|(
-name|mockEndpoints
+name|mockEndpointsValue
 argument_list|,
 literal|true
 argument_list|)
