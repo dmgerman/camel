@@ -56,6 +56,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|twitter
+operator|.
+name|data
+operator|.
+name|EndpointType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|UriParam
@@ -73,6 +91,20 @@ operator|.
 name|spi
 operator|.
 name|UriParams
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
 import|;
 end_import
 
@@ -136,6 +168,23 @@ specifier|public
 class|class
 name|TwitterConfiguration
 block|{
+comment|/**      * Defines the Twitter API endpoint.      */
+annotation|@
+name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"What kind of type to use"
+argument_list|)
+DECL|field|type
+specifier|private
+name|EndpointType
+name|type
+init|=
+name|EndpointType
+operator|.
+name|DIRECT
+decl_stmt|;
 comment|/**      * OAuth      */
 annotation|@
 name|UriParam
@@ -165,17 +214,14 @@ specifier|private
 name|String
 name|accessTokenSecret
 decl_stmt|;
-comment|/**      * Defines the Twitter API endpoint.      */
-annotation|@
-name|UriParam
-DECL|field|type
-specifier|private
-name|String
-name|type
-decl_stmt|;
 comment|/**      * Polling delay.      */
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"60"
+argument_list|)
 DECL|field|delay
 specifier|private
 name|int
@@ -218,6 +264,11 @@ decl_stmt|;
 comment|/**      * Filter out old tweets that have been previously polled.      */
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|filterOld
 specifier|private
 name|boolean
@@ -236,6 +287,11 @@ decl_stmt|;
 comment|/**      * Used to set the sinceId from pulling      */
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"1"
+argument_list|)
 DECL|field|sinceId
 specifier|private
 name|long
@@ -269,6 +325,11 @@ decl_stmt|;
 comment|/**      * Number of page to iterate before stop (default is 1)      */
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"1"
+argument_list|)
 DECL|field|numberOfPages
 specifier|private
 name|Integer
@@ -666,7 +727,7 @@ expr_stmt|;
 block|}
 DECL|method|getType ()
 specifier|public
-name|String
+name|EndpointType
 name|getType
 parameter_list|()
 block|{
@@ -674,12 +735,12 @@ return|return
 name|type
 return|;
 block|}
-DECL|method|setType (String type)
+DECL|method|setType (EndpointType type)
 specifier|public
 name|void
 name|setType
 parameter_list|(
-name|String
+name|EndpointType
 name|type
 parameter_list|)
 block|{

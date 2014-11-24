@@ -209,6 +209,10 @@ operator|=
 name|Twitter4JConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"api,social"
 argument_list|)
 DECL|class|TwitterEndpointDirect
 specifier|public

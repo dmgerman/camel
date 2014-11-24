@@ -188,15 +188,10 @@ name|endpoint
 decl_stmt|;
 switch|switch
 condition|(
-name|EndpointType
-operator|.
-name|fromUri
-argument_list|(
 name|properties
 operator|.
 name|getType
 argument_list|()
-argument_list|)
 condition|)
 block|{
 case|case
