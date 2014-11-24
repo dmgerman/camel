@@ -136,6 +136,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -243,7 +257,19 @@ specifier|private
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
-DECL|method|EventEndpoint (String endpointUri, EventComponent component)
+annotation|@
+name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"Name of endpoint"
+argument_list|)
+DECL|field|name
+specifier|private
+name|String
+name|name
+decl_stmt|;
+DECL|method|EventEndpoint (String endpointUri, EventComponent component, String name)
 specifier|public
 name|EventEndpoint
 parameter_list|(
@@ -252,6 +278,9 @@ name|endpointUri
 parameter_list|,
 name|EventComponent
 name|component
+parameter_list|,
+name|String
+name|name
 parameter_list|)
 block|{
 name|super
@@ -269,6 +298,12 @@ name|component
 operator|.
 name|getApplicationContext
 argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|name
+operator|=
+name|name
 expr_stmt|;
 block|}
 comment|/**      *<b>Note:</b> It is preferred to create endpoints using the associated      * component.      * @deprecated      */
@@ -315,6 +350,32 @@ block|{
 return|return
 name|applicationContext
 return|;
+block|}
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
+block|}
+DECL|method|setName (String name)
+specifier|public
+name|void
+name|setName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|this
+operator|.
+name|name
+operator|=
+name|name
+expr_stmt|;
 block|}
 DECL|method|isSingleton ()
 specifier|public
