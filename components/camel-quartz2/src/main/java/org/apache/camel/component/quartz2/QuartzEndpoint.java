@@ -1168,6 +1168,10 @@ decl_stmt|;
 if|if
 condition|(
 name|triggerExisted
+operator|&&
+operator|!
+name|isRecoverableJob
+argument_list|()
 condition|)
 block|{
 name|ensureNoDupTriggerKey
