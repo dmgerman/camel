@@ -56,6 +56,11 @@ name|SparkConfiguration
 block|{
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|mapHeaders
 specifier|private
 name|boolean
@@ -65,6 +70,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|disableStreamCache
 specifier|private
 name|boolean
@@ -72,6 +82,11 @@ name|disableStreamCache
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|urlDecodeHeaders
 specifier|private
 name|boolean
@@ -79,6 +94,11 @@ name|urlDecodeHeaders
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|transferException
 specifier|private
 name|boolean

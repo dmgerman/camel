@@ -109,6 +109,10 @@ operator|=
 name|InfinispanConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"cache,datagrid"
 argument_list|)
 DECL|class|InfinispanEndpoint
 specifier|public

@@ -128,6 +128,20 @@ name|UriParam
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version  */
 end_comment
@@ -152,6 +166,13 @@ extends|extends
 name|DefaultEndpoint
 block|{
 annotation|@
+name|UriPath
+DECL|field|dataSource
+specifier|private
+name|DataSource
+name|dataSource
+decl_stmt|;
+annotation|@
 name|UriParam
 DECL|field|readSize
 specifier|private
@@ -160,6 +181,11 @@ name|readSize
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|transacted
 specifier|private
 name|boolean
@@ -167,19 +193,17 @@ name|transacted
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|resetAutoCommit
 specifier|private
 name|boolean
 name|resetAutoCommit
 init|=
 literal|true
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|dataSource
-specifier|private
-name|DataSource
-name|dataSource
 decl_stmt|;
 DECL|field|parameters
 specifier|private
@@ -193,6 +217,11 @@ name|parameters
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|useJDBC4ColumnNameAndLabelSemantics
 specifier|private
 name|boolean
@@ -213,6 +242,11 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|allowNamedParameters
 specifier|private
 name|boolean
@@ -222,6 +256,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|useHeadersAsParameters
 specifier|private
 name|boolean
@@ -229,6 +268,11 @@ name|useHeadersAsParameters
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"SelectList"
+argument_list|)
 DECL|field|outputType
 specifier|private
 name|JdbcOutputType
@@ -428,6 +472,7 @@ return|return
 name|dataSource
 return|;
 block|}
+comment|/**      * The data source to use      */
 DECL|method|setDataSource (DataSource dataSource)
 specifier|public
 name|void

@@ -136,6 +136,20 @@ name|UriEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a Docker endpoint.  */
 end_comment
@@ -153,6 +167,10 @@ operator|=
 name|DockerEventsConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"container,cloud,platform"
 argument_list|)
 DECL|class|DockerEndpoint
 specifier|public
@@ -161,6 +179,8 @@ name|DockerEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
+annotation|@
+name|UriParam
 DECL|field|configuration
 specifier|private
 name|DockerConfiguration

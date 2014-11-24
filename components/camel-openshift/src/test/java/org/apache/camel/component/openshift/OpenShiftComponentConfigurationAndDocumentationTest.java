@@ -209,7 +209,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"clientId\": { \"kind\": \"parameter\", \"type\": \"string\""
+literal|"\"clientId\": { \"kind\": \"path\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;

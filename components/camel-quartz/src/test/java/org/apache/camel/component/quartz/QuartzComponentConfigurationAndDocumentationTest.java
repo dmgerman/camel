@@ -201,6 +201,16 @@ name|json
 operator|.
 name|contains
 argument_list|(
+literal|"\"groupName\": { \"kind\": \"path\", \"type\": \"string\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
 literal|"\"stateful\": { \"kind\": \"parameter\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
