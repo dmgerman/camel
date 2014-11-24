@@ -250,6 +250,12 @@ name|OPTIONAL_PARAMETER
 init|=
 literal|"CamelSmppOptionalParameter"
 decl_stmt|;
+DECL|field|SPLITTING_POLICY
+name|String
+name|SPLITTING_POLICY
+init|=
+literal|"CamelSmppSplittingPolicy"
+decl_stmt|;
 DECL|field|UCS2_ENCODING
 name|String
 name|UCS2_ENCODING

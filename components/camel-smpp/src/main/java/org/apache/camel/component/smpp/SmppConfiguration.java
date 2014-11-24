@@ -455,6 +455,15 @@ specifier|private
 name|SessionStateListener
 name|sessionStateListener
 decl_stmt|;
+DECL|field|splittingPolicy
+specifier|private
+name|SmppSplittingPolicy
+name|splittingPolicy
+init|=
+name|SmppSplittingPolicy
+operator|.
+name|ALLOW
+decl_stmt|;
 comment|/**      * A POJO which contains all necessary configuration parameters for the SMPP connection      *       * @param uri the full URI of the endpoint      */
 DECL|method|configureFromURI (URI uri)
 specifier|public
@@ -1419,6 +1428,32 @@ operator|=
 name|addressRange
 expr_stmt|;
 block|}
+DECL|method|getSplittingPolicy ()
+specifier|public
+name|SmppSplittingPolicy
+name|getSplittingPolicy
+parameter_list|()
+block|{
+return|return
+name|splittingPolicy
+return|;
+block|}
+DECL|method|setSplittingPolicy (SmppSplittingPolicy splittingPolicy)
+specifier|public
+name|void
+name|setSplittingPolicy
+parameter_list|(
+name|SmppSplittingPolicy
+name|splittingPolicy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|splittingPolicy
+operator|=
+name|splittingPolicy
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -1555,6 +1590,10 @@ operator|+
 literal|", httpProxyPassword="
 operator|+
 name|httpProxyPassword
+operator|+
+literal|", splittingPolicy="
+operator|+
+name|splittingPolicy
 operator|+
 literal|"]"
 return|;
