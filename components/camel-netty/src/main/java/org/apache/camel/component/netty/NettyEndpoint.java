@@ -275,6 +275,10 @@ operator|=
 name|NettyConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"networking,tcp,udp"
 argument_list|)
 DECL|class|NettyEndpoint
 specifier|public

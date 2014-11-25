@@ -33,7 +33,7 @@ DECL|enumConstant|NULL
 name|LINE
 block|,
 name|NULL
-block|; }
+block|}
 end_enum
 
 end_unit

@@ -201,6 +201,16 @@ name|json
 operator|.
 name|contains
 argument_list|(
+literal|"\"host\": { \"kind\": \"path\", \"type\": \"string\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
 literal|"\"producerPoolMinEvictableIdle\": { \"kind\": \"parameter\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
