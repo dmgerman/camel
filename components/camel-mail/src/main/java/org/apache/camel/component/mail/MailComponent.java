@@ -260,27 +260,6 @@ argument_list|(
 name|uri
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-literal|"nntp"
-operator|.
-name|equalsIgnoreCase
-argument_list|(
-name|url
-operator|.
-name|getScheme
-argument_list|()
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"nntp protocol is not supported"
-argument_list|)
-throw|;
-block|}
 comment|// must use copy as each endpoint can have different options
 name|ObjectHelper
 operator|.

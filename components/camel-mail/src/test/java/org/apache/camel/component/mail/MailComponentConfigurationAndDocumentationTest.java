@@ -199,6 +199,16 @@ name|json
 operator|.
 name|contains
 argument_list|(
+literal|"\"host\": { \"kind\": \"path\", \"type\": \"string\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
 literal|"\"contentType\": { \"kind\": \"parameter\", \"type\": \"string\""
 argument_list|)
 argument_list|)
