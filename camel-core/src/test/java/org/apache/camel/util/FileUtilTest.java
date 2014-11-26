@@ -1477,6 +1477,37 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|testCompactWindowsStylePath ()
+specifier|public
+name|void
+name|testCompactWindowsStylePath
+parameter_list|()
+block|{
+name|String
+name|path
+init|=
+literal|"E:\\workspace\\foo\\bar\\some-thing\\.\\target\\processes\\2"
+decl_stmt|;
+name|String
+name|expected
+init|=
+literal|"E:\\workspace\\foo\\bar\\some-thing\\target\\processes\\2"
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|expected
+argument_list|,
+name|FileUtil
+operator|.
+name|compactPath
+argument_list|(
+name|path
+argument_list|,
+literal|'\\'
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testCompactPathSeparator ()
 specifier|public
 name|void
