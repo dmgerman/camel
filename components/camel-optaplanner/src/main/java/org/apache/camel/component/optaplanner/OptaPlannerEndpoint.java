@@ -157,6 +157,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"optaplanner"
+argument_list|,
+name|label
+operator|=
+literal|"engine,planning"
 argument_list|)
 DECL|class|OptaPlannerEndpoint
 specifier|public

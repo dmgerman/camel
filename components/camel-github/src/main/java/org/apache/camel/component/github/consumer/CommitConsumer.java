@@ -203,18 +203,18 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|CommitConsumer (String branchName, GitHubEndpoint endpoint, Processor processor)
+DECL|method|CommitConsumer (GitHubEndpoint endpoint, Processor processor, String branchName)
 specifier|public
 name|CommitConsumer
 parameter_list|(
-name|String
-name|branchName
-parameter_list|,
 name|GitHubEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
 name|processor
+parameter_list|,
+name|String
+name|branchName
 parameter_list|)
 throws|throws
 name|Exception

@@ -273,6 +273,10 @@ operator|=
 name|SshConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"file"
 argument_list|)
 DECL|class|SshEndpoint
 specifier|public
