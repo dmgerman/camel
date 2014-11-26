@@ -111,6 +111,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"msv"
+argument_list|,
+name|label
+operator|=
+literal|"validation"
 argument_list|)
 DECL|class|MsvEndpoint
 specifier|public

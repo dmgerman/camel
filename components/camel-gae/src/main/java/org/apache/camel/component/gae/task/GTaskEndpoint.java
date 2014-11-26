@@ -351,6 +351,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"gtask"
+argument_list|,
+name|label
+operator|=
+literal|"cloud"
 argument_list|)
 DECL|class|GTaskEndpoint
 specifier|public
