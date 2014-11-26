@@ -224,7 +224,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"messaging"
+literal|"clustering,messaging"
 argument_list|)
 DECL|class|JGroupsEndpoint
 specifier|public

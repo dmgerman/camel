@@ -112,7 +112,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"cache,datagrid"
+literal|"cache,datagrid,clustering"
 argument_list|)
 DECL|class|InfinispanEndpoint
 specifier|public
