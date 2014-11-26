@@ -404,6 +404,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// setup the skipFaultLogging
+name|answer
+operator|.
+name|setBeanId
+argument_list|(
+name|beanId
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{

@@ -347,6 +347,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|result
+operator|.
+name|setBeanId
+argument_list|(
+name|beanId
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
