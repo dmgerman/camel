@@ -1381,7 +1381,7 @@ block|{
 name|getLog
 argument_list|()
 operator|.
-name|warn
+name|info
 argument_list|(
 literal|"\tUsed labels: "
 operator|+
