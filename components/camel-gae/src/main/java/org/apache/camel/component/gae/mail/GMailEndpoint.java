@@ -196,6 +196,20 @@ name|UriParam
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a<a href="http://camel.apache.org/gmail.html">Google App Engine Mail endpoint</a>.  */
 end_comment
@@ -207,6 +221,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"gmail"
+argument_list|,
+name|label
+operator|=
+literal|"cloud,mail"
 argument_list|)
 DECL|class|GMailEndpoint
 specifier|public
@@ -242,7 +260,7 @@ name|MailService
 name|mailService
 decl_stmt|;
 annotation|@
-name|UriParam
+name|UriPath
 DECL|field|sender
 specifier|private
 name|String

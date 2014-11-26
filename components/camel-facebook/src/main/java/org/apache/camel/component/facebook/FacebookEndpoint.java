@@ -236,6 +236,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|EndpointHelper
@@ -393,6 +407,10 @@ operator|=
 name|FacebookConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"social"
 argument_list|)
 DECL|class|FacebookEndpoint
 specifier|public
@@ -419,6 +437,20 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// Facebook4J method name
+annotation|@
+name|UriPath
+DECL|field|methodName
+specifier|private
+specifier|final
+name|String
+name|methodName
+decl_stmt|;
+DECL|field|nameStyle
+specifier|private
+name|FacebookNameStyle
+name|nameStyle
+decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|configuration
@@ -433,18 +465,6 @@ DECL|field|inBody
 specifier|private
 name|String
 name|inBody
-decl_stmt|;
-comment|// Facebook4J method name
-DECL|field|methodName
-specifier|private
-specifier|final
-name|String
-name|methodName
-decl_stmt|;
-DECL|field|nameStyle
-specifier|private
-name|FacebookNameStyle
-name|nameStyle
 decl_stmt|;
 comment|// candidate methods based on method name and endpoint configuration
 DECL|field|candidates

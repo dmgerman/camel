@@ -239,6 +239,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"elasticsearch"
+argument_list|,
+name|label
+operator|=
+literal|"monitoring"
 argument_list|)
 DECL|class|ElasticsearchEndpoint
 specifier|public

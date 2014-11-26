@@ -246,6 +246,20 @@ name|UriParam
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a<a href="http://camel.apache.org/gauth.html">GAuth Endpoint</a>.  * Instances can have one of two names, either<code>authorize</code> for  * requesting an unauthorized request token or<code>upgrade</code> for  * upgrading an authorized request token to an access token. The corresponding  * endpoint URIs are<code>gauth:authorize</code> and<code>gauth:upgrade</code>  * , respectively.  */
 end_comment
@@ -257,6 +271,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"gauth"
+argument_list|,
+name|label
+operator|=
+literal|"cloud"
 argument_list|)
 DECL|class|GAuthEndpoint
 specifier|public
@@ -304,7 +322,7 @@ argument_list|>
 name|upgradeBinding
 decl_stmt|;
 annotation|@
-name|UriParam
+name|UriPath
 DECL|field|name
 specifier|private
 name|Name

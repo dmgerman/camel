@@ -128,6 +128,20 @@ name|UriParam
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a<a href="http://camel.apache.org/glogin.html">GLogin  * Endpoint</a>.  */
 end_comment
@@ -139,6 +153,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"glogin"
+argument_list|,
+name|label
+operator|=
+literal|"cloud"
 argument_list|)
 DECL|class|GLoginEndpoint
 specifier|public
@@ -160,14 +178,14 @@ argument_list|>
 name|outboundBinding
 decl_stmt|;
 annotation|@
-name|UriParam
+name|UriPath
 DECL|field|hostName
 specifier|private
 name|String
 name|hostName
 decl_stmt|;
 annotation|@
-name|UriParam
+name|UriPath
 DECL|field|clientName
 specifier|private
 name|String
@@ -196,6 +214,11 @@ name|devPort
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|devAdmin
 specifier|private
 name|boolean
@@ -203,6 +226,11 @@ name|devAdmin
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|devMode
 specifier|private
 name|boolean

@@ -342,20 +342,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|UriParam
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|URISupport
@@ -417,6 +403,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"ghttp"
+argument_list|,
+name|label
+operator|=
+literal|"cloud"
 argument_list|)
 DECL|class|GHttpEndpoint
 specifier|public
@@ -434,8 +424,6 @@ argument_list|,
 name|HTTPResponse
 argument_list|>
 block|{
-annotation|@
-name|UriParam
 DECL|field|GHTTP_SCHEME
 specifier|public
 specifier|static
@@ -445,8 +433,6 @@ name|GHTTP_SCHEME
 init|=
 literal|"ghttp"
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|GHTTPS_SCHEME
 specifier|public
 specifier|static
@@ -456,8 +442,6 @@ name|GHTTPS_SCHEME
 init|=
 literal|"ghttps"
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|HTTP_SCHEME
 specifier|public
 specifier|static
@@ -467,8 +451,6 @@ name|HTTP_SCHEME
 init|=
 literal|"http"
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|HTTPS_SCHEME
 specifier|public
 specifier|static

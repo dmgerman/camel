@@ -423,6 +423,13 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
+name|setQueueName
+argument_list|(
+name|remaining
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
 name|setQueue
 argument_list|(
 name|QueueFactory

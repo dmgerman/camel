@@ -215,6 +215,10 @@ operator|=
 name|MailConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"mail"
 argument_list|)
 DECL|class|MailEndpoint
 specifier|public

@@ -203,7 +203,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"GHTTP_SCHEME\": { \"kind\": \"parameter\", \"type\": \"string\""
+literal|"\"httpUri\": { \"kind\": \"path\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -213,7 +213,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"HTTPS_SCHEME\": { \"kind\": \"parameter\", \"type\": \"string\""
+literal|"\"bridgeEndpoint\": { \"kind\": \"parameter\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;
