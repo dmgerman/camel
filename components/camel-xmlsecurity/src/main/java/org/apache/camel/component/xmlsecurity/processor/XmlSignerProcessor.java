@@ -1156,6 +1156,25 @@ argument_list|(
 name|out
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|getConfiguration
+argument_list|()
+operator|.
+name|getKeyAccessor
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|XmlSignatureNoKeyException
+argument_list|(
+literal|"Key selector is missing for XML signature generation. Specify a key selector in the configuration."
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|KeySelector
 name|keySelector
