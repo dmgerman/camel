@@ -197,6 +197,10 @@ operator|=
 name|WebsocketConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"http,websocket"
 argument_list|)
 DECL|class|WebsocketEndpoint
 specifier|public

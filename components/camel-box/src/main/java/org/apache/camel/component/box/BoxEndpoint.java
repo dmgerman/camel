@@ -220,6 +220,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -295,6 +309,10 @@ argument_list|,
 name|consumerPrefix
 operator|=
 literal|"consumer"
+argument_list|,
+name|label
+operator|=
+literal|"api,file,cloud"
 argument_list|)
 DECL|class|BoxEndpoint
 specifier|public
@@ -325,6 +343,13 @@ name|String
 name|SHARED_PASSWORD_PROPERTY
 init|=
 literal|"sharedPassword"
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|configuration
+specifier|private
+name|BoxConfiguration
+name|configuration
 decl_stmt|;
 comment|// cached client
 DECL|field|cachedBoxClient
@@ -396,6 +421,12 @@ argument_list|)
 argument_list|,
 name|endpointConfiguration
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|endpointConfiguration
 expr_stmt|;
 block|}
 DECL|method|createProducer ()

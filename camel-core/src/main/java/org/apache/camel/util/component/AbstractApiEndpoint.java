@@ -327,8 +327,6 @@ argument_list|>
 name|methodHelper
 decl_stmt|;
 comment|// endpoint configuration
-annotation|@
-name|UriParam
 DECL|field|configuration
 specifier|protected
 specifier|final
