@@ -113,6 +113,10 @@ operator|=
 name|YammerMessagePollingConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"social"
 argument_list|)
 DECL|class|YammerEndpoint
 specifier|public
@@ -203,15 +207,10 @@ name|Exception
 block|{
 switch|switch
 condition|(
-name|YammerFunctionType
-operator|.
-name|fromUri
-argument_list|(
 name|config
 operator|.
-name|getFunction
+name|getFunctionType
 argument_list|()
-argument_list|)
 condition|)
 block|{
 case|case

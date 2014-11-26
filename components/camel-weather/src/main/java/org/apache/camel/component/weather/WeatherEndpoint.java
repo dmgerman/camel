@@ -113,6 +113,10 @@ operator|=
 name|WeatherConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"api"
 argument_list|)
 DECL|class|WeatherEndpoint
 specifier|public

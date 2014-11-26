@@ -158,6 +158,18 @@ argument_list|(
 name|remaining
 argument_list|)
 expr_stmt|;
+name|endpointConfig
+operator|.
+name|setFunctionType
+argument_list|(
+name|YammerFunctionType
+operator|.
+name|fromUri
+argument_list|(
+name|remaining
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// and then override from parameters
 name|setProperties
 argument_list|(

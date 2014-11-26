@@ -70,6 +70,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|jackson
@@ -175,6 +189,18 @@ name|WeatherComponent
 name|component
 decl_stmt|;
 annotation|@
+name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"The name value is not used."
+argument_list|)
+DECL|field|name
+specifier|private
+name|String
+name|name
+decl_stmt|;
+annotation|@
 name|UriParam
 DECL|field|location
 specifier|private
@@ -208,6 +234,11 @@ literal|""
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"JSON"
+argument_list|)
 DECL|field|mode
 specifier|private
 name|WeatherMode
@@ -217,6 +248,11 @@ name|JSON
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"METRIC"
+argument_list|)
 DECL|field|units
 specifier|private
 name|WeatherUnits
@@ -325,6 +361,32 @@ operator|+
 name|result
 expr_stmt|;
 block|}
+block|}
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
+block|}
+DECL|method|setName (String name)
+specifier|public
+name|void
+name|setName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|this
+operator|.
+name|name
+operator|=
+name|name
+expr_stmt|;
 block|}
 DECL|method|getMode ()
 specifier|public

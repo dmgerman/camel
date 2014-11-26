@@ -190,6 +190,10 @@ operator|=
 name|ZooKeeperConsumer
 operator|.
 name|class
+argument_list|,
+name|label
+operator|=
+literal|"clustering"
 argument_list|)
 DECL|class|ZooKeeperEndpoint
 specifier|public
