@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
 import|;
 end_import
@@ -103,18 +113,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-operator|.
-name|asList
 import|;
 end_import
 
@@ -200,6 +198,9 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|body
 init|=
 name|assertIsInstanceOf
@@ -237,6 +238,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|Arrays
+operator|.
 name|asList
 argument_list|(
 literal|"A"
@@ -256,6 +259,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|Arrays
+operator|.
 name|asList
 argument_list|(
 literal|"1"
@@ -275,6 +280,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|Arrays
+operator|.
 name|asList
 argument_list|(
 literal|"one"
@@ -332,6 +339,9 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|body
 init|=
 name|assertIsInstanceOf
@@ -359,6 +369,8 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
+name|Arrays
+operator|.
 name|asList
 argument_list|(
 literal|"A"
@@ -378,6 +390,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|Arrays
+operator|.
 name|asList
 argument_list|(
 literal|"1"
@@ -397,6 +411,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|Arrays
+operator|.
 name|asList
 argument_list|(
 literal|"one"
@@ -447,6 +463,9 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|body
 init|=
 name|assertIsInstanceOf
@@ -474,6 +493,8 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
+name|Arrays
+operator|.
 name|asList
 argument_list|(
 literal|"A"
@@ -491,6 +512,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|Arrays
+operator|.
 name|asList
 argument_list|(
 literal|"1"
@@ -508,6 +531,8 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|Arrays
+operator|.
 name|asList
 argument_list|(
 literal|"one"
@@ -564,6 +589,9 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|body
 init|=
 name|assertIsInstanceOf
@@ -682,6 +710,9 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 name|Iterator
+argument_list|<
+name|?
+argument_list|>
 name|body
 init|=
 name|assertIsInstanceOf
@@ -794,6 +825,9 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|body
 init|=
 name|assertIsInstanceOf

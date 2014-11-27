@@ -48,6 +48,13 @@ specifier|final
 class|class
 name|TestUtils
 block|{
+DECL|method|TestUtils ()
+specifier|private
+name|TestUtils
+parameter_list|()
+block|{
+comment|// Prevent instantiation
+block|}
 comment|/**      * Create a map with the given key/value pairs      *      * @param strings key/value pairs      * @return Map with the given key/value pairs      */
 DECL|method|asMap (String... strings)
 specifier|static
@@ -141,13 +148,6 @@ block|}
 return|return
 name|map
 return|;
-block|}
-DECL|method|TestUtils ()
-specifier|private
-name|TestUtils
-parameter_list|()
-block|{
-comment|// Prevent instantiation
 block|}
 block|}
 end_class

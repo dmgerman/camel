@@ -174,6 +174,27 @@ specifier|abstract
 class|class
 name|CsvMarshaller
 block|{
+DECL|field|format
+specifier|private
+specifier|final
+name|CSVFormat
+name|format
+decl_stmt|;
+DECL|method|CsvMarshaller (CSVFormat format)
+specifier|private
+name|CsvMarshaller
+parameter_list|(
+name|CSVFormat
+name|format
+parameter_list|)
+block|{
+name|this
+operator|.
+name|format
+operator|=
+name|format
+expr_stmt|;
+block|}
 comment|/**      * Creates a new instance.      *      * @param format     CSV format      * @param dataFormat Camel CSV data format      * @return New instance      */
 DECL|method|create (CSVFormat format, CsvDataFormat dataFormat)
 specifier|public
@@ -251,27 +272,6 @@ name|format
 argument_list|)
 return|;
 block|}
-DECL|field|format
-specifier|private
-specifier|final
-name|CSVFormat
-name|format
-decl_stmt|;
-DECL|method|CsvMarshaller (CSVFormat format)
-specifier|private
-name|CsvMarshaller
-parameter_list|(
-name|CSVFormat
-name|format
-parameter_list|)
-block|{
-name|this
-operator|.
-name|format
-operator|=
-name|format
-expr_stmt|;
-block|}
 comment|/**      * Marshals the given object into the given stream.      *      * @param exchange     Exchange (used for access to type conversion)      * @param object       Body to marshal      * @param outputStream Output stream of the CSV      * @throws NoTypeConversionAvailableException if the body cannot be converted      * @throws IOException                        if we cannot write into the given stream      */
 DECL|method|marshal (Exchange exchange, Object object, OutputStream outputStream)
 specifier|public
@@ -311,6 +311,9 @@ argument_list|)
 init|)
 block|{
 name|List
+argument_list|<
+name|?
+argument_list|>
 name|list
 init|=
 name|ExchangeHelper
@@ -390,6 +393,11 @@ throws|throws
 name|NoTypeConversionAvailableException
 block|{
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|map
 init|=
 name|ExchangeHelper
@@ -435,7 +443,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Gets the CSV record values of the given map.      *      * @param map Input map      * @return CSV record values of the given map      */
-DECL|method|getMapRecordValues (Map map)
+DECL|method|getMapRecordValues (Map<?, ?> map)
 specifier|protected
 specifier|abstract
 name|Iterable
@@ -445,6 +453,11 @@ argument_list|>
 name|getMapRecordValues
 parameter_list|(
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|map
 parameter_list|)
 function_decl|;
@@ -453,6 +466,7 @@ comment|/**      * This marshaller has fixed columns      */
 DECL|class|FixedColumnsMarshaller
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|FixedColumnsMarshaller
 extends|extends
@@ -500,7 +514,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getMapRecordValues (Map map)
+DECL|method|getMapRecordValues (Map<?, ?> map)
 specifier|protected
 name|Iterable
 argument_list|<
@@ -509,6 +523,11 @@ argument_list|>
 name|getMapRecordValues
 parameter_list|(
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|map
 parameter_list|)
 block|{
@@ -557,6 +576,7 @@ comment|/**      * This marshaller adapts the columns but always keep them in th
 DECL|class|DynamicColumnsMarshaller
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|DynamicColumnsMarshaller
 extends|extends
@@ -592,7 +612,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getMapRecordValues (Map map)
+DECL|method|getMapRecordValues (Map<?, ?> map)
 specifier|protected
 name|Iterable
 argument_list|<
@@ -601,6 +621,11 @@ argument_list|>
 name|getMapRecordValues
 parameter_list|(
 name|Map
+argument_list|<
+name|?
+argument_list|,
+name|?
+argument_list|>
 name|map
 parameter_list|)
 block|{
