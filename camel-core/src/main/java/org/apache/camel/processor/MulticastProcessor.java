@@ -2462,19 +2462,6 @@ condition|(
 name|future
 operator|==
 literal|null
-operator|&&
-name|timedOut
-condition|)
-block|{
-comment|// we are timed out and no more tasks complete so break out
-break|break;
-block|}
-elseif|else
-if|if
-condition|(
-name|future
-operator|==
-literal|null
 condition|)
 block|{
 comment|// timeout occurred
