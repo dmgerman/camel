@@ -1421,6 +1421,28 @@ name|statesCode
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// just close the input stream of the response object
+if|if
+condition|(
+name|response
+operator|instanceof
+name|Response
+condition|)
+block|{
+operator|(
+operator|(
+name|Response
+operator|)
+name|response
+operator|)
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|invokeProxyClient (Exchange exchange)
 specifier|protected
@@ -1813,6 +1835,28 @@ argument_list|,
 name|statesCode
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// just close the input stream of the response object
+if|if
+condition|(
+name|response
+operator|instanceof
+name|Response
+condition|)
+block|{
+operator|(
+operator|(
+name|Response
+operator|)
+name|response
+operator|)
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getClientFactoryBeanCache ()
