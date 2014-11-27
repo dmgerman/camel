@@ -234,6 +234,9 @@ name|lines
 index|[
 literal|0
 index|]
+operator|.
+name|trim
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -244,6 +247,9 @@ name|lines
 index|[
 literal|1
 index|]
+operator|.
+name|trim
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
