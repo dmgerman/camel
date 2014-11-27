@@ -224,22 +224,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|After
@@ -286,17 +270,13 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_comment
-comment|/**  * The Producer IT tests require a Kafka broker running on 9092 and a zookeeper instance running on 2181.  * The broker must have a topic called test created.  */
-end_comment
-
 begin_class
-DECL|class|KafkaProducerIT
+DECL|class|KafkaProducerFullTest
 specifier|public
 class|class
-name|KafkaProducerIT
+name|KafkaProducerFullTest
 extends|extends
-name|CamelTestSupport
+name|BaseEmbeddedKafkaTest
 block|{
 DECL|field|TOPIC
 specifier|public
@@ -327,7 +307,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|KafkaProducerIT
+name|KafkaProducerFullTest
 operator|.
 name|class
 argument_list|)
@@ -341,7 +321,9 @@ literal|"kafka:localhost:9092?topic="
 operator|+
 name|TOPIC
 operator|+
-literal|"&partitioner=org.apache.camel.component.kafka.SimplePartitioner&serializerClass=kafka.serializer.StringEncoder&requestRequiredAcks=1"
+literal|"&partitioner=org.apache.camel.component.kafka.SimplePartitioner&serializerClass=kafka.serializer.StringEncoder"
+operator|+
+literal|"&requestRequiredAcks=-1"
 argument_list|)
 DECL|field|to
 specifier|private
@@ -425,6 +407,15 @@ argument_list|(
 literal|"auto.commit.interval.ms"
 argument_list|,
 literal|"1000"
+argument_list|)
+expr_stmt|;
+name|props
+operator|.
+name|put
+argument_list|(
+literal|"auto.offset.reset"
+argument_list|,
+literal|"smallest"
 argument_list|)
 expr_stmt|;
 name|kafkaConsumer
@@ -620,7 +611,12 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Not all messages were published to the kafka topics"
+literal|"Not all messages were published to the kafka topics. Not received: "
+operator|+
+name|messagesLatch
+operator|.
+name|getCount
+argument_list|()
 argument_list|,
 name|allMessagesReceived
 argument_list|)

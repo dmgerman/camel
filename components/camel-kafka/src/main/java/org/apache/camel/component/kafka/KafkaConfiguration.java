@@ -90,6 +90,20 @@ name|consumerStreams
 init|=
 literal|10
 decl_stmt|;
+DECL|field|consumersCount
+specifier|private
+name|int
+name|consumersCount
+init|=
+literal|1
+decl_stmt|;
+DECL|field|batchSize
+specifier|private
+name|int
+name|batchSize
+init|=
+literal|100
+decl_stmt|;
 comment|//Common configuration properties
 DECL|field|clientId
 specifier|private
@@ -927,6 +941,58 @@ operator|.
 name|consumerStreams
 operator|=
 name|consumerStreams
+expr_stmt|;
+block|}
+DECL|method|getBatchSize ()
+specifier|public
+name|int
+name|getBatchSize
+parameter_list|()
+block|{
+return|return
+name|batchSize
+return|;
+block|}
+DECL|method|setBatchSize (int batchSize)
+specifier|public
+name|void
+name|setBatchSize
+parameter_list|(
+name|int
+name|batchSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|batchSize
+operator|=
+name|batchSize
+expr_stmt|;
+block|}
+DECL|method|getConsumersCount ()
+specifier|public
+name|int
+name|getConsumersCount
+parameter_list|()
+block|{
+return|return
+name|consumersCount
+return|;
+block|}
+DECL|method|setConsumersCount (int consumersCount)
+specifier|public
+name|void
+name|setConsumersCount
+parameter_list|(
+name|int
+name|consumersCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumersCount
+operator|=
+name|consumersCount
 expr_stmt|;
 block|}
 DECL|method|getClientId ()

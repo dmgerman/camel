@@ -704,6 +704,72 @@ name|consumerStreams
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getBatchSize ()
+specifier|public
+name|int
+name|getBatchSize
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getBatchSize
+argument_list|()
+return|;
+block|}
+DECL|method|setBatchSize (int batchSize)
+specifier|public
+name|void
+name|setBatchSize
+parameter_list|(
+name|int
+name|batchSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|.
+name|setBatchSize
+argument_list|(
+name|batchSize
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getConsumersCount ()
+specifier|public
+name|int
+name|getConsumersCount
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|configuration
+operator|.
+name|getConsumersCount
+argument_list|()
+return|;
+block|}
+DECL|method|setConsumersCount (int consumersCount)
+specifier|public
+name|void
+name|setConsumersCount
+parameter_list|(
+name|int
+name|consumersCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|.
+name|setConsumersCount
+argument_list|(
+name|consumersCount
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setConsumerTimeoutMs (int consumerTimeoutMs)
 specifier|public
 name|void
@@ -1267,7 +1333,7 @@ return|;
 block|}
 DECL|method|isAutoCommitEnable ()
 specifier|public
-name|boolean
+name|Boolean
 name|isAutoCommitEnable
 parameter_list|()
 block|{
