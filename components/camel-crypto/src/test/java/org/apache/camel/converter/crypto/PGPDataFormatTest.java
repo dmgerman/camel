@@ -700,6 +700,13 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+name|encryptor
+operator|.
+name|setFileName
+argument_list|(
+literal|"fileNameABC"
+argument_list|)
+expr_stmt|;
 comment|// the following keyring contains a primary key with KeyFlag "Certify" and a subkey for signing and a subkey for encryption
 name|decryptor
 operator|.
