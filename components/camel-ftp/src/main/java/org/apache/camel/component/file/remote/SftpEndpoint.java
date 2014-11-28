@@ -168,7 +168,7 @@ specifier|public
 name|SftpEndpoint
 parameter_list|()
 block|{     }
-DECL|method|SftpEndpoint (String uri, SftpComponent component, RemoteFileConfiguration configuration)
+DECL|method|SftpEndpoint (String uri, SftpComponent component, SftpConfiguration configuration)
 specifier|public
 name|SftpEndpoint
 parameter_list|(
@@ -178,7 +178,7 @@ parameter_list|,
 name|SftpComponent
 name|component
 parameter_list|,
-name|RemoteFileConfiguration
+name|SftpConfiguration
 name|configuration
 parameter_list|)
 block|{
@@ -190,6 +190,12 @@ name|component
 argument_list|,
 name|configuration
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
 expr_stmt|;
 block|}
 annotation|@

@@ -140,6 +140,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|IOHelper
@@ -258,6 +272,13 @@ argument_list|<
 name|FTPFile
 argument_list|>
 block|{
+annotation|@
+name|UriParam
+DECL|field|configuration
+specifier|protected
+name|FtpsConfiguration
+name|configuration
+decl_stmt|;
 DECL|field|ftpClientKeyStoreParameters
 specifier|protected
 name|Map
@@ -288,7 +309,7 @@ specifier|public
 name|FtpsEndpoint
 parameter_list|()
 block|{     }
-DECL|method|FtpsEndpoint (String uri, RemoteFileComponent<FTPFile> remoteFileComponent, RemoteFileConfiguration configuration)
+DECL|method|FtpsEndpoint (String uri, RemoteFileComponent<FTPFile> remoteFileComponent, FtpsConfiguration configuration)
 specifier|public
 name|FtpsEndpoint
 parameter_list|(
@@ -301,7 +322,7 @@ name|FTPFile
 argument_list|>
 name|remoteFileComponent
 parameter_list|,
-name|RemoteFileConfiguration
+name|FtpsConfiguration
 name|configuration
 parameter_list|)
 block|{
@@ -313,6 +334,12 @@ name|remoteFileComponent
 argument_list|,
 name|configuration
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
 expr_stmt|;
 block|}
 annotation|@

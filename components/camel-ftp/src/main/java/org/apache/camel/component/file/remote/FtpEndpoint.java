@@ -297,7 +297,7 @@ specifier|public
 name|FtpEndpoint
 parameter_list|()
 block|{     }
-DECL|method|FtpEndpoint (String uri, RemoteFileComponent<FTPFile> component, RemoteFileConfiguration configuration)
+DECL|method|FtpEndpoint (String uri, RemoteFileComponent<FTPFile> component, FtpConfiguration configuration)
 specifier|public
 name|FtpEndpoint
 parameter_list|(
@@ -310,7 +310,7 @@ name|FTPFile
 argument_list|>
 name|component
 parameter_list|,
-name|RemoteFileConfiguration
+name|FtpConfiguration
 name|configuration
 parameter_list|)
 block|{
@@ -322,6 +322,12 @@ name|component
 argument_list|,
 name|configuration
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
 expr_stmt|;
 block|}
 annotation|@
