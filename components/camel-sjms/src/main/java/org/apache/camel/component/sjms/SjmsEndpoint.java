@@ -772,8 +772,6 @@ name|Exception
 block|{
 name|SjmsProducer
 name|producer
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(

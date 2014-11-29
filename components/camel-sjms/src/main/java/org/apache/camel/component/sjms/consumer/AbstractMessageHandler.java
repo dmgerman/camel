@@ -126,23 +126,9 @@ name|component
 operator|.
 name|sjms
 operator|.
-name|SjmsExchangeMessageHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|jms
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|sjms
-operator|.
-name|TransactionCommitStrategy
+name|JmsMessageHelper
 import|;
 end_import
 
@@ -280,11 +266,6 @@ specifier|private
 name|boolean
 name|topic
 decl_stmt|;
-DECL|field|commitStrategy
-specifier|private
-name|TransactionCommitStrategy
-name|commitStrategy
-decl_stmt|;
 DECL|method|AbstractMessageHandler (SjmsEndpoint endpoint, ExecutorService executor)
 specifier|public
 name|AbstractMessageHandler
@@ -368,7 +349,7 @@ init|=
 operator|(
 name|DefaultExchange
 operator|)
-name|SjmsExchangeMessageHelper
+name|JmsMessageHelper
 operator|.
 name|createExchange
 argument_list|(
@@ -493,7 +474,6 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-comment|//                                ObjectHelper.wrapRuntimeCamelException(e);
 block|}
 block|}
 block|}
@@ -728,16 +708,6 @@ parameter_list|()
 block|{
 return|return
 name|topic
-return|;
-block|}
-DECL|method|getCommitStrategy ()
-specifier|public
-name|TransactionCommitStrategy
-name|getCommitStrategy
-parameter_list|()
-block|{
-return|return
-name|commitStrategy
 return|;
 block|}
 block|}

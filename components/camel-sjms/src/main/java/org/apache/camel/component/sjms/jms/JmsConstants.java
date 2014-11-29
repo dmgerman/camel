@@ -24,40 +24,23 @@ begin_comment
 comment|/**  * JMS constants  */
 end_comment
 
-begin_class
-DECL|class|JmsConstants
+begin_interface
+DECL|interface|JmsConstants
 specifier|public
-specifier|final
-class|class
+interface|interface
 name|JmsConstants
 block|{
-DECL|field|JMS_DESTINATION
+comment|/**      * Set by the publishing Client      */
+DECL|field|JMS_CORRELATION_ID
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|JMS_DESTINATION
+name|JMS_CORRELATION_ID
 init|=
-literal|"CamelJmsDestination"
+literal|"JMSCorrelationID"
 decl_stmt|;
-DECL|field|JMS_DESTINATION_NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|JMS_DESTINATION_NAME
-init|=
-literal|"CamelJmsDestinationName"
-decl_stmt|;
-DECL|field|JMS_MESSAGE_TYPE
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|JMS_MESSAGE_TYPE
-init|=
-literal|"CamelJmsMessageType"
-decl_stmt|;
+comment|/**      * Set on the send or publish event      */
 DECL|field|JMS_DELIVERY_MODE
 specifier|public
 specifier|static
@@ -65,17 +48,119 @@ specifier|final
 name|String
 name|JMS_DELIVERY_MODE
 init|=
-literal|"CamelJmsDeliveryMode"
+literal|"JMSDeliveryMode"
 decl_stmt|;
-DECL|method|JmsConstants ()
-specifier|private
-name|JmsConstants
-parameter_list|()
-block|{
-comment|// utility class
+comment|/**      * Set on the send or publish event      */
+DECL|field|JMS_DESTINATION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JMS_DESTINATION
+init|=
+literal|"JMSDestination"
+decl_stmt|;
+comment|/**      * Set on the send or publish event      */
+DECL|field|JMS_EXPIRATION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JMS_EXPIRATION
+init|=
+literal|"JMSExpiration"
+decl_stmt|;
+comment|/**      * Set on the send or publish event      */
+DECL|field|JMS_MESSAGE_ID
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JMS_MESSAGE_ID
+init|=
+literal|"JMSMessageID"
+decl_stmt|;
+comment|/**      * Set on the send or publish event      */
+DECL|field|JMS_PRIORITY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JMS_PRIORITY
+init|=
+literal|"JMSPriority"
+decl_stmt|;
+comment|/**      * A redelivery flag set by the JMS provider      */
+DECL|field|JMS_REDELIVERED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JMS_REDELIVERED
+init|=
+literal|"JMSRedelivered"
+decl_stmt|;
+comment|/**      * The JMS Reply To {@link javax.jms.Destination} set by the publishing Client      */
+DECL|field|JMS_REPLY_TO
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JMS_REPLY_TO
+init|=
+literal|"JMSReplyTo"
+decl_stmt|;
+comment|/**      * Set on the send or publish event      */
+DECL|field|JMS_TIMESTAMP
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JMS_TIMESTAMP
+init|=
+literal|"JMSTimestamp"
+decl_stmt|;
+comment|/**      * Set by the publishing Client      */
+DECL|field|JMS_TYPE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JMS_TYPE
+init|=
+literal|"JMSType"
+decl_stmt|;
+comment|/**      * Custom headers      */
+DECL|field|JMSX_GROUP_ID
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JMSX_GROUP_ID
+init|=
+literal|"JMSXGroupID"
+decl_stmt|;
+comment|/**      * String representation of JMS delivery modes.      */
+DECL|field|JMS_DELIVERY_MODE_PERSISTENT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JMS_DELIVERY_MODE_PERSISTENT
+init|=
+literal|"PERSISTENT"
+decl_stmt|;
+DECL|field|JMS_DELIVERY_MODE_NON_PERSISTENT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JMS_DELIVERY_MODE_NON_PERSISTENT
+init|=
+literal|"NON_PERSISTENT"
+decl_stmt|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

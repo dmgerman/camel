@@ -143,7 +143,7 @@ name|synchronization
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @param message      */
+comment|/**      * @param exchange      */
 annotation|@
 name|Override
 DECL|method|handleMessage (final Exchange exchange)
@@ -182,15 +182,12 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|!
 name|exchange
 operator|.
 name|isFailed
 argument_list|()
 condition|)
-block|{
-return|return;
-block|}
-else|else
 block|{
 name|NoOpAsyncCallback
 name|callback
@@ -283,7 +280,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Aynchronous processing: Message[{}], Destination[{}] "
+literal|"Asynchronous processing: Message[{}], Destination[{}] "
 argument_list|,
 name|exchange
 operator|.
