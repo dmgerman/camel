@@ -2414,12 +2414,14 @@ name|data
 operator|.
 name|redeliveryDelay
 operator|=
+name|determineRedeliveryDelay
+argument_list|(
+name|exchange
+argument_list|,
 name|data
 operator|.
 name|currentRedeliveryPolicy
-operator|.
-name|calculateRedeliveryDelay
-argument_list|(
+argument_list|,
 name|data
 operator|.
 name|redeliveryDelay
