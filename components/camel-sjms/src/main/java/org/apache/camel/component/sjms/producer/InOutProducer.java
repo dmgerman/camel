@@ -425,7 +425,14 @@ name|EXCHANGERS
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<>
+argument_list|<
+name|String
+argument_list|,
+name|Exchanger
+argument_list|<
+name|Object
+argument_list|>
+argument_list|>
 argument_list|()
 decl_stmt|;
 comment|/**      * A pool of {@link MessageConsumerResources} objects that are the reply      * consumers.      */
@@ -1241,7 +1248,9 @@ name|messageExchanger
 init|=
 operator|new
 name|Exchanger
-argument_list|<>
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|JmsMessageHelper

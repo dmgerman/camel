@@ -25,9 +25,6 @@ interface|interface
 name|SjmsConstants
 block|{
 DECL|field|JMS_MESSAGE_TYPE
-specifier|public
-specifier|static
-specifier|final
 name|String
 name|JMS_MESSAGE_TYPE
 init|=

@@ -358,7 +358,11 @@ name|map
 init|=
 operator|new
 name|HashMap
-argument_list|<>
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|map
