@@ -174,7 +174,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Shoudl have failed!"
+literal|"Should have failed!"
 argument_list|)
 expr_stmt|;
 block|}
@@ -188,9 +188,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Caught expected exception: "
-operator|+
-name|e
+literal|"Caught the expected exception: {}"
 argument_list|,
 name|e
 argument_list|)

@@ -438,8 +438,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"the file is "
-operator|+
+literal|"the file is {}"
+argument_list|,
 name|file
 operator|.
 name|getAbsolutePath
