@@ -40,6 +40,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -233,6 +243,34 @@ name|getHostname
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// use java.util.Date as timestamp
+name|Date
+name|time
+init|=
+name|message
+operator|.
+name|getTimestamp
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|message
+operator|.
+name|getTimestamp
+argument_list|()
+operator|.
+name|getTime
+argument_list|()
+else|:
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|time
+operator|!=
+literal|null
+condition|)
+block|{
 name|exchange
 operator|.
 name|getOut
@@ -244,12 +282,10 @@ name|SyslogConstants
 operator|.
 name|SYSLOG_TIMESTAMP
 argument_list|,
-name|message
-operator|.
-name|getTimestamp
-argument_list|()
+name|time
 argument_list|)
 expr_stmt|;
+block|}
 comment|// Since we are behind the fact of being in an Endpoint...
 comment|// We need to pull in the remote/local via either Mina or Netty.
 if|if
