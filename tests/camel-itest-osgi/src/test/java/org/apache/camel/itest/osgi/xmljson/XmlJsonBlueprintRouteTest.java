@@ -84,6 +84,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -209,6 +219,11 @@ comment|/**  * OSGi integration test for camel-xmljson  */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"see CAMEL-8029 and the<details> XML tag of camel-xmljson Karaf feature about running this test"
+argument_list|)
 annotation|@
 name|RunWith
 argument_list|(
