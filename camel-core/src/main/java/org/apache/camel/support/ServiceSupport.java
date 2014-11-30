@@ -1011,8 +1011,9 @@ name|isRunAllowed
 parameter_list|()
 block|{
 comment|// if we have not yet initialized, then all options is false
-if|if
-condition|(
+name|boolean
+name|unused1
+init|=
 operator|!
 name|started
 operator|.
@@ -1036,7 +1037,10 @@ name|stopped
 operator|.
 name|get
 argument_list|()
-operator|&&
+decl_stmt|;
+name|boolean
+name|unused2
+init|=
 operator|!
 name|suspending
 operator|.
@@ -1060,6 +1064,12 @@ name|shuttingdown
 operator|.
 name|get
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|unused1
+operator|&&
+name|unused2
 condition|)
 block|{
 return|return
