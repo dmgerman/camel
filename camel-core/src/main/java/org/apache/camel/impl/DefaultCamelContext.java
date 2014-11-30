@@ -4667,8 +4667,6 @@ block|}
 comment|// can either be routes or a single route
 name|RoutesDefinition
 name|answer
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
