@@ -110,6 +110,19 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|isRunAllowed ()
+specifier|public
+name|boolean
+name|isRunAllowed
+parameter_list|()
+block|{
+comment|// as type converter is used during initialization then allow it to always run
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
