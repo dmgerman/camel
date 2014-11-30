@@ -291,7 +291,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:testSaxonWithFlag"
+literal|"direct:testSaxonWithFlag"
 argument_list|,
 literal|"<a>Hello|there|Camel</a>"
 argument_list|)
@@ -368,7 +368,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:testSaxonWithFactory"
+literal|"direct:testSaxonWithFactory"
 argument_list|,
 literal|"<a>Hello|there|Camel</a>"
 argument_list|)
@@ -445,7 +445,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:testSaxonWithObjectModel"
+literal|"direct:testSaxonWithObjectModel"
 argument_list|,
 literal|"<a>Hello|there|Camel</a>"
 argument_list|)
@@ -522,7 +522,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:testSaxonWithFlagPredicate"
+literal|"direct:testSaxonWithFlagPredicate"
 argument_list|,
 literal|"<a>Hello|there|Camel</a>"
 argument_list|)
@@ -568,7 +568,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:testSaxonWithFactoryPredicate"
+literal|"direct:testSaxonWithFactoryPredicate"
 argument_list|,
 literal|"<a>Hello|there|Camel</a>"
 argument_list|)
@@ -614,7 +614,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:testSaxonWithObjectModelPredicate"
+literal|"direct:testSaxonWithObjectModelPredicate"
 argument_list|,
 literal|"<a>Hello|there|Camel</a>"
 argument_list|)
