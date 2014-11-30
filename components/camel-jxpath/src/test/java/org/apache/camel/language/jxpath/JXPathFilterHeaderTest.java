@@ -183,7 +183,7 @@ argument_list|()
 operator|.
 name|jxpath
 argument_list|(
-literal|"headers/fooBarBaz='Carlsberg'"
+literal|"in/headers/fooBarBaz='Carlsberg'"
 argument_list|)
 operator|.
 name|to
