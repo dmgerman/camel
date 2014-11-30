@@ -1851,6 +1851,10 @@ name|unitOfWork
 expr_stmt|;
 if|if
 condition|(
+name|unitOfWork
+operator|!=
+literal|null
+operator|&&
 name|onCompletions
 operator|!=
 literal|null
