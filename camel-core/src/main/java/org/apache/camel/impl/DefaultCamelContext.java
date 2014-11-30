@@ -9531,6 +9531,13 @@ name|route
 operator|.
 name|getId
 argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|route
+operator|.
+name|getId
+argument_list|()
 operator|.
 name|equals
 argument_list|(
