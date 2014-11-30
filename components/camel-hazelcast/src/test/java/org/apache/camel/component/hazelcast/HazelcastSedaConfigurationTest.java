@@ -217,7 +217,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Default value of pool interval is invalid"
+literal|"Default value of pool timeout is invalid"
 argument_list|,
 literal|1000
 argument_list|,
@@ -226,7 +226,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|getPollInterval
+name|getPollTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -286,7 +286,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Default value of pool interval is invalid"
+literal|"Default value of pool timeout is invalid"
 argument_list|,
 literal|1000
 argument_list|,
@@ -295,7 +295,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|getPollInterval
+name|getPollTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -320,7 +320,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"hazelcast:seda:foo?pollInterval=4000"
+literal|"hazelcast:seda:foo?pollTimeout=4000"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -355,7 +355,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Invalid pool interval"
+literal|"Invalid pool timeout"
 argument_list|,
 literal|4000
 argument_list|,
@@ -364,7 +364,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|getPollInterval
+name|getPollTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;

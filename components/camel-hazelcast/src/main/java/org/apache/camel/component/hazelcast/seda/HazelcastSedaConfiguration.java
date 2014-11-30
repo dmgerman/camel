@@ -37,10 +37,10 @@ name|concurrentConsumers
 init|=
 literal|1
 decl_stmt|;
-DECL|field|pollInterval
+DECL|field|pollTimeout
 specifier|private
 name|int
-name|pollInterval
+name|pollTimeout
 init|=
 literal|1000
 decl_stmt|;
@@ -118,6 +118,9 @@ operator|=
 name|queueName
 expr_stmt|;
 block|}
+comment|/**      * @deprecated use pollTimeout instead      */
+annotation|@
+name|Deprecated
 DECL|method|getPollInterval ()
 specifier|public
 name|int
@@ -125,9 +128,12 @@ name|getPollInterval
 parameter_list|()
 block|{
 return|return
-name|pollInterval
+name|pollTimeout
 return|;
 block|}
+comment|/**      * @deprecated use pollTimeout instead      */
+annotation|@
+name|Deprecated
 DECL|method|setPollInterval (int pollInterval)
 specifier|public
 name|void
@@ -139,9 +145,35 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|pollInterval
+name|pollTimeout
 operator|=
 name|pollInterval
+expr_stmt|;
+block|}
+DECL|method|getPollTimeout ()
+specifier|public
+name|int
+name|getPollTimeout
+parameter_list|()
+block|{
+return|return
+name|pollTimeout
+return|;
+block|}
+DECL|method|setPollTimeout (int pollTimeout)
+specifier|public
+name|void
+name|setPollTimeout
+parameter_list|(
+name|int
+name|pollTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pollTimeout
+operator|=
+name|pollTimeout
 expr_stmt|;
 block|}
 DECL|method|isTransferExchange ()

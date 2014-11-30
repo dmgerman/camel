@@ -511,7 +511,7 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|getPollInterval
+name|getPollTimeout
 argument_list|()
 argument_list|,
 name|TimeUnit
