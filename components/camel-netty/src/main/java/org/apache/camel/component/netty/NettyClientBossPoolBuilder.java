@@ -24,9 +24,17 @@ name|java
 operator|.
 name|util
 operator|.
-name|concurrent
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|Executor
+name|util
+operator|.
+name|Set
 import|;
 end_import
 
@@ -39,6 +47,18 @@ operator|.
 name|concurrent
 operator|.
 name|Executors
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
 import|;
 end_import
 
@@ -88,7 +108,7 @@ name|netty
 operator|.
 name|util
 operator|.
-name|ThreadNameDeterminer
+name|Timeout
 import|;
 end_import
 
@@ -103,6 +123,20 @@ operator|.
 name|util
 operator|.
 name|Timer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jboss
+operator|.
+name|netty
+operator|.
+name|util
+operator|.
+name|TimerTask
 import|;
 end_import
 
@@ -140,6 +174,11 @@ DECL|field|timer
 specifier|private
 name|Timer
 name|timer
+decl_stmt|;
+DECL|field|stopTimer
+specifier|private
+name|boolean
+name|stopTimer
 decl_stmt|;
 DECL|method|setName (String name)
 specifier|public
@@ -277,12 +316,46 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|stopTimer ()
+specifier|public
+name|NettyClientBossPoolBuilder
+name|stopTimer
+parameter_list|()
+block|{
+name|stopTimer
+operator|=
+literal|true
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Creates a new boss pool.      */
 DECL|method|build ()
 name|BossPool
 name|build
 parameter_list|()
 block|{
+name|Timer
+name|internalTimer
+init|=
+name|timer
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|stopTimer
+condition|)
+block|{
+name|internalTimer
+operator|=
+operator|new
+name|UnstoppableTimer
+argument_list|(
+name|timer
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 operator|new
 name|NioClientBossPool
@@ -294,7 +367,7 @@ argument_list|()
 argument_list|,
 name|bossCount
 argument_list|,
-name|timer
+name|internalTimer
 argument_list|,
 operator|new
 name|CamelNettyThreadNameDeterminer
@@ -305,6 +378,79 @@ name|name
 argument_list|)
 argument_list|)
 return|;
+block|}
+comment|// Here we don't close the timer, as the timer is passed from out side
+DECL|class|UnstoppableTimer
+class|class
+name|UnstoppableTimer
+implements|implements
+name|Timer
+block|{
+DECL|field|delegateTimer
+name|Timer
+name|delegateTimer
+decl_stmt|;
+DECL|method|UnstoppableTimer (Timer timer)
+name|UnstoppableTimer
+parameter_list|(
+name|Timer
+name|timer
+parameter_list|)
+block|{
+name|delegateTimer
+operator|=
+name|timer
+expr_stmt|;
+block|}
+DECL|method|newTimeout (TimerTask task, long delay, TimeUnit unit)
+specifier|public
+name|Timeout
+name|newTimeout
+parameter_list|(
+name|TimerTask
+name|task
+parameter_list|,
+name|long
+name|delay
+parameter_list|,
+name|TimeUnit
+name|unit
+parameter_list|)
+block|{
+return|return
+name|delegateTimer
+operator|.
+name|newTimeout
+argument_list|(
+name|task
+argument_list|,
+name|delay
+argument_list|,
+name|unit
+argument_list|)
+return|;
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|stop ()
+specifier|public
+name|Set
+argument_list|<
+name|Timeout
+argument_list|>
+name|stop
+parameter_list|()
+block|{
+comment|// do nothing here;
+return|return
+name|Collections
+operator|.
+name|EMPTY_SET
+return|;
+block|}
 block|}
 block|}
 end_class
