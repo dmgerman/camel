@@ -736,6 +736,38 @@ name|batchSize
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getBarrierAwaitTimeoutMs ()
+specifier|public
+name|int
+name|getBarrierAwaitTimeoutMs
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getBarrierAwaitTimeoutMs
+argument_list|()
+return|;
+block|}
+DECL|method|setBarrierAwaitTimeoutMs (int barrierAwaitTimeoutMs)
+specifier|public
+name|void
+name|setBarrierAwaitTimeoutMs
+parameter_list|(
+name|int
+name|barrierAwaitTimeoutMs
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|.
+name|setBarrierAwaitTimeoutMs
+argument_list|(
+name|barrierAwaitTimeoutMs
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getConsumersCount ()
 specifier|public
 name|int

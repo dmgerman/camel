@@ -104,6 +104,13 @@ name|batchSize
 init|=
 literal|100
 decl_stmt|;
+DECL|field|barrierAwaitTimeoutMs
+specifier|private
+name|int
+name|barrierAwaitTimeoutMs
+init|=
+literal|10000
+decl_stmt|;
 comment|//Common configuration properties
 DECL|field|clientId
 specifier|private
@@ -967,6 +974,32 @@ operator|.
 name|batchSize
 operator|=
 name|batchSize
+expr_stmt|;
+block|}
+DECL|method|getBarrierAwaitTimeoutMs ()
+specifier|public
+name|int
+name|getBarrierAwaitTimeoutMs
+parameter_list|()
+block|{
+return|return
+name|barrierAwaitTimeoutMs
+return|;
+block|}
+DECL|method|setBarrierAwaitTimeoutMs (int barrierAwaitTimeoutMs)
+specifier|public
+name|void
+name|setBarrierAwaitTimeoutMs
+parameter_list|(
+name|int
+name|barrierAwaitTimeoutMs
+parameter_list|)
+block|{
+name|this
+operator|.
+name|barrierAwaitTimeoutMs
+operator|=
+name|barrierAwaitTimeoutMs
 expr_stmt|;
 block|}
 DECL|method|getConsumersCount ()
