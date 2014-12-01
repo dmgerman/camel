@@ -3912,8 +3912,8 @@ argument_list|>
 operator|)
 name|this
 decl_stmt|;
-comment|// when using doTry .. doCatch .. doFinally we should always
-comment|// end the try definition to avoid having to use 2 x end() in the route
+comment|// when using choice .. when .. otherwise - doTry .. doCatch .. doFinally we should always
+comment|// end the choice/try definition to avoid having to use 2 x end() in the route
 comment|// this is counter intuitive for end users
 comment|// TODO (camel-3.0): this should be done inside of TryDefinition or even better
 comment|//  in Block(s) in general, but the api needs to be revisited for that.
