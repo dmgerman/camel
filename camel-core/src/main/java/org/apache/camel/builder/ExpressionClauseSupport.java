@@ -652,13 +652,15 @@ name|T
 name|body
 parameter_list|()
 block|{
+comment|// reuse simple as this allows the model to represent this as a known JAXB type
 return|return
 name|expression
 argument_list|(
-name|ExpressionBuilder
-operator|.
-name|bodyExpression
-argument_list|()
+operator|new
+name|SimpleExpression
+argument_list|(
+literal|"body"
+argument_list|)
 argument_list|)
 return|;
 block|}
