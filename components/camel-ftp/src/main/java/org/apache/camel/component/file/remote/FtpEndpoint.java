@@ -807,6 +807,7 @@ literal|"FtpConfiguration expected"
 argument_list|)
 throw|;
 block|}
+comment|// need to set on both
 name|this
 operator|.
 name|configuration
@@ -815,6 +816,13 @@ operator|(
 name|FtpConfiguration
 operator|)
 name|configuration
+expr_stmt|;
+name|super
+operator|.
+name|setConfiguration
+argument_list|(
+name|configuration
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getFtpClient ()

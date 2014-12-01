@@ -507,6 +507,11 @@ name|Endpoint
 name|childEndpoint
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|childEndpoint
@@ -575,6 +580,23 @@ parameter_list|()
 block|{
 return|return
 name|childEndpoint
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createEndpointUri ()
+specifier|protected
+name|String
+name|createEndpointUri
+parameter_list|()
+block|{
+return|return
+literal|"my:"
+operator|+
+name|childEndpoint
+operator|.
+name|getEndpointUri
+argument_list|()
 return|;
 block|}
 block|}
