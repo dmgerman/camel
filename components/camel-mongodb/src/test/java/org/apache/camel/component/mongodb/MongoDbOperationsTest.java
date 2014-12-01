@@ -1325,6 +1325,59 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+DECL|method|testCommand ()
+specifier|public
+name|void
+name|testCommand
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|//Call hostInfo, command working with every configuration
+name|Object
+name|result
+init|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+literal|"direct:command"
+argument_list|,
+literal|"{\"hostInfo\":\"1\"}"
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Result is not of type DBObject"
+argument_list|,
+name|result
+operator|instanceof
+name|DBObject
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"The result should contain keys"
+argument_list|,
+operator|(
+operator|(
+name|DBObject
+operator|)
+name|result
+operator|)
+operator|.
+name|keySet
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
 DECL|method|testOperationHeader ()
 specifier|public
 name|void
@@ -1547,7 +1600,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mongodb:myDb?database={{mongodb.testDb}}&collection={{mongodb.testCollection}}&operation=getDbStats"
+literal|"mongodb:myDb?database={{mongodb.testDb}}&operation=getDbStats"
 argument_list|)
 expr_stmt|;
 name|from
@@ -1558,6 +1611,16 @@ operator|.
 name|to
 argument_list|(
 literal|"mongodb:myDb?database={{mongodb.testDb}}&collection={{mongodb.testCollection}}&operation=getColStats"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:command"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mongodb:myDb?database={{mongodb.testDb}}&operation=command"
 argument_list|)
 expr_stmt|;
 block|}

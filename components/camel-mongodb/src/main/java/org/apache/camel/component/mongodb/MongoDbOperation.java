@@ -63,7 +63,10 @@ name|getColStats
 block|,
 DECL|enumConstant|count
 name|count
-block|,       }
+block|,
+DECL|enumConstant|command
+name|command
+block|}
 end_enum
 
 end_unit
