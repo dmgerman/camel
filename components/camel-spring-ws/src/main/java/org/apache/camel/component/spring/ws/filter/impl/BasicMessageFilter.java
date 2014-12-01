@@ -190,14 +190,14 @@ name|BasicMessageFilter
 implements|implements
 name|MessageFilter
 block|{
-DECL|field|LOWERCASE_BREADCRUMB_ID
+DECL|field|BREADCRUMB_ID
 specifier|private
 specifier|static
 specifier|final
 name|String
-name|LOWERCASE_BREADCRUMB_ID
+name|BREADCRUMB_ID
 init|=
-literal|"breadcrumbid"
+literal|"BreadcrumbId"
 decl_stmt|;
 annotation|@
 name|Override
@@ -359,7 +359,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * The SOAP header is populated from exchange.getOut().getHeaders() if this      * class is used by the consumer or exchange.getIn().getHeaders() if this      * class is used by the producer. If .getHeaders() contains under a certain      * key a value with the QName object, it is directly added as a new header      * element. If it contains only a String value, it is transformed into a      * header attribute. Following headers are excluded:      * {@code LOWERCASE_BREADCRUMB_ID}      *       * @see SpringWebserviceConstants.SPRING_WS_SOAP_ACTION, @see      *      SpringWebserviceConstants.SPRING_WS_ADDRESSING_ACTION), @see      *      SpringWebserviceConstants.SPRING_WS_ENDPOINT_URI This the convinient      *      method for overriding.      * @param inOrOut      * @param soapMessage      */
+comment|/**      * The SOAP header is populated from exchange.getOut().getHeaders() if this      * class is used by the consumer or exchange.getIn().getHeaders() if this      * class is used by the producer. If .getHeaders() contains under a certain      * key a value with the QName object, it is directly added as a new header      * element. If it contains only a String value, it is transformed into a      * header attribute. Following headers are excluded:      */
 DECL|method|doProcessSoapHeader (Message inOrOut, SoapMessage soapMessage)
 specifier|protected
 name|void
@@ -418,9 +418,6 @@ argument_list|(
 name|SpringWebserviceConstants
 operator|.
 name|SPRING_WS_SOAP_ACTION
-operator|.
-name|toLowerCase
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|headerKeySet
@@ -430,9 +427,6 @@ argument_list|(
 name|SpringWebserviceConstants
 operator|.
 name|SPRING_WS_ENDPOINT_URI
-operator|.
-name|toLowerCase
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|headerKeySet
@@ -442,9 +436,6 @@ argument_list|(
 name|SpringWebserviceConstants
 operator|.
 name|SPRING_WS_ADDRESSING_ACTION
-operator|.
-name|toLowerCase
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|headerKeySet
@@ -454,9 +445,6 @@ argument_list|(
 name|SpringWebserviceConstants
 operator|.
 name|SPRING_WS_ADDRESSING_PRODUCER_FAULT_TO
-operator|.
-name|toLowerCase
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|headerKeySet
@@ -466,9 +454,6 @@ argument_list|(
 name|SpringWebserviceConstants
 operator|.
 name|SPRING_WS_ADDRESSING_PRODUCER_REPLY_TO
-operator|.
-name|toLowerCase
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|headerKeySet
@@ -478,9 +463,6 @@ argument_list|(
 name|SpringWebserviceConstants
 operator|.
 name|SPRING_WS_ADDRESSING_CONSUMER_FAULT_ACTION
-operator|.
-name|toLowerCase
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|headerKeySet
@@ -490,16 +472,13 @@ argument_list|(
 name|SpringWebserviceConstants
 operator|.
 name|SPRING_WS_ADDRESSING_CONSUMER_OUTPUT_ACTION
-operator|.
-name|toLowerCase
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|headerKeySet
 operator|.
 name|remove
 argument_list|(
-name|LOWERCASE_BREADCRUMB_ID
+name|BREADCRUMB_ID
 argument_list|)
 expr_stmt|;
 for|for
