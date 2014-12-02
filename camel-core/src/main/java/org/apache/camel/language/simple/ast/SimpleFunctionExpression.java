@@ -816,7 +816,7 @@ name|parts
 operator|.
 name|length
 operator|>
-literal|2
+literal|3
 condition|)
 block|{
 throw|throw
@@ -849,7 +849,7 @@ condition|(
 name|parts
 operator|.
 name|length
-operator|==
+operator|>=
 literal|2
 condition|)
 block|{
