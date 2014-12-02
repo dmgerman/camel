@@ -99,6 +99,19 @@ specifier|private
 name|VelocityEngine
 name|velocityEngine
 decl_stmt|;
+DECL|method|VelocityComponent ()
+specifier|public
+name|VelocityComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|VelocityEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getVelocityEngine ()
 specifier|public
 name|VelocityEngine
@@ -123,19 +136,6 @@ operator|.
 name|velocityEngine
 operator|=
 name|velocityEngine
-expr_stmt|;
-block|}
-DECL|method|VelocityComponent ()
-specifier|public
-name|VelocityComponent
-parameter_list|()
-block|{
-name|super
-argument_list|(
-name|VelocityEndpoint
-operator|.
-name|class
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
