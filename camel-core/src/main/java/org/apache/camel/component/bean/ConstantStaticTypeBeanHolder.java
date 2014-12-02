@@ -30,32 +30,6 @@ name|CamelContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * A constant {@link org.apache.camel.component.bean.BeanHolder} for a class or static class  * where the intention is to only invoke static methods, without the need for creating an instance of the type.  *  * @version  */
 end_comment

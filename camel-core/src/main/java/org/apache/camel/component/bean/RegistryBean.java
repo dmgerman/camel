@@ -68,20 +68,6 @@ name|Registry
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|CamelContextHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * An implementation of a {@link BeanHolder} which will look up a bean from the registry and act as a cache of its metadata  *  * @version   */
 end_comment
