@@ -281,7 +281,7 @@ argument_list|()
 operator|.
 name|simple
 argument_list|(
-literal|"Hi ${body}. ${properties:org/apache/camel/component/properties/bar.properties:bar.quote}."
+literal|"Hi ${body}. ${properties-location:org/apache/camel/component/properties/bar.properties:bar.quote}."
 argument_list|)
 expr_stmt|;
 block|}
@@ -359,7 +359,7 @@ argument_list|()
 operator|.
 name|simple
 argument_list|(
-literal|"Hi ${body}. ${properties:org/apache/camel/component/properties/bar.properties:bar.quote}."
+literal|"Hi ${body}. ${properties-location:org/apache/camel/component/properties/bar.properties:bar.quote}."
 argument_list|)
 expr_stmt|;
 block|}
@@ -437,7 +437,7 @@ argument_list|()
 operator|.
 name|simple
 argument_list|(
-literal|"Hi ${body}. ${properties:org/apache/camel/component/properties/bar.properties,"
+literal|"Hi ${body}. ${properties-location:org/apache/camel/component/properties/bar.properties,"
 operator|+
 literal|"org/apache/camel/component/properties/cheese.properties:cheese.quote}."
 argument_list|)
