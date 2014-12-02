@@ -292,10 +292,6 @@ name|CHUNK_TEMPLATE
 import|;
 end_import
 
-begin_comment
-comment|/**  * Represents a Camel Chunk endpoint  */
-end_comment
-
 begin_class
 annotation|@
 name|UriEndpoint
@@ -306,7 +302,7 @@ literal|"chunk"
 argument_list|,
 name|label
 operator|=
-literal|"templating"
+literal|"transformation"
 argument_list|)
 DECL|class|ChunkEndpoint
 specifier|public
@@ -731,7 +727,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Create a Chunk template      *      * @param resourceReader Reader used to get template      * @param Theme The theme      * @return Chunk      */
+comment|/**      * Create a Chunk template      *      * @param resourceReader Reader used to get template      * @param theme The theme      * @return Chunk      */
 DECL|method|createChunk (Reader resourceReader, Theme theme, boolean fromTemplate)
 specifier|private
 name|Chunk
@@ -791,8 +787,6 @@ expr_stmt|;
 block|}
 name|Chunk
 name|newChunk
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
