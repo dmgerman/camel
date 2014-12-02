@@ -72,6 +72,7 @@ end_import
 
 begin_class
 DECL|class|TestUtils
+specifier|final
 class|class
 name|TestUtils
 block|{
