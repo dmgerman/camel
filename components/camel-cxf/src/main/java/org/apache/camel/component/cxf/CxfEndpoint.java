@@ -316,6 +316,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelException
 import|;
 end_import
@@ -1203,6 +1215,8 @@ name|CxfEndpoint
 extends|extends
 name|DefaultEndpoint
 implements|implements
+name|CamelContextAware
+implements|,
 name|HeaderFilterStrategyAware
 implements|,
 name|Service
