@@ -380,7 +380,9 @@ block|{
 throw|throw
 operator|new
 name|UnsupportedOperationException
-argument_list|()
+argument_list|(
+literal|"Consumer is not supported"
+argument_list|)
 throw|;
 block|}
 annotation|@

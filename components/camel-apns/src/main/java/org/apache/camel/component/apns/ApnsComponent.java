@@ -48,18 +48,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -74,27 +62,9 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
-begin_comment
-comment|/**  * Represents the component that manages {@link ApnsEndpoint}. It holds the list  * of named apns endpoints.  */
-end_comment
 
 begin_class
 DECL|class|ApnsComponent
@@ -102,7 +72,7 @@ specifier|public
 class|class
 name|ApnsComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|apnsService
 specifier|private
@@ -113,7 +83,15 @@ DECL|method|ApnsComponent ()
 specifier|public
 name|ApnsComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|ApnsEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|ApnsComponent (ApnsService apnsService)
 specifier|public
 name|ApnsComponent
@@ -122,34 +100,14 @@ name|ApnsService
 name|apnsService
 parameter_list|)
 block|{
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|apnsService
-argument_list|,
-literal|"apnsService"
-argument_list|)
+name|this
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
 name|apnsService
 operator|=
 name|apnsService
-expr_stmt|;
-block|}
-DECL|method|ApnsComponent (CamelContext context)
-specifier|public
-name|ApnsComponent
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|context
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -185,6 +143,13 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
+name|endpoint
+operator|.
+name|setName
+argument_list|(
+name|remaining
+argument_list|)
+expr_stmt|;
 name|setProperties
 argument_list|(
 name|endpoint
