@@ -766,6 +766,11 @@ name|Object
 argument_list|>
 name|properties
 decl_stmt|;
+DECL|method|CxfRsEndpoint ()
+specifier|public
+name|CxfRsEndpoint
+parameter_list|()
+block|{     }
 annotation|@
 name|Deprecated
 DECL|method|CxfRsEndpoint (String endpointUri, CamelContext camelContext)
