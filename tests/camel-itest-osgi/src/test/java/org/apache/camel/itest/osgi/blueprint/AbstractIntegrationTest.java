@@ -327,13 +327,11 @@ parameter_list|)
 block|{
 name|ServiceTracker
 argument_list|<
-name|?
+name|T
 argument_list|,
-name|?
+name|T
 argument_list|>
 name|tracker
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -439,9 +437,9 @@ operator|=
 operator|new
 name|ServiceTracker
 argument_list|<
-name|Object
+name|T
 argument_list|,
-name|Object
+name|T
 argument_list|>
 argument_list|(
 name|bundleContext
@@ -460,19 +458,14 @@ argument_list|)
 expr_stmt|;
 comment|// Note that the tracker is not closed to keep the reference
 comment|// This is buggy, as the service reference may change i think
-name|Object
+name|T
 name|svc
 init|=
-name|type
-operator|.
-name|cast
-argument_list|(
 name|tracker
 operator|.
 name|waitForService
 argument_list|(
 name|timeout
-argument_list|)
 argument_list|)
 decl_stmt|;
 if|if
@@ -583,12 +576,7 @@ argument_list|)
 throw|;
 block|}
 return|return
-name|type
-operator|.
-name|cast
-argument_list|(
 name|svc
-argument_list|)
 return|;
 block|}
 catch|catch
