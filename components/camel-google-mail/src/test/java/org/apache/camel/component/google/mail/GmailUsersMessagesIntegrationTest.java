@@ -232,48 +232,8 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|google
-operator|.
-name|mail
-operator|.
-name|internal
-operator|.
-name|GoogleMailApiCollection
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|google
-operator|.
-name|mail
-operator|.
-name|internal
-operator|.
-name|GmailUsersMessagesApiMethod
-import|;
-end_import
-
 begin_comment
-comment|/**  * Test class for {@link com.google.api.services.gmail.Gmail$Users$Messages} APIs.  */
+comment|/**  * Test class for {@link com.google.api.services.gmail.Gmail$Users$Messages}  * APIs.  */
 end_comment
 
 begin_class
@@ -284,7 +244,7 @@ name|GmailUsersMessagesIntegrationTest
 extends|extends
 name|AbstractGoogleMailTestSupport
 block|{
-comment|//  userid of the currently authenticated user
+comment|// userid of the currently authenticated user
 DECL|field|CURRENT_USERID
 specifier|public
 specifier|static
@@ -847,6 +807,12 @@ name|mm
 operator|.
 name|addRecipients
 argument_list|(
+name|javax
+operator|.
+name|mail
+operator|.
+name|Message
+operator|.
 name|RecipientType
 operator|.
 name|TO
@@ -1016,6 +982,8 @@ operator|new
 name|RouteBuilder
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|configure
