@@ -110,6 +110,13 @@ name|RestBindingMode
 operator|.
 name|off
 decl_stmt|;
+DECL|field|skipBindingOnErrorCode
+specifier|private
+name|boolean
+name|skipBindingOnErrorCode
+init|=
+literal|true
+decl_stmt|;
 DECL|field|jsonDataFormat
 specifier|private
 name|String
@@ -398,6 +405,34 @@ name|valueOf
 argument_list|(
 name|bindingMode
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Whether to skip binding output if there is a custom HTTP error code, and instead use the response body as-is.      *<p/>      * This option is default<tt>true</tt>.      */
+DECL|method|isSkipBindingOnErrorCode ()
+specifier|public
+name|boolean
+name|isSkipBindingOnErrorCode
+parameter_list|()
+block|{
+return|return
+name|skipBindingOnErrorCode
+return|;
+block|}
+comment|/**      * Whether to skip binding output if there is a custom HTTP error code, and instead use the response body as-is.      *<p/>      * This option is default<tt>true</tt>.      */
+DECL|method|setSkipBindingOnErrorCode (boolean skipBindingOnErrorCode)
+specifier|public
+name|void
+name|setSkipBindingOnErrorCode
+parameter_list|(
+name|boolean
+name|skipBindingOnErrorCode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|skipBindingOnErrorCode
+operator|=
+name|skipBindingOnErrorCode
 expr_stmt|;
 block|}
 comment|/**      * Gets the name of the json data format.      *      * @return the name, or<tt>null</tt> to use default      */

@@ -220,6 +220,13 @@ name|bindingMode
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|skipBindingOnErrorCode
+specifier|private
+name|Boolean
+name|skipBindingOnErrorCode
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|type
 specifier|private
 name|String
@@ -459,6 +466,32 @@ operator|.
 name|bindingMode
 operator|=
 name|bindingMode
+expr_stmt|;
+block|}
+DECL|method|getSkipBindingOnErrorCode ()
+specifier|public
+name|Boolean
+name|getSkipBindingOnErrorCode
+parameter_list|()
+block|{
+return|return
+name|skipBindingOnErrorCode
+return|;
+block|}
+DECL|method|setSkipBindingOnErrorCode (Boolean skipBindingOnErrorCode)
+specifier|public
+name|void
+name|setSkipBindingOnErrorCode
+parameter_list|(
+name|Boolean
+name|skipBindingOnErrorCode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|skipBindingOnErrorCode
+operator|=
+name|skipBindingOnErrorCode
 expr_stmt|;
 block|}
 DECL|method|getType ()

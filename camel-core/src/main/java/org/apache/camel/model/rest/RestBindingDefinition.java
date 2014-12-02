@@ -263,6 +263,13 @@ name|String
 name|outType
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+DECL|field|skipBindingOnErrorCode
+specifier|private
+name|Boolean
+name|skipBindingOnErrorCode
+decl_stmt|;
+annotation|@
 name|Override
 DECL|method|toString ()
 specifier|public
@@ -337,6 +344,16 @@ name|name
 argument_list|()
 expr_stmt|;
 block|}
+comment|// skip by default
+name|boolean
+name|skip
+init|=
+name|skipBindingOnErrorCode
+operator|==
+literal|null
+operator|||
+name|skipBindingOnErrorCode
+decl_stmt|;
 if|if
 condition|(
 name|mode
@@ -369,6 +386,8 @@ argument_list|,
 name|produces
 argument_list|,
 name|mode
+argument_list|,
+name|skip
 argument_list|)
 return|;
 block|}
@@ -1046,6 +1065,8 @@ argument_list|,
 name|produces
 argument_list|,
 name|mode
+argument_list|,
+name|skip
 argument_list|)
 return|;
 block|}
@@ -1263,6 +1284,32 @@ operator|.
 name|outType
 operator|=
 name|outType
+expr_stmt|;
+block|}
+DECL|method|getSkipBindingOnErrorCode ()
+specifier|public
+name|Boolean
+name|getSkipBindingOnErrorCode
+parameter_list|()
+block|{
+return|return
+name|skipBindingOnErrorCode
+return|;
+block|}
+DECL|method|setSkipBindingOnErrorCode (Boolean skipBindingOnErrorCode)
+specifier|public
+name|void
+name|setSkipBindingOnErrorCode
+parameter_list|(
+name|Boolean
+name|skipBindingOnErrorCode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|skipBindingOnErrorCode
+operator|=
+name|skipBindingOnErrorCode
 expr_stmt|;
 block|}
 block|}

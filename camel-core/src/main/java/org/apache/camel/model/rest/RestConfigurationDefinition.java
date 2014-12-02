@@ -243,6 +243,13 @@ name|bindingMode
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|skipBindingOnErrorCode
+specifier|private
+name|Boolean
+name|skipBindingOnErrorCode
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|jsonDataFormat
 specifier|private
 name|String
@@ -523,6 +530,32 @@ operator|.
 name|bindingMode
 operator|=
 name|bindingMode
+expr_stmt|;
+block|}
+DECL|method|getSkipBindingOnErrorCode ()
+specifier|public
+name|Boolean
+name|getSkipBindingOnErrorCode
+parameter_list|()
+block|{
+return|return
+name|skipBindingOnErrorCode
+return|;
+block|}
+DECL|method|setSkipBindingOnErrorCode (Boolean skipBindingOnErrorCode)
+specifier|public
+name|void
+name|setSkipBindingOnErrorCode
+parameter_list|(
+name|Boolean
+name|skipBindingOnErrorCode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|skipBindingOnErrorCode
+operator|=
+name|skipBindingOnErrorCode
 expr_stmt|;
 block|}
 DECL|method|getJsonDataFormat ()
@@ -855,6 +888,25 @@ block|{
 name|setBindingMode
 argument_list|(
 name|bindingMode
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * To specify whether to skip binding output if there is a custom HTTP error code      */
+DECL|method|skipBindingOnErrorCode (boolean skipBindingOnErrorCode)
+specifier|public
+name|RestConfigurationDefinition
+name|skipBindingOnErrorCode
+parameter_list|(
+name|boolean
+name|skipBindingOnErrorCode
+parameter_list|)
+block|{
+name|setSkipBindingOnErrorCode
+argument_list|(
+name|skipBindingOnErrorCode
 argument_list|)
 expr_stmt|;
 return|return
@@ -1247,6 +1299,21 @@ name|bindingMode
 operator|.
 name|name
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|skipBindingOnErrorCode
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setSkipBindingOnErrorCode
+argument_list|(
+name|skipBindingOnErrorCode
 argument_list|)
 expr_stmt|;
 block|}
