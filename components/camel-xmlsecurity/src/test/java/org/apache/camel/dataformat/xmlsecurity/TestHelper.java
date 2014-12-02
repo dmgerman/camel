@@ -660,7 +660,7 @@ expr_stmt|;
 block|}
 DECL|method|testEncryption (String fragment, CamelContext context)
 specifier|protected
-name|void
+name|Document
 name|testEncryption
 parameter_list|(
 name|String
@@ -761,6 +761,9 @@ name|inDoc
 argument_list|)
 argument_list|)
 expr_stmt|;
+return|return
+name|inDoc
+return|;
 block|}
 DECL|method|testEncryption (CamelContext context)
 specifier|protected

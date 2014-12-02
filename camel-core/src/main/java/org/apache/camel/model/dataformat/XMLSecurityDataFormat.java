@@ -286,6 +286,15 @@ name|String
 name|mgfAlgorithm
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+DECL|field|addKeyValueForEncryptedKey
+specifier|private
+name|boolean
+name|addKeyValueForEncryptedKey
+init|=
+literal|true
+decl_stmt|;
+annotation|@
 name|XmlTransient
 DECL|field|keyOrTrustStoreParameters
 specifier|private
@@ -1636,6 +1645,18 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"addKeyValueForEncryptedKey"
+argument_list|,
+name|isAddKeyValueForEncryptedKey
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getXmlCipherAlgorithm ()
 specifier|public
@@ -1929,6 +1950,32 @@ operator|.
 name|mgfAlgorithm
 operator|=
 name|mgfAlgorithm
+expr_stmt|;
+block|}
+DECL|method|isAddKeyValueForEncryptedKey ()
+specifier|public
+name|boolean
+name|isAddKeyValueForEncryptedKey
+parameter_list|()
+block|{
+return|return
+name|addKeyValueForEncryptedKey
+return|;
+block|}
+DECL|method|setAddKeyValueForEncryptedKey (boolean addKeyValueForEncryptedKey)
+specifier|public
+name|void
+name|setAddKeyValueForEncryptedKey
+parameter_list|(
+name|boolean
+name|addKeyValueForEncryptedKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|addKeyValueForEncryptedKey
+operator|=
+name|addKeyValueForEncryptedKey
 expr_stmt|;
 block|}
 annotation|@

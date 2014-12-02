@@ -156,6 +156,16 @@ name|java
 operator|.
 name|security
 operator|.
+name|PublicKey
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
 name|spec
 operator|.
 name|InvalidKeySpecException
@@ -746,6 +756,13 @@ init|=
 operator|new
 name|DefaultNamespaceContext
 argument_list|()
+decl_stmt|;
+DECL|field|addKeyValueForEncryptedKey
+specifier|private
+name|boolean
+name|addKeyValueForEncryptedKey
+init|=
+literal|true
 decl_stmt|;
 DECL|method|XMLSecurityDataFormat ()
 specifier|public
@@ -2692,6 +2709,8 @@ argument_list|,
 name|dataEncryptionKey
 argument_list|,
 name|keyCipher
+argument_list|,
+name|keyEncryptionKey
 argument_list|)
 expr_stmt|;
 block|}
@@ -2841,6 +2860,8 @@ argument_list|,
 name|dataEncryptionKey
 argument_list|,
 name|keyCipher
+argument_list|,
+name|keyEncryptionKey
 argument_list|)
 expr_stmt|;
 block|}
@@ -2960,7 +2981,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|encrypt (Exchange exchange, Document document, OutputStream stream, Key dataEncryptionKey, XMLCipher keyCipher)
+DECL|method|encrypt (Exchange exchange, Document document, OutputStream stream, Key dataEncryptionKey, XMLCipher keyCipher, Key keyEncryptionKey)
 specifier|private
 name|void
 name|encrypt
@@ -2979,6 +3000,9 @@ name|dataEncryptionKey
 parameter_list|,
 name|XMLCipher
 name|keyCipher
+parameter_list|,
+name|Key
+name|keyEncryptionKey
 parameter_list|)
 throws|throws
 name|Exception
@@ -3023,6 +3047,8 @@ argument_list|,
 name|xmlCipher
 argument_list|,
 name|dataEncryptionKey
+argument_list|,
+name|keyEncryptionKey
 argument_list|)
 expr_stmt|;
 name|document
@@ -3120,6 +3146,8 @@ argument_list|,
 name|xmlCipher
 argument_list|,
 name|dataEncryptionKey
+argument_list|,
+name|keyEncryptionKey
 argument_list|)
 expr_stmt|;
 name|Document
@@ -4259,7 +4287,7 @@ name|generateKey
 argument_list|()
 return|;
 block|}
-DECL|method|embedKeyInfoInEncryptedData (Document document, XMLCipher keyCipher, XMLCipher xmlCipher, Key dataEncryptionkey)
+DECL|method|embedKeyInfoInEncryptedData (Document document, XMLCipher keyCipher, XMLCipher xmlCipher, Key dataEncryptionkey, Key keyEncryptionKey)
 specifier|private
 name|void
 name|embedKeyInfoInEncryptedData
@@ -4275,6 +4303,9 @@ name|xmlCipher
 parameter_list|,
 name|Key
 name|dataEncryptionkey
+parameter_list|,
+name|Key
+name|keyEncryptionKey
 parameter_list|)
 throws|throws
 name|XMLEncryptionException
@@ -4295,6 +4326,44 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|addKeyValueForEncryptedKey
+operator|&&
+name|keyEncryptionKey
+operator|instanceof
+name|PublicKey
+condition|)
+block|{
+name|KeyInfo
+name|keyInfo
+init|=
+operator|new
+name|KeyInfo
+argument_list|(
+name|document
+argument_list|)
+decl_stmt|;
+name|keyInfo
+operator|.
+name|add
+argument_list|(
+operator|(
+operator|(
+name|PublicKey
+operator|)
+name|keyEncryptionKey
+operator|)
+argument_list|)
+expr_stmt|;
+name|encryptedKey
+operator|.
+name|setKeyInfo
+argument_list|(
+name|keyInfo
+argument_list|)
+expr_stmt|;
+block|}
 name|KeyInfo
 name|keyInfo
 init|=
@@ -5712,6 +5781,32 @@ operator|.
 name|mgfAlgorithm
 operator|=
 name|mgfAlgorithm
+expr_stmt|;
+block|}
+DECL|method|isAddKeyValueForEncryptedKey ()
+specifier|public
+name|boolean
+name|isAddKeyValueForEncryptedKey
+parameter_list|()
+block|{
+return|return
+name|addKeyValueForEncryptedKey
+return|;
+block|}
+DECL|method|setAddKeyValueForEncryptedKey (boolean addKeyValueForEncryptedKey)
+specifier|public
+name|void
+name|setAddKeyValueForEncryptedKey
+parameter_list|(
+name|boolean
+name|addKeyValueForEncryptedKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|addKeyValueForEncryptedKey
+operator|=
+name|addKeyValueForEncryptedKey
 expr_stmt|;
 block|}
 block|}
