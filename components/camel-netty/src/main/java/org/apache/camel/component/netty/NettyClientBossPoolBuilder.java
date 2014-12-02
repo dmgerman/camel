@@ -381,6 +381,8 @@ return|;
 block|}
 comment|// Here we don't close the timer, as the timer is passed from out side
 DECL|class|UnstoppableTimer
+specifier|private
+specifier|static
 class|class
 name|UnstoppableTimer
 implements|implements
