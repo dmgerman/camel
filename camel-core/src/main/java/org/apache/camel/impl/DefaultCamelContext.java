@@ -8779,51 +8779,31 @@ block|}
 if|if
 condition|(
 name|pc
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
-comment|// the parser will throw exception if property key was not found
-name|String
-name|answer
-init|=
-name|pc
-operator|.
-name|parseUri
-argument_list|(
-name|text
-argument_list|)
-decl_stmt|;
+comment|// create a default properties component to be used as there may be default values we can use
 name|log
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Resolved text: {} -> {}"
-argument_list|,
-name|text
-argument_list|,
-name|answer
+literal|"No existing PropertiesComponent has been configured, creating a new default PropertiesComponent with name: properties"
 argument_list|)
 expr_stmt|;
-return|return
-name|answer
-return|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|pc
+operator|=
+name|getComponent
 argument_list|(
-literal|"PropertiesComponent with name properties must be defined"
-operator|+
-literal|" in CamelContext to support property placeholders."
+literal|"properties"
+argument_list|,
+name|PropertiesComponent
+operator|.
+name|class
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
-comment|// Component available, use actual tokens
 block|}
-elseif|else
 if|if
 condition|(
 name|pc

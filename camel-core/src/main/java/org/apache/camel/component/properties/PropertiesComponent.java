@@ -293,7 +293,9 @@ name|propertiesParser
 init|=
 operator|new
 name|DefaultPropertiesParser
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 decl_stmt|;
 DECL|field|locations
 specifier|private
@@ -819,6 +821,19 @@ name|suffixToken
 argument_list|)
 return|;
 block|}
+block|}
+comment|/**      * Is this component created as a default by {@link org.apache.camel.CamelContext} during starting up Camel.      */
+DECL|method|isDefaultCreated ()
+specifier|public
+name|boolean
+name|isDefaultCreated
+parameter_list|()
+block|{
+return|return
+name|locations
+operator|==
+literal|null
+return|;
 block|}
 DECL|method|getLocations ()
 specifier|public

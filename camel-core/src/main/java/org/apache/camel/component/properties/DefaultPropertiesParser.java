@@ -95,7 +95,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A parser to parse a string which contains property placeholders  */
+comment|/**  * A parser to parse a string which contains property placeholders.  */
 end_comment
 
 begin_class
@@ -129,6 +129,57 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+DECL|field|propertiesComponent
+specifier|private
+name|PropertiesComponent
+name|propertiesComponent
+decl_stmt|;
+DECL|method|DefaultPropertiesParser ()
+specifier|public
+name|DefaultPropertiesParser
+parameter_list|()
+block|{     }
+DECL|method|DefaultPropertiesParser (PropertiesComponent propertiesComponent)
+specifier|public
+name|DefaultPropertiesParser
+parameter_list|(
+name|PropertiesComponent
+name|propertiesComponent
+parameter_list|)
+block|{
+name|this
+operator|.
+name|propertiesComponent
+operator|=
+name|propertiesComponent
+expr_stmt|;
+block|}
+DECL|method|getPropertiesComponent ()
+specifier|public
+name|PropertiesComponent
+name|getPropertiesComponent
+parameter_list|()
+block|{
+return|return
+name|propertiesComponent
+return|;
+block|}
+DECL|method|setPropertiesComponent (PropertiesComponent propertiesComponent)
+specifier|public
+name|void
+name|setPropertiesComponent
+parameter_list|(
+name|PropertiesComponent
+name|propertiesComponent
+parameter_list|)
+block|{
+name|this
+operator|.
+name|propertiesComponent
+operator|=
+name|propertiesComponent
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|parseUri (String text, Properties properties, String prefixToken, String suffixToken)
@@ -1006,6 +1057,23 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|propertiesComponent
+operator|.
+name|isDefaultCreated
+argument_list|()
+condition|)
+block|{
+comment|// if the component was auto created then include more information that the end user should define it
+name|esb
+operator|.
+name|append
+argument_list|(
+literal|"PropertiesComponent with name properties must be defined in CamelContext to support property placeholders. "
+argument_list|)
+expr_stmt|;
+block|}
 name|esb
 operator|.
 name|append
