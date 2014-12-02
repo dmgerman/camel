@@ -94,6 +94,16 @@ name|org
 operator|.
 name|mockito
 operator|.
+name|Matchers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|mockito
+operator|.
 name|Mock
 import|;
 end_import
@@ -192,7 +202,7 @@ argument_list|)
 operator|.
 name|inspectImageCmd
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|eq
 argument_list|(
@@ -217,7 +227,7 @@ name|dockerClient
 operator|.
 name|inspectImageCmd
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|anyString
 argument_list|()

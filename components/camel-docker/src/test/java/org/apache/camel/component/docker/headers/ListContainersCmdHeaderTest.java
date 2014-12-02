@@ -94,6 +94,16 @@ name|org
 operator|.
 name|mockito
 operator|.
+name|Matchers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|mockito
+operator|.
 name|Mock
 import|;
 end_import
@@ -241,7 +251,7 @@ argument_list|)
 operator|.
 name|withShowAll
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|eq
 argument_list|(
@@ -265,7 +275,7 @@ argument_list|)
 operator|.
 name|withShowSize
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|eq
 argument_list|(
@@ -289,7 +299,7 @@ argument_list|)
 operator|.
 name|withLimit
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|eq
 argument_list|(

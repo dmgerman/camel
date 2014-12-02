@@ -94,6 +94,16 @@ name|org
 operator|.
 name|mockito
 operator|.
+name|Matchers
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|mockito
+operator|.
 name|Mock
 import|;
 end_import
@@ -243,7 +253,7 @@ argument_list|)
 operator|.
 name|withForce
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|eq
 argument_list|(
@@ -267,7 +277,7 @@ argument_list|)
 operator|.
 name|withRemoveVolumes
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|eq
 argument_list|(
@@ -292,7 +302,7 @@ name|dockerClient
 operator|.
 name|removeContainerCmd
 argument_list|(
-name|Mockito
+name|Matchers
 operator|.
 name|anyString
 argument_list|()
