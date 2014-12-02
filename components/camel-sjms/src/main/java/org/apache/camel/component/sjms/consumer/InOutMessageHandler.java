@@ -342,7 +342,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|JmsMessageHelper
+name|JmsConstants
 operator|.
 name|JMS_REPLY_TO
 argument_list|)

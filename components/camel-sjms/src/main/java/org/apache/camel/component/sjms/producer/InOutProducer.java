@@ -36,16 +36,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|TreeMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|UUID
 import|;
 end_import
@@ -59,18 +49,6 @@ operator|.
 name|concurrent
 operator|.
 name|ConcurrentHashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ConcurrentMap
 import|;
 end_import
 

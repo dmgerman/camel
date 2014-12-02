@@ -1018,22 +1018,6 @@ name|isSynchronous
 argument_list|()
 return|;
 block|}
-DECL|method|getSjmsEndpoint ()
-specifier|protected
-name|SjmsEndpoint
-name|getSjmsEndpoint
-parameter_list|()
-block|{
-return|return
-operator|(
-name|SjmsEndpoint
-operator|)
-name|this
-operator|.
-name|getEndpoint
-argument_list|()
-return|;
-block|}
 DECL|method|getConnectionResource ()
 specifier|protected
 name|ConnectionResource
@@ -1041,7 +1025,7 @@ name|getConnectionResource
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getConnectionResource
@@ -1056,7 +1040,7 @@ name|getAcknowledgeMode
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getAcknowledgementMode
@@ -1074,7 +1058,7 @@ name|isSynchronous
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|isSynchronous
@@ -1089,7 +1073,7 @@ name|getReplyTo
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getNamedReplyTo
@@ -1104,7 +1088,7 @@ name|getDestinationName
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getDestinationName
@@ -1153,7 +1137,7 @@ name|isTopic
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|isTopic
@@ -1168,7 +1152,7 @@ name|isEndpointTransacted
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|isTransacted
@@ -1183,7 +1167,7 @@ name|getNamedReplyTo
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getNamedReplyTo
@@ -1198,7 +1182,7 @@ name|getProducerCount
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getProducerCount
@@ -1213,7 +1197,7 @@ name|getConsumerCount
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getConsumerCount
@@ -1239,7 +1223,7 @@ name|getTtl
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getTtl
@@ -1254,7 +1238,7 @@ name|isPersistent
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|isPersistent
@@ -1269,7 +1253,7 @@ name|getResponseTimeOut
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getResponseTimeOut
@@ -1284,7 +1268,7 @@ name|getCommitStrategy
 parameter_list|()
 block|{
 return|return
-name|getSjmsEndpoint
+name|getEndpoint
 argument_list|()
 operator|.
 name|getTransactionCommitStrategy
