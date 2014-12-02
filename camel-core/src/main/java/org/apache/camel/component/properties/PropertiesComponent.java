@@ -1317,7 +1317,7 @@ return|return
 name|functions
 return|;
 block|}
-comment|/**      * Add the function      */
+comment|/**      * Registers the {@link org.apache.camel.component.properties.PropertiesFunction} as a function to this component.      */
 DECL|method|addFunction (PropertiesFunction function)
 specifier|public
 name|void
@@ -1342,6 +1342,25 @@ name|function
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Is there a {@link org.apache.camel.component.properties.PropertiesFunction} with the given name?      */
+DECL|method|hasFunction (String name)
+specifier|public
+name|boolean
+name|hasFunction
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|functions
+operator|.
+name|containsKey
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStop ()
@@ -1353,6 +1372,11 @@ throws|throws
 name|Exception
 block|{
 name|cacheMap
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|functions
 operator|.
 name|clear
 argument_list|()
