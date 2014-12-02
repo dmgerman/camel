@@ -199,6 +199,31 @@ name|value
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates an iterable over the value      */
+annotation|@
+name|Converter
+DECL|method|iterable (Object value)
+specifier|public
+specifier|static
+name|Iterable
+argument_list|<
+name|?
+argument_list|>
+name|iterable
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+return|return
+name|ObjectHelper
+operator|.
+name|createIterable
+argument_list|(
+name|value
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns the converted value, or null if the value is null      */
 annotation|@
 name|Converter
