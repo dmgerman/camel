@@ -5168,9 +5168,6 @@ name|XmlSignatureConstants
 operator|.
 name|HEADER_SCHEMA_RESOURCE_URI
 argument_list|,
-operator|(
-name|Object
-operator|)
 literal|"org/apache/camel/component/xmlsecurity/TestComplex.xsd"
 argument_list|)
 expr_stmt|;
@@ -5268,9 +5265,6 @@ name|XmlSignatureConstants
 operator|.
 name|HEADER_XPATHS_TO_ID_ATTRIBUTES
 argument_list|,
-operator|(
-name|Object
-operator|)
 name|xpaths
 argument_list|)
 expr_stmt|;

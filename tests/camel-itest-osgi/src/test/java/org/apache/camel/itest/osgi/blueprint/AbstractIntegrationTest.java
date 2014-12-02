@@ -849,16 +849,6 @@ name|references
 parameter_list|)
 block|{
 return|return
-call|(
-name|Collection
-argument_list|<
-name|ServiceReference
-argument_list|<
-name|?
-argument_list|>
-argument_list|>
-call|)
-argument_list|(
 name|references
 operator|!=
 literal|null
@@ -880,7 +870,6 @@ argument_list|>
 operator|>
 name|emptyList
 argument_list|()
-argument_list|)
 return|;
 block|}
 comment|/**      *  Create an provisioning option for the specified maven artifact      * (groupId and artifactId), using the version found in the list      * of dependencies of this maven project.      *      * @param groupId the groupId of the maven bundle      * @param artifactId the artifactId of the maven bundle      * @return the provisioning option for the given bundle      */

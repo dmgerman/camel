@@ -526,7 +526,7 @@ operator|.
 name|SPARK_DEFAULT_PORT
 condition|)
 block|{
-name|Spark
+name|SparkBase
 operator|.
 name|setPort
 argument_list|(
@@ -582,7 +582,7 @@ operator|>
 literal|0
 condition|)
 block|{
-name|Spark
+name|SparkBase
 operator|.
 name|setPort
 argument_list|(
@@ -600,7 +600,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Spark
+name|SparkBase
 operator|.
 name|setIpAddress
 argument_list|(
@@ -687,7 +687,7 @@ operator|.
 name|doShutdown
 argument_list|()
 expr_stmt|;
-name|Spark
+name|SparkBase
 operator|.
 name|stop
 argument_list|()

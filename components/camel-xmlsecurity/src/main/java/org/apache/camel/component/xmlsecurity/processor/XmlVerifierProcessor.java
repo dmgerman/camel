@@ -1138,12 +1138,6 @@ name|collectedObjects
 operator|.
 name|addAll
 argument_list|(
-operator|(
-name|List
-argument_list|<
-name|XMLObject
-argument_list|>
-operator|)
 name|signature
 operator|.
 name|getObjects
@@ -1154,12 +1148,6 @@ name|collectedReferences
 operator|.
 name|addAll
 argument_list|(
-operator|(
-name|List
-argument_list|<
-name|Reference
-argument_list|>
-operator|)
 name|signature
 operator|.
 name|getSignedInfo
