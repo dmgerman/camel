@@ -449,6 +449,32 @@ operator|=
 name|verbs
 expr_stmt|;
 block|}
+DECL|method|getSkipBindingOnErrorCode ()
+specifier|public
+name|Boolean
+name|getSkipBindingOnErrorCode
+parameter_list|()
+block|{
+return|return
+name|skipBindingOnErrorCode
+return|;
+block|}
+DECL|method|setSkipBindingOnErrorCode (Boolean skipBindingOnErrorCode)
+specifier|public
+name|void
+name|setSkipBindingOnErrorCode
+parameter_list|(
+name|Boolean
+name|skipBindingOnErrorCode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|skipBindingOnErrorCode
+operator|=
+name|skipBindingOnErrorCode
+expr_stmt|;
+block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
 comment|/**      * To set the base path of this REST service      */
