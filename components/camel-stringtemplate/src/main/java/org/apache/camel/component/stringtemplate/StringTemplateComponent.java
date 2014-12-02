@@ -62,6 +62,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|UriEndpointComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ResourceHelper
@@ -78,8 +92,21 @@ specifier|public
 class|class
 name|StringTemplateComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
+DECL|method|StringTemplateComponent ()
+specifier|public
+name|StringTemplateComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|StringTemplateEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint

@@ -90,7 +90,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -132,7 +132,7 @@ specifier|public
 class|class
 name|FreemarkerComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|configuration
 specifier|private
@@ -144,6 +144,19 @@ specifier|private
 name|Configuration
 name|noCacheConfiguration
 decl_stmt|;
+DECL|method|FreemarkerComponent ()
+specifier|public
+name|FreemarkerComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|FreemarkerEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
