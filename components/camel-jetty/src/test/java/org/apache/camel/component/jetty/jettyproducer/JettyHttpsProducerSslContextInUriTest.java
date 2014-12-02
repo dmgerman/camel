@@ -166,22 +166,6 @@ name|SSLContextParameters
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|jsse
-operator|.
-name|TrustManagersParameters
-import|;
-end_import
-
 begin_class
 DECL|class|JettyHttpsProducerSslContextInUriTest
 specifier|public

@@ -308,7 +308,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-name|ConcreteCamelRunner
+name|AbstractCamelRunner
 operator|.
 name|START_DELAY
 operator|+
@@ -527,7 +527,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-name|ConcreteCamelRunner
+name|AbstractCamelRunner
 operator|.
 name|START_DELAY
 operator|-
@@ -668,7 +668,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-name|ConcreteCamelRunner
+name|AbstractCamelRunner
 operator|.
 name|START_DELAY
 operator|-

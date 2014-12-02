@@ -451,9 +451,6 @@ decl_stmt|;
 name|MockJiraRestClient
 name|client
 init|=
-operator|(
-name|MockJiraRestClient
-operator|)
 name|factory
 operator|.
 name|getClient
@@ -512,9 +509,6 @@ decl_stmt|;
 name|MockJiraRestClient
 name|client
 init|=
-operator|(
-name|MockJiraRestClient
-operator|)
 name|factory
 operator|.
 name|getClient

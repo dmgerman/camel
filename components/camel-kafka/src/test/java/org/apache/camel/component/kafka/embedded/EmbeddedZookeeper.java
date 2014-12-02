@@ -253,7 +253,7 @@ name|this
 operator|.
 name|factory
 operator|=
-name|NIOServerCnxnFactory
+name|ServerCnxnFactory
 operator|.
 name|createFactory
 argument_list|(

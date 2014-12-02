@@ -351,10 +351,6 @@ name|byte
 index|[]
 name|bytes
 init|=
-operator|(
-name|byte
-index|[]
-operator|)
 name|msg
 decl_stmt|;
 name|ByteBuf

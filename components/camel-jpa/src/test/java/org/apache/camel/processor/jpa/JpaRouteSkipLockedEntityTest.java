@@ -639,9 +639,6 @@ expr_stmt|;
 name|Connection
 name|connection
 init|=
-operator|(
-name|Connection
-operator|)
 name|entityManager
 operator|.
 name|unwrap

@@ -443,9 +443,6 @@ parameter_list|()
 block|{
 switch|switch
 condition|(
-operator|(
-name|GoogleDriveApiName
-operator|)
 name|apiName
 condition|)
 block|{
