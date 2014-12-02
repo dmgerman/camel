@@ -166,11 +166,11 @@ name|EndpointInject
 argument_list|(
 name|uri
 operator|=
-literal|"kafka:localhost:9092?topic="
+literal|"kafka:localhost:{{karfkaPort}}?topic="
 operator|+
 name|TOPIC
 operator|+
-literal|"&zookeeperHost=localhost&zookeeperPort=2181&"
+literal|"&zookeeperHost=localhost&zookeeperPort={{zookeeperPort}}&"
 operator|+
 literal|"groupId=group1&autoOffsetReset=smallest&"
 operator|+
@@ -224,7 +224,10 @@ name|put
 argument_list|(
 literal|"metadata.broker.list"
 argument_list|,
-literal|"localhost:9092"
+literal|"localhost:"
+operator|+
+name|getKarfkaPort
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|props
