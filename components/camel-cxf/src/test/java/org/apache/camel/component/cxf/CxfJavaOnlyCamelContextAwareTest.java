@@ -173,14 +173,12 @@ argument_list|,
 name|s
 argument_list|)
 decl_stmt|;
-name|System
+name|log
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"Endpoints: "
-operator|+
+literal|"Endpoints: {}"
+argument_list|,
 name|context
 operator|.
 name|getEndpoints
