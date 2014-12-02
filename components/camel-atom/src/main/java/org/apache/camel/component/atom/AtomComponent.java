@@ -108,6 +108,19 @@ name|AtomComponent
 extends|extends
 name|FeedComponent
 block|{
+DECL|method|AtomComponent ()
+specifier|public
+name|AtomComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|AtomEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)

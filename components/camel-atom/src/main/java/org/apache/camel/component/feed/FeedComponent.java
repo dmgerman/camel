@@ -36,9 +36,21 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -53,8 +65,27 @@ specifier|abstract
 class|class
 name|FeedComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
+DECL|method|FeedComponent (Class<? extends Endpoint> endpointClass)
+specifier|public
+name|FeedComponent
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Endpoint
+argument_list|>
+name|endpointClass
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpointClass
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 specifier|abstract

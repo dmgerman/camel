@@ -114,11 +114,42 @@ name|FeedPollingConsumer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
 begin_comment
-comment|/**  * An<a href="http://camel.apache.org/atom.html">Atom Endpoint</a>.  *  * @version   */
+comment|/**  * Atom is used for polling atom feeds  *  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"atom"
+argument_list|,
+name|consumerClass
+operator|=
+name|FeedPollingConsumer
+operator|.
+name|class
+argument_list|,
+name|label
+operator|=
+literal|"feeds"
+argument_list|)
 DECL|class|AtomEndpoint
 specifier|public
 class|class

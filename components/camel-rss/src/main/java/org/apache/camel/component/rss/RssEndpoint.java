@@ -142,6 +142,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -159,10 +173,27 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://camel.apache.org/rss.html">RSS Endpoint</a>.  */
+comment|/**  * Is used for polling rss feeds.  */
 end_comment
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"rss"
+argument_list|,
+name|consumerClass
+operator|=
+name|RssEntryPollingConsumer
+operator|.
+name|class
+argument_list|,
+name|label
+operator|=
+literal|"feeds"
+argument_list|)
 DECL|class|RssEndpoint
 specifier|public
 class|class
