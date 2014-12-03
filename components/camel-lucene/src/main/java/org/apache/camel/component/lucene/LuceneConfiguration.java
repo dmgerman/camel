@@ -160,7 +160,7 @@ name|luceneVersion
 init|=
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_4_10_2
 decl_stmt|;
 DECL|method|LuceneConfiguration ()
 specifier|public
@@ -344,9 +344,7 @@ name|class
 argument_list|,
 operator|new
 name|StandardAnalyzer
-argument_list|(
-name|luceneVersion
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|setMaxHits

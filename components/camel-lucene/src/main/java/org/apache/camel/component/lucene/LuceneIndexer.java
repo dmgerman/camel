@@ -867,7 +867,7 @@ name|IndexWriterConfig
 argument_list|(
 name|Version
 operator|.
-name|LUCENE_46
+name|LUCENE_4_10_2
 argument_list|,
 name|getAnalyzer
 argument_list|()

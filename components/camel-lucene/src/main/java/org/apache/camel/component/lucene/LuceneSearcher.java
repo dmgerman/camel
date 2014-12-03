@@ -421,7 +421,7 @@ name|maxNumberOfHits
 argument_list|,
 name|Version
 operator|.
-name|LUCENE_4_9
+name|LUCENE_4_10_2
 argument_list|)
 return|;
 block|}
@@ -576,8 +576,6 @@ init|=
 operator|new
 name|QueryParser
 argument_list|(
-name|luceneVersion
-argument_list|,
 literal|"contents"
 argument_list|,
 name|analyzer
