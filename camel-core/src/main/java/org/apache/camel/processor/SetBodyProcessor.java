@@ -130,6 +130,20 @@ name|AsyncProcessorHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ExchangeHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A processor which sets the body on the IN or OUT message with an {@link Expression}  */
 end_comment
@@ -242,6 +256,30 @@ name|getIn
 argument_list|()
 decl_stmt|;
 comment|// create a new message container so we do not drag specialized message objects along
+comment|// but that is only needed if the old message is a specialized message
+name|boolean
+name|copyNeeded
+init|=
+operator|!
+operator|(
+name|old
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|DefaultMessage
+operator|.
+name|class
+argument_list|)
+operator|)
+decl_stmt|;
+if|if
+condition|(
+name|copyNeeded
+condition|)
+block|{
 name|Message
 name|msg
 init|=
@@ -263,26 +301,27 @@ argument_list|(
 name|newBody
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|out
-condition|)
-block|{
-name|exchange
+comment|// replace message on exchange
+name|ExchangeHelper
 operator|.
-name|setOut
+name|replaceMessage
 argument_list|(
+name|exchange
+argument_list|,
 name|msg
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
 else|else
 block|{
-name|exchange
+comment|// no copy needed so set replace value directly
+name|old
 operator|.
-name|setIn
+name|setBody
 argument_list|(
-name|msg
+name|newBody
 argument_list|)
 expr_stmt|;
 block|}
