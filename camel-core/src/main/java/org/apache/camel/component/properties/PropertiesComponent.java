@@ -1363,6 +1363,43 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+comment|// inject the component to the parser
+if|if
+condition|(
+name|propertiesParser
+operator|instanceof
+name|DefaultPropertiesParser
+condition|)
+block|{
+operator|(
+operator|(
+name|DefaultPropertiesParser
+operator|)
+name|propertiesParser
+operator|)
+operator|.
+name|setPropertiesComponent
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
 DECL|method|doStop ()
 specifier|protected
 name|void

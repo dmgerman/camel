@@ -52,6 +52,22 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|properties
+operator|.
+name|PropertiesComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|deltaspike
 operator|.
 name|core
@@ -76,6 +92,20 @@ name|CdiPropertiesParser
 extends|extends
 name|DefaultPropertiesParser
 block|{
+DECL|method|CdiPropertiesParser (PropertiesComponent propertiesComponent)
+specifier|public
+name|CdiPropertiesParser
+parameter_list|(
+name|PropertiesComponent
+name|propertiesComponent
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|propertiesComponent
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|parseProperty (String key, String value, Properties properties)
