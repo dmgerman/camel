@@ -132,6 +132,13 @@ operator|.
 name|getGenericParser
 argument_list|()
 decl_stmt|;
+DECL|field|produceString
+specifier|private
+name|boolean
+name|produceString
+init|=
+literal|true
+decl_stmt|;
 DECL|method|getCharset ()
 specifier|public
 name|Charset
@@ -357,6 +364,32 @@ name|setValidating
 argument_list|(
 name|validate
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isProduceString ()
+specifier|public
+name|boolean
+name|isProduceString
+parameter_list|()
+block|{
+return|return
+name|produceString
+return|;
+block|}
+DECL|method|setProduceString (boolean produceString)
+specifier|public
+name|void
+name|setProduceString
+parameter_list|(
+name|boolean
+name|produceString
+parameter_list|)
+block|{
+name|this
+operator|.
+name|produceString
+operator|=
+name|produceString
 expr_stmt|;
 block|}
 block|}

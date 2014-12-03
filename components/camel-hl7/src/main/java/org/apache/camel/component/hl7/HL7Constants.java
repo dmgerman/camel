@@ -137,6 +137,15 @@ name|HL7_CONTEXT
 init|=
 literal|"CamelHL7Context"
 decl_stmt|;
+DECL|field|HL7_CHARSET
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HL7_CHARSET
+init|=
+literal|"CamelHL7Charset"
+decl_stmt|;
 DECL|method|HL7Constants ()
 specifier|private
 name|HL7Constants

@@ -361,7 +361,12 @@ name|out
 operator|.
 name|write
 argument_list|(
-name|parseMessage
+name|config
+operator|.
+name|isProduceString
+argument_list|()
+condition|?
+name|parseMessageToString
 argument_list|(
 name|in
 operator|.
@@ -372,6 +377,14 @@ name|charsetDecoder
 argument_list|(
 name|session
 argument_list|)
+argument_list|)
+else|:
+name|parseMessageToByteArray
+argument_list|(
+name|in
+operator|.
+name|slice
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -467,12 +480,117 @@ return|;
 block|}
 comment|// Make a defensive byte copy (the buffer will be reused)
 comment|// and omit the start and the two end bytes of the MLLP message
-comment|// TODO: I wonder if it would make sense to return the plain byte array and let some subsequent
-comment|// processor do the conversion
-DECL|method|parseMessage (IoBuffer slice, CharsetDecoder decoder)
+comment|// returning a byte array
+DECL|method|parseMessageToByteArray (IoBuffer slice)
 specifier|private
 name|Object
-name|parseMessage
+name|parseMessageToByteArray
+parameter_list|(
+name|IoBuffer
+name|slice
+parameter_list|)
+throws|throws
+name|CharacterCodingException
+block|{
+name|byte
+index|[]
+name|dst
+init|=
+operator|new
+name|byte
+index|[
+name|slice
+operator|.
+name|limit
+argument_list|()
+operator|-
+literal|3
+index|]
+decl_stmt|;
+name|slice
+operator|.
+name|skip
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+comment|// skip start byte
+name|slice
+operator|.
+name|get
+argument_list|(
+name|dst
+argument_list|,
+literal|0
+argument_list|,
+name|dst
+operator|.
+name|length
+argument_list|)
+expr_stmt|;
+comment|// Only do this if conversion is enabled
+if|if
+condition|(
+name|config
+operator|.
+name|isConvertLFtoCR
+argument_list|()
+condition|)
+block|{
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|dst
+operator|.
+name|length
+condition|;
+name|i
+operator|++
+control|)
+block|{
+if|if
+condition|(
+name|dst
+index|[
+name|i
+index|]
+operator|==
+operator|(
+name|byte
+operator|)
+literal|'\n'
+condition|)
+block|{
+name|dst
+index|[
+name|i
+index|]
+operator|=
+operator|(
+name|byte
+operator|)
+literal|'\r'
+expr_stmt|;
+block|}
+block|}
+block|}
+return|return
+name|dst
+return|;
+block|}
+comment|// Make a defensive byte copy (the buffer will be reused)
+comment|// and omit the start and the two end bytes of the MLLP message
+comment|// returning a String
+DECL|method|parseMessageToString (IoBuffer slice, CharsetDecoder decoder)
+specifier|private
+name|Object
+name|parseMessageToString
 parameter_list|(
 name|IoBuffer
 name|slice

@@ -26,6 +26,18 @@ name|uhn
 operator|.
 name|hl7v2
 operator|.
+name|AcknowledgmentCode
+import|;
+end_import
+
+begin_import
+import|import
+name|ca
+operator|.
+name|uhn
+operator|.
+name|hl7v2
+operator|.
 name|ErrorCode
 import|;
 end_import
@@ -742,7 +754,7 @@ name|transform
 argument_list|(
 name|ack
 argument_list|(
-name|AckCode
+name|AcknowledgmentCode
 operator|.
 name|CA
 argument_list|)
@@ -803,7 +815,7 @@ name|transform
 argument_list|(
 name|ack
 argument_list|(
-name|AckCode
+name|AcknowledgmentCode
 operator|.
 name|AR
 argument_list|,
@@ -835,7 +847,7 @@ name|transform
 argument_list|(
 name|ack
 argument_list|(
-name|AckCode
+name|AcknowledgmentCode
 operator|.
 name|AR
 argument_list|,

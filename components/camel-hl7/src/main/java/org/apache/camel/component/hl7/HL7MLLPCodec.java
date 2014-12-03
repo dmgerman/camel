@@ -355,6 +355,36 @@ name|validate
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|isProduceString ()
+specifier|public
+name|boolean
+name|isProduceString
+parameter_list|()
+block|{
+return|return
+name|config
+operator|.
+name|isProduceString
+argument_list|()
+return|;
+block|}
+DECL|method|setProduceString (boolean apply)
+specifier|public
+name|void
+name|setProduceString
+parameter_list|(
+name|boolean
+name|apply
+parameter_list|)
+block|{
+name|config
+operator|.
+name|setProduceString
+argument_list|(
+name|apply
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

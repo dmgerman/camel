@@ -171,20 +171,25 @@ block|}
 DECL|method|ack ()
 specifier|public
 specifier|static
-name|Expression
+name|ValueBuilder
 name|ack
 parameter_list|()
 block|{
 return|return
 operator|new
+name|ValueBuilder
+argument_list|(
+operator|new
 name|AckExpression
 argument_list|()
+argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated Use {@link #ack(ca.uhn.hl7v2.AcknowledgmentCode)}      */
 DECL|method|ack (AckCode code)
 specifier|public
 specifier|static
-name|Expression
+name|ValueBuilder
 name|ack
 parameter_list|(
 name|AckCode
@@ -193,20 +198,49 @@ parameter_list|)
 block|{
 return|return
 operator|new
+name|ValueBuilder
+argument_list|(
+operator|new
 name|AckExpression
 argument_list|(
 name|code
+argument_list|)
+argument_list|)
+return|;
+block|}
+DECL|method|ack (AcknowledgmentCode code)
+specifier|public
+specifier|static
+name|ValueBuilder
+name|ack
+parameter_list|(
+name|AcknowledgmentCode
+name|code
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ValueBuilder
+argument_list|(
+operator|new
+name|AckExpression
+argument_list|(
+name|code
+argument_list|)
 argument_list|)
 return|;
 block|}
 DECL|method|convertLFToCR ()
 specifier|public
 specifier|static
-name|Expression
+name|ValueBuilder
 name|convertLFToCR
 parameter_list|()
 block|{
 return|return
+operator|new
+name|ValueBuilder
+argument_list|(
 operator|new
 name|ExpressionAdapter
 argument_list|()
@@ -254,6 +288,7 @@ literal|null
 return|;
 block|}
 block|}
+argument_list|)
 return|;
 block|}
 comment|/**      * @deprecated Use {@link #ack(ca.uhn.hl7v2.AcknowledgmentCode, String, ErrorCode)}      */
@@ -262,7 +297,7 @@ name|Deprecated
 DECL|method|ack (AckCode code, String errorMessage, int errorCode)
 specifier|public
 specifier|static
-name|Expression
+name|ValueBuilder
 name|ack
 parameter_list|(
 name|AckCode
@@ -300,7 +335,7 @@ name|Deprecated
 DECL|method|ack (AckCode code, String errorMessage, ErrorCode errorCode)
 specifier|public
 specifier|static
-name|Expression
+name|ValueBuilder
 name|ack
 parameter_list|(
 name|AckCode
@@ -330,7 +365,7 @@ block|}
 DECL|method|ack (AcknowledgmentCode code, String errorMessage, ErrorCode errorCode)
 specifier|public
 specifier|static
-name|Expression
+name|ValueBuilder
 name|ack
 parameter_list|(
 name|AcknowledgmentCode
@@ -345,6 +380,9 @@ parameter_list|)
 block|{
 return|return
 operator|new
+name|ValueBuilder
+argument_list|(
+operator|new
 name|AckExpression
 argument_list|(
 name|code
@@ -352,6 +390,7 @@ argument_list|,
 name|errorMessage
 argument_list|,
 name|errorCode
+argument_list|)
 argument_list|)
 return|;
 block|}
