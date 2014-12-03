@@ -279,6 +279,17 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
+name|getRedrivePolicy
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getRegion
 argument_list|()
 argument_list|)
@@ -491,6 +502,17 @@ operator|.
 name|getConfiguration
 argument_list|()
 operator|.
+name|getRedrivePolicy
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getRegion
 argument_list|()
 argument_list|)
@@ -640,6 +662,8 @@ operator|+
 literal|"&delaySeconds=123&receiveMessageWaitTimeSeconds=10&waitTimeSeconds=20"
 operator|+
 literal|"&queueOwnerAWSAccountId=111222333&region=us-east-1"
+operator|+
+literal|"&redrivePolicy={\"maxReceiveCount\":\"5\", \"deadLetterTargetArn\":\"arn:aws:sqs:us-east-1:195004372649:MyDeadLetterQueue\"}"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -811,6 +835,19 @@ name|getConfiguration
 argument_list|()
 operator|.
 name|getPolicy
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"{\"maxReceiveCount\":\"5\", \"deadLetterTargetArn\":\"arn:aws:sqs:us-east-1:195004372649:MyDeadLetterQueue\"}"
+argument_list|,
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getRedrivePolicy
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -176,6 +176,12 @@ specifier|private
 name|String
 name|policy
 decl_stmt|;
+comment|// dead letter queue properties
+DECL|field|redrivePolicy
+specifier|private
+name|String
+name|redrivePolicy
+decl_stmt|;
 DECL|method|setAmazonSQSEndpoint (String amazonSQSEndpoint)
 specifier|public
 name|void
@@ -552,6 +558,32 @@ operator|=
 name|policy
 expr_stmt|;
 block|}
+DECL|method|getRedrivePolicy ()
+specifier|public
+name|String
+name|getRedrivePolicy
+parameter_list|()
+block|{
+return|return
+name|redrivePolicy
+return|;
+block|}
+DECL|method|setRedrivePolicy (String redrivePolicy)
+specifier|public
+name|void
+name|setRedrivePolicy
+parameter_list|(
+name|String
+name|redrivePolicy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|redrivePolicy
+operator|=
+name|redrivePolicy
+expr_stmt|;
+block|}
 DECL|method|isExtendMessageVisibility ()
 specifier|public
 name|boolean
@@ -780,6 +812,10 @@ operator|+
 literal|", policy="
 operator|+
 name|policy
+operator|+
+literal|", redrivePolicy="
+operator|+
+name|redrivePolicy
 operator|+
 literal|", extendMessageVisibility="
 operator|+
