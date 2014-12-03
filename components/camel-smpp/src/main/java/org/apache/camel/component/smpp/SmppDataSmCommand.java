@@ -1244,6 +1244,10 @@ name|SmppConstants
 operator|.
 name|ALPHABET
 argument_list|,
+name|java
+operator|.
+name|lang
+operator|.
 name|Byte
 operator|.
 name|class
