@@ -4349,11 +4349,9 @@ operator|.
 name|add
 argument_list|(
 operator|(
-operator|(
 name|PublicKey
 operator|)
 name|keyEncryptionKey
-operator|)
 argument_list|)
 expr_stmt|;
 name|encryptedKey

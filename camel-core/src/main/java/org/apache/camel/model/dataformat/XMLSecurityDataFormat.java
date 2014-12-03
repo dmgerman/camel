@@ -289,10 +289,8 @@ annotation|@
 name|XmlAttribute
 DECL|field|addKeyValueForEncryptedKey
 specifier|private
-name|boolean
+name|Boolean
 name|addKeyValueForEncryptedKey
-init|=
-literal|true
 decl_stmt|;
 annotation|@
 name|XmlTransient
@@ -1645,6 +1643,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|addKeyValueForEncryptedKey
+operator|!=
+literal|null
+condition|)
+block|{
 name|setProperty
 argument_list|(
 name|camelContext
@@ -1657,6 +1662,7 @@ name|isAddKeyValueForEncryptedKey
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|getXmlCipherAlgorithm ()
 specifier|public
@@ -1958,8 +1964,15 @@ name|boolean
 name|isAddKeyValueForEncryptedKey
 parameter_list|()
 block|{
+comment|// The default value is true
 return|return
 name|addKeyValueForEncryptedKey
+operator|!=
+literal|null
+condition|?
+name|addKeyValueForEncryptedKey
+else|:
+literal|true
 return|;
 block|}
 DECL|method|setAddKeyValueForEncryptedKey (boolean addKeyValueForEncryptedKey)
