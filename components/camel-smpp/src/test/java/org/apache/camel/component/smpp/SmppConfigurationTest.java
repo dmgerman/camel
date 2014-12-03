@@ -1345,7 +1345,9 @@ literal|"httpProxyPort=3128, "
 operator|+
 literal|"httpProxyUsername=null, "
 operator|+
-literal|"httpProxyPassword=null]"
+literal|"httpProxyPassword=null, "
+operator|+
+literal|"splittingPolicy=ALLOW]"
 decl_stmt|;
 name|assertEquals
 argument_list|(
