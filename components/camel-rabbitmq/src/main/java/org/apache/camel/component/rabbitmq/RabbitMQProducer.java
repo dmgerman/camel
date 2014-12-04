@@ -20,82 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|rabbitmq
-operator|.
-name|client
-operator|.
-name|AMQP
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|rabbitmq
-operator|.
-name|client
-operator|.
-name|Channel
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|rabbitmq
-operator|.
-name|client
-operator|.
-name|Connection
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultProducer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -158,6 +82,54 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|rabbitmq
+operator|.
+name|client
+operator|.
+name|AMQP
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|rabbitmq
+operator|.
+name|client
+operator|.
+name|Channel
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|rabbitmq
+operator|.
+name|client
+operator|.
+name|Connection
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -171,6 +143,34 @@ operator|.
 name|pool
 operator|.
 name|PoolableChannelFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultProducer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
 import|;
 end_import
 
@@ -234,7 +234,7 @@ name|channelPoolMaxSize
 init|=
 literal|10
 decl_stmt|;
-comment|/**     * Maximum time (in milliseconds) waiting for channel     */
+comment|/**      * Maximum time (in milliseconds) waiting for channel      */
 DECL|field|channelPoolMaxWait
 specifier|private
 name|long
@@ -300,7 +300,6 @@ name|T
 parameter_list|>
 block|{
 DECL|method|doWithChannel (Channel channel)
-specifier|public
 name|T
 name|doWithChannel
 parameter_list|(
@@ -407,7 +406,9 @@ name|channelPool
 operator|=
 operator|new
 name|GenericObjectPool
-argument_list|<>
+argument_list|<
+name|Channel
+argument_list|>
 argument_list|(
 operator|new
 name|PoolableChannelFactory
@@ -800,7 +801,7 @@ name|messageBodyBytes
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Send a message borrowing a channel from the pool      * @param exchange Target exchange      * @param routingKey Routing key      * @param properties Header properties      * @param body Body content      */
+comment|/**      * Send a message borrowing a channel from the pool.      *      * @param exchange   Target exchange      * @param routingKey Routing key      * @param properties Header properties      * @param body       Body content      */
 DECL|method|basicPublish (final String exchange, final String routingKey, final AMQP.BasicProperties properties, final byte[] body)
 specifier|private
 name|void
@@ -1538,7 +1539,7 @@ return|return
 name|properties
 return|;
 block|}
-comment|/**      * Strategy to test if the given header is valid      *      * @param headerValue  the header value      * @return  the value to use,<tt>null</tt> to ignore this header      * @see com.rabbitmq.client.impl.Frame#fieldValueSize      */
+comment|/**      * Strategy to test if the given header is valid      *      * @param headerValue the header value      * @return the value to use,<tt>null</tt> to ignore this header      * @see com.rabbitmq.client.impl.Frame#fieldValueSize      */
 DECL|method|getValidRabbitMQHeaderValue (Object headerValue)
 specifier|private
 name|Object
@@ -1650,7 +1651,7 @@ operator|=
 name|closeTimeout
 expr_stmt|;
 block|}
-comment|/**      * Get maximum number of opened channel in pool      * @return Maximum number of opened channel in pool      */
+comment|/**      * Get maximum number of opened channel in pool      *      * @return Maximum number of opened channel in pool      */
 DECL|method|getChannelPoolMaxSize ()
 specifier|public
 name|int
@@ -1661,7 +1662,7 @@ return|return
 name|channelPoolMaxSize
 return|;
 block|}
-comment|/**      * Set maximum number of opened channel in pool      * @param channelPoolMaxSize Maximum number of opened channel in pool      */
+comment|/**      * Set maximum number of opened channel in pool      *      * @param channelPoolMaxSize Maximum number of opened channel in pool      */
 DECL|method|setChannelPoolMaxSize (int channelPoolMaxSize)
 specifier|public
 name|void
@@ -1678,7 +1679,7 @@ operator|=
 name|channelPoolMaxSize
 expr_stmt|;
 block|}
-comment|/**      * Get the maximum number of milliseconds to wait for a channel from the pool      * @return Maximum number of milliseconds waiting for a channel      */
+comment|/**      * Get the maximum number of milliseconds to wait for a channel from the pool      *      * @return Maximum number of milliseconds waiting for a channel      */
 DECL|method|getChannelPoolMaxWait ()
 specifier|public
 name|long
@@ -1689,7 +1690,7 @@ return|return
 name|channelPoolMaxWait
 return|;
 block|}
-comment|/**      * Set the maximum number of milliseconds to wait for a channel from the pool      * @param channelPoolMaxWait Maximum number of milliseconds waiting for a channel      */
+comment|/**      * Set the maximum number of milliseconds to wait for a channel from the pool      *      * @param channelPoolMaxWait Maximum number of milliseconds waiting for a channel      */
 DECL|method|setChannelPoolMaxWait (long channelPoolMaxWait)
 specifier|public
 name|void
