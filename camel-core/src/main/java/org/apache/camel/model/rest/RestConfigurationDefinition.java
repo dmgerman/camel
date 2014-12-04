@@ -913,7 +913,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * To use a specific json data format      *      * @param name  name of the data format to {@link org.apache.camel.CamelContext#resolveDataFormat(java.lang.String) resolve}      */
+comment|/**      * To use a specific json data format      *<p/>      *<b>Important:</b> This option is only for setting a custom name of the data format, not to refer to an existing data format instance.      *      * @param name  name of the data format to {@link org.apache.camel.CamelContext#resolveDataFormat(java.lang.String) resolve}      */
 DECL|method|jsonDataFormat (String name)
 specifier|public
 name|RestConfigurationDefinition
@@ -932,7 +932,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * To use a specific XML data format      *      * @param name  name of the data format to {@link org.apache.camel.CamelContext#resolveDataFormat(java.lang.String) resolve}      */
+comment|/**      * To use a specific XML data format      *<p/>      *<b>Important:</b> This option is only for setting a custom name of the data format, not to refer to an existing data format instance.      *      * @param name  name of the data format to {@link org.apache.camel.CamelContext#resolveDataFormat(java.lang.String) resolve}      */
 DECL|method|xmlDataFormat (String name)
 specifier|public
 name|RestConfigurationDefinition

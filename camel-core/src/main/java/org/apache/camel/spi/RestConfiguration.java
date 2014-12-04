@@ -435,7 +435,7 @@ operator|=
 name|skipBindingOnErrorCode
 expr_stmt|;
 block|}
-comment|/**      * Gets the name of the json data format.      *      * @return the name, or<tt>null</tt> to use default      */
+comment|/**      * Gets the name of the json data format.      *<p/>      *<b>Important:</b> This option is only for setting a custom name of the data format, not to refer to an existing data format instance.      *      * @return the name, or<tt>null</tt> to use default      */
 DECL|method|getJsonDataFormat ()
 specifier|public
 name|String
@@ -446,7 +446,7 @@ return|return
 name|jsonDataFormat
 return|;
 block|}
-comment|/**      * Sets a custom json data format to be used      *      * @param name name of the data format      */
+comment|/**      * Sets a custom json data format to be used      *<p/>      *<b>Important:</b> This option is only for setting a custom name of the data format, not to refer to an existing data format instance.      *      * @param name name of the data format      */
 DECL|method|setJsonDataFormat (String name)
 specifier|public
 name|void
@@ -463,7 +463,7 @@ operator|=
 name|name
 expr_stmt|;
 block|}
-comment|/**      * Gets the name of the xml data format.      *      * @return the name, or<tt>null</tt> to use default      */
+comment|/**      * Gets the name of the xml data format.      *<p/>      *<b>Important:</b> This option is only for setting a custom name of the data format, not to refer to an existing data format instance.      *      * @return the name, or<tt>null</tt> to use default      */
 DECL|method|getXmlDataFormat ()
 specifier|public
 name|String
@@ -474,7 +474,7 @@ return|return
 name|xmlDataFormat
 return|;
 block|}
-comment|/**      * Sets a custom xml data format to be used      *      * @param name name of the data format      */
+comment|/**      * Sets a custom xml data format to be used.      *<p/>      *<b>Important:</b> This option is only for setting a custom name of the data format, not to refer to an existing data format instance.      *      * @param name name of the data format      */
 DECL|method|setXmlDataFormat (String name)
 specifier|public
 name|void
