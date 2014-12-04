@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Constants used in Camel XMPP module  *  * @version   */
+comment|/**  * Constants used in Camel XMPP module  */
 end_comment
 
 begin_interface
@@ -64,11 +64,11 @@ name|TO
 init|=
 literal|"CamelXmppTo"
 decl_stmt|;
-DECL|field|docHeader
+DECL|field|DOC_HEADER
 name|String
-name|docHeader
+name|DOC_HEADER
 init|=
-literal|"doc"
+literal|"CamelXmppDoc"
 decl_stmt|;
 block|}
 end_interface

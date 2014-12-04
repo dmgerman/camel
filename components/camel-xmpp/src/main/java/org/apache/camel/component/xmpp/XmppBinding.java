@@ -136,20 +136,6 @@ name|org
 operator|.
 name|jivesoftware
 operator|.
-name|smack
-operator|.
-name|packet
-operator|.
-name|Presence
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jivesoftware
-operator|.
 name|smackx
 operator|.
 name|pubsub
@@ -181,7 +167,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Strategy used to convert between a Camel {@link Exchange} and {@link XmppMessage} to and from a  * XMPP {@link Message}  *  * @version   */
+comment|/**  * A Strategy used to convert between a Camel {@link Exchange} and {@link XmppMessage} to and from a  * XMPP {@link Message}  */
 end_comment
 
 begin_class
@@ -693,7 +679,7 @@ operator|instanceof
 name|Message
 operator|)
 condition|?
-name|GetMessageBody
+name|getMessageBody
 argument_list|(
 operator|(
 name|Message
@@ -704,10 +690,10 @@ else|:
 name|xmppPacket
 return|;
 block|}
-DECL|method|GetMessageBody (Message message)
+DECL|method|getMessageBody (Message message)
 specifier|private
 name|Object
-name|GetMessageBody
+name|getMessageBody
 parameter_list|(
 name|Message
 name|message
@@ -727,10 +713,12 @@ name|messageBody
 operator|==
 literal|null
 condition|)
+block|{
 comment|//probably a pubsub message
 return|return
 name|message
 return|;
+block|}
 return|return
 name|messageBody
 return|;

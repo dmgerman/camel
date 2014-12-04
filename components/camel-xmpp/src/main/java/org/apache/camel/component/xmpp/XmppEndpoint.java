@@ -244,20 +244,6 @@ name|smack
 operator|.
 name|packet
 operator|.
-name|Message
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jivesoftware
-operator|.
-name|smack
-operator|.
-name|packet
-operator|.
 name|Packet
 import|;
 end_import
@@ -311,7 +297,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A XMPP Endpoint  *  * @version   */
+comment|/**  * A XMPP Endpoint  */
 end_comment
 
 begin_class
@@ -422,8 +408,6 @@ DECL|field|pubsub
 specifier|private
 name|boolean
 name|pubsub
-init|=
-literal|false
 decl_stmt|;
 comment|//Set a doc header on the IN message containing a Document form of the incoming packet;
 comment|//default is true if pubsub is true, otherwise false
@@ -431,8 +415,6 @@ DECL|field|doc
 specifier|private
 name|boolean
 name|doc
-init|=
-literal|false
 decl_stmt|;
 DECL|field|testConnectionOnStartup
 specifier|private
@@ -514,8 +496,6 @@ if|if
 condition|(
 name|isPubsub
 argument_list|()
-operator|==
-literal|true
 condition|)
 block|{
 return|return
@@ -1807,8 +1787,6 @@ expr_stmt|;
 if|if
 condition|(
 name|pubsub
-operator|==
-literal|true
 condition|)
 block|{
 name|setDoc

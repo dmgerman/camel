@@ -367,7 +367,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.Consumer Consumer} which listens to XMPP packets  *  * @version   */
+comment|/**  * A {@link org.apache.camel.Consumer Consumer} which listens to XMPP packets  */
 end_comment
 
 begin_class
@@ -1355,8 +1355,6 @@ name|endpoint
 operator|.
 name|isDoc
 argument_list|()
-operator|==
-literal|true
 condition|)
 block|{
 name|exchange
@@ -1368,7 +1366,7 @@ name|setHeader
 argument_list|(
 name|XmppConstants
 operator|.
-name|docHeader
+name|DOC_HEADER
 argument_list|,
 name|message
 argument_list|)

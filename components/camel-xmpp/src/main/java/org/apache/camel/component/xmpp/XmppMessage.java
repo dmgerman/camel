@@ -85,7 +85,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a {@link org.apache.camel.Message} for working with XMPP  *  * @version   */
+comment|/**  * Represents a {@link org.apache.camel.Message} for working with XMPP  */
 end_comment
 
 begin_class
@@ -297,7 +297,7 @@ name|getHeader
 argument_list|(
 name|XmppConstants
 operator|.
-name|docHeader
+name|DOC_HEADER
 argument_list|)
 operator|==
 literal|null
@@ -317,7 +317,7 @@ name|getHeader
 argument_list|(
 name|XmppConstants
 operator|.
-name|docHeader
+name|DOC_HEADER
 argument_list|)
 return|;
 block|}
