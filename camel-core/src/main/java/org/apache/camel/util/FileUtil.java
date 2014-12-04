@@ -1380,6 +1380,32 @@ literal|" to an existing directory"
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+operator|!
+name|checkExists
+operator|.
+name|canWrite
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"The directory "
+operator|+
+name|checkExists
+operator|.
+name|getAbsolutePath
+argument_list|()
+operator|+
+literal|" is not writable, please set java.io.tempdir"
+operator|+
+literal|" to a writable directory"
+argument_list|)
+throw|;
+block|}
 comment|// create a sub folder with a random number
 name|Random
 name|ran
@@ -1411,6 +1437,12 @@ operator|+
 name|x
 argument_list|)
 decl_stmt|;
+name|int
+name|count
+init|=
+literal|0
+decl_stmt|;
+comment|// Let us just try 100 times to avoid the infinite loop
 while|while
 condition|(
 operator|!
@@ -1420,6 +1452,33 @@ name|mkdir
 argument_list|()
 condition|)
 block|{
+name|count
+operator|++
+expr_stmt|;
+if|if
+condition|(
+name|count
+operator|>=
+literal|100
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeException
+argument_list|(
+literal|"Camel cannot a temp directory from"
+operator|+
+name|checkExists
+operator|.
+name|getAbsolutePath
+argument_list|()
+operator|+
+literal|" 100 times , please set java.io.tempdir"
+operator|+
+literal|" to a writable directory"
+argument_list|)
+throw|;
+block|}
 name|x
 operator|=
 name|ran
