@@ -21,18 +21,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|junit
-operator|.
-name|framework
-operator|.
-name|Assert
-operator|.
-name|assertNotNull
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -86,9 +74,23 @@ name|spring
 operator|.
 name|javaconfig
 operator|.
+name|CamelConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|test
 operator|.
-name|JavaConfigContextLoader
+name|spring
+operator|.
+name|CamelSpringDelegatingTestContextLoader
 import|;
 end_import
 
@@ -160,21 +162,37 @@ name|AbstractJUnit4SpringContextTests
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
+import|;
+end_import
+
 begin_class
 annotation|@
 name|ContextConfiguration
 argument_list|(
-name|locations
+name|classes
 operator|=
 block|{
-literal|"org.apache.camel.spring.javaconfig.CamelConfiguration"
+name|CamelConfiguration
+operator|.
+name|class
 block|,
-literal|"org.apache.camel.spring.javaconfig.autowire.AdditionalRouteConfiguration"
+name|AdditionalRouteConfiguration
+operator|.
+name|class
 block|}
 argument_list|,
 name|loader
 operator|=
-name|JavaConfigContextLoader
+name|CamelSpringDelegatingTestContextLoader
 operator|.
 name|class
 argument_list|)
