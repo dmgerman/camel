@@ -107,22 +107,7 @@ name|SmppSmCommand
 extends|extends
 name|AbstractSmppCommand
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|SmppSmCommand
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
+comment|// FIXME: these constants should be defined somewhere in jSMPP:
 DECL|field|SMPP_NEG_RESPONSE_MSG_TOO_LONG
 specifier|public
 specifier|static
@@ -156,10 +141,25 @@ argument_list|(
 literal|"ISO-8859-1"
 argument_list|)
 decl_stmt|;
-DECL|field|charset
+DECL|field|defaultCharset
 specifier|protected
 name|Charset
-name|charset
+name|defaultCharset
+decl_stmt|;
+DECL|field|logger
+specifier|private
+specifier|final
+name|Logger
+name|logger
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|SmppSmCommand
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 DECL|method|SmppSmCommand (SMPPSession session, SmppConfiguration config)
 specifier|public
@@ -179,9 +179,7 @@ argument_list|,
 name|config
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|charset
+name|defaultCharset
 operator|=
 name|Charset
 operator|.
@@ -767,7 +765,7 @@ return|;
 block|}
 else|else
 block|{
-name|LOG
+name|logger
 operator|.
 name|warn
 argument_list|(
@@ -858,7 +856,7 @@ argument_list|)
 return|;
 block|}
 return|return
-name|charset
+name|defaultCharset
 return|;
 block|}
 DECL|method|determineAlphabet (Message message)
@@ -891,7 +889,7 @@ name|message
 argument_list|)
 decl_stmt|;
 name|Charset
-name|_charset
+name|charset
 init|=
 name|getCharsetForMessage
 argument_list|(
@@ -900,14 +898,14 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|_charset
+name|charset
 operator|==
 literal|null
 condition|)
 block|{
-name|_charset
-operator|=
 name|charset
+operator|=
+name|defaultCharset
 expr_stmt|;
 block|}
 name|Alphabet
