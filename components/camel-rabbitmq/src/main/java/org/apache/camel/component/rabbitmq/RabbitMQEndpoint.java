@@ -573,6 +573,22 @@ name|deadLetterExchangeType
 init|=
 literal|"direct"
 decl_stmt|;
+comment|//Maximum number of opened channel in pool
+DECL|field|channelPoolMaxSize
+specifier|private
+name|int
+name|channelPoolMaxSize
+init|=
+literal|10
+decl_stmt|;
+comment|//Maximum time (in milliseconds) waiting for channel
+DECL|field|channelPoolMaxWait
+specifier|private
+name|long
+name|channelPoolMaxWait
+init|=
+literal|1000
+decl_stmt|;
 DECL|method|RabbitMQEndpoint ()
 specifier|public
 name|RabbitMQEndpoint
@@ -2406,6 +2422,62 @@ operator|.
 name|deadLetterExchangeType
 operator|=
 name|deadLetterExchangeType
+expr_stmt|;
+block|}
+comment|/**      * Get maximum number of opened channel in pool      *      * @return Maximum number of opened channel in pool      */
+DECL|method|getChannelPoolMaxSize ()
+specifier|public
+name|int
+name|getChannelPoolMaxSize
+parameter_list|()
+block|{
+return|return
+name|channelPoolMaxSize
+return|;
+block|}
+comment|/**      * Set maximum number of opened channel in pool      *      * @param channelPoolMaxSize Maximum number of opened channel in pool      */
+DECL|method|setChannelPoolMaxSize (int channelPoolMaxSize)
+specifier|public
+name|void
+name|setChannelPoolMaxSize
+parameter_list|(
+name|int
+name|channelPoolMaxSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|channelPoolMaxSize
+operator|=
+name|channelPoolMaxSize
+expr_stmt|;
+block|}
+comment|/**      * Get the maximum number of milliseconds to wait for a channel from the pool      *      * @return Maximum number of milliseconds waiting for a channel      */
+DECL|method|getChannelPoolMaxWait ()
+specifier|public
+name|long
+name|getChannelPoolMaxWait
+parameter_list|()
+block|{
+return|return
+name|channelPoolMaxWait
+return|;
+block|}
+comment|/**      * Set the maximum number of milliseconds to wait for a channel from the pool      *      * @param channelPoolMaxWait Maximum number of milliseconds waiting for a channel      */
+DECL|method|setChannelPoolMaxWait (long channelPoolMaxWait)
+specifier|public
+name|void
+name|setChannelPoolMaxWait
+parameter_list|(
+name|long
+name|channelPoolMaxWait
+parameter_list|)
+block|{
+name|this
+operator|.
+name|channelPoolMaxWait
+operator|=
+name|channelPoolMaxWait
 expr_stmt|;
 block|}
 block|}
