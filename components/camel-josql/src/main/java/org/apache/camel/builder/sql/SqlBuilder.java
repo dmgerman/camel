@@ -623,6 +623,15 @@ name|getIn
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// To avoid the side effect of creating out message without notice
+if|if
+condition|(
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
 name|query
 operator|.
 name|setVariable
@@ -635,6 +644,7 @@ name|getOut
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|addVariables (Map<String, Object> map)
 specifier|protected
