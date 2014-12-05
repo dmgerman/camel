@@ -1601,12 +1601,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|JmsOperations
-name|template
-init|=
-name|createInOnlyTemplate
-argument_list|()
-decl_stmt|;
 name|JmsPollingConsumer
 name|answer
 init|=
@@ -1614,8 +1608,6 @@ operator|new
 name|JmsPollingConsumer
 argument_list|(
 name|this
-argument_list|,
-name|template
 argument_list|)
 decl_stmt|;
 name|configurePollingConsumer

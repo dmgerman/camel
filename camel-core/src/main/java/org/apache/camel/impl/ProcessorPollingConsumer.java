@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|IsSingleton
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -101,6 +113,8 @@ class|class
 name|ProcessorPollingConsumer
 extends|extends
 name|PollingConsumerSupport
+implements|implements
+name|IsSingleton
 block|{
 DECL|field|processor
 specifier|private
@@ -261,6 +275,18 @@ block|{
 return|return
 name|receive
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isSingleton ()
+specifier|public
+name|boolean
+name|isSingleton
+parameter_list|()
+block|{
+return|return
+literal|true
 return|;
 block|}
 block|}

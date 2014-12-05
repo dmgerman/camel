@@ -1710,6 +1710,31 @@ argument_list|>
 name|getProducerServicePool
 parameter_list|()
 function_decl|;
+comment|/**      * Sets a pluggable service pool to use for {@link PollingConsumer} pooling.      *      * @param servicePool the pool      */
+DECL|method|setPollingConsumerServicePool (ServicePool<Endpoint, PollingConsumer> servicePool)
+name|void
+name|setPollingConsumerServicePool
+parameter_list|(
+name|ServicePool
+argument_list|<
+name|Endpoint
+argument_list|,
+name|PollingConsumer
+argument_list|>
+name|servicePool
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the service pool for {@link Producer} pooling.      *      * @return the service pool      */
+DECL|method|getPollingConsumerServicePool ()
+name|ServicePool
+argument_list|<
+name|Endpoint
+argument_list|,
+name|PollingConsumer
+argument_list|>
+name|getPollingConsumerServicePool
+parameter_list|()
+function_decl|;
 comment|/**      * Uses a custom node id factory when generating auto assigned ids to the nodes in the route definitions      *      * @param factory custom factory to use      */
 DECL|method|setNodeIdFactory (NodeIdFactory factory)
 name|void

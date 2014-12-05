@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -74,6 +84,15 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|testConsumeFileWithTemplate ()
+specifier|public
+name|void
+name|testConsumeFileWithTemplate
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -93,7 +112,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"file://target/template/"
+literal|"file://target/template"
 argument_list|,
 literal|"Bye World"
 argument_list|,
@@ -104,15 +123,6 @@ argument_list|,
 literal|"bye.txt"
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|testConsumeFileWithTemplate ()
-specifier|public
-name|void
-name|testConsumeFileWithTemplate
-parameter_list|()
-throws|throws
-name|Exception
-block|{
 name|Exchange
 name|out
 init|=

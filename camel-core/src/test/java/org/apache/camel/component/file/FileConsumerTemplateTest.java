@@ -120,6 +120,28 @@ argument_list|,
 literal|"hello.txt"
 argument_list|)
 expr_stmt|;
+comment|// file should exist
+name|File
+name|file
+init|=
+operator|new
+name|File
+argument_list|(
+literal|"target/consumer/hello.txt"
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"File should exist "
+operator|+
+name|file
+argument_list|,
+name|file
+operator|.
+name|exists
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|String
 name|body
 init|=
@@ -144,15 +166,6 @@ name|body
 argument_list|)
 expr_stmt|;
 comment|// file should be deleted
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-literal|"target/consumer/hello.txt"
-argument_list|)
-decl_stmt|;
 name|assertFalse
 argument_list|(
 literal|"File should be deleted "

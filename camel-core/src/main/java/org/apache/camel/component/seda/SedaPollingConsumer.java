@@ -62,6 +62,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|IsSingleton
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|PollingConsumerSupport
@@ -89,6 +101,8 @@ class|class
 name|SedaPollingConsumer
 extends|extends
 name|PollingConsumerSupport
+implements|implements
+name|IsSingleton
 block|{
 DECL|method|SedaPollingConsumer (Endpoint endpoint)
 specifier|public
@@ -263,6 +277,18 @@ throws|throws
 name|Exception
 block|{
 comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|isSingleton ()
+specifier|public
+name|boolean
+name|isSingleton
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
 block|}
 block|}
 end_class

@@ -120,6 +120,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|IsSingleton
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|PollingConsumerPollingStrategy
 import|;
 end_import
@@ -197,6 +209,8 @@ extends|extends
 name|PollingConsumerSupport
 implements|implements
 name|Processor
+implements|,
+name|IsSingleton
 block|{
 DECL|field|LOG
 specifier|private
@@ -924,6 +938,19 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+comment|// As the consumer could take the messages at once, so we cannot release the consumer
+DECL|method|isSingleton ()
+specifier|public
+name|boolean
+name|isSingleton
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
 block|}
 block|}
 end_class

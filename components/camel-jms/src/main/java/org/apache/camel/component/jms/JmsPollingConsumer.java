@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ServicePoolAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|PollingConsumerSupport
@@ -97,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  *  As the template is created per JmsPollingConsumer, we need to put JmsPollingConsumer into this endpoint  */
 end_comment
 
 begin_class
@@ -107,6 +119,8 @@ class|class
 name|JmsPollingConsumer
 extends|extends
 name|PollingConsumerSupport
+implements|implements
+name|ServicePoolAware
 block|{
 DECL|field|template
 specifier|private
@@ -145,6 +159,25 @@ operator|.
 name|template
 operator|=
 name|template
+expr_stmt|;
+block|}
+DECL|method|JmsPollingConsumer (JmsEndpoint endpoint)
+specifier|public
+name|JmsPollingConsumer
+parameter_list|(
+name|JmsEndpoint
+name|endpoint
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|endpoint
+argument_list|,
+name|endpoint
+operator|.
+name|createInOnlyTemplate
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -285,7 +318,7 @@ name|doStop
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{             }
 DECL|method|setReceiveTimeout (long timeout)
 specifier|protected
 name|void

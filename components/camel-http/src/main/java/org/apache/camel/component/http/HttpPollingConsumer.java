@@ -72,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ServicePoolAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|http
@@ -179,6 +191,8 @@ class|class
 name|HttpPollingConsumer
 extends|extends
 name|PollingConsumerSupport
+implements|implements
+name|ServicePoolAware
 block|{
 DECL|field|endpoint
 specifier|private

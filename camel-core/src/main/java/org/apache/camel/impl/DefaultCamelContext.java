@@ -17,6 +17,22 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringQuoteHelper
+operator|.
+name|doubleQuote
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -411,6 +427,18 @@ operator|.
 name|camel
 operator|.
 name|NoSuchEndpointException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|PollingConsumer
 import|;
 end_import
 
@@ -1714,22 +1742,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|StringQuoteHelper
-operator|.
-name|doubleQuote
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents the context used to configure routes and the policies to use.  *  * @version   */
 end_comment
@@ -2398,6 +2410,22 @@ name|producerServicePool
 init|=
 operator|new
 name|SharedProducerServicePool
+argument_list|(
+literal|100
+argument_list|)
+decl_stmt|;
+DECL|field|pollingConsumerServicePool
+specifier|private
+name|ServicePool
+argument_list|<
+name|Endpoint
+argument_list|,
+name|PollingConsumer
+argument_list|>
+name|pollingConsumerServicePool
+init|=
+operator|new
+name|SharedPollingConsumerServicePool
 argument_list|(
 literal|100
 argument_list|)
@@ -10154,6 +10182,42 @@ block|{
 return|return
 name|producerServicePool
 return|;
+block|}
+DECL|method|getPollingConsumerServicePool ()
+specifier|public
+name|ServicePool
+argument_list|<
+name|Endpoint
+argument_list|,
+name|PollingConsumer
+argument_list|>
+name|getPollingConsumerServicePool
+parameter_list|()
+block|{
+return|return
+name|pollingConsumerServicePool
+return|;
+block|}
+DECL|method|setPollingConsumerServicePool (ServicePool<Endpoint, PollingConsumer> pollingConsumerServicePool)
+specifier|public
+name|void
+name|setPollingConsumerServicePool
+parameter_list|(
+name|ServicePool
+argument_list|<
+name|Endpoint
+argument_list|,
+name|PollingConsumer
+argument_list|>
+name|pollingConsumerServicePool
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pollingConsumerServicePool
+operator|=
+name|pollingConsumerServicePool
+expr_stmt|;
 block|}
 DECL|method|getUnitOfWorkFactory ()
 specifier|public
