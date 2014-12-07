@@ -215,9 +215,8 @@ name|Exception
 block|{
 name|name
 operator|=
-name|BlueprintTracerRefTest
-operator|.
-name|class
+name|getClass
+argument_list|()
 operator|.
 name|getName
 argument_list|()

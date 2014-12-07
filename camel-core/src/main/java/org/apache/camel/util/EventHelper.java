@@ -3315,7 +3315,9 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Notification of event is disabled: {}"
+literal|"Notifier: {} is not enabled for the event: {}"
+argument_list|,
+name|notifier
 argument_list|,
 name|event
 argument_list|)

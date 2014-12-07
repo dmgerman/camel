@@ -206,9 +206,8 @@ specifier|protected
 name|String
 name|name
 init|=
-name|BlueprintTracerTest
-operator|.
-name|class
+name|getClass
+argument_list|()
 operator|.
 name|getName
 argument_list|()
