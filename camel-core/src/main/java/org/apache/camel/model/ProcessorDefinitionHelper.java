@@ -172,6 +172,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CamelContextHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|IntrospectionSupport
 import|;
 end_import
@@ -2142,6 +2156,19 @@ operator|instanceof
 name|String
 condition|)
 block|{
+comment|// enforce a properties component to be created if none existed
+name|CamelContextHelper
+operator|.
+name|lookupPropertiesComponent
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// value must be enclosed with placeholder tokens
 name|String
 name|s
