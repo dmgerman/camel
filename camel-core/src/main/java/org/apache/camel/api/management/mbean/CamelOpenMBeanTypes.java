@@ -258,6 +258,8 @@ block|,
 literal|"outType"
 block|,
 literal|"state"
+block|,
+literal|"routeId"
 block|}
 argument_list|,
 operator|new
@@ -283,12 +285,18 @@ block|,
 literal|"Output Type"
 block|,
 literal|"State"
+block|,
+literal|"Route Id"
 block|}
 argument_list|,
 operator|new
 name|OpenType
 index|[]
 block|{
+name|SimpleType
+operator|.
+name|STRING
+block|,
 name|SimpleType
 operator|.
 name|STRING

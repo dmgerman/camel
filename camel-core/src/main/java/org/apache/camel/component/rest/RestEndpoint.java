@@ -1122,6 +1122,21 @@ argument_list|(
 literal|"outType"
 argument_list|)
 decl_stmt|;
+comment|// the route id when using rest-dsl
+name|String
+name|routeId
+init|=
+operator|(
+name|String
+operator|)
+name|getParameters
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|"routeId"
+argument_list|)
+decl_stmt|;
 comment|// add to rest registry so we can keep track of them, we will remove from the registry when the consumer is removed
 comment|// the rest registry will automatic keep track when the consumer is removed,
 comment|// and un-register the REST service from the registry
@@ -1157,6 +1172,8 @@ argument_list|,
 name|inType
 argument_list|,
 name|outType
+argument_list|,
+name|routeId
 argument_list|)
 expr_stmt|;
 return|return

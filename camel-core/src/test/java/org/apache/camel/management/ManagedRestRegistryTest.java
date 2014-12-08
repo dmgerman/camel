@@ -454,10 +454,24 @@ argument_list|(
 literal|"application/json"
 argument_list|)
 operator|.
-name|to
+name|route
+argument_list|()
+operator|.
+name|routeId
 argument_list|(
-literal|"direct:bye"
+literal|"myRestRoute"
 argument_list|)
+operator|.
+name|transform
+argument_list|()
+operator|.
+name|constant
+argument_list|(
+literal|"Bye World"
+argument_list|)
+operator|.
+name|endRest
+argument_list|()
 operator|.
 name|post
 argument_list|()
@@ -478,19 +492,6 @@ operator|.
 name|simple
 argument_list|(
 literal|"Hello ${header.name}"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"direct:bye"
-argument_list|)
-operator|.
-name|transform
-argument_list|()
-operator|.
-name|constant
-argument_list|(
-literal|"Bye World"
 argument_list|)
 expr_stmt|;
 block|}

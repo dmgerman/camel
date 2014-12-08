@@ -247,7 +247,7 @@ name|RestService
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|addRestService (Consumer consumer, String url, String baseUrl, String basePath, String uriTemplate, String method, String consumes, String produces, String inType, String outType)
+DECL|method|addRestService (Consumer consumer, String url, String baseUrl, String basePath, String uriTemplate, String method, String consumes, String produces, String inType, String outType, String routeId)
 specifier|public
 name|void
 name|addRestService
@@ -281,6 +281,9 @@ name|inType
 parameter_list|,
 name|String
 name|outType
+parameter_list|,
+name|String
+name|routeId
 parameter_list|)
 block|{
 name|RestServiceEntry
@@ -308,6 +311,8 @@ argument_list|,
 name|inType
 argument_list|,
 name|outType
+argument_list|,
+name|routeId
 argument_list|)
 decl_stmt|;
 name|registry
@@ -522,7 +527,13 @@ specifier|final
 name|String
 name|outType
 decl_stmt|;
-DECL|method|RestServiceEntry (Consumer consumer, String url, String baseUrl, String basePath, String uriTemplate, String method, String consumes, String produces, String inType, String outType)
+DECL|field|routeId
+specifier|private
+specifier|final
+name|String
+name|routeId
+decl_stmt|;
+DECL|method|RestServiceEntry (Consumer consumer, String url, String baseUrl, String basePath, String uriTemplate, String method, String consumes, String produces, String inType, String outType, String routeId)
 specifier|private
 name|RestServiceEntry
 parameter_list|(
@@ -555,6 +566,9 @@ name|inType
 parameter_list|,
 name|String
 name|outType
+parameter_list|,
+name|String
+name|routeId
 parameter_list|)
 block|{
 name|this
@@ -616,6 +630,12 @@ operator|.
 name|outType
 operator|=
 name|outType
+expr_stmt|;
+name|this
+operator|.
+name|routeId
+operator|=
+name|routeId
 expr_stmt|;
 block|}
 DECL|method|getConsumer ()
@@ -770,6 +790,16 @@ name|status
 operator|.
 name|name
 argument_list|()
+return|;
+block|}
+DECL|method|getRouteId ()
+specifier|public
+name|String
+name|getRouteId
+parameter_list|()
+block|{
+return|return
+name|routeId
 return|;
 block|}
 block|}

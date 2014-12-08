@@ -390,6 +390,14 @@ operator|.
 name|getOutType
 argument_list|()
 decl_stmt|;
+name|String
+name|routeId
+init|=
+name|entry
+operator|.
+name|getRouteId
+argument_list|()
+decl_stmt|;
 name|CompositeData
 name|data
 init|=
@@ -421,6 +429,8 @@ block|,
 literal|"outType"
 block|,
 literal|"state"
+block|,
+literal|"routeId"
 block|}
 argument_list|,
 operator|new
@@ -446,6 +456,8 @@ block|,
 name|outType
 block|,
 name|state
+block|,
+name|routeId
 block|}
 argument_list|)
 decl_stmt|;
