@@ -823,12 +823,7 @@ condition|)
 block|{
 name|List
 argument_list|<
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+name|?
 argument_list|>
 name|data
 init|=
@@ -838,6 +833,8 @@ operator|.
 name|queryForList
 argument_list|(
 name|rs
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// for noop=true we still want to enrich with the row count header
@@ -1062,12 +1059,7 @@ else|else
 block|{
 name|List
 argument_list|<
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+name|?
 argument_list|>
 name|generatedKeys
 init|=
@@ -1080,6 +1072,8 @@ name|ps
 operator|.
 name|getGeneratedKeys
 argument_list|()
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|exchange

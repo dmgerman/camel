@@ -543,12 +543,7 @@ condition|)
 block|{
 name|List
 argument_list|<
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
+name|?
 argument_list|>
 name|data
 init|=
@@ -558,6 +553,8 @@ operator|.
 name|queryForList
 argument_list|(
 name|rs
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|addListToQueue
