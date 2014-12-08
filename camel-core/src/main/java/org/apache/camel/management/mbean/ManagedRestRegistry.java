@@ -398,6 +398,14 @@ operator|.
 name|getRouteId
 argument_list|()
 decl_stmt|;
+name|String
+name|description
+init|=
+name|entry
+operator|.
+name|getDescription
+argument_list|()
+decl_stmt|;
 name|CompositeData
 name|data
 init|=
@@ -431,6 +439,8 @@ block|,
 literal|"state"
 block|,
 literal|"routeId"
+block|,
+literal|"description"
 block|}
 argument_list|,
 operator|new
@@ -458,6 +468,8 @@ block|,
 name|state
 block|,
 name|routeId
+block|,
+name|description
 block|}
 argument_list|)
 decl_stmt|;

@@ -139,9 +139,15 @@ name|String
 name|getRouteId
 parameter_list|()
 function_decl|;
+comment|/**          * Optional description about this rest service.          */
+DECL|method|getDescription ()
+name|String
+name|getDescription
+parameter_list|()
+function_decl|;
 block|}
-comment|/**      * Adds a new REST service to the registry.      *      * @param consumer    the consumer      * @param url         the absolute url of the REST service      * @param baseUrl     the base url of the REST service      * @param basePath    the base path      * @param uriTemplate the uri template      * @param method      the HTTP method      * @param consumes    optional details about what media-types the REST service accepts      * @param produces    optional details about what media-types the REST service returns      * @param inType      optional detail input binding to a FQN class name      * @param outType     optional detail output binding to a FQN class name      * @param routeId     the id of the route this rest service will be using      */
-DECL|method|addRestService (Consumer consumer, String url, String baseUrl, String basePath, String uriTemplate, String method, String consumes, String produces, String inType, String outType, String routeId)
+comment|/**      * Adds a new REST service to the registry.      *      * @param consumer    the consumer      * @param url         the absolute url of the REST service      * @param baseUrl     the base url of the REST service      * @param basePath    the base path      * @param uriTemplate the uri template      * @param method      the HTTP method      * @param consumes    optional details about what media-types the REST service accepts      * @param produces    optional details about what media-types the REST service returns      * @param inType      optional detail input binding to a FQN class name      * @param outType     optional detail output binding to a FQN class name      * @param routeId     the id of the route this rest service will be using      * @param description optional description about the the service      */
+DECL|method|addRestService (Consumer consumer, String url, String baseUrl, String basePath, String uriTemplate, String method, String consumes, String produces, String inType, String outType, String routeId, String description)
 name|void
 name|addRestService
 parameter_list|(
@@ -177,6 +183,9 @@ name|outType
 parameter_list|,
 name|String
 name|routeId
+parameter_list|,
+name|String
+name|description
 parameter_list|)
 function_decl|;
 comment|/**      * Removes the REST service from the registry      *      * @param consumer  the consumer      */

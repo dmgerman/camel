@@ -440,10 +440,20 @@ name|to
 argument_list|(
 literal|"direct:hello"
 argument_list|)
+operator|.
+name|description
+argument_list|(
+literal|"Calling direct route"
+argument_list|)
 expr_stmt|;
 name|rest
 argument_list|(
 literal|"/say/bye"
+argument_list|)
+operator|.
+name|description
+argument_list|(
+literal|"the bye rest service"
 argument_list|)
 operator|.
 name|get
@@ -452,6 +462,11 @@ operator|.
 name|consumes
 argument_list|(
 literal|"application/json"
+argument_list|)
+operator|.
+name|description
+argument_list|(
+literal|"I am saying bye world"
 argument_list|)
 operator|.
 name|route
@@ -484,6 +499,11 @@ expr_stmt|;
 name|from
 argument_list|(
 literal|"direct:hello"
+argument_list|)
+operator|.
+name|description
+argument_list|(
+literal|"The hello route"
 argument_list|)
 operator|.
 name|transform

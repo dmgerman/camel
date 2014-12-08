@@ -247,7 +247,7 @@ name|RestService
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|method|addRestService (Consumer consumer, String url, String baseUrl, String basePath, String uriTemplate, String method, String consumes, String produces, String inType, String outType, String routeId)
+DECL|method|addRestService (Consumer consumer, String url, String baseUrl, String basePath, String uriTemplate, String method, String consumes, String produces, String inType, String outType, String routeId, String description)
 specifier|public
 name|void
 name|addRestService
@@ -284,6 +284,9 @@ name|outType
 parameter_list|,
 name|String
 name|routeId
+parameter_list|,
+name|String
+name|description
 parameter_list|)
 block|{
 name|RestServiceEntry
@@ -313,6 +316,8 @@ argument_list|,
 name|outType
 argument_list|,
 name|routeId
+argument_list|,
+name|description
 argument_list|)
 decl_stmt|;
 name|registry
@@ -533,7 +538,13 @@ specifier|final
 name|String
 name|routeId
 decl_stmt|;
-DECL|method|RestServiceEntry (Consumer consumer, String url, String baseUrl, String basePath, String uriTemplate, String method, String consumes, String produces, String inType, String outType, String routeId)
+DECL|field|description
+specifier|private
+specifier|final
+name|String
+name|description
+decl_stmt|;
+DECL|method|RestServiceEntry (Consumer consumer, String url, String baseUrl, String basePath, String uriTemplate, String method, String consumes, String produces, String inType, String outType, String routeId, String description)
 specifier|private
 name|RestServiceEntry
 parameter_list|(
@@ -569,6 +580,9 @@ name|outType
 parameter_list|,
 name|String
 name|routeId
+parameter_list|,
+name|String
+name|description
 parameter_list|)
 block|{
 name|this
@@ -636,6 +650,12 @@ operator|.
 name|routeId
 operator|=
 name|routeId
+expr_stmt|;
+name|this
+operator|.
+name|description
+operator|=
+name|description
 expr_stmt|;
 block|}
 DECL|method|getConsumer ()
@@ -800,6 +820,16 @@ parameter_list|()
 block|{
 return|return
 name|routeId
+return|;
+block|}
+DECL|method|getDescription ()
+specifier|public
+name|String
+name|getDescription
+parameter_list|()
+block|{
+return|return
+name|description
 return|;
 block|}
 block|}
