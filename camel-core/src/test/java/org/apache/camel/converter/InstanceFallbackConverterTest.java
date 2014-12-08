@@ -144,7 +144,7 @@ name|getInstance
 argument_list|(
 name|Locale
 operator|.
-name|ENGLISH
+name|US
 argument_list|)
 decl_stmt|;
 name|String
@@ -200,7 +200,7 @@ name|getInstance
 argument_list|(
 name|Locale
 operator|.
-name|ENGLISH
+name|US
 argument_list|)
 decl_stmt|;
 name|String
