@@ -935,6 +935,21 @@ condition|(
 name|inline
 condition|)
 block|{
+if|if
+condition|(
+name|iv
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Inlining cannot be performed, as no initialization vector was specified"
+argument_list|)
+throw|;
+block|}
 name|DataOutputStream
 name|dout
 init|=
@@ -1300,7 +1315,7 @@ name|initializationVector
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Meant for use with a Symmetric block Cipher and specifies that the      * initialization vector should be written to the cipher stream ahead of the      * encrypted ciphertext. When the payload is to be decrypted this      * initialization vector will need to be read from the stream. Requires that      * the formatter has been configured with an init vector that is valid for      * the give algorithm.      *      * @param inline true if the initialization vector should be inlined in the stream.      */
+comment|/**      * Meant for use with a Symmetric block Cipher and specifies that the      * initialization vector should be written to the cipher stream ahead of the      * encrypted ciphertext. When the payload is to be decrypted this      * initialization vector will need to be read from the stream. Requires that      * the formatter has been configured with an init vector that is valid for      * the given algorithm.      *      * @param inline true if the initialization vector should be inlined in the stream.      */
 DECL|method|setShouldInlineInitializationVector (boolean inline)
 specifier|public
 name|void
