@@ -36,6 +36,42 @@ specifier|public
 class|class
 name|RestConfiguration
 block|{
+DECL|field|CORS_ACCESS_CONTROL_ALLOW_ORIGIN
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CORS_ACCESS_CONTROL_ALLOW_ORIGIN
+init|=
+literal|"*"
+decl_stmt|;
+DECL|field|CORS_ACCESS_CONTROL_ALLOW_METHODS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CORS_ACCESS_CONTROL_ALLOW_METHODS
+init|=
+literal|"GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT, PATCH"
+decl_stmt|;
+DECL|field|CORS_ACCESS_CONTROL_MAX_AGE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CORS_ACCESS_CONTROL_MAX_AGE
+init|=
+literal|"3600"
+decl_stmt|;
+DECL|field|CORS_ACCESS_CONTROL_ALLOW_HEADERS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CORS_ACCESS_CONTROL_ALLOW_HEADERS
+init|=
+literal|"Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
+decl_stmt|;
 DECL|enum|RestBindingMode
 specifier|public
 enum|enum
@@ -117,6 +153,11 @@ name|skipBindingOnErrorCode
 init|=
 literal|true
 decl_stmt|;
+DECL|field|enableCORS
+specifier|private
+name|boolean
+name|enableCORS
+decl_stmt|;
 DECL|field|jsonDataFormat
 specifier|private
 name|String
@@ -166,6 +207,16 @@ argument_list|,
 name|Object
 argument_list|>
 name|dataFormatProperties
+decl_stmt|;
+DECL|field|corsHeaders
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|corsHeaders
 decl_stmt|;
 comment|/**      * Gets the name of the Camel component to use as the REST consumer      *      * @return the component name, or<tt>null</tt> to let Camel search the {@link Registry} to find suitable implementation      */
 DECL|method|getComponent ()
@@ -407,7 +458,7 @@ name|bindingMode
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Whether to skip binding output if there is a custom HTTP error code, and instead use the response body as-is.      *<p/>      * This option is default<tt>true</tt>.      */
+comment|/**      * Whether to skip binding output if there is a custom HTTP error code, and instead use the response body as-is.      *<p/>      * This option is default<tt>true</tt>.      *      * @return whether to skip binding on error code      */
 DECL|method|isSkipBindingOnErrorCode ()
 specifier|public
 name|boolean
@@ -418,7 +469,7 @@ return|return
 name|skipBindingOnErrorCode
 return|;
 block|}
-comment|/**      * Whether to skip binding output if there is a custom HTTP error code, and instead use the response body as-is.      *<p/>      * This option is default<tt>true</tt>.      */
+comment|/**      * Whether to skip binding output if there is a custom HTTP error code, and instead use the response body as-is.      *<p/>      * This option is default<tt>true</tt>.      *      * @param skipBindingOnErrorCode whether to skip binding on error code      */
 DECL|method|setSkipBindingOnErrorCode (boolean skipBindingOnErrorCode)
 specifier|public
 name|void
@@ -433,6 +484,34 @@ operator|.
 name|skipBindingOnErrorCode
 operator|=
 name|skipBindingOnErrorCode
+expr_stmt|;
+block|}
+comment|/**      * To specify whether to enable CORS which means Camel will automatic include CORS in the HTTP headers in the response.      *<p/>      * This option is default<tt>false</tt>      *      * @return whether CORS is enabled or not      */
+DECL|method|isEnableCORS ()
+specifier|public
+name|boolean
+name|isEnableCORS
+parameter_list|()
+block|{
+return|return
+name|enableCORS
+return|;
+block|}
+comment|/**      * To specify whether to enable CORS which means Camel will automatic include CORS in the HTTP headers in the response.      *<p/>      * This option is default<tt>false</tt>      *      * @param enableCORS<tt>true</tt> to enable CORS      */
+DECL|method|setEnableCORS (boolean enableCORS)
+specifier|public
+name|void
+name|setEnableCORS
+parameter_list|(
+name|boolean
+name|enableCORS
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enableCORS
+operator|=
+name|enableCORS
 expr_stmt|;
 block|}
 comment|/**      * Gets the name of the json data format.      *<p/>      *<b>Important:</b> This option is only for setting a custom name of the data format, not to refer to an existing data format instance.      *      * @return the name, or<tt>null</tt> to use default      */
@@ -641,6 +720,44 @@ operator|.
 name|dataFormatProperties
 operator|=
 name|dataFormatProperties
+expr_stmt|;
+block|}
+comment|/**      * Gets the CORS headers to use if CORS has been enabled.      *      * @return the CORS headers      */
+DECL|method|getCorsHeaders ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getCorsHeaders
+parameter_list|()
+block|{
+return|return
+name|corsHeaders
+return|;
+block|}
+comment|/**      * Sets the CORS headers to use if CORS has been enabled.      *      * @param corsHeaders the CORS headers      */
+DECL|method|setCorsHeaders (Map<String, String> corsHeaders)
+specifier|public
+name|void
+name|setCorsHeaders
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|corsHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|corsHeaders
+operator|=
+name|corsHeaders
 expr_stmt|;
 block|}
 block|}

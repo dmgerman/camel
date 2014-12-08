@@ -227,6 +227,13 @@ name|skipBindingOnErrorCode
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|enableCORS
+specifier|private
+name|Boolean
+name|enableCORS
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|type
 specifier|private
 name|String
@@ -492,6 +499,32 @@ operator|.
 name|skipBindingOnErrorCode
 operator|=
 name|skipBindingOnErrorCode
+expr_stmt|;
+block|}
+DECL|method|getEnableCORS ()
+specifier|public
+name|Boolean
+name|getEnableCORS
+parameter_list|()
+block|{
+return|return
+name|enableCORS
+return|;
+block|}
+DECL|method|setEnableCORS (Boolean enableCORS)
+specifier|public
+name|void
+name|setEnableCORS
+parameter_list|(
+name|Boolean
+name|enableCORS
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enableCORS
+operator|=
+name|enableCORS
 expr_stmt|;
 block|}
 DECL|method|getType ()
