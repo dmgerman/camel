@@ -201,32 +201,7 @@ name|BlueprintTracerRefTest
 extends|extends
 name|BlueprintTracerTest
 block|{
-annotation|@
-name|Test
-annotation|@
-name|Override
-DECL|method|testTracer ()
-specifier|public
-name|void
-name|testTracer
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|name
-operator|=
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-expr_stmt|;
-name|super
-operator|.
-name|testTracer
-argument_list|()
-expr_stmt|;
-block|}
+comment|// implicitly inherit the test method from super
 annotation|@
 name|Configuration
 DECL|method|configure ()

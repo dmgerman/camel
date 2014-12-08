@@ -201,17 +201,6 @@ name|BlueprintTracerTest
 extends|extends
 name|OSGiBlueprintTestSupport
 block|{
-DECL|field|name
-specifier|protected
-name|String
-name|name
-init|=
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testTracer ()
@@ -222,6 +211,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+specifier|final
+name|String
+name|name
+init|=
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+decl_stmt|;
 comment|// start bundle
 name|getInstalledBundle
 argument_list|(
