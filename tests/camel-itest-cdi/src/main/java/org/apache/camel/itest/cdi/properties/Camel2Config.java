@@ -72,6 +72,18 @@ literal|"camel2.properties"
 return|;
 block|}
 empty_stmt|;
+annotation|@
+name|Override
+DECL|method|isOptional ()
+specifier|public
+name|boolean
+name|isOptional
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 
