@@ -400,7 +400,30 @@ DECL|method|PropertiesComponent ()
 specifier|public
 name|PropertiesComponent
 parameter_list|()
-block|{     }
+block|{
+comment|// include out of the box functions
+name|addFunction
+argument_list|(
+operator|new
+name|EnvPropertiesFunction
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|addFunction
+argument_list|(
+operator|new
+name|SysPropertiesFunction
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|addFunction
+argument_list|(
+operator|new
+name|ServicePropertiesFunction
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|PropertiesComponent (String location)
 specifier|public
 name|PropertiesComponent
@@ -409,6 +432,9 @@ name|String
 name|location
 parameter_list|)
 block|{
+name|this
+argument_list|()
+expr_stmt|;
 name|setLocation
 argument_list|(
 name|location
@@ -424,6 +450,9 @@ modifier|...
 name|locations
 parameter_list|)
 block|{
+name|this
+argument_list|()
+expr_stmt|;
 name|setLocations
 argument_list|(
 name|locations
@@ -1397,28 +1426,6 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-comment|// include out of the box functions
-name|addFunction
-argument_list|(
-operator|new
-name|EnvPropertiesFunction
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|addFunction
-argument_list|(
-operator|new
-name|SysPropertiesFunction
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|addFunction
-argument_list|(
-operator|new
-name|ServicePropertiesFunction
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1431,11 +1438,6 @@ throws|throws
 name|Exception
 block|{
 name|cacheMap
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-name|functions
 operator|.
 name|clear
 argument_list|()
