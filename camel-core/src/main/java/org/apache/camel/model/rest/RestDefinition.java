@@ -2190,7 +2190,41 @@ name|outType
 argument_list|)
 expr_stmt|;
 block|}
-comment|// include route id
+comment|// if no route id has been set, then use the verb id as route id
+if|if
+condition|(
+operator|!
+name|route
+operator|.
+name|hasCustomIdAssigned
+argument_list|()
+condition|)
+block|{
+comment|// use id of verb as route id
+name|String
+name|id
+init|=
+name|verb
+operator|.
+name|getId
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|id
+operator|!=
+literal|null
+condition|)
+block|{
+name|route
+operator|.
+name|setId
+argument_list|(
+name|id
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 name|String
 name|routeId
 init|=
