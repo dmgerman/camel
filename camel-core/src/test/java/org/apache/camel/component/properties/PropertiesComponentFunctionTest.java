@@ -161,6 +161,11 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
+literal|"log:{{sys:os.name}}"
+argument_list|)
+operator|.
+name|to
+argument_list|(
 literal|"{{beer:FOO}}"
 argument_list|)
 operator|.
