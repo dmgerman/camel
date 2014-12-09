@@ -391,6 +391,11 @@ name|getBufferSize
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|closedOnCompletion
+condition|)
+block|{
 comment|// add on completion so we can cleanup after the exchange is done such as deleting temporary files
 name|exchange
 operator|.
@@ -425,11 +430,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|closedOnCompletion
-condition|)
-block|{
 name|close
 argument_list|()
 expr_stmt|;
@@ -458,7 +458,6 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 catch|catch
@@ -492,6 +491,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|flush ()
 specifier|public
@@ -527,6 +527,19 @@ operator|!
 name|closedOnCompletion
 condition|)
 block|{
+if|if
+condition|(
+name|fileInputStreamCache
+operator|!=
+literal|null
+condition|)
+block|{
+name|fileInputStreamCache
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
 try|try
 block|{
 name|cleanUpTempFile
