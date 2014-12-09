@@ -626,6 +626,8 @@ DECL|field|mustBeJAXBElement
 specifier|private
 name|boolean
 name|mustBeJAXBElement
+init|=
+literal|true
 decl_stmt|;
 DECL|field|filterNonXmlChars
 specifier|private
