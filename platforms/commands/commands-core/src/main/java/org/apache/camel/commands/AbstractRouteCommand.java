@@ -287,6 +287,9 @@ argument_list|(
 name|camelController
 argument_list|,
 name|camelContext
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|camelRoute
 operator|.
@@ -317,7 +320,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|executeOnRoute (CamelController camelController, CamelContext camelContext, String routeId, PrintStream out, PrintStream err)
+DECL|method|executeOnRoute (CamelController camelController, String contextName, String routeId, PrintStream out, PrintStream err)
 specifier|public
 specifier|abstract
 name|void
@@ -326,8 +329,8 @@ parameter_list|(
 name|CamelController
 name|camelController
 parameter_list|,
-name|CamelContext
-name|camelContext
+name|String
+name|contextName
 parameter_list|,
 name|String
 name|routeId

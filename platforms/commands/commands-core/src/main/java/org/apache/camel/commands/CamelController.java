@@ -160,6 +160,54 @@ name|String
 name|camelContextName
 parameter_list|)
 function_decl|;
+comment|/**      * Starts the given route      *      * @param camelContextName the Camel context.      * @param routeId          the route ID.      */
+DECL|method|startRoute (String camelContextName, String routeId)
+name|void
+name|startRoute
+parameter_list|(
+name|String
+name|camelContextName
+parameter_list|,
+name|String
+name|routeId
+parameter_list|)
+function_decl|;
+comment|/**      * Stops the given route      *      * @param camelContextName the Camel context.      * @param routeId          the route ID.      */
+DECL|method|stopRoute (String camelContextName, String routeId)
+name|void
+name|stopRoute
+parameter_list|(
+name|String
+name|camelContextName
+parameter_list|,
+name|String
+name|routeId
+parameter_list|)
+function_decl|;
+comment|/**      * Suspends the given route      *      * @param camelContextName the Camel context.      * @param routeId          the route ID.      */
+DECL|method|suspendRoute (String camelContextName, String routeId)
+name|void
+name|suspendRoute
+parameter_list|(
+name|String
+name|camelContextName
+parameter_list|,
+name|String
+name|routeId
+parameter_list|)
+function_decl|;
+comment|/**      * Resumes the given route      *      * @param camelContextName the Camel context.      * @param routeId          the route ID.      */
+DECL|method|resumeRoute (String camelContextName, String routeId)
+name|void
+name|resumeRoute
+parameter_list|(
+name|String
+name|camelContextName
+parameter_list|,
+name|String
+name|routeId
+parameter_list|)
+function_decl|;
 comment|/**      * Return the definition of a route as XML identified by a ID and a Camel context.      *      * @param routeId          the route ID.      * @param camelContextName the Camel context.      * @return the route model as XML      */
 DECL|method|getRouteModelAsXml (String routeId, String camelContextName)
 name|String
