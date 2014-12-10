@@ -82,20 +82,6 @@ name|Route
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|RestRegistry
-import|;
-end_import
-
 begin_comment
 comment|/**  * CamelController interface defines the expected behaviors to manipulate Camel resources (context, route, etc).  */
 end_comment
@@ -238,11 +224,16 @@ name|boolean
 name|includeProcessors
 parameter_list|)
 function_decl|;
-comment|/**      * Return the endpoints      *      * @param camelContextName the Camel context.      * @return the endpoints      */
+comment|/**      * Return the endpoints      *      * @param camelContextName the Camel context.      * @return a list of key/value pairs with endpoint information      */
 DECL|method|getEndpoints (String camelContextName)
 name|List
 argument_list|<
-name|Endpoint
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 argument_list|>
 name|getEndpoints
 parameter_list|(
