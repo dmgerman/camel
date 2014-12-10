@@ -2007,7 +2007,6 @@ name|extraMethods
 argument_list|)
 expr_stmt|;
 block|}
-comment|// it may have duplicate methods already, even from declared or from interfaces + declared
 name|Set
 argument_list|<
 name|Method
@@ -2021,6 +2020,37 @@ name|Method
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// do not remove duplicates form class from the Java itself as they have some "duplicates" we need
+name|boolean
+name|javaClass
+init|=
+name|clazz
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"java."
+argument_list|)
+operator|||
+name|clazz
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"javax."
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|javaClass
+condition|)
+block|{
+comment|// it may have duplicate methods already, even from declared or from interfaces + declared
 for|for
 control|(
 name|Method
@@ -2091,6 +2121,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+block|}
 comment|// if we are a public class, then add non duplicate interface classes also
 if|if
 condition|(
