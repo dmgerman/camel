@@ -181,18 +181,6 @@ name|String
 name|filter
 parameter_list|)
 function_decl|;
-comment|/**      * Return the route with the given route ID.      *      * @param routeId          the route ID.      * @param camelContextName the Camel context name.      * @return the route.      */
-DECL|method|getRoute (String routeId, String camelContextName)
-name|Route
-name|getRoute
-parameter_list|(
-name|String
-name|routeId
-parameter_list|,
-name|String
-name|camelContextName
-parameter_list|)
-function_decl|;
 comment|/**      * Return the definition of a route as XML identified by a ID and a Camel context.      *      * @param routeId          the route ID.      * @param camelContextName the Camel context.      * @return the route model as XML      */
 DECL|method|getRouteModelAsXml (String routeId, String camelContextName)
 name|String
@@ -203,6 +191,24 @@ name|routeId
 parameter_list|,
 name|String
 name|camelContextName
+parameter_list|)
+function_decl|;
+comment|/**      * Returns detailed route statistics as XML identified by a ID and a Camel context.      *      * @param routeId           the route ID.      * @param camelContextName  the Camel context.      * @param fullStats         whether to include verbose stats      * @param includeProcessors whether to embed per processor stats from the route      * @return the route statistics as XML      */
+DECL|method|getRouteStatsAsXml (String routeId, String camelContextName, boolean fullStats, boolean includeProcessors)
+name|String
+name|getRouteStatsAsXml
+parameter_list|(
+name|String
+name|routeId
+parameter_list|,
+name|String
+name|camelContextName
+parameter_list|,
+name|boolean
+name|fullStats
+parameter_list|,
+name|boolean
+name|includeProcessors
 parameter_list|)
 function_decl|;
 comment|/**      * Return the endpoints      *      * @param camelContextName the Camel context.      * @return the endpoints      */
