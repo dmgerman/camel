@@ -92,7 +92,7 @@ specifier|public
 interface|interface
 name|CamelController
 block|{
-comment|/**      * Get the list of Camel context.      *      * @return the list of Camel contexts.      */
+comment|/**      * Get the list of Camel context.      *      * @return the list of Camel contexts.      * @throws java.lang.Exception can be thrown      */
 DECL|method|getCamelContexts ()
 name|List
 argument_list|<
@@ -100,8 +100,10 @@ name|CamelContext
 argument_list|>
 name|getCamelContexts
 parameter_list|()
+throws|throws
+name|Exception
 function_decl|;
-comment|/**      * Get a Camel context identified by the given name.      *      * @param name the Camel context name.      * @return the Camel context or null if not found.      */
+comment|/**      * Get a Camel context identified by the given name.      *      * @param name the Camel context name.      * @return the Camel context or null if not found.      * @throws java.lang.Exception can be thrown      */
 DECL|method|getCamelContext (String name)
 name|CamelContext
 name|getCamelContext
@@ -109,8 +111,10 @@ parameter_list|(
 name|String
 name|name
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
-comment|/**      * Get all routes. If Camel context name is null, all routes from all contexts are listed.      *      * @param camelContextName the Camel context name. If null, all contexts are considered.      * @return the list of the Camel routes.      */
+comment|/**      * Get all routes. If Camel context name is null, all routes from all contexts are listed.      *      * @param camelContextName the Camel context name. If null, all contexts are considered.      * @return the list of the Camel routes.      * @throws java.lang.Exception can be thrown      */
 DECL|method|getRoutes (String camelContextName)
 name|List
 argument_list|<
@@ -121,8 +125,10 @@ parameter_list|(
 name|String
 name|camelContextName
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
-comment|/**      * Get all routes filtered by the regex.      *      * @param camelContextName the Camel context name. If null, all contexts are considered.      * @param filter           the filter which supports * and ? as wildcards      * @return the list of the Camel routes.      */
+comment|/**      * Get all routes filtered by the regex.      *      * @param camelContextName the Camel context name. If null, all contexts are considered.      * @param filter           the filter which supports * and ? as wildcards      * @return the list of the Camel routes.      * @throws java.lang.Exception can be thrown      */
 DECL|method|getRoutes (String camelContextName, String filter)
 name|List
 argument_list|<
@@ -136,8 +142,10 @@ parameter_list|,
 name|String
 name|filter
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
-comment|/**      * Reset all the route stats for the given Camel context      *      * @param camelContextName the Camel context.      */
+comment|/**      * Reset all the route stats for the given Camel context      *      * @param camelContextName the Camel context.      * @throws java.lang.Exception can be thrown      */
 DECL|method|resetRouteStats (String camelContextName)
 name|void
 name|resetRouteStats
@@ -145,8 +153,10 @@ parameter_list|(
 name|String
 name|camelContextName
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
-comment|/**      * Starts the given route      *      * @param camelContextName the Camel context.      * @param routeId          the route ID.      */
+comment|/**      * Starts the given route      *      * @param camelContextName the Camel context.      * @param routeId          the route ID.      * @throws java.lang.Exception can be thrown      */
 DECL|method|startRoute (String camelContextName, String routeId)
 name|void
 name|startRoute
@@ -157,8 +167,10 @@ parameter_list|,
 name|String
 name|routeId
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
-comment|/**      * Stops the given route      *      * @param camelContextName the Camel context.      * @param routeId          the route ID.      */
+comment|/**      * Stops the given route      *      * @param camelContextName the Camel context.      * @param routeId          the route ID.      * @throws java.lang.Exception can be thrown      */
 DECL|method|stopRoute (String camelContextName, String routeId)
 name|void
 name|stopRoute
@@ -169,8 +181,10 @@ parameter_list|,
 name|String
 name|routeId
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
-comment|/**      * Suspends the given route      *      * @param camelContextName the Camel context.      * @param routeId          the route ID.      */
+comment|/**      * Suspends the given route      *      * @param camelContextName the Camel context.      * @param routeId          the route ID.      * @throws java.lang.Exception can be thrown      */
 DECL|method|suspendRoute (String camelContextName, String routeId)
 name|void
 name|suspendRoute
@@ -181,8 +195,10 @@ parameter_list|,
 name|String
 name|routeId
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
-comment|/**      * Resumes the given route      *      * @param camelContextName the Camel context.      * @param routeId          the route ID.      */
+comment|/**      * Resumes the given route      *      * @param camelContextName the Camel context.      * @param routeId          the route ID.      * @throws java.lang.Exception can be thrown      */
 DECL|method|resumeRoute (String camelContextName, String routeId)
 name|void
 name|resumeRoute
@@ -193,8 +209,10 @@ parameter_list|,
 name|String
 name|routeId
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
-comment|/**      * Return the definition of a route as XML identified by a ID and a Camel context.      *      * @param routeId          the route ID.      * @param camelContextName the Camel context.      * @return the route model as XML      */
+comment|/**      * Return the definition of a route as XML identified by a ID and a Camel context.      *      * @param routeId          the route ID.      * @param camelContextName the Camel context.      * @return the route model as XML      * @throws java.lang.Exception can be thrown      */
 DECL|method|getRouteModelAsXml (String routeId, String camelContextName)
 name|String
 name|getRouteModelAsXml
@@ -205,8 +223,10 @@ parameter_list|,
 name|String
 name|camelContextName
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
-comment|/**      * Returns detailed route statistics as XML identified by a ID and a Camel context.      *      * @param routeId           the route ID.      * @param camelContextName  the Camel context.      * @param fullStats         whether to include verbose stats      * @param includeProcessors whether to embed per processor stats from the route      * @return the route statistics as XML      */
+comment|/**      * Returns detailed route statistics as XML identified by a ID and a Camel context.      *      * @param routeId           the route ID.      * @param camelContextName  the Camel context.      * @param fullStats         whether to include verbose stats      * @param includeProcessors whether to embed per processor stats from the route      * @return the route statistics as XML      * @throws java.lang.Exception can be thrown      */
 DECL|method|getRouteStatsAsXml (String routeId, String camelContextName, boolean fullStats, boolean includeProcessors)
 name|String
 name|getRouteStatsAsXml
@@ -223,8 +243,10 @@ parameter_list|,
 name|boolean
 name|includeProcessors
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
-comment|/**      * Return the endpoints      *      * @param camelContextName the Camel context.      * @return a list of key/value pairs with endpoint information      */
+comment|/**      * Return the endpoints      *      * @param camelContextName the Camel context.      * @return a list of key/value pairs with endpoint information      * @throws java.lang.Exception can be thrown      */
 DECL|method|getEndpoints (String camelContextName)
 name|List
 argument_list|<
@@ -240,8 +262,10 @@ parameter_list|(
 name|String
 name|camelContextName
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
-comment|/**      * Return the definition of the REST services as XML for the given Camel context.      *      * @param camelContextName the Camel context.      * @return the REST model as xml      */
+comment|/**      * Return the definition of the REST services as XML for the given Camel context.      *      * @param camelContextName the Camel context.      * @return the REST model as xml      * @throws java.lang.Exception can be thrown      */
 DECL|method|getRestModelAsXml (String camelContextName)
 name|String
 name|getRestModelAsXml
@@ -249,8 +273,10 @@ parameter_list|(
 name|String
 name|camelContextName
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
-comment|/**      * Return the REST services for the given Camel context.      *      * @param camelContextName the Camel context.      * @return a list of key/value pairs with REST information      */
+comment|/**      * Return the REST services for the given Camel context.      *      * @param camelContextName the Camel context.      * @return a list of key/value pairs with REST information      * @throws java.lang.Exception can be thrown      */
 DECL|method|getRestServices (String camelContextName)
 name|List
 argument_list|<
@@ -266,8 +292,10 @@ parameter_list|(
 name|String
 name|camelContextName
 parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
-comment|/**      * Explains an endpoint uri      *      * @param camelContextName the Camel context.      * @param uri              the endpoint uri      * @param allOptions       whether to explain all options, or only the explicit configured options from the uri      * @return a JSON schema with explanation of the options      * @throws java.lang.Exception is thrown if error loading resources to explain the endpoint      */
+comment|/**      * Explains an endpoint uri      *      * @param camelContextName the Camel context.      * @param uri              the endpoint uri      * @param allOptions       whether to explain all options, or only the explicit configured options from the uri      * @return a JSON schema with explanation of the options      * @throws java.lang.Exception can be thrown      */
 DECL|method|explainEndpointAsJSon (String camelContextName, String uri, boolean allOptions)
 name|String
 name|explainEndpointAsJSon
@@ -284,7 +312,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Lists Components which are in use or available on the classpath and include information      *      * @param camelContextName the Camel context.      * @return a list of key/value pairs with component information      * @throws java.lang.Exception is thrown if error loading resources to gather component information      */
+comment|/**      * Lists Components which are in use or available on the classpath and include information      *      * @param camelContextName the Camel context.      * @return a list of key/value pairs with component information      * @throws java.lang.Exception can be thrown      */
 DECL|method|listComponents (String camelContextName)
 name|List
 argument_list|<
@@ -303,7 +331,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Lists all components from the Camel components catalog      *      * @param filter optional filter to filter by labels      * @return a list of key/value pairs with component information      * @throws java.lang.Exception is thrown if error loading resources to gather component information      */
+comment|/**      * Lists all components from the Camel components catalog      *      * @param filter optional filter to filter by labels      * @return a list of key/value pairs with component information      * @throws java.lang.Exception can be thrown      */
 DECL|method|listComponentsCatalog (String filter)
 name|List
 argument_list|<
@@ -322,7 +350,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Lists all the labels from the Camel components catalog      *      * @return a map which key is the label, and the set is the component names that has the given label      * @throws java.lang.Exception is thrown if error loading resources to gather component information      */
+comment|/**      * Lists all the labels from the Camel components catalog      *      * @return a map which key is the label, and the set is the component names that has the given label      * @throws java.lang.Exception can be thrown      */
 DECL|method|listLabelCatalog ()
 name|Map
 argument_list|<
