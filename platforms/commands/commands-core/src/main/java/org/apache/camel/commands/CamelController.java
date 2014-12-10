@@ -66,18 +66,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Route
 import|;
 end_import
@@ -114,11 +102,16 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Get all routes. If Camel context name is null, all routes from all contexts are listed.      *      * @param camelContextName the Camel context name. If null, all contexts are considered.      * @return the list of the Camel routes.      * @throws java.lang.Exception can be thrown      */
+comment|/**      * Get all routes. If Camel context name is null, all routes from all contexts are listed.      *      * @param camelContextName the Camel context name. If null, all contexts are considered.      * @return a list of key/value pairs with routes information      * @throws java.lang.Exception can be thrown      */
 DECL|method|getRoutes (String camelContextName)
 name|List
 argument_list|<
-name|Route
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 argument_list|>
 name|getRoutes
 parameter_list|(
@@ -128,11 +121,16 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Get all routes filtered by the regex.      *      * @param camelContextName the Camel context name. If null, all contexts are considered.      * @param filter           the filter which supports * and ? as wildcards      * @return the list of the Camel routes.      * @throws java.lang.Exception can be thrown      */
+comment|/**      * Get all routes filtered by the regex.      *      * @param camelContextName the Camel context name. If null, all contexts are considered.      * @param filter           the filter which supports * and ? as wildcards      * @return a list of key/value pairs with routes information      * @throws java.lang.Exception can be thrown      */
 DECL|method|getRoutes (String camelContextName, String filter)
 name|List
 argument_list|<
-name|Route
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 argument_list|>
 name|getRoutes
 parameter_list|(
