@@ -403,6 +403,13 @@ specifier|private
 name|boolean
 name|noop
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|outputHeader
+specifier|private
+name|String
+name|outputHeader
+decl_stmt|;
 DECL|method|SqlEndpoint ()
 specifier|public
 name|SqlEndpoint
@@ -1038,6 +1045,33 @@ operator|.
 name|noop
 operator|=
 name|noop
+expr_stmt|;
+block|}
+DECL|method|getOutputHeader ()
+specifier|public
+name|String
+name|getOutputHeader
+parameter_list|()
+block|{
+return|return
+name|outputHeader
+return|;
+block|}
+comment|/**      * Store the query result in a header instead of the message body.      * By default, outputHeader == null and the query result is stored in the message body,      * any existing content in the message body is discarded.      * If outputHeader is set, the value is used as the name of the header to store the      * query result and the original message body is preserved.      */
+DECL|method|setOutputHeader (String outputHeader)
+specifier|public
+name|void
+name|setOutputHeader
+parameter_list|(
+name|String
+name|outputHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|outputHeader
+operator|=
+name|outputHeader
 expr_stmt|;
 block|}
 annotation|@
