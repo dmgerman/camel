@@ -1938,9 +1938,12 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|" id=\"%s\""
+literal|" id=\"%s\" state=\"%s\""
 argument_list|,
 name|getCamelId
+argument_list|()
+argument_list|,
+name|getState
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2195,11 +2198,16 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|" id=\"%s\""
+literal|" id=\"%s\" state=\"%s\""
 argument_list|,
 name|route
 operator|.
 name|getRouteId
+argument_list|()
+argument_list|,
+name|route
+operator|.
+name|getState
 argument_list|()
 argument_list|)
 argument_list|)
@@ -2294,11 +2302,21 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|" id=\"%s\""
+literal|" id=\"%s\" index=\"%s\" state=\"%s\""
 argument_list|,
 name|processor
 operator|.
 name|getProcessorId
+argument_list|()
+argument_list|,
+name|processor
+operator|.
+name|getIndex
+argument_list|()
+argument_list|,
+name|processor
+operator|.
+name|getState
 argument_list|()
 argument_list|)
 argument_list|)

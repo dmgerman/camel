@@ -1718,7 +1718,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|" id=\"%s\" index=\"%s\""
+literal|" id=\"%s\" index=\"%s\" state=\"%s\""
 argument_list|,
 name|processor
 operator|.
@@ -1728,6 +1728,11 @@ argument_list|,
 name|processor
 operator|.
 name|getIndex
+argument_list|()
+argument_list|,
+name|processor
+operator|.
+name|getState
 argument_list|()
 argument_list|)
 argument_list|)
@@ -1831,20 +1836,6 @@ operator|=
 literal|0
 expr_stmt|;
 block|}
-name|int
-name|inflight
-init|=
-name|context
-operator|.
-name|getInflightRepository
-argument_list|()
-operator|.
-name|size
-argument_list|(
-name|getRouteId
-argument_list|()
-argument_list|)
-decl_stmt|;
 name|StringBuilder
 name|answer
 init|=
@@ -1873,6 +1864,19 @@ name|getId
 argument_list|()
 argument_list|)
 argument_list|)
+operator|.
+name|append
+argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
+literal|" state=\"%s\""
+argument_list|,
+name|getState
+argument_list|()
+argument_list|)
+argument_list|)
 expr_stmt|;
 comment|// use substring as we only want the attributes
 name|String
@@ -1892,7 +1896,8 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|inflight
+name|getInflightExchanges
+argument_list|()
 argument_list|)
 operator|.
 name|append

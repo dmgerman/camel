@@ -113,6 +113,13 @@ name|index
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|state
+specifier|private
+name|String
+name|state
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|exchangesCompleted
 specifier|private
 name|Long
@@ -301,6 +308,32 @@ operator|.
 name|index
 operator|=
 name|index
+expr_stmt|;
+block|}
+DECL|method|getState ()
+specifier|public
+name|String
+name|getState
+parameter_list|()
+block|{
+return|return
+name|state
+return|;
+block|}
+DECL|method|setState (String state)
+specifier|public
+name|void
+name|setState
+parameter_list|(
+name|String
+name|state
+parameter_list|)
+block|{
+name|this
+operator|.
+name|state
+operator|=
+name|state
 expr_stmt|;
 block|}
 DECL|method|getExchangesCompleted ()
