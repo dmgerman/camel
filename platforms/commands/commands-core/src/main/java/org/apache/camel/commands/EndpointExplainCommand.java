@@ -344,6 +344,15 @@ argument_list|,
 name|verbose
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|json
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 name|out
 operator|.
 name|println
