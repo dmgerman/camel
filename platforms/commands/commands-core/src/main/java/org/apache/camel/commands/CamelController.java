@@ -193,10 +193,10 @@ name|String
 name|camelContextName
 parameter_list|)
 function_decl|;
-comment|/**      * Return the definition of a route identified by a ID and a Camel context.      *      * @param routeId          the route ID.      * @param camelContextName the Camel context.      * @return the<code>RouteDefinition</code>.      */
-DECL|method|getRouteDefinition (String routeId, String camelContextName)
-name|RouteDefinition
-name|getRouteDefinition
+comment|/**      * Return the definition of a route as XML identified by a ID and a Camel context.      *      * @param routeId          the route ID.      * @param camelContextName the Camel context.      * @return the route model as XML      */
+DECL|method|getRouteModelAsXml (String routeId, String camelContextName)
+name|String
+name|getRouteModelAsXml
 parameter_list|(
 name|String
 name|routeId
