@@ -405,6 +405,23 @@ name|stringEscape
 operator|.
 name|unescapeJava
 argument_list|(
+literal|"\tExchanges Inflight: "
+operator|+
+name|route
+operator|.
+name|getExchangesInflight
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|out
+operator|.
+name|println
+argument_list|(
+name|stringEscape
+operator|.
+name|unescapeJava
+argument_list|(
 literal|"\tMin Processing Time: "
 operator|+
 name|route

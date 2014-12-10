@@ -228,6 +228,13 @@ name|meanProcessingTime
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|exchangesInflight
+specifier|private
+name|Long
+name|exchangesInflight
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|selfProcessingTime
 specifier|private
 name|Long
@@ -640,6 +647,32 @@ operator|.
 name|selfProcessingTime
 operator|=
 name|selfProcessingTime
+expr_stmt|;
+block|}
+DECL|method|getExchangesInflight ()
+specifier|public
+name|Long
+name|getExchangesInflight
+parameter_list|()
+block|{
+return|return
+name|exchangesInflight
+return|;
+block|}
+DECL|method|setExchangesInflight (Long exchangesInflight)
+specifier|public
+name|void
+name|setExchangesInflight
+parameter_list|(
+name|Long
+name|exchangesInflight
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exchangesInflight
+operator|=
+name|exchangesInflight
 expr_stmt|;
 block|}
 DECL|method|getResetTimestamp ()
