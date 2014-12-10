@@ -1916,14 +1916,38 @@ name|clazz
 argument_list|)
 expr_stmt|;
 comment|// favor declared methods, and then filter out duplicate interface methods
-name|Set
+name|List
 argument_list|<
 name|Method
 argument_list|>
 name|methods
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|Modifier
+operator|.
+name|isPublic
+argument_list|(
+name|clazz
+operator|.
+name|getModifiers
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Preferring class methods as class: {} is public accessible"
+argument_list|,
+name|clazz
+argument_list|)
+expr_stmt|;
+name|methods
+operator|=
 operator|new
-name|HashSet
+name|ArrayList
 argument_list|<
 name|Method
 argument_list|>
@@ -1938,7 +1962,27 @@ name|getDeclaredMethods
 argument_list|()
 argument_list|)
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Preferring interface methods as class: {} is not public accessible"
+argument_list|,
+name|clazz
+argument_list|)
+expr_stmt|;
+name|methods
+operator|=
+name|getInterfaceMethods
+argument_list|(
+name|clazz
+argument_list|)
+expr_stmt|;
+block|}
 comment|// it may have duplicate methods already in the declared list of methods, so lets remove those
 name|Set
 argument_list|<
@@ -2022,6 +2066,20 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|Modifier
+operator|.
+name|isPublic
+argument_list|(
+name|clazz
+operator|.
+name|getModifiers
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// add additional interface methods
 name|List
 argument_list|<
 name|Method
@@ -2088,6 +2146,7 @@ argument_list|(
 name|extraMethods
 argument_list|)
 expr_stmt|;
+block|}
 comment|// now introspect the methods and filter non valid methods
 for|for
 control|(
