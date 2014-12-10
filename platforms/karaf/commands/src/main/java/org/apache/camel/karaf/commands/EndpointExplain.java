@@ -116,11 +116,11 @@ literal|"name"
 argument_list|,
 name|description
 operator|=
-literal|"The Camel context name where to look for the endpoints"
+literal|"The name of the Camel context"
 argument_list|,
 name|required
 operator|=
-literal|false
+literal|true
 argument_list|,
 name|multiValued
 operator|=
