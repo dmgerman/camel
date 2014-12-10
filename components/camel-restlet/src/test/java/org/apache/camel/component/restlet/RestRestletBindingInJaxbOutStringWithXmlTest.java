@@ -264,7 +264,7 @@ comment|// turn off must be JAXB as we create the output type ourselves as xml i
 operator|.
 name|dataFormatProperty
 argument_list|(
-literal|"mustBeJAXBElement"
+literal|"xml.out.mustBeJAXBElement"
 argument_list|,
 literal|"false"
 argument_list|)
