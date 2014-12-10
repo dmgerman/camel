@@ -217,13 +217,10 @@ name|String
 name|camelContextName
 parameter_list|)
 function_decl|;
-comment|/**      * Return the definition of the REST services for the given Camel context.      *      * @param camelContextName the Camel context.      * @return the<code>RouteDefinition</code>.      */
-DECL|method|getRestDefinitions (String camelContextName)
-name|List
-argument_list|<
-name|RestDefinition
-argument_list|>
-name|getRestDefinitions
+comment|/**      * Return the definition of the REST services as XML for the given Camel context.      *      * @param camelContextName the Camel context.      * @return the REST model as xml      */
+DECL|method|getRestModelAsXml (String camelContextName)
+name|String
+name|getRestModelAsXml
 parameter_list|(
 name|String
 name|camelContextName
