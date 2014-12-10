@@ -547,7 +547,7 @@ name|json
 init|=
 name|camelController
 operator|.
-name|explainEndpoint
+name|explainEndpointAsJSon
 argument_list|(
 name|endpoint
 operator|.

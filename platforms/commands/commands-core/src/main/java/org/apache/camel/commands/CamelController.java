@@ -211,17 +211,15 @@ name|String
 name|camelContextName
 parameter_list|)
 function_decl|;
-comment|/**      * Return the REST services      *      * @param camelContextName the Camel context.      * @return the REST services      */
+comment|/**      * Return the REST services for the given Camel context.      *      * @param camelContextName the Camel context.      * @return a list of key/value pairs with REST information      */
 DECL|method|getRestServices (String camelContextName)
+name|List
+argument_list|<
 name|Map
 argument_list|<
 name|String
 argument_list|,
-name|List
-argument_list|<
-name|RestRegistry
-operator|.
-name|RestService
+name|String
 argument_list|>
 argument_list|>
 name|getRestServices
@@ -231,9 +229,9 @@ name|camelContextName
 parameter_list|)
 function_decl|;
 comment|/**      * Explains an endpoint uri      *      * @param camelContextName the Camel context.      * @param uri              the endpoint uri      * @param allOptions       whether to explain all options, or only the explicit configured options from the uri      * @return a JSON schema with explanation of the options      * @throws java.lang.Exception is thrown if error loading resources to explain the endpoint      */
-DECL|method|explainEndpoint (String camelContextName, String uri, boolean allOptions)
+DECL|method|explainEndpointAsJSon (String camelContextName, String uri, boolean allOptions)
 name|String
-name|explainEndpoint
+name|explainEndpointAsJSon
 parameter_list|(
 name|String
 name|camelContextName
