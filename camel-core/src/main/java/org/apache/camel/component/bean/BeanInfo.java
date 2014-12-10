@@ -1982,8 +1982,32 @@ argument_list|(
 name|clazz
 argument_list|)
 expr_stmt|;
+comment|// and then we must add its declared methods as well
+name|List
+argument_list|<
+name|Method
+argument_list|>
+name|extraMethods
+init|=
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|clazz
+operator|.
+name|getDeclaredMethods
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|methods
+operator|.
+name|addAll
+argument_list|(
+name|extraMethods
+argument_list|)
+expr_stmt|;
 block|}
-comment|// it may have duplicate methods already in the declared list of methods, so lets remove those
+comment|// it may have duplicate methods already, even from declared or from interfaces + declared
 name|Set
 argument_list|<
 name|Method
@@ -2013,7 +2037,7 @@ range|:
 name|methods
 control|)
 block|{
-comment|// skip overselves
+comment|// skip ourselves
 if|if
 condition|(
 name|ObjectHelper
@@ -2030,6 +2054,7 @@ condition|)
 block|{
 continue|continue;
 block|}
+comment|// skip duplicates which may be assign compatible (favor keep first added method when duplicate)
 if|if
 condition|(
 name|ObjectHelper
@@ -2066,6 +2091,7 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+comment|// if we are a public class, then add non duplicate interface classes also
 if|if
 condition|(
 name|Modifier
