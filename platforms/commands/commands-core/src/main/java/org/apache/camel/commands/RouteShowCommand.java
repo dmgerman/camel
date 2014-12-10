@@ -38,18 +38,6 @@ name|CamelContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Route
-import|;
-end_import
-
 begin_comment
 comment|/**  * Command to show the route marshaled in XML.  */
 end_comment
@@ -83,7 +71,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|executeOnRoute (CamelController camelController, CamelContext camelContext, Route camelRoute, PrintStream out, PrintStream err)
+DECL|method|executeOnRoute (CamelController camelController, CamelContext camelContext, String routeId, PrintStream out, PrintStream err)
 specifier|public
 name|void
 name|executeOnRoute
@@ -94,8 +82,8 @@ parameter_list|,
 name|CamelContext
 name|camelContext
 parameter_list|,
-name|Route
-name|camelRoute
+name|String
+name|routeId
 parameter_list|,
 name|PrintStream
 name|out
@@ -113,18 +101,9 @@ name|camelController
 operator|.
 name|getRouteModelAsXml
 argument_list|(
-name|camelRoute
-operator|.
-name|getId
-argument_list|()
+name|routeId
 argument_list|,
-name|camelRoute
-operator|.
-name|getRouteContext
-argument_list|()
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 operator|.
 name|getName
 argument_list|()
@@ -143,10 +122,7 @@ name|println
 argument_list|(
 literal|"Definition of route "
 operator|+
-name|camelRoute
-operator|.
-name|getId
-argument_list|()
+name|routeId
 operator|+
 literal|" not found."
 argument_list|)

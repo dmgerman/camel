@@ -80,18 +80,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Route
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ProcessorStatDump
@@ -191,7 +179,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|executeOnRoute (CamelController camelController, CamelContext camelContext, Route camelRoute, PrintStream out, PrintStream err)
+DECL|method|executeOnRoute (CamelController camelController, CamelContext camelContext, String routeId, PrintStream out, PrintStream err)
 specifier|public
 name|void
 name|executeOnRoute
@@ -202,8 +190,8 @@ parameter_list|,
 name|CamelContext
 name|camelContext
 parameter_list|,
-name|Route
-name|camelRoute
+name|String
+name|routeId
 parameter_list|,
 name|PrintStream
 name|out
@@ -288,13 +276,7 @@ name|unescapeJava
 argument_list|(
 literal|"\tCamel Context: "
 operator|+
-name|camelRoute
-operator|.
-name|getRouteContext
-argument_list|()
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 operator|.
 name|getName
 argument_list|()
@@ -341,10 +323,7 @@ name|camelController
 operator|.
 name|getRouteStatsAsXml
 argument_list|(
-name|camelRoute
-operator|.
-name|getId
-argument_list|()
+name|routeId
 argument_list|,
 name|camelContext
 operator|.

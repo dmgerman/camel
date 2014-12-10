@@ -87,8 +87,6 @@ init|=
 operator|new
 name|RouteResetStatsCommand
 argument_list|(
-name|route
-argument_list|,
 name|context
 argument_list|)
 decl_stmt|;

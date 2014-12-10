@@ -90,36 +90,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|RouteDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|rest
-operator|.
-name|RestDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|RestRegistry
@@ -179,6 +149,15 @@ name|camelContextName
 parameter_list|,
 name|String
 name|filter
+parameter_list|)
+function_decl|;
+comment|/**      * Reset all the route stats for the given Camel context      *      * @param camelContextName the Camel context.      */
+DECL|method|resetRouteStats (String camelContextName)
+name|void
+name|resetRouteStats
+parameter_list|(
+name|String
+name|camelContextName
 parameter_list|)
 function_decl|;
 comment|/**      * Return the definition of a route as XML identified by a ID and a Camel context.      *      * @param routeId          the route ID.      * @param camelContextName the Camel context.      * @return the route model as XML      */

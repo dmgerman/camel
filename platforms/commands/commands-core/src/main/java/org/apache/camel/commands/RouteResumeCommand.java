@@ -83,7 +83,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|executeOnRoute (CamelController camelController, CamelContext camelContext, Route camelRoute, PrintStream out, PrintStream err)
+DECL|method|executeOnRoute (CamelController camelController, CamelContext camelContext, String routeId, PrintStream out, PrintStream err)
 specifier|public
 name|void
 name|executeOnRoute
@@ -94,8 +94,8 @@ parameter_list|,
 name|CamelContext
 name|camelContext
 parameter_list|,
-name|Route
-name|camelRoute
+name|String
+name|routeId
 parameter_list|,
 name|PrintStream
 name|out
@@ -110,10 +110,7 @@ name|camelContext
 operator|.
 name|resumeRoute
 argument_list|(
-name|camelRoute
-operator|.
-name|getId
-argument_list|()
+name|routeId
 argument_list|)
 expr_stmt|;
 block|}
