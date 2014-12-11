@@ -26,18 +26,6 @@ name|PrintStream
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
-import|;
-end_import
-
 begin_comment
 comment|/**  * Command to suspend a Camel context.  */
 end_comment
@@ -66,7 +54,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|performContextCommand (CamelController camelController, CamelContext camelContext, PrintStream out, PrintStream err)
+DECL|method|performContextCommand (CamelController camelController, String contextName, PrintStream out, PrintStream err)
 specifier|protected
 name|Object
 name|performContextCommand
@@ -74,8 +62,8 @@ parameter_list|(
 name|CamelController
 name|camelController
 parameter_list|,
-name|CamelContext
-name|camelContext
+name|String
+name|contextName
 parameter_list|,
 name|PrintStream
 name|out
@@ -86,10 +74,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|camelContext
+name|camelController
 operator|.
-name|suspend
-argument_list|()
+name|resumeContext
+argument_list|(
+name|contextName
+argument_list|)
 expr_stmt|;
 return|return
 literal|null

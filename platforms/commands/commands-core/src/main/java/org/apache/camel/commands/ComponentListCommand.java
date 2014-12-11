@@ -56,18 +56,6 @@ name|Map
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
-import|;
-end_import
-
 begin_comment
 comment|/**  * List all the Camel components that are currently used/loaded in the JVM.  */
 end_comment
@@ -219,7 +207,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|performContextCommand (CamelController camelController, CamelContext camelContext, PrintStream out, PrintStream err)
+DECL|method|performContextCommand (CamelController camelController, String contextName, PrintStream out, PrintStream err)
 specifier|protected
 name|Object
 name|performContextCommand
@@ -227,8 +215,8 @@ parameter_list|(
 name|CamelController
 name|camelController
 parameter_list|,
-name|CamelContext
-name|camelContext
+name|String
+name|contextName
 parameter_list|,
 name|PrintStream
 name|out
@@ -254,7 +242,7 @@ name|camelController
 operator|.
 name|listComponents
 argument_list|(
-name|context
+name|contextName
 argument_list|)
 decl_stmt|;
 if|if

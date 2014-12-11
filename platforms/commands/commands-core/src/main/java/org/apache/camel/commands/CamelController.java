@@ -98,6 +98,67 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Get the list of Camel context.      *      * @return a list of key/value pairs with CamelContext information      * @throws java.lang.Exception can be thrown      */
+comment|// TODO: rename
+DECL|method|getCamelContexts2 ()
+name|List
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|>
+name|getCamelContexts2
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Starts the given Camel context.      *      * @param camelContextName the Camel context.      * @throws java.lang.Exception can be thrown      */
+DECL|method|startContext (String camelContextName)
+name|void
+name|startContext
+parameter_list|(
+name|String
+name|camelContextName
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Stops the given Camel context.      *      * @param camelContextName the Camel context.      * @throws java.lang.Exception can be thrown      */
+DECL|method|stopContext (String camelContextName)
+name|void
+name|stopContext
+parameter_list|(
+name|String
+name|camelContextName
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Suspends the given Camel context.      *      * @param camelContextName the Camel context.      * @throws java.lang.Exception can be thrown      */
+DECL|method|suspendContext (String camelContextName)
+name|void
+name|suspendContext
+parameter_list|(
+name|String
+name|camelContextName
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Resumes the given Camel context.      *      * @param camelContextName the Camel context.      * @throws java.lang.Exception can be thrown      */
+DECL|method|resumeContext (String camelContextName)
+name|void
+name|resumeContext
+parameter_list|(
+name|String
+name|camelContextName
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Get all routes. If Camel context name is null, all routes from all contexts are listed.      *      * @param camelContextName the Camel context name. If null, all contexts are considered.      * @return a list of key/value pairs with routes information      * @throws java.lang.Exception can be thrown      */
 DECL|method|getRoutes (String camelContextName)
 name|List

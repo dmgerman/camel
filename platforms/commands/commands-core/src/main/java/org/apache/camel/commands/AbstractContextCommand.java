@@ -155,6 +155,9 @@ argument_list|(
 name|camelController
 argument_list|,
 name|camelContext
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|out
 argument_list|,
@@ -176,8 +179,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Perform Context-specific command      *      * @param camelController the Camel controller      * @param camelContext    non-null {@link CamelContext}      * @param out             the output printer stream      * @param err             the error print stream      * @return response from command, or<tt>null</tt> if nothing to return      * @throws Exception is thrown if error executing command      */
-DECL|method|performContextCommand (CamelController camelController, CamelContext camelContext, PrintStream out, PrintStream err)
+comment|/**      * Perform Context-specific command      *      * @param camelController the Camel controller      * @param contextName     the Camel context name      * @param out             the output printer stream      * @param err             the error print stream      * @return response from command, or<tt>null</tt> if nothing to return      * @throws Exception is thrown if error executing command      */
+DECL|method|performContextCommand (CamelController camelController, String contextName, PrintStream out, PrintStream err)
 specifier|protected
 specifier|abstract
 name|Object
@@ -186,8 +189,8 @@ parameter_list|(
 name|CamelController
 name|camelController
 parameter_list|,
-name|CamelContext
-name|camelContext
+name|String
+name|contextName
 parameter_list|,
 name|PrintStream
 name|out
