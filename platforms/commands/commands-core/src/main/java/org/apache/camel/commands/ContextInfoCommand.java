@@ -627,6 +627,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|verbose
+condition|)
+block|{
 name|out
 operator|.
 name|println
@@ -703,11 +708,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|verbose
-condition|)
-block|{
 name|printStatistics
 argument_list|(
 name|camelController
