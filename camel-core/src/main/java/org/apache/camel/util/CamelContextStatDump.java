@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A model of a route stat dump from {@link org.apache.camel.api.management.mbean.ManagedRouteMBean#dumpRouteStatsAsXml(boolean, boolean)}.  */
+comment|/**  * A model of a CamelContext stat dump from {@link org.apache.camel.api.management.mbean.ManagedCamelContextMBean#dumpRoutesStatsAsXml(boolean, boolean)}.  */
 end_comment
 
 begin_class
@@ -134,7 +134,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"routeStat"
+literal|"camelContextStat"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -143,11 +143,11 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|RouteStatDump
+DECL|class|CamelContextStatDump
 specifier|public
 specifier|final
 class|class
-name|RouteStatDump
+name|CamelContextStatDump
 block|{
 annotation|@
 name|XmlAttribute
@@ -315,7 +315,7 @@ name|XmlElementWrapper
 argument_list|(
 name|name
 operator|=
-literal|"processorStats"
+literal|"routeStats"
 argument_list|)
 annotation|@
 name|XmlElements
@@ -326,23 +326,23 @@ name|XmlElement
 argument_list|(
 name|type
 operator|=
-name|ProcessorStatDump
+name|RouteStatDump
 operator|.
 name|class
 argument_list|,
 name|name
 operator|=
-literal|"processorStat"
+literal|"routeStat"
 argument_list|)
 block|}
 argument_list|)
-DECL|field|processorStats
+DECL|field|routeStats
 specifier|private
 name|List
 argument_list|<
-name|ProcessorStatDump
+name|RouteStatDump
 argument_list|>
-name|processorStats
+name|routeStats
 decl_stmt|;
 DECL|method|getId ()
 specifier|public
@@ -942,36 +942,36 @@ operator|=
 name|lastExchangeFailureExchangeId
 expr_stmt|;
 block|}
-DECL|method|getProcessorStats ()
+DECL|method|getRouteStats ()
 specifier|public
 name|List
 argument_list|<
-name|ProcessorStatDump
+name|RouteStatDump
 argument_list|>
-name|getProcessorStats
+name|getRouteStats
 parameter_list|()
 block|{
 return|return
-name|processorStats
+name|routeStats
 return|;
 block|}
-DECL|method|setProcessorStats (List<ProcessorStatDump> processorStats)
+DECL|method|setRouteStats (List<RouteStatDump> routeStats)
 specifier|public
 name|void
-name|setProcessorStats
+name|setRouteStats
 parameter_list|(
 name|List
 argument_list|<
-name|ProcessorStatDump
+name|RouteStatDump
 argument_list|>
-name|processorStats
+name|routeStats
 parameter_list|)
 block|{
 name|this
 operator|.
-name|processorStats
+name|routeStats
 operator|=
-name|processorStats
+name|routeStats
 expr_stmt|;
 block|}
 block|}

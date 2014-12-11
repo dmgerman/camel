@@ -445,6 +445,8 @@ argument_list|,
 name|METHOD_COLUMN_LABEL
 argument_list|,
 name|STATE_COLUMN_LABEL
+argument_list|,
+name|ROUTE_COLUMN_LABEL
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -465,6 +467,8 @@ argument_list|,
 literal|"------"
 argument_list|,
 literal|"-----"
+argument_list|,
+literal|"--------"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1194,7 +1198,7 @@ name|getMaxColumnWidth
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|basePathLen
+name|uriLen
 operator|=
 name|Math
 operator|.
@@ -1202,10 +1206,10 @@ name|max
 argument_list|(
 name|MIN_COLUMN_WIDTH
 argument_list|,
-name|basePathLen
+name|uriLen
 argument_list|)
 expr_stmt|;
-name|uriLen
+name|basePathLen
 operator|=
 name|Math
 operator|.
@@ -1213,7 +1217,7 @@ name|max
 argument_list|(
 name|MIN_COLUMN_WIDTH
 argument_list|,
-name|uriLen
+name|basePathLen
 argument_list|)
 expr_stmt|;
 name|uriTemplateLen
@@ -1238,7 +1242,7 @@ argument_list|,
 name|methodLen
 argument_list|)
 expr_stmt|;
-name|routeLen
+name|statusLen
 operator|=
 name|Math
 operator|.
@@ -1246,7 +1250,7 @@ name|max
 argument_list|(
 name|MIN_COLUMN_WIDTH
 argument_list|,
-name|routeLen
+name|statusLen
 argument_list|)
 expr_stmt|;
 comment|// last row does not have min width

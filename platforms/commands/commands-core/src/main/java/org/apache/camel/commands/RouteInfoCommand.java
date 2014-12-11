@@ -90,7 +90,37 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|RouteStatDump
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|isEmpty
 import|;
 end_import
 
@@ -198,7 +228,7 @@ name|stringEscape
 operator|.
 name|unescapeJava
 argument_list|(
-literal|"\u001B[1m\u001B[33mCamel Route "
+literal|"\u001B[1mCamel Route "
 operator|+
 name|routeId
 operator|+
@@ -299,6 +329,19 @@ name|xml
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|long
+name|total
+init|=
+name|route
+operator|.
+name|getExchangesCompleted
+argument_list|()
+operator|+
+name|route
+operator|.
+name|getExchangesFailed
+argument_list|()
+decl_stmt|;
 name|out
 operator|.
 name|println
@@ -309,15 +352,7 @@ name|unescapeJava
 argument_list|(
 literal|"\tExchanges Total: "
 operator|+
-name|route
-operator|.
-name|getExchangesCompleted
-argument_list|()
-operator|+
-name|route
-operator|.
-name|getExchangesFailed
-argument_list|()
+name|total
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -489,12 +524,13 @@ expr_stmt|;
 comment|// Test for null to see if a any exchanges have been processed first to avoid NPE
 if|if
 condition|(
+name|isEmpty
+argument_list|(
 name|route
 operator|.
 name|getResetTimestamp
 argument_list|()
-operator|==
-literal|null
+argument_list|)
 condition|)
 block|{
 comment|// Print an empty value for scripting
@@ -562,12 +598,13 @@ block|}
 comment|// Test for null to see if a any exchanges have been processed first to avoid NPE
 if|if
 condition|(
+name|isEmpty
+argument_list|(
 name|route
 operator|.
 name|getFirstExchangeCompletedTimestamp
 argument_list|()
-operator|==
-literal|null
+argument_list|)
 condition|)
 block|{
 comment|// Print an empty value for scripting
@@ -635,12 +672,13 @@ block|}
 comment|// Test for null to see if a any exchanges have been processed first to avoid NPE
 if|if
 condition|(
+name|isEmpty
+argument_list|(
 name|route
 operator|.
 name|getLastExchangeCompletedTimestamp
 argument_list|()
-operator|==
-literal|null
+argument_list|)
 condition|)
 block|{
 comment|// Print an empty value for scripting

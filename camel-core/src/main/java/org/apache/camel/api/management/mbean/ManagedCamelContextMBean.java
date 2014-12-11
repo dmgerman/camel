@@ -809,7 +809,7 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Dumps the routes stats as XML"
+literal|"Dumps the CamelContext and routes stats as XML"
 argument_list|)
 DECL|method|dumpRoutesStatsAsXml (boolean fullStats, boolean includeProcessors)
 name|String

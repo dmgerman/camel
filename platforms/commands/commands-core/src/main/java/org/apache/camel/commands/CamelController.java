@@ -131,6 +131,23 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Returns detailed CamelContext and route statistics as XML identified by a ID and a Camel context.      *      * @param camelContextName  the Camel context.      * @param fullStats         whether to include verbose stats      * @param includeProcessors whether to embed per processor stats from the route      * @return the CamelContext statistics as XML      * @throws java.lang.Exception can be thrown      */
+DECL|method|getCamelContextStatsAsXml (String camelContextName, boolean fullStats, boolean includeProcessors)
+name|String
+name|getCamelContextStatsAsXml
+parameter_list|(
+name|String
+name|camelContextName
+parameter_list|,
+name|boolean
+name|fullStats
+parameter_list|,
+name|boolean
+name|includeProcessors
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Starts the given Camel context.      *      * @param camelContextName the Camel context.      * @throws java.lang.Exception can be thrown      */
 DECL|method|startContext (String camelContextName)
 name|void

@@ -78,6 +78,22 @@ name|Command
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|felix
+operator|.
+name|gogo
+operator|.
+name|commands
+operator|.
+name|Option
+import|;
+end_import
+
 begin_class
 annotation|@
 name|Command
@@ -129,19 +145,19 @@ name|String
 name|name
 decl_stmt|;
 annotation|@
-name|Argument
+name|Option
 argument_list|(
-name|index
-operator|=
-literal|1
-argument_list|,
 name|name
 operator|=
-literal|"mode"
+literal|"--verbose"
+argument_list|,
+name|aliases
+operator|=
+literal|"-v"
 argument_list|,
 name|description
 operator|=
-literal|"Allows for different display modes (--verbose, etc)"
+literal|"Verbose output"
 argument_list|,
 name|required
 operator|=
@@ -150,10 +166,14 @@ argument_list|,
 name|multiValued
 operator|=
 literal|false
+argument_list|,
+name|valueToShowInHelp
+operator|=
+literal|"false"
 argument_list|)
-DECL|field|mode
-name|String
-name|mode
+DECL|field|verbose
+name|boolean
+name|verbose
 decl_stmt|;
 DECL|field|stringEscape
 specifier|private
@@ -194,7 +214,7 @@ name|ContextInfoCommand
 argument_list|(
 name|name
 argument_list|,
-name|mode
+name|verbose
 argument_list|)
 decl_stmt|;
 name|command

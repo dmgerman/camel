@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A model of a route stat dump from {@link org.apache.camel.api.management.mbean.ManagedRouteMBean#dumpRouteAsXml()}.  */
+comment|/**  * A model of a route stat dump from {@link org.apache.camel.api.management.mbean.ManagedRouteMBean#dumpRouteStatsAsXml(boolean, boolean)}.  */
 end_comment
 
 begin_class
