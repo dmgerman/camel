@@ -38,6 +38,10 @@ name|CamelContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * A {@link org.apache.camel.commands.CamelController} that runs locally, eg within the same JVM as the {@link CamelContext}s  * it manages.  *  * For example the Apache Camel Karaf commands does this.  */
+end_comment
+
 begin_interface
 DECL|interface|LocalCamelController
 specifier|public
