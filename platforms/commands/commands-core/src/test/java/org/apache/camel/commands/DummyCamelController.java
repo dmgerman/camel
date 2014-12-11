@@ -74,7 +74,7 @@ specifier|public
 class|class
 name|DummyCamelController
 extends|extends
-name|AbstractCamelController
+name|AbstractLocalCamelController
 block|{
 DECL|field|camelContext
 specifier|private
@@ -98,13 +98,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getCamelContexts ()
+DECL|method|getLocalCamelContexts ()
 specifier|public
 name|List
 argument_list|<
 name|CamelContext
 argument_list|>
-name|getCamelContexts
+name|getLocalCamelContexts
 parameter_list|()
 block|{
 name|List
@@ -135,7 +135,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getCamelContexts2 ()
+DECL|method|getCamelContexts ()
 specifier|public
 name|List
 argument_list|<
@@ -146,7 +146,7 @@ argument_list|,
 name|String
 argument_list|>
 argument_list|>
-name|getCamelContexts2
+name|getCamelContexts
 parameter_list|()
 throws|throws
 name|Exception

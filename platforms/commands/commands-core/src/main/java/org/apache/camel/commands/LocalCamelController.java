@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.karaf.commands.completers
+DECL|package|org.apache.camel.commands
 package|package
 name|org
 operator|.
@@ -12,13 +12,19 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|karaf
-operator|.
 name|commands
-operator|.
-name|completers
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
 
 begin_import
 import|import
@@ -28,64 +34,42 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|commands
-operator|.
-name|LocalCamelController
+name|CamelContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|karaf
-operator|.
-name|shell
-operator|.
-name|console
-operator|.
-name|Completer
-import|;
-end_import
-
-begin_comment
-comment|/**  * The abstract base class for completers.  */
-end_comment
-
-begin_class
-DECL|class|CamelCompleterSupport
+begin_interface
+DECL|interface|LocalCamelController
 specifier|public
-specifier|abstract
-class|class
-name|CamelCompleterSupport
-implements|implements
-name|Completer
+interface|interface
+name|LocalCamelController
+extends|extends
+name|CamelController
 block|{
-DECL|field|camelController
-specifier|protected
-name|LocalCamelController
-name|camelController
-decl_stmt|;
-DECL|method|setCamelController (LocalCamelController camelController)
-specifier|public
-name|void
-name|setCamelController
+comment|/**      * Get the list of Camel context.      *      * @return the list of Camel contexts.      * @throws Exception can be thrown      */
+DECL|method|getLocalCamelContexts ()
+name|List
+argument_list|<
+name|CamelContext
+argument_list|>
+name|getLocalCamelContexts
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Get a Camel context identified by the given name.      *      * @param name the Camel context name.      * @return the Camel context or null if not found.      * @throws Exception can be thrown      */
+DECL|method|getLocalCamelContext (String name)
+name|CamelContext
+name|getLocalCamelContext
 parameter_list|(
-name|LocalCamelController
-name|camelController
+name|String
+name|name
 parameter_list|)
-block|{
-name|this
-operator|.
-name|camelController
-operator|=
-name|camelController
-expr_stmt|;
+throws|throws
+name|Exception
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

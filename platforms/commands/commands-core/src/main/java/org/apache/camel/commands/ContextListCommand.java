@@ -202,7 +202,7 @@ name|camelContexts
 init|=
 name|camelController
 operator|.
-name|getCamelContexts2
+name|getCamelContexts
 argument_list|()
 decl_stmt|;
 specifier|final

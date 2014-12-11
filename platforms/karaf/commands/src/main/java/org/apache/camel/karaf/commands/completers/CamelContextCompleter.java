@@ -107,7 +107,7 @@ name|camelContexts
 init|=
 name|camelController
 operator|.
-name|getCamelContexts
+name|getLocalCamelContexts
 argument_list|()
 decl_stmt|;
 for|for

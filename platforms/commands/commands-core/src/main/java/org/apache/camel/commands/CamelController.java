@@ -46,18 +46,6 @@ name|Set
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelContext
-import|;
-end_import
-
 begin_comment
 comment|/**  * CamelController interface defines the expected behaviors to manipulate Camel resources (context, route, etc).  */
 end_comment
@@ -68,36 +56,6 @@ specifier|public
 interface|interface
 name|CamelController
 block|{
-comment|// TODO: migrate camel context commands
-comment|// TODO: fix classloading in karaf for explain-endpoint
-comment|// TODO: AbstractCamelController should have a LocalAbstractCamelController
-comment|// .. and then the AbstractCamelController is pure base, that can be used for remotes
-comment|/**      * Get the list of Camel context.      *      * @return the list of Camel contexts.      * @throws java.lang.Exception can be thrown      */
-annotation|@
-name|Deprecated
-DECL|method|getCamelContexts ()
-name|List
-argument_list|<
-name|CamelContext
-argument_list|>
-name|getCamelContexts
-parameter_list|()
-throws|throws
-name|Exception
-function_decl|;
-comment|/**      * Get a Camel context identified by the given name.      *      * @param name the Camel context name.      * @return the Camel context or null if not found.      * @throws java.lang.Exception can be thrown      */
-annotation|@
-name|Deprecated
-DECL|method|getCamelContext (String name)
-name|CamelContext
-name|getCamelContext
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-throws|throws
-name|Exception
-function_decl|;
 comment|/**      * Gets information about a given Camel context by the given name.      *      * @param name the Camel context name.      * @return a list of key/value pairs with CamelContext information      * @throws java.lang.Exception can be thrown      */
 DECL|method|getCamelContextInformation (String name)
 name|Map
@@ -115,8 +73,7 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Get the list of Camel context.      *      * @return a list of key/value pairs with CamelContext information      * @throws java.lang.Exception can be thrown      */
-comment|// TODO: rename
-DECL|method|getCamelContexts2 ()
+DECL|method|getCamelContexts ()
 name|List
 argument_list|<
 name|Map
@@ -126,7 +83,7 @@ argument_list|,
 name|String
 argument_list|>
 argument_list|>
-name|getCamelContexts2
+name|getCamelContexts
 parameter_list|()
 throws|throws
 name|Exception
