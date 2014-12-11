@@ -454,18 +454,6 @@ name|String
 index|[]
 block|{
 literal|"option"
-block|,
-literal|"kind"
-block|,
-literal|"type"
-block|,
-literal|"java type"
-block|,
-literal|"value"
-block|,
-literal|"default value"
-block|,
-literal|"description"
 block|}
 argument_list|)
 return|;
@@ -590,20 +578,6 @@ name|String
 index|[]
 block|{
 literal|"name"
-block|,
-literal|"description"
-block|,
-literal|"label"
-block|,
-literal|"status"
-block|,
-literal|"type"
-block|,
-literal|"groupId"
-block|,
-literal|"artifactId"
-block|,
-literal|"version"
 block|}
 argument_list|)
 return|;
