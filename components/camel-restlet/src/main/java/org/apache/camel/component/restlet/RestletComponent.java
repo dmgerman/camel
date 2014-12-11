@@ -604,6 +604,11 @@ specifier|private
 name|int
 name|port
 decl_stmt|;
+DECL|field|synchronous
+specifier|private
+name|Boolean
+name|synchronous
+decl_stmt|;
 DECL|method|RestletComponent ()
 specifier|public
 name|RestletComponent
@@ -676,6 +681,21 @@ argument_list|,
 name|remaining
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|synchronous
+operator|!=
+literal|null
+condition|)
+block|{
+name|result
+operator|.
+name|setSynchronous
+argument_list|(
+name|synchronous
+argument_list|)
+expr_stmt|;
+block|}
 name|result
 operator|.
 name|setDisableStreamCache
@@ -3321,6 +3341,32 @@ operator|.
 name|port
 operator|=
 name|port
+expr_stmt|;
+block|}
+DECL|method|getSynchronous ()
+specifier|public
+name|Boolean
+name|getSynchronous
+parameter_list|()
+block|{
+return|return
+name|synchronous
+return|;
+block|}
+DECL|method|setSynchronous (Boolean synchronous)
+specifier|public
+name|void
+name|setSynchronous
+parameter_list|(
+name|Boolean
+name|synchronous
+parameter_list|)
+block|{
+name|this
+operator|.
+name|synchronous
+operator|=
+name|synchronous
 expr_stmt|;
 block|}
 annotation|@
