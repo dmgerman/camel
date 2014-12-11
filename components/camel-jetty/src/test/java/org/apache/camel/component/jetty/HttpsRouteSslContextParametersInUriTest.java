@@ -259,7 +259,6 @@ parameter_list|()
 throws|throws
 name|URISyntaxException
 block|{
-comment|// create jetty component
 name|JettyHttpComponent
 name|jetty
 init|=
@@ -268,43 +267,17 @@ name|JettyHttpComponent
 argument_list|()
 decl_stmt|;
 comment|// NOTE: These are here to check that they are properly ignored.
-name|jetty
-operator|.
-name|addSslSocketConnectorProperty
+name|setSSLProps
 argument_list|(
-literal|"keyPassword"
+name|jetty
+argument_list|,
+literal|""
+argument_list|,
+literal|"asdfasdfasdfdasfs"
 argument_list|,
 literal|"sadfasdfasdfas"
 argument_list|)
 expr_stmt|;
-name|jetty
-operator|.
-name|addSslSocketConnectorProperty
-argument_list|(
-literal|"password"
-argument_list|,
-literal|"asdfasdfasdfdasfs"
-argument_list|)
-expr_stmt|;
-name|jetty
-operator|.
-name|addSslSocketConnectorProperty
-argument_list|(
-literal|"keystore"
-argument_list|,
-literal|""
-argument_list|)
-expr_stmt|;
-name|jetty
-operator|.
-name|addSslSocketConnectorProperty
-argument_list|(
-literal|"truststoreType"
-argument_list|,
-literal|"JKS"
-argument_list|)
-expr_stmt|;
-comment|// add jetty to camel context
 name|context
 operator|.
 name|addComponent

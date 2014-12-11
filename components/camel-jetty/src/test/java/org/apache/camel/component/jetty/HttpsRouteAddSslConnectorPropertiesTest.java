@@ -135,7 +135,6 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
-comment|// create jetty component
 name|JettyHttpComponent
 name|jetty
 init|=
@@ -143,44 +142,17 @@ operator|new
 name|JettyHttpComponent
 argument_list|()
 decl_stmt|;
-comment|// add SSL properties
-name|jetty
-operator|.
-name|addSslSocketConnectorProperty
+name|setSSLProps
 argument_list|(
-literal|"keyPassword"
-argument_list|,
-name|pwd
-argument_list|)
-expr_stmt|;
 name|jetty
-operator|.
-name|addSslSocketConnectorProperty
-argument_list|(
-literal|"password"
-argument_list|,
-name|pwd
-argument_list|)
-expr_stmt|;
-name|jetty
-operator|.
-name|addSslSocketConnectorProperty
-argument_list|(
-literal|"keystore"
 argument_list|,
 name|path
-argument_list|)
-expr_stmt|;
-name|jetty
-operator|.
-name|addSslSocketConnectorProperty
-argument_list|(
-literal|"truststoreType"
 argument_list|,
-literal|"JKS"
+name|pwd
+argument_list|,
+name|pwd
 argument_list|)
 expr_stmt|;
-comment|// add jetty to camel context
 name|context
 operator|.
 name|addComponent
