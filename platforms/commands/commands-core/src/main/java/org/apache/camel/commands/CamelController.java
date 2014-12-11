@@ -58,18 +58,6 @@ name|CamelContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Route
-import|;
-end_import
-
 begin_comment
 comment|/**  * CamelController interface defines the expected behaviors to manipulate Camel resources (context, route, etc).  */
 end_comment
@@ -80,7 +68,13 @@ specifier|public
 interface|interface
 name|CamelController
 block|{
+comment|// TODO: migrate camel context commands
+comment|// TODO: fix classloading in karaf for explain-endpoint
+comment|// TODO: AbstractCamelController should have a LocalAbstractCamelController
+comment|// .. and then the AbstractCamelController is pure base, that can be used for remotes
 comment|/**      * Get the list of Camel context.      *      * @return the list of Camel contexts.      * @throws java.lang.Exception can be thrown      */
+annotation|@
+name|Deprecated
 DECL|method|getCamelContexts ()
 name|List
 argument_list|<
@@ -92,6 +86,8 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Get a Camel context identified by the given name.      *      * @param name the Camel context name.      * @return the Camel context or null if not found.      * @throws java.lang.Exception can be thrown      */
+annotation|@
+name|Deprecated
 DECL|method|getCamelContext (String name)
 name|CamelContext
 name|getCamelContext
