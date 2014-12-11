@@ -328,7 +328,7 @@ name|row
 operator|.
 name|get
 argument_list|(
-literal|"updtime"
+literal|"uptime"
 argument_list|)
 argument_list|)
 argument_list|)

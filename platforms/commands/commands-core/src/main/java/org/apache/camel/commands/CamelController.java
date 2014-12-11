@@ -98,6 +98,22 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Gets information about a given Camel context by the given name.      *      * @param name the Camel context name.      * @return a list of key/value pairs with CamelContext information      * @throws java.lang.Exception can be thrown      */
+DECL|method|getCamelContextInformation (String name)
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getCamelContextInformation
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Get the list of Camel context.      *      * @return a list of key/value pairs with CamelContext information      * @throws java.lang.Exception can be thrown      */
 comment|// TODO: rename
 DECL|method|getCamelContexts2 ()
