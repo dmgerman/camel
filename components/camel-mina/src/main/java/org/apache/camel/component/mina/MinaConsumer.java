@@ -629,12 +629,10 @@ name|body
 decl_stmt|;
 if|if
 condition|(
-name|ExchangeHelper
-operator|.
-name|isOutCapable
-argument_list|(
 name|exchange
-argument_list|)
+operator|.
+name|hasOut
+argument_list|()
 condition|)
 block|{
 name|body

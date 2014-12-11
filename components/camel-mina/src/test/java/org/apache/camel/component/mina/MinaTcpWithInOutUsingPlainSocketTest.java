@@ -337,6 +337,34 @@ literal|"java.lang.IllegalArgumentException: Forced exception"
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|testExchangeWithInOnly ()
+specifier|public
+name|void
+name|testExchangeWithInOnly
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|String
+name|out
+init|=
+name|sendAndReceive
+argument_list|(
+literal|"force-set-in-body"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong response message"
+argument_list|,
+literal|"Update the in message!"
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|sendAndReceive (String input)
 specifier|private
 name|String
@@ -619,6 +647,28 @@ argument_list|(
 literal|"Forced exception"
 argument_list|)
 throw|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"force-set-in-body"
+operator|.
+name|equals
+argument_list|(
+name|in
+argument_list|)
+condition|)
+block|{
+name|e
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"Update the in message!"
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
