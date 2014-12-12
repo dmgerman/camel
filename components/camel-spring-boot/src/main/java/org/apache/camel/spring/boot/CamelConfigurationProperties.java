@@ -47,6 +47,7 @@ specifier|public
 class|class
 name|CamelConfigurationProperties
 block|{
+comment|/**      * Enable JMX support for the CamelContext.      */
 DECL|field|jmxEnabled
 specifier|private
 name|boolean
@@ -54,6 +55,7 @@ name|jmxEnabled
 init|=
 literal|true
 decl_stmt|;
+comment|/**      * Producer template endpoints cache size.      */
 DECL|field|producerTemplateCacheSize
 specifier|private
 name|int
@@ -61,6 +63,7 @@ name|producerTemplateCacheSize
 init|=
 literal|1000
 decl_stmt|;
+comment|/**      * Consumer template endpoints cache size.      */
 DECL|field|consumerTemplateCacheSize
 specifier|private
 name|int
