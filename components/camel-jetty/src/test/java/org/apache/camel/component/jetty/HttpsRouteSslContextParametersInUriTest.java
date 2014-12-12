@@ -262,9 +262,17 @@ block|{
 name|JettyHttpComponent
 name|jetty
 init|=
-operator|new
-name|JettyHttpComponent
+name|getContext
 argument_list|()
+operator|.
+name|getComponent
+argument_list|(
+literal|"jetty"
+argument_list|,
+name|JettyHttpComponent
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 comment|// NOTE: These are here to check that they are properly ignored.
 name|setSSLProps
@@ -276,15 +284,6 @@ argument_list|,
 literal|"asdfasdfasdfdasfs"
 argument_list|,
 literal|"sadfasdfasdfas"
-argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|addComponent
-argument_list|(
-literal|"jetty"
-argument_list|,
-name|jetty
 argument_list|)
 expr_stmt|;
 name|from

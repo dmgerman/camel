@@ -293,30 +293,26 @@ name|port2
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// create jetty component
 name|JettyHttpComponent
 name|jetty
 init|=
-operator|new
-name|JettyHttpComponent
+name|getContext
 argument_list|()
+operator|.
+name|getComponent
+argument_list|(
+literal|"jetty"
+argument_list|,
+name|JettyHttpComponent
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
-comment|// add connectors
 name|jetty
 operator|.
 name|setSslSocketConnectors
 argument_list|(
 name|connectors
-argument_list|)
-expr_stmt|;
-comment|// add jetty to camel context
-name|context
-operator|.
-name|addComponent
-argument_list|(
-literal|"jetty"
-argument_list|,
-name|jetty
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e1

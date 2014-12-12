@@ -226,30 +226,26 @@ argument_list|,
 literal|"5000"
 argument_list|)
 expr_stmt|;
-comment|// create jetty component
 name|JettyHttpComponent
 name|jetty
 init|=
-operator|new
-name|JettyHttpComponent
+name|getContext
 argument_list|()
+operator|.
+name|getComponent
+argument_list|(
+literal|"jetty"
+argument_list|,
+name|JettyHttpComponent
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
-comment|// set properties
 name|jetty
 operator|.
 name|setSocketConnectorProperties
 argument_list|(
 name|properties
-argument_list|)
-expr_stmt|;
-comment|// add jetty to camel context
-name|context
-operator|.
-name|addComponent
-argument_list|(
-literal|"jetty"
-argument_list|,
-name|jetty
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e1

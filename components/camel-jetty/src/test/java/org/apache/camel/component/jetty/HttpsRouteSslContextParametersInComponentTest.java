@@ -144,13 +144,20 @@ parameter_list|()
 throws|throws
 name|URISyntaxException
 block|{
-comment|// create jetty component
 name|JettyHttpComponent
 name|jetty
 init|=
-operator|new
-name|JettyHttpComponent
+name|getContext
 argument_list|()
+operator|.
+name|getComponent
+argument_list|(
+literal|"jetty"
+argument_list|,
+name|JettyHttpComponent
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 name|KeyStoreParameters
 name|ksp
@@ -239,16 +246,6 @@ argument_list|,
 literal|"asdfasdfasdfdasfs"
 argument_list|,
 literal|"sadfasdfasdfas"
-argument_list|)
-expr_stmt|;
-comment|// add jetty to camel context
-name|context
-operator|.
-name|addComponent
-argument_list|(
-literal|"jetty"
-argument_list|,
-name|jetty
 argument_list|)
 expr_stmt|;
 name|from

@@ -138,9 +138,16 @@ decl_stmt|;
 name|JettyHttpComponent
 name|jetty
 init|=
-operator|new
+name|context
+operator|.
+name|getComponent
+argument_list|(
+literal|"jetty"
+argument_list|,
 name|JettyHttpComponent
-argument_list|()
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 name|setSSLProps
 argument_list|(
@@ -151,15 +158,6 @@ argument_list|,
 name|pwd
 argument_list|,
 name|pwd
-argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|addComponent
-argument_list|(
-literal|"jetty"
-argument_list|,
-name|jetty
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e1
