@@ -395,7 +395,7 @@ return|return
 operator|new
 name|CompositeType
 argument_list|(
-literal|"url"
+literal|"endpoints"
 argument_list|,
 literal|"Endpoints"
 argument_list|,
@@ -471,9 +471,9 @@ return|return
 operator|new
 name|CompositeType
 argument_list|(
-literal|"endpoint"
+literal|"endpoints"
 argument_list|,
-literal|"Explain Endpoint"
+literal|"Endpoints"
 argument_list|,
 operator|new
 name|String
@@ -595,7 +595,7 @@ return|return
 operator|new
 name|CompositeType
 argument_list|(
-literal|"name"
+literal|"components"
 argument_list|,
 literal|"Components"
 argument_list|,
