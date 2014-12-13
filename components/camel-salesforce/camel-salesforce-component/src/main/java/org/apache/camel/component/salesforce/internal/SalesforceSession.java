@@ -802,11 +802,11 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Logging clientId: {} into Salesforce url: {}"
+literal|"Login user {} at Salesforce url: {}"
 argument_list|,
 name|config
 operator|.
-name|getClientId
+name|getUserName
 argument_list|()
 argument_list|,
 name|url

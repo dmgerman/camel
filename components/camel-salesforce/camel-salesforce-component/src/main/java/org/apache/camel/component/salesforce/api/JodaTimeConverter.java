@@ -42,6 +42,20 @@ name|xstream
 operator|.
 name|converters
 operator|.
+name|ConversionException
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|thoughtworks
+operator|.
+name|xstream
+operator|.
+name|converters
+operator|.
 name|Converter
 import|;
 end_import
@@ -153,6 +167,10 @@ operator|.
 name|ISODateTimeFormat
 import|;
 end_import
+
+begin_comment
+comment|/**  * XStream converter for handling JodaTime fields.  */
+end_comment
 
 begin_class
 DECL|class|JodaTimeConverter
@@ -287,7 +305,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|IllegalArgumentException
+name|ConversionException
 argument_list|(
 name|String
 operator|.
