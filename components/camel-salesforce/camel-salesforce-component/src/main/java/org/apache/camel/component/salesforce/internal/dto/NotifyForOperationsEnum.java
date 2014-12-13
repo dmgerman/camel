@@ -77,6 +77,12 @@ name|ALL
 argument_list|(
 literal|"All"
 argument_list|)
+block|,
+DECL|enumConstant|EXTENDED
+name|EXTENDED
+argument_list|(
+literal|"Extended"
+argument_list|)
 block|;
 DECL|field|value
 specifier|final
