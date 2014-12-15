@@ -432,11 +432,6 @@ name|unit
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|stop ()
 specifier|public
 name|Set
@@ -450,7 +445,8 @@ comment|// do nothing here;
 return|return
 name|Collections
 operator|.
-name|EMPTY_SET
+name|emptySet
+argument_list|()
 return|;
 block|}
 block|}
