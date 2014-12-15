@@ -78,7 +78,7 @@ literal|"http://localhost:8080/jolokia"
 decl_stmt|;
 DECL|field|controller
 specifier|private
-name|RemoteCamelController
+name|JolokiaCamelController
 name|controller
 decl_stmt|;
 annotation|@
@@ -94,7 +94,7 @@ block|{
 name|controller
 operator|=
 operator|new
-name|JolokiaCamelController
+name|DefaultJolokiaCamelController
 argument_list|()
 expr_stmt|;
 name|controller
@@ -147,7 +147,7 @@ block|{
 name|controller
 operator|=
 operator|new
-name|JolokiaCamelController
+name|DefaultJolokiaCamelController
 argument_list|()
 expr_stmt|;
 name|controller
@@ -199,7 +199,7 @@ block|{
 name|controller
 operator|=
 operator|new
-name|JolokiaCamelController
+name|DefaultJolokiaCamelController
 argument_list|()
 expr_stmt|;
 name|controller
@@ -250,7 +250,7 @@ block|{
 name|controller
 operator|=
 operator|new
-name|JolokiaCamelController
+name|DefaultJolokiaCamelController
 argument_list|()
 expr_stmt|;
 name|controller
@@ -341,7 +341,7 @@ block|{
 name|controller
 operator|=
 operator|new
-name|JolokiaCamelController
+name|DefaultJolokiaCamelController
 argument_list|()
 expr_stmt|;
 name|controller
@@ -396,7 +396,7 @@ block|{
 name|controller
 operator|=
 operator|new
-name|JolokiaCamelController
+name|DefaultJolokiaCamelController
 argument_list|()
 expr_stmt|;
 name|controller
@@ -451,7 +451,7 @@ block|{
 name|controller
 operator|=
 operator|new
-name|JolokiaCamelController
+name|DefaultJolokiaCamelController
 argument_list|()
 expr_stmt|;
 name|controller
@@ -508,7 +508,7 @@ block|{
 name|controller
 operator|=
 operator|new
-name|JolokiaCamelController
+name|DefaultJolokiaCamelController
 argument_list|()
 expr_stmt|;
 name|controller
@@ -543,7 +543,7 @@ block|{
 name|controller
 operator|=
 operator|new
-name|JolokiaCamelController
+name|DefaultJolokiaCamelController
 argument_list|()
 expr_stmt|;
 name|controller
@@ -645,7 +645,7 @@ block|{
 name|controller
 operator|=
 operator|new
-name|JolokiaCamelController
+name|DefaultJolokiaCamelController
 argument_list|()
 expr_stmt|;
 name|controller
@@ -694,7 +694,7 @@ block|{
 name|controller
 operator|=
 operator|new
-name|JolokiaCamelController
+name|DefaultJolokiaCamelController
 argument_list|()
 expr_stmt|;
 name|controller
@@ -747,7 +747,7 @@ block|{
 name|controller
 operator|=
 operator|new
-name|JolokiaCamelController
+name|DefaultJolokiaCamelController
 argument_list|()
 expr_stmt|;
 name|controller
@@ -794,7 +794,7 @@ block|{
 name|controller
 operator|=
 operator|new
-name|JolokiaCamelController
+name|DefaultJolokiaCamelController
 argument_list|()
 expr_stmt|;
 name|controller
@@ -849,7 +849,7 @@ block|{
 name|controller
 operator|=
 operator|new
-name|JolokiaCamelController
+name|DefaultJolokiaCamelController
 argument_list|()
 expr_stmt|;
 name|controller
@@ -904,7 +904,7 @@ block|{
 name|controller
 operator|=
 operator|new
-name|JolokiaCamelController
+name|DefaultJolokiaCamelController
 argument_list|()
 expr_stmt|;
 name|controller
@@ -955,7 +955,7 @@ block|{
 name|controller
 operator|=
 operator|new
-name|JolokiaCamelController
+name|DefaultJolokiaCamelController
 argument_list|()
 expr_stmt|;
 name|controller
