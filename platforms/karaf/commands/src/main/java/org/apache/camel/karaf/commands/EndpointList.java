@@ -94,7 +94,7 @@ literal|"endpoint-list"
 argument_list|,
 name|description
 operator|=
-literal|"Lists Camel endpoints."
+literal|"Lists Camel endpoints"
 argument_list|)
 DECL|class|EndpointList
 specifier|public

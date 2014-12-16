@@ -62,7 +62,7 @@ literal|"route-resume"
 argument_list|,
 name|description
 operator|=
-literal|"Resume a Camel route or a group of routes."
+literal|"Resume a Camel route"
 argument_list|)
 DECL|class|RouteResume
 specifier|public

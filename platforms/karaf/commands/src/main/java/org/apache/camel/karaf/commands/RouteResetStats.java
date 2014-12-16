@@ -44,6 +44,22 @@ name|gogo
 operator|.
 name|commands
 operator|.
+name|Argument
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|felix
+operator|.
+name|gogo
+operator|.
+name|commands
+operator|.
 name|Command
 import|;
 end_import
@@ -62,15 +78,42 @@ literal|"route-reset-stats"
 argument_list|,
 name|description
 operator|=
-literal|"Reset performance stats on a route or group of routes"
+literal|"Reset route performance stats from a CamelContext"
 argument_list|)
 DECL|class|RouteResetStats
 specifier|public
 class|class
 name|RouteResetStats
 extends|extends
-name|AbstractRouteCommand
+name|CamelCommandSupport
 block|{
+annotation|@
+name|Argument
+argument_list|(
+name|index
+operator|=
+literal|0
+argument_list|,
+name|name
+operator|=
+literal|"context"
+argument_list|,
+name|description
+operator|=
+literal|"The name of the Camel context."
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|,
+name|multiValued
+operator|=
+literal|false
+argument_list|)
+DECL|field|context
+name|String
+name|context
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|doExecute ()

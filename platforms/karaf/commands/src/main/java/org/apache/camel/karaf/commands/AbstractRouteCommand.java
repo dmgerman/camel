@@ -87,7 +87,7 @@ literal|"The Camel context name."
 argument_list|,
 name|required
 operator|=
-literal|false
+literal|true
 argument_list|,
 name|multiValued
 operator|=

@@ -62,7 +62,7 @@ literal|"route-start"
 argument_list|,
 name|description
 operator|=
-literal|"Start a Camel route or a group of routes"
+literal|"Start a Camel route"
 argument_list|)
 DECL|class|RouteStart
 specifier|public

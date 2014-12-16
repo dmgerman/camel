@@ -62,7 +62,7 @@ literal|" route-stop"
 argument_list|,
 name|description
 operator|=
-literal|"Stop a Camel route or a group of routes."
+literal|"Stop a Camel route"
 argument_list|)
 DECL|class|RouteStop
 specifier|public

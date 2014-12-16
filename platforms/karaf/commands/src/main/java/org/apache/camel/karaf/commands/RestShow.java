@@ -78,7 +78,7 @@ literal|"rest-show"
 argument_list|,
 name|description
 operator|=
-literal|"Display the Camel REST definition in XML."
+literal|"Display the Camel REST definition in XML"
 argument_list|)
 DECL|class|RestShow
 specifier|public

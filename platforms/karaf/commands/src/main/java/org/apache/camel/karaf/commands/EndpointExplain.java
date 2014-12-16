@@ -94,7 +94,7 @@ literal|"endpoint-explain"
 argument_list|,
 name|description
 operator|=
-literal|"Explain all Camel endpoints available in CamelContexts."
+literal|"Explain all Camel endpoints available in the CamelContext"
 argument_list|)
 DECL|class|EndpointExplain
 specifier|public

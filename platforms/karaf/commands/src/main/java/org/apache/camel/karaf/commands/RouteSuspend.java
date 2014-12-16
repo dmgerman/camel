@@ -62,7 +62,7 @@ literal|" route-suspend"
 argument_list|,
 name|description
 operator|=
-literal|"Suspend a Camel route or a group of routes."
+literal|"Suspend a Camel route"
 argument_list|)
 DECL|class|RouteSuspend
 specifier|public

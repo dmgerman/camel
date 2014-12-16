@@ -78,7 +78,7 @@ literal|"route-show"
 argument_list|,
 name|description
 operator|=
-literal|"Display the Camel route definition in XML."
+literal|"Display the Camel route definition in XML"
 argument_list|)
 DECL|class|RouteShow
 specifier|public
