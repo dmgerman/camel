@@ -413,44 +413,6 @@ name|stringEscape
 operator|.
 name|unescapeJava
 argument_list|(
-literal|"\tAuto Startup: "
-operator|+
-name|row
-operator|.
-name|get
-argument_list|(
-literal|"autoStartup"
-argument_list|)
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
-name|println
-argument_list|(
-name|stringEscape
-operator|.
-name|unescapeJava
-argument_list|(
-literal|"\tStarting Routes: "
-operator|+
-name|row
-operator|.
-name|get
-argument_list|(
-literal|"startingRoutes"
-argument_list|)
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|out
-operator|.
-name|println
-argument_list|(
-name|stringEscape
-operator|.
-name|unescapeJava
-argument_list|(
 literal|"\tSuspended: "
 operator|+
 name|row
