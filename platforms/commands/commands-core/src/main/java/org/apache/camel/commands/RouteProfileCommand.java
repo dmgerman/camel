@@ -226,8 +226,6 @@ name|contextName
 argument_list|)
 condition|)
 block|{
-name|System
-operator|.
 name|out
 operator|.
 name|println
@@ -235,8 +233,6 @@ argument_list|(
 literal|""
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
 name|out
 operator|.
 name|println
@@ -249,8 +245,6 @@ literal|"\u001B[1mProfile\u001B[0m"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
 name|out
 operator|.
 name|println
@@ -265,8 +259,6 @@ name|contextName
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
 name|out
 operator|.
 name|println
@@ -344,8 +336,6 @@ operator|.
 name|getExchangesFailed
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
 name|out
 operator|.
 name|println
@@ -433,8 +423,6 @@ name|getExchangesFailed
 argument_list|()
 expr_stmt|;
 comment|// indent route id with 2 spaces
-name|System
-operator|.
 name|out
 operator|.
 name|println

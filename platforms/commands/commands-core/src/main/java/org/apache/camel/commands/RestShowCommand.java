@@ -100,10 +100,9 @@ operator|+
 name|contextName
 argument_list|)
 expr_stmt|;
-return|return
-literal|null
-return|;
 block|}
+else|else
+block|{
 name|out
 operator|.
 name|println
@@ -111,6 +110,7 @@ argument_list|(
 name|xml
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 literal|null
 return|;
