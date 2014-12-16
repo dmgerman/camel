@@ -76,7 +76,7 @@ name|Exception
 block|{
 name|camelController
 operator|.
-name|resumeContext
+name|suspendContext
 argument_list|(
 name|contextName
 argument_list|)
