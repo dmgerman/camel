@@ -220,28 +220,26 @@ init|=
 literal|12
 decl_stmt|;
 DECL|field|decode
-name|Boolean
+name|boolean
 name|decode
 init|=
 literal|true
 decl_stmt|;
 DECL|field|verbose
-name|Boolean
+name|boolean
 name|verbose
-init|=
-literal|false
 decl_stmt|;
-DECL|method|RestRegistryListCommand (String context, Boolean decode, Boolean verbose)
+DECL|method|RestRegistryListCommand (String context, boolean decode, boolean verbose)
 specifier|public
 name|RestRegistryListCommand
 parameter_list|(
 name|String
 name|context
 parameter_list|,
-name|Boolean
+name|boolean
 name|decode
 parameter_list|,
-name|Boolean
+name|boolean
 name|verbose
 parameter_list|)
 block|{
@@ -508,10 +506,6 @@ expr_stmt|;
 if|if
 condition|(
 name|decode
-operator|==
-literal|null
-operator|||
-name|decode
 condition|)
 block|{
 comment|// decode uri so its more human readable
@@ -648,6 +642,8 @@ argument_list|,
 name|method
 argument_list|,
 name|state
+argument_list|,
+name|route
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -737,10 +733,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|decode
-operator|==
-literal|null
-operator|||
 name|decode
 condition|)
 block|{
@@ -1537,10 +1529,6 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|verbose
-operator|!=
-literal|null
-operator|&&
 name|verbose
 condition|)
 block|{

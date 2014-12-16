@@ -94,7 +94,7 @@ literal|"rest-registry-list"
 argument_list|,
 name|description
 operator|=
-literal|"Lists all Camel REST services enlisted in the Rest Registry from one or more CamelContexts."
+literal|"Lists all Camel REST services enlisted in the Rest Registry from a CamelContext"
 argument_list|)
 DECL|class|RestRegistryList
 specifier|public
@@ -120,7 +120,7 @@ literal|"The Camel context name where to look for the REST services"
 argument_list|,
 name|required
 operator|=
-literal|false
+literal|true
 argument_list|,
 name|multiValued
 operator|=

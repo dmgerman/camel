@@ -306,6 +306,13 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|xml
+operator|!=
+literal|null
+condition|)
+block|{
 name|RouteStatDump
 name|route
 init|=
@@ -476,6 +483,7 @@ name|selfTime
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// we want to group routes from the same context in the same table
 name|previousCamelContextName
