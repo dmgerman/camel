@@ -834,8 +834,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Ignore
-annotation|@
 name|Test
 DECL|method|testPatch ()
 specifier|public
@@ -845,8 +843,25 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO have to support setting patch parameters before calling execute like:
-comment|/*       File file = new File();       file.setTitle(newTitle);        // Rename the file using a patch request.       Files.Patch patchRequest = service.files().patch(fileId, file);       patchRequest.setFields("title");        File updatedFile = patchRequest.execute();          */
+name|File
+name|file
+init|=
+name|uploadTestFile
+argument_list|()
+decl_stmt|;
+comment|// lets update the filename
+name|file
+operator|.
+name|setTitle
+argument_list|(
+name|UPLOAD_FILE
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"PATCHED"
+argument_list|)
+expr_stmt|;
 specifier|final
 name|Map
 argument_list|<
@@ -872,7 +887,20 @@ name|put
 argument_list|(
 literal|"CamelGoogleDrive.fileId"
 argument_list|,
-literal|null
+name|file
+operator|.
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// parameter type is String
+name|headers
+operator|.
+name|put
+argument_list|(
+literal|"CamelGoogleDrive.fields"
+argument_list|,
+literal|"title"
 argument_list|)
 expr_stmt|;
 comment|// parameter type is com.google.api.services.drive.model.File
@@ -882,25 +910,10 @@ name|put
 argument_list|(
 literal|"CamelGoogleDrive.content"
 argument_list|,
-literal|null
+name|file
 argument_list|)
 expr_stmt|;
-specifier|final
-name|com
-operator|.
-name|google
-operator|.
-name|api
-operator|.
-name|services
-operator|.
-name|drive
-operator|.
-name|Drive
-operator|.
-name|Files
-operator|.
-name|Patch
+name|File
 name|result
 init|=
 name|requestBodyAndHeaders
@@ -917,6 +930,21 @@ argument_list|(
 literal|"patch result"
 argument_list|,
 name|result
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|UPLOAD_FILE
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"PATCHED"
+argument_list|,
+name|result
+operator|.
+name|getTitle
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|LOG
