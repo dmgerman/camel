@@ -397,11 +397,11 @@ init|=
 operator|new
 name|EndpointExplainCommand
 argument_list|(
-literal|"camel-1"
+literal|"myCamel"
 argument_list|,
 literal|true
 argument_list|,
-literal|null
+literal|"rest*"
 argument_list|)
 decl_stmt|;
 name|cmd
