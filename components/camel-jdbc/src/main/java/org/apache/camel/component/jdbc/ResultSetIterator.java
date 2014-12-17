@@ -251,10 +251,13 @@ operator|new
 name|AtomicBoolean
 argument_list|()
 decl_stmt|;
-DECL|method|ResultSetIterator (ResultSet resultSet, boolean isJDBC4)
+DECL|method|ResultSetIterator (Connection conn, ResultSet resultSet, boolean isJDBC4)
 specifier|public
 name|ResultSetIterator
 parameter_list|(
+name|Connection
+name|conn
+parameter_list|,
 name|ResultSet
 name|resultSet
 parameter_list|,
@@ -285,12 +288,7 @@ name|this
 operator|.
 name|connection
 operator|=
-name|this
-operator|.
-name|statement
-operator|.
-name|getConnection
-argument_list|()
+name|conn
 expr_stmt|;
 name|ResultSetMetaData
 name|metaData

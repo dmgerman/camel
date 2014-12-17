@@ -931,6 +931,8 @@ name|setResultSet
 argument_list|(
 name|exchange
 argument_list|,
+name|conn
+argument_list|,
 name|rs
 argument_list|)
 expr_stmt|;
@@ -989,6 +991,8 @@ block|{
 name|setGeneratedKeys
 argument_list|(
 name|exchange
+argument_list|,
+name|conn
 argument_list|,
 name|ps
 operator|.
@@ -1255,6 +1259,8 @@ name|setResultSet
 argument_list|(
 name|exchange
 argument_list|,
+name|conn
+argument_list|,
 name|rs
 argument_list|)
 expr_stmt|;
@@ -1313,6 +1319,8 @@ block|{
 name|setGeneratedKeys
 argument_list|(
 name|exchange
+argument_list|,
+name|conn
 argument_list|,
 name|stmt
 operator|.
@@ -1530,14 +1538,17 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Sets the generated if any to the Exchange in headers :      * - {@link JdbcConstants#JDBC_GENERATED_KEYS_ROW_COUNT} : the row count of generated keys      * - {@link JdbcConstants#JDBC_GENERATED_KEYS_DATA} : the generated keys data      *      * @param exchange The exchange where to store the generated keys      * @param generatedKeys The result set containing the generated keys      */
-DECL|method|setGeneratedKeys (Exchange exchange, ResultSet generatedKeys)
+comment|/**      * Sets the generated if any to the Exchange in headers :      * - {@link JdbcConstants#JDBC_GENERATED_KEYS_ROW_COUNT} : the row count of generated keys      * - {@link JdbcConstants#JDBC_GENERATED_KEYS_DATA} : the generated keys data      *      * @param exchange      The exchange where to store the generated keys      * @param conn          Current JDBC connection      * @param generatedKeys The result set containing the generated keys      */
+DECL|method|setGeneratedKeys (Exchange exchange, Connection conn, ResultSet generatedKeys)
 specifier|protected
 name|void
 name|setGeneratedKeys
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|Connection
+name|conn
 parameter_list|,
 name|ResultSet
 name|generatedKeys
@@ -1558,6 +1569,8 @@ init|=
 operator|new
 name|ResultSetIterator
 argument_list|(
+name|conn
+argument_list|,
 name|generatedKeys
 argument_list|,
 name|getEndpoint
@@ -1617,13 +1630,16 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Sets the result from the ResultSet to the Exchange as its OUT body.      *      * @return whether to close resources      */
-DECL|method|setResultSet (Exchange exchange, ResultSet rs)
+DECL|method|setResultSet (Exchange exchange, Connection conn, ResultSet rs)
 specifier|protected
 name|boolean
 name|setResultSet
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|Connection
+name|conn
 parameter_list|,
 name|ResultSet
 name|rs
@@ -1642,6 +1658,8 @@ init|=
 operator|new
 name|ResultSetIterator
 argument_list|(
+name|conn
+argument_list|,
 name|rs
 argument_list|,
 name|getEndpoint
