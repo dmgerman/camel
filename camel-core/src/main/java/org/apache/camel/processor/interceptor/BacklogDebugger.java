@@ -2229,6 +2229,32 @@ block|}
 block|}
 block|}
 block|}
+DECL|method|getFallbackTimeout ()
+specifier|public
+name|long
+name|getFallbackTimeout
+parameter_list|()
+block|{
+return|return
+name|fallbackTimeout
+return|;
+block|}
+DECL|method|setFallbackTimeout (long fallbackTimeout)
+specifier|public
+name|void
+name|setFallbackTimeout
+parameter_list|(
+name|long
+name|fallbackTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fallbackTimeout
+operator|=
+name|fallbackTimeout
+expr_stmt|;
+block|}
 DECL|method|removeMessageHeaderOnBreakpoint (String nodeId, String headerName)
 specifier|public
 name|void
