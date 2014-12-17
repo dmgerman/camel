@@ -401,6 +401,43 @@ else|:
 name|createSNSClient
 argument_list|()
 expr_stmt|;
+comment|// Override the setting Endpoint from url
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|configuration
+operator|.
+name|getAmazonSNSEndpoint
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Updating the SNS region with : {} "
+operator|+
+name|configuration
+operator|.
+name|getAmazonSNSEndpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|snsClient
+operator|.
+name|setEndpoint
+argument_list|(
+name|configuration
+operator|.
+name|getAmazonSNSEndpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// creates a new topic, or returns the URL of an existing one
 name|CreateTopicRequest
 name|request
@@ -516,43 +553,6 @@ operator|.
 name|trace
 argument_list|(
 literal|"Topic policy updated"
-argument_list|)
-expr_stmt|;
-block|}
-comment|// Override the setting Endpoint from url
-if|if
-condition|(
-name|ObjectHelper
-operator|.
-name|isNotEmpty
-argument_list|(
-name|configuration
-operator|.
-name|getAmazonSNSEndpoint
-argument_list|()
-argument_list|)
-condition|)
-block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Updating the SNS region with : {} "
-operator|+
-name|configuration
-operator|.
-name|getAmazonSNSEndpoint
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|snsClient
-operator|.
-name|setEndpoint
-argument_list|(
-name|configuration
-operator|.
-name|getAmazonSNSEndpoint
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
