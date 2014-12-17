@@ -118,9 +118,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|model
 operator|.
-name|ProcessorBuilder
+name|language
+operator|.
+name|ExpressionDefinition
 import|;
 end_import
 
@@ -132,11 +134,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|processor
 operator|.
-name|language
-operator|.
-name|ExpressionDefinition
+name|SetHeaderProcessor
 import|;
 end_import
 
@@ -381,9 +381,8 @@ name|routeContext
 argument_list|)
 decl_stmt|;
 return|return
-name|ProcessorBuilder
-operator|.
-name|setHeader
+operator|new
+name|SetHeaderProcessor
 argument_list|(
 name|getHeaderName
 argument_list|()

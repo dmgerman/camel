@@ -92,9 +92,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|builder
+name|processor
 operator|.
-name|ProcessorBuilder
+name|RemovePropertyProcessor
 import|;
 end_import
 
@@ -258,9 +258,8 @@ name|this
 argument_list|)
 expr_stmt|;
 return|return
-name|ProcessorBuilder
-operator|.
-name|removeProperty
+operator|new
+name|RemovePropertyProcessor
 argument_list|(
 name|getPropertyName
 argument_list|()
