@@ -971,6 +971,36 @@ return|;
 block|}
 block|}
 block|}
+DECL|method|getFallbackTimeout ()
+specifier|public
+name|long
+name|getFallbackTimeout
+parameter_list|()
+block|{
+return|return
+name|backlogDebugger
+operator|.
+name|getFallbackTimeout
+argument_list|()
+return|;
+block|}
+DECL|method|setFallbackTimeout (long fallbackTimeout)
+specifier|public
+name|void
+name|setFallbackTimeout
+parameter_list|(
+name|long
+name|fallbackTimeout
+parameter_list|)
+block|{
+name|backlogDebugger
+operator|.
+name|setFallbackTimeout
+argument_list|(
+name|fallbackTimeout
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

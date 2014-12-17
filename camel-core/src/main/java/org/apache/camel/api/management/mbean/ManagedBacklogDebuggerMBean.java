@@ -493,6 +493,33 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Fallback Timeout in seconds when block the message processing in Camel."
+argument_list|)
+DECL|method|getFallbackTimeout ()
+name|long
+name|getFallbackTimeout
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Fallback Timeout in seconds when block the message processing in Camel."
+argument_list|)
+DECL|method|setFallbackTimeout (long fallbackTimeout)
+name|void
+name|setFallbackTimeout
+parameter_list|(
+name|long
+name|fallbackTimeout
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Whether to include stream based message body in the trace message."
 argument_list|)
 DECL|method|isBodyIncludeStreams ()
