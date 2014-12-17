@@ -240,7 +240,7 @@ argument_list|()
 return|;
 block|}
 DECL|method|getKeyStore ()
-specifier|private
+specifier|public
 specifier|static
 name|KeyStore
 name|getKeyStore

@@ -1137,7 +1137,7 @@ extends|extends
 name|CamelTestSupport
 block|{
 DECL|field|payload
-specifier|private
+specifier|protected
 specifier|static
 name|String
 name|payload
@@ -7199,7 +7199,6 @@ end_function
 
 begin_function
 DECL|method|getMessage (MockEndpoint mock)
-specifier|private
 name|Message
 name|getMessage
 parameter_list|(
@@ -7306,7 +7305,7 @@ end_function
 
 begin_function
 DECL|method|checkThrownException (MockEndpoint mock, Class<? extends Exception> cl, String expectedMessage, Class<? extends Exception> expectedCauseClass)
-specifier|private
+specifier|static
 name|void
 name|checkThrownException
 parameter_list|(
@@ -7507,6 +7506,7 @@ end_function
 begin_function
 DECL|method|getStrackTrace (Exception e)
 specifier|private
+specifier|static
 name|String
 name|getStrackTrace
 parameter_list|(

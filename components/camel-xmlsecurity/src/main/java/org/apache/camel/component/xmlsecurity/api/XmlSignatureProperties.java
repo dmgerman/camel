@@ -151,7 +151,7 @@ name|Node
 name|getMessageBodyNode
 parameter_list|()
 function_decl|;
-comment|/**          * Returns the parent node of the signature element in the case of          * enveloped or detached XML signature.<code>null</code> is returned in          * the case of enveloping XML signature.          *           * @return parent node or<code>null</code>          */
+comment|/**          * Returns the parent node of the signature element in the case of          * enveloped or detached XML signature, or the empty result document in          * the case of enveloping XML signature.          *           * @return parent node, cannot be<code>null</code>          */
 DECL|method|getParent ()
 name|Node
 name|getParent
@@ -199,6 +199,12 @@ name|SignatureType
 name|getSignatureType
 parameter_list|()
 function_decl|;
+comment|/**          * Returns the prefix for the XML Signature namespace          * ("http://www.w3.org/2000/09/xmldsig#"). Can be null or empty.          */
+DECL|method|getPrefixForXmlSignatureNamespace ()
+name|String
+name|getPrefixForXmlSignatureNamespace
+parameter_list|()
+function_decl|;
 block|}
 DECL|class|Output
 specifier|public
@@ -206,6 +212,16 @@ specifier|static
 class|class
 name|Output
 block|{
+DECL|field|contentReferenceId
+specifier|private
+name|String
+name|contentReferenceId
+decl_stmt|;
+DECL|field|signatureId
+specifier|private
+name|String
+name|signatureId
+decl_stmt|;
 DECL|field|objects
 specifier|private
 name|List
@@ -296,6 +312,60 @@ operator|.
 name|references
 operator|=
 name|references
+expr_stmt|;
+block|}
+DECL|method|getContentReferenceId ()
+specifier|public
+name|String
+name|getContentReferenceId
+parameter_list|()
+block|{
+return|return
+name|contentReferenceId
+return|;
+block|}
+comment|/**          * Id value for the reference of the signed content. Currently used by          * the XAdES parameter DataObjectFormat. See XAdESSignatureProperties.          * */
+DECL|method|setContentReferenceId (String contentReferenceId)
+specifier|public
+name|void
+name|setContentReferenceId
+parameter_list|(
+name|String
+name|contentReferenceId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contentReferenceId
+operator|=
+name|contentReferenceId
+expr_stmt|;
+block|}
+DECL|method|getSignatureId ()
+specifier|public
+name|String
+name|getSignatureId
+parameter_list|()
+block|{
+return|return
+name|signatureId
+return|;
+block|}
+comment|/**          * You can overwrite the value of the Id attribute of the Signature          * element that you get from {@link Input#getSignatureId()}. Only if the          * provided value is not<code>null</code> and not empty, then the          * signature Id will be overwritten.          *           * @param signatureId          *            Id attribute value of the Signature element          */
+DECL|method|setSignatureId (String signatureId)
+specifier|public
+name|void
+name|setSignatureId
+parameter_list|(
+name|String
+name|signatureId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|signatureId
+operator|=
+name|signatureId
 expr_stmt|;
 block|}
 block|}

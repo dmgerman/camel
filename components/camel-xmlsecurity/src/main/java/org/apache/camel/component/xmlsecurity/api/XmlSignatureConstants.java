@@ -93,6 +93,67 @@ name|HEADER_XPATHS_TO_ID_ATTRIBUTES
 init|=
 literal|"CamelXmlSignatureXpathsToIdAttributes"
 decl_stmt|;
+comment|/*------------------------- headers for XAdES signer ----------------------------------------------------------*/
+comment|/**      * Header for the 'Id' attribute value of the XAdES element      * 'QualifyingProperties'      *       */
+DECL|field|HEADER_XADES_QUALIFYING_PROPERTIES_ID
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_XADES_QUALIFYING_PROPERTIES_ID
+init|=
+literal|"CamelXmlSignatureXAdESQualifyingPropertiesId"
+decl_stmt|;
+comment|/**      * Header for the 'Id' attribute value of the XAdES element      * 'SignedDataObjectProperties'      *       */
+DECL|field|HEADER_XADES_SIGNED_DATA_OBJECT_PROPERTIES_ID
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_XADES_SIGNED_DATA_OBJECT_PROPERTIES_ID
+init|=
+literal|"CamelXmlSignatureXAdESSignedDataObjectPropertiesId"
+decl_stmt|;
+comment|/**      * Header for the 'Id' attribute value of the XAdES element      * 'SignedSignatureProperties'      *       */
+DECL|field|HEADER_XADES_SIGNED_SIGNATURE_PROPERTIES_ID
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_XADES_SIGNED_SIGNATURE_PROPERTIES_ID
+init|=
+literal|"CamelXmlSignatureXAdESSignedSignaturePropertiesId"
+decl_stmt|;
+comment|/**      * Header for the "Encoding" element contained in the "DataObjectFormat"      * XAdES element.      */
+DECL|field|HEADER_XADES_DATA_OBJECT_FORMAT_ENCODING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_XADES_DATA_OBJECT_FORMAT_ENCODING
+init|=
+literal|"CamelXmlSignatureXAdESDataObjectFormatEncoding"
+decl_stmt|;
+comment|/**      * Header for the XAdES namespace. Different namespaces represent different      * XAdES specification versions. Currently supported namespaces are:      *       * http://uri.etsi.org/01903/v1.1.1#,      *       * http://uri.etsi.org/01903/v1.2.2#,      *       * http://uri.etsi.org/01903/v1.3.2#.      *       */
+DECL|field|HEADER_XADES_NAMESPACE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_XADES_NAMESPACE
+init|=
+literal|"CamelXmlSignatureXAdESNamespace"
+decl_stmt|;
+comment|/**      * Header for the XAdES namespace prefix. An empty string means that no      * prefix shall be used. A<code>null</code> header value will have no      * effect.      *       */
+DECL|field|HEADER_XADES_PREFIX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_XADES_PREFIX
+init|=
+literal|"CamelXmlSignatureXAdESPrefix"
+decl_stmt|;
 DECL|method|XmlSignatureConstants ()
 specifier|private
 name|XmlSignatureConstants

@@ -1171,7 +1171,7 @@ throw|throw
 operator|new
 name|XmlSignatureNoKeyException
 argument_list|(
-literal|"Key selector is missing for XML signature generation. Specify a key selector in the configuration."
+literal|"Key accessor is missing for XML signature generation. Specify a key accessor in the configuration."
 argument_list|)
 throw|;
 block|}
@@ -1328,6 +1328,33 @@ argument_list|,
 name|signatureType
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|parent
+operator|==
+literal|null
+condition|)
+block|{
+comment|// for enveloping signature, create new document
+name|parent
+operator|=
+name|XmlSignatureHelper
+operator|.
+name|newDocumentBuilder
+argument_list|(
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+operator|.
+name|newDocument
+argument_list|()
+expr_stmt|;
+block|}
+name|lastParent
+operator|=
+name|parent
+expr_stmt|;
 name|XmlSignatureProperties
 operator|.
 name|Input
@@ -1392,6 +1419,15 @@ argument_list|(
 name|signatureType
 argument_list|)
 operator|.
+name|prefixForXmlSignatureNamespace
+argument_list|(
+name|getConfiguration
+argument_list|()
+operator|.
+name|getPrefixForXmlSignatureNamespace
+argument_list|()
+argument_list|)
+operator|.
 name|build
 argument_list|()
 decl_stmt|;
@@ -1405,6 +1441,38 @@ argument_list|(
 name|input
 argument_list|)
 decl_stmt|;
+comment|// the signature properties can overwrite the signature Id
+if|if
+condition|(
+name|properties
+operator|!=
+literal|null
+operator|&&
+name|properties
+operator|.
+name|getSignatureId
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|properties
+operator|.
+name|getSignatureId
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|signatureId
+operator|=
+name|properties
+operator|.
+name|getSignatureId
+argument_list|()
+expr_stmt|;
+block|}
 name|List
 argument_list|<
 name|?
@@ -1450,33 +1518,6 @@ argument_list|,
 name|refs
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|parent
-operator|==
-literal|null
-condition|)
-block|{
-comment|// for enveloping signature, create new document
-name|parent
-operator|=
-name|XmlSignatureHelper
-operator|.
-name|newDocumentBuilder
-argument_list|(
-name|Boolean
-operator|.
-name|TRUE
-argument_list|)
-operator|.
-name|newDocument
-argument_list|()
-expr_stmt|;
-block|}
-name|lastParent
-operator|=
-name|parent
-expr_stmt|;
 name|DOMSignContext
 name|dsc
 init|=
@@ -3007,6 +3048,20 @@ throws|throws
 name|Exception
 block|{
 comment|//NOPMD
+name|String
+name|referenceId
+init|=
+name|properties
+operator|==
+literal|null
+condition|?
+literal|null
+else|:
+name|properties
+operator|.
+name|getContentReferenceId
+argument_list|()
+decl_stmt|;
 comment|// Create Reference with URI="#<objectId>" for enveloping signature, URI="" for enveloped signature, and URI =<value from configuration> for detached signature and the transforms
 name|Reference
 name|ref
@@ -3035,6 +3090,8 @@ name|input
 operator|.
 name|getSignatureType
 argument_list|()
+argument_list|,
+name|referenceId
 argument_list|)
 decl_stmt|;
 name|Reference
@@ -3606,7 +3663,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|createReference (XMLSignatureFactory fac, String uri, String type, SignatureType sigType)
+DECL|method|createReference (XMLSignatureFactory fac, String uri, String type, SignatureType sigType, String id)
 specifier|protected
 name|Reference
 name|createReference
@@ -3622,6 +3679,9 @@ name|type
 parameter_list|,
 name|SignatureType
 name|sigType
+parameter_list|,
+name|String
+name|id
 parameter_list|)
 throws|throws
 name|InvalidAlgorithmParameterException
@@ -3666,7 +3726,7 @@ name|transforms
 argument_list|,
 name|type
 argument_list|,
-literal|null
+name|id
 argument_list|)
 decl_stmt|;
 return|return
@@ -5048,6 +5108,11 @@ specifier|private
 name|SignatureType
 name|signatureType
 decl_stmt|;
+DECL|field|prefixForXmlSignatureNamespace
+specifier|private
+name|String
+name|prefixForXmlSignatureNamespace
+decl_stmt|;
 DECL|method|signatureFactory (XMLSignatureFactory signatureFactory)
 specifier|public
 name|InputBuilder
@@ -5238,6 +5303,25 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|prefixForXmlSignatureNamespace (String prefixForXmlSignatureNamespace)
+specifier|public
+name|InputBuilder
+name|prefixForXmlSignatureNamespace
+parameter_list|(
+name|String
+name|prefixForXmlSignatureNamespace
+parameter_list|)
+block|{
+name|this
+operator|.
+name|prefixForXmlSignatureNamespace
+operator|=
+name|prefixForXmlSignatureNamespace
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|build ()
 specifier|public
 name|XmlSignatureProperties
@@ -5361,6 +5445,17 @@ parameter_list|()
 block|{
 return|return
 name|signatureType
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|getPrefixForXmlSignatureNamespace
+parameter_list|()
+block|{
+return|return
+name|prefixForXmlSignatureNamespace
 return|;
 block|}
 block|}
