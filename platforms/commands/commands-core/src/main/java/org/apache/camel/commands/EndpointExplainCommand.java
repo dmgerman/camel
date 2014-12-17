@@ -345,7 +345,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"Context:\t"
+literal|"Context:       "
 operator|+
 name|context
 argument_list|)
@@ -369,7 +369,7 @@ decl_stmt|;
 name|String
 name|header
 init|=
-literal|"Uri:            "
+literal|"Uri:           "
 operator|+
 name|uri
 decl_stmt|;
@@ -551,7 +551,7 @@ name|out
 operator|.
 name|print
 argument_list|(
-literal|"Option:\t\t"
+literal|"Option:        "
 argument_list|)
 expr_stmt|;
 name|out
@@ -570,7 +570,7 @@ name|out
 operator|.
 name|print
 argument_list|(
-literal|"Kind:\t\t"
+literal|"Kind:          "
 argument_list|)
 expr_stmt|;
 name|out
@@ -606,7 +606,7 @@ name|out
 operator|.
 name|print
 argument_list|(
-literal|"Type:\t\t"
+literal|"Type:          "
 argument_list|)
 expr_stmt|;
 name|out
@@ -638,7 +638,7 @@ name|out
 operator|.
 name|print
 argument_list|(
-literal|"Java Type:\t"
+literal|"Java Type:     "
 argument_list|)
 expr_stmt|;
 name|out
@@ -670,7 +670,7 @@ name|out
 operator|.
 name|print
 argument_list|(
-literal|"Value:\t\t"
+literal|"Value:         "
 argument_list|)
 expr_stmt|;
 name|out
@@ -702,7 +702,7 @@ name|out
 operator|.
 name|print
 argument_list|(
-literal|"Default Value:\t"
+literal|"Default Value: "
 argument_list|)
 expr_stmt|;
 name|out
@@ -734,7 +734,7 @@ name|out
 operator|.
 name|print
 argument_list|(
-literal|"Description:\t"
+literal|"Description:   "
 argument_list|)
 expr_stmt|;
 name|out
