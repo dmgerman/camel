@@ -984,6 +984,11 @@ specifier|private
 name|int
 name|depth
 decl_stmt|;
+DECL|field|compliant
+specifier|private
+name|boolean
+name|compliant
+decl_stmt|;
 DECL|field|nextToken
 specifier|private
 name|Object
@@ -1360,6 +1365,7 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// perform the first offset compliance test
 name|int
 name|coff
 init|=
@@ -2886,6 +2892,55 @@ init|=
 name|getCurrenText
 argument_list|()
 decl_stmt|;
+comment|// perform the second compliance test
+if|if
+condition|(
+operator|!
+name|compliant
+condition|)
+block|{
+if|if
+condition|(
+name|token
+operator|!=
+literal|null
+operator|&&
+name|token
+operator|.
+name|startsWith
+argument_list|(
+literal|"<"
+argument_list|)
+operator|&&
+operator|!
+name|token
+operator|.
+name|startsWith
+argument_list|(
+literal|"<?"
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"XMLStreamReader {} not supporting Location"
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|XMLStreamException
+argument_list|(
+literal|"reader not supporting Location"
+argument_list|)
+throw|;
+block|}
+name|compliant
+operator|=
+literal|true
+expr_stmt|;
+block|}
 name|LOG
 operator|.
 name|trace
