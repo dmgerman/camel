@@ -36,7 +36,7 @@ block|,
 name|Xor
 block|,
 name|TripleDes
-block|;  }
+block|}
 end_enum
 
 end_unit
