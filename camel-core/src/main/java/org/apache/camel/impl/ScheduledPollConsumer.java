@@ -2099,9 +2099,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|scheduler
+operator|.
+name|unscheduleTask
+argument_list|()
+expr_stmt|;
 name|ServiceHelper
 operator|.
-name|stopService
+name|stopAndShutdownServices
 argument_list|(
 name|scheduler
 argument_list|)
