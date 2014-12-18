@@ -132,12 +132,55 @@ argument_list|(
 name|req
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
+name|assertEquals
 argument_list|(
+literal|"Get a wrong response message."
+argument_list|,
+literal|"OK"
+argument_list|,
+name|response
+operator|.
+name|getResponseMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong response text."
+argument_list|,
+literal|"Add a name parameter to uri, eg ?name=foo"
+argument_list|,
+name|response
+operator|.
+name|getText
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|req
+operator|=
+operator|new
+name|GetMethodWebRequest
+argument_list|(
+name|CONTEXT_URL
+operator|+
+literal|"/services/hello?name=Willem"
+argument_list|)
+expr_stmt|;
+name|response
+operator|=
+name|client
+operator|.
+name|getResponse
+argument_list|(
+name|req
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong response text."
+argument_list|,
+literal|"Hello Willem how are you?"
+argument_list|,
 name|response
 operator|.
 name|getText
