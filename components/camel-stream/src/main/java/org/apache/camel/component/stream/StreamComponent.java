@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -64,8 +64,21 @@ specifier|public
 class|class
 name|StreamComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
+DECL|method|StreamComponent ()
+specifier|public
+name|StreamComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|StreamEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -90,7 +103,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+name|StreamEndpoint
+name|answer
+init|=
 operator|new
 name|StreamEndpoint
 argument_list|(
@@ -98,6 +113,16 @@ name|uri
 argument_list|,
 name|this
 argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|answer
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 block|}
