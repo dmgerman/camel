@@ -66,18 +66,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -92,7 +80,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -106,24 +94,18 @@ specifier|public
 class|class
 name|RmiComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|method|RmiComponent ()
 specifier|public
 name|RmiComponent
 parameter_list|()
-block|{     }
-DECL|method|RmiComponent (CamelContext context)
-specifier|public
-name|RmiComponent
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
 block|{
 name|super
 argument_list|(
-name|context
+name|RmiEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
