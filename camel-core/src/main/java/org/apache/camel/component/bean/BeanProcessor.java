@@ -182,6 +182,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|processor
+specifier|private
+name|Processor
+name|processor
+decl_stmt|;
 DECL|field|multiParameterArray
 specifier|private
 name|boolean
@@ -448,10 +453,22 @@ name|beanInfo
 argument_list|)
 condition|)
 block|{
-comment|// so if there is a custom type converter for the bean to processor
 name|Processor
 name|processor
 init|=
+name|getProcessor
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|processor
+operator|==
+literal|null
+condition|)
+block|{
+comment|// so if there is a custom type converter for the bean to processor
+name|processor
+operator|=
 name|exchange
 operator|.
 name|getContext
@@ -460,7 +477,7 @@ operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|tryConvertTo
+name|convertTo
 argument_list|(
 name|Processor
 operator|.
@@ -470,7 +487,8 @@ name|exchange
 argument_list|,
 name|bean
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|processor
@@ -848,10 +866,7 @@ name|getProcessor
 parameter_list|()
 block|{
 return|return
-name|beanHolder
-operator|.
-name|getProcessor
-argument_list|()
+name|processor
 return|;
 block|}
 DECL|method|getBean ()
@@ -957,14 +972,40 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// optimize to only get (create) a processor if really needed
+if|if
+condition|(
+name|beanHolder
+operator|.
+name|supportProcessor
+argument_list|()
+operator|&&
+name|allowProcessor
+argument_list|(
+name|method
+argument_list|,
+name|beanHolder
+operator|.
+name|getBeanInfo
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|processor
+operator|=
+name|beanHolder
+operator|.
+name|getProcessor
+argument_list|()
+expr_stmt|;
 name|ServiceHelper
 operator|.
 name|startService
 argument_list|(
-name|getProcessor
-argument_list|()
+name|processor
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|doStop ()
 specifier|protected
@@ -978,8 +1019,7 @@ name|ServiceHelper
 operator|.
 name|stopService
 argument_list|(
-name|getProcessor
-argument_list|()
+name|processor
 argument_list|)
 expr_stmt|;
 block|}

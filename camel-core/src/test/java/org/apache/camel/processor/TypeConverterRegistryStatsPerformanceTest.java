@@ -373,7 +373,15 @@ name|class
 argument_list|,
 literal|"transformMe"
 argument_list|)
-comment|//                    .bean(TypeConverterRegistryStatsPerformanceTest.class, "transformMe")
+operator|.
+name|bean
+argument_list|(
+name|TypeConverterRegistryStatsPerformanceTest
+operator|.
+name|class
+argument_list|,
+literal|"transformMeAlso"
+argument_list|)
 operator|.
 name|to
 argument_list|(
@@ -395,6 +403,21 @@ parameter_list|)
 block|{
 return|return
 literal|"Hello "
+operator|+
+name|in
+return|;
+block|}
+DECL|method|transformMeAlso (String in)
+specifier|public
+name|String
+name|transformMeAlso
+parameter_list|(
+name|String
+name|in
+parameter_list|)
+block|{
+return|return
+literal|"Bye "
 operator|+
 name|in
 return|;

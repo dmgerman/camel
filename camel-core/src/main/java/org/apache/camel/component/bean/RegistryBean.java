@@ -343,6 +343,16 @@ return|return
 literal|null
 return|;
 block|}
+DECL|method|supportProcessor ()
+specifier|public
+name|boolean
+name|supportProcessor
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|getBeanInfo ()
 specifier|public
 name|BeanInfo

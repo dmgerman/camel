@@ -66,6 +66,12 @@ name|Processor
 name|getProcessor
 parameter_list|()
 function_decl|;
+comment|/**      * Whether a {@link Processor} is supported by this bean holder.      *      * @return<tt>true</tt> if the holder can supporting using a processor,<tt>false</tt> otherwise      */
+DECL|method|supportProcessor ()
+name|boolean
+name|supportProcessor
+parameter_list|()
+function_decl|;
 comment|/**      * Gets bean info for the bean.      */
 DECL|method|getBeanInfo ()
 name|BeanInfo
