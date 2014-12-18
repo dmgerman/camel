@@ -283,6 +283,30 @@ return|return
 literal|null
 return|;
 block|}
+comment|// optimize if the body is a String type already
+name|Object
+name|body
+init|=
+name|message
+operator|.
+name|getBody
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|body
+operator|instanceof
+name|String
+condition|)
+block|{
+return|return
+operator|(
+name|String
+operator|)
+name|body
+return|;
+block|}
+comment|// we need to favor using stream cache so the body can be re-read later
 name|StreamCache
 name|newBody
 init|=
