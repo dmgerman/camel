@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jsch
+DECL|package|org.apache.camel.component.scp
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|jsch
+name|scp
 package|;
 end_package
 
@@ -72,24 +72,6 @@ name|file
 operator|.
 name|remote
 operator|.
-name|RemoteFileConfiguration
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|file
-operator|.
-name|remote
-operator|.
 name|RemoteFileConsumer
 import|;
 end_import
@@ -130,11 +112,50 @@ name|RemoteFileOperations
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
 begin_comment
 comment|/**  * Secure Copy Endpoint  */
 end_comment
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"scp"
+argument_list|,
+name|label
+operator|=
+literal|"file"
+argument_list|)
 DECL|class|ScpEndpoint
 specifier|public
 class|class
@@ -145,22 +166,29 @@ argument_list|<
 name|ScpFile
 argument_list|>
 block|{
+annotation|@
+name|UriParam
+DECL|field|configuration
+specifier|private
+name|ScpConfiguration
+name|configuration
+decl_stmt|;
 DECL|method|ScpEndpoint ()
 specifier|public
 name|ScpEndpoint
 parameter_list|()
 block|{     }
-DECL|method|ScpEndpoint (String uri, JschComponent component, RemoteFileConfiguration configuration)
+DECL|method|ScpEndpoint (String uri, ScpComponent component, ScpConfiguration configuration)
 specifier|public
 name|ScpEndpoint
 parameter_list|(
 name|String
 name|uri
 parameter_list|,
-name|JschComponent
+name|ScpComponent
 name|component
 parameter_list|,
-name|RemoteFileConfiguration
+name|ScpConfiguration
 name|configuration
 parameter_list|)
 block|{
@@ -173,6 +201,12 @@ argument_list|,
 name|configuration
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -183,11 +217,6 @@ name|getConfiguration
 parameter_list|()
 block|{
 return|return
-operator|(
-name|ScpConfiguration
-operator|)
-name|this
-operator|.
 name|configuration
 return|;
 block|}

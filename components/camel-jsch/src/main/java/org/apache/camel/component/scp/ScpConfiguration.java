@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jsch
+DECL|package|org.apache.camel.component.scp
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|jsch
+name|scp
 package|;
 end_package
 
@@ -46,11 +46,41 @@ name|RemoteFileConfiguration
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParams
+import|;
+end_import
+
 begin_comment
-comment|/**  * Secure FTP configuration  */
+comment|/**  * SCP configuration  */
 end_comment
 
 begin_class
+annotation|@
+name|UriParams
 DECL|class|ScpConfiguration
 specifier|public
 class|class
@@ -76,31 +106,48 @@ name|DEFAULT_MOD
 init|=
 literal|"664"
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|knownHostsFile
 specifier|private
 name|String
 name|knownHostsFile
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|privateKeyFile
 specifier|private
 name|String
 name|privateKeyFile
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|privateKeyFilePassphrase
 specifier|private
 name|String
 name|privateKeyFilePassphrase
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|strictHostKeyChecking
 specifier|private
 name|String
 name|strictHostKeyChecking
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|serverAliveInterval
 specifier|private
 name|int
 name|serverAliveInterval
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"1"
+argument_list|)
 DECL|field|serverAliveCountMax
 specifier|private
 name|int
@@ -108,6 +155,13 @@ name|serverAliveCountMax
 init|=
 literal|1
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+name|DEFAULT_MOD
+argument_list|)
 DECL|field|chmod
 specifier|private
 name|String
@@ -117,11 +171,15 @@ name|DEFAULT_MOD
 decl_stmt|;
 comment|// comma separated list of ciphers.
 comment|// null means default jsch list will be used
+annotation|@
+name|UriParam
 DECL|field|ciphers
 specifier|private
 name|String
 name|ciphers
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|compression
 specifier|private
 name|int
@@ -134,7 +192,7 @@ parameter_list|()
 block|{
 name|setProtocol
 argument_list|(
-literal|"sftp"
+literal|"scp"
 argument_list|)
 expr_stmt|;
 block|}

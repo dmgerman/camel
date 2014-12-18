@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jsch
+DECL|package|org.apache.camel.component.scp
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|jsch
+name|scp
 package|;
 end_package
 
@@ -121,10 +121,10 @@ comment|/**  *  Component providing secure messaging using JSch  */
 end_comment
 
 begin_class
-DECL|class|JschComponent
+DECL|class|ScpComponent
 specifier|public
 class|class
-name|JschComponent
+name|ScpComponent
 extends|extends
 name|RemoteFileComponent
 argument_list|<
@@ -142,7 +142,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|JschComponent
+name|ScpComponent
 operator|.
 name|class
 argument_list|)
@@ -307,14 +307,14 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|JschComponent ()
+DECL|method|ScpComponent ()
 specifier|public
-name|JschComponent
+name|ScpComponent
 parameter_list|()
 block|{     }
-DECL|method|JschComponent (CamelContext context)
+DECL|method|ScpComponent (CamelContext context)
 specifier|public
-name|JschComponent
+name|ScpComponent
 parameter_list|(
 name|CamelContext
 name|context
@@ -353,7 +353,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO: revisit stripping the query part; should not be needed with valid uris
 name|int
 name|query
 init|=
@@ -412,23 +411,6 @@ throws|throws
 name|Exception
 block|{
 comment|// noop
-block|}
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|public
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// TODO: close all sessions
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 end_class
