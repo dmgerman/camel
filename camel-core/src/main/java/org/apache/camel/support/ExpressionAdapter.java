@@ -81,6 +81,23 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|Object
+operator|.
+name|class
+operator|==
+name|type
+condition|)
+block|{
+comment|// do not use type converter if type is Object (optimize)
+return|return
+operator|(
+name|T
+operator|)
+name|value
+return|;
+block|}
 return|return
 name|exchange
 operator|.

@@ -3401,9 +3401,27 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// we got a value now try to convert it to the expected type
 try|try
 block|{
+if|if
+condition|(
+name|parameterType
+operator|.
+name|isInstance
+argument_list|(
+name|result
+argument_list|)
+condition|)
+block|{
+comment|// optimize if the value is already the same type
+name|answer
+operator|=
+name|result
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// we got a value now try to convert it to the expected type
 name|answer
 operator|=
 name|exchange
@@ -3421,6 +3439,7 @@ argument_list|,
 name|result
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|LOG

@@ -3542,28 +3542,38 @@ literal|null
 return|;
 block|}
 comment|// if its a bean invocation then if it has no arguments then it should be threaded as null body allowed
-name|BeanInvocation
-name|bi
-init|=
+if|if
+condition|(
 name|exchange
 operator|.
 name|getIn
 argument_list|()
 operator|.
 name|getBody
-argument_list|(
+argument_list|()
+operator|instanceof
 name|BeanInvocation
+condition|)
+block|{
+comment|// BeanInvocation would be stored directly as the message body
+comment|// do not force any type conversion attempts as it would just be unnecessary and cost a bit performance
+comment|// so a regular instanceof check is sufficient
+name|BeanInvocation
+name|bi
+init|=
+operator|(
+name|BeanInvocation
+operator|)
+name|exchange
 operator|.
-name|class
-argument_list|)
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|bi
-operator|!=
-literal|null
-operator|&&
-operator|(
 name|bi
 operator|.
 name|getArgs
@@ -3589,12 +3599,12 @@ literal|0
 index|]
 operator|==
 literal|null
-operator|)
 condition|)
 block|{
 return|return
 literal|null
 return|;
+block|}
 block|}
 block|}
 try|try

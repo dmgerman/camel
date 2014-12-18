@@ -764,6 +764,25 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|Object
+operator|.
+name|class
+operator|==
+name|type
+condition|)
+block|{
+comment|// do not use type converter if type is Object (optimize)
+return|return
+operator|(
+name|T
+operator|)
+name|result
+return|;
+block|}
+else|else
+block|{
 return|return
 name|exchange
 operator|.
@@ -782,6 +801,7 @@ argument_list|,
 name|result
 argument_list|)
 return|;
+block|}
 block|}
 DECL|method|matches (Exchange exchange)
 specifier|public
