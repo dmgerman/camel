@@ -60,7 +60,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -138,7 +138,7 @@ specifier|public
 class|class
 name|IrcComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -176,6 +176,19 @@ name|IRCConnection
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|method|IrcComponent ()
+specifier|public
+name|IrcComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|IrcEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|public
 name|IrcEndpoint
