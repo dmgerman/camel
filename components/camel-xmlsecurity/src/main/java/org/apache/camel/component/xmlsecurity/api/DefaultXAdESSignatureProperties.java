@@ -136,7 +136,14 @@ throw|throw
 operator|new
 name|XmlSignatureException
 argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
 literal|"No certificate found in keystore for alias '%s'"
+argument_list|,
+name|alias
+argument_list|)
 argument_list|)
 throw|;
 block|}
