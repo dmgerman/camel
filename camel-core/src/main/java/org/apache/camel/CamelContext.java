@@ -180,6 +180,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|AsyncProcessorAwaitManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|CamelContextNameStrategy
 import|;
 end_import
@@ -1831,6 +1845,21 @@ name|setInflightRepository
 parameter_list|(
 name|InflightRepository
 name|repository
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the {@link org.apache.camel.AsyncProcessor} await manager.      *      * @return the manager      */
+DECL|method|getAsyncProcessorAwaitManager ()
+name|AsyncProcessorAwaitManager
+name|getAsyncProcessorAwaitManager
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom  {@link org.apache.camel.AsyncProcessor} await manager.      *      * @param manager the manager      */
+DECL|method|setAsyncProcessorAwaitManager (AsyncProcessorAwaitManager manager)
+name|void
+name|setAsyncProcessorAwaitManager
+parameter_list|(
+name|AsyncProcessorAwaitManager
+name|manager
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the the application context class loader which may be helpful for running camel in other containers      *      * @return the application context class loader      */
