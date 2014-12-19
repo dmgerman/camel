@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -64,7 +64,7 @@ specifier|public
 class|class
 name|SplunkComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|splunkConfigurationFactory
 specifier|private
@@ -75,6 +75,19 @@ operator|new
 name|DefaultSplunkConfigurationFactory
 argument_list|()
 decl_stmt|;
+DECL|method|SplunkComponent ()
+specifier|public
+name|SplunkComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|SplunkEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -107,6 +120,13 @@ argument_list|(
 name|parameters
 argument_list|)
 decl_stmt|;
+name|configuration
+operator|.
+name|setName
+argument_list|(
+name|remaining
+argument_list|)
+expr_stmt|;
 name|setProperties
 argument_list|(
 name|configuration
