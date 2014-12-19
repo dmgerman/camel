@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Consumer
+name|Endpoint
 import|;
 end_import
 
@@ -39,44 +39,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultEndpoint
 import|;
 end_import
 
@@ -167,65 +129,34 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An endpoint for dig-like operations over DNS adresses.  *<p/>  * Inspired from Dig.java coming with the distribution of dnsjava,  * though most if not all options are unsupported.  */
+comment|/**  * A producer for dig-like operations over DNS adresses.  *<p/>  * Inspired from Dig.java coming with the distribution of dnsjava,  * though most if not all options are unsupported.  */
 end_comment
 
 begin_class
-DECL|class|DnsDigEndpoint
+DECL|class|DnsDigProducer
 specifier|public
 class|class
-name|DnsDigEndpoint
+name|DnsDigProducer
 extends|extends
-name|DefaultEndpoint
+name|DefaultProducer
 block|{
-DECL|method|DnsDigEndpoint (DnsComponent component)
+DECL|method|DnsDigProducer (Endpoint endpoint)
 specifier|public
-name|DnsDigEndpoint
+name|DnsDigProducer
 parameter_list|(
-name|DnsComponent
-name|component
+name|Endpoint
+name|endpoint
 parameter_list|)
 block|{
 name|super
 argument_list|(
-literal|"dns://dig"
-argument_list|,
-name|component
+name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createConsumer (Processor arg0)
-specifier|public
-name|Consumer
-name|createConsumer
-parameter_list|(
-name|Processor
-name|arg0
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|()
-throw|;
-block|}
-DECL|method|createProducer ()
-specifier|public
-name|Producer
-name|createProducer
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-return|return
-operator|new
-name|DefaultProducer
-argument_list|(
-name|this
-argument_list|)
-block|{
+annotation|@
+name|Override
+DECL|method|process (Exchange exchange)
 specifier|public
 name|void
 name|process
@@ -433,19 +364,6 @@ argument_list|(
 name|response
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-return|;
-block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
 block|}
 block|}
 end_class
