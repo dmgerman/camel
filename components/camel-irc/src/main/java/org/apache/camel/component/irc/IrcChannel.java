@@ -91,7 +91,6 @@ name|name
 operator|=
 literal|""
 expr_stmt|;
-return|return;
 block|}
 name|this
 operator|.
