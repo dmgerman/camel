@@ -304,7 +304,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"async:bye:camel"
+literal|"async:bye:camel?delay=500"
 argument_list|)
 operator|.
 name|id
