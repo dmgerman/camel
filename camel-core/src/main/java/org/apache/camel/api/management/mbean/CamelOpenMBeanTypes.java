@@ -709,7 +709,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"name"
+literal|"id"
 block|}
 argument_list|)
 return|;
@@ -735,9 +735,15 @@ operator|new
 name|String
 index|[]
 block|{
+literal|"id"
+block|,
 literal|"name"
 block|,
 literal|"exchangeId"
+block|,
+literal|"routeId"
+block|,
+literal|"nodeId"
 block|,
 literal|"duration"
 block|}
@@ -746,9 +752,15 @@ operator|new
 name|String
 index|[]
 block|{
+literal|"Thread Id"
+block|,
 literal|"Thread name"
 block|,
 literal|"ExchangeId"
+block|,
+literal|"RouteId"
+block|,
+literal|"NodeId"
 block|,
 literal|"Duration"
 block|}
@@ -757,6 +769,18 @@ operator|new
 name|OpenType
 index|[]
 block|{
+name|SimpleType
+operator|.
+name|STRING
+block|,
+name|SimpleType
+operator|.
+name|STRING
+block|,
+name|SimpleType
+operator|.
+name|STRING
+block|,
 name|SimpleType
 operator|.
 name|STRING

@@ -97,6 +97,18 @@ name|long
 name|getWaitDuration
 parameter_list|()
 function_decl|;
+comment|/**          * The id of the route where the exchange was processed when the thread was set to block.          *<p/>          * Is<tt>null</tt> if message history is disabled.          */
+DECL|method|getRouteId ()
+name|String
+name|getRouteId
+parameter_list|()
+function_decl|;
+comment|/**          * The id of the node from the route where the exchange was processed when the thread was set to block.          *<p/>          * Is<tt>null</tt> if message history is disabled.          */
+DECL|method|getNodeId ()
+name|String
+name|getNodeId
+parameter_list|()
+function_decl|;
 block|}
 comment|/**      * Registers the exchange to await for the callback to be triggered by another thread which has taken over processing      * this exchange. The current thread will await until that callback happens in the future (blocking until this happens).      *      * @param exchange   the exchange      * @param latch      the latch used to wait for other thread to signal when its done      */
 DECL|method|await (Exchange exchange, CountDownLatch latch)
@@ -136,6 +148,15 @@ name|AwaitThread
 argument_list|>
 name|browse
 parameter_list|()
+function_decl|;
+comment|/**      * To interrupt an exchange which may seem as stuck, to force the exchange to continue,      * allowing any blocking thread to be released.      *<p/>      *<b>Important:</b> Use this with caution as the other thread is still assumed to be process the exchange. Though      * if it appears as the exchange is<i>stuck</i>, then this method can remedy this, by forcing the latch to count-down      * so the blocked thread can continue. An exception is set on the exchange which allows Camel's error handler to deal      * with this malfunctioned exchange.      *      * @param exchangeId    the exchange id to interrupt.      */
+DECL|method|interrupt (String exchangeId)
+name|void
+name|interrupt
+parameter_list|(
+name|String
+name|exchangeId
+parameter_list|)
 function_decl|;
 comment|/**      * To interrupt an exchange which may seem as stuck, to force the exchange to continue,      * allowing any blocking thread to be released.      *<p/>      *<b>Important:</b> Use this with caution as the other thread is still assumed to be process the exchange. Though      * if it appears as the exchange is<i>stuck</i>, then this method can remedy this, by forcing the latch to count-down      * so the blocked thread can continue. An exception is set on the exchange which allows Camel's error handler to deal      * with this malfunctioned exchange.      *      * @param exchange    the exchange to interrupt.      */
 DECL|method|interrupt (Exchange exchange)
