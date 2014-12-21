@@ -138,6 +138,117 @@ name|String
 name|exchangeId
 parameter_list|)
 function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Number of threads that has been blocked"
+argument_list|)
+DECL|method|getThreadsBlocked ()
+name|long
+name|getThreadsBlocked
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Number of threads that has been interrupted"
+argument_list|)
+DECL|method|getThreadsInterrupted ()
+name|long
+name|getThreadsInterrupted
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Total wait time in msec."
+argument_list|)
+DECL|method|getTotalDuration ()
+name|long
+name|getTotalDuration
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The minimum wait time in msec."
+argument_list|)
+DECL|method|getMinDuration ()
+name|long
+name|getMinDuration
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The maximum wait time in msec."
+argument_list|)
+DECL|method|getMaxDuration ()
+name|long
+name|getMaxDuration
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The average wait time in msec."
+argument_list|)
+DECL|method|getMeanDuration ()
+name|long
+name|getMeanDuration
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Resets the statistics"
+argument_list|)
+DECL|method|resetStatistics ()
+name|void
+name|resetStatistics
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Utilization statistics enabled"
+argument_list|)
+DECL|method|isStatisticsEnabled ()
+name|boolean
+name|isStatisticsEnabled
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Utilization statistics enabled"
+argument_list|)
+DECL|method|setStatisticsEnabled (boolean statisticsEnabled)
+name|void
+name|setStatisticsEnabled
+parameter_list|(
+name|boolean
+name|statisticsEnabled
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

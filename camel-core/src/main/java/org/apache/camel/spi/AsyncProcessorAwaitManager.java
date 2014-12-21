@@ -74,6 +74,69 @@ name|AsyncProcessorAwaitManager
 extends|extends
 name|StaticService
 block|{
+comment|/**      * Utilization statistics of the this manager.      */
+DECL|interface|Statistics
+interface|interface
+name|Statistics
+block|{
+comment|/**          * Total number of threads that has been blocked          */
+DECL|method|getThreadsBlocked ()
+name|long
+name|getThreadsBlocked
+parameter_list|()
+function_decl|;
+comment|/**          * Total number of threads that has been forced interrupted          */
+DECL|method|getThreadsInterrupted ()
+name|long
+name|getThreadsInterrupted
+parameter_list|()
+function_decl|;
+comment|/**          * The total duration time in millis.          */
+DECL|method|getTotalDuration ()
+name|long
+name|getTotalDuration
+parameter_list|()
+function_decl|;
+comment|/**          * The lowest duration time in millis.          */
+DECL|method|getMinDuration ()
+name|long
+name|getMinDuration
+parameter_list|()
+function_decl|;
+comment|/**          * The highest duration time in millis.          */
+DECL|method|getMaxDuration ()
+name|long
+name|getMaxDuration
+parameter_list|()
+function_decl|;
+comment|/**          * The average duration time in millis.          */
+DECL|method|getMeanDuration ()
+name|long
+name|getMeanDuration
+parameter_list|()
+function_decl|;
+comment|/**          * Reset the counters          */
+DECL|method|reset ()
+name|void
+name|reset
+parameter_list|()
+function_decl|;
+comment|/**          * Whether statistics is enabled.          */
+DECL|method|isStatisticsEnabled ()
+name|boolean
+name|isStatisticsEnabled
+parameter_list|()
+function_decl|;
+comment|/**          * Sets whether statistics is enabled.          *          * @param statisticsEnabled<tt>true</tt> to enable          */
+DECL|method|setStatisticsEnabled (boolean statisticsEnabled)
+name|void
+name|setStatisticsEnabled
+parameter_list|(
+name|boolean
+name|statisticsEnabled
+parameter_list|)
+function_decl|;
+block|}
 comment|/**      * Information about the thread and exchange that are inflight.      */
 DECL|interface|AwaitThread
 interface|interface
@@ -181,6 +244,12 @@ parameter_list|(
 name|boolean
 name|interruptThreadsWhileStopping
 parameter_list|)
+function_decl|;
+comment|/**      * Gets the utilization statistics of this manager      *      * @return the utilization statistics      */
+DECL|method|getStatistics ()
+name|Statistics
+name|getStatistics
+parameter_list|()
 function_decl|;
 block|}
 end_interface
