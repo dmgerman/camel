@@ -213,7 +213,7 @@ name|class
 condition|)
 do|;
 block|}
-comment|/**      * Perform the given callback operation on all matching methods of the given      * class and superclasses (or given interface and super-interfaces).      *      * @param clazz class to start looking at      * @param mc the callback to invoke for each method      */
+comment|/**      * Perform the given callback operation on all matching methods of the given      * class and superclasses (or given interface and super-interfaces).      *<p/>      *<b>Important:</b> This method does not take the      * {@link java.lang.reflect.Method#isBridge() bridge methods} into account.      *      * @param clazz class to start looking at      * @param mc the callback to invoke for each method      */
 DECL|method|doWithMethods (Class<?> clazz, MethodCallback mc)
 specifier|public
 specifier|static
@@ -250,6 +250,18 @@ range|:
 name|methods
 control|)
 block|{
+if|if
+condition|(
+name|method
+operator|.
+name|isBridge
+argument_list|()
+condition|)
+block|{
+comment|// skip the bridge methods which in Java 8 leads to problems with inheritance
+comment|// see https://bugs.openjdk.java.net/browse/JDK-6695379
+continue|continue;
+block|}
 try|try
 block|{
 name|mc
