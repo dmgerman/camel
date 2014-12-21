@@ -11846,6 +11846,12 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+comment|// shutdown await manager to trigger interrupt of blocked threads to attempt to free these threads graceful
+name|shutdownServices
+argument_list|(
+name|asyncProcessorAwaitManager
+argument_list|)
+expr_stmt|;
 name|shutdownServices
 argument_list|(
 name|routeServices

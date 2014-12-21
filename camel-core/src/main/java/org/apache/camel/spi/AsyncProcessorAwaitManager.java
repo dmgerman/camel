@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A manager to handle async routing engine, when {@link Exchange}s are being handed over from one thread to another, while  * the callee thread is blocked waiting for the other threads to complete, before it can continue.  *<p/>  * This manager offers insight into the state, and allow to force stuck exchanges to be continued and threads to continue,  * in case of malfunctions.  */
+comment|/**  * A manager to handle async routing engine, when {@link Exchange}s are being handed over from one thread to another, while  * the callee thread is blocked waiting for the other threads to complete, before it can continue.  *<p/>  * This manager offers insight into the state, and allow to force stuck exchanges to be continued and for blocked threads  * to be unblocked, which may happen in case of severe malfunctions (such as the system runs out of memory, a 3rd party  * never responding, or a timeout not triggering, etc).  */
 end_comment
 
 begin_interface
