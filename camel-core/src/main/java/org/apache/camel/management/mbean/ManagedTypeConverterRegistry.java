@@ -242,6 +242,22 @@ return|return
 name|registry
 return|;
 block|}
+DECL|method|getNoopCounter ()
+specifier|public
+name|long
+name|getNoopCounter
+parameter_list|()
+block|{
+return|return
+name|registry
+operator|.
+name|getStatistics
+argument_list|()
+operator|.
+name|getNoopCounter
+argument_list|()
+return|;
+block|}
 DECL|method|getAttemptCounter ()
 specifier|public
 name|long

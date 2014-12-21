@@ -77,6 +77,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Number of noop attempts (no type conversion was needed)"
+argument_list|)
+DECL|method|getNoopCounter ()
+name|long
+name|getNoopCounter
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Number of type conversion attempts"
 argument_list|)
 DECL|method|getAttemptCounter ()

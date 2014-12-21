@@ -733,6 +733,19 @@ name|enabled
 condition|)
 block|{
 name|long
+name|noop
+init|=
+operator|(
+name|long
+operator|)
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"typeConverter.noopCounter"
+argument_list|)
+decl_stmt|;
+name|long
 name|attempt
 init|=
 operator|(
@@ -796,7 +809,9 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"\tType converter usage: [attempts=%s, hits=%s, misses=%s, failures=%s]"
+literal|"\tType converter usage: [noop=%s, attempts=%s, hits=%s, misses=%s, failures=%s]"
+argument_list|,
+name|noop
 argument_list|,
 name|attempt
 argument_list|,

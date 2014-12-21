@@ -67,7 +67,13 @@ DECL|interface|Statistics
 interface|interface
 name|Statistics
 block|{
-comment|/**          * Number of attempts          */
+comment|/**          * Number of noop attempts (no type conversion was needed)          */
+DECL|method|getNoopCounter ()
+name|long
+name|getNoopCounter
+parameter_list|()
+function_decl|;
+comment|/**          * Number of type conversion attempts          */
 DECL|method|getAttemptCounter ()
 name|long
 name|getAttemptCounter
