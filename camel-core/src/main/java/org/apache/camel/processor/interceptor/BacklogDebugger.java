@@ -2591,6 +2591,39 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Gets the exchanged suspended at the given breakpoint id or null if there is none at that id.      *      * @param id - node id for the breakpoint      * @return The suspended exchange or null if there isn't one suspended at the given breakpoint.      */
+DECL|method|getSuspendedExchange (String id)
+specifier|public
+name|Exchange
+name|getSuspendedExchange
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|SuspendedExchange
+name|suspendedExchange
+init|=
+name|suspendedBreakpoints
+operator|.
+name|get
+argument_list|(
+name|id
+argument_list|)
+decl_stmt|;
+return|return
+name|suspendedExchange
+operator|!=
+literal|null
+condition|?
+name|suspendedExchange
+operator|.
+name|getExchange
+argument_list|()
+else|:
+literal|null
+return|;
+block|}
 DECL|method|disableBreakpoint (String nodeId)
 specifier|public
 name|void
