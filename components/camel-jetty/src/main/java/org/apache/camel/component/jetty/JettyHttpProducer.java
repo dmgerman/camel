@@ -228,7 +228,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultProducer
+name|DefaultAsyncProducer
 import|;
 end_import
 
@@ -243,20 +243,6 @@ operator|.
 name|spi
 operator|.
 name|HeaderFilterStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|AsyncProcessorHelper
 import|;
 end_import
 
@@ -376,7 +362,7 @@ specifier|public
 class|class
 name|JettyHttpProducer
 extends|extends
-name|DefaultProducer
+name|DefaultAsyncProducer
 implements|implements
 name|AsyncProcessor
 block|{
@@ -466,27 +452,6 @@ operator|.
 name|getEndpoint
 argument_list|()
 return|;
-block|}
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|AsyncProcessorHelper
-operator|.
-name|process
-argument_list|(
-name|this
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange, final AsyncCallback callback)
 specifier|public
