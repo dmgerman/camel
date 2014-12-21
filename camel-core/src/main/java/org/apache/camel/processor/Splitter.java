@@ -839,6 +839,12 @@ specifier|final
 name|RouteContext
 name|routeContext
 decl_stmt|;
+DECL|field|original
+specifier|private
+specifier|final
+name|Exchange
+name|original
+decl_stmt|;
 DECL|method|SplitterIterable (Exchange exchange, Object value)
 specifier|private
 name|SplitterIterable
@@ -850,6 +856,12 @@ name|Object
 name|value
 parameter_list|)
 block|{
+name|this
+operator|.
+name|original
+operator|=
+name|exchange
+expr_stmt|;
 name|this
 operator|.
 name|value
@@ -1015,6 +1027,40 @@ argument_list|,
 literal|false
 argument_list|)
 decl_stmt|;
+comment|// If the splitter has an aggregation strategy
+comment|// then the StreamCache created by the child routes must not be
+comment|// closed by the unit of work of the child route, but by the unit of
+comment|// work of the parent route or grand parent route or grand grand parent route... (in case of nesting).
+comment|// Therefore, set the unit of work of the parent route as stream cache unit of work, if not already set.
+if|if
+condition|(
+name|newExchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|STREAM_CACHE_UNIT_OF_WORK
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
+name|newExchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|STREAM_CACHE_UNIT_OF_WORK
+argument_list|,
+name|original
+operator|.
+name|getUnitOfWork
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// if we share unit of work, we need to prepare the child exchange
 if|if
 condition|(

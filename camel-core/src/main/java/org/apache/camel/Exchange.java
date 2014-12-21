@@ -560,6 +560,12 @@ name|PARENT_UNIT_OF_WORK
 init|=
 literal|"CamelParentUnitOfWork"
 decl_stmt|;
+DECL|field|STREAM_CACHE_UNIT_OF_WORK
+name|String
+name|STREAM_CACHE_UNIT_OF_WORK
+init|=
+literal|"CamelStreamCacheUnitOfWork"
+decl_stmt|;
 DECL|field|RECIPIENT_LIST_ENDPOINT
 name|String
 name|RECIPIENT_LIST_ENDPOINT

@@ -164,6 +164,34 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Synchronization
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UnitOfWork
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|SynchronizationAdapter
@@ -397,10 +425,9 @@ name|closedOnCompletion
 condition|)
 block|{
 comment|// add on completion so we can cleanup after the exchange is done such as deleting temporary files
-name|exchange
-operator|.
-name|addOnCompletion
-argument_list|(
+name|Synchronization
+name|onCompletion
+init|=
 operator|new
 name|SynchronizationAdapter
 argument_list|()
@@ -489,8 +516,53 @@ literal|"OnCompletion[CachedOutputStream]"
 return|;
 block|}
 block|}
+decl_stmt|;
+name|UnitOfWork
+name|streamCacheUnitOfWork
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|STREAM_CACHE_UNIT_OF_WORK
+argument_list|,
+name|UnitOfWork
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|streamCacheUnitOfWork
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// The stream cache must sometimes not be closed when the exchange is deleted. This is for example the
+comment|// case in the splitter and multi-cast case with AggregationStrategy where the result of the sub-routes
+comment|// are aggregated later in the main route. Here, the cached streams of the sub-routes must be closed with
+comment|// the Unit of Work of the main route.
+name|streamCacheUnitOfWork
+operator|.
+name|addSynchronization
+argument_list|(
+name|onCompletion
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// add on completion so we can cleanup after the exchange is done such as deleting temporary files
+name|exchange
+operator|.
+name|addOnCompletion
+argument_list|(
+name|onCompletion
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|flush ()
