@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright 2014 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -22,37 +22,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|aggregate
-operator|.
-name|cassandra
-operator|.
-name|CassandraAggregationRepository
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|aggregate
-operator|.
-name|cassandra
-operator|.
-name|NamedCassandraAggregationRepository
+name|Set
 import|;
 end_import
 
@@ -183,18 +157,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -235,12 +197,62 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|org
 operator|.
-name|util
+name|junit
 operator|.
-name|Set
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertFalse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
 import|;
 end_import
 
@@ -254,6 +266,20 @@ specifier|public
 class|class
 name|CassandraAggregationRepositoryTest
 block|{
+annotation|@
+name|Rule
+DECL|field|cassandraRule
+specifier|public
+name|CassandraCQLUnit
+name|cassandraRule
+init|=
+name|CassandraUnitUtils
+operator|.
+name|cassandraCQLUnit
+argument_list|(
+literal|"AggregationDataSet.cql"
+argument_list|)
+decl_stmt|;
 DECL|field|cluster
 specifier|private
 name|Cluster
@@ -273,20 +299,6 @@ DECL|field|camelContext
 specifier|private
 name|CamelContext
 name|camelContext
-decl_stmt|;
-annotation|@
-name|Rule
-DECL|field|cassandraRule
-specifier|public
-name|CassandraCQLUnit
-name|cassandraRule
-init|=
-name|CassandraUnitUtils
-operator|.
-name|cassandraCQLUnit
-argument_list|(
-literal|"AggregationDataSet.cql"
-argument_list|)
 decl_stmt|;
 annotation|@
 name|BeforeClass
@@ -480,10 +492,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testGet_Exists ()
+DECL|method|testGetExists ()
 specifier|public
 name|void
-name|testGet_Exists
+name|testGetExists
 parameter_list|()
 block|{
 comment|// Given
@@ -555,10 +567,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testGet_NotExists ()
+DECL|method|testGetNotExists ()
 specifier|public
 name|void
-name|testGet_NotExists
+name|testGetNotExists
 parameter_list|()
 block|{
 comment|// Given
@@ -597,10 +609,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testRemove_Exists ()
+DECL|method|testRemoveExists ()
 specifier|public
 name|void
-name|testRemove_Exists
+name|testRemoveExists
 parameter_list|()
 block|{
 comment|// Given
@@ -661,17 +673,17 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testRemove_NotExists ()
+DECL|method|testRemoveNotExists ()
 specifier|public
 name|void
-name|testRemove_NotExists
+name|testRemoveNotExists
 parameter_list|()
 block|{
 comment|// Given
 name|String
 name|key
 init|=
-literal|"Remove_NotExists"
+literal|"RemoveNotExists"
 decl_stmt|;
 name|Exchange
 name|exchange
@@ -795,10 +807,10 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testConfirm_Exist ()
+DECL|method|testConfirmExist ()
 specifier|public
 name|void
-name|testConfirm_Exist
+name|testConfirmExist
 parameter_list|()
 block|{
 comment|// Given
@@ -900,10 +912,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testConfirm_NotExist ()
+DECL|method|testConfirmNotExist ()
 specifier|public
 name|void
-name|testConfirm_NotExist
+name|testConfirmNotExist
 parameter_list|()
 block|{
 comment|// Given

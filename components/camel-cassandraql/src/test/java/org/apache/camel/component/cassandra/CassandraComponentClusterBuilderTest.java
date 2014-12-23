@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * Copyright 2014 The Apache Software Foundation.  *  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -20,17 +20,21 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|component
+name|util
 operator|.
-name|cassandra
-operator|.
-name|CassandraComponent
+name|Map
 import|;
 end_import
 
@@ -50,16 +54,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -73,14 +67,12 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
-name|hamcrest
+name|junit
 operator|.
-name|Matchers
-operator|.
-name|*
+name|Before
 import|;
 end_import
 
@@ -98,21 +90,47 @@ begin_import
 import|import static
 name|org
 operator|.
-name|junit
+name|hamcrest
 operator|.
-name|Assert
+name|Matchers
 operator|.
-name|*
+name|isOneOf
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|junit
 operator|.
-name|Before
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertThat
 import|;
 end_import
 
@@ -156,10 +174,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testClusterBuilder_Basic ()
+DECL|method|testClusterBuilderBasic ()
 specifier|public
 name|void
-name|testClusterBuilder_Basic
+name|testClusterBuilderBasic
 parameter_list|()
 block|{
 name|Map
@@ -286,10 +304,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testClusterBuilder_Port ()
+DECL|method|testClusterBuilderPort ()
 specifier|public
 name|void
-name|testClusterBuilder_Port
+name|testClusterBuilderPort
 parameter_list|()
 block|{
 name|Map
@@ -450,10 +468,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testClusterBuilder_Simplest ()
+DECL|method|testClusterBuilderSimplest ()
 specifier|public
 name|void
-name|testClusterBuilder_Simplest
+name|testClusterBuilderSimplest
 parameter_list|()
 block|{
 name|Map
