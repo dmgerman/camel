@@ -155,9 +155,15 @@ annotation|@
 name|Converter
 DECL|class|ElasticsearchActionRequestConverter
 specifier|public
+specifier|final
 class|class
 name|ElasticsearchActionRequestConverter
 block|{
+DECL|method|ElasticsearchActionRequestConverter ()
+specifier|private
+name|ElasticsearchActionRequestConverter
+parameter_list|()
+block|{     }
 comment|// Index requests
 DECL|method|createIndexRequest (Object document, Exchange exchange)
 specifier|private
@@ -324,15 +330,6 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-if|if
-condition|(
-name|document
-operator|==
-literal|null
-condition|)
-return|return
-literal|null
-return|;
 return|return
 name|createIndexRequest
 argument_list|(
@@ -376,15 +373,6 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-if|if
-condition|(
-name|id
-operator|==
-literal|null
-condition|)
-return|return
-literal|null
-return|;
 return|return
 operator|new
 name|GetRequest
@@ -446,15 +434,6 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-if|if
-condition|(
-name|id
-operator|==
-literal|null
-condition|)
-return|return
-literal|null
-return|;
 return|return
 operator|new
 name|DeleteRequest
@@ -522,15 +501,6 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-if|if
-condition|(
-name|documents
-operator|==
-literal|null
-condition|)
-return|return
-literal|null
-return|;
 name|BulkRequest
 name|request
 init|=

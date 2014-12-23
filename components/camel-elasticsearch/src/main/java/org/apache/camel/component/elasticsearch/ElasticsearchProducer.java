@@ -237,11 +237,13 @@ name|request
 operator|instanceof
 name|IndexRequest
 condition|)
+block|{
 return|return
 name|ElasticsearchConfiguration
 operator|.
 name|OPERATION_INDEX
 return|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -249,11 +251,13 @@ name|request
 operator|instanceof
 name|GetRequest
 condition|)
+block|{
 return|return
 name|ElasticsearchConfiguration
 operator|.
 name|OPERATION_GET_BY_ID
 return|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -261,11 +265,13 @@ name|request
 operator|instanceof
 name|BulkRequest
 condition|)
+block|{
 return|return
 name|ElasticsearchConfiguration
 operator|.
 name|OPERATION_BULK_INDEX
 return|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -273,11 +279,13 @@ name|request
 operator|instanceof
 name|DeleteRequest
 condition|)
+block|{
 return|return
 name|ElasticsearchConfiguration
 operator|.
 name|OPERATION_DELETE
 return|;
+block|}
 name|String
 name|operationConfig
 init|=
@@ -322,6 +330,7 @@ name|operationConfig
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -337,6 +346,7 @@ operator|+
 literal|"' is not supported"
 argument_list|)
 throw|;
+block|}
 return|return
 name|operationConfig
 return|;
@@ -367,15 +377,6 @@ init|=
 name|exchange
 operator|.
 name|getIn
-argument_list|()
-decl_stmt|;
-name|ElasticsearchConfiguration
-name|config
-init|=
-name|getEndpoint
-argument_list|()
-operator|.
-name|getConfig
 argument_list|()
 decl_stmt|;
 specifier|final
