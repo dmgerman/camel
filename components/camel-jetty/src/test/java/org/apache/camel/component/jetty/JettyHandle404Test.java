@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -186,6 +198,48 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
+name|Test
+DECL|method|testCustomerErrorHandler ()
+specifier|public
+name|void
+name|testCustomerErrorHandler
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|response
+init|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+literal|"http://localhost:{{port}}/myserver1?throwExceptionOnFailure=false"
+argument_list|,
+literal|null
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|// look for the error message which is sent by MyErrorHandler
+name|assertTrue
+argument_list|(
+literal|"Get a wrong error message"
+argument_list|,
+name|response
+operator|.
+name|indexOf
+argument_list|(
+literal|"MyErrorHandler"
+argument_list|)
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
@@ -209,6 +263,29 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// setup the jetty component with the customx error handler
+name|JettyHttpComponent
+name|jettyComponent
+init|=
+operator|(
+name|JettyHttpComponent
+operator|)
+name|context
+operator|.
+name|getComponent
+argument_list|(
+literal|"jetty"
+argument_list|)
+decl_stmt|;
+name|jettyComponent
+operator|.
+name|setErrorHandler
+argument_list|(
+operator|new
+name|MyErrorHandler
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// disable error handling
 name|errorHandler
 argument_list|(

@@ -1116,6 +1116,11 @@ specifier|protected
 name|String
 name|proxyHost
 decl_stmt|;
+DECL|field|errorHandler
+specifier|protected
+name|ErrorHandler
+name|errorHandler
+decl_stmt|;
 DECL|field|proxyPort
 specifier|private
 name|Integer
@@ -3213,6 +3218,32 @@ block|{
 return|return
 name|sslKeystore
 return|;
+block|}
+DECL|method|getErrorHandler ()
+specifier|public
+name|ErrorHandler
+name|getErrorHandler
+parameter_list|()
+block|{
+return|return
+name|errorHandler
+return|;
+block|}
+DECL|method|setErrorHandler (ErrorHandler errorHandler)
+specifier|public
+name|void
+name|setErrorHandler
+parameter_list|(
+name|ErrorHandler
+name|errorHandler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|errorHandler
+operator|=
+name|errorHandler
+expr_stmt|;
 block|}
 DECL|method|getConnector (Server server, JettyHttpEndpoint endpoint)
 specifier|protected
@@ -7028,6 +7059,25 @@ argument_list|(
 name|collection
 argument_list|)
 expr_stmt|;
+comment|// setup the error handler if it set to Jetty component
+if|if
+condition|(
+name|getErrorHandler
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|s
+operator|.
+name|addBean
+argument_list|(
+name|getErrorHandler
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 operator|!
