@@ -543,6 +543,36 @@ name|SECONDS
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|isAllowCoreThreadTimeout ()
+specifier|public
+name|boolean
+name|isAllowCoreThreadTimeout
+parameter_list|()
+block|{
+return|return
+name|threadPool
+operator|.
+name|allowsCoreThreadTimeOut
+argument_list|()
+return|;
+block|}
+DECL|method|setAllowCoreThreadTimeout (boolean allowCoreThreadTimeout)
+specifier|public
+name|void
+name|setAllowCoreThreadTimeout
+parameter_list|(
+name|boolean
+name|allowCoreThreadTimeout
+parameter_list|)
+block|{
+name|threadPool
+operator|.
+name|allowCoreThreadTimeOut
+argument_list|(
+name|allowCoreThreadTimeout
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|isShutdown ()
 specifier|public
 name|boolean

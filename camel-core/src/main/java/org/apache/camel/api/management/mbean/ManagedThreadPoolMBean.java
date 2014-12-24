@@ -300,6 +300,33 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Whether core threads is allowed to timeout if no tasks in queue to process"
+argument_list|)
+DECL|method|isAllowCoreThreadTimeout ()
+name|boolean
+name|isAllowCoreThreadTimeout
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether core threads is allowed to timeout if no tasks in queue to process"
+argument_list|)
+DECL|method|setAllowCoreThreadTimeout (boolean allowCoreThreadTimeout)
+name|void
+name|setAllowCoreThreadTimeout
+parameter_list|(
+name|boolean
+name|allowCoreThreadTimeout
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Is shutdown"
 argument_list|)
 DECL|method|isShutdown ()
