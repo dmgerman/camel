@@ -334,19 +334,19 @@ parameter_list|)
 throws|throws
 name|IllegalArgumentException
 block|{
-comment|// the core pool size must be higher than 0
+comment|// the core pool size must be 0 or higher
 if|if
 condition|(
 name|corePoolSize
 operator|<
-literal|1
+literal|0
 condition|)
 block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"CorePoolSize must be>= 1, was "
+literal|"CorePoolSize must be>= 0, was "
 operator|+
 name|corePoolSize
 argument_list|)

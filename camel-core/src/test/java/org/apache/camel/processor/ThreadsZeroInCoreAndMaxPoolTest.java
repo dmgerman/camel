@@ -129,11 +129,12 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// will use a a custom thread pool with 0 in core and 2 max
+comment|// will use a a custom thread pool with -1 in core and 2 max
 operator|.
 name|threads
 argument_list|(
-literal|0
+operator|-
+literal|1
 argument_list|,
 literal|2
 argument_list|)

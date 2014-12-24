@@ -1676,6 +1676,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// use a thread pool that allow to terminate idle threads so they do not hang around forever
 name|executor
 operator|=
 name|camelContext
@@ -1683,11 +1684,15 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|newSingleThreadExecutor
+name|newThreadPool
 argument_list|(
 name|this
 argument_list|,
 literal|"ShutdownTask"
+argument_list|,
+literal|0
+argument_list|,
+literal|1
 argument_list|)
 expr_stmt|;
 block|}
