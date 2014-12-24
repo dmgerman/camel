@@ -715,7 +715,6 @@ argument_list|,
 name|acceptor
 argument_list|)
 expr_stmt|;
-comment|// need to check if the address is IPV4 TCP all net work address
 if|if
 condition|(
 name|address
@@ -723,6 +722,7 @@ operator|instanceof
 name|InetSocketAddress
 condition|)
 block|{
+comment|// need to check if the address is IPV4 TCP all net work address
 if|if
 condition|(
 literal|"0.0.0.0"
@@ -744,6 +744,20 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Unbind the server address "
+operator|+
+name|acceptor
+operator|.
+name|getLocalAddresses
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|acceptor
 operator|.
 name|unbind
@@ -752,6 +766,16 @@ name|acceptor
 operator|.
 name|getLocalAddresses
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|acceptor
+operator|.
+name|unbind
+argument_list|(
+name|address
 argument_list|)
 expr_stmt|;
 block|}
