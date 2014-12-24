@@ -259,6 +259,26 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|allowCoreThreadTimeOut (Boolean allowCoreThreadTimeOut)
+specifier|public
+name|ThreadPoolProfileBuilder
+name|allowCoreThreadTimeOut
+parameter_list|(
+name|Boolean
+name|allowCoreThreadTimeOut
+parameter_list|)
+block|{
+name|profile
+operator|.
+name|setAllowCoreThreadTimeOut
+argument_list|(
+name|allowCoreThreadTimeOut
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|rejectedPolicy (ThreadPoolRejectedPolicy rejectedPolicy)
 specifier|public
 name|ThreadPoolProfileBuilder
@@ -279,7 +299,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Builds the new thread pool      *       * @return the created thread pool      * @throws Exception is thrown if error building the thread pool      */
+comment|/**      * Builds the thread pool profile      *       * @return the thread pool profile      */
 DECL|method|build ()
 specifier|public
 name|ThreadPoolProfile

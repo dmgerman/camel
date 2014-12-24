@@ -211,7 +211,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|newThreadPool (int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, int maxQueueSize, RejectedExecutionHandler rejectedExecutionHandler, ThreadFactory threadFactory)
+DECL|method|newThreadPool (int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, int maxQueueSize, boolean allowCoreThreadTimeOut, RejectedExecutionHandler rejectedExecutionHandler, ThreadFactory threadFactory)
 specifier|public
 name|ExecutorService
 name|newThreadPool
@@ -230,6 +230,9 @@ name|timeUnit
 parameter_list|,
 name|int
 name|maxQueueSize
+parameter_list|,
+name|boolean
+name|allowCoreThreadTimeOut
 parameter_list|,
 name|RejectedExecutionHandler
 name|rejectedExecutionHandler
@@ -258,6 +261,8 @@ argument_list|,
 name|timeUnit
 argument_list|,
 name|maxQueueSize
+argument_list|,
+name|allowCoreThreadTimeOut
 argument_list|,
 name|rejectedExecutionHandler
 argument_list|,

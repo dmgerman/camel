@@ -268,6 +268,24 @@ name|ThreadFactory
 name|factory
 parameter_list|)
 block|{
+comment|// allow core thread timeout is default false if not configured
+name|boolean
+name|allow
+init|=
+name|profile
+operator|.
+name|getAllowCoreThreadTimeOut
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|profile
+operator|.
+name|getAllowCoreThreadTimeOut
+argument_list|()
+else|:
+literal|false
+decl_stmt|;
 return|return
 name|newThreadPool
 argument_list|(
@@ -296,6 +314,8 @@ operator|.
 name|getMaxQueueSize
 argument_list|()
 argument_list|,
+name|allow
+argument_list|,
 name|profile
 operator|.
 name|getRejectedExecutionHandler
@@ -305,7 +325,7 @@ name|factory
 argument_list|)
 return|;
 block|}
-DECL|method|newThreadPool (int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, int maxQueueSize, RejectedExecutionHandler rejectedExecutionHandler, ThreadFactory threadFactory)
+DECL|method|newThreadPool (int corePoolSize, int maxPoolSize, long keepAliveTime, TimeUnit timeUnit, int maxQueueSize, boolean allowCoreThreadTimeOut, RejectedExecutionHandler rejectedExecutionHandler, ThreadFactory threadFactory)
 specifier|public
 name|ExecutorService
 name|newThreadPool
@@ -324,6 +344,9 @@ name|timeUnit
 parameter_list|,
 name|int
 name|maxQueueSize
+parameter_list|,
+name|boolean
+name|allowCoreThreadTimeOut
 parameter_list|,
 name|RejectedExecutionHandler
 name|rejectedExecutionHandler
@@ -469,6 +492,13 @@ argument_list|(
 name|threadFactory
 argument_list|)
 expr_stmt|;
+name|answer
+operator|.
+name|allowCoreThreadTimeOut
+argument_list|(
+name|allowCoreThreadTimeOut
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|rejectedExecutionHandler
@@ -550,7 +580,13 @@ argument_list|,
 name|rejectedExecutionHandler
 argument_list|)
 decl_stmt|;
-comment|// TODO: when JDK7 we should setRemoveOnCancelPolicy(true)
+name|answer
+operator|.
+name|setRemoveOnCancelPolicy
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// need to wrap the thread pool in a sized to guard against the problem that the
 comment|// JDK created thread pool has an unbounded queue (see class javadoc), which mean
 comment|// we could potentially keep adding tasks, and run out of memory.

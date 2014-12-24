@@ -121,6 +121,11 @@ specifier|private
 name|Integer
 name|maxQueueSize
 decl_stmt|;
+DECL|field|allowCoreThreadTimeOut
+specifier|private
+name|Boolean
+name|allowCoreThreadTimeOut
+decl_stmt|;
 DECL|field|rejectedPolicy
 specifier|private
 name|ThreadPoolRejectedPolicy
@@ -348,6 +353,34 @@ operator|=
 name|maxQueueSize
 expr_stmt|;
 block|}
+comment|/**      * Gets whether to allow core threads to timeout      *      * @return the allow core threads to timeout      */
+DECL|method|getAllowCoreThreadTimeOut ()
+specifier|public
+name|Boolean
+name|getAllowCoreThreadTimeOut
+parameter_list|()
+block|{
+return|return
+name|allowCoreThreadTimeOut
+return|;
+block|}
+comment|/**      * Sets whethre to allow core threads to timeout      *      * @param allowCoreThreadTimeOut<tt>true</tt> to allow timeout      */
+DECL|method|setAllowCoreThreadTimeOut (Boolean allowCoreThreadTimeOut)
+specifier|public
+name|void
+name|setAllowCoreThreadTimeOut
+parameter_list|(
+name|Boolean
+name|allowCoreThreadTimeOut
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowCoreThreadTimeOut
+operator|=
+name|allowCoreThreadTimeOut
+expr_stmt|;
+block|}
 comment|/**      * Gets the policy for tasks which cannot be executed by the thread pool.      *      * @return the policy for the handler      */
 DECL|method|getRejectedPolicy ()
 specifier|public
@@ -497,6 +530,21 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|allowCoreThreadTimeOut
+operator|==
+literal|null
+condition|)
+block|{
+name|allowCoreThreadTimeOut
+operator|=
+name|defaultProfile
+operator|.
+name|getAllowCoreThreadTimeOut
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|rejectedPolicy
 operator|==
 literal|null
@@ -570,6 +618,13 @@ argument_list|)
 expr_stmt|;
 name|cloned
 operator|.
+name|setAllowCoreThreadTimeOut
+argument_list|(
+name|allowCoreThreadTimeOut
+argument_list|)
+expr_stmt|;
+name|cloned
+operator|.
 name|setRejectedPolicy
 argument_list|(
 name|rejectedPolicy
@@ -622,6 +677,10 @@ operator|+
 literal|", maxQueue: "
 operator|+
 name|maxQueueSize
+operator|+
+literal|", allowCoreThreadTimeOut:"
+operator|+
+name|allowCoreThreadTimeOut
 operator|+
 literal|", rejectedPolicy:"
 operator|+

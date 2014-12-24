@@ -363,6 +363,13 @@ name|maxQueueSize
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|allowCoreThreadTimeOut
+specifier|private
+name|Boolean
+name|allowCoreThreadTimeOut
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|threadName
 specifier|private
 name|String
@@ -514,6 +521,12 @@ name|getRejectedPolicy
 argument_list|()
 argument_list|)
 operator|.
+name|allowCoreThreadTimeOut
+argument_list|(
+name|getAllowCoreThreadTimeOut
+argument_list|()
+argument_list|)
+operator|.
 name|build
 argument_list|()
 decl_stmt|;
@@ -639,6 +652,22 @@ operator|new
 name|IllegalArgumentException
 argument_list|(
 literal|"RejectedPolicy and executorServiceRef options cannot be used together."
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|getAllowCoreThreadTimeOut
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"AllowCoreThreadTimeOut and executorServiceRef options cannot be used together."
 argument_list|)
 throw|;
 block|}
@@ -1052,6 +1081,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Whether to allow core threads to timeout      *<p/>      * Is by default<tt>false</tt>      *      * @param allowCoreThreadTimeOut<tt>true</tt> to allow timeout      * @return the builder      */
+DECL|method|allowCoreThreadTimeOut (boolean allowCoreThreadTimeOut)
+specifier|public
+name|ThreadsDefinition
+name|allowCoreThreadTimeOut
+parameter_list|(
+name|boolean
+name|allowCoreThreadTimeOut
+parameter_list|)
+block|{
+name|setAllowCoreThreadTimeOut
+argument_list|(
+name|allowCoreThreadTimeOut
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|getExecutorService ()
 specifier|public
 name|ExecutorService
@@ -1310,6 +1358,32 @@ operator|.
 name|callerRunsWhenRejected
 operator|=
 name|callerRunsWhenRejected
+expr_stmt|;
+block|}
+DECL|method|getAllowCoreThreadTimeOut ()
+specifier|public
+name|Boolean
+name|getAllowCoreThreadTimeOut
+parameter_list|()
+block|{
+return|return
+name|allowCoreThreadTimeOut
+return|;
+block|}
+DECL|method|setAllowCoreThreadTimeOut (Boolean allowCoreThreadTimeOut)
+specifier|public
+name|void
+name|setAllowCoreThreadTimeOut
+parameter_list|(
+name|Boolean
+name|allowCoreThreadTimeOut
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowCoreThreadTimeOut
+operator|=
+name|allowCoreThreadTimeOut
 expr_stmt|;
 block|}
 block|}

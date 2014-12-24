@@ -140,6 +140,20 @@ name|TimeUnitAdapter
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ThreadPoolProfile
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents an XML&lt;threadPoolProfile/&gt; element  *  * @version   */
 end_comment
@@ -215,6 +229,13 @@ DECL|field|maxQueueSize
 specifier|private
 name|String
 name|maxQueueSize
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|allowCoreThreadTimeOut
+specifier|private
+name|String
+name|allowCoreThreadTimeOut
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -429,6 +450,26 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|allowCoreThreadTimeOut (boolean allowCoreThreadTimeOut)
+specifier|public
+name|ThreadPoolProfileDefinition
+name|allowCoreThreadTimeOut
+parameter_list|(
+name|boolean
+name|allowCoreThreadTimeOut
+parameter_list|)
+block|{
+name|setAllowCoreThreadTimeOut
+argument_list|(
+literal|""
+operator|+
+name|allowCoreThreadTimeOut
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|getDefaultProfile ()
 specifier|public
 name|Boolean
@@ -571,6 +612,32 @@ operator|.
 name|maxQueueSize
 operator|=
 name|maxQueueSize
+expr_stmt|;
+block|}
+DECL|method|getAllowCoreThreadTimeOut ()
+specifier|public
+name|String
+name|getAllowCoreThreadTimeOut
+parameter_list|()
+block|{
+return|return
+name|allowCoreThreadTimeOut
+return|;
+block|}
+DECL|method|setAllowCoreThreadTimeOut (String allowCoreThreadTimeOut)
+specifier|public
+name|void
+name|setAllowCoreThreadTimeOut
+parameter_list|(
+name|String
+name|allowCoreThreadTimeOut
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowCoreThreadTimeOut
+operator|=
+name|allowCoreThreadTimeOut
 expr_stmt|;
 block|}
 DECL|method|getTimeUnit ()

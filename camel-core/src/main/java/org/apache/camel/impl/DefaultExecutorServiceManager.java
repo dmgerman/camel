@@ -621,6 +621,13 @@ argument_list|)
 expr_stmt|;
 name|defaultProfile
 operator|.
+name|setAllowCoreThreadTimeOut
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|defaultProfile
+operator|.
 name|setRejectedPolicy
 argument_list|(
 name|ThreadPoolRejectedPolicy
