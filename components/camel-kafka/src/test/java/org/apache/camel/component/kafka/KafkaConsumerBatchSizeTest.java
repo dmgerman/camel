@@ -170,11 +170,24 @@ literal|"kafka:localhost:{{karfkaPort}}?topic="
 operator|+
 name|TOPIC
 operator|+
-literal|"&zookeeperHost=localhost&zookeeperPort={{zookeeperPort}}&"
+literal|"&zookeeperHost=localhost"
 operator|+
-literal|"groupId=group1&autoOffsetReset=smallest&"
+literal|"&zookeeperPort={{zookeeperPort}}"
 operator|+
-literal|"autoCommitEnable=false&batchSize=3&consumerStreams=1"
+literal|"&groupId=group1"
+operator|+
+literal|"&autoOffsetReset=smallest"
+operator|+
+literal|"&autoCommitEnable=false"
+operator|+
+literal|"&batchSize=3"
+operator|+
+literal|"&consumerStreams=10"
+comment|// If set the consumerTiemout too small the test will fail in JDK7
+operator|+
+literal|"&consumerTimeoutMs=300"
+operator|+
+literal|"&barrierAwaitTimeoutMs=1000"
 argument_list|)
 DECL|field|from
 specifier|private
@@ -352,14 +365,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//First 5 must not be committed since batch size is 3
-name|to
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|2
-argument_list|)
-expr_stmt|;
+comment|//First 2 must not be committed since batch size is 3
 name|to
 operator|.
 name|expectedBodiesReceivedInAnyOrder
@@ -429,6 +435,11 @@ argument_list|(
 literal|3000
 argument_list|)
 expr_stmt|;
+name|to
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 comment|//Restart endpoint,
 name|from
 operator|.
@@ -445,18 +456,6 @@ argument_list|()
 operator|.
 name|start
 argument_list|()
-expr_stmt|;
-name|to
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|to
-operator|.
-name|expectedMessageCount
-argument_list|(
-literal|10
-argument_list|)
 expr_stmt|;
 name|to
 operator|.
@@ -544,6 +543,11 @@ argument_list|(
 literal|3000
 argument_list|)
 expr_stmt|;
+name|to
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 comment|//Restart endpoint,
 name|from
 operator|.
@@ -561,17 +565,19 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
-name|to
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
 comment|//Only one message should left to consume by this consumer group
 name|to
 operator|.
 name|expectedMessageCount
 argument_list|(
 literal|1
+argument_list|)
+expr_stmt|;
+name|to
+operator|.
+name|assertIsSatisfied
+argument_list|(
+literal|3000
 argument_list|)
 expr_stmt|;
 block|}

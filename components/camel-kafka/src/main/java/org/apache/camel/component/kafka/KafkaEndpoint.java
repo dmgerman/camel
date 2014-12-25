@@ -1189,7 +1189,7 @@ expr_stmt|;
 block|}
 DECL|method|getConsumerTimeoutMs ()
 specifier|public
-name|int
+name|Integer
 name|getConsumerTimeoutMs
 parameter_list|()
 block|{
