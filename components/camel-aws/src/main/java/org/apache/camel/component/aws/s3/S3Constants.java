@@ -120,6 +120,12 @@ name|USER_METADATA
 init|=
 literal|"CamelAwsS3UserMetadata"
 decl_stmt|;
+DECL|field|S3_HEADERS
+name|String
+name|S3_HEADERS
+init|=
+literal|"CamelAwsS3Headers"
+decl_stmt|;
 block|}
 end_interface
 
