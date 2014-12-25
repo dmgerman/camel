@@ -35,7 +35,7 @@ parameter_list|()
 block|{
 comment|//Helper class
 block|}
-comment|/**      * Returns true if the given text is null or empty string      */
+comment|/**      * Returns true if the given text is null or empty string or has<tt>null</tt> as the value      */
 DECL|method|isNullOrEmpty (String text)
 specifier|public
 specifier|static
@@ -57,6 +57,13 @@ name|length
 argument_list|()
 operator|==
 literal|0
+operator|||
+literal|"null"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
 return|;
 block|}
 comment|/**      * Returns the value or the defaultValue if it is null      */

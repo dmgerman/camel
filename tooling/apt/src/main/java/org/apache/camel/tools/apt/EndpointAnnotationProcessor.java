@@ -1541,6 +1541,8 @@ argument_list|()
 argument_list|,
 literal|"path"
 argument_list|,
+literal|null
+argument_list|,
 name|path
 operator|.
 name|getType
@@ -1634,6 +1636,8 @@ name|getName
 argument_list|()
 argument_list|,
 literal|"parameter"
+argument_list|,
+literal|null
 argument_list|,
 name|entry
 operator|.

@@ -72,7 +72,7 @@ specifier|private
 name|JsonSchemaHelper
 parameter_list|()
 block|{     }
-DECL|method|toJson (String name, String kind, String type, String defaultValue, String description, boolean enumType, Set<String> enums)
+DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, boolean enumType, Set<String> enums)
 specifier|public
 specifier|static
 name|String
@@ -83,6 +83,9 @@ name|name
 parameter_list|,
 name|String
 name|kind
+parameter_list|,
+name|Boolean
+name|required
 parameter_list|,
 name|String
 name|type
@@ -153,6 +156,36 @@ name|kind
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|required
+operator|!=
+literal|null
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|": \"required\": "
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|Strings
+operator|.
+name|doubleQuote
+argument_list|(
+name|required
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 name|sb
 operator|.
 name|append
