@@ -462,18 +462,6 @@ specifier|public
 name|ResequenceDefinition
 parameter_list|()
 block|{     }
-annotation|@
-name|Override
-DECL|method|getShortName ()
-specifier|public
-name|String
-name|getShortName
-parameter_list|()
-block|{
-return|return
-literal|"resequence"
-return|;
-block|}
 DECL|method|getOutputs ()
 specifier|public
 name|List

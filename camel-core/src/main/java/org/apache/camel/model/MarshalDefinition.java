@@ -1382,18 +1382,6 @@ operator|+
 literal|"]"
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|getShortName ()
-specifier|public
-name|String
-name|getShortName
-parameter_list|()
-block|{
-return|return
-literal|"marshal"
-return|;
-block|}
 DECL|method|getRef ()
 specifier|public
 name|String

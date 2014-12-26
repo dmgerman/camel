@@ -328,18 +328,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getShortName ()
-specifier|public
-name|String
-name|getShortName
-parameter_list|()
-block|{
-return|return
-literal|"sort"
-return|;
-block|}
-annotation|@
-name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(

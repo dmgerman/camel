@@ -302,18 +302,6 @@ operator|+
 literal|"]"
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|getShortName ()
-specifier|public
-name|String
-name|getShortName
-parameter_list|()
-block|{
-return|return
-literal|"idempotentConsumer"
-return|;
-block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
 comment|/**      * Sets the reference name of the message id repository      *      * @param messageIdRepositoryRef the reference name of message id repository      * @return builder      */

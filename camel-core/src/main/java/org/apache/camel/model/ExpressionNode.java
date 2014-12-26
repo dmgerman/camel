@@ -200,6 +200,7 @@ name|FIELD
 argument_list|)
 DECL|class|ExpressionNode
 specifier|public
+specifier|abstract
 class|class
 name|ExpressionNode
 extends|extends

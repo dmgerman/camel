@@ -803,18 +803,6 @@ literal|"]"
 return|;
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|getShortName ()
-specifier|public
-name|String
-name|getShortName
-parameter_list|()
-block|{
-return|return
-literal|"route"
-return|;
-block|}
 comment|/**      * Returns the status of the route if it has been registered with a {@link CamelContext}      */
 DECL|method|getStatus (CamelContext camelContext)
 specifier|public

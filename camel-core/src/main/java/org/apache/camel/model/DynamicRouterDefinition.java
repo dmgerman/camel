@@ -256,18 +256,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getShortName ()
-specifier|public
-name|String
-name|getShortName
-parameter_list|()
-block|{
-return|return
-literal|"dynamicRouter"
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|getOutputs ()
 specifier|public
 name|List

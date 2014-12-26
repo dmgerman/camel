@@ -243,6 +243,7 @@ argument_list|<
 name|InterceptSendToEndpointDefinition
 argument_list|>
 block|{
+comment|// TODO: name miss-match: XML=interceptToEndpoint, Java=interceptSendToEndpoint
 comment|// TODO: Support lookup endpoint by ref (requires a bit more work)
 comment|// TODO: interceptSendToEndpoint needs to proxy the endpoints at very first
 comment|// so when other processors uses an endpoint its already proxied, see workaround in SendProcessor
@@ -306,18 +307,6 @@ name|getOutputs
 argument_list|()
 operator|+
 literal|"]"
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getShortName ()
-specifier|public
-name|String
-name|getShortName
-parameter_list|()
-block|{
-return|return
-literal|"interceptSendToEndpoint"
 return|;
 block|}
 annotation|@

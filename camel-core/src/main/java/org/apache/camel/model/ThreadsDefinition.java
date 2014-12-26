@@ -866,18 +866,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getShortName ()
-specifier|public
-name|String
-name|getShortName
-parameter_list|()
-block|{
-return|return
-literal|"threads"
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|toString ()
 specifier|public
 name|String

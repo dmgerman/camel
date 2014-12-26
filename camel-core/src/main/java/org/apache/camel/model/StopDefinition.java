@@ -134,18 +134,6 @@ parameter_list|()
 block|{     }
 annotation|@
 name|Override
-DECL|method|getShortName ()
-specifier|public
-name|String
-name|getShortName
-parameter_list|()
-block|{
-return|return
-literal|"stop"
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createProcessor (RouteContext routeContext)
 specifier|public
 name|Processor
