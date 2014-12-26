@@ -224,7 +224,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"interceptToEndpoint"
+literal|"interceptSendToEndpoint"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -243,7 +243,6 @@ argument_list|<
 name|InterceptSendToEndpointDefinition
 argument_list|>
 block|{
-comment|// TODO: name miss-match: XML=interceptToEndpoint, Java=interceptSendToEndpoint
 comment|// TODO: Support lookup endpoint by ref (requires a bit more work)
 comment|// TODO: interceptSendToEndpoint needs to proxy the endpoints at very first
 comment|// so when other processors uses an endpoint its already proxied, see workaround in SendProcessor
