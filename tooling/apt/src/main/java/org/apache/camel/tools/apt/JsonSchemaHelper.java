@@ -1050,6 +1050,20 @@ name|boolean
 name|summary
 parameter_list|)
 block|{
+if|if
+condition|(
+name|Strings
+operator|.
+name|isNullOrEmpty
+argument_list|(
+name|javadoc
+argument_list|)
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 comment|// lets just use what java accepts as identifiers
 name|StringBuilder
 name|sb
