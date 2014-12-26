@@ -242,6 +242,20 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlElementRef
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlRootElement
 import|;
 end_import
@@ -302,6 +316,18 @@ end_import
 
 begin_comment
 comment|// TODO: add support for @XmlElementRef (eg as used by choice)
+end_comment
+
+begin_comment
+comment|// TODO: add support for label so we can categorize the eips
+end_comment
+
+begin_comment
+comment|// TODO: add support for output to indicate what output the model support
+end_comment
+
+begin_comment
+comment|/**  * Process all camel-core's model classes (EIPs and DSL) and generate json schema documentation  */
 end_comment
 
 begin_class
@@ -1764,7 +1790,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// check super classes which may also have @UriParam fields
+comment|// check super classes which may also have fields
 name|TypeElement
 name|baseTypeElement
 init|=
