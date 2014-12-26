@@ -19,6 +19,18 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|String
+operator|.
+name|format
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -196,16 +208,6 @@ name|regex
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getPassword ()
-specifier|public
-name|String
-name|getPassword
-parameter_list|()
-block|{
-return|return
-name|password
-return|;
-block|}
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -277,16 +279,6 @@ operator|=
 name|password
 expr_stmt|;
 block|}
-DECL|method|getAlgorithm ()
-specifier|public
-name|String
-name|getAlgorithm
-parameter_list|()
-block|{
-return|return
-name|algorithm
-return|;
-block|}
 DECL|method|setAlgorithm (String algorithm)
 specifier|public
 name|void
@@ -303,11 +295,11 @@ operator|=
 name|algorithm
 expr_stmt|;
 block|}
-DECL|method|getEncryptor ()
-specifier|public
+DECL|method|initEncryptor ()
+specifier|private
 specifier|synchronized
-name|StringEncryptor
-name|getEncryptor
+name|void
+name|initEncryptor
 parameter_list|()
 block|{
 if|if
@@ -317,15 +309,13 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// password is mandatory
 name|ObjectHelper
 operator|.
 name|notEmpty
 argument_list|(
 literal|"password"
 argument_list|,
-name|getPassword
-argument_list|()
+name|password
 argument_list|)
 expr_stmt|;
 name|StandardPBEStringEncryptor
@@ -339,8 +329,7 @@ name|pbeStringEncryptor
 operator|.
 name|setPassword
 argument_list|(
-name|getPassword
-argument_list|()
+name|password
 argument_list|)
 expr_stmt|;
 if|if
@@ -354,8 +343,32 @@ name|pbeStringEncryptor
 operator|.
 name|setAlgorithm
 argument_list|(
-name|getAlgorithm
-argument_list|()
+name|algorithm
+argument_list|)
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+name|format
+argument_list|(
+literal|"Initialized encryptor using %s algorithm and provided password"
+argument_list|,
+name|algorithm
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+name|format
+argument_list|(
+literal|"Initialized encryptor using default algorithm and provided password"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -364,9 +377,6 @@ operator|=
 name|pbeStringEncryptor
 expr_stmt|;
 block|}
-return|return
-name|encryptor
-return|;
 block|}
 DECL|method|setEncryptor (StringEncryptor encryptor)
 specifier|public
@@ -405,8 +415,6 @@ name|log
 operator|.
 name|trace
 argument_list|(
-name|String
-operator|.
 name|format
 argument_list|(
 literal|"Parsing property '%s=%s'"
@@ -416,6 +424,9 @@ argument_list|,
 name|value
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|initEncryptor
+argument_list|()
 expr_stmt|;
 name|Matcher
 name|matcher
@@ -439,8 +450,6 @@ name|log
 operator|.
 name|trace
 argument_list|(
-name|String
-operator|.
 name|format
 argument_list|(
 literal|"Decrypting part '%s'"
@@ -457,8 +466,7 @@ expr_stmt|;
 name|String
 name|decrypted
 init|=
-name|getEncryptor
-argument_list|()
+name|encryptor
 operator|.
 name|decrypt
 argument_list|(
