@@ -704,7 +704,7 @@ name|XmlAccessorType
 argument_list|(
 name|XmlAccessType
 operator|.
-name|PROPERTY
+name|FIELD
 argument_list|)
 DECL|class|ProcessorDefinition
 specifier|public
@@ -727,6 +727,8 @@ argument_list|>
 implements|implements
 name|Block
 block|{
+annotation|@
+name|XmlTransient
 DECL|field|COUNTER
 specifier|private
 specifier|static
@@ -738,6 +740,8 @@ operator|new
 name|AtomicInteger
 argument_list|()
 decl_stmt|;
+annotation|@
+name|XmlTransient
 DECL|field|log
 specifier|protected
 specifier|final
@@ -752,11 +756,15 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|inheritErrorHandler
 specifier|protected
 name|Boolean
 name|inheritErrorHandler
 decl_stmt|;
+annotation|@
+name|XmlTransient
 DECL|field|blocks
 specifier|private
 specifier|final
@@ -773,6 +781,8 @@ name|Block
 argument_list|>
 argument_list|()
 decl_stmt|;
+annotation|@
+name|XmlTransient
 DECL|field|parent
 specifier|private
 name|ProcessorDefinition
@@ -781,6 +791,8 @@ name|?
 argument_list|>
 name|parent
 decl_stmt|;
+annotation|@
+name|XmlTransient
 DECL|field|interceptStrategies
 specifier|private
 specifier|final
@@ -798,6 +810,8 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 comment|// use xs:any to support optional property placeholders
+annotation|@
+name|XmlAnyAttribute
 DECL|field|otherAttributes
 specifier|private
 name|Map
@@ -808,6 +822,8 @@ name|Object
 argument_list|>
 name|otherAttributes
 decl_stmt|;
+annotation|@
+name|XmlTransient
 DECL|field|index
 specifier|private
 specifier|final
@@ -829,9 +845,6 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * Gets the unique index number for when this {@link ProcessorDefinition} was created by its constructor.      *<p/>      * This can be used to know the order in which the definition was created when assembled as a route.      *      * @return the index number      */
-annotation|@
-name|XmlTransient
-comment|// do not expose this in the XML DSL
 DECL|method|getIndex ()
 specifier|public
 name|int
@@ -5101,11 +5114,6 @@ return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *<p/>      * The route slip will be evaluated<i>once</i>, use {@link #dynamicRouter()} if you need even more dynamic routing.      *      * @param header  is the header that the {@link org.apache.camel.processor.RoutingSlip RoutingSlip}      *                class will look in for the list of URIs to route the message to.      * @param uriDelimiter  is the delimiter that will be used to split up      *                      the list of URIs in the routing slip.      * @return the builder      * @deprecated prefer to use {@link #routingSlip(org.apache.camel.Expression, String)} instead      */
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
 name|Deprecated
 DECL|method|routingSlip (String header, String uriDelimiter)
 specifier|public
@@ -5150,11 +5158,6 @@ return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *<p/>      * The list of URIs will be split based on the default delimiter {@link RoutingSlipDefinition#DEFAULT_DELIMITER}      *<p/>      * The route slip will be evaluated<i>once</i>, use {@link #dynamicRouter()} if you need even more dynamic routing.      *      * @param header  is the header that the {@link org.apache.camel.processor.RoutingSlip RoutingSlip}      *                class will look in for the list of URIs to route the message to.      * @return the builder      * @deprecated prefer to use {@link #routingSlip(org.apache.camel.Expression)} instead      */
 annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
-annotation|@
 name|Deprecated
 DECL|method|routingSlip (String header)
 specifier|public
@@ -5193,11 +5196,6 @@ name|this
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *<p/>      * The route slip will be evaluated<i>once</i>, use {@link #dynamicRouter()} if you need even more dynamic routing.      *      * @param header  is the header that the {@link org.apache.camel.processor.RoutingSlip RoutingSlip}      *                class will look in for the list of URIs to route the message to.      * @param uriDelimiter  is the delimiter that will be used to split up      *                      the list of URIs in the routing slip.      * @param ignoreInvalidEndpoints if this parameter is true, routingSlip will ignore the endpoints which      *                               cannot be resolved or a producer cannot be created or started       * @return the builder      * @deprecated prefer to use {@link #routingSlip()} instead      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 annotation|@
 name|Deprecated
 DECL|method|routingSlip (String header, String uriDelimiter, boolean ignoreInvalidEndpoints)
@@ -5252,11 +5250,6 @@ name|this
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/routing-slip.html">Routing Slip EIP:</a>      * Creates a routing slip allowing you to route a message consecutively through a series of processing      * steps where the sequence of steps is not known at design time and can vary for each message.      *<p/>      * The list of URIs will be split based on the default delimiter {@link RoutingSlipDefinition#DEFAULT_DELIMITER}      *<p/>      * The route slip will be evaluated<i>once</i>, use {@link #dynamicRouter()} if you need even more dynamic routing.      *      * @param header  is the header that the {@link org.apache.camel.processor.RoutingSlip RoutingSlip}      *                class will look in for the list of URIs to route the message to.      * @param ignoreInvalidEndpoints if this parameter is true, routingSlip will ignore the endpoints which      *                               cannot be resolved or a producer cannot be created or started       * @return the builder      * @deprecated prefer to use {@link #routingSlip()} instead      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 annotation|@
 name|Deprecated
 DECL|method|routingSlip (String header, boolean ignoreInvalidEndpoints)
@@ -6168,11 +6161,6 @@ name|loop
 return|;
 block|}
 comment|/**      * Sets the exception on the {@link org.apache.camel.Exchange}      *      * @param exception the exception to throw      * @return the builder      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|throwException (Exception exception)
 specifier|public
 name|Type
@@ -6209,11 +6197,6 @@ name|this
 return|;
 block|}
 comment|/**      * Marks the exchange for rollback only.      *<p/>      * Does<b>not</b> set any exception as opposed to {@link #rollback()} methods.      *      * @return the builder      * @see #rollback()      * @see #rollback(String)      * @see #markRollbackOnlyLast()      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|markRollbackOnly ()
 specifier|public
 name|Type
@@ -6247,11 +6230,6 @@ name|this
 return|;
 block|}
 comment|/**      * Marks the exchange for rollback only, but only for the last (current) transaction.      *<p/>      * A last rollback is used when you have nested transactions and only want the last local transaction to rollback,      * where as the outer transaction can still be completed      *<p/>      * Does<b>not</b> set any exception as opposed to {@link #rollback()} methods.      *      * @return the builder      * @see #rollback()      * @see #rollback(String)      * @see #markRollbackOnly()      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|markRollbackOnlyLast ()
 specifier|public
 name|Type
@@ -6299,11 +6277,6 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Marks the exchange for rollback and sets an exception with the provided message.      *<p/>      * This is done by setting a {@link org.apache.camel.RollbackExchangeException} on the Exchange      * and mark it for rollback.      *      * @param message an optional message used for logging purpose why the rollback was triggered      * @return the builder      * @see #markRollbackOnly()      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|rollback (String message)
 specifier|public
 name|Type
@@ -6707,6 +6680,11 @@ name|removeLast
 argument_list|()
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|startupOrder (int startupOrder)
 specifier|public
 name|Type
@@ -7385,6 +7363,11 @@ name|this
 return|;
 block|}
 comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param beanType  the bean class, Camel will instantiate an object at runtime      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @param multiParameterArray if it is true, camel will treat the message body as an object array which holds      *  the multi parameter      * @param cache  if enabled, Camel will cache the result of the first Registry look-up.      *               Cache can be enabled if the bean in the Registry is defined as a singleton scope.      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|bean (Class<?> beanType, String method, boolean multiParameterArray, boolean cache)
 specifier|public
 name|Type
@@ -9580,8 +9563,6 @@ return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
-annotation|@
-name|XmlTransient
 DECL|method|getParent ()
 specifier|public
 name|ProcessorDefinition
@@ -9614,8 +9595,6 @@ operator|=
 name|parent
 expr_stmt|;
 block|}
-annotation|@
-name|XmlTransient
 DECL|method|getInterceptStrategies ()
 specifier|public
 name|List
@@ -9658,8 +9637,6 @@ return|return
 name|inheritErrorHandler
 return|;
 block|}
-annotation|@
-name|XmlAttribute
 DECL|method|setInheritErrorHandler (Boolean inheritErrorHandler)
 specifier|public
 name|void
@@ -9691,8 +9668,6 @@ return|return
 name|otherAttributes
 return|;
 block|}
-annotation|@
-name|XmlAnyAttribute
 DECL|method|setOtherAttributes (Map<QName, Object> otherAttributes)
 specifier|public
 name|void
