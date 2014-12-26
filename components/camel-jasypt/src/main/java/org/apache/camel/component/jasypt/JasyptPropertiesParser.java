@@ -90,6 +90,18 @@ name|jasypt
 operator|.
 name|encryption
 operator|.
+name|StringEncryptor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jasypt
+operator|.
+name|encryption
+operator|.
 name|pbe
 operator|.
 name|StandardPBEStringEncryptor
@@ -128,7 +140,7 @@ literal|")"
 decl_stmt|;
 DECL|field|encryptor
 specifier|private
-name|StandardPBEStringEncryptor
+name|StringEncryptor
 name|encryptor
 decl_stmt|;
 DECL|field|password
@@ -294,7 +306,7 @@ block|}
 DECL|method|getEncryptor ()
 specifier|public
 specifier|synchronized
-name|StandardPBEStringEncryptor
+name|StringEncryptor
 name|getEncryptor
 parameter_list|()
 block|{
@@ -316,13 +328,14 @@ name|getPassword
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|encryptor
-operator|=
+name|StandardPBEStringEncryptor
+name|pbeStringEncryptor
+init|=
 operator|new
 name|StandardPBEStringEncryptor
 argument_list|()
-expr_stmt|;
-name|encryptor
+decl_stmt|;
+name|pbeStringEncryptor
 operator|.
 name|setPassword
 argument_list|(
@@ -337,7 +350,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|encryptor
+name|pbeStringEncryptor
 operator|.
 name|setAlgorithm
 argument_list|(
@@ -346,17 +359,21 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|encryptor
+operator|=
+name|pbeStringEncryptor
+expr_stmt|;
 block|}
 return|return
 name|encryptor
 return|;
 block|}
-DECL|method|setEncryptor (StandardPBEStringEncryptor encryptor)
+DECL|method|setEncryptor (StringEncryptor encryptor)
 specifier|public
 name|void
 name|setEncryptor
 parameter_list|(
-name|StandardPBEStringEncryptor
+name|StringEncryptor
 name|encryptor
 parameter_list|)
 block|{
