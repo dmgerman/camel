@@ -112,6 +112,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Label
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RouteContext
 import|;
 end_import
@@ -121,6 +135,11 @@ comment|/**  * Represents the String (text based) {@link DataFormat}  *  * @vers
 end_comment
 
 begin_class
+annotation|@
+name|Label
+argument_list|(
+literal|"dataformat,transformation"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(
@@ -149,6 +168,17 @@ specifier|private
 name|String
 name|charset
 decl_stmt|;
+DECL|method|StringDataFormat ()
+specifier|public
+name|StringDataFormat
+parameter_list|()
+block|{
+name|super
+argument_list|(
+literal|"string"
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createDataFormat (RouteContext routeContext)

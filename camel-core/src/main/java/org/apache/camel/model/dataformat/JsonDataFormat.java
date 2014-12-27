@@ -138,6 +138,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Label
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RouteContext
 import|;
 end_import
@@ -161,6 +175,11 @@ comment|/**  * Represents the Json {@link DataFormat}  *  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Label
+argument_list|(
+literal|"dataformat,transformation"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(
@@ -276,7 +295,13 @@ DECL|method|JsonDataFormat ()
 specifier|public
 name|JsonDataFormat
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+literal|"json"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|JsonDataFormat (JsonLibrary library)
 specifier|public
 name|JsonDataFormat

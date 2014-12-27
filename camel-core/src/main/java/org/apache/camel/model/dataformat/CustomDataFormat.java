@@ -112,6 +112,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Label
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RouteContext
 import|;
 end_import
@@ -121,6 +135,11 @@ comment|/**  * Represents the custom {@link org.apache.camel.spi.DataFormat} to 
 end_comment
 
 begin_class
+annotation|@
+name|Label
+argument_list|(
+literal|"dataformat,transformation"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(
@@ -198,6 +217,7 @@ name|ref
 argument_list|)
 return|;
 block|}
+comment|/**      * Reference to the custom {@link org.apache.camel.spi.DataFormat} to lookup from the Camel registry.      */
 DECL|method|getRef ()
 specifier|public
 name|String
@@ -208,6 +228,7 @@ return|return
 name|ref
 return|;
 block|}
+comment|/**      * Reference to the custom {@link org.apache.camel.spi.DataFormat} to lookup from the Camel registry.      */
 DECL|method|setRef (String ref)
 specifier|public
 name|void

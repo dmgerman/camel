@@ -60,11 +60,30 @@ name|XmlRootElement
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Label
+import|;
+end_import
+
 begin_comment
 comment|/**  * An expression which extracts the named exchange property  *  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Label
+argument_list|(
+literal|"language"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(

@@ -256,6 +256,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Label
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -281,6 +295,11 @@ comment|/**  * For expressions and predicates using the  *<a href="http://camel.
 end_comment
 
 begin_class
+annotation|@
+name|Label
+argument_list|(
+literal|"language"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(

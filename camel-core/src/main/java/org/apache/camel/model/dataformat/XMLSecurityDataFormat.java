@@ -158,6 +158,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Label
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|NamespaceAware
 import|;
 end_import
@@ -183,6 +197,11 @@ comment|/**  * Represents as XML Security Encrypter/Decrypter {@link DataFormat}
 end_comment
 
 begin_class
+annotation|@
+name|Label
+argument_list|(
+literal|"dataformat,transformation"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(

@@ -124,7 +124,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|RouteContext
+name|Label
 import|;
 end_import
 
@@ -133,6 +133,11 @@ comment|/**  * Represents a Barcode DataFormat {@link org.apache.camel.spi.DataF
 end_comment
 
 begin_class
+annotation|@
+name|Label
+argument_list|(
+literal|"dataformat,transformation"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(
@@ -192,31 +197,6 @@ argument_list|(
 literal|"barcode"
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|createDataFormat (RouteContext routeContext)
-specifier|protected
-name|DataFormat
-name|createDataFormat
-parameter_list|(
-name|RouteContext
-name|routeContext
-parameter_list|)
-block|{
-name|DataFormat
-name|barcodeFormat
-init|=
-name|super
-operator|.
-name|createDataFormat
-argument_list|(
-name|routeContext
-argument_list|)
-decl_stmt|;
-return|return
-name|barcodeFormat
-return|;
 block|}
 annotation|@
 name|Override

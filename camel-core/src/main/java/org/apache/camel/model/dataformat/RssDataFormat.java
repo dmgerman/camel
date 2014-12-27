@@ -74,11 +74,30 @@ name|DataFormatDefinition
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Label
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents the<a href="http://camel.apache.org/rss.html">RSS</a> {@link org.apache.camel.spi.DataFormat}.  */
 end_comment
 
 begin_class
+annotation|@
+name|Label
+argument_list|(
+literal|"dataformat,transformation"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(

@@ -357,6 +357,10 @@ import|;
 end_import
 
 begin_comment
+comment|// TODO: skip abstract model classes
+end_comment
+
+begin_comment
 comment|/**  * Process all camel-core's model classes (EIPs and DSL) and generate json schema documentation  */
 end_comment
 

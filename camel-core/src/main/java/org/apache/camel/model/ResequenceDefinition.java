@@ -372,6 +372,10 @@ block|{
 annotation|@
 name|XmlElement
 argument_list|(
+name|name
+operator|=
+literal|"batch-config"
+argument_list|,
 name|type
 operator|=
 name|BatchResequencerConfig
@@ -382,6 +386,10 @@ block|,
 annotation|@
 name|XmlElement
 argument_list|(
+name|name
+operator|=
+literal|"stream-config"
+argument_list|,
 name|type
 operator|=
 name|StreamResequencerConfig

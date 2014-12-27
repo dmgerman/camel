@@ -230,6 +230,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Label
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Language
 import|;
 end_import
@@ -323,6 +337,11 @@ comment|/**  * A useful base class for an expression  *  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Label
+argument_list|(
+literal|"language"
+argument_list|)
 annotation|@
 name|XmlRootElement
 annotation|@
