@@ -475,7 +475,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;route/&gt; element  *  * @version   */
+comment|/**  * Represents an XML&lt;route/&gt; element  *  * @version  */
 end_comment
 
 begin_class
@@ -502,8 +502,9 @@ name|XmlAccessorType
 argument_list|(
 name|XmlAccessType
 operator|.
-name|FIELD
+name|PROPERTY
 argument_list|)
+comment|// must use XmlAccessType.PROPERTY as there is some custom logic needed to be executed in the setter methods
 DECL|class|RouteDefinition
 specifier|public
 class|class
@@ -514,8 +515,6 @@ argument_list|<
 name|RouteDefinition
 argument_list|>
 block|{
-annotation|@
-name|XmlTransient
 DECL|field|prepared
 specifier|private
 specifier|final
@@ -528,8 +527,6 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-annotation|@
-name|XmlElementRef
 DECL|field|inputs
 specifier|private
 name|List
@@ -545,8 +542,6 @@ name|FromDefinition
 argument_list|>
 argument_list|()
 decl_stmt|;
-annotation|@
-name|XmlElementRef
 DECL|field|outputs
 specifier|private
 name|List
@@ -568,64 +563,46 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|group
 specifier|private
 name|String
 name|group
 decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|streamCache
 specifier|private
 name|String
 name|streamCache
 decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|trace
 specifier|private
 name|String
 name|trace
 decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|messageHistory
 specifier|private
 name|String
 name|messageHistory
 decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|handleFault
 specifier|private
 name|String
 name|handleFault
 decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|delayer
 specifier|private
 name|String
 name|delayer
 decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|autoStartup
 specifier|private
 name|String
 name|autoStartup
 decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|startupOrder
 specifier|private
 name|Integer
 name|startupOrder
 decl_stmt|;
-annotation|@
-name|XmlTransient
 DECL|field|routePolicies
 specifier|private
 name|List
@@ -634,36 +611,26 @@ name|RoutePolicy
 argument_list|>
 name|routePolicies
 decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|routePolicyRef
 specifier|private
 name|String
 name|routePolicyRef
 decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|shutdownRoute
 specifier|private
 name|ShutdownRoute
 name|shutdownRoute
 decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|shutdownRunningTask
 specifier|private
 name|ShutdownRunningTask
 name|shutdownRunningTask
 decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|errorHandlerRef
 specifier|private
 name|String
 name|errorHandlerRef
 decl_stmt|;
-annotation|@
-name|XmlTransient
 DECL|field|errorHandlerBuilder
 specifier|private
 name|ErrorHandlerFactory
@@ -671,8 +638,6 @@ name|errorHandlerBuilder
 decl_stmt|;
 comment|// keep state whether the error handler is context scoped or not
 comment|// (will by default be context scoped of no explicit error handler configured)
-annotation|@
-name|XmlTransient
 DECL|field|contextScopedErrorHandler
 specifier|private
 name|boolean
@@ -680,15 +645,11 @@ name|contextScopedErrorHandler
 init|=
 literal|true
 decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|rest
 specifier|private
 name|Boolean
 name|rest
 decl_stmt|;
-annotation|@
-name|XmlTransient
 DECL|field|restDefinition
 specifier|private
 name|RestDefinition
@@ -1981,6 +1942,9 @@ return|return
 name|inputs
 return|;
 block|}
+comment|/**      * Input to the route.      */
+annotation|@
+name|XmlElementRef
 DECL|method|setInputs (List<FromDefinition> inputs)
 specifier|public
 name|void
@@ -2016,6 +1980,9 @@ return|return
 name|outputs
 return|;
 block|}
+comment|/**      * Outputs are processors that determines how messages are processed by this route.      */
+annotation|@
+name|XmlElementRef
 DECL|method|setOutputs (List<ProcessorDefinition<?>> outputs)
 specifier|public
 name|void
@@ -2084,6 +2051,9 @@ return|return
 name|group
 return|;
 block|}
+comment|/**      * The group that this route belongs to; could be the name of the RouteBuilder class      * or be explicitly configured in the XML.      *<p/>      * May be null.      */
+annotation|@
+name|XmlAttribute
 DECL|method|setGroup (String group)
 specifier|public
 name|void
@@ -2100,6 +2070,7 @@ operator|=
 name|group
 expr_stmt|;
 block|}
+comment|/**      * Whether stream caching is enabled on this route.      */
 DECL|method|getStreamCache ()
 specifier|public
 name|String
@@ -2110,6 +2081,9 @@ return|return
 name|streamCache
 return|;
 block|}
+comment|/**      * Whether stream caching is enabled on this route.      */
+annotation|@
+name|XmlAttribute
 DECL|method|setStreamCache (String streamCache)
 specifier|public
 name|void
@@ -2126,6 +2100,7 @@ operator|=
 name|streamCache
 expr_stmt|;
 block|}
+comment|/**      * Whether tracing is enabled on this route.      */
 DECL|method|getTrace ()
 specifier|public
 name|String
@@ -2136,6 +2111,9 @@ return|return
 name|trace
 return|;
 block|}
+comment|/**      * Whether tracing is enabled on this route.      */
+annotation|@
+name|XmlAttribute
 DECL|method|setTrace (String trace)
 specifier|public
 name|void
@@ -2152,6 +2130,7 @@ operator|=
 name|trace
 expr_stmt|;
 block|}
+comment|/**      * Whether message history is enabled on this route.      */
 DECL|method|getMessageHistory ()
 specifier|public
 name|String
@@ -2162,6 +2141,9 @@ return|return
 name|messageHistory
 return|;
 block|}
+comment|/**      * Whether message history is enabled on this route.      */
+annotation|@
+name|XmlAttribute
 DECL|method|setMessageHistory (String messageHistory)
 specifier|public
 name|void
@@ -2178,6 +2160,7 @@ operator|=
 name|messageHistory
 expr_stmt|;
 block|}
+comment|/**      * Whether handle fault is enabled on this route.      */
 DECL|method|getHandleFault ()
 specifier|public
 name|String
@@ -2188,6 +2171,9 @@ return|return
 name|handleFault
 return|;
 block|}
+comment|/**      * Whether handle fault is enabled on this route.      */
+annotation|@
+name|XmlAttribute
 DECL|method|setHandleFault (String handleFault)
 specifier|public
 name|void
@@ -2204,6 +2190,7 @@ operator|=
 name|handleFault
 expr_stmt|;
 block|}
+comment|/**      * Whether to slow down processing messages by a given delay in msec.      */
 DECL|method|getDelayer ()
 specifier|public
 name|String
@@ -2214,6 +2201,9 @@ return|return
 name|delayer
 return|;
 block|}
+comment|/**      * Whether to slow down processing messages by a given delay in msec.      */
+annotation|@
+name|XmlAttribute
 DECL|method|setDelayer (String delayer)
 specifier|public
 name|void
@@ -2230,6 +2220,7 @@ operator|=
 name|delayer
 expr_stmt|;
 block|}
+comment|/**      * Whether to auto start this route      */
 DECL|method|getAutoStartup ()
 specifier|public
 name|String
@@ -2285,6 +2276,9 @@ operator|&&
 name|isAutoStartup
 return|;
 block|}
+comment|/**      * Whether to auto start this route      */
+annotation|@
+name|XmlAttribute
 DECL|method|setAutoStartup (String autoStartup)
 specifier|public
 name|void
@@ -2301,6 +2295,7 @@ operator|=
 name|autoStartup
 expr_stmt|;
 block|}
+comment|/**      * To configure the ordering of the routes being started      */
 DECL|method|getStartupOrder ()
 specifier|public
 name|Integer
@@ -2311,6 +2306,9 @@ return|return
 name|startupOrder
 return|;
 block|}
+comment|/**      * To configure the ordering of the routes being started      */
+annotation|@
+name|XmlAttribute
 DECL|method|setStartupOrder (Integer startupOrder)
 specifier|public
 name|void
@@ -2328,6 +2326,8 @@ name|startupOrder
 expr_stmt|;
 block|}
 comment|/**      * Sets the bean ref name of the error handler builder to use on this route      */
+annotation|@
+name|XmlAttribute
 DECL|method|setErrorHandlerRef (String errorHandlerRef)
 specifier|public
 name|void
@@ -2355,6 +2355,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the bean ref name of the error handler builder to use on this route      */
 DECL|method|getErrorHandlerRef ()
 specifier|public
 name|String
@@ -2391,6 +2392,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Reference to custom {@link org.apache.camel.spi.RoutePolicy} to use by the route.      * Multiple policies can be configured by separating values using comma.      */
+annotation|@
+name|XmlAttribute
 DECL|method|setRoutePolicyRef (String routePolicyRef)
 specifier|public
 name|void
@@ -2407,6 +2411,7 @@ operator|=
 name|routePolicyRef
 expr_stmt|;
 block|}
+comment|/**      * Reference to custom {@link org.apache.camel.spi.RoutePolicy} to use by the route.      * Multiple policies can be configured by separating values using comma.      */
 DECL|method|getRoutePolicyRef ()
 specifier|public
 name|String
@@ -2430,6 +2435,8 @@ return|return
 name|routePolicies
 return|;
 block|}
+annotation|@
+name|XmlTransient
 DECL|method|setRoutePolicies (List<RoutePolicy> routePolicies)
 specifier|public
 name|void
@@ -2459,6 +2466,9 @@ return|return
 name|shutdownRoute
 return|;
 block|}
+comment|/**      * To control how to shutdown the route.      */
+annotation|@
+name|XmlAttribute
 DECL|method|setShutdownRoute (ShutdownRoute shutdownRoute)
 specifier|public
 name|void
@@ -2475,6 +2485,7 @@ operator|=
 name|shutdownRoute
 expr_stmt|;
 block|}
+comment|/**      * To control how to shutdown the route.      */
 DECL|method|getShutdownRunningTask ()
 specifier|public
 name|ShutdownRunningTask
@@ -2485,6 +2496,9 @@ return|return
 name|shutdownRunningTask
 return|;
 block|}
+comment|/**      * To control how to shutdown the route.      */
+annotation|@
+name|XmlAttribute
 DECL|method|setShutdownRunningTask (ShutdownRunningTask shutdownRunningTask)
 specifier|public
 name|void
@@ -2533,6 +2547,8 @@ name|DEFAULT_ERROR_HANDLER_BUILDER
 argument_list|)
 return|;
 block|}
+annotation|@
+name|XmlTransient
 DECL|method|getErrorHandlerBuilder ()
 specifier|public
 name|ErrorHandlerFactory
@@ -2573,6 +2589,8 @@ operator|=
 name|errorHandlerBuilder
 expr_stmt|;
 block|}
+annotation|@
+name|XmlAttribute
 DECL|method|isRest ()
 specifier|public
 name|Boolean
@@ -2593,6 +2611,8 @@ return|return
 name|restDefinition
 return|;
 block|}
+annotation|@
+name|XmlTransient
 DECL|method|setRestDefinition (RestDefinition restDefinition)
 specifier|public
 name|void
