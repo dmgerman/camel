@@ -329,6 +329,10 @@ comment|// TODO: add support for label so we can categorize the eips
 end_comment
 
 begin_comment
+comment|// TODO: add support for id/description which uses @XmlAttribute on methods
+end_comment
+
+begin_comment
 comment|/**  * Process all camel-core's model classes (EIPs and DSL) and generate json schema documentation  */
 end_comment
 

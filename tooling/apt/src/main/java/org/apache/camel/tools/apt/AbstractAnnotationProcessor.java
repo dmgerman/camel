@@ -363,7 +363,7 @@ name|AbstractAnnotationProcessor
 extends|extends
 name|AbstractProcessor
 block|{
-DECL|method|findJavaDoc (Elements elementUtils, VariableElement fieldElement, String fieldName, TypeElement classElement, boolean builderPattern)
+DECL|method|findJavaDoc (Elements elementUtils, Element element, String fieldName, TypeElement classElement, boolean builderPattern)
 specifier|protected
 name|String
 name|findJavaDoc
@@ -371,8 +371,8 @@ parameter_list|(
 name|Elements
 name|elementUtils
 parameter_list|,
-name|VariableElement
-name|fieldElement
+name|Element
+name|element
 parameter_list|,
 name|String
 name|fieldName
@@ -391,7 +391,7 @@ name|elementUtils
 operator|.
 name|getDocComment
 argument_list|(
-name|fieldElement
+name|element
 argument_list|)
 decl_stmt|;
 if|if
