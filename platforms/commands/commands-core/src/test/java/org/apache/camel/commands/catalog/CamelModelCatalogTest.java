@@ -121,10 +121,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|CamelComponentCatalogTest
+DECL|class|CamelModelCatalogTest
 specifier|public
 class|class
-name|CamelComponentCatalogTest
+name|CamelModelCatalogTest
 block|{
 DECL|field|LOG
 specifier|private
@@ -137,17 +137,17 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|CamelComponentCatalogTest
+name|CamelModelCatalogTest
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testFindComponentNames ()
+DECL|method|testFindModelNames ()
 specifier|public
 name|void
-name|testFindComponentNames
+name|testFindModelNames
 parameter_list|()
 block|{
 name|CamelComponentCatalog
@@ -165,7 +165,7 @@ name|names
 init|=
 name|catalog
 operator|.
-name|findComponentNames
+name|findModelNames
 argument_list|()
 decl_stmt|;
 name|assertNotNull
@@ -187,7 +187,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should find some components"
+literal|"Should find some models"
 argument_list|,
 name|names
 operator|.
@@ -200,10 +200,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testFindComponentNamesFilter ()
+DECL|method|testFindModelNamesFilter ()
 specifier|public
 name|void
-name|testFindComponentNamesFilter
+name|testFindModelNamesFilter
 parameter_list|()
 block|{
 name|CamelComponentCatalog
@@ -221,123 +221,7 @@ name|names
 init|=
 name|catalog
 operator|.
-name|findComponentNames
-argument_list|(
-literal|"testing"
-argument_list|)
-decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|names
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Found {} names"
-argument_list|,
-name|names
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should find some testing components"
-argument_list|,
-name|names
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|0
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testFindComponentNamesFilterWildcard ()
-specifier|public
-name|void
-name|testFindComponentNamesFilterWildcard
-parameter_list|()
-block|{
-name|CamelComponentCatalog
-name|catalog
-init|=
-operator|new
-name|DefaultCamelComponentCatalog
-argument_list|()
-decl_stmt|;
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|names
-init|=
-name|catalog
-operator|.
-name|findComponentNames
-argument_list|(
-literal|"t*"
-argument_list|)
-decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|names
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Found {} names"
-argument_list|,
-name|names
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should find some t* components"
-argument_list|,
-name|names
-operator|.
-name|size
-argument_list|()
-operator|>
-literal|0
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testFindComponentNamesFilterTwo ()
-specifier|public
-name|void
-name|testFindComponentNamesFilterTwo
-parameter_list|()
-block|{
-name|CamelComponentCatalog
-name|catalog
-init|=
-operator|new
-name|DefaultCamelComponentCatalog
-argument_list|()
-decl_stmt|;
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|names
-init|=
-name|catalog
-operator|.
-name|findComponentNames
+name|findModelNames
 argument_list|(
 literal|"transformation"
 argument_list|)
@@ -361,7 +245,65 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should find some transformation components"
+literal|"Should find some transformation models"
+argument_list|,
+name|names
+operator|.
+name|size
+argument_list|()
+operator|>
+literal|0
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testFindModelNamesFilterWildcard ()
+specifier|public
+name|void
+name|testFindModelNamesFilterWildcard
+parameter_list|()
+block|{
+name|CamelComponentCatalog
+name|catalog
+init|=
+operator|new
+name|DefaultCamelComponentCatalog
+argument_list|()
+decl_stmt|;
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|names
+init|=
+name|catalog
+operator|.
+name|findModelNames
+argument_list|(
+literal|"t*"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|names
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Found {} names"
+argument_list|,
+name|names
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should find some t* models"
 argument_list|,
 name|names
 operator|.
@@ -395,7 +337,7 @@ name|names
 init|=
 name|catalog
 operator|.
-name|findComponentNames
+name|findModelNames
 argument_list|(
 literal|"cannotmatchme"
 argument_list|)
@@ -407,7 +349,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should not match any components"
+literal|"Should not match any models"
 argument_list|,
 name|names
 operator|.
@@ -438,9 +380,9 @@ name|json
 init|=
 name|catalog
 operator|.
-name|componentJSonSchema
+name|modelJSonSchema
 argument_list|(
-literal|"bean"
+literal|"split"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -457,63 +399,13 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should find bean component"
+literal|"Should find to split"
 argument_list|,
 name|json
 operator|.
 name|contains
 argument_list|(
-literal|"bean"
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testFtpComponentJson ()
-specifier|public
-name|void
-name|testFtpComponentJson
-parameter_list|()
-block|{
-name|CamelComponentCatalog
-name|catalog
-init|=
-operator|new
-name|DefaultCamelComponentCatalog
-argument_list|()
-decl_stmt|;
-name|String
-name|json
-init|=
-name|catalog
-operator|.
-name|componentJSonSchema
-argument_list|(
-literal|"ftp"
-argument_list|)
-decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|json
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-name|json
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should find ftp component"
-argument_list|,
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|"ftp"
+literal|"split"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -541,7 +433,7 @@ name|labels
 init|=
 name|catalog
 operator|.
-name|findComponentLabels
+name|findModelLabels
 argument_list|()
 decl_stmt|;
 name|assertNotNull
@@ -563,37 +455,13 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Should find core label"
+literal|"Should find transformation label"
 argument_list|,
 name|labels
 operator|.
 name|contains
 argument_list|(
-literal|"core"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should find testing label"
-argument_list|,
-name|labels
-operator|.
-name|contains
-argument_list|(
-literal|"testing"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Should find rest label"
-argument_list|,
-name|labels
-operator|.
-name|contains
-argument_list|(
-literal|"rest"
+literal|"transformation"
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -28,7 +28,7 @@ name|camel
 operator|.
 name|commands
 operator|.
-name|CatalogLabelListCommand
+name|CatalogModelLabelListCommand
 import|;
 end_import
 
@@ -74,16 +74,16 @@ literal|"camel"
 argument_list|,
 name|name
 operator|=
-literal|"catalog-label-list"
+literal|"catalog-eip-label-list"
 argument_list|,
 name|description
 operator|=
-literal|"Lists all Camel component labels from the Camel catalog."
+literal|"Lists all Camel EIP labels from the Camel catalog."
 argument_list|)
-DECL|class|CatalogLabelList
+DECL|class|CatalogModelLabelList
 specifier|public
 class|class
-name|CatalogLabelList
+name|CatalogModelLabelList
 extends|extends
 name|CamelCommandSupport
 block|{
@@ -126,11 +126,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CatalogLabelListCommand
+name|CatalogModelLabelListCommand
 name|command
 init|=
 operator|new
-name|CatalogLabelListCommand
+name|CatalogModelLabelListCommand
 argument_list|(
 name|verbose
 argument_list|)

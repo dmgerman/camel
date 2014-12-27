@@ -376,6 +376,41 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Lists all models from the Camel models catalog      *      * @param filter optional filter to filter by labels      * @return a list of key/value pairs with model information      * @throws java.lang.Exception can be thrown      */
+DECL|method|listModelsCatalog (String filter)
+name|List
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|>
+name|listModelsCatalog
+parameter_list|(
+name|String
+name|filter
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Lists all the labels from the Camel models catalog      *      * @return a map which key is the label, and the set is the models names that has the given label      * @throws java.lang.Exception can be thrown      */
+DECL|method|listModelsLabelCatalog ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Set
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|listModelsLabelCatalog
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Lists all components from the Camel components catalog      *      * @param filter optional filter to filter by labels      * @return a list of key/value pairs with component information      * @throws java.lang.Exception can be thrown      */
 DECL|method|listComponentsCatalog (String filter)
 name|List
@@ -396,7 +431,7 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Lists all the labels from the Camel components catalog      *      * @return a map which key is the label, and the set is the component names that has the given label      * @throws java.lang.Exception can be thrown      */
-DECL|method|listLabelCatalog ()
+DECL|method|listComponentsLabelCatalog ()
 name|Map
 argument_list|<
 name|String
@@ -406,7 +441,7 @@ argument_list|<
 name|String
 argument_list|>
 argument_list|>
-name|listLabelCatalog
+name|listComponentsLabelCatalog
 parameter_list|()
 throws|throws
 name|Exception

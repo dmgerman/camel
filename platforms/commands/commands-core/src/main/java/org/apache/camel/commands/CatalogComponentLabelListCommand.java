@@ -71,14 +71,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * From the Camel catalog lists all the components.  */
+comment|/**  * From the Camel catalog lists all the component labels.  */
 end_comment
 
 begin_class
-DECL|class|CatalogLabelListCommand
+DECL|class|CatalogComponentLabelListCommand
 specifier|public
 class|class
-name|CatalogLabelListCommand
+name|CatalogComponentLabelListCommand
 extends|extends
 name|AbstractCamelCommand
 block|{
@@ -196,9 +196,9 @@ specifier|private
 name|boolean
 name|verbose
 decl_stmt|;
-DECL|method|CatalogLabelListCommand (boolean verbose)
+DECL|method|CatalogComponentLabelListCommand (boolean verbose)
 specifier|public
-name|CatalogLabelListCommand
+name|CatalogComponentLabelListCommand
 parameter_list|(
 name|boolean
 name|verbose
@@ -243,7 +243,7 @@ name|labels
 init|=
 name|camelController
 operator|.
-name|listLabelCatalog
+name|listComponentsLabelCatalog
 argument_list|()
 decl_stmt|;
 if|if

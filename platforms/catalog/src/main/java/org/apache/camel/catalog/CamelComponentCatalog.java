@@ -55,6 +55,27 @@ argument_list|>
 name|findComponentNames
 parameter_list|()
 function_decl|;
+comment|/**      * Find all the model names from the Camel catalog      */
+DECL|method|findModelNames ()
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|findModelNames
+parameter_list|()
+function_decl|;
+comment|/**      * Find all the model names from the Camel catalog that matches the label      */
+DECL|method|findModelNames (String label)
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|findModelNames
+parameter_list|(
+name|String
+name|label
+parameter_list|)
+function_decl|;
 comment|/**      * Find all the component names from the Camel catalog that matches the label      */
 DECL|method|findComponentNames (String label)
 name|List
@@ -67,6 +88,15 @@ name|String
 name|label
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the model information as JSon format.      *      * @param name the model name      * @return model details in JSon      */
+DECL|method|modelJSonSchema (String name)
+name|String
+name|modelJSonSchema
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the component information as JSon format.      *      * @param name the component name      * @return component details in JSon      */
 DECL|method|componentJSonSchema (String name)
 name|String
@@ -76,13 +106,22 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Find all the unique label names all the components are using.      *      * @return a set of all the labels.      */
-DECL|method|findLabels ()
+comment|/**      * Find all the unique label names all the models are using.      *      * @return a set of all the labels.      */
+DECL|method|findModelLabels ()
 name|Set
 argument_list|<
 name|String
 argument_list|>
-name|findLabels
+name|findModelLabels
+parameter_list|()
+function_decl|;
+comment|/**      * Find all the unique label names all the components are using.      *      * @return a set of all the labels.      */
+DECL|method|findComponentLabels ()
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|findComponentLabels
 parameter_list|()
 function_decl|;
 block|}
