@@ -66,6 +66,35 @@ name|text
 argument_list|)
 return|;
 block|}
+DECL|method|safeNull (String text)
+specifier|public
+specifier|static
+name|String
+name|safeNull
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+if|if
+condition|(
+name|isNullOrEmpty
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+return|return
+literal|""
+return|;
+block|}
+else|else
+block|{
+return|return
+name|text
+return|;
+block|}
+block|}
 comment|/**      * Returns the value or the defaultValue if it is null      */
 DECL|method|getOrElse (String text, String defaultValue)
 specifier|public

@@ -271,6 +271,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Label
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -324,9 +338,23 @@ name|isNullOrEmpty
 import|;
 end_import
 
-begin_comment
-comment|// TODO: add support for label so we can categorize the eips
-end_comment
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|tools
+operator|.
+name|apt
+operator|.
+name|Strings
+operator|.
+name|safeNull
+import|;
+end_import
 
 begin_comment
 comment|/**  * Process all camel-core's model classes (EIPs and DSL) and generate json schema documentation  */
@@ -338,6 +366,8 @@ name|SupportedAnnotationTypes
 argument_list|(
 block|{
 literal|"javax.xml.bind.annotation.*"
+block|,
+literal|"org.apache.camel.spi.Label"
 block|}
 argument_list|)
 annotation|@
@@ -696,6 +726,8 @@ name|findEipModelProperties
 argument_list|(
 name|roundEnv
 argument_list|,
+name|classElement
+argument_list|,
 name|javaTypeName
 argument_list|,
 name|name
@@ -809,10 +841,13 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
+name|safeNull
+argument_list|(
 name|eipModel
 operator|.
 name|getDescription
 argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|append
@@ -833,6 +868,29 @@ name|eipModel
 operator|.
 name|getJavaType
 argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"\","
+argument_list|)
+expr_stmt|;
+name|buffer
+operator|.
+name|append
+argument_list|(
+literal|"\n    \"label\": \""
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|safeNull
+argument_list|(
+name|eipModel
+operator|.
+name|getLabel
+argument_list|()
+argument_list|)
 argument_list|)
 operator|.
 name|append
@@ -991,13 +1049,16 @@ name|toString
 argument_list|()
 return|;
 block|}
-DECL|method|findEipModelProperties (RoundEnvironment roundEnv, String javaTypeName, String name)
+DECL|method|findEipModelProperties (RoundEnvironment roundEnv, TypeElement classElement, String javaTypeName, String name)
 specifier|protected
 name|EipModel
 name|findEipModelProperties
 parameter_list|(
 name|RoundEnvironment
 name|roundEnv
+parameter_list|,
+name|TypeElement
+name|classElement
 parameter_list|,
 name|String
 name|javaTypeName
@@ -1027,6 +1088,36 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+name|Label
+name|label
+init|=
+name|classElement
+operator|.
+name|getAnnotation
+argument_list|(
+name|Label
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|label
+operator|!=
+literal|null
+condition|)
+block|{
+name|model
+operator|.
+name|setLabel
+argument_list|(
+name|label
+operator|.
+name|value
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// favor to use class javadoc of component as description
 if|if
 condition|(
@@ -3621,6 +3712,11 @@ specifier|private
 name|String
 name|javaType
 decl_stmt|;
+DECL|field|label
+specifier|private
+name|String
+name|label
+decl_stmt|;
 DECL|field|description
 specifier|private
 name|String
@@ -3676,6 +3772,32 @@ operator|.
 name|javaType
 operator|=
 name|javaType
+expr_stmt|;
+block|}
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+name|label
+return|;
+block|}
+DECL|method|setLabel (String label)
+specifier|public
+name|void
+name|setLabel
+parameter_list|(
+name|String
+name|label
+parameter_list|)
+block|{
+name|this
+operator|.
+name|label
+operator|=
+name|label
 expr_stmt|;
 block|}
 DECL|method|getDescription ()
