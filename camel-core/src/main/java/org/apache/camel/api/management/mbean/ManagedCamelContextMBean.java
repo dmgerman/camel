@@ -949,6 +949,28 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Returns a JSON schema representation of the EIP parameters for the given EIP by its id.      *      * @param eipName the name of the EIP ({@link org.apache.camel.NamedNode#getShortName()}      * @param id optional id of an EIP in use from any of the routes to explain      * @param includeAllOptions whether to include non configured options also (eg default options)      * @return the json or<tt>null</tt> if the eipName or the id was not found      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Returns a JSON schema representation of the EIP parameters for the given EIP by its id"
+argument_list|)
+DECL|method|explainEipJson (String eipName, String id, boolean includeAllOptions)
+name|String
+name|explainEipJson
+parameter_list|(
+name|String
+name|eipName
+parameter_list|,
+name|String
+name|id
+parameter_list|,
+name|boolean
+name|includeAllOptions
+parameter_list|)
+function_decl|;
 comment|/**      * Returns a JSON schema representation of the endpoint parameters for the given endpoint uri      *      * @param uri the endpoint uri      * @param includeAllOptions whether to include non configured options also (eg default options)      */
 annotation|@
 name|ManagedOperation

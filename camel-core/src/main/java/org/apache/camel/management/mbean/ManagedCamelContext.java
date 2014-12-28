@@ -3373,6 +3373,34 @@ name|eipName
 argument_list|)
 return|;
 block|}
+DECL|method|explainEipJson (String eipName, String id, boolean includeAllOptions)
+specifier|public
+name|String
+name|explainEipJson
+parameter_list|(
+name|String
+name|eipName
+parameter_list|,
+name|String
+name|id
+parameter_list|,
+name|boolean
+name|includeAllOptions
+parameter_list|)
+block|{
+return|return
+name|context
+operator|.
+name|explainEipJson
+argument_list|(
+name|eipName
+argument_list|,
+name|id
+argument_list|,
+name|includeAllOptions
+argument_list|)
+return|;
+block|}
 DECL|method|explainEndpointJson (String uri, boolean includeAllOptions)
 specifier|public
 name|String

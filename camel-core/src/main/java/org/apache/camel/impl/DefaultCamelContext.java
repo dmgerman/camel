@@ -7099,6 +7099,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// the eip json schema may be in some of the sub-packages so look until we find it
 name|String
 index|[]
 name|subPackages
@@ -7159,6 +7160,13 @@ argument_list|(
 name|path
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|inputStream
+operator|!=
+literal|null
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -7177,13 +7185,6 @@ name|inputStream
 block|}
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|inputStream
-operator|!=
-literal|null
-condition|)
-block|{
 try|try
 block|{
 return|return
@@ -7228,6 +7229,8 @@ parameter_list|)
 block|{
 try|try
 block|{
+comment|// TODO: if eipName is null, then we can find it from the id if its found
+comment|// and use the getShortName to find the eipName
 name|String
 name|json
 init|=
