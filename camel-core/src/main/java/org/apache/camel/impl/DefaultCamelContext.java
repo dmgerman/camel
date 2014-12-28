@@ -7211,6 +7211,60 @@ return|return
 literal|null
 return|;
 block|}
+DECL|method|explainEipJson (String eipName, String id, boolean includeAllOptions)
+specifier|public
+name|String
+name|explainEipJson
+parameter_list|(
+name|String
+name|eipName
+parameter_list|,
+name|String
+name|id
+parameter_list|,
+name|boolean
+name|includeAllOptions
+parameter_list|)
+block|{
+try|try
+block|{
+name|String
+name|json
+init|=
+name|getEipParameterJsonSchema
+argument_list|(
+name|eipName
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|json
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+return|return
+name|json
+return|;
+comment|// TODO: overlay with runtime parameters that id uses at runtime
+comment|//List<Map<String, String>> rows = JsonSchemaHelper.parseJsonSchema("properties", json, true);
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore and return empty response
+return|return
+literal|null
+return|;
+block|}
+block|}
 comment|/**      * Sanitizes the component name by removing dash (-) in the name, when using the component name to load      * resources from the classpath.      */
 DECL|method|sanitizeComponentName (String componentName)
 specifier|private

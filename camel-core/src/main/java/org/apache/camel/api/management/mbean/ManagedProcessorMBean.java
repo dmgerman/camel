@@ -22,6 +22,18 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|management
+operator|.
+name|openmbean
+operator|.
+name|TabularData
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -159,6 +171,21 @@ name|stop
 parameter_list|()
 throws|throws
 name|Exception
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Explain how this processor is configured"
+argument_list|)
+DECL|method|explain (boolean allOptions)
+name|TabularData
+name|explain
+parameter_list|(
+name|boolean
+name|allOptions
+parameter_list|)
 function_decl|;
 block|}
 end_interface
