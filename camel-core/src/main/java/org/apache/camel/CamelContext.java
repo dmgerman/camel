@@ -2078,6 +2078,17 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Returns the JSON schema representation of the EIP parameters for the given EIP name.      *      * @return the json or<tt>null</tt> if the EIP does not exist      */
+DECL|method|getEipParameterJsonSchema (String eipName)
+name|String
+name|getEipParameterJsonSchema
+parameter_list|(
+name|String
+name|eipName
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 comment|/**      * Returns a JSON schema representation of the endpoint parameters for the given endpoint uri.      *      * @param uri the endpoint uri      * @param includeAllOptions whether to include non configured options also (eg default options)      * @return the json or<tt>null</tt> if uri parameters is invalid, or the component is<b>not</b> built with JSon schema support      */
 DECL|method|explainEndpointJson (String uri, boolean includeAllOptions)
 name|String

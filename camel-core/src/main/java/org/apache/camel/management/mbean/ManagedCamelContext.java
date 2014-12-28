@@ -3353,6 +3353,26 @@ return|return
 name|json
 return|;
 block|}
+DECL|method|eipParameterJsonSchema (String eipName)
+specifier|public
+name|String
+name|eipParameterJsonSchema
+parameter_list|(
+name|String
+name|eipName
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+name|context
+operator|.
+name|getEipParameterJsonSchema
+argument_list|(
+name|eipName
+argument_list|)
+return|;
+block|}
 DECL|method|explainEndpointJson (String uri, boolean includeAllOptions)
 specifier|public
 name|String

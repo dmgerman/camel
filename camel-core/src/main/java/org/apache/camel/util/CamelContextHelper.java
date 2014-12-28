@@ -358,6 +358,15 @@ name|COMPONENT_DOCUMENTATION_PREFIX
 init|=
 literal|"org/apache/camel/component/"
 decl_stmt|;
+DECL|field|MODEL_DOCUMENTATION_PREFIX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MODEL_DOCUMENTATION_PREFIX
+init|=
+literal|"org/apache/camel/model/"
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static

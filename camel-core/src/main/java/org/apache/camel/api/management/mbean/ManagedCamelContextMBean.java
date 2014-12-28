@@ -931,6 +931,24 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Returns the JSON schema representation with information about the EIP and the parameters it supports      *      * @param eipName the name of the EIP to lookup      * @throws Exception is thrown if error occurred      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Returns the JSON schema representation of the EIP parameters for the given EIP name"
+argument_list|)
+DECL|method|eipParameterJsonSchema (String eipName)
+name|String
+name|eipParameterJsonSchema
+parameter_list|(
+name|String
+name|eipName
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Returns a JSON schema representation of the endpoint parameters for the given endpoint uri      *      * @param uri the endpoint uri      * @param includeAllOptions whether to include non configured options also (eg default options)      */
 annotation|@
 name|ManagedOperation
