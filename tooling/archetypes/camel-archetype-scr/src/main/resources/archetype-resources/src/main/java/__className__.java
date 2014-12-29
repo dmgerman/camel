@@ -186,11 +186,9 @@ name|License
 end_expr_stmt
 
 begin_for
-for|for the specific language governing permissions and ## limitations under the License. ## ------------------------------------------------------------------------
-comment|// This file was generated from ${archetypeGroupId}/${archetypeArtifactId}/${archetypeVersion}
-for|package $
+for|for the specific language governing permissions and ## limitations under the License. ## ------------------------------------------------------------------------ package $
 block|{
-name|groupId
+package|package
 block|}
 end_for
 
@@ -236,7 +234,7 @@ begin_import
 import|import
 name|$
 block|{
-name|groupId
+package|package
 block|}
 end_import
 
@@ -526,7 +524,7 @@ name|final
 name|String
 name|COMPONENT_LABEL
 operator|=
-literal|"${groupId}.${className}"
+literal|"${package}.${className}"
 block|;
 specifier|public
 specifier|static
