@@ -3373,16 +3373,13 @@ name|eipName
 argument_list|)
 return|;
 block|}
-DECL|method|explainEipJson (String eipName, String id, boolean includeAllOptions)
+DECL|method|explainEipJson (String nameOrId, boolean includeAllOptions)
 specifier|public
 name|String
 name|explainEipJson
 parameter_list|(
 name|String
-name|eipName
-parameter_list|,
-name|String
-name|id
+name|nameOrId
 parameter_list|,
 name|boolean
 name|includeAllOptions
@@ -3393,9 +3390,7 @@ name|context
 operator|.
 name|explainEipJson
 argument_list|(
-name|eipName
-argument_list|,
-name|id
+name|nameOrId
 argument_list|,
 name|includeAllOptions
 argument_list|)

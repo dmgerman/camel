@@ -707,11 +707,6 @@ name|context
 operator|.
 name|explainEipJson
 argument_list|(
-name|definition
-operator|.
-name|getShortName
-argument_list|()
-argument_list|,
 name|id
 argument_list|,
 name|allOptions

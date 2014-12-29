@@ -2089,16 +2089,13 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns a JSON schema representation of the EIP parameters for the given EIP by its id.      *      * @param eipName the name of the EIP ({@link NamedNode#getShortName()}      * @param id optional id of an EIP in use from any of the routes to explain      * @param includeAllOptions whether to include non configured options also (eg default options)      * @return the json or<tt>null</tt> if the eipName or the id was not found      */
-DECL|method|explainEipJson (String eipName, String id, boolean includeAllOptions)
+comment|/**      * Returns a JSON schema representation of the EIP parameters for the given EIP by its id.      *      * @param nameOrId the name of the EIP ({@link NamedNode#getShortName()} or a node id to refer to a specific node in the routes.      * @param includeAllOptions whether to include non configured options also (eg default options)      * @return the json or<tt>null</tt> if the eipName or the id was not found      */
+DECL|method|explainEipJson (String nameOrId, boolean includeAllOptions)
 name|String
 name|explainEipJson
 parameter_list|(
 name|String
-name|eipName
-parameter_list|,
-name|String
-name|id
+name|nameOrId
 parameter_list|,
 name|boolean
 name|includeAllOptions
