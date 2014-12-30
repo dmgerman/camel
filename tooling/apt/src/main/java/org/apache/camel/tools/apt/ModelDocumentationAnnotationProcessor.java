@@ -437,6 +437,13 @@ block|,
 literal|"org.apache.camel.model.WhenDefinition"
 block|,     }
 decl_stmt|;
+DECL|field|skipUnwanted
+specifier|private
+name|boolean
+name|skipUnwanted
+init|=
+literal|true
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|process (Set<? extends TypeElement> annotations, RoundEnvironment roundEnv)
@@ -1336,6 +1343,45 @@ name|name
 operator|=
 name|fieldName
 expr_stmt|;
+block|}
+comment|// lets skip some unwanted attributes
+if|if
+condition|(
+name|skipUnwanted
+condition|)
+block|{
+comment|// we want to skip inheritErrorHandler which is only applicable for the load-balancer
+name|boolean
+name|loadBalancer
+init|=
+literal|"LoadBalanceDefinition"
+operator|.
+name|equals
+argument_list|(
+name|originalClassType
+operator|.
+name|getSimpleName
+argument_list|()
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|loadBalancer
+operator|&&
+literal|"inheritErrorHandler"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 block|}
 name|name
 operator|=
@@ -3133,6 +3179,13 @@ argument_list|(
 name|ep
 argument_list|)
 expr_stmt|;
+comment|// lets skip custom id as it has no value for end users to configure
+if|if
+condition|(
+operator|!
+name|skipUnwanted
+condition|)
+block|{
 comment|// custom id
 name|docComment
 operator|=
@@ -3182,6 +3235,7 @@ argument_list|(
 name|ep
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Special for processing an @XmlElementRef expression field      */
 DECL|method|processExpression (RoundEnvironment roundEnv, XmlElementRef elementRef, VariableElement fieldElement, String fieldName, Set<EipOption> eipOptions, String prefix)

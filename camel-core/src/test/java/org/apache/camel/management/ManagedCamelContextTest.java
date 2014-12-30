@@ -1685,7 +1685,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"expression\": { \"kind\": \"element\", \"required\": \"true\""
+literal|"\"expression\": { \"kind\": \"element\": \"required\": \"true\""
 argument_list|)
 argument_list|)
 expr_stmt|;
