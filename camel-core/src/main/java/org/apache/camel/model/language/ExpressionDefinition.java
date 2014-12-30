@@ -351,6 +351,7 @@ name|name
 operator|=
 literal|"expression"
 argument_list|)
+comment|// must be named expression
 annotation|@
 name|XmlAccessorType
 argument_list|(
