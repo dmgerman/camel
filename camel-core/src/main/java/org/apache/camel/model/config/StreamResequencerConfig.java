@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the configuration parameters for the {@link org.apache.camel.processor.StreamResequencer}.  *  * @version   */
+comment|/**  * Configures stream-processing resequence eip.  */
 end_comment
 
 begin_class
@@ -260,7 +260,7 @@ operator|=
 name|comparator
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link StreamResequencerConfig} instance using the given      * values for<code>capacity</code> and<code>timeout</code>. Elements      * of the sequence are compared using the {@link DefaultExchangeComparator}.      *      * @param capacity   capacity of the resequencer's inbound queue.      * @param timeout    minimum time to wait for missing elements (messages).      * @param rejectOld  if true, throws an error when messages older than the last delivered message are processed      */
+comment|/**      * Creates a new {@link StreamResequencerConfig} instance using the given      * values for<code>capacity</code> and<code>timeout</code>. Elements      * of the sequence are compared using the {@link DefaultExchangeComparator}.      *      * @param capacity   capacity of the resequencer's inbound queue.      * @param timeout    minimum time to wait for missing elements (messages).      * @param rejectOld  if true, throws an exception when messages older than the last delivered message are processed      */
 DECL|method|StreamResequencerConfig (int capacity, long timeout, Boolean rejectOld)
 specifier|public
 name|StreamResequencerConfig
@@ -289,7 +289,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link StreamResequencerConfig} instance using the given      * values for<code>capacity</code> and<code>timeout</code>. Elements      * of the sequence are compared with the given {@link ExpressionResultComparator}.      *      * @param capacity   capacity of the resequencer's inbound queue.      * @param timeout    minimum time to wait for missing elements (messages).      * @param rejectOld  if true, throws an error when messages older than the last delivered message are processed      * @param comparator comparator for sequence comparision      */
+comment|/**      * Creates a new {@link StreamResequencerConfig} instance using the given      * values for<code>capacity</code> and<code>timeout</code>. Elements      * of the sequence are compared with the given {@link ExpressionResultComparator}.      *      * @param capacity   capacity of the resequencer's inbound queue.      * @param timeout    minimum time to wait for missing elements (messages).      * @param rejectOld  if true, throws an exception when messages older than the last delivered message are processed      * @param comparator comparator for sequence comparision      */
 DECL|method|StreamResequencerConfig (int capacity, long timeout, Boolean rejectOld, ExpressionResultComparator comparator)
 specifier|public
 name|StreamResequencerConfig
@@ -356,6 +356,7 @@ return|return
 name|capacity
 return|;
 block|}
+comment|/**      * Sets the capacity of the resequencer's inbound queue.      */
 DECL|method|setCapacity (int capacity)
 specifier|public
 name|void
@@ -382,6 +383,7 @@ return|return
 name|timeout
 return|;
 block|}
+comment|/**      * Sets minimum time to wait for missing elements (messages).      */
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
@@ -408,6 +410,7 @@ return|return
 name|ignoreInvalidExchanges
 return|;
 block|}
+comment|/**      * Whether to ignore invalid exchanges      */
 DECL|method|setIgnoreInvalidExchanges (Boolean ignoreInvalidExchanges)
 specifier|public
 name|void
@@ -434,6 +437,7 @@ return|return
 name|comparator
 return|;
 block|}
+comment|/**      * To use a custom comparator      */
 DECL|method|setComparator (ExpressionResultComparator comparator)
 specifier|public
 name|void
@@ -460,6 +464,7 @@ return|return
 name|comparatorRef
 return|;
 block|}
+comment|/**      * To use a custom comparator      */
 DECL|method|setComparatorRef (String comparatorRef)
 specifier|public
 name|void
@@ -476,6 +481,7 @@ operator|=
 name|comparatorRef
 expr_stmt|;
 block|}
+comment|/**      * If true, throws an exception when messages older than the last delivered message are processed      */
 DECL|method|setRejectOld (boolean value)
 specifier|public
 name|void

@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the configuration parameters for the batch-processing  * {@link org.apache.camel.processor.Resequencer}. Usage example:  */
+comment|/**  * Configures batch-processing resequence eip.  */
 end_comment
 
 begin_class
@@ -198,6 +198,7 @@ return|return
 name|batchSize
 return|;
 block|}
+comment|/**      * Sets the size of the batch to be re-ordered. The default size is 100.      */
 DECL|method|setBatchSize (int batchSize)
 specifier|public
 name|void
@@ -224,6 +225,7 @@ return|return
 name|batchTimeout
 return|;
 block|}
+comment|/**      * Sets the timeout for collecting elements to be re-ordered. The default timeout is 1000 msec.      */
 DECL|method|setBatchTimeout (long batchTimeout)
 specifier|public
 name|void
@@ -264,6 +266,7 @@ return|return
 name|allowDuplicates
 return|;
 block|}
+comment|/**      * Whether to allow duplicates.      */
 DECL|method|setAllowDuplicates (Boolean allowDuplicates)
 specifier|public
 name|void
@@ -304,6 +307,7 @@ return|return
 name|reverse
 return|;
 block|}
+comment|/**      * Whether to reverse the ordering.      */
 DECL|method|setReverse (Boolean reverse)
 specifier|public
 name|void
@@ -330,6 +334,7 @@ return|return
 name|ignoreInvalidExchanges
 return|;
 block|}
+comment|/**      * Whether to ignore invalid exchanges      */
 DECL|method|setIgnoreInvalidExchanges (Boolean ignoreInvalidExchanges)
 specifier|public
 name|void

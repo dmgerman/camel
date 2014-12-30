@@ -385,6 +385,30 @@ import|;
 end_import
 
 begin_comment
+comment|// TODO: figure out a way to specify default value in the model classes which this APT can read
+end_comment
+
+begin_comment
+comment|// TODO: add support for @XmlElements which a few EIPs uses such as resequence
+end_comment
+
+begin_comment
+comment|//@XmlElements({
+end_comment
+
+begin_comment
+comment|//        @XmlElement(name = "batch-config", type = BatchResequencerConfig.class),
+end_comment
+
+begin_comment
+comment|//        @XmlElement(name = "stream-config", type = StreamResequencerConfig.class)}
+end_comment
+
+begin_comment
+comment|//)
+end_comment
+
+begin_comment
 comment|/**  * Process all camel-core's model classes (EIPs and DSL) and generate json schema documentation  */
 end_comment
 
