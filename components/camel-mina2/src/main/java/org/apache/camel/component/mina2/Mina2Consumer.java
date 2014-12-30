@@ -722,7 +722,7 @@ operator|instanceof
 name|InetSocketAddress
 condition|)
 block|{
-comment|// need to check if the address is IPV4 TCP all net work address
+comment|// need to check if the address is IPV4 all network address
 if|if
 condition|(
 literal|"0.0.0.0"
@@ -744,14 +744,12 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"Unbind the server address "
-operator|+
+literal|"Unbind the server address {}"
+argument_list|,
 name|acceptor
 operator|.
 name|getLocalAddresses
