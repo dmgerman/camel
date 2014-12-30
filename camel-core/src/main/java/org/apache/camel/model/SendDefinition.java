@@ -341,6 +341,7 @@ return|return
 name|ref
 return|;
 block|}
+comment|/**      * Sets the reference of the endpoint to send to.      *      * @param ref the reference of the endpoint      */
 DECL|method|setRef (String ref)
 specifier|public
 name|void
@@ -367,6 +368,7 @@ return|return
 name|uri
 return|;
 block|}
+comment|/**      * Sets the uri of the endpoint to send to.      *      * @param uri the uri of the endpoint      */
 annotation|@
 name|Required
 DECL|method|setUri (String uri)

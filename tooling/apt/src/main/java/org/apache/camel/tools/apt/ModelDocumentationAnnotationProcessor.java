@@ -3041,7 +3041,7 @@ name|findJavaDoc
 argument_list|(
 name|elementUtils
 argument_list|,
-name|classElement
+literal|null
 argument_list|,
 literal|"id"
 argument_list|,
@@ -3091,7 +3091,7 @@ name|findJavaDoc
 argument_list|(
 name|elementUtils
 argument_list|,
-name|classElement
+literal|null
 argument_list|,
 literal|"description"
 argument_list|,
@@ -3140,7 +3140,7 @@ name|findJavaDoc
 argument_list|(
 name|elementUtils
 argument_list|,
-name|classElement
+literal|null
 argument_list|,
 literal|"customId"
 argument_list|,
