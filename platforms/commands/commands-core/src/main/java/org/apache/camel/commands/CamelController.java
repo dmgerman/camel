@@ -376,8 +376,8 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Lists all models from the Camel models catalog      *      * @param filter optional filter to filter by labels      * @return a list of key/value pairs with model information      * @throws java.lang.Exception can be thrown      */
-DECL|method|listModelsCatalog (String filter)
+comment|/**      * Lists all EIPs from the Camel EIP catalog      *      * @param filter optional filter to filter by labels      * @return a list of key/value pairs with model information      * @throws java.lang.Exception can be thrown      */
+DECL|method|listEipsCatalog (String filter)
 name|List
 argument_list|<
 name|Map
@@ -387,7 +387,7 @@ argument_list|,
 name|String
 argument_list|>
 argument_list|>
-name|listModelsCatalog
+name|listEipsCatalog
 parameter_list|(
 name|String
 name|filter
@@ -395,8 +395,8 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Lists all the labels from the Camel models catalog      *      * @return a map which key is the label, and the set is the models names that has the given label      * @throws java.lang.Exception can be thrown      */
-DECL|method|listModelsLabelCatalog ()
+comment|/**      * Lists all the labels from the Camel EIP catalog      *      * @return a map which key is the label, and the set is the models names that has the given label      * @throws java.lang.Exception can be thrown      */
+DECL|method|listEipsLabelCatalog ()
 name|Map
 argument_list|<
 name|String
@@ -406,7 +406,7 @@ argument_list|<
 name|String
 argument_list|>
 argument_list|>
-name|listModelsLabelCatalog
+name|listEipsLabelCatalog
 parameter_list|()
 throws|throws
 name|Exception

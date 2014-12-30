@@ -78,7 +78,7 @@ literal|"catalog-component-label-list"
 argument_list|,
 name|description
 operator|=
-literal|"Lists all Camel component labels from the Camel catalog."
+literal|"Lists all Camel component labels from the Camel catalog"
 argument_list|)
 DECL|class|CatalogComponentLabelList
 specifier|public

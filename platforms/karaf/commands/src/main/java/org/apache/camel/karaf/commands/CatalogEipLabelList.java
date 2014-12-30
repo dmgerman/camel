@@ -28,7 +28,7 @@ name|camel
 operator|.
 name|commands
 operator|.
-name|CatalogModelListCommand
+name|CatalogEipLabelListCommand
 import|;
 end_import
 
@@ -74,16 +74,16 @@ literal|"camel"
 argument_list|,
 name|name
 operator|=
-literal|"catalog-eip-list"
+literal|"catalog-eip-label-list"
 argument_list|,
 name|description
 operator|=
-literal|"Lists all Camel EIPs from the Camel catalog."
+literal|"Lists all Camel EIP labels from the Camel catalog"
 argument_list|)
-DECL|class|CatalogModelList
+DECL|class|CatalogEipLabelList
 specifier|public
 class|class
-name|CatalogModelList
+name|CatalogEipLabelList
 extends|extends
 name|CamelCommandSupport
 block|{
@@ -118,33 +118,6 @@ DECL|field|verbose
 name|boolean
 name|verbose
 decl_stmt|;
-annotation|@
-name|Option
-argument_list|(
-name|name
-operator|=
-literal|"--label"
-argument_list|,
-name|aliases
-operator|=
-literal|"-l"
-argument_list|,
-name|description
-operator|=
-literal|"To filter EIPs by their label(s), such as transformation"
-argument_list|,
-name|required
-operator|=
-literal|false
-argument_list|,
-name|multiValued
-operator|=
-literal|false
-argument_list|)
-DECL|field|label
-name|String
-name|label
-decl_stmt|;
 DECL|method|doExecute ()
 specifier|protected
 name|Object
@@ -153,15 +126,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CatalogModelListCommand
+name|CatalogEipLabelListCommand
 name|command
 init|=
 operator|new
-name|CatalogModelListCommand
+name|CatalogEipLabelListCommand
 argument_list|(
 name|verbose
-argument_list|,
-name|label
 argument_list|)
 decl_stmt|;
 return|return

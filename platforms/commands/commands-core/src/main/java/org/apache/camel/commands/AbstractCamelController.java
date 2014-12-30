@@ -168,7 +168,7 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|listModelsCatalog (String filter)
+DECL|method|listEipsCatalog (String filter)
 specifier|public
 name|List
 argument_list|<
@@ -179,7 +179,7 @@ argument_list|,
 name|String
 argument_list|>
 argument_list|>
-name|listModelsCatalog
+name|listEipsCatalog
 parameter_list|(
 name|String
 name|filter
@@ -923,7 +923,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|listModelsLabelCatalog ()
+DECL|method|listEipsLabelCatalog ()
 specifier|public
 name|Map
 argument_list|<
@@ -934,7 +934,7 @@ argument_list|<
 name|String
 argument_list|>
 argument_list|>
-name|listModelsLabelCatalog
+name|listEipsLabelCatalog
 parameter_list|()
 throws|throws
 name|Exception
@@ -992,7 +992,7 @@ argument_list|>
 argument_list|>
 name|models
 init|=
-name|listModelsCatalog
+name|listEipsCatalog
 argument_list|(
 name|label
 argument_list|)
