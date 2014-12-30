@@ -357,6 +357,23 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Explains an EIP      *      * @param camelContextName the Camel context.      * @param nameOrId         the name of the EIP ({@link org.apache.camel.NamedNode#getShortName()} or a node id to refer to a specific node from the routes.      * @param allOptions       whether to explain all options, or only the explicit configured options from the uri      * @return a JSON schema with explanation of the options      * @throws java.lang.Exception can be thrown      */
+DECL|method|explainEipAsJSon (String camelContextName, String nameOrId, boolean allOptions)
+name|String
+name|explainEipAsJSon
+parameter_list|(
+name|String
+name|camelContextName
+parameter_list|,
+name|String
+name|nameOrId
+parameter_list|,
+name|boolean
+name|allOptions
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Lists Components which are in use or available on the classpath and include information      *      * @param camelContextName the Camel context.      * @return a list of key/value pairs with component information      * @throws java.lang.Exception can be thrown      */
 DECL|method|listComponents (String camelContextName)
 name|List
