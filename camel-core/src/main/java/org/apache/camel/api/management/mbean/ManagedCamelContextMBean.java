@@ -880,6 +880,44 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Find information about all the EIPs from camel-core.      *      * @return a map with node id, and value with EIP details.      * @throws Exception is thrown if error occurred      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Find all Camel EIPs from camel-core"
+argument_list|)
+DECL|method|findEips ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Properties
+argument_list|>
+name|findEips
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Find the names of all the EIPs from camel-core.      *      * @return a list with the names of the camel EIPs      * @throws Exception is thrown if error occurred      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Find all Camel EIP names from camel-core"
+argument_list|)
+DECL|method|findEipNames ()
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|findEipNames
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Find the names of all the Camel components available in the classpath and {@link org.apache.camel.spi.Registry}.      *      * @return a list with the names of the camel components      * @throws Exception is thrown if error occurred      */
 annotation|@
 name|ManagedOperation
@@ -909,6 +947,21 @@ argument_list|)
 DECL|method|listComponents ()
 name|TabularData
 name|listComponents
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Find information about all the EIPs from camel-core.      *      * @return a list with the data      * @throws Exception is thrown if error occurred      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"List all Camel EIPs from camel-core"
+argument_list|)
+DECL|method|listEips ()
+name|TabularData
+name|listEips
 parameter_list|()
 throws|throws
 name|Exception

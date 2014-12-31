@@ -6940,6 +6940,30 @@ name|this
 argument_list|)
 return|;
 block|}
+DECL|method|findEips ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Properties
+argument_list|>
+name|findEips
+parameter_list|()
+throws|throws
+name|LoadPropertiesException
+throws|,
+name|IOException
+block|{
+return|return
+name|CamelContextHelper
+operator|.
+name|findEips
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
 DECL|method|getComponentDocumentation (String componentName)
 specifier|public
 name|String

@@ -2056,6 +2056,21 @@ name|LoadPropertiesException
 throws|,
 name|IOException
 function_decl|;
+comment|/**      * Find information about all the EIPs from camel-core.      *      * @return a map with node id, and value with EIP details.      * @throws LoadPropertiesException is thrown if error during classpath discovery of the EIPs      * @throws IOException is thrown if error during classpath discovery of the EIPs      */
+DECL|method|findEips ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Properties
+argument_list|>
+name|findEips
+parameter_list|()
+throws|throws
+name|LoadPropertiesException
+throws|,
+name|IOException
+function_decl|;
 comment|/**      * Returns the HTML documentation for the given Camel component      *      * @return the HTML or<tt>null</tt> if the component is<b>not</b> built with HTML document included.      */
 DECL|method|getComponentDocumentation (String componentName)
 name|String
