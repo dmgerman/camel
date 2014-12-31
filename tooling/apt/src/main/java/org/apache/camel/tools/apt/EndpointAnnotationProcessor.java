@@ -367,6 +367,10 @@ import|;
 end_import
 
 begin_comment
+comment|// TODO: add support for @Label
+end_comment
+
+begin_comment
 comment|/**  * Processes all Camel {@link UriEndpoint}s and generate json schema and html documentation for the endpoint/component.  */
 end_comment
 
@@ -1383,6 +1387,11 @@ argument_list|()
 argument_list|,
 name|path
 operator|.
+name|isDeprecated
+argument_list|()
+argument_list|,
+name|path
+operator|.
 name|isEnumType
 argument_list|()
 argument_list|,
@@ -1480,6 +1489,11 @@ name|getDefaultValue
 argument_list|()
 argument_list|,
 name|doc
+argument_list|,
+name|entry
+operator|.
+name|isDeprecated
+argument_list|()
 argument_list|,
 name|entry
 operator|.
@@ -1685,6 +1699,13 @@ name|writer
 operator|.
 name|println
 argument_list|(
+literal|"<th>Deprecated</th>"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|println
+argument_list|(
 literal|"<th>Default Value</th>"
 argument_list|)
 expr_stmt|;
@@ -1745,6 +1766,17 @@ name|println
 argument_list|(
 literal|"<td>"
 operator|+
+literal|"path"
+operator|+
+literal|"</td>"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|println
+argument_list|(
+literal|"<td>"
+operator|+
 name|path
 operator|.
 name|getType
@@ -1759,7 +1791,10 @@ name|println
 argument_list|(
 literal|"<td>"
 operator|+
-literal|"path"
+name|path
+operator|.
+name|isDeprecated
+argument_list|()
 operator|+
 literal|"</td>"
 argument_list|)
@@ -1836,6 +1871,17 @@ name|println
 argument_list|(
 literal|"<td>"
 operator|+
+literal|"parameter"
+operator|+
+literal|"</td>"
+argument_list|)
+expr_stmt|;
+name|writer
+operator|.
+name|println
+argument_list|(
+literal|"<td>"
+operator|+
 name|option
 operator|.
 name|getType
@@ -1850,7 +1896,10 @@ name|println
 argument_list|(
 literal|"<td>"
 operator|+
-literal|"parameter"
+name|option
+operator|.
+name|isDeprecated
+argument_list|()
 operator|+
 literal|"</td>"
 argument_list|)
@@ -2319,6 +2368,20 @@ range|:
 name|fieldElements
 control|)
 block|{
+name|boolean
+name|deprecated
+init|=
+name|fieldElement
+operator|.
+name|getAnnotation
+argument_list|(
+name|Deprecated
+operator|.
+name|class
+argument_list|)
+operator|!=
+literal|null
+decl_stmt|;
 name|UriPath
 name|path
 init|=
@@ -2551,6 +2614,8 @@ argument_list|,
 name|fieldTypeName
 argument_list|,
 name|docComment
+argument_list|,
+name|deprecated
 argument_list|,
 name|isEnum
 argument_list|,
@@ -2896,6 +2961,8 @@ name|docComment
 operator|.
 name|trim
 argument_list|()
+argument_list|,
+name|deprecated
 argument_list|,
 name|isEnum
 argument_list|,
@@ -3344,6 +3411,11 @@ specifier|private
 name|String
 name|documentation
 decl_stmt|;
+DECL|field|deprecated
+specifier|private
+name|boolean
+name|deprecated
+decl_stmt|;
 DECL|field|enumType
 specifier|private
 name|boolean
@@ -3357,7 +3429,7 @@ name|String
 argument_list|>
 name|enums
 decl_stmt|;
-DECL|method|EndpointOption (String name, String type, String defaultValue, String defaultValueNote, String documentation, boolean enumType, Set<String> enums)
+DECL|method|EndpointOption (String name, String type, String defaultValue, String defaultValueNote, String documentation, boolean deprecated, boolean enumType, Set<String> enums)
 specifier|private
 name|EndpointOption
 parameter_list|(
@@ -3375,6 +3447,9 @@ name|defaultValueNote
 parameter_list|,
 name|String
 name|documentation
+parameter_list|,
+name|boolean
+name|deprecated
 parameter_list|,
 name|boolean
 name|enumType
@@ -3415,6 +3490,12 @@ operator|.
 name|documentation
 operator|=
 name|documentation
+expr_stmt|;
+name|this
+operator|.
+name|deprecated
+operator|=
+name|deprecated
 expr_stmt|;
 name|this
 operator|.
@@ -3467,6 +3548,16 @@ parameter_list|()
 block|{
 return|return
 name|documentation
+return|;
+block|}
+DECL|method|isDeprecated ()
+specifier|public
+name|boolean
+name|isDeprecated
+parameter_list|()
+block|{
+return|return
+name|deprecated
 return|;
 block|}
 DECL|method|getEnumValuesAsHtml ()
@@ -3702,6 +3793,11 @@ specifier|private
 name|String
 name|documentation
 decl_stmt|;
+DECL|field|deprecated
+specifier|private
+name|boolean
+name|deprecated
+decl_stmt|;
 DECL|field|enumType
 specifier|private
 name|boolean
@@ -3715,7 +3811,7 @@ name|String
 argument_list|>
 name|enums
 decl_stmt|;
-DECL|method|EndpointPath (String name, String type, String documentation, boolean enumType, Set<String> enums)
+DECL|method|EndpointPath (String name, String type, String documentation, boolean deprecated, boolean enumType, Set<String> enums)
 specifier|private
 name|EndpointPath
 parameter_list|(
@@ -3727,6 +3823,9 @@ name|type
 parameter_list|,
 name|String
 name|documentation
+parameter_list|,
+name|boolean
+name|deprecated
 parameter_list|,
 name|boolean
 name|enumType
@@ -3755,6 +3854,12 @@ operator|.
 name|documentation
 operator|=
 name|documentation
+expr_stmt|;
+name|this
+operator|.
+name|deprecated
+operator|=
+name|deprecated
 expr_stmt|;
 name|this
 operator|.
@@ -3797,6 +3902,16 @@ parameter_list|()
 block|{
 return|return
 name|documentation
+return|;
+block|}
+DECL|method|isDeprecated ()
+specifier|public
+name|boolean
+name|isDeprecated
+parameter_list|()
+block|{
+return|return
+name|deprecated
 return|;
 block|}
 DECL|method|getEnumValuesAsHtml ()

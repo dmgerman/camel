@@ -403,10 +403,6 @@ comment|// TODO: figure out a way to specify default value in the model classes 
 end_comment
 
 begin_comment
-comment|// TODO: add support for @deprecated
-end_comment
-
-begin_comment
 comment|/**  * Process all camel-core's model classes (EIPs and DSL) and generate json schema documentation  */
 end_comment
 
@@ -1144,6 +1140,11 @@ name|getDefaultValue
 argument_list|()
 argument_list|,
 name|doc
+argument_list|,
+name|entry
+operator|.
+name|isDeprecated
+argument_list|()
 argument_list|,
 name|entry
 operator|.
@@ -1987,6 +1988,20 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|boolean
+name|deprecated
+init|=
+name|fieldElement
+operator|.
+name|getAnnotation
+argument_list|(
+name|Deprecated
+operator|.
+name|class
+argument_list|)
+operator|!=
+literal|null
+decl_stmt|;
 name|EipOption
 name|ep
 init|=
@@ -2004,6 +2019,8 @@ argument_list|,
 literal|""
 argument_list|,
 name|docComment
+argument_list|,
+name|deprecated
 argument_list|,
 name|isEnum
 argument_list|,
@@ -2401,6 +2418,20 @@ block|}
 block|}
 block|}
 block|}
+name|boolean
+name|deprecated
+init|=
+name|fieldElement
+operator|.
+name|getAnnotation
+argument_list|(
+name|Deprecated
+operator|.
+name|class
+argument_list|)
+operator|!=
+literal|null
+decl_stmt|;
 name|EipOption
 name|ep
 init|=
@@ -2418,6 +2449,8 @@ argument_list|,
 literal|""
 argument_list|,
 name|docComment
+argument_list|,
+name|deprecated
 argument_list|,
 name|isEnum
 argument_list|,
@@ -2606,6 +2639,8 @@ name|docComment
 argument_list|,
 literal|false
 argument_list|,
+literal|false
+argument_list|,
 literal|null
 argument_list|,
 literal|true
@@ -2691,6 +2726,8 @@ name|docComment
 argument_list|,
 literal|false
 argument_list|,
+literal|false
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -2740,6 +2777,8 @@ name|docComment
 argument_list|,
 literal|false
 argument_list|,
+literal|false
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -2786,6 +2825,8 @@ argument_list|,
 literal|""
 argument_list|,
 name|docComment
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -2838,6 +2879,8 @@ name|docComment
 argument_list|,
 literal|false
 argument_list|,
+literal|false
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -2884,6 +2927,8 @@ argument_list|,
 literal|""
 argument_list|,
 name|docComment
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -2936,6 +2981,8 @@ name|docComment
 argument_list|,
 literal|false
 argument_list|,
+literal|false
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -2982,6 +3029,8 @@ argument_list|,
 literal|""
 argument_list|,
 name|docComment
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -3034,6 +3083,8 @@ name|docComment
 argument_list|,
 literal|false
 argument_list|,
+literal|false
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -3083,6 +3134,8 @@ name|docComment
 argument_list|,
 literal|false
 argument_list|,
+literal|false
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -3129,6 +3182,8 @@ argument_list|,
 literal|""
 argument_list|,
 name|docComment
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -3206,6 +3261,8 @@ literal|""
 argument_list|,
 name|docComment
 argument_list|,
+literal|false
+argument_list|,
 literal|true
 argument_list|,
 name|enums
@@ -3278,6 +3335,8 @@ literal|""
 argument_list|,
 name|docComment
 argument_list|,
+literal|false
+argument_list|,
 literal|true
 argument_list|,
 name|enums
@@ -3346,6 +3405,8 @@ argument_list|,
 literal|""
 argument_list|,
 name|docComment
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -3500,6 +3561,8 @@ name|docComment
 argument_list|,
 literal|false
 argument_list|,
+literal|false
+argument_list|,
 literal|null
 argument_list|,
 literal|true
@@ -3585,6 +3648,8 @@ name|docComment
 argument_list|,
 literal|false
 argument_list|,
+literal|false
+argument_list|,
 literal|null
 argument_list|,
 literal|false
@@ -3631,6 +3696,8 @@ argument_list|,
 literal|""
 argument_list|,
 name|docComment
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -3687,6 +3754,8 @@ argument_list|,
 literal|""
 argument_list|,
 name|docComment
+argument_list|,
+literal|false
 argument_list|,
 literal|false
 argument_list|,
@@ -3909,6 +3978,20 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|boolean
+name|deprecated
+init|=
+name|fieldElement
+operator|.
+name|getAnnotation
+argument_list|(
+name|Deprecated
+operator|.
+name|class
+argument_list|)
+operator|!=
+literal|null
+decl_stmt|;
 name|EipOption
 name|ep
 init|=
@@ -3926,6 +4009,8 @@ argument_list|,
 literal|""
 argument_list|,
 literal|""
+argument_list|,
+name|deprecated
 argument_list|,
 literal|false
 argument_list|,
@@ -4172,6 +4257,8 @@ literal|""
 argument_list|,
 literal|false
 argument_list|,
+literal|false
+argument_list|,
 literal|null
 argument_list|,
 literal|true
@@ -4391,6 +4478,11 @@ specifier|private
 name|String
 name|documentation
 decl_stmt|;
+DECL|field|deprecated
+specifier|private
+name|boolean
+name|deprecated
+decl_stmt|;
 DECL|field|enumType
 specifier|private
 name|boolean
@@ -4417,7 +4509,7 @@ name|String
 argument_list|>
 name|oneOfTypes
 decl_stmt|;
-DECL|method|EipOption (String name, String kind, String type, boolean required, String defaultValue, String documentation, boolean enumType, Set<String> enums, boolean oneOf, Set<String> oneOfTypes)
+DECL|method|EipOption (String name, String kind, String type, boolean required, String defaultValue, String documentation, boolean deprecated, boolean enumType, Set<String> enums, boolean oneOf, Set<String> oneOfTypes)
 specifier|private
 name|EipOption
 parameter_list|(
@@ -4438,6 +4530,9 @@ name|defaultValue
 parameter_list|,
 name|String
 name|documentation
+parameter_list|,
+name|boolean
+name|deprecated
 parameter_list|,
 name|boolean
 name|enumType
@@ -4493,6 +4588,12 @@ operator|.
 name|documentation
 operator|=
 name|documentation
+expr_stmt|;
+name|this
+operator|.
+name|deprecated
+operator|=
+name|deprecated
 expr_stmt|;
 name|this
 operator|.
@@ -4577,6 +4678,16 @@ parameter_list|()
 block|{
 return|return
 name|documentation
+return|;
+block|}
+DECL|method|isDeprecated ()
+specifier|public
+name|boolean
+name|isDeprecated
+parameter_list|()
+block|{
+return|return
+name|deprecated
 return|;
 block|}
 DECL|method|isEnumType ()
