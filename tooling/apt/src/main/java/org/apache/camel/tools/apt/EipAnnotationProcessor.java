@@ -429,10 +429,10 @@ name|SourceVersion
 operator|.
 name|RELEASE_7
 argument_list|)
-DECL|class|ModelDocumentationAnnotationProcessor
+DECL|class|EipAnnotationProcessor
 specifier|public
 class|class
-name|ModelDocumentationAnnotationProcessor
+name|EipAnnotationProcessor
 extends|extends
 name|AbstractAnnotationProcessor
 block|{
