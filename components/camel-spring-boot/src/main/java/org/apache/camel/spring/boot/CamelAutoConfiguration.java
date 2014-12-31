@@ -203,29 +203,19 @@ specifier|public
 class|class
 name|CamelAutoConfiguration
 block|{
-annotation|@
-name|Autowired
-DECL|field|configurationProperties
-specifier|private
-name|CamelConfigurationProperties
-name|configurationProperties
-decl_stmt|;
-annotation|@
-name|Autowired
-DECL|field|applicationContext
-specifier|private
-name|ApplicationContext
-name|applicationContext
-decl_stmt|;
 comment|/**      * Spring-aware Camel context for the application. Auto-detects and loads all routes available in the Spring      * context.      */
 annotation|@
 name|Bean
-DECL|method|camelContext ()
+DECL|method|camelContext (ApplicationContext applicationContext, CamelConfigurationProperties configurationProperties)
 name|CamelContext
 name|camelContext
-parameter_list|()
-throws|throws
-name|Exception
+parameter_list|(
+name|ApplicationContext
+name|applicationContext
+parameter_list|,
+name|CamelConfigurationProperties
+name|configurationProperties
+parameter_list|)
 block|{
 name|CamelContext
 name|camelContext
@@ -271,16 +261,19 @@ block|}
 comment|/**      * Default producer template for the bootstrapped Camel context.      */
 annotation|@
 name|Bean
-DECL|method|producerTemplate ()
+DECL|method|producerTemplate (CamelContext camelContext, CamelConfigurationProperties configurationProperties)
 name|ProducerTemplate
 name|producerTemplate
-parameter_list|()
-throws|throws
-name|Exception
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|CamelConfigurationProperties
+name|configurationProperties
+parameter_list|)
 block|{
 return|return
 name|camelContext
-argument_list|()
 operator|.
 name|createProducerTemplate
 argument_list|(
@@ -294,16 +287,19 @@ block|}
 comment|/**      * Default consumer template for the bootstrapped Camel context.      */
 annotation|@
 name|Bean
-DECL|method|consumerTemplate ()
+DECL|method|consumerTemplate (CamelContext camelContext, CamelConfigurationProperties configurationProperties)
 name|ConsumerTemplate
 name|consumerTemplate
-parameter_list|()
-throws|throws
-name|Exception
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|CamelConfigurationProperties
+name|configurationProperties
+parameter_list|)
 block|{
 return|return
 name|camelContext
-argument_list|()
 operator|.
 name|createConsumerTemplate
 argument_list|(
@@ -316,16 +312,16 @@ return|;
 block|}
 annotation|@
 name|Bean
-DECL|method|typeConverter ()
+DECL|method|typeConverter (CamelContext camelContext)
 name|TypeConverter
 name|typeConverter
-parameter_list|()
-throws|throws
-name|Exception
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
 block|{
 return|return
 name|camelContext
-argument_list|()
 operator|.
 name|getTypeConverter
 argument_list|()
