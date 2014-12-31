@@ -197,7 +197,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"outputs\": { \"kind\": \"element\": \"required\": \"true\", \"type\": \"array\","
+literal|"\"outputs\": { \"kind\": \"element\", \"required\": \"true\", \"type\": \"array\", \"javaType\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -317,7 +317,9 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"exception\": { \"kind\": \"element\": \"required\": \"false\", \"type\": \"array\", \"javaType\": \"java.util.List<java.lang.String>\""
+literal|"\"exception\": { \"kind\": \"element\", \"required\": \"false\", \"type\": \"array\""
+operator|+
+literal|", \"javaType\": \"java.util.List<java.lang.String>\", \"deprecated\": \"false\""
 argument_list|)
 argument_list|)
 expr_stmt|;

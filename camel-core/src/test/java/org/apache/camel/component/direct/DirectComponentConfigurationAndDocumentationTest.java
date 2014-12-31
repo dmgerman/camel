@@ -285,7 +285,7 @@ name|contains
 argument_list|(
 literal|"\"timeout\": { \"kind\": \"parameter\", \"type\": \"integer\", \"javaType\": \"long\","
 operator|+
-literal|" \"defaultValue\": \"30000\","
+literal|" \"deprecated\": \"false\", \"defaultValue\": \"30000\","
 operator|+
 literal|" \"description\": \"The timeout value to use if block is enabled. Is by default 30000.\""
 argument_list|)
