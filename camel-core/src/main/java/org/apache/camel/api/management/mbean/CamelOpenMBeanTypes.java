@@ -487,6 +487,8 @@ literal|"type"
 block|,
 literal|"java type"
 block|,
+literal|"deprecated"
+block|,
 literal|"value"
 block|,
 literal|"default value"
@@ -506,6 +508,8 @@ literal|"Type"
 block|,
 literal|"Java Type"
 block|,
+literal|"Deprecated"
+block|,
 literal|"Value"
 block|,
 literal|"Default Value"
@@ -517,6 +521,10 @@ operator|new
 name|OpenType
 index|[]
 block|{
+name|SimpleType
+operator|.
+name|STRING
+block|,
 name|SimpleType
 operator|.
 name|STRING
@@ -611,6 +619,8 @@ literal|"type"
 block|,
 literal|"java type"
 block|,
+literal|"deprecated"
+block|,
 literal|"value"
 block|,
 literal|"default value"
@@ -630,6 +640,8 @@ literal|"Type"
 block|,
 literal|"Java Type"
 block|,
+literal|"Deprecated"
+block|,
 literal|"Value"
 block|,
 literal|"Default Value"
@@ -641,6 +653,10 @@ operator|new
 name|OpenType
 index|[]
 block|{
+name|SimpleType
+operator|.
+name|STRING
+block|,
 name|SimpleType
 operator|.
 name|STRING

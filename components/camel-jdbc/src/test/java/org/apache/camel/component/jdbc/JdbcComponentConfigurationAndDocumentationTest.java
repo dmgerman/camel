@@ -219,7 +219,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"beanRowMapper\": { \"kind\": \"parameter\", \"type\": \"object\", \"javaType\": \"org.apache.camel.component.jdbc.BeanRowMapper\" }"
+literal|"\"beanRowMapper\": { \"kind\": \"parameter\", \"type\": \"object\", \"javaType\": \"org.apache.camel.component.jdbc.BeanRowMapper\", \"deprecated\": \"false\" },"
 argument_list|)
 argument_list|)
 expr_stmt|;

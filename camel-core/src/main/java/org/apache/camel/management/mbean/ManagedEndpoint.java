@@ -532,6 +532,27 @@ literal|"javaType"
 argument_list|)
 decl_stmt|;
 name|String
+name|deprecated
+init|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"deprecated"
+argument_list|)
+operator|!=
+literal|null
+condition|?
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"deprecated"
+argument_list|)
+else|:
+literal|""
+decl_stmt|;
+name|String
 name|value
 init|=
 name|row
@@ -622,6 +643,8 @@ literal|"type"
 block|,
 literal|"java type"
 block|,
+literal|"deprecated"
+block|,
 literal|"value"
 block|,
 literal|"default value"
@@ -640,6 +663,8 @@ block|,
 name|type
 block|,
 name|javaType
+block|,
+name|deprecated
 block|,
 name|value
 block|,

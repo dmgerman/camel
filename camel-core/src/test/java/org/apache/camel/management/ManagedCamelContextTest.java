@@ -1564,7 +1564,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"groupDelay\": { \"kind\": \"parameter\", \"type\": \"integer\", \"javaType\": \"java.lang.Long\", \"value\": \"2000\","
+literal|"\"groupDelay\": { \"kind\": \"parameter\", \"type\": \"integer\", \"javaType\": \"java.lang.Long\", \"deprecated\": \"false\", \"value\": \"2000\","
 operator|+
 literal|" \"description\": \"Set the initial delay for stats (in millis)\" },"
 argument_list|)
@@ -1576,7 +1576,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"groupSize\": { \"kind\": \"parameter\", \"type\": \"integer\", \"javaType\": \"java.lang.Integer\", \"value\": \"5\","
+literal|"\"groupSize\": { \"kind\": \"parameter\", \"type\": \"integer\", \"javaType\": \"java.lang.Integer\", \"deprecated\": \"false\", \"value\": \"5\","
 operator|+
 literal|" \"description\": \"An integer that specifies a group size for throughput logging.\" }"
 argument_list|)
@@ -1588,7 +1588,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"loggerName\": { \"kind\": \"path\", \"type\": \"string\", \"javaType\": \"java.lang.String\","
+literal|"\"loggerName\": { \"kind\": \"path\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\","
 operator|+
 literal|" \"value\": \"foo\", \"description\": \"The logger name to use\" }"
 argument_list|)
