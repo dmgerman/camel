@@ -714,16 +714,7 @@ argument_list|<
 name|UnmarshalDefinition
 argument_list|>
 block|{
-comment|// TODO: Camel 3.0, ref attribute should be removed as RefDataFormat is to be used instead
-annotation|@
-name|XmlAttribute
-annotation|@
-name|Deprecated
-DECL|field|ref
-specifier|private
-name|String
-name|ref
-decl_stmt|;
+comment|// TODO: Camel 3.0, ref attribute should be removed as UnmarshalDataFormat is to be used instead
 comment|// cannot use @XmlElementRef as it doesn't allow optional properties
 annotation|@
 name|XmlElements
@@ -1310,6 +1301,15 @@ DECL|field|dataFormatType
 specifier|private
 name|DataFormatDefinition
 name|dataFormatType
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+annotation|@
+name|Deprecated
+DECL|field|ref
+specifier|private
+name|String
+name|ref
 decl_stmt|;
 DECL|method|UnmarshalDefinition ()
 specifier|public
