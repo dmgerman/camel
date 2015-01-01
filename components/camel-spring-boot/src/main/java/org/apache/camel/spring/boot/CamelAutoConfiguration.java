@@ -267,9 +267,9 @@ return|;
 block|}
 annotation|@
 name|Bean
-DECL|method|camelRoutesInjector ()
+DECL|method|routesCollector ()
 name|RoutesCollector
-name|camelRoutesInjector
+name|routesCollector
 parameter_list|()
 block|{
 return|return
