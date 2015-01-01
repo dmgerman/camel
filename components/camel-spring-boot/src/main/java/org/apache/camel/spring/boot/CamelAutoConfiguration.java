@@ -118,22 +118,6 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|beans
-operator|.
-name|factory
-operator|.
-name|annotation
-operator|.
-name|Autowired
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
 name|boot
 operator|.
 name|context
@@ -184,6 +168,20 @@ name|Configuration
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|annotation
+operator|.
+name|Import
+import|;
+end_import
+
 begin_comment
 comment|/**  *<p>  * Opinionated auto-configuration of the Camel context. Auto-detects Camel routes available in the Spring context and  * exposes the key Camel utilities (like producer template, consumer template and type converter).  *</p>  *<p>  * The most important piece of functionality provided by the Camel starter is {@code CamelContext} instance. Camel starter  * will create {@code SpringCamelContext} for your and take care of the proper initialization and shutdown of that context. Created  * Camel context is also registered in the Spring application context (under {@code camelContext} name), so you can access it just  * as the any other Spring bean.  *  *<pre>  * {@literal @}Configuration  * public class MyAppConfig {  *  *   {@literal @}Autowired  *   CamelContext camelContext;  *  *   {@literal @}Bean  *   MyService myService() {  *     return new DefaultMyService(camelContext);  *   }  *  * }  *</pre>  *  *</p>  *<p>  * Camel starter collects all the `RoutesBuilder` instances from the Spring context and automatically injects  * them into the provided {@code CamelContext}. It means that creating new Camel route with the Spring Boot starter is as simple as  * adding the {@code @Component} annotated class into your classpath:  *</p>  *  *<p>  *<pre>  * {@literal @}Component  * public class MyRouter extends RouteBuilder {  *  *  {@literal @}Override  *    public void configure() throws Exception {  *     from("jms:invoices").to("file:/invoices");  *   }  *  * }  *</pre>  *</p>  *  *<p>  * Or creating new route {@code RoutesBuilder} in your {@code @Configuration} class:  *</p>  *<p>  *<pre>  * {@literal @}Configuration  * public class MyRouterConfiguration {  *  *   {@literal @}Bean  *   RoutesBuilder myRouter() {  *     return new RouteBuilder() {  *  *       {@literal @}Override  *       public void configure() throws Exception {  *         from("jms:invoices").to("file:/invoices");  *       }  *  *     };  *   }  *  * }  *</pre>  *</p>  */
 end_comment
@@ -198,6 +196,13 @@ name|CamelConfigurationProperties
 operator|.
 name|class
 argument_list|)
+annotation|@
+name|Import
+argument_list|(
+name|SpringConversionServiceConfiguration
+operator|.
+name|class
+argument_list|)
 DECL|class|CamelAutoConfiguration
 specifier|public
 class|class
@@ -206,7 +211,7 @@ block|{
 comment|/**      * Spring-aware Camel context for the application. Auto-detects and loads all routes available in the Spring      * context.      */
 annotation|@
 name|Bean
-DECL|method|camelContext (ApplicationContext applicationContext, CamelConfigurationProperties configurationProperties)
+DECL|method|camelContext (ApplicationContext applicationContext, CamelConfigurationProperties configurationProperties, SpringTypeConverter springTypeConverter)
 name|CamelContext
 name|camelContext
 parameter_list|(
@@ -215,6 +220,9 @@ name|applicationContext
 parameter_list|,
 name|CamelConfigurationProperties
 name|configurationProperties
+parameter_list|,
+name|SpringTypeConverter
+name|springTypeConverter
 parameter_list|)
 block|{
 name|CamelContext
@@ -226,6 +234,18 @@ argument_list|(
 name|applicationContext
 argument_list|)
 decl_stmt|;
+name|camelContext
+operator|.
+name|getTypeConverterRegistry
+argument_list|()
+operator|.
+name|addFallbackTypeConverter
+argument_list|(
+name|springTypeConverter
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 operator|!
