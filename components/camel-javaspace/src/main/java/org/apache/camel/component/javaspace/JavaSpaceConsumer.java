@@ -540,7 +540,7 @@ name|getEndpoint
 argument_list|()
 operator|)
 operator|.
-name|getRemaining
+name|getUrl
 argument_list|()
 argument_list|,
 operator|(
@@ -578,7 +578,7 @@ name|getEndpoint
 argument_list|()
 operator|)
 operator|.
-name|getRemaining
+name|getUrl
 argument_list|()
 argument_list|)
 expr_stmt|;

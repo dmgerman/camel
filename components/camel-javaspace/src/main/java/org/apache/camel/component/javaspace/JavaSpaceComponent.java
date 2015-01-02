@@ -74,7 +74,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -88,13 +88,21 @@ specifier|public
 class|class
 name|JavaSpaceComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|method|JavaSpaceComponent ()
 specifier|public
 name|JavaSpaceComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|JavaSpaceEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|JavaSpaceComponent (CamelContext context)
 specifier|public
 name|JavaSpaceComponent
@@ -106,6 +114,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|JavaSpaceEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
