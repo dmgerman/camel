@@ -328,20 +328,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|ComponentResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ReflectionHelper
@@ -357,6 +343,18 @@ operator|.
 name|framework
 operator|.
 name|BundleContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|osgi
+operator|.
+name|framework
+operator|.
+name|ServiceReference
 import|;
 end_import
 
@@ -1159,14 +1157,14 @@ return|return
 name|context
 return|;
 block|}
-DECL|method|gotCamelComponent (final ComponentResolver componentResolver)
+DECL|method|gotCamelComponent (final ServiceReference serviceReference)
 specifier|protected
 name|void
 name|gotCamelComponent
 parameter_list|(
 specifier|final
-name|ComponentResolver
-name|componentResolver
+name|ServiceReference
+name|serviceReference
 parameter_list|)
 block|{
 name|log
@@ -1182,14 +1180,14 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|lostCamelComponent (final ComponentResolver componentResolver)
+DECL|method|lostCamelComponent (final ServiceReference serviceReference)
 specifier|protected
 name|void
 name|lostCamelComponent
 parameter_list|(
 specifier|final
-name|ComponentResolver
-name|componentResolver
+name|ServiceReference
+name|serviceReference
 parameter_list|)
 block|{
 name|log
