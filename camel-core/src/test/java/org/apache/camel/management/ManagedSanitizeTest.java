@@ -145,9 +145,28 @@ name|name
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// TODO: fix browsable endpoint mbean
-comment|// String uri = (String) mbeanServer.getAttribute(name, "EndpointUri");
-comment|// assertEquals("stub://foo?password=xxxxxx&username=foo", uri);
+name|String
+name|uri
+init|=
+operator|(
+name|String
+operator|)
+name|mbeanServer
+operator|.
+name|getAttribute
+argument_list|(
+name|name
+argument_list|,
+literal|"EndpointUri"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"stub://foo?password=xxxxxx&username=foo"
+argument_list|,
+name|uri
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

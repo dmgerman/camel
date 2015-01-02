@@ -18,37 +18,31 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|camel
-operator|.
-name|Endpoint
+name|Set
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|management
 operator|.
-name|camel
-operator|.
-name|Exchange
+name|MBeanServer
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|management
 operator|.
-name|camel
-operator|.
-name|Producer
+name|ObjectName
 import|;
 end_import
 
@@ -97,81 +91,152 @@ condition|)
 block|{
 return|return;
 block|}
-comment|// send a message so the managed producer is started
-comment|// do this "manually" to avoid camel managing the direct:start producer as well
-comment|// this makes the unit test easier as we only have 1 managed producer = mock:result
-name|Endpoint
-name|endpoint
-init|=
-name|context
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
 operator|.
-name|getEndpoint
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
 argument_list|(
 literal|"direct:start"
-argument_list|)
-decl_stmt|;
-name|Producer
-name|producer
-init|=
-name|endpoint
-operator|.
-name|createProducer
-argument_list|()
-decl_stmt|;
-name|Exchange
-name|exchange
-init|=
-name|endpoint
-operator|.
-name|createExchange
-argument_list|()
-decl_stmt|;
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setBody
-argument_list|(
+argument_list|,
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|producer
-operator|.
-name|start
+name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|producer
+name|MBeanServer
+name|mbeanServer
+init|=
+name|getMBeanServer
+argument_list|()
+decl_stmt|;
+name|Set
+argument_list|<
+name|ObjectName
+argument_list|>
+name|set
+init|=
+name|mbeanServer
 operator|.
-name|process
+name|queryNames
 argument_list|(
-name|exchange
+operator|new
+name|ObjectName
+argument_list|(
+literal|"*:type=producers,*"
+argument_list|)
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|set
+operator|.
+name|size
+argument_list|()
 argument_list|)
 expr_stmt|;
-name|producer
+name|ObjectName
+name|on
+init|=
+name|set
 operator|.
-name|stop
+name|iterator
 argument_list|()
+operator|.
+name|next
+argument_list|()
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should be registered"
+argument_list|,
+name|mbeanServer
+operator|.
+name|isRegistered
+argument_list|(
+name|on
+argument_list|)
+argument_list|)
 expr_stmt|;
-comment|// TODO: producers are not managed due they can lead to memory leak CAMEL-2484
-comment|//        MBeanServer mbeanServer = getMBeanServer();
-comment|//        Set<ObjectName> set = mbeanServer.queryNames(new ObjectName("*:type=producers,*"), null);
-comment|//        assertEquals(0, set.size());
-comment|//        ObjectName on = set.iterator().next();
-comment|//        assertTrue("Should be registered", mbeanServer.isRegistered(on));
-comment|//        String uri = (String) mbeanServer.getAttribute(on, "EndpointUri");
-comment|//        assertEquals("mock://result", uri);
+name|String
+name|uri
+init|=
+operator|(
+name|String
+operator|)
+name|mbeanServer
+operator|.
+name|getAttribute
+argument_list|(
+name|on
+argument_list|,
+literal|"EndpointUri"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"mock://result"
+argument_list|,
+name|uri
+argument_list|)
+expr_stmt|;
 comment|// TODO: populating route id on producers is not implemented yet
-comment|//        String routeId = (String) mbeanServer.getAttribute(on, "RouteId");
-comment|//        assertEquals("route1", routeId);
-comment|//        Boolean singleton = (Boolean) mbeanServer.getAttribute(on, "Singleton");
-comment|//        assertEquals(Boolean.TRUE, singleton);
+comment|// String routeId = (String) mbeanServer.getAttribute(on, "RouteId");
+comment|// assertEquals("route1", routeId);
+name|Boolean
+name|singleton
+init|=
+operator|(
+name|Boolean
+operator|)
+name|mbeanServer
+operator|.
+name|getAttribute
+argument_list|(
+name|on
+argument_list|,
+literal|"Singleton"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+name|Boolean
+operator|.
+name|TRUE
+argument_list|,
+name|singleton
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|stop
 argument_list|()
 expr_stmt|;
-comment|//        assertFalse("Should no longer be registered", mbeanServer.isRegistered(on));
+name|assertFalse
+argument_list|(
+literal|"Should no longer be registered"
+argument_list|,
+name|mbeanServer
+operator|.
+name|isRegistered
+argument_list|(
+name|on
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
