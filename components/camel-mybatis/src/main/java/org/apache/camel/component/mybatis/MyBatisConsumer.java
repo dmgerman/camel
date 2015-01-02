@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Consumer to read data from a database.  *  * @version   */
+comment|/**  * Consumer to read data from a database.  */
 end_comment
 
 begin_class
