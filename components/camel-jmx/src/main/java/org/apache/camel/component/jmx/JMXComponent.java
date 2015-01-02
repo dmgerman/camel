@@ -82,7 +82,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -110,20 +110,33 @@ specifier|public
 class|class
 name|JMXComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
+DECL|method|JMXComponent ()
+specifier|public
+name|JMXComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|JMXEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
-DECL|method|createEndpoint (String aUri, String aRemaining, Map<String, Object> aParameters)
+DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
 name|createEndpoint
 parameter_list|(
 name|String
-name|aUri
+name|uri
 parameter_list|,
 name|String
-name|aRemaining
+name|remaining
 parameter_list|,
 name|Map
 argument_list|<
@@ -131,7 +144,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|aParameters
+name|parameters
 parameter_list|)
 throws|throws
 name|Exception
@@ -142,7 +155,7 @@ init|=
 operator|new
 name|JMXEndpoint
 argument_list|(
-name|aUri
+name|uri
 argument_list|,
 name|this
 argument_list|)
@@ -157,7 +170,7 @@ argument_list|()
 argument_list|,
 name|endpoint
 argument_list|,
-name|aParameters
+name|parameters
 argument_list|)
 expr_stmt|;
 name|EndpointHelper
@@ -169,14 +182,14 @@ argument_list|()
 argument_list|,
 name|endpoint
 argument_list|,
-name|aParameters
+name|parameters
 argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
 name|setServerURL
 argument_list|(
-name|aRemaining
+name|remaining
 argument_list|)
 expr_stmt|;
 comment|// we may have some extra params left over for the object properties hashtable
@@ -185,7 +198,7 @@ comment|// for unused params
 if|if
 condition|(
 operator|!
-name|aParameters
+name|parameters
 operator|.
 name|isEmpty
 argument_list|()
@@ -221,7 +234,7 @@ argument_list|>
 argument_list|>
 name|it
 init|=
-name|aParameters
+name|parameters
 operator|.
 name|entrySet
 argument_list|()

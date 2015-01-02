@@ -116,6 +116,48 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -127,6 +169,23 @@ comment|/**  * Endpoint that describes a connection to an mbean.  *<p/>  * The c
 end_comment
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"jmx"
+argument_list|,
+name|consumerClass
+operator|=
+name|JMXConsumer
+operator|.
+name|class
+argument_list|,
+name|label
+operator|=
+literal|"monitoring"
+argument_list|)
 DECL|class|JMXEndpoint
 specifier|public
 class|class
@@ -198,158 +257,259 @@ name|ERR_OBSERVED_ATTRIBUTE
 init|=
 literal|"Observed attribute must be specified"
 decl_stmt|;
-comment|/**      * URI Property: [monitor types only] The attribute to observe for the monitor bean.        */
-DECL|field|mObservedAttribute
+comment|/**      * server url comes from the remaining endpoint      */
+annotation|@
+name|UriPath
+DECL|field|serverURL
 specifier|private
 name|String
-name|mObservedAttribute
+name|serverURL
+decl_stmt|;
+comment|/**      * URI Property: [monitor types only] The attribute to observe for the monitor bean.        */
+annotation|@
+name|UriParam
+DECL|field|observedAttribute
+specifier|private
+name|String
+name|observedAttribute
 decl_stmt|;
 comment|/**      * URI Property: [monitor types only] The frequency to poll the bean to check the monitor.        */
-DECL|field|mGranularityPeriod
+annotation|@
+name|UriParam
+DECL|field|granularityPeriod
 specifier|private
 name|long
-name|mGranularityPeriod
+name|granularityPeriod
 decl_stmt|;
 comment|/**      * URI Property: [monitor types only] The type of monitor to create. One of string, gauge, counter.        */
-DECL|field|mMonitorType
+annotation|@
+name|UriParam
+DECL|field|monitorType
 specifier|private
 name|String
-name|mMonitorType
+name|monitorType
 decl_stmt|;
 comment|/**      * URI Property: [counter monitor only] Initial threshold for the monitor. The value must exceed this before notifications are fired.        */
-DECL|field|mInitThreshold
+annotation|@
+name|UriParam
+DECL|field|initThreshold
 specifier|private
 name|int
-name|mInitThreshold
+name|initThreshold
 decl_stmt|;
 comment|/**      * URI Property: [counter monitor only] The amount to increment the threshold after it's been exceeded.        */
-DECL|field|mOffset
+annotation|@
+name|UriParam
+DECL|field|offset
 specifier|private
 name|int
-name|mOffset
+name|offset
 decl_stmt|;
 comment|/**      * URI Property: [counter monitor only] The value at which the counter is reset to zero        */
-DECL|field|mModulus
+annotation|@
+name|UriParam
+DECL|field|modulus
 specifier|private
 name|int
-name|mModulus
+name|modulus
 decl_stmt|;
 comment|/**      * URI Property: [counter + gauge monitor only] If true, then the value reported in the notification is the difference from the threshold as opposed to the value itself.        */
-DECL|field|mDifferenceMode
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|differenceMode
 specifier|private
 name|boolean
-name|mDifferenceMode
+name|differenceMode
 decl_stmt|;
 comment|/**      * URI Property: [gauge monitor only] If true, the gauge will fire a notification when the high threshold is exceeded        */
-DECL|field|mNotifyHigh
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|notifyHigh
 specifier|private
 name|boolean
-name|mNotifyHigh
+name|notifyHigh
 decl_stmt|;
 comment|/**      * URI Property: [gauge monitor only] If true, the gauge will fire a notification when the low threshold is exceeded        */
-DECL|field|mNotifyLow
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|notifyLow
 specifier|private
 name|boolean
-name|mNotifyLow
+name|notifyLow
 decl_stmt|;
 comment|/**      * URI Property: [gauge monitor only] Value for the gauge's high threshold        */
-DECL|field|mThresholdHigh
+annotation|@
+name|UriParam
+DECL|field|thresholdHigh
 specifier|private
 name|Double
-name|mThresholdHigh
+name|thresholdHigh
 decl_stmt|;
 comment|/**      * URI Property: [gauge monitor only] Value for the gauge's low threshold        */
-DECL|field|mThresholdLow
+annotation|@
+name|UriParam
+DECL|field|thresholdLow
 specifier|private
 name|Double
-name|mThresholdLow
+name|thresholdLow
 decl_stmt|;
 comment|/**      * URI Property: [string monitor only] If true, the string monitor will fire a notification when the string attribute differs from the string to compare.        */
-DECL|field|mNotifyDiffer
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|notifyDiffer
 specifier|private
 name|boolean
-name|mNotifyDiffer
+name|notifyDiffer
 decl_stmt|;
 comment|/**      * URI Property: [string monitor only] If true, the string monitor will fire a notification when the string attribute matches the string to compare.        */
-DECL|field|mNotifyMatch
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|notifyMatch
 specifier|private
 name|boolean
-name|mNotifyMatch
+name|notifyMatch
 decl_stmt|;
 comment|/**      * URI Property: [string monitor only] Value for the string monitor's string to compare.        */
-DECL|field|mStringToCompare
+annotation|@
+name|UriParam
+DECL|field|stringToCompare
 specifier|private
 name|String
-name|mStringToCompare
+name|stringToCompare
 decl_stmt|;
 comment|/**      * URI Property: Format for the message body. Either "xml" or "raw". If xml, the notification is serialized to xml. If raw, then the raw java object is set as the body.      */
-DECL|field|mFormat
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"xml"
+argument_list|)
+DECL|field|format
 specifier|private
 name|String
-name|mFormat
+name|format
 init|=
 literal|"xml"
 decl_stmt|;
 comment|/**      * URI Property: credentials for making a remote connection      */
-DECL|field|mUser
+annotation|@
+name|UriParam
+DECL|field|user
 specifier|private
 name|String
-name|mUser
+name|user
 decl_stmt|;
 comment|/**      * URI Property: credentials for making a remote connection      */
-DECL|field|mPassword
+annotation|@
+name|UriParam
+DECL|field|password
 specifier|private
 name|String
-name|mPassword
+name|password
 decl_stmt|;
 comment|/**      * URI Property: The domain for the mbean you're connecting to      */
-DECL|field|mObjectDomain
+annotation|@
+name|UriParam
+DECL|field|objectDomain
 specifier|private
 name|String
-name|mObjectDomain
+name|objectDomain
 decl_stmt|;
 comment|/**      * URI Property: The name key for the mbean you're connecting to. This value is mutually exclusive with the object properties that get passed.      */
-DECL|field|mObjectName
+annotation|@
+name|UriParam
+DECL|field|objectName
 specifier|private
 name|String
-name|mObjectName
+name|objectName
 decl_stmt|;
 comment|/**      * URI Property: Reference to a bean that implements the NotificationFilter.      */
-DECL|field|mNotificationFilter
+annotation|@
+name|UriParam
+DECL|field|notificationFilter
 specifier|private
 name|NotificationFilter
-name|mNotificationFilter
+name|notificationFilter
 decl_stmt|;
 comment|/**      * URI Property: Value to handback to the listener when a notification is received. This value will be put in the message header with the key "jmx.handback"      */
-DECL|field|mHandback
+annotation|@
+name|UriParam
+DECL|field|handback
 specifier|private
 name|Object
-name|mHandback
+name|handback
 decl_stmt|;
 comment|/**      * URI Property:  If true the consumer will throw an exception if unable to establish the JMX connection upon startup.  If false, the consumer will attempt      *                to establish the JMX connection every 'x' seconds until the connection is made -- where 'x' is the configured  reconnectionDelay       */
-DECL|field|mTestConnectionOnStartup
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|testConnectionOnStartup
 specifier|private
 name|boolean
-name|mTestConnectionOnStartup
+name|testConnectionOnStartup
 init|=
 literal|true
 decl_stmt|;
 comment|/**      * URI Property:  If true the consumer will attempt to reconnect to the JMX server when any connection failure occurs.  The consumer will attempt      *                to re-establish the JMX connection every 'x' seconds until the connection is made-- where 'x' is the configured  reconnectionDelay      */
-DECL|field|mReconnectOnConnectionFailure
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|reconnectOnConnectionFailure
 specifier|private
 name|boolean
-name|mReconnectOnConnectionFailure
+name|reconnectOnConnectionFailure
 decl_stmt|;
 comment|/**       * URI Property:  The number of seconds to wait before attempting to retry establishment of the initial connection or attempt to reconnect a lost connection       */
-DECL|field|mReconnectDelay
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"10"
+argument_list|)
+DECL|field|reconnectDelay
 specifier|private
 name|int
-name|mReconnectDelay
+name|reconnectDelay
 init|=
 literal|10
 decl_stmt|;
 comment|/**      * URI Property: properties for the object name. These values will be used if the objectName param is not set      */
-DECL|field|mObjectProperties
+DECL|field|objectProperties
 specifier|private
 name|Hashtable
 argument_list|<
@@ -357,19 +517,14 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-name|mObjectProperties
+name|objectProperties
 decl_stmt|;
 comment|/**      * cached object name that was built from the objectName param or the hashtable      */
-DECL|field|mJMXObjectName
+DECL|field|jmxObjectName
 specifier|private
+specifier|transient
 name|ObjectName
-name|mJMXObjectName
-decl_stmt|;
-comment|/**      * server url comes from the remaining endpoint      */
-DECL|field|mServerURL
-specifier|private
-name|String
-name|mServerURL
+name|jmxObjectName
 decl_stmt|;
 DECL|method|JMXEndpoint (String aEndpointUri, JMXComponent aComponent)
 specifier|public
@@ -635,7 +790,7 @@ name|getFormat
 parameter_list|()
 block|{
 return|return
-name|mFormat
+name|format
 return|;
 block|}
 DECL|method|setFormat (String aFormat)
@@ -647,7 +802,7 @@ name|String
 name|aFormat
 parameter_list|)
 block|{
-name|mFormat
+name|format
 operator|=
 name|aFormat
 expr_stmt|;
@@ -691,7 +846,7 @@ name|getUser
 parameter_list|()
 block|{
 return|return
-name|mUser
+name|user
 return|;
 block|}
 DECL|method|setUser (String aUser)
@@ -703,7 +858,7 @@ name|String
 name|aUser
 parameter_list|)
 block|{
-name|mUser
+name|user
 operator|=
 name|aUser
 expr_stmt|;
@@ -715,7 +870,7 @@ name|getPassword
 parameter_list|()
 block|{
 return|return
-name|mPassword
+name|password
 return|;
 block|}
 DECL|method|setPassword (String aPassword)
@@ -727,7 +882,7 @@ name|String
 name|aPassword
 parameter_list|)
 block|{
-name|mPassword
+name|password
 operator|=
 name|aPassword
 expr_stmt|;
@@ -739,7 +894,7 @@ name|getObjectDomain
 parameter_list|()
 block|{
 return|return
-name|mObjectDomain
+name|objectDomain
 return|;
 block|}
 DECL|method|setObjectDomain (String aObjectDomain)
@@ -751,7 +906,7 @@ name|String
 name|aObjectDomain
 parameter_list|)
 block|{
-name|mObjectDomain
+name|objectDomain
 operator|=
 name|aObjectDomain
 expr_stmt|;
@@ -763,7 +918,7 @@ name|getObjectName
 parameter_list|()
 block|{
 return|return
-name|mObjectName
+name|objectName
 return|;
 block|}
 DECL|method|setObjectName (String aObjectName)
@@ -791,7 +946,7 @@ literal|"Cannot set both objectName and objectProperties"
 argument_list|)
 throw|;
 block|}
-name|mObjectName
+name|objectName
 operator|=
 name|aObjectName
 expr_stmt|;
@@ -803,7 +958,7 @@ name|getServerURL
 parameter_list|()
 block|{
 return|return
-name|mServerURL
+name|serverURL
 return|;
 block|}
 DECL|method|setServerURL (String aServerURL)
@@ -815,7 +970,7 @@ name|String
 name|aServerURL
 parameter_list|)
 block|{
-name|mServerURL
+name|serverURL
 operator|=
 name|aServerURL
 expr_stmt|;
@@ -827,7 +982,7 @@ name|getNotificationFilter
 parameter_list|()
 block|{
 return|return
-name|mNotificationFilter
+name|notificationFilter
 return|;
 block|}
 DECL|method|setNotificationFilter (NotificationFilter aFilterRef)
@@ -839,7 +994,7 @@ name|NotificationFilter
 name|aFilterRef
 parameter_list|)
 block|{
-name|mNotificationFilter
+name|notificationFilter
 operator|=
 name|aFilterRef
 expr_stmt|;
@@ -851,7 +1006,7 @@ name|getHandback
 parameter_list|()
 block|{
 return|return
-name|mHandback
+name|handback
 return|;
 block|}
 DECL|method|setHandback (Object aHandback)
@@ -863,7 +1018,7 @@ name|Object
 name|aHandback
 parameter_list|)
 block|{
-name|mHandback
+name|handback
 operator|=
 name|aHandback
 expr_stmt|;
@@ -880,7 +1035,7 @@ name|getObjectProperties
 parameter_list|()
 block|{
 return|return
-name|mObjectProperties
+name|objectProperties
 return|;
 block|}
 comment|/**      * Setter for the ObjectProperties is either called by reflection when      * processing the URI or manually by the component.      *<p/>      * If the URI contained a value with a reference like "objectProperties=#myHashtable"      * then the Hashtable will be set in place.      *<p/>      * If there are extra properties that begin with "key." then the component will      * create a Hashtable with these values after removing the "key." prefix.      */
@@ -914,7 +1069,7 @@ literal|"Cannot set both objectName and objectProperties"
 argument_list|)
 throw|;
 block|}
-name|mObjectProperties
+name|objectProperties
 operator|=
 name|aObjectProperties
 expr_stmt|;
@@ -929,7 +1084,7 @@ name|MalformedObjectNameException
 block|{
 if|if
 condition|(
-name|mJMXObjectName
+name|jmxObjectName
 operator|==
 literal|null
 condition|)
@@ -947,7 +1102,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|mJMXObjectName
+name|jmxObjectName
 return|;
 block|}
 DECL|method|setJMXObjectName (ObjectName aCachedObjectName)
@@ -959,7 +1114,7 @@ name|ObjectName
 name|aCachedObjectName
 parameter_list|)
 block|{
-name|mJMXObjectName
+name|jmxObjectName
 operator|=
 name|aCachedObjectName
 expr_stmt|;
@@ -971,7 +1126,7 @@ name|getObservedAttribute
 parameter_list|()
 block|{
 return|return
-name|mObservedAttribute
+name|observedAttribute
 return|;
 block|}
 DECL|method|setObservedAttribute (String aObservedAttribute)
@@ -983,7 +1138,7 @@ name|String
 name|aObservedAttribute
 parameter_list|)
 block|{
-name|mObservedAttribute
+name|observedAttribute
 operator|=
 name|aObservedAttribute
 expr_stmt|;
@@ -995,7 +1150,7 @@ name|getGranularityPeriod
 parameter_list|()
 block|{
 return|return
-name|mGranularityPeriod
+name|granularityPeriod
 return|;
 block|}
 DECL|method|setGranularityPeriod (long aGranularityPeriod)
@@ -1007,7 +1162,7 @@ name|long
 name|aGranularityPeriod
 parameter_list|)
 block|{
-name|mGranularityPeriod
+name|granularityPeriod
 operator|=
 name|aGranularityPeriod
 expr_stmt|;
@@ -1019,7 +1174,7 @@ name|getMonitorType
 parameter_list|()
 block|{
 return|return
-name|mMonitorType
+name|monitorType
 return|;
 block|}
 DECL|method|setMonitorType (String aMonitorType)
@@ -1031,7 +1186,7 @@ name|String
 name|aMonitorType
 parameter_list|)
 block|{
-name|mMonitorType
+name|monitorType
 operator|=
 name|aMonitorType
 expr_stmt|;
@@ -1043,7 +1198,7 @@ name|getInitThreshold
 parameter_list|()
 block|{
 return|return
-name|mInitThreshold
+name|initThreshold
 return|;
 block|}
 DECL|method|setInitThreshold (int aInitThreshold)
@@ -1055,7 +1210,7 @@ name|int
 name|aInitThreshold
 parameter_list|)
 block|{
-name|mInitThreshold
+name|initThreshold
 operator|=
 name|aInitThreshold
 expr_stmt|;
@@ -1067,7 +1222,7 @@ name|getOffset
 parameter_list|()
 block|{
 return|return
-name|mOffset
+name|offset
 return|;
 block|}
 DECL|method|setOffset (int aOffset)
@@ -1079,7 +1234,7 @@ name|int
 name|aOffset
 parameter_list|)
 block|{
-name|mOffset
+name|offset
 operator|=
 name|aOffset
 expr_stmt|;
@@ -1091,7 +1246,7 @@ name|getModulus
 parameter_list|()
 block|{
 return|return
-name|mModulus
+name|modulus
 return|;
 block|}
 DECL|method|setModulus (int aModulus)
@@ -1103,7 +1258,7 @@ name|int
 name|aModulus
 parameter_list|)
 block|{
-name|mModulus
+name|modulus
 operator|=
 name|aModulus
 expr_stmt|;
@@ -1115,7 +1270,7 @@ name|isDifferenceMode
 parameter_list|()
 block|{
 return|return
-name|mDifferenceMode
+name|differenceMode
 return|;
 block|}
 DECL|method|setDifferenceMode (boolean aDifferenceMode)
@@ -1127,7 +1282,7 @@ name|boolean
 name|aDifferenceMode
 parameter_list|)
 block|{
-name|mDifferenceMode
+name|differenceMode
 operator|=
 name|aDifferenceMode
 expr_stmt|;
@@ -1139,7 +1294,7 @@ name|isNotifyHigh
 parameter_list|()
 block|{
 return|return
-name|mNotifyHigh
+name|notifyHigh
 return|;
 block|}
 DECL|method|setNotifyHigh (boolean aNotifyHigh)
@@ -1151,7 +1306,7 @@ name|boolean
 name|aNotifyHigh
 parameter_list|)
 block|{
-name|mNotifyHigh
+name|notifyHigh
 operator|=
 name|aNotifyHigh
 expr_stmt|;
@@ -1163,7 +1318,7 @@ name|isNotifyLow
 parameter_list|()
 block|{
 return|return
-name|mNotifyLow
+name|notifyLow
 return|;
 block|}
 DECL|method|setNotifyLow (boolean aNotifyLow)
@@ -1175,7 +1330,7 @@ name|boolean
 name|aNotifyLow
 parameter_list|)
 block|{
-name|mNotifyLow
+name|notifyLow
 operator|=
 name|aNotifyLow
 expr_stmt|;
@@ -1187,7 +1342,7 @@ name|getThresholdHigh
 parameter_list|()
 block|{
 return|return
-name|mThresholdHigh
+name|thresholdHigh
 return|;
 block|}
 DECL|method|setThresholdHigh (Double aThresholdHigh)
@@ -1199,7 +1354,7 @@ name|Double
 name|aThresholdHigh
 parameter_list|)
 block|{
-name|mThresholdHigh
+name|thresholdHigh
 operator|=
 name|aThresholdHigh
 expr_stmt|;
@@ -1211,7 +1366,7 @@ name|getThresholdLow
 parameter_list|()
 block|{
 return|return
-name|mThresholdLow
+name|thresholdLow
 return|;
 block|}
 DECL|method|setThresholdLow (Double aThresholdLow)
@@ -1223,7 +1378,7 @@ name|Double
 name|aThresholdLow
 parameter_list|)
 block|{
-name|mThresholdLow
+name|thresholdLow
 operator|=
 name|aThresholdLow
 expr_stmt|;
@@ -1235,7 +1390,7 @@ name|isNotifyDiffer
 parameter_list|()
 block|{
 return|return
-name|mNotifyDiffer
+name|notifyDiffer
 return|;
 block|}
 DECL|method|setNotifyDiffer (boolean aNotifyDiffer)
@@ -1247,7 +1402,7 @@ name|boolean
 name|aNotifyDiffer
 parameter_list|)
 block|{
-name|mNotifyDiffer
+name|notifyDiffer
 operator|=
 name|aNotifyDiffer
 expr_stmt|;
@@ -1259,7 +1414,7 @@ name|isNotifyMatch
 parameter_list|()
 block|{
 return|return
-name|mNotifyMatch
+name|notifyMatch
 return|;
 block|}
 DECL|method|setNotifyMatch (boolean aNotifyMatch)
@@ -1271,7 +1426,7 @@ name|boolean
 name|aNotifyMatch
 parameter_list|)
 block|{
-name|mNotifyMatch
+name|notifyMatch
 operator|=
 name|aNotifyMatch
 expr_stmt|;
@@ -1283,7 +1438,7 @@ name|getStringToCompare
 parameter_list|()
 block|{
 return|return
-name|mStringToCompare
+name|stringToCompare
 return|;
 block|}
 DECL|method|setStringToCompare (String aStringToCompare)
@@ -1295,7 +1450,7 @@ name|String
 name|aStringToCompare
 parameter_list|)
 block|{
-name|mStringToCompare
+name|stringToCompare
 operator|=
 name|aStringToCompare
 expr_stmt|;
@@ -1309,7 +1464,7 @@ block|{
 return|return
 name|this
 operator|.
-name|mTestConnectionOnStartup
+name|testConnectionOnStartup
 return|;
 block|}
 DECL|method|setTestConnectionOnStartup (boolean testConnectionOnStartup)
@@ -1323,7 +1478,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|mTestConnectionOnStartup
+name|testConnectionOnStartup
 operator|=
 name|testConnectionOnStartup
 expr_stmt|;
@@ -1337,7 +1492,7 @@ block|{
 return|return
 name|this
 operator|.
-name|mReconnectOnConnectionFailure
+name|reconnectOnConnectionFailure
 return|;
 block|}
 DECL|method|setReconnectOnConnectionFailure (boolean reconnectOnConnectionFailure)
@@ -1351,7 +1506,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|mReconnectOnConnectionFailure
+name|reconnectOnConnectionFailure
 operator|=
 name|reconnectOnConnectionFailure
 expr_stmt|;
@@ -1365,7 +1520,7 @@ block|{
 return|return
 name|this
 operator|.
-name|mReconnectDelay
+name|reconnectDelay
 return|;
 block|}
 DECL|method|setReconnectDelay (int reconnectDelay)
@@ -1379,7 +1534,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|mReconnectDelay
+name|reconnectDelay
 operator|=
 name|reconnectDelay
 expr_stmt|;
