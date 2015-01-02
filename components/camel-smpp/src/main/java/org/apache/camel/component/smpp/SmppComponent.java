@@ -72,7 +72,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -86,7 +86,7 @@ specifier|public
 class|class
 name|SmppComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|configuration
 specifier|private
@@ -97,7 +97,15 @@ DECL|method|SmppComponent ()
 specifier|public
 name|SmppComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|SmppEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|SmppComponent (SmppConfiguration configuration)
 specifier|public
 name|SmppComponent
@@ -106,6 +114,9 @@ name|SmppConfiguration
 name|configuration
 parameter_list|)
 block|{
+name|this
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|configuration
@@ -124,6 +135,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|SmppEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
