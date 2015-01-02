@@ -86,7 +86,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -114,7 +114,7 @@ specifier|public
 class|class
 name|IBatisComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|DEFAULT_CONFIG_URI
 specifier|private
@@ -148,7 +148,15 @@ DECL|method|IBatisComponent ()
 specifier|public
 name|IBatisComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|IBatisEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|IBatisComponent (SqlMapClient sqlMapClient)
 specifier|public
 name|IBatisComponent
@@ -157,6 +165,9 @@ name|SqlMapClient
 name|sqlMapClient
 parameter_list|)
 block|{
+name|this
+argument_list|()
+expr_stmt|;
 name|this
 operator|.
 name|sqlMapClient
@@ -201,6 +212,14 @@ argument_list|,
 name|remaining
 argument_list|)
 decl_stmt|;
+name|answer
+operator|.
+name|setUseTransactions
+argument_list|(
+name|isUseTransactions
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|setProperties
 argument_list|(
 name|answer
