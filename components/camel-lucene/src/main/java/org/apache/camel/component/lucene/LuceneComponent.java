@@ -72,7 +72,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -82,7 +82,7 @@ specifier|public
 class|class
 name|LuceneComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|config
 name|LuceneConfiguration
@@ -93,6 +93,13 @@ specifier|public
 name|LuceneComponent
 parameter_list|()
 block|{
+name|super
+argument_list|(
+name|LuceneEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|config
 operator|=
 operator|new
@@ -111,6 +118,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|LuceneEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|config

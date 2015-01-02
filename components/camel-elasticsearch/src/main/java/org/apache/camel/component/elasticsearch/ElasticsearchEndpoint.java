@@ -242,7 +242,7 @@ literal|"elasticsearch"
 argument_list|,
 name|label
 operator|=
-literal|"monitoring"
+literal|"monitoring,search"
 argument_list|)
 DECL|class|ElasticsearchEndpoint
 specifier|public
