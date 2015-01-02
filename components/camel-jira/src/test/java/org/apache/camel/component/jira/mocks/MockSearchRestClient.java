@@ -234,7 +234,9 @@ name|issues
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|BasicIssue
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|comments
@@ -253,7 +255,14 @@ name|comments
 init|=
 operator|new
 name|HashMap
-argument_list|<>
+argument_list|<
+name|Long
+argument_list|,
+name|List
+argument_list|<
+name|Comment
+argument_list|>
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|field|basicIssueId
@@ -337,7 +346,9 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|BasicIssue
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
