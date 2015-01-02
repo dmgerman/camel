@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -64,8 +64,21 @@ specifier|public
 class|class
 name|SnmpComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
+DECL|method|SnmpComponent ()
+specifier|public
+name|SnmpComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|SnmpEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -107,11 +120,6 @@ name|endpoint
 argument_list|,
 name|parameters
 argument_list|)
-expr_stmt|;
-name|endpoint
-operator|.
-name|initiate
-argument_list|()
 expr_stmt|;
 return|return
 name|endpoint
