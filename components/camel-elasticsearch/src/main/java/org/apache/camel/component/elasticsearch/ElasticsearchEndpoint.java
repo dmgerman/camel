@@ -452,6 +452,20 @@ name|ImmutableSettings
 operator|.
 name|settingsBuilder
 argument_list|()
+comment|// setting the classloader here will allow the underlying elasticsearch-java
+comment|// class to find its names.txt in an OSGi environment (otherwise the thread
+comment|// classloader is used, which won't be able to see the file causing a startup
+comment|// exception).
+operator|.
+name|classLoader
+argument_list|(
+name|Settings
+operator|.
+name|class
+operator|.
+name|getClassLoader
+argument_list|()
+argument_list|)
 operator|.
 name|put
 argument_list|(
