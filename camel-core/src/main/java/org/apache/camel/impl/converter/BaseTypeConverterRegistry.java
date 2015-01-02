@@ -1374,6 +1374,21 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// no type conversion was needed
+if|if
+condition|(
+name|statistics
+operator|.
+name|isStatisticsEnabled
+argument_list|()
+condition|)
+block|{
+name|noopCounter
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
+block|}
 comment|// lets avoid NullPointerException when converting to boolean for null values
 if|if
 condition|(
@@ -1392,21 +1407,6 @@ name|Boolean
 operator|.
 name|FALSE
 return|;
-block|}
-comment|// no type conversion was needed
-if|if
-condition|(
-name|statistics
-operator|.
-name|isStatisticsEnabled
-argument_list|()
-condition|)
-block|{
-name|noopCounter
-operator|.
-name|incrementAndGet
-argument_list|()
-expr_stmt|;
 block|}
 return|return
 literal|null
