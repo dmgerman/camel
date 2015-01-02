@@ -138,7 +138,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -560,7 +560,7 @@ specifier|public
 class|class
 name|MinaComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -587,7 +587,15 @@ DECL|method|MinaComponent ()
 specifier|public
 name|MinaComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|MinaEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|MinaComponent (CamelContext context)
 specifier|public
 name|MinaComponent
@@ -599,6 +607,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|MinaEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
