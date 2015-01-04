@@ -130,7 +130,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -164,7 +164,7 @@ specifier|public
 class|class
 name|KestrelComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -218,11 +218,12 @@ specifier|public
 name|KestrelComponent
 parameter_list|()
 block|{
-name|configuration
-operator|=
+name|this
+argument_list|(
 operator|new
 name|KestrelConfiguration
 argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|KestrelComponent (KestrelConfiguration configuration)
@@ -233,6 +234,13 @@ name|KestrelConfiguration
 name|configuration
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|KestrelEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|configuration
@@ -251,6 +259,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|KestrelEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|configuration

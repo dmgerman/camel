@@ -60,11 +60,55 @@ name|RuntimeCamelException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParams
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents the configuration of the Kestrel component and/or endpoint.  */
 end_comment
 
 begin_class
+annotation|@
+name|UriParams
 DECL|class|KestrelConfiguration
 specifier|public
 class|class
@@ -83,6 +127,8 @@ init|=
 literal|22133
 decl_stmt|;
 comment|/**      * The address(es) on which kestrel is running      */
+annotation|@
+name|UriPath
 DECL|field|addresses
 specifier|private
 name|String
@@ -99,6 +145,13 @@ name|DEFAULT_KESTREL_PORT
 block|}
 decl_stmt|;
 comment|/**      * How long a given wait should block (server side), in milliseconds      */
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"100"
+argument_list|)
 DECL|field|waitTimeMs
 specifier|private
 name|int
@@ -107,6 +160,13 @@ init|=
 literal|100
 decl_stmt|;
 comment|/**      * How many concurrent listeners to schedule for the thread pool      */
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"1"
+argument_list|)
 DECL|field|concurrentConsumers
 specifier|private
 name|int
