@@ -363,6 +363,9 @@ name|configuration
 operator|.
 name|getTransport
 argument_list|()
+operator|.
+name|name
+argument_list|()
 argument_list|)
 condition|)
 block|{
@@ -390,6 +393,9 @@ argument_list|(
 name|configuration
 operator|.
 name|getTransport
+argument_list|()
+operator|.
+name|name
 argument_list|()
 argument_list|)
 condition|)
