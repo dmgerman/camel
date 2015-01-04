@@ -86,7 +86,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -144,7 +144,7 @@ specifier|public
 class|class
 name|HBaseComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|configuration
 specifier|private
@@ -163,6 +163,19 @@ name|poolMaxSize
 init|=
 literal|10
 decl_stmt|;
+DECL|method|HBaseComponent ()
+specifier|public
+name|HBaseComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|HBaseEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()
