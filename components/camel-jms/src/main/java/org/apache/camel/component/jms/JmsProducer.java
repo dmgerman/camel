@@ -1442,12 +1442,6 @@ argument_list|,
 name|messageSentCallback
 argument_list|)
 expr_stmt|;
-comment|// after sending then set the OUT message id to the JMSMessageID so its identical
-name|setMessageId
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
 comment|// continue routing asynchronously (reply will be processed async when its received)
 return|return
 literal|false
