@@ -38,6 +38,48 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParams
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|hadoop
 operator|.
 name|conf
@@ -83,30 +125,47 @@ comment|/**  * Gora Configuration.  *  */
 end_comment
 
 begin_class
+annotation|@
+name|UriParams
 DECL|class|GoraConfiguration
 specifier|public
 class|class
 name|GoraConfiguration
 block|{
+annotation|@
+name|UriPath
+DECL|field|name
+specifier|private
+name|String
+name|name
+decl_stmt|;
 comment|/**      * key type      */
+annotation|@
+name|UriParam
 DECL|field|keyClass
 specifier|private
 name|String
 name|keyClass
 decl_stmt|;
 comment|/**      * configuration      */
+annotation|@
+name|UriParam
 DECL|field|hadoopConfiguration
 specifier|private
 name|Configuration
 name|hadoopConfiguration
 decl_stmt|;
 comment|/**      * value type      */
+annotation|@
+name|UriParam
 DECL|field|valueClass
 specifier|private
 name|String
 name|valueClass
 decl_stmt|;
 comment|/**      *  dataStore type      */
+annotation|@
+name|UriParam
 DECL|field|dataStoreClass
 specifier|private
 name|String
@@ -114,72 +173,101 @@ name|dataStoreClass
 decl_stmt|;
 comment|/** Consumer only properties! */
 comment|/**      *  Gora Query Start Time attribute      */
+annotation|@
+name|UriParam
 DECL|field|startTime
 specifier|private
 name|long
 name|startTime
 decl_stmt|;
 comment|/**      * Gora Query End Time attribute      */
+annotation|@
+name|UriParam
 DECL|field|endTime
 specifier|private
 name|long
 name|endTime
 decl_stmt|;
 comment|/**      * Gora Query Time Range From attribute      */
+annotation|@
+name|UriParam
 DECL|field|timeRangeFrom
 specifier|private
 name|long
 name|timeRangeFrom
 decl_stmt|;
 comment|/**      * Gora Query Key Range To attribute      */
+annotation|@
+name|UriParam
 DECL|field|timeRangeTo
 specifier|private
 name|long
 name|timeRangeTo
 decl_stmt|;
 comment|/**      * Gora Query Limit attribute      */
+annotation|@
+name|UriParam
 DECL|field|limit
 specifier|private
 name|long
 name|limit
 decl_stmt|;
 comment|/**      * Gora Query Timestamp attribute      */
+annotation|@
+name|UriParam
 DECL|field|timestamp
 specifier|private
 name|long
 name|timestamp
 decl_stmt|;
 comment|/**      * Gora Query Start Key attribute      */
+annotation|@
+name|UriParam
 DECL|field|startKey
 specifier|private
 name|Object
 name|startKey
 decl_stmt|;
 comment|/**      * Gora Query End Key attribute      */
+annotation|@
+name|UriParam
 DECL|field|endKey
 specifier|private
 name|Object
 name|endKey
 decl_stmt|;
 comment|/**      * Gora Query Key Range From attribute      */
+annotation|@
+name|UriParam
 DECL|field|keyRangeFrom
 specifier|private
 name|Object
 name|keyRangeFrom
 decl_stmt|;
 comment|/**      * Gora Query Key Range To attribute      */
+annotation|@
+name|UriParam
 DECL|field|keyRangeTo
 specifier|private
 name|Object
 name|keyRangeTo
 decl_stmt|;
 comment|/**      * Gora Query Fields attribute      */
+annotation|@
+name|UriParam
 DECL|field|fields
 specifier|private
 name|Strings
 name|fields
 decl_stmt|;
 comment|/**      * Concurrent Consumers      *      *<b>NOTE:<b/> used only by consumer      */
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"1"
+argument_list|)
 DECL|field|concurrentConsumers
 specifier|private
 name|int
@@ -188,6 +276,13 @@ init|=
 literal|1
 decl_stmt|;
 comment|/**      * Flush on every operation      *      *<b>NOTE:<b/> used only by producer      */
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|flushOnEveryOperation
 specifier|private
 name|boolean
@@ -741,6 +836,33 @@ operator|.
 name|hadoopConfiguration
 operator|=
 name|hadoopConfiguration
+expr_stmt|;
+block|}
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
+block|}
+comment|/**      * Instance name      */
+DECL|method|setName (String name)
+specifier|public
+name|void
+name|setName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|this
+operator|.
+name|name
+operator|=
+name|name
 expr_stmt|;
 block|}
 block|}

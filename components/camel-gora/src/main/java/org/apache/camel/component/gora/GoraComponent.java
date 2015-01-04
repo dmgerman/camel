@@ -70,7 +70,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -158,7 +158,7 @@ specifier|public
 class|class
 name|GoraComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 comment|/**      * GORA datastore      */
 DECL|field|dataStore
@@ -183,6 +183,19 @@ specifier|private
 name|Configuration
 name|configuration
 decl_stmt|;
+DECL|method|GoraComponent ()
+specifier|public
+name|GoraComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|GoraEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      *      * Initialize class and create DataStore instance      *      * @param config component configuration      * @throws IOException      */
 DECL|method|init (final GoraConfiguration config)
 specifier|private
@@ -282,6 +295,13 @@ argument_list|(
 name|config
 argument_list|,
 name|parameters
+argument_list|)
+expr_stmt|;
+name|config
+operator|.
+name|setName
+argument_list|(
+name|remaining
 argument_list|)
 expr_stmt|;
 try|try
