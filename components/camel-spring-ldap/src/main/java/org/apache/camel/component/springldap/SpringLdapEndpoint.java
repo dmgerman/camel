@@ -116,6 +116,48 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|ldap
@@ -127,6 +169,17 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"spring-ldap"
+argument_list|,
+name|label
+operator|=
+literal|"spring,ldap"
+argument_list|)
 DECL|class|SpringLdapEndpoint
 specifier|public
 class|class
@@ -188,11 +241,27 @@ specifier|private
 name|LdapTemplate
 name|ldapTemplate
 decl_stmt|;
+annotation|@
+name|UriPath
+DECL|field|templateName
+specifier|private
+name|String
+name|templateName
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|operation
 specifier|private
 name|LdapOperation
 name|operation
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"2"
+argument_list|)
 DECL|field|scope
 specifier|private
 name|int
@@ -201,11 +270,6 @@ init|=
 name|SearchControls
 operator|.
 name|SUBTREE_SCOPE
-decl_stmt|;
-DECL|field|templateName
-specifier|private
-name|String
-name|templateName
 decl_stmt|;
 comment|/**      * Initializes the SpringLdapEndpoint using the provided template      * @param templateName name of the LDAP template      * @param ldapTemplate LDAP template, see org.springframework.ldap.core.LdapTemplate      */
 DECL|method|SpringLdapEndpoint (String templateName, LdapTemplate ldapTemplate)
@@ -436,7 +500,7 @@ return|return
 name|scope
 return|;
 block|}
-comment|/**      * sets the scope of the LDAP operation. The scope string must be one of "object", "onelevel", or "subtree"      * @param scope      */
+comment|/**      * sets the scope of the LDAP operation. The scope string must be one of "object = 0", "onelevel = 1", or "subtree = 2"      */
 DECL|method|setScope (String scope)
 specifier|public
 name|void
