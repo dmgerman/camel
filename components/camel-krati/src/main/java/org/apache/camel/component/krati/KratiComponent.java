@@ -50,7 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -64,8 +64,21 @@ specifier|public
 class|class
 name|KratiComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
+DECL|method|KratiComponent ()
+specifier|public
+name|KratiComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|KratiEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
