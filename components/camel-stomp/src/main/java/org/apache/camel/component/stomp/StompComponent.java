@@ -54,13 +54,27 @@ name|DefaultComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|UriEndpointComponent
+import|;
+end_import
+
 begin_class
 DECL|class|StompComponent
 specifier|public
 class|class
 name|StompComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|configuration
 specifier|private
@@ -71,6 +85,19 @@ operator|new
 name|StompConfiguration
 argument_list|()
 decl_stmt|;
+DECL|method|StompComponent ()
+specifier|public
+name|StompComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|StompEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
