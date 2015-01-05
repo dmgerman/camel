@@ -71,6 +71,12 @@ name|consumerTemplateCacheSize
 init|=
 literal|1000
 decl_stmt|;
+comment|/**      *      */
+DECL|field|typeConversion
+specifier|private
+name|boolean
+name|typeConversion
+decl_stmt|;
 DECL|method|isJmxEnabled ()
 specifier|public
 name|boolean
@@ -147,6 +153,32 @@ operator|.
 name|consumerTemplateCacheSize
 operator|=
 name|consumerTemplateCacheSize
+expr_stmt|;
+block|}
+DECL|method|isTypeConversion ()
+specifier|public
+name|boolean
+name|isTypeConversion
+parameter_list|()
+block|{
+return|return
+name|typeConversion
+return|;
+block|}
+DECL|method|setTypeConversion (boolean typeConversion)
+specifier|public
+name|void
+name|setTypeConversion
+parameter_list|(
+name|boolean
+name|typeConversion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|typeConversion
+operator|=
+name|typeConversion
 expr_stmt|;
 block|}
 block|}
