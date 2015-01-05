@@ -268,6 +268,34 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -305,6 +333,23 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"dropbox"
+argument_list|,
+name|consumerClass
+operator|=
+name|DropboxScheduledPollConsumer
+operator|.
+name|class
+argument_list|,
+name|label
+operator|=
+literal|"api,file"
+argument_list|)
 DECL|class|DropboxEndpoint
 specifier|public
 class|class
@@ -329,6 +374,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|configuration
 specifier|private
 name|DropboxConfiguration
@@ -392,9 +439,9 @@ name|Exception
 block|{
 name|LOG
 operator|.
-name|info
+name|trace
 argument_list|(
-literal|"resolve producer dropbox endpoint {"
+literal|"Resolve producer dropbox endpoint {"
 operator|+
 name|configuration
 operator|.
@@ -409,9 +456,9 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|trace
 argument_list|(
-literal|"resolve producer dropbox attached client: "
+literal|"Resolve producer dropbox attached client: "
 operator|+
 name|configuration
 operator|.
@@ -547,7 +594,7 @@ throw|throw
 operator|new
 name|DropboxException
 argument_list|(
-literal|"operation specified is not valid for producer!"
+literal|"Operation specified is not valid for producer!"
 argument_list|)
 throw|;
 block|}
@@ -566,9 +613,9 @@ name|Exception
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"resolve consumer dropbox endpoint {"
+literal|"Resolve consumer dropbox endpoint {"
 operator|+
 name|configuration
 operator|.
@@ -583,9 +630,9 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
-literal|"resolve consumer dropbox attached client:"
+literal|"Resolve consumer dropbox attached client:"
 operator|+
 name|configuration
 operator|.
@@ -679,7 +726,7 @@ throw|throw
 operator|new
 name|DropboxException
 argument_list|(
-literal|"operation specified is not valid for consumer!"
+literal|"Operation specified is not valid for consumer!"
 argument_list|)
 throw|;
 block|}

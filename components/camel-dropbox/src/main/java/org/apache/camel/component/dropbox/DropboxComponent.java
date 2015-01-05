@@ -122,7 +122,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -152,7 +152,7 @@ specifier|public
 class|class
 name|DropboxComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -171,6 +171,19 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|method|DropboxComponent ()
+specifier|public
+name|DropboxComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|DropboxEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Create a camel endpoint after passing validation on the incoming url.      * @param uri the full URI of the endpoint      * @param remaining the remaining part of the URI without the query      *                parameters or component prefix      * @param parameters the optional parameters passed in      * @return the camel endpoint      * @throws Exception      */
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
@@ -370,13 +383,6 @@ argument_list|(
 name|configuration
 argument_list|,
 name|parameters
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"dropbox configuration set!"
 argument_list|)
 expr_stmt|;
 name|Endpoint

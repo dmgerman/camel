@@ -110,9 +110,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|apache
 operator|.
-name|Logger
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
 import|;
 end_import
 
@@ -120,84 +124,105 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|apache
 operator|.
-name|LoggerFactory
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParams
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
 import|;
 end_import
 
 begin_class
+annotation|@
+name|UriParams
 DECL|class|DropboxConfiguration
 specifier|public
 class|class
 name|DropboxConfiguration
 block|{
-DECL|field|LOG
+comment|//specific dropbox operation for the component
+annotation|@
+name|UriPath
+DECL|field|operation
 specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|DropboxConfiguration
-operator|.
-name|class
-argument_list|)
+name|DropboxOperation
+name|operation
 decl_stmt|;
 comment|//dropbox auth options
+annotation|@
+name|UriParam
 DECL|field|accessToken
 specifier|private
 name|String
 name|accessToken
 decl_stmt|;
 comment|//local path to put files
+annotation|@
+name|UriParam
 DECL|field|localPath
 specifier|private
 name|String
 name|localPath
 decl_stmt|;
 comment|//where to put files on dropbox
+annotation|@
+name|UriParam
 DECL|field|remotePath
 specifier|private
 name|String
 name|remotePath
 decl_stmt|;
 comment|//new path on dropbox when moving files
+annotation|@
+name|UriParam
 DECL|field|newRemotePath
 specifier|private
 name|String
 name|newRemotePath
 decl_stmt|;
 comment|//search query on dropbox
+annotation|@
+name|UriParam
 DECL|field|query
 specifier|private
 name|String
 name|query
 decl_stmt|;
 comment|//in case of uploading if force or add existing file
+annotation|@
+name|UriParam
 DECL|field|uploadMode
 specifier|private
 name|DropboxUploadMode
 name|uploadMode
 decl_stmt|;
 comment|//id of the app
+annotation|@
+name|UriParam
 DECL|field|clientIdentifier
 specifier|private
 name|String
 name|clientIdentifier
 decl_stmt|;
-comment|//specific dropbox operation for the component
-DECL|field|operation
-specifier|private
-name|DropboxOperation
-name|operation
-decl_stmt|;
 comment|//reference to dropboxclient
+annotation|@
+name|UriParam
 DECL|field|client
 specifier|private
 name|DbxClient
@@ -229,7 +254,7 @@ return|return
 name|client
 return|;
 block|}
-comment|/**      * Obtain a new instance of DbxClient and store it in configuration.      * @throws DropboxException      */
+comment|/**      * Obtain a new instance of DbxClient and store it in configuration.      */
 DECL|method|createClient ()
 specifier|public
 name|void
@@ -266,21 +291,6 @@ argument_list|,
 name|accessToken
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|client
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|DropboxException
-argument_list|(
-literal|"can't establish a Dropbox conenction!"
-argument_list|)
-throw|;
-block|}
 name|this
 operator|.
 name|client
