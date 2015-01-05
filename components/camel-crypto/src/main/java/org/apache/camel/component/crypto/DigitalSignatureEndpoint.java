@@ -156,11 +156,50 @@ name|DefaultEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
 begin_comment
 comment|/**  *<code>DigitalSignatureEndpoint</code>  */
 end_comment
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"crypto"
+argument_list|,
+name|label
+operator|=
+literal|"security,transformation"
+argument_list|)
 DECL|class|DigitalSignatureEndpoint
 specifier|public
 class|class
@@ -168,6 +207,8 @@ name|DigitalSignatureEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
+annotation|@
+name|UriParam
 DECL|field|configuration
 specifier|private
 name|DigitalSignatureConfiguration
@@ -209,17 +250,19 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-return|return
-literal|"sign"
+if|if
+condition|(
+name|CryptoOperation
 operator|.
-name|equals
-argument_list|(
+name|sign
+operator|==
 name|configuration
 operator|.
 name|getCryptoOperation
 argument_list|()
-argument_list|)
-condition|?
+condition|)
+block|{
+return|return
 operator|new
 name|DigitalSignatureProducer
 argument_list|(
@@ -231,7 +274,11 @@ argument_list|(
 name|configuration
 argument_list|)
 argument_list|)
-else|:
+return|;
+block|}
+else|else
+block|{
+return|return
 operator|new
 name|DigitalSignatureProducer
 argument_list|(
@@ -244,6 +291,7 @@ name|configuration
 argument_list|)
 argument_list|)
 return|;
+block|}
 block|}
 DECL|method|createConsumer (Processor processor)
 specifier|public
@@ -359,7 +407,7 @@ block|{
 name|getConfiguration
 argument_list|()
 operator|.
-name|setPublicKey
+name|setPublicKeyName
 argument_list|(
 name|publicKeyName
 argument_list|)
@@ -619,7 +667,7 @@ return|return
 name|getConfiguration
 argument_list|()
 operator|.
-name|getSignatureHeader
+name|getSignatureHeaderName
 argument_list|()
 return|;
 block|}
@@ -635,7 +683,7 @@ block|{
 name|getConfiguration
 argument_list|()
 operator|.
-name|setSignatureHeader
+name|setSignatureHeaderName
 argument_list|(
 name|signatureHeaderName
 argument_list|)
@@ -673,17 +721,17 @@ name|alias
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getClearHeaders ()
+DECL|method|isClearHeaders ()
 specifier|public
 name|boolean
-name|getClearHeaders
+name|isClearHeaders
 parameter_list|()
 block|{
 return|return
 name|getConfiguration
 argument_list|()
 operator|.
-name|getClearHeaders
+name|isClearHeaders
 argument_list|()
 return|;
 block|}

@@ -322,7 +322,7 @@ name|exchange
 argument_list|,
 name|config
 operator|.
-name|getSignatureHeader
+name|getSignatureHeaderName
 argument_list|()
 argument_list|,
 name|String
@@ -345,7 +345,7 @@ literal|"Cannot verify exchange as no "
 operator|+
 name|config
 operator|.
-name|getSignatureHeader
+name|getSignatureHeaderName
 argument_list|()
 operator|+
 literal|" header is present."

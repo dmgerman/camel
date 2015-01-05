@@ -144,6 +144,48 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParams
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|jsse
@@ -153,6 +195,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|UriParams
 DECL|class|DigitalSignatureConfiguration
 specifier|public
 class|class
@@ -162,21 +206,46 @@ name|Cloneable
 implements|,
 name|CamelContextAware
 block|{
+DECL|field|context
+specifier|private
+name|CamelContext
+name|context
+decl_stmt|;
+annotation|@
+name|UriPath
+DECL|field|cryptoOperation
+specifier|private
+name|CryptoOperation
+name|cryptoOperation
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|privateKey
 specifier|private
 name|PrivateKey
 name|privateKey
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|keystore
 specifier|private
 name|KeyStore
 name|keystore
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|secureRandom
 specifier|private
 name|SecureRandom
 name|secureRandom
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"SHA1WithDSA"
+argument_list|)
 DECL|field|algorithm
 specifier|private
 name|String
@@ -184,91 +253,114 @@ name|algorithm
 init|=
 literal|"SHA1WithDSA"
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|""
+operator|+
+literal|2048
+argument_list|)
 DECL|field|bufferSize
 specifier|private
 name|Integer
 name|bufferSize
 init|=
-name|Integer
-operator|.
-name|valueOf
-argument_list|(
 literal|2048
-argument_list|)
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|provider
 specifier|private
 name|String
 name|provider
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|signatureHeaderName
 specifier|private
 name|String
 name|signatureHeaderName
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|alias
 specifier|private
 name|String
 name|alias
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|password
 specifier|private
 name|char
 index|[]
 name|password
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|publicKey
 specifier|private
 name|PublicKey
 name|publicKey
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|certificate
 specifier|private
 name|Certificate
 name|certificate
 decl_stmt|;
-DECL|field|context
-specifier|private
-name|CamelContext
-name|context
-decl_stmt|;
 comment|/** references that should be resolved when the context changes */
+annotation|@
+name|UriParam
 DECL|field|publicKeyName
 specifier|private
 name|String
 name|publicKeyName
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|certificateName
 specifier|private
 name|String
 name|certificateName
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|privateKeyName
 specifier|private
 name|String
 name|privateKeyName
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|keystoreName
 specifier|private
 name|String
 name|keystoreName
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|randomName
 specifier|private
 name|String
 name|randomName
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|clearHeaders
 specifier|private
 name|boolean
 name|clearHeaders
 init|=
 literal|true
-decl_stmt|;
-DECL|field|operation
-specifier|private
-name|String
-name|operation
 decl_stmt|;
 DECL|method|copy ()
 specifier|public
@@ -320,6 +412,7 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
+comment|// TODO: this is wrong a configuration should not have CamelContext
 name|this
 operator|.
 name|context
@@ -327,27 +420,27 @@ operator|=
 name|camelContext
 expr_stmt|;
 comment|// try to retrieve the references once the context is available.
-name|setKeystore
+name|setKeystoreName
 argument_list|(
 name|keystoreName
 argument_list|)
 expr_stmt|;
-name|setPublicKey
+name|setPublicKeyName
 argument_list|(
 name|publicKeyName
 argument_list|)
 expr_stmt|;
-name|setPrivateKey
+name|setPrivateKeyName
 argument_list|(
 name|privateKeyName
 argument_list|)
 expr_stmt|;
-name|setCertificate
+name|setCertificateName
 argument_list|(
 name|certificateName
 argument_list|)
 expr_stmt|;
-name|setSecureRandom
+name|setSecureRandomName
 argument_list|(
 name|randomName
 argument_list|)
@@ -529,10 +622,10 @@ name|privateKey
 expr_stmt|;
 block|}
 comment|/**      * Sets the reference name for a PrivateKey that can be fond in the registry.      */
-DECL|method|setPrivateKey (String privateKeyName)
+DECL|method|setPrivateKeyName (String privateKeyName)
 specifier|public
 name|void
-name|setPrivateKey
+name|setPrivateKeyName
 parameter_list|(
 name|String
 name|privateKeyName
@@ -613,10 +706,10 @@ name|publicKey
 expr_stmt|;
 block|}
 comment|/**      * Sets the reference name for a publicKey that can be fond in the registry.      */
-DECL|method|setPublicKey (String publicKeyName)
+DECL|method|setPublicKeyName (String publicKeyName)
 specifier|public
 name|void
-name|setPublicKey
+name|setPublicKeyName
 parameter_list|(
 name|String
 name|publicKeyName
@@ -775,10 +868,10 @@ name|certificate
 expr_stmt|;
 block|}
 comment|/**      * Sets the reference name for a PrivateKey that can be fond in the registry.      */
-DECL|method|setCertificate (String certificateName)
+DECL|method|setCertificateName (String certificateName)
 specifier|public
 name|void
-name|setCertificate
+name|setCertificateName
 parameter_list|(
 name|String
 name|certificateName
@@ -870,10 +963,10 @@ name|keystore
 expr_stmt|;
 block|}
 comment|/**      * Sets the reference name for a Keystore that can be fond in the registry.      */
-DECL|method|setKeystore (String keystoreName)
+DECL|method|setKeystoreName (String keystoreName)
 specifier|public
 name|void
-name|setKeystore
+name|setKeystoreName
 parameter_list|(
 name|String
 name|keystoreName
@@ -1009,10 +1102,10 @@ name|secureRandom
 return|;
 block|}
 comment|/**      * Sets the reference name for a SecureRandom that can be fond in the registry.      */
-DECL|method|setSecureRandom (String randomName)
+DECL|method|setSecureRandomName (String randomName)
 specifier|public
 name|void
-name|setSecureRandom
+name|setSecureRandomName
 parameter_list|(
 name|String
 name|randomName
@@ -1149,10 +1242,10 @@ name|provider
 expr_stmt|;
 block|}
 comment|/**      * Get the name of the message header that should be used to store the      * base64 encoded signature. This defaults to 'CamelDigitalSignature'      */
-DECL|method|getSignatureHeader ()
+DECL|method|getSignatureHeaderName ()
 specifier|public
 name|String
-name|getSignatureHeader
+name|getSignatureHeaderName
 parameter_list|()
 block|{
 return|return
@@ -1168,10 +1261,10 @@ name|SIGNATURE
 return|;
 block|}
 comment|/**      * Set the name of the message header that should be used to store the      * base64 encoded signature. This defaults to 'CamelDigitalSignature'      */
-DECL|method|setSignatureHeader (String signatureHeaderName)
+DECL|method|setSignatureHeaderName (String signatureHeaderName)
 specifier|public
 name|void
-name|setSignatureHeader
+name|setSignatureHeaderName
 parameter_list|(
 name|String
 name|signatureHeaderName
@@ -1185,10 +1278,10 @@ name|signatureHeaderName
 expr_stmt|;
 block|}
 comment|/**      * Determines if the Signature specific headers be cleared after signing and      * verification. Defaults to true, and should only be made otherwise at your      * extreme peril as vital private information such as Keys and passwords may      * escape if unset.      *      * @return true if the Signature headers should be unset, false otherwise      */
-DECL|method|getClearHeaders ()
+DECL|method|isClearHeaders ()
 specifier|public
 name|boolean
-name|getClearHeaders
+name|isClearHeaders
 parameter_list|()
 block|{
 return|return
@@ -1224,7 +1317,28 @@ parameter_list|)
 block|{
 name|this
 operator|.
+name|cryptoOperation
+operator|=
+name|CryptoOperation
+operator|.
+name|valueOf
+argument_list|(
 name|operation
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|setCryptoOperation (CryptoOperation operation)
+specifier|public
+name|void
+name|setCryptoOperation
+parameter_list|(
+name|CryptoOperation
+name|operation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cryptoOperation
 operator|=
 name|operation
 expr_stmt|;
@@ -1232,12 +1346,12 @@ block|}
 comment|/**      * Gets the Crypto operation that was supplied in the the crypto scheme in the endpoint uri      */
 DECL|method|getCryptoOperation ()
 specifier|public
-name|String
+name|CryptoOperation
 name|getCryptoOperation
 parameter_list|()
 block|{
 return|return
-name|operation
+name|cryptoOperation
 return|;
 block|}
 block|}

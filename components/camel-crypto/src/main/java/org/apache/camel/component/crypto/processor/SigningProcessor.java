@@ -235,7 +235,7 @@ name|setHeader
 argument_list|(
 name|config
 operator|.
-name|getSignatureHeader
+name|getSignatureHeaderName
 argument_list|()
 argument_list|,
 operator|new

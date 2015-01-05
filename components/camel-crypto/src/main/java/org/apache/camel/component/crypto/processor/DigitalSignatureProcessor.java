@@ -514,7 +514,7 @@ if|if
 condition|(
 name|config
 operator|.
-name|getClearHeaders
+name|isClearHeaders
 argument_list|()
 condition|)
 block|{

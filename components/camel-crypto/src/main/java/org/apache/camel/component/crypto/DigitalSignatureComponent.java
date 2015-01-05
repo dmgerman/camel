@@ -94,6 +94,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|UriEndpointComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -110,7 +124,7 @@ specifier|public
 class|class
 name|DigitalSignatureComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|configuration
 specifier|private
@@ -121,7 +135,15 @@ DECL|method|DigitalSignatureComponent ()
 specifier|public
 name|DigitalSignatureComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|DigitalSignatureEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|DigitalSignatureComponent (CamelContext context)
 specifier|public
 name|DigitalSignatureComponent
@@ -133,6 +155,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|DigitalSignatureEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
