@@ -236,6 +236,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|UriEndpointComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|CamelContextHelper
@@ -370,7 +384,7 @@ specifier|public
 class|class
 name|SpringWebserviceComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -392,7 +406,15 @@ DECL|method|SpringWebserviceComponent ()
 specifier|public
 name|SpringWebserviceComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|SpringWebserviceEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|SpringWebserviceComponent (CamelContext context)
 specifier|public
 name|SpringWebserviceComponent
@@ -404,6 +426,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|SpringWebserviceEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
