@@ -50,13 +50,9 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
-
-begin_comment
-comment|/**  *  */
-end_comment
 
 begin_class
 DECL|class|KafkaComponent
@@ -64,13 +60,21 @@ specifier|public
 class|class
 name|KafkaComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|method|KafkaComponent ()
 specifier|public
 name|KafkaComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|KafkaEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|KafkaComponent (CamelContext context)
 specifier|public
 name|KafkaComponent
@@ -82,6 +86,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|KafkaEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
