@@ -60,7 +60,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -108,7 +108,7 @@ specifier|public
 class|class
 name|JcloudsComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|blobStores
 specifier|private
@@ -126,6 +126,19 @@ name|ComputeService
 argument_list|>
 name|computeServices
 decl_stmt|;
+DECL|method|JcloudsComponent ()
+specifier|public
+name|JcloudsComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|JcloudsEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint

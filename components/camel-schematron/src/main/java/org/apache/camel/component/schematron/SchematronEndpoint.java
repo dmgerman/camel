@@ -144,6 +144,48 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ResourceHelper
@@ -189,6 +231,17 @@ comment|/**  * Schematron Endpoint.  */
 end_comment
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"schematron"
+argument_list|,
+name|label
+operator|=
+literal|"validation"
+argument_list|)
 DECL|class|SchematronEndpoint
 specifier|public
 class|class
@@ -210,16 +263,27 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|remaining
+annotation|@
+name|UriPath
+DECL|field|path
 specifier|private
 name|String
-name|remaining
+name|path
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|abort
 specifier|private
 name|boolean
 name|abort
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|rules
 specifier|private
 name|Templates
@@ -230,7 +294,7 @@ specifier|public
 name|SchematronEndpoint
 parameter_list|()
 block|{     }
-DECL|method|SchematronEndpoint (String uri, String remaining, SchematronComponent component)
+DECL|method|SchematronEndpoint (String uri, String path, SchematronComponent component)
 specifier|public
 name|SchematronEndpoint
 parameter_list|(
@@ -238,7 +302,7 @@ name|String
 name|uri
 parameter_list|,
 name|String
-name|remaining
+name|path
 parameter_list|,
 name|SchematronComponent
 name|component
@@ -253,9 +317,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|remaining
+name|path
 operator|=
-name|remaining
+name|path
 expr_stmt|;
 block|}
 DECL|method|SchematronEndpoint (String endpointUri)
@@ -317,6 +381,34 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|getPath ()
+specifier|public
+name|String
+name|getPath
+parameter_list|()
+block|{
+return|return
+name|path
+return|;
+block|}
+comment|/**      * The path to the schematron rules file. Can either be in class path or location in the file system.      */
+DECL|method|setPath (String path)
+specifier|public
+name|void
+name|setPath
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+name|this
+operator|.
+name|path
+operator|=
+name|path
+expr_stmt|;
+block|}
+comment|/**      * Flag to abort the route and throw a schematron validation exception.      */
 DECL|method|setAbort (boolean abort)
 specifier|public
 name|void
@@ -396,11 +488,11 @@ block|{
 comment|// Attempt to read the schematron rules  from the class path first.
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Reading schematron rules from class path {}"
 argument_list|,
-name|remaining
+name|path
 argument_list|)
 expr_stmt|;
 name|InputStream
@@ -416,7 +508,7 @@ operator|.
 name|getClassResolver
 argument_list|()
 argument_list|,
-name|remaining
+name|path
 argument_list|)
 decl_stmt|;
 name|rules
@@ -441,11 +533,11 @@ block|{
 comment|// Attempts from the file system.
 name|logger
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Schamatron rules not found in class path, attempting file system {}"
 argument_list|,
-name|remaining
+name|path
 argument_list|)
 expr_stmt|;
 name|InputStream
@@ -458,7 +550,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-name|remaining
+name|path
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -485,11 +577,11 @@ condition|)
 block|{
 name|logger
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"Schematron rules not found {}"
 argument_list|,
-name|remaining
+name|path
 argument_list|)
 expr_stmt|;
 throw|throw
@@ -498,7 +590,7 @@ name|SchematronConfigException
 argument_list|(
 literal|"Failed to load rules: "
 operator|+
-name|remaining
+name|path
 argument_list|)
 throw|;
 block|}
