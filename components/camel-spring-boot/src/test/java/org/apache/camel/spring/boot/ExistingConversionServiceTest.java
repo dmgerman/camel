@@ -271,9 +271,9 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Bean
-DECL|method|conversionService ()
+DECL|method|providedConversionService ()
 name|ConversionService
-name|conversionService
+name|providedConversionService
 parameter_list|()
 block|{
 return|return

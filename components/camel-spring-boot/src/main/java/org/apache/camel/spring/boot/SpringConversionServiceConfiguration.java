@@ -130,11 +130,6 @@ name|SpringConversionServiceConfiguration
 block|{
 annotation|@
 name|ConditionalOnMissingBean
-argument_list|(
-name|ConversionService
-operator|.
-name|class
-argument_list|)
 annotation|@
 name|Bean
 DECL|method|conversionService (ApplicationContext applicationContext)
