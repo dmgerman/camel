@@ -19,6 +19,18 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+operator|.
+name|asList
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -179,19 +191,23 @@ return|;
 block|}
 annotation|@
 name|Bean
-DECL|method|springTypeConverter (ConversionService conversionService)
+DECL|method|springTypeConverter (ConversionService[] conversionServices)
 name|SpringTypeConverter
 name|springTypeConverter
 parameter_list|(
 name|ConversionService
-name|conversionService
+index|[]
+name|conversionServices
 parameter_list|)
 block|{
 return|return
 operator|new
 name|SpringTypeConverter
 argument_list|(
-name|conversionService
+name|asList
+argument_list|(
+name|conversionServices
+argument_list|)
 argument_list|)
 return|;
 block|}
