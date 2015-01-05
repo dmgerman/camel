@@ -195,7 +195,7 @@ block|{
 comment|/**      * Spring-aware Camel context for the application. Auto-detects and loads all routes available in the Spring      * context.      */
 annotation|@
 name|Bean
-DECL|method|camelContext (ApplicationContext applicationContext, CamelConfigurationProperties configurationProperties, SpringTypeConverter springTypeConverter)
+DECL|method|camelContext (ApplicationContext applicationContext, CamelConfigurationProperties configurationProperties)
 name|CamelContext
 name|camelContext
 parameter_list|(
@@ -204,9 +204,6 @@ name|applicationContext
 parameter_list|,
 name|CamelConfigurationProperties
 name|configurationProperties
-parameter_list|,
-name|SpringTypeConverter
-name|springTypeConverter
 parameter_list|)
 block|{
 name|CamelContext
@@ -218,18 +215,6 @@ argument_list|(
 name|applicationContext
 argument_list|)
 decl_stmt|;
-name|camelContext
-operator|.
-name|getTypeConverterRegistry
-argument_list|()
-operator|.
-name|addFallbackTypeConverter
-argument_list|(
-name|springTypeConverter
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 operator|!

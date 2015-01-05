@@ -333,7 +333,7 @@ annotation|@
 name|IntegrationTest
 argument_list|(
 block|{
-literal|"camel.springboot.consumerTemplateCacheSize:100"
+literal|"camel.springboot.consumerTemplateCacheSize=100"
 block|,
 literal|"camel.springboot.jmxEnabled=false"
 block|}
