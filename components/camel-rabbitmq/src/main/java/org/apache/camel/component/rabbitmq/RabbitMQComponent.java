@@ -84,7 +84,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -114,7 +114,7 @@ specifier|public
 class|class
 name|RabbitMQComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -136,7 +136,15 @@ DECL|method|RabbitMQComponent ()
 specifier|public
 name|RabbitMQComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|RabbitMQEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|RabbitMQComponent (CamelContext context)
 specifier|public
 name|RabbitMQComponent
@@ -148,6 +156,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|RabbitMQEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
