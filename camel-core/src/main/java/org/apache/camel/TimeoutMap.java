@@ -53,9 +53,9 @@ name|int
 name|size
 parameter_list|()
 function_decl|;
-comment|/**      * Adds the key value pair into the map such that some time after the given      * timeout the entry will be evicted      *      * @param key   the key      * @param value the value      * @param timeoutMillis  timeout in millis      */
+comment|/**      * Adds the key value pair into the map such that some time after the given      * timeout the entry will be evicted      *      * @param key   the key      * @param value the value      * @param timeoutMillis  timeout in millis      * @return the previous value associated with<tt>key</tt>, or      *<tt>null</tt> if there was no mapping for<tt>key</tt>.      */
 DECL|method|put (K key, V value, long timeoutMillis)
-name|void
+name|V
 name|put
 parameter_list|(
 name|K

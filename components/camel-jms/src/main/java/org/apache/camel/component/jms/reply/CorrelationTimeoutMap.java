@@ -237,7 +237,7 @@ annotation|@
 name|Override
 DECL|method|put (String key, ReplyHandler value, long timeoutMillis)
 specifier|public
-name|void
+name|ReplyHandler
 name|put
 parameter_list|(
 name|String
@@ -276,6 +276,9 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
+name|ReplyHandler
+name|result
+decl_stmt|;
 if|if
 condition|(
 name|timeoutMillis
@@ -284,6 +287,8 @@ literal|0
 condition|)
 block|{
 comment|// no timeout (must use Integer.MAX_VALUE)
+name|result
+operator|=
 name|super
 operator|.
 name|put
@@ -300,6 +305,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|result
+operator|=
 name|super
 operator|.
 name|put
@@ -323,6 +330,9 @@ argument_list|,
 name|timeoutMillis
 argument_list|)
 expr_stmt|;
+return|return
+name|result
+return|;
 block|}
 annotation|@
 name|Override
