@@ -74,7 +74,6 @@ name|WsComponent
 extends|extends
 name|AhcComponent
 block|{
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.ahc.AhcComponent#createAddressUri(java.lang.String, java.lang.String)      */
 annotation|@
 name|Override
 DECL|method|createAddressUri (String uri, String remaining)
@@ -99,7 +98,6 @@ literal|4
 argument_list|)
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.ahc.AhcComponent#createAhcEndpoint(java.lang.String, org.apache.camel.component.ahc.AhcComponent, java.net.URI)      */
 annotation|@
 name|Override
 DECL|method|createAhcEndpoint (String endpointUri, AhcComponent component, URI httpUri)
