@@ -47,6 +47,7 @@ specifier|public
 class|class
 name|CamelConfigurationProperties
 block|{
+comment|// Properties
 comment|/**      * Enable JMX support for the CamelContext.      */
 DECL|field|jmxEnabled
 specifier|private
@@ -71,12 +72,15 @@ name|consumerTemplateCacheSize
 init|=
 literal|1000
 decl_stmt|;
-comment|/**      *      */
+comment|/**      * Enables enhanced Camel/Spring type conversion.      */
 DECL|field|typeConversion
 specifier|private
 name|boolean
 name|typeConversion
+init|=
+literal|true
 decl_stmt|;
+comment|// Getters& setters
 DECL|method|isJmxEnabled ()
 specifier|public
 name|boolean
