@@ -94,7 +94,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -156,7 +156,7 @@ specifier|public
 class|class
 name|QuickfixjComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 implements|implements
 name|StartupListener
 block|{
@@ -294,6 +294,19 @@ specifier|private
 name|boolean
 name|lazyCreateEngines
 decl_stmt|;
+DECL|method|QuickfixjComponent ()
+specifier|public
+name|QuickfixjComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|QuickfixjEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -519,6 +532,13 @@ argument_list|,
 name|uri
 argument_list|,
 name|this
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setConfigurationName
+argument_list|(
+name|remaining
 argument_list|)
 expr_stmt|;
 name|engine
