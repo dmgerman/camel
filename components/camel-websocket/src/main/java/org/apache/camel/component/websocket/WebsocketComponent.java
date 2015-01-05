@@ -146,7 +146,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -566,7 +566,7 @@ specifier|public
 class|class
 name|WebsocketComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|LOG
 specifier|protected
@@ -787,7 +787,15 @@ DECL|method|WebsocketComponent ()
 specifier|public
 name|WebsocketComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|WebsocketEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Connects the URL specified on the endpoint to the specified processor.      */
 DECL|method|connect (WebsocketProducerConsumer prodcon)
 specifier|public
@@ -2367,7 +2375,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|addServlet (NodeSynchronization sync, WebsocketConsumer consumer, String remaining)
+DECL|method|addServlet (NodeSynchronization sync, WebsocketConsumer consumer, String resourceUri)
 specifier|protected
 name|WebsocketComponentServlet
 name|addServlet
@@ -2379,7 +2387,7 @@ name|WebsocketConsumer
 name|consumer
 parameter_list|,
 name|String
-name|remaining
+name|resourceUri
 parameter_list|)
 throws|throws
 name|Exception
@@ -2427,7 +2435,7 @@ name|pathSpec
 init|=
 name|createPathSpec
 argument_list|(
-name|remaining
+name|resourceUri
 argument_list|)
 decl_stmt|;
 name|servlet
