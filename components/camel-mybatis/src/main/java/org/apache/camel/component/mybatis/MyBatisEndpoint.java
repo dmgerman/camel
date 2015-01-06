@@ -245,6 +245,13 @@ specifier|private
 name|String
 name|outputHeader
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|inputHeader
+specifier|private
+name|String
+name|inputHeader
+decl_stmt|;
 DECL|method|MyBatisEndpoint ()
 specifier|public
 name|MyBatisEndpoint
@@ -592,6 +599,33 @@ operator|.
 name|outputHeader
 operator|=
 name|outputHeader
+expr_stmt|;
+block|}
+DECL|method|getInputHeader ()
+specifier|public
+name|String
+name|getInputHeader
+parameter_list|()
+block|{
+return|return
+name|inputHeader
+return|;
+block|}
+comment|/**      * User the header value for input parameters instead of the message body.      * By default, inputHeader == null and the input parameters are taken from the message body.      * If outputHeader is set, the value is used and query parameters will be taken from the      * header instead of the body.      */
+DECL|method|setInputHeader (String inputHeader)
+specifier|public
+name|void
+name|setInputHeader
+parameter_list|(
+name|String
+name|inputHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|inputHeader
+operator|=
+name|inputHeader
 expr_stmt|;
 block|}
 block|}
