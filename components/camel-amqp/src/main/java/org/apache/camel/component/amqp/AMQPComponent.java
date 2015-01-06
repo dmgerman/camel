@@ -152,7 +152,15 @@ DECL|method|AMQPComponent ()
 specifier|public
 name|AMQPComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|AMQPEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|AMQPComponent (JmsConfiguration configuration)
 specifier|public
 name|AMQPComponent
@@ -178,6 +186,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|AMQPEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
