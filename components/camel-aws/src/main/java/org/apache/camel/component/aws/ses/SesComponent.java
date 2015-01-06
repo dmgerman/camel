@@ -64,7 +64,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -78,13 +78,21 @@ specifier|public
 class|class
 name|SesComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|method|SesComponent ()
 specifier|public
 name|SesComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|SesEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|SesComponent (CamelContext context)
 specifier|public
 name|SesComponent
@@ -96,6 +104,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|SesEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
