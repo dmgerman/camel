@@ -68,6 +68,20 @@ name|DefaultComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|UriEndpointComponent
+import|;
+end_import
+
 begin_comment
 comment|/**  * Defines the<a href="http://aws.amazon.com/s3/">AWS S3 Component</a>   */
 end_comment
@@ -78,13 +92,21 @@ specifier|public
 class|class
 name|S3Component
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|method|S3Component ()
 specifier|public
 name|S3Component
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|S3Endpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|S3Component (CamelContext context)
 specifier|public
 name|S3Component
@@ -96,6 +118,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|S3Endpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
