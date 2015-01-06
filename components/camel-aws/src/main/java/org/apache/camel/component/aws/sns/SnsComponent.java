@@ -64,7 +64,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -78,13 +78,21 @@ specifier|public
 class|class
 name|SnsComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|method|SnsComponent ()
 specifier|public
 name|SnsComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|SnsEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|SnsComponent (CamelContext context)
 specifier|public
 name|SnsComponent
@@ -96,6 +104,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|SnsEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}

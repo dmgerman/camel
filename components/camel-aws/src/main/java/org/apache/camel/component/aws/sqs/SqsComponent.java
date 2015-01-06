@@ -68,6 +68,20 @@ name|DefaultComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|UriEndpointComponent
+import|;
+end_import
+
 begin_comment
 comment|/**  * Defines the<a href="http://camel.apache.org/aws.html">AWS Component</a>   *   */
 end_comment
@@ -78,13 +92,21 @@ specifier|public
 class|class
 name|SqsComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|method|SqsComponent ()
 specifier|public
 name|SqsComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|SqsEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|SqsComponent (CamelContext context)
 specifier|public
 name|SqsComponent
@@ -96,6 +118,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|SqsEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
