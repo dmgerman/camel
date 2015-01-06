@@ -74,7 +74,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -122,7 +122,7 @@ specifier|public
 class|class
 name|QualifiedContextComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -140,6 +140,19 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|method|QualifiedContextComponent ()
+specifier|public
+name|QualifiedContextComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|ContextEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -268,8 +281,35 @@ throw|;
 block|}
 else|else
 block|{
-return|return
+name|ContextEndpoint
+name|answer
+init|=
+operator|new
+name|ContextEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|this
+argument_list|,
 name|endpoint
+argument_list|)
+decl_stmt|;
+name|answer
+operator|.
+name|setContextId
+argument_list|(
+name|contextId
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setLocalEndpointUrl
+argument_list|(
+name|localEndpoint
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 block|}
