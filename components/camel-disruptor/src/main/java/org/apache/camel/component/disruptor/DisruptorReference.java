@@ -341,6 +341,12 @@ specifier|final
 name|String
 name|uri
 decl_stmt|;
+DECL|field|name
+specifier|private
+specifier|final
+name|String
+name|name
+decl_stmt|;
 comment|//The mark on the reference indicates if we are in the process of reconfiguring the Disruptor:
 comment|//(ref,   mark) : Description
 comment|//(null, false) : not started or completely shut down
@@ -433,7 +439,7 @@ specifier|private
 name|int
 name|uniqueConsumerCount
 decl_stmt|;
-DECL|method|DisruptorReference (final DisruptorComponent component, final String uri, final int size, final DisruptorProducerType producerType, final DisruptorWaitStrategy waitStrategy)
+DECL|method|DisruptorReference (final DisruptorComponent component, final String uri, final String name, final int size, final DisruptorProducerType producerType, final DisruptorWaitStrategy waitStrategy)
 name|DisruptorReference
 parameter_list|(
 specifier|final
@@ -443,6 +449,10 @@ parameter_list|,
 specifier|final
 name|String
 name|uri
+parameter_list|,
+specifier|final
+name|String
+name|name
 parameter_list|,
 specifier|final
 name|int
@@ -470,6 +480,12 @@ operator|.
 name|uri
 operator|=
 name|uri
+expr_stmt|;
+name|this
+operator|.
+name|name
+operator|=
+name|name
 expr_stmt|;
 name|this
 operator|.
@@ -1615,6 +1631,16 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
 block|}
 DECL|method|getRemainingCapacity ()
 specifier|public

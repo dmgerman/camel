@@ -60,7 +60,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -94,7 +94,7 @@ specifier|public
 class|class
 name|DisruptorComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|DEFAULT_BUFFER_SIZE
 specifier|public
@@ -205,6 +205,19 @@ name|DisruptorReference
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|method|DisruptorComponent ()
+specifier|public
+name|DisruptorComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|DisruptorEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (final String uri, final String remaining, final Map<String, Object> parameters)
@@ -452,6 +465,8 @@ name|getOrCreateDisruptor
 argument_list|(
 name|uri
 argument_list|,
+name|remaining
+argument_list|,
 name|size
 argument_list|,
 name|producerType
@@ -490,7 +505,7 @@ return|return
 name|disruptorEndpoint
 return|;
 block|}
-DECL|method|getOrCreateDisruptor (final String uri, final int size, final DisruptorProducerType producerType, final DisruptorWaitStrategy waitStrategy)
+DECL|method|getOrCreateDisruptor (final String uri, final String name, final int size, final DisruptorProducerType producerType, final DisruptorWaitStrategy waitStrategy)
 specifier|private
 name|DisruptorReference
 name|getOrCreateDisruptor
@@ -498,6 +513,10 @@ parameter_list|(
 specifier|final
 name|String
 name|uri
+parameter_list|,
+specifier|final
+name|String
+name|name
 parameter_list|,
 specifier|final
 name|int
@@ -618,6 +637,8 @@ argument_list|(
 name|this
 argument_list|,
 name|uri
+argument_list|,
+name|name
 argument_list|,
 name|sizeToUse
 argument_list|,
