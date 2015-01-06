@@ -82,7 +82,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -134,7 +134,7 @@ specifier|public
 class|class
 name|CacheComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|configuration
 specifier|private
@@ -156,6 +156,13 @@ specifier|public
 name|CacheComponent
 parameter_list|()
 block|{
+name|super
+argument_list|(
+name|CacheEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 name|configuration
 operator|=
 operator|new
@@ -174,6 +181,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|CacheEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|configuration
@@ -269,6 +280,13 @@ argument_list|,
 name|cacheManagerFactory
 argument_list|)
 decl_stmt|;
+name|setProperties
+argument_list|(
+name|cacheEndpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
 return|return
 name|cacheEndpoint
 return|;
