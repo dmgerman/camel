@@ -152,7 +152,7 @@ comment|/**      * Endpoint which this service connects to.      */
 DECL|field|endpoint
 specifier|private
 specifier|final
-name|Jt400DataQueueEndpoint
+name|Jt400Endpoint
 name|endpoint
 decl_stmt|;
 comment|/**      * Data queue object that corresponds to the endpoint of this service (null if stopped).      */
@@ -162,10 +162,10 @@ name|BaseDataQueue
 name|queue
 decl_stmt|;
 comment|/**      * Creates a {@code Jt400DataQueueService} that connects to the specified      * endpoint.      *       * @param endpoint endpoint which this service connects to      */
-DECL|method|Jt400DataQueueService (Jt400DataQueueEndpoint endpoint)
+DECL|method|Jt400DataQueueService (Jt400Endpoint endpoint)
 name|Jt400DataQueueService
 parameter_list|(
-name|Jt400DataQueueEndpoint
+name|Jt400Endpoint
 name|endpoint
 parameter_list|)
 block|{

@@ -171,7 +171,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Jt400DataQueueEndpoint
+name|Jt400Endpoint
 name|endpoint
 init|=
 name|resolveMandatoryEndpoint
@@ -182,7 +182,7 @@ name|PASSWORD
 operator|+
 literal|"@host/qsys.lib/library.lib/queue.dtaq?connectionPool=#mockPool&pollStrategy=#jt400PollStrategy"
 argument_list|,
-name|Jt400DataQueueEndpoint
+name|Jt400Endpoint
 operator|.
 name|class
 argument_list|)

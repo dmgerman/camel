@@ -120,24 +120,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|jt400
-operator|.
-name|Jt400DataQueueEndpoint
-operator|.
-name|Format
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultExchange
@@ -173,7 +155,7 @@ block|{
 DECL|field|endpoint
 specifier|private
 specifier|final
-name|Jt400DataQueueEndpoint
+name|Jt400Endpoint
 name|endpoint
 decl_stmt|;
 comment|/**      * Performs the lifecycle logic of this consumer.      */
@@ -184,11 +166,11 @@ name|Jt400DataQueueService
 name|queueService
 decl_stmt|;
 comment|/**      * Creates a new consumer instance      */
-DECL|method|Jt400DataQueueConsumer (Jt400DataQueueEndpoint endpoint)
+DECL|method|Jt400DataQueueConsumer (Jt400Endpoint endpoint)
 specifier|protected
 name|Jt400DataQueueConsumer
 parameter_list|(
-name|Jt400DataQueueEndpoint
+name|Jt400Endpoint
 name|endpoint
 parameter_list|)
 block|{
@@ -274,7 +256,7 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|/**      * Receives an entry from a data queue and returns an {@link Exchange} to      * send this data If the endpoint's format is set to {@link Format#binary},      * the data queue entry's data will be received/sent as a      *<code>byte[]</code>. If the endpoint's format is set to      * {@link Format#text}, the data queue entry's data will be received/sent as      * a<code>String</code>.      *<p/>      * The following message headers may be set by the receiver      *<ul>      *<li>SENDER_INFORMATION: The Sender Information from the Data Queue</li>      *<li>KEY: The message key if the endpoint is configured to connect to a<code>KeyedDataQueue</code></li>      *</ul>      *      * @param timeout time to wait when reading from data queue. A value of -1      *                indicates a blocking read.      */
+comment|/**      * Receives an entry from a data queue and returns an {@link Exchange} to      * send this data If the endpoint's format is set to {@link org.apache.camel.component.jt400.Jt400Configuration.Format#binary},      * the data queue entry's data will be received/sent as a      *<code>byte[]</code>. If the endpoint's format is set to      * {@link org.apache.camel.component.jt400.Jt400Configuration.Format#text}, the data queue entry's data will be received/sent as      * a<code>String</code>.      *<p/>      * The following message headers may be set by the receiver      *<ul>      *<li>SENDER_INFORMATION: The Sender Information from the Data Queue</li>      *<li>KEY: The message key if the endpoint is configured to connect to a<code>KeyedDataQueue</code></li>      *</ul>      *      * @param timeout time to wait when reading from data queue. A value of -1      *                indicates a blocking read.      */
 DECL|method|receive (long timeout)
 specifier|public
 name|Exchange
@@ -460,7 +442,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|Jt400DataQueueEndpoint
+name|Jt400Endpoint
 operator|.
 name|SENDER_INFORMATION
 argument_list|,
@@ -477,6 +459,8 @@ operator|.
 name|getFormat
 argument_list|()
 operator|==
+name|Jt400Configuration
+operator|.
 name|Format
 operator|.
 name|binary
@@ -656,7 +640,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|Jt400DataQueueEndpoint
+name|Jt400Endpoint
 operator|.
 name|SENDER_INFORMATION
 argument_list|,
@@ -673,6 +657,8 @@ operator|.
 name|getFormat
 argument_list|()
 operator|==
+name|Jt400Configuration
+operator|.
 name|Format
 operator|.
 name|binary
@@ -698,7 +684,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|Jt400DataQueueEndpoint
+name|Jt400Endpoint
 operator|.
 name|KEY
 argument_list|,
@@ -731,7 +717,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|Jt400DataQueueEndpoint
+name|Jt400Endpoint
 operator|.
 name|KEY
 argument_list|,

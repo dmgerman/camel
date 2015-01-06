@@ -92,24 +92,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|jt400
-operator|.
-name|Jt400DataQueueEndpoint
-operator|.
-name|Format
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultProducer
@@ -131,7 +113,7 @@ block|{
 DECL|field|endpoint
 specifier|private
 specifier|final
-name|Jt400DataQueueEndpoint
+name|Jt400Endpoint
 name|endpoint
 decl_stmt|;
 comment|/**      * Performs the lifecycle logic of this producer.      */
@@ -141,11 +123,11 @@ specifier|final
 name|Jt400DataQueueService
 name|queueService
 decl_stmt|;
-DECL|method|Jt400DataQueueProducer (Jt400DataQueueEndpoint endpoint)
+DECL|method|Jt400DataQueueProducer (Jt400Endpoint endpoint)
 specifier|protected
 name|Jt400DataQueueProducer
 parameter_list|(
-name|Jt400DataQueueEndpoint
+name|Jt400Endpoint
 name|endpoint
 parameter_list|)
 block|{
@@ -171,7 +153,7 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sends the {@link Exchange}'s in body to the AS/400 data queue. If the      * endpoint's format is set to {@link Format#binary}, the data queue entry's      * data will be sent as a<code>byte[]</code>. If the endpoint's format is      * set to {@link Format#text}, the data queue entry's data will be sent as a      *<code>String</code>.      *<p/>      * If the endpoint is configured to publish to a {@link KeyedDataQueue},      * then the {@link org.apache.camel.Message} header<code>KEY</code> must be set.      */
+comment|/**      * Sends the {@link Exchange}'s in body to the AS/400 data queue. If the      * endpoint's format is set to {@link org.apache.camel.component.jt400.Jt400Configuration.Format#binary}, the data queue entry's      * data will be sent as a<code>byte[]</code>. If the endpoint's format is      * set to {@link org.apache.camel.component.jt400.Jt400Configuration.Format#text}, the data queue entry's data will be sent as a      *<code>String</code>.      *<p/>      * If the endpoint is configured to publish to a {@link KeyedDataQueue},      * then the {@link org.apache.camel.Message} header<code>KEY</code> must be set.      */
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -245,6 +227,8 @@ operator|.
 name|getFormat
 argument_list|()
 operator|==
+name|Jt400Configuration
+operator|.
 name|Format
 operator|.
 name|binary
@@ -311,6 +295,8 @@ operator|.
 name|getFormat
 argument_list|()
 operator|==
+name|Jt400Configuration
+operator|.
 name|Format
 operator|.
 name|binary
@@ -327,7 +313,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|Jt400DataQueueEndpoint
+name|Jt400Endpoint
 operator|.
 name|KEY
 argument_list|,
@@ -365,7 +351,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|Jt400DataQueueEndpoint
+name|Jt400Endpoint
 operator|.
 name|KEY
 argument_list|,

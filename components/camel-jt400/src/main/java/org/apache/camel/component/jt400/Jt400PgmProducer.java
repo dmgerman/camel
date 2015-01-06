@@ -178,24 +178,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|jt400
-operator|.
-name|Jt400DataQueueEndpoint
-operator|.
-name|Format
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultProducer
@@ -251,11 +233,11 @@ specifier|private
 name|AS400
 name|iSeries
 decl_stmt|;
-DECL|method|Jt400PgmProducer (Jt400PgmEndpoint endpoint)
+DECL|method|Jt400PgmProducer (Jt400Endpoint endpoint)
 specifier|public
 name|Jt400PgmProducer
 parameter_list|(
-name|Jt400PgmEndpoint
+name|Jt400Endpoint
 name|endpoint
 parameter_list|)
 block|{
@@ -267,13 +249,13 @@ expr_stmt|;
 block|}
 DECL|method|getISeriesEndpoint ()
 specifier|private
-name|Jt400PgmEndpoint
+name|Jt400Endpoint
 name|getISeriesEndpoint
 parameter_list|()
 block|{
 return|return
 operator|(
-name|Jt400PgmEndpoint
+name|Jt400Endpoint
 operator|)
 name|super
 operator|.
@@ -298,7 +280,7 @@ init|=
 name|getISeriesEndpoint
 argument_list|()
 operator|.
-name|getProgramToExecute
+name|getObjectPath
 argument_list|()
 decl_stmt|;
 name|ProgramParameter
@@ -585,6 +567,8 @@ operator|.
 name|getFormat
 argument_list|()
 operator|==
+name|Jt400Configuration
+operator|.
 name|Format
 operator|.
 name|binary
@@ -866,6 +850,8 @@ operator|.
 name|getFormat
 argument_list|()
 operator|==
+name|Jt400Configuration
+operator|.
 name|Format
 operator|.
 name|binary
@@ -1080,7 +1066,7 @@ operator|=
 name|getISeriesEndpoint
 argument_list|()
 operator|.
-name|getiSeries
+name|getSystem
 argument_list|()
 expr_stmt|;
 block|}
@@ -1148,7 +1134,7 @@ expr_stmt|;
 name|getISeriesEndpoint
 argument_list|()
 operator|.
-name|releaseiSeries
+name|releaseSystem
 argument_list|(
 name|iSeries
 argument_list|)

@@ -22,24 +22,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|jt400
-operator|.
-name|Jt400DataQueueEndpoint
-operator|.
-name|Format
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Before
@@ -57,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Test case for {@link Jt400DataQueueEndpoint}  */
+comment|/**  * Test case for {@link Jt400Endpoint}  */
 end_comment
 
 begin_class
@@ -106,7 +88,7 @@ literal|"/qsys.lib/library.lib/prog.pgm"
 decl_stmt|;
 DECL|field|endpoint
 specifier|private
-name|Jt400PgmEndpoint
+name|Jt400Endpoint
 name|endpoint
 decl_stmt|;
 annotation|@
@@ -129,7 +111,7 @@ expr_stmt|;
 name|endpoint
 operator|=
 operator|(
-name|Jt400PgmEndpoint
+name|Jt400Endpoint
 operator|)
 name|resolveMandatoryEndpoint
 argument_list|(
@@ -166,10 +148,7 @@ name|USER
 argument_list|,
 name|endpoint
 operator|.
-name|getiSeries
-argument_list|()
-operator|.
-name|getUserId
+name|getUserID
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -178,9 +157,6 @@ argument_list|(
 name|HOST
 argument_list|,
 name|endpoint
-operator|.
-name|getiSeries
-argument_list|()
 operator|.
 name|getSystemName
 argument_list|()
@@ -192,7 +168,7 @@ name|PGM
 argument_list|,
 name|endpoint
 operator|.
-name|getProgramToExecute
+name|getObjectPath
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -200,15 +176,14 @@ name|assertTrue
 argument_list|(
 name|endpoint
 operator|.
-name|getiSeries
-argument_list|()
-operator|.
 name|isGuiAvailable
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|Jt400Configuration
+operator|.
 name|Format
 operator|.
 name|binary

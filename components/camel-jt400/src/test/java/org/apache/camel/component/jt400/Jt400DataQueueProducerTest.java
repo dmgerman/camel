@@ -77,7 +77,7 @@ operator|.
 name|setUp
 argument_list|()
 expr_stmt|;
-name|Jt400DataQueueEndpoint
+name|Jt400Endpoint
 name|endpoint
 init|=
 name|resolveMandatoryEndpoint
@@ -88,7 +88,7 @@ name|PASSWORD
 operator|+
 literal|"@host/qsys.lib/library.lib/queue.dtaq?connectionPool=#mockPool"
 argument_list|,
-name|Jt400DataQueueEndpoint
+name|Jt400Endpoint
 operator|.
 name|class
 argument_list|)

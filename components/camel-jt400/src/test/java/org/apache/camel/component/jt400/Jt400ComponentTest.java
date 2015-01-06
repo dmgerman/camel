@@ -20,38 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -99,16 +67,6 @@ specifier|private
 name|Jt400Component
 name|component
 decl_stmt|;
-DECL|field|properties
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|properties
-decl_stmt|;
 annotation|@
 name|Override
 annotation|@
@@ -140,28 +98,8 @@ name|context
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|properties
-operator|=
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-argument_list|()
-expr_stmt|;
-name|properties
-operator|.
-name|put
-argument_list|(
-literal|"connectionPool"
-argument_list|,
-literal|"#mockPool"
-argument_list|)
-expr_stmt|;
 block|}
-comment|/**      * Test creation of a {@link Jt400DataQueueEndpoint} for Datq      */
+comment|/**      * Test creation of a {@link Jt400Endpoint} for Datq      */
 annotation|@
 name|Test
 DECL|method|testCreateDatqEndpoint ()
@@ -179,11 +117,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"jt400://user:password@host/qsys.lib/library.lib/queue.dtaq"
-argument_list|,
-literal|"/user:password@host/qsys.lib/library.lib/queue.dtaq"
-argument_list|,
-name|properties
+literal|"jt400://user:password@host/qsys.lib/library.lib/queue.dtaq?connectionPool=#mockPool"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -195,11 +129,11 @@ name|assertTrue
 argument_list|(
 name|endpoint
 operator|instanceof
-name|Jt400DataQueueEndpoint
+name|Jt400Endpoint
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Test creation of a {@link Jt400DataQueueEndpoint} for pgm calls      */
+comment|/**      * Test creation of a {@link Jt400Endpoint} for pgm calls      */
 annotation|@
 name|Test
 DECL|method|testCreatePgmEndpoint ()
@@ -217,11 +151,7 @@ name|component
 operator|.
 name|createEndpoint
 argument_list|(
-literal|"jt400://user:password@host/qsys.lib/library.lib/queue.pgm"
-argument_list|,
-literal|"/user:password@host/qsys.lib/library.lib/queue.pgm"
-argument_list|,
-name|properties
+literal|"jt400://user:password@host/qsys.lib/library.lib/queue.pgm?connectionPool=#mockPool"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -233,7 +163,7 @@ name|assertTrue
 argument_list|(
 name|endpoint
 operator|instanceof
-name|Jt400PgmEndpoint
+name|Jt400Endpoint
 argument_list|)
 expr_stmt|;
 block|}
@@ -255,17 +185,6 @@ operator|.
 name|createEndpoint
 argument_list|(
 literal|"jt400://user:password@host/qsys.lib/library.lib/program.xxx"
-argument_list|,
-literal|"/user:password@host/qsys.lib/library.lib/program.xxx"
-argument_list|,
-operator|new
-name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|fail
@@ -276,7 +195,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|CamelException
+name|Exception
 name|e
 parameter_list|)
 block|{
