@@ -81,14 +81,14 @@ name|DefaultProducer
 block|{
 DECL|field|endpoint
 specifier|private
-name|FixedLengthEndpoint
+name|FlatpackEndpoint
 name|endpoint
 decl_stmt|;
-DECL|method|FlatpackProducer (FixedLengthEndpoint endpoint)
+DECL|method|FlatpackProducer (FlatpackEndpoint endpoint)
 specifier|public
 name|FlatpackProducer
 parameter_list|(
-name|FixedLengthEndpoint
+name|FlatpackEndpoint
 name|endpoint
 parameter_list|)
 block|{
