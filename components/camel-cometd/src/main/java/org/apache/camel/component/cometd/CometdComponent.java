@@ -134,7 +134,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -448,7 +448,7 @@ specifier|public
 class|class
 name|CometdComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -614,7 +614,15 @@ DECL|method|CometdComponent ()
 specifier|public
 name|CometdComponent
 parameter_list|()
-block|{     }
+block|{
+name|super
+argument_list|(
+name|CometdEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -639,14 +647,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|setProperties
-argument_list|(
-name|this
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-return|return
+name|CometdEndpoint
+name|endpoint
+init|=
 operator|new
 name|CometdEndpoint
 argument_list|(
@@ -658,6 +661,16 @@ name|remaining
 argument_list|,
 name|parameters
 argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
 return|;
 block|}
 comment|/**      * Connects the URL specified on the endpoint to the specified processor.      */
