@@ -90,7 +90,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -138,7 +138,7 @@ specifier|public
 class|class
 name|MongoDbComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|WRITE_OPERATIONS
 specifier|public
@@ -200,6 +200,19 @@ specifier|volatile
 name|Mongo
 name|db
 decl_stmt|;
+DECL|method|MongoDbComponent ()
+specifier|public
+name|MongoDbComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|MongoDbEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Should access a singleton of type Mongo      */
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
@@ -223,6 +236,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// TODO: this only supports one mongodb
 if|if
 condition|(
 name|db
@@ -258,7 +272,7 @@ name|db
 argument_list|)
 expr_stmt|;
 block|}
-name|Endpoint
+name|MongoDbEndpoint
 name|endpoint
 init|=
 operator|new
@@ -269,12 +283,17 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
-name|parameters
+name|endpoint
 operator|.
-name|put
+name|setConnectionBean
 argument_list|(
-literal|"mongoConnection"
-argument_list|,
+name|remaining
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setMongoConnection
+argument_list|(
 name|db
 argument_list|)
 expr_stmt|;
