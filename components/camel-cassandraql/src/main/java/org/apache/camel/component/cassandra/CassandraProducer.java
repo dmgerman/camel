@@ -392,6 +392,9 @@ init|=
 name|getEndpoint
 argument_list|()
 operator|.
+name|getSessionHolder
+argument_list|()
+operator|.
 name|getSession
 argument_list|()
 decl_stmt|;
