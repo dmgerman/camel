@@ -66,19 +66,6 @@ name|MQTTComponent
 extends|extends
 name|UriEndpointComponent
 block|{
-DECL|method|MQTTComponent ()
-specifier|public
-name|MQTTComponent
-parameter_list|()
-block|{
-name|super
-argument_list|(
-name|MQTTEndpoint
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
-block|}
 DECL|field|host
 specifier|private
 name|String
@@ -94,6 +81,19 @@ specifier|private
 name|String
 name|password
 decl_stmt|;
+DECL|method|MQTTComponent ()
+specifier|public
+name|MQTTComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|MQTTEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
