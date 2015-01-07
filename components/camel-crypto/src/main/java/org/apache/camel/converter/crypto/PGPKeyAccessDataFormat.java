@@ -884,7 +884,7 @@ name|HashAlgorithmTags
 operator|.
 name|SHA1
 decl_stmt|;
-comment|// for encryption
+comment|// for signature
 DECL|field|algorithm
 specifier|private
 name|int
