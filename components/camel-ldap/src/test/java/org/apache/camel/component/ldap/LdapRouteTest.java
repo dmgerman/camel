@@ -266,22 +266,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|directory
-operator|.
-name|server
-operator|.
-name|ldap
-operator|.
-name|LdapServer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|After
@@ -445,12 +429,6 @@ name|LdapRouteTest
 extends|extends
 name|AbstractLdapTestUnit
 block|{
-DECL|field|ldapServer
-specifier|public
-specifier|static
-name|LdapServer
-name|ldapServer
-decl_stmt|;
 DECL|field|camel
 specifier|private
 name|CamelContext
@@ -479,7 +457,10 @@ block|{
 comment|// you can assign port number in the @CreateTransport annotation
 name|port
 operator|=
-name|ldapServer
+name|super
+operator|.
+name|getLdapServer
+argument_list|()
 operator|.
 name|getPort
 argument_list|()
