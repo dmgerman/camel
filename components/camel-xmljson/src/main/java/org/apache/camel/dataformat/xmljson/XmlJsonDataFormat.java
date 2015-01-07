@@ -565,6 +565,16 @@ name|serializer
 operator|.
 name|setTypeHintsCompatibility
 argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|serializer
+operator|.
+name|setTypeHintsCompatibility
+argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;

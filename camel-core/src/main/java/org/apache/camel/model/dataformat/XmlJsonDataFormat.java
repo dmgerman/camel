@@ -952,7 +952,7 @@ name|setProperty
 argument_list|(
 name|camelContext
 argument_list|,
-name|typeHints
+name|dataFormat
 argument_list|,
 name|TYPE_HINTS
 argument_list|,
