@@ -218,6 +218,15 @@ argument_list|,
 literal|"pageToken"
 argument_list|)
 expr_stmt|;
+name|setProperty
+argument_list|(
+name|properties
+argument_list|,
+name|request
+argument_list|,
+literal|"fields"
+argument_list|)
+expr_stmt|;
 return|return
 name|request
 operator|.
