@@ -267,7 +267,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|" \"onConsume\": { \"kind\": \"parameter\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"value\": \"foo\""
+literal|"\"onConsume\": { \"kind\": \"parameter\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\", \"value\": \"foo\""
 argument_list|)
 argument_list|)
 expr_stmt|;
