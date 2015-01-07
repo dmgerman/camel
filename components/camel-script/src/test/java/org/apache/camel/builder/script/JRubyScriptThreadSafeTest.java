@@ -299,6 +299,7 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
+comment|// Now the default the value is not use the compiled script, as it could introduce some concurrent issue
 name|context
 operator|.
 name|getProperties
@@ -310,7 +311,7 @@ name|Exchange
 operator|.
 name|COMPILE_SCRIPT
 argument_list|,
-literal|"true"
+literal|"false"
 argument_list|)
 expr_stmt|;
 name|from
