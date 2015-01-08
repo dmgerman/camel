@@ -280,10 +280,10 @@ name|getReplyTo
 argument_list|()
 return|;
 block|}
-DECL|method|registerReply (ReplyManager replyManager, Exchange exchange, AsyncCallback callback, String originalCorrelationId, String correlationId, long requestTimeout)
-specifier|public
-name|String
-name|registerReply
+DECL|method|createReplyHandler (ReplyManager replyManager, Exchange exchange, AsyncCallback callback, String originalCorrelationId, String correlationId, long requestTimeout)
+specifier|protected
+name|ReplyHandler
+name|createReplyHandler
 parameter_list|(
 name|ReplyManager
 name|replyManager
@@ -304,10 +304,7 @@ name|long
 name|requestTimeout
 parameter_list|)
 block|{
-comment|// add to correlation map
-name|TemporaryQueueReplyHandler
-name|handler
-init|=
+return|return
 operator|new
 name|TemporaryQueueReplyHandler
 argument_list|(
@@ -323,40 +320,6 @@ name|correlationId
 argument_list|,
 name|requestTimeout
 argument_list|)
-decl_stmt|;
-name|ReplyHandler
-name|result
-init|=
-name|correlation
-operator|.
-name|put
-argument_list|(
-name|correlationId
-argument_list|,
-name|handler
-argument_list|,
-name|requestTimeout
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|result
-operator|!=
-literal|null
-condition|)
-block|{
-name|log
-operator|.
-name|error
-argument_list|(
-literal|"The correlationId [{}] is not unique, some reply message would be ignored and the request thread could be blocked."
-argument_list|,
-name|correlationId
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|correlationId
 return|;
 block|}
 DECL|method|updateCorrelationId (String correlationId, String newCorrelationId, long requestTimeout)
