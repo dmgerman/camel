@@ -234,6 +234,13 @@ name|Boolean
 operator|.
 name|FALSE
 decl_stmt|;
+DECL|field|concurrentConsumers
+specifier|private
+name|Integer
+name|concurrentConsumers
+init|=
+literal|1
+decl_stmt|;
 comment|// producer properties
 annotation|@
 name|UriParam
@@ -839,6 +846,32 @@ operator|=
 name|region
 expr_stmt|;
 block|}
+DECL|method|getConcurrentConsumers ()
+specifier|public
+name|Integer
+name|getConcurrentConsumers
+parameter_list|()
+block|{
+return|return
+name|concurrentConsumers
+return|;
+block|}
+DECL|method|setConcurrentConsumers (Integer concurrentConsumers)
+specifier|public
+name|void
+name|setConcurrentConsumers
+parameter_list|(
+name|Integer
+name|concurrentConsumers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|concurrentConsumers
+operator|=
+name|concurrentConsumers
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -921,6 +954,10 @@ operator|+
 literal|", queueOwnerAWSAccountId="
 operator|+
 name|queueOwnerAWSAccountId
+operator|+
+literal|", concurrentConsumers="
+operator|+
+name|concurrentConsumers
 operator|+
 literal|", region="
 operator|+
