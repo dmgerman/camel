@@ -70,6 +70,7 @@ end_import
 
 begin_class
 DECL|class|HL7MLLPConfig
+specifier|public
 class|class
 name|HL7MLLPConfig
 block|{
