@@ -3469,10 +3469,14 @@ name|host
 init|=
 literal|""
 decl_stmt|;
+comment|// use the component's port as the default value
 name|int
 name|port
 init|=
-literal|0
+name|this
+operator|.
+name|getPort
+argument_list|()
 decl_stmt|;
 comment|// if no explicit port/host configured, then use port from rest configuration
 name|RestConfiguration
@@ -3706,8 +3710,6 @@ argument_list|)
 decl_stmt|;
 name|String
 name|url
-init|=
-literal|"restlet:%s://%s:%s/%s?restletMethod=%s"
 decl_stmt|;
 comment|// must use upper case for restrict
 name|String
@@ -3722,7 +3724,17 @@ operator|.
 name|US
 argument_list|)
 decl_stmt|;
-comment|// get the endpoint
+if|if
+condition|(
+name|port
+operator|>
+literal|0
+condition|)
+block|{
+name|url
+operator|=
+literal|"restlet:%s://%s:%s/%s?restletMethod=%s"
+expr_stmt|;
 name|url
 operator|=
 name|String
@@ -3742,6 +3754,28 @@ argument_list|,
 name|restrict
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// It could use the restlet servlet transport
+name|url
+operator|=
+literal|"restlet:/%s?restletMethod=%s"
+expr_stmt|;
+name|url
+operator|=
+name|String
+operator|.
+name|format
+argument_list|(
+name|url
+argument_list|,
+name|path
+argument_list|,
+name|restrict
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -3760,6 +3794,7 @@ operator|+
 name|query
 expr_stmt|;
 block|}
+comment|// get the endpoint
 name|RestletEndpoint
 name|endpoint
 init|=
