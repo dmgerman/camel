@@ -111,6 +111,24 @@ name|TabularData
 name|browse
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Lists all the exchanges which are currently inflight, limited and sorted"
+argument_list|)
+DECL|method|browse (int limit, boolean sortByLongestDuration)
+name|TabularData
+name|browse
+parameter_list|(
+name|int
+name|limit
+parameter_list|,
+name|boolean
+name|sortByLongestDuration
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

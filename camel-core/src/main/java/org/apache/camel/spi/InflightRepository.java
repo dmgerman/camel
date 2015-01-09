@@ -196,6 +196,21 @@ argument_list|>
 name|browse
 parameter_list|()
 function_decl|;
+comment|/**      * A<i>read-only</i> browser of the {@link InflightExchange}s that are currently inflight.      *      * @param limit maximum number of entries to return      * @param sortByLongestDuration to sort by the longest duration. Set to<tt>true</tt> to include the exchanges that has been inflight the longest time,      *                              set to<tt>false</tt> to include the exchanges in unspecified order.      */
+DECL|method|browse (int limit, boolean sortByLongestDuration)
+name|Collection
+argument_list|<
+name|InflightExchange
+argument_list|>
+name|browse
+parameter_list|(
+name|int
+name|limit
+parameter_list|,
+name|boolean
+name|sortByLongestDuration
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

@@ -572,6 +572,27 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|browse (int limit, boolean sortByLongestDuration)
+specifier|public
+name|Collection
+argument_list|<
+name|InflightExchange
+argument_list|>
+name|browse
+parameter_list|(
+name|int
+name|limit
+parameter_list|,
+name|boolean
+name|sortByLongestDuration
+parameter_list|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 DECL|method|getWaitTime ()
 specifier|public
 name|long
