@@ -22,6 +22,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -166,6 +176,7 @@ name|ServiceSupport
 implements|implements
 name|InflightRepository
 block|{
+comment|// TODO: rework this a bit and likely add support for this to the default inflight repository
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -544,6 +555,21 @@ block|{
 comment|// do nothing here
 return|return
 literal|0
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|browse ()
+specifier|public
+name|Collection
+argument_list|<
+name|InflightExchange
+argument_list|>
+name|browse
+parameter_list|()
+block|{
+return|return
+literal|null
 return|;
 block|}
 DECL|method|getWaitTime ()

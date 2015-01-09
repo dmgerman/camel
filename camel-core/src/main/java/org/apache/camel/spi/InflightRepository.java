@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -64,6 +74,42 @@ name|InflightRepository
 extends|extends
 name|StaticService
 block|{
+comment|/**      * Information about the inflight exchange.      */
+DECL|interface|InflightExchange
+interface|interface
+name|InflightExchange
+block|{
+comment|/**          * The exchange being inflight          */
+DECL|method|getExchange ()
+name|Exchange
+name|getExchange
+parameter_list|()
+function_decl|;
+comment|/**          * The duration in millis the exchange has been inflight          */
+DECL|method|getDuration ()
+name|long
+name|getDuration
+parameter_list|()
+function_decl|;
+comment|/**          * The elapsed time in millis processing the exchange at the current node          */
+DECL|method|getElapsed ()
+name|long
+name|getElapsed
+parameter_list|()
+function_decl|;
+comment|/**          * The id of the node from the route where the exchange currently is being processed          *<p/>          * Is<tt>null</tt> if message history is disabled.          */
+DECL|method|getNodeId ()
+name|String
+name|getNodeId
+parameter_list|()
+function_decl|;
+comment|/**          * The id of the route where the exchange currently is being processed          *<p/>          * Is<tt>null</tt> if message history is disabled.          */
+DECL|method|getRouteId ()
+name|String
+name|getRouteId
+parameter_list|()
+function_decl|;
+block|}
 comment|/**      * Adds the exchange to the inflight registry to the total counter      *      * @param exchange  the exchange      */
 DECL|method|add (Exchange exchange)
 name|void
@@ -140,6 +186,15 @@ parameter_list|(
 name|String
 name|routeId
 parameter_list|)
+function_decl|;
+comment|/**      * A<i>read-only</i> browser of the {@link InflightExchange}s that are currently inflight.      */
+DECL|method|browse ()
+name|Collection
+argument_list|<
+name|InflightExchange
+argument_list|>
+name|browse
+parameter_list|()
 function_decl|;
 block|}
 end_interface
