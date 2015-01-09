@@ -349,6 +349,13 @@ name|FlatpackEndpoint
 extends|extends
 name|DefaultPollingEndpoint
 block|{
+annotation|@
+name|UriPath
+DECL|field|resourceUri
+specifier|protected
+name|String
+name|resourceUri
+decl_stmt|;
 DECL|field|loadBalancer
 specifier|private
 name|LoadBalancer
@@ -374,13 +381,6 @@ DECL|field|type
 specifier|private
 name|FlatpackType
 name|type
-decl_stmt|;
-annotation|@
-name|UriPath
-DECL|field|resourceUri
-specifier|protected
-name|String
-name|resourceUri
 decl_stmt|;
 annotation|@
 name|UriParam
