@@ -554,12 +554,13 @@ argument_list|,
 name|requestTimeout
 argument_list|)
 decl_stmt|;
+comment|// Just make sure we don't override the old value of the correlationId
 name|ReplyHandler
 name|result
 init|=
 name|correlation
 operator|.
-name|put
+name|putIfAbsent
 argument_list|(
 name|correlationId
 argument_list|,
@@ -587,15 +588,6 @@ argument_list|,
 name|correlationId
 argument_list|)
 decl_stmt|;
-name|log
-operator|.
-name|warn
-argument_list|(
-literal|"{}, some reply message would be ignored and the request thread could be blocked."
-argument_list|,
-name|logMessage
-argument_list|)
-expr_stmt|;
 throw|throw
 operator|new
 name|IllegalArgumentException
