@@ -105,6 +105,31 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Browses the inflight exchanges      *      * @param camelContextName        the Camel context.      * @param limit                   maximum number of exchanges to return      * @param sortByLongestDuration<tt>true</tt> to sort by longest duration,<tt>false</tt> to sort by exchange id      * @return a list of key/value pairs with inflight exchange information      * @throws java.lang.Exception can be thrown      */
+DECL|method|browseInflightExchanges (String camelContextName, int limit, boolean sortByLongestDuration)
+name|List
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|>
+name|browseInflightExchanges
+parameter_list|(
+name|String
+name|camelContextName
+parameter_list|,
+name|int
+name|limit
+parameter_list|,
+name|boolean
+name|sortByLongestDuration
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Starts the given Camel context.      *      * @param camelContextName the Camel context.      * @throws java.lang.Exception can be thrown      */
 DECL|method|startContext (String camelContextName)
 name|void

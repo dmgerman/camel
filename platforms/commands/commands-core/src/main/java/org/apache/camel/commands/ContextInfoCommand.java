@@ -1854,37 +1854,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|safeNull (Object value)
-specifier|private
-specifier|static
-name|String
-name|safeNull
-parameter_list|(
-name|Object
-name|value
-parameter_list|)
-block|{
-if|if
-condition|(
-name|value
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|""
-return|;
-block|}
-else|else
-block|{
-return|return
-name|value
-operator|.
-name|toString
-argument_list|()
-return|;
-block|}
-block|}
 block|}
 end_class
 
