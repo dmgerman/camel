@@ -758,7 +758,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Timeout occurred after {} millis waiting for reply message with correlationID [{}]."
+literal|"Timeout occurred after {} millis waiting for reply message with correlationID [{}] on destination {}."
 operator|+
 literal|" Setting ExchangeTimedOutException on {} and continue routing."
 argument_list|,
@@ -775,6 +775,8 @@ name|holder
 operator|.
 name|getCorrelationId
 argument_list|()
+block|,
+name|replyTo
 block|,
 name|ExchangeHelper
 operator|.
@@ -797,7 +799,9 @@ operator|.
 name|getCorrelationId
 argument_list|()
 operator|+
-literal|" not received"
+literal|" not received on destination: "
+operator|+
+name|replyTo
 decl_stmt|;
 name|exchange
 operator|.
