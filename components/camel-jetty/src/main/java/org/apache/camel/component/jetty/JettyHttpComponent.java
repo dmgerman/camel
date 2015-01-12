@@ -4718,7 +4718,7 @@ argument_list|()
 operator|.
 name|getMethod
 argument_list|(
-literal|"setResponseBufferSize"
+literal|"setResponseHeaderSize"
 argument_list|,
 name|Integer
 operator|.
@@ -4923,7 +4923,7 @@ operator|=
 name|socketConnectors
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link HttpClient} and configures its proxy/thread pool and SSL based on this      * component settings.      *      * @Param endpoint   the instance of JettyHttpEndpoint      * @param minThreads optional minimum number of threads in client thread pool      * @param maxThreads optional maximum number of threads in client thread pool      * @param ssl        option SSL parameters      */
+comment|/**      * Creates a new {@link HttpClient} and configures its proxy/thread pool and SSL based on this      * component settings.      *      * @param endpoint   the instance of JettyHttpEndpoint      * @param minThreads optional minimum number of threads in client thread pool      * @param maxThreads optional maximum number of threads in client thread pool      * @param ssl        option SSL parameters      */
 DECL|method|createHttpClient (JettyHttpEndpoint endpoint, Integer minThreads, Integer maxThreads, SSLContextParameters ssl)
 specifier|public
 name|CamelHttpClient
