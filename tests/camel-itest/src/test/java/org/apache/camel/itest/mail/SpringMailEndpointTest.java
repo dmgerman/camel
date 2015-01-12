@@ -64,6 +64,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -133,6 +143,8 @@ end_comment
 begin_class
 annotation|@
 name|ContextConfiguration
+annotation|@
+name|Ignore
 DECL|class|SpringMailEndpointTest
 specifier|public
 class|class
