@@ -1101,13 +1101,15 @@ index|[]
 block|{
 literal|"exchangeId"
 block|,
+literal|"fromRouteId"
+block|,
 literal|"routeId"
 block|,
 literal|"nodeId"
 block|,
-literal|"duration"
-block|,
 literal|"elapsed"
+block|,
+literal|"duration"
 block|}
 argument_list|,
 operator|new
@@ -1116,19 +1118,25 @@ index|[]
 block|{
 literal|"Exchange Id"
 block|,
+literal|"From RouteId"
+block|,
 literal|"RouteId"
 block|,
 literal|"NodeId"
 block|,
-literal|"Duration"
-block|,
 literal|"Elapsed"
+block|,
+literal|"Duration"
 block|}
 argument_list|,
 operator|new
 name|OpenType
 index|[]
 block|{
+name|SimpleType
+operator|.
+name|STRING
+block|,
 name|SimpleType
 operator|.
 name|STRING
