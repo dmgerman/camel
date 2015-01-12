@@ -2639,23 +2639,39 @@ expr_stmt|;
 break|break;
 block|}
 comment|// we got a result so aggregate it
-name|AggregationStrategy
-name|strategy
-init|=
+if|if
+condition|(
+name|parallelAggregate
+condition|)
+block|{
+name|doAggregateInternal
+argument_list|(
 name|getAggregationStrategy
 argument_list|(
 name|subExchange
 argument_list|)
-decl_stmt|;
-name|doAggregate
-argument_list|(
-name|strategy
 argument_list|,
 name|result
 argument_list|,
 name|subExchange
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|doAggregate
+argument_list|(
+name|getAggregationStrategy
+argument_list|(
+name|subExchange
+argument_list|)
+argument_list|,
+name|result
+argument_list|,
+name|subExchange
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 name|aggregated
 operator|++
@@ -4186,7 +4202,7 @@ name|doneSync
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Aggregate the {@link Exchange} with the current result      *      * @param strategy the aggregation strategy to use      * @param result   the current result      * @param exchange the exchange to be added to the result      */
+comment|/**      * Aggregate the {@link Exchange} with the current result.      * This method is synchronized and is called directly when parallelAggregate is disabled (by default).      *      * @param strategy the aggregation strategy to use      * @param result   the current result      * @param exchange the exchange to be added to the result      * @see #doAggregateInternal(org.apache.camel.processor.aggregate.AggregationStrategy, org.apache.camel.util.concurrent.AtomicExchange, org.apache.camel.Exchange)      */
 DECL|method|doAggregate (AggregationStrategy strategy, AtomicExchange result, Exchange exchange)
 specifier|protected
 specifier|synchronized
@@ -4213,7 +4229,7 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Aggregate the {@link Exchange} with the current result.      * This method is unsynchronized and is called directly when parallelAggregate is enabled.      * In all other cases, this method is called from the doAggregate which is a synchronized method      *      * @param strategy      * @param result      * @param exchange      */
+comment|/**      * Aggregate the {@link Exchange} with the current result.      * This method is unsynchronized and is called directly when parallelAggregate is enabled.      * In all other cases, this method is called from the doAggregate which is a synchronized method      *      * @param strategy the aggregation strategy to use      * @param result   the current result      * @param exchange the exchange to be added to the result      * @see #doAggregate(org.apache.camel.processor.aggregate.AggregationStrategy, org.apache.camel.util.concurrent.AtomicExchange, org.apache.camel.Exchange)      */
 DECL|method|doAggregateInternal (AggregationStrategy strategy, AtomicExchange result, Exchange exchange)
 specifier|protected
 name|void
