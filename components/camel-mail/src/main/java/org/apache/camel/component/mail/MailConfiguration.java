@@ -518,6 +518,8 @@ name|peek
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|sslContextParameters
 specifier|private
 name|SSLContextParameters
