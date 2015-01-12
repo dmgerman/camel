@@ -281,6 +281,21 @@ name|boolean
 name|isShutdownRoutesInReverseOrder
 parameter_list|()
 function_decl|;
+comment|/**      * Sets whether to log information about the inflight {@link org.apache.camel.Exchange}s which are still running      * during a shutdown which didn't complete without the given timeout.      *      * @param logInflightExchangesOnTimeout<tt>true</tt> to log information about the inflight exchanges,<tt>false</tt> to not log      */
+DECL|method|setLogInflightExchangesOnTimeout (boolean logInflightExchangesOnTimeout)
+name|void
+name|setLogInflightExchangesOnTimeout
+parameter_list|(
+name|boolean
+name|logInflightExchangesOnTimeout
+parameter_list|)
+function_decl|;
+comment|/**      * Whether to log information about the inflight {@link org.apache.camel.Exchange}s which are still running      * during a shutdown which didn't complete without the given timeout.      */
+DECL|method|isLogInflightExchangesOnTimeout ()
+name|boolean
+name|isLogInflightExchangesOnTimeout
+parameter_list|()
+function_decl|;
 comment|/**      * Whether a service is forced to shutdown.      *<p/>      * Can be used to signal to services that they are no longer allowed to run, such as if a forced      * shutdown is currently in progress.      *<p/>      * For example the Camel {@link org.apache.camel.processor.RedeliveryErrorHandler} uses this information      * to know if a forced shutdown is in progress, and then break out of redelivery attempts.      *       * @param service the service      * @return<tt>true</tt> indicates the service is to be forced to shutdown,<tt>false</tt> the service can keep running.      */
 DECL|method|forceShutdown (Service service)
 name|boolean
