@@ -675,7 +675,9 @@ name|RESOLVER
 init|=
 operator|new
 name|DefaultClassResolver
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 DECL|method|CamelBlueprintHelper ()
 specifier|private

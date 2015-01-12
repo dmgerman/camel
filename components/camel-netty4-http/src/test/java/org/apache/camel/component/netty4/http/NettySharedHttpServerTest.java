@@ -107,7 +107,9 @@ name|setClassResolver
 argument_list|(
 operator|new
 name|DefaultClassResolver
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|NettySharedHttpServerBootstrapConfiguration

@@ -105,7 +105,9 @@ name|classResolver
 operator|=
 operator|new
 name|DefaultClassResolver
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|CamelToDozerClassResolverAdapter (CamelContext camelContext)

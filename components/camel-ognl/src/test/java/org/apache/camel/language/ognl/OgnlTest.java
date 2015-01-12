@@ -175,7 +175,9 @@ name|setClassResolver
 argument_list|(
 operator|new
 name|MyClassResolver
-argument_list|()
+argument_list|(
+name|context
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertExpression

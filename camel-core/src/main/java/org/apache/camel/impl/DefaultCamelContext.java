@@ -2457,7 +2457,9 @@ name|classResolver
 init|=
 operator|new
 name|DefaultClassResolver
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 decl_stmt|;
 DECL|field|packageScanClassResolver
 specifier|private

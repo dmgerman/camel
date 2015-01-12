@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultClassResolver
@@ -40,6 +52,20 @@ name|MyClassResolver
 extends|extends
 name|DefaultClassResolver
 block|{
+DECL|method|MyClassResolver (CamelContext camelContext)
+specifier|public
+name|MyClassResolver
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|resolveClass (String name)
 specifier|public
 name|Class

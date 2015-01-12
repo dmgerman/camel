@@ -231,6 +231,11 @@ name|BundleContext
 name|context
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|camelContext
