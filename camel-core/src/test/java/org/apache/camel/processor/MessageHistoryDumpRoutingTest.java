@@ -94,6 +94,13 @@ name|MessageHistoryDumpRoutingTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|field|body
+specifier|private
+name|String
+name|body
+init|=
+literal|"Hello World 1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"
+decl_stmt|;
 DECL|method|testReduceStacksNeeded ()
 specifier|public
 name|void
@@ -114,7 +121,7 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello World"
+name|body
 argument_list|)
 expr_stmt|;
 name|template
@@ -123,7 +130,7 @@ name|sendBody
 argument_list|(
 literal|"seda:start"
 argument_list|,
-literal|"Hello World"
+name|body
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -159,6 +166,21 @@ operator|.
 name|setMessageHistory
 argument_list|(
 literal|true
+argument_list|)
+expr_stmt|;
+comment|// to test that the message history exchange gets clipped
+name|context
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|Exchange
+operator|.
+name|LOG_DEBUG_BODY_MAX_CHARS
+argument_list|,
+literal|"100"
 argument_list|)
 expr_stmt|;
 name|from
