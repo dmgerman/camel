@@ -160,6 +160,9 @@ name|version
 argument_list|)
 expr_stmt|;
 name|Promise
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|promises
 init|=
@@ -201,6 +204,9 @@ block|}
 DECL|method|asPromiseArray (Object input)
 specifier|protected
 name|Promise
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|asPromiseArray
 parameter_list|(
@@ -209,6 +215,9 @@ name|input
 parameter_list|)
 block|{
 name|Promise
+argument_list|<
+name|?
+argument_list|>
 index|[]
 name|promises
 decl_stmt|;
@@ -298,6 +307,9 @@ index|]
 operator|=
 operator|(
 name|Promise
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|input
 expr_stmt|;

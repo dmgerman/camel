@@ -416,6 +416,9 @@ specifier|final
 name|AtomicReference
 argument_list|<
 name|Promise
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 name|methodResult
 init|=
@@ -423,6 +426,9 @@ operator|new
 name|AtomicReference
 argument_list|<
 name|Promise
+argument_list|<
+name|?
+argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -511,6 +517,9 @@ name|set
 argument_list|(
 operator|(
 name|Promise
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|r
 argument_list|)
@@ -530,6 +539,9 @@ name|set
 argument_list|(
 operator|new
 name|Settable
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|r
 argument_list|)
@@ -587,6 +599,9 @@ throws|throws
 name|Throwable
 block|{
 name|Promise
+argument_list|<
+name|?
+argument_list|>
 name|r
 init|=
 name|methodResult

@@ -313,7 +313,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getWorkflowExecutionState (String workflowId, String runId, Class aClass)
+DECL|method|getWorkflowExecutionState (String workflowId, String runId, Class<?> aClass)
 specifier|public
 name|Object
 name|getWorkflowExecutionState
@@ -325,6 +325,9 @@ name|String
 name|runId
 parameter_list|,
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|aClass
 parameter_list|)
 throws|throws

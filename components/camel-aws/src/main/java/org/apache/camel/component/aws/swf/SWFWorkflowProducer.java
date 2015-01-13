@@ -800,6 +800,9 @@ block|}
 DECL|method|getResultType (Exchange exchange)
 specifier|private
 name|Class
+argument_list|<
+name|?
+argument_list|>
 name|getResultType
 parameter_list|(
 name|Exchange
