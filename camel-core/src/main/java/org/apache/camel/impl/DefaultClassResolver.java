@@ -66,6 +66,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|ClassResolver
@@ -111,13 +123,19 @@ class|class
 name|DefaultClassResolver
 implements|implements
 name|ClassResolver
+implements|,
+name|CamelContextAware
 block|{
-DECL|field|loader
+DECL|field|camelContext
 specifier|private
-specifier|final
-name|ClassLoader
-name|loader
+name|CamelContext
+name|camelContext
 decl_stmt|;
+DECL|method|DefaultClassResolver ()
+specifier|public
+name|DefaultClassResolver
+parameter_list|()
+block|{     }
 DECL|method|DefaultClassResolver (CamelContext camelContext)
 specifier|public
 name|DefaultClassResolver
@@ -128,19 +146,36 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|loader
+name|camelContext
 operator|=
 name|camelContext
-operator|!=
-literal|null
-condition|?
-name|camelContext
-operator|.
-name|getApplicationContextClassLoader
-argument_list|()
-else|:
-literal|null
 expr_stmt|;
+block|}
+DECL|method|setCamelContext (CamelContext camelContext)
+specifier|public
+name|void
+name|setCamelContext
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
+block|}
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|camelContext
+return|;
 block|}
 DECL|method|resolveClass (String name)
 specifier|public
@@ -178,7 +213,8 @@ name|answer
 operator|==
 literal|null
 operator|&&
-name|loader
+name|getApplicationContextClassLoader
+argument_list|()
 operator|!=
 literal|null
 condition|)
@@ -190,7 +226,8 @@ name|loadClass
 argument_list|(
 name|name
 argument_list|,
-name|loader
+name|getApplicationContextClassLoader
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -248,7 +285,8 @@ name|answer
 operator|==
 literal|null
 operator|&&
-name|loader
+name|getApplicationContextClassLoader
+argument_list|()
 operator|!=
 literal|null
 condition|)
@@ -264,7 +302,8 @@ name|loadClass
 argument_list|(
 name|name
 argument_list|,
-name|loader
+name|getApplicationContextClassLoader
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -321,12 +360,7 @@ name|ClassLoader
 name|loader
 parameter_list|)
 block|{
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|answer
-init|=
+return|return
 name|CastUtils
 operator|.
 name|cast
@@ -338,9 +372,6 @@ argument_list|,
 name|loader
 argument_list|)
 argument_list|)
-decl_stmt|;
-return|return
-name|answer
 return|;
 block|}
 DECL|method|resolveMandatoryClass (String name)
@@ -576,7 +607,8 @@ name|loadResourceAsStream
 argument_list|(
 name|uri
 argument_list|,
-name|loader
+name|getApplicationContextClassLoader
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -605,7 +637,8 @@ name|loadResourceAsURL
 argument_list|(
 name|uri
 argument_list|,
-name|loader
+name|getApplicationContextClassLoader
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -628,8 +661,6 @@ name|uri
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|loadAllResourcesAsURL (String uri)
 specifier|public
 name|Enumeration
@@ -693,6 +724,25 @@ name|name
 argument_list|,
 name|loader
 argument_list|)
+return|;
+block|}
+DECL|method|getApplicationContextClassLoader ()
+specifier|protected
+name|ClassLoader
+name|getApplicationContextClassLoader
+parameter_list|()
+block|{
+return|return
+name|camelContext
+operator|!=
+literal|null
+condition|?
+name|camelContext
+operator|.
+name|getApplicationContextClassLoader
+argument_list|()
+else|:
+literal|null
 return|;
 block|}
 block|}
