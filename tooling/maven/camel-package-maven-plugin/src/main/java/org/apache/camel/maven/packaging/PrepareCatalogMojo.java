@@ -1275,6 +1275,21 @@ name|info
 argument_list|(
 literal|"Found "
 operator|+
+name|componentFiles
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" component.properties files"
+argument_list|)
+expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Found "
+operator|+
 name|jsonFiles
 operator|.
 name|size
@@ -1932,7 +1947,7 @@ operator|.
 name|size
 argument_list|()
 operator|+
-literal|" dataformat.properties json files"
+literal|" dataformat.properties files"
 argument_list|)
 expr_stmt|;
 name|getLog

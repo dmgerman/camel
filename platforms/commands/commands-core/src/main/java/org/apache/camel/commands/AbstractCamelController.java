@@ -1038,7 +1038,7 @@ name|JsonSchemaHelper
 operator|.
 name|parseJsonSchema
 argument_list|(
-literal|"model"
+literal|"dataformat"
 argument_list|,
 name|json
 argument_list|,
@@ -1054,6 +1054,11 @@ name|String
 name|label
 init|=
 literal|null
+decl_stmt|;
+name|String
+name|modelName
+init|=
+name|name
 decl_stmt|;
 comment|// the status can be:
 comment|// - loaded = in use
@@ -1097,6 +1102,27 @@ range|:
 name|rows
 control|)
 block|{
+if|if
+condition|(
+name|row
+operator|.
+name|containsKey
+argument_list|(
+literal|"modelName"
+argument_list|)
+condition|)
+block|{
+name|modelName
+operator|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"modelName"
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|row
@@ -1247,6 +1273,15 @@ argument_list|(
 literal|"name"
 argument_list|,
 name|name
+argument_list|)
+expr_stmt|;
+name|row
+operator|.
+name|put
+argument_list|(
+literal|"modelName"
+argument_list|,
+name|modelName
 argument_list|)
 expr_stmt|;
 name|row

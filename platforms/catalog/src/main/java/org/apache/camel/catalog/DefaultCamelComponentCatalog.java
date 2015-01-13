@@ -855,7 +855,7 @@ name|JSonSchemaHelper
 operator|.
 name|parseJsonSchema
 argument_list|(
-literal|"model"
+literal|"dataformat"
 argument_list|,
 name|json
 argument_list|,
@@ -1527,7 +1527,7 @@ name|JSonSchemaHelper
 operator|.
 name|parseJsonSchema
 argument_list|(
-literal|"model"
+literal|"dataformat"
 argument_list|,
 name|json
 argument_list|,

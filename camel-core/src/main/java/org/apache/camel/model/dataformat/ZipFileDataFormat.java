@@ -138,6 +138,7 @@ name|Label
 argument_list|(
 literal|"dataformat,transformation"
 argument_list|)
+comment|// TODO: use zipfile as name in Camel 3.0
 annotation|@
 name|XmlRootElement
 argument_list|(
