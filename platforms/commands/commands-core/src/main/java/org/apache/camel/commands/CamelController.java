@@ -488,6 +488,41 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Lists all data formats from the Camel components catalog      *      * @param filter optional filter to filter by labels      * @return a list of key/value pairs with data format information      * @throws java.lang.Exception can be thrown      */
+DECL|method|listDataFormatsCatalog (String filter)
+name|List
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|>
+name|listDataFormatsCatalog
+parameter_list|(
+name|String
+name|filter
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Lists all the labels from the Camel data formats catalog      *      * @return a map which key is the label, and the set is the data format names that has the given label      * @throws java.lang.Exception can be thrown      */
+DECL|method|listDataFormatsLabelCatalog ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Set
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|listDataFormatsLabelCatalog
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
 block|}
 end_interface
 
