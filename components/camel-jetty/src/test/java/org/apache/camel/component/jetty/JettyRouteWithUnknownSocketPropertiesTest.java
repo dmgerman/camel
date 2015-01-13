@@ -84,6 +84,7 @@ return|;
 block|}
 annotation|@
 name|Test
+comment|//@Ignore SocketConnector props do not work for jetty 9
 DECL|method|testUnknownProperty ()
 specifier|public
 name|void

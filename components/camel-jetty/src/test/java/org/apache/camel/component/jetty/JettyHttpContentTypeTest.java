@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -74,6 +86,15 @@ name|JettyHttpContentTypeTest
 extends|extends
 name|BaseJettyTest
 block|{
+DECL|field|CHARSET
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|CHARSET
+init|=
+literal|"ISO-8859-1"
+decl_stmt|;
 annotation|@
 name|Test
 DECL|method|testContentType ()
@@ -105,7 +126,11 @@ name|Exchange
 operator|.
 name|CONTENT_TYPE
 argument_list|,
-literal|"text/plain; charset=\"iso-8859-1\""
+literal|"text/plain; charset=\""
+operator|+
+name|CHARSET
+operator|+
+literal|"\""
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -119,7 +144,7 @@ name|Exchange
 operator|.
 name|HTTP_CHARACTER_ENCODING
 argument_list|,
-literal|"iso-8859-1"
+name|CHARSET
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -152,7 +177,7 @@ name|Exchange
 operator|.
 name|CHARSET_NAME
 argument_list|,
-literal|"iso-8859-1"
+name|CHARSET
 argument_list|)
 expr_stmt|;
 name|byte
@@ -167,7 +192,7 @@ name|Charset
 operator|.
 name|forName
 argument_list|(
-literal|"iso-8859-1"
+name|CHARSET
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -184,7 +209,11 @@ name|data
 argument_list|,
 literal|"content-type"
 argument_list|,
-literal|"text/plain; charset=\"iso-8859-1\""
+literal|"text/plain; charset=\""
+operator|+
+name|CHARSET
+operator|+
+literal|"\""
 argument_list|,
 name|String
 operator|.
@@ -196,6 +225,42 @@ argument_list|(
 literal|"Bye World"
 argument_list|,
 name|out
+argument_list|)
+expr_stmt|;
+name|Exchange
+name|exchange
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:input"
+argument_list|)
+operator|.
+name|getExchanges
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
+name|Message
+name|in
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+decl_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|in
+operator|.
+name|getHeaders
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -233,7 +298,11 @@ name|Exchange
 operator|.
 name|CONTENT_TYPE
 argument_list|,
-literal|"text/plain;charset=\"iso-8859-1\";action=\"http://somewhere.com/foo\""
+literal|"text/plain;charset=\""
+operator|+
+name|CHARSET
+operator|+
+literal|"\";action=\"http://somewhere.com/foo\""
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -247,7 +316,7 @@ name|Exchange
 operator|.
 name|HTTP_CHARACTER_ENCODING
 argument_list|,
-literal|"iso-8859-1"
+name|CHARSET
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -280,7 +349,7 @@ name|Exchange
 operator|.
 name|CHARSET_NAME
 argument_list|,
-literal|"iso-8859-1"
+name|CHARSET
 argument_list|)
 expr_stmt|;
 name|byte
@@ -295,7 +364,7 @@ name|Charset
 operator|.
 name|forName
 argument_list|(
-literal|"iso-8859-1"
+name|CHARSET
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -312,7 +381,11 @@ name|data
 argument_list|,
 literal|"content-type"
 argument_list|,
-literal|"text/plain;charset=\"iso-8859-1\";action=\"http://somewhere.com/foo\""
+literal|"text/plain;charset=\""
+operator|+
+name|CHARSET
+operator|+
+literal|"\";action=\"http://somewhere.com/foo\""
 argument_list|,
 name|String
 operator|.

@@ -304,7 +304,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"location"
+literal|"Location"
 argument_list|,
 literal|"http://localhost:"
 operator|+

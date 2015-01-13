@@ -571,6 +571,14 @@ argument_list|(
 name|httpClientParameters
 argument_list|)
 decl_stmt|;
+comment|// Can not be set on httpClient for jetty 9
+name|params
+operator|.
+name|remove
+argument_list|(
+literal|"timeout"
+argument_list|)
+expr_stmt|;
 name|IntrospectionSupport
 operator|.
 name|setProperties

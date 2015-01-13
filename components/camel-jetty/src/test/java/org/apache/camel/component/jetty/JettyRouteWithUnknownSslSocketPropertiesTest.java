@@ -84,6 +84,7 @@ return|;
 block|}
 annotation|@
 name|Test
+comment|//@Ignore for jetty 9
 DECL|method|testUnknownProperty ()
 specifier|public
 name|void
@@ -220,6 +221,13 @@ parameter_list|)
 block|{
 name|assertTrue
 argument_list|(
+literal|"Actual message: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
 name|e
 operator|.
 name|getMessage

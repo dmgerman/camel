@@ -198,7 +198,7 @@ name|setHeader
 argument_list|(
 literal|"Content-Type"
 argument_list|,
-literal|"text/plain; charset=\"utf-8\""
+literal|"text/plain;charset=\"UTF-8\""
 argument_list|)
 expr_stmt|;
 block|}
@@ -347,7 +347,7 @@ name|setHeader
 argument_list|(
 literal|"Content-Type"
 argument_list|,
-literal|"text/plain;charset=\"utf-8\";action=\"http://somewhere.com/foo\""
+literal|"text/plain;charset=\"UTF-8\";action=\"http://somewhere.com/foo\""
 argument_list|)
 expr_stmt|;
 block|}
@@ -397,14 +397,14 @@ name|res
 operator|.
 name|replace
 argument_list|(
-literal|"\"utf-8\""
+literal|"\"UTF-8\""
 argument_list|,
-literal|"utf-8"
+literal|"UTF-8"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"text/plain;charset=utf-8;action=\"http://somewhere.com/foo\""
+literal|"text/plain;charset=UTF-8;action=\"http://somewhere.com/foo\""
 argument_list|,
 name|res
 argument_list|)
