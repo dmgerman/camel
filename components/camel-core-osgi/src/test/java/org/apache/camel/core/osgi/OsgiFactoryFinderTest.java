@@ -93,9 +93,7 @@ argument_list|()
 argument_list|,
 operator|new
 name|DefaultClassResolver
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 argument_list|,
 literal|"META-INF/services/org/apache/camel/component/"
 argument_list|)

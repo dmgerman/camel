@@ -348,9 +348,7 @@ name|classResolver
 else|:
 operator|new
 name|DefaultClassResolver
-argument_list|(
-literal|null
-argument_list|)
+argument_list|()
 expr_stmt|;
 try|try
 block|{
