@@ -234,6 +234,13 @@ name|Boolean
 operator|.
 name|FALSE
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"1"
+argument_list|)
 DECL|field|concurrentConsumers
 specifier|private
 name|Integer
