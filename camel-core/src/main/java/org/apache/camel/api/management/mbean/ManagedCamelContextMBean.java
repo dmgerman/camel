@@ -984,6 +984,24 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Returns the JSON schema representation with information about the data format and the parameters it supports      *      * @param dataFormatName the name of the data format to lookup      * @throws Exception is thrown if error occurred      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Returns the JSON schema representation of the data format parameters for the given data format name"
+argument_list|)
+DECL|method|dataFormatParameterJsonSchema (String dataFormatName)
+name|String
+name|dataFormatParameterJsonSchema
+parameter_list|(
+name|String
+name|dataFormatName
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Returns the JSON schema representation with information about the EIP and the parameters it supports      *      * @param eipName the name of the EIP to lookup      * @throws Exception is thrown if error occurred      */
 annotation|@
 name|ManagedOperation

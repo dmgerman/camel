@@ -2093,6 +2093,17 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Returns the JSON schema representation of the {@link DataFormat} parameters for the given data format name.      *      * @return the json or<tt>null</tt> if the data format does not exist      */
+DECL|method|getDataFormatParameterJsonSchema (String dataFormatName)
+name|String
+name|getDataFormatParameterJsonSchema
+parameter_list|(
+name|String
+name|dataFormatName
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 comment|/**      * Returns the JSON schema representation of the EIP parameters for the given EIP name.      *      * @return the json or<tt>null</tt> if the EIP does not exist      */
 DECL|method|getEipParameterJsonSchema (String eipName)
 name|String
