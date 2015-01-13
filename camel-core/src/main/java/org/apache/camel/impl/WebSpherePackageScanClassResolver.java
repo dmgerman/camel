@@ -106,7 +106,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"com.ibm"
+literal|"com.ibm."
 argument_list|)
 else|:
 literal|false
