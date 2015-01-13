@@ -42,6 +42,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Node
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -543,18 +555,6 @@ operator|.
 name|jsse
 operator|.
 name|KeyStoreParameters
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Node
 import|;
 end_import
 
@@ -1264,10 +1264,10 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Uses the iCal data format      */
-DECL|method|iCal (boolean validating)
+DECL|method|ical (boolean validating)
 specifier|public
 name|T
-name|iCal
+name|ical
 parameter_list|(
 name|boolean
 name|validating
