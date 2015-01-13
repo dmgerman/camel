@@ -55,6 +55,15 @@ argument_list|>
 name|findComponentNames
 parameter_list|()
 function_decl|;
+comment|/**      * Find all the data format names from the Camel catalog      */
+DECL|method|findDataFormatNames ()
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|findDataFormatNames
+parameter_list|()
+function_decl|;
 comment|/**      * Find all the model names from the Camel catalog      */
 DECL|method|findModelNames ()
 name|List
@@ -64,20 +73,8 @@ argument_list|>
 name|findModelNames
 parameter_list|()
 function_decl|;
-comment|/**      * Find all the model names from the Camel catalog that matches the label      */
-DECL|method|findModelNames (String label)
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|findModelNames
-parameter_list|(
-name|String
-name|label
-parameter_list|)
-function_decl|;
 comment|/**      * Find all the component names from the Camel catalog that matches the label      */
-DECL|method|findComponentNames (String label)
+DECL|method|findComponentNames (String filter)
 name|List
 argument_list|<
 name|String
@@ -85,16 +82,31 @@ argument_list|>
 name|findComponentNames
 parameter_list|(
 name|String
-name|label
+name|filter
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the model information as JSon format.      *      * @param name the model name      * @return model details in JSon      */
-DECL|method|modelJSonSchema (String name)
+comment|/**      * Find all the data format names from the Camel catalog that matches the label      */
+DECL|method|findDataFormatNames (String filter)
+name|List
+argument_list|<
 name|String
-name|modelJSonSchema
+argument_list|>
+name|findDataFormatNames
 parameter_list|(
 name|String
-name|name
+name|filter
+parameter_list|)
+function_decl|;
+comment|/**      * Find all the model names from the Camel catalog that matches the label      */
+DECL|method|findModelNames (String filter)
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|findModelNames
+parameter_list|(
+name|String
+name|filter
 parameter_list|)
 function_decl|;
 comment|/**      * Returns the component information as JSon format.      *      * @param name the component name      * @return component details in JSon      */
@@ -106,14 +118,23 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
-comment|/**      * Find all the unique label names all the models are using.      *      * @return a set of all the labels.      */
-DECL|method|findModelLabels ()
-name|Set
-argument_list|<
+comment|/**      * Returns the data format information as JSon format.      *      * @param name the data format name      * @return data format details in JSon      */
+DECL|method|dataFormatJSonSchema (String name)
 name|String
-argument_list|>
-name|findModelLabels
-parameter_list|()
+name|dataFormatJSonSchema
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the model information as JSon format.      *      * @param name the model name      * @return model details in JSon      */
+DECL|method|modelJSonSchema (String name)
+name|String
+name|modelJSonSchema
+parameter_list|(
+name|String
+name|name
+parameter_list|)
 function_decl|;
 comment|/**      * Find all the unique label names all the components are using.      *      * @return a set of all the labels.      */
 DECL|method|findComponentLabels ()
@@ -122,6 +143,24 @@ argument_list|<
 name|String
 argument_list|>
 name|findComponentLabels
+parameter_list|()
+function_decl|;
+comment|/**      * Find all the unique label names all the data formats are using.      *      * @return a set of all the labels.      */
+DECL|method|findDataFormatLabels ()
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|findDataFormatLabels
+parameter_list|()
+function_decl|;
+comment|/**      * Find all the unique label names all the models are using.      *      * @return a set of all the labels.      */
+DECL|method|findModelLabels ()
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|findModelLabels
 parameter_list|()
 function_decl|;
 block|}
