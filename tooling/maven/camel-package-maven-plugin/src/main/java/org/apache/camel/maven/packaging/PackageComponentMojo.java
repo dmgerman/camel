@@ -167,10 +167,10 @@ comment|/**  * Analyses the Camel plugins in a project and generates extra descr
 end_comment
 
 begin_class
-DECL|class|PackageMojo
+DECL|class|PackageComponentMojo
 specifier|public
 class|class
-name|PackageMojo
+name|PackageComponentMojo
 extends|extends
 name|AbstractMojo
 block|{
