@@ -523,6 +523,41 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Lists all languages from the Camel components catalog      *      * @param filter optional filter to filter by labels      * @return a list of key/value pairs with language information      * @throws java.lang.Exception can be thrown      */
+DECL|method|listLanguagesCatalog (String filter)
+name|List
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|>
+name|listLanguagesCatalog
+parameter_list|(
+name|String
+name|filter
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Lists all the labels from the Camel languages catalog      *      * @return a map which key is the label, and the set is the language names that has the given label      * @throws java.lang.Exception can be thrown      */
+DECL|method|listLanguagesLabelCatalog ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Set
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|listLanguagesLabelCatalog
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
 block|}
 end_interface
 

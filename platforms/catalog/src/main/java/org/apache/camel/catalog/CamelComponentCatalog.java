@@ -64,6 +64,15 @@ argument_list|>
 name|findDataFormatNames
 parameter_list|()
 function_decl|;
+comment|/**      * Find all the language names from the Camel catalog      */
+DECL|method|findLanguageNames ()
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|findLanguageNames
+parameter_list|()
+function_decl|;
 comment|/**      * Find all the model names from the Camel catalog      */
 DECL|method|findModelNames ()
 name|List
@@ -92,6 +101,18 @@ argument_list|<
 name|String
 argument_list|>
 name|findDataFormatNames
+parameter_list|(
+name|String
+name|filter
+parameter_list|)
+function_decl|;
+comment|/**      * Find all the language names from the Camel catalog that matches the label      */
+DECL|method|findLanguageNames (String filter)
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|findLanguageNames
 parameter_list|(
 name|String
 name|filter
@@ -127,6 +148,15 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the language information as JSon format.      *      * @param name the language name      * @return language details in JSon      */
+DECL|method|languageJSonSchema (String name)
+name|String
+name|languageJSonSchema
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the model information as JSon format.      *      * @param name the model name      * @return model details in JSon      */
 DECL|method|modelJSonSchema (String name)
 name|String
@@ -152,6 +182,15 @@ argument_list|<
 name|String
 argument_list|>
 name|findDataFormatLabels
+parameter_list|()
+function_decl|;
+comment|/**      * Find all the unique label names all the data formats are using.      *      * @return a set of all the labels.      */
+DECL|method|findLanguageLabels ()
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|findLanguageLabels
 parameter_list|()
 function_decl|;
 comment|/**      * Find all the unique label names all the models are using.      *      * @return a set of all the labels.      */
