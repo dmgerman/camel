@@ -5009,7 +5009,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"component\":"
+literal|"\"kind\": \"component\""
 argument_list|)
 return|;
 block|}
@@ -5130,7 +5130,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"dataformat\":"
+literal|"\"kind\": \"dataformat\""
 argument_list|)
 return|;
 block|}
@@ -5251,7 +5251,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"language\":"
+literal|"\"kind\": \"language\""
 argument_list|)
 return|;
 block|}

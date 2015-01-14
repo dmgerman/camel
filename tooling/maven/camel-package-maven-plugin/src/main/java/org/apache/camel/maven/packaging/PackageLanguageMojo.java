@@ -1642,6 +1642,23 @@ name|buffer
 operator|.
 name|append
 argument_list|(
+literal|"\n    \"kind\": \""
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"language"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"\","
+argument_list|)
+expr_stmt|;
+name|buffer
+operator|.
+name|append
+argument_list|(
 literal|"\n    \"modelName\": \""
 argument_list|)
 operator|.

@@ -952,6 +952,23 @@ name|buffer
 operator|.
 name|append
 argument_list|(
+literal|"\n    \"kind\": \""
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"model"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"\","
+argument_list|)
+expr_stmt|;
+name|buffer
+operator|.
+name|append
+argument_list|(
 literal|"\n    \"name\": \""
 argument_list|)
 operator|.

@@ -1145,6 +1145,23 @@ name|buffer
 operator|.
 name|append
 argument_list|(
+literal|"\n    \"kind\": \""
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"component"
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"\","
+argument_list|)
+expr_stmt|;
+name|buffer
+operator|.
+name|append
+argument_list|(
 literal|"\n    \"scheme\": \""
 argument_list|)
 operator|.
