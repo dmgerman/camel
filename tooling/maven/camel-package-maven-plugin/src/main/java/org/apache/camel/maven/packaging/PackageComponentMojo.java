@@ -325,6 +325,17 @@ range|:
 name|files
 control|)
 block|{
+comment|// skip directories as there may be a sub .resolver directory
+if|if
+condition|(
+name|file
+operator|.
+name|isDirectory
+argument_list|()
+condition|)
+block|{
+continue|continue;
+block|}
 name|String
 name|name
 init|=
