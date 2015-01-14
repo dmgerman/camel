@@ -150,7 +150,7 @@ begin_class
 annotation|@
 name|Label
 argument_list|(
-literal|"dataformat,transformation"
+literal|"dataformat,transformation,hl7"
 argument_list|)
 annotation|@
 name|XmlRootElement

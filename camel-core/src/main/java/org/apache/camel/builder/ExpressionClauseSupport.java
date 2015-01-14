@@ -398,6 +398,22 @@ name|model
 operator|.
 name|language
 operator|.
+name|TerserExpression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|language
+operator|.
 name|TokenizerExpression
 import|;
 end_import
@@ -1437,6 +1453,27 @@ argument_list|)
 expr_stmt|;
 return|return
 name|result
+return|;
+block|}
+comment|/**      * Evaluates an<a href="http://camel.apache.org/hl7.html">HL7 Terser      * expression</a>      *      * @param text the expression to be evaluated      * @return the builder to continue processing the DSL      */
+DECL|method|terser (String text)
+specifier|public
+name|T
+name|terser
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+return|return
+name|expression
+argument_list|(
+operator|new
+name|TerserExpression
+argument_list|(
+name|text
+argument_list|)
+argument_list|)
 return|;
 block|}
 comment|/**      * Evaluates a token expression on the message body      *      * @param token the token      * @return the builder to continue processing the DSL      */
