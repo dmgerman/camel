@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|datastax
@@ -128,6 +118,16 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
 begin_comment
 comment|/**  * Cassandra 2 CQL3 producer.  *<dl>  *<dt>In Message</dt>  *<dd>Bound parameters: Collection of Objects, Array of Objects, Simple Object<dd>  *<dt>Out Message</dt>  *<dd>List of all Rows<dd>  *<dl>  */
 end_comment
@@ -209,11 +209,7 @@ init|=
 name|message
 operator|.
 name|getBody
-argument_list|(
-name|Object
-operator|.
-name|class
-argument_list|)
+argument_list|()
 decl_stmt|;
 name|Object
 index|[]
@@ -232,6 +228,19 @@ index|[]
 operator|.
 name|class
 decl_stmt|;
+if|if
+condition|(
+name|cqlParamsObj
+operator|==
+literal|null
+condition|)
+block|{
+name|cqlParams
+operator|=
+literal|null
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|objectArrayClazz
@@ -403,6 +412,12 @@ condition|(
 name|cqlParams
 operator|==
 literal|null
+operator|||
+name|cqlParams
+operator|.
+name|length
+operator|==
+literal|0
 condition|)
 block|{
 name|resultSet
