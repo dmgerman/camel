@@ -642,6 +642,13 @@ comment|// find camel-core and grab the data format model from there, and enrich
 comment|// and create json schema model file for this data format
 try|try
 block|{
+if|if
+condition|(
+name|count
+operator|>
+literal|0
+condition|)
+block|{
 name|Artifact
 name|camelCore
 init|=
@@ -1114,6 +1121,7 @@ operator|+
 literal|" language"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
