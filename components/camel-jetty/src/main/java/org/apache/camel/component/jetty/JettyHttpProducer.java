@@ -34,16 +34,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|InputStream
 import|;
 end_import
@@ -215,22 +205,6 @@ operator|.
 name|helper
 operator|.
 name|HttpHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|jetty8
-operator|.
-name|JettyContentExchange8
 import|;
 end_import
 
@@ -484,21 +458,11 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|JettyContentExchange
-name|httpExchange
-init|=
-name|createHttpExchange
+name|processInternal
 argument_list|(
 name|exchange
 argument_list|,
 name|callback
-argument_list|)
-decl_stmt|;
-name|doSendExchange
-argument_list|(
-name|client
-argument_list|,
-name|httpExchange
 argument_list|)
 expr_stmt|;
 block|}
@@ -533,10 +497,10 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|createHttpExchange (Exchange exchange, AsyncCallback callback)
-specifier|protected
-name|JettyContentExchange
-name|createHttpExchange
+DECL|method|processInternal (Exchange exchange, AsyncCallback callback)
+specifier|private
+name|void
+name|processInternal
 parameter_list|(
 name|Exchange
 name|exchange
@@ -654,8 +618,15 @@ decl_stmt|;
 name|JettyContentExchange
 name|httpExchange
 init|=
-operator|new
-name|JettyContentExchange8
+name|getEndpoint
+argument_list|()
+operator|.
+name|createContentExchange
+argument_list|()
+decl_stmt|;
+name|httpExchange
+operator|.
+name|init
 argument_list|(
 name|exchange
 argument_list|,
@@ -663,8 +634,10 @@ name|getBinding
 argument_list|()
 argument_list|,
 name|client
+argument_list|,
+name|callback
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|httpExchange
 operator|.
 name|setURL
@@ -691,6 +664,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// For jetty 9 these parameters can not be set on the client
+comment|// so we need to set them on the httpExchange
 name|String
 name|timeout
 init|=
@@ -1350,32 +1325,6 @@ block|}
 block|}
 block|}
 comment|// set the callback, which will handle all the response logic
-name|httpExchange
-operator|.
-name|setCallback
-argument_list|(
-name|callback
-argument_list|)
-expr_stmt|;
-return|return
-name|httpExchange
-return|;
-block|}
-DECL|method|doSendExchange (HttpClient client, JettyContentExchange httpExchange)
-specifier|protected
-specifier|static
-name|void
-name|doSendExchange
-parameter_list|(
-name|HttpClient
-name|client
-parameter_list|,
-name|JettyContentExchange
-name|httpExchange
-parameter_list|)
-throws|throws
-name|IOException
-block|{
 if|if
 condition|(
 name|LOG

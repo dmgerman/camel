@@ -2145,6 +2145,7 @@ return|;
 block|}
 DECL|method|createEndpoint (URI endpointUri, URI httpUri)
 specifier|protected
+specifier|abstract
 name|JettyHttpEndpoint
 name|createEndpoint
 parameter_list|(
@@ -2156,22 +2157,7 @@ name|httpUri
 parameter_list|)
 throws|throws
 name|URISyntaxException
-block|{
-return|return
-operator|new
-name|JettyHttpEndpoint
-argument_list|(
-name|this
-argument_list|,
-name|endpointUri
-operator|.
-name|toString
-argument_list|()
-argument_list|,
-name|httpUri
-argument_list|)
-return|;
-block|}
+function_decl|;
 comment|/**      * Connects the URL specified on the endpoint to the specified processor.      */
 annotation|@
 name|Override

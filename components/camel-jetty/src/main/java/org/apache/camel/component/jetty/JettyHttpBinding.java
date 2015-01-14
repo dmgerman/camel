@@ -113,14 +113,6 @@ name|boolean
 name|isTransferException
 parameter_list|()
 function_decl|;
-DECL|method|setSupportRedirect (boolean supportRedirect)
-name|void
-name|setSupportRedirect
-parameter_list|(
-name|boolean
-name|supportRedirect
-parameter_list|)
-function_decl|;
 block|}
 end_interface
 

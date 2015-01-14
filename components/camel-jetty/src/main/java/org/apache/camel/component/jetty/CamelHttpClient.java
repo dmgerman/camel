@@ -269,6 +269,20 @@ operator|=
 name|supportRedirect
 expr_stmt|;
 block|}
+DECL|method|getProxyHost ()
+specifier|public
+specifier|abstract
+name|String
+name|getProxyHost
+parameter_list|()
+function_decl|;
+DECL|method|getProxyPort ()
+specifier|public
+specifier|abstract
+name|int
+name|getProxyPort
+parameter_list|()
+function_decl|;
 block|}
 end_class
 

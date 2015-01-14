@@ -464,9 +464,10 @@ specifier|private
 name|boolean
 name|supportRedirect
 decl_stmt|;
-DECL|method|JettyContentExchange9 (Exchange exchange, JettyHttpBinding jettyBinding, final HttpClient client)
+DECL|method|init (Exchange exchange, JettyHttpBinding jettyBinding, final HttpClient client, AsyncCallback callback)
 specifier|public
-name|JettyContentExchange9
+name|void
+name|init
 parameter_list|(
 name|Exchange
 name|exchange
@@ -477,41 +478,29 @@ parameter_list|,
 specifier|final
 name|HttpClient
 name|client
-parameter_list|)
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-comment|// keep headers by default
-name|this
-operator|.
-name|exchange
-operator|=
-name|exchange
-expr_stmt|;
-name|this
-operator|.
-name|jettyBinding
-operator|=
-name|jettyBinding
-expr_stmt|;
-name|this
-operator|.
-name|client
-operator|=
-name|client
-expr_stmt|;
-block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.jetty.JettyContentExchangeI#setCallback(org.apache.camel.AsyncCallback)      */
-DECL|method|setCallback (AsyncCallback callback)
-specifier|public
-name|void
-name|setCallback
-parameter_list|(
+parameter_list|,
 name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
+name|this
+operator|.
+name|exchange
+operator|=
+name|exchange
+expr_stmt|;
+name|this
+operator|.
+name|jettyBinding
+operator|=
+name|jettyBinding
+expr_stmt|;
+name|this
+operator|.
+name|client
+operator|=
+name|client
+expr_stmt|;
 name|this
 operator|.
 name|callback
@@ -1385,7 +1374,8 @@ return|return
 name|ret
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.jetty.JettyContentExchangeI#setSupportRedirect(boolean)      */
+annotation|@
+name|Override
 DECL|method|setSupportRedirect (boolean supportRedirect)
 specifier|public
 name|void

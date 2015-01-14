@@ -84,6 +84,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|eclipse
 operator|.
 name|jetty
@@ -100,25 +112,25 @@ specifier|public
 interface|interface
 name|JettyContentExchange
 block|{
-DECL|method|setCallback (AsyncCallback callback)
+DECL|method|init (Exchange exchange, JettyHttpBinding jettyBinding, final HttpClient client, AsyncCallback callback)
 name|void
-name|setCallback
+name|init
 parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|JettyHttpBinding
+name|jettyBinding
+parameter_list|,
+specifier|final
+name|HttpClient
+name|client
+parameter_list|,
 name|AsyncCallback
 name|callback
 parameter_list|)
 function_decl|;
-DECL|method|getBody ()
-name|byte
-index|[]
-name|getBody
-parameter_list|()
-function_decl|;
-DECL|method|getUrl ()
-name|String
-name|getUrl
-parameter_list|()
-function_decl|;
+comment|// Methods to prepare the request
 DECL|method|setRequestContentType (String contentType)
 name|void
 name|setRequestContentType
@@ -126,11 +138,6 @@ parameter_list|(
 name|String
 name|contentType
 parameter_list|)
-function_decl|;
-DECL|method|getResponseStatus ()
-name|int
-name|getResponseStatus
-parameter_list|()
 function_decl|;
 DECL|method|setMethod (String method)
 name|void
@@ -197,6 +204,15 @@ name|String
 name|s
 parameter_list|)
 function_decl|;
+DECL|method|setSupportRedirect (boolean supportRedirect)
+name|void
+name|setSupportRedirect
+parameter_list|(
+name|boolean
+name|supportRedirect
+parameter_list|)
+function_decl|;
+comment|/*      * Send using jetty HttpClient and return. The callback will be called when the response       * arrives        */
 DECL|method|send (HttpClient client)
 name|void
 name|send
@@ -206,6 +222,23 @@ name|client
 parameter_list|)
 throws|throws
 name|IOException
+function_decl|;
+comment|// Methods to retrieve the response
+DECL|method|getBody ()
+name|byte
+index|[]
+name|getBody
+parameter_list|()
+function_decl|;
+DECL|method|getUrl ()
+name|String
+name|getUrl
+parameter_list|()
+function_decl|;
+DECL|method|getResponseStatus ()
+name|int
+name|getResponseStatus
+parameter_list|()
 function_decl|;
 DECL|method|getResponseContentBytes ()
 name|byte
@@ -225,14 +258,6 @@ argument_list|>
 argument_list|>
 name|getResponseHeaders
 parameter_list|()
-function_decl|;
-DECL|method|setSupportRedirect (boolean supportRedirect)
-name|void
-name|setSupportRedirect
-parameter_list|(
-name|boolean
-name|supportRedirect
-parameter_list|)
 function_decl|;
 block|}
 end_interface

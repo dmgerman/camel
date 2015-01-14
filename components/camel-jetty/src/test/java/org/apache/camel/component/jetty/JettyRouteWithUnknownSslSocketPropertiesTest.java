@@ -56,6 +56,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
+name|server
+operator|.
+name|Server
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -84,7 +98,6 @@ return|;
 block|}
 annotation|@
 name|Test
-comment|//@Ignore for jetty 9
 DECL|method|testUnknownProperty ()
 specifier|public
 name|void
@@ -93,6 +106,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|Server
+operator|.
+name|getVersion
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"8"
+argument_list|)
+condition|)
+block|{
+comment|// SocketConnector props do not work for jetty 9
+return|return;
+block|}
 name|context
 operator|.
 name|addRoutes

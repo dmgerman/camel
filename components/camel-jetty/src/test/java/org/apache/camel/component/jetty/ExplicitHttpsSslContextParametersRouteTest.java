@@ -154,19 +154,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|eclipse
+name|junit
 operator|.
-name|jetty
-operator|.
-name|server
-operator|.
-name|ssl
-operator|.
-name|SslSelectChannelConnector
+name|Ignore
 import|;
 end_import
 
 begin_class
+annotation|@
+name|Ignore
 DECL|class|ExplicitHttpsSslContextParametersRouteTest
 specifier|public
 class|class
@@ -260,35 +256,12 @@ name|kmp
 argument_list|)
 expr_stmt|;
 comment|// From Camel 2.5.0 Camel-Jetty is using SslSelectChannelConnector instead of SslSocketConnector
-name|SslSelectChannelConnector
-name|sslSocketConnector
-init|=
-operator|new
-name|SslSelectChannelConnector
-argument_list|()
-decl_stmt|;
-name|sslSocketConnector
-operator|.
-name|getSslContextFactory
-argument_list|()
-operator|.
-name|setSslContext
-argument_list|(
-name|sslContextParameters
-operator|.
-name|createSSLContext
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|sslSocketConnector
-operator|.
-name|setPort
-argument_list|(
-name|port
-argument_list|)
-expr_stmt|;
+comment|//SslSelectChannelConnector sslSocketConnector = new SslSelectChannelConnector();
+comment|//sslSocketConnector.getSslContextFactory().setSslContext(sslContextParameters.createSSLContext());
+comment|//sslSocketConnector.setPort(port);
+comment|//return sslSocketConnector;
 return|return
-name|sslSocketConnector
+literal|null
 return|;
 block|}
 comment|// END SNIPPET: e2

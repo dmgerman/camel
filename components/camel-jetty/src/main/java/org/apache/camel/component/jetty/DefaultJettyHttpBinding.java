@@ -279,11 +279,6 @@ specifier|private
 name|boolean
 name|transferException
 decl_stmt|;
-DECL|field|supportRedirect
-specifier|private
-name|boolean
-name|supportRedirect
-decl_stmt|;
 DECL|method|DefaultJettyHttpBinding ()
 specifier|public
 name|DefaultJettyHttpBinding
@@ -836,17 +831,6 @@ operator|<
 literal|400
 condition|)
 block|{
-if|if
-condition|(
-name|this
-operator|.
-name|supportRedirect
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
 name|Collection
 argument_list|<
 name|String
@@ -1075,24 +1059,6 @@ name|getBody
 argument_list|()
 return|;
 block|}
-block|}
-annotation|@
-name|Override
-DECL|method|setSupportRedirect (boolean supportRedirect)
-specifier|public
-name|void
-name|setSupportRedirect
-parameter_list|(
-name|boolean
-name|supportRedirect
-parameter_list|)
-block|{
-name|this
-operator|.
-name|supportRedirect
-operator|=
-name|supportRedirect
-expr_stmt|;
 block|}
 DECL|method|getSimpleMap (Map<String, Collection<String>> headers)
 name|Map
