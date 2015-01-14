@@ -1002,6 +1002,24 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Returns the JSON schema representation with information about the language and the parameters it supports      *      * @param languageName the name of the language to lookup      * @throws Exception is thrown if error occurred      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Returns the JSON schema representation of the language parameters for the given language name"
+argument_list|)
+DECL|method|languageParameterJsonSchema (String languageName)
+name|String
+name|languageParameterJsonSchema
+parameter_list|(
+name|String
+name|languageName
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Returns the JSON schema representation with information about the EIP and the parameters it supports      *      * @param eipName the name of the EIP to lookup      * @throws Exception is thrown if error occurred      */
 annotation|@
 name|ManagedOperation

@@ -2104,6 +2104,17 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
+comment|/**      * Returns the JSON schema representation of the {@link Language} parameters for the given language name.      *      * @return the json or<tt>null</tt> if the language does not exist      */
+DECL|method|getLanguageParameterJsonSchema (String languageName)
+name|String
+name|getLanguageParameterJsonSchema
+parameter_list|(
+name|String
+name|languageName
+parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
 comment|/**      * Returns the JSON schema representation of the EIP parameters for the given EIP name.      *      * @return the json or<tt>null</tt> if the EIP does not exist      */
 DECL|method|getEipParameterJsonSchema (String eipName)
 name|String

@@ -3696,6 +3696,26 @@ name|dataFormatName
 argument_list|)
 return|;
 block|}
+DECL|method|languageParameterJsonSchema (String languageName)
+specifier|public
+name|String
+name|languageParameterJsonSchema
+parameter_list|(
+name|String
+name|languageName
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+name|context
+operator|.
+name|getLanguageParameterJsonSchema
+argument_list|(
+name|languageName
+argument_list|)
+return|;
+block|}
 DECL|method|eipParameterJsonSchema (String eipName)
 specifier|public
 name|String
