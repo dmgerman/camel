@@ -304,6 +304,16 @@ specifier|private
 name|String
 name|cql
 decl_stmt|;
+comment|/**      * Use PreparedStatements or normal Statements      */
+annotation|@
+name|UriParam
+DECL|field|prepareStatements
+specifier|private
+name|boolean
+name|prepareStatements
+init|=
+literal|true
+decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|clusterName
@@ -1179,6 +1189,32 @@ operator|.
 name|resultSetConversionStrategy
 operator|=
 name|resultSetConversionStrategy
+expr_stmt|;
+block|}
+DECL|method|isPrepareStatements ()
+specifier|public
+name|boolean
+name|isPrepareStatements
+parameter_list|()
+block|{
+return|return
+name|prepareStatements
+return|;
+block|}
+DECL|method|setPrepareStatements (boolean prepareStatements)
+specifier|public
+name|void
+name|setPrepareStatements
+parameter_list|(
+name|boolean
+name|prepareStatements
+parameter_list|)
+block|{
+name|this
+operator|.
+name|prepareStatements
+operator|=
+name|prepareStatements
 expr_stmt|;
 block|}
 block|}
