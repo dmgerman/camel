@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.xquery
+DECL|package|org.apache.camel.language.xquery
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|language
 operator|.
 name|xquery
 package|;
@@ -39,6 +39,22 @@ operator|.
 name|camel
 operator|.
 name|Predicate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|xquery
+operator|.
+name|XQueryBuilder
 import|;
 end_import
 
