@@ -311,14 +311,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Analyses the Camel plugins in a project and generates extra descriptor information for easier auto-discovery in Camel.  *  * @goal generate-dataformats-list  * @execute phase="generate-resources"  * @execute phase="process-classes"  */
+comment|/**  * Analyses the Camel plugins in a project and generates extra descriptor information for easier auto-discovery in Camel.  *  * @goal generate-languages-list  * @execute phase="generate-resources"  * @execute phase="process-classes"  */
 end_comment
 
 begin_class
-DECL|class|PackageDataFormatMojo
+DECL|class|PackageLanguageMojo
 specifier|public
 class|class
-name|PackageDataFormatMojo
+name|PackageLanguageMojo
 extends|extends
 name|AbstractMojo
 block|{
@@ -328,13 +328,13 @@ specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The output directory for generated dataformats file      *      * @parameter default-value="${project.build.directory}/generated/camel/dataformats"      */
+comment|/**      * The output directory for generated languages file      *      * @parameter default-value="${project.build.directory}/generated/camel/languages"      */
 DECL|field|outDir
 specifier|protected
 name|File
 name|outDir
 decl_stmt|;
-comment|/**      * The output directory for generated dataformats file      *      * @parameter default-value="${project.build.directory}/classes"      */
+comment|/**      * The output directory for generated languages file      *      * @parameter default-value="${project.build.directory}/classes"      */
 DECL|field|schemaOutDir
 specifier|protected
 name|File
@@ -456,7 +456,7 @@ name|File
 argument_list|(
 name|f
 argument_list|,
-literal|"META-INF/services/org/apache/camel/dataformat"
+literal|"META-INF/services/org/apache/camel/language"
 argument_list|)
 expr_stmt|;
 if|if
@@ -740,7 +740,7 @@ name|loader
 operator|.
 name|getResourceAsStream
 argument_list|(
-literal|"org/apache/camel/model/dataformat/"
+literal|"org/apache/camel/model/language/"
 operator|+
 name|modelName
 operator|+
@@ -765,7 +765,7 @@ name|File
 argument_list|(
 name|core
 argument_list|,
-literal|"org/apache/camel/model/dataformat/"
+literal|"org/apache/camel/model/language/"
 operator|+
 name|modelName
 operator|+
@@ -789,35 +789,35 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|DataFormatModel
-name|dataFormatModel
+name|LanguageModel
+name|languageModel
 init|=
 operator|new
-name|DataFormatModel
+name|LanguageModel
 argument_list|()
 decl_stmt|;
-name|dataFormatModel
+name|languageModel
 operator|.
 name|setName
 argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
-name|dataFormatModel
+name|languageModel
 operator|.
 name|setModelName
 argument_list|(
 name|modelName
 argument_list|)
 expr_stmt|;
-name|dataFormatModel
+name|languageModel
 operator|.
 name|setLabel
 argument_list|(
 literal|""
 argument_list|)
 expr_stmt|;
-name|dataFormatModel
+name|languageModel
 operator|.
 name|setDescription
 argument_list|(
@@ -827,14 +827,14 @@ name|getDescription
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|dataFormatModel
+name|languageModel
 operator|.
 name|setJavaType
 argument_list|(
 name|javaType
 argument_list|)
 expr_stmt|;
-name|dataFormatModel
+name|languageModel
 operator|.
 name|setGroupId
 argument_list|(
@@ -844,7 +844,7 @@ name|getGroupId
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|dataFormatModel
+name|languageModel
 operator|.
 name|setArtifactId
 argument_list|(
@@ -854,7 +854,7 @@ name|getArtifactId
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|dataFormatModel
+name|languageModel
 operator|.
 name|setVersion
 argument_list|(
@@ -909,7 +909,7 @@ literal|"label"
 argument_list|)
 condition|)
 block|{
-name|dataFormatModel
+name|languageModel
 operator|.
 name|setLabel
 argument_list|(
@@ -932,7 +932,7 @@ literal|"javaType"
 argument_list|)
 condition|)
 block|{
-name|dataFormatModel
+name|languageModel
 operator|.
 name|setModelJavaType
 argument_list|(
@@ -969,7 +969,7 @@ literal|"description"
 argument_list|)
 condition|)
 block|{
-name|dataFormatModel
+name|languageModel
 operator|.
 name|setLabel
 argument_list|(
@@ -991,7 +991,7 @@ name|debug
 argument_list|(
 literal|"Model "
 operator|+
-name|dataFormatModel
+name|languageModel
 argument_list|)
 expr_stmt|;
 comment|// build json schema for the data format
@@ -1010,7 +1010,7 @@ name|schema
 init|=
 name|createParameterJsonSchema
 argument_list|(
-name|dataFormatModel
+name|languageModel
 argument_list|,
 name|properties
 argument_list|)
@@ -1036,7 +1036,7 @@ name|schemaOutDir
 argument_list|,
 name|schemaSubDirectory
 argument_list|(
-name|dataFormatModel
+name|languageModel
 operator|.
 name|getJavaType
 argument_list|()
@@ -1100,7 +1100,7 @@ literal|" containing JSon schema for "
 operator|+
 name|name
 operator|+
-literal|" data format"
+literal|" language"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1118,7 +1118,7 @@ throw|throw
 operator|new
 name|MojoExecutionException
 argument_list|(
-literal|"Error loading dataformat model from camel-core. Reason: "
+literal|"Error loading language model from camel-core. Reason: "
 operator|+
 name|e
 argument_list|,
@@ -1152,7 +1152,7 @@ name|properties
 operator|.
 name|put
 argument_list|(
-literal|"dataFormats"
+literal|"languages"
 argument_list|,
 name|names
 argument_list|)
@@ -1230,7 +1230,7 @@ name|File
 argument_list|(
 name|camelMetaDir
 argument_list|,
-literal|"dataformat.properties"
+literal|"language.properties"
 argument_list|)
 decl_stmt|;
 try|try
@@ -1268,9 +1268,9 @@ name|count
 operator|>
 literal|1
 condition|?
-literal|"dataformats: "
+literal|"languages: "
 else|:
-literal|"dataformat: "
+literal|"language: "
 operator|)
 operator|+
 name|names
@@ -1300,7 +1300,7 @@ name|includes
 operator|.
 name|add
 argument_list|(
-literal|"**/dataformat.properties"
+literal|"**/language.properties"
 argument_list|)
 expr_stmt|;
 name|projectHelper
@@ -1336,7 +1336,7 @@ name|project
 argument_list|,
 literal|"properties"
 argument_list|,
-literal|"camelDataFormat"
+literal|"camelLanguage"
 argument_list|,
 name|outFile
 argument_list|)
@@ -1373,7 +1373,7 @@ argument_list|()
 operator|.
 name|debug
 argument_list|(
-literal|"No META-INF/services/org/apache/camel/dataformat directory found. Are you sure you have created a Camel data format?"
+literal|"No META-INF/services/org/apache/camel/language directory found. Are you sure you have created a Camel language?"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1387,24 +1387,10 @@ name|String
 name|name
 parameter_list|)
 block|{
-comment|// special for some data formats
+comment|// special for some languages
 if|if
 condition|(
-literal|"json-gson"
-operator|.
-name|equals
-argument_list|(
-name|name
-argument_list|)
-operator|||
-literal|"json-jackson"
-operator|.
-name|equals
-argument_list|(
-name|name
-argument_list|)
-operator|||
-literal|"json-xstream"
+literal|"bean"
 operator|.
 name|equals
 argument_list|(
@@ -1413,27 +1399,13 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|"json"
+literal|"method"
 return|;
 block|}
 elseif|else
 if|if
 condition|(
-literal|"bindy-csv"
-operator|.
-name|equals
-argument_list|(
-name|name
-argument_list|)
-operator|||
-literal|"bindy-fixed"
-operator|.
-name|equals
-argument_list|(
-name|name
-argument_list|)
-operator|||
-literal|"bindy-kvp"
+literal|"file"
 operator|.
 name|equals
 argument_list|(
@@ -1442,23 +1414,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|"bindy"
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-literal|"zipfile"
-operator|.
-name|equals
-argument_list|(
-name|name
-argument_list|)
-condition|)
-block|{
-comment|// darn should have been lower case
-return|return
-literal|"zipFile"
+literal|"simple"
 return|;
 block|}
 return|return
@@ -1614,13 +1570,13 @@ literal|'/'
 argument_list|)
 return|;
 block|}
-DECL|method|createParameterJsonSchema (DataFormatModel dataFormatModel, String schema)
+DECL|method|createParameterJsonSchema (LanguageModel languageModel, String schema)
 specifier|private
 name|String
 name|createParameterJsonSchema
 parameter_list|(
-name|DataFormatModel
-name|dataFormatModel
+name|LanguageModel
+name|languageModel
 parameter_list|,
 name|String
 name|schema
@@ -1640,7 +1596,7 @@ name|buffer
 operator|.
 name|append
 argument_list|(
-literal|"\n \"dataformat\": {"
+literal|"\n \"language\": {"
 argument_list|)
 expr_stmt|;
 name|buffer
@@ -1652,7 +1608,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|dataFormatModel
+name|languageModel
 operator|.
 name|getName
 argument_list|()
@@ -1672,7 +1628,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|dataFormatModel
+name|languageModel
 operator|.
 name|getModelName
 argument_list|()
@@ -1692,7 +1648,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|dataFormatModel
+name|languageModel
 operator|.
 name|getDescription
 argument_list|()
@@ -1712,7 +1668,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|dataFormatModel
+name|languageModel
 operator|.
 name|getLabel
 argument_list|()
@@ -1732,7 +1688,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|dataFormatModel
+name|languageModel
 operator|.
 name|getJavaType
 argument_list|()
@@ -1745,7 +1701,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|dataFormatModel
+name|languageModel
 operator|.
 name|getModelJavaType
 argument_list|()
@@ -1762,7 +1718,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|dataFormatModel
+name|languageModel
 operator|.
 name|getModelJavaType
 argument_list|()
@@ -1783,7 +1739,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|dataFormatModel
+name|languageModel
 operator|.
 name|getGroupId
 argument_list|()
@@ -1803,7 +1759,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|dataFormatModel
+name|languageModel
 operator|.
 name|getArtifactId
 argument_list|()
@@ -1823,7 +1779,7 @@ argument_list|)
 operator|.
 name|append
 argument_list|(
-name|dataFormatModel
+name|languageModel
 operator|.
 name|getVersion
 argument_list|()
@@ -1862,10 +1818,10 @@ name|toString
 argument_list|()
 return|;
 block|}
-DECL|class|DataFormatModel
+DECL|class|LanguageModel
 specifier|private
 class|class
-name|DataFormatModel
+name|LanguageModel
 block|{
 DECL|field|name
 specifier|private
@@ -2155,7 +2111,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"DataFormatModel["
+literal|"LanguageModel["
 operator|+
 literal|"name='"
 operator|+
