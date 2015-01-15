@@ -1185,6 +1185,13 @@ argument_list|,
 name|filePayload
 argument_list|)
 expr_stmt|;
+name|putObjectRequest
+operator|.
+name|setMetadata
+argument_list|(
+name|objectMetadata
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
