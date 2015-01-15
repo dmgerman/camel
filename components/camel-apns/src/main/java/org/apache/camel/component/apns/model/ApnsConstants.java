@@ -45,6 +45,15 @@ name|HEADER_MESSAGE_TYPE
 init|=
 literal|"CamelApnsMessageType"
 decl_stmt|;
+DECL|field|HEADER_EXPIRY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_EXPIRY
+init|=
+literal|"CamelApnsExpiry"
+decl_stmt|;
 DECL|method|ApnsConstants ()
 specifier|private
 name|ApnsConstants
