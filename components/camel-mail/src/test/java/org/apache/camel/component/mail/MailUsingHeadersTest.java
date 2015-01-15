@@ -172,6 +172,24 @@ argument_list|,
 literal|"Camel rocks"
 argument_list|)
 expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"CamelFileName"
+argument_list|,
+literal|"fileOne"
+argument_list|)
+expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"org.apache.camel.test"
+argument_list|,
+literal|"value"
+argument_list|)
+expr_stmt|;
 name|String
 name|body
 init|=
@@ -255,6 +273,30 @@ name|msg
 operator|.
 name|getSubject
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+literal|"We should not get the message header here"
+argument_list|,
+name|msg
+operator|.
+name|getHeader
+argument_list|(
+literal|"CamelFileName"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+literal|"We should not get the message header here"
+argument_list|,
+name|msg
+operator|.
+name|getHeader
+argument_list|(
+literal|"org.apache.camel.test"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
