@@ -98,6 +98,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -239,7 +249,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"src/main/java/org/apache/camel/component/jetty/CamelContinuationServlet.java"
+literal|"src/test/resources/log4j.properties"
 argument_list|)
 decl_stmt|;
 name|testingSendingFile
@@ -250,6 +260,8 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Ignore
 DECL|method|testSending18k ()
 specifier|public
 name|void
