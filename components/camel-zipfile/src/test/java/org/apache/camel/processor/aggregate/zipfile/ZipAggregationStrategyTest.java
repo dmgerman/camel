@@ -197,6 +197,15 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+name|mock
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+literal|"foo"
+argument_list|,
+literal|"bar"
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -220,6 +229,13 @@ operator|.
 name|listFiles
 argument_list|()
 decl_stmt|;
+name|assertTrue
+argument_list|(
+name|files
+operator|!=
+literal|null
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"Should be a file in target/out directory"
@@ -282,10 +298,13 @@ argument_list|()
 control|)
 block|{
 name|fileCount
-operator|++
+operator|=
+name|fileCount
+operator|+
+literal|1
 expr_stmt|;
 block|}
-name|assertTrue
+name|assertEquals
 argument_list|(
 literal|"Zip file should contains "
 operator|+
@@ -295,11 +314,11 @@ name|EXPECTED_NO_FILES
 operator|+
 literal|" files"
 argument_list|,
-name|fileCount
-operator|==
 name|ZipAggregationStrategyTest
 operator|.
 name|EXPECTED_NO_FILES
+argument_list|,
+name|fileCount
 argument_list|)
 expr_stmt|;
 block|}
@@ -342,6 +361,16 @@ comment|// Unzip file and Split it according to FileEntry
 name|from
 argument_list|(
 literal|"file:src/test/resources/org/apache/camel/aggregate/zipfile/data?consumer.delay=1000&noop=true"
+argument_list|)
+operator|.
+name|setHeader
+argument_list|(
+literal|"foo"
+argument_list|,
+name|constant
+argument_list|(
+literal|"bar"
+argument_list|)
 argument_list|)
 operator|.
 name|aggregate

@@ -202,20 +202,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|aggregate
@@ -252,8 +238,22 @@ name|FileUtil
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
 begin_comment
-comment|/**  * This aggregation strategy will aggregate all incoming messages into a ZIP file.  *<p>If the incoming exchanges contain {@link GenericFileMessage} file name will   * be taken from the body otherwise the body content will be treated as a byte   * array and the ZIP entry will be named using the message id.</p>  *<p><b>Note:</b> Please note that this aggregation strategy requires eager   * completion check to work properly.</p>  *   */
+comment|/**  * This aggregation strategy will aggregate all incoming messages into a ZIP file.  *<p>If the incoming exchanges contain {@link GenericFileMessage} file name will   * be taken from the body otherwise the body content will be treated as a byte   * array and the ZIP entry will be named using the message id.</p>  *<p><b>Note:</b> Please note that this aggregation strategy requires eager   * completion check to work properly.</p>  */
 end_comment
 
 begin_class
@@ -443,23 +443,9 @@ name|e
 argument_list|)
 throw|;
 block|}
-name|DefaultEndpoint
-name|endpoint
-init|=
-operator|(
-name|DefaultEndpoint
-operator|)
-name|newExchange
-operator|.
-name|getFromEndpoint
-argument_list|()
-decl_stmt|;
 name|answer
 operator|=
-name|endpoint
-operator|.
-name|createExchange
-argument_list|()
+name|newExchange
 expr_stmt|;
 name|answer
 operator|.
@@ -519,7 +505,7 @@ operator|.
 name|getIn
 argument_list|()
 operator|.
-name|getBody
+name|getMandatoryBody
 argument_list|(
 name|File
 operator|.
@@ -588,20 +574,10 @@ name|answer
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|GenericFileOperationFailedException
-argument_list|(
-literal|"Could not get body as file."
-argument_list|)
-throw|;
-block|}
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -622,6 +598,8 @@ block|}
 else|else
 block|{
 comment|// Handle all other messages
+try|try
+block|{
 name|byte
 index|[]
 name|buffer
@@ -631,7 +609,7 @@ operator|.
 name|getIn
 argument_list|()
 operator|.
-name|getBody
+name|getMandatoryBody
 argument_list|(
 name|byte
 index|[]
@@ -639,8 +617,6 @@ operator|.
 expr|class
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|addEntryToZip
 argument_list|(
 name|zipFile
@@ -696,7 +672,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -789,7 +765,7 @@ init|=
 operator|new
 name|byte
 index|[
-literal|1024
+literal|8192
 index|]
 decl_stmt|;
 name|ZipInputStream
@@ -891,10 +867,12 @@ operator|.
 name|closeEntry
 argument_list|()
 expr_stmt|;
-name|in
+name|IOHelper
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|in
+argument_list|)
 expr_stmt|;
 for|for
 control|(
@@ -970,15 +948,14 @@ name|closeEntry
 argument_list|()
 expr_stmt|;
 block|}
+name|IOHelper
+operator|.
+name|close
+argument_list|(
 name|zin
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+argument_list|,
 name|out
-operator|.
-name|close
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|tmpZip
 operator|.
@@ -1043,14 +1020,12 @@ throw|throw
 operator|new
 name|IOException
 argument_list|(
-literal|"Could not make temp file ("
+literal|"Cannot create temp file: "
 operator|+
 name|source
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|")"
 argument_list|)
 throw|;
 block|}
@@ -1181,15 +1156,14 @@ name|closeEntry
 argument_list|()
 expr_stmt|;
 block|}
+name|IOHelper
+operator|.
+name|close
+argument_list|(
 name|zin
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
+argument_list|,
 name|out
-operator|.
-name|close
-argument_list|()
+argument_list|)
 expr_stmt|;
 name|tmpZip
 operator|.
@@ -1197,7 +1171,7 @@ name|delete
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * This callback class is used to clean up the temporary ZIP file once the exchange has completed.      *      */
+comment|/**      * This callback class is used to clean up the temporary ZIP file once the exchange has completed.      */
 DECL|class|DeleteZipFileOnCompletion
 specifier|private
 class|class
@@ -1207,6 +1181,7 @@ name|Synchronization
 block|{
 DECL|field|fileToDelete
 specifier|private
+specifier|final
 name|File
 name|fileToDelete
 decl_stmt|;
@@ -1236,7 +1211,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// Keep the file if somthing gone a miss.
+comment|// Keep the file if something gone a miss.
 block|}
 annotation|@
 name|Override
