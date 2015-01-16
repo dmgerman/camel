@@ -290,7 +290,7 @@ begin_class
 annotation|@
 name|Label
 argument_list|(
-literal|"EIP,endpoints"
+literal|"eip,endpoints"
 argument_list|)
 annotation|@
 name|XmlRootElement

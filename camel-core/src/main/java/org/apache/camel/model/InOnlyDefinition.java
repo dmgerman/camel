@@ -104,7 +104,7 @@ begin_class
 annotation|@
 name|Label
 argument_list|(
-literal|"MEP"
+literal|"mep"
 argument_list|)
 annotation|@
 name|XmlRootElement

@@ -160,7 +160,7 @@ begin_class
 annotation|@
 name|Label
 argument_list|(
-literal|"EIP,policy"
+literal|"eip,policy"
 argument_list|)
 annotation|@
 name|XmlRootElement

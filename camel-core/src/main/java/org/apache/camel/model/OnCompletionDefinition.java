@@ -274,7 +274,7 @@ begin_class
 annotation|@
 name|Label
 argument_list|(
-literal|"EIP,routing"
+literal|"eip,routing"
 argument_list|)
 annotation|@
 name|XmlRootElement

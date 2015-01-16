@@ -188,7 +188,7 @@ begin_class
 annotation|@
 name|Label
 argument_list|(
-literal|"EIP,management"
+literal|"eip,management"
 argument_list|)
 annotation|@
 name|XmlRootElement

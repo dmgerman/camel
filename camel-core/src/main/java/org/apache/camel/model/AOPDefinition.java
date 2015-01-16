@@ -154,7 +154,7 @@ begin_class
 annotation|@
 name|Label
 argument_list|(
-literal|"EIP,intercepting"
+literal|"eip,intercepting"
 argument_list|)
 annotation|@
 name|XmlRootElement

@@ -120,7 +120,7 @@ begin_class
 annotation|@
 name|Label
 argument_list|(
-literal|"EIP,errorHandler"
+literal|"eip,errorHandler"
 argument_list|)
 annotation|@
 name|XmlRootElement

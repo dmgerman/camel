@@ -162,7 +162,7 @@ begin_class
 annotation|@
 name|Label
 argument_list|(
-literal|"EIP,routing"
+literal|"eip,routing"
 argument_list|)
 annotation|@
 name|XmlRootElement
@@ -185,6 +185,7 @@ name|LoopDefinition
 extends|extends
 name|ExpressionNode
 block|{
+comment|/**      * If the copy attribute is true, a copy of the input Exchange is used for each iteration.      * That means each iteration will start from a copy of the same message.      *<p/>      * By default loop will loop the same exchange all over, so each iteration may      * have different message content.      *      */
 annotation|@
 name|XmlAttribute
 DECL|field|copy
@@ -225,7 +226,7 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Enables copy mode so a copy of the input Exchange is used for each iteration.      * That means each iteration will start from a copy of the same message.      *<p/>      * By default loop will loop the same exchange all over, so each iteration may      * have different message content.      *      * @return the builder      */
+comment|/**      * Enables copy mode so a copy of the input Exchange is used for each iteration.      * @return the builder      */
 DECL|method|copy ()
 specifier|public
 name|LoopDefinition
