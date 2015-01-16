@@ -346,6 +346,8 @@ name|cache
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Deprecated
 DECL|field|multiParameterArray
 specifier|private
 name|Boolean
@@ -545,6 +547,7 @@ return|return
 name|ref
 return|;
 block|}
+comment|/**      * Sets a reference to a bean to use      */
 DECL|method|setRef (String ref)
 specifier|public
 name|void
@@ -571,6 +574,7 @@ return|return
 name|method
 return|;
 block|}
+comment|/**      * Sets the method name on the bean to use      */
 DECL|method|setMethod (String method)
 specifier|public
 name|void
@@ -587,6 +591,7 @@ operator|=
 name|method
 expr_stmt|;
 block|}
+comment|/**      * Sets an instance of the bean to use      */
 DECL|method|setBean (Object bean)
 specifier|public
 name|void
@@ -613,6 +618,7 @@ return|return
 name|beanType
 return|;
 block|}
+comment|/**      * Sets the Class of the bean      */
 DECL|method|setBeanType (String beanType)
 specifier|public
 name|void
@@ -629,6 +635,7 @@ operator|=
 name|beanType
 expr_stmt|;
 block|}
+comment|/**      * Sets the Class of the bean      */
 DECL|method|setBeanType (Class<?> beanType)
 specifier|public
 name|void
@@ -658,6 +665,7 @@ return|return
 name|cache
 return|;
 block|}
+comment|/**      * Caches the bean lookup, to avoid lookup up bean on every usage.      */
 DECL|method|setCache (Boolean cache)
 specifier|public
 name|void
@@ -684,6 +692,9 @@ return|return
 name|multiParameterArray
 return|;
 block|}
+comment|/**      * Whether the message body is an array type.      *      * @deprecated is to be replaced with a better solution in Camel 3.0      */
+annotation|@
+name|Deprecated
 DECL|method|setMultiParameterArray (Boolean multiParameterArray)
 specifier|public
 name|void
@@ -702,7 +713,7 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
-comment|/**      * Sets the ref String on camel bean      *      * @param ref  the bean's id in the registry      * @return the builder      * @deprecated not in use, will be removed in next Camel release      */
+comment|/**      * Sets a reference to a bean to use      *      * @param ref  the bean's id in the registry      * @return the builder      * @deprecated not in use, will be removed in next Camel release      */
 annotation|@
 name|Deprecated
 DECL|method|ref (String ref)
@@ -723,7 +734,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the calling method name of camel bean      *      * @param method  the bean's method name which wants camel to call      * @return the builder      * @deprecated not in use, will be removed in next Camel release      */
+comment|/**      * Sets the method name on the bean to use      *      * @param method  the bean's method name which wants camel to call      * @return the builder      * @deprecated not in use, will be removed in next Camel release      */
 annotation|@
 name|Deprecated
 DECL|method|method (String method)
@@ -744,7 +755,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the bean's instance that camel to call      *      * @param bean the instance of the bean      * @return the builder      * @deprecated not in use, will be removed in next Camel release      */
+comment|/**      * Sets an instance of the bean to use      *      * @param bean the instance of the bean      * @return the builder      * @deprecated not in use, will be removed in next Camel release      */
 annotation|@
 name|Deprecated
 DECL|method|bean (Object bean)

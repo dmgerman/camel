@@ -235,6 +235,7 @@ return|return
 name|beforeUri
 return|;
 block|}
+comment|/**      * Endpoint to call in AOP before.      */
 DECL|method|setBeforeUri (String beforeUri)
 specifier|public
 name|void
@@ -261,6 +262,7 @@ return|return
 name|afterUri
 return|;
 block|}
+comment|/**      * Endpoint to call in AOP after.      *<p/>      * The difference between after and afterFinally is that afterFinally is invoked from a finally block      * so it will always be invoked no matter what, eg also in case of an exception occur.      */
 DECL|method|setAfterUri (String afterUri)
 specifier|public
 name|void
@@ -287,6 +289,7 @@ return|return
 name|afterFinallyUri
 return|;
 block|}
+comment|/**      * Endpoint to call in AOP after finally.      *<p/>      * The difference between after and afterFinally is that afterFinally is invoked from a finally block      * so it will always be invoked no matter what, eg also in case of an exception occur.      */
 DECL|method|setAfterFinallyUri (String afterFinallyUri)
 specifier|public
 name|void
