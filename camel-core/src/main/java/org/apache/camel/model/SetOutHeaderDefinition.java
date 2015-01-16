@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;setOutHeader/&gt; element  *  * @deprecated not really needed, will be removed in the future  */
+comment|/**  * Sets the value of a header on the outbound message  *  * @deprecated not really needed, will be removed in the future  */
 end_comment
 
 begin_class

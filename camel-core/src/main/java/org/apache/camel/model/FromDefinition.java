@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;from/&gt; element  *  * @version   */
+comment|/**  * Act as a message source as input to a route  *  * @version   */
 end_comment
 
 begin_class

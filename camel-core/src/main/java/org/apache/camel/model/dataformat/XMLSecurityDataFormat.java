@@ -193,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents as XML Security Encrypter/Decrypter {@link DataFormat}  */
+comment|/**  * xml-security data format  */
 end_comment
 
 begin_class

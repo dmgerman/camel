@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For expressions and predicates using a reference to an existing  * {@link org.apache.camel.Expression} or {@link org.apache.camel.Predicate}  * to lookup from the {@link org.apache.camel.spi.Registry}.  */
+comment|/**  * For using a custom expression  */
 end_comment
 
 begin_class

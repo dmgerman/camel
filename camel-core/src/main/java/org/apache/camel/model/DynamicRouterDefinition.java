@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;dynamicRouter/&gt; element  */
+comment|/**  * Routes messages based on dynamic rules  */
 end_comment
 
 begin_class

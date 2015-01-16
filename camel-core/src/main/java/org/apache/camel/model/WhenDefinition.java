@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;when/&gt; element  *   * @version   */
+comment|/**  * Triggers a route when an expression evaluates to<tt>true</tt>  *   * @version   */
 end_comment
 
 begin_class

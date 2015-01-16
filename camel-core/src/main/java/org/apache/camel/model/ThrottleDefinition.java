@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;throttle/&gt; element  *  * @version   */
+comment|/**  * Controls the rate at which messages are passed to the next node in the route  *  * @version   */
 end_comment
 
 begin_class

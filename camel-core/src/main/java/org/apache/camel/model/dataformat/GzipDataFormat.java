@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the GZip {@link DataFormat}  *  * @version   */
+comment|/**  * GZip data format  *  * @version   */
 end_comment
 
 begin_class

@@ -127,7 +127,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;rollback/&gt; element  */
+comment|/**  * Forces a rollback by stopping routing the message  */
 end_comment
 
 begin_class

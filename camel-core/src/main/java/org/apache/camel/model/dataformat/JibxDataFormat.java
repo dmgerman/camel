@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the JiBX XML {@link org.apache.camel.spi.DataFormat}  */
+comment|/**  * JiBX data format  */
 end_comment
 
 begin_class

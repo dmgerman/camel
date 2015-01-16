@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a<a href="http://camel.apache.org/castor.html">Castor</a> {@link org.apache.camel.spi.DataFormat}.  *  * @version   */
+comment|/**  * Castor data format  *  * @version   */
 end_comment
 
 begin_class

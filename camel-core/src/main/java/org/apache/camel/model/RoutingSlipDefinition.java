@@ -175,7 +175,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;routingSlip/&gt; element  */
+comment|/**  * Routes a message through a series of steps that are pre-determined (the slip)  */
 end_comment
 
 begin_class

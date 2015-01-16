@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the ZIP XML {@link org.apache.camel.spi.DataFormat}  */
+comment|/**  * zip data format (not for zip files)  */
 end_comment
 
 begin_class

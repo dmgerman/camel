@@ -195,7 +195,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;policy/&gt; element  *  * @version   */
+comment|/**  * Defines a policy the route will use  *  * @version   */
 end_comment
 
 begin_class

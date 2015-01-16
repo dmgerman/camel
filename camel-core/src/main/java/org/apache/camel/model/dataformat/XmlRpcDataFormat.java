@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the XmlRpc XML {@link org.apache.camel.spi.DataFormat}  */
+comment|/**  * xml-rpc data format  */
 end_comment
 
 begin_class

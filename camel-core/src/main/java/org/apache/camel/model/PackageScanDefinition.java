@@ -93,7 +93,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<code>PackageScanDefinition</code> represents a&lt;packageScan/&gt element.  */
+comment|/**  * Scans for Java {@link org.apache.camel.builder.RouteBuilder} classes in java packages  */
 end_comment
 
 begin_class

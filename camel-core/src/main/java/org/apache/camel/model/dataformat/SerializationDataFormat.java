@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the Java Serialization {@link DataFormat}  *  * @version   */
+comment|/**  * Java Object Serialization data format  *  * @version   */
 end_comment
 
 begin_class

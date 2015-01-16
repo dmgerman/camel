@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a<a href="http://camel.apache.org/syslog.html">Syslog</a> {@link org.apache.camel.spi.DataFormat}.  *  * @version   */
+comment|/**  * Syslog data format  *  * @version   */
 end_comment
 
 begin_class

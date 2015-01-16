@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;redeliveryPolicy/&gt; element  *  * @version   */
+comment|/**  * To configure re-delivery for error handling  *  * @version   */
 end_comment
 
 begin_class

@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the BeanIO {@link org.apache.camel.spi.DataFormat}  *  * @version   */
+comment|/**  * BeanIO data format  *  * @version   */
 end_comment
 
 begin_class

@@ -225,7 +225,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;choice/&gt; element  *  * @version  */
+comment|/**  * Routes messages based on a series of predicates  *  * @version  */
 end_comment
 
 begin_class

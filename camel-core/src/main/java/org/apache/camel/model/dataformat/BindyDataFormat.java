@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the Bindy {@link org.apache.camel.spi.DataFormat}  *  * @version   */
+comment|/**  * Bindy data format  *  * @version   */
 end_comment
 
 begin_class

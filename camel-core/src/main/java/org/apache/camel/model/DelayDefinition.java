@@ -207,7 +207,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;delay/&gt; element  *  * @version   */
+comment|/**  * Delays processing for a specified length of time  *  * @version   */
 end_comment
 
 begin_class

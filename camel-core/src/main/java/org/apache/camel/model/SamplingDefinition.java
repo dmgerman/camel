@@ -181,7 +181,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;sample/&gt; element  *  * @version   */
+comment|/**  * Extract a sample of the messages passing through a route  *  * @version   */
 end_comment
 
 begin_class

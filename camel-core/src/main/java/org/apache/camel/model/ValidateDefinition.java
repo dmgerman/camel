@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;validate/&gt; element  *  * @version   */
+comment|/**  * Validates a message based on an expression  *  * @version   */
 end_comment
 
 begin_class

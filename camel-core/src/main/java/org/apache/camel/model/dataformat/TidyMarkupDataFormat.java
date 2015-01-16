@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a wellformed HTML document (XML well Formed) {@link DataFormat}  */
+comment|/**  * Tidymark (wellformed HTML) data format  */
 end_comment
 
 begin_class

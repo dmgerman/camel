@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the uniVocity CSV {@link org.apache.camel.spi.DataFormat}  */
+comment|/**  * UniVocity CSV data format  */
 end_comment
 
 begin_class

@@ -303,7 +303,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;recipientList/&gt; element  *  * @version   */
+comment|/**  * Routes messages to a number of dynamically specified recipients (dynamic to)  *  * @version   */
 end_comment
 
 begin_class

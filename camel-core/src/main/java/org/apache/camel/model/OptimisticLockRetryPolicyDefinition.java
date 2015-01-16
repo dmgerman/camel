@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;optimisticLockRetryPolicy/&gt; element  *  * @version  */
+comment|/**  * To configure optimistic locking  *  * @version  */
 end_comment
 
 begin_class

@@ -391,7 +391,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;onException/&gt; element  *  * @version   */
+comment|/**  * Route to be executed when an exception is thrown  *  * @version   */
 end_comment
 
 begin_class

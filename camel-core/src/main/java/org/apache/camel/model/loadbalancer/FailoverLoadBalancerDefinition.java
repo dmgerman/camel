@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;failover/&gt; element  */
+comment|/**  * Failover load balancer  */
 end_comment
 
 begin_class

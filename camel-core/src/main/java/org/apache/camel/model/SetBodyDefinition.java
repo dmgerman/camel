@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;setBody/&gt; element.  */
+comment|/**  * Sets the contents of the message body  */
 end_comment
 
 begin_class

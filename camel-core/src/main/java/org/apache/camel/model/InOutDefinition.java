@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;inOut/&gt; element  *  * @version   */
+comment|/**  * Marks the exchange pattern for the route to request/reply  *  * @version   */
 end_comment
 
 begin_class

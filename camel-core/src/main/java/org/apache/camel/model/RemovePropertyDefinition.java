@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;removeProperty/&gt; element  */
+comment|/**  * Removes a named property from the message exchange  */
 end_comment
 
 begin_class

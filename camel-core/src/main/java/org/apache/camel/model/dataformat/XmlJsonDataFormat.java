@@ -173,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a<a href="http://camel.apache.org/xmljson.html">XML-JSON</a> {@link org.apache.camel.spi.DataFormat}.  *  * @version   */
+comment|/**  * xml-json data format  *  * @version   */
 end_comment
 
 begin_class

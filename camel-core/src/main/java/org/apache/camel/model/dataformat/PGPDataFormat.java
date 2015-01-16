@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a<a href="http://camel.apache.org/crypto.html">pgp</a>  * {@link org.apache.camel.spi.DataFormat}.  */
+comment|/**  * PGP data format  */
 end_comment
 
 begin_class

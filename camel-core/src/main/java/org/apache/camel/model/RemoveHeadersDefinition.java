@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;removeHeaders/&gt; element  */
+comment|/**  * Removes message headers whose name matches a specified pattern  */
 end_comment
 
 begin_class

@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;stop/&gt; element  *  * @version   */
+comment|/**  * Stops the processing of the current message  *  * @version   */
 end_comment
 
 begin_class

@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a collection of {@link org.apache.camel.model.rest.RestDefinition REST's}  */
+comment|/**  * A series of rest services defined using the rest-dsl  */
 end_comment
 
 begin_class

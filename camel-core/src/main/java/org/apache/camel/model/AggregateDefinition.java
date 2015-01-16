@@ -389,7 +389,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;aggregate/&gt; element  *  * @version   */
+comment|/**  * Aggregates many messages into a single message  *  * @version   */
 end_comment
 
 begin_class

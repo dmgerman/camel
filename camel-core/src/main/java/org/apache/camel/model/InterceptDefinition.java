@@ -185,7 +185,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;intercept/&gt; element  *  * @version   */
+comment|/**  * Intercepts a message at each step in the route  *  * @version   */
 end_comment
 
 begin_class

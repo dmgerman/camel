@@ -211,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;enrich/&gt; element  *  * @see Enricher  */
+comment|/**  * Enriches a message with data from a secondary resource  *  * @see Enricher  */
 end_comment
 
 begin_class

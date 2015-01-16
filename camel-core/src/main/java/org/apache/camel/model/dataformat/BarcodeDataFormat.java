@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Barcode DataFormat {@link org.apache.camel.spi.DataFormat}  *  * @version   */
+comment|/**  * Barcode data format  *  * @version   */
 end_comment
 
 begin_class

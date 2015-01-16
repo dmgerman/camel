@@ -237,7 +237,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;log/&gt; element  *  * @version   */
+comment|/**  * Logs the defined message to the logger  *  * @version   */
 end_comment
 
 begin_class

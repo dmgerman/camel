@@ -163,7 +163,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;sticky/&gt; element  */
+comment|/**  * Sticky load balancer  */
 end_comment
 
 begin_class

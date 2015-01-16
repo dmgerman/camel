@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the XMLBeans XML {@link org.apache.camel.spi.DataFormat}  *  * @version   */
+comment|/**  * XMLBeans data format  *  * @version   */
 end_comment
 
 begin_class

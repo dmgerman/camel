@@ -207,7 +207,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;process/&gt; element  *  * @version   */
+comment|/**  * Calls a Camel processor.  *  * @version   */
 end_comment
 
 begin_class

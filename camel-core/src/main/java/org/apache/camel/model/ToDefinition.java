@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;to/&gt; element  *  * @version   */
+comment|/**  * Sends the message to an endpoint  *  * @version   */
 end_comment
 
 begin_class

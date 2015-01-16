@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;filter/&gt; element  *  * @version   */
+comment|/**  * Filter out messages based using a predicate  *  * @version   */
 end_comment
 
 begin_class

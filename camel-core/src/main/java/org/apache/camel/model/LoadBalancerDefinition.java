@@ -191,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;loadBalancer/&gt; element  */
+comment|/**  * Balances message processing among a number of nodes  */
 end_comment
 
 begin_class

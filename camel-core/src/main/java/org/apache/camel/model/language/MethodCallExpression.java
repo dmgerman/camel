@@ -291,7 +291,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For expressions and predicates using the  *<a href="http://camel.apache.org/bean-language.html">bean language</a>  *  * @version  */
+comment|/**  * For expressions and predicates using a java bean (aka method call)  *  * @version  */
 end_comment
 
 begin_class

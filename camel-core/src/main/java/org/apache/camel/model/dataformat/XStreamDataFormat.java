@@ -307,7 +307,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the XStream XML {@link org.apache.camel.spi.DataFormat}  *  * @version   */
+comment|/**  * xstream data format  *  * @version   */
 end_comment
 
 begin_class

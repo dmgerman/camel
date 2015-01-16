@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the XML type for&lt;restProperty&gt;.  */
+comment|/**  * A key value pair  */
 end_comment
 
 begin_class

@@ -197,7 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;setHeader/&gt; element  */
+comment|/**  * Sets the value of a message header  */
 end_comment
 
 begin_class

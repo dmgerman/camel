@@ -275,7 +275,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;transacted/&gt; element  *  * @version   */
+comment|/**  * Enables transaction on the route  *  * @version   */
 end_comment
 
 begin_class

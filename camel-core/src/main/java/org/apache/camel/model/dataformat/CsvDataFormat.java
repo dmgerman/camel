@@ -181,7 +181,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a CSV (Comma Separated Values) {@link org.apache.camel.spi.DataFormat}  */
+comment|/**  * CSV data format  */
 end_comment
 
 begin_class

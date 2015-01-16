@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;transform/&gt; element  */
+comment|/**  * Transforms the message body based on an expression  */
 end_comment
 
 begin_class

@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;roundRobin/&gt; element  */
+comment|/**  * Round robin load balancer  */
 end_comment
 
 begin_class

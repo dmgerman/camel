@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;finally/&gt; element  *  * @version   */
+comment|/**  * Path traversed when a try, catch, finally block exits  *  * @version   */
 end_comment
 
 begin_class

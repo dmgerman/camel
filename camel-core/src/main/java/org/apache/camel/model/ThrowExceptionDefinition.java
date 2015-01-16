@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;throwException/&gt; element  */
+comment|/**  * Throws an exception  */
 end_comment
 
 begin_class

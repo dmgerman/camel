@@ -107,7 +107,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<code>ContextScanDefinition</code> represents a&lt;contextScan/&gt element.  */
+comment|/**  * Scans for Java {@link org.apache.camel.builder.RouteBuilder} instances in the context {@link org.apache.camel.spi.Registry}.  */
 end_comment
 
 begin_class

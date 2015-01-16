@@ -239,7 +239,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;catch/&gt; element  *  * @version   */
+comment|/**  * Catches exceptions as part of a try, catch, finally block  *  * @version   */
 end_comment
 
 begin_class

@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a header for the uniVocity data formats.  */
+comment|/**  * To configure headers for UniVocity data formats.  */
 end_comment
 
 begin_class

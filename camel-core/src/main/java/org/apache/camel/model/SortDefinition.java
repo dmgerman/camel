@@ -193,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;sort/&gt; element  */
+comment|/**  * Sorts the contents of the message  */
 end_comment
 
 begin_class

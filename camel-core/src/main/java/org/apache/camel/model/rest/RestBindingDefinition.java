@@ -216,6 +216,10 @@ name|IntrospectionSupport
 import|;
 end_import
 
+begin_comment
+comment|/**  * To configure rest binding  */
+end_comment
+
 begin_class
 annotation|@
 name|Label

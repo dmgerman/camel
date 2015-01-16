@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a<a href="http://camel.apache.org/flatpack.html">Flatpack</a> {@link org.apache.camel.spi.DataFormat}.  */
+comment|/**  * Flatpack data format  */
 end_comment
 
 begin_class

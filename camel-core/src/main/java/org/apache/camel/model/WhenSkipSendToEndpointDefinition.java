@@ -82,6 +82,10 @@ name|RouteContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * Predicate to determine if the message should be sent or not to the endpoint, when using interceptSentToEndpoint.  */
+end_comment
+
 begin_class
 annotation|@
 name|Label

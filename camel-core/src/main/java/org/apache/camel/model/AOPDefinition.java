@@ -147,7 +147,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;aop/&gt; element  *  * @deprecated will be removed in the future. You can for example use {@link Processor} and  * {@link org.apache.camel.spi.InterceptStrategy} to do AOP in Camel.  * @version   */
+comment|/**  * Does processing before and/or after the route is completed  *  * @deprecated will be removed in the future. You can for example use {@link Processor} and  * {@link org.apache.camel.spi.InterceptStrategy} to do AOP in Camel.  * @version   */
 end_comment
 
 begin_class

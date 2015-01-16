@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;random/&gt; element  */
+comment|/**  * Random load balancer  */
 end_comment
 
 begin_class

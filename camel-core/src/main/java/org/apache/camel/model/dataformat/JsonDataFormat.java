@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the Json {@link DataFormat}  *  * @version   */
+comment|/**  * Json data format  *  * @version   */
 end_comment
 
 begin_class

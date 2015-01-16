@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the custom {@link org.apache.camel.spi.DataFormat} to lookup using a reference  *  * @version  */
+comment|/**  * Custom data format  *  * @version  */
 end_comment
 
 begin_class

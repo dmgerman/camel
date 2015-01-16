@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;routeBuilderRef/&gt; element  *  * @version   */
+comment|/**  * To refer to a Java {@link org.apache.camel.builder.RouteBuilder} instance to use.  *  * @version   */
 end_comment
 
 begin_class

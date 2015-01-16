@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the Base64 {@link org.apache.camel.spi.DataFormat}  *  * @version   */
+comment|/**  * Base64 data format  *  * @version   */
 end_comment
 
 begin_class

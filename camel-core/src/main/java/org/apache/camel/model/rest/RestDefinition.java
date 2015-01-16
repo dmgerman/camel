@@ -235,7 +235,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;rest/&gt; element  */
+comment|/**  * Defines a rest service using the rest-dsl  */
 end_comment
 
 begin_class

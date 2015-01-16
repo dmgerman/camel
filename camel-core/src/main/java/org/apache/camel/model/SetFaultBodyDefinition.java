@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;setFaultBody/&gt; element.  */
+comment|/**  *  Sets the contents of a fault message's body  */
 end_comment
 
 begin_class

@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the XML type for&lt;properties&gt;.  */
+comment|/**  * A series of key value pair  */
 end_comment
 
 begin_class

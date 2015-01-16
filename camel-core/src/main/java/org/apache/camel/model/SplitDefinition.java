@@ -253,7 +253,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;split/&gt; element  *  * @version   */
+comment|/**  * Splits a single message into many sub-messages.  *  * @version   */
 end_comment
 
 begin_class

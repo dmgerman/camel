@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;otherwise/&gt; element  *  * @version   */
+comment|/**  * Route to be executed when all other choices evaluate to<tt>false</tt>  *  * @version   */
 end_comment
 
 begin_class

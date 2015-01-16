@@ -172,6 +172,10 @@ name|Label
 import|;
 end_import
 
+begin_comment
+comment|/**  * Rest command  */
+end_comment
+
 begin_class
 annotation|@
 name|Label

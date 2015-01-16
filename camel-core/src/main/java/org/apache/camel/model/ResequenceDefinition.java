@@ -351,7 +351,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;resequence/&gt; element  *  * @version   */
+comment|/**  * Resequences (re-order) messages based on an expression  *  * @version   */
 end_comment
 
 begin_class

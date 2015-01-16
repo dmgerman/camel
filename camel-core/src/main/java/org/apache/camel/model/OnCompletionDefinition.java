@@ -267,7 +267,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;onCompletion/&gt; element  *  * @version   */
+comment|/**  * Route to be executed when normal route processing completes  *  * @version   */
 end_comment
 
 begin_class

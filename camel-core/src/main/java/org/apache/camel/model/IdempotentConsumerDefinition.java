@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;idempotentConsumer/&gt; element  */
+comment|/**  * Filters out duplicate messages  */
 end_comment
 
 begin_class

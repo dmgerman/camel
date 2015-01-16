@@ -197,7 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;circuitBreaker/&gt; element  */
+comment|/**  * Circuit break load balancer  */
 end_comment
 
 begin_class

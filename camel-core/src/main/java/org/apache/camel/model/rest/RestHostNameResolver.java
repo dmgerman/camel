@@ -60,6 +60,10 @@ name|Label
 import|;
 end_import
 
+begin_comment
+comment|/**  * To configure the rest hostname resolver  */
+end_comment
+
 begin_enum
 annotation|@
 name|Label

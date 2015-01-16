@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;setExchangePattern/&gt; element  *  * @version   */
+comment|/**  * Sets the exchange pattern on the message exchange  *  * @version   */
 end_comment
 
 begin_class

@@ -277,7 +277,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;wireTap/&gt; element  */
+comment|/**  * Routes a copy of a message (or creates a new message) to a secondary destination while continue routing the original message.  */
 end_comment
 
 begin_class

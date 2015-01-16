@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;restConfiguration/&gt; element  */
+comment|/**  * To configure rest  */
 end_comment
 
 begin_class

@@ -697,7 +697,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marshals to a binary payload using the given {@link DataFormatDefinition}  *  * @version   */
+comment|/**  * Marshals data into a specified format for transmission over a transport or component  *  * @version   */
 end_comment
 
 begin_class

@@ -211,7 +211,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;pollEnrich/&gt; element  *  * @see org.apache.camel.processor.Enricher  */
+comment|/**  * Enriches messages with data polled from a secondary resource  *  * @see org.apache.camel.processor.Enricher  */
 end_comment
 
 begin_class

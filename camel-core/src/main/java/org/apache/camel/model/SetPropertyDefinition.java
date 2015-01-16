@@ -197,7 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;setProperty/&gt; element  */
+comment|/**  * Sets a named property on the message exchange  */
 end_comment
 
 begin_class

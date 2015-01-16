@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a avro DataFormat {@link org.apache.camel.spi.DataFormat}  *  * @version   */
+comment|/**  * Avro data format  *  * @version   */
 end_comment
 
 begin_class

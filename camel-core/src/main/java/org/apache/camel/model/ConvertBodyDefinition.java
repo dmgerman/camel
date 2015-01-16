@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an XML&lt;convertBodyTo/&gt; element  */
+comment|/**  * Converts the message body to another type  */
 end_comment
 
 begin_class

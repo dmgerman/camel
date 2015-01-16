@@ -697,7 +697,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unmarshals the binary payload using the given {@link DataFormatDefinition}  *  * @version   */
+comment|/**  * Converts the message data received from the wire into a format that Apache Camel processors can consume  *  * @version   */
 end_comment
 
 begin_class
