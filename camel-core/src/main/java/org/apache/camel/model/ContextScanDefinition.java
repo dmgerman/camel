@@ -92,11 +92,30 @@ name|XmlRootElement
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Label
+import|;
+end_import
+
 begin_comment
 comment|/**  *<code>ContextScanDefinition</code> represents a&lt;contextScan/&gt element.  */
 end_comment
 
 begin_class
+annotation|@
+name|Label
+argument_list|(
+literal|"configuration"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(

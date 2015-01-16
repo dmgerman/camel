@@ -150,7 +150,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ThreadPoolProfile
+name|Label
 import|;
 end_import
 
@@ -159,6 +159,11 @@ comment|/**  * Represents an XML&lt;threadPoolProfile/&gt; element  *  * @versio
 end_comment
 
 begin_class
+annotation|@
+name|Label
+argument_list|(
+literal|"configuration"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(

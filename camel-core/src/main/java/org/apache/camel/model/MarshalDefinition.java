@@ -704,7 +704,7 @@ begin_class
 annotation|@
 name|Label
 argument_list|(
-literal|"transformation"
+literal|"EIP,transformation"
 argument_list|)
 annotation|@
 name|XmlRootElement

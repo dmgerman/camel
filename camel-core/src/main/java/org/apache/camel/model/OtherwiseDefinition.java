@@ -90,6 +90,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Label
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RouteContext
 import|;
 end_import
@@ -113,6 +127,11 @@ comment|/**  * Represents an XML&lt;otherwise/&gt; element  *  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Label
+argument_list|(
+literal|"EIP,routing"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(
