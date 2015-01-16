@@ -1519,6 +1519,23 @@ name|counter
 expr_stmt|;
 block|}
 block|}
+DECL|method|beginTime (Exchange exchange)
+specifier|protected
+name|void
+name|beginTime
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|counter
+operator|.
+name|processExchange
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|recordTime (Exchange exchange, long duration)
 specifier|protected
 name|void
@@ -1643,8 +1660,9 @@ throws|throws
 name|Exception
 block|{
 comment|// only record time if stats is enabled
-return|return
-operator|(
+name|StopWatch
+name|answer
+init|=
 name|counter
 operator|!=
 literal|null
@@ -1653,13 +1671,28 @@ name|counter
 operator|.
 name|isStatisticsEnabled
 argument_list|()
-operator|)
 condition|?
 operator|new
 name|StopWatch
 argument_list|()
 else|:
 literal|null
+decl_stmt|;
+if|if
+condition|(
+name|answer
+operator|!=
+literal|null
+condition|)
+block|{
+name|beginTime
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
 return|;
 block|}
 annotation|@

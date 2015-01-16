@@ -333,6 +333,20 @@ argument_list|()
 else|:
 literal|null
 decl_stmt|;
+comment|// mark beginning to process the exchange
+if|if
+condition|(
+name|watch
+operator|!=
+literal|null
+condition|)
+block|{
+name|beginTime
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|processor
 operator|.
@@ -405,6 +419,23 @@ block|}
 block|}
 argument_list|)
 return|;
+block|}
+DECL|method|beginTime (Exchange exchange)
+specifier|protected
+name|void
+name|beginTime
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|counter
+operator|.
+name|processExchange
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|recordTime (Exchange exchange, long duration)
 specifier|protected

@@ -602,18 +602,13 @@ name|getInflightExchanges
 parameter_list|()
 block|{
 return|return
-name|context
+operator|(
+name|int
+operator|)
+name|super
 operator|.
-name|getInflightRepository
+name|getExchangesInflight
 argument_list|()
-operator|.
-name|size
-argument_list|(
-name|route
-operator|.
-name|getId
-argument_list|()
-argument_list|)
 return|;
 block|}
 DECL|method|getCamelId ()

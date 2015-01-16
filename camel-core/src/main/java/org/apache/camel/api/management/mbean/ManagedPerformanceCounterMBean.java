@@ -103,6 +103,20 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Number of inflight exchanges"
+argument_list|)
+DECL|method|getExchangesInflight ()
+name|long
+name|getExchangesInflight
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Number of failures handled"
 argument_list|)
 DECL|method|getFailuresHandled ()

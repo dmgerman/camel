@@ -262,6 +262,20 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|decrement ()
+specifier|public
+specifier|synchronized
+name|void
+name|decrement
+parameter_list|()
+block|{
+name|updateValue
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getValue ()
 specifier|public
 specifier|synchronized

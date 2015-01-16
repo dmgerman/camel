@@ -40,6 +40,15 @@ specifier|public
 interface|interface
 name|PerformanceCounter
 block|{
+comment|/**      * Executed when an {@link org.apache.camel.Exchange} is about to be processed.      *      * @param exchange the exchange      */
+DECL|method|processExchange (Exchange exchange)
+name|void
+name|processExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+function_decl|;
 comment|/**      * Executed when an {@link org.apache.camel.Exchange} is complete.      *      * @param exchange the exchange      * @param time the time it took in millis to complete      */
 DECL|method|completedExchange (Exchange exchange, long time)
 name|void

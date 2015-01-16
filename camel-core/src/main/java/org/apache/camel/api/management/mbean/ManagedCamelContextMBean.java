@@ -303,6 +303,7 @@ name|Boolean
 name|tracing
 parameter_list|)
 function_decl|;
+comment|/**      * @deprecated use {@link #getExchangesInflight()}      */
 annotation|@
 name|ManagedAttribute
 argument_list|(

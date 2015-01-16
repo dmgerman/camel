@@ -97,6 +97,31 @@ name|statisticsEnabled
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|processExchange (Exchange exchange)
+specifier|public
+name|void
+name|processExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+if|if
+condition|(
+name|counter
+operator|!=
+literal|null
+condition|)
+block|{
+name|counter
+operator|.
+name|processExchange
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|completedExchange (Exchange exchange, long time)
 specifier|public
 name|void
@@ -109,6 +134,13 @@ name|long
 name|time
 parameter_list|)
 block|{
+if|if
+condition|(
+name|counter
+operator|!=
+literal|null
+condition|)
+block|{
 name|counter
 operator|.
 name|completedExchange
@@ -118,6 +150,7 @@ argument_list|,
 name|time
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|failedExchange (Exchange exchange)
 specifier|public
