@@ -182,6 +182,24 @@ name|cassandra
 operator|.
 name|CassandraUtils
 operator|.
+name|append
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|utils
+operator|.
+name|cassandra
+operator|.
+name|CassandraUtils
+operator|.
 name|applyConsistencyLevel
 import|;
 end_import
@@ -247,7 +265,6 @@ end_comment
 begin_class
 DECL|class|CassandraIdempotentRepository
 specifier|public
-specifier|abstract
 class|class
 name|CassandraIdempotentRepository
 parameter_list|<
@@ -292,12 +309,29 @@ name|table
 init|=
 literal|"CAMEL_IDEMPOTENT"
 decl_stmt|;
+comment|/**      * Values used as primary key prefix      */
+DECL|field|prefixPKValues
+specifier|private
+name|Object
+index|[]
+name|prefixPKValues
+init|=
+operator|new
+name|Object
+index|[
+literal|0
+index|]
+decl_stmt|;
 comment|/**      * Primary key columns      */
 DECL|field|pkColumns
 specifier|private
 name|String
 index|[]
 name|pkColumns
+init|=
+block|{
+literal|"KEY"
+block|}
 decl_stmt|;
 comment|/**      * Time to live in seconds used for inserts      */
 DECL|field|ttl
@@ -444,7 +478,6 @@ block|}
 block|}
 DECL|method|getPKValues (K key)
 specifier|protected
-specifier|abstract
 name|Object
 index|[]
 name|getPKValues
@@ -452,7 +485,16 @@ parameter_list|(
 name|K
 name|key
 parameter_list|)
-function_decl|;
+block|{
+return|return
+name|append
+argument_list|(
+name|prefixPKValues
+argument_list|,
+name|key
+argument_list|)
+return|;
+block|}
 comment|// -------------------------------------------------------------------------
 comment|// Lifecycle methods
 annotation|@
@@ -972,6 +1014,34 @@ operator|.
 name|readConsistencyLevel
 operator|=
 name|readConsistencyLevel
+expr_stmt|;
+block|}
+DECL|method|getPrefixPKValues ()
+specifier|public
+name|Object
+index|[]
+name|getPrefixPKValues
+parameter_list|()
+block|{
+return|return
+name|prefixPKValues
+return|;
+block|}
+DECL|method|setPrefixPKValues (Object[] prefixPKValues)
+specifier|public
+name|void
+name|setPrefixPKValues
+parameter_list|(
+name|Object
+index|[]
+name|prefixPKValues
+parameter_list|)
+block|{
+name|this
+operator|.
+name|prefixPKValues
+operator|=
+name|prefixPKValues
 expr_stmt|;
 block|}
 block|}

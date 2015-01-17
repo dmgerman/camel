@@ -261,10 +261,10 @@ comment|/**  * Unite test for {@link CassandraAggregationRepository}  */
 end_comment
 
 begin_class
-DECL|class|CassandraAggregationRepositoryTest
+DECL|class|NamedCassandraAggregationRepositoryTest
 specifier|public
 class|class
-name|CassandraAggregationRepositoryTest
+name|NamedCassandraAggregationRepositoryTest
 block|{
 annotation|@
 name|Rule
@@ -277,7 +277,7 @@ name|CassandraUnitUtils
 operator|.
 name|cassandraCQLUnit
 argument_list|(
-literal|"AggregationDataSet.cql"
+literal|"NamedAggregationDataSet.cql"
 argument_list|)
 decl_stmt|;
 DECL|field|cluster
@@ -354,9 +354,18 @@ expr_stmt|;
 name|aggregationRepository
 operator|=
 operator|new
-name|CassandraAggregationRepository
+name|NamedCassandraAggregationRepository
 argument_list|(
 name|session
+argument_list|,
+literal|"ID"
+argument_list|)
+expr_stmt|;
+name|aggregationRepository
+operator|.
+name|setTable
+argument_list|(
+literal|"NAMED_CAMEL_AGGREGATION"
 argument_list|)
 expr_stmt|;
 name|aggregationRepository
@@ -422,7 +431,9 @@ name|session
 operator|.
 name|execute
 argument_list|(
-literal|"select KEY from CAMEL_AGGREGATION where KEY=?"
+literal|"select KEY from NAMED_CAMEL_AGGREGATION where NAME=? and KEY=?"
+argument_list|,
+literal|"ID"
 argument_list|,
 name|key
 argument_list|)

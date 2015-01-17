@@ -369,7 +369,6 @@ end_comment
 begin_class
 DECL|class|CassandraAggregationRepository
 specifier|public
-specifier|abstract
 class|class
 name|CassandraAggregationRepository
 extends|extends
@@ -424,12 +423,29 @@ name|exchangeColumn
 init|=
 literal|"EXCHANGE"
 decl_stmt|;
+comment|/**      * Values used as primary key prefix      */
+DECL|field|prefixPKValues
+specifier|private
+name|Object
+index|[]
+name|prefixPKValues
+init|=
+operator|new
+name|Object
+index|[
+literal|0
+index|]
+decl_stmt|;
 comment|/**      * Primary key columns      */
 DECL|field|pkColumns
 specifier|private
 name|String
 index|[]
 name|pkColumns
+init|=
+block|{
+literal|"KEY"
+block|}
 decl_stmt|;
 comment|/**      * Exchange marshaller/unmarshaller      */
 DECL|field|exchangeCodec
@@ -559,16 +575,7 @@ name|keyspace
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Get fixed primary key values.      */
-DECL|method|getPKValues ()
-specifier|protected
-specifier|abstract
-name|Object
-index|[]
-name|getPKValues
-parameter_list|()
-function_decl|;
-comment|/**      * Generate primary key values: fixed + aggregation key.      */
+comment|/**      * Generate primary key values from aggregation key.      */
 DECL|method|getPKValues (String key)
 specifier|protected
 name|Object
@@ -582,8 +589,7 @@ block|{
 return|return
 name|append
 argument_list|(
-name|getPKValues
-argument_list|()
+name|prefixPKValues
 argument_list|,
 name|key
 argument_list|)
@@ -1093,13 +1099,6 @@ name|String
 name|exchangeId
 parameter_list|)
 block|{
-name|Object
-index|[]
-name|pkValues
-init|=
-name|getPKValues
-argument_list|()
-decl_stmt|;
 name|String
 name|keyColumn
 init|=
@@ -1110,9 +1109,7 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"Selecting Ids {} "
-argument_list|,
-name|pkValues
+literal|"Selecting Ids"
 argument_list|)
 expr_stmt|;
 name|List
@@ -1163,9 +1160,10 @@ name|cqlParams
 init|=
 name|append
 argument_list|(
-name|pkValues
-argument_list|,
+name|getPKValues
+argument_list|(
 name|key
+argument_list|)
 argument_list|,
 name|exchangeId
 argument_list|)
@@ -1360,7 +1358,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|selectKeyIds ()
-specifier|private
+specifier|protected
 name|List
 argument_list|<
 name|Row
@@ -1368,20 +1366,14 @@ argument_list|>
 name|selectKeyIds
 parameter_list|()
 block|{
-name|Object
-index|[]
-name|pkValues
-init|=
-name|getPKValues
-argument_list|()
-decl_stmt|;
 name|LOGGER
 operator|.
 name|debug
 argument_list|(
 literal|"Selecting keys {}"
 argument_list|,
-name|pkValues
+name|getPrefixPKValues
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -1394,7 +1386,8 @@ name|selectKeyIdStatement
 operator|.
 name|bind
 argument_list|(
-name|pkValues
+name|getPrefixPKValues
+argument_list|()
 argument_list|)
 argument_list|)
 operator|.
@@ -1444,11 +1437,8 @@ decl_stmt|;
 name|String
 name|keyColumnName
 init|=
-name|getPKColumns
+name|getKeyColumn
 argument_list|()
-index|[
-literal|1
-index|]
 decl_stmt|;
 for|for
 control|(
@@ -1569,11 +1559,8 @@ decl_stmt|;
 name|String
 name|keyColumnName
 init|=
-name|getPKColumns
+name|getKeyColumn
 argument_list|()
-index|[
-literal|1
-index|]
 decl_stmt|;
 name|String
 name|lKey
@@ -1694,6 +1681,34 @@ operator|.
 name|table
 operator|=
 name|table
+expr_stmt|;
+block|}
+DECL|method|getPrefixPKValues ()
+specifier|public
+name|Object
+index|[]
+name|getPrefixPKValues
+parameter_list|()
+block|{
+return|return
+name|prefixPKValues
+return|;
+block|}
+DECL|method|setPrefixPKValues (Object .... prefixPKValues)
+specifier|public
+name|void
+name|setPrefixPKValues
+parameter_list|(
+name|Object
+modifier|...
+name|prefixPKValues
+parameter_list|)
+block|{
+name|this
+operator|.
+name|prefixPKValues
+operator|=
+name|prefixPKValues
 expr_stmt|;
 block|}
 DECL|method|getPKColumns ()

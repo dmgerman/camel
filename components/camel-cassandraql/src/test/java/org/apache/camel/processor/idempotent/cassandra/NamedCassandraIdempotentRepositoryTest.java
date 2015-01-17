@@ -163,10 +163,10 @@ comment|/**  * Unit test for {@link CassandraIdempotentRepository}  */
 end_comment
 
 begin_class
-DECL|class|CassandraIdempotentRepositoryTest
+DECL|class|NamedCassandraIdempotentRepositoryTest
 specifier|public
 class|class
-name|CassandraIdempotentRepositoryTest
+name|NamedCassandraIdempotentRepositoryTest
 block|{
 annotation|@
 name|Rule
@@ -179,7 +179,7 @@ name|CassandraUnitUtils
 operator|.
 name|cassandraCQLUnit
 argument_list|(
-literal|"IdempotentDataSet.cql"
+literal|"NamedIdempotentDataSet.cql"
 argument_list|)
 decl_stmt|;
 DECL|field|cluster
@@ -248,12 +248,21 @@ expr_stmt|;
 name|idempotentRepository
 operator|=
 operator|new
-name|CassandraIdempotentRepository
+name|NamedCassandraIdempotentRepository
 argument_list|<
 name|String
 argument_list|>
 argument_list|(
 name|session
+argument_list|,
+literal|"ID"
+argument_list|)
+expr_stmt|;
+name|idempotentRepository
+operator|.
+name|setTable
+argument_list|(
+literal|"NAMED_CAMEL_IDEMPOTENT"
 argument_list|)
 expr_stmt|;
 name|idempotentRepository
@@ -319,7 +328,9 @@ name|session
 operator|.
 name|execute
 argument_list|(
-literal|"select KEY from CAMEL_IDEMPOTENT where KEY=?"
+literal|"select KEY from NAMED_CAMEL_IDEMPOTENT where NAME=? and KEY=?"
+argument_list|,
+literal|"ID"
 argument_list|,
 name|key
 argument_list|)

@@ -206,7 +206,7 @@ name|loadCQLDataSet
 argument_list|(
 name|rootSession
 argument_list|,
-literal|"AggregationDataSet.cql"
+literal|"NamedAggregationDataSet.cql"
 argument_list|)
 expr_stmt|;
 name|rootSession
@@ -226,6 +226,13 @@ operator|.
 name|KEYSPACE
 argument_list|,
 literal|"ID"
+argument_list|)
+expr_stmt|;
+name|aggregationRepository
+operator|.
+name|setTable
+argument_list|(
+literal|"NAMED_CAMEL_AGGREGATION"
 argument_list|)
 expr_stmt|;
 name|aggregationRepository

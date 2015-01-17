@@ -60,12 +60,6 @@ name|NamedCassandraAggregationRepository
 extends|extends
 name|CassandraAggregationRepository
 block|{
-comment|/**      * Aggregation repository name      */
-DECL|field|name
-specifier|private
-name|String
-name|name
-decl_stmt|;
 DECL|method|NamedCassandraAggregationRepository ()
 specifier|public
 name|NamedCassandraAggregationRepository
@@ -76,6 +70,11 @@ argument_list|(
 literal|"NAME"
 argument_list|,
 literal|"KEY"
+argument_list|)
+expr_stmt|;
+name|setName
+argument_list|(
+literal|"DEFAULT"
 argument_list|)
 expr_stmt|;
 block|}
@@ -95,17 +94,16 @@ argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|name
-operator|=
-name|name
-expr_stmt|;
 name|setPKColumns
 argument_list|(
 literal|"NAME"
 argument_list|,
 literal|"KEY"
+argument_list|)
+expr_stmt|;
+name|setName
+argument_list|(
+name|name
 argument_list|)
 expr_stmt|;
 block|}
@@ -130,12 +128,6 @@ argument_list|,
 name|keyspace
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|name
-operator|=
-name|name
-expr_stmt|;
 name|setPKColumns
 argument_list|(
 literal|"NAME"
@@ -143,24 +135,11 @@ argument_list|,
 literal|"KEY"
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|getPKValues ()
-specifier|protected
-name|Object
-index|[]
-name|getPKValues
-parameter_list|()
-block|{
-return|return
-operator|new
-name|Object
-index|[]
-block|{
+name|setName
+argument_list|(
 name|name
-block|}
-return|;
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getName ()
 specifier|public
@@ -169,11 +148,19 @@ name|getName
 parameter_list|()
 block|{
 return|return
-name|name
+operator|(
+name|String
+operator|)
+name|getPrefixPKValues
+argument_list|()
+index|[
+literal|0
+index|]
 return|;
 block|}
 DECL|method|setName (String name)
 specifier|public
+specifier|final
 name|void
 name|setName
 parameter_list|(
@@ -181,11 +168,10 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|this
-operator|.
+name|setPrefixPKValues
+argument_list|(
 name|name
-operator|=
-name|name
+argument_list|)
 expr_stmt|;
 block|}
 block|}
