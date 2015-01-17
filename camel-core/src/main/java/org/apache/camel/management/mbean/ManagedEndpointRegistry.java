@@ -267,6 +267,19 @@ name|toString
 argument_list|()
 return|;
 block|}
+DECL|method|getStaticSize ()
+specifier|public
+name|Integer
+name|getStaticSize
+parameter_list|()
+block|{
+return|return
+name|endpointRegistry
+operator|.
+name|staticSize
+argument_list|()
+return|;
+block|}
 DECL|method|getSize ()
 specifier|public
 name|Integer

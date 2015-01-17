@@ -184,7 +184,7 @@ name|boolean
 name|stopOnEviction
 decl_stmt|;
 DECL|field|hits
-specifier|private
+specifier|protected
 specifier|final
 name|AtomicLong
 name|hits
@@ -194,7 +194,7 @@ name|AtomicLong
 argument_list|()
 decl_stmt|;
 DECL|field|misses
-specifier|private
+specifier|protected
 specifier|final
 name|AtomicLong
 name|misses
@@ -204,7 +204,7 @@ name|AtomicLong
 argument_list|()
 decl_stmt|;
 DECL|field|evicted
-specifier|private
+specifier|protected
 specifier|final
 name|AtomicLong
 name|evicted
