@@ -1911,12 +1911,8 @@ operator|.
 name|getValue
 argument_list|()
 operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|==
-literal|null
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|LOG
