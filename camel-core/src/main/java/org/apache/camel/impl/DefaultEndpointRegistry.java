@@ -134,6 +134,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|EndpointRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|CamelContextHelper
@@ -173,10 +187,10 @@ comment|/**  * Endpoint registry which is a based on a {@link org.apache.camel.u
 end_comment
 
 begin_class
-DECL|class|EndpointRegistry
+DECL|class|DefaultEndpointRegistry
 specifier|public
 class|class
-name|EndpointRegistry
+name|DefaultEndpointRegistry
 extends|extends
 name|LRUCache
 argument_list|<
@@ -185,6 +199,11 @@ argument_list|,
 name|Endpoint
 argument_list|>
 implements|implements
+name|EndpointRegistry
+argument_list|<
+name|EndpointKey
+argument_list|>
+implements|,
 name|StaticService
 block|{
 DECL|field|serialVersionUID
@@ -212,9 +231,9 @@ specifier|final
 name|CamelContext
 name|context
 decl_stmt|;
-DECL|method|EndpointRegistry (CamelContext context)
+DECL|method|DefaultEndpointRegistry (CamelContext context)
 specifier|public
-name|EndpointRegistry
+name|DefaultEndpointRegistry
 parameter_list|(
 name|CamelContext
 name|context
@@ -261,9 +280,9 @@ operator|=
 name|context
 expr_stmt|;
 block|}
-DECL|method|EndpointRegistry (CamelContext context, Map<EndpointKey, Endpoint> endpoints)
+DECL|method|DefaultEndpointRegistry (CamelContext context, Map<EndpointKey, Endpoint> endpoints)
 specifier|public
-name|EndpointRegistry
+name|DefaultEndpointRegistry
 parameter_list|(
 name|CamelContext
 name|context
@@ -331,14 +350,15 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return
+name|answer
+operator|=
 name|super
 operator|.
 name|get
 argument_list|(
 name|o
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -347,10 +367,10 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -366,6 +386,68 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
+comment|// at first we must see if the key already exists and then replace it back, so it stays the same spot
+name|Endpoint
+name|answer
+init|=
+name|staticMap
+operator|.
+name|remove
+argument_list|(
+name|key
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|answer
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// replace existing
+name|staticMap
+operator|.
+name|put
+argument_list|(
+name|key
+argument_list|,
+name|endpoint
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
+name|answer
+operator|=
+name|super
+operator|.
+name|remove
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|answer
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// replace existing
+name|super
+operator|.
+name|put
+argument_list|(
+name|key
+argument_list|,
+name|endpoint
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|// we want endpoints to be static if they are part of setting up or starting routes
 if|if
 condition|(
@@ -380,7 +462,8 @@ name|isStartingRoutes
 argument_list|()
 condition|)
 block|{
-return|return
+name|answer
+operator|=
 name|staticMap
 operator|.
 name|put
@@ -389,11 +472,12 @@ name|key
 argument_list|,
 name|endpoint
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 else|else
 block|{
-return|return
+name|answer
+operator|=
 name|super
 operator|.
 name|put
@@ -402,8 +486,11 @@ name|key
 argument_list|,
 name|endpoint
 argument_list|)
-return|;
+expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
 block|}
 annotation|@
 name|Override
@@ -545,6 +632,21 @@ parameter_list|()
 block|{
 return|return
 name|staticMap
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|dynamicSize ()
+specifier|public
+name|int
+name|dynamicSize
+parameter_list|()
+block|{
+return|return
+name|super
 operator|.
 name|size
 argument_list|()
@@ -792,6 +894,37 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getMaximumCacheSize ()
+specifier|public
+name|int
+name|getMaximumCacheSize
+parameter_list|()
+block|{
+return|return
+name|super
+operator|.
+name|getMaxCacheSize
+argument_list|()
+return|;
+block|}
+comment|/**      * Purges the cache      */
+annotation|@
+name|Override
+DECL|method|purge ()
+specifier|public
+name|void
+name|purge
+parameter_list|()
+block|{
+comment|// only purge the dynamic part
+name|super
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|stop ()
 specifier|public
 name|void
@@ -819,20 +952,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|purge
-argument_list|()
-expr_stmt|;
-block|}
-comment|/**      * Purges the cache      */
-DECL|method|purge ()
-specifier|public
-name|void
-name|purge
-parameter_list|()
-block|{
-comment|// only purge the dynamic part
-name|super
-operator|.
-name|clear
 argument_list|()
 expr_stmt|;
 block|}

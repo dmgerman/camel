@@ -262,8 +262,11 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
-comment|// TODO: revisit; uri and context are not really needed
-comment|//  this is probably covered by the ProcessorEndpoint, test may not be needed at all
+name|super
+argument_list|(
+name|endpointUri
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

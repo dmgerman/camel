@@ -172,7 +172,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
 name|EndpointRegistry
 import|;
@@ -267,6 +267,19 @@ name|toString
 argument_list|()
 return|;
 block|}
+DECL|method|getDynamicSize ()
+specifier|public
+name|Integer
+name|getDynamicSize
+parameter_list|()
+block|{
+return|return
+name|endpointRegistry
+operator|.
+name|dynamicSize
+argument_list|()
+return|;
+block|}
 DECL|method|getStaticSize ()
 specifier|public
 name|Integer
@@ -302,7 +315,7 @@ block|{
 return|return
 name|endpointRegistry
 operator|.
-name|getMaxCacheSize
+name|getMaximumCacheSize
 argument_list|()
 return|;
 block|}
@@ -319,7 +332,10 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
-name|Override
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|listEndpoints ()
 specifier|public
 name|TabularData

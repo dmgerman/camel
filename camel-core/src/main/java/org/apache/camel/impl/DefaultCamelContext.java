@@ -1154,6 +1154,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|EndpointRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|EndpointStrategy
 import|;
 end_import
@@ -1882,11 +1896,9 @@ name|applicationContextClassLoader
 decl_stmt|;
 DECL|field|endpoints
 specifier|private
-name|Map
+name|EndpointRegistry
 argument_list|<
 name|EndpointKey
-argument_list|,
-name|Endpoint
 argument_list|>
 name|endpoints
 decl_stmt|;
@@ -2675,7 +2687,7 @@ operator|.
 name|endpoints
 operator|=
 operator|new
-name|EndpointRegistry
+name|DefaultEndpointRegistry
 argument_list|(
 name|this
 argument_list|)
@@ -3399,6 +3411,16 @@ block|}
 block|}
 comment|// Endpoint Management Methods
 comment|// -----------------------------------------------------------------------
+DECL|method|getEndpointRegistry ()
+specifier|public
+name|EndpointRegistry
+name|getEndpointRegistry
+parameter_list|()
+block|{
+return|return
+name|endpoints
+return|;
+block|}
 DECL|method|getEndpoints ()
 specifier|public
 name|Collection
@@ -4414,7 +4436,7 @@ return|return
 name|uri
 return|;
 block|}
-comment|/**      * Gets the endpoint key to use for lookup or whe adding endpoints to the {@link EndpointRegistry}      *      * @param uri the endpoint uri      * @return the key      */
+comment|/**      * Gets the endpoint key to use for lookup or whe adding endpoints to the {@link DefaultEndpointRegistry}      *      * @param uri the endpoint uri      * @return the key      */
 DECL|method|getEndpointKey (String uri)
 specifier|protected
 name|EndpointKey
@@ -4432,7 +4454,7 @@ name|uri
 argument_list|)
 return|;
 block|}
-comment|/**      * Gets the endpoint key to use for lookup or whe adding endpoints to the {@link EndpointRegistry}      *      * @param uri      the endpoint uri      * @param endpoint the endpoint      * @return the key      */
+comment|/**      * Gets the endpoint key to use for lookup or whe adding endpoints to the {@link DefaultEndpointRegistry}      *      * @param uri      the endpoint uri      * @param endpoint the endpoint      * @return the key      */
 DECL|method|getEndpointKey (String uri, Endpoint endpoint)
 specifier|protected
 name|EndpointKey
@@ -4687,25 +4709,6 @@ argument_list|,
 name|builder
 argument_list|)
 expr_stmt|;
-comment|// check if we are already setting up routes
-name|boolean
-name|setup
-init|=
-name|isSetupRoutes
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-operator|!
-name|setup
-condition|)
-block|{
-comment|// no we are not, so mark that around the call to add the routes
-name|setupRoutes
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
 name|builder
 operator|.
 name|addRoutesToCamelContext
@@ -4713,23 +4716,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-name|setupRoutes
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// we are already setting up routes so just add the routes
-name|builder
-operator|.
-name|addRoutesToCamelContext
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 DECL|method|loadRoutesDefinition (InputStream is)
 specifier|public
@@ -12774,7 +12760,7 @@ comment|// and we needed to create endpoints up-front as it may be accessed befo
 name|endpoints
 operator|=
 operator|new
-name|EndpointRegistry
+name|DefaultEndpointRegistry
 argument_list|(
 name|this
 argument_list|,

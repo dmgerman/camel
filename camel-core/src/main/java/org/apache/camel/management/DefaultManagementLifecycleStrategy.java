@@ -372,7 +372,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|EndpointRegistry
+name|DefaultEndpointRegistry
 import|;
 end_import
 
@@ -2980,7 +2980,7 @@ if|if
 condition|(
 name|service
 operator|instanceof
-name|EndpointRegistry
+name|DefaultEndpointRegistry
 condition|)
 block|{
 name|answer
@@ -2991,7 +2991,7 @@ argument_list|(
 name|context
 argument_list|,
 operator|(
-name|EndpointRegistry
+name|DefaultEndpointRegistry
 operator|)
 name|service
 argument_list|)

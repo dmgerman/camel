@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.impl
+DECL|package|org.apache.camel.spi
 package|package
 name|org
 operator|.
@@ -12,21 +12,17 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 package|;
 end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
+name|java
 operator|.
 name|util
 operator|.
-name|ObjectHelper
+name|Map
 import|;
 end_import
 
@@ -38,70 +34,71 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|Endpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|ValueHolder
+name|apache
+operator|.
+name|camel
+operator|.
+name|StaticService
 import|;
 end_import
 
 begin_comment
-comment|/**  * Key used in {@link DefaultEndpointRegistry} in {@link DefaultCamelContext},  * to ensure a consistent lookup.  */
+comment|/**  * Registry to store endpoints in a map like cache.  *  * @param<K> endpoint key  */
 end_comment
 
-begin_class
-DECL|class|EndpointKey
-specifier|final
-class|class
-name|EndpointKey
-extends|extends
-name|ValueHolder
-argument_list|<
-name|String
-argument_list|>
-block|{
-DECL|method|EndpointKey (String uri)
-name|EndpointKey
-parameter_list|(
-name|String
-name|uri
-parameter_list|)
-block|{
-comment|// must normalize key
-name|super
-argument_list|(
-name|DefaultCamelContext
-operator|.
-name|normalizeEndpointUri
-argument_list|(
-name|uri
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|ObjectHelper
-operator|.
-name|notEmpty
-argument_list|(
-name|uri
-argument_list|,
-literal|"uri"
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|toString ()
+begin_interface
+DECL|interface|EndpointRegistry
 specifier|public
-name|String
-name|toString
-parameter_list|()
+interface|interface
+name|EndpointRegistry
+parameter_list|<
+name|K
+parameter_list|>
+extends|extends
+name|Map
+argument_list|<
+name|K
+argument_list|,
+name|Endpoint
+argument_list|>
+extends|,
+name|StaticService
 block|{
-return|return
-name|get
-argument_list|()
-return|;
+comment|/**      * Number of static endpoints in the registry.      */
+DECL|method|staticSize ()
+name|int
+name|staticSize
+parameter_list|()
+function_decl|;
+comment|/**      * Number of dynamic endpoints in the registry      */
+DECL|method|dynamicSize ()
+name|int
+name|dynamicSize
+parameter_list|()
+function_decl|;
+comment|/**      * Maximum number of entries to store in the dynamic cache      */
+DECL|method|getMaximumCacheSize ()
+specifier|public
+name|int
+name|getMaximumCacheSize
+parameter_list|()
+function_decl|;
+comment|/**      * Purges the cache (removes dynamic endpoints)      */
+DECL|method|purge ()
+name|void
+name|purge
+parameter_list|()
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

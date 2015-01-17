@@ -89,7 +89,31 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Number of endpoints cached"
+literal|"Number of dynamic endpoints cached"
+argument_list|)
+DECL|method|getDynamicSize ()
+name|Integer
+name|getDynamicSize
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Number of static endpoints cached"
+argument_list|)
+DECL|method|getStaticSize ()
+name|Integer
+name|getStaticSize
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Number of total endpoints cached"
 argument_list|)
 DECL|method|getSize ()
 name|Integer

@@ -264,6 +264,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|EndpointRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|EndpointStrategy
 import|;
 end_import
@@ -893,6 +907,11 @@ parameter_list|)
 function_decl|;
 comment|// Endpoint Management Methods
 comment|//-----------------------------------------------------------------------
+DECL|method|getEndpointRegistry ()
+name|EndpointRegistry
+name|getEndpointRegistry
+parameter_list|()
+function_decl|;
 comment|/**      * Resolves the given name to an {@link Endpoint} of the specified type.      * If the name has a singleton endpoint registered, then the singleton is returned.      * Otherwise, a new {@link Endpoint} is created and registered.      *      * @param uri the URI of the endpoint      * @return the endpoint      */
 DECL|method|getEndpoint (String uri)
 name|Endpoint
