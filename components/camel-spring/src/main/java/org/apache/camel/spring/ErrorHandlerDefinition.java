@@ -158,6 +158,13 @@ name|deadLetterUri
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|deadLetterHandleNewException
+specifier|private
+name|String
+name|deadLetterHandleNewException
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|level
 specifier|private
 name|LoggingLevel
