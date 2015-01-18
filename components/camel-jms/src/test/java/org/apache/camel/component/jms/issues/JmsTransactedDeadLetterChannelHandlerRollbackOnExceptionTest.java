@@ -264,6 +264,11 @@ argument_list|(
 name|isHandleNew
 argument_list|()
 argument_list|)
+operator|.
+name|logNewException
+argument_list|(
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|from

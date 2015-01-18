@@ -883,6 +883,27 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|logNewException (boolean logNewException)
+specifier|public
+name|DefaultErrorHandlerBuilder
+name|logNewException
+parameter_list|(
+name|boolean
+name|logNewException
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|setLogNewException
+argument_list|(
+name|logNewException
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|logExhausted (boolean logExhausted)
 specifier|public
 name|DefaultErrorHandlerBuilder
