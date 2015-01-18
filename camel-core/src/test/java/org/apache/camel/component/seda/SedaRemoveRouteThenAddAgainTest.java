@@ -116,11 +116,6 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-name|out
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
 comment|// now stop& remove the route
 name|context
 operator|.
@@ -143,6 +138,14 @@ name|addRoutes
 argument_list|(
 name|createRouteBuilder
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// the mock endpoint was removed, so need to grab it again
+name|out
+operator|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:out"
 argument_list|)
 expr_stmt|;
 name|out

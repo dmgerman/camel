@@ -362,9 +362,9 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|assertFalse
+name|assertTrue
 argument_list|(
-literal|"Should not have removed id"
+literal|"Should have removed mock:bar endpoint"
 argument_list|,
 name|context
 operator|.

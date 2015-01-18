@@ -911,12 +911,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|isStatic (EndpointKey key)
+DECL|method|isStatic (String key)
 specifier|public
 name|boolean
 name|isStatic
 parameter_list|(
-name|EndpointKey
+name|String
 name|key
 parameter_list|)
 block|{
@@ -925,18 +925,22 @@ name|staticMap
 operator|.
 name|containsKey
 argument_list|(
+operator|new
+name|EndpointKey
+argument_list|(
 name|key
+argument_list|)
 argument_list|)
 return|;
 block|}
 annotation|@
 name|Override
-DECL|method|isDynamic (EndpointKey key)
+DECL|method|isDynamic (String key)
 specifier|public
 name|boolean
 name|isDynamic
 parameter_list|(
-name|EndpointKey
+name|String
 name|key
 parameter_list|)
 block|{
@@ -945,7 +949,11 @@ name|super
 operator|.
 name|containsKey
 argument_list|(
+operator|new
+name|EndpointKey
+argument_list|(
 name|key
+argument_list|)
 argument_list|)
 return|;
 block|}
