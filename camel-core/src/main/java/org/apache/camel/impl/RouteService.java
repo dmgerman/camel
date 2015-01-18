@@ -260,8 +260,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
 name|EndpointAware
 import|;
 end_import
@@ -615,7 +613,7 @@ return|return
 name|routes
 return|;
 block|}
-comment|/**      * Gather all the endpoints this route service uses      */
+comment|/**      * Gather all the endpoints this route service uses      *<p/>      * This implementation finds the endpoints by searching all the child services      * for {@link org.apache.camel.EndpointAware} processors which uses an endpoint.      */
 DECL|method|gatherEndpoints ()
 specifier|public
 name|Set

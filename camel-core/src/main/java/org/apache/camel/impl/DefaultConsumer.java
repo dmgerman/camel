@@ -108,8 +108,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
 name|EndpointAware
 import|;
 end_import

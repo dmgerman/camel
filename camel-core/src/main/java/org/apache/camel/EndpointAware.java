@@ -4,32 +4,18 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor
+DECL|package|org.apache.camel
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
-operator|.
-name|processor
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Endpoint
-import|;
-end_import
-
 begin_comment
-comment|/**  * An interface to represent a {@link org.apache.camel.Processor} that uses an {@link Endpoint}  */
+comment|/**  * An interface to represent an object such as a {@link org.apache.camel.Processor} that uses an {@link Endpoint}  */
 end_comment
 
 begin_interface
