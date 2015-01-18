@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|UUID
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|jms
@@ -114,6 +104,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|jms
+operator|.
+name|JmsComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|test
 operator|.
 name|junit4
@@ -151,10 +157,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|JmsDeadLetterChannelHandlerExceptionTest
+DECL|class|JmsTransactedDeadLetterChannelHandlerRollbackOnExceptionTest
 specifier|public
 class|class
-name|JmsDeadLetterChannelHandlerExceptionTest
+name|JmsTransactedDeadLetterChannelHandlerRollbackOnExceptionTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -190,7 +196,7 @@ throw|;
 block|}
 block|}
 DECL|field|testingEndpoint
-specifier|private
+specifier|protected
 specifier|final
 name|String
 name|testingEndpoint
@@ -203,6 +209,16 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
+DECL|method|isHandleNew ()
+specifier|protected
+name|boolean
+name|isHandleNew
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
@@ -227,6 +243,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// we use DLC to handle the exception but if it throw a new exception
+comment|// then the DLC handles that too (the transaction will always commit)
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
@@ -241,13 +259,21 @@ name|getName
 argument_list|()
 argument_list|)
 operator|.
-name|checkException
+name|deadLetterHandleNewException
+argument_list|(
+name|isHandleNew
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
 name|testingEndpoint
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"Incoming JMS message ${body}"
 argument_list|)
 operator|.
 name|throwException
@@ -273,23 +299,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|UUID
-name|message
-init|=
-name|UUID
-operator|.
-name|randomUUID
-argument_list|()
-decl_stmt|;
 name|template
 operator|.
 name|sendBody
 argument_list|(
 name|testingEndpoint
 argument_list|,
-name|message
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
+comment|// as we handle new exception, then the exception is ignored
+comment|// and causes the transaction to commit, so there is no message in the ActiveMQ DLQ queue
 name|Object
 name|dlqBody
 init|=
@@ -299,12 +319,12 @@ name|receiveBody
 argument_list|(
 literal|"activemq:ActiveMQ.DLQ"
 argument_list|,
-literal|3000
+literal|2000
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|assertNull
 argument_list|(
-name|message
+literal|"Should not rollback the transaction"
 argument_list|,
 name|dlqBody
 argument_list|)
@@ -326,13 +346,26 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
+comment|// no redeliveries
 name|ConnectionFactory
 name|connectionFactory
 init|=
 name|CamelJmsTestHelper
 operator|.
 name|createConnectionFactory
-argument_list|()
+argument_list|(
+literal|null
+argument_list|,
+literal|0
+argument_list|)
+decl_stmt|;
+name|JmsComponent
+name|component
+init|=
+name|jmsComponentTransacted
+argument_list|(
+name|connectionFactory
+argument_list|)
 decl_stmt|;
 name|camelContext
 operator|.
@@ -340,10 +373,7 @@ name|addComponent
 argument_list|(
 literal|"activemq"
 argument_list|,
-name|jmsComponentTransacted
-argument_list|(
-name|connectionFactory
-argument_list|)
+name|component
 argument_list|)
 expr_stmt|;
 return|return

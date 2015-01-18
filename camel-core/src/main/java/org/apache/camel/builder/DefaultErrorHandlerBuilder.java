@@ -274,6 +274,13 @@ specifier|protected
 name|String
 name|deadLetterUri
 decl_stmt|;
+DECL|field|deadLetterHandleNewException
+specifier|protected
+name|boolean
+name|deadLetterHandleNewException
+init|=
+literal|true
+decl_stmt|;
 DECL|field|useOriginalMessage
 specifier|protected
 name|boolean
@@ -540,6 +547,13 @@ name|deadLetterUri
 argument_list|)
 expr_stmt|;
 block|}
+name|other
+operator|.
+name|setDeadLetterHandleNewException
+argument_list|(
+name|deadLetterHandleNewException
+argument_list|)
+expr_stmt|;
 name|other
 operator|.
 name|setUseOriginalMessage
@@ -1165,6 +1179,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Whether the dead letter channel should handle (and ignore) any new exception that may been thrown during sending the      * message to the dead letter endpoint.      *<p/>      * The default value is<tt>true</tt> which means any such kind of exception is handled and ignored. Set this to<tt>false</tt>      * to let the exception be propagated back on the {@link org.apache.camel.Exchange}. This can be used in situations      * where you use transactions, and want to use Camel's dead letter channel to deal with exceptions during routing,      * but if the dead letter channel itself fails because of a new exception being thrown, then by setting this to<tt>false</tt>      * the new exceptions is propagated back and set on the {@link org.apache.camel.Exchange}, which allows the transaction      * to detect the exception, and rollback.      *      * @param handleNewException<tt>true</tt> to handle (and ignore),<tt>false</tt> to catch and propagated the exception on the {@link org.apache.camel.Exchange}      * @return the builder      */
+DECL|method|deadLetterHandleNewException (boolean handleNewException)
+specifier|public
+name|DefaultErrorHandlerBuilder
+name|deadLetterHandleNewException
+parameter_list|(
+name|boolean
+name|handleNewException
+parameter_list|)
+block|{
+name|setDeadLetterHandleNewException
+argument_list|(
+name|handleNewException
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getFailureProcessor ()
@@ -1464,6 +1497,32 @@ name|deadLetter
 operator|.
 name|getEndpointUri
 argument_list|()
+expr_stmt|;
+block|}
+DECL|method|isDeadLetterHandleNewException ()
+specifier|public
+name|boolean
+name|isDeadLetterHandleNewException
+parameter_list|()
+block|{
+return|return
+name|deadLetterHandleNewException
+return|;
+block|}
+DECL|method|setDeadLetterHandleNewException (boolean deadLetterHandleNewException)
+specifier|public
+name|void
+name|setDeadLetterHandleNewException
+parameter_list|(
+name|boolean
+name|deadLetterHandleNewException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deadLetterHandleNewException
+operator|=
+name|deadLetterHandleNewException
 expr_stmt|;
 block|}
 DECL|method|isUseOriginalMessage ()

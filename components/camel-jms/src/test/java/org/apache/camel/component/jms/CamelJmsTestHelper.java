@@ -133,6 +133,8 @@ init|=
 name|createConnectionFactory
 argument_list|(
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|PooledConnectionFactory
@@ -171,10 +173,12 @@ return|return
 name|createConnectionFactory
 argument_list|(
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
-DECL|method|createConnectionFactory (String options)
+DECL|method|createConnectionFactory (String options, Integer maximumRedeliveries)
 specifier|public
 specifier|static
 name|ConnectionFactory
@@ -182,6 +186,9 @@ name|createConnectionFactory
 parameter_list|(
 name|String
 name|options
+parameter_list|,
+name|Integer
+name|maximumRedeliveries
 parameter_list|)
 block|{
 comment|// using a unique broker name improves testing when running the entire test suite in the same JVM
@@ -266,6 +273,24 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|maximumRedeliveries
+operator|!=
+literal|null
+condition|)
+block|{
+name|connectionFactory
+operator|.
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|setMaximumRedeliveries
+argument_list|(
+name|maximumRedeliveries
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|connectionFactory
 return|;

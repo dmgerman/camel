@@ -245,6 +245,13 @@ name|logExhausted
 init|=
 literal|true
 decl_stmt|;
+DECL|field|logNewException
+specifier|protected
+name|boolean
+name|logNewException
+init|=
+literal|true
+decl_stmt|;
 DECL|field|logExhaustedMessageHistory
 specifier|protected
 name|boolean
@@ -346,6 +353,10 @@ operator|+
 literal|", logExhausted="
 operator|+
 name|logExhausted
+operator|+
+literal|", logNewException="
+operator|+
+name|logNewException
 operator|+
 literal|", logExhaustedMessageHistory="
 operator|+
@@ -1037,6 +1048,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether errors should be logged when a new exception occurred during handling a previous exception      */
+DECL|method|logNewException (boolean logNewException)
+specifier|public
+name|RedeliveryPolicy
+name|logNewException
+parameter_list|(
+name|boolean
+name|logNewException
+parameter_list|)
+block|{
+name|setLogNewException
+argument_list|(
+name|logNewException
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets whether to log exhausted errors      */
 DECL|method|logExhausted (boolean logExhausted)
 specifier|public
@@ -1628,6 +1658,33 @@ operator|.
 name|logHandled
 operator|=
 name|logHandled
+expr_stmt|;
+block|}
+DECL|method|isLogNewException ()
+specifier|public
+name|boolean
+name|isLogNewException
+parameter_list|()
+block|{
+return|return
+name|logNewException
+return|;
+block|}
+comment|/**      * Sets whether errors should be logged when a new exception occurred during handling a previous exception      */
+DECL|method|setLogNewException (boolean logNewException)
+specifier|public
+name|void
+name|setLogNewException
+parameter_list|(
+name|boolean
+name|logNewException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logNewException
+operator|=
+name|logNewException
 expr_stmt|;
 block|}
 DECL|method|isLogContinued ()

@@ -100,6 +100,20 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|FatalFallbackErrorHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|RedeliveryPolicy
 import|;
 end_import
@@ -182,10 +196,6 @@ name|DeadLetterChannelBuilder
 extends|extends
 name|DefaultErrorHandlerBuilder
 block|{
-DECL|field|checkException
-name|boolean
-name|checkException
-decl_stmt|;
 DECL|method|DeadLetterChannelBuilder ()
 specifier|public
 name|DeadLetterChannelBuilder
@@ -220,20 +230,6 @@ argument_list|(
 name|uri
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|checkException ()
-specifier|public
-name|DeadLetterChannelBuilder
-name|checkException
-parameter_list|()
-block|{
-name|checkException
-operator|=
-literal|true
-expr_stmt|;
-return|return
-name|this
-return|;
 block|}
 DECL|method|createErrorHandler (RouteContext routeContext, Processor processor)
 specifier|public
@@ -283,6 +279,9 @@ name|getFailureProcessor
 argument_list|()
 argument_list|,
 name|getDeadLetterUri
+argument_list|()
+argument_list|,
+name|isDeadLetterHandleNewException
 argument_list|()
 argument_list|,
 name|isUseOriginalMessage
@@ -368,11 +367,10 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// force MEP to be InOnly so when sending to DLQ we would not expect a reply if the MEP was InOut
-comment|// If the checkException is true, sendProcessor will checkException
-comment|// and mark the exchange ERRORHANDLER_HANDLED property to false
-name|failureProcessor
-operator|=
+comment|// wrap in our special safe fallback error handler if sending to dead letter channel fails
+name|Processor
+name|child
+init|=
 operator|new
 name|SendProcessor
 argument_list|(
@@ -381,8 +379,17 @@ argument_list|,
 name|ExchangePattern
 operator|.
 name|InOnly
+argument_list|)
+decl_stmt|;
+comment|// force MEP to be InOnly so when sending to DLQ we would not expect a reply if the MEP was InOut
+name|failureProcessor
+operator|=
+operator|new
+name|FatalFallbackErrorHandler
+argument_list|(
+name|child
 argument_list|,
-name|checkException
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
