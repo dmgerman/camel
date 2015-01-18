@@ -96,7 +96,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-specifier|final
 name|MockEndpoint
 name|out
 init|=
@@ -133,11 +132,6 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-name|out
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
 comment|// now stop& remove the route
 name|context
 operator|.
@@ -160,6 +154,14 @@ name|addRoutes
 argument_list|(
 name|createRouteBuilder
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// get mock endpoint again as we removed the route which removes the endpoint
+name|out
+operator|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:out"
 argument_list|)
 expr_stmt|;
 name|out
