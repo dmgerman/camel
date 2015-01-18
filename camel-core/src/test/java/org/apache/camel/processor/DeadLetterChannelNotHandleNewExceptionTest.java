@@ -117,10 +117,10 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|testDeadLetterChannelNewException ()
+DECL|method|testDeadLetterChannelNotHandleNewException ()
 specifier|public
 name|void
-name|testDeadLetterChannelNewException
+name|testDeadLetterChannelNotHandleNewException
 parameter_list|()
 throws|throws
 name|Exception
