@@ -281,29 +281,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getDefaultHandledPredicate ()
-specifier|protected
-name|Predicate
-name|getDefaultHandledPredicate
-parameter_list|()
-block|{
-comment|// DeadLetterChannel handles errors before sending to DLQ
-return|return
-name|ExpressionToPredicateAdapter
-operator|.
-name|toPredicate
-argument_list|(
-name|ExpressionBuilder
-operator|.
-name|constantExpression
-argument_list|(
-literal|true
-argument_list|)
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|isRunAllowedOnPreparingShutdown ()
 specifier|protected
 name|boolean

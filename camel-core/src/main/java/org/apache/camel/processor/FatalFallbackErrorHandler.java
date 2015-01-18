@@ -102,10 +102,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|logWarn
+DECL|field|deadLetterChannel
 specifier|private
 name|boolean
-name|logWarn
+name|deadLetterChannel
 decl_stmt|;
 DECL|method|FatalFallbackErrorHandler (Processor processor)
 specifier|public
@@ -123,7 +123,7 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|FatalFallbackErrorHandler (Processor processor, boolean logWarn)
+DECL|method|FatalFallbackErrorHandler (Processor processor, boolean isDeadLetterChannel)
 specifier|public
 name|FatalFallbackErrorHandler
 parameter_list|(
@@ -131,7 +131,7 @@ name|Processor
 name|processor
 parameter_list|,
 name|boolean
-name|logWarn
+name|isDeadLetterChannel
 parameter_list|)
 block|{
 name|super
@@ -141,9 +141,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|logWarn
+name|deadLetterChannel
 operator|=
-name|logWarn
+name|isDeadLetterChannel
 expr_stmt|;
 block|}
 annotation|@
@@ -312,6 +312,25 @@ name|getException
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|deadLetterChannel
+condition|)
+block|{
+comment|// special for dead letter channel as we want to let it determine what to do, depending how
+comment|// it has been configured
+name|exchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|ERRORHANDLER_HANDLED
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// mark this exchange as already been error handler handled (just by having this property)
 comment|// the false value mean the caught exception will be kept on the exchange, causing the
 comment|// exception to be propagated back to the caller, and to break out routing
@@ -326,6 +345,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 name|callback
 operator|.
@@ -371,9 +391,10 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
+comment|// when using dead letter channel we only want to log at WARN level
 if|if
 condition|(
-name|logWarn
+name|deadLetterChannel
 condition|)
 block|{
 if|if

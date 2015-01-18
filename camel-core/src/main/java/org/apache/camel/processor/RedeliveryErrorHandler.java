@@ -388,6 +388,20 @@ name|ServiceHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base redeliverable error handler that also supports a final dead letter queue in case  * all redelivery attempts fail.  *<p/>  * This implementation should contain all the error handling logic and the sub classes  * should only configure it according to what they support.  *  * @version  */
 end_comment
@@ -1794,11 +1808,17 @@ init|=
 name|isDeadLetterChannel
 argument_list|()
 operator|&&
+operator|(
+name|target
+operator|==
+literal|null
+operator|||
 name|target
 operator|==
 name|data
 operator|.
 name|deadLetterProcessor
+operator|)
 decl_stmt|;
 name|boolean
 name|sync
@@ -3681,14 +3701,11 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-comment|// always handle if dead letter channel
 specifier|final
-name|boolean
+name|Boolean
 name|shouldHandle
 init|=
-name|isDeadLetterChannel
-operator|||
-name|shouldHandled
+name|shouldHandle
 argument_list|(
 name|exchange
 argument_list|,
@@ -3696,7 +3713,7 @@ name|data
 argument_list|)
 decl_stmt|;
 specifier|final
-name|boolean
+name|Boolean
 name|shouldContinue
 init|=
 name|shouldContinue
@@ -3712,11 +3729,31 @@ name|handled
 init|=
 literal|false
 decl_stmt|;
+comment|// always handle if dead letter channel
+name|boolean
+name|handleOrContinue
+init|=
+name|isDeadLetterChannel
+operator|||
+operator|(
+name|shouldHandle
+operator|!=
+literal|null
+operator|&&
+name|shouldHandle
+operator|)
+operator|||
+operator|(
+name|shouldContinue
+operator|!=
+literal|null
+operator|&&
+name|shouldContinue
+operator|)
+decl_stmt|;
 if|if
 condition|(
-name|shouldHandle
-operator|||
-name|shouldContinue
+name|handleOrContinue
 condition|)
 block|{
 comment|// its handled then remove traces of redelivery attempted
@@ -3995,8 +4032,6 @@ try|try
 block|{
 name|prepareExchangeAfterFailure
 argument_list|(
-name|processor
-argument_list|,
 name|exchange
 argument_list|,
 name|data
@@ -4066,8 +4101,6 @@ block|{
 comment|// no processor but we need to prepare after failure as well
 name|prepareExchangeAfterFailure
 argument_list|(
-name|processor
-argument_list|,
 name|exchange
 argument_list|,
 name|data
@@ -4161,15 +4194,11 @@ return|return
 name|sync
 return|;
 block|}
-DECL|method|prepareExchangeAfterFailure (final Processor failureProcessor, final Exchange exchange, final RedeliveryData data, final boolean isDeadLetterChannel, final boolean shouldHandle, final boolean shouldContinue)
+DECL|method|prepareExchangeAfterFailure (final Exchange exchange, final RedeliveryData data, final boolean isDeadLetterChannel, final Boolean shouldHandle, final Boolean shouldContinue)
 specifier|protected
 name|void
 name|prepareExchangeAfterFailure
 parameter_list|(
-specifier|final
-name|Processor
-name|failureProcessor
-parameter_list|,
 specifier|final
 name|Exchange
 name|exchange
@@ -4183,11 +4212,11 @@ name|boolean
 name|isDeadLetterChannel
 parameter_list|,
 specifier|final
-name|boolean
+name|Boolean
 name|shouldHandle
 parameter_list|,
 specifier|final
-name|boolean
+name|Boolean
 name|shouldContinue
 parameter_list|)
 block|{
@@ -4199,78 +4228,6 @@ operator|.
 name|getException
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|newException
-operator|!=
-literal|null
-operator|&&
-name|data
-operator|.
-name|currentRedeliveryPolicy
-operator|.
-name|isLogNewException
-argument_list|()
-condition|)
-block|{
-name|boolean
-name|handled
-init|=
-name|data
-operator|.
-name|handleNewException
-decl_stmt|;
-name|String
-name|msg
-init|=
-literal|"New exception occurred during processing by the failure processor "
-operator|+
-name|failureProcessor
-operator|+
-literal|" due "
-operator|+
-name|newException
-operator|.
-name|getMessage
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|handled
-condition|)
-block|{
-name|msg
-operator|+=
-literal|". The new exception is being handled as deadLetterHandleNewException=true."
-expr_stmt|;
-block|}
-else|else
-block|{
-name|msg
-operator|+=
-literal|". The new exception is not handled as deadLetterHandleNewException=false."
-expr_stmt|;
-block|}
-name|logFailedDelivery
-argument_list|(
-literal|false
-argument_list|,
-literal|true
-argument_list|,
-name|handled
-argument_list|,
-literal|false
-argument_list|,
-name|exchange
-argument_list|,
-name|msg
-argument_list|,
-name|data
-argument_list|,
-name|newException
-argument_list|)
-expr_stmt|;
-block|}
 comment|// we could not process the exchange so we let the failure processor handled it
 name|ExchangeHelper
 operator|.
@@ -4279,80 +4236,6 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// special for dead letter channel where it by default handle new exceptions, but its possible to turn that off
-if|if
-condition|(
-name|isDeadLetterChannel
-operator|&&
-name|shouldHandle
-condition|)
-block|{
-name|boolean
-name|handled
-init|=
-name|data
-operator|.
-name|handleNewException
-decl_stmt|;
-if|if
-condition|(
-name|handled
-condition|)
-block|{
-comment|// if there is a new exception then log a warning about that
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"This exchange is handled so its marked as not failed: {}"
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// exception not handled, put exception back in the exchange
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|exchange
-operator|.
-name|getProperty
-argument_list|(
-name|Exchange
-operator|.
-name|EXCEPTION_CAUGHT
-argument_list|,
-name|Exception
-operator|.
-name|class
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// and put failure endpoint back as well
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|FAILURE_ENDPOINT
-argument_list|,
-name|exchange
-operator|.
-name|getProperty
-argument_list|(
-name|Exchange
-operator|.
-name|TO_ENDPOINT
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-return|return;
-block|}
 comment|// honor if already set a handling
 name|boolean
 name|alreadySet
@@ -4445,8 +4328,41 @@ expr_stmt|;
 block|}
 return|return;
 block|}
+comment|// dead letter channel is special
 if|if
 condition|(
+name|shouldContinue
+operator|!=
+literal|null
+operator|&&
+name|shouldContinue
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"This exchange is continued: {}"
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+comment|// okay we want to continue then prepare the exchange for that as well
+name|prepareExchangeForContinue
+argument_list|(
+name|exchange
+argument_list|,
+name|data
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|shouldHandle
+operator|!=
+literal|null
+operator|&&
 name|shouldHandle
 condition|)
 block|{
@@ -4473,31 +4389,147 @@ name|TRUE
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
+else|else
+block|{
+comment|// okay the redelivery policy are not explicit set to true, so we should allow to check for some
+comment|// special situations when using dead letter channel
 if|if
 condition|(
-name|shouldContinue
+name|isDeadLetterChannel
+condition|)
+block|{
+comment|// use the handled option from the DLC
+name|boolean
+name|handled
+init|=
+name|data
+operator|.
+name|handleNewException
+decl_stmt|;
+comment|// when using DLC then log new exception whether its being handled or not, as otherwise it may appear as
+comment|// the DLC swallow new exceptions by default (which is by design to ensure the DLC always complete,
+comment|// to avoid causing endless poison messages that fails forever)
+if|if
+condition|(
+name|newException
+operator|!=
+literal|null
+operator|&&
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|isLogNewException
+argument_list|()
+condition|)
+block|{
+name|String
+name|uri
+init|=
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
+name|deadLetterUri
+argument_list|)
+decl_stmt|;
+name|String
+name|msg
+init|=
+literal|"New exception occurred during processing by the DeadLetterChannel["
+operator|+
+name|uri
+operator|+
+literal|"] due "
+operator|+
+name|newException
+operator|.
+name|getMessage
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|handled
+condition|)
+block|{
+name|msg
+operator|+=
+literal|". The new exception is being handled as deadLetterHandleNewException=true."
+expr_stmt|;
+block|}
+else|else
+block|{
+name|msg
+operator|+=
+literal|". The new exception is not handled as deadLetterHandleNewException=false."
+expr_stmt|;
+block|}
+name|logFailedDelivery
+argument_list|(
+literal|false
+argument_list|,
+literal|true
+argument_list|,
+name|handled
+argument_list|,
+literal|false
+argument_list|,
+name|exchange
+argument_list|,
+name|msg
+argument_list|,
+name|data
+argument_list|,
+name|newException
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|handled
 condition|)
 block|{
 name|log
 operator|.
 name|trace
 argument_list|(
-literal|"This exchange is continued: {}"
+literal|"This exchange is handled so its marked as not failed: {}"
 argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// okay we want to continue then prepare the exchange for that as well
-name|prepareExchangeForContinue
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|ERRORHANDLER_HANDLED
+argument_list|,
+name|Boolean
+operator|.
+name|TRUE
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+block|}
+comment|// not handled by default
+name|prepareExchangeAfterFailureNotHandled
 argument_list|(
 name|exchange
-argument_list|,
-name|data
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+block|}
+DECL|method|prepareExchangeAfterFailureNotHandled (Exchange exchange)
+specifier|private
+name|void
+name|prepareExchangeAfterFailureNotHandled
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 block|{
 name|log
 operator|.
@@ -4602,7 +4634,6 @@ name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|logFailedDelivery (boolean shouldRedeliver, boolean newException, boolean handled, boolean continued, Exchange exchange, String message, RedeliveryData data, Throwable e)
@@ -5322,10 +5353,10 @@ operator|!
 name|redeliver
 return|;
 block|}
-comment|/**      * Determines whether or not to continue if we are exhausted.      *      * @param exchange the current exchange      * @param data     the redelivery data      * @return<tt>true</tt> to continue, or<tt>false</tt> to exhaust.      */
+comment|/**      * Determines whether the redelivery configuration has a continued predicate      *      * @param exchange the current exchange      * @param data     the redelivery data      * @return<tt>true</tt> to continue, or<tt>false</tt> to attempt to handle, or<tt>null</tt> if continued predicate has not been configured.      */
 DECL|method|shouldContinue (Exchange exchange, RedeliveryData data)
 specifier|private
-name|boolean
+name|Boolean
 name|shouldContinue
 parameter_list|(
 name|Exchange
@@ -5355,16 +5386,16 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|// do not continue by default
+comment|// no predicate
 return|return
-literal|false
+literal|null
 return|;
 block|}
-comment|/**      * Determines whether or not to handle if we are exhausted.      *      * @param exchange the current exchange      * @param data     the redelivery data      * @return<tt>true</tt> to handle, or<tt>false</tt> to exhaust.      */
-DECL|method|shouldHandled (Exchange exchange, RedeliveryData data)
+comment|/**      * Determines whether the redelivery configuration has a handled predicate      *      * @param exchange the current exchange      * @param data     the redelivery data      * @return<tt>true</tt> to handle, or<tt>false</tt> to exhaust, or<tt>null</tt> if handled predicate has not been configured.      */
+DECL|method|shouldHandle (Exchange exchange, RedeliveryData data)
 specifier|private
-name|boolean
-name|shouldHandled
+name|Boolean
+name|shouldHandle
 parameter_list|(
 name|Exchange
 name|exchange
@@ -5393,9 +5424,9 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|// do not handle by default
+comment|// no predicate
 return|return
-literal|false
+literal|null
 return|;
 block|}
 comment|/**      * Increments the redelivery counter and adds the redelivered flag if the      * message has been redelivered      */
