@@ -42,6 +42,20 @@ name|Processor
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|URISupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -62,11 +76,12 @@ name|long
 name|serialVersionUID
 init|=
 operator|-
-literal|7554809462006009547L
+literal|7554809462006009548L
 decl_stmt|;
 DECL|field|failureHandler
 specifier|private
 specifier|final
+specifier|transient
 name|Processor
 name|failureHandler
 decl_stmt|;
@@ -76,13 +91,19 @@ specifier|final
 name|boolean
 name|deadLetterChannel
 decl_stmt|;
+DECL|field|deadLetterUri
+specifier|private
+specifier|final
+name|String
+name|deadLetterUri
+decl_stmt|;
 DECL|field|handled
 specifier|private
 specifier|final
 name|boolean
 name|handled
 decl_stmt|;
-DECL|method|ExchangeFailureHandledEvent (Exchange source, Processor failureHandler, boolean deadLetterChannel)
+DECL|method|ExchangeFailureHandledEvent (Exchange source, Processor failureHandler, boolean deadLetterChannel, String deadLetterUri)
 specifier|public
 name|ExchangeFailureHandledEvent
 parameter_list|(
@@ -94,6 +115,9 @@ name|failureHandler
 parameter_list|,
 name|boolean
 name|deadLetterChannel
+parameter_list|,
+name|String
+name|deadLetterUri
 parameter_list|)
 block|{
 name|super
@@ -112,6 +136,12 @@ operator|.
 name|deadLetterChannel
 operator|=
 name|deadLetterChannel
+expr_stmt|;
+name|this
+operator|.
+name|deadLetterUri
+operator|=
+name|deadLetterUri
 expr_stmt|;
 name|this
 operator|.
@@ -153,6 +183,16 @@ return|return
 name|deadLetterChannel
 return|;
 block|}
+DECL|method|getDeadLetterUri ()
+specifier|public
+name|String
+name|getDeadLetterUri
+parameter_list|()
+block|{
+return|return
+name|deadLetterUri
+return|;
+block|}
 DECL|method|isHandled ()
 specifier|public
 name|boolean
@@ -177,6 +217,16 @@ name|isDeadLetterChannel
 argument_list|()
 condition|)
 block|{
+name|String
+name|uri
+init|=
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
+name|deadLetterUri
+argument_list|)
+decl_stmt|;
 return|return
 name|getExchange
 argument_list|()
@@ -191,7 +241,7 @@ argument_list|()
 operator|+
 literal|" but was handled by dead letter channel: "
 operator|+
-name|failureHandler
+name|uri
 return|;
 block|}
 else|else
@@ -208,7 +258,7 @@ operator|+
 name|getExchange
 argument_list|()
 operator|+
-literal|" but was processed by: "
+literal|" but was processed by failure processor: "
 operator|+
 name|failureHandler
 return|;

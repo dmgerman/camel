@@ -2056,7 +2056,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|notifyExchangeFailureHandled (CamelContext context, Exchange exchange, Processor failureHandler, boolean deadLetterChannel)
+DECL|method|notifyExchangeFailureHandled (CamelContext context, Exchange exchange, Processor failureHandler, boolean deadLetterChannel, String deadLetterUri)
 specifier|public
 specifier|static
 name|void
@@ -2073,6 +2073,9 @@ name|failureHandler
 parameter_list|,
 name|boolean
 name|deadLetterChannel
+parameter_list|,
+name|String
+name|deadLetterUri
 parameter_list|)
 block|{
 if|if
@@ -2190,6 +2193,8 @@ argument_list|,
 name|failureHandler
 argument_list|,
 name|deadLetterChannel
+argument_list|,
+name|deadLetterUri
 argument_list|)
 decl_stmt|;
 if|if

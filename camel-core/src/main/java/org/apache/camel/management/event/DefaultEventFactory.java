@@ -411,7 +411,7 @@ name|exchange
 argument_list|)
 return|;
 block|}
-DECL|method|createExchangeFailureHandledEvent (Exchange exchange, Processor failureHandler, boolean deadLetterChannel)
+DECL|method|createExchangeFailureHandledEvent (Exchange exchange, Processor failureHandler, boolean deadLetterChannel, String deadLetterUri)
 specifier|public
 name|EventObject
 name|createExchangeFailureHandledEvent
@@ -424,6 +424,9 @@ name|failureHandler
 parameter_list|,
 name|boolean
 name|deadLetterChannel
+parameter_list|,
+name|String
+name|deadLetterUri
 parameter_list|)
 block|{
 comment|// unwrap delegate processor
@@ -461,6 +464,8 @@ argument_list|,
 name|handler
 argument_list|,
 name|deadLetterChannel
+argument_list|,
+name|deadLetterUri
 argument_list|)
 return|;
 block|}

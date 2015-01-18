@@ -4067,6 +4067,8 @@ argument_list|,
 name|processor
 argument_list|,
 name|deadLetterChannel
+argument_list|,
+name|deadLetterUri
 argument_list|)
 expr_stmt|;
 block|}

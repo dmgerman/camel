@@ -674,6 +674,16 @@ name|getEndpointUri
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"mock://dead"
+argument_list|,
+name|e
+operator|.
+name|getDeadLetterUri
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// dead letter channel will mark the exchange as completed
 name|assertIsInstanceOf
 argument_list|(
