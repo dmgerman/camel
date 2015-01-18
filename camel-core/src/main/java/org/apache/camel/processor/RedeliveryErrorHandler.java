@@ -3995,6 +3995,8 @@ try|try
 block|{
 name|prepareExchangeAfterFailure
 argument_list|(
+name|processor
+argument_list|,
 name|exchange
 argument_list|,
 name|data
@@ -4064,6 +4066,8 @@ block|{
 comment|// no processor but we need to prepare after failure as well
 name|prepareExchangeAfterFailure
 argument_list|(
+name|processor
+argument_list|,
 name|exchange
 argument_list|,
 name|data
@@ -4157,11 +4161,15 @@ return|return
 name|sync
 return|;
 block|}
-DECL|method|prepareExchangeAfterFailure (final Exchange exchange, final RedeliveryData data, final boolean isDeadLetterChannel, final boolean shouldHandle, final boolean shouldContinue)
+DECL|method|prepareExchangeAfterFailure (final Processor failureProcessor, final Exchange exchange, final RedeliveryData data, final boolean isDeadLetterChannel, final boolean shouldHandle, final boolean shouldContinue)
 specifier|protected
 name|void
 name|prepareExchangeAfterFailure
 parameter_list|(
+specifier|final
+name|Processor
+name|failureProcessor
+parameter_list|,
 specifier|final
 name|Exchange
 name|exchange
@@ -4205,19 +4213,57 @@ name|isLogNewException
 argument_list|()
 condition|)
 block|{
+name|boolean
+name|handled
+init|=
+name|data
+operator|.
+name|handleNewException
+decl_stmt|;
+name|String
+name|msg
+init|=
+literal|"New exception occurred during processing by the failure processor "
+operator|+
+name|failureProcessor
+operator|+
+literal|" due "
+operator|+
+name|newException
+operator|.
+name|getMessage
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|handled
+condition|)
+block|{
+name|msg
+operator|+=
+literal|". The new exception is being handled as deadLetterHandleNewException=true."
+expr_stmt|;
+block|}
+else|else
+block|{
+name|msg
+operator|+=
+literal|". The new exception is not handled as deadLetterHandleNewException=false."
+expr_stmt|;
+block|}
 name|logFailedDelivery
 argument_list|(
 literal|false
 argument_list|,
 literal|true
 argument_list|,
-literal|false
+name|handled
 argument_list|,
 literal|false
 argument_list|,
 name|exchange
 argument_list|,
-literal|null
+name|msg
 argument_list|,
 name|data
 argument_list|,
@@ -4233,6 +4279,7 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+comment|// special for dead letter channel where it by default handle new exceptions, but its possible to turn that off
 if|if
 condition|(
 name|isDeadLetterChannel
@@ -4240,11 +4287,16 @@ operator|&&
 name|shouldHandle
 condition|)
 block|{
-if|if
-condition|(
+name|boolean
+name|handled
+init|=
 name|data
 operator|.
 name|handleNewException
+decl_stmt|;
+if|if
+condition|(
+name|handled
 condition|)
 block|{
 comment|// if there is a new exception then log a warning about that
@@ -4620,6 +4672,9 @@ block|}
 comment|// if we should not rollback, then check whether logging is enabled
 if|if
 condition|(
+operator|!
+name|newException
+operator|&&
 name|handled
 operator|&&
 operator|!
@@ -4636,6 +4691,9 @@ return|return;
 block|}
 if|if
 condition|(
+operator|!
+name|newException
+operator|&&
 name|continued
 operator|&&
 operator|!
@@ -4652,6 +4710,9 @@ return|return;
 block|}
 if|if
 condition|(
+operator|!
+name|newException
+operator|&&
 name|shouldRedeliver
 operator|&&
 operator|!
@@ -4668,6 +4729,9 @@ return|return;
 block|}
 if|if
 condition|(
+operator|!
+name|newException
+operator|&&
 operator|!
 name|shouldRedeliver
 operator|&&
@@ -4808,10 +4872,20 @@ operator|.
 name|WARN
 expr_stmt|;
 block|}
-comment|// special for logging the new exception
 name|String
 name|msg
 init|=
+name|message
+decl_stmt|;
+if|if
+condition|(
+name|msg
+operator|==
+literal|null
+condition|)
+block|{
+name|msg
+operator|=
 literal|"New exception "
 operator|+
 name|ExchangeHelper
@@ -4820,34 +4894,12 @@ name|logIds
 argument_list|(
 name|exchange
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+comment|// special for logging the new exception
 name|Throwable
 name|cause
 init|=
-name|exchange
-operator|.
-name|getException
-argument_list|()
-operator|!=
-literal|null
-condition|?
-name|exchange
-operator|.
-name|getException
-argument_list|()
-else|:
-name|exchange
-operator|.
-name|getProperty
-argument_list|(
-name|Exchange
-operator|.
-name|EXCEPTION_CAUGHT
-argument_list|,
-name|Throwable
-operator|.
-name|class
-argument_list|)
+name|e
 decl_stmt|;
 if|if
 condition|(
@@ -4867,6 +4919,7 @@ operator|.
 name|getMessage
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

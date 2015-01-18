@@ -1219,6 +1219,24 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * @deprecated use {@link #deadLetterHandleNewException(boolean)}} with value<tt>false</tt>      */
+annotation|@
+name|Deprecated
+DECL|method|checkException ()
+specifier|public
+name|DefaultErrorHandlerBuilder
+name|checkException
+parameter_list|()
+block|{
+name|setDeadLetterHandleNewException
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getFailureProcessor ()
