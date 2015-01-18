@@ -277,6 +277,8 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|AsyncProcessor
+implements|,
+name|EndpointAware
 block|{
 DECL|field|LOG
 specifier|private
@@ -420,6 +422,19 @@ operator|=
 name|defaultAggregationStrategy
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|getEndpoint ()
+specifier|public
+name|Endpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+name|producer
+operator|.
+name|getEndpoint
+argument_list|()
+return|;
 block|}
 DECL|method|process (Exchange exchange)
 specifier|public

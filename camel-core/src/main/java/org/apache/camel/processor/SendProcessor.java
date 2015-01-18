@@ -345,6 +345,8 @@ implements|implements
 name|AsyncProcessor
 implements|,
 name|Traceable
+implements|,
+name|EndpointAware
 block|{
 DECL|field|LOG
 specifier|protected
@@ -593,6 +595,18 @@ operator|.
 name|getEndpointUri
 argument_list|()
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getEndpoint ()
+specifier|public
+name|Endpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+name|destination
 return|;
 block|}
 DECL|method|process (final Exchange exchange)

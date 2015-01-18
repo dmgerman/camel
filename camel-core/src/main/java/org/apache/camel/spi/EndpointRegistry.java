@@ -97,6 +97,24 @@ name|void
 name|purge
 parameter_list|()
 function_decl|;
+comment|/**      * Whether the given endpoint is stored in the static cache      *      * @param key  the endpoint key      * @return<tt>true</tt> if in static cache,<tt>false</tt> if not      */
+DECL|method|isStatic (K key)
+name|boolean
+name|isStatic
+parameter_list|(
+name|K
+name|key
+parameter_list|)
+function_decl|;
+comment|/**      * Whether the given endpoint is stored in the dynamic cache      *      * @param key  the endpoint key      * @return<tt>true</tt> if in dynamic cache,<tt>false</tt> if not      */
+DECL|method|isDynamic (K key)
+name|boolean
+name|isDynamic
+parameter_list|(
+name|K
+name|key
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

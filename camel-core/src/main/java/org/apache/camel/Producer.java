@@ -14,6 +14,20 @@ name|camel
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|EndpointAware
+import|;
+end_import
+
 begin_comment
 comment|/**  * Provides a channel on which clients can create and invoke message exchanges  * on an {@link Endpoint}  *   * @version   */
 end_comment
@@ -29,6 +43,8 @@ extends|,
 name|Service
 extends|,
 name|IsSingleton
+extends|,
+name|EndpointAware
 block|{
 comment|/**      * Gets the endpoint this producer sends to.      *      * @return the endpoint      */
 DECL|method|getEndpoint ()

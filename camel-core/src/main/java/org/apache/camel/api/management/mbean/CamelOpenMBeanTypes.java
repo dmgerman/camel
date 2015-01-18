@@ -404,6 +404,10 @@ name|String
 index|[]
 block|{
 literal|"url"
+block|,
+literal|"static"
+block|,
+literal|"dynamic"
 block|}
 argument_list|,
 operator|new
@@ -411,6 +415,10 @@ name|String
 index|[]
 block|{
 literal|"Url"
+block|,
+literal|"Static"
+block|,
+literal|"Dynamic"
 block|}
 argument_list|,
 operator|new
@@ -420,6 +428,14 @@ block|{
 name|SimpleType
 operator|.
 name|STRING
+block|,
+name|SimpleType
+operator|.
+name|BOOLEAN
+block|,
+name|SimpleType
+operator|.
+name|BOOLEAN
 block|}
 argument_list|)
 return|;

@@ -907,12 +907,16 @@ parameter_list|)
 function_decl|;
 comment|// Endpoint Management Methods
 comment|//-----------------------------------------------------------------------
+comment|/**      * Gets the {@link org.apache.camel.spi.EndpointRegistry}      */
 DECL|method|getEndpointRegistry ()
 name|EndpointRegistry
+argument_list|<
+name|String
+argument_list|>
 name|getEndpointRegistry
 parameter_list|()
 function_decl|;
-comment|/**      * Resolves the given name to an {@link Endpoint} of the specified type.      * If the name has a singleton endpoint registered, then the singleton is returned.      * Otherwise, a new {@link Endpoint} is created and registered.      *      * @param uri the URI of the endpoint      * @return the endpoint      */
+comment|/**      * Resolves the given name to an {@link Endpoint} of the specified type.      * If the name has a singleton endpoint registered, then the singleton is returned.      * Otherwise, a new {@link Endpoint} is created and registered in the {@link org.apache.camel.spi.EndpointRegistry}.      *      * @param uri the URI of the endpoint      * @return the endpoint      */
 DECL|method|getEndpoint (String uri)
 name|Endpoint
 name|getEndpoint
@@ -921,7 +925,7 @@ name|String
 name|uri
 parameter_list|)
 function_decl|;
-comment|/**      * Resolves the given name to an {@link Endpoint} of the specified type.      * If the name has a singleton endpoint registered, then the singleton is returned.      * Otherwise, a new {@link Endpoint} is created and registered.      *      * @param name         the name of the endpoint      * @param endpointType the expected type      * @return the endpoint      */
+comment|/**      * Resolves the given name to an {@link Endpoint} of the specified type.      * If the name has a singleton endpoint registered, then the singleton is returned.      * Otherwise, a new {@link Endpoint} is created and registered in the {@link org.apache.camel.spi.EndpointRegistry}.      *      * @param name         the name of the endpoint      * @param endpointType the expected type      * @return the endpoint      */
 DECL|method|getEndpoint (String name, Class<T> endpointType)
 parameter_list|<
 name|T
@@ -941,7 +945,7 @@ argument_list|>
 name|endpointType
 parameter_list|)
 function_decl|;
-comment|/**      * Returns the collection of all registered endpoints.      *      * @return all endpoints      */
+comment|/**      * Returns a new {@link Collection} of all of the endpoints from the {@link org.apache.camel.spi.EndpointRegistry}      *      * @return all endpoints      */
 DECL|method|getEndpoints ()
 name|Collection
 argument_list|<
@@ -950,7 +954,7 @@ argument_list|>
 name|getEndpoints
 parameter_list|()
 function_decl|;
-comment|/**      * Returns a new Map containing all of the active endpoints with the key of the map being their      * unique key.      *      * @return map of active endpoints      */
+comment|/**      * Returns a new {@link Map} containing all of the endpoints from the {@link org.apache.camel.spi.EndpointRegistry}      *      * @return map of endpoints      */
 DECL|method|getEndpointMap ()
 name|Map
 argument_list|<
@@ -961,7 +965,7 @@ argument_list|>
 name|getEndpointMap
 parameter_list|()
 function_decl|;
-comment|/**      * Is the given endpoint already registered?      *      * @param uri the URI of the endpoint      * @return the registered endpoint or<tt>null</tt> if not registered      */
+comment|/**      * Is the given endpoint already registered in the {@link org.apache.camel.spi.EndpointRegistry}      *      * @param uri the URI of the endpoint      * @return the registered endpoint or<tt>null</tt> if not registered      */
 DECL|method|hasEndpoint (String uri)
 name|Endpoint
 name|hasEndpoint
@@ -970,7 +974,7 @@ name|String
 name|uri
 parameter_list|)
 function_decl|;
-comment|/**      * Adds the endpoint to the context using the given URI.      *      * @param uri      the URI to be used to resolve this endpoint      * @param endpoint the endpoint to be added to the context      * @return the old endpoint that was previously registered or<tt>null</tt> if none was registered      * @throws Exception if the new endpoint could not be started or the old endpoint could not be stopped      */
+comment|/**      * Adds the endpoint to the {@link org.apache.camel.spi.EndpointRegistry} using the given URI.      *      * @param uri      the URI to be used to resolve this endpoint      * @param endpoint the endpoint to be added to the registry      * @return the old endpoint that was previously registered or<tt>null</tt> if none was registered      * @throws Exception if the new endpoint could not be started or the old endpoint could not be stopped      */
 DECL|method|addEndpoint (String uri, Endpoint endpoint)
 name|Endpoint
 name|addEndpoint
@@ -984,7 +988,18 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Removes all endpoints with the given URI.      *<p/>      * The endpoints being removed will be stopped first.      *      * @param pattern an uri or pattern to match      * @return a collection of endpoints removed which could be empty if there are no endpoints found for the given<tt>pattern</tt>      * @throws Exception if at least one endpoint could not be stopped      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(CamelContext, String, String)  for pattern      */
+comment|/**      * Removes the endpoint from the {@link org.apache.camel.spi.EndpointRegistry}.      *<p/>      * The endpoint being removed will be stopped first.      *      * @param endpoint  the endpoint      * @throws Exception if the endpoint could not be stopped      */
+DECL|method|removeEndpoint (Endpoint endpoint)
+name|void
+name|removeEndpoint
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Removes all endpoints with the given URI from the {@link org.apache.camel.spi.EndpointRegistry}.      *<p/>      * The endpoints being removed will be stopped first.      *      * @param pattern an uri or pattern to match      * @return a collection of endpoints removed which could be empty if there are no endpoints found for the given<tt>pattern</tt>      * @throws Exception if at least one endpoint could not be stopped      * @see org.apache.camel.util.EndpointHelper#matchEndpoint(CamelContext, String, String) for pattern      */
 DECL|method|removeEndpoints (String pattern)
 name|Collection
 argument_list|<
@@ -998,7 +1013,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Registers a {@link org.apache.camel.spi.EndpointStrategy callback} to allow you to do custom      * logic when an {@link Endpoint} is about to be registered to the {@link CamelContext} endpoint registry.      *<p/>      * When a callback is added it will be executed on the already registered endpoints allowing you to catch-up      *      * @param strategy callback to be invoked      */
+comment|/**      * Registers a {@link org.apache.camel.spi.EndpointStrategy callback} to allow you to do custom      * logic when an {@link Endpoint} is about to be registered to the {@link org.apache.camel.spi.EndpointRegistry}.      *<p/>      * When a callback is added it will be executed on the already registered endpoints allowing you to catch-up      *      * @param strategy callback to be invoked      */
 DECL|method|addRegisterEndpointCallback (EndpointStrategy strategy)
 name|void
 name|addRegisterEndpointCallback

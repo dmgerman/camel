@@ -275,6 +275,8 @@ implements|implements
 name|AsyncProcessor
 implements|,
 name|Traceable
+implements|,
+name|EndpointAware
 block|{
 DECL|field|LOG
 specifier|private
@@ -437,6 +439,16 @@ operator|+
 name|destination
 operator|+
 literal|")"
+return|;
+block|}
+DECL|method|getEndpoint ()
+specifier|public
+name|Endpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+name|destination
 return|;
 block|}
 DECL|method|process (Exchange exchange)

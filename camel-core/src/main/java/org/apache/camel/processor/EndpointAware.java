@@ -4,29 +4,41 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel
+DECL|package|org.apache.camel.processor
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|processor
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Endpoint
+import|;
+end_import
+
 begin_comment
-comment|/**  * An interface to represent an {@link org.apache.camel.Endpoint} which are delegated.  */
+comment|/**  * An interface to represent a {@link org.apache.camel.Processor} that uses an {@link Endpoint}  */
 end_comment
 
 begin_interface
-DECL|interface|DelegateEndpoint
+DECL|interface|EndpointAware
 specifier|public
 interface|interface
-name|DelegateEndpoint
-extends|extends
-name|Endpoint
+name|EndpointAware
 block|{
-comment|/**      * Gets the delegated {@link Endpoint}.      *      * @return the Endpoint we delegate to      */
+comment|/**      * Gets the endpoint      *      * @return the endpoint      */
 DECL|method|getEndpoint ()
 name|Endpoint
 name|getEndpoint
