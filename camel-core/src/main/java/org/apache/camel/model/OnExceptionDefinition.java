@@ -1971,6 +1971,50 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether new exceptions should be logged or not (supports property placeholders).      * Can be used to include or reduce verbose.      *<p/>      * A new exception is an exception that was thrown while handling a previous exception.      */
+DECL|method|logNewException (boolean logNewException)
+specifier|public
+name|OnExceptionDefinition
+name|logNewException
+parameter_list|(
+name|boolean
+name|logNewException
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|logNewException
+argument_list|(
+name|logNewException
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether new exceptions should be logged or not (supports property placeholders).      * Can be used to include or reduce verbose.      *<p/>      * A new exception is an exception that was thrown while handling a previous exception.      */
+DECL|method|logNewException (String logNewException)
+specifier|public
+name|OnExceptionDefinition
+name|logNewException
+parameter_list|(
+name|String
+name|logNewException
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|logNewException
+argument_list|(
+name|logNewException
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets whether to log errors even if its continued      */
 DECL|method|logContinued (boolean logContinued)
 specifier|public

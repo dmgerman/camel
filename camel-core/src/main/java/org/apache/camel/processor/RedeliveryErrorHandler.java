@@ -4622,23 +4622,6 @@ block|{
 comment|// do not log handled
 return|return;
 block|}
-comment|// if we should not rollback, then check whether logging is enabled
-if|if
-condition|(
-name|handled
-operator|&&
-operator|!
-name|data
-operator|.
-name|currentRedeliveryPolicy
-operator|.
-name|isLogHandled
-argument_list|()
-condition|)
-block|{
-comment|// do not log handled
-return|return;
-block|}
 if|if
 condition|(
 name|continued
