@@ -122,18 +122,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|StaticService
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|EndpointRegistry
@@ -183,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Endpoint registry which is a based on a {@link org.apache.camel.util.LRUCache}.  */
+comment|/**  * Default implementation of {@link org.apache.camel.spi.EndpointRegistry}  */
 end_comment
 
 begin_class
@@ -203,8 +191,6 @@ name|EndpointRegistry
 argument_list|<
 name|EndpointKey
 argument_list|>
-implements|,
-name|StaticService
 block|{
 DECL|field|serialVersionUID
 specifier|private
