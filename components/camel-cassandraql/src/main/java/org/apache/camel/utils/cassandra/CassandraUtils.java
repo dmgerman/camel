@@ -122,8 +122,9 @@ specifier|public
 class|class
 name|CassandraUtils
 block|{
+comment|/**      * Test if the array is null or empty.      */
 DECL|method|isEmpty (Object[] array)
-specifier|private
+specifier|public
 specifier|static
 name|boolean
 name|isEmpty
