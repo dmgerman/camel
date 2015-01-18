@@ -406,6 +406,23 @@ name|CXT
 operator|+
 literal|"/rest2?resourceClasses=org.apache.camel.component.cxf.jaxrs.testbean.CustomerService"
 decl_stmt|;
+DECL|field|CXF_RS_ENDPOINT_URI3
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|CXF_RS_ENDPOINT_URI3
+init|=
+literal|"cxfrs://http://localhost:"
+operator|+
+name|CXT
+operator|+
+literal|"/rest3?"
+operator|+
+literal|"resourceClasses=org.apache.camel.component.cxf.jaxrs.testbean.CustomerServiceNoAnnotations&"
+operator|+
+literal|"modelRef=classpath:/org/apache/camel/component/cxf/jaxrs/CustomerServiceModel.xml"
+decl_stmt|;
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -452,6 +469,16 @@ expr_stmt|;
 name|from
 argument_list|(
 name|CXF_RS_ENDPOINT_URI2
+argument_list|)
+operator|.
+name|process
+argument_list|(
+name|testProcessor
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+name|CXF_RS_ENDPOINT_URI3
 argument_list|)
 operator|.
 name|process
@@ -559,55 +586,60 @@ block|}
 block|}
 annotation|@
 name|Test
-DECL|method|testGetCustomer ()
+DECL|method|testGetCustomerInterface ()
 specifier|public
 name|void
-name|testGetCustomer
+name|testGetCustomerInterface
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|invokeGetCustomer
+name|doTestGetCustomer
 argument_list|(
-literal|"http://localhost:"
-operator|+
-name|CXT
-operator|+
-literal|"/rest/customerservice/customers/126"
-argument_list|,
-literal|"{\"Customer\":{\"id\":126,\"name\":\"Willem\"}}"
-argument_list|)
-expr_stmt|;
-name|invokeGetCustomer
-argument_list|(
-literal|"http://localhost:"
-operator|+
-name|CXT
-operator|+
-literal|"/rest/customerservice/customers/123"
-argument_list|,
-literal|"customer response back!"
-argument_list|)
-expr_stmt|;
-name|invokeGetCustomer
-argument_list|(
-literal|"http://localhost:"
-operator|+
-name|CXT
-operator|+
-literal|"/rest/customerservice/customers/400"
-argument_list|,
-literal|"The remoteAddress is 127.0.0.1"
+literal|"rest"
 argument_list|)
 expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testGetCustomer2 ()
+DECL|method|testGetCustomerImpl ()
 specifier|public
 name|void
-name|testGetCustomer2
+name|testGetCustomerImpl
 parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|doTestGetCustomer
+argument_list|(
+literal|"rest2"
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testGetCustomerInterfaceAndModel ()
+specifier|public
+name|void
+name|testGetCustomerInterfaceAndModel
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|doTestGetCustomer
+argument_list|(
+literal|"rest3"
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|doTestGetCustomer (String contextUri)
+specifier|private
+name|void
+name|doTestGetCustomer
+parameter_list|(
+name|String
+name|contextUri
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -617,7 +649,11 @@ literal|"http://localhost:"
 operator|+
 name|CXT
 operator|+
-literal|"/rest2/customerservice/customers/126"
+literal|"/"
+operator|+
+name|contextUri
+operator|+
+literal|"/customerservice/customers/126"
 argument_list|,
 literal|"{\"Customer\":{\"id\":126,\"name\":\"Willem\"}}"
 argument_list|)
@@ -628,7 +664,11 @@ literal|"http://localhost:"
 operator|+
 name|CXT
 operator|+
-literal|"/rest2/customerservice/customers/123"
+literal|"/"
+operator|+
+name|contextUri
+operator|+
+literal|"/customerservice/customers/123"
 argument_list|,
 literal|"customer response back!"
 argument_list|)
@@ -639,7 +679,11 @@ literal|"http://localhost:"
 operator|+
 name|CXT
 operator|+
-literal|"/rest2/customerservice/customers/400"
+literal|"/"
+operator|+
+name|contextUri
+operator|+
+literal|"/customerservice/customers/400"
 argument_list|,
 literal|"The remoteAddress is 127.0.0.1"
 argument_list|)
