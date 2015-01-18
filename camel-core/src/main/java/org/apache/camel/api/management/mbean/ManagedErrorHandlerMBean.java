@@ -107,6 +107,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Does this error handler handle new exceptions which may occur during error handling"
+argument_list|)
+DECL|method|isDeadLetterHandleNewException ()
+name|boolean
+name|isDeadLetterHandleNewException
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Does this error handler support transactions"
 argument_list|)
 DECL|method|isSupportTransactions ()
@@ -449,6 +461,33 @@ argument_list|)
 DECL|method|setLogHandled (Boolean log)
 name|void
 name|setLogHandled
+parameter_list|(
+name|Boolean
+name|log
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"RedeliveryPolicy for logging new exceptions"
+argument_list|)
+DECL|method|getLogNewException ()
+name|Boolean
+name|getLogNewException
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"RedeliveryPolicy for logging new exceptions"
+argument_list|)
+DECL|method|setLogNewException (Boolean log)
+name|void
+name|setLogNewException
 parameter_list|(
 name|Boolean
 name|log

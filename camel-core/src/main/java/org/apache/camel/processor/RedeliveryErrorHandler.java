@@ -2850,6 +2850,16 @@ return|return
 name|useOriginalMessagePolicy
 return|;
 block|}
+DECL|method|isDeadLetterHandleNewException ()
+specifier|public
+name|boolean
+name|isDeadLetterHandleNewException
+parameter_list|()
+block|{
+return|return
+name|deadLetterHandleNewException
+return|;
+block|}
 DECL|method|getRedeliveryPolicy ()
 specifier|public
 name|RedeliveryPolicy
