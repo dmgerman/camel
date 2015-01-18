@@ -750,6 +750,18 @@ name|isSetDefaultBus
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|performInvocation
+specifier|private
+name|boolean
+name|performInvocation
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|modelRef
 specifier|private
 name|String
@@ -2737,6 +2749,32 @@ name|InterceptorHolder
 extends|extends
 name|AbstractBasicInterceptorProvider
 block|{     }
+DECL|method|isPerformInvocation ()
+specifier|public
+name|boolean
+name|isPerformInvocation
+parameter_list|()
+block|{
+return|return
+name|performInvocation
+return|;
+block|}
+DECL|method|setPerformInvocation (boolean performInvocation)
+specifier|public
+name|void
+name|setPerformInvocation
+parameter_list|(
+name|boolean
+name|performInvocation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|performInvocation
+operator|=
+name|performInvocation
+expr_stmt|;
+block|}
 block|}
 end_class
 
