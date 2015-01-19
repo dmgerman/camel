@@ -1137,6 +1137,33 @@ operator|.
 name|trim
 argument_list|()
 expr_stmt|;
+comment|// terminate if we reach @param, @return or @deprecated as we only want the javadoc summary
+if|if
+condition|(
+name|line
+operator|.
+name|startsWith
+argument_list|(
+literal|"@param"
+argument_list|)
+operator|||
+name|line
+operator|.
+name|startsWith
+argument_list|(
+literal|"@return"
+argument_list|)
+operator|||
+name|line
+operator|.
+name|startsWith
+argument_list|(
+literal|"@deprecated"
+argument_list|)
+condition|)
+block|{
+break|break;
+block|}
 comment|// skip lines that are javadoc references
 if|if
 condition|(
