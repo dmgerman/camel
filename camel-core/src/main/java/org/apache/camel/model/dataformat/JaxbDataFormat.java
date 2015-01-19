@@ -320,6 +320,7 @@ return|return
 name|contextPath
 return|;
 block|}
+comment|/**      * Package name where your JAXB classes are located.      */
 DECL|method|setContextPath (String contextPath)
 specifier|public
 name|void
@@ -346,6 +347,7 @@ return|return
 name|schema
 return|;
 block|}
+comment|/**      * To validate against an existing schema.      * Your can use the prefix classpath:, file:* or *http: to specify how the resource should by resolved.      * You can separate multiple schema files by using the ',' character.      */
 DECL|method|setSchema (String schema)
 specifier|public
 name|void
@@ -372,6 +374,7 @@ return|return
 name|prettyPrint
 return|;
 block|}
+comment|/**      * To enable pretty printing to output XML nicely formatted.      *<p/>      * Is by default false.      */
 DECL|method|setPrettyPrint (Boolean prettyPrint)
 specifier|public
 name|void
@@ -398,6 +401,7 @@ return|return
 name|ignoreJAXBElement
 return|;
 block|}
+comment|/**      * Whether to ignore JAXBElement elements - only needed to be set to false in very special use-cases.      */
 DECL|method|setIgnoreJAXBElement (Boolean ignoreJAXBElement)
 specifier|public
 name|void
@@ -424,6 +428,7 @@ return|return
 name|mustBeJAXBElement
 return|;
 block|}
+comment|/**      * Whether marhsalling must be java objects with JAXB annotations. And if not then it fails.      * This option can be set to false to relax that, such as when the data is already in XML format.      */
 DECL|method|setMustBeJAXBElement (Boolean mustBeJAXBElement)
 specifier|public
 name|void
@@ -440,6 +445,7 @@ operator|=
 name|mustBeJAXBElement
 expr_stmt|;
 block|}
+comment|/**      * To turn on marshalling XML fragment trees.      * By default JAXB looks for @XmlRootElement annotation on given class to operate on whole XML tree.      * This is useful but not always - sometimes generated code does not have @XmlRootElement annotation,      * sometimes you need unmarshall only part of tree.      * In that case you can use partial unmarshalling. To enable this behaviours you need set property partClass.      * Camel will pass this class to JAXB's unmarshaler.      */
 DECL|method|setFragment (Boolean fragment)
 specifier|public
 name|void
@@ -476,6 +482,7 @@ return|return
 name|filterNonXmlChars
 return|;
 block|}
+comment|/**      * To ignore non xml characheters and replace them with an empty space.      */
 DECL|method|setFilterNonXmlChars (Boolean filterNonXmlChars)
 specifier|public
 name|void
@@ -502,6 +509,7 @@ return|return
 name|encoding
 return|;
 block|}
+comment|/**      * To overrule and use a specific encoding      * @param encoding      */
 DECL|method|setEncoding (String encoding)
 specifier|public
 name|void
@@ -528,6 +536,7 @@ return|return
 name|partClass
 return|;
 block|}
+comment|/**      * Name of class used for fragment parsing.      *<p/>      * See more details at the fragment option.      */
 DECL|method|setPartClass (String partClass)
 specifier|public
 name|void
@@ -554,6 +563,7 @@ return|return
 name|partNamespace
 return|;
 block|}
+comment|/**      * XML namespace to use for fragment parsing.      *<p/>      * See more details at the fragment option.      */
 DECL|method|setPartNamespace (String partNamespace)
 specifier|public
 name|void
@@ -580,6 +590,7 @@ return|return
 name|namespacePrefixRef
 return|;
 block|}
+comment|/**      * When marshalling using JAXB or SOAP then the JAXB implementation will automatic assign namespace prefixes,      * such as ns2, ns3, ns4 etc. To control this mapping, Camel allows you to refer to a map which contains the desired mapping.      */
 DECL|method|setNamespacePrefixRef (String namespacePrefixRef)
 specifier|public
 name|void
@@ -606,6 +617,7 @@ return|return
 name|xmlStreamWriterWrapper
 return|;
 block|}
+comment|/**      * To use a custom xml stream writer.      */
 DECL|method|setXmlStreamWriterWrapper (String xmlStreamWriterWrapperRef)
 specifier|public
 name|void
@@ -632,6 +644,7 @@ return|return
 name|schemaLocation
 return|;
 block|}
+comment|/**      * To define the location of the schema      */
 DECL|method|setSchemaLocation (String schemaLocation)
 specifier|public
 name|void
