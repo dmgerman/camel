@@ -289,6 +289,7 @@ return|return
 name|lineLength
 return|;
 block|}
+comment|/**      * To specific a maximum line length for the encoded data.      *<p/>      * By default 76 is used.      */
 DECL|method|setLineLength (Integer lineLength)
 specifier|public
 name|void
@@ -315,6 +316,7 @@ return|return
 name|lineSeparator
 return|;
 block|}
+comment|/**      * The line separators to use.      *<p/>      * By default \r\n is used.      */
 DECL|method|setLineSeparator (String lineSeparator)
 specifier|public
 name|void
@@ -341,6 +343,7 @@ return|return
 name|urlSafe
 return|;
 block|}
+comment|/**      * Instead of emitting '+' and '/' we emit '-' and '_' respectively.      * urlSafe is only applied to encode operations. Decoding seamlessly handles both modes.      * Is by default false.      */
 DECL|method|setUrlSafe (Boolean urlSafe)
 specifier|public
 name|void

@@ -175,6 +175,11 @@ name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|field|instanceClassName
 specifier|private
 name|String
@@ -225,6 +230,7 @@ return|return
 name|instanceClassName
 return|;
 block|}
+comment|/**      * Class name to use for marshal and unmarshalling      */
 DECL|method|setInstanceClassName (String instanceClassName)
 specifier|public
 name|void

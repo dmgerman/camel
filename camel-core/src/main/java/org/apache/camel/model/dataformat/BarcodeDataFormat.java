@@ -299,6 +299,7 @@ return|return
 name|width
 return|;
 block|}
+comment|/**      * Width of the barcode      */
 DECL|method|setWidth (Integer width)
 specifier|public
 name|void
@@ -325,6 +326,7 @@ return|return
 name|height
 return|;
 block|}
+comment|/**      * Height of the barcode      */
 DECL|method|setHeight (Integer height)
 specifier|public
 name|void
@@ -351,6 +353,7 @@ return|return
 name|imageType
 return|;
 block|}
+comment|/**      * Image type of the barcode such as png      */
 DECL|method|setImageType (String imageType)
 specifier|public
 name|void
@@ -377,6 +380,7 @@ return|return
 name|barcodeFormat
 return|;
 block|}
+comment|/**      * Barcode format such as QR-Code      */
 DECL|method|setBarcodeFormat (String barcodeFormat)
 specifier|public
 name|void
