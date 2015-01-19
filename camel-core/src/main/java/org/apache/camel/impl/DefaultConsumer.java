@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|EndpointAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -97,18 +109,6 @@ operator|.
 name|camel
 operator|.
 name|RouteAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|EndpointAware
 import|;
 end_import
 

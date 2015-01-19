@@ -86,7 +86,6 @@ parameter_list|()
 function_decl|;
 comment|/**      * Maximum number of entries to store in the dynamic registry      */
 DECL|method|getMaximumCacheSize ()
-specifier|public
 name|int
 name|getMaximumCacheSize
 parameter_list|()
