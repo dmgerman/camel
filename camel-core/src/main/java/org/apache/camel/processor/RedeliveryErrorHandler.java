@@ -3712,7 +3712,7 @@ literal|null
 argument_list|)
 expr_stmt|;
 specifier|final
-name|Boolean
+name|boolean
 name|shouldHandle
 init|=
 name|shouldHandle
@@ -3723,7 +3723,7 @@ name|data
 argument_list|)
 decl_stmt|;
 specifier|final
-name|Boolean
+name|boolean
 name|shouldContinue
 init|=
 name|shouldContinue
@@ -3745,21 +3745,9 @@ name|handleOrContinue
 init|=
 name|isDeadLetterChannel
 operator|||
-operator|(
 name|shouldHandle
-operator|!=
-literal|null
-operator|&&
-name|shouldHandle
-operator|)
 operator|||
-operator|(
 name|shouldContinue
-operator|!=
-literal|null
-operator|&&
-name|shouldContinue
-operator|)
 decl_stmt|;
 if|if
 condition|(
@@ -4206,7 +4194,7 @@ return|return
 name|sync
 return|;
 block|}
-DECL|method|prepareExchangeAfterFailure (final Exchange exchange, final RedeliveryData data, final boolean isDeadLetterChannel, final Boolean shouldHandle, final Boolean shouldContinue)
+DECL|method|prepareExchangeAfterFailure (final Exchange exchange, final RedeliveryData data, final boolean isDeadLetterChannel, final boolean shouldHandle, final boolean shouldContinue)
 specifier|protected
 name|void
 name|prepareExchangeAfterFailure
@@ -4224,11 +4212,11 @@ name|boolean
 name|isDeadLetterChannel
 parameter_list|,
 specifier|final
-name|Boolean
+name|boolean
 name|shouldHandle
 parameter_list|,
 specifier|final
-name|Boolean
+name|boolean
 name|shouldContinue
 parameter_list|)
 block|{
@@ -4344,10 +4332,6 @@ comment|// dead letter channel is special
 if|if
 condition|(
 name|shouldContinue
-operator|!=
-literal|null
-operator|&&
-name|shouldContinue
 condition|)
 block|{
 name|log
@@ -4371,10 +4355,6 @@ block|}
 elseif|else
 if|if
 condition|(
-name|shouldHandle
-operator|!=
-literal|null
-operator|&&
 name|shouldHandle
 condition|)
 block|{
@@ -5365,10 +5345,10 @@ operator|!
 name|redeliver
 return|;
 block|}
-comment|/**      * Determines whether the redelivery configuration has a continued predicate      *      * @param exchange the current exchange      * @param data     the redelivery data      * @return<tt>true</tt> to continue, or<tt>false</tt> to attempt to handle, or<tt>null</tt> if continued predicate has not been configured.      */
+comment|/**      * Determines whether or not to continue if we are exhausted.      *      * @param exchange the current exchange      * @param data     the redelivery data      * @return<tt>true</tt> to continue, or<tt>false</tt> to exhaust.      */
 DECL|method|shouldContinue (Exchange exchange, RedeliveryData data)
 specifier|private
-name|Boolean
+name|boolean
 name|shouldContinue
 parameter_list|(
 name|Exchange
@@ -5398,15 +5378,15 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|// no predicate
+comment|// do not continue by default
 return|return
-literal|null
+literal|false
 return|;
 block|}
-comment|/**      * Determines whether the redelivery configuration has a handled predicate      *      * @param exchange the current exchange      * @param data     the redelivery data      * @return<tt>true</tt> to handle, or<tt>false</tt> to exhaust, or<tt>null</tt> if handled predicate has not been configured.      */
+comment|/**      * Determines whether or not to handle if we are exhausted.      *      * @param exchange the current exchange      * @param data     the redelivery data      * @return<tt>true</tt> to handle, or<tt>false</tt> to exhaust.      */
 DECL|method|shouldHandle (Exchange exchange, RedeliveryData data)
 specifier|private
-name|Boolean
+name|boolean
 name|shouldHandle
 parameter_list|(
 name|Exchange
@@ -5436,9 +5416,9 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|// no predicate
+comment|// do not handle by default
 return|return
-literal|null
+literal|false
 return|;
 block|}
 comment|/**      * Increments the redelivery counter and adds the redelivered flag if the      * message has been redelivered      */
