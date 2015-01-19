@@ -657,6 +657,7 @@ return|return
 name|algorithm
 return|;
 block|}
+comment|/**      * The JCE algorithm name indicating the cryptographic algorithm that will be used.      *<p/>      * Is by default DES/CBC/PKCS5Padding.      */
 DECL|method|setAlgorithm (String algorithm)
 specifier|public
 name|void
@@ -683,6 +684,7 @@ return|return
 name|cryptoProvider
 return|;
 block|}
+comment|/**      * The name of the JCE Security Provider that should be used.      */
 DECL|method|setCryptoProvider (String cryptoProvider)
 specifier|public
 name|void
@@ -709,6 +711,7 @@ return|return
 name|keyRef
 return|;
 block|}
+comment|/**      * Refers to the secret key to lookup from the register to use.      */
 DECL|method|setKeyRef (String keyRef)
 specifier|public
 name|void
@@ -735,6 +738,7 @@ return|return
 name|initVectorRef
 return|;
 block|}
+comment|/**      * Refers to a byte array containing the Initialization Vector that will be used to initialize the Cipher.      */
 DECL|method|setInitVectorRef (String initVectorRef)
 specifier|public
 name|void
@@ -761,6 +765,7 @@ return|return
 name|algorithmParameterRef
 return|;
 block|}
+comment|/**      * A JCE AlgorithmParameterSpec used to initialize the Cipher.      *<p/>      * Will lookup the type using the given name as a {@link java.security.spec.AlgorithmParameterSpec} type.      */
 DECL|method|setAlgorithmParameterRef (String algorithmParameterRef)
 specifier|public
 name|void
@@ -787,6 +792,7 @@ return|return
 name|buffersize
 return|;
 block|}
+comment|/**      * The size of the buffer used in the signature process.      */
 DECL|method|setBuffersize (Integer buffersize)
 specifier|public
 name|void
@@ -813,6 +819,7 @@ return|return
 name|macAlgorithm
 return|;
 block|}
+comment|/**      * The JCE algorithm name indicating the Message Authentication algorithm.      */
 DECL|method|setMacAlgorithm (String macAlgorithm)
 specifier|public
 name|void
@@ -839,6 +846,7 @@ return|return
 name|shouldAppendHMAC
 return|;
 block|}
+comment|/**      * Flag indicating that a Message Authentication Code should be calculated and appended to the encrypted data.      */
 DECL|method|setShouldAppendHMAC (Boolean shouldAppendHMAC)
 specifier|public
 name|void
@@ -865,6 +873,7 @@ return|return
 name|inline
 return|;
 block|}
+comment|/**      * Flag indicating that the configured IV should be inlined into the encrypted data stream.      *<p/>      * Is by default false.      */
 DECL|method|setInline (Boolean inline)
 specifier|public
 name|void

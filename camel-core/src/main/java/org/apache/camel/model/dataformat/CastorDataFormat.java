@@ -234,6 +234,7 @@ return|return
 name|validation
 return|;
 block|}
+comment|/**      * Whether validation is turned on or off.      *<p/>      * Is by default true.      */
 DECL|method|setValidation (Boolean validation)
 specifier|public
 name|void
@@ -260,6 +261,7 @@ return|return
 name|mappingFile
 return|;
 block|}
+comment|/**      * Path to a Castor mapping file to load from the classpath.      */
 DECL|method|setMappingFile (String mappingFile)
 specifier|public
 name|void
@@ -287,6 +289,7 @@ return|return
 name|packages
 return|;
 block|}
+comment|/**      * Add additional packages to Castor XmlContext      */
 DECL|method|setPackages (String[] packages)
 specifier|public
 name|void
@@ -315,6 +318,7 @@ return|return
 name|classes
 return|;
 block|}
+comment|/**      * Add additional class names to Castor XmlContext      */
 DECL|method|setClasses (String[] classes)
 specifier|public
 name|void
@@ -342,6 +346,7 @@ return|return
 name|encoding
 return|;
 block|}
+comment|/**      * Encoding to use when marshalling an Object to XML.      *<p/>      * Is by default UTF-8      */
 DECL|method|setEncoding (String encoding)
 specifier|public
 name|void
