@@ -475,6 +475,7 @@ return|return
 name|type
 return|;
 block|}
+comment|/**      * The java type to convert to      */
 annotation|@
 name|Required
 DECL|method|setType (String type)
@@ -535,6 +536,7 @@ return|return
 name|charset
 return|;
 block|}
+comment|/**      * To use a specific charset when converting      */
 DECL|method|setCharset (String charset)
 specifier|public
 name|void

@@ -548,7 +548,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables asynchronous delay which means the thread will<b>noy</b> block while delaying.      *      * @return the builder      */
+comment|/**      * Enables asynchronous delay which means the thread will<b>noy</b> block while delaying.      */
 DECL|method|asyncDelayed ()
 specifier|public
 name|DelayDefinition
@@ -564,6 +564,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * To use a custom Thread Pool if asyncDelay has been enabled.      */
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|DelayDefinition
@@ -582,6 +583,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Refers to a custom Thread Pool if asyncDelay has been enabled.      */
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|DelayDefinition

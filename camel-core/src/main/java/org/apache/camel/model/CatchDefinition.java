@@ -704,7 +704,7 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
-comment|/**      * Sets the exceptionClasses of the CatchType      *      * @param exceptionClasses  a list of the exception classes      * @return the builder      */
+comment|/**      * The exceptions to catch.      *      * @param exceptionClasses  a list of the exception classes      * @return the builder      */
 DECL|method|exceptionClasses (List<Class<? extends Throwable>> exceptionClasses)
 specifier|public
 name|CatchDefinition
@@ -727,6 +727,77 @@ argument_list|(
 name|exceptionClasses
 argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The exception(s) to catch.      *      * @param exceptions  one or more exceptions      * @return the builder      */
+DECL|method|exception (Class<? extends Throwable>.... exceptions)
+specifier|public
+name|CatchDefinition
+name|exception
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
+modifier|...
+name|exceptions
+parameter_list|)
+block|{
+if|if
+condition|(
+name|exceptionClasses
+operator|==
+literal|null
+condition|)
+block|{
+name|exceptionClasses
+operator|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
+argument_list|>
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|exceptions
+operator|!=
+literal|null
+condition|)
+block|{
+for|for
+control|(
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Throwable
+argument_list|>
+name|exception
+range|:
+name|exceptions
+control|)
+block|{
+name|exceptionClasses
+operator|.
+name|add
+argument_list|(
+name|exception
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 return|return
 name|this
 return|;

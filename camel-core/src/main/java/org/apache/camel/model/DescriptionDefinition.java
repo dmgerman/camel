@@ -86,11 +86,30 @@ name|XmlValue
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Label
+import|;
+end_import
+
 begin_comment
-comment|/**  * Represents a description element which can be used on any element in the EIP route  *  * @version   */
+comment|/**  * To provide comments about the node.  *  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Label
+argument_list|(
+literal|"configuration"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(
@@ -119,6 +138,8 @@ name|lang
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Deprecated
 DECL|field|layoutX
 specifier|private
 name|Double
@@ -126,6 +147,8 @@ name|layoutX
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Deprecated
 DECL|field|layoutY
 specifier|private
 name|Double
@@ -133,6 +156,8 @@ name|layoutY
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Deprecated
 DECL|field|layoutWidth
 specifier|private
 name|Double
@@ -140,6 +165,8 @@ name|layoutWidth
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Deprecated
 DECL|field|layoutHeight
 specifier|private
 name|Double
@@ -162,6 +189,7 @@ return|return
 name|lang
 return|;
 block|}
+comment|/**      * Language, such as en for english.      */
 DECL|method|setLang (String lang)
 specifier|public
 name|void
@@ -188,6 +216,7 @@ return|return
 name|text
 return|;
 block|}
+comment|/**      * The description as human readable text      */
 DECL|method|setText (String text)
 specifier|public
 name|void
@@ -214,6 +243,7 @@ return|return
 name|layoutHeight
 return|;
 block|}
+comment|/**      * Layout height      */
 DECL|method|setLayoutHeight (Double layoutHeight)
 specifier|public
 name|void
@@ -240,6 +270,7 @@ return|return
 name|layoutWidth
 return|;
 block|}
+comment|/**      * Layout width      */
 DECL|method|setLayoutWidth (Double layoutWidth)
 specifier|public
 name|void
@@ -266,6 +297,7 @@ return|return
 name|layoutX
 return|;
 block|}
+comment|/**      * Layout position X      */
 DECL|method|setLayoutX (Double layoutX)
 specifier|public
 name|void
@@ -292,6 +324,7 @@ return|return
 name|layoutY
 return|;
 block|}
+comment|/**      * Layout position Y      */
 DECL|method|setLayoutY (Double layoutY)
 specifier|public
 name|void

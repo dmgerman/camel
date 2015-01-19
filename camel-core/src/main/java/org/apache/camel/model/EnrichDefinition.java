@@ -758,6 +758,7 @@ return|return
 name|resourceUri
 return|;
 block|}
+comment|/**      * The endpoint uri for the external service to enrich from. You must use either uri or ref.      */
 DECL|method|setResourceUri (String resourceUri)
 specifier|public
 name|void
@@ -784,6 +785,7 @@ return|return
 name|resourceRef
 return|;
 block|}
+comment|/**      * Refers to the endpoint for the external service to enrich from. You must use either uri or ref.      */
 DECL|method|setResourceRef (String resourceRef)
 specifier|public
 name|void
@@ -810,6 +812,7 @@ return|return
 name|aggregationStrategyRef
 return|;
 block|}
+comment|/**      * Refers to an AggregationStrategy to be used to merge the reply from the external service, into a single outgoing message.      * By default Camel will use the reply from the external service as outgoing message.      */
 DECL|method|setAggregationStrategyRef (String aggregationStrategyRef)
 specifier|public
 name|void
@@ -836,6 +839,7 @@ return|return
 name|aggregationStrategyMethodName
 return|;
 block|}
+comment|/**      * This option can be used to explicit declare the method name to use, when using POJOs as the AggregationStrategy.      */
 DECL|method|setAggregationStrategyMethodName (String aggregationStrategyMethodName)
 specifier|public
 name|void
@@ -862,6 +866,7 @@ return|return
 name|aggregationStrategyMethodAllowNull
 return|;
 block|}
+comment|/**      * If this option is false then the aggregate method is not used if there was no data to enrich.      * If this option is true then null values is used as the oldExchange (when no data to enrich),      * when using POJOs as the AggregationStrategy.      */
 DECL|method|setAggregationStrategyMethodAllowNull (Boolean aggregationStrategyMethodAllowNull)
 specifier|public
 name|void
@@ -888,6 +893,7 @@ return|return
 name|aggregationStrategy
 return|;
 block|}
+comment|/**      * Sets the AggregationStrategy to be used to merge the reply from the external service, into a single outgoing message.      * By default Camel will use the reply from the external service as outgoing message.      */
 DECL|method|setAggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|void
@@ -914,6 +920,7 @@ return|return
 name|aggregateOnException
 return|;
 block|}
+comment|/**      * If this option is false then the aggregate method is not used if there was an exception thrown while trying      * to retrieve the data to enrich from the resource. Setting this option to true allows end users to control what      * to do if there was an exception in the aggregate method. For example to suppress the exception      * or set a custom message body etc.      */
 DECL|method|setAggregateOnException (Boolean aggregateOnException)
 specifier|public
 name|void

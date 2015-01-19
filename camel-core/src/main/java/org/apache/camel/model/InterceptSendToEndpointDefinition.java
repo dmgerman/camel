@@ -849,6 +849,7 @@ return|return
 name|skipSendToOriginalEndpoint
 return|;
 block|}
+comment|/**      * If set to true then the message is not sent to the original endpoint.      * By default (false) the message is both intercepted and then sent to the original endpoint.      */
 DECL|method|setSkipSendToOriginalEndpoint (Boolean skipSendToOriginalEndpoint)
 specifier|public
 name|void
@@ -889,6 +890,7 @@ return|return
 name|uri
 return|;
 block|}
+comment|/**      * Intercept sending to the uri or uri pattern.      */
 DECL|method|setUri (String uri)
 specifier|public
 name|void
