@@ -374,7 +374,7 @@ return|return
 name|prettyPrint
 return|;
 block|}
-comment|/**      * To enable pretty printing to output XML nicely formatted.      *<p/>      * Is by default false.      */
+comment|/**      * To enable pretty printing output nicely formatted.      *<p/>      * Is by default false.      */
 DECL|method|setPrettyPrint (Boolean prettyPrint)
 specifier|public
 name|void
@@ -509,7 +509,7 @@ return|return
 name|encoding
 return|;
 block|}
-comment|/**      * To overrule and use a specific encoding      * @param encoding      */
+comment|/**      * To overrule and use a specific encoding      */
 DECL|method|setEncoding (String encoding)
 specifier|public
 name|void

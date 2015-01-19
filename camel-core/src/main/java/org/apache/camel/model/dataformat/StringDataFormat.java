@@ -216,6 +216,7 @@ return|return
 name|charset
 return|;
 block|}
+comment|/**      * Sets an encoding to use.      *<p/>      * Will by default use the JVM platform default charset.      */
 DECL|method|setCharset (String charset)
 specifier|public
 name|void

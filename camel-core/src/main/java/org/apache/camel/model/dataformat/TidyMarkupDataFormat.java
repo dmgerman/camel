@@ -308,6 +308,7 @@ name|dataObjectType
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * What data type to unmarshal as, can either be org.w3c.dom.Node or java.lang.String.      *<p/>      * Is by default org.w3c.dom.Node      */
 DECL|method|setDataObjectType (Class<?> dataObjectType)
 specifier|public
 name|void
@@ -350,6 +351,7 @@ return|return
 name|dataObjectTypeName
 return|;
 block|}
+comment|/**      * What data type to unmarshal as, can either be org.w3c.dom.Node or java.lang.String.      *<p/>      * Is by default org.w3c.dom.Node      */
 DECL|method|setDataObjectTypeName (String dataObjectTypeName)
 specifier|public
 name|void

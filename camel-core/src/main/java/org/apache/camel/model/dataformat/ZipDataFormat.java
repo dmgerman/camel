@@ -271,6 +271,7 @@ return|return
 name|compressionLevel
 return|;
 block|}
+comment|/**      * To specify a specific compression between 0-9.      * 0 is no compression, and 9 is best compression.      */
 DECL|method|setCompressionLevel (Integer compressionLevel)
 specifier|public
 name|void

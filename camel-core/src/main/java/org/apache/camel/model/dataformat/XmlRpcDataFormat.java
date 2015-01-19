@@ -221,6 +221,7 @@ return|return
 name|request
 return|;
 block|}
+comment|/**      * Whether to unmarshal request or response      *<p/>      * Is by default false      */
 DECL|method|setRequest (Boolean request)
 specifier|public
 name|void

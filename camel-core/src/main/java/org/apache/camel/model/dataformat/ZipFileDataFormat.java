@@ -222,6 +222,7 @@ return|return
 name|usingIterator
 return|;
 block|}
+comment|/**      * If the zip file has more then one entry, the setting this option to true, allows to work with the splitter EIP,      * to split the data using an iterator in a streaming mode.      */
 DECL|method|setUsingIterator (Boolean usingIterator)
 specifier|public
 name|void

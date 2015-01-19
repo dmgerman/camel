@@ -801,6 +801,7 @@ name|DataFormatDefinition
 argument_list|>
 name|dataFormats
 decl_stmt|;
+comment|/**      * A list holding the configured data formats      */
 DECL|method|setDataFormats (List<DataFormatDefinition> dataFormats)
 specifier|public
 name|void
@@ -820,7 +821,6 @@ operator|=
 name|dataFormats
 expr_stmt|;
 block|}
-comment|/**      * A list holding the configured data formats      */
 DECL|method|getDataFormats ()
 specifier|public
 name|List

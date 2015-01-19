@@ -161,6 +161,7 @@ return|return
 name|prettyPrint
 return|;
 block|}
+comment|/**      * To enable pretty printing output nicely formatted.      *<p/>      * Is by default false.      */
 DECL|method|setPrettyPrint (Boolean prettyPrint)
 specifier|public
 name|void

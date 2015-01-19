@@ -225,6 +225,7 @@ return|return
 name|instanceClass
 return|;
 block|}
+comment|/**      * Name of class to use when unarmshalling      */
 DECL|method|setInstanceClass (String instanceClass)
 specifier|public
 name|void

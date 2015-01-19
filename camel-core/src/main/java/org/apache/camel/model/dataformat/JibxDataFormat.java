@@ -274,6 +274,7 @@ return|return
 name|unmarshallClass
 return|;
 block|}
+comment|/**      * Class use when unmarshalling from XML to Java.      */
 DECL|method|setUnmarshallClass (Class<?> unmarshallClass)
 specifier|public
 name|void
@@ -303,6 +304,7 @@ return|return
 name|unmarshallTypeName
 return|;
 block|}
+comment|/**      * Class name to use when unmarshalling from XML to Java.      */
 DECL|method|setUnmarshallTypeName (String unmarshallTypeName)
 specifier|public
 name|void
@@ -329,6 +331,7 @@ return|return
 name|bindingName
 return|;
 block|}
+comment|/**      * To use a custom binding factory      */
 DECL|method|setBindingName (String bindingName)
 specifier|public
 name|void

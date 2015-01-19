@@ -203,6 +203,13 @@ name|signatureKeyFileName
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|signatureKeyRing
+specifier|private
+name|String
+name|signatureKeyRing
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|armored
 specifier|private
 name|Boolean
@@ -391,6 +398,25 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+name|signatureKeyRing
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"signatureKeyRing"
+argument_list|,
+name|signatureKeyRing
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|armored
 operator|!=
 literal|null
@@ -533,6 +559,7 @@ return|return
 name|signatureKeyUserid
 return|;
 block|}
+comment|/**      * User ID of the key in the PGP keyring used for signing (during encryption) or signature verification (during decryption).      * During the signature verification process the specified User ID restricts the public keys from the public      * keyring which can be used for the verification. If no User ID is specified for the signature verficiation      * then any public key in the public keyring can be used for the verification. Can also be only a part of a user ID.      * For example, if the user ID is "Test User<test@camel.com>" then you can use the      * part "Test User" or "<test@camel.com>" to address the User ID.      */
 DECL|method|setSignatureKeyUserid (String signatureKeyUserid)
 specifier|public
 name|void
@@ -559,6 +586,7 @@ return|return
 name|signaturePassword
 return|;
 block|}
+comment|/**      * Password used when opening the private key used for signing (during encryption).      */
 DECL|method|setSignaturePassword (String signaturePassword)
 specifier|public
 name|void
@@ -585,6 +613,7 @@ return|return
 name|signatureKeyFileName
 return|;
 block|}
+comment|/**      * Filename of the keyring to use for signing (during encryption) or for signature verification (during decryption);      * must be accessible as a classpath resource (but you can specify a location in the file system by using the "file:" prefix).      */
 DECL|method|setSignatureKeyFileName (String signatureKeyFileName)
 specifier|public
 name|void
@@ -601,6 +630,33 @@ operator|=
 name|signatureKeyFileName
 expr_stmt|;
 block|}
+DECL|method|getSignatureKeyRing ()
+specifier|public
+name|String
+name|getSignatureKeyRing
+parameter_list|()
+block|{
+return|return
+name|signatureKeyRing
+return|;
+block|}
+comment|/**      * Keyring used for signing/verifying as byte array.      * You can not set the signatureKeyFileName and signatureKeyRing at the same time.      */
+DECL|method|setSignatureKeyRing (String signatureKeyRing)
+specifier|public
+name|void
+name|setSignatureKeyRing
+parameter_list|(
+name|String
+name|signatureKeyRing
+parameter_list|)
+block|{
+name|this
+operator|.
+name|signatureKeyRing
+operator|=
+name|signatureKeyRing
+expr_stmt|;
+block|}
 DECL|method|getHashAlgorithm ()
 specifier|public
 name|Integer
@@ -611,6 +667,7 @@ return|return
 name|hashAlgorithm
 return|;
 block|}
+comment|/**      * Signature hash algorithm; possible values are defined in org.bouncycastle.bcpg.HashAlgorithmTags;      * for example 2 (= SHA1), 8 (= SHA256), 9 (= SHA384), 10 (= SHA512), 11 (=SHA224). Only relevant for signing.      */
 DECL|method|setHashAlgorithm (Integer hashAlgorithm)
 specifier|public
 name|void
@@ -637,6 +694,7 @@ return|return
 name|armored
 return|;
 block|}
+comment|/**      * This option will cause PGP to base64 encode the encrypted text, making it available for copy/paste, etc.      */
 DECL|method|setArmored (Boolean armored)
 specifier|public
 name|void
@@ -663,6 +721,7 @@ return|return
 name|integrity
 return|;
 block|}
+comment|/**      * Adds an integrity check/sign into the encryption file.      *<p/>      * The default value is true.      */
 DECL|method|setIntegrity (Boolean integrity)
 specifier|public
 name|void
@@ -689,6 +748,7 @@ return|return
 name|keyFileName
 return|;
 block|}
+comment|/**      * Filename of the keyring; must be accessible as a classpath resource (but you can specify a location in the file system by using the "file:" prefix).      */
 DECL|method|setKeyFileName (String keyFileName)
 specifier|public
 name|void
@@ -715,6 +775,7 @@ return|return
 name|keyUserid
 return|;
 block|}
+comment|/**      * The user ID of the key in the PGP keyring used during encryption.      * Can also be only a part of a user ID.      * For example, if the user ID is "Test User<test@camel.com>"      * then you can use the part "Test User" or "<test@camel.com>" to address the user ID.      */
 DECL|method|setKeyUserid (String keyUserid)
 specifier|public
 name|void
@@ -751,6 +812,7 @@ return|return
 name|algorithm
 return|;
 block|}
+comment|/**      * Symmetric key encryption algorithm; possible values are defined in org.bouncycastle.bcpg.SymmetricKeyAlgorithmTags;      * for example 2 (= TRIPLE DES), 3 (= CAST5), 4 (= BLOWFISH), 6 (= DES), 7 (= AES_128). Only relevant for encrypting.      */
 DECL|method|setAlgorithm (Integer algorithm)
 specifier|public
 name|void
@@ -777,6 +839,7 @@ return|return
 name|compressionAlgorithm
 return|;
 block|}
+comment|/**      * Compression algorithm; possible values are defined in org.bouncycastle.bcpg.CompressionAlgorithmTags;      * for example 0 (= UNCOMPRESSED), 1 (= ZIP), 2 (= ZLIB), 3 (= BZIP2). Only relevant for encrypting.      */
 DECL|method|setCompressionAlgorithm (Integer compressionAlgorithm)
 specifier|public
 name|void
@@ -793,6 +856,7 @@ operator|=
 name|compressionAlgorithm
 expr_stmt|;
 block|}
+comment|/**      * Password used when opening the private key (not used for encryption).      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -819,6 +883,7 @@ return|return
 name|provider
 return|;
 block|}
+comment|/**      * Java Cryptography Extension (JCE) provider, default is Bouncy Castle      * ("BC"). Alternatively you can use, for example, the IAIK JCE provider; in      * this case the provider must be registered beforehand and the Bouncy      * Castle provider must not be registered beforehand. The Sun JCE provider      * does not work.      */
 DECL|method|setProvider (String provider)
 specifier|public
 name|void
@@ -845,6 +910,7 @@ return|return
 name|signatureVerificationOption
 return|;
 block|}
+comment|/**      * Controls the behavior for verifying the signature during unmarshaling. There are 4 values possible:      * "optional": The PGP message may or may not contain signatures; if it does contain signatures, then a signature verification is executed.      * "required": The PGP message must contain at least one signature; if this is not the case an exception (PGPException) is thrown. A signature verification is executed.      * "ignore": Contained signatures in the PGP message are ignored; no signature verification is executed.      * "no_signature_allowed": The PGP message must not contain a signature; otherwise an exception (PGPException) is thrown.      */
 DECL|method|setSignatureVerificationOption (String signatureVerificationOption)
 specifier|public
 name|void

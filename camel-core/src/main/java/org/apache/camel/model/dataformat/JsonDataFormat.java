@@ -327,6 +327,7 @@ return|return
 name|prettyPrint
 return|;
 block|}
+comment|/**      * To enable pretty printing output nicely formatted.      *<p/>      * Is by default false.      */
 DECL|method|setPrettyPrint (Boolean prettyPrint)
 specifier|public
 name|void
@@ -353,6 +354,7 @@ return|return
 name|unmarshalTypeName
 return|;
 block|}
+comment|/**      * Class name of the java type to use when unarmshalling      */
 DECL|method|setUnmarshalTypeName (String unmarshalTypeName)
 specifier|public
 name|void
@@ -382,6 +384,7 @@ return|return
 name|unmarshalType
 return|;
 block|}
+comment|/**      * Class of the java type to use when unarmshalling      */
 DECL|method|setUnmarshalType (Class<?> unmarshalType)
 specifier|public
 name|void
@@ -411,6 +414,7 @@ return|return
 name|library
 return|;
 block|}
+comment|/**      * Which json library to use such.      *<p/>      * Is by default xstream      */
 DECL|method|setLibrary (JsonLibrary library)
 specifier|public
 name|void
@@ -440,6 +444,7 @@ return|return
 name|jsonView
 return|;
 block|}
+comment|/**      * When marshalling a POJO to JSON you might want to exclude certain fields from the JSON output.      * With Jackson you can use JSON views to accomplish this. This option is to refer to the class      * which has @JsonView annotations      */
 DECL|method|setJsonView (Class<?> jsonView)
 specifier|public
 name|void
@@ -469,6 +474,7 @@ return|return
 name|include
 return|;
 block|}
+comment|/**      * If you want to marshal a pojo to JSON, and the pojo has some fields with null values.      * And you want to skip these null values, you can set this option to<tt>NOT_NULL</tt>      */
 DECL|method|setInclude (String include)
 specifier|public
 name|void
@@ -495,6 +501,7 @@ return|return
 name|allowJmsType
 return|;
 block|}
+comment|/**      * Used for JMS users to allow the JMSType header from the JMS spec to specify a FQN classname      * to use to unmarshal to.      */
 DECL|method|setAllowJmsType (Boolean allowJmsType)
 specifier|public
 name|void
@@ -521,6 +528,7 @@ return|return
 name|collectionTypeName
 return|;
 block|}
+comment|/**      * Refers to a custom collection type to lookup in the registry to use. This option should rarely be used, but allows      * to use different collection types than java.util.Collection based as default.      */
 DECL|method|setCollectionTypeName (String collectionTypeName)
 specifier|public
 name|void
@@ -547,6 +555,7 @@ return|return
 name|useList
 return|;
 block|}
+comment|/**      * To unarmshal to a List of Map or a List of Pojo.      */
 DECL|method|setUseList (Boolean useList)
 specifier|public
 name|void
@@ -573,6 +582,7 @@ return|return
 name|enableJaxbAnnotationModule
 return|;
 block|}
+comment|/**      * Whether to enable the JAXB annotations module when using jackson. When enabled then JAXB annotations      * can be used by Jackson.      */
 DECL|method|setEnableJaxbAnnotationModule (Boolean enableJaxbAnnotationModule)
 specifier|public
 name|void
