@@ -345,6 +345,7 @@ return|return
 name|mapping
 return|;
 block|}
+comment|/**      * The BeanIO mapping file.      * Is by default loaded from the classpath. You can prefix with file:, http:, or classpath: to denote from where to load the mapping file.      */
 DECL|method|setMapping (String mapping)
 specifier|public
 name|void
@@ -371,6 +372,7 @@ return|return
 name|streamName
 return|;
 block|}
+comment|/**      * The name of the stream to use.      */
 DECL|method|setStreamName (String streamName)
 specifier|public
 name|void
@@ -397,6 +399,7 @@ return|return
 name|ignoreUnidentifiedRecords
 return|;
 block|}
+comment|/**      * Whether to ignore unidentified records.      */
 DECL|method|setIgnoreUnidentifiedRecords (Boolean ignoreUnidentifiedRecords)
 specifier|public
 name|void
@@ -423,6 +426,7 @@ return|return
 name|ignoreUnexpectedRecords
 return|;
 block|}
+comment|/**      * Whether to ignore unexpected records.      */
 DECL|method|setIgnoreUnexpectedRecords (Boolean ignoreUnexpectedRecords)
 specifier|public
 name|void
@@ -449,6 +453,7 @@ return|return
 name|ignoreInvalidRecords
 return|;
 block|}
+comment|/**      * Whether to ignore invalid records.      */
 DECL|method|setIgnoreInvalidRecords (Boolean ignoreInvalidRecords)
 specifier|public
 name|void
@@ -475,6 +480,7 @@ return|return
 name|encoding
 return|;
 block|}
+comment|/**      * The charset to use.      *<p/>      * Is by default the JVM platform default charset.      */
 DECL|method|setEncoding (String encoding)
 specifier|public
 name|void

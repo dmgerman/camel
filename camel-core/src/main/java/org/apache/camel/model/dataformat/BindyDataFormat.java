@@ -266,6 +266,7 @@ return|return
 name|type
 return|;
 block|}
+comment|/**      * Whether to use csv, fixed or key value pairs mode.      */
 DECL|method|setType (BindyType type)
 specifier|public
 name|void
@@ -293,6 +294,7 @@ return|return
 name|packages
 return|;
 block|}
+comment|/**      * The java package names to scan for model classes.      */
 DECL|method|setPackages (String[] packages)
 specifier|public
 name|void
@@ -320,6 +322,7 @@ return|return
 name|classType
 return|;
 block|}
+comment|/**      * Name of model class to use.      */
 DECL|method|setClassType (String classType)
 specifier|public
 name|void
@@ -365,6 +368,7 @@ return|return
 name|locale
 return|;
 block|}
+comment|/**      * To configure a default locale to use, such as<tt>us</tt> for united states.      *<p/>      * To use the JVM platform default locale then use the name<tt>default</tt>      */
 DECL|method|setLocale (String locale)
 specifier|public
 name|void
