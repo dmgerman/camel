@@ -270,11 +270,6 @@ name|headerDisabled
 decl_stmt|;
 annotation|@
 name|XmlElement
-argument_list|(
-name|name
-operator|=
-literal|"header"
-argument_list|)
 DECL|field|header
 specifier|private
 name|List
@@ -974,7 +969,6 @@ literal|0
 argument_list|)
 return|;
 block|}
-comment|//region Getters/Setters
 DECL|method|getFormatRef ()
 specifier|public
 name|String
@@ -985,6 +979,7 @@ return|return
 name|formatRef
 return|;
 block|}
+comment|/**      * The reference format to use, it will be updated with the other format options, the default value is CSVFormat.DEFAULT      */
 DECL|method|setFormatRef (String formatRef)
 specifier|public
 name|void
@@ -1011,6 +1006,7 @@ return|return
 name|formatName
 return|;
 block|}
+comment|/**      * The name of the format to use, the default value is CSVFormat.DEFAULT      */
 DECL|method|setFormatName (String formatName)
 specifier|public
 name|void
@@ -1037,6 +1033,7 @@ return|return
 name|commentMarkerDisabled
 return|;
 block|}
+comment|/**      * Disables the comment marker of the reference format.      */
 DECL|method|setCommentMarkerDisabled (Boolean commentMarkerDisabled)
 specifier|public
 name|void
@@ -1063,6 +1060,7 @@ return|return
 name|commentMarker
 return|;
 block|}
+comment|/**      * Sets the comment marker of the reference format.      */
 DECL|method|setCommentMarker (String commentMarker)
 specifier|public
 name|void
@@ -1089,6 +1087,7 @@ return|return
 name|delimiter
 return|;
 block|}
+comment|/**      * Sets the delimiter to use.      *<p/>      * The default value is , (comma)      */
 DECL|method|setDelimiter (String delimiter)
 specifier|public
 name|void
@@ -1115,6 +1114,7 @@ return|return
 name|escapeDisabled
 return|;
 block|}
+comment|/**      * Use for disabling using escape character      */
 DECL|method|setEscapeDisabled (Boolean escapeDisabled)
 specifier|public
 name|void
@@ -1141,6 +1141,7 @@ return|return
 name|escape
 return|;
 block|}
+comment|/**      * Sets the escape character to use      */
 DECL|method|setEscape (String escape)
 specifier|public
 name|void
@@ -1157,6 +1158,7 @@ operator|=
 name|escape
 expr_stmt|;
 block|}
+comment|/**      * Use for disabling headers      */
 DECL|method|getHeaderDisabled ()
 specifier|public
 name|Boolean
@@ -1196,6 +1198,7 @@ return|return
 name|header
 return|;
 block|}
+comment|/**      * To configure the CSV headers      */
 DECL|method|setHeader (List<String> header)
 specifier|public
 name|void
@@ -1225,6 +1228,7 @@ return|return
 name|allowMissingColumnNames
 return|;
 block|}
+comment|/**      * Whether to allow missing column names.      */
 DECL|method|setAllowMissingColumnNames (Boolean allowMissingColumnNames)
 specifier|public
 name|void
@@ -1251,6 +1255,7 @@ return|return
 name|ignoreEmptyLines
 return|;
 block|}
+comment|/**      * Whether to ignore empty lines.      */
 DECL|method|setIgnoreEmptyLines (Boolean ignoreEmptyLines)
 specifier|public
 name|void
@@ -1277,6 +1282,7 @@ return|return
 name|ignoreSurroundingSpaces
 return|;
 block|}
+comment|/**      * Whether to ignore surrounding spaces      */
 DECL|method|setIgnoreSurroundingSpaces (Boolean ignoreSurroundingSpaces)
 specifier|public
 name|void
@@ -1303,6 +1309,7 @@ return|return
 name|nullStringDisabled
 return|;
 block|}
+comment|/**      * Used to disable null strings      */
 DECL|method|setNullStringDisabled (Boolean nullStringDisabled)
 specifier|public
 name|void
@@ -1329,6 +1336,7 @@ return|return
 name|nullString
 return|;
 block|}
+comment|/**      * Sets the null string      */
 DECL|method|setNullString (String nullString)
 specifier|public
 name|void
@@ -1355,6 +1363,7 @@ return|return
 name|quoteDisabled
 return|;
 block|}
+comment|/**      * Used to disable quotes      */
 DECL|method|setQuoteDisabled (Boolean quoteDisabled)
 specifier|public
 name|void
@@ -1381,6 +1390,7 @@ return|return
 name|quote
 return|;
 block|}
+comment|/**      * Sets the quote which by default is "      */
 DECL|method|setQuote (String quote)
 specifier|public
 name|void
@@ -1407,6 +1417,7 @@ return|return
 name|recordSeparatorDisabled
 return|;
 block|}
+comment|/**      * Used for disabling record separator      */
 DECL|method|setRecordSeparatorDisabled (String recordSeparatorDisabled)
 specifier|public
 name|void
@@ -1433,6 +1444,7 @@ return|return
 name|recordSeparator
 return|;
 block|}
+comment|/**      * Sets the record separator (aka new line) which by default is \r\n (CRLF)      */
 DECL|method|setRecordSeparator (String recordSeparator)
 specifier|public
 name|void
@@ -1459,6 +1471,7 @@ return|return
 name|skipHeaderRecord
 return|;
 block|}
+comment|/**      * Whether to skip the header record in the output      */
 DECL|method|setSkipHeaderRecord (Boolean skipHeaderRecord)
 specifier|public
 name|void
@@ -1485,6 +1498,7 @@ return|return
 name|lazyLoad
 return|;
 block|}
+comment|/**      * Whether the unmarshalling should produce an iterator that reads the lines on the fly or if all the lines must be read at one.      */
 DECL|method|setLazyLoad (Boolean lazyLoad)
 specifier|public
 name|void
@@ -1511,6 +1525,7 @@ return|return
 name|useMaps
 return|;
 block|}
+comment|/**      * Whether the unmarshalling should produce maps for the lines values instead of lists. It requires to have header (either defined or collected).      */
 DECL|method|setUseMaps (Boolean useMaps)
 specifier|public
 name|void
@@ -1537,6 +1552,7 @@ return|return
 name|recordConverterRef
 return|;
 block|}
+comment|/**      * Refers to a custom<tt>CsvRecordConverter</tt> to lookup from the registry to use.      */
 DECL|method|setRecordConverterRef (String recordConverterRef)
 specifier|public
 name|void
@@ -1553,7 +1569,6 @@ operator|=
 name|recordConverterRef
 expr_stmt|;
 block|}
-comment|//endregion
 block|}
 end_class
 

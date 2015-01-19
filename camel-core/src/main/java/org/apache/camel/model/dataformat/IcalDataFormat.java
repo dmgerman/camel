@@ -187,6 +187,7 @@ return|return
 name|validating
 return|;
 block|}
+comment|/**      * Whether to validate.      */
 DECL|method|setValidating (Boolean validating)
 specifier|public
 name|void

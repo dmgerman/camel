@@ -225,6 +225,7 @@ return|return
 name|validate
 return|;
 block|}
+comment|/**      * Whether to validate the HL7 message      *<p/>      * Is by default true.      */
 DECL|method|setValidate (Boolean validate)
 specifier|public
 name|void
@@ -251,6 +252,7 @@ return|return
 name|parser
 return|;
 block|}
+comment|/**      * To use a custom HL7 parser      */
 DECL|method|setParser (Object parser)
 specifier|public
 name|void

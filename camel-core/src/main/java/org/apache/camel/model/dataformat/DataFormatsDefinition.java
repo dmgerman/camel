@@ -820,6 +820,7 @@ operator|=
 name|dataFormats
 expr_stmt|;
 block|}
+comment|/**      * A list holding the configured data formats      */
 DECL|method|getDataFormats ()
 specifier|public
 name|List
