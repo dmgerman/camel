@@ -1817,6 +1817,7 @@ return|return
 name|aggregationStrategy
 return|;
 block|}
+comment|/**      * The AggregationStrategy to use.      *<p/>      * Configuring an AggregationStrategy is required, and is used to merge the incoming Exchange with the existing already merged exchanges.      * At first call the oldExchange parameter is null.      * On subsequent invocations the oldExchange contains the merged exchanges and newExchange is of course the new incoming Exchange.      */
 DECL|method|setAggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|void
@@ -1843,6 +1844,7 @@ return|return
 name|strategyRef
 return|;
 block|}
+comment|/**      * A reference to lookup the AggregationStrategy in the Registry.      *<p/>      * Configuring an AggregationStrategy is required, and is used to merge the incoming Exchange with the existing already merged exchanges.      * At first call the oldExchange parameter is null.      * On subsequent invocations the oldExchange contains the merged exchanges and newExchange is of course the new incoming Exchange.      */
 DECL|method|setAggregationStrategyRef (String aggregationStrategyRef)
 specifier|public
 name|void
@@ -1859,6 +1861,33 @@ operator|=
 name|aggregationStrategyRef
 expr_stmt|;
 block|}
+DECL|method|getStrategyRef ()
+specifier|public
+name|String
+name|getStrategyRef
+parameter_list|()
+block|{
+return|return
+name|strategyRef
+return|;
+block|}
+comment|/**      * A reference to lookup the AggregationStrategy in the Registry.      *<p/>      * Configuring an AggregationStrategy is required, and is used to merge the incoming Exchange with the existing already merged exchanges.      * At first call the oldExchange parameter is null.      * On subsequent invocations the oldExchange contains the merged exchanges and newExchange is of course the new incoming Exchange.      */
+DECL|method|setStrategyRef (String strategyRef)
+specifier|public
+name|void
+name|setStrategyRef
+parameter_list|(
+name|String
+name|strategyRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|strategyRef
+operator|=
+name|strategyRef
+expr_stmt|;
+block|}
 DECL|method|getAggregationStrategyMethodName ()
 specifier|public
 name|String
@@ -1869,6 +1898,7 @@ return|return
 name|strategyMethodName
 return|;
 block|}
+comment|/**      * This option can be used to explicit declare the method name to use, when using POJOs as the AggregationStrategy.      */
 DECL|method|setAggregationStrategyMethodName (String strategyMethodName)
 specifier|public
 name|void
@@ -1895,6 +1925,34 @@ return|return
 name|strategyMethodAllowNull
 return|;
 block|}
+DECL|method|getStrategyMethodName ()
+specifier|public
+name|String
+name|getStrategyMethodName
+parameter_list|()
+block|{
+return|return
+name|strategyMethodName
+return|;
+block|}
+comment|/**      * This option can be used to explicit declare the method name to use, when using POJOs as the AggregationStrategy.      */
+DECL|method|setStrategyMethodName (String strategyMethodName)
+specifier|public
+name|void
+name|setStrategyMethodName
+parameter_list|(
+name|String
+name|strategyMethodName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|strategyMethodName
+operator|=
+name|strategyMethodName
+expr_stmt|;
+block|}
+comment|/**      * If this option is false then the aggregate method is not used for the very first aggregation.      * If this option is true then null values is used as the oldExchange (at the very first aggregation),      * when using POJOs as the AggregationStrategy.      */
 DECL|method|setStrategyMethodAllowNull (Boolean strategyMethodAllowNull)
 specifier|public
 name|void
@@ -1910,6 +1968,33 @@ name|strategyMethodAllowNull
 operator|=
 name|strategyMethodAllowNull
 expr_stmt|;
+block|}
+comment|/**      * The expression used to calculate the correlation key to use for aggregation.      * The Exchange which has the same correlation key is aggregated together.      * If the correlation key could not be evaluated an Exception is thrown.      * You can disable this by using the ignoreBadCorrelationKeys option.      */
+DECL|method|setCorrelationExpression (ExpressionSubElementDefinition correlationExpression)
+specifier|public
+name|void
+name|setCorrelationExpression
+parameter_list|(
+name|ExpressionSubElementDefinition
+name|correlationExpression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|correlationExpression
+operator|=
+name|correlationExpression
+expr_stmt|;
+block|}
+DECL|method|getCorrelationExpression ()
+specifier|public
+name|ExpressionSubElementDefinition
+name|getCorrelationExpression
+parameter_list|()
+block|{
+return|return
+name|correlationExpression
+return|;
 block|}
 DECL|method|getCompletionSize ()
 specifier|public
@@ -2331,58 +2416,6 @@ operator|=
 name|executorServiceRef
 expr_stmt|;
 block|}
-DECL|method|getStrategyRef ()
-specifier|public
-name|String
-name|getStrategyRef
-parameter_list|()
-block|{
-return|return
-name|strategyRef
-return|;
-block|}
-DECL|method|setStrategyRef (String strategyRef)
-specifier|public
-name|void
-name|setStrategyRef
-parameter_list|(
-name|String
-name|strategyRef
-parameter_list|)
-block|{
-name|this
-operator|.
-name|strategyRef
-operator|=
-name|strategyRef
-expr_stmt|;
-block|}
-DECL|method|getStrategyMethodName ()
-specifier|public
-name|String
-name|getStrategyMethodName
-parameter_list|()
-block|{
-return|return
-name|strategyMethodName
-return|;
-block|}
-DECL|method|setStrategyMethodName (String strategyMethodName)
-specifier|public
-name|void
-name|setStrategyMethodName
-parameter_list|(
-name|String
-name|strategyMethodName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|strategyMethodName
-operator|=
-name|strategyMethodName
-expr_stmt|;
-block|}
 DECL|method|getEagerCheckCompletion ()
 specifier|public
 name|Boolean
@@ -2632,6 +2665,46 @@ block|{
 return|return
 name|timeoutCheckerExecutorServiceRef
 return|;
+block|}
+DECL|method|getForceCompletionOnStop ()
+specifier|public
+name|Boolean
+name|getForceCompletionOnStop
+parameter_list|()
+block|{
+return|return
+name|forceCompletionOnStop
+return|;
+block|}
+DECL|method|isForceCompletionOnStop ()
+specifier|public
+name|boolean
+name|isForceCompletionOnStop
+parameter_list|()
+block|{
+return|return
+name|forceCompletionOnStop
+operator|!=
+literal|null
+operator|&&
+name|forceCompletionOnStop
+return|;
+block|}
+DECL|method|setForceCompletionOnStop (Boolean forceCompletionOnStop)
+specifier|public
+name|void
+name|setForceCompletionOnStop
+parameter_list|(
+name|Boolean
+name|forceCompletionOnStop
+parameter_list|)
+block|{
+name|this
+operator|.
+name|forceCompletionOnStop
+operator|=
+name|forceCompletionOnStop
+expr_stmt|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
@@ -2932,7 +3005,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables grouped exchanges, so the aggregator will group all aggregated exchanges into a single      * combined Exchange holding all the aggregated exchanges in a {@link java.util.List}.      *      * @return the builder      */
+comment|/**      * Enables grouped exchanges, so the aggregator will group all aggregated exchanges into a single      * combined Exchange holding all the aggregated exchanges in a {@link java.util.List}.      */
 DECL|method|groupExchanges ()
 specifier|public
 name|AggregateDefinition
@@ -2954,7 +3027,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the predicate used to determine if the aggregation is completed      *      * @param predicate  the predicate      * @return the builder      */
+comment|/**      * Sets the predicate used to determine if the aggregation is completed      */
 DECL|method|completionPredicate (Predicate predicate)
 specifier|public
 name|AggregateDefinition
@@ -2980,7 +3053,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the force completion on stop flag, which considers the current group as complete      * and sends out the aggregated exchange when the stop event is executed      *      * @return builder      */
+comment|/**      * Indicates to complete all current aggregated exchanges when the context is stopped      */
 DECL|method|forceCompletionOnStop ()
 specifier|public
 name|AggregateDefinition
@@ -2996,47 +3069,7 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|getForceCompletionOnStop ()
-specifier|public
-name|Boolean
-name|getForceCompletionOnStop
-parameter_list|()
-block|{
-return|return
-name|forceCompletionOnStop
-return|;
-block|}
-DECL|method|isForceCompletionOnStop ()
-specifier|public
-name|boolean
-name|isForceCompletionOnStop
-parameter_list|()
-block|{
-return|return
-name|forceCompletionOnStop
-operator|!=
-literal|null
-operator|&&
-name|forceCompletionOnStop
-return|;
-block|}
-DECL|method|setForceCompletionOnStop (Boolean forceCompletionOnStop)
-specifier|public
-name|void
-name|setForceCompletionOnStop
-parameter_list|(
-name|Boolean
-name|forceCompletionOnStop
-parameter_list|)
-block|{
-name|this
-operator|.
-name|forceCompletionOnStop
-operator|=
-name|forceCompletionOnStop
-expr_stmt|;
-block|}
-comment|/**      * Sending the aggregated output in parallel      *      * @return the builder      */
+comment|/**      * When aggregated are completed they are being send out of the aggregator.      * This option indicates whether or not Camel should use a thread pool with multiple threads for concurrency.      * If no custom thread pool has been specified then Camel creates a default pool with 10 concurrent threads.      */
 DECL|method|parallelProcessing ()
 specifier|public
 name|AggregateDefinition
@@ -3052,6 +3085,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Turns on using optimistic locking, which requires the aggregationRepository being used,      * is supporting this by implementing {@link org.apache.camel.spi.OptimisticLockingAggregationRepository}.      */
 DECL|method|optimisticLocking ()
 specifier|public
 name|AggregateDefinition
@@ -3067,6 +3101,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Allows to configure retry settings when using optimistic locking.      */
 DECL|method|optimisticLockRetryPolicy (OptimisticLockRetryPolicy policy)
 specifier|public
 name|AggregateDefinition
@@ -3085,6 +3120,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * If using parallelProcessing you can specify a custom thread pool to be used.      * In fact also if you are not using parallelProcessing this custom thread pool is used to send out aggregated exchanges as well.      */
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|AggregateDefinition
@@ -3103,6 +3139,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * If using parallelProcessing you can specify a custom thread pool to be used.      * In fact also if you are not using parallelProcessing this custom thread pool is used to send out aggregated exchanges as well.      */
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|AggregateDefinition
@@ -3121,6 +3158,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * If using either of the completionTimeout, completionTimeoutExpression, or completionInterval options a      * background thread is created to check for the completion for every aggregator.      * Set this option to provide a custom thread pool to be used rather than creating a new thread for every aggregator.      */
 DECL|method|timeoutCheckerExecutorService (ScheduledExecutorService executorService)
 specifier|public
 name|AggregateDefinition
@@ -3139,6 +3177,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * If using either of the completionTimeout, completionTimeoutExpression, or completionInterval options a      * background thread is created to check for the completion for every aggregator.      * Set this option to provide a custom thread pool to be used rather than creating a new thread for every aggregator.      */
 DECL|method|timeoutCheckerExecutorServiceRef (String executorServiceRef)
 specifier|public
 name|AggregateDefinition
@@ -3155,57 +3194,6 @@ argument_list|)
 expr_stmt|;
 return|return
 name|this
-return|;
-block|}
-DECL|method|checkNoCompletedPredicate ()
-specifier|protected
-name|void
-name|checkNoCompletedPredicate
-parameter_list|()
-block|{
-if|if
-condition|(
-name|getCompletionPredicate
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"There is already a completionPredicate defined for this aggregator: "
-operator|+
-name|this
-argument_list|)
-throw|;
-block|}
-block|}
-DECL|method|setCorrelationExpression (ExpressionSubElementDefinition correlationExpression)
-specifier|public
-name|void
-name|setCorrelationExpression
-parameter_list|(
-name|ExpressionSubElementDefinition
-name|correlationExpression
-parameter_list|)
-block|{
-name|this
-operator|.
-name|correlationExpression
-operator|=
-name|correlationExpression
-expr_stmt|;
-block|}
-DECL|method|getCorrelationExpression ()
-specifier|public
-name|ExpressionSubElementDefinition
-name|getCorrelationExpression
-parameter_list|()
-block|{
-return|return
-name|correlationExpression
 return|;
 block|}
 comment|// Section - Methods from ExpressionNode
@@ -3255,6 +3243,31 @@ name|expression
 operator|=
 name|expression
 expr_stmt|;
+block|}
+DECL|method|checkNoCompletedPredicate ()
+specifier|protected
+name|void
+name|checkNoCompletedPredicate
+parameter_list|()
+block|{
+if|if
+condition|(
+name|getCompletionPredicate
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"There is already a completionPredicate defined for this aggregator: "
+operator|+
+name|this
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override
