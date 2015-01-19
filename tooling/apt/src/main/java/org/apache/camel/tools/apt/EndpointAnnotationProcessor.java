@@ -2493,6 +2493,8 @@ name|fieldElement
 argument_list|,
 name|fieldName
 argument_list|,
+name|name
+argument_list|,
 name|classElement
 argument_list|,
 literal|false
@@ -2832,6 +2834,8 @@ argument_list|,
 name|fieldElement
 argument_list|,
 name|fieldName
+argument_list|,
+name|name
 argument_list|,
 name|classElement
 argument_list|,
