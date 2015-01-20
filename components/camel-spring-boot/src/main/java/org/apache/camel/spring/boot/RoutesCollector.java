@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -27,6 +37,18 @@ operator|.
 name|camel
 operator|.
 name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Ordered
 import|;
 end_import
 
@@ -84,22 +106,6 @@ name|beans
 operator|.
 name|factory
 operator|.
-name|annotation
-operator|.
-name|Autowired
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|beans
-operator|.
-name|factory
-operator|.
 name|config
 operator|.
 name|BeanPostProcessor
@@ -124,9 +130,9 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|context
+name|core
 operator|.
-name|ApplicationContextAware
+name|PriorityOrdered
 import|;
 end_import
 
@@ -138,7 +144,7 @@ name|RoutesCollector
 implements|implements
 name|BeanPostProcessor
 implements|,
-name|ApplicationContextAware
+name|PriorityOrdered
 block|{
 DECL|field|LOG
 specifier|private
@@ -156,24 +162,51 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// Collaborators
 DECL|field|applicationContext
 specifier|private
+specifier|final
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
-annotation|@
-name|Autowired
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 DECL|field|camelContextConfigurations
 specifier|private
+specifier|final
+name|List
+argument_list|<
 name|CamelContextConfiguration
-index|[]
+argument_list|>
 name|camelContextConfigurations
 decl_stmt|;
+comment|// Constructors
+DECL|method|RoutesCollector (ApplicationContext applicationContext, List<CamelContextConfiguration> camelContextConfigurations)
+specifier|public
+name|RoutesCollector
+parameter_list|(
+name|ApplicationContext
+name|applicationContext
+parameter_list|,
+name|List
+argument_list|<
+name|CamelContextConfiguration
+argument_list|>
+name|camelContextConfigurations
+parameter_list|)
+block|{
+name|this
+operator|.
+name|applicationContext
+operator|=
+name|applicationContext
+expr_stmt|;
+name|this
+operator|.
+name|camelContextConfigurations
+operator|=
+name|camelContextConfigurations
+expr_stmt|;
+block|}
+comment|// Overridden
 annotation|@
 name|Override
 DECL|method|postProcessBeforeInitialization (Object bean, String beanName)
@@ -336,30 +369,17 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|setApplicationContext (ApplicationContext applicationContext)
+DECL|method|getOrder ()
 specifier|public
-name|void
-name|setApplicationContext
-parameter_list|(
-name|ApplicationContext
-name|applicationContext
-parameter_list|)
-throws|throws
-name|BeansException
+name|int
+name|getOrder
+parameter_list|()
 block|{
-name|LOG
+return|return
+name|Ordered
 operator|.
-name|debug
-argument_list|(
-literal|"Injecting Spring application context into RoutesCollector: {}"
-argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|applicationContext
-operator|=
-name|applicationContext
-expr_stmt|;
+name|LOWEST
+return|;
 block|}
 block|}
 end_class
