@@ -2656,6 +2656,32 @@ operator|=
 name|redeliveryPolicy
 expr_stmt|;
 block|}
+DECL|method|getRedeliveryPolicyType ()
+specifier|public
+name|RedeliveryPolicyDefinition
+name|getRedeliveryPolicyType
+parameter_list|()
+block|{
+return|return
+name|redeliveryPolicyType
+return|;
+block|}
+DECL|method|setRedeliveryPolicyType (RedeliveryPolicyDefinition redeliveryPolicyType)
+specifier|public
+name|void
+name|setRedeliveryPolicyType
+parameter_list|(
+name|RedeliveryPolicyDefinition
+name|redeliveryPolicyType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|redeliveryPolicyType
+operator|=
+name|redeliveryPolicyType
+expr_stmt|;
+block|}
 DECL|method|getRedeliveryPolicyRef ()
 specifier|public
 name|String

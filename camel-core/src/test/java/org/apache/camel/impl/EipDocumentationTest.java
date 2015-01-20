@@ -186,7 +186,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"Whether to aggregate using a sequential single thread or allow parallel aggregation"
+literal|"If enabled then processing each splitted messages occurs concurrently."
 argument_list|)
 argument_list|)
 expr_stmt|;
