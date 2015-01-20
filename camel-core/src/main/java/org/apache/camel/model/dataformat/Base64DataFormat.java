@@ -128,6 +128,20 @@ name|Label
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_comment
 comment|/**  * Base64 data format  *  * @version   */
 end_comment
@@ -161,6 +175,13 @@ name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"76"
+argument_list|)
 DECL|field|lineLength
 specifier|private
 name|Integer
@@ -168,6 +189,13 @@ name|lineLength
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"\r\n"
+argument_list|)
 DECL|field|lineSeparator
 specifier|private
 name|String

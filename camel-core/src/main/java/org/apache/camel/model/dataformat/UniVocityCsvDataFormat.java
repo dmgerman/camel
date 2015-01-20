@@ -114,6 +114,20 @@ name|Label
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_comment
 comment|/**  * UniVocity CSV data format  */
 end_comment
@@ -154,6 +168,13 @@ name|quoteAllFields
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"\""
+argument_list|)
 DECL|field|quote
 specifier|protected
 name|String
@@ -161,6 +182,13 @@ name|quote
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"\""
+argument_list|)
 DECL|field|quoteEscape
 specifier|protected
 name|String
@@ -168,6 +196,13 @@ name|quoteEscape
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|","
+argument_list|)
 DECL|field|delimiter
 specifier|protected
 name|String

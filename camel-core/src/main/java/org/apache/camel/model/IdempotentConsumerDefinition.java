@@ -215,6 +215,11 @@ name|ExpressionNode
 block|{
 annotation|@
 name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|field|messageIdRepositoryRef
 specifier|private
 name|String

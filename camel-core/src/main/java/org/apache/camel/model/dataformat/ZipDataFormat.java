@@ -138,6 +138,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RouteContext
 import|;
 end_import
@@ -175,6 +189,13 @@ name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"-1"
+argument_list|)
 DECL|field|compressionLevel
 specifier|private
 name|Integer
@@ -271,7 +292,7 @@ return|return
 name|compressionLevel
 return|;
 block|}
-comment|/**      * To specify a specific compression between 0-9.      * 0 is no compression, and 9 is best compression.      */
+comment|/**      * To specify a specific compression between 0-9.      * -1 is default compression, 0 is no compression, and 9 is best compression.      */
 DECL|method|setCompressionLevel (Integer compressionLevel)
 specifier|public
 name|void

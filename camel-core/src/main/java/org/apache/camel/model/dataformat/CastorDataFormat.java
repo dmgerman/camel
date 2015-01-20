@@ -128,6 +128,20 @@ name|Label
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_comment
 comment|/**  * Castor data format  *  * @version   */
 end_comment
@@ -175,6 +189,13 @@ name|validation
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"UTF-8"
+argument_list|)
 DECL|field|encoding
 specifier|private
 name|String

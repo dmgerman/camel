@@ -102,6 +102,20 @@ name|Label
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_comment
 comment|/**  * To configure optimistic locking  *  * @version  */
 end_comment
@@ -140,6 +154,13 @@ name|maximumRetries
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"50"
+argument_list|)
 DECL|field|retryDelay
 specifier|private
 name|Long
@@ -147,6 +168,13 @@ name|retryDelay
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"1000"
+argument_list|)
 DECL|field|maximumRetryDelay
 specifier|private
 name|Long
@@ -154,6 +182,13 @@ name|maximumRetryDelay
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|exponentialBackOff
 specifier|private
 name|Boolean

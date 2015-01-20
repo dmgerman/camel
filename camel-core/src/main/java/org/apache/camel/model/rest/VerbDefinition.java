@@ -172,6 +172,20 @@ name|Label
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_comment
 comment|/**  * Rest command  */
 end_comment
@@ -236,6 +250,13 @@ name|produces
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"auto"
+argument_list|)
 DECL|field|bindingMode
 specifier|private
 name|RestBindingMode

@@ -428,6 +428,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RouteContext
 import|;
 end_import
@@ -2163,6 +2177,13 @@ block|}
 comment|/**      * Whether message history is enabled on this route.      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|method|setMessageHistory (String messageHistory)
 specifier|public
 name|void
@@ -2298,6 +2319,13 @@ block|}
 comment|/**      * Whether to auto start this route      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|method|setAutoStartup (String autoStartup)
 specifier|public
 name|void
@@ -2488,6 +2516,13 @@ block|}
 comment|/**      * To control how to shutdown the route.      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"Default"
+argument_list|)
 DECL|method|setShutdownRoute (ShutdownRoute shutdownRoute)
 specifier|public
 name|void
@@ -2518,6 +2553,13 @@ block|}
 comment|/**      * To control how to shutdown the route.      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"CompleteCurrentTaskOnly"
+argument_list|)
 DECL|method|setShutdownRunningTask (ShutdownRunningTask shutdownRunningTask)
 specifier|public
 name|void

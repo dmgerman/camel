@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines a label which can be used to associate a class or type with label(s).  *<p/>  * For example Camel uses this to categorize the EIPs with labels.  *  * @deprecated use {@link org.apache.camel.spi.Metadata} instead  */
+comment|/**  * Meta data for EIPs, components, data formats and other Camel concepts  *<p/>  * For example to associate labels to Camel components  */
 end_comment
 
 begin_annotation_defn
@@ -97,19 +97,33 @@ block|{
 name|ElementType
 operator|.
 name|TYPE
+block|,
+name|ElementType
+operator|.
+name|METHOD
+block|,
+name|ElementType
+operator|.
+name|FIELD
 block|}
 argument_list|)
-annotation|@
-name|Deprecated
-DECL|annotation|Label
+DECL|annotation|Metadata
 specifier|public
 annotation_defn|@interface
-name|Label
+name|Metadata
 block|{
-comment|/**      * To associate this class or type with label(s).      *<p/>      * Multiple labels can be defined as a comma separated value.      */
-DECL|method|value ()
+comment|/**      * To define one or more labels.      *<p/>      * Multiple labels can be defined as a comma separated value.      */
+DECL|method|label ()
 name|String
-name|value
+name|label
+parameter_list|()
+default|default
+literal|""
+function_decl|;
+comment|/**      * To define a default value      */
+DECL|method|defaultValue ()
+name|String
+name|defaultValue
 parameter_list|()
 default|default
 literal|""
