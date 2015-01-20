@@ -218,6 +218,7 @@ return|return
 name|ref
 return|;
 block|}
+comment|/**      * Refers to the custom load balancer to lookup from the registry      */
 DECL|method|setRef (String ref)
 specifier|public
 name|void

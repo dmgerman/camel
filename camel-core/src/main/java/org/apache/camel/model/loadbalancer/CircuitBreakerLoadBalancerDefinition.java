@@ -197,7 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Circuit break load balancer  */
+comment|/**  * Circuit break load balancer  *<p/>  * The Circuit Breaker load balancer is a stateful pattern that monitors all calls for certain exceptions.  * Initially the Circuit Breaker is in closed state and passes all messages.  * If there are failures and the threshold is reached, it moves to open state and rejects all calls until halfOpenAfter  * timeout is reached. After this timeout is reached, if there is a new call, it will pass and if the result is  * success the Circuit Breaker will move to closed state, or to open state if there was an error.  */
 end_comment
 
 begin_class
@@ -455,6 +455,7 @@ return|return
 name|halfOpenAfter
 return|;
 block|}
+comment|/**      * The timeout in millis to use as threshold to move state from closed to half-open or open state      */
 DECL|method|setHalfOpenAfter (Long halfOpenAfter)
 specifier|public
 name|void
@@ -481,6 +482,7 @@ return|return
 name|threshold
 return|;
 block|}
+comment|/**      * Number of previous failed messages to use as threshold to move state from closed to half-open or open state      */
 DECL|method|setThreshold (Integer threshold)
 specifier|public
 name|void
@@ -510,6 +512,7 @@ return|return
 name|exceptions
 return|;
 block|}
+comment|/**      * A list of class names for specific exceptions to monitor.      * If no exceptions is configured then all exceptions is monitored      */
 DECL|method|setExceptions (List<String> exceptions)
 specifier|public
 name|void

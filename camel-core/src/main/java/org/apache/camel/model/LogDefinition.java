@@ -679,6 +679,7 @@ return|return
 name|loggingLevel
 return|;
 block|}
+comment|/**      * Sets the logging level.      *<p/>      * The default value is INFO      */
 DECL|method|setLoggingLevel (LoggingLevel loggingLevel)
 specifier|public
 name|void
@@ -705,6 +706,7 @@ return|return
 name|message
 return|;
 block|}
+comment|/**      * Sets the log message (uses simple language)      */
 DECL|method|setMessage (String message)
 specifier|public
 name|void
@@ -731,6 +733,7 @@ return|return
 name|logName
 return|;
 block|}
+comment|/**      * Sets the name of the logger      */
 DECL|method|setLogName (String logName)
 specifier|public
 name|void
@@ -757,6 +760,7 @@ return|return
 name|marker
 return|;
 block|}
+comment|/**      * To use slf4j marker      */
 DECL|method|setMarker (String marker)
 specifier|public
 name|void
@@ -783,6 +787,7 @@ return|return
 name|loggerRef
 return|;
 block|}
+comment|/**      * To refer to a custom logger instance to lookup from ther registry.      */
 DECL|method|setLoggerRef (String loggerRef)
 specifier|public
 name|void
@@ -809,6 +814,7 @@ return|return
 name|logger
 return|;
 block|}
+comment|/**      * To use a custom logger instance      */
 DECL|method|setLogger (Logger logger)
 specifier|public
 name|void

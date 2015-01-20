@@ -349,6 +349,7 @@ return|return
 name|path
 return|;
 block|}
+comment|/**      * Path of the rest service, such as "/foo"      */
 DECL|method|setPath (String path)
 specifier|public
 name|void
@@ -375,6 +376,7 @@ return|return
 name|consumes
 return|;
 block|}
+comment|/**      * To define the content type what the REST service consumes (accept as input), such as application/xml or application/json.      * This option will override what may be configured on a parent level      */
 DECL|method|setConsumes (String consumes)
 specifier|public
 name|void
@@ -401,6 +403,7 @@ return|return
 name|produces
 return|;
 block|}
+comment|/**      * To define the content type what the REST service produces (uses for output), such as application/xml or application/json      * This option will override what may be configured on a parent level      */
 DECL|method|setProduces (String produces)
 specifier|public
 name|void
@@ -427,6 +430,7 @@ return|return
 name|bindingMode
 return|;
 block|}
+comment|/**      * Sets the binding mode to use.      * This option will override what may be configured on a parent level      *<p/>      * The default value is auto      */
 DECL|method|setBindingMode (RestBindingMode bindingMode)
 specifier|public
 name|void
@@ -456,6 +460,7 @@ return|return
 name|verbs
 return|;
 block|}
+comment|/**      * The HTTP verbs this REST service accepts and uses      */
 DECL|method|setVerbs (List<VerbDefinition> verbs)
 specifier|public
 name|void
@@ -485,6 +490,7 @@ return|return
 name|skipBindingOnErrorCode
 return|;
 block|}
+comment|/**      * Whether to skip binding on output if there is a custom HTTP error code header.      * This allows to build custom error messages that do not bind to json / xml etc, as success messages otherwise will do.      * This option will override what may be configured on a parent level      */
 DECL|method|setSkipBindingOnErrorCode (Boolean skipBindingOnErrorCode)
 specifier|public
 name|void
@@ -511,6 +517,7 @@ return|return
 name|enableCORS
 return|;
 block|}
+comment|/**      * Whether to enable CORS headers in the HTTP response.      * This option will override what may be configured on a parent level      *<p/>      * The default value is false.      */
 DECL|method|setEnableCORS (Boolean enableCORS)
 specifier|public
 name|void

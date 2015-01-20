@@ -378,6 +378,7 @@ return|return
 name|method
 return|;
 block|}
+comment|/**      * The HTTP verb such as GET or POST      */
 DECL|method|setMethod (String method)
 specifier|public
 name|void
@@ -404,6 +405,7 @@ return|return
 name|uri
 return|;
 block|}
+comment|/**      * Uri template of this REST service such as /{id}.      */
 DECL|method|setUri (String uri)
 specifier|public
 name|void
@@ -430,6 +432,7 @@ return|return
 name|consumes
 return|;
 block|}
+comment|/**      * To define the content type what the REST service consumes (accept as input), such as application/xml or application/json.      * This option will override what may be configured on a parent level      */
 DECL|method|setConsumes (String consumes)
 specifier|public
 name|void
@@ -456,6 +459,7 @@ return|return
 name|produces
 return|;
 block|}
+comment|/**      * To define the content type what the REST service produces (uses for output), such as application/xml or application/json      * This option will override what may be configured on a parent level      */
 DECL|method|setProduces (String produces)
 specifier|public
 name|void
@@ -482,6 +486,7 @@ return|return
 name|bindingMode
 return|;
 block|}
+comment|/**      * Sets the binding mode to use.      * This option will override what may be configured on a parent level      *<p/>      * The default value is auto      */
 DECL|method|setBindingMode (RestBindingMode bindingMode)
 specifier|public
 name|void
@@ -508,6 +513,7 @@ return|return
 name|skipBindingOnErrorCode
 return|;
 block|}
+comment|/**      * Whether to skip binding on output if there is a custom HTTP error code header.      * This allows to build custom error messages that do not bind to json / xml etc, as success messages otherwise will do.      * This option will override what may be configured on a parent level      */
 DECL|method|setSkipBindingOnErrorCode (Boolean skipBindingOnErrorCode)
 specifier|public
 name|void
@@ -534,6 +540,7 @@ return|return
 name|enableCORS
 return|;
 block|}
+comment|/**      * Whether to enable CORS headers in the HTTP response.      * This option will override what may be configured on a parent level      *<p/>      * The default value is false.      */
 DECL|method|setEnableCORS (Boolean enableCORS)
 specifier|public
 name|void
@@ -560,6 +567,7 @@ return|return
 name|type
 return|;
 block|}
+comment|/**      * Sets the class name to use for binding from input to POJO for the incoming data      * This option will override what may be configured on a parent level      */
 DECL|method|setType (String type)
 specifier|public
 name|void
@@ -586,6 +594,7 @@ return|return
 name|outType
 return|;
 block|}
+comment|/**      * Sets the class name to use for binding from POJO to output for the outgoing data      * This option will override what may be configured on a parent level      */
 DECL|method|setOutType (String outType)
 specifier|public
 name|void
@@ -763,6 +772,7 @@ return|return
 name|toOrRoute
 return|;
 block|}
+comment|/**      * To route from this REST service to a Camel endpoint, or an inlined route      */
 DECL|method|setToOrRoute (OptionalIdentifiedDefinition<?> toOrRoute)
 specifier|public
 name|void

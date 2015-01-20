@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Topic load balancer  */
+comment|/**  * Topic load balancer  *  * The topic load balancer sends to all destinations (rather like JMS Topics)  */
 end_comment
 
 begin_class

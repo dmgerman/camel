@@ -163,7 +163,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Sticky load balancer  */
+comment|/**  * Sticky load balancer  *  * Sticky load balancing using an Expression to calculate a correlation key to perform the sticky load balancing;  * rather like jsessionid in the web or JMSXGroupID in JMS.  */
 end_comment
 
 begin_class
@@ -248,6 +248,7 @@ return|return
 name|correlationExpression
 return|;
 block|}
+comment|/**      * The correlation expression to use to calculate the correlation key      */
 DECL|method|setCorrelationExpression (ExpressionSubElementDefinition correlationExpression)
 specifier|public
 name|void

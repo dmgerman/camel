@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Random load balancer  */
+comment|/**  * Random load balancer  *  * The random load balancer selects a random endpoint for each exchange.  */
 end_comment
 
 begin_class

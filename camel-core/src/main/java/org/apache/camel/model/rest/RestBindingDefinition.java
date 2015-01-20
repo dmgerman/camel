@@ -1422,6 +1422,7 @@ return|return
 name|consumes
 return|;
 block|}
+comment|/**      * To define the content type what the REST service consumes (accept as input), such as application/xml or application/json      */
 DECL|method|setConsumes (String consumes)
 specifier|public
 name|void
@@ -1448,6 +1449,7 @@ return|return
 name|produces
 return|;
 block|}
+comment|/**      * To define the content type what the REST service produces (uses for output), such as application/xml or application/json      */
 DECL|method|setProduces (String produces)
 specifier|public
 name|void
@@ -1474,6 +1476,7 @@ return|return
 name|bindingMode
 return|;
 block|}
+comment|/**      * Sets the binding mode to use.      *<p/>      * The default value is auto      */
 DECL|method|setBindingMode (RestBindingMode bindingMode)
 specifier|public
 name|void
@@ -1500,6 +1503,7 @@ return|return
 name|type
 return|;
 block|}
+comment|/**      * Sets the class name to use for binding from input to POJO for the incoming data      */
 DECL|method|setType (String type)
 specifier|public
 name|void
@@ -1526,6 +1530,7 @@ return|return
 name|outType
 return|;
 block|}
+comment|/**      * Sets the class name to use for binding from POJO to output for the outgoing data      */
 DECL|method|setOutType (String outType)
 specifier|public
 name|void
@@ -1552,6 +1557,7 @@ return|return
 name|skipBindingOnErrorCode
 return|;
 block|}
+comment|/**      * Whether to skip binding on output if there is a custom HTTP error code header.      * This allows to build custom error messages that do not bind to json / xml etc, as success messages otherwise will do.      */
 DECL|method|setSkipBindingOnErrorCode (Boolean skipBindingOnErrorCode)
 specifier|public
 name|void
@@ -1578,6 +1584,7 @@ return|return
 name|enableCORS
 return|;
 block|}
+comment|/**      * Whether to enable CORS headers in the HTTP response.      *<p/>      * The default value is false.      */
 DECL|method|setEnableCORS (Boolean enableCORS)
 specifier|public
 name|void

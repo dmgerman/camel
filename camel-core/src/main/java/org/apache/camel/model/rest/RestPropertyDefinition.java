@@ -139,6 +139,7 @@ DECL|field|value
 name|String
 name|value
 decl_stmt|;
+comment|/**      * Property key      */
 DECL|method|setKey (String key)
 specifier|public
 name|void
@@ -165,6 +166,7 @@ return|return
 name|key
 return|;
 block|}
+comment|/**      * Property value      */
 DECL|method|setValue (String value)
 specifier|public
 name|void

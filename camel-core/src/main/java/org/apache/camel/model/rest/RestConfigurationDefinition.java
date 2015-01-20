@@ -408,6 +408,7 @@ return|return
 name|component
 return|;
 block|}
+comment|/**      * The Camel Rest component to use for the REST transport, such as restlet, spark-rest.      * If no component has been explicit configured, then Camel will lookup if there is a Camel component      * that integrates with the Rest DSL, or if a org.apache.camel.spi.RestConsumerFactory is registered in the registry.      * If either one is found, then that is being used.      */
 DECL|method|setComponent (String component)
 specifier|public
 name|void
@@ -434,6 +435,7 @@ return|return
 name|scheme
 return|;
 block|}
+comment|/**      * The scheme to use for exposing the REST service. Usually http or https is supported.      *<p/>      * The default value is http      */
 DECL|method|setScheme (String scheme)
 specifier|public
 name|void
@@ -460,6 +462,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * The hostname to use for exposing the REST service.      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -486,6 +489,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * The port number to use for exposing the REST service.      * Notice if you use servlet component then the port number configured here does not apply,      * as the port number in use is the actual port number the servlet component is using.      * eg if using Apache Tomcat its the tomcat http port, if using Apache Karaf its the HTTP service in Karaf      * that uses port 8181 by default etc. Though in those situations setting the port number here,      * allows tooling and JMX to know the port number, so its recommended to set the port number      * to the number that the servlet engine uses.      */
 DECL|method|setPort (String port)
 specifier|public
 name|void
@@ -512,6 +516,7 @@ return|return
 name|contextPath
 return|;
 block|}
+comment|/**      * Sets a leading context-path the REST services will be using.      * This can be used when using components such as SERVLET where the deployed web application is deployed using a context-path.      */
 DECL|method|setContextPath (String contextPath)
 specifier|public
 name|void
@@ -538,6 +543,7 @@ return|return
 name|hostNameResolver
 return|;
 block|}
+comment|/**      * If no hostname has been explicit configured, then this resolver is used to compute the hostname the REST service will be using.      */
 DECL|method|setHostNameResolver (RestHostNameResolver hostNameResolver)
 specifier|public
 name|void
@@ -564,6 +570,7 @@ return|return
 name|bindingMode
 return|;
 block|}
+comment|/**      * Sets the binding mode to use.      *<p/>      * The default value is auto      */
 DECL|method|setBindingMode (RestBindingMode bindingMode)
 specifier|public
 name|void
@@ -590,6 +597,7 @@ return|return
 name|skipBindingOnErrorCode
 return|;
 block|}
+comment|/**      * Whether to skip binding on output if there is a custom HTTP error code header.      * This allows to build custom error messages that do not bind to json / xml etc, as success messages otherwise will do.      */
 DECL|method|setSkipBindingOnErrorCode (Boolean skipBindingOnErrorCode)
 specifier|public
 name|void
@@ -616,6 +624,7 @@ return|return
 name|enableCORS
 return|;
 block|}
+comment|/**      * Whether to enable CORS headers in the HTTP response.      *<p/>      * The default value is false.      */
 DECL|method|setEnableCORS (Boolean enableCORS)
 specifier|public
 name|void
@@ -642,6 +651,7 @@ return|return
 name|jsonDataFormat
 return|;
 block|}
+comment|/**      * Name of specific json data format to use.      * By default json-jackson will be used.      * Important: This option is only for setting a custom name of the data format, not to refer to an existing data format instance.      */
 DECL|method|setJsonDataFormat (String jsonDataFormat)
 specifier|public
 name|void
@@ -668,6 +678,7 @@ return|return
 name|xmlDataFormat
 return|;
 block|}
+comment|/**      * Name of specific XML data format to use.      * By default jaxb will be used.      * Important: This option is only for setting a custom name of the data format, not to refer to an existing data format instance.      */
 DECL|method|setXmlDataFormat (String xmlDataFormat)
 specifier|public
 name|void
@@ -697,6 +708,7 @@ return|return
 name|componentProperties
 return|;
 block|}
+comment|/**      * Allows to configure as many additional properties for the rest component in use.      */
 DECL|method|setComponentProperties (List<RestPropertyDefinition> componentProperties)
 specifier|public
 name|void
@@ -729,6 +741,7 @@ return|return
 name|endpointProperties
 return|;
 block|}
+comment|/**      * Allows to configure as many additional properties for the rest endpoint in use.      */
 DECL|method|setEndpointProperties (List<RestPropertyDefinition> endpointProperties)
 specifier|public
 name|void
@@ -761,6 +774,7 @@ return|return
 name|consumerProperties
 return|;
 block|}
+comment|/**      * Allows to configure as many additional properties for the rest consumer in use.      */
 DECL|method|setConsumerProperties (List<RestPropertyDefinition> consumerProperties)
 specifier|public
 name|void
@@ -793,6 +807,7 @@ return|return
 name|dataFormatProperties
 return|;
 block|}
+comment|/**      * Allows to configure as many additional properties for the data formats in use.      * For example set property prettyPrint to true to have json outputted in pretty mode.      * The properties can be prefixed to denote the option is only for either JSON or XML and for either the IN or the OUT.      * The prefixes are:      *<ul>      *<li>json.in.</li>      *<li>json.out.</li>      *<li>xml.in.</li>      *<li>xml.out.</li>      *</ul>      * For example a key with value "xml.out.mustBeJAXBElement" is only for the XML data format for the outgoing.      * A key without a prefix is a common key for all situations.      */
 DECL|method|setDataFormatProperties (List<RestPropertyDefinition> dataFormatProperties)
 specifier|public
 name|void
@@ -825,6 +840,7 @@ return|return
 name|corsHeaders
 return|;
 block|}
+comment|/**      * Allows to configure custom CORS headers.      */
 DECL|method|setCorsHeaders (List<RestPropertyDefinition> corsHeaders)
 specifier|public
 name|void

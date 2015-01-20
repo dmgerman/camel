@@ -185,7 +185,6 @@ name|LoopDefinition
 extends|extends
 name|ExpressionNode
 block|{
-comment|/**      * If the copy attribute is true, a copy of the input Exchange is used for each iteration.      * That means each iteration will start from a copy of the same message.      *<p/>      * By default loop will loop the same exchange all over, so each iteration may      * have different message content.      *      */
 annotation|@
 name|XmlAttribute
 DECL|field|copy
@@ -272,6 +271,7 @@ return|return
 name|copy
 return|;
 block|}
+comment|/**      * If the copy attribute is true, a copy of the input Exchange is used for each iteration.      * That means each iteration will start from a copy of the same message.      *<p/>      * By default loop will loop the same exchange all over, so each iteration may      * have different message content.      */
 DECL|method|setCopy (Boolean copy)
 specifier|public
 name|void
