@@ -305,6 +305,7 @@ return|return
 name|nullValue
 return|;
 block|}
+comment|/**      * The string representation of a null value.      *<p/>      * The default value is null      */
 DECL|method|setNullValue (String nullValue)
 specifier|public
 name|void
@@ -331,6 +332,7 @@ return|return
 name|skipEmptyLines
 return|;
 block|}
+comment|/**      * Whether or not the empty lines must be ignored.      *<p/>      * The default value is true      */
 DECL|method|setSkipEmptyLines (Boolean skipEmptyLines)
 specifier|public
 name|void
@@ -357,6 +359,7 @@ return|return
 name|ignoreTrailingWhitespaces
 return|;
 block|}
+comment|/**      * Whether or not the trailing white spaces must ignored.      *<p/>      * The default value is true      */
 DECL|method|setIgnoreTrailingWhitespaces (Boolean ignoreTrailingWhitespaces)
 specifier|public
 name|void
@@ -383,6 +386,7 @@ return|return
 name|ignoreLeadingWhitespaces
 return|;
 block|}
+comment|/**      * Whether or not the leading white spaces must be ignored.      *<p/>      * The default value is true      */
 DECL|method|setIgnoreLeadingWhitespaces (Boolean ignoreLeadingWhitespaces)
 specifier|public
 name|void
@@ -409,6 +413,7 @@ return|return
 name|headersDisabled
 return|;
 block|}
+comment|/**      * Whether or not the headers are disabled. When defined, this option explicitly sets the headers as null which indicates that there is no header.      *<p/>      * The default value is false      */
 DECL|method|setHeadersDisabled (Boolean headersDisabled)
 specifier|public
 name|void
@@ -438,6 +443,7 @@ return|return
 name|headers
 return|;
 block|}
+comment|/**      * The headers to use.      */
 DECL|method|setHeaders (List<UniVocityHeader> headers)
 specifier|public
 name|void
@@ -467,6 +473,7 @@ return|return
 name|headerExtractionEnabled
 return|;
 block|}
+comment|/**      * Whether or not the header must be read in the first line of the test document      *<p/>      * The default value is false      */
 DECL|method|setHeaderExtractionEnabled (Boolean headerExtractionEnabled)
 specifier|public
 name|void
@@ -493,6 +500,7 @@ return|return
 name|numberOfRecordsToRead
 return|;
 block|}
+comment|/**      * The maximum number of record to read.      */
 DECL|method|setNumberOfRecordsToRead (Integer numberOfRecordsToRead)
 specifier|public
 name|void
@@ -519,6 +527,7 @@ return|return
 name|emptyValue
 return|;
 block|}
+comment|/**      * The String representation of an empty value      */
 DECL|method|setEmptyValue (String emptyValue)
 specifier|public
 name|void
@@ -545,6 +554,7 @@ return|return
 name|lineSeparator
 return|;
 block|}
+comment|/**      * The line separator of the files      *<p/>      * The default value is to use the JVM platform line separator      */
 DECL|method|setLineSeparator (String lineSeparator)
 specifier|public
 name|void
@@ -571,6 +581,7 @@ return|return
 name|normalizedLineSeparator
 return|;
 block|}
+comment|/**      * The normalized line separator of the files      *<p/>      * The default value is \n      */
 DECL|method|setNormalizedLineSeparator (String normalizedLineSeparator)
 specifier|public
 name|void
@@ -597,6 +608,7 @@ return|return
 name|comment
 return|;
 block|}
+comment|/**      * The comment symbol.      *<p/>      * The default value is #      */
 DECL|method|setComment (String comment)
 specifier|public
 name|void
@@ -623,6 +635,7 @@ return|return
 name|lazyLoad
 return|;
 block|}
+comment|/**      * Whether the unmarshalling should produce an iterator that reads the lines on the fly or if all the lines must be read at one.      *<p/>      * The default value is false      */
 DECL|method|setLazyLoad (Boolean lazyLoad)
 specifier|public
 name|void
@@ -649,6 +662,7 @@ return|return
 name|asMap
 return|;
 block|}
+comment|/**      * Whether the unmarshalling should produce maps for the lines values instead of lists.      * It requires to have header (either defined or collected).      *<p/>      * The default value is false      */
 DECL|method|setAsMap (Boolean asMap)
 specifier|public
 name|void

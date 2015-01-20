@@ -237,11 +237,6 @@ name|resultTypeName
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|name
-operator|=
-literal|"saxon"
-argument_list|)
 DECL|field|saxon
 specifier|private
 name|Boolean
@@ -249,11 +244,6 @@ name|saxon
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|name
-operator|=
-literal|"factoryRef"
-argument_list|)
 DECL|field|factoryRef
 specifier|private
 name|String
@@ -261,11 +251,6 @@ name|factoryRef
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|name
-operator|=
-literal|"objectModel"
-argument_list|)
 DECL|field|objectModel
 specifier|private
 name|String
@@ -273,11 +258,6 @@ name|objectModel
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|name
-operator|=
-literal|"logNamespaces"
-argument_list|)
 DECL|field|logNamespaces
 specifier|private
 name|Boolean
@@ -285,11 +265,6 @@ name|logNamespaces
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|name
-operator|=
-literal|"headerName"
-argument_list|)
 DECL|field|headerName
 specifier|private
 name|String
@@ -378,6 +353,7 @@ return|return
 name|documentType
 return|;
 block|}
+comment|/**      * Class for document type to use      *<p/>      * The default value is org.w3c.dom.Document      */
 DECL|method|setDocumentType (Class<?> documentType)
 specifier|public
 name|void
@@ -407,6 +383,7 @@ return|return
 name|documentTypeName
 return|;
 block|}
+comment|/**      * Name of class for document type      *<p/>      * The default value is org.w3c.dom.Document      */
 DECL|method|setDocumentTypeName (String documentTypeName)
 specifier|public
 name|void
@@ -436,6 +413,7 @@ return|return
 name|resultType
 return|;
 block|}
+comment|/**      * Sets the class of the result type (type from output).      *<p/>      * The default result type is NodeSet      */
 DECL|method|setResultType (Class<?> resultType)
 specifier|public
 name|void
@@ -465,6 +443,7 @@ return|return
 name|resultTypeName
 return|;
 block|}
+comment|/**      * Sets the class name of the result type (type from output)      *<p/>      * The default result type is NodeSet      */
 DECL|method|setResultTypeName (String resultTypeName)
 specifier|public
 name|void
@@ -481,6 +460,7 @@ operator|=
 name|resultTypeName
 expr_stmt|;
 block|}
+comment|/**      * Whether to use Saxon.      */
 DECL|method|setSaxon (Boolean saxon)
 specifier|public
 name|void
@@ -521,6 +501,7 @@ operator|&&
 name|saxon
 return|;
 block|}
+comment|/**      * References to a custom XPathFactory to lookup in the registry      */
 DECL|method|setFactoryRef (String factoryRef)
 specifier|public
 name|void
@@ -547,6 +528,7 @@ return|return
 name|factoryRef
 return|;
 block|}
+comment|/**      * The XPath object model to use      */
 DECL|method|setObjectModel (String objectModel)
 specifier|public
 name|void
@@ -573,6 +555,7 @@ return|return
 name|objectModel
 return|;
 block|}
+comment|/**      * Whether to log namespaces which can assist during trouble shooting      */
 DECL|method|setLogNamespaces (Boolean logNamespaces)
 specifier|public
 name|void
@@ -623,6 +606,7 @@ return|return
 name|headerName
 return|;
 block|}
+comment|/**      * Name of header to use as input, instead of the message body      */
 DECL|method|setHeaderName (String headerName)
 specifier|public
 name|void

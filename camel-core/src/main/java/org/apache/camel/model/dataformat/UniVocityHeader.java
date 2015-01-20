@@ -155,6 +155,7 @@ return|return
 name|name
 return|;
 block|}
+comment|/**      * Header name      */
 DECL|method|setName (String name)
 specifier|public
 name|void
@@ -181,6 +182,7 @@ return|return
 name|length
 return|;
 block|}
+comment|/**      * Header length      */
 DECL|method|setLength (Integer length)
 specifier|public
 name|void

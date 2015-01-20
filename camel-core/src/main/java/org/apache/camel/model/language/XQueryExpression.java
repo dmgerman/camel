@@ -246,6 +246,7 @@ return|return
 name|type
 return|;
 block|}
+comment|/**      * Sets the class name of the result type (type from output)      *<p/>      * The default result type is NodeSet      */
 DECL|method|setType (String type)
 specifier|public
 name|void
@@ -275,6 +276,7 @@ return|return
 name|resultType
 return|;
 block|}
+comment|/**      * Sets the class of the result type (type from output).      *<p/>      * The default result type is NodeSet      */
 DECL|method|setResultType (Class<?> resultType)
 specifier|public
 name|void
@@ -304,6 +306,7 @@ return|return
 name|headerName
 return|;
 block|}
+comment|/**      * Name of header to use as input, instead of the message body      */
 DECL|method|setHeaderName (String headerName)
 specifier|public
 name|void

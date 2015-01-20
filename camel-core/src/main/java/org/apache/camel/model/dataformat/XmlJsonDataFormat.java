@@ -975,6 +975,7 @@ return|return
 name|encoding
 return|;
 block|}
+comment|/**      * Sets the encoding.      * Used for unmarshalling (JSON to XML conversion).      */
 DECL|method|setEncoding (String encoding)
 specifier|public
 name|void
@@ -1001,6 +1002,7 @@ return|return
 name|elementName
 return|;
 block|}
+comment|/**      * Specifies the name of the XML elements representing each array element.      * Used for unmarshalling (JSON to XML conversion).      */
 DECL|method|setElementName (String elementName)
 specifier|public
 name|void
@@ -1027,6 +1029,7 @@ return|return
 name|arrayName
 return|;
 block|}
+comment|/**      * Specifies the name of the top-level XML element.      * Used for unmarshalling (JSON to XML conversion).      *      * For example, when converting [1, 2, 3], it will be output by default as<a><e>1</e><e>2</e><e>3</e></a>.      * By setting this option or rootName, you can alter the name of element 'a'.      */
 DECL|method|setArrayName (String arrayName)
 specifier|public
 name|void
@@ -1053,6 +1056,7 @@ return|return
 name|forceTopLevelObject
 return|;
 block|}
+comment|/**      * Determines whether the resulting JSON will start off with a top-most element whose name matches the XML root element.      * Used for marshalling (XML to JSon conversion).      *      * If disabled, XML string<a><x>1</x><y>2</y></a> turns into { 'x: '1', 'y': '2' }.      * Otherwise, it turns into { 'a': { 'x: '1', 'y': '2' }}.      */
 DECL|method|setForceTopLevelObject (Boolean forceTopLevelObject)
 specifier|public
 name|void
@@ -1079,6 +1083,7 @@ return|return
 name|namespaceLenient
 return|;
 block|}
+comment|/**      * Flag to be tolerant to incomplete namespace prefixes.      * Used for unmarshalling (JSON to XML conversion).      * In most cases, json-lib automatically changes this flag at runtime to match the processing.      */
 DECL|method|setNamespaceLenient (Boolean namespaceLenient)
 specifier|public
 name|void
@@ -1105,6 +1110,7 @@ return|return
 name|rootName
 return|;
 block|}
+comment|/**      * Specifies the name of the top-level element.      * Used for unmarshalling (JSON to XML conversion).      *      * If not set, json-lib will use arrayName or objectName (default value: 'o', at the current time it is not configurable in this data format).      * If set to 'root', the JSON string { 'x': 'value1', 'y' : 'value2' } would turn      * into<root><x>value1</x><y>value2</y></root>, otherwise the 'root' element would be named 'o'.      */
 DECL|method|setRootName (String rootName)
 specifier|public
 name|void
@@ -1131,6 +1137,7 @@ return|return
 name|skipWhitespace
 return|;
 block|}
+comment|/**      * Determines whether white spaces between XML elements will be regarded as text values or disregarded.      * Used for marshalling (XML to JSon conversion).      */
 DECL|method|setSkipWhitespace (Boolean skipWhitespace)
 specifier|public
 name|void
@@ -1157,6 +1164,7 @@ return|return
 name|trimSpaces
 return|;
 block|}
+comment|/**      * Determines whether leading and trailing white spaces will be omitted from String values.      * Used for marshalling (XML to JSon conversion).      */
 DECL|method|setTrimSpaces (Boolean trimSpaces)
 specifier|public
 name|void
@@ -1183,6 +1191,7 @@ return|return
 name|skipNamespaces
 return|;
 block|}
+comment|/**      * Signals whether namespaces should be ignored. By default they will be added to the JSON output using @xmlns elements.      * Used for marshalling (XML to JSon conversion).      */
 DECL|method|setSkipNamespaces (Boolean skipNamespaces)
 specifier|public
 name|void
@@ -1209,6 +1218,7 @@ return|return
 name|removeNamespacePrefixes
 return|;
 block|}
+comment|/**      * Removes the namespace prefixes from XML qualified elements, so that the resulting JSON string does not contain them.      * Used for marshalling (XML to JSon conversion).      */
 DECL|method|setRemoveNamespacePrefixes (Boolean removeNamespacePrefixes)
 specifier|public
 name|void
@@ -1238,6 +1248,7 @@ return|return
 name|expandableProperties
 return|;
 block|}
+comment|/**      * With expandable properties, JSON array elements are converted to XML as a sequence of repetitive XML elements      * with the local name equal to the JSON key, for example: { number: 1,2,3 }, normally converted to:      *<number><e>1</e><e>2</e><e>3</e></number> (where e can be modified by setting elementName), would instead      * translate to<number>1</number><number>2</number><number>3</number>, if "number" is set as an expandable property      * Used for unmarshalling (JSON to XML conversion).      */
 DECL|method|setExpandableProperties (List<String> expandableProperties)
 specifier|public
 name|void
@@ -1267,6 +1278,7 @@ return|return
 name|typeHints
 return|;
 block|}
+comment|/**      * Adds type hints to the resulting XML to aid conversion back to JSON.      * Used for unmarshalling (JSON to XML conversion).      */
 DECL|method|setTypeHints (String typeHints)
 specifier|public
 name|void

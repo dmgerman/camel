@@ -183,7 +183,6 @@ specifier|private
 name|DescriptionDefinition
 name|description
 decl_stmt|;
-comment|/**      * Gets the value of the id property.      */
 annotation|@
 name|Override
 DECL|method|getId ()
@@ -196,7 +195,7 @@ return|return
 name|id
 return|;
 block|}
-comment|/**      * Sets the value of the id property.      */
+comment|/**      * Sets the id of this node      */
 annotation|@
 name|XmlAttribute
 DECL|method|setId (String value)

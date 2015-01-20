@@ -234,6 +234,7 @@ return|return
 name|resultTypeName
 return|;
 block|}
+comment|/**      * Sets the class name of the result type (type from output)      */
 DECL|method|setResultTypeName (String resultTypeName)
 specifier|public
 name|void
@@ -263,6 +264,7 @@ return|return
 name|resultType
 return|;
 block|}
+comment|/**      * Sets the class of the result type (type from output)      */
 DECL|method|setResultType (Class<?> resultType)
 specifier|public
 name|void

@@ -1128,7 +1128,6 @@ operator|=
 name|expression
 expr_stmt|;
 block|}
-comment|/**      * Gets the value of the id property.      */
 DECL|method|getId ()
 specifier|public
 name|String
@@ -1139,7 +1138,7 @@ return|return
 name|id
 return|;
 block|}
-comment|/**      * Sets the value of the id property.      */
+comment|/**      * Sets the id of this node      */
 DECL|method|setId (String value)
 specifier|public
 name|void
@@ -1212,6 +1211,7 @@ return|return
 name|trim
 return|;
 block|}
+comment|/**      * Whether to trim the value to remove leading and trailing whitespaces and line breaks      */
 DECL|method|setTrim (Boolean trim)
 specifier|public
 name|void

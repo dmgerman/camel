@@ -168,6 +168,7 @@ return|return
 name|language
 return|;
 block|}
+comment|/**      * The name of the language to use      */
 DECL|method|setLanguage (String language)
 specifier|public
 name|void

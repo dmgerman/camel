@@ -187,6 +187,7 @@ return|return
 name|skipTrailingCharsUntilNewline
 return|;
 block|}
+comment|/**      * Whether or not the trailing characters until new line must be ignored.      *<p/>      * The default value is false      */
 DECL|method|setSkipTrailingCharsUntilNewline (Boolean skipTrailingCharsUntilNewline)
 specifier|public
 name|void
@@ -213,6 +214,7 @@ return|return
 name|recordEndsOnNewline
 return|;
 block|}
+comment|/**      * Whether or not the record ends on new line.      *<p/>      * The default value is false      */
 DECL|method|setRecordEndsOnNewline (Boolean recordEndsOnNewline)
 specifier|public
 name|void
@@ -239,6 +241,7 @@ return|return
 name|padding
 return|;
 block|}
+comment|/**      * The padding character.      *<p/>      * The default value is a space      */
 DECL|method|setPadding (String padding)
 specifier|public
 name|void

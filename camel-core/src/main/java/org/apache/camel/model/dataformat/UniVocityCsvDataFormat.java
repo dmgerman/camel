@@ -194,6 +194,7 @@ return|return
 name|quoteAllFields
 return|;
 block|}
+comment|/**      * Whether or not all values must be quoted when writing them.      *<p/>      * The default value is false      */
 DECL|method|setQuoteAllFields (Boolean quoteAllFields)
 specifier|public
 name|void
@@ -220,6 +221,7 @@ return|return
 name|quote
 return|;
 block|}
+comment|/**      * The quote symbol.      *<p/>      * The default value is "      */
 DECL|method|setQuote (String quote)
 specifier|public
 name|void
@@ -246,6 +248,7 @@ return|return
 name|quoteEscape
 return|;
 block|}
+comment|/**      * The quote escape symbol      *<p/>      * The default value is "      */
 DECL|method|setQuoteEscape (String quoteEscape)
 specifier|public
 name|void
@@ -272,6 +275,7 @@ return|return
 name|delimiter
 return|;
 block|}
+comment|/**      * The delimiter of values      *<p/>      * The default value is ,      */
 DECL|method|setDelimiter (String delimiter)
 specifier|public
 name|void

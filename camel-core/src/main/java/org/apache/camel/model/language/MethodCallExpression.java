@@ -540,6 +540,7 @@ return|return
 name|bean
 return|;
 block|}
+comment|/**      * Either a reference or a class name of the bean to use      */
 DECL|method|setBean (String bean)
 specifier|public
 name|void
@@ -566,6 +567,7 @@ return|return
 name|ref
 return|;
 block|}
+comment|/**      * Reference to bean to lookup in the registry      */
 DECL|method|setRef (String ref)
 specifier|public
 name|void
@@ -592,6 +594,7 @@ return|return
 name|method
 return|;
 block|}
+comment|/**      * Name of method to call      */
 DECL|method|setMethod (String method)
 specifier|public
 name|void
@@ -656,6 +659,7 @@ return|return
 name|beanTypeName
 return|;
 block|}
+comment|/**      * Class name of the bean to use      */
 DECL|method|setBeanTypeName (String beanTypeName)
 specifier|public
 name|void

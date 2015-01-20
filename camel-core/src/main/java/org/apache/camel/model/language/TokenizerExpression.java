@@ -273,6 +273,7 @@ return|return
 name|token
 return|;
 block|}
+comment|/**      * The (start) token to use as tokenizer, for example \n for a new line token      */
 DECL|method|setToken (String token)
 specifier|public
 name|void
@@ -299,6 +300,7 @@ return|return
 name|endToken
 return|;
 block|}
+comment|/**      * The end token to use as tokenizer if using start/end token pairs.      */
 DECL|method|setEndToken (String endToken)
 specifier|public
 name|void
@@ -325,6 +327,7 @@ return|return
 name|headerName
 return|;
 block|}
+comment|/**      * Name of header to tokenize instead of using the message body.      */
 DECL|method|setHeaderName (String headerName)
 specifier|public
 name|void
@@ -341,6 +344,7 @@ operator|=
 name|headerName
 expr_stmt|;
 block|}
+comment|/**      * If the token is a regular expression pattern.      *<p/>      * The default value is false      */
 DECL|method|setRegex (boolean regex)
 specifier|public
 name|void
@@ -377,6 +381,7 @@ return|return
 name|inheritNamespaceTagName
 return|;
 block|}
+comment|/**      * To inherit namepaces from a root/parent tag name      */
 DECL|method|setInheritNamespaceTagName (String inheritNamespaceTagName)
 specifier|public
 name|void
@@ -403,6 +408,7 @@ return|return
 name|xml
 return|;
 block|}
+comment|/**      * Whether the input is XML messages.      * This option must be set to true if working with XML payloads.      */
 DECL|method|setXml (Boolean xml)
 specifier|public
 name|void
@@ -429,6 +435,7 @@ return|return
 name|includeTokens
 return|;
 block|}
+comment|/**      * Whether to include the tokens in the parts      *<p/>      * The default value is false      */
 DECL|method|setIncludeTokens (Boolean includeTokens)
 specifier|public
 name|void
@@ -455,6 +462,7 @@ return|return
 name|group
 return|;
 block|}
+comment|/**      * To group N parts together, for example to split big files into chunks of 1000 lines.      */
 DECL|method|setGroup (Integer group)
 specifier|public
 name|void

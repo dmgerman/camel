@@ -233,6 +233,7 @@ return|return
 name|headerName
 return|;
 block|}
+comment|/**      * Name of header to tokenize instead of using the message body.      */
 DECL|method|setHeaderName (String headerName)
 specifier|public
 name|void
@@ -249,6 +250,17 @@ operator|=
 name|headerName
 expr_stmt|;
 block|}
+DECL|method|getMode ()
+specifier|public
+name|String
+name|getMode
+parameter_list|()
+block|{
+return|return
+name|mode
+return|;
+block|}
+comment|/**      * The extraction mode. The available extraction modes are:      *<ul>      *<li>i - injecting the contextual namespace bindings into the extracted token (default)</li>      *<li>w - wrapping the extracted token in its ancestor context</li>      *<li>u - unwrapping the extracted token to its child content</li>      *<li>t - extracting the text content of the specified element</li>      *</ul>      */
 DECL|method|setMode (String mode)
 specifier|public
 name|void
@@ -265,16 +277,6 @@ operator|=
 name|mode
 expr_stmt|;
 block|}
-DECL|method|getMode ()
-specifier|public
-name|String
-name|getMode
-parameter_list|()
-block|{
-return|return
-name|mode
-return|;
-block|}
 DECL|method|getGroup ()
 specifier|public
 name|Integer
@@ -285,6 +287,7 @@ return|return
 name|group
 return|;
 block|}
+comment|/**      * To group N parts together      */
 DECL|method|setGroup (Integer group)
 specifier|public
 name|void

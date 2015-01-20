@@ -499,6 +499,7 @@ return|return
 name|encoding
 return|;
 block|}
+comment|/**      * Sets the encoding to use      */
 DECL|method|setEncoding (String encoding)
 specifier|public
 name|void
@@ -525,6 +526,7 @@ return|return
 name|driver
 return|;
 block|}
+comment|/**      * To use a custom XStream driver.      * The instance must be of type com.thoughtworks.xstream.io.HierarchicalStreamDriver      */
 DECL|method|setDriver (String driver)
 specifier|public
 name|void
@@ -551,6 +553,7 @@ return|return
 name|driverRef
 return|;
 block|}
+comment|/**      * To refer to a custom XStream driver to lookup in the registry.      * The instance must be of type com.thoughtworks.xstream.io.HierarchicalStreamDriver      */
 DECL|method|setDriverRef (String driverRef)
 specifier|public
 name|void
@@ -577,6 +580,7 @@ return|return
 name|mode
 return|;
 block|}
+comment|/**      * Mode for dealing with duplicate references The possible values are:      *<ul>      *<li>NO_REFERENCES</li>      *<li>ID_REFERENCES</li>      *<li>XPATH_RELATIVE_REFERENCES</li>      *<li>XPATH_ABSOLUTE_REFERENCES</li>      *<li>SINGLE_NODE_XPATH_RELATIVE_REFERENCES</li>      *<li>SINGLE_NODE_XPATH_ABSOLUTE_REFERENCES</li>      *</ul>      */
 DECL|method|setMode (String mode)
 specifier|public
 name|void
@@ -606,6 +610,7 @@ return|return
 name|converters
 return|;
 block|}
+comment|/**      * List of class names for using custom XStream converters.      * The classes must be of type com.thoughtworks.xstream.converters.Converter      */
 DECL|method|setConverters (List<String> converters)
 specifier|public
 name|void
@@ -640,6 +645,7 @@ return|return
 name|aliases
 return|;
 block|}
+comment|/**      * Alias a Class to a shorter name to be used in XML elements.      */
 DECL|method|setAliases (Map<String, String> aliases)
 specifier|public
 name|void
@@ -677,6 +683,7 @@ return|return
 name|omitFields
 return|;
 block|}
+comment|/**      * Prevents a field from being serialized. To omit a field you must always provide the      * declaring type and not necessarily the type that is converted.      */
 DECL|method|setOmitFields (Map<String, String[]> omitFields)
 specifier|public
 name|void
@@ -715,6 +722,7 @@ return|return
 name|implicitCollections
 return|;
 block|}
+comment|/**      * Adds a default implicit collection which is used for any unmapped XML tag.      */
 DECL|method|setImplicitCollections (Map<String, String[]> implicitCollections)
 specifier|public
 name|void

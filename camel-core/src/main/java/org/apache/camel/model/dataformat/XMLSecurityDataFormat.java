@@ -278,6 +278,7 @@ name|recipientKeyAlias
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+comment|// TODO: rename to keyOrTrustStoreParametersRef
 DECL|field|keyOrTrustStoreParametersId
 specifier|private
 name|String
@@ -341,6 +342,9 @@ literal|"secureXML"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// all the parameter constructors is deprecated as people should use getter/setter to configure
+annotation|@
+name|Deprecated
 DECL|method|XMLSecurityDataFormat (String secureTag, boolean secureTagContents)
 specifier|public
 name|XMLSecurityDataFormat
@@ -370,6 +374,8 @@ name|secureTagContents
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|XMLSecurityDataFormat (String secureTag, Map<String, String> namespaces, boolean secureTagContents)
 specifier|public
 name|XMLSecurityDataFormat
@@ -414,6 +420,8 @@ name|namespaces
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|XMLSecurityDataFormat (String secureTag, boolean secureTagContents, String passPhrase)
 specifier|public
 name|XMLSecurityDataFormat
@@ -443,6 +451,8 @@ name|passPhrase
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|XMLSecurityDataFormat (String secureTag, Map<String, String> namespaces, boolean secureTagContents, String passPhrase)
 specifier|public
 name|XMLSecurityDataFormat
@@ -487,6 +497,8 @@ name|namespaces
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|XMLSecurityDataFormat (String secureTag, boolean secureTagContents, String passPhrase, String xmlCipherAlgorithm)
 specifier|public
 name|XMLSecurityDataFormat
@@ -521,6 +533,8 @@ name|xmlCipherAlgorithm
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|XMLSecurityDataFormat (String secureTag, Map<String, String> namespaces, boolean secureTagContents, String passPhrase, String xmlCipherAlgorithm)
 specifier|public
 name|XMLSecurityDataFormat
@@ -622,6 +636,8 @@ name|keyCipherAlgorithm
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|XMLSecurityDataFormat (String secureTag, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm, String keyOrTrustStoreParametersId)
 specifier|public
 name|XMLSecurityDataFormat
@@ -681,6 +697,8 @@ name|keyOrTrustStoreParametersId
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|XMLSecurityDataFormat (String secureTag, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm, KeyStoreParameters keyOrTrustStoreParameters)
 specifier|public
 name|XMLSecurityDataFormat
@@ -740,6 +758,8 @@ name|keyOrTrustStoreParameters
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|XMLSecurityDataFormat (String secureTag, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm, String keyOrTrustStoreParametersId, String keyPassword)
 specifier|public
 name|XMLSecurityDataFormat
@@ -809,6 +829,8 @@ name|keyPassword
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|XMLSecurityDataFormat (String secureTag, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm, KeyStoreParameters keyOrTrustStoreParameters, String keyPassword)
 specifier|public
 name|XMLSecurityDataFormat
@@ -945,6 +967,8 @@ name|namespaces
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|XMLSecurityDataFormat (String secureTag, Map<String, String> namespaces, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm, String keyOrTrustStoreParametersId)
 specifier|public
 name|XMLSecurityDataFormat
@@ -1019,6 +1043,8 @@ name|keyOrTrustStoreParametersId
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|XMLSecurityDataFormat (String secureTag, Map<String, String> namespaces, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm, KeyStoreParameters keyOrTrustStoreParameters)
 specifier|public
 name|XMLSecurityDataFormat
@@ -1093,6 +1119,8 @@ name|keyOrTrustStoreParameters
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|XMLSecurityDataFormat (String secureTag, Map<String, String> namespaces, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm, String keyOrTrustStoreParametersId, String keyPassword)
 specifier|public
 name|XMLSecurityDataFormat
@@ -1177,6 +1205,8 @@ name|keyPassword
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|XMLSecurityDataFormat (String secureTag, Map<String, String> namespaces, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm, KeyStoreParameters keyOrTrustStoreParameters, String keyPassword)
 specifier|public
 name|XMLSecurityDataFormat
@@ -1261,6 +1291,8 @@ name|keyPassword
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|XMLSecurityDataFormat (String secureTag, Map<String, String> namespaces, boolean secureTagContents, String recipientKeyAlias, String xmlCipherAlgorithm, String keyCipherAlgorithm, KeyStoreParameters keyOrTrustStoreParameters, String keyPassword, String digestAlgorithm)
 specifier|public
 name|XMLSecurityDataFormat
@@ -1693,6 +1725,7 @@ return|return
 name|xmlCipherAlgorithm
 return|;
 block|}
+comment|/**      * The cipher algorithm to be used for encryption/decryption of the XML message content. The available choices are:      *<ul>      *<li>XMLCipher.TRIPLEDES</li>      *<li>XMLCipher.AES_128</li>      *<li>XMLCipher.AES_128_GCM</li>      *<li>XMLCipher.AES_192</li>      *<li>XMLCipher.AES_192_GCM</li>      *<li>XMLCipher.AES_256</li>      *<li>XMLCipher.AES_256_GCM</li>      *<li>XMLCipher.SEED_128</li>      *<li>XMLCipher.CAMELLIA_128</li>      *<li>XMLCipher.CAMELLIA_192</li>      *<li>XMLCipher.CAMELLIA_256</li>      *</ul>      * The default value is MLCipher.TRIPLEDES      */
 DECL|method|setXmlCipherAlgorithm (String xmlCipherAlgorithm)
 specifier|public
 name|void
@@ -1719,6 +1752,7 @@ return|return
 name|passPhrase
 return|;
 block|}
+comment|/**      * A String used as passPhrase to encrypt/decrypt content. The passPhrase has to be provided.      * If no passPhrase is specified, a default passPhrase is used.      * The passPhrase needs to be put together in conjunction with the appropriate encryption algorithm.      * For example using TRIPLEDES the passPhase can be a "Only another 24 Byte key"      */
 DECL|method|setPassPhrase (String passPhrase)
 specifier|public
 name|void
@@ -1745,6 +1779,7 @@ return|return
 name|secureTag
 return|;
 block|}
+comment|/**      * The XPath reference to the XML Element selected for encryption/decryption. If no tag is specified, the entire payload is encrypted/decrypted.      */
 DECL|method|setSecureTag (String secureTag)
 specifier|public
 name|void
@@ -1771,6 +1806,7 @@ return|return
 name|secureTagContents
 return|;
 block|}
+comment|/**      * A boolean value to specify whether the XML Element is to be encrypted or the contents of the XML Element      * false = Element Level      * true = Element Content Level      */
 DECL|method|setSecureTagContents (Boolean secureTagContents)
 specifier|public
 name|void
@@ -1801,6 +1837,7 @@ operator|&&
 name|secureTagContents
 return|;
 block|}
+comment|/**      * The cipher algorithm to be used for encryption/decryption of the asymmetric key. The available choices are:      *<ul>      *<li>XMLCipher.RSA_v1dot5</li>      *<li>XMLCipher.RSA_OAEP</li>      *<li>XMLCipher.RSA_OAEP_11</li>      *</ul>      * The default value is XMLCipher.RSA_OAEP      */
 DECL|method|setKeyCipherAlgorithm (String keyCipherAlgorithm)
 specifier|public
 name|void
@@ -1827,6 +1864,7 @@ return|return
 name|keyCipherAlgorithm
 return|;
 block|}
+comment|/**      * The key alias to be used when retrieving the recipient's public or private key from a KeyStore when performing asymmetric key encryption or decryption.      */
 DECL|method|setRecipientKeyAlias (String recipientKeyAlias)
 specifier|public
 name|void
@@ -1853,6 +1891,7 @@ return|return
 name|recipientKeyAlias
 return|;
 block|}
+comment|/**      * Refers to a KeyStore instance to lookup in the registry, which is used for      * configuration options for creating and loading a KeyStore instance that represents the sender's trustStore or recipient's keyStore.      */
 DECL|method|setKeyOrTrustStoreParametersId (String id)
 specifier|public
 name|void
@@ -1881,6 +1920,7 @@ operator|.
 name|keyOrTrustStoreParametersId
 return|;
 block|}
+comment|/**      * Configuration options for creating and loading a KeyStore instance that represents the sender's trustStore or recipient's keyStore.      */
 DECL|method|setKeyOrTrustStoreParameters (KeyStoreParameters keyOrTrustStoreParameters)
 specifier|private
 name|void
@@ -1909,6 +1949,7 @@ operator|.
 name|keyPassword
 return|;
 block|}
+comment|/**      * The password to be used for retrieving the private key from the KeyStore. This key is used for asymmetric decryption.      */
 DECL|method|setKeyPassword (String keyPassword)
 specifier|public
 name|void
@@ -1935,6 +1976,7 @@ return|return
 name|digestAlgorithm
 return|;
 block|}
+comment|/**      * The digest algorithm to use with the RSA OAEP algorithm. The available choices are:      *<ul>      *<li>XMLCipher.SHA1</li>      *<li>XMLCipher.SHA256</li>      *<li>XMLCipher.SHA512</li>      *</ul>      * The default value is XMLCipher.SHA1      */
 DECL|method|setDigestAlgorithm (String digestAlgorithm)
 specifier|public
 name|void
@@ -1961,6 +2003,7 @@ return|return
 name|mgfAlgorithm
 return|;
 block|}
+comment|/**      * The MGF Algorithm to use with the RSA OAEP algorithm. The available choices are:      *<ul>      *<li>EncryptionConstants.MGF1_SHA1</li>      *<li>EncryptionConstants.MGF1_SHA256</li>      *<li>EncryptionConstants.MGF1_SHA512</li>      *</ul>      * The default value is EncryptionConstants.MGF1_SHA1      */
 DECL|method|setMgfAlgorithm (String mgfAlgorithm)
 specifier|public
 name|void
@@ -1994,6 +2037,7 @@ else|:
 literal|true
 return|;
 block|}
+comment|/**      * Whether to add the public key used to encrypt the session key as a KeyValue in the EncryptedKey structure or not.      */
 DECL|method|setAddKeyValueForEncryptedKey (boolean addKeyValueForEncryptedKey)
 specifier|public
 name|void

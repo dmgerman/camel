@@ -201,6 +201,7 @@ return|return
 name|lenient
 return|;
 block|}
+comment|/**      * Allows to turn lenient on the JXPathContext.      * When turned on this allows the JXPath expression to evaluate against expressions and message bodies which may      * be invalid / missing data.      *<p/>      * This option is by default false      */
 DECL|method|setLenient (Boolean lenient)
 specifier|public
 name|void
