@@ -1204,6 +1204,7 @@ return|return
 name|uri
 return|;
 block|}
+comment|/**      * Uri of the endpoint to use as wire tap      */
 DECL|method|setUri (String uri)
 specifier|public
 name|void
@@ -1230,6 +1231,7 @@ return|return
 name|ref
 return|;
 block|}
+comment|/**      * Reference of the endpoint to use as wire tap      */
 DECL|method|setRef (String ref)
 specifier|public
 name|void
@@ -1282,6 +1284,7 @@ return|return
 name|newExchangeProcessor
 return|;
 block|}
+comment|/**      * To use a Processor for creating a new body as the message to use for wire tapping      */
 DECL|method|setNewExchangeProcessor (Processor processor)
 specifier|public
 name|void
@@ -1308,6 +1311,7 @@ return|return
 name|newExchangeProcessorRef
 return|;
 block|}
+comment|/**      * Reference to a Processor to use for creating a new body as the message to use for wire tapping      */
 DECL|method|setNewExchangeProcessorRef (String ref)
 specifier|public
 name|void
@@ -1334,6 +1338,7 @@ return|return
 name|newExchangeExpression
 return|;
 block|}
+comment|/**      * Expression used for creating a new body as the message to use for wire tapping      */
 DECL|method|setNewExchangeExpression (ExpressionSubElementDefinition expression)
 specifier|public
 name|void

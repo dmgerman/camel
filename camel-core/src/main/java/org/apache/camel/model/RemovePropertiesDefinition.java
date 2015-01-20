@@ -377,6 +377,7 @@ argument_list|)
 return|;
 block|}
 block|}
+comment|/**      * Name or pattern of properties to remove      */
 DECL|method|setPattern (String pattern)
 specifier|public
 name|void
@@ -414,6 +415,7 @@ return|return
 name|excludePatterns
 return|;
 block|}
+comment|/**      * Name or pattern of properties to not remove      */
 DECL|method|setExcludePatterns (String[] excludePatterns)
 specifier|public
 name|void
@@ -441,6 +443,7 @@ return|return
 name|excludePattern
 return|;
 block|}
+comment|/**      * Name or pattern of properties to not remove      */
 DECL|method|setExcludePattern (String excludePattern)
 specifier|public
 name|void

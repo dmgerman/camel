@@ -273,6 +273,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Name of property to remove      */
 DECL|method|setPropertyName (String propertyName)
 specifier|public
 name|void

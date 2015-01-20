@@ -239,6 +239,7 @@ return|return
 name|packages
 return|;
 block|}
+comment|/**      * Sets the java package names to use for scanning for route builder classes      */
 DECL|method|setPackages (List<String> packages)
 specifier|public
 name|void
@@ -258,6 +259,7 @@ operator|=
 name|packages
 expr_stmt|;
 block|}
+comment|/**      * Exclude finding route builder from these java package names.      */
 DECL|method|setExcludes (List<String> excludes)
 specifier|public
 name|void
@@ -277,6 +279,7 @@ operator|=
 name|excludes
 expr_stmt|;
 block|}
+comment|/**      * Include finding route builder from these java package names.      */
 DECL|method|setIncludes (List<String> includes)
 specifier|public
 name|void

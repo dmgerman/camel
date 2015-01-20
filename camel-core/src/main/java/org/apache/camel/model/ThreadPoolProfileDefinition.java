@@ -485,6 +485,7 @@ return|return
 name|defaultProfile
 return|;
 block|}
+comment|/**      * Whether this profile is the default thread pool profile      */
 DECL|method|setDefaultProfile (Boolean defaultProfile)
 specifier|public
 name|void
@@ -525,6 +526,7 @@ return|return
 name|poolSize
 return|;
 block|}
+comment|/**      * Sets the core pool size      */
 DECL|method|setPoolSize (String poolSize)
 specifier|public
 name|void
@@ -551,6 +553,7 @@ return|return
 name|maxPoolSize
 return|;
 block|}
+comment|/**      * Sets the maximum pool size      */
 DECL|method|setMaxPoolSize (String maxPoolSize)
 specifier|public
 name|void
@@ -577,6 +580,7 @@ return|return
 name|keepAliveTime
 return|;
 block|}
+comment|/**      * Sets the keep alive time for idle threads in the pool      */
 DECL|method|setKeepAliveTime (String keepAliveTime)
 specifier|public
 name|void
@@ -603,6 +607,7 @@ return|return
 name|maxQueueSize
 return|;
 block|}
+comment|/**      * Sets the maximum number of tasks in the work queue.      *<p/>      * Use<tt>-1</tt> or<tt>Integer.MAX_VALUE</tt> for an unbounded queue      */
 DECL|method|setMaxQueueSize (String maxQueueSize)
 specifier|public
 name|void
@@ -629,6 +634,7 @@ return|return
 name|allowCoreThreadTimeOut
 return|;
 block|}
+comment|/**      * Whether idle core threads is allowed to timeout and therefore can shrink the pool size below the core pool size      *<p/>      * Is by default<tt>false</tt>      */
 DECL|method|setAllowCoreThreadTimeOut (String allowCoreThreadTimeOut)
 specifier|public
 name|void
@@ -655,6 +661,7 @@ return|return
 name|timeUnit
 return|;
 block|}
+comment|/**      * Sets the time unit to use for keep alive time      * By default SECONDS is used.      */
 DECL|method|setTimeUnit (TimeUnit timeUnit)
 specifier|public
 name|void
@@ -705,6 +712,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * Sets the handler for tasks which cannot be executed by the thread pool.      */
 DECL|method|setRejectedPolicy (ThreadPoolRejectedPolicy rejectedPolicy)
 specifier|public
 name|void

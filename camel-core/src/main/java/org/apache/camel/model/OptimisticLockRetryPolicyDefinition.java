@@ -263,6 +263,7 @@ return|return
 name|policy
 return|;
 block|}
+comment|/**      * Sets the maximum number of retries      */
 DECL|method|maximumRetries (int maximumRetries)
 specifier|public
 name|OptimisticLockRetryPolicyDefinition
@@ -307,6 +308,7 @@ operator|=
 name|maximumRetries
 expr_stmt|;
 block|}
+comment|/**      * Sets the delay in millis between retries      */
 DECL|method|retryDelay (long retryDelay)
 specifier|public
 name|OptimisticLockRetryPolicyDefinition
@@ -351,6 +353,7 @@ operator|=
 name|retryDelay
 expr_stmt|;
 block|}
+comment|/**      * Sets the upper value of retry in millis between retries, when using exponential or random backoff      */
 DECL|method|maximumRetryDelay (long maximumRetryDelay)
 specifier|public
 name|OptimisticLockRetryPolicyDefinition
@@ -395,6 +398,7 @@ operator|=
 name|maximumRetryDelay
 expr_stmt|;
 block|}
+comment|/**      * Enable exponential backoff      */
 DECL|method|exponentialBackOff ()
 specifier|public
 name|OptimisticLockRetryPolicyDefinition
@@ -465,6 +469,7 @@ literal|true
 argument_list|)
 return|;
 block|}
+comment|/**      * Enables random backoff      */
 DECL|method|randomBackOff (boolean randomBackOff)
 specifier|public
 name|OptimisticLockRetryPolicyDefinition

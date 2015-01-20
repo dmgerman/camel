@@ -311,6 +311,7 @@ return|return
 name|message
 return|;
 block|}
+comment|/**      * Message to use in rollback exception      */
 DECL|method|setMessage (String message)
 specifier|public
 name|void
@@ -337,6 +338,7 @@ return|return
 name|markRollbackOnly
 return|;
 block|}
+comment|/**      * Mark the transaction for rollback only (cannot be overruled to commit)      */
 DECL|method|setMarkRollbackOnly (Boolean markRollbackOnly)
 specifier|public
 name|void
@@ -377,6 +379,7 @@ return|return
 name|markRollbackOnlyLast
 return|;
 block|}
+comment|/**      * Mark only last sub transaction for rollback only.      *<p/>      * When using sub transactions (if the transaction manager support this)      */
 DECL|method|setMarkRollbackOnlyLast (Boolean markRollbackOnlyLast)
 specifier|public
 name|void

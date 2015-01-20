@@ -481,10 +481,10 @@ name|name
 operator|=
 literal|"redeliveryPolicy"
 argument_list|)
-DECL|field|redeliveryPolicy
+DECL|field|redeliveryPolicyType
 specifier|private
 name|RedeliveryPolicyDefinition
-name|redeliveryPolicy
+name|redeliveryPolicyType
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -641,6 +641,13 @@ argument_list|,
 name|Processor
 argument_list|>
 argument_list|()
+decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|redeliveryPolicy
+specifier|private
+name|RedeliveryPolicy
+name|redeliveryPolicy
 decl_stmt|;
 DECL|method|OnExceptionDefinition ()
 specifier|public
@@ -839,6 +846,18 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|redeliveryPolicy
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|redeliveryPolicy
+return|;
+block|}
+elseif|else
+if|if
+condition|(
 name|redeliveryPolicyRef
 operator|!=
 literal|null
@@ -862,13 +881,13 @@ block|}
 elseif|else
 if|if
 condition|(
-name|redeliveryPolicy
+name|redeliveryPolicyType
 operator|!=
 literal|null
 condition|)
 block|{
 return|return
-name|redeliveryPolicy
+name|redeliveryPolicyType
 operator|.
 name|createRedeliveryPolicy
 argument_list|(
@@ -1323,7 +1342,7 @@ name|retryWhilePolicy
 operator|==
 literal|null
 operator|&&
-name|redeliveryPolicy
+name|redeliveryPolicyType
 operator|==
 literal|null
 operator|&&
@@ -2313,6 +2332,26 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the {@link RedeliveryPolicy} to be used.      *      * @param redeliveryPolicy the redelivery policy      * @return the builder      */
+DECL|method|redeliveryPolicy (RedeliveryPolicy redeliveryPolicy)
+specifier|public
+name|OnExceptionDefinition
+name|redeliveryPolicy
+parameter_list|(
+name|RedeliveryPolicy
+name|redeliveryPolicy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|redeliveryPolicy
+operator|=
+name|redeliveryPolicy
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets a reference to a {@link RedeliveryPolicy} to lookup in the {@link org.apache.camel.spi.Registry} to be used.      *      * @param redeliveryPolicyRef reference to use for lookup      * @return the builder      */
 DECL|method|redeliveryPolicyRef (String redeliveryPolicyRef)
 specifier|public
@@ -2405,6 +2444,25 @@ block|{
 name|setOnRedelivery
 argument_list|(
 name|processor
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets a reference to a processor that should be processed<b>before</b> a redelivery attempt.      *<p/>      * Can be used to change the {@link org.apache.camel.Exchange}<b>before</b> its being redelivered.      *      * @param ref  reference to the processor      */
+DECL|method|onRedeliveryRef (String ref)
+specifier|public
+name|OnExceptionDefinition
+name|onRedeliveryRef
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|setOnRedeliveryRef
+argument_list|(
+name|ref
 argument_list|)
 expr_stmt|;
 return|return
@@ -2518,6 +2576,7 @@ return|return
 name|exceptions
 return|;
 block|}
+comment|/**      * A set of exceptions to react upon.      */
 DECL|method|setExceptions (List<String> exceptions)
 specifier|public
 name|void
@@ -2578,7 +2637,7 @@ name|getRedeliveryPolicy
 parameter_list|()
 block|{
 return|return
-name|redeliveryPolicy
+name|redeliveryPolicyType
 return|;
 block|}
 DECL|method|setRedeliveryPolicy (RedeliveryPolicyDefinition redeliveryPolicy)
@@ -2592,7 +2651,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|redeliveryPolicy
+name|redeliveryPolicyType
 operator|=
 name|redeliveryPolicy
 expr_stmt|;
@@ -2938,12 +2997,12 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|redeliveryPolicy
+name|redeliveryPolicyType
 operator|==
 literal|null
 condition|)
 block|{
-name|redeliveryPolicy
+name|redeliveryPolicyType
 operator|=
 operator|new
 name|RedeliveryPolicyDefinition
@@ -2951,7 +3010,7 @@ argument_list|()
 expr_stmt|;
 block|}
 return|return
-name|redeliveryPolicy
+name|redeliveryPolicyType
 return|;
 block|}
 DECL|method|createExceptionClasses (ClassResolver resolver)

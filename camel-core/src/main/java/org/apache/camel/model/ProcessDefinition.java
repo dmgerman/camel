@@ -360,6 +360,7 @@ return|return
 name|ref
 return|;
 block|}
+comment|/**      * Reference to the {@link Processor} to lookup in the registry to use.      */
 annotation|@
 name|Required
 DECL|method|setRef (String ref)

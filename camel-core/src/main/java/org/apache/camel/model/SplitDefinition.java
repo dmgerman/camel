@@ -818,7 +818,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Set the aggregationStrategy      *      * @return the builder      */
+comment|/**      * Sets the AggregationStrategy to be used to assemble the replies from the splitted messages, into a single outgoing message from the Splitter.      * By default Camel will use the original incoming message to the splitter (leave it unchanged). You can also use a POJO as the AggregationStrategy      */
 DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|SplitDefinition
@@ -837,7 +837,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the aggregationStrategy      *      * @param aggregationStrategyRef a reference to a strategy to lookup      * @return the builder      */
+comment|/**      * Sets a reference to the AggregationStrategy to be used to assemble the replies from the splitted messages, into a single outgoing message from the Splitter.      * By default Camel will use the original incoming message to the splitter (leave it unchanged). You can also use a POJO as the AggregationStrategy      */
 DECL|method|aggregationStrategyRef (String aggregationStrategyRef)
 specifier|public
 name|SplitDefinition
@@ -856,7 +856,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the method name to use when using a POJO as {@link AggregationStrategy}.      *      * @param  methodName the method name to call      * @return the builder      */
+comment|/**      * This option can be used to explicit declare the method name to use, when using POJOs as the AggregationStrategy.      *      * @param  methodName the method name to call      * @return the builder      */
 DECL|method|aggregationStrategyMethodName (String methodName)
 specifier|public
 name|SplitDefinition
@@ -875,7 +875,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets allowing null when using a POJO as {@link AggregationStrategy}.      *      * @return the builder      */
+comment|/**      * If this option is false then the aggregate method is not used if there was no data to enrich.      * If this option is true then null values is used as the oldExchange (when no data to enrich), when using POJOs as the AggregationStrategy      *      * @return the builder      */
 DECL|method|aggregationStrategyMethodAllowNull ()
 specifier|public
 name|SplitDefinition
@@ -891,7 +891,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Doing the splitting work in parallel      *      * @return the builder      */
+comment|/**      * If enabled then processing each splitted messages occurs concurrently.      * Note the caller thread will still wait until all messages has been fully processed, before it continues.      * Its only processing the sub messages from the splitter which happens concurrently.      *      * @return the builder      */
 DECL|method|parallelProcessing ()
 specifier|public
 name|SplitDefinition
@@ -907,7 +907,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Doing the aggregate work in parallel      *<p/>      * Notice that if enabled, then the {@link org.apache.camel.processor.aggregate.AggregationStrategy} in use      * must be implemented as thread safe, as concurrent threads can call the<tt>aggregate</tt> methods at the same time.      *      * @return the builder      */
+comment|/**      * If enabled then the aggregate method on AggregationStrategy can be called concurrently.      * Notice that this would require the implementation of AggregationStrategy to be implemented as thread-safe.      * By default this is false meaning that Camel synchronizes the call to the aggregate method.      * Though in some use-cases this can be used to archive higher performance when the AggregationStrategy is implemented as thread-safe.      *      * @return the builder      */
 DECL|method|parallelAggregate ()
 specifier|public
 name|SplitDefinition
@@ -923,7 +923,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables streaming.       * See {@link org.apache.camel.model.SplitDefinition#isStreaming()} for more information      *      * @return the builder      */
+comment|/**      * When in streaming mode, then the splitter splits the original message on-demand, and each splitted      * message is processed one by one. This reduces memory usage as the splitter do not split all the messages first,      * but then we do not know the total size, and therefore the {@link org.apache.camel.Exchange#SPLIT_SIZE} is empty.      *<p/>      * In non-streaming mode (default) the splitter will split each message first, to know the total size, and then      * process each message one by one. This requires to keep all the splitted messages in memory and therefore requires      * more memory. The total size is provided in the {@link org.apache.camel.Exchange#SPLIT_SIZE} header.      *<p/>      * The streaming mode also affects the aggregation behavior.      * If enabled then Camel will process replies out-of-order, eg in the order they come back.      * If disabled, Camel will process replies in the same order as the messages was splitted.      *      * @return the builder      */
 DECL|method|streaming ()
 specifier|public
 name|SplitDefinition
@@ -955,6 +955,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * To use a custom Thread Pool to be used for parallel processing.      * Notice if you set this option, then parallel processing is automatic implied, and you do not have to enable that option as well.      */
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|SplitDefinition
@@ -973,6 +974,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Refers to a custom Thread Pool to be used for parallel processing.      * Notice if you set this option, then parallel processing is automatic implied, and you do not have to enable that option as well.      */
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|SplitDefinition
@@ -1029,7 +1031,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a timeout value in millis to use when using parallelProcessing.      *      * @param timeout timeout in millis      * @return the builder      */
+comment|/**      * Sets a total timeout specified in millis, when using parallel processing.      * If the Splitter hasn't been able to split and process all the sub messages within the given timeframe,      * then the timeout triggers and the Splitter breaks out and continues.      * Notice if you provide a TimeoutAwareAggregationStrategy then the timeout method is invoked before breaking out.      * If the timeout is reached with running tasks still remaining, certain tasks for which it is difficult for Camel      * to shut down in a graceful manner may continue to run. So use this option with a bit of care.      *      * @param timeout timeout in millis      * @return the builder      */
 DECL|method|timeout (long timeout)
 specifier|public
 name|SplitDefinition
@@ -1048,7 +1050,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Shares the {@link org.apache.camel.spi.UnitOfWork} with the parent and each of the sub messages.      *      * @return the builder.      * @see org.apache.camel.spi.SubUnitOfWork      */
+comment|/**      * Shares the {@link org.apache.camel.spi.UnitOfWork} with the parent and each of the sub messages.      * Splitter will by default not share unit of work between the parent exchange and each splitted exchange.      * This means each splitted exchange has its own individual unit of work.      *      * @return the builder.      * @see org.apache.camel.spi.SubUnitOfWork      */
 DECL|method|shareUnitOfWork ()
 specifier|public
 name|SplitDefinition
@@ -1076,6 +1078,7 @@ return|return
 name|aggregationStrategy
 return|;
 block|}
+comment|/**      * Sets the AggregationStrategy to be used to assemble the replies from the splitted messages, into a single outgoing message from the Splitter.      * By default Camel will use the original incoming message to the splitter (leave it unchanged). You can also use a POJO as the AggregationStrategy      */
 DECL|method|setAggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|void
@@ -1158,7 +1161,6 @@ operator|=
 name|streaming
 expr_stmt|;
 block|}
-comment|/**      * The splitter should use streaming -- exchanges are being sent as the data for them becomes available.      * This improves throughput and memory usage, but it has a drawback:      * - the sent exchanges will no longer contain the {@link org.apache.camel.Exchange#SPLIT_SIZE} header property      *      * @return whether or not streaming should be used      */
 DECL|method|isStreaming ()
 specifier|public
 name|boolean
@@ -1183,7 +1185,6 @@ return|return
 name|parallelAggregate
 return|;
 block|}
-comment|/**      * Whether to aggregate using a sequential single thread, or allow parallel aggregation.      *<p/>      * Notice that if enabled, then the {@link org.apache.camel.processor.aggregate.AggregationStrategy} in use      * must be implemented as thread safe, as concurrent threads can call the<tt>aggregate</tt> methods at the same time.      */
 DECL|method|isParallelAggregate ()
 specifier|public
 name|boolean
@@ -1290,6 +1291,7 @@ return|return
 name|strategyRef
 return|;
 block|}
+comment|/**      * Sets a reference to the AggregationStrategy to be used to assemble the replies from the splitted messages, into a single outgoing message from the Splitter.      * By default Camel will use the original incoming message to the splitter (leave it unchanged). You can also use a POJO as the AggregationStrategy      */
 DECL|method|setStrategyRef (String strategyRef)
 specifier|public
 name|void
@@ -1316,6 +1318,7 @@ return|return
 name|strategyMethodName
 return|;
 block|}
+comment|/**      * This option can be used to explicit declare the method name to use, when using POJOs as the AggregationStrategy.      */
 DECL|method|setStrategyMethodName (String strategyMethodName)
 specifier|public
 name|void
@@ -1342,6 +1345,7 @@ return|return
 name|strategyMethodAllowNull
 return|;
 block|}
+comment|/**      * If this option is false then the aggregate method is not used if there was no data to enrich.      * If this option is true then null values is used as the oldExchange (when no data to enrich), when using POJOs as the AggregationStrategy      */
 DECL|method|setStrategyMethodAllowNull (Boolean strategyMethodAllowNull)
 specifier|public
 name|void

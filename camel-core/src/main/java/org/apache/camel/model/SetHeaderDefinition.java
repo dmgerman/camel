@@ -398,6 +398,7 @@ name|expr
 argument_list|)
 return|;
 block|}
+comment|/**      * Name of message header to set a new value      */
 annotation|@
 name|Required
 DECL|method|setHeaderName (String headerName)

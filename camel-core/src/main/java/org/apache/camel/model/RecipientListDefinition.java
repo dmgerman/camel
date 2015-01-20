@@ -1102,7 +1102,7 @@ name|end
 argument_list|()
 return|;
 block|}
-comment|/**      * Set the delimiter      *      * @param delimiter the delimiter      * @return the builder      */
+comment|/**      * Delimiter used if the Expression returned multiple endpoints. Can be turned off using the value<tt>false</tt>.      *<p/>      * The default value is ,      *      * @param delimiter the delimiter      * @return the builder      */
 DECL|method|delimiter (String delimiter)
 specifier|public
 name|RecipientListDefinition
@@ -1124,7 +1124,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the aggregationStrategy      *      * @param aggregationStrategy the strategy      * @return the builder      */
+comment|/**      * Sets the AggregationStrategy to be used to assemble the replies from the recipients, into a single outgoing message from the RecipientList.      * By default Camel will use the last reply as the outgoing message. You can also use a POJO as the AggregationStrategy      */
 DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|RecipientListDefinition
@@ -1146,7 +1146,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the aggregationStrategy      *      * @param aggregationStrategyRef a reference to a strategy to lookup      * @return the builder      */
+comment|/**      * Sets a reference to the AggregationStrategy to be used to assemble the replies from the recipients, into a single outgoing message from the RecipientList.      * By default Camel will use the last reply as the outgoing message. You can also use a POJO as the AggregationStrategy      */
 DECL|method|aggregationStrategyRef (String aggregationStrategyRef)
 specifier|public
 name|RecipientListDefinition
@@ -1168,7 +1168,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the method name to use when using a POJO as {@link AggregationStrategy}.      *      * @param  methodName the method name to call      * @return the builder      */
+comment|/**      * This option can be used to explicit declare the method name to use, when using POJOs as the AggregationStrategy.      *      * @param  methodName the method name to call      * @return the builder      */
 DECL|method|aggregationStrategyMethodName (String methodName)
 specifier|public
 name|RecipientListDefinition
@@ -1190,7 +1190,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets allowing null when using a POJO as {@link AggregationStrategy}.      *      * @return the builder      */
+comment|/**      * If this option is false then the aggregate method is not used if there was no data to enrich.      * If this option is true then null values is used as the oldExchange (when no data to enrich), when using POJOs as the AggregationStrategy      *      * @return the builder      */
 DECL|method|aggregationStrategyMethodAllowNull ()
 specifier|public
 name|RecipientListDefinition
@@ -1228,7 +1228,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Doing the recipient list work in parallel      *      * @return the builder      */
+comment|/**      * If enabled then sending messages to the recipients occurs concurrently.      * Note the caller thread will still wait until all messages has been fully processed, before it continues.      * Its only the sending and processing the replies from the recipients which happens concurrently.      *      * @return the builder      */
 DECL|method|parallelProcessing ()
 specifier|public
 name|RecipientListDefinition
@@ -1247,7 +1247,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Doing the aggregate work in parallel      *<p/>      * Notice that if enabled, then the {@link org.apache.camel.processor.aggregate.AggregationStrategy} in use      * must be implemented as thread safe, as concurrent threads can call the<tt>aggregate</tt> methods at the same time.      *      * @return the builder      */
+comment|/**      * If enabled then the aggregate method on AggregationStrategy can be called concurrently.      * Notice that this would require the implementation of AggregationStrategy to be implemented as thread-safe.      * By default this is false meaning that Camel synchronizes the call to the aggregate method.      * Though in some use-cases this can be used to archive higher performance when the AggregationStrategy is implemented as thread-safe.      *      * @return the builder      */
 DECL|method|parallelAggregate ()
 specifier|public
 name|RecipientListDefinition
@@ -1266,7 +1266,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Doing the recipient list work in streaming model      *      * @return the builder      */
+comment|/**      * If enabled then Camel will process replies out-of-order, eg in the order they come back.      * If disabled, Camel will process replies in the same order as defined by the recipient list.      *      * @return the builder      */
 DECL|method|streaming ()
 specifier|public
 name|RecipientListDefinition
@@ -1304,6 +1304,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * To use a custom Thread Pool to be used for parallel processing.      * Notice if you set this option, then parallel processing is automatic implied, and you do not have to enable that option as well.      */
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|RecipientListDefinition
@@ -1325,6 +1326,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Refers to a custom Thread Pool to be used for parallel processing.      * Notice if you set this option, then parallel processing is automatic implied, and you do not have to enable that option as well.      */
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|RecipientListDefinition
@@ -1390,7 +1392,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a timeout value in millis to use when using parallelProcessing.      *      * @param timeout timeout in millis      * @return the builder      */
+comment|/**      * Sets a total timeout specified in millis, when using parallel processing.      * If the Recipient List hasn't been able to send and process all replies within the given timeframe,      * then the timeout triggers and the Recipient List breaks out and continues.      * Notice if you provide a TimeoutAwareAggregationStrategy then the timeout method is invoked before breaking out.      * If the timeout is reached with running tasks still remaining, certain tasks for which it is difficult for Camel      * to shut down in a graceful manner may continue to run. So use this option with a bit of care.      *      * @param timeout timeout in millis      * @return the builder      */
 DECL|method|timeout (long timeout)
 specifier|public
 name|RecipientListDefinition
@@ -1412,7 +1414,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Shares the {@link org.apache.camel.spi.UnitOfWork} with the parent and each of the sub messages.      *      * @return the builder.      * @see org.apache.camel.spi.SubUnitOfWork      */
+comment|/**      * Shares the {@link org.apache.camel.spi.UnitOfWork} with the parent and each of the sub messages.      * Recipient List will by default not share unit of work between the parent exchange and each recipient exchange.      * This means each sub exchange has its own individual unit of work.      *      * @return the builder.      * @see org.apache.camel.spi.SubUnitOfWork      */
 DECL|method|shareUnitOfWork ()
 specifier|public
 name|RecipientListDefinition
@@ -1531,6 +1533,7 @@ return|return
 name|strategyRef
 return|;
 block|}
+comment|/**      * Sets a reference to the AggregationStrategy to be used to assemble the replies from the recipients, into a single outgoing message from the RecipientList.      * By default Camel will use the last reply as the outgoing message. You can also use a POJO as the AggregationStrategy      */
 DECL|method|setStrategyRef (String strategyRef)
 specifier|public
 name|void
@@ -1557,6 +1560,7 @@ return|return
 name|strategyMethodName
 return|;
 block|}
+comment|/**      * This option can be used to explicit declare the method name to use, when using POJOs as the AggregationStrategy.      */
 DECL|method|setStrategyMethodName (String strategyMethodName)
 specifier|public
 name|void
@@ -1583,6 +1587,7 @@ return|return
 name|strategyMethodAllowNull
 return|;
 block|}
+comment|/**      * If this option is false then the aggregate method is not used if there was no data to enrich.      * If this option is true then null values is used as the oldExchange (when no data to enrich), when using POJOs as the AggregationStrategy      */
 DECL|method|setStrategyMethodAllowNull (Boolean strategyMethodAllowNull)
 specifier|public
 name|void
@@ -1715,6 +1720,7 @@ return|return
 name|aggregationStrategy
 return|;
 block|}
+comment|/**      * Sets the AggregationStrategy to be used to assemble the replies from the recipients, into a single outgoing message from the RecipientList.      * By default Camel will use the last reply as the outgoing message. You can also use a POJO as the AggregationStrategy      */
 DECL|method|setAggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|void

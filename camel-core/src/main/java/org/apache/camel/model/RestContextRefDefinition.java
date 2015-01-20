@@ -197,6 +197,7 @@ return|return
 name|ref
 return|;
 block|}
+comment|/**      * Reference to the rest-dsl      */
 DECL|method|setRef (String ref)
 specifier|public
 name|void

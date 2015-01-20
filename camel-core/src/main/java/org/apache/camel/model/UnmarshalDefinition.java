@@ -1453,6 +1453,7 @@ return|return
 name|ref
 return|;
 block|}
+comment|/**      * To refer to a custom data format to use as unmarshaller      */
 DECL|method|setRef (String ref)
 specifier|public
 name|void
@@ -1479,6 +1480,7 @@ return|return
 name|dataFormatType
 return|;
 block|}
+comment|/**      * The data format to be used      */
 DECL|method|setDataFormatType (DataFormatDefinition dataFormatType)
 specifier|public
 name|void

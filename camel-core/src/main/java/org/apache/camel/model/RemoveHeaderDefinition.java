@@ -273,6 +273,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Name of header to remove      */
 DECL|method|setHeaderName (String headerName)
 specifier|public
 name|void

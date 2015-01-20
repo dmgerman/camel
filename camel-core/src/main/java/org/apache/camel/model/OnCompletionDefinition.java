@@ -1035,6 +1035,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * To use a custom Thread Pool to be used for parallel processing.      * Notice if you set this option, then parallel processing is automatic implied, and you do not have to enable that option as well.      */
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|OnCompletionDefinition
@@ -1053,6 +1054,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Refers to a custom Thread Pool to be used for parallel processing.      * Notice if you set this option, then parallel processing is automatic implied, and you do not have to enable that option as well.      */
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|OnCompletionDefinition
@@ -1071,7 +1073,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Doing the on completion work in parallel      *      * @return the builder      */
+comment|/**      * If enabled then the on completion process will run asynchronously by a separate thread from a thread pool.      * By default this is false, meaning the on completion process will run synchronously using the same caller thread as from the route.      *      * @return the builder      */
 DECL|method|parallelProcessing ()
 specifier|public
 name|OnCompletionDefinition
@@ -1145,6 +1147,7 @@ return|return
 name|mode
 return|;
 block|}
+comment|/**      * Sets the on completion mode.      *<p/>      * The default value is AfterConsumer      */
 DECL|method|setMode (OnCompletionMode mode)
 specifier|public
 name|void
@@ -1331,6 +1334,7 @@ operator|!=
 literal|null
 return|;
 block|}
+comment|/**      * Will use the original input body when an {@link org.apache.camel.Exchange} for this on completion.      *<p/>      * By default this feature is off.      */
 DECL|method|setUseOriginalMessagePolicy (Boolean useOriginalMessagePolicy)
 specifier|public
 name|void

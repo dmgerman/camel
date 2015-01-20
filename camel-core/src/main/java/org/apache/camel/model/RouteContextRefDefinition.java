@@ -181,6 +181,7 @@ return|return
 name|ref
 return|;
 block|}
+comment|/**      * Reference to the routes in the xml dsl      */
 DECL|method|setRef (String ref)
 specifier|public
 name|void

@@ -344,6 +344,7 @@ return|return
 name|ref
 return|;
 block|}
+comment|/**      * Reference to the exception instance to lookup from the registry to throw      */
 DECL|method|setRef (String ref)
 specifier|public
 name|void

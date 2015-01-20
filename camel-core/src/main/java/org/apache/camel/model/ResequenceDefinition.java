@@ -1014,6 +1014,7 @@ return|return
 name|resequencerConfig
 return|;
 block|}
+comment|/**      * To configure the resequencer in using either batch or stream configuration      */
 DECL|method|setResequencerConfig (ResequencerConfig resequencerConfig)
 specifier|public
 name|void

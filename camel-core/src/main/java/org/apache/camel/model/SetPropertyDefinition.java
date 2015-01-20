@@ -401,6 +401,7 @@ name|expr
 argument_list|)
 return|;
 block|}
+comment|/**      * Name of exchange property to set a new value      */
 annotation|@
 name|Required
 DECL|method|setPropertyName (String propertyName)

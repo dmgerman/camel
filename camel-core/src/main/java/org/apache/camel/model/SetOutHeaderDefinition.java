@@ -216,6 +216,8 @@ extends|extends
 name|NoOutputExpressionNode
 block|{
 annotation|@
+name|Deprecated
+annotation|@
 name|XmlAttribute
 argument_list|(
 name|required
@@ -363,6 +365,7 @@ name|expr
 argument_list|)
 return|;
 block|}
+comment|/**      * Name of message header to set a new value      */
 annotation|@
 name|Required
 DECL|method|setHeaderName (String headerName)

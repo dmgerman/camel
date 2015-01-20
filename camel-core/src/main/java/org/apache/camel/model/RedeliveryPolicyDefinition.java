@@ -1588,7 +1588,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the reference of the instance of {@link org.apache.camel.spi.ExchangeFormatter} to generate the log message from exchange.      *      * @param reference name of the instance of {@link org.apache.camel.spi.ExchangeFormatter}      * @return the builder      */
+comment|/**      * Sets the reference of the instance of {@link org.apache.camel.spi.ExchangeFormatter} to generate the log message from exchange.      *      * @param exchangeFormatterRef name of the instance of {@link org.apache.camel.spi.ExchangeFormatter}      * @return the builder      */
 DECL|method|exchangeFormatterRef (String exchangeFormatterRef)
 specifier|public
 name|RedeliveryPolicyDefinition
@@ -2138,6 +2138,7 @@ return|return
 name|disableRedelivery
 return|;
 block|}
+comment|/**      * Disables redelivery (same as setting maximum redeliveries to 0)      */
 DECL|method|setDisableRedelivery (String disableRedelivery)
 specifier|public
 name|void

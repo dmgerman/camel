@@ -900,6 +900,7 @@ operator|+
 literal|"]"
 return|;
 block|}
+comment|/**      * To use a custom thread pool      */
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|ThreadsDefinition
@@ -918,6 +919,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * To refer to a custom thread pool or use a thread pool profile (as overlay)      */
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|ThreadsDefinition
@@ -936,7 +938,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the core pool size for the underlying {@link java.util.concurrent.ExecutorService}.      *      * @param poolSize the core pool size to keep minimum in the pool      * @return the builder      */
+comment|/**      * Sets the core pool size      *      * @param poolSize the core pool size to keep minimum in the pool      * @return the builder      */
 DECL|method|poolSize (int poolSize)
 specifier|public
 name|ThreadsDefinition
@@ -955,7 +957,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the maximum pool size for the underlying {@link java.util.concurrent.ExecutorService}.      *      * @param maxPoolSize the maximum pool size      * @return the builder      */
+comment|/**      * Sets the maximum pool size      *      * @param maxPoolSize the maximum pool size      * @return the builder      */
 DECL|method|maxPoolSize (int maxPoolSize)
 specifier|public
 name|ThreadsDefinition
@@ -1088,7 +1090,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Whether to allow core threads to timeout      *<p/>      * Is by default<tt>false</tt>      *      * @param allowCoreThreadTimeOut<tt>true</tt> to allow timeout      * @return the builder      */
+comment|/**      * Whether idle core threads is allowed to timeout and therefore can shrink the pool size below the core pool size      *<p/>      * Is by default<tt>false</tt>      *      * @param allowCoreThreadTimeOut<tt>true</tt> to allow timeout      * @return the builder      */
 DECL|method|allowCoreThreadTimeOut (boolean allowCoreThreadTimeOut)
 specifier|public
 name|ThreadsDefinition

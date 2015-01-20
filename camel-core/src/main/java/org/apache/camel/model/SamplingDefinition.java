@@ -546,6 +546,7 @@ return|return
 name|samplePeriod
 return|;
 block|}
+comment|/**      * Sets the sample period during which only a single Exchange will pass through.      */
 DECL|method|setSamplePeriod (Long samplePeriod)
 specifier|public
 name|void
@@ -572,6 +573,7 @@ return|return
 name|messageFrequency
 return|;
 block|}
+comment|/**      * Sets the sample message count which only a single Exchange will pass through after this many received.      */
 DECL|method|setMessageFrequency (Long messageFrequency)
 specifier|public
 name|void
@@ -609,6 +611,7 @@ name|units
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the time units for the sample period, defaulting to seconds.      */
 DECL|method|setUnits (TimeUnit units)
 specifier|public
 name|void
