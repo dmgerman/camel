@@ -183,7 +183,7 @@ argument_list|)
 annotation|@
 name|Import
 argument_list|(
-name|SpringConversionServiceConfiguration
+name|TypeConversionConfiguration
 operator|.
 name|class
 argument_list|)
