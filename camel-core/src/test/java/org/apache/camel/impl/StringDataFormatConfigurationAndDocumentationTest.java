@@ -137,7 +137,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"charset\": { \"kind\": \"attribute\", \"required\": \"false\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\" }"
+literal|"\"charset\": { \"kind\": \"attribute\", \"required\": \"false\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\""
 argument_list|)
 argument_list|)
 expr_stmt|;
