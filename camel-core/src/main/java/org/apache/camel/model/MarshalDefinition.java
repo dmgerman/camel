@@ -1472,6 +1472,7 @@ return|return
 name|dataFormatType
 return|;
 block|}
+comment|/**      * The data format to be used      */
 DECL|method|setDataFormatType (DataFormatDefinition dataFormatType)
 specifier|public
 name|void

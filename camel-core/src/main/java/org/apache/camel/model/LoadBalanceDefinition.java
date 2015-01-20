@@ -818,6 +818,7 @@ return|return
 name|ref
 return|;
 block|}
+comment|/**      * To use a custom load balancer.      * This option is deprecated, use the custom load balancer type instead.      */
 DECL|method|setRef (String ref)
 specifier|public
 name|void
@@ -844,6 +845,7 @@ return|return
 name|loadBalancerType
 return|;
 block|}
+comment|/**      * The load balancer to be used      */
 DECL|method|setLoadBalancerType (LoadBalancerDefinition loadbalancer)
 specifier|public
 name|void

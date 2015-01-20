@@ -167,6 +167,7 @@ specifier|public
 name|PropertiesDefinition
 parameter_list|()
 block|{     }
+comment|/**      * A series of properties as key value pairs      */
 DECL|method|setProperties (List<PropertyDefinition> properties)
 specifier|public
 name|void
