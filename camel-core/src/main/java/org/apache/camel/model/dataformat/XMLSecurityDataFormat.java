@@ -1485,6 +1485,17 @@ literal|""
 argument_list|)
 expr_stmt|;
 block|}
+name|boolean
+name|isSecureTagContents
+init|=
+name|getSecureTagContents
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|getSecureTagContents
+argument_list|()
+decl_stmt|;
 name|setProperty
 argument_list|(
 name|camelContext
@@ -1494,7 +1505,6 @@ argument_list|,
 literal|"secureTagContents"
 argument_list|,
 name|isSecureTagContents
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -1743,13 +1753,18 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|addKeyValueForEncryptedKey
-operator|!=
+comment|// should be true by default
+name|boolean
+name|isAddKeyValueForEncryptedKey
+init|=
+name|getAddKeyValueForEncryptedKey
+argument_list|()
+operator|==
 literal|null
-condition|)
-block|{
+operator|||
+name|getAddKeyValueForEncryptedKey
+argument_list|()
+decl_stmt|;
 name|setProperty
 argument_list|(
 name|camelContext
@@ -1759,10 +1774,8 @@ argument_list|,
 literal|"addKeyValueForEncryptedKey"
 argument_list|,
 name|isAddKeyValueForEncryptedKey
-argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|getXmlCipherAlgorithm ()
 specifier|public
@@ -1872,20 +1885,6 @@ operator|=
 name|secureTagContents
 expr_stmt|;
 block|}
-DECL|method|isSecureTagContents ()
-specifier|public
-name|boolean
-name|isSecureTagContents
-parameter_list|()
-block|{
-return|return
-name|secureTagContents
-operator|!=
-literal|null
-operator|&&
-name|secureTagContents
-return|;
-block|}
 comment|/**      * The cipher algorithm to be used for encryption/decryption of the asymmetric key. The available choices are:      *<ul>      *<li>XMLCipher.RSA_v1dot5</li>      *<li>XMLCipher.RSA_OAEP</li>      *<li>XMLCipher.RSA_OAEP_11</li>      *</ul>      * The default value is XMLCipher.RSA_OAEP      */
 DECL|method|setKeyCipherAlgorithm (String keyCipherAlgorithm)
 specifier|public
@@ -1967,6 +1966,16 @@ return|return
 name|this
 operator|.
 name|keyOrTrustStoreParametersId
+return|;
+block|}
+DECL|method|getKeyOrTrustStoreParameters ()
+specifier|public
+name|KeyStoreParameters
+name|getKeyOrTrustStoreParameters
+parameter_list|()
+block|{
+return|return
+name|keyOrTrustStoreParameters
 return|;
 block|}
 comment|/**      * Configuration options for creating and loading a KeyStore instance that represents the sender's trustStore or recipient's keyStore.      */
@@ -2069,30 +2078,23 @@ operator|=
 name|mgfAlgorithm
 expr_stmt|;
 block|}
-DECL|method|isAddKeyValueForEncryptedKey ()
+DECL|method|getAddKeyValueForEncryptedKey ()
 specifier|public
-name|boolean
-name|isAddKeyValueForEncryptedKey
+name|Boolean
+name|getAddKeyValueForEncryptedKey
 parameter_list|()
 block|{
-comment|// The default value is true
 return|return
 name|addKeyValueForEncryptedKey
-operator|!=
-literal|null
-condition|?
-name|addKeyValueForEncryptedKey
-else|:
-literal|true
 return|;
 block|}
 comment|/**      * Whether to add the public key used to encrypt the session key as a KeyValue in the EncryptedKey structure or not.      */
-DECL|method|setAddKeyValueForEncryptedKey (boolean addKeyValueForEncryptedKey)
+DECL|method|setAddKeyValueForEncryptedKey (Boolean addKeyValueForEncryptedKey)
 specifier|public
 name|void
 name|setAddKeyValueForEncryptedKey
 parameter_list|(
-name|boolean
+name|Boolean
 name|addKeyValueForEncryptedKey
 parameter_list|)
 block|{

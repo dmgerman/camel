@@ -182,6 +182,13 @@ name|mappingFile
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|validation
 specifier|private
 name|Boolean
@@ -227,23 +234,6 @@ argument_list|(
 literal|"castor"
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|isValidation ()
-specifier|public
-name|boolean
-name|isValidation
-parameter_list|()
-block|{
-comment|// defaults to true if not configured
-return|return
-name|validation
-operator|!=
-literal|null
-condition|?
-name|validation
-else|:
-literal|true
-return|;
 block|}
 DECL|method|getValidation ()
 specifier|public
@@ -417,6 +407,18 @@ name|mappingFile
 argument_list|)
 expr_stmt|;
 block|}
+comment|// should be true by default
+name|boolean
+name|isValidation
+init|=
+name|getValidation
+argument_list|()
+operator|==
+literal|null
+operator|||
+name|getValidation
+argument_list|()
+decl_stmt|;
 name|setProperty
 argument_list|(
 name|camelContext
@@ -426,7 +428,6 @@ argument_list|,
 literal|"validation"
 argument_list|,
 name|isValidation
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|if

@@ -3370,7 +3370,14 @@ name|useOriginalInMessage
 operator|=
 name|exceptionPolicy
 operator|.
-name|isUseOriginalMessage
+name|getUseOriginalMessagePolicy
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|exceptionPolicy
+operator|.
+name|getUseOriginalMessagePolicy
 argument_list|()
 expr_stmt|;
 comment|// route specific failure handler?

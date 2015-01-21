@@ -258,6 +258,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Required
 import|;
 end_import
@@ -393,6 +407,13 @@ name|expression
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|trim
 specifier|private
 name|Boolean
@@ -922,6 +943,18 @@ init|=
 name|getExpression
 argument_list|()
 decl_stmt|;
+comment|// should be true by default
+name|boolean
+name|isTrim
+init|=
+name|getTrim
+argument_list|()
+operator|==
+literal|null
+operator|||
+name|getTrim
+argument_list|()
+decl_stmt|;
 comment|// trim if configured to trim
 if|if
 condition|(
@@ -930,7 +963,6 @@ operator|!=
 literal|null
 operator|&&
 name|isTrim
-argument_list|()
 condition|)
 block|{
 name|exp
@@ -1056,6 +1088,18 @@ init|=
 name|getExpression
 argument_list|()
 decl_stmt|;
+comment|// should be true by default
+name|boolean
+name|isTrim
+init|=
+name|getTrim
+argument_list|()
+operator|==
+literal|null
+operator|||
+name|getTrim
+argument_list|()
+decl_stmt|;
 comment|// trim if configured to trim
 if|if
 condition|(
@@ -1064,7 +1108,6 @@ operator|!=
 literal|null
 operator|&&
 name|isTrim
-argument_list|()
 condition|)
 block|{
 name|exp
@@ -1227,21 +1270,6 @@ name|trim
 operator|=
 name|trim
 expr_stmt|;
-block|}
-DECL|method|isTrim ()
-specifier|public
-name|boolean
-name|isTrim
-parameter_list|()
-block|{
-comment|// trim by default
-return|return
-name|trim
-operator|==
-literal|null
-operator|||
-name|trim
-return|;
 block|}
 comment|/**      * Returns some descriptive text to describe this node      */
 DECL|method|getLabel ()

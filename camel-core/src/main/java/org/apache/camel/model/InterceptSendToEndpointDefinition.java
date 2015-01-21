@@ -457,7 +457,12 @@ comment|// should be false by default
 name|boolean
 name|skip
 init|=
-name|isSkipSendToOriginalEndpoint
+name|getSkipSendToOriginalEndpoint
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|getSkipSendToOriginalEndpoint
 argument_list|()
 decl_stmt|;
 name|InterceptSendToEndpoint
@@ -865,20 +870,6 @@ name|skipSendToOriginalEndpoint
 operator|=
 name|skipSendToOriginalEndpoint
 expr_stmt|;
-block|}
-DECL|method|isSkipSendToOriginalEndpoint ()
-specifier|public
-name|boolean
-name|isSkipSendToOriginalEndpoint
-parameter_list|()
-block|{
-return|return
-name|skipSendToOriginalEndpoint
-operator|!=
-literal|null
-operator|&&
-name|skipSendToOriginalEndpoint
-return|;
 block|}
 DECL|method|getUri ()
 specifier|public

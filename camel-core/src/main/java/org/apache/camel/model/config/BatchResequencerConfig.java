@@ -289,20 +289,6 @@ operator|=
 name|batchTimeout
 expr_stmt|;
 block|}
-DECL|method|isAllowDuplicates ()
-specifier|public
-name|boolean
-name|isAllowDuplicates
-parameter_list|()
-block|{
-return|return
-name|allowDuplicates
-operator|!=
-literal|null
-operator|&&
-name|allowDuplicates
-return|;
-block|}
 DECL|method|getAllowDuplicates ()
 specifier|public
 name|Boolean
@@ -329,20 +315,6 @@ name|allowDuplicates
 operator|=
 name|allowDuplicates
 expr_stmt|;
-block|}
-DECL|method|isReverse ()
-specifier|public
-name|boolean
-name|isReverse
-parameter_list|()
-block|{
-return|return
-name|reverse
-operator|!=
-literal|null
-operator|&&
-name|reverse
-return|;
 block|}
 DECL|method|getReverse ()
 specifier|public

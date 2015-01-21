@@ -413,6 +413,17 @@ literal|true
 argument_list|)
 decl_stmt|;
 name|boolean
+name|async
+init|=
+name|getAsyncDelayed
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|getAsyncDelayed
+argument_list|()
+decl_stmt|;
+name|boolean
 name|shutdownThreadPool
 init|=
 name|ProcessorDefinitionHelper
@@ -423,8 +434,7 @@ name|routeContext
 argument_list|,
 name|this
 argument_list|,
-name|isAsyncDelayed
-argument_list|()
+name|async
 argument_list|)
 decl_stmt|;
 name|ScheduledExecutorService
@@ -440,8 +450,7 @@ literal|"Throttle"
 argument_list|,
 name|this
 argument_list|,
-name|isAsyncDelayed
-argument_list|()
+name|async
 argument_list|)
 decl_stmt|;
 comment|// should be default 1000 millis
@@ -484,6 +493,17 @@ name|this
 argument_list|)
 throw|;
 block|}
+name|boolean
+name|reject
+init|=
+name|getRejectExecution
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|getRejectExecution
+argument_list|()
+decl_stmt|;
 name|Throttler
 name|answer
 init|=
@@ -505,27 +525,16 @@ name|threadPool
 argument_list|,
 name|shutdownThreadPool
 argument_list|,
-name|isRejectExecution
-argument_list|()
+name|reject
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|getAsyncDelayed
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
 name|answer
 operator|.
 name|setAsyncDelayed
 argument_list|(
-name|getAsyncDelayed
-argument_list|()
+name|async
 argument_list|)
 expr_stmt|;
-block|}
 if|if
 condition|(
 name|getCallerRunsWhenRejected
@@ -808,20 +817,6 @@ operator|=
 name|asyncDelayed
 expr_stmt|;
 block|}
-DECL|method|isAsyncDelayed ()
-specifier|public
-name|boolean
-name|isAsyncDelayed
-parameter_list|()
-block|{
-return|return
-name|asyncDelayed
-operator|!=
-literal|null
-operator|&&
-name|asyncDelayed
-return|;
-block|}
 DECL|method|getCallerRunsWhenRejected ()
 specifier|public
 name|Boolean
@@ -900,20 +895,14 @@ operator|=
 name|executorServiceRef
 expr_stmt|;
 block|}
-DECL|method|isRejectExecution ()
+DECL|method|getRejectExecution ()
 specifier|public
-name|boolean
-name|isRejectExecution
+name|Boolean
+name|getRejectExecution
 parameter_list|()
 block|{
 return|return
 name|rejectExecution
-operator|!=
-literal|null
-condition|?
-name|rejectExecution
-else|:
-literal|false
 return|;
 block|}
 DECL|method|setRejectExecution (Boolean rejectExecution)

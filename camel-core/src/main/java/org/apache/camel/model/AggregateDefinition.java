@@ -957,6 +957,17 @@ name|routeContext
 argument_list|)
 decl_stmt|;
 name|boolean
+name|parallel
+init|=
+name|getParallelProcessing
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|getParallelProcessing
+argument_list|()
+decl_stmt|;
+name|boolean
 name|shutdownThreadPool
 init|=
 name|ProcessorDefinitionHelper
@@ -967,8 +978,7 @@ name|routeContext
 argument_list|,
 name|this
 argument_list|,
-name|isParallelProcessing
-argument_list|()
+name|parallel
 argument_list|)
 decl_stmt|;
 name|ExecutorService
@@ -984,8 +994,7 @@ literal|"Aggregator"
 argument_list|,
 name|this
 argument_list|,
-name|isParallelProcessing
-argument_list|()
+name|parallel
 argument_list|)
 decl_stmt|;
 if|if
@@ -995,8 +1004,7 @@ operator|==
 literal|null
 operator|&&
 operator|!
-name|isParallelProcessing
-argument_list|()
+name|parallel
 condition|)
 block|{
 comment|// executor service is mandatory for the Aggregator
@@ -1172,18 +1180,26 @@ name|answer
 operator|.
 name|setParallelProcessing
 argument_list|(
-name|isParallelProcessing
-argument_list|()
+name|parallel
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|getOptimisticLocking
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|answer
 operator|.
 name|setOptimisticLocking
 argument_list|(
-name|isOptimisticLocking
+name|getOptimisticLocking
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|getCompletionPredicate
@@ -1328,7 +1344,7 @@ name|answer
 operator|.
 name|setCompletionFromBatchConsumer
 argument_list|(
-name|isCompletionFromBatchConsumer
+name|getCompletionFromBatchConsumer
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1345,7 +1361,7 @@ name|answer
 operator|.
 name|setEagerCheckCompletion
 argument_list|(
-name|isEagerCheckCompletion
+name|getEagerCheckCompletion
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1362,7 +1378,7 @@ name|answer
 operator|.
 name|setIgnoreInvalidCorrelationKeys
 argument_list|(
-name|isIgnoreInvalidCorrelationKeys
+name|getIgnoreInvalidCorrelationKeys
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1396,7 +1412,7 @@ name|answer
 operator|.
 name|setDiscardOnCompletionTimeout
 argument_list|(
-name|isDiscardOnCompletionTimeout
+name|getDiscardOnCompletionTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2214,20 +2230,6 @@ return|return
 name|groupExchanges
 return|;
 block|}
-DECL|method|isGroupExchanges ()
-specifier|public
-name|boolean
-name|isGroupExchanges
-parameter_list|()
-block|{
-return|return
-name|groupExchanges
-operator|!=
-literal|null
-operator|&&
-name|groupExchanges
-return|;
-block|}
 DECL|method|setGroupExchanges (Boolean groupExchanges)
 specifier|public
 name|void
@@ -2251,20 +2253,6 @@ name|getCompletionFromBatchConsumer
 parameter_list|()
 block|{
 return|return
-name|completionFromBatchConsumer
-return|;
-block|}
-DECL|method|isCompletionFromBatchConsumer ()
-specifier|public
-name|boolean
-name|isCompletionFromBatchConsumer
-parameter_list|()
-block|{
-return|return
-name|completionFromBatchConsumer
-operator|!=
-literal|null
-operator|&&
 name|completionFromBatchConsumer
 return|;
 block|}
@@ -2336,20 +2324,6 @@ operator|=
 name|optimisticLocking
 expr_stmt|;
 block|}
-DECL|method|isOptimisticLocking ()
-specifier|public
-name|boolean
-name|isOptimisticLocking
-parameter_list|()
-block|{
-return|return
-name|optimisticLocking
-operator|!=
-literal|null
-operator|&&
-name|optimisticLocking
-return|;
-block|}
 DECL|method|getParallelProcessing ()
 specifier|public
 name|Boolean
@@ -2357,20 +2331,6 @@ name|getParallelProcessing
 parameter_list|()
 block|{
 return|return
-name|parallelProcessing
-return|;
-block|}
-DECL|method|isParallelProcessing ()
-specifier|public
-name|boolean
-name|isParallelProcessing
-parameter_list|()
-block|{
-return|return
-name|parallelProcessing
-operator|!=
-literal|null
-operator|&&
 name|parallelProcessing
 return|;
 block|}
@@ -2426,20 +2386,6 @@ return|return
 name|eagerCheckCompletion
 return|;
 block|}
-DECL|method|isEagerCheckCompletion ()
-specifier|public
-name|boolean
-name|isEagerCheckCompletion
-parameter_list|()
-block|{
-return|return
-name|eagerCheckCompletion
-operator|!=
-literal|null
-operator|&&
-name|eagerCheckCompletion
-return|;
-block|}
 DECL|method|setEagerCheckCompletion (Boolean eagerCheckCompletion)
 specifier|public
 name|void
@@ -2463,20 +2409,6 @@ name|getIgnoreInvalidCorrelationKeys
 parameter_list|()
 block|{
 return|return
-name|ignoreInvalidCorrelationKeys
-return|;
-block|}
-DECL|method|isIgnoreInvalidCorrelationKeys ()
-specifier|public
-name|boolean
-name|isIgnoreInvalidCorrelationKeys
-parameter_list|()
-block|{
-return|return
-name|ignoreInvalidCorrelationKeys
-operator|!=
-literal|null
-operator|&&
 name|ignoreInvalidCorrelationKeys
 return|;
 block|}
@@ -2584,20 +2516,6 @@ return|return
 name|discardOnCompletionTimeout
 return|;
 block|}
-DECL|method|isDiscardOnCompletionTimeout ()
-specifier|public
-name|boolean
-name|isDiscardOnCompletionTimeout
-parameter_list|()
-block|{
-return|return
-name|discardOnCompletionTimeout
-operator|!=
-literal|null
-operator|&&
-name|discardOnCompletionTimeout
-return|;
-block|}
 DECL|method|setDiscardOnCompletionTimeout (Boolean discardOnCompletionTimeout)
 specifier|public
 name|void
@@ -2673,20 +2591,6 @@ name|getForceCompletionOnStop
 parameter_list|()
 block|{
 return|return
-name|forceCompletionOnStop
-return|;
-block|}
-DECL|method|isForceCompletionOnStop ()
-specifier|public
-name|boolean
-name|isForceCompletionOnStop
-parameter_list|()
-block|{
-return|return
-name|forceCompletionOnStop
-operator|!=
-literal|null
-operator|&&
 name|forceCompletionOnStop
 return|;
 block|}

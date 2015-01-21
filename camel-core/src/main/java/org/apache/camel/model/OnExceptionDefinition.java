@@ -2968,22 +2968,10 @@ operator|=
 name|useOriginalMessagePolicy
 expr_stmt|;
 block|}
-DECL|method|isUseOriginalMessage ()
-specifier|public
-name|boolean
-name|isUseOriginalMessage
-parameter_list|()
-block|{
-return|return
-name|useOriginalMessagePolicy
-operator|!=
-literal|null
-operator|&&
-name|useOriginalMessagePolicy
-return|;
-block|}
+comment|// Implementation methods
+comment|//-------------------------------------------------------------------------
 DECL|method|isAsyncDelayedRedelivery (CamelContext context)
-specifier|public
+specifier|protected
 name|boolean
 name|isAsyncDelayedRedelivery
 parameter_list|(
@@ -3013,8 +3001,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|// Implementation methods
-comment|//-------------------------------------------------------------------------
 DECL|method|getOrCreateRedeliveryPolicy ()
 specifier|protected
 name|RedeliveryPolicyDefinition

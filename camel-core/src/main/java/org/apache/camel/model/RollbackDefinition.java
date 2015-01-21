@@ -254,14 +254,34 @@ name|RouteContext
 name|routeContext
 parameter_list|)
 block|{
+name|boolean
+name|isMarkRollbackOnly
+init|=
+name|getMarkRollbackOnly
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|getMarkRollbackOnly
+argument_list|()
+decl_stmt|;
+name|boolean
+name|isMarkRollbackOnlyLast
+init|=
+name|getMarkRollbackOnlyLast
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|getMarkRollbackOnlyLast
+argument_list|()
+decl_stmt|;
 comment|// validate that only either mark rollbacks is chosen and not both
 if|if
 condition|(
 name|isMarkRollbackOnly
-argument_list|()
 operator|&&
 name|isMarkRollbackOnlyLast
-argument_list|()
 condition|)
 block|{
 throw|throw
@@ -286,7 +306,6 @@ operator|.
 name|setMarkRollbackOnly
 argument_list|(
 name|isMarkRollbackOnly
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|answer
@@ -294,7 +313,6 @@ operator|.
 name|setMarkRollbackOnlyLast
 argument_list|(
 name|isMarkRollbackOnlyLast
-argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -355,20 +373,6 @@ operator|=
 name|markRollbackOnly
 expr_stmt|;
 block|}
-DECL|method|isMarkRollbackOnly ()
-specifier|public
-name|boolean
-name|isMarkRollbackOnly
-parameter_list|()
-block|{
-return|return
-name|markRollbackOnly
-operator|!=
-literal|null
-operator|&&
-name|markRollbackOnly
-return|;
-block|}
 DECL|method|getMarkRollbackOnlyLast ()
 specifier|public
 name|Boolean
@@ -395,20 +399,6 @@ name|markRollbackOnlyLast
 operator|=
 name|markRollbackOnlyLast
 expr_stmt|;
-block|}
-DECL|method|isMarkRollbackOnlyLast ()
-specifier|public
-name|boolean
-name|isMarkRollbackOnlyLast
-parameter_list|()
-block|{
-return|return
-name|markRollbackOnlyLast
-operator|!=
-literal|null
-operator|&&
-name|markRollbackOnlyLast
-return|;
 block|}
 block|}
 end_class

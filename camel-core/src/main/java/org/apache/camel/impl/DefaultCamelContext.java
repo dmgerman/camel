@@ -8200,6 +8200,14 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// remove outputs which we do not want to include
+name|options
+operator|.
+name|remove
+argument_list|(
+literal|"outputs"
+argument_list|)
+expr_stmt|;
 comment|// include other rows
 for|for
 control|(

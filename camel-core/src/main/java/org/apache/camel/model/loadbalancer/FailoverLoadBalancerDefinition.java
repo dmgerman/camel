@@ -458,20 +458,6 @@ operator|=
 name|exceptions
 expr_stmt|;
 block|}
-DECL|method|isRoundRobin ()
-specifier|public
-name|boolean
-name|isRoundRobin
-parameter_list|()
-block|{
-return|return
-name|roundRobin
-operator|!=
-literal|null
-operator|&&
-name|roundRobin
-return|;
-block|}
 DECL|method|getRoundRobin ()
 specifier|public
 name|Boolean

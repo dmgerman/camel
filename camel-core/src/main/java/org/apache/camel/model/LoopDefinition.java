@@ -288,23 +288,6 @@ operator|=
 name|copy
 expr_stmt|;
 block|}
-DECL|method|isCopy ()
-specifier|public
-name|boolean
-name|isCopy
-parameter_list|()
-block|{
-comment|// do not copy by default to be backwards compatible
-return|return
-name|copy
-operator|!=
-literal|null
-condition|?
-name|copy
-else|:
-literal|false
-return|;
-block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -369,6 +352,17 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+name|boolean
+name|isCopy
+init|=
+name|getCopy
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|getCopy
+argument_list|()
+decl_stmt|;
 return|return
 operator|new
 name|LoopProcessor
@@ -384,7 +378,6 @@ name|routeContext
 argument_list|)
 argument_list|,
 name|isCopy
-argument_list|()
 argument_list|)
 return|;
 block|}

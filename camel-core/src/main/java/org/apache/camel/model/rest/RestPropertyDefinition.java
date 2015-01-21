@@ -125,6 +125,7 @@ operator|=
 literal|true
 argument_list|)
 DECL|field|key
+specifier|private
 name|String
 name|key
 decl_stmt|;
@@ -136,6 +137,7 @@ operator|=
 literal|true
 argument_list|)
 DECL|field|value
+specifier|private
 name|String
 name|value
 decl_stmt|;

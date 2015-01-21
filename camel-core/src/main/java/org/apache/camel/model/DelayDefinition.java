@@ -391,6 +391,17 @@ name|routeContext
 argument_list|)
 decl_stmt|;
 name|boolean
+name|async
+init|=
+name|getAsyncDelayed
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|getAsyncDelayed
+argument_list|()
+decl_stmt|;
+name|boolean
 name|shutdownThreadPool
 init|=
 name|ProcessorDefinitionHelper
@@ -401,8 +412,7 @@ name|routeContext
 argument_list|,
 name|this
 argument_list|,
-name|isAsyncDelayed
-argument_list|()
+name|async
 argument_list|)
 decl_stmt|;
 name|ScheduledExecutorService
@@ -418,8 +428,7 @@ literal|"Delay"
 argument_list|,
 name|this
 argument_list|,
-name|isAsyncDelayed
-argument_list|()
+name|async
 argument_list|)
 decl_stmt|;
 name|Delayer
@@ -657,20 +666,6 @@ name|asyncDelayed
 operator|=
 name|asyncDelayed
 expr_stmt|;
-block|}
-DECL|method|isAsyncDelayed ()
-specifier|public
-name|boolean
-name|isAsyncDelayed
-parameter_list|()
-block|{
-return|return
-name|asyncDelayed
-operator|!=
-literal|null
-operator|&&
-name|asyncDelayed
-return|;
 block|}
 DECL|method|getCallerRunsWhenRejected ()
 specifier|public

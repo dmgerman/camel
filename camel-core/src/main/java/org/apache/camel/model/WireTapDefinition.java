@@ -644,6 +644,18 @@ name|routeId
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// is true bt default
+name|boolean
+name|isCopy
+init|=
+name|getCopy
+argument_list|()
+operator|==
+literal|null
+operator|||
+name|getCopy
+argument_list|()
+decl_stmt|;
 name|WireTapProcessor
 name|answer
 init|=
@@ -667,7 +679,6 @@ operator|.
 name|setCopy
 argument_list|(
 name|isCopy
-argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -1473,23 +1484,6 @@ name|copy
 operator|=
 name|copy
 expr_stmt|;
-block|}
-DECL|method|isCopy ()
-specifier|public
-name|boolean
-name|isCopy
-parameter_list|()
-block|{
-comment|// should default to true if not configured
-return|return
-name|copy
-operator|!=
-literal|null
-condition|?
-name|copy
-else|:
-literal|true
-return|;
 block|}
 DECL|method|getOnPrepareRef ()
 specifier|public
