@@ -398,6 +398,27 @@ name|expr
 argument_list|)
 return|;
 block|}
+comment|/**      * Expression to return the value of the header      */
+annotation|@
+name|Override
+DECL|method|setExpression (ExpressionDefinition expression)
+specifier|public
+name|void
+name|setExpression
+parameter_list|(
+name|ExpressionDefinition
+name|expression
+parameter_list|)
+block|{
+comment|// override to include javadoc what the expression is used for
+name|super
+operator|.
+name|setExpression
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Name of message header to set a new value      */
 annotation|@
 name|Required

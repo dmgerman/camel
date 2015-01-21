@@ -128,6 +128,22 @@ name|model
 operator|.
 name|language
 operator|.
+name|ExpressionDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|language
+operator|.
 name|HeaderExpression
 import|;
 end_import
@@ -505,6 +521,27 @@ operator|.
 name|emptyList
 argument_list|()
 return|;
+block|}
+comment|/**      * Expression to define the routing slip, which defines which endpoints to route the message in a pipeline style.      * Notice the expression is evaluated once, if you want a more dynamic style, then the dynamic router eip is a better choice.      */
+annotation|@
+name|Override
+DECL|method|setExpression (ExpressionDefinition expression)
+specifier|public
+name|void
+name|setExpression
+parameter_list|(
+name|ExpressionDefinition
+name|expression
+parameter_list|)
+block|{
+comment|// override to include javadoc what the expression is used for
+name|super
+operator|.
+name|setExpression
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|setUriDelimiter (String uriDelimiter)
 specifier|public

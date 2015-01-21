@@ -1672,9 +1672,13 @@ name|prefix
 argument_list|)
 expr_stmt|;
 comment|// special for expression
-name|processExpression
+name|processRefExpression
 argument_list|(
 name|roundEnv
+argument_list|,
+name|originalClassType
+argument_list|,
+name|classElement
 argument_list|,
 name|elementRef
 argument_list|,
@@ -3941,13 +3945,19 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Special for processing an @XmlElementRef expression field      */
-DECL|method|processExpression (RoundEnvironment roundEnv, XmlElementRef elementRef, VariableElement fieldElement, String fieldName, Set<EipOption> eipOptions, String prefix)
+DECL|method|processRefExpression (RoundEnvironment roundEnv, TypeElement originalClassElement, TypeElement classElement, XmlElementRef elementRef, VariableElement fieldElement, String fieldName, Set<EipOption> eipOptions, String prefix)
 specifier|private
 name|void
-name|processExpression
+name|processRefExpression
 parameter_list|(
 name|RoundEnvironment
 name|roundEnv
+parameter_list|,
+name|TypeElement
+name|originalClassElement
+parameter_list|,
+name|TypeElement
+name|classElement
 parameter_list|,
 name|XmlElementRef
 name|elementRef
@@ -3968,6 +3978,14 @@ name|String
 name|prefix
 parameter_list|)
 block|{
+name|Elements
+name|elementUtils
+init|=
+name|processingEnv
+operator|.
+name|getElementUtils
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 literal|"expression"
@@ -4032,6 +4050,25 @@ name|fieldType
 operator|.
 name|toString
 argument_list|()
+decl_stmt|;
+comment|// find javadoc from original class as it will override the setExpression method where we can provide the javadoc for the given EIP
+name|String
+name|docComment
+init|=
+name|findJavaDoc
+argument_list|(
+name|elementUtils
+argument_list|,
+name|fieldElement
+argument_list|,
+name|fieldName
+argument_list|,
+name|name
+argument_list|,
+name|originalClassElement
+argument_list|,
+literal|true
+argument_list|)
 decl_stmt|;
 comment|// gather oneOf expression/predicates which uses language
 name|Set
@@ -4173,7 +4210,7 @@ literal|true
 argument_list|,
 literal|""
 argument_list|,
-literal|""
+name|docComment
 argument_list|,
 name|deprecated
 argument_list|,

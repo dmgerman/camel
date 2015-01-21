@@ -118,6 +118,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|language
+operator|.
+name|ExpressionDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|idempotent
@@ -460,6 +476,27 @@ expr_stmt|;
 return|return
 name|this
 return|;
+block|}
+comment|/**      * Expression used to calculate the correlation key to use for duplicate check.      * The Exchange which has the same correlation key is regarded as a duplicate and will be rejected.      */
+annotation|@
+name|Override
+DECL|method|setExpression (ExpressionDefinition expression)
+specifier|public
+name|void
+name|setExpression
+parameter_list|(
+name|ExpressionDefinition
+name|expression
+parameter_list|)
+block|{
+comment|// override to include javadoc what the expression is used for
+name|super
+operator|.
+name|setExpression
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getMessageIdRepositoryRef ()
 specifier|public

@@ -1520,6 +1520,27 @@ return|;
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
+comment|/**      * Expression that returns which endpoints (url) to send the message to (the recipients).      * If the expression return an empty value then the message is not sent to any recipients.      */
+annotation|@
+name|Override
+DECL|method|setExpression (ExpressionDefinition expression)
+specifier|public
+name|void
+name|setExpression
+parameter_list|(
+name|ExpressionDefinition
+name|expression
+parameter_list|)
+block|{
+comment|// override to include javadoc what the expression is used for
+name|super
+operator|.
+name|setExpression
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getDelimiter ()
 specifier|public
 name|String

@@ -78,6 +78,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|language
+operator|.
+name|ExpressionDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|validation
@@ -220,6 +236,27 @@ argument_list|(
 name|pred
 argument_list|)
 return|;
+block|}
+comment|/**      * Expression to use for validation as a predicate. The expression should return either<tt>true</tt> or<tt>false</tt>.      * If returning<tt>false</tt> the message is invalid and an exception is thrown.      */
+annotation|@
+name|Override
+DECL|method|setExpression (ExpressionDefinition expression)
+specifier|public
+name|void
+name|setExpression
+parameter_list|(
+name|ExpressionDefinition
+name|expression
+parameter_list|)
+block|{
+comment|// override to include javadoc what the expression is used for
+name|super
+operator|.
+name|setExpression
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

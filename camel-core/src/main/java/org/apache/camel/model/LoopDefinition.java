@@ -381,6 +381,27 @@ name|isCopy
 argument_list|)
 return|;
 block|}
+comment|/**      * Expression to define how many times we should loop. Notice the expression is only evaluated once, and should return      * a number as how many times to loop. A value of zero or negative means no looping. The loop is like a for-loop fashion,      * if you want a while loop, then the dynamic router may be a better choice.      */
+annotation|@
+name|Override
+DECL|method|setExpression (ExpressionDefinition expression)
+specifier|public
+name|void
+name|setExpression
+parameter_list|(
+name|ExpressionDefinition
+name|expression
+parameter_list|)
+block|{
+comment|// override to include javadoc what the expression is used for
+name|super
+operator|.
+name|setExpression
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

@@ -90,6 +90,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|language
+operator|.
+name|ExpressionDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|processor
 operator|.
 name|TransformProcessor
@@ -239,6 +255,27 @@ argument_list|(
 name|expr
 argument_list|)
 return|;
+block|}
+comment|/**      * Expression to return the transformed message body (the new message body to use)      */
+annotation|@
+name|Override
+DECL|method|setExpression (ExpressionDefinition expression)
+specifier|public
+name|void
+name|setExpression
+parameter_list|(
+name|ExpressionDefinition
+name|expression
+parameter_list|)
+block|{
+comment|// override to include javadoc what the expression is used for
+name|super
+operator|.
+name|setExpression
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
