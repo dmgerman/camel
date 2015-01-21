@@ -367,10 +367,6 @@ import|;
 end_import
 
 begin_comment
-comment|// TODO: add support for @Label
-end_comment
-
-begin_comment
 comment|/**  * Processes all Camel {@link UriEndpoint}s and generate json schema and html documentation for the endpoint/component.  */
 end_comment
 

@@ -56,14 +56,16 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Label
+name|Metadata
 import|;
 end_import
 
 begin_enum
 annotation|@
-name|Label
+name|Metadata
 argument_list|(
+name|label
+operator|=
 literal|"rest"
 argument_list|)
 annotation|@

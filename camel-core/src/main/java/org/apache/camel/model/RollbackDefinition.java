@@ -108,7 +108,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Label
+name|Metadata
 import|;
 end_import
 
@@ -132,8 +132,10 @@ end_comment
 
 begin_class
 annotation|@
-name|Label
+name|Metadata
 argument_list|(
+name|label
+operator|=
 literal|"eip,routing"
 argument_list|)
 annotation|@
