@@ -796,13 +796,6 @@ decl_stmt|;
 comment|// skip checking these as they have no documentation
 if|if
 condition|(
-literal|"expression"
-operator|.
-name|equals
-argument_list|(
-name|name
-argument_list|)
-operator|||
 literal|"outputs"
 operator|.
 name|equals

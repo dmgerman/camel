@@ -288,7 +288,7 @@ name|Metadata
 argument_list|(
 name|defaultValue
 operator|=
-literal|"\n"
+literal|"\\n"
 argument_list|)
 DECL|field|normalizedLineSeparator
 specifier|protected

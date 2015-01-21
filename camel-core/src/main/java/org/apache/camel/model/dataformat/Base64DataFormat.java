@@ -194,7 +194,7 @@ name|Metadata
 argument_list|(
 name|defaultValue
 operator|=
-literal|"\r\n"
+literal|"\\r\\n"
 argument_list|)
 DECL|field|lineSeparator
 specifier|private
