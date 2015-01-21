@@ -162,7 +162,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"eip,configuration"
+literal|"configuration"
 argument_list|)
 annotation|@
 name|XmlRootElement

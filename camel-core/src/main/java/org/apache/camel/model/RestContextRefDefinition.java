@@ -134,7 +134,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"rest"
+literal|"configuration,rest"
 argument_list|)
 annotation|@
 name|XmlRootElement

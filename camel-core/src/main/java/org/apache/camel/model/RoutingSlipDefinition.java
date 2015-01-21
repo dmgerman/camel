@@ -200,7 +200,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"eip,routing"
+literal|"eip,endpoint,routing"
 argument_list|)
 annotation|@
 name|XmlRootElement

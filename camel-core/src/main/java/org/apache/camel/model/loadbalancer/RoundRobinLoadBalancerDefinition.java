@@ -128,7 +128,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"eip,routing"
+literal|"configuration,loadbalance"
 argument_list|)
 annotation|@
 name|XmlRootElement

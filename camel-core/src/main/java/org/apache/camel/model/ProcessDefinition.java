@@ -216,7 +216,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"eip,transformation"
+literal|"eip,endpoint"
 argument_list|)
 annotation|@
 name|XmlRootElement

@@ -122,7 +122,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"eip,errorHandler"
+literal|"error"
 argument_list|)
 annotation|@
 name|XmlRootElement

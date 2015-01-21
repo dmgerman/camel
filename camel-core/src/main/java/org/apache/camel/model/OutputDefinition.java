@@ -116,7 +116,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"eip,routing"
+literal|"configuration"
 argument_list|)
 annotation|@
 name|XmlType
