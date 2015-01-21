@@ -1139,6 +1139,7 @@ return|return
 name|expression
 return|;
 block|}
+comment|/**      * Expression to use for re-ordering the messages, such as a header with a sequence number      */
 DECL|method|setExpression (ExpressionDefinition expression)
 specifier|public
 name|void
