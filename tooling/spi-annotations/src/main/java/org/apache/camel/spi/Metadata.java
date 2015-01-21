@@ -120,10 +120,18 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
-comment|/**      * To define a default value      */
+comment|/**      * To define a default value.      */
 DECL|method|defaultValue ()
 name|String
 name|defaultValue
+parameter_list|()
+default|default
+literal|""
+function_decl|;
+comment|/**      * To define that this entity is required.      */
+DECL|method|required ()
+name|String
+name|required
 parameter_list|()
 default|default
 literal|""

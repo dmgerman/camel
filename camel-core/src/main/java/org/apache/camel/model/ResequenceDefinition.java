@@ -387,6 +387,13 @@ name|ResequenceDefinition
 argument_list|>
 block|{
 annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"false"
+argument_list|)
+annotation|@
 name|XmlElements
 argument_list|(
 block|{
@@ -1016,7 +1023,7 @@ return|return
 name|resequencerConfig
 return|;
 block|}
-comment|/**      * To configure the resequencer in using either batch or stream configuration      */
+comment|/**      * To configure the resequencer in using either batch or stream configuration. Will by default use batch configuration.      */
 DECL|method|setResequencerConfig (ResequencerConfig resequencerConfig)
 specifier|public
 name|void

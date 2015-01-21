@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used to denote fields which are required to be specified for validation purposes  * particularly in tooling.  *  * @version   */
+comment|/**  * Used to denote fields which are required to be specified for validation purposes  * particularly in tooling.  *  * @deprecated use {@link org.apache.camel.spi.Metadata}  *  * @version   */
 end_comment
 
 begin_annotation_defn
@@ -107,6 +107,8 @@ operator|.
 name|CONSTRUCTOR
 block|}
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|annotation|Required
 specifier|public
 annotation_defn|@interface
