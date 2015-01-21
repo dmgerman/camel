@@ -8281,7 +8281,7 @@ name|row
 operator|.
 name|get
 argument_list|(
-literal|"javaType"
+literal|"deprecated"
 argument_list|)
 decl_stmt|;
 name|String
