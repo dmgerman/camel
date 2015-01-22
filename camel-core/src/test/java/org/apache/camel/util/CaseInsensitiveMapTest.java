@@ -2492,13 +2492,26 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|true
+literal|false
 argument_list|,
 name|other
 operator|.
 name|containsKey
 argument_list|(
 literal|"FOO"
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// CaseInsensitiveMap preserves the original keys, which would be the 1st key we put
+name|assertEquals
+argument_list|(
+literal|true
+argument_list|,
+name|other
+operator|.
+name|containsKey
+argument_list|(
+literal|"Foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3400,6 +3413,11 @@ literal|"cheese"
 argument_list|)
 expr_stmt|;
 comment|// copy foo to map as map is a shared resource
+synchronized|synchronized
+init|(
+name|map
+init|)
+block|{
 name|map
 operator|.
 name|putAll
@@ -3407,6 +3425,7 @@ argument_list|(
 name|foo
 argument_list|)
 expr_stmt|;
+block|}
 name|latch
 operator|.
 name|countDown
