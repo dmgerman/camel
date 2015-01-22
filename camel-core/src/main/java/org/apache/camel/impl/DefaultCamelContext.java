@@ -8243,6 +8243,16 @@ literal|"kind"
 argument_list|)
 decl_stmt|;
 name|String
+name|required
+init|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"required"
+argument_list|)
+decl_stmt|;
+name|String
 name|value
 init|=
 name|row
@@ -8372,6 +8382,8 @@ name|name
 block|,
 name|kind
 block|,
+name|required
+block|,
 name|type
 block|,
 name|javaType
@@ -8389,13 +8401,24 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|json
+operator|=
+name|ObjectHelper
+operator|.
+name|before
+argument_list|(
+name|json
+argument_list|,
+literal|"  \"properties\": {"
+argument_list|)
+expr_stmt|;
 name|StringBuilder
 name|buffer
 init|=
 operator|new
 name|StringBuilder
 argument_list|(
-literal|"{\n  \"properties\": {"
+literal|"  \"properties\": {"
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -8459,7 +8482,7 @@ literal|1
 index|]
 decl_stmt|;
 name|String
-name|type
+name|required
 init|=
 name|row
 index|[
@@ -8467,7 +8490,7 @@ literal|2
 index|]
 decl_stmt|;
 name|String
-name|javaType
+name|type
 init|=
 name|row
 index|[
@@ -8475,7 +8498,7 @@ literal|3
 index|]
 decl_stmt|;
 name|String
-name|deprecated
+name|javaType
 init|=
 name|row
 index|[
@@ -8483,7 +8506,7 @@ literal|4
 index|]
 decl_stmt|;
 name|String
-name|value
+name|deprecated
 init|=
 name|row
 index|[
@@ -8491,7 +8514,7 @@ literal|5
 index|]
 decl_stmt|;
 name|String
-name|defaultValue
+name|value
 init|=
 name|row
 index|[
@@ -8499,11 +8522,19 @@ literal|6
 index|]
 decl_stmt|;
 name|String
-name|description
+name|defaultValue
 init|=
 name|row
 index|[
 literal|7
+index|]
+decl_stmt|;
+name|String
+name|description
+init|=
+name|row
+index|[
+literal|8
 index|]
 decl_stmt|;
 comment|// add json of the option
@@ -8543,6 +8574,25 @@ argument_list|(
 literal|"\"kind\": \""
 operator|+
 name|kind
+operator|+
+literal|"\""
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|required
+operator|!=
+literal|null
+condition|)
+block|{
+name|csb
+operator|.
+name|append
+argument_list|(
+literal|"\"required\": \""
+operator|+
+name|required
 operator|+
 literal|"\""
 argument_list|)
@@ -8695,6 +8745,16 @@ operator|.
 name|append
 argument_list|(
 literal|"\n  }\n}\n"
+argument_list|)
+expr_stmt|;
+comment|// insert the original first part of the json into the start of the buffer
+name|buffer
+operator|.
+name|insert
+argument_list|(
+literal|0
+argument_list|,
+name|json
 argument_list|)
 expr_stmt|;
 return|return
@@ -8922,6 +8982,11 @@ init|=
 literal|null
 decl_stmt|;
 name|String
+name|required
+init|=
+literal|null
+decl_stmt|;
+name|String
 name|javaType
 init|=
 literal|null
@@ -8987,6 +9052,15 @@ argument_list|(
 literal|"kind"
 argument_list|)
 expr_stmt|;
+name|required
+operator|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"required"
+argument_list|)
+expr_stmt|;
 name|javaType
 operator|=
 name|row
@@ -9041,6 +9115,8 @@ name|name
 block|,
 name|kind
 block|,
+name|required
+block|,
 name|type
 block|,
 name|javaType
@@ -9088,6 +9164,16 @@ operator|.
 name|get
 argument_list|(
 literal|"kind"
+argument_list|)
+decl_stmt|;
+name|String
+name|required
+init|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"required"
 argument_list|)
 decl_stmt|;
 name|String
@@ -9230,6 +9316,8 @@ name|name
 block|,
 name|kind
 block|,
+name|required
+block|,
 name|type
 block|,
 name|javaType
@@ -9247,13 +9335,24 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|json
+operator|=
+name|ObjectHelper
+operator|.
+name|before
+argument_list|(
+name|json
+argument_list|,
+literal|"  \"properties\": {"
+argument_list|)
+expr_stmt|;
 name|StringBuilder
 name|buffer
 init|=
 operator|new
 name|StringBuilder
 argument_list|(
-literal|"{\n  \"properties\": {"
+literal|"  \"properties\": {"
 argument_list|)
 decl_stmt|;
 name|boolean
@@ -9317,7 +9416,7 @@ literal|1
 index|]
 decl_stmt|;
 name|String
-name|type
+name|required
 init|=
 name|row
 index|[
@@ -9325,7 +9424,7 @@ literal|2
 index|]
 decl_stmt|;
 name|String
-name|javaType
+name|type
 init|=
 name|row
 index|[
@@ -9333,7 +9432,7 @@ literal|3
 index|]
 decl_stmt|;
 name|String
-name|deprecated
+name|javaType
 init|=
 name|row
 index|[
@@ -9341,7 +9440,7 @@ literal|4
 index|]
 decl_stmt|;
 name|String
-name|value
+name|deprecated
 init|=
 name|row
 index|[
@@ -9349,7 +9448,7 @@ literal|5
 index|]
 decl_stmt|;
 name|String
-name|defaultValue
+name|value
 init|=
 name|row
 index|[
@@ -9357,11 +9456,19 @@ literal|6
 index|]
 decl_stmt|;
 name|String
-name|description
+name|defaultValue
 init|=
 name|row
 index|[
 literal|7
+index|]
+decl_stmt|;
+name|String
+name|description
+init|=
+name|row
+index|[
+literal|8
 index|]
 decl_stmt|;
 comment|// add json of the option
@@ -9401,6 +9508,25 @@ argument_list|(
 literal|"\"kind\": \""
 operator|+
 name|kind
+operator|+
+literal|"\""
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|required
+operator|!=
+literal|null
+condition|)
+block|{
+name|csb
+operator|.
+name|append
+argument_list|(
+literal|"\"required\": \""
+operator|+
+name|required
 operator|+
 literal|"\""
 argument_list|)
@@ -9553,6 +9679,16 @@ operator|.
 name|append
 argument_list|(
 literal|"\n  }\n}\n"
+argument_list|)
+expr_stmt|;
+comment|// insert the original first part of the json into the start of the buffer
+name|buffer
+operator|.
+name|insert
+argument_list|(
+literal|0
+argument_list|,
+name|json
 argument_list|)
 expr_stmt|;
 return|return
