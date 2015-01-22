@@ -126,10 +126,6 @@ name|type
 operator|.
 name|isEnum
 argument_list|()
-operator|&&
-name|value
-operator|!=
-literal|null
 condition|)
 block|{
 name|String

@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple converter that can convert any object to a String type by using the  * toString() method of the object.  *  * @version   */
+comment|/**  * A simple converter that can convert any object to a String type by using the  * toString() method of the object.  */
 end_comment
 
 begin_class
@@ -135,13 +135,6 @@ parameter_list|,
 name|Object
 name|value
 parameter_list|)
-block|{
-if|if
-condition|(
-name|value
-operator|!=
-literal|null
-condition|)
 block|{
 comment|// should not try to convert Message
 if|if
@@ -264,7 +257,6 @@ operator|.
 name|toString
 argument_list|()
 return|;
-block|}
 block|}
 return|return
 literal|null

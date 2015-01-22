@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A simple converter that can convert any {@link Processor} to an {@link AsyncProcessor}.  * Processing will still occur synchronously but it will provide the required  * notifications that the caller expects.  *  * @version   */
+comment|/**  * A simple converter that can convert any {@link Processor} to an {@link AsyncProcessor}.  * Processing will still occur synchronously but it will provide the required  * notifications that the caller expects.  *  * @version  */
 end_comment
 
 begin_class
@@ -116,13 +116,6 @@ parameter_list|,
 name|Object
 name|value
 parameter_list|)
-block|{
-if|if
-condition|(
-name|value
-operator|!=
-literal|null
-condition|)
 block|{
 if|if
 condition|(
@@ -159,7 +152,6 @@ name|value
 argument_list|)
 argument_list|)
 return|;
-block|}
 block|}
 block|}
 return|return
