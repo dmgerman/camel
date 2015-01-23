@@ -2808,6 +2808,32 @@ name|registry
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|adapt (Class<T> type)
+specifier|public
+parameter_list|<
+name|T
+extends|extends
+name|CamelContext
+parameter_list|>
+name|T
+name|adapt
+parameter_list|(
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+block|{
+return|return
+name|type
+operator|.
+name|cast
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
 DECL|method|getName ()
 specifier|public
 name|String
