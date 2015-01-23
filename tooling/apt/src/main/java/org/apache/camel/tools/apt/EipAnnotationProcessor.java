@@ -2429,6 +2429,11 @@ condition|(
 name|isOneOf
 condition|)
 block|{
+comment|// okay its actually an expression
+name|kind
+operator|=
+literal|"expression"
+expr_stmt|;
 name|TypeElement
 name|languages
 init|=
@@ -3993,7 +3998,7 @@ block|{
 name|String
 name|kind
 init|=
-literal|"element"
+literal|"expression"
 decl_stmt|;
 name|String
 name|name
