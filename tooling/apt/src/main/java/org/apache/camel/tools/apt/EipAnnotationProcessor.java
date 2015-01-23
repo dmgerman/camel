@@ -2645,10 +2645,14 @@ condition|(
 name|isOneOf
 condition|)
 block|{
-comment|// okay its actually an expression
+comment|// okay its actually an language expression, so favor using that in the eip option
 name|kind
 operator|=
 literal|"expression"
+expr_stmt|;
+name|fieldTypeName
+operator|=
+name|ONE_OF_LANGUAGES
 expr_stmt|;
 name|TypeElement
 name|languages
