@@ -253,7 +253,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This aggregation strategy will aggregate all incoming messages into a ZIP file.  *<p>If the incoming exchanges contain {@link GenericFileMessage} file name will   * be taken from the body otherwise the body content will be treated as a byte   * array and the ZIP entry will be named using the message id.</p>  *<p><b>Note:</b> Please note that this aggregation strategy requires eager   * completion check to work properly.</p>  */
+comment|/**  * This aggregation strategy will aggregate all incoming messages into a ZIP file.  *<p>If the incoming exchanges contain {@link GenericFileMessage} file name will   * be taken from the body otherwise the body content will be treated as a byte   * array and the ZIP entry will be named using the message id (unless the flag  * useFilenameHeader is set to true.</p>  *<p><b>Note:</b> Please note that this aggregation strategy requires eager   * completion check to work properly.</p>  */
 end_comment
 
 begin_class
@@ -281,6 +281,11 @@ specifier|private
 name|boolean
 name|preserveFolderStructure
 decl_stmt|;
+DECL|field|useFilenameHeader
+specifier|private
+name|boolean
+name|useFilenameHeader
+decl_stmt|;
 DECL|method|ZipAggregationStrategy ()
 specifier|public
 name|ZipAggregationStrategy
@@ -289,16 +294,21 @@ block|{
 name|this
 argument_list|(
 literal|false
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * @param preserveFolderStructure if true, the folder structure is preserved when the source is      * a type of {@link GenericFileMessage}.  If used with a file, use recursive=true.      */
-DECL|method|ZipAggregationStrategy (boolean preserveFolderStructure)
+comment|/**      * @param preserveFolderStructure if true, the folder structure is preserved when the source is      * a type of {@link GenericFileMessage}.  If used with a file, use recursive=true.      * @param useFilenameHeader if true, the filename header will be used to name aggregated byte arrays      * within the ZIP file.      */
+DECL|method|ZipAggregationStrategy (boolean preserveFolderStructure, boolean useFilenameHeader)
 specifier|public
 name|ZipAggregationStrategy
 parameter_list|(
 name|boolean
 name|preserveFolderStructure
+parameter_list|,
+name|boolean
+name|useFilenameHeader
 parameter_list|)
 block|{
 name|this
@@ -306,6 +316,12 @@ operator|.
 name|preserveFolderStructure
 operator|=
 name|preserveFolderStructure
+expr_stmt|;
+name|this
+operator|.
+name|useFilenameHeader
+operator|=
+name|useFilenameHeader
 expr_stmt|;
 block|}
 comment|/**      * Gets the prefix used when creating the ZIP file name.      * @return the prefix      */
@@ -617,10 +633,27 @@ operator|.
 expr|class
 argument_list|)
 decl_stmt|;
-name|addEntryToZip
+name|String
+name|entryName
+init|=
+name|useFilenameHeader
+condition|?
+name|newExchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
 argument_list|(
-name|zipFile
+name|Exchange
+operator|.
+name|FILE_NAME
 argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+else|:
 name|newExchange
 operator|.
 name|getIn
@@ -628,6 +661,12 @@ argument_list|()
 operator|.
 name|getMessageId
 argument_list|()
+decl_stmt|;
+name|addEntryToZip
+argument_list|(
+name|zipFile
+argument_list|,
+name|entryName
 argument_list|,
 name|buffer
 argument_list|,
