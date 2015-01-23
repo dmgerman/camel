@@ -476,9 +476,11 @@ name|RouteContext
 name|routeContext
 parameter_list|)
 block|{
+comment|// must use getDataFormatName() as we need special logic in json dataformat
 if|if
 condition|(
-name|dataFormatName
+name|getDataFormatName
+argument_list|()
 operator|!=
 literal|null
 condition|)
@@ -491,7 +493,8 @@ argument_list|()
 operator|.
 name|resolveDataFormat
 argument_list|(
-name|dataFormatName
+name|getDataFormatName
+argument_list|()
 argument_list|)
 return|;
 block|}

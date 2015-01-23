@@ -610,6 +610,27 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|getDataFormatName ()
+specifier|public
+name|String
+name|getDataFormatName
+parameter_list|()
+block|{
+comment|// json data format is special as the name can be from different bundles
+return|return
+literal|"json-"
+operator|+
+name|library
+operator|.
+name|name
+argument_list|()
+operator|.
+name|toLowerCase
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createDataFormat (RouteContext routeContext)
 specifier|protected
 name|DataFormat
