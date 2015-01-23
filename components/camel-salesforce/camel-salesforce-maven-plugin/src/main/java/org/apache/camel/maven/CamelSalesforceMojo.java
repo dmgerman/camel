@@ -847,6 +847,25 @@ specifier|protected
 name|File
 name|outputDirectory
 decl_stmt|;
+comment|/**      * Salesforce URL.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camelSalesforce.loginUrl"
+argument_list|,
+name|defaultValue
+operator|=
+name|SalesforceLoginConfig
+operator|.
+name|DEFAULT_LOGIN_URL
+argument_list|)
+DECL|field|loginUrl
+specifier|protected
+name|String
+name|loginUrl
+decl_stmt|;
 comment|/**      * Names of Salesforce SObject for which POJOs must be generated      */
 annotation|@
 name|Parameter
@@ -1105,9 +1124,7 @@ argument_list|,
 operator|new
 name|SalesforceLoginConfig
 argument_list|(
-name|SalesforceLoginConfig
-operator|.
-name|DEFAULT_LOGIN_URL
+name|loginUrl
 argument_list|,
 name|clientId
 argument_list|,
