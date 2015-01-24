@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  /**  * A little helper class for converting a collection of values to a (usually comma separated) string.  */
+comment|/**  * A little helper class for converting a collection of values to a (usually comma separated) string.  */
 end_comment
 
 begin_class

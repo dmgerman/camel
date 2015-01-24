@@ -182,7 +182,7 @@ return|return
 name|escapeChar
 return|;
 block|}
-comment|/**      * The escape character.      *<p/>      * The default value is \      */
+comment|/**      * The escape character.      */
 DECL|method|setEscapeChar (String escapeChar)
 specifier|public
 name|void
