@@ -299,6 +299,23 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @param preserveFolderStructure if true, the folder structure is preserved when the source is      * a type of {@link GenericFileMessage}.  If used with a file, use recursive=true.      */
+DECL|method|ZipAggregationStrategy (boolean preserveFolderStructure)
+specifier|public
+name|ZipAggregationStrategy
+parameter_list|(
+name|boolean
+name|preserveFolderStructure
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|preserveFolderStructure
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * @param preserveFolderStructure if true, the folder structure is preserved when the source is      * a type of {@link GenericFileMessage}.  If used with a file, use recursive=true.      * @param useFilenameHeader if true, the filename header will be used to name aggregated byte arrays      * within the ZIP file.      */
 DECL|method|ZipAggregationStrategy (boolean preserveFolderStructure, boolean useFilenameHeader)
 specifier|public

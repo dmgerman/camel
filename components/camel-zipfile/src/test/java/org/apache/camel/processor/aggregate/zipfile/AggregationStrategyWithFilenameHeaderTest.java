@@ -402,7 +402,7 @@ expr_stmt|;
 block|}
 name|assertEquals
 argument_list|(
-literal|"Zip file should contains "
+literal|"Zip file should contain "
 operator|+
 name|FILE_NAMES
 operator|.
