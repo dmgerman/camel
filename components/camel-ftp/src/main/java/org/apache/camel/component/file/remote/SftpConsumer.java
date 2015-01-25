@@ -307,7 +307,7 @@ block|{
 name|boolean
 name|answer
 init|=
-name|doPollDirectory
+name|doSafePollSubDirectory
 argument_list|(
 name|absolutePath
 argument_list|,
