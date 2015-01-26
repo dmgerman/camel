@@ -597,6 +597,12 @@ argument_list|(
 name|absolutePath
 argument_list|,
 name|file
+argument_list|,
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCharset
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -684,6 +690,12 @@ argument_list|(
 name|absolutePath
 argument_list|,
 name|file
+argument_list|,
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCharset
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -880,7 +892,7 @@ name|cause
 argument_list|)
 return|;
 block|}
-DECL|method|asRemoteFile (String absolutePath, ChannelSftp.LsEntry file)
+DECL|method|asRemoteFile (String absolutePath, ChannelSftp.LsEntry file, String charset)
 specifier|private
 name|RemoteFile
 argument_list|<
@@ -897,6 +909,9 @@ name|ChannelSftp
 operator|.
 name|LsEntry
 name|file
+parameter_list|,
+name|String
+name|charset
 parameter_list|)
 block|{
 name|RemoteFile
@@ -916,6 +931,13 @@ name|LsEntry
 argument_list|>
 argument_list|()
 decl_stmt|;
+name|answer
+operator|.
+name|setCharset
+argument_list|(
+name|charset
+argument_list|)
+expr_stmt|;
 name|answer
 operator|.
 name|setEndpointPath

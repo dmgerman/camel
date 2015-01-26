@@ -673,6 +673,12 @@ argument_list|(
 name|absolutePath
 argument_list|,
 name|file
+argument_list|,
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCharset
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -763,6 +769,12 @@ argument_list|(
 name|absolutePath
 argument_list|,
 name|file
+argument_list|,
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCharset
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -1008,7 +1020,7 @@ name|cause
 argument_list|)
 return|;
 block|}
-DECL|method|asRemoteFile (String absolutePath, FTPFile file)
+DECL|method|asRemoteFile (String absolutePath, FTPFile file, String charset)
 specifier|private
 name|RemoteFile
 argument_list|<
@@ -1021,6 +1033,9 @@ name|absolutePath
 parameter_list|,
 name|FTPFile
 name|file
+parameter_list|,
+name|String
+name|charset
 parameter_list|)
 block|{
 name|RemoteFile
@@ -1036,6 +1051,13 @@ name|FTPFile
 argument_list|>
 argument_list|()
 decl_stmt|;
+name|answer
+operator|.
+name|setCharset
+argument_list|(
+name|charset
+argument_list|)
+expr_stmt|;
 name|answer
 operator|.
 name|setEndpointPath
@@ -1226,16 +1248,6 @@ argument_list|(
 name|answer
 operator|.
 name|getRelativeFilePath
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|answer
-operator|.
-name|setCharset
-argument_list|(
-name|endpoint
-operator|.
-name|getCharset
 argument_list|()
 argument_list|)
 expr_stmt|;
