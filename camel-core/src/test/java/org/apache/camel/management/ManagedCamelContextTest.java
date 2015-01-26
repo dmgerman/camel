@@ -1948,7 +1948,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"expression\": { \"kind\": \"element\", \"required\": \"true\", \"type\": \"object\""
+literal|"\"expression\": { \"kind\": \"expression\", \"required\": \"true\", \"type\": \"object\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2054,7 +2054,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"expression\": { \"kind\": \"element\", \"required\": \"true\", \"type\": \"object\""
+literal|"\"expression\": { \"kind\": \"expression\", \"required\": \"true\", \"type\": \"object\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2181,7 +2181,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"correlationExpression\": { \"kind\": \"element\", \"required\": \"true\", \"type\": \"object\""
+literal|"\"correlationExpression\": { \"kind\": \"expression\", \"required\": \"true\", \"type\": \"object\""
 argument_list|)
 argument_list|)
 expr_stmt|;
