@@ -333,7 +333,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for an expression  *  * @version   */
+comment|/**  * A useful base class for an expression  */
 end_comment
 
 begin_class
@@ -1141,6 +1141,7 @@ return|return
 name|expression
 return|;
 block|}
+comment|/**      * The expression value in your chosen language syntax      */
 annotation|@
 name|Required
 DECL|method|setExpression (String expression)

@@ -161,7 +161,7 @@ name|Metadata
 argument_list|(
 name|defaultValue
 operator|=
-literal|"''"
+literal|"\""
 argument_list|)
 DECL|field|quote
 specifier|protected
@@ -175,7 +175,7 @@ name|Metadata
 argument_list|(
 name|defaultValue
 operator|=
-literal|"''"
+literal|"\""
 argument_list|)
 DECL|field|quoteEscape
 specifier|protected
