@@ -409,7 +409,7 @@ return|return
 name|textQualifier
 return|;
 block|}
-comment|/**      * If the text is qualified with a char such as "      *<p/>      * The default value is "      */
+comment|/**      * If the text is qualified with a char such as&quot;      */
 DECL|method|setTextQualifier (String textQualifier)
 specifier|public
 name|void
@@ -436,7 +436,7 @@ return|return
 name|delimiter
 return|;
 block|}
-comment|/**      * The delimiter char (could be ; , or similar)      *<p/>      * The default value is ,      */
+comment|/**      * The delimiter char (could be ; , or similar)      */
 DECL|method|setDelimiter (String delimiter)
 specifier|public
 name|void

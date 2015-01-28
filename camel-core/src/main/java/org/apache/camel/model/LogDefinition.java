@@ -796,7 +796,7 @@ return|return
 name|loggerRef
 return|;
 block|}
-comment|/**      * To refer to a custom logger instance to lookup from ther registry.      */
+comment|/**      * To refer to a custom logger instance to lookup from the registry.      */
 DECL|method|setLoggerRef (String loggerRef)
 specifier|public
 name|void
