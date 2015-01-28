@@ -422,10 +422,12 @@ argument_list|,
 name|Version
 operator|.
 name|LUCENE_4_10_2
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
-DECL|method|search (String searchPhrase, int maxNumberOfHits, Version luceneVersion)
+DECL|method|search (String searchPhrase, int maxNumberOfHits, Version luceneVersion, boolean returnLuceneDocs)
 specifier|public
 name|Hits
 name|search
@@ -438,6 +440,9 @@ name|maxNumberOfHits
 parameter_list|,
 name|Version
 name|luceneVersion
+parameter_list|,
+name|boolean
+name|returnLuceneDocs
 parameter_list|)
 throws|throws
 name|Exception
@@ -495,6 +500,19 @@ operator|new
 name|Hit
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|returnLuceneDocs
+condition|)
+block|{
+name|aHit
+operator|.
+name|setDocument
+argument_list|(
+name|selectedDocument
+argument_list|)
+expr_stmt|;
+block|}
 name|aHit
 operator|.
 name|setHitLocation

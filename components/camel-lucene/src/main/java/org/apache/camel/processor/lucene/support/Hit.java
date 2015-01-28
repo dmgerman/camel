@@ -22,6 +22,20 @@ end_package
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|document
+operator|.
+name|Document
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -61,6 +75,11 @@ DECL|field|data
 specifier|private
 name|String
 name|data
+decl_stmt|;
+DECL|field|document
+specifier|private
+name|Document
+name|document
 decl_stmt|;
 DECL|method|getHitLocation ()
 specifier|public
@@ -138,6 +157,32 @@ operator|.
 name|data
 operator|=
 name|value
+expr_stmt|;
+block|}
+DECL|method|getDocument ()
+specifier|public
+name|Document
+name|getDocument
+parameter_list|()
+block|{
+return|return
+name|document
+return|;
+block|}
+DECL|method|setDocument (Document document)
+specifier|public
+name|void
+name|setDocument
+parameter_list|(
+name|Document
+name|document
+parameter_list|)
+block|{
+name|this
+operator|.
+name|document
+operator|=
+name|document
 expr_stmt|;
 block|}
 annotation|@
