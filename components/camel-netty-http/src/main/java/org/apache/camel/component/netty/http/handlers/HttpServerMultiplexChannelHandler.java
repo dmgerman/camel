@@ -26,6 +26,18 @@ begin_import
 import|import
 name|java
 operator|.
+name|nio
+operator|.
+name|channels
+operator|.
+name|ClosedChannelException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -864,6 +876,28 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|instanceof
+name|ClosedChannelException
+condition|)
+block|{
+comment|// The channel is closed so we do nothing here
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Channel already closed. Ignoring this exception."
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
+else|else
+block|{
 comment|// we cannot throw the exception here
 name|LOG
 operator|.
@@ -955,6 +989,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getHandler (HttpRequest request)
