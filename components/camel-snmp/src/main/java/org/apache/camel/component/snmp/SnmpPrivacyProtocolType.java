@@ -19,20 +19,26 @@ package|;
 end_package
 
 begin_enum
-DECL|enum|SnmpActionType
+DECL|enum|SnmpPrivacyProtocolType
 specifier|public
 enum|enum
-name|SnmpActionType
+name|SnmpPrivacyProtocolType
 block|{
-DECL|enumConstant|TRAP
-DECL|enumConstant|POLL
-DECL|enumConstant|GET_NEXT
-name|TRAP
+DECL|enumConstant|DES
+DECL|enumConstant|TRIDES
+DECL|enumConstant|AES128
+DECL|enumConstant|AES192
+DECL|enumConstant|AES256
+name|DES
 block|,
-name|POLL
+name|TRIDES
 block|,
-name|GET_NEXT
-block|}
+name|AES128
+block|,
+name|AES192
+block|,
+name|AES256
+block|;  }
 end_enum
 
 end_unit

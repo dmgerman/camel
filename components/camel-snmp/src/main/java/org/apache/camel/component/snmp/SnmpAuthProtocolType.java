@@ -19,19 +19,16 @@ package|;
 end_package
 
 begin_enum
-DECL|enum|SnmpActionType
+DECL|enum|SnmpAuthProtocolType
 specifier|public
 enum|enum
-name|SnmpActionType
+name|SnmpAuthProtocolType
 block|{
-DECL|enumConstant|TRAP
-DECL|enumConstant|POLL
-DECL|enumConstant|GET_NEXT
-name|TRAP
+DECL|enumConstant|MD5
+DECL|enumConstant|SHA1
+name|MD5
 block|,
-name|POLL
-block|,
-name|GET_NEXT
+name|SHA1
 block|}
 end_enum
 
