@@ -461,6 +461,7 @@ operator|.
 name|OBJECT_TYPE_ID
 argument_list|)
 condition|)
+block|{
 name|objectTypeName
 operator|=
 operator|(
@@ -475,6 +476,7 @@ operator|.
 name|OBJECT_TYPE_ID
 argument_list|)
 expr_stmt|;
+block|}
 name|Set
 argument_list|<
 name|String
@@ -1191,14 +1193,10 @@ name|message
 operator|.
 name|getBody
 argument_list|(
-operator|new
 name|byte
-index|[
-literal|0
-index|]
+index|[]
 operator|.
-name|getClass
-argument_list|()
+expr|class
 argument_list|)
 return|;
 block|}
