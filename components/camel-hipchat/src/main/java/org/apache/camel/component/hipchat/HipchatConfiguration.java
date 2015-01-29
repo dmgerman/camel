@@ -70,6 +70,17 @@ name|HipchatConfiguration
 block|{
 annotation|@
 name|UriPath
+DECL|field|protocol
+specifier|private
+name|String
+name|protocol
+init|=
+name|HipchatConstants
+operator|.
+name|DEFAULT_PROTOCOL
+decl_stmt|;
+annotation|@
+name|UriPath
 DECL|field|host
 specifier|private
 name|String
@@ -89,17 +100,6 @@ init|=
 name|HipchatConstants
 operator|.
 name|DEFAULT_PORT
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|protocol
-specifier|private
-name|String
-name|protocol
-init|=
-name|HipchatConstants
-operator|.
-name|DEFAULT_PROTOCOL
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -125,6 +125,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * The host for the hipchat server. Is by default api.hipchat.com      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -151,6 +152,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * The port for the hipchat server. Is by default 80.      */
 DECL|method|setPort (Integer port)
 specifier|public
 name|void
@@ -177,6 +179,7 @@ return|return
 name|protocol
 return|;
 block|}
+comment|/**      * The protocol for the hipchat server. Is by default http.      */
 DECL|method|setProtocol (String protocol)
 specifier|public
 name|void
@@ -203,6 +206,7 @@ return|return
 name|authToken
 return|;
 block|}
+comment|/**      * OAuth 2 auth token      */
 DECL|method|setAuthToken (String authToken)
 specifier|public
 name|void
@@ -229,6 +233,7 @@ return|return
 name|consumeUsers
 return|;
 block|}
+comment|/**      * Username(s) when consuming messages from the hiptchat server.      *<p/>      * Multiple user names can be separated by comma.      */
 DECL|method|setConsumeUsers (String consumeUsers)
 specifier|public
 name|void
