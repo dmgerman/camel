@@ -80,6 +80,14 @@ name|typeConversion
 init|=
 literal|true
 decl_stmt|;
+comment|/**      * Sets the name of the this CamelContext.      */
+DECL|field|name
+specifier|private
+name|String
+name|name
+init|=
+literal|null
+decl_stmt|;
 comment|// Getters& setters
 DECL|method|isJmxEnabled ()
 specifier|public
@@ -183,6 +191,32 @@ operator|.
 name|typeConversion
 operator|=
 name|typeConversion
+expr_stmt|;
+block|}
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
+block|}
+DECL|method|setName (String name)
+specifier|public
+name|void
+name|setName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|this
+operator|.
+name|name
+operator|=
+name|name
 expr_stmt|;
 block|}
 block|}
