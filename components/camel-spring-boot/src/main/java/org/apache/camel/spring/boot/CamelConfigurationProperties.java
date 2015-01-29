@@ -85,8 +85,6 @@ DECL|field|name
 specifier|private
 name|String
 name|name
-init|=
-literal|null
 decl_stmt|;
 comment|// Getters& setters
 DECL|method|isJmxEnabled ()
