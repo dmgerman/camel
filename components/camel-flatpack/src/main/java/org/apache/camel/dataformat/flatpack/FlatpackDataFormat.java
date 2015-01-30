@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.flatpack
+DECL|package|org.apache.camel.dataformat.flatpack
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|dataformat
 operator|.
 name|flatpack
 package|;
@@ -220,6 +220,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|flatpack
+operator|.
+name|DataSetList
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|DataFormat
@@ -299,7 +315,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Flatpack DataFormat.  *<p/>  * This data format supports two operations:  *<ul>  *<li>marshal = from<tt>List&lt;Map&lt;String, Object&gt;&gt;</tt> to<tt>OutputStream</tt> (can be converted to String)</li>  *<li>unmarshal = from<tt>InputStream</tt> (such as a File) to {@link DataSetList}.  *</ul>  *<b>Notice:</b> The Flatpack library does currently not support header and trailers for the marshal operation.  *  * @version   */
+comment|/**  * Flatpack DataFormat.  *<p/>  * This data format supports two operations:  *<ul>  *<li>marshal = from<tt>List&lt;Map&lt;String, Object&gt;&gt;</tt> to<tt>OutputStream</tt> (can be converted to String)</li>  *<li>unmarshal = from<tt>InputStream</tt> (such as a File) to {@link org.apache.camel.component.flatpack.DataSetList}.  *</ul>  *<b>Notice:</b> The Flatpack library does currently not support header and trailers for the marshal operation.  *  * @version   */
 end_comment
 
 begin_class
