@@ -5,6 +5,7 @@ end_comment
 
 begin_package
 DECL|package|org.apache.camel.util
+DECL|package|org.apache.camel.util
 package|package
 name|org
 operator|.
@@ -106,11 +107,13 @@ end_comment
 
 begin_class
 DECL|class|JsonSchemaHelper
+DECL|class|JsonSchemaHelper
 specifier|public
 specifier|final
 class|class
 name|JsonSchemaHelper
 block|{
+DECL|field|PATTERN
 DECL|field|PATTERN
 specifier|private
 specifier|static
@@ -126,6 +129,7 @@ literal|"\"(.+?)\"|\\[(.+)\\]"
 argument_list|)
 decl_stmt|;
 DECL|field|QUOT
+DECL|field|QUOT
 specifier|private
 specifier|static
 specifier|final
@@ -135,11 +139,13 @@ init|=
 literal|"&quot;"
 decl_stmt|;
 DECL|method|JsonSchemaHelper ()
+DECL|method|JsonSchemaHelper ()
 specifier|private
 name|JsonSchemaHelper
 parameter_list|()
 block|{     }
 comment|/**      * Gets the JSon schema type.      *      * @param   type the java type      * @return  the json schema type, is never null, but returns<tt>object</tt> as the generic type      */
+DECL|method|getType (Class<?> type)
 DECL|method|getType (Class<?> type)
 specifier|public
 specifier|static
@@ -227,6 +233,7 @@ literal|"object"
 return|;
 block|}
 comment|/**      * Gets the JSon schema primitive type.      *      * @param   type the java type      * @return  the json schema primitive type, or<tt>null</tt> if not a primitive      */
+DECL|method|getPrimitiveType (Class<?> type)
 DECL|method|getPrimitiveType (Class<?> type)
 specifier|public
 specifier|static
@@ -624,6 +631,7 @@ return|;
 block|}
 comment|/**      * Parses the json schema to split it into a list or rows, where each row contains key value pairs with the metadata      *      * @param group the group to parse from such as<tt>component</tt>,<tt>componentProperties</tt>, or<tt>properties</tt>.      * @param json the json      * @return a list of all the rows, where each row is a set of key value pairs with metadata      */
 DECL|method|parseJsonSchema (String group, String json, boolean parseProperties)
+DECL|method|parseJsonSchema (String group, String json, boolean parseProperties)
 specifier|public
 specifier|static
 name|List
@@ -763,9 +771,13 @@ name|line
 operator|.
 name|replaceAll
 argument_list|(
-literal|"\\\\\""
+literal|"\"\\\\\"\""
 argument_list|,
+literal|'"'
+operator|+
 name|QUOT
+operator|+
+literal|'"'
 argument_list|)
 expr_stmt|;
 name|Map
@@ -907,7 +919,7 @@ operator|.
 name|trim
 argument_list|()
 expr_stmt|;
-comment|// encode back
+comment|// decode
 name|value
 operator|=
 name|value
@@ -917,6 +929,13 @@ argument_list|(
 name|QUOT
 argument_list|,
 literal|"\""
+argument_list|)
+expr_stmt|;
+name|value
+operator|=
+name|decodeJson
+argument_list|(
+name|value
 argument_list|)
 expr_stmt|;
 block|}
@@ -956,6 +975,37 @@ block|}
 block|}
 return|return
 name|answer
+return|;
+block|}
+DECL|method|decodeJson (String value)
+DECL|method|decodeJson (String value)
+specifier|private
+specifier|static
+name|String
+name|decodeJson
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+comment|// json encodes a \ as \\ so we need to decode from \\ back to \
+if|if
+condition|(
+literal|"\\\\"
+operator|.
+name|equals
+argument_list|(
+name|value
+argument_list|)
+condition|)
+block|{
+name|value
+operator|=
+literal|"\\"
+expr_stmt|;
+block|}
+return|return
+name|value
 return|;
 block|}
 block|}
