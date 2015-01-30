@@ -103,6 +103,15 @@ argument_list|(
 literal|"\"(.+?)\"|\\[(.+)\\]"
 argument_list|)
 decl_stmt|;
+DECL|field|QUOT
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|QUOT
+init|=
+literal|"&quot;"
+decl_stmt|;
 DECL|method|JSonSchemaHelper ()
 specifier|private
 name|JSonSchemaHelper
@@ -242,6 +251,18 @@ condition|)
 block|{
 break|break;
 block|}
+comment|// need to safe encode \" so we can parse the line
+name|line
+operator|=
+name|line
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\\\\""
+argument_list|,
+name|QUOT
+argument_list|)
+expr_stmt|;
 name|Map
 argument_list|<
 name|String
@@ -380,6 +401,18 @@ name|value
 operator|.
 name|trim
 argument_list|()
+expr_stmt|;
+comment|// encode back
+name|value
+operator|=
+name|value
+operator|.
+name|replaceAll
+argument_list|(
+name|QUOT
+argument_list|,
+literal|"\""
+argument_list|)
 expr_stmt|;
 block|}
 name|row

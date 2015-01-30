@@ -409,7 +409,7 @@ return|return
 name|textQualifier
 return|;
 block|}
-comment|/**      * If the text is qualified with a char such as&quot;      */
+comment|/**      * If the text is qualified with a char such as "      */
 DECL|method|setTextQualifier (String textQualifier)
 specifier|public
 name|void
