@@ -154,6 +154,13 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
+name|endpoint
+operator|.
+name|setName
+argument_list|(
+name|remaining
+argument_list|)
+expr_stmt|;
 name|Integer
 name|value
 init|=

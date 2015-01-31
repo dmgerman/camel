@@ -183,6 +183,76 @@ name|json
 operator|.
 name|contains
 argument_list|(
+literal|"\"name\": { \"kind\": \"path\", \"type\": \"string\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"expectedCount\": { \"kind\": \"parameter\", \"type\": \"integer\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"retainFirst\": { \"kind\": \"parameter\", \"type\": \"integer\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testEndpointExplain ()
+specifier|public
+name|void
+name|testEndpointExplain
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|json
+init|=
+name|context
+operator|.
+name|explainEndpointJson
+argument_list|(
+literal|"mock:foo?retainFirst=10"
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"name\": { \"kind\": \"path\", \"type\": \"string\", \"javaType\": \"java.lang.String\","
+operator|+
+literal|" \"deprecated\": \"false\", \"value\": \"foo\", \"description\": \"Name of mock endpoint\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
 literal|"\"expectedCount\": { \"kind\": \"parameter\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
