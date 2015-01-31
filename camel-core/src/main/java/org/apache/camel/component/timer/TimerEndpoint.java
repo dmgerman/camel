@@ -316,7 +316,7 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"false"
+literal|"0"
 argument_list|)
 DECL|field|repeatCount
 specifier|private
