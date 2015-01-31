@@ -67,6 +67,8 @@ specifier|final
 class|class
 name|AtmosPropertyManager
 block|{
+comment|// TODO: this is wrong, this should be configured on the component instead
+comment|// and no static code please!
 DECL|field|properties
 specifier|private
 specifier|static

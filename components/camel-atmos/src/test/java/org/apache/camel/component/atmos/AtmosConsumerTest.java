@@ -166,7 +166,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"atmos://"
+literal|"atmos:foo/"
 operator|+
 name|get
 operator|+
@@ -193,18 +193,22 @@ throws|throws
 name|Exception
 block|{
 comment|// Given
-name|Endpoint
+name|AtmosEndpoint
 name|atmosEndpoint
 init|=
 name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"atmos://"
+literal|"atmos:foo/"
 operator|+
 name|get
 operator|+
 literal|"?remotePath=/path"
+argument_list|,
+name|AtmosEndpoint
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 comment|// When
@@ -226,6 +230,19 @@ argument_list|(
 name|consumer
 operator|instanceof
 name|AtmosScheduledPollGetConsumer
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"foo"
+argument_list|,
+name|atmosEndpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -228,6 +228,34 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -265,6 +293,23 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"atmos"
+argument_list|,
+name|consumerClass
+operator|=
+name|AtmosScheduledPollConsumer
+operator|.
+name|class
+argument_list|,
+name|label
+operator|=
+literal|"file,cloud"
+argument_list|)
 DECL|class|AtmosEndpoint
 specifier|public
 class|class
@@ -289,6 +334,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|configuration
 specifier|private
 name|AtmosConfiguration
@@ -341,6 +388,32 @@ name|endpointUri
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getConfiguration ()
+specifier|public
+name|AtmosConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
+return|;
+block|}
+DECL|method|setConfiguration (AtmosConfiguration configuration)
+specifier|public
+name|void
+name|setConfiguration
+parameter_list|(
+name|AtmosConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
+block|}
 comment|/**      * Create one of the camel producer available based on the configuration      *      * @return the camel producer      * @throws Exception      */
 DECL|method|createProducer ()
 specifier|public
@@ -352,7 +425,7 @@ name|Exception
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"resolve producer atmos endpoint {"
 operator|+
@@ -369,7 +442,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"resolve producer atmos attached client: "
 operator|+
@@ -530,8 +603,6 @@ argument_list|)
 expr_stmt|;
 name|AtmosScheduledPollConsumer
 name|consumer
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
