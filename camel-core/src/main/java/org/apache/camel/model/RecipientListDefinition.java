@@ -367,6 +367,13 @@ name|executorService
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|","
+argument_list|)
 DECL|field|delimiter
 specifier|private
 name|String
