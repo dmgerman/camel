@@ -246,6 +246,8 @@ name|layoutHeight
 return|;
 block|}
 comment|/**      * Layout height      */
+annotation|@
+name|Deprecated
 DECL|method|setLayoutHeight (Double layoutHeight)
 specifier|public
 name|void
@@ -273,6 +275,8 @@ name|layoutWidth
 return|;
 block|}
 comment|/**      * Layout width      */
+annotation|@
+name|Deprecated
 DECL|method|setLayoutWidth (Double layoutWidth)
 specifier|public
 name|void
@@ -300,6 +304,8 @@ name|layoutX
 return|;
 block|}
 comment|/**      * Layout position X      */
+annotation|@
+name|Deprecated
 DECL|method|setLayoutX (Double layoutX)
 specifier|public
 name|void
@@ -327,6 +333,8 @@ name|layoutY
 return|;
 block|}
 comment|/**      * Layout position Y      */
+annotation|@
+name|Deprecated
 DECL|method|setLayoutY (Double layoutY)
 specifier|public
 name|void

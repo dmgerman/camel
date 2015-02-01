@@ -1447,7 +1447,9 @@ return|return
 name|ref
 return|;
 block|}
-comment|/**      * To refer to a custom data format to use as marshaller      */
+comment|/**      * To refer to a custom data format to use as marshaller      *      * @deprecated use uri with ref:uri instead      */
+annotation|@
+name|Deprecated
 DECL|method|setRef (String ref)
 specifier|public
 name|void

@@ -820,7 +820,9 @@ return|return
 name|ref
 return|;
 block|}
-comment|/**      * To use a custom load balancer.      * This option is deprecated, use the custom load balancer type instead.      */
+comment|/**      * To use a custom load balancer.      * This option is deprecated, use the custom load balancer type instead.      *      * @deprecated use custom load balancer      */
+annotation|@
+name|Deprecated
 DECL|method|setRef (String ref)
 specifier|public
 name|void

@@ -201,6 +201,8 @@ name|uri
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Deprecated
 DECL|field|ref
 specifier|private
 name|String
@@ -405,7 +407,9 @@ return|return
 name|ref
 return|;
 block|}
-comment|/**      * Sets the name of the endpoint within the registry (such as the Spring      * ApplicationContext or JNDI) to use      *      * @param ref the reference name to use      */
+comment|/**      * Sets the name of the endpoint within the registry (such as the Spring      * ApplicationContext or JNDI) to use      *      * @param ref the reference name to use      * @deprecated use uri with ref:uri instead      */
+annotation|@
+name|Deprecated
 DECL|method|setRef (String ref)
 specifier|public
 name|void

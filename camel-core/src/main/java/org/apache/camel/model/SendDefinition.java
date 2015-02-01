@@ -206,6 +206,8 @@ name|uri
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Deprecated
 DECL|field|ref
 specifier|protected
 name|String
@@ -341,7 +343,9 @@ return|return
 name|ref
 return|;
 block|}
-comment|/**      * Sets the reference of the endpoint to send to.      *      * @param ref the reference of the endpoint      */
+comment|/**      * Sets the reference of the endpoint to send to.      *      * @param ref the reference of the endpoint      * @deprecated use uri with ref:uri instead      */
+annotation|@
+name|Deprecated
 DECL|method|setRef (String ref)
 specifier|public
 name|void

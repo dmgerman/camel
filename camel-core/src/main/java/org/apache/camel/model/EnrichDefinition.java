@@ -268,6 +268,8 @@ name|name
 operator|=
 literal|"ref"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|field|resourceRef
 specifier|private
 name|String
@@ -787,7 +789,9 @@ return|return
 name|resourceRef
 return|;
 block|}
-comment|/**      * Refers to the endpoint for the external service to enrich from. You must use either uri or ref.      */
+comment|/**      * Refers to the endpoint for the external service to enrich from. You must use either uri or ref.      *      * @deprecated use uri with ref:uri instead      */
+annotation|@
+name|Deprecated
 DECL|method|setResourceRef (String resourceRef)
 specifier|public
 name|void

@@ -1455,7 +1455,9 @@ return|return
 name|ref
 return|;
 block|}
-comment|/**      * To refer to a custom data format to use as unmarshaller      */
+comment|/**      * To refer to a custom data format to use as unmarshaller      *      * @deprecated use custom dataformat instead      */
+annotation|@
+name|Deprecated
 DECL|method|setRef (String ref)
 specifier|public
 name|void
