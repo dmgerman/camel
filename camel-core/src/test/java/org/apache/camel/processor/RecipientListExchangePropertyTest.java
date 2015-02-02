@@ -286,6 +286,7 @@ block|}
 DECL|class|MyStuff
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|MyStuff
 block|{
