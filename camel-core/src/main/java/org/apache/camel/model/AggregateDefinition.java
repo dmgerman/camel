@@ -572,11 +572,6 @@ name|aggregationRepositoryRef
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|true
-argument_list|)
 DECL|field|strategyRef
 specifier|private
 name|String
@@ -626,6 +621,8 @@ name|completionFromBatchConsumer
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Deprecated
 DECL|field|groupExchanges
 specifier|private
 name|Boolean
@@ -2916,7 +2913,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables grouped exchanges, so the aggregator will group all aggregated exchanges into a single      * combined Exchange holding all the aggregated exchanges in a {@link java.util.List}.      */
+comment|/**      * Enables grouped exchanges, so the aggregator will group all aggregated exchanges into a single      * combined Exchange holding all the aggregated exchanges in a {@link java.util.List}.      *      * @deprecated use {@link GroupedExchangeAggregationStrategy} as aggregation strategy instead.      */
+annotation|@
+name|Deprecated
 DECL|method|groupExchanges ()
 specifier|public
 name|AggregateDefinition
