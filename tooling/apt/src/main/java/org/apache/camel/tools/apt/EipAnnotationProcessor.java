@@ -5820,6 +5820,7 @@ block|}
 DECL|class|EipOptionComparator
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|EipOptionComparator
 implements|implements
