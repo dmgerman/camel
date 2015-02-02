@@ -291,7 +291,7 @@ block|}
 block|}
 name|CamelNamespaceHandler
 operator|.
-name|renameNamespaceRecursive
+name|doBeforeParse
 argument_list|(
 name|elem
 argument_list|,
