@@ -1416,7 +1416,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// remove whitespace noise from uri attributes, eg new lines, and tabs etc, which allows end users to format
+comment|// remove whitespace noise from uri, xxxUri attributes, eg new lines, and tabs etc, which allows end users to format
 comment|// their Camel routes in more human readable format, but at runtime those attributes must be trimmed
 comment|// the parser removes most of the noise, but keeps double spaces in the attribute values
 name|NamedNodeMap
@@ -1457,24 +1457,24 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-literal|"uri"
-operator|.
-name|equals
-argument_list|(
 name|att
 operator|.
 name|getNodeName
 argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"uri"
 argument_list|)
 operator|||
-literal|"url"
-operator|.
-name|equals
-argument_list|(
 name|att
 operator|.
 name|getNodeName
 argument_list|()
+operator|.
+name|endsWith
+argument_list|(
+literal|"Uri"
 argument_list|)
 condition|)
 block|{
@@ -1514,7 +1514,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Removing whitespace noise from attribute {} -> {}"
+literal|"Removed whitespace noise from attribute {} -> {}"
 argument_list|,
 name|value
 argument_list|,
