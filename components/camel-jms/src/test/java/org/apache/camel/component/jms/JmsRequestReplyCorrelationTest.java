@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|jms
@@ -85,6 +97,20 @@ operator|.
 name|camel
 operator|.
 name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
+name|NotifyBuilder
 import|;
 end_import
 
@@ -333,6 +359,23 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
+name|NotifyBuilder
+name|notify
+init|=
+operator|new
+name|NotifyBuilder
+argument_list|(
+name|context
+argument_list|)
+operator|.
+name|whenReceived
+argument_list|(
+literal|1
+argument_list|)
+operator|.
+name|create
+argument_list|()
+decl_stmt|;
 comment|// just send out the request to fill the correlation id first
 name|template
 operator|.
@@ -389,6 +432,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+argument_list|)
+expr_stmt|;
+comment|// Added use the notify to make sure the message is processed, so we get the exception later
+name|notify
+operator|.
+name|matches
+argument_list|(
+literal|1
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
 argument_list|)
 expr_stmt|;
 name|Exchange
