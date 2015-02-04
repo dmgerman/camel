@@ -276,7 +276,6 @@ block|}
 comment|/**      * Channel callback (similar to Spring JDBC ConnectionCallback)      */
 DECL|interface|ChannelCallback
 specifier|private
-specifier|static
 interface|interface
 name|ChannelCallback
 parameter_list|<
