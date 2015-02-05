@@ -44,6 +44,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|LinkedHashMap
 import|;
 end_import
@@ -120,7 +130,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlElement
+name|XmlElementRef
 import|;
 end_import
 
@@ -257,12 +267,7 @@ name|ExchangePattern
 name|pattern
 decl_stmt|;
 annotation|@
-name|XmlElement
-argument_list|(
-name|name
-operator|=
-literal|"property"
-argument_list|)
+name|XmlElementRef
 DECL|field|properties
 specifier|private
 name|List
@@ -270,6 +275,13 @@ argument_list|<
 name|PropertyDefinition
 argument_list|>
 name|properties
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|PropertyDefinition
+argument_list|>
+argument_list|()
 decl_stmt|;
 annotation|@
 name|XmlTransient

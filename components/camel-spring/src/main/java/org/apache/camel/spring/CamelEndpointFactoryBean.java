@@ -258,6 +258,28 @@ operator|=
 name|applicationContext
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getObject ()
+specifier|public
+name|Endpoint
+name|getObject
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Endpoint
+name|answer
+init|=
+name|super
+operator|.
+name|getObject
+argument_list|()
+decl_stmt|;
+return|return
+name|answer
+return|;
+block|}
 block|}
 end_class
 
