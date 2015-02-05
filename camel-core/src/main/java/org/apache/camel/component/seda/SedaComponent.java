@@ -121,7 +121,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of the<a href="http://camel.apache.org/seda.html">SEDA components</a>  * for asynchronous SEDA exchanges on a {@link BlockingQueue} within a CamelContext  *  * @version   */
+comment|/**  * The<a href="http://camel.apache.org/seda.html">SEDA Component</a> is for asynchronous SEDA exchanges on a {@link BlockingQueue} within a CamelContext  *  * @version   */
 end_comment
 
 begin_class

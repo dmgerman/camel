@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://camel.apache.org/xslt.html">XSLT Component</a>  * for performing XSLT transforms of messages  */
+comment|/**  * The<a href="http://camel.apache.org/xslt.html">XSLT Component</a> is for performing XSLT transformations of messages  */
 end_comment
 
 begin_class

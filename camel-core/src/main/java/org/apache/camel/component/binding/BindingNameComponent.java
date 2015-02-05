@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To compose a Camel component with a Camel data-format as a single binding unit.  *<p/>  * A Binding component using the URI form<code>binding:nameOfBinding:endpointURI</code>  * to extract the binding name which is then resolved from the registry and used to create a  * {@link BindingEndpoint} from the underlying {@link Endpoint}  */
+comment|/**  * The<a href="http://camel.apache.org/binding.html>Binding Component<a/> is for composing a Camel component with a Camel data-format as a single binding unit.  *<p/>  *  * A Binding component using the URI form<code>binding:nameOfBinding:endpointURI</code>  * to extract the binding name which is then resolved from the registry and used to create a  * {@link BindingEndpoint} from the underlying {@link Endpoint}  */
 end_comment
 
 begin_class

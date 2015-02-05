@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/browse.html">browse</a> component.  *  * @version   */
+comment|/**  * The<a href="http://camel.apache.org/browse.html">Browse Component</a> provides a simple<a href="http://camel.apache.org/browsableendpoint.html">BrowsableEndpoint</a> for testing visualization or debugging.  *  * @version   */
 end_comment
 
 begin_class

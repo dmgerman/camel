@@ -96,6 +96,10 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * The<a href="http://camel.apache.org/dataformat-component.html">Data Format Component</a> enables using Data Format as a component.  *  * @version  */
+end_comment
+
 begin_class
 DECL|class|DataFormatComponent
 specifier|public

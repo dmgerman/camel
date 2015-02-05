@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Component for lookup of existing endpoints bound in the {@link org.apache.camel.spi.Registry}.  *<p/>  * This component uses the<tt>ref:</tt> notation instead of the mostly common<tt>uri:</tt> notation.   */
+comment|/**  * The<a href="http://camel.apache.org/ref.html">Ref Component</a> is for lookup of existing endpoints bound in the {@link org.apache.camel.spi.Registry}.  *<p/>  * This component uses the<tt>ref:</tt> notation instead of the mostly common<tt>uri:</tt> notation.   */
 end_comment
 
 begin_class

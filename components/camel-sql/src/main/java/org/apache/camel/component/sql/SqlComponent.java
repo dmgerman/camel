@@ -119,7 +119,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * The<a href="http://camel.apache.org/sql-component.html">SQL Component</a> is for working with databases using JDBC queries.  *  * @version   */
 end_comment
 
 begin_class

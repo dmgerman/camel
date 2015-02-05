@@ -101,7 +101,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/class.html">Class Component</a> is for invoking Java classes from Camel.  *<p/>  * This component is an extension to the {@link org.apache.camel.component.bean.BeanComponent}.  *  * @version   */
+comment|/**  * The<a href="http://camel.apache.org/class.html">Class Component</a> is for binding JavaBeans to Camel message exchanges based on class name.  *<p/>  * This component is an extension to the {@link org.apache.camel.component.bean.BeanComponent}.  *  * @version   */
 end_comment
 
 begin_class

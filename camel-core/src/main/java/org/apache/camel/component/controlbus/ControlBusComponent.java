@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/controlbus.html">control bus</a> component.  */
+comment|/**  * The<a href="http://camel.apache.org/controlbus.html">Control Bus component</a> allows sending messages to a control-bus endpoint to control routes.  */
 end_comment
 
 begin_class

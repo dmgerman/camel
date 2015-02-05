@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * File component.  */
+comment|/**  *  * The<a href="http://camel.apache.org/file.html">File Component</a> provides access to file systems.  */
 end_comment
 
 begin_class

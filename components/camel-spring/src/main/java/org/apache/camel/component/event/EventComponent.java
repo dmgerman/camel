@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://camel.apache.org/event.html">Event Component</a>  * for working with Spring ApplicationEvents.  *   * @version   */
+comment|/**  * The<a href="http://camel.apache.org/event.html">Event Component</a> is for working with Spring ApplicationEvents.  *   * @version   */
 end_comment
 
 begin_class

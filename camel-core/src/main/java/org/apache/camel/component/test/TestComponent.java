@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Component for testing by polling test messages from another endpoint on startup as the expected message bodies to  * receive during testing.  *  * @version   */
+comment|/**  * The<a href="http://camel.apache.org/test.html">Test Component</a> is for simplifying unit and integration tests.  *  * Component for testing by polling test messages from another endpoint on startup as the expected message bodies to  * receive during testing.  *  * @version   */
 end_comment
 
 begin_class

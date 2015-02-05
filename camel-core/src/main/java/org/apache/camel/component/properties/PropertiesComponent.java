@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/properties">properties</a> component.  *  * @version   */
+comment|/**  * The<a href="http://camel.apache.org/properties">Properties Component</a> allows you to use property placeholders when defining Endpoint URIs  *  * @version   */
 end_comment
 
 begin_class

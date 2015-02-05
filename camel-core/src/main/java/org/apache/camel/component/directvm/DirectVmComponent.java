@@ -113,7 +113,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the component that manages {@link DirectVmEndpoint}. It holds the  * list of named direct-vm endpoints.  */
+comment|/**  * The<a href="http://camel.apache.org/direct-vm.html">Direct VM Component</a> manages {@link DirectVmEndpoint} and holds the list of named direct-vm endpoints.  */
 end_comment
 
 begin_class
