@@ -97,19 +97,22 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A language for property expressions.  */
+comment|/**  * A language for exchange property expressions.  */
 end_comment
 
 begin_class
-DECL|class|PropertyLanguage
+DECL|class|ExchangePropertyLanguage
 specifier|public
 class|class
-name|PropertyLanguage
+name|ExchangePropertyLanguage
 implements|implements
 name|Language
 implements|,
 name|IsSingleton
 block|{
+comment|/**      * @deprecated use {@link #exchangeProperty(String)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|property (String propertyName)
 specifier|public
 specifier|static
@@ -121,9 +124,26 @@ name|propertyName
 parameter_list|)
 block|{
 return|return
+name|exchangeProperty
+argument_list|(
+name|propertyName
+argument_list|)
+return|;
+block|}
+DECL|method|exchangeProperty (String propertyName)
+specifier|public
+specifier|static
+name|Expression
+name|exchangeProperty
+parameter_list|(
+name|String
+name|propertyName
+parameter_list|)
+block|{
+return|return
 name|ExpressionBuilder
 operator|.
-name|propertyExpression
+name|exchangePropertyExpression
 argument_list|(
 name|propertyName
 argument_list|)
@@ -160,9 +180,9 @@ name|expression
 parameter_list|)
 block|{
 return|return
-name|PropertyLanguage
+name|ExchangePropertyLanguage
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 name|expression
 argument_list|)

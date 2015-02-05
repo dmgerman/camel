@@ -148,6 +148,22 @@ name|model
 operator|.
 name|language
 operator|.
+name|ExchangePropertyExpression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|language
+operator|.
 name|HeaderExpression
 import|;
 end_import
@@ -165,22 +181,6 @@ operator|.
 name|language
 operator|.
 name|MethodCallExpression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|language
-operator|.
-name|PropertyExpression
 import|;
 end_import
 
@@ -291,7 +291,9 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a value builder for the given property      */
+comment|/**      *      * Returns a value builder for the given exchange property      * @deprecated use {@link #exchangeProperty(String)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|property (String name)
 specifier|public
 name|ValueBuilder
@@ -301,11 +303,38 @@ name|String
 name|name
 parameter_list|)
 block|{
-name|PropertyExpression
+name|ExchangePropertyExpression
 name|expression
 init|=
 operator|new
-name|PropertyExpression
+name|ExchangePropertyExpression
+argument_list|(
+name|name
+argument_list|)
+decl_stmt|;
+return|return
+operator|new
+name|ValueBuilder
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a value builder for the given exchange property      */
+DECL|method|exchangeProperty (String name)
+specifier|public
+name|ValueBuilder
+name|exchangeProperty
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|ExchangePropertyExpression
+name|expression
+init|=
+operator|new
+name|ExchangePropertyExpression
 argument_list|(
 name|name
 argument_list|)

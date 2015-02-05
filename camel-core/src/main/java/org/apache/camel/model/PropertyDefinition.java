@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.model.language
+DECL|package|org.apache.camel.model
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|camel
 operator|.
 name|model
-operator|.
-name|language
 package|;
 end_package
 
@@ -56,6 +54,20 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlRootElement
 import|;
 end_import
@@ -75,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An expression which extracts the named exchange property  *  * @version   */
+comment|/**  * A key value pair  */
 end_comment
 
 begin_class
@@ -84,7 +96,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"language"
+literal|"configuration"
 argument_list|)
 annotation|@
 name|XmlRootElement
@@ -100,40 +112,90 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|PropertyExpression
+DECL|class|PropertyDefinition
 specifier|public
 class|class
-name|PropertyExpression
-extends|extends
-name|ExpressionDefinition
+name|PropertyDefinition
 block|{
-DECL|method|PropertyExpression ()
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|true
+argument_list|)
+DECL|field|key
+name|String
+name|key
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|true
+argument_list|)
+DECL|field|value
+name|String
+name|value
+decl_stmt|;
+DECL|method|PropertyDefinition ()
 specifier|public
-name|PropertyExpression
+name|PropertyDefinition
 parameter_list|()
 block|{     }
-DECL|method|PropertyExpression (String expression)
+comment|/**      * Property key      */
+DECL|method|setKey (String key)
 specifier|public
-name|PropertyExpression
+name|void
+name|setKey
 parameter_list|(
 name|String
-name|expression
+name|key
 parameter_list|)
 block|{
-name|super
-argument_list|(
-name|expression
-argument_list|)
+name|this
+operator|.
+name|key
+operator|=
+name|key
 expr_stmt|;
 block|}
-DECL|method|getLanguage ()
+DECL|method|getKey ()
 specifier|public
 name|String
-name|getLanguage
+name|getKey
 parameter_list|()
 block|{
 return|return
-literal|"property"
+name|key
+return|;
+block|}
+comment|/**      * Property value      */
+DECL|method|setValue (String value)
+specifier|public
+name|void
+name|setValue
+parameter_list|(
+name|String
+name|value
+parameter_list|)
+block|{
+name|this
+operator|.
+name|value
+operator|=
+name|value
+expr_stmt|;
+block|}
+DECL|method|getValue ()
+specifier|public
+name|String
+name|getValue
+parameter_list|()
+block|{
+return|return
+name|value
 return|;
 block|}
 block|}

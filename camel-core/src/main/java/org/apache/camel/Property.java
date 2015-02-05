@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marks a parameter as being an injection point of a property of an {@link Exchange}  *  * @see Exchange#getProperty(String)    * @version   */
+comment|/**  * Marks a parameter as being an injection point of a property of an {@link Exchange}  *  * @see Exchange#getProperty(String)    * @version  * @deprecated use {@link org.apache.camel.ExchangeProperty} instead  */
 end_comment
 
 begin_annotation_defn
@@ -97,6 +97,8 @@ operator|.
 name|PARAMETER
 block|}
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|annotation|Property
 specifier|public
 annotation_defn|@interface

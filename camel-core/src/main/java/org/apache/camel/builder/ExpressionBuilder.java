@@ -1922,7 +1922,9 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns an expression for the property value of exchange with the given name      *      * @param propertyName the name of the property the expression will return      * @return an expression object which will return the property value      */
+comment|/**      * Returns an expression for the property value of exchange with the given name      *      * @param propertyName the name of the property the expression will return      * @return an expression object which will return the property value      * @deprecated use {@link #exchangePropertyExpression(String)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|propertyExpression (final String propertyName)
 specifier|public
 specifier|static
@@ -1964,7 +1966,59 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"property("
+literal|"exchangeProperty("
+operator|+
+name|propertyName
+operator|+
+literal|")"
+return|;
+block|}
+block|}
+return|;
+block|}
+comment|/**      * Returns an expression for the property value of exchange with the given name      *      * @param propertyName the name of the property the expression will return      * @return an expression object which will return the property value      */
+DECL|method|exchangePropertyExpression (final String propertyName)
+specifier|public
+specifier|static
+name|Expression
+name|exchangePropertyExpression
+parameter_list|(
+specifier|final
+name|String
+name|propertyName
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ExpressionAdapter
+argument_list|()
+block|{
+specifier|public
+name|Object
+name|evaluate
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|propertyName
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"exchangeProperty("
 operator|+
 name|propertyName
 operator|+

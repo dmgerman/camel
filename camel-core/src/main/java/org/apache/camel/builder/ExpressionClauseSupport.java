@@ -110,6 +110,22 @@ name|model
 operator|.
 name|language
 operator|.
+name|ExchangePropertyExpression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|language
+operator|.
 name|ExpressionDefinition
 import|;
 end_import
@@ -271,22 +287,6 @@ operator|.
 name|language
 operator|.
 name|PhpExpression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|language
-operator|.
-name|PropertyExpression
 import|;
 end_import
 
@@ -858,7 +858,9 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * An expression of an exchange property of the given name      */
+comment|/**      * An expression of an exchange property of the given name      *      * @deprecated use {@link #exchangeProperty(String)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|property (String name)
 specifier|public
 name|T
@@ -872,7 +874,28 @@ return|return
 name|expression
 argument_list|(
 operator|new
-name|PropertyExpression
+name|ExchangePropertyExpression
+argument_list|(
+name|name
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * An expression of an exchange property of the given name      */
+DECL|method|exchangeProperty (String name)
+specifier|public
+name|T
+name|exchangeProperty
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|expression
+argument_list|(
+operator|new
+name|ExchangePropertyExpression
 argument_list|(
 name|name
 argument_list|)

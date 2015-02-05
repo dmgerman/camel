@@ -331,7 +331,9 @@ name|expression
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for properties on an exchange      */
+comment|/**      * Returns a predicate and value builder for properties on an exchange      *      * @deprecated use {@link #exchangeProperty(String)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|property (String name)
 specifier|public
 specifier|static
@@ -342,12 +344,30 @@ name|String
 name|name
 parameter_list|)
 block|{
+return|return
+name|exchangeProperty
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a predicate and value builder for properties on an exchange      */
+DECL|method|exchangeProperty (String name)
+specifier|public
+specifier|static
+name|ValueBuilder
+name|exchangeProperty
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
 name|Expression
 name|expression
 init|=
 name|ExpressionBuilder
 operator|.
-name|propertyExpression
+name|exchangePropertyExpression
 argument_list|(
 name|name
 argument_list|)

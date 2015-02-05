@@ -511,7 +511,7 @@ comment|// regular property
 return|return
 name|ExpressionBuilder
 operator|.
-name|propertyExpression
+name|exchangePropertyExpression
 argument_list|(
 name|remainder
 argument_list|)

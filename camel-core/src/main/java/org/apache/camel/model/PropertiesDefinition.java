@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.model.config
+DECL|package|org.apache.camel.model
 package|package
 name|org
 operator|.
@@ -13,10 +13,38 @@ operator|.
 name|camel
 operator|.
 name|model
-operator|.
-name|config
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
 
 begin_import
 import|import
@@ -56,7 +84,7 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlAttribute
+name|XmlElement
 import|;
 end_import
 
@@ -89,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A key value pair  */
+comment|/**  * A series of key value pair  */
 end_comment
 
 begin_class
@@ -98,14 +126,14 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"configuration,resequence"
+literal|"configuration"
 argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"property"
+literal|"properties"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -114,90 +142,120 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|PropertyDefinition
+DECL|class|PropertiesDefinition
 specifier|public
 class|class
-name|PropertyDefinition
+name|PropertiesDefinition
 block|{
 annotation|@
-name|XmlAttribute
+name|XmlElement
 argument_list|(
-name|required
+name|name
 operator|=
-literal|true
+literal|"property"
 argument_list|)
-DECL|field|key
-name|String
-name|key
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|true
-argument_list|)
-DECL|field|value
-name|String
-name|value
-decl_stmt|;
-DECL|method|PropertyDefinition ()
-specifier|public
+DECL|field|properties
+specifier|private
+name|List
+argument_list|<
 name|PropertyDefinition
+argument_list|>
+name|properties
+decl_stmt|;
+DECL|method|PropertiesDefinition ()
+specifier|public
+name|PropertiesDefinition
 parameter_list|()
 block|{     }
-comment|/**      * Property key      */
-DECL|method|setKey (String key)
+comment|/**      * A series of properties as key value pairs      */
+DECL|method|setProperties (List<PropertyDefinition> properties)
 specifier|public
 name|void
-name|setKey
+name|setProperties
 parameter_list|(
-name|String
-name|key
+name|List
+argument_list|<
+name|PropertyDefinition
+argument_list|>
+name|properties
 parameter_list|)
 block|{
 name|this
 operator|.
-name|key
+name|properties
 operator|=
-name|key
+name|properties
 expr_stmt|;
 block|}
-DECL|method|getKey ()
+DECL|method|getProperties ()
 specifier|public
-name|String
-name|getKey
+name|List
+argument_list|<
+name|PropertyDefinition
+argument_list|>
+name|getProperties
 parameter_list|()
 block|{
 return|return
-name|key
+name|properties
 return|;
 block|}
-comment|/**      * Property value      */
-DECL|method|setValue (String value)
+comment|/***      * @return A Map of the contained DataFormatType's indexed by id.      */
+DECL|method|asMap ()
 specifier|public
-name|void
-name|setValue
-parameter_list|(
+name|Map
+argument_list|<
 name|String
-name|value
-parameter_list|)
-block|{
-name|this
-operator|.
-name|value
-operator|=
-name|value
-expr_stmt|;
-block|}
-DECL|method|getValue ()
-specifier|public
+argument_list|,
 name|String
-name|getValue
+argument_list|>
+name|asMap
 parameter_list|()
 block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|propertiesAsMap
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
+for|for
+control|(
+name|PropertyDefinition
+name|propertyType
+range|:
+name|getProperties
+argument_list|()
+control|)
+block|{
+name|propertiesAsMap
+operator|.
+name|put
+argument_list|(
+name|propertyType
+operator|.
+name|getKey
+argument_list|()
+argument_list|,
+name|propertyType
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
-name|value
+name|propertiesAsMap
 return|;
 block|}
 block|}
