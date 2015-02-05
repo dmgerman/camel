@@ -146,7 +146,7 @@ name|TestFatJarRouter
 operator|.
 name|main
 argument_list|(
-literal|"--spring.main.sources=org.apache.camel.spring.boot.fatjarrouter"
+literal|"--spring.main.sources=org.apache.camel.spring.boot.FatJarRouter"
 argument_list|,
 literal|"--http.port="
 operator|+
