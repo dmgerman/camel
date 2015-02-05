@@ -64,10 +64,10 @@ name|PropertyTest
 extends|extends
 name|LanguageTestSupport
 block|{
-DECL|method|testProertyExpressions ()
+DECL|method|testPropertyExpressions ()
 specifier|public
 name|void
-name|testProertyExpressions
+name|testPropertyExpressions
 parameter_list|()
 throws|throws
 name|Exception
@@ -101,7 +101,7 @@ name|getLanguageName
 parameter_list|()
 block|{
 return|return
-literal|"property"
+literal|"exchangeProperty"
 return|;
 block|}
 DECL|method|testSingleton ()

@@ -407,7 +407,9 @@ name|attachments
 argument_list|()
 return|;
 block|}
-comment|/**      * An expression of an exchange property of the given name      */
+comment|/**      * An expression of an exchange property of the given name      *      * @deprecated use {@link #exchangeProperty(String)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|property (String name)
 specifier|public
 name|T
@@ -418,9 +420,26 @@ name|name
 parameter_list|)
 block|{
 return|return
+name|exchangeProperty
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+comment|/**      * An expression of an exchange property of the given name      */
+DECL|method|exchangeProperty (String name)
+specifier|public
+name|T
+name|exchangeProperty
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
 name|delegate
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 name|name
 argument_list|)

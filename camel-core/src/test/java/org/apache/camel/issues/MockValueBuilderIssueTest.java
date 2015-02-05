@@ -96,7 +96,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -156,7 +156,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -201,7 +201,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Assertion error at index 0 on mock mock://result with predicate: property(foo) contains 4"
+literal|"Assertion error at index 0 on mock mock://result with predicate: exchangeProperty(foo) contains 4"
 operator|+
 literal|" evaluated as: 123 contains 4 on Exchange[Message: Hello World]"
 argument_list|,
@@ -243,7 +243,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 literal|"foo"
 argument_list|)

@@ -148,7 +148,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 literal|"myProperty"
 argument_list|)
@@ -165,7 +165,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 literal|"myProperty"
 argument_list|)
@@ -182,7 +182,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 literal|"myProperty"
 argument_list|)

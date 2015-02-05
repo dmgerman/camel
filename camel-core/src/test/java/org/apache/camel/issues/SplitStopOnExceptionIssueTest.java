@@ -108,7 +108,7 @@ operator|.
 name|allMessages
 argument_list|()
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 literal|"foo"
 argument_list|)

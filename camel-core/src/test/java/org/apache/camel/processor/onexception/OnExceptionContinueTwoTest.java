@@ -135,7 +135,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 name|Exchange
 operator|.
