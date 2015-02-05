@@ -831,7 +831,7 @@ operator|=
 literal|"true"
 argument_list|)
 DECL|field|copyOnExchange
-specifier|protected
+specifier|private
 name|boolean
 name|copyOnExchange
 init|=
