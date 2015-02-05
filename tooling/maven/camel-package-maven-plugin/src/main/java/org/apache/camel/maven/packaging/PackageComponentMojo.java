@@ -518,6 +518,16 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|project
+operator|.
+name|getDescription
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|properties
 operator|.
 name|put
@@ -530,6 +540,7 @@ name|getDescription
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|camelMetaDir
 operator|.
 name|mkdirs
