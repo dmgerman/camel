@@ -58,6 +58,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ExchangeProperty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Header
 import|;
 end_import
@@ -71,18 +83,6 @@ operator|.
 name|camel
 operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Property
 import|;
 end_import
 
@@ -523,7 +523,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|method|someMethod (String body, @Header(R) String header, @Property(R) String cheese)
+DECL|method|someMethod (String body, @Header(R) String header, @ExchangeProperty(R) String cheese)
 specifier|public
 name|void
 name|someMethod
@@ -540,7 +540,7 @@ name|String
 name|header
 parameter_list|,
 annotation|@
-name|Property
+name|ExchangeProperty
 argument_list|(
 literal|"cheese"
 argument_list|)

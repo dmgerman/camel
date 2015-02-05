@@ -36,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Property
+name|ExchangeProperty
 import|;
 end_import
 
@@ -136,13 +136,13 @@ name|oldExchange
 return|;
 block|}
 comment|/**      * An expression used to determine if the aggregation is complete      */
-DECL|method|isCompleted (@ropertyExchange.AGGREGATED_SIZE) Integer aggregated)
+DECL|method|isCompleted (@xchangePropertyExchange.AGGREGATED_SIZE) Integer aggregated)
 specifier|public
 name|boolean
 name|isCompleted
 parameter_list|(
 annotation|@
-name|Property
+name|ExchangeProperty
 argument_list|(
 name|Exchange
 operator|.
