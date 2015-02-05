@@ -514,7 +514,7 @@ argument_list|()
 operator|.
 name|getMethod
 argument_list|(
-literal|"setResponseBufferSize"
+literal|"setResponseHeaderSize"
 argument_list|,
 name|Integer
 operator|.
