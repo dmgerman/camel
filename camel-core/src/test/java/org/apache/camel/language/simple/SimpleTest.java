@@ -1401,6 +1401,31 @@ literal|"gold"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testSimpleExchangePropertyExpressions ()
+specifier|public
+name|void
+name|testSimpleExchangePropertyExpressions
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+literal|"medal"
+argument_list|,
+literal|"gold"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"exchangeProperty.medal"
+argument_list|,
+literal|"gold"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testSimpleSystemPropertyExpressions ()
 specifier|public
 name|void
@@ -1892,14 +1917,14 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"${property.wicket[0]}"
+literal|"${exchangeProperty.wicket[0]}"
 argument_list|,
 literal|"Camel in Action"
 argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"${property.wicket[1]}"
+literal|"${exchangeProperty.wicket[1]}"
 argument_list|,
 literal|"ActiveMQ in Action"
 argument_list|)
@@ -1908,7 +1933,7 @@ try|try
 block|{
 name|assertExpression
 argument_list|(
-literal|"${property.wicket[2]}"
+literal|"${exchangeProperty.wicket[2]}"
 argument_list|,
 literal|""
 argument_list|)
@@ -1953,7 +1978,7 @@ expr_stmt|;
 block|}
 name|assertExpression
 argument_list|(
-literal|"${property.unknown[cool]}"
+literal|"${exchangeProperty.unknown[cool]}"
 argument_list|,
 literal|null
 argument_list|)
@@ -2017,14 +2042,14 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"${property.wicket[0].getId}"
+literal|"${exchangeProperty.wicket[0].getId}"
 argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"${property.wicket[1].getName}"
+literal|"${exchangeProperty.wicket[1].getName}"
 argument_list|,
 literal|"ActiveMQ in Action"
 argument_list|)
@@ -2033,7 +2058,7 @@ try|try
 block|{
 name|assertExpression
 argument_list|(
-literal|"${property.wicket[2]}"
+literal|"${exchangeProperty.wicket[2]}"
 argument_list|,
 literal|""
 argument_list|)
@@ -2189,6 +2214,111 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testOGNLExchangePropertyMap ()
+specifier|public
+name|void
+name|testOGNLExchangePropertyMap
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|map
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"cool"
+argument_list|,
+literal|"Camel rocks"
+argument_list|)
+expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"dude"
+argument_list|,
+literal|"Hey dude"
+argument_list|)
+expr_stmt|;
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"code"
+argument_list|,
+literal|4321
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+literal|"wicket"
+argument_list|,
+name|map
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${exchangeProperty.wicket[cool]}"
+argument_list|,
+literal|"Camel rocks"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${exchangeProperty.wicket[dude]}"
+argument_list|,
+literal|"Hey dude"
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${exchangeProperty.wicket[unknown]}"
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${exchangeProperty.wicket[code]}"
+argument_list|,
+literal|4321
+argument_list|)
+expr_stmt|;
+comment|// no header named unknown
+name|assertExpression
+argument_list|(
+literal|"${exchangeProperty?.unknown[cool]}"
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${exchangeProperty.unknown[cool]}"
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testOGNLPropertyMapWithDot ()
 specifier|public
 name|void
@@ -2234,7 +2364,7 @@ argument_list|)
 expr_stmt|;
 name|assertExpression
 argument_list|(
-literal|"${property.wicket[this.code]}"
+literal|"${exchangeProperty.wicket[this.code]}"
 argument_list|,
 literal|"This code"
 argument_list|)
@@ -2252,7 +2382,7 @@ try|try
 block|{
 name|assertExpression
 argument_list|(
-literal|"${property.foobar[bar]}"
+literal|"${exchangeProperty.foobar[bar]}"
 argument_list|,
 literal|null
 argument_list|)
@@ -2334,7 +2464,51 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"Valid syntax: ${property.OGNL} was: property.foobar[bar at location 0"
+literal|"Valid syntax: ${exchangeProperty.OGNL} was: property.foobar[bar at location 0"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|testOGNLExchangePropertyMapIllegalSyntax ()
+specifier|public
+name|void
+name|testOGNLExchangePropertyMapIllegalSyntax
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+try|try
+block|{
+name|assertExpression
+argument_list|(
+literal|"${exchangeProperty.foobar[bar}"
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|ExpressionIllegalSyntaxException
+name|e
+parameter_list|)
+block|{
+name|assertTrue
+argument_list|(
+name|e
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Valid syntax: ${exchangeProperty.OGNL} was: exchangeProperty.foobar[bar at location 0"
 argument_list|)
 argument_list|)
 expr_stmt|;

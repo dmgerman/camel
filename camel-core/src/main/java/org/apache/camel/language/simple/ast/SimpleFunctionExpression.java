@@ -387,6 +387,23 @@ expr_stmt|;
 if|if
 condition|(
 name|remainder
+operator|==
+literal|null
+condition|)
+block|{
+name|remainder
+operator|=
+name|ifStartsWithReturnRemainder
+argument_list|(
+literal|"exchangeProperty"
+argument_list|,
+name|function
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|remainder
 operator|!=
 literal|null
 condition|)
@@ -474,7 +491,7 @@ throw|throw
 operator|new
 name|SimpleParserException
 argument_list|(
-literal|"Valid syntax: ${property.OGNL} was: "
+literal|"Valid syntax: ${exchangeProperty.OGNL} was: "
 operator|+
 name|function
 argument_list|,
