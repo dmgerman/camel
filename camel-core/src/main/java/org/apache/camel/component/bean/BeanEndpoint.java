@@ -275,7 +275,7 @@ return|return
 name|multiParameterArray
 return|;
 block|}
-comment|/**      * Whether to message body is an array type to use during bean parameter binding.      *<p/>      * Note: This option is used internally by Camel, and is not intended for end users to use.      *      * @deprecated this option is used internally by Camel, and is not intended for end users to use      */
+comment|/**      * How to treat the parameters which are passed from the message body;      * if it is true, the message body should be an array of parameters.      *<p/>      * Note: This option is used internally by Camel, and is not intended for end users to use.      *      * @deprecated this option is used internally by Camel, and is not intended for end users to use      */
 annotation|@
 name|Deprecated
 DECL|method|setMultiParameterArray (boolean mpArray)
@@ -302,7 +302,7 @@ return|return
 name|cache
 return|;
 block|}
-comment|/**      * Whether to cache the lookup of the bean.      *<p/>      * If this option is enabled, then the bean is used as a singleton scope.      *<p/>      * The default value of false, let Camel lookup the bean on each usage, which allows to honor      * Spring, CDI, etc to control the scope of the bean.      */
+comment|/**      * If enabled, Camel will cache the result of the first Registry look-up.      * Cache can be enabled if the bean in the Registry is defined as a singleton scope.      */
 DECL|method|setCache (boolean cache)
 specifier|public
 name|void
