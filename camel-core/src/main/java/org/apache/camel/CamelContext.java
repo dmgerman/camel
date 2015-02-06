@@ -2109,7 +2109,7 @@ parameter_list|)
 throws|throws
 name|IOException
 function_decl|;
-comment|/**      * Returns the JSON schema representation of the endpoint parameters for the given component name.      *      * @return the json or<tt>null</tt> if the component is<b>not</b> built with JSon schema support      */
+comment|/**      * Returns the JSON schema representation of the component and endpoint parameters for the given component name.      *      * @return the json or<tt>null</tt> if the component is<b>not</b> built with JSon schema support      */
 DECL|method|getComponentParameterJsonSchema (String componentName)
 name|String
 name|getComponentParameterJsonSchema
@@ -2160,6 +2160,18 @@ name|explainEipJson
 parameter_list|(
 name|String
 name|nameOrId
+parameter_list|,
+name|boolean
+name|includeAllOptions
+parameter_list|)
+function_decl|;
+comment|/**      * Returns a JSON schema representation of the component parameters (not endpoint parameters) for the given component by its id.      *      * @param componentName the name of the component.      * @param includeAllOptions whether to include non configured options also (eg default options)      * @return the json or<tt>null</tt> if the component was not found      */
+DECL|method|explainComponentJson (String componentName, boolean includeAllOptions)
+name|String
+name|explainComponentJson
+parameter_list|(
+name|String
+name|componentName
 parameter_list|,
 name|boolean
 name|includeAllOptions

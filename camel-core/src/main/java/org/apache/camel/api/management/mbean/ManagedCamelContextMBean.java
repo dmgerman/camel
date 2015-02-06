@@ -1058,6 +1058,27 @@ name|boolean
 name|includeAllOptions
 parameter_list|)
 function_decl|;
+comment|/**      * Returns a JSON schema representation of the component parameters (not endpoint parameters) for the given component by its id.      *      * @param componentName the id of the component      * @param includeAllOptions whether to include non configured options also (eg default options)      */
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|" Returns a JSON schema representation of the component parameters for the given component by its id"
+argument_list|)
+DECL|method|explainComponentJson (String componentName, boolean includeAllOptions)
+name|String
+name|explainComponentJson
+parameter_list|(
+name|String
+name|componentName
+parameter_list|,
+name|boolean
+name|includeAllOptions
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Returns a JSON schema representation of the endpoint parameters for the given endpoint uri      *      * @param uri the endpoint uri      * @param includeAllOptions whether to include non configured options also (eg default options)      */
 annotation|@
 name|ManagedOperation

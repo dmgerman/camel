@@ -3744,6 +3744,31 @@ name|includeAllOptions
 argument_list|)
 return|;
 block|}
+DECL|method|explainComponentJson (String componentName, boolean includeAllOptions)
+specifier|public
+name|String
+name|explainComponentJson
+parameter_list|(
+name|String
+name|componentName
+parameter_list|,
+name|boolean
+name|includeAllOptions
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+name|context
+operator|.
+name|explainComponentJson
+argument_list|(
+name|componentName
+argument_list|,
+name|includeAllOptions
+argument_list|)
+return|;
+block|}
 DECL|method|explainEndpointJson (String uri, boolean includeAllOptions)
 specifier|public
 name|String

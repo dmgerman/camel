@@ -1564,7 +1564,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|7
+literal|8
 argument_list|,
 name|StringHelper
 operator|.
@@ -1578,7 +1578,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|7
+literal|8
 argument_list|,
 name|StringHelper
 operator|.
@@ -1606,7 +1606,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"description\": \"The Log Component to log message exchanges to the underlying logging mechanism.\""
+literal|"\"description\": \"The Log Component is for logging message exchanges via the underlying logging mechanism.\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1744,7 +1744,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|14
+literal|15
 argument_list|,
 name|StringHelper
 operator|.
@@ -1758,7 +1758,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|14
+literal|15
 argument_list|,
 name|StringHelper
 operator|.
@@ -1786,7 +1786,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"description\": \"The Log Component to log message exchanges to the underlying logging mechanism.\""
+literal|"\"description\": \"The Log Component is for logging message exchanges via the underlying logging mechanism.\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2192,6 +2192,121 @@ operator|.
 name|contains
 argument_list|(
 literal|"\"discardOnCompletionTimeout\": { \"kind\": \"attribute\", \"required\": \"false\", \"type\": \"boolean\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testManagedCamelContextExplainComponentModel ()
+specifier|public
+name|void
+name|testManagedCamelContextExplainComponentModel
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// JMX tests dont work well on AIX CI servers (hangs them)
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"aix"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
+name|MBeanServer
+name|mbeanServer
+init|=
+name|getMBeanServer
+argument_list|()
+decl_stmt|;
+name|ObjectName
+name|on
+init|=
+name|ObjectName
+operator|.
+name|getInstance
+argument_list|(
+literal|"org.apache.camel:context=19-camel-1,type=context,name=\"camel-1\""
+argument_list|)
+decl_stmt|;
+comment|// get the json
+name|String
+name|json
+init|=
+operator|(
+name|String
+operator|)
+name|mbeanServer
+operator|.
+name|invoke
+argument_list|(
+name|on
+argument_list|,
+literal|"explainComponentJson"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+literal|"seda"
+block|,
+literal|false
+block|}
+argument_list|,
+operator|new
+name|String
+index|[]
+block|{
+literal|"java.lang.String"
+block|,
+literal|"boolean"
+block|}
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"description\": \"The SEDA Component is for asynchronous SEDA exchanges on a BlockingQueue within a CamelContext\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"label\": \"core,endpoint\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"concurrentConsumers\": { \"value\": \"1\" }"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"queueSize\": { \"kind\": \"property\", \"type\": \"integer\", \"javaType\": \"int\", \"deprecated\": \"false\", \"value\": \"0\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
