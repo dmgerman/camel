@@ -233,7 +233,7 @@ literal|1
 argument_list|)
 argument_list|)
 operator|.
-name|withFilter
+name|withFilters
 argument_list|(
 name|Matchers
 operator|.

@@ -678,6 +678,19 @@ name|exec
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|isReceiving ()
+specifier|public
+name|boolean
+name|isReceiving
+parameter_list|()
+block|{
+return|return
+name|isRunAllowed
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 
