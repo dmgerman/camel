@@ -22,16 +22,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|net
-operator|.
-name|URISyntaxException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|Properties
@@ -213,13 +203,7 @@ specifier|public
 name|KafkaProducerTest
 parameter_list|()
 throws|throws
-name|IllegalAccessException
-throws|,
-name|InstantiationException
-throws|,
-name|ClassNotFoundException
-throws|,
-name|URISyntaxException
+name|Exception
 block|{
 name|endpoint
 operator|=
@@ -316,10 +300,10 @@ block|{
 literal|"unchecked"
 block|}
 argument_list|)
-DECL|method|processSendsMesssage ()
+DECL|method|processSendsMessage ()
 specifier|public
 name|void
-name|processSendsMesssage
+name|processSendsMessage
 parameter_list|()
 throws|throws
 name|Exception
@@ -388,10 +372,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|processSendsMesssageWithTopicHeaderAndNoTopicInEndPoint ()
+DECL|method|processSendsMessageWithTopicHeaderAndNoTopicInEndPoint ()
 specifier|public
 name|void
-name|processSendsMesssageWithTopicHeaderAndNoTopicInEndPoint
+name|processSendsMessageWithTopicHeaderAndNoTopicInEndPoint
 parameter_list|()
 throws|throws
 name|Exception
@@ -452,15 +436,17 @@ argument_list|(
 literal|"4"
 argument_list|,
 literal|"anotherTopic"
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|processSendsMesssageWithTopicHeaderAndEndPoint ()
+DECL|method|processSendsMessageWithTopicHeaderAndEndPoint ()
 specifier|public
 name|void
-name|processSendsMesssageWithTopicHeaderAndEndPoint
+name|processSendsMessageWithTopicHeaderAndEndPoint
 parameter_list|()
 throws|throws
 name|Exception
@@ -509,6 +495,17 @@ argument_list|,
 literal|"anotherTopic"
 argument_list|)
 expr_stmt|;
+name|in
+operator|.
+name|setHeader
+argument_list|(
+name|KafkaConstants
+operator|.
+name|KEY
+argument_list|,
+literal|"someKey"
+argument_list|)
+expr_stmt|;
 name|producer
 operator|.
 name|process
@@ -521,6 +518,8 @@ argument_list|(
 literal|"4"
 argument_list|,
 literal|"anotherTopic"
+argument_list|,
+literal|"someKey"
 argument_list|)
 expr_stmt|;
 block|}
@@ -584,17 +583,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|expected
-operator|=
-name|CamelException
-operator|.
-name|class
-argument_list|)
-DECL|method|processRequiresPartitionHeader ()
+DECL|method|processDoesNotRequirePartitionHeader ()
 specifier|public
 name|void
-name|processRequiresPartitionHeader
+name|processDoesNotRequirePartitionHeader
 parameter_list|()
 throws|throws
 name|Exception
@@ -684,6 +676,8 @@ argument_list|(
 literal|"4"
 argument_list|,
 literal|"someTopic"
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -696,16 +690,19 @@ block|,
 literal|"rawtypes"
 block|}
 argument_list|)
-DECL|method|verifySendMessage (String key, String topic)
+DECL|method|verifySendMessage (String partitionKey, String topic, String messageKey)
 specifier|protected
 name|void
 name|verifySendMessage
 parameter_list|(
 name|String
-name|key
+name|partitionKey
 parameter_list|,
 name|String
 name|topic
+parameter_list|,
+name|String
+name|messageKey
 parameter_list|)
 block|{
 name|ArgumentCaptor
@@ -742,7 +739,20 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|key
+name|partitionKey
+argument_list|,
+name|captor
+operator|.
+name|getValue
+argument_list|()
+operator|.
+name|partitionKey
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+name|messageKey
 argument_list|,
 name|captor
 operator|.
