@@ -74,9 +74,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|LoggingExceptionHandler
+name|ExceptionHandler
 import|;
 end_import
 
@@ -88,9 +88,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|ExceptionHandler
+name|LoggingExceptionHandler
 import|;
 end_import
 
@@ -198,6 +198,11 @@ operator|=
 operator|new
 name|LoggingExceptionHandler
 argument_list|(
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|getClass
 argument_list|()
 argument_list|)

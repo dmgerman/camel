@@ -66,9 +66,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spring
 operator|.
-name|RoutePolicySupport
+name|SpringTestSupport
 import|;
 end_import
 
@@ -80,9 +80,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|support
 operator|.
-name|SpringTestSupport
+name|RoutePolicySupport
 import|;
 end_import
 

@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|LoggingLevel
 import|;
 end_import
@@ -38,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|support
 operator|.
 name|LoggingExceptionHandler
 import|;
@@ -80,10 +92,13 @@ specifier|final
 name|boolean
 name|logStackTrace
 decl_stmt|;
-DECL|method|DefaultSpringErrorHandler (Class<?> owner, LoggingLevel level, boolean logStackTrace)
+DECL|method|DefaultSpringErrorHandler (CamelContext camelContext, Class<?> owner, LoggingLevel level, boolean logStackTrace)
 specifier|public
 name|DefaultSpringErrorHandler
 parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
 name|Class
 argument_list|<
 name|?
@@ -104,6 +119,8 @@ operator|=
 operator|new
 name|LoggingExceptionHandler
 argument_list|(
+name|camelContext
+argument_list|,
 name|owner
 argument_list|,
 name|level

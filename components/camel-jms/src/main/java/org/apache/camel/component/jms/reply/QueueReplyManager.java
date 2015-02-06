@@ -1109,6 +1109,11 @@ argument_list|(
 operator|new
 name|DefaultSpringErrorHandler
 argument_list|(
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
 name|QueueReplyManager
 operator|.
 name|class
