@@ -139,6 +139,18 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
+literal|"Endpoint information as JSon"
+argument_list|)
+DECL|method|informationJson ()
+name|String
+name|informationJson
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
 literal|"Explain how this endpoint is configured"
 argument_list|)
 DECL|method|explain (boolean allOptions)

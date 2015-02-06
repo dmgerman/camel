@@ -417,6 +417,29 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|informationJson ()
+specifier|public
+name|String
+name|informationJson
+parameter_list|()
+block|{
+return|return
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|explainEndpointJson
+argument_list|(
+name|getEndpointUri
+argument_list|()
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|explain (boolean allOptions)
 specifier|public
 name|TabularData

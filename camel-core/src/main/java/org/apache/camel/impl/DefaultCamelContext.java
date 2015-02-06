@@ -8529,6 +8529,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// use before componentProperties as we do not want to include component properties when explaining endpoint
 name|json
 operator|=
 name|ObjectHelper
@@ -8537,7 +8538,7 @@ name|before
 argument_list|(
 name|json
 argument_list|,
-literal|"  \"properties\": {"
+literal|"  \"componentProperties\": {"
 argument_list|)
 expr_stmt|;
 name|StringBuilder
@@ -9046,6 +9047,26 @@ operator|.
 name|getKey
 argument_list|()
 decl_stmt|;
+comment|// skip unwanted options which is default inherited from DefaultComponent
+if|if
+condition|(
+literal|"camelContext"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+operator|||
+literal|"endpointClass"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 name|String
 name|value
 init|=
