@@ -290,6 +290,16 @@ specifier|transient
 name|Logger
 name|log
 decl_stmt|;
+DECL|field|receivedCounter
+specifier|private
+specifier|final
+name|AtomicInteger
+name|receivedCounter
+init|=
+operator|new
+name|AtomicInteger
+argument_list|()
+decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
@@ -306,16 +316,6 @@ specifier|private
 specifier|volatile
 name|DataSet
 name|dataSet
-decl_stmt|;
-DECL|field|receivedCounter
-specifier|private
-specifier|final
-name|AtomicInteger
-name|receivedCounter
-init|=
-operator|new
-name|AtomicInteger
-argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -402,9 +402,10 @@ name|class
 argument_list|)
 expr_stmt|;
 comment|// optimize as we dont need to copy the exchange
-name|copyOnExchange
-operator|=
+name|setCopyOnExchange
+argument_list|(
 literal|false
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|DataSetEndpoint (String endpointUri, Component component, DataSet dataSet)
@@ -446,9 +447,10 @@ name|endpointUri
 argument_list|)
 expr_stmt|;
 comment|// optimize as we dont need to copy the exchange
-name|copyOnExchange
-operator|=
+name|setCopyOnExchange
+argument_list|(
 literal|false
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|assertEquals (String description, Object expected, Object actual, Exchange exchange)
