@@ -216,9 +216,10 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// use minimum as depending on the polling we may do more than 1 in the test before we assert and stop
 name|result
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|1
 argument_list|)

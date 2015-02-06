@@ -160,10 +160,6 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|/**  * Created by ceposta  *<a href="http://christianposta.com/blog>http://christianposta.com/blog</a>.  */
-end_comment
-
 begin_class
 DECL|class|SqsConcurrentConsumerTest
 specifier|public
@@ -252,15 +248,20 @@ name|SECONDS
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// simple test to make sure all N concurrent consumers were used in the test
+comment|// simple test to make sure that concurrent consumers were used in the test
+comment|// usually we use all threads evenly but sometimes threads are reused so just test that 50%+ was used
 if|if
 condition|(
 name|threadNumbers
 operator|.
 name|size
 argument_list|()
-operator|!=
+operator|<
+operator|(
 name|NUM_CONCURRENT
+operator|/
+literal|2
+operator|)
 condition|)
 block|{
 name|fail
@@ -269,7 +270,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"We were expecting to have %d numbers of concurrent consumers, but only found %d"
+literal|"We were expecting to have about half of %d numbers of concurrent consumers, but only found %d"
 argument_list|,
 name|NUM_CONCURRENT
 argument_list|,
