@@ -689,6 +689,23 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|informationJson ()
+specifier|public
+name|String
+name|informationJson
+parameter_list|()
+block|{
+return|return
+name|context
+operator|.
+name|explainEipJson
+argument_list|(
+name|id
+argument_list|,
+literal|true
+argument_list|)
+return|;
+block|}
 DECL|method|explain (boolean allOptions)
 specifier|public
 name|TabularData

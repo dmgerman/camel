@@ -8529,7 +8529,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|// use before componentProperties as we do not want to include component properties when explaining endpoint
 name|json
 operator|=
 name|ObjectHelper
@@ -8538,7 +8537,7 @@ name|before
 argument_list|(
 name|json
 argument_list|,
-literal|"  \"componentProperties\": {"
+literal|"  \"properties\": {"
 argument_list|)
 expr_stmt|;
 name|StringBuilder

@@ -177,6 +177,18 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
+literal|"Processor information as JSon"
+argument_list|)
+DECL|method|informationJson ()
+name|String
+name|informationJson
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
 literal|"Explain how this processor is configured"
 argument_list|)
 DECL|method|explain (boolean allOptions)
