@@ -262,6 +262,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -2577,6 +2591,18 @@ argument_list|)
 operator|!=
 literal|null
 decl_stmt|;
+name|Metadata
+name|metadata
+init|=
+name|fieldElement
+operator|.
+name|getAnnotation
+argument_list|(
+name|Metadata
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|// skip unwanted fields as they are inherited from default component and are not intended for end users to configure
 if|if
 condition|(
@@ -2667,11 +2693,19 @@ name|fieldTypeName
 argument_list|)
 decl_stmt|;
 comment|// we do not yet have default values / notes / as no annotation support yet
-comment|// String defaultValue = param.defaultValue();
 comment|// String defaultValueNote = param.defaultValueNote();
 name|String
 name|defaultValue
 init|=
+name|metadata
+operator|!=
+literal|null
+condition|?
+name|metadata
+operator|.
+name|defaultValue
+argument_list|()
+else|:
 literal|null
 decl_stmt|;
 name|String

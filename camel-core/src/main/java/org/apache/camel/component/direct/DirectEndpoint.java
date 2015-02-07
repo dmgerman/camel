@@ -495,7 +495,6 @@ name|key
 argument_list|)
 return|;
 block|}
-comment|/**      * If sending a message to a direct endpoint which has no active consumer,      * then we can tell the producer to block and wait for the consumer to become active.      *<p/>      * Is by default<tt>false</tt>.      */
 DECL|method|isBlock ()
 specifier|public
 name|boolean
@@ -506,7 +505,7 @@ return|return
 name|block
 return|;
 block|}
-comment|/**      * If sending a message to a direct endpoint which has no active consumer,      * then we can tell the producer to block and wait for the consumer to become active.      *<p/>      * Is by default<tt>false</tt>.      *      * @param block whether to block      */
+comment|/**      * If sending a message to a direct endpoint which has no active consumer,      * then we can tell the producer to block and wait for the consumer to become active.      */
 DECL|method|setBlock (boolean block)
 specifier|public
 name|void
@@ -523,7 +522,6 @@ operator|=
 name|block
 expr_stmt|;
 block|}
-comment|/**      * The timeout value to use if block is enabled.      *<p/>      * Is by default<tt>30000</tt>.      */
 DECL|method|getTimeout ()
 specifier|public
 name|long
@@ -534,7 +532,7 @@ return|return
 name|timeout
 return|;
 block|}
-comment|/**      * The timeout value to use if block is enabled.      *<p/>      * Is by default<tt>30000</tt>.      *      * @param timeout the timeout value      */
+comment|/**      * The timeout value to use if block is enabled.      *      * @param timeout the timeout value      */
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void

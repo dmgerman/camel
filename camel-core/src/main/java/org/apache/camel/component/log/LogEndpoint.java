@@ -231,6 +231,16 @@ specifier|volatile
 name|Processor
 name|logger
 decl_stmt|;
+DECL|field|providedLogger
+specifier|private
+name|Logger
+name|providedLogger
+decl_stmt|;
+DECL|field|localFormatter
+specifier|private
+name|ExchangeFormatter
+name|localFormatter
+decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
@@ -249,6 +259,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"INFO"
+argument_list|,
+name|enums
+operator|=
+literal|"ERROR,WARN,INFO,DEBUG,TRACE,OFF"
 argument_list|)
 DECL|field|level
 specifier|private
@@ -294,18 +308,6 @@ DECL|field|groupDelay
 specifier|private
 name|Long
 name|groupDelay
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|providedLogger
-specifier|private
-name|Logger
-name|providedLogger
-decl_stmt|;
-DECL|field|localFormatter
-specifier|private
-name|ExchangeFormatter
-name|localFormatter
 decl_stmt|;
 DECL|method|LogEndpoint ()
 specifier|public
@@ -632,7 +634,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Logging level to use. Possible values: ERROR, WARN, INFO, DEBUG, TRACE, OFF.      *<p/>      * The default value is INFO.      */
+comment|/**      * Logging level to use.      *<p/>      * The default value is INFO.      */
 DECL|method|getLevel ()
 specifier|public
 name|String
@@ -643,7 +645,7 @@ return|return
 name|level
 return|;
 block|}
-comment|/**      * Logging level to use. Possible values: ERROR, WARN, INFO, DEBUG, TRACE, OFF.      *<p/>      * The default value is INFO.      */
+comment|/**      * Logging level to use.      *<p/>      * The default value is INFO.      */
 DECL|method|setLevel (String level)
 specifier|public
 name|void

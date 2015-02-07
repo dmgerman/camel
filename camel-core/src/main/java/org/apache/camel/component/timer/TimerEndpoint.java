@@ -306,13 +306,6 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|timer
-specifier|private
-name|Timer
-name|timer
-decl_stmt|;
-annotation|@
-name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
@@ -322,6 +315,13 @@ DECL|field|repeatCount
 specifier|private
 name|long
 name|repeatCount
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|timer
+specifier|private
+name|Timer
+name|timer
 decl_stmt|;
 DECL|method|TimerEndpoint ()
 specifier|public
@@ -728,6 +728,7 @@ return|return
 name|repeatCount
 return|;
 block|}
+comment|/**      * Specifies a maximum limit of number of fires.      * So if you set it to 1, the timer will only fire once.      * If you set it to 5, it will only fire five times.      * A value of zero or negative means fire forever.      */
 annotation|@
 name|ManagedAttribute
 argument_list|(
@@ -913,6 +914,7 @@ name|consumer
 argument_list|)
 return|;
 block|}
+comment|/**      * To use a custom {@link Timer}      */
 DECL|method|setTimer (Timer timer)
 specifier|public
 name|void

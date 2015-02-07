@@ -72,6 +72,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ServiceHelper
@@ -118,6 +132,13 @@ specifier|private
 name|boolean
 name|block
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"30000"
+argument_list|)
 DECL|field|timeout
 specifier|private
 name|long
@@ -236,6 +257,7 @@ return|return
 name|block
 return|;
 block|}
+comment|/**      * If sending a message to a direct endpoint which has no active consumer,      * then we can tell the producer to block and wait for the consumer to become active.      */
 DECL|method|setBlock (boolean block)
 specifier|public
 name|void
@@ -262,6 +284,7 @@ return|return
 name|timeout
 return|;
 block|}
+comment|/**      * The timeout value to use if block is enabled.      */
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
