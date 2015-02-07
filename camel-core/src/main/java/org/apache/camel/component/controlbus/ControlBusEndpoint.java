@@ -203,12 +203,18 @@ argument_list|(
 name|description
 operator|=
 literal|"Command can be either route or language"
+argument_list|,
+name|enums
+operator|=
+literal|"route,language"
 argument_list|)
 DECL|field|command
 specifier|private
 name|String
 name|command
 decl_stmt|;
+annotation|@
+name|UriPath
 DECL|field|language
 specifier|private
 name|Language
@@ -223,6 +229,11 @@ name|routeId
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"start,stop,suspend,resume,status"
+argument_list|)
 DECL|field|action
 specifier|private
 name|String
@@ -376,6 +387,7 @@ return|return
 name|language
 return|;
 block|}
+comment|/**      * Allows you to specify the name of a Language to use for evaluating the message body.      * If there is any result from the evaluation, then the result is put in the message body.      */
 DECL|method|setLanguage (Language language)
 specifier|public
 name|void
@@ -402,6 +414,7 @@ return|return
 name|routeId
 return|;
 block|}
+comment|/**      * To specify a route by its id.      */
 DECL|method|setRouteId (String routeId)
 specifier|public
 name|void
@@ -428,6 +441,7 @@ return|return
 name|action
 return|;
 block|}
+comment|/**      * To denote an action that can be either: start, stop, or status.      *<p/>      * To either start or stop a route, or to get the status of the route as output in the message body.      * You can use suspend and resume from Camel 2.11.1 onwards to either suspend or resume a route.      * And from Camel 2.11.1 onwards you can use stats to get performance statics returned in XML format;      * the routeId option can be used to define which route to get the performance stats for, if routeId is not defined,      * then you get statistics for the entire CamelContext.      */
 DECL|method|setAction (String action)
 specifier|public
 name|void
@@ -454,6 +468,7 @@ return|return
 name|async
 return|;
 block|}
+comment|/**      * Whether to execute the control bus task asynchronously.      *<p/>      * Important: If this option is enabled, then any result from the task is not set on the Exchange.      * This is only possible if executing tasks synchronously.      */
 DECL|method|setAsync (boolean async)
 specifier|public
 name|void
@@ -480,6 +495,7 @@ return|return
 name|loggingLevel
 return|;
 block|}
+comment|/**      * Logging level used for logging when task is done, or if any exceptions occurred during processing the task.      */
 DECL|method|setLoggingLevel (LoggingLevel loggingLevel)
 specifier|public
 name|void

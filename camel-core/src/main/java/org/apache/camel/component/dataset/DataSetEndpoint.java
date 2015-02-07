@@ -309,7 +309,7 @@ literal|"name"
 argument_list|,
 name|description
 operator|=
-literal|"name of DataSet to lookup in the registry"
+literal|"Name of DataSet to lookup in the registry"
 argument_list|)
 DECL|field|dataSet
 specifier|private

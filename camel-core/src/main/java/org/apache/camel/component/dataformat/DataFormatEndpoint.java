@@ -245,12 +245,17 @@ specifier|private
 name|UnmarshalProcessor
 name|unmarshal
 decl_stmt|;
+DECL|field|dataFormat
+specifier|private
+name|DataFormat
+name|dataFormat
+decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"Name of data format followed by operation which must be either marhsal or unmarshal"
+literal|"Name of data format"
 argument_list|)
 DECL|field|name
 specifier|private
@@ -258,14 +263,12 @@ name|String
 name|name
 decl_stmt|;
 annotation|@
-name|UriParam
-DECL|field|dataFormat
-specifier|private
-name|DataFormat
-name|dataFormat
-decl_stmt|;
-annotation|@
-name|UriParam
+name|UriPath
+argument_list|(
+name|enums
+operator|=
+literal|"marshal,unmarshal"
+argument_list|)
 DECL|field|operation
 specifier|private
 name|String
@@ -304,6 +307,32 @@ operator|=
 name|dataFormat
 expr_stmt|;
 block|}
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
+block|}
+DECL|method|setName (String name)
+specifier|public
+name|void
+name|setName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|this
+operator|.
+name|name
+operator|=
+name|name
+expr_stmt|;
+block|}
 DECL|method|getDataFormat ()
 specifier|public
 name|DataFormat
@@ -340,6 +369,7 @@ return|return
 name|operation
 return|;
 block|}
+comment|/**      * Operation to use either marshal or unmarshal      */
 DECL|method|setOperation (String operation)
 specifier|public
 name|void
@@ -479,6 +509,28 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|dataFormat
+operator|==
+literal|null
+operator|&&
+name|name
+operator|!=
+literal|null
+condition|)
+block|{
+name|dataFormat
+operator|=
+name|getCamelContext
+argument_list|()
+operator|.
+name|resolveDataFormat
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|operation
