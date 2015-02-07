@@ -243,26 +243,6 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|setExpression (Expression expr)
-specifier|public
-name|void
-name|setExpression
-parameter_list|(
-name|Expression
-name|expr
-parameter_list|)
-block|{
-name|setExpression
-argument_list|(
-name|ExpressionNodeHelper
-operator|.
-name|toExpressionDefinition
-argument_list|(
-name|expr
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|getCopy ()
 specifier|public
 name|Boolean

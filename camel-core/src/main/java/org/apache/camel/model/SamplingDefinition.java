@@ -606,6 +606,7 @@ operator|=
 name|messageFrequency
 expr_stmt|;
 block|}
+comment|/**      * Sets the time units for the sample period, defaulting to seconds.      */
 DECL|method|setUnits (String units)
 specifier|public
 name|void
