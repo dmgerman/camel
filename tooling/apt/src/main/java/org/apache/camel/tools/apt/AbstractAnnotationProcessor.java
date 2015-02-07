@@ -465,7 +465,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|setter
+name|getter
 operator|!=
 literal|null
 condition|)
@@ -477,7 +477,7 @@ name|elementUtils
 operator|.
 name|getDocComment
 argument_list|(
-name|setter
+name|getter
 argument_list|)
 decl_stmt|;
 if|if
