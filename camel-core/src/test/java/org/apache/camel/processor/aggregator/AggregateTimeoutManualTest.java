@@ -125,7 +125,7 @@ expr_stmt|;
 comment|// should take at least 3 seconds to complete this one
 name|result
 operator|.
-name|setMinimumResultWaitTime
+name|setResultMinimumWaitTime
 argument_list|(
 literal|2500
 argument_list|)

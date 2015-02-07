@@ -4621,10 +4621,10 @@ name|resultWaitTime
 expr_stmt|;
 block|}
 comment|/**      * Sets the minimum expected amount of time (in millis) the {@link #assertIsSatisfied()} will      * wait on a latch until it is satisfied      */
-DECL|method|setMinimumResultWaitTime (long resultMinimumWaitTime)
+DECL|method|setResultMinimumWaitTime (long resultMinimumWaitTime)
 specifier|public
 name|void
-name|setMinimumResultWaitTime
+name|setResultMinimumWaitTime
 parameter_list|(
 name|long
 name|resultMinimumWaitTime
@@ -4637,7 +4637,41 @@ operator|=
 name|resultMinimumWaitTime
 expr_stmt|;
 block|}
+comment|/**      * @deprecated use {@link #setResultMinimumWaitTime(long)}      */
+annotation|@
+name|Deprecated
+DECL|method|setMinimumResultWaitTime (long resultMinimumWaitTime)
+specifier|public
+name|void
+name|setMinimumResultWaitTime
+parameter_list|(
+name|long
+name|resultMinimumWaitTime
+parameter_list|)
+block|{
+name|setResultMinimumWaitTime
+argument_list|(
+name|resultMinimumWaitTime
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Specifies the expected number of message exchanges that should be      * received by this endpoint.      *<p/>      *<b>Beware:</b> If you want to expect that<tt>0</tt> messages, then take extra care,      * as<tt>0</tt> matches when the tests starts, so you need to set a assert period time      * to let the test run for a while to make sure there are still no messages arrived; for      * that use {@link #setAssertPeriod(long)}.      * An alternative is to use<a href="http://camel.apache.org/notifybuilder.html">NotifyBuilder</a>, and use the notifier      * to know when Camel is done routing some messages, before you call the {@link #assertIsSatisfied()} method on the mocks.      * This allows you to not use a fixed assert period, to speedup testing times.      *<p/>      * If you want to assert that<b>exactly</b> n'th message arrives to this mock      * endpoint, then see also the {@link #setAssertPeriod(long)} method for further details.      *      * @param expectedCount the number of message exchanges that should be      *                expected by this endpoint      * @see #setAssertPeriod(long)                            */
+DECL|method|setExpectedCount (int expectedCount)
+specifier|public
+name|void
+name|setExpectedCount
+parameter_list|(
+name|int
+name|expectedCount
+parameter_list|)
+block|{
+name|setExpectedMessageCount
+argument_list|(
+name|expectedCount
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * @see #setExpectedCount(int)      */
 DECL|method|setExpectedMessageCount (int expectedCount)
 specifier|public
 name|void

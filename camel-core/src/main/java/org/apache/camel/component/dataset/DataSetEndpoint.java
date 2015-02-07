@@ -636,32 +636,6 @@ return|return
 name|exchange
 return|;
 block|}
-DECL|method|getMinRate ()
-specifier|public
-name|int
-name|getMinRate
-parameter_list|()
-block|{
-return|return
-name|minRate
-return|;
-block|}
-DECL|method|setMinRate (int minRate)
-specifier|public
-name|void
-name|setMinRate
-parameter_list|(
-name|int
-name|minRate
-parameter_list|)
-block|{
-name|this
-operator|.
-name|minRate
-operator|=
-name|minRate
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|waitForCompleteLatch (long timeout)
@@ -748,6 +722,33 @@ operator|.
 name|dataSet
 operator|=
 name|dataSet
+expr_stmt|;
+block|}
+DECL|method|getMinRate ()
+specifier|public
+name|int
+name|getMinRate
+parameter_list|()
+block|{
+return|return
+name|minRate
+return|;
+block|}
+comment|/**      * Wait until the DataSet contains at least this number of messages      */
+DECL|method|setMinRate (int minRate)
+specifier|public
+name|void
+name|setMinRate
+parameter_list|(
+name|int
+name|minRate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|minRate
+operator|=
+name|minRate
 expr_stmt|;
 block|}
 DECL|method|getPreloadSize ()
@@ -841,6 +842,7 @@ return|return
 name|initialDelay
 return|;
 block|}
+comment|/**      * Time period in millis to wait before starting sending messages.      */
 DECL|method|setInitialDelay (long initialDelay)
 specifier|public
 name|void

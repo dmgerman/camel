@@ -173,7 +173,7 @@ expr_stmt|;
 comment|// should at least take 1 sec to complete
 name|resultEndpoint
 operator|.
-name|setMinimumResultWaitTime
+name|setResultMinimumWaitTime
 argument_list|(
 literal|900
 argument_list|)
