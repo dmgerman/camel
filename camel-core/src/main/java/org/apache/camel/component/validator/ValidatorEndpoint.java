@@ -54,6 +54,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -315,6 +329,13 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|resourceUri
 specifier|private
 name|String
@@ -322,6 +343,13 @@ name|resourceUri
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+name|XMLConstants
+operator|.
+name|W3C_XML_SCHEMA_NS_URI
+argument_list|)
 DECL|field|schemaLanguage
 specifier|private
 name|String
@@ -730,6 +758,7 @@ return|return
 name|schemaLanguage
 return|;
 block|}
+comment|/**      * Configures the W3C XML Schema Namespace URI.      */
 DECL|method|setSchemaLanguage (String schemaLanguage)
 specifier|public
 name|void
@@ -756,6 +785,7 @@ return|return
 name|schemaFactory
 return|;
 block|}
+comment|/**      * To use a custom javax.xml.validation.SchemaFactory      */
 DECL|method|setSchemaFactory (SchemaFactory schemaFactory)
 specifier|public
 name|void
@@ -782,6 +812,7 @@ return|return
 name|errorHandler
 return|;
 block|}
+comment|/**      * To use a custom org.apache.camel.processor.validation.ValidatorErrorHandler.      *<p/>      * The default error handler captures the errors and throws an exception.      */
 DECL|method|setErrorHandler (ValidatorErrorHandler errorHandler)
 specifier|public
 name|void
@@ -808,6 +839,7 @@ return|return
 name|useDom
 return|;
 block|}
+comment|/**      * Whether DOMSource/DOMResult or SaxSource/SaxResult should be used by the validator.      */
 DECL|method|setUseDom (boolean useDom)
 specifier|public
 name|void
@@ -834,6 +866,7 @@ return|return
 name|useSharedSchema
 return|;
 block|}
+comment|/**      * Whether the Schema instance should be shared or not. This option is introduced to work around a JDK 1.6.x bug. Xerces should not have this issue.      */
 DECL|method|setUseSharedSchema (boolean useSharedSchema)
 specifier|public
 name|void
@@ -860,6 +893,7 @@ return|return
 name|resourceResolver
 return|;
 block|}
+comment|/**      * To use a custom LSResourceResolver      */
 DECL|method|setResourceResolver (LSResourceResolver resourceResolver)
 specifier|public
 name|void
@@ -886,6 +920,7 @@ return|return
 name|failOnNullBody
 return|;
 block|}
+comment|/**      * Whether to fail if no body exists.      */
 DECL|method|setFailOnNullBody (boolean failOnNullBody)
 specifier|public
 name|void
@@ -912,6 +947,7 @@ return|return
 name|failOnNullHeader
 return|;
 block|}
+comment|/**      * Whether to fail if no header exists when validating against a header.      */
 DECL|method|setFailOnNullHeader (boolean failOnNullHeader)
 specifier|public
 name|void
@@ -938,6 +974,7 @@ return|return
 name|headerName
 return|;
 block|}
+comment|/**      * To validate against a header instead of the message body.      */
 DECL|method|setHeaderName (String headerName)
 specifier|public
 name|void

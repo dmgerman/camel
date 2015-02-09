@@ -106,6 +106,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ResourceHelper
@@ -170,6 +184,13 @@ specifier|private
 name|URIResolver
 name|uriResolver
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|contentCache
 specifier|private
 name|boolean
@@ -177,6 +198,13 @@ name|contentCache
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|saxon
 specifier|private
 name|boolean
@@ -205,6 +233,7 @@ return|return
 name|xmlConverter
 return|;
 block|}
+comment|/**      * To use a custom implementation of {@link org.apache.camel.converter.jaxp.XmlConverter}      */
 DECL|method|setXmlConverter (XmlConverter xmlConverter)
 specifier|public
 name|void
@@ -231,6 +260,7 @@ return|return
 name|uriResolver
 return|;
 block|}
+comment|/**      * To use a custom javax.xml.transform.URIResolver      */
 DECL|method|setUriResolver (URIResolver uriResolver)
 specifier|public
 name|void
@@ -257,6 +287,7 @@ return|return
 name|contentCache
 return|;
 block|}
+comment|/**      * Cache for the resource content (the stylesheet file) when it is loaded.      * If set to false Camel will reload the stylesheet file on each message processing. This is good for development.      * A cached stylesheet can be forced to reload at runtime via JMX using the clearCachedStylesheet operation.      */
 DECL|method|setContentCache (boolean contentCache)
 specifier|public
 name|void
@@ -283,6 +314,7 @@ return|return
 name|saxon
 return|;
 block|}
+comment|/**      * Whether to use Saxon as the transformerFactoryClass.      * If enabled then the class net.sf.saxon.TransformerFactoryImpl. You would need to add Saxon to the classpath.      */
 DECL|method|setSaxon (boolean saxon)
 specifier|public
 name|void

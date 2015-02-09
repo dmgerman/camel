@@ -252,6 +252,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -407,6 +421,13 @@ name|parameters
 decl_stmt|;
 annotation|@
 name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|resourceUri
 specifier|private
 name|String
@@ -863,6 +884,7 @@ return|return
 name|resourceUri
 return|;
 block|}
+comment|/**      * The name of the template to load from classpath or file system      */
 DECL|method|setResourceUri (String resourceUri)
 specifier|public
 name|void
@@ -889,6 +911,7 @@ return|return
 name|converter
 return|;
 block|}
+comment|/**      * To use a custom implementation of {@link org.apache.camel.converter.jaxp.XmlConverter}      */
 DECL|method|setConverter (XmlConverter converter)
 specifier|public
 name|void
@@ -915,6 +938,7 @@ return|return
 name|transformerFactoryClass
 return|;
 block|}
+comment|/**      * To use a custom XSLT transformer factory, specified as a FQN class name      */
 DECL|method|setTransformerFactoryClass (String transformerFactoryClass)
 specifier|public
 name|void
@@ -941,6 +965,7 @@ return|return
 name|transformerFactory
 return|;
 block|}
+comment|/**      * To use a custom XSLT transformer factory      */
 DECL|method|setTransformerFactory (TransformerFactory transformerFactory)
 specifier|public
 name|void
@@ -967,6 +992,7 @@ return|return
 name|saxon
 return|;
 block|}
+comment|/**      * Whether to use Saxon as the transformerFactoryClass.      * If enabled then the class net.sf.saxon.TransformerFactoryImpl. You would need to add Saxon to the classpath.      */
 DECL|method|setSaxon (boolean saxon)
 specifier|public
 name|void
@@ -993,6 +1019,7 @@ return|return
 name|resultHandlerFactory
 return|;
 block|}
+comment|/**      * Allows you to use a custom org.apache.camel.builder.xml.ResultHandlerFactory which is capable of      * using custom org.apache.camel.builder.xml.ResultHandler types.      */
 DECL|method|setResultHandlerFactory (ResultHandlerFactory resultHandlerFactory)
 specifier|public
 name|void
@@ -1019,6 +1046,7 @@ return|return
 name|failOnNullBody
 return|;
 block|}
+comment|/**      * Whether or not to throw an exception if the input body is null.      */
 DECL|method|setFailOnNullBody (boolean failOnNullBody)
 specifier|public
 name|void
@@ -1045,6 +1073,7 @@ return|return
 name|output
 return|;
 block|}
+comment|/**      * Option to specify which output type to use.      * Possible values are: string, bytes, DOM, file. The first three options are all in memory based, where as file is streamed directly to a java.io.File.      * For file you must specify the filename in the IN header with the key Exchange.XSLT_FILE_NAME which is also CamelXsltFileName.      * Also any paths leading to the filename must be created beforehand, otherwise an exception is thrown at runtime.      */
 DECL|method|setOutput (XsltOutput output)
 specifier|public
 name|void
@@ -1071,6 +1100,7 @@ return|return
 name|transformerCacheSize
 return|;
 block|}
+comment|/**      * The number of javax.xml.transform.Transformer object that are cached for reuse to avoid calls to Template.newTransformer().      */
 DECL|method|setTransformerCacheSize (int transformerCacheSize)
 specifier|public
 name|void
@@ -1097,6 +1127,7 @@ return|return
 name|errorListener
 return|;
 block|}
+comment|/**      *  Allows to configure to use a custom javax.xml.transform.ErrorListener. Beware when doing this then the default error      *  listener which captures any errors or fatal errors and store information on the Exchange as properties is not in use.      *  So only use this option for special use-cases.      */
 DECL|method|setErrorListener (ErrorListener errorListener)
 specifier|public
 name|void
@@ -1123,6 +1154,7 @@ return|return
 name|contentCache
 return|;
 block|}
+comment|/**      * Cache for the resource content (the stylesheet file) when it is loaded.      * If set to false Camel will reload the stylesheet file on each message processing. This is good for development.      * A cached stylesheet can be forced to reload at runtime via JMX using the clearCachedStylesheet operation.      */
 DECL|method|setContentCache (boolean contentCache)
 specifier|public
 name|void
@@ -1149,6 +1181,7 @@ return|return
 name|uriResolver
 return|;
 block|}
+comment|/**      * To use a custom javax.xml.transform.URIResolver      */
 DECL|method|setUriResolver (URIResolver uriResolver)
 specifier|public
 name|void
@@ -1175,6 +1208,7 @@ return|return
 name|allowStAX
 return|;
 block|}
+comment|/**      * Whether to allow using StAX as the javax.xml.transform.Source.      */
 DECL|method|setAllowStAX (boolean allowStAX)
 specifier|public
 name|void
@@ -1201,6 +1235,7 @@ return|return
 name|deleteOutputFile
 return|;
 block|}
+comment|/**      * If you have output=file then this option dictates whether or not the output file should be deleted when the Exchange      * is done processing. For example suppose the output file is a temporary file, then it can be a good idea to delete it after use.      */
 DECL|method|setDeleteOutputFile (boolean deleteOutputFile)
 specifier|public
 name|void
@@ -1232,6 +1267,7 @@ return|return
 name|parameters
 return|;
 block|}
+comment|/**      * Additional parameters to configure on the javax.xml.transform.Transformer.      */
 DECL|method|setParameters (Map<String, Object> parameters)
 specifier|public
 name|void
