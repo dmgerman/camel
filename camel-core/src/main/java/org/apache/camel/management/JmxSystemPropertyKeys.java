@@ -147,7 +147,7 @@ name|MASK
 init|=
 literal|"org.apache.camel.jmx.mask"
 decl_stmt|;
-comment|// Whether to include host name in MBean naes
+comment|// Whether to include host name in MBean names
 DECL|field|INCLUDE_HOST_NAME
 specifier|public
 specifier|static
@@ -156,6 +156,16 @@ name|String
 name|INCLUDE_HOST_NAME
 init|=
 literal|"org.apache.camel.jmx.includeHostName"
+decl_stmt|;
+comment|// To configure the default management name pattern using a JVM system property
+DECL|field|MANAGEMENT_NAME_PATTERN
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MANAGEMENT_NAME_PATTERN
+init|=
+literal|"org.apache.camel.jmx.managementNamePattern"
 decl_stmt|;
 DECL|method|JmxSystemPropertyKeys ()
 specifier|private
