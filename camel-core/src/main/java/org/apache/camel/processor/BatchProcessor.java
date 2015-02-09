@@ -258,9 +258,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
+name|spi
 operator|.
-name|LoggingExceptionHandler
+name|ExceptionHandler
 import|;
 end_import
 
@@ -272,9 +272,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|support
 operator|.
-name|ExceptionHandler
+name|LoggingExceptionHandler
 import|;
 end_import
 
