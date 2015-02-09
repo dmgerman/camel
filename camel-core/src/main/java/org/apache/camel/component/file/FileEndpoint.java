@@ -100,6 +100,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -210,6 +224,13 @@ argument_list|(
 name|name
 operator|=
 literal|"directoryName"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
 argument_list|)
 DECL|field|file
 specifier|private
@@ -839,6 +860,7 @@ return|return
 name|copyAndDeleteOnRenameFail
 return|;
 block|}
+comment|/**      * Whether to fallback and do a copy and delete file, in case the file could not be renamed directly. This option is not available for the FTP component.      */
 DECL|method|setCopyAndDeleteOnRenameFail (boolean copyAndDeleteOnRenameFail)
 specifier|public
 name|void
@@ -865,6 +887,7 @@ return|return
 name|renameUsingCopy
 return|;
 block|}
+comment|/**      * Perform rename operations using a copy and delete strategy.      * This is primarily used in environments where the regular rename operation is unreliable (e.g. across different file systems or networks).      * This option takes precedence over the copyAndDeleteOnRenameFail parameter that will automatically fall back to the copy and delete strategy,      * but only after additional delays.      */
 DECL|method|setRenameUsingCopy (boolean renameUsingCopy)
 specifier|public
 name|void
@@ -891,6 +914,7 @@ return|return
 name|forceWrites
 return|;
 block|}
+comment|/**      * Whether to force syncing writes to the file system.      * You can turn this off if you do not want this level of guarantee, for example if writing to logs / audit logs etc; this would yield better performance.      */
 DECL|method|setForceWrites (boolean forceWrites)
 specifier|public
 name|void

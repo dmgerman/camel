@@ -316,6 +316,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriParam
 import|;
 end_import
@@ -813,15 +827,28 @@ name|T
 argument_list|>
 name|filter
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|antFilter
 specifier|protected
+specifier|volatile
 name|AntPathMatcherGenericFileFilter
 argument_list|<
 name|T
 argument_list|>
 name|antFilter
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|antInclude
+specifier|protected
+name|String
+name|antInclude
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|antExclude
+specifier|protected
+name|String
+name|antExclude
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -848,6 +875,11 @@ name|sortBy
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"none,markerFile,fileLock,rename,changed"
+argument_list|)
 DECL|field|readLock
 specifier|protected
 name|String
@@ -1616,68 +1648,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|getChmod ()
-specifier|public
-name|String
-name|getChmod
-parameter_list|()
-block|{
-return|return
-name|chmod
-return|;
-block|}
-DECL|method|setChmod (String chmod)
-specifier|public
-name|void
-name|setChmod
-parameter_list|(
-name|String
-name|chmod
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-if|if
-condition|(
-name|ObjectHelper
-operator|.
-name|isNotEmpty
-argument_list|(
-name|chmod
-argument_list|)
-operator|&&
-name|chmodPermissionsAreValid
-argument_list|(
-name|chmod
-argument_list|)
-condition|)
-block|{
-name|this
-operator|.
-name|chmod
-operator|=
-name|chmod
-operator|.
-name|trim
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"chmod option ["
-operator|+
-name|chmod
-operator|+
-literal|"] is not valid"
-argument_list|)
-throw|;
-block|}
-block|}
-comment|/**      *  Chmod value must be between 000 and 777; If there is a leading digit like in 0755 we will ignore it.      *      * @return      */
+comment|/**      * Chmod value must be between 000 and 777; If there is a leading digit like in 0755 we will ignore it.      */
 DECL|method|chmodPermissionsAreValid (String chmod)
 specifier|public
 name|boolean
@@ -2087,6 +2058,68 @@ return|return
 name|permissions
 return|;
 block|}
+DECL|method|getChmod ()
+specifier|public
+name|String
+name|getChmod
+parameter_list|()
+block|{
+return|return
+name|chmod
+return|;
+block|}
+comment|/**      * Specify the file permissions which is sent by the producer, the chmod value must be between 000 and 777;      * If there is a leading digit like in 0755 we will ignore it.      */
+DECL|method|setChmod (String chmod)
+specifier|public
+name|void
+name|setChmod
+parameter_list|(
+name|String
+name|chmod
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|chmod
+argument_list|)
+operator|&&
+name|chmodPermissionsAreValid
+argument_list|(
+name|chmod
+argument_list|)
+condition|)
+block|{
+name|this
+operator|.
+name|chmod
+operator|=
+name|chmod
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"chmod option ["
+operator|+
+name|chmod
+operator|+
+literal|"] is not valid"
+argument_list|)
+throw|;
+block|}
+block|}
 DECL|method|isNoop ()
 specifier|public
 name|boolean
@@ -2097,6 +2130,7 @@ return|return
 name|noop
 return|;
 block|}
+comment|/**      * If true, the file is not moved or deleted in any way.      * This option is good for readonly data, or for ETL type requirements.      * If noop=true, Camel will set idempotent=true as well, to avoid consuming the same files over and over again.      */
 DECL|method|setNoop (boolean noop)
 specifier|public
 name|void
@@ -2123,6 +2157,7 @@ return|return
 name|recursive
 return|;
 block|}
+comment|/**      * If a directory, will look for files in all the sub-directories as well.      */
 DECL|method|setRecursive (boolean recursive)
 specifier|public
 name|void
@@ -2149,6 +2184,7 @@ return|return
 name|include
 return|;
 block|}
+comment|/**      * Is used to include files, if filename matches the regex pattern.      */
 DECL|method|setInclude (String include)
 specifier|public
 name|void
@@ -2175,6 +2211,7 @@ return|return
 name|exclude
 return|;
 block|}
+comment|/**      * Is used to exclude files, if filename matches the regex pattern.      */
 DECL|method|setExclude (String exclude)
 specifier|public
 name|void
@@ -2191,6 +2228,17 @@ operator|=
 name|exclude
 expr_stmt|;
 block|}
+DECL|method|getAntInclude ()
+specifier|public
+name|String
+name|getAntInclude
+parameter_list|()
+block|{
+return|return
+name|antInclude
+return|;
+block|}
+comment|/**      * Ant style filter inclusion.      * Multiple inclusions may be specified in comma-delimited format.      */
 DECL|method|setAntInclude (String antInclude)
 specifier|public
 name|void
@@ -2200,6 +2248,12 @@ name|String
 name|antInclude
 parameter_list|)
 block|{
+name|this
+operator|.
+name|antInclude
+operator|=
+name|antInclude
+expr_stmt|;
 if|if
 condition|(
 name|this
@@ -2231,6 +2285,17 @@ name|antInclude
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getAntExclude ()
+specifier|public
+name|String
+name|getAntExclude
+parameter_list|()
+block|{
+return|return
+name|antExclude
+return|;
+block|}
+comment|/**      * Ant style filter exclusion. If both antInclude and antExclude are used, antExclude takes precedence over antInclude.      * Multiple exclusions may be specified in comma-delimited format.      */
 DECL|method|setAntExclude (String antExclude)
 specifier|public
 name|void
@@ -2240,6 +2305,12 @@ name|String
 name|antExclude
 parameter_list|)
 block|{
+name|this
+operator|.
+name|antExclude
+operator|=
+name|antExclude
+expr_stmt|;
 if|if
 condition|(
 name|this
@@ -2271,7 +2342,7 @@ name|antExclude
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets case sensitive flag on {@link org.apache.camel.component.file.AntPathMatcherFileFilter}      *<p/>      * Is by default turned on<tt>true</tt>.      */
+comment|/**      * Sets case sensitive flag on {@link org.apache.camel.component.file.AntPathMatcherFileFilter}      */
 DECL|method|setAntFilterCaseSensitive (boolean antFilterCaseSensitive)
 specifier|public
 name|void
@@ -2335,6 +2406,7 @@ return|return
 name|delete
 return|;
 block|}
+comment|/**      * If true, the file will be deleted after it is processed successfully.      */
 DECL|method|setDelete (boolean delete)
 specifier|public
 name|void
@@ -2361,6 +2433,7 @@ return|return
 name|flatten
 return|;
 block|}
+comment|/**      * Flatten is used to flatten the file name path to strip any leading paths, so it's just the file name.      * This allows you to consume recursively into sub-directories, but when you eg write the files to another directory      * they will be written in a single directory.      * Setting this to true on the producer enforces that any file name in CamelFileName header      * will be stripped for any leading paths.      */
 DECL|method|setFlatten (boolean flatten)
 specifier|public
 name|void
@@ -2387,6 +2460,7 @@ return|return
 name|move
 return|;
 block|}
+comment|/**      * Expression (such as Simple Language) used to dynamically set the filename when moving it after processing.      * To move files into a .done subdirectory just enter .done.      */
 DECL|method|setMove (Expression move)
 specifier|public
 name|void
@@ -2403,61 +2477,7 @@ operator|=
 name|move
 expr_stmt|;
 block|}
-comment|/**      * Sets the move failure expression based on      * {@link org.apache.camel.language.simple.SimpleLanguage}      */
-DECL|method|setMoveFailed (String fileLanguageExpression)
-specifier|public
-name|void
-name|setMoveFailed
-parameter_list|(
-name|String
-name|fileLanguageExpression
-parameter_list|)
-block|{
-name|String
-name|expression
-init|=
-name|configureMoveOrPreMoveExpression
-argument_list|(
-name|fileLanguageExpression
-argument_list|)
-decl_stmt|;
-name|this
-operator|.
-name|moveFailed
-operator|=
-name|createFileLanguageExpression
-argument_list|(
-name|expression
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|getMoveFailed ()
-specifier|public
-name|Expression
-name|getMoveFailed
-parameter_list|()
-block|{
-return|return
-name|moveFailed
-return|;
-block|}
-DECL|method|setMoveFailed (Expression moveFailed)
-specifier|public
-name|void
-name|setMoveFailed
-parameter_list|(
-name|Expression
-name|moveFailed
-parameter_list|)
-block|{
-name|this
-operator|.
-name|moveFailed
-operator|=
-name|moveFailed
-expr_stmt|;
-block|}
-comment|/**      * Sets the move expression based on      * {@link org.apache.camel.language.simple.SimpleLanguage}      */
+comment|/**      * @see #setMove(org.apache.camel.Expression)      */
 DECL|method|setMove (String fileLanguageExpression)
 specifier|public
 name|void
@@ -2485,6 +2505,60 @@ name|expression
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getMoveFailed ()
+specifier|public
+name|Expression
+name|getMoveFailed
+parameter_list|()
+block|{
+return|return
+name|moveFailed
+return|;
+block|}
+comment|/**      * Sets the move failure expression based on Simple language.      * For example, to move files into a .error subdirectory use: .error.      * Note: When moving the files to the fail location Camel will handle the error and will not pick up the file again.      */
+DECL|method|setMoveFailed (Expression moveFailed)
+specifier|public
+name|void
+name|setMoveFailed
+parameter_list|(
+name|Expression
+name|moveFailed
+parameter_list|)
+block|{
+name|this
+operator|.
+name|moveFailed
+operator|=
+name|moveFailed
+expr_stmt|;
+block|}
+DECL|method|setMoveFailed (String fileLanguageExpression)
+specifier|public
+name|void
+name|setMoveFailed
+parameter_list|(
+name|String
+name|fileLanguageExpression
+parameter_list|)
+block|{
+name|String
+name|expression
+init|=
+name|configureMoveOrPreMoveExpression
+argument_list|(
+name|fileLanguageExpression
+argument_list|)
+decl_stmt|;
+name|this
+operator|.
+name|moveFailed
+operator|=
+name|createFileLanguageExpression
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getPreMove ()
 specifier|public
 name|Expression
@@ -2495,6 +2569,7 @@ return|return
 name|preMove
 return|;
 block|}
+comment|/**      * Expression (such as File Language) used to dynamically set the filename when moving it before processing.      * For example to move in-progress files into the order directory set this value to order.      */
 DECL|method|setPreMove (Expression preMove)
 specifier|public
 name|void
@@ -2511,7 +2586,6 @@ operator|=
 name|preMove
 expr_stmt|;
 block|}
-comment|/**      * Sets the pre move expression based on      * {@link org.apache.camel.language.simple.SimpleLanguage}      */
 DECL|method|setPreMove (String fileLanguageExpression)
 specifier|public
 name|void
@@ -2549,6 +2623,7 @@ return|return
 name|moveExisting
 return|;
 block|}
+comment|/**      * Expression (such as File Language) used to compute file name to use when fileExist=Move is configured.      * To move files into a backup subdirectory just enter backup.      * This option only supports the following File Language tokens: "file:name", "file:name.ext", "file:name.noext", "file:onlyname",      * "file:onlyname.noext", "file:ext", and "file:parent". Notice the "file:parent" is not supported by the FTP component,      * as the FTP component can only move any existing files to a relative directory based on current dir as base.      */
 DECL|method|setMoveExisting (Expression moveExisting)
 specifier|public
 name|void
@@ -2565,7 +2640,6 @@ operator|=
 name|moveExisting
 expr_stmt|;
 block|}
-comment|/**      * Sets the move existing expression based on      * {@link org.apache.camel.language.simple.SimpleLanguage}      */
 DECL|method|setMoveExisting (String fileLanguageExpression)
 specifier|public
 name|void
@@ -2603,6 +2677,7 @@ return|return
 name|fileName
 return|;
 block|}
+comment|/**      * Use Expression such as File Language to dynamically set the filename.      * For consumers, it's used as a filename filter.      * For producers, it's used to evaluate the filename to write.      * If an expression is set, it take precedence over the CamelFileName header. (Note: The header itself can also be an Expression).      * The expression options support both String and Expression types.      * If the expression is a String type, it is always evaluated using the File Language.      * If the expression is an Expression type, the specified Expression type is used - this allows you,      * for instance, to use OGNL expressions. For the consumer, you can use it to filter filenames,      * so you can for instance consume today's file using the File Language syntax: mydata-${date:now:yyyyMMdd}.txt.      * The producers support the CamelOverruleFileName header which takes precedence over any existing CamelFileName header;      * the CamelOverruleFileName is a header that is used only once, and makes it easier as this avoids to temporary      * store CamelFileName and have to restore it afterwards.      */
 DECL|method|setFileName (Expression fileName)
 specifier|public
 name|void
@@ -2619,7 +2694,6 @@ operator|=
 name|fileName
 expr_stmt|;
 block|}
-comment|/**      * Sets the file expression based on      * {@link org.apache.camel.language.simple.SimpleLanguage}      */
 DECL|method|setFileName (String fileLanguageExpression)
 specifier|public
 name|void
@@ -2649,7 +2723,7 @@ return|return
 name|doneFileName
 return|;
 block|}
-comment|/**      * Sets the done file name.      *<p/>      * Only ${file.name} and ${file.name.noext} is supported as dynamic placeholders.      */
+comment|/**      * If provided, then Camel will write a 2nd done file when the original file has been written.      * The done file will be empty. This option configures what file name to use.      * Either you can specify a fixed name. Or you can use dynamic placeholders.      * The done file will always be written in the same folder as the original file.      *<p/>      * Only ${file.name} and ${file.name.noext} is supported as dynamic placeholders.      */
 DECL|method|setDoneFileName (String doneFileName)
 specifier|public
 name|void
@@ -2692,6 +2766,7 @@ return|return
 name|charset
 return|;
 block|}
+comment|/**      * This option is used to specify the encoding of the file.      * You can use this on the consumer, to specify the encodings of the files, which allow Camel to know the charset      * it should load the file content in case the file content is being accessed.      * Likewise when writing a file, you can use this option to specify which charset to write the file as well.      */
 DECL|method|setCharset (String charset)
 specifier|public
 name|void
@@ -2727,6 +2802,7 @@ operator|!=
 literal|null
 return|;
 block|}
+comment|/**      * Option to use the Idempotent Consumer EIP pattern to let Camel skip already processed files.      * Will by default use a memory based LRUCache that holds 1000 entries. If noop=true then idempotent will be enabled      * as well to avoid consuming the same files over and over again.      */
 DECL|method|setIdempotent (Boolean idempotent)
 specifier|public
 name|void
@@ -2753,6 +2829,7 @@ return|return
 name|idempotentKey
 return|;
 block|}
+comment|/**      * To use a custom idempotent key. By default the absolute path of the file is used.      * You can use the File Language, for example to use the file name and file size, you can do:      *<tt>idempotentKey=${file:name}-${file:size}</tt>      */
 DECL|method|setIdempotentKey (Expression idempotentKey)
 specifier|public
 name|void
@@ -2801,6 +2878,7 @@ return|return
 name|idempotentRepository
 return|;
 block|}
+comment|/**      * A pluggable repository org.apache.camel.spi.IdempotentRepository which by default use MemoryMessageIdRepository      * if none is specified and idempotent is true.      */
 DECL|method|setIdempotentRepository (IdempotentRepository<String> idempotentRepository)
 specifier|public
 name|void
@@ -2833,6 +2911,7 @@ return|return
 name|filter
 return|;
 block|}
+comment|/**      * Pluggable filter as a org.apache.camel.component.file.GenericFileFilter class.      * Will skip files if filter returns false in its accept() method.      */
 DECL|method|setFilter (GenericFileFilter<T> filter)
 specifier|public
 name|void
@@ -2868,6 +2947,7 @@ return|return
 name|sorter
 return|;
 block|}
+comment|/**      * Pluggable sorter as a java.util.Comparator<org.apache.camel.component.file.GenericFile> class.      */
 DECL|method|setSorter (Comparator<GenericFile<T>> sorter)
 specifier|public
 name|void
@@ -2903,6 +2983,7 @@ return|return
 name|sortBy
 return|;
 block|}
+comment|/**      * Built-in sort by using the File Language.      * Supports nested sorts, so you can have a sort by file name and as a 2nd group sort by modified date.      */
 DECL|method|setSortBy (Comparator<Exchange> sortBy)
 specifier|public
 name|void
@@ -2977,7 +3058,7 @@ return|return
 name|tempPrefix
 return|;
 block|}
-comment|/**      * Enables and uses temporary prefix when writing files, after write it will      * be renamed to the correct name.      */
+comment|/**      * This option is used to write the file using a temporary name and then, after the write is complete,      * rename it to the real name. Can be used to identify files being written and also avoid consumers      * (not using exclusive read locks) reading in progress files. Is often used by FTP when uploading big files.      */
 DECL|method|setTempPrefix (String tempPrefix)
 specifier|public
 name|void
@@ -3012,6 +3093,7 @@ return|return
 name|tempFileName
 return|;
 block|}
+comment|/**      * The same as tempPrefix option but offering a more fine grained control on the naming of the temporary filename as it uses the File Language.      */
 DECL|method|setTempFileName (Expression tempFileName)
 specifier|public
 name|void
@@ -3057,6 +3139,7 @@ return|return
 name|eagerDeleteTargetFile
 return|;
 block|}
+comment|/**      * Whether or not to eagerly delete any existing target file.      * This option only applies when you use fileExists=Override and the tempFileName option as well.      * You can use this to disable (set it to false) deleting the target file before the temp file is written.      * For example you may write big files and want the target file to exists during the temp file is being written.      * This ensure the target file is only deleted until the very last moment, just before the temp file is being      * renamed to the target filename. This option is also used to control whether to delete any existing files when      * fileExist=Move is enabled, and an existing file exists.      * If this option copyAndDeleteOnRenameFails false, then an exception will be thrown if an existing file existed,      * if its true, then the existing file is deleted before the move operation.      */
 DECL|method|setEagerDeleteTargetFile (boolean eagerDeleteTargetFile)
 specifier|public
 name|void
@@ -3126,6 +3209,7 @@ return|return
 name|exclusiveReadLockStrategy
 return|;
 block|}
+comment|/**      * Pluggable read-lock as a org.apache.camel.component.file.GenericFileExclusiveReadLockStrategy implementation.      */
 DECL|method|setExclusiveReadLockStrategy (GenericFileExclusiveReadLockStrategy<T> exclusiveReadLockStrategy)
 specifier|public
 name|void
@@ -3155,6 +3239,7 @@ return|return
 name|readLock
 return|;
 block|}
+comment|/**      * Used by consumer, to only poll the files if it has exclusive read-lock on the file (i.e. the file is not in-progress or being written).      * Camel will wait until the file lock is granted.      *<p/>      * This option provides the build in strategies:      *<ul>      *<li>none - No read lock is in use      *<li>markerFile - Camel creates a marker file (fileName.camelLock) and then holds a lock on it. This option is not available for the FTP component      *<li>changed - Changed is using file length/modification timestamp to detect whether the file is currently being copied or not. Will at least use 1 sec      *     to determine this, so this option cannot consume files as fast as the others, but can be more reliable as the JDK IO API cannot      *     always determine whether a file is currently being used by another process. The option readLockCheckInterval can be used to set the check frequency.</li>      *<li>fileLock - is for using java.nio.channels.FileLock. This option is not avail for the FTP component. This approach should be avoided when accessing      *     a remote file system via a mount/share unless that file system supports distributed file locks.</li>      *<li>rename - rename is for using a try to rename the file as a test if we can get exclusive read-lock.</li>      *</ul>      */
 DECL|method|setReadLock (String readLock)
 specifier|public
 name|void
@@ -3181,6 +3266,7 @@ return|return
 name|readLockCheckInterval
 return|;
 block|}
+comment|/**      * Interval in millis for the read-lock, if supported by the read lock.      * This interval is used for sleeping between attempts to acquire the read lock.      * For example when using the changed read lock, you can set a higher interval period to cater for slow writes.      * The default of 1 sec. may be too fast if the producer is very slow writing the file.      * For FTP the default readLockCheckInterval is 5000.      */
 DECL|method|setReadLockCheckInterval (long readLockCheckInterval)
 specifier|public
 name|void
@@ -3207,6 +3293,7 @@ return|return
 name|readLockTimeout
 return|;
 block|}
+comment|/**      * Optional timeout in millis for the read-lock, if supported by the read-lock.      * If the read-lock could not be granted and the timeout triggered, then Camel will skip the file.      * At next poll Camel, will try the file again, and this time maybe the read-lock could be granted.      * Use a value of 0 or lower to indicate forever. Currently fileLock, changed and rename support the timeout.      * Notice: For FTP the default readLockTimeout value is 20000 instead of 10000.      */
 DECL|method|setReadLockTimeout (long readLockTimeout)
 specifier|public
 name|void
@@ -3233,6 +3320,7 @@ return|return
 name|readLockMarkerFile
 return|;
 block|}
+comment|/**      * Whether to use marker file with the changed, rename, or exclusive read lock types.      * By default a marker file is used as well to guard against other processes picking up the same files.      * This behavior can be turned off by setting this option to false.      * For example if you do not want to write marker files to the file systems by the Camel application.      */
 DECL|method|setReadLockMarkerFile (boolean readLockMarkerFile)
 specifier|public
 name|void
@@ -3259,6 +3347,7 @@ return|return
 name|readLockLoggingLevel
 return|;
 block|}
+comment|/**      * Logging level used when a read lock could not be acquired.      * By default a WARN is logged. You can change this level, for example to OFF to not have any logging.      * This option is only applicable for readLock of types: changed, fileLock, rename.      */
 DECL|method|setReadLockLoggingLevel (LoggingLevel readLockLoggingLevel)
 specifier|public
 name|void
@@ -3285,6 +3374,7 @@ return|return
 name|readLockMinLength
 return|;
 block|}
+comment|/**      * This option applied only for readLock=changed. This option allows you to configure a minimum file length.      * By default Camel expects the file to contain data, and thus the default value is 1.      * You can set this option to zero, to allow consuming zero-length files.      */
 DECL|method|setReadLockMinLength (long readLockMinLength)
 specifier|public
 name|void
@@ -3311,6 +3401,7 @@ return|return
 name|bufferSize
 return|;
 block|}
+comment|/**      * Write buffer sized in bytes.      */
 DECL|method|setBufferSize (int bufferSize)
 specifier|public
 name|void
@@ -3354,6 +3445,7 @@ return|return
 name|fileExist
 return|;
 block|}
+comment|/**      * What to do if a file already exists with the same name.      *      * Override, which is the default, replaces the existing file.      *<ul>      *<li>Append - adds content to the existing file.</li>      *<li>Fail - throws a GenericFileOperationException, indicating that there is already an existing file.</li>      *<li>Ignore - silently ignores the problem and does not override the existing file, but assumes everything is okay.</li>      *<li>Move - option requires to use the moveExisting option to be configured as well.      *   The option eagerDeleteTargetFile can be used to control what to do if an moving the file, and there exists already an existing file,      *   otherwise causing the move operation to fail.      *   The Move option will move any existing files, before writing the target file.</li>      *<li>TryRename Camel is only applicable if tempFileName option is in use. This allows to try renaming the file from the temporary name to the actual name,      *   without doing any exists check.This check may be faster on some file systems and especially FTP servers.</li>      *</ul>      */
 DECL|method|setFileExist (GenericFileExist fileExist)
 specifier|public
 name|void
@@ -3380,6 +3472,7 @@ return|return
 name|autoCreate
 return|;
 block|}
+comment|/**      * Automatically create missing directories in the file's pathname. For the file consumer, that means creating the starting directory.      * For the file producer, it means the directory the files should be written to.      */
 DECL|method|setAutoCreate (boolean autoCreate)
 specifier|public
 name|void
@@ -3406,6 +3499,7 @@ return|return
 name|startingDirectoryMustExist
 return|;
 block|}
+comment|/**      * Whether the starting directory must exist. Mind that the autoCreate option is default enabled,      * which means the starting directory is normally auto created if it doesn't exist.      * You can disable autoCreate and enable this to ensure the starting directory must exist. Will thrown an exception if the directory doesn't exist.      */
 DECL|method|setStartingDirectoryMustExist (boolean startingDirectoryMustExist)
 specifier|public
 name|void
@@ -3432,6 +3526,7 @@ return|return
 name|directoryMustExist
 return|;
 block|}
+comment|/**      * Similar to startingDirectoryMustExist but this applies during polling recursive sub directories.      */
 DECL|method|setDirectoryMustExist (boolean directoryMustExist)
 specifier|public
 name|void
@@ -3461,6 +3556,7 @@ return|return
 name|processStrategy
 return|;
 block|}
+comment|/**      * A pluggable org.apache.camel.component.file.GenericFileProcessStrategy allowing you to implement your own readLock option or similar.      * Can also be used when special conditions must be met before a file can be consumed, such as a special ready file exists.      * If this option is set then the readLock option does not apply.      */
 DECL|method|setProcessStrategy (GenericFileProcessStrategy<T> processStrategy)
 specifier|public
 name|void
@@ -3490,6 +3586,7 @@ return|return
 name|localWorkDirectory
 return|;
 block|}
+comment|/**      * When consuming, a local work directory can be used to store the remote file content directly in local files,      * to avoid loading the content into memory. This is beneficial, if you consume a very big remote file and thus can conserve memory.      */
 DECL|method|setLocalWorkDirectory (String localWorkDirectory)
 specifier|public
 name|void
@@ -3516,6 +3613,7 @@ return|return
 name|maxMessagesPerPoll
 return|;
 block|}
+comment|/**      * Tlo define a maximum messages to gather per poll.      * By default no maximum is set. Can be used to set a limit of e.g. 1000 to avoid when starting up the server that there are thousands of files.      * Set a value of 0 or negative to disabled it.      * Notice: If this option is in use then the File and FTP components will limit before any sorting.      * For example if you have 100000 files and use maxMessagesPerPoll=500, then only the first 500 files will be picked up, and then sorted.      * You can use the eagerMaxMessagesPerPoll option and set this to false to allow to scan all files first and then sort afterwards.      */
 DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
 specifier|public
 name|void
@@ -3542,6 +3640,7 @@ return|return
 name|eagerMaxMessagesPerPoll
 return|;
 block|}
+comment|/**      * Allows for controlling whether the limit from maxMessagesPerPoll is eager or not.      * If eager then the limit is during the scanning of files. Where as false would scan all files, and then perform sorting.      * Setting this option to false allows for sorting all files first, and then limit the poll. Mind that this requires a      * higher memory usage as all file details are in memory to perform the sorting.      */
 DECL|method|setEagerMaxMessagesPerPoll (boolean eagerMaxMessagesPerPoll)
 specifier|public
 name|void
@@ -3568,6 +3667,7 @@ return|return
 name|maxDepth
 return|;
 block|}
+comment|/**      * The maximum depth to traverse when recursively processing a directory.      */
 DECL|method|setMaxDepth (int maxDepth)
 specifier|public
 name|void
@@ -3594,6 +3694,7 @@ return|return
 name|minDepth
 return|;
 block|}
+comment|/**      * The minimum depth to start processing when recursively processing a directory.      * Using minDepth=1 means the base directory. Using minDepth=2 means the first sub directory.      */
 DECL|method|setMinDepth (int minDepth)
 specifier|public
 name|void
@@ -3623,6 +3724,7 @@ return|return
 name|inProgressRepository
 return|;
 block|}
+comment|/**      * A pluggable in-progress repository org.apache.camel.spi.IdempotentRepository.      * The in-progress repository is used to account the current in progress files being consumed. By default a memory based repository is used.      */
 DECL|method|setInProgressRepository (IdempotentRepository<String> inProgressRepository)
 specifier|public
 name|void
@@ -3652,6 +3754,7 @@ return|return
 name|keepLastModified
 return|;
 block|}
+comment|/**      * Will keep the last modified timestamp from the source file (if any).      * Will use the Exchange.FILE_LAST_MODIFIED header to located the timestamp.      * This header can contain either a java.util.Date or long with the timestamp.      * If the timestamp exists and the option is enabled it will set this timestamp on the written file.      * Note: This option only applies to the file producer. You cannot use this option with any of the ftp producers.      */
 DECL|method|setKeepLastModified (boolean keepLastModified)
 specifier|public
 name|void
@@ -3678,6 +3781,7 @@ return|return
 name|allowNullBody
 return|;
 block|}
+comment|/**      * Used to specify if a null body is allowed during file writing.      * If set to true then an empty file will be created, when set to false, and attempting to send a null body to the file component,      * a GenericFileWriteException of 'Cannot write null body to file.' will be thrown.      * If the `fileExist` option is set to 'Override', then the file will be truncated, and if set to `append` the file will remain unchanged.      */
 DECL|method|setAllowNullBody (boolean allowNullBody)
 specifier|public
 name|void
