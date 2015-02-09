@@ -122,6 +122,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RestConfiguration
 import|;
 end_import
@@ -231,6 +245,18 @@ name|DefaultEndpoint
 block|{
 annotation|@
 name|UriPath
+argument_list|(
+name|enums
+operator|=
+literal|"get,post,put,delete,patch,head,trace,connect,options"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|method
 specifier|private
 name|String
@@ -238,6 +264,13 @@ name|method
 decl_stmt|;
 annotation|@
 name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|path
 specifier|private
 name|String
@@ -356,6 +389,7 @@ return|return
 name|method
 return|;
 block|}
+comment|/**      * HTTP method to use.      */
 DECL|method|setMethod (String method)
 specifier|public
 name|void
@@ -382,6 +416,7 @@ return|return
 name|path
 return|;
 block|}
+comment|/**      * The base path      */
 DECL|method|setPath (String path)
 specifier|public
 name|void
@@ -408,6 +443,7 @@ return|return
 name|uriTemplate
 return|;
 block|}
+comment|/**      * The uri template      */
 DECL|method|setUriTemplate (String uriTemplate)
 specifier|public
 name|void
@@ -434,6 +470,7 @@ return|return
 name|consumes
 return|;
 block|}
+comment|/**      * Media type such as: 'text/xml', or 'application/json' this REST service accepts.      * By default we accept all kinds of types.      */
 DECL|method|setConsumes (String consumes)
 specifier|public
 name|void
@@ -460,6 +497,7 @@ return|return
 name|produces
 return|;
 block|}
+comment|/**      * Media type such as: 'text/xml', or 'application/json' this REST service returns.      */
 DECL|method|setProduces (String produces)
 specifier|public
 name|void
@@ -486,6 +524,7 @@ return|return
 name|componentName
 return|;
 block|}
+comment|/**      * The Camel Rest component to use for the REST transport, such as restlet, spark-rest.      * If no component has been explicit configured, then Camel will lookup if there is a Camel component      * that integrates with the Rest DSL, or if a org.apache.camel.spi.RestConsumerFactory is registered in the registry.      * If either one is found, then that is being used.      */
 DECL|method|setComponentName (String componentName)
 specifier|public
 name|void
@@ -512,6 +551,7 @@ return|return
 name|inType
 return|;
 block|}
+comment|/**      * To declare the incoming POJO binding type as a FQN class name      */
 DECL|method|setInType (String inType)
 specifier|public
 name|void
@@ -538,6 +578,7 @@ return|return
 name|outType
 return|;
 block|}
+comment|/**      * To declare the outgoing POJO binding type as a FQN class name      */
 DECL|method|setOutType (String outType)
 specifier|public
 name|void
@@ -564,6 +605,7 @@ return|return
 name|routeId
 return|;
 block|}
+comment|/**      * Name of the route this REST services creates      */
 DECL|method|setRouteId (String routeId)
 specifier|public
 name|void
@@ -590,6 +632,7 @@ return|return
 name|description
 return|;
 block|}
+comment|/**      * Human description to document this REST service      */
 DECL|method|setDescription (String description)
 specifier|public
 name|void
@@ -621,6 +664,7 @@ return|return
 name|parameters
 return|;
 block|}
+comment|/**      * Additional parameters to configure the consumer of the REST transport for this REST service      */
 DECL|method|setParameters (Map<String, Object> parameters)
 specifier|public
 name|void
