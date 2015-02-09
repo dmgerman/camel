@@ -197,7 +197,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// there should be 10 in total
+comment|// there should be 9 in total
 name|data
 operator|=
 operator|(
@@ -228,7 +228,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|10
+literal|9
 argument_list|,
 name|data
 operator|.

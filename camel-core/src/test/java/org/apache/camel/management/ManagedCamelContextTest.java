@@ -1744,7 +1744,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|15
+literal|14
 argument_list|,
 name|StringHelper
 operator|.
@@ -1758,7 +1758,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|15
+literal|14
 argument_list|,
 name|StringHelper
 operator|.
@@ -2296,7 +2296,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"concurrentConsumers\": { \"value\": \"1\" }"
+literal|"\"defaultQueueFactory\": { \"kind\": \"property\", \"type\": \"object\", \"javaType\": \"org.apache.camel.component.seda.BlockingQueueFactory<org.apache.camel.Exchange>\","
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2306,7 +2306,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"queueSize\": { \"kind\": \"property\", \"type\": \"integer\", \"javaType\": \"int\", \"deprecated\": \"false\", \"value\": \"0\" }"
+literal|"\"queueSize\": { \"kind\": \"property\", \"type\": \"integer\", \"javaType\": \"int\", \"deprecated\": \"false\", \"value\": \"0\""
 argument_list|)
 argument_list|)
 expr_stmt|;
