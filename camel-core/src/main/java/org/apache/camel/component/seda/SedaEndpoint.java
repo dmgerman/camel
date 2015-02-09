@@ -1469,6 +1469,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Define the queue instance which will be used by seda endpoint.      *<p/>      * This option is only for rare use-cases where you want to use a custom queue instance.      */
 DECL|method|setQueue (BlockingQueue<Exchange> queue)
 specifier|public
 name|void
@@ -1514,6 +1515,7 @@ return|return
 name|size
 return|;
 block|}
+comment|/**      * The maximum capacity of the SEDA queue (i.e., the number of messages it can hold).      */
 DECL|method|setSize (int size)
 specifier|public
 name|void
@@ -1550,6 +1552,7 @@ name|size
 argument_list|()
 return|;
 block|}
+comment|/**      * Whether a thread that sends messages to a full SEDA queue will block until the queue's capacity is no longer exhausted.      * By default, an exception will be thrown stating that the queue is full.      * By enabling this option, the calling thread will instead block and wait until the message can be accepted.      */
 DECL|method|setBlockWhenFull (boolean blockWhenFull)
 specifier|public
 name|void
@@ -1583,6 +1586,7 @@ return|return
 name|blockWhenFull
 return|;
 block|}
+comment|/**      * Number of concurrent threads processing exchanges.      */
 DECL|method|setConcurrentConsumers (int concurrentConsumers)
 specifier|public
 name|void
@@ -1626,6 +1630,7 @@ return|return
 name|waitForTaskToComplete
 return|;
 block|}
+comment|/**      * Option to specify whether the caller should wait for the async task to complete or not before continuing.      * The following three options are supported: Always, Never or IfReplyExpected.      * The first two values are self-explanatory.      * The last value, IfReplyExpected, will only wait if the message is Request Reply based.      * The default option is IfReplyExpected.      */
 DECL|method|setWaitForTaskToComplete (WaitForTaskToComplete waitForTaskToComplete)
 specifier|public
 name|void
@@ -1654,6 +1659,7 @@ return|return
 name|timeout
 return|;
 block|}
+comment|/**      * Timeout (in milliseconds) before a SEDA producer will stop waiting for an asynchronous task to complete.      * You can disable timeout by using 0 or a negative value.      */
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
@@ -1682,6 +1688,7 @@ return|return
 name|failIfNoConsumers
 return|;
 block|}
+comment|/**      * Whether the producer should fail by throwing an exception, when sending to a SEDA queue with no active consumers.      */
 DECL|method|setFailIfNoConsumers (boolean failIfNoConsumers)
 specifier|public
 name|void
@@ -1710,6 +1717,7 @@ return|return
 name|multipleConsumers
 return|;
 block|}
+comment|/**      * Specifies whether multiple consumers are allowed. If enabled, you can use SEDA for Publish-Subscribe messaging.      * That is, you can send a message to the SEDA queue and have each consumer receive a copy of the message.      * When enabled, this option should be specified on every consumer endpoint.      */
 DECL|method|setMultipleConsumers (boolean multipleConsumers)
 specifier|public
 name|void
@@ -1738,6 +1746,7 @@ return|return
 name|pollTimeout
 return|;
 block|}
+comment|/**      * The timeout used when polling. When a timeout occurs, the consumer can check whether it is allowed to continue running.      * Setting a lower value allows the consumer to react more quickly upon shutdown.      */
 DECL|method|setPollTimeout (int pollTimeout)
 specifier|public
 name|void
@@ -1766,6 +1775,7 @@ return|return
 name|purgeWhenStopping
 return|;
 block|}
+comment|/**      * Whether to purge the task queue when stopping the consumer/route.      * This allows to stop faster, as any pending messages on the queue is discarded.      */
 DECL|method|setPurgeWhenStopping (boolean purgeWhenStopping)
 specifier|public
 name|void
