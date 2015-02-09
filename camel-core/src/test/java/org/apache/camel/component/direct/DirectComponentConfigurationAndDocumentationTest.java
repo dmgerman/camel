@@ -287,7 +287,7 @@ literal|"\"timeout\": { \"kind\": \"parameter\", \"type\": \"integer\", \"javaTy
 operator|+
 literal|" \"deprecated\": \"false\", \"defaultValue\": \"30000\","
 operator|+
-literal|" \"description\": \"The timeout value to use if block is enabled. Is by default 30000.\""
+literal|" \"description\": \"The timeout value to use if block is enabled."
 argument_list|)
 argument_list|)
 expr_stmt|;

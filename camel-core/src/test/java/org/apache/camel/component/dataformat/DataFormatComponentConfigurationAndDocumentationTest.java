@@ -217,7 +217,19 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"operation\": { \"kind\": \"parameter\", \"type\": \"string\""
+literal|"\"name\": { \"kind\": \"path\", \"type\": \"string\", \"javaType\": \"java.lang.String\","
+operator|+
+literal|" \"deprecated\": \"false\", \"description\": \"Name of data format\" }"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"operation\": { \"kind\": \"path\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
