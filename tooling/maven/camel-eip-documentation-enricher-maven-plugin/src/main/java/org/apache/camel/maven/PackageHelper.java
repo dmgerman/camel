@@ -102,6 +102,10 @@ name|Map
 import|;
 end_import
 
+begin_comment
+comment|/**  * Utility class to find, read json files.  */
+end_comment
+
 begin_class
 DECL|class|PackageHelper
 specifier|public
@@ -112,7 +116,7 @@ DECL|method|PackageHelper ()
 specifier|private
 name|PackageHelper
 parameter_list|()
-block|{   }
+block|{}
 DECL|method|fileToString (File file)
 specifier|public
 specifier|static

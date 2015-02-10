@@ -16,6 +16,10 @@ name|maven
 package|;
 end_package
 
+begin_comment
+comment|/**  * Stores mojo related constants.  */
+end_comment
+
 begin_class
 DECL|class|Constants
 specifier|public

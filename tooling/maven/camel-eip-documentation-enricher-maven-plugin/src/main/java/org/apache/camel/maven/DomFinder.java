@@ -76,11 +76,15 @@ name|XPathExpressionException
 import|;
 end_import
 
+begin_comment
+comment|/**  * Finds xml elements where documentation can be added.  */
+end_comment
+
 begin_class
-DECL|class|DomParser
+DECL|class|DomFinder
 specifier|public
 class|class
-name|DomParser
+name|DomFinder
 block|{
 DECL|method|findElementsAndTypes (Document document, XPath xPath)
 specifier|public

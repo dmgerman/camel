@@ -332,6 +332,10 @@ name|Map
 import|;
 end_import
 
+begin_comment
+comment|/**  * Injects EIP documentation to camel schema.  */
+end_comment
+
 begin_class
 annotation|@
 name|Mojo
@@ -356,14 +360,14 @@ name|LifecyclePhase
 operator|.
 name|PACKAGE
 argument_list|)
-DECL|class|EipDocumentationGeneratorMojo
+DECL|class|EipDocumentationEnricherMojo
 specifier|public
 class|class
-name|EipDocumentationGeneratorMojo
+name|EipDocumentationEnricherMojo
 extends|extends
 name|AbstractMojo
 block|{
-comment|/**    * Project's source directory as specified in the POM.    */
+comment|/**    * Path to camel EIP schema.    */
 annotation|@
 name|Parameter
 argument_list|(
@@ -375,6 +379,7 @@ DECL|field|inputCamelSchemaFile
 name|File
 name|inputCamelSchemaFile
 decl_stmt|;
+comment|/**    * Path to camel EIP schema with enriched documentation.    */
 annotation|@
 name|Parameter
 argument_list|(
@@ -386,6 +391,7 @@ DECL|field|outputCamelSchemaFile
 name|File
 name|outputCamelSchemaFile
 decl_stmt|;
+comment|/**    * Path to camel core project root directory.    */
 annotation|@
 name|Parameter
 argument_list|(
@@ -422,11 +428,11 @@ operator|.
 name|PATH_TO_MODEL_DIR
 argument_list|)
 decl_stmt|;
-name|DomParser
-name|domParser
+name|DomFinder
+name|domFinder
 init|=
 operator|new
-name|DomParser
+name|DomFinder
 argument_list|()
 decl_stmt|;
 name|DocumentationEnricher
@@ -474,7 +480,7 @@ decl_stmt|;
 name|NodeList
 name|elementsAndTypes
 init|=
-name|domParser
+name|domFinder
 operator|.
 name|findElementsAndTypes
 argument_list|(
@@ -528,7 +534,7 @@ block|{
 name|NodeList
 name|attributeElements
 init|=
-name|domParser
+name|domFinder
 operator|.
 name|findAttributesElements
 argument_list|(

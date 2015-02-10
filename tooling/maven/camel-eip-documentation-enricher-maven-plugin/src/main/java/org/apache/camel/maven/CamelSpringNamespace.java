@@ -38,6 +38,10 @@ name|Iterator
 import|;
 end_import
 
+begin_comment
+comment|/**  * Default namespace for xsd schema.  */
+end_comment
+
 begin_class
 DECL|class|CamelSpringNamespace
 specifier|public
