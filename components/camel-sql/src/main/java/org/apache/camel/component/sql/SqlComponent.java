@@ -84,6 +84,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|CamelContextHelper
@@ -135,6 +149,13 @@ specifier|private
 name|DataSource
 name|dataSource
 decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|usePlaceholder
 specifier|private
 name|boolean
@@ -197,6 +218,11 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|DataSource
+name|target
+init|=
+literal|null
+decl_stmt|;
 comment|// endpoint options overrule component configured datasource
 name|DataSource
 name|ds
@@ -212,6 +238,18 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|ds
+operator|!=
+literal|null
+condition|)
+block|{
+name|target
+operator|=
+name|ds
+expr_stmt|;
+block|}
 name|String
 name|dataSourceRef
 init|=
@@ -228,7 +266,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|ds
+name|target
 operator|==
 literal|null
 operator|&&
@@ -237,7 +275,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|ds
+name|target
 operator|=
 name|CamelContextHelper
 operator|.
@@ -256,20 +294,20 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ds
+name|target
 operator|==
 literal|null
 condition|)
 block|{
 comment|// fallback and use component
-name|ds
+name|target
 operator|=
 name|dataSource
 expr_stmt|;
 block|}
 if|if
 condition|(
-name|ds
+name|target
 operator|==
 literal|null
 condition|)
@@ -304,7 +342,7 @@ init|=
 operator|new
 name|JdbcTemplate
 argument_list|(
-name|ds
+name|target
 argument_list|)
 decl_stmt|;
 name|IntrospectionSupport
@@ -534,10 +572,25 @@ argument_list|(
 name|onConsumeBatchComplete
 argument_list|)
 expr_stmt|;
+name|endpoint
+operator|.
+name|setDataSource
+argument_list|(
+name|ds
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setDataSourceRef
+argument_list|(
+name|dataSourceRef
+argument_list|)
+expr_stmt|;
 return|return
 name|endpoint
 return|;
 block|}
+comment|/**      * Sets the DataSource to use to communicate with the database.      */
 DECL|method|setDataSource (DataSource dataSource)
 specifier|public
 name|void
@@ -564,16 +617,6 @@ return|return
 name|dataSource
 return|;
 block|}
-DECL|method|isUsePlaceholder ()
-specifier|public
-name|boolean
-name|isUsePlaceholder
-parameter_list|()
-block|{
-return|return
-name|usePlaceholder
-return|;
-block|}
 comment|/**      * Sets whether to use placeholder and replace all placeholder characters with ? sign in the SQL queries.      *<p/>      * This option is default<tt>true</tt>      */
 DECL|method|setUsePlaceholder (boolean usePlaceholder)
 specifier|public
@@ -590,6 +633,16 @@ name|usePlaceholder
 operator|=
 name|usePlaceholder
 expr_stmt|;
+block|}
+DECL|method|isUsePlaceholder ()
+specifier|public
+name|boolean
+name|isUsePlaceholder
+parameter_list|()
+block|{
+return|return
+name|usePlaceholder
+return|;
 block|}
 block|}
 end_class

@@ -70,6 +70,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|sql
+operator|.
+name|DataSource
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -299,6 +309,22 @@ name|query
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Deprecated
+DECL|field|dataSourceRef
+specifier|private
+name|String
+name|dataSourceRef
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|dataSource
+specifier|private
+name|DataSource
+name|dataSource
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|batch
 specifier|private
 name|boolean
@@ -348,6 +374,11 @@ name|onConsumeBatchComplete
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|allowNamedParameters
 specifier|private
 name|boolean
@@ -364,6 +395,11 @@ name|alwaysPopulateStatement
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|","
+argument_list|)
 DECL|field|separator
 specifier|private
 name|char
@@ -373,6 +409,11 @@ literal|','
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"SelectList"
+argument_list|)
 DECL|field|outputType
 specifier|private
 name|SqlOutputType
@@ -1072,6 +1113,60 @@ operator|.
 name|outputHeader
 operator|=
 name|outputHeader
+expr_stmt|;
+block|}
+DECL|method|getDataSourceRef ()
+specifier|public
+name|String
+name|getDataSourceRef
+parameter_list|()
+block|{
+return|return
+name|dataSourceRef
+return|;
+block|}
+comment|/**      * Sets the reference to a DataSource to lookup from the registry, to use for communicating with the database.      */
+DECL|method|setDataSourceRef (String dataSourceRef)
+specifier|public
+name|void
+name|setDataSourceRef
+parameter_list|(
+name|String
+name|dataSourceRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dataSourceRef
+operator|=
+name|dataSourceRef
+expr_stmt|;
+block|}
+DECL|method|getDataSource ()
+specifier|public
+name|DataSource
+name|getDataSource
+parameter_list|()
+block|{
+return|return
+name|dataSource
+return|;
+block|}
+comment|/**      * Sets the DataSource to use to communicate with the database.      */
+DECL|method|setDataSource (DataSource dataSource)
+specifier|public
+name|void
+name|setDataSource
+parameter_list|(
+name|DataSource
+name|dataSource
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dataSource
+operator|=
+name|dataSource
 expr_stmt|;
 block|}
 annotation|@
