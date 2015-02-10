@@ -5,6 +5,7 @@ end_comment
 
 begin_package
 DECL|package|org.apache.camel.component.sql
+DECL|package|org.apache.camel.component.sql
 package|package
 name|org
 operator|.
@@ -124,6 +125,7 @@ end_comment
 
 begin_class
 DECL|class|SqlComponent
+DECL|class|SqlComponent
 specifier|public
 class|class
 name|SqlComponent
@@ -131,10 +133,12 @@ extends|extends
 name|UriEndpointComponent
 block|{
 DECL|field|dataSource
+DECL|field|dataSource
 specifier|private
 name|DataSource
 name|dataSource
 decl_stmt|;
+DECL|field|usePlaceholder
 DECL|field|usePlaceholder
 specifier|private
 name|boolean
@@ -142,6 +146,7 @@ name|usePlaceholder
 init|=
 literal|true
 decl_stmt|;
+DECL|method|SqlComponent ()
 DECL|method|SqlComponent ()
 specifier|public
 name|SqlComponent
@@ -155,6 +160,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|SqlComponent (CamelContext context)
 DECL|method|SqlComponent (CamelContext context)
 specifier|public
 name|SqlComponent
@@ -175,6 +181,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -224,13 +231,6 @@ name|ds
 expr_stmt|;
 block|}
 comment|//TODO cmueller: remove the 'dataSourceRef' lookup in Camel 3.0
-if|if
-condition|(
-name|dataSource
-operator|==
-literal|null
-condition|)
-block|{
 name|String
 name|dataSourceRef
 init|=
@@ -247,6 +247,10 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|dataSource
+operator|==
+literal|null
+operator|&&
 name|dataSourceRef
 operator|!=
 literal|null
@@ -270,6 +274,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|field|parameterPlaceholderSubstitute
+DECL|field|parameterPlaceholderSubstitute
 name|String
 name|parameterPlaceholderSubstitute
 init|=
@@ -286,6 +292,8 @@ argument_list|,
 literal|"#"
 argument_list|)
 decl_stmt|;
+DECL|field|jdbcTemplate
+DECL|field|jdbcTemplate
 name|JdbcTemplate
 name|jdbcTemplate
 init|=
@@ -295,6 +303,8 @@ argument_list|(
 name|dataSource
 argument_list|)
 decl_stmt|;
+DECL|method|IntrospectionSupport.setProperties (jdbcTemplate, parameters, R)
+DECL|method|IntrospectionSupport.setProperties (jdbcTemplate, parameters, R)
 name|IntrospectionSupport
 operator|.
 name|setProperties
@@ -306,6 +316,8 @@ argument_list|,
 literal|"template."
 argument_list|)
 expr_stmt|;
+DECL|field|query
+DECL|field|query
 name|String
 name|query
 init|=
@@ -318,6 +330,8 @@ argument_list|,
 literal|"?"
 argument_list|)
 decl_stmt|;
+DECL|field|onConsume
+DECL|field|onConsume
 name|String
 name|onConsume
 init|=
@@ -374,6 +388,8 @@ literal|"?"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|field|onConsumeFailed
+DECL|field|onConsumeFailed
 name|String
 name|onConsumeFailed
 init|=
@@ -430,6 +446,8 @@ literal|"?"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|field|onConsumeBatchComplete
+DECL|field|onConsumeBatchComplete
 name|String
 name|onConsumeBatchComplete
 init|=
@@ -486,6 +504,8 @@ literal|"?"
 argument_list|)
 expr_stmt|;
 block|}
+DECL|field|endpoint
+DECL|field|endpoint
 name|SqlEndpoint
 name|endpoint
 init|=
@@ -501,31 +521,41 @@ argument_list|,
 name|query
 argument_list|)
 decl_stmt|;
+DECL|method|endpoint.setOnConsume (onConsume)
+DECL|method|endpoint.setOnConsume (onConsume)
 name|endpoint
 operator|.
 name|setOnConsume
-argument_list|(
+parameter_list|(
 name|onConsume
-argument_list|)
-expr_stmt|;
+parameter_list|)
+constructor_decl|;
+DECL|method|endpoint.setOnConsumeFailed (onConsumeFailed)
+DECL|method|endpoint.setOnConsumeFailed (onConsumeFailed)
 name|endpoint
 operator|.
 name|setOnConsumeFailed
-argument_list|(
+parameter_list|(
 name|onConsumeFailed
-argument_list|)
-expr_stmt|;
+parameter_list|)
+constructor_decl|;
+DECL|method|endpoint.setOnConsumeBatchComplete (onConsumeBatchComplete)
+DECL|method|endpoint.setOnConsumeBatchComplete (onConsumeBatchComplete)
 name|endpoint
 operator|.
 name|setOnConsumeBatchComplete
-argument_list|(
+parameter_list|(
 name|onConsumeBatchComplete
-argument_list|)
-expr_stmt|;
+parameter_list|)
+constructor_decl|;
 return|return
 name|endpoint
 return|;
 block|}
+end_class
+
+begin_function
+DECL|method|setDataSource (DataSource dataSource)
 DECL|method|setDataSource (DataSource dataSource)
 specifier|public
 name|void
@@ -542,6 +572,10 @@ operator|=
 name|dataSource
 expr_stmt|;
 block|}
+end_function
+
+begin_function
+DECL|method|getDataSource ()
 DECL|method|getDataSource ()
 specifier|public
 name|DataSource
@@ -552,6 +586,10 @@ return|return
 name|dataSource
 return|;
 block|}
+end_function
+
+begin_function
+DECL|method|isUsePlaceholder ()
 DECL|method|isUsePlaceholder ()
 specifier|public
 name|boolean
@@ -562,7 +600,14 @@ return|return
 name|usePlaceholder
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Sets whether to use placeholder and replace all placeholder characters with ? sign in the SQL queries.      *<p/>      * This option is default<tt>true</tt>      */
+end_comment
+
+begin_function
+DECL|method|setUsePlaceholder (boolean usePlaceholder)
 DECL|method|setUsePlaceholder (boolean usePlaceholder)
 specifier|public
 name|void
@@ -579,8 +624,8 @@ operator|=
 name|usePlaceholder
 expr_stmt|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 
