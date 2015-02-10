@@ -1041,6 +1041,7 @@ return|return
 name|whenClauses
 return|;
 block|}
+comment|/**      * Sets the when clauses      */
 DECL|method|setWhenClauses (List<WhenDefinition> whenClauses)
 specifier|public
 name|void
