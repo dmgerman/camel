@@ -109,6 +109,7 @@ end_comment
 begin_class
 DECL|class|PackageHelper
 specifier|public
+specifier|final
 class|class
 name|PackageHelper
 block|{
@@ -116,7 +117,7 @@ DECL|method|PackageHelper ()
 specifier|private
 name|PackageHelper
 parameter_list|()
-block|{}
+block|{     }
 DECL|method|fileToString (File file)
 specifier|public
 specifier|static
@@ -186,7 +187,11 @@ name|results
 init|=
 operator|new
 name|HashMap
-argument_list|<>
+argument_list|<
+name|String
+argument_list|,
+name|File
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|findJsonFiles0

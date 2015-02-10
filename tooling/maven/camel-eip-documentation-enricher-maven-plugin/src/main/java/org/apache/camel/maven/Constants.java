@@ -27,11 +27,6 @@ specifier|final
 class|class
 name|Constants
 block|{
-DECL|method|Constants ()
-specifier|private
-name|Constants
-parameter_list|()
-block|{}
 comment|// Camel core constants.
 DECL|field|PATH_TO_MODEL_DIR
 specifier|public
@@ -116,6 +111,11 @@ name|MODEL_ATTRIBUTE_NAME
 init|=
 literal|"model"
 decl_stmt|;
+DECL|method|Constants ()
+specifier|private
+name|Constants
+parameter_list|()
+block|{     }
 block|}
 end_class
 
