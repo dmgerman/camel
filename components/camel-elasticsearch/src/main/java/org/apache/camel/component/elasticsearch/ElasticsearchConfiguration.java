@@ -154,6 +154,15 @@ name|OPERATION_INDEX
 init|=
 literal|"INDEX"
 decl_stmt|;
+DECL|field|OPERATION_BULK
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OPERATION_BULK
+init|=
+literal|"BULK"
+decl_stmt|;
 DECL|field|OPERATION_BULK_INDEX
 specifier|public
 specifier|static
@@ -318,6 +327,11 @@ name|data
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"INDEX,BULK,BULK_INDEX,GET_BY_ID,DELETE"
+argument_list|)
 DECL|field|operation
 specifier|private
 name|String
