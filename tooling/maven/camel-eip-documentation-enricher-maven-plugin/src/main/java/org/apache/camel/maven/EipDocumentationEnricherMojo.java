@@ -406,7 +406,7 @@ name|defaultPhase
 operator|=
 name|LifecyclePhase
 operator|.
-name|PACKAGE
+name|PREPARE_PACKAGE
 argument_list|)
 DECL|class|EipDocumentationEnricherMojo
 specifier|public
