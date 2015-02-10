@@ -81,7 +81,7 @@ specifier|final
 name|String
 name|METRIC_TMAX
 init|=
-literal|"CamelGangliaMetricTMax"
+literal|"CamelGangliaMetricTmax"
 decl_stmt|;
 DECL|field|METRIC_DMAX
 specifier|public
@@ -90,7 +90,7 @@ specifier|final
 name|String
 name|METRIC_DMAX
 init|=
-literal|"CamelGangliaMetricDMax"
+literal|"CamelGangliaMetricDmax"
 decl_stmt|;
 DECL|method|GangliaConstants ()
 specifier|private

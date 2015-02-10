@@ -135,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -286,6 +286,11 @@ name|DEFAULT_PORT
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"MULTICAST"
+argument_list|)
 DECL|field|mode
 specifier|private
 name|GMetric
@@ -335,7 +340,7 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"Java"
+literal|"java"
 argument_list|)
 DECL|field|groupName
 specifier|private
@@ -350,6 +355,8 @@ DECL|field|prefix
 specifier|private
 name|String
 name|prefix
+init|=
+literal|null
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -367,6 +374,11 @@ name|DEFAULT_METRIC_NAME
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"STRING"
+argument_list|)
 DECL|field|type
 specifier|private
 name|GMetricType
@@ -376,6 +388,11 @@ name|DEFAULT_TYPE
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"BOTH"
+argument_list|)
 DECL|field|slope
 specifier|private
 name|GMetricSlope
@@ -385,11 +402,6 @@ name|DEFAULT_SLOPE
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|""
-argument_list|)
 DECL|field|units
 specifier|private
 name|String
@@ -875,20 +887,30 @@ operator|=
 name|units
 expr_stmt|;
 block|}
-DECL|method|getTMax ()
+DECL|method|isWireFormat31x ()
+specifier|public
+name|boolean
+name|isWireFormat31x
+parameter_list|()
+block|{
+return|return
+name|wireFormat31x
+return|;
+block|}
+DECL|method|getTmax ()
 specifier|public
 name|int
-name|getTMax
+name|getTmax
 parameter_list|()
 block|{
 return|return
 name|tmax
 return|;
 block|}
-DECL|method|setTMax (int tmax)
+DECL|method|setTmax (int tmax)
 specifier|public
 name|void
-name|setTMax
+name|setTmax
 parameter_list|(
 name|int
 name|tmax
@@ -901,20 +923,20 @@ operator|=
 name|tmax
 expr_stmt|;
 block|}
-DECL|method|getDMax ()
+DECL|method|getDmax ()
 specifier|public
 name|int
-name|getDMax
+name|getDmax
 parameter_list|()
 block|{
 return|return
 name|dmax
 return|;
 block|}
-DECL|method|setDMax (int dmax)
+DECL|method|setDmax (int dmax)
 specifier|public
 name|void
-name|setDMax
+name|setDmax
 parameter_list|(
 name|int
 name|dmax
