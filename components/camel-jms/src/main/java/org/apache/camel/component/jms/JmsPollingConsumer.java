@@ -109,7 +109,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  As the template is created per JmsPollingConsumer, we need to put JmsPollingConsumer into this endpoint  */
+comment|/**  *  A JMS {@link org.apache.camel.PollingConsumer}.  */
 end_comment
 
 begin_class
@@ -310,7 +310,9 @@ name|doStart
 parameter_list|()
 throws|throws
 name|Exception
-block|{     }
+block|{
+comment|// noop
+block|}
 DECL|method|doStop ()
 specifier|protected
 name|void
@@ -318,7 +320,9 @@ name|doStop
 parameter_list|()
 throws|throws
 name|Exception
-block|{             }
+block|{
+comment|// noop
+block|}
 DECL|method|setReceiveTimeout (long timeout)
 specifier|protected
 name|void
