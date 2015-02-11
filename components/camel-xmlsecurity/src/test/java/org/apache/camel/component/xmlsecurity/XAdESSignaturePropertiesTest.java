@@ -1142,7 +1142,7 @@ literal|"etsi:SignaturePolicyIdentifier/etsi:SignaturePolicyId/etsi:SigPolicyId/
 argument_list|,
 name|prefix2Namespace
 argument_list|,
-literal|"urn:oid:1.2.840.113549.1.9.16.6.1"
+literal|"1.2.840.113549.1.9.16.6.1"
 argument_list|)
 expr_stmt|;
 name|checkXpath
@@ -1425,7 +1425,7 @@ literal|"etsi:DataObjectFormat/etsi:ObjectIdentifier/etsi:Identifier/text()"
 argument_list|,
 name|prefix2Namespace
 argument_list|,
-literal|"urn:oid:1.2.840.113549.1.9.16.6.2"
+literal|"1.2.840.113549.1.9.16.6.2"
 argument_list|)
 expr_stmt|;
 name|checkXpath
@@ -1491,7 +1491,7 @@ literal|"etsi:CommitmentTypeIndication/etsi:CommitmentTypeId/etsi:Identifier/tex
 argument_list|,
 name|prefix2Namespace
 argument_list|,
-literal|"urn:oid:1.2.840.113549.1.9.16.6.4"
+literal|"1.2.840.113549.1.9.16.6.4"
 argument_list|)
 expr_stmt|;
 name|checkXpath
@@ -1504,7 +1504,7 @@ literal|"etsi:CommitmentTypeIndication/etsi:CommitmentTypeId/etsi:Identifier/@Qu
 argument_list|,
 name|prefix2Namespace
 argument_list|,
-literal|"OIDAsURN"
+literal|"OIDAsURI"
 argument_list|)
 expr_stmt|;
 name|checkXpath
@@ -4735,7 +4735,7 @@ name|props
 operator|.
 name|setSigPolicyId
 argument_list|(
-literal|"urn:oid:1.2.840.113549.1.9.16.6.1"
+literal|"1.2.840.113549.1.9.16.6.1"
 argument_list|)
 expr_stmt|;
 name|props
@@ -4896,7 +4896,7 @@ name|props
 operator|.
 name|setDataObjectFormatIdentifier
 argument_list|(
-literal|"urn:oid:1.2.840.113549.1.9.16.6.2"
+literal|"1.2.840.113549.1.9.16.6.2"
 argument_list|)
 expr_stmt|;
 name|props
@@ -4937,14 +4937,14 @@ name|props
 operator|.
 name|setCommitmentTypeId
 argument_list|(
-literal|"urn:oid:1.2.840.113549.1.9.16.6.4"
+literal|"1.2.840.113549.1.9.16.6.4"
 argument_list|)
 expr_stmt|;
 name|props
 operator|.
 name|setCommitmentTypeIdQualifier
 argument_list|(
-literal|"OIDAsURN"
+literal|"OIDAsURI"
 argument_list|)
 expr_stmt|;
 name|props

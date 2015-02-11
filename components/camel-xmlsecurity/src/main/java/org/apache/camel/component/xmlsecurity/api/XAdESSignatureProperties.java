@@ -2744,13 +2744,13 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|getDataObjectFormatIdentifierQualifier
+name|getCommitmentTypeIdQualifier
 argument_list|()
 operator|!=
 literal|null
 operator|&&
 operator|!
-name|getDataObjectFormatIdentifierQualifier
+name|getCommitmentTypeIdQualifier
 argument_list|()
 operator|.
 name|isEmpty
@@ -2763,7 +2763,7 @@ name|identifier
 argument_list|,
 literal|"Qualifier"
 argument_list|,
-name|getDataObjectFormatIdentifierQualifier
+name|getCommitmentTypeIdQualifier
 argument_list|()
 argument_list|)
 expr_stmt|;
