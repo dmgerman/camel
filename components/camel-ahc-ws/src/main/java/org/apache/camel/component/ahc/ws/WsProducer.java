@@ -50,7 +50,7 @@ name|http
 operator|.
 name|client
 operator|.
-name|websocket
+name|ws
 operator|.
 name|WebSocket
 import|;
@@ -278,7 +278,7 @@ comment|//TODO provide other binding option, for now use the converted string
 name|getWebSocket
 argument_list|()
 operator|.
-name|sendTextMessage
+name|sendMessage
 argument_list|(
 name|in
 operator|.
@@ -342,7 +342,7 @@ condition|)
 block|{
 name|webSocket
 operator|.
-name|streamText
+name|stream
 argument_list|(
 name|msg
 operator|.
@@ -366,7 +366,7 @@ else|else
 block|{
 name|webSocket
 operator|.
-name|streamText
+name|stream
 argument_list|(
 name|msg
 operator|.
@@ -391,7 +391,7 @@ else|else
 block|{
 name|webSocket
 operator|.
-name|sendTextMessage
+name|sendMessage
 argument_list|(
 name|msg
 argument_list|)
