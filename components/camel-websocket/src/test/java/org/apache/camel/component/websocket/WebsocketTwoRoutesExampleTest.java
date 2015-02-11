@@ -86,7 +86,7 @@ name|http
 operator|.
 name|client
 operator|.
-name|websocket
+name|ws
 operator|.
 name|WebSocket
 import|;
@@ -102,7 +102,7 @@ name|http
 operator|.
 name|client
 operator|.
-name|websocket
+name|ws
 operator|.
 name|WebSocketTextListener
 import|;
@@ -118,7 +118,7 @@ name|http
 operator|.
 name|client
 operator|.
-name|websocket
+name|ws
 operator|.
 name|WebSocketUpgradeHandler
 import|;
@@ -333,19 +333,6 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|onFragment
-parameter_list|(
-name|String
-name|fragment
-parameter_list|,
-name|boolean
-name|last
-parameter_list|)
-block|{                     }
-annotation|@
-name|Override
-specifier|public
-name|void
 name|onOpen
 parameter_list|(
 name|WebSocket
@@ -390,7 +377,7 @@ argument_list|()
 decl_stmt|;
 name|websocket
 operator|.
-name|sendTextMessage
+name|sendMessage
 argument_list|(
 literal|"Beer"
 argument_list|)
@@ -524,19 +511,6 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|onFragment
-parameter_list|(
-name|String
-name|fragment
-parameter_list|,
-name|boolean
-name|last
-parameter_list|)
-block|{                             }
-annotation|@
-name|Override
-specifier|public
-name|void
 name|onOpen
 parameter_list|(
 name|WebSocket
@@ -581,7 +555,7 @@ argument_list|()
 expr_stmt|;
 name|websocket
 operator|.
-name|sendTextMessage
+name|sendMessage
 argument_list|(
 literal|"wine"
 argument_list|)

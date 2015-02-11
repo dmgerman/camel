@@ -148,9 +148,7 @@ name|provider
 operator|.
 name|addProperty
 argument_list|(
-name|NettyAsyncHttpProviderConfig
-operator|.
-name|REUSE_ADDRESS
+literal|"reuseAddress"
 argument_list|,
 name|Boolean
 operator|.
@@ -171,7 +169,7 @@ argument_list|(
 name|provider
 argument_list|)
 operator|.
-name|setFollowRedirects
+name|setFollowRedirect
 argument_list|(
 literal|true
 argument_list|)

@@ -121,7 +121,7 @@ operator|.
 name|getAhcEndpointUri
 argument_list|()
 operator|+
-literal|"?clientConfig.maxRequestRetry=3&clientConfig.followRedirects=true"
+literal|"?clientConfig.maxRequestRetry=3&clientConfig.followRedirect=true"
 return|;
 block|}
 annotation|@

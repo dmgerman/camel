@@ -134,7 +134,7 @@ name|config
 init|=
 name|builder
 operator|.
-name|setFollowRedirects
+name|setFollowRedirect
 argument_list|(
 literal|true
 argument_list|)

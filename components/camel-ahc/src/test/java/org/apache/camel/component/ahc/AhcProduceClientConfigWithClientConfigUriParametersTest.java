@@ -95,7 +95,7 @@ operator|.
 name|getClientConfig
 argument_list|()
 operator|.
-name|getMaxTotalConnections
+name|getMaxConnections
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -131,7 +131,7 @@ operator|.
 name|getClientConfig
 argument_list|()
 operator|.
-name|isRedirectEnabled
+name|isFollowRedirect
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -150,7 +150,7 @@ operator|.
 name|getAhcEndpointUri
 argument_list|()
 operator|+
-literal|"&clientConfig.maximumConnectionsTotal=1"
+literal|"&clientConfig.maxConnections=1"
 return|;
 block|}
 block|}

@@ -124,7 +124,7 @@ name|http
 operator|.
 name|client
 operator|.
-name|websocket
+name|ws
 operator|.
 name|WebSocket
 import|;
@@ -140,7 +140,7 @@ name|http
 operator|.
 name|client
 operator|.
-name|websocket
+name|ws
 operator|.
 name|WebSocketByteListener
 import|;
@@ -156,7 +156,7 @@ name|http
 operator|.
 name|client
 operator|.
-name|websocket
+name|ws
 operator|.
 name|WebSocketTextListener
 import|;
@@ -172,7 +172,7 @@ name|http
 operator|.
 name|client
 operator|.
-name|websocket
+name|ws
 operator|.
 name|WebSocketUpgradeHandler
 import|;
@@ -423,7 +423,7 @@ parameter_list|)
 block|{
 name|websocket
 operator|.
-name|sendTextMessage
+name|sendMessage
 argument_list|(
 name|message
 argument_list|)
@@ -809,23 +809,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|onFragment (byte[] fragment, boolean last)
-specifier|public
-name|void
-name|onFragment
-parameter_list|(
-name|byte
-index|[]
-name|fragment
-parameter_list|,
-name|boolean
-name|last
-parameter_list|)
-block|{
-comment|// TODO Auto-generated method stub
-block|}
-annotation|@
-name|Override
 DECL|method|onMessage (String message)
 specifier|public
 name|void
@@ -856,22 +839,6 @@ operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|onFragment (String fragment, boolean last)
-specifier|public
-name|void
-name|onFragment
-parameter_list|(
-name|String
-name|fragment
-parameter_list|,
-name|boolean
-name|last
-parameter_list|)
-block|{
-comment|// TODO Auto-generated method stub
 block|}
 block|}
 block|}

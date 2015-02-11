@@ -42,7 +42,7 @@ name|http
 operator|.
 name|client
 operator|.
-name|websocket
+name|ws
 operator|.
 name|WebSocket
 import|;
@@ -58,7 +58,7 @@ name|http
 operator|.
 name|client
 operator|.
-name|websocket
+name|ws
 operator|.
 name|WebSocketListener
 import|;
@@ -74,7 +74,7 @@ name|http
 operator|.
 name|client
 operator|.
-name|websocket
+name|ws
 operator|.
 name|WebSocketUpgradeHandler
 import|;
@@ -308,7 +308,7 @@ argument_list|)
 expr_stmt|;
 name|websocket
 operator|.
-name|sendTextMessage
+name|sendMessage
 argument_list|(
 literal|"Test"
 argument_list|)
