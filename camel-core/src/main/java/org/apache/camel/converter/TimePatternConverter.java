@@ -206,9 +206,6 @@ name|valueOf
 argument_list|(
 name|source
 argument_list|)
-operator|.
-name|longValue
-argument_list|()
 expr_stmt|;
 block|}
 else|else
@@ -278,9 +275,6 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|)
-operator|.
-name|longValue
-argument_list|()
 operator|)
 expr_stmt|;
 name|foundFlag
@@ -319,9 +313,6 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|)
-operator|.
-name|longValue
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -390,9 +381,6 @@ argument_list|(
 literal|1
 argument_list|)
 argument_list|)
-operator|.
-name|longValue
-argument_list|()
 decl_stmt|;
 if|if
 condition|(
@@ -446,9 +434,6 @@ name|valueOf
 argument_list|(
 name|source
 argument_list|)
-operator|.
-name|longValue
-argument_list|()
 expr_stmt|;
 block|}
 block|}

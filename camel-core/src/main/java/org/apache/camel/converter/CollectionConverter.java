@@ -184,17 +184,6 @@ argument_list|>
 name|value
 parameter_list|)
 block|{
-if|if
-condition|(
-name|value
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
 return|return
 name|value
 operator|.

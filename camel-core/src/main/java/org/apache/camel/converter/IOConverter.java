@@ -1451,17 +1451,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-if|if
-condition|(
-name|reader
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
 name|StringBuilder
 name|sb
 init|=
@@ -1643,10 +1632,6 @@ name|IOException
 block|{
 return|return
 name|value
-operator|!=
-literal|null
-condition|?
-name|value
 operator|.
 name|getBytes
 argument_list|(
@@ -1657,8 +1642,6 @@ argument_list|(
 name|exchange
 argument_list|)
 argument_list|)
-else|:
-literal|null
 return|;
 block|}
 comment|/**      * @deprecated will be removed in Camel 3.0. Use the method which has 2 parameters.      */

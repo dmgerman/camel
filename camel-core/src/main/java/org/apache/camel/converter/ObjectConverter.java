@@ -356,10 +356,6 @@ comment|// must be string with the length of 1
 if|if
 condition|(
 name|value
-operator|==
-literal|null
-operator|||
-name|value
 operator|.
 name|length
 argument_list|()

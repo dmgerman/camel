@@ -176,7 +176,7 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toProcessor (final Expression expresion)
+DECL|method|toProcessor (final Expression expression)
 specifier|public
 specifier|static
 name|Processor
@@ -184,7 +184,7 @@ name|toProcessor
 parameter_list|(
 specifier|final
 name|Expression
-name|expresion
+name|expression
 parameter_list|)
 block|{
 return|return
@@ -205,7 +205,7 @@ block|{
 name|Object
 name|answer
 init|=
-name|expresion
+name|expression
 operator|.
 name|evaluate
 argument_list|(

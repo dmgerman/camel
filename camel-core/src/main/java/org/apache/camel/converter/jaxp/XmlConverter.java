@@ -1222,18 +1222,6 @@ block|{
 if|if
 condition|(
 name|source
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
-elseif|else
-if|if
-condition|(
-name|source
 operator|instanceof
 name|BytesSource
 condition|)
@@ -1546,13 +1534,6 @@ argument_list|(
 name|text
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|source
-operator|!=
-literal|null
-condition|)
-block|{
 return|return
 name|toDOMSourceFromStream
 argument_list|(
@@ -1562,13 +1543,6 @@ operator|)
 name|source
 argument_list|)
 return|;
-block|}
-else|else
-block|{
-return|return
-literal|null
-return|;
-block|}
 block|}
 comment|/**      * Converts the source instance to a {@link DOMSource} or returns null if the conversion is not      * supported (making it easy to derive from this class to add new kinds of conversion).      */
 annotation|@
@@ -2627,9 +2601,6 @@ name|toSAXSourceFromStream
 argument_list|(
 name|source
 argument_list|,
-operator|(
-name|Exchange
-operator|)
 literal|null
 argument_list|)
 return|;
@@ -2962,9 +2933,6 @@ name|toDOMSource
 argument_list|(
 name|is
 argument_list|,
-operator|(
-name|Exchange
-operator|)
 literal|null
 argument_list|)
 return|;
@@ -3060,9 +3028,6 @@ name|toDOMSource
 argument_list|(
 name|file
 argument_list|,
-operator|(
-name|Exchange
-operator|)
 literal|null
 argument_list|)
 return|;
@@ -3133,9 +3098,6 @@ name|toDOMSourceFromStream
 argument_list|(
 name|source
 argument_list|,
-operator|(
-name|Exchange
-operator|)
 literal|null
 argument_list|)
 return|;
@@ -3806,9 +3768,6 @@ name|toDOMDocument
 argument_list|(
 name|data
 argument_list|,
-operator|(
-name|Exchange
-operator|)
 literal|null
 argument_list|)
 return|;
@@ -3882,9 +3841,6 @@ name|toDOMDocument
 argument_list|(
 name|in
 argument_list|,
-operator|(
-name|Exchange
-operator|)
 literal|null
 argument_list|)
 return|;
@@ -4150,9 +4106,6 @@ name|toDOMDocument
 argument_list|(
 name|file
 argument_list|,
-operator|(
-name|Exchange
-operator|)
 literal|null
 argument_list|)
 return|;
@@ -4780,11 +4733,11 @@ operator|>
 literal|0
 condition|)
 block|{
-name|StringBuffer
+name|StringBuilder
 name|featureString
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 comment|// just log the configured feature
