@@ -207,8 +207,6 @@ name|customMapObj
 decl_stmt|;
 name|Method
 name|mapMethod
-init|=
-literal|null
 decl_stmt|;
 comment|// The converter parameter is stored in a thread local variable, so
 comment|// we need to parse the parameter on each invocation

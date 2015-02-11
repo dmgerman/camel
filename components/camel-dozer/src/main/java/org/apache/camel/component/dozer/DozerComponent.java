@@ -66,10 +66,6 @@ name|UriEndpointComponent
 import|;
 end_import
 
-begin_comment
-comment|/**  * Represents the component that manages {@link DozerEndpoint}.  */
-end_comment
-
 begin_class
 DECL|class|DozerComponent
 specifier|public
