@@ -304,12 +304,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|allChannels
-specifier|private
-specifier|final
-name|ChannelGroup
-name|allChannels
-decl_stmt|;
 DECL|field|camelContext
 specifier|private
 name|CamelContext
@@ -352,28 +346,7 @@ DECL|method|ClientModeTCPNettyServerBootstrapFactory ()
 specifier|public
 name|ClientModeTCPNettyServerBootstrapFactory
 parameter_list|()
-block|{
-comment|// The executor just execute tasks in the callers thread
-name|this
-operator|.
-name|allChannels
-operator|=
-operator|new
-name|DefaultChannelGroup
-argument_list|(
-name|ClientModeTCPNettyServerBootstrapFactory
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
-argument_list|,
-name|ImmediateEventExecutor
-operator|.
-name|INSTANCE
-argument_list|)
-expr_stmt|;
-block|}
+block|{     }
 DECL|method|init (CamelContext camelContext, NettyServerBootstrapConfiguration configuration, ChannelInitializer<Channel> pipelineFactory)
 specifier|public
 name|void
@@ -457,13 +430,7 @@ name|Channel
 name|channel
 parameter_list|)
 block|{
-name|allChannels
-operator|.
-name|add
-argument_list|(
-name|channel
-argument_list|)
-expr_stmt|;
+comment|// we don't need to track the channel in client mode
 block|}
 DECL|method|removeChannel (Channel channel)
 specifier|public
@@ -474,13 +441,7 @@ name|Channel
 name|channel
 parameter_list|)
 block|{
-name|allChannels
-operator|.
-name|remove
-argument_list|(
-name|channel
-argument_list|)
-expr_stmt|;
+comment|// we don't need to track the channel in client mode
 block|}
 DECL|method|addConsumer (NettyConsumer consumer)
 specifier|public
@@ -609,14 +570,6 @@ argument_list|(
 name|connectFuture
 argument_list|)
 expr_stmt|;
-comment|// to keep track of all channels in use
-name|allChannels
-operator|.
-name|add
-argument_list|(
-name|channel
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -652,25 +605,13 @@ name|getPort
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|ChannelFuture
-name|future
-init|=
 name|channel
 operator|.
 name|close
 argument_list|()
-decl_stmt|;
-name|future
 operator|.
-name|awaitUninterruptibly
+name|sync
 argument_list|()
-expr_stmt|;
-name|allChannels
-operator|.
-name|remove
-argument_list|(
-name|channel
-argument_list|)
 expr_stmt|;
 name|channel
 operator|=
@@ -903,14 +844,6 @@ argument_list|(
 name|channelFuture
 argument_list|)
 expr_stmt|;
-comment|// to keep track of all channels in use
-name|allChannels
-operator|.
-name|add
-argument_list|(
-name|channel
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|stopServerBootstrap ()
 specifier|protected
@@ -936,34 +869,6 @@ name|getPort
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Closing {} channels"
-argument_list|,
-name|allChannels
-operator|.
-name|size
-argument_list|()
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|allChannels
-operator|!=
-literal|null
-condition|)
-block|{
-name|allChannels
-operator|.
-name|close
-argument_list|()
-operator|.
-name|awaitUninterruptibly
-argument_list|()
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|workerGroup
