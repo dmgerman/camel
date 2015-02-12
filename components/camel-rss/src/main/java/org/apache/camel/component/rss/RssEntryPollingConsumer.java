@@ -241,6 +241,13 @@ name|endpoint
 operator|.
 name|getFeedUri
 argument_list|()
+argument_list|,
+name|RssEntryPollingConsumer
+operator|.
+name|class
+operator|.
+name|getClassLoader
+argument_list|()
 argument_list|)
 return|;
 block|}
