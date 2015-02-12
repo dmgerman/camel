@@ -68,11 +68,70 @@ name|DefaultEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
 begin_comment
 comment|/**  * EventAdmin endpoint  */
 end_comment
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"eventadmin"
+argument_list|,
+name|consumerClass
+operator|=
+name|EventAdminConsumer
+operator|.
+name|class
+argument_list|,
+name|label
+operator|=
+literal|"eventbus"
+argument_list|)
 DECL|class|EventAdminEndpoint
 specifier|public
 class|class
@@ -80,12 +139,16 @@ name|EventAdminEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
+annotation|@
+name|UriPath
 DECL|field|topic
 specifier|private
 specifier|final
 name|String
 name|topic
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|send
 specifier|private
 name|boolean
@@ -119,6 +182,7 @@ operator|=
 name|topic
 expr_stmt|;
 block|}
+comment|/**      * Name of topic to listen or send to      */
 DECL|method|getTopic ()
 specifier|public
 name|String
@@ -139,6 +203,7 @@ return|return
 name|send
 return|;
 block|}
+comment|/**      * Whether to use 'send' or 'synchronous' deliver.      * Default false (async delivery)      */
 DECL|method|setSend (boolean send)
 specifier|public
 name|void
