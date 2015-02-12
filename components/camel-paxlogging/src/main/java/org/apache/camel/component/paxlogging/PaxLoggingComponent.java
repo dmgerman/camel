@@ -81,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The pax-logging component allows receiving log events from OPS4j PaxLogging  * and send them to camel routes.  */
+comment|/**  * The OSGi pax-logging component allows receiving log events from OPS4j PaxLogging  * and send them to Camel routes.  */
 end_comment
 
 begin_class
@@ -120,6 +120,7 @@ return|return
 name|bundleContext
 return|;
 block|}
+comment|/**      * The OSGi BundleContext is automatic injected by Camel      */
 DECL|method|setBundleContext (BundleContext bundleContext)
 specifier|public
 name|void

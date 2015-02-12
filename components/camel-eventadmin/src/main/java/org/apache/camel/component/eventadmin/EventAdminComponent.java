@@ -36,18 +36,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -70,6 +58,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|osgi
 operator|.
 name|framework
@@ -79,7 +81,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * EventAdmin component.  */
+comment|/**  * OSGi EventAdmin component.  */
 end_comment
 
 begin_class
@@ -90,46 +92,22 @@ name|EventAdminComponent
 extends|extends
 name|UriEndpointComponent
 block|{
-DECL|field|NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|NAME
-init|=
-literal|"eventadmin"
-decl_stmt|;
 DECL|field|bundleContext
 specifier|private
-specifier|final
 name|BundleContext
 name|bundleContext
 decl_stmt|;
-DECL|method|EventAdminComponent (CamelContext context, BundleContext bundleContext)
+DECL|method|EventAdminComponent ()
 specifier|public
 name|EventAdminComponent
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|,
-name|BundleContext
-name|bundleContext
-parameter_list|)
+parameter_list|()
 block|{
 name|super
 argument_list|(
-name|context
-argument_list|,
 name|EventAdminEndpoint
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|bundleContext
-operator|=
-name|bundleContext
 expr_stmt|;
 block|}
 DECL|method|getBundleContext ()
@@ -141,6 +119,23 @@ block|{
 return|return
 name|bundleContext
 return|;
+block|}
+comment|/**      * The OSGi BundleContext is automatic injected by Camel      */
+DECL|method|setBundleContext (BundleContext bundleContext)
+specifier|public
+name|void
+name|setBundleContext
+parameter_list|(
+name|BundleContext
+name|bundleContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bundleContext
+operator|=
+name|bundleContext
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -189,6 +184,33 @@ expr_stmt|;
 return|return
 name|endpoint
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|bundleContext
+argument_list|,
+literal|"BundleContext"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
