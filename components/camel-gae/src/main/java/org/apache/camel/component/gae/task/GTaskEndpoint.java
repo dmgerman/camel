@@ -352,6 +352,10 @@ name|scheme
 operator|=
 literal|"gtask"
 argument_list|,
+name|producerOnly
+operator|=
+literal|true
+argument_list|,
 name|label
 operator|=
 literal|"cloud"

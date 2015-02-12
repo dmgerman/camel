@@ -222,6 +222,10 @@ name|scheme
 operator|=
 literal|"gmail"
 argument_list|,
+name|producerOnly
+operator|=
+literal|true
+argument_list|,
 name|label
 operator|=
 literal|"cloud,mail"
