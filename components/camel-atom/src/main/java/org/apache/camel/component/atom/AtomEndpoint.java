@@ -140,6 +140,10 @@ name|scheme
 operator|=
 literal|"atom"
 argument_list|,
+name|consumerOnly
+operator|=
+literal|true
+argument_list|,
 name|consumerClass
 operator|=
 name|FeedPollingConsumer

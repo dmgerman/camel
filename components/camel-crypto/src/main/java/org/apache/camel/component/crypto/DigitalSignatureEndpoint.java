@@ -196,6 +196,10 @@ name|scheme
 operator|=
 literal|"crypto"
 argument_list|,
+name|producerOnly
+operator|=
+literal|true
+argument_list|,
 name|label
 operator|=
 literal|"security,transformation"

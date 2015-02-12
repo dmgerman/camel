@@ -286,6 +286,10 @@ name|scheme
 operator|=
 literal|"aws-sdb"
 argument_list|,
+name|producerOnly
+operator|=
+literal|true
+argument_list|,
 name|label
 operator|=
 literal|"cloud,database,nosql"
