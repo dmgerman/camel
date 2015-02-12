@@ -300,6 +300,13 @@ specifier|private
 name|Boolean
 name|enableJaxbAnnotationModule
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|moduleClassNames
+specifier|private
+name|String
+name|moduleClassNames
+decl_stmt|;
 DECL|method|JsonDataFormat ()
 specifier|public
 name|JsonDataFormat
@@ -606,6 +613,33 @@ operator|.
 name|enableJaxbAnnotationModule
 operator|=
 name|enableJaxbAnnotationModule
+expr_stmt|;
+block|}
+DECL|method|getModuleClassNames ()
+specifier|public
+name|String
+name|getModuleClassNames
+parameter_list|()
+block|{
+return|return
+name|moduleClassNames
+return|;
+block|}
+comment|/**      * To use custom Jackson modules com.fasterxml.jackson.databind.Module specified as a String with FQN class names.      * Multiple classes can be separated by comma.      */
+DECL|method|setModuleClassNames (String moduleClassNames)
+specifier|public
+name|void
+name|setModuleClassNames
+parameter_list|(
+name|String
+name|moduleClassNames
+parameter_list|)
+block|{
+name|this
+operator|.
+name|moduleClassNames
+operator|=
+name|moduleClassNames
 expr_stmt|;
 block|}
 annotation|@
@@ -968,6 +1002,25 @@ argument_list|,
 literal|"enableJaxbAnnotationModule"
 argument_list|,
 name|enableJaxbAnnotationModule
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|moduleClassNames
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"modulesClassNames"
+argument_list|,
+name|moduleClassNames
 argument_list|)
 expr_stmt|;
 block|}
