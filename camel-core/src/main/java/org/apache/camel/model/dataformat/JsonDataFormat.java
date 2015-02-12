@@ -307,6 +307,13 @@ specifier|private
 name|String
 name|moduleClassNames
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|moduleRefs
+specifier|private
+name|String
+name|moduleRefs
+decl_stmt|;
 DECL|method|JsonDataFormat ()
 specifier|public
 name|JsonDataFormat
@@ -640,6 +647,33 @@ operator|.
 name|moduleClassNames
 operator|=
 name|moduleClassNames
+expr_stmt|;
+block|}
+DECL|method|getModuleRefs ()
+specifier|public
+name|String
+name|getModuleRefs
+parameter_list|()
+block|{
+return|return
+name|moduleRefs
+return|;
+block|}
+comment|/**      * To use custom Jackson modules referred from the Camel registry.      * Multiple modules can be separated by comma.      */
+DECL|method|setModuleRefs (String moduleRefs)
+specifier|public
+name|void
+name|setModuleRefs
+parameter_list|(
+name|String
+name|moduleRefs
+parameter_list|)
+block|{
+name|this
+operator|.
+name|moduleRefs
+operator|=
+name|moduleRefs
 expr_stmt|;
 block|}
 annotation|@
@@ -1021,6 +1055,25 @@ argument_list|,
 literal|"modulesClassNames"
 argument_list|,
 name|moduleClassNames
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|moduleRefs
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"moduleRefs"
+argument_list|,
+name|moduleRefs
 argument_list|)
 expr_stmt|;
 block|}
