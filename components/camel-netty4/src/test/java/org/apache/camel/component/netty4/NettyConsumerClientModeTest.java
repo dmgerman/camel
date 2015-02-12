@@ -612,7 +612,7 @@ parameter_list|()
 block|{
 name|channel
 operator|.
-name|close
+name|disconnect
 argument_list|()
 expr_stmt|;
 name|bossGroup
