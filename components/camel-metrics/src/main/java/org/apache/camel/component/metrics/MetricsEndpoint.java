@@ -154,6 +154,10 @@ name|scheme
 operator|=
 literal|"metrics"
 argument_list|,
+name|producerOnly
+operator|=
+literal|true
+argument_list|,
 name|label
 operator|=
 literal|"monitoring"

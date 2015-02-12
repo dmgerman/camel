@@ -176,6 +176,10 @@ name|scheme
 operator|=
 literal|"jmx"
 argument_list|,
+name|consumerOnly
+operator|=
+literal|true
+argument_list|,
 name|consumerClass
 operator|=
 name|JMXConsumer

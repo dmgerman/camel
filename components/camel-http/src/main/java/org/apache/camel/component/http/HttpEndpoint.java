@@ -282,11 +282,9 @@ name|scheme
 operator|=
 literal|"http,https"
 argument_list|,
-name|consumerClass
+name|producerOnly
 operator|=
-name|HttpConsumer
-operator|.
-name|class
+literal|true
 argument_list|,
 name|label
 operator|=
