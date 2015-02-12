@@ -176,6 +176,10 @@ name|scheme
 operator|=
 literal|"spring-ldap"
 argument_list|,
+name|producerOnly
+operator|=
+literal|true
+argument_list|,
 name|label
 operator|=
 literal|"spring,ldap"

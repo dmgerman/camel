@@ -172,6 +172,10 @@ name|scheme
 operator|=
 literal|"servlet"
 argument_list|,
+name|consumerOnly
+operator|=
+literal|true
+argument_list|,
 name|consumerClass
 operator|=
 name|ServletConsumer

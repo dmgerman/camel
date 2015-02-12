@@ -154,6 +154,10 @@ name|scheme
 operator|=
 literal|"spark-rest"
 argument_list|,
+name|consumerOnly
+operator|=
+literal|true
+argument_list|,
 name|consumerClass
 operator|=
 name|SparkConsumer

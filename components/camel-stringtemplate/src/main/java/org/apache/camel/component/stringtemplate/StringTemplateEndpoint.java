@@ -190,6 +190,10 @@ name|scheme
 operator|=
 literal|"stringtemplate"
 argument_list|,
+name|producerOnly
+operator|=
+literal|true
+argument_list|,
 name|label
 operator|=
 literal|"transformation"

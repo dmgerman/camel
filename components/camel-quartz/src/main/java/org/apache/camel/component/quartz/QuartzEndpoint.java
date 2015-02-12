@@ -300,6 +300,10 @@ name|scheme
 operator|=
 literal|"quartz"
 argument_list|,
+name|consumerOnly
+operator|=
+literal|true
+argument_list|,
 name|consumerClass
 operator|=
 name|QuartzConsumer

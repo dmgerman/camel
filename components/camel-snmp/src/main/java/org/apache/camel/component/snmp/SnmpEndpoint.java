@@ -230,6 +230,10 @@ name|scheme
 operator|=
 literal|"snmp"
 argument_list|,
+name|consumerOnly
+operator|=
+literal|true
+argument_list|,
 name|label
 operator|=
 literal|"monitoring"

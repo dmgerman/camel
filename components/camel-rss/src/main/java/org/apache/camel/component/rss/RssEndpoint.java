@@ -184,6 +184,10 @@ name|scheme
 operator|=
 literal|"rss"
 argument_list|,
+name|consumerOnly
+operator|=
+literal|true
+argument_list|,
 name|consumerClass
 operator|=
 name|RssEntryPollingConsumer
