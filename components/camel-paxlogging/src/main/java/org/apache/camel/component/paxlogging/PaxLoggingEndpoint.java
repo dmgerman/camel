@@ -80,11 +80,60 @@ name|DefaultEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
 begin_comment
 comment|/**  * Paxlogging endpoint.  */
 end_comment
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"paxlogging"
+argument_list|,
+name|consumerOnly
+operator|=
+literal|true
+argument_list|,
+name|consumerClass
+operator|=
+name|PaxLoggingConsumer
+operator|.
+name|class
+argument_list|,
+name|label
+operator|=
+literal|"monitoring"
+argument_list|)
 DECL|class|PaxLoggingEndpoint
 specifier|public
 class|class
@@ -92,13 +141,15 @@ name|PaxLoggingEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|name
+annotation|@
+name|UriPath
+DECL|field|appender
 specifier|private
 specifier|final
 name|String
-name|name
+name|appender
 decl_stmt|;
-DECL|method|PaxLoggingEndpoint (String uri, PaxLoggingComponent component, String name)
+DECL|method|PaxLoggingEndpoint (String uri, PaxLoggingComponent component, String appender)
 specifier|public
 name|PaxLoggingEndpoint
 parameter_list|(
@@ -109,7 +160,7 @@ name|PaxLoggingComponent
 name|component
 parameter_list|,
 name|String
-name|name
+name|appender
 parameter_list|)
 block|{
 name|super
@@ -121,11 +172,25 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|name
+name|appender
 operator|=
-name|name
+name|appender
 expr_stmt|;
 block|}
+comment|/**      * Appender is the name of the pax appender that need to be configured in the PaxLogging service configuration.      */
+DECL|method|getAppender ()
+specifier|public
+name|String
+name|getAppender
+parameter_list|()
+block|{
+return|return
+name|appender
+return|;
+block|}
+comment|/**      * @deprecated use {@link #getAppender()}      */
+annotation|@
+name|Deprecated
 DECL|method|getName ()
 specifier|public
 name|String
@@ -133,7 +198,8 @@ name|getName
 parameter_list|()
 block|{
 return|return
-name|name
+name|getAppender
+argument_list|()
 return|;
 block|}
 DECL|method|getComponent ()

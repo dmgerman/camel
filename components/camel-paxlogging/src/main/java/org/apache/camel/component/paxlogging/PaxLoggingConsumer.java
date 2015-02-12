@@ -294,7 +294,7 @@ argument_list|()
 argument_list|,
 name|endpoint
 operator|.
-name|getName
+name|getAppender
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -353,7 +353,7 @@ literal|"PaxLogging {} is firing"
 argument_list|,
 name|endpoint
 operator|.
-name|getName
+name|getAppender
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -451,7 +451,7 @@ literal|"org.ops4j.pax.logging.appender.name"
 argument_list|,
 name|endpoint
 operator|.
-name|getName
+name|getAppender
 argument_list|()
 argument_list|)
 expr_stmt|;

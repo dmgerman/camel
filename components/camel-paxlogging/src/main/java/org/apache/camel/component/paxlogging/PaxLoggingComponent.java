@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -88,7 +88,7 @@ specifier|public
 class|class
 name|PaxLoggingComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|NAME
 specifier|public
@@ -119,6 +119,10 @@ block|{
 name|super
 argument_list|(
 name|context
+argument_list|,
+name|PaxLoggingEndpoint
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 name|this
