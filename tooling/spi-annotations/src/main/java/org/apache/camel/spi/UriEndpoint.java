@@ -140,6 +140,24 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Whether this endpoint can only be used as a producer.      *<p/>      * By default its assumed the endpoint can be used as both consumer and producer.      */
+DECL|method|producerOnly ()
+DECL|field|false
+name|boolean
+name|producerOnly
+parameter_list|()
+default|default
+literal|false
+function_decl|;
+comment|/**      * Whether this endpoint can only be used as a consumer.      *<p/>      * By default its assumed the endpoint can be used as both consumer and producer.      */
+DECL|method|consumerOnly ()
+DECL|field|false
+name|boolean
+name|consumerOnly
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 block|}
 end_annotation_defn
 

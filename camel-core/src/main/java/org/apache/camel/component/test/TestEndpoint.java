@@ -190,6 +190,10 @@ name|scheme
 operator|=
 literal|"test"
 argument_list|,
+name|producerOnly
+operator|=
+literal|true
+argument_list|,
 name|label
 operator|=
 literal|"core,testing"

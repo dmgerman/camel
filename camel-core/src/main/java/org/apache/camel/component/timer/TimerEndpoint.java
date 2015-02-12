@@ -217,6 +217,10 @@ name|scheme
 operator|=
 literal|"timer"
 argument_list|,
+name|consumerOnly
+operator|=
+literal|true
+argument_list|,
 name|consumerClass
 operator|=
 name|TimerConsumer
