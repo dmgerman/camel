@@ -366,6 +366,18 @@ name|LoggingLevel
 operator|.
 name|WARN
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|clientMode
+specifier|private
+name|boolean
+name|clientMode
+decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
 specifier|public
@@ -963,6 +975,32 @@ operator|.
 name|noReplyLogLevel
 operator|=
 name|noReplyLogLevel
+expr_stmt|;
+block|}
+DECL|method|isClientMode ()
+specifier|public
+name|boolean
+name|isClientMode
+parameter_list|()
+block|{
+return|return
+name|clientMode
+return|;
+block|}
+DECL|method|setClientMode (boolean clientMode)
+specifier|public
+name|void
+name|setClientMode
+parameter_list|(
+name|boolean
+name|clientMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|clientMode
+operator|=
+name|clientMode
 expr_stmt|;
 block|}
 comment|// here we just shows the option setting of host, port, protocol
