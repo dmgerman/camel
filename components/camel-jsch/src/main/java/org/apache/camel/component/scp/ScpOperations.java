@@ -335,15 +335,6 @@ argument_list|<
 name|ScpFile
 argument_list|>
 block|{
-DECL|field|DEFAULT_KNOWN_HOSTS
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|DEFAULT_KNOWN_HOSTS
-init|=
-literal|"META-INF/.ssh/known_hosts"
-decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -374,6 +365,11 @@ DECL|field|channel
 specifier|private
 name|ChannelExec
 name|channel
+decl_stmt|;
+DECL|field|userKnownHostFile
+specifier|private
+name|String
+name|userKnownHostFile
 decl_stmt|;
 annotation|@
 name|Override
@@ -1111,7 +1107,6 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-comment|// TODO: not really used, maybe implement at a later time
 return|return
 literal|true
 return|;
@@ -1160,7 +1155,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Using ciphers: {}"
 argument_list|,
@@ -1234,7 +1229,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Using private keyfile: {}"
 argument_list|,
@@ -1282,6 +1277,51 @@ operator|.
 name|getKnownHostsFile
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|knownHostsFile
+operator|==
+literal|null
+operator|&&
+name|config
+operator|.
+name|isUseUserKnownHostsFile
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|userKnownHostFile
+operator|==
+literal|null
+condition|)
+block|{
+name|userKnownHostFile
+operator|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"user.home"
+argument_list|)
+operator|+
+literal|"/.ssh/known_hosts"
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Known host file not configured, using user known host file: "
+operator|+
+name|userKnownHostFile
+argument_list|)
+expr_stmt|;
+block|}
+name|knownHostsFile
+operator|=
+name|userKnownHostFile
+expr_stmt|;
+block|}
 name|jsch
 operator|.
 name|setKnownHosts
@@ -1293,7 +1333,7 @@ argument_list|(
 name|knownHostsFile
 argument_list|)
 condition|?
-name|DEFAULT_KNOWN_HOSTS
+literal|null
 else|:
 name|knownHostsFile
 argument_list|)
@@ -1356,7 +1396,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Using StrickHostKeyChecking: {}"
 argument_list|,
