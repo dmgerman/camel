@@ -98,6 +98,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -161,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the configuration data for communicating over email  *  * @version   */
+comment|/**  * Represents the configuration data for communicating over email  *  * @version  */
 end_comment
 
 begin_class
@@ -525,11 +537,34 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
+DECL|field|applicationClassLoader
+specifier|private
+name|ClassLoader
+name|applicationClassLoader
+decl_stmt|;
 DECL|method|MailConfiguration ()
 specifier|public
 name|MailConfiguration
 parameter_list|()
 block|{     }
+DECL|method|MailConfiguration (CamelContext context)
+specifier|public
+name|MailConfiguration
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+name|this
+operator|.
+name|applicationClassLoader
+operator|=
+name|context
+operator|.
+name|getApplicationContextClassLoader
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
 specifier|public
@@ -876,6 +911,37 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|ClassLoader
+name|tccl
+init|=
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|getContextClassLoader
+argument_list|()
+decl_stmt|;
+try|try
+block|{
+if|if
+condition|(
+name|applicationClassLoader
+operator|!=
+literal|null
+condition|)
+block|{
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|setContextClassLoader
+argument_list|(
+name|applicationClassLoader
+argument_list|)
+expr_stmt|;
+block|}
 comment|// use our authenticator that does no live user interaction but returns the already configured username and password
 name|Session
 name|session
@@ -915,6 +981,20 @@ argument_list|(
 name|session
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|setContextClassLoader
+argument_list|(
+name|tccl
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
 name|answer

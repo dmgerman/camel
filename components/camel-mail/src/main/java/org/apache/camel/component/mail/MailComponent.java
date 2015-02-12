@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Component for JavaMail.  *  * @version   */
+comment|/**  * Component for JavaMail.  *  * @version  */
 end_comment
 
 begin_class
@@ -169,14 +169,6 @@ name|MailEndpoint
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|configuration
-operator|=
-operator|new
-name|MailConfiguration
-argument_list|()
 expr_stmt|;
 block|}
 DECL|method|MailComponent (MailConfiguration configuration)
@@ -218,14 +210,6 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|configuration
-operator|=
-operator|new
-name|MailConfiguration
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -261,19 +245,11 @@ name|uri
 argument_list|)
 decl_stmt|;
 comment|// must use copy as each endpoint can have different options
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|configuration
-argument_list|,
-literal|"configuration"
-argument_list|)
-expr_stmt|;
 name|MailConfiguration
 name|config
 init|=
-name|configuration
+name|getConfiguration
+argument_list|()
 operator|.
 name|copy
 argument_list|()
@@ -535,6 +511,23 @@ name|MailConfiguration
 name|getConfiguration
 parameter_list|()
 block|{
+if|if
+condition|(
+name|configuration
+operator|==
+literal|null
+condition|)
+block|{
+name|configuration
+operator|=
+operator|new
+name|MailConfiguration
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|configuration
 return|;
