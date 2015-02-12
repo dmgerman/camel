@@ -127,8 +127,6 @@ block|{
 name|invokeService
 argument_list|(
 name|port1
-argument_list|,
-literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -145,21 +143,16 @@ block|{
 name|invokeService
 argument_list|(
 name|port2
-argument_list|,
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|invokeService (int port, boolean checkChunkedHeader)
+DECL|method|invokeService (int port)
 specifier|private
 name|void
 name|invokeService
 parameter_list|(
 name|int
 name|port
-parameter_list|,
-name|boolean
-name|checkChunkedHeader
 parameter_list|)
 block|{
 name|Exchange
