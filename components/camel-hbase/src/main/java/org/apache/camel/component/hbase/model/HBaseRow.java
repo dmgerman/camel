@@ -109,6 +109,11 @@ name|HBaseCell
 argument_list|>
 name|cells
 decl_stmt|;
+DECL|field|timestamp
+specifier|private
+name|long
+name|timestamp
+decl_stmt|;
 DECL|method|HBaseRow ()
 specifier|public
 name|HBaseRow
@@ -265,6 +270,32 @@ operator|.
 name|size
 argument_list|()
 return|;
+block|}
+DECL|method|getTimestamp ()
+specifier|public
+name|long
+name|getTimestamp
+parameter_list|()
+block|{
+return|return
+name|timestamp
+return|;
+block|}
+DECL|method|setTimestamp (long timestamp)
+specifier|public
+name|void
+name|setTimestamp
+parameter_list|(
+name|long
+name|timestamp
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timestamp
+operator|=
+name|timestamp
+expr_stmt|;
 block|}
 DECL|method|apply (HBaseRow modelRow)
 specifier|public

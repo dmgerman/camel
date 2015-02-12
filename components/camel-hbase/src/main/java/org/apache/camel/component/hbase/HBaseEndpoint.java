@@ -252,14 +252,6 @@ specifier|private
 name|Configuration
 name|configuration
 decl_stmt|;
-annotation|@
-name|UriPath
-DECL|field|tableName
-specifier|private
-specifier|final
-name|String
-name|tableName
-decl_stmt|;
 DECL|field|tablePool
 specifier|private
 specifier|final
@@ -270,6 +262,14 @@ DECL|field|admin
 specifier|private
 name|HBaseAdmin
 name|admin
+decl_stmt|;
+annotation|@
+name|UriPath
+DECL|field|tableName
+specifier|private
+specifier|final
+name|String
+name|tableName
 decl_stmt|;
 comment|//Operation properties.
 annotation|@

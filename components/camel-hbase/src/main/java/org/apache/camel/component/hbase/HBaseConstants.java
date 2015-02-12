@@ -60,6 +60,12 @@ name|HBASE_MAX_SCAN_RESULTS
 init|=
 literal|"CamelHBaseMaxScanResults"
 decl_stmt|;
+DECL|field|FROM_ROW
+name|String
+name|FROM_ROW
+init|=
+literal|"CamelHBaseStartRow"
+decl_stmt|;
 block|}
 end_interface
 
