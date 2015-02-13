@@ -32,16 +32,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -73,18 +63,6 @@ operator|.
 name|management
 operator|.
 name|ObjectName
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|management
-operator|.
-name|openmbean
-operator|.
-name|TabularData
 import|;
 end_import
 
@@ -141,16 +119,6 @@ operator|.
 name|util
 operator|.
 name|StringHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
 import|;
 end_import
 
@@ -2296,7 +2264,9 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"defaultQueueFactory\": { \"kind\": \"property\", \"type\": \"object\", \"javaType\": \"org.apache.camel.component.seda.BlockingQueueFactory<org.apache.camel.Exchange>\","
+literal|"\"defaultQueueFactory\": { \"kind\": \"property\", \"type\": \"object\", \"javaType\":"
+operator|+
+literal|" \"org.apache.camel.component.seda.BlockingQueueFactory<org.apache.camel.Exchange>\","
 argument_list|)
 argument_list|)
 expr_stmt|;
