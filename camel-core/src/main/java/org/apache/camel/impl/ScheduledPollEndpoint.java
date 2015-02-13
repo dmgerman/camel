@@ -1490,10 +1490,7 @@ name|pollStrategy
 operator|=
 name|pollStrategy
 expr_stmt|;
-name|consumerPropertiesInUse
-operator|=
-literal|true
-expr_stmt|;
+comment|// we are allowed to change poll strategy
 block|}
 DECL|method|getRunLoggingLevel ()
 specifier|public
