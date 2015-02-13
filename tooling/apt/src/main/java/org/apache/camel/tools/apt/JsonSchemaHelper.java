@@ -514,9 +514,13 @@ expr_stmt|;
 block|}
 if|if
 condition|(
+operator|!
+name|Strings
+operator|.
+name|isNullOrEmpty
+argument_list|(
 name|label
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
 name|sb
