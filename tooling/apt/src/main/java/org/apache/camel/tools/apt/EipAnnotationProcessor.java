@@ -1304,6 +1304,8 @@ operator|.
 name|isDeprecated
 argument_list|()
 argument_list|,
+literal|null
+argument_list|,
 name|entry
 operator|.
 name|isEnumType

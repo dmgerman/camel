@@ -144,6 +144,14 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * To associate this parameter with label(s).      *<p/>      * Multiple labels can be defined as a comma separated value.      *<p/>      * The labels is intended for grouping the parameters, such as<tt>consumer</tt>,<tt>producer</tt>,<tt>common</tt>,<tt>security</tt>, etc.      */
+DECL|method|label ()
+name|String
+name|label
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 block|}
 end_annotation_defn
 

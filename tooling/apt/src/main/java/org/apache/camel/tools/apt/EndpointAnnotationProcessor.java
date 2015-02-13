@@ -1586,6 +1586,11 @@ argument_list|()
 argument_list|,
 name|entry
 operator|.
+name|getLabel
+argument_list|()
+argument_list|,
+name|entry
+operator|.
 name|isEnumType
 argument_list|()
 argument_list|,
@@ -1727,6 +1732,11 @@ argument_list|()
 argument_list|,
 name|path
 operator|.
+name|getLabel
+argument_list|()
+argument_list|,
+name|path
+operator|.
 name|isEnumType
 argument_list|()
 argument_list|,
@@ -1850,6 +1860,11 @@ argument_list|,
 name|entry
 operator|.
 name|isDeprecated
+argument_list|()
+argument_list|,
+name|entry
+operator|.
+name|getLabel
 argument_list|()
 argument_list|,
 name|entry
@@ -2909,6 +2924,34 @@ argument_list|,
 name|fieldTypeName
 argument_list|)
 decl_stmt|;
+name|String
+name|required
+init|=
+name|metadata
+operator|!=
+literal|null
+condition|?
+name|metadata
+operator|.
+name|required
+argument_list|()
+else|:
+literal|null
+decl_stmt|;
+name|String
+name|label
+init|=
+name|metadata
+operator|!=
+literal|null
+condition|?
+name|metadata
+operator|.
+name|label
+argument_list|()
+else|:
+literal|null
+decl_stmt|;
 comment|// we do not yet have default values / notes / as no annotation support yet
 comment|// String defaultValueNote = param.defaultValueNote();
 name|String
@@ -2960,20 +3003,6 @@ operator|=
 literal|""
 expr_stmt|;
 block|}
-name|String
-name|required
-init|=
-name|metadata
-operator|!=
-literal|null
-condition|?
-name|metadata
-operator|.
-name|required
-argument_list|()
-else|:
-literal|null
-decl_stmt|;
 comment|// gather enums
 name|Set
 argument_list|<
@@ -3102,6 +3131,8 @@ name|trim
 argument_list|()
 argument_list|,
 name|deprecated
+argument_list|,
+name|label
 argument_list|,
 name|isEnum
 argument_list|,
@@ -3327,6 +3358,28 @@ name|prefix
 operator|+
 name|name
 expr_stmt|;
+name|String
+name|labels
+init|=
+name|path
+operator|.
+name|label
+argument_list|()
+decl_stmt|;
+name|String
+name|required
+init|=
+name|metadata
+operator|!=
+literal|null
+condition|?
+name|metadata
+operator|.
+name|required
+argument_list|()
+else|:
+literal|null
+decl_stmt|;
 name|TypeMirror
 name|fieldType
 init|=
@@ -3387,20 +3440,6 @@ name|description
 argument_list|()
 expr_stmt|;
 block|}
-name|String
-name|required
-init|=
-name|metadata
-operator|!=
-literal|null
-condition|?
-name|metadata
-operator|.
-name|required
-argument_list|()
-else|:
-literal|null
-decl_stmt|;
 comment|// gather enums
 name|Set
 argument_list|<
@@ -3577,6 +3616,8 @@ name|docComment
 argument_list|,
 name|deprecated
 argument_list|,
+name|labels
+argument_list|,
 name|isEnum
 argument_list|,
 name|enums
@@ -3660,6 +3701,28 @@ init|=
 name|param
 operator|.
 name|defaultValueNote
+argument_list|()
+decl_stmt|;
+name|String
+name|required
+init|=
+name|metadata
+operator|!=
+literal|null
+condition|?
+name|metadata
+operator|.
+name|required
+argument_list|()
+else|:
+literal|null
+decl_stmt|;
+name|String
+name|labels
+init|=
+name|param
+operator|.
+name|label
 argument_list|()
 decl_stmt|;
 comment|// if the field type is a nested parameter then iterate through its fields
@@ -3799,20 +3862,6 @@ name|description
 argument_list|()
 expr_stmt|;
 block|}
-name|String
-name|required
-init|=
-name|metadata
-operator|!=
-literal|null
-condition|?
-name|metadata
-operator|.
-name|required
-argument_list|()
-else|:
-literal|null
-decl_stmt|;
 comment|// gather enums
 name|Set
 argument_list|<
@@ -3995,6 +4044,8 @@ name|trim
 argument_list|()
 argument_list|,
 name|deprecated
+argument_list|,
+name|labels
 argument_list|,
 name|isEnum
 argument_list|,
@@ -4515,6 +4566,11 @@ specifier|private
 name|boolean
 name|deprecated
 decl_stmt|;
+DECL|field|label
+specifier|private
+name|String
+name|label
+decl_stmt|;
 DECL|field|enumType
 specifier|private
 name|boolean
@@ -4528,7 +4584,7 @@ name|String
 argument_list|>
 name|enums
 decl_stmt|;
-DECL|method|ComponentOption (String name, String type, String required, String defaultValue, String defaultValueNote, String documentation, boolean deprecated, boolean enumType, Set<String> enums)
+DECL|method|ComponentOption (String name, String type, String required, String defaultValue, String defaultValueNote, String documentation, boolean deprecated, String label, boolean enumType, Set<String> enums)
 specifier|private
 name|ComponentOption
 parameter_list|(
@@ -4552,6 +4608,9 @@ name|documentation
 parameter_list|,
 name|boolean
 name|deprecated
+parameter_list|,
+name|String
+name|label
 parameter_list|,
 name|boolean
 name|enumType
@@ -4604,6 +4663,12 @@ operator|.
 name|deprecated
 operator|=
 name|deprecated
+expr_stmt|;
+name|this
+operator|.
+name|label
+operator|=
+name|label
 expr_stmt|;
 name|this
 operator|.
@@ -4801,6 +4866,16 @@ parameter_list|()
 block|{
 return|return
 name|enums
+return|;
+block|}
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+name|label
 return|;
 block|}
 annotation|@
@@ -4931,6 +5006,11 @@ specifier|private
 name|boolean
 name|deprecated
 decl_stmt|;
+DECL|field|label
+specifier|private
+name|String
+name|label
+decl_stmt|;
 DECL|field|enumType
 specifier|private
 name|boolean
@@ -4944,7 +5024,7 @@ name|String
 argument_list|>
 name|enums
 decl_stmt|;
-DECL|method|EndpointOption (String name, String type, String required, String defaultValue, String defaultValueNote, String documentation, boolean deprecated, boolean enumType, Set<String> enums)
+DECL|method|EndpointOption (String name, String type, String required, String defaultValue, String defaultValueNote, String documentation, boolean deprecated, String label, boolean enumType, Set<String> enums)
 specifier|private
 name|EndpointOption
 parameter_list|(
@@ -4968,6 +5048,9 @@ name|documentation
 parameter_list|,
 name|boolean
 name|deprecated
+parameter_list|,
+name|String
+name|label
 parameter_list|,
 name|boolean
 name|enumType
@@ -5020,6 +5103,12 @@ operator|.
 name|deprecated
 operator|=
 name|deprecated
+expr_stmt|;
+name|this
+operator|.
+name|label
+operator|=
+name|label
 expr_stmt|;
 name|this
 operator|.
@@ -5219,6 +5308,16 @@ return|return
 name|enums
 return|;
 block|}
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+name|label
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|equals (Object o)
@@ -5337,6 +5436,11 @@ specifier|private
 name|boolean
 name|deprecated
 decl_stmt|;
+DECL|field|label
+specifier|private
+name|String
+name|label
+decl_stmt|;
 DECL|field|enumType
 specifier|private
 name|boolean
@@ -5350,7 +5454,7 @@ name|String
 argument_list|>
 name|enums
 decl_stmt|;
-DECL|method|EndpointPath (String name, String type, String required, String documentation, boolean deprecated, boolean enumType, Set<String> enums)
+DECL|method|EndpointPath (String name, String type, String required, String documentation, boolean deprecated, String label, boolean enumType, Set<String> enums)
 specifier|private
 name|EndpointPath
 parameter_list|(
@@ -5368,6 +5472,9 @@ name|documentation
 parameter_list|,
 name|boolean
 name|deprecated
+parameter_list|,
+name|String
+name|label
 parameter_list|,
 name|boolean
 name|enumType
@@ -5408,6 +5515,12 @@ operator|.
 name|deprecated
 operator|=
 name|deprecated
+expr_stmt|;
+name|this
+operator|.
+name|label
+operator|=
+name|label
 expr_stmt|;
 name|this
 operator|.
@@ -5546,6 +5659,16 @@ parameter_list|()
 block|{
 return|return
 name|enums
+return|;
+block|}
+DECL|method|getLabel ()
+specifier|public
+name|String
+name|getLabel
+parameter_list|()
+block|{
+return|return
+name|label
 return|;
 block|}
 annotation|@
