@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timeout\": { \"kind\": \"parameter\", \"type\": \"integer\""
+literal|"\"timeout\": { \"kind\": \"parameter\", \"label\": \"producer\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"block\": { \"kind\": \"parameter\", \"type\": \"boolean\""
+literal|"\"block\": { \"kind\": \"parameter\", \"label\": \"producer\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -283,9 +283,9 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timeout\": { \"kind\": \"parameter\", \"type\": \"integer\", \"javaType\": \"long\","
+literal|"\"timeout\": { \"kind\": \"parameter\", \"label\": \"producer\","
 operator|+
-literal|" \"deprecated\": \"false\", \"defaultValue\": \"30000\","
+literal|" \"type\": \"integer\", \"javaType\": \"long\", \"deprecated\": \"false\", \"defaultValue\": \"30000\","
 operator|+
 literal|" \"description\": \"The timeout value to use if block is enabled."
 argument_list|)

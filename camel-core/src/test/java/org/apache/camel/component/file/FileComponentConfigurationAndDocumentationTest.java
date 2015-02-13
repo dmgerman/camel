@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"exclude\": { \"kind\": \"parameter\", \"type\": \"string\""
+literal|"\"doneFileName\": { \"kind\": \"parameter\", \"label\": \"producer\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,17 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"delete\": { \"kind\": \"parameter\", \"type\": \"boolean\""
+literal|"\"exclude\": { \"kind\": \"parameter\", \"label\": \"consumer\", \"type\": \"string\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"delete\": { \"kind\": \"parameter\", \"label\": \"consumer\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

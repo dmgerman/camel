@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timeout\": { \"kind\": \"parameter\", \"type\": \"integer\""
+literal|"\"timeout\": { \"kind\": \"parameter\", \"label\": \"producer\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"block\": { \"kind\": \"parameter\", \"type\": \"boolean\""
+literal|"\"block\": { \"kind\": \"parameter\", \"label\": \"producer\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;
