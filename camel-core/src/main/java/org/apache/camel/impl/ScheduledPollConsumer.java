@@ -180,20 +180,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|UriParam
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|IntrospectionSupport
@@ -293,9 +279,7 @@ specifier|private
 name|ScheduledExecutorService
 name|scheduledExecutorService
 decl_stmt|;
-comment|// if adding more options then align with ScheduledPollEndpoint#configureScheduledPollConsumerProperties
-annotation|@
-name|UriParam
+comment|// if adding more options then align with org.apache.camel.impl.ScheduledPollEndpoint
 DECL|field|startScheduler
 specifier|private
 name|boolean
@@ -303,8 +287,6 @@ name|startScheduler
 init|=
 literal|true
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|initialDelay
 specifier|private
 name|long
@@ -312,8 +294,6 @@ name|initialDelay
 init|=
 literal|1000
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|delay
 specifier|private
 name|long
@@ -321,8 +301,6 @@ name|delay
 init|=
 literal|500
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|timeUnit
 specifier|private
 name|TimeUnit
@@ -332,8 +310,6 @@ name|TimeUnit
 operator|.
 name|MILLISECONDS
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|useFixedDelay
 specifier|private
 name|boolean
@@ -341,8 +317,6 @@ name|useFixedDelay
 init|=
 literal|true
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|pollStrategy
 specifier|private
 name|PollingConsumerPollStrategy
@@ -352,8 +326,6 @@ operator|new
 name|DefaultPollingConsumerPollStrategy
 argument_list|()
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|runLoggingLevel
 specifier|private
 name|LoggingLevel
@@ -363,36 +335,26 @@ name|LoggingLevel
 operator|.
 name|TRACE
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|sendEmptyMessageWhenIdle
 specifier|private
 name|boolean
 name|sendEmptyMessageWhenIdle
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|greedy
 specifier|private
 name|boolean
 name|greedy
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|backoffMultiplier
 specifier|private
 name|int
 name|backoffMultiplier
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|backoffIdleThreshold
 specifier|private
 name|int
 name|backoffIdleThreshold
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|backoffErrorThreshold
 specifier|private
 name|int
@@ -1366,7 +1328,6 @@ return|return
 name|scheduler
 return|;
 block|}
-comment|/**      * Sets a custom scheduler to use for scheduling running this task (poll).      *      * @param scheduler the custom scheduler      */
 DECL|method|setScheduler (ScheduledPollConsumerScheduler scheduler)
 specifier|public
 name|void
@@ -1398,7 +1359,6 @@ return|return
 name|schedulerProperties
 return|;
 block|}
-comment|/**      * Additional properties to configure on the custom scheduler.      */
 DECL|method|setSchedulerProperties (Map<String, Object> schedulerProperties)
 specifier|public
 name|void
@@ -1482,7 +1442,6 @@ return|return
 name|timeUnit
 return|;
 block|}
-comment|/**      * Sets the time unit to use.      *<p/>      * Notice that both {@link #getDelay()} and {@link #getInitialDelay()} are using      * the same time unit. So if you change this value, then take into account that the      * default value of {@link #getInitialDelay()} is 1000. So you may to adjust this value accordingly.      *      * @param timeUnit the time unit.      */
 DECL|method|setTimeUnit (TimeUnit timeUnit)
 specifier|public
 name|void
@@ -1587,7 +1546,6 @@ return|return
 name|startScheduler
 return|;
 block|}
-comment|/**      * Sets whether the scheduler should be started when this consumer starts.      *<p/>      * This option is default true.      *      * @param startScheduler whether to start scheduler      */
 DECL|method|setStartScheduler (boolean startScheduler)
 specifier|public
 name|void
@@ -1640,7 +1598,6 @@ return|return
 name|greedy
 return|;
 block|}
-comment|/**      * If greedy then a poll is executed immediate after a previous poll that polled 1 or more messages.      */
 DECL|method|setGreedy (boolean greedy)
 specifier|public
 name|void
@@ -1755,7 +1712,6 @@ return|return
 name|scheduledExecutorService
 return|;
 block|}
-comment|/**      * Whether the scheduler has been started.      *<p/>      * The scheduler can be started with the {@link #startScheduler()} method.      *      * @return<tt>true</tt> if started,<tt>false</tt> if not.      */
 DECL|method|isSchedulerStarted ()
 specifier|public
 name|boolean
@@ -1769,7 +1725,6 @@ name|isSchedulerStarted
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets a custom shared {@link ScheduledExecutorService} to use as thread pool      *<p/>      *<b>Notice:</b> When using a custom thread pool, then the lifecycle of this thread      * pool is not controlled by this consumer (eg this consumer will not start/stop the thread pool      * when the consumer is started/stopped etc.)      *      * @param scheduledExecutorService the custom thread pool to use      */
 DECL|method|setScheduledExecutorService (ScheduledExecutorService scheduledExecutorService)
 specifier|public
 name|void
