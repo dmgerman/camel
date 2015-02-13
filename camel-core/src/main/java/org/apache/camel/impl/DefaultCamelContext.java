@@ -8371,6 +8371,16 @@ literal|"kind"
 argument_list|)
 decl_stmt|;
 name|String
+name|label
+init|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"label"
+argument_list|)
+decl_stmt|;
+name|String
 name|required
 init|=
 name|row
@@ -8510,6 +8520,8 @@ name|name
 block|,
 name|kind
 block|,
+name|label
+block|,
 name|required
 block|,
 name|type
@@ -8610,7 +8622,7 @@ literal|1
 index|]
 decl_stmt|;
 name|String
-name|required
+name|label
 init|=
 name|row
 index|[
@@ -8618,7 +8630,7 @@ literal|2
 index|]
 decl_stmt|;
 name|String
-name|type
+name|required
 init|=
 name|row
 index|[
@@ -8626,7 +8638,7 @@ literal|3
 index|]
 decl_stmt|;
 name|String
-name|javaType
+name|type
 init|=
 name|row
 index|[
@@ -8634,7 +8646,7 @@ literal|4
 index|]
 decl_stmt|;
 name|String
-name|deprecated
+name|javaType
 init|=
 name|row
 index|[
@@ -8642,7 +8654,7 @@ literal|5
 index|]
 decl_stmt|;
 name|String
-name|value
+name|deprecated
 init|=
 name|row
 index|[
@@ -8650,7 +8662,7 @@ literal|6
 index|]
 decl_stmt|;
 name|String
-name|defaultValue
+name|value
 init|=
 name|row
 index|[
@@ -8658,11 +8670,19 @@ literal|7
 index|]
 decl_stmt|;
 name|String
-name|description
+name|defaultValue
 init|=
 name|row
 index|[
 literal|8
+index|]
+decl_stmt|;
+name|String
+name|description
+init|=
+name|row
+index|[
+literal|9
 index|]
 decl_stmt|;
 comment|// add json of the option
@@ -8702,6 +8722,25 @@ argument_list|(
 literal|"\"kind\": \""
 operator|+
 name|kind
+operator|+
+literal|"\""
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|label
+operator|!=
+literal|null
+condition|)
+block|{
+name|csb
+operator|.
+name|append
+argument_list|(
+literal|"\"label\": \""
+operator|+
+name|label
 operator|+
 literal|"\""
 argument_list|)
@@ -9113,6 +9152,11 @@ init|=
 literal|null
 decl_stmt|;
 name|String
+name|label
+init|=
+literal|null
+decl_stmt|;
+name|String
 name|required
 init|=
 literal|null
@@ -9183,6 +9227,15 @@ argument_list|(
 literal|"kind"
 argument_list|)
 expr_stmt|;
+name|label
+operator|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"label"
+argument_list|)
+expr_stmt|;
 name|required
 operator|=
 name|row
@@ -9246,6 +9299,8 @@ name|name
 block|,
 name|kind
 block|,
+name|label
+block|,
 name|required
 block|,
 name|type
@@ -9295,6 +9350,16 @@ operator|.
 name|get
 argument_list|(
 literal|"kind"
+argument_list|)
+decl_stmt|;
+name|String
+name|label
+init|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"label"
 argument_list|)
 decl_stmt|;
 name|String
@@ -9408,6 +9473,8 @@ name|name
 block|,
 name|kind
 block|,
+name|label
+block|,
 name|required
 block|,
 name|type
@@ -9508,7 +9575,7 @@ literal|1
 index|]
 decl_stmt|;
 name|String
-name|required
+name|label
 init|=
 name|row
 index|[
@@ -9516,7 +9583,7 @@ literal|2
 index|]
 decl_stmt|;
 name|String
-name|type
+name|required
 init|=
 name|row
 index|[
@@ -9524,7 +9591,7 @@ literal|3
 index|]
 decl_stmt|;
 name|String
-name|javaType
+name|type
 init|=
 name|row
 index|[
@@ -9532,7 +9599,7 @@ literal|4
 index|]
 decl_stmt|;
 name|String
-name|deprecated
+name|javaType
 init|=
 name|row
 index|[
@@ -9540,7 +9607,7 @@ literal|5
 index|]
 decl_stmt|;
 name|String
-name|value
+name|deprecated
 init|=
 name|row
 index|[
@@ -9548,7 +9615,7 @@ literal|6
 index|]
 decl_stmt|;
 name|String
-name|defaultValue
+name|value
 init|=
 name|row
 index|[
@@ -9556,11 +9623,19 @@ literal|7
 index|]
 decl_stmt|;
 name|String
-name|description
+name|defaultValue
 init|=
 name|row
 index|[
 literal|8
+index|]
+decl_stmt|;
+name|String
+name|description
+init|=
+name|row
+index|[
+literal|9
 index|]
 decl_stmt|;
 comment|// add json of the option
@@ -9600,6 +9675,25 @@ argument_list|(
 literal|"\"kind\": \""
 operator|+
 name|kind
+operator|+
+literal|"\""
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|label
+operator|!=
+literal|null
+condition|)
+block|{
+name|csb
+operator|.
+name|append
+argument_list|(
+literal|"\"label\": \""
+operator|+
+name|label
 operator|+
 literal|"\""
 argument_list|)
@@ -10004,6 +10098,11 @@ init|=
 literal|null
 decl_stmt|;
 name|String
+name|label
+init|=
+literal|null
+decl_stmt|;
+name|String
 name|required
 init|=
 literal|null
@@ -10074,6 +10173,15 @@ argument_list|(
 literal|"kind"
 argument_list|)
 expr_stmt|;
+name|label
+operator|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"label"
+argument_list|)
+expr_stmt|;
 name|required
 operator|=
 name|row
@@ -10137,6 +10245,8 @@ name|name
 block|,
 name|kind
 block|,
+name|label
+block|,
 name|required
 block|,
 name|type
@@ -10186,6 +10296,16 @@ operator|.
 name|get
 argument_list|(
 literal|"kind"
+argument_list|)
+decl_stmt|;
+name|String
+name|label
+init|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"label"
 argument_list|)
 decl_stmt|;
 name|String
@@ -10338,6 +10458,8 @@ name|name
 block|,
 name|kind
 block|,
+name|label
+block|,
 name|required
 block|,
 name|type
@@ -10438,7 +10560,7 @@ literal|1
 index|]
 decl_stmt|;
 name|String
-name|required
+name|label
 init|=
 name|row
 index|[
@@ -10446,7 +10568,7 @@ literal|2
 index|]
 decl_stmt|;
 name|String
-name|type
+name|required
 init|=
 name|row
 index|[
@@ -10454,7 +10576,7 @@ literal|3
 index|]
 decl_stmt|;
 name|String
-name|javaType
+name|type
 init|=
 name|row
 index|[
@@ -10462,7 +10584,7 @@ literal|4
 index|]
 decl_stmt|;
 name|String
-name|deprecated
+name|javaType
 init|=
 name|row
 index|[
@@ -10470,7 +10592,7 @@ literal|5
 index|]
 decl_stmt|;
 name|String
-name|value
+name|deprecated
 init|=
 name|row
 index|[
@@ -10478,7 +10600,7 @@ literal|6
 index|]
 decl_stmt|;
 name|String
-name|defaultValue
+name|value
 init|=
 name|row
 index|[
@@ -10486,11 +10608,19 @@ literal|7
 index|]
 decl_stmt|;
 name|String
-name|description
+name|defaultValue
 init|=
 name|row
 index|[
 literal|8
+index|]
+decl_stmt|;
+name|String
+name|description
+init|=
+name|row
+index|[
+literal|9
 index|]
 decl_stmt|;
 comment|// add json of the option
@@ -10530,6 +10660,25 @@ argument_list|(
 literal|"\"kind\": \""
 operator|+
 name|kind
+operator|+
+literal|"\""
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|label
+operator|!=
+literal|null
+condition|)
+block|{
+name|csb
+operator|.
+name|append
+argument_list|(
+literal|"\"label\": \""
+operator|+
+name|label
 operator|+
 literal|"\""
 argument_list|)

@@ -535,6 +535,27 @@ literal|"kind"
 argument_list|)
 decl_stmt|;
 name|String
+name|label
+init|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"label"
+argument_list|)
+operator|!=
+literal|null
+condition|?
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"label"
+argument_list|)
+else|:
+literal|""
+decl_stmt|;
+name|String
 name|type
 init|=
 name|row
@@ -662,6 +683,8 @@ literal|"option"
 block|,
 literal|"kind"
 block|,
+literal|"label"
+block|,
 literal|"type"
 block|,
 literal|"java type"
@@ -682,6 +705,8 @@ block|{
 name|name
 block|,
 name|kind
+block|,
+name|label
 block|,
 name|type
 block|,

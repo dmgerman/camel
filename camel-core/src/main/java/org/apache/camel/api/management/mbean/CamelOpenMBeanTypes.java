@@ -499,6 +499,8 @@ literal|"option"
 block|,
 literal|"kind"
 block|,
+literal|"label"
+block|,
 literal|"type"
 block|,
 literal|"java type"
@@ -520,6 +522,8 @@ literal|"Option"
 block|,
 literal|"Kind"
 block|,
+literal|"Label"
+block|,
 literal|"Type"
 block|,
 literal|"Java Type"
@@ -537,6 +541,10 @@ operator|new
 name|OpenType
 index|[]
 block|{
+name|SimpleType
+operator|.
+name|STRING
+block|,
 name|SimpleType
 operator|.
 name|STRING
@@ -631,6 +639,8 @@ literal|"option"
 block|,
 literal|"kind"
 block|,
+literal|"label"
+block|,
 literal|"type"
 block|,
 literal|"java type"
@@ -652,6 +662,8 @@ literal|"Option"
 block|,
 literal|"Kind"
 block|,
+literal|"Label"
+block|,
 literal|"Type"
 block|,
 literal|"Java Type"
@@ -669,6 +681,10 @@ operator|new
 name|OpenType
 index|[]
 block|{
+name|SimpleType
+operator|.
+name|STRING
+block|,
 name|SimpleType
 operator|.
 name|STRING
@@ -763,6 +779,8 @@ literal|"option"
 block|,
 literal|"kind"
 block|,
+literal|"label"
+block|,
 literal|"type"
 block|,
 literal|"java type"
@@ -784,6 +802,8 @@ literal|"Option"
 block|,
 literal|"Kind"
 block|,
+literal|"Label"
+block|,
 literal|"Type"
 block|,
 literal|"Java Type"
@@ -801,6 +821,10 @@ operator|new
 name|OpenType
 index|[]
 block|{
+name|SimpleType
+operator|.
+name|STRING
+block|,
 name|SimpleType
 operator|.
 name|STRING
