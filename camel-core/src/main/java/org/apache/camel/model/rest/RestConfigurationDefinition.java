@@ -302,7 +302,7 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
-literal|"componentProperty"
+literal|"componentProperties"
 argument_list|)
 DECL|field|componentProperties
 specifier|private
@@ -324,7 +324,7 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
-literal|"endpointProperty"
+literal|"endpointProperties"
 argument_list|)
 DECL|field|endpointProperties
 specifier|private
@@ -346,7 +346,7 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
-literal|"consumerProperty"
+literal|"consumerProperties"
 argument_list|)
 DECL|field|consumerProperties
 specifier|private
@@ -368,7 +368,7 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
-literal|"dataFormatProperty"
+literal|"dataFormatProperties"
 argument_list|)
 DECL|field|dataFormatProperties
 specifier|private
