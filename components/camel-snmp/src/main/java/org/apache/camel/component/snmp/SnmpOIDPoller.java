@@ -495,17 +495,6 @@ name|endpoint
 operator|=
 name|endpoint
 expr_stmt|;
-comment|// convert delay from seconds to millis
-name|setDelay
-argument_list|(
-name|endpoint
-operator|.
-name|getDelay
-argument_list|()
-operator|*
-literal|1000L
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override

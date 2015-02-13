@@ -409,16 +409,20 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
-literal|"60"
+literal|"60000"
 argument_list|)
 DECL|field|delay
 specifier|private
-name|int
+name|long
 name|delay
 init|=
-literal|60
+literal|60000
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -769,7 +773,7 @@ comment|// noop
 block|}
 DECL|method|getDelay ()
 specifier|public
-name|int
+name|long
 name|getDelay
 parameter_list|()
 block|{
@@ -778,12 +782,14 @@ name|delay
 return|;
 block|}
 comment|/**      * Sets update rate in seconds      *      * @param updateEvery the update rate in seconds      */
-DECL|method|setDelay (int updateEvery)
+annotation|@
+name|Override
+DECL|method|setDelay (long updateEvery)
 specifier|public
 name|void
 name|setDelay
 parameter_list|(
-name|int
+name|long
 name|updateEvery
 parameter_list|)
 block|{
