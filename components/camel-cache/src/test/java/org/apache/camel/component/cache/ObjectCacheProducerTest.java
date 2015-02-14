@@ -1,4 +1,8 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
+begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
 begin_package
 DECL|package|org.apache.camel.component.cache
 package|package
@@ -126,21 +130,6 @@ name|ObjectCacheProducerTest
 extends|extends
 name|CamelTestSupport
 block|{
-comment|//    protected String ehcacheConfigurationPath() {
-comment|//        return "src/test/resources/test-object-ehcache.xml";
-comment|//    }
-annotation|@
-name|Override
-DECL|method|isUseRouteBuilder ()
-specifier|public
-name|boolean
-name|isUseRouteBuilder
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 annotation|@
 name|EndpointInject
 argument_list|(
@@ -165,6 +154,18 @@ specifier|protected
 name|MockEndpoint
 name|cacheExceptionEndpoint
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|isUseRouteBuilder ()
+specifier|public
+name|boolean
+name|isUseRouteBuilder
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 comment|/**      * Test storing 3 elements into object cache then retrieving them back.      * We allow cache to store maximum of 2 values to check that overflow to disk not happened (it is not      * allowed in ehcache object cache (not serializable cache)).      *      * @throws Exception      * @see net.sf.ehcache.Element for information about object cache operations in ehcache      */
 annotation|@
 name|Test

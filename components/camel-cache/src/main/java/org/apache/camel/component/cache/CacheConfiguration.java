@@ -157,6 +157,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"LFU"
+argument_list|,
+name|enums
+operator|=
+literal|"LRU,LFU,FIFO,CLOCK"
 argument_list|)
 DECL|field|memoryStoreEvictionPolicy
 specifier|private
@@ -254,6 +258,13 @@ name|diskExpiryThreadIntervalSeconds
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|objectCache
+specifier|private
+name|boolean
+name|objectCache
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|eventListenerRegistry
 specifier|private
 name|CacheEventListenerRegistry
@@ -273,13 +284,6 @@ init|=
 operator|new
 name|CacheLoaderRegistry
 argument_list|()
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|objectCache
-specifier|private
-name|boolean
-name|objectCache
 decl_stmt|;
 DECL|method|CacheConfiguration ()
 specifier|public
@@ -432,9 +436,6 @@ argument_list|(
 literal|"maxElementsInMemory"
 argument_list|)
 argument_list|)
-operator|.
-name|intValue
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -546,9 +547,6 @@ argument_list|(
 literal|"timeToLiveSeconds"
 argument_list|)
 argument_list|)
-operator|.
-name|longValue
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -578,9 +576,6 @@ argument_list|(
 literal|"timeToIdleSeconds"
 argument_list|)
 argument_list|)
-operator|.
-name|longValue
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -639,9 +634,6 @@ argument_list|(
 literal|"diskExpiryThreadIntervalSeconds"
 argument_list|)
 argument_list|)
-operator|.
-name|longValue
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
