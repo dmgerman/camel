@@ -446,6 +446,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ModelJAXBContextFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|NodeIdFactory
 import|;
 end_import
@@ -2287,6 +2301,21 @@ name|RoutePolicyFactory
 argument_list|>
 name|getRoutePolicyFactories
 parameter_list|()
+function_decl|;
+comment|/**      * Returns the JAXB Context factory used to create Models.      *      * @return the JAXB Context factory used to create Models.      */
+DECL|method|getModelJAXBContextFactory ()
+name|ModelJAXBContextFactory
+name|getModelJAXBContextFactory
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom JAXB Context factory to be used      *      * @param modelJAXBContextFactory a JAXB Context factory      */
+DECL|method|setModelJAXBContextFactory (ModelJAXBContextFactory modelJAXBContextFactory)
+name|void
+name|setModelJAXBContextFactory
+parameter_list|(
+name|ModelJAXBContextFactory
+name|modelJAXBContextFactory
+parameter_list|)
 function_decl|;
 block|}
 end_interface

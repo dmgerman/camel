@@ -18,13 +18,31 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|NamedNode
+name|io
+operator|.
+name|StringReader
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|StringWriter
 import|;
 end_import
 
@@ -78,31 +96,39 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|InputStream
+name|camel
+operator|.
+name|CamelContext
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|StringReader
+name|camel
+operator|.
+name|NamedNode
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|StringWriter
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
 import|;
 end_import
 
@@ -124,15 +150,15 @@ parameter_list|()
 block|{
 comment|// utility class
 block|}
-comment|/**      * Dumps the definition as XML      *      * @param definition  the definition, such as a {@link org.apache.camel.NamedNode}      * @return            the output in XML (is formatted)      * @throws JAXBException is throw if error marshalling to XML      */
-DECL|method|dumpModelAsXml (ModelCamelContext modelCamelContext, NamedNode definition)
+comment|/**      * Dumps the definition as XML      *      * @param context    the CamelContext      * @param definition the definition, such as a {@link org.apache.camel.NamedNode}      * @return the output in XML (is formatted)      * @throws JAXBException is throw if error marshalling to XML      */
+DECL|method|dumpModelAsXml (CamelContext context, NamedNode definition)
 specifier|public
 specifier|static
 name|String
 name|dumpModelAsXml
 parameter_list|(
-name|ModelCamelContext
-name|modelCamelContext
+name|CamelContext
+name|context
 parameter_list|,
 name|NamedNode
 name|definition
@@ -143,7 +169,7 @@ block|{
 name|JAXBContext
 name|jaxbContext
 init|=
-name|modelCamelContext
+name|context
 operator|.
 name|getModelJAXBContextFactory
 argument_list|()
@@ -195,8 +221,8 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Marshal the xml to the model definition      *      * @param xml the xml      * @param type the definition type to return, will throw a {@link ClassCastException} if not the expected type      * @return the model definition      * @throws javax.xml.bind.JAXBException is thrown if error unmarshalling from xml to model      */
-DECL|method|createModelFromXml (ModelCamelContext modelCamelContext, String xml, Class<T> type)
+comment|/**      * Marshal the xml to the model definition      *      * @param context the CamelContext      * @param xml     the xml      * @param type    the definition type to return, will throw a {@link ClassCastException} if not the expected type      * @return the model definition      * @throws javax.xml.bind.JAXBException is thrown if error unmarshalling from xml to model      */
+DECL|method|createModelFromXml (CamelContext context, String xml, Class<T> type)
 specifier|public
 specifier|static
 parameter_list|<
@@ -207,8 +233,8 @@ parameter_list|>
 name|T
 name|createModelFromXml
 parameter_list|(
-name|ModelCamelContext
-name|modelCamelContext
+name|CamelContext
+name|context
 parameter_list|,
 name|String
 name|xml
@@ -225,7 +251,7 @@ block|{
 name|JAXBContext
 name|jaxbContext
 init|=
-name|modelCamelContext
+name|context
 operator|.
 name|getModelJAXBContextFactory
 argument_list|()
@@ -242,6 +268,11 @@ argument_list|(
 name|xml
 argument_list|)
 decl_stmt|;
+name|Object
+name|result
+decl_stmt|;
+try|try
+block|{
 name|Unmarshaller
 name|unmarshaller
 init|=
@@ -250,21 +281,26 @@ operator|.
 name|createUnmarshaller
 argument_list|()
 decl_stmt|;
-name|Object
 name|result
-init|=
+operator|=
 name|unmarshaller
 operator|.
 name|unmarshal
 argument_list|(
 name|reader
 argument_list|)
-decl_stmt|;
-name|reader
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|IOHelper
 operator|.
 name|close
-argument_list|()
+argument_list|(
+name|reader
+argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|result
@@ -295,8 +331,8 @@ name|result
 argument_list|)
 return|;
 block|}
-comment|/**      * Marshal the xml to the model definition      *      * @param stream the xml stream      * @param type the definition type to return, will throw a {@link ClassCastException} if not the expected type      * @return the model definition      * @throws javax.xml.bind.JAXBException is thrown if error unmarshalling from xml to model      */
-DECL|method|createModelFromXml (ModelCamelContext modelCamelContext, InputStream stream, Class<T> type)
+comment|/**      * Marshal the xml to the model definition      *      * @param context the CamelContext      * @param stream  the xml stream      * @param type    the definition type to return, will throw a {@link ClassCastException} if not the expected type      * @return the model definition      * @throws javax.xml.bind.JAXBException is thrown if error unmarshalling from xml to model      */
+DECL|method|createModelFromXml (CamelContext context, InputStream stream, Class<T> type)
 specifier|public
 specifier|static
 parameter_list|<
@@ -307,8 +343,8 @@ parameter_list|>
 name|T
 name|createModelFromXml
 parameter_list|(
-name|ModelCamelContext
-name|modelCamelContext
+name|CamelContext
+name|context
 parameter_list|,
 name|InputStream
 name|stream
@@ -325,7 +361,7 @@ block|{
 name|JAXBContext
 name|jaxbContext
 init|=
-name|modelCamelContext
+name|context
 operator|.
 name|getModelJAXBContextFactory
 argument_list|()

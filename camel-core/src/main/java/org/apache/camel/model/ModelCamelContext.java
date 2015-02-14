@@ -84,20 +84,6 @@ name|RestDefinition
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ModelJAXBContextFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Model level interface for the {@link CamelContext}  */
 end_comment
@@ -110,20 +96,6 @@ name|ModelCamelContext
 extends|extends
 name|CamelContext
 block|{
-comment|/**      * @return the JAXB Context factory used to create Models.      */
-DECL|method|getModelJAXBContextFactory ()
-name|ModelJAXBContextFactory
-name|getModelJAXBContextFactory
-parameter_list|()
-function_decl|;
-DECL|method|setModelJAXBContextFactory (ModelJAXBContextFactory modelJAXBContextFactory)
-name|void
-name|setModelJAXBContextFactory
-parameter_list|(
-name|ModelJAXBContextFactory
-name|modelJAXBContextFactory
-parameter_list|)
-function_decl|;
 comment|/**      * Returns a list of the current route definitions      *      * @return list of the current route definitions      */
 DECL|method|getRouteDefinitions ()
 name|List
