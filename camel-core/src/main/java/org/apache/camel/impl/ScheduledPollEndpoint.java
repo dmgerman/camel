@@ -235,16 +235,6 @@ name|QUARTZ_2_SCHEDULER
 init|=
 literal|"org.apache.camel.pollconsumer.quartz2.QuartzScheduledPollConsumerScheduler"
 decl_stmt|;
-DECL|field|consumerPropertiesInUse
-specifier|private
-name|boolean
-name|consumerPropertiesInUse
-decl_stmt|;
-DECL|field|schedulerName
-specifier|private
-name|String
-name|schedulerName
-decl_stmt|;
 comment|// if adding more options then align with org.apache.camel.impl.ScheduledPollConsumer
 annotation|@
 name|UriParam
@@ -414,6 +404,12 @@ specifier|private
 name|ScheduledPollConsumerScheduler
 name|scheduler
 decl_stmt|;
+DECL|field|schedulerName
+specifier|private
+name|String
+name|schedulerName
+decl_stmt|;
+comment|// used when configuring scheduler using a string value
 annotation|@
 name|UriParam
 argument_list|(
@@ -934,32 +930,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-annotation|@
-name|Override
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// if any of the consumer properties was configured then we need to initialize the options before starting
-if|if
-condition|(
-name|consumerPropertiesInUse
-condition|)
-block|{
-name|initConsumerProperties
-argument_list|()
-expr_stmt|;
-block|}
-name|super
-operator|.
-name|doStart
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|initConsumerProperties ()
 specifier|protected
 name|void
@@ -1309,6 +1279,42 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|initConsumerProperties
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
+comment|// noop
+block|}
 DECL|method|isStartScheduler ()
 specifier|public
 name|boolean
@@ -1334,10 +1340,6 @@ operator|.
 name|startScheduler
 operator|=
 name|startScheduler
-expr_stmt|;
-name|consumerPropertiesInUse
-operator|=
-literal|true
 expr_stmt|;
 block|}
 DECL|method|getInitialDelay ()
@@ -1366,10 +1368,6 @@ name|initialDelay
 operator|=
 name|initialDelay
 expr_stmt|;
-name|consumerPropertiesInUse
-operator|=
-literal|true
-expr_stmt|;
 block|}
 DECL|method|getDelay ()
 specifier|public
@@ -1396,10 +1394,6 @@ operator|.
 name|delay
 operator|=
 name|delay
-expr_stmt|;
-name|consumerPropertiesInUse
-operator|=
-literal|true
 expr_stmt|;
 block|}
 DECL|method|getTimeUnit ()
@@ -1428,10 +1422,6 @@ name|timeUnit
 operator|=
 name|timeUnit
 expr_stmt|;
-name|consumerPropertiesInUse
-operator|=
-literal|true
-expr_stmt|;
 block|}
 DECL|method|isUseFixedDelay ()
 specifier|public
@@ -1458,10 +1448,6 @@ operator|.
 name|useFixedDelay
 operator|=
 name|useFixedDelay
-expr_stmt|;
-name|consumerPropertiesInUse
-operator|=
-literal|true
 expr_stmt|;
 block|}
 DECL|method|getPollStrategy ()
@@ -1518,10 +1504,6 @@ name|runLoggingLevel
 operator|=
 name|runLoggingLevel
 expr_stmt|;
-name|consumerPropertiesInUse
-operator|=
-literal|true
-expr_stmt|;
 block|}
 DECL|method|isSendEmptyMessageWhenIdle ()
 specifier|public
@@ -1548,10 +1530,6 @@ operator|.
 name|sendEmptyMessageWhenIdle
 operator|=
 name|sendEmptyMessageWhenIdle
-expr_stmt|;
-name|consumerPropertiesInUse
-operator|=
-literal|true
 expr_stmt|;
 block|}
 DECL|method|isGreedy ()
@@ -1580,10 +1558,6 @@ name|greedy
 operator|=
 name|greedy
 expr_stmt|;
-name|consumerPropertiesInUse
-operator|=
-literal|true
-expr_stmt|;
 block|}
 DECL|method|getScheduler ()
 specifier|public
@@ -1611,10 +1585,6 @@ name|scheduler
 operator|=
 name|scheduler
 expr_stmt|;
-name|consumerPropertiesInUse
-operator|=
-literal|true
-expr_stmt|;
 block|}
 comment|/**      * Allow to plugin a custom org.apache.camel.spi.ScheduledPollConsumerScheduler to use as the scheduler for      * firing when the polling consumer runs. This option is used for referring to one of the built-in schedulers      * either<tt>spring</tt>, or<tt>quartz2</tt>.      */
 DECL|method|setScheduler (String schedulerName)
@@ -1631,10 +1601,6 @@ operator|.
 name|schedulerName
 operator|=
 name|schedulerName
-expr_stmt|;
-name|consumerPropertiesInUse
-operator|=
-literal|true
 expr_stmt|;
 block|}
 DECL|method|getSchedulerProperties ()
@@ -1673,10 +1639,6 @@ name|schedulerProperties
 operator|=
 name|schedulerProperties
 expr_stmt|;
-name|consumerPropertiesInUse
-operator|=
-literal|true
-expr_stmt|;
 block|}
 DECL|method|getScheduledExecutorService ()
 specifier|public
@@ -1703,10 +1665,6 @@ operator|.
 name|scheduledExecutorService
 operator|=
 name|scheduledExecutorService
-expr_stmt|;
-name|consumerPropertiesInUse
-operator|=
-literal|true
 expr_stmt|;
 block|}
 DECL|method|getBackoffMultiplier ()
@@ -1735,10 +1693,6 @@ name|backoffMultiplier
 operator|=
 name|backoffMultiplier
 expr_stmt|;
-name|consumerPropertiesInUse
-operator|=
-literal|true
-expr_stmt|;
 block|}
 DECL|method|getBackoffIdleThreshold ()
 specifier|public
@@ -1766,10 +1720,6 @@ name|backoffIdleThreshold
 operator|=
 name|backoffIdleThreshold
 expr_stmt|;
-name|consumerPropertiesInUse
-operator|=
-literal|true
-expr_stmt|;
 block|}
 DECL|method|getBackoffErrorThreshold ()
 specifier|public
@@ -1796,10 +1746,6 @@ operator|.
 name|backoffErrorThreshold
 operator|=
 name|backoffErrorThreshold
-expr_stmt|;
-name|consumerPropertiesInUse
-operator|=
-literal|true
 expr_stmt|;
 block|}
 block|}
