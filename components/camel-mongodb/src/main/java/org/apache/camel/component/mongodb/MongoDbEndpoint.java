@@ -1122,11 +1122,6 @@ argument_list|>
 name|dynamicIndex
 parameter_list|)
 block|{
-name|collection
-operator|.
-name|dropIndexes
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|dynamicIndex
