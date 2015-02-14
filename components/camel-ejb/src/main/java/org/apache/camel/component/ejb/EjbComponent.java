@@ -88,7 +88,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Processor
+name|component
+operator|.
+name|bean
+operator|.
+name|BeanComponent
 import|;
 end_import
 
@@ -104,7 +108,7 @@ name|component
 operator|.
 name|bean
 operator|.
-name|BeanComponent
+name|BeanHolder
 import|;
 end_import
 
@@ -224,10 +228,10 @@ name|getContext
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|answer
-operator|.
-name|setBeanHolder
-argument_list|(
+comment|// and register the bean as a holder on the endpoint
+name|BeanHolder
+name|holder
+init|=
 operator|new
 name|EjbRegistryBean
 argument_list|(
@@ -241,21 +245,12 @@ operator|.
 name|getBeanName
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|Processor
-name|processor
-init|=
+decl_stmt|;
 name|answer
 operator|.
-name|getProcessor
-argument_list|()
-decl_stmt|;
-name|setProperties
+name|setBeanHolder
 argument_list|(
-name|processor
-argument_list|,
-name|parameters
+name|holder
 argument_list|)
 expr_stmt|;
 return|return
