@@ -76,7 +76,31 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Consumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|PollingConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
 import|;
 end_import
 
@@ -102,7 +126,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultPollingEndpoint
+name|DefaultEndpoint
 import|;
 end_import
 
@@ -295,7 +319,7 @@ specifier|public
 class|class
 name|HttpEndpoint
 extends|extends
-name|DefaultPollingEndpoint
+name|DefaultEndpoint
 implements|implements
 name|HeaderFilterStrategyAware
 block|{
@@ -665,6 +689,27 @@ argument_list|(
 name|this
 argument_list|)
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createConsumer (Processor processor)
+specifier|public
+name|Consumer
+name|createConsumer
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"Cannot consume from http endpoint"
+argument_list|)
+throw|;
 block|}
 DECL|method|createPollingConsumer ()
 specifier|public

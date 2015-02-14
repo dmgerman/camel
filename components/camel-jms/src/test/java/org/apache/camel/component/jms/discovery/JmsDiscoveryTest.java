@@ -406,6 +406,11 @@ block|{
 comment|// lets setup the heartbeats
 name|from
 argument_list|(
+literal|"timer:heartbeats?delay=100"
+argument_list|)
+operator|.
+name|to
+argument_list|(
 literal|"bean:service1?method=status"
 argument_list|)
 operator|.
