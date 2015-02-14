@@ -150,7 +150,7 @@ parameter_list|()
 block|{
 comment|// utility class
 block|}
-comment|/**      * Dumps the definition as XML      *      * @param context    the CamelContext      * @param definition the definition, such as a {@link org.apache.camel.NamedNode}      * @return the output in XML (is formatted)      * @throws JAXBException is throw if error marshalling to XML      */
+comment|/**      * Dumps the definition as XML      *      * @param context    the CamelContext, if<tt>null</tt> then {@link org.apache.camel.spi.ModelJAXBContextFactory} is not in use      * @param definition the definition, such as a {@link org.apache.camel.NamedNode}      * @return the output in XML (is formatted)      * @throws JAXBException is throw if error marshalling to XML      */
 DECL|method|dumpModelAsXml (CamelContext context, NamedNode definition)
 specifier|public
 specifier|static
@@ -168,7 +168,24 @@ name|JAXBException
 block|{
 name|JAXBContext
 name|jaxbContext
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|context
+operator|==
+literal|null
+condition|)
+block|{
+name|jaxbContext
+operator|=
+name|createJAXBContext
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|jaxbContext
+operator|=
 name|context
 operator|.
 name|getModelJAXBContextFactory
@@ -176,7 +193,8 @@ argument_list|()
 operator|.
 name|newJAXBContext
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
 name|Marshaller
 name|marshaller
 init|=
@@ -221,7 +239,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Marshal the xml to the model definition      *      * @param context the CamelContext      * @param xml     the xml      * @param type    the definition type to return, will throw a {@link ClassCastException} if not the expected type      * @return the model definition      * @throws javax.xml.bind.JAXBException is thrown if error unmarshalling from xml to model      */
+comment|/**      * Marshal the xml to the model definition      *      * @param context the CamelContext, if<tt>null</tt> then {@link org.apache.camel.spi.ModelJAXBContextFactory} is not in use      * @param xml     the xml      * @param type    the definition type to return, will throw a {@link ClassCastException} if not the expected type      * @return the model definition      * @throws javax.xml.bind.JAXBException is thrown if error unmarshalling from xml to model      */
 DECL|method|createModelFromXml (CamelContext context, String xml, Class<T> type)
 specifier|public
 specifier|static
@@ -250,7 +268,24 @@ name|JAXBException
 block|{
 name|JAXBContext
 name|jaxbContext
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|context
+operator|==
+literal|null
+condition|)
+block|{
+name|jaxbContext
+operator|=
+name|createJAXBContext
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|jaxbContext
+operator|=
 name|context
 operator|.
 name|getModelJAXBContextFactory
@@ -258,7 +293,8 @@ argument_list|()
 operator|.
 name|newJAXBContext
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
 name|StringReader
 name|reader
 init|=
@@ -331,7 +367,7 @@ name|result
 argument_list|)
 return|;
 block|}
-comment|/**      * Marshal the xml to the model definition      *      * @param context the CamelContext      * @param stream  the xml stream      * @param type    the definition type to return, will throw a {@link ClassCastException} if not the expected type      * @return the model definition      * @throws javax.xml.bind.JAXBException is thrown if error unmarshalling from xml to model      */
+comment|/**      * Marshal the xml to the model definition      *      * @param context the CamelContext, if<tt>null</tt> then {@link org.apache.camel.spi.ModelJAXBContextFactory} is not in use      * @param stream  the xml stream      * @param type    the definition type to return, will throw a {@link ClassCastException} if not the expected type      * @return the model definition      * @throws javax.xml.bind.JAXBException is thrown if error unmarshalling from xml to model      */
 DECL|method|createModelFromXml (CamelContext context, InputStream stream, Class<T> type)
 specifier|public
 specifier|static
@@ -360,7 +396,24 @@ name|JAXBException
 block|{
 name|JAXBContext
 name|jaxbContext
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|context
+operator|==
+literal|null
+condition|)
+block|{
+name|jaxbContext
+operator|=
+name|createJAXBContext
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|jaxbContext
+operator|=
 name|context
 operator|.
 name|getModelJAXBContextFactory
@@ -368,7 +421,8 @@ argument_list|()
 operator|.
 name|newJAXBContext
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
 name|Unmarshaller
 name|unmarshaller
 init|=
@@ -393,6 +447,34 @@ operator|.
 name|cast
 argument_list|(
 name|result
+argument_list|)
+return|;
+block|}
+DECL|method|createJAXBContext ()
+specifier|private
+specifier|static
+name|JAXBContext
+name|createJAXBContext
+parameter_list|()
+throws|throws
+name|JAXBException
+block|{
+comment|// must use classloader from CamelContext to have JAXB working
+return|return
+name|JAXBContext
+operator|.
+name|newInstance
+argument_list|(
+name|Constants
+operator|.
+name|JAXB_CONTEXT_PACKAGES
+argument_list|,
+name|CamelContext
+operator|.
+name|class
+operator|.
+name|getClassLoader
+argument_list|()
 argument_list|)
 return|;
 block|}
