@@ -2763,6 +2763,8 @@ name|ModelHelper
 operator|.
 name|dumpModelAsXml
 argument_list|(
+literal|null
+argument_list|,
 name|route
 argument_list|)
 return|;
@@ -3048,6 +3050,8 @@ name|ModelHelper
 operator|.
 name|dumpModelAsXml
 argument_list|(
+literal|null
+argument_list|,
 name|def
 argument_list|)
 return|;
