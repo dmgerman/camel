@@ -98,6 +98,20 @@ name|ExchangeHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a {@link org.apache.camel.Message} for working with Mail  *  * @version   */
 end_comment
@@ -184,33 +198,17 @@ name|String
 name|toString
 parameter_list|()
 block|{
-if|if
-condition|(
-name|mailMessage
-operator|!=
-literal|null
-condition|)
-block|{
+comment|// do not dump the mail content, as it requires live connection to the mail server
 return|return
-literal|"MailMessage: "
+literal|"MailMessage@"
 operator|+
-name|MailUtils
+name|ObjectHelper
 operator|.
-name|dumpMessage
+name|getIdentityHashCode
 argument_list|(
-name|mailMessage
+name|this
 argument_list|)
 return|;
-block|}
-else|else
-block|{
-return|return
-literal|"MailMessage: "
-operator|+
-name|getBody
-argument_list|()
-return|;
-block|}
 block|}
 DECL|method|copy ()
 specifier|public
