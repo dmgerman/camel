@@ -309,7 +309,13 @@ name|context
 init|=
 operator|new
 name|BlueprintModelJAXBContextFactory
+argument_list|(
+name|getClass
 argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
+argument_list|)
 operator|.
 name|newJAXBContext
 argument_list|()
