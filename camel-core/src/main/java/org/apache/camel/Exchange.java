@@ -308,6 +308,12 @@ name|FILTER_NON_XML_CHARS
 init|=
 literal|"CamelFilterNonXmlChars"
 decl_stmt|;
+DECL|field|FILE_CONTENT_TYPE
+name|String
+name|FILE_CONTENT_TYPE
+init|=
+literal|"CamelFileContentType"
+decl_stmt|;
 DECL|field|FILE_LOCAL_WORK_PATH
 name|String
 name|FILE_LOCAL_WORK_PATH
