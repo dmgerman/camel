@@ -728,7 +728,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Trying to recover connection to: {} with a fresh client."
+literal|"Trying to recover connection to: {} with a new FTP client."
 argument_list|,
 name|getEndpoint
 argument_list|()
@@ -758,6 +758,9 @@ name|GenericFileOperationFailedException
 block|{
 if|if
 condition|(
+operator|!
+name|loggedIn
+operator|||
 operator|!
 name|getOperations
 argument_list|()
