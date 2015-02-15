@@ -2243,6 +2243,9 @@ comment|// get properties component
 name|PropertiesComponent
 name|pc
 init|=
+operator|(
+name|PropertiesComponent
+operator|)
 name|getContext
 argument_list|()
 operator|.
@@ -2250,11 +2253,34 @@ name|getComponent
 argument_list|(
 literal|"properties"
 argument_list|,
-name|PropertiesComponent
-operator|.
-name|class
+literal|false
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|pc
+operator|==
+literal|null
+condition|)
+block|{
+comment|// do not auto create the component as spring autowrire by constructor causes a side effect when using bridge
+name|pc
+operator|=
+operator|new
+name|PropertiesComponent
+argument_list|()
+expr_stmt|;
+name|getContext
+argument_list|()
+operator|.
+name|addComponent
+argument_list|(
+literal|"properties"
+argument_list|,
+name|pc
+argument_list|)
+expr_stmt|;
+block|}
 comment|// replace existing resolver with us
 name|configurer
 operator|.

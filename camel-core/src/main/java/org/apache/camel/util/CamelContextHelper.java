@@ -2937,17 +2937,20 @@ argument_list|(
 literal|"No existing PropertiesComponent has been configured, creating a new default PropertiesComponent with name: properties"
 argument_list|)
 expr_stmt|;
+comment|// do not auto create using getComponent as spring autowrire by constructor causes a side effect
 name|answer
 operator|=
+operator|new
+name|PropertiesComponent
+argument_list|()
+expr_stmt|;
 name|camelContext
 operator|.
-name|getComponent
+name|addComponent
 argument_list|(
 literal|"properties"
 argument_list|,
-name|PropertiesComponent
-operator|.
-name|class
+name|answer
 argument_list|)
 expr_stmt|;
 block|}
