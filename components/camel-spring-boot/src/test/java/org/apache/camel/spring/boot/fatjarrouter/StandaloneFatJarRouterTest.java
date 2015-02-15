@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|java
 operator|.
 name|util
@@ -71,6 +71,8 @@ operator|.
 name|concurrent
 operator|.
 name|TimeUnit
+operator|.
+name|MINUTES
 import|;
 end_import
 
@@ -164,6 +166,18 @@ operator|.
 name|findAvailableTcpPort
 argument_list|()
 decl_stmt|;
+specifier|final
+name|URL
+name|httpEndpoint
+init|=
+operator|new
+name|URL
+argument_list|(
+literal|"http://localhost:"
+operator|+
+name|port
+argument_list|)
+decl_stmt|;
 name|TestFatJarRouter
 operator|.
 name|main
@@ -182,8 +196,6 @@ name|atMost
 argument_list|(
 literal|1
 argument_list|,
-name|TimeUnit
-operator|.
 name|MINUTES
 argument_list|)
 operator|.
@@ -207,13 +219,7 @@ name|Exception
 block|{
 try|try
 block|{
-operator|new
-name|URL
-argument_list|(
-literal|"http://localhost:"
-operator|+
-name|port
-argument_list|)
+name|httpEndpoint
 operator|.
 name|openStream
 argument_list|()
@@ -244,13 +250,7 @@ name|IOUtils
 operator|.
 name|toString
 argument_list|(
-operator|new
-name|URL
-argument_list|(
-literal|"http://localhost:"
-operator|+
-name|port
-argument_list|)
+name|httpEndpoint
 argument_list|)
 decl_stmt|;
 comment|// Then
