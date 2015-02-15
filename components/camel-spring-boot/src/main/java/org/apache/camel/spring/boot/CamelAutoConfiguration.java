@@ -448,15 +448,13 @@ return|return
 name|properties
 return|;
 block|}
+comment|/**      * Camel post processor - required to support Camel annotations.      */
 annotation|@
 name|Bean
-DECL|method|camelBeanPostProcessor (CamelContext camelContext, ApplicationContext applicationContext)
+DECL|method|camelBeanPostProcessor (ApplicationContext applicationContext)
 name|CamelBeanPostProcessor
 name|camelBeanPostProcessor
 parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|,
 name|ApplicationContext
 name|applicationContext
 parameter_list|)
@@ -468,13 +466,6 @@ operator|new
 name|CamelBeanPostProcessor
 argument_list|()
 decl_stmt|;
-name|processor
-operator|.
-name|setCamelContext
-argument_list|(
-name|camelContext
-argument_list|)
-expr_stmt|;
 name|processor
 operator|.
 name|setApplicationContext
