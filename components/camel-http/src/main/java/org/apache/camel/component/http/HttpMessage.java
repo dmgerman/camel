@@ -90,6 +90,20 @@ name|DefaultMessage
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -295,6 +309,26 @@ argument_list|()
 operator|.
 name|getFromEndpoint
 argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+comment|// do not use toString on HTTP message
+return|return
+literal|"HttpMessage@"
+operator|+
+name|ObjectHelper
+operator|.
+name|getIdentityHashCode
+argument_list|(
+name|this
+argument_list|)
 return|;
 block|}
 block|}

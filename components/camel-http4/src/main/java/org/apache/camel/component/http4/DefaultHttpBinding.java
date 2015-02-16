@@ -2534,12 +2534,26 @@ name|getRequest
 argument_list|()
 decl_stmt|;
 comment|// there is only a body if we have a content length, or its -1 to indicate unknown length
-if|if
-condition|(
+name|int
+name|len
+init|=
 name|request
 operator|.
 name|getContentLength
 argument_list|()
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"HttpServletRequest content-length: {}"
+argument_list|,
+name|len
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|len
 operator|==
 literal|0
 condition|)
@@ -2564,6 +2578,38 @@ return|;
 block|}
 else|else
 block|{
+comment|// if we do not know if there is any data at all, then make sure to check the stream first
+if|if
+condition|(
+name|len
+operator|<
+literal|0
+condition|)
+block|{
+name|InputStream
+name|is
+init|=
+name|request
+operator|.
+name|getInputStream
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|is
+operator|.
+name|available
+argument_list|()
+operator|==
+literal|0
+condition|)
+block|{
+comment|// no data so return null
+return|return
+literal|null
+return|;
+block|}
+block|}
 comment|// reade the response body from servlet request
 return|return
 name|HttpHelper
