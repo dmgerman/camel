@@ -2533,18 +2533,15 @@ operator|.
 name|getRequest
 argument_list|()
 decl_stmt|;
-comment|// Need to handle the GET Method which has no inputStream
+comment|// there is only a body if we have a content length, or its -1 to indicate unknown length
 if|if
 condition|(
-literal|"GET"
-operator|.
-name|equals
-argument_list|(
 name|request
 operator|.
-name|getMethod
+name|getContentLength
 argument_list|()
-argument_list|)
+operator|==
+literal|0
 condition|)
 block|{
 return|return

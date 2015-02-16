@@ -750,26 +750,18 @@ argument_list|,
 name|method
 argument_list|)
 expr_stmt|;
-comment|// if we post or put then set data
+comment|// if there is a body to send as data
 if|if
 condition|(
-name|HttpMethods
+name|exchange
 operator|.
-name|POST
+name|getIn
+argument_list|()
 operator|.
-name|equals
-argument_list|(
-name|methodToUse
-argument_list|)
-operator|||
-name|HttpMethods
-operator|.
-name|PUT
-operator|.
-name|equals
-argument_list|(
-name|methodToUse
-argument_list|)
+name|getBody
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|String
