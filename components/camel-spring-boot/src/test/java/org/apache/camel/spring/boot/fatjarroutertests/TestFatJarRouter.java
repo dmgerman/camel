@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.boot.fatjarrouter
+DECL|package|org.apache.camel.spring.boot.fatjarroutertests
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|spring
 operator|.
 name|boot
 operator|.
-name|fatjarrouter
+name|fatjarroutertests
 package|;
 end_package
 
