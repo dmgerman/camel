@@ -2578,6 +2578,21 @@ operator|+
 literal|"/getConnections"
 argument_list|)
 expr_stmt|;
+comment|// test consumer route for getConnections
+name|from
+argument_list|(
+literal|"linkedin://"
+operator|+
+name|PATH_PREFIX
+operator|+
+literal|"/getConnections"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock://GETCONNECTIONS"
+argument_list|)
+expr_stmt|;
 comment|// test route for getConnectionsById
 name|from
 argument_list|(

@@ -418,6 +418,15 @@ argument_list|,
 name|LinkedInConfiguration
 argument_list|>
 block|{
+DECL|field|FIELDS_OPTION
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|FIELDS_OPTION
+init|=
+literal|"fields"
+decl_stmt|;
 DECL|field|DEFAULT_FIELDS_SELECTOR
 specifier|private
 specifier|static
@@ -426,15 +435,6 @@ name|String
 name|DEFAULT_FIELDS_SELECTOR
 init|=
 literal|""
-decl_stmt|;
-DECL|field|FIELDS_OPTION
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|FIELDS_OPTION
-init|=
-literal|"fields"
 decl_stmt|;
 comment|// OAuth request filter
 DECL|field|requestFilter
