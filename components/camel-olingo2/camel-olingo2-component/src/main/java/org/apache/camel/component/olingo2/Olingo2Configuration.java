@@ -108,13 +108,9 @@ name|apache
 operator|.
 name|http
 operator|.
-name|impl
+name|entity
 operator|.
-name|nio
-operator|.
-name|client
-operator|.
-name|HttpAsyncClientBuilder
+name|ContentType
 import|;
 end_import
 
@@ -124,15 +120,15 @@ name|org
 operator|.
 name|apache
 operator|.
-name|olingo
+name|http
 operator|.
-name|odata2
+name|impl
 operator|.
-name|core
+name|nio
 operator|.
-name|commons
+name|client
 operator|.
-name|ContentType
+name|HttpAsyncClientBuilder
 import|;
 end_import
 
@@ -157,7 +153,7 @@ name|DEFAULT_CONTENT_TYPE
 init|=
 name|ContentType
 operator|.
-name|APPLICATION_JSON_CS_UTF_8
+name|APPLICATION_JSON
 operator|.
 name|toString
 argument_list|()
