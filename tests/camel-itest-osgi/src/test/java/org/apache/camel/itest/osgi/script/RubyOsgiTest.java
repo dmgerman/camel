@@ -158,6 +158,62 @@ name|combine
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|karaf
+operator|.
+name|options
+operator|.
+name|KarafDistributionOption
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|karaf
+operator|.
+name|options
+operator|.
+name|LogLevelOption
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|karaf
+operator|.
+name|options
+operator|.
+name|LogLevelOption
+operator|.
+name|LogLevel
+import|;
+end_import
+
 begin_comment
 comment|/**  * Test camel-script for Ruby expressions in OSGi  */
 end_comment
@@ -169,11 +225,6 @@ argument_list|(
 name|PaxExam
 operator|.
 name|class
-argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"You need an OSGi-ified version of JRuby for this to pass"
 argument_list|)
 DECL|class|RubyOsgiTest
 specifier|public
@@ -290,6 +341,11 @@ argument_list|(
 name|getDefaultCamelKarafOptions
 argument_list|()
 argument_list|,
+name|KarafDistributionOption
+operator|.
+name|keepRuntimeFolder
+argument_list|()
+argument_list|,
 comment|// using the features to install the other camel components
 name|loadCamelFeatures
 argument_list|(
@@ -297,6 +353,7 @@ literal|"camel-script"
 argument_list|,
 literal|"camel-ruby"
 argument_list|)
+comment|//, new LogLevelOption(LogLevel.DEBUG)
 argument_list|)
 decl_stmt|;
 return|return
