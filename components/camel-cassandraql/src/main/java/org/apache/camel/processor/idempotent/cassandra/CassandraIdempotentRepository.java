@@ -519,10 +519,43 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
-operator|>
-literal|1
+operator|>=
+name|pkColumns
+operator|.
+name|length
 return|;
 block|}
+block|}
+DECL|method|isApplied (ResultSet resultSet)
+specifier|protected
+specifier|final
+name|boolean
+name|isApplied
+parameter_list|(
+name|ResultSet
+name|resultSet
+parameter_list|)
+block|{
+name|Row
+name|row
+init|=
+name|resultSet
+operator|.
+name|one
+argument_list|()
+decl_stmt|;
+return|return
+name|row
+operator|==
+literal|null
+operator|||
+name|row
+operator|.
+name|getBool
+argument_list|(
+literal|"[applied]"
+argument_list|)
+return|;
 block|}
 DECL|method|getPKValues (K key)
 specifier|protected
@@ -670,8 +703,7 @@ name|idValues
 argument_list|)
 expr_stmt|;
 return|return
-operator|!
-name|isKey
+name|isApplied
 argument_list|(
 name|getSession
 argument_list|()
@@ -883,6 +915,9 @@ operator|)
 name|idValues
 argument_list|)
 expr_stmt|;
+return|return
+name|isApplied
+argument_list|(
 name|getSession
 argument_list|()
 operator|.
@@ -895,9 +930,7 @@ argument_list|(
 name|idValues
 argument_list|)
 argument_list|)
-expr_stmt|;
-return|return
-literal|true
+argument_list|)
 return|;
 block|}
 comment|// -------------------------------------------------------------------------
