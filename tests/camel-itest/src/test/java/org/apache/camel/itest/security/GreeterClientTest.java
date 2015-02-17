@@ -559,6 +559,14 @@ name|Exception
 name|ex
 parameter_list|)
 block|{
+name|String
+name|msg
+init|=
+name|ex
+operator|.
+name|getMessage
+argument_list|()
+decl_stmt|;
 name|assertTrue
 argument_list|(
 literal|"Get a wrong type exception."
@@ -570,21 +578,25 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"Get a wrong exception message"
+literal|"Get a wrong exception message: "
+operator|+
+name|msg
 argument_list|,
-name|ex
-operator|.
-name|getMessage
-argument_list|()
+name|msg
 operator|.
 name|startsWith
 argument_list|(
 literal|"The security token could not be authenticated or authorized"
 argument_list|)
+operator|||
+name|msg
+operator|.
+name|startsWith
+argument_list|(
+literal|"A security error was encountered when verifying the messag"
+argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// CXF 2.4.0 WSecurity doesn't put the authentication exception
-comment|//assertTrue("Get a wrong exception message", ex.getMessage().endsWith("java.io.IOException: Wrong password!"));
 block|}
 block|}
 annotation|@
