@@ -32,7 +32,7 @@ name|simpleworkflow
 operator|.
 name|flow
 operator|.
-name|DecisionContext
+name|DataConverter
 import|;
 end_import
 
@@ -48,7 +48,7 @@ name|simpleworkflow
 operator|.
 name|flow
 operator|.
-name|JsonDataConverter
+name|DecisionContext
 import|;
 end_import
 
@@ -161,7 +161,12 @@ specifier|private
 name|WorkflowTypeRegistrationOptions
 name|registrationOptions
 decl_stmt|;
-DECL|method|CamelWorkflowDefinitionFactory (SWFWorkflowConsumer swfWorkflowConsumer, WorkflowType workflowType, WorkflowTypeRegistrationOptions registrationOptions)
+DECL|field|dataConverter
+specifier|private
+name|DataConverter
+name|dataConverter
+decl_stmt|;
+DECL|method|CamelWorkflowDefinitionFactory (SWFWorkflowConsumer swfWorkflowConsumer, WorkflowType workflowType, WorkflowTypeRegistrationOptions registrationOptions, DataConverter dataConverter)
 specifier|public
 name|CamelWorkflowDefinitionFactory
 parameter_list|(
@@ -173,6 +178,9 @@ name|workflowType
 parameter_list|,
 name|WorkflowTypeRegistrationOptions
 name|registrationOptions
+parameter_list|,
+name|DataConverter
+name|dataConverter
 parameter_list|)
 block|{
 name|this
@@ -192,6 +200,12 @@ operator|.
 name|registrationOptions
 operator|=
 name|registrationOptions
+expr_stmt|;
+name|this
+operator|.
+name|dataConverter
+operator|=
+name|dataConverter
 expr_stmt|;
 block|}
 annotation|@
@@ -234,9 +248,7 @@ name|swfWorkflowConsumer
 argument_list|,
 name|context
 argument_list|,
-operator|new
-name|JsonDataConverter
-argument_list|()
+name|dataConverter
 argument_list|)
 return|;
 block|}

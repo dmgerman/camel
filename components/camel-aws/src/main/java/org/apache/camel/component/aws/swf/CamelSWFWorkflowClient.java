@@ -814,7 +814,10 @@ operator|.
 name|getStartWorkflowOptions
 argument_list|()
 argument_list|,
-literal|null
+name|configuration
+operator|.
+name|getDataConverter
+argument_list|()
 argument_list|,
 name|genericClient
 argument_list|)

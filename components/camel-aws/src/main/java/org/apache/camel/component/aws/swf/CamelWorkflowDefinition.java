@@ -138,22 +138,6 @@ name|simpleworkflow
 operator|.
 name|flow
 operator|.
-name|JsonDataConverter
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|amazonaws
-operator|.
-name|services
-operator|.
-name|simpleworkflow
-operator|.
-name|flow
-operator|.
 name|WorkflowClock
 import|;
 end_import
@@ -321,7 +305,7 @@ name|decisionContext
 decl_stmt|;
 DECL|field|dataConverter
 specifier|private
-name|JsonDataConverter
+name|DataConverter
 name|dataConverter
 decl_stmt|;
 DECL|field|contextProvider
@@ -348,7 +332,7 @@ operator|.
 name|getWorkflowClock
 argument_list|()
 decl_stmt|;
-DECL|method|CamelWorkflowDefinition (SWFWorkflowConsumer swfWorkflowConsumer, DecisionContext decisionContext, JsonDataConverter dataConverter)
+DECL|method|CamelWorkflowDefinition (SWFWorkflowConsumer swfWorkflowConsumer, DecisionContext decisionContext, DataConverter dataConverter)
 specifier|public
 name|CamelWorkflowDefinition
 parameter_list|(
@@ -358,7 +342,7 @@ parameter_list|,
 name|DecisionContext
 name|decisionContext
 parameter_list|,
-name|JsonDataConverter
+name|DataConverter
 name|dataConverter
 parameter_list|)
 block|{
