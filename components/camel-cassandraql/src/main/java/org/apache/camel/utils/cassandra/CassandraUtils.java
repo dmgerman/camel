@@ -79,24 +79,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|com
-operator|.
-name|datastax
-operator|.
-name|driver
-operator|.
-name|core
-operator|.
-name|querybuilder
-operator|.
-name|QueryBuilder
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
 import|import
 name|com
 operator|.
@@ -112,16 +94,126 @@ name|Select
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
+begin_import
+import|import static
+name|com
+operator|.
+name|datastax
+operator|.
+name|driver
+operator|.
+name|core
+operator|.
+name|querybuilder
+operator|.
+name|QueryBuilder
+operator|.
+name|bindMarker
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|datastax
+operator|.
+name|driver
+operator|.
+name|core
+operator|.
+name|querybuilder
+operator|.
+name|QueryBuilder
+operator|.
+name|delete
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|datastax
+operator|.
+name|driver
+operator|.
+name|core
+operator|.
+name|querybuilder
+operator|.
+name|QueryBuilder
+operator|.
+name|eq
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|datastax
+operator|.
+name|driver
+operator|.
+name|core
+operator|.
+name|querybuilder
+operator|.
+name|QueryBuilder
+operator|.
+name|insertInto
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|datastax
+operator|.
+name|driver
+operator|.
+name|core
+operator|.
+name|querybuilder
+operator|.
+name|QueryBuilder
+operator|.
+name|select
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|datastax
+operator|.
+name|driver
+operator|.
+name|core
+operator|.
+name|querybuilder
+operator|.
+name|QueryBuilder
+operator|.
+name|ttl
+import|;
+end_import
 
 begin_class
 DECL|class|CassandraUtils
 specifier|public
+specifier|final
 class|class
 name|CassandraUtils
 block|{
+DECL|method|CassandraUtils ()
+specifier|private
+name|CassandraUtils
+parameter_list|()
+block|{     }
 comment|/**      * Test if the array is null or empty.      */
 DECL|method|isEmpty (Object[] array)
 specifier|public

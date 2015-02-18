@@ -304,9 +304,13 @@ specifier|private
 name|String
 name|cql
 decl_stmt|;
-comment|/**      * Use PreparedStatements or normal Statements      */
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|prepareStatements
 specifier|private
 name|boolean
@@ -349,7 +353,6 @@ specifier|private
 name|Session
 name|session
 decl_stmt|;
-comment|/**      * Consistency level: ONE, TWO, QUORUM, LOCAL_QUORUM, ALL...      */
 annotation|@
 name|UriParam
 DECL|field|consistencyLevel
@@ -1201,6 +1204,7 @@ return|return
 name|prepareStatements
 return|;
 block|}
+comment|/**      * Whether to use PreparedStatements or regular Statements      */
 DECL|method|setPrepareStatements (boolean prepareStatements)
 specifier|public
 name|void

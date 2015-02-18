@@ -20,38 +20,26 @@ end_package
 
 begin_import
 import|import
-name|com
+name|java
 operator|.
-name|datastax
+name|util
 operator|.
-name|driver
-operator|.
-name|core
-operator|.
-name|*
+name|Arrays
 import|;
 end_import
 
 begin_import
-import|import static
-name|com
+import|import
+name|java
 operator|.
-name|datastax
+name|util
 operator|.
-name|driver
-operator|.
-name|core
-operator|.
-name|querybuilder
-operator|.
-name|QueryBuilder
-operator|.
-name|bindMarker
+name|List
 import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|com
 operator|.
 name|datastax
@@ -60,16 +48,12 @@ name|driver
 operator|.
 name|core
 operator|.
-name|querybuilder
-operator|.
-name|QueryBuilder
-operator|.
-name|eq
+name|Cluster
 import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|com
 operator|.
 name|datastax
@@ -78,16 +62,12 @@ name|driver
 operator|.
 name|core
 operator|.
-name|querybuilder
-operator|.
-name|QueryBuilder
-operator|.
-name|set
+name|ResultSet
 import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|com
 operator|.
 name|datastax
@@ -96,11 +76,21 @@ name|driver
 operator|.
 name|core
 operator|.
-name|querybuilder
+name|Row
+import|;
+end_import
+
+begin_import
+import|import
+name|com
 operator|.
-name|QueryBuilder
+name|datastax
 operator|.
-name|update
+name|driver
+operator|.
+name|core
+operator|.
+name|Session
 import|;
 end_import
 
@@ -225,46 +215,56 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
+import|import static
+name|com
 operator|.
-name|util
+name|datastax
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|driver
 operator|.
-name|util
+name|core
 operator|.
-name|List
+name|querybuilder
+operator|.
+name|QueryBuilder
+operator|.
+name|eq
 import|;
 end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|junit
+name|datastax
 operator|.
-name|Assert
+name|driver
 operator|.
-name|assertEquals
+name|core
+operator|.
+name|querybuilder
+operator|.
+name|QueryBuilder
+operator|.
+name|set
 import|;
 end_import
 
 begin_import
 import|import static
-name|org
+name|com
 operator|.
-name|junit
+name|datastax
 operator|.
-name|Assert
+name|driver
 operator|.
-name|assertNotNull
+name|core
+operator|.
+name|querybuilder
+operator|.
+name|QueryBuilder
+operator|.
+name|update
 import|;
 end_import
 
@@ -525,10 +525,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testRequestNoParameter_Null ()
+DECL|method|testRequestNoParameterNull ()
 specifier|public
 name|void
-name|testRequestNoParameter_Null
+name|testRequestNoParameterNull
 parameter_list|()
 throws|throws
 name|Exception
@@ -574,10 +574,10 @@ decl_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testRequestNoParameter_Empty ()
+DECL|method|testRequestNoParameterEmpty ()
 specifier|public
 name|void
-name|testRequestNoParameter_Empty
+name|testRequestNoParameterEmpty
 parameter_list|()
 throws|throws
 name|Exception

@@ -72,6 +72,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|datastax
@@ -173,24 +185,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|com
-operator|.
-name|datastax
-operator|.
-name|driver
-operator|.
-name|core
-operator|.
-name|querybuilder
-operator|.
-name|QueryBuilder
-operator|.
-name|*
-import|;
-end_import
-
-begin_import
 import|import
 name|com
 operator|.
@@ -203,18 +197,6 @@ operator|.
 name|querybuilder
 operator|.
 name|Select
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
 import|;
 end_import
 
@@ -317,6 +299,42 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|datastax
+operator|.
+name|driver
+operator|.
+name|core
+operator|.
+name|querybuilder
+operator|.
+name|QueryBuilder
+operator|.
+name|bindMarker
+import|;
+end_import
+
+begin_import
+import|import static
+name|com
+operator|.
+name|datastax
+operator|.
+name|driver
+operator|.
+name|core
+operator|.
+name|querybuilder
+operator|.
+name|QueryBuilder
+operator|.
+name|eq
 import|;
 end_import
 
@@ -1535,7 +1553,7 @@ return|return
 name|keys
 return|;
 block|}
-comment|/**      * Get exchange IDs to be recovered      * @return Exchange IDs      */
+comment|/**      * Get exchange IDs to be recovered      *      * @return Exchange IDs      */
 annotation|@
 name|Override
 DECL|method|scan (CamelContext camelContext)
@@ -1764,7 +1782,7 @@ return|return
 name|prefixPKValues
 return|;
 block|}
-DECL|method|setPrefixPKValues (Object .... prefixPKValues)
+DECL|method|setPrefixPKValues (Object... prefixPKValues)
 specifier|public
 name|void
 name|setPrefixPKValues

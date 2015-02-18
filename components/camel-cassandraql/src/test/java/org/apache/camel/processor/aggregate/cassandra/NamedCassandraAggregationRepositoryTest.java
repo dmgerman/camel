@@ -990,7 +990,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|addExchanges (String .... keys)
+DECL|method|addExchanges (String... keys)
 specifier|private
 name|void
 name|addExchanges
