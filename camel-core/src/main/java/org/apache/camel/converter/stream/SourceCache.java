@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link org.apache.camel.StreamCache} implementation for {@link org.apache.camel.StringSource}s  */
+comment|/**  * {@link org.apache.camel.StreamCache} implementation for {@link org.apache.camel.StringSource}s  * Remark: It is not necessary to implement {@link org.apache.camel.ParallelProcessableStream}  * because this source can be used in several threads.  */
 end_comment
 
 begin_class
