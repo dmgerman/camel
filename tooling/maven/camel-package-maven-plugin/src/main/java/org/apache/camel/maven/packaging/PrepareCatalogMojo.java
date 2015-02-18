@@ -263,7 +263,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Prepares the camel catalog to include component, data format, and eip descriptors,  * and generates a report.  *  * @goal prepare-catalog  * @execute phase="process-resources"  */
+comment|/**  * Prepares the camel catalog to include component, data format, and eip descriptors,  * and generates a report.  *  * @goal prepare-catalog  */
 end_comment
 
 begin_class

@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Analyses the Camel plugins in a project and generates extra descriptor information for easier auto-discovery in Camel.  *  * @goal generate-components-list  * @execute phase="generate-resources"  */
+comment|/**  * Analyses the Camel plugins in a project and generates extra descriptor information for easier auto-discovery in Camel.  *  * @goal generate-components-list  */
 end_comment
 
 begin_class

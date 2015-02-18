@@ -189,7 +189,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Analyses the Camel EIPs in a project and generates extra descriptor information for easier auto-discovery in Camel.  *  * @goal generate-eips-list  * @execute phase="process-classes"  */
+comment|/**  * Analyses the Camel EIPs in a project and generates extra descriptor information for easier auto-discovery in Camel.  *  * @goal generate-eips-list  */
 end_comment
 
 begin_class

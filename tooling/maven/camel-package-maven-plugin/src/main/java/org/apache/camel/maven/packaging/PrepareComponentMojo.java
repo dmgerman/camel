@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Prepares a Camel component analyzing if the maven module contains Camel  *<ul>  *<li>components</li>  *<li>dataformats</li>  *<li>languages</li>  *</ul>  * And for each of those generates extra descriptors and schema files for easier auto-discovery in Camel and tooling.  *  * @goal prepare-components  * @execute phase="generate-resources"  */
+comment|/**  * Prepares a Camel component analyzing if the maven module contains Camel  *<ul>  *<li>components</li>  *<li>dataformats</li>  *<li>languages</li>  *</ul>  * And for each of those generates extra descriptors and schema files for easier auto-discovery in Camel and tooling.  *  * @goal prepare-components  */
 end_comment
 
 begin_class
