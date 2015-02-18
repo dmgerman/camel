@@ -139,6 +139,7 @@ name|RouteBuilder
 implements|implements
 name|BundleActivator
 block|{
+comment|// Member collaborators
 DECL|field|log
 specifier|protected
 specifier|final
@@ -168,6 +169,7 @@ specifier|protected
 name|ProducerTemplate
 name|producerTemplate
 decl_stmt|;
+comment|// Lifecycle
 annotation|@
 name|Override
 DECL|method|start (BundleContext bundleContext)
