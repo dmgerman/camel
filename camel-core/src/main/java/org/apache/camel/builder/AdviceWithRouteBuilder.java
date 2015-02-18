@@ -595,6 +595,11 @@ argument_list|,
 literal|null
 argument_list|)
 operator|.
+name|maxDeep
+argument_list|(
+literal|1
+argument_list|)
+operator|.
 name|selectLast
 argument_list|()
 operator|.

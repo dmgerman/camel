@@ -129,6 +129,14 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+DECL|field|maxDeep
+specifier|private
+name|int
+name|maxDeep
+init|=
+operator|-
+literal|1
+decl_stmt|;
 DECL|method|AdviceWithBuilder (AdviceWithRouteBuilder builder, String id, String toString, Class<T> type)
 specifier|public
 name|AdviceWithBuilder
@@ -349,6 +357,45 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Will only apply for nodes maximum levels deep.      *<p/>      * The first level is<tt>1</tt>, and level<tt>2</tt> is the children of the the first level nodes, and so on.      *<p/>      * Use zero or negative value for unbounded level.      *      * @param maxDeep the maximum levels to traverse deep in the Camel route tree.      * @return the builder to build the nodes.      */
+DECL|method|maxDeep (int maxDeep)
+specifier|public
+name|AdviceWithBuilder
+argument_list|<
+name|T
+argument_list|>
+name|maxDeep
+parameter_list|(
+name|int
+name|maxDeep
+parameter_list|)
+block|{
+if|if
+condition|(
+name|maxDeep
+operator|==
+literal|0
+condition|)
+block|{
+comment|// disable it
+name|this
+operator|.
+name|maxDeep
+operator|=
+operator|-
+literal|1
+expr_stmt|;
+block|}
+name|this
+operator|.
+name|maxDeep
+operator|=
+name|maxDeep
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Replaces the matched node(s) with the following nodes.      *      * @return the builder to build the nodes.      */
 DECL|method|replace ()
 specifier|public
@@ -405,6 +452,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -441,6 +490,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -477,6 +528,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -529,6 +582,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -563,6 +618,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -597,6 +654,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -658,6 +717,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -694,6 +755,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -730,6 +793,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -794,6 +859,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -830,6 +897,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -866,6 +935,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 argument_list|)
 expr_stmt|;

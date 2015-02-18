@@ -431,7 +431,7 @@ argument_list|)
 return|;
 block|}
 block|}
-DECL|method|replaceByToString (final RouteDefinition route, final String toString, final ProcessorDefinition<?> replace, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|replaceByToString (final RouteDefinition route, final String toString, final ProcessorDefinition<?> replace, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo, int maxDeep)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -463,6 +463,9 @@ name|selectFrom
 parameter_list|,
 name|int
 name|selectTo
+parameter_list|,
+name|int
+name|maxDeep
 parameter_list|)
 block|{
 name|MatchBy
@@ -498,6 +501,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 decl_stmt|;
 return|return
@@ -517,7 +522,7 @@ name|it
 argument_list|)
 return|;
 block|}
-DECL|method|replaceById (final RouteDefinition route, final String id, final ProcessorDefinition<?> replace, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|replaceById (final RouteDefinition route, final String id, final ProcessorDefinition<?> replace, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo, int maxDeep)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -549,6 +554,9 @@ name|selectFrom
 parameter_list|,
 name|int
 name|selectTo
+parameter_list|,
+name|int
+name|maxDeep
 parameter_list|)
 block|{
 name|MatchBy
@@ -584,6 +592,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 decl_stmt|;
 return|return
@@ -599,7 +609,7 @@ name|it
 argument_list|)
 return|;
 block|}
-DECL|method|replaceByType (final RouteDefinition route, final Class<?> type, final ProcessorDefinition<?> replace, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|replaceByType (final RouteDefinition route, final Class<?> type, final ProcessorDefinition<?> replace, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo, int maxDeep)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -634,6 +644,9 @@ name|selectFrom
 parameter_list|,
 name|int
 name|selectTo
+parameter_list|,
+name|int
+name|maxDeep
 parameter_list|)
 block|{
 name|MatchBy
@@ -669,6 +682,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 decl_stmt|;
 return|return
@@ -882,7 +897,7 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|removeByToString (final RouteDefinition route, final String toString, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|removeByToString (final RouteDefinition route, final String toString, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo, int maxDeep)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -907,6 +922,9 @@ name|selectFrom
 parameter_list|,
 name|int
 name|selectTo
+parameter_list|,
+name|int
+name|maxDeep
 parameter_list|)
 block|{
 name|MatchBy
@@ -942,6 +960,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 decl_stmt|;
 return|return
@@ -955,7 +975,7 @@ name|it
 argument_list|)
 return|;
 block|}
-DECL|method|removeById (final RouteDefinition route, final String id, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|removeById (final RouteDefinition route, final String id, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo, int maxDeep)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -980,6 +1000,9 @@ name|selectFrom
 parameter_list|,
 name|int
 name|selectTo
+parameter_list|,
+name|int
+name|maxDeep
 parameter_list|)
 block|{
 name|MatchBy
@@ -1015,6 +1038,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 decl_stmt|;
 return|return
@@ -1028,7 +1053,7 @@ name|it
 argument_list|)
 return|;
 block|}
-DECL|method|removeByType (final RouteDefinition route, final Class<?> type, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|removeByType (final RouteDefinition route, final Class<?> type, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo, int maxDeep)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -1056,6 +1081,9 @@ name|selectFrom
 parameter_list|,
 name|int
 name|selectTo
+parameter_list|,
+name|int
+name|maxDeep
 parameter_list|)
 block|{
 name|MatchBy
@@ -1091,6 +1119,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 decl_stmt|;
 return|return
@@ -1280,7 +1310,7 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|beforeByToString (final RouteDefinition route, final String toString, final ProcessorDefinition<?> before, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|beforeByToString (final RouteDefinition route, final String toString, final ProcessorDefinition<?> before, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo, int maxDeep)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -1312,6 +1342,9 @@ name|selectFrom
 parameter_list|,
 name|int
 name|selectTo
+parameter_list|,
+name|int
+name|maxDeep
 parameter_list|)
 block|{
 name|MatchBy
@@ -1347,6 +1380,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 decl_stmt|;
 return|return
@@ -1362,7 +1397,7 @@ name|it
 argument_list|)
 return|;
 block|}
-DECL|method|beforeById (final RouteDefinition route, final String id, final ProcessorDefinition<?> before, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|beforeById (final RouteDefinition route, final String id, final ProcessorDefinition<?> before, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo, int maxDeep)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -1394,6 +1429,9 @@ name|selectFrom
 parameter_list|,
 name|int
 name|selectTo
+parameter_list|,
+name|int
+name|maxDeep
 parameter_list|)
 block|{
 name|MatchBy
@@ -1429,6 +1467,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 decl_stmt|;
 return|return
@@ -1444,7 +1484,7 @@ name|it
 argument_list|)
 return|;
 block|}
-DECL|method|beforeByType (final RouteDefinition route, final Class<?> type, final ProcessorDefinition<?> before, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|beforeByType (final RouteDefinition route, final Class<?> type, final ProcessorDefinition<?> before, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo, int maxDeep)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -1479,6 +1519,9 @@ name|selectFrom
 parameter_list|,
 name|int
 name|selectTo
+parameter_list|,
+name|int
+name|maxDeep
 parameter_list|)
 block|{
 name|MatchBy
@@ -1514,6 +1557,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 decl_stmt|;
 return|return
@@ -1725,7 +1770,7 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|afterByToString (final RouteDefinition route, final String toString, final ProcessorDefinition<?> after, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|afterByToString (final RouteDefinition route, final String toString, final ProcessorDefinition<?> after, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo, int maxDeep)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -1757,6 +1802,9 @@ name|selectFrom
 parameter_list|,
 name|int
 name|selectTo
+parameter_list|,
+name|int
+name|maxDeep
 parameter_list|)
 block|{
 name|MatchBy
@@ -1792,6 +1840,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 decl_stmt|;
 return|return
@@ -1807,7 +1857,7 @@ name|it
 argument_list|)
 return|;
 block|}
-DECL|method|afterById (final RouteDefinition route, final String id, final ProcessorDefinition<?> after, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|afterById (final RouteDefinition route, final String id, final ProcessorDefinition<?> after, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo, int maxDeep)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -1839,6 +1889,9 @@ name|selectFrom
 parameter_list|,
 name|int
 name|selectTo
+parameter_list|,
+name|int
+name|maxDeep
 parameter_list|)
 block|{
 name|MatchBy
@@ -1874,6 +1927,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 decl_stmt|;
 return|return
@@ -1889,7 +1944,7 @@ name|it
 argument_list|)
 return|;
 block|}
-DECL|method|afterByType (final RouteDefinition route, final Class<?> type, final ProcessorDefinition<?> after, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo)
+DECL|method|afterByType (final RouteDefinition route, final Class<?> type, final ProcessorDefinition<?> after, boolean selectFirst, boolean selectLast, int selectFrom, int selectTo, int maxDeep)
 specifier|public
 specifier|static
 name|AdviceWithTask
@@ -1924,6 +1979,9 @@ name|selectFrom
 parameter_list|,
 name|int
 name|selectTo
+parameter_list|,
+name|int
+name|maxDeep
 parameter_list|)
 block|{
 name|MatchBy
@@ -1959,6 +2017,8 @@ argument_list|,
 name|selectFrom
 argument_list|,
 name|selectTo
+argument_list|,
+name|maxDeep
 argument_list|)
 decl_stmt|;
 return|return
@@ -2416,8 +2476,8 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Create iterator which walks the route, and only returns nodes which matches the given set of criteria.      *      * @param route        the route      * @param matchBy      match by which must match      * @param selectFirst  optional to select only the first      * @param selectLast   optional to select only the last      * @param selectFrom   optional to select index/range      * @param selectTo     optional to select index/range      *       * @return the iterator      */
-DECL|method|createMatchByIterator (final RouteDefinition route, final MatchBy matchBy, final boolean selectFirst, final boolean selectLast, final int selectFrom, final int selectTo)
+comment|/**      * Create iterator which walks the route, and only returns nodes which matches the given set of criteria.      *      * @param route        the route      * @param matchBy      match by which must match      * @param selectFirst  optional to select only the first      * @param selectLast   optional to select only the last      * @param selectFrom   optional to select index/range      * @param selectTo     optional to select index/range      * @param maxDeep      maximum levels deep (is unbounded by default)      *      * @return the iterator      */
+DECL|method|createMatchByIterator (final RouteDefinition route, final MatchBy matchBy, final boolean selectFirst, final boolean selectLast, final int selectFrom, final int selectTo, int maxDeep)
 specifier|private
 specifier|static
 name|Iterator
@@ -2452,6 +2512,9 @@ parameter_list|,
 specifier|final
 name|int
 name|selectTo
+parameter_list|,
+name|int
+name|maxDeep
 parameter_list|)
 block|{
 comment|// first iterator and apply match by
@@ -2497,6 +2560,8 @@ argument_list|,
 name|ProcessorDefinition
 operator|.
 name|class
+argument_list|,
+name|maxDeep
 argument_list|)
 decl_stmt|;
 while|while
