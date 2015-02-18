@@ -194,6 +194,7 @@ return|;
 block|}
 comment|/**      * Creates a new boss pool.      */
 DECL|method|build ()
+specifier|public
 name|EventLoopGroup
 name|build
 parameter_list|()

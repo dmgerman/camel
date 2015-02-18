@@ -332,6 +332,7 @@ return|;
 block|}
 comment|/**      * Creates a new boss pool.      */
 DECL|method|build ()
+specifier|public
 name|BossPool
 name|build
 parameter_list|()
