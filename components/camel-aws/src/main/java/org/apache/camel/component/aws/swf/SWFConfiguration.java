@@ -350,6 +350,11 @@ name|workflowTypeRegistrationOptions
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"100"
+argument_list|)
 DECL|field|activityThreadPoolSize
 specifier|private
 name|int
