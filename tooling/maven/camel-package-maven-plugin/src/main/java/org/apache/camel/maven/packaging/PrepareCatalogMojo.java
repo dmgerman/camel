@@ -329,17 +329,29 @@ specifier|protected
 name|File
 name|modelsOutDir
 decl_stmt|;
-comment|/**      * The components directory where all the Apache Camel components are      *      * @parameter default-value="${project.build.directory}/../../..//components"      */
+comment|/**      * The output directory for archetypes catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/archetypes"      */
+DECL|field|archetypesOutDir
+specifier|protected
+name|File
+name|archetypesOutDir
+decl_stmt|;
+comment|/**      * The components directory where all the Apache Camel components are      *      * @parameter default-value="${project.build.directory}/../../../components"      */
 DECL|field|componentsDir
 specifier|protected
 name|File
 name|componentsDir
 decl_stmt|;
-comment|/**      * The camel-core directory where camel-core components are      *      * @parameter default-value="${project.build.directory}/../../..//camel-core"      */
+comment|/**      * The camel-core directory where camel-core components are      *      * @parameter default-value="${project.build.directory}/../../../camel-core"      */
 DECL|field|coreDir
 specifier|protected
 name|File
 name|coreDir
+decl_stmt|;
+comment|/**      * The archetypes directory where all the Apache Camel Maven archetypes are      *      * @parameter default-value="${project.build.directory}/../../../tooling/archetypes"      */
+DECL|field|archetypesDir
+specifier|protected
+name|File
+name|archetypesDir
 decl_stmt|;
 comment|/**      * Maven ProjectHelper.      *      * @component      * @readonly      */
 DECL|field|projectHelper
@@ -368,6 +380,9 @@ name|executeDataFormats
 argument_list|()
 expr_stmt|;
 name|executeLanguages
+argument_list|()
+expr_stmt|;
+name|executeArchetypes
 argument_list|()
 expr_stmt|;
 block|}
@@ -3236,6 +3251,103 @@ argument_list|,
 name|usedLabels
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|executeArchetypes ()
+specifier|protected
+name|void
+name|executeArchetypes
+parameter_list|()
+throws|throws
+name|MojoExecutionException
+throws|,
+name|MojoFailureException
+block|{
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Copying Archetype Catalog"
+argument_list|)
+expr_stmt|;
+comment|// find the generate catalog
+name|File
+name|file
+init|=
+operator|new
+name|File
+argument_list|(
+name|archetypesDir
+argument_list|,
+literal|"target/classes/archetype-catalog.xml"
+argument_list|)
+decl_stmt|;
+comment|// make sure to create out dir
+name|archetypesOutDir
+operator|.
+name|mkdirs
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|file
+operator|.
+name|exists
+argument_list|()
+operator|&&
+name|file
+operator|.
+name|isFile
+argument_list|()
+condition|)
+block|{
+name|File
+name|to
+init|=
+operator|new
+name|File
+argument_list|(
+name|archetypesOutDir
+argument_list|,
+name|file
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+decl_stmt|;
+try|try
+block|{
+name|copyFile
+argument_list|(
+name|file
+argument_list|,
+name|to
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|MojoFailureException
+argument_list|(
+literal|"Cannot copy file from "
+operator|+
+name|file
+operator|+
+literal|" -> "
+operator|+
+name|to
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 block|}
 DECL|method|printModelsReport (Set<File> json, Set<File> duplicate, Set<File> missingLabels, Map<String, Set<String>> usedLabels, Set<File> missingJavaDoc)
 specifier|private
