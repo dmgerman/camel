@@ -202,6 +202,24 @@ argument_list|>
 name|findModelLabels
 parameter_list|()
 function_decl|;
+comment|/**      * Returns the Apache Camel Maven Archetype catalog in XML format.      *      * @return the catalog in XML      */
+DECL|method|archetypeCatalogAsXml ()
+name|String
+name|archetypeCatalogAsXml
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the Camel Spring XML schema      *      * @return the spring XML schema      */
+DECL|method|springSchemaAsXml ()
+name|String
+name|springSchemaAsXml
+parameter_list|()
+function_decl|;
+comment|/**      * Returns the Camel Blueprint XML schema      *      * @return the blueprint XML schema      */
+DECL|method|blueprintSchemaAsXml ()
+name|String
+name|blueprintSchemaAsXml
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
