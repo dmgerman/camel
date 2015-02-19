@@ -197,7 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates the Maven catalog for the Camel archetypes  *  * @goal generate-archetype-catalog  * @execute phase="process-resources"  */
+comment|/**  * Creates the Maven catalog for the Camel archetypes  *  * @goal generate-and-attach-archetype-catalog  * @execute phase="process-resources"  */
 end_comment
 
 begin_class
@@ -219,6 +219,12 @@ DECL|field|outDir
 specifier|protected
 name|File
 name|outDir
+decl_stmt|;
+comment|/**      * The build directory      *      * @parameter default-value="${project.build.directory}"      */
+DECL|field|projectBuildDir
+specifier|protected
+name|File
+name|projectBuildDir
 decl_stmt|;
 comment|/**      * Maven ProjectHelper.      *      * @component      * @readonly      */
 DECL|field|projectHelper
@@ -248,6 +254,8 @@ name|project
 argument_list|,
 name|projectHelper
 argument_list|,
+name|projectBuildDir
+argument_list|,
 name|outDir
 argument_list|)
 expr_stmt|;
@@ -274,7 +282,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|generateArchetypeCatalog (Log log, MavenProject project, MavenProjectHelper projectHelper, File outDir)
+DECL|method|generateArchetypeCatalog (Log log, MavenProject project, MavenProjectHelper projectHelper, File projectBuildDir, File outDir)
 specifier|public
 specifier|static
 name|void
@@ -290,6 +298,9 @@ name|MavenProjectHelper
 name|projectHelper
 parameter_list|,
 name|File
+name|projectBuildDir
+parameter_list|,
+name|File
 name|outDir
 parameter_list|)
 throws|throws
@@ -297,16 +308,29 @@ name|MojoExecutionException
 throws|,
 name|IOException
 block|{
-comment|// find all archetypes
+name|File
+name|rootDir
+init|=
+name|projectBuildDir
+operator|.
+name|getParentFile
+argument_list|()
+decl_stmt|;
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Scanning for Camel Maven Archetypes from root directory "
+operator|+
+name|rootDir
+argument_list|)
+expr_stmt|;
+comment|// find all archetypes which are in the parent dir of the build dir
 name|File
 index|[]
 name|dirs
 init|=
-operator|new
-name|File
-argument_list|(
-literal|"."
-argument_list|)
+name|rootDir
 operator|.
 name|listFiles
 argument_list|(
@@ -863,6 +887,101 @@ operator|+
 name|out
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+if|if
+condition|(
+name|projectHelper
+operator|!=
+literal|null
+condition|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Attaching archetype catalog to Maven project: "
+operator|+
+name|project
+operator|.
+name|getArtifactId
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|includes
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|includes
+operator|.
+name|add
+argument_list|(
+literal|"archetype-catalog.xml"
+argument_list|)
+expr_stmt|;
+name|projectHelper
+operator|.
+name|addResource
+argument_list|(
+name|project
+argument_list|,
+name|outDir
+operator|.
+name|getPath
+argument_list|()
+argument_list|,
+name|includes
+argument_list|,
+operator|new
+name|ArrayList
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|projectHelper
+operator|.
+name|attachArtifact
+argument_list|(
+name|project
+argument_list|,
+literal|"xml"
+argument_list|,
+literal|"archetype-catalog"
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|MojoExecutionException
+argument_list|(
+literal|"Failed to attach artifact to Maven project. Reason: "
+operator|+
+name|e
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 DECL|class|ArchetypeModel
