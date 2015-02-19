@@ -197,7 +197,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates the Maven catalog for the Camel archetypes  *  * @goal generate-and-attach-archetype-catalog  * @execute phase="process-resources"  */
+comment|/**  * Creates the Maven catalog for the Camel archetypes  *  * @goal generate-and-attach-archetype-catalog  */
 end_comment
 
 begin_class
