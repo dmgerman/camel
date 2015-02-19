@@ -36,11 +36,23 @@ name|Set
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|management
+operator|.
+name|MXBean
+import|;
+end_import
+
 begin_comment
 comment|/**  * Catalog of all the Camel components from this Apache Camel release.  */
 end_comment
 
 begin_interface
+annotation|@
+name|MXBean
 DECL|interface|CamelComponentCatalog
 specifier|public
 interface|interface

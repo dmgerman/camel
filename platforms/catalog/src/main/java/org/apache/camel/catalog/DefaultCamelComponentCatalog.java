@@ -229,7 +229,7 @@ specifier|final
 name|String
 name|ARCHETYPES_CATALOG
 init|=
-literal|"org/apache/camel/catalog/archetypes/camel-catalog.xml"
+literal|"org/apache/camel/catalog/archetypes/archetype-catalog.xml"
 decl_stmt|;
 DECL|field|SCHEMAS_XML
 specifier|private
