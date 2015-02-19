@@ -348,6 +348,16 @@ specifier|private
 name|WorkflowTypeRegistrationOptions
 name|workflowTypeRegistrationOptions
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|activityThreadPoolSize
+specifier|private
+name|int
+name|activityThreadPoolSize
+init|=
+literal|100
+decl_stmt|;
+comment|// aws-sdk default
 DECL|method|getAccessKey ()
 specifier|public
 name|String
@@ -974,6 +984,32 @@ operator|.
 name|activitySchedulingOptions
 operator|=
 name|activitySchedulingOptions
+expr_stmt|;
+block|}
+DECL|method|getActivityThreadPoolSize ()
+specifier|public
+name|int
+name|getActivityThreadPoolSize
+parameter_list|()
+block|{
+return|return
+name|activityThreadPoolSize
+return|;
+block|}
+DECL|method|setActivityThreadPoolSize (int activityThreadPoolSize)
+specifier|public
+name|void
+name|setActivityThreadPoolSize
+parameter_list|(
+name|int
+name|activityThreadPoolSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|activityThreadPoolSize
+operator|=
+name|activityThreadPoolSize
 expr_stmt|;
 block|}
 block|}

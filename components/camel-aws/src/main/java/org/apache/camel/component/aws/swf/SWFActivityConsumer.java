@@ -305,6 +305,16 @@ argument_list|)
 expr_stmt|;
 name|genericWorker
 operator|.
+name|setTaskExecutorThreadPoolSize
+argument_list|(
+name|configuration
+operator|.
+name|getActivityThreadPoolSize
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|genericWorker
+operator|.
 name|start
 argument_list|()
 expr_stmt|;
