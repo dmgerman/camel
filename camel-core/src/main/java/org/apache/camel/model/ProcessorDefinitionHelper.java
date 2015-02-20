@@ -130,6 +130,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -2266,7 +2278,9 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Inspects the given definition and resolves any property placeholders from its properties.      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will be property placeholder resolved.      *      * @param routeContext the route context      * @param definition   the definition      * @throws Exception is thrown if property placeholders was used and there was an error resolving them      * @see org.apache.camel.CamelContext#resolvePropertyPlaceholders(String)      * @see org.apache.camel.component.properties.PropertiesComponent      */
+comment|/**      * Inspects the given definition and resolves any property placeholders from its properties.      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will be property placeholder resolved.      *      * @param routeContext the route context      * @param definition   the definition      * @throws Exception is thrown if property placeholders was used and there was an error resolving them      * @see org.apache.camel.CamelContext#resolvePropertyPlaceholders(String)      * @see org.apache.camel.component.properties.PropertiesComponent      * @deprecated use {@link #resolvePropertyPlaceholders(org.apache.camel.CamelContext, Object)}      */
+annotation|@
+name|Deprecated
 DECL|method|resolvePropertyPlaceholders (RouteContext routeContext, Object definition)
 specifier|public
 specifier|static
@@ -2275,6 +2289,33 @@ name|resolvePropertyPlaceholders
 parameter_list|(
 name|RouteContext
 name|routeContext
+parameter_list|,
+name|Object
+name|definition
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|resolvePropertyPlaceholders
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|definition
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Inspects the given definition and resolves any property placeholders from its properties.      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will be property placeholder resolved.      *      * @param camelContext the Camel context      * @param definition   the definition      * @throws Exception is thrown if property placeholders was used and there was an error resolving them      * @see org.apache.camel.CamelContext#resolvePropertyPlaceholders(String)      * @see org.apache.camel.component.properties.PropertiesComponent      */
+DECL|method|resolvePropertyPlaceholders (CamelContext camelContext, Object definition)
+specifier|public
+specifier|static
+name|void
+name|resolvePropertyPlaceholders
+parameter_list|(
+name|CamelContext
+name|camelContext
 parameter_list|,
 name|Object
 name|definition
@@ -2428,10 +2469,7 @@ name|CamelContextHelper
 operator|.
 name|lookupPropertiesComponent
 argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 argument_list|,
 literal|true
 argument_list|)
@@ -2448,10 +2486,7 @@ decl_stmt|;
 name|String
 name|prefixToken
 init|=
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 operator|.
 name|getPropertyPrefixToken
 argument_list|()
@@ -2459,10 +2494,7 @@ decl_stmt|;
 name|String
 name|suffixToken
 init|=
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 operator|.
 name|getPropertySuffixToken
 argument_list|()
@@ -2616,10 +2648,7 @@ name|value
 decl_stmt|;
 name|text
 operator|=
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 operator|.
 name|resolvePropertyPlaceholders
 argument_list|(
@@ -2641,10 +2670,7 @@ name|IntrospectionSupport
 operator|.
 name|setProperty
 argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
+name|camelContext
 operator|.
 name|getTypeConverter
 argument_list|()
