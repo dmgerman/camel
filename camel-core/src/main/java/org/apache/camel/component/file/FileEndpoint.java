@@ -242,7 +242,7 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"false"
+literal|"true"
 argument_list|)
 DECL|field|copyAndDeleteOnRenameFail
 specifier|private
@@ -253,11 +253,6 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|renameUsingCopy
 specifier|private
 name|boolean

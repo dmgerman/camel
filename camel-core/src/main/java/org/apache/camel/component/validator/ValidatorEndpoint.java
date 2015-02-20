@@ -383,11 +383,6 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|useDom
 specifier|private
 name|boolean

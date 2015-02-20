@@ -538,11 +538,6 @@ name|BUFFER_SIZE
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|flatten
 specifier|protected
 name|boolean

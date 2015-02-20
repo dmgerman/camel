@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timerName\": { \"kind\": \"path\", \"type\": \"string\", \"javaType\": \"java.lang.String\""
+literal|"\"timerName\": { \"kind\": \"path\", \"required\": \"true\", \"type\": \"string\", \"javaType\": \"java.lang.String\""
 operator|+
 literal|", \"deprecated\": \"false\", \"description\": \"The name of the timer\" }"
 argument_list|)

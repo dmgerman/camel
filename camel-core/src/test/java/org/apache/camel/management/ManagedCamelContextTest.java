@@ -1574,16 +1574,6 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"description\": \"The Log Component is for logging message exchanges via the underlying logging mechanism.\""
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
 literal|"\"label\": \"core,monitoring\""
 argument_list|)
 argument_list|)
@@ -1618,7 +1608,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"loggerName\": { \"kind\": \"path\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\","
+literal|"\"loggerName\": { \"kind\": \"path\", \"required\": \"true\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\","
 operator|+
 literal|" \"value\": \"foo\", \"description\": \"The logger name to use\" }"
 argument_list|)
@@ -1754,16 +1744,6 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"description\": \"The Log Component is for logging message exchanges via the underlying logging mechanism.\""
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
 literal|"\"label\": \"core,monitoring\""
 argument_list|)
 argument_list|)
@@ -1798,7 +1778,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"loggerName\": { \"kind\": \"path\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\","
+literal|"\"loggerName\": { \"kind\": \"path\", \"required\": \"true\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\","
 operator|+
 literal|" \"value\": \"foo\", \"description\": \"The logger name to use\" }"
 argument_list|)
@@ -2236,16 +2216,6 @@ decl_stmt|;
 name|assertNotNull
 argument_list|(
 name|json
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|"\"description\": \"The SEDA Component is for asynchronous SEDA exchanges on a BlockingQueue within a CamelContext\""
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertTrue

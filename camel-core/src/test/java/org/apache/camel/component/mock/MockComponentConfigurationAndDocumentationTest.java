@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"name\": { \"kind\": \"path\", \"type\": \"string\""
+literal|"\"name\": { \"kind\": \"path\", \"required\": \"true\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -241,7 +241,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"name\": { \"kind\": \"path\", \"type\": \"string\", \"javaType\": \"java.lang.String\","
+literal|"\"name\": { \"kind\": \"path\", \"required\": \"true\", \"type\": \"string\", \"javaType\": \"java.lang.String\","
 operator|+
 literal|" \"deprecated\": \"false\", \"value\": \"foo\", \"description\": \"Name of mock endpoint\""
 argument_list|)

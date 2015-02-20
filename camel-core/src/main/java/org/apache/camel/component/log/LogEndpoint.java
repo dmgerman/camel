@@ -132,6 +132,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -251,6 +265,13 @@ argument_list|(
 name|description
 operator|=
 literal|"Name of the logging category to use"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
 argument_list|)
 DECL|field|loggerName
 specifier|private

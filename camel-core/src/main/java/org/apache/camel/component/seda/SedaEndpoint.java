@@ -302,6 +302,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -532,6 +546,13 @@ name|description
 operator|=
 literal|"Name of queue"
 argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|name
 specifier|private
 name|String
@@ -581,10 +602,6 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
 argument_list|)
 DECL|field|multipleConsumers
 specifier|private
@@ -597,10 +614,6 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
 argument_list|)
 DECL|field|purgeWhenStopping
 specifier|private
@@ -669,10 +682,6 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
 argument_list|)
 DECL|field|blockWhenFull
 specifier|private

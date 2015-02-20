@@ -474,11 +474,6 @@ name|transformerFactory
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|saxon
 specifier|private
 name|boolean
@@ -563,11 +558,6 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|deleteOutputFile
 specifier|private
 name|boolean
