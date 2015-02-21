@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.karaf.commands
+DECL|package|org.apache.camel.karaf.commands.catalog
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|karaf
 operator|.
 name|commands
+operator|.
+name|catalog
 package|;
 end_package
 
@@ -28,7 +30,23 @@ name|camel
 operator|.
 name|commands
 operator|.
-name|CatalogComponentListCommand
+name|CatalogLanguageListCommand
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|karaf
+operator|.
+name|commands
+operator|.
+name|CamelCommandSupport
 import|;
 end_import
 
@@ -74,16 +92,16 @@ literal|"camel"
 argument_list|,
 name|name
 operator|=
-literal|"catalog-component-list"
+literal|"catalog-language-list"
 argument_list|,
 name|description
 operator|=
-literal|"Lists all Camel components from the Camel catalog"
+literal|"Lists all Camel languages from the Camel catalog"
 argument_list|)
-DECL|class|CatalogComponentList
+DECL|class|CatalogLanguageList
 specifier|public
 class|class
-name|CatalogComponentList
+name|CatalogLanguageList
 extends|extends
 name|CamelCommandSupport
 block|{
@@ -131,7 +149,7 @@ literal|"-l"
 argument_list|,
 name|description
 operator|=
-literal|"To filter components by their label(s), such as database"
+literal|"To filter languages by their label(s), such as xpath"
 argument_list|,
 name|required
 operator|=
@@ -153,11 +171,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CatalogComponentListCommand
+name|CatalogLanguageListCommand
 name|command
 init|=
 operator|new
-name|CatalogComponentListCommand
+name|CatalogLanguageListCommand
 argument_list|(
 name|verbose
 argument_list|,

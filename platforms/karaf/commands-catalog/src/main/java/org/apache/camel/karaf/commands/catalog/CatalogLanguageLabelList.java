@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.karaf.commands
+DECL|package|org.apache.camel.karaf.commands.catalog
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|karaf
 operator|.
 name|commands
+operator|.
+name|catalog
 package|;
 end_package
 
@@ -28,7 +30,23 @@ name|camel
 operator|.
 name|commands
 operator|.
-name|CatalogEipLabelListCommand
+name|CatalogLanguageLabelListCommand
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|karaf
+operator|.
+name|commands
+operator|.
+name|CamelCommandSupport
 import|;
 end_import
 
@@ -74,16 +92,16 @@ literal|"camel"
 argument_list|,
 name|name
 operator|=
-literal|"catalog-eip-label-list"
+literal|"catalog-component-label-list"
 argument_list|,
 name|description
 operator|=
-literal|"Lists all Camel EIP labels from the Camel catalog"
+literal|"Lists all Camel language labels from the Camel catalog"
 argument_list|)
-DECL|class|CatalogEipLabelList
+DECL|class|CatalogLanguageLabelList
 specifier|public
 class|class
-name|CatalogEipLabelList
+name|CatalogLanguageLabelList
 extends|extends
 name|CamelCommandSupport
 block|{
@@ -126,11 +144,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CatalogEipLabelListCommand
+name|CatalogLanguageLabelListCommand
 name|command
 init|=
 operator|new
-name|CatalogEipLabelListCommand
+name|CatalogLanguageLabelListCommand
 argument_list|(
 name|verbose
 argument_list|)

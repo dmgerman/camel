@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.karaf.commands
+DECL|package|org.apache.camel.karaf.commands.catalog
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|karaf
 operator|.
 name|commands
+operator|.
+name|catalog
 package|;
 end_package
 
@@ -28,7 +30,23 @@ name|camel
 operator|.
 name|commands
 operator|.
-name|CatalogLanguageListCommand
+name|CatalogDataFormatLabelListCommand
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|karaf
+operator|.
+name|commands
+operator|.
+name|CamelCommandSupport
 import|;
 end_import
 
@@ -74,16 +92,16 @@ literal|"camel"
 argument_list|,
 name|name
 operator|=
-literal|"catalog-language-list"
+literal|"catalog-component-label-list"
 argument_list|,
 name|description
 operator|=
-literal|"Lists all Camel languages from the Camel catalog"
+literal|"Lists all Camel dataformat labels from the Camel catalog"
 argument_list|)
-DECL|class|CatalogLanguageList
+DECL|class|CatalogDataFormatLabelList
 specifier|public
 class|class
-name|CatalogLanguageList
+name|CatalogDataFormatLabelList
 extends|extends
 name|CamelCommandSupport
 block|{
@@ -118,33 +136,6 @@ DECL|field|verbose
 name|boolean
 name|verbose
 decl_stmt|;
-annotation|@
-name|Option
-argument_list|(
-name|name
-operator|=
-literal|"--label"
-argument_list|,
-name|aliases
-operator|=
-literal|"-l"
-argument_list|,
-name|description
-operator|=
-literal|"To filter languages by their label(s), such as xpath"
-argument_list|,
-name|required
-operator|=
-literal|false
-argument_list|,
-name|multiValued
-operator|=
-literal|false
-argument_list|)
-DECL|field|label
-name|String
-name|label
-decl_stmt|;
 DECL|method|doExecute ()
 specifier|protected
 name|Object
@@ -153,15 +144,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CatalogLanguageListCommand
+name|CatalogDataFormatLabelListCommand
 name|command
 init|=
 operator|new
-name|CatalogLanguageListCommand
+name|CatalogDataFormatLabelListCommand
 argument_list|(
 name|verbose
-argument_list|,
-name|label
 argument_list|)
 decl_stmt|;
 return|return

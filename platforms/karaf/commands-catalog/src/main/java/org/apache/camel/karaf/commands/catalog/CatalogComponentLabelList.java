@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.karaf.commands
+DECL|package|org.apache.camel.karaf.commands.catalog
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|karaf
 operator|.
 name|commands
+operator|.
+name|catalog
 package|;
 end_package
 
@@ -28,7 +30,23 @@ name|camel
 operator|.
 name|commands
 operator|.
-name|CatalogDataFormatLabelListCommand
+name|CatalogComponentLabelListCommand
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|karaf
+operator|.
+name|commands
+operator|.
+name|CamelCommandSupport
 import|;
 end_import
 
@@ -78,12 +96,12 @@ literal|"catalog-component-label-list"
 argument_list|,
 name|description
 operator|=
-literal|"Lists all Camel dataformat labels from the Camel catalog"
+literal|"Lists all Camel component labels from the Camel catalog"
 argument_list|)
-DECL|class|CatalogDataFormatLabelList
+DECL|class|CatalogComponentLabelList
 specifier|public
 class|class
-name|CatalogDataFormatLabelList
+name|CatalogComponentLabelList
 extends|extends
 name|CamelCommandSupport
 block|{
@@ -126,11 +144,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|CatalogDataFormatLabelListCommand
+name|CatalogComponentLabelListCommand
 name|command
 init|=
 operator|new
-name|CatalogDataFormatLabelListCommand
+name|CatalogComponentLabelListCommand
 argument_list|(
 name|verbose
 argument_list|)

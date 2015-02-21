@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.karaf.commands
+DECL|package|org.apache.camel.karaf.commands.catalog
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|karaf
 operator|.
 name|commands
+operator|.
+name|catalog
 package|;
 end_package
 
@@ -29,6 +31,22 @@ operator|.
 name|commands
 operator|.
 name|CatalogDataFormatListCommand
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|karaf
+operator|.
+name|commands
+operator|.
+name|CamelCommandSupport
 import|;
 end_import
 
