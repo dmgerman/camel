@@ -56,11 +56,11 @@ name|TestCase
 block|{
 DECL|field|catalog
 specifier|private
-name|CamelComponentCatalog
+name|CamelCatalog
 name|catalog
 init|=
 operator|new
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 argument_list|()
 decl_stmt|;
 annotation|@

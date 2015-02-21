@@ -48,7 +48,7 @@ name|camel
 operator|.
 name|catalog
 operator|.
-name|CamelComponentCatalog
+name|CamelCatalog
 import|;
 end_import
 
@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|catalog
 operator|.
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 import|;
 end_import
 
@@ -150,11 +150,11 @@ name|void
 name|testFindModelNames
 parameter_list|()
 block|{
-name|CamelComponentCatalog
+name|CamelCatalog
 name|catalog
 init|=
 operator|new
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 argument_list|()
 decl_stmt|;
 name|List
@@ -206,11 +206,11 @@ name|void
 name|testFindModelNamesFilter
 parameter_list|()
 block|{
-name|CamelComponentCatalog
+name|CamelCatalog
 name|catalog
 init|=
 operator|new
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 argument_list|()
 decl_stmt|;
 name|List
@@ -264,11 +264,11 @@ name|void
 name|testFindModelNamesFilterWildcard
 parameter_list|()
 block|{
-name|CamelComponentCatalog
+name|CamelCatalog
 name|catalog
 init|=
 operator|new
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 argument_list|()
 decl_stmt|;
 name|List
@@ -322,11 +322,11 @@ name|void
 name|testFindComponentNamesFilterNoMatch
 parameter_list|()
 block|{
-name|CamelComponentCatalog
+name|CamelCatalog
 name|catalog
 init|=
 operator|new
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 argument_list|()
 decl_stmt|;
 name|List
@@ -368,11 +368,11 @@ name|void
 name|testCoreComponentJson
 parameter_list|()
 block|{
-name|CamelComponentCatalog
+name|CamelCatalog
 name|catalog
 init|=
 operator|new
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 argument_list|()
 decl_stmt|;
 name|String
@@ -418,11 +418,11 @@ name|void
 name|testLabels
 parameter_list|()
 block|{
-name|CamelComponentCatalog
+name|CamelCatalog
 name|catalog
 init|=
 operator|new
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 argument_list|()
 decl_stmt|;
 name|Set

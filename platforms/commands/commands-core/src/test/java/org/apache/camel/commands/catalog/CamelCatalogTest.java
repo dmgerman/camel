@@ -48,7 +48,7 @@ name|camel
 operator|.
 name|catalog
 operator|.
-name|CamelComponentCatalog
+name|CamelCatalog
 import|;
 end_import
 
@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|catalog
 operator|.
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 import|;
 end_import
 
@@ -121,10 +121,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|CamelComponentCatalogTest
+DECL|class|CamelCatalogTest
 specifier|public
 class|class
-name|CamelComponentCatalogTest
+name|CamelCatalogTest
 block|{
 DECL|field|LOG
 specifier|private
@@ -137,7 +137,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|CamelComponentCatalogTest
+name|CamelCatalogTest
 operator|.
 name|class
 argument_list|)
@@ -150,11 +150,11 @@ name|void
 name|testFindComponentNames
 parameter_list|()
 block|{
-name|CamelComponentCatalog
+name|CamelCatalog
 name|catalog
 init|=
 operator|new
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 argument_list|()
 decl_stmt|;
 name|List
@@ -206,11 +206,11 @@ name|void
 name|testFindComponentNamesFilter
 parameter_list|()
 block|{
-name|CamelComponentCatalog
+name|CamelCatalog
 name|catalog
 init|=
 operator|new
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 argument_list|()
 decl_stmt|;
 name|List
@@ -264,11 +264,11 @@ name|void
 name|testFindComponentNamesFilterWildcard
 parameter_list|()
 block|{
-name|CamelComponentCatalog
+name|CamelCatalog
 name|catalog
 init|=
 operator|new
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 argument_list|()
 decl_stmt|;
 name|List
@@ -322,11 +322,11 @@ name|void
 name|testFindComponentNamesFilterTwo
 parameter_list|()
 block|{
-name|CamelComponentCatalog
+name|CamelCatalog
 name|catalog
 init|=
 operator|new
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 argument_list|()
 decl_stmt|;
 name|List
@@ -380,11 +380,11 @@ name|void
 name|testFindComponentNamesFilterNoMatch
 parameter_list|()
 block|{
-name|CamelComponentCatalog
+name|CamelCatalog
 name|catalog
 init|=
 operator|new
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 argument_list|()
 decl_stmt|;
 name|List
@@ -426,11 +426,11 @@ name|void
 name|testCoreComponentJson
 parameter_list|()
 block|{
-name|CamelComponentCatalog
+name|CamelCatalog
 name|catalog
 init|=
 operator|new
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 argument_list|()
 decl_stmt|;
 name|String
@@ -476,11 +476,11 @@ name|void
 name|testFtpComponentJson
 parameter_list|()
 block|{
-name|CamelComponentCatalog
+name|CamelCatalog
 name|catalog
 init|=
 operator|new
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 argument_list|()
 decl_stmt|;
 name|String
@@ -526,11 +526,11 @@ name|void
 name|testLabels
 parameter_list|()
 block|{
-name|CamelComponentCatalog
+name|CamelCatalog
 name|catalog
 init|=
 operator|new
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 argument_list|()
 decl_stmt|;
 name|Set

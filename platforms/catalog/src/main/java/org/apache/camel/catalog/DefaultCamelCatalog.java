@@ -139,16 +139,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default {@link org.apache.camel.catalog.CamelComponentCatalog}.  */
+comment|/**  * Default {@link CamelCatalog}.  */
 end_comment
 
 begin_class
-DECL|class|DefaultCamelComponentCatalog
+DECL|class|DefaultCamelCatalog
 specifier|public
 class|class
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 implements|implements
-name|CamelComponentCatalog
+name|CamelCatalog
 block|{
 DECL|field|MODELS_CATALOG
 specifier|private
@@ -267,7 +267,7 @@ decl_stmt|;
 name|InputStream
 name|is
 init|=
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 operator|.
 name|class
 operator|.
@@ -336,7 +336,7 @@ decl_stmt|;
 name|InputStream
 name|is
 init|=
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 operator|.
 name|class
 operator|.
@@ -405,7 +405,7 @@ decl_stmt|;
 name|InputStream
 name|is
 init|=
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 operator|.
 name|class
 operator|.
@@ -474,7 +474,7 @@ decl_stmt|;
 name|InputStream
 name|is
 init|=
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 operator|.
 name|class
 operator|.
@@ -1281,7 +1281,7 @@ decl_stmt|;
 name|InputStream
 name|is
 init|=
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 operator|.
 name|class
 operator|.
@@ -1347,7 +1347,7 @@ decl_stmt|;
 name|InputStream
 name|is
 init|=
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 operator|.
 name|class
 operator|.
@@ -1413,7 +1413,7 @@ decl_stmt|;
 name|InputStream
 name|is
 init|=
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 operator|.
 name|class
 operator|.
@@ -1479,7 +1479,7 @@ decl_stmt|;
 name|InputStream
 name|is
 init|=
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 operator|.
 name|class
 operator|.
@@ -2120,7 +2120,7 @@ decl_stmt|;
 name|InputStream
 name|is
 init|=
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 operator|.
 name|class
 operator|.
@@ -2179,7 +2179,7 @@ decl_stmt|;
 name|InputStream
 name|is
 init|=
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 operator|.
 name|class
 operator|.
@@ -2238,7 +2238,7 @@ decl_stmt|;
 name|InputStream
 name|is
 init|=
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 operator|.
 name|class
 operator|.

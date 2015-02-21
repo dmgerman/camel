@@ -47,16 +47,16 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Catalog of all the Camel components from this Apache Camel release.  */
+comment|/**  * Catalog of components, data formats, models (EIPs), languages, and more  from this Apache Camel release.  */
 end_comment
 
 begin_interface
 annotation|@
 name|MXBean
-DECL|interface|CamelComponentCatalog
+DECL|interface|CamelCatalog
 specifier|public
 interface|interface
-name|CamelComponentCatalog
+name|CamelCatalog
 block|{
 comment|/**      * Find all the component names from the Camel catalog      */
 DECL|method|findComponentNames ()

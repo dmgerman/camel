@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MBean exporter to register the {@link CamelComponentCatalog} in JMX.  */
+comment|/**  * MBean exporter to register the {@link CamelCatalog} in JMX.  */
 end_comment
 
 begin_class
@@ -89,7 +89,7 @@ literal|"org.apache.camel.catalog:type=catalog,name=catalog"
 decl_stmt|;
 DECL|field|catalog
 specifier|private
-name|CamelComponentCatalog
+name|CamelCatalog
 name|catalog
 decl_stmt|;
 DECL|field|objectName
@@ -102,7 +102,7 @@ specifier|private
 name|MBeanServer
 name|mBeanServer
 decl_stmt|;
-comment|/**      * Initializes and exports the {@link org.apache.camel.catalog.CamelComponentCatalog} in JMX using the domain name,      * which can be obtained using {@link #getObjectName()}.      *      * @throws Exception      */
+comment|/**      * Initializes and exports the {@link CamelCatalog} in JMX using the domain name,      * which can be obtained using {@link #getObjectName()}.      *      * @throws Exception      */
 DECL|method|init ()
 specifier|public
 name|void
@@ -114,7 +114,7 @@ block|{
 name|catalog
 operator|=
 operator|new
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 argument_list|()
 expr_stmt|;
 if|if
@@ -216,7 +216,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Destroyes and unregisteres the {@link org.apache.camel.catalog.CamelComponentCatalog} from JMX.      *      * @throws Exception is thrown if error during unregistration      */
+comment|/**      * Destroyes and unregisteres the {@link CamelCatalog} from JMX.      *      * @throws Exception is thrown if error during unregistration      */
 DECL|method|destroy ()
 specifier|public
 name|void

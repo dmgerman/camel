@@ -96,7 +96,7 @@ name|camel
 operator|.
 name|catalog
 operator|.
-name|CamelComponentCatalog
+name|CamelCatalog
 import|;
 end_import
 
@@ -110,7 +110,7 @@ name|camel
 operator|.
 name|catalog
 operator|.
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 import|;
 end_import
 
@@ -159,11 +159,11 @@ name|CamelController
 block|{
 DECL|field|catalog
 specifier|private
-name|CamelComponentCatalog
+name|CamelCatalog
 name|catalog
 init|=
 operator|new
-name|DefaultCamelComponentCatalog
+name|DefaultCamelCatalog
 argument_list|()
 decl_stmt|;
 annotation|@
