@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link org.apache.camel.StreamCache} implementation for {@link org.apache.camel.StringSource}s  * Remark: It is not necessary to implement {@link org.apache.camel.ParallelProcessableStream}  * because this source can be used in several threads.  */
+comment|/**  * {@link org.apache.camel.StreamCache} implementation for {@link org.apache.camel.StringSource}s  */
 end_comment
 
 begin_class
@@ -159,6 +159,23 @@ name|os
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|copy ()
+specifier|public
+name|StreamCache
+name|copy
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+operator|new
+name|SourceCache
+argument_list|(
+name|getText
+argument_list|()
+argument_list|)
+return|;
+block|}
 DECL|method|inMemory ()
 specifier|public
 name|boolean
@@ -169,8 +186,6 @@ return|return
 literal|true
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|length ()
 specifier|public
 name|long

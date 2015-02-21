@@ -56,18 +56,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ParallelProcessableStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|StreamCache
 import|;
 end_import
@@ -86,8 +74,6 @@ extends|extends
 name|ByteArrayInputStream
 implements|implements
 name|StreamCache
-implements|,
-name|ParallelProcessableStream
 block|{
 DECL|method|InputStreamCache (byte[] data)
 specifier|public
@@ -128,40 +114,6 @@ operator|=
 name|count
 expr_stmt|;
 block|}
-DECL|method|InputStreamCache (byte[] data, int pos, int count)
-specifier|private
-name|InputStreamCache
-parameter_list|(
-name|byte
-index|[]
-name|data
-parameter_list|,
-name|int
-name|pos
-parameter_list|,
-name|int
-name|count
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|data
-argument_list|)
-expr_stmt|;
-name|super
-operator|.
-name|pos
-operator|=
-name|pos
-expr_stmt|;
-name|super
-operator|.
-name|count
-operator|=
-name|count
-expr_stmt|;
-comment|// you cannot use super(data,off,len), because then mark is set to off!
-block|}
 DECL|method|writeTo (OutputStream os)
 specifier|public
 name|void
@@ -187,6 +139,20 @@ name|pos
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|copy ()
+specifier|public
+name|StreamCache
+name|copy
+parameter_list|()
+block|{
+return|return
+operator|new
+name|InputStreamCache
+argument_list|(
+name|buf
+argument_list|)
+return|;
+block|}
 DECL|method|inMemory ()
 specifier|public
 name|boolean
@@ -205,31 +171,6 @@ parameter_list|()
 block|{
 return|return
 name|count
-return|;
-block|}
-comment|/** Creates a new InputStream using the same underlying cache. */
-annotation|@
-name|Override
-DECL|method|copy ()
-specifier|public
-name|ParallelProcessableStream
-name|copy
-parameter_list|()
-block|{
-return|return
-operator|new
-name|InputStreamCache
-argument_list|(
-name|buf
-argument_list|,
-name|super
-operator|.
-name|pos
-argument_list|,
-name|super
-operator|.
-name|count
-argument_list|)
 return|;
 block|}
 block|}

@@ -288,6 +288,17 @@ block|{
 comment|// noop
 block|}
 specifier|public
+name|StreamCache
+name|copy
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+literal|null
+return|;
+block|}
+specifier|public
 name|boolean
 name|inMemory
 parameter_list|()

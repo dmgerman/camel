@@ -56,18 +56,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ParallelProcessableStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|StreamCache
 import|;
 end_import
@@ -85,8 +73,6 @@ extends|extends
 name|StringReader
 implements|implements
 name|StreamCache
-implements|,
-name|ParallelProcessableStream
 block|{
 DECL|field|data
 specifier|private
@@ -169,6 +155,22 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|copy ()
+specifier|public
+name|StreamCache
+name|copy
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+operator|new
+name|ReaderCache
+argument_list|(
+name|data
+argument_list|)
+return|;
+block|}
 DECL|method|inMemory ()
 specifier|public
 name|boolean
@@ -199,24 +201,6 @@ parameter_list|()
 block|{
 return|return
 name|data
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|copy ()
-specifier|public
-name|ParallelProcessableStream
-name|copy
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-return|return
-operator|new
-name|ReaderCache
-argument_list|(
-name|data
-argument_list|)
 return|;
 block|}
 block|}

@@ -162,18 +162,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ParallelProcessableStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -218,8 +206,6 @@ extends|extends
 name|InputStream
 implements|implements
 name|StreamCache
-implements|,
-name|ParallelProcessableStream
 block|{
 DECL|field|stream
 specifier|private
@@ -528,6 +514,31 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|copy ()
+specifier|public
+name|StreamCache
+name|copy
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|FileInputStreamCache
+name|copy
+init|=
+operator|new
+name|FileInputStreamCache
+argument_list|(
+name|file
+argument_list|,
+name|ciphers
+argument_list|,
+name|closer
+argument_list|)
+decl_stmt|;
+return|return
+name|copy
+return|;
+block|}
 DECL|method|inMemory ()
 specifier|public
 name|boolean
@@ -687,34 +698,6 @@ expr_stmt|;
 block|}
 return|return
 name|in
-return|;
-block|}
-comment|/** Creates a copy which uses the same underlying file      * and which has the same life cycle as the original instance (for example,      * will be closed automatically when the route is finished).      */
-annotation|@
-name|Override
-DECL|method|copy ()
-specifier|public
-name|ParallelProcessableStream
-name|copy
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|FileInputStreamCache
-name|copy
-init|=
-operator|new
-name|FileInputStreamCache
-argument_list|(
-name|file
-argument_list|,
-name|ciphers
-argument_list|,
-name|closer
-argument_list|)
-decl_stmt|;
-return|return
-name|copy
 return|;
 block|}
 comment|/**       * Collects all FileInputStreamCache instances of a temporary file which must be closed      * at the end of the route.      *       * @see CachedOutputStream      *       */

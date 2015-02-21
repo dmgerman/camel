@@ -76,18 +76,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ParallelProcessableStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|StreamCache
 import|;
 end_import
@@ -119,8 +107,6 @@ extends|extends
 name|FilterInputStream
 implements|implements
 name|StreamCache
-implements|,
-name|ParallelProcessableStream
 block|{
 DECL|field|length
 specifier|private
@@ -157,6 +143,8 @@ name|available
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|reset ()
 specifier|public
 name|void
@@ -201,34 +189,9 @@ name|os
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|inMemory ()
-specifier|public
-name|boolean
-name|inMemory
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|length ()
-specifier|public
-name|long
-name|length
-parameter_list|()
-block|{
-return|return
-name|length
-return|;
-block|}
-comment|/**      * Transforms to InputStreamCache by copying the byte array. An      * InputStreamCache can be copied in such a way that the underlying byte      * array is kept.      */
-annotation|@
-name|Override
 DECL|method|copy ()
 specifier|public
-name|ParallelProcessableStream
+name|StreamCache
 name|copy
 parameter_list|()
 throws|throws
@@ -281,6 +244,28 @@ name|InputStreamCache
 argument_list|(
 name|byteArrayForCopy
 argument_list|)
+return|;
+block|}
+DECL|method|inMemory ()
+specifier|public
+name|boolean
+name|inMemory
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|length ()
+specifier|public
+name|long
+name|length
+parameter_list|()
+block|{
+return|return
+name|length
 return|;
 block|}
 block|}

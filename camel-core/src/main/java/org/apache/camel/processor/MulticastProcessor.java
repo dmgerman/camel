@@ -328,18 +328,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ParallelProcessableStream
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -353,6 +341,18 @@ operator|.
 name|camel
 operator|.
 name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|StreamCache
 import|;
 end_import
 
@@ -4428,8 +4428,8 @@ name|size
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|ParallelProcessableStream
-name|parallelProcessableStream
+name|StreamCache
+name|streamCache
 init|=
 literal|null
 decl_stmt|;
@@ -4446,14 +4446,14 @@ operator|.
 name|getBody
 argument_list|()
 operator|instanceof
-name|ParallelProcessableStream
+name|StreamCache
 condition|)
 block|{
 comment|// in parallel processing case, the stream must be copied, therefore get the stream
-name|parallelProcessableStream
+name|streamCache
 operator|=
 operator|(
-name|ParallelProcessableStream
+name|StreamCache
 operator|)
 name|exchange
 operator|.
@@ -4492,7 +4492,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|parallelProcessableStream
+name|streamCache
 operator|!=
 literal|null
 condition|)
@@ -4506,10 +4506,10 @@ condition|)
 block|{
 comment|// copy it otherwise parallel processing is not possible,
 comment|// because streams can only be read once
-name|ParallelProcessableStream
+name|StreamCache
 name|copiedStreamCache
 init|=
-name|parallelProcessableStream
+name|streamCache
 operator|.
 name|copy
 argument_list|()

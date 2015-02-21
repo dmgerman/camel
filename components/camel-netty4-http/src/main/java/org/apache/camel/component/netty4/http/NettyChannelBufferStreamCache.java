@@ -89,7 +89,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link ChannelBuffer} which is exposed as an {@link InputStream} which makes it very  * easy to use by Camel and other Camel components. Also supported is {@link StreamCache}  * which allows the data to be re-read for example when doing content based routing with XPath.  */
+comment|/**  * A {@link ByteBuf} which is exposed as an {@link InputStream} which makes it very  * easy to use by Camel and other Camel components. Also supported is {@link StreamCache}  * which allows the data to be re-read for example when doing content based routing with XPath.  */
 end_comment
 
 begin_class
@@ -337,6 +337,27 @@ name|idx
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|copy ()
+specifier|public
+name|StreamCache
+name|copy
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+operator|new
+name|NettyChannelBufferStreamCache
+argument_list|(
+name|buffer
+operator|.
+name|copy
+argument_list|()
+argument_list|)
+return|;
 block|}
 annotation|@
 name|Override

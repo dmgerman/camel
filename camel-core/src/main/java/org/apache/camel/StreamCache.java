@@ -35,7 +35,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Tagging interface to indicate that a type is capable of caching the underlying data stream.  *<p/>  * This is a useful feature for avoiding message re-readability issues.  * This interface is mainly used by the {@link org.apache.camel.spi.StreamCachingStrategy}  * for determining if/how to wrap a stream-based message.  *<p/>  * The Camel routing engine uses the {@link org.apache.camel.processor.CamelInternalProcessor.StreamCachingAdvice}  * to apply the stream cache during routing.  *  * @version   */
+comment|/**  * Tagging interface to indicate that a type is capable of caching the underlying data stream.  *<p/>  * This is a useful feature for avoiding message re-readability issues.  * This interface is mainly used by the {@link org.apache.camel.spi.StreamCachingStrategy}  * for determining if/how to wrap a stream-based message.  *<p/>  * The Camel routing engine uses the {@link org.apache.camel.processor.CamelInternalProcessor.StreamCachingAdvice}  * to apply the stream cache during routing.  *<p/>  * It is recommended in the {@link #copy()} method to let the copied stream start from the start. If the implementation  * does not support copy, then return<tt>null</tt>.  *  * @version   */
 end_comment
 
 begin_interface
@@ -66,6 +66,14 @@ parameter_list|(
 name|OutputStream
 name|os
 parameter_list|)
+throws|throws
+name|IOException
+function_decl|;
+comment|/**      * Create a copy of the stream. If possible use the same cached data in the      * copied instance.      *<p/>      * This method is useful for parallel processing.      *<p/>      * Implementations note: A copy of the stream is recommended to read from the start      * of the stream.      *      * @return a copy, or<tt>null</tt> if copy is not possible      * @throws java.io.IOException is thrown if the copy fails      */
+DECL|method|copy ()
+name|StreamCache
+name|copy
+parameter_list|()
 throws|throws
 name|IOException
 function_decl|;
