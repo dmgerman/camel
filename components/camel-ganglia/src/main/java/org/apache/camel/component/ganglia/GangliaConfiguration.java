@@ -134,10 +134,6 @@ name|UriPath
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version  */
-end_comment
-
 begin_class
 annotation|@
 name|UriParams
@@ -155,7 +151,7 @@ specifier|final
 name|String
 name|DEFAULT_DESTINATION
 init|=
-literal|"127.0.0.1"
+literal|"239.2.11.71"
 decl_stmt|;
 DECL|field|DEFAULT_PORT
 specifier|public
