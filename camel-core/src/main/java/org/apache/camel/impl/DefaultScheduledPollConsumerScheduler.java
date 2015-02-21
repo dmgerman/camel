@@ -276,6 +276,26 @@ name|useFixedDelay
 init|=
 literal|true
 decl_stmt|;
+DECL|method|DefaultScheduledPollConsumerScheduler ()
+specifier|public
+name|DefaultScheduledPollConsumerScheduler
+parameter_list|()
+block|{     }
+DECL|method|DefaultScheduledPollConsumerScheduler (ScheduledExecutorService scheduledExecutorService)
+specifier|public
+name|DefaultScheduledPollConsumerScheduler
+parameter_list|(
+name|ScheduledExecutorService
+name|scheduledExecutorService
+parameter_list|)
+block|{
+name|this
+operator|.
+name|scheduledExecutorService
+operator|=
+name|scheduledExecutorService
+expr_stmt|;
+block|}
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext

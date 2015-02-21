@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.timer
+DECL|package|org.apache.camel.component.scheduler
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|timer
+name|scheduler
 package|;
 end_package
 
@@ -125,10 +125,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|TimerRouteTest
+DECL|class|SchedulerRouteTest
 specifier|public
 class|class
-name|TimerRouteTest
+name|SchedulerRouteTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -143,7 +143,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|TimerRouteTest
+name|SchedulerRouteTest
 operator|.
 name|class
 argument_list|)
@@ -157,10 +157,10 @@ operator|new
 name|MyBean
 argument_list|()
 decl_stmt|;
-DECL|method|testTimerInvokesBeanMethod ()
+DECL|method|testSchedulerInvokesBeanMethod ()
 specifier|public
 name|void
-name|testTimerInvokesBeanMethod
+name|testSchedulerInvokesBeanMethod
 parameter_list|()
 throws|throws
 name|Exception
@@ -227,12 +227,12 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"timer://foo?fixedRate=true&delay=0&period=100"
+literal|"scheduler://foo?delay=100"
 argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|"Fired timer"
+literal|"Fired scheduler"
 argument_list|)
 operator|.
 name|to

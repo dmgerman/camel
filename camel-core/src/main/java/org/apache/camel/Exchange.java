@@ -662,6 +662,12 @@ name|SAXPARSER_FACTORY
 init|=
 literal|"CamelSAXParserFactory"
 decl_stmt|;
+DECL|field|SCHEDULER_POLLED_MESSAGES
+name|String
+name|SCHEDULER_POLLED_MESSAGES
+init|=
+literal|"CamelSchedulerPolledMessages"
+decl_stmt|;
 DECL|field|SOAP_ACTION
 name|String
 name|SOAP_ACTION

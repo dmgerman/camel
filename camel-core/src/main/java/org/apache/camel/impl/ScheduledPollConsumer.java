@@ -1828,7 +1828,9 @@ name|scheduler
 operator|=
 operator|new
 name|DefaultScheduledPollConsumerScheduler
-argument_list|()
+argument_list|(
+name|scheduledExecutorService
+argument_list|)
 expr_stmt|;
 block|}
 name|scheduler

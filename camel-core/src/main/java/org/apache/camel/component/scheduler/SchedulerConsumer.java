@@ -165,8 +165,33 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// a property can be used to control if the scheduler polled a message or not
+comment|// for example to overrule and indicate no message was polled, which can affect the scheduler
+comment|// to leverage backoff on idle etc.
+name|boolean
+name|polled
+init|=
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|SCHEDULER_POLLED_MESSAGES
+argument_list|,
+literal|true
+argument_list|,
+name|boolean
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 return|return
+name|polled
+condition|?
 literal|1
+else|:
+literal|0
 return|;
 block|}
 block|}
