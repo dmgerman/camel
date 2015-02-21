@@ -417,10 +417,10 @@ operator|new
 name|StreamSourceCache
 argument_list|(
 name|streamCache
-argument_list|)
 operator|.
 name|copy
 argument_list|()
+argument_list|)
 return|;
 block|}
 if|if
@@ -434,9 +434,6 @@ return|return
 operator|new
 name|StreamSourceCache
 argument_list|(
-operator|(
-name|ReaderCache
-operator|)
 name|readCache
 operator|.
 name|copy
