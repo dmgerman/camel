@@ -150,6 +150,8 @@ operator|new
 name|InputStreamCache
 argument_list|(
 name|buf
+argument_list|,
+name|count
 argument_list|)
 return|;
 block|}

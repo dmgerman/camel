@@ -840,14 +840,15 @@ argument_list|(
 literal|"A"
 argument_list|)
 expr_stmt|;
-name|mock
-operator|=
+name|MockEndpoint
+name|mockb
+init|=
 name|getMockEndpoint
 argument_list|(
 literal|"mock:resultb"
 argument_list|)
-expr_stmt|;
-name|mock
+decl_stmt|;
+name|mockb
 operator|.
 name|expectedBodiesReceived
 argument_list|(
@@ -895,7 +896,7 @@ block|{
 name|String
 name|abcScharpS
 init|=
-literal|"ABCÃ"
+literal|"ABC\u00DF"
 decl_stmt|;
 comment|// sharp-s
 name|MockEndpoint
@@ -1044,7 +1045,7 @@ block|{
 name|String
 name|input
 init|=
-literal|"ABCÃ"
+literal|"ABC\u00DF"
 decl_stmt|;
 comment|// sharp-s
 name|MockEndpoint
