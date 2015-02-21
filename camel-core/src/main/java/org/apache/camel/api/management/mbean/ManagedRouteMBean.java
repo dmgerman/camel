@@ -449,6 +449,30 @@ name|boolean
 name|includeDynamic
 parameter_list|)
 function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Oldest inflight exchange duration"
+argument_list|)
+DECL|method|getOldestInflightDuration ()
+name|Long
+name|getOldestInflightDuration
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Oldest inflight exchange id"
+argument_list|)
+DECL|method|getOldestInflightExchangeId ()
+name|String
+name|getOldestInflightExchangeId
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
