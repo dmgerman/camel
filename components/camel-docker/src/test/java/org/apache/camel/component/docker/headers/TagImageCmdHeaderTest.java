@@ -142,10 +142,10 @@ name|mockObject
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|topImageHeaderTest ()
+DECL|method|tagImageHeaderTest ()
 specifier|public
 name|void
-name|topImageHeaderTest
+name|tagImageHeaderTest
 parameter_list|()
 block|{
 name|String
@@ -272,7 +272,9 @@ argument_list|)
 argument_list|)
 operator|.
 name|withForce
-argument_list|()
+argument_list|(
+name|force
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@

@@ -171,7 +171,7 @@ decl_stmt|;
 name|boolean
 name|timestamps
 init|=
-literal|true
+literal|false
 decl_stmt|;
 name|boolean
 name|tailAll

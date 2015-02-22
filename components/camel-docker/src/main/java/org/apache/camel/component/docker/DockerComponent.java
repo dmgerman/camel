@@ -109,6 +109,8 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
@@ -131,10 +133,15 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// Each endpoint can have its own configuration so make
+comment|// a copy of the configuration
 name|DockerConfiguration
 name|configuration
 init|=
 name|getConfiguration
+argument_list|()
+operator|.
+name|copy
 argument_list|()
 decl_stmt|;
 name|String

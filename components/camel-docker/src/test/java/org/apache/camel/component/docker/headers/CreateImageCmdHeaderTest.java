@@ -22,6 +22,22 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|github
+operator|.
+name|dockerjava
+operator|.
+name|api
+operator|.
+name|command
+operator|.
+name|CreateImageCmd
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|io
@@ -37,22 +53,6 @@ operator|.
 name|util
 operator|.
 name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|github
-operator|.
-name|dockerjava
-operator|.
-name|api
-operator|.
-name|command
-operator|.
-name|CreateImageCmd
 import|;
 end_import
 
@@ -151,6 +151,13 @@ name|CreateImageCmd
 name|mockObject
 decl_stmt|;
 annotation|@
+name|Mock
+DECL|field|inputStream
+specifier|private
+name|InputStream
+name|inputStream
+decl_stmt|;
+annotation|@
 name|Test
 DECL|method|createImageHeaderTest ()
 specifier|public
@@ -191,7 +198,7 @@ name|sendBodyAndHeaders
 argument_list|(
 literal|"direct:in"
 argument_list|,
-literal|""
+name|inputStream
 argument_list|,
 name|headers
 argument_list|)

@@ -270,7 +270,9 @@ argument_list|)
 argument_list|)
 operator|.
 name|withQuiet
-argument_list|()
+argument_list|(
+name|quiet
+argument_list|)
 expr_stmt|;
 name|Mockito
 operator|.
@@ -287,7 +289,9 @@ argument_list|)
 argument_list|)
 operator|.
 name|withNoCache
-argument_list|()
+argument_list|(
+name|noCache
+argument_list|)
 expr_stmt|;
 name|Mockito
 operator|.
@@ -304,7 +308,9 @@ argument_list|)
 argument_list|)
 operator|.
 name|withRemove
-argument_list|()
+argument_list|(
+name|remove
+argument_list|)
 expr_stmt|;
 name|Mockito
 operator|.
@@ -387,7 +393,9 @@ argument_list|)
 argument_list|)
 operator|.
 name|withQuiet
-argument_list|()
+argument_list|(
+name|quiet
+argument_list|)
 expr_stmt|;
 name|Mockito
 operator|.
@@ -404,7 +412,9 @@ argument_list|)
 argument_list|)
 operator|.
 name|withNoCache
-argument_list|()
+argument_list|(
+name|noCache
+argument_list|)
 expr_stmt|;
 name|Mockito
 operator|.
@@ -421,7 +431,9 @@ argument_list|)
 argument_list|)
 operator|.
 name|withRemove
-argument_list|()
+argument_list|(
+name|remove
+argument_list|)
 expr_stmt|;
 name|Mockito
 operator|.

@@ -156,7 +156,7 @@ decl_stmt|;
 name|boolean
 name|force
 init|=
-literal|true
+literal|false
 decl_stmt|;
 name|boolean
 name|removeVolumes

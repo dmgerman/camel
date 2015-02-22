@@ -309,7 +309,7 @@ block|{
 return|return
 name|DockerOperation
 operator|.
-name|CONTAINER_COPY_FILE
+name|COPY_FILE_CONTAINER
 return|;
 block|}
 block|}

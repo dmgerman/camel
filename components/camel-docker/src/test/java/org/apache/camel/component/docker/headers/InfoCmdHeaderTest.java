@@ -116,10 +116,10 @@ name|mockObject
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|listImageHeaderTest ()
+DECL|method|infoHeaderTest ()
 specifier|public
 name|void
-name|listImageHeaderTest
+name|infoHeaderTest
 parameter_list|()
 block|{
 name|Map
