@@ -192,13 +192,12 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// create a new non-shared executor
 name|executor
 operator|=
 operator|new
 name|DefaultExecCommandExecutor
-argument_list|(
-name|exchange
-argument_list|)
+argument_list|()
 expr_stmt|;
 block|}
 name|log

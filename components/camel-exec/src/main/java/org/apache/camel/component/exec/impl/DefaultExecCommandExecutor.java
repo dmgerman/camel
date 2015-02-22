@@ -350,27 +350,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|exchange
-specifier|private
-specifier|final
-name|Exchange
-name|exchange
-decl_stmt|;
-DECL|method|DefaultExecCommandExecutor (Exchange exchange)
-specifier|public
-name|DefaultExecCommandExecutor
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-name|this
-operator|.
-name|exchange
-operator|=
-name|exchange
-expr_stmt|;
-block|}
 DECL|method|execute (ExecCommand command)
 specifier|public
 name|ExecResult
