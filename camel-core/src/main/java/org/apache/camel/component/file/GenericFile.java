@@ -725,15 +725,6 @@ name|ex
 parameter_list|)
 block|{
 comment|// just ignore the exception
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|ex
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 if|if
