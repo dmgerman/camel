@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|xml
@@ -67,20 +57,6 @@ operator|.
 name|annotation
 operator|.
 name|XmlAttribute
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
-name|XmlElement
 import|;
 end_import
 
@@ -339,23 +315,17 @@ name|String
 name|moduleRefs
 decl_stmt|;
 annotation|@
-name|XmlElement
+name|XmlAttribute
 DECL|field|enableFeatures
 specifier|private
-name|Set
-argument_list|<
 name|String
-argument_list|>
 name|enableFeatures
 decl_stmt|;
 annotation|@
-name|XmlElement
+name|XmlAttribute
 DECL|field|disableFeatures
 specifier|private
-name|Set
-argument_list|<
 name|String
-argument_list|>
 name|disableFeatures
 decl_stmt|;
 DECL|method|JsonDataFormat ()
@@ -722,10 +692,7 @@ expr_stmt|;
 block|}
 DECL|method|getEnableFeatures ()
 specifier|public
-name|Set
-argument_list|<
 name|String
-argument_list|>
 name|getEnableFeatures
 parameter_list|()
 block|{
@@ -733,16 +700,13 @@ return|return
 name|enableFeatures
 return|;
 block|}
-comment|/**      * Set of features to enable on the Jackson<tt>com.fasterxml.jackson.databind.ObjectMapper</tt>.      *<p/>      * The features should be a name that matches a enum from<tt>com.fasterxml.jackson.databind.SerializationFeature</tt>,      *<tt>com.fasterxml.jackson.databind.DeserializationFeature</tt>, or<tt>com.fasterxml.jackson.databind.MapperFeature</tt>      */
-DECL|method|setEnableFeatures (Set<String> enableFeatures)
+comment|/**      * Set of features to enable on the Jackson<tt>com.fasterxml.jackson.databind.ObjectMapper</tt>.      *<p/>      * The features should be a name that matches a enum from<tt>com.fasterxml.jackson.databind.SerializationFeature</tt>,      *<tt>com.fasterxml.jackson.databind.DeserializationFeature</tt>, or<tt>com.fasterxml.jackson.databind.MapperFeature</tt>      *<p/>      * Multiple features can be separated by comma      */
+DECL|method|setEnableFeatures (String enableFeatures)
 specifier|public
 name|void
 name|setEnableFeatures
 parameter_list|(
-name|Set
-argument_list|<
 name|String
-argument_list|>
 name|enableFeatures
 parameter_list|)
 block|{
@@ -755,10 +719,7 @@ expr_stmt|;
 block|}
 DECL|method|getDisableFeatures ()
 specifier|public
-name|Set
-argument_list|<
 name|String
-argument_list|>
 name|getDisableFeatures
 parameter_list|()
 block|{
@@ -766,16 +727,13 @@ return|return
 name|disableFeatures
 return|;
 block|}
-comment|/**      * Set of features to disable on the Jackson<tt>com.fasterxml.jackson.databind.ObjectMapper</tt>.      *<p/>      * The features should be a name that matches a enum from<tt>com.fasterxml.jackson.databind.SerializationFeature</tt>,      *<tt>com.fasterxml.jackson.databind.DeserializationFeature</tt>, or<tt>com.fasterxml.jackson.databind.MapperFeature</tt>      */
-DECL|method|setDisableFeatures (Set<String> disableFeatures)
+comment|/**      * Set of features to disable on the Jackson<tt>com.fasterxml.jackson.databind.ObjectMapper</tt>.      *<p/>      * The features should be a name that matches a enum from<tt>com.fasterxml.jackson.databind.SerializationFeature</tt>,      *<tt>com.fasterxml.jackson.databind.DeserializationFeature</tt>, or<tt>com.fasterxml.jackson.databind.MapperFeature</tt>      *<p/>      * Multiple features can be separated by comma      */
+DECL|method|setDisableFeatures (String disableFeatures)
 specifier|public
 name|void
 name|setDisableFeatures
 parameter_list|(
-name|Set
-argument_list|<
 name|String
-argument_list|>
 name|disableFeatures
 parameter_list|)
 block|{
