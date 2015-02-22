@@ -3438,7 +3438,7 @@ return|return
 name|readLockCheckInterval
 return|;
 block|}
-comment|/**      * Interval in millis for the read-lock, if supported by the read lock.      * This interval is used for sleeping between attempts to acquire the read lock.      * For example when using the changed read lock, you can set a higher interval period to cater for slow writes.      * The default of 1 sec. may be too fast if the producer is very slow writing the file.      * For FTP the default readLockCheckInterval is 5000.      */
+comment|/**      * Interval in millis for the read-lock, if supported by the read lock.      * This interval is used for sleeping between attempts to acquire the read lock.      * For example when using the changed read lock, you can set a higher interval period to cater for slow writes.      * The default of 1 sec. may be too fast if the producer is very slow writing the file.      *<p/>      * Notice: For FTP the default readLockCheckInterval is 5000.      *<p/>      * The readLockTimeout value must be higher than readLockCheckInterval, but a rule of thumb is to have a timeout      * that is at least 2 or more times higher than the readLockCheckInterval. This is needed to ensure that amble      * time is allowed for the read lock process to try to grab the lock before the timeout was hit.      */
 DECL|method|setReadLockCheckInterval (long readLockCheckInterval)
 specifier|public
 name|void
@@ -3465,7 +3465,7 @@ return|return
 name|readLockTimeout
 return|;
 block|}
-comment|/**      * Optional timeout in millis for the read-lock, if supported by the read-lock.      * If the read-lock could not be granted and the timeout triggered, then Camel will skip the file.      * At next poll Camel, will try the file again, and this time maybe the read-lock could be granted.      * Use a value of 0 or lower to indicate forever. Currently fileLock, changed and rename support the timeout.      * Notice: For FTP the default readLockTimeout value is 20000 instead of 10000.      */
+comment|/**      * Optional timeout in millis for the read-lock, if supported by the read-lock.      * If the read-lock could not be granted and the timeout triggered, then Camel will skip the file.      * At next poll Camel, will try the file again, and this time maybe the read-lock could be granted.      * Use a value of 0 or lower to indicate forever. Currently fileLock, changed and rename support the timeout.      *<p/>      * Notice: For FTP the default readLockTimeout value is 20000 instead of 10000.      *<p/>      * The readLockTimeout value must be higher than readLockCheckInterval, but a rule of thumb is to have a timeout      * that is at least 2 or more times higher than the readLockCheckInterval. This is needed to ensure that amble      * time is allowed for the read lock process to try to grab the lock before the timeout was hit.      */
 DECL|method|setReadLockTimeout (long readLockTimeout)
 specifier|public
 name|void
