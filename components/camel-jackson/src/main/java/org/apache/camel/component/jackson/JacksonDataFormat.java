@@ -1748,7 +1748,7 @@ name|ObjectHelper
 operator|.
 name|createIterator
 argument_list|(
-name|enableFeatures
+name|disableFeatures
 argument_list|)
 decl_stmt|;
 while|while
