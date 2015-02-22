@@ -310,14 +310,6 @@ operator|new
 name|DefaultExecBinding
 argument_list|()
 expr_stmt|;
-name|this
-operator|.
-name|commandExecutor
-operator|=
-operator|new
-name|DefaultExecCommandExecutor
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|createProducer ()
 specifier|public
