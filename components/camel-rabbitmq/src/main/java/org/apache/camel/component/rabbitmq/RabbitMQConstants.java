@@ -169,6 +169,15 @@ name|APP_ID
 init|=
 literal|"rabbitmq.APP_ID"
 decl_stmt|;
+DECL|field|REQUEUE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|REQUEUE
+init|=
+literal|"rabbitmq.REQUEUE"
+decl_stmt|;
 DECL|field|RABBITMQ_DEAD_LETTER_EXCHANGE
 specifier|public
 specifier|static
