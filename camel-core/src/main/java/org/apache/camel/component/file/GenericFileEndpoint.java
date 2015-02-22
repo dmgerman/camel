@@ -316,20 +316,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Metadata
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|UriParam
 import|;
 end_import
@@ -4890,6 +4876,58 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// validate that the read lock options is valid for the process strategy
+if|if
+condition|(
+operator|!
+literal|"none"
+operator|.
+name|equals
+argument_list|(
+name|readLock
+argument_list|)
+operator|&&
+operator|!
+literal|"off"
+operator|.
+name|equals
+argument_list|(
+name|readLock
+argument_list|)
+condition|)
+block|{
+if|if
+condition|(
+name|readLockTimeout
+operator|>
+literal|0
+operator|&&
+name|readLockTimeout
+operator|<=
+name|readLockCheckInterval
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The option readLockTimeout must be higher than readLockCheckInterval"
+operator|+
+literal|", was readLockTimeout="
+operator|+
+name|readLockTimeout
+operator|+
+literal|", readLockCheckInterval="
+operator|+
+name|readLockCheckInterval
+operator|+
+literal|". A good practice is to let the readLockTimeout be at least 3 or more times higher than the readLockCheckInterval"
+operator|+
+literal|", to ensure the read lock procedure has amble times to run several times checks during acquiring the lock."
+argument_list|)
+throw|;
+block|}
+block|}
 name|ServiceHelper
 operator|.
 name|startServices
