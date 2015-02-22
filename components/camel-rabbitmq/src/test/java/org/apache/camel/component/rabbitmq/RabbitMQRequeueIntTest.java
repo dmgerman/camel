@@ -260,96 +260,6 @@ argument_list|(
 name|consumingMockEndpoint
 argument_list|)
 operator|.
-name|choice
-argument_list|()
-operator|.
-name|when
-argument_list|(
-name|body
-argument_list|()
-operator|.
-name|isEqualTo
-argument_list|(
-literal|"requeue header false"
-argument_list|)
-argument_list|)
-operator|.
-name|log
-argument_list|(
-literal|"Setting REQUEUE flag to false"
-argument_list|)
-operator|.
-name|setHeader
-argument_list|(
-name|RabbitMQConstants
-operator|.
-name|REQUEUE
-argument_list|,
-name|constant
-argument_list|(
-literal|false
-argument_list|)
-argument_list|)
-operator|.
-name|when
-argument_list|(
-name|body
-argument_list|()
-operator|.
-name|isEqualTo
-argument_list|(
-literal|"requeue header true"
-argument_list|)
-argument_list|)
-operator|.
-name|log
-argument_list|(
-literal|"Setting REQUEUE flag to true"
-argument_list|)
-operator|.
-name|setHeader
-argument_list|(
-name|RabbitMQConstants
-operator|.
-name|REQUEUE
-argument_list|,
-name|constant
-argument_list|(
-literal|true
-argument_list|)
-argument_list|)
-operator|.
-name|when
-argument_list|(
-name|body
-argument_list|()
-operator|.
-name|isEqualTo
-argument_list|(
-literal|"non-boolean header"
-argument_list|)
-argument_list|)
-operator|.
-name|log
-argument_list|(
-literal|"Setting REQUEUE flag to non-boolean"
-argument_list|)
-operator|.
-name|setHeader
-argument_list|(
-name|RabbitMQConstants
-operator|.
-name|REQUEUE
-argument_list|,
-name|constant
-argument_list|(
-literal|4l
-argument_list|)
-argument_list|)
-operator|.
-name|end
-argument_list|()
-operator|.
 name|throwException
 argument_list|(
 operator|new
@@ -391,7 +301,7 @@ name|directProducer
 operator|.
 name|sendBody
 argument_list|(
-literal|"no requeue header"
+literal|"Hello, World!"
 argument_list|)
 expr_stmt|;
 name|Thread
@@ -438,9 +348,15 @@ argument_list|)
 expr_stmt|;
 name|directProducer
 operator|.
-name|sendBody
+name|sendBodyAndHeader
 argument_list|(
-literal|"non-boolean header"
+literal|"Hello, World!"
+argument_list|,
+name|RabbitMQConstants
+operator|.
+name|REQUEUE
+argument_list|,
+literal|4l
 argument_list|)
 expr_stmt|;
 name|Thread
@@ -487,9 +403,15 @@ argument_list|)
 expr_stmt|;
 name|directProducer
 operator|.
-name|sendBody
+name|sendBodyAndHeader
 argument_list|(
-literal|"non-boolean header"
+literal|"Hello, World!"
+argument_list|,
+name|RabbitMQConstants
+operator|.
+name|REQUEUE
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|Thread
@@ -536,9 +458,15 @@ argument_list|)
 expr_stmt|;
 name|directProducer
 operator|.
-name|sendBody
+name|sendBodyAndHeader
 argument_list|(
-literal|"requeue header true"
+literal|"Hello, World!"
+argument_list|,
+name|RabbitMQConstants
+operator|.
+name|REQUEUE
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|Thread
