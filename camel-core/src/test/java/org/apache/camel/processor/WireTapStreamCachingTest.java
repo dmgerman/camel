@@ -135,10 +135,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|MulticastStreamCachingTest
+DECL|class|WireTapStreamCachingTest
 specifier|public
 class|class
-name|MulticastStreamCachingTest
+name|WireTapStreamCachingTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -162,10 +162,10 @@ specifier|protected
 name|MockEndpoint
 name|z
 decl_stmt|;
-DECL|method|testSendingAMessageUsingMulticastConvertsToReReadable ()
+DECL|method|testSendingAMessageUsingWiretapConvertsToReReadable ()
 specifier|public
 name|void
-name|testSendingAMessageUsingMulticastConvertsToReReadable
+name|testSendingAMessageUsingWiretapConvertsToReReadable
 parameter_list|()
 throws|throws
 name|Exception
@@ -377,21 +377,24 @@ literal|3
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//stream caching should fix re-readability issues when multicasting messages
+comment|//stream caching should fix re-readability issues when wire tapping messages
 name|from
 argument_list|(
 literal|"direct:a"
 argument_list|)
 operator|.
-name|multicast
-argument_list|()
-operator|.
-name|to
+name|wireTap
 argument_list|(
 literal|"direct:x"
-argument_list|,
+argument_list|)
+operator|.
+name|wireTap
+argument_list|(
 literal|"direct:y"
-argument_list|,
+argument_list|)
+operator|.
+name|wireTap
+argument_list|(
 literal|"direct:z"
 argument_list|)
 expr_stmt|;
