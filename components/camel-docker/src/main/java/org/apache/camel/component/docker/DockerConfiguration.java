@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|github
-operator|.
-name|dockerjava
-operator|.
-name|api
-operator|.
-name|DockerClient
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -49,6 +35,20 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|github
+operator|.
+name|dockerjava
+operator|.
+name|api
+operator|.
+name|DockerClient
 import|;
 end_import
 
@@ -79,6 +79,20 @@ operator|.
 name|exception
 operator|.
 name|DockerException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
 import|;
 end_import
 
@@ -127,6 +141,8 @@ specifier|private
 name|DockerOperation
 name|operation
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|clientProfile
 specifier|private
 name|DockerClientProfile

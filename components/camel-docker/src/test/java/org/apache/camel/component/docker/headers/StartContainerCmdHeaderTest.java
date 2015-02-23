@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|github
@@ -198,16 +208,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -295,16 +295,16 @@ argument_list|>
 block|{
 annotation|@
 name|Mock
+DECL|field|exposedPort
+name|ExposedPort
+name|exposedPort
+decl_stmt|;
+annotation|@
+name|Mock
 DECL|field|mockObject
 specifier|private
 name|StartContainerCmd
 name|mockObject
-decl_stmt|;
-annotation|@
-name|Mock
-DECL|field|exposedPort
-name|ExposedPort
-name|exposedPort
 decl_stmt|;
 annotation|@
 name|Test

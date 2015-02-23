@@ -22,6 +22,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|github
@@ -788,26 +808,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -1560,7 +1560,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/*********************      * General Requests      ********************/
-comment|/**      * Produces a Authorization request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produces a Authorization request      *      * @param client      * @param message      * @return      */
 DECL|method|executeAuthRequest (DockerClient client, Message message)
 specifier|private
 name|AuthCmd
@@ -1615,7 +1615,7 @@ return|return
 name|authCmd
 return|;
 block|}
-comment|/**      * Produces a platform information request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produces a platform information request      *      * @param client      * @param message      * @return      */
 DECL|method|executeInfoRequest (DockerClient client, Message message)
 specifier|private
 name|InfoCmd
@@ -1647,7 +1647,7 @@ return|return
 name|infoCmd
 return|;
 block|}
-comment|/**      * Executes a ping platform request      *       * @param client      * @param message      * @return      */
+comment|/**      * Executes a ping platform request      *      * @param client      * @param message      * @return      */
 DECL|method|executePingRequest (DockerClient client, Message message)
 specifier|private
 name|PingCmd
@@ -1679,7 +1679,7 @@ return|return
 name|pingCmd
 return|;
 block|}
-comment|/**      * Executes a platform version request      *       * @param client      * @param message      * @return      */
+comment|/**      * Executes a platform version request      *      * @param client      * @param message      * @return      */
 DECL|method|executeVersionRequest (DockerClient client, Message message)
 specifier|private
 name|VersionCmd
@@ -1712,7 +1712,7 @@ name|versionCmd
 return|;
 block|}
 comment|/*********************      * Image Requests      ********************/
-comment|/**      * Produces a build image request      *       * @param client      * @param message      * @return      * @throws DockerException      */
+comment|/**      * Produces a build image request      *      * @param client      * @param message      * @return      * @throws DockerException      */
 DECL|method|executeBuildImageRequest (DockerClient client, Message message)
 specifier|private
 name|BuildImageCmd
@@ -1948,7 +1948,7 @@ return|return
 name|buildImageCmd
 return|;
 block|}
-comment|/**      * Performs a create image request      *       * @param client      * @param message      * @return      */
+comment|/**      * Performs a create image request      *      * @param client      * @param message      * @return      */
 DECL|method|executeCreateImageRequest (DockerClient client, Message message)
 specifier|private
 name|CreateImageCmd
@@ -2035,7 +2035,7 @@ return|return
 name|createImageCmd
 return|;
 block|}
-comment|/**      * Produces a inspect image request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produces a inspect image request      *      * @param client      * @param message      * @return      */
 DECL|method|executeInspectImageRequest (DockerClient client, Message message)
 specifier|private
 name|InspectImageCmd
@@ -2098,7 +2098,7 @@ return|return
 name|inspectImageCmd
 return|;
 block|}
-comment|/**      * Performs a list images request      *       * @param client      * @param message      * @return      */
+comment|/**      * Performs a list images request      *      * @param client      * @param message      * @return      */
 DECL|method|executeListImagesRequest (DockerClient client, Message message)
 specifier|private
 name|ListImagesCmd
@@ -2200,7 +2200,7 @@ return|return
 name|listImagesCmd
 return|;
 block|}
-comment|/**      * Produces a pull image request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produces a pull image request      *      * @param client      * @param message      * @return      */
 DECL|method|executePullImageRequest (DockerClient client, Message message)
 specifier|private
 name|PullImageCmd
@@ -2356,7 +2356,7 @@ return|return
 name|pullImageCmd
 return|;
 block|}
-comment|/**      * Produces a push image request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produces a push image request      *      * @param client      * @param message      * @return      */
 DECL|method|executePushImageRequest (DockerClient client, Message message)
 specifier|private
 name|PushImageCmd
@@ -2477,7 +2477,7 @@ return|return
 name|pushImageCmd
 return|;
 block|}
-comment|/**      * Produces a remove image request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produces a remove image request      *      * @param client      * @param message      * @return      */
 DECL|method|executeRemoveImageRequest (DockerClient client, Message message)
 specifier|private
 name|RemoveImageCmd
@@ -2671,7 +2671,7 @@ return|return
 name|searchImagesCmd
 return|;
 block|}
-comment|/**      * Produces a tag image request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produces a tag image request      *      * @param client      * @param message      * @return      */
 DECL|method|executeTagImageRequest (DockerClient client, Message message)
 specifier|private
 name|TagImageCmd
@@ -2828,7 +2828,7 @@ name|tagImageCmd
 return|;
 block|}
 comment|/*********************      * Container Requests      ********************/
-comment|/**      * Produce a attach container request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produce a attach container request      *      * @param client      * @param message      * @return      */
 DECL|method|executeAttachContainerRequest (DockerClient client, Message message)
 specifier|private
 name|AttachContainerCmd
@@ -3066,7 +3066,7 @@ return|return
 name|attachContainerCmd
 return|;
 block|}
-comment|/**      * Produces a commit container request      *       * @param client      * @param message      * @return      * @throws DockerException      */
+comment|/**      * Produces a commit container request      *      * @param client      * @param message      * @return      * @throws DockerException      */
 DECL|method|executeCommitContainerRequest (DockerClient client, Message message)
 specifier|private
 name|CommitCmd
@@ -3886,7 +3886,7 @@ return|return
 name|commitCmd
 return|;
 block|}
-comment|/**      * Produces a copy file/folder from container request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produces a copy file/folder from container request      *      * @param client      * @param message      * @return      */
 DECL|method|executeCopyFileContainerRequest (DockerClient client, Message message)
 specifier|private
 name|CopyFileFromContainerCmd
@@ -4016,7 +4016,7 @@ return|return
 name|copyFileContainerCmd
 return|;
 block|}
-comment|/**      * Produce a create container request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produce a create container request      *      * @param client      * @param message      * @return      */
 DECL|method|executeCreateContainerRequest (DockerClient client, Message message)
 specifier|private
 name|CreateContainerCmd
@@ -4924,7 +4924,7 @@ return|return
 name|createContainerCmd
 return|;
 block|}
-comment|/**      * Produces a diff container request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produces a diff container request      *      * @param client      * @param message      * @return      */
 DECL|method|executeDiffContainerRequest (DockerClient client, Message message)
 specifier|private
 name|ContainerDiffCmd
@@ -5022,7 +5022,7 @@ return|return
 name|diffContainerCmd
 return|;
 block|}
-comment|/**      * Produce a inspect container request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produce a inspect container request      *      * @param client      * @param message      * @return      */
 DECL|method|executeInspectContainerRequest (DockerClient client, Message message)
 specifier|private
 name|InspectContainerCmd
@@ -5085,7 +5085,7 @@ return|return
 name|inspectContainerCmd
 return|;
 block|}
-comment|/**      * Produces a kill container request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produces a kill container request      *      * @param client      * @param message      * @return      */
 DECL|method|executeKillContainerRequest (DockerClient client, Message message)
 specifier|private
 name|KillContainerCmd
@@ -5183,7 +5183,7 @@ return|return
 name|killContainerCmd
 return|;
 block|}
-comment|/**      * Produces a list containers request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produces a list containers request      *      * @param client      * @param message      * @return      */
 DECL|method|executeListContainersRequest (DockerClient client, Message message)
 specifier|private
 name|ListContainersCmd
@@ -5390,7 +5390,7 @@ return|return
 name|listContainersCmd
 return|;
 block|}
-comment|/**      * Produce a log container request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produce a log container request      *      * @param client      * @param message      * @return      */
 DECL|method|executeLogContainerRequest (DockerClient client, Message message)
 specifier|private
 name|LogContainerCmd
@@ -5663,7 +5663,7 @@ return|return
 name|logContainerCmd
 return|;
 block|}
-comment|/**      * Produces a pause container request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produces a pause container request      *      * @param client      * @param message      * @return      */
 DECL|method|executePauseContainerRequest (DockerClient client, Message message)
 specifier|private
 name|PauseContainerCmd
@@ -5726,7 +5726,7 @@ return|return
 name|pauseContainerCmd
 return|;
 block|}
-comment|/**      * Produces a remove container request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produces a remove container request      *      * @param client      * @param message      * @return      */
 DECL|method|executeRemoveContainerRequest (DockerClient client, Message message)
 specifier|private
 name|RemoveContainerCmd
@@ -5859,7 +5859,7 @@ return|return
 name|removeContainerCmd
 return|;
 block|}
-comment|/**      * Produces a restart container request      *       * @param client      * @param message      * @return      * @throws DockerException      */
+comment|/**      * Produces a restart container request      *      * @param client      * @param message      * @return      * @throws DockerException      */
 DECL|method|executeRestartContainerRequest (DockerClient client, Message message)
 specifier|private
 name|RestartContainerCmd
@@ -5950,7 +5950,7 @@ return|return
 name|restartContainerCmd
 return|;
 block|}
-comment|/**      * Produce a start container request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produce a start container request      *      * @param client      * @param message      * @return      */
 DECL|method|executeStartContainerRequest (DockerClient client, Message message)
 specifier|private
 name|StartContainerCmd
@@ -6521,7 +6521,7 @@ return|return
 name|startContainerCmd
 return|;
 block|}
-comment|/**      * Produces a stop container request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produces a stop container request      *      * @param client      * @param message      * @return      */
 DECL|method|executeStopContainerRequest (DockerClient client, Message message)
 specifier|private
 name|StopContainerCmd
@@ -6610,7 +6610,7 @@ return|return
 name|stopContainerCmd
 return|;
 block|}
-comment|/**      * Produces a top container request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produces a top container request      *      * @param client      * @param message      * @return      */
 DECL|method|executeTopContainerRequest (DockerClient client, Message message)
 specifier|private
 name|TopContainerCmd
@@ -6708,7 +6708,7 @@ return|return
 name|topContainerCmd
 return|;
 block|}
-comment|/**      * Produces a unpause container request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produces a unpause container request      *      * @param client      * @param message      * @return      */
 DECL|method|executeUnpauseContainerRequest (DockerClient client, Message message)
 specifier|private
 name|UnpauseContainerCmd
@@ -6771,7 +6771,7 @@ return|return
 name|unpauseContainerCmd
 return|;
 block|}
-comment|/**      * Produce a wait container request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produce a wait container request      *      * @param client      * @param message      * @return      */
 DECL|method|executeWaitContainerRequest (DockerClient client, Message message)
 specifier|private
 name|WaitContainerCmd
@@ -6835,7 +6835,7 @@ name|waitContainerCmd
 return|;
 block|}
 comment|/*********************      * Exec Requests      ********************/
-comment|/**      * Produces a exec create request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produces a exec create request      *      * @param client      * @param message      * @return      */
 DECL|method|executeExecCreateRequest (DockerClient client, Message message)
 specifier|private
 name|ExecCreateCmd
@@ -7068,7 +7068,7 @@ return|return
 name|execCreateCmd
 return|;
 block|}
-comment|/**      * Produces a exec start request      *       * @param client      * @param message      * @return      */
+comment|/**      * Produces a exec start request      *      * @param client      * @param message      * @return      */
 DECL|method|executeExecStartRequest (DockerClient client, Message message)
 specifier|private
 name|ExecStartCmd

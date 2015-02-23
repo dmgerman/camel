@@ -198,7 +198,7 @@ parameter_list|()
 block|{
 comment|//Helper class
 block|}
-comment|/**      * Produces a {@link DockerClient} to communicate with Docker      *       * @param dockerConfiguration      * @param endpointClientProfile a {@link DockerClientProfile} specified on the Endpoint      * @param message the Camel message      * @return a DockerClient      * @throws DockerException      */
+comment|/**      * Produces a {@link DockerClient} to communicate with Docker      */
 DECL|method|getDockerClient (DockerConfiguration dockerConfiguration, Message message)
 specifier|public
 specifier|static
@@ -233,13 +233,9 @@ argument_list|()
 decl_stmt|;
 name|DockerClientProfile
 name|clientProfile
-init|=
-literal|null
 decl_stmt|;
 name|DockerClient
 name|client
-init|=
-literal|null
 decl_stmt|;
 comment|// Check if profile is specified in configuration
 if|if

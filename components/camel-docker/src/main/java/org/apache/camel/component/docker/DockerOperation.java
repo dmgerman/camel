@@ -48,7 +48,7 @@ specifier|public
 enum|enum
 name|DockerOperation
 block|{
-comment|/** Events **/
+comment|/**      * Events *      */
 DECL|enumConstant|EVENTS
 name|EVENTS
 argument_list|(
@@ -67,7 +67,7 @@ operator|.
 name|class
 argument_list|)
 block|,
-comment|/** General **/
+comment|/**      * General *      */
 DECL|enumConstant|AUTH
 name|AUTH
 argument_list|(
@@ -140,7 +140,7 @@ argument_list|,
 literal|true
 argument_list|)
 block|,
-comment|/** Images **/
+comment|/**      * Images *      */
 DECL|enumConstant|BUILD_IMAGE
 name|BUILD_IMAGE
 argument_list|(
@@ -399,7 +399,7 @@ operator|.
 name|class
 argument_list|)
 block|,
-comment|/** Container **/
+comment|/**      * Container *      */
 DECL|enumConstant|ATTACH_CONTAINER
 name|ATTACH_CONTAINER
 argument_list|(
@@ -1370,7 +1370,7 @@ operator|.
 name|class
 argument_list|)
 block|,
-comment|/** Exec **/
+comment|/**      * Exec *      */
 DECL|enumConstant|EXEC_CREATE
 name|EXEC_CREATE
 argument_list|(

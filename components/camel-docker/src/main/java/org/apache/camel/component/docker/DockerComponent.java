@@ -93,7 +93,7 @@ DECL|method|DockerComponent ()
 specifier|public
 name|DockerComponent
 parameter_list|()
-block|{              }
+block|{      }
 DECL|method|DockerComponent (DockerConfiguration configuration)
 specifier|public
 name|DockerComponent

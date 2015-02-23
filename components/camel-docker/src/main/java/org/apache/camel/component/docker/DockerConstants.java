@@ -85,7 +85,7 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|/** Connectivity **/
+comment|/**      * Connectivity *      */
 DECL|field|DOCKER_CLIENT_PROFILE
 specifier|public
 specifier|static
@@ -95,7 +95,7 @@ name|DOCKER_CLIENT_PROFILE
 init|=
 literal|"CamelDockerClientProfile"
 decl_stmt|;
-comment|/** Connectivity **/
+comment|/**      * Connectivity *      */
 DECL|field|DOCKER_API_REQUEST_TIMEOUT
 specifier|public
 specifier|static
@@ -159,7 +159,7 @@ name|DOCKER_SECURE
 init|=
 literal|"CamelDockerSecure"
 decl_stmt|;
-comment|/** List Images **/
+comment|/**      * List Images *      */
 DECL|field|DOCKER_FILTER
 specifier|public
 specifier|static
@@ -178,7 +178,7 @@ name|DOCKER_SHOW_ALL
 init|=
 literal|"CamelDockerShowAll"
 decl_stmt|;
-comment|/** Common **/
+comment|/**      * Common *      */
 DECL|field|DOCKER_CONTAINER_ID
 specifier|public
 specifier|static
@@ -197,7 +197,7 @@ name|DOCKER_IMAGE_ID
 init|=
 literal|"CamelDockerImageId"
 decl_stmt|;
-comment|/** Auth **/
+comment|/**      * Auth *      */
 DECL|field|DOCKER_EMAIL
 specifier|public
 specifier|static
@@ -234,7 +234,7 @@ name|DOCKER_USERNAME
 init|=
 literal|"CamelDockerUsername"
 decl_stmt|;
-comment|/** Pull **/
+comment|/**      * Pull *      */
 DECL|field|DOCKER_REGISTRY
 specifier|public
 specifier|static
@@ -262,7 +262,7 @@ name|DOCKER_TAG
 init|=
 literal|"CamelDockerTag"
 decl_stmt|;
-comment|/** Push **/
+comment|/**      * Push *      */
 DECL|field|DOCKER_NAME
 specifier|public
 specifier|static
@@ -272,7 +272,7 @@ name|DOCKER_NAME
 init|=
 literal|"CamelDockerName"
 decl_stmt|;
-comment|/** Search **/
+comment|/**      * Search *      */
 DECL|field|DOCKER_TERM
 specifier|public
 specifier|static
@@ -282,7 +282,7 @@ name|DOCKER_TERM
 init|=
 literal|"CamelDockerTerm"
 decl_stmt|;
-comment|/** Remove **/
+comment|/**      * Remove *      */
 DECL|field|DOCKER_FORCE
 specifier|public
 specifier|static
@@ -301,7 +301,7 @@ name|DOCKER_NO_PRUNE
 init|=
 literal|"CamelDockerNoPrune"
 decl_stmt|;
-comment|/** Events **/
+comment|/**      * Events *      */
 DECL|field|DOCKER_INITIAL_RANGE
 specifier|public
 specifier|static
@@ -311,7 +311,7 @@ name|DOCKER_INITIAL_RANGE
 init|=
 literal|"CamelDockerInitialRange"
 decl_stmt|;
-comment|/** List Container **/
+comment|/**      * List Container *      */
 DECL|field|DOCKER_BEFORE
 specifier|public
 specifier|static
@@ -348,7 +348,7 @@ name|DOCKER_SINCE
 init|=
 literal|"CamelDockerSince"
 decl_stmt|;
-comment|/** Remove Container **/
+comment|/**      * Remove Container *      */
 DECL|field|DOCKER_REMOVE_VOLUMES
 specifier|public
 specifier|static
@@ -358,7 +358,7 @@ name|DOCKER_REMOVE_VOLUMES
 init|=
 literal|"CamelDockerRemoveVolumes"
 decl_stmt|;
-comment|/** Attach Container **/
+comment|/**      * Attach Container *      */
 DECL|field|DOCKER_FOLLOW_STREAM
 specifier|public
 specifier|static
@@ -404,7 +404,7 @@ name|DOCKER_TIMESTAMPS
 init|=
 literal|"CamelDockerTimestamps"
 decl_stmt|;
-comment|/** Logs **/
+comment|/**      * Logs *      */
 DECL|field|DOCKER_TAIL
 specifier|public
 specifier|static
@@ -423,7 +423,7 @@ name|DOCKER_TAIL_ALL
 init|=
 literal|"CamelDockerTailAll"
 decl_stmt|;
-comment|/** Copy **/
+comment|/**      * Copy *      */
 DECL|field|DOCKER_HOST_PATH
 specifier|public
 specifier|static
@@ -442,7 +442,7 @@ name|DOCKER_RESOURCE
 init|=
 literal|"CamelDockerResource"
 decl_stmt|;
-comment|/** Diff Container **/
+comment|/**      * Diff Container *      */
 DECL|field|DOCKER_CONTAINER_ID_DIFF
 specifier|public
 specifier|static
@@ -452,7 +452,7 @@ name|DOCKER_CONTAINER_ID_DIFF
 init|=
 literal|"CamelDockerContainerIdDiff"
 decl_stmt|;
-comment|/** Stop Container **/
+comment|/**      * Stop Container *      */
 DECL|field|DOCKER_TIMEOUT
 specifier|public
 specifier|static
@@ -462,7 +462,7 @@ name|DOCKER_TIMEOUT
 init|=
 literal|"CamelDockerTimeout"
 decl_stmt|;
-comment|/** Kill Container **/
+comment|/**      * Kill Container *      */
 DECL|field|DOCKER_SIGNAL
 specifier|public
 specifier|static
@@ -472,7 +472,7 @@ name|DOCKER_SIGNAL
 init|=
 literal|"CamelDockerSignal"
 decl_stmt|;
-comment|/** Top Container **/
+comment|/**      * Top Container *      */
 DECL|field|DOCKER_PS_ARGS
 specifier|public
 specifier|static
@@ -482,7 +482,7 @@ name|DOCKER_PS_ARGS
 init|=
 literal|"CamelDockerPsArgs"
 decl_stmt|;
-comment|/** Build Image **/
+comment|/**      * Build Image *      */
 DECL|field|DOCKER_NO_CACHE
 specifier|public
 specifier|static
@@ -519,7 +519,7 @@ name|DOCKER_TAR_INPUT_STREAM
 init|=
 literal|"CamelDockerTarInputStream"
 decl_stmt|;
-comment|/** Commit Container **/
+comment|/**      * Commit Container *      */
 DECL|field|DOCKER_ATTACH_STD_ERR
 specifier|public
 specifier|static
@@ -709,7 +709,7 @@ name|DOCKER_WORKING_DIR
 init|=
 literal|"CamelDockerWorkingDir"
 decl_stmt|;
-comment|/** Create Container **/
+comment|/**      * Create Container *      */
 DECL|field|DOCKER_CPU_SHARES
 specifier|public
 specifier|static
@@ -782,7 +782,7 @@ name|DOCKER_VOLUMES_FROM
 init|=
 literal|"CamelDockerVolumesFrom"
 decl_stmt|;
-comment|/** Start Container **/
+comment|/**      * Start Container *      */
 DECL|field|DOCKER_BINDS
 specifier|public
 specifier|static
@@ -900,7 +900,7 @@ name|DOCKER_RESTART_POLICY
 init|=
 literal|"CamelDockerRestartPolicy"
 decl_stmt|;
-comment|/** Exec **/
+comment|/**      * Exec *      */
 DECL|field|DOCKER_DETACH
 specifier|public
 specifier|static
