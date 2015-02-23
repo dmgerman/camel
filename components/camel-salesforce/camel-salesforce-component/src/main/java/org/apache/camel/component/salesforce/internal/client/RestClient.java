@@ -34,6 +34,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -298,6 +308,32 @@ name|search
 parameter_list|(
 name|String
 name|soslQuery
+parameter_list|,
+name|ResponseCallback
+name|callback
+parameter_list|)
+function_decl|;
+comment|/**      * Executes a user defined APEX REST API call.      *      * @param httpMethod    HTTP method to execute.      * @param apexUrl       APEX api url.      * @param queryParams   optional query parameters for GET methods, may be empty.      * @param requestDto    optional input DTO for POST, etc. may be null.      * @param callback      {@link ResponseCallback} to handle response or exception      */
+DECL|method|apexCall (String httpMethod, String apexUrl, Map<String, Object> queryParams, InputStream requestDto, ResponseCallback callback)
+name|void
+name|apexCall
+parameter_list|(
+name|String
+name|httpMethod
+parameter_list|,
+name|String
+name|apexUrl
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|queryParams
+parameter_list|,
+name|InputStream
+name|requestDto
 parameter_list|,
 name|ResponseCallback
 name|callback

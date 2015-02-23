@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.salesforce.internal.dto
+DECL|package|org.apache.camel.component.salesforce.api.dto
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|salesforce
 operator|.
-name|internal
+name|api
 operator|.
 name|dto
 package|;
@@ -50,42 +50,57 @@ name|JsonValue
 import|;
 end_import
 
-begin_comment
-comment|/**  * Salesforce Enumeration DTO for picklist NotifyForFields  */
-end_comment
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|jackson
+operator|.
+name|map
+operator|.
+name|annotate
+operator|.
+name|JsonDeserialize
+import|;
+end_import
 
 begin_enum
-DECL|enum|NotifyForFieldsEnum
+annotation|@
+name|JsonDeserialize
+DECL|enum|ActionOverrideTypeEnum
 specifier|public
 enum|enum
-name|NotifyForFieldsEnum
+name|ActionOverrideTypeEnum
 block|{
-comment|// All
-DECL|enumConstant|ALL
-name|ALL
+comment|// The override uses a custom override provided by an installed package.
+comment|// If there isnât one available, the standard Salesforce behavior is used.
+DECL|enumConstant|DEFAULT
+name|DEFAULT
 argument_list|(
-literal|"All"
+literal|"default"
 argument_list|)
 block|,
-comment|// Referenced
-DECL|enumConstant|REFERENCED
-name|REFERENCED
+comment|// The override uses behavior from an s-control.
+DECL|enumConstant|SCONTROL
+name|SCONTROL
 argument_list|(
-literal|"Referenced"
+literal|"scontrol"
 argument_list|)
 block|,
-comment|// Select
-DECL|enumConstant|SELECT
-name|SELECT
+comment|// The override uses regular Salesforce behavior.
+DECL|enumConstant|STANDARD
+name|STANDARD
 argument_list|(
-literal|"Select"
+literal|"standard"
 argument_list|)
 block|,
-comment|// Where
-DECL|enumConstant|WHERE
-name|WHERE
+comment|// The override uses behavior from a Visualforce page.
+DECL|enumConstant|VISUALFORCE
+name|VISUALFORCE
 argument_list|(
-literal|"Where"
+literal|"visualforce"
 argument_list|)
 block|;
 DECL|field|value
@@ -93,9 +108,9 @@ specifier|final
 name|String
 name|value
 decl_stmt|;
-DECL|method|NotifyForFieldsEnum (String value)
+DECL|method|ActionOverrideTypeEnum (String value)
 specifier|private
-name|NotifyForFieldsEnum
+name|ActionOverrideTypeEnum
 parameter_list|(
 name|String
 name|value
@@ -127,7 +142,7 @@ name|JsonCreator
 DECL|method|fromValue (String value)
 specifier|public
 specifier|static
-name|NotifyForFieldsEnum
+name|ActionOverrideTypeEnum
 name|fromValue
 parameter_list|(
 name|String
@@ -136,10 +151,10 @@ parameter_list|)
 block|{
 for|for
 control|(
-name|NotifyForFieldsEnum
+name|ActionOverrideTypeEnum
 name|e
 range|:
-name|NotifyForFieldsEnum
+name|ActionOverrideTypeEnum
 operator|.
 name|values
 argument_list|()

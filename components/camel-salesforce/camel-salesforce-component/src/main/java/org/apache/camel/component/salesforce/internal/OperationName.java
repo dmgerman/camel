@@ -123,6 +123,12 @@ argument_list|(
 literal|"search"
 argument_list|)
 block|,
+DECL|enumConstant|APEX_CALL
+name|APEX_CALL
+argument_list|(
+literal|"apexCall"
+argument_list|)
+block|,
 comment|// bulk API
 DECL|enumConstant|CREATE_JOB
 name|CREATE_JOB

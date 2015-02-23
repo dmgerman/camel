@@ -475,9 +475,12 @@ throws|throws
 name|Exception
 block|{
 comment|// test topic subscription
+comment|//from("salesforce:CamelTestTopic?notifyForFields=ALL&notifyForOperations=ALL&"
 name|from
 argument_list|(
-literal|"salesforce:CamelTestTopic?notifyForFields=ALL&notifyForOperations=ALL&"
+literal|"salesforce:CamelTestTopic?notifyForFields=ALL&"
+operator|+
+literal|"notifyForOperationCreate=true&notifyForOperationDelete=true&notifyForOperationUpdate=true&"
 operator|+
 literal|"sObjectName=Merchandise__c&"
 operator|+

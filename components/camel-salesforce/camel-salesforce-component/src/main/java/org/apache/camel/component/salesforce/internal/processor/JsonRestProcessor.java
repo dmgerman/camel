@@ -158,7 +158,7 @@ name|api
 operator|.
 name|dto
 operator|.
-name|AbstractSObjectBase
+name|AbstractDTOBase
 import|;
 end_import
 
@@ -637,26 +637,26 @@ operator|==
 literal|null
 condition|)
 block|{
-name|AbstractSObjectBase
-name|sObject
+name|AbstractDTOBase
+name|dto
 init|=
 name|in
 operator|.
 name|getBody
 argument_list|(
-name|AbstractSObjectBase
+name|AbstractDTOBase
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|sObject
+name|dto
 operator|!=
 literal|null
 condition|)
 block|{
-comment|// marshall the SObject
+comment|// marshall the DTO
 name|ByteArrayOutputStream
 name|out
 init|=
@@ -670,7 +670,7 @@ name|writeValue
 argument_list|(
 name|out
 argument_list|,
-name|sObject
+name|dto
 argument_list|)
 expr_stmt|;
 name|request

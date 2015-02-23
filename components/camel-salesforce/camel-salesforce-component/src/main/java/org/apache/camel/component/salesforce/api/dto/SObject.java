@@ -150,6 +150,11 @@ specifier|private
 name|Boolean
 name|triggerable
 decl_stmt|;
+DECL|field|compactLayoutable
+specifier|private
+name|Boolean
+name|compactLayoutable
+decl_stmt|;
 DECL|method|getName ()
 specifier|public
 name|String
@@ -772,6 +777,32 @@ operator|.
 name|triggerable
 operator|=
 name|triggerable
+expr_stmt|;
+block|}
+DECL|method|getCompactLayoutable ()
+specifier|public
+name|Boolean
+name|getCompactLayoutable
+parameter_list|()
+block|{
+return|return
+name|compactLayoutable
+return|;
+block|}
+DECL|method|setCompactLayoutable (Boolean compactLayoutable)
+specifier|public
+name|void
+name|setCompactLayoutable
+parameter_list|(
+name|Boolean
+name|compactLayoutable
+parameter_list|)
+block|{
+name|this
+operator|.
+name|compactLayoutable
+operator|=
+name|compactLayoutable
 expr_stmt|;
 block|}
 block|}

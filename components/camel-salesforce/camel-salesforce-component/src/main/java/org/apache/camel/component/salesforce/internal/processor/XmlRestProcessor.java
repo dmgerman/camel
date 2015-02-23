@@ -300,7 +300,7 @@ name|api
 operator|.
 name|dto
 operator|.
-name|AbstractSObjectBase
+name|AbstractDTOBase
 import|;
 end_import
 
@@ -843,6 +843,20 @@ name|class
 argument_list|)
 expr_stmt|;
 break|break;
+case|case
+name|APEX_CALL
+case|:
+comment|// need to add alias for Salesforce XML that uses SObject name as root element
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|RESPONSE_ALIAS
+argument_list|,
+literal|"response"
+argument_list|)
+expr_stmt|;
+break|break;
 default|default:
 comment|// ignore, some operations do not require alias or class exchange properties
 block|}
@@ -897,32 +911,32 @@ operator|==
 literal|null
 condition|)
 block|{
-name|AbstractSObjectBase
-name|sObject
+name|AbstractDTOBase
+name|dto
 init|=
 name|in
 operator|.
 name|getBody
 argument_list|(
-name|AbstractSObjectBase
+name|AbstractDTOBase
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|sObject
+name|dto
 operator|!=
 literal|null
 condition|)
 block|{
-comment|// marshall the SObject
+comment|// marshall the DTO
 comment|// first process annotations on the class, for things like alias, etc.
 name|localXStream
 operator|.
 name|processAnnotations
 argument_list|(
-name|sObject
+name|dto
 operator|.
 name|getClass
 argument_list|()
@@ -940,7 +954,7 @@ name|localXStream
 operator|.
 name|toXML
 argument_list|(
-name|sObject
+name|dto
 argument_list|,
 operator|new
 name|OutputStreamWriter

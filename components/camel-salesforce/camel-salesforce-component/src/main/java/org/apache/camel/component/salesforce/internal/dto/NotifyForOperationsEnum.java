@@ -60,28 +60,32 @@ specifier|public
 enum|enum
 name|NotifyForOperationsEnum
 block|{
-DECL|enumConstant|CREATE
-name|CREATE
-argument_list|(
-literal|"Create"
-argument_list|)
-block|,
-DECL|enumConstant|UPDATE
-name|UPDATE
-argument_list|(
-literal|"Update"
-argument_list|)
-block|,
+comment|// All
 DECL|enumConstant|ALL
 name|ALL
 argument_list|(
 literal|"All"
 argument_list|)
 block|,
+comment|// Create
+DECL|enumConstant|CREATE
+name|CREATE
+argument_list|(
+literal|"Create"
+argument_list|)
+block|,
+comment|// Extended
 DECL|enumConstant|EXTENDED
 name|EXTENDED
 argument_list|(
 literal|"Extended"
+argument_list|)
+block|,
+comment|// Update
+DECL|enumConstant|UPDATE
+name|UPDATE
+argument_list|(
+literal|"Update"
 argument_list|)
 block|;
 DECL|field|value
