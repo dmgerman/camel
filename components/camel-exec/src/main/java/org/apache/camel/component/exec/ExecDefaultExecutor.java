@@ -147,13 +147,9 @@ condition|(
 name|process
 operator|!=
 literal|null
-operator|&&
-operator|!
-name|process
-operator|.
-name|isAlive
-argument_list|()
 condition|)
+block|{
+try|try
 block|{
 return|return
 name|process
@@ -161,6 +157,15 @@ operator|.
 name|exitValue
 argument_list|()
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalThreadStateException
+name|e
+parameter_list|)
+block|{
+comment|// ignore the process is alive
+block|}
 block|}
 return|return
 literal|0
