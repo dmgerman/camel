@@ -166,6 +166,8 @@ literal|"UTF-8"
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|String
 name|line
 init|=
@@ -196,6 +198,9 @@ argument_list|,
 name|line
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|reader
 operator|.
 name|close
@@ -206,6 +211,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|testToInputStreamFileWithCharsetLatin1 ()
 specifier|public
@@ -268,6 +274,8 @@ literal|"ISO-8859-1"
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|String
 name|line
 init|=
@@ -298,6 +306,9 @@ argument_list|,
 name|line
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|reader
 operator|.
 name|close
@@ -308,6 +319,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|testToInputStreamFileDirectByteDumpWithCharsetLatin1 ()
 specifier|public
@@ -347,6 +359,8 @@ argument_list|(
 name|file
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|byte
 index|[]
 name|bytes
@@ -395,6 +409,9 @@ name|bytes
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|in
 operator|.
 name|close
@@ -405,6 +422,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|testToReaderFileWithCharsetUTF8 ()
 specifier|public
@@ -454,6 +472,8 @@ literal|"UTF-8"
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|String
 name|line
 init|=
@@ -484,6 +504,9 @@ argument_list|,
 name|line
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|reader
 operator|.
 name|close
@@ -494,6 +517,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|testToReaderFileWithCharsetLatin1 ()
 specifier|public
@@ -543,6 +567,8 @@ literal|"ISO-8859-1"
 argument_list|)
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|String
 name|line
 init|=
@@ -573,6 +599,9 @@ argument_list|,
 name|line
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 name|reader
 operator|.
 name|close
@@ -583,6 +612,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
