@@ -1131,8 +1131,8 @@ block|}
 block|}
 DECL|class|AbstractTestProcessor
 specifier|private
-specifier|static
 specifier|abstract
+specifier|static
 class|class
 name|AbstractTestProcessor
 implements|implements
