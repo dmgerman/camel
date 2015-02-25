@@ -174,6 +174,17 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
+name|expectedHeaderReceived
+argument_list|(
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"/sub/hello.txt"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
 name|expectedFileExists
 argument_list|(
 name|FTP_ROOT_DIR
