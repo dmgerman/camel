@@ -183,6 +183,13 @@ name|getSSLContext
 argument_list|()
 argument_list|,
 literal|false
+argument_list|,
+operator|new
+name|String
+index|[]
+block|{
+literal|"TLSv1.2"
+block|}
 argument_list|)
 expr_stmt|;
 name|registerHandler
