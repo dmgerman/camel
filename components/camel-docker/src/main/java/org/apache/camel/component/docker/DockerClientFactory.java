@@ -196,15 +196,18 @@ specifier|private
 name|DockerClientFactory
 parameter_list|()
 block|{
-comment|//Helper class
+comment|// Helper class
 block|}
 comment|/**      * Produces a {@link DockerClient} to communicate with Docker      */
-DECL|method|getDockerClient (DockerConfiguration dockerConfiguration, Message message)
+DECL|method|getDockerClient (DockerComponent dockerComponent, DockerConfiguration dockerConfiguration, Message message)
 specifier|public
 specifier|static
 name|DockerClient
 name|getDockerClient
 parameter_list|(
+name|DockerComponent
+name|dockerComponent
+parameter_list|,
 name|DockerConfiguration
 name|dockerConfiguration
 parameter_list|,
@@ -224,40 +227,12 @@ literal|"dockerConfiguration"
 argument_list|)
 expr_stmt|;
 name|DockerClientProfile
-name|endpointClientProfile
+name|clientProfile
 init|=
-name|dockerConfiguration
-operator|.
-name|getClientProfile
-argument_list|()
-decl_stmt|;
-name|DockerClientProfile
-name|clientProfile
-decl_stmt|;
-name|DockerClient
-name|client
-decl_stmt|;
-comment|// Check if profile is specified in configuration
-if|if
-condition|(
-name|endpointClientProfile
-operator|!=
-literal|null
-condition|)
-block|{
-name|clientProfile
-operator|=
-name|endpointClientProfile
-expr_stmt|;
-block|}
-else|else
-block|{
-name|clientProfile
-operator|=
 operator|new
 name|DockerClientProfile
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|Integer
 name|port
 init|=
@@ -277,7 +252,7 @@ name|Integer
 operator|.
 name|class
 argument_list|,
-name|clientProfile
+name|dockerConfiguration
 operator|.
 name|getPort
 argument_list|()
@@ -302,7 +277,7 @@ name|String
 operator|.
 name|class
 argument_list|,
-name|clientProfile
+name|dockerConfiguration
 operator|.
 name|getHost
 argument_list|()
@@ -327,7 +302,7 @@ name|Integer
 operator|.
 name|class
 argument_list|,
-name|clientProfile
+name|dockerConfiguration
 operator|.
 name|getMaxTotalConnections
 argument_list|()
@@ -352,7 +327,7 @@ name|Integer
 operator|.
 name|class
 argument_list|,
-name|clientProfile
+name|dockerConfiguration
 operator|.
 name|getMaxPerRouteConnections
 argument_list|()
@@ -377,7 +352,7 @@ name|String
 operator|.
 name|class
 argument_list|,
-name|clientProfile
+name|dockerConfiguration
 operator|.
 name|getUsername
 argument_list|()
@@ -402,7 +377,7 @@ name|String
 operator|.
 name|class
 argument_list|,
-name|clientProfile
+name|dockerConfiguration
 operator|.
 name|getPassword
 argument_list|()
@@ -427,7 +402,7 @@ name|String
 operator|.
 name|class
 argument_list|,
-name|clientProfile
+name|dockerConfiguration
 operator|.
 name|getEmail
 argument_list|()
@@ -452,7 +427,7 @@ name|Integer
 operator|.
 name|class
 argument_list|,
-name|clientProfile
+name|dockerConfiguration
 operator|.
 name|getRequestTimeout
 argument_list|()
@@ -477,7 +452,7 @@ name|String
 operator|.
 name|class
 argument_list|,
-name|clientProfile
+name|dockerConfiguration
 operator|.
 name|getServerAddress
 argument_list|()
@@ -502,7 +477,7 @@ name|String
 operator|.
 name|class
 argument_list|,
-name|clientProfile
+name|dockerConfiguration
 operator|.
 name|getCertPath
 argument_list|()
@@ -527,7 +502,7 @@ name|Boolean
 operator|.
 name|class
 argument_list|,
-name|clientProfile
+name|dockerConfiguration
 operator|.
 name|isSecure
 argument_list|()
@@ -610,16 +585,16 @@ argument_list|(
 name|secure
 argument_list|)
 expr_stmt|;
-block|}
+name|DockerClient
 name|client
-operator|=
-name|dockerConfiguration
+init|=
+name|dockerComponent
 operator|.
 name|getClient
 argument_list|(
 name|clientProfile
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|client
@@ -817,7 +792,7 @@ operator|.
 name|build
 argument_list|()
 expr_stmt|;
-name|dockerConfiguration
+name|dockerComponent
 operator|.
 name|setClient
 argument_list|(
