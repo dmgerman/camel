@@ -181,6 +181,8 @@ return|return
 name|name
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -192,6 +194,28 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// store any existing file header which we want to keep and propagate
+specifier|final
+name|String
+name|existing
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|// create the target file name
 name|String
 name|target
 init|=
@@ -200,6 +224,8 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 name|processExchange
 argument_list|(
 name|exchange
@@ -207,6 +233,38 @@ argument_list|,
 name|target
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// remove the write file name header as we only want to use it once (by design)
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|Exchange
+operator|.
+name|OVERRULE_FILE_NAME
+argument_list|)
+expr_stmt|;
+comment|// and restore existing file name
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+name|existing
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|getOperations ()
 specifier|protected
