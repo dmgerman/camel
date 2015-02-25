@@ -21,9 +21,17 @@ end_package
 begin_class
 DECL|class|StringHelper
 specifier|public
+specifier|final
 class|class
 name|StringHelper
 block|{
+DECL|method|StringHelper ()
+specifier|private
+name|StringHelper
+parameter_list|()
+block|{
+comment|// Utils Class
+block|}
 DECL|method|after (String text, String after)
 specifier|public
 specifier|static
