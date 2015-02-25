@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|github
-operator|.
-name|dockerjava
-operator|.
-name|api
-operator|.
-name|DockerClient
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -49,6 +35,20 @@ operator|.
 name|util
 operator|.
 name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|github
+operator|.
+name|dockerjava
+operator|.
+name|api
+operator|.
+name|DockerClient
 import|;
 end_import
 
@@ -112,6 +112,10 @@ DECL|field|configuration
 specifier|private
 name|DockerConfiguration
 name|configuration
+init|=
+operator|new
+name|DockerConfiguration
+argument_list|()
 decl_stmt|;
 DECL|field|clients
 specifier|private
@@ -136,7 +140,7 @@ DECL|method|DockerComponent ()
 specifier|public
 name|DockerComponent
 parameter_list|()
-block|{      }
+block|{     }
 DECL|method|DockerComponent (DockerConfiguration configuration)
 specifier|public
 name|DockerComponent
@@ -274,26 +278,28 @@ return|return
 name|endpoint
 return|;
 block|}
+DECL|method|setConfiguration (DockerConfiguration configuration)
+specifier|public
+name|void
+name|setConfiguration
+parameter_list|(
+name|DockerConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
+block|}
 DECL|method|getConfiguration ()
 specifier|protected
 name|DockerConfiguration
 name|getConfiguration
 parameter_list|()
 block|{
-if|if
-condition|(
-name|configuration
-operator|==
-literal|null
-condition|)
-block|{
-name|configuration
-operator|=
-operator|new
-name|DockerConfiguration
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 name|configuration
 return|;
