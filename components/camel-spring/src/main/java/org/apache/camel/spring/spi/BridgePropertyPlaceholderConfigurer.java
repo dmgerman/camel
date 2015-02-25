@@ -1103,6 +1103,7 @@ block|}
 block|}
 DECL|class|BridgePropertiesParser
 specifier|private
+specifier|final
 class|class
 name|BridgePropertiesParser
 implements|implements
