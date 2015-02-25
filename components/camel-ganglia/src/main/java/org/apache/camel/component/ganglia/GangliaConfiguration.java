@@ -351,8 +351,6 @@ DECL|field|prefix
 specifier|private
 name|String
 name|prefix
-init|=
-literal|null
 decl_stmt|;
 annotation|@
 name|UriParam
