@@ -134,6 +134,7 @@ argument_list|,
 literal|"UTF-8"
 argument_list|)
 decl_stmt|;
+comment|// need to specify the encoding of the input stream bytes
 name|BufferedReader
 name|reader
 init|=
@@ -144,6 +145,8 @@ operator|new
 name|InputStreamReader
 argument_list|(
 name|in
+argument_list|,
+literal|"UTF-8"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -242,6 +245,7 @@ argument_list|,
 literal|"ISO-8859-1"
 argument_list|)
 decl_stmt|;
+comment|// need to specify the encoding of the input stream bytes
 name|BufferedReader
 name|reader
 init|=
@@ -252,6 +256,8 @@ operator|new
 name|InputStreamReader
 argument_list|(
 name|in
+argument_list|,
+literal|"UTF-8"
 argument_list|)
 argument_list|)
 decl_stmt|;
