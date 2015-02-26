@@ -1117,9 +1117,6 @@ operator|.
 name|headers
 argument_list|()
 operator|.
-name|names
-argument_list|()
-operator|.
 name|contains
 argument_list|(
 name|HttpHeaders
