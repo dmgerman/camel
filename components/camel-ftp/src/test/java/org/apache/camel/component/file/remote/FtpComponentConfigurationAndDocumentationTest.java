@@ -201,7 +201,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"host\": { \"kind\": \"path\", \"type\": \"string\""
+literal|"\"host\": { \"kind\": \"path\", \"required\": \"true\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;

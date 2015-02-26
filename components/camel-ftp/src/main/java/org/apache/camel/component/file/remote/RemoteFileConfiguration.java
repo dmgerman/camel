@@ -56,6 +56,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriParam
 import|;
 end_import
@@ -124,6 +138,13 @@ name|protocol
 decl_stmt|;
 annotation|@
 name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|host
 specifier|private
 name|String
@@ -135,6 +156,18 @@ DECL|field|port
 specifier|private
 name|int
 name|port
+decl_stmt|;
+annotation|@
+name|UriPath
+argument_list|(
+name|name
+operator|=
+literal|"directoryName"
+argument_list|)
+DECL|field|directoryName
+specifier|private
+name|String
+name|directoryName
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -152,11 +185,6 @@ name|password
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|binary
 specifier|private
 name|boolean
@@ -164,11 +192,6 @@ name|binary
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|passiveMode
 specifier|private
 name|boolean
@@ -211,11 +234,6 @@ name|soTimeout
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|throwExceptionOnConnectFailed
 specifier|private
 name|boolean
@@ -260,11 +278,6 @@ name|Auto
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|streamDownload
 specifier|private
 name|boolean
@@ -286,11 +299,6 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|ignoreFileNotFoundOrPermissionError
 specifier|private
 name|boolean
@@ -500,6 +508,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * Hostname of the FTP server      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -526,6 +535,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * Port of the FTP server      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -561,6 +571,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * Password to use for login      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -587,6 +598,7 @@ return|return
 name|protocol
 return|;
 block|}
+comment|/**      * The ftp protocol to use      */
 DECL|method|setProtocol (String protocol)
 specifier|public
 name|void
@@ -613,6 +625,7 @@ return|return
 name|username
 return|;
 block|}
+comment|/**      * Username to use for login      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -627,6 +640,33 @@ operator|.
 name|username
 operator|=
 name|username
+expr_stmt|;
+block|}
+DECL|method|getDirectoryName ()
+specifier|public
+name|String
+name|getDirectoryName
+parameter_list|()
+block|{
+return|return
+name|directoryName
+return|;
+block|}
+comment|/**      * The starting directory      */
+DECL|method|setDirectoryName (String directoryName)
+specifier|public
+name|void
+name|setDirectoryName
+parameter_list|(
+name|String
+name|directoryName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|directoryName
+operator|=
+name|directoryName
 expr_stmt|;
 block|}
 DECL|method|isBinary ()
