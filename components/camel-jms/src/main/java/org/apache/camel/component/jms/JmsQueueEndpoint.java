@@ -243,6 +243,11 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+name|setDestinationType
+argument_list|(
+literal|"queue"
+argument_list|)
+expr_stmt|;
 name|setDestination
 argument_list|(
 name|destination
@@ -279,6 +284,11 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+name|setDestinationType
+argument_list|(
+literal|"queue"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|JmsQueueEndpoint (String uri, JmsComponent component, String destination, JmsConfiguration configuration, QueueBrowseStrategy queueBrowseStrategy)
 specifier|public
@@ -311,6 +321,11 @@ argument_list|,
 literal|false
 argument_list|,
 name|configuration
+argument_list|)
+expr_stmt|;
+name|setDestinationType
+argument_list|(
+literal|"queue"
 argument_list|)
 expr_stmt|;
 if|if
@@ -361,6 +376,11 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+name|setDestinationType
+argument_list|(
+literal|"queue"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|queueBrowseStrategy
@@ -404,6 +424,11 @@ argument_list|,
 name|destination
 argument_list|,
 literal|false
+argument_list|)
+expr_stmt|;
+name|setDestinationType
+argument_list|(
+literal|"queue"
 argument_list|)
 expr_stmt|;
 name|queueBrowseStrategy

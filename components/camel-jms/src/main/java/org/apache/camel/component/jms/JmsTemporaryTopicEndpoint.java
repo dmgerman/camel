@@ -126,6 +126,11 @@ argument_list|,
 name|destination
 argument_list|)
 expr_stmt|;
+name|setDestinationType
+argument_list|(
+literal|"temp:topic"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|JmsTemporaryTopicEndpoint (TemporaryTopic jmsDestination)
 specifier|public
@@ -154,6 +159,11 @@ operator|.
 name|jmsDestination
 operator|=
 name|jmsDestination
+expr_stmt|;
+name|setDestinationType
+argument_list|(
+literal|"temp:topic"
+argument_list|)
 expr_stmt|;
 name|setDestination
 argument_list|(

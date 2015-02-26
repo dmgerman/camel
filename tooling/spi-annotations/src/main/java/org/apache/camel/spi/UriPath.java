@@ -112,6 +112,22 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * The default value of the parameter.      *<p/>      * Note that this attribute is only for documentation purpose. The default value in use at runtime is the value the Java field was assigned.      */
+DECL|method|defaultValue ()
+name|String
+name|defaultValue
+parameter_list|()
+default|default
+literal|""
+function_decl|;
+comment|/**      * A special note about the default value.      *<p/>      * This can be used to document special cases about the default value.      */
+DECL|method|defaultValueNote ()
+name|String
+name|defaultValueNote
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 comment|/**      * Returns a description of this uri path      *<p/>      * This is used for documentation and tooling only.      */
 DECL|method|description ()
 name|String

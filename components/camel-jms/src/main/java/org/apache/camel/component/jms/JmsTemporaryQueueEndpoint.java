@@ -105,6 +105,11 @@ argument_list|,
 name|configuration
 argument_list|)
 expr_stmt|;
+name|setDestinationType
+argument_list|(
+literal|"temp:queue"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|JmsTemporaryQueueEndpoint (String uri, JmsComponent component, String destination, JmsConfiguration configuration, QueueBrowseStrategy queueBrowseStrategy)
 specifier|public
@@ -139,6 +144,11 @@ argument_list|,
 name|queueBrowseStrategy
 argument_list|)
 expr_stmt|;
+name|setDestinationType
+argument_list|(
+literal|"temp:queue"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|JmsTemporaryQueueEndpoint (String endpointUri, String destination)
 specifier|public
@@ -156,6 +166,11 @@ argument_list|(
 name|endpointUri
 argument_list|,
 name|destination
+argument_list|)
+expr_stmt|;
+name|setDestinationType
+argument_list|(
+literal|"temp:queue"
 argument_list|)
 expr_stmt|;
 block|}
@@ -179,6 +194,11 @@ name|getQueueName
 argument_list|()
 argument_list|,
 literal|null
+argument_list|)
+expr_stmt|;
+name|setDestinationType
+argument_list|(
+literal|"temp:queue"
 argument_list|)
 expr_stmt|;
 name|this
