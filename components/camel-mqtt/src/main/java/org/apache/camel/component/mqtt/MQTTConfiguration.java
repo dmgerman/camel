@@ -424,6 +424,15 @@ literal|""
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|subscribeTopicNames
+specifier|private
+name|String
+name|subscribeTopicNames
+init|=
+literal|""
+decl_stmt|;
+annotation|@
+name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
@@ -582,6 +591,32 @@ operator|.
 name|subscribeTopicName
 operator|=
 name|subscribeTopicName
+expr_stmt|;
+block|}
+DECL|method|getSubscribeTopicNames ()
+specifier|public
+name|String
+name|getSubscribeTopicNames
+parameter_list|()
+block|{
+return|return
+name|subscribeTopicNames
+return|;
+block|}
+DECL|method|setSubscribeTopicNames (String subscribeTopicNames)
+specifier|public
+name|void
+name|setSubscribeTopicNames
+parameter_list|(
+name|String
+name|subscribeTopicNames
+parameter_list|)
+block|{
+name|this
+operator|.
+name|subscribeTopicNames
+operator|=
+name|subscribeTopicNames
 expr_stmt|;
 block|}
 DECL|method|getPublishTopicName ()
