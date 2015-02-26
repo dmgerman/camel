@@ -172,7 +172,7 @@ name|brokerService
 operator|.
 name|addConnector
 argument_list|(
-literal|"mqtt://localhost:1883"
+literal|"mqtt://127.0.0.1:1883"
 argument_list|)
 expr_stmt|;
 name|brokerService
