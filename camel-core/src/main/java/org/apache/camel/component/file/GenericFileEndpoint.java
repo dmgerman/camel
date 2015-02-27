@@ -1170,6 +1170,24 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"0"
+argument_list|)
+DECL|field|readLockMinAge
+specifier|protected
+name|long
+name|readLockMinAge
+init|=
+literal|0
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
 argument_list|)
 DECL|field|exclusiveReadLockStrategy
 specifier|protected
@@ -3970,6 +3988,32 @@ operator|=
 name|allowNullBody
 expr_stmt|;
 block|}
+DECL|method|getReadLockMinAge ()
+specifier|public
+name|long
+name|getReadLockMinAge
+parameter_list|()
+block|{
+return|return
+name|readLockMinAge
+return|;
+block|}
+DECL|method|setReadLockMinAge (long readLockMinAge)
+specifier|public
+name|void
+name|setReadLockMinAge
+parameter_list|(
+name|long
+name|readLockMinAge
+parameter_list|)
+block|{
+name|this
+operator|.
+name|readLockMinAge
+operator|=
+name|readLockMinAge
+expr_stmt|;
+block|}
 comment|/**      * Configures the given message with the file which sets the body to the      * file object.      */
 DECL|method|configureMessage (GenericFile<T> file, Message message)
 specifier|public
@@ -4462,6 +4506,15 @@ argument_list|,
 name|readLockLoggingLevel
 argument_list|)
 expr_stmt|;
+name|params
+operator|.
+name|put
+argument_list|(
+literal|"readLockMinAge"
+argument_list|,
+name|readLockMinAge
+argument_list|)
+expr_stmt|;
 return|return
 name|params
 return|;
@@ -4902,6 +4955,47 @@ name|readLockTimeout
 operator|>
 literal|0
 operator|&&
+name|readLockMinAge
+operator|>
+literal|0
+operator|&&
+name|readLockTimeout
+operator|<=
+name|readLockCheckInterval
+operator|+
+name|readLockMinAge
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"The option readLockTimeout must be higher than readLockCheckInterval + readLockMinAge"
+operator|+
+literal|", was readLockTimeout="
+operator|+
+name|readLockTimeout
+operator|+
+literal|", readLockCheckInterval+readLockMinAge="
+operator|+
+operator|(
+name|readLockCheckInterval
+operator|+
+name|readLockMinAge
+operator|)
+operator|+
+literal|". A good practice is to let the readLockTimeout be at least readLockMinAge + 2 times the readLockCheckInterval"
+operator|+
+literal|" to ensure that the read lock procedure has enough time to acquire the lock."
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|readLockTimeout
+operator|>
+literal|0
+operator|&&
 name|readLockTimeout
 operator|<=
 name|readLockCheckInterval
@@ -4921,9 +5015,9 @@ literal|", readLockCheckInterval="
 operator|+
 name|readLockCheckInterval
 operator|+
-literal|". A good practice is to let the readLockTimeout be at least 3 or more times higher than the readLockCheckInterval"
+literal|". A good practice is to let the readLockTimeout be at least 3 times higher than the readLockCheckInterval"
 operator|+
-literal|", to ensure the read lock procedure has amble times to run several times checks during acquiring the lock."
+literal|" to ensure that the read lock procedure has enough time to acquire the lock."
 argument_list|)
 throw|;
 block|}
