@@ -162,6 +162,10 @@ name|scheme
 operator|=
 literal|"docker"
 argument_list|,
+name|syntax
+operator|=
+literal|"docker:operation"
+argument_list|,
 name|consumerClass
 operator|=
 name|DockerEventsConsumer

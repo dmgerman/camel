@@ -268,6 +268,10 @@ name|scheme
 operator|=
 literal|"aws-sns"
 argument_list|,
+name|syntax
+operator|=
+literal|"aws-sns:topicName"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

@@ -122,6 +122,10 @@ name|scheme
 operator|=
 literal|"eventadmin"
 argument_list|,
+name|syntax
+operator|=
+literal|"eventadmin:topic"
+argument_list|,
 name|consumerClass
 operator|=
 name|EventAdminConsumer

@@ -166,6 +166,10 @@ name|scheme
 operator|=
 literal|"apns"
 argument_list|,
+name|syntax
+operator|=
+literal|"apns:name"
+argument_list|,
 name|consumerClass
 operator|=
 name|ApnsConsumer
@@ -204,7 +208,7 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"Name of the endpoint."
+literal|"Name of the endpoint"
 argument_list|)
 DECL|field|name
 specifier|private

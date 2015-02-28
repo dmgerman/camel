@@ -226,6 +226,10 @@ name|scheme
 operator|=
 literal|"aws-swf"
 argument_list|,
+name|syntax
+operator|=
+literal|"aws-swf:type"
+argument_list|,
 name|consumerClass
 operator|=
 name|SWFWorkflowConsumer

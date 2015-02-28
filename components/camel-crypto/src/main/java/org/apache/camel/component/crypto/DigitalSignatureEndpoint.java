@@ -196,6 +196,10 @@ name|scheme
 operator|=
 literal|"crypto"
 argument_list|,
+name|syntax
+operator|=
+literal|"crypto:cryptoOperation"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

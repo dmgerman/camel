@@ -214,6 +214,10 @@ name|scheme
 operator|=
 literal|"dozer"
 argument_list|,
+name|syntax
+operator|=
+literal|"dozer:name"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

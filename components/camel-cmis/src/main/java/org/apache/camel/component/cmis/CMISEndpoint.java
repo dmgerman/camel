@@ -108,6 +108,10 @@ name|scheme
 operator|=
 literal|"cmis"
 argument_list|,
+name|syntax
+operator|=
+literal|"cmis:url"
+argument_list|,
 name|consumerClass
 operator|=
 name|CMISConsumer
@@ -132,6 +136,8 @@ specifier|private
 name|CMISSessionFacade
 name|sessionFacade
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|queryMode
 specifier|private
 name|boolean
@@ -265,6 +271,16 @@ parameter_list|()
 block|{
 return|return
 literal|true
+return|;
+block|}
+DECL|method|isQueryMode ()
+specifier|public
+name|boolean
+name|isQueryMode
+parameter_list|()
+block|{
+return|return
+name|queryMode
 return|;
 block|}
 DECL|method|setQueryMode (boolean queryMode)

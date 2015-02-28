@@ -128,6 +128,10 @@ name|scheme
 operator|=
 literal|"sftp"
 argument_list|,
+name|syntax
+operator|=
+literal|"sftp:host:port/directoryName"
+argument_list|,
 name|consumerClass
 operator|=
 name|SftpConsumer

@@ -344,6 +344,10 @@ name|scheme
 operator|=
 literal|"aws-s3"
 argument_list|,
+name|syntax
+operator|=
+literal|"aws-s3:bucketName"
+argument_list|,
 name|consumerClass
 operator|=
 name|S3Consumer

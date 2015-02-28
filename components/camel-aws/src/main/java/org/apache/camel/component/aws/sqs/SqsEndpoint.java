@@ -438,6 +438,10 @@ name|scheme
 operator|=
 literal|"aws-sqs"
 argument_list|,
+name|syntax
+operator|=
+literal|"aws-sqs:queueName"
+argument_list|,
 name|consumerClass
 operator|=
 name|SqsConsumer

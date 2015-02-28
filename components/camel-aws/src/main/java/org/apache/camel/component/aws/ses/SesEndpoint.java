@@ -200,6 +200,10 @@ name|scheme
 operator|=
 literal|"aws-ses"
 argument_list|,
+name|syntax
+operator|=
+literal|"aws-ses:from"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

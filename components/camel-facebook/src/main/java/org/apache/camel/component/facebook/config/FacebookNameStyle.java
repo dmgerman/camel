@@ -41,7 +41,7 @@ block|,
 name|SEARCH
 block|,
 name|GET_AND_SEARCH
-block|;  }
+block|}
 end_enum
 
 end_unit

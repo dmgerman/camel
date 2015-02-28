@@ -200,6 +200,10 @@ name|scheme
 operator|=
 literal|"aws-cw"
 argument_list|,
+name|syntax
+operator|=
+literal|"aws-cw:namespace"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

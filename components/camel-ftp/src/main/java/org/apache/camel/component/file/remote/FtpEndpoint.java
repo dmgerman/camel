@@ -216,6 +216,10 @@ name|scheme
 operator|=
 literal|"ftp"
 argument_list|,
+name|syntax
+operator|=
+literal|"ftp:host:port/directoryName"
+argument_list|,
 name|consumerClass
 operator|=
 name|FtpConsumer

@@ -252,6 +252,10 @@ name|scheme
 operator|=
 literal|"cache"
 argument_list|,
+name|syntax
+operator|=
+literal|"cache:cacheName"
+argument_list|,
 name|consumerClass
 operator|=
 name|CacheConsumer

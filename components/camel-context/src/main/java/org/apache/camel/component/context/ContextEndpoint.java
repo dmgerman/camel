@@ -140,6 +140,10 @@ name|scheme
 operator|=
 literal|"context"
 argument_list|,
+name|syntax
+operator|=
+literal|"context:contextId:localEndpointUrl"
+argument_list|,
 name|label
 operator|=
 literal|"endpoint"

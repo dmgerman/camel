@@ -278,7 +278,7 @@ argument_list|()
 expr_stmt|;
 block|}
 name|URI
-name|enpointUri
+name|endpointUri
 init|=
 operator|new
 name|URI
@@ -295,7 +295,7 @@ name|applyToConfiguration
 argument_list|(
 name|config
 argument_list|,
-name|enpointUri
+name|endpointUri
 argument_list|,
 name|parameters
 argument_list|)
@@ -308,7 +308,7 @@ name|AVRO_NETTY_TRANSPORT
 operator|.
 name|equals
 argument_list|(
-name|enpointUri
+name|endpointUri
 operator|.
 name|getScheme
 argument_list|()
@@ -336,7 +336,7 @@ name|AVRO_HTTP_TRANSPORT
 operator|.
 name|equals
 argument_list|(
-name|enpointUri
+name|endpointUri
 operator|.
 name|getScheme
 argument_list|()

@@ -358,6 +358,10 @@ name|scheme
 operator|=
 literal|"aws-ddb"
 argument_list|,
+name|syntax
+operator|=
+literal|"aws-ddb:tableName"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

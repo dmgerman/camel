@@ -300,6 +300,10 @@ name|scheme
 operator|=
 literal|"box"
 argument_list|,
+name|syntax
+operator|=
+literal|"box:apiName/methodName"
+argument_list|,
 name|consumerClass
 operator|=
 name|BoxConsumer

@@ -246,6 +246,10 @@ name|scheme
 operator|=
 literal|"cql"
 argument_list|,
+name|syntax
+operator|=
+literal|"cql:beanRef:hosts:port/keyspace"
+argument_list|,
 name|consumerClass
 operator|=
 name|CassandraConsumer
@@ -271,6 +275,11 @@ name|sessionHolder
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"beanRef is defined using bean:id"
+argument_list|)
 DECL|field|beanRef
 specifier|private
 name|String

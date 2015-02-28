@@ -276,13 +276,13 @@ specifier|final
 name|FopFactory
 name|fopFactory
 decl_stmt|;
-DECL|field|remaining
+DECL|field|outputFormat
 specifier|private
 specifier|final
 name|String
-name|remaining
+name|outputFormat
 decl_stmt|;
-DECL|method|FopProducer (FopEndpoint endpoint, FopFactory fopFactory, String remaining)
+DECL|method|FopProducer (FopEndpoint endpoint, FopFactory fopFactory, String outputFormat)
 specifier|public
 name|FopProducer
 parameter_list|(
@@ -293,7 +293,7 @@ name|FopFactory
 name|fopFactory
 parameter_list|,
 name|String
-name|remaining
+name|outputFormat
 parameter_list|)
 block|{
 name|super
@@ -309,9 +309,9 @@ name|fopFactory
 expr_stmt|;
 name|this
 operator|.
-name|remaining
+name|outputFormat
 operator|=
-name|remaining
+name|outputFormat
 expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
@@ -445,7 +445,7 @@ name|CAMEL_FOP_OUTPUT_FORMAT
 argument_list|,
 name|this
 operator|.
-name|remaining
+name|outputFormat
 argument_list|,
 name|String
 operator|.

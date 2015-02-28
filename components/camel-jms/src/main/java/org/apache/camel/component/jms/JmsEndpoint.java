@@ -605,6 +605,10 @@ name|scheme
 operator|=
 literal|"jms"
 argument_list|,
+name|syntax
+operator|=
+literal|"jms:destinationType:destinationName"
+argument_list|,
 name|consumerClass
 operator|=
 name|JmsConsumer

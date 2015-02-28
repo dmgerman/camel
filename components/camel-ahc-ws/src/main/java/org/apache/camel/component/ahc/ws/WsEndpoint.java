@@ -294,6 +294,10 @@ name|scheme
 operator|=
 literal|"ahc-ws,ahc-wss"
 argument_list|,
+name|syntax
+operator|=
+literal|"ahc-ws:httpUri"
+argument_list|,
 name|consumerClass
 operator|=
 name|WsConsumer

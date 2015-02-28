@@ -268,6 +268,10 @@ name|scheme
 operator|=
 literal|"beanstalk"
 argument_list|,
+name|syntax
+operator|=
+literal|"beanstalk:connectionSettings"
+argument_list|,
 name|consumerClass
 operator|=
 name|BeanstalkConsumer

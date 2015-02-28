@@ -226,6 +226,10 @@ name|scheme
 operator|=
 literal|"ahc"
 argument_list|,
+name|syntax
+operator|=
+literal|"ahc:httpUri"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

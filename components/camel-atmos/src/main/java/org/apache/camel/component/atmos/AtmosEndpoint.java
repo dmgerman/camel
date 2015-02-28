@@ -300,6 +300,10 @@ name|scheme
 operator|=
 literal|"atmos"
 argument_list|,
+name|syntax
+operator|=
+literal|"atmos:name/operation"
+argument_list|,
 name|consumerClass
 operator|=
 name|AtmosScheduledPollConsumer

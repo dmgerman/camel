@@ -315,6 +315,10 @@ name|scheme
 operator|=
 literal|"disruptor,disruptor-vm"
 argument_list|,
+name|syntax
+operator|=
+literal|"disruptor:name"
+argument_list|,
 name|consumerClass
 operator|=
 name|DisruptorConsumer

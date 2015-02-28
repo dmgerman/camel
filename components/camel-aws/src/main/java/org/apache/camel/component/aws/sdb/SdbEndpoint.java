@@ -286,6 +286,10 @@ name|scheme
 operator|=
 literal|"aws-sdb"
 argument_list|,
+name|syntax
+operator|=
+literal|"aws-sdb:domainName"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

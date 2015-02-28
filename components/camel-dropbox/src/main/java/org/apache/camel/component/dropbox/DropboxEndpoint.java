@@ -340,6 +340,10 @@ name|scheme
 operator|=
 literal|"dropbox"
 argument_list|,
+name|syntax
+operator|=
+literal|"dropbox:operation"
+argument_list|,
 name|consumerClass
 operator|=
 name|DropboxScheduledPollConsumer
