@@ -176,6 +176,10 @@ name|scheme
 operator|=
 literal|"jmx"
 argument_list|,
+name|syntax
+operator|=
+literal|"jmx:serverURL"
+argument_list|,
 name|consumerOnly
 operator|=
 literal|true
@@ -320,11 +324,6 @@ decl_stmt|;
 comment|/**      * URI Property: [counter + gauge monitor only] If true, then the value reported in the notification is the difference from the threshold as opposed to the value itself.        */
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|differenceMode
 specifier|private
 name|boolean
@@ -333,11 +332,6 @@ decl_stmt|;
 comment|/**      * URI Property: [gauge monitor only] If true, the gauge will fire a notification when the high threshold is exceeded        */
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|notifyHigh
 specifier|private
 name|boolean
@@ -346,11 +340,6 @@ decl_stmt|;
 comment|/**      * URI Property: [gauge monitor only] If true, the gauge will fire a notification when the low threshold is exceeded        */
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|notifyLow
 specifier|private
 name|boolean
@@ -375,11 +364,6 @@ decl_stmt|;
 comment|/**      * URI Property: [string monitor only] If true, the string monitor will fire a notification when the string attribute differs from the string to compare.        */
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|notifyDiffer
 specifier|private
 name|boolean
@@ -388,11 +372,6 @@ decl_stmt|;
 comment|/**      * URI Property: [string monitor only] If true, the string monitor will fire a notification when the string attribute matches the string to compare.        */
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|notifyMatch
 specifier|private
 name|boolean
@@ -487,11 +466,6 @@ decl_stmt|;
 comment|/**      * URI Property:  If true the consumer will attempt to reconnect to the JMX server when any connection failure occurs.  The consumer will attempt      *                to re-establish the JMX connection every 'x' seconds until the connection is made-- where 'x' is the configured  reconnectionDelay      */
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|reconnectOnConnectionFailure
 specifier|private
 name|boolean

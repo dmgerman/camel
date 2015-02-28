@@ -284,6 +284,10 @@ name|scheme
 operator|=
 literal|"mustache"
 argument_list|,
+name|syntax
+operator|=
+literal|"mustache:resourceUri"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

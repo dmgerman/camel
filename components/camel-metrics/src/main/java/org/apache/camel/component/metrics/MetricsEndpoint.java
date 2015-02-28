@@ -114,6 +114,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -154,6 +168,10 @@ name|scheme
 operator|=
 literal|"metrics"
 argument_list|,
+name|syntax
+operator|=
+literal|"metrics:metricsType:metricsName"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true
@@ -182,6 +200,13 @@ name|description
 operator|=
 literal|"Type of metrics"
 argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|metricsType
 specifier|protected
 specifier|final
@@ -194,6 +219,13 @@ argument_list|(
 name|description
 operator|=
 literal|"Name of metrics"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
 argument_list|)
 DECL|field|metricsName
 specifier|protected

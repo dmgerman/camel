@@ -238,6 +238,10 @@ name|scheme
 operator|=
 literal|"netty4"
 argument_list|,
+name|syntax
+operator|=
+literal|"netty4:protocol:host:port"
+argument_list|,
 name|consumerClass
 operator|=
 name|NettyConsumer

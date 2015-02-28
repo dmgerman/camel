@@ -129,6 +129,11 @@ decl_stmt|;
 comment|/**      * The address(es) on which kestrel is running      */
 annotation|@
 name|UriPath
+argument_list|(
+name|defaultValue
+operator|=
+literal|"localhost:22133"
+argument_list|)
 DECL|field|addresses
 specifier|private
 name|String

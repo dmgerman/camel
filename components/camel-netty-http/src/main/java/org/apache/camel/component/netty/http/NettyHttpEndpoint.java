@@ -286,6 +286,10 @@ name|scheme
 operator|=
 literal|"netty-http"
 argument_list|,
+name|syntax
+operator|=
+literal|"netty-http:host:port/path"
+argument_list|,
 name|consumerClass
 operator|=
 name|NettyHttpConsumer
@@ -340,11 +344,6 @@ name|configuration
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|traceEnabled
 specifier|private
 name|boolean

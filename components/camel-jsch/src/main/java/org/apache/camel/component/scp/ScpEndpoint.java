@@ -152,6 +152,10 @@ name|scheme
 operator|=
 literal|"scp"
 argument_list|,
+name|syntax
+operator|=
+literal|"scp:host:port/directoryName"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

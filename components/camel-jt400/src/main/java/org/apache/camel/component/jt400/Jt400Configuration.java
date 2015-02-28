@@ -112,6 +112,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriParam
 import|;
 end_import
@@ -262,6 +276,13 @@ decl_stmt|;
 comment|/**      * ID of the AS/400 user.      */
 annotation|@
 name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|userID
 specifier|private
 name|String
@@ -270,6 +291,13 @@ decl_stmt|;
 comment|/**      * Password of the AS/400 user.      */
 annotation|@
 name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|password
 specifier|private
 name|String
@@ -278,6 +306,13 @@ decl_stmt|;
 comment|/**      * Name of the AS/400 system.      */
 annotation|@
 name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|systemName
 specifier|private
 name|String
@@ -286,6 +321,13 @@ decl_stmt|;
 comment|/**      * Fully qualified integrated file system path name of the target object of      * this endpoint (either data queue or program).      */
 annotation|@
 name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|objectPath
 specifier|private
 name|String
@@ -293,6 +335,13 @@ name|objectPath
 decl_stmt|;
 annotation|@
 name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|type
 specifier|private
 name|Jt400Type
@@ -311,6 +360,11 @@ decl_stmt|;
 comment|/**      * Data format for sending messages.      */
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"text"
+argument_list|)
 DECL|field|format
 specifier|private
 name|Format
@@ -344,6 +398,11 @@ name|searchKey
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"EQ"
+argument_list|)
 DECL|field|searchType
 specifier|private
 name|SearchType

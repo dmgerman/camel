@@ -90,6 +90,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -134,6 +148,10 @@ name|scheme
 operator|=
 literal|"kestrel"
 argument_list|,
+name|syntax
+operator|=
+literal|"kestrel:addresses/queue"
+argument_list|,
 name|consumerClass
 operator|=
 name|KestrelConsumer
@@ -162,6 +180,13 @@ decl_stmt|;
 comment|/**      * The queue we are polling      */
 annotation|@
 name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|queue
 specifier|private
 name|String

@@ -249,23 +249,6 @@ comment|/**  * Represents the component that manages {@link LinkedInEndpoint}.  
 end_comment
 
 begin_class
-annotation|@
-name|UriEndpoint
-argument_list|(
-name|scheme
-operator|=
-literal|"linkedin"
-argument_list|,
-name|consumerClass
-operator|=
-name|LinkedInConsumer
-operator|.
-name|class
-argument_list|,
-name|consumerPrefix
-operator|=
-literal|"consumer"
-argument_list|)
 DECL|class|LinkedInComponent
 specifier|public
 class|class

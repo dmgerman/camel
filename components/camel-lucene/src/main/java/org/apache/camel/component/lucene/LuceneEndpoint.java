@@ -128,6 +128,10 @@ name|scheme
 operator|=
 literal|"lucene"
 argument_list|,
+name|syntax
+operator|=
+literal|"lucene:host:operation"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

@@ -309,11 +309,6 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|textline
 specifier|private
 name|boolean
@@ -428,11 +423,6 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|transferExchange
 specifier|private
 name|boolean
@@ -625,11 +615,6 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|udpConnectionlessSending
 specifier|private
 name|boolean
@@ -637,11 +622,6 @@ name|udpConnectionlessSending
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|clientMode
 specifier|private
 name|boolean

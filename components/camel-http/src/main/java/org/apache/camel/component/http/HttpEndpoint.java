@@ -384,6 +384,10 @@ argument_list|(
 name|required
 operator|=
 literal|"true"
+argument_list|,
+name|label
+operator|=
+literal|"producer"
 argument_list|)
 DECL|field|httpUri
 specifier|private

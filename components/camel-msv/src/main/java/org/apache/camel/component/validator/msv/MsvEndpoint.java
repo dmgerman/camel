@@ -112,6 +112,10 @@ name|scheme
 operator|=
 literal|"msv"
 argument_list|,
+name|syntax
+operator|=
+literal|"msv:resourceUri"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

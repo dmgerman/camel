@@ -268,6 +268,10 @@ name|scheme
 operator|=
 literal|"ssh"
 argument_list|,
+name|syntax
+operator|=
+literal|"ssh:host:port"
+argument_list|,
 name|consumerClass
 operator|=
 name|SshConsumer

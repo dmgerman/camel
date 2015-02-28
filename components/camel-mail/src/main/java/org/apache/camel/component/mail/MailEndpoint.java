@@ -196,6 +196,10 @@ name|scheme
 operator|=
 literal|"imap,imaps,pop3,pop3s,smtp,smtps"
 argument_list|,
+name|syntax
+operator|=
+literal|"imap:host:port"
+argument_list|,
 name|consumerClass
 operator|=
 name|MailConsumer

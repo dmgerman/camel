@@ -396,6 +396,10 @@ name|scheme
 operator|=
 literal|"linkedin"
 argument_list|,
+name|syntax
+operator|=
+literal|"linkedin:apiName/methodName"
+argument_list|,
 name|consumerClass
 operator|=
 name|LinkedInConsumer

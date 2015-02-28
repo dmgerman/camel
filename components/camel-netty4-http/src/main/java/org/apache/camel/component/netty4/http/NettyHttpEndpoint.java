@@ -268,6 +268,10 @@ name|scheme
 operator|=
 literal|"netty4-http"
 argument_list|,
+name|syntax
+operator|=
+literal|"netty4-http:host:port/path"
+argument_list|,
 name|consumerClass
 operator|=
 name|NettyHttpConsumer
