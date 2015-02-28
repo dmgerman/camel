@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -103,6 +113,18 @@ operator|.
 name|smack
 operator|.
 name|MessageListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jivesoftware
+operator|.
+name|smack
+operator|.
+name|SmackException
 import|;
 end_import
 
@@ -301,7 +323,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|XMPPException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -374,10 +396,12 @@ block|}
 name|ChatManager
 name|chatManager
 init|=
-name|connection
+name|ChatManager
 operator|.
-name|getChatManager
-argument_list|()
+name|getInstanceFor
+argument_list|(
+name|connection
+argument_list|)
 decl_stmt|;
 name|Chat
 name|chat
@@ -481,46 +505,6 @@ argument_list|(
 name|message
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|XMPPException
-name|xmppe
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeExchangeException
-argument_list|(
-literal|"Could not send XMPP message: to "
-operator|+
-name|participant
-operator|+
-literal|" from "
-operator|+
-name|endpoint
-operator|.
-name|getUser
-argument_list|()
-operator|+
-literal|" : "
-operator|+
-name|message
-operator|+
-literal|" to: "
-operator|+
-name|XmppEndpoint
-operator|.
-name|getConnectionMessage
-argument_list|(
-name|connection
-argument_list|)
-argument_list|,
-name|exchange
-argument_list|,
-name|xmppe
-argument_list|)
-throw|;
 block|}
 catch|catch
 parameter_list|(
@@ -702,6 +686,10 @@ name|reconnect
 parameter_list|()
 throws|throws
 name|XMPPException
+throws|,
+name|SmackException
+throws|,
+name|IOException
 block|{
 if|if
 condition|(
@@ -771,7 +759,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|XMPPException
+name|SmackException
 name|e
 parameter_list|)
 block|{
@@ -806,12 +794,10 @@ name|warn
 argument_list|(
 literal|"Could not connect to XMPP server. {}  Producer will attempt lazy connection when needed."
 argument_list|,
-name|XmppEndpoint
-operator|.
-name|getXmppExceptionLogMessage
-argument_list|(
 name|e
-argument_list|)
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

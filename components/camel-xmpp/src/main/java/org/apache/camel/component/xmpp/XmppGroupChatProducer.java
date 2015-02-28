@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -65,6 +75,18 @@ operator|.
 name|smack
 operator|.
 name|SmackConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jivesoftware
+operator|.
+name|smack
+operator|.
+name|SmackException
 import|;
 end_import
 
@@ -253,7 +275,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|XMPPException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -395,7 +417,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|XMPPException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -422,6 +444,10 @@ name|reconnect
 parameter_list|()
 throws|throws
 name|XMPPException
+throws|,
+name|SmackException
+throws|,
+name|IOException
 block|{
 if|if
 condition|(
@@ -491,7 +517,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|XMPPException
+name|SmackException
 name|e
 parameter_list|)
 block|{
@@ -526,12 +552,10 @@ name|warn
 argument_list|(
 literal|"Could not connect to XMPP server. {}  Producer will attempt lazy connection when needed."
 argument_list|,
-name|XmppEndpoint
-operator|.
-name|getXmppExceptionLogMessage
-argument_list|(
 name|e
-argument_list|)
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -566,6 +590,8 @@ name|initializeChat
 parameter_list|()
 throws|throws
 name|XMPPException
+throws|,
+name|SmackException
 block|{
 if|if
 condition|(
@@ -623,7 +649,7 @@ name|history
 argument_list|,
 name|SmackConfiguration
 operator|.
-name|getPacketReplyTimeout
+name|getDefaultPacketReplyTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;

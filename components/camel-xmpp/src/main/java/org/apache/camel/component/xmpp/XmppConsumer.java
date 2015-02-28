@@ -174,7 +174,7 @@ name|jivesoftware
 operator|.
 name|smack
 operator|.
-name|XMPPConnection
+name|SmackException
 import|;
 end_import
 
@@ -186,7 +186,7 @@ name|jivesoftware
 operator|.
 name|smack
 operator|.
-name|XMPPException
+name|XMPPConnection
 import|;
 end_import
 
@@ -243,20 +243,6 @@ operator|.
 name|filter
 operator|.
 name|PacketTypeFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jivesoftware
-operator|.
-name|smack
-operator|.
-name|filter
-operator|.
-name|ToContainsFilter
 import|;
 end_import
 
@@ -478,7 +464,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|XMPPException
+name|SmackException
 name|e
 parameter_list|)
 block|{
@@ -506,12 +492,10 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-name|XmppEndpoint
-operator|.
-name|getXmppExceptionLogMessage
-argument_list|(
 name|e
-argument_list|)
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -527,12 +511,10 @@ argument_list|()
 operator|.
 name|handleException
 argument_list|(
-name|XmppEndpoint
-operator|.
-name|getXmppExceptionLogMessage
-argument_list|(
 name|e
-argument_list|)
+operator|.
+name|getMessage
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
@@ -546,10 +528,12 @@ block|}
 block|}
 name|chatManager
 operator|=
-name|connection
+name|ChatManager
 operator|.
-name|getChatManager
-argument_list|()
+name|getInstanceFor
+argument_list|(
+name|connection
+argument_list|)
 expr_stmt|;
 name|chatManager
 operator|.
@@ -672,10 +656,12 @@ else|else
 block|{
 name|privateChat
 operator|=
-name|connection
+name|ChatManager
 operator|.
-name|getChatManager
-argument_list|()
+name|getInstanceFor
+argument_list|(
+name|connection
+argument_list|)
 operator|.
 name|createChat
 argument_list|(
@@ -720,19 +706,6 @@ block|{
 comment|// add the presence packet listener to the connection so we only get packets that concerns us
 comment|// we must add the listener before creating the muc
 specifier|final
-name|ToContainsFilter
-name|toFilter
-init|=
-operator|new
-name|ToContainsFilter
-argument_list|(
-name|endpoint
-operator|.
-name|getParticipant
-argument_list|()
-argument_list|)
-decl_stmt|;
-specifier|final
 name|AndFilter
 name|packetFilter
 init|=
@@ -746,8 +719,6 @@ name|Presence
 operator|.
 name|class
 argument_list|)
-argument_list|,
-name|toFilter
 argument_list|)
 decl_stmt|;
 name|connection
@@ -811,7 +782,7 @@ name|history
 argument_list|,
 name|SmackConfiguration
 operator|.
-name|getPacketReplyTimeout
+name|getDefaultPacketReplyTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1052,7 +1023,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|XMPPException
+name|SmackException
 name|e
 parameter_list|)
 block|{
@@ -1060,12 +1031,10 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-name|XmppEndpoint
-operator|.
-name|getXmppExceptionLogMessage
-argument_list|(
 name|e
-argument_list|)
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
