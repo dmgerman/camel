@@ -218,6 +218,11 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|defaultValue
+operator|=
+literal|"localhost"
+argument_list|)
 DECL|field|host
 specifier|private
 name|String
@@ -227,6 +232,11 @@ literal|"localhost"
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|defaultValue
+operator|=
+literal|"2775"
+argument_list|)
 DECL|field|port
 specifier|private
 name|Integer

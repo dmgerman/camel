@@ -128,6 +128,20 @@ name|UriParam
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a Salesforce endpoint.  */
 end_comment
@@ -139,6 +153,10 @@ argument_list|(
 name|scheme
 operator|=
 literal|"salesforce"
+argument_list|,
+name|syntax
+operator|=
+literal|"salesforce:operationName:topicName"
 argument_list|,
 name|consumerClass
 operator|=
@@ -154,24 +172,28 @@ extends|extends
 name|DefaultEndpoint
 block|{
 annotation|@
-name|UriParam
-DECL|field|config
-specifier|private
-specifier|final
-name|SalesforceEndpointConfig
-name|config
-decl_stmt|;
+name|UriPath
 DECL|field|operationName
 specifier|private
 specifier|final
 name|OperationName
 name|operationName
 decl_stmt|;
+annotation|@
+name|UriPath
 DECL|field|topicName
 specifier|private
 specifier|final
 name|String
 name|topicName
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|config
+specifier|private
+specifier|final
+name|SalesforceEndpointConfig
+name|config
 decl_stmt|;
 DECL|method|SalesforceEndpoint (String uri, SalesforceComponent salesforceComponent, SalesforceEndpointConfig config, OperationName operationName, String topicName)
 specifier|public

@@ -184,6 +184,10 @@ name|scheme
 operator|=
 literal|"rss"
 argument_list|,
+name|syntax
+operator|=
+literal|"rss:feedUri"
+argument_list|,
 name|consumerOnly
 operator|=
 literal|true
