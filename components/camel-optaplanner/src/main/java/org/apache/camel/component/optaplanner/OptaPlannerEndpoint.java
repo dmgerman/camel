@@ -158,6 +158,10 @@ name|scheme
 operator|=
 literal|"optaplanner"
 argument_list|,
+name|syntax
+operator|=
+literal|"optaplanner:resourceUri"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

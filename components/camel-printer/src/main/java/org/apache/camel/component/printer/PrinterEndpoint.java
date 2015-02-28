@@ -114,7 +114,11 @@ name|UriEndpoint
 argument_list|(
 name|scheme
 operator|=
-literal|"printer"
+literal|"lpr"
+argument_list|,
+name|syntax
+operator|=
+literal|"lpr:hostname:port/printername"
 argument_list|,
 name|producerOnly
 operator|=

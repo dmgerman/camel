@@ -250,6 +250,10 @@ name|scheme
 operator|=
 literal|"olingo2"
 argument_list|,
+name|syntax
+operator|=
+literal|"olingo2:apiName/methodName"
+argument_list|,
 name|consumerClass
 operator|=
 name|Olingo2Consumer
