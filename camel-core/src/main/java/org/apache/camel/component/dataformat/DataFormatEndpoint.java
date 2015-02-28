@@ -224,6 +224,10 @@ name|scheme
 operator|=
 literal|"dataformat"
 argument_list|,
+name|syntax
+operator|=
+literal|"dataformat:name:operation"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

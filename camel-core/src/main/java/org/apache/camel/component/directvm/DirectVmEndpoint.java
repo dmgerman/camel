@@ -152,6 +152,10 @@ name|scheme
 operator|=
 literal|"direct-vm"
 argument_list|,
+name|syntax
+operator|=
+literal|"direct-vm:name"
+argument_list|,
 name|consumerClass
 operator|=
 name|DirectConsumer

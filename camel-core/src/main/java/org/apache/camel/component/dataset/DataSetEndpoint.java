@@ -278,6 +278,10 @@ name|scheme
 operator|=
 literal|"dataset"
 argument_list|,
+name|syntax
+operator|=
+literal|"dataset:name"
+argument_list|,
 name|consumerClass
 operator|=
 name|DataSetConsumer

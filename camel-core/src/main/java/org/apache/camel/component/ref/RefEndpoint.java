@@ -168,6 +168,10 @@ name|scheme
 operator|=
 literal|"ref"
 argument_list|,
+name|syntax
+operator|=
+literal|"ref:name"
+argument_list|,
 name|label
 operator|=
 literal|"core,endpoint"

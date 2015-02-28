@@ -1281,6 +1281,26 @@ name|buffer
 operator|.
 name|append
 argument_list|(
+literal|"\n    \"syntax\": \""
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|componentModel
+operator|.
+name|getSyntax
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"\","
+argument_list|)
+expr_stmt|;
+name|buffer
+operator|.
+name|append
+argument_list|(
 literal|"\n    \"description\": \""
 argument_list|)
 operator|.
@@ -2504,6 +2524,16 @@ argument_list|(
 name|scheme
 argument_list|)
 decl_stmt|;
+name|model
+operator|.
+name|setSyntax
+argument_list|(
+name|uriEndpoint
+operator|.
+name|syntax
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|model
 operator|.
 name|setLabel
@@ -4407,6 +4437,11 @@ specifier|private
 name|String
 name|scheme
 decl_stmt|;
+DECL|field|syntax
+specifier|private
+name|String
+name|syntax
+decl_stmt|;
 DECL|field|javaType
 specifier|private
 name|String
@@ -4471,6 +4506,32 @@ block|{
 return|return
 name|scheme
 return|;
+block|}
+DECL|method|getSyntax ()
+specifier|public
+name|String
+name|getSyntax
+parameter_list|()
+block|{
+return|return
+name|syntax
+return|;
+block|}
+DECL|method|setSyntax (String syntax)
+specifier|public
+name|void
+name|setSyntax
+parameter_list|(
+name|String
+name|syntax
+parameter_list|)
+block|{
+name|this
+operator|.
+name|syntax
+operator|=
+name|syntax
+expr_stmt|;
 block|}
 DECL|method|getJavaType ()
 specifier|public

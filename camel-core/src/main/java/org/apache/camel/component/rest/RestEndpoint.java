@@ -232,6 +232,10 @@ name|scheme
 operator|=
 literal|"rest"
 argument_list|,
+name|syntax
+operator|=
+literal|"rest:method:path:uriTemplate"
+argument_list|,
 name|consumerOnly
 operator|=
 literal|true

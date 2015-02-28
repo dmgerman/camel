@@ -186,6 +186,10 @@ name|scheme
 operator|=
 literal|"file"
 argument_list|,
+name|syntax
+operator|=
+literal|"file:directoryName"
+argument_list|,
 name|consumerClass
 operator|=
 name|FileConsumer

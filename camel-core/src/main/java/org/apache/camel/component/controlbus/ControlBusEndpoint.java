@@ -200,6 +200,10 @@ name|scheme
 operator|=
 literal|"controlbus"
 argument_list|,
+name|syntax
+operator|=
+literal|"controlbus:command:language"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true
@@ -240,6 +244,11 @@ name|command
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|enums
+operator|=
+literal|"bean,constant,el,exchangeProperty,file,groovy,header,jsonpath,jxpath,mvel,ognl,ref,simple,spel,sql,terser,tokenize,xpath,xquery,xtokenize"
+argument_list|)
 DECL|field|language
 specifier|private
 name|Language

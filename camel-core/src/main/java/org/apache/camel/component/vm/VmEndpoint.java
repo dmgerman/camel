@@ -120,6 +120,10 @@ name|scheme
 operator|=
 literal|"vm"
 argument_list|,
+name|syntax
+operator|=
+literal|"vm:name"
+argument_list|,
 name|consumerClass
 operator|=
 name|VmConsumer

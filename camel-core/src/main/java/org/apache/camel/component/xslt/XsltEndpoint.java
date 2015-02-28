@@ -361,6 +361,10 @@ name|scheme
 operator|=
 literal|"xslt"
 argument_list|,
+name|syntax
+operator|=
+literal|"xslt:resourceUri"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

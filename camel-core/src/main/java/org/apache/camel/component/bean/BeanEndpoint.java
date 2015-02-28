@@ -170,6 +170,10 @@ name|scheme
 operator|=
 literal|"bean"
 argument_list|,
+name|syntax
+operator|=
+literal|"bean:beanName"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

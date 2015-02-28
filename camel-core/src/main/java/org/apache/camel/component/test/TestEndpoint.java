@@ -204,6 +204,10 @@ name|scheme
 operator|=
 literal|"test"
 argument_list|,
+name|syntax
+operator|=
+literal|"test:name"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

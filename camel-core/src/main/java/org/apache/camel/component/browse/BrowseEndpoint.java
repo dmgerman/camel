@@ -244,6 +244,10 @@ name|scheme
 operator|=
 literal|"browse"
 argument_list|,
+name|syntax
+operator|=
+literal|"browse:name"
+argument_list|,
 name|label
 operator|=
 literal|"core,monitoring"

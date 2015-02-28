@@ -144,6 +144,10 @@ name|scheme
 operator|=
 literal|"scheduler"
 argument_list|,
+name|syntax
+operator|=
+literal|"scheduler:name"
+argument_list|,
 name|consumerOnly
 operator|=
 literal|true

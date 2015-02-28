@@ -580,6 +580,10 @@ name|scheme
 operator|=
 literal|"mock"
 argument_list|,
+name|syntax
+operator|=
+literal|"mock:name"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

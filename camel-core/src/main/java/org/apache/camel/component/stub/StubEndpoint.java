@@ -136,6 +136,10 @@ name|scheme
 operator|=
 literal|"stub"
 argument_list|,
+name|syntax
+operator|=
+literal|"stub:name"
+argument_list|,
 name|consumerClass
 operator|=
 name|VmConsumer
