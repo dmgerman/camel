@@ -170,6 +170,10 @@ name|scheme
 operator|=
 literal|"ganglia"
 argument_list|,
+name|syntax
+operator|=
+literal|"ganglia:host:port"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

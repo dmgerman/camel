@@ -250,6 +250,10 @@ name|scheme
 operator|=
 literal|"google-drive"
 argument_list|,
+name|syntax
+operator|=
+literal|"google:drive:apiName/methodName"
+argument_list|,
 name|consumerClass
 operator|=
 name|GoogleDriveConsumer

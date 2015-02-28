@@ -104,6 +104,10 @@ name|scheme
 operator|=
 literal|"infinispan"
 argument_list|,
+name|syntax
+operator|=
+literal|"infinispan:host"
+argument_list|,
 name|consumerClass
 operator|=
 name|InfinispanConsumer

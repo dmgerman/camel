@@ -188,6 +188,10 @@ name|scheme
 operator|=
 literal|"guava-eventbus"
 argument_list|,
+name|syntax
+operator|=
+literal|"guava-eventbus:eventBusRef"
+argument_list|,
 name|consumerClass
 operator|=
 name|GuavaEventBusConsumer

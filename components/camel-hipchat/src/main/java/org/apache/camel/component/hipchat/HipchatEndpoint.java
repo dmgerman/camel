@@ -142,6 +142,10 @@ name|scheme
 operator|=
 literal|"hipchat"
 argument_list|,
+name|syntax
+operator|=
+literal|"hipchat:protocol:host:port"
+argument_list|,
 name|consumerClass
 operator|=
 name|HipchatConsumer

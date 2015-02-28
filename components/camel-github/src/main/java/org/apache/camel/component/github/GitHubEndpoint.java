@@ -244,6 +244,10 @@ name|scheme
 operator|=
 literal|"github"
 argument_list|,
+name|syntax
+operator|=
+literal|"github:type/branchName"
+argument_list|,
 name|label
 operator|=
 literal|"api,file"

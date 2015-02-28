@@ -140,6 +140,10 @@ name|scheme
 operator|=
 literal|"jetty"
 argument_list|,
+name|syntax
+operator|=
+literal|"jetty:httpUri"
+argument_list|,
 name|consumerClass
 operator|=
 name|HttpConsumer

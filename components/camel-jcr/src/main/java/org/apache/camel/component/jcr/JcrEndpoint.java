@@ -198,6 +198,10 @@ name|scheme
 operator|=
 literal|"jcr"
 argument_list|,
+name|syntax
+operator|=
+literal|"jcr:host/base"
+argument_list|,
 name|consumerClass
 operator|=
 name|JcrConsumer
@@ -288,11 +292,6 @@ name|nodeTypeNames
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|noLocal
 specifier|private
 name|boolean

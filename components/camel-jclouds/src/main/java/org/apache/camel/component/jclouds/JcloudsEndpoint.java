@@ -68,6 +68,10 @@ name|scheme
 operator|=
 literal|"jclouds"
 argument_list|,
+name|syntax
+operator|=
+literal|"jclouds:command:providerId"
+argument_list|,
 name|consumerClass
 operator|=
 name|JcloudsConsumer

@@ -136,6 +136,10 @@ name|scheme
 operator|=
 literal|"hdfs2"
 argument_list|,
+name|syntax
+operator|=
+literal|"hdfs2:hostName:port/path"
+argument_list|,
 name|consumerClass
 operator|=
 name|HdfsConsumer

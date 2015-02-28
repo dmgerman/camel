@@ -226,6 +226,10 @@ name|scheme
 operator|=
 literal|"irc"
 argument_list|,
+name|syntax
+operator|=
+literal|"irc:hostname:port"
+argument_list|,
 name|consumerClass
 operator|=
 name|IrcConsumer

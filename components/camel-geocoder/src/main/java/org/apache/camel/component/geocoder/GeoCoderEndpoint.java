@@ -122,6 +122,10 @@ name|scheme
 operator|=
 literal|"geocoder"
 argument_list|,
+name|syntax
+operator|=
+literal|"geocoder:address:latlng"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true
@@ -139,6 +143,11 @@ name|DefaultEndpoint
 block|{
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"The geo address which must prefix with address:"
+argument_list|)
 DECL|field|address
 specifier|private
 name|String
@@ -146,6 +155,11 @@ name|address
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"The geo coordinate which must prefix with latng:"
+argument_list|)
 DECL|field|latlng
 specifier|private
 name|String
@@ -181,11 +195,6 @@ name|clientKey
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|headersOnly
 specifier|private
 name|boolean

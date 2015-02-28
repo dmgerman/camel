@@ -116,6 +116,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -130,7 +144,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|UriParam
+name|UriPath
 import|;
 end_import
 
@@ -172,6 +186,10 @@ name|scheme
 operator|=
 literal|"servlet"
 argument_list|,
+name|syntax
+operator|=
+literal|"servlet:servletName"
+argument_list|,
 name|consumerOnly
 operator|=
 literal|true
@@ -194,7 +212,14 @@ extends|extends
 name|HttpEndpoint
 block|{
 annotation|@
-name|UriParam
+name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|servletName
 specifier|private
 name|String

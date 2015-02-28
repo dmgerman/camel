@@ -404,6 +404,10 @@ name|scheme
 operator|=
 literal|"ghttp"
 argument_list|,
+name|syntax
+operator|=
+literal|"ghttp:httpUri"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true
