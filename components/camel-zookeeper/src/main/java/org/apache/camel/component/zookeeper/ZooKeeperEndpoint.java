@@ -185,6 +185,10 @@ name|scheme
 operator|=
 literal|"zookeeper"
 argument_list|,
+name|syntax
+operator|=
+literal|"zookeeper:serverUrls/path"
+argument_list|,
 name|consumerClass
 operator|=
 name|ZooKeeperConsumer

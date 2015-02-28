@@ -110,6 +110,10 @@ name|scheme
 operator|=
 literal|"spring-redis"
 argument_list|,
+name|syntax
+operator|=
+literal|"spring-redist:host:port"
+argument_list|,
 name|consumerClass
 operator|=
 name|RedisConsumer

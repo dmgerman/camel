@@ -118,6 +118,10 @@ name|scheme
 operator|=
 literal|"spring-ws"
 argument_list|,
+name|syntax
+operator|=
+literal|"spring-ws:type:lookupKey"
+argument_list|,
 name|consumerClass
 operator|=
 name|SpringWebserviceConsumer

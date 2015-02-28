@@ -182,6 +182,10 @@ name|scheme
 operator|=
 literal|"splunk"
 argument_list|,
+name|syntax
+operator|=
+literal|"splunk:name"
+argument_list|,
 name|consumerClass
 operator|=
 name|SplunkConsumer

@@ -108,6 +108,10 @@ name|scheme
 operator|=
 literal|"yammer"
 argument_list|,
+name|syntax
+operator|=
+literal|"yammer:function"
+argument_list|,
 name|consumerClass
 operator|=
 name|YammerMessagePollingConsumer

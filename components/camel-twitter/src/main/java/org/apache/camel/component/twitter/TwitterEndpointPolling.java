@@ -213,6 +213,10 @@ name|scheme
 operator|=
 literal|"twitter"
 argument_list|,
+name|syntax
+operator|=
+literal|"twitter:type"
+argument_list|,
 name|consumerClass
 operator|=
 name|Twitter4JConsumer

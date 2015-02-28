@@ -190,6 +190,10 @@ name|scheme
 operator|=
 literal|"stringtemplate"
 argument_list|,
+name|syntax
+operator|=
+literal|"stringtemplate:resourceUri"
+argument_list|,
 name|producerOnly
 operator|=
 literal|true

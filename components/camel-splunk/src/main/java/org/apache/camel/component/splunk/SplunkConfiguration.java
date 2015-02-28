@@ -38,6 +38,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriParam
 import|;
 end_import
@@ -98,6 +112,13 @@ argument_list|(
 name|description
 operator|=
 literal|"Name has no purpose"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
 argument_list|)
 DECL|field|name
 specifier|private
@@ -181,11 +202,6 @@ literal|5000
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|useSunHttpsHandler
 specifier|private
 name|boolean
