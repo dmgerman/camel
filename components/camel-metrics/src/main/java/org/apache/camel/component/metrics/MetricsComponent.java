@@ -577,6 +577,33 @@ return|return
 name|registry
 return|;
 block|}
+DECL|method|getMetricRegistry ()
+specifier|public
+name|MetricRegistry
+name|getMetricRegistry
+parameter_list|()
+block|{
+return|return
+name|metricRegistry
+return|;
+block|}
+comment|/**      * To use a custom configured MetricRegistry.      */
+DECL|method|setMetricRegistry (MetricRegistry metricRegistry)
+specifier|public
+name|void
+name|setMetricRegistry
+parameter_list|(
+name|MetricRegistry
+name|metricRegistry
+parameter_list|)
+block|{
+name|this
+operator|.
+name|metricRegistry
+operator|=
+name|metricRegistry
+expr_stmt|;
+block|}
 block|}
 end_class
 
