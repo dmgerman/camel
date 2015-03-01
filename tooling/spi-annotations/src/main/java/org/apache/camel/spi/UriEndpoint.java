@@ -110,7 +110,7 @@ name|String
 name|scheme
 parameter_list|()
 function_decl|;
-comment|/**      * Represent the URI syntax the endpoint must use.      *<p/>      * The syntax follows the patterns such as:      *<ul>      *<li>scheme:path[?options]</li>      *<li>scheme:path:path[?options]</li>      *<li>scheme:path:path/path[?options]</li>      *<li>scheme:path:path/path/path[?options]</li>      *</ul>      * Where each path maps to the name of the endpoint {@link org.apache.camel.spi.UriPath} option.      */
+comment|/**      * Represent the URI syntax the endpoint must use.      *<p/>      * The syntax follows the patterns such as:      *<ul>      *<li>scheme:host:port</li>      *<li>scheme:host:port/path</li>      *<li>scheme:path</li>      *<li>scheme:path/path2</li>      *</ul>      * Where each path maps to the name of the endpoint {@link org.apache.camel.spi.UriPath} option.      * The query parameters is implied and should not be included in the syntax.      *<p/>      * Some examples:      *<ul>      *<li>file:directoryName</li>      *<li>ftp:host:port/directoryName</li>      *<li>jms:destinationType:destinationName</li>      *</ul>      */
 DECL|method|syntax ()
 name|String
 name|syntax
