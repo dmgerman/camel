@@ -353,6 +353,14 @@ argument_list|(
 name|uri
 argument_list|)
 expr_stmt|;
+comment|// after configure the directory has been resolved, so we can use it for directoryName
+comment|// (directoryName is the name we use in the other file components, to use consistent name)
+name|setDirectoryName
+argument_list|(
+name|getDirectory
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|setProtocol
 argument_list|(
 name|uri
