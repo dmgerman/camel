@@ -485,10 +485,8 @@ name|defaultStreamCharset
 init|=
 name|Charset
 operator|.
-name|forName
-argument_list|(
-literal|"UTF-8"
-argument_list|)
+name|defaultCharset
+argument_list|()
 decl_stmt|;
 return|return
 operator|new
