@@ -121,6 +121,54 @@ else|:
 name|defaultValue
 return|;
 block|}
+comment|/**      * Returns the string after the given token      *      * @param text  the text      * @param after the token      * @return the text after the token, or<tt>null</tt> if text does not contain the token      */
+DECL|method|after (String text, String after)
+specifier|public
+specifier|static
+name|String
+name|after
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|String
+name|after
+parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+name|text
+operator|.
+name|contains
+argument_list|(
+name|after
+argument_list|)
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+return|return
+name|text
+operator|.
+name|substring
+argument_list|(
+name|text
+operator|.
+name|indexOf
+argument_list|(
+name|after
+argument_list|)
+operator|+
+name|after
+operator|.
+name|length
+argument_list|()
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns the canonical class name by removing any generic type information.      */
 DECL|method|canonicalClassName (String className)
 specifier|public

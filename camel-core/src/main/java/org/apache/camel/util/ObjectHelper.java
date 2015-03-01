@@ -1941,6 +1941,7 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Returns the string after the given token      *      * @param text  the text      * @param after the token      * @return the text after the token, or<tt>null</tt> if text does not contain the token      */
 DECL|method|after (String text, String after)
 specifier|public
 specifier|static
@@ -1988,6 +1989,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns the string before the given token      *      * @param text  the text      * @param before the token      * @return the text before the token, or<tt>null</tt> if text does not contain the token      */
 DECL|method|before (String text, String before)
 specifier|public
 specifier|static
@@ -2032,6 +2034,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns the string between the given tokens      *      * @param text  the text      * @param after the before token      * @param before the after token      * @return the text between the tokens, or<tt>null</tt> if text does not contain the tokens      */
 DECL|method|between (String text, String after, String before)
 specifier|public
 specifier|static
