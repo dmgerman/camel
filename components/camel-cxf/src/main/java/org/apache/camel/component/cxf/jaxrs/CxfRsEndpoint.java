@@ -773,6 +773,13 @@ name|performInvocation
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|propagateContexts
+specifier|private
+name|boolean
+name|propagateContexts
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|modelRef
 specifier|private
 name|String
@@ -2906,6 +2913,32 @@ operator|.
 name|performInvocation
 operator|=
 name|performInvocation
+expr_stmt|;
+block|}
+DECL|method|isPropagateContexts ()
+specifier|public
+name|boolean
+name|isPropagateContexts
+parameter_list|()
+block|{
+return|return
+name|propagateContexts
+return|;
+block|}
+DECL|method|setPropagateContexts (boolean propagateContexts)
+specifier|public
+name|void
+name|setPropagateContexts
+parameter_list|(
+name|boolean
+name|propagateContexts
+parameter_list|)
+block|{
+name|this
+operator|.
+name|propagateContexts
+operator|=
+name|propagateContexts
 expr_stmt|;
 block|}
 block|}
