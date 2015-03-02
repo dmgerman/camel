@@ -100,7 +100,11 @@ name|map
 init|=
 operator|new
 name|HashMap
-argument_list|<>
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 argument_list|(
 name|strings
 operator|.

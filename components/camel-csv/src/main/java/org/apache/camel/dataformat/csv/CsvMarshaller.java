@@ -142,6 +142,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|commons
 operator|.
 name|csv
@@ -292,8 +306,6 @@ name|NoTypeConversionAvailableException
 throws|,
 name|IOException
 block|{
-try|try
-init|(
 name|CSVPrinter
 name|printer
 init|=
@@ -308,7 +320,8 @@ argument_list|)
 argument_list|,
 name|format
 argument_list|)
-init|)
+decl_stmt|;
+try|try
 block|{
 name|List
 argument_list|<
@@ -373,6 +386,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+finally|finally
+block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|printer
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|getRecordValues (Exchange exchange, Object data)
@@ -539,7 +562,9 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|fixedColumns
 operator|.
@@ -593,7 +618,9 @@ name|columns
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<>
+argument_list|<
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|method|DynamicColumnsMarshaller (CSVFormat format)
@@ -647,7 +674,9 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|Object
+argument_list|>
 argument_list|(
 name|columns
 operator|.

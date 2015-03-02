@@ -413,8 +413,6 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-try|try
-init|(
 name|CSVParser
 name|parser
 init|=
@@ -436,7 +434,8 @@ argument_list|)
 argument_list|,
 name|format
 argument_list|)
-init|)
+decl_stmt|;
+try|try
 block|{
 return|return
 name|asList
@@ -449,6 +448,16 @@ argument_list|,
 name|converter
 argument_list|)
 return|;
+block|}
+finally|finally
+block|{
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|parser
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 DECL|method|asList (Iterator<CSVRecord> iterator, CsvRecordConverter<T> converter)
@@ -483,7 +492,9 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|T
+argument_list|>
 argument_list|()
 decl_stmt|;
 while|while
@@ -516,6 +527,11 @@ return|;
 block|}
 block|}
 comment|/**      * This class streams the content of the CSV      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|class|StreamCsvUnmarshaller
 specifier|private
 specifier|static
@@ -596,7 +612,6 @@ decl_stmt|;
 return|return
 operator|new
 name|CsvIterator
-argument_list|<>
 argument_list|(
 name|parser
 operator|.
