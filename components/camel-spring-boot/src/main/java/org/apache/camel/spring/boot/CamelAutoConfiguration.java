@@ -314,6 +314,11 @@ annotation|@
 name|Bean
 annotation|@
 name|ConditionalOnMissingBean
+argument_list|(
+name|RoutesCollector
+operator|.
+name|class
+argument_list|)
 DECL|method|routesCollector (ApplicationContext applicationContext)
 name|RoutesCollector
 name|routesCollector
