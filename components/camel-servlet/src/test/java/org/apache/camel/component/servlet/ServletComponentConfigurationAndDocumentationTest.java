@@ -211,7 +211,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"servletName\": { \"kind\": \"parameter\", \"type\": \"string\""
+literal|"\"servletName\": { \"kind\": \"property\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
