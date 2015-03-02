@@ -168,7 +168,7 @@ name|sortTermsWithDescending
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Compute the potentially descendingd sort terms from the input list      *      * @param sortTerm Input list      * @return Sort terms list including if the respective sort should be sorted in descending order      */
+comment|/**      * Compute the potentially descending sort terms from the input list      *      * @param sortTerm Input list      * @return Sort terms list including if the respective sort should be sorted in descending order      */
 DECL|method|getSortTermsWithDescending (SortTerm[] sortTerm)
 specifier|private
 specifier|static
@@ -183,7 +183,7 @@ index|[]
 name|sortTerm
 parameter_list|)
 block|{
-comment|// List of reversable sort terms. If the boolean is true the respective sort term is descendingd
+comment|// List of reversable sort terms. If the boolean is true the respective sort term is descending
 specifier|final
 name|List
 argument_list|<
@@ -193,7 +193,9 @@ name|sortTermsWithDescending
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|SortTermWithDescending
+argument_list|>
 argument_list|(
 name|sortTerm
 operator|.
