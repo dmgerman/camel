@@ -171,10 +171,10 @@ comment|/**  * This is a test that checks integration of the sort term in Camel.
 end_comment
 
 begin_class
-DECL|class|MailSortTermTest
+DECL|class|MailSortTermThreeTest
 specifier|public
 class|class
-name|MailSortTermTest
+name|MailSortTermThreeTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -304,22 +304,24 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// This one has search term *not* set
+comment|// This one has search term set
 name|MockEndpoint
-name|mockAsc
+name|mockDescImap
 init|=
 name|getMockEndpoint
 argument_list|(
-literal|"mock:resultAscending"
+literal|"mock:resultDescendingImap"
 argument_list|)
 decl_stmt|;
-name|mockAsc
+name|mockDescImap
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Earlier date"
+literal|"Even later date"
 argument_list|,
 literal|"Later date"
+argument_list|,
+literal|"Earlier date"
 argument_list|)
 expr_stmt|;
 name|context
@@ -601,12 +603,12 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"pop3://bill@localhost?password=secret&searchTerm=#searchTerm&sortTerm=#sortAscendingDate"
+literal|"imap://bill@localhost?password=secret&sortTerm=#sortDescendingDate"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:resultAscending"
+literal|"mock:resultDescendingImap"
 argument_list|)
 expr_stmt|;
 block|}
