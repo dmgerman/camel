@@ -191,6 +191,7 @@ end_comment
 begin_class
 DECL|class|AbstractResourceIntegrationTest
 specifier|public
+specifier|abstract
 class|class
 name|AbstractResourceIntegrationTest
 extends|extends
