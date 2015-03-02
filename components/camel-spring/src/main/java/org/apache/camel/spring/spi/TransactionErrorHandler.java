@@ -438,6 +438,15 @@ comment|// we have to run this synchronously as Spring Transaction does *not* su
 comment|// using multiple threads to span a transaction
 if|if
 condition|(
+name|transactionTemplate
+operator|.
+name|getPropagationBehavior
+argument_list|()
+operator|!=
+name|TransactionDefinition
+operator|.
+name|PROPAGATION_REQUIRES_NEW
+operator|&&
 name|exchange
 operator|.
 name|getUnitOfWork
