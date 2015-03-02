@@ -194,6 +194,12 @@ extends|extends
 name|DefaultEndpoint
 block|{
 annotation|@
+name|UriParam
+DECL|field|sparkConfiguration
+name|SparkConfiguration
+name|sparkConfiguration
+decl_stmt|;
+annotation|@
 name|UriPath
 annotation|@
 name|Metadata
@@ -220,12 +226,6 @@ DECL|field|path
 specifier|private
 name|String
 name|path
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|sparkConfiguration
-name|SparkConfiguration
-name|sparkConfiguration
 decl_stmt|;
 annotation|@
 name|UriParam
