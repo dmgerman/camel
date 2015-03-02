@@ -2038,7 +2038,7 @@ decl_stmt|;
 if|if
 condition|(
 name|oldestInflightEntry
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
