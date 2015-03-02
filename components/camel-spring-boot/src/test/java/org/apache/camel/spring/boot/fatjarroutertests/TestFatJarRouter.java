@@ -86,7 +86,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty-http:http://0.0.0.0:{{http.port}}"
+literal|"netty4-http:http://0.0.0.0:{{http.port}}"
 argument_list|)
 operator|.
 name|setBody
