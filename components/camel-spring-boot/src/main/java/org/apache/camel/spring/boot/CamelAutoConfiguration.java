@@ -414,6 +414,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+comment|// SpringCamelContext integration
 annotation|@
 name|Bean
 DECL|method|propertiesParser ()
