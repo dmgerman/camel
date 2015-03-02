@@ -276,8 +276,7 @@ name|getTargetModel
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// If an unmarshaller was used, the unmarshalled message is the OUT
-comment|// message.
+comment|// If an unmarshaller was used, the unmarshalled message is the OUT message.
 name|Message
 name|msg
 init|=
@@ -296,6 +295,84 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
+comment|// Convert to source model, if specified
+name|String
+name|sourceType
+init|=
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getSourceModel
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|sourceType
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Converting to source model {}."
+argument_list|,
+name|sourceType
+argument_list|)
+expr_stmt|;
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|sourceModel
+init|=
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getClassResolver
+argument_list|()
+operator|.
+name|resolveClass
+argument_list|(
+name|sourceType
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|sourceModel
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|Exception
+argument_list|(
+literal|"Unable to load sourceModel class: "
+operator|+
+name|sourceType
+argument_list|)
+throw|;
+block|}
+name|msg
+operator|.
+name|setBody
+argument_list|(
+name|msg
+operator|.
+name|getBody
+argument_list|(
+name|sourceModel
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+comment|// Perform mappings
 name|LOG
 operator|.
 name|debug
@@ -308,7 +385,6 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// Trigger the Dozer mapping and set that as the content of the IN message
 name|Object
 name|targetObject
 init|=
@@ -337,7 +413,33 @@ name|map
 argument_list|(
 name|endpoint
 operator|.
-name|getLiteralMapper
+name|getVariableMapper
+argument_list|()
+argument_list|,
+name|targetObject
+argument_list|)
+expr_stmt|;
+comment|// Third pass to process expression mappings
+name|endpoint
+operator|.
+name|getExpressionMapper
+argument_list|()
+operator|.
+name|setCurrentExchange
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|getMapper
+argument_list|()
+operator|.
+name|map
+argument_list|(
+name|endpoint
+operator|.
+name|getExpressionMapper
 argument_list|()
 argument_list|,
 name|targetObject

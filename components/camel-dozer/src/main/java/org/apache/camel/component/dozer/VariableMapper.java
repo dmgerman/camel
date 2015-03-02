@@ -23,10 +23,10 @@ comment|/**  * Used to map literal values (e.g. "ACME" or "ABC-123") to a field 
 end_comment
 
 begin_class
-DECL|class|LiteralMapper
+DECL|class|VariableMapper
 specifier|public
 class|class
-name|LiteralMapper
+name|VariableMapper
 extends|extends
 name|BaseConverter
 block|{

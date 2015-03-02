@@ -1080,7 +1080,8 @@ block|}
 block|}
 comment|/**      * Creates a {@link DozerBeanMapper} from the given configuration.      *      * @param configuration  the dozer bean mapper configuration.      * @return the created mapper      */
 DECL|method|createDozerBeanMapper (DozerBeanMapperConfiguration configuration)
-specifier|protected
+specifier|public
+specifier|static
 name|DozerBeanMapper
 name|createDozerBeanMapper
 parameter_list|(
