@@ -129,6 +129,41 @@ name|CONTENT
 init|=
 literal|"G\u00f6tzend\u00e4mmerung,Joseph und seine Br\u00fcder"
 decl_stmt|;
+DECL|field|DEFAULT_CHARSET
+specifier|private
+specifier|static
+specifier|final
+name|Charset
+name|DEFAULT_CHARSET
+init|=
+name|Charset
+operator|.
+name|defaultCharset
+argument_list|()
+decl_stmt|;
+comment|// Just set the default charset back
+DECL|method|tearDown ()
+specifier|protected
+name|void
+name|tearDown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
+name|switchToDefaultCharset
+argument_list|(
+name|DEFAULT_CHARSET
+operator|.
+name|displayName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testToInputStreamFileWithCharsetUTF8 ()
 specifier|public
 name|void
@@ -819,7 +854,9 @@ parameter_list|(
 name|Exception
 name|e
 parameter_list|)
-block|{ 		}
+block|{
+comment|// Do nothing here
+block|}
 block|}
 block|}
 end_class
