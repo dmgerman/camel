@@ -199,7 +199,9 @@ name|asMap
 condition|?
 operator|new
 name|MapRowIterator
-argument_list|<>
+argument_list|<
+name|P
+argument_list|>
 argument_list|(
 name|parser
 argument_list|,
@@ -208,7 +210,9 @@ argument_list|)
 else|:
 operator|new
 name|ListRowIterator
-argument_list|<>
+argument_list|<
+name|P
+argument_list|>
 argument_list|(
 name|parser
 argument_list|)
@@ -252,7 +256,9 @@ name|result
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|T
+argument_list|>
 argument_list|()
 decl_stmt|;
 while|while
@@ -602,7 +608,11 @@ name|result
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<>
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 argument_list|(
 name|size
 argument_list|)

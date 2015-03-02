@@ -441,7 +441,9 @@ name|marshaller
 operator|=
 operator|new
 name|Marshaller
-argument_list|<>
+argument_list|<
+name|W
+argument_list|>
 argument_list|(
 name|headers
 argument_list|,
@@ -453,8 +455,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-try|try
-init|(
 name|Writer
 name|writer
 init|=
@@ -468,7 +468,8 @@ argument_list|(
 name|exchange
 argument_list|)
 argument_list|)
-init|)
+decl_stmt|;
+try|try
 block|{
 name|marshaller
 operator|.
@@ -485,6 +486,14 @@ argument_list|,
 name|writerSettings
 argument_list|)
 argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|writer
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -551,7 +560,9 @@ name|unmarshaller
 operator|=
 operator|new
 name|Unmarshaller
-argument_list|<>
+argument_list|<
+name|P
+argument_list|>
 argument_list|(
 name|lazyLoad
 argument_list|,
@@ -561,8 +572,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-try|try
-init|(
 name|Reader
 name|reader
 init|=
@@ -576,7 +585,8 @@ argument_list|(
 name|exchange
 argument_list|)
 argument_list|)
-init|)
+decl_stmt|;
+try|try
 block|{
 name|HeaderRowProcessor
 name|headerRowProcessor
@@ -615,6 +625,14 @@ argument_list|,
 name|headerRowProcessor
 argument_list|)
 return|;
+block|}
+finally|finally
+block|{
+name|reader
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 comment|/**      * Gets the String representation of a null value.      * If {@code null} then the default settings value is used.      *      * @return the String representation of a null value      * @see com.univocity.parsers.common.CommonSettings#getNullValue()      */

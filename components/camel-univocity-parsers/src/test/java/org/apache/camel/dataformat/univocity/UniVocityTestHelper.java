@@ -117,7 +117,11 @@ name|result
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<>
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
 argument_list|(
 name|keyValues
 operator|.

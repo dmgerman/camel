@@ -221,6 +221,14 @@ import|;
 end_import
 
 begin_comment
+comment|// CHECKSTYLE:OFF
+end_comment
+
+begin_comment
+comment|// turn off checkstyle as it fails internally
+end_comment
+
+begin_comment
 comment|/**  * Helper class.  */
 end_comment
 
@@ -651,6 +659,10 @@ return|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// CHECKSTYLE:ON
+end_comment
 
 end_unit
 
