@@ -32,6 +32,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|xml
+operator|.
+name|sax
+operator|.
+name|SAXParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -105,18 +117,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|xml
-operator|.
-name|sax
-operator|.
-name|SAXParseException
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -142,12 +142,12 @@ name|XPathFeatureTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|DOM_BUILER_FACTORY_FEATRUE
+DECL|field|DOM_BUILDER_FACTORY_FEATURE
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|DOM_BUILER_FACTORY_FEATRUE
+name|DOM_BUILDER_FACTORY_FEATURE
 init|=
 name|XmlConverter
 operator|.
@@ -240,7 +240,7 @@ name|System
 operator|.
 name|setProperty
 argument_list|(
-name|DOM_BUILER_FACTORY_FEATRUE
+name|DOM_BUILDER_FACTORY_FEATURE
 operator|+
 literal|":"
 operator|+
@@ -313,7 +313,7 @@ name|System
 operator|.
 name|clearProperty
 argument_list|(
-name|DOM_BUILER_FACTORY_FEATRUE
+name|DOM_BUILDER_FACTORY_FEATURE
 operator|+
 literal|":"
 operator|+
