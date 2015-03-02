@@ -102,6 +102,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|AfterClass
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -132,6 +142,36 @@ name|MESSAGE2
 init|=
 literal|"G\u00f6tzend\u00e4mmerung"
 decl_stmt|;
+DECL|field|DEFAULT_CHARSET
+specifier|private
+specifier|static
+specifier|final
+name|Charset
+name|DEFAULT_CHARSET
+init|=
+name|Charset
+operator|.
+name|defaultCharset
+argument_list|()
+decl_stmt|;
+annotation|@
+name|AfterClass
+DECL|method|setDefaultCharsetBack ()
+specifier|public
+specifier|static
+name|void
+name|setDefaultCharsetBack
+parameter_list|()
+block|{
+name|switchToDefaultCharset
+argument_list|(
+name|DEFAULT_CHARSET
+operator|.
+name|displayName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
@@ -533,6 +573,7 @@ expr_stmt|;
 block|}
 DECL|method|switchToDefaultCharset (String charset)
 specifier|private
+specifier|static
 name|void
 name|switchToDefaultCharset
 parameter_list|(
@@ -581,7 +622,9 @@ parameter_list|(
 name|Exception
 name|e
 parameter_list|)
-block|{         }
+block|{
+comment|// Do nothing here
+block|}
 block|}
 block|}
 end_class
