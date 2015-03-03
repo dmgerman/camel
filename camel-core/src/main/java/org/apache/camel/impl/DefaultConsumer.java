@@ -259,8 +259,6 @@ implements|implements
 name|Consumer
 implements|,
 name|RouteAware
-implements|,
-name|EndpointAware
 block|{
 DECL|field|log
 specifier|protected

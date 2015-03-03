@@ -32,12 +32,6 @@ name|IsSingleton
 extends|,
 name|EndpointAware
 block|{
-comment|/**      * Gets the endpoint this producer sends to.      *      * @return the endpoint      */
-DECL|method|getEndpoint ()
-name|Endpoint
-name|getEndpoint
-parameter_list|()
-function_decl|;
 comment|/**      * Creates a new exchange to send to this endpoint      *       * @return a newly created exchange      */
 DECL|method|createExchange ()
 name|Exchange

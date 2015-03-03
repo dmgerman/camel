@@ -90,12 +90,6 @@ name|String
 name|getId
 parameter_list|()
 function_decl|;
-comment|/**      * Gets the inbound endpoint      *      * @return the inbound endpoint      */
-DECL|method|getEndpoint ()
-name|Endpoint
-name|getEndpoint
-parameter_list|()
-function_decl|;
 comment|/**      * Gets the inbound {@link Consumer}      *      * @return the inbound consumer      */
 DECL|method|getConsumer ()
 name|Consumer

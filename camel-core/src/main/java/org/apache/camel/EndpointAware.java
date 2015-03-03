@@ -24,7 +24,7 @@ specifier|public
 interface|interface
 name|EndpointAware
 block|{
-comment|/**      * Gets the endpoint      *      * @return the endpoint      */
+comment|/**      * Gets the endpoint associated with an object.      * It's the endpoint for sending to for components like {@link org.apache.camel.Producer}      * or for consuming from for components like {@link org.apache.camel.Consumer} or {@link org.apache.camel.Route}      *      * @return the endpoint      */
 DECL|method|getEndpoint ()
 name|Endpoint
 name|getEndpoint

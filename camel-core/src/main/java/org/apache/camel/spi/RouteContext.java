@@ -68,6 +68,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|EndpointAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -137,13 +149,9 @@ interface|interface
 name|RouteContext
 extends|extends
 name|RuntimeConfiguration
+extends|,
+name|EndpointAware
 block|{
-comment|/**      * Gets the endpoint      *      * @return the endpoint      */
-DECL|method|getEndpoint ()
-name|Endpoint
-name|getEndpoint
-parameter_list|()
-function_decl|;
 comment|/**      * Gets the from type      *      * @return the from type      */
 DECL|method|getFrom ()
 name|FromDefinition

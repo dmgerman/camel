@@ -25,14 +25,9 @@ interface|interface
 name|Consumer
 extends|extends
 name|Service
-block|{
-comment|/**      * Gets the endpoint this {@link Consumer} consumes from.      *      * @return the endpoint      */
-DECL|method|getEndpoint ()
-name|Endpoint
-name|getEndpoint
-parameter_list|()
-function_decl|;
-block|}
+extends|,
+name|EndpointAware
+block|{ }
 end_interface
 
 end_unit
