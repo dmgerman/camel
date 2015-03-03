@@ -2011,24 +2011,6 @@ argument_list|(
 literal|"\""
 argument_list|)
 expr_stmt|;
-name|answer
-operator|.
-name|append
-argument_list|(
-literal|" exchangesInflight=\""
-argument_list|)
-operator|.
-name|append
-argument_list|(
-name|getInflightExchanges
-argument_list|()
-argument_list|)
-operator|.
-name|append
-argument_list|(
-literal|"\""
-argument_list|)
-expr_stmt|;
 name|InFlightKey
 name|oldestInflightEntry
 init|=
