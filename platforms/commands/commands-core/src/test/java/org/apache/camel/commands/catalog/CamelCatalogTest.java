@@ -170,6 +170,8 @@ argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
+literal|"The names should not be null"
+argument_list|,
 name|names
 argument_list|)
 expr_stmt|;
@@ -228,6 +230,8 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
+literal|"The names should not be null"
+argument_list|,
 name|names
 argument_list|)
 expr_stmt|;
@@ -286,6 +290,8 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
+literal|"The names should not be null"
+argument_list|,
 name|names
 argument_list|)
 expr_stmt|;
@@ -344,6 +350,8 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
+literal|"The names should not be null"
+argument_list|,
 name|names
 argument_list|)
 expr_stmt|;
@@ -402,6 +410,8 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
+literal|"The names should not be null"
+argument_list|,
 name|names
 argument_list|)
 expr_stmt|;
@@ -445,6 +455,8 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
+literal|"Should find the json information about the bean component"
+argument_list|,
 name|json
 argument_list|)
 expr_stmt|;
@@ -495,6 +507,8 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
+literal|"Should find the json information about the ftp component"
+argument_list|,
 name|json
 argument_list|)
 expr_stmt|;
@@ -546,6 +560,8 @@ argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
+literal|"Should component labels"
+argument_list|,
 name|labels
 argument_list|)
 expr_stmt|;
