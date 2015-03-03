@@ -326,6 +326,59 @@ name|type
 argument_list|)
 return|;
 block|}
+comment|/**      * Gets or creates the {@link org.apache.camel.CamelContext} this main class is using.      */
+DECL|method|getOrCreateCamelContext ()
+specifier|public
+name|CamelContext
+name|getOrCreateCamelContext
+parameter_list|()
+block|{
+comment|// force init
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|CamelContext
+argument_list|>
+name|map
+init|=
+name|getCamelContextMap
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|map
+operator|.
+name|size
+argument_list|()
+operator|>=
+literal|1
+condition|)
+block|{
+return|return
+name|map
+operator|.
+name|values
+argument_list|()
+operator|.
+name|iterator
+argument_list|()
+operator|.
+name|next
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Error creating CamelContext"
+argument_list|)
+throw|;
+block|}
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 annotation|@
