@@ -659,6 +659,8 @@ expr_stmt|;
 comment|// use builder to ensure the exchange is fully done before we check for file exists
 name|assertTrue
 argument_list|(
+literal|"The exchange is not done in time."
+argument_list|,
 name|notify
 operator|.
 name|matches
@@ -705,6 +707,8 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
+literal|"The file should exist."
+argument_list|,
 name|file
 operator|.
 name|exists
@@ -713,6 +717,8 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
+literal|"Get a wrong message content."
+argument_list|,
 name|ObjectHelper
 operator|.
 name|equalByteArray
@@ -791,6 +797,8 @@ argument_list|)
 decl_stmt|;
 name|assertFalse
 argument_list|(
+literal|"The zip should not exit."
+argument_list|,
 name|file
 operator|.
 name|exists
@@ -819,6 +827,8 @@ expr_stmt|;
 comment|// use builder to ensure the exchange is fully done before we check for file exists
 name|assertTrue
 argument_list|(
+literal|"The exchange is not done in time."
+argument_list|,
 name|notify
 operator|.
 name|matches
@@ -833,6 +843,8 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
+literal|"The file should exist."
+argument_list|,
 name|file
 operator|.
 name|exists
@@ -841,6 +853,8 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
+literal|"Get a wrong message content."
+argument_list|,
 name|ObjectHelper
 operator|.
 name|equalByteArray
