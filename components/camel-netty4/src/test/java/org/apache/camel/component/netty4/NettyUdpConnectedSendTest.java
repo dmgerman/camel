@@ -200,11 +200,44 @@ name|org
 operator|.
 name|junit
 operator|.
+name|FixMethodOrder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|runners
+operator|.
+name|MethodSorters
+import|;
+end_import
+
+begin_comment
+comment|//We need to run the tests with fix order
+end_comment
+
 begin_class
+annotation|@
+name|FixMethodOrder
+argument_list|(
+name|MethodSorters
+operator|.
+name|NAME_ASCENDING
+argument_list|)
 DECL|class|NettyUdpConnectedSendTest
 specifier|public
 class|class
@@ -245,6 +278,11 @@ DECL|field|bootstrap
 specifier|private
 name|Bootstrap
 name|bootstrap
+decl_stmt|;
+DECL|field|serverChannel
+specifier|private
+name|Channel
+name|serverChannel
 decl_stmt|;
 DECL|method|createNettyUdpReceiver ()
 specifier|public
@@ -344,12 +382,17 @@ name|void
 name|bind
 parameter_list|()
 block|{
+name|serverChannel
+operator|=
 name|bootstrap
 operator|.
 name|bind
 argument_list|()
 operator|.
 name|syncUninterruptibly
+argument_list|()
+operator|.
+name|channel
 argument_list|()
 expr_stmt|;
 block|}
@@ -359,18 +402,30 @@ name|void
 name|stop
 parameter_list|()
 block|{
+comment|// Just make sure we shutdown the listener after the call
+name|serverChannel
+operator|.
+name|close
+argument_list|()
+operator|.
+name|syncUninterruptibly
+argument_list|()
+expr_stmt|;
 name|group
 operator|.
 name|shutdownGracefully
+argument_list|()
+operator|.
+name|syncUninterruptibly
 argument_list|()
 expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|sendConnectedUdp ()
+DECL|method|sendConnectedUdpWithServer ()
 specifier|public
 name|void
-name|sendConnectedUdp
+name|sendConnectedUdpWithServer
 parameter_list|()
 throws|throws
 name|Exception
@@ -421,10 +476,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|sendConnectedWithoutReceiver ()
+DECL|method|sendBodyWithoutReceiver ()
 specifier|public
 name|void
-name|sendConnectedWithoutReceiver
+name|sendBodyWithoutReceiver
 parameter_list|()
 throws|throws
 name|Exception
