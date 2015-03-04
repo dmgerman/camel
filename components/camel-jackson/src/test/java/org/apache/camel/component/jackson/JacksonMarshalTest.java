@@ -351,11 +351,22 @@ decl_stmt|;
 name|String
 name|expected
 init|=
-literal|"{\n"
-operator|+
-literal|"  \"name\" : \"Camel\""
-operator|+
-literal|"\n}"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"{%s  \"name\" : \"Camel\"%s}"
+argument_list|,
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
+argument_list|,
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
+argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
