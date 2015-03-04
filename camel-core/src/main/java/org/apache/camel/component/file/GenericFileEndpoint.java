@@ -3581,6 +3581,33 @@ operator|=
 name|readLockMinLength
 expr_stmt|;
 block|}
+DECL|method|getReadLockMinAge ()
+specifier|public
+name|long
+name|getReadLockMinAge
+parameter_list|()
+block|{
+return|return
+name|readLockMinAge
+return|;
+block|}
+comment|/**      * This option applied only for readLock=change.      * This options allows to specify a minimum age the file must be before attempting to acquire the read lock.      * For example use readLockMinAge=300s to require the file is at last 5 minutes old.      * This can speedup the changed read lock as it will only attempt to acquire files which are at least that given age.      */
+DECL|method|setReadLockMinAge (long readLockMinAge)
+specifier|public
+name|void
+name|setReadLockMinAge
+parameter_list|(
+name|long
+name|readLockMinAge
+parameter_list|)
+block|{
+name|this
+operator|.
+name|readLockMinAge
+operator|=
+name|readLockMinAge
+expr_stmt|;
+block|}
 DECL|method|getBufferSize ()
 specifier|public
 name|int
@@ -3986,32 +4013,6 @@ operator|.
 name|allowNullBody
 operator|=
 name|allowNullBody
-expr_stmt|;
-block|}
-DECL|method|getReadLockMinAge ()
-specifier|public
-name|long
-name|getReadLockMinAge
-parameter_list|()
-block|{
-return|return
-name|readLockMinAge
-return|;
-block|}
-DECL|method|setReadLockMinAge (long readLockMinAge)
-specifier|public
-name|void
-name|setReadLockMinAge
-parameter_list|(
-name|long
-name|readLockMinAge
-parameter_list|)
-block|{
-name|this
-operator|.
-name|readLockMinAge
-operator|=
-name|readLockMinAge
 expr_stmt|;
 block|}
 comment|/**      * Configures the given message with the file which sets the body to the      * file object.      */
