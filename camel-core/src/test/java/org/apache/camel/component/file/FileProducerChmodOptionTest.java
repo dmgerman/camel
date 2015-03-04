@@ -204,6 +204,21 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
+DECL|method|canTest ()
+specifier|private
+name|boolean
+name|canTest
+parameter_list|()
+block|{
+comment|// can not run on windows
+return|return
+operator|!
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+return|;
+block|}
 DECL|method|testWriteValidChmod0755 ()
 specifier|public
 name|void
@@ -212,6 +227,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|canTest
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 name|runChmodCheck
 argument_list|(
 literal|"0755"
@@ -228,6 +252,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|canTest
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 name|runChmodCheck
 argument_list|(
 literal|"666"
@@ -395,6 +428,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|canTest
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 try|try
 block|{
 name|context
@@ -499,6 +541,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|canTest
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 name|MockEndpoint
 name|mock
 init|=
