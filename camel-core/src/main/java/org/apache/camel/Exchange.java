@@ -120,6 +120,12 @@ name|AGGREGATION_STRATEGY
 init|=
 literal|"CamelAggregationStrategy"
 decl_stmt|;
+DECL|field|AGGREGATION_COMPLETE_CURRENT_GROUP
+name|String
+name|AGGREGATION_COMPLETE_CURRENT_GROUP
+init|=
+literal|"CamelAggregationCompleteCurrentGroup"
+decl_stmt|;
 DECL|field|AGGREGATION_COMPLETE_ALL_GROUPS
 name|String
 name|AGGREGATION_COMPLETE_ALL_GROUPS

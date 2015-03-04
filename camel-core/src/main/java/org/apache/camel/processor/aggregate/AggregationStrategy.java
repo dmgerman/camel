@@ -41,13 +41,6 @@ interface|interface
 name|AggregationStrategy
 block|{
 comment|// TODO: In Camel 3.0 we should move this to org.apache.camel package
-comment|/**      * During the call to {@link #aggregate(org.apache.camel.Exchange, org.apache.camel.Exchange) aggregate}, if the       * AggregationStrategy determines that the aggregation is complete and should be sent on (example: size limits exceeded),      * then it can set the property on the returned Exchange to Boolean.TRUE to mark the aggregation as complete.       */
-DECL|field|IS_COMPLETE
-name|String
-name|IS_COMPLETE
-init|=
-literal|"AggregationStrategy.IS_COMPLETE"
-decl_stmt|;
 comment|/**      * Aggregates an old and new exchange together to create a single combined exchange      *      * @param oldExchange the oldest exchange (is<tt>null</tt> on first aggregation as we only have the new exchange)      * @param newExchange the newest exchange (can be<tt>null</tt> if there was no data possible to acquire)      * @return a combined composite of the two exchanges      */
 DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
 name|Exchange
