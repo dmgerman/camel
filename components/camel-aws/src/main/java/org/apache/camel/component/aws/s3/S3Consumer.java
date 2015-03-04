@@ -320,6 +320,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|marker
+specifier|private
+name|String
+name|marker
+decl_stmt|;
 DECL|method|S3Consumer (S3Endpoint endpoint, Processor processor)
 specifier|public
 name|S3Consumer
@@ -472,6 +477,28 @@ argument_list|(
 name|maxMessagesPerPoll
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|marker
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|getConfiguration
+argument_list|()
+operator|.
+name|isDeleteAfterRead
+argument_list|()
+condition|)
+block|{
+name|listObjectsRequest
+operator|.
+name|setMarker
+argument_list|(
+name|marker
+argument_list|)
+expr_stmt|;
+block|}
 name|ObjectListing
 name|listObjects
 init|=
@@ -483,6 +510,26 @@ argument_list|(
 name|listObjectsRequest
 argument_list|)
 decl_stmt|;
+comment|// we only setup the marker if the file is not deleted
+if|if
+condition|(
+operator|!
+name|getConfiguration
+argument_list|()
+operator|.
+name|isDeleteAfterRead
+argument_list|()
+condition|)
+block|{
+comment|// where marker is track
+name|marker
+operator|=
+name|listObjects
+operator|.
+name|getMarker
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|LOG
