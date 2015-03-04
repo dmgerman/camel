@@ -2056,6 +2056,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|scheduler
+operator|!=
+literal|null
+condition|)
+block|{
 name|scheduler
 operator|.
 name|unscheduleTask
@@ -2068,6 +2075,7 @@ argument_list|(
 name|scheduler
 argument_list|)
 expr_stmt|;
+block|}
 comment|// clear counters
 name|backoffCounter
 operator|=
