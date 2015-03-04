@@ -115,6 +115,15 @@ name|TEST_TOPIC_2
 init|=
 literal|"AnotherTestTopic"
 decl_stmt|;
+DECL|field|TEST_WILDCARD_TOPIC
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|TEST_WILDCARD_TOPIC
+init|=
+literal|"base/+/#"
+decl_stmt|;
 DECL|field|TEST_TOPICS
 specifier|protected
 specifier|static
@@ -128,6 +137,19 @@ literal|","
 operator|+
 name|TEST_TOPIC_2
 decl_stmt|;
+DECL|field|TEST_TOPICS_WITH_WILDCARDS
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|TEST_TOPICS_WITH_WILDCARDS
+init|=
+name|TEST_TOPICS
+operator|+
+literal|","
+operator|+
+name|TEST_WILDCARD_TOPIC
+decl_stmt|;
 DECL|field|brokerService
 specifier|protected
 name|BrokerService
@@ -138,7 +160,7 @@ specifier|protected
 name|int
 name|numberOfMessages
 init|=
-literal|100
+literal|10
 decl_stmt|;
 DECL|method|setUp ()
 specifier|public

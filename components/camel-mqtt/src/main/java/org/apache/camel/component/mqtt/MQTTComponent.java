@@ -200,6 +200,19 @@ return|return
 name|endpoint
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|useRawUri ()
+specifier|public
+name|boolean
+name|useRawUri
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+comment|// to prevent MQTT "+" wildcard from being lost
+block|}
 DECL|method|getHost ()
 specifier|public
 name|String
