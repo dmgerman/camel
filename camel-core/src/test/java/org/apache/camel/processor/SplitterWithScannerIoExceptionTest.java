@@ -78,9 +78,9 @@ argument_list|(
 literal|"mock:a"
 argument_list|)
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
-literal|252
+literal|250
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
