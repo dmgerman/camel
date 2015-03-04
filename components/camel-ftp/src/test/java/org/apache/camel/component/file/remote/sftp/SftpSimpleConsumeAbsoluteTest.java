@@ -86,6 +86,28 @@ name|SftpSimpleConsumeAbsoluteTest
 extends|extends
 name|SftpServerTestSupport
 block|{
+annotation|@
+name|Override
+DECL|method|canTest ()
+specifier|protected
+name|boolean
+name|canTest
+parameter_list|()
+block|{
+comment|// cannot test on windows
+return|return
+name|super
+operator|.
+name|canTest
+argument_list|()
+operator|&&
+operator|!
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+return|;
+block|}
 DECL|method|createAbsolutePath ()
 specifier|protected
 specifier|static
@@ -109,26 +131,6 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"/tmp/mytemp"
 decl_stmt|;
-if|if
-condition|(
-name|isPlatform
-argument_list|(
-literal|"windows"
-argument_list|)
-condition|)
-block|{
-name|answer
-operator|=
-name|answer
-operator|.
-name|replace
-argument_list|(
-literal|'\\'
-argument_list|,
-literal|'/'
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|answer
 return|;
