@@ -58,9 +58,9 @@ specifier|static
 name|long
 name|precision
 init|=
-literal|10L
+literal|100L
 decl_stmt|;
-comment|// give or take 10ms
+comment|// give or take 100ms
 DECL|method|testRandomBackOff ()
 specifier|public
 name|void
@@ -559,8 +559,26 @@ name|long
 name|actualDelay
 parameter_list|)
 block|{
+name|String
+name|msg
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"%d<= %d"
+argument_list|,
+name|actualDelay
+argument_list|,
+name|expectedDelay
+operator|+
+name|precision
+argument_list|)
+decl_stmt|;
 name|assertTrue
 argument_list|(
+name|msg
+argument_list|,
 name|actualDelay
 operator|<=
 name|expectedDelay
@@ -568,8 +586,25 @@ operator|+
 name|precision
 argument_list|)
 expr_stmt|;
+name|msg
+operator|=
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"%d>= %d"
+argument_list|,
+name|actualDelay
+argument_list|,
+name|expectedDelay
+operator|-
+name|precision
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
+name|msg
+argument_list|,
 name|actualDelay
 operator|>=
 name|expectedDelay
