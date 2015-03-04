@@ -220,6 +220,13 @@ operator|.
 name|RECEIVED_TIMESTAMP
 argument_list|)
 operator|.
+name|convertTo
+argument_list|(
+name|long
+operator|.
+name|class
+argument_list|)
+operator|.
 name|isGreaterThan
 argument_list|(
 operator|new
