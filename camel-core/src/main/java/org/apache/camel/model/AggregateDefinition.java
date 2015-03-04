@@ -1231,6 +1231,35 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|strategy
+operator|instanceof
+name|Predicate
+condition|)
+block|{
+comment|// if aggregation strategy implements predicate and was not configured then use as fallback
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Using AggregationStrategy as completion predicate: {}"
+argument_list|,
+name|strategy
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setCompletionPredicate
+argument_list|(
+operator|(
+name|Predicate
+operator|)
+name|strategy
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|getCompletionTimeoutExpression
