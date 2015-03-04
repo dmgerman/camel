@@ -350,6 +350,7 @@ literal|false
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Reads next record/chunk specific to give file type.      * @param key      * @param value      * @return number of bytes read. 0 is correct number of bytes (empty file), -1 indicates no record was read      */
 DECL|method|next (Holder<Object> key, Holder<Object> value)
 specifier|public
 specifier|final
@@ -383,11 +384,35 @@ argument_list|,
 name|value
 argument_list|)
 decl_stmt|;
+comment|// when zero bytes was read from given type of file, we may still have a record (e.g., empty file)
+comment|// null value.value is the only indication that no (new) record/chunk was read
 if|if
 condition|(
 name|nb
+operator|==
+literal|0
+operator|&&
+name|numOfReadBytes
+operator|.
+name|get
+argument_list|()
 operator|>
 literal|0
+condition|)
+block|{
+comment|// we've read all chunks from file, which size is exact multiple the chunk size
+return|return
+operator|-
+literal|1
+return|;
+block|}
+if|if
+condition|(
+name|value
+operator|.
+name|value
+operator|!=
+literal|null
 condition|)
 block|{
 name|numOfReadBytes
@@ -402,9 +427,13 @@ operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
-block|}
 return|return
 name|nb
+return|;
+block|}
+return|return
+operator|-
+literal|1
 return|;
 block|}
 DECL|method|getNumOfReadBytes ()
