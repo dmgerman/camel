@@ -58,6 +58,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+block|{
+comment|// need a bit slack
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
+argument_list|)
+expr_stmt|;
+block|}
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"

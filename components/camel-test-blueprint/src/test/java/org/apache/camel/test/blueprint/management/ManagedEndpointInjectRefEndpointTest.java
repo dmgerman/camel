@@ -170,6 +170,17 @@ condition|)
 block|{
 return|return;
 block|}
+comment|// don't test well on windows
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
 comment|// fire a message to get it running
 name|getMockEndpoint
 argument_list|(
