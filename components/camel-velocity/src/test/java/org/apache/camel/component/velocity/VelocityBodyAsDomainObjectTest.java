@@ -96,6 +96,21 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|String
+name|msg
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"Hi Claus how are you? Its a nice day.%sGive my regards to the family Ibsen."
+argument_list|,
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -115,7 +130,7 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hi Claus how are you? Its a nice day.\nGive my regards to the family Ibsen."
+name|msg
 argument_list|)
 expr_stmt|;
 name|MyPerson
