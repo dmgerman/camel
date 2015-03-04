@@ -1179,8 +1179,6 @@ DECL|field|readLockMinAge
 specifier|protected
 name|long
 name|readLockMinAge
-init|=
-literal|0
 decl_stmt|;
 annotation|@
 name|UriParam

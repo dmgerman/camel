@@ -195,8 +195,6 @@ DECL|field|minAge
 specifier|private
 name|long
 name|minAge
-init|=
-literal|0
 decl_stmt|;
 DECL|field|readLockLoggingLevel
 specifier|private
