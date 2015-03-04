@@ -693,11 +693,12 @@ name|value
 operator|=
 literal|null
 expr_stmt|;
+comment|// indication that we may have read from empty file
 name|value
 operator|.
 name|value
 operator|=
-literal|null
+name|bos
 expr_stmt|;
 return|return
 literal|0
