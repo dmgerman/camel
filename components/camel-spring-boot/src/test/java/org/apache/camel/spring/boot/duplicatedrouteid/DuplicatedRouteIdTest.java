@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.boot
+DECL|package|org.apache.camel.spring.boot.duplicatedrouteid
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|spring
 operator|.
 name|boot
+operator|.
+name|duplicatedrouteid
 package|;
 end_package
 
@@ -48,6 +50,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spring
+operator|.
+name|boot
+operator|.
+name|CamelSpringBootInitializationException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Assert
@@ -61,20 +79,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|beans
-operator|.
-name|factory
-operator|.
-name|BeanCreationException
 import|;
 end_import
 
@@ -131,7 +135,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|BeanCreationException
+name|CamelSpringBootInitializationException
 operator|.
 name|class
 argument_list|)

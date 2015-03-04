@@ -28,9 +28,37 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ProducerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|beans
+operator|.
+name|factory
+operator|.
+name|annotation
+operator|.
+name|Autowired
 import|;
 end_import
 
@@ -56,6 +84,13 @@ name|ComponentRoute
 extends|extends
 name|RouteBuilder
 block|{
+comment|// We inject this field to make sure that template creation doesn't affects routes collecting.
+annotation|@
+name|Autowired
+DECL|field|producerTemplate
+name|ProducerTemplate
+name|producerTemplate
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|configure ()
