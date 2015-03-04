@@ -557,6 +557,17 @@ condition|)
 block|{
 return|return;
 block|}
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+block|{
+comment|// windows needs more sleep to read updated jmx values so we skip as we dont want further delays in core tests
+return|return;
+block|}
 comment|// get the stats for the route
 name|MBeanServer
 name|mbeanServer
@@ -773,6 +784,17 @@ literal|"aix"
 argument_list|)
 condition|)
 block|{
+return|return;
+block|}
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+block|{
+comment|// windows needs more sleep to read updated jmx values so we skip as we dont want further delays in core tests
 return|return;
 block|}
 comment|// get the stats for the route
@@ -993,6 +1015,17 @@ literal|"aix"
 argument_list|)
 condition|)
 block|{
+return|return;
+block|}
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+block|{
+comment|// windows needs more sleep to read updated jmx values so we skip as we dont want further delays in core tests
 return|return;
 block|}
 comment|// get the stats for the route
