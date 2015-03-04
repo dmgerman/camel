@@ -133,10 +133,25 @@ argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|message
 argument_list|(
-literal|"Hello Claus\n"
-operator|+
+literal|0
+argument_list|)
+operator|.
+name|constant
+argument_list|(
+literal|"Hello Claus"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|constant
+argument_list|(
 literal|"You have id: 123 if an id was assigned to you."
 argument_list|)
 expr_stmt|;
@@ -217,10 +232,25 @@ argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|message
 argument_list|(
-literal|"Hello Claus\n"
-operator|+
+literal|0
+argument_list|)
+operator|.
+name|constant
+argument_list|(
+literal|"Hello Claus"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|constant
+argument_list|(
 literal|"You have id:  if an id was assigned to you."
 argument_list|)
 expr_stmt|;
