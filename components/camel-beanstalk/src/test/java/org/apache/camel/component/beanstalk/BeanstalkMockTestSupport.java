@@ -112,6 +112,21 @@ DECL|field|client
 name|Client
 name|client
 decl_stmt|;
+DECL|method|canTest ()
+specifier|public
+name|boolean
+name|canTest
+parameter_list|()
+block|{
+comment|// cannot test on windows
+return|return
+operator|!
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Before
 annotation|@

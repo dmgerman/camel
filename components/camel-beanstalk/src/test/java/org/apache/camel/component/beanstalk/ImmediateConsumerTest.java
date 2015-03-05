@@ -230,6 +230,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|canTest
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 specifier|final
 name|Job
 name|jobMock
