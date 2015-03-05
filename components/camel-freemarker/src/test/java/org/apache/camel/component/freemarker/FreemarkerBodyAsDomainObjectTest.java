@@ -113,9 +113,17 @@ argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|message
 argument_list|(
-literal|"Hi Claus how are you? Its a nice day.\nGive my regards to the family Ibsen."
+literal|0
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Hi Claus how are you? Its a nice day."
 argument_list|)
 expr_stmt|;
 name|MyPerson

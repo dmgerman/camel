@@ -203,11 +203,32 @@ argument_list|)
 expr_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|message
 argument_list|(
-literal|"Dear Ibsen, Claus\n\nThanks for the order of Camel in Action."
-operator|+
-literal|"\n\nRegards Camel Riders Bookstore\nPS: Next beer is on me, James"
+literal|0
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Dear Ibsen, Claus"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Thanks for the order of Camel in Action."
 argument_list|)
 expr_stmt|;
 name|template
