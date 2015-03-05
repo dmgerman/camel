@@ -404,7 +404,7 @@ name|nb
 operator|==
 literal|0
 operator|&&
-name|numOfReadBytes
+name|numOfReadMessages
 operator|.
 name|get
 argument_list|()

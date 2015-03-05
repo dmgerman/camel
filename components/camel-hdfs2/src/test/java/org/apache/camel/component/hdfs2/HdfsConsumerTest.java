@@ -1227,6 +1227,13 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|2000
+argument_list|)
+expr_stmt|;
 name|resultEndpoint
 operator|.
 name|assertIsSatisfied
