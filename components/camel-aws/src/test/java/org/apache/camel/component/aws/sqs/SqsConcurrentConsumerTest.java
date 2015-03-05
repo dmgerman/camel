@@ -211,6 +211,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// simple test to make sure that concurrent consumers were used in the test
 name|NotifyBuilder
 name|notifier
 init|=
@@ -248,7 +249,18 @@ name|SECONDS
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// simple test to make sure that concurrent consumers were used in the test
+if|if
+condition|(
+name|isPlatform
+argument_list|(
+literal|"windows"
+argument_list|)
+condition|)
+block|{
+comment|// threading is different on windows
+block|}
+else|else
+block|{
 comment|// usually we use all threads evenly but sometimes threads are reused so just test that 50%+ was used
 if|if
 condition|(
@@ -281,6 +293,7 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
