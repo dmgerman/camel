@@ -224,7 +224,10 @@ literal|"|\""
 operator|+
 name|i
 operator|+
-literal|"\n"
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
 operator|+
 name|i
 operator|+
