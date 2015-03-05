@@ -156,6 +156,12 @@ name|createRouteBuilder
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// Here we need stop the template first
+name|template
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 comment|// get mock endpoint again as we removed the route which removes the endpoint
 name|out
 operator|=
@@ -177,6 +183,12 @@ name|expectedBodiesReceived
 argument_list|(
 literal|"after removing the route"
 argument_list|)
+expr_stmt|;
+comment|// Restart the template again
+name|template
+operator|.
+name|start
+argument_list|()
 expr_stmt|;
 name|template
 operator|.
