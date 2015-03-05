@@ -5154,11 +5154,11 @@ return|return
 literal|false
 return|;
 block|}
-name|EndpointOption
+name|ComponentOption
 name|that
 init|=
 operator|(
-name|EndpointOption
+name|ComponentOption
 operator|)
 name|o
 decl_stmt|;
