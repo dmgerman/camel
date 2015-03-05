@@ -1638,6 +1638,20 @@ condition|)
 block|{
 return|return;
 block|}
+name|int
+name|before
+init|=
+operator|new
+name|File
+argument_list|(
+literal|"target/test"
+argument_list|)
+operator|.
+name|list
+argument_list|()
+operator|.
+name|length
+decl_stmt|;
 specifier|final
 name|Path
 name|file
@@ -1918,12 +1932,15 @@ argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// there may be some leftover files before, so test that we only added 2 new files
 name|assertThat
 argument_list|(
 name|files
 operator|.
 name|size
 argument_list|()
+operator|-
+name|before
 argument_list|,
 name|equalTo
 argument_list|(
