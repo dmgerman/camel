@@ -212,7 +212,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"database"
+literal|"database,sql"
 argument_list|)
 DECL|class|MyBatisEndpoint
 specifier|public
