@@ -240,6 +240,8 @@ operator|.
 name|actualPath
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
 name|info
 operator|.
 name|getFileSystem
@@ -263,7 +265,8 @@ operator|.
 name|suffixedPath
 argument_list|)
 argument_list|)
-expr_stmt|;
+condition|)
+block|{
 name|ret
 operator|.
 name|in
@@ -287,6 +290,16 @@ name|opened
 operator|=
 literal|true
 expr_stmt|;
+block|}
+else|else
+block|{
+name|ret
+operator|.
+name|opened
+operator|=
+literal|false
+expr_stmt|;
+block|}
 return|return
 name|ret
 return|;
@@ -494,6 +507,16 @@ parameter_list|()
 block|{
 return|return
 name|in
+return|;
+block|}
+DECL|method|isOpened ()
+specifier|public
+name|boolean
+name|isOpened
+parameter_list|()
+block|{
+return|return
+name|opened
 return|;
 block|}
 block|}
