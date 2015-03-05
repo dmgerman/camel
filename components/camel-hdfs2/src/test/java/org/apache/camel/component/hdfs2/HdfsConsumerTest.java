@@ -1180,9 +1180,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// TODO: See comment from Claus at ticket: https://issues.apache.org/jira/browse/CAMEL-8434
 name|resultEndpoint
 operator|.
-name|expectedMessageCount
+name|expectedMinimumMessageCount
 argument_list|(
 literal|1
 argument_list|)
