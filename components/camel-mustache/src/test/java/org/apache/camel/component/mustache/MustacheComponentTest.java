@@ -353,15 +353,32 @@ argument_list|)
 expr_stmt|;
 name|endSimpleMock
 operator|.
-name|expectedBodiesReceived
+name|message
 argument_list|(
-literal|"Yet another Mustache with body:\n"
-operator|+
-literal|"    'The Body'\n"
-operator|+
-literal|"and some header:\n"
-operator|+
-literal|"    'Some Header'\n"
+literal|0
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"The Body"
+argument_list|)
+expr_stmt|;
+name|endSimpleMock
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Some Header"
 argument_list|)
 expr_stmt|;
 comment|// Act
@@ -419,17 +436,47 @@ argument_list|)
 expr_stmt|;
 name|endSimpleMock
 operator|.
-name|expectedBodiesReceived
+name|message
 argument_list|(
-literal|"Start\n"
-operator|+
-literal|"Content 1: Child 1\n"
-operator|+
-literal|"Middle\n"
-operator|+
-literal|"Content 2: Child 2\n"
-operator|+
-literal|"End"
+literal|0
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Content 1: Child 1"
+argument_list|)
+expr_stmt|;
+name|endSimpleMock
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Middle"
+argument_list|)
+expr_stmt|;
+name|endSimpleMock
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Content 2: Child 2"
 argument_list|)
 expr_stmt|;
 comment|// Act
@@ -487,12 +534,46 @@ argument_list|)
 expr_stmt|;
 name|endSimpleMock
 operator|.
-name|expectedBodiesReceived
+name|message
 argument_list|(
-literal|"Start\n"
-operator|+
-literal|"Included\n"
-operator|+
+literal|0
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Start"
+argument_list|)
+expr_stmt|;
+name|endSimpleMock
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Included"
+argument_list|)
+expr_stmt|;
+name|endSimpleMock
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|contains
+argument_list|(
 literal|"End"
 argument_list|)
 expr_stmt|;
