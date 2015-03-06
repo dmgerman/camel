@@ -709,15 +709,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|timer
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
-name|timer
-operator|=
-literal|null
-expr_stmt|;
 if|if
 condition|(
 name|executorService
