@@ -84,6 +84,12 @@ name|REST_PROPERTY
 init|=
 literal|"rest"
 decl_stmt|;
+DECL|field|DESCRIPTION_PROPERTY
+name|String
+name|DESCRIPTION_PROPERTY
+init|=
+literal|"description"
+decl_stmt|;
 comment|/**      * Gets the route id      *      * @return the route id      */
 DECL|method|getId ()
 name|String
@@ -111,6 +117,12 @@ argument_list|,
 name|Object
 argument_list|>
 name|getProperties
+parameter_list|()
+function_decl|;
+comment|/**      * Gets the route description (if any has been configured).      *<p/>      * The description is configured using the {@link #DESCRIPTION_PROPERTY} as key in the {@link #getProperties()}.      *      * @return the description, or<tt>null</tt> if no description has been configured.      */
+DECL|method|getDescription ()
+name|String
+name|getDescription
 parameter_list|()
 function_decl|;
 comment|/**      * Gets the route context      *      * @return the route context      */

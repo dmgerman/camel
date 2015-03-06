@@ -527,7 +527,7 @@ name|description
 operator|=
 name|route
 operator|.
-name|toString
+name|getDescription
 argument_list|()
 expr_stmt|;
 name|boolean

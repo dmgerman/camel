@@ -1576,6 +1576,39 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Set the route description for this route      *      * @param description the route description      * @return the builder      */
+DECL|method|routeDescription (String description)
+specifier|public
+name|RouteDefinition
+name|routeDescription
+parameter_list|(
+name|String
+name|description
+parameter_list|)
+block|{
+name|DescriptionDefinition
+name|desc
+init|=
+operator|new
+name|DescriptionDefinition
+argument_list|()
+decl_stmt|;
+name|desc
+operator|.
+name|setText
+argument_list|(
+name|description
+argument_list|)
+expr_stmt|;
+name|setDescription
+argument_list|(
+name|desc
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Disable stream caching for this route.      *      * @return the builder      */
 DECL|method|noStreamCaching ()
 specifier|public

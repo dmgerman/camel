@@ -314,6 +314,37 @@ return|return
 name|properties
 return|;
 block|}
+DECL|method|getDescription ()
+specifier|public
+name|String
+name|getDescription
+parameter_list|()
+block|{
+name|Object
+name|value
+init|=
+name|properties
+operator|.
+name|get
+argument_list|(
+name|Route
+operator|.
+name|DESCRIPTION_PROPERTY
+argument_list|)
+decl_stmt|;
+return|return
+name|value
+operator|!=
+literal|null
+condition|?
+name|value
+operator|.
+name|toString
+argument_list|()
+else|:
+literal|null
+return|;
+block|}
 DECL|method|onStartingServices (List<Service> services)
 specifier|public
 name|void
