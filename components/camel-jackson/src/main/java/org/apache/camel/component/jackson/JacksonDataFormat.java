@@ -1099,6 +1099,47 @@ return|return
 name|moduleClassNames
 return|;
 block|}
+comment|/**      * To use the custom Jackson module      */
+DECL|method|addModule (Module module)
+specifier|public
+name|void
+name|addModule
+parameter_list|(
+name|Module
+name|module
+parameter_list|)
+block|{
+if|if
+condition|(
+name|this
+operator|.
+name|modules
+operator|==
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|modules
+operator|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Module
+argument_list|>
+argument_list|()
+expr_stmt|;
+block|}
+name|this
+operator|.
+name|modules
+operator|.
+name|add
+argument_list|(
+name|module
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * To use custom Jackson {@link Module}s specified as a String with FQN class names.      * Multiple classes can be separated by comma.      */
 DECL|method|setModuleClassNames (String moduleClassNames)
 specifier|public
