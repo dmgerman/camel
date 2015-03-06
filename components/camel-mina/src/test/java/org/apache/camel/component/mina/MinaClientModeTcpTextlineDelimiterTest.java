@@ -269,7 +269,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"mina:tcp://localhost:%1$s?sync=false&textline=true&textlineDelimiter=UNIX&clientMode=true"
+literal|"mina:tcp://127.0.0.1:%1$s?sync=false&textline=true&textlineDelimiter=UNIX&clientMode=true"
 argument_list|,
 name|getPort
 argument_list|()
@@ -389,6 +389,8 @@ argument_list|(
 operator|new
 name|InetSocketAddress
 argument_list|(
+literal|"127.0.0.1,"
+argument_list|,
 name|port
 argument_list|)
 argument_list|,
