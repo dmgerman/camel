@@ -1075,7 +1075,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-literal|"CamelLinkedIn.update_key"
+literal|"CamelLinkedIn.statistics_update_key"
 argument_list|,
 literal|null
 argument_list|)
