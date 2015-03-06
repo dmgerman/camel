@@ -795,7 +795,7 @@ name|api
 operator|.
 name|model
 operator|.
-name|GroupMemberships
+name|GroupMembership
 name|result
 init|=
 name|requestBodyAndHeaders
@@ -2054,7 +2054,7 @@ name|api
 operator|.
 name|model
 operator|.
-name|Comments
+name|UpdateComments
 name|result
 init|=
 name|requestBodyAndHeaders
