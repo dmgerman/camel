@@ -506,10 +506,10 @@ return|return
 name|instanceClassName
 return|;
 block|}
-DECL|method|setInstanceClass (String className)
+DECL|method|setInstanceClassName (String className)
 specifier|public
 name|void
-name|setInstanceClass
+name|setInstanceClassName
 parameter_list|(
 name|String
 name|className

@@ -304,7 +304,7 @@ name|camelContext
 argument_list|,
 name|dataFormat
 argument_list|,
-literal|"instanceClass"
+literal|"instanceClassName"
 argument_list|,
 name|instanceClassName
 argument_list|)
