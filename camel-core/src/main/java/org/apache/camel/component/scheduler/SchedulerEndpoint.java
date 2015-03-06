@@ -185,6 +185,11 @@ name|name
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"1"
+argument_list|)
 DECL|field|concurrentTasks
 specifier|private
 name|int
@@ -311,6 +316,7 @@ return|return
 name|name
 return|;
 block|}
+comment|/**      * The name of the scheduler      */
 DECL|method|setName (String name)
 specifier|public
 name|void
@@ -337,6 +343,7 @@ return|return
 name|concurrentTasks
 return|;
 block|}
+comment|/**      * Number of threads used by the scheduling thread pool.      *<p/>      * Is by default using a single thread      */
 DECL|method|setConcurrentTasks (int concurrentTasks)
 specifier|public
 name|void

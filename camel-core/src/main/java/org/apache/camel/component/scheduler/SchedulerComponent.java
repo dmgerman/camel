@@ -234,6 +234,7 @@ return|return
 name|concurrentTasks
 return|;
 block|}
+comment|/**      * Number of threads used by the scheduling thread pool.      *<p/>      * Is by default using a single thread      */
 DECL|method|setConcurrentTasks (int concurrentTasks)
 specifier|public
 name|void
