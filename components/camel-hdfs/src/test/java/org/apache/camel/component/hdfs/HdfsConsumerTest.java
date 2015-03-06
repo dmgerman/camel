@@ -526,6 +526,15 @@ name|HdfsConsumerTest
 extends|extends
 name|HdfsTestSupport
 block|{
+DECL|field|ITERATIONS
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|ITERATIONS
+init|=
+literal|200
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|isUseRouteBuilder ()
@@ -788,11 +797,6 @@ condition|)
 block|{
 return|return;
 block|}
-name|int
-name|ITERATIONS
-init|=
-literal|200
-decl_stmt|;
 specifier|final
 name|File
 name|dir

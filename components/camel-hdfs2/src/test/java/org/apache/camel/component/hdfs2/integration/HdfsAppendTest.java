@@ -165,6 +165,15 @@ name|HdfsAppendTest
 extends|extends
 name|CamelTestSupport
 block|{
+DECL|field|ITERATIONS
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|ITERATIONS
+init|=
+literal|10
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|isUseRouteBuilder ()
@@ -492,11 +501,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|int
-name|ITERATIONS
-init|=
-literal|10
-decl_stmt|;
 name|context
 operator|.
 name|addRoutes
