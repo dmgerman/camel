@@ -1067,7 +1067,7 @@ literal|"The bean instance is a java.lang.String type: "
 operator|+
 name|bean
 operator|+
-literal|". We suppose you want to refer to a bean instance by its id instead. Please use beanRef."
+literal|". We suppose you want to refer to a bean instance by its id instead. Please use ref."
 argument_list|)
 throw|;
 block|}
