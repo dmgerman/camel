@@ -79,7 +79,7 @@ argument_list|(
 literal|"file://target/routeOutput?noop=true"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"myBean"
 argument_list|)
