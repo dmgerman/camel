@@ -389,7 +389,7 @@ argument_list|(
 operator|new
 name|InetSocketAddress
 argument_list|(
-literal|"127.0.0.1,"
+literal|"127.0.0.1"
 argument_list|,
 name|port
 argument_list|)
