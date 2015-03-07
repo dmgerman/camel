@@ -306,7 +306,7 @@ argument_list|(
 literal|"direct:in"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"myBean"
 argument_list|)
@@ -316,7 +316,7 @@ argument_list|(
 literal|"direct:other"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"myOtherBean"
 argument_list|)

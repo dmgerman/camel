@@ -306,7 +306,7 @@ argument_list|(
 literal|"direct:hello"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"dummy"
 argument_list|,
@@ -320,7 +320,7 @@ argument_list|(
 literal|"direct:bye"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"dummy"
 argument_list|,
@@ -332,7 +332,7 @@ argument_list|(
 literal|"direct:foo"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"dummy"
 argument_list|,

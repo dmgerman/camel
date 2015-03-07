@@ -272,7 +272,7 @@ literal|"direct:start"
 argument_list|)
 comment|// send to foo bean
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"foo"
 argument_list|)

@@ -120,7 +120,7 @@ argument_list|(
 literal|100
 argument_list|)
 operator|.
-name|processRef
+name|process
 argument_list|(
 literal|"myCompletionProcessor"
 argument_list|)
@@ -160,7 +160,7 @@ argument_list|(
 literal|100
 argument_list|)
 operator|.
-name|processRef
+name|process
 argument_list|(
 literal|"myCompletionProcessor"
 argument_list|)

@@ -428,7 +428,7 @@ argument_list|(
 literal|"direct:in"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"myBean"
 argument_list|)

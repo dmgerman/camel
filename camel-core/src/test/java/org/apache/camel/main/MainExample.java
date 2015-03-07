@@ -224,7 +224,7 @@ block|}
 block|}
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"foo"
 argument_list|)

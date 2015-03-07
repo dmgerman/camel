@@ -96,7 +96,7 @@ argument_list|(
 literal|"direct:in"
 argument_list|)
 operator|.
-name|processRef
+name|process
 argument_list|(
 literal|"hello"
 argument_list|)

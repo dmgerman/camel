@@ -613,7 +613,7 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|processRef
+name|process
 argument_list|(
 literal|"myProcessor"
 argument_list|)

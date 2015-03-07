@@ -262,7 +262,7 @@ argument_list|(
 literal|"mock:foo"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|""
 argument_list|)

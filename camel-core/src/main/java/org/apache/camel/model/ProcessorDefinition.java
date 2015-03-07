@@ -7109,6 +7109,49 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+DECL|method|process (String ref)
+specifier|public
+name|Type
+name|process
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|ProcessDefinition
+name|answer
+init|=
+operator|new
+name|ProcessDefinition
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|setRef
+argument_list|(
+name|ref
+argument_list|)
+expr_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds the custom processor reference to this destination which could be a final      * destination, or could be a transformation in a pipeline      *      * @param ref   reference to a {@link Processor} to lookup in the registry      * @return the builder      * @deprecated use {@link #process(String)}      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|processRef (String ref)
 specifier|public
 name|Type
@@ -7144,7 +7187,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke, or a reference to a bean if the type is a String      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -7166,6 +7209,26 @@ operator|new
 name|BeanDefinition
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|bean
+operator|instanceof
+name|String
+condition|)
+block|{
+name|answer
+operator|.
+name|setRef
+argument_list|(
+operator|(
+name|String
+operator|)
+name|bean
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|answer
 operator|.
 name|setBean
@@ -7173,6 +7236,7 @@ argument_list|(
 name|bean
 argument_list|)
 expr_stmt|;
+block|}
 name|addOutput
 argument_list|(
 name|answer
@@ -7185,7 +7249,7 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke, or a reference to a bean if the type is a String      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -7210,6 +7274,26 @@ operator|new
 name|BeanDefinition
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|bean
+operator|instanceof
+name|String
+condition|)
+block|{
+name|answer
+operator|.
+name|setRef
+argument_list|(
+operator|(
+name|String
+operator|)
+name|bean
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|answer
 operator|.
 name|setBean
@@ -7217,6 +7301,7 @@ argument_list|(
 name|bean
 argument_list|)
 expr_stmt|;
+block|}
 name|answer
 operator|.
 name|setMethod
@@ -7236,13 +7321,85 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @param multiParameterArray if it is true, camel will treat the message body as an object array which holds      *  the multi parameter       * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke, or a reference to a bean if the type is a String      * @param cache  if enabled, Camel will cache the result of the first Registry look-up.      *               Cache can be enabled if the bean in the Registry is defined as a singleton scope.      *  the multi parameter      * @return the builder      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|bean (Object bean, String method, boolean multiParameterArray)
+DECL|method|bean (Object bean, boolean cache)
+specifier|public
+name|Type
+name|bean
+parameter_list|(
+name|Object
+name|bean
+parameter_list|,
+name|boolean
+name|cache
+parameter_list|)
+block|{
+name|BeanDefinition
+name|answer
+init|=
+operator|new
+name|BeanDefinition
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|bean
+operator|instanceof
+name|String
+condition|)
+block|{
+name|answer
+operator|.
+name|setRef
+argument_list|(
+operator|(
+name|String
+operator|)
+name|bean
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|answer
+operator|.
+name|setBean
+argument_list|(
+name|bean
+argument_list|)
+expr_stmt|;
+block|}
+name|answer
+operator|.
+name|setCache
+argument_list|(
+name|cache
+argument_list|)
+expr_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|Type
+operator|)
+name|this
+return|;
+block|}
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param bean  the bean to invoke, or a reference to a bean if the type is a String      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @param cache  if enabled, Camel will cache the result of the first Registry look-up.      *               Cache can be enabled if the bean in the Registry is defined as a singleton scope.      *  the multi parameter      * @return the builder      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|bean (Object bean, String method, boolean cache)
 specifier|public
 name|Type
 name|bean
@@ -7254,7 +7411,7 @@ name|String
 name|method
 parameter_list|,
 name|boolean
-name|multiParameterArray
+name|cache
 parameter_list|)
 block|{
 name|BeanDefinition
@@ -7264,6 +7421,26 @@ operator|new
 name|BeanDefinition
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|bean
+operator|instanceof
+name|String
+condition|)
+block|{
+name|answer
+operator|.
+name|setRef
+argument_list|(
+operator|(
+name|String
+operator|)
+name|bean
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|answer
 operator|.
 name|setBean
@@ -7271,6 +7448,7 @@ argument_list|(
 name|bean
 argument_list|)
 expr_stmt|;
+block|}
 name|answer
 operator|.
 name|setMethod
@@ -7280,9 +7458,9 @@ argument_list|)
 expr_stmt|;
 name|answer
 operator|.
-name|setMultiParameterArray
+name|setCache
 argument_list|(
-name|multiParameterArray
+name|cache
 argument_list|)
 expr_stmt|;
 name|addOutput
@@ -7395,12 +7573,14 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param beanType  the bean class, Camel will instantiate an object at runtime      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @param multiParameterArray if it is true, camel will treat the message body as an object array which holds      *  the multi parameter       * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param beanType  the bean class, Camel will instantiate an object at runtime      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @param multiParameterArray if it is true, camel will treat the message body as an object array which holds      *  the multi parameter       * @return the builder      * @deprecated the option multiParameterArray is deprecated      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|bean (Class<?> beanType, String method, boolean multiParameterArray)
 specifier|public
 name|Type
@@ -7459,12 +7639,14 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param beanType  the bean class, Camel will instantiate an object at runtime      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @param multiParameterArray if it is true, camel will treat the message body as an object array which holds      *  the multi parameter      * @param cache  if enabled, Camel will cache the result of the first Registry look-up.      *               Cache can be enabled if the bean in the Registry is defined as a singleton scope.      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param beanType  the bean class, Camel will instantiate an object at runtime      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @param multiParameterArray if it is true, camel will treat the message body as an object array which holds      *  the multi parameter      * @param cache  if enabled, Camel will cache the result of the first Registry look-up.      *               Cache can be enabled if the bean in the Registry is defined as a singleton scope.      * @return the builder      * @deprecated the option multiParameterArray is deprecated      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|bean (Class<?> beanType, String method, boolean multiParameterArray, boolean cache)
 specifier|public
 name|Type
@@ -7533,12 +7715,14 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @return the builder      * @deprecated use {@link #bean(Object)}      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|beanRef (String ref)
 specifier|public
 name|Type
@@ -7569,12 +7753,14 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @return the builder      * @deprecated use {@link #bean(Object, String)}      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|beanRef (String ref, String method)
 specifier|public
 name|Type
@@ -7610,12 +7796,14 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @param cache  if enabled, Camel will cache the result of the first Registry look-up.      *               Cache can be enabled if the bean in the Registry is defined as a singleton scope.      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @param cache  if enabled, Camel will cache the result of the first Registry look-up.      *               Cache can be enabled if the bean in the Registry is defined as a singleton scope.      * @return the builder      * @deprecated use {@link #bean(Object, String, boolean)}      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|beanRef (String ref, boolean cache)
 specifier|public
 name|Type
@@ -7656,12 +7844,14 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @param cache  if enabled, Camel will cache the result of the first Registry look-up.      *               Cache can be enabled if the bean in the Registry is defined as a singleton scope.      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @param cache  if enabled, Camel will cache the result of the first Registry look-up.      *               Cache can be enabled if the bean in the Registry is defined as a singleton scope.      * @return the builder      * @deprecated use {@link #bean(Object, String, boolean)}      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|beanRef (String ref, String method, boolean cache)
 specifier|public
 name|Type
@@ -7707,12 +7897,14 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @param cache  if enabled, Camel will cache the result of the first Registry look-up.      *               Cache can be enabled if the bean in the Registry is defined as a singleton scope.      * @param multiParameterArray if it is true, camel will treat the message body as an object array which holds      *               the multi parameter       * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/message-translator.html">Message Translator EIP:</a>      * Adds a bean which is invoked which could be a final destination, or could be a transformation in a pipeline      *      * @param ref  reference to a bean to lookup in the registry      * @param method  the method name to invoke on the bean (can be used to avoid ambiguity)      * @param cache  if enabled, Camel will cache the result of the first Registry look-up.      *               Cache can be enabled if the bean in the Registry is defined as a singleton scope.      * @param multiParameterArray if it is true, camel will treat the message body as an object array which holds      *               the multi parameter       * @return the builder      * @deprecated the option multiParameterArray is deprecated      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|beanRef (String ref, String method, boolean cache, boolean multiParameterArray)
 specifier|public
 name|Type

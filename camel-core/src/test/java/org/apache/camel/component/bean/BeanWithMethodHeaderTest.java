@@ -479,7 +479,7 @@ argument_list|(
 literal|"direct:typo"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"myBean"
 argument_list|,
@@ -718,7 +718,7 @@ argument_list|(
 literal|"direct:echo"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"myBean"
 argument_list|,
@@ -735,7 +735,7 @@ argument_list|(
 literal|"direct:hi"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"myBean"
 argument_list|,
@@ -752,14 +752,14 @@ argument_list|(
 literal|"direct:mixed"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"myBean"
 argument_list|,
 literal|"echo"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"myBean"
 argument_list|,
@@ -776,7 +776,7 @@ argument_list|(
 literal|"direct:fail"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"myBean"
 argument_list|)

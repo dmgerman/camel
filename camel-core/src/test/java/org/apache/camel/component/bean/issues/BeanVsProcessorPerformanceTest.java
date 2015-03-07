@@ -302,7 +302,7 @@ argument_list|(
 literal|"direct:b"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"myLittleBean"
 argument_list|,

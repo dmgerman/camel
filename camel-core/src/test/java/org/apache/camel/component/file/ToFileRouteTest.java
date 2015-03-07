@@ -213,7 +213,7 @@ argument_list|(
 literal|"direct:reports"
 argument_list|)
 operator|.
-name|processRef
+name|process
 argument_list|(
 literal|"processReport"
 argument_list|)

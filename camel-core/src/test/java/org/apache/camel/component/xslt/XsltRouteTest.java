@@ -400,7 +400,7 @@ operator|.
 name|multicast
 argument_list|()
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"testBean"
 argument_list|)

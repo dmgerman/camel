@@ -325,7 +325,7 @@ argument_list|,
 literal|"seda:xml"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"orderService"
 argument_list|)

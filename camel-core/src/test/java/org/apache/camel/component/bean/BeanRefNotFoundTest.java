@@ -162,7 +162,7 @@ argument_list|(
 literal|"a"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"foo"
 argument_list|)
@@ -182,7 +182,7 @@ argument_list|(
 literal|"b"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"bar"
 argument_list|)

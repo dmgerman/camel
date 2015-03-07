@@ -262,7 +262,7 @@ argument_list|(
 literal|"direct:beanRef"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"myBean"
 argument_list|,
