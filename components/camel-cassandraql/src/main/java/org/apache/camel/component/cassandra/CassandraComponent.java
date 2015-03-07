@@ -305,7 +305,7 @@ argument_list|)
 decl_stmt|;
 name|endpoint
 operator|.
-name|setBeanRef
+name|setBean
 argument_list|(
 name|beanRef
 argument_list|)

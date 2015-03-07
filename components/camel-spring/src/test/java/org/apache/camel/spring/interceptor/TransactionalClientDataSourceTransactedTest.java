@@ -97,7 +97,7 @@ literal|"Tiger in Action"
 argument_list|)
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"bookService"
 argument_list|)
@@ -110,7 +110,7 @@ literal|"Elephant in Action"
 argument_list|)
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"bookService"
 argument_list|)
@@ -134,7 +134,7 @@ literal|"Tiger in Action"
 argument_list|)
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"bookService"
 argument_list|)
@@ -147,7 +147,7 @@ literal|"Donkey in Action"
 argument_list|)
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"bookService"
 argument_list|)

@@ -444,7 +444,7 @@ argument_list|(
 literal|"direct:injectByName"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"shoppingBean"
 argument_list|,

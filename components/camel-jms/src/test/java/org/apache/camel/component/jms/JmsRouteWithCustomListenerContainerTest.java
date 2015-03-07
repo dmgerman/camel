@@ -465,7 +465,7 @@ argument_list|(
 literal|"activemq:topic:order"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"orderService"
 argument_list|,

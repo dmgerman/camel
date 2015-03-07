@@ -374,7 +374,7 @@ argument_list|(
 literal|"amq:topic:orderServiceNotification"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"orderService"
 argument_list|,
@@ -388,7 +388,7 @@ argument_list|(
 literal|"amq:topic:orderServiceNotification"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"orderServiceNotificationWithAck-1"
 argument_list|,
@@ -407,7 +407,7 @@ argument_list|(
 literal|"amq:topic:orderServiceNotification"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"orderServiceNotificationWithAck-2"
 argument_list|,

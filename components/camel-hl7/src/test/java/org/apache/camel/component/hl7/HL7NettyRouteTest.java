@@ -766,7 +766,7 @@ literal|"A19"
 argument_list|)
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"hl7service"
 argument_list|,
@@ -797,7 +797,7 @@ argument_list|(
 literal|"mock:a01"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"hl7service"
 argument_list|,

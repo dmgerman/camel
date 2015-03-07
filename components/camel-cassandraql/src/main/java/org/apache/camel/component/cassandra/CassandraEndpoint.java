@@ -874,6 +874,34 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getBean ()
+specifier|public
+name|String
+name|getBean
+parameter_list|()
+block|{
+return|return
+name|beanRef
+return|;
+block|}
+DECL|method|setBean (String beanRef)
+specifier|public
+name|void
+name|setBean
+parameter_list|(
+name|String
+name|beanRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|beanRef
+operator|=
+name|beanRef
+expr_stmt|;
+block|}
+annotation|@
+name|Deprecated
 DECL|method|getBeanRef ()
 specifier|public
 name|String
@@ -884,6 +912,8 @@ return|return
 name|beanRef
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setBeanRef (String beanRef)
 specifier|public
 name|void

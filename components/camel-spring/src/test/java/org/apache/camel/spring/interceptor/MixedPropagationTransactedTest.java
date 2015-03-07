@@ -861,7 +861,7 @@ argument_list|(
 literal|"PROPATATION_REQUIRED"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"bookService"
 argument_list|)
@@ -876,12 +876,12 @@ argument_list|(
 literal|"PROPATATION_REQUIRED"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"bookService"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"bookService"
 argument_list|)
@@ -896,7 +896,7 @@ argument_list|(
 literal|"PROPAGATION_REQUIRES_NEW"
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"bookService"
 argument_list|)

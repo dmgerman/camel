@@ -379,7 +379,7 @@ argument_list|(
 name|directInjectEndpoint
 argument_list|)
 operator|.
-name|beanRef
+name|bean
 argument_list|(
 literal|"shoppingBean"
 argument_list|,
