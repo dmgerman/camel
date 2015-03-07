@@ -178,22 +178,6 @@ name|solr
 operator|.
 name|common
 operator|.
-name|cloud
-operator|.
-name|ZkNodeProps
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|solr
-operator|.
-name|common
-operator|.
 name|params
 operator|.
 name|CollectionParams
@@ -883,24 +867,6 @@ argument_list|,
 literal|"conf1"
 argument_list|)
 expr_stmt|;
-specifier|final
-name|ZkNodeProps
-name|zkProps
-init|=
-operator|new
-name|ZkNodeProps
-argument_list|(
-name|props
-argument_list|)
-decl_stmt|;
-comment|// zkClient.makePath("/collections/collection1",
-comment|// ZkStateReader.toJSON(zkProps), CreateMode.PERSISTENT, true);
-comment|// zkClient.makePath("/collections/collection1/shards",
-comment|// CreateMode.PERSISTENT, true);
-comment|// zkClient.makePath("/collections/control_collection",
-comment|// ZkStateReader.toJSON(zkProps), CreateMode.PERSISTENT, true);
-comment|// zkClient.makePath("/collections/control_collection/shards",
-comment|// CreateMode.PERSISTENT, true);
 comment|// for now, always upload the config and schema to the canonical names
 name|putConfig
 argument_list|(
@@ -928,8 +894,6 @@ argument_list|,
 literal|"schema.xml"
 argument_list|)
 expr_stmt|;
-comment|// putConfig("conf1", zkClient, solrhome,
-comment|// "solrconfig.snippet.randomindexconfig.xml");
 name|putConfig
 argument_list|(
 literal|"conf1"
