@@ -48,20 +48,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|RouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|context
@@ -124,31 +110,14 @@ name|applicationContext
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|createRouteBuilder ()
-specifier|protected
-name|RouteBuilder
-name|createRouteBuilder
+DECL|method|isUseRouteBuilder ()
+specifier|public
+name|boolean
+name|isUseRouteBuilder
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
-operator|new
-name|RouteBuilder
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|configure
-parameter_list|()
-throws|throws
-name|Exception
-block|{             }
-block|}
+literal|false
 return|;
 block|}
 block|}
