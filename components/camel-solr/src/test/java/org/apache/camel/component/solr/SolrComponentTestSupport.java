@@ -282,6 +282,10 @@ DECL|method|secureOrNot ()
 specifier|protected
 specifier|static
 name|Collection
+argument_list|<
+name|Object
+index|[]
+argument_list|>
 name|secureOrNot
 parameter_list|()
 block|{
