@@ -1323,7 +1323,7 @@ name|String
 name|logNewException
 parameter_list|)
 block|{
-name|logNewException
+name|setLogNewException
 argument_list|(
 name|logNewException
 argument_list|)
