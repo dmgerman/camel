@@ -37,6 +37,24 @@ name|PATH_TO_MODEL_DIR
 init|=
 literal|"target/classes/org/apache/camel/model"
 decl_stmt|;
+DECL|field|DEFAULT_XML_INTEMSION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_XML_INTEMSION
+init|=
+literal|"  "
+decl_stmt|;
+DECL|field|WRAP_LENGTH
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|WRAP_LENGTH
+init|=
+literal|80
+decl_stmt|;
 comment|// XML constants.
 DECL|field|NAME_ATTRIBUTE_NAME
 specifier|public
@@ -115,7 +133,7 @@ DECL|method|Constants ()
 specifier|private
 name|Constants
 parameter_list|()
-block|{     }
+block|{}
 block|}
 end_class
 
