@@ -133,7 +133,7 @@ DECL|method|Constants ()
 specifier|private
 name|Constants
 parameter_list|()
-block|{}
+block|{ }
 block|}
 end_class
 

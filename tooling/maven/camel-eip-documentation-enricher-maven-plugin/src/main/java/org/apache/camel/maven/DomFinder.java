@@ -86,10 +86,21 @@ specifier|public
 class|class
 name|DomFinder
 block|{
-DECL|method|findElementsAndTypes (Document document, XPath xPath)
+DECL|field|document
+specifier|private
+specifier|final
+name|Document
+name|document
+decl_stmt|;
+DECL|field|xPath
+specifier|private
+specifier|final
+name|XPath
+name|xPath
+decl_stmt|;
+DECL|method|DomFinder (Document document, XPath xPath)
 specifier|public
-name|NodeList
-name|findElementsAndTypes
+name|DomFinder
 parameter_list|(
 name|Document
 name|document
@@ -97,6 +108,25 @@ parameter_list|,
 name|XPath
 name|xPath
 parameter_list|)
+block|{
+name|this
+operator|.
+name|document
+operator|=
+name|document
+expr_stmt|;
+name|this
+operator|.
+name|xPath
+operator|=
+name|xPath
+expr_stmt|;
+block|}
+DECL|method|findElementsAndTypes ()
+specifier|public
+name|NodeList
+name|findElementsAndTypes
+parameter_list|()
 throws|throws
 name|XPathExpressionException
 block|{
@@ -121,17 +151,11 @@ name|NODESET
 argument_list|)
 return|;
 block|}
-DECL|method|findAttributesElements (Document document, XPath xPath, String name)
+DECL|method|findAttributesElements (String name)
 specifier|public
 name|NodeList
 name|findAttributesElements
 parameter_list|(
-name|Document
-name|document
-parameter_list|,
-name|XPath
-name|xPath
-parameter_list|,
 name|String
 name|name
 parameter_list|)
@@ -163,17 +187,11 @@ name|NODESET
 argument_list|)
 return|;
 block|}
-DECL|method|findBaseType (Document document, XPath xPath, String name)
+DECL|method|findBaseType (String name)
 specifier|public
 name|String
 name|findBaseType
 parameter_list|(
-name|Document
-name|document
-parameter_list|,
-name|XPath
-name|xPath
-parameter_list|,
 name|String
 name|name
 parameter_list|)

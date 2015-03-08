@@ -18,43 +18,41 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
 name|util
 operator|.
-name|JsonSchemaHelper
+name|List
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|util
 operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|StringUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|lang
-operator|.
-name|WordUtils
+name|Map
 import|;
 end_import
 
@@ -120,41 +118,43 @@ end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|File
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|camel
 operator|.
 name|util
 operator|.
-name|List
+name|JsonSchemaHelper
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|Map
+name|commons
+operator|.
+name|lang
+operator|.
+name|StringUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|lang
+operator|.
+name|WordUtils
 import|;
 end_import
 
@@ -168,14 +168,32 @@ specifier|public
 class|class
 name|DocumentationEnricher
 block|{
-DECL|method|enrichTopLevelElementsDocumentation (Document document, NodeList elements, Map<String, File> jsonFiles)
+DECL|field|document
+specifier|private
+specifier|final
+name|Document
+name|document
+decl_stmt|;
+DECL|method|DocumentationEnricher (Document document)
+specifier|public
+name|DocumentationEnricher
+parameter_list|(
+name|Document
+name|document
+parameter_list|)
+block|{
+name|this
+operator|.
+name|document
+operator|=
+name|document
+expr_stmt|;
+block|}
+DECL|method|enrichTopLevelElementsDocumentation (NodeList elements, Map<String, File> jsonFiles)
 specifier|public
 name|void
 name|enrichTopLevelElementsDocumentation
 parameter_list|(
-name|Document
-name|document
-parameter_list|,
 name|NodeList
 name|elements
 parameter_list|,
@@ -245,8 +263,6 @@ condition|)
 block|{
 name|addElementDocumentation
 argument_list|(
-name|document
-argument_list|,
 name|item
 argument_list|,
 name|jsonFiles
@@ -260,14 +276,11 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|enrichTypeAttributesDocumentation (Document document, NodeList attributeElements, File jsonFile)
+DECL|method|enrichTypeAttributesDocumentation (NodeList attributeElements, File jsonFile)
 specifier|public
 name|void
 name|enrichTypeAttributesDocumentation
 parameter_list|(
-name|Document
-name|document
-parameter_list|,
 name|NodeList
 name|attributeElements
 parameter_list|,
@@ -313,20 +326,15 @@ argument_list|(
 name|item
 argument_list|,
 name|jsonFile
-argument_list|,
-name|document
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|addElementDocumentation (Document document, Element item, File jsonFile)
+DECL|method|addElementDocumentation (Element item, File jsonFile)
 specifier|private
 name|void
 name|addElementDocumentation
 parameter_list|(
-name|Document
-name|document
-parameter_list|,
 name|Element
 name|item
 parameter_list|,
@@ -404,8 +412,6 @@ argument_list|)
 decl_stmt|;
 name|addDocumentation
 argument_list|(
-name|document
-argument_list|,
 name|item
 argument_list|,
 name|descriptionText
@@ -415,7 +421,7 @@ break|break;
 block|}
 block|}
 block|}
-DECL|method|addAttributeDocumentation (Element item, File jsonFile, Document document)
+DECL|method|addAttributeDocumentation (Element item, File jsonFile)
 specifier|private
 name|void
 name|addAttributeDocumentation
@@ -425,9 +431,6 @@ name|item
 parameter_list|,
 name|File
 name|jsonFile
-parameter_list|,
-name|Document
-name|document
 parameter_list|)
 throws|throws
 name|IOException
@@ -519,8 +522,6 @@ condition|)
 block|{
 name|addDocumentation
 argument_list|(
-name|document
-argument_list|,
 name|item
 argument_list|,
 name|descriptionText
@@ -531,14 +532,11 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|addDocumentation (Document document, Element item, String textContent)
+DECL|method|addDocumentation (Element item, String textContent)
 specifier|private
 name|void
 name|addDocumentation
 parameter_list|(
-name|Document
-name|document
-parameter_list|,
 name|Element
 name|item
 parameter_list|,
