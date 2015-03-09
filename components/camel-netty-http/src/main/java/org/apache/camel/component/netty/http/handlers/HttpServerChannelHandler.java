@@ -1631,6 +1631,7 @@ block|}
 block|}
 block|}
 comment|// let Camel process this message
+comment|// It did the way as camel-netty component does
 name|super
 operator|.
 name|messageReceived
@@ -2005,6 +2006,53 @@ argument_list|,
 name|Boolean
 operator|.
 name|TRUE
+argument_list|)
+expr_stmt|;
+block|}
+name|HttpRequest
+name|request
+init|=
+operator|(
+name|HttpRequest
+operator|)
+name|messageEvent
+operator|.
+name|getMessage
+argument_list|()
+decl_stmt|;
+comment|// setup the connection property in case of the message header is removed
+name|boolean
+name|keepAlive
+init|=
+name|HttpHeaders
+operator|.
+name|isKeepAlive
+argument_list|(
+name|request
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|keepAlive
+condition|)
+block|{
+comment|// Just make sure we close the connection this time.
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|HttpHeaders
+operator|.
+name|Names
+operator|.
+name|CONNECTION
+argument_list|,
+name|HttpHeaders
+operator|.
+name|Values
+operator|.
+name|CLOSE
 argument_list|)
 expr_stmt|;
 block|}
