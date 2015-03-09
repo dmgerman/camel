@@ -533,11 +533,6 @@ specifier|final
 name|NettyHttpConsumer
 name|consumer
 decl_stmt|;
-DECL|field|request
-specifier|private
-name|HttpRequest
-name|request
-decl_stmt|;
 DECL|method|HttpServerChannelHandler (NettyHttpConsumer consumer)
 specifier|public
 name|HttpServerChannelHandler
@@ -584,14 +579,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// store request, as this channel handler is created per pipeline
+name|HttpRequest
 name|request
-operator|=
+init|=
 operator|(
 name|HttpRequest
 operator|)
 name|msg
-expr_stmt|;
+decl_stmt|;
 name|LOG
 operator|.
 name|debug
