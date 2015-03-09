@@ -381,6 +381,14 @@ operator|==
 literal|null
 condition|)
 block|{
+name|Runnable
+name|propertyPlaceholdersChangeReverter
+init|=
+name|ProcessorDefinitionHelper
+operator|.
+name|createPropertyPlaceholdersChangeReverter
+argument_list|()
+decl_stmt|;
 comment|// resolve properties before we create the data format
 try|try
 block|{
@@ -415,6 +423,8 @@ name|e
 argument_list|)
 throw|;
 block|}
+try|try
+block|{
 name|dataFormat
 operator|=
 name|createDataFormat
@@ -463,6 +473,15 @@ operator|+
 literal|"Ensure that the data format is valid and the associated Camel component is present on the classpath"
 argument_list|)
 throw|;
+block|}
+block|}
+finally|finally
+block|{
+name|propertyPlaceholdersChangeReverter
+operator|.
+name|run
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 return|return

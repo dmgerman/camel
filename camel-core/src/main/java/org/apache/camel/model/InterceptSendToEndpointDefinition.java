@@ -397,6 +397,13 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+specifier|final
+name|String
+name|matchURI
+init|=
+name|getUri
+argument_list|()
+decl_stmt|;
 comment|// register endpoint callback so we can proxy the endpoint
 name|routeContext
 operator|.
@@ -435,8 +442,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|getUri
-argument_list|()
+name|matchURI
 operator|==
 literal|null
 operator|||
@@ -449,8 +455,7 @@ argument_list|()
 argument_list|,
 name|uri
 argument_list|,
-name|getUri
-argument_list|()
+name|matchURI
 argument_list|)
 condition|)
 block|{
@@ -536,7 +541,7 @@ return|return
 operator|new
 name|InterceptEndpointProcessor
 argument_list|(
-name|uri
+name|matchURI
 argument_list|,
 name|detour
 argument_list|)

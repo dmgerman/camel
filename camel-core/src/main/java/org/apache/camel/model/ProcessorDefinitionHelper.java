@@ -263,12 +263,29 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|CURRENT_RESTORE_ACTION
+specifier|private
+specifier|static
+specifier|final
+name|ThreadLocal
+argument_list|<
+name|RestoreAction
+argument_list|>
+name|CURRENT_RESTORE_ACTION
+init|=
+operator|new
+name|ThreadLocal
+argument_list|<
+name|RestoreAction
+argument_list|>
+argument_list|()
+decl_stmt|;
 DECL|method|ProcessorDefinitionHelper ()
 specifier|private
 name|ProcessorDefinitionHelper
 parameter_list|()
 block|{     }
-comment|/**      * Looks for the given type in the list of outputs and recurring all the children as well.      *      * @param outputs  list of outputs, can be null or empty.      * @param type     the type to look for      * @return         the found definitions, or<tt>null</tt> if not found      */
+comment|/**      * Looks for the given type in the list of outputs and recurring all the children as well.      *      * @param outputs list of outputs, can be null or empty.      * @param type    the type to look for      * @return the found definitions, or<tt>null</tt> if not found      */
 DECL|method|filterTypeInOutputs (List<ProcessorDefinition<?>> outputs, Class<T> type)
 specifier|public
 specifier|static
@@ -309,7 +326,7 @@ literal|1
 argument_list|)
 return|;
 block|}
-comment|/**      * Looks for the given type in the list of outputs and recurring all the children as well.      *      * @param outputs  list of outputs, can be null or empty.      * @param type     the type to look for      * @param maxDeep  maximum levels deep to traverse      * @return         the found definitions, or<tt>null</tt> if not found      */
+comment|/**      * Looks for the given type in the list of outputs and recurring all the children as well.      *      * @param outputs list of outputs, can be null or empty.      * @param type    the type to look for      * @param maxDeep maximum levels deep to traverse      * @return the found definitions, or<tt>null</tt> if not found      */
 DECL|method|filterTypeInOutputs (List<ProcessorDefinition<?>> outputs, Class<T> type, int maxDeep)
 specifier|public
 specifier|static
@@ -372,7 +389,7 @@ name|iterator
 argument_list|()
 return|;
 block|}
-comment|/**      * Looks for the given type in the list of outputs and recurring all the children as well.      * Will stop at first found and return it.      *      * @param outputs  list of outputs, can be null or empty.      * @param type     the type to look for      * @return         the first found type, or<tt>null</tt> if not found      */
+comment|/**      * Looks for the given type in the list of outputs and recurring all the children as well.      * Will stop at first found and return it.      *      * @param outputs list of outputs, can be null or empty.      * @param type    the type to look for      * @return the first found type, or<tt>null</tt> if not found      */
 DECL|method|findFirstTypeInOutputs (List<ProcessorDefinition<?>> outputs, Class<T> type)
 specifier|public
 specifier|static
@@ -445,7 +462,7 @@ name|next
 argument_list|()
 return|;
 block|}
-comment|/**      * Is the given child the first in the outputs from the parent?      *      * @param parentType the type the parent must be      * @param node the node      * @return<tt>true</tt> if first child,<tt>false</tt> otherwise      */
+comment|/**      * Is the given child the first in the outputs from the parent?      *      * @param parentType the type the parent must be      * @param node       the node      * @return<tt>true</tt> if first child,<tt>false</tt> otherwise      */
 DECL|method|isFirstChildOfType (Class<?> parentType, ProcessorDefinition<?> node)
 specifier|public
 specifier|static
@@ -544,7 +561,7 @@ name|node
 argument_list|)
 return|;
 block|}
-comment|/**      * Is the given node parent(s) of the given type      * @param parentType   the parent type      * @param node         the current node      * @param recursive    whether or not to check grand parent(s) as well      * @return<tt>true</tt> if parent(s) is of given type,<tt>false</tt> otherwise      */
+comment|/**      * Is the given node parent(s) of the given type      *      * @param parentType the parent type      * @param node       the current node      * @param recursive  whether or not to check grand parent(s) as well      * @return<tt>true</tt> if parent(s) is of given type,<tt>false</tt> otherwise      */
 DECL|method|isParentOfType (Class<?> parentType, ProcessorDefinition<?> node, boolean recursive)
 specifier|public
 specifier|static
@@ -747,7 +764,7 @@ else|:
 literal|null
 return|;
 block|}
-comment|/**      * Traverses the node, including its children (recursive), and gathers all the node ids.      *      * @param node  the target node      * @param set   set to store ids, if<tt>null</tt> a new set will be created      * @param onlyCustomId  whether to only store custom assigned ids (ie. {@link org.apache.camel.model.OptionalIdentifiedDefinition#hasCustomIdAssigned()}      * @param includeAbstract whether to include abstract nodes (ie. {@link org.apache.camel.model.ProcessorDefinition#isAbstract()}      * @return the set with the found ids.      */
+comment|/**      * Traverses the node, including its children (recursive), and gathers all the node ids.      *      * @param node            the target node      * @param set             set to store ids, if<tt>null</tt> a new set will be created      * @param onlyCustomId    whether to only store custom assigned ids (ie. {@link org.apache.camel.model.OptionalIdentifiedDefinition#hasCustomIdAssigned()}      * @param includeAbstract whether to include abstract nodes (ie. {@link org.apache.camel.model.ProcessorDefinition#isAbstract()}      * @return the set with the found ids.      */
 DECL|method|gatherAllNodeIds (ProcessorDefinition<?> node, Set<String> set, boolean onlyCustomId, boolean includeAbstract)
 specifier|public
 specifier|static
@@ -1535,7 +1552,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Is there any outputs in the given list.      *<p/>      * Is used for check if the route output has any real outputs (non abstracts)      *      * @param outputs           the outputs      * @param excludeAbstract   whether or not to exclude abstract outputs (e.g. skip onException etc.)      * @return<tt>true</tt> if has outputs, otherwise<tt>false</tt> is returned      */
+comment|/**      * Is there any outputs in the given list.      *<p/>      * Is used for check if the route output has any real outputs (non abstracts)      *      * @param outputs         the outputs      * @param excludeAbstract whether or not to exclude abstract outputs (e.g. skip onException etc.)      * @return<tt>true</tt> if has outputs, otherwise<tt>false</tt> is returned      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1644,7 +1661,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Determines whether a new thread pool will be created or not.      *<p/>      * This is used to know if a new thread pool will be created, and therefore is not shared by others, and therefore      * exclusive to the definition.      *      * @param routeContext   the route context      * @param definition     the node definition which may leverage executor service.      * @param useDefault     whether to fallback and use a default thread pool, if no explicit configured      * @return<tt>true</tt> if a new thread pool will be created,<tt>false</tt> if not      * @see #getConfiguredExecutorService(org.apache.camel.spi.RouteContext, String, ExecutorServiceAwareDefinition, boolean)      */
+comment|/**      * Determines whether a new thread pool will be created or not.      *<p/>      * This is used to know if a new thread pool will be created, and therefore is not shared by others, and therefore      * exclusive to the definition.      *      * @param routeContext the route context      * @param definition   the node definition which may leverage executor service.      * @param useDefault   whether to fallback and use a default thread pool, if no explicit configured      * @return<tt>true</tt> if a new thread pool will be created,<tt>false</tt> if not      * @see #getConfiguredExecutorService(org.apache.camel.spi.RouteContext, String, ExecutorServiceAwareDefinition, boolean)      */
 DECL|method|willCreateNewThreadPool (RouteContext routeContext, ExecutorServiceAwareDefinition<?> definition, boolean useDefault)
 specifier|public
 specifier|static
@@ -1759,7 +1776,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Will lookup in {@link org.apache.camel.spi.Registry} for a {@link ExecutorService} registered with the given      *<tt>executorServiceRef</tt> name.      *<p/>      * This method will lookup for configured thread pool in the following order      *<ul>      *<li>from the {@link org.apache.camel.spi.Registry} if found</li>      *<li>from the known list of {@link org.apache.camel.spi.ThreadPoolProfile ThreadPoolProfile(s)}.</li>      *<li>if none found, then<tt>null</tt> is returned.</li>      *</ul>      * @param routeContext   the route context      * @param name           name which is appended to the thread name, when the {@link java.util.concurrent.ExecutorService}      *                       is created based on a {@link org.apache.camel.spi.ThreadPoolProfile}.      * @param source         the source to use the thread pool      * @param executorServiceRef reference name of the thread pool      * @return the executor service, or<tt>null</tt> if none was found.      */
+comment|/**      * Will lookup in {@link org.apache.camel.spi.Registry} for a {@link ExecutorService} registered with the given      *<tt>executorServiceRef</tt> name.      *<p/>      * This method will lookup for configured thread pool in the following order      *<ul>      *<li>from the {@link org.apache.camel.spi.Registry} if found</li>      *<li>from the known list of {@link org.apache.camel.spi.ThreadPoolProfile ThreadPoolProfile(s)}.</li>      *<li>if none found, then<tt>null</tt> is returned.</li>      *</ul>      *      * @param routeContext       the route context      * @param name               name which is appended to the thread name, when the {@link java.util.concurrent.ExecutorService}      *                           is created based on a {@link org.apache.camel.spi.ThreadPoolProfile}.      * @param source             the source to use the thread pool      * @param executorServiceRef reference name of the thread pool      * @return the executor service, or<tt>null</tt> if none was found.      */
 DECL|method|lookupExecutorServiceRef (RouteContext routeContext, String name, Object source, String executorServiceRef)
 specifier|public
 specifier|static
@@ -1860,7 +1877,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Will lookup and get the configured {@link java.util.concurrent.ExecutorService} from the given definition.      *<p/>      * This method will lookup for configured thread pool in the following order      *<ul>      *<li>from the definition if any explicit configured executor service.</li>      *<li>from the {@link org.apache.camel.spi.Registry} if found</li>      *<li>from the known list of {@link org.apache.camel.spi.ThreadPoolProfile ThreadPoolProfile(s)}.</li>      *<li>if none found, then<tt>null</tt> is returned.</li>      *</ul>      * The various {@link ExecutorServiceAwareDefinition} should use this helper method to ensure they support      * configured executor services in the same coherent way.      *      * @param routeContext   the route context      * @param name           name which is appended to the thread name, when the {@link java.util.concurrent.ExecutorService}      *                       is created based on a {@link org.apache.camel.spi.ThreadPoolProfile}.      * @param definition     the node definition which may leverage executor service.      * @param useDefault     whether to fallback and use a default thread pool, if no explicit configured      * @return the configured executor service, or<tt>null</tt> if none was configured.      * @throws IllegalArgumentException is thrown if lookup of executor service in {@link org.apache.camel.spi.Registry} was not found      */
+comment|/**      * Will lookup and get the configured {@link java.util.concurrent.ExecutorService} from the given definition.      *<p/>      * This method will lookup for configured thread pool in the following order      *<ul>      *<li>from the definition if any explicit configured executor service.</li>      *<li>from the {@link org.apache.camel.spi.Registry} if found</li>      *<li>from the known list of {@link org.apache.camel.spi.ThreadPoolProfile ThreadPoolProfile(s)}.</li>      *<li>if none found, then<tt>null</tt> is returned.</li>      *</ul>      * The various {@link ExecutorServiceAwareDefinition} should use this helper method to ensure they support      * configured executor services in the same coherent way.      *      * @param routeContext the route context      * @param name         name which is appended to the thread name, when the {@link java.util.concurrent.ExecutorService}      *                     is created based on a {@link org.apache.camel.spi.ThreadPoolProfile}.      * @param definition   the node definition which may leverage executor service.      * @param useDefault   whether to fallback and use a default thread pool, if no explicit configured      * @return the configured executor service, or<tt>null</tt> if none was configured.      * @throws IllegalArgumentException is thrown if lookup of executor service in {@link org.apache.camel.spi.Registry} was not found      */
 DECL|method|getConfiguredExecutorService (RouteContext routeContext, String name, ExecutorServiceAwareDefinition<?> definition, boolean useDefault)
 specifier|public
 specifier|static
@@ -2004,7 +2021,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Will lookup in {@link org.apache.camel.spi.Registry} for a {@link ScheduledExecutorService} registered with the given      *<tt>executorServiceRef</tt> name.      *<p/>      * This method will lookup for configured thread pool in the following order      *<ul>      *<li>from the {@link org.apache.camel.spi.Registry} if found</li>      *<li>from the known list of {@link org.apache.camel.spi.ThreadPoolProfile ThreadPoolProfile(s)}.</li>      *<li>if none found, then<tt>null</tt> is returned.</li>      *</ul>      * @param routeContext   the route context      * @param name           name which is appended to the thread name, when the {@link java.util.concurrent.ExecutorService}      *                       is created based on a {@link org.apache.camel.spi.ThreadPoolProfile}.      * @param source         the source to use the thread pool      * @param executorServiceRef reference name of the thread pool      * @return the executor service, or<tt>null</tt> if none was found.      */
+comment|/**      * Will lookup in {@link org.apache.camel.spi.Registry} for a {@link ScheduledExecutorService} registered with the given      *<tt>executorServiceRef</tt> name.      *<p/>      * This method will lookup for configured thread pool in the following order      *<ul>      *<li>from the {@link org.apache.camel.spi.Registry} if found</li>      *<li>from the known list of {@link org.apache.camel.spi.ThreadPoolProfile ThreadPoolProfile(s)}.</li>      *<li>if none found, then<tt>null</tt> is returned.</li>      *</ul>      *      * @param routeContext       the route context      * @param name               name which is appended to the thread name, when the {@link java.util.concurrent.ExecutorService}      *                           is created based on a {@link org.apache.camel.spi.ThreadPoolProfile}.      * @param source             the source to use the thread pool      * @param executorServiceRef reference name of the thread pool      * @return the executor service, or<tt>null</tt> if none was found.      */
 DECL|method|lookupScheduledExecutorServiceRef (RouteContext routeContext, String name, Object source, String executorServiceRef)
 specifier|public
 specifier|static
@@ -2105,7 +2122,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Will lookup and get the configured {@link java.util.concurrent.ScheduledExecutorService} from the given definition.      *<p/>      * This method will lookup for configured thread pool in the following order      *<ul>      *<li>from the definition if any explicit configured executor service.</li>      *<li>from the {@link org.apache.camel.spi.Registry} if found</li>      *<li>from the known list of {@link org.apache.camel.spi.ThreadPoolProfile ThreadPoolProfile(s)}.</li>      *<li>if none found, then<tt>null</tt> is returned.</li>      *</ul>      * The various {@link ExecutorServiceAwareDefinition} should use this helper method to ensure they support      * configured executor services in the same coherent way.      *      * @param routeContext   the rout context      * @param name           name which is appended to the thread name, when the {@link java.util.concurrent.ExecutorService}      *                       is created based on a {@link org.apache.camel.spi.ThreadPoolProfile}.      * @param definition     the node definition which may leverage executor service.      * @param useDefault     whether to fallback and use a default thread pool, if no explicit configured      * @return the configured executor service, or<tt>null</tt> if none was configured.      * @throws IllegalArgumentException is thrown if the found instance is not a ScheduledExecutorService type,      * or lookup of executor service in {@link org.apache.camel.spi.Registry} was not found      */
+comment|/**      * Will lookup and get the configured {@link java.util.concurrent.ScheduledExecutorService} from the given definition.      *<p/>      * This method will lookup for configured thread pool in the following order      *<ul>      *<li>from the definition if any explicit configured executor service.</li>      *<li>from the {@link org.apache.camel.spi.Registry} if found</li>      *<li>from the known list of {@link org.apache.camel.spi.ThreadPoolProfile ThreadPoolProfile(s)}.</li>      *<li>if none found, then<tt>null</tt> is returned.</li>      *</ul>      * The various {@link ExecutorServiceAwareDefinition} should use this helper method to ensure they support      * configured executor services in the same coherent way.      *      * @param routeContext the rout context      * @param name         name which is appended to the thread name, when the {@link java.util.concurrent.ExecutorService}      *                     is created based on a {@link org.apache.camel.spi.ThreadPoolProfile}.      * @param definition   the node definition which may leverage executor service.      * @param useDefault   whether to fallback and use a default thread pool, if no explicit configured      * @return the configured executor service, or<tt>null</tt> if none was configured.      * @throws IllegalArgumentException is thrown if the found instance is not a ScheduledExecutorService type,      *                                  or lookup of executor service in {@link org.apache.camel.spi.Registry} was not found      */
 DECL|method|getConfiguredScheduledExecutorService (RouteContext routeContext, String name, ExecutorServiceAwareDefinition<?> definition, boolean useDefault)
 specifier|public
 specifier|static
@@ -2277,6 +2294,277 @@ block|}
 return|return
 literal|null
 return|;
+block|}
+comment|/**      * The RestoreAction is used to track all the undo/restore actions      * that need to be performed to undo any resolution to property placeholders      * that have been applied to the camel route defs.  This class is private      * so it does not get used directly.  It's mainly used by the {@see createPropertyPlaceholdersChangeReverter()}      * method.      */
+DECL|class|RestoreAction
+specifier|private
+specifier|static
+specifier|final
+class|class
+name|RestoreAction
+implements|implements
+name|Runnable
+block|{
+DECL|field|prevChange
+specifier|private
+specifier|final
+name|RestoreAction
+name|prevChange
+decl_stmt|;
+DECL|field|actions
+specifier|private
+specifier|final
+name|ArrayList
+argument_list|<
+name|Runnable
+argument_list|>
+name|actions
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Runnable
+argument_list|>
+argument_list|()
+decl_stmt|;
+DECL|method|RestoreAction (RestoreAction prevChange)
+specifier|private
+name|RestoreAction
+parameter_list|(
+name|RestoreAction
+name|prevChange
+parameter_list|)
+block|{
+name|this
+operator|.
+name|prevChange
+operator|=
+name|prevChange
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|run ()
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
+for|for
+control|(
+name|Runnable
+name|action
+range|:
+name|actions
+control|)
+block|{
+name|action
+operator|.
+name|run
+argument_list|()
+expr_stmt|;
+block|}
+name|actions
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|prevChange
+operator|==
+literal|null
+condition|)
+block|{
+name|CURRENT_RESTORE_ACTION
+operator|.
+name|remove
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|CURRENT_RESTORE_ACTION
+operator|.
+name|set
+argument_list|(
+name|prevChange
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+comment|/**      * Creates a Runnable which when run will revert property placeholder      * updates to the camel route definitions that were done after this method      * is called.  The Runnable MUST be executed and MUST be executed in the      * same thread this method is called from.  Therefore it's recommend you      * use it in try/finally block like in the following example:      *<p/>      *<pre>      *   Runnable undo = ProcessorDefinitionHelper.createPropertyPlaceholdersChangeReverter();      *   try {      *       // All property resolutions in this block will be reverted.      *   } finally {      *       undo.run();      *   }      *</pre>      *      * @return a Runnable that when run, will revert any property place holder      * changes that occurred on the current thread .      */
+DECL|method|createPropertyPlaceholdersChangeReverter ()
+specifier|public
+specifier|static
+name|Runnable
+name|createPropertyPlaceholdersChangeReverter
+parameter_list|()
+block|{
+name|RestoreAction
+name|prevChanges
+init|=
+name|CURRENT_RESTORE_ACTION
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+name|RestoreAction
+name|rc
+init|=
+operator|new
+name|RestoreAction
+argument_list|(
+name|prevChanges
+argument_list|)
+decl_stmt|;
+name|CURRENT_RESTORE_ACTION
+operator|.
+name|set
+argument_list|(
+name|rc
+argument_list|)
+expr_stmt|;
+return|return
+name|rc
+return|;
+block|}
+DECL|method|addRestoreAction (final Object target, final Map<String, Object> properties)
+specifier|private
+specifier|static
+name|void
+name|addRestoreAction
+parameter_list|(
+specifier|final
+name|Object
+name|target
+parameter_list|,
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|properties
+parameter_list|)
+block|{
+if|if
+condition|(
+name|properties
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
+name|RestoreAction
+name|restoreAction
+init|=
+name|CURRENT_RESTORE_ACTION
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|restoreAction
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
+name|restoreAction
+operator|.
+name|actions
+operator|.
+name|add
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
+try|try
+block|{
+name|IntrospectionSupport
+operator|.
+name|setProperties
+argument_list|(
+literal|null
+argument_list|,
+name|target
+argument_list|,
+name|properties
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Could not restore definition properties"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|addPropertyPlaceholdersChangeRevertAction (Runnable action)
+specifier|public
+specifier|static
+name|void
+name|addPropertyPlaceholdersChangeRevertAction
+parameter_list|(
+name|Runnable
+name|action
+parameter_list|)
+block|{
+name|RestoreAction
+name|restoreAction
+init|=
+name|CURRENT_RESTORE_ACTION
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|restoreAction
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
+name|restoreAction
+operator|.
+name|actions
+operator|.
+name|add
+argument_list|(
+name|action
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Inspects the given definition and resolves any property placeholders from its properties.      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will be property placeholder resolved.      *      * @param routeContext the route context      * @param definition   the definition      * @throws Exception is thrown if property placeholders was used and there was an error resolving them      * @see org.apache.camel.CamelContext#resolvePropertyPlaceholders(String)      * @see org.apache.camel.component.properties.PropertiesComponent      * @deprecated use {@link #resolvePropertyPlaceholders(org.apache.camel.CamelContext, Object)}      */
 annotation|@
@@ -2571,6 +2859,23 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|changedProperties
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -2706,6 +3011,15 @@ name|definition
 argument_list|)
 throw|;
 block|}
+name|changedProperties
+operator|.
+name|put
+argument_list|(
+name|name
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|LOG
@@ -2737,8 +3051,15 @@ block|}
 block|}
 block|}
 block|}
+name|addRestoreAction
+argument_list|(
+name|definition
+argument_list|,
+name|changedProperties
+argument_list|)
+expr_stmt|;
 block|}
-comment|/**      * Inspects the given definition and resolves known fields      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will check if it refers to a known field (such as on Exchange).      *      * @param definition   the definition      */
+comment|/**      * Inspects the given definition and resolves known fields      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will check if it refers to a known field (such as on Exchange).      *      * @param definition the definition      */
 DECL|method|resolveKnownConstantFields (Object definition)
 specifier|public
 specifier|static
@@ -2789,6 +3110,23 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|changedProperties
+init|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 operator|!
@@ -2919,6 +3257,15 @@ argument_list|,
 name|constant
 argument_list|)
 expr_stmt|;
+name|changedProperties
+operator|.
+name|put
+argument_list|(
+name|name
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|LOG
@@ -2965,6 +3312,13 @@ block|}
 block|}
 block|}
 block|}
+name|addRestoreAction
+argument_list|(
+name|definition
+argument_list|,
+name|changedProperties
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
