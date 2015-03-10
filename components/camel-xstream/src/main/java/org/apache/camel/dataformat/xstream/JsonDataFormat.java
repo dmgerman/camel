@@ -213,7 +213,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</a>  * ({@link DataFormat}) using XStream and Jettison to marshal to and from JSON  *  * @version   */
+comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</a>  * ({@link DataFormat}) using XStream and Jettison to marshal to and from JSON  *  * @version  */
 end_comment
 
 begin_class
@@ -278,13 +278,16 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createXStream (ClassResolver resolver)
+DECL|method|createXStream (ClassResolver resolver, ClassLoader classLoader)
 specifier|protected
 name|XStream
 name|createXStream
 parameter_list|(
 name|ClassResolver
 name|resolver
+parameter_list|,
+name|ClassLoader
+name|classLoader
 parameter_list|)
 block|{
 name|XStream
@@ -295,6 +298,8 @@ operator|.
 name|createXStream
 argument_list|(
 name|resolver
+argument_list|,
+name|classLoader
 argument_list|)
 decl_stmt|;
 if|if
