@@ -68,6 +68,26 @@ name|component
 operator|.
 name|linkedin
 operator|.
+name|api
+operator|.
+name|model
+operator|.
+name|EventType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|linkedin
+operator|.
 name|internal
 operator|.
 name|CompaniesResourceApiMethod
@@ -840,8 +860,21 @@ argument_list|,
 name|TEST_COMPANY_ID
 argument_list|)
 expr_stmt|;
-comment|// use defaults
-comment|/*         // parameter type is String         headers.put("CamelLinkedIn.fields", null);         // parameter type is org.apache.camel.component.linkedin.api.Eventtype         headers.put("CamelLinkedIn.event_type", null);         // parameter type is Long         headers.put("CamelLinkedIn.start", null);         // parameter type is Long         headers.put("CamelLinkedIn.count", null); */
+comment|// parameter type is String
+comment|//        headers.put("CamelLinkedIn.fields", null);
+comment|// parameter type is org.apache.camel.component.linkedin.api.model.Eventtype
+name|headers
+operator|.
+name|put
+argument_list|(
+literal|"CamelLinkedIn.event_type"
+argument_list|,
+name|EventType
+operator|.
+name|STATUS_UPDATE
+argument_list|)
+expr_stmt|;
+comment|/*         // parameter type is Long         headers.put("CamelLinkedIn.start", null);         // parameter type is Long         headers.put("CamelLinkedIn.count", null); */
 specifier|final
 name|org
 operator|.

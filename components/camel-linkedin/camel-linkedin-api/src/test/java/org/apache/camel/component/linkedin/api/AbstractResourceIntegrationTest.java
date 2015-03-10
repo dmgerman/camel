@@ -591,6 +591,10 @@ name|Object
 index|[]
 block|{
 name|requestFilter
+block|,
+operator|new
+name|EnumQueryParamConverterProvider
+argument_list|()
 block|}
 argument_list|)
 argument_list|)
