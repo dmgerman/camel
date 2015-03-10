@@ -42,7 +42,7 @@ name|component
 operator|.
 name|github
 operator|.
-name|consumer
+name|services
 operator|.
 name|MockCommitService
 import|;
@@ -60,7 +60,7 @@ name|component
 operator|.
 name|github
 operator|.
-name|consumer
+name|services
 operator|.
 name|MockIssueService
 import|;
@@ -78,7 +78,7 @@ name|component
 operator|.
 name|github
 operator|.
-name|consumer
+name|services
 operator|.
 name|MockPullRequestService
 import|;
@@ -96,7 +96,7 @@ name|component
 operator|.
 name|github
 operator|.
-name|consumer
+name|services
 operator|.
 name|MockRepositoryService
 import|;

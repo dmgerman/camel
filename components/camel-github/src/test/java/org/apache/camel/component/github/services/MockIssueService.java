@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.github.consumer
+DECL|package|org.apache.camel.component.github.services
 package|package
 name|org
 operator|.
@@ -16,7 +16,7 @@ name|component
 operator|.
 name|github
 operator|.
-name|consumer
+name|services
 package|;
 end_package
 

@@ -29,6 +29,7 @@ DECL|enumConstant|PULLREQUESTCOMMENT
 DECL|enumConstant|COMMIT
 DECL|enumConstant|PULLREQUEST
 DECL|enumConstant|TAG
+DECL|enumConstant|PULLREQUESTSTATE
 name|CLOSEPULLREQUEST
 block|,
 name|PULLREQUESTCOMMENT
@@ -38,6 +39,14 @@ block|,
 name|PULLREQUEST
 block|,
 name|TAG
+block|,
+name|PULLREQUESTSTATE
+block|,
+DECL|enumConstant|PULLREQUESTFILES
+DECL|enumConstant|GETCOMMITFILE
+name|PULLREQUESTFILES
+block|,
+name|GETCOMMITFILE
 block|}
 end_enum
 
