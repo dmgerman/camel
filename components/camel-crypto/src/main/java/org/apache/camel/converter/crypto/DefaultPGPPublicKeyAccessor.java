@@ -122,6 +122,22 @@ name|PGPUtil
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|bouncycastle
+operator|.
+name|openpgp
+operator|.
+name|operator
+operator|.
+name|bc
+operator|.
+name|BcKeyFingerprintCalculator
+import|;
+end_import
+
 begin_comment
 comment|/**  * Caches a public key ring.  *   */
 end_comment
@@ -177,6 +193,10 @@ argument_list|(
 name|publicKeyRing
 argument_list|)
 argument_list|)
+argument_list|,
+operator|new
+name|BcKeyFingerprintCalculator
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
