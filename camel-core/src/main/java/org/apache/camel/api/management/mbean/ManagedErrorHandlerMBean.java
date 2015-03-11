@@ -498,6 +498,33 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"RedeliveryPolicy for logging exhausted with message history"
+argument_list|)
+DECL|method|getLogExhaustedMessageHistory ()
+name|Boolean
+name|getLogExhaustedMessageHistory
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"RedeliveryPolicy for logging exhausted with message history"
+argument_list|)
+DECL|method|setLogExhaustedMessageHistory (Boolean log)
+name|void
+name|setLogExhaustedMessageHistory
+parameter_list|(
+name|Boolean
+name|log
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"RedeliveryPolicy for logging handled and continued exceptions"
 argument_list|)
 DECL|method|getLogContinued ()
@@ -599,6 +626,33 @@ name|setUseExponentialBackOff
 parameter_list|(
 name|Boolean
 name|backoff
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"RedeliveryPolicy for allow redelivery while stopping"
+argument_list|)
+DECL|method|getAllowRedeliveryWhileStopping ()
+name|Boolean
+name|getAllowRedeliveryWhileStopping
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"RedeliveryPolicy for allow redelivery while stopping"
+argument_list|)
+DECL|method|setAllowRedeliveryWhileStopping (Boolean allow)
+name|void
+name|setAllowRedeliveryWhileStopping
+parameter_list|(
+name|Boolean
+name|allow
 parameter_list|)
 function_decl|;
 block|}
