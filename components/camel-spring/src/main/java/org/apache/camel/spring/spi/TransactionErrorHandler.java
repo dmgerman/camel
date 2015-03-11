@@ -341,6 +341,8 @@ argument_list|,
 name|retryWhile
 argument_list|,
 name|executorService
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|setExceptionPolicy

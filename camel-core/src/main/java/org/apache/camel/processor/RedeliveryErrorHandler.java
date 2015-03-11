@@ -512,6 +512,12 @@ specifier|final
 name|ExchangeFormatter
 name|exchangeFormatter
 decl_stmt|;
+DECL|field|onPrepare
+specifier|protected
+specifier|final
+name|Processor
+name|onPrepare
+decl_stmt|;
 comment|/**      * Contains the current redelivery data      */
 DECL|class|RedeliveryData
 specifier|protected
@@ -561,6 +567,10 @@ DECL|field|onRedeliveryProcessor
 name|Processor
 name|onRedeliveryProcessor
 decl_stmt|;
+DECL|field|onPrepareProcessor
+name|Processor
+name|onPrepareProcessor
+decl_stmt|;
 DECL|field|handledPredicate
 name|Predicate
 name|handledPredicate
@@ -606,6 +616,12 @@ operator|.
 name|onRedeliveryProcessor
 operator|=
 name|redeliveryProcessor
+expr_stmt|;
+name|this
+operator|.
+name|onPrepareProcessor
+operator|=
+name|onPrepare
 expr_stmt|;
 name|this
 operator|.
@@ -942,7 +958,7 @@ name|sync
 return|;
 block|}
 block|}
-DECL|method|RedeliveryErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Processor deadLetter, String deadLetterUri, boolean deadLetterHandleNewException, boolean useOriginalMessagePolicy, Predicate retryWhile, ScheduledExecutorService executorService)
+DECL|method|RedeliveryErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Processor deadLetter, String deadLetterUri, boolean deadLetterHandleNewException, boolean useOriginalMessagePolicy, Predicate retryWhile, ScheduledExecutorService executorService, Processor onPrepare)
 specifier|public
 name|RedeliveryErrorHandler
 parameter_list|(
@@ -978,6 +994,9 @@ name|retryWhile
 parameter_list|,
 name|ScheduledExecutorService
 name|executorService
+parameter_list|,
+name|Processor
+name|onPrepare
 parameter_list|)
 block|{
 name|ObjectHelper
@@ -1078,6 +1097,12 @@ operator|.
 name|executorService
 operator|=
 name|executorService
+expr_stmt|;
+name|this
+operator|.
+name|onPrepare
+operator|=
+name|onPrepare
 expr_stmt|;
 if|if
 condition|(
@@ -3917,6 +3942,51 @@ name|getIn
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// invoke custom on prepare
+if|if
+condition|(
+name|onPrepare
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"OnPrepare processor {} is processing Exchange: {}"
+argument_list|,
+name|onPrepare
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+name|onPrepare
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// a new exception was thrown during prepare
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 name|log
 operator|.
 name|trace
@@ -4105,6 +4175,51 @@ else|else
 block|{
 try|try
 block|{
+comment|// invoke custom on prepare
+if|if
+condition|(
+name|onPrepare
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"OnPrepare processor {} is processing Exchange: {}"
+argument_list|,
+name|onPrepare
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+name|onPrepare
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// a new exception was thrown during prepare
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// no processor but we need to prepare after failure as well
 name|prepareExchangeAfterFailure
 argument_list|(

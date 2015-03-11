@@ -118,8 +118,8 @@ name|DefaultErrorHandler
 extends|extends
 name|RedeliveryErrorHandler
 block|{
-comment|/**      * Creates the default error handler.      *      * @param camelContext              the camel context      * @param output                    outer processor that should use this default error handler      * @param logger                    logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor       an optional processor to run before redelivery attempt      * @param redeliveryPolicy          policy for redelivery      * @param exceptionPolicyStrategy   strategy for onException handling      * @param retryWhile                retry while      * @param executorService           the {@link java.util.concurrent.ScheduledExecutorService} to be used for redelivery thread pool. Can be<tt>null</tt>.      */
-DECL|method|DefaultErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, Predicate retryWhile, ScheduledExecutorService executorService)
+comment|/**      * Creates the default error handler.      *      * @param camelContext              the camel context      * @param output                    outer processor that should use this default error handler      * @param logger                    logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor       an optional processor to run before redelivery attempt      * @param redeliveryPolicy          policy for redelivery      * @param exceptionPolicyStrategy   strategy for onException handling      * @param retryWhile                retry while      * @param executorService           the {@link java.util.concurrent.ScheduledExecutorService} to be used for redelivery thread pool. Can be<tt>null</tt>.      * @param onPrepare                 a custom {@link org.apache.camel.Processor} to prepare the {@link org.apache.camel.Exchange} before      *                                  handled by the failure processor / dead letter channel.      */
+DECL|method|DefaultErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, Predicate retryWhile, ScheduledExecutorService executorService, Processor onPrepare)
 specifier|public
 name|DefaultErrorHandler
 parameter_list|(
@@ -146,6 +146,9 @@ name|retryWhile
 parameter_list|,
 name|ScheduledExecutorService
 name|executorService
+parameter_list|,
+name|Processor
+name|onPrepare
 parameter_list|)
 block|{
 name|super
@@ -171,6 +174,8 @@ argument_list|,
 name|retryWhile
 argument_list|,
 name|executorService
+argument_list|,
+name|onPrepare
 argument_list|)
 expr_stmt|;
 name|setExceptionPolicy

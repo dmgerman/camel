@@ -301,6 +301,11 @@ specifier|protected
 name|ScheduledExecutorService
 name|executorService
 decl_stmt|;
+DECL|field|onPrepareFailure
+specifier|protected
+name|Processor
+name|onPrepareFailure
+decl_stmt|;
 DECL|method|DefaultErrorHandlerBuilder ()
 specifier|public
 name|DefaultErrorHandlerBuilder
@@ -360,6 +365,9 @@ operator|.
 name|getCamelContext
 argument_list|()
 argument_list|)
+argument_list|,
+name|getOnPrepareFailure
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// configure error handler before we can use it
@@ -1237,6 +1245,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets a custom {@link org.apache.camel.Processor} to prepare the {@link org.apache.camel.Exchange} before      * handled by the failure processor / dead letter channel. This allows for example to enrich the message      * before sending to a dead letter queue.      *      * @param processor the processor      * @return the builder      */
+DECL|method|onPrepareFailure (Processor processor)
+specifier|public
+name|DefaultErrorHandlerBuilder
+name|onPrepareFailure
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+block|{
+name|setOnPrepareFailure
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getFailureProcessor ()
@@ -1640,6 +1667,32 @@ operator|.
 name|executorServiceRef
 operator|=
 name|executorServiceRef
+expr_stmt|;
+block|}
+DECL|method|getOnPrepareFailure ()
+specifier|public
+name|Processor
+name|getOnPrepareFailure
+parameter_list|()
+block|{
+return|return
+name|onPrepareFailure
+return|;
+block|}
+DECL|method|setOnPrepareFailure (Processor onPrepareFailure)
+specifier|public
+name|void
+name|setOnPrepareFailure
+parameter_list|(
+name|Processor
+name|onPrepareFailure
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onPrepareFailure
+operator|=
+name|onPrepareFailure
 expr_stmt|;
 block|}
 DECL|method|createRedeliveryPolicy ()
