@@ -233,6 +233,18 @@ expr_stmt|;
 block|}
 block|}
 block|}
+annotation|@
+name|Test
+DECL|method|testStartRoute ()
+specifier|public
+name|void
+name|testStartRoute
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// do nothing here , just make sure the camel route can started.
+block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -253,6 +265,11 @@ comment|// START SNIPPET: e1
 name|from
 argument_list|(
 literal|"snmp:0.0.0.0:1662?protocol=udp&type=TRAP"
+argument_list|)
+operator|.
+name|id
+argument_list|(
+literal|"route1"
 argument_list|)
 operator|.
 name|transform

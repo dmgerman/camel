@@ -583,11 +583,7 @@ argument_list|,
 name|processor
 argument_list|)
 decl_stmt|;
-name|configureConsumer
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
+comment|// As the SnmpTrapConsumer is not a polling consumer we don't need to call the configureConsumer here.
 return|return
 name|answer
 return|;
