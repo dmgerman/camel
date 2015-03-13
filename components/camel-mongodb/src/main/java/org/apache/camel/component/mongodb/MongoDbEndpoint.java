@@ -820,10 +820,6 @@ name|writeConcernRef
 operator|!=
 literal|null
 operator|||
-name|readPreference
-operator|!=
-literal|null
-operator|||
 name|dynamicity
 operator|||
 name|invokeGetLastError
@@ -833,7 +829,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"operation, writeConcern, writeConcernRef, readPreference, dynamicity, invokeGetLastError "
+literal|"operation, writeConcern, writeConcernRef, dynamicity, invokeGetLastError "
 operator|+
 literal|"options cannot appear on a consumer endpoint"
 argument_list|)
