@@ -902,7 +902,7 @@ return|return
 name|separator
 return|;
 block|}
-comment|/**      * Sets the path separator to be used.      *<p/>      * UNIX = Path separator / is used      * Windows = Path separator \ is used      * Auto = (is default) Use existing path separator in file name      */
+comment|/**      * Sets the path separator to be used.      *<p/>      * UNIX = Uses unix style path separator      * Windows = Uses windows style path separator      * Auto = (is default) Use existing path separator in file name      */
 DECL|method|setSeparator (PathSeparator separator)
 specifier|public
 name|void
