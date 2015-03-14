@@ -2673,13 +2673,13 @@ name|methodParameters
 init|=
 name|ObjectHelper
 operator|.
-name|between
+name|betweenOuterPair
 argument_list|(
 name|methodName
 argument_list|,
-literal|"("
+literal|'('
 argument_list|,
-literal|")"
+literal|')'
 argument_list|)
 decl_stmt|;
 comment|// use an iterator to walk the parameter values
