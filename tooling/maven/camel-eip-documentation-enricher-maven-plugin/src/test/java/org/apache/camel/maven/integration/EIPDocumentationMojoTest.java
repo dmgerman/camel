@@ -334,6 +334,12 @@ argument_list|(
 literal|"integration/camel-spring.xsd"
 argument_list|)
 expr_stmt|;
+name|eipDocumentationEnricherMojo
+operator|.
+name|pathToModelDir
+operator|=
+literal|"trgt/classes/org/apache/camel/model"
+expr_stmt|;
 name|xPath
 operator|.
 name|setNamespaceContext

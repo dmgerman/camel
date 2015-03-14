@@ -402,6 +402,19 @@ specifier|public
 name|File
 name|camelCoreDir
 decl_stmt|;
+comment|/**      * Sub path from camel core directory to model directory with generated json files for components.      */
+annotation|@
+name|Parameter
+argument_list|(
+name|defaultValue
+operator|=
+literal|"target/classes/org/apache/camel/model"
+argument_list|)
+DECL|field|pathToModelDir
+specifier|public
+name|String
+name|pathToModelDir
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|execute ()
@@ -414,6 +427,21 @@ name|MojoExecutionException
 throws|,
 name|MojoFailureException
 block|{
+if|if
+condition|(
+name|pathToModelDir
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|MojoExecutionException
+argument_list|(
+literal|"pathToModelDir parameter must not be null"
+argument_list|)
+throw|;
+block|}
 name|validateExists
 argument_list|(
 name|inputCamelSchemaFile
@@ -481,9 +509,7 @@ name|File
 argument_list|(
 name|camelCoreDir
 argument_list|,
-name|Constants
-operator|.
-name|PATH_TO_MODEL_DIR
+name|pathToModelDir
 argument_list|)
 decl_stmt|;
 name|Document

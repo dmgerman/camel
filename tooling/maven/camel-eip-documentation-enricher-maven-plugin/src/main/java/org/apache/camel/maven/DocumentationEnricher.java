@@ -700,7 +700,7 @@ name|repeat
 argument_list|(
 name|Constants
 operator|.
-name|DEFAULT_XML_INTEMSION
+name|DEFAULT_XML_INTENTION
 argument_list|,
 name|getNodeDepth
 argument_list|(

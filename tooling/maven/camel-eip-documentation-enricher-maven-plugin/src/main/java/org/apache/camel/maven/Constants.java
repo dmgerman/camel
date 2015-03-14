@@ -28,21 +28,12 @@ class|class
 name|Constants
 block|{
 comment|// Camel core constants.
-DECL|field|PATH_TO_MODEL_DIR
+DECL|field|DEFAULT_XML_INTENTION
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|PATH_TO_MODEL_DIR
-init|=
-literal|"target/classes/org/apache/camel/model"
-decl_stmt|;
-DECL|field|DEFAULT_XML_INTEMSION
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|DEFAULT_XML_INTEMSION
+name|DEFAULT_XML_INTENTION
 init|=
 literal|"  "
 decl_stmt|;
