@@ -217,11 +217,6 @@ name|MailEndpoint
 extends|extends
 name|ScheduledPollEndpoint
 block|{
-DECL|field|binding
-specifier|private
-name|MailBinding
-name|binding
-decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|configuration
@@ -229,6 +224,15 @@ specifier|private
 name|MailConfiguration
 name|configuration
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|binding
+specifier|private
+name|MailBinding
+name|binding
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
@@ -238,6 +242,8 @@ operator|new
 name|MailHeaderFilterStrategy
 argument_list|()
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|contentTypeResolver
 specifier|private
 name|ContentTypeResolver

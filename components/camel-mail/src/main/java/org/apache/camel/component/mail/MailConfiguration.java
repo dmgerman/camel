@@ -200,10 +200,10 @@ name|MailConfiguration
 implements|implements
 name|Cloneable
 block|{
-DECL|field|javaMailSender
+DECL|field|session
 specifier|private
-name|JavaMailSender
-name|javaMailSender
+name|Session
+name|session
 decl_stmt|;
 DECL|field|javaMailProperties
 specifier|private
@@ -261,15 +261,31 @@ name|password
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|subject
 specifier|private
 name|String
 name|subject
 decl_stmt|;
-DECL|field|session
+annotation|@
+name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|javaMailSender
 specifier|private
-name|Session
-name|session
+name|JavaMailSender
+name|javaMailSender
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -294,6 +310,13 @@ name|MailConstants
 operator|.
 name|MAIL_DEFAULT_FROM
 argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|from
 specifier|private
 name|String
@@ -312,6 +335,13 @@ name|MailConstants
 operator|.
 name|MAIL_DEFAULT_FOLDER
 argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|folderName
 specifier|private
 name|String
@@ -323,6 +353,13 @@ name|MAIL_DEFAULT_FOLDER
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|delete
 specifier|private
 name|boolean
@@ -330,6 +367,13 @@ name|delete
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|copyTo
 specifier|private
 name|String
@@ -341,6 +385,13 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
 argument_list|)
 DECL|field|unseen
 specifier|private
@@ -381,6 +432,13 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|replyTo
 specifier|private
 name|String
@@ -392,6 +450,13 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"-1"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
 argument_list|)
 DECL|field|fetchSize
 specifier|private
@@ -483,6 +548,13 @@ name|ignoreUnsupportedCharset
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|disconnect
 specifier|private
 name|boolean
@@ -494,6 +566,13 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
 argument_list|)
 DECL|field|closeFolder
 specifier|private
@@ -508,6 +587,13 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
 argument_list|)
 DECL|field|peek
 specifier|private
@@ -1398,6 +1484,7 @@ return|return
 name|javaMailSender
 return|;
 block|}
+comment|/**      * To use a custom {@link org.apache.camel.component.mail.JavaMailSender} for sending emails.      */
 DECL|method|setJavaMailSender (JavaMailSender javaMailSender)
 specifier|public
 name|void
@@ -1424,6 +1511,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * The mail server host name      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -1518,6 +1606,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * The password for login      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -1544,6 +1633,7 @@ return|return
 name|subject
 return|;
 block|}
+comment|/**      * The Subject of the message being sent. Note: Setting the subject in the header takes precedence over this option.      */
 DECL|method|setSubject (String subject)
 specifier|public
 name|void
@@ -1570,6 +1660,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * The port number of the mail server      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -1596,6 +1687,7 @@ return|return
 name|protocol
 return|;
 block|}
+comment|/**      * The protocol for communicating with the mail server      */
 DECL|method|setProtocol (String protocol)
 specifier|public
 name|void
@@ -1648,6 +1740,7 @@ return|return
 name|username
 return|;
 block|}
+comment|/**      * The username for login      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -1718,6 +1811,7 @@ return|return
 name|from
 return|;
 block|}
+comment|/**      * The from email address      */
 DECL|method|setFrom (String from)
 specifier|public
 name|void
@@ -1744,6 +1838,7 @@ return|return
 name|delete
 return|;
 block|}
+comment|/**      * Deletes the messages after they have been processed. This is done by setting the DELETED flag on the mail message.      * If false, the SEEN flag is set instead. As of Camel 2.10 you can override this configuration option by setting a      * header with the key delete to determine if the mail should be deleted or not.      */
 DECL|method|setDelete (boolean delete)
 specifier|public
 name|void
@@ -1796,6 +1891,7 @@ return|return
 name|folderName
 return|;
 block|}
+comment|/**      * The folder to poll.      */
 DECL|method|setFolderName (String folderName)
 specifier|public
 name|void
@@ -1822,6 +1918,7 @@ return|return
 name|ignoreUriScheme
 return|;
 block|}
+comment|/**      * Option to let Camel ignore unsupported charset in the local JVM when sending mails. If the charset is unsupported      * then charset=XXX (where XXX represents the unsupported charset) is removed from the content-type and it relies on the platform default instead.      */
 DECL|method|setIgnoreUriScheme (boolean ignoreUriScheme)
 specifier|public
 name|void
@@ -1848,6 +1945,7 @@ return|return
 name|unseen
 return|;
 block|}
+comment|/**      * Whether to limit by unseen mails only.      */
 DECL|method|setUnseen (boolean unseen)
 specifier|public
 name|void
@@ -1963,6 +2061,7 @@ return|return
 name|replyTo
 return|;
 block|}
+comment|/**      * The Reply-To recipients (the receivers of the response mail). Separate multiple email addresses with a comma.      */
 DECL|method|setReplyTo (String replyTo)
 specifier|public
 name|void
@@ -1989,6 +2088,7 @@ return|return
 name|fetchSize
 return|;
 block|}
+comment|/**      * Sets the maximum number of messages to consume during a poll. This can be used to avoid overloading a mail server,      * if a mailbox folder contains a lot of messages. Default value of -1 means no fetch size and all messages will be consumed.      * Setting the value to 0 is a special corner case, where Camel will not consume any messages at all.      */
 DECL|method|setFetchSize (int fetchSize)
 specifier|public
 name|void
@@ -2015,6 +2115,7 @@ return|return
 name|debugMode
 return|;
 block|}
+comment|/**      * Enable debug mode on the underlying mail framework. The SUN Mail framework logs the debug messages to System.out by default.      */
 DECL|method|setDebugMode (boolean debugMode)
 specifier|public
 name|void
@@ -2041,6 +2142,7 @@ return|return
 name|connectionTimeout
 return|;
 block|}
+comment|/**      * The connection timeout in milliseconds.      */
 DECL|method|setConnectionTimeout (int connectionTimeout)
 specifier|public
 name|void
@@ -2093,6 +2195,7 @@ return|return
 name|contentType
 return|;
 block|}
+comment|/**      * The mail message content type. Use text/html for HTML mails.      */
 DECL|method|setContentType (String contentType)
 specifier|public
 name|void
@@ -2119,6 +2222,7 @@ return|return
 name|alternativeBodyHeader
 return|;
 block|}
+comment|/**      * Specifies the key to an IN message header that contains an alternative email body.      * For example, if you send emails in text/html format and want to provide an alternative mail body for      * non-HTML email clients, set the alternative mail body with this key as a header.      */
 DECL|method|setAlternativeBodyHeader (String alternativeBodyHeader)
 specifier|public
 name|void
@@ -2171,6 +2275,7 @@ return|return
 name|ignoreUnsupportedCharset
 return|;
 block|}
+comment|/**      * Option to let Camel ignore unsupported charset in the local JVM when sending mails.      * If the charset is unsupported then charset=XXX (where XXX represents the unsupported charset)      * is removed from the content-type and it relies on the platform default instead.      */
 DECL|method|setIgnoreUnsupportedCharset (boolean ignoreUnsupportedCharset)
 specifier|public
 name|void
@@ -2197,6 +2302,7 @@ return|return
 name|disconnect
 return|;
 block|}
+comment|/**      * Whether the consumer should disconnect after polling. If enabled this forces Camel to connect on each poll.      */
 DECL|method|setDisconnect (boolean disconnect)
 specifier|public
 name|void
@@ -2223,6 +2329,7 @@ return|return
 name|closeFolder
 return|;
 block|}
+comment|/**      * Whether the consumer should close the folder after polling. Setting this option to false and having disconnect=false as well,      * then the consumer keep the folder open between polls.      */
 DECL|method|setCloseFolder (boolean closeFolder)
 specifier|public
 name|void
@@ -2275,6 +2382,7 @@ return|return
 name|copyTo
 return|;
 block|}
+comment|/**      * After processing a mail message, it can be copied to a mail folder with the given name.      * You can override this configuration value, with a header with the key copyTo, allowing you to copy messages      * to folder names configured at runtime.      */
 DECL|method|setCopyTo (String copyTo)
 specifier|public
 name|void
@@ -2301,6 +2409,7 @@ return|return
 name|peek
 return|;
 block|}
+comment|/**      * Will mark the javax.mail.Message as peeked before processing the mail message.      * This applies to IMAPMessage messages types only. By using peek the mail will not be eager marked as SEEN on      * the mail server, which allows us to rollback the mail message if there is an error processing in Camel.      */
 DECL|method|setPeek (boolean peek)
 specifier|public
 name|void
