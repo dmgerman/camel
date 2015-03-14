@@ -56,6 +56,24 @@ init|=
 literal|80
 decl_stmt|;
 comment|// XML constants.
+DECL|field|XML_SCHEMA_NAMESPACE_PREFIX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|XML_SCHEMA_NAMESPACE_PREFIX
+init|=
+literal|"xs"
+decl_stmt|;
+DECL|field|XML_SCHEMA_NAMESPACE_URI
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|XML_SCHEMA_NAMESPACE_URI
+init|=
+literal|"http://www.w3.org/2001/XMLSchema"
+decl_stmt|;
 DECL|field|NAME_ATTRIBUTE_NAME
 specifier|public
 specifier|static

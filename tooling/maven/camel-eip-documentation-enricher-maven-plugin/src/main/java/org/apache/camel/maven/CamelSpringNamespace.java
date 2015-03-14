@@ -78,7 +78,9 @@ throw|;
 block|}
 if|if
 condition|(
-literal|"xs"
+name|Constants
+operator|.
+name|XML_SCHEMA_NAMESPACE_PREFIX
 operator|.
 name|equals
 argument_list|(
@@ -87,7 +89,9 @@ argument_list|)
 condition|)
 block|{
 return|return
-literal|"http://www.w3.org/2001/XMLSchema"
+name|Constants
+operator|.
+name|XML_SCHEMA_NAMESPACE_URI
 return|;
 block|}
 return|return
