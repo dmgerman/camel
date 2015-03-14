@@ -578,16 +578,6 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-name|callback
-operator|.
-name|done
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-return|return
-literal|true
-return|;
 block|}
 comment|// Decide whether to continue or not; similar logic to the Pipeline
 comment|// check for error if so we should break out

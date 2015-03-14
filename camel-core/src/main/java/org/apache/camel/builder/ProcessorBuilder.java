@@ -239,7 +239,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Creates a processor which sets the body of the FAULT message (FAULT must be OUT) to the value of the expression      */
+comment|/**      * Creates a processor which sets the body of the FAULT message to the value of the expression      */
 DECL|method|setFaultBody (final Expression expression)
 specifier|public
 specifier|static
@@ -278,6 +278,14 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
 name|exchange
 operator|.
 name|getOut
@@ -298,6 +306,30 @@ argument_list|(
 name|newBody
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setFault
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+name|newBody
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -499,7 +531,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Sets the header on the FAULT message (FAULT must be OUT)      */
+comment|/**      * Sets the header on the FAULT message      */
 DECL|method|setFaultHeader (final String name, final Expression expression)
 specifier|public
 specifier|static
@@ -542,6 +574,14 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
 name|exchange
 operator|.
 name|getOut
@@ -564,6 +604,32 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setFault
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|name
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
