@@ -134,15 +134,6 @@ argument_list|(
 name|xml
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|xml
-argument_list|)
-expr_stmt|;
 name|log
 operator|.
 name|info
