@@ -29,6 +29,7 @@ end_import
 begin_class
 DECL|class|ResourceUtils
 specifier|public
+specifier|final
 class|class
 name|ResourceUtils
 block|{
@@ -36,7 +37,9 @@ DECL|method|ResourceUtils ()
 specifier|private
 name|ResourceUtils
 parameter_list|()
-block|{ }
+block|{
+comment|// noop
+block|}
 DECL|method|getResourceAsFile (String pathToFile)
 specifier|public
 specifier|static

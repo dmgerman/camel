@@ -569,7 +569,6 @@ name|Element
 name|e
 init|=
 operator|(
-operator|(
 name|Element
 operator|)
 name|element
@@ -578,7 +577,6 @@ name|item
 argument_list|(
 literal|0
 argument_list|)
-operator|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
