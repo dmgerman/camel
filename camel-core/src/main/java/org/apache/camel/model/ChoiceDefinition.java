@@ -284,6 +284,14 @@ specifier|private
 name|OtherwiseDefinition
 name|otherwise
 decl_stmt|;
+DECL|field|onlyWhenOrOtherwise
+specifier|private
+specifier|transient
+name|boolean
+name|onlyWhenOrOtherwise
+init|=
+literal|true
+decl_stmt|;
 DECL|method|ChoiceDefinition ()
 specifier|public
 name|ChoiceDefinition
@@ -781,6 +789,104 @@ name|otherwiseProcessor
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|addOutput (ProcessorDefinition<?> output)
+specifier|public
+name|void
+name|addOutput
+parameter_list|(
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|output
+parameter_list|)
+block|{
+if|if
+condition|(
+name|onlyWhenOrOtherwise
+condition|)
+block|{
+if|if
+condition|(
+name|output
+operator|instanceof
+name|WhenDefinition
+operator|||
+name|output
+operator|instanceof
+name|OtherwiseDefinition
+condition|)
+block|{
+comment|// okay we are adding a when or otherwise so allow any kind of output after this again
+name|onlyWhenOrOtherwise
+operator|=
+literal|false
+expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"A new choice clause should start with a when() or otherwise(). If you intend to end the entire choice and are using endChoice() then use end() instead."
+argument_list|)
+throw|;
+block|}
+block|}
+name|super
+operator|.
+name|addOutput
+argument_list|(
+name|output
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|end ()
+specifier|public
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|end
+parameter_list|()
+block|{
+comment|// we end a block so only when or otherwise is supported
+name|onlyWhenOrOtherwise
+operator|=
+literal|true
+expr_stmt|;
+return|return
+name|super
+operator|.
+name|end
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|endChoice ()
+specifier|public
+name|ChoiceDefinition
+name|endChoice
+parameter_list|()
+block|{
+comment|// we end a block so only when or otherwise is supported
+name|onlyWhenOrOtherwise
+operator|=
+literal|true
+expr_stmt|;
+return|return
+name|super
+operator|.
+name|endChoice
+argument_list|()
+return|;
+block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
 comment|/**      * Sets the predicate for the when node      *      * @param predicate the predicate      * @return the builder      */
@@ -856,6 +962,10 @@ argument_list|>
 name|when
 parameter_list|)
 block|{
+name|onlyWhenOrOtherwise
+operator|=
+literal|true
+expr_stmt|;
 name|popBlock
 argument_list|()
 expr_stmt|;
