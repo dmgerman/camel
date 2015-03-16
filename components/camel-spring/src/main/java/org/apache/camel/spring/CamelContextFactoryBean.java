@@ -2815,6 +2815,25 @@ return|return
 name|endpoints
 return|;
 block|}
+DECL|method|setEndpoints (List<CamelEndpointFactoryBean> endpoints)
+specifier|public
+name|void
+name|setEndpoints
+parameter_list|(
+name|List
+argument_list|<
+name|CamelEndpointFactoryBean
+argument_list|>
+name|endpoints
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpoints
+operator|=
+name|endpoints
+expr_stmt|;
+block|}
 DECL|method|getRedeliveryPolicies ()
 specifier|public
 name|List
