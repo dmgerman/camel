@@ -4585,6 +4585,27 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// need to lookup default endpoint as it may have been intercepted
+if|if
+condition|(
+name|defaultEndpoint
+operator|!=
+literal|null
+condition|)
+block|{
+name|defaultEndpoint
+operator|=
+name|camelContext
+operator|.
+name|getEndpoint
+argument_list|(
+name|defaultEndpoint
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|ServiceHelper
 operator|.
 name|startService

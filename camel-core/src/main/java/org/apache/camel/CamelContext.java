@@ -794,8 +794,8 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Adds a service to this context.      *<p/>      * The service will also have {@link CamelContext} injected if its {@link CamelContextAware}.      * The service will also be enlisted in JMX for management (if JMX is enabled).      * The service will be started, if its not already started.      *<p/>      * If the option<tt>closeOnShutdown</tt> is<tt>true</tt> then this context will control the lifecycle, ensuring      * the service is stopped when the context stops.      * If the option<tt>closeOnShutdown</tt> is<tt>false</tt> then this context will not stop the service when the context stops.      *      * @param object the service      * @param closeOnShutdown whether to close the service when this CamelContext shutdown.      * @throws Exception can be thrown when starting the service      */
-DECL|method|addService (Object object, boolean closeOnShutdown)
+comment|/**      * Adds a service to this context.      *<p/>      * The service will also have {@link CamelContext} injected if its {@link CamelContextAware}.      * The service will also be enlisted in JMX for management (if JMX is enabled).      * The service will be started, if its not already started.      *<p/>      * If the option<tt>closeOnShutdown</tt> is<tt>true</tt> then this context will control the lifecycle, ensuring      * the service is stopped when the context stops.      * If the option<tt>closeOnShutdown</tt> is<tt>false</tt> then this context will not stop the service when the context stops.      *      * @param object the service      * @param stopOnShutdown whether to stop the service when this CamelContext shutdown.      * @throws Exception can be thrown when starting the service      */
+DECL|method|addService (Object object, boolean stopOnShutdown)
 name|void
 name|addService
 parameter_list|(
@@ -803,7 +803,7 @@ name|Object
 name|object
 parameter_list|,
 name|boolean
-name|closeOnShutdown
+name|stopOnShutdown
 parameter_list|)
 throws|throws
 name|Exception
@@ -842,6 +842,20 @@ name|T
 argument_list|>
 name|type
 parameter_list|)
+function_decl|;
+comment|/**      * Defers starting the service until {@link CamelContext} is started and has initialized all its prior services and routes.      *<p/>      * If {@link CamelContext} is already started then the service is started immediately.      *      * @param object the service      * @param stopOnShutdown whether to stop the service when this CamelContext shutdown. Setting this to<tt>true</tt> will keep a reference to the service in      *                       this {@link CamelContext} until the context is stopped. So do not use it for short lived services.      * @throws Exception can be thrown when starting the service, which is only attempted if {@link CamelContext} has already been started when calling this method.      */
+DECL|method|deferStartService (Object object, boolean stopOnShutdown)
+name|void
+name|deferStartService
+parameter_list|(
+name|Object
+name|object
+parameter_list|,
+name|boolean
+name|stopOnShutdown
+parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 comment|/**      * Adds the given listener to be invoked when {@link CamelContext} have just been started.      *<p/>      * This allows listeners to do any custom work after the routes and other services have been started and are running.      *<p/><b>Important:</b> The listener will always be invoked, also if the {@link CamelContext} has already been      * started, see the {@link org.apache.camel.StartupListener#onCamelContextStarted(CamelContext, boolean)} method.      *      * @param listener the listener      * @throws Exception can be thrown if {@link CamelContext} is already started and the listener is invoked      *                   and cause an exception to be thrown      */
 DECL|method|addStartupListener (StartupListener listener)

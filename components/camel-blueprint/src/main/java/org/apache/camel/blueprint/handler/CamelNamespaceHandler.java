@@ -6698,6 +6698,13 @@ name|String
 name|beanName
 parameter_list|)
 block|{
+if|if
+condition|(
+name|beanName
+operator|!=
+literal|null
+condition|)
+block|{
 name|ComponentMetadata
 name|meta
 init|=
@@ -6749,6 +6756,7 @@ argument_list|(
 name|scope
 argument_list|)
 return|;
+block|}
 block|}
 block|}
 comment|// fallback to super, which will assume singleton

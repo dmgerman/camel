@@ -62,9 +62,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|processor
 operator|.
-name|ServiceHelper
+name|DeferServiceFactory
 import|;
 end_import
 
@@ -223,17 +223,23 @@ block|{
 name|Producer
 name|producer
 init|=
-name|endpoint
+name|DeferServiceFactory
 operator|.
 name|createProducer
-argument_list|()
+argument_list|(
+name|endpoint
+argument_list|)
 decl_stmt|;
-comment|// ensure the producer is started
-name|ServiceHelper
+name|endpoint
 operator|.
-name|startService
+name|getCamelContext
+argument_list|()
+operator|.
+name|deferStartService
 argument_list|(
 name|producer
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 return|return

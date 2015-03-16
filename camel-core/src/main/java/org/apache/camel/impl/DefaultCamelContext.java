@@ -1974,14 +1974,14 @@ name|Route
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|servicesToClose
+DECL|field|servicesToStop
 specifier|private
 specifier|final
 name|List
 argument_list|<
 name|Service
 argument_list|>
-name|servicesToClose
+name|servicesToStop
 init|=
 operator|new
 name|CopyOnWriteArrayList
@@ -2004,6 +2004,16 @@ name|LinkedHashSet
 argument_list|<
 name|StartupListener
 argument_list|>
+argument_list|()
+decl_stmt|;
+DECL|field|deferStartupListener
+specifier|private
+specifier|final
+name|DeferServiceStartupListener
+name|deferStartupListener
+init|=
+operator|new
+name|DeferServiceStartupListener
 argument_list|()
 decl_stmt|;
 DECL|field|typeConverter
@@ -2705,6 +2715,16 @@ operator|new
 name|DefaultEndpointRegistry
 argument_list|(
 name|this
+argument_list|)
+expr_stmt|;
+comment|// add the derfer service startup listener
+name|this
+operator|.
+name|startupListeners
+operator|.
+name|add
+argument_list|(
+name|deferStartupListener
 argument_list|)
 expr_stmt|;
 comment|// use WebSphere specific resolver if running on WebSphere
@@ -6614,7 +6634,7 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|addService (Object object, boolean closeOnShutdown)
+DECL|method|addService (Object object, boolean stopOnShutdown)
 specifier|public
 name|void
 name|addService
@@ -6623,7 +6643,7 @@ name|Object
 name|object
 parameter_list|,
 name|boolean
-name|closeOnShutdown
+name|stopOnShutdown
 parameter_list|)
 throws|throws
 name|Exception
@@ -6632,11 +6652,11 @@ name|doAddService
 argument_list|(
 name|object
 argument_list|,
-name|closeOnShutdown
+name|stopOnShutdown
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doAddService (Object object, boolean closeOnShutdown)
+DECL|method|doAddService (Object object, boolean stopOnShutdown)
 specifier|private
 name|void
 name|doAddService
@@ -6645,7 +6665,7 @@ name|Object
 name|object
 parameter_list|,
 name|boolean
-name|closeOnShutdown
+name|stopOnShutdown
 parameter_list|)
 throws|throws
 name|Exception
@@ -6772,10 +6792,10 @@ name|Endpoint
 operator|)
 condition|)
 block|{
-comment|// only add to list of services to close if its not already there
+comment|// only add to list of services to stop if its not already there
 if|if
 condition|(
-name|closeOnShutdown
+name|stopOnShutdown
 operator|&&
 operator|!
 name|hasService
@@ -6784,7 +6804,7 @@ name|service
 argument_list|)
 condition|)
 block|{
-name|servicesToClose
+name|servicesToStop
 operator|.
 name|add
 argument_list|(
@@ -6901,7 +6921,7 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|servicesToClose
+name|servicesToStop
 operator|.
 name|remove
 argument_list|(
@@ -6938,7 +6958,7 @@ operator|)
 name|object
 decl_stmt|;
 return|return
-name|servicesToClose
+name|servicesToStop
 operator|.
 name|contains
 argument_list|(
@@ -6972,7 +6992,7 @@ control|(
 name|Service
 name|service
 range|:
-name|servicesToClose
+name|servicesToStop
 control|)
 block|{
 if|if
@@ -6998,6 +7018,124 @@ block|}
 return|return
 literal|null
 return|;
+block|}
+DECL|method|deferStartService (Object object, boolean stopOnShutdown)
+specifier|public
+name|void
+name|deferStartService
+parameter_list|(
+name|Object
+name|object
+parameter_list|,
+name|boolean
+name|stopOnShutdown
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|object
+operator|instanceof
+name|Service
+condition|)
+block|{
+name|Service
+name|service
+init|=
+operator|(
+name|Service
+operator|)
+name|object
+decl_stmt|;
+comment|// only add to services to close if its a singleton
+comment|// otherwise we could for example end up with a lot of prototype scope endpoints
+name|boolean
+name|singleton
+init|=
+literal|true
+decl_stmt|;
+comment|// assume singleton by default
+if|if
+condition|(
+name|object
+operator|instanceof
+name|IsSingleton
+condition|)
+block|{
+name|singleton
+operator|=
+operator|(
+operator|(
+name|IsSingleton
+operator|)
+name|service
+operator|)
+operator|.
+name|isSingleton
+argument_list|()
+expr_stmt|;
+block|}
+comment|// do not add endpoints as they have their own list
+if|if
+condition|(
+name|singleton
+operator|&&
+operator|!
+operator|(
+name|service
+operator|instanceof
+name|Endpoint
+operator|)
+condition|)
+block|{
+comment|// only add to list of services to stop if its not already there
+if|if
+condition|(
+name|stopOnShutdown
+operator|&&
+operator|!
+name|hasService
+argument_list|(
+name|service
+argument_list|)
+condition|)
+block|{
+name|servicesToStop
+operator|.
+name|add
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// are we already started?
+if|if
+condition|(
+name|isStarted
+argument_list|()
+condition|)
+block|{
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|deferStartupListener
+operator|.
+name|addService
+argument_list|(
+name|service
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|addStartupListener (StartupListener listener)
 specifier|public
@@ -14745,7 +14883,7 @@ control|(
 name|Service
 name|service
 range|:
-name|servicesToClose
+name|servicesToStop
 control|)
 block|{
 if|if
@@ -14871,10 +15009,10 @@ block|}
 comment|// shutdown services as late as possible
 name|shutdownServices
 argument_list|(
-name|servicesToClose
+name|servicesToStop
 argument_list|)
 expr_stmt|;
-name|servicesToClose
+name|servicesToStop
 operator|.
 name|clear
 argument_list|()
