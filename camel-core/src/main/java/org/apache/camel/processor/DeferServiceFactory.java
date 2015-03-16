@@ -55,7 +55,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Factory to create {@link org.apache.camel.DeferStartService} services such as {@link Producer}s  * and {@link org.apache.camel.PollingConsumer}s  */
+comment|/**  * Factory to create services such as {@link Producer}s  * and defer starting the created service, until {@link org.apache.camel.CamelContext} has been started.  */
 end_comment
 
 begin_class
