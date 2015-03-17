@@ -92,6 +92,23 @@ operator|=
 name|config
 expr_stmt|;
 block|}
+DECL|method|setValidate (boolean validate)
+specifier|public
+name|void
+name|setValidate
+parameter_list|(
+name|boolean
+name|validate
+parameter_list|)
+block|{
+name|config
+operator|.
+name|setValidate
+argument_list|(
+name|validate
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setCharset (Charset charset)
 specifier|public
 name|void
