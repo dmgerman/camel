@@ -142,6 +142,26 @@ name|MqttMessage
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_class
 DECL|class|PahoConsumer
 specifier|public
@@ -150,6 +170,22 @@ name|PahoConsumer
 extends|extends
 name|DefaultConsumer
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|PahoConsumer
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|method|PahoConsumer (Endpoint endpoint, Processor processor)
 specifier|public
 name|PahoConsumer
@@ -225,7 +261,17 @@ parameter_list|(
 name|Throwable
 name|cause
 parameter_list|)
-block|{              }
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"MQTT broker connection lost:"
+argument_list|,
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -300,7 +346,17 @@ parameter_list|(
 name|IMqttDeliveryToken
 name|token
 parameter_list|)
-block|{              }
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Delivery complete. Token: {}."
+argument_list|,
+name|token
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 argument_list|)
 expr_stmt|;
