@@ -19,6 +19,18 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|System
+operator|.
+name|nanoTime
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -222,18 +234,6 @@ end_import
 
 begin_import
 import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|System
-operator|.
-name|nanoTime
-import|;
-end_import
-
-begin_import
-import|import static
 name|org
 operator|.
 name|apache
@@ -279,6 +279,36 @@ name|PahoEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
+comment|// Constants
+DECL|field|DEFAULT_BROKER_URL
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_BROKER_URL
+init|=
+literal|"tcp://localhost:1883"
+decl_stmt|;
+DECL|field|DEFAULT_QOS
+specifier|private
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_QOS
+init|=
+literal|2
+decl_stmt|;
+DECL|field|DEFAULT_QOS_STRING
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_QOS_STRING
+init|=
+name|DEFAULT_QOS
+operator|+
+literal|""
+decl_stmt|;
 comment|// Configuration members
 annotation|@
 name|UriPath
@@ -311,28 +341,28 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"tcp://localhost:1883"
+name|DEFAULT_BROKER_URL
 argument_list|)
 DECL|field|brokerUrl
 specifier|private
 name|String
 name|brokerUrl
 init|=
-literal|"tcp://localhost:1883"
+name|DEFAULT_BROKER_URL
 decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"2"
+name|DEFAULT_QOS_STRING
 argument_list|)
 DECL|field|qos
 specifier|private
 name|int
 name|qos
 init|=
-literal|2
+name|DEFAULT_QOS
 decl_stmt|;
 annotation|@
 name|UriParam
