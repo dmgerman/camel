@@ -162,6 +162,24 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|paho
+operator|.
+name|PahoConstants
+operator|.
+name|HEADER_ORIGINAL_MESSAGE
+import|;
+end_import
+
 begin_class
 DECL|class|PahoConsumer
 specifier|public
@@ -307,6 +325,13 @@ name|message
 operator|.
 name|getPayload
 argument_list|()
+argument_list|)
+operator|.
+name|withHeader
+argument_list|(
+name|HEADER_ORIGINAL_MESSAGE
+argument_list|,
+name|message
 argument_list|)
 operator|.
 name|build
