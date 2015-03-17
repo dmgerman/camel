@@ -2071,6 +2071,17 @@ range|:
 name|methods
 control|)
 block|{
+comment|// skip bridge methods in duplicate checks (as the bridge method is inserted by the compiler due to type erasure)
+if|if
+condition|(
+name|source
+operator|.
+name|isBridge
+argument_list|()
+condition|)
+block|{
+continue|continue;
+block|}
 for|for
 control|(
 name|Method
