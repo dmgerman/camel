@@ -1386,6 +1386,7 @@ literal|"Null body is not allowed"
 argument_list|)
 throw|;
 block|}
+break|break;
 default|default:
 break|break;
 block|}
