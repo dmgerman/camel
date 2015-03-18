@@ -20,9 +20,29 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -231,6 +251,55 @@ DECL|method|blueprintSchemaAsXml ()
 name|String
 name|blueprintSchemaAsXml
 parameter_list|()
+function_decl|;
+comment|/**      * Parses the endpoint uri and constructs a key/value properties of each option      *      * @param uri  the endpoint uri      * @return properties as key value pairs of each endpoint option      */
+DECL|method|endpointProperties (String uri)
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|endpointProperties
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+throws|throws
+name|URISyntaxException
+function_decl|;
+comment|/**      * Creates an endpoint uri from the information in the json schema      *      * @param scheme the endpoint schema      * @param json the json schema with the endpoint properties      * @return the constructed endpoint uri      * @throws java.net.URISyntaxException is thrown if there is encoding error      */
+DECL|method|asEndpointUri (String scheme, String json)
+name|String
+name|asEndpointUri
+parameter_list|(
+name|String
+name|scheme
+parameter_list|,
+name|String
+name|json
+parameter_list|)
+throws|throws
+name|URISyntaxException
+function_decl|;
+comment|/**      * Creates an endpoint uri from the information from the properties      *      * @param scheme the endpoint schema      * @param properties the properties as key value pairs      * @return the constructed endpoint uri      * @throws java.net.URISyntaxException is thrown if there is encoding error      */
+DECL|method|asEndpointUri (String scheme, Map<String, String> properties)
+name|String
+name|asEndpointUri
+parameter_list|(
+name|String
+name|scheme
+parameter_list|,
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|properties
+parameter_list|)
+throws|throws
+name|URISyntaxException
 function_decl|;
 block|}
 end_interface
