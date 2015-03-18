@@ -243,6 +243,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 comment|// send an InOnly but force Camel to pass JMSReplyTo
 name|template
 operator|.
