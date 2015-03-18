@@ -32,7 +32,6 @@ name|T
 parameter_list|>
 block|{
 DECL|method|doSomething (S foo)
-specifier|public
 name|T
 name|doSomething
 parameter_list|(

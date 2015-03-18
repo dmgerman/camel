@@ -831,7 +831,9 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"A new choice clause should start with a when() or otherwise(). If you intend to end the entire choice and are using endChoice() then use end() instead."
+literal|"A new choice clause should start with a when() or otherwise(). "
+operator|+
+literal|"If you intend to end the entire choice and are using endChoice() then use end() instead."
 argument_list|)
 throw|;
 block|}
