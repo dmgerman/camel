@@ -996,6 +996,24 @@ name|concurrentConsumers
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setReplyToConcurrentConsumers (int concurrentConsumers)
+specifier|public
+name|void
+name|setReplyToConcurrentConsumers
+parameter_list|(
+name|int
+name|concurrentConsumers
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setReplyToConcurrentConsumers
+argument_list|(
+name|concurrentConsumers
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setConnectionFactory (ConnectionFactory connectionFactory)
 specifier|public
 name|void
@@ -1225,6 +1243,24 @@ name|getConfiguration
 argument_list|()
 operator|.
 name|setMaxConcurrentConsumers
+argument_list|(
+name|maxConcurrentConsumers
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|setReplyToMaxConcurrentConsumers (int maxConcurrentConsumers)
+specifier|public
+name|void
+name|setReplyToMaxConcurrentConsumers
+parameter_list|(
+name|int
+name|maxConcurrentConsumers
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setReplyToMaxConcurrentConsumers
 argument_list|(
 name|maxConcurrentConsumers
 argument_list|)

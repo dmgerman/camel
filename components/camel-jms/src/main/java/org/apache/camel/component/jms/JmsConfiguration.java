@@ -669,6 +669,20 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
+literal|"1"
+argument_list|)
+DECL|field|replyToConcurrentConsumers
+specifier|private
+name|int
+name|replyToConcurrentConsumers
+init|=
+literal|1
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
 literal|"-1"
 argument_list|)
 DECL|field|maxMessagesPerTask
@@ -784,6 +798,13 @@ DECL|field|maxConcurrentConsumers
 specifier|private
 name|int
 name|maxConcurrentConsumers
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|replyToMaxConcurrentConsumers
+specifier|private
+name|int
+name|replyToMaxConcurrentConsumers
 decl_stmt|;
 comment|// JmsTemplate only
 annotation|@
@@ -3017,6 +3038,7 @@ return|return
 name|concurrentConsumers
 return|;
 block|}
+comment|/**      * Specifies the default number of concurrent consumers when consuming from JMS (not for request/reply over JMS).      * See also the maxMessagesPerTask option to control dynamic scaling up/down of threads.      */
 DECL|method|setConcurrentConsumers (int concurrentConsumers)
 specifier|public
 name|void
@@ -3031,6 +3053,33 @@ operator|.
 name|concurrentConsumers
 operator|=
 name|concurrentConsumers
+expr_stmt|;
+block|}
+DECL|method|getReplyToConcurrentConsumers ()
+specifier|public
+name|int
+name|getReplyToConcurrentConsumers
+parameter_list|()
+block|{
+return|return
+name|replyToConcurrentConsumers
+return|;
+block|}
+comment|/**      * Specifies the default number of concurrent consumers when doing request/reply over JMS.      * See also the maxMessagesPerTask option to control dynamic scaling up/down of threads.      */
+DECL|method|setReplyToConcurrentConsumers (int replyToConcurrentConsumers)
+specifier|public
+name|void
+name|setReplyToConcurrentConsumers
+parameter_list|(
+name|int
+name|replyToConcurrentConsumers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyToConcurrentConsumers
+operator|=
+name|replyToConcurrentConsumers
 expr_stmt|;
 block|}
 DECL|method|getMaxMessagesPerTask ()
@@ -3322,6 +3371,7 @@ return|return
 name|maxConcurrentConsumers
 return|;
 block|}
+comment|/**      * Specifies the maximum number of concurrent consumers when consuming from JMS (not for request/reply over JMS).      * See also the maxMessagesPerTask option to control dynamic scaling up/down of threads.      */
 DECL|method|setMaxConcurrentConsumers (int maxConcurrentConsumers)
 specifier|public
 name|void
@@ -3336,6 +3386,33 @@ operator|.
 name|maxConcurrentConsumers
 operator|=
 name|maxConcurrentConsumers
+expr_stmt|;
+block|}
+DECL|method|getReplyToMaxConcurrentConsumers ()
+specifier|public
+name|int
+name|getReplyToMaxConcurrentConsumers
+parameter_list|()
+block|{
+return|return
+name|replyToMaxConcurrentConsumers
+return|;
+block|}
+comment|/**      * Specifies the maximum number of concurrent consumers when using request/reply over JMS.      * See also the maxMessagesPerTask option to control dynamic scaling up/down of threads.      */
+DECL|method|setReplyToMaxConcurrentConsumers (int replyToMaxConcurrentConsumers)
+specifier|public
+name|void
+name|setReplyToMaxConcurrentConsumers
+parameter_list|(
+name|int
+name|replyToMaxConcurrentConsumers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyToMaxConcurrentConsumers
+operator|=
+name|replyToMaxConcurrentConsumers
 expr_stmt|;
 block|}
 DECL|method|isExplicitQosEnabled ()

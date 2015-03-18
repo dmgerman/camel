@@ -2547,6 +2547,22 @@ name|getConcurrentConsumers
 argument_list|()
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|getReplyToConcurrentConsumers ()
+specifier|public
+name|int
+name|getReplyToConcurrentConsumers
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getReplyToConcurrentConsumers
+argument_list|()
+return|;
+block|}
 DECL|method|getConnectionFactory ()
 specifier|public
 name|ConnectionFactory
@@ -2742,6 +2758,22 @@ name|getConfiguration
 argument_list|()
 operator|.
 name|getMaxConcurrentConsumers
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|getReplyToMaxConcurrentConsumers ()
+specifier|public
+name|int
+name|getReplyToMaxConcurrentConsumers
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getReplyToMaxConcurrentConsumers
 argument_list|()
 return|;
 block|}
@@ -3504,6 +3536,26 @@ name|concurrentConsumers
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setReplyToConcurrentConsumers (int concurrentConsumers)
+specifier|public
+name|void
+name|setReplyToConcurrentConsumers
+parameter_list|(
+name|int
+name|concurrentConsumers
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setReplyToConcurrentConsumers
+argument_list|(
+name|concurrentConsumers
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|setConnectionFactory (ConnectionFactory connectionFactory)
 specifier|public
 name|void
@@ -3807,6 +3859,26 @@ name|getConfiguration
 argument_list|()
 operator|.
 name|setMaxConcurrentConsumers
+argument_list|(
+name|maxConcurrentConsumers
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setReplyToMaxConcurrentConsumers (int maxConcurrentConsumers)
+specifier|public
+name|void
+name|setReplyToMaxConcurrentConsumers
+parameter_list|(
+name|int
+name|maxConcurrentConsumers
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setReplyToMaxConcurrentConsumers
 argument_list|(
 name|maxConcurrentConsumers
 argument_list|)

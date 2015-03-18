@@ -600,7 +600,7 @@ name|setConcurrentConsumers
 argument_list|(
 name|endpoint
 operator|.
-name|getConcurrentConsumers
+name|getReplyToConcurrentConsumers
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -608,7 +608,7 @@ if|if
 condition|(
 name|endpoint
 operator|.
-name|getMaxConcurrentConsumers
+name|getReplyToMaxConcurrentConsumers
 argument_list|()
 operator|>
 literal|0
@@ -620,7 +620,7 @@ name|setMaxConcurrentConsumers
 argument_list|(
 name|endpoint
 operator|.
-name|getMaxConcurrentConsumers
+name|getReplyToMaxConcurrentConsumers
 argument_list|()
 argument_list|)
 expr_stmt|;

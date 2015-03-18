@@ -227,7 +227,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Reliability tests for JMS TempQueue Reply Manager with multiple consumers.  * @version   */
+comment|/**  * Reliability tests for JMS TempQueue Reply Manager with multiple consumers.  */
 end_comment
 
 begin_class
@@ -551,7 +551,7 @@ argument_list|)
 operator|.
 name|inOut
 argument_list|(
-literal|"jms:queue:foo?concurrentConsumers=10&maxConcurrentConsumers=20&recoveryInterval=10"
+literal|"jms:queue:foo?replyToConcurrentConsumers=10&replyToMaxConcurrentConsumers=20&recoveryInterval=10"
 argument_list|)
 operator|.
 name|process
