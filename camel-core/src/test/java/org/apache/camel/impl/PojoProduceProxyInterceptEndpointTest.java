@@ -350,12 +350,10 @@ expr_stmt|;
 block|}
 DECL|interface|EchoService
 specifier|public
-specifier|static
 interface|interface
 name|EchoService
 block|{
 DECL|method|echo (String word)
-specifier|public
 name|String
 name|echo
 parameter_list|(
