@@ -573,6 +573,45 @@ annotation|@
 name|Test
 annotation|@
 name|DirtiesContext
+DECL|method|testCreateEndpointWithArgs3 ()
+specifier|public
+name|void
+name|testCreateEndpointWithArgs3
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|args
+init|=
+literal|"RAW(arg1+arg2 arg3)"
+decl_stmt|;
+comment|// Just avoid URI encoding by using the RAW()
+name|ExecEndpoint
+name|e
+init|=
+name|createExecEndpoint
+argument_list|(
+literal|"exec:test?args="
+operator|+
+name|args
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"arg1+arg2 arg3"
+argument_list|,
+name|e
+operator|.
+name|getArgs
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+annotation|@
+name|DirtiesContext
 DECL|method|testCreateEndpointWithTimeout ()
 specifier|public
 name|void
