@@ -277,6 +277,23 @@ name|SUCCESS
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"We should get the report here."
+argument_list|,
+name|exc
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Constants
+operator|.
+name|VALIDATION_REPORT
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -298,7 +315,7 @@ name|context
 argument_list|,
 name|ExchangePattern
 operator|.
-name|InOut
+name|InOnly
 argument_list|)
 decl_stmt|;
 name|exc
@@ -327,9 +344,11 @@ expr_stmt|;
 comment|// assert
 name|assertTrue
 argument_list|(
+literal|"The validation status should be failed."
+argument_list|,
 name|exc
 operator|.
-name|getOut
+name|getIn
 argument_list|()
 operator|.
 name|getHeader
@@ -344,6 +363,23 @@ argument_list|(
 name|Constants
 operator|.
 name|FAILED
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"We should get the report here."
+argument_list|,
+name|exc
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Constants
+operator|.
+name|VALIDATION_REPORT
 argument_list|)
 argument_list|)
 expr_stmt|;
