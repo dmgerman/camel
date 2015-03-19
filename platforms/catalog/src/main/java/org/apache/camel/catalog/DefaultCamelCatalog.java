@@ -142,6 +142,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|TreeMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|TreeSet
 import|;
 end_import
@@ -3429,7 +3439,7 @@ name|originalSyntax
 init|=
 name|syntax
 decl_stmt|;
-comment|// build at first according to syntax
+comment|// build at first according to syntax (use a tree map as we want the uri options sorted)
 name|Map
 argument_list|<
 name|String
@@ -3439,7 +3449,7 @@ argument_list|>
 name|copy
 init|=
 operator|new
-name|HashMap
+name|TreeMap
 argument_list|<
 name|String
 argument_list|,
@@ -3525,19 +3535,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|rows
-operator|=
-name|JSonSchemaHelper
-operator|.
-name|parseJsonSchema
-argument_list|(
-literal|"properties"
-argument_list|,
-name|json
-argument_list|,
-literal|true
-argument_list|)
-expr_stmt|;
 comment|// the tokens between the options in the path
 name|String
 index|[]
