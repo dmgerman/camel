@@ -465,6 +465,30 @@ name|createFtpClient
 argument_list|()
 expr_stmt|;
 block|}
+comment|// use configured buffer size which is larger and therefore faster (as the default is no buffer)
+if|if
+condition|(
+name|getConfiguration
+argument_list|()
+operator|.
+name|getReceiveBufferSize
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|client
+operator|.
+name|setBufferSize
+argument_list|(
+name|getConfiguration
+argument_list|()
+operator|.
+name|getReceiveBufferSize
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// set any endpoint configured timeouts
 if|if
 condition|(
@@ -701,7 +725,9 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Created FTPClient [connectTimeout: {}, soTimeout: {}, dataTimeout: {}]: {}"
+literal|"Created FTPClient [connectTimeout: {}, soTimeout: {}, dataTimeout: {}, bufferSize: {}"
+operator|+
+literal|", receiveDataSocketBufferSize: {}, sendDataSocketBufferSize: {}]: {}"
 argument_list|,
 operator|new
 name|Object
@@ -716,6 +742,21 @@ name|getSoTimeout
 argument_list|()
 block|,
 name|dataTimeout
+block|,
+name|client
+operator|.
+name|getBufferSize
+argument_list|()
+block|,
+name|client
+operator|.
+name|getReceiveDataSocketBufferSize
+argument_list|()
+block|,
+name|client
+operator|.
+name|getSendDataSocketBufferSize
+argument_list|()
 block|,
 name|client
 block|}
