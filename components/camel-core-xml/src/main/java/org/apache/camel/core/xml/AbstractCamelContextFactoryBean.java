@@ -3654,6 +3654,16 @@ name|getLocation
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|pc
+operator|.
+name|setEncoding
+argument_list|(
+name|def
+operator|.
+name|getEncoding
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|def

@@ -152,6 +152,13 @@ name|location
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|encoding
+specifier|private
+name|String
+name|encoding
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|cache
 specifier|private
 name|Boolean
@@ -252,6 +259,32 @@ operator|.
 name|location
 operator|=
 name|location
+expr_stmt|;
+block|}
+DECL|method|getEncoding ()
+specifier|public
+name|String
+name|getEncoding
+parameter_list|()
+block|{
+return|return
+name|encoding
+return|;
+block|}
+DECL|method|setEncoding (String encoding)
+specifier|public
+name|void
+name|setEncoding
+parameter_list|(
+name|String
+name|encoding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encoding
+operator|=
+name|encoding
 expr_stmt|;
 block|}
 DECL|method|isCache ()

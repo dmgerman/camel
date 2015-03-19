@@ -314,7 +314,9 @@ name|propertiesResolver
 init|=
 operator|new
 name|DefaultPropertiesResolver
-argument_list|()
+argument_list|(
+name|this
+argument_list|)
 decl_stmt|;
 DECL|field|propertiesParser
 specifier|private
@@ -337,6 +339,11 @@ DECL|field|ignoreMissingLocation
 specifier|private
 name|boolean
 name|ignoreMissingLocation
+decl_stmt|;
+DECL|field|encoding
+specifier|private
+name|String
+name|encoding
 decl_stmt|;
 DECL|field|cache
 specifier|private
@@ -992,6 +999,33 @@ argument_list|(
 literal|","
 argument_list|)
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getEncoding ()
+specifier|public
+name|String
+name|getEncoding
+parameter_list|()
+block|{
+return|return
+name|encoding
+return|;
+block|}
+comment|/**      * Encoding to use when loading properties file from the file system or classpath.      *<p/>      * If no encoding has been set, then the properties files is loaded using ISO-8859-1 encoding (latin-1)      * as documented by {@link java.util.Properties#load(java.io.InputStream)}      */
+DECL|method|setEncoding (String encoding)
+specifier|public
+name|void
+name|setEncoding
+parameter_list|(
+name|String
+name|encoding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encoding
+operator|=
+name|encoding
 expr_stmt|;
 block|}
 DECL|method|getPropertiesResolver ()
