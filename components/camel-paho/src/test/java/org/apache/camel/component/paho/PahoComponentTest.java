@@ -510,6 +510,41 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+DECL|method|shouldAutomaticallyUseConnectionOptionsFromRegistry ()
+specifier|public
+name|void
+name|shouldAutomaticallyUseConnectionOptionsFromRegistry
+parameter_list|()
+block|{
+comment|// Given
+name|PahoEndpoint
+name|pahoWithConnectOptionsFromRegistry
+init|=
+name|getMandatoryEndpoint
+argument_list|(
+literal|"paho:registryConnectOptions?brokerUrl=tcp://localhost:"
+operator|+
+name|mqttPort
+argument_list|,
+name|PahoEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|// Then
+name|assertSame
+argument_list|(
+name|connectOptions
+argument_list|,
+name|pahoWithConnectOptionsFromRegistry
+operator|.
+name|resolveMqttConnectOptions
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
 DECL|method|shouldKeepOriginalMessageInHeader ()
 specifier|public
 name|void
