@@ -151,6 +151,51 @@ parameter_list|()
 block|{
 comment|// Helper class
 block|}
+comment|/**      * Strips the query parameters from the uri      *      * @param uri  the uri      * @return the uri without the query parameter      */
+DECL|method|stripQuery (String uri)
+specifier|public
+specifier|static
+name|String
+name|stripQuery
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|int
+name|idx
+init|=
+name|uri
+operator|.
+name|indexOf
+argument_list|(
+literal|'?'
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|idx
+operator|>
+operator|-
+literal|1
+condition|)
+block|{
+name|uri
+operator|=
+name|uri
+operator|.
+name|substring
+argument_list|(
+literal|0
+argument_list|,
+name|idx
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|uri
+return|;
+block|}
 comment|/**      * Parses the query parameters of the uri (eg the query part).      *      * @param uri the uri      * @return the parameters, or an empty map if no parameters (eg never null)      * @throws URISyntaxException is thrown if uri has invalid syntax.      */
 DECL|method|parseParameters (URI uri)
 specifier|public
