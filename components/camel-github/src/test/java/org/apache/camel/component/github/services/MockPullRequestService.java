@@ -848,14 +848,12 @@ throws|throws
 name|IOException
 block|{
 return|return
-operator|(
 name|files
 operator|.
 name|get
 argument_list|(
 name|id
 argument_list|)
-operator|)
 return|;
 block|}
 block|}

@@ -421,14 +421,12 @@ name|getNextSha
 parameter_list|()
 block|{
 return|return
-operator|(
 name|fakeSha
 operator|.
 name|incrementAndGet
 argument_list|()
 operator|+
 literal|""
-operator|)
 return|;
 block|}
 DECL|method|getCommitStatus (String sha)
