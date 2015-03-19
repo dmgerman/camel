@@ -3074,7 +3074,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns the expression for the exchanges camelContext invoking methods defined      * in a simple OGNL notation      *      * @param ognl  methods to invoke on the body in a simple OGNL syntax      */
+comment|/**      * Returns the expression for the exchanges camelContext invoking methods defined      * in a simple OGNL notation      *      * @param ognl  methods to invoke on the context in a simple OGNL syntax      */
 DECL|method|camelContextOgnlExpression (final String ognl)
 specifier|public
 specifier|static
@@ -3142,6 +3142,64 @@ parameter_list|()
 block|{
 return|return
 literal|"camelContextOgnl("
+operator|+
+name|ognl
+operator|+
+literal|")"
+return|;
+block|}
+block|}
+return|;
+block|}
+comment|/**      * Returns the expression for the exchange invoking methods defined      * in a simple OGNL notation      *      * @param ognl  methods to invoke on the exchange in a simple OGNL syntax      */
+DECL|method|exchangeOgnlExpression (final String ognl)
+specifier|public
+specifier|static
+name|Expression
+name|exchangeOgnlExpression
+parameter_list|(
+specifier|final
+name|String
+name|ognl
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ExpressionAdapter
+argument_list|()
+block|{
+specifier|public
+name|Object
+name|evaluate
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+operator|new
+name|MethodCallExpression
+argument_list|(
+name|exchange
+argument_list|,
+name|ognl
+argument_list|)
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"exchangeOgnl("
 operator|+
 name|ognl
 operator|+
