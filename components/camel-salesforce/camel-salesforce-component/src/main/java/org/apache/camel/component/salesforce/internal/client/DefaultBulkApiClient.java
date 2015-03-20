@@ -2286,13 +2286,16 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createRestException (ContentExchange request)
+DECL|method|createRestException (ContentExchange request, String reason)
 specifier|protected
 name|SalesforceException
 name|createRestException
 parameter_list|(
 name|ContentExchange
 name|request
+parameter_list|,
+name|String
+name|reason
 parameter_list|)
 block|{
 comment|// this must be of type Error
