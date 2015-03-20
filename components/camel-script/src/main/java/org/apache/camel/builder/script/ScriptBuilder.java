@@ -1405,7 +1405,7 @@ block|{
 name|ScriptEngine
 name|engine
 init|=
-name|createScriptEngine
+name|tryCreateScriptEngine
 argument_list|(
 name|language
 argument_list|,
@@ -1426,7 +1426,7 @@ condition|)
 block|{
 name|engine
 operator|=
-name|createScriptEngine
+name|tryCreateScriptEngine
 argument_list|(
 name|language
 argument_list|,
@@ -1461,11 +1461,12 @@ return|return
 name|engine
 return|;
 block|}
-DECL|method|createScriptEngine (String language, ClassLoader classLoader)
+comment|/**      * Attemps to create the script engine for the given langauge using the classloader      *      * @return the engine, or<tt>null</tt> if not able to create      */
+DECL|method|tryCreateScriptEngine (String language, ClassLoader classLoader)
 specifier|private
 specifier|static
 name|ScriptEngine
-name|createScriptEngine
+name|tryCreateScriptEngine
 parameter_list|(
 name|String
 name|language
@@ -1535,17 +1536,27 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
-literal|"Cannot load the scriptEngine for "
+literal|"Cannot load ScriptEngine for "
 operator|+
 name|name
 operator|+
-literal|", the exception is "
+literal|". Please ensure correct JARs is provided on classpath (stacktrace in DEBUG logging)."
+argument_list|)
+expr_stmt|;
+comment|// include stacktrace in debug logging
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Cannot load ScriptEngine for "
 operator|+
+name|name
+operator|+
+literal|". Please ensure correct JARs is provided on classpath."
+argument_list|,
 name|ex
-operator|+
-literal|", please ensure correct JARs is provided on classpath."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1568,22 +1579,9 @@ block|}
 if|if
 condition|(
 name|engine
-operator|==
+operator|!=
 literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"No script engine could be created for: "
-operator|+
-name|language
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
+operator|&&
 name|isPython
 argument_list|(
 name|language
@@ -1630,11 +1628,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"No script engine found for "
-operator|+
+literal|"No script engine found for {} using standard javax.script auto-registration. Checking OSGi registry."
+argument_list|,
 name|language
-operator|+
-literal|" using standard javax.script auto-registration. Checking OSGi registry..."
 argument_list|)
 expr_stmt|;
 try|try
@@ -1677,8 +1673,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Found OSGi BundleContext "
-operator|+
+literal|"Found OSGi BundleContext: {}"
+argument_list|,
 name|ctx
 argument_list|)
 expr_stmt|;
@@ -1728,7 +1724,11 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Unable to load OSGi, script engine cannot be found"
+literal|"Unable to detect OSGi. ScriptEngine for "
+operator|+
+name|language
+operator|+
+literal|" cannot be resolved."
 argument_list|,
 name|t
 argument_list|)
