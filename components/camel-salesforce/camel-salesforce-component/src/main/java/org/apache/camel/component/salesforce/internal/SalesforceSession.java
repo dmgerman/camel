@@ -418,11 +418,13 @@ name|listeners
 decl_stmt|;
 DECL|field|accessToken
 specifier|private
+specifier|volatile
 name|String
 name|accessToken
 decl_stmt|;
 DECL|field|instanceUrl
 specifier|private
+specifier|volatile
 name|String
 name|instanceUrl
 decl_stmt|;
@@ -1218,6 +1220,7 @@ return|;
 block|}
 DECL|method|logout ()
 specifier|public
+specifier|synchronized
 name|void
 name|logout
 parameter_list|()
@@ -1411,7 +1414,7 @@ throw|throw
 operator|new
 name|SalesforceException
 argument_list|(
-literal|"Unknow status: "
+literal|"Unknown status: "
 operator|+
 name|done
 argument_list|,
@@ -1467,7 +1470,7 @@ name|instanceUrl
 operator|=
 literal|null
 expr_stmt|;
-comment|// notify all session listeners of the new access token and instance url
+comment|// notify all session listeners about logout
 for|for
 control|(
 name|SalesforceSessionListener
