@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|EndpointInject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ProducerTemplate
 import|;
 end_import
@@ -89,6 +101,22 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
 import|;
 end_import
 
@@ -347,6 +375,17 @@ name|TypeConverter
 name|typeConverter
 decl_stmt|;
 comment|// Spring context fixtures
+annotation|@
+name|EndpointInject
+argument_list|(
+name|uri
+operator|=
+literal|"mock:xmlAutoLoading"
+argument_list|)
+DECL|field|xmlAutoLoadingMock
+name|MockEndpoint
+name|xmlAutoLoadingMock
+decl_stmt|;
 comment|// Tests
 annotation|@
 name|Test
@@ -624,6 +663,46 @@ name|message
 argument_list|,
 name|receivedMessage
 argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|shouldLoadXmlRoutes ()
+specifier|public
+name|void
+name|shouldLoadXmlRoutes
+parameter_list|()
+throws|throws
+name|InterruptedException
+block|{
+comment|// Given
+name|String
+name|message
+init|=
+literal|"msg"
+decl_stmt|;
+name|xmlAutoLoadingMock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
+comment|// When
+name|producerTemplate
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:xmlAutoLoading"
+argument_list|,
+name|message
+argument_list|)
+expr_stmt|;
+comment|// Then
+name|xmlAutoLoadingMock
+operator|.
+name|assertIsSatisfied
+argument_list|()
 expr_stmt|;
 block|}
 block|}
