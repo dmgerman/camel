@@ -140,11 +140,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// the sleep may not be sufficient so assume around 9 or so messages
 name|consumerEndpoint
 operator|.
-name|setExpectedMessageCount
+name|setMinimumExpectedMessageCount
 argument_list|(
-literal|10
+literal|9
 argument_list|)
 expr_stmt|;
 name|errorEndpoint
