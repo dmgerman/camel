@@ -130,11 +130,31 @@ DECL|field|controller
 specifier|private
 name|AggregateController
 name|controller
-init|=
+decl_stmt|;
+DECL|method|getAggregateController ()
+specifier|public
+name|AggregateController
+name|getAggregateController
+parameter_list|()
+block|{
+if|if
+condition|(
+name|controller
+operator|==
+literal|null
+condition|)
+block|{
+name|controller
+operator|=
 operator|new
 name|DefaultAggregateController
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+return|return
+name|controller
+return|;
+block|}
 annotation|@
 name|Test
 DECL|method|testForceCompletionOfAll ()
@@ -249,7 +269,8 @@ expr_stmt|;
 name|int
 name|groups
 init|=
-name|controller
+name|getAggregateController
+argument_list|()
 operator|.
 name|forceCompletionOfAllGroups
 argument_list|()
@@ -377,7 +398,8 @@ expr_stmt|;
 name|int
 name|groups
 init|=
-name|controller
+name|getAggregateController
+argument_list|()
 operator|.
 name|forceCompletionOfGroup
 argument_list|(
@@ -438,7 +460,8 @@ argument_list|)
 operator|.
 name|aggregateController
 argument_list|(
-name|controller
+name|getAggregateController
+argument_list|()
 argument_list|)
 operator|.
 name|completionSize

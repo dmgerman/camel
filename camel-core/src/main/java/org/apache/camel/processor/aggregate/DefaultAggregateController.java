@@ -18,70 +18,15 @@ name|aggregate
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|ManagedOperation
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|ManagedResource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|ServiceSupport
-import|;
-end_import
-
 begin_comment
 comment|/**  * A default {@link org.apache.camel.processor.aggregate.AggregateController} that offers Java and JMX API.  */
 end_comment
 
 begin_class
-annotation|@
-name|ManagedResource
-argument_list|(
-name|description
-operator|=
-literal|"Aggregation controller"
-argument_list|)
 DECL|class|DefaultAggregateController
 specifier|public
 class|class
 name|DefaultAggregateController
-extends|extends
-name|ServiceSupport
 implements|implements
 name|AggregateController
 block|{
@@ -90,29 +35,15 @@ specifier|private
 name|AggregateProcessor
 name|processor
 decl_stmt|;
-DECL|field|id
-specifier|private
-name|String
-name|id
-decl_stmt|;
-DECL|method|onStart (String id, AggregateProcessor processor)
+DECL|method|onStart (AggregateProcessor processor)
 specifier|public
 name|void
 name|onStart
 parameter_list|(
-name|String
-name|id
-parameter_list|,
 name|AggregateProcessor
 name|processor
 parameter_list|)
 block|{
-name|this
-operator|.
-name|id
-operator|=
-name|id
-expr_stmt|;
 name|this
 operator|.
 name|processor
@@ -120,24 +51,15 @@ operator|=
 name|processor
 expr_stmt|;
 block|}
-DECL|method|onStop (String id, AggregateProcessor processor)
+DECL|method|onStop (AggregateProcessor processor)
 specifier|public
 name|void
 name|onStop
 parameter_list|(
-name|String
-name|id
-parameter_list|,
 name|AggregateProcessor
 name|processor
 parameter_list|)
 block|{
-name|this
-operator|.
-name|id
-operator|=
-name|id
-expr_stmt|;
 name|this
 operator|.
 name|processor
@@ -145,13 +67,6 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"To force completion a group on the aggregator"
-argument_list|)
 DECL|method|forceCompletionOfGroup (String key)
 specifier|public
 name|int
@@ -184,13 +99,6 @@ literal|0
 return|;
 block|}
 block|}
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"To force completion all groups on the aggregator"
-argument_list|)
 DECL|method|forceCompletionOfAllGroups ()
 specifier|public
 name|int
@@ -217,40 +125,6 @@ return|return
 literal|0
 return|;
 block|}
-block|}
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// noop
-block|}
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// noop
-block|}
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|"DefaultAggregateController["
-operator|+
-name|id
-operator|+
-literal|"]"
-return|;
 block|}
 block|}
 end_class

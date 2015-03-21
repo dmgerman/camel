@@ -28,26 +28,20 @@ specifier|public
 interface|interface
 name|AggregateController
 block|{
-comment|/**      * Callback when the aggregate processor is started.      *      * @param id        the aggregator id      * @param processor the aggregate processor      */
-DECL|method|onStart (String id, AggregateProcessor processor)
+comment|/**      * Callback when the aggregate processor is started.      *      * @param processor the aggregate processor      */
+DECL|method|onStart (AggregateProcessor processor)
 name|void
 name|onStart
 parameter_list|(
-name|String
-name|id
-parameter_list|,
 name|AggregateProcessor
 name|processor
 parameter_list|)
 function_decl|;
-comment|/**      * Callback when the aggregate processor is stopped.      *      * @param id        the aggregator id      * @param processor the aggregate processor      */
-DECL|method|onStop (String id, AggregateProcessor processor)
+comment|/**      * Callback when the aggregate processor is stopped.      *      * @param processor the aggregate processor      */
+DECL|method|onStop (AggregateProcessor processor)
 name|void
 name|onStop
 parameter_list|(
-name|String
-name|id
-parameter_list|,
 name|AggregateProcessor
 name|processor
 parameter_list|)

@@ -1065,9 +1065,6 @@ operator|.
 name|getCamelContext
 argument_list|()
 argument_list|,
-name|getId
-argument_list|()
-argument_list|,
 name|internal
 argument_list|,
 name|correlation
