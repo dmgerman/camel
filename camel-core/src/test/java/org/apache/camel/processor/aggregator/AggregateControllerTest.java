@@ -263,7 +263,7 @@ name|Exchange
 operator|.
 name|AGGREGATED_COMPLETED_BY
 argument_list|,
-literal|"forceCompletion"
+literal|"force"
 argument_list|)
 expr_stmt|;
 name|int
@@ -392,7 +392,7 @@ name|Exchange
 operator|.
 name|AGGREGATED_COMPLETED_BY
 argument_list|,
-literal|"forceCompletion"
+literal|"force"
 argument_list|)
 expr_stmt|;
 name|int

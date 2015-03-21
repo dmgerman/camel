@@ -291,6 +291,153 @@ name|int
 name|forceCompletionOfAllGroups
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Total number of exchanges arrived into the aggregator"
+argument_list|)
+DECL|method|getTotalIn ()
+name|long
+name|getTotalIn
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Total number of exchanges completed and outgoing from the aggregator"
+argument_list|)
+DECL|method|getTotalCompleted ()
+name|long
+name|getTotalCompleted
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Total number of exchanged completed by completion size trigger"
+argument_list|)
+DECL|method|getCompletedBySize ()
+name|long
+name|getCompletedBySize
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Total number of exchanged completed by completion aggregation strategy trigger"
+argument_list|)
+DECL|method|getCompletedByStrategy ()
+name|long
+name|getCompletedByStrategy
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Total number of exchanged completed by completion interval (timeout) trigger"
+argument_list|)
+DECL|method|getCompletedByInterval ()
+name|long
+name|getCompletedByInterval
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Total number of exchanged completed by completion timeout trigger"
+argument_list|)
+DECL|method|getCompletedByTimeout ()
+name|long
+name|getCompletedByTimeout
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Total number of exchanged completed by completion predicate trigger"
+argument_list|)
+DECL|method|getCompletedByPredicate ()
+name|long
+name|getCompletedByPredicate
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Total number of exchanged completed by completion batch consumer trigger"
+argument_list|)
+DECL|method|getCompletedByBatchConsumer ()
+name|long
+name|getCompletedByBatchConsumer
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Total number of exchanged completed by completion force trigger"
+argument_list|)
+DECL|method|getCompletedByForce ()
+name|long
+name|getCompletedByForce
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|" Reset the statistics counters"
+argument_list|)
+DECL|method|resetStatistics ()
+name|void
+name|resetStatistics
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Sets whether statistics is enabled"
+argument_list|)
+DECL|method|isStatisticsEnabled ()
+name|boolean
+name|isStatisticsEnabled
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Sets whether statistics is enabled"
+argument_list|)
+DECL|method|setStatisticsEnabled (boolean statisticsEnabled)
+name|void
+name|setStatisticsEnabled
+parameter_list|(
+name|boolean
+name|statisticsEnabled
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
