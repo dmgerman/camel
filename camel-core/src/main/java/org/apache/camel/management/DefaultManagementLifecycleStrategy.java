@@ -1241,21 +1241,21 @@ name|PreRegisterService
 argument_list|>
 argument_list|()
 decl_stmt|;
-DECL|field|timerListenerManager
+DECL|field|loadTimer
 specifier|private
 specifier|final
 name|TimerListenerManager
-name|timerListenerManager
+name|loadTimer
 init|=
 operator|new
-name|TimerListenerManager
+name|ManagedLoadTimer
 argument_list|()
 decl_stmt|;
-DECL|field|timerManagerStartupListener
+DECL|field|loadTimerStartupListener
 specifier|private
 specifier|final
 name|TimerListenerManagerStartupListener
-name|timerManagerStartupListener
+name|loadTimerStartupListener
 init|=
 operator|new
 name|TimerListenerManagerStartupListener
@@ -4593,7 +4593,7 @@ name|TimerListener
 operator|)
 name|me
 decl_stmt|;
-name|timerListenerManager
+name|loadTimer
 operator|.
 name|addTimerListener
 argument_list|(
@@ -4629,7 +4629,7 @@ name|TimerListener
 operator|)
 name|me
 decl_stmt|;
-name|timerListenerManager
+name|loadTimer
 operator|.
 name|removeTimerListener
 argument_list|(
@@ -4815,7 +4815,7 @@ name|camelContext
 operator|.
 name|addStartupListener
 argument_list|(
-name|timerManagerStartupListener
+name|loadTimerStartupListener
 argument_list|)
 expr_stmt|;
 block|}
@@ -4888,7 +4888,7 @@ name|disabled
 condition|)
 block|{
 comment|// must use 1 sec interval as the load statistics is based on 1 sec calculations
-name|timerListenerManager
+name|loadTimer
 operator|.
 name|setInterval
 argument_list|(
@@ -4901,7 +4901,7 @@ argument_list|()
 operator|.
 name|addService
 argument_list|(
-name|timerListenerManager
+name|loadTimer
 argument_list|)
 expr_stmt|;
 block|}
