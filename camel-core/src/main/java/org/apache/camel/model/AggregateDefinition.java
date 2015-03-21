@@ -2755,6 +2755,7 @@ return|return
 name|aggregateControllerRef
 return|;
 block|}
+comment|/**      * To use a {@link org.apache.camel.processor.aggregate.AggregateController} to allow external sources to control      * this aggregator.      */
 DECL|method|setAggregateControllerRef (String aggregateControllerRef)
 specifier|public
 name|void
