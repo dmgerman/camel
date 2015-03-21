@@ -354,6 +354,8 @@ name|AggregateProcessor
 argument_list|(
 name|context
 argument_list|,
+literal|"a"
+argument_list|,
 name|done
 argument_list|,
 name|corr
@@ -626,6 +628,8 @@ operator|new
 name|AggregateProcessor
 argument_list|(
 name|context
+argument_list|,
+literal|"a"
 argument_list|,
 name|done
 argument_list|,
@@ -920,6 +924,8 @@ name|AggregateProcessor
 argument_list|(
 name|context
 argument_list|,
+literal|"a"
+argument_list|,
 name|done
 argument_list|,
 name|corr
@@ -1213,6 +1219,8 @@ name|AggregateProcessor
 argument_list|(
 name|context
 argument_list|,
+literal|"a"
+argument_list|,
 name|done
 argument_list|,
 name|corr
@@ -1504,6 +1512,8 @@ name|AggregateProcessor
 argument_list|(
 name|context
 argument_list|,
+literal|"a"
+argument_list|,
 name|done
 argument_list|,
 name|corr
@@ -1766,6 +1776,8 @@ name|AggregateProcessor
 argument_list|(
 name|context
 argument_list|,
+literal|"a"
+argument_list|,
 name|done
 argument_list|,
 name|corr
@@ -2015,6 +2027,8 @@ operator|new
 name|AggregateProcessor
 argument_list|(
 name|context
+argument_list|,
+literal|"a"
 argument_list|,
 name|done
 argument_list|,
@@ -2281,6 +2295,8 @@ operator|new
 name|AggregateProcessor
 argument_list|(
 name|context
+argument_list|,
+literal|"a"
 argument_list|,
 name|done
 argument_list|,
@@ -2568,6 +2584,8 @@ operator|new
 name|AggregateProcessor
 argument_list|(
 name|context
+argument_list|,
+literal|"a"
 argument_list|,
 name|done
 argument_list|,
@@ -3213,6 +3231,8 @@ name|AggregateProcessor
 argument_list|(
 name|context
 argument_list|,
+literal|"a"
+argument_list|,
 name|done
 argument_list|,
 name|corr
@@ -3541,6 +3561,8 @@ operator|new
 name|AggregateProcessor
 argument_list|(
 name|context
+argument_list|,
+literal|"a"
 argument_list|,
 name|done
 argument_list|,
