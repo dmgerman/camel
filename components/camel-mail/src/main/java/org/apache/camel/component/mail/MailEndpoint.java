@@ -500,6 +500,26 @@ argument_list|,
 name|sender
 argument_list|)
 decl_stmt|;
+name|answer
+operator|.
+name|setHandleFailedMessage
+argument_list|(
+name|configuration
+operator|.
+name|isHandleFailedMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|answer
+operator|.
+name|setSkipFailedMessage
+argument_list|(
+name|configuration
+operator|.
+name|isSkipFailedMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// ScheduledPollConsumer default delay is 500 millis and that is too often for polling a mailbox,
 comment|// so we override with a new default value. End user can override this value by providing a consumer.delay parameter
 name|answer
