@@ -400,6 +400,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|IdAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|OptimisticLockingAggregationRepository
 import|;
 end_import
@@ -628,6 +642,8 @@ implements|,
 name|Traceable
 implements|,
 name|ShutdownPrepared
+implements|,
+name|IdAware
 block|{
 DECL|field|AGGREGATE_TIMEOUT_CHECKER
 specifier|public
@@ -675,6 +691,11 @@ specifier|private
 specifier|final
 name|Processor
 name|processor
+decl_stmt|;
+DECL|field|id
+specifier|private
+name|String
+name|id
 decl_stmt|;
 DECL|field|aggregationStrategy
 specifier|private
@@ -1440,6 +1461,32 @@ name|processor
 operator|!=
 literal|null
 return|;
+block|}
+DECL|method|getId ()
+specifier|public
+name|String
+name|getId
+parameter_list|()
+block|{
+return|return
+name|id
+return|;
+block|}
+DECL|method|setId (String id)
+specifier|public
+name|void
+name|setId
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|this
+operator|.
+name|id
+operator|=
+name|id
+expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
 specifier|public

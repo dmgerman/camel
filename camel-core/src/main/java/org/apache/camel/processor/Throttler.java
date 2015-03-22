@@ -134,6 +134,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|IdAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -153,7 +167,14 @@ extends|extends
 name|DelayProcessorSupport
 implements|implements
 name|Traceable
+implements|,
+name|IdAware
 block|{
+DECL|field|id
+specifier|private
+name|String
+name|id
+decl_stmt|;
 DECL|field|maximumRequestsPerPeriod
 specifier|private
 specifier|volatile
@@ -314,6 +335,32 @@ name|timePeriodMillis
 operator|+
 literal|"]"
 return|;
+block|}
+DECL|method|getId ()
+specifier|public
+name|String
+name|getId
+parameter_list|()
+block|{
+return|return
+name|id
+return|;
+block|}
+DECL|method|setId (String id)
+specifier|public
+name|void
+name|setId
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|this
+operator|.
+name|id
+operator|=
+name|id
+expr_stmt|;
 block|}
 comment|// Properties
 comment|// -----------------------------------------------------------------------

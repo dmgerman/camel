@@ -234,6 +234,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|IdAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -377,6 +391,8 @@ implements|implements
 name|AsyncProcessor
 implements|,
 name|Traceable
+implements|,
+name|IdAware
 block|{
 DECL|field|log
 specifier|protected
@@ -391,6 +407,11 @@ argument_list|(
 name|getClass
 argument_list|()
 argument_list|)
+decl_stmt|;
+DECL|field|id
+specifier|protected
+name|String
+name|id
 decl_stmt|;
 DECL|field|producerCache
 specifier|protected
@@ -526,6 +547,32 @@ operator|.
 name|header
 operator|=
 literal|null
+expr_stmt|;
+block|}
+DECL|method|getId ()
+specifier|public
+name|String
+name|getId
+parameter_list|()
+block|{
+return|return
+name|id
+return|;
+block|}
+DECL|method|setId (String id)
+specifier|public
+name|void
+name|setId
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|this
+operator|.
+name|id
+operator|=
+name|id
 expr_stmt|;
 block|}
 DECL|method|setDelimiter (String delimiter)

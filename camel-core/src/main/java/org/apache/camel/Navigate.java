@@ -37,7 +37,7 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-comment|/**      * Next group of outputs      *      * @return next group or<tt>null</tt> if no more outputs      */
+comment|/**      * Next group of outputs      *<p/>      * Important only invoke this once, as this method do not carry state, and is not intended to be used in a while loop,      * but used by a if statement instead.      *      * @return next group or<tt>null</tt> if no more outputs      */
 DECL|method|next ()
 name|List
 argument_list|<
@@ -46,7 +46,7 @@ argument_list|>
 name|next
 parameter_list|()
 function_decl|;
-comment|/**      * Are there more outputs?      *      * @return<tt>true</tt> if more outputs      */
+comment|/**      * Are there more outputs?      *<p/>      * Important only invoke this once, as this method do not carry state, and is not intended to be used in a while loop,      * but used by a if statement instead.      *      * @return<tt>true</tt> if more outputs      */
 DECL|method|hasNext ()
 name|boolean
 name|hasNext

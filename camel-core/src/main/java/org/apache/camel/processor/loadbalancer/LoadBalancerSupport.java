@@ -94,6 +94,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|IdAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -167,6 +181,8 @@ name|Navigate
 argument_list|<
 name|Processor
 argument_list|>
+implements|,
+name|IdAware
 block|{
 DECL|field|log
 specifier|protected
@@ -197,6 +213,11 @@ argument_list|<
 name|Processor
 argument_list|>
 argument_list|()
+decl_stmt|;
+DECL|field|id
+specifier|private
+name|String
+name|id
 decl_stmt|;
 DECL|method|addProcessor (Processor processor)
 specifier|public
@@ -290,6 +311,32 @@ argument_list|()
 operator|>
 literal|0
 return|;
+block|}
+DECL|method|getId ()
+specifier|public
+name|String
+name|getId
+parameter_list|()
+block|{
+return|return
+name|id
+return|;
+block|}
+DECL|method|setId (String id)
+specifier|public
+name|void
+name|setId
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|this
+operator|.
+name|id
+operator|=
+name|id
+expr_stmt|;
 block|}
 DECL|method|doStart ()
 specifier|protected
