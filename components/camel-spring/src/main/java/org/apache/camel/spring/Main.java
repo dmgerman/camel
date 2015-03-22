@@ -130,18 +130,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|JAXBException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -189,20 +177,6 @@ operator|.
 name|util
 operator|.
 name|IOHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|view
-operator|.
-name|ModelFileGenerator
 import|;
 end_import
 
@@ -1082,27 +1056,6 @@ expr_stmt|;
 block|}
 return|return
 name|answer
-return|;
-block|}
-DECL|method|createModelFileGenerator ()
-specifier|protected
-name|ModelFileGenerator
-name|createModelFileGenerator
-parameter_list|()
-throws|throws
-name|JAXBException
-block|{
-return|return
-operator|new
-name|ModelFileGenerator
-argument_list|(
-operator|new
-name|SpringModelJAXBContextFactory
-argument_list|()
-operator|.
-name|newJAXBContext
-argument_list|()
-argument_list|)
 return|;
 block|}
 DECL|method|createAdditionalLocationsFromClasspath ()
