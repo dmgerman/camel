@@ -156,24 +156,6 @@ specifier|protected
 name|String
 name|duration
 decl_stmt|;
-comment|/**      * The DOT File name used to generate the DOT diagram of the route definitions      *      * @parameter default-value="${project.build.directory}/site/cameldoc/routes.dot"      * @readonly      */
-DECL|field|outputDirectory
-specifier|protected
-name|String
-name|outputDirectory
-decl_stmt|;
-comment|/**      * Allows the DOT file generation to be disabled      *      * @parameter property="true"      * @readonly      */
-DECL|field|dotEnabled
-specifier|protected
-name|boolean
-name|dotEnabled
-decl_stmt|;
-comment|/**      * Allows the routes from multiple contexts to be aggregated into one DOT file (in addition to the individual files)      *      * @parameter property="false"      * @readonly      */
-DECL|field|dotAggregationEnabled
-specifier|protected
-name|boolean
-name|dotAggregationEnabled
-decl_stmt|;
 comment|/**      * The classpath based application context uri that spring wants to get.      *      * @parameter property="camel.applicationContextUri"      */
 DECL|field|applicationContextUri
 specifier|protected
@@ -304,34 +286,6 @@ block|}
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
-comment|/**      * Getter for property output directory.      *      * @return The value of output directory.      */
-DECL|method|getOutputDirectory ()
-specifier|public
-name|String
-name|getOutputDirectory
-parameter_list|()
-block|{
-return|return
-name|outputDirectory
-return|;
-block|}
-comment|/**      * Setter for the output directory.      *      * @param inOutputDirectory The value of output directory.      */
-DECL|method|setOutputDirectory (String inOutputDirectory)
-specifier|public
-name|void
-name|setOutputDirectory
-parameter_list|(
-name|String
-name|inOutputDirectory
-parameter_list|)
-block|{
-name|this
-operator|.
-name|outputDirectory
-operator|=
-name|inOutputDirectory
-expr_stmt|;
-block|}
 DECL|method|getClasspathElements ()
 specifier|public
 name|List
@@ -364,32 +318,6 @@ operator|=
 name|classpathElements
 expr_stmt|;
 block|}
-DECL|method|isDotEnabled ()
-specifier|public
-name|boolean
-name|isDotEnabled
-parameter_list|()
-block|{
-return|return
-name|dotEnabled
-return|;
-block|}
-DECL|method|setDotEnabled (boolean dotEnabled)
-specifier|public
-name|void
-name|setDotEnabled
-parameter_list|(
-name|boolean
-name|dotEnabled
-parameter_list|)
-block|{
-name|this
-operator|.
-name|dotEnabled
-operator|=
-name|dotEnabled
-expr_stmt|;
-block|}
 DECL|method|getDuration ()
 specifier|public
 name|String
@@ -414,32 +342,6 @@ operator|.
 name|duration
 operator|=
 name|duration
-expr_stmt|;
-block|}
-DECL|method|isDotAggregationEnabled ()
-specifier|public
-name|boolean
-name|isDotAggregationEnabled
-parameter_list|()
-block|{
-return|return
-name|dotAggregationEnabled
-return|;
-block|}
-DECL|method|setDotAggregationEnabled (boolean dotAggregationEnabled)
-specifier|public
-name|void
-name|setDotAggregationEnabled
-parameter_list|(
-name|boolean
-name|dotAggregationEnabled
-parameter_list|)
-block|{
-name|this
-operator|.
-name|dotAggregationEnabled
-operator|=
-name|dotAggregationEnabled
 expr_stmt|;
 block|}
 DECL|method|getApplicationContextUri ()
@@ -665,49 +567,6 @@ argument_list|(
 literal|5
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|isDotEnabled
-argument_list|()
-condition|)
-block|{
-name|args
-operator|.
-name|add
-argument_list|(
-literal|"-outdir"
-argument_list|)
-expr_stmt|;
-name|args
-operator|.
-name|add
-argument_list|(
-name|getOutputDirectory
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|isDotAggregationEnabled
-argument_list|()
-condition|)
-block|{
-name|args
-operator|.
-name|add
-argument_list|(
-literal|"-aggregate-dot"
-argument_list|)
-expr_stmt|;
-name|args
-operator|.
-name|add
-argument_list|(
-literal|"true"
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|applicationContextUri
