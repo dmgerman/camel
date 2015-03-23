@@ -63,10 +63,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|AggregatePredicateAwareStrategyTest
+DECL|class|AggregatePreCompleteAwareStrategyTest
 specifier|public
 class|class
-name|AggregatePredicateAwareStrategyTest
+name|AggregatePreCompleteAwareStrategyTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -181,6 +181,19 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"F"
+argument_list|,
+literal|"id"
+argument_list|,
+literal|123
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -224,11 +237,6 @@ argument_list|,
 operator|new
 name|BodyInPreCompleteAggregatingStrategy
 argument_list|()
-argument_list|)
-operator|.
-name|completionSize
-argument_list|(
-literal|5
 argument_list|)
 operator|.
 name|to

@@ -702,6 +702,11 @@ specifier|private
 name|AggregationStrategy
 name|aggregationStrategy
 decl_stmt|;
+DECL|field|preCompletion
+specifier|private
+name|boolean
+name|preCompletion
+decl_stmt|;
 DECL|field|correlationExpression
 specifier|private
 name|Expression
@@ -2004,6 +2009,11 @@ name|Exchange
 argument_list|>
 argument_list|()
 decl_stmt|;
+name|String
+name|complete
+init|=
+literal|null
+decl_stmt|;
 name|Exchange
 name|answer
 decl_stmt|;
@@ -2090,9 +2100,11 @@ name|newExchange
 argument_list|)
 expr_stmt|;
 comment|// check if we are pre complete
-name|boolean
-name|preComplete
-decl_stmt|;
+if|if
+condition|(
+name|preCompletion
+condition|)
+block|{
 try|try
 block|{
 comment|// put the current aggregated size on the exchange so its avail during completion check
@@ -2107,15 +2119,33 @@ argument_list|,
 name|size
 argument_list|)
 expr_stmt|;
-name|preComplete
+name|complete
 operator|=
-name|onPreCompletionAggregation
+name|isPreCompleted
 argument_list|(
+name|key
+argument_list|,
 name|oldExchange
 argument_list|,
 name|newExchange
 argument_list|)
 expr_stmt|;
+comment|// make sure to track timeouts if not complete
+if|if
+condition|(
+name|complete
+operator|==
+literal|null
+condition|)
+block|{
+name|trackTimeout
+argument_list|(
+name|key
+argument_list|,
+name|newExchange
+argument_list|)
+expr_stmt|;
+block|}
 comment|// remove it afterwards
 name|newExchange
 operator|.
@@ -2146,17 +2176,10 @@ name|e
 argument_list|)
 throw|;
 block|}
-comment|// check if we are complete
-name|String
-name|complete
-init|=
-literal|null
-decl_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
-operator|!
-name|preComplete
-operator|&&
 name|isEagerCheckCompletion
 argument_list|()
 condition|)
@@ -2182,6 +2205,22 @@ argument_list|,
 name|newExchange
 argument_list|)
 expr_stmt|;
+comment|// make sure to track timeouts if not complete
+if|if
+condition|(
+name|complete
+operator|==
+literal|null
+condition|)
+block|{
+name|trackTimeout
+argument_list|(
+name|key
+argument_list|,
+name|newExchange
+argument_list|)
+expr_stmt|;
+block|}
 comment|// remove it afterwards
 name|newExchange
 operator|.
@@ -2195,13 +2234,17 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|preComplete
+name|preCompletion
+operator|&&
+name|complete
+operator|!=
+literal|null
 condition|)
 block|{
 comment|// need to pre complete the current group before we aggregate
 name|doAggregationComplete
 argument_list|(
-literal|"strategy"
+name|complete
 argument_list|,
 name|list
 argument_list|,
@@ -2301,6 +2344,9 @@ comment|// maybe we should check completion after the aggregation
 if|if
 condition|(
 operator|!
+name|preCompletion
+operator|&&
+operator|!
 name|isEagerCheckCompletion
 argument_list|()
 condition|)
@@ -2314,6 +2360,22 @@ argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
+comment|// make sure to track timeouts if not complete
+if|if
+condition|(
+name|complete
+operator|==
+literal|null
+condition|)
+block|{
+name|trackTimeout
+argument_list|(
+name|key
+argument_list|,
+name|newExchange
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
@@ -2686,6 +2748,59 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Tests whether the given exchanges is pre-complete or not      *      * @param key      the correlation key      * @param oldExchange   the existing exchange      * @param newExchange the incoming exchange      * @return<tt>null</tt> if not pre-completed, otherwise a String with the type that triggered the pre-completion      */
+DECL|method|isPreCompleted (String key, Exchange oldExchange, Exchange newExchange)
+specifier|protected
+name|String
+name|isPreCompleted
+parameter_list|(
+name|String
+name|key
+parameter_list|,
+name|Exchange
+name|oldExchange
+parameter_list|,
+name|Exchange
+name|newExchange
+parameter_list|)
+block|{
+name|boolean
+name|complete
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+name|aggregationStrategy
+operator|instanceof
+name|PreCompletionAwareAggregationStrategy
+condition|)
+block|{
+name|complete
+operator|=
+operator|(
+operator|(
+name|PreCompletionAwareAggregationStrategy
+operator|)
+name|aggregationStrategy
+operator|)
+operator|.
+name|preComplete
+argument_list|(
+name|oldExchange
+argument_list|,
+name|newExchange
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|complete
+condition|?
+literal|"strategy"
+else|:
+literal|null
+return|;
+block|}
 comment|/**      * Tests whether the given exchange is complete or not      *      * @param key      the correlation key      * @param exchange the incoming exchange      * @return<tt>null</tt> if not completed, otherwise a String with the type that triggered the completion      */
 DECL|method|isCompleted (String key, Exchange exchange)
 specifier|protected
@@ -2931,6 +3046,23 @@ literal|"size"
 return|;
 block|}
 block|}
+comment|// not complete
+return|return
+literal|null
+return|;
+block|}
+DECL|method|trackTimeout (String key, Exchange exchange)
+specifier|protected
+name|void
+name|trackTimeout
+parameter_list|(
+name|String
+name|key
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
 comment|// timeout can be either evaluated based on an expression or from a fixed value
 comment|// expression takes precedence
 name|boolean
@@ -3065,10 +3197,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// not complete
-return|return
-literal|null
-return|;
 block|}
 DECL|method|onAggregation (Exchange oldExchange, Exchange newExchange)
 specifier|protected
@@ -5586,6 +5714,35 @@ name|Exception
 block|{
 if|if
 condition|(
+name|aggregationStrategy
+operator|instanceof
+name|PreCompletionAwareAggregationStrategy
+condition|)
+block|{
+name|preCompletion
+operator|=
+literal|true
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"PreCompletionAwareAggregationStrategy detected. Aggregator {} is in pre-completion mode."
+argument_list|,
+name|getId
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|preCompletion
+condition|)
+block|{
+comment|// if not in pre completion mode then check we configured the completion required
+if|if
+condition|(
 name|getCompletionTimeout
 argument_list|()
 operator|<=
@@ -5630,6 +5787,7 @@ operator|+
 literal|" [completionTimeout, completionInterval, completionSize, completionPredicate, completionFromBatchConsumer] must be set"
 argument_list|)
 throw|;
+block|}
 block|}
 if|if
 condition|(
