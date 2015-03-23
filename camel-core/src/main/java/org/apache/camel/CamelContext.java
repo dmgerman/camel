@@ -1184,6 +1184,26 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the processor from any of the routes which with the given id      *      * @param id id of the processor      * @param type the processor type      * @return the processor or<tt>null</tt> if not found      * @throws java.lang.ClassCastException is thrown if the type is not correct type      */
+DECL|method|getProcessor (String id, Class<T> type)
+parameter_list|<
+name|T
+extends|extends
+name|Processor
+parameter_list|>
+name|T
+name|getProcessor
+parameter_list|(
+name|String
+name|id
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
 comment|/**      * Gets the processor definition from any of the routes which with the given id      *      * @param id id of the processor definition      * @return the processor definition or<tt>null</tt> if not found      */
 DECL|method|getProcessorDefinition (String id)
 name|ProcessorDefinition
@@ -1191,6 +1211,26 @@ name|getProcessorDefinition
 parameter_list|(
 name|String
 name|id
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the processor definition from any of the routes which with the given id      *      * @param id id of the processor definition      * @param type the processor definition type      * @return the processor definition or<tt>null</tt> if not found      * @throws java.lang.ClassCastException is thrown if the type is not correct type      */
+DECL|method|getProcessorDefinition (String id, Class<T> type)
+parameter_list|<
+name|T
+extends|extends
+name|ProcessorDefinition
+parameter_list|>
+name|T
+name|getProcessorDefinition
+parameter_list|(
+name|String
+name|id
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
 parameter_list|)
 function_decl|;
 comment|/**      * Adds a collection of routes to this context using the given builder      * to build them.      *<p/>      *<b>Important:</b> The added routes will<b>only</b> be started, if {@link CamelContext}      * is already started. You may want to check the state of {@link CamelContext} before      * adding the routes, using the {@link org.apache.camel.CamelContext#getStatus()} method.      *<p/>      *<b>Important:</b> Each route in the same {@link org.apache.camel.CamelContext} must have an<b>unique</b> route id.      * If you use the API from {@link org.apache.camel.CamelContext} or {@link org.apache.camel.model.ModelCamelContext} to add routes, then any      * new routes which has a route id that matches an old route, then the old route is replaced by the new route.      *      * @param builder the builder which will create the routes and add them to this context      * @throws Exception if the routes could not be created for whatever reason      */
