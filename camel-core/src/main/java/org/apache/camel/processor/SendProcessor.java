@@ -204,6 +204,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|IdAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -359,6 +373,8 @@ implements|,
 name|Traceable
 implements|,
 name|EndpointAware
+implements|,
+name|IdAware
 block|{
 DECL|field|LOG
 specifier|protected
@@ -407,6 +423,11 @@ DECL|field|destinationExchangePattern
 specifier|protected
 name|ExchangePattern
 name|destinationExchangePattern
+decl_stmt|;
+DECL|field|id
+specifier|protected
+name|String
+name|id
 decl_stmt|;
 DECL|method|SendProcessor (Endpoint destination)
 specifier|public
@@ -542,6 +563,32 @@ operator|)
 operator|+
 literal|")"
 return|;
+block|}
+DECL|method|getId ()
+specifier|public
+name|String
+name|getId
+parameter_list|()
+block|{
+return|return
+name|id
+return|;
+block|}
+DECL|method|setId (String id)
+specifier|public
+name|void
+name|setId
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+block|{
+name|this
+operator|.
+name|id
+operator|=
+name|id
+expr_stmt|;
 block|}
 comment|/**      * @deprecated not longer supported.      */
 annotation|@

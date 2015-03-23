@@ -538,20 +538,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|view
-operator|.
-name|ModelFileGenerator
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -1026,23 +1012,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-DECL|method|createModelFileGenerator ()
-specifier|public
-name|ModelFileGenerator
-name|createModelFileGenerator
-parameter_list|()
-throws|throws
-name|JAXBException
-block|{
-return|return
-operator|new
-name|ModelFileGenerator
-argument_list|(
-name|getJaxbContext
-argument_list|()
-argument_list|)
-return|;
 block|}
 DECL|method|init ()
 specifier|public

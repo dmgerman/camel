@@ -1344,7 +1344,7 @@ block|}
 comment|// add current security token obtained from session
 name|exchange
 operator|.
-name|addRequestHeader
+name|setRequestHeader
 argument_list|(
 name|HttpHeaders
 operator|.

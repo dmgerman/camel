@@ -356,8 +356,6 @@ return|return
 operator|new
 name|RoutesCollector
 argument_list|(
-name|applicationContext
-argument_list|,
 operator|new
 name|ArrayList
 argument_list|<

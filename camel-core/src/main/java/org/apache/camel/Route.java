@@ -172,6 +172,18 @@ argument_list|>
 name|navigate
 parameter_list|()
 function_decl|;
+comment|/**      * Returns a list of all the {@link Processor}s from this route that has id's matching the pattern      *      * @param pattern the pattern to match by ids      * @return a list of {@link Processor}, is never<tt>null</tt>.      */
+DECL|method|filter (String pattern)
+name|List
+argument_list|<
+name|Processor
+argument_list|>
+name|filter
+parameter_list|(
+name|String
+name|pattern
+parameter_list|)
+function_decl|;
 comment|/**      * Callback preparing the route to be started, by warming up the route.      */
 DECL|method|warmUp ()
 name|void

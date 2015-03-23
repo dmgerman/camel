@@ -164,6 +164,10 @@ argument_list|(
 name|uri
 operator|=
 literal|"tester:results"
+argument_list|,
+name|context
+operator|=
+literal|"tester"
 argument_list|)
 DECL|field|resultEndpoint
 specifier|private
@@ -176,6 +180,10 @@ argument_list|(
 name|uri
 operator|=
 literal|"tester:start"
+argument_list|,
+name|context
+operator|=
+literal|"tester"
 argument_list|)
 DECL|field|template
 specifier|private

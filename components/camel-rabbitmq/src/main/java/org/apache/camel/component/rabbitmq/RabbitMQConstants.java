@@ -25,6 +25,7 @@ specifier|final
 class|class
 name|RabbitMQConstants
 block|{
+comment|// TODO need to change the constant which is start with camel
 DECL|field|ROUTING_KEY
 specifier|public
 specifier|static
@@ -177,6 +178,24 @@ name|String
 name|REQUEUE
 init|=
 literal|"rabbitmq.REQUEUE"
+decl_stmt|;
+DECL|field|MANDATORY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MANDATORY
+init|=
+literal|"rabbitmq.MANDATORY"
+decl_stmt|;
+DECL|field|IMMEDIATE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|IMMEDIATE
+init|=
+literal|"rabbitmq.IMMEDIATE"
 decl_stmt|;
 DECL|field|RABBITMQ_DEAD_LETTER_EXCHANGE
 specifier|public

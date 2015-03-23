@@ -291,11 +291,10 @@ name|isSingleton
 argument_list|()
 condition|)
 block|{
-comment|// resolve placeholders
-name|this
-operator|.
-name|uri
-operator|=
+comment|// resolve placeholders (but leave the original uri unchanged)
+name|String
+name|resolved
+init|=
 name|getCamelContext
 argument_list|()
 operator|.
@@ -303,13 +302,17 @@ name|resolvePropertyPlaceholders
 argument_list|(
 name|uri
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|String
 name|target
 init|=
 name|createUri
-argument_list|()
+argument_list|(
+name|resolved
+argument_list|)
 decl_stmt|;
+name|this
+operator|.
 name|endpoint
 operator|=
 name|getCamelContext
@@ -474,11 +477,14 @@ operator|=
 name|properties
 expr_stmt|;
 block|}
-DECL|method|createUri ()
+DECL|method|createUri (String uri)
 specifier|private
 name|String
 name|createUri
-parameter_list|()
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
 throws|throws
 name|Exception
 block|{

@@ -515,18 +515,6 @@ specifier|protected
 name|String
 name|duration
 decl_stmt|;
-comment|/**      * The DOT output directory name used to generate the DOT diagram of the      * route definitions      *      * @parameter default-value="${project.build.directory}/site/cameldoc"      * @readonly      */
-DECL|field|dotDir
-specifier|protected
-name|String
-name|dotDir
-decl_stmt|;
-comment|/**      * Allows the DOT file generation to be enabled      *      * @parameter property="camel.usdDot"      *            default-value="false"      */
-DECL|field|useDot
-specifier|protected
-name|boolean
-name|useDot
-decl_stmt|;
 comment|/**      * Whether to log the classpath when starting      *      * @parameter property="camel.logClasspath"      *            default-value="false"      */
 DECL|field|logClasspath
 specifier|protected
@@ -603,12 +591,6 @@ DECL|field|trace
 specifier|private
 name|boolean
 name|trace
-decl_stmt|;
-comment|/**      * Output all routes to the specified XML file      *      * @parameter property="camel.routesOutputFile"      */
-DECL|field|routesOutputFile
-specifier|private
-name|String
-name|routesOutputFile
 decl_stmt|;
 comment|/**      * The main class to execute.      *      * @parameter property="camel.mainClass"      */
 DECL|field|mainClass
@@ -783,30 +765,6 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|dotDir
-operator|!=
-literal|null
-operator|&&
-name|useDot
-condition|)
-block|{
-name|args
-operator|.
-name|add
-argument_list|(
-literal|"-o"
-argument_list|)
-expr_stmt|;
-name|args
-operator|.
-name|add
-argument_list|(
-name|dotDir
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
 name|trace
 condition|)
 block|{
@@ -815,28 +773,6 @@ operator|.
 name|add
 argument_list|(
 literal|"-t"
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|routesOutputFile
-operator|!=
-literal|null
-condition|)
-block|{
-name|args
-operator|.
-name|add
-argument_list|(
-literal|"-output"
-argument_list|)
-expr_stmt|;
-name|args
-operator|.
-name|add
-argument_list|(
-name|routesOutputFile
 argument_list|)
 expr_stmt|;
 block|}

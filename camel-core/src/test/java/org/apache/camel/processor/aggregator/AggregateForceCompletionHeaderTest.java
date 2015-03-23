@@ -222,7 +222,7 @@ name|Exchange
 operator|.
 name|AGGREGATED_COMPLETED_BY
 argument_list|,
-literal|"forceCompletion"
+literal|"force"
 argument_list|)
 expr_stmt|;
 comment|//now send the signal message to trigger completion of all groups, message should NOT be aggregated
@@ -355,7 +355,7 @@ name|Exchange
 operator|.
 name|AGGREGATED_COMPLETED_BY
 argument_list|,
-literal|"forceCompletion"
+literal|"force"
 argument_list|)
 expr_stmt|;
 comment|//now send a message to trigger completion of all groups, message should be aggregated

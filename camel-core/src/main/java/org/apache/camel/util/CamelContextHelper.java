@@ -2886,29 +2886,38 @@ operator|==
 literal|null
 condition|)
 block|{
-name|answer
-operator|=
+comment|// lookup what is stored under properties, as it may not be the Camel properties component
+name|Object
+name|found
+init|=
 name|camelContext
 operator|.
 name|getRegistry
 argument_list|()
 operator|.
-name|lookupByNameAndType
+name|lookupByName
 argument_list|(
 literal|"properties"
-argument_list|,
-name|PropertiesComponent
-operator|.
-name|class
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
-name|answer
+name|found
 operator|!=
 literal|null
+operator|&&
+name|found
+operator|instanceof
+name|PropertiesComponent
 condition|)
 block|{
+name|answer
+operator|=
+operator|(
+name|PropertiesComponent
+operator|)
+name|found
+expr_stmt|;
 name|camelContext
 operator|.
 name|addComponent
@@ -2937,7 +2946,7 @@ argument_list|(
 literal|"No existing PropertiesComponent has been configured, creating a new default PropertiesComponent with name: properties"
 argument_list|)
 expr_stmt|;
-comment|// do not auto create using getComponent as spring autowrire by constructor causes a side effect
+comment|// do not auto create using getComponent as spring auto-wire by constructor causes a side effect
 name|answer
 operator|=
 operator|new

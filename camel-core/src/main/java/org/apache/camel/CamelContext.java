@@ -136,6 +136,20 @@ name|camel
 operator|.
 name|model
 operator|.
+name|ProcessorDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|RouteDefinition
 import|;
 end_import
@@ -1156,6 +1170,24 @@ comment|/**      * Gets the route with the given id      *      * @param id id o
 DECL|method|getRoute (String id)
 name|Route
 name|getRoute
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the processor from any of the routes which with the given id      *      * @param id id of the processor      * @return the processor or<tt>null</tt> if not found      */
+DECL|method|getProcessor (String id)
+name|Processor
+name|getProcessor
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the processor definition from any of the routes which with the given id      *      * @param id id of the processor definition      * @return the processor definition or<tt>null</tt> if not found      */
+DECL|method|getProcessorDefinition (String id)
+name|ProcessorDefinition
+name|getProcessorDefinition
 parameter_list|(
 name|String
 name|id

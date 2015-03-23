@@ -531,10 +531,10 @@ name|File
 name|pathname
 parameter_list|)
 block|{
-comment|// skip camel-jetty8 as its a duplicate of camel-jetty9
+comment|// skip camel-jetty9 as its a duplicate of camel-jetty
 if|if
 condition|(
-literal|"camel-jetty8"
+literal|"camel-jetty9"
 operator|.
 name|equals
 argument_list|(

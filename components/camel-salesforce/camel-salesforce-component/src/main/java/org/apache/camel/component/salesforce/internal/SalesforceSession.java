@@ -182,6 +182,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|codehaus
 operator|.
 name|jackson
@@ -418,11 +432,13 @@ name|listeners
 decl_stmt|;
 DECL|field|accessToken
 specifier|private
+specifier|volatile
 name|String
 name|accessToken
 decl_stmt|;
 DECL|field|instanceUrl
 specifier|private
+specifier|volatile
 name|String
 name|instanceUrl
 decl_stmt|;
@@ -438,68 +454,82 @@ name|config
 parameter_list|)
 block|{
 comment|// validate parameters
-name|assertNotNull
+name|ObjectHelper
+operator|.
+name|notNull
 argument_list|(
-literal|"Null httpClient"
-argument_list|,
 name|httpClient
+argument_list|,
+literal|"httpClient"
 argument_list|)
 expr_stmt|;
-name|assertNotNull
+name|ObjectHelper
+operator|.
+name|notNull
 argument_list|(
-literal|"Null SalesforceLoginConfig"
-argument_list|,
 name|config
+argument_list|,
+literal|"SalesforceLoginConfig"
 argument_list|)
 expr_stmt|;
-name|assertNotNull
+name|ObjectHelper
+operator|.
+name|notNull
 argument_list|(
-literal|"Null loginUrl"
-argument_list|,
 name|config
 operator|.
 name|getLoginUrl
 argument_list|()
+argument_list|,
+literal|"loginUrl"
 argument_list|)
 expr_stmt|;
-name|assertNotNull
+name|ObjectHelper
+operator|.
+name|notNull
 argument_list|(
-literal|"Null clientId"
-argument_list|,
 name|config
 operator|.
 name|getClientId
 argument_list|()
+argument_list|,
+literal|"clientId"
 argument_list|)
 expr_stmt|;
-name|assertNotNull
+name|ObjectHelper
+operator|.
+name|notNull
 argument_list|(
-literal|"Null clientSecret"
-argument_list|,
 name|config
 operator|.
 name|getClientSecret
 argument_list|()
+argument_list|,
+literal|"clientSecret"
 argument_list|)
 expr_stmt|;
-name|assertNotNull
+name|ObjectHelper
+operator|.
+name|notNull
 argument_list|(
-literal|"Null userName"
-argument_list|,
 name|config
 operator|.
 name|getUserName
 argument_list|()
+argument_list|,
+literal|"userName"
 argument_list|)
 expr_stmt|;
-name|assertNotNull
+name|ObjectHelper
+operator|.
+name|notNull
 argument_list|(
-literal|"Null password"
-argument_list|,
 name|config
 operator|.
 name|getPassword
 argument_list|()
+argument_list|,
+literal|"password"
 argument_list|)
 expr_stmt|;
 name|this
@@ -570,34 +600,6 @@ name|SalesforceSessionListener
 argument_list|>
 argument_list|()
 expr_stmt|;
-block|}
-DECL|method|assertNotNull (String s, Object o)
-specifier|private
-name|void
-name|assertNotNull
-parameter_list|(
-name|String
-name|s
-parameter_list|,
-name|Object
-name|o
-parameter_list|)
-block|{
-if|if
-condition|(
-name|o
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-name|s
-argument_list|)
-throw|;
-block|}
 block|}
 annotation|@
 name|SuppressWarnings
@@ -1218,6 +1220,7 @@ return|;
 block|}
 DECL|method|logout ()
 specifier|public
+specifier|synchronized
 name|void
 name|logout
 parameter_list|()
@@ -1411,7 +1414,7 @@ throw|throw
 operator|new
 name|SalesforceException
 argument_list|(
-literal|"Unknow status: "
+literal|"Unknown status: "
 operator|+
 name|done
 argument_list|,
@@ -1467,7 +1470,7 @@ name|instanceUrl
 operator|=
 literal|null
 expr_stmt|;
-comment|// notify all session listeners of the new access token and instance url
+comment|// notify all session listeners about logout
 for|for
 control|(
 name|SalesforceSessionListener

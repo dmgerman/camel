@@ -822,6 +822,8 @@ argument_list|,
 name|createRestException
 argument_list|(
 name|request
+argument_list|,
+name|reason
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1004,7 +1006,7 @@ name|HttpExchange
 name|httpExchange
 parameter_list|)
 function_decl|;
-DECL|method|createRestException (ContentExchange httpExchange)
+DECL|method|createRestException (ContentExchange httpExchange, String reason)
 specifier|protected
 specifier|abstract
 name|SalesforceException
@@ -1012,6 +1014,9 @@ name|createRestException
 parameter_list|(
 name|ContentExchange
 name|httpExchange
+parameter_list|,
+name|String
+name|reason
 parameter_list|)
 function_decl|;
 block|}
