@@ -1991,6 +1991,19 @@ argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+name|list
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|Exchange
+argument_list|>
+argument_list|()
+decl_stmt|;
 name|Exchange
 name|answer
 decl_stmt|;
@@ -2066,6 +2079,73 @@ name|size
 operator|++
 expr_stmt|;
 block|}
+comment|// prepare the exchanges for aggregation
+name|ExchangeHelper
+operator|.
+name|prepareAggregation
+argument_list|(
+name|oldExchange
+argument_list|,
+name|newExchange
+argument_list|)
+expr_stmt|;
+comment|// check if we are pre complete
+name|boolean
+name|preComplete
+decl_stmt|;
+try|try
+block|{
+comment|// put the current aggregated size on the exchange so its avail during completion check
+name|newExchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATED_SIZE
+argument_list|,
+name|size
+argument_list|)
+expr_stmt|;
+name|preComplete
+operator|=
+name|onPreCompletionAggregation
+argument_list|(
+name|oldExchange
+argument_list|,
+name|newExchange
+argument_list|)
+expr_stmt|;
+comment|// remove it afterwards
+name|newExchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATED_SIZE
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// must catch any exception from aggregation
+throw|throw
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Error occurred during preComplete"
+argument_list|,
+name|newExchange
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 comment|// check if we are complete
 name|String
 name|complete
@@ -2074,6 +2154,9 @@ literal|null
 decl_stmt|;
 if|if
 condition|(
+operator|!
+name|preComplete
+operator|&&
 name|isEagerCheckCompletion
 argument_list|()
 condition|)
@@ -2110,17 +2193,46 @@ name|AGGREGATED_SIZE
 argument_list|)
 expr_stmt|;
 block|}
-comment|// prepare the exchanges for aggregation and then aggregate them
-name|ExchangeHelper
-operator|.
-name|prepareAggregation
+if|if
+condition|(
+name|preComplete
+condition|)
+block|{
+comment|// need to pre complete the current group before we aggregate
+name|doAggregationComplete
 argument_list|(
-name|oldExchange
+literal|"strategy"
 argument_list|,
-name|newExchange
+name|list
+argument_list|,
+name|key
+argument_list|,
+name|originalExchange
+argument_list|,
+name|oldExchange
 argument_list|)
 expr_stmt|;
-comment|// must catch any exception from aggregation
+comment|// as we complete the current group eager, we should indicate the new group is not complete
+name|complete
+operator|=
+literal|null
+expr_stmt|;
+comment|// and clear old/original exchange as we start on a new group
+name|oldExchange
+operator|=
+literal|null
+expr_stmt|;
+name|originalExchange
+operator|=
+literal|null
+expr_stmt|;
+comment|// and reset the size to 1
+name|size
+operator|=
+literal|1
+expr_stmt|;
+block|}
+comment|// aggregate the exchanges
 try|try
 block|{
 name|answer
@@ -2139,6 +2251,7 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
+comment|// must catch any exception from aggregation
 throw|throw
 operator|new
 name|CamelExchangeException
@@ -2202,19 +2315,6 @@ name|answer
 argument_list|)
 expr_stmt|;
 block|}
-name|List
-argument_list|<
-name|Exchange
-argument_list|>
-name|list
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|Exchange
-argument_list|>
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
 name|complete
@@ -2991,6 +3091,45 @@ name|oldExchange
 argument_list|,
 name|newExchange
 argument_list|)
+return|;
+block|}
+DECL|method|onPreCompletionAggregation (Exchange oldExchange, Exchange newExchange)
+specifier|protected
+name|boolean
+name|onPreCompletionAggregation
+parameter_list|(
+name|Exchange
+name|oldExchange
+parameter_list|,
+name|Exchange
+name|newExchange
+parameter_list|)
+block|{
+if|if
+condition|(
+name|aggregationStrategy
+operator|instanceof
+name|PreCompletionAwareAggregationStrategy
+condition|)
+block|{
+return|return
+operator|(
+operator|(
+name|PreCompletionAwareAggregationStrategy
+operator|)
+name|aggregationStrategy
+operator|)
+operator|.
+name|preComplete
+argument_list|(
+name|oldExchange
+argument_list|,
+name|newExchange
+argument_list|)
+return|;
+block|}
+return|return
+literal|false
 return|;
 block|}
 DECL|method|onCompletion (final String key, final Exchange original, final Exchange aggregated, boolean fromTimeout)
