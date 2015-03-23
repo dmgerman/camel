@@ -2215,7 +2215,6 @@ name|Exchange
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// only need to update aggregation repository if we are not complete
 if|if
 condition|(
 name|complete
@@ -2223,6 +2222,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// only need to update aggregation repository if we are not complete
 name|doAggregationRepositoryAdd
 argument_list|(
 name|newExchange
@@ -2237,15 +2237,61 @@ argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-comment|// we are not complete so the answer should be null
-name|answer
-operator|=
-literal|null
-expr_stmt|;
 block|}
 else|else
 block|{
-comment|// if batch consumer completion is enabled then we need to complete the group
+comment|// if we are complete then add the answer to the list
+name|doAggregationComplete
+argument_list|(
+name|complete
+argument_list|,
+name|list
+argument_list|,
+name|key
+argument_list|,
+name|originalExchange
+argument_list|,
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"onAggregation +++  end  +++ with correlation key: {}"
+argument_list|,
+name|key
+argument_list|)
+expr_stmt|;
+return|return
+name|list
+return|;
+block|}
+DECL|method|doAggregationComplete (String complete, List<Exchange> list, String key, Exchange originalExchange, Exchange answer)
+specifier|protected
+name|void
+name|doAggregationComplete
+parameter_list|(
+name|String
+name|complete
+parameter_list|,
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+name|list
+parameter_list|,
+name|String
+name|key
+parameter_list|,
+name|Exchange
+name|originalExchange
+parameter_list|,
+name|Exchange
+name|answer
+parameter_list|)
+block|{
 if|if
 condition|(
 literal|"consumer"
@@ -2374,16 +2420,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"onAggregation +++  end  +++ with correlation key: {}"
-argument_list|,
-name|key
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|answer
@@ -2399,9 +2435,6 @@ name|answer
 argument_list|)
 expr_stmt|;
 block|}
-return|return
-name|list
-return|;
 block|}
 DECL|method|doAggregationRepositoryAdd (CamelContext camelContext, String key, Exchange oldExchange, Exchange newExchange)
 specifier|protected
