@@ -22,6 +22,26 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|FileNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -149,6 +169,7 @@ argument_list|<
 name|ContextRefreshedEvent
 argument_list|>
 block|{
+comment|// Static collaborators
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -191,7 +212,14 @@ name|this
 operator|.
 name|camelContextConfigurations
 operator|=
+operator|new
+name|ArrayList
+argument_list|<
+name|CamelContextConfiguration
+argument_list|>
+argument_list|(
 name|camelContextConfigurations
+argument_list|)
 expr_stmt|;
 block|}
 comment|// Overridden
@@ -369,6 +397,13 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Started XML routes detection. Scanning classpath (/camel/*.xml)..."
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|Resource
@@ -414,6 +449,20 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|FileNotFoundException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"No XMl routes found in the classpath (/camel/*.xml). Skipping XML routes detection."
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
