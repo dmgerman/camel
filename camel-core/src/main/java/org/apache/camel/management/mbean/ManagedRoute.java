@@ -1674,19 +1674,21 @@ block|{
 name|ManagedProcessorMBean
 name|processor
 init|=
-name|MBeanServerInvocationHandler
+name|context
 operator|.
-name|newProxyInstance
+name|getManagementStrategy
+argument_list|()
+operator|.
+name|getManagementAgent
+argument_list|()
+operator|.
+name|newProxyClient
 argument_list|(
-name|server
-argument_list|,
 name|on
 argument_list|,
 name|ManagedProcessorMBean
 operator|.
 name|class
-argument_list|,
-literal|true
 argument_list|)
 decl_stmt|;
 comment|// the processor must belong to this route

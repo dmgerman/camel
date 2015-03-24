@@ -121,6 +121,24 @@ name|ObjectName
 name|name
 parameter_list|)
 function_decl|;
+comment|/**      * Creates a new proxy client      *      * @param name   the mbean name      * @param mbean  the client interface, such as from the {@link org.apache.camel.api.management.mbean} package.      * @return the client or<tt>null</tt> if mbean does not exists      */
+DECL|method|newProxyClient (ObjectName name, Class<T> mbean)
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|newProxyClient
+parameter_list|(
+name|ObjectName
+name|name
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|mbean
+parameter_list|)
+function_decl|;
 comment|/**      * Get the MBeanServer which hosts managed objects.      *<p/>      *<b>Notice:</b> If the JMXEnabled configuration is not set to<tt>true</tt>,      * this method will return<tt>null</tt>.      *       * @return the MBeanServer      */
 DECL|method|getMBeanServer ()
 name|MBeanServer
