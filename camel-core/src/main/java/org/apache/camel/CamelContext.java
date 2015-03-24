@@ -124,6 +124,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|mbean
+operator|.
+name|ManagedRouteMBean
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|builder
 operator|.
 name|ErrorHandlerBuilder
@@ -1222,7 +1240,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the managed processor from any of the routes which with the given id      *      * @param id id of the processor      * @param type the managed processor type from the {@link org.apache.camel.api.management.mbean} package.      * @return the processor or<tt>null</tt> if not found      * @throws java.lang.ClassCastException is thrown if the type is not correct type      */
+comment|/**      * Gets the managed processor from any of the routes which with the given id      *      * @param id id of the processor      * @param type the managed processor type from the {@link org.apache.camel.api.management.mbean} package.      * @return the processor or<tt>null</tt> if not found      * @throws IllegalArgumentException if the type is not compliant      */
 DECL|method|getManagedProcessor (String id, Class<T> type)
 parameter_list|<
 name|T
@@ -1234,6 +1252,26 @@ name|getManagedProcessor
 parameter_list|(
 name|String
 name|id
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the managed route with the given route id      *      * @param routeId id of the route      * @param type the managed route type from the {@link org.apache.camel.api.management.mbean} package.      * @return the route or<tt>null</tt> if not found      * @throws IllegalArgumentException if the type is not compliant      */
+DECL|method|getManagedRoute (String routeId, Class<T> type)
+parameter_list|<
+name|T
+extends|extends
+name|ManagedRouteMBean
+parameter_list|>
+name|T
+name|getManagedRoute
+parameter_list|(
+name|String
+name|routeId
 parameter_list|,
 name|Class
 argument_list|<
