@@ -264,6 +264,11 @@ literal|0
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|defaultValue
+operator|=
+name|DEFAULT_DESTINATION
+argument_list|)
 DECL|field|host
 specifier|private
 name|String
@@ -273,6 +278,13 @@ name|DEFAULT_DESTINATION
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|defaultValue
+operator|=
+literal|""
+operator|+
+name|DEFAULT_PORT
+argument_list|)
 DECL|field|port
 specifier|private
 name|int
