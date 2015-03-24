@@ -172,6 +172,44 @@ block|{
 name|CamelSalesforceMojo
 name|mojo
 init|=
+name|createMojo
+argument_list|()
+decl_stmt|;
+comment|// generate code
+name|mojo
+operator|.
+name|execute
+argument_list|()
+expr_stmt|;
+comment|// validate generated code
+comment|// check that it was generated
+name|Assert
+operator|.
+name|assertTrue
+argument_list|(
+literal|"Output directory was not created"
+argument_list|,
+name|mojo
+operator|.
+name|outputDirectory
+operator|.
+name|exists
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// TODO check that the generated code compiles
+block|}
+DECL|method|createMojo ()
+specifier|protected
+name|CamelSalesforceMojo
+name|createMojo
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+name|CamelSalesforceMojo
+name|mojo
+init|=
 operator|new
 name|CamelSalesforceMojo
 argument_list|()
@@ -284,29 +322,9 @@ name|delete
 argument_list|()
 expr_stmt|;
 block|}
-comment|// generate code
+return|return
 name|mojo
-operator|.
-name|execute
-argument_list|()
-expr_stmt|;
-comment|// validate generated code
-comment|// check that it was generated
-name|Assert
-operator|.
-name|assertTrue
-argument_list|(
-literal|"Output directory was not created"
-argument_list|,
-name|mojo
-operator|.
-name|outputDirectory
-operator|.
-name|exists
-argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// TODO check that the generated code compiles
+return|;
 block|}
 DECL|method|setLoginProperties (CamelSalesforceMojo mojo)
 specifier|private

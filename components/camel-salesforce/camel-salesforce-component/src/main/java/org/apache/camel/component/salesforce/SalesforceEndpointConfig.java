@@ -590,7 +590,7 @@ operator|.
 name|clone
 argument_list|()
 decl_stmt|;
-comment|// nothing to deep copy
+comment|// nothing to deep copy, getApexQueryParams() is readonly, so no need to deep copy
 return|return
 name|copy
 return|;
