@@ -462,6 +462,24 @@ name|OPERATION_PARAM
 init|=
 literal|"operation"
 decl_stmt|;
+DECL|field|HAZELCAST_INSTANCE_NAME_PARAM
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HAZELCAST_INSTANCE_NAME_PARAM
+init|=
+literal|"hazelcastInstanceName"
+decl_stmt|;
+DECL|field|HAZELCAST_INSTANCE_PARAM
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HAZELCAST_INSTANCE_PARAM
+init|=
+literal|"hazelcastInstance"
+decl_stmt|;
 DECL|method|HazelcastConstants ()
 specifier|private
 name|HazelcastConstants
