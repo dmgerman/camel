@@ -112,6 +112,24 @@ name|management
 operator|.
 name|mbean
 operator|.
+name|ManagedCamelContextMBean
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|mbean
+operator|.
 name|ManagedProcessorMBean
 import|;
 end_import
@@ -1240,7 +1258,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the managed processor from any of the routes which with the given id      *      * @param id id of the processor      * @param type the managed processor type from the {@link org.apache.camel.api.management.mbean} package.      * @return the processor or<tt>null</tt> if not found      * @throws IllegalArgumentException if the type is not compliant      */
+comment|/**      * Gets the managed processor client api from any of the routes which with the given id      *      * @param id id of the processor      * @param type the managed processor type from the {@link org.apache.camel.api.management.mbean} package.      * @return the processor or<tt>null</tt> if not found      * @throws IllegalArgumentException if the type is not compliant      */
 DECL|method|getManagedProcessor (String id, Class<T> type)
 parameter_list|<
 name|T
@@ -1260,7 +1278,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the managed route with the given route id      *      * @param routeId id of the route      * @param type the managed route type from the {@link org.apache.camel.api.management.mbean} package.      * @return the route or<tt>null</tt> if not found      * @throws IllegalArgumentException if the type is not compliant      */
+comment|/**      * Gets the managed route client api with the given route id      *      * @param routeId id of the route      * @param type the managed route type from the {@link org.apache.camel.api.management.mbean} package.      * @return the route or<tt>null</tt> if not found      * @throws IllegalArgumentException if the type is not compliant      */
 DECL|method|getManagedRoute (String routeId, Class<T> type)
 parameter_list|<
 name|T
@@ -1279,6 +1297,12 @@ name|T
 argument_list|>
 name|type
 parameter_list|)
+function_decl|;
+comment|/**      * Gets the managed Camel context client api      */
+DECL|method|getManagedCamelContext ()
+name|ManagedCamelContextMBean
+name|getManagedCamelContext
+parameter_list|()
 function_decl|;
 comment|/**      * Gets the processor definition from any of the routes which with the given id      *      * @param id id of the processor definition      * @return the processor definition or<tt>null</tt> if not found      */
 DECL|method|getProcessorDefinition (String id)
