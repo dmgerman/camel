@@ -576,12 +576,10 @@ argument_list|)
 operator|&&
 name|expression
 operator|.
-name|indexOf
+name|contains
 argument_list|(
 literal|"${"
 argument_list|)
-operator|>=
-literal|0
 condition|)
 block|{
 return|return
@@ -596,7 +594,7 @@ literal|null
 operator|&&
 name|expression
 operator|.
-name|indexOf
+name|contains
 argument_list|(
 literal|"$"
 operator|+
@@ -604,8 +602,6 @@ name|language
 operator|+
 literal|"{"
 argument_list|)
-operator|>=
-literal|0
 condition|)
 block|{
 return|return
