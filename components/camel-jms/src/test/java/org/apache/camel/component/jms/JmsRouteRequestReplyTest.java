@@ -2602,9 +2602,7 @@ name|contextBuilders
 operator|.
 name|get
 argument_list|(
-name|testName
-operator|.
-name|getMethodName
+name|getTestMethodName
 argument_list|()
 argument_list|)
 operator|.
@@ -2627,9 +2625,7 @@ name|routeBuilders
 operator|.
 name|get
 argument_list|(
-name|testName
-operator|.
-name|getMethodName
+name|getTestMethodName
 argument_list|()
 argument_list|)
 return|;

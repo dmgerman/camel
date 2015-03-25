@@ -802,9 +802,7 @@ literal|"testDefaultTaskExecutorThreadPoolAtComponentConfig"
 operator|.
 name|equals
 argument_list|(
-name|testName
-operator|.
-name|getMethodName
+name|getTestMethodName
 argument_list|()
 argument_list|)
 condition|)
