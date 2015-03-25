@@ -1123,10 +1123,12 @@ block|{
 name|String
 name|valueNoHash
 init|=
-name|value
+name|StringHelper
 operator|.
 name|replaceAll
 argument_list|(
+name|value
+argument_list|,
 literal|"#"
 argument_list|,
 literal|""
