@@ -203,6 +203,17 @@ return|return
 name|handled
 return|;
 block|}
+DECL|method|isContinued ()
+specifier|public
+name|boolean
+name|isContinued
+parameter_list|()
+block|{
+return|return
+operator|!
+name|handled
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()

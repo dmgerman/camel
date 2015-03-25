@@ -249,7 +249,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 function_decl|;
-comment|/**      * Creates an {@link EventObject} when an {@link org.apache.camel.Exchange} has failed      * but was handled by the Camel error handlers such as an dead letter channel.      *      * @param exchange          the exchange      * @param failureHandler    the failure handler such as moving the message to a dead letter queue      * @param deadLetterChannel whether it was a dead letter channel or not handling the failure      * @param deadLetterUri     the dead letter uri, if its a dead letter channel      * @return the created event      */
+comment|/**      * Creates an {@link EventObject} when an {@link org.apache.camel.Exchange} has failed      * but was handled by the Camel error handlers such as an dead letter channel, or a doTry .. doCatch block.      *      * @param exchange          the exchange      * @param failureHandler    the failure handler such as moving the message to a dead letter queue      * @param deadLetterChannel whether it was a dead letter channel or not handling the failure      * @param deadLetterUri     the dead letter uri, if its a dead letter channel      * @return the created event      */
 DECL|method|createExchangeFailureHandledEvent (Exchange exchange, Processor failureHandler, boolean deadLetterChannel, String deadLetterUri)
 name|EventObject
 name|createExchangeFailureHandledEvent
