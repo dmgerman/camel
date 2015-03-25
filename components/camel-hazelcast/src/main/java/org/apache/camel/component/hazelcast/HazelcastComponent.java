@@ -284,11 +284,13 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|util
+name|component
 operator|.
-name|ObjectHelper
+name|hazelcast
 operator|.
-name|removeStartingCharacters
+name|HazelcastConstants
+operator|.
+name|HAZELCAST_INSTANCE_NAME_PARAM
 import|;
 end_import
 
@@ -306,7 +308,23 @@ name|hazelcast
 operator|.
 name|HazelcastConstants
 operator|.
-name|*
+name|HAZELCAST_INSTANCE_PARAM
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|removeStartingCharacters
 import|;
 end_import
 
