@@ -1156,6 +1156,15 @@ condition|(
 name|hzInstance
 operator|==
 literal|null
+operator|&&
+name|parameters
+operator|.
+name|get
+argument_list|(
+name|HAZELCAST_INSTANCE_NAME_PARAM
+argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
 name|hzInstance
