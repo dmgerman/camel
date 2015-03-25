@@ -152,6 +152,16 @@ name|MyRouteBuilder
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// add event listener
+name|main
+operator|.
+name|addMainListener
+argument_list|(
+operator|new
+name|Events
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// run until you terminate the JVM
 name|System
 operator|.
@@ -250,6 +260,57 @@ operator|.
 name|println
 argument_list|(
 literal|"MyBean.calleMe method has been called"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|class|Events
+specifier|public
+specifier|static
+class|class
+name|Events
+extends|extends
+name|MainListenerSupport
+block|{
+annotation|@
+name|Override
+DECL|method|afterStart (MainSupport main)
+specifier|public
+name|void
+name|afterStart
+parameter_list|(
+name|MainSupport
+name|main
+parameter_list|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"MainExample with Camel is now started!"
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|beforeStop (MainSupport main)
+specifier|public
+name|void
+name|beforeStop
+parameter_list|(
+name|MainSupport
+name|main
+parameter_list|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"MainExample with Camel is now being stopped!"
 argument_list|)
 expr_stmt|;
 block|}

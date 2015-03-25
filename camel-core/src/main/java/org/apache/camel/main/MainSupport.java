@@ -295,6 +295,22 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|listeners
+specifier|protected
+specifier|final
+name|List
+argument_list|<
+name|MainListener
+argument_list|>
+name|listeners
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|MainListener
+argument_list|>
+argument_list|()
+decl_stmt|;
 DECL|field|options
 specifier|protected
 specifier|final
@@ -707,6 +723,9 @@ argument_list|()
 condition|)
 block|{
 comment|// if we have an issue starting then propagate the exception to caller
+name|beforeStart
+argument_list|()
+expr_stmt|;
 name|start
 argument_list|()
 expr_stmt|;
@@ -725,6 +744,9 @@ name|beforeStop
 argument_list|()
 expr_stmt|;
 name|stop
+argument_list|()
+expr_stmt|;
+name|afterStop
 argument_list|()
 expr_stmt|;
 block|}
@@ -776,7 +798,69 @@ name|interceptor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Callback to run custom logic after CamelContext has been started.      */
+comment|/**      * Adds a {@link org.apache.camel.main.MainListener} to receive callbacks when the main is started or stopping      *      * @param listener the listener      */
+DECL|method|addMainListener (MainListener listener)
+specifier|public
+name|void
+name|addMainListener
+parameter_list|(
+name|MainListener
+name|listener
+parameter_list|)
+block|{
+name|listeners
+operator|.
+name|add
+argument_list|(
+name|listener
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Removes the {@link org.apache.camel.main.MainListener}      *      * @param listener the listener      */
+DECL|method|removeMainListener (MainListener listener)
+specifier|public
+name|void
+name|removeMainListener
+parameter_list|(
+name|MainListener
+name|listener
+parameter_list|)
+block|{
+name|listeners
+operator|.
+name|remove
+argument_list|(
+name|listener
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Callback to run custom logic before CamelContext is being started.      *<p/>      * It is recommended to use {@link org.apache.camel.main.MainListener} instead.      */
+DECL|method|beforeStart ()
+specifier|protected
+name|void
+name|beforeStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+for|for
+control|(
+name|MainListener
+name|listener
+range|:
+name|listeners
+control|)
+block|{
+name|listener
+operator|.
+name|beforeStart
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Callback to run custom logic after CamelContext has been started.      *<p/>      * It is recommended to use {@link org.apache.camel.main.MainListener} instead.      */
 DECL|method|afterStart ()
 specifier|protected
 name|void
@@ -785,9 +869,24 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+for|for
+control|(
+name|MainListener
+name|listener
+range|:
+name|listeners
+control|)
+block|{
+name|listener
+operator|.
+name|afterStart
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 block|}
-comment|/**      * Callback to run custom logic before CamelContext is being stopped.      */
+block|}
+comment|/**      * Callback to run custom logic before CamelContext is being stopped.      *<p/>      * It is recommended to use {@link org.apache.camel.main.MainListener} instead.      */
 DECL|method|beforeStop ()
 specifier|protected
 name|void
@@ -796,7 +895,48 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+for|for
+control|(
+name|MainListener
+name|listener
+range|:
+name|listeners
+control|)
+block|{
+name|listener
+operator|.
+name|beforeStop
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|/**      * Callback to run custom logic after CamelContext has been stopped.      *<p/>      * It is recommended to use {@link org.apache.camel.main.MainListener} instead.      */
+DECL|method|afterStop ()
+specifier|protected
+name|void
+name|afterStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+for|for
+control|(
+name|MainListener
+name|listener
+range|:
+name|listeners
+control|)
+block|{
+name|listener
+operator|.
+name|afterStop
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|internalBeforeStop ()
 specifier|private
