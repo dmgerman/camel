@@ -570,13 +570,6 @@ condition|(
 name|handled
 condition|)
 block|{
-name|ExchangeHelper
-operator|.
-name|setFailureHandled
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
 comment|// emit event that the failure was handled
 name|EventHelper
 operator|.
