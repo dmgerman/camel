@@ -384,11 +384,8 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// CHECKSTYLE:OFF
-annotation|@
-name|Rule
 DECL|field|testName
-specifier|public
+specifier|private
 name|TestName
 name|testName
 init|=
@@ -396,7 +393,6 @@ operator|new
 name|TestName
 argument_list|()
 decl_stmt|;
-comment|// CHECKSTYLE:ON
 comment|// Builder methods for expressions used when testing
 comment|// -------------------------------------------------------------------------
 comment|/**      * Returns a value builder for the given header      */
@@ -2503,6 +2499,19 @@ name|startsWith
 argument_list|(
 literal|"1.8"
 argument_list|)
+return|;
+block|}
+comment|/**      * Gets the current test name      *      * @return the test name      */
+annotation|@
+name|Rule
+DECL|method|getTestName ()
+specifier|public
+name|TestName
+name|getTestName
+parameter_list|()
+block|{
+return|return
+name|testName
 return|;
 block|}
 comment|/**      * Gets the current test method name      *      * @return the method name      */
