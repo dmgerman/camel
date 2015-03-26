@@ -1128,6 +1128,34 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|testEndpointComponentName ()
+specifier|public
+name|void
+name|testEndpointComponentName
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|name
+init|=
+name|catalog
+operator|.
+name|endpointComponentName
+argument_list|(
+literal|"jms:queue:foo"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"jms"
+argument_list|,
+name|name
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

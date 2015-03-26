@@ -268,6 +268,15 @@ parameter_list|)
 throws|throws
 name|URISyntaxException
 function_decl|;
+comment|/**      * Returns the component name from the given endpoint uri      *      * @param uri  the endpoint uri      * @return the component name (aka scheme), or<tt>null</tt> if not possible to determine      */
+DECL|method|endpointComponentName (String uri)
+name|String
+name|endpointComponentName
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+function_decl|;
 comment|/**      * Creates an endpoint uri from the information in the json schema      *      * @param scheme the endpoint schema      * @param json the json schema with the endpoint properties      * @return the constructed endpoint uri      * @throws java.net.URISyntaxException is thrown if there is encoding error      */
 DECL|method|asEndpointUri (String scheme, String json)
 name|String
