@@ -188,7 +188,7 @@ name|scheme
 operator|=
 literal|"salesforce"
 argument_list|,
-name|titles
+name|title
 operator|=
 literal|"Salesforce"
 argument_list|,

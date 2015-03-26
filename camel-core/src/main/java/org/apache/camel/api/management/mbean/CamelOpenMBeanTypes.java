@@ -917,6 +917,8 @@ index|[]
 block|{
 literal|"name"
 block|,
+literal|"title"
+block|,
 literal|"description"
 block|,
 literal|"label"
@@ -938,6 +940,8 @@ index|[]
 block|{
 literal|"Name"
 block|,
+literal|"Title"
+block|,
 literal|"Description"
 block|,
 literal|"Label"
@@ -957,6 +961,10 @@ operator|new
 name|OpenType
 index|[]
 block|{
+name|SimpleType
+operator|.
+name|STRING
+block|,
 name|SimpleType
 operator|.
 name|STRING
