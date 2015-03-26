@@ -605,6 +605,10 @@ name|scheme
 operator|=
 literal|"jms"
 argument_list|,
+name|title
+operator|=
+literal|"JMS"
+argument_list|,
 name|syntax
 operator|=
 literal|"jms:destinationType:destinationName"

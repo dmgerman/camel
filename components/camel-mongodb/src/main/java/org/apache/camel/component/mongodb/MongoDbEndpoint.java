@@ -352,6 +352,10 @@ name|scheme
 operator|=
 literal|"mongodb"
 argument_list|,
+name|title
+operator|=
+literal|"MongoDB"
+argument_list|,
 name|syntax
 operator|=
 literal|"mongodb:connectionBean"

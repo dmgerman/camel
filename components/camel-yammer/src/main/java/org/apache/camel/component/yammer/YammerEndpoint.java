@@ -108,6 +108,10 @@ name|scheme
 operator|=
 literal|"yammer"
 argument_list|,
+name|title
+operator|=
+literal|"Yammer"
+argument_list|,
 name|syntax
 operator|=
 literal|"yammer:function"

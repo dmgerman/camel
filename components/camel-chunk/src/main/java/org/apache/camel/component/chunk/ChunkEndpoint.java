@@ -300,6 +300,10 @@ name|scheme
 operator|=
 literal|"chunk"
 argument_list|,
+name|title
+operator|=
+literal|"Chunk"
+argument_list|,
 name|syntax
 operator|=
 literal|"chunk:resourceUri"

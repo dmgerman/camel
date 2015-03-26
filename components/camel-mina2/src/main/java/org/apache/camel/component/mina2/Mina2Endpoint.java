@@ -174,6 +174,10 @@ name|scheme
 operator|=
 literal|"mina2"
 argument_list|,
+name|title
+operator|=
+literal|"Mina2"
+argument_list|,
 name|syntax
 operator|=
 literal|"mina2:protocol:host:port"

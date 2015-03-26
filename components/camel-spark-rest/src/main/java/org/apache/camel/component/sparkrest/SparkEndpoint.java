@@ -168,6 +168,10 @@ name|scheme
 operator|=
 literal|"spark-rest"
 argument_list|,
+name|title
+operator|=
+literal|"Spark Rest"
+argument_list|,
 name|syntax
 operator|=
 literal|"spark-rest:verb:path"

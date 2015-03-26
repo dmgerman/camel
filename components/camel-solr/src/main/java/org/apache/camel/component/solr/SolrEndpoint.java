@@ -220,6 +220,10 @@ name|scheme
 operator|=
 literal|"solr"
 argument_list|,
+name|title
+operator|=
+literal|"Solr"
+argument_list|,
 name|syntax
 operator|=
 literal|"solr:url"

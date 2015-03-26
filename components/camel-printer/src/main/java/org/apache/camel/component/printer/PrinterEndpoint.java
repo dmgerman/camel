@@ -116,6 +116,10 @@ name|scheme
 operator|=
 literal|"lpr"
 argument_list|,
+name|title
+operator|=
+literal|"Printer"
+argument_list|,
 name|syntax
 operator|=
 literal|"lpr:hostname:port/printername"

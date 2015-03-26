@@ -286,6 +286,10 @@ name|scheme
 operator|=
 literal|"aws-sdb"
 argument_list|,
+name|title
+operator|=
+literal|"AWS SimpleDB"
+argument_list|,
 name|syntax
 operator|=
 literal|"aws-sdb:domainName"

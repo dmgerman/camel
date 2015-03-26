@@ -212,6 +212,10 @@ name|scheme
 operator|=
 literal|"jcr"
 argument_list|,
+name|title
+operator|=
+literal|"JCR"
+argument_list|,
 name|syntax
 operator|=
 literal|"jcr:host/base"

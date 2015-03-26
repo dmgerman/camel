@@ -414,6 +414,10 @@ name|scheme
 operator|=
 literal|"xmpp"
 argument_list|,
+name|title
+operator|=
+literal|"XMPP"
+argument_list|,
 name|syntax
 operator|=
 literal|"xmpp:host:port/participant"

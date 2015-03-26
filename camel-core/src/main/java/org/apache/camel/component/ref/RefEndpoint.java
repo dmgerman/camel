@@ -168,6 +168,10 @@ name|scheme
 operator|=
 literal|"ref"
 argument_list|,
+name|title
+operator|=
+literal|"Ref"
+argument_list|,
 name|syntax
 operator|=
 literal|"ref:name"

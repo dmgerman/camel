@@ -200,6 +200,10 @@ name|scheme
 operator|=
 literal|"aws-ses"
 argument_list|,
+name|title
+operator|=
+literal|"AWS Simple Email Service"
+argument_list|,
 name|syntax
 operator|=
 literal|"aws-ses:from"

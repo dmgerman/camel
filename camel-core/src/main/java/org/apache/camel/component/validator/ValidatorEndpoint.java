@@ -300,6 +300,10 @@ name|scheme
 operator|=
 literal|"validator"
 argument_list|,
+name|title
+operator|=
+literal|"Validator"
+argument_list|,
 name|syntax
 operator|=
 literal|"validator:resourceUri"

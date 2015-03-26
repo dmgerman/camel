@@ -268,6 +268,10 @@ name|scheme
 operator|=
 literal|"beanstalk"
 argument_list|,
+name|title
+operator|=
+literal|"Beanstalk"
+argument_list|,
 name|syntax
 operator|=
 literal|"beanstalk:connectionSettings"

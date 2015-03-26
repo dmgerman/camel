@@ -166,6 +166,10 @@ name|scheme
 operator|=
 literal|"vertx"
 argument_list|,
+name|title
+operator|=
+literal|"Vert.x"
+argument_list|,
 name|syntax
 operator|=
 literal|"vertx:address"

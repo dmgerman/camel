@@ -366,6 +366,10 @@ name|scheme
 operator|=
 literal|"gtask"
 argument_list|,
+name|title
+operator|=
+literal|"Google Task"
+argument_list|,
 name|syntax
 operator|=
 literal|"gtask:queueName"

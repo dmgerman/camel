@@ -258,6 +258,10 @@ name|scheme
 operator|=
 literal|"mina"
 argument_list|,
+name|title
+operator|=
+literal|"Mina"
+argument_list|,
 name|syntax
 operator|=
 literal|"mina:protocol:host:port"

@@ -230,6 +230,10 @@ name|scheme
 operator|=
 literal|"jgroups"
 argument_list|,
+name|title
+operator|=
+literal|"JGroups"
+argument_list|,
 name|syntax
 operator|=
 literal|"jgroups:clusterName"

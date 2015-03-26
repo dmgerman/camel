@@ -204,6 +204,10 @@ name|scheme
 operator|=
 literal|"test"
 argument_list|,
+name|title
+operator|=
+literal|"Test"
+argument_list|,
 name|syntax
 operator|=
 literal|"test:name"

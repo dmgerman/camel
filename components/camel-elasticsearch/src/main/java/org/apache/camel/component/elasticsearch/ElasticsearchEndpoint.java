@@ -240,6 +240,10 @@ name|scheme
 operator|=
 literal|"elasticsearch"
 argument_list|,
+name|title
+operator|=
+literal|"Elasticsearch"
+argument_list|,
 name|syntax
 operator|=
 literal|"elasticsearch:clusterName"

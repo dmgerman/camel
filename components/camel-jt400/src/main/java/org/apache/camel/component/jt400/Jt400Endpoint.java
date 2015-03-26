@@ -214,6 +214,10 @@ name|scheme
 operator|=
 literal|"jt400"
 argument_list|,
+name|title
+operator|=
+literal|"JT400"
+argument_list|,
 name|syntax
 operator|=
 literal|"jt400:userID:password/systemName/objectPath.type"

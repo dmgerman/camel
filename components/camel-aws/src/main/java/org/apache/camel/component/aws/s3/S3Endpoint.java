@@ -344,6 +344,10 @@ name|scheme
 operator|=
 literal|"aws-s3"
 argument_list|,
+name|title
+operator|=
+literal|"AWS S3 Storage Service"
+argument_list|,
 name|syntax
 operator|=
 literal|"aws-s3:bucketName"

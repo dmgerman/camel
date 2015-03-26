@@ -108,6 +108,10 @@ name|scheme
 operator|=
 literal|"cmis"
 argument_list|,
+name|title
+operator|=
+literal|"CMIS"
+argument_list|,
 name|syntax
 operator|=
 literal|"cmis:url"

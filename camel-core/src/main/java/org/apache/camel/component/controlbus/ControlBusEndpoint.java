@@ -200,6 +200,10 @@ name|scheme
 operator|=
 literal|"controlbus"
 argument_list|,
+name|title
+operator|=
+literal|"Control Bus"
+argument_list|,
 name|syntax
 operator|=
 literal|"controlbus:command:language"

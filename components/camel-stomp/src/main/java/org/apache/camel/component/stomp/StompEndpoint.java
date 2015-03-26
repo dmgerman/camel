@@ -382,6 +382,10 @@ name|scheme
 operator|=
 literal|"stomp"
 argument_list|,
+name|title
+operator|=
+literal|"Stomp"
+argument_list|,
 name|syntax
 operator|=
 literal|"stomp:destination"

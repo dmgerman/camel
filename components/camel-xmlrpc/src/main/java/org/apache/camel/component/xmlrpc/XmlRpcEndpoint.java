@@ -232,6 +232,10 @@ name|scheme
 operator|=
 literal|"xmlrpc"
 argument_list|,
+name|title
+operator|=
+literal|"XML RPC"
+argument_list|,
 name|syntax
 operator|=
 literal|"xmlrpc:address"

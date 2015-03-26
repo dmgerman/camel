@@ -358,6 +358,10 @@ name|scheme
 operator|=
 literal|"aws-ddb"
 argument_list|,
+name|title
+operator|=
+literal|"AWS DynamoDB"
+argument_list|,
 name|syntax
 operator|=
 literal|"aws-ddb:tableName"

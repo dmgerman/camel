@@ -200,6 +200,10 @@ name|scheme
 operator|=
 literal|"mybatis"
 argument_list|,
+name|title
+operator|=
+literal|"MyBatis"
+argument_list|,
 name|syntax
 operator|=
 literal|"mybatis:statement"

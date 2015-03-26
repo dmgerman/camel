@@ -300,6 +300,10 @@ name|scheme
 operator|=
 literal|"velocity"
 argument_list|,
+name|title
+operator|=
+literal|"Velocity"
+argument_list|,
 name|syntax
 operator|=
 literal|"velocity:resourceUri"

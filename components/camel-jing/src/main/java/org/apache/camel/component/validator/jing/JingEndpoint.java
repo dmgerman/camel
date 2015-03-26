@@ -234,6 +234,10 @@ name|scheme
 operator|=
 literal|"jing"
 argument_list|,
+name|title
+operator|=
+literal|"Jing"
+argument_list|,
 name|syntax
 operator|=
 literal|"jing:resourceUri"

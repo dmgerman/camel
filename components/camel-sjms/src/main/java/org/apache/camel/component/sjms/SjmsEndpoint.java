@@ -332,6 +332,10 @@ name|scheme
 operator|=
 literal|"sjms"
 argument_list|,
+name|title
+operator|=
+literal|"Simple JMS"
+argument_list|,
 name|syntax
 operator|=
 literal|"sjms:destinationType:destinationName"

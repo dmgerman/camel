@@ -190,6 +190,10 @@ name|scheme
 operator|=
 literal|"spring-ldap"
 argument_list|,
+name|title
+operator|=
+literal|"Spring LDAP"
+argument_list|,
 name|syntax
 operator|=
 literal|"spring-ldap:templateName"

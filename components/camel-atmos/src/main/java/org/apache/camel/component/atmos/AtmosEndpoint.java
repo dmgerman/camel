@@ -300,6 +300,10 @@ name|scheme
 operator|=
 literal|"atmos"
 argument_list|,
+name|title
+operator|=
+literal|"Atmos"
+argument_list|,
 name|syntax
 operator|=
 literal|"atmos:name/operation"

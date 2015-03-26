@@ -406,6 +406,10 @@ name|scheme
 operator|=
 literal|"quartz2"
 argument_list|,
+name|title
+operator|=
+literal|"Quartz2"
+argument_list|,
 name|syntax
 operator|=
 literal|"quartz2:groupName/triggerName"

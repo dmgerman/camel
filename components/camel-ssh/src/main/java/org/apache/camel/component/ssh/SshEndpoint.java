@@ -268,6 +268,10 @@ name|scheme
 operator|=
 literal|"ssh"
 argument_list|,
+name|title
+operator|=
+literal|"SSH"
+argument_list|,
 name|syntax
 operator|=
 literal|"ssh:host:port"

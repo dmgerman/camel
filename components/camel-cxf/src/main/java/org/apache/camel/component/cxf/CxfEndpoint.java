@@ -1186,6 +1186,10 @@ name|scheme
 operator|=
 literal|"cxf"
 argument_list|,
+name|title
+operator|=
+literal|"CXF"
+argument_list|,
 name|syntax
 operator|=
 literal|"cxf:beanId:address"

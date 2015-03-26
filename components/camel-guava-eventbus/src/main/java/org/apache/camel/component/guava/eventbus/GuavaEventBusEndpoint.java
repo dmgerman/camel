@@ -188,6 +188,10 @@ name|scheme
 operator|=
 literal|"guava-eventbus"
 argument_list|,
+name|title
+operator|=
+literal|"Guava EventBus"
+argument_list|,
 name|syntax
 operator|=
 literal|"guava-eventbus:eventBusRef"

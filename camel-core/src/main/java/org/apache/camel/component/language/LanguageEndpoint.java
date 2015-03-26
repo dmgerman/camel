@@ -268,6 +268,10 @@ name|scheme
 operator|=
 literal|"language"
 argument_list|,
+name|title
+operator|=
+literal|"Language"
+argument_list|,
 name|syntax
 operator|=
 literal|"language:languageName"

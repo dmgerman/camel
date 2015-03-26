@@ -140,6 +140,10 @@ name|scheme
 operator|=
 literal|"atom"
 argument_list|,
+name|title
+operator|=
+literal|"Atom"
+argument_list|,
 name|syntax
 operator|=
 literal|"atom:feedUri"

@@ -176,6 +176,10 @@ name|scheme
 operator|=
 literal|"spring-integration"
 argument_list|,
+name|title
+operator|=
+literal|"Spring Integration"
+argument_list|,
 name|syntax
 operator|=
 literal|"spring-integration:defaultChannel"

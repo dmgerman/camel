@@ -188,6 +188,10 @@ name|scheme
 operator|=
 literal|"salesforce"
 argument_list|,
+name|titles
+operator|=
+literal|"Salesforce"
+argument_list|,
 name|syntax
 operator|=
 literal|"salesforce:operationName:topicName"

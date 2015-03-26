@@ -230,6 +230,10 @@ name|scheme
 operator|=
 literal|"dozer"
 argument_list|,
+name|title
+operator|=
+literal|"Dozer"
+argument_list|,
 name|syntax
 operator|=
 literal|"dozer:name"

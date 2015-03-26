@@ -230,6 +230,10 @@ name|scheme
 operator|=
 literal|"websocket"
 argument_list|,
+name|title
+operator|=
+literal|"Jetty Websocket"
+argument_list|,
 name|syntax
 operator|=
 literal|"websocket:host:port/resourceUri"

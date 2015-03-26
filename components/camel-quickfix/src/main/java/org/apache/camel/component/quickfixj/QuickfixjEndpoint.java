@@ -254,6 +254,10 @@ name|scheme
 operator|=
 literal|"quickfix"
 argument_list|,
+name|title
+operator|=
+literal|"QuickFix"
+argument_list|,
 name|syntax
 operator|=
 literal|"quickfix:configurationName"

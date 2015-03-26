@@ -443,6 +443,10 @@ name|scheme
 operator|=
 literal|"seda"
 argument_list|,
+name|title
+operator|=
+literal|"SEDA"
+argument_list|,
 name|syntax
 operator|=
 literal|"seda:name"

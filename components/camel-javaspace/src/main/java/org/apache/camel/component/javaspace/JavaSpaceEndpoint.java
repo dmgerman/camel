@@ -160,6 +160,10 @@ name|scheme
 operator|=
 literal|"javaspace"
 argument_list|,
+name|title
+operator|=
+literal|"JavaSpace"
+argument_list|,
 name|syntax
 operator|=
 literal|"javaspace:url"

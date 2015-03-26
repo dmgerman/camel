@@ -228,6 +228,10 @@ name|scheme
 operator|=
 literal|"kafka"
 argument_list|,
+name|title
+operator|=
+literal|"Kafka"
+argument_list|,
 name|syntax
 operator|=
 literal|"kafka:brokers"

@@ -364,6 +364,10 @@ name|scheme
 operator|=
 literal|"http4,http4s"
 argument_list|,
+name|title
+operator|=
+literal|"HTTP4,HTTP4S"
+argument_list|,
 name|syntax
 operator|=
 literal|"http4:httpUri"

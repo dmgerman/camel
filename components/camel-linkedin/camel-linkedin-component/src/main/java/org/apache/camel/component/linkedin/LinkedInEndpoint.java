@@ -414,6 +414,10 @@ name|scheme
 operator|=
 literal|"linkedin"
 argument_list|,
+name|title
+operator|=
+literal|"Linkedin"
+argument_list|,
 name|syntax
 operator|=
 literal|"linkedin:apiName/methodName"

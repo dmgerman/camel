@@ -108,6 +108,10 @@ name|scheme
 operator|=
 literal|"weather"
 argument_list|,
+name|title
+operator|=
+literal|"Weather"
+argument_list|,
 name|syntax
 operator|=
 literal|"weather:name"

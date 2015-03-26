@@ -244,6 +244,10 @@ name|scheme
 operator|=
 literal|"hbase"
 argument_list|,
+name|title
+operator|=
+literal|"HBase"
+argument_list|,
 name|syntax
 operator|=
 literal|"hbase:tableName"

@@ -152,6 +152,10 @@ name|scheme
 operator|=
 literal|"direct-vm"
 argument_list|,
+name|title
+operator|=
+literal|"Direct VM"
+argument_list|,
 name|syntax
 operator|=
 literal|"direct-vm:name"

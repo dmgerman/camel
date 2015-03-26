@@ -231,6 +231,10 @@ name|scheme
 operator|=
 literal|"timer"
 argument_list|,
+name|title
+operator|=
+literal|"Timer"
+argument_list|,
 name|syntax
 operator|=
 literal|"timer:timerName"

@@ -192,6 +192,10 @@ name|scheme
 operator|=
 literal|"atmosphere-websocket"
 argument_list|,
+name|title
+operator|=
+literal|"Atmosphere Websocket"
+argument_list|,
 name|syntax
 operator|=
 literal|"atmosphere-websocket:servicePath"

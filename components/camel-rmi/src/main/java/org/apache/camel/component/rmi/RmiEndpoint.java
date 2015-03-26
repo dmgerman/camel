@@ -224,6 +224,10 @@ name|scheme
 operator|=
 literal|"rmi"
 argument_list|,
+name|title
+operator|=
+literal|"RMI"
+argument_list|,
 name|syntax
 operator|=
 literal|"rmi:hostname:port/name"

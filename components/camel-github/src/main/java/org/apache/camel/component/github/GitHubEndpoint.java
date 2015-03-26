@@ -298,6 +298,10 @@ name|scheme
 operator|=
 literal|"github"
 argument_list|,
+name|title
+operator|=
+literal|"GitHub"
+argument_list|,
 name|syntax
 operator|=
 literal|"github:type/branchName"

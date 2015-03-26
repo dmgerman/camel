@@ -438,6 +438,10 @@ name|scheme
 operator|=
 literal|"aws-sqs"
 argument_list|,
+name|title
+operator|=
+literal|"AWS Simple Queue Service"
+argument_list|,
 name|syntax
 operator|=
 literal|"aws-sqs:queueName"

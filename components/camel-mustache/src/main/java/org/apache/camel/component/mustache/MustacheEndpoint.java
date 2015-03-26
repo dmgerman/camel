@@ -284,6 +284,10 @@ name|scheme
 operator|=
 literal|"mustache"
 argument_list|,
+name|title
+operator|=
+literal|"Mustache"
+argument_list|,
 name|syntax
 operator|=
 literal|"mustache:resourceUri"

@@ -286,6 +286,10 @@ name|scheme
 operator|=
 literal|"gauth"
 argument_list|,
+name|title
+operator|=
+literal|"Google GAuth"
+argument_list|,
 name|syntax
 operator|=
 literal|"gauth:name"

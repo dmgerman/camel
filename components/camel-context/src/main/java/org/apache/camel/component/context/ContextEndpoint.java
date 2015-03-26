@@ -154,6 +154,10 @@ name|scheme
 operator|=
 literal|"context"
 argument_list|,
+name|title
+operator|=
+literal|"Camel Context"
+argument_list|,
 name|syntax
 operator|=
 literal|"context:contextId:localEndpointUrl"

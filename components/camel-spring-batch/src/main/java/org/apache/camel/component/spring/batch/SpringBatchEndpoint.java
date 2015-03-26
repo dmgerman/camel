@@ -200,6 +200,10 @@ name|scheme
 operator|=
 literal|"spring-batch"
 argument_list|,
+name|title
+operator|=
+literal|"Spring Batch"
+argument_list|,
 name|syntax
 operator|=
 literal|"spring-batch:jobName"

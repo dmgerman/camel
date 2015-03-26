@@ -244,6 +244,10 @@ name|scheme
 operator|=
 literal|"browse"
 argument_list|,
+name|title
+operator|=
+literal|"Browse"
+argument_list|,
 name|syntax
 operator|=
 literal|"browse:name"

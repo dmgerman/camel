@@ -297,6 +297,9 @@ name|scheme
 operator|=
 literal|"${scheme}"
 argument_list|,
+name|title
+operator|=
+literal|"${name}"
 name|syntax
 operator|=
 literal|"${scheme}:name"

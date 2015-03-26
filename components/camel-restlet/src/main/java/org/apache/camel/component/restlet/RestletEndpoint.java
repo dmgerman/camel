@@ -250,6 +250,10 @@ name|scheme
 operator|=
 literal|"restlet"
 argument_list|,
+name|title
+operator|=
+literal|"Restlet"
+argument_list|,
 name|syntax
 operator|=
 literal|"restlet:protocol:host:port/uriPattern"

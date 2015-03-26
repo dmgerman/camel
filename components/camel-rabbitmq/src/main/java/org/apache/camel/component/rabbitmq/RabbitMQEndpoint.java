@@ -374,6 +374,10 @@ name|scheme
 operator|=
 literal|"rabbitmq"
 argument_list|,
+name|title
+operator|=
+literal|"RabbitMQ"
+argument_list|,
 name|syntax
 operator|=
 literal|"rabbitmq:hostname:portNumber/exchangeName"

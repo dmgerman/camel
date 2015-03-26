@@ -162,6 +162,10 @@ name|scheme
 operator|=
 literal|"docker"
 argument_list|,
+name|title
+operator|=
+literal|"Docker"
+argument_list|,
 name|syntax
 operator|=
 literal|"docker:operation"

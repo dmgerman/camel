@@ -156,6 +156,10 @@ name|scheme
 operator|=
 literal|"gora"
 argument_list|,
+name|title
+operator|=
+literal|"Gora"
+argument_list|,
 name|syntax
 operator|=
 literal|"gora:name"

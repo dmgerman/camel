@@ -206,6 +206,10 @@ name|scheme
 operator|=
 literal|"fop"
 argument_list|,
+name|title
+operator|=
+literal|"FOP"
+argument_list|,
 name|syntax
 operator|=
 literal|"fop:outputFormat"

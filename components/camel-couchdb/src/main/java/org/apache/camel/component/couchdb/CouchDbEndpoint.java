@@ -176,6 +176,10 @@ name|scheme
 operator|=
 literal|"couchdb"
 argument_list|,
+name|title
+operator|=
+literal|"CouchDB"
+argument_list|,
 name|syntax
 operator|=
 literal|"couchdb:protocol:hostname:port/database"

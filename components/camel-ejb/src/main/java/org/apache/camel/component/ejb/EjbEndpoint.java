@@ -68,6 +68,10 @@ name|scheme
 operator|=
 literal|"ejb"
 argument_list|,
+name|title
+operator|=
+literal|"EJB"
+argument_list|,
 name|syntax
 operator|=
 literal|"ejb:beanName"

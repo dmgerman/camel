@@ -228,6 +228,10 @@ name|scheme
 operator|=
 literal|"log"
 argument_list|,
+name|title
+operator|=
+literal|"Log"
+argument_list|,
 name|syntax
 operator|=
 literal|"log:loggerName"

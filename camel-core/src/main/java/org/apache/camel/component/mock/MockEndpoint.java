@@ -580,6 +580,10 @@ name|scheme
 operator|=
 literal|"mock"
 argument_list|,
+name|title
+operator|=
+literal|"Mock"
+argument_list|,
 name|syntax
 operator|=
 literal|"mock:name"

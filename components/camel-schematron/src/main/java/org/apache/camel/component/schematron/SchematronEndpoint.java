@@ -252,6 +252,10 @@ name|scheme
 operator|=
 literal|"schematron"
 argument_list|,
+name|title
+operator|=
+literal|"Schematron"
+argument_list|,
 name|syntax
 operator|=
 literal|"schematron:path"

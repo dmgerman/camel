@@ -230,6 +230,10 @@ name|scheme
 operator|=
 literal|"bean-validator"
 argument_list|,
+name|title
+operator|=
+literal|"Bean Validator"
+argument_list|,
 name|syntax
 operator|=
 literal|"bean-validator:label"

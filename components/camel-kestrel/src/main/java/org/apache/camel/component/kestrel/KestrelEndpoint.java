@@ -148,6 +148,10 @@ name|scheme
 operator|=
 literal|"kestrel"
 argument_list|,
+name|title
+operator|=
+literal|"Kestrel"
+argument_list|,
 name|syntax
 operator|=
 literal|"kestrel:addresses/queue"

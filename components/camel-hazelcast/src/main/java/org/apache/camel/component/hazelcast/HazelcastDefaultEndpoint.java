@@ -156,6 +156,10 @@ name|scheme
 operator|=
 literal|"hazelcast"
 argument_list|,
+name|title
+operator|=
+literal|"Hazelcast"
+argument_list|,
 name|syntax
 operator|=
 literal|"hazelcast:command:cacheName"

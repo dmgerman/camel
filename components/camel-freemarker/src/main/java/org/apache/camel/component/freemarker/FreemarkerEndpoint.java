@@ -198,6 +198,10 @@ name|scheme
 operator|=
 literal|"freemarker"
 argument_list|,
+name|title
+operator|=
+literal|"Freemarker"
+argument_list|,
 name|syntax
 operator|=
 literal|"freemarker:resourceUri"

@@ -190,6 +190,10 @@ name|scheme
 operator|=
 literal|"stringtemplate"
 argument_list|,
+name|title
+operator|=
+literal|"String Template"
+argument_list|,
 name|syntax
 operator|=
 literal|"stringtemplate:resourceUri"

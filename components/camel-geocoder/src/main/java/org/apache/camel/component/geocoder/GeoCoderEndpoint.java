@@ -122,6 +122,10 @@ name|scheme
 operator|=
 literal|"geocoder"
 argument_list|,
+name|title
+operator|=
+literal|"Geocoder"
+argument_list|,
 name|syntax
 operator|=
 literal|"geocoder:address:latlng"

@@ -136,6 +136,10 @@ name|scheme
 operator|=
 literal|"stub"
 argument_list|,
+name|title
+operator|=
+literal|"Stub"
+argument_list|,
 name|syntax
 operator|=
 literal|"stub:name"

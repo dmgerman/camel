@@ -168,6 +168,10 @@ name|scheme
 operator|=
 literal|"jdbc"
 argument_list|,
+name|title
+operator|=
+literal|"JDBC"
+argument_list|,
 name|syntax
 operator|=
 literal|"jdbc:dataSource"

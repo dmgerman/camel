@@ -136,6 +136,14 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * An optional human readable title of this entity, to be used instead of a computed title.      */
+DECL|method|title ()
+name|String
+name|title
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 block|}
 end_annotation_defn
 

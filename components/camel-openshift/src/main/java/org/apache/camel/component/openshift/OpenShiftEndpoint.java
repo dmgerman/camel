@@ -196,6 +196,10 @@ name|scheme
 operator|=
 literal|"openshift"
 argument_list|,
+name|title
+operator|=
+literal|"OpenShift"
+argument_list|,
 name|syntax
 operator|=
 literal|"openshift:clientId"

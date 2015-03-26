@@ -250,6 +250,10 @@ name|scheme
 operator|=
 literal|"google-mail"
 argument_list|,
+name|title
+operator|=
+literal|"Google Mail"
+argument_list|,
 name|syntax
 operator|=
 literal|"google-mail:apiName/methodName"

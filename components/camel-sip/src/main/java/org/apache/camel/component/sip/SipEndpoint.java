@@ -116,6 +116,10 @@ name|scheme
 operator|=
 literal|"sip"
 argument_list|,
+name|title
+operator|=
+literal|"SIP (Session Initiation Protocol)"
+argument_list|,
 name|syntax
 operator|=
 literal|"sip:uri"

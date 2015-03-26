@@ -176,6 +176,10 @@ name|scheme
 operator|=
 literal|"nagios"
 argument_list|,
+name|title
+operator|=
+literal|"Nagios"
+argument_list|,
 name|syntax
 operator|=
 literal|"nagios:host:port"

@@ -134,6 +134,10 @@ name|scheme
 operator|=
 literal|"paxlogging"
 argument_list|,
+name|title
+operator|=
+literal|"OSGi PAX Logging"
+argument_list|,
 name|syntax
 operator|=
 literal|"paxlogging:appender"

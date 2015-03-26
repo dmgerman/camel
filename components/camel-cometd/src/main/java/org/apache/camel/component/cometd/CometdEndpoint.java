@@ -180,6 +180,10 @@ name|scheme
 operator|=
 literal|"cometd,cometds"
 argument_list|,
+name|title
+operator|=
+literal|"CometD"
+argument_list|,
 name|syntax
 operator|=
 literal|"cometd:protocol:host:port/channelName"

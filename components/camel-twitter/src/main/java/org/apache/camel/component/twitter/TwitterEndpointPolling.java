@@ -213,6 +213,10 @@ name|scheme
 operator|=
 literal|"twitter"
 argument_list|,
+name|title
+operator|=
+literal|"Twitter"
+argument_list|,
 name|syntax
 operator|=
 literal|"twitter:type"

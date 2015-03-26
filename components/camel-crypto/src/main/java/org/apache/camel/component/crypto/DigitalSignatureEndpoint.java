@@ -196,6 +196,10 @@ name|scheme
 operator|=
 literal|"crypto"
 argument_list|,
+name|title
+operator|=
+literal|"Crypto (Java Cryptographic Extension)"
+argument_list|,
 name|syntax
 operator|=
 literal|"crypto:cryptoOperation"

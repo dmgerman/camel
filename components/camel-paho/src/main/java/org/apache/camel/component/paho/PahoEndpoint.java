@@ -288,6 +288,10 @@ name|scheme
 operator|=
 literal|"paho"
 argument_list|,
+name|title
+operator|=
+literal|"Paho"
+argument_list|,
 name|consumerClass
 operator|=
 name|PahoConsumer

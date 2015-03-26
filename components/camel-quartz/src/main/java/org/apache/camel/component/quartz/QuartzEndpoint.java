@@ -314,6 +314,10 @@ name|scheme
 operator|=
 literal|"quartz"
 argument_list|,
+name|title
+operator|=
+literal|"Quartz"
+argument_list|,
 name|syntax
 operator|=
 literal|"quartz:groupName/timerName"

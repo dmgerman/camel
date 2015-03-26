@@ -292,6 +292,10 @@ name|scheme
 operator|=
 literal|"sql"
 argument_list|,
+name|title
+operator|=
+literal|"SQL"
+argument_list|,
 name|syntax
 operator|=
 literal|"sql:query"

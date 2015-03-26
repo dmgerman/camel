@@ -216,6 +216,10 @@ name|scheme
 operator|=
 literal|"ibatis"
 argument_list|,
+name|title
+operator|=
+literal|"iBatis"
+argument_list|,
 name|syntax
 operator|=
 literal|"ibatis:statement"

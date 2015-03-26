@@ -244,6 +244,10 @@ name|scheme
 operator|=
 literal|"snmp"
 argument_list|,
+name|title
+operator|=
+literal|"SNMP"
+argument_list|,
 name|syntax
 operator|=
 literal|"snmp:host:port"

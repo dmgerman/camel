@@ -236,6 +236,10 @@ name|scheme
 operator|=
 literal|"gmail"
 argument_list|,
+name|title
+operator|=
+literal|"Google mail"
+argument_list|,
 name|syntax
 operator|=
 literal|"gmail:sender"

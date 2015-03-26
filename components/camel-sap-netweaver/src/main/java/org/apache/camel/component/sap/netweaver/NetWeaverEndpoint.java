@@ -146,6 +146,10 @@ name|scheme
 operator|=
 literal|"sap-netweaver"
 argument_list|,
+name|title
+operator|=
+literal|"SAP NetWeaver"
+argument_list|,
 name|syntax
 operator|=
 literal|"sap-netweaver:url"

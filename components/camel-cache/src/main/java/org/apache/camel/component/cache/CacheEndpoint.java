@@ -252,6 +252,10 @@ name|scheme
 operator|=
 literal|"cache"
 argument_list|,
+name|title
+operator|=
+literal|"EHCache"
+argument_list|,
 name|syntax
 operator|=
 literal|"cache:cacheName"

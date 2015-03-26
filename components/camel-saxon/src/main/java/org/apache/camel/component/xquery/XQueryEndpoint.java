@@ -236,6 +236,10 @@ name|scheme
 operator|=
 literal|"xquery"
 argument_list|,
+name|title
+operator|=
+literal|"XQuery"
+argument_list|,
 name|syntax
 operator|=
 literal|"xquery:resourceUri"

@@ -72,6 +72,10 @@ name|scheme
 operator|=
 literal|"amqp"
 argument_list|,
+name|title
+operator|=
+literal|"AMQP"
+argument_list|,
 name|syntax
 operator|=
 literal|"amqp:destinationType:destinationName"

@@ -222,6 +222,10 @@ name|scheme
 operator|=
 literal|"mvel"
 argument_list|,
+name|title
+operator|=
+literal|"MVEL"
+argument_list|,
 name|syntax
 operator|=
 literal|"mvel:resourceUri"

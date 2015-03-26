@@ -252,6 +252,10 @@ name|scheme
 operator|=
 literal|"pgevent"
 argument_list|,
+name|title
+operator|=
+literal|"PostgresSQL Event"
+argument_list|,
 name|syntax
 operator|=
 literal|"pgevent:host:port/database/channel"

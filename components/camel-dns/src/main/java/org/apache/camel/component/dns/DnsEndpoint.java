@@ -130,6 +130,10 @@ name|scheme
 operator|=
 literal|"dns"
 argument_list|,
+name|title
+operator|=
+literal|"DNS"
+argument_list|,
 name|syntax
 operator|=
 literal|"dns:dnsType"

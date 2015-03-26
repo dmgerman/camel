@@ -320,6 +320,10 @@ name|scheme
 operator|=
 literal|"http,https"
 argument_list|,
+name|title
+operator|=
+literal|"HTTP,HTTPS"
+argument_list|,
 name|syntax
 operator|=
 literal|"http:httpUri"

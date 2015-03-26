@@ -334,6 +334,10 @@ name|scheme
 operator|=
 literal|"mqtt"
 argument_list|,
+name|title
+operator|=
+literal|"MQTT"
+argument_list|,
 name|syntax
 operator|=
 literal|"mqtt:name"

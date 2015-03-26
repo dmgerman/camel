@@ -166,6 +166,10 @@ name|scheme
 operator|=
 literal|"apns"
 argument_list|,
+name|title
+operator|=
+literal|"APNS"
+argument_list|,
 name|syntax
 operator|=
 literal|"apns:name"

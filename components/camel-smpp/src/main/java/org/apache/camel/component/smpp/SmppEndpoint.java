@@ -180,6 +180,10 @@ name|scheme
 operator|=
 literal|"smpp"
 argument_list|,
+name|title
+operator|=
+literal|"SMPP"
+argument_list|,
 name|syntax
 operator|=
 literal|"smpp:host:port"

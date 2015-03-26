@@ -346,6 +346,10 @@ name|scheme
 operator|=
 literal|"flatpack"
 argument_list|,
+name|title
+operator|=
+literal|"Flatpack"
+argument_list|,
 name|syntax
 operator|=
 literal|"flatpack:type:resourceUri"

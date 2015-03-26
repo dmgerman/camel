@@ -270,6 +270,10 @@ name|scheme
 operator|=
 literal|"netty"
 argument_list|,
+name|title
+operator|=
+literal|"Netty"
+argument_list|,
 name|syntax
 operator|=
 literal|"netty:protocol:host:port"

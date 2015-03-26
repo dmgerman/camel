@@ -208,6 +208,10 @@ name|scheme
 operator|=
 literal|"xmlsecurity"
 argument_list|,
+name|title
+operator|=
+literal|"XML Security"
+argument_list|,
 name|syntax
 operator|=
 literal|"xmlsecurity:command/name"

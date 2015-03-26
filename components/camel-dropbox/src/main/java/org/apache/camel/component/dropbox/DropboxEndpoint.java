@@ -340,6 +340,10 @@ name|scheme
 operator|=
 literal|"dropbox"
 argument_list|,
+name|title
+operator|=
+literal|"Dropbox"
+argument_list|,
 name|syntax
 operator|=
 literal|"dropbox:operation"

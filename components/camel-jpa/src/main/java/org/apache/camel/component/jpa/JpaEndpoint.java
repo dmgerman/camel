@@ -332,6 +332,10 @@ name|scheme
 operator|=
 literal|"jpa"
 argument_list|,
+name|title
+operator|=
+literal|"JPA"
+argument_list|,
 name|syntax
 operator|=
 literal|"jpa:entityType"

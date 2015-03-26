@@ -240,6 +240,10 @@ name|scheme
 operator|=
 literal|"ahc"
 argument_list|,
+name|title
+operator|=
+literal|"AHC"
+argument_list|,
 name|syntax
 operator|=
 literal|"ahc:httpUri"

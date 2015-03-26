@@ -226,6 +226,10 @@ name|scheme
 operator|=
 literal|"aws-swf"
 argument_list|,
+name|title
+operator|=
+literal|"AWS Simple Workflow"
+argument_list|,
 name|syntax
 operator|=
 literal|"aws-swf:type"

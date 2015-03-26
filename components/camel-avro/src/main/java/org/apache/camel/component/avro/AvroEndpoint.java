@@ -152,6 +152,10 @@ name|scheme
 operator|=
 literal|"avro"
 argument_list|,
+name|title
+operator|=
+literal|"Avro"
+argument_list|,
 name|syntax
 operator|=
 literal|"avro:transport:host:port/messageName"

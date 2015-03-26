@@ -200,6 +200,10 @@ name|scheme
 operator|=
 literal|"aws-cw"
 argument_list|,
+name|title
+operator|=
+literal|"AWS CloudWatch"
+argument_list|,
 name|syntax
 operator|=
 literal|"aws-cw:namespace"

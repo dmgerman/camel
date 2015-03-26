@@ -72,6 +72,10 @@ name|scheme
 operator|=
 literal|"class"
 argument_list|,
+name|title
+operator|=
+literal|"Class"
+argument_list|,
 name|syntax
 operator|=
 literal|"class:beanName"

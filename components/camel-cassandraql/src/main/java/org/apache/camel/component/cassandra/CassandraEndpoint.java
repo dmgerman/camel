@@ -246,6 +246,10 @@ name|scheme
 operator|=
 literal|"cql"
 argument_list|,
+name|title
+operator|=
+literal|"Cassandra CQL"
+argument_list|,
 name|syntax
 operator|=
 literal|"cql:beanRef:hosts:port/keyspace"

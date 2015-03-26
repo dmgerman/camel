@@ -170,6 +170,10 @@ name|scheme
 operator|=
 literal|"ldap"
 argument_list|,
+name|title
+operator|=
+literal|"LDAP"
+argument_list|,
 name|syntax
 operator|=
 literal|"ldap:dirContextName"

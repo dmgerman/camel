@@ -520,6 +520,10 @@ name|scheme
 operator|=
 literal|"cxfrs"
 argument_list|,
+name|title
+operator|=
+literal|"CXF-RS"
+argument_list|,
 name|syntax
 operator|=
 literal|"cxfrs:beanId:address"

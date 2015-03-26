@@ -168,6 +168,10 @@ name|scheme
 operator|=
 literal|"glogin"
 argument_list|,
+name|title
+operator|=
+literal|"Google Login"
+argument_list|,
 name|syntax
 operator|=
 literal|"glogin:hostName"

@@ -252,6 +252,10 @@ name|scheme
 operator|=
 literal|"ftps"
 argument_list|,
+name|title
+operator|=
+literal|"FTPS"
+argument_list|,
 name|syntax
 operator|=
 literal|"ftps:host:port/directoryName"

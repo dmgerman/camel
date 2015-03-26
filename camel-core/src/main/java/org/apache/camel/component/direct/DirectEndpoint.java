@@ -182,6 +182,10 @@ name|scheme
 operator|=
 literal|"direct"
 argument_list|,
+name|title
+operator|=
+literal|"Direct"
+argument_list|,
 name|syntax
 operator|=
 literal|"direct:name"

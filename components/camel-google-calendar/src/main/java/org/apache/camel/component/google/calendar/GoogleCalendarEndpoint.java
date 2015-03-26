@@ -250,6 +250,10 @@ name|scheme
 operator|=
 literal|"google-calendar"
 argument_list|,
+name|title
+operator|=
+literal|"Google Calendar"
+argument_list|,
 name|syntax
 operator|=
 literal|"google-calendar:apiName/methodName"

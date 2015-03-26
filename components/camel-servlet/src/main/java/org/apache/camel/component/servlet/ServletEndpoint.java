@@ -186,6 +186,10 @@ name|scheme
 operator|=
 literal|"servlet"
 argument_list|,
+name|title
+operator|=
+literal|"Servlet"
+argument_list|,
 name|syntax
 operator|=
 literal|"servlet:servletName"

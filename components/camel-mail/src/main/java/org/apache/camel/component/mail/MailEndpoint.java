@@ -196,6 +196,10 @@ name|scheme
 operator|=
 literal|"imap,imaps,pop3,pop3s,smtp,smtps"
 argument_list|,
+name|title
+operator|=
+literal|"IMAP,IMAPS,POP3,POP3S,SMTP,SMTPS"
+argument_list|,
 name|syntax
 operator|=
 literal|"imap:host:port"

@@ -404,6 +404,10 @@ name|scheme
 operator|=
 literal|"ghttp"
 argument_list|,
+name|title
+operator|=
+literal|"Google HTTP"
+argument_list|,
 name|syntax
 operator|=
 literal|"ghttp:httpUri"

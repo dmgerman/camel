@@ -132,6 +132,10 @@ name|scheme
 operator|=
 literal|"stax"
 argument_list|,
+name|title
+operator|=
+literal|"StAX"
+argument_list|,
 name|syntax
 operator|=
 literal|"stax:contentHandlerClass"

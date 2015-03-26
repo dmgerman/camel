@@ -188,6 +188,10 @@ name|scheme
 operator|=
 literal|"stream"
 argument_list|,
+name|title
+operator|=
+literal|"Stream"
+argument_list|,
 name|syntax
 operator|=
 literal|"stream:url"

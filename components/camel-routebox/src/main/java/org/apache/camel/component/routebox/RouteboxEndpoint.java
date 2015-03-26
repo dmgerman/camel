@@ -92,6 +92,10 @@ name|scheme
 operator|=
 literal|"routebox"
 argument_list|,
+name|title
+operator|=
+literal|"RouteBox"
+argument_list|,
 name|syntax
 operator|=
 literal|"routebox:routeboxName"

@@ -258,6 +258,10 @@ name|scheme
 operator|=
 literal|"krati"
 argument_list|,
+name|title
+operator|=
+literal|"Krati"
+argument_list|,
 name|syntax
 operator|=
 literal|"krati:path"

@@ -190,6 +190,10 @@ name|scheme
 operator|=
 literal|"jira"
 argument_list|,
+name|title
+operator|=
+literal|"JIRA"
+argument_list|,
 name|syntax
 operator|=
 literal|"jira:type"

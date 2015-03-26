@@ -138,6 +138,12 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * A human readable title of this entity, such as the component name of the this endpoint.      *<p/>      * For example: JMS, MQTT, Netty HTTP, SAP NetWeaver      */
+DECL|method|title ()
+name|String
+name|title
+parameter_list|()
+function_decl|;
 comment|/**      * To associate this endpoint with label(s).      *<p/>      * Multiple labels can be defined as a comma separated value.      *<p/>      * The labels is intended for grouping the endpoints, such as<tt>core</tt>,<tt>file</tt>,<tt>messaging</tt>,<tt>database</tt>, etc.      */
 DECL|method|label ()
 name|String

@@ -268,6 +268,10 @@ name|scheme
 operator|=
 literal|"netty4-http"
 argument_list|,
+name|title
+operator|=
+literal|"Netty4 HTTP"
+argument_list|,
 name|syntax
 operator|=
 literal|"netty4-http:host:port/path"

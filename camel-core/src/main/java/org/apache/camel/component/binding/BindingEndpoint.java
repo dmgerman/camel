@@ -256,6 +256,10 @@ name|scheme
 operator|=
 literal|"binding"
 argument_list|,
+name|title
+operator|=
+literal|"Binding"
+argument_list|,
 name|syntax
 operator|=
 literal|"binding:bindingName:delegateUri"

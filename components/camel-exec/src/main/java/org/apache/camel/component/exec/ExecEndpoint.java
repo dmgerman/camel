@@ -186,6 +186,10 @@ name|scheme
 operator|=
 literal|"exec"
 argument_list|,
+name|title
+operator|=
+literal|"Exec"
+argument_list|,
 name|syntax
 operator|=
 literal|"exec:executable"

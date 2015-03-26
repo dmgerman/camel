@@ -268,6 +268,10 @@ name|scheme
 operator|=
 literal|"aws-sns"
 argument_list|,
+name|title
+operator|=
+literal|"AWS Simple Notification System"
+argument_list|,
 name|syntax
 operator|=
 literal|"aws-sns:topicName"

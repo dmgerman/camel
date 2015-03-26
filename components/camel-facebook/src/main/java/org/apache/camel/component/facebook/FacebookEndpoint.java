@@ -416,6 +416,10 @@ name|scheme
 operator|=
 literal|"facebook"
 argument_list|,
+name|title
+operator|=
+literal|"Facebook"
+argument_list|,
 name|syntax
 operator|=
 literal|"facebook:methodName"

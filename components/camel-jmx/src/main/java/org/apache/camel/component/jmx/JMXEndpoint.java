@@ -176,6 +176,10 @@ name|scheme
 operator|=
 literal|"jmx"
 argument_list|,
+name|title
+operator|=
+literal|"JMX"
+argument_list|,
 name|syntax
 operator|=
 literal|"jmx:serverURL"

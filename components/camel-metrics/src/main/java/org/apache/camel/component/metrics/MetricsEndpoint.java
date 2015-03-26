@@ -168,6 +168,10 @@ name|scheme
 operator|=
 literal|"metrics"
 argument_list|,
+name|title
+operator|=
+literal|"Metrics"
+argument_list|,
 name|syntax
 operator|=
 literal|"metrics:metricsType:metricsName"

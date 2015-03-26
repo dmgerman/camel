@@ -110,6 +110,10 @@ name|scheme
 operator|=
 literal|"spring-redis"
 argument_list|,
+name|title
+operator|=
+literal|"Spring Redis"
+argument_list|,
 name|syntax
 operator|=
 literal|"spring-redist:host:port"
