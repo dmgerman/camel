@@ -33,7 +33,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Helper methods for working with Strings.   */
+comment|/**  * Helper methods for working with Strings.  */
 end_comment
 
 begin_class
@@ -49,7 +49,7 @@ specifier|private
 name|StringHelper
 parameter_list|()
 block|{     }
-comment|/**      * Ensures that<code>s</code> is friendly for a URL or file system.      *       * @param s String to be sanitized.      * @return sanitized version of<code>s</code>.      * @throws NullPointerException if<code>s</code> is<code>null</code>.      */
+comment|/**      * Ensures that<code>s</code> is friendly for a URL or file system.      *      * @param s String to be sanitized.      * @return sanitized version of<code>s</code>.      * @throws NullPointerException if<code>s</code> is<code>null</code>.      */
 DECL|method|sanitize (String s)
 specifier|public
 specifier|static
@@ -537,6 +537,92 @@ block|}
 block|}
 return|return
 literal|false
+return|;
+block|}
+comment|/**      * Determines if the string is a fully qualified class name      */
+DECL|method|isClassName (String text)
+specifier|public
+specifier|static
+name|boolean
+name|isClassName
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+name|boolean
+name|result
+init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
+name|text
+operator|!=
+literal|null
+condition|)
+block|{
+name|String
+index|[]
+name|split
+init|=
+name|text
+operator|.
+name|split
+argument_list|(
+literal|"\\."
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|split
+operator|.
+name|length
+operator|>
+literal|0
+condition|)
+block|{
+name|String
+name|lastToken
+init|=
+name|split
+index|[
+name|split
+operator|.
+name|length
+operator|-
+literal|1
+index|]
+decl_stmt|;
+if|if
+condition|(
+name|lastToken
+operator|.
+name|length
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|result
+operator|=
+name|Character
+operator|.
+name|isUpperCase
+argument_list|(
+name|lastToken
+operator|.
+name|charAt
+argument_list|(
+literal|0
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+return|return
+name|result
 return|;
 block|}
 comment|/**      * Does the expression have the language start token?      *      * @param expression the expression      * @param language the name of the language, such as simple      * @return<tt>true</tt> if the expression contains the start token,<tt>false</tt> otherwise      */

@@ -2369,7 +2369,7 @@ if|if
 condition|(
 name|StringHelper
 operator|.
-name|hasUpperCase
+name|isClassName
 argument_list|(
 name|pkg
 argument_list|)
