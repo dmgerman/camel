@@ -153,6 +153,10 @@ argument_list|(
 name|label
 operator|=
 literal|"dataformat,transformation,hl7"
+argument_list|,
+name|title
+operator|=
+literal|"HL7"
 argument_list|)
 annotation|@
 name|XmlRootElement

@@ -139,6 +139,10 @@ argument_list|(
 name|label
 operator|=
 literal|"dataformat,transformation"
+argument_list|,
+name|title
+operator|=
+literal|"Zip File"
 argument_list|)
 comment|// TODO: use zipfile as name in Camel 3.0
 annotation|@

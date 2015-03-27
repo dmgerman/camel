@@ -301,6 +301,10 @@ argument_list|(
 name|label
 operator|=
 literal|"language"
+argument_list|,
+name|title
+operator|=
+literal|"Bean method"
 argument_list|)
 annotation|@
 name|XmlRootElement

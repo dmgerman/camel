@@ -203,6 +203,10 @@ argument_list|(
 name|label
 operator|=
 literal|"dataformat,transformation"
+argument_list|,
+name|title
+operator|=
+literal|"Crypto (Java Cryptographic Extension)"
 argument_list|)
 annotation|@
 name|XmlRootElement

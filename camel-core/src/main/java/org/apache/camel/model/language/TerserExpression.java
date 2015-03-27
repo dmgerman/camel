@@ -85,6 +85,10 @@ argument_list|(
 name|label
 operator|=
 literal|"language,hl7"
+argument_list|,
+name|title
+operator|=
+literal|"HL7 Terser"
 argument_list|)
 annotation|@
 name|XmlRootElement
