@@ -1758,7 +1758,7 @@ literal|"title"
 argument_list|)
 condition|)
 block|{
-name|description
+name|title
 operator|=
 name|row
 operator|.
@@ -1973,7 +1973,7 @@ name|put
 argument_list|(
 literal|"title"
 argument_list|,
-name|description
+name|title
 argument_list|)
 expr_stmt|;
 block|}
