@@ -6903,11 +6903,18 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Removing: {} which was only in use by route: {}"
+literal|"Stopping and removing: {} which was only in use by route: {}"
 argument_list|,
 name|endpoint
 argument_list|,
 name|routeId
+argument_list|)
+expr_stmt|;
+name|ServiceHelper
+operator|.
+name|stopAndShutdownService
+argument_list|(
+name|endpoint
 argument_list|)
 expr_stmt|;
 name|removeEndpoint
