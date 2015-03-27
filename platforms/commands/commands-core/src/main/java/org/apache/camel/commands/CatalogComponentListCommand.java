@@ -383,7 +383,7 @@ name|format
 argument_list|(
 name|headerFormat
 argument_list|,
-literal|"----"
+literal|"-----"
 argument_list|,
 literal|"-----------"
 argument_list|)
