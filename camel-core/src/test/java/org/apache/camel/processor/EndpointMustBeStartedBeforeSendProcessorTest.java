@@ -436,6 +436,24 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should be static endpoint"
+argument_list|,
+name|context
+operator|.
+name|getEndpointRegistry
+argument_list|()
+operator|.
+name|isStatic
+argument_list|(
+name|myendpoint
+operator|.
+name|getEndpointKey
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"EndpointProducerConsumer"
