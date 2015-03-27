@@ -880,7 +880,7 @@ name|dataFormatModel
 operator|.
 name|setTitle
 argument_list|(
-name|name
+literal|""
 argument_list|)
 expr_stmt|;
 name|dataFormatModel
@@ -992,21 +992,23 @@ block|{
 name|String
 name|title
 init|=
-name|asModelTitle
-argument_list|(
 name|row
 operator|.
 name|get
 argument_list|(
 literal|"title"
 argument_list|)
-argument_list|)
 decl_stmt|;
 name|dataFormatModel
 operator|.
 name|setTitle
 argument_list|(
+name|asModelTitle
+argument_list|(
+name|name
+argument_list|,
 name|title
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -1580,7 +1582,7 @@ return|return
 name|name
 return|;
 block|}
-DECL|method|asModelTitle (String name)
+DECL|method|asModelTitle (String name, String title)
 specifier|private
 specifier|static
 name|String
@@ -1588,6 +1590,9 @@ name|asModelTitle
 parameter_list|(
 name|String
 name|name
+parameter_list|,
+name|String
+name|title
 parameter_list|)
 block|{
 comment|// special for some data formats
@@ -1681,7 +1686,7 @@ literal|"Bindy Key Value Pair"
 return|;
 block|}
 return|return
-name|name
+name|title
 return|;
 block|}
 DECL|method|findCamelCoreArtifact (MavenProject project)
