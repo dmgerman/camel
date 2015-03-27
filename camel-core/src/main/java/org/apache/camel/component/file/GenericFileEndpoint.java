@@ -609,10 +609,6 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|,
 name|label
 operator|=
 literal|"producer"
@@ -640,10 +636,6 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
 argument_list|)
 DECL|field|allowNullBody
 specifier|protected
@@ -722,10 +714,6 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
 argument_list|)
 DECL|field|startingDirectoryMustExist
 specifier|protected
@@ -738,10 +726,6 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
 argument_list|)
 DECL|field|directoryMustExist
 specifier|protected
@@ -754,10 +738,6 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
 argument_list|)
 DECL|field|noop
 specifier|protected
@@ -770,10 +750,6 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
 argument_list|)
 DECL|field|recursive
 specifier|protected
@@ -786,10 +762,6 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
 argument_list|)
 DECL|field|delete
 specifier|protected
