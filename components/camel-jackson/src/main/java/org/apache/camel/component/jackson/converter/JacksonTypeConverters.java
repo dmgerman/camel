@@ -155,6 +155,7 @@ literal|null
 return|;
 block|}
 block|}
+comment|// Just return null to let other fallback converter to do the job
 return|return
 literal|null
 return|;
