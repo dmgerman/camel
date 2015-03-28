@@ -128,6 +128,8 @@ operator|instanceof
 name|Map
 condition|)
 block|{
+try|try
+block|{
 return|return
 operator|new
 name|ObjectMapper
@@ -140,6 +142,18 @@ argument_list|,
 name|type
 argument_list|)
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|ex
+parameter_list|)
+block|{
+comment|// Just catch the exception and return null when the ObjectMapper cannot convert the value
+return|return
+literal|null
+return|;
+block|}
 block|}
 return|return
 literal|null
