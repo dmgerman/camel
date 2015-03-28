@@ -40,6 +40,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriParams
 import|;
 end_import
@@ -66,6 +80,13 @@ name|int
 name|DEFAULT_FTP_PORT
 init|=
 literal|21
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|account
+specifier|private
+name|String
+name|account
 decl_stmt|;
 DECL|method|FtpConfiguration ()
 specifier|public
@@ -104,6 +125,33 @@ name|setPort
 argument_list|(
 name|DEFAULT_FTP_PORT
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getAccount ()
+specifier|public
+name|String
+name|getAccount
+parameter_list|()
+block|{
+return|return
+name|account
+return|;
+block|}
+comment|/**      * Account to use for login      */
+DECL|method|setAccount (String account)
+specifier|public
+name|void
+name|setAccount
+parameter_list|(
+name|String
+name|account
+parameter_list|)
+block|{
+name|this
+operator|.
+name|account
+operator|=
+name|account
 expr_stmt|;
 block|}
 block|}
