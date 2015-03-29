@@ -470,6 +470,13 @@ name|getPrefix
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|maxMessagesPerPoll
+operator|>
+literal|0
+condition|)
+block|{
 name|listObjectsRequest
 operator|.
 name|setMaxKeys
@@ -477,6 +484,7 @@ argument_list|(
 name|maxMessagesPerPoll
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|marker
