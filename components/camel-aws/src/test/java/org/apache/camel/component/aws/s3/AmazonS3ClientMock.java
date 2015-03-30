@@ -1137,7 +1137,7 @@ init|=
 operator|new
 name|AmazonServiceException
 argument_list|(
-literal|"Unknow bucket"
+literal|"Unknown bucket"
 argument_list|)
 decl_stmt|;
 name|ex
