@@ -889,6 +889,34 @@ name|boolean
 name|handover
 parameter_list|)
 block|{
+return|return
+name|createCorrelatedCopy
+argument_list|(
+name|exchange
+argument_list|,
+name|handover
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a new instance and copies from the current message exchange so that it can be      * forwarded to another destination as a new instance. Unlike regular copy this operation      * will not share the same {@link org.apache.camel.spi.UnitOfWork} so its should be used      * for async messaging, where the original and copied exchange are independent.      *      * @param exchange original copy of the exchange      * @param handover whether the on completion callbacks should be handed over to the new copy.      * @param useSameMessageId whether to use same message id on the copy message.      */
+DECL|method|createCorrelatedCopy (Exchange exchange, boolean handover, boolean useSameMessageId)
+specifier|public
+specifier|static
+name|Exchange
+name|createCorrelatedCopy
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|boolean
+name|handover
+parameter_list|,
+name|boolean
+name|useSameMessageId
+parameter_list|)
+block|{
 name|String
 name|id
 init|=
@@ -905,6 +933,43 @@ operator|.
 name|copy
 argument_list|()
 decl_stmt|;
+comment|// do not reuse message id on copy
+if|if
+condition|(
+operator|!
+name|useSameMessageId
+condition|)
+block|{
+if|if
+condition|(
+name|copy
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
+name|copy
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setMessageId
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+name|copy
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setMessageId
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 comment|// do not share the unit of work
 name|copy
 operator|.
@@ -913,6 +978,7 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
+comment|// do not reuse the message id
 comment|// hand over on completion to the copy if we got any
 name|UnitOfWork
 name|uow

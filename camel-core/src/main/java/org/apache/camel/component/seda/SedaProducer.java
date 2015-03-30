@@ -832,7 +832,7 @@ name|boolean
 name|handover
 parameter_list|)
 block|{
-comment|// use a new copy of the exchange to route async
+comment|// use a new copy of the exchange to route async (and use same message id)
 name|Exchange
 name|copy
 init|=
@@ -843,6 +843,8 @@ argument_list|(
 name|exchange
 argument_list|,
 name|handover
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// set a new from endpoint to be the seda queue
