@@ -283,7 +283,7 @@ DECL|method|DefaultJettyHttpBinding ()
 specifier|public
 name|DefaultJettyHttpBinding
 parameter_list|()
-block|{              }
+block|{     }
 DECL|method|populateResponse (Exchange exchange, JettyContentExchange httpExchange)
 specifier|public
 name|void

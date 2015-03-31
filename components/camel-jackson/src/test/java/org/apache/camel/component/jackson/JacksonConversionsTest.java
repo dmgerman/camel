@@ -60,22 +60,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|test
 operator|.
 name|junit4
@@ -102,11 +86,6 @@ name|JacksonConversionsTest
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|field|results
-specifier|protected
-name|MockEndpoint
-name|results
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|shouldConvertMapToPojo ()
