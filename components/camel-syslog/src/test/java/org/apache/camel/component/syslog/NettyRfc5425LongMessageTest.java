@@ -176,7 +176,7 @@ name|netty
 operator|.
 name|buffer
 operator|.
-name|BigEndianHeapChannelBuffer
+name|ChannelBuffer
 import|;
 end_import
 
@@ -371,17 +371,13 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-name|uri
+literal|"direct:start"
 argument_list|,
-operator|new
-name|BigEndianHeapChannelBuffer
-argument_list|(
 name|MESSAGE
 operator|.
 name|getBytes
 argument_list|(
 literal|"UTF8"
-argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -503,6 +499,24 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:syslogReceiver2"
+argument_list|)
+expr_stmt|;
+comment|// Here we need to turn the request body into channelbuffer
+name|from
+argument_list|(
+literal|"direct:start"
+argument_list|)
+operator|.
+name|convertBodyTo
+argument_list|(
+name|ChannelBuffer
+operator|.
+name|class
+argument_list|)
+operator|.
+name|to
+argument_list|(
+name|uri
 argument_list|)
 expr_stmt|;
 block|}
