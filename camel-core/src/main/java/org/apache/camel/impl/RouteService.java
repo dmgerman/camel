@@ -644,17 +644,6 @@ range|:
 name|routes
 control|)
 block|{
-comment|// the input endpoint itself
-name|answer
-operator|.
-name|add
-argument_list|(
-name|route
-operator|.
-name|getEndpoint
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|Set
 argument_list|<
 name|Service
@@ -1378,6 +1367,18 @@ operator|.
 name|stopAndShutdownServices
 argument_list|(
 name|route
+argument_list|)
+expr_stmt|;
+comment|// endpoints should only be stopped when Camel is shutting down
+comment|// see more details in the warmUp method
+name|ServiceHelper
+operator|.
+name|stopAndShutdownServices
+argument_list|(
+name|route
+operator|.
+name|getEndpoint
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// invoke callbacks on route policy
