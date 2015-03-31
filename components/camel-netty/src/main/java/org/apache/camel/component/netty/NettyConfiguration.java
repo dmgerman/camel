@@ -643,6 +643,18 @@ specifier|private
 name|boolean
 name|clientMode
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|useChannelBuffer
+specifier|private
+name|boolean
+name|useChannelBuffer
+decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
 specifier|public
@@ -2358,6 +2370,32 @@ operator|.
 name|clientMode
 operator|=
 name|clientMode
+expr_stmt|;
+block|}
+DECL|method|isUseChannelBuffer ()
+specifier|public
+name|boolean
+name|isUseChannelBuffer
+parameter_list|()
+block|{
+return|return
+name|useChannelBuffer
+return|;
+block|}
+DECL|method|setUseChannelBuffer (boolean useChannelBuffer)
+specifier|public
+name|void
+name|setUseChannelBuffer
+parameter_list|(
+name|boolean
+name|useChannelBuffer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useChannelBuffer
+operator|=
+name|useChannelBuffer
 expr_stmt|;
 block|}
 DECL|method|addToHandlersList (List<T> configured, List<T> handlers, Class<T> handlerType)

@@ -44,6 +44,20 @@ name|DefaultExchangeHolder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|jboss
+operator|.
+name|netty
+operator|.
+name|buffer
+operator|.
+name|ChannelBuffer
+import|;
+end_import
+
 begin_comment
 comment|/**  * Helper to get and set the correct payload when transferring data using camel-netty.  * Always use this helper instead of direct access on the exchange object.  *<p/>  * This helper ensures that we can also transfer exchange objects over the wire using the  *<tt>transferExchange=true</tt> option.  *  * @version   */
 end_comment
@@ -98,6 +112,34 @@ return|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isUseChannelBuffer
+argument_list|()
+condition|)
+block|{
+comment|// The NettyConverter could help us for it
+return|return
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|ChannelBuffer
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 comment|// normal transfer using the body only
 return|return
 name|exchange
@@ -108,6 +150,7 @@ operator|.
 name|getBody
 argument_list|()
 return|;
+block|}
 block|}
 block|}
 DECL|method|getOut (NettyEndpoint endpoint, Exchange exchange)
