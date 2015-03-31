@@ -637,6 +637,18 @@ specifier|private
 name|boolean
 name|clientMode
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|useByteBuf
+specifier|private
+name|boolean
+name|useByteBuf
+decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
 specifier|public
@@ -2472,6 +2484,32 @@ operator|.
 name|clientMode
 operator|=
 name|clientMode
+expr_stmt|;
+block|}
+DECL|method|isUseByteBuf ()
+specifier|public
+name|boolean
+name|isUseByteBuf
+parameter_list|()
+block|{
+return|return
+name|useByteBuf
+return|;
+block|}
+DECL|method|setUseByteBuf (boolean useByteBuf)
+specifier|public
+name|void
+name|setUseByteBuf
+parameter_list|(
+name|boolean
+name|useByteBuf
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useByteBuf
+operator|=
+name|useByteBuf
 expr_stmt|;
 block|}
 DECL|method|addToHandlersList (List<T> configured, List<T> handlers, Class<T> handlerType)

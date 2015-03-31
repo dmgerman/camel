@@ -34,6 +34,18 @@ name|io
 operator|.
 name|netty
 operator|.
+name|buffer
+operator|.
+name|ByteBuf
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|netty
+operator|.
 name|channel
 operator|.
 name|AddressedEnvelope
@@ -120,6 +132,34 @@ return|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isUseByteBuf
+argument_list|()
+condition|)
+block|{
+comment|// Just leverage the type converter
+return|return
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|ByteBuf
+operator|.
+name|class
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 comment|// normal transfer using the body only
 return|return
 name|exchange
@@ -130,6 +170,7 @@ operator|.
 name|getBody
 argument_list|()
 return|;
+block|}
 block|}
 block|}
 DECL|method|getOut (NettyEndpoint endpoint, Exchange exchange)
