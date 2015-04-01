@@ -1104,14 +1104,6 @@ name|lastFailure
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|/*          * If the circuit opens, we have to prevent the execution of any          * processor. The failures count can be set to 0.          */
-name|failures
-operator|.
-name|set
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
 name|callback
 operator|.
 name|done
