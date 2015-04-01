@@ -404,7 +404,7 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"Boolean.FALSE"
+literal|"false"
 argument_list|)
 DECL|field|plainText
 specifier|private

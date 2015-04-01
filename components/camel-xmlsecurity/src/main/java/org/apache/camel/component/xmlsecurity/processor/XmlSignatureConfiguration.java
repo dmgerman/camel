@@ -199,7 +199,7 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"Boolean.TRUE"
+literal|"true"
 argument_list|)
 DECL|field|disallowDoctypeDecl
 specifier|private
@@ -215,7 +215,7 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"Boolean.FALSE"
+literal|"false"
 argument_list|)
 DECL|field|omitXmlDeclaration
 specifier|private
