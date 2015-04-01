@@ -477,10 +477,10 @@ name|RejectedExecutionException
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testHalfOpenAfterMessageThreeSync ()
+DECL|method|testHalfOpenAfterTimeoutSync ()
 specifier|public
 name|void
-name|testHalfOpenAfterMessageThreeSync
+name|testHalfOpenAfterTimeoutSync
 parameter_list|()
 throws|throws
 name|Exception
@@ -490,16 +490,16 @@ name|endpoint
 init|=
 literal|"direct:start"
 decl_stmt|;
-name|halfOpenAfterMessageThree
+name|halfOpenAfterTimeout
 argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testHalfOpenAfterMessageThreeAsync ()
+DECL|method|testHalfOpenAfterTimeoutAsync ()
 specifier|public
 name|void
-name|testHalfOpenAfterMessageThreeAsync
+name|testHalfOpenAfterTimeoutAsync
 parameter_list|()
 throws|throws
 name|Exception
@@ -509,16 +509,16 @@ name|endpoint
 init|=
 literal|"direct:start-async"
 decl_stmt|;
-name|halfOpenAfterMessageThree
+name|halfOpenAfterTimeout
 argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|halfOpenAfterMessageThree (String endpoint)
+DECL|method|halfOpenAfterTimeout (String endpoint)
 specifier|private
 name|void
-name|halfOpenAfterMessageThree
+name|halfOpenAfterTimeout
 parameter_list|(
 name|String
 name|endpoint
@@ -598,6 +598,16 @@ argument_list|,
 literal|"message three"
 argument_list|)
 decl_stmt|;
+name|Exchange
+name|exchangeFour
+init|=
+name|sendMessage
+argument_list|(
+name|endpoint
+argument_list|,
+literal|"message four"
+argument_list|)
+decl_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -654,16 +664,6 @@ name|result
 argument_list|)
 expr_stmt|;
 name|Exchange
-name|exchangeFour
-init|=
-name|sendMessage
-argument_list|(
-name|endpoint
-argument_list|,
-literal|"message four"
-argument_list|)
-decl_stmt|;
-name|Exchange
 name|exchangeFive
 init|=
 name|sendMessage
@@ -671,6 +671,16 @@ argument_list|(
 name|endpoint
 argument_list|,
 literal|"message five"
+argument_list|)
+decl_stmt|;
+name|Exchange
+name|exchangeSix
+init|=
+name|sendMessage
+argument_list|(
+name|endpoint
+argument_list|,
+literal|"message six"
 argument_list|)
 decl_stmt|;
 name|assertMockEndpointsSatisfied
@@ -713,12 +723,22 @@ operator|.
 name|getException
 argument_list|()
 operator|instanceof
-name|MyCustomException
+name|RejectedExecutionException
 argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
 name|exchangeFive
+operator|.
+name|getException
+argument_list|()
+operator|instanceof
+name|MyCustomException
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|exchangeSix
 operator|.
 name|getException
 argument_list|()
