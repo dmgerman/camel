@@ -226,6 +226,20 @@ name|timeout
 init|=
 literal|30000L
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|failIfNoConsumers
+specifier|private
+name|boolean
+name|failIfNoConsumers
+init|=
+literal|true
+decl_stmt|;
 DECL|method|DirectVmEndpoint (String endpointUri, DirectVmComponent component)
 specifier|public
 name|DirectVmEndpoint
@@ -416,6 +430,33 @@ operator|.
 name|timeout
 operator|=
 name|timeout
+expr_stmt|;
+block|}
+DECL|method|isFailIfNoConsumers ()
+specifier|public
+name|boolean
+name|isFailIfNoConsumers
+parameter_list|()
+block|{
+return|return
+name|failIfNoConsumers
+return|;
+block|}
+comment|/**      * Whether the producer should fail by throwing an exception, when sending to a DIRECT-VM endpoint with no active consumers.      */
+DECL|method|setFailIfNoConsumers (boolean failIfNoConsumers)
+specifier|public
+name|void
+name|setFailIfNoConsumers
+parameter_list|(
+name|boolean
+name|failIfNoConsumers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|failIfNoConsumers
+operator|=
+name|failIfNoConsumers
 expr_stmt|;
 block|}
 block|}
