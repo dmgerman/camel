@@ -254,11 +254,6 @@ name|refreshListener
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|revokeOnShutdown
 specifier|private
 name|boolean

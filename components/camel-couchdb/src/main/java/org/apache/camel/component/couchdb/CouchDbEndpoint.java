@@ -339,11 +339,6 @@ name|DEFAULT_HEARTBEAT
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|createDatabase
 specifier|private
 name|boolean

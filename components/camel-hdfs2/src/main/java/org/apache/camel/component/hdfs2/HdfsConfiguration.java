@@ -229,11 +229,6 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|append
 specifier|private
 name|boolean
@@ -241,11 +236,6 @@ name|append
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|wantAppend
 specifier|private
 name|boolean

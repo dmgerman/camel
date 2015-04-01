@@ -191,8 +191,6 @@ argument_list|<
 name|String
 argument_list|,
 name|?
-extends|extends
-name|Object
 argument_list|>
 name|cryptoContextProperties
 decl_stmt|;
@@ -201,7 +199,7 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"true"
+literal|"Boolean.TRUE"
 argument_list|)
 DECL|field|disallowDoctypeDecl
 specifier|private
@@ -217,7 +215,7 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"false"
+literal|"Boolean.FALSE"
 argument_list|)
 DECL|field|omitXmlDeclaration
 specifier|private

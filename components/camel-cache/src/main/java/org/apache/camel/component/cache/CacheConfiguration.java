@@ -194,11 +194,6 @@ name|diskStorePath
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|eternal
 specifier|private
 name|boolean
@@ -234,11 +229,6 @@ literal|300
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|diskPersistent
 specifier|private
 name|boolean
@@ -246,11 +236,6 @@ name|diskPersistent
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|diskExpiryThreadIntervalSeconds
 specifier|private
 name|long

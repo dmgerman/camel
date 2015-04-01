@@ -142,11 +142,6 @@ name|amazonDdbEndpoint
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|consistentRead
 specifier|private
 name|Boolean

@@ -582,11 +582,6 @@ literal|5000
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|asyncStartListener
 specifier|private
 name|boolean
@@ -594,11 +589,6 @@ name|asyncStartListener
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|asyncStopListener
 specifier|private
 name|boolean

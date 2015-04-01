@@ -234,11 +234,6 @@ name|spaceName
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|transactional
 specifier|private
 name|boolean

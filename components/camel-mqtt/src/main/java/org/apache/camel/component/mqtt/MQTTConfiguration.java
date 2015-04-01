@@ -489,11 +489,6 @@ literal|5
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|byDefaultRetain
 specifier|private
 name|boolean

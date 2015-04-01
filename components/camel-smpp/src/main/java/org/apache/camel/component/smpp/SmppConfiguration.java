@@ -538,11 +538,6 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|usingSSL
 specifier|private
 name|boolean
@@ -578,11 +573,6 @@ literal|5000
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|lazySessionCreation
 specifier|private
 name|boolean

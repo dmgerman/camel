@@ -401,11 +401,6 @@ name|readCount
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|readContent
 specifier|private
 name|boolean

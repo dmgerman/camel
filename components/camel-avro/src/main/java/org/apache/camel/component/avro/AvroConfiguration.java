@@ -239,11 +239,6 @@ name|uriAuthority
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|reflectionProtocol
 specifier|private
 name|boolean
@@ -251,11 +246,6 @@ name|reflectionProtocol
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|singleParameter
 specifier|private
 name|boolean

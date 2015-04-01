@@ -244,7 +244,7 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"false"
+literal|"Boolean.FALSE"
 argument_list|)
 DECL|field|extendMessageVisibility
 specifier|private

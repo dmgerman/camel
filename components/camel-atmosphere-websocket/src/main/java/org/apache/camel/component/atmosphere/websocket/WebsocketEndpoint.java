@@ -231,11 +231,6 @@ name|servicePath
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|sendToAll
 specifier|private
 name|boolean
@@ -243,11 +238,6 @@ name|sendToAll
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|useStreaming
 specifier|private
 name|boolean

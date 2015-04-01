@@ -394,11 +394,6 @@ name|concurrentConsumers
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|multipleConsumers
 specifier|private
 specifier|final
@@ -437,11 +432,6 @@ literal|30000
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|blockWhenFull
 specifier|private
 name|boolean

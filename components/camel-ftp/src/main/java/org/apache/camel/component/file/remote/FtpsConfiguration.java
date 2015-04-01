@@ -88,11 +88,6 @@ literal|"TLS"
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|isImplicit
 specifier|private
 name|boolean
@@ -100,11 +95,6 @@ name|isImplicit
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|disableSecureDataChannelDefaults
 specifier|private
 name|boolean

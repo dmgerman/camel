@@ -330,11 +330,6 @@ name|configuration
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|traceEnabled
 specifier|private
 name|boolean

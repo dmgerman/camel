@@ -214,11 +214,6 @@ name|readSize
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|transacted
 specifier|private
 name|boolean
@@ -289,11 +284,6 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|useHeadersAsParameters
 specifier|private
 name|boolean

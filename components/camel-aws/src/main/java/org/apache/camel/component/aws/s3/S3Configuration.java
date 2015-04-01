@@ -172,11 +172,6 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|deleteAfterWrite
 specifier|private
 name|boolean
@@ -184,11 +179,6 @@ name|deleteAfterWrite
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|multiPartUpload
 specifier|private
 name|boolean

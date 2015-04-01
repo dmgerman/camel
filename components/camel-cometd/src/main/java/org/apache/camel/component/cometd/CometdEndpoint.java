@@ -343,11 +343,6 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|sessionHeadersEnabled
 specifier|private
 name|boolean
@@ -369,11 +364,6 @@ literal|1
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|crossOriginFilterOn
 specifier|private
 name|boolean

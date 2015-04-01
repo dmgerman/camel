@@ -262,7 +262,7 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"false"
+literal|"Boolean.FALSE"
 argument_list|)
 DECL|field|removeSignatureElements
 specifier|private
@@ -278,7 +278,7 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"false"
+literal|"Boolean.TRUE"
 argument_list|)
 DECL|field|secureValidation
 specifier|private

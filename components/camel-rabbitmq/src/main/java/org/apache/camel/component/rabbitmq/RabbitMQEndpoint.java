@@ -553,11 +553,6 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|bridgeEndpoint
 specifier|private
 name|boolean
@@ -881,11 +876,6 @@ literal|1000
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|mandatory
 specifier|private
 name|boolean
@@ -893,11 +883,6 @@ name|mandatory
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|immediate
 specifier|private
 name|boolean

@@ -341,11 +341,6 @@ name|maxTotalConnections
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|followRedirects
 specifier|private
 name|Boolean
@@ -353,11 +348,6 @@ name|followRedirects
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|allowCompression
 specifier|private
 name|Boolean

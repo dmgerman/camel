@@ -220,11 +220,6 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|repeat
 specifier|private
 name|boolean
@@ -232,11 +227,6 @@ name|repeat
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|listChildren
 specifier|private
 name|boolean
@@ -244,11 +234,6 @@ name|listChildren
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|shouldCreate
 specifier|private
 name|boolean
@@ -256,11 +241,6 @@ name|shouldCreate
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|createMode
 specifier|private
 name|String

@@ -595,11 +595,6 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|acceptMessagesWhileStopping
 specifier|private
 name|boolean
@@ -640,11 +635,6 @@ name|taskExecutor
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|pubSubNoLocal
 specifier|private
 name|boolean
@@ -809,11 +799,6 @@ decl_stmt|;
 comment|// JmsTemplate only
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|explicitQosEnabled
 specifier|private
 name|Boolean
@@ -934,11 +919,6 @@ decl_stmt|;
 comment|// Transaction related configuration
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|transacted
 specifier|private
 name|boolean
@@ -992,11 +972,6 @@ literal|1
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|preserveMessageQos
 specifier|private
 name|boolean
@@ -1004,11 +979,6 @@ name|preserveMessageQos
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|disableReplyTo
 specifier|private
 name|boolean
@@ -1016,11 +986,6 @@ name|disableReplyTo
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|eagerLoadingOfProperties
 specifier|private
 name|boolean
@@ -1029,11 +994,6 @@ decl_stmt|;
 comment|// Always make a JMS message copy when it's passed to Producer
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|alwaysCopyMessage
 specifier|private
 name|boolean
@@ -1041,11 +1001,6 @@ name|alwaysCopyMessage
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|useMessageIDAsCorrelationID
 specifier|private
 name|boolean
@@ -1102,11 +1057,6 @@ name|jmsKeyFormatStrategy
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|transferExchange
 specifier|private
 name|boolean
@@ -1114,11 +1064,6 @@ name|transferExchange
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|transferException
 specifier|private
 name|boolean
@@ -1126,11 +1071,6 @@ name|transferException
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|testConnectionOnStartup
 specifier|private
 name|boolean
@@ -1138,11 +1078,6 @@ name|testConnectionOnStartup
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|asyncStartListener
 specifier|private
 name|boolean
@@ -1150,11 +1085,6 @@ name|asyncStartListener
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|asyncStopListener
 specifier|private
 name|boolean
@@ -1164,11 +1094,6 @@ comment|// if the message is a JmsMessage and mapJmsMessage=false, force the
 comment|// producer to send the javax.jms.Message body to the next JMS destination
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|forceSendOriginalMessage
 specifier|private
 name|boolean
@@ -1177,11 +1102,6 @@ decl_stmt|;
 comment|// to force disabling time to live (works in both in-only or in-out mode)
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|disableTimeToLive
 specifier|private
 name|boolean
@@ -1189,11 +1109,6 @@ name|disableTimeToLive
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|replyToType
 specifier|private
 name|ReplyToType
@@ -1201,11 +1116,6 @@ name|replyToType
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|asyncConsumer
 specifier|private
 name|boolean
@@ -1240,11 +1150,6 @@ name|messageListenerContainerFactory
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|includeSentJMSMessageID
 specifier|private
 name|boolean
@@ -1257,11 +1162,6 @@ name|defaultTaskExecutorType
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|includeAllJMSXProperties
 specifier|private
 name|boolean
