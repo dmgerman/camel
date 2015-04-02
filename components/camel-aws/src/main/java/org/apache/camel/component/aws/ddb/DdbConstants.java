@@ -78,18 +78,10 @@ name|CREATION_DATE
 init|=
 literal|"CamelAwsDdbCreationDate"
 decl_stmt|;
-DECL|field|EXACT_COUNT
-name|String
-name|EXACT_COUNT
-init|=
-literal|"CamelAwsDdbExactCount"
-decl_stmt|;
-DECL|field|HASH_KEY_VALUE
-name|String
-name|HASH_KEY_VALUE
-init|=
-literal|"CamelAwsDdbHashKeyValue"
-decl_stmt|;
+comment|// Removed from DynamoDB v1 to v2
+comment|// String EXACT_COUNT = "CamelAwsDdbExactCount";
+comment|// Removed from DynamoDB v1 to v2
+comment|// String HASH_KEY_VALUE = "CamelAwsDdbHashKeyValue";
 DECL|field|ITEM
 name|String
 name|ITEM
@@ -131,6 +123,13 @@ name|String
 name|KEY
 init|=
 literal|"CamelAwsDdbKey"
+decl_stmt|;
+comment|// Added from DynamoDB v1 to v2
+DECL|field|KEY_CONDITIONS
+name|String
+name|KEY_CONDITIONS
+init|=
+literal|"CamelAwsDdbKeyConditions"
 decl_stmt|;
 DECL|field|KEY_SCHEMA
 name|String
@@ -186,12 +185,8 @@ name|SCAN_INDEX_FORWARD
 init|=
 literal|"CamelAwsDdbScanIndexForward"
 decl_stmt|;
-DECL|field|SCAN_RANGE_KEY_CONDITION
-name|String
-name|SCAN_RANGE_KEY_CONDITION
-init|=
-literal|"CamelAwsDdbScanRangeKeyCondition"
-decl_stmt|;
+comment|// Removed from DynamoDB v1 to v2
+comment|// String SCAN_RANGE_KEY_CONDITION = "CamelAwsDdbScanRangeKeyCondition";
 DECL|field|SCAN_FILTER
 name|String
 name|SCAN_FILTER
