@@ -54,6 +54,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|dynamodbv2
+operator|.
+name|model
+operator|.
+name|AttributeValue
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -183,22 +199,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|amazonaws
-operator|.
-name|services
-operator|.
-name|dynamodbv2
-operator|.
-name|model
-operator|.
-name|AttributeValue
 import|;
 end_import
 
