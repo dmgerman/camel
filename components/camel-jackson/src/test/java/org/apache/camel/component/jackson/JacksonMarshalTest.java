@@ -326,7 +326,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"direct:pretty"
+literal|"direct:inPretty"
 argument_list|,
 name|in
 argument_list|)
@@ -584,7 +584,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"direct:pretty"
+literal|"direct:inPretty"
 argument_list|)
 operator|.
 name|marshal

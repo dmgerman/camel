@@ -139,8 +139,14 @@ name|xStreamDataFormat
 operator|.
 name|createXStream
 argument_list|(
-operator|new
-name|DefaultClassResolver
+name|context
+operator|.
+name|getClassResolver
+argument_list|()
+argument_list|,
+name|context
+operator|.
+name|getApplicationContextClassLoader
 argument_list|()
 argument_list|)
 decl_stmt|;

@@ -229,6 +229,7 @@ extends|extends
 name|AbstractXStreamWrapper
 block|{
 DECL|field|encoding
+specifier|private
 name|String
 name|encoding
 decl_stmt|;

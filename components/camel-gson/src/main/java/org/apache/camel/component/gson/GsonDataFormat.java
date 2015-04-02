@@ -303,13 +303,13 @@ name|fieldNamingStrategy
 decl_stmt|;
 DECL|field|serializeNulls
 specifier|private
-name|Boolean
+name|boolean
 name|serializeNulls
 decl_stmt|;
-DECL|field|prettyPrinting
+DECL|field|prettyPrint
 specifier|private
-name|Boolean
-name|prettyPrinting
+name|boolean
+name|prettyPrint
 decl_stmt|;
 DECL|field|dateFormatPattern
 specifier|private
@@ -711,10 +711,6 @@ block|}
 if|if
 condition|(
 name|serializeNulls
-operator|!=
-literal|null
-operator|&&
-name|serializeNulls
 condition|)
 block|{
 name|builder
@@ -725,11 +721,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|prettyPrinting
-operator|!=
-literal|null
-operator|&&
-name|prettyPrinting
+name|prettyPrint
 condition|)
 block|{
 name|builder
@@ -948,6 +940,9 @@ operator|=
 name|fieldNamingStrategy
 expr_stmt|;
 block|}
+comment|/**      * @deprecated use {@link #isSerializeNulls()} instead      */
+annotation|@
+name|Deprecated
 DECL|method|getSerializeNulls ()
 specifier|public
 name|Boolean
@@ -958,6 +953,19 @@ return|return
 name|serializeNulls
 return|;
 block|}
+DECL|method|isSerializeNulls ()
+specifier|public
+name|boolean
+name|isSerializeNulls
+parameter_list|()
+block|{
+return|return
+name|serializeNulls
+return|;
+block|}
+comment|/**      * @deprecated use {@link #setSerializeNulls(boolean)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|setSerializeNulls (Boolean serializeNulls)
 specifier|public
 name|void
@@ -974,6 +982,25 @@ operator|=
 name|serializeNulls
 expr_stmt|;
 block|}
+DECL|method|setSerializeNulls (boolean serializeNulls)
+specifier|public
+name|void
+name|setSerializeNulls
+parameter_list|(
+name|boolean
+name|serializeNulls
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serializeNulls
+operator|=
+name|serializeNulls
+expr_stmt|;
+block|}
+comment|/**      * @deprecated use {@link #isPrettyPrint()} instead      */
+annotation|@
+name|Deprecated
 DECL|method|getPrettyPrinting ()
 specifier|public
 name|Boolean
@@ -981,9 +1008,22 @@ name|getPrettyPrinting
 parameter_list|()
 block|{
 return|return
-name|prettyPrinting
+name|prettyPrint
 return|;
 block|}
+DECL|method|isPrettyPrint ()
+specifier|public
+name|boolean
+name|isPrettyPrint
+parameter_list|()
+block|{
+return|return
+name|prettyPrint
+return|;
+block|}
+comment|/**      * @deprecated use {@link #setPrettyPrint(boolean)} instead      */
+annotation|@
+name|Deprecated
 DECL|method|setPrettyPrinting (Boolean prettyPrinting)
 specifier|public
 name|void
@@ -995,9 +1035,25 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|prettyPrinting
+name|prettyPrint
 operator|=
 name|prettyPrinting
+expr_stmt|;
+block|}
+DECL|method|setPrettyPrint (boolean prettyPrint)
+specifier|public
+name|void
+name|setPrettyPrint
+parameter_list|(
+name|boolean
+name|prettyPrint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|prettyPrint
+operator|=
+name|prettyPrint
 expr_stmt|;
 block|}
 DECL|method|getDateFormatPattern ()
