@@ -1012,19 +1012,6 @@ expr_stmt|;
 name|cancelDelayedRun
 argument_list|()
 expr_stmt|;
-name|doDeactivate
-argument_list|()
-expr_stmt|;
-name|stopCamelContext
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|doDeactivate ()
-specifier|protected
-name|void
-name|doDeactivate
-parameter_list|()
-block|{
 name|stop
 argument_list|()
 expr_stmt|;
