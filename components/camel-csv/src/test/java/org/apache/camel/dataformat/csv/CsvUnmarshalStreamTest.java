@@ -224,10 +224,7 @@ literal|"|\""
 operator|+
 name|i
 operator|+
-name|System
-operator|.
-name|lineSeparator
-argument_list|()
+name|LS
 operator|+
 name|i
 operator|+
@@ -324,10 +321,7 @@ literal|"%d%s%d"
 argument_list|,
 name|i
 argument_list|,
-name|System
-operator|.
-name|lineSeparator
-argument_list|()
+name|LS
 argument_list|,
 name|i
 argument_list|)
@@ -467,10 +461,7 @@ literal|"%d%s%d"
 argument_list|,
 name|i
 argument_list|,
-name|System
-operator|.
-name|lineSeparator
-argument_list|()
+name|LS
 argument_list|,
 name|i
 argument_list|)

@@ -105,10 +105,7 @@ name|format
 argument_list|(
 literal|"Hi Claus how are you? Its a nice day.%sGive my regards to the family Ibsen."
 argument_list|,
-name|System
-operator|.
-name|lineSeparator
-argument_list|()
+name|LS
 argument_list|)
 decl_stmt|;
 name|MockEndpoint

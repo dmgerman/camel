@@ -375,15 +375,9 @@ name|format
 argument_list|(
 literal|"{%s  \"name\" : \"Camel\"%s}"
 argument_list|,
-name|System
-operator|.
-name|lineSeparator
-argument_list|()
+name|LS
 argument_list|,
-name|System
-operator|.
-name|lineSeparator
-argument_list|()
+name|LS
 argument_list|)
 decl_stmt|;
 name|assertEquals
