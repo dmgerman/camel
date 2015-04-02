@@ -418,6 +418,48 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * Convenience method for creating CamelOperator instances      */
+DECL|method|to (String uri)
+specifier|public
+name|CamelOperator
+name|to
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|CamelOperator
+argument_list|(
+name|camelContext
+argument_list|,
+name|uri
+argument_list|)
+return|;
+block|}
+comment|/**      * Convenience method for creating CamelOperator instances      */
+DECL|method|to (Endpoint endpoint)
+specifier|public
+name|CamelOperator
+name|to
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|CamelOperator
+argument_list|(
+name|endpoint
+argument_list|)
+return|;
+block|}
 DECL|method|getCamelContext ()
 specifier|public
 name|CamelContext

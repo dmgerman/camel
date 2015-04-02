@@ -94,6 +94,24 @@ name|Observable
 import|;
 end_import
 
+begin_import
+import|import
+name|rx
+operator|.
+name|Subscription
+import|;
+end_import
+
+begin_import
+import|import
+name|rx
+operator|.
+name|observables
+operator|.
+name|ConnectableObservable
+import|;
+end_import
+
 begin_comment
 comment|/**  */
 end_comment
@@ -198,11 +216,11 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-name|Observable
+name|ConnectableObservable
 argument_list|<
 name|Message
 argument_list|>
-name|result
+name|route
 init|=
 name|reactiveCamel
 operator|.
@@ -216,9 +234,7 @@ argument_list|(
 operator|new
 name|CamelOperator
 argument_list|(
-name|camelContext
-argument_list|,
-literal|"mock:results1"
+name|mockEndpoint1
 argument_list|)
 argument_list|)
 operator|.
@@ -244,22 +260,36 @@ argument_list|)
 operator|.
 name|lift
 argument_list|(
-operator|new
-name|CamelOperator
+name|reactiveCamel
+operator|.
+name|to
 argument_list|(
 name|mockEndpoint2
 argument_list|)
 argument_list|)
-decl_stmt|;
+operator|.
+name|lift
+argument_list|(
 name|reactiveCamel
 operator|.
-name|sendTo
+name|to
 argument_list|(
-name|result
-argument_list|,
 literal|"mock:results3"
 argument_list|)
-expr_stmt|;
+argument_list|)
+operator|.
+name|publish
+argument_list|()
+decl_stmt|;
+comment|// Start the route
+name|Subscription
+name|routeSubscription
+init|=
+name|route
+operator|.
+name|connect
+argument_list|()
+decl_stmt|;
 comment|// Send two test messages
 name|producerTemplate
 operator|.
@@ -292,6 +322,12 @@ expr_stmt|;
 name|mockEndpoint3
 operator|.
 name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
+comment|// Stop the route
+name|routeSubscription
+operator|.
+name|unsubscribe
 argument_list|()
 expr_stmt|;
 block|}
