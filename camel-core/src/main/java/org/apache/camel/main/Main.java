@@ -300,7 +300,7 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Gets or creates the {@link org.apache.camel.CamelContext} this main class is using.      */
+comment|/**      *       * Gets or creates the {@link org.apache.camel.CamelContext} this main class is using.      *       * It just create a new CamelContextMap per call, please don't use it to access the camel context that will be ran by main.      * If you want to setup the CamelContext please use MainListener to get the new created camel context.      */
 DECL|method|getOrCreateCamelContext ()
 specifier|public
 name|CamelContext
