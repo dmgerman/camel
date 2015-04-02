@@ -1631,7 +1631,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the JSON data format using the XStream json library with pretty-print option on or off      *       * @param prettyPrint turn the pretty-print option on or off      */
+comment|/**      * Uses the JSON data format using the XStream json library turning pretty printing on or off      *       * @param prettyPrint turn pretty printing on or off      */
 DECL|method|json (boolean prettyPrint)
 specifier|public
 name|T
@@ -1683,7 +1683,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the JSON data format      *      * @param library     the json library to use      * @param prettyPrint turn the pretty-print option on or off      */
+comment|/**      * Uses the JSON data format      *      * @param library     the json library to use      * @param prettyPrint turn pretty printing on or off      */
 DECL|method|json (JsonLibrary library, boolean prettyPrint)
 specifier|public
 name|T
@@ -1758,7 +1758,7 @@ name|json
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the JSON data format      *      * @param type          the json type to use      * @param unmarshalType unmarshal type for json jackson type      * @param prettyPrint   turn the pretty-print option on or off      */
+comment|/**      * Uses the JSON data format      *      * @param type          the json type to use      * @param unmarshalType unmarshal type for json jackson type      * @param prettyPrint   turn pretty printing on or off      */
 DECL|method|json (JsonLibrary type, Class<?> unmarshalType, boolean prettyPrint)
 specifier|public
 name|T
@@ -1858,7 +1858,7 @@ name|json
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Jackson JSON data format      *      * @param unmarshalType unmarshal type for json jackson type      * @param jsonView      the view type for json jackson type      * @param prettyPrint   turn the pretty-print option on or off      */
+comment|/**      * Uses the Jackson JSON data format      *      * @param unmarshalType unmarshal type for json jackson type      * @param jsonView      the view type for json jackson type      * @param prettyPrint   turn pretty printing on or off      */
 DECL|method|json (Class<?> unmarshalType, Class<?> jsonView, boolean prettyPrint)
 specifier|public
 name|T
@@ -1980,7 +1980,7 @@ name|json
 argument_list|)
 return|;
 block|}
-comment|/**      * Uses the Jackson JSON data format      *      * @param unmarshalType unmarshal type for json jackson type      * @param jsonView      the view type for json jackson type      * @param include       include such as<tt>ALWAYS</tt>,<tt>NON_NULL</tt>, etc.       * @param prettyPrint  turn the pretty-print option on or off      */
+comment|/**      * Uses the Jackson JSON data format      *      * @param unmarshalType unmarshal type for json jackson type      * @param jsonView      the view type for json jackson type      * @param include       include such as<tt>ALWAYS</tt>,<tt>NON_NULL</tt>, etc.       * @param prettyPrint  turn pretty printing on or off      */
 DECL|method|json (Class<?> unmarshalType, Class<?> jsonView, String include, boolean prettyPrint)
 specifier|public
 name|T
