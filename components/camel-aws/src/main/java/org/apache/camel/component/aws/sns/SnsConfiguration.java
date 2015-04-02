@@ -165,6 +165,13 @@ specifier|private
 name|String
 name|policy
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|messageStructure
+specifier|private
+name|String
+name|messageStructure
+decl_stmt|;
 DECL|method|setAmazonSNSEndpoint (String awsSNSEndpoint)
 specifier|public
 name|void
@@ -373,6 +380,32 @@ operator|=
 name|policy
 expr_stmt|;
 block|}
+DECL|method|getMessageStructure ()
+specifier|public
+name|String
+name|getMessageStructure
+parameter_list|()
+block|{
+return|return
+name|messageStructure
+return|;
+block|}
+DECL|method|setMessageStructure (String messageStructure)
+specifier|public
+name|void
+name|setMessageStructure
+parameter_list|(
+name|String
+name|messageStructure
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageStructure
+operator|=
+name|messageStructure
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -407,6 +440,10 @@ operator|+
 literal|", policy="
 operator|+
 name|policy
+operator|+
+literal|", messageStructure="
+operator|+
+name|messageStructure
 operator|+
 literal|"]"
 return|;

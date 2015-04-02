@@ -42,6 +42,12 @@ name|SUBJECT
 init|=
 literal|"CamelAwsSnsSubject"
 decl_stmt|;
+DECL|field|MESSAGE_STRUCTURE
+name|String
+name|MESSAGE_STRUCTURE
+init|=
+literal|"CamelAwsSnsMessageStructure"
+decl_stmt|;
 block|}
 end_interface
 
