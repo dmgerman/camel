@@ -1270,7 +1270,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Using destinationName: {} on listenerContainer: "
+literal|"Using destinationName: {} on listenerContainer: {}"
 argument_list|,
 name|destinationName
 argument_list|,
@@ -1297,7 +1297,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Using destination: {} on listenerContainer: "
+literal|"Using destination: {} on listenerContainer: {}"
 argument_list|,
 name|destinationName
 argument_list|,
@@ -1342,7 +1342,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Using destinationResolver: {} on listenerContainer: "
+literal|"Using destinationResolver: {} on listenerContainer: {}"
 argument_list|,
 name|resolver
 argument_list|,
