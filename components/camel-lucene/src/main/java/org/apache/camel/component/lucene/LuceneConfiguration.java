@@ -256,7 +256,7 @@ name|luceneVersion
 init|=
 name|Version
 operator|.
-name|LUCENE_4_10_2
+name|LUCENE_4_10_3
 decl_stmt|;
 DECL|method|LuceneConfiguration ()
 specifier|public
