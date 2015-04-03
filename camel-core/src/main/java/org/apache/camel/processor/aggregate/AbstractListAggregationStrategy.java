@@ -104,6 +104,10 @@ parameter_list|)
 block|{
 if|if
 condition|(
+name|exchange
+operator|!=
+literal|null
+operator|&&
 name|isStoreAsBodyOnCompletion
 argument_list|()
 condition|)
