@@ -653,12 +653,13 @@ return|;
 block|}
 annotation|@
 name|Converter
-DECL|method|toPayload (InputStream is, Exchange exchange)
+DECL|method|toPayload (final InputStream is, Exchange exchange)
 specifier|public
 specifier|static
 name|Payload
 name|toPayload
 parameter_list|(
+specifier|final
 name|InputStream
 name|is
 parameter_list|,
@@ -693,7 +694,27 @@ name|ByteStreams
 operator|.
 name|length
 argument_list|(
-name|payload
+operator|new
+name|InputSupplier
+argument_list|<
+name|InputStream
+argument_list|>
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|InputStream
+name|getInput
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+name|is
+return|;
+block|}
+block|}
 argument_list|)
 decl_stmt|;
 name|is
