@@ -538,7 +538,7 @@ operator|.
 name|getConfig
 argument_list|()
 operator|.
-name|getIndexName
+name|getIndexType
 argument_list|()
 argument_list|)
 expr_stmt|;
