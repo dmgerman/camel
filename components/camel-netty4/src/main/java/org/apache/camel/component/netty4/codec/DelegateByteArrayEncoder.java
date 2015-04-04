@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|io
 operator|.
 name|netty
@@ -48,18 +58,8 @@ name|ByteArrayEncoder
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
 begin_comment
-comment|/**  *  * We need to derive from the original encoder because we need to  * call the encode method directly which is protected in the original  * one.  */
+comment|/**  * We need to derive from the original encoder because we need to  * call the encode method directly which is protected in the original  * one.  */
 end_comment
 
 begin_class
