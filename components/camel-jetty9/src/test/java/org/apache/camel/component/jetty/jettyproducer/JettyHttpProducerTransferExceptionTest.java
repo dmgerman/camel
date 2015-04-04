@@ -120,7 +120,7 @@ block|{
 name|IllegalArgumentException
 name|cause
 init|=
-name|assertThrowable
+name|assertIsInstanceOf
 argument_list|(
 name|IllegalArgumentException
 operator|.

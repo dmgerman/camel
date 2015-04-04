@@ -164,7 +164,7 @@ block|{
 name|HttpOperationFailedException
 name|cause
 init|=
-name|assertThrowable
+name|assertIsInstanceOf
 argument_list|(
 name|HttpOperationFailedException
 operator|.

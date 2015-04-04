@@ -219,7 +219,7 @@ expr_stmt|;
 name|ExchangeTimedOutException
 name|cause
 init|=
-name|assertThrowable
+name|assertIsInstanceOf
 argument_list|(
 name|ExchangeTimedOutException
 operator|.

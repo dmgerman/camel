@@ -640,7 +640,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"object should be a "
+literal|"Object should be of type "
 operator|+
 name|expectedType
 operator|.
@@ -651,7 +651,7 @@ literal|" but was: "
 operator|+
 name|value
 operator|+
-literal|" with type: "
+literal|" with the type: "
 operator|+
 name|value
 operator|.
@@ -675,71 +675,6 @@ operator|.
 name|cast
 argument_list|(
 name|value
-argument_list|)
-return|;
-block|}
-DECL|method|assertThrowable (Class<T> expectedType, Throwable t)
-specifier|public
-specifier|static
-parameter_list|<
-name|T
-extends|extends
-name|Throwable
-parameter_list|>
-name|T
-name|assertThrowable
-parameter_list|(
-name|Class
-argument_list|<
-name|T
-argument_list|>
-name|expectedType
-parameter_list|,
-name|Throwable
-name|t
-parameter_list|)
-block|{
-name|assertNotNull
-argument_list|(
-literal|"Expected an exinstance of type: "
-operator|+
-name|expectedType
-operator|.
-name|getName
-argument_list|()
-operator|+
-literal|" but was null"
-argument_list|,
-name|t
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|expectedType
-operator|.
-name|isInstance
-argument_list|(
-name|t
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|AssertionError
-argument_list|(
-literal|"Unexpected throwable"
-argument_list|,
-name|t
-argument_list|)
-throw|;
-block|}
-return|return
-name|expectedType
-operator|.
-name|cast
-argument_list|(
-name|t
 argument_list|)
 return|;
 block|}
