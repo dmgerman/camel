@@ -367,6 +367,11 @@ name|append
 argument_list|(
 name|additionalPrefix
 argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"-"
+argument_list|)
 expr_stmt|;
 block|}
 name|prefix
@@ -537,7 +542,7 @@ name|document1
 init|=
 name|createIndexedData
 argument_list|(
-literal|"-1"
+literal|"1"
 argument_list|)
 decl_stmt|;
 name|Map
@@ -550,7 +555,7 @@ name|document2
 init|=
 name|createIndexedData
 argument_list|(
-literal|"-2"
+literal|"2"
 argument_list|)
 decl_stmt|;
 name|documents
