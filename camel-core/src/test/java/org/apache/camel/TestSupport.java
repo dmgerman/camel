@@ -329,7 +329,7 @@ block|{
 return|return
 name|Builder
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 name|name
 argument_list|)
