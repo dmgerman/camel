@@ -341,7 +341,7 @@ name|additionalPrefixes
 operator|.
 name|length
 operator|>
-literal|1
+literal|0
 condition|)
 block|{
 name|StringBuilder
@@ -395,7 +395,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Creating index data using the key/value pair {} => {}"
+literal|"Creating indexed data using the key/value pair {} => {}"
 argument_list|,
 name|key
 argument_list|,
