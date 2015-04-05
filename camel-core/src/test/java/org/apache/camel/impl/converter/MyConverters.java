@@ -54,7 +54,6 @@ annotation|@
 name|Converter
 DECL|method|toCountry (String iso)
 specifier|public
-specifier|static
 name|Country
 name|toCountry
 parameter_list|(
@@ -91,7 +90,6 @@ annotation|@
 name|Converter
 DECL|method|toIso (Country country)
 specifier|public
-specifier|static
 name|String
 name|toIso
 parameter_list|(
