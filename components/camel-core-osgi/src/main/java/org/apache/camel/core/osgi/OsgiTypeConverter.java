@@ -124,6 +124,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|TypeConverters
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultPackageScanClassResolver
@@ -897,6 +909,24 @@ name|typeConverter
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|addTypeConverters (TypeConverters typeConverters)
+specifier|public
+name|void
+name|addTypeConverters
+parameter_list|(
+name|TypeConverters
+name|typeConverters
+parameter_list|)
+block|{
+name|getDelegate
+argument_list|()
+operator|.
+name|addTypeConverters
+argument_list|(
+name|typeConverters
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|removeTypeConverter (Class<?> toType, Class<?> fromType)
 specifier|public
 name|boolean
@@ -1112,7 +1142,7 @@ argument_list|>
 name|getClassLoaders
 parameter_list|()
 block|{
-comment|// we don't need any classloaders as we use osgi service tracker instead
+comment|// we don't need any classloaders as we use OSGi service tracker instead
 return|return
 name|Collections
 operator|.
@@ -1129,7 +1159,7 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-comment|// only load the core type converters, as osgi activator will keep track on bundles
+comment|// only load the core type converters, as OSGi activator will keep track on bundles
 comment|// being installed/uninstalled and load type converters as part of that process
 name|answer
 operator|.
@@ -1232,7 +1262,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"loading the type converter from bundle{} "
+literal|"loading type converter from bundle: {}"
 argument_list|,
 name|sr
 operator|.

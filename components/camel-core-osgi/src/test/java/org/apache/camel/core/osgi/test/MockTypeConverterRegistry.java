@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|TypeConverters
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Injector
@@ -172,6 +184,17 @@ argument_list|(
 name|typeConverter
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|addTypeConverters (TypeConverters typeConverters)
+specifier|public
+name|void
+name|addTypeConverters
+parameter_list|(
+name|TypeConverters
+name|typeConverters
+parameter_list|)
+block|{
+comment|// noop
 block|}
 DECL|method|removeTypeConverter (Class<?> toType, Class<?> fromType)
 specifier|public
