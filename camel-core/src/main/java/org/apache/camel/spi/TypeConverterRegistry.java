@@ -50,6 +50,18 @@ name|TypeConverter
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|TypeConverters
+import|;
+end_import
+
 begin_comment
 comment|/**  * Registry for type converters.  *<p/>  * The utilization {@link Statistics} is by default disabled, as it has a slight performance impact under very high  * concurrent load. The statistics can be enabled using {@link Statistics#setStatisticsEnabled(boolean)} method.  *  * @version   */
 end_comment
@@ -156,6 +168,15 @@ argument_list|<
 name|?
 argument_list|>
 name|fromType
+parameter_list|)
+function_decl|;
+comment|/**      * Registers all the type converters from the class, each converter must be implemented as a method and annotated with {@link org.apache.camel.Converter}.      *      * @param typeConverters class which implements the type converters      */
+DECL|method|addTypeConverters (TypeConverters typeConverters)
+name|void
+name|addTypeConverters
+parameter_list|(
+name|TypeConverters
+name|typeConverters
 parameter_list|)
 function_decl|;
 comment|/**      * Registers a new fallback type converter      *      * @param typeConverter the type converter to use      * @param canPromote  whether or not the fallback type converter can be promoted to a first class type converter      */
