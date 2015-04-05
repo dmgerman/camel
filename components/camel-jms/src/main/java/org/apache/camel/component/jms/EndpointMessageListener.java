@@ -1212,11 +1212,10 @@ condition|)
 block|{
 name|binding
 operator|=
-operator|new
-name|JmsBinding
-argument_list|(
 name|endpoint
-argument_list|)
+operator|.
+name|getBinding
+argument_list|()
 expr_stmt|;
 block|}
 return|return

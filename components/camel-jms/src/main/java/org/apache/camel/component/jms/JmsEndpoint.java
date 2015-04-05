@@ -1956,15 +1956,27 @@ condition|)
 block|{
 name|binding
 operator|=
+name|createBinding
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|binding
+return|;
+block|}
+comment|/**      * Creates the {@link org.apache.camel.component.jms.JmsBinding} to use.      */
+DECL|method|createBinding ()
+specifier|protected
+name|JmsBinding
+name|createBinding
+parameter_list|()
+block|{
+return|return
 operator|new
 name|JmsBinding
 argument_list|(
 name|this
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|binding
 return|;
 block|}
 comment|/**      * Sets the binding used to convert from a Camel message to and from a JMS      * message      *      * @param binding the binding to use      */
