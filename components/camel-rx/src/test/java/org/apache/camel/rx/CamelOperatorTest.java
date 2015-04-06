@@ -124,7 +124,7 @@ name|restassured
 operator|.
 name|RestAssured
 operator|.
-name|*
+name|given
 import|;
 end_import
 
@@ -136,7 +136,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|*
+name|containsString
 import|;
 end_import
 
