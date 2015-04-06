@@ -281,7 +281,7 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"Auto"
+literal|"UNIX"
 argument_list|)
 DECL|field|separator
 specifier|private
@@ -290,7 +290,7 @@ name|separator
 init|=
 name|PathSeparator
 operator|.
-name|Auto
+name|UNIX
 decl_stmt|;
 annotation|@
 name|UriParam
