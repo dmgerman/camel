@@ -1151,10 +1151,6 @@ operator|.
 name|getFile
 argument_list|()
 expr_stmt|;
-name|fileBased
-operator|=
-literal|true
-expr_stmt|;
 block|}
 if|if
 condition|(
@@ -1169,6 +1165,10 @@ operator|(
 name|File
 operator|)
 name|body
+expr_stmt|;
+name|fileBased
+operator|=
+literal|true
 expr_stmt|;
 block|}
 block|}
