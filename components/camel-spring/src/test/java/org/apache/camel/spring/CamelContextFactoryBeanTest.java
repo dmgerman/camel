@@ -601,7 +601,9 @@ class|class
 name|CustomModelJAXBContextFactory
 extends|extends
 name|DefaultModelJAXBContextFactory
-block|{}
+block|{
+comment|// Do nothing here
+block|}
 block|}
 end_class
 

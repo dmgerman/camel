@@ -47,11 +47,19 @@ end_import
 begin_class
 DECL|class|MyConverters
 specifier|public
+specifier|final
 class|class
 name|MyConverters
 implements|implements
 name|TypeConverters
 block|{
+DECL|method|MyConverters ()
+specifier|private
+name|MyConverters
+parameter_list|()
+block|{
+comment|// Helper class
+block|}
 annotation|@
 name|Converter
 DECL|method|toCountry (String iso)
