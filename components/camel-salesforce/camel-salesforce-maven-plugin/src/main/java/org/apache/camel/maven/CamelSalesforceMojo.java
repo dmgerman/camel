@@ -3351,7 +3351,13 @@ comment|/*                 {"anySimpleType", "java.lang.Object"},               
 block|{
 literal|"address"
 block|,
-literal|"String"
+literal|"org.apache.camel.component.salesforce.api.dto.Address"
+block|}
+block|,
+block|{
+literal|"location"
+block|,
+literal|"org.apache.camel.component.salesforce.api.dto.GeoLocation"
 block|}
 block|}
 decl_stmt|;

@@ -281,7 +281,7 @@ name|mojo
 operator|.
 name|includePattern
 operator|=
-literal|"(.*__c)|(PushTopic)|(Document)"
+literal|"(.*__c)|(PushTopic)|(Document)|(Account)"
 expr_stmt|;
 comment|// remove generated code directory
 if|if
