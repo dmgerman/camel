@@ -177,7 +177,7 @@ name|RemoteFileConfiguration
 operator|.
 name|PathSeparator
 operator|.
-name|Auto
+name|UNIX
 argument_list|,
 name|config
 operator|.
@@ -278,7 +278,7 @@ name|RemoteFileConfiguration
 operator|.
 name|PathSeparator
 operator|.
-name|Auto
+name|UNIX
 argument_list|,
 name|config
 operator|.
@@ -399,7 +399,7 @@ name|RemoteFileConfiguration
 operator|.
 name|PathSeparator
 operator|.
-name|Auto
+name|UNIX
 argument_list|,
 name|config
 operator|.
