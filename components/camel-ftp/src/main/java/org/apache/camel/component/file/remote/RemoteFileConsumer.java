@@ -810,7 +810,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Connected and logged in to: "
 operator|+
