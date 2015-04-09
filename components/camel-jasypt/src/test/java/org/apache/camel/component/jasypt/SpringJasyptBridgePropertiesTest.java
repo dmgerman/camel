@@ -101,7 +101,7 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello World"
+literal|"Hello World tiger"
 argument_list|)
 expr_stmt|;
 name|template
