@@ -720,6 +720,21 @@ return|return
 name|headers
 return|;
 block|}
+DECL|method|getNsMap ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getNsMap
+parameter_list|()
+block|{
+return|return
+name|nsMap
+return|;
+block|}
 DECL|method|toString ()
 specifier|public
 name|String

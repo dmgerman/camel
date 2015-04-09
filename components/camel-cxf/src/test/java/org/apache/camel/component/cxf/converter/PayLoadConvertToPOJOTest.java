@@ -487,6 +487,9 @@ argument_list|(
 literal|"cxf:bean:routerEndpoint?dataFormat=PAYLOAD"
 argument_list|)
 operator|.
+name|streamCaching
+argument_list|()
+operator|.
 name|process
 argument_list|(
 operator|new
