@@ -431,6 +431,15 @@ argument_list|)
 argument_list|,
 name|mavenBundle
 argument_list|(
+literal|"org.apache.openjpa"
+argument_list|,
+literal|"openjpa"
+argument_list|,
+literal|"2.3.0"
+argument_list|)
+argument_list|,
+name|mavenBundle
+argument_list|(
 literal|"org.apache.derby"
 argument_list|,
 literal|"derby"
