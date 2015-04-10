@@ -196,6 +196,10 @@ name|syntax
 operator|=
 literal|"salesforce:operationName:topicName"
 argument_list|,
+name|label
+operator|=
+literal|"api,cloud,crm"
+argument_list|,
 name|consumerClass
 operator|=
 name|SalesforceConsumer
