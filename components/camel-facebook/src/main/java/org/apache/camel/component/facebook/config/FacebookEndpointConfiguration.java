@@ -64,7 +64,7 @@ begin_import
 import|import
 name|facebook4j
 operator|.
-name|AlbumCreate
+name|AlbumUpdate
 import|;
 end_import
 
@@ -72,7 +72,7 @@ begin_import
 import|import
 name|facebook4j
 operator|.
-name|CheckinCreate
+name|CheckinUpdate
 import|;
 end_import
 
@@ -187,10 +187,10 @@ name|achievementURL
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|albumCreate
+DECL|field|albumUpdate
 specifier|private
-name|AlbumCreate
-name|albumCreate
+name|AlbumUpdate
+name|albumUpdate
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -198,13 +198,6 @@ DECL|field|albumId
 specifier|private
 name|String
 name|albumId
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|allowNewOptions
-specifier|private
-name|Boolean
-name|allowNewOptions
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -222,10 +215,10 @@ name|center
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|checkinCreate
+DECL|field|checkinUpdate
 specifier|private
-name|CheckinCreate
-name|checkinCreate
+name|CheckinUpdate
+name|checkinUpdate
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -396,13 +389,6 @@ name|name
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|noStory
-specifier|private
-name|Boolean
-name|noStory
-decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|noteId
 specifier|private
 name|String
@@ -431,16 +417,6 @@ name|optionDescription
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|options
-specifier|private
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|options
-decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|permissionName
 specifier|private
 name|String
@@ -459,13 +435,6 @@ DECL|field|photoId
 specifier|private
 name|String
 name|photoId
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|place
-specifier|private
-name|String
-name|place
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -506,13 +475,6 @@ DECL|field|query
 specifier|private
 name|String
 name|query
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|question
-specifier|private
-name|String
-name|question
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -679,30 +641,30 @@ operator|=
 name|achievementURL
 expr_stmt|;
 block|}
-DECL|method|getAlbumCreate ()
+DECL|method|getAlbumUpdate ()
 specifier|public
-name|AlbumCreate
-name|getAlbumCreate
+name|AlbumUpdate
+name|getAlbumUpdate
 parameter_list|()
 block|{
 return|return
-name|albumCreate
+name|albumUpdate
 return|;
 block|}
-DECL|method|setAlbumCreate (AlbumCreate albumCreate)
+DECL|method|setAlbumUpdate (AlbumUpdate albumUpdate)
 specifier|public
 name|void
-name|setAlbumCreate
+name|setAlbumUpdate
 parameter_list|(
-name|AlbumCreate
-name|albumCreate
+name|AlbumUpdate
+name|albumUpdate
 parameter_list|)
 block|{
 name|this
 operator|.
-name|albumCreate
+name|albumUpdate
 operator|=
-name|albumCreate
+name|albumUpdate
 expr_stmt|;
 block|}
 DECL|method|getAlbumId ()
@@ -729,32 +691,6 @@ operator|.
 name|albumId
 operator|=
 name|albumId
-expr_stmt|;
-block|}
-DECL|method|isAllowNewOptions ()
-specifier|public
-name|Boolean
-name|isAllowNewOptions
-parameter_list|()
-block|{
-return|return
-name|allowNewOptions
-return|;
-block|}
-DECL|method|setAllowNewOptions (Boolean allowNewOptions)
-specifier|public
-name|void
-name|setAllowNewOptions
-parameter_list|(
-name|Boolean
-name|allowNewOptions
-parameter_list|)
-block|{
-name|this
-operator|.
-name|allowNewOptions
-operator|=
-name|allowNewOptions
 expr_stmt|;
 block|}
 DECL|method|getAppId ()
@@ -809,30 +745,30 @@ operator|=
 name|center
 expr_stmt|;
 block|}
-DECL|method|getCheckinCreate ()
+DECL|method|getCheckinUpdate ()
 specifier|public
-name|CheckinCreate
-name|getCheckinCreate
+name|CheckinUpdate
+name|getCheckinUpdate
 parameter_list|()
 block|{
 return|return
-name|checkinCreate
+name|checkinUpdate
 return|;
 block|}
-DECL|method|setCheckinCreate (CheckinCreate checkinCreate)
+DECL|method|setCheckinUpdate (CheckinUpdate checkinUpdate)
 specifier|public
 name|void
-name|setCheckinCreate
+name|setCheckinUpdate
 parameter_list|(
-name|CheckinCreate
-name|checkinCreate
+name|CheckinUpdate
+name|checkinUpdate
 parameter_list|)
 block|{
 name|this
 operator|.
-name|checkinCreate
+name|checkinUpdate
 operator|=
-name|checkinCreate
+name|checkinUpdate
 expr_stmt|;
 block|}
 DECL|method|getCheckinId ()
@@ -1445,32 +1381,6 @@ operator|=
 name|name
 expr_stmt|;
 block|}
-DECL|method|isNoStory ()
-specifier|public
-name|Boolean
-name|isNoStory
-parameter_list|()
-block|{
-return|return
-name|noStory
-return|;
-block|}
-DECL|method|setNoStory (Boolean noStory)
-specifier|public
-name|void
-name|setNoStory
-parameter_list|(
-name|Boolean
-name|noStory
-parameter_list|)
-block|{
-name|this
-operator|.
-name|noStory
-operator|=
-name|noStory
-expr_stmt|;
-block|}
 DECL|method|getNoteId ()
 specifier|public
 name|String
@@ -1575,38 +1485,6 @@ operator|=
 name|optionDescription
 expr_stmt|;
 block|}
-DECL|method|getOptions ()
-specifier|public
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|getOptions
-parameter_list|()
-block|{
-return|return
-name|options
-return|;
-block|}
-DECL|method|setOptions (List<String> options)
-specifier|public
-name|void
-name|setOptions
-parameter_list|(
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|options
-parameter_list|)
-block|{
-name|this
-operator|.
-name|options
-operator|=
-name|options
-expr_stmt|;
-block|}
 DECL|method|getPermissionName ()
 specifier|public
 name|String
@@ -1683,32 +1561,6 @@ operator|.
 name|photoId
 operator|=
 name|photoId
-expr_stmt|;
-block|}
-DECL|method|getPlace ()
-specifier|public
-name|String
-name|getPlace
-parameter_list|()
-block|{
-return|return
-name|place
-return|;
-block|}
-DECL|method|setPlace (String place)
-specifier|public
-name|void
-name|setPlace
-parameter_list|(
-name|String
-name|place
-parameter_list|)
-block|{
-name|this
-operator|.
-name|place
-operator|=
-name|place
 expr_stmt|;
 block|}
 DECL|method|getPlaceId ()
@@ -1849,32 +1701,6 @@ operator|.
 name|query
 operator|=
 name|query
-expr_stmt|;
-block|}
-DECL|method|getQuestion ()
-specifier|public
-name|String
-name|getQuestion
-parameter_list|()
-block|{
-return|return
-name|question
-return|;
-block|}
-DECL|method|setQuestion (String question)
-specifier|public
-name|void
-name|setQuestion
-parameter_list|(
-name|String
-name|question
-parameter_list|)
-block|{
-name|this
-operator|.
-name|question
-operator|=
-name|question
 expr_stmt|;
 block|}
 DECL|method|getQuestionId ()
