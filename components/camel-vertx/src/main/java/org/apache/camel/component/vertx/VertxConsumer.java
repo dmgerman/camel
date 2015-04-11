@@ -470,6 +470,8 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 name|endpoint
 operator|.
 name|getEventBus
@@ -485,6 +487,28 @@ argument_list|,
 name|handler
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalStateException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"EventBus already stopped on address {}"
+argument_list|,
+name|endpoint
+operator|.
+name|getAddress
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// ignore if already stopped as vertx throws this exception if its already stopped etc.
+comment|// unfortunately it does not provide an nicer api to know its state
+block|}
 name|super
 operator|.
 name|doStop
