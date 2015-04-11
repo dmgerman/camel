@@ -232,6 +232,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|createdVertx
+specifier|private
+specifier|volatile
+name|boolean
+name|createdVertx
+decl_stmt|;
 DECL|field|vertx
 specifier|private
 name|Vertx
@@ -478,6 +484,11 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// we are creating vertx so we should handle its lifecycle
+name|createdVertx
+operator|=
+literal|true
+expr_stmt|;
 specifier|final
 name|CountDownLatch
 name|latch
@@ -740,6 +751,8 @@ argument_list|()
 expr_stmt|;
 if|if
 condition|(
+name|createdVertx
+operator|&&
 name|vertx
 operator|!=
 literal|null
