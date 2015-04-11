@@ -1584,8 +1584,6 @@ operator|.
 name|READING_PPROPERTY
 argument_list|)
 block|,
-comment|//GETEVENTFEED(ResponseList.class, "getEventFeed", String.class, "eventId"),
-comment|//GETEVENTFEED_WITH_OPTIONS(ResponseList.class, "getEventFeed", String.class, "eventId", Reading.class, FacebookConstants.READING_PPROPERTY),
 DECL|enumConstant|GETEVENTPHOTOS
 name|GETEVENTPHOTOS
 argument_list|(
@@ -2011,7 +2009,6 @@ argument_list|,
 literal|"userIds"
 argument_list|)
 block|,
-comment|//POSTEVENTFEED_WITH_POSTUPDATE(String.class, "postEventFeed", String.class, "eventId", PostUpdate.class, "postUpdate"),
 DECL|enumConstant|POSTEVENTLINK_WITH_LINK
 name|POSTEVENTLINK_WITH_LINK
 argument_list|(
@@ -5545,7 +5542,6 @@ argument_list|,
 literal|"source"
 argument_list|)
 block|,
-comment|//POSTPHOTO_WITH_MSG(String.class, "postPhoto", Media.class, "source", String.class, "message", String.class, "place", boolean.class, "noStory"),
 DECL|enumConstant|POSTPHOTO_WITH_MEDIA
 name|POSTPHOTO_WITH_MEDIA
 argument_list|(
@@ -5568,7 +5564,6 @@ argument_list|,
 literal|"source"
 argument_list|)
 block|,
-comment|//POSTPHOTO_WITH_MEDIA_MSG(String.class, "postPhoto", String.class, "userId", Media.class, "source", String.class, "message", String.class, "place", boolean.class, "noStory"),
 DECL|enumConstant|UNLIKEPHOTO
 name|UNLIKEPHOTO
 argument_list|(
@@ -5585,7 +5580,6 @@ argument_list|,
 literal|"photoId"
 argument_list|)
 block|,
-comment|//UPDATETAGONPHOTO(Boolean.class,  "updateTagOnPhoto", String.class, "photoId", String.class, "toUserId"),
 DECL|enumConstant|UPDATETAGONPHOTO_WITH_TAGUPDATE
 name|UPDATETAGONPHOTO_WITH_TAGUPDATE
 argument_list|(
@@ -6423,10 +6417,6 @@ argument_list|,
 literal|"optionDescription"
 argument_list|)
 block|,
-comment|//CREATEQUESTION(String.class, "createQuestion", String.class, "question"),
-comment|//CREATEQUESTION_WITH_OPTIONS(String.class, "createQuestion", String.class, "question", List.class, "options", boolean.class, "allowNewOptions"),
-comment|//CREATEQUESTION_WITH_ID(String.class, "createQuestion", String.class, "userId", String.class, "question"),
-comment|//CREATEQUESTION_WITH_ID_OPTIONS(String.class, "createQuestion", String.class, "userId", String.class, "question", List.class, "options", boolean.class, "allowNewOptions"),
 DECL|enumConstant|DELETEQUESTION
 name|DELETEQUESTION
 argument_list|(
@@ -7360,10 +7350,6 @@ argument_list|,
 literal|"videoId"
 argument_list|)
 block|,
-comment|//POSTVIDEO(String.class, "postVideo", Media.class, "source"),
-comment|//POSTVIDEO_WITH_TITLE(String.class, "postVideo", Media.class, "source", String.class, "title", String.class, "description"),
-comment|//POSTVIDEO_WITH_ID(String.class, "postVideo", String.class, "userId", Media.class, "source"),
-comment|//POSTVIDEO_WITH_ID_MEDIA(String.class, "postVideo", String.class, "userId", Media.class, "source", String.class, "title", String.class, "description"),
 DECL|enumConstant|UNLIKEVIDEO
 name|UNLIKEVIDEO
 argument_list|(
