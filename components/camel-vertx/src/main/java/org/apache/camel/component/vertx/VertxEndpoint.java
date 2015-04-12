@@ -321,6 +321,14 @@ name|EventBus
 name|getEventBus
 parameter_list|()
 block|{
+if|if
+condition|(
+name|getVertx
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 name|getVertx
 argument_list|()
@@ -328,6 +336,13 @@ operator|.
 name|eventBus
 argument_list|()
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 DECL|method|getVertx ()
 specifier|public
