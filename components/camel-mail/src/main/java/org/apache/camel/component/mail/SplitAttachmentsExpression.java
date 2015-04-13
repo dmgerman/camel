@@ -167,8 +167,6 @@ DECL|field|extractAttachments
 specifier|private
 name|boolean
 name|extractAttachments
-init|=
-literal|false
 decl_stmt|;
 DECL|method|SplitAttachmentsExpression ()
 specifier|public
