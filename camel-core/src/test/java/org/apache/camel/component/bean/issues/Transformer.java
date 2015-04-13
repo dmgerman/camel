@@ -37,9 +37,12 @@ DECL|interface|Transformer
 specifier|public
 interface|interface
 name|Transformer
+parameter_list|<
+name|T
+parameter_list|>
 block|{
 DECL|method|transform (Exchange exchange)
-name|Object
+name|T
 name|transform
 parameter_list|(
 name|Exchange

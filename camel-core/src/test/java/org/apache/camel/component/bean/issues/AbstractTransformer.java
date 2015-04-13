@@ -26,8 +26,14 @@ specifier|public
 specifier|abstract
 class|class
 name|AbstractTransformer
+parameter_list|<
+name|T
+parameter_list|>
 implements|implements
 name|Transformer
+argument_list|<
+name|T
+argument_list|>
 block|{
 DECL|method|getTest ()
 specifier|protected

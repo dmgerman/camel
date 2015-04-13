@@ -39,6 +39,9 @@ class|class
 name|TransformerImpl
 extends|extends
 name|AbstractTransformer
+argument_list|<
+name|String
+argument_list|>
 block|{
 annotation|@
 name|Override
