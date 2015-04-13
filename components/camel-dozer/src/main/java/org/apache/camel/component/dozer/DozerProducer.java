@@ -420,6 +420,8 @@ name|targetObject
 argument_list|)
 expr_stmt|;
 comment|// Third pass to process expression mappings
+try|try
+block|{
 name|endpoint
 operator|.
 name|getExpressionMapper
@@ -445,6 +447,21 @@ argument_list|,
 name|targetObject
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// Clear out the exchange reference on the expression mapper
+name|endpoint
+operator|.
+name|getExpressionMapper
+argument_list|()
+operator|.
+name|setCurrentExchange
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 name|msg
 operator|.
 name|setBody

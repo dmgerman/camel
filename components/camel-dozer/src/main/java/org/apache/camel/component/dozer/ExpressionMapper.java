@@ -261,27 +261,6 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|done ()
-specifier|public
-name|void
-name|done
-parameter_list|()
-block|{
-name|super
-operator|.
-name|done
-argument_list|()
-expr_stmt|;
-name|currentExchange
-operator|.
-name|set
-argument_list|(
-literal|null
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 end_class
 
