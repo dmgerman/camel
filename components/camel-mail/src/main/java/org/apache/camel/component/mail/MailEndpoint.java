@@ -714,6 +714,7 @@ return|return
 name|configuration
 return|;
 block|}
+comment|/**      * Sets the Mail configuration      */
 DECL|method|setConfiguration (MailConfiguration configuration)
 specifier|public
 name|void
@@ -740,6 +741,7 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+comment|/**      * To use a custom {@link org.apache.camel.spi.HeaderFilterStrategy} to filter headers.      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|void
@@ -766,6 +768,7 @@ return|return
 name|contentTypeResolver
 return|;
 block|}
+comment|/**      * Resolver to determine Content-Type for file attachments.      */
 DECL|method|setContentTypeResolver (ContentTypeResolver contentTypeResolver)
 specifier|public
 name|void
@@ -792,6 +795,7 @@ return|return
 name|maxMessagesPerPoll
 return|;
 block|}
+comment|/**      * Specifies the maximum number of messages to gather per poll. By default, no maximum is set.      * Can be used to set a limit of e.g. 1000 to avoid downloading thousands of files when the server starts up.      * Set a value of 0 or negative to disable this option.      */
 DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
 specifier|public
 name|void
@@ -818,6 +822,7 @@ return|return
 name|searchTerm
 return|;
 block|}
+comment|/**      * Refers to a {@link javax.mail.search.SearchTerm} which allows to filter mails based on search criteria such as subject, body, from, sent after a certain date etc.      */
 DECL|method|setSearchTerm (SearchTerm searchTerm)
 specifier|public
 name|void
@@ -834,7 +839,6 @@ operator|=
 name|searchTerm
 expr_stmt|;
 block|}
-comment|/**      * @return Sorting order for messages. Only natively supported for IMAP. Emulated to some degree when using POP3      * or when IMAP server does not have the SORT capability.      * @see com.sun.mail.imap.SortTerm      */
 DECL|method|getSortTerm ()
 specifier|public
 name|SortTerm
@@ -855,7 +859,7 @@ name|clone
 argument_list|()
 return|;
 block|}
-comment|/**      * @param sortTerm {@link #getSortTerm()}      */
+comment|/**      * Sorting order for messages. Only natively supported for IMAP. Emulated to some degree when using POP3      * or when IMAP server does not have the SORT capability.      */
 DECL|method|setSortTerm (SortTerm[] sortTerm)
 specifier|public
 name|void
@@ -882,7 +886,6 @@ name|clone
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * @return Post processor that can e.g. delete old email. Gets called once the messages have been polled and      * processed.      */
 DECL|method|getPostProcessAction ()
 specifier|public
 name|MailBoxPostProcessAction
@@ -893,7 +896,7 @@ return|return
 name|postProcessAction
 return|;
 block|}
-comment|/**      * @param postProcessAction {@link #getPostProcessAction()}      */
+comment|/**      * Refers to an {@link MailBoxPostProcessAction} for doing post processing tasks on the mailbox once the normal processing ended.      */
 DECL|method|setPostProcessAction (MailBoxPostProcessAction postProcessAction)
 specifier|public
 name|void

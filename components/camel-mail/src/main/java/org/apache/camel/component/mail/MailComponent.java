@@ -559,6 +559,7 @@ return|return
 name|contentTypeResolver
 return|;
 block|}
+comment|/**      * Resolver to determine Content-Type for file attachments.      */
 DECL|method|setContentTypeResolver (ContentTypeResolver contentTypeResolver)
 specifier|public
 name|void

@@ -2197,6 +2197,7 @@ return|return
 name|dummyTrustManager
 return|;
 block|}
+comment|/**      * To use a dummy security setting for trusting all certificates. Should only be used for development mode, and not production.      */
 DECL|method|setDummyTrustManager (boolean dummyTrustManager)
 specifier|public
 name|void
@@ -2277,6 +2278,7 @@ return|return
 name|useInlineAttachments
 return|;
 block|}
+comment|/**      * Whether to use disposition inline or attachment.      */
 DECL|method|setUseInlineAttachments (boolean useInlineAttachments)
 specifier|public
 name|void
@@ -2384,6 +2386,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
+comment|/**      * To configure security using SSLContextParameters.      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
