@@ -246,6 +246,10 @@ argument_list|,
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Whether the scheduler should be auto started."
 argument_list|)
 DECL|field|startScheduler
 specifier|private
@@ -264,6 +268,10 @@ argument_list|,
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Milliseconds before the first poll starts."
 argument_list|)
 DECL|field|initialDelay
 specifier|private
@@ -282,6 +290,10 @@ argument_list|,
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Milliseconds before the next poll."
 argument_list|)
 DECL|field|delay
 specifier|private
@@ -300,6 +312,10 @@ argument_list|,
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Time unit for initialDelay and delay options."
 argument_list|)
 DECL|field|timeUnit
 specifier|private
@@ -320,6 +336,10 @@ argument_list|,
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Controls if fixed delay or fixed rate is used. See ScheduledExecutorService in JDK for details."
 argument_list|)
 DECL|field|useFixedDelay
 specifier|private
@@ -334,6 +354,12 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"A pluggable org.apache.camel.PollingConsumerPollingStrategy allowing you to provide your custom implementation"
+operator|+
+literal|" to control error handling usually occurred during the poll operation before an Exchange have been created and being routed in Camel."
 argument_list|)
 DECL|field|pollStrategy
 specifier|private
@@ -354,6 +380,10 @@ argument_list|,
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"The consumer logs a start/complete log line when it polls. This option allows you to configure the logging level for that."
 argument_list|)
 DECL|field|runLoggingLevel
 specifier|private
@@ -370,6 +400,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"If the polling consumer did not poll any files, you can enable this option to send an empty message (no body) instead."
 argument_list|)
 DECL|field|sendEmptyMessageWhenIdle
 specifier|private
@@ -382,6 +416,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"If greedy is enabled, then the ScheduledPollConsumer will run immediately again, if the previous run polled 1 or more messages."
 argument_list|)
 DECL|field|greedy
 specifier|private
@@ -398,6 +436,10 @@ argument_list|,
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"To use a cron scheduler from either camel-spring or camel-quartz2 component"
 argument_list|)
 DECL|field|scheduler
 specifier|private
@@ -416,6 +458,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"To configure additional properties when using a custom scheduler or any of the Quartz2, Spring based scheduler."
 argument_list|)
 DECL|field|schedulerProperties
 specifier|private
@@ -433,6 +479,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Allows for configuring a custom/shared thread pool to use for the consumer. By default each consumer has its own single threaded thread pool."
 argument_list|)
 DECL|field|scheduledExecutorService
 specifier|private
@@ -445,6 +495,14 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"To let the scheduled polling consumer backoff if there has been a number of subsequent idles/errors in a row."
+operator|+
+literal|" The multiplier is then the number of polls that will be skipped before the next actual attempt is happening again."
+operator|+
+literal|" When this option is in use then backoffIdleThreshold and/or backoffErrorThreshold must also be configured."
 argument_list|)
 DECL|field|backoffMultiplier
 specifier|private
@@ -457,6 +515,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"The number of subsequent idle polls that should happen before the backoffMultipler should kick-in."
 argument_list|)
 DECL|field|backoffIdleThreshold
 specifier|private
@@ -469,6 +531,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"The number of subsequent error polls (failed due some error) that should happen before the backoffMultipler should kick-in."
 argument_list|)
 DECL|field|backoffErrorThreshold
 specifier|private
