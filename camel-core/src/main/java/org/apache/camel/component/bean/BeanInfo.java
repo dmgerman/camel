@@ -4430,6 +4430,16 @@ name|methodInfo
 operator|.
 name|getBodyParameterType
 argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|methodInfo
+operator|.
+name|getBodyParameterType
+argument_list|()
 operator|.
 name|isInstance
 argument_list|(
@@ -4515,6 +4525,7 @@ name|matched
 operator|=
 name|methodInfo
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if
