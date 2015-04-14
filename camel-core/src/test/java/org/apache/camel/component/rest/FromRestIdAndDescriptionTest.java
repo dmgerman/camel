@@ -245,6 +245,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|restConfiguration
+argument_list|()
+operator|.
+name|host
+argument_list|(
+literal|"localhost"
+argument_list|)
+expr_stmt|;
 name|rest
 argument_list|(
 literal|"/say/hello"

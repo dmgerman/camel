@@ -295,6 +295,14 @@ block|{
 name|restConfiguration
 argument_list|()
 operator|.
+name|host
+argument_list|(
+literal|"localhost"
+argument_list|)
+expr_stmt|;
+name|restConfiguration
+argument_list|()
+operator|.
 name|enableCORS
 argument_list|(
 literal|true

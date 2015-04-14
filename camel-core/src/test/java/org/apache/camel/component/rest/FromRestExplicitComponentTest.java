@@ -72,6 +72,11 @@ name|component
 argument_list|(
 literal|"dummy-rest"
 argument_list|)
+operator|.
+name|host
+argument_list|(
+literal|"localhost"
+argument_list|)
 expr_stmt|;
 name|rest
 argument_list|(

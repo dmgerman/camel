@@ -359,6 +359,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|restConfiguration
+argument_list|()
+operator|.
+name|host
+argument_list|(
+literal|"localhost"
+argument_list|)
+expr_stmt|;
 comment|// we have logic to cleanup those paths so there is only one / between the paths
 name|rest
 argument_list|(
