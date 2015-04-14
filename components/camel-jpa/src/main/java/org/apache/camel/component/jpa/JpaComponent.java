@@ -194,6 +194,7 @@ return|return
 name|entityManagerFactory
 return|;
 block|}
+comment|/**      * To use the {@link EntityManagerFactory}. This is strongly recommended to configure.      */
 DECL|method|setEntityManagerFactory (EntityManagerFactory entityManagerFactory)
 specifier|public
 name|void
@@ -220,6 +221,7 @@ return|return
 name|transactionManager
 return|;
 block|}
+comment|/**      * To use the {@link PlatformTransactionManager} for managing transactions.      */
 DECL|method|setTransactionManager (PlatformTransactionManager transactionManager)
 specifier|public
 name|void
@@ -234,6 +236,33 @@ operator|.
 name|transactionManager
 operator|=
 name|transactionManager
+expr_stmt|;
+block|}
+DECL|method|isJoinTransaction ()
+specifier|public
+name|boolean
+name|isJoinTransaction
+parameter_list|()
+block|{
+return|return
+name|joinTransaction
+return|;
+block|}
+comment|/**      * The camel-jpa component will join transaction by default.      * You can use this option to turn this off, for example if you use LOCAL_RESOURCE and join transaction      * doesn't work with your JPA provider. This option can also be set globally on the JpaComponent,      * instead of having to set it on all endpoints.      */
+DECL|method|setJoinTransaction (boolean joinTransaction)
+specifier|public
+name|void
+name|setJoinTransaction
+parameter_list|(
+name|boolean
+name|joinTransaction
+parameter_list|)
+block|{
+name|this
+operator|.
+name|joinTransaction
+operator|=
+name|joinTransaction
 expr_stmt|;
 block|}
 comment|// Implementation methods
@@ -714,32 +743,6 @@ literal|"No TransactionManager has been configured on this JpaComponent. Each Jp
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-DECL|method|isJoinTransaction ()
-specifier|public
-name|boolean
-name|isJoinTransaction
-parameter_list|()
-block|{
-return|return
-name|joinTransaction
-return|;
-block|}
-DECL|method|setJoinTransaction (boolean joinTransaction)
-specifier|public
-name|void
-name|setJoinTransaction
-parameter_list|(
-name|boolean
-name|joinTransaction
-parameter_list|)
-block|{
-name|this
-operator|.
-name|joinTransaction
-operator|=
-name|joinTransaction
-expr_stmt|;
 block|}
 block|}
 end_class

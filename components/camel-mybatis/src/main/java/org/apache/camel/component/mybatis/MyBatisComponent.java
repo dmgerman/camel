@@ -298,6 +298,7 @@ return|return
 name|sqlSessionFactory
 return|;
 block|}
+comment|/**      * To use the {@link SqlSessionFactory}      */
 DECL|method|setSqlSessionFactory (SqlSessionFactory sqlSessionFactory)
 specifier|public
 name|void
@@ -324,6 +325,7 @@ return|return
 name|configurationUri
 return|;
 block|}
+comment|/**      * Location of MyBatis xml configuration file.      *<p/>      * The default value is: SqlMapConfig.xml loaded from the classpath      */
 DECL|method|setConfigurationUri (String configurationUri)
 specifier|public
 name|void

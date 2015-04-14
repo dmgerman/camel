@@ -234,11 +234,6 @@ operator|new
 name|DefaultMyBatisProcessingStrategy
 argument_list|()
 decl_stmt|;
-DECL|field|executorType
-specifier|private
-name|ExecutorType
-name|executorType
-decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -255,6 +250,11 @@ name|statement
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|statementType
 specifier|private
 name|StatementType
@@ -262,6 +262,15 @@ name|statementType
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"0"
+argument_list|)
 DECL|field|maxMessagesPerPoll
 specifier|private
 name|int
@@ -276,10 +285,31 @@ name|outputHeader
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|inputHeader
 specifier|private
 name|String
 name|inputHeader
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"SIMPLE"
+argument_list|)
+DECL|field|executorType
+specifier|private
+name|ExecutorType
+name|executorType
 decl_stmt|;
 DECL|method|MyBatisEndpoint ()
 specifier|public
@@ -587,6 +617,7 @@ return|return
 name|maxMessagesPerPoll
 return|;
 block|}
+comment|/**      * This option is intended to split results returned by the database pool into the batches and deliver them in multiple exchanges.      * This integer defines the maximum messages to deliver in single exchange. By default, no maximum is set.      * Can be used to set a limit of e.g. 1000 to avoid when starting up the server that there are thousands of files.      * Set a value of 0 or negative to disable it.      */
 DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
 specifier|public
 name|void

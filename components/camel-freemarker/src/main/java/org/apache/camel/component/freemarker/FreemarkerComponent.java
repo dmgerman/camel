@@ -355,7 +355,11 @@ name|configuration
 operator|=
 operator|new
 name|Configuration
-argument_list|()
+argument_list|(
+name|Configuration
+operator|.
+name|VERSION_2_3_21
+argument_list|)
 expr_stmt|;
 name|configuration
 operator|.
@@ -419,6 +423,7 @@ name|clone
 argument_list|()
 return|;
 block|}
+comment|/**      * To use an existing {@link freemarker.template.Configuration} instance as the configuration.      */
 DECL|method|setConfiguration (Configuration configuration)
 specifier|public
 name|void

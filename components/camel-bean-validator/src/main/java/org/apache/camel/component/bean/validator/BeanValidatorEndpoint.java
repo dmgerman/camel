@@ -274,6 +274,11 @@ name|label
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"javax.validation.groups.Default"
+argument_list|)
 DECL|field|group
 specifier|private
 name|String
@@ -483,6 +488,7 @@ return|return
 name|group
 return|;
 block|}
+comment|/**      * To use a custom validation group      */
 DECL|method|setGroup (String group)
 specifier|public
 name|void
@@ -509,6 +515,7 @@ return|return
 name|validationProviderResolver
 return|;
 block|}
+comment|/**      * To use a a custom {@link ValidationProviderResolver}      */
 DECL|method|setValidationProviderResolver (ValidationProviderResolver validationProviderResolver)
 specifier|public
 name|void
@@ -535,6 +542,7 @@ return|return
 name|messageInterpolator
 return|;
 block|}
+comment|/**      * To use a custom {@link MessageInterpolator}      */
 DECL|method|setMessageInterpolator (MessageInterpolator messageInterpolator)
 specifier|public
 name|void
@@ -561,6 +569,7 @@ return|return
 name|traversableResolver
 return|;
 block|}
+comment|/**      * To use a custom {@link TraversableResolver}      */
 DECL|method|setTraversableResolver (TraversableResolver traversableResolver)
 specifier|public
 name|void
@@ -587,6 +596,7 @@ return|return
 name|constraintValidatorFactory
 return|;
 block|}
+comment|/**      * To use a custom {@link ConstraintValidatorFactory}      */
 DECL|method|setConstraintValidatorFactory (ConstraintValidatorFactory constraintValidatorFactory)
 specifier|public
 name|void

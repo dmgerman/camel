@@ -178,6 +178,7 @@ return|return
 name|mustacheFactory
 return|;
 block|}
+comment|/**      * To use a custom {@link MustacheFactory}      */
 DECL|method|setMustacheFactory (MustacheFactory mustacheFactory)
 specifier|public
 name|void

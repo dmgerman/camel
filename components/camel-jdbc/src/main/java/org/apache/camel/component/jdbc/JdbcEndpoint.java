@@ -417,6 +417,7 @@ return|return
 name|readSize
 return|;
 block|}
+comment|/**      * The default maximum number of rows that can be read by a polling query. The default value is 0.      */
 DECL|method|setReadSize (int readSize)
 specifier|public
 name|void
@@ -443,6 +444,7 @@ return|return
 name|transacted
 return|;
 block|}
+comment|/**      * Whether transactions are in use.      */
 DECL|method|setTransacted (boolean transacted)
 specifier|public
 name|void
@@ -469,6 +471,7 @@ return|return
 name|resetAutoCommit
 return|;
 block|}
+comment|/**      * Camel will set the autoCommit on the JDBC connection to be false, commit the change after executed the statement and reset      * the autoCommit flag of the connection at the end, if the resetAutoCommit is true. If the JDBC connection doesn't support      * to reset the autoCommit flag, you can set the resetAutoCommit flag to be false, and Camel will not try to reset the autoCommit flag.      * When used with XA transactions you most likely need to set it to false so that the transaction manager is in charge of committing this tx.      */
 DECL|method|setResetAutoCommit (boolean resetAutoCommit)
 specifier|public
 name|void
@@ -559,7 +562,7 @@ return|return
 name|useJDBC4ColumnNameAndLabelSemantics
 return|;
 block|}
-comment|/**      * Sets whether to use JDBC 4 or JDBC 3.0 or older semantic when retrieving column name.      *<p/>      * JDBC 4.0 uses columnLabel to get the column name where as JDBC 3.0 uses both columnName or columnLabel.      * Unfortunately JDBC drivers behave differently so you can use this option to work out issues around your      * JDBC driver if you get problem using this component      *<p/>      * This option is default<tt>true</tt>.      *      * @param useJDBC4ColumnNameAndLabelSemantics      *<tt>true</tt> to use JDBC 4.0 semantics,<tt>false</tt> to use JDBC 3.0.      */
+comment|/**      * Sets whether to use JDBC 4 or JDBC 3.0 or older semantic when retrieving column name.      *<p/>      * JDBC 4.0 uses columnLabel to get the column name where as JDBC 3.0 uses both columnName or columnLabel.      * Unfortunately JDBC drivers behave differently so you can use this option to work out issues around your      * JDBC driver if you get problem using this component      *<p/>      * This option is default<tt>true</tt>.      *      * @param useJDBC4ColumnNameAndLabelSemantics<tt>true</tt> to use JDBC 4.0 semantics,<tt>false</tt> to use JDBC 3.0.      */
 DECL|method|setUseJDBC4ColumnNameAndLabelSemantics (boolean useJDBC4ColumnNameAndLabelSemantics)
 specifier|public
 name|void
@@ -586,6 +589,7 @@ return|return
 name|prepareStatementStrategy
 return|;
 block|}
+comment|/**      * Allows to plugin to use a custom org.apache.camel.component.jdbc.JdbcPrepareStatementStrategy to control preparation of the query and prepared statement.      */
 DECL|method|setPrepareStatementStrategy (JdbcPrepareStatementStrategy prepareStatementStrategy)
 specifier|public
 name|void
@@ -612,6 +616,7 @@ return|return
 name|allowNamedParameters
 return|;
 block|}
+comment|/**      * Whether to allow using named parameters in the queries.      */
 DECL|method|setAllowNamedParameters (boolean allowNamedParameters)
 specifier|public
 name|void
@@ -638,6 +643,7 @@ return|return
 name|useHeadersAsParameters
 return|;
 block|}
+comment|/**      * Set this option to true to use the prepareStatementStrategy with named parameters.      * This allows to define queries with named placeholders, and use headers with the dynamic values for the query placeholders.      */
 DECL|method|setUseHeadersAsParameters (boolean useHeadersAsParameters)
 specifier|public
 name|void
@@ -664,6 +670,7 @@ return|return
 name|outputType
 return|;
 block|}
+comment|/**      * Determines the output the producer should use.      */
 DECL|method|setOutputType (JdbcOutputType outputType)
 specifier|public
 name|void
@@ -690,6 +697,7 @@ return|return
 name|outputClass
 return|;
 block|}
+comment|/**      * Specify the full package and class name to use as conversion when outputType=SelectOne or SelectList.      */
 DECL|method|setOutputClass (String outputClass)
 specifier|public
 name|void
@@ -716,6 +724,7 @@ return|return
 name|beanRowMapper
 return|;
 block|}
+comment|/**      * To use a custom org.apache.camel.component.jdbc.BeanRowMapper when using outputClass.      * The default implementation will lower case the row names and skip underscores, and dashes. For example "CUST_ID" is mapped as "custId".      */
 DECL|method|setBeanRowMapper (BeanRowMapper beanRowMapper)
 specifier|public
 name|void

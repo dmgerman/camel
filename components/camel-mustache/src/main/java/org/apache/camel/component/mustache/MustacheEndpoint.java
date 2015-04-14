@@ -326,6 +326,11 @@ name|encoding
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"{{"
+argument_list|)
 DECL|field|startDelimiter
 specifier|private
 name|String
@@ -333,6 +338,11 @@ name|startDelimiter
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"}}"
+argument_list|)
 DECL|field|endDelimiter
 specifier|private
 name|String
@@ -892,6 +902,7 @@ return|return
 name|mustacheFactory
 return|;
 block|}
+comment|/**      * To use a custom {@link MustacheFactory}      */
 DECL|method|setMustacheFactory (MustacheFactory mustacheFactory)
 specifier|public
 name|void
@@ -918,6 +929,7 @@ return|return
 name|encoding
 return|;
 block|}
+comment|/**      * Character encoding of the resource content.      */
 DECL|method|setEncoding (String encoding)
 specifier|public
 name|void
@@ -974,6 +986,7 @@ return|return
 name|startDelimiter
 return|;
 block|}
+comment|/**      * Characters used to mark template code beginning.      */
 DECL|method|setStartDelimiter (String startDelimiter)
 specifier|public
 name|void
@@ -1000,6 +1013,7 @@ return|return
 name|endDelimiter
 return|;
 block|}
+comment|/**      * Characters used to mark template code end.      */
 DECL|method|setEndDelimiter (String endDelimiter)
 specifier|public
 name|void

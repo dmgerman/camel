@@ -367,6 +367,21 @@ specifier|private
 name|PlatformTransactionManager
 name|transactionManager
 decl_stmt|;
+DECL|field|producerExpression
+specifier|private
+name|Expression
+name|producerExpression
+decl_stmt|;
+DECL|field|entityManagerProperties
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|entityManagerProperties
+decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
@@ -396,98 +411,19 @@ name|defaultValue
 operator|=
 literal|"camel"
 argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|persistenceUnit
 specifier|private
 name|String
 name|persistenceUnit
 init|=
 literal|"camel"
-decl_stmt|;
-DECL|field|producerExpression
-specifier|private
-name|Expression
-name|producerExpression
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"-1"
-argument_list|)
-DECL|field|maximumResults
-specifier|private
-name|int
-name|maximumResults
-init|=
-operator|-
-literal|1
-decl_stmt|;
-DECL|field|entityManagerProperties
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|entityManagerProperties
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|consumeDelete
-specifier|private
-name|boolean
-name|consumeDelete
-init|=
-literal|true
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|consumeLockEntity
-specifier|private
-name|boolean
-name|consumeLockEntity
-init|=
-literal|true
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|flushOnSend
-specifier|private
-name|boolean
-name|flushOnSend
-init|=
-literal|true
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|maxMessagesPerPoll
-specifier|private
-name|int
-name|maxMessagesPerPoll
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|usePersist
-specifier|private
-name|boolean
-name|usePersist
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -505,6 +441,108 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"-1"
+argument_list|)
+DECL|field|maximumResults
+specifier|private
+name|int
+name|maximumResults
+init|=
+operator|-
+literal|1
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|consumeDelete
+specifier|private
+name|boolean
+name|consumeDelete
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|consumeLockEntity
+specifier|private
+name|boolean
+name|consumeLockEntity
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|maxMessagesPerPoll
+specifier|private
+name|int
+name|maxMessagesPerPoll
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|flushOnSend
+specifier|private
+name|boolean
+name|flushOnSend
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|usePersist
+specifier|private
+name|boolean
+name|usePersist
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|usePassedInEntityManager
 specifier|private
 name|boolean
@@ -832,6 +870,7 @@ return|return
 name|maximumResults
 return|;
 block|}
+comment|/**      * Set the maximum number of results to retrieve on the Query.      */
 DECL|method|setMaximumResults (int maximumResults)
 specifier|public
 name|void
@@ -861,6 +900,7 @@ return|return
 name|entityType
 return|;
 block|}
+comment|/**      * The JPA annotated class to use as entity.      */
 DECL|method|setEntityType (Class<?> entityType)
 specifier|public
 name|void
@@ -903,6 +943,7 @@ return|return
 name|entityManagerFactory
 return|;
 block|}
+comment|/**      * The {@link EntityManagerFactory} to use.      */
 DECL|method|setEntityManagerFactory (EntityManagerFactory entityManagerFactory)
 specifier|public
 name|void
@@ -942,6 +983,7 @@ return|return
 name|transactionManager
 return|;
 block|}
+comment|/**      * To use the {@link PlatformTransactionManager} for managing transactions.      */
 DECL|method|setTransactionManager (PlatformTransactionManager transactionManager)
 specifier|public
 name|void
@@ -958,6 +1000,7 @@ operator|=
 name|transactionManager
 expr_stmt|;
 block|}
+comment|/**      * Additional properties for the entity manager to use.      */
 DECL|method|getEntityManagerProperties ()
 specifier|public
 name|Map
@@ -1024,6 +1067,7 @@ return|return
 name|persistenceUnit
 return|;
 block|}
+comment|/**      * The JPA persistence unit used by default.      */
 DECL|method|setPersistenceUnit (String persistenceUnit)
 specifier|public
 name|void
@@ -1050,6 +1094,7 @@ return|return
 name|consumeDelete
 return|;
 block|}
+comment|/**      * If true, the entity is deleted after it is consumed; if false, the entity is not deleted.      */
 DECL|method|setConsumeDelete (boolean consumeDelete)
 specifier|public
 name|void
@@ -1076,6 +1121,7 @@ return|return
 name|consumeLockEntity
 return|;
 block|}
+comment|/**      * Specifies whether or not to set an exclusive lock on each entity bean while processing the results from polling.      */
 DECL|method|setConsumeLockEntity (boolean consumeLockEntity)
 specifier|public
 name|void
@@ -1102,6 +1148,7 @@ return|return
 name|flushOnSend
 return|;
 block|}
+comment|/**      * Flushes the EntityManager after the entity bean has been persisted.      */
 DECL|method|setFlushOnSend (boolean flushOnSend)
 specifier|public
 name|void
@@ -1128,6 +1175,7 @@ return|return
 name|maxMessagesPerPoll
 return|;
 block|}
+comment|/**      * An integer value to define the maximum number of messages to gather per poll.      * By default, no maximum is set. Can be used to avoid polling many thousands of messages when starting up the server.      * Set a value of 0 or negative to disable.      */
 DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
 specifier|public
 name|void
@@ -1154,6 +1202,7 @@ return|return
 name|usePersist
 return|;
 block|}
+comment|/**      * Indicates to use entityManager.persist(entity) instead of entityManager.merge(entity).      * Note: entityManager.persist(entity) doesn't work for detached entities      * (where the EntityManager has to execute an UPDATE instead of an INSERT query)!      */
 DECL|method|setUsePersist (boolean usePersist)
 specifier|public
 name|void
@@ -1180,6 +1229,7 @@ return|return
 name|joinTransaction
 return|;
 block|}
+comment|/**      * The camel-jpa component will join transaction by default.      * You can use this option to turn this off, for example if you use LOCAL_RESOURCE and join transaction      * doesn't work with your JPA provider. This option can also be set globally on the JpaComponent,      * instead of having to set it on all endpoints.      */
 DECL|method|setJoinTransaction (boolean joinTransaction)
 specifier|public
 name|void
@@ -1208,6 +1258,7 @@ operator|.
 name|usePassedInEntityManager
 return|;
 block|}
+comment|/**      * If set to true, then Camel will use the EntityManager from the header      * JpaConstants.ENTITYMANAGER instead of the configured entity manager on the component/endpoint.      * This allows end users to control which entity manager will be in use.      */
 DECL|method|setUsePassedInEntityManager (boolean usePassedIn)
 specifier|public
 name|void

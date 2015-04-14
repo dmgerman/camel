@@ -259,6 +259,7 @@ return|return
 name|jdbc
 return|;
 block|}
+comment|/**      * To use the {@link DataSource} instance instead of looking up the data source by name from the registry.      */
 DECL|method|setDataSource (DataSource dataSource)
 specifier|public
 name|void
