@@ -365,8 +365,6 @@ name|WsConsumer
 argument_list|>
 argument_list|()
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|websocket
 specifier|private
 name|WebSocket
@@ -562,7 +560,6 @@ operator|=
 name|websocket
 expr_stmt|;
 block|}
-comment|/**      * @return the useStreaming      */
 DECL|method|isUseStreaming ()
 specifier|public
 name|boolean
@@ -573,7 +570,7 @@ return|return
 name|useStreaming
 return|;
 block|}
-comment|/**      * @param useStreaming the useStreaming to set      */
+comment|/**      * To enable streaming to send data as multiple text fragments.      */
 DECL|method|setUseStreaming (boolean useStreaming)
 specifier|public
 name|void

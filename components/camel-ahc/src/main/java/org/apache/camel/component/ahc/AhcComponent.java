@@ -621,6 +621,7 @@ return|return
 name|client
 return|;
 block|}
+comment|/**      * To use a custom {@link AsyncHttpClient}      */
 DECL|method|setClient (AsyncHttpClient client)
 specifier|public
 name|void
@@ -661,6 +662,7 @@ return|return
 name|binding
 return|;
 block|}
+comment|/**      * To use a custom {@link AhcBinding} which allows to control how to bind between AHC and Camel.      */
 DECL|method|setBinding (AhcBinding binding)
 specifier|public
 name|void
@@ -687,6 +689,7 @@ return|return
 name|clientConfig
 return|;
 block|}
+comment|/**      * To configure the AsyncHttpClient to use a custom com.ning.http.client.AsyncHttpClientConfig instance.      */
 DECL|method|setClientConfig (AsyncHttpClientConfig clientConfig)
 specifier|public
 name|void
@@ -713,6 +716,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
+comment|/**      * Reference to a org.apache.camel.util.jsse.SSLContextParameters in the Registry.      * Note that configuring this option will override any SSL/TLS configuration options provided through the      * clientConfig option at the endpoint or component level.      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void

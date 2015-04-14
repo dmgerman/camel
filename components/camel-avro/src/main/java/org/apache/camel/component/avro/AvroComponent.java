@@ -819,6 +819,7 @@ return|return
 name|configuration
 return|;
 block|}
+comment|/**      * To use a shared {@link AvroConfiguration} to configure options once      */
 DECL|method|setConfiguration (AvroConfiguration configuration)
 specifier|public
 name|void

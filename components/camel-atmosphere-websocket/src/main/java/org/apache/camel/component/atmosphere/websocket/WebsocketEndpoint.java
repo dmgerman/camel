@@ -118,6 +118,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -224,6 +238,18 @@ name|store
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"Name of websocket endpoint"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|servicePath
 specifier|private
 name|String
@@ -384,7 +410,6 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * @return the sendToAll      */
 DECL|method|isSendToAll ()
 specifier|public
 name|boolean
@@ -395,7 +420,7 @@ return|return
 name|sendToAll
 return|;
 block|}
-comment|/**      * @param sendToAll the sendToAll to set      */
+comment|/**      * Whether to send to all (broadcast) or send to a single receiver.      */
 DECL|method|setSendToAll (boolean sendToAll)
 specifier|public
 name|void
@@ -412,7 +437,6 @@ operator|=
 name|sendToAll
 expr_stmt|;
 block|}
-comment|/**      * @return the useStreaming      */
 DECL|method|isUseStreaming ()
 specifier|public
 name|boolean
@@ -423,7 +447,7 @@ return|return
 name|useStreaming
 return|;
 block|}
-comment|/**      * @param useStreaming the useStreaming to set      */
+comment|/**      * To enable streaming to send data as multiple text fragments.      */
 DECL|method|setUseStreaming (boolean useStreaming)
 specifier|public
 name|void

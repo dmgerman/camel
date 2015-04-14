@@ -434,6 +434,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * Hostname to use      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -460,6 +461,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * Port number to use      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -486,6 +488,7 @@ return|return
 name|protocol
 return|;
 block|}
+comment|/**      * Avro protocol to use      */
 DECL|method|setProtocol (Protocol protocol)
 specifier|public
 name|void
@@ -512,6 +515,7 @@ return|return
 name|transport
 return|;
 block|}
+comment|/**      * Transport to use      */
 DECL|method|setTransport (String transport)
 specifier|public
 name|void
@@ -559,6 +563,7 @@ return|return
 name|protocolLocation
 return|;
 block|}
+comment|/**      * Avro protocol location      */
 DECL|method|setProtocolLocation (String protocolLocation)
 specifier|public
 name|void
@@ -585,6 +590,7 @@ return|return
 name|protocolClassName
 return|;
 block|}
+comment|/**      * Avro protocol to use defined by the FQN class name      */
 DECL|method|setProtocolClassName (String protocolClassName)
 specifier|public
 name|void
@@ -611,6 +617,7 @@ return|return
 name|messageName
 return|;
 block|}
+comment|/**      * The name of the message to send.      */
 DECL|method|setMessageName (String messageName)
 specifier|public
 name|void
@@ -637,6 +644,7 @@ return|return
 name|uriAuthority
 return|;
 block|}
+comment|/**      * Authority to use (username and password)      */
 DECL|method|setUriAuthority (String uriAuthority)
 specifier|public
 name|void
@@ -663,6 +671,7 @@ return|return
 name|reflectionProtocol
 return|;
 block|}
+comment|/**      * If protocol object provided is reflection protocol. Should be used only with protocol parameter because for protocolClassName protocol type will be auto detected      */
 DECL|method|setReflectionProtocol (boolean isReflectionProtocol)
 specifier|public
 name|void
@@ -689,6 +698,7 @@ return|return
 name|singleParameter
 return|;
 block|}
+comment|/**      * If true, consumer parameter won't be wrapped into array. Will fail if protocol specifies more then 1 parameter for the message      */
 DECL|method|setSingleParameter (boolean singleParameter)
 specifier|public
 name|void

@@ -141,6 +141,7 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+comment|/**      * To use a custom {@link org.apache.camel.spi.HeaderFilterStrategy} to filter header to and from Camel message.      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
 specifier|public
 name|void
@@ -155,6 +156,7 @@ operator|=
 name|strategy
 expr_stmt|;
 block|}
+comment|/**      * Sets the header filter strategy to use from the given endpoint if the endpoint is a {@link HeaderFilterStrategyAware} type.      */
 DECL|method|setEndpointHeaderFilterStrategy (Endpoint endpoint)
 specifier|public
 name|void

@@ -452,6 +452,15 @@ name|EndpointAnnotationProcessor
 extends|extends
 name|AbstractAnnotationProcessor
 block|{
+DECL|field|HEADER_FILTER_STRATEGY_JAVADOC
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|HEADER_FILTER_STRATEGY_JAVADOC
+init|=
+literal|"To use a custom HeaderFilterStrategy to filter header to and from Camel message."
+decl_stmt|;
 DECL|method|process (Set<? extends TypeElement> annotations, final RoundEnvironment roundEnv)
 specifier|public
 name|boolean
@@ -3252,6 +3261,13 @@ name|equals
 argument_list|(
 name|methodName
 argument_list|)
+operator|||
+literal|"setEndpointHeaderFilterStrategy"
+operator|.
+name|equals
+argument_list|(
+name|methodName
+argument_list|)
 condition|)
 block|{
 continue|continue;
@@ -3412,10 +3428,29 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// apt cannot grab javadoc from camel-core, only from annotations
+if|if
+condition|(
+literal|"setHeaderFilterStrategy"
+operator|.
+name|equals
+argument_list|(
+name|methodName
+argument_list|)
+condition|)
+block|{
+name|docComment
+operator|=
+name|HEADER_FILTER_STRATEGY_JAVADOC
+expr_stmt|;
+block|}
+else|else
+block|{
 name|docComment
 operator|=
 literal|""
 expr_stmt|;
+block|}
 block|}
 comment|// gather enums
 name|Set

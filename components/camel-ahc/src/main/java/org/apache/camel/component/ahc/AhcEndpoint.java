@@ -517,6 +517,7 @@ return|return
 name|client
 return|;
 block|}
+comment|/**      * To use a custom {@link AsyncHttpClient}      */
 DECL|method|setClient (AsyncHttpClient client)
 specifier|public
 name|void
@@ -543,6 +544,7 @@ return|return
 name|clientConfig
 return|;
 block|}
+comment|/**      * To configure the AsyncHttpClient to use a custom com.ning.http.client.AsyncHttpClientConfig instance.      */
 DECL|method|setClientConfig (AsyncHttpClientConfig clientConfig)
 specifier|public
 name|void
@@ -569,6 +571,7 @@ return|return
 name|httpUri
 return|;
 block|}
+comment|/**      * The URI to use such as http://hostname:port/path      */
 DECL|method|setHttpUri (URI httpUri)
 specifier|public
 name|void
@@ -595,6 +598,7 @@ return|return
 name|binding
 return|;
 block|}
+comment|/**      * To use a custom {@link AhcBinding} which allows to control how to bind between AHC and Camel.      */
 DECL|method|setBinding (AhcBinding binding)
 specifier|public
 name|void
@@ -621,6 +625,7 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel message.      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|void
@@ -647,6 +652,7 @@ return|return
 name|bridgeEndpoint
 return|;
 block|}
+comment|/**      * If the option is true, then the Exchange.HTTP_URI header is ignored, and use the endpoint's URI for request.      * You may also set the throwExceptionOnFailure to be false to let the AhcProducer send all the fault response back.      */
 DECL|method|setBridgeEndpoint (boolean bridgeEndpoint)
 specifier|public
 name|void
@@ -673,6 +679,7 @@ return|return
 name|throwExceptionOnFailure
 return|;
 block|}
+comment|/**      * Option to disable throwing the AhcOperationFailedException in case of failed responses from the remote server.      * This allows you to get all responses regardless of the HTTP status code.      */
 DECL|method|setThrowExceptionOnFailure (boolean throwExceptionOnFailure)
 specifier|public
 name|void
@@ -699,6 +706,7 @@ return|return
 name|transferException
 return|;
 block|}
+comment|/**      * If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back serialized      * in the response as a application/x-java-serialized-object content type (for example using Jetty or Servlet Camel components).      * On the producer side the exception will be deserialized and thrown as is, instead of the AhcOperationFailedException.      * The caused exception is required to be serialized.      */
 DECL|method|setTransferException (boolean transferException)
 specifier|public
 name|void
@@ -725,6 +733,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
+comment|/**      * Reference to a org.apache.camel.util.jsse.SSLContextParameters in the Registry.      * This reference overrides any configured SSLContextParameters at the component level.      * See Using the JSSE Configuration Utility.      * Note that configuring this option will override any SSL/TLS configuration options provided through the clientConfig option at the endpoint or component level.      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
@@ -751,6 +760,7 @@ return|return
 name|bufferSize
 return|;
 block|}
+comment|/**      * The initial in-memory buffer size used when transferring data between Camel and AHC Client.      */
 DECL|method|setBufferSize (int bufferSize)
 specifier|public
 name|void

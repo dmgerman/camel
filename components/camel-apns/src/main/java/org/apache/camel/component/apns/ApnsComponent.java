@@ -171,6 +171,7 @@ return|return
 name|apnsService
 return|;
 block|}
+comment|/**      * To use a custom @{link ApnsService}      */
 DECL|method|setApnsService (ApnsService apnsService)
 specifier|public
 name|void

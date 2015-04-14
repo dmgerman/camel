@@ -182,6 +182,11 @@ specifier|public
 class|class
 name|AtmosConfiguration
 block|{
+DECL|field|client
+specifier|private
+name|AtmosApi
+name|client
+decl_stmt|;
 annotation|@
 name|UriPath
 DECL|field|name
@@ -203,7 +208,6 @@ specifier|private
 name|AtmosOperation
 name|operation
 decl_stmt|;
-comment|//atmos shared secret
 annotation|@
 name|UriParam
 DECL|field|secretKey
@@ -211,7 +215,6 @@ specifier|private
 name|String
 name|secretKey
 decl_stmt|;
-comment|//local path to put files
 annotation|@
 name|UriParam
 DECL|field|localPath
@@ -219,7 +222,6 @@ specifier|private
 name|String
 name|localPath
 decl_stmt|;
-comment|//where to put files on atmos
 annotation|@
 name|UriParam
 DECL|field|remotePath
@@ -227,7 +229,6 @@ specifier|private
 name|String
 name|remotePath
 decl_stmt|;
-comment|//new path on atmos when moving files
 annotation|@
 name|UriParam
 DECL|field|newRemotePath
@@ -235,7 +236,6 @@ specifier|private
 name|String
 name|newRemotePath
 decl_stmt|;
-comment|//search query on atmos
 annotation|@
 name|UriParam
 DECL|field|query
@@ -243,7 +243,6 @@ specifier|private
 name|String
 name|query
 decl_stmt|;
-comment|//atmos client fullTokenId
 annotation|@
 name|UriParam
 DECL|field|fullTokenId
@@ -251,7 +250,6 @@ specifier|private
 name|String
 name|fullTokenId
 decl_stmt|;
-comment|//atmos server uri
 annotation|@
 name|UriParam
 DECL|field|uri
@@ -259,20 +257,12 @@ specifier|private
 name|String
 name|uri
 decl_stmt|;
-comment|//atmos ssl validation
 annotation|@
 name|UriParam
 DECL|field|enableSslValidation
 specifier|private
 name|boolean
 name|enableSslValidation
-decl_stmt|;
-comment|//specific atmos operation for the component
-comment|//reference to atmo client
-DECL|field|client
-specifier|private
-name|AtmosApi
-name|client
 decl_stmt|;
 DECL|method|setClient (AtmosApi client)
 specifier|public
@@ -389,6 +379,7 @@ return|return
 name|name
 return|;
 block|}
+comment|/**      * Atmos name      */
 DECL|method|setName (String name)
 specifier|public
 name|void
@@ -415,6 +406,7 @@ return|return
 name|secretKey
 return|;
 block|}
+comment|/**      * Atmos shared secret      */
 DECL|method|setSecretKey (String secretKey)
 specifier|public
 name|void
@@ -441,6 +433,7 @@ return|return
 name|localPath
 return|;
 block|}
+comment|/**      * Local path to put files      */
 DECL|method|setLocalPath (String localPath)
 specifier|public
 name|void
@@ -467,6 +460,7 @@ return|return
 name|remotePath
 return|;
 block|}
+comment|/**      * Where to put files on Atmos      */
 DECL|method|setRemotePath (String remotePath)
 specifier|public
 name|void
@@ -493,6 +487,7 @@ return|return
 name|newRemotePath
 return|;
 block|}
+comment|/**      * New path on Atmos when moving files      */
 DECL|method|setNewRemotePath (String newRemotePath)
 specifier|public
 name|void
@@ -519,6 +514,7 @@ return|return
 name|query
 return|;
 block|}
+comment|/**      * Search query on Atmos      */
 DECL|method|setQuery (String query)
 specifier|public
 name|void
@@ -545,6 +541,7 @@ return|return
 name|fullTokenId
 return|;
 block|}
+comment|/**      * Atmos client fullTokenId      */
 DECL|method|setFullTokenId (String fullTokenId)
 specifier|public
 name|void
@@ -571,6 +568,7 @@ return|return
 name|operation
 return|;
 block|}
+comment|/**      * Operation to perform      */
 DECL|method|setOperation (AtmosOperation operation)
 specifier|public
 name|void
@@ -587,6 +585,7 @@ operator|=
 name|operation
 expr_stmt|;
 block|}
+comment|/**      * Atomos server uri      */
 DECL|method|setUri (String uri)
 specifier|public
 name|void
@@ -623,6 +622,7 @@ return|return
 name|enableSslValidation
 return|;
 block|}
+comment|/**      * Atmos SSL validation      */
 DECL|method|setEnableSslValidation (boolean enableSslValidation)
 specifier|public
 name|void

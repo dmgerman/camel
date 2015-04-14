@@ -281,6 +281,7 @@ return|return
 name|tokens
 return|;
 block|}
+comment|/**      * Configure this property in case you want to statically declare tokens related to devices you want to notify. Tokens are separated by comma.      */
 DECL|method|setTokens (String tokens)
 specifier|public
 name|void
