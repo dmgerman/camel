@@ -142,6 +142,26 @@ name|twitter
 operator|.
 name|consumer
 operator|.
+name|streaming
+operator|.
+name|UserStreamingConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|twitter
+operator|.
+name|consumer
+operator|.
 name|timeline
 operator|.
 name|HomeConsumer
@@ -351,7 +371,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Maps the endpoint URI to the respective Twitter4J consumer or producer.  *<p/>  * URI STRUCTURE:  *<p/>  * timeline/  * public  * home  * friends  * user (ALSO A PRODUCER)  * mentions  * retweetsofme  * user/  * search users (DIRECT ONLY)  * user suggestions (DIRECT ONLY)  * trends/  * daily  * weekly  * userlist  * directmessage (ALSO A PRODUCER)  * streaming/  * filter (POLLING ONLY)  * sample (POLLING ONLY)  */
+comment|/**  * Maps the endpoint URI to the respective Twitter4J consumer or producer.  *<p/>  * URI STRUCTURE:  *<p/>  * timeline/  * public  * home  * friends  * user (ALSO A PRODUCER)  * mentions  * retweetsofme  * user/  * search users (DIRECT ONLY)  * user suggestions (DIRECT ONLY)  * trends/  * daily  * weekly  * userlist  * directmessage (ALSO A PRODUCER)  * streaming/  * filter (POLLING ONLY)  * sample (POLLING ONLY)  * user (POLLING ONLY)  */
 end_comment
 
 begin_class
@@ -525,6 +545,16 @@ case|:
 return|return
 operator|new
 name|FilterConsumer
+argument_list|(
+name|te
+argument_list|)
+return|;
+case|case
+name|USER
+case|:
+return|return
+operator|new
+name|UserStreamingConsumer
 argument_list|(
 name|te
 argument_list|)

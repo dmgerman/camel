@@ -28,10 +28,13 @@ name|StreamingType
 block|{
 DECL|enumConstant|SAMPLE
 DECL|enumConstant|FILTER
+DECL|enumConstant|USER
 DECL|enumConstant|UNKNOWN
 name|SAMPLE
 block|,
 name|FILTER
+block|,
+name|USER
 block|,
 name|UNKNOWN
 block|;
