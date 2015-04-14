@@ -169,6 +169,11 @@ name|joinTransaction
 init|=
 literal|true
 decl_stmt|;
+DECL|field|sharedEntityManager
+specifier|private
+name|boolean
+name|sharedEntityManager
+decl_stmt|;
 DECL|method|JpaComponent ()
 specifier|public
 name|JpaComponent
@@ -265,6 +270,33 @@ operator|=
 name|joinTransaction
 expr_stmt|;
 block|}
+DECL|method|isSharedEntityManager ()
+specifier|public
+name|boolean
+name|isSharedEntityManager
+parameter_list|()
+block|{
+return|return
+name|sharedEntityManager
+return|;
+block|}
+comment|/**      * Whether to use Spring's SharedEntityManager for the consumer/producer.      * Note in most cases joinTransaction should be set to false as this is not an EXTENDED EntityManager.      */
+DECL|method|setSharedEntityManager (boolean sharedEntityManager)
+specifier|public
+name|void
+name|setSharedEntityManager
+parameter_list|(
+name|boolean
+name|sharedEntityManager
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sharedEntityManager
+operator|=
+name|sharedEntityManager
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
 annotation|@
@@ -307,6 +339,14 @@ operator|.
 name|setJoinTransaction
 argument_list|(
 name|isJoinTransaction
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setSharedEntityManager
+argument_list|(
+name|isSharedEntityManager
 argument_list|()
 argument_list|)
 expr_stmt|;

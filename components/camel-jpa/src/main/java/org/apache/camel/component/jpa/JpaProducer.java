@@ -295,6 +295,12 @@ argument_list|()
 operator|.
 name|isUsePassedInEntityManager
 argument_list|()
+argument_list|,
+name|getEndpoint
+argument_list|()
+operator|.
+name|isSharedEntityManager
+argument_list|()
 argument_list|)
 decl_stmt|;
 specifier|final

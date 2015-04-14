@@ -355,6 +355,11 @@ name|joinTransaction
 init|=
 literal|true
 decl_stmt|;
+DECL|field|sharedEntityManager
+specifier|private
+name|boolean
+name|sharedEntityManager
+decl_stmt|;
 DECL|method|JpaMessageIdRepository (EntityManagerFactory entityManagerFactory, String processorName)
 specifier|public
 name|JpaMessageIdRepository
@@ -555,6 +560,8 @@ argument_list|,
 name|entityManagerFactory
 argument_list|,
 literal|true
+argument_list|,
+name|sharedEntityManager
 argument_list|)
 decl_stmt|;
 comment|// Run this in single transaction.
@@ -740,6 +747,8 @@ argument_list|,
 name|entityManagerFactory
 argument_list|,
 literal|true
+argument_list|,
+name|sharedEntityManager
 argument_list|)
 decl_stmt|;
 comment|// Run this in single transaction.
@@ -883,6 +892,8 @@ argument_list|,
 name|entityManagerFactory
 argument_list|,
 literal|true
+argument_list|,
+name|sharedEntityManager
 argument_list|)
 decl_stmt|;
 name|Boolean
@@ -1144,6 +1155,39 @@ operator|.
 name|joinTransaction
 operator|=
 name|joinTransaction
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to use shared EntityManager"
+argument_list|)
+DECL|method|isSharedEntityManager ()
+specifier|public
+name|boolean
+name|isSharedEntityManager
+parameter_list|()
+block|{
+return|return
+name|sharedEntityManager
+return|;
+block|}
+DECL|method|setSharedEntityManager (boolean sharedEntityManager)
+specifier|public
+name|void
+name|setSharedEntityManager
+parameter_list|(
+name|boolean
+name|sharedEntityManager
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sharedEntityManager
+operator|=
+name|sharedEntityManager
 expr_stmt|;
 block|}
 annotation|@

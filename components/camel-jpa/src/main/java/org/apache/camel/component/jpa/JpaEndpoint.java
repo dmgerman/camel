@@ -292,6 +292,20 @@ name|org
 operator|.
 name|springframework
 operator|.
+name|orm
+operator|.
+name|jpa
+operator|.
+name|SharedEntityManagerCreator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
 name|transaction
 operator|.
 name|PlatformTransactionManager
@@ -438,6 +452,13 @@ name|boolean
 name|joinTransaction
 init|=
 literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|sharedEntityManager
+specifier|private
+name|boolean
+name|sharedEntityManager
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1275,6 +1296,33 @@ operator|=
 name|usePassedIn
 expr_stmt|;
 block|}
+DECL|method|isSharedEntityManager ()
+specifier|public
+name|boolean
+name|isSharedEntityManager
+parameter_list|()
+block|{
+return|return
+name|sharedEntityManager
+return|;
+block|}
+comment|/**      * Whether to use Spring's SharedEntityManager for the consumer/producer.      * Note in most cases joinTransaction should be set to false as this is not an EXTENDED EntityManager.      */
+DECL|method|setSharedEntityManager (boolean sharedEntityManager)
+specifier|public
+name|void
+name|setSharedEntityManager
+parameter_list|(
+name|boolean
+name|sharedEntityManager
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sharedEntityManager
+operator|=
+name|sharedEntityManager
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 DECL|method|validate ()
@@ -1368,6 +1416,23 @@ name|EntityManager
 name|createEntityManager
 parameter_list|()
 block|{
+if|if
+condition|(
+name|sharedEntityManager
+condition|)
+block|{
+return|return
+name|SharedEntityManagerCreator
+operator|.
+name|createSharedEntityManager
+argument_list|(
+name|getEntityManagerFactory
+argument_list|()
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 return|return
 name|getEntityManagerFactory
 argument_list|()
@@ -1375,6 +1440,7 @@ operator|.
 name|createEntityManager
 argument_list|()
 return|;
+block|}
 block|}
 DECL|method|createTransactionTemplate ()
 specifier|protected

@@ -50,6 +50,20 @@ name|Exchange
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|orm
+operator|.
+name|jpa
+operator|.
+name|SharedEntityManagerCreator
+import|;
+end_import
+
 begin_comment
 comment|/**  * Helper for JPA.  */
 end_comment
@@ -66,8 +80,8 @@ specifier|private
 name|JpaHelper
 parameter_list|()
 block|{     }
-comment|/**      * Gets or creates an {@link javax.persistence.EntityManager} to use.      *      * @param exchange                 the current exchange, or<tt>null</tt> if no exchange      * @param entityManagerFactory     the entity manager factory (mandatory)      * @param usePassedInEntityManager whether to use an existing {@link javax.persistence.EntityManager} which has been stored      *                                 on the exchange in the header with key {@link org.apache.camel.component.jpa.JpaConstants#ENTITY_MANAGER}      * @return the entity manager (is never null)      */
-DECL|method|getTargetEntityManager (Exchange exchange, EntityManagerFactory entityManagerFactory, boolean usePassedInEntityManager)
+comment|/**      * Gets or creates an {@link javax.persistence.EntityManager} to use.      *      * @param exchange                 the current exchange, or<tt>null</tt> if no exchange      * @param entityManagerFactory     the entity manager factory (mandatory)      * @param usePassedInEntityManager whether to use an existing {@link javax.persistence.EntityManager} which has been stored      *                                 on the exchange in the header with key {@link org.apache.camel.component.jpa.JpaConstants#ENTITY_MANAGER}      * @param useSharedEntityManager   whether to use SharedEntityManagerCreator if not already passed in                                   * @return the entity manager (is never null)      */
+DECL|method|getTargetEntityManager (Exchange exchange, EntityManagerFactory entityManagerFactory, boolean usePassedInEntityManager, boolean useSharedEntityManager)
 specifier|public
 specifier|static
 name|EntityManager
@@ -81,6 +95,9 @@ name|entityManagerFactory
 parameter_list|,
 name|boolean
 name|usePassedInEntityManager
+parameter_list|,
+name|boolean
+name|useSharedEntityManager
 parameter_list|)
 block|{
 name|EntityManager
@@ -142,6 +159,25 @@ argument_list|,
 name|EntityManager
 operator|.
 name|class
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|em
+operator|==
+literal|null
+operator|&&
+name|useSharedEntityManager
+condition|)
+block|{
+name|em
+operator|=
+name|SharedEntityManagerCreator
+operator|.
+name|createSharedEntityManager
+argument_list|(
+name|entityManagerFactory
 argument_list|)
 expr_stmt|;
 block|}
