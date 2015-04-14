@@ -122,6 +122,7 @@ return|return
 name|velocityEngine
 return|;
 block|}
+comment|/**      * To use the {@link VelocityEngine} otherwise a new engine is created      */
 DECL|method|setVelocityEngine (VelocityEngine velocityEngine)
 specifier|public
 name|void

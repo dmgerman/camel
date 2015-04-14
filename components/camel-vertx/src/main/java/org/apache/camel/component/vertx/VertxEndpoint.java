@@ -368,6 +368,23 @@ return|return
 name|address
 return|;
 block|}
+comment|/**      * Sets the event bus address used to communicate      */
+DECL|method|setAddress (String address)
+specifier|public
+name|void
+name|setAddress
+parameter_list|(
+name|String
+name|address
+parameter_list|)
+block|{
+name|this
+operator|.
+name|address
+operator|=
+name|address
+expr_stmt|;
+block|}
 DECL|method|isPubSub ()
 specifier|public
 name|boolean
@@ -392,6 +409,7 @@ return|return
 name|pubSub
 return|;
 block|}
+comment|/**      * Whether to use publish/subscribe instead of point to point when sending to a vertx endpoint.      */
 DECL|method|setPubSub (Boolean pubSub)
 specifier|public
 name|void
@@ -406,23 +424,6 @@ operator|.
 name|pubSub
 operator|=
 name|pubSub
-expr_stmt|;
-block|}
-comment|/**      * Sets the event bus address used to communicate      */
-DECL|method|setAddress (String address)
-specifier|public
-name|void
-name|setAddress
-parameter_list|(
-name|String
-name|address
-parameter_list|)
-block|{
-name|this
-operator|.
-name|address
-operator|=
-name|address
 expr_stmt|;
 block|}
 block|}

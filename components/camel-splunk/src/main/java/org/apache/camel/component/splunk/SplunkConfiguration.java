@@ -106,6 +106,11 @@ specifier|public
 class|class
 name|SplunkConfiguration
 block|{
+DECL|field|connectionFactory
+specifier|private
+name|SplunkConnectionFactory
+name|connectionFactory
+decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
@@ -127,6 +132,11 @@ name|name
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"http"
+argument_list|)
 DECL|field|scheme
 specifier|private
 name|String
@@ -138,6 +148,11 @@ name|DEFAULT_SCHEME
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"localhost"
+argument_list|)
 DECL|field|host
 specifier|private
 name|String
@@ -149,6 +164,11 @@ name|DEFAULT_HOST
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"8089"
+argument_list|)
 DECL|field|port
 specifier|private
 name|int
@@ -209,6 +229,11 @@ name|useSunHttpsHandler
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|index
 specifier|private
 name|String
@@ -216,6 +241,11 @@ name|index
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|sourceType
 specifier|private
 name|String
@@ -223,6 +253,11 @@ name|sourceType
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|source
 specifier|private
 name|String
@@ -230,14 +265,23 @@ name|source
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|tcpReceiverPort
 specifier|private
 name|int
 name|tcpReceiverPort
 decl_stmt|;
-comment|// consumer properties
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|count
 specifier|private
 name|int
@@ -245,6 +289,11 @@ name|count
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|search
 specifier|private
 name|String
@@ -252,6 +301,11 @@ name|search
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|savedSearch
 specifier|private
 name|String
@@ -259,6 +313,11 @@ name|savedSearch
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|earliestTime
 specifier|private
 name|String
@@ -266,6 +325,11 @@ name|earliestTime
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|latestTime
 specifier|private
 name|String
@@ -273,19 +337,23 @@ name|latestTime
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|initEarliestTime
 specifier|private
 name|String
 name|initEarliestTime
 decl_stmt|;
-DECL|field|connectionFactory
-specifier|private
-name|SplunkConnectionFactory
-name|connectionFactory
-decl_stmt|;
-comment|/**      * Streaming mode sends exchanges as they are received, rather than in a batch      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|streaming
 specifier|private
 name|Boolean
@@ -327,6 +395,7 @@ return|return
 name|initEarliestTime
 return|;
 block|}
+comment|/**      * Initial start offset of the first search      */
 DECL|method|setInitEarliestTime (String initEarliestTime)
 specifier|public
 name|void
@@ -353,6 +422,7 @@ return|return
 name|count
 return|;
 block|}
+comment|/**      * A number that indicates the maximum number of entities to return.      */
 DECL|method|setCount (int count)
 specifier|public
 name|void
@@ -379,6 +449,7 @@ return|return
 name|search
 return|;
 block|}
+comment|/**      * The Splunk query to run      */
 DECL|method|setSearch (String search)
 specifier|public
 name|void
@@ -405,6 +476,7 @@ return|return
 name|earliestTime
 return|;
 block|}
+comment|/**      * Earliest time of the search time window.      */
 DECL|method|setEarliestTime (String earliestTime)
 specifier|public
 name|void
@@ -431,6 +503,7 @@ return|return
 name|latestTime
 return|;
 block|}
+comment|/**      * Latest time of the search time window.      */
 DECL|method|setLatestTime (String latestTime)
 specifier|public
 name|void
@@ -457,6 +530,7 @@ return|return
 name|tcpReceiverPort
 return|;
 block|}
+comment|/**      * Splunk tcp receiver port      */
 DECL|method|setTcpReceiverPort (int tcpReceiverPort)
 specifier|public
 name|void
@@ -483,6 +557,7 @@ return|return
 name|sourceType
 return|;
 block|}
+comment|/**      * Splunk sourcetype argument      */
 DECL|method|setSourceType (String sourceType)
 specifier|public
 name|void
@@ -509,6 +584,7 @@ return|return
 name|source
 return|;
 block|}
+comment|/**      * Splunk source argument      */
 DECL|method|setSource (String source)
 specifier|public
 name|void
@@ -525,6 +601,7 @@ operator|=
 name|source
 expr_stmt|;
 block|}
+comment|/**      * Splunk index to write to      */
 DECL|method|setIndex (String index)
 specifier|public
 name|void
@@ -561,6 +638,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * Splunk host.      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -587,6 +665,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * Splunk port      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -613,6 +692,7 @@ return|return
 name|scheme
 return|;
 block|}
+comment|/**      * Splunk scheme      */
 DECL|method|setScheme (String scheme)
 specifier|public
 name|void
@@ -639,6 +719,7 @@ return|return
 name|app
 return|;
 block|}
+comment|/**      * Splunk app      */
 DECL|method|setApp (String app)
 specifier|public
 name|void
@@ -665,6 +746,7 @@ return|return
 name|owner
 return|;
 block|}
+comment|/**      * Splunk owner      */
 DECL|method|setOwner (String owner)
 specifier|public
 name|void
@@ -691,6 +773,7 @@ return|return
 name|username
 return|;
 block|}
+comment|/**      * Username for Splunk      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -717,6 +800,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * Password for Splunk      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -733,7 +817,6 @@ operator|=
 name|password
 expr_stmt|;
 block|}
-comment|/**      * Returns streaming mode.      *<p>      * Streaming mode sends exchanges as they are received, rather than in a batch.      */
 DECL|method|isStreaming ()
 specifier|public
 name|boolean
@@ -750,7 +833,7 @@ else|:
 literal|false
 return|;
 block|}
-comment|/**      * Sets streaming mode.      *<p>      * Streaming mode sends exchanges as they are received, rather than in a batch.      *        * @param streaming      */
+comment|/**      * Sets streaming mode.      *<p>      * Streaming mode sends exchanges as they are received, rather than in a batch.      */
 DECL|method|setStreaming (boolean streaming)
 specifier|public
 name|void
@@ -777,6 +860,7 @@ return|return
 name|connectionTimeout
 return|;
 block|}
+comment|/**      * Timeout in MS when connecting to Splunk server      */
 DECL|method|setConnectionTimeout (int timeout)
 specifier|public
 name|void
@@ -803,6 +887,7 @@ return|return
 name|useSunHttpsHandler
 return|;
 block|}
+comment|/**      * Use sun.net.www.protocol.https.Handler Https handler to establish the Splunk Connection.      * Can be useful when running in application servers to avoid app. server https handling.      */
 DECL|method|setUseSunHttpsHandler (boolean useSunHttpsHandler)
 specifier|public
 name|void
@@ -831,6 +916,7 @@ operator|.
 name|savedSearch
 return|;
 block|}
+comment|/**      * The name of the query saved in Splunk to run      */
 DECL|method|setSavedSearch (String savedSearch)
 specifier|public
 name|void
@@ -864,6 +950,7 @@ name|createDefaultConnectionFactory
 argument_list|()
 return|;
 block|}
+comment|/**      * Splunk connection factory.      */
 DECL|method|setConnectionFactory (SplunkConnectionFactory connectionFactory)
 specifier|public
 name|void

@@ -223,17 +223,17 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|service
+specifier|private
+name|Service
+name|service
+decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|configuration
 specifier|private
 name|SplunkConfiguration
 name|configuration
-decl_stmt|;
-DECL|field|service
-specifier|private
-name|Service
-name|service
 decl_stmt|;
 DECL|method|SplunkEndpoint ()
 specifier|public

@@ -711,7 +711,7 @@ return|return
 name|loaderCache
 return|;
 block|}
-comment|/**      * Enables / disables the velocity resource loader cache which is enabled by default      *      * @param loaderCache a flag to enable/disable the cache      */
+comment|/**      * Enables / disables the velocity resource loader cache which is enabled by default      */
 DECL|method|setLoaderCache (boolean loaderCache)
 specifier|public
 name|void
@@ -728,6 +728,7 @@ operator|=
 name|loaderCache
 expr_stmt|;
 block|}
+comment|/**      * Character encoding of the resource content.      */
 DECL|method|setEncoding (String encoding)
 specifier|public
 name|void
@@ -754,6 +755,7 @@ return|return
 name|encoding
 return|;
 block|}
+comment|/**      * The URI of the properties file which is used for VelocityEngine initialization.      */
 DECL|method|setPropertiesFile (String file)
 specifier|public
 name|void

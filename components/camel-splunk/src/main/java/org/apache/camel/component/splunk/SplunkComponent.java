@@ -156,12 +156,13 @@ return|return
 name|splunkConfigurationFactory
 return|;
 block|}
-DECL|method|setSplunkConfigurationFactory (DefaultSplunkConfigurationFactory splunkConfigurationFactory)
+comment|/**      * To use the {@link SplunkConfigurationFactory}      */
+DECL|method|setSplunkConfigurationFactory (SplunkConfigurationFactory splunkConfigurationFactory)
 specifier|public
 name|void
 name|setSplunkConfigurationFactory
 parameter_list|(
-name|DefaultSplunkConfigurationFactory
+name|SplunkConfigurationFactory
 name|splunkConfigurationFactory
 parameter_list|)
 block|{

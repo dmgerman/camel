@@ -301,6 +301,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * Hostname for creating an embedded clustered EventBus      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -327,6 +328,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * Port for creating an embedded clustered EventBus      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -353,6 +355,7 @@ return|return
 name|vertx
 return|;
 block|}
+comment|/**      * To use the given vertx EventBus instead of creating a new embedded EventBus      */
 DECL|method|setVertx (Vertx vertx)
 specifier|public
 name|void
