@@ -910,9 +910,14 @@ operator|.
 name|iterator
 argument_list|()
 decl_stmt|;
+name|boolean
+name|hasNext
+init|=
+literal|true
+decl_stmt|;
 while|while
 condition|(
-literal|true
+name|hasNext
 condition|)
 block|{
 try|try
@@ -936,11 +941,6 @@ operator|.
 name|next
 argument_list|()
 expr_stmt|;
-block|}
-else|else
-block|{
-break|break;
-block|}
 name|Exchange
 name|exchange
 init|=
@@ -984,6 +984,15 @@ name|processed
 operator|++
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// we don't need to process the message
+name|hasNext
+operator|=
+literal|false
+expr_stmt|;
+block|}
+block|}
 catch|catch
 parameter_list|(
 name|ConsumerTimeoutException
@@ -1017,8 +1026,18 @@ name|getBatchSize
 argument_list|()
 operator|||
 name|consumerTimeout
+operator|||
+operator|(
+name|processed
+operator|>
+literal|0
+operator|&&
+operator|!
+name|hasNext
+operator|)
 condition|)
 block|{
+comment|// Need to commit the offset for the last round
 try|try
 block|{
 name|berrier
