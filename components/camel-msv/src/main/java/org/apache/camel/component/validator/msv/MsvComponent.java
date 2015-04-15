@@ -166,6 +166,7 @@ return|return
 name|schemaFactory
 return|;
 block|}
+comment|/**      * To use the {@link javax.xml.validation.SchemaFactory}.      */
 DECL|method|setSchemaFactory (SchemaFactory schemaFactory)
 specifier|public
 name|void

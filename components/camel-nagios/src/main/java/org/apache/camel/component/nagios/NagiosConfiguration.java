@@ -517,6 +517,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * This is the address of the Nagios host where checks should be send.      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -543,6 +544,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * The port number of the host.      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -569,6 +571,7 @@ return|return
 name|connectionTimeout
 return|;
 block|}
+comment|/**      * Connection timeout in millis.      */
 DECL|method|setConnectionTimeout (int connectionTimeout)
 specifier|public
 name|void
@@ -595,6 +598,7 @@ return|return
 name|timeout
 return|;
 block|}
+comment|/**      * Sending timeout in millis.      */
 DECL|method|setTimeout (int timeout)
 specifier|public
 name|void
@@ -621,6 +625,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * Password to be authenticated when sending checks to Nagios.      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -647,6 +652,7 @@ return|return
 name|encryptionMethod
 return|;
 block|}
+comment|/**      * To specify an encryption method.      */
 DECL|method|setEncryptionMethod (NagiosEncryptionMethod encryptionMethod)
 specifier|public
 name|void

@@ -332,6 +332,7 @@ return|return
 name|configuration
 return|;
 block|}
+comment|/**      * To use a shared {@link ZooKeeperConfiguration}      */
 DECL|method|setConfiguration (ZooKeeperConfiguration configuration)
 specifier|public
 name|void

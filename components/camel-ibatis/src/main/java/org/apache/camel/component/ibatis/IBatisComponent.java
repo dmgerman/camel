@@ -276,6 +276,7 @@ return|return
 name|sqlMapClient
 return|;
 block|}
+comment|/**      * To use the given {@link com.ibatis.sqlmap.client.SqlMapClient}      */
 DECL|method|setSqlMapClient (SqlMapClient sqlMapClient)
 specifier|public
 name|void
@@ -302,6 +303,7 @@ return|return
 name|sqlMapConfig
 return|;
 block|}
+comment|/**      * Location of iBatis xml configuration file.      *<p/>      * The default value is: SqlMapConfig.xml loaded from the classpath      */
 DECL|method|setSqlMapConfig (String sqlMapConfig)
 specifier|public
 name|void
@@ -328,6 +330,7 @@ return|return
 name|useTransactions
 return|;
 block|}
+comment|/**      * Whether to use transactions.      *<p/>      * This option is by default true.      */
 DECL|method|setUseTransactions (boolean useTransactions)
 specifier|public
 name|void

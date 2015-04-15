@@ -218,6 +218,7 @@ return|return
 name|configuration
 return|;
 block|}
+comment|/**      * To use a shared {@link NagiosConfiguration}      */
 DECL|method|setConfiguration (NagiosConfiguration configuration)
 specifier|public
 name|void

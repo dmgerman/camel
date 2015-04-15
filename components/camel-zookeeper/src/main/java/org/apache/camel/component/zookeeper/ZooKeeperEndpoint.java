@@ -547,7 +547,7 @@ return|return
 name|getConfiguration
 argument_list|()
 operator|.
-name|shouldRepeat
+name|isRepeat
 argument_list|()
 return|;
 block|}
@@ -661,7 +661,7 @@ return|return
 name|getConfiguration
 argument_list|()
 operator|.
-name|shouldCreate
+name|isCreate
 argument_list|()
 return|;
 block|}

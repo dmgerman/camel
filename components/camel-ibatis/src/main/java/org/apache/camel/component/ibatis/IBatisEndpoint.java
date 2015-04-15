@@ -257,13 +257,25 @@ name|statement
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|useTransactions
 specifier|private
 name|boolean
 name|useTransactions
+init|=
+literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|statementType
 specifier|private
 name|StatementType
@@ -271,6 +283,15 @@ name|statementType
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"0"
+argument_list|)
 DECL|field|maxMessagesPerPoll
 specifier|private
 name|int
@@ -278,6 +299,11 @@ name|maxMessagesPerPoll
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|strategy
 specifier|private
 name|IBatisProcessingStrategy
@@ -285,6 +311,15 @@ name|strategy
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"TRANSACTION_REPEATABLE_READ"
+argument_list|,
+name|enums
+operator|=
+literal|"TRANSACTION_NONE,TRANSACTION_READ_UNCOMMITTED,TRANSACTION_READ_COMMITTED,TRANSACTION_REPEATABLE_READ,TRANSACTION_SERIALIZABLE"
+argument_list|)
 DECL|field|isolation
 specifier|private
 name|String
@@ -428,7 +463,6 @@ return|return
 name|consumer
 return|;
 block|}
-comment|/**      * Gets the iBatis SqlMapClient      */
 DECL|method|getSqlMapClient ()
 specifier|public
 name|SqlMapClient
@@ -445,7 +479,6 @@ name|getSqlMapClient
 argument_list|()
 return|;
 block|}
-comment|/**      * Gets the IbatisProcessingStrategy to to use when consuming messages from the database      */
 DECL|method|getProcessingStrategy ()
 specifier|public
 name|IBatisProcessingStrategy
@@ -458,6 +491,7 @@ return|return
 name|strategy
 return|;
 block|}
+comment|/**      * Allows to plugin a custom {@link IBatisProcessingStrategy} to use by the consumer.      */
 DECL|method|setStrategy (IBatisProcessingStrategy strategy)
 specifier|public
 name|void
@@ -474,7 +508,6 @@ operator|=
 name|strategy
 expr_stmt|;
 block|}
-comment|/**      * Statement to run when polling or processing      */
 DECL|method|getStatement ()
 specifier|public
 name|String
@@ -485,7 +518,7 @@ return|return
 name|statement
 return|;
 block|}
-comment|/**      * Statement to run when polling or processing      */
+comment|/**      * The statement name in the iBatis XML mapping file which maps to the query, insert, update or delete operation you wish to evaluate.      */
 DECL|method|setStatement (String statement)
 specifier|public
 name|void
@@ -502,7 +535,6 @@ operator|=
 name|statement
 expr_stmt|;
 block|}
-comment|/**      * Indicates if transactions should be used when calling statements.  Useful if using a comma separated list when      * consuming records.      */
 DECL|method|isUseTransactions ()
 specifier|public
 name|boolean
@@ -513,7 +545,7 @@ return|return
 name|useTransactions
 return|;
 block|}
-comment|/**      * Sets indicator to use transactions for consuming and error handling statements.      */
+comment|/**      * Whether to use transactions.      *<p/>      * This option is by default true.      */
 DECL|method|setUseTransactions (boolean useTransactions)
 specifier|public
 name|void
@@ -540,6 +572,7 @@ return|return
 name|statementType
 return|;
 block|}
+comment|/**      * Mandatory to specify for the producer to control which kind of operation to invoke.      */
 DECL|method|setStatementType (StatementType statementType)
 specifier|public
 name|void
@@ -566,6 +599,7 @@ return|return
 name|maxMessagesPerPoll
 return|;
 block|}
+comment|/**      * This option is intended to split results returned by the database pool into the batches and deliver them in multiple exchanges.      * This integer defines the maximum messages to deliver in single exchange. By default, no maximum is set.      * Can be used to set a limit of e.g. 1000 to avoid when starting up the server that there are thousands of files.      * Set a value of 0 or negative to disable it.      */
 DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
 specifier|public
 name|void
@@ -594,6 +628,7 @@ return|return
 name|isolation
 return|;
 block|}
+comment|/**      * Transaction isolation level      */
 DECL|method|setIsolation (String isolation)
 specifier|public
 name|void

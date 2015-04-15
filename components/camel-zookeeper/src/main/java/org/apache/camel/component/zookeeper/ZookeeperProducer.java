@@ -1099,7 +1099,7 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|shouldCreate
+name|isCreate
 argument_list|()
 condition|)
 block|{
@@ -1471,7 +1471,7 @@ argument_list|()
 operator|&&
 name|configuration
 operator|.
-name|shouldCreate
+name|isCreate
 argument_list|()
 operator|&&
 name|result
@@ -1563,7 +1563,7 @@ argument_list|()
 operator|&&
 name|configuration
 operator|.
-name|shouldCreate
+name|isCreate
 argument_list|()
 operator|&&
 name|result

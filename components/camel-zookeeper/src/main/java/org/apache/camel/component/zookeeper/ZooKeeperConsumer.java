@@ -878,7 +878,7 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|shouldRepeat
+name|isRepeat
 argument_list|()
 condition|)
 block|{

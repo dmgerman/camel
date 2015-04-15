@@ -134,12 +134,6 @@ name|ZooKeeperConfiguration
 implements|implements
 name|Cloneable
 block|{
-DECL|field|changed
-specifier|private
-specifier|transient
-name|boolean
-name|changed
-decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -193,6 +187,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"5000"
@@ -211,6 +209,8 @@ name|defaultValue
 operator|=
 literal|"true"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|field|awaitExistence
 specifier|private
 name|boolean
@@ -220,6 +220,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|repeat
 specifier|private
 name|boolean
@@ -234,13 +239,31 @@ name|listChildren
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|shouldCreate
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|create
 specifier|private
 name|boolean
-name|shouldCreate
+name|create
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|enums
+operator|=
+literal|"PERSISTENT,PERSISTENT_SEQUENTIAL,EPHEMERAL,EPHEMERAL_SEQUENTIAL"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"EPHEMERAL"
+argument_list|)
 DECL|field|createMode
 specifier|private
 name|String
@@ -249,6 +272,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -293,10 +320,37 @@ argument_list|(
 name|server
 argument_list|)
 expr_stmt|;
-name|changed
-operator|=
-literal|true
-expr_stmt|;
+block|}
+DECL|method|copy ()
+specifier|public
+name|ZooKeeperConfiguration
+name|copy
+parameter_list|()
+block|{
+try|try
+block|{
+return|return
+operator|(
+name|ZooKeeperConfiguration
+operator|)
+name|clone
+argument_list|()
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|CloneNotSupportedException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|getServers ()
 specifier|public
@@ -390,6 +444,7 @@ return|return
 name|timeout
 return|;
 block|}
+comment|/**      * The time interval to wait on connection before timing out.      */
 DECL|method|setTimeout (int timeout)
 specifier|public
 name|void
@@ -405,10 +460,6 @@ name|timeout
 operator|=
 name|timeout
 expr_stmt|;
-name|changed
-operator|=
-literal|true
-expr_stmt|;
 block|}
 DECL|method|isListChildren ()
 specifier|public
@@ -420,6 +471,7 @@ return|return
 name|listChildren
 return|;
 block|}
+comment|/**      * Whether the children of the node should be listed      */
 DECL|method|setListChildren (boolean listChildren)
 specifier|public
 name|void
@@ -435,27 +487,6 @@ name|listChildren
 operator|=
 name|listChildren
 expr_stmt|;
-block|}
-DECL|method|clearChanged ()
-specifier|public
-name|void
-name|clearChanged
-parameter_list|()
-block|{
-name|changed
-operator|=
-literal|false
-expr_stmt|;
-block|}
-DECL|method|isChanged ()
-specifier|public
-name|boolean
-name|isChanged
-parameter_list|()
-block|{
-return|return
-name|changed
-return|;
 block|}
 DECL|method|getConnectString ()
 specifier|public
@@ -510,7 +541,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * The zookeeper path      */
+comment|/**      * The node in the ZooKeeper server (aka znode)      */
 DECL|method|setPath (String path)
 specifier|public
 name|void
@@ -537,16 +568,17 @@ return|return
 name|path
 return|;
 block|}
-DECL|method|shouldRepeat ()
+DECL|method|isRepeat ()
 specifier|public
 name|boolean
-name|shouldRepeat
+name|isRepeat
 parameter_list|()
 block|{
 return|return
 name|repeat
 return|;
 block|}
+comment|/**      * Should changes to the znode be 'watched' and repeatedly processed.      */
 DECL|method|setRepeat (boolean repeat)
 specifier|public
 name|void
@@ -563,37 +595,6 @@ operator|=
 name|repeat
 expr_stmt|;
 block|}
-DECL|method|copy ()
-specifier|public
-name|ZooKeeperConfiguration
-name|copy
-parameter_list|()
-block|{
-try|try
-block|{
-return|return
-operator|(
-name|ZooKeeperConfiguration
-operator|)
-name|clone
-argument_list|()
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|CloneNotSupportedException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-name|e
-argument_list|)
-throw|;
-block|}
-block|}
 comment|/**      * @deprecated The usage of this option has no effect at all.      */
 annotation|@
 name|Deprecated
@@ -607,7 +608,7 @@ return|return
 name|awaitExistence
 return|;
 block|}
-comment|/**      * @deprecated The usage of this option has no effect at all.      */
+comment|/**      * Not in use      * @deprecated The usage of this option has no effect at all.      */
 annotation|@
 name|Deprecated
 DECL|method|setAwaitExistence (boolean awaitExistence)
@@ -636,6 +637,7 @@ return|return
 name|backoff
 return|;
 block|}
+comment|/**      * The time interval to backoff for after an error before retrying.      */
 DECL|method|setBackoff (long backoff)
 specifier|public
 name|void
@@ -652,6 +654,17 @@ operator|=
 name|backoff
 expr_stmt|;
 block|}
+DECL|method|isCreate ()
+specifier|public
+name|boolean
+name|isCreate
+parameter_list|()
+block|{
+return|return
+name|create
+return|;
+block|}
+comment|/**      * Should the endpoint create the node if it does not currently exist.      */
 DECL|method|setCreate (boolean shouldCreate)
 specifier|public
 name|void
@@ -663,20 +676,10 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|shouldCreate
+name|create
 operator|=
 name|shouldCreate
 expr_stmt|;
-block|}
-DECL|method|shouldCreate ()
-specifier|public
-name|boolean
-name|shouldCreate
-parameter_list|()
-block|{
-return|return
-name|shouldCreate
-return|;
 block|}
 DECL|method|getCreateMode ()
 specifier|public
@@ -688,6 +691,7 @@ return|return
 name|createMode
 return|;
 block|}
+comment|/**      * The create mode that should be used for the newly created node      */
 DECL|method|setCreateMode (String createMode)
 specifier|public
 name|void
@@ -714,6 +718,7 @@ return|return
 name|sendEmptyMessageOnDelete
 return|;
 block|}
+comment|/**      * Upon the delete of a znode, should an empty message be send to the consumer      */
 DECL|method|setSendEmptyMessageOnDelete (boolean sendEmptyMessageOnDelete)
 specifier|public
 name|void

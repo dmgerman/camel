@@ -237,6 +237,7 @@ return|return
 name|applicationContext
 return|;
 block|}
+comment|/**      * The Spring ApplicationContext      */
 DECL|method|setApplicationContext (ApplicationContext applicationContext)
 specifier|public
 name|void

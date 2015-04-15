@@ -341,6 +341,11 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"URL to a local resource on the classpath or a full URL to a remote resource or resource on the file system which contains the XSD to validate against."
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -361,6 +366,10 @@ operator|=
 name|XMLConstants
 operator|.
 name|W3C_XML_SCHEMA_NS_URI
+argument_list|,
+name|description
+operator|=
+literal|"Configures the W3C XML Schema Namespace URI."
 argument_list|)
 DECL|field|schemaLanguage
 specifier|private
@@ -373,6 +382,11 @@ name|W3C_XML_SCHEMA_NS_URI
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"To use a custom javax.xml.validation.SchemaFactory"
+argument_list|)
 DECL|field|schemaFactory
 specifier|private
 name|SchemaFactory
@@ -380,6 +394,11 @@ name|schemaFactory
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"To use a custom org.apache.camel.processor.validation.ValidatorErrorHandler. The default error handler captures the errors and throws an exception."
+argument_list|)
 DECL|field|errorHandler
 specifier|private
 name|ValidatorErrorHandler
@@ -391,6 +410,11 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"Whether DOMSource/DOMResult or SaxSource/SaxResult should be used by the validator."
+argument_list|)
 DECL|field|useDom
 specifier|private
 name|boolean
@@ -402,6 +426,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Whether the Schema instance should be shared or not. This option is introduced to work around a JDK 1.6.x bug. Xerces should not have this issue."
 argument_list|)
 DECL|field|useSharedSchema
 specifier|private
@@ -412,6 +440,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"To use a custom LSResourceResolver"
+argument_list|)
 DECL|field|resourceResolver
 specifier|private
 name|LSResourceResolver
@@ -423,6 +456,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Whether to fail if no body exists."
 argument_list|)
 DECL|field|failOnNullBody
 specifier|private
@@ -437,6 +474,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Whether to fail if no header exists when validating against a header."
 argument_list|)
 DECL|field|failOnNullHeader
 specifier|private
@@ -447,6 +488,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"To validate against a header instead of the message body."
+argument_list|)
 DECL|field|headerName
 specifier|private
 name|String

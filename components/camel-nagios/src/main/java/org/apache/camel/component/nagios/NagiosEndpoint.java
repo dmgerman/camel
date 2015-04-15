@@ -342,6 +342,7 @@ return|return
 name|sendSync
 return|;
 block|}
+comment|/**      * Whether or not to use synchronous when sending a passive check.      * Setting it to false will allow Camel to continue routing the message and the passive check message will be send asynchronously.      */
 DECL|method|setSendSync (boolean sendSync)
 specifier|public
 name|void
