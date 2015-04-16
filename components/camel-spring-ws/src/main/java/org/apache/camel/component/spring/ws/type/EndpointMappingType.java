@@ -68,6 +68,12 @@ argument_list|(
 literal|"uri:"
 argument_list|)
 block|,
+DECL|enumConstant|URI_PATH
+name|URI_PATH
+argument_list|(
+literal|"uripath:"
+argument_list|)
+block|,
 DECL|enumConstant|BEANNAME
 name|BEANNAME
 argument_list|(
