@@ -1439,9 +1439,10 @@ argument_list|(
 literal|"xmpp://camel-user@localhost:123/test-user@localhost?password=RAW(foo %% bar)&serviceName=some chat"
 argument_list|)
 decl_stmt|;
+comment|// Just make sure the RAW parameter can be resolved rightly, we need to replace the % into %25
 name|assertEquals
 argument_list|(
-literal|"xmpp://camel-user@localhost:123/test-user@localhost?password=RAW(foo %% bar)&serviceName=some+chat"
+literal|"xmpp://camel-user@localhost:123/test-user@localhost?password=RAW(foo %25%25 bar)&serviceName=some+chat"
 argument_list|,
 name|out2
 argument_list|)
@@ -1569,6 +1570,49 @@ expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"RAW(++?)w&rd)"
+argument_list|,
+name|map
+operator|.
+name|get
+argument_list|(
+literal|"password"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"somechat"
+argument_list|,
+name|map
+operator|.
+name|get
+argument_list|(
+literal|"serviceName"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|map
+operator|=
+name|URISupport
+operator|.
+name|parseQuery
+argument_list|(
+literal|"password=RAW(%2520w&rd)&serviceName=somechat"
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|2
+argument_list|,
+name|map
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"RAW(%2520w&rd)"
 argument_list|,
 name|map
 operator|.

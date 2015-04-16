@@ -1959,12 +1959,27 @@ name|RAW_TOKEN_END
 argument_list|)
 condition|)
 block|{
-comment|// do not encode RAW parameters
+comment|// do not encode RAW parameters unless it has %
+comment|// need to replace % with %25 to avoid losing "%" when decoding
+name|String
+name|s
+init|=
+name|StringHelper
+operator|.
+name|replaceAll
+argument_list|(
+name|value
+argument_list|,
+literal|"%"
+argument_list|,
+literal|"%25"
+argument_list|)
+decl_stmt|;
 name|rc
 operator|.
 name|append
 argument_list|(
-name|value
+name|s
 argument_list|)
 expr_stmt|;
 block|}
@@ -2133,6 +2148,8 @@ operator|.
 name|encode
 argument_list|(
 name|uri
+argument_list|,
+literal|true
 argument_list|)
 argument_list|)
 decl_stmt|;
