@@ -118,7 +118,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"jetty:http://0.0.0.0:"
+literal|"jetty:http://127.0.0.1:"
 operator|+
 name|port1
 operator|+
@@ -175,7 +175,7 @@ argument_list|()
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://0.0.0.0:"
+literal|"jetty:http://127.0.0.1:"
 operator|+
 name|port1
 operator|+
@@ -184,7 +184,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jetty:http://0.0.0.0:"
+literal|"jetty:http://127.0.0.1:"
 operator|+
 name|port2
 operator|+
@@ -193,7 +193,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://0.0.0.0:"
+literal|"jetty:http://127.0.0.1:"
 operator|+
 name|port2
 operator|+

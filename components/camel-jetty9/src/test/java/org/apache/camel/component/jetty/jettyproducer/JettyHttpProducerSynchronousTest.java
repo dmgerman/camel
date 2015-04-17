@@ -113,7 +113,7 @@ specifier|private
 name|String
 name|url
 init|=
-literal|"jetty://http://0.0.0.0:"
+literal|"jetty://http://127.0.0.1:"
 operator|+
 name|getPort
 argument_list|()

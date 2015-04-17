@@ -158,7 +158,7 @@ name|Exchange
 operator|.
 name|HTTP_URL
 argument_list|,
-literal|"http://0.0.0.0:"
+literal|"http://127.0.0.1:"
 operator|+
 name|getPort
 argument_list|()
@@ -203,7 +203,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"jetty:http://0.0.0.0:{{port}}/foo"
+literal|"jetty:http://127.0.0.1:{{port}}/foo"
 argument_list|,
 name|data
 argument_list|,
@@ -294,7 +294,7 @@ name|Exchange
 operator|.
 name|HTTP_URL
 argument_list|,
-literal|"http://0.0.0.0:"
+literal|"http://127.0.0.1:"
 operator|+
 name|getPort
 argument_list|()
@@ -339,7 +339,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"jetty:http://0.0.0.0:{{port}}/foo"
+literal|"jetty:http://127.0.0.1:{{port}}/foo"
 argument_list|,
 name|data
 argument_list|,
@@ -393,7 +393,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://0.0.0.0:{{port}}/foo"
+literal|"jetty:http://127.0.0.1:{{port}}/foo"
 argument_list|)
 operator|.
 name|to
