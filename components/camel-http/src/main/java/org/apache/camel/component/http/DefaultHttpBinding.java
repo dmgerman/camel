@@ -955,6 +955,14 @@ operator|.
 name|deserializeJavaObjectFromStream
 argument_list|(
 name|is
+argument_list|,
+name|message
+operator|.
+name|getExchange
+argument_list|()
+operator|.
+name|getContext
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if

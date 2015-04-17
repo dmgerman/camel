@@ -1845,6 +1845,11 @@ operator|.
 name|deserializeJavaObjectFromStream
 argument_list|(
 name|response
+argument_list|,
+name|exchange
+operator|.
+name|getContext
+argument_list|()
 argument_list|)
 return|;
 block|}
