@@ -116,6 +116,10 @@ name|scheme
 operator|=
 literal|"pdf"
 argument_list|,
+name|title
+operator|=
+literal|"Pdf"
+argument_list|,
 name|syntax
 operator|=
 literal|"pdf:operation"
