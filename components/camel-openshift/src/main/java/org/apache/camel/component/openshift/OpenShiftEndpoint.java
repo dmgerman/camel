@@ -280,6 +280,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|enums
 operator|=
 literal|"list,start,stop,restart,state"
@@ -291,6 +295,11 @@ name|operation
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|application
 specifier|private
 name|String
@@ -298,6 +307,15 @@ name|application
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|enums
+operator|=
+literal|"pojo,json"
+argument_list|)
 DECL|field|mode
 specifier|private
 name|String
@@ -493,6 +511,7 @@ return|return
 name|username
 return|;
 block|}
+comment|/**      * The username to login to openshift server.      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -519,6 +538,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * The password for login to openshift server.      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -545,6 +565,7 @@ return|return
 name|clientId
 return|;
 block|}
+comment|/**      * The client id      */
 DECL|method|setClientId (String clientId)
 specifier|public
 name|void
@@ -571,6 +592,7 @@ return|return
 name|domain
 return|;
 block|}
+comment|/**      * Domain name. If not specified then the default domain is used.      */
 DECL|method|setDomain (String domain)
 specifier|public
 name|void
@@ -597,6 +619,7 @@ return|return
 name|server
 return|;
 block|}
+comment|/**      * Url to the openshift server.      * If not specified then the default value from the local openshift configuration file ~/.openshift/express.conf is used.      * And if that fails as well then "openshift.redhat.com" is used.      */
 DECL|method|setServer (String server)
 specifier|public
 name|void
@@ -623,6 +646,7 @@ return|return
 name|operation
 return|;
 block|}
+comment|/**      * The operation to perform which can be: list, start, stop, restart, and state.      * The list operation returns information about all the applications in json format.      * The state operation returns the state such as: started, stopped etc.      * The other operations does not return any value.      */
 DECL|method|setOperation (String operation)
 specifier|public
 name|void
@@ -668,6 +692,7 @@ return|return
 name|application
 return|;
 block|}
+comment|/**      * The application name to start, stop, restart, or get the state.      */
 DECL|method|setApplication (String application)
 specifier|public
 name|void
@@ -694,6 +719,7 @@ return|return
 name|mode
 return|;
 block|}
+comment|/**      * Whether to output the message body as a pojo or json. For pojo the message is a List<com.openshift.client.IApplication> type.      */
 DECL|method|setMode (String mode)
 specifier|public
 name|void

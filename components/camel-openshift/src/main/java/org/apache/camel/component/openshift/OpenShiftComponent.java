@@ -185,6 +185,7 @@ return|return
 name|username
 return|;
 block|}
+comment|/**      * The username to login to openshift server.      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -211,6 +212,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * The password for login to openshift server.      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -237,6 +239,7 @@ return|return
 name|domain
 return|;
 block|}
+comment|/**      * Domain name. If not specified then the default domain is used.      */
 DECL|method|setDomain (String domain)
 specifier|public
 name|void
@@ -263,6 +266,7 @@ return|return
 name|server
 return|;
 block|}
+comment|/**      * Url to the openshift server.      * If not specified then the default value from the local openshift configuration file ~/.openshift/express.conf is used.      * And if that fails as well then "openshift.redhat.com" is used.      */
 DECL|method|setServer (String server)
 specifier|public
 name|void

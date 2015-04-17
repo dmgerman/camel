@@ -99,6 +99,7 @@ return|return
 name|mapHeaders
 return|;
 block|}
+comment|/**      * If this option is enabled, then during binding from Spark to Camel Message then the headers will be mapped as well      * (eg added as header to the Camel Message as well). You can turn off this option to disable this.      * The headers can still be accessed from the org.apache.camel.component.sparkrest.SparkMessage message with the      * method getRequest() that returns the Spark HTTP request instance.      */
 DECL|method|setMapHeaders (boolean mapHeaders)
 specifier|public
 name|void
@@ -125,6 +126,7 @@ return|return
 name|disableStreamCache
 return|;
 block|}
+comment|/**      * Determines whether or not the raw input stream from Spark HttpRequest#getContent() is cached or not      * (Camel will read the stream into a in light-weight memory based Stream caching) cache.      * By default Camel will cache the Netty input stream to support reading it multiple times to ensure Camel      * can retrieve all data from the stream. However you can set this option to true when you for example need      * to access the raw stream, such as streaming it directly to a file or other persistent store.      * Mind that if you enable this option, then you cannot read the Netty stream multiple times out of the box,      * and you would need manually to reset the reader index on the Spark raw stream.      */
 DECL|method|setDisableStreamCache (boolean disableStreamCache)
 specifier|public
 name|void
@@ -151,6 +153,7 @@ return|return
 name|urlDecodeHeaders
 return|;
 block|}
+comment|/**      * If this option is enabled, then during binding from Spark to Camel Message then the header values will be URL decoded (eg %20 will be a space character.)      */
 DECL|method|setUrlDecodeHeaders (boolean urlDecodeHeaders)
 specifier|public
 name|void
@@ -177,6 +180,7 @@ return|return
 name|transferException
 return|;
 block|}
+comment|/**      * If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back serialized      * in the response as a application/x-java-serialized-object content type.      */
 DECL|method|setTransferException (boolean transferException)
 specifier|public
 name|void

@@ -199,6 +199,11 @@ name|DefaultEndpoint
 block|{
 annotation|@
 name|UriPath
+argument_list|(
+name|enums
+operator|=
+literal|"get,post,put,patch,delete,head,trace,connect,options"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -275,6 +280,7 @@ return|return
 name|sparkConfiguration
 return|;
 block|}
+comment|/**      * To use the SparkConfiguration      */
 DECL|method|setSparkConfiguration (SparkConfiguration sparkConfiguration)
 specifier|public
 name|void
@@ -301,6 +307,7 @@ return|return
 name|sparkBinding
 return|;
 block|}
+comment|/**      * To use a custom SparkBinding to map to/from Camel message.      */
 DECL|method|setSparkBinding (SparkBinding sparkBinding)
 specifier|public
 name|void
@@ -327,6 +334,7 @@ return|return
 name|verb
 return|;
 block|}
+comment|/**      * get, post, put, patch, delete, head, trace, connect, or options.      */
 DECL|method|setVerb (String verb)
 specifier|public
 name|void
@@ -353,6 +361,7 @@ return|return
 name|path
 return|;
 block|}
+comment|/**      * The content path which support Spark syntax.      */
 DECL|method|setPath (String path)
 specifier|public
 name|void
@@ -379,6 +388,7 @@ return|return
 name|accept
 return|;
 block|}
+comment|/**      * Accept type such as: 'text/xml', or 'application/json'. By default we accept all kinds of types.      */
 DECL|method|setAccept (String accept)
 specifier|public
 name|void

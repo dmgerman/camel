@@ -288,6 +288,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * Port number.      *<p/>      * Will by default use 4567      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -314,6 +315,7 @@ return|return
 name|ipAddress
 return|;
 block|}
+comment|/**      * Set the IP address that Spark should listen on. If not called the default address is '0.0.0.0'.      */
 DECL|method|setIpAddress (String ipAddress)
 specifier|public
 name|void
@@ -340,6 +342,7 @@ return|return
 name|sparkConfiguration
 return|;
 block|}
+comment|/**      * To use the shared SparkConfiguration      */
 DECL|method|setSparkConfiguration (SparkConfiguration sparkConfiguration)
 specifier|public
 name|void
@@ -366,6 +369,7 @@ return|return
 name|sparkBinding
 return|;
 block|}
+comment|/**      * To use a custom SparkBinding to map to/from Camel message.      */
 DECL|method|setSparkBinding (SparkBinding sparkBinding)
 specifier|public
 name|void
