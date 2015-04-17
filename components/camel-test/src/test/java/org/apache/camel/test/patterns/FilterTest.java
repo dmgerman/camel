@@ -151,6 +151,18 @@ name|ProducerTemplate
 name|template
 decl_stmt|;
 annotation|@
+name|Override
+DECL|method|isDumpRouteStats ()
+specifier|public
+name|boolean
+name|isDumpRouteStats
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
 name|Test
 DECL|method|testSendMatchingMessage ()
 specifier|public
