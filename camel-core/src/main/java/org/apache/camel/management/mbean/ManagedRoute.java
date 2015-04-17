@@ -2500,6 +2500,11 @@ name|ManagementStrategy
 name|strategy
 parameter_list|)
 block|{
+name|exchangesInFlightKeys
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|exchangesInFlightStartTimestamps
 operator|.
 name|clear
@@ -2542,9 +2547,12 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|InFlightKey
+name|oldKey
+init|=
 name|exchangesInFlightKeys
 operator|.
-name|put
+name|putIfAbsent
 argument_list|(
 name|exchange
 operator|.
@@ -2553,7 +2561,16 @@ argument_list|()
 argument_list|,
 name|key
 argument_list|)
-expr_stmt|;
+decl_stmt|;
+comment|// we may already have the exchange being processed so only add to timestamp if its a new exchange
+comment|// for example when people call the same routes recursive
+if|if
+condition|(
+name|oldKey
+operator|==
+literal|null
+condition|)
+block|{
 name|exchangesInFlightStartTimestamps
 operator|.
 name|put
@@ -2565,6 +2582,7 @@ operator|.
 name|timeStamp
 argument_list|)
 expr_stmt|;
+block|}
 name|super
 operator|.
 name|processExchange
