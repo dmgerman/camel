@@ -281,7 +281,10 @@ name|Override
 specifier|protected
 name|void
 name|postPollCheck
-parameter_list|()
+parameter_list|(
+name|int
+name|polledMessages
+parameter_list|)
 block|{
 name|post
 operator|=

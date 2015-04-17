@@ -827,7 +827,9 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 name|postPollCheck
-argument_list|()
+argument_list|(
+name|polledMessages
+argument_list|)
 expr_stmt|;
 return|return
 name|polledMessages
@@ -1214,12 +1216,15 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Override if required. Perform some checks (and perhaps actions) after we have polled.      */
-DECL|method|postPollCheck ()
+comment|/**      * Override if required. Perform some checks (and perhaps actions) after we have polled.      *      * @param polledMessages number of polled messages      */
+DECL|method|postPollCheck (int polledMessages)
 specifier|protected
 name|void
 name|postPollCheck
-parameter_list|()
+parameter_list|(
+name|int
+name|polledMessages
+parameter_list|)
 block|{
 comment|// noop
 block|}

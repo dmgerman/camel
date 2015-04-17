@@ -394,11 +394,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|postPollCheck ()
+DECL|method|postPollCheck (int polledMessages)
 specifier|protected
 name|void
 name|postPollCheck
-parameter_list|()
+parameter_list|(
+name|int
+name|polledMessages
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -424,6 +427,39 @@ name|remoteServerInformation
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+comment|// if we did not poll any messages, but are configured to disconnect then we need to do this now
+comment|// as there is no exchanges to be routed that otherwise will disconnect from the last UoW
+if|if
+condition|(
+name|polledMessages
+operator|==
+literal|0
+condition|)
+block|{
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|isDisconnect
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"postPollCheck disconnect from: {}"
+argument_list|,
+name|getEndpoint
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|disconnect
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
