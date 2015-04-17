@@ -88,15 +88,7 @@ name|INSERT_RECORDS_AFFECTED
 init|=
 literal|"CamelMongoDbInsertRecordsAffected"
 decl_stmt|;
-DECL|field|LAST_ERROR
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|LAST_ERROR
-init|=
-literal|"CamelMongoDbLastError"
-decl_stmt|;
+comment|//public static final String LAST_ERROR = "CamelMongoDbLastError";
 DECL|field|MULTIUPDATE
 specifier|public
 specifier|static

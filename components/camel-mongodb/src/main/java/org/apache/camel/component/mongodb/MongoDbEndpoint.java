@@ -456,13 +456,6 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|invokeGetLastError
-specifier|private
-name|boolean
-name|invokeGetLastError
-decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|writeConcern
 specifier|private
 name|WriteConcern
@@ -825,8 +818,6 @@ operator|!=
 literal|null
 operator|||
 name|dynamicity
-operator|||
-name|invokeGetLastError
 condition|)
 block|{
 throw|throw
@@ -1740,33 +1731,6 @@ parameter_list|()
 block|{
 return|return
 name|writeConcern
-return|;
-block|}
-comment|/**      * Instructs this endpoint to invoke {@link WriteResult#getLastError()} with every operation. By default, MongoDB does not wait      * for the write operation to occur before returning. If set to true, each exchange will only return after the write operation       * has actually occurred in MongoDB.      *       * @param invokeGetLastError true or false      */
-DECL|method|setInvokeGetLastError (boolean invokeGetLastError)
-specifier|public
-name|void
-name|setInvokeGetLastError
-parameter_list|(
-name|boolean
-name|invokeGetLastError
-parameter_list|)
-block|{
-name|this
-operator|.
-name|invokeGetLastError
-operator|=
-name|invokeGetLastError
-expr_stmt|;
-block|}
-DECL|method|isInvokeGetLastError ()
-specifier|public
-name|boolean
-name|isInvokeGetLastError
-parameter_list|()
-block|{
-return|return
-name|invokeGetLastError
 return|;
 block|}
 comment|/**      * Set the {@link WriteConcern} for write operations on MongoDB, passing in the bean ref to a custom WriteConcern which exists in the Registry.      * You can also use standard WriteConcerns by passing in their key. See the {@link #setWriteConcern(String) setWriteConcern} method.      *       * @param writeConcernRef the name of the bean in the registry that represents the WriteConcern to use      */

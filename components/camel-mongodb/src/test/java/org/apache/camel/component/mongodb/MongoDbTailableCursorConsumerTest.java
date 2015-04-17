@@ -786,7 +786,7 @@ argument_list|)
 expr_stmt|;
 name|cappedTestCollection
 operator|.
-name|ensureIndex
+name|createIndex
 argument_list|(
 literal|"increasing"
 argument_list|)
