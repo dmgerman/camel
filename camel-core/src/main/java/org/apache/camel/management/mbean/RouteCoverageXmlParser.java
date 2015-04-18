@@ -255,13 +255,6 @@ throws|throws
 name|Exception
 block|{
 specifier|final
-name|Document
-name|doc
-decl_stmt|;
-name|SAXParser
-name|parser
-decl_stmt|;
-specifier|final
 name|SAXParserFactory
 name|factory
 init|=
@@ -270,13 +263,15 @@ operator|.
 name|newInstance
 argument_list|()
 decl_stmt|;
+specifier|final
+name|SAXParser
 name|parser
-operator|=
+init|=
 name|factory
 operator|.
 name|newSAXParser
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 specifier|final
 name|DocumentBuilderFactory
 name|docBuilderFactory
@@ -295,13 +290,15 @@ operator|.
 name|newDocumentBuilder
 argument_list|()
 decl_stmt|;
+specifier|final
+name|Document
 name|doc
-operator|=
+init|=
 name|docBuilder
 operator|.
 name|newDocument
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 specifier|final
 name|Stack
 argument_list|<
@@ -332,10 +329,6 @@ operator|new
 name|DefaultHandler
 argument_list|()
 block|{
-specifier|private
-name|Locator
-name|locator
-decl_stmt|;
 annotation|@
 name|Override
 specifier|public
@@ -347,13 +340,7 @@ name|Locator
 name|locator
 parameter_list|)
 block|{
-name|this
-operator|.
-name|locator
-operator|=
-name|locator
-expr_stmt|;
-comment|// Save the locator, so that it can be used later for line tracking when traversing nodes.
+comment|// noop
 block|}
 annotation|@
 name|Override
@@ -664,7 +651,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
-comment|// Is this the root element?
+comment|// is this the root element?
 name|doc
 operator|.
 name|appendChild
@@ -727,7 +714,7 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Outputs text accumulated under the current node
+comment|/**              * outputs text accumulated under the current node              */
 specifier|private
 name|void
 name|addTextIfNeeded
