@@ -66,12 +66,6 @@ name|PUT
 init|=
 literal|"CamelInfinispanOperationPut"
 decl_stmt|;
-DECL|field|PUT_ALL
-name|String
-name|PUT_ALL
-init|=
-literal|"CamelInfinispanOperationPutAll"
-decl_stmt|;
 DECL|field|PUT_IF_ABSENT
 name|String
 name|PUT_IF_ABSENT
