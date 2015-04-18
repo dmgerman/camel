@@ -807,11 +807,11 @@ operator|=
 name|useRouteBuilder
 expr_stmt|;
 block|}
-comment|/**      * Whether to dump route utilization stats at the end of the test.      *<p/>      * This allows tooling or manual inspection of the stats, so you can generate a route trace diagram of which EIPs      * have been in use and which have not. Similar concepts as a code coverage report.      *      * @return<tt>true</tt> to write route stats in an xml file in the<tt>target</tt> directory after the test has finished.      */
-DECL|method|isDumpRouteStats ()
+comment|/**      * Whether to dump route coverage stats at the end of the test.      *<p/>      * This allows tooling or manual inspection of the stats, so you can generate a route trace diagram of which EIPs      * have been in use and which have not. Similar concepts as a code coverage report.      *      * @return<tt>true</tt> to write route coverage status in an xml file in the<tt>target/camel-route-coverage</tt> directory after the test has finished.      */
+DECL|method|isDumpRouteCoverage ()
 specifier|public
 name|boolean
-name|isDumpRouteStats
+name|isDumpRouteCoverage
 parameter_list|()
 block|{
 return|return
@@ -1111,14 +1111,14 @@ argument_list|(
 literal|"setUp test"
 argument_list|)
 expr_stmt|;
-comment|// jmx is enabled if we have configured to use it, or if dump route stats is enabled (it requires JMX)
+comment|// jmx is enabled if we have configured to use it, or if dump route coverage is enabled (it requires JMX)
 name|boolean
 name|jmx
 init|=
 name|useJmx
 argument_list|()
 operator|||
-name|isDumpRouteStats
+name|isDumpRouteCoverage
 argument_list|()
 decl_stmt|;
 if|if
@@ -1650,7 +1650,7 @@ expr_stmt|;
 comment|// if we should dump route stats, then write that to a file
 if|if
 condition|(
-name|isDumpRouteStats
+name|isDumpRouteCoverage
 argument_list|()
 condition|)
 block|{
@@ -1668,7 +1668,7 @@ decl_stmt|;
 name|String
 name|dir
 init|=
-literal|"target/camel-route-stats"
+literal|"target/camel-route-coverage"
 decl_stmt|;
 name|String
 name|name
@@ -1701,7 +1701,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot dump route stats to file as JMX is not enabled. Override useJmx() method to enable JMX in the unit test classes."
+literal|"Cannot dump route coverage to file as JMX is not enabled. Override useJmx() method to enable JMX in the unit test classes."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1712,12 +1712,8 @@ name|xml
 init|=
 name|managedCamelContext
 operator|.
-name|dumpRoutesStatsAsXml
-argument_list|(
-literal|false
-argument_list|,
-literal|true
-argument_list|)
+name|dumpRoutesCoverageAsXml
+argument_list|()
 decl_stmt|;
 name|File
 name|file
@@ -1748,7 +1744,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Dumping route stats to file: "
+literal|"Dumping route coverage to file: "
 operator|+
 name|file
 argument_list|)

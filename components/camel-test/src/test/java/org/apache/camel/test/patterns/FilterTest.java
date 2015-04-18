@@ -152,10 +152,10 @@ name|template
 decl_stmt|;
 annotation|@
 name|Override
-DECL|method|isDumpRouteStats ()
+DECL|method|isDumpRouteCoverage ()
 specifier|public
 name|boolean
-name|isDumpRouteStats
+name|isDumpRouteCoverage
 parameter_list|()
 block|{
 return|return

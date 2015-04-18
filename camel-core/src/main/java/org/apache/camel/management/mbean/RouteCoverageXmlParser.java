@@ -221,7 +221,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An XML parser that uses SAX to enrich route stats in the route dump.  */
+comment|/**  * An XML parser that uses SAX to enrich route stats in the route dump.  *<p/>  * The coverage details:  *<ul>  *<li>exchangesTotal - Total number of exchanges</li>  *<li>totalProcessingTime - Total processing time in millis</li>  *</ul>  * Is included as attributes on the route nodes.  */
 end_comment
 
 begin_class
@@ -231,7 +231,7 @@ specifier|final
 class|class
 name|RouteCoverageXmlParser
 block|{
-comment|/**      * Parses the XML.      *      * @param is the XML content as an input stream      * @return the DOM model      * @throws Exception is thrown if error parsing      */
+comment|/**      * Parses the XML.      *      * @param camelContext the CamelContext      * @param is           the XML content as an input stream      * @return the DOM model of the routes with coverage information stored as attributes      * @throws Exception is thrown if error parsing      */
 DECL|method|parseXml (final CamelContext camelContext, final InputStream is)
 specifier|public
 specifier|static
@@ -517,6 +517,19 @@ name|totalTime
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+elseif|else
+if|if
+condition|(
+literal|"from"
+operator|.
+name|equals
+argument_list|(
+name|qName
+argument_list|)
+condition|)
+block|{
+comment|// TODO: include the stats from the route mbean as that would be the same
 block|}
 else|else
 block|{
