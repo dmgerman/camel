@@ -118,7 +118,7 @@ literal|"pdf"
 argument_list|,
 name|title
 operator|=
-literal|"Pdf"
+literal|"PDF"
 argument_list|,
 name|syntax
 operator|=
@@ -130,7 +130,7 @@ literal|true
 argument_list|,
 name|label
 operator|=
-literal|"pdf"
+literal|"pdf,printing"
 argument_list|)
 DECL|class|PdfEndpoint
 specifier|public
