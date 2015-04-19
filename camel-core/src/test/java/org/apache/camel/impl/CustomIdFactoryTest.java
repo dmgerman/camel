@@ -395,7 +395,7 @@ expr_stmt|;
 comment|// this should take the when path (first to)
 name|assertEquals
 argument_list|(
-literal|"#choice7##to3#"
+literal|"#choice7##to2#"
 argument_list|,
 name|ids
 argument_list|)
@@ -453,7 +453,7 @@ expr_stmt|;
 comment|// this should take the otherwise path
 name|assertEquals
 argument_list|(
-literal|"#choice7##log5##to6#"
+literal|"#choice7##log4##to6#"
 argument_list|,
 name|ids
 argument_list|)
