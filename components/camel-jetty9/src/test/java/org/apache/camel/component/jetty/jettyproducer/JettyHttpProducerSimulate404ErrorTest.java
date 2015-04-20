@@ -192,7 +192,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"http://0.0.0.0:"
+literal|"http://127.0.0.1:"
 operator|+
 name|getPort
 argument_list|()
