@@ -339,7 +339,7 @@ operator|.
 name|getState
 argument_list|()
 operator|.
-name|name
+name|getState
 argument_list|()
 operator|.
 name|toLowerCase
