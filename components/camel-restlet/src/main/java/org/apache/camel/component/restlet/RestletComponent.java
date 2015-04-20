@@ -898,7 +898,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"restle"
+literal|"restlet"
 argument_list|)
 operator|)
 condition|)
