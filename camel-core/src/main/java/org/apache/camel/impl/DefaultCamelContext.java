@@ -5320,6 +5320,8 @@ parameter_list|)
 block|{
 synchronized|synchronized
 init|(
+name|this
+operator|.
 name|routes
 init|)
 block|{
@@ -5349,6 +5351,8 @@ name|Exception
 block|{
 synchronized|synchronized
 init|(
+name|this
+operator|.
 name|routes
 init|)
 block|{
