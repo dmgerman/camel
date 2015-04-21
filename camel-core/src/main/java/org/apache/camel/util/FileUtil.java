@@ -2466,6 +2466,19 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+comment|// need to check first
+if|if
+condition|(
+name|file
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 try|try
 block|{
 return|return
@@ -2481,6 +2494,8 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+comment|// and check again if the file was created as createNewFile may create the file
+comment|// but throw a permission error afterwards when using some NAS
 if|if
 condition|(
 name|file
