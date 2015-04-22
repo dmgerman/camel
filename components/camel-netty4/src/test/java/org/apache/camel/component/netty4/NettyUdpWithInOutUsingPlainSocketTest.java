@@ -396,6 +396,24 @@ operator|+
 name|s
 argument_list|)
 expr_stmt|;
+comment|// just make the remote address is there
+name|assertNotNull
+argument_list|(
+literal|"The remote address header should not be Null"
+argument_list|,
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|NettyConstants
+operator|.
+name|NETTY_REMOTE_ADDRESS
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 argument_list|)

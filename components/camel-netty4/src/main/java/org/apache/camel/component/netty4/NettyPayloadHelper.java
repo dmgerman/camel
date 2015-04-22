@@ -344,6 +344,24 @@ name|sender
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// setup the remote address to the message header at the same time
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|NettyConstants
+operator|.
+name|NETTY_REMOTE_ADDRESS
+argument_list|,
+name|dp
+operator|.
+name|sender
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
