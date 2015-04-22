@@ -728,6 +728,11 @@ specifier|volatile
 name|Service
 name|camelContextService
 decl_stmt|;
+DECL|field|dumpRouteStats
+specifier|protected
+name|boolean
+name|dumpRouteStats
+decl_stmt|;
 DECL|field|useRouteBuilder
 specifier|private
 name|boolean
@@ -774,11 +779,6 @@ argument_list|,
 name|String
 argument_list|>
 argument_list|()
-decl_stmt|;
-DECL|field|dumpRouteStats
-specifier|protected
-name|boolean
-name|dumpRouteStats
 decl_stmt|;
 comment|/**      * Use the RouteBuilder or not      * @return<tt>true</tt> then {@link CamelContext} will be auto started,      *<tt>false</tt> then {@link CamelContext} will<b>not</b> be auto started (you will have to start it manually)      */
 DECL|method|isUseRouteBuilder ()
