@@ -700,7 +700,7 @@ return|return
 name|in
 return|;
 block|}
-comment|/**       * Collects all FileInputStreamCache instances of a temporary file which must be closed      * at the end of the route.      *       * @see CachedOutputStream      *       */
+comment|/**       * Collects all FileInputStreamCache instances of a temporary file which must be closed      * at the end of the route.      *       * @see CachedOutputStream      */
 DECL|class|FileInputStreamCloser
 specifier|static
 class|class
