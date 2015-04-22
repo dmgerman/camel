@@ -132,7 +132,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Loadbalancer already configured to: FailoverLoadBalancer[[]]. Cannot set it to: RoundRobinLoadBalancer"
+literal|"Loadbalancer already configured to: FailoverLoadBalancer. Cannot set it to: RoundRobinLoadBalancer"
 argument_list|,
 name|e
 operator|.
@@ -208,7 +208,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Loadbalancer already configured to: FailoverLoadBalancer[[]]. Cannot set it to: RandomLoadBalancer"
+literal|"Loadbalancer already configured to: FailoverLoadBalancer. Cannot set it to: RandomLoadBalancer"
 argument_list|,
 name|e
 operator|.
@@ -284,7 +284,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Loadbalancer already configured to: RandomLoadBalancer. Cannot set it to: FailoverLoadBalancer[[]]"
+literal|"Loadbalancer already configured to: RandomLoadBalancer. Cannot set it to: FailoverLoadBalancer"
 argument_list|,
 name|e
 operator|.
