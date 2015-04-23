@@ -150,10 +150,6 @@ name|not
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
 DECL|class|PredicateBuilderTest
 specifier|public
@@ -628,12 +624,45 @@ name|p3
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertMatches
+argument_list|(
+name|PredicateBuilder
+operator|.
+name|or
+argument_list|(
+name|p1
+argument_list|,
+name|p2
+argument_list|,
+name|p3
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// maybe a list of predicates?
 name|assertMatches
 argument_list|(
 name|PredicateBuilder
 operator|.
 name|in
+argument_list|(
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|p1
+argument_list|,
+name|p2
+argument_list|,
+name|p3
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertMatches
+argument_list|(
+name|PredicateBuilder
+operator|.
+name|or
 argument_list|(
 name|Arrays
 operator|.
