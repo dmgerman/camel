@@ -159,6 +159,24 @@ name|DOCKER_SECURE
 init|=
 literal|"CamelDockerSecure"
 decl_stmt|;
+DECL|field|DOCKER_FOLLOW_REDIRECT_FILTER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DOCKER_FOLLOW_REDIRECT_FILTER
+init|=
+literal|"CamelDockerFollowRedirectFilter"
+decl_stmt|;
+DECL|field|DOCKER_LOGGING_FILTER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DOCKER_LOGGING_FILTER
+init|=
+literal|"CamelDockerLoggingFilter"
+decl_stmt|;
 comment|/**      * List Images *      */
 DECL|field|DOCKER_FILTER
 specifier|public
