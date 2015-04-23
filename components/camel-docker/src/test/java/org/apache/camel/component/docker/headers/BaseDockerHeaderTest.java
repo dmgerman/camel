@@ -449,6 +449,26 @@ return|return
 name|mockObject
 return|;
 block|}
+DECL|method|getLoggingFilter ()
+specifier|public
+name|boolean
+name|getLoggingFilter
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
+DECL|method|getFollowRedirectFilter ()
+specifier|public
+name|boolean
+name|getFollowRedirectFilter
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|getDefaultParameters ()
 specifier|protected
 name|Map
@@ -546,6 +566,30 @@ operator|.
 name|DOCKER_MAX_TOTAL_CONNECTIONS
 argument_list|,
 name|getMaxTotalConnections
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|parameters
+operator|.
+name|put
+argument_list|(
+name|DockerConstants
+operator|.
+name|DOCKER_LOGGING_FILTER
+argument_list|,
+name|getLoggingFilter
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|parameters
+operator|.
+name|put
+argument_list|(
+name|DockerConstants
+operator|.
+name|DOCKER_FOLLOW_REDIRECT_FILTER
+argument_list|,
+name|getFollowRedirectFilter
 argument_list|()
 argument_list|)
 expr_stmt|;
