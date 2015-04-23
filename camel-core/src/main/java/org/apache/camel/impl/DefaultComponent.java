@@ -362,13 +362,19 @@ argument_list|)
 condition|)
 block|{
 comment|// uri supplied is not really valid
+comment|// we just don't want to log the password setting here
 name|LOG
 operator|.
 name|warn
 argument_list|(
 literal|"Supplied URI '{}' contains unsafe characters, please check encoding"
 argument_list|,
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
 name|uri
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
