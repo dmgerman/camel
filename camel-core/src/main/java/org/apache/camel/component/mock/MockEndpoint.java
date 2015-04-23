@@ -569,7 +569,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Mock endpoint which provides a literate, fluent API for testing routes  * using a<a href="http://jmock.org/">JMock style</a> API.  *<p/>  * The mock endpoint have two set of methods  *<ul>  *<li>expectedXXX or expectsXXX - To set pre conditions, before the test is executed</li>  *<li>assertXXX - To assert assertions, after the test has been executed</li>  *</ul>  * Its<b>important</b> to know the difference between the two set. The former is used to  * set expectations before the test is being started (eg before the mock receives messages).  * The latter is used after the test has been executed, to verify the expectations; or  * other assertions which you can perform after the test has been completed.  *<p/>  *<b>Beware:</b> If you want to expect a mock does not receive any messages, by calling  * {@link #setExpectedMessageCount(int)} with<tt>0</tt>, then take extra care,  * as<tt>0</tt> matches when the tests starts, so you need to set a assert period time  * to let the test run for a while to make sure there are still no messages arrived; for  * that use {@link #setAssertPeriod(long)}.  * An alternative is to use<a href="http://camel.apache.org/notifybuilder.html">NotifyBuilder</a>, and use the notifier  * to know when Camel is done routing some messages, before you call the {@link #assertIsSatisfied()} method on the mocks.  * This allows you to not use a fixed assert period, to speedup testing times.  *  * @version   */
+comment|/**  * A Mock endpoint which provides a literate, fluent API for testing routes  * using a<a href="http://jmock.org/">JMock style</a> API.  *<p/>  * The mock endpoint have two set of methods  *<ul>  *<li>expectedXXX or expectsXXX - To set pre conditions, before the test is executed</li>  *<li>assertXXX - To assert assertions, after the test has been executed</li>  *</ul>  * Its<b>important</b> to know the difference between the two set. The former is used to  * set expectations before the test is being started (eg before the mock receives messages).  * The latter is used after the test has been executed, to verify the expectations; or  * other assertions which you can perform after the test has been completed.  *<p/>  *<b>Beware:</b> If you want to expect a mock does not receive any messages, by calling  * {@link #setExpectedMessageCount(int)} with<tt>0</tt>, then take extra care,  * as<tt>0</tt> matches when the tests starts, so you need to set a assert period time  * to let the test run for a while to make sure there are still no messages arrived; for  * that use {@link #setAssertPeriod(long)}.  * An alternative is to use<a href="http://camel.apache.org/notifybuilder.html">NotifyBuilder</a>, and use the notifier  * to know when Camel is done routing some messages, before you call the {@link #assertIsSatisfied()} method on the mocks.  * This allows you to not use a fixed assert period, to speedup testing times.  *<p/>  *<b>Important:</b> If using {@link #expectedMessageCount(int)} and also {@link #expectedBodiesReceived(java.util.List)} or  * {@link #expectedHeaderReceived(String, Object)} then the latter overrides the number of expected message based on the  * number of values provided in the bodies/headers.  *  * @version   */
 end_comment
 
 begin_class
@@ -2164,7 +2164,7 @@ name|expectedCount
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets an expectation that the given header name& value are received by this endpoint      *<p/>      * You can set multiple expectations for different header names.      * If you set a value of<tt>null</tt> that means we accept either the header is absent, or its value is<tt>null</tt>      */
+comment|/**      * Sets an expectation that the given header name& value are received by this endpoint      *<p/>      * You can set multiple expectations for different header names.      * If you set a value of<tt>null</tt> that means we accept either the header is absent, or its value is<tt>null</tt>      *<p/>      *<b>Important:</b> The number of values must match the expected number of messages, so if you expect 3 messages, then      * there must be 3 values.      *<p/>      *<b>Important:</b> This overrides any previous set value using {@link #expectedMessageCount(int)}      */
 DECL|method|expectedHeaderReceived (final String name, final Object value)
 specifier|public
 name|void
@@ -2376,7 +2376,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that the given header values are received by this      * endpoint in any order      */
+comment|/**      * Adds an expectation that the given header values are received by this      * endpoint in any order.      *<p/>      *<b>Important:</b> The number of values must match the expected number of messages, so if you expect 3 messages, then      * there must be 3 values.      *<p/>      *<b>Important:</b> This overrides any previous set value using {@link #expectedMessageCount(int)}      */
 DECL|method|expectedHeaderValuesReceivedInAnyOrder (final String name, final List<?> values)
 specifier|public
 name|void
@@ -2542,7 +2542,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that the given header values are received by this      * endpoint in any order      */
+comment|/**      * Adds an expectation that the given header values are received by this      * endpoint in any order      *<p/>      *<b>Important:</b> The number of values must match the expected number of messages, so if you expect 3 messages, then      * there must be 3 values.      *<p/>      *<b>Important:</b> This overrides any previous set value using {@link #expectedMessageCount(int)}      */
 DECL|method|expectedHeaderValuesReceivedInAnyOrder (String name, Object... values)
 specifier|public
 name|void
@@ -2809,7 +2809,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that the given body values are received by this      * endpoint in the specified order      */
+comment|/**      * Adds an expectation that the given body values are received by this      * endpoint in the specified order      *<p/>      *<b>Important:</b> The number of values must match the expected number of messages, so if you expect 3 messages, then      * there must be 3 values.      *<p/>      *<b>Important:</b> This overrides any previous set value using {@link #expectedMessageCount(int)}      */
 DECL|method|expectedBodiesReceived (final List<?> bodies)
 specifier|public
 name|void
@@ -3200,7 +3200,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Sets an expectation that the given body values are received by this endpoint      */
+comment|/**      * Sets an expectation that the given body values are received by this endpoint      *<p/>      *<b>Important:</b> The number of bodies must match the expected number of messages, so if you expect 3 messages, then      * there must be 3 bodies.      *<p/>      *<b>Important:</b> This overrides any previous set value using {@link #expectedMessageCount(int)}      */
 DECL|method|expectedBodiesReceived (Object... bodies)
 specifier|public
 name|void
@@ -3345,7 +3345,7 @@ return|return
 name|clause
 return|;
 block|}
-comment|/**      * Adds an expectation that the given body values are received by this      * endpoint in any order      */
+comment|/**      * Adds an expectation that the given body values are received by this      * endpoint in any order      *<p/>      *<b>Important:</b> The number of bodies must match the expected number of messages, so if you expect 3 messages, then      * there must be 3 bodies.      *<p/>      *<b>Important:</b> This overrides any previous set value using {@link #expectedMessageCount(int)}      */
 DECL|method|expectedBodiesReceivedInAnyOrder (final List<?> bodies)
 specifier|public
 name|void
@@ -3481,7 +3481,7 @@ block|}
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds an expectation that the given body values are received by this      * endpoint in any order      */
+comment|/**      * Adds an expectation that the given body values are received by this      * endpoint in any order      *<p/>      *<b>Important:</b> The number of bodies must match the expected number of messages, so if you expect 3 messages, then      * there must be 3 bodies.      *<p/>      *<b>Important:</b> This overrides any previous set value using {@link #expectedMessageCount(int)}      */
 DECL|method|expectedBodiesReceivedInAnyOrder (Object... bodies)
 specifier|public
 name|void
