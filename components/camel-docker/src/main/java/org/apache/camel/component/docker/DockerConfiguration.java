@@ -137,6 +137,13 @@ name|defaultValue
 operator|=
 literal|"localhost"
 argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|host
 specifier|private
 name|String
@@ -150,6 +157,13 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"2375"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
 argument_list|)
 DECL|field|port
 specifier|private
@@ -271,6 +285,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * Docker host      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -297,6 +312,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * Docker port      */
 DECL|method|setPort (Integer port)
 specifier|public
 name|void
@@ -323,6 +339,7 @@ return|return
 name|username
 return|;
 block|}
+comment|/**      * User name to authenticate with      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -349,6 +366,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * Password to authenticate with      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -375,6 +393,7 @@ return|return
 name|email
 return|;
 block|}
+comment|/**      * Email address associated with the user      */
 DECL|method|setEmail (String email)
 specifier|public
 name|void
@@ -401,6 +420,7 @@ return|return
 name|serverAddress
 return|;
 block|}
+comment|/**      * Server address for docker registry.      */
 DECL|method|setServerAddress (String serverAddress)
 specifier|public
 name|void
@@ -427,6 +447,7 @@ return|return
 name|requestTimeout
 return|;
 block|}
+comment|/**      * Request timeout for response (in seconds)      */
 DECL|method|setRequestTimeout (Integer requestTimeout)
 specifier|public
 name|void
@@ -453,6 +474,7 @@ return|return
 name|secure
 return|;
 block|}
+comment|/**      * Use HTTPS communication      */
 DECL|method|setSecure (Boolean secure)
 specifier|public
 name|void
@@ -479,6 +501,7 @@ return|return
 name|certPath
 return|;
 block|}
+comment|/**      * Location containing the SSL certificate chain      */
 DECL|method|setCertPath (String certPath)
 specifier|public
 name|void
@@ -505,6 +528,7 @@ return|return
 name|maxTotalConnections
 return|;
 block|}
+comment|/**      * Maximum total connections      */
 DECL|method|setMaxTotalConnections (Integer maxTotalConnections)
 specifier|public
 name|void
@@ -531,6 +555,7 @@ return|return
 name|maxPerRouteConnections
 return|;
 block|}
+comment|/**      * Maximum route connections      */
 DECL|method|setMaxPerRouteConnections (Integer maxPerRouteConnections)
 specifier|public
 name|void
@@ -562,6 +587,7 @@ return|return
 name|parameters
 return|;
 block|}
+comment|/**      * Additional configuration parameters as key/value pairs      */
 DECL|method|setParameters (Map<String, Object> parameters)
 specifier|public
 name|void
@@ -593,6 +619,7 @@ return|return
 name|operation
 return|;
 block|}
+comment|/**      * Which operation to use      */
 DECL|method|setOperation (DockerOperation operation)
 specifier|public
 name|void

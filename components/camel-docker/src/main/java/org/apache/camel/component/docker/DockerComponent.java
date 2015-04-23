@@ -294,6 +294,7 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+comment|/**      * To use the shared docker configuration      */
 DECL|method|getConfiguration ()
 specifier|protected
 name|DockerConfiguration
@@ -324,6 +325,7 @@ name|clientProfile
 argument_list|)
 return|;
 block|}
+comment|/**      * To use the given docker client      */
 DECL|method|setClient (DockerClientProfile clientProfile, DockerClient client)
 specifier|public
 name|void
