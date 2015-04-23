@@ -1619,7 +1619,7 @@ operator|=
 name|connectionBean
 expr_stmt|;
 block|}
-comment|/**      * Sets the name of the MongoDB collection to bind to this endpoint      *       * @param collection collection name      */
+comment|/**      * Sets the name of the MongoDB collection to bind to this endpoint      *      * @param collection collection name      */
 DECL|method|setCollection (String collection)
 specifier|public
 name|void
@@ -1673,7 +1673,7 @@ return|return
 name|collectionIndex
 return|;
 block|}
-comment|/**      * Sets the operation this endpoint will execute against MongoDB. For possible values, see {@link MongoDbOperation}.      * @param operation name of the operation as per catalogued values      *       * @throws CamelMongoDbException      */
+comment|/**      * Sets the operation this endpoint will execute against MongoDB. For possible values, see {@link MongoDbOperation}.      *      * @param operation name of the operation as per catalogued values      * @throws CamelMongoDbException      */
 DECL|method|setOperation (String operation)
 specifier|public
 name|void
