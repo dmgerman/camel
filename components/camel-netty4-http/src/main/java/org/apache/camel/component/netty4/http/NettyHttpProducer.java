@@ -488,6 +488,13 @@ argument_list|()
 decl_stmt|;
 comment|// Need to retain the ByteBuffer for producer to consumer
 comment|// TODO Remove this part of ByteBuffer right away
+if|if
+condition|(
+name|response
+operator|!=
+literal|null
+condition|)
+block|{
 name|response
 operator|.
 name|content
@@ -496,13 +503,6 @@ operator|.
 name|retain
 argument_list|()
 expr_stmt|;
-if|if
-condition|(
-name|response
-operator|!=
-literal|null
-condition|)
-block|{
 comment|// the actual url is stored on the IN message in the getRequestBody method as its accessed on-demand
 name|String
 name|actualUrl
