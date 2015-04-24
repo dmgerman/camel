@@ -362,7 +362,6 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * @return the executable to be executed; that is the remaining part of the      *         endpoint URI      * @see ExecBinding#EXEC_COMMAND_EXECUTABLE      */
 DECL|method|getExecutable ()
 specifier|public
 name|String
@@ -373,7 +372,7 @@ return|return
 name|executable
 return|;
 block|}
-comment|/**      * Sets the executable to be executed. The executable must not be empty or      *<code>null</code>.      *       * @param executable Sets the executable to be executed.      */
+comment|/**      * Sets the executable to be executed. The executable must not be empty or      *<code>null</code>.      */
 DECL|method|setExecutable (String executable)
 specifier|public
 name|void
@@ -399,7 +398,6 @@ operator|=
 name|executable
 expr_stmt|;
 block|}
-comment|/**      * The arguments may be one or many whitespace-separated tokens, that can be      * quoted with ", e.g.<code>args="arg 1" arg2"</code> will use two arguments      *<code>arg 1</code> and<code>arg2</code>. To include the quotes use      *<code>""</code><br>      * , e.g.<code>args=""arg 1"" arg2</code> will use the arguments      *<code>"arg 1"</code> and<code>arg2</code>.      *       * @return the arguments of the executable application, as configured from      *         the endpoint URI.      * @see ExecBinding#EXEC_COMMAND_ARGS      * @see ExecParseUtils#splitToWhiteSpaceSeparatedTokens(String)      */
 DECL|method|getArgs ()
 specifier|public
 name|String
@@ -410,7 +408,7 @@ return|return
 name|args
 return|;
 block|}
-comment|/**      * Sets the arguments of the executable application      *       * @param args Returns<code>null</code> value if no arguments are      *            configured in the endpoint URI      * @see #getArgs()      * @see ExecBinding#EXEC_COMMAND_ARGS      */
+comment|/**      * The arguments may be one or many whitespace-separated tokens.      */
 DECL|method|setArgs (String args)
 specifier|public
 name|void
@@ -427,7 +425,6 @@ operator|=
 name|args
 expr_stmt|;
 block|}
-comment|/**      * @return the working directory of the executable, or<code>null</code> is      *         such is not set.      * @see ExecBinding#EXEC_COMMAND_WORKING_DIR      */
 DECL|method|getWorkingDir ()
 specifier|public
 name|String
@@ -438,7 +435,7 @@ return|return
 name|workingDir
 return|;
 block|}
-comment|/**      * Sets the working directory of the executable.      *       * @param dir the working directory of the executable.<code>null</code>      *            values indicates that the current working directory will be      *            used.      */
+comment|/**      * The directory in which the command should be executed. If null, the working directory of the current process will be used.      */
 DECL|method|setWorkingDir (String dir)
 specifier|public
 name|void
@@ -455,7 +452,6 @@ operator|=
 name|dir
 expr_stmt|;
 block|}
-comment|/**      * @return The returned value is always a positive<code>long</code>. The      *         default value is {@link ExecEndpoint#NO_TIMEOUT}      * @see ExecBinding#EXEC_COMMAND_TIMEOUT      */
 DECL|method|getTimeout ()
 specifier|public
 name|long
@@ -466,7 +462,7 @@ return|return
 name|timeout
 return|;
 block|}
-comment|/**      * Sets the timeout.      *       * @param timeout The<code>timeout</code> must be a positive long      * @see ExecBinding#EXEC_COMMAND_TIMEOUT      */
+comment|/**      * The timeout, in milliseconds, after which the executable should be terminated. If execution has not completed within the timeout, the component will send a termination request.      */
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
@@ -498,7 +494,6 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
-comment|/**      * @return<code>null</code> if no out file is set, otherwise returns the      *         value of the outFile      * @see ExecBinding#EXEC_COMMAND_OUT_FILE      */
 DECL|method|getOutFile ()
 specifier|public
 name|String
@@ -509,7 +504,7 @@ return|return
 name|outFile
 return|;
 block|}
-comment|/**      * @param outFile a not-empty file path      * @see ExecBinding#EXEC_COMMAND_OUT_FILE      */
+comment|/**      * The name of a file, created by the executable, that should be considered as its output.      * If no outFile is set, the standard output (stdout) of the executable will be used instead.      */
 DECL|method|setOutFile (String outFile)
 specifier|public
 name|void
@@ -535,7 +530,6 @@ operator|=
 name|outFile
 expr_stmt|;
 block|}
-comment|/**      * @return The command executor used to execute commands. Defaults to      *         {@link org.apache.camel.component.exec.impl.DefaultExecCommandExecutor}      */
 DECL|method|getCommandExecutor ()
 specifier|public
 name|ExecCommandExecutor
@@ -546,7 +540,7 @@ return|return
 name|commandExecutor
 return|;
 block|}
-comment|/**      * Sets a custom executor to execute commands.      *       * @param commandExecutor a not-null instance of {@link ExecCommandExecutor}      */
+comment|/**      * A reference to a org.apache.commons.exec.ExecCommandExecutor in the Registry that customizes the command execution.      * The default command executor utilizes the commons-exec library, which adds a shutdown hook for every executed command.      */
 DECL|method|setCommandExecutor (ExecCommandExecutor commandExecutor)
 specifier|public
 name|void
@@ -582,6 +576,7 @@ return|return
 name|binding
 return|;
 block|}
+comment|/**      * A reference to a org.apache.commons.exec.ExecBinding in the Registry.      */
 DECL|method|setBinding (ExecBinding binding)
 specifier|public
 name|void
@@ -617,6 +612,7 @@ return|return
 name|useStderrOnEmptyStdout
 return|;
 block|}
+comment|/**      * A boolean indicating that when stdout is empty, this component will populate the Camel Message Body with stderr. This behavior is disabled (false) by default.      */
 DECL|method|setUseStderrOnEmptyStdout (boolean useStderrOnEmptyStdout)
 specifier|public
 name|void

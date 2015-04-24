@@ -383,6 +383,11 @@ name|DEFAULT_TIME_TO_RUN
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|onFailure
 specifier|private
 name|BeanstalkCommand
@@ -395,6 +400,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -409,6 +418,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -501,6 +514,7 @@ return|return
 name|command
 return|;
 block|}
+comment|/**      * put means to put the job into Beanstalk. Job body is specified in the Camel message body. Job ID will be returned in beanstalk.jobId message header.      * delete, release, touch or bury expect Job ID in the message header beanstalk.jobId. Result of the operation is returned in beanstalk.result message header      * kick expects the number of jobs to kick in the message body and returns the number of jobs actually kicked out in the message header beanstalk.result.      */
 DECL|method|setCommand (BeanstalkCommand command)
 specifier|public
 name|void

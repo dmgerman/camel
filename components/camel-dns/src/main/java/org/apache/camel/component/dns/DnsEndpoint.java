@@ -315,6 +315,7 @@ return|return
 name|dnsType
 return|;
 block|}
+comment|/**      * The type of the lookup.      */
 DECL|method|setDnsType (DnsType dnsType)
 specifier|public
 name|void

@@ -205,6 +205,7 @@ return|return
 name|marshalId
 return|;
 block|}
+comment|/**      * The id of a dataFormat defined within the Camel Context to use for marshalling the mapping output to a non-Java type.      */
 DECL|method|setMarshalId (String marshalId)
 specifier|public
 name|void
@@ -231,6 +232,7 @@ return|return
 name|unmarshalId
 return|;
 block|}
+comment|/**      * The id of a dataFormat defined within the Camel Context to use for unmarshalling the mapping input from a non-Java type.      */
 DECL|method|setUnmarshalId (String unmarshalId)
 specifier|public
 name|void
@@ -257,6 +259,7 @@ return|return
 name|sourceModel
 return|;
 block|}
+comment|/**      * Fully-qualified class name for the source type used in the mapping. If specified, the input to the mapping is converted to the specified type before being mapped with Dozer.      */
 DECL|method|setSourceModel (String sourceModel)
 specifier|public
 name|void
@@ -283,6 +286,7 @@ return|return
 name|targetModel
 return|;
 block|}
+comment|/**      * Fully-qualified class name for the target type used in the mapping.      */
 DECL|method|setTargetModel (String targetModel)
 specifier|public
 name|void
@@ -309,6 +313,7 @@ return|return
 name|name
 return|;
 block|}
+comment|/**      * A human readable name of the mapping.      */
 DECL|method|setName (String name)
 specifier|public
 name|void
@@ -335,6 +340,7 @@ return|return
 name|mappingFile
 return|;
 block|}
+comment|/**      * The location of a Dozer configuration file. The file is loaded from the classpath by default,      * but you can use file:, classpath:, or http: to load the configuration from a specific location.      */
 DECL|method|setMappingFile (String mappingFile)
 specifier|public
 name|void
@@ -361,6 +367,7 @@ return|return
 name|mappingConfiguration
 return|;
 block|}
+comment|/**      * The name of a DozerBeanMapperConfiguration bean in the Camel registry which should be used for configuring the Dozer mapping.      * This is an alternative to the mappingFile option that can be used for fine-grained control over how Dozer is configured.      * Remember to use a "#" prefix in the value to indicate that the bean is in the Camel registry (e.g. "#myDozerConfig").      */
 DECL|method|setMappingConfiguration (DozerBeanMapperConfiguration mappingConfiguration)
 specifier|public
 name|void
