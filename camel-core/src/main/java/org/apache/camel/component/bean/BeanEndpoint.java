@@ -207,6 +207,11 @@ name|processor
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"Sets the name of the bean to invoke"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -221,6 +226,11 @@ name|beanName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"If enabled, Camel will cache the result of the first Registry look-up. Cache can be enabled if the bean in the Registry is defined as a singleton scope."
+argument_list|)
 DECL|field|cache
 specifier|private
 name|boolean
@@ -228,6 +238,13 @@ name|cache
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"How to treat the parameters which are passed from the message body."
+operator|+
+literal|"true means the message body should be an array of parameters. Note: This option is used internally by Camel, and is not intended for end users to use."
+argument_list|)
 annotation|@
 name|Deprecated
 DECL|field|multiParameterArray
@@ -237,6 +254,11 @@ name|multiParameterArray
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"Sets the name of the method to invoke on the bean"
+argument_list|)
 DECL|field|method
 specifier|private
 name|String
@@ -244,6 +266,11 @@ name|method
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"Used for configuring additional properties on the bean"
+argument_list|)
 DECL|field|parameters
 specifier|private
 name|Map

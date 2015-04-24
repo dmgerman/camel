@@ -269,6 +269,7 @@ return|return
 name|context
 return|;
 block|}
+comment|/**      * The Context to use for looking up the EJBs      */
 DECL|method|setContext (Context context)
 specifier|public
 name|void
@@ -295,6 +296,7 @@ return|return
 name|properties
 return|;
 block|}
+comment|/**      * Properties for creating javax.naming.Context if a context has not been configured.      */
 DECL|method|setProperties (Properties properties)
 specifier|public
 name|void
