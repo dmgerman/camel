@@ -247,7 +247,7 @@ if|if
 condition|(
 name|endpoint
 operator|.
-name|isResolvedEnableViewMessages
+name|isEnableViewMessages
 argument_list|()
 condition|)
 block|{

@@ -307,11 +307,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|channel
-specifier|private
-name|Channel
-name|channel
-decl_stmt|;
 DECL|field|connectCount
 specifier|private
 name|AtomicInteger
@@ -322,6 +317,11 @@ name|AtomicInteger
 argument_list|(
 literal|0
 argument_list|)
+decl_stmt|;
+DECL|field|channel
+specifier|private
+name|Channel
+name|channel
 decl_stmt|;
 DECL|field|resolvedChannel
 specifier|private
@@ -351,19 +351,17 @@ name|channelProperties
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|enableViewMessages
 specifier|private
-name|Boolean
+name|boolean
 name|enableViewMessages
 decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|resolvedEnableViewMessages
-specifier|private
-name|boolean
-name|resolvedEnableViewMessages
-decl_stmt|;
-DECL|method|JGroupsEndpoint (String endpointUri, Component component, Channel channel, String clusterName, String channelProperties, Boolean enableViewMessages)
+DECL|method|JGroupsEndpoint (String endpointUri, Component component, Channel channel, String clusterName, String channelProperties, boolean enableViewMessages)
 specifier|public
 name|JGroupsEndpoint
 parameter_list|(
@@ -382,7 +380,7 @@ parameter_list|,
 name|String
 name|channelProperties
 parameter_list|,
-name|Boolean
+name|boolean
 name|enableViewMessages
 parameter_list|)
 block|{
@@ -637,11 +635,6 @@ operator|=
 name|resolveChannel
 argument_list|()
 expr_stmt|;
-name|resolvedEnableViewMessages
-operator|=
-name|resolveEnableViewMessages
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -786,28 +779,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|resolveEnableViewMessages ()
-specifier|private
-name|boolean
-name|resolveEnableViewMessages
-parameter_list|()
-block|{
-if|if
-condition|(
-name|enableViewMessages
-operator|!=
-literal|null
-condition|)
-block|{
-name|resolvedEnableViewMessages
-operator|=
-name|enableViewMessages
-expr_stmt|;
-block|}
-return|return
-name|resolvedEnableViewMessages
-return|;
-block|}
 DECL|method|getChannel ()
 specifier|public
 name|Channel
@@ -818,6 +789,7 @@ return|return
 name|channel
 return|;
 block|}
+comment|/**      * The channel to use      */
 DECL|method|setChannel (Channel channel)
 specifier|public
 name|void
@@ -844,6 +816,7 @@ return|return
 name|clusterName
 return|;
 block|}
+comment|/**      * The name of the JGroups cluster the component should connect to.      */
 DECL|method|setClusterName (String clusterName)
 specifier|public
 name|void
@@ -870,6 +843,7 @@ return|return
 name|channelProperties
 return|;
 block|}
+comment|/**      * Specifies configuration properties of the JChannel used by the endpoint.      */
 DECL|method|setChannelProperties (String channelProperties)
 specifier|public
 name|void
@@ -887,7 +861,6 @@ name|channelProperties
 expr_stmt|;
 block|}
 DECL|method|getResolvedChannel ()
-specifier|public
 name|Channel
 name|getResolvedChannel
 parameter_list|()
@@ -896,38 +869,23 @@ return|return
 name|resolvedChannel
 return|;
 block|}
-DECL|method|setResolvedChannel (Channel resolvedChannel)
+DECL|method|isEnableViewMessages ()
 specifier|public
-name|void
-name|setResolvedChannel
-parameter_list|(
-name|Channel
-name|resolvedChannel
-parameter_list|)
-block|{
-name|this
-operator|.
-name|resolvedChannel
-operator|=
-name|resolvedChannel
-expr_stmt|;
-block|}
-DECL|method|getEnableViewMessages ()
-specifier|public
-name|Boolean
-name|getEnableViewMessages
+name|boolean
+name|isEnableViewMessages
 parameter_list|()
 block|{
 return|return
 name|enableViewMessages
 return|;
 block|}
-DECL|method|setEnableViewMessages (Boolean enableViewMessages)
+comment|/**      * If set to true, the consumer endpoint will receive org.jgroups.View messages as well (not only org.jgroups.Message instances).      * By default only regular messages are consumed by the endpoint.      */
+DECL|method|setEnableViewMessages (boolean enableViewMessages)
 specifier|public
 name|void
 name|setEnableViewMessages
 parameter_list|(
-name|Boolean
+name|boolean
 name|enableViewMessages
 parameter_list|)
 block|{
@@ -936,32 +894,6 @@ operator|.
 name|enableViewMessages
 operator|=
 name|enableViewMessages
-expr_stmt|;
-block|}
-DECL|method|isResolvedEnableViewMessages ()
-specifier|public
-name|boolean
-name|isResolvedEnableViewMessages
-parameter_list|()
-block|{
-return|return
-name|resolvedEnableViewMessages
-return|;
-block|}
-DECL|method|setResolvedEnableViewMessages (boolean resolvedEnableViewMessages)
-specifier|public
-name|void
-name|setResolvedEnableViewMessages
-parameter_list|(
-name|boolean
-name|resolvedEnableViewMessages
-parameter_list|)
-block|{
-name|this
-operator|.
-name|resolvedEnableViewMessages
-operator|=
-name|resolvedEnableViewMessages
 expr_stmt|;
 block|}
 block|}

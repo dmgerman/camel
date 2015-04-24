@@ -88,7 +88,7 @@ name|channelProperties
 decl_stmt|;
 DECL|field|enableViewMessages
 specifier|private
-name|Boolean
+name|boolean
 name|enableViewMessages
 decl_stmt|;
 DECL|method|JGroupsComponent ()
@@ -156,6 +156,7 @@ return|return
 name|channel
 return|;
 block|}
+comment|/**      * Channel to use      */
 DECL|method|setChannel (Channel channel)
 specifier|public
 name|void
@@ -182,6 +183,7 @@ return|return
 name|channelProperties
 return|;
 block|}
+comment|/**      * Specifies configuration properties of the JChannel used by the endpoint.      */
 DECL|method|setChannelProperties (String channelProperties)
 specifier|public
 name|void
@@ -198,22 +200,23 @@ operator|=
 name|channelProperties
 expr_stmt|;
 block|}
-DECL|method|getEnableViewMessages ()
+DECL|method|isEnableViewMessages ()
 specifier|public
-name|Boolean
-name|getEnableViewMessages
+name|boolean
+name|isEnableViewMessages
 parameter_list|()
 block|{
 return|return
 name|enableViewMessages
 return|;
 block|}
-DECL|method|setEnableViewMessages (Boolean enableViewMessages)
+comment|/**      * If set to true, the consumer endpoint will receive org.jgroups.View messages as well (not only org.jgroups.Message instances).      * By default only regular messages are consumed by the endpoint.      */
+DECL|method|setEnableViewMessages (boolean enableViewMessages)
 specifier|public
 name|void
 name|setEnableViewMessages
 parameter_list|(
-name|Boolean
+name|boolean
 name|enableViewMessages
 parameter_list|)
 block|{
