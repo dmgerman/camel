@@ -216,6 +216,7 @@ return|return
 name|configuration
 return|;
 block|}
+comment|/**      * To use the shared SSH configuration      */
 DECL|method|setConfiguration (SshConfiguration configuration)
 specifier|public
 name|void
@@ -246,6 +247,7 @@ name|getHost
 argument_list|()
 return|;
 block|}
+comment|/**      * Sets the hostname of the remote SSH server.      *      * @param host String representing hostname of SSH server.      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -278,6 +280,7 @@ name|getPort
 argument_list|()
 return|;
 block|}
+comment|/**      * Sets the port number for the remote SSH server.      *      * @param port int representing port number on remote host. Defaults to 22.      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -310,6 +313,7 @@ name|getUsername
 argument_list|()
 return|;
 block|}
+comment|/**      * Sets the username to use in logging into the remote SSH server.      *      * @param username String representing login username.      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -342,6 +346,7 @@ name|getPassword
 argument_list|()
 return|;
 block|}
+comment|/**      * Sets the password to use in connecting to remote SSH server.      * Requires keyPairProvider to be set to null.      *      * @param password String representing password for username at remote host.      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -374,6 +379,7 @@ name|getPollCommand
 argument_list|()
 return|;
 block|}
+comment|/**      * Sets the command string to send to the remote SSH server during every poll cycle.      * Only works with camel-ssh component being used as a consumer, i.e. from("ssh://...").      * You may need to end your command with a newline, and that must be URL encoded %0A      *      * @param pollCommand String representing the command to send.      */
 DECL|method|setPollCommand (String pollCommand)
 specifier|public
 name|void
@@ -406,6 +412,7 @@ name|getKeyPairProvider
 argument_list|()
 return|;
 block|}
+comment|/**      * Sets the KeyPairProvider reference to use when connecting using Certificates to the remote SSH Server.      *      * @param keyPairProvider KeyPairProvider reference to use in authenticating. If set to 'null',      *                        then will attempt to connect using username/password settings.      *      * @see KeyPairProvider      */
 DECL|method|setKeyPairProvider (KeyPairProvider keyPairProvider)
 specifier|public
 name|void
@@ -438,6 +445,7 @@ name|getKeyType
 argument_list|()
 return|;
 block|}
+comment|/**      * Sets the key type to pass to the KeyPairProvider as part of authentication.      * KeyPairProvider.loadKey(...) will be passed this value. Defaults to "ssh-rsa".      *      * @param keyType String defining the type of KeyPair to use for authentication.      *      * @see KeyPairProvider      */
 DECL|method|setKeyType (String keyType)
 specifier|public
 name|void
@@ -470,6 +478,7 @@ name|getTimeout
 argument_list|()
 return|;
 block|}
+comment|/**      * Sets the timeout in milliseconds to wait in establishing the remote SSH server connection.      * Defaults to 30000 milliseconds.      *      * @param timeout long milliseconds to wait.      */
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
@@ -489,6 +498,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * @deprecated As of version 2.11, replaced by {@link #getCertResource()}      */
+annotation|@
+name|Deprecated
 DECL|method|getCertFilename ()
 specifier|public
 name|String
@@ -503,7 +514,9 @@ name|getCertFilename
 argument_list|()
 return|;
 block|}
-comment|/**      * @deprecated As of version 2.11, replaced by {@link #setCertResource(String)}      */
+comment|/**      * Sets the resource path of the certificate to use for Authentication.      *      * @deprecated As of version 2.11, replaced by {@link #setCertResource(String)}      */
+annotation|@
+name|Deprecated
 DECL|method|setCertFilename (String certFilename)
 specifier|public
 name|void
@@ -536,6 +549,7 @@ name|getCertResource
 argument_list|()
 return|;
 block|}
+comment|/**      * Sets the resource path of the certificate to use for Authentication.      * Will use {@link ResourceHelperKeyPairProvider} to resolve file based certificate, and depends on keyType setting.      *      * @param certResource String file, classpath, or http url for the certificate      */
 DECL|method|setCertResource (String certResource)
 specifier|public
 name|void
