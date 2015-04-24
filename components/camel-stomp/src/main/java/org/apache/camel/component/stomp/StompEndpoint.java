@@ -409,6 +409,11 @@ name|DefaultEndpoint
 block|{
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"Name of the queue"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(

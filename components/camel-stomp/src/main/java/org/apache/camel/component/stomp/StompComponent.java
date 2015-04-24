@@ -190,6 +190,7 @@ return|return
 name|configuration
 return|;
 block|}
+comment|/**      * To use the shared stomp configuration      */
 DECL|method|setConfiguration (StompConfiguration configuration)
 specifier|public
 name|void
@@ -206,6 +207,7 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+comment|/**      * The URI of the Stomp broker to connect to      */
 DECL|method|setBrokerURL (String brokerURL)
 specifier|public
 name|void
@@ -224,6 +226,7 @@ name|brokerURL
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The username      */
 DECL|method|setLogin (String login)
 specifier|public
 name|void
@@ -242,6 +245,7 @@ name|login
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The password      */
 DECL|method|setPasscode (String passcode)
 specifier|public
 name|void

@@ -40,6 +40,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriParam
 import|;
 end_import
@@ -74,6 +88,13 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"tcp://localhost:61613"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
 argument_list|)
 DECL|field|brokerURL
 specifier|private
@@ -143,6 +164,7 @@ return|return
 name|brokerURL
 return|;
 block|}
+comment|/**      * The URI of the Stomp broker to connect to      */
 DECL|method|setBrokerURL (String brokerURL)
 specifier|public
 name|void
@@ -169,6 +191,7 @@ return|return
 name|login
 return|;
 block|}
+comment|/**      * The username      */
 DECL|method|setLogin (String login)
 specifier|public
 name|void
@@ -195,6 +218,7 @@ return|return
 name|passcode
 return|;
 block|}
+comment|/**      * The password      */
 DECL|method|setPasscode (String passcode)
 specifier|public
 name|void
