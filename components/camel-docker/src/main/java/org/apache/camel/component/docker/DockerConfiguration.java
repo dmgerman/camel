@@ -218,7 +218,7 @@ annotation|@
 name|UriParam
 DECL|field|secure
 specifier|private
-name|Boolean
+name|boolean
 name|secure
 decl_stmt|;
 annotation|@
@@ -258,17 +258,17 @@ literal|100
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|loggingFilterEnabled
+DECL|field|loggingFilter
 specifier|private
-name|Boolean
-name|loggingFilterEnabled
+name|boolean
+name|loggingFilter
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|followRedirectFilterEnabled
+DECL|field|followRedirectFilter
 specifier|private
-name|Boolean
-name|followRedirectFilterEnabled
+name|boolean
+name|followRedirectFilter
 decl_stmt|;
 DECL|field|parameters
 specifier|private
@@ -480,7 +480,7 @@ expr_stmt|;
 block|}
 DECL|method|isSecure ()
 specifier|public
-name|Boolean
+name|boolean
 name|isSecure
 parameter_list|()
 block|{
@@ -489,12 +489,12 @@ name|secure
 return|;
 block|}
 comment|/**      * Use HTTPS communication      */
-DECL|method|setSecure (Boolean secure)
+DECL|method|setSecure (boolean secure)
 specifier|public
 name|void
 name|setSecure
 parameter_list|(
-name|Boolean
+name|boolean
 name|secure
 parameter_list|)
 block|{
@@ -588,52 +588,54 @@ expr_stmt|;
 block|}
 DECL|method|isLoggingFilterEnabled ()
 specifier|public
-name|Boolean
+name|boolean
 name|isLoggingFilterEnabled
 parameter_list|()
 block|{
 return|return
-name|loggingFilterEnabled
+name|loggingFilter
 return|;
 block|}
-DECL|method|setLoggingFilter (Boolean loggingFilterEnabled)
+comment|/**      * Whether to use logging filter      */
+DECL|method|setLoggingFilter (boolean loggingFilterEnabled)
 specifier|public
 name|void
 name|setLoggingFilter
 parameter_list|(
-name|Boolean
+name|boolean
 name|loggingFilterEnabled
 parameter_list|)
 block|{
 name|this
 operator|.
-name|loggingFilterEnabled
+name|loggingFilter
 operator|=
 name|loggingFilterEnabled
 expr_stmt|;
 block|}
 DECL|method|isFollowRedirectFilterEnabled ()
 specifier|public
-name|Boolean
+name|boolean
 name|isFollowRedirectFilterEnabled
 parameter_list|()
 block|{
 return|return
-name|followRedirectFilterEnabled
+name|followRedirectFilter
 return|;
 block|}
-DECL|method|setFollowRedirectFilter (Boolean followRedirectFilterEnabled)
+comment|/**      * Whether to follow redirect filter      */
+DECL|method|setFollowRedirectFilter (boolean followRedirectFilterEnabled)
 specifier|public
 name|void
 name|setFollowRedirectFilter
 parameter_list|(
-name|Boolean
+name|boolean
 name|followRedirectFilterEnabled
 parameter_list|)
 block|{
 name|this
 operator|.
-name|followRedirectFilterEnabled
+name|followRedirectFilter
 operator|=
 name|followRedirectFilterEnabled
 expr_stmt|;
