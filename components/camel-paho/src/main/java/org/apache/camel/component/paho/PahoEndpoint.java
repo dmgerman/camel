@@ -748,6 +748,7 @@ return|return
 name|clientId
 return|;
 block|}
+comment|/**      * MQTT client identifier.      */
 DECL|method|setClientId (String clientId)
 specifier|public
 name|void
@@ -774,6 +775,7 @@ return|return
 name|brokerUrl
 return|;
 block|}
+comment|/**      * The URL of the MQTT broker.      */
 DECL|method|setBrokerUrl (String brokerUrl)
 specifier|public
 name|void
@@ -800,6 +802,7 @@ return|return
 name|topic
 return|;
 block|}
+comment|/**      * Name of the topic      */
 DECL|method|setTopic (String topic)
 specifier|public
 name|void
@@ -826,6 +829,7 @@ return|return
 name|qos
 return|;
 block|}
+comment|/**      * Client quality of service level (0-2).      */
 DECL|method|setQos (int qos)
 specifier|public
 name|void
@@ -853,6 +857,7 @@ return|return
 name|persistence
 return|;
 block|}
+comment|/**      * Client persistence to be used - memory or file.      */
 DECL|method|setPersistence (PahoPersistence persistence)
 specifier|public
 name|void
@@ -879,6 +884,7 @@ return|return
 name|client
 return|;
 block|}
+comment|/**      * To use the existing MqttClient instance as client.      */
 DECL|method|setClient (MqttClient client)
 specifier|public
 name|void
@@ -905,6 +911,7 @@ return|return
 name|connectOptions
 return|;
 block|}
+comment|/**      * Client connection options      */
 DECL|method|setConnectOptions (MqttConnectOptions connOpts)
 specifier|public
 name|void

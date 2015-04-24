@@ -215,6 +215,11 @@ name|ResourceEndpoint
 block|{
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"<"
+argument_list|)
 DECL|field|delimiterStart
 specifier|private
 name|char
@@ -228,6 +233,11 @@ name|delimiterStartChar
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|">"
+argument_list|)
 DECL|field|delimiterStop
 specifier|private
 name|char
@@ -304,6 +314,7 @@ return|return
 name|delimiterStart
 return|;
 block|}
+comment|/**      * The variable start delimiter      */
 DECL|method|setDelimiterStart (char delimiterStart)
 specifier|public
 name|void
@@ -330,6 +341,7 @@ return|return
 name|delimiterStop
 return|;
 block|}
+comment|/**      * The variable end delimiter      */
 DECL|method|setDelimiterStop (char delimiterStop)
 specifier|public
 name|void
