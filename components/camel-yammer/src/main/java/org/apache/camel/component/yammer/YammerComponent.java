@@ -212,6 +212,7 @@ return|return
 name|consumerKey
 return|;
 block|}
+comment|/**      * The consumer key      */
 DECL|method|setConsumerKey (String consumerKey)
 specifier|public
 name|void
@@ -238,6 +239,7 @@ return|return
 name|consumerSecret
 return|;
 block|}
+comment|/**      * The consumer secret      */
 DECL|method|setConsumerSecret (String consumerSecret)
 specifier|public
 name|void
@@ -264,6 +266,7 @@ return|return
 name|accessToken
 return|;
 block|}
+comment|/**      * The access token      */
 DECL|method|setAccessToken (String accessToken)
 specifier|public
 name|void
@@ -290,6 +293,7 @@ return|return
 name|config
 return|;
 block|}
+comment|/**      * To use a shared yammer configuration      */
 DECL|method|setConfig (YammerConfiguration config)
 specifier|public
 name|void

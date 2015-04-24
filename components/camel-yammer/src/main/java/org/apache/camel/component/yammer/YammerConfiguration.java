@@ -108,6 +108,13 @@ name|function
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|consumerKey
 specifier|private
 name|String
@@ -115,6 +122,13 @@ name|consumerKey
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|consumerSecret
 specifier|private
 name|String
@@ -122,6 +136,13 @@ name|consumerSecret
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|accessToken
 specifier|private
 name|String
@@ -137,6 +158,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"5000"
@@ -154,6 +179,10 @@ comment|// 3 sec per poll is enforced by yammer; add 2 sec for safety
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"-1"
@@ -170,6 +199,10 @@ comment|// default is unlimited
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"-1"
@@ -185,6 +218,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"-1"
@@ -199,6 +236,15 @@ literal|1
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|enums
+operator|=
+literal|"true,extended"
+argument_list|)
 DECL|field|threaded
 specifier|private
 name|String
@@ -206,6 +252,11 @@ name|threaded
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|userId
 specifier|private
 name|String
@@ -226,6 +277,7 @@ return|return
 name|consumerKey
 return|;
 block|}
+comment|/**      * The consumer key      */
 DECL|method|setConsumerKey (String consumerKey)
 specifier|public
 name|void
@@ -252,6 +304,7 @@ return|return
 name|consumerSecret
 return|;
 block|}
+comment|/**      * The consumer secret      */
 DECL|method|setConsumerSecret (String consumerSecret)
 specifier|public
 name|void
@@ -278,6 +331,7 @@ return|return
 name|delay
 return|;
 block|}
+comment|/**      * Delay between polling in millis      */
 DECL|method|setDelay (long delay)
 specifier|public
 name|void
@@ -304,6 +358,7 @@ return|return
 name|accessToken
 return|;
 block|}
+comment|/**      * The access token      */
 DECL|method|setAccessToken (String accessToken)
 specifier|public
 name|void
@@ -330,6 +385,7 @@ return|return
 name|functionType
 return|;
 block|}
+comment|/**      * The function to use      */
 DECL|method|setFunctionType (YammerFunctionType functionType)
 specifier|public
 name|void
@@ -356,6 +412,7 @@ return|return
 name|function
 return|;
 block|}
+comment|/**      * The function to use      */
 DECL|method|setFunction (String function)
 specifier|public
 name|void
@@ -382,6 +439,7 @@ return|return
 name|useJson
 return|;
 block|}
+comment|/**      * Set to true if you want to use raw JSON rather than converting to POJOs.      */
 DECL|method|setUseJson (boolean useJson)
 specifier|public
 name|void
@@ -458,6 +516,7 @@ return|return
 name|limit
 return|;
 block|}
+comment|/**      * Return only the specified number of messages. Works for threaded=true and threaded=extended.      */
 DECL|method|setLimit (int limit)
 specifier|public
 name|void
@@ -484,6 +543,7 @@ return|return
 name|olderThan
 return|;
 block|}
+comment|/**      * Returns messages older than the message ID specified as a numeric string.      * This is useful for paginating messages. For example, if you're currently viewing 20 messages and the oldest is number 2912,      * you could append "?olderThan=2912â³ to your request to get the 20 messages prior to those you're seeing.      */
 DECL|method|setOlderThan (int olderThan)
 specifier|public
 name|void
@@ -510,6 +570,7 @@ return|return
 name|newerThan
 return|;
 block|}
+comment|/**      * Returns messages newer than the message ID specified as a numeric string. This should be used when polling for new messages.      * If you're looking at messages, and the most recent message returned is 3516, you can make a request with the parameter "?newerThan=3516â³      * to ensure that you do not get duplicate copies of messages already on your page.      */
 DECL|method|setNewerThan (int newerThan)
 specifier|public
 name|void
@@ -536,6 +597,7 @@ return|return
 name|threaded
 return|;
 block|}
+comment|/**      * threaded=true will only return the first message in each thread.      * This parameter is intended for apps which display message threads collapsed.      * threaded=extended will return the thread starter messages in order of most recently active as well as the      * two most recent messages, as they are viewed in the default view on the Yammer web interface.      */
 DECL|method|setThreaded (String threaded)
 specifier|public
 name|void
@@ -562,6 +624,7 @@ return|return
 name|userId
 return|;
 block|}
+comment|/**      * The user id      */
 DECL|method|setUserId (String userId)
 specifier|public
 name|void
