@@ -318,6 +318,7 @@ return|return
 name|period
 return|;
 block|}
+comment|/**      * If null, the current weather will be returned, else use values of 5, 7, 14 days.      * Only the numeric value for the forecast period is actually parsed, so spelling, capitalisation of the time period is up to you (its ignored)      */
 DECL|method|setPeriod (String period)
 specifier|public
 name|void
@@ -419,6 +420,7 @@ return|return
 name|mode
 return|;
 block|}
+comment|/**      * The output format of the weather data.      */
 DECL|method|setMode (WeatherMode mode)
 specifier|public
 name|void
@@ -450,6 +452,7 @@ return|return
 name|units
 return|;
 block|}
+comment|/**      * The units for temperature measurement.      */
 DECL|method|setUnits (WeatherUnits units)
 specifier|public
 name|void
@@ -481,6 +484,7 @@ return|return
 name|location
 return|;
 block|}
+comment|/**      * If null Camel will try and determine your current location using the geolocation of your ip address,      * else specify the city,country. For well known city names, Open Weather Map will determine the best fit,      * but multiple results may be returned. Hence specifying and country as well will return more accurate data.      * If you specify "current" as the location then the component will try to get the current latitude and longitude      * and use that to get the weather details. You can use lat and lon options instead of location.      */
 DECL|method|setLocation (String location)
 specifier|public
 name|void
@@ -507,6 +511,7 @@ return|return
 name|headerName
 return|;
 block|}
+comment|/**      * To store the weather result in this header instead of the message body. This is useable if you want to keep current message body as-is.      */
 DECL|method|setHeaderName (String headerName)
 specifier|public
 name|void
@@ -533,6 +538,7 @@ return|return
 name|lat
 return|;
 block|}
+comment|/**      * Latitude of location. You can use lat and lon options instead of location.      */
 DECL|method|setLat (String lat)
 specifier|public
 name|void
@@ -559,6 +565,7 @@ return|return
 name|lon
 return|;
 block|}
+comment|/**      * Longitude of location. You can use lat and lon options instead of location.      */
 DECL|method|setLon (String lon)
 specifier|public
 name|void

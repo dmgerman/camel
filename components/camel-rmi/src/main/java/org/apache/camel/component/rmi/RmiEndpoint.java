@@ -262,6 +262,10 @@ decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
+name|description
+operator|=
+literal|"Hostname of RMI server"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"localhost"
@@ -274,6 +278,10 @@ decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
+name|description
+operator|=
+literal|"Port number of RMI server"
+argument_list|,
 name|defaultValue
 operator|=
 literal|""
@@ -289,6 +297,11 @@ name|port
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"Name to use when binding to RMI server"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -637,6 +650,7 @@ return|return
 name|remoteInterfaces
 return|;
 block|}
+comment|/**      * To specific the remote interfaces.      */
 DECL|method|setRemoteInterfaces (List<Class<?>> remoteInterfaces)
 specifier|public
 name|void
@@ -771,6 +785,7 @@ return|return
 name|method
 return|;
 block|}
+comment|/**      * You can set the name of the method to invoke.      */
 DECL|method|setMethod (String method)
 specifier|public
 name|void

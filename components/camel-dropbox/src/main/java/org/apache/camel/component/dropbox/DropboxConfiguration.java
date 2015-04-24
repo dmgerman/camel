@@ -188,6 +188,13 @@ decl_stmt|;
 comment|//dropbox auth options
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|accessToken
 specifier|private
 name|String
@@ -236,6 +243,13 @@ decl_stmt|;
 comment|//id of the app
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|clientIdentifier
 specifier|private
 name|String
@@ -249,6 +263,7 @@ specifier|private
 name|DbxClient
 name|client
 decl_stmt|;
+comment|/**      * To use an existing DbxClient instance as DropBox client.      */
 DECL|method|setClient (DbxClient client)
 specifier|public
 name|void
@@ -329,6 +344,7 @@ return|return
 name|accessToken
 return|;
 block|}
+comment|/**      * The access token to make API requests for a specific Dropbox user      */
 DECL|method|setAccessToken (String accessToken)
 specifier|public
 name|void
@@ -355,6 +371,7 @@ return|return
 name|localPath
 return|;
 block|}
+comment|/**      * Folder or file to upload on Dropbox from the local filesystem.      */
 DECL|method|setLocalPath (String localPath)
 specifier|public
 name|void
@@ -381,6 +398,7 @@ return|return
 name|remotePath
 return|;
 block|}
+comment|/**      * Original file or folder to move      */
 DECL|method|setRemotePath (String remotePath)
 specifier|public
 name|void
@@ -407,6 +425,7 @@ return|return
 name|newRemotePath
 return|;
 block|}
+comment|/**      * Destination file or folder      */
 DECL|method|setNewRemotePath (String newRemotePath)
 specifier|public
 name|void
@@ -433,6 +452,7 @@ return|return
 name|query
 return|;
 block|}
+comment|/**      * A space-separated list of substrings to search for. A file matches only if it contains all the substrings. If this option is not set, all files will be matched.      */
 DECL|method|setQuery (String query)
 specifier|public
 name|void
@@ -459,6 +479,7 @@ return|return
 name|clientIdentifier
 return|;
 block|}
+comment|/**      * Name of the app registered to make API requests      */
 DECL|method|setClientIdentifier (String clientIdentifier)
 specifier|public
 name|void
@@ -485,6 +506,7 @@ return|return
 name|operation
 return|;
 block|}
+comment|/**      * The specific action (typically is a CRUD action) to perform on Dropbox remote folder.      */
 DECL|method|setOperation (DropboxOperation operation)
 specifier|public
 name|void
@@ -511,6 +533,7 @@ return|return
 name|uploadMode
 return|;
 block|}
+comment|/**      * Which mode to upload.      * in case of "add" the new file will be renamed if a file with the same name already exists on dropbox.      * in case of "force" if a file with the same name already exists on dropbox, this will be overwritten.      */
 DECL|method|setUploadMode (DropboxUploadMode uploadMode)
 specifier|public
 name|void
