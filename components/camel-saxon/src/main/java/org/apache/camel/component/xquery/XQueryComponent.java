@@ -223,6 +223,7 @@ return|return
 name|moduleURIResolver
 return|;
 block|}
+comment|/**      * To use the custom {@link ModuleURIResolver}      */
 DECL|method|setModuleURIResolver (ModuleURIResolver moduleURIResolver)
 specifier|public
 name|void

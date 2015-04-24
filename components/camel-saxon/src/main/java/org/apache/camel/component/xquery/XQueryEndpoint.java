@@ -448,6 +448,7 @@ return|return
 name|resourceUri
 return|;
 block|}
+comment|/**      * The name of the template to load from classpath or file system      */
 DECL|method|setResourceUri (String resourceUri)
 specifier|public
 name|void
@@ -474,6 +475,7 @@ return|return
 name|configuration
 return|;
 block|}
+comment|/**      * To use a custom Saxon configuration      */
 DECL|method|setConfiguration (Configuration configuration)
 specifier|public
 name|void
@@ -500,6 +502,7 @@ return|return
 name|staticQueryContext
 return|;
 block|}
+comment|/**      * To use a custom Saxon StaticQueryContext      */
 DECL|method|setStaticQueryContext (StaticQueryContext staticQueryContext)
 specifier|public
 name|void
@@ -531,6 +534,7 @@ return|return
 name|parameters
 return|;
 block|}
+comment|/**      * Additional parameters      */
 DECL|method|setParameters (Map<String, Object> parameters)
 specifier|public
 name|void
@@ -567,6 +571,7 @@ return|return
 name|namespacePrefixes
 return|;
 block|}
+comment|/**      * Allows to control which namespace prefixes to use for a set of namespace mappings      */
 DECL|method|setNamespacePrefixes (Map<String, String> namespacePrefixes)
 specifier|public
 name|void
@@ -598,6 +603,7 @@ return|return
 name|resultsFormat
 return|;
 block|}
+comment|/**      * What output result to use      */
 DECL|method|setResultsFormat (ResultFormat resultsFormat)
 specifier|public
 name|void
@@ -624,6 +630,7 @@ return|return
 name|properties
 return|;
 block|}
+comment|/**      * Properties to configure the serialization parameters      */
 DECL|method|setProperties (Properties properties)
 specifier|public
 name|void
@@ -653,6 +660,7 @@ return|return
 name|resultType
 return|;
 block|}
+comment|/**      * What output result to use defined as a class      */
 DECL|method|setResultType (Class<?> resultType)
 specifier|public
 name|void
@@ -682,6 +690,7 @@ return|return
 name|stripsAllWhiteSpace
 return|;
 block|}
+comment|/**      * Whether to strip all whitespaces      */
 DECL|method|setStripsAllWhiteSpace (boolean stripsAllWhiteSpace)
 specifier|public
 name|void
@@ -708,6 +717,7 @@ return|return
 name|moduleURIResolver
 return|;
 block|}
+comment|/**      * To use the custom {@link ModuleURIResolver}      */
 DECL|method|setModuleURIResolver (ModuleURIResolver moduleURIResolver)
 specifier|public
 name|void
@@ -734,6 +744,7 @@ return|return
 name|allowStAX
 return|;
 block|}
+comment|/**      * Whether to allow using StAX mode      */
 DECL|method|setAllowStAX (boolean allowStAX)
 specifier|public
 name|void
@@ -760,6 +771,7 @@ return|return
 name|headerName
 return|;
 block|}
+comment|/**      * To use a Camel Message header as the input source instead of Message body.      */
 DECL|method|setHeaderName (String headerName)
 specifier|public
 name|void
