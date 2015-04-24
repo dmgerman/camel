@@ -587,6 +587,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * Host name for Ganglia server      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -613,6 +614,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * Port for Ganglia server      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -641,6 +643,7 @@ return|return
 name|mode
 return|;
 block|}
+comment|/**      * Send the UDP metric packets using MULTICAST or UNICAST      */
 DECL|method|setMode (GMetric.UDPAddressingMode mode)
 specifier|public
 name|void
@@ -669,6 +672,7 @@ return|return
 name|ttl
 return|;
 block|}
+comment|/**      * If using multicast, set the TTL of the packets      */
 DECL|method|setTtl (int ttl)
 specifier|public
 name|void
@@ -695,6 +699,7 @@ return|return
 name|wireFormat31x
 return|;
 block|}
+comment|/**      * Use the wire format of Ganglia 3.1.0 and later versions.  Set this to false to use Ganglia 3.0.x or earlier.      */
 DECL|method|setWireFormat31x (boolean wireFormat31x)
 specifier|public
 name|void
@@ -721,6 +726,7 @@ return|return
 name|spoofHostname
 return|;
 block|}
+comment|/**      * Spoofing information IP:hostname      */
 DECL|method|setSpoofHostname (String spoofHostname)
 specifier|public
 name|void
@@ -747,6 +753,7 @@ return|return
 name|groupName
 return|;
 block|}
+comment|/**      * The group that the metric belongs to.      */
 DECL|method|setGroupName (String groupName)
 specifier|public
 name|void
@@ -773,6 +780,7 @@ return|return
 name|prefix
 return|;
 block|}
+comment|/**      * Prefix the metric name with this string and an underscore.      */
 DECL|method|setPrefix (String prefix)
 specifier|public
 name|void
@@ -799,6 +807,7 @@ return|return
 name|metricName
 return|;
 block|}
+comment|/**      * The name to use for the metric.      */
 DECL|method|setMetricName (String metricName)
 specifier|public
 name|void
@@ -825,6 +834,7 @@ return|return
 name|type
 return|;
 block|}
+comment|/**      * The type of value      */
 DECL|method|setType (GMetricType type)
 specifier|public
 name|void
@@ -851,6 +861,7 @@ return|return
 name|slope
 return|;
 block|}
+comment|/**      * The slope      */
 DECL|method|setSlope (GMetricSlope slope)
 specifier|public
 name|void
@@ -877,6 +888,7 @@ return|return
 name|units
 return|;
 block|}
+comment|/**      * Any unit of measurement that qualifies the metric, e.g. widgets, litres, bytes.      * Do not include a prefix such as k (kilo) or m (milli), other tools may scale the units later.      * The value should be unscaled.      */
 DECL|method|setUnits (String units)
 specifier|public
 name|void
@@ -913,6 +925,7 @@ return|return
 name|tmax
 return|;
 block|}
+comment|/**      * Maximum time in seconds that the value can be considered current.      * After this, Ganglia considers the value to have expired.      */
 DECL|method|setTmax (int tmax)
 specifier|public
 name|void
@@ -939,6 +952,7 @@ return|return
 name|dmax
 return|;
 block|}
+comment|/**      * Minumum time in seconds before Ganglia will purge the metric value if it expires.      * Set to 0 and the value will remain in Ganglia indefinitely until a gmond agent restart.      */
 DECL|method|setDmax (int dmax)
 specifier|public
 name|void
