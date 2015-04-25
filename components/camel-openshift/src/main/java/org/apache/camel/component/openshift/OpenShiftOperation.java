@@ -29,6 +29,10 @@ DECL|enumConstant|start
 DECL|enumConstant|stop
 DECL|enumConstant|restart
 DECL|enumConstant|state
+DECL|enumConstant|getStandaloneCartridge
+DECL|enumConstant|getEmbeddedCartridges
+DECL|enumConstant|addEmbeddedCartridge
+DECL|enumConstant|removeEmbeddedCartridge
 name|list
 block|,
 name|start
@@ -38,6 +42,14 @@ block|,
 name|restart
 block|,
 name|state
+block|,
+name|getStandaloneCartridge
+block|,
+name|getEmbeddedCartridges
+block|,
+name|addEmbeddedCartridge
+block|,
+name|removeEmbeddedCartridge
 block|}
 end_enum
 

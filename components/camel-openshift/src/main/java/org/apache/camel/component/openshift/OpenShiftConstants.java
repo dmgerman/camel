@@ -70,6 +70,15 @@ name|EVENT_NEW_STATE
 init|=
 literal|"CamelOpenShiftEventNewState"
 decl_stmt|;
+DECL|field|EMBEDDED_CARTRIDGE_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|EMBEDDED_CARTRIDGE_NAME
+init|=
+literal|"CamelOpenShiftEmbeddedCartridgeName"
+decl_stmt|;
 DECL|method|OpenShiftConstants ()
 specifier|private
 name|OpenShiftConstants
