@@ -120,6 +120,12 @@ name|CLEAR
 init|=
 literal|"CamelInfinispanOperationClear"
 decl_stmt|;
+DECL|field|SIZE
+name|String
+name|SIZE
+init|=
+literal|"CamelInfinispanOperationSize"
+decl_stmt|;
 DECL|field|RESULT
 name|String
 name|RESULT
