@@ -176,7 +176,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"awaitJob\": { \"kind\": \"parameter\", \"type\": \"boolean\""
+literal|"\"awaitJob\": { \"kind\": \"parameter\", \"label\": \"consumer\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;
