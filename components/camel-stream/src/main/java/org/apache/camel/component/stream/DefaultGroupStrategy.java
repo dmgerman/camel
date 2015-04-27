@@ -28,6 +28,10 @@ name|List
 import|;
 end_import
 
+begin_comment
+comment|/**  * A default GroupStrategy that just group the lines by returning the lines as a list as-is  */
+end_comment
+
 begin_class
 DECL|class|DefaultGroupStrategy
 specifier|public

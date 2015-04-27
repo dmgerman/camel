@@ -28,6 +28,10 @@ name|List
 import|;
 end_import
 
+begin_comment
+comment|/**  * Strategy to control how lines should be grouped together.  */
+end_comment
+
 begin_interface
 DECL|interface|GroupStrategy
 specifier|public

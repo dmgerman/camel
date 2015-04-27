@@ -229,6 +229,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|charset
+specifier|private
+specifier|transient
+name|Charset
+name|charset
+decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -252,6 +258,11 @@ name|fileName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|scanStream
 specifier|private
 name|boolean
@@ -259,6 +270,11 @@ name|scanStream
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|retry
 specifier|private
 name|boolean
@@ -266,6 +282,11 @@ name|retry
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|closeOnDone
 specifier|private
 name|boolean
@@ -273,6 +294,11 @@ name|closeOnDone
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|scanStreamDelay
 specifier|private
 name|long
@@ -280,6 +306,11 @@ name|scanStreamDelay
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|delay
 specifier|private
 name|long
@@ -294,6 +325,11 @@ name|encoding
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|promptMessage
 specifier|private
 name|String
@@ -301,6 +337,11 @@ name|promptMessage
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|promptDelay
 specifier|private
 name|long
@@ -309,6 +350,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"2000"
@@ -322,6 +367,11 @@ literal|2000
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|groupLines
 specifier|private
 name|int
@@ -329,6 +379,11 @@ name|groupLines
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|autoCloseCount
 specifier|private
 name|int
@@ -336,13 +391,11 @@ name|autoCloseCount
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|charset
-specifier|private
-name|Charset
-name|charset
-decl_stmt|;
-annotation|@
-name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|groupStrategy
 specifier|private
 name|GroupStrategy
@@ -527,6 +580,7 @@ return|return
 name|fileName
 return|;
 block|}
+comment|/**      * When using the stream:file URI format, this option specifies the filename to stream to/from.      */
 DECL|method|setFileName (String fileName)
 specifier|public
 name|void
@@ -553,6 +607,7 @@ return|return
 name|url
 return|;
 block|}
+comment|/**      * When using the stream:url URI format, this option specifies the URL to stream to/from.      * The input/output stream will be opened using the JDK URLConnection facility.      */
 DECL|method|setUrl (String url)
 specifier|public
 name|void
@@ -579,6 +634,7 @@ return|return
 name|delay
 return|;
 block|}
+comment|/**      * Initial delay in milliseconds before producing the stream.      */
 DECL|method|setDelay (long delay)
 specifier|public
 name|void
@@ -605,6 +661,7 @@ return|return
 name|encoding
 return|;
 block|}
+comment|/**      * You can configure the encoding (is a charset name) to use text-based streams (for example, message body is a String object).      * If not provided, Camel uses the JVM default Charset.      */
 DECL|method|setEncoding (String encoding)
 specifier|public
 name|void
@@ -631,6 +688,7 @@ return|return
 name|promptMessage
 return|;
 block|}
+comment|/**      * Message prompt to use when reading from stream:in; for example, you could set this to Enter a command:      */
 DECL|method|setPromptMessage (String promptMessage)
 specifier|public
 name|void
@@ -657,6 +715,7 @@ return|return
 name|promptDelay
 return|;
 block|}
+comment|/**      * Optional delay in milliseconds before showing the message prompt.      */
 DECL|method|setPromptDelay (long promptDelay)
 specifier|public
 name|void
@@ -683,6 +742,7 @@ return|return
 name|initialPromptDelay
 return|;
 block|}
+comment|/**      * Initial delay in milliseconds before showing the message prompt. This delay occurs only once.      * Can be used during system startup to avoid message prompts being written while other logging is done to the system out.      */
 DECL|method|setInitialPromptDelay (long initialPromptDelay)
 specifier|public
 name|void
@@ -709,6 +769,7 @@ return|return
 name|scanStream
 return|;
 block|}
+comment|/**      * To be used for continuously reading a stream such as the unix tail command.      */
 DECL|method|setScanStream (boolean scanStream)
 specifier|public
 name|void
@@ -735,6 +796,7 @@ return|return
 name|groupStrategy
 return|;
 block|}
+comment|/**      * Allows to use a custom GroupStrategy to control how to group lines.      */
 DECL|method|setGroupStrategy (GroupStrategy strategy)
 specifier|public
 name|void
@@ -761,6 +823,7 @@ return|return
 name|retry
 return|;
 block|}
+comment|/**      * Will retry opening the file if it's overwritten, somewhat like tail --retry      */
 DECL|method|setRetry (boolean retry)
 specifier|public
 name|void
@@ -787,6 +850,7 @@ return|return
 name|closeOnDone
 return|;
 block|}
+comment|/**      * This option is used in combination with Splitter and streaming to the same file.      * The idea is to keep the stream open and only close when the Splitter is done, to improve performance.      * Mind this requires that you only stream to the same file, and not 2 or more files.      */
 DECL|method|setCloseOnDone (boolean closeOnDone)
 specifier|public
 name|void
@@ -813,6 +877,7 @@ return|return
 name|scanStreamDelay
 return|;
 block|}
+comment|/**      * Delay in milliseconds between read attempts when using scanStream.      */
 DECL|method|setScanStreamDelay (long scanStreamDelay)
 specifier|public
 name|void
@@ -839,6 +904,7 @@ return|return
 name|groupLines
 return|;
 block|}
+comment|/**      * To group X number of lines in the consumer.      * For example to group 10 lines and therefore only spit out an Exchange with 10 lines, instead of 1 Exchange per line.      */
 DECL|method|setGroupLines (int groupLines)
 specifier|public
 name|void
@@ -865,6 +931,7 @@ return|return
 name|autoCloseCount
 return|;
 block|}
+comment|/**      * Number of messages to process before closing stream on Producer side.      * Never close stream by default (only when Producer is stopped). If more messages are sent, the stream is reopened for another autoCloseCount batch.      */
 DECL|method|setAutoCloseCount (int autoCloseCount)
 specifier|public
 name|void
