@@ -971,7 +971,6 @@ name|addressesTrAd
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
 argument_list|(
 name|addressesStr
 operator|.
@@ -1009,6 +1008,7 @@ name|length
 operator|>
 literal|0
 condition|)
+block|{
 name|hostname
 operator|=
 name|split
@@ -1016,16 +1016,18 @@ index|[
 literal|0
 index|]
 expr_stmt|;
+block|}
 else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|()
 throw|;
+block|}
 name|Integer
 name|port
 init|=
-operator|(
 name|split
 operator|.
 name|length
@@ -1043,7 +1045,6 @@ index|]
 argument_list|)
 else|:
 name|DEFAULT_PORT
-operator|)
 decl_stmt|;
 name|addressesTrAd
 operator|.
