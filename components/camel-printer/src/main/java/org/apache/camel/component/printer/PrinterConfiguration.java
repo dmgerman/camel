@@ -197,6 +197,21 @@ specifier|private
 name|URI
 name|uri
 decl_stmt|;
+DECL|field|mediaSizeName
+specifier|private
+name|MediaSizeName
+name|mediaSizeName
+decl_stmt|;
+DECL|field|internalSides
+specifier|private
+name|Sides
+name|internalSides
+decl_stmt|;
+DECL|field|internalOrientation
+specifier|private
+name|OrientationRequested
+name|internalOrientation
+decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -295,17 +310,14 @@ name|mediaSize
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|mediaSizeName
-specifier|private
-name|MediaSizeName
-name|mediaSizeName
-decl_stmt|;
-annotation|@
-name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
 literal|"one-sided"
+argument_list|,
+name|enums
+operator|=
+literal|"one-sided,duplex,tumble,two-sided-short-edge,two-sided-long-edge"
 argument_list|)
 DECL|field|sides
 specifier|private
@@ -314,29 +326,19 @@ name|sides
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|internalSides
-specifier|private
-name|Sides
-name|internalSides
-decl_stmt|;
-annotation|@
-name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
 literal|"portrait"
+argument_list|,
+name|enums
+operator|=
+literal|"portrait,landscape,reverse-portrait,reverse-landscape"
 argument_list|)
 DECL|field|orientation
 specifier|private
 name|String
 name|orientation
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|internalOrientation
-specifier|private
-name|OrientationRequested
-name|internalOrientation
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1665,6 +1667,7 @@ return|return
 name|hostname
 return|;
 block|}
+comment|/**      * Hostname of the printer      */
 DECL|method|setHostname (String hostname)
 specifier|public
 name|void
@@ -1691,6 +1694,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * Port number of the printer      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -1717,6 +1721,7 @@ return|return
 name|printername
 return|;
 block|}
+comment|/**      * Name of the printer      */
 DECL|method|setPrintername (String printername)
 specifier|public
 name|void
@@ -1743,6 +1748,7 @@ return|return
 name|copies
 return|;
 block|}
+comment|/**      * Number of copies to print      */
 DECL|method|setCopies (int copies)
 specifier|public
 name|void
@@ -1769,6 +1775,7 @@ return|return
 name|flavor
 return|;
 block|}
+comment|/**      * Sets DocFlavor to use.      */
 DECL|method|setFlavor (String flavor)
 specifier|public
 name|void
@@ -1795,6 +1802,7 @@ return|return
 name|docFlavor
 return|;
 block|}
+comment|/**      * Sets DocFlavor to use.      */
 DECL|method|setDocFlavor (DocFlavor docFlavor)
 specifier|public
 name|void
@@ -1821,6 +1829,7 @@ return|return
 name|mediaSize
 return|;
 block|}
+comment|/**      * Sets the stationary as defined by enumeration names in the javax.print.attribute.standard.MediaSizeName API.      * The default setting is to use North American Letter sized stationary.      * The value's case is ignored, e.g. values of iso_a4 and ISO_A4 may be used.      */
 DECL|method|setMediaSize (String mediaSize)
 specifier|public
 name|void
@@ -1847,6 +1856,7 @@ return|return
 name|sides
 return|;
 block|}
+comment|/**      * Sets one sided or two sided printing based on the javax.print.attribute.standard.Sides API      */
 DECL|method|setSides (String sides)
 specifier|public
 name|void
@@ -1951,6 +1961,7 @@ return|return
 name|orientation
 return|;
 block|}
+comment|/**      * Sets the page orientation.      */
 DECL|method|setOrientation (String orientation)
 specifier|public
 name|void
@@ -1977,6 +1988,7 @@ return|return
 name|mimeType
 return|;
 block|}
+comment|/**      * Sets mimeTypes supported by the javax.print.DocFlavor API      */
 DECL|method|setMimeType (String mimeType)
 specifier|public
 name|void
@@ -2003,6 +2015,7 @@ return|return
 name|sendToPrinter
 return|;
 block|}
+comment|/**      * etting this option to false prevents sending of the print data to the printer      */
 DECL|method|setSendToPrinter (boolean sendToPrinter)
 specifier|public
 name|void
@@ -2029,6 +2042,7 @@ return|return
 name|mediaTray
 return|;
 block|}
+comment|/**      * Sets MediaTray supported by the javax.print.DocFlavor API, for example upper,middle etc.      */
 DECL|method|setMediaTray (String mediaTray)
 specifier|public
 name|void
@@ -2055,6 +2069,7 @@ return|return
 name|printerPrefix
 return|;
 block|}
+comment|/**      * Sets the prefix name of the printer, it is useful when the printer name does not start with //hostname/printer      */
 DECL|method|setPrinterPrefix (String printerPrefix)
 specifier|public
 name|void

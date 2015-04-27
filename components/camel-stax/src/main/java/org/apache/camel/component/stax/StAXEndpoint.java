@@ -200,6 +200,7 @@ return|return
 name|contentHandlerClass
 return|;
 block|}
+comment|/**      * The FQN class name for the ContentHandler implementation to use.      */
 DECL|method|setContentHandlerClass (String contentHandlerClass)
 specifier|public
 name|void
