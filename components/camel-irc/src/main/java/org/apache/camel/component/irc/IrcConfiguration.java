@@ -333,6 +333,11 @@ name|hostname
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|defaultValue
+operator|=
+literal|"6667,6668,6669"
+argument_list|)
 DECL|field|port
 specifier|private
 name|int
@@ -1136,6 +1141,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * The trust manager used to verify the SSL server's certificate.      */
 DECL|method|setTrustManager (SSLTrustManager trustManager)
 specifier|public
 name|void
@@ -1198,6 +1204,7 @@ return|return
 name|hostname
 return|;
 block|}
+comment|/**      * Hostname for the IRC chat server      */
 DECL|method|setHostname (String hostname)
 specifier|public
 name|void
@@ -1224,6 +1231,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * The IRC server password.      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -1250,6 +1258,7 @@ return|return
 name|nickname
 return|;
 block|}
+comment|/**      * The nickname used in chat.      */
 DECL|method|setNickname (String nickname)
 specifier|public
 name|void
@@ -1276,6 +1285,7 @@ return|return
 name|realname
 return|;
 block|}
+comment|/**      * The IRC user's actual name.      */
 DECL|method|setRealname (String realname)
 specifier|public
 name|void
@@ -1302,6 +1312,7 @@ return|return
 name|username
 return|;
 block|}
+comment|/**      * The IRC server user name.      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -1329,6 +1340,7 @@ return|return
 name|ports
 return|;
 block|}
+comment|/**      * Port numbers for the IRC chat server      */
 DECL|method|setPorts (int[] ports)
 specifier|public
 name|void
@@ -1356,6 +1368,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * Port number for the IRC chat server      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -1382,6 +1395,9 @@ return|return
 name|persistent
 return|;
 block|}
+comment|/**      * Use persistent messages.      * @deprecated not in use      */
+annotation|@
+name|Deprecated
 DECL|method|setPersistent (boolean persistent)
 specifier|public
 name|void
@@ -1408,6 +1424,7 @@ return|return
 name|colors
 return|;
 block|}
+comment|/**      * Whether or not the server supports color codes.      */
 DECL|method|setColors (boolean colors)
 specifier|public
 name|void
@@ -1434,6 +1451,7 @@ return|return
 name|onNick
 return|;
 block|}
+comment|/**      * Handle nickname change events.      */
 DECL|method|setOnNick (boolean onNick)
 specifier|public
 name|void
@@ -1460,6 +1478,7 @@ return|return
 name|onQuit
 return|;
 block|}
+comment|/**      * Handle user quit events.      */
 DECL|method|setOnQuit (boolean onQuit)
 specifier|public
 name|void
@@ -1486,6 +1505,7 @@ return|return
 name|onJoin
 return|;
 block|}
+comment|/**      * Handle user join events.      */
 DECL|method|setOnJoin (boolean onJoin)
 specifier|public
 name|void
@@ -1512,6 +1532,7 @@ return|return
 name|onKick
 return|;
 block|}
+comment|/**      * Handle kick events.      */
 DECL|method|setOnKick (boolean onKick)
 specifier|public
 name|void
@@ -1538,6 +1559,7 @@ return|return
 name|onMode
 return|;
 block|}
+comment|/**      * Handle mode change events.      */
 DECL|method|setOnMode (boolean onMode)
 specifier|public
 name|void
@@ -1564,6 +1586,7 @@ return|return
 name|onPart
 return|;
 block|}
+comment|/**      * Handle user part events.      */
 DECL|method|setOnPart (boolean onPart)
 specifier|public
 name|void
@@ -1590,6 +1613,7 @@ return|return
 name|onReply
 return|;
 block|}
+comment|/**      * Whether or not to handle general responses to commands or informational messages.      */
 DECL|method|setOnReply (boolean onReply)
 specifier|public
 name|void
@@ -1616,6 +1640,7 @@ return|return
 name|onTopic
 return|;
 block|}
+comment|/**      * Handle topic change events.      */
 DECL|method|setOnTopic (boolean onTopic)
 specifier|public
 name|void
@@ -1642,6 +1667,7 @@ return|return
 name|onPrivmsg
 return|;
 block|}
+comment|/**      * Handle private message events.      */
 DECL|method|setOnPrivmsg (boolean onPrivmsg)
 specifier|public
 name|void
@@ -1668,6 +1694,7 @@ return|return
 name|autoRejoin
 return|;
 block|}
+comment|/**      * Whether to auto re-join when being kicked      */
 DECL|method|setAutoRejoin (boolean autoRejoin)
 specifier|public
 name|void
@@ -1694,6 +1721,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
+comment|/**      * Used for configuring security using SSL.      * Reference to a org.apache.camel.util.jsse.SSLContextParameters in the Registry.      * This reference overrides any configured SSLContextParameters at the component level.      * Note that this setting overrides the trustManager option.      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void

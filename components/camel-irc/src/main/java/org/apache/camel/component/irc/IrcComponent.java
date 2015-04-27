@@ -159,6 +159,7 @@ decl_stmt|;
 DECL|field|connectionCache
 specifier|private
 specifier|final
+specifier|transient
 name|Map
 argument_list|<
 name|String

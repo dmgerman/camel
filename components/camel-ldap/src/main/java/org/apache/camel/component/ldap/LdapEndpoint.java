@@ -263,6 +263,10 @@ argument_list|(
 name|defaultValue
 operator|=
 name|SUBTREE_SCOPE
+argument_list|,
+name|enums
+operator|=
+literal|"object,onelevel,subtree"
 argument_list|)
 DECL|field|scope
 specifier|private
@@ -430,6 +434,7 @@ operator|=
 name|dirContextName
 expr_stmt|;
 block|}
+comment|/**      * When specified the ldap module uses paging to retrieve all results (most LDAP Servers throw an exception when trying to retrieve more than 1000 entries in one query).      * To be able to use this a LdapContext (subclass of DirContext) has to be passed in as ldapServerBean (otherwise an exception is thrown)      */
 DECL|method|setPageSize (Integer pageSize)
 specifier|public
 name|void
@@ -446,6 +451,16 @@ operator|=
 name|pageSize
 expr_stmt|;
 block|}
+DECL|method|getPageSize ()
+specifier|public
+name|int
+name|getPageSize
+parameter_list|()
+block|{
+return|return
+name|pageSize
+return|;
+block|}
 DECL|method|getBase ()
 specifier|public
 name|String
@@ -456,6 +471,7 @@ return|return
 name|base
 return|;
 block|}
+comment|/**      * The base DN for searches.      */
 DECL|method|setBase (String base)
 specifier|public
 name|void
@@ -482,6 +498,7 @@ return|return
 name|scope
 return|;
 block|}
+comment|/**      * Specifies how deeply to search the tree of entries, starting at the base DN.      */
 DECL|method|setScope (String scope)
 specifier|public
 name|void
@@ -498,32 +515,6 @@ operator|=
 name|scope
 expr_stmt|;
 block|}
-DECL|method|getPageSize ()
-specifier|public
-name|int
-name|getPageSize
-parameter_list|()
-block|{
-return|return
-name|pageSize
-return|;
-block|}
-DECL|method|setPageSize (int pageSize)
-specifier|public
-name|void
-name|setPageSize
-parameter_list|(
-name|int
-name|pageSize
-parameter_list|)
-block|{
-name|this
-operator|.
-name|pageSize
-operator|=
-name|pageSize
-expr_stmt|;
-block|}
 DECL|method|getReturnedAttributes ()
 specifier|public
 name|String
@@ -534,6 +525,7 @@ return|return
 name|returnedAttributes
 return|;
 block|}
+comment|/**      * Comma-separated list of attributes that should be set in each entry of the result      */
 DECL|method|setReturnedAttributes (String returnedAttributes)
 specifier|public
 name|void
