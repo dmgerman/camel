@@ -446,11 +446,15 @@ specifier|protected
 name|String
 name|passphrase
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|bossGroup
 specifier|protected
 name|EventLoopGroup
 name|bossGroup
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|workerGroup
 specifier|protected
 name|EventLoopGroup
@@ -1306,6 +1310,7 @@ return|return
 name|bossGroup
 return|;
 block|}
+comment|/**      * Set the BossGroup which could be used for handling the new connection of the server side across the NettyEndpoint       * @param bossGroup      */
 DECL|method|setBossGroup (EventLoopGroup bossGroup)
 specifier|public
 name|void
@@ -1332,6 +1337,7 @@ return|return
 name|workerGroup
 return|;
 block|}
+comment|/**      * Set the WorkerGroup which could be used for handling selector eventloop across the NettyEndpoint       * @param workerGroup      */
 DECL|method|setWorkerGroup (EventLoopGroup workerGroup)
 specifier|public
 name|void
