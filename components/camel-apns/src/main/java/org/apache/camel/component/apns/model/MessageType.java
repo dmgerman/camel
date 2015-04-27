@@ -28,9 +28,12 @@ name|MessageType
 block|{
 DECL|enumConstant|STRING
 DECL|enumConstant|PAYLOAD
+DECL|enumConstant|APNS_NOTIFICATION
 name|STRING
 block|,
 name|PAYLOAD
+block|,
+name|APNS_NOTIFICATION
 block|;  }
 end_enum
 
