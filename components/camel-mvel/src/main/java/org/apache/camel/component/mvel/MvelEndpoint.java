@@ -339,6 +339,7 @@ return|return
 name|encoding
 return|;
 block|}
+comment|/**      * Character encoding of the resource content.      */
 DECL|method|setEncoding (String encoding)
 specifier|public
 name|void

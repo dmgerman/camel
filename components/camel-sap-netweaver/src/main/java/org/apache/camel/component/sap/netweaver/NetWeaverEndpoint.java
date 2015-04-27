@@ -227,6 +227,13 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|username
 specifier|private
 name|String
@@ -234,6 +241,13 @@ name|username
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|password
 specifier|private
 name|String
@@ -319,6 +333,7 @@ return|return
 name|url
 return|;
 block|}
+comment|/**      * Url to the SAP net-weaver gateway server.      */
 DECL|method|setUrl (String url)
 specifier|public
 name|void
@@ -345,6 +360,7 @@ return|return
 name|username
 return|;
 block|}
+comment|/**      * Username for account.      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -371,6 +387,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * Password for account.      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -397,6 +414,7 @@ return|return
 name|json
 return|;
 block|}
+comment|/**      * Whether to return data in JSON format. If this option is false, then XML is returned in Atom format.      */
 DECL|method|setJson (boolean json)
 specifier|public
 name|void
@@ -423,6 +441,7 @@ return|return
 name|jsonAsMap
 return|;
 block|}
+comment|/**      * To transform the JSON from a String to a Map in the message body.      */
 DECL|method|setJsonAsMap (boolean jsonAsMap)
 specifier|public
 name|void
@@ -449,6 +468,7 @@ return|return
 name|flatternMap
 return|;
 block|}
+comment|/**      * If the JSON Map contains only a single entry, then flattern by storing that single entry value as the message body.      */
 DECL|method|setFlatternMap (boolean flatternMap)
 specifier|public
 name|void
