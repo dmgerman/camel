@@ -195,8 +195,6 @@ block|{
 comment|// use a shared timer for Netty (see javadoc for HashedWheelTimer)
 DECL|field|timer
 specifier|private
-specifier|static
-specifier|volatile
 name|Timer
 name|timer
 decl_stmt|;
@@ -542,7 +540,6 @@ expr_stmt|;
 block|}
 DECL|method|getTimer ()
 specifier|public
-specifier|static
 name|Timer
 name|getTimer
 parameter_list|()
@@ -709,6 +706,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|timer
+operator|!=
+literal|null
+condition|)
+block|{
+name|timer
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
+name|timer
+operator|=
+literal|null
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|executorService

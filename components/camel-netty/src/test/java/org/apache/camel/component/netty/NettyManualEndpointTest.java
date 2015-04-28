@@ -349,7 +349,7 @@ name|endpoint
 operator|.
 name|setTimer
 argument_list|(
-name|NettyComponent
+name|component
 operator|.
 name|getTimer
 argument_list|()

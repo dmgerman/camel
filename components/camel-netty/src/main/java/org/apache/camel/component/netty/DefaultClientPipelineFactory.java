@@ -536,7 +536,10 @@ init|=
 operator|new
 name|ReadTimeoutHandler
 argument_list|(
-name|NettyComponent
+name|producer
+operator|.
+name|getEndpoint
+argument_list|()
 operator|.
 name|getTimer
 argument_list|()
