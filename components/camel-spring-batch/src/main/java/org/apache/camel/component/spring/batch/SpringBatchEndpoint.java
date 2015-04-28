@@ -252,8 +252,6 @@ specifier|private
 name|JobLauncher
 name|jobLauncher
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|defaultResolvedJobLauncher
 specifier|private
 name|JobLauncher
@@ -564,6 +562,48 @@ literal|"Cannot find Spring Batch JobLauncher."
 argument_list|)
 throw|;
 block|}
+DECL|method|getJobName ()
+specifier|public
+name|String
+name|getJobName
+parameter_list|()
+block|{
+return|return
+name|jobName
+return|;
+block|}
+comment|/**      * The name of the Spring Batch job located in the registry.      */
+DECL|method|setJobName (String jobName)
+specifier|public
+name|void
+name|setJobName
+parameter_list|(
+name|String
+name|jobName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jobName
+operator|=
+name|jobName
+expr_stmt|;
+block|}
+annotation|@
+name|Deprecated
+DECL|method|getJobLauncherRef ()
+specifier|public
+name|String
+name|getJobLauncherRef
+parameter_list|()
+block|{
+return|return
+name|jobLauncherRef
+return|;
+block|}
+comment|/**      * Explicitly specifies a JobLauncher to be used looked up from the registry.      */
+annotation|@
+name|Deprecated
 DECL|method|setJobLauncherRef (String jobLauncherRef)
 specifier|public
 name|void
@@ -580,6 +620,17 @@ operator|=
 name|jobLauncherRef
 expr_stmt|;
 block|}
+DECL|method|getJobLauncher ()
+specifier|public
+name|JobLauncher
+name|getJobLauncher
+parameter_list|()
+block|{
+return|return
+name|jobLauncher
+return|;
+block|}
+comment|/**      * Explicitly specifies a JobLauncher to be used.      */
 DECL|method|setJobLauncher (JobLauncher jobLauncher)
 specifier|public
 name|void

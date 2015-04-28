@@ -219,6 +219,17 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getJobLauncher ()
+specifier|public
+name|JobLauncher
+name|getJobLauncher
+parameter_list|()
+block|{
+return|return
+name|jobLauncher
+return|;
+block|}
+comment|/**      * Explicitly specifies a JobLauncher to be used.      */
 DECL|method|setJobLauncher (JobLauncher jobLauncher)
 specifier|public
 name|void
