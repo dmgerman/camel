@@ -201,6 +201,11 @@ name|SpringIntegrationEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
+DECL|field|messageChannel
+specifier|private
+name|MessageChannel
+name|messageChannel
+decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -217,6 +222,11 @@ name|defaultChannel
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|inputChannel
 specifier|private
 name|String
@@ -224,15 +234,15 @@ name|inputChannel
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|outputChannel
 specifier|private
 name|String
 name|outputChannel
-decl_stmt|;
-DECL|field|messageChannel
-specifier|private
-name|MessageChannel
-name|messageChannel
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -377,6 +387,7 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * The Spring integration input channel name that this endpoint wants to consume from Spring integration.      */
 DECL|method|setInputChannel (String input)
 specifier|public
 name|void
@@ -401,6 +412,7 @@ return|return
 name|inputChannel
 return|;
 block|}
+comment|/**      * The Spring integration output channel name that is used to send messages to Spring integration.      */
 DECL|method|setOutputChannel (String output)
 specifier|public
 name|void
@@ -424,6 +436,23 @@ block|{
 return|return
 name|outputChannel
 return|;
+block|}
+comment|/**      * The default channel name which is used by the Spring Integration Spring context.      * It will equal to the inputChannel name for the Spring Integration consumer and the outputChannel name for the Spring Integration provider.      */
+DECL|method|setDefaultChannel (String defaultChannel)
+specifier|public
+name|void
+name|setDefaultChannel
+parameter_list|(
+name|String
+name|defaultChannel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultChannel
+operator|=
+name|defaultChannel
+expr_stmt|;
 block|}
 DECL|method|getDefaultChannel ()
 specifier|public
@@ -457,6 +486,7 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**      * The exchange pattern that the Spring integration endpoint should use.      * If inOut=true then a reply channel is expected, either from the Spring Integration Message header or configured on the endpoint.      */
 DECL|method|setInOut (boolean inOut)
 specifier|public
 name|void
