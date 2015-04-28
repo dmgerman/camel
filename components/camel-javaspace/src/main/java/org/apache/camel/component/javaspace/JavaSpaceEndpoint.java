@@ -185,17 +185,6 @@ name|JavaSpaceEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|parameters
-specifier|private
-specifier|final
-name|Map
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
-name|parameters
-decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -213,7 +202,25 @@ name|url
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
 argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|spaceName
+specifier|private
+name|String
+name|spaceName
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"1"
@@ -227,10 +234,37 @@ literal|1
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|spaceName
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"take"
+argument_list|,
+name|enums
+operator|=
+literal|"take,read"
+argument_list|)
+DECL|field|verb
 specifier|private
 name|String
-name|spaceName
+name|verb
+init|=
+literal|"take"
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|templateId
+specifier|private
+name|String
+name|templateId
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -250,28 +284,7 @@ name|Long
 operator|.
 name|MAX_VALUE
 decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"take"
-argument_list|)
-DECL|field|verb
-specifier|private
-name|String
-name|verb
-init|=
-literal|"take"
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|templateId
-specifier|private
-name|String
-name|templateId
-decl_stmt|;
-DECL|method|JavaSpaceEndpoint (String endpointUri, String remaining, Map<?, ?> parameters, JavaSpaceComponent component)
+DECL|method|JavaSpaceEndpoint (String endpointUri, String remaining, JavaSpaceComponent component)
 specifier|public
 name|JavaSpaceEndpoint
 parameter_list|(
@@ -280,14 +293,6 @@ name|endpointUri
 parameter_list|,
 name|String
 name|remaining
-parameter_list|,
-name|Map
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
-name|parameters
 parameter_list|,
 name|JavaSpaceComponent
 name|component
@@ -306,64 +311,37 @@ name|url
 operator|=
 name|remaining
 expr_stmt|;
-name|this
-operator|.
-name|parameters
-operator|=
-name|parameters
-expr_stmt|;
 block|}
-DECL|method|isTransactional ()
+DECL|method|createConsumer (Processor processor)
 specifier|public
-name|boolean
-name|isTransactional
-parameter_list|()
-block|{
-return|return
-name|transactional
-return|;
-block|}
-DECL|method|getVerb ()
-specifier|public
-name|String
-name|getVerb
-parameter_list|()
-block|{
-return|return
-name|verb
-return|;
-block|}
-DECL|method|setVerb (String verb)
-specifier|public
-name|void
-name|setVerb
+name|Consumer
+name|createConsumer
 parameter_list|(
-name|String
-name|verb
+name|Processor
+name|processor
 parameter_list|)
+throws|throws
+name|Exception
 block|{
+name|JavaSpaceConsumer
+name|answer
+init|=
+operator|new
+name|JavaSpaceConsumer
+argument_list|(
 name|this
-operator|.
-name|verb
-operator|=
-name|verb
+argument_list|,
+name|processor
+argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|answer
+argument_list|)
 expr_stmt|;
-block|}
-DECL|method|setTransactional (boolean transactional)
-specifier|public
-name|void
-name|setTransactional
-parameter_list|(
-name|boolean
-name|transactional
-parameter_list|)
-block|{
-name|this
-operator|.
-name|transactional
-operator|=
-name|transactional
-expr_stmt|;
+return|return
+name|answer
+return|;
 block|}
 DECL|method|createProducer ()
 specifier|public
@@ -411,19 +389,61 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * @deprecated use {@link #getUrl()}      */
-annotation|@
-name|Deprecated
-DECL|method|getRemaining ()
+DECL|method|getVerb ()
 specifier|public
 name|String
-name|getRemaining
+name|getVerb
 parameter_list|()
 block|{
 return|return
-name|url
+name|verb
 return|;
 block|}
+comment|/**      * Specifies the verb for getting JavaSpace entries.      */
+DECL|method|setVerb (String verb)
+specifier|public
+name|void
+name|setVerb
+parameter_list|(
+name|String
+name|verb
+parameter_list|)
+block|{
+name|this
+operator|.
+name|verb
+operator|=
+name|verb
+expr_stmt|;
+block|}
+DECL|method|isTransactional ()
+specifier|public
+name|boolean
+name|isTransactional
+parameter_list|()
+block|{
+return|return
+name|transactional
+return|;
+block|}
+comment|/**      * If true, sending and receiving entries is performed within a transaction.      */
+DECL|method|setTransactional (boolean transactional)
+specifier|public
+name|void
+name|setTransactional
+parameter_list|(
+name|boolean
+name|transactional
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transactional
+operator|=
+name|transactional
+expr_stmt|;
+block|}
+comment|/**      * The URL to the JavaSpace server      */
 DECL|method|getUrl ()
 specifier|public
 name|String
@@ -434,52 +454,7 @@ return|return
 name|url
 return|;
 block|}
-DECL|method|getParameters ()
-specifier|public
-name|Map
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
-name|getParameters
-parameter_list|()
-block|{
-return|return
-name|parameters
-return|;
-block|}
-DECL|method|createConsumer (Processor processor)
-specifier|public
-name|Consumer
-name|createConsumer
-parameter_list|(
-name|Processor
-name|processor
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|JavaSpaceConsumer
-name|answer
-init|=
-operator|new
-name|JavaSpaceConsumer
-argument_list|(
-name|this
-argument_list|,
-name|processor
-argument_list|)
-decl_stmt|;
-name|configureConsumer
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
-return|return
-name|answer
-return|;
-block|}
+comment|/**      * Specifies the number of concurrent consumers getting entries from the JavaSpace.      */
 DECL|method|setConcurrentConsumers (int concurrentConsumers)
 specifier|public
 name|void
@@ -516,6 +491,7 @@ return|return
 name|spaceName
 return|;
 block|}
+comment|/**      * Specifies the JavaSpace name.      */
 DECL|method|setSpaceName (String spaceName)
 specifier|public
 name|void
@@ -542,6 +518,7 @@ return|return
 name|templateId
 return|;
 block|}
+comment|/**      * If present, this option specifies the Spring bean ID of the template to use for reading/taking entries.      */
 DECL|method|setTemplateId (String templateId)
 specifier|public
 name|void
@@ -568,6 +545,7 @@ return|return
 name|transactionTimeout
 return|;
 block|}
+comment|/**      * Specifies the transaction timeout in millis. By default there is no timeout.      */
 DECL|method|setTransactionTimeout (long transactionTimeout)
 specifier|public
 name|void

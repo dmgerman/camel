@@ -155,8 +155,6 @@ name|uri
 argument_list|,
 name|remaining
 argument_list|,
-name|parameters
-argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
