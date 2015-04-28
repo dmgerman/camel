@@ -116,6 +116,15 @@ name|CLUSTERID
 init|=
 literal|"rabbitmq.CLUSTERID"
 decl_stmt|;
+DECL|field|REQUEST_TIMEOUT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|REQUEST_TIMEOUT
+init|=
+literal|"rabbitmq.REQUEST_TIMEOUT"
+decl_stmt|;
 DECL|field|REPLY_TO
 specifier|public
 specifier|static

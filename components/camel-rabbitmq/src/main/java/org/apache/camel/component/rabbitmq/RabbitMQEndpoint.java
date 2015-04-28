@@ -24,7 +24,67 @@ name|java
 operator|.
 name|io
 operator|.
+name|ByteArrayInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|ByteArrayOutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|ObjectInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|ObjectOutputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Serializable
 import|;
 end_import
 
@@ -252,6 +312,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoTypeConversionAvailableException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -265,6 +337,18 @@ operator|.
 name|camel
 operator|.
 name|Producer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|TypeConversionException
 import|;
 end_import
 
@@ -366,6 +450,26 @@ name|UriPath
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_class
 annotation|@
 name|UriEndpoint
@@ -399,6 +503,22 @@ name|RabbitMQEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|RabbitMQEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -959,6 +1079,81 @@ specifier|private
 name|ArgsConfigurer
 name|exchangeArgsConfigurer
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|requestTimeout
+specifier|private
+name|long
+name|requestTimeout
+init|=
+literal|20000
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|requestTimeoutCheckerInterval
+specifier|private
+name|long
+name|requestTimeoutCheckerInterval
+init|=
+literal|1000
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|transferException
+specifier|private
+name|boolean
+name|transferException
+init|=
+literal|false
+decl_stmt|;
+comment|// camel-jms supports this setting but it is not currently configurable in camel-rabbitmq
+DECL|field|useMessageIDAsCorrelationID
+specifier|private
+name|boolean
+name|useMessageIDAsCorrelationID
+init|=
+literal|true
+decl_stmt|;
+comment|// camel-jms supports this setting but it is not currently configurable in camel-rabbitmq
+DECL|field|replyToType
+specifier|private
+name|String
+name|replyToType
+init|=
+name|ReplyToType
+operator|.
+name|Temporary
+operator|.
+name|name
+argument_list|()
+decl_stmt|;
+comment|// camel-jms supports this setting but it is not currently configurable in camel-rabbitmq
+DECL|field|replyTo
+specifier|private
+name|String
+name|replyTo
+init|=
+literal|null
+decl_stmt|;
+DECL|field|messageConverter
+specifier|private
+name|RabbitMQMessageConverter
+name|messageConverter
+init|=
+operator|new
+name|RabbitMQMessageConverter
+argument_list|()
+decl_stmt|;
+comment|// header to indicate that the message body needs to be de-serialized
+DECL|field|SERIALIZE_HEADER
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|SERIALIZE_HEADER
+init|=
+literal|"CamelSerialize"
+decl_stmt|;
 DECL|method|RabbitMQEndpoint ()
 specifier|public
 name|RabbitMQEndpoint
@@ -1046,20 +1241,98 @@ name|getExchangePattern
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|setRabbitExchange
+argument_list|(
+name|exchange
+argument_list|,
+name|envelope
+argument_list|,
+name|properties
+argument_list|,
+name|body
+argument_list|)
+expr_stmt|;
+return|return
+name|exchange
+return|;
+block|}
+comment|/**      * Gets the message converter to convert between rabbit and camel      * @return      */
+DECL|method|getMessageConverter ()
+specifier|protected
+name|RabbitMQMessageConverter
+name|getMessageConverter
+parameter_list|()
+block|{
+return|return
+name|messageConverter
+return|;
+block|}
+DECL|method|setRabbitExchange (Exchange camelExchange, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
+specifier|public
+name|void
+name|setRabbitExchange
+parameter_list|(
+name|Exchange
+name|camelExchange
+parameter_list|,
+name|Envelope
+name|envelope
+parameter_list|,
+name|AMQP
+operator|.
+name|BasicProperties
+name|properties
+parameter_list|,
+name|byte
+index|[]
+name|body
+parameter_list|)
+block|{
 name|Message
 name|message
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|camelExchange
+operator|.
+name|getIn
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// Use the existing message so we keep the headers
+name|message
+operator|=
+name|camelExchange
+operator|.
+name|getIn
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|message
+operator|=
 operator|new
 name|DefaultMessage
 argument_list|()
-decl_stmt|;
-name|exchange
+expr_stmt|;
+name|camelExchange
 operator|.
 name|setIn
 argument_list|(
 name|message
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|envelope
+operator|!=
+literal|null
+condition|)
+block|{
 name|message
 operator|.
 name|setHeader
@@ -1102,6 +1375,7 @@ name|getDeliveryTag
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|Map
 argument_list|<
 name|String
@@ -1190,6 +1464,95 @@ expr_stmt|;
 block|}
 block|}
 block|}
+if|if
+condition|(
+name|hasSerializeHeader
+argument_list|(
+name|properties
+argument_list|)
+condition|)
+block|{
+name|Object
+name|messageBody
+init|=
+literal|null
+decl_stmt|;
+try|try
+init|(
+name|InputStream
+name|b
+init|=
+operator|new
+name|ByteArrayInputStream
+argument_list|(
+name|body
+argument_list|)
+init|; ObjectInputStream o = new ObjectInputStream(b)
+block|)
+block|{
+name|messageBody
+operator|=
+name|o
+operator|.
+name|readObject
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+decl||
+name|ClassNotFoundException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Could not deserialize the object"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|messageBody
+operator|instanceof
+name|Throwable
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Reply was an Exception. Setting the Exception on the Exchange"
+argument_list|)
+expr_stmt|;
+name|camelExchange
+operator|.
+name|setException
+argument_list|(
+operator|(
+name|Throwable
+operator|)
+name|messageBody
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|message
+operator|.
+name|setBody
+argument_list|(
+name|messageBody
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// Set the body as a byte[] and let the type converter deal with it
 name|message
 operator|.
 name|setBody
@@ -1197,10 +1560,502 @@ argument_list|(
 name|body
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+end_class
+
+begin_function
+DECL|method|hasSerializeHeader (AMQP.BasicProperties properties)
+specifier|private
+name|boolean
+name|hasSerializeHeader
+parameter_list|(
+name|AMQP
+operator|.
+name|BasicProperties
+name|properties
+parameter_list|)
+block|{
+if|if
+condition|(
+name|properties
+operator|==
+literal|null
+operator|||
+name|properties
+operator|.
+name|getHeaders
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
 return|return
-name|exchange
+literal|false
 return|;
 block|}
+if|if
+condition|(
+name|properties
+operator|.
+name|getHeaders
+argument_list|()
+operator|.
+name|containsKey
+argument_list|(
+name|SERIALIZE_HEADER
+argument_list|)
+operator|&&
+name|properties
+operator|.
+name|getHeaders
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|SERIALIZE_HEADER
+argument_list|)
+operator|.
+name|equals
+argument_list|(
+literal|true
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+return|return
+literal|false
+return|;
+block|}
+end_function
+
+begin_comment
+comment|/**      * Sends the body that is on the exchange      * @param camelExchange      * @param channel      * @param properties      * @throws IOException      */
+end_comment
+
+begin_function
+DECL|method|publishExchangeToChannel (Exchange camelExchange, Channel channel, String routingKey)
+specifier|public
+name|void
+name|publishExchangeToChannel
+parameter_list|(
+name|Exchange
+name|camelExchange
+parameter_list|,
+name|Channel
+name|channel
+parameter_list|,
+name|String
+name|routingKey
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|Message
+name|msg
+decl_stmt|;
+if|if
+condition|(
+name|camelExchange
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
+name|msg
+operator|=
+name|camelExchange
+operator|.
+name|getOut
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|msg
+operator|=
+name|camelExchange
+operator|.
+name|getIn
+argument_list|()
+expr_stmt|;
+block|}
+comment|// Remove the SERIALIZE_HEADER in case it was previously set
+if|if
+condition|(
+name|msg
+operator|.
+name|getHeaders
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|msg
+operator|.
+name|getHeaders
+argument_list|()
+operator|.
+name|containsKey
+argument_list|(
+name|SERIALIZE_HEADER
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Removing the {} header"
+argument_list|,
+name|SERIALIZE_HEADER
+argument_list|)
+expr_stmt|;
+name|msg
+operator|.
+name|getHeaders
+argument_list|()
+operator|.
+name|remove
+argument_list|(
+name|SERIALIZE_HEADER
+argument_list|)
+expr_stmt|;
+block|}
+name|AMQP
+operator|.
+name|BasicProperties
+name|properties
+decl_stmt|;
+name|byte
+index|[]
+name|body
+decl_stmt|;
+try|try
+block|{
+comment|// To maintain backwards compatibility try the TypeConverter (The DefaultTypeConverter seems to only work on Strings)
+name|body
+operator|=
+name|camelExchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|mandatoryConvertTo
+argument_list|(
+name|byte
+index|[]
+operator|.
+expr|class
+argument_list|,
+name|camelExchange
+argument_list|,
+name|msg
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|properties
+operator|=
+name|getMessageConverter
+argument_list|()
+operator|.
+name|buildProperties
+argument_list|(
+name|camelExchange
+argument_list|)
+operator|.
+name|build
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoTypeConversionAvailableException
+decl||
+name|TypeConversionException
+name|e
+parameter_list|)
+block|{
+if|if
+condition|(
+name|msg
+operator|.
+name|getBody
+argument_list|()
+operator|instanceof
+name|Serializable
+condition|)
+block|{
+comment|// Add the header so the reply processor knows to de-serialize it
+name|msg
+operator|.
+name|getHeaders
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|SERIALIZE_HEADER
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|properties
+operator|=
+name|getMessageConverter
+argument_list|()
+operator|.
+name|buildProperties
+argument_list|(
+name|camelExchange
+argument_list|)
+operator|.
+name|build
+argument_list|()
+expr_stmt|;
+try|try
+init|(
+name|ByteArrayOutputStream
+name|b
+init|=
+operator|new
+name|ByteArrayOutputStream
+argument_list|()
+init|; ObjectOutputStream o = new ObjectOutputStream(b)
+block|)
+block|{
+name|o
+operator|.
+name|writeObject
+argument_list|(
+name|msg
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|body
+operator|=
+name|b
+operator|.
+name|toByteArray
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+elseif|else
+if|if
+condition|(
+name|msg
+operator|.
+name|getBody
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|properties
+operator|=
+name|getMessageConverter
+argument_list|()
+operator|.
+name|buildProperties
+argument_list|(
+name|camelExchange
+argument_list|)
+operator|.
+name|build
+argument_list|()
+expr_stmt|;
+name|body
+operator|=
+literal|null
+expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Could not convert {} to byte[]"
+argument_list|,
+name|msg
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
+end_function
+
+begin_decl_stmt
+name|String
+name|rabbitExchange
+init|=
+name|getExchangeName
+argument_list|(
+name|msg
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+name|Boolean
+name|mandatory
+init|=
+name|camelExchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|RabbitMQConstants
+operator|.
+name|MANDATORY
+argument_list|,
+name|isMandatory
+argument_list|()
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+
+begin_decl_stmt
+name|Boolean
+name|immediate
+init|=
+name|camelExchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|RabbitMQConstants
+operator|.
+name|IMMEDIATE
+argument_list|,
+name|isImmediate
+argument_list|()
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+end_decl_stmt
+
+begin_expr_stmt
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Sending message to exchange: {} with CorrelationId = {}"
+argument_list|,
+name|rabbitExchange
+argument_list|,
+name|properties
+operator|.
+name|getCorrelationId
+argument_list|()
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
+name|channel
+operator|.
+name|basicPublish
+argument_list|(
+name|rabbitExchange
+argument_list|,
+name|routingKey
+argument_list|,
+name|mandatory
+argument_list|,
+name|immediate
+argument_list|,
+name|properties
+argument_list|,
+name|body
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+
+begin_comment
+unit|}
+comment|/**      * Extracts name of the rabbitmq exchange      *       * @param msg      * @return      */
+end_comment
+
+begin_function
+DECL|method|getExchangeName (Message msg)
+unit|protected
+name|String
+name|getExchangeName
+parameter_list|(
+name|Message
+name|msg
+parameter_list|)
+block|{
+name|String
+name|exchangeName
+init|=
+name|msg
+operator|.
+name|getHeader
+argument_list|(
+name|RabbitMQConstants
+operator|.
+name|EXCHANGE_NAME
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|// If it is BridgeEndpoint we should ignore the message header of EXCHANGE_NAME
+if|if
+condition|(
+name|exchangeName
+operator|==
+literal|null
+operator|||
+name|isBridgeEndpoint
+argument_list|()
+condition|)
+block|{
+name|exchangeName
+operator|=
+name|getExchangeName
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|exchangeName
+return|;
+block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|createConsumer (Processor processor)
@@ -1234,6 +2089,9 @@ return|return
 name|consumer
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|connect (ExecutorService executor)
 specifier|public
 name|Connection
@@ -1279,7 +2137,13 @@ argument_list|)
 return|;
 block|}
 block|}
+end_function
+
+begin_comment
 comment|/**      * If needed, declare Exchange, declare Queue and bind them with Routing Key      */
+end_comment
+
+begin_function
 DECL|method|declareExchangeAndQueue (Channel channel)
 specifier|public
 name|void
@@ -1526,6 +2390,9 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|getOrCreateConnectionFactory ()
 specifier|private
 name|ConnectionFactory
@@ -1792,6 +2659,9 @@ return|return
 name|connectionFactory
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|createProducer ()
@@ -1810,6 +2680,9 @@ name|this
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|isSingleton ()
@@ -1822,6 +2695,9 @@ return|return
 literal|true
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|createExecutor ()
 specifier|protected
 name|ExecutorService
@@ -1867,6 +2743,9 @@ argument_list|)
 return|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|getUsername ()
 specifier|public
 name|String
@@ -1877,7 +2756,13 @@ return|return
 name|username
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Username in case of authenticated access      */
+end_comment
+
+begin_function
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -1894,6 +2779,9 @@ operator|=
 name|username
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getPassword ()
 specifier|public
 name|String
@@ -1904,7 +2792,13 @@ return|return
 name|password
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Password for authenticated access      */
+end_comment
+
+begin_function
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -1921,6 +2815,9 @@ operator|=
 name|password
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getVhost ()
 specifier|public
 name|String
@@ -1931,7 +2828,13 @@ return|return
 name|vhost
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * The vhost for the channel      */
+end_comment
+
+begin_function
 DECL|method|setVhost (String vhost)
 specifier|public
 name|void
@@ -1948,6 +2851,9 @@ operator|=
 name|vhost
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getHostname ()
 specifier|public
 name|String
@@ -1958,7 +2864,13 @@ return|return
 name|hostname
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * The hostname of the running rabbitmq instance or cluster.      */
+end_comment
+
+begin_function
 DECL|method|setHostname (String hostname)
 specifier|public
 name|void
@@ -1975,6 +2887,9 @@ operator|=
 name|hostname
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getThreadPoolSize ()
 specifier|public
 name|int
@@ -1985,7 +2900,13 @@ return|return
 name|threadPoolSize
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * The consumer uses a Thread Pool Executor with a fixed number of threads. This setting allows you to set that number of threads.      */
+end_comment
+
+begin_function
 DECL|method|setThreadPoolSize (int threadPoolSize)
 specifier|public
 name|void
@@ -2002,6 +2923,9 @@ operator|=
 name|threadPoolSize
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getPortNumber ()
 specifier|public
 name|int
@@ -2012,7 +2936,13 @@ return|return
 name|portNumber
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Port number for the host with the running rabbitmq instance or cluster. Default value is 5672.      */
+end_comment
+
+begin_function
 DECL|method|setPortNumber (int portNumber)
 specifier|public
 name|void
@@ -2029,6 +2959,9 @@ operator|=
 name|portNumber
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|isAutoAck ()
 specifier|public
 name|boolean
@@ -2039,7 +2972,13 @@ return|return
 name|autoAck
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * If messages should be auto acknowledged      */
+end_comment
+
+begin_function
 DECL|method|setAutoAck (boolean autoAck)
 specifier|public
 name|void
@@ -2056,6 +2995,9 @@ operator|=
 name|autoAck
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|isAutoDelete ()
 specifier|public
 name|boolean
@@ -2066,7 +3008,13 @@ return|return
 name|autoDelete
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * If it is true, the exchange will be deleted when it is no longer in use      */
+end_comment
+
+begin_function
 DECL|method|setAutoDelete (boolean autoDelete)
 specifier|public
 name|void
@@ -2083,6 +3031,9 @@ operator|=
 name|autoDelete
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|isDurable ()
 specifier|public
 name|boolean
@@ -2093,7 +3044,13 @@ return|return
 name|durable
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * If we are declaring a durable exchange (the exchange will survive a server restart)      */
+end_comment
+
+begin_function
 DECL|method|setDurable (boolean durable)
 specifier|public
 name|void
@@ -2110,6 +3067,9 @@ operator|=
 name|durable
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getQueue ()
 specifier|public
 name|String
@@ -2120,7 +3080,13 @@ return|return
 name|queue
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * The queue to receive messages from      */
+end_comment
+
+begin_function
 DECL|method|setQueue (String queue)
 specifier|public
 name|void
@@ -2137,6 +3103,9 @@ operator|=
 name|queue
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getExchangeName ()
 specifier|public
 name|String
@@ -2147,7 +3116,13 @@ return|return
 name|exchangeName
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * The exchange name determines which exchange produced messages will sent to.      * In the case of consumers, the exchange name determines which exchange the queue will bind to.      */
+end_comment
+
+begin_function
 DECL|method|setExchangeName (String exchangeName)
 specifier|public
 name|void
@@ -2164,6 +3139,9 @@ operator|=
 name|exchangeName
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getExchangeType ()
 specifier|public
 name|String
@@ -2174,7 +3152,13 @@ return|return
 name|exchangeType
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * The exchange type such as direct or topic.      */
+end_comment
+
+begin_function
 DECL|method|setExchangeType (String exchangeType)
 specifier|public
 name|void
@@ -2191,6 +3175,9 @@ operator|=
 name|exchangeType
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getRoutingKey ()
 specifier|public
 name|String
@@ -2201,7 +3188,13 @@ return|return
 name|routingKey
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * The routing key to use when binding a consumer queue to the exchange.      * For producer routing keys, you set the header rabbitmq.ROUTING_KEY.      */
+end_comment
+
+begin_function
 DECL|method|setRoutingKey (String routingKey)
 specifier|public
 name|void
@@ -2218,7 +3211,13 @@ operator|=
 name|routingKey
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * If the bridgeEndpoint is true, the producer will ignore the message header of "rabbitmq.EXCHANGE_NAME" and "rabbitmq.ROUTING_KEY"      */
+end_comment
+
+begin_function
 DECL|method|setBridgeEndpoint (boolean bridgeEndpoint)
 specifier|public
 name|void
@@ -2235,6 +3234,9 @@ operator|=
 name|bridgeEndpoint
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|isBridgeEndpoint ()
 specifier|public
 name|boolean
@@ -2245,7 +3247,13 @@ return|return
 name|bridgeEndpoint
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * If this option is set, camel-rabbitmq will try to create connection based on the setting of option addresses.      * The addresses value is a string which looks like "server1:12345, server2:12345"      */
+end_comment
+
+begin_function
 DECL|method|setAddresses (String addresses)
 specifier|public
 name|void
@@ -2283,6 +3291,9 @@ name|addressArray
 expr_stmt|;
 block|}
 block|}
+end_function
+
+begin_function
 DECL|method|getAddresses ()
 specifier|public
 name|Address
@@ -2294,6 +3305,9 @@ return|return
 name|addresses
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getConnectionTimeout ()
 specifier|public
 name|int
@@ -2304,7 +3318,13 @@ return|return
 name|connectionTimeout
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Connection timeout      */
+end_comment
+
+begin_function
 DECL|method|setConnectionTimeout (int connectionTimeout)
 specifier|public
 name|void
@@ -2321,6 +3341,9 @@ operator|=
 name|connectionTimeout
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getRequestedChannelMax ()
 specifier|public
 name|int
@@ -2331,7 +3354,13 @@ return|return
 name|requestedChannelMax
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Connection requested channel max (max number of channels offered)      */
+end_comment
+
+begin_function
 DECL|method|setRequestedChannelMax (int requestedChannelMax)
 specifier|public
 name|void
@@ -2348,6 +3377,9 @@ operator|=
 name|requestedChannelMax
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getRequestedFrameMax ()
 specifier|public
 name|int
@@ -2358,7 +3390,13 @@ return|return
 name|requestedFrameMax
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Connection requested frame max (max size of frame offered)      */
+end_comment
+
+begin_function
 DECL|method|setRequestedFrameMax (int requestedFrameMax)
 specifier|public
 name|void
@@ -2375,6 +3413,9 @@ operator|=
 name|requestedFrameMax
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getRequestedHeartbeat ()
 specifier|public
 name|int
@@ -2385,7 +3426,13 @@ return|return
 name|requestedHeartbeat
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Connection requested heartbeat (heart-beat in seconds offered)      */
+end_comment
+
+begin_function
 DECL|method|setRequestedHeartbeat (int requestedHeartbeat)
 specifier|public
 name|void
@@ -2402,6 +3449,9 @@ operator|=
 name|requestedHeartbeat
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getSslProtocol ()
 specifier|public
 name|String
@@ -2412,7 +3462,13 @@ return|return
 name|sslProtocol
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Enables SSL on connection, accepted value are `true`, `TLS` and 'SSLv3`      */
+end_comment
+
+begin_function
 DECL|method|setSslProtocol (String sslProtocol)
 specifier|public
 name|void
@@ -2429,6 +3485,9 @@ operator|=
 name|sslProtocol
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getConnectionFactory ()
 specifier|public
 name|ConnectionFactory
@@ -2439,7 +3498,13 @@ return|return
 name|connectionFactory
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * To use a custom RabbitMQ connection factory.      * When this option is set, all connection options (connectionTimeout, requestedChannelMax...) set on URI are not used      */
+end_comment
+
+begin_function
 DECL|method|setConnectionFactory (ConnectionFactory connectionFactory)
 specifier|public
 name|void
@@ -2456,6 +3521,9 @@ operator|=
 name|connectionFactory
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getTrustManager ()
 specifier|public
 name|TrustManager
@@ -2466,7 +3534,13 @@ return|return
 name|trustManager
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Configure SSL trust manager, SSL should be enabled for this option to be effective      */
+end_comment
+
+begin_function
 DECL|method|setTrustManager (TrustManager trustManager)
 specifier|public
 name|void
@@ -2483,6 +3557,9 @@ operator|=
 name|trustManager
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getClientProperties ()
 specifier|public
 name|Map
@@ -2498,7 +3575,13 @@ return|return
 name|clientProperties
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Connection client properties (client info used in negotiating with the server)      */
+end_comment
+
+begin_function
 DECL|method|setClientProperties (Map<String, Object> clientProperties)
 specifier|public
 name|void
@@ -2520,6 +3603,9 @@ operator|=
 name|clientProperties
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getAutomaticRecoveryEnabled ()
 specifier|public
 name|Boolean
@@ -2530,7 +3616,13 @@ return|return
 name|automaticRecoveryEnabled
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Enables connection automatic recovery (uses connection implementation that performs automatic recovery when connection shutdown is not initiated by the application)      */
+end_comment
+
+begin_function
 DECL|method|setAutomaticRecoveryEnabled (Boolean automaticRecoveryEnabled)
 specifier|public
 name|void
@@ -2547,6 +3639,9 @@ operator|=
 name|automaticRecoveryEnabled
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getNetworkRecoveryInterval ()
 specifier|public
 name|Integer
@@ -2557,7 +3652,13 @@ return|return
 name|networkRecoveryInterval
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Network recovery interval in milliseconds (interval used when recovering from network failure)      */
+end_comment
+
+begin_function
 DECL|method|setNetworkRecoveryInterval (Integer networkRecoveryInterval)
 specifier|public
 name|void
@@ -2574,6 +3675,9 @@ operator|=
 name|networkRecoveryInterval
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getTopologyRecoveryEnabled ()
 specifier|public
 name|Boolean
@@ -2584,7 +3688,13 @@ return|return
 name|topologyRecoveryEnabled
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Enables connection topology recovery (should topology recovery be performed?)      */
+end_comment
+
+begin_function
 DECL|method|setTopologyRecoveryEnabled (Boolean topologyRecoveryEnabled)
 specifier|public
 name|void
@@ -2601,6 +3711,9 @@ operator|=
 name|topologyRecoveryEnabled
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|isPrefetchEnabled ()
 specifier|public
 name|boolean
@@ -2611,7 +3724,13 @@ return|return
 name|prefetchEnabled
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Enables the quality of service on the RabbitMQConsumer side.      * You need to specify the option of prefetchSize, prefetchCount, prefetchGlobal at the same time      */
+end_comment
+
+begin_function
 DECL|method|setPrefetchEnabled (boolean prefetchEnabled)
 specifier|public
 name|void
@@ -2628,7 +3747,13 @@ operator|=
 name|prefetchEnabled
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * The maximum amount of content (measured in octets) that the server will deliver, 0 if unlimited.      * You need to specify the option of prefetchSize, prefetchCount, prefetchGlobal at the same time      */
+end_comment
+
+begin_function
 DECL|method|setPrefetchSize (int prefetchSize)
 specifier|public
 name|void
@@ -2645,6 +3770,9 @@ operator|=
 name|prefetchSize
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getPrefetchSize ()
 specifier|public
 name|int
@@ -2655,7 +3783,13 @@ return|return
 name|prefetchSize
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * The maximum number of messages that the server will deliver, 0 if unlimited.      * You need to specify the option of prefetchSize, prefetchCount, prefetchGlobal at the same time      */
+end_comment
+
+begin_function
 DECL|method|setPrefetchCount (int prefetchCount)
 specifier|public
 name|void
@@ -2672,6 +3806,9 @@ operator|=
 name|prefetchCount
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getPrefetchCount ()
 specifier|public
 name|int
@@ -2682,7 +3819,13 @@ return|return
 name|prefetchCount
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * If the settings should be applied to the entire channel rather than each consumer      * You need to specify the option of prefetchSize, prefetchCount, prefetchGlobal at the same time      */
+end_comment
+
+begin_function
 DECL|method|setPrefetchGlobal (boolean prefetchGlobal)
 specifier|public
 name|void
@@ -2699,6 +3842,9 @@ operator|=
 name|prefetchGlobal
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|isPrefetchGlobal ()
 specifier|public
 name|boolean
@@ -2709,6 +3855,9 @@ return|return
 name|prefetchGlobal
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|getConcurrentConsumers ()
 specifier|public
 name|int
@@ -2719,7 +3868,13 @@ return|return
 name|concurrentConsumers
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Number of concurrent consumers when consuming from broker. (eg similar as to the same option for the JMS component).      */
+end_comment
+
+begin_function
 DECL|method|setConcurrentConsumers (int concurrentConsumers)
 specifier|public
 name|void
@@ -2736,6 +3891,9 @@ operator|=
 name|concurrentConsumers
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|isDeclare ()
 specifier|public
 name|boolean
@@ -2746,7 +3904,13 @@ return|return
 name|declare
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * If the option is true, camel declare the exchange and queue name and bind them together.      * If the option is false, camel won't declare the exchange and queue name on the server.      */
+end_comment
+
+begin_function
 DECL|method|setDeclare (boolean declare)
 specifier|public
 name|void
@@ -2763,6 +3927,9 @@ operator|=
 name|declare
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getDeadLetterExchange ()
 specifier|public
 name|String
@@ -2773,7 +3940,13 @@ return|return
 name|deadLetterExchange
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * The name of the dead letter exchange      */
+end_comment
+
+begin_function
 DECL|method|setDeadLetterExchange (String deadLetterExchange)
 specifier|public
 name|void
@@ -2790,6 +3963,9 @@ operator|=
 name|deadLetterExchange
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getDeadLetterQueue ()
 specifier|public
 name|String
@@ -2800,7 +3976,13 @@ return|return
 name|deadLetterQueue
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * The name of the dead letter queue      */
+end_comment
+
+begin_function
 DECL|method|setDeadLetterQueue (String deadLetterQueue)
 specifier|public
 name|void
@@ -2817,6 +3999,9 @@ operator|=
 name|deadLetterQueue
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getDeadLetterRoutingKey ()
 specifier|public
 name|String
@@ -2827,7 +4012,13 @@ return|return
 name|deadLetterRoutingKey
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * The routing key for the dead letter exchange      */
+end_comment
+
+begin_function
 DECL|method|setDeadLetterRoutingKey (String deadLetterRoutingKey)
 specifier|public
 name|void
@@ -2844,6 +4035,9 @@ operator|=
 name|deadLetterRoutingKey
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getDeadLetterExchangeType ()
 specifier|public
 name|String
@@ -2854,7 +4048,13 @@ return|return
 name|deadLetterExchangeType
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * The type of the dead letter exchange      */
+end_comment
+
+begin_function
 DECL|method|setDeadLetterExchangeType (String deadLetterExchangeType)
 specifier|public
 name|void
@@ -2871,7 +4071,13 @@ operator|=
 name|deadLetterExchangeType
 expr_stmt|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Get maximum number of opened channel in pool      */
+end_comment
+
+begin_function
 DECL|method|getChannelPoolMaxSize ()
 specifier|public
 name|int
@@ -2882,7 +4088,9 @@ return|return
 name|channelPoolMaxSize
 return|;
 block|}
-comment|/**      * Set maximum number of opened channel in pool      */
+end_function
+
+begin_function
 DECL|method|setChannelPoolMaxSize (int channelPoolMaxSize)
 specifier|public
 name|void
@@ -2899,6 +4107,9 @@ operator|=
 name|channelPoolMaxSize
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getChannelPoolMaxWait ()
 specifier|public
 name|long
@@ -2909,7 +4120,13 @@ return|return
 name|channelPoolMaxWait
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Set the maximum number of milliseconds to wait for a channel from the pool      */
+end_comment
+
+begin_function
 DECL|method|setChannelPoolMaxWait (long channelPoolMaxWait)
 specifier|public
 name|void
@@ -2926,6 +4143,9 @@ operator|=
 name|channelPoolMaxWait
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|isMandatory ()
 specifier|public
 name|boolean
@@ -2936,7 +4156,13 @@ return|return
 name|mandatory
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * This flag tells the server how to react if the message cannot be routed to a queue.      * If this flag is set, the server will return an unroutable message with a Return method.      * If this flag is zero, the server silently drops the message.      *<p/>      * If the header is present rabbitmq.MANDATORY it will override this option.      */
+end_comment
+
+begin_function
 DECL|method|setMandatory (boolean mandatory)
 specifier|public
 name|void
@@ -2953,6 +4179,9 @@ operator|=
 name|mandatory
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|isImmediate ()
 specifier|public
 name|boolean
@@ -2963,7 +4192,13 @@ return|return
 name|immediate
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * This flag tells the server how to react if the message cannot be routed to a queue consumer immediately.      * If this flag is set, the server will return an undeliverable message with a Return method.      * If this flag is zero, the server will queue the message, but with no guarantee that it will ever be consumed.      *<p/>      * If the header is present rabbitmq.IMMEDIATE it will override this option.      */
+end_comment
+
+begin_function
 DECL|method|setImmediate (boolean immediate)
 specifier|public
 name|void
@@ -2980,6 +4215,9 @@ operator|=
 name|immediate
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getQueueArgsConfigurer ()
 specifier|public
 name|ArgsConfigurer
@@ -2990,7 +4228,13 @@ return|return
 name|queueArgsConfigurer
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Set the configurer for setting the queue args in Channel.queueDeclare      */
+end_comment
+
+begin_function
 DECL|method|setQueueArgsConfigurer (ArgsConfigurer queueArgsConfigurer)
 specifier|public
 name|void
@@ -3007,6 +4251,9 @@ operator|=
 name|queueArgsConfigurer
 expr_stmt|;
 block|}
+end_function
+
+begin_function
 DECL|method|getExchangeArgsConfigurer ()
 specifier|public
 name|ArgsConfigurer
@@ -3017,7 +4264,13 @@ return|return
 name|exchangeArgsConfigurer
 return|;
 block|}
+end_function
+
+begin_comment
 comment|/**      * Set the configurer for setting the exchange args in Channel.exchangeDeclare      */
+end_comment
+
+begin_function
 DECL|method|setExchangeArgsConfigurer (ArgsConfigurer exchangeArgsConfigurer)
 specifier|public
 name|void
@@ -3034,8 +4287,167 @@ operator|=
 name|exchangeArgsConfigurer
 expr_stmt|;
 block|}
-block|}
-end_class
+end_function
 
+begin_comment
+comment|/**      * Set timeout for waiting for a reply when using the InOut Exchange Pattern (in milliseconds)      */
+end_comment
+
+begin_function
+DECL|method|setRequestTimeout (long requestTimeout)
+specifier|public
+name|void
+name|setRequestTimeout
+parameter_list|(
+name|long
+name|requestTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|requestTimeout
+operator|=
+name|requestTimeout
+expr_stmt|;
+block|}
+end_function
+
+begin_function
+DECL|method|getRequestTimeout ()
+specifier|public
+name|long
+name|getRequestTimeout
+parameter_list|()
+block|{
+return|return
+name|requestTimeout
+return|;
+block|}
+end_function
+
+begin_comment
+comment|/**      * Set requestTimeoutCheckerInterval for inOut exchange      */
+end_comment
+
+begin_function
+DECL|method|setRequestTimeoutCheckerInterval (long requestTimeoutCheckerInterval)
+specifier|public
+name|void
+name|setRequestTimeoutCheckerInterval
+parameter_list|(
+name|long
+name|requestTimeoutCheckerInterval
+parameter_list|)
+block|{
+name|this
+operator|.
+name|requestTimeoutCheckerInterval
+operator|=
+name|requestTimeoutCheckerInterval
+expr_stmt|;
+block|}
+end_function
+
+begin_function
+DECL|method|getRequestTimeoutCheckerInterval ()
+specifier|public
+name|long
+name|getRequestTimeoutCheckerInterval
+parameter_list|()
+block|{
+return|return
+name|requestTimeoutCheckerInterval
+return|;
+block|}
+end_function
+
+begin_comment
+comment|/**      * Get useMessageIDAsCorrelationID for inOut exchange      */
+end_comment
+
+begin_function
+DECL|method|isUseMessageIDAsCorrelationID ()
+specifier|public
+name|boolean
+name|isUseMessageIDAsCorrelationID
+parameter_list|()
+block|{
+return|return
+name|useMessageIDAsCorrelationID
+return|;
+block|}
+end_function
+
+begin_comment
+comment|/**      * When true and an inOut Exchange failed on the consumer side send the caused Exception back in the response       */
+end_comment
+
+begin_function
+DECL|method|setTransferException (boolean transferException)
+specifier|public
+name|void
+name|setTransferException
+parameter_list|(
+name|boolean
+name|transferException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transferException
+operator|=
+name|transferException
+expr_stmt|;
+block|}
+end_function
+
+begin_function
+DECL|method|isTransferException ()
+specifier|public
+name|boolean
+name|isTransferException
+parameter_list|()
+block|{
+return|return
+name|transferException
+return|;
+block|}
+end_function
+
+begin_comment
+comment|/**      * Get replyToType for inOut exchange      */
+end_comment
+
+begin_function
+DECL|method|getReplyToType ()
+specifier|public
+name|String
+name|getReplyToType
+parameter_list|()
+block|{
+return|return
+name|replyToType
+return|;
+block|}
+end_function
+
+begin_comment
+comment|/**      * Gets the Queue to reply to if you dont want to use temporary reply queues      */
+end_comment
+
+begin_function
+DECL|method|getReplyTo ()
+specifier|public
+name|String
+name|getReplyTo
+parameter_list|()
+block|{
+return|return
+name|replyTo
+return|;
+block|}
+end_function
+
+unit|}
 end_unit
 
