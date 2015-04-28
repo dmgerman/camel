@@ -3094,13 +3094,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|(
 operator|!
 name|app
 operator|.
 name|canUpdateEnvironmentVariables
 argument_list|()
-operator|)
 condition|)
 block|{
 throw|throw
@@ -3329,13 +3327,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|(
 operator|!
 name|app
 operator|.
 name|canUpdateEnvironmentVariables
 argument_list|()
-operator|)
 condition|)
 block|{
 throw|throw
@@ -3539,13 +3535,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|(
 operator|!
 name|app
 operator|.
 name|canGetEnvironmentVariables
 argument_list|()
-operator|)
 condition|)
 block|{
 throw|throw
@@ -3564,7 +3558,6 @@ throw|;
 block|}
 if|if
 condition|(
-operator|(
 operator|!
 name|ObjectHelper
 operator|.
@@ -3576,7 +3569,6 @@ operator|&&
 name|variableName
 operator|!=
 literal|null
-operator|)
 condition|)
 block|{
 name|IEnvironmentVariable
@@ -3847,13 +3839,11 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-operator|(
 operator|!
 name|app
 operator|.
 name|canGetEnvironmentVariables
 argument_list|()
-operator|)
 condition|)
 block|{
 throw|throw
@@ -3872,7 +3862,6 @@ throw|;
 block|}
 if|if
 condition|(
-operator|(
 operator|!
 name|ObjectHelper
 operator|.
@@ -3884,7 +3873,6 @@ operator|&&
 name|variableName
 operator|!=
 literal|null
-operator|)
 condition|)
 block|{
 name|app
