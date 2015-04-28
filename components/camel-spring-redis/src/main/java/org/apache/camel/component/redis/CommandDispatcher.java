@@ -138,7 +138,6 @@ operator|=
 name|exchange
 expr_stmt|;
 block|}
-comment|// TODO: This method is longer than maximally allowed 200 lines
 comment|// CHECKSTYLE:OFF
 DECL|method|execute (final RedisClient redisClient)
 specifier|public
@@ -150,10 +149,16 @@ name|RedisClient
 name|redisClient
 parameter_list|)
 block|{
-switch|switch
-condition|(
+specifier|final
+name|Command
+name|command
+init|=
 name|determineCommand
 argument_list|()
+decl_stmt|;
+switch|switch
+condition|(
+name|command
 condition|)
 block|{
 case|case
@@ -1833,7 +1838,9 @@ throw|throw
 operator|new
 name|RuntimeExchangeException
 argument_list|(
-literal|"Unsupported command"
+literal|"Unsupported command: "
+operator|+
+name|command
 argument_list|,
 name|exchange
 argument_list|)
@@ -1847,7 +1854,7 @@ name|Command
 name|determineCommand
 parameter_list|()
 block|{
-name|String
+name|Command
 name|command
 init|=
 name|exchange
@@ -1861,7 +1868,7 @@ name|RedisConstants
 operator|.
 name|COMMAND
 argument_list|,
-name|String
+name|Command
 operator|.
 name|class
 argument_list|)
@@ -1888,19 +1895,15 @@ operator|==
 literal|null
 condition|)
 block|{
-return|return
+name|command
+operator|=
 name|Command
 operator|.
 name|SET
-return|;
+expr_stmt|;
 block|}
 return|return
-name|Command
-operator|.
-name|valueOf
-argument_list|(
 name|command
-argument_list|)
 return|;
 block|}
 DECL|method|getInHeaderValue (Exchange exchange, String key, Class<T> aClass)

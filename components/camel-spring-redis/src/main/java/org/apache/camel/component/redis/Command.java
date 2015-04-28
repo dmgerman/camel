@@ -392,7 +392,7 @@ block|,
 name|PEXPIRE
 block|,
 name|PEXPIREAT
-block|; }
+block|}
 end_enum
 
 end_unit

@@ -62,11 +62,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|impl
 operator|.
-name|direct
-operator|.
-name|DirectEndpoint
+name|DefaultEndpoint
 import|;
 end_import
 
@@ -133,7 +131,7 @@ specifier|public
 class|class
 name|RedisEndpoint
 extends|extends
-name|DirectEndpoint
+name|DefaultEndpoint
 block|{
 annotation|@
 name|UriParam

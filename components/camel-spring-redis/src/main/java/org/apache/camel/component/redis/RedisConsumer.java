@@ -90,11 +90,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|impl
 operator|.
-name|direct
-operator|.
-name|DirectConsumer
+name|DefaultConsumer
 import|;
 end_import
 
@@ -184,7 +182,7 @@ specifier|public
 class|class
 name|RedisConsumer
 extends|extends
-name|DirectConsumer
+name|DefaultConsumer
 implements|implements
 name|MessageListener
 block|{
@@ -308,14 +306,19 @@ range|:
 name|channelsArrays
 control|)
 block|{
+name|String
+name|name
+init|=
+name|channel
+operator|.
+name|trim
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|Command
 operator|.
 name|PSUBSCRIBE
-operator|.
-name|toString
-argument_list|()
 operator|.
 name|equals
 argument_list|(
@@ -333,7 +336,7 @@ argument_list|(
 operator|new
 name|PatternTopic
 argument_list|(
-name|channel
+name|name
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -344,9 +347,6 @@ condition|(
 name|Command
 operator|.
 name|SUBSCRIBE
-operator|.
-name|toString
-argument_list|()
 operator|.
 name|equals
 argument_list|(
@@ -364,7 +364,7 @@ argument_list|(
 operator|new
 name|ChannelTopic
 argument_list|(
-name|channel
+name|name
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -373,9 +373,14 @@ else|else
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|IllegalArgumentException
 argument_list|(
-literal|"Unsupported Command"
+literal|"Unsupported Command "
+operator|+
+name|redisConfiguration
+operator|.
+name|getCommand
+argument_list|()
 argument_list|)
 throw|;
 block|}

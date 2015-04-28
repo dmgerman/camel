@@ -180,6 +180,16 @@ specifier|public
 class|class
 name|RedisConfiguration
 block|{
+DECL|field|managedListenerContainer
+specifier|private
+name|boolean
+name|managedListenerContainer
+decl_stmt|;
+DECL|field|managedConnectionFactory
+specifier|private
+name|boolean
+name|managedConnectionFactory
+decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -210,10 +220,19 @@ name|port
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"SET"
+argument_list|)
 DECL|field|command
 specifier|private
-name|String
+name|Command
 name|command
+init|=
+name|Command
+operator|.
+name|SET
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -250,23 +269,9 @@ specifier|private
 name|RedisSerializer
 name|serializer
 decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|managedListenerContainer
-specifier|private
-name|boolean
-name|managedListenerContainer
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|managedConnectionFactory
-specifier|private
-name|boolean
-name|managedConnectionFactory
-decl_stmt|;
 DECL|method|getCommand ()
 specifier|public
-name|String
+name|Command
 name|getCommand
 parameter_list|()
 block|{
@@ -274,12 +279,13 @@ return|return
 name|command
 return|;
 block|}
-DECL|method|setCommand (String command)
+comment|/**      * Default command, which can be overridden by message header.      *<p/>      * Notice the consumer only supports the following commands: PSUBSCRIBE and SUBSCRIBE      */
+DECL|method|setCommand (Command command)
 specifier|public
 name|void
 name|setCommand
 parameter_list|(
-name|String
+name|Command
 name|command
 parameter_list|)
 block|{
@@ -300,6 +306,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * Redis server port number      */
 DECL|method|setPort (Integer port)
 specifier|public
 name|void
@@ -326,6 +333,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * The host where Redis server is running.      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -359,6 +367,7 @@ name|createDefaultTemplate
 argument_list|()
 return|;
 block|}
+comment|/**      * Reference to a pre-configured RedisTemplate instance to use.      */
 DECL|method|setRedisTemplate (RedisTemplate redisTemplate)
 specifier|public
 name|void
@@ -392,6 +401,7 @@ name|createDefaultListenerContainer
 argument_list|()
 return|;
 block|}
+comment|/**      * Reference to a pre-configured RedisMessageListenerContainer instance to use.      */
 DECL|method|setListenerContainer (RedisMessageListenerContainer listenerContainer)
 specifier|public
 name|void
@@ -418,6 +428,7 @@ return|return
 name|channels
 return|;
 block|}
+comment|/**      * List of topic names or name patterns to subscribe to. Multiple names can be separated by comma.      */
 DECL|method|setChannels (String channels)
 specifier|public
 name|void
@@ -434,6 +445,7 @@ operator|=
 name|channels
 expr_stmt|;
 block|}
+comment|/**      * Reference to a pre-configured RedisConnectionFactory instance to use.      */
 DECL|method|setConnectionFactory (RedisConnectionFactory connectionFactory)
 specifier|public
 name|void
@@ -484,6 +496,7 @@ name|createDefaultSerializer
 argument_list|()
 return|;
 block|}
+comment|/**      * Reference to a pre-configured RedisSerializer instance to use.      */
 DECL|method|setSerializer (RedisSerializer serializer)
 specifier|public
 name|void
