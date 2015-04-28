@@ -824,7 +824,7 @@ name|when
 argument_list|(
 name|ldapEndpoint
 operator|.
-name|getScope
+name|scopeValue
 argument_list|()
 argument_list|)
 operator|.

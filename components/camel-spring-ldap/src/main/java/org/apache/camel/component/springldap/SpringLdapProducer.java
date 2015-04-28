@@ -334,7 +334,7 @@ name|filter
 argument_list|,
 name|endpoint
 operator|.
-name|getScope
+name|scopeValue
 argument_list|()
 argument_list|,
 name|mapper
