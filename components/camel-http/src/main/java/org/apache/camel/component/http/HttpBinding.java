@@ -60,6 +60,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -198,6 +210,21 @@ name|setUseReaderForPayload
 parameter_list|(
 name|boolean
 name|useReaderForPayload
+parameter_list|)
+function_decl|;
+comment|/**      * If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back      * serialized in the response as a application/x-java-serialized-object content type (for example using Jetty or      * Servlet Camel components). On the producer side the exception will be deserialized and thrown as is,      * instead of the HttpOperationFailedException. The caused exception is required to be serialized.      */
+DECL|method|isTransferException ()
+name|boolean
+name|isTransferException
+parameter_list|()
+function_decl|;
+comment|/**      * If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back      * serialized in the response as a application/x-java-serialized-object content type (for example using Jetty or      * Servlet Camel components). On the producer side the exception will be deserialized and thrown as is,      * instead of the HttpOperationFailedException. The caused exception is required to be serialized.      */
+DECL|method|setTransferException (boolean transferException)
+name|void
+name|setTransferException
+parameter_list|(
+name|boolean
+name|transferException
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the header filter strategy      *      * @return the strategy      */
