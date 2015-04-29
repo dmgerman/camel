@@ -377,7 +377,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Binding between {@link HttpMessage} and {@link HttpServletResponse}.  *  * @version   */
+comment|/**  * Binding between {@link HttpMessage} and {@link HttpServletResponse}.  *<p/>  * Uses by default the {@link org.apache.camel.component.http4.HttpHeaderFilterStrategy}  *  * @version   */
 end_comment
 
 begin_class
@@ -409,6 +409,11 @@ specifier|private
 name|boolean
 name|useReaderForPayload
 decl_stmt|;
+DECL|field|transferException
+specifier|private
+name|boolean
+name|transferException
+decl_stmt|;
 DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
@@ -418,13 +423,6 @@ operator|new
 name|HttpHeaderFilterStrategy
 argument_list|()
 decl_stmt|;
-DECL|field|endpoint
-specifier|private
-name|HttpEndpoint
-name|endpoint
-decl_stmt|;
-annotation|@
-name|Deprecated
 DECL|method|DefaultHttpBinding ()
 specifier|public
 name|DefaultHttpBinding
@@ -447,6 +445,8 @@ operator|=
 name|headerFilterStrategy
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|DefaultHttpBinding (HttpEndpoint endpoint)
 specifier|public
 name|DefaultHttpBinding
@@ -457,17 +457,20 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|endpoint
-operator|=
-name|endpoint
-expr_stmt|;
-name|this
-operator|.
 name|headerFilterStrategy
 operator|=
 name|endpoint
 operator|.
 name|getHeaderFilterStrategy
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|transferException
+operator|=
+name|endpoint
+operator|.
+name|isTransferException
 argument_list|()
 expr_stmt|;
 block|}
@@ -813,9 +816,12 @@ block|{
 name|InputStream
 name|is
 init|=
-name|endpoint
+name|message
 operator|.
-name|getCamelContext
+name|getExchange
+argument_list|()
+operator|.
+name|getContext
 argument_list|()
 operator|.
 name|getTypeConverter
@@ -838,6 +844,14 @@ operator|.
 name|deserializeJavaObjectFromStream
 argument_list|(
 name|is
+argument_list|,
+name|message
+operator|.
+name|getExchange
+argument_list|()
+operator|.
+name|getContext
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -1535,12 +1549,6 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|endpoint
-operator|!=
-literal|null
-operator|&&
-name|endpoint
-operator|.
 name|isTransferException
 argument_list|()
 condition|)
@@ -2650,6 +2658,32 @@ operator|.
 name|useReaderForPayload
 operator|=
 name|useReaderForPayload
+expr_stmt|;
+block|}
+DECL|method|isTransferException ()
+specifier|public
+name|boolean
+name|isTransferException
+parameter_list|()
+block|{
+return|return
+name|transferException
+return|;
+block|}
+DECL|method|setTransferException (boolean transferException)
+specifier|public
+name|void
+name|setTransferException
+parameter_list|(
+name|boolean
+name|transferException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transferException
+operator|=
+name|transferException
 expr_stmt|;
 block|}
 DECL|method|getHeaderFilterStrategy ()

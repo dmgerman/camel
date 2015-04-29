@@ -387,7 +387,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Binding between {@link HttpMessage} and {@link HttpServletResponse}.  *  * @version   */
+comment|/**  * Binding between {@link HttpMessage} and {@link HttpServletResponse}.  *<p/>  * Uses by default the {@link org.apache.camel.component.http.HttpHeaderFilterStrategy}  *  * @version   */
 end_comment
 
 begin_class
@@ -428,6 +428,10 @@ DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
+init|=
+operator|new
+name|HttpHeaderFilterStrategy
+argument_list|()
 decl_stmt|;
 DECL|method|DefaultHttpBinding ()
 specifier|public
