@@ -703,7 +703,6 @@ name|ex
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.jetty.JettyContentExchangeI#getBody()      */
 DECL|method|getBody ()
 specifier|public
 name|byte
@@ -717,7 +716,6 @@ name|getResponseContentBytes
 argument_list|()
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.jetty.JettyContentExchangeI#getUrl()      */
 DECL|method|getUrl ()
 specifier|public
 name|String
@@ -895,7 +893,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.jetty.JettyContentExchangeI#setRequestContentType(java.lang.String)      */
 DECL|method|setRequestContentType (String contentType)
 specifier|public
 name|void
@@ -912,7 +909,6 @@ operator|=
 name|contentType
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.jetty.JettyContentExchangeI#getResponseStatus()      */
 DECL|method|getResponseStatus ()
 specifier|public
 name|int
@@ -928,7 +924,6 @@ name|getStatus
 argument_list|()
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.jetty.JettyContentExchangeI#setMethod(java.lang.String)      */
 DECL|method|setMethod (String method)
 specifier|public
 name|void
@@ -948,7 +943,6 @@ name|method
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.jetty.JettyContentExchangeI#setTimeout(long)      */
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
@@ -972,7 +966,6 @@ name|MILLISECONDS
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.jetty.JettyContentExchangeI#setURL(java.lang.String)      */
 DECL|method|setURL (String url)
 specifier|public
 name|void
@@ -994,7 +987,6 @@ name|url
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.jetty.JettyContentExchangeI#setRequestContent(byte[])      */
 DECL|method|setRequestContent (byte[] byteArray)
 specifier|public
 name|void
@@ -1023,7 +1015,6 @@ name|requestContentType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.jetty.JettyContentExchangeI#setRequestContent(java.lang.String, java.lang.String)      */
 DECL|method|setRequestContent (String data, String charset)
 specifier|public
 name|void
@@ -1073,7 +1064,6 @@ name|requestContentType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.jetty.JettyContentExchangeI#setRequestContent(java.io.InputStream)      */
 DECL|method|setRequestContent (InputStream ins)
 specifier|public
 name|void
@@ -1101,7 +1091,6 @@ name|requestContentType
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.jetty.JettyContentExchangeI#addRequestHeader(java.lang.String, java.lang.String)      */
 DECL|method|addRequestHeader (String key, String s)
 specifier|public
 name|void
@@ -1126,7 +1115,6 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.jetty.JettyContentExchangeI#send(org.eclipse.jetty.client.HttpClient)      */
 DECL|method|send (HttpClient client)
 specifier|public
 name|void
@@ -1281,7 +1269,6 @@ operator|=
 name|response
 expr_stmt|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.jetty.JettyContentExchangeI#getResponseContentBytes()      */
 DECL|method|getResponseContentBytes ()
 specifier|public
 name|byte
@@ -1293,7 +1280,6 @@ return|return
 name|responseContent
 return|;
 block|}
-comment|/* (non-Javadoc)      * @see org.apache.camel.component.jetty.JettyContentExchangeI#getResponseHeaders()      */
 DECL|method|getResponseHeaders ()
 specifier|public
 name|Map

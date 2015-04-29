@@ -110,11 +110,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|http
-operator|.
-name|DefaultHttpBinding
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -130,7 +126,7 @@ name|component
 operator|.
 name|http
 operator|.
-name|HttpEndpoint
+name|DefaultHttpBinding
 import|;
 end_import
 
@@ -172,19 +168,10 @@ name|AttachmentHttpBinding
 extends|extends
 name|DefaultHttpBinding
 block|{
-DECL|method|AttachmentHttpBinding (HttpEndpoint endpoint)
+DECL|method|AttachmentHttpBinding ()
 name|AttachmentHttpBinding
-parameter_list|(
-name|HttpEndpoint
-name|endpoint
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|endpoint
-argument_list|)
-expr_stmt|;
-block|}
+parameter_list|()
+block|{     }
 annotation|@
 name|Override
 DECL|method|populateAttachments (HttpServletRequest request, HttpMessage message)
@@ -301,11 +288,15 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+literal|"Cannot populate attachments"
+argument_list|,
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+argument_list|)
+throw|;
 block|}
 block|}
 block|}
