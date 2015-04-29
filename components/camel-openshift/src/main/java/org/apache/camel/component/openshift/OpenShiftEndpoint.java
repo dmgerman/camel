@@ -286,7 +286,11 @@ literal|"producer"
 argument_list|,
 name|enums
 operator|=
-literal|"list,start,stop,restart,state"
+literal|"list,start,stop,restart,state,getStandaloneCartridge,getEmbeddedCartridges,addEmbeddedCartridge,removeEmbeddedCartridge,"
+operator|+
+literal|"scaleUp,scaleDown,getGitUrl,getDeploymentType,setDeploymentType,getAllEnvironmentVariables,addEnvironmentVariable,updateEnvironmentVariable,"
+operator|+
+literal|"getEnvironmentVariableValue,removeEnvironmentVariable,getGearProfile"
 argument_list|)
 DECL|field|operation
 specifier|private
