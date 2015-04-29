@@ -154,6 +154,17 @@ name|cacheName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|enums
+operator|=
+literal|"put,putAll,putIfAbsent,putAsync,putAllAsync,putIfAbsentAsync,get,containsKey,containsValue,remove,removeAsync,"
+operator|+
+literal|"replace,replaceAsync,clear,size"
+argument_list|)
 DECL|field|command
 specifier|private
 name|String
@@ -162,6 +173,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -173,6 +188,13 @@ name|sync
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|eventTypes
 specifier|private
 name|Set
@@ -207,6 +229,7 @@ operator|=
 name|command
 expr_stmt|;
 block|}
+comment|/**      * Specifies the host of the cache on Infinispan instance      */
 DECL|method|getHost ()
 specifier|public
 name|String
@@ -233,6 +256,7 @@ operator|=
 name|host
 expr_stmt|;
 block|}
+comment|/**      * Specifies the cache Container to connect      */
 DECL|method|getCacheContainer ()
 specifier|public
 name|BasicCacheContainer
@@ -259,6 +283,7 @@ operator|=
 name|cacheContainer
 expr_stmt|;
 block|}
+comment|/**      * Specifies the cache name      */
 DECL|method|getCacheName ()
 specifier|public
 name|String
@@ -285,6 +310,7 @@ operator|=
 name|cacheName
 expr_stmt|;
 block|}
+comment|/**     * If true, the consumer will receive notifications synchronously     */
 DECL|method|isSync ()
 specifier|public
 name|boolean
@@ -311,6 +337,7 @@ operator|=
 name|sync
 expr_stmt|;
 block|}
+comment|/**     * Specifies the set of event types to register by the consumer      */
 DECL|method|getEventTypes ()
 specifier|public
 name|Set
