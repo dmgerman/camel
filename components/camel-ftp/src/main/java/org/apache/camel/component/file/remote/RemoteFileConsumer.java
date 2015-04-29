@@ -849,6 +849,9 @@ block|{
 comment|// we may as well be connected, but not logged in. let's disconnect to prevent connection leak
 if|if
 condition|(
+operator|!
+name|isConnected
+operator|&&
 name|getOperations
 argument_list|()
 operator|.
