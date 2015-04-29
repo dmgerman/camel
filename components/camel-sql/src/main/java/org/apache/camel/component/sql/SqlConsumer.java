@@ -74,16 +74,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Queue
 import|;
 end_import
@@ -229,6 +219,22 @@ operator|.
 name|core
 operator|.
 name|PreparedStatementCallback
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|springframework
+operator|.
+name|jdbc
+operator|.
+name|support
+operator|.
+name|JdbcUtils
+operator|.
+name|closeResultSet
 import|;
 end_import
 
@@ -617,10 +623,10 @@ block|}
 block|}
 finally|finally
 block|{
+name|closeResultSet
+argument_list|(
 name|rs
-operator|.
-name|close
-argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 comment|// process all the exchanges in this batch

@@ -1218,6 +1218,11 @@ name|query
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|queryForList (ResultSet rs, boolean allowMapToClass)
 specifier|protected
 name|List
@@ -1248,7 +1253,7 @@ name|Class
 argument_list|<
 name|?
 argument_list|>
-name|outputClzz
+name|outputClazz
 init|=
 name|getCamelContext
 argument_list|()
@@ -1267,7 +1272,7 @@ init|=
 operator|new
 name|BeanPropertyRowMapper
 argument_list|(
-name|outputClzz
+name|outputClazz
 argument_list|)
 decl_stmt|;
 name|RowMapperResultSetExtractor
