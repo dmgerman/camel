@@ -224,6 +224,24 @@ name|this
 operator|.
 name|exceptionHandler
 operator|=
+name|endpoint
+operator|.
+name|getOnCompletionExceptionHandler
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|this
+operator|.
+name|exceptionHandler
+operator|==
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|exceptionHandler
+operator|=
 operator|new
 name|LoggingExceptionHandler
 argument_list|(
@@ -236,6 +254,7 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|onComplete (Exchange exchange)
 specifier|public

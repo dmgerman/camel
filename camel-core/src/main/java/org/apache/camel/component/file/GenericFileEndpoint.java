@@ -274,6 +274,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ExceptionHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|FactoryFinder
 import|;
 end_import
@@ -1166,6 +1180,18 @@ argument_list|<
 name|T
 argument_list|>
 name|exclusiveReadLockStrategy
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|onCompletionExceptionHandler
+specifier|protected
+name|ExceptionHandler
+name|onCompletionExceptionHandler
 decl_stmt|;
 DECL|method|GenericFileEndpoint ()
 specifier|public
@@ -3983,6 +4009,33 @@ operator|.
 name|allowNullBody
 operator|=
 name|allowNullBody
+expr_stmt|;
+block|}
+DECL|method|getOnCompletionExceptionHandler ()
+specifier|public
+name|ExceptionHandler
+name|getOnCompletionExceptionHandler
+parameter_list|()
+block|{
+return|return
+name|onCompletionExceptionHandler
+return|;
+block|}
+comment|/**      * To use a custom {@link org.apache.camel.spi.ExceptionHandler} to handle any thrown exceptions that happens      * during the file on completion process where the consumer does either a commit or rollback. The default      * implementation will log any exception at WARN level and ignore.      */
+DECL|method|setOnCompletionExceptionHandler (ExceptionHandler onCompletionExceptionHandler)
+specifier|public
+name|void
+name|setOnCompletionExceptionHandler
+parameter_list|(
+name|ExceptionHandler
+name|onCompletionExceptionHandler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onCompletionExceptionHandler
+operator|=
+name|onCompletionExceptionHandler
 expr_stmt|;
 block|}
 comment|/**      * Configures the given message with the file which sets the body to the      * file object.      */
