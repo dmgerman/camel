@@ -71,10 +71,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|InfinispanConsumerTest
+DECL|class|InfinispanConsumerEntryUpdatedTest
 specifier|public
 class|class
-name|InfinispanConsumerTest
+name|InfinispanConsumerEntryUpdatedTest
 extends|extends
 name|InfinispanTestSupport
 block|{
@@ -92,14 +92,24 @@ name|mockResult
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|consumerReceivedPreAndPostEntryCreatedEventNotifications ()
+DECL|method|consumerReceivedPreAndPostEntryUpdateEventNotifications ()
 specifier|public
 name|void
-name|consumerReceivedPreAndPostEntryCreatedEventNotifications
+name|consumerReceivedPreAndPostEntryUpdateEventNotifications
 parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|currentCache
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|KEY_ONE
+argument_list|,
+name|VALUE_ONE
+argument_list|)
+expr_stmt|;
 name|mockResult
 operator|.
 name|expectedMessageCount
@@ -123,7 +133,7 @@ argument_list|)
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"CACHE_ENTRY_CREATED"
+literal|"CACHE_ENTRY_MODIFIED"
 argument_list|)
 expr_stmt|;
 name|mockResult
@@ -197,7 +207,7 @@ argument_list|)
 operator|.
 name|isEqualTo
 argument_list|(
-literal|"CACHE_ENTRY_CREATED"
+literal|"CACHE_ENTRY_MODIFIED"
 argument_list|)
 expr_stmt|;
 name|mockResult
@@ -258,11 +268,11 @@ expr_stmt|;
 name|currentCache
 argument_list|()
 operator|.
-name|put
+name|replace
 argument_list|(
 name|KEY_ONE
 argument_list|,
-name|VALUE_ONE
+name|VALUE_TWO
 argument_list|)
 expr_stmt|;
 name|mockResult
@@ -295,7 +305,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"infinispan://localhost?cacheContainer=#cacheContainer&sync=false&eventTypes=CACHE_ENTRY_CREATED"
+literal|"infinispan://localhost?cacheContainer=#cacheContainer&sync=false&eventTypes=CACHE_ENTRY_MODIFIED"
 argument_list|)
 operator|.
 name|to
