@@ -214,6 +214,12 @@ operator|.
 name|getPort
 argument_list|()
 decl_stmt|;
+name|String
+name|exchangeName
+init|=
+literal|""
+decl_stmt|;
+comment|// We need to support the exchange to be "" the path is empty
 if|if
 condition|(
 name|host
@@ -226,23 +232,12 @@ argument_list|()
 operator|.
 name|length
 argument_list|()
-operator|<=
+operator|>
 literal|1
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"No URI path as the exchangeName for the RabbitMQEndpoint, the URI is "
-operator|+
-name|uri
-argument_list|)
-throw|;
-block|}
-name|String
 name|exchangeName
-init|=
+operator|=
 name|host
 operator|.
 name|getPath
@@ -252,7 +247,8 @@ name|substring
 argument_list|(
 literal|1
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// ConnectionFactory reference
 name|ConnectionFactory
 name|connectionFactory
