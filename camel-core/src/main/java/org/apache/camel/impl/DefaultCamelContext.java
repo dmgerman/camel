@@ -10755,6 +10755,25 @@ index|[]
 argument_list|>
 argument_list|()
 decl_stmt|;
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+index|[]
+argument_list|>
+name|uriOptions
+init|=
+operator|new
+name|LinkedHashMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+index|[]
+argument_list|>
+argument_list|()
+decl_stmt|;
 comment|// insert values from uri
 name|Map
 argument_list|<
@@ -11002,8 +11021,8 @@ expr_stmt|;
 break|break;
 block|}
 block|}
-comment|// add as selected row
-name|selected
+comment|// remember this option from the uri
+name|uriOptions
 operator|.
 name|put
 argument_list|(
@@ -11191,10 +11210,22 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|// always include path options
+name|boolean
+name|isUriOption
+init|=
+name|uriOptions
+operator|.
+name|containsKey
+argument_list|(
+name|name
+argument_list|)
+decl_stmt|;
+comment|// always include from uri or path options
 if|if
 condition|(
 name|includeAllOptions
+operator|||
+name|isUriOption
 operator|||
 literal|"path"
 operator|.
@@ -11204,7 +11235,6 @@ name|kind
 argument_list|)
 condition|)
 block|{
-comment|// add as selected row
 if|if
 condition|(
 operator|!
@@ -11215,6 +11245,29 @@ argument_list|(
 name|name
 argument_list|)
 condition|)
+block|{
+comment|// add as selected row, but take the value from uri options if it was from there
+if|if
+condition|(
+name|isUriOption
+condition|)
+block|{
+name|selected
+operator|.
+name|put
+argument_list|(
+name|name
+argument_list|,
+name|uriOptions
+operator|.
+name|get
+argument_list|(
+name|name
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
 block|{
 name|selected
 operator|.
@@ -11248,6 +11301,7 @@ name|description
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

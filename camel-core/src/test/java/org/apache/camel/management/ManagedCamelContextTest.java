@@ -1637,6 +1637,36 @@ argument_list|(
 name|json
 argument_list|)
 expr_stmt|;
+comment|// the loggerName option should come before the groupDelay option
+name|int
+name|pos
+init|=
+name|json
+operator|.
+name|indexOf
+argument_list|(
+literal|"loggerName"
+argument_list|)
+decl_stmt|;
+name|int
+name|pos2
+init|=
+name|json
+operator|.
+name|indexOf
+argument_list|(
+literal|"groupDelay"
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"LoggerName should come before groupDelay"
+argument_list|,
+name|pos
+operator|<
+name|pos2
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|8
@@ -1693,7 +1723,7 @@ name|contains
 argument_list|(
 literal|"\"groupDelay\": { \"kind\": \"parameter\", \"type\": \"integer\", \"javaType\": \"java.lang.Long\", \"deprecated\": \"false\", \"value\": \"2000\","
 operator|+
-literal|" \"description\": \"Set the initial delay for stats (in millis)\" },"
+literal|" \"description\": \"Set the initial delay for stats (in millis)\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1807,6 +1837,36 @@ argument_list|(
 name|json
 argument_list|)
 expr_stmt|;
+comment|// the loggerName option should come before the groupDelay option
+name|int
+name|pos
+init|=
+name|json
+operator|.
+name|indexOf
+argument_list|(
+literal|"loggerName"
+argument_list|)
+decl_stmt|;
+name|int
+name|pos2
+init|=
+name|json
+operator|.
+name|indexOf
+argument_list|(
+literal|"groupDelay"
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"LoggerName should come before groupDelay"
+argument_list|,
+name|pos
+operator|<
+name|pos2
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|14
@@ -1863,7 +1923,7 @@ name|contains
 argument_list|(
 literal|"\"groupDelay\": { \"kind\": \"parameter\", \"type\": \"integer\", \"javaType\": \"java.lang.Long\", \"deprecated\": \"false\", \"value\": \"2000\","
 operator|+
-literal|" \"description\": \"Set the initial delay for stats (in millis)\" },"
+literal|" \"description\": \"Set the initial delay for stats (in millis)\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
