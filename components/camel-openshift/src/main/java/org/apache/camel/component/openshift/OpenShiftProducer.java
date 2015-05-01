@@ -3336,7 +3336,6 @@ throw|;
 block|}
 if|if
 condition|(
-operator|(
 operator|!
 name|ObjectHelper
 operator|.
@@ -3348,7 +3347,6 @@ operator|&&
 name|environmentVariables
 operator|!=
 literal|null
-operator|)
 condition|)
 block|{
 name|Map
