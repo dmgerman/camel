@@ -72,6 +72,9 @@ block|,
 DECL|enumConstant|addEnvironmentVariable
 name|addEnvironmentVariable
 block|,
+DECL|enumConstant|addMultipleEnvironmentVariables
+name|addMultipleEnvironmentVariables
+block|,
 DECL|enumConstant|updateEnvironmentVariable
 name|updateEnvironmentVariable
 block|,
