@@ -489,6 +489,15 @@ operator|.
 name|QUERY_OPERATION
 argument_list|)
 expr_stmt|;
+name|addMapping
+argument_list|(
+literal|"getAll"
+argument_list|,
+name|HazelcastConstants
+operator|.
+name|GET_ALL_OPERATION
+argument_list|)
+expr_stmt|;
 comment|// multimap
 name|addMapping
 argument_list|(

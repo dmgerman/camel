@@ -245,6 +245,15 @@ name|QUERY_OPERATION
 init|=
 literal|5
 decl_stmt|;
+DECL|field|GET_ALL_OPERATION
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|GET_ALL_OPERATION
+init|=
+literal|6
+decl_stmt|;
 comment|// multimap
 DECL|field|REMOVEVALUE_OPERATION
 specifier|public
