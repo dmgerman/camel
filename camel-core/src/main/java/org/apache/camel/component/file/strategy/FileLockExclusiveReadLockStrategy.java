@@ -612,7 +612,7 @@ expr_stmt|;
 comment|// and also must release super lock
 name|super
 operator|.
-name|releaseExclusiveReadLock
+name|releaseExclusiveReadLockOnAbort
 argument_list|(
 name|operations
 argument_list|,
@@ -652,10 +652,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|releaseExclusiveReadLock (GenericFileOperations<File> operations, GenericFile<File> file, Exchange exchange)
-specifier|public
+DECL|method|doReleaseExclusiveReadLock (GenericFileOperations<File> operations, GenericFile<File> file, Exchange exchange)
+specifier|protected
 name|void
-name|releaseExclusiveReadLock
+name|doReleaseExclusiveReadLock
 parameter_list|(
 name|GenericFileOperations
 argument_list|<
@@ -678,7 +678,7 @@ block|{
 comment|// must call super
 name|super
 operator|.
-name|releaseExclusiveReadLock
+name|doReleaseExclusiveReadLock
 argument_list|(
 name|operations
 argument_list|,

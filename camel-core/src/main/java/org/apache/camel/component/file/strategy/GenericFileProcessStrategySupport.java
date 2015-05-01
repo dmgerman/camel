@@ -379,7 +379,7 @@ condition|)
 block|{
 name|exclusiveReadLockStrategy
 operator|.
-name|releaseExclusiveReadLock
+name|releaseExclusiveReadLockOnAbort
 argument_list|(
 name|operations
 argument_list|,
@@ -441,7 +441,7 @@ condition|)
 block|{
 name|exclusiveReadLockStrategy
 operator|.
-name|releaseExclusiveReadLock
+name|releaseExclusiveReadLockOnCommit
 argument_list|(
 name|operations
 argument_list|,
@@ -503,7 +503,7 @@ condition|)
 block|{
 name|exclusiveReadLockStrategy
 operator|.
-name|releaseExclusiveReadLock
+name|releaseExclusiveReadLockOnRollback
 argument_list|(
 name|operations
 argument_list|,

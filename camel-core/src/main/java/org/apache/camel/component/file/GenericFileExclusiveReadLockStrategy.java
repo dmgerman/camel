@@ -43,7 +43,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Strategy for acquiring exclusive read locks for files to be consumed. After  * granting the read lock it is released, we just want to make sure that when  * we start consuming the file its not currently in progress of being written by  * third party.  *<p/>  * Camel supports out of the box the following strategies:  *<ul>  *<li>FileRenameExclusiveReadLockStrategy waiting until its possible to rename the file.</li>  *<li>FileLockExclusiveReadLockStrategy acquiring a RW file lock for the duration of the processing.</li>  *<li>MarkerFileExclusiveReadLockStrategy using a marker file for acquiring read lock.</li>  *<li>FileChangedExclusiveReadLockStrategy using a file changed detection for acquiring read lock.</li>  *</ul>  */
+comment|/**  * Strategy for acquiring exclusive read locks for files to be consumed. After  * granting the read lock it is released, we just want to make sure that when  * we start consuming the file its not currently in progress of being written by  * third party.  *<p/>  * Camel supports out of the box the following strategies:  *<ul>  *<li>FileRenameExclusiveReadLockStrategy waiting until its possible to rename the file.</li>  *<li>FileLockExclusiveReadLockStrategy acquiring a RW file lock for the duration of the processing.</li>  *<li>MarkerFileExclusiveReadLockStrategy using a marker file for acquiring read lock.</li>  *<li>FileChangedExclusiveReadLockStrategy using a file changed detection for acquiring read lock.</li>  *<li>FileIdempotentRepositoryReadLockStrategy using a {@link org.apache.camel.spi.IdempotentRepository} to hold the read locks which allows to support clustering.</li>  *</ul>  */
 end_comment
 
 begin_interface
@@ -98,10 +98,56 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Releases the exclusive read lock granted by the<tt>acquireExclusiveReadLock</tt> method.      *      * @param operations generic file operations      * @param file       the file      * @param exchange   the exchange      * @throws Exception can be thrown in case of errors      */
-DECL|method|releaseExclusiveReadLock (GenericFileOperations<T> operations, GenericFile<T> file, Exchange exchange)
+comment|/**      * Releases the exclusive read lock granted by the<tt>acquireExclusiveReadLock</tt> method due an abort operation (acquireExclusiveReadLock returned false).      *      * @param operations generic file operations      * @param file       the file      * @param exchange   the exchange      * @throws Exception can be thrown in case of errors      */
+DECL|method|releaseExclusiveReadLockOnAbort (GenericFileOperations<T> operations, GenericFile<T> file, Exchange exchange)
 name|void
-name|releaseExclusiveReadLock
+name|releaseExclusiveReadLockOnAbort
+parameter_list|(
+name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
+name|operations
+parameter_list|,
+name|GenericFile
+argument_list|<
+name|T
+argument_list|>
+name|file
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Releases the exclusive read lock granted by the<tt>acquireExclusiveReadLock</tt> method due a rollback operation (Exchange processing failed)      *      * @param operations generic file operations      * @param file       the file      * @param exchange   the exchange      * @throws Exception can be thrown in case of errors      */
+DECL|method|releaseExclusiveReadLockOnRollback (GenericFileOperations<T> operations, GenericFile<T> file, Exchange exchange)
+name|void
+name|releaseExclusiveReadLockOnRollback
+parameter_list|(
+name|GenericFileOperations
+argument_list|<
+name|T
+argument_list|>
+name|operations
+parameter_list|,
+name|GenericFile
+argument_list|<
+name|T
+argument_list|>
+name|file
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Releases the exclusive read lock granted by the<tt>acquireExclusiveReadLock</tt> method due a commit operation (Exchange processing succeeded)      *      * @param operations generic file operations      * @param file       the file      * @param exchange   the exchange      * @throws Exception can be thrown in case of errors      */
+DECL|method|releaseExclusiveReadLockOnCommit (GenericFileOperations<T> operations, GenericFile<T> file, Exchange exchange)
+name|void
+name|releaseExclusiveReadLockOnCommit
 parameter_list|(
 name|GenericFileOperations
 argument_list|<

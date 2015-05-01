@@ -366,7 +366,7 @@ condition|)
 block|{
 name|exclusiveReadLockStrategy
 operator|.
-name|releaseExclusiveReadLock
+name|releaseExclusiveReadLockOnRollback
 argument_list|(
 name|operations
 argument_list|,
