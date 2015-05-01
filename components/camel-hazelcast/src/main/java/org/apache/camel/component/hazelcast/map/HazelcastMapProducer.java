@@ -457,10 +457,6 @@ name|isNotEmpty
 argument_list|(
 name|query
 argument_list|)
-operator|&&
-name|query
-operator|!=
-literal|null
 condition|)
 block|{
 name|result
