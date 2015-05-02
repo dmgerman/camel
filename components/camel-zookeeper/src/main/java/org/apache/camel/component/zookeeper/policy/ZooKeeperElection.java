@@ -1109,13 +1109,6 @@ argument_list|(
 literal|"election-route-"
 operator|+
 name|candidateName
-operator|.
-name|substring
-argument_list|(
-literal|0
-argument_list|,
-literal|8
-argument_list|)
 argument_list|)
 operator|.
 name|sort
