@@ -117,6 +117,15 @@ name|OBJECT_POS
 init|=
 literal|"CamelHazelcastObjectIndex"
 decl_stmt|;
+DECL|field|OBJECT_VALUE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OBJECT_VALUE
+init|=
+literal|"CamelHazelcastObjectValue"
+decl_stmt|;
 DECL|field|QUERY
 specifier|public
 specifier|static
@@ -190,7 +199,7 @@ name|CACHE_TYPE
 init|=
 literal|"CamelHazelcastCacheType"
 decl_stmt|;
-comment|// actions (put, delete, get, update)
+comment|// actions (put, delete, get, getAll, replace, update)
 DECL|field|OPERATION
 specifier|public
 specifier|static
@@ -253,6 +262,15 @@ name|int
 name|GET_ALL_OPERATION
 init|=
 literal|6
+decl_stmt|;
+DECL|field|REPLACE_OPERATION
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|REPLACE_OPERATION
+init|=
+literal|7
 decl_stmt|;
 comment|// multimap
 DECL|field|REMOVEVALUE_OPERATION
