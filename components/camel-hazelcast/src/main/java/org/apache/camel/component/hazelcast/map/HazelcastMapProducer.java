@@ -470,6 +470,19 @@ argument_list|)
 expr_stmt|;
 block|}
 break|break;
+case|case
+name|HazelcastConstants
+operator|.
+name|CLEAR_OPERATION
+case|:
+name|this
+operator|.
+name|clear
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+break|break;
 default|default:
 throw|throw
 operator|new
@@ -820,6 +833,24 @@ name|ovalue
 argument_list|,
 name|body
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Clear all the entries      */
+DECL|method|clear (Exchange exchange)
+specifier|private
+name|void
+name|clear
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cache
+operator|.
+name|clear
+argument_list|()
 expr_stmt|;
 block|}
 block|}

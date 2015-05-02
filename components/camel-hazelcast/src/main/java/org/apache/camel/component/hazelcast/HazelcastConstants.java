@@ -199,7 +199,7 @@ name|CACHE_TYPE
 init|=
 literal|"CamelHazelcastCacheType"
 decl_stmt|;
-comment|// actions (put, delete, get, getAll, replace, update)
+comment|// actions (put, delete, get, getAll, replace, update, clear)
 DECL|field|OPERATION
 specifier|public
 specifier|static
@@ -271,6 +271,15 @@ name|int
 name|REPLACE_OPERATION
 init|=
 literal|7
+decl_stmt|;
+DECL|field|CLEAR_OPERATION
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|CLEAR_OPERATION
+init|=
+literal|8
 decl_stmt|;
 comment|// multimap
 DECL|field|REMOVEVALUE_OPERATION
