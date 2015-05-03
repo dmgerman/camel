@@ -646,10 +646,64 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|releaseExclusiveReadLock (GenericFileOperations<File> operations, GenericFile<File> file, Exchange exchange)
+DECL|method|releaseExclusiveReadLockOnAbort (GenericFileOperations<File> operations, GenericFile<File> file, Exchange exchange)
 specifier|public
 name|void
-name|releaseExclusiveReadLock
+name|releaseExclusiveReadLockOnAbort
+parameter_list|(
+name|GenericFileOperations
+argument_list|<
+name|File
+argument_list|>
+name|operations
+parameter_list|,
+name|GenericFile
+argument_list|<
+name|File
+argument_list|>
+name|file
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|releaseExclusiveReadLockOnRollback (GenericFileOperations<File> operations, GenericFile<File> file, Exchange exchange)
+specifier|public
+name|void
+name|releaseExclusiveReadLockOnRollback
+parameter_list|(
+name|GenericFileOperations
+argument_list|<
+name|File
+argument_list|>
+name|operations
+parameter_list|,
+name|GenericFile
+argument_list|<
+name|File
+argument_list|>
+name|file
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|releaseExclusiveReadLockOnCommit (GenericFileOperations<File> operations, GenericFile<File> file, Exchange exchange)
+specifier|public
+name|void
+name|releaseExclusiveReadLockOnCommit
 parameter_list|(
 name|GenericFileOperations
 argument_list|<
