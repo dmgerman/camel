@@ -265,6 +265,7 @@ end_comment
 begin_class
 DECL|class|BacklogTracer
 specifier|public
+specifier|final
 class|class
 name|BacklogTracer
 extends|extends
@@ -272,7 +273,7 @@ name|ServiceSupport
 implements|implements
 name|InterceptStrategy
 block|{
-comment|// lets limit the tracer to 100 thousand messages in total
+comment|// lets limit the tracer to 10 thousand messages in total
 DECL|field|MAX_BACKLOG_SIZE
 specifier|public
 specifier|static
@@ -280,7 +281,7 @@ specifier|final
 name|int
 name|MAX_BACKLOG_SIZE
 init|=
-literal|100
+literal|10
 operator|*
 literal|1000
 decl_stmt|;
@@ -335,7 +336,9 @@ name|queue
 init|=
 operator|new
 name|LinkedBlockingQueue
-argument_list|<>
+argument_list|<
+name|BacklogTracerEventMessage
+argument_list|>
 argument_list|(
 name|MAX_BACKLOG_SIZE
 argument_list|)
@@ -1166,7 +1169,9 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|BacklogTracerEventMessage
+argument_list|>
 argument_list|()
 decl_stmt|;
 if|if
@@ -1349,7 +1354,9 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|BacklogTracerEventMessage
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|answer
