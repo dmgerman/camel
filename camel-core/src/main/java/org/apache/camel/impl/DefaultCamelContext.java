@@ -18904,8 +18904,9 @@ condition|)
 block|{
 name|defaultBacklogTracer
 operator|=
-operator|new
 name|BacklogTracer
+operator|.
+name|createTracer
 argument_list|(
 name|this
 argument_list|)

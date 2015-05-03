@@ -56,7 +56,7 @@ name|util
 operator|.
 name|concurrent
 operator|.
-name|ArrayBlockingQueue
+name|LinkedBlockingQueue
 import|;
 end_import
 
@@ -329,15 +329,13 @@ specifier|private
 specifier|final
 name|Queue
 argument_list|<
-name|DefaultBacklogTracerEventMessage
+name|BacklogTracerEventMessage
 argument_list|>
 name|queue
 init|=
 operator|new
-name|ArrayBlockingQueue
-argument_list|<
-name|DefaultBacklogTracerEventMessage
-argument_list|>
+name|LinkedBlockingQueue
+argument_list|<>
 argument_list|(
 name|MAX_BACKLOG_SIZE
 argument_list|)
@@ -401,7 +399,7 @@ name|Predicate
 name|predicate
 decl_stmt|;
 DECL|method|BacklogTracer (CamelContext camelContext)
-specifier|public
+specifier|private
 name|BacklogTracer
 parameter_list|(
 name|CamelContext
@@ -414,19 +412,6 @@ name|camelContext
 operator|=
 name|camelContext
 expr_stmt|;
-block|}
-DECL|method|getQueue ()
-specifier|public
-name|Queue
-argument_list|<
-name|DefaultBacklogTracerEventMessage
-argument_list|>
-name|getQueue
-parameter_list|()
-block|{
-return|return
-name|queue
-return|;
 block|}
 annotation|@
 name|Override
@@ -474,17 +459,12 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
-name|BacklogTracer
-name|tracer
-init|=
+return|return
 operator|new
 name|BacklogTracer
 argument_list|(
 name|context
 argument_list|)
-decl_stmt|;
-return|return
-name|tracer
 return|;
 block|}
 comment|/**      * A helper method to return the BacklogTracer instance if one is enabled      *      * @return the backlog tracer or null if none can be found      */
@@ -730,6 +710,48 @@ comment|// not matched the pattern
 return|return
 literal|false
 return|;
+block|}
+DECL|method|traceEvent (DefaultBacklogTracerEventMessage event)
+specifier|public
+name|void
+name|traceEvent
+parameter_list|(
+name|DefaultBacklogTracerEventMessage
+name|event
+parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+name|enabled
+condition|)
+block|{
+return|return;
+block|}
+comment|// ensure there is space on the queue and we need room for ourselves and possible also a first pseudo message as well
+if|if
+condition|(
+name|queue
+operator|.
+name|size
+argument_list|()
+operator|>=
+name|backlogSize
+condition|)
+block|{
+name|queue
+operator|.
+name|poll
+argument_list|()
+expr_stmt|;
+block|}
+name|queue
+operator|.
+name|add
+argument_list|(
+name|event
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|shouldTraceFilter (Exchange exchange)
 specifier|private
@@ -1119,9 +1141,7 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BacklogTracerEventMessage
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -1133,7 +1153,7 @@ condition|)
 block|{
 for|for
 control|(
-name|DefaultBacklogTracerEventMessage
+name|BacklogTracerEventMessage
 name|message
 range|:
 name|queue
@@ -1304,9 +1324,7 @@ name|answer
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|BacklogTracerEventMessage
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|answer

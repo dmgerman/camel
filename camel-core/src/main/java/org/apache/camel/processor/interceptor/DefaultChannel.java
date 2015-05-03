@@ -1105,11 +1105,6 @@ operator|new
 name|BacklogTracerAdvice
 argument_list|(
 name|backlogTracer
-operator|.
-name|getQueue
-argument_list|()
-argument_list|,
-name|backlogTracer
 argument_list|,
 name|targetOutputDef
 argument_list|,
