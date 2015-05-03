@@ -262,14 +262,14 @@ name|File
 argument_list|>
 name|endpoint
 decl_stmt|;
-DECL|field|loggingLevel
+DECL|field|readLockLoggingLevel
 specifier|private
 name|LoggingLevel
-name|loggingLevel
+name|readLockLoggingLevel
 init|=
 name|LoggingLevel
 operator|.
-name|TRACE
+name|DEBUG
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
@@ -382,23 +382,26 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+operator|!
+name|answer
+condition|)
+block|{
 name|CamelLogger
 operator|.
 name|log
 argument_list|(
 name|LOG
 argument_list|,
-name|loggingLevel
+name|readLockLoggingLevel
 argument_list|,
-literal|"acquireExclusiveReadLock: "
+literal|"Cannot acquire read lock. Will skip the file: "
 operator|+
-name|key
-operator|+
-literal|" -> "
-operator|+
-name|answer
+name|file
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
@@ -428,27 +431,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|String
-name|key
-init|=
-name|asKey
-argument_list|(
-name|file
-argument_list|)
-decl_stmt|;
-name|CamelLogger
-operator|.
-name|log
-argument_list|(
-name|LOG
-argument_list|,
-name|loggingLevel
-argument_list|,
-literal|"releaseExclusiveReadLockOnAbort: "
-operator|+
-name|key
-argument_list|)
-expr_stmt|;
+comment|// noop
 block|}
 annotation|@
 name|Override
@@ -488,19 +471,6 @@ argument_list|(
 name|file
 argument_list|)
 decl_stmt|;
-name|CamelLogger
-operator|.
-name|log
-argument_list|(
-name|LOG
-argument_list|,
-name|loggingLevel
-argument_list|,
-literal|"releaseExclusiveReadLockOnRollback: "
-operator|+
-name|key
-argument_list|)
-expr_stmt|;
 name|idempotentRepository
 operator|.
 name|remove
@@ -543,19 +513,6 @@ argument_list|(
 name|file
 argument_list|)
 decl_stmt|;
-name|CamelLogger
-operator|.
-name|log
-argument_list|(
-name|LOG
-argument_list|,
-name|loggingLevel
-argument_list|,
-literal|"releaseExclusiveReadLockOnCommit: "
-operator|+
-name|key
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|removeOnCommit
@@ -603,6 +560,7 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+comment|/**      * Sets logging level used when a read lock could not be acquired.      *<p/>      * Logging level used when a read lock could not be acquired.      *<p/>      * The default logging level is DEBUG as it may be more common not to be able to acquire a read lock      * when using idempotent repository in a clustered setup, as another node may be processing the file.      *      * @param readLockLoggingLevel LoggingLevel      */
 DECL|method|setReadLockLoggingLevel (LoggingLevel readLockLoggingLevel)
 specifier|public
 name|void
@@ -614,7 +572,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|loggingLevel
+name|readLockLoggingLevel
 operator|=
 name|readLockLoggingLevel
 expr_stmt|;
