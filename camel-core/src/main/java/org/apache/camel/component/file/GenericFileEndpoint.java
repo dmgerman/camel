@@ -1046,6 +1046,18 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|)
+DECL|field|shuffle
+specifier|protected
+name|boolean
+name|shuffle
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
 argument_list|,
 name|enums
 operator|=
@@ -3268,6 +3280,33 @@ argument_list|,
 name|reverse
 argument_list|)
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isShuffle ()
+specifier|public
+name|boolean
+name|isShuffle
+parameter_list|()
+block|{
+return|return
+name|shuffle
+return|;
+block|}
+comment|/**      * To shuffle the list of files (sort in random order)      */
+DECL|method|setShuffle (boolean shuffle)
+specifier|public
+name|void
+name|setShuffle
+parameter_list|(
+name|boolean
+name|shuffle
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shuffle
+operator|=
+name|shuffle
 expr_stmt|;
 block|}
 DECL|method|getTempPrefix ()

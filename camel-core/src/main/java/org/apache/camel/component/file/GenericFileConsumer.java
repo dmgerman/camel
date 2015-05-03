@@ -738,6 +738,22 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isShuffle
+argument_list|()
+condition|)
+block|{
+name|Collections
+operator|.
+name|shuffle
+argument_list|(
+name|exchanges
+argument_list|)
+expr_stmt|;
+block|}
 comment|// use a queue for the exchanges
 name|Deque
 argument_list|<
