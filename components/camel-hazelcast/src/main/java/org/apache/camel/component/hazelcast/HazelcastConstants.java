@@ -290,6 +290,15 @@ name|CLEAR_OPERATION
 init|=
 literal|7
 decl_stmt|;
+DECL|field|PUT_IF_ABSENT_OPERATION
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|PUT_IF_ABSENT_OPERATION
+init|=
+literal|8
+decl_stmt|;
 comment|// multimap
 DECL|field|REMOVEVALUE_OPERATION
 specifier|public
