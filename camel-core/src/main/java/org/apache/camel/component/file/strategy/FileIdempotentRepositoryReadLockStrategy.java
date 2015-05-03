@@ -269,7 +269,7 @@ name|readLockLoggingLevel
 init|=
 name|LoggingLevel
 operator|.
-name|DEBUG
+name|WARN
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
@@ -363,6 +363,28 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// in clustered mode then another node may have processed the file so we must check here again if the file exists
+name|File
+name|path
+init|=
+name|file
+operator|.
+name|getFile
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|path
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 comment|// check if we can begin on this file
 name|String
 name|key
@@ -388,6 +410,7 @@ operator|!
 name|answer
 condition|)
 block|{
+comment|// another node is processing the file so skip
 name|CamelLogger
 operator|.
 name|log
@@ -560,7 +583,6 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
-comment|/**      * Sets logging level used when a read lock could not be acquired.      *<p/>      * Logging level used when a read lock could not be acquired.      *<p/>      * The default logging level is DEBUG as it may be more common not to be able to acquire a read lock      * when using idempotent repository in a clustered setup, as another node may be processing the file.      *      * @param readLockLoggingLevel LoggingLevel      */
 DECL|method|setReadLockLoggingLevel (LoggingLevel readLockLoggingLevel)
 specifier|public
 name|void
@@ -676,7 +698,7 @@ operator|=
 name|removeOnRollback
 expr_stmt|;
 block|}
-comment|/**      * Whether to remove the file from the idempotent repository when doing a commit.      *<p/>      * By default this is commit.      */
+comment|/**      * Whether to remove the file from the idempotent repository when doing a commit.      *<p/>      * By default this is true.      */
 DECL|method|isRemoveOnCommit ()
 specifier|public
 name|boolean
@@ -687,7 +709,7 @@ return|return
 name|removeOnCommit
 return|;
 block|}
-comment|/**      * Whether to remove the file from the idempotent repository when doing a commit.      *<p/>      * By default this is commit.      */
+comment|/**      * Whether to remove the file from the idempotent repository when doing a commit.      *<p/>      * By default this is true.      */
 DECL|method|setRemoveOnCommit (boolean removeOnCommit)
 specifier|public
 name|void
