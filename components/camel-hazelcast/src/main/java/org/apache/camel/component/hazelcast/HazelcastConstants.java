@@ -263,15 +263,6 @@ name|GET_ALL_OPERATION
 init|=
 literal|6
 decl_stmt|;
-DECL|field|REPLACE_OPERATION
-specifier|public
-specifier|static
-specifier|final
-name|int
-name|REPLACE_OPERATION
-init|=
-literal|7
-decl_stmt|;
 DECL|field|CLEAR_OPERATION
 specifier|public
 specifier|static
@@ -279,7 +270,7 @@ specifier|final
 name|int
 name|CLEAR_OPERATION
 init|=
-literal|8
+literal|7
 decl_stmt|;
 comment|// multimap
 DECL|field|REMOVEVALUE_OPERATION
