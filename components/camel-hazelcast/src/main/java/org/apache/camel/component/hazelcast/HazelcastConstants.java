@@ -126,6 +126,24 @@ name|OBJECT_VALUE
 init|=
 literal|"CamelHazelcastObjectValue"
 decl_stmt|;
+DECL|field|TTL_VALUE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TTL_VALUE
+init|=
+literal|"CamelHazelcastObjectTtlValue"
+decl_stmt|;
+DECL|field|TTL_UNIT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TTL_UNIT
+init|=
+literal|"CamelHazelcastObjectTtlUnit"
+decl_stmt|;
 DECL|field|QUERY
 specifier|public
 specifier|static
@@ -199,7 +217,7 @@ name|CACHE_TYPE
 init|=
 literal|"CamelHazelcastCacheType"
 decl_stmt|;
-comment|// actions (put, delete, get, getAll, replace, update, clear)
+comment|// actions (put, delete, get, getAll, update, clear)
 DECL|field|OPERATION
 specifier|public
 specifier|static
