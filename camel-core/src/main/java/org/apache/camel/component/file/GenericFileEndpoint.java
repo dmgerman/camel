@@ -1189,24 +1189,6 @@ name|defaultValue
 operator|=
 literal|"true"
 argument_list|)
-DECL|field|readLockRemoveOnCommit
-specifier|protected
-name|boolean
-name|readLockRemoveOnCommit
-init|=
-literal|true
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
 DECL|field|readLockRemoveOnRollback
 specifier|protected
 name|boolean
@@ -3679,33 +3661,6 @@ operator|=
 name|readLockMinAge
 expr_stmt|;
 block|}
-DECL|method|isReadLockRemoveOnCommit ()
-specifier|public
-name|boolean
-name|isReadLockRemoveOnCommit
-parameter_list|()
-block|{
-return|return
-name|readLockRemoveOnCommit
-return|;
-block|}
-comment|/**      * This option applied only for readLock=idempotent.      * This option allows to specify whether to remove the file name entry from the idempotent repository      * when the file was processed successfully and is committed. Setting this to<tt>false</tt> allows      * to use the read lock as both read lock and idempotent consumer at the same time, as previously      * processed file will be kept in the idempotent repository so the same file is not processed again.      */
-DECL|method|setReadLockRemoveOnCommit (boolean readLockRemoveOnCommit)
-specifier|public
-name|void
-name|setReadLockRemoveOnCommit
-parameter_list|(
-name|boolean
-name|readLockRemoveOnCommit
-parameter_list|)
-block|{
-name|this
-operator|.
-name|readLockRemoveOnCommit
-operator|=
-name|readLockRemoveOnCommit
-expr_stmt|;
-block|}
 DECL|method|isReadLockRemoveOnRollback ()
 specifier|public
 name|boolean
@@ -4686,15 +4641,6 @@ argument_list|(
 literal|"readLockMinAge"
 argument_list|,
 name|readLockMinAge
-argument_list|)
-expr_stmt|;
-name|params
-operator|.
-name|put
-argument_list|(
-literal|"readLockRemoveOnCommit"
-argument_list|,
-name|readLockRemoveOnCommit
 argument_list|)
 expr_stmt|;
 name|params

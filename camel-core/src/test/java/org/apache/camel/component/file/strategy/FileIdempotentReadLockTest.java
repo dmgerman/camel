@@ -316,10 +316,11 @@ name|SECONDS
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// they are removed with commit
+comment|// the files are kept on commit
+comment|// if you want to remove them then the idempotent repo need some way to evict idle keys
 name|assertEquals
 argument_list|(
-literal|0
+literal|2
 argument_list|,
 name|myRepo
 operator|.
@@ -376,14 +377,23 @@ throws|throws
 name|Exception
 block|{
 comment|// we are in progress
-name|assertEquals
-argument_list|(
-literal|1
-argument_list|,
+name|int
+name|size
+init|=
 name|myRepo
 operator|.
 name|getCacheSize
 argument_list|()
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|size
+operator|==
+literal|1
+operator|||
+name|size
+operator|==
+literal|2
 argument_list|)
 expr_stmt|;
 block|}
