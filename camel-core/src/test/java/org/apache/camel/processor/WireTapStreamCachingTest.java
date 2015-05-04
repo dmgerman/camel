@@ -130,6 +130,16 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -250,6 +260,62 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
+name|Test
+DECL|method|testSendingAMessageUsingWiretapShouldNotDeleteStreamFileBeforeAllExcangesAreComplete ()
+specifier|public
+name|void
+name|testSendingAMessageUsingWiretapShouldNotDeleteStreamFileBeforeAllExcangesAreComplete
+parameter_list|()
+throws|throws
+name|InterruptedException
+block|{
+name|x
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|y
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|z
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+comment|// the used file should contain more than one character in order to be streamed into the file system
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:a"
+argument_list|,
+name|this
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getClassLoader
+argument_list|()
+operator|.
+name|getResourceAsStream
+argument_list|(
+literal|"org/apache/camel/processor/twoCharacters.txt"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
 name|Override
 DECL|method|setUp ()
 specifier|protected
@@ -359,6 +425,17 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+comment|// set stream threshold to 1, in order to stream into the file system
+name|context
+operator|.
+name|getStreamCachingStrategy
+argument_list|()
+operator|.
+name|setSpoolThreshold
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|errorHandler
 argument_list|(
 name|deadLetterChannel
@@ -413,9 +490,15 @@ argument_list|(
 literal|"mock:x"
 argument_list|)
 expr_stmt|;
+comment|// even if a process takes more time then the others the wire tap shall work
 name|from
 argument_list|(
 literal|"direct:y"
+argument_list|)
+operator|.
+name|delay
+argument_list|(
+literal|2000
 argument_list|)
 operator|.
 name|process

@@ -990,7 +990,9 @@ init|=
 name|cache
 operator|.
 name|copy
-argument_list|()
+argument_list|(
+name|answer
+argument_list|)
 decl_stmt|;
 if|if
 condition|(

@@ -418,11 +418,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|copy ()
+DECL|method|copy (Exchange exchange)
 specifier|public
 name|StreamCache
 name|copy
-parameter_list|()
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -440,7 +443,9 @@ argument_list|(
 name|streamCache
 operator|.
 name|copy
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 argument_list|)
 return|;
 block|}
@@ -458,7 +463,9 @@ argument_list|(
 name|readCache
 operator|.
 name|copy
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 argument_list|)
 return|;
 block|}

@@ -290,7 +290,10 @@ block|}
 specifier|public
 name|StreamCache
 name|copy
-parameter_list|()
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 throws|throws
 name|IOException
 block|{

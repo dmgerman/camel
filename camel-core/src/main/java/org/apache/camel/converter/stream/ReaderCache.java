@@ -56,6 +56,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|StreamCache
 import|;
 end_import
@@ -155,11 +167,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|copy ()
+DECL|method|copy (Exchange exchange)
 specifier|public
 name|StreamCache
 name|copy
-parameter_list|()
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 throws|throws
 name|IOException
 block|{
