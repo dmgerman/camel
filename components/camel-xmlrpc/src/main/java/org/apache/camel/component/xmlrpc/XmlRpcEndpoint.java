@@ -504,6 +504,7 @@ return|return
 name|clientConfigurer
 return|;
 block|}
+comment|/**      * To use a custom XmlRpcClientConfigurer to configure the client      */
 DECL|method|setClientConfigurer (XmlRpcClientConfigurer configurer)
 specifier|public
 name|void
@@ -520,6 +521,7 @@ operator|=
 name|configurer
 expr_stmt|;
 block|}
+comment|/**      * To use the given XmlRpcClientConfigImpl as configuration for the client.      */
 DECL|method|setClientConfig (XmlRpcClientConfigImpl config)
 specifier|public
 name|void
@@ -556,6 +558,7 @@ return|return
 name|defaultMethodName
 return|;
 block|}
+comment|/**      * The method name which would be used for the xmlrpc requests by default, if the Message header CamelXmlRpcMethodName is not set.      */
 DECL|method|setDefaultMethodName (String defaultMethodName)
 specifier|public
 name|void

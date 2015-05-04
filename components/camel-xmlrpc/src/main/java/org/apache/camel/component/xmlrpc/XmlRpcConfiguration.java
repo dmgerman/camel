@@ -198,6 +198,7 @@ return|return
 name|enabledForExtensions
 return|;
 block|}
+comment|/**      * Whether extensions are enabled. By default, the client or server is strictly compliant to the XML-RPC specification and extensions are disabled.      */
 DECL|method|setEnabledForExtensions (boolean enabledForExtensions)
 specifier|public
 name|void
@@ -224,6 +225,7 @@ return|return
 name|contentLengthOptional
 return|;
 block|}
+comment|/**      * Whether a "Content-Length" header may be omitted. The XML-RPC specification demands, that such a header be present.      */
 DECL|method|setContentLengthOptional (boolean contentLengthOptional)
 specifier|public
 name|void
@@ -250,6 +252,7 @@ return|return
 name|basicEncoding
 return|;
 block|}
+comment|/**      * Sets the encoding for basic authentication, null means UTF-8 is chosen.      */
 DECL|method|setBasicEncoding (String basicEncoding)
 specifier|public
 name|void
@@ -276,6 +279,7 @@ return|return
 name|encoding
 return|;
 block|}
+comment|/**      * Sets the requests encoding, null means UTF-8 is chosen.      */
 DECL|method|setEncoding (String encoding)
 specifier|public
 name|void
@@ -302,6 +306,7 @@ return|return
 name|timeZone
 return|;
 block|}
+comment|/**      * The timezone, which is used to interpret date/time.      * Defaults to {@link TimeZone#getDefault()}.      */
 DECL|method|setTimeZone (TimeZone timeZone)
 specifier|public
 name|void
@@ -328,6 +333,7 @@ return|return
 name|gzipCompressing
 return|;
 block|}
+comment|/**      * Whether gzip compression is being used for transmitting the request.      */
 DECL|method|setGzipCompressing (boolean gzipCompressing)
 specifier|public
 name|void
@@ -354,6 +360,7 @@ return|return
 name|gzipRequesting
 return|;
 block|}
+comment|/**      * Whether gzip compression is being used for transmitting the request.      */
 DECL|method|setGzipRequesting (boolean gzipRequesting)
 specifier|public
 name|void
@@ -380,6 +387,7 @@ return|return
 name|basicUserName
 return|;
 block|}
+comment|/**      * The user name for basic authentication.      */
 DECL|method|setBasicUserName (String basicUserName)
 specifier|public
 name|void
@@ -406,6 +414,7 @@ return|return
 name|basicPassword
 return|;
 block|}
+comment|/**      * The password for basic authentication.      */
 DECL|method|setBasicPassword (String basicPassword)
 specifier|public
 name|void
@@ -432,6 +441,7 @@ return|return
 name|connectionTimeout
 return|;
 block|}
+comment|/**      * Set the connection timeout in milliseconds, 0 is to disable it      */
 DECL|method|setConnectionTimeout (int connectionTimeout)
 specifier|public
 name|void
@@ -458,6 +468,7 @@ return|return
 name|replyTimeout
 return|;
 block|}
+comment|/**      * Set the reply timeout in milliseconds, 0 is to disable it.      */
 DECL|method|setReplyTimeout (int replyTimeout)
 specifier|public
 name|void
@@ -484,6 +495,7 @@ return|return
 name|enabledForExceptions
 return|;
 block|}
+comment|/**      * Whether the response should contain a "faultCause" element in case of errors.      * The "faultCause" is an exception, which the server has trapped and written into a byte stream as a serializable object.      */
 DECL|method|setEnabledForExceptions (boolean enabledForExceptions)
 specifier|public
 name|void
@@ -510,6 +522,7 @@ return|return
 name|xmlRpcServer
 return|;
 block|}
+comment|/**      * To use a custom XmlRpcRequestProcessor as server.      */
 DECL|method|setXmlRpcServer (XmlRpcRequestProcessor xmlRpcServer)
 specifier|public
 name|void
@@ -536,6 +549,7 @@ return|return
 name|userAgent
 return|;
 block|}
+comment|/**      * The http user agent header to set when doing xmlrpc requests      */
 DECL|method|setUserAgent (String userAgent)
 specifier|public
 name|void
