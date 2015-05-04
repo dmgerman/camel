@@ -44,6 +44,15 @@ name|MULTIMAP_PREFIX
 init|=
 literal|"multimap:"
 decl_stmt|;
+DECL|field|REPLICATEDMAP_PREFIX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|REPLICATEDMAP_PREFIX
+init|=
+literal|"replicatedmap:"
+decl_stmt|;
 DECL|field|ATOMICNUMBER_PREFIX
 specifier|public
 specifier|static
