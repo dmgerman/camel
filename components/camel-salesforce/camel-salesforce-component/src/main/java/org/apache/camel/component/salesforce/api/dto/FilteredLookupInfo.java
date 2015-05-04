@@ -22,6 +22,16 @@ name|dto
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
 begin_class
 DECL|class|FilteredLookupInfo
 specifier|public
@@ -32,7 +42,10 @@ name|AbstractDTOBase
 block|{
 DECL|field|controllingFields
 specifier|private
+name|List
+argument_list|<
 name|String
+argument_list|>
 name|controllingFields
 decl_stmt|;
 DECL|field|dependent
@@ -47,7 +60,10 @@ name|optionalFilter
 decl_stmt|;
 DECL|method|getControllingFields ()
 specifier|public
+name|List
+argument_list|<
 name|String
+argument_list|>
 name|getControllingFields
 parameter_list|()
 block|{
@@ -55,12 +71,15 @@ return|return
 name|controllingFields
 return|;
 block|}
-DECL|method|setControllingFields (String controllingFields)
+DECL|method|setControllingFields (List<String> controllingFields)
 specifier|public
 name|void
 name|setControllingFields
 parameter_list|(
+name|List
+argument_list|<
 name|String
+argument_list|>
 name|controllingFields
 parameter_list|)
 block|{

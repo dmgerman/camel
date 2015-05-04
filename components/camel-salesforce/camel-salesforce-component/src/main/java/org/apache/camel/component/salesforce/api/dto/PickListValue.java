@@ -54,7 +54,8 @@ name|defaultValue
 decl_stmt|;
 DECL|field|validFor
 specifier|private
-name|String
+name|byte
+index|[]
 name|validFor
 decl_stmt|;
 DECL|method|getValue ()
@@ -163,7 +164,8 @@ expr_stmt|;
 block|}
 DECL|method|getValidFor ()
 specifier|public
-name|String
+name|byte
+index|[]
 name|getValidFor
 parameter_list|()
 block|{
@@ -171,12 +173,13 @@ return|return
 name|validFor
 return|;
 block|}
-DECL|method|setValidFor (String validFor)
+DECL|method|setValidFor (byte[] validFor)
 specifier|public
 name|void
 name|setValidFor
 parameter_list|(
-name|String
+name|byte
+index|[]
 name|validFor
 parameter_list|)
 block|{
