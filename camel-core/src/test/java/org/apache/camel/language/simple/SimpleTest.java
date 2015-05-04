@@ -8376,6 +8376,29 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testTypeConstantInnerClass ()
+specifier|public
+name|void
+name|testTypeConstantInnerClass
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"${type:org.apache.camel.language.simple.Constants$MyInnerStuff.FOO}"
+argument_list|,
+literal|123
+argument_list|)
+expr_stmt|;
+name|assertExpression
+argument_list|(
+literal|"${type:org.apache.camel.language.simple.Constants.BAR}"
+argument_list|,
+literal|456
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testStringArrayLength ()
 specifier|public
 name|void
