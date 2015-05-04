@@ -291,6 +291,11 @@ name|removeOnRollback
 init|=
 literal|true
 decl_stmt|;
+DECL|field|removeOnCommit
+specifier|private
+name|boolean
+name|removeOnCommit
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|prepareOnStartup (GenericFileOperations<File> operations, GenericFileEndpoint<File> endpoint)
@@ -540,6 +545,21 @@ argument_list|(
 name|file
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|removeOnCommit
+condition|)
+block|{
+name|idempotentRepository
+operator|.
+name|remove
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// confirm on commit
 name|idempotentRepository
 operator|.
@@ -548,6 +568,7 @@ argument_list|(
 name|key
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|setTimeout (long timeout)
 specifier|public
@@ -684,6 +705,34 @@ operator|.
 name|removeOnRollback
 operator|=
 name|removeOnRollback
+expr_stmt|;
+block|}
+comment|/**      * Whether to remove the file from the idempotent repository when doing a commit.      *<p/>      * By default this is false.      */
+DECL|method|isRemoveOnCommit ()
+specifier|public
+name|boolean
+name|isRemoveOnCommit
+parameter_list|()
+block|{
+return|return
+name|removeOnCommit
+return|;
+block|}
+comment|/**      * Whether to remove the file from the idempotent repository when doing a commit.      *<p/>      * By default this is false.      */
+DECL|method|setRemoveOnCommit (boolean removeOnCommit)
+specifier|public
+name|void
+name|setRemoveOnCommit
+parameter_list|(
+name|boolean
+name|removeOnCommit
+parameter_list|)
+block|{
+name|this
+operator|.
+name|removeOnCommit
+operator|=
+name|removeOnCommit
 expr_stmt|;
 block|}
 DECL|method|asKey (GenericFile<File> file)

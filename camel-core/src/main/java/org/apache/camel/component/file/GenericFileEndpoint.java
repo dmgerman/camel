@@ -1203,6 +1203,18 @@ name|label
 operator|=
 literal|"consumer"
 argument_list|)
+DECL|field|readLockRemoveOnCommit
+specifier|protected
+name|boolean
+name|readLockRemoveOnCommit
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|exclusiveReadLockStrategy
 specifier|protected
 name|GenericFileExclusiveReadLockStrategy
@@ -3688,6 +3700,33 @@ operator|=
 name|readLockRemoveOnRollback
 expr_stmt|;
 block|}
+DECL|method|isReadLockRemoveOnCommit ()
+specifier|public
+name|boolean
+name|isReadLockRemoveOnCommit
+parameter_list|()
+block|{
+return|return
+name|readLockRemoveOnCommit
+return|;
+block|}
+comment|/**      * This option applied only for readLock=idempotent.      * This option allows to specify whether to remove the file name entry from the idempotent repository      * when processing the file is succeeded and a commit happens.      *<p/>      * By default the file is not removed which ensures that any race-condition do not occur so another active      * node may attempt to grab the file. Instead the idempotent repository may support eviction strategies      * that you can configure to evict the file name entry after X minutes - this ensures no problems with race conditions.      */
+DECL|method|setReadLockRemoveOnCommit (boolean readLockRemoveOnCommit)
+specifier|public
+name|void
+name|setReadLockRemoveOnCommit
+parameter_list|(
+name|boolean
+name|readLockRemoveOnCommit
+parameter_list|)
+block|{
+name|this
+operator|.
+name|readLockRemoveOnCommit
+operator|=
+name|readLockRemoveOnCommit
+expr_stmt|;
+block|}
 DECL|method|getBufferSize ()
 specifier|public
 name|int
@@ -4650,6 +4689,15 @@ argument_list|(
 literal|"readLockRemoveOnRollback"
 argument_list|,
 name|readLockRemoveOnRollback
+argument_list|)
+expr_stmt|;
+name|params
+operator|.
+name|put
+argument_list|(
+literal|"readLockRemoveOnCommit"
+argument_list|,
+name|readLockRemoveOnCommit
 argument_list|)
 expr_stmt|;
 return|return
