@@ -170,7 +170,133 @@ name|pdf
 operator|.
 name|PdfPageSizeConstant
 operator|.
-name|*
+name|PAGE_SIZE_A0
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|pdf
+operator|.
+name|PdfPageSizeConstant
+operator|.
+name|PAGE_SIZE_A1
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|pdf
+operator|.
+name|PdfPageSizeConstant
+operator|.
+name|PAGE_SIZE_A2
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|pdf
+operator|.
+name|PdfPageSizeConstant
+operator|.
+name|PAGE_SIZE_A3
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|pdf
+operator|.
+name|PdfPageSizeConstant
+operator|.
+name|PAGE_SIZE_A4
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|pdf
+operator|.
+name|PdfPageSizeConstant
+operator|.
+name|PAGE_SIZE_A5
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|pdf
+operator|.
+name|PdfPageSizeConstant
+operator|.
+name|PAGE_SIZE_A6
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|pdf
+operator|.
+name|PdfPageSizeConstant
+operator|.
+name|PAGE_SIZE_LETTER
 import|;
 end_import
 
@@ -319,6 +445,11 @@ name|operation
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"20"
+argument_list|)
 DECL|field|marginTop
 specifier|private
 name|int
@@ -328,6 +459,11 @@ literal|20
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"20"
+argument_list|)
 DECL|field|marginBottom
 specifier|private
 name|int
@@ -337,6 +473,11 @@ literal|20
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"20"
+argument_list|)
 DECL|field|marginLeft
 specifier|private
 name|int
@@ -346,6 +487,11 @@ literal|20
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"40"
+argument_list|)
 DECL|field|marginRight
 specifier|private
 name|int
@@ -355,6 +501,11 @@ literal|40
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"14"
+argument_list|)
 DECL|field|fontSize
 specifier|private
 name|float
@@ -364,6 +515,15 @@ literal|14
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"PAGE_SIZE_A4"
+argument_list|,
+name|enums
+operator|=
+literal|"PAGE_SIZE_A0,PAGE_SIZE_A1,PAGE_SIZE_A2,PAGE_SIZE_A3,PAGE_SIZE_A4,PAGE_SIZE_A5,PAGE_SIZE_A6,PAGE_SIZE_LETTER"
+argument_list|)
 DECL|field|pageSize
 specifier|private
 name|PDRectangle
@@ -375,6 +535,11 @@ name|PAGE_SIZE_A4
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"Helvetica"
+argument_list|)
 DECL|field|font
 specifier|private
 name|PDFont
@@ -386,6 +551,11 @@ name|HELVETICA
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"lineTermination"
+argument_list|)
 DECL|field|textProcessingFactory
 specifier|private
 name|TextProcessingFactory
@@ -452,6 +622,7 @@ return|return
 name|marginTop
 return|;
 block|}
+comment|/**      * Margin top in pixels      */
 DECL|method|setMarginTop (int marginTop)
 specifier|public
 name|void
@@ -478,6 +649,7 @@ return|return
 name|marginBottom
 return|;
 block|}
+comment|/**      * Margin bottom in pixels      */
 DECL|method|setMarginBottom (int marginBottom)
 specifier|public
 name|void
@@ -504,6 +676,7 @@ return|return
 name|marginLeft
 return|;
 block|}
+comment|/**      * Margin left in pixels      */
 DECL|method|setMarginLeft (int marginLeft)
 specifier|public
 name|void
@@ -530,6 +703,7 @@ return|return
 name|marginRight
 return|;
 block|}
+comment|/**      * Margin right in pixels      */
 DECL|method|setMarginRight (int marginRight)
 specifier|public
 name|void
@@ -556,6 +730,7 @@ return|return
 name|fontSize
 return|;
 block|}
+comment|/**      * Font size in pixels      */
 DECL|method|setFontSize (float fontSize)
 specifier|public
 name|void
@@ -582,6 +757,7 @@ return|return
 name|pageSize
 return|;
 block|}
+comment|/**      * Page size      */
 DECL|method|setPageSize (PDRectangle pageSize)
 specifier|public
 name|void
@@ -628,6 +804,7 @@ return|return
 name|font
 return|;
 block|}
+comment|/**      * Font      */
 DECL|method|setFont (PDFont font)
 specifier|public
 name|void
@@ -674,6 +851,7 @@ return|return
 name|textProcessingFactory
 return|;
 block|}
+comment|/**      * Text processing to use.      *<ul>      *<li>autoFormatting: Text is getting sliced by words, then max amount of words that fits in the line will      *   be written into pdf document. With this strategy all words that doesn't fit in the line will be moved to the new line.</li>      *<li>lineTermination: Builds set of classes for line-termination writing strategy. Text getting sliced by line termination symbol      *   and then it will be written regardless it fits in the line or not.</li>      *</ul>      */
 DECL|method|setTextProcessingFactory (TextProcessingFactory textProcessingFactory)
 specifier|public
 name|void
