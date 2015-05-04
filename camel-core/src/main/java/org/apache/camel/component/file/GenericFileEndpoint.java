@@ -3683,7 +3683,7 @@ return|return
 name|readLockRemoveOnRollback
 return|;
 block|}
-comment|/**      * This option applied only for readLock=idempotent.      * This option allows to specify whether to remove the file name entry from the idempotent repository      * when processing the file failed and a rollback happens.      */
+comment|/**      * This option applied only for readLock=idempotent.      * This option allows to specify whether to remove the file name entry from the idempotent repository      * when processing the file failed and a rollback happens.      * If this option is false, then the file name entry is confirmed (as if the file did a commit).      */
 DECL|method|setReadLockRemoveOnRollback (boolean readLockRemoveOnRollback)
 specifier|public
 name|void
