@@ -147,11 +147,6 @@ name|DefaultEndpoint
 block|{
 annotation|@
 name|UriPath
-argument_list|(
-name|description
-operator|=
-literal|"The geo address which must prefix with address:"
-argument_list|)
 DECL|field|address
 specifier|private
 name|String
@@ -159,11 +154,6 @@ name|address
 decl_stmt|;
 annotation|@
 name|UriPath
-argument_list|(
-name|description
-operator|=
-literal|"The geo coordinate which must prefix with latng:"
-argument_list|)
 DECL|field|latlng
 specifier|private
 name|String
@@ -283,6 +273,7 @@ return|return
 name|language
 return|;
 block|}
+comment|/**      * The language to use.      */
 DECL|method|setLanguage (String language)
 specifier|public
 name|void
@@ -309,6 +300,7 @@ return|return
 name|address
 return|;
 block|}
+comment|/**      * The geo address which should be prefixed with<tt>address:</tt>      */
 DECL|method|setAddress (String address)
 specifier|public
 name|void
@@ -335,6 +327,7 @@ return|return
 name|latlng
 return|;
 block|}
+comment|/**      * The geo latitude and longitude which should be prefixed with<tt>latlng:</tt>      */
 DECL|method|setLatlng (String latlng)
 specifier|public
 name|void
@@ -361,6 +354,7 @@ return|return
 name|headersOnly
 return|;
 block|}
+comment|/**      * Whether to only enrich the Exchange with headers, and leave the body as-is.      */
 DECL|method|setHeadersOnly (boolean headersOnly)
 specifier|public
 name|void
@@ -387,6 +381,7 @@ return|return
 name|clientId
 return|;
 block|}
+comment|/**      * To use google premium with this client id      */
 DECL|method|setClientId (String clientId)
 specifier|public
 name|void
@@ -413,6 +408,7 @@ return|return
 name|clientKey
 return|;
 block|}
+comment|/**      * To use google premium with this client key      */
 DECL|method|setClientKey (String clientKey)
 specifier|public
 name|void
