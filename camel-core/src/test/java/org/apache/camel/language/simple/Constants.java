@@ -18,6 +18,14 @@ name|simple
 package|;
 end_package
 
+begin_comment
+comment|// CHECKSTYLE:OFF
+end_comment
+
+begin_comment
+comment|// we want to use the code as-is as that is how end users may code
+end_comment
+
 begin_class
 DECL|class|Constants
 specifier|public
@@ -49,6 +57,10 @@ decl_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// CHECKSTYLE:ON
+end_comment
 
 end_unit
 
