@@ -558,7 +558,9 @@ operator|)
 name|cache
 operator|.
 name|copy
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 decl_stmt|;
 name|bos
 operator|=

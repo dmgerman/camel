@@ -669,7 +669,7 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|CachedCxfPayload (CachedCxfPayload<T> orig)
+DECL|method|CachedCxfPayload (CachedCxfPayload<T> orig, Exchange exchange)
 specifier|private
 name|CachedCxfPayload
 parameter_list|(
@@ -678,6 +678,9 @@ argument_list|<
 name|T
 argument_list|>
 name|orig
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|IOException
@@ -767,7 +770,9 @@ operator|)
 argument_list|)
 operator|.
 name|copy
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -973,11 +978,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|copy ()
+DECL|method|copy (Exchange exchange)
 specifier|public
 name|StreamCache
 name|copy
-parameter_list|()
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
 throws|throws
 name|IOException
 block|{
@@ -989,6 +997,8 @@ name|T
 argument_list|>
 argument_list|(
 name|this
+argument_list|,
+name|exchange
 argument_list|)
 return|;
 block|}
