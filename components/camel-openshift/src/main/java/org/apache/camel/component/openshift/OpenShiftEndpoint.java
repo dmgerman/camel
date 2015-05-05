@@ -290,7 +290,7 @@ literal|"list,start,stop,restart,state,getStandaloneCartridge,getEmbeddedCartrid
 operator|+
 literal|"scaleUp,scaleDown,getGitUrl,getDeploymentType,setDeploymentType,getAllEnvironmentVariables,addEnvironmentVariable,addMultipleEnvironmentVariables,"
 operator|+
-literal|"updateEnvironmentVariable,getEnvironmentVariableValue,removeEnvironmentVariable,getGearProfile"
+literal|"updateEnvironmentVariable,getEnvironmentVariableValue,removeEnvironmentVariable,getGearProfile,addAlias,removeAlias,getAliases"
 argument_list|)
 DECL|field|operation
 specifier|private
