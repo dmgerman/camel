@@ -473,6 +473,7 @@ return|return
 name|rules
 return|;
 block|}
+comment|/**      * To use the given schematron rules instead of loading from the path      */
 DECL|method|setRules (Templates rules)
 specifier|public
 name|void

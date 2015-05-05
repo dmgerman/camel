@@ -171,6 +171,20 @@ specifier|private
 name|URI
 name|uri
 decl_stmt|;
+DECL|field|authority
+specifier|private
+name|String
+name|authority
+decl_stmt|;
+DECL|field|luceneVersion
+specifier|private
+name|Version
+name|luceneVersion
+init|=
+name|Version
+operator|.
+name|LUCENE_4_10_3
+decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -196,20 +210,8 @@ literal|"true"
 argument_list|)
 DECL|field|operation
 specifier|private
-name|String
+name|LuceneOperation
 name|operation
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|protocolType
-specifier|private
-name|String
-name|protocolType
-decl_stmt|;
-DECL|field|authority
-specifier|private
-name|String
-name|authority
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -248,15 +250,6 @@ DECL|field|maxHits
 specifier|private
 name|int
 name|maxHits
-decl_stmt|;
-DECL|field|luceneVersion
-specifier|private
-name|Version
-name|luceneVersion
-init|=
-name|Version
-operator|.
-name|LUCENE_4_10_3
 decl_stmt|;
 DECL|method|LuceneConfiguration ()
 specifier|public
@@ -378,11 +371,36 @@ literal|"hostname"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|setOperation
-argument_list|(
+name|String
+name|op
+init|=
 name|retrieveTokenFromAuthority
 argument_list|(
 literal|"operation"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|op
+operator|!=
+literal|null
+condition|)
+block|{
+name|op
+operator|=
+name|op
+operator|.
+name|toLowerCase
+argument_list|()
+expr_stmt|;
+block|}
+name|setOperation
+argument_list|(
+name|LuceneOperation
+operator|.
+name|valueOf
+argument_list|(
+name|op
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -633,32 +651,6 @@ operator|=
 name|uri
 expr_stmt|;
 block|}
-DECL|method|getProtocolType ()
-specifier|public
-name|String
-name|getProtocolType
-parameter_list|()
-block|{
-return|return
-name|protocolType
-return|;
-block|}
-DECL|method|setProtocolType (String protocolType)
-specifier|public
-name|void
-name|setProtocolType
-parameter_list|(
-name|String
-name|protocolType
-parameter_list|)
-block|{
-name|this
-operator|.
-name|protocolType
-operator|=
-name|protocolType
-expr_stmt|;
-block|}
 DECL|method|getHost ()
 specifier|public
 name|String
@@ -669,6 +661,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * The URL to the lucene server      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -687,7 +680,7 @@ expr_stmt|;
 block|}
 DECL|method|getOperation ()
 specifier|public
-name|String
+name|LuceneOperation
 name|getOperation
 parameter_list|()
 block|{
@@ -695,12 +688,13 @@ return|return
 name|operation
 return|;
 block|}
-DECL|method|setOperation (String operation)
+comment|/**      * Operation to do such as insert or query.      */
+DECL|method|setOperation (LuceneOperation operation)
 specifier|public
 name|void
 name|setOperation
 parameter_list|(
-name|String
+name|LuceneOperation
 name|operation
 parameter_list|)
 block|{
@@ -747,6 +741,7 @@ return|return
 name|sourceDirectory
 return|;
 block|}
+comment|/**      * An optional directory containing files to be used to be analyzed and added to the index at producer startup.      */
 DECL|method|setSourceDirectory (File sourceDirectory)
 specifier|public
 name|void
@@ -773,6 +768,7 @@ return|return
 name|indexDirectory
 return|;
 block|}
+comment|/**      * A file system directory in which index files are created upon analysis of the document by the specified analyzer      */
 DECL|method|setIndexDirectory (File indexDirectory)
 specifier|public
 name|void
@@ -799,6 +795,7 @@ return|return
 name|analyzer
 return|;
 block|}
+comment|/**      * An Analyzer builds TokenStreams, which analyze text. It thus represents a policy for extracting index terms from text.      * The value for analyzer can be any class that extends the abstract class org.apache.lucene.analysis.Analyzer.      * Lucene also offers a rich set of analyzers out of the box      */
 DECL|method|setAnalyzer (Analyzer analyzer)
 specifier|public
 name|void
@@ -825,6 +822,7 @@ return|return
 name|maxHits
 return|;
 block|}
+comment|/**      * An integer value that limits the result set of the search operation      */
 DECL|method|setMaxHits (int maxHits)
 specifier|public
 name|void

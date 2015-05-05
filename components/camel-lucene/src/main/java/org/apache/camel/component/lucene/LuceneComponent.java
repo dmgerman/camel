@@ -85,6 +85,7 @@ extends|extends
 name|UriEndpointComponent
 block|{
 DECL|field|config
+specifier|private
 name|LuceneConfiguration
 name|config
 decl_stmt|;
@@ -196,6 +197,33 @@ expr_stmt|;
 return|return
 name|luceneEndpoint
 return|;
+block|}
+DECL|method|getConfig ()
+specifier|public
+name|LuceneConfiguration
+name|getConfig
+parameter_list|()
+block|{
+return|return
+name|config
+return|;
+block|}
+comment|/**      * To use a shared lucene configuration      */
+DECL|method|setConfig (LuceneConfiguration config)
+specifier|public
+name|void
+name|setConfig
+parameter_list|(
+name|LuceneConfiguration
+name|config
+parameter_list|)
+block|{
+name|this
+operator|.
+name|config
+operator|=
+name|config
+expr_stmt|;
 block|}
 block|}
 end_class

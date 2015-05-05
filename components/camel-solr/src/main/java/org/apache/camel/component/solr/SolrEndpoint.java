@@ -218,7 +218,7 @@ name|UriEndpoint
 argument_list|(
 name|scheme
 operator|=
-literal|"solr"
+literal|"solr,solrs,solrCloud"
 argument_list|,
 name|title
 operator|=
@@ -243,8 +243,20 @@ name|SolrEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
+DECL|field|scheme
+specifier|private
+name|String
+name|scheme
+init|=
+literal|"http://"
+decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"Hostname and port for the solr server"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -256,13 +268,6 @@ DECL|field|url
 specifier|private
 name|String
 name|url
-decl_stmt|;
-DECL|field|scheme
-specifier|private
-name|String
-name|scheme
-init|=
-literal|"http://"
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -355,6 +360,11 @@ name|allowCompression
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"solrCloud"
+argument_list|)
 DECL|field|zkHost
 specifier|private
 name|String
@@ -362,6 +372,11 @@ name|zkHost
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"solrCloud"
+argument_list|)
 DECL|field|collection
 specifier|private
 name|String
@@ -433,6 +448,7 @@ name|toString
 argument_list|()
 expr_stmt|;
 block|}
+comment|/**      * Set the ZooKeeper host information which the solrCloud could use, such as "zkhost=localhost:8123".      */
 DECL|method|setZkHost (String zkHost)
 specifier|public
 name|void
@@ -475,6 +491,7 @@ operator|.
 name|zkHost
 return|;
 block|}
+comment|/**      * Set the collection name which the solrCloud server could use      */
 DECL|method|setCollection (String collection)
 specifier|public
 name|void
@@ -904,6 +921,7 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**      * Set the request handler to be used      */
 DECL|method|setRequestHandler (String requestHandler)
 specifier|public
 name|void
@@ -940,6 +958,7 @@ return|return
 name|streamingThreadCount
 return|;
 block|}
+comment|/**      * Set the number of threads for the StreamingUpdateSolrServer      */
 DECL|method|setStreamingThreadCount (int streamingThreadCount)
 specifier|public
 name|void
@@ -966,6 +985,7 @@ return|return
 name|streamingQueueSize
 return|;
 block|}
+comment|/**      * Set the queue size for the StreamingUpdateSolrServer      */
 DECL|method|setStreamingQueueSize (int streamingQueueSize)
 specifier|public
 name|void
@@ -992,6 +1012,7 @@ return|return
 name|maxRetries
 return|;
 block|}
+comment|/**      * Maximum number of retries to attempt in the event of transient errors      */
 DECL|method|setMaxRetries (Integer maxRetries)
 specifier|public
 name|void
@@ -1018,6 +1039,7 @@ return|return
 name|soTimeout
 return|;
 block|}
+comment|/**      * Read timeout on the underlying HttpConnectionManager. This is desirable for queries, but probably not for indexing      */
 DECL|method|setSoTimeout (Integer soTimeout)
 specifier|public
 name|void
@@ -1044,6 +1066,7 @@ return|return
 name|connectionTimeout
 return|;
 block|}
+comment|/**      * connectionTimeout on the underlying HttpConnectionManager      */
 DECL|method|setConnectionTimeout (Integer connectionTimeout)
 specifier|public
 name|void
@@ -1070,6 +1093,7 @@ return|return
 name|defaultMaxConnectionsPerHost
 return|;
 block|}
+comment|/**      * maxConnectionsPerHost on the underlying HttpConnectionManager      */
 DECL|method|setDefaultMaxConnectionsPerHost (Integer defaultMaxConnectionsPerHost)
 specifier|public
 name|void
@@ -1096,6 +1120,7 @@ return|return
 name|maxTotalConnections
 return|;
 block|}
+comment|/**      * maxTotalConnection on the underlying HttpConnectionManager      */
 DECL|method|setMaxTotalConnections (Integer maxTotalConnections)
 specifier|public
 name|void
@@ -1122,6 +1147,7 @@ return|return
 name|followRedirects
 return|;
 block|}
+comment|/**      * indicates whether redirects are used to get to the Solr server      */
 DECL|method|setFollowRedirects (Boolean followRedirects)
 specifier|public
 name|void
@@ -1148,6 +1174,7 @@ return|return
 name|allowCompression
 return|;
 block|}
+comment|/**      * Server side must support gzip or deflate for this to have any effect      */
 DECL|method|setAllowCompression (Boolean allowCompression)
 specifier|public
 name|void

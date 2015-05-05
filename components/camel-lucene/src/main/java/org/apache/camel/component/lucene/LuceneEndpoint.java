@@ -267,11 +267,10 @@ name|config
 operator|.
 name|getOperation
 argument_list|()
+operator|==
+name|LuceneOperation
 operator|.
-name|equalsIgnoreCase
-argument_list|(
-literal|"insert"
-argument_list|)
+name|insert
 condition|)
 block|{
 name|this

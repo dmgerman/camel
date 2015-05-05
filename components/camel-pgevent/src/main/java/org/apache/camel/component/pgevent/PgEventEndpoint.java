@@ -1038,7 +1038,6 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * @return the host      */
 DECL|method|getHost ()
 specifier|public
 name|String
@@ -1049,7 +1048,7 @@ return|return
 name|host
 return|;
 block|}
-comment|/**      * @param host the host to set      */
+comment|/**      * To connect using hostname and port to the database.      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -1066,7 +1065,6 @@ operator|=
 name|host
 expr_stmt|;
 block|}
-comment|/**      * @return the port      */
 DECL|method|getPort ()
 specifier|public
 name|Integer
@@ -1077,7 +1075,7 @@ return|return
 name|port
 return|;
 block|}
-comment|/**      * @param port the port to set      */
+comment|/**      * To connect using hostname and port to the database.      */
 DECL|method|setPort (Integer port)
 specifier|public
 name|void
@@ -1094,7 +1092,6 @@ operator|=
 name|port
 expr_stmt|;
 block|}
-comment|/**      * @return the database      */
 DECL|method|getDatabase ()
 specifier|public
 name|String
@@ -1105,7 +1102,7 @@ return|return
 name|database
 return|;
 block|}
-comment|/**      * @param database the database to set      */
+comment|/**      * The database name      */
 DECL|method|setDatabase (String database)
 specifier|public
 name|void
@@ -1122,7 +1119,6 @@ operator|=
 name|database
 expr_stmt|;
 block|}
-comment|/**      * @return the channel      */
 DECL|method|getChannel ()
 specifier|public
 name|String
@@ -1133,7 +1129,7 @@ return|return
 name|channel
 return|;
 block|}
-comment|/**      * @param channel the channel to set      */
+comment|/**      * The channel name      */
 DECL|method|setChannel (String channel)
 specifier|public
 name|void
@@ -1150,7 +1146,6 @@ operator|=
 name|channel
 expr_stmt|;
 block|}
-comment|/**      * @return the user      */
 DECL|method|getUser ()
 specifier|public
 name|String
@@ -1161,7 +1156,7 @@ return|return
 name|user
 return|;
 block|}
-comment|/**      * @param user the user to set      */
+comment|/**      * Username for login      */
 DECL|method|setUser (String user)
 specifier|public
 name|void
@@ -1178,7 +1173,6 @@ operator|=
 name|user
 expr_stmt|;
 block|}
-comment|/**      * @return the pass      */
 DECL|method|getPass ()
 specifier|public
 name|String
@@ -1189,7 +1183,7 @@ return|return
 name|pass
 return|;
 block|}
-comment|/**      * @param pass the pass to set      */
+comment|/**      * Password for login      */
 DECL|method|setPass (String pass)
 specifier|public
 name|void
@@ -1206,7 +1200,6 @@ operator|=
 name|pass
 expr_stmt|;
 block|}
-comment|/**      * @return the datasource      */
 DECL|method|getDatasource ()
 specifier|public
 name|DataSource
@@ -1217,7 +1210,7 @@ return|return
 name|datasource
 return|;
 block|}
-comment|/**      * @param datasource the datasource to set      */
+comment|/**      * To connect using the given {@link javax.sql.DataSource} instead of using hostname and port.      */
 DECL|method|setDatasource (DataSource datasource)
 specifier|public
 name|void
