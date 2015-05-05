@@ -4061,6 +4061,35 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// fire event as we had a failure processor to handle it, which there is a event for
+specifier|final
+name|boolean
+name|deadLetterChannel
+init|=
+name|processor
+operator|==
+name|data
+operator|.
+name|deadLetterProcessor
+decl_stmt|;
+name|EventHelper
+operator|.
+name|notifyExchangeFailureHandling
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
+name|exchange
+argument_list|,
+name|processor
+argument_list|,
+name|deadLetterChannel
+argument_list|,
+name|deadLetterUri
+argument_list|)
+expr_stmt|;
 comment|// the failure processor could also be asynchronous
 name|AsyncProcessor
 name|afp
@@ -4119,15 +4148,6 @@ name|shouldContinue
 argument_list|)
 expr_stmt|;
 comment|// fire event as we had a failure processor to handle it, which there is a event for
-name|boolean
-name|deadLetterChannel
-init|=
-name|processor
-operator|==
-name|data
-operator|.
-name|deadLetterProcessor
-decl_stmt|;
 name|EventHelper
 operator|.
 name|notifyExchangeFailureHandled
