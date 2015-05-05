@@ -319,6 +319,27 @@ name|path
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|enums
+operator|=
+literal|"CamelKratiPut,CamelKratiGet,CamelKratiDelete,CamelKratiDeleteAll"
+argument_list|)
+DECL|field|operation
+specifier|protected
+name|String
+name|operation
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|key
 specifier|protected
 name|String
@@ -326,17 +347,15 @@ name|key
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|value
 specifier|protected
 name|String
 name|value
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|operation
-specifier|protected
-name|String
-name|operation
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -440,6 +459,11 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|maxMessagesPerPoll
 specifier|protected
 name|int
@@ -754,7 +778,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Returns the path from the URI.      *      * @param uri      * @return      */
+comment|/**      * Returns the path from the URI.      */
 DECL|method|getPath (String uri)
 specifier|protected
 name|String
@@ -841,6 +865,7 @@ return|return
 name|key
 return|;
 block|}
+comment|/**      * The key.      */
 DECL|method|setKey (String key)
 specifier|public
 name|void
@@ -867,6 +892,7 @@ return|return
 name|value
 return|;
 block|}
+comment|/**      * The Value.      */
 DECL|method|setValue (String value)
 specifier|public
 name|void
@@ -893,6 +919,7 @@ return|return
 name|operation
 return|;
 block|}
+comment|/**      * Specifies the type of operation that will be performed to the datastore.      */
 DECL|method|setOperation (String operation)
 specifier|public
 name|void
@@ -919,6 +946,7 @@ return|return
 name|initialCapacity
 return|;
 block|}
+comment|/**      * The inital capcity of the store.      */
 DECL|method|setInitialCapacity (int initialCapacity)
 specifier|public
 name|void
@@ -945,6 +973,7 @@ return|return
 name|segmentFileSize
 return|;
 block|}
+comment|/**      * Data store segments size in MB.      */
 DECL|method|setSegmentFileSize (int segmentFileSize)
 specifier|public
 name|void
@@ -971,6 +1000,7 @@ return|return
 name|segmentFactory
 return|;
 block|}
+comment|/**      * Sets the segment factory of the target store.      */
 DECL|method|setSegmentFactory (SegmentFactory segmentFactory)
 specifier|public
 name|void
@@ -1001,6 +1031,7 @@ return|return
 name|hashFunction
 return|;
 block|}
+comment|/**      * The hash function to use.      */
 DECL|method|setHashFunction (HashFunction<byte[]> hashFunction)
 specifier|public
 name|void
@@ -1021,6 +1052,7 @@ operator|=
 name|hashFunction
 expr_stmt|;
 block|}
+comment|/**      * Path of the datastore is the relative path of the folder that krati will use for its datastore.      */
 DECL|method|getPath ()
 specifier|public
 name|String
@@ -1041,6 +1073,7 @@ return|return
 name|maxMessagesPerPoll
 return|;
 block|}
+comment|/**      * The maximum number of messages which can be received in one poll. This can be used to avoid reading in too much data and taking up too much memory.      */
 DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
 specifier|public
 name|void
@@ -1055,6 +1088,72 @@ operator|.
 name|maxMessagesPerPoll
 operator|=
 name|maxMessagesPerPoll
+expr_stmt|;
+block|}
+DECL|method|getKeySerializer ()
+specifier|public
+name|Serializer
+argument_list|<
+name|Object
+argument_list|>
+name|getKeySerializer
+parameter_list|()
+block|{
+return|return
+name|keySerializer
+return|;
+block|}
+comment|/**      * The serializer that will be used to serialize the key.      */
+DECL|method|setKeySerializer (Serializer<Object> keySerializer)
+specifier|public
+name|void
+name|setKeySerializer
+parameter_list|(
+name|Serializer
+argument_list|<
+name|Object
+argument_list|>
+name|keySerializer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|keySerializer
+operator|=
+name|keySerializer
+expr_stmt|;
+block|}
+DECL|method|getValueSerializer ()
+specifier|public
+name|Serializer
+argument_list|<
+name|Object
+argument_list|>
+name|getValueSerializer
+parameter_list|()
+block|{
+return|return
+name|valueSerializer
+return|;
+block|}
+comment|/**      * The serializer that will be used to serialize the value.      */
+DECL|method|setValueSerializer (Serializer<Object> valueSerializer)
+specifier|public
+name|void
+name|setValueSerializer
+parameter_list|(
+name|Serializer
+argument_list|<
+name|Object
+argument_list|>
+name|valueSerializer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|valueSerializer
+operator|=
+name|valueSerializer
 expr_stmt|;
 block|}
 block|}

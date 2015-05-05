@@ -81,14 +81,14 @@ name|KRATI_OPERATION
 init|=
 literal|"CamelKratiOperation"
 decl_stmt|;
-DECL|field|KRATI_OPERATION_ADD
+DECL|field|KRATI_OPERATION_PUT
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|KRATI_OPERATION_ADD
+name|KRATI_OPERATION_PUT
 init|=
-literal|"CamelKratiAdd"
+literal|"CamelKratiPut"
 decl_stmt|;
 DECL|field|KRATI_OPERATION_UPDATE
 specifier|public

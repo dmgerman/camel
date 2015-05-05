@@ -531,6 +531,7 @@ return|return
 name|type
 return|;
 block|}
+comment|/**      * Whether to work with data queues or remote program call      */
 DECL|method|setType (Jt400Type type)
 specifier|public
 name|void
@@ -547,7 +548,7 @@ operator|=
 name|type
 expr_stmt|;
 block|}
-comment|/**      * Returns the name of the AS/400 system.      *       * @return the name of the AS/400 system      */
+comment|/**      * Returns the name of the AS/400 system.      */
 DECL|method|getSystemName ()
 specifier|public
 name|String
@@ -574,7 +575,7 @@ operator|=
 name|systemName
 expr_stmt|;
 block|}
-comment|/**      * Returns the ID of the AS/400 user.      *       * @return the ID of the AS/400 user      */
+comment|/**      * Returns the ID of the AS/400 user.      */
 DECL|method|getUserID ()
 specifier|public
 name|String
@@ -601,7 +602,7 @@ operator|=
 name|userID
 expr_stmt|;
 block|}
-comment|/**      * Returns the password of the AS/400 user.      *       * @return the password of the AS/400 user      */
+comment|/**      * Returns the password of the AS/400 user.      */
 DECL|method|getPassword ()
 specifier|public
 name|String
@@ -628,7 +629,7 @@ operator|=
 name|password
 expr_stmt|;
 block|}
-comment|/**      * Returns the fully qualified integrated file system path name of the      * target object of this endpoint.      *       * @return the fully qualified integrated file system path name of the      *         target object of this endpoint      */
+comment|/**      * Returns the fully qualified integrated file system path name of the      * target object of this endpoint.      */
 DECL|method|getObjectPath ()
 specifier|public
 name|String
@@ -656,7 +657,7 @@ name|objectPath
 expr_stmt|;
 block|}
 comment|// Options
-comment|/**      * Returns the CCSID to use for the connection with the AS/400 system.      * Returns -1 if the CCSID to use is the default system CCSID.      *       * @return the CCSID to use for the connection with the AS/400 system, or -1      *         if that is the default system CCSID      */
+comment|/**      * Returns the CCSID to use for the connection with the AS/400 system.      * Returns -1 if the CCSID to use is the default system CCSID.      */
 DECL|method|getCssid ()
 specifier|public
 name|int
@@ -667,7 +668,7 @@ return|return
 name|ccsid
 return|;
 block|}
-comment|/**      * Sets the CCSID to use for the connection with the AS/400 system.      *       * @param ccsid the CCSID to use for the connection with the AS/400 system      */
+comment|/**      * Sets the CCSID to use for the connection with the AS/400 system.      */
 DECL|method|setCcsid (int ccsid)
 specifier|public
 name|void
@@ -692,7 +693,7 @@ else|:
 name|ccsid
 expr_stmt|;
 block|}
-comment|/**      * Returns the data format for sending messages.      *       * @return the data format for sending messages      */
+comment|/**      * Returns the data format for sending messages.      */
 DECL|method|getFormat ()
 specifier|public
 name|Format
@@ -703,7 +704,7 @@ return|return
 name|format
 return|;
 block|}
-comment|/**      * Sets the data format for sending messages.      *       * @param format the data format for sending messages      * @throws IllegalArgumentException if {@code format} is null      */
+comment|/**      * Sets the data format for sending messages.      */
 DECL|method|setFormat (Format format)
 specifier|public
 name|void
@@ -731,7 +732,7 @@ operator|=
 name|format
 expr_stmt|;
 block|}
-comment|/**      * Returns whether AS/400 prompting is enabled in the environment running      * Camel.      *       * @return whether AS/400 prompting is enabled in the environment running      *         Camel      */
+comment|/**      * Returns whether AS/400 prompting is enabled in the environment running      * Camel.      */
 DECL|method|isGuiAvailable ()
 specifier|public
 name|boolean
@@ -742,7 +743,7 @@ return|return
 name|guiAvailable
 return|;
 block|}
-comment|/**      * Sets whether AS/400 prompting is enabled in the environment running      * Camel.      *       * @param guiAvailable whether AS/400 prompting is enabled in the      *            environment running Camel      */
+comment|/**      * Sets whether AS/400 prompting is enabled in the environment running      * Camel.      */
 DECL|method|setGuiAvailable (boolean guiAvailable)
 specifier|public
 name|void
@@ -779,6 +780,7 @@ return|return
 name|keyed
 return|;
 block|}
+comment|/**      * Whether to use keyed or non-keyed data queues.      */
 DECL|method|setKeyed (boolean keyed)
 specifier|public
 name|void
@@ -805,6 +807,7 @@ return|return
 name|searchKey
 return|;
 block|}
+comment|/**      * Search key for keyed data queues.      */
 DECL|method|setSearchKey (String searchKey)
 specifier|public
 name|void
@@ -831,6 +834,7 @@ return|return
 name|searchType
 return|;
 block|}
+comment|/**      * Search type such as EQ for equal etc.      */
 DECL|method|setSearchType (SearchType searchType)
 specifier|public
 name|void
@@ -858,6 +862,7 @@ return|return
 name|outputFieldsIdxArray
 return|;
 block|}
+comment|/**      * Specifies which fields (program parameters) are output parameters.      */
 DECL|method|setOutputFieldsIdxArray (Integer[] outputFieldsIdxArray)
 specifier|public
 name|void
@@ -886,6 +891,7 @@ return|return
 name|outputFieldsLengthArray
 return|;
 block|}
+comment|/**      * Specifies the fields (program parameters) length as in the AS/400 program definition.      */
 DECL|method|setOutputFieldsLengthArray (Integer[] outputFieldsLengthArray)
 specifier|public
 name|void
