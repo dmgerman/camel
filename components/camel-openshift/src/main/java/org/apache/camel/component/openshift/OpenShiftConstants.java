@@ -115,6 +115,15 @@ name|ENVIRONMENT_VARIABLE_MAP
 init|=
 literal|"CamelOpenShiftEnvironmentVariableMap"
 decl_stmt|;
+DECL|field|APPLICATION_ALIAS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|APPLICATION_ALIAS
+init|=
+literal|"CamelOpenShiftApplicationAlias"
+decl_stmt|;
 DECL|method|OpenShiftConstants ()
 specifier|private
 name|OpenShiftConstants

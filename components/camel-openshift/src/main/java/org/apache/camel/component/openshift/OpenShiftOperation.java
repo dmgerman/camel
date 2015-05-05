@@ -86,6 +86,15 @@ name|removeEnvironmentVariable
 block|,
 DECL|enumConstant|getGearProfile
 name|getGearProfile
+block|,
+DECL|enumConstant|addAlias
+name|addAlias
+block|,
+DECL|enumConstant|removeAlias
+name|removeAlias
+block|,
+DECL|enumConstant|getAliases
+name|getAliases
 block|}
 end_enum
 
