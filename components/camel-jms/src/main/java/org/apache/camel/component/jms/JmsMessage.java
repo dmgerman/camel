@@ -215,6 +215,29 @@ specifier|private
 name|JmsBinding
 name|binding
 decl_stmt|;
+annotation|@
+name|Deprecated
+DECL|method|JmsMessage (Message jmsMessage, JmsBinding binding)
+specifier|public
+name|JmsMessage
+parameter_list|(
+name|Message
+name|jmsMessage
+parameter_list|,
+name|JmsBinding
+name|binding
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|jmsMessage
+argument_list|,
+literal|null
+argument_list|,
+name|binding
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|JmsMessage (Message jmsMessage, Session jmsSession, JmsBinding binding)
 specifier|public
 name|JmsMessage
