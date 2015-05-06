@@ -4491,6 +4491,38 @@ name|jmsHeaderStrategy
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getMessageCreatedStrategy ()
+specifier|public
+name|MessageCreatedStrategy
+name|getMessageCreatedStrategy
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getMessageCreatedStrategy
+argument_list|()
+return|;
+block|}
+DECL|method|setMessageCreatedStrategy (MessageCreatedStrategy messageCreatedStrategy)
+specifier|public
+name|void
+name|setMessageCreatedStrategy
+parameter_list|(
+name|MessageCreatedStrategy
+name|messageCreatedStrategy
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setMessageCreatedStrategy
+argument_list|(
+name|messageCreatedStrategy
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|ManagedAttribute
 DECL|method|isTransferExchange ()

@@ -362,6 +362,11 @@ specifier|private
 name|ExecutorService
 name|asyncStartStopExecutorService
 decl_stmt|;
+DECL|field|messageCreatedStrategy
+specifier|private
+name|MessageCreatedStrategy
+name|messageCreatedStrategy
+decl_stmt|;
 DECL|method|JmsComponent ()
 specifier|public
 name|JmsComponent
@@ -2065,6 +2070,33 @@ operator|.
 name|headerFilterStrategy
 operator|=
 name|strategy
+expr_stmt|;
+block|}
+DECL|method|getMessageCreatedStrategy ()
+specifier|public
+name|MessageCreatedStrategy
+name|getMessageCreatedStrategy
+parameter_list|()
+block|{
+return|return
+name|messageCreatedStrategy
+return|;
+block|}
+comment|/**      * To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of<tt>javax.jms.Message</tt>      * objects when Camel is sending a JMS message.      */
+DECL|method|setMessageCreatedStrategy (MessageCreatedStrategy messageCreatedStrategy)
+specifier|public
+name|void
+name|setMessageCreatedStrategy
+parameter_list|(
+name|MessageCreatedStrategy
+name|messageCreatedStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageCreatedStrategy
+operator|=
+name|messageCreatedStrategy
 expr_stmt|;
 block|}
 comment|// Implementation methods

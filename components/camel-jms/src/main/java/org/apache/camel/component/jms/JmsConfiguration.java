@@ -1167,6 +1167,13 @@ specifier|private
 name|boolean
 name|includeAllJMSXProperties
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|messageCreatedStrategy
+specifier|private
+name|MessageCreatedStrategy
+name|messageCreatedStrategy
+decl_stmt|;
 DECL|method|JmsConfiguration ()
 specifier|public
 name|JmsConfiguration
@@ -5544,6 +5551,33 @@ operator|.
 name|includeAllJMSXProperties
 operator|=
 name|includeAllJMSXProperties
+expr_stmt|;
+block|}
+DECL|method|getMessageCreatedStrategy ()
+specifier|public
+name|MessageCreatedStrategy
+name|getMessageCreatedStrategy
+parameter_list|()
+block|{
+return|return
+name|messageCreatedStrategy
+return|;
+block|}
+comment|/**      * To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of<tt>javax.jms.Message</tt>      * objects when Camel is sending a JMS message.      */
+DECL|method|setMessageCreatedStrategy (MessageCreatedStrategy messageCreatedStrategy)
+specifier|public
+name|void
+name|setMessageCreatedStrategy
+parameter_list|(
+name|MessageCreatedStrategy
+name|messageCreatedStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageCreatedStrategy
+operator|=
+name|messageCreatedStrategy
 expr_stmt|;
 block|}
 block|}
