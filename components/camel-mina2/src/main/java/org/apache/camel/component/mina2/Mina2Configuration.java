@@ -328,15 +328,14 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"-1"
+literal|"1024"
 argument_list|)
 DECL|field|decoderMaxLineLength
 specifier|private
 name|int
 name|decoderMaxLineLength
 init|=
-operator|-
-literal|1
+literal|1024
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -452,6 +451,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -465,6 +468,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|clientMode
 specifier|private
 name|boolean
@@ -564,6 +572,7 @@ return|return
 name|protocol
 return|;
 block|}
+comment|/**      * Protocol to use      */
 DECL|method|setProtocol (String protocol)
 specifier|public
 name|void
@@ -590,6 +599,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * Hostname to use. Use localhost or 0.0.0.0 for local server as consumer. For producer use the hostname or ip address of the remote server.      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -616,6 +626,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * Port number      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -642,6 +653,7 @@ return|return
 name|sync
 return|;
 block|}
+comment|/**      * Setting to set endpoint as one-way or request-response.      */
 DECL|method|setSync (boolean sync)
 specifier|public
 name|void
@@ -668,6 +680,7 @@ return|return
 name|textline
 return|;
 block|}
+comment|/**      * Only used for TCP. If no codec is specified, you can use this flag to indicate a text line based codec;      * if not specified or the value is false, then Object Serialization is assumed over TCP.      */
 DECL|method|setTextline (boolean textline)
 specifier|public
 name|void
@@ -694,6 +707,7 @@ return|return
 name|textlineDelimiter
 return|;
 block|}
+comment|/**      * Only used for TCP and if textline=true. Sets the text line delimiter to use.      * If none provided, Camel will use DEFAULT.      * This delimiter is used to mark the end of text.      */
 DECL|method|setTextlineDelimiter (Mina2TextLineDelimiter textlineDelimiter)
 specifier|public
 name|void
@@ -720,6 +734,7 @@ return|return
 name|codec
 return|;
 block|}
+comment|/**      * To use a custom minda codec implementation.      */
 DECL|method|setCodec (ProtocolCodecFactory codec)
 specifier|public
 name|void
@@ -746,6 +761,7 @@ return|return
 name|encoding
 return|;
 block|}
+comment|/**      * You can configure the encoding (a charset name) to use for the TCP textline codec and the UDP protocol.      * If not provided, Camel will use the JVM default Charset      */
 DECL|method|setEncoding (String encoding)
 specifier|public
 name|void
@@ -772,6 +788,7 @@ return|return
 name|timeout
 return|;
 block|}
+comment|/**      * You can configure the timeout that specifies how long to wait for a response from a remote server.      * The timeout unit is in milliseconds, so 60000 is 60 seconds.      */
 DECL|method|setTimeout (long timeout)
 specifier|public
 name|void
@@ -798,6 +815,7 @@ return|return
 name|lazySessionCreation
 return|;
 block|}
+comment|/**      * Sessions can be lazily created to avoid exceptions, if the remote server is not up and running when the Camel producer is started.      */
 DECL|method|setLazySessionCreation (boolean lazySessionCreation)
 specifier|public
 name|void
@@ -824,6 +842,7 @@ return|return
 name|transferExchange
 return|;
 block|}
+comment|/**      * Only used for TCP. You can transfer the exchange over the wire instead of just the body.      * The following fields are transferred: In body, Out body, fault body, In headers, Out headers, fault headers, exchange properties, exchange exception.      * This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level.      */
 DECL|method|setTransferExchange (boolean transferExchange)
 specifier|public
 name|void
@@ -840,6 +859,7 @@ operator|=
 name|transferExchange
 expr_stmt|;
 block|}
+comment|/**      * To set the textline protocol encoder max line length. By default the default value of Mina itself is used which are Integer.MAX_VALUE.      */
 DECL|method|setEncoderMaxLineLength (int encoderMaxLineLength)
 specifier|public
 name|void
@@ -866,6 +886,7 @@ return|return
 name|encoderMaxLineLength
 return|;
 block|}
+comment|/**      * To set the textline protocol decoder max line length. By default the default value of Mina itself is used which are 1024.      */
 DECL|method|setDecoderMaxLineLength (int decoderMaxLineLength)
 specifier|public
 name|void
@@ -902,6 +923,7 @@ return|return
 name|minaLogger
 return|;
 block|}
+comment|/**      * You can enable the Apache MINA logging filter. Apache MINA uses slf4j logging at INFO level to log all input and output.      */
 DECL|method|setMinaLogger (boolean minaLogger)
 specifier|public
 name|void
@@ -931,6 +953,7 @@ return|return
 name|filters
 return|;
 block|}
+comment|/**      * You can set a list of Mina IoFilters to use.      */
 DECL|method|setFilters (List<IoFilter> filters)
 specifier|public
 name|void
@@ -965,6 +988,7 @@ literal|"udp"
 argument_list|)
 return|;
 block|}
+comment|/**      * The mina component installs a default codec if both, codec is null and textline is false.      * Setting allowDefaultCodec to false prevents the mina component from installing a default codec as the first element in the filter chain.      * This is useful in scenarios where another filter must be the first in the filter chain, like the SSL filter.      */
 DECL|method|setAllowDefaultCodec (boolean allowDefaultCodec)
 specifier|public
 name|void
@@ -1001,6 +1025,7 @@ return|return
 name|disconnect
 return|;
 block|}
+comment|/**      * Whether or not to disconnect(close) from Mina session right after use. Can be used for both consumer and producer.      */
 DECL|method|setDisconnect (boolean disconnect)
 specifier|public
 name|void
@@ -1027,6 +1052,7 @@ return|return
 name|disconnectOnNoReply
 return|;
 block|}
+comment|/**      * If sync is enabled then this option dictates MinaConsumer if it should disconnect where there is no reply to send back.      */
 DECL|method|setDisconnectOnNoReply (boolean disconnectOnNoReply)
 specifier|public
 name|void
@@ -1053,6 +1079,7 @@ return|return
 name|noReplyLogLevel
 return|;
 block|}
+comment|/**      * If sync is enabled this option dictates MinaConsumer which logging level to use when logging a there is no reply to send back.      */
 DECL|method|setNoReplyLogLevel (LoggingLevel noReplyLogLevel)
 specifier|public
 name|void
@@ -1079,6 +1106,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
+comment|/**      * To configure SSL security.      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
@@ -1105,6 +1133,7 @@ return|return
 name|autoStartTls
 return|;
 block|}
+comment|/**      * Whether to auto start SSL handshake.      */
 DECL|method|setAutoStartTls (boolean autoStartTls)
 specifier|public
 name|void
@@ -1131,6 +1160,7 @@ return|return
 name|maximumPoolSize
 return|;
 block|}
+comment|/**      * Number of worker threads in the worker pool for TCP and UDP      */
 DECL|method|setMaximumPoolSize (int maximumPoolSize)
 specifier|public
 name|void
@@ -1157,6 +1187,7 @@ return|return
 name|orderedThreadPoolExecutor
 return|;
 block|}
+comment|/**      * Whether to use ordered thread pool, to ensure events are processed orderly on the same channel.      */
 DECL|method|setOrderedThreadPoolExecutor (boolean orderedThreadPoolExecutor)
 specifier|public
 name|void
@@ -1173,6 +1204,7 @@ operator|=
 name|orderedThreadPoolExecutor
 expr_stmt|;
 block|}
+comment|/**      * Whether to create the InetAddress once and reuse. Setting this to false allows to pickup DNS changes in the network.      */
 DECL|method|setCachedAddress (boolean shouldCacheAddress)
 specifier|public
 name|void
@@ -1199,6 +1231,7 @@ return|return
 name|cachedAddress
 return|;
 block|}
+comment|/**      * If the clientMode is true, mina consumer will connect the address as a TCP client.      */
 DECL|method|setClientMode (boolean clientMode)
 specifier|public
 name|void

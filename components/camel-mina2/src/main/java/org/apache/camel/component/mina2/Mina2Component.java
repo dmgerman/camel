@@ -467,6 +467,7 @@ return|return
 name|configuration
 return|;
 block|}
+comment|/**      * To use the shared mina configuration.      */
 DECL|method|setConfiguration (Mina2Configuration configuration)
 specifier|public
 name|void
