@@ -258,7 +258,6 @@ operator|.
 name|createCamelContext
 argument_list|()
 decl_stmt|;
-comment|// TODO: MR-170
 name|ActiveMQComponent
 name|activemq
 init|=

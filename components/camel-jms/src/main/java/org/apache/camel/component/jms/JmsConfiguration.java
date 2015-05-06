@@ -4697,10 +4697,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: REVISIT: We really ought to change the model and let JmsProducer
-comment|// and JmsConsumer have their own JmsConfiguration instance
-comment|// This way producer's and consumer's QoS can differ and be
-comment|// independently configured
 name|JmsOperations
 name|operations
 init|=
