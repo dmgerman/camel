@@ -585,7 +585,7 @@ operator|=
 name|jmsMessage
 expr_stmt|;
 block|}
-comment|/**      * Returns the underlying JMS session      */
+comment|/**      * Returns the underlying JMS session.      *<p/>      * This may be<tt>null</tt> if using {@link org.apache.camel.component.jms.JmsPollingConsumer},      * or the broker component from Apache ActiveMQ 5.11.x or older.      */
 DECL|method|getJmsSession ()
 specifier|public
 name|Session
