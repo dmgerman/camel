@@ -82,6 +82,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -215,6 +225,8 @@ block|}
 block|}
 return|;
 block|}
+annotation|@
+name|Ignore
 annotation|@
 name|Test
 DECL|method|removeImageHeaderTest ()
