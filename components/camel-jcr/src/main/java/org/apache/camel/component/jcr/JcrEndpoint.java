@@ -712,6 +712,7 @@ return|return
 name|username
 return|;
 block|}
+comment|/**      * Username for login      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -738,6 +739,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * Password for login      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void

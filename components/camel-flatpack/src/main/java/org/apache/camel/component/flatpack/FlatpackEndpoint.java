@@ -1085,6 +1085,7 @@ return|return
 name|type
 return|;
 block|}
+comment|/**      * Whether to use fixed or delimiter      */
 DECL|method|setType (FlatpackType type)
 specifier|public
 name|void
@@ -1101,6 +1102,7 @@ operator|=
 name|type
 expr_stmt|;
 block|}
+comment|/**      * URL for loading the flatpack mapping file from classpath or file system      */
 DECL|method|setResourceUri (String resourceUri)
 specifier|public
 name|void
@@ -1127,6 +1129,7 @@ return|return
 name|delimiter
 return|;
 block|}
+comment|/**      * The default character delimiter for delimited files.      */
 DECL|method|setDelimiter (char delimiter)
 specifier|public
 name|void
@@ -1153,6 +1156,7 @@ return|return
 name|textQualifier
 return|;
 block|}
+comment|/**      * The text qualifier for delimited files.      */
 DECL|method|setTextQualifier (char textQualifier)
 specifier|public
 name|void
@@ -1179,6 +1183,7 @@ return|return
 name|ignoreFirstRecord
 return|;
 block|}
+comment|/**      * Whether the first line is ignored for delimited files (for the column headers).      */
 DECL|method|setIgnoreFirstRecord (boolean ignoreFirstRecord)
 specifier|public
 name|void
