@@ -223,9 +223,10 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|// otherwise, we ensure that the TCCL is the correct one
 name|T
 name|answer
+init|=
+literal|null
 decl_stmt|;
 name|ClassLoader
 name|prev
@@ -249,6 +250,14 @@ operator|.
 name|getApplicationContextClassLoader
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|contextCl
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// otherwise, we ensure that the TCCL is the correct one
 name|LOG
 operator|.
 name|debug
@@ -301,6 +310,22 @@ operator|.
 name|setContextClassLoader
 argument_list|(
 name|prev
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// just try with the current TCCL as-is
+name|answer
+operator|=
+name|mapper
+operator|.
+name|map
+argument_list|(
+name|value
+argument_list|,
+name|type
 argument_list|)
 expr_stmt|;
 block|}
