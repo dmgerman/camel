@@ -32,18 +32,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|xml
-operator|.
-name|sax
-operator|.
-name|InputSource
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|thaiopensource
@@ -226,6 +214,18 @@ name|ResourceHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|xml
+operator|.
+name|sax
+operator|.
+name|InputSource
+import|;
+end_import
+
 begin_class
 annotation|@
 name|UriEndpoint
@@ -386,6 +386,7 @@ return|return
 name|resourceUri
 return|;
 block|}
+comment|/**      * URL to a local resource on the classpath or a full URL to a remote resource or resource on the file system which contains the schema to validate against.      */
 DECL|method|setResourceUri (String resourceUri)
 specifier|public
 name|void
@@ -412,6 +413,7 @@ return|return
 name|compactSyntax
 return|;
 block|}
+comment|/**      * Whether to validate using RelaxNG compact syntax or not.      *<p/>      * By default this is<tt>false</tt> for using RelaxNG XML Syntax (rng)      * And<tt>true</tt> is for using  RelaxNG Compact Syntax (rnc)      */
 DECL|method|setCompactSyntax (boolean compactSyntax)
 specifier|public
 name|void

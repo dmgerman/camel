@@ -225,6 +225,13 @@ name|type
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|serverUrl
 specifier|private
 name|String
@@ -246,6 +253,11 @@ name|password
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|jql
 specifier|private
 name|String
@@ -254,6 +266,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"6000"
@@ -399,6 +415,7 @@ return|return
 name|type
 return|;
 block|}
+comment|/**      * Operation to perform such as create a new issue or a new comment      */
 DECL|method|setType (JIRAType type)
 specifier|public
 name|void
@@ -425,6 +442,7 @@ return|return
 name|serverUrl
 return|;
 block|}
+comment|/**      * URL to the JIRA server      */
 DECL|method|setServerUrl (String serverUrl)
 specifier|public
 name|void
@@ -451,6 +469,7 @@ return|return
 name|username
 return|;
 block|}
+comment|/**      * Username for login      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -477,6 +496,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * Password for login      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -503,6 +523,7 @@ return|return
 name|jql
 return|;
 block|}
+comment|/**      * JQL is the query language from JIRA which allows you to retrieve the data you want.      * For example<tt>jql=project=MyProject</tt>      * Where MyProject is the product key in Jira.      */
 DECL|method|setJql (String jql)
 specifier|public
 name|void
@@ -529,6 +550,7 @@ return|return
 name|delay
 return|;
 block|}
+comment|/**      * Delay in seconds when querying JIRA using the consumer.      */
 DECL|method|setDelay (int delay)
 specifier|public
 name|void
