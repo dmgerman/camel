@@ -54,6 +54,12 @@ name|VALUE
 init|=
 literal|"CamelInfinispanValue"
 decl_stmt|;
+DECL|field|OLD_VALUE
+name|String
+name|OLD_VALUE
+init|=
+literal|"CamelInfinispanOldValue"
+decl_stmt|;
 DECL|field|MAP
 name|String
 name|MAP
