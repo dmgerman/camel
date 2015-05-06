@@ -294,6 +294,8 @@ operator|.
 name|createExchange
 argument_list|(
 name|message
+argument_list|,
+name|session
 argument_list|)
 decl_stmt|;
 name|answer
@@ -434,6 +436,8 @@ operator|.
 name|createExchange
 argument_list|(
 name|message
+argument_list|,
+name|session
 argument_list|)
 decl_stmt|;
 name|answer

@@ -380,7 +380,7 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|handleReplyMessage (String correlationID, Message message)
+DECL|method|handleReplyMessage (String correlationID, Message message, Session session)
 specifier|protected
 name|void
 name|handleReplyMessage
@@ -390,6 +390,9 @@ name|correlationID
 parameter_list|,
 name|Message
 name|message
+parameter_list|,
+name|Session
+name|session
 parameter_list|)
 block|{
 name|ReplyHandler
@@ -445,6 +448,8 @@ argument_list|(
 name|correlationID
 argument_list|,
 name|message
+argument_list|,
+name|session
 argument_list|)
 expr_stmt|;
 block|}

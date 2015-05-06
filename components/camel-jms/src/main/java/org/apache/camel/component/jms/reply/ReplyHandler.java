@@ -30,6 +30,16 @@ name|Message
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|Session
+import|;
+end_import
+
 begin_comment
 comment|/**  * Handles a reply.  *  * @version   */
 end_comment
@@ -40,8 +50,8 @@ specifier|public
 interface|interface
 name|ReplyHandler
 block|{
-comment|/**      * The reply message was received      *      * @param correlationId  the correlation id      * @param reply  the reply message      */
-DECL|method|onReply (String correlationId, Message reply)
+comment|/**      * The reply message was received      *      * @param correlationId  the correlation id      * @param reply  the JMS reply message      * @param session the JMS session      */
+DECL|method|onReply (String correlationId, Message reply, Session session)
 name|void
 name|onReply
 parameter_list|(
@@ -50,6 +60,9 @@ name|correlationId
 parameter_list|,
 name|Message
 name|reply
+parameter_list|,
+name|Session
+name|session
 parameter_list|)
 function_decl|;
 comment|/**      * The reply message was not received and a timeout triggered      *      * @param correlationId  the correlation id      */

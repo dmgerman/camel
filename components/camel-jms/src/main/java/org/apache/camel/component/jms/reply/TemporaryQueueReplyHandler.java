@@ -32,6 +32,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|Session
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -164,7 +174,7 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
-DECL|method|onReply (String correlationId, Message reply)
+DECL|method|onReply (String correlationId, Message reply, Session session)
 specifier|public
 name|void
 name|onReply
@@ -174,6 +184,9 @@ name|correlationId
 parameter_list|,
 name|Message
 name|reply
+parameter_list|,
+name|Session
+name|session
 parameter_list|)
 block|{
 comment|// create holder object with the the reply
@@ -192,6 +205,8 @@ argument_list|,
 name|correlationId
 argument_list|,
 name|reply
+argument_list|,
+name|session
 argument_list|)
 decl_stmt|;
 comment|// process the reply

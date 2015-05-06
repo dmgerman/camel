@@ -32,6 +32,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|Session
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -82,6 +92,12 @@ specifier|final
 name|Message
 name|message
 decl_stmt|;
+DECL|field|session
+specifier|private
+specifier|final
+name|Session
+name|session
+decl_stmt|;
 DECL|field|originalCorrelationId
 specifier|private
 specifier|final
@@ -100,7 +116,7 @@ name|long
 name|timeout
 decl_stmt|;
 comment|/**      * Constructor to use when a reply message was received      */
-DECL|method|ReplyHolder (Exchange exchange, AsyncCallback callback, String originalCorrelationId, String correlationId, Message message)
+DECL|method|ReplyHolder (Exchange exchange, AsyncCallback callback, String originalCorrelationId, String correlationId, Message message, Session session)
 specifier|public
 name|ReplyHolder
 parameter_list|(
@@ -118,6 +134,9 @@ name|correlationId
 parameter_list|,
 name|Message
 name|message
+parameter_list|,
+name|Session
+name|session
 parameter_list|)
 block|{
 name|this
@@ -149,6 +168,12 @@ operator|.
 name|message
 operator|=
 name|message
+expr_stmt|;
+name|this
+operator|.
+name|session
+operator|=
+name|session
 expr_stmt|;
 block|}
 comment|/**      * Constructor to use when a timeout occurred      */
@@ -181,6 +206,8 @@ argument_list|,
 name|originalCorrelationId
 argument_list|,
 name|correlationId
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|)
@@ -243,6 +270,17 @@ parameter_list|()
 block|{
 return|return
 name|message
+return|;
+block|}
+comment|/**      * Gets the JMS session from the received message      *      * @return  the JMS session, or<tt>null</tt> if timeout occurred and no message has been received      * @see #isTimeout()      */
+DECL|method|getSession ()
+specifier|public
+name|Session
+name|getSession
+parameter_list|()
+block|{
+return|return
+name|session
 return|;
 block|}
 comment|/**      * Whether timeout triggered or not.      *<p/>      * A timeout is triggered if<tt>requestTimeout</tt> option has been configured, and a reply message has<b>not</b> been      * received within that time frame.      */

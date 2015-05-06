@@ -237,6 +237,7 @@ name|long
 name|timeout
 parameter_list|)
 block|{
+comment|// TODO: use api so we can get hold of session
 name|setReceiveTimeout
 argument_list|(
 name|timeout
@@ -296,6 +297,8 @@ operator|.
 name|createExchange
 argument_list|(
 name|message
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}

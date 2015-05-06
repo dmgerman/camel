@@ -122,6 +122,16 @@ name|javax
 operator|.
 name|jms
 operator|.
+name|Session
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
 name|TemporaryQueue
 import|;
 end_import
@@ -1771,13 +1781,16 @@ return|return
 name|exchange
 return|;
 block|}
-DECL|method|createExchange (Message message)
+DECL|method|createExchange (Message message, Session session)
 specifier|public
 name|Exchange
 name|createExchange
 parameter_list|(
 name|Message
 name|message
+parameter_list|,
+name|Session
+name|session
 parameter_list|)
 block|{
 name|Exchange
@@ -1797,6 +1810,8 @@ operator|new
 name|JmsMessage
 argument_list|(
 name|message
+argument_list|,
+name|session
 argument_list|,
 name|getBinding
 argument_list|()

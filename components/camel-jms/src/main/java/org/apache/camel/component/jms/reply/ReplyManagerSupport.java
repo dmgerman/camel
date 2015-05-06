@@ -88,6 +88,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|Session
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -625,14 +635,19 @@ name|long
 name|requestTimeout
 parameter_list|)
 function_decl|;
-DECL|method|onMessage (Message message)
+DECL|method|onMessage (Message message, Session session)
 specifier|public
 name|void
 name|onMessage
 parameter_list|(
 name|Message
 name|message
+parameter_list|,
+name|Session
+name|session
 parameter_list|)
+throws|throws
+name|JMSException
 block|{
 name|String
 name|correlationID
@@ -692,6 +707,8 @@ argument_list|(
 name|correlationID
 argument_list|,
 name|message
+argument_list|,
+name|session
 argument_list|)
 expr_stmt|;
 block|}
@@ -722,14 +739,6 @@ init|=
 name|holder
 operator|.
 name|getExchange
-argument_list|()
-decl_stmt|;
-name|Message
-name|message
-init|=
-name|holder
-operator|.
-name|getMessage
 argument_list|()
 decl_stmt|;
 name|boolean
@@ -824,6 +833,22 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|Message
+name|message
+init|=
+name|holder
+operator|.
+name|getMessage
+argument_list|()
+decl_stmt|;
+name|Session
+name|session
+init|=
+name|holder
+operator|.
+name|getSession
+argument_list|()
+decl_stmt|;
 name|JmsMessage
 name|response
 init|=
@@ -831,6 +856,8 @@ operator|new
 name|JmsMessage
 argument_list|(
 name|message
+argument_list|,
+name|session
 argument_list|,
 name|endpoint
 operator|.
@@ -964,7 +991,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|handleReplyMessage (String correlationID, Message message)
+DECL|method|handleReplyMessage (String correlationID, Message message, Session session)
 specifier|protected
 specifier|abstract
 name|void
@@ -975,6 +1002,9 @@ name|correlationID
 parameter_list|,
 name|Message
 name|message
+parameter_list|,
+name|Session
+name|session
 parameter_list|)
 function_decl|;
 DECL|method|createListenerContainer ()

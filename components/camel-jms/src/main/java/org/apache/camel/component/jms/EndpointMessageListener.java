@@ -229,6 +229,20 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jms
+operator|.
+name|listener
+operator|.
+name|SessionAwareMessageListener
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -254,7 +268,7 @@ specifier|public
 class|class
 name|EndpointMessageListener
 implements|implements
-name|MessageListener
+name|SessionAwareMessageListener
 block|{
 DECL|field|LOG
 specifier|private
@@ -343,15 +357,21 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onMessage (final Message message)
+annotation|@
+name|Override
+DECL|method|onMessage (Message message, Session session)
 specifier|public
 name|void
 name|onMessage
 parameter_list|(
-specifier|final
 name|Message
 name|message
+parameter_list|,
+name|Session
+name|session
 parameter_list|)
+throws|throws
+name|JMSException
 block|{
 name|LOG
 operator|.
@@ -405,6 +425,8 @@ init|=
 name|createExchange
 argument_list|(
 name|message
+argument_list|,
+name|session
 argument_list|,
 name|replyDestination
 argument_list|)
@@ -1106,13 +1128,16 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|createExchange (Message message, Object replyDestination)
+DECL|method|createExchange (Message message, Session session, Object replyDestination)
 specifier|public
 name|Exchange
 name|createExchange
 parameter_list|(
 name|Message
 name|message
+parameter_list|,
+name|Session
+name|session
 parameter_list|,
 name|Object
 name|replyDestination
@@ -1151,6 +1176,8 @@ operator|new
 name|JmsMessage
 argument_list|(
 name|message
+argument_list|,
+name|session
 argument_list|,
 name|binding
 argument_list|)

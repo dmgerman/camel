@@ -64,16 +64,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|MessageListener
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -112,6 +102,20 @@ name|JmsEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jms
+operator|.
+name|listener
+operator|.
+name|SessionAwareMessageListener
+import|;
+end_import
+
 begin_comment
 comment|/**  * The {@link ReplyManager} is responsible for handling<a href="http://camel.apache.org/request-reply.html">request-reply</a>  * over JMS.  *  * @version   */
 end_comment
@@ -122,7 +126,7 @@ specifier|public
 interface|interface
 name|ReplyManager
 extends|extends
-name|MessageListener
+name|SessionAwareMessageListener
 block|{
 comment|/**      * Sets the belonging {@link org.apache.camel.component.jms.JmsEndpoint}.      */
 DECL|method|setEndpoint (JmsEndpoint endpoint)

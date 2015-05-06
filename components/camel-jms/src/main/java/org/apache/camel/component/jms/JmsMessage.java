@@ -84,6 +84,16 @@ name|javax
 operator|.
 name|jms
 operator|.
+name|Session
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
 name|Topic
 import|;
 end_import
@@ -195,17 +205,25 @@ specifier|private
 name|Message
 name|jmsMessage
 decl_stmt|;
+DECL|field|jmsSession
+specifier|private
+name|Session
+name|jmsSession
+decl_stmt|;
 DECL|field|binding
 specifier|private
 name|JmsBinding
 name|binding
 decl_stmt|;
-DECL|method|JmsMessage (Message jmsMessage, JmsBinding binding)
+DECL|method|JmsMessage (Message jmsMessage, Session jmsSession, JmsBinding binding)
 specifier|public
 name|JmsMessage
 parameter_list|(
 name|Message
 name|jmsMessage
+parameter_list|,
+name|Session
+name|jmsSession
 parameter_list|,
 name|JmsBinding
 name|binding
@@ -214,6 +232,11 @@ block|{
 name|setJmsMessage
 argument_list|(
 name|jmsMessage
+argument_list|)
+expr_stmt|;
+name|setJmsSession
+argument_list|(
+name|jmsSession
 argument_list|)
 expr_stmt|;
 name|setBinding
@@ -429,17 +452,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Returns the underlying JMS message      */
-DECL|method|getJmsMessage ()
-specifier|public
-name|Message
-name|getJmsMessage
-parameter_list|()
-block|{
-return|return
-name|jmsMessage
-return|;
-block|}
 DECL|method|getBinding ()
 specifier|public
 name|JmsBinding
@@ -487,6 +499,17 @@ name|binding
 operator|=
 name|binding
 expr_stmt|;
+block|}
+comment|/**      * Returns the underlying JMS message      */
+DECL|method|getJmsMessage ()
+specifier|public
+name|Message
+name|getJmsMessage
+parameter_list|()
+block|{
+return|return
+name|jmsMessage
+return|;
 block|}
 DECL|method|setJmsMessage (Message jmsMessage)
 specifier|public
@@ -537,6 +560,33 @@ operator|.
 name|jmsMessage
 operator|=
 name|jmsMessage
+expr_stmt|;
+block|}
+comment|/**      * Returns the underlying JMS session      */
+DECL|method|getJmsSession ()
+specifier|public
+name|Session
+name|getJmsSession
+parameter_list|()
+block|{
+return|return
+name|jmsSession
+return|;
+block|}
+DECL|method|setJmsSession (Session jmsSession)
+specifier|public
+name|void
+name|setJmsSession
+parameter_list|(
+name|Session
+name|jmsSession
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jmsSession
+operator|=
+name|jmsSession
 expr_stmt|;
 block|}
 annotation|@
@@ -796,6 +846,8 @@ return|return
 operator|new
 name|JmsMessage
 argument_list|(
+literal|null
+argument_list|,
 literal|null
 argument_list|,
 name|binding
