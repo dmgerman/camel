@@ -599,7 +599,9 @@ name|endpoint
 argument_list|,
 operator|new
 name|EndpointSubscribeFunc
-argument_list|<>
+argument_list|<
+name|Exchange
+argument_list|>
 argument_list|(
 name|endpoint
 argument_list|,
