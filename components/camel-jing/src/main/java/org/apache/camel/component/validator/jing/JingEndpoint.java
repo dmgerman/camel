@@ -32,6 +32,18 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|xml
+operator|.
+name|sax
+operator|.
+name|InputSource
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|thaiopensource
@@ -211,18 +223,6 @@ operator|.
 name|util
 operator|.
 name|ResourceHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|xml
-operator|.
-name|sax
-operator|.
-name|InputSource
 import|;
 end_import
 
