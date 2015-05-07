@@ -1143,6 +1143,12 @@ operator|!
 name|login
 condition|)
 block|{
+comment|// disconnect to prevent connection leaks
+name|client
+operator|.
+name|disconnect
+argument_list|()
+expr_stmt|;
 throw|throw
 operator|new
 name|GenericFileOperationFailedException
