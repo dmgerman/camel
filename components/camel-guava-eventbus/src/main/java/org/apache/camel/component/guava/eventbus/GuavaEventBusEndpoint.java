@@ -409,6 +409,7 @@ return|return
 name|eventBusRef
 return|;
 block|}
+comment|/**      * To lookup the Guava EventBus from the registry with the given name      */
 DECL|method|setEventBusRef (String eventBusRef)
 specifier|public
 name|void
@@ -435,6 +436,7 @@ return|return
 name|eventBus
 return|;
 block|}
+comment|/**      * To use the given Guava EventBus instance      */
 DECL|method|setEventBus (EventBus eventBus)
 specifier|public
 name|void
@@ -464,6 +466,7 @@ return|return
 name|eventClass
 return|;
 block|}
+comment|/**      * If used on the consumer side of the route, will filter events received from the EventBus to the instances of      * the class and superclasses of eventClass. Null value of this option is equal to setting it to the java.lang.Object      * i.e. the consumer will capture all messages incoming to the event bus. This option cannot be used together      * with listenerInterface option.      */
 DECL|method|setEventClass (Class<?> eventClass)
 specifier|public
 name|void
@@ -496,6 +499,7 @@ return|return
 name|listenerInterface
 return|;
 block|}
+comment|/**      * The interface with method(s) marked with the @Subscribe annotation.      * Dynamic proxy will be created over the interface so it could be registered as the EventBus listener.      * Particularly useful when creating multi-event listeners and for handling DeadEvent properly. This option cannot be used together with eventClass option.      */
 DECL|method|setListenerInterface (Class<?> listenerInterface)
 specifier|public
 name|void

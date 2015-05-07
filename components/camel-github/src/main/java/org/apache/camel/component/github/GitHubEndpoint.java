@@ -240,6 +240,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -319,6 +333,13 @@ name|DefaultEndpoint
 block|{
 annotation|@
 name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|type
 specifier|private
 name|GitHubType
@@ -326,6 +347,11 @@ name|type
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|branchName
 specifier|private
 name|String
@@ -354,6 +380,13 @@ name|oauthToken
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|repoOwner
 specifier|private
 name|String
@@ -361,6 +394,13 @@ name|repoOwner
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|repoName
 specifier|private
 name|String
@@ -368,6 +408,15 @@ name|repoName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|enums
+operator|=
+literal|"error,failure,pending,success"
+argument_list|)
 DECL|field|state
 specifier|private
 name|String
@@ -375,6 +424,11 @@ name|state
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|targetUrl
 specifier|private
 name|String
@@ -382,6 +436,11 @@ name|targetUrl
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|encoding
 specifier|private
 name|String
@@ -646,6 +705,7 @@ return|return
 name|type
 return|;
 block|}
+comment|/**      * What git operation to execute      */
 DECL|method|setType (GitHubType type)
 specifier|public
 name|void
@@ -672,6 +732,7 @@ return|return
 name|branchName
 return|;
 block|}
+comment|/**      * Name of branch      */
 DECL|method|setBranchName (String branchName)
 specifier|public
 name|void
@@ -698,6 +759,7 @@ return|return
 name|username
 return|;
 block|}
+comment|/**      * GitHub username, required unless oauthToken is provided      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -724,6 +786,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * GitHub password, required unless oauthToken is provided      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -750,6 +813,7 @@ return|return
 name|oauthToken
 return|;
 block|}
+comment|/**      * GitHub OAuth token, required unless username& password are provided      */
 DECL|method|setOauthToken (String oauthToken)
 specifier|public
 name|void
@@ -795,6 +859,7 @@ return|return
 name|repoOwner
 return|;
 block|}
+comment|/**      * GitHub repository owner (organization)      */
 DECL|method|setRepoOwner (String repoOwner)
 specifier|public
 name|void
@@ -821,6 +886,7 @@ return|return
 name|repoName
 return|;
 block|}
+comment|/**      * GitHub repository name      */
 DECL|method|setRepoName (String repoName)
 specifier|public
 name|void
@@ -847,6 +913,7 @@ return|return
 name|state
 return|;
 block|}
+comment|/**      * To set git commit status state      */
 DECL|method|setState (String state)
 specifier|public
 name|void
@@ -873,6 +940,7 @@ return|return
 name|targetUrl
 return|;
 block|}
+comment|/**      * To set git commit status target url      */
 DECL|method|setTargetUrl (String targetUrl)
 specifier|public
 name|void
@@ -899,6 +967,7 @@ return|return
 name|encoding
 return|;
 block|}
+comment|/**      * To use the given encoding when getting a git commit file      */
 DECL|method|setEncoding (String encoding)
 specifier|public
 name|void

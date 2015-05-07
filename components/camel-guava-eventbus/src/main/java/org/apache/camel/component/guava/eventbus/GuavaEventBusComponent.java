@@ -175,6 +175,7 @@ return|return
 name|eventBus
 return|;
 block|}
+comment|/**      * To use the given Guava EventBus instance      */
 DECL|method|setEventBus (EventBus eventBus)
 specifier|public
 name|void
@@ -204,6 +205,7 @@ return|return
 name|listenerInterface
 return|;
 block|}
+comment|/**      * The interface with method(s) marked with the @Subscribe annotation.      * Dynamic proxy will be created over the interface so it could be registered as the EventBus listener.      * Particularly useful when creating multi-event listeners and for handling DeadEvent properly. This option cannot be used together with eventClass option.      */
 DECL|method|setListenerInterface (Class<?> listenerInterface)
 specifier|public
 name|void
