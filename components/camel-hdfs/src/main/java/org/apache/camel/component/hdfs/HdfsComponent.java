@@ -329,6 +329,7 @@ return|return
 name|auth
 return|;
 block|}
+comment|/**      * To use the given configuration for security with JAAS.      */
 DECL|method|setJAASConfiguration (Configuration auth)
 specifier|static
 name|void

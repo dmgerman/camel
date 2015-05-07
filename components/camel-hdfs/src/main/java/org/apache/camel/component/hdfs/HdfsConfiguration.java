@@ -165,6 +165,21 @@ specifier|private
 name|URI
 name|uri
 decl_stmt|;
+DECL|field|wantAppend
+specifier|private
+name|boolean
+name|wantAppend
+decl_stmt|;
+DECL|field|splitStrategies
+specifier|private
+name|List
+argument_list|<
+name|HdfsProducer
+operator|.
+name|SplitStrategy
+argument_list|>
+name|splitStrategies
+decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -216,6 +231,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -229,6 +248,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|append
 specifier|private
 name|boolean
@@ -236,10 +260,10 @@ name|append
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|wantAppend
+DECL|field|splitStrategy
 specifier|private
-name|boolean
-name|wantAppend
+name|String
+name|splitStrategy
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -445,6 +469,11 @@ name|DEFAULT_READ_SUFFIX
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|initialDelay
 specifier|private
 name|long
@@ -453,6 +482,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|""
@@ -473,6 +506,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 name|HdfsConstants
@@ -527,16 +564,6 @@ init|=
 name|HdfsConstants
 operator|.
 name|DEFAULT_CHECK_IDLE_INTERVAL
-decl_stmt|;
-DECL|field|splitStrategies
-specifier|private
-name|List
-argument_list|<
-name|HdfsProducer
-operator|.
-name|SplitStrategy
-argument_list|>
-name|splitStrategies
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1708,6 +1735,7 @@ return|return
 name|hostName
 return|;
 block|}
+comment|/**      * HDFS host to use      */
 DECL|method|setHostName (String hostName)
 specifier|public
 name|void
@@ -1734,6 +1762,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * HDFS port to use      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -1760,6 +1789,7 @@ return|return
 name|path
 return|;
 block|}
+comment|/**      * The directory path to use      */
 DECL|method|setPath (String path)
 specifier|public
 name|void
@@ -1786,6 +1816,7 @@ return|return
 name|overwrite
 return|;
 block|}
+comment|/**      * Whether to overwrite existing files with the same name      */
 DECL|method|setOverwrite (boolean overwrite)
 specifier|public
 name|void
@@ -1822,6 +1853,7 @@ return|return
 name|wantAppend
 return|;
 block|}
+comment|/**      * Append to existing file. Notice that not all HDFS file systems support the append option.      */
 DECL|method|setAppend (boolean append)
 specifier|public
 name|void
@@ -1848,6 +1880,7 @@ return|return
 name|bufferSize
 return|;
 block|}
+comment|/**      * The buffer size used by HDFS      */
 DECL|method|setBufferSize (int bufferSize)
 specifier|public
 name|void
@@ -1874,6 +1907,7 @@ return|return
 name|replication
 return|;
 block|}
+comment|/**      * The HDFS replication factor      */
 DECL|method|setReplication (short replication)
 specifier|public
 name|void
@@ -1900,6 +1934,7 @@ return|return
 name|blockSize
 return|;
 block|}
+comment|/**      * The size of the HDFS blocks      */
 DECL|method|setBlockSize (long blockSize)
 specifier|public
 name|void
@@ -1926,6 +1961,7 @@ return|return
 name|fileType
 return|;
 block|}
+comment|/**      * The file type to use. For more details see Hadoop HDFS documentation about the various files types.      */
 DECL|method|setFileType (HdfsFileType fileType)
 specifier|public
 name|void
@@ -1954,6 +1990,7 @@ return|return
 name|compressionType
 return|;
 block|}
+comment|/**      * The compression type to use (is default not in use)      */
 DECL|method|setCompressionType (SequenceFile.CompressionType compressionType)
 specifier|public
 name|void
@@ -1982,6 +2019,7 @@ return|return
 name|compressionCodec
 return|;
 block|}
+comment|/**      * The compression codec to use      */
 DECL|method|setCompressionCodec (HdfsCompressionCodec compressionCodec)
 specifier|public
 name|void
@@ -1998,6 +2036,7 @@ operator|=
 name|compressionCodec
 expr_stmt|;
 block|}
+comment|/**      * Set to LOCAL to not use HDFS but local java.io.File instead.      */
 DECL|method|setFileSystemType (HdfsFileSystemType fileSystemType)
 specifier|public
 name|void
@@ -2036,6 +2075,7 @@ return|return
 name|keyType
 return|;
 block|}
+comment|/**      * The type for the key in case of sequence or map files.      */
 DECL|method|setKeyType (HdfsWritableFactories.WritableType keyType)
 specifier|public
 name|void
@@ -2066,6 +2106,7 @@ return|return
 name|valueType
 return|;
 block|}
+comment|/**      * The type for the key in case of sequence or map files      */
 DECL|method|setValueType (HdfsWritableFactories.WritableType valueType)
 specifier|public
 name|void
@@ -2084,6 +2125,7 @@ operator|=
 name|valueType
 expr_stmt|;
 block|}
+comment|/**      * When a file is opened for reading/writing the file is renamed with this suffix to avoid to read it during the writing phase.      */
 DECL|method|setOpenedSuffix (String openedSuffix)
 specifier|public
 name|void
@@ -2110,6 +2152,7 @@ return|return
 name|openedSuffix
 return|;
 block|}
+comment|/**      * Once the file has been read is renamed with this suffix to avoid to read it again.      */
 DECL|method|setReadSuffix (String readSuffix)
 specifier|public
 name|void
@@ -2136,6 +2179,7 @@ return|return
 name|readSuffix
 return|;
 block|}
+comment|/**      * For the consumer, how much to wait (milliseconds) before to start scanning the directory.      */
 DECL|method|setInitialDelay (long initialDelay)
 specifier|public
 name|void
@@ -2162,6 +2206,7 @@ return|return
 name|initialDelay
 return|;
 block|}
+comment|/**      * The interval (milliseconds) between the directory scans.      */
 DECL|method|setDelay (long delay)
 specifier|public
 name|void
@@ -2188,6 +2233,7 @@ return|return
 name|delay
 return|;
 block|}
+comment|/**      * The pattern used for scanning the directory      */
 DECL|method|setPattern (String pattern)
 specifier|public
 name|void
@@ -2214,6 +2260,7 @@ return|return
 name|pattern
 return|;
 block|}
+comment|/**      * When reading a normal file, this is split into chunks producing a message per chunk.      */
 DECL|method|setChunkSize (int chunkSize)
 specifier|public
 name|void
@@ -2240,6 +2287,7 @@ return|return
 name|chunkSize
 return|;
 block|}
+comment|/**      * How often (time in millis) in to run the idle checker background task. This option is only in use if the splitter strategy is IDLE.      */
 DECL|method|setCheckIdleInterval (int checkIdleInterval)
 specifier|public
 name|void
@@ -2281,6 +2329,17 @@ return|return
 name|splitStrategies
 return|;
 block|}
+DECL|method|getSplitStrategy ()
+specifier|public
+name|String
+name|getSplitStrategy
+parameter_list|()
+block|{
+return|return
+name|splitStrategy
+return|;
+block|}
+comment|/**      * In the current version of Hadoop opening a file in append mode is disabled since it's not very reliable. So, for the moment,      * it's only possible to create new files. The Camel HDFS endpoint tries to solve this problem in this way:      *<ul>      *<li>If the split strategy option has been defined, the hdfs path will be used as a directory and files will be created using the configured UuidGenerator.</li>      *<li>Every time a splitting condition is met, a new file is created.</li>      *</ul>      * The splitStrategy option is defined as a string with the following syntax:      *<br/><tt>splitStrategy=ST:value,ST:value,...</tt>      *<br/>where ST can be:      *<ul>      *<li>BYTES a new file is created, and the old is closed when the number of written bytes is more than value</li>      *<li>MESSAGES a new file is created, and the old is closed when the number of written messages is more than value</li>      *<li>IDLE a new file is created, and the old is closed when no writing happened in the last value milliseconds</li>      *</ul>      */
 DECL|method|setSplitStrategy (String splitStrategy)
 specifier|public
 name|void
@@ -2290,7 +2349,12 @@ name|String
 name|splitStrategy
 parameter_list|)
 block|{
-comment|// noop
+name|this
+operator|.
+name|splitStrategy
+operator|=
+name|splitStrategy
+expr_stmt|;
 block|}
 DECL|method|isConnectOnStartup ()
 specifier|public
@@ -2302,6 +2366,7 @@ return|return
 name|connectOnStartup
 return|;
 block|}
+comment|/**      * Whether to connect to the HDFS file system on starting the producer/consumer.      * If false then the connection is created on-demand. Notice that HDFS may take up till 15 minutes to establish      * a connection, as it has hardcoded 45 x 20 sec redelivery. By setting this option to false allows your      * application to startup, and not block for up till 15 minutes.      */
 DECL|method|setConnectOnStartup (boolean connectOnStartup)
 specifier|public
 name|void
@@ -2328,6 +2393,7 @@ return|return
 name|owner
 return|;
 block|}
+comment|/**      * The file owner must match this owner for the consumer to pickup the file. Otherwise the file is skipped.      */
 DECL|method|setOwner (String owner)
 specifier|public
 name|void
