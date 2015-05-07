@@ -219,6 +219,13 @@ name|hazelcastInstance
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|hazelcastInstanceName
+specifier|protected
+name|String
+name|hazelcastInstanceName
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|defaultOperation
 specifier|private
 name|int
@@ -331,6 +338,7 @@ return|return
 name|command
 return|;
 block|}
+comment|/**      * What operation to perform.      */
 DECL|method|setCommand (HazelcastCommand command)
 specifier|public
 name|void
@@ -347,6 +355,33 @@ operator|=
 name|command
 expr_stmt|;
 block|}
+DECL|method|getCacheName ()
+specifier|public
+name|String
+name|getCacheName
+parameter_list|()
+block|{
+return|return
+name|cacheName
+return|;
+block|}
+comment|/**      * The name of the cache      */
+DECL|method|setCacheName (String cacheName)
+specifier|public
+name|void
+name|setCacheName
+parameter_list|(
+name|String
+name|cacheName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cacheName
+operator|=
+name|cacheName
+expr_stmt|;
+block|}
 DECL|method|getHazelcastInstance ()
 specifier|public
 name|HazelcastInstance
@@ -357,6 +392,7 @@ return|return
 name|hazelcastInstance
 return|;
 block|}
+comment|/**      * The hazelcast instance reference which can be used for hazelcast endpoint.      */
 DECL|method|setHazelcastInstance (HazelcastInstance hazelcastInstance)
 specifier|public
 name|void
@@ -373,6 +409,34 @@ operator|=
 name|hazelcastInstance
 expr_stmt|;
 block|}
+DECL|method|getHazelcastInstanceName ()
+specifier|public
+name|String
+name|getHazelcastInstanceName
+parameter_list|()
+block|{
+return|return
+name|hazelcastInstanceName
+return|;
+block|}
+comment|/**      * The hazelcast instance reference name which can be used for hazelcast endpoint.      * If you don't specify the instance reference, camel use the default hazelcast instance from the camel-hazelcast instance.      */
+DECL|method|setHazelcastInstanceName (String hazelcastInstanceName)
+specifier|public
+name|void
+name|setHazelcastInstanceName
+parameter_list|(
+name|String
+name|hazelcastInstanceName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|hazelcastInstanceName
+operator|=
+name|hazelcastInstanceName
+expr_stmt|;
+block|}
+comment|/**      * To specify a default operation to use, if no operation header has been provided.      */
 DECL|method|setDefaultOperation (int defaultOperation)
 specifier|public
 name|void

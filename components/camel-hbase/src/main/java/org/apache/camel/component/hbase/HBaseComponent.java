@@ -620,6 +620,7 @@ return|return
 name|configuration
 return|;
 block|}
+comment|/**      * To use the shared configuration      */
 DECL|method|setConfiguration (Configuration configuration)
 specifier|public
 name|void
@@ -646,6 +647,7 @@ return|return
 name|poolMaxSize
 return|;
 block|}
+comment|/**      * Maximum number of references to keep for each table in the HTable pool.      * The default value is 10.      */
 DECL|method|setPoolMaxSize (int poolMaxSize)
 specifier|public
 name|void

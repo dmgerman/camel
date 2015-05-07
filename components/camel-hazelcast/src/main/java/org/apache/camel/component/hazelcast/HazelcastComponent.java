@@ -371,6 +371,7 @@ name|hazelcastInstance
 decl_stmt|;
 DECL|field|createOwnInstance
 specifier|private
+specifier|transient
 name|boolean
 name|createOwnInstance
 decl_stmt|;
@@ -1163,6 +1164,7 @@ return|return
 name|hazelcastInstance
 return|;
 block|}
+comment|/**      * The hazelcast instance reference which can be used for hazelcast endpoint.      * If you don't specify the instance reference, camel use the default hazelcast instance from the camel-hazelcast instance.      */
 DECL|method|setHazelcastInstance (HazelcastInstance hazelcastInstance)
 specifier|public
 name|void
@@ -1278,13 +1280,6 @@ name|get
 argument_list|(
 name|HAZELCAST_INSTANCE_NAME_PARAM
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|parameters
-operator|.
-name|remove
-argument_list|(
-name|HAZELCAST_INSTANCE_NAME_PARAM
 argument_list|)
 expr_stmt|;
 block|}

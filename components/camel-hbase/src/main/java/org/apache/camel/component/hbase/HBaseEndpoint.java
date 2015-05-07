@@ -287,6 +287,11 @@ name|admin
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"The name of the table"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -300,10 +305,13 @@ specifier|final
 name|String
 name|tableName
 decl_stmt|;
-comment|//Operation properties.
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"100"
@@ -327,6 +335,15 @@ name|filters
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|enums
+operator|=
+literal|"CamelHBasePut,CamelHBaseGet,CamelHBaseScan,CamelHBaseDelete"
+argument_list|)
 DECL|field|operation
 specifier|private
 name|String
@@ -335,6 +352,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -348,6 +369,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"header,body"
+argument_list|)
 DECL|field|mappingStrategyName
 specifier|private
 name|String
@@ -373,6 +399,11 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|removeHandler
 specifier|private
 name|HBaseRemoveHandler
@@ -391,6 +422,11 @@ name|rowModel
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|maxMessagesPerPoll
 specifier|private
 name|int
@@ -584,6 +620,7 @@ return|return
 name|maxResults
 return|;
 block|}
+comment|/**      * The maximum number of rows to scan.      */
 DECL|method|setMaxResults (int maxResults)
 specifier|public
 name|void
@@ -613,6 +650,7 @@ return|return
 name|filters
 return|;
 block|}
+comment|/**      * A list of filters to use.      */
 DECL|method|setFilters (List<Filter> filters)
 specifier|public
 name|void
@@ -642,6 +680,7 @@ return|return
 name|operation
 return|;
 block|}
+comment|/**      * The HBase operation to perform      */
 DECL|method|setOperation (String operation)
 specifier|public
 name|void
@@ -668,6 +707,7 @@ return|return
 name|cellMappingStrategyFactory
 return|;
 block|}
+comment|/**      * To use a custom CellMappingStrategyFactory that is responsible for mapping cells.      */
 DECL|method|setCellMappingStrategyFactory (CellMappingStrategyFactory cellMappingStrategyFactory)
 specifier|public
 name|void
@@ -694,6 +734,7 @@ return|return
 name|mappingStrategyName
 return|;
 block|}
+comment|/**      * The strategy to use for mapping Camel messages to HBase columns. Supported values: header, or body.      */
 DECL|method|setMappingStrategyName (String mappingStrategyName)
 specifier|public
 name|void
@@ -720,6 +761,7 @@ return|return
 name|mappingStrategyClassName
 return|;
 block|}
+comment|/**      * The class name of a custom mapping strategy implementation.      */
 DECL|method|setMappingStrategyClassName (String mappingStrategyClassName)
 specifier|public
 name|void
@@ -746,6 +788,7 @@ return|return
 name|rowModel
 return|;
 block|}
+comment|/**      * An instance of org.apache.camel.component.hbase.model.HBaseRow which describes how each row should be modeled      */
 DECL|method|setRowModel (HBaseRow rowModel)
 specifier|public
 name|void
@@ -772,6 +815,7 @@ return|return
 name|remove
 return|;
 block|}
+comment|/**      * If the option is true, Camel HBase Consumer will remove the rows which it processes.      */
 DECL|method|setRemove (boolean remove)
 specifier|public
 name|void
@@ -798,6 +842,7 @@ return|return
 name|removeHandler
 return|;
 block|}
+comment|/**      * To use a custom HBaseRemoveHandler that is executed when a row is to be removed.      */
 DECL|method|setRemoveHandler (HBaseRemoveHandler removeHandler)
 specifier|public
 name|void
@@ -824,6 +869,7 @@ return|return
 name|maxMessagesPerPoll
 return|;
 block|}
+comment|/**      * Gets the maximum number of messages as a limit to poll at each polling.      *<p/>      * Is default unlimited, but use 0 or negative number to disable it as unlimited.      */
 DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
 specifier|public
 name|void
