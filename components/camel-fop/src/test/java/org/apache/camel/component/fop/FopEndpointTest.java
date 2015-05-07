@@ -168,7 +168,7 @@ argument_list|()
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"fop:application/pdf"
+literal|"fop:pdf"
 argument_list|)
 decl_stmt|;
 name|Producer
@@ -254,7 +254,7 @@ argument_list|()
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"fop:application/pdf?userConfigURL=file:src/test/data/conf/testcfg.xml"
+literal|"fop:pdf?userConfigURL=file:src/test/data/conf/testcfg.xml"
 argument_list|,
 name|FopEndpoint
 operator|.
@@ -300,7 +300,7 @@ argument_list|()
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"fop:application/pdf?userConfigURL=myconf/testcfg.xml"
+literal|"fop:pdf?userConfigURL=myconf/testcfg.xml"
 argument_list|,
 name|FopEndpoint
 operator|.
@@ -346,7 +346,7 @@ argument_list|()
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"fop:application/pdf"
+literal|"fop:pdf"
 argument_list|)
 decl_stmt|;
 name|Producer
@@ -448,7 +448,7 @@ argument_list|()
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"fop:application/pdf"
+literal|"fop:pdf"
 argument_list|)
 decl_stmt|;
 name|Producer
@@ -532,7 +532,7 @@ block|{
 name|String
 name|defaultOutputFormat
 init|=
-literal|"application/pdf"
+literal|"pdf"
 decl_stmt|;
 name|Endpoint
 name|endpoint
@@ -575,17 +575,7 @@ name|FopConstants
 operator|.
 name|CAMEL_FOP_OUTPUT_FORMAT
 argument_list|,
-name|org
-operator|.
-name|apache
-operator|.
-name|xmlgraphics
-operator|.
-name|util
-operator|.
-name|MimeConstants
-operator|.
-name|MIME_PLAIN_TEXT
+literal|"txt"
 argument_list|)
 expr_stmt|;
 name|exchange
