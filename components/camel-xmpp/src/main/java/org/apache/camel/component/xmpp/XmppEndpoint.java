@@ -467,15 +467,6 @@ specifier|private
 name|XmppBinding
 name|binding
 decl_stmt|;
-DECL|field|headerFilterStrategy
-specifier|private
-name|HeaderFilterStrategy
-name|headerFilterStrategy
-init|=
-operator|new
-name|DefaultHeaderFilterStrategy
-argument_list|()
-decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -588,8 +579,6 @@ specifier|private
 name|boolean
 name|pubsub
 decl_stmt|;
-comment|//Set a doc header on the IN message containing a Document form of the incoming packet;
-comment|//default is true if pubsub is true, otherwise false
 annotation|@
 name|UriParam
 DECL|field|doc
@@ -624,6 +613,17 @@ name|int
 name|connectionPollDelay
 init|=
 literal|10
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|headerFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+init|=
+operator|new
+name|DefaultHeaderFilterStrategy
+argument_list|()
 decl_stmt|;
 DECL|method|XmppEndpoint ()
 specifier|public
@@ -1495,6 +1495,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * Hostname for the chat server      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -1521,6 +1522,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * Port number for the chat server      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -1547,6 +1549,7 @@ return|return
 name|user
 return|;
 block|}
+comment|/**      * User name (without server name). If not specified, anonymous login will be attempted.      */
 DECL|method|setUser (String user)
 specifier|public
 name|void
@@ -1573,6 +1576,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * Password for login      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -1599,6 +1603,7 @@ return|return
 name|resource
 return|;
 block|}
+comment|/**      * XMPP resource. The default is Camel.      */
 DECL|method|setResource (String resource)
 specifier|public
 name|void
@@ -1625,6 +1630,7 @@ return|return
 name|login
 return|;
 block|}
+comment|/**      * Whether to login the user.      */
 DECL|method|setLogin (boolean login)
 specifier|public
 name|void
@@ -1651,6 +1657,7 @@ return|return
 name|createAccount
 return|;
 block|}
+comment|/**      * If true, an attempt to create an account will be made. Default is false.      */
 DECL|method|setCreateAccount (boolean createAccount)
 specifier|public
 name|void
@@ -1677,6 +1684,7 @@ return|return
 name|room
 return|;
 block|}
+comment|/**      * If this option is specified, the component will connect to MUC (Multi User Chat).      * Usually, the domain name for MUC is different from the login domain.      * For example, if you are superman@jabber.org and want to join the krypton room, then the room URL is      * krypton@conference.jabber.org. Note the conference part.      * It is not a requirement to provide the full room JID. If the room parameter does not contain the @ symbol,      * the domain part will be discovered and added by Camel      */
 DECL|method|setRoom (String room)
 specifier|public
 name|void
@@ -1710,6 +1718,7 @@ else|:
 name|user
 return|;
 block|}
+comment|/**      * JID (Jabber ID) of person to receive messages. room parameter has precedence over participant.      */
 DECL|method|setParticipant (String participant)
 specifier|public
 name|void
@@ -1743,6 +1752,7 @@ name|getUser
 argument_list|()
 return|;
 block|}
+comment|/**      * Use nickname when joining room. If room is specified and nickname is not, user will be used for the nickname.      */
 DECL|method|setNickname (String nickname)
 specifier|public
 name|void
@@ -1759,6 +1769,7 @@ operator|=
 name|nickname
 expr_stmt|;
 block|}
+comment|/**      * The name of the service you are connecting to. For Google Talk, this would be gmail.com.      */
 DECL|method|setServiceName (String serviceName)
 specifier|public
 name|void
@@ -1795,6 +1806,7 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel message.      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|void
@@ -1821,6 +1833,7 @@ return|return
 name|testConnectionOnStartup
 return|;
 block|}
+comment|/**      * Specifies whether to test the connection on startup. This is used to ensure that the XMPP client has a valid      * connection to the XMPP server when the route starts. Camel throws an exception on startup if a connection      * cannot be established. When this option is set to false, Camel will attempt to establish a "lazy" connection      * when needed by a producer, and will poll for a consumer connection until the connection is established. Default is true.      */
 DECL|method|setTestConnectionOnStartup (boolean testConnectionOnStartup)
 specifier|public
 name|void
@@ -1847,6 +1860,7 @@ return|return
 name|connectionPollDelay
 return|;
 block|}
+comment|/**      * The amount of time in seconds between polls (in seconds) to verify the health of the XMPP connection, or between attempts      * to establish an initial consumer connection. Camel will try to re-establish a connection if it has become inactive.      * Default is 10 seconds.      */
 DECL|method|setConnectionPollDelay (int connectionPollDelay)
 specifier|public
 name|void
@@ -1863,6 +1877,7 @@ operator|=
 name|connectionPollDelay
 expr_stmt|;
 block|}
+comment|/**      * Accept pubsub packets on input, default is false      */
 DECL|method|setPubsub (boolean pubsub)
 specifier|public
 name|void
@@ -1900,6 +1915,7 @@ return|return
 name|pubsub
 return|;
 block|}
+comment|/**      * Set a doc header on the IN message containing a Document form of the incoming packet;      * default is true if presence or pubsub are true, otherwise false      */
 DECL|method|setDoc (boolean doc)
 specifier|public
 name|void
