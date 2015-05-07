@@ -54,6 +54,20 @@ name|UriEndpointComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
 begin_comment
 comment|/**  * Twitter component  */
 end_comment
@@ -85,6 +99,26 @@ DECL|field|accessTokenSecret
 specifier|private
 name|String
 name|accessTokenSecret
+decl_stmt|;
+DECL|field|httpProxyHost
+specifier|private
+name|String
+name|httpProxyHost
+decl_stmt|;
+DECL|field|httpProxyUser
+specifier|private
+name|String
+name|httpProxyUser
+decl_stmt|;
+DECL|field|httpProxyPassword
+specifier|private
+name|String
+name|httpProxyPassword
+decl_stmt|;
+DECL|field|httpProxyPort
+specifier|private
+name|Integer
+name|httpProxyPort
 decl_stmt|;
 DECL|method|TwitterComponent ()
 specifier|public
@@ -155,6 +189,34 @@ operator|.
 name|setAccessTokenSecret
 argument_list|(
 name|accessTokenSecret
+argument_list|)
+expr_stmt|;
+name|properties
+operator|.
+name|setHttpProxyHost
+argument_list|(
+name|httpProxyHost
+argument_list|)
+expr_stmt|;
+name|properties
+operator|.
+name|setHttpProxyUser
+argument_list|(
+name|httpProxyUser
+argument_list|)
+expr_stmt|;
+name|properties
+operator|.
+name|setHttpProxyPassword
+argument_list|(
+name|httpProxyPassword
+argument_list|)
+expr_stmt|;
+name|properties
+operator|.
+name|setHttpProxyPort
+argument_list|(
+name|httpProxyPort
 argument_list|)
 expr_stmt|;
 comment|// and then override from parameters
@@ -237,6 +299,7 @@ return|return
 name|accessToken
 return|;
 block|}
+comment|/**      * The access token      */
 DECL|method|setAccessToken (String accessToken)
 specifier|public
 name|void
@@ -263,6 +326,7 @@ return|return
 name|accessTokenSecret
 return|;
 block|}
+comment|/**      * The access token secret      */
 DECL|method|setAccessTokenSecret (String accessTokenSecret)
 specifier|public
 name|void
@@ -289,6 +353,7 @@ return|return
 name|consumerKey
 return|;
 block|}
+comment|/**      * The consumer key      */
 DECL|method|setConsumerKey (String consumerKey)
 specifier|public
 name|void
@@ -315,6 +380,7 @@ return|return
 name|consumerSecret
 return|;
 block|}
+comment|/**      * The consumer secret      */
 DECL|method|setConsumerSecret (String consumerSecret)
 specifier|public
 name|void
@@ -330,6 +396,114 @@ name|consumerSecret
 operator|=
 name|consumerSecret
 expr_stmt|;
+block|}
+comment|/**      * The http proxy host which can be used for the camel-twitter.      */
+DECL|method|setHttpProxyHost (String httpProxyHost)
+specifier|public
+name|void
+name|setHttpProxyHost
+parameter_list|(
+name|String
+name|httpProxyHost
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpProxyHost
+operator|=
+name|httpProxyHost
+expr_stmt|;
+block|}
+DECL|method|getHttpProxyHost ()
+specifier|public
+name|String
+name|getHttpProxyHost
+parameter_list|()
+block|{
+return|return
+name|httpProxyHost
+return|;
+block|}
+comment|/**      * The http proxy user which can be used for the camel-twitter.      */
+DECL|method|setHttpProxyUser (String httpProxyUser)
+specifier|public
+name|void
+name|setHttpProxyUser
+parameter_list|(
+name|String
+name|httpProxyUser
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpProxyUser
+operator|=
+name|httpProxyUser
+expr_stmt|;
+block|}
+DECL|method|getHttpProxyUser ()
+specifier|public
+name|String
+name|getHttpProxyUser
+parameter_list|()
+block|{
+return|return
+name|httpProxyUser
+return|;
+block|}
+comment|/**      * The http proxy password which can be used for the camel-twitter.      */
+DECL|method|setHttpProxyPassword (String httpProxyPassword)
+specifier|public
+name|void
+name|setHttpProxyPassword
+parameter_list|(
+name|String
+name|httpProxyPassword
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpProxyPassword
+operator|=
+name|httpProxyPassword
+expr_stmt|;
+block|}
+DECL|method|getHttpProxyPassword ()
+specifier|public
+name|String
+name|getHttpProxyPassword
+parameter_list|()
+block|{
+return|return
+name|httpProxyPassword
+return|;
+block|}
+comment|/**      * The http proxy port which can be used for the camel-twitter.      */
+DECL|method|setHttpProxyPort (int httpProxyPort)
+specifier|public
+name|void
+name|setHttpProxyPort
+parameter_list|(
+name|int
+name|httpProxyPort
+parameter_list|)
+block|{
+name|this
+operator|.
+name|httpProxyPort
+operator|=
+name|httpProxyPort
+expr_stmt|;
+block|}
+DECL|method|getHttpProxyPort ()
+specifier|public
+name|int
+name|getHttpProxyPort
+parameter_list|()
+block|{
+return|return
+name|httpProxyPort
+return|;
 block|}
 block|}
 end_class

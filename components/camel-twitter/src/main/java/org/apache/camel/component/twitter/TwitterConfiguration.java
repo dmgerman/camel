@@ -20,36 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|text
-operator|.
-name|ParseException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|text
-operator|.
-name|SimpleDateFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -182,7 +152,6 @@ specifier|public
 class|class
 name|TwitterConfiguration
 block|{
-comment|/**      * Defines the Twitter API endpoint.      */
 annotation|@
 name|UriPath
 argument_list|(
@@ -206,7 +175,6 @@ name|EndpointType
 operator|.
 name|DIRECT
 decl_stmt|;
-comment|/**      * OAuth      */
 annotation|@
 name|UriParam
 DECL|field|consumerKey
@@ -235,7 +203,6 @@ specifier|private
 name|String
 name|accessTokenSecret
 decl_stmt|;
-comment|/**      * Polling delay.      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -250,7 +217,6 @@ name|delay
 init|=
 literal|60
 decl_stmt|;
-comment|/**      * Username -- used for searching, etc.      */
 annotation|@
 name|UriParam
 DECL|field|user
@@ -258,7 +224,6 @@ specifier|private
 name|String
 name|user
 decl_stmt|;
-comment|/**      * Keywords used for search and filters.      */
 annotation|@
 name|UriParam
 DECL|field|keywords
@@ -266,7 +231,6 @@ specifier|private
 name|String
 name|keywords
 decl_stmt|;
-comment|/**      * Lon/Lat bounding boxes used for filtering.      */
 annotation|@
 name|UriParam
 DECL|field|locations
@@ -274,7 +238,6 @@ specifier|private
 name|String
 name|locations
 decl_stmt|;
-comment|/**      * List of userIds used for searching, etc.      */
 annotation|@
 name|UriParam
 DECL|field|userIds
@@ -282,7 +245,6 @@ specifier|private
 name|String
 name|userIds
 decl_stmt|;
-comment|/**      * Filter out old tweets that have been previously polled.      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -297,15 +259,6 @@ name|filterOld
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Used for time-based endpoints (trends, etc.)      */
-annotation|@
-name|UriParam
-DECL|field|date
-specifier|private
-name|String
-name|date
-decl_stmt|;
-comment|/**      * Used to set the sinceId from pulling      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -320,7 +273,6 @@ name|sinceId
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * Used to set the preferred language on which to search      */
 annotation|@
 name|UriParam
 DECL|field|lang
@@ -328,7 +280,6 @@ specifier|private
 name|String
 name|lang
 decl_stmt|;
-comment|/**      * Used to set the maximum tweets per page (max = 100)      */
 annotation|@
 name|UriParam
 DECL|field|count
@@ -336,14 +287,6 @@ specifier|private
 name|Integer
 name|count
 decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|parsedDate
-specifier|private
-name|Date
-name|parsedDate
-decl_stmt|;
-comment|/**      * Number of page to iterate before stop (default is 1)      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -564,292 +507,6 @@ name|build
 argument_list|()
 return|;
 block|}
-DECL|method|getConsumerKey ()
-specifier|public
-name|String
-name|getConsumerKey
-parameter_list|()
-block|{
-return|return
-name|consumerKey
-return|;
-block|}
-DECL|method|setConsumerKey (String consumerKey)
-specifier|public
-name|void
-name|setConsumerKey
-parameter_list|(
-name|String
-name|consumerKey
-parameter_list|)
-block|{
-name|this
-operator|.
-name|consumerKey
-operator|=
-name|consumerKey
-expr_stmt|;
-block|}
-DECL|method|getConsumerSecret ()
-specifier|public
-name|String
-name|getConsumerSecret
-parameter_list|()
-block|{
-return|return
-name|consumerSecret
-return|;
-block|}
-DECL|method|setConsumerSecret (String consumerSecret)
-specifier|public
-name|void
-name|setConsumerSecret
-parameter_list|(
-name|String
-name|consumerSecret
-parameter_list|)
-block|{
-name|this
-operator|.
-name|consumerSecret
-operator|=
-name|consumerSecret
-expr_stmt|;
-block|}
-DECL|method|getAccessToken ()
-specifier|public
-name|String
-name|getAccessToken
-parameter_list|()
-block|{
-return|return
-name|accessToken
-return|;
-block|}
-DECL|method|setAccessToken (String accessToken)
-specifier|public
-name|void
-name|setAccessToken
-parameter_list|(
-name|String
-name|accessToken
-parameter_list|)
-block|{
-name|this
-operator|.
-name|accessToken
-operator|=
-name|accessToken
-expr_stmt|;
-block|}
-DECL|method|getAccessTokenSecret ()
-specifier|public
-name|String
-name|getAccessTokenSecret
-parameter_list|()
-block|{
-return|return
-name|accessTokenSecret
-return|;
-block|}
-DECL|method|setAccessTokenSecret (String accessTokenSecret)
-specifier|public
-name|void
-name|setAccessTokenSecret
-parameter_list|(
-name|String
-name|accessTokenSecret
-parameter_list|)
-block|{
-name|this
-operator|.
-name|accessTokenSecret
-operator|=
-name|accessTokenSecret
-expr_stmt|;
-block|}
-DECL|method|getUser ()
-specifier|public
-name|String
-name|getUser
-parameter_list|()
-block|{
-return|return
-name|user
-return|;
-block|}
-DECL|method|setUser (String user)
-specifier|public
-name|void
-name|setUser
-parameter_list|(
-name|String
-name|user
-parameter_list|)
-block|{
-name|this
-operator|.
-name|user
-operator|=
-name|user
-expr_stmt|;
-block|}
-DECL|method|getKeywords ()
-specifier|public
-name|String
-name|getKeywords
-parameter_list|()
-block|{
-return|return
-name|keywords
-return|;
-block|}
-DECL|method|setKeywords (String keywords)
-specifier|public
-name|void
-name|setKeywords
-parameter_list|(
-name|String
-name|keywords
-parameter_list|)
-block|{
-name|this
-operator|.
-name|keywords
-operator|=
-name|keywords
-expr_stmt|;
-block|}
-DECL|method|getDelay ()
-specifier|public
-name|int
-name|getDelay
-parameter_list|()
-block|{
-return|return
-name|delay
-return|;
-block|}
-DECL|method|setDelay (int delay)
-specifier|public
-name|void
-name|setDelay
-parameter_list|(
-name|int
-name|delay
-parameter_list|)
-block|{
-name|this
-operator|.
-name|delay
-operator|=
-name|delay
-expr_stmt|;
-block|}
-DECL|method|getType ()
-specifier|public
-name|EndpointType
-name|getType
-parameter_list|()
-block|{
-return|return
-name|type
-return|;
-block|}
-DECL|method|setType (EndpointType type)
-specifier|public
-name|void
-name|setType
-parameter_list|(
-name|EndpointType
-name|type
-parameter_list|)
-block|{
-name|this
-operator|.
-name|type
-operator|=
-name|type
-expr_stmt|;
-block|}
-DECL|method|getLocations ()
-specifier|public
-name|String
-name|getLocations
-parameter_list|()
-block|{
-return|return
-name|locations
-return|;
-block|}
-DECL|method|setLocations (String locations)
-specifier|public
-name|void
-name|setLocations
-parameter_list|(
-name|String
-name|locations
-parameter_list|)
-block|{
-name|this
-operator|.
-name|locations
-operator|=
-name|locations
-expr_stmt|;
-block|}
-DECL|method|getUserIds ()
-specifier|public
-name|String
-name|getUserIds
-parameter_list|()
-block|{
-return|return
-name|userIds
-return|;
-block|}
-DECL|method|setUserIds (String userIds)
-specifier|public
-name|void
-name|setUserIds
-parameter_list|(
-name|String
-name|userIds
-parameter_list|)
-block|{
-name|this
-operator|.
-name|userIds
-operator|=
-name|userIds
-expr_stmt|;
-block|}
-DECL|method|isFilterOld ()
-specifier|public
-name|boolean
-name|isFilterOld
-parameter_list|()
-block|{
-return|return
-name|filterOld
-return|;
-block|}
-DECL|method|setFilterOld (boolean filterOld)
-specifier|public
-name|void
-name|setFilterOld
-parameter_list|(
-name|boolean
-name|filterOld
-parameter_list|)
-block|{
-name|this
-operator|.
-name|filterOld
-operator|=
-name|filterOld
-expr_stmt|;
-block|}
 DECL|method|getTwitter ()
 specifier|public
 name|Twitter
@@ -922,77 +579,6 @@ operator|=
 name|twitterStream
 expr_stmt|;
 block|}
-DECL|method|getDate ()
-specifier|public
-name|String
-name|getDate
-parameter_list|()
-block|{
-return|return
-name|date
-return|;
-block|}
-DECL|method|parseDate ()
-specifier|public
-name|Date
-name|parseDate
-parameter_list|()
-block|{
-return|return
-name|parsedDate
-return|;
-block|}
-DECL|method|setDate (String date)
-specifier|public
-name|void
-name|setDate
-parameter_list|(
-name|String
-name|date
-parameter_list|)
-block|{
-name|this
-operator|.
-name|date
-operator|=
-name|date
-expr_stmt|;
-try|try
-block|{
-name|SimpleDateFormat
-name|sdf
-init|=
-operator|new
-name|SimpleDateFormat
-argument_list|(
-literal|"yyyy-MM-dd"
-argument_list|)
-decl_stmt|;
-name|parsedDate
-operator|=
-name|sdf
-operator|.
-name|parse
-argument_list|(
-name|date
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ParseException
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"date must be in yyyy-mm-dd format!"
-argument_list|)
-throw|;
-block|}
-block|}
 DECL|method|createTwitterStream ()
 specifier|public
 name|TwitterStream
@@ -1023,6 +609,302 @@ return|return
 name|twitterStream
 return|;
 block|}
+DECL|method|getConsumerKey ()
+specifier|public
+name|String
+name|getConsumerKey
+parameter_list|()
+block|{
+return|return
+name|consumerKey
+return|;
+block|}
+comment|/**      * The consumer key. Can also be configured on the TwitterComponent level instead.      */
+DECL|method|setConsumerKey (String consumerKey)
+specifier|public
+name|void
+name|setConsumerKey
+parameter_list|(
+name|String
+name|consumerKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumerKey
+operator|=
+name|consumerKey
+expr_stmt|;
+block|}
+DECL|method|getConsumerSecret ()
+specifier|public
+name|String
+name|getConsumerSecret
+parameter_list|()
+block|{
+return|return
+name|consumerSecret
+return|;
+block|}
+comment|/**      * The consumer secret. Can also be configured on the TwitterComponent level instead.      */
+DECL|method|setConsumerSecret (String consumerSecret)
+specifier|public
+name|void
+name|setConsumerSecret
+parameter_list|(
+name|String
+name|consumerSecret
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumerSecret
+operator|=
+name|consumerSecret
+expr_stmt|;
+block|}
+comment|/**      * The access token. Can also be configured on the TwitterComponent level instead.      */
+DECL|method|getAccessToken ()
+specifier|public
+name|String
+name|getAccessToken
+parameter_list|()
+block|{
+return|return
+name|accessToken
+return|;
+block|}
+DECL|method|setAccessToken (String accessToken)
+specifier|public
+name|void
+name|setAccessToken
+parameter_list|(
+name|String
+name|accessToken
+parameter_list|)
+block|{
+name|this
+operator|.
+name|accessToken
+operator|=
+name|accessToken
+expr_stmt|;
+block|}
+comment|/**      * The access secret. Can also be configured on the TwitterComponent level instead.      */
+DECL|method|getAccessTokenSecret ()
+specifier|public
+name|String
+name|getAccessTokenSecret
+parameter_list|()
+block|{
+return|return
+name|accessTokenSecret
+return|;
+block|}
+DECL|method|setAccessTokenSecret (String accessTokenSecret)
+specifier|public
+name|void
+name|setAccessTokenSecret
+parameter_list|(
+name|String
+name|accessTokenSecret
+parameter_list|)
+block|{
+name|this
+operator|.
+name|accessTokenSecret
+operator|=
+name|accessTokenSecret
+expr_stmt|;
+block|}
+DECL|method|getUser ()
+specifier|public
+name|String
+name|getUser
+parameter_list|()
+block|{
+return|return
+name|user
+return|;
+block|}
+comment|/**      * Username, used for user timeline consumption, direct message production, etc.      */
+DECL|method|setUser (String user)
+specifier|public
+name|void
+name|setUser
+parameter_list|(
+name|String
+name|user
+parameter_list|)
+block|{
+name|this
+operator|.
+name|user
+operator|=
+name|user
+expr_stmt|;
+block|}
+DECL|method|getKeywords ()
+specifier|public
+name|String
+name|getKeywords
+parameter_list|()
+block|{
+return|return
+name|keywords
+return|;
+block|}
+comment|/**      * Can be used for search and streaming/filter. Multiple values can be separated with comma.      */
+DECL|method|setKeywords (String keywords)
+specifier|public
+name|void
+name|setKeywords
+parameter_list|(
+name|String
+name|keywords
+parameter_list|)
+block|{
+name|this
+operator|.
+name|keywords
+operator|=
+name|keywords
+expr_stmt|;
+block|}
+DECL|method|getDelay ()
+specifier|public
+name|int
+name|getDelay
+parameter_list|()
+block|{
+return|return
+name|delay
+return|;
+block|}
+comment|/**      * Delay in seconds between polling from twitter.      */
+DECL|method|setDelay (int delay)
+specifier|public
+name|void
+name|setDelay
+parameter_list|(
+name|int
+name|delay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|delay
+operator|=
+name|delay
+expr_stmt|;
+block|}
+DECL|method|getType ()
+specifier|public
+name|EndpointType
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+return|;
+block|}
+DECL|method|setType (EndpointType type)
+specifier|public
+name|void
+name|setType
+parameter_list|(
+name|EndpointType
+name|type
+parameter_list|)
+block|{
+name|this
+operator|.
+name|type
+operator|=
+name|type
+expr_stmt|;
+block|}
+DECL|method|getLocations ()
+specifier|public
+name|String
+name|getLocations
+parameter_list|()
+block|{
+return|return
+name|locations
+return|;
+block|}
+comment|/**      * Bounding boxes, created by pairs of lat/lons. Can be used for streaming/filter. A pair is defined as lat,lon. And multiple paris can be separated by semi colon.      */
+DECL|method|setLocations (String locations)
+specifier|public
+name|void
+name|setLocations
+parameter_list|(
+name|String
+name|locations
+parameter_list|)
+block|{
+name|this
+operator|.
+name|locations
+operator|=
+name|locations
+expr_stmt|;
+block|}
+DECL|method|getUserIds ()
+specifier|public
+name|String
+name|getUserIds
+parameter_list|()
+block|{
+return|return
+name|userIds
+return|;
+block|}
+comment|/**      * To filter by user ids for streaming/filter. Multiple values can be separated by comma.      */
+DECL|method|setUserIds (String userIds)
+specifier|public
+name|void
+name|setUserIds
+parameter_list|(
+name|String
+name|userIds
+parameter_list|)
+block|{
+name|this
+operator|.
+name|userIds
+operator|=
+name|userIds
+expr_stmt|;
+block|}
+DECL|method|isFilterOld ()
+specifier|public
+name|boolean
+name|isFilterOld
+parameter_list|()
+block|{
+return|return
+name|filterOld
+return|;
+block|}
+comment|/**      * Filter out old tweets, that has previously been polled.      * This state is stored in memory only, and based on last tweet id.      */
+DECL|method|setFilterOld (boolean filterOld)
+specifier|public
+name|void
+name|setFilterOld
+parameter_list|(
+name|boolean
+name|filterOld
+parameter_list|)
+block|{
+name|this
+operator|.
+name|filterOld
+operator|=
+name|filterOld
+expr_stmt|;
+block|}
 DECL|method|getSinceId ()
 specifier|public
 name|long
@@ -1033,6 +915,7 @@ return|return
 name|sinceId
 return|;
 block|}
+comment|/**      * The last tweet id which will be used for pulling the tweets. It is useful when the camel route is restarted after a long running.      */
 DECL|method|setSinceId (long sinceId)
 specifier|public
 name|void
@@ -1059,6 +942,7 @@ return|return
 name|lang
 return|;
 block|}
+comment|/**      * The lang string ISO_639-1 which will be used for searching      */
 DECL|method|setLang (String lang)
 specifier|public
 name|void
@@ -1085,6 +969,7 @@ return|return
 name|count
 return|;
 block|}
+comment|/**      * Limiting number of results per page.      */
 DECL|method|setCount (Integer count)
 specifier|public
 name|void
@@ -1111,6 +996,7 @@ return|return
 name|numberOfPages
 return|;
 block|}
+comment|/**      * The number of pages result which you want camel-twitter to consume.      */
 DECL|method|setNumberOfPages (Integer numberOfPages)
 specifier|public
 name|void
@@ -1127,6 +1013,7 @@ operator|=
 name|numberOfPages
 expr_stmt|;
 block|}
+comment|/**      * The http proxy host which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead.      */
 DECL|method|setHttpProxyHost (String httpProxyHost)
 specifier|public
 name|void
@@ -1153,6 +1040,7 @@ return|return
 name|httpProxyHost
 return|;
 block|}
+comment|/**      * The http proxy user which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead.      */
 DECL|method|setHttpProxyUser (String httpProxyUser)
 specifier|public
 name|void
@@ -1179,6 +1067,7 @@ return|return
 name|httpProxyUser
 return|;
 block|}
+comment|/**      * The http proxy password which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead.      */
 DECL|method|setHttpProxyPassword (String httpProxyPassword)
 specifier|public
 name|void
@@ -1205,6 +1094,7 @@ return|return
 name|httpProxyPassword
 return|;
 block|}
+comment|/**      * The http proxy port which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead.      */
 DECL|method|setHttpProxyPort (int httpProxyPort)
 specifier|public
 name|void

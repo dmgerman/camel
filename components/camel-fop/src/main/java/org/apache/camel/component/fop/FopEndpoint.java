@@ -344,6 +344,7 @@ return|return
 name|outputFormat
 return|;
 block|}
+comment|/**      * The primary output format is PDF but other output formats are also supported.      */
 DECL|method|setOutputFormat (String outputFormat)
 specifier|public
 name|void
@@ -370,6 +371,7 @@ return|return
 name|userConfigURL
 return|;
 block|}
+comment|/**      * The location of a configuration file which can be loaded from classpath or file system.      */
 DECL|method|setUserConfigURL (String userConfigURL)
 specifier|public
 name|void
@@ -396,6 +398,7 @@ return|return
 name|fopFactory
 return|;
 block|}
+comment|/**      * Allows to use a custom configured or implementation of org.apache.fop.apps.FopFactory.      */
 DECL|method|setFopFactory (FopFactory fopFactory)
 specifier|public
 name|void

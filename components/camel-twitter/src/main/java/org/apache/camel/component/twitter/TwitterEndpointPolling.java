@@ -615,42 +615,6 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
-DECL|method|setDate (String date)
-specifier|public
-name|void
-name|setDate
-parameter_list|(
-name|String
-name|date
-parameter_list|)
-block|{
-name|getProperties
-argument_list|()
-operator|.
-name|setDate
-argument_list|(
-name|date
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|ManagedAttribute
-DECL|method|getDate ()
-specifier|public
-name|String
-name|getDate
-parameter_list|()
-block|{
-return|return
-name|getProperties
-argument_list|()
-operator|.
-name|getDate
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|setSinceId (long sinceId)
 specifier|public
 name|void
