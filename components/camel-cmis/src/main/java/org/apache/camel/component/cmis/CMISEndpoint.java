@@ -142,6 +142,11 @@ name|sessionFacade
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|queryMode
 specifier|private
 name|boolean
@@ -287,6 +292,7 @@ return|return
 name|queryMode
 return|;
 block|}
+comment|/**      * If true, will execute the cmis query from the message body and return result, otherwise will create a node in the cmis repository      */
 DECL|method|setQueryMode (boolean queryMode)
 specifier|public
 name|void

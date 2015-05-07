@@ -372,6 +372,11 @@ name|session
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"URL to CMIS server"
+argument_list|)
 DECL|field|url
 specifier|private
 specifier|final
@@ -429,6 +434,11 @@ name|repositoryId
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|query
 specifier|private
 name|String
@@ -1426,6 +1436,7 @@ name|createOperationContext
 argument_list|()
 return|;
 block|}
+comment|/**      * Username for the cmis repository      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -1442,6 +1453,7 @@ operator|=
 name|username
 expr_stmt|;
 block|}
+comment|/**      * Password for the cmis repository      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -1458,6 +1470,7 @@ operator|=
 name|password
 expr_stmt|;
 block|}
+comment|/**      * The Id of the repository to use. If not specified the first available repository is used      */
 DECL|method|setRepositoryId (String repositoryId)
 specifier|public
 name|void
@@ -1474,6 +1487,7 @@ operator|=
 name|repositoryId
 expr_stmt|;
 block|}
+comment|/**      * If set to true, the content of document node will be retrieved in addition to the properties      */
 DECL|method|setReadContent (boolean readContent)
 specifier|public
 name|void
@@ -1490,6 +1504,7 @@ operator|=
 name|readContent
 expr_stmt|;
 block|}
+comment|/**      * Max number of nodes to read      */
 DECL|method|setReadCount (int readCount)
 specifier|public
 name|void
@@ -1506,6 +1521,7 @@ operator|=
 name|readCount
 expr_stmt|;
 block|}
+comment|/**      * The cmis query to execute against the repository.      * If not specified, the consumer will retrieve every node from the content repository by iterating the content tree recursively      */
 DECL|method|setQuery (String query)
 specifier|public
 name|void
@@ -1522,6 +1538,7 @@ operator|=
 name|query
 expr_stmt|;
 block|}
+comment|/**      * Number of nodes to retrieve per page      */
 DECL|method|setPageSize (int pageSize)
 specifier|public
 name|void

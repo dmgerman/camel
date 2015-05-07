@@ -524,6 +524,7 @@ return|return
 name|feedUri
 return|;
 block|}
+comment|/**      * The URI to the feed to poll.      */
 DECL|method|setFeedUri (String feedUri)
 specifier|public
 name|void
