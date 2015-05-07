@@ -941,6 +941,13 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+name|answer
+operator|.
+name|setCron
+argument_list|(
+name|cron
+argument_list|)
+expr_stmt|;
 name|setProperties
 argument_list|(
 name|answer

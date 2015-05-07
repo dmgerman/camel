@@ -456,9 +456,63 @@ specifier|private
 name|TriggerKey
 name|triggerKey
 decl_stmt|;
+DECL|field|consumerLoadBalancer
+specifier|private
+name|LoadBalancer
+name|consumerLoadBalancer
+decl_stmt|;
+DECL|field|triggerParameters
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|triggerParameters
+decl_stmt|;
+DECL|field|jobParameters
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|jobParameters
+decl_stmt|;
+comment|// An internal variables to track whether a job has been in scheduler or not, and has it paused or not.
+DECL|field|jobAdded
+specifier|private
+specifier|final
+name|AtomicBoolean
+name|jobAdded
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|(
+literal|false
+argument_list|)
+decl_stmt|;
+DECL|field|jobPaused
+specifier|private
+specifier|final
+name|AtomicBoolean
+name|jobPaused
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|(
+literal|false
+argument_list|)
+decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
+name|description
+operator|=
+literal|"The quartz group name to use. The combination of group name and timer name should be unique."
+argument_list|,
 name|defaultValue
 operator|=
 literal|"Camel"
@@ -488,31 +542,6 @@ DECL|field|cron
 specifier|private
 name|String
 name|cron
-decl_stmt|;
-DECL|field|consumerLoadBalancer
-specifier|private
-name|LoadBalancer
-name|consumerLoadBalancer
-decl_stmt|;
-DECL|field|triggerParameters
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|triggerParameters
-decl_stmt|;
-DECL|field|jobParameters
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|jobParameters
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -563,7 +592,6 @@ specifier|private
 name|boolean
 name|recoverableJob
 decl_stmt|;
-comment|/** In case of scheduler has already started, we want the trigger start slightly after current time to      * ensure endpoint is fully started before the job kicks in. */
 annotation|@
 name|UriParam
 argument_list|(
@@ -578,39 +606,12 @@ name|triggerStartDelay
 init|=
 literal|500
 decl_stmt|;
-comment|// in millis second
-comment|/** If it is true, the CamelContext name is used,      *  if it is false, use the CamelContext management name which could be changed during the deploy time       **/
 annotation|@
 name|UriParam
 DECL|field|usingFixedCamelContextName
 specifier|private
 name|boolean
 name|usingFixedCamelContextName
-decl_stmt|;
-comment|// An internal variables to track whether a job has been in scheduler or not, and has it paused or not.
-DECL|field|jobAdded
-specifier|private
-specifier|final
-name|AtomicBoolean
-name|jobAdded
-init|=
-operator|new
-name|AtomicBoolean
-argument_list|(
-literal|false
-argument_list|)
-decl_stmt|;
-DECL|field|jobPaused
-specifier|private
-specifier|final
-name|AtomicBoolean
-name|jobPaused
-init|=
-operator|new
-name|AtomicBoolean
-argument_list|(
-literal|false
-argument_list|)
 decl_stmt|;
 DECL|method|QuartzEndpoint (String uri, QuartzComponent quartzComponent)
 specifier|public
@@ -657,6 +658,7 @@ name|getName
 argument_list|()
 return|;
 block|}
+comment|/**      * The quartz timer name to use. The combination of group name and timer name should be unique.      */
 DECL|method|setTriggerName (String triggerName)
 specifier|public
 name|void
@@ -733,6 +735,7 @@ return|return
 name|pauseJob
 return|;
 block|}
+comment|/**      * If set to true, then the trigger automatically pauses when route stop.      * Else if set to false, it will remain in scheduler. When set to false, it will also mean user may reuse      * pre-configured trigger with camel Uri. Just ensure the names match.      * Notice you cannot have both deleteJob and pauseJob set to true.      */
 DECL|method|setPauseJob (boolean pauseJob)
 specifier|public
 name|void
@@ -749,6 +752,7 @@ operator|=
 name|pauseJob
 expr_stmt|;
 block|}
+comment|/**      * In case of scheduler has already started, we want the trigger start slightly after current time to      * ensure endpoint is fully started before the job kicks in.      */
 DECL|method|setTriggerStartDelay (long triggerStartDelay)
 specifier|public
 name|void
@@ -765,6 +769,7 @@ operator|=
 name|triggerStartDelay
 expr_stmt|;
 block|}
+comment|/**      * If set to true, then the trigger automatically delete when route stop.      * Else if set to false, it will remain in scheduler. When set to false, it will also mean user may reuse      * pre-configured trigger with camel Uri. Just ensure the names match.      * Notice you cannot have both deleteJob and pauseJob set to true.      */
 DECL|method|setDeleteJob (boolean deleteJob)
 specifier|public
 name|void
@@ -781,6 +786,7 @@ operator|=
 name|deleteJob
 expr_stmt|;
 block|}
+comment|/**      * If it is true will fire the trigger when the route is start when using SimpleTrigger.      */
 DECL|method|setFireNow (boolean fireNow)
 specifier|public
 name|void
@@ -797,6 +803,7 @@ operator|=
 name|fireNow
 expr_stmt|;
 block|}
+comment|/**      * Uses a Quartz @PersistJobDataAfterExecution and @DisallowConcurrentExecution instead of the default job.      */
 DECL|method|setStateful (boolean stateful)
 specifier|public
 name|void
@@ -823,6 +830,7 @@ return|return
 name|durableJob
 return|;
 block|}
+comment|/**      * Whether or not the job should remain stored after it is orphaned (no triggers point to it).      */
 DECL|method|setDurableJob (boolean durableJob)
 specifier|public
 name|void
@@ -849,6 +857,7 @@ return|return
 name|recoverableJob
 return|;
 block|}
+comment|/**      * Instructs the scheduler whether or not the job should be re-executed if a 'recovery' or 'fail-over' situation is encountered.      */
 DECL|method|setRecoverableJob (boolean recoverableJob)
 specifier|public
 name|void
@@ -875,6 +884,7 @@ return|return
 name|usingFixedCamelContextName
 return|;
 block|}
+comment|/**      * If it is true, JobDataMap uses the CamelContext name directly to reference the CamelContext,      * if it is false, JobDataMap uses use the CamelContext management name which could be changed during the deploy time.      */
 DECL|method|setUsingFixedCamelContextName (boolean usingFixedCamelContextName)
 specifier|public
 name|void
@@ -973,6 +983,7 @@ operator|=
 name|consumerLoadBalancer
 expr_stmt|;
 block|}
+comment|/**      * Specifies a cron expression to define when to trigger.      */
 DECL|method|setCron (String cron)
 specifier|public
 name|void

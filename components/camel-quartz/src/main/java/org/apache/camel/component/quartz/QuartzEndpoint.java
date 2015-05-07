@@ -414,6 +414,13 @@ name|timerName
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|cron
+specifier|private
+name|String
+name|cron
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|stateful
 specifier|private
 name|boolean
@@ -1105,6 +1112,33 @@ operator|.
 name|timerName
 operator|=
 name|timerName
+expr_stmt|;
+block|}
+DECL|method|getCron ()
+specifier|public
+name|String
+name|getCron
+parameter_list|()
+block|{
+return|return
+name|cron
+return|;
+block|}
+comment|/**      * Specifies a cron expression to define when to trigger.      */
+DECL|method|setCron (String cron)
+specifier|public
+name|void
+name|setCron
+parameter_list|(
+name|String
+name|cron
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cron
+operator|=
+name|cron
 expr_stmt|;
 block|}
 DECL|method|setLoadBalancer (final LoadBalancer loadBalancer)

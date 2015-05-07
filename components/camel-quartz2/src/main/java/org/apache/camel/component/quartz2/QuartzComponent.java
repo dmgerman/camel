@@ -375,16 +375,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getStartDelayedSeconds ()
-specifier|public
-name|int
-name|getStartDelayedSeconds
-parameter_list|()
-block|{
-return|return
-name|startDelayedSeconds
-return|;
-block|}
 DECL|method|isAutoStartScheduler ()
 specifier|public
 name|boolean
@@ -395,22 +385,7 @@ return|return
 name|autoStartScheduler
 return|;
 block|}
-DECL|method|setStartDelayedSeconds (int startDelayedSeconds)
-specifier|public
-name|void
-name|setStartDelayedSeconds
-parameter_list|(
-name|int
-name|startDelayedSeconds
-parameter_list|)
-block|{
-name|this
-operator|.
-name|startDelayedSeconds
-operator|=
-name|startDelayedSeconds
-expr_stmt|;
-block|}
+comment|/**      * Whether or not the scheduler should be auto started.      *<p/>      * This options is default true      */
 DECL|method|setAutoStartScheduler (boolean autoStartScheduler)
 specifier|public
 name|void
@@ -427,6 +402,33 @@ operator|=
 name|autoStartScheduler
 expr_stmt|;
 block|}
+DECL|method|getStartDelayedSeconds ()
+specifier|public
+name|int
+name|getStartDelayedSeconds
+parameter_list|()
+block|{
+return|return
+name|startDelayedSeconds
+return|;
+block|}
+comment|/**      * Seconds to wait before starting the quartz scheduler.      */
+DECL|method|setStartDelayedSeconds (int startDelayedSeconds)
+specifier|public
+name|void
+name|setStartDelayedSeconds
+parameter_list|(
+name|int
+name|startDelayedSeconds
+parameter_list|)
+block|{
+name|this
+operator|.
+name|startDelayedSeconds
+operator|=
+name|startDelayedSeconds
+expr_stmt|;
+block|}
 DECL|method|isPrefixJobNameWithEndpointId ()
 specifier|public
 name|boolean
@@ -437,6 +439,7 @@ return|return
 name|prefixJobNameWithEndpointId
 return|;
 block|}
+comment|/**      * Whether to prefix the quartz job with the endpoint id.      *<p/>      * This option is default false.      */
 DECL|method|setPrefixJobNameWithEndpointId (boolean prefixJobNameWithEndpointId)
 specifier|public
 name|void
@@ -463,6 +466,7 @@ return|return
 name|enableJmx
 return|;
 block|}
+comment|/**      * Whether to enable Quartz JMX which allows to manage the Quartz scheduler from JMX.      *<p/>      * This options is default true      */
 DECL|method|setEnableJmx (boolean enableJmx)
 specifier|public
 name|void
@@ -489,16 +493,7 @@ return|return
 name|properties
 return|;
 block|}
-DECL|method|getPropertiesFile ()
-specifier|public
-name|String
-name|getPropertiesFile
-parameter_list|()
-block|{
-return|return
-name|propertiesFile
-return|;
-block|}
+comment|/**      * Properties to configure the Quartz scheduler.      */
 DECL|method|setProperties (Properties properties)
 specifier|public
 name|void
@@ -515,6 +510,17 @@ operator|=
 name|properties
 expr_stmt|;
 block|}
+DECL|method|getPropertiesFile ()
+specifier|public
+name|String
+name|getPropertiesFile
+parameter_list|()
+block|{
+return|return
+name|propertiesFile
+return|;
+block|}
+comment|/**      * File name of the properties to load from the classpath      */
 DECL|method|setPropertiesFile (String propertiesFile)
 specifier|public
 name|void
@@ -1049,6 +1055,7 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * To use the custom SchedulerFactory which is used to create the Scheduler.      */
 DECL|method|setSchedulerFactory (SchedulerFactory schedulerFactory)
 specifier|public
 name|void
@@ -1075,6 +1082,7 @@ return|return
 name|scheduler
 return|;
 block|}
+comment|/**      * To use the custom configured Quartz scheduler, instead of creating a new Scheduler.      */
 DECL|method|setScheduler (Scheduler scheduler)
 specifier|public
 name|void
