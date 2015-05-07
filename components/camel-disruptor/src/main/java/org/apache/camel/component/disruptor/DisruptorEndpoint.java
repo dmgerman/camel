@@ -244,6 +244,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -367,100 +381,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-annotation|@
-name|UriPath
-argument_list|(
-name|description
-operator|=
-literal|"Name of queue"
-argument_list|)
-DECL|field|name
-specifier|private
-name|String
-name|name
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"1"
-argument_list|)
-DECL|field|concurrentConsumers
-specifier|private
-specifier|final
-name|int
-name|concurrentConsumers
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|multipleConsumers
-specifier|private
-specifier|final
-name|boolean
-name|multipleConsumers
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"IfReplyExpected"
-argument_list|)
-DECL|field|waitForTaskToComplete
-specifier|private
-name|WaitForTaskToComplete
-name|waitForTaskToComplete
-init|=
-name|WaitForTaskToComplete
-operator|.
-name|IfReplyExpected
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"30000"
-argument_list|)
-DECL|field|timeout
-specifier|private
-name|long
-name|timeout
-init|=
-literal|30000
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|blockWhenFull
-specifier|private
-name|boolean
-name|blockWhenFull
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"Blocking"
-argument_list|)
-DECL|field|waitStrategy
-specifier|private
-name|DisruptorWaitStrategy
-name|waitStrategy
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"Multi"
-argument_list|)
-DECL|field|producerType
-specifier|private
-name|DisruptorProducerType
-name|producerType
-decl_stmt|;
 DECL|field|producers
 specifier|private
 specifier|final
@@ -498,6 +418,137 @@ specifier|private
 specifier|final
 name|DisruptorReference
 name|disruptorReference
+decl_stmt|;
+annotation|@
+name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"Name of queue"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|name
+specifier|private
+name|String
+name|name
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"1"
+argument_list|)
+DECL|field|concurrentConsumers
+specifier|private
+specifier|final
+name|int
+name|concurrentConsumers
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|multipleConsumers
+specifier|private
+specifier|final
+name|boolean
+name|multipleConsumers
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"IfReplyExpected"
+argument_list|)
+DECL|field|waitForTaskToComplete
+specifier|private
+name|WaitForTaskToComplete
+name|waitForTaskToComplete
+init|=
+name|WaitForTaskToComplete
+operator|.
+name|IfReplyExpected
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"30000"
+argument_list|)
+DECL|field|timeout
+specifier|private
+name|long
+name|timeout
+init|=
+literal|30000
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|blockWhenFull
+specifier|private
+name|boolean
+name|blockWhenFull
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"Blocking"
+argument_list|)
+DECL|field|waitStrategy
+specifier|private
+name|DisruptorWaitStrategy
+name|waitStrategy
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"Multi"
+argument_list|)
+DECL|field|producerType
+specifier|private
+name|DisruptorProducerType
+name|producerType
 decl_stmt|;
 DECL|method|DisruptorEndpoint (final String endpointUri, final Component component, final DisruptorReference disruptorReference, final int concurrentConsumers, final boolean multipleConsumers, boolean blockWhenFull)
 specifier|public
@@ -762,6 +813,7 @@ name|getPendingExchangeCount
 argument_list|()
 return|;
 block|}
+comment|/**      * Number of concurrent threads processing exchanges.      */
 annotation|@
 name|ManagedAttribute
 argument_list|(
@@ -789,6 +841,7 @@ return|return
 name|waitForTaskToComplete
 return|;
 block|}
+comment|/**      * Option to specify whether the caller should wait for the async task to complete or not before continuing.      * The following three options are supported: Always, Never or IfReplyExpected. The first two values are self-explanatory.      * The last value, IfReplyExpected, will only wait if the message is Request Reply based.      */
 DECL|method|setWaitForTaskToComplete (final WaitForTaskToComplete waitForTaskToComplete)
 specifier|public
 name|void
@@ -818,6 +871,7 @@ return|return
 name|timeout
 return|;
 block|}
+comment|/**      * Timeout (in milliseconds) before a producer will stop waiting for an asynchronous task to complete.      * You can disable timeout by using 0 or a negative value.      */
 DECL|method|setTimeout (final long timeout)
 specifier|public
 name|void
@@ -835,6 +889,7 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
+comment|/**      * Specifies whether multiple consumers are allowed.      * If enabled, you can use Disruptor for Publish-Subscribe messaging.      * That is, you can send a message to the queue and have each consumer receive a copy of the message.      * When enabled, this option should be specified on every consumer endpoint.      */
 annotation|@
 name|ManagedAttribute
 DECL|method|isMultipleConsumers ()
@@ -912,6 +967,7 @@ return|return
 name|blockWhenFull
 return|;
 block|}
+comment|/**      * Whether a thread that sends messages to a full Disruptor will block until the ringbuffer's capacity is no longer exhausted.      * By default, the calling thread will block and wait until the message can be accepted.      * By disabling this option, an exception will be thrown stating that the queue is full.      */
 DECL|method|setBlockWhenFull (boolean blockWhenFull)
 specifier|public
 name|void
@@ -938,6 +994,7 @@ return|return
 name|waitStrategy
 return|;
 block|}
+comment|/**      * Defines the strategy used by consumer threads to wait on new exchanges to be published.      * The options allowed are:Blocking, Sleeping, BusySpin and Yielding.      */
 DECL|method|setWaitStrategy (DisruptorWaitStrategy waitStrategy)
 specifier|public
 name|void
@@ -964,6 +1021,7 @@ return|return
 name|producerType
 return|;
 block|}
+comment|/**      * Defines the producers allowed on the Disruptor.      * The options allowed are: Multi to allow multiple producers and Single to enable certain optimizations only      * allowed when one concurrent producer (on one thread or otherwise synchronized) is active.      */
 DECL|method|setProducerType (DisruptorProducerType producerType)
 specifier|public
 name|void
@@ -1418,7 +1476,7 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Called by DisruptorProducers to publish new exchanges on the RingBuffer, blocking when full      *      * @param exchange      */
+comment|/**      * Called by DisruptorProducers to publish new exchanges on the RingBuffer, blocking when full      */
 DECL|method|publish (final Exchange exchange)
 name|void
 name|publish
@@ -1438,7 +1496,7 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Called by DisruptorProducers to publish new exchanges on the RingBuffer, throwing InsufficientCapacityException      * when full      *      * @param exchange      * @throws InsufficientCapacityException when the Ringbuffer is full.      */
+comment|/**      * Called by DisruptorProducers to publish new exchanges on the RingBuffer, throwing InsufficientCapacityException      * when full      *      * @throws InsufficientCapacityException when the Ringbuffer is full.      */
 DECL|method|tryPublish (final Exchange exchange)
 name|void
 name|tryPublish

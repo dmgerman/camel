@@ -873,6 +873,7 @@ return|return
 name|defaultConcurrentConsumers
 return|;
 block|}
+comment|/**      * To configure the default number of concurrent consumers      */
 DECL|method|setDefaultConcurrentConsumers (final int defaultConcurrentConsumers)
 specifier|public
 name|void
@@ -900,6 +901,7 @@ return|return
 name|defaultMultipleConsumers
 return|;
 block|}
+comment|/**      * To configure the default value for multiple consumers      */
 DECL|method|setDefaultMultipleConsumers (final boolean defaultMultipleConsumers)
 specifier|public
 name|void
@@ -927,6 +929,7 @@ return|return
 name|defaultProducerType
 return|;
 block|}
+comment|/**      * To configure the default value for DisruptorProducerType      *<p/>      * The default value is Multi.      */
 DECL|method|setDefaultProducerType (final DisruptorProducerType defaultProducerType)
 specifier|public
 name|void
@@ -954,6 +957,7 @@ return|return
 name|defaultWaitStrategy
 return|;
 block|}
+comment|/**      * To configure the default value for DisruptorWaitStrategy      *<p/>      * The default value is Blocking.      */
 DECL|method|setDefaultWaitStrategy (final DisruptorWaitStrategy defaultWaitStrategy)
 specifier|public
 name|void
@@ -981,6 +985,7 @@ return|return
 name|defaultBlockWhenFull
 return|;
 block|}
+comment|/**      * To configure the default value for block when full      *<p/>      * The default value is true.      */
 DECL|method|setDefaultBlockWhenFull (boolean defaultBlockWhenFull)
 specifier|public
 name|void
@@ -997,6 +1002,7 @@ operator|=
 name|defaultBlockWhenFull
 expr_stmt|;
 block|}
+comment|/**      * To configure the ring buffer size      */
 annotation|@
 name|Deprecated
 DECL|method|setQueueSize (final int size)
@@ -1009,13 +1015,6 @@ name|int
 name|size
 parameter_list|)
 block|{
-name|LOGGER
-operator|.
-name|warn
-argument_list|(
-literal|"Using deprecated queueSize parameter for SEDA compatibility, use bufferSize instead"
-argument_list|)
-expr_stmt|;
 name|queueSize
 operator|=
 name|size
@@ -1029,17 +1028,11 @@ name|int
 name|getQueueSize
 parameter_list|()
 block|{
-name|LOGGER
-operator|.
-name|warn
-argument_list|(
-literal|"Using deprecated queueSize parameter for SEDA compatibility, use bufferSize instead"
-argument_list|)
-expr_stmt|;
 return|return
 name|queueSize
 return|;
 block|}
+comment|/**      * To configure the ring buffer size      */
 DECL|method|setBufferSize (final int size)
 specifier|public
 name|void
