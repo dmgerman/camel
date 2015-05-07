@@ -239,6 +239,13 @@ name|value
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
 name|initEncryptor
 argument_list|()
 expr_stmt|;
@@ -308,6 +315,7 @@ argument_list|,
 name|decrypted
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|value
