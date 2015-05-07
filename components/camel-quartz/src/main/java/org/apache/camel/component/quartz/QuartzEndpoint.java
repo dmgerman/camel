@@ -440,7 +440,6 @@ specifier|private
 name|boolean
 name|pauseJob
 decl_stmt|;
-comment|/** If it is true, the CamelContext name is used,      *  if it is false, use the CamelContext management name which could be changed during the deploy time       **/
 annotation|@
 name|UriParam
 DECL|field|usingFixedCamelContextName
@@ -1064,6 +1063,7 @@ return|return
 name|groupName
 return|;
 block|}
+comment|/**      * The quartz group name to use. The combination of group name and timer name should be unique.      */
 DECL|method|setGroupName (String groupName)
 specifier|public
 name|void
@@ -1090,6 +1090,7 @@ return|return
 name|timerName
 return|;
 block|}
+comment|/**      * The quartz timer name to use. The combination of group name and timer name should be unique.      */
 DECL|method|setTimerName (String timerName)
 specifier|public
 name|void
@@ -1189,6 +1190,7 @@ operator|.
 name|stateful
 return|;
 block|}
+comment|/**      * Uses a Quartz StatefulJob instead of the default job.      */
 DECL|method|setStateful (final boolean stateful)
 specifier|public
 name|void
@@ -1216,6 +1218,7 @@ return|return
 name|deleteJob
 return|;
 block|}
+comment|/**      * If set to true, then the trigger automatically delete when route stop.      * Else if set to false, it will remain in scheduler. When set to false, it will also mean user may reuse      * pre-configured trigger with camel Uri. Just ensure the names match.      * Notice you cannot have both deleteJob and pauseJob set to true.      */
 DECL|method|setDeleteJob (boolean deleteJob)
 specifier|public
 name|void
@@ -1242,6 +1245,7 @@ return|return
 name|pauseJob
 return|;
 block|}
+comment|/**      * If set to true, then the trigger automatically pauses when route stop.      * Else if set to false, it will remain in scheduler. When set to false, it will also mean user may reuse      * pre-configured trigger with camel Uri. Just ensure the names match.      * Notice you cannot have both deleteJob and pauseJob set to true.      */
 DECL|method|setPauseJob (boolean pauseJob)
 specifier|public
 name|void
@@ -1258,8 +1262,6 @@ operator|=
 name|pauseJob
 expr_stmt|;
 block|}
-comment|// Implementation methods
-comment|// -------------------------------------------------------------------------
 DECL|method|isUsingFixedCamelContextName ()
 specifier|public
 name|boolean
@@ -1270,6 +1272,7 @@ return|return
 name|usingFixedCamelContextName
 return|;
 block|}
+comment|/**      * If it is true, JobDataMap uses the CamelContext name directly to reference the CamelContext,      * if it is false, JobDataMap uses use the CamelContext management name which could be changed during the deploy time.      */
 DECL|method|setUsingFixedCamelContextName (boolean usingFixedCamelContextName)
 specifier|public
 name|void
@@ -1286,6 +1289,8 @@ operator|=
 name|usingFixedCamelContextName
 expr_stmt|;
 block|}
+comment|// Implementation methods
+comment|// -------------------------------------------------------------------------
 DECL|method|consumerStarted (final QuartzConsumer consumer)
 specifier|public
 specifier|synchronized

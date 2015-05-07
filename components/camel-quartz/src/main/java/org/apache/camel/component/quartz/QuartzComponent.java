@@ -329,6 +329,7 @@ name|scheduler
 decl_stmt|;
 DECL|field|jobsToAdd
 specifier|private
+specifier|transient
 specifier|final
 name|List
 argument_list|<
@@ -2386,6 +2387,7 @@ return|return
 name|scheduler
 return|;
 block|}
+comment|/**      * To use the custom configured Quartz scheduler, instead of creating a new Scheduler.      */
 DECL|method|setScheduler (final Scheduler scheduler)
 specifier|public
 name|void
@@ -2413,6 +2415,7 @@ return|return
 name|properties
 return|;
 block|}
+comment|/**      * Properties to configure the Quartz scheduler.      */
 DECL|method|setProperties (Properties properties)
 specifier|public
 name|void
@@ -2439,6 +2442,7 @@ return|return
 name|propertiesFile
 return|;
 block|}
+comment|/**      * File name of the properties to load from the classpath      */
 DECL|method|setPropertiesFile (String propertiesFile)
 specifier|public
 name|void
@@ -2465,6 +2469,7 @@ return|return
 name|startDelayedSeconds
 return|;
 block|}
+comment|/**      * Seconds to wait before starting the quartz scheduler.      */
 DECL|method|setStartDelayedSeconds (int startDelayedSeconds)
 specifier|public
 name|void
@@ -2491,6 +2496,7 @@ return|return
 name|autoStartScheduler
 return|;
 block|}
+comment|/**      * Whether or not the scheduler should be auto started.      *<p/>      * This options is default true      */
 DECL|method|setAutoStartScheduler (boolean autoStartScheduler)
 specifier|public
 name|void
@@ -2517,6 +2523,7 @@ return|return
 name|enableJmx
 return|;
 block|}
+comment|/**      * Whether to enable Quartz JMX which allows to manage the Quartz scheduler from JMX.      *<p/>      * This options is default true      */
 DECL|method|setEnableJmx (boolean enableJmx)
 specifier|public
 name|void
