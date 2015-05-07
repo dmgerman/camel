@@ -1430,7 +1430,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unrecognized Cache protocol: "
+literal|"Unrecognized protocol: "
 operator|+
 name|protocol
 operator|+
