@@ -158,22 +158,18 @@ name|CamelTestSupport
 block|{
 comment|/*      * The response message is generated directly. The issue here is that the      * xsi and xs namespaces are defined on the SOAP envelope but are used      * within the payload. This can cause issues with some type conversions in      * PAYLOAD mode, as the Camel-CXF endpoint will return some kind of window      * within the StAX parsing (and the namespace definitions are outside).      *       * If some CXF implementation bean is used as the service the namespaces      * will be defined within the payload (and everything works fine).      */
 DECL|field|RESPONSE_MESSAGE
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String
 name|RESPONSE_MESSAGE
 init|=
-literal|"<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\""
+literal|"<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"><soap:Body>"
 operator|+
-literal|" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"><soap:Body>"
-operator|+
-literal|"<ns2:getTokenResponse xmlns:ns2=\"http://camel.apache.org/cxf/namespace\"><return xsi:type=\"xs:string\">Return Value</return></ns2:getTokenResponse>"
-operator|+
-literal|"</soap:Body></soap:Envelope>"
+literal|"<ns2:getTokenResponse xmlns:ns2=\"http://camel.apache.org/cxf/namespace\"><return xsi:type=\"xs:string\">Return Value</return></ns2:getTokenResponse></soap:Body></soap:Envelope>"
 decl_stmt|;
 DECL|field|REQUEST_PAYLOAD
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String

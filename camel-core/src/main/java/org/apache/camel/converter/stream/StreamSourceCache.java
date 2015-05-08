@@ -267,7 +267,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|StreamSourceCache (StreamCache streamCache)
-specifier|private
+specifier|public
 name|StreamSourceCache
 parameter_list|(
 name|StreamCache

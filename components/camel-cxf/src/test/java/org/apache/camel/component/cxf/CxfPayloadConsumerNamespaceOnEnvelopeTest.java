@@ -158,32 +158,26 @@ name|CamelTestSupport
 block|{
 comment|/*      * The request message is generated directly. The issue here is that the xsi      * and xs namespaces are defined on the SOAP envelope but are used within      * the payload. This can cause issues with some type conversions in PAYLOAD      * mode, as the Camel-CXF endpoint will return some kind of window within      * the StAX parsing (and the namespace definitions are outside).      *       * If some CXF proxy is used to send the message the namespaces will be      * defined within the payload (and everything works fine).      */
 DECL|field|RESPONSE_PAYLOAD
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String
 name|RESPONSE_PAYLOAD
 init|=
-literal|"<ns2:getTokenResponse xmlns:ns2=\"http://camel.apache.org/cxf/namespace\""
+literal|"<ns2:getTokenResponse xmlns:ns2=\"http://camel.apache.org/cxf/namespace\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">"
 operator|+
-literal|" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\""
-operator|+
-literal|" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"><return xsi:type=\"xs:string\">Return Value</return></ns2:getTokenResponse>"
+literal|"<return xsi:type=\"xs:string\">Return Value</return></ns2:getTokenResponse>"
 decl_stmt|;
 DECL|field|REQUEST_MESSAGE
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String
 name|REQUEST_MESSAGE
 init|=
-literal|"<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" "
+literal|"<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">"
 operator|+
-literal|"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"><soap:Body>"
-operator|+
-literal|"<ns2:getToken xmlns:ns2=\"http://camel.apache.org/cxf/namespace\"><arg0 xsi:type=\"xs:string\">Send</arg0></ns2:getToken>"
-operator|+
-literal|"</soap:Body></soap:Envelope>"
+literal|"<soap:Body><ns2:getToken xmlns:ns2=\"http://camel.apache.org/cxf/namespace\"><arg0 xsi:type=\"xs:string\">Send</arg0></ns2:getToken></soap:Body></soap:Envelope>"
 decl_stmt|;
 DECL|field|applicationContext
 specifier|private
