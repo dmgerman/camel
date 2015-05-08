@@ -594,6 +594,8 @@ operator|.
 name|toDOMDocument
 argument_list|(
 name|ECHO_RESPONSE
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 name|List

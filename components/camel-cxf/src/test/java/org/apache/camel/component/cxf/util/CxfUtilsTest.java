@@ -211,6 +211,8 @@ operator|.
 name|toDOMSource
 argument_list|(
 name|is
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 decl_stmt|;

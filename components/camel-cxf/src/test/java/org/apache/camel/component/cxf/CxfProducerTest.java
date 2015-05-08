@@ -1353,6 +1353,8 @@ operator|+
 literal|"<arg0 xmlns=\"http://cxf.component.camel.apache.org/\">hello world</arg0>"
 operator|+
 literal|"</ns1:echo>"
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 name|exchange

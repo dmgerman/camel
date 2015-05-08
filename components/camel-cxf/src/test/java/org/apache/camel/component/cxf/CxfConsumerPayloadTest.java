@@ -476,6 +476,8 @@ operator|.
 name|toDOMDocument
 argument_list|(
 name|documentString
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 name|outElements
