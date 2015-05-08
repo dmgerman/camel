@@ -338,6 +338,11 @@ name|address
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"Hostname of the SNMP enabled device"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -352,6 +357,11 @@ name|host
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"Port number of the SNMP enabled device"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -370,6 +380,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"udp"
+argument_list|,
+name|enums
+operator|=
+literal|"tcp,udp"
 argument_list|)
 DECL|field|protocol
 specifier|private
@@ -418,6 +432,10 @@ operator|=
 literal|""
 operator|+
 name|DEFAULT_SNMP_VERSION
+argument_list|,
+name|enums
+operator|=
+literal|"0,1,3"
 argument_list|)
 DECL|field|snmpVersion
 specifier|private
@@ -475,6 +493,10 @@ operator|+
 name|SecurityLevel
 operator|.
 name|AUTH_PRIV
+argument_list|,
+name|enums
+operator|=
+literal|"1,2,3"
 argument_list|)
 DECL|field|securityLevel
 specifier|private
@@ -494,6 +516,11 @@ name|securityName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"MD5,SHA1"
+argument_list|)
 DECL|field|authenticationProtocol
 specifier|private
 name|String
@@ -849,6 +876,7 @@ operator|.
 name|type
 return|;
 block|}
+comment|/**      * Which operation to perform such as poll, trap, etc.      */
 DECL|method|setType (SnmpActionType type)
 specifier|public
 name|void
@@ -877,6 +905,7 @@ operator|.
 name|oids
 return|;
 block|}
+comment|/**      * Defines which values you are interested in. Please have a look at the Wikipedia to get a better understanding.      * You may provide a single OID or a coma separated list of OIDs.      * Example: oids="1.3.6.1.2.1.1.3.0,1.3.6.1.2.1.25.3.2.1.5.1,1.3.6.1.2.1.25.3.5.1.1.1,1.3.6.1.2.1.43.5.1.1.11.1"      */
 DECL|method|setOids (OIDList oids)
 specifier|public
 name|void
@@ -933,6 +962,7 @@ operator|.
 name|retries
 return|;
 block|}
+comment|/**      * Defines how often a retry is made before canceling the request.      */
 DECL|method|setRetries (int retries)
 specifier|public
 name|void
@@ -961,6 +991,7 @@ operator|.
 name|timeout
 return|;
 block|}
+comment|/**      * Sets the timeout value for the request in millis.      */
 DECL|method|setTimeout (int timeout)
 specifier|public
 name|void
@@ -989,6 +1020,7 @@ operator|.
 name|snmpVersion
 return|;
 block|}
+comment|/**      * Sets the snmp version for the request.      *<p/>      * The value 0 means SNMPv1, 1 means SNMPv2c, and the value 3 means SNMPv3      */
 DECL|method|setSnmpVersion (int snmpVersion)
 specifier|public
 name|void
@@ -1017,6 +1049,7 @@ operator|.
 name|snmpCommunity
 return|;
 block|}
+comment|/**      * Sets the community octet string for the snmp request.      */
 DECL|method|setSnmpCommunity (String snmpCommunity)
 specifier|public
 name|void
@@ -1045,6 +1078,7 @@ operator|.
 name|protocol
 return|;
 block|}
+comment|/**      * Here you can select which protocol to use. You can use either udp or tcp.      */
 DECL|method|setProtocol (String protocol)
 specifier|public
 name|void
@@ -1201,6 +1235,7 @@ return|return
 name|securityLevel
 return|;
 block|}
+comment|/**      * Sets the security level for this target. The supplied security level must      * be supported by the security model dependent information associated with      * the security name set for this target.      *<p/>      * The value 1 means: No authentication and no encryption. Anyone can create and read messages with this security level      * The value 2 means: Authentication and no encryption. Only the one with the right authentication key can create      * messages with this security level, but anyone can read the contents of the message.      * The value 3 means: Authentication and encryption. Only the one with the right authentication key can create messages      * with this security level, and only the one with the right encryption/decryption key can read the contents of the message.      */
 DECL|method|setSecurityLevel (int securityLevel)
 specifier|public
 name|void
@@ -1227,6 +1262,7 @@ return|return
 name|securityName
 return|;
 block|}
+comment|/**      * Sets the security name to be used with this target.      */
 DECL|method|setSecurityName (String securityName)
 specifier|public
 name|void
@@ -1253,6 +1289,7 @@ return|return
 name|authenticationProtocol
 return|;
 block|}
+comment|/**      * Authentication protocol to use if security level is set to enable authentication      * The possible values are: MD5, SHA1      */
 DECL|method|setAuthenticationProtocol (String authenticationProtocol)
 specifier|public
 name|void
@@ -1279,6 +1316,7 @@ return|return
 name|authenticationPassphrase
 return|;
 block|}
+comment|/**      * The authentication passphrase. If not<code>null</code>,<code>authenticationProtocol</code> must also be not      *<code>null</code>. RFC3414 11.2 requires passphrases to have a minimum length of 8 bytes.      * If the length of<code>authenticationPassphrase</code> is less than 8 bytes an<code>IllegalArgumentException</code> is thrown.      */
 DECL|method|setAuthenticationPassphrase (String authenticationPassphrase)
 specifier|public
 name|void
@@ -1305,6 +1343,7 @@ return|return
 name|privacyProtocol
 return|;
 block|}
+comment|/**      * The privacy protocol ID to be associated with this user. If set to<code>null</code>, this user only supports unencrypted messages.      */
 DECL|method|setPrivacyProtocol (String privacyProtocol)
 specifier|public
 name|void
@@ -1331,6 +1370,7 @@ return|return
 name|privacyPassphrase
 return|;
 block|}
+comment|/**      * The privacy passphrase. If not<code>null</code>,<code>privacyProtocol</code> must also be not<code>null</code>.      * RFC3414 11.2 requires passphrases to have a minimum length of 8 bytes. If the length of      *<code>authenticationPassphrase</code> is less than 8 bytes an<code>IllegalArgumentException</code> is thrown.      */
 DECL|method|setPrivacyPassphrase (String privacyPassphrase)
 specifier|public
 name|void
@@ -1357,6 +1397,7 @@ return|return
 name|snmpContextName
 return|;
 block|}
+comment|/**      * Sets the context name field of this scoped PDU.      */
 DECL|method|setSnmpContextName (String snmpContextName)
 specifier|public
 name|void
@@ -1383,6 +1424,7 @@ return|return
 name|snmpContextEngineId
 return|;
 block|}
+comment|/**      * Sets the context engine ID field of the scoped PDU.      */
 DECL|method|setSnmpContextEngineId (String snmpContextEngineId)
 specifier|public
 name|void
