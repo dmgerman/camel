@@ -22,6 +22,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Document
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -112,16 +124,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|context
@@ -146,18 +148,6 @@ name|ClassPathXmlApplicationContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Document
-import|;
-end_import
-
 begin_class
 DECL|class|CxfPayloadProducerNamespaceOnEnvelopeTest
 specifier|public
@@ -166,33 +156,35 @@ name|CxfPayloadProducerNamespaceOnEnvelopeTest
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|field|applicationContext
-specifier|private
-name|AbstractXmlApplicationContext
-name|applicationContext
-decl_stmt|;
 comment|/*      * The response message is generated directly. The issue here is that the      * xsi and xs namespaces are defined on the SOAP envelope but are used      * within the payload. This can cause issues with some type conversions in      * PAYLOAD mode, as the Camel-CXF endpoint will return some kind of window      * within the StAX parsing (and the namespace definitions are outside).      *       * If some CXF implementation bean is used as the service the namespaces      * will be defined within the payload (and everything works fine).      */
-DECL|field|responseMessage
+DECL|field|RESPONSE_MESSAGE
 specifier|private
 specifier|static
 specifier|final
 name|String
-name|responseMessage
+name|RESPONSE_MESSAGE
 init|=
-literal|"<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"><soap:Body>"
+literal|"<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\""
+operator|+
+literal|" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"><soap:Body>"
 operator|+
 literal|"<ns2:getTokenResponse xmlns:ns2=\"http://camel.apache.org/cxf/namespace\"><return xsi:type=\"xs:string\">Return Value</return></ns2:getTokenResponse>"
 operator|+
 literal|"</soap:Body></soap:Envelope>"
 decl_stmt|;
-DECL|field|requestPayload
+DECL|field|REQUEST_PAYLOAD
 specifier|private
 specifier|static
 specifier|final
 name|String
-name|requestPayload
+name|REQUEST_PAYLOAD
 init|=
 literal|"<ns2:getToken xmlns:ns2=\"http://camel.apache.org/cxf/namespace\"/>"
+decl_stmt|;
+DECL|field|applicationContext
+specifier|private
+name|AbstractXmlApplicationContext
+name|applicationContext
 decl_stmt|;
 comment|// Don't remove this, it initializes the CXFTestSupport class
 static|static
@@ -345,7 +337,7 @@ argument_list|()
 operator|.
 name|constant
 argument_list|(
-name|responseMessage
+name|RESPONSE_MESSAGE
 argument_list|)
 expr_stmt|;
 block|}
@@ -369,7 +361,7 @@ name|requestBody
 argument_list|(
 literal|"direct:router"
 argument_list|,
-name|requestPayload
+name|REQUEST_PAYLOAD
 argument_list|)
 decl_stmt|;
 name|assertNotNull
