@@ -159,6 +159,10 @@ name|label
 operator|=
 literal|"producer"
 argument_list|,
+name|defaultValue
+operator|=
+literal|"put"
+argument_list|,
 name|enums
 operator|=
 literal|"put,putAll,putIfAbsent,putAsync,putAllAsync,putIfAbsentAsync,get,containsKey,containsValue,remove,removeAsync,"
@@ -213,6 +217,7 @@ return|return
 name|command
 return|;
 block|}
+comment|/**      * The operation to perform.      */
 DECL|method|setCommand (String command)
 specifier|public
 name|void
@@ -337,7 +342,6 @@ operator|=
 name|sync
 expr_stmt|;
 block|}
-comment|/**     * Specifies the set of event types to register by the consumer      */
 DECL|method|getEventTypes ()
 specifier|public
 name|Set
@@ -351,6 +355,7 @@ return|return
 name|eventTypes
 return|;
 block|}
+comment|/**      * Specifies the set of event types to register by the consumer. Multiple event can be separated by comma.      *<p/>      * The possible event types are: CACHE_ENTRY_ACTIVATED, CACHE_ENTRY_PASSIVATED, CACHE_ENTRY_VISITED, CACHE_ENTRY_LOADED,      * CACHE_ENTRY_EVICTED, CACHE_ENTRY_CREATED, CACHE_ENTRY_REMOVED, CACHE_ENTRY_MODIFIED, TRANSACTION_COMPLETED,      * TRANSACTION_REGISTERED, CACHE_ENTRY_INVALIDATED, DATA_REHASHED, TOPOLOGY_CHANGED, PARTITION_STATUS_CHANGED      */
 DECL|method|setEventTypes (Set<String> eventTypes)
 specifier|public
 name|void
@@ -370,6 +375,7 @@ operator|=
 name|eventTypes
 expr_stmt|;
 block|}
+comment|/**      * Specifies the set of event types to register by the consumer. Multiple event can be separated by comma.      *<p/>      * The possible event types are: CACHE_ENTRY_ACTIVATED, CACHE_ENTRY_PASSIVATED, CACHE_ENTRY_VISITED, CACHE_ENTRY_LOADED,      * CACHE_ENTRY_EVICTED, CACHE_ENTRY_CREATED, CACHE_ENTRY_REMOVED, CACHE_ENTRY_MODIFIED, TRANSACTION_COMPLETED,      * TRANSACTION_REGISTERED, CACHE_ENTRY_INVALIDATED, DATA_REHASHED, TOPOLOGY_CHANGED, PARTITION_STATUS_CHANGED      */
 DECL|method|setEventTypes (String eventTypes)
 specifier|public
 name|void
