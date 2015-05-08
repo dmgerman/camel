@@ -190,7 +190,7 @@ name|getAmazonSdbEndpoint
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertFalse
 argument_list|(
 name|endpoint
 operator|.
@@ -353,7 +353,7 @@ name|getAmazonSdbEndpoint
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertNull
+name|assertFalse
 argument_list|(
 name|endpoint
 operator|.
