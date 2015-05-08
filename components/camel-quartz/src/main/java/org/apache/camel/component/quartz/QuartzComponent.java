@@ -329,8 +329,8 @@ name|scheduler
 decl_stmt|;
 DECL|field|jobsToAdd
 specifier|private
-specifier|transient
 specifier|final
+specifier|transient
 name|List
 argument_list|<
 name|JobToAdd
