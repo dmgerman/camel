@@ -113,6 +113,11 @@ decl_stmt|;
 comment|// compute options
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,compute"
+argument_list|)
 DECL|field|imageId
 specifier|private
 name|String
@@ -120,6 +125,11 @@ name|imageId
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,compute"
+argument_list|)
 DECL|field|locationId
 specifier|private
 name|String
@@ -127,6 +137,11 @@ name|locationId
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,compute"
+argument_list|)
 DECL|field|hardwareId
 specifier|private
 name|String
@@ -134,6 +149,11 @@ name|hardwareId
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,compute"
+argument_list|)
 DECL|field|operation
 specifier|private
 name|String
@@ -141,6 +161,15 @@ name|operation
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,compute"
+argument_list|,
+name|enums
+operator|=
+literal|"PENDING,TERMINATED,SUSPENDED,RUNNING,ERROR,UNRECOGNIZED"
+argument_list|)
 DECL|field|nodeState
 specifier|private
 name|String
@@ -148,6 +177,11 @@ name|nodeState
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,compute"
+argument_list|)
 DECL|field|nodeId
 specifier|private
 name|String
@@ -155,6 +189,11 @@ name|nodeId
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,compute"
+argument_list|)
 DECL|field|group
 specifier|private
 name|String
@@ -162,6 +201,11 @@ name|group
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,compute"
+argument_list|)
 DECL|field|user
 specifier|private
 name|String
@@ -170,6 +214,11 @@ decl_stmt|;
 comment|// blob options
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"blobstore"
+argument_list|)
 DECL|field|container
 specifier|private
 name|String
@@ -177,6 +226,11 @@ name|container
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,blobstore"
+argument_list|)
 DECL|field|directory
 specifier|private
 name|String
@@ -184,6 +238,11 @@ name|directory
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,blobstore"
+argument_list|)
 DECL|field|blobName
 specifier|private
 name|String
@@ -199,6 +258,7 @@ return|return
 name|command
 return|;
 block|}
+comment|/**      * What command to execute such as blobstore or compute.      */
 DECL|method|setCommand (JcloudsCommand command)
 specifier|public
 name|void
@@ -225,6 +285,7 @@ return|return
 name|providerId
 return|;
 block|}
+comment|/**      * The name of the cloud provider that provides the target service (e.g. aws-s3 or aws_ec2).      */
 DECL|method|setProviderId (String providerId)
 specifier|public
 name|void
@@ -251,6 +312,7 @@ return|return
 name|imageId
 return|;
 block|}
+comment|/**      * The imageId that will be used for creating a node. Values depend on the actual cloud provider.      */
 DECL|method|setImageId (String imageId)
 specifier|public
 name|void
@@ -277,6 +339,7 @@ return|return
 name|locationId
 return|;
 block|}
+comment|/**      * The location that will be used for creating a node. Values depend on the actual cloud provider.      */
 DECL|method|setLocationId (String locationId)
 specifier|public
 name|void
@@ -303,6 +366,7 @@ return|return
 name|hardwareId
 return|;
 block|}
+comment|/**      * The hardware that will be used for creating a node. Values depend on the actual cloud provider.      */
 DECL|method|setHardwareId (String hardwareId)
 specifier|public
 name|void
@@ -329,6 +393,7 @@ return|return
 name|operation
 return|;
 block|}
+comment|/**      * Specifies the type of operation that will be performed to the blobstore.      */
 DECL|method|setOperation (String operation)
 specifier|public
 name|void
@@ -355,6 +420,7 @@ return|return
 name|nodeState
 return|;
 block|}
+comment|/**      * To filter by node status to only select running nodes etc.      */
 DECL|method|setNodeState (String nodeState)
 specifier|public
 name|void
@@ -381,6 +447,7 @@ return|return
 name|nodeId
 return|;
 block|}
+comment|/**      * The id of the node that will run the script or destroyed.      */
 DECL|method|setNodeId (String nodeId)
 specifier|public
 name|void
@@ -407,6 +474,7 @@ return|return
 name|group
 return|;
 block|}
+comment|/**      * The group that will be assigned to the newly created node. Values depend on the actual cloud provider.      */
 DECL|method|setGroup (String group)
 specifier|public
 name|void
@@ -433,6 +501,7 @@ return|return
 name|user
 return|;
 block|}
+comment|/**      * The user on the target node that will run the script.      */
 DECL|method|setUser (String user)
 specifier|public
 name|void
@@ -459,6 +528,7 @@ return|return
 name|container
 return|;
 block|}
+comment|/**      * The name of the blob container.      */
 DECL|method|setContainer (String container)
 specifier|public
 name|void
@@ -485,6 +555,7 @@ return|return
 name|directory
 return|;
 block|}
+comment|/**      * An optional directory name to use      */
 DECL|method|setDirectory (String directory)
 specifier|public
 name|void
@@ -511,6 +582,7 @@ return|return
 name|blobName
 return|;
 block|}
+comment|/**      * The name of the blob.      */
 DECL|method|setBlobName (String blobName)
 specifier|public
 name|void

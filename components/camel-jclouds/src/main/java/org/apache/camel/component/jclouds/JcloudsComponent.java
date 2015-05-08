@@ -605,6 +605,7 @@ return|return
 name|blobStores
 return|;
 block|}
+comment|/**      * To use the given BlobStore which must be configured when using blobstore.      */
 DECL|method|setBlobStores (List<BlobStore> blobStores)
 specifier|public
 name|void
@@ -637,6 +638,7 @@ return|return
 name|computeServices
 return|;
 block|}
+comment|/**      * To use the given ComputeService which must be configured when use compute.      */
 DECL|method|setComputeServices (List<ComputeService> computeServices)
 specifier|public
 name|void
