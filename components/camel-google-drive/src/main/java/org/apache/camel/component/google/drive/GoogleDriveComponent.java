@@ -296,6 +296,27 @@ return|return
 name|clientFactory
 return|;
 block|}
+comment|/**      * To use the shared configuration      */
+annotation|@
+name|Override
+DECL|method|setConfiguration (GoogleDriveConfiguration configuration)
+specifier|public
+name|void
+name|setConfiguration
+parameter_list|(
+name|GoogleDriveConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setConfiguration
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * To use the GoogleCalendarClientFactory as factory for creating the client.      * Will by default use {@link BatchGoogleDriveClientFactory}      */
 DECL|method|setClientFactory (GoogleDriveClientFactory clientFactory)
 specifier|public
 name|void

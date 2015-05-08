@@ -86,6 +86,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriParam
 import|;
 end_import
@@ -163,6 +177,13 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|apiName
 specifier|private
 name|GoogleDriveApiName
@@ -170,6 +191,18 @@ name|apiName
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|enums
+operator|=
+literal|"copy,delete,get,getIdForEmail,insert,list,patch,stop,touch,untrash,update,watch"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|methodName
 specifier|private
 name|String
@@ -232,6 +265,7 @@ return|return
 name|apiName
 return|;
 block|}
+comment|/**      * What kind of operation to perform      */
 DECL|method|setApiName (GoogleDriveApiName apiName)
 specifier|public
 name|void
@@ -258,6 +292,7 @@ return|return
 name|methodName
 return|;
 block|}
+comment|/**      * What sub operation to use for the selected operation      */
 DECL|method|setMethodName (String methodName)
 specifier|public
 name|void
@@ -284,6 +319,7 @@ return|return
 name|clientId
 return|;
 block|}
+comment|/**      * Client ID of the drive application      */
 DECL|method|setClientId (String clientId)
 specifier|public
 name|void
@@ -310,6 +346,7 @@ return|return
 name|clientSecret
 return|;
 block|}
+comment|/**      * Client secret of the drive application      */
 DECL|method|setClientSecret (String clientSecret)
 specifier|public
 name|void
@@ -336,6 +373,7 @@ return|return
 name|accessToken
 return|;
 block|}
+comment|/**      * OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.      */
 DECL|method|setAccessToken (String accessToken)
 specifier|public
 name|void
@@ -362,6 +400,7 @@ return|return
 name|refreshToken
 return|;
 block|}
+comment|/**      * OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.      */
 DECL|method|setRefreshToken (String refreshToken)
 specifier|public
 name|void
@@ -388,6 +427,7 @@ return|return
 name|applicationName
 return|;
 block|}
+comment|/**      * Google drive application name. Example would be "camel-google-drive/1.0"      */
 DECL|method|setApplicationName (String applicationName)
 specifier|public
 name|void
@@ -417,6 +457,7 @@ return|return
 name|scopes
 return|;
 block|}
+comment|/**      * Specifies the level of permissions you want a drive application to have to a user account. See https://developers.google.com/drive/web/scopes for more info.      */
 DECL|method|setScopes (List<String> scopes)
 specifier|public
 name|void

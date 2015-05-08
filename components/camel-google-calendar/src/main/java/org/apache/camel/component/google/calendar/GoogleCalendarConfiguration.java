@@ -182,7 +182,7 @@ name|UriPath
 argument_list|(
 name|enums
 operator|=
-literal|"calendarId,calendarImport,clear,content,contentChannel,delete,destination,eventId,get,insert,instances,list,move,patch,query,quickAdd,ruleId,setting,stop,text,update,watch"
+literal|"calendarImport,clear,delete,get,insert,instances,list,move,patch,query,quickAdd,stop,update,watch"
 argument_list|)
 annotation|@
 name|Metadata
