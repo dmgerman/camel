@@ -233,6 +233,13 @@ name|authSecureStorage
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|userName
 specifier|private
 name|String
@@ -306,7 +313,6 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
-comment|/**      * Box.com login timeout in seconds, defaults to 30.      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -331,6 +337,7 @@ return|return
 name|apiName
 return|;
 block|}
+comment|/**      * What kind of operation to perform      */
 DECL|method|setApiName (BoxApiName apiName)
 specifier|public
 name|void
@@ -357,6 +364,7 @@ return|return
 name|methodName
 return|;
 block|}
+comment|/**      * What sub operation to use for the selected operation      */
 DECL|method|setMethodName (String methodName)
 specifier|public
 name|void
@@ -383,6 +391,7 @@ return|return
 name|clientId
 return|;
 block|}
+comment|/**      * Box application client ID      */
 DECL|method|setClientId (String clientId)
 specifier|public
 name|void
@@ -409,6 +418,7 @@ return|return
 name|clientSecret
 return|;
 block|}
+comment|/**      * Box application client secret      */
 DECL|method|setClientSecret (String clientSecret)
 specifier|public
 name|void
@@ -435,6 +445,7 @@ return|return
 name|authSecureStorage
 return|;
 block|}
+comment|/**      * OAuth Secure Storage callback, can be used to provide and or save OAuth tokens.      * The callback may return null on first call to allow the component to login and authorize application      * and obtain an OAuth token, which can then be saved in the secure storage.      * For the component to be able to create a token automatically a user password must be provided.      */
 DECL|method|setAuthSecureStorage (IAuthSecureStorage authSecureStorage)
 specifier|public
 name|void
@@ -461,6 +472,7 @@ return|return
 name|userName
 return|;
 block|}
+comment|/**      * Box user name, MUST be provided      */
 DECL|method|setUserName (String userName)
 specifier|public
 name|void
@@ -487,6 +499,7 @@ return|return
 name|userPassword
 return|;
 block|}
+comment|/**      * Box user password, MUST be provided if authSecureStorage is not set, or returns null on first call      */
 DECL|method|setUserPassword (String userPassword)
 specifier|public
 name|void
@@ -513,6 +526,7 @@ return|return
 name|refreshListener
 return|;
 block|}
+comment|/**      * OAuth listener for token updates, if the Camel application needs to use the access token outside the route      */
 DECL|method|setRefreshListener (OAuthRefreshListener refreshListener)
 specifier|public
 name|void
@@ -539,6 +553,7 @@ return|return
 name|revokeOnShutdown
 return|;
 block|}
+comment|/**      * Flag to revoke OAuth refresh token on route shutdown, default false.      * Will require a fresh refresh token on restart using either a custom IAuthSecureStorage      * or automatic component login by providing a user password      */
 DECL|method|setRevokeOnShutdown (boolean revokeOnShutdown)
 specifier|public
 name|void
@@ -565,6 +580,7 @@ return|return
 name|sharedLink
 return|;
 block|}
+comment|/**      * Box shared link for shared endpoints, can be a link for a shared comment, file or folder      */
 DECL|method|setSharedLink (String sharedLink)
 specifier|public
 name|void
@@ -591,6 +607,7 @@ return|return
 name|sharedPassword
 return|;
 block|}
+comment|/**      * Password associated with the shared link, MUST be provided with sharedLink      */
 DECL|method|setSharedPassword (String sharedPassword)
 specifier|public
 name|void
@@ -617,6 +634,7 @@ return|return
 name|boxConfig
 return|;
 block|}
+comment|/**      * Custom Box SDK configuration, not required normally      */
 DECL|method|setBoxConfig (IBoxConfig boxConfig)
 specifier|public
 name|void
@@ -643,6 +661,7 @@ return|return
 name|connectionManagerBuilder
 return|;
 block|}
+comment|/**      * Custom Box connection manager builder, used to override default settings like max connections for underlying HttpClient.      */
 DECL|method|setConnectionManagerBuilder (BoxConnectionManagerBuilder connectionManagerBuilder)
 specifier|public
 name|void
@@ -674,6 +693,7 @@ return|return
 name|httpParams
 return|;
 block|}
+comment|/**      * Custom HTTP params for settings like proxy host      */
 DECL|method|setHttpParams (Map<String, Object> httpParams)
 specifier|public
 name|void
@@ -705,6 +725,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
+comment|/**      * To configure security using SSLContextParameters.      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
@@ -731,6 +752,7 @@ return|return
 name|loginTimeout
 return|;
 block|}
+comment|/**      * Amount of time the component will wait for a response from Box.com, default is 30 seconds      */
 DECL|method|setLoginTimeout (int loginTimeout)
 specifier|public
 name|void

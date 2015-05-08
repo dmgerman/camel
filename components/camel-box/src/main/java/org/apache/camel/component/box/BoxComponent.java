@@ -275,14 +275,51 @@ name|endpointConfiguration
 argument_list|)
 return|;
 block|}
-comment|// get the component's singleton BoxClient
 DECL|method|getBoxClient ()
-specifier|protected
-specifier|synchronized
+specifier|public
 name|CachedBoxClient
 name|getBoxClient
 parameter_list|()
 block|{
+return|return
+name|cachedBoxClient
+return|;
+block|}
+comment|/**      * To use the shared configuration      */
+annotation|@
+name|Override
+DECL|method|setConfiguration (BoxConfiguration configuration)
+specifier|public
+name|void
+name|setConfiguration
+parameter_list|(
+name|BoxConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setConfiguration
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|cachedBoxClient
@@ -318,9 +355,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-return|return
-name|cachedBoxClient
-return|;
 block|}
 annotation|@
 name|Override
