@@ -502,6 +502,10 @@ argument_list|,
 name|timeout
 argument_list|)
 expr_stmt|;
+name|boolean
+index|[]
+name|value
+init|=
 name|socketAudits
 operator|.
 name|get
@@ -513,6 +517,8 @@ argument_list|(
 name|this
 argument_list|)
 argument_list|)
+decl_stmt|;
+name|value
 index|[
 literal|0
 index|]
@@ -536,6 +542,10 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|boolean
+index|[]
+name|value
+init|=
 name|socketAudits
 operator|.
 name|get
@@ -547,6 +557,8 @@ argument_list|(
 name|this
 argument_list|)
 argument_list|)
+decl_stmt|;
+name|value
 index|[
 literal|1
 index|]
