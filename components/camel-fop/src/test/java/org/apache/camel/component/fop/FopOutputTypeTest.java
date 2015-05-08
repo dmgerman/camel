@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.fop.utils
+DECL|package|org.apache.camel.component.fop
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|component
 operator|.
 name|fop
-operator|.
-name|utils
 package|;
 end_package
 
@@ -43,11 +41,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|OutputFormatEnumTest
+DECL|class|FopOutputTypeTest
 specifier|public
-specifier|final
 class|class
-name|OutputFormatEnumTest
+name|FopOutputTypeTest
 block|{
 annotation|@
 name|Test
@@ -60,7 +57,7 @@ block|{
 name|String
 name|pdfExtended
 init|=
-name|OutputFormatEnum
+name|FopOutputType
 operator|.
 name|valueOf
 argument_list|(
@@ -80,7 +77,7 @@ expr_stmt|;
 name|String
 name|pngExtended
 init|=
-name|OutputFormatEnum
+name|FopOutputType
 operator|.
 name|valueOf
 argument_list|(

@@ -212,7 +212,7 @@ literal|"FOP"
 argument_list|,
 name|syntax
 operator|=
-literal|"fop:outputFormat"
+literal|"fop:outputType"
 argument_list|,
 name|producerOnly
 operator|=
@@ -238,10 +238,10 @@ name|required
 operator|=
 literal|"true"
 argument_list|)
-DECL|field|outputFormat
+DECL|field|outputType
 specifier|private
-name|String
-name|outputFormat
+name|FopOutputType
+name|outputType
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -257,7 +257,7 @@ specifier|private
 name|FopFactory
 name|fopFactory
 decl_stmt|;
-DECL|method|FopEndpoint (String uri, FopComponent component, String outputFormat)
+DECL|method|FopEndpoint (String uri, FopComponent component, FopOutputType outputType)
 specifier|public
 name|FopEndpoint
 parameter_list|(
@@ -267,8 +267,8 @@ parameter_list|,
 name|FopComponent
 name|component
 parameter_list|,
-name|String
-name|outputFormat
+name|FopOutputType
+name|outputType
 parameter_list|)
 block|{
 name|super
@@ -280,9 +280,9 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|outputFormat
+name|outputType
 operator|=
-name|outputFormat
+name|outputType
 expr_stmt|;
 block|}
 DECL|method|createProducer ()
@@ -301,7 +301,10 @@ name|this
 argument_list|,
 name|fopFactory
 argument_list|,
-name|outputFormat
+name|outputType
+operator|.
+name|getFormatExtended
+argument_list|()
 argument_list|)
 return|;
 block|}
@@ -334,31 +337,31 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|getOutputFormat ()
+DECL|method|getOutputType ()
 specifier|public
-name|String
-name|getOutputFormat
+name|FopOutputType
+name|getOutputType
 parameter_list|()
 block|{
 return|return
-name|outputFormat
+name|outputType
 return|;
 block|}
 comment|/**      * The primary output format is PDF but other output formats are also supported.      */
-DECL|method|setOutputFormat (String outputFormat)
+DECL|method|setOutputType (FopOutputType outputType)
 specifier|public
 name|void
-name|setOutputFormat
+name|setOutputType
 parameter_list|(
-name|String
-name|outputFormat
+name|FopOutputType
+name|outputType
 parameter_list|)
 block|{
 name|this
 operator|.
-name|outputFormat
+name|outputType
 operator|=
-name|outputFormat
+name|outputType
 expr_stmt|;
 block|}
 DECL|method|getUserConfigURL ()
