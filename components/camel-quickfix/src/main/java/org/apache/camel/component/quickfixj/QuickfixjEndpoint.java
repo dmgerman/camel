@@ -206,6 +206,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriPath
 import|;
 end_import
@@ -335,10 +349,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|sessionID
+DECL|field|engine
 specifier|private
-name|SessionID
-name|sessionID
+specifier|final
+name|QuickfixjEngine
+name|engine
 decl_stmt|;
 DECL|field|consumers
 specifier|private
@@ -370,11 +385,19 @@ specifier|private
 name|String
 name|configurationName
 decl_stmt|;
-DECL|field|engine
+annotation|@
+name|UriParam
+DECL|field|sessionID
 specifier|private
-specifier|final
-name|QuickfixjEngine
-name|engine
+name|SessionID
+name|sessionID
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|lazyCreateEngine
+specifier|private
+name|boolean
+name|lazyCreateEngine
 decl_stmt|;
 annotation|@
 name|Deprecated
@@ -444,6 +467,7 @@ return|return
 name|sessionID
 return|;
 block|}
+comment|/**      * The optional sessionID identifies a specific FIX session. The format of the sessionID is:      * (BeginString):(SenderCompID)[/(SenderSubID)[/(SenderLocationID)]]->(TargetCompID)[/(TargetSubID)[/(TargetLocationID)]]      */
 DECL|method|setSessionID (SessionID sessionID)
 specifier|public
 name|void
@@ -470,6 +494,7 @@ return|return
 name|configurationName
 return|;
 block|}
+comment|/**      * The configFile is the name of the QuickFIX/J configuration to use for the FIX engine (located as a resource found in your classpath).      */
 DECL|method|setConfigurationName (String configurationName)
 specifier|public
 name|void
@@ -484,6 +509,33 @@ operator|.
 name|configurationName
 operator|=
 name|configurationName
+expr_stmt|;
+block|}
+DECL|method|isLazyCreateEngine ()
+specifier|public
+name|boolean
+name|isLazyCreateEngine
+parameter_list|()
+block|{
+return|return
+name|lazyCreateEngine
+return|;
+block|}
+comment|/**      * This option allows to create QuickFIX/J engine on demand.      * Value true means the engine is started when first message is send or there's consumer configured in route definition.      * When false value is used, the engine is started at the endpoint creation.      * When this parameter is missing, the value of component's property lazyCreateEngines is being used.      */
+DECL|method|setLazyCreateEngine (boolean lazyCreateEngine)
+specifier|public
+name|void
+name|setLazyCreateEngine
+parameter_list|(
+name|boolean
+name|lazyCreateEngine
+parameter_list|)
+block|{
+name|this
+operator|.
+name|lazyCreateEngine
+operator|=
+name|lazyCreateEngine
 expr_stmt|;
 block|}
 annotation|@

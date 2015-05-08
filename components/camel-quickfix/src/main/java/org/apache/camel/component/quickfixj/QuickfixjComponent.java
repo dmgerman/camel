@@ -402,8 +402,6 @@ argument_list|)
 decl_stmt|;
 name|SessionSettings
 name|settings
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -539,6 +537,16 @@ operator|.
 name|setConfigurationName
 argument_list|(
 name|remaining
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setLazyCreateEngine
+argument_list|(
+name|engine
+operator|.
+name|isLazy
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|engine
@@ -746,6 +754,7 @@ name|provisionalEngines
 argument_list|)
 return|;
 block|}
+comment|/**      * To use the given MessageFactory      */
 DECL|method|setMessageFactory (MessageFactory messageFactory)
 specifier|public
 name|void
@@ -762,6 +771,7 @@ operator|=
 name|messageFactory
 expr_stmt|;
 block|}
+comment|/**      * To use the given LogFactory      */
 DECL|method|setLogFactory (LogFactory logFactory)
 specifier|public
 name|void
@@ -778,6 +788,7 @@ operator|=
 name|logFactory
 expr_stmt|;
 block|}
+comment|/**      * To use the given MessageStoreFactory      */
 DECL|method|setMessageStoreFactory (MessageStoreFactory messageStoreFactory)
 specifier|public
 name|void
@@ -794,18 +805,6 @@ operator|=
 name|messageStoreFactory
 expr_stmt|;
 block|}
-comment|/**      * @deprecated Don't use as setting the {@code forcedShutdown} property had/has no effect.      */
-annotation|@
-name|Deprecated
-DECL|method|setForcedShutdown (boolean forcedShutdown)
-specifier|public
-name|void
-name|setForcedShutdown
-parameter_list|(
-name|boolean
-name|forcedShutdown
-parameter_list|)
-block|{     }
 DECL|method|getConfigurations ()
 specifier|public
 name|Map
@@ -821,6 +820,7 @@ return|return
 name|configurations
 return|;
 block|}
+comment|/**      * To use the given map of pre configured QuickFix configurations mapped to the key      */
 DECL|method|setConfigurations (Map<String, QuickfixjConfiguration> configurations)
 specifier|public
 name|void
@@ -854,7 +854,7 @@ operator|.
 name|lazyCreateEngines
 return|;
 block|}
-comment|/**      * If set to<code>true</code>, the engines will be created and started when needed (when first message      * is send)      *      * @param lazyCreateEngines      */
+comment|/**      * If set to<code>true</code>, the engines will be created and started when needed (when first message      * is send)      */
 DECL|method|setLazyCreateEngines (boolean lazyCreateEngines)
 specifier|public
 name|void
