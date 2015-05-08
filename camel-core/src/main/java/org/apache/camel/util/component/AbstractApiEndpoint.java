@@ -336,6 +336,11 @@ decl_stmt|;
 comment|// property name for Exchange 'In' message body
 annotation|@
 name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"Sets the name of a parameter to be passed in the exchange In Body"
+argument_list|)
 DECL|field|inBody
 specifier|protected
 name|String

@@ -296,6 +296,42 @@ return|return
 name|clientFactory
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getConfiguration ()
+specifier|public
+name|GoogleCalendarConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|super
+operator|.
+name|getConfiguration
+argument_list|()
+return|;
+block|}
+comment|/**      * To use the shared configuration      */
+annotation|@
+name|Override
+DECL|method|setConfiguration (GoogleCalendarConfiguration configuration)
+specifier|public
+name|void
+name|setConfiguration
+parameter_list|(
+name|GoogleCalendarConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setConfiguration
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * To use the GoogleCalendarClientFactory as factory for creating the client.      * Will by default use {@link BatchGoogleCalendarClientFactory}      */
 DECL|method|setClientFactory (GoogleCalendarClientFactory clientFactory)
 specifier|public
 name|void
