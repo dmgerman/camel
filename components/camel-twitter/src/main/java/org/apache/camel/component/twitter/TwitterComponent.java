@@ -212,6 +212,13 @@ argument_list|(
 name|httpProxyPassword
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|httpProxyPort
+operator|!=
+literal|null
+condition|)
+block|{
 name|properties
 operator|.
 name|setHttpProxyPort
@@ -219,6 +226,7 @@ argument_list|(
 name|httpProxyPort
 argument_list|)
 expr_stmt|;
+block|}
 comment|// and then override from parameters
 name|setProperties
 argument_list|(
