@@ -388,8 +388,6 @@ argument_list|<
 name|Exchange
 argument_list|>
 name|exchanges
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(

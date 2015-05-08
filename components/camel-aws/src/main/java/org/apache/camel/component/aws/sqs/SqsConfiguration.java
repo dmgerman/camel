@@ -169,37 +169,46 @@ comment|// consumer properties
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
 argument_list|)
 DECL|field|deleteAfterRead
 specifier|private
-name|Boolean
+name|boolean
 name|deleteAfterRead
 init|=
-name|Boolean
-operator|.
-name|TRUE
+literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
 argument_list|)
 DECL|field|deleteIfFiltered
 specifier|private
-name|Boolean
+name|boolean
 name|deleteIfFiltered
 init|=
-name|Boolean
-operator|.
-name|TRUE
+literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|visibilityTimeout
 specifier|private
 name|Integer
@@ -207,6 +216,11 @@ name|visibilityTimeout
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|attributeNames
 specifier|private
 name|Collection
@@ -217,6 +231,11 @@ name|attributeNames
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|messageAttributeNames
 specifier|private
 name|Collection
@@ -227,6 +246,11 @@ name|messageAttributeNames
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|waitTimeSeconds
 specifier|private
 name|Integer
@@ -234,6 +258,11 @@ name|waitTimeSeconds
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|defaultVisibilityTimeout
 specifier|private
 name|Integer
@@ -242,29 +271,29 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|defaultValue
+name|label
 operator|=
-literal|"false"
+literal|"consumer"
 argument_list|)
 DECL|field|extendMessageVisibility
 specifier|private
-name|Boolean
+name|boolean
 name|extendMessageVisibility
-init|=
-name|Boolean
-operator|.
-name|FALSE
 decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"1"
 argument_list|)
 DECL|field|concurrentConsumers
 specifier|private
-name|Integer
+name|int
 name|concurrentConsumers
 init|=
 literal|1
@@ -272,6 +301,11 @@ decl_stmt|;
 comment|// producer properties
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|delaySeconds
 specifier|private
 name|Integer
@@ -314,6 +348,7 @@ specifier|private
 name|String
 name|redrivePolicy
 decl_stmt|;
+comment|/**      * The region with which the AWS-SQS client wants to work with.      * Only works if Camel creates the AWS-SQS client, i.e., if you explicitly set amazonSQSClient,      * then this setting will have no effect. You would have to set it on the client you create directly      */
 DECL|method|setAmazonSQSEndpoint (String amazonSQSEndpoint)
 specifier|public
 name|void
@@ -350,6 +385,7 @@ return|return
 name|queueName
 return|;
 block|}
+comment|/**      * Name of queue. The queue will be created if they don't already exists.      */
 DECL|method|setQueueName (String queueName)
 specifier|public
 name|void
@@ -376,6 +412,7 @@ return|return
 name|accessKey
 return|;
 block|}
+comment|/**      * Amazon AWS Access Key      */
 DECL|method|setAccessKey (String accessKey)
 specifier|public
 name|void
@@ -402,6 +439,7 @@ return|return
 name|secretKey
 return|;
 block|}
+comment|/**      * Amazon AWS Secret Key      */
 DECL|method|setSecretKey (String secretKey)
 specifier|public
 name|void
@@ -420,7 +458,7 @@ expr_stmt|;
 block|}
 DECL|method|isDeleteAfterRead ()
 specifier|public
-name|Boolean
+name|boolean
 name|isDeleteAfterRead
 parameter_list|()
 block|{
@@ -428,12 +466,13 @@ return|return
 name|deleteAfterRead
 return|;
 block|}
-DECL|method|setDeleteAfterRead (Boolean deleteAfterRead)
+comment|/**      * Delete message from SQS after it has been read      */
+DECL|method|setDeleteAfterRead (boolean deleteAfterRead)
 specifier|public
 name|void
 name|setDeleteAfterRead
 parameter_list|(
-name|Boolean
+name|boolean
 name|deleteAfterRead
 parameter_list|)
 block|{
@@ -454,6 +493,7 @@ return|return
 name|amazonSQSClient
 return|;
 block|}
+comment|/**      * To use the AmazonSQS as client      */
 DECL|method|setAmazonSQSClient (AmazonSQS amazonSQSClient)
 specifier|public
 name|void
@@ -480,6 +520,7 @@ return|return
 name|visibilityTimeout
 return|;
 block|}
+comment|/**      * The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved      * by a ReceiveMessage request to set in the com.amazonaws.services.sqs.model.SetQueueAttributesRequest.      * This only make sense if its different from defaultVisibilityTimeout.      * It changes the queue visibility timeout attribute permanently.      */
 DECL|method|setVisibilityTimeout (Integer visibilityTimeout)
 specifier|public
 name|void
@@ -509,6 +550,7 @@ return|return
 name|attributeNames
 return|;
 block|}
+comment|/**      * A list of attribute names to receive when consuming      */
 DECL|method|setAttributeNames (Collection<String> attributeNames)
 specifier|public
 name|void
@@ -541,6 +583,7 @@ return|return
 name|messageAttributeNames
 return|;
 block|}
+comment|/**      * A list of message attribute names to receive when consuming      */
 DECL|method|setMessageAttributeNames (Collection<String> messageAttributeNames)
 specifier|public
 name|void
@@ -570,6 +613,7 @@ return|return
 name|defaultVisibilityTimeout
 return|;
 block|}
+comment|/**      * The default visibility timeout (in seconds)      */
 DECL|method|setDefaultVisibilityTimeout (Integer defaultVisibilityTimeout)
 specifier|public
 name|void
@@ -596,6 +640,7 @@ return|return
 name|delaySeconds
 return|;
 block|}
+comment|/**      * Delay sending messages for a number of seconds.      */
 DECL|method|setDelaySeconds (Integer delaySeconds)
 specifier|public
 name|void
@@ -622,6 +667,7 @@ return|return
 name|maximumMessageSize
 return|;
 block|}
+comment|/**      * The maximumMessageSize (in bytes) an SQS message can contain for this queue.      */
 DECL|method|setMaximumMessageSize (Integer maximumMessageSize)
 specifier|public
 name|void
@@ -648,6 +694,7 @@ return|return
 name|messageRetentionPeriod
 return|;
 block|}
+comment|/**      * The messageRetentionPeriod (in seconds) a message will be retained by SQS for this queue.      */
 DECL|method|setMessageRetentionPeriod (Integer messageRetentionPeriod)
 specifier|public
 name|void
@@ -674,6 +721,7 @@ return|return
 name|policy
 return|;
 block|}
+comment|/**      * The policy for this queue      */
 DECL|method|setPolicy (String policy)
 specifier|public
 name|void
@@ -700,6 +748,7 @@ return|return
 name|redrivePolicy
 return|;
 block|}
+comment|/**      * Specify the policy that send message to DeadLetter queue. See detail at Amazon docs.      */
 DECL|method|setRedrivePolicy (String redrivePolicy)
 specifier|public
 name|void
@@ -728,12 +777,13 @@ operator|.
 name|extendMessageVisibility
 return|;
 block|}
-DECL|method|setExtendMessageVisibility (Boolean extendMessageVisibility)
+comment|/**      * If enabled then a scheduled background task will keep extending the message visibility on SQS.      * This is needed if it takes a long time to process the message. If set to true defaultVisibilityTimeout must be set.      * See details at Amazon docs.      */
+DECL|method|setExtendMessageVisibility (boolean extendMessageVisibility)
 specifier|public
 name|void
 name|setExtendMessageVisibility
 parameter_list|(
-name|Boolean
+name|boolean
 name|extendMessageVisibility
 parameter_list|)
 block|{
@@ -754,6 +804,7 @@ return|return
 name|receiveMessageWaitTimeSeconds
 return|;
 block|}
+comment|/**      * If you do not specify WaitTimeSeconds in the request, the queue attribute ReceiveMessageWaitTimeSeconds is used to determine how long to wait.      */
 DECL|method|setReceiveMessageWaitTimeSeconds (Integer receiveMessageWaitTimeSeconds)
 specifier|public
 name|void
@@ -780,6 +831,7 @@ return|return
 name|waitTimeSeconds
 return|;
 block|}
+comment|/**      * Duration in seconds (0 to 20) that the ReceiveMessage action call will wait until a message is in the queue to include in the response.      */
 DECL|method|setWaitTimeSeconds (Integer waitTimeSeconds)
 specifier|public
 name|void
@@ -806,6 +858,7 @@ return|return
 name|queueOwnerAWSAccountId
 return|;
 block|}
+comment|/**      * Specify the queue owner aws account id when you need to connect the queue with different account owner.      */
 DECL|method|setQueueOwnerAWSAccountId (String queueOwnerAWSAccountId)
 specifier|public
 name|void
@@ -824,7 +877,7 @@ expr_stmt|;
 block|}
 DECL|method|isDeleteIfFiltered ()
 specifier|public
-name|Boolean
+name|boolean
 name|isDeleteIfFiltered
 parameter_list|()
 block|{
@@ -832,12 +885,13 @@ return|return
 name|deleteIfFiltered
 return|;
 block|}
-DECL|method|setDeleteIfFiltered (Boolean deleteIfFiltered)
+comment|/**      * Whether or not to send the DeleteMessage to the SQS queue if an exchange fails to get through a filter.      * If 'false' and exchange does not make it through a Camel filter upstream in the route, then don't send DeleteMessage.      */
+DECL|method|setDeleteIfFiltered (boolean deleteIfFiltered)
 specifier|public
 name|void
 name|setDeleteIfFiltered
 parameter_list|(
-name|Boolean
+name|boolean
 name|deleteIfFiltered
 parameter_list|)
 block|{
@@ -858,6 +912,7 @@ return|return
 name|region
 return|;
 block|}
+comment|/**      * Specify the queue region which could be used with queueOwnerAWSAccountId to build the service URL.      */
 DECL|method|setRegion (String region)
 specifier|public
 name|void
@@ -874,9 +929,10 @@ operator|=
 name|region
 expr_stmt|;
 block|}
+comment|/**      * Allows you to use multiple threads to poll the sqs queue to increase throughput      */
 DECL|method|getConcurrentConsumers ()
 specifier|public
-name|Integer
+name|int
 name|getConcurrentConsumers
 parameter_list|()
 block|{
@@ -884,12 +940,12 @@ return|return
 name|concurrentConsumers
 return|;
 block|}
-DECL|method|setConcurrentConsumers (Integer concurrentConsumers)
+DECL|method|setConcurrentConsumers (int concurrentConsumers)
 specifier|public
 name|void
 name|setConcurrentConsumers
 parameter_list|(
-name|Integer
+name|int
 name|concurrentConsumers
 parameter_list|)
 block|{

@@ -144,7 +144,7 @@ annotation|@
 name|UriParam
 DECL|field|consistentRead
 specifier|private
-name|Boolean
+name|boolean
 name|consistentRead
 decl_stmt|;
 annotation|@
@@ -191,6 +191,7 @@ specifier|private
 name|String
 name|keyAttributeType
 decl_stmt|;
+comment|/**      * The region with which the AWS-DDB client wants to work with.      */
 DECL|method|setAmazonDdbEndpoint (String amazonDdbEndpoint)
 specifier|public
 name|void
@@ -227,6 +228,7 @@ return|return
 name|accessKey
 return|;
 block|}
+comment|/**      * Amazon AWS Access Key      */
 DECL|method|setAccessKey (String accessKey)
 specifier|public
 name|void
@@ -253,6 +255,7 @@ return|return
 name|secretKey
 return|;
 block|}
+comment|/**      * Amazon AWS Secret Key      */
 DECL|method|setSecretKey (String secretKey)
 specifier|public
 name|void
@@ -279,6 +282,7 @@ return|return
 name|amazonDDBClient
 return|;
 block|}
+comment|/**      * To use the AmazonDynamoDB as the client      */
 DECL|method|setAmazonDDBClient (AmazonDynamoDB amazonDDBClient)
 specifier|public
 name|void
@@ -305,6 +309,7 @@ return|return
 name|tableName
 return|;
 block|}
+comment|/**      * The name of the table currently worked with.      */
 DECL|method|setTableName (String tableName)
 specifier|public
 name|void
@@ -331,6 +336,7 @@ return|return
 name|operation
 return|;
 block|}
+comment|/**      * What operation to perform      */
 DECL|method|setOperation (DdbOperations operation)
 specifier|public
 name|void
@@ -347,22 +353,23 @@ operator|=
 name|operation
 expr_stmt|;
 block|}
-DECL|method|getConsistentRead ()
+DECL|method|isConsistentRead ()
 specifier|public
-name|Boolean
-name|getConsistentRead
+name|boolean
+name|isConsistentRead
 parameter_list|()
 block|{
 return|return
 name|consistentRead
 return|;
 block|}
-DECL|method|setConsistentRead (Boolean consistentRead)
+comment|/**      * Determines whether or not strong consistency should be enforced when data is read.      */
+DECL|method|setConsistentRead (boolean consistentRead)
 specifier|public
 name|void
 name|setConsistentRead
 parameter_list|(
-name|Boolean
+name|boolean
 name|consistentRead
 parameter_list|)
 block|{
@@ -383,6 +390,7 @@ return|return
 name|readCapacity
 return|;
 block|}
+comment|/**      * The provisioned throughput to reserve for reading resources from your table      */
 DECL|method|setReadCapacity (Long readCapacity)
 specifier|public
 name|void
@@ -409,6 +417,7 @@ return|return
 name|writeCapacity
 return|;
 block|}
+comment|/**      * The provisioned throughput to reserved for writing resources to your table      */
 DECL|method|setWriteCapacity (Long writeCapacity)
 specifier|public
 name|void
@@ -435,6 +444,7 @@ return|return
 name|keyAttributeName
 return|;
 block|}
+comment|/**      * Attribute name when creating table      */
 DECL|method|setKeyAttributeName (String keyAttributeName)
 specifier|public
 name|void
@@ -461,6 +471,7 @@ return|return
 name|keyAttributeType
 return|;
 block|}
+comment|/**      * Attribute type when creating table      */
 DECL|method|setKeyAttributeType (String keyAttributeType)
 specifier|public
 name|void

@@ -264,10 +264,25 @@ name|secretKey
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,workflow"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"START"
+argument_list|,
+name|enums
+operator|=
+literal|"SIGNAL,CANCEL,TERMINATE,GET_STATE,START,DESCRIBE,GET_HISTORY"
+argument_list|)
 DECL|field|operation
 specifier|private
 name|String
 name|operation
+init|=
+literal|"START"
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -278,6 +293,11 @@ name|domainName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,activity"
+argument_list|)
 DECL|field|activityList
 specifier|private
 name|String
@@ -285,6 +305,11 @@ name|activityList
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,workflow"
+argument_list|)
 DECL|field|workflowList
 specifier|private
 name|String
@@ -306,6 +331,11 @@ name|version
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,workflow"
+argument_list|)
 DECL|field|signalName
 specifier|private
 name|String
@@ -313,6 +343,11 @@ name|signalName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,workflow"
+argument_list|)
 DECL|field|childPolicy
 specifier|private
 name|String
@@ -320,6 +355,11 @@ name|childPolicy
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,workflow"
+argument_list|)
 DECL|field|terminationReason
 specifier|private
 name|String
@@ -327,6 +367,11 @@ name|terminationReason
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,workflow"
+argument_list|)
 DECL|field|stateResultType
 specifier|private
 name|String
@@ -334,6 +379,11 @@ name|stateResultType
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,workflow"
+argument_list|)
 DECL|field|terminationDetails
 specifier|private
 name|String
@@ -348,6 +398,11 @@ name|dataConverter
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,activity"
+argument_list|)
 DECL|field|activitySchedulingOptions
 specifier|private
 name|ActivitySchedulingOptions
@@ -355,6 +410,11 @@ name|activitySchedulingOptions
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,activity"
+argument_list|)
 DECL|field|activityTypeExecutionOptions
 specifier|private
 name|ActivityTypeExecutionOptions
@@ -362,6 +422,11 @@ name|activityTypeExecutionOptions
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,activity"
+argument_list|)
 DECL|field|activityTypeRegistrationOptions
 specifier|private
 name|ActivityTypeRegistrationOptions
@@ -369,6 +434,11 @@ name|activityTypeRegistrationOptions
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,workflow"
+argument_list|)
 DECL|field|workflowTypeRegistrationOptions
 specifier|private
 name|WorkflowTypeRegistrationOptions
@@ -377,6 +447,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer,activity"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"100"
@@ -399,6 +473,7 @@ return|return
 name|accessKey
 return|;
 block|}
+comment|/**      * Amazon AWS Access Key.      */
 DECL|method|setAccessKey (String accessKey)
 specifier|public
 name|void
@@ -425,6 +500,7 @@ return|return
 name|secretKey
 return|;
 block|}
+comment|/**      * Amazon AWS Secret Key.      */
 DECL|method|setSecretKey (String secretKey)
 specifier|public
 name|void
@@ -451,6 +527,7 @@ return|return
 name|domainName
 return|;
 block|}
+comment|/**      * The workflow domain to use.      */
 DECL|method|setDomainName (String domainName)
 specifier|public
 name|void
@@ -477,6 +554,7 @@ return|return
 name|activityList
 return|;
 block|}
+comment|/**      * The list name to consume activities from.      */
 DECL|method|setActivityList (String activityList)
 specifier|public
 name|void
@@ -503,6 +581,7 @@ return|return
 name|workflowList
 return|;
 block|}
+comment|/**      * The list name to consume workflows from.      */
 DECL|method|setWorkflowList (String workflowList)
 specifier|public
 name|void
@@ -529,6 +608,7 @@ return|return
 name|eventName
 return|;
 block|}
+comment|/**      * The workflow or activity event name to use.      */
 DECL|method|setEventName (String eventName)
 specifier|public
 name|void
@@ -555,6 +635,7 @@ return|return
 name|version
 return|;
 block|}
+comment|/**      * The workflow or activity event version to use.      */
 DECL|method|setVersion (String version)
 specifier|public
 name|void
@@ -581,6 +662,7 @@ return|return
 name|type
 return|;
 block|}
+comment|/**      * Activity or workflow      */
 DECL|method|setType (String type)
 specifier|public
 name|void
@@ -679,6 +761,7 @@ return|return
 name|amazonSWClient
 return|;
 block|}
+comment|/**      * To use the given AmazonSimpleWorkflowClient as client      */
 DECL|method|setAmazonSWClient (AmazonSimpleWorkflowClient amazonSWClient)
 specifier|public
 name|void
@@ -741,6 +824,7 @@ return|return
 name|operation
 return|;
 block|}
+comment|/**      * Workflow operation      */
 DECL|method|setOperation (String operation)
 specifier|public
 name|void
@@ -767,6 +851,7 @@ return|return
 name|signalName
 return|;
 block|}
+comment|/**      * The name of the signal to send to the workflow.      */
 DECL|method|setSignalName (String signalName)
 specifier|public
 name|void
@@ -793,6 +878,7 @@ return|return
 name|childPolicy
 return|;
 block|}
+comment|/**      * The policy to use on child workflows when terminating a workflow.      */
 DECL|method|setChildPolicy (String childPolicy)
 specifier|public
 name|void
@@ -819,6 +905,7 @@ return|return
 name|terminationReason
 return|;
 block|}
+comment|/**      * The reason for terminating a workflow.      */
 DECL|method|setTerminationReason (String terminationReason)
 specifier|public
 name|void
@@ -845,6 +932,7 @@ return|return
 name|stateResultType
 return|;
 block|}
+comment|/**      * The type of the result when a workflow state is queried.      */
 DECL|method|setStateResultType (String stateResultType)
 specifier|public
 name|void
@@ -871,6 +959,7 @@ return|return
 name|terminationDetails
 return|;
 block|}
+comment|/**      * Details for terminating a workflow.      */
 DECL|method|setTerminationDetails (String terminationDetails)
 specifier|public
 name|void
@@ -897,6 +986,7 @@ return|return
 name|activityTypeExecutionOptions
 return|;
 block|}
+comment|/**      * Activity execution options      */
 DECL|method|setActivityTypeExecutionOptions (ActivityTypeExecutionOptions activityTypeExecutionOptions)
 specifier|public
 name|void
@@ -923,6 +1013,7 @@ return|return
 name|activityTypeRegistrationOptions
 return|;
 block|}
+comment|/**      * Activity registration options      */
 DECL|method|setActivityTypeRegistrationOptions (ActivityTypeRegistrationOptions activityTypeRegistrationOptions)
 specifier|public
 name|void
@@ -949,6 +1040,7 @@ return|return
 name|dataConverter
 return|;
 block|}
+comment|/**      * An instance of com.amazonaws.services.simpleworkflow.flow.DataConverter to use for serializing/deserializing the data.      */
 DECL|method|setDataConverter (DataConverter dataConverter)
 specifier|public
 name|void
@@ -975,6 +1067,7 @@ return|return
 name|workflowTypeRegistrationOptions
 return|;
 block|}
+comment|/**      * Workflow registration options      */
 DECL|method|setWorkflowTypeRegistrationOptions (WorkflowTypeRegistrationOptions workflowTypeRegistrationOptions)
 specifier|public
 name|void
@@ -1001,6 +1094,7 @@ return|return
 name|activitySchedulingOptions
 return|;
 block|}
+comment|/**      * Activity scheduling options      */
 DECL|method|setActivitySchedulingOptions (ActivitySchedulingOptions activitySchedulingOptions)
 specifier|public
 name|void
@@ -1027,6 +1121,7 @@ return|return
 name|activityThreadPoolSize
 return|;
 block|}
+comment|/**      * Maximum number of threads in work pool for activity.      */
 DECL|method|setActivityThreadPoolSize (int activityThreadPoolSize)
 specifier|public
 name|void

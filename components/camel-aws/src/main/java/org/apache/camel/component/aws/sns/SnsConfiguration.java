@@ -100,6 +100,11 @@ name|SnsConfiguration
 implements|implements
 name|Cloneable
 block|{
+DECL|field|topicArn
+specifier|private
+name|String
+name|topicArn
+decl_stmt|;
 comment|// Common properties
 annotation|@
 name|UriPath
@@ -153,13 +158,6 @@ name|subject
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|topicArn
-specifier|private
-name|String
-name|topicArn
-decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|policy
 specifier|private
 name|String
@@ -172,6 +170,7 @@ specifier|private
 name|String
 name|messageStructure
 decl_stmt|;
+comment|/**      * The region with which the AWS-SNS client wants to work with.      */
 DECL|method|setAmazonSNSEndpoint (String awsSNSEndpoint)
 specifier|public
 name|void
@@ -208,6 +207,7 @@ return|return
 name|subject
 return|;
 block|}
+comment|/**      * The subject which is used if the message header 'CamelAwsSnsSubject' is not present.      */
 DECL|method|setSubject (String subject)
 specifier|public
 name|void
@@ -234,6 +234,7 @@ return|return
 name|topicArn
 return|;
 block|}
+comment|/**      * The Amazon Resource Name (ARN) assigned to the created topic.      */
 DECL|method|setTopicArn (String topicArn)
 specifier|public
 name|void
@@ -260,6 +261,7 @@ return|return
 name|accessKey
 return|;
 block|}
+comment|/**      * Amazon AWS Access Key      */
 DECL|method|setAccessKey (String accessKey)
 specifier|public
 name|void
@@ -286,6 +288,7 @@ return|return
 name|secretKey
 return|;
 block|}
+comment|/**      * Amazon AWS Secret Key      */
 DECL|method|setSecretKey (String secretKey)
 specifier|public
 name|void
@@ -312,6 +315,7 @@ return|return
 name|amazonSNSClient
 return|;
 block|}
+comment|/**      * To use the AmazonSNS as the client      */
 DECL|method|setAmazonSNSClient (AmazonSNS amazonSNSClient)
 specifier|public
 name|void
@@ -338,6 +342,7 @@ return|return
 name|topicName
 return|;
 block|}
+comment|/**      * The name of the topic      */
 DECL|method|setTopicName (String topicName)
 specifier|public
 name|void
@@ -364,6 +369,7 @@ return|return
 name|policy
 return|;
 block|}
+comment|/**      * The policy for this queue      */
 DECL|method|setPolicy (String policy)
 specifier|public
 name|void
@@ -390,6 +396,7 @@ return|return
 name|messageStructure
 return|;
 block|}
+comment|/**      * The message structure to use such as json      */
 DECL|method|setMessageStructure (String messageStructure)
 specifier|public
 name|void

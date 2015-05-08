@@ -180,6 +180,7 @@ specifier|private
 name|Date
 name|timestamp
 decl_stmt|;
+comment|/**      * The region with which the AWS-CW client wants to work with.      */
 DECL|method|setAmazonCwEndpoint (String amazonCwEndpoint)
 specifier|public
 name|void
@@ -216,6 +217,7 @@ return|return
 name|accessKey
 return|;
 block|}
+comment|/**      * Amazon AWS Access Key      */
 DECL|method|setAccessKey (String accessKey)
 specifier|public
 name|void
@@ -242,6 +244,7 @@ return|return
 name|secretKey
 return|;
 block|}
+comment|/**      * Amazon AWS Secret Key      */
 DECL|method|setSecretKey (String secretKey)
 specifier|public
 name|void
@@ -268,6 +271,7 @@ return|return
 name|name
 return|;
 block|}
+comment|/**      * The metric name      */
 DECL|method|setName (String name)
 specifier|public
 name|void
@@ -294,6 +298,7 @@ return|return
 name|value
 return|;
 block|}
+comment|/**      * The metric value      */
 DECL|method|setValue (Double value)
 specifier|public
 name|void
@@ -320,6 +325,7 @@ return|return
 name|unit
 return|;
 block|}
+comment|/**      * The metric unit      */
 DECL|method|setUnit (String unit)
 specifier|public
 name|void
@@ -346,6 +352,7 @@ return|return
 name|namespace
 return|;
 block|}
+comment|/**      * The metric namespace      */
 DECL|method|setNamespace (String namespace)
 specifier|public
 name|void
@@ -362,6 +369,7 @@ operator|=
 name|namespace
 expr_stmt|;
 block|}
+comment|/**      * The metric timestamp      */
 DECL|method|setTimestamp (Date timestamp)
 specifier|public
 name|void
@@ -387,6 +395,33 @@ block|{
 return|return
 name|timestamp
 return|;
+block|}
+DECL|method|getAmazonCwClient ()
+specifier|public
+name|AmazonCloudWatch
+name|getAmazonCwClient
+parameter_list|()
+block|{
+return|return
+name|amazonCwClient
+return|;
+block|}
+comment|/**      * To use the AmazonCloudWatch as the client      */
+DECL|method|setAmazonCwClient (AmazonCloudWatch amazonCwClient)
+specifier|public
+name|void
+name|setAmazonCwClient
+parameter_list|(
+name|AmazonCloudWatch
+name|amazonCwClient
+parameter_list|)
+block|{
+name|this
+operator|.
+name|amazonCwClient
+operator|=
+name|amazonCwClient
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -421,32 +456,6 @@ name|unit
 operator|+
 literal|"]"
 return|;
-block|}
-DECL|method|getAmazonCwClient ()
-specifier|public
-name|AmazonCloudWatch
-name|getAmazonCwClient
-parameter_list|()
-block|{
-return|return
-name|amazonCwClient
-return|;
-block|}
-DECL|method|setAmazonCwClient (AmazonCloudWatch amazonCwClient)
-specifier|public
-name|void
-name|setAmazonCwClient
-parameter_list|(
-name|AmazonCloudWatch
-name|amazonCwClient
-parameter_list|)
-block|{
-name|this
-operator|.
-name|amazonCwClient
-operator|=
-name|amazonCwClient
-expr_stmt|;
 block|}
 block|}
 end_class

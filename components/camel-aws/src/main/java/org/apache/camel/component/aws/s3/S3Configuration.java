@@ -137,6 +137,11 @@ name|secretKey
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|fileName
 specifier|private
 name|String
@@ -144,6 +149,11 @@ name|fileName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|prefix
 specifier|private
 name|String
@@ -151,6 +161,11 @@ name|prefix
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|region
 specifier|private
 name|String
@@ -159,6 +174,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -172,6 +191,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|deleteAfterWrite
 specifier|private
 name|boolean
@@ -179,6 +203,11 @@ name|deleteAfterWrite
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|multiPartUpload
 specifier|private
 name|boolean
@@ -187,6 +216,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|""
@@ -224,6 +257,11 @@ name|policy
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|storageClass
 specifier|private
 name|String
@@ -239,6 +277,7 @@ return|return
 name|partSize
 return|;
 block|}
+comment|/**      * Setup the partSize which is used in multi part upload, the default size is 25M.      */
 DECL|method|setPartSize (long partSize)
 specifier|public
 name|void
@@ -265,6 +304,7 @@ return|return
 name|multiPartUpload
 return|;
 block|}
+comment|/**      * If it is true, Camel will upload the file with multi part format, the part size is decided by the option of partSize      */
 DECL|method|setMultiPartUpload (boolean multiPartUpload)
 specifier|public
 name|void
@@ -281,6 +321,7 @@ operator|=
 name|multiPartUpload
 expr_stmt|;
 block|}
+comment|/**      * The region with which the AWS-S3 client wants to work with.      */
 DECL|method|setAmazonS3Endpoint (String amazonS3Endpoint)
 specifier|public
 name|void
@@ -317,6 +358,7 @@ return|return
 name|accessKey
 return|;
 block|}
+comment|/**      * Amazon AWS Access Key      */
 DECL|method|setAccessKey (String accessKey)
 specifier|public
 name|void
@@ -343,6 +385,7 @@ return|return
 name|secretKey
 return|;
 block|}
+comment|/**      * Amazon AWS Secret Key      */
 DECL|method|setSecretKey (String secretKey)
 specifier|public
 name|void
@@ -369,6 +412,7 @@ return|return
 name|amazonS3Client
 return|;
 block|}
+comment|/**      * To use the AmazonS3 as the client      */
 DECL|method|setAmazonS3Client (AmazonS3 amazonS3Client)
 specifier|public
 name|void
@@ -395,6 +439,7 @@ return|return
 name|prefix
 return|;
 block|}
+comment|/**      * The prefix which is used in the com.amazonaws.services.s3.model.ListObjectsRequest to only consume objects we are interested in.      */
 DECL|method|setPrefix (String prefix)
 specifier|public
 name|void
@@ -421,6 +466,7 @@ return|return
 name|bucketName
 return|;
 block|}
+comment|/**      * Name of the bucket. The bucket will be created if it don't already exists.      */
 DECL|method|setBucketName (String bucketName)
 specifier|public
 name|void
@@ -447,6 +493,7 @@ return|return
 name|fileName
 return|;
 block|}
+comment|/**      * To get the object from the bucket with the given file name      */
 DECL|method|setFileName (String fileName)
 specifier|public
 name|void
@@ -473,6 +520,7 @@ return|return
 name|region
 return|;
 block|}
+comment|/**      * The region where the bucket is located.      */
 DECL|method|setRegion (String region)
 specifier|public
 name|void
@@ -499,6 +547,7 @@ return|return
 name|deleteAfterRead
 return|;
 block|}
+comment|/**      * Delete objects from S3 after it has been retrieved.      */
 DECL|method|setDeleteAfterRead (boolean deleteAfterRead)
 specifier|public
 name|void
@@ -525,6 +574,7 @@ return|return
 name|deleteAfterWrite
 return|;
 block|}
+comment|/**      * Delete file object after the S3 file has been uploaded      */
 DECL|method|setDeleteAfterWrite (boolean deleteAfterWrite)
 specifier|public
 name|void
@@ -551,6 +601,7 @@ return|return
 name|policy
 return|;
 block|}
+comment|/**      * The policy for this bucket      */
 DECL|method|setPolicy (String policy)
 specifier|public
 name|void
@@ -577,6 +628,7 @@ return|return
 name|storageClass
 return|;
 block|}
+comment|/**      * The storage class      */
 DECL|method|setStorageClass (String storageClass)
 specifier|public
 name|void

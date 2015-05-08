@@ -427,7 +427,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://camel.apache.org/aws.html">AWS SQS Endpoint</a>.    *  */
+comment|/**  * Defines the<a href="http://camel.apache.org/aws.html">AWS SQS Endpoint</a>.    */
 end_comment
 
 begin_class
@@ -500,6 +500,11 @@ name|configuration
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|maxMessagesPerPoll
 specifier|private
 name|int
@@ -550,6 +555,7 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+comment|/**      * To use a custom HeaderFilterStrategy to map headers to/from Camel.      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
 specifier|public
 name|void
@@ -1873,6 +1879,7 @@ return|return
 name|maxMessagesPerPoll
 return|;
 block|}
+comment|/**      * Gets the maximum number of messages as a limit to poll at each polling.      *<p/>      * Is default unlimited, but use 0 or negative number to disable it as unlimited.      */
 DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
 specifier|public
 name|void

@@ -333,7 +333,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://camel.apache.org/aws.html">AWS S3 Endpoint</a>.    */
+comment|/**  * Defines the<a href="http://camel.apache.org/aws.html">AWS S3 Endpoint</a>.  */
 end_comment
 
 begin_class
@@ -400,6 +400,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"10"
@@ -1135,7 +1139,7 @@ return|return
 name|s3Client
 return|;
 block|}
-comment|/**      * Provide the possibility to override this method for an mock implementation      *      * @return AmazonS3Client      */
+comment|/**      * Provide the possibility to override this method for an mock implementation      */
 DECL|method|createS3Client ()
 name|AmazonS3
 name|createS3Client
@@ -1181,6 +1185,7 @@ return|return
 name|maxMessagesPerPoll
 return|;
 block|}
+comment|/**      * Gets the maximum number of messages as a limit to poll at each polling.      *<p/>      * Is default unlimited, but use 0 or negative number to disable it as unlimited.      */
 DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
 specifier|public
 name|void

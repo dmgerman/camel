@@ -204,6 +204,7 @@ return|return
 name|accessKey
 return|;
 block|}
+comment|/**      * Amazon AWS Access Key      */
 DECL|method|setAccessKey (String accessKey)
 specifier|public
 name|void
@@ -230,6 +231,7 @@ return|return
 name|amazonSESClient
 return|;
 block|}
+comment|/**      * To use the AmazonSimpleEmailService as the client      */
 DECL|method|setAmazonSESClient (AmazonSimpleEmailService amazonSESClient)
 specifier|public
 name|void
@@ -256,6 +258,7 @@ return|return
 name|from
 return|;
 block|}
+comment|/**      * The sender's email address.      */
 DECL|method|setFrom (String from)
 specifier|public
 name|void
@@ -285,6 +288,7 @@ return|return
 name|to
 return|;
 block|}
+comment|/**      * List of destination email address. Can be overriden with 'CamelAwsSesTo' header.      */
 DECL|method|setTo (List<String> to)
 specifier|public
 name|void
@@ -304,6 +308,7 @@ operator|=
 name|to
 expr_stmt|;
 block|}
+comment|/**      * List of destination email address. Can be overriden with 'CamelAwsSesTo' header.      */
 DECL|method|setTo (String to)
 specifier|public
 name|void
@@ -340,6 +345,7 @@ return|return
 name|secretKey
 return|;
 block|}
+comment|/**      * Amazon AWS Secret Key      */
 DECL|method|setSecretKey (String secretKey)
 specifier|public
 name|void
@@ -366,6 +372,7 @@ return|return
 name|subject
 return|;
 block|}
+comment|/**      * The subject which is used if the message header 'CamelAwsSesSubject' is not present.      */
 DECL|method|setSubject (String subject)
 specifier|public
 name|void
@@ -392,6 +399,7 @@ return|return
 name|returnPath
 return|;
 block|}
+comment|/**      * The email address to which bounce notifications are to be forwarded, override it using 'CamelAwsSesReturnPath' header.      */
 DECL|method|setReturnPath (String returnPath)
 specifier|public
 name|void
@@ -421,6 +429,7 @@ return|return
 name|replyToAddresses
 return|;
 block|}
+comment|/**      * List of reply-to email address(es) for the message, override it using 'CamelAwsSesReplyToAddresses' header.      */
 DECL|method|setReplyToAddresses (List<String> replyToAddresses)
 specifier|public
 name|void
@@ -476,6 +485,7 @@ return|return
 name|amazonSESEndpoint
 return|;
 block|}
+comment|/**      * The region with which the AWS-SES client wants to work with.      */
 DECL|method|setAmazonSESEndpoint (String amazonSesEndpoint)
 specifier|public
 name|void

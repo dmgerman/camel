@@ -52,7 +52,7 @@ name|PutAttributes
 block|,
 DECL|enumConstant|Select
 name|Select
-block|; }
+block|}
 end_enum
 
 end_unit

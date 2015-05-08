@@ -151,7 +151,7 @@ annotation|@
 name|UriParam
 DECL|field|consistentRead
 specifier|private
-name|Boolean
+name|boolean
 name|consistentRead
 decl_stmt|;
 annotation|@
@@ -170,6 +170,7 @@ name|SdbOperations
 operator|.
 name|PutAttributes
 decl_stmt|;
+comment|/**      * The region with which the AWS-SDB client wants to work with.      */
 DECL|method|setAmazonSdbEndpoint (String amazonSdbEndpoint)
 specifier|public
 name|void
@@ -206,6 +207,7 @@ return|return
 name|accessKey
 return|;
 block|}
+comment|/**      * Amazon AWS Access Key      */
 DECL|method|setAccessKey (String accessKey)
 specifier|public
 name|void
@@ -232,6 +234,7 @@ return|return
 name|secretKey
 return|;
 block|}
+comment|/**      * Amazon AWS Secret Key      */
 DECL|method|setSecretKey (String secretKey)
 specifier|public
 name|void
@@ -258,6 +261,7 @@ return|return
 name|amazonSDBClient
 return|;
 block|}
+comment|/**      * To use the AmazonSimpleDB as the client      */
 DECL|method|setAmazonSDBClient (AmazonSimpleDB amazonSDBClient)
 specifier|public
 name|void
@@ -284,6 +288,7 @@ return|return
 name|domainName
 return|;
 block|}
+comment|/**      * The name of the domain currently worked with.      */
 DECL|method|setDomainName (String domainName)
 specifier|public
 name|void
@@ -310,6 +315,7 @@ return|return
 name|operation
 return|;
 block|}
+comment|/**      * Operation to perform      */
 DECL|method|setOperation (SdbOperations operation)
 specifier|public
 name|void
@@ -336,6 +342,7 @@ return|return
 name|maxNumberOfDomains
 return|;
 block|}
+comment|/**      * The maximum number of domain names you want returned. The range is 1 to 100.      */
 DECL|method|setMaxNumberOfDomains (Integer maxNumberOfDomains)
 specifier|public
 name|void
@@ -352,22 +359,23 @@ operator|=
 name|maxNumberOfDomains
 expr_stmt|;
 block|}
-DECL|method|getConsistentRead ()
+DECL|method|isConsistentRead ()
 specifier|public
-name|Boolean
-name|getConsistentRead
+name|boolean
+name|isConsistentRead
 parameter_list|()
 block|{
 return|return
 name|consistentRead
 return|;
 block|}
-DECL|method|setConsistentRead (Boolean consistentRead)
+comment|/**      * Determines whether or not strong consistency should be enforced when data is read.      */
+DECL|method|setConsistentRead (boolean consistentRead)
 specifier|public
 name|void
 name|setConsistentRead
 parameter_list|(
-name|Boolean
+name|boolean
 name|consistentRead
 parameter_list|)
 block|{
