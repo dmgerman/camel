@@ -328,6 +328,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|EndpointHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|EventHelper
 import|;
 end_import
@@ -4303,6 +4317,33 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|isDeadLetterChannel
+operator|&&
+name|deadLetterUri
+operator|!=
+literal|null
+condition|)
+block|{
+name|msg
+operator|=
+name|msg
+operator|+
+literal|". Handled by DeadLetterChannel: ["
+operator|+
+name|URISupport
+operator|.
+name|sanitizeUri
+argument_list|(
+name|deadLetterUri
+argument_list|)
+operator|+
+literal|"]"
+expr_stmt|;
+block|}
+else|else
+block|{
 name|msg
 operator|=
 name|msg
@@ -4311,6 +4352,7 @@ literal|". Processed by failure processor: "
 operator|+
 name|processor
 expr_stmt|;
+block|}
 block|}
 comment|// log that we failed delivery as we are exhausted
 name|logFailedDelivery
@@ -4842,6 +4884,7 @@ name|newException
 operator|&&
 name|handled
 operator|&&
+operator|(
 operator|!
 name|data
 operator|.
@@ -4849,9 +4892,18 @@ name|currentRedeliveryPolicy
 operator|.
 name|isLogHandled
 argument_list|()
+operator|&&
+operator|!
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|isLogExhaustedMessageHistory
+argument_list|()
+operator|)
 condition|)
 block|{
-comment|// do not log handled
+comment|// do not log handled (but log exhausted message history can overrule log handled)
 return|return;
 block|}
 if|if

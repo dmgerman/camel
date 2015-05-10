@@ -464,10 +464,23 @@ name|RedeliveryPolicy
 name|createRedeliveryPolicy
 parameter_list|()
 block|{
-return|return
+name|RedeliveryPolicy
+name|answer
+init|=
 operator|new
 name|RedeliveryPolicy
 argument_list|()
+decl_stmt|;
+comment|// do not log exhausted message history by default for DLC
+name|answer
+operator|.
+name|setLogExhaustedMessageHistory
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 DECL|method|createLogger ()
