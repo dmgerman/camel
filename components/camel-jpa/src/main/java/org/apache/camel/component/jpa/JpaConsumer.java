@@ -1428,7 +1428,7 @@ operator|=
 name|transacted
 expr_stmt|;
 block|}
-comment|/**      * Sets whether to use NOWAIT on lock and silently skip the entity. This      * allows different instances to process entities at the same time but not      * processing the same entity.      *       * @param skipLockedEntity      */
+comment|/**      * Sets whether to use NOWAIT on lock and silently skip the entity. This      * allows different instances to process entities at the same time but not      * processing the same entity.      */
 DECL|method|setSkipLockedEntity (boolean skipLockedEntity)
 specifier|public
 name|void
@@ -2463,11 +2463,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|doStart
-argument_list|()
-expr_stmt|;
+comment|// need to setup entity manager first
 if|if
 condition|(
 name|getEndpoint
@@ -2512,6 +2508,11 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -2535,11 +2536,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|doShutdown
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|entityManager
@@ -2566,6 +2562,11 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+name|super
+operator|.
+name|doShutdown
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
