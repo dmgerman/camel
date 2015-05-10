@@ -197,18 +197,13 @@ argument_list|,
 literal|123
 argument_list|)
 expr_stmt|;
-comment|// wait 3 seconds so that the timeout kicks in
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|3000
-argument_list|)
-expr_stmt|;
+comment|// wait about 4 seconds so that the timeout kicks in but it was discarded
 name|mock
 operator|.
 name|assertIsSatisfied
-argument_list|()
+argument_list|(
+literal|4000
+argument_list|)
 expr_stmt|;
 comment|// should invoke the timeout method
 name|assertEquals
