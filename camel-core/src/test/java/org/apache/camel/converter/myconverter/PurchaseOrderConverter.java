@@ -238,6 +238,8 @@ name|s2
 argument_list|)
 decl_stmt|;
 name|price
+operator|=
+name|price
 operator|.
 name|setScale
 argument_list|(

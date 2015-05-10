@@ -629,6 +629,8 @@ name|timeout
 expr_stmt|;
 block|}
 comment|/**      * @deprecated As of version 2.11, replaced by {@link #getCertResource()}      */
+annotation|@
+name|Deprecated
 DECL|method|getCertFilename ()
 specifier|public
 name|String
@@ -662,6 +664,8 @@ literal|null
 return|;
 block|}
 comment|/**      * @deprecated As of version 2.11, replaced by {@link #setCertResource(String)}      */
+annotation|@
+name|Deprecated
 DECL|method|setCertFilename (String certFilename)
 specifier|public
 name|void

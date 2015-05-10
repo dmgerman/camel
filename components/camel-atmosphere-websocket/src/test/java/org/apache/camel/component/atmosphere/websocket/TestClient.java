@@ -46,6 +46,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -798,7 +808,12 @@ name|info
 argument_list|(
 literal|"[ws] received bytes --> "
 operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
 name|message
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|latch

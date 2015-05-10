@@ -1251,6 +1251,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * @deprecated As of version 2.11, replaced by {@link #getCertResource()}      */
+annotation|@
+name|Deprecated
 DECL|method|getCertFilename ()
 specifier|public
 name|String
@@ -1266,6 +1268,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * @deprecated As of version 2.11, replaced by {@link #setCertResource(String)}      */
+annotation|@
+name|Deprecated
 DECL|method|setCertFilename (String certFilename)
 specifier|public
 name|void

@@ -311,6 +311,8 @@ name|description
 operator|=
 literal|"Current number of inflight Exchanges"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|method|getInflightExchanges ()
 name|Integer
 name|getInflightExchanges

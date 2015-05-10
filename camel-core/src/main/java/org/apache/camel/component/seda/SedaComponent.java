@@ -344,6 +344,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * @deprecated use {@link #getOrCreateQueue(SedaEndpoint, Integer, Boolean, BlockingQueueFactory)}      */
+annotation|@
+name|Deprecated
 DECL|method|getOrCreateQueue (SedaEndpoint endpoint, Integer size, Boolean multipleConsumers)
 specifier|public
 specifier|synchronized

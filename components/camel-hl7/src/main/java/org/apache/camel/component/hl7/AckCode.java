@@ -35,6 +35,8 @@ comment|/**  * @deprecated use {@link ca.uhn.hl7v2.AcknowledgmentCode}  */
 end_comment
 
 begin_enum
+annotation|@
+name|Deprecated
 DECL|enum|AckCode
 specifier|public
 enum|enum

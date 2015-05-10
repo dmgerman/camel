@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|amazonaws
@@ -206,7 +216,12 @@ name|debug
 argument_list|(
 literal|"Processing activity task: "
 operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
 name|inputParameters
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Exchange

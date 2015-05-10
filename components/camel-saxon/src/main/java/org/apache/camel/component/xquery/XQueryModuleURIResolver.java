@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -188,7 +198,12 @@ name|XPathException
 argument_list|(
 literal|"Error resolving resource: "
 operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
 name|locations
+argument_list|)
 argument_list|,
 name|e
 argument_list|)

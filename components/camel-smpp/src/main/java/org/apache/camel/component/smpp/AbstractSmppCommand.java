@@ -546,6 +546,8 @@ return|;
 block|}
 comment|/**      * @deprecated will be removed in Camel 2.13.0/3.0.0 - use createOptionalParametersByCode instead      * @param optinalParamaters      * @return      */
 annotation|@
+name|Deprecated
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"rawtypes"

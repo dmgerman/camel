@@ -428,6 +428,8 @@ name|pattern
 return|;
 block|}
 comment|/**      * Sets the exchange pattern of the endpoint      *      * @deprecated set the pattern in the uri      */
+annotation|@
+name|Deprecated
 DECL|method|setPattern (ExchangePattern pattern)
 specifier|public
 name|void

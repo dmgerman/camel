@@ -448,6 +448,8 @@ name|xstream
 expr_stmt|;
 block|}
 comment|/**      * @deprecated Use {@link #createXStream(ClassResolver, ClassLoader)}      */
+annotation|@
+name|Deprecated
 DECL|method|createXStream (ClassResolver resolver)
 specifier|protected
 name|XStream

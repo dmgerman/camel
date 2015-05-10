@@ -676,6 +676,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Deserializes the input stream to a Java object      *      * @param is input stream for the Java object      * @return the java object, or<tt>null</tt> if input stream was<tt>null</tt>      * @throws ClassNotFoundException is thrown if class not found      * @throws IOException can be thrown      * @deprecated Camel 3.0       * Please use the one which has the parameter of camel context      */
+annotation|@
+name|Deprecated
 DECL|method|deserializeJavaObjectFromStream (InputStream is)
 specifier|public
 specifier|static

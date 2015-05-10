@@ -77,6 +77,8 @@ comment|// [TODO] Remove in 3.0
 end_comment
 
 begin_interface
+annotation|@
+name|Deprecated
 DECL|interface|Container
 specifier|public
 interface|interface

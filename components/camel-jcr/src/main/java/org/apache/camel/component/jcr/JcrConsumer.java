@@ -24,6 +24,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|ScheduledExecutorService
@@ -548,11 +558,21 @@ name|isDeep
 operator|+
 literal|", uuid="
 operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
 name|uuid
+argument_list|)
 operator|+
 literal|", nodeTypeName="
 operator|+
+name|Arrays
+operator|.
+name|toString
+argument_list|(
 name|nodeTypeName
+argument_list|)
 operator|+
 literal|", noLocal="
 operator|+

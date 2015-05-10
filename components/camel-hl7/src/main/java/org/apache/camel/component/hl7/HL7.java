@@ -186,6 +186,8 @@ argument_list|)
 return|;
 block|}
 comment|/**      * @deprecated Use {@link #ack(ca.uhn.hl7v2.AcknowledgmentCode)}      */
+annotation|@
+name|Deprecated
 DECL|method|ack (AckCode code)
 specifier|public
 specifier|static

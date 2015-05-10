@@ -405,6 +405,8 @@ name|Ignore
 argument_list|(
 literal|"For now getEndpointUri does not return the initial uri. Info like the endpoint scheme is lost"
 argument_list|)
+annotation|@
+name|Test
 DECL|method|testValidUri ()
 specifier|public
 name|void

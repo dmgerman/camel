@@ -94,6 +94,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|runner
 operator|.
 name|RunWith
@@ -208,6 +218,8 @@ name|producerTemplate
 decl_stmt|;
 annotation|@
 name|DirtiesContext
+annotation|@
+name|Test
 DECL|method|testProduceAndConsume ()
 specifier|public
 name|void
