@@ -1742,6 +1742,9 @@ argument_list|(
 name|exchange
 argument_list|,
 name|data
+argument_list|,
+name|isDeadLetterChannel
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2410,6 +2413,9 @@ argument_list|(
 name|exchange
 argument_list|,
 name|data
+argument_list|,
+name|isDeadLetterChannel
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2930,7 +2936,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|prepareExchangeForContinue (Exchange exchange, RedeliveryData data)
+DECL|method|prepareExchangeForContinue (Exchange exchange, RedeliveryData data, boolean isDeadLetterChannel)
 specifier|protected
 name|void
 name|prepareExchangeForContinue
@@ -2940,6 +2946,9 @@ name|exchange
 parameter_list|,
 name|RedeliveryData
 name|data
+parameter_list|,
+name|boolean
+name|isDeadLetterChannel
 parameter_list|)
 block|{
 name|Exception
@@ -3069,6 +3078,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|false
+argument_list|,
+name|isDeadLetterChannel
 argument_list|,
 literal|true
 argument_list|,
@@ -3308,7 +3319,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|handleException (Exchange exchange, RedeliveryData data)
+DECL|method|handleException (Exchange exchange, RedeliveryData data, boolean isDeadLetterChannel)
 specifier|protected
 name|void
 name|handleException
@@ -3318,6 +3329,9 @@ name|exchange
 parameter_list|,
 name|RedeliveryData
 name|data
+parameter_list|,
+name|boolean
+name|isDeadLetterChannel
 parameter_list|)
 block|{
 name|Exception
@@ -3600,6 +3614,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|false
+argument_list|,
+name|isDeadLetterChannel
 argument_list|,
 name|exchange
 argument_list|,
@@ -4365,6 +4381,8 @@ name|handled
 argument_list|,
 literal|false
 argument_list|,
+name|isDeadLetterChannel
+argument_list|,
 name|exchange
 argument_list|,
 name|msg
@@ -4533,6 +4551,8 @@ argument_list|(
 name|exchange
 argument_list|,
 name|data
+argument_list|,
+name|isDeadLetterChannel
 argument_list|)
 expr_stmt|;
 block|}
@@ -4649,6 +4669,8 @@ argument_list|,
 name|handled
 argument_list|,
 literal|false
+argument_list|,
+name|isDeadLetterChannel
 argument_list|,
 name|exchange
 argument_list|,
@@ -4812,7 +4834,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|logFailedDelivery (boolean shouldRedeliver, boolean newException, boolean handled, boolean continued, Exchange exchange, String message, RedeliveryData data, Throwable e)
+DECL|method|logFailedDelivery (boolean shouldRedeliver, boolean newException, boolean handled, boolean continued, boolean isDeadLetterChannel, Exchange exchange, String message, RedeliveryData data, Throwable e)
 specifier|private
 name|void
 name|logFailedDelivery
@@ -4828,6 +4850,9 @@ name|handled
 parameter_list|,
 name|boolean
 name|continued
+parameter_list|,
+name|boolean
+name|isDeadLetterChannel
 parameter_list|,
 name|Exchange
 name|exchange
@@ -4877,6 +4902,57 @@ comment|// do not log new exception
 return|return;
 block|}
 comment|// if we should not rollback, then check whether logging is enabled
+comment|// depending on what kind of error handler we should
+name|boolean
+name|logExhausted
+decl_stmt|;
+if|if
+condition|(
+name|isDeadLetterChannel
+condition|)
+block|{
+comment|// if DLC then log exhausted should not be default
+name|logExhausted
+operator|=
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|getLogExhaustedMessageHistory
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|isLogExhaustedMessageHistory
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// for any other error handler log exhausted should be default
+name|logExhausted
+operator|=
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|getLogExhaustedMessageHistory
+argument_list|()
+operator|==
+literal|null
+operator|||
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|isLogExhaustedMessageHistory
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -4894,12 +4970,7 @@ name|isLogHandled
 argument_list|()
 operator|&&
 operator|!
-name|data
-operator|.
-name|currentRedeliveryPolicy
-operator|.
-name|isLogExhaustedMessageHistory
-argument_list|()
+name|logExhausted
 operator|)
 condition|)
 block|{

@@ -254,10 +254,8 @@ literal|true
 decl_stmt|;
 DECL|field|logExhaustedMessageHistory
 specifier|protected
-name|boolean
+name|Boolean
 name|logExhaustedMessageHistory
-init|=
-literal|true
 decl_stmt|;
 DECL|field|logRetryAttempted
 specifier|protected
@@ -1772,6 +1770,22 @@ DECL|method|isLogExhaustedMessageHistory ()
 specifier|public
 name|boolean
 name|isLogExhaustedMessageHistory
+parameter_list|()
+block|{
+comment|// should default be enabled
+return|return
+name|logExhaustedMessageHistory
+operator|==
+literal|null
+operator|||
+name|logExhaustedMessageHistory
+return|;
+block|}
+comment|/**      * Whether the option logExhaustedMessageHistory has been configured or not      *      * @return<tt>null</tt> if not configured, or the configured value as true or false      * @see #isLogExhaustedMessageHistory()      */
+DECL|method|getLogExhaustedMessageHistory ()
+specifier|public
+name|Boolean
+name|getLogExhaustedMessageHistory
 parameter_list|()
 block|{
 return|return
