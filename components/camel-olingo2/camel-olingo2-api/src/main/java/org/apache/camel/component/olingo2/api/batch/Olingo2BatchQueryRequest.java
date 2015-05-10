@@ -254,6 +254,8 @@ argument_list|>
 name|queryParams
 parameter_list|)
 block|{
+name|request
+operator|.
 name|queryParams
 operator|=
 name|queryParams

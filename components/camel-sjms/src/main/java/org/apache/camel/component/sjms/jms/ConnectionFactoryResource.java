@@ -247,7 +247,7 @@ name|username
 argument_list|,
 name|password
 argument_list|,
-literal|null
+name|connectionId
 argument_list|,
 name|DEFAULT_WAIT_TIMEOUT
 argument_list|)

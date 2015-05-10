@@ -464,13 +464,13 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
-DECL|method|setExecutorService (EventExecutorGroup executorServcie)
+DECL|method|setExecutorService (EventExecutorGroup executorService)
 specifier|public
 name|void
 name|setExecutorService
 parameter_list|(
 name|EventExecutorGroup
-name|executorServcie
+name|executorService
 parameter_list|)
 block|{
 name|this
