@@ -252,63 +252,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|uri
-specifier|private
-name|URI
-name|uri
-decl_stmt|;
-DECL|field|authority
-specifier|private
-name|String
-name|authority
-decl_stmt|;
-annotation|@
-name|UriPath
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|routeboxName
-specifier|private
-name|String
-name|routeboxName
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|consumerUri
-specifier|private
-name|URI
-name|consumerUri
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|producerUri
-specifier|private
-name|URI
-name|producerUri
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|dispatchStrategy
-specifier|private
-name|RouteboxDispatchStrategy
-name|dispatchStrategy
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|dispatchMap
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|dispatchMap
-decl_stmt|;
 DECL|field|innerContext
 specifier|private
 name|CamelContext
@@ -334,6 +277,54 @@ specifier|private
 name|Registry
 name|innerRegistry
 decl_stmt|;
+DECL|field|uri
+specifier|private
+name|URI
+name|uri
+decl_stmt|;
+DECL|field|authority
+specifier|private
+name|String
+name|authority
+decl_stmt|;
+DECL|field|innerProducerTemplate
+specifier|private
+name|ProducerTemplate
+name|innerProducerTemplate
+decl_stmt|;
+annotation|@
+name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|routeboxName
+specifier|private
+name|String
+name|routeboxName
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|dispatchStrategy
+specifier|private
+name|RouteboxDispatchStrategy
+name|dispatchStrategy
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|dispatchMap
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|dispatchMap
+decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
@@ -351,20 +342,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|defaultValue
+name|label
 operator|=
-literal|"true"
-argument_list|)
-DECL|field|local
-specifier|private
-name|boolean
-name|local
-init|=
-literal|true
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"20000"
@@ -379,6 +360,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"1000"
@@ -396,6 +381,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"direct"
+argument_list|,
+name|enums
+operator|=
+literal|"direct,seda"
 argument_list|)
 DECL|field|innerProtocol
 specifier|private
@@ -407,6 +396,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"20"
@@ -425,14 +418,13 @@ specifier|private
 name|int
 name|queueSize
 decl_stmt|;
-DECL|field|innerProducerTemplate
-specifier|private
-name|ProducerTemplate
-name|innerProducerTemplate
-decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -942,54 +934,6 @@ literal|0
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|consumerUri
-operator|=
-name|component
-operator|.
-name|resolveAndRemoveReferenceParameter
-argument_list|(
-name|parameters
-argument_list|,
-literal|"consumerUri"
-argument_list|,
-name|URI
-operator|.
-name|class
-argument_list|,
-operator|new
-name|URI
-argument_list|(
-literal|"routebox:"
-operator|+
-name|getRouteboxName
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|producerUri
-operator|=
-name|component
-operator|.
-name|resolveAndRemoveReferenceParameter
-argument_list|(
-name|parameters
-argument_list|,
-literal|"producerUri"
-argument_list|,
-name|URI
-operator|.
-name|class
-argument_list|,
-operator|new
-name|URI
-argument_list|(
-literal|"routebox:"
-operator|+
-name|getRouteboxName
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|dispatchStrategy
 operator|=
 name|component
@@ -1161,6 +1105,7 @@ return|return
 name|routeBuilders
 return|;
 block|}
+comment|/**      * Whether to fork and create a new inner CamelContext instead of reusing the same CamelContext.      */
 DECL|method|setForkContext (boolean forkContext)
 specifier|public
 name|void
@@ -1187,6 +1132,7 @@ return|return
 name|forkContext
 return|;
 block|}
+comment|/**      * Number of threads to be used by the routebox to receive requests.      */
 DECL|method|setThreads (int threads)
 specifier|public
 name|void
@@ -1213,6 +1159,7 @@ return|return
 name|threads
 return|;
 block|}
+comment|/**      * Logical name for the routebox (eg like a queue name)      */
 DECL|method|setRouteboxName (String routeboxName)
 specifier|public
 name|void
@@ -1239,84 +1186,7 @@ return|return
 name|routeboxName
 return|;
 block|}
-DECL|method|setLocal (boolean local)
-specifier|public
-name|void
-name|setLocal
-parameter_list|(
-name|boolean
-name|local
-parameter_list|)
-block|{
-name|this
-operator|.
-name|local
-operator|=
-name|local
-expr_stmt|;
-block|}
-DECL|method|isLocal ()
-specifier|public
-name|boolean
-name|isLocal
-parameter_list|()
-block|{
-return|return
-name|local
-return|;
-block|}
-DECL|method|setProducerUri (URI producerUri)
-specifier|public
-name|void
-name|setProducerUri
-parameter_list|(
-name|URI
-name|producerUri
-parameter_list|)
-block|{
-name|this
-operator|.
-name|producerUri
-operator|=
-name|producerUri
-expr_stmt|;
-block|}
-DECL|method|getProducerUri ()
-specifier|public
-name|URI
-name|getProducerUri
-parameter_list|()
-block|{
-return|return
-name|producerUri
-return|;
-block|}
-DECL|method|setConsumerUri (URI consumerUri)
-specifier|public
-name|void
-name|setConsumerUri
-parameter_list|(
-name|URI
-name|consumerUri
-parameter_list|)
-block|{
-name|this
-operator|.
-name|consumerUri
-operator|=
-name|consumerUri
-expr_stmt|;
-block|}
-DECL|method|getConsumerUri ()
-specifier|public
-name|URI
-name|getConsumerUri
-parameter_list|()
-block|{
-return|return
-name|consumerUri
-return|;
-block|}
+comment|/**      * To use a custom RouteboxDispatchStrategy which allows to use custom dispatching instead of the default.      */
 DECL|method|setDispatchStrategy (RouteboxDispatchStrategy dispatchStrategy)
 specifier|public
 name|void
@@ -1343,6 +1213,7 @@ return|return
 name|dispatchStrategy
 return|;
 block|}
+comment|/**      * Timeout in millis used by the producer when sending a message.      */
 DECL|method|setConnectionTimeout (long connectionTimeout)
 specifier|public
 name|void
@@ -1379,6 +1250,7 @@ return|return
 name|pollInterval
 return|;
 block|}
+comment|/**      * The timeout used when polling from seda.      * When a timeout occurs, the consumer can check whether it is allowed to continue running.      * Setting a lower value allows the consumer to react more quickly upon shutdown.      */
 DECL|method|setPollInterval (long pollInterval)
 specifier|public
 name|void
@@ -1395,6 +1267,7 @@ operator|=
 name|pollInterval
 expr_stmt|;
 block|}
+comment|/**      * Create a fixed size queue to receive requests.      */
 DECL|method|setQueueSize (int queueSize)
 specifier|public
 name|void
@@ -1437,6 +1310,7 @@ operator|=
 name|innerProducerTemplate
 expr_stmt|;
 block|}
+comment|/**      * The ProducerTemplate to use by the internal embeded CamelContext      */
 DECL|method|getInnerProducerTemplate ()
 specifier|public
 name|ProducerTemplate
@@ -1447,6 +1321,7 @@ return|return
 name|innerProducerTemplate
 return|;
 block|}
+comment|/**      * The Protocol used internally by the Routebox component. Can be Direct or SEDA. The Routebox component currently offers protocols that are JVM bound.      */
 DECL|method|setInnerProtocol (String innerProtocol)
 specifier|public
 name|void
@@ -1473,6 +1348,7 @@ return|return
 name|innerProtocol
 return|;
 block|}
+comment|/**      * To use a custom registry for the internal embedded CamelContext.      */
 DECL|method|setInnerRegistry (Registry innerRegistry)
 specifier|public
 name|void
@@ -1499,6 +1375,7 @@ return|return
 name|innerRegistry
 return|;
 block|}
+comment|/**      * Dictates whether a Producer endpoint sends a request to an external routebox consumer.      * If the setting is false, the Producer creates an embedded inner context and processes requests internally.      */
 DECL|method|setSendToConsumer (boolean sendToConsumer)
 specifier|public
 name|void
@@ -1525,6 +1402,7 @@ return|return
 name|sendToConsumer
 return|;
 block|}
+comment|/**      * A string representing a key in the Camel Registry matching an object value of the type HashMap<String, String>.      * The HashMap key should contain strings that can be matched against the value set for the exchange header ROUTE_DISPATCH_KEY.      * The HashMap value should contain inner route consumer URI's to which requests should be directed.      */
 DECL|method|setDispatchMap (Map<String, String> dispatchMap)
 specifier|public
 name|void
