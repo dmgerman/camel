@@ -888,6 +888,7 @@ return|return
 name|beanRef
 return|;
 block|}
+comment|/**      * Instead of using a hostname:port, refer to an existing configured Session or Cluster from the Camel registry to be used.      */
 DECL|method|setBean (String beanRef)
 specifier|public
 name|void
@@ -944,6 +945,7 @@ return|return
 name|hosts
 return|;
 block|}
+comment|/**      * Hostname(s) cassansdra server(s). Multiple hosts can be separated by comma.      */
 DECL|method|setHosts (String hosts)
 specifier|public
 name|void
@@ -970,6 +972,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * Port number of cassansdra server(s)      */
 DECL|method|setPort (Integer port)
 specifier|public
 name|void
@@ -996,6 +999,7 @@ return|return
 name|keyspace
 return|;
 block|}
+comment|/**      * Keyspace to use      */
 DECL|method|setKeyspace (String keyspace)
 specifier|public
 name|void
@@ -1022,6 +1026,7 @@ return|return
 name|cql
 return|;
 block|}
+comment|/**      * CQL query to perform. Can be overridden with the message header with key CamelCqlQuery.      */
 DECL|method|setCql (String cql)
 specifier|public
 name|void
@@ -1048,6 +1053,7 @@ return|return
 name|cluster
 return|;
 block|}
+comment|/**      * To use the Cluster instance (you would normally not use this option)      */
 DECL|method|setCluster (Cluster cluster)
 specifier|public
 name|void
@@ -1091,6 +1097,7 @@ name|session
 return|;
 block|}
 block|}
+comment|/**      * To use the Session instance (you would normally not use this option)      */
 DECL|method|setSession (Session session)
 specifier|public
 name|void
@@ -1117,6 +1124,7 @@ return|return
 name|clusterName
 return|;
 block|}
+comment|/**      * Cluster name      */
 DECL|method|setClusterName (String clusterName)
 specifier|public
 name|void
@@ -1143,6 +1151,7 @@ return|return
 name|username
 return|;
 block|}
+comment|/**      * Username for session authentication      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -1169,6 +1178,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * Password for session authentication      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -1195,6 +1205,7 @@ return|return
 name|consistencyLevel
 return|;
 block|}
+comment|/**      * Consistency level to use      */
 DECL|method|setConsistencyLevel (ConsistencyLevel consistencyLevel)
 specifier|public
 name|void
@@ -1221,6 +1232,7 @@ return|return
 name|resultSetConversionStrategy
 return|;
 block|}
+comment|/**      * To use a custom class that implements logic for converting ResultSet into message body ALL, ONE, LIMIT_10, LIMIT_100...      */
 DECL|method|setResultSetConversionStrategy (ResultSetConversionStrategy resultSetConversionStrategy)
 specifier|public
 name|void
