@@ -239,6 +239,11 @@ literal|"Invalid URI. Format must be of the form couchdb:http[s]://hostname[:por
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|enums
+operator|=
+literal|"http,https"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -296,6 +301,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|enums
+operator|=
+literal|"all_docs,main_only"
+argument_list|,
 name|defaultValue
 operator|=
 name|DEFAULT_STYLE
@@ -745,6 +754,7 @@ return|return
 name|protocol
 return|;
 block|}
+comment|/**      * The protocol to use for communicating with the database.      */
 DECL|method|setProtocol (String protocol)
 specifier|public
 name|void
@@ -771,6 +781,7 @@ return|return
 name|hostname
 return|;
 block|}
+comment|/**      * Hostname of the running couchdb instance      */
 DECL|method|setHostname (String hostname)
 specifier|public
 name|void
@@ -797,6 +808,7 @@ return|return
 name|style
 return|;
 block|}
+comment|/**      * Specifies how many revisions are returned in the changes array.      * The default, main_only, will only return the current "winning" revision; all_docs will return all leaf revisions (including conflicts and deleted former conflicts.)      */
 DECL|method|setStyle (String style)
 specifier|public
 name|void
@@ -823,6 +835,7 @@ return|return
 name|username
 return|;
 block|}
+comment|/**      * Username in case of authenticated databases      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -849,6 +862,7 @@ return|return
 name|database
 return|;
 block|}
+comment|/**      * Name of the database to use      */
 DECL|method|setDatabase (String database)
 specifier|public
 name|void
@@ -875,6 +889,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * Password for authenticated databases      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -901,6 +916,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * Port number for the running couchdb instance      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -927,6 +943,7 @@ return|return
 name|heartbeat
 return|;
 block|}
+comment|/**      * How often to send an empty message to keep socket alive in millis      */
 DECL|method|setHeartbeat (long heartbeat)
 specifier|public
 name|void
@@ -953,6 +970,7 @@ return|return
 name|createDatabase
 return|;
 block|}
+comment|/**      * Creates the database if it does not already exist      */
 DECL|method|setCreateDatabase (boolean createDatabase)
 specifier|public
 name|void
@@ -979,6 +997,7 @@ return|return
 name|deletes
 return|;
 block|}
+comment|/**      * Document deletes are published as events      */
 DECL|method|setDeletes (boolean deletes)
 specifier|public
 name|void
@@ -1005,6 +1024,7 @@ return|return
 name|updates
 return|;
 block|}
+comment|/**      * Document inserts/updates are published as events      */
 DECL|method|setUpdates (boolean updates)
 specifier|public
 name|void
