@@ -327,7 +327,7 @@ name|UriPath
 argument_list|(
 name|enums
 operator|=
-literal|"http"
+literal|"http,https"
 argument_list|)
 annotation|@
 name|Metadata
@@ -366,6 +366,13 @@ name|defaultValue
 operator|=
 literal|"80"
 argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|port
 specifier|private
 name|int
@@ -390,6 +397,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|""
@@ -406,6 +417,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|""
@@ -435,20 +450,26 @@ name|Method
 operator|.
 name|GET
 decl_stmt|;
-comment|// Optional and for consumer only. This allows a single route to service multiple methods.
-comment|// If it is non-null then restletMethod is ignored.
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|restletMethods
 specifier|private
 name|Method
 index|[]
 name|restletMethods
 decl_stmt|;
-comment|// Optional and for consumer only. This allows a single route to service multiple URI patterns.
-comment|// The URI pattern defined in the endpoint will still be honored.
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|restletUriPatterns
 specifier|private
 name|List
@@ -486,6 +507,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -702,6 +727,7 @@ return|return
 name|restletMethod
 return|;
 block|}
+comment|/**      * On a producer endpoint, specifies the request method to use.      * On a consumer endpoint, specifies that the endpoint consumes only restletMethod requests.      */
 DECL|method|setRestletMethod (Method restletMethod)
 specifier|public
 name|void
@@ -728,6 +754,7 @@ return|return
 name|protocol
 return|;
 block|}
+comment|/**      * The protocol to use which is http or https      */
 DECL|method|setProtocol (String protocol)
 specifier|public
 name|void
@@ -754,6 +781,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * The hostname of the restlet service      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -780,6 +808,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * The port number of the restlet service      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -806,6 +835,7 @@ return|return
 name|socketTimeout
 return|;
 block|}
+comment|/**      * The Client socket receive timeout, 0 for unlimited wait.      */
 DECL|method|setSocketTimeout (int socketTimeout)
 specifier|public
 name|void
@@ -832,6 +862,7 @@ return|return
 name|connectTimeout
 return|;
 block|}
+comment|/**      * The Client will give up connection if the connection is timeout, 0 for unlimited wait.      */
 DECL|method|setConnectTimeout (int connectTimeout)
 specifier|public
 name|void
@@ -858,6 +889,7 @@ return|return
 name|uriPattern
 return|;
 block|}
+comment|/**      * The resource pattern such as /customer/{id}      */
 DECL|method|setUriPattern (String uriPattern)
 specifier|public
 name|void
@@ -884,6 +916,7 @@ return|return
 name|restletBinding
 return|;
 block|}
+comment|/**      * To use a custom RestletBinding to bind between Restlet and Camel message.      */
 DECL|method|setRestletBinding (RestletBinding restletBinding)
 specifier|public
 name|void
@@ -900,6 +933,7 @@ operator|=
 name|restletBinding
 expr_stmt|;
 block|}
+comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel message.      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|void
@@ -946,6 +980,7 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+comment|/**      * To configure the security realms of restlet as a map.      */
 DECL|method|setRestletRealm (Map<String, String> restletRealm)
 specifier|public
 name|void
@@ -997,6 +1032,7 @@ operator|.
 name|InOut
 return|;
 block|}
+comment|/**      * Specify one or more methods separated by commas (e.g. restletMethods=post,put) to be serviced by a restlet consumer endpoint.      * If both restletMethod and restletMethods options are specified, the restletMethod setting is ignored.      */
 DECL|method|setRestletMethods (Method[] restletMethods)
 specifier|public
 name|void
@@ -1025,6 +1061,7 @@ return|return
 name|restletMethods
 return|;
 block|}
+comment|/**      * Specify one ore more URI templates to be serviced by a restlet consumer endpoint, using the # notation to      * reference a List<String> in the Camel Registry.      * If a URI pattern has been defined in the endpoint URI, both the URI pattern defined in the endpoint and the restletUriPatterns option will be honored.      */
 DECL|method|setRestletUriPatterns (List<String> restletUriPatterns)
 specifier|public
 name|void
@@ -1067,6 +1104,7 @@ return|return
 name|throwExceptionOnFailure
 return|;
 block|}
+comment|/**      * Whether to throw exception on a producer failure. If this option is false then the http status code is set as a message header which      * can be checked if it has an error value.      */
 DECL|method|setThrowExceptionOnFailure (boolean throwExceptionOnFailure)
 specifier|public
 name|void
@@ -1093,6 +1131,7 @@ return|return
 name|disableStreamCache
 return|;
 block|}
+comment|/**      * Determines whether or not the raw input stream from Restlet is cached or not      * (Camel will read the stream into a in memory/overflow to file, Stream caching) cache.      * By default Camel will cache the Restlet input stream to support reading it multiple times to ensure Camel      * can retrieve all data from the stream. However you can set this option to true when you for example need      * to access the raw stream, such as streaming it directly to a file or other persistent store.      * DefaultRestletBinding will copy the request input stream into a stream cache and put it into message body      * if this option is false to support reading the stream multiple times.      */
 DECL|method|setDisableStreamCache (boolean disableStreamCache)
 specifier|public
 name|void
@@ -1119,6 +1158,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
+comment|/**      * To configure security using SSLContextParameters.      */
 DECL|method|setSslContextParameters (SSLContextParameters scp)
 specifier|public
 name|void

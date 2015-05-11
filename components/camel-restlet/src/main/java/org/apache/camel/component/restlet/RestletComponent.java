@@ -2911,6 +2911,7 @@ return|return
 name|controllerDaemon
 return|;
 block|}
+comment|/**      * Indicates if the controller thread should be a daemon (not blocking JVM exit).      */
 DECL|method|setControllerDaemon (Boolean controllerDaemon)
 specifier|public
 name|void
@@ -2937,6 +2938,7 @@ return|return
 name|controllerSleepTimeMs
 return|;
 block|}
+comment|/**      * Time for the controller thread to sleep between each control.      */
 DECL|method|setControllerSleepTimeMs (Integer controllerSleepTimeMs)
 specifier|public
 name|void
@@ -2963,6 +2965,7 @@ return|return
 name|inboundBufferSize
 return|;
 block|}
+comment|/**      * The size of the buffer when reading messages.      */
 DECL|method|setInboundBufferSize (Integer inboundBufferSize)
 specifier|public
 name|void
@@ -2989,6 +2992,7 @@ return|return
 name|maxConnectionsPerHost
 return|;
 block|}
+comment|/**      * Maximum number of concurrent connections per host (IP address).      */
 DECL|method|setMaxConnectionsPerHost (Integer maxConnectionsPerHost)
 specifier|public
 name|void
@@ -3015,6 +3019,7 @@ return|return
 name|maxThreads
 return|;
 block|}
+comment|/**      * Maximum threads that will service requests.      */
 DECL|method|setMaxThreads (Integer maxThreads)
 specifier|public
 name|void
@@ -3041,6 +3046,7 @@ return|return
 name|lowThreads
 return|;
 block|}
+comment|/**      * Number of worker threads determining when the connector is considered overloaded.      */
 DECL|method|setLowThreads (Integer lowThreads)
 specifier|public
 name|void
@@ -3067,6 +3073,7 @@ return|return
 name|maxTotalConnections
 return|;
 block|}
+comment|/**      * Maximum number of concurrent connections in total.      */
 DECL|method|setMaxTotalConnections (Integer maxTotalConnections)
 specifier|public
 name|void
@@ -3093,6 +3100,7 @@ return|return
 name|minThreads
 return|;
 block|}
+comment|/**      * Minimum threads waiting to service requests.      */
 DECL|method|setMinThreads (Integer minThreads)
 specifier|public
 name|void
@@ -3119,6 +3127,7 @@ return|return
 name|outboundBufferSize
 return|;
 block|}
+comment|/**      * The size of the buffer when writing messages.      */
 DECL|method|setOutboundBufferSize (Integer outboundBufferSize)
 specifier|public
 name|void
@@ -3145,6 +3154,7 @@ return|return
 name|persistingConnections
 return|;
 block|}
+comment|/**      * Indicates if connections should be kept alive after a call.      */
 DECL|method|setPersistingConnections (Boolean persistingConnections)
 specifier|public
 name|void
@@ -3171,6 +3181,7 @@ return|return
 name|pipeliningConnections
 return|;
 block|}
+comment|/**      * Indicates if pipelining connections are supported.      */
 DECL|method|setPipeliningConnections (Boolean pipeliningConnections)
 specifier|public
 name|void
@@ -3197,6 +3208,7 @@ return|return
 name|threadMaxIdleTimeMs
 return|;
 block|}
+comment|/**      * Time for an idle thread to wait for an operation before being collected.      */
 DECL|method|setThreadMaxIdleTimeMs (Integer threadMaxIdleTimeMs)
 specifier|public
 name|void
@@ -3223,6 +3235,7 @@ return|return
 name|useForwardedForHeader
 return|;
 block|}
+comment|/**      * Lookup the "X-Forwarded-For" header supported by popular proxies and caches and uses it to populate the Request.getClientAddresses()      * method result. This information is only safe for intermediary components within your local network.      * Other addresses could easily be changed by setting a fake header and should not be trusted for serious security checks.      */
 DECL|method|setUseForwardedForHeader (Boolean useForwardedForHeader)
 specifier|public
 name|void
@@ -3249,6 +3262,7 @@ return|return
 name|reuseAddress
 return|;
 block|}
+comment|/**      * Enable/disable the SO_REUSEADDR socket option.      * See java.io.ServerSocket#reuseAddress property for additional details.      */
 DECL|method|setReuseAddress (Boolean reuseAddress)
 specifier|public
 name|void
@@ -3275,6 +3289,7 @@ return|return
 name|maxQueued
 return|;
 block|}
+comment|/**      * Maximum number of calls that can be queued if there aren't any worker thread available to service them.      * If the value is '0', then no queue is used and calls are rejected if no worker thread is immediately available.      * If the value is '-1', then an unbounded queue is used and calls are never rejected.      */
 DECL|method|setMaxQueued (Integer maxQueued)
 specifier|public
 name|void
@@ -3301,6 +3316,7 @@ return|return
 name|disableStreamCache
 return|;
 block|}
+comment|/**      * Determines whether or not the raw input stream from Restlet is cached or not      * (Camel will read the stream into a in memory/overflow to file, Stream caching) cache.      * By default Camel will cache the Restlet input stream to support reading it multiple times to ensure Camel      * can retrieve all data from the stream. However you can set this option to true when you for example need      * to access the raw stream, such as streaming it directly to a file or other persistent store.      * DefaultRestletBinding will copy the request input stream into a stream cache and put it into message body      * if this option is false to support reading the stream multiple times.      */
 DECL|method|setDisableStreamCache (boolean disableStreamCache)
 specifier|public
 name|void
@@ -3327,6 +3343,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * To configure the port number for the restlet consumer routes.      * This allows to configure this once to reuse the same port for these consumers.      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -3353,6 +3370,7 @@ return|return
 name|synchronous
 return|;
 block|}
+comment|/**      * Whether to use synchronous Restlet Client for the producer. Setting this option to true can yield faster performance      * as it seems the Restlet synchronous Client works better.      */
 DECL|method|setSynchronous (Boolean synchronous)
 specifier|public
 name|void
