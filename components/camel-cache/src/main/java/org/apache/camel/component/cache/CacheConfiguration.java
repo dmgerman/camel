@@ -74,6 +74,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriParam
 import|;
 end_import
@@ -132,6 +146,13 @@ name|Cloneable
 block|{
 annotation|@
 name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|cacheName
 specifier|private
 name|String
@@ -160,7 +181,7 @@ literal|"LFU"
 argument_list|,
 name|enums
 operator|=
-literal|"LRU,LFU,FIFO,CLOCK"
+literal|"LRU,LFU,FIFO"
 argument_list|)
 DECL|field|memoryStoreEvictionPolicy
 specifier|private
@@ -187,6 +208,8 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Deprecated
 DECL|field|diskStorePath
 specifier|private
 name|String
@@ -730,6 +753,7 @@ return|return
 name|cacheName
 return|;
 block|}
+comment|/**      * Name of the cache      */
 DECL|method|setCacheName (String cacheName)
 specifier|public
 name|void
@@ -756,6 +780,7 @@ return|return
 name|maxElementsInMemory
 return|;
 block|}
+comment|/**      * The number of elements that may be stored in the defined cache in memory.      */
 DECL|method|setMaxElementsInMemory (int maxElementsInMemory)
 specifier|public
 name|void
@@ -782,7 +807,8 @@ return|return
 name|memoryStoreEvictionPolicy
 return|;
 block|}
-DECL|method|setMemoryStoreEvictionPolicy ( MemoryStoreEvictionPolicy memoryStoreEvictionPolicy)
+comment|/**      * Which eviction strategy to use when maximum number of elements in memory is reached. The strategy defines      * which elements to be removed.      *<ul>      *<li>LRU - Lest Recently Used</li>      *<li>LFU - Lest Frequently Used</li>      *<li>FIFO - First In First Out</li>      *</ul>      */
+DECL|method|setMemoryStoreEvictionPolicy (MemoryStoreEvictionPolicy memoryStoreEvictionPolicy)
 specifier|public
 name|void
 name|setMemoryStoreEvictionPolicy
@@ -808,6 +834,7 @@ return|return
 name|overflowToDisk
 return|;
 block|}
+comment|/**      * Specifies whether cache may overflow to disk      */
 DECL|method|setOverflowToDisk (boolean overflowToDisk)
 specifier|public
 name|void
@@ -824,6 +851,8 @@ operator|=
 name|overflowToDisk
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getDiskStorePath ()
 specifier|public
 name|String
@@ -834,6 +863,9 @@ return|return
 name|diskStorePath
 return|;
 block|}
+comment|/**      * This parameter is ignored. CacheManager sets it using setter injection.      */
+annotation|@
+name|Deprecated
 DECL|method|setDiskStorePath (String diskStorePath)
 specifier|public
 name|void
@@ -860,6 +892,7 @@ return|return
 name|eternal
 return|;
 block|}
+comment|/**      * Sets whether elements are eternal. If eternal, timeouts are ignored and the element never expires.      */
 DECL|method|setEternal (boolean eternal)
 specifier|public
 name|void
@@ -886,6 +919,7 @@ return|return
 name|timeToLiveSeconds
 return|;
 block|}
+comment|/**      * The maximum time between creation time and when an element expires. Is used only if the element is not eternal      */
 DECL|method|setTimeToLiveSeconds (long timeToLiveSeconds)
 specifier|public
 name|void
@@ -912,6 +946,7 @@ return|return
 name|timeToIdleSeconds
 return|;
 block|}
+comment|/**      * The maximum amount of time between accesses before an element expires      */
 DECL|method|setTimeToIdleSeconds (long timeToIdleSeconds)
 specifier|public
 name|void
@@ -938,6 +973,7 @@ return|return
 name|diskPersistent
 return|;
 block|}
+comment|/**      * Whether the disk store persists between restarts of the application.      */
 DECL|method|setDiskPersistent (boolean diskPersistent)
 specifier|public
 name|void
@@ -964,6 +1000,7 @@ return|return
 name|diskExpiryThreadIntervalSeconds
 return|;
 block|}
+comment|/**      * The number of seconds between runs of the disk expiry thread.      */
 DECL|method|setDiskExpiryThreadIntervalSeconds (long diskExpiryThreadIntervalSeconds)
 specifier|public
 name|void
@@ -980,6 +1017,7 @@ operator|=
 name|diskExpiryThreadIntervalSeconds
 expr_stmt|;
 block|}
+comment|/**      * To configure event listeners using the CacheEventListenerRegistry     */
 DECL|method|setEventListenerRegistry (CacheEventListenerRegistry eventListenerRegistry)
 specifier|public
 name|void
@@ -1006,6 +1044,7 @@ return|return
 name|eventListenerRegistry
 return|;
 block|}
+comment|/**      * To configure cache loader using the CacheLoaderRegistry      */
 DECL|method|setCacheLoaderRegistry (CacheLoaderRegistry cacheLoaderRegistry)
 specifier|public
 name|void
@@ -1042,6 +1081,7 @@ return|return
 name|objectCache
 return|;
 block|}
+comment|/**      * Whether to turn on allowing to store non serializable objects in the cache.      * If this option is enabled then overflow to disk cannot be enabled as well.      */
 DECL|method|setObjectCache (boolean objectCache)
 specifier|public
 name|void

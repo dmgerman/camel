@@ -496,6 +496,7 @@ return|return
 name|cacheManagerFactory
 return|;
 block|}
+comment|/**      * To use a custom CacheManagerFactory for creating the CacheManager to be used by this endpoint.      *<p/>      * By default the CacheManagerFactory configured on the component is used.      */
 DECL|method|setCacheManagerFactory (CacheManagerFactory cacheManagerFactory)
 specifier|public
 name|void
@@ -865,6 +866,7 @@ return|return
 name|operation
 return|;
 block|}
+comment|/**      * The default cache operation to use.      * If an operation in the message header, then the operation from the header takes precedence.      */
 DECL|method|setOperation (String operation)
 specifier|public
 name|void
@@ -891,6 +893,7 @@ return|return
 name|key
 return|;
 block|}
+comment|/**      * The default key to use.      * If a key is provided in the message header, then the key from the header takes precedence.      */
 DECL|method|setKey (String key)
 specifier|public
 name|void

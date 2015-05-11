@@ -301,6 +301,7 @@ return|return
 name|cacheManagerFactory
 return|;
 block|}
+comment|/**      * To use the given CacheManagerFactory for creating the CacheManager.      *<p/>      * By default the DefaultCacheManagerFactory is used.      */
 DECL|method|setCacheManagerFactory (CacheManagerFactory cacheManagerFactory)
 specifier|public
 name|void
