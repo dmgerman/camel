@@ -341,6 +341,26 @@ name|apiNameStr
 argument_list|)
 return|;
 block|}
+comment|/**      * To use the shared configuration      */
+annotation|@
+name|Override
+DECL|method|setConfiguration (LinkedInConfiguration configuration)
+specifier|public
+name|void
+name|setConfiguration
+parameter_list|(
+name|LinkedInConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setConfiguration
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String methodName, LinkedInApiName apiName, LinkedInConfiguration endpointConfiguration)
@@ -361,6 +381,20 @@ name|LinkedInConfiguration
 name|endpointConfiguration
 parameter_list|)
 block|{
+name|endpointConfiguration
+operator|.
+name|setApiName
+argument_list|(
+name|apiName
+argument_list|)
+expr_stmt|;
+name|endpointConfiguration
+operator|.
+name|setMethodName
+argument_list|(
+name|methodName
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|LinkedInEndpoint
