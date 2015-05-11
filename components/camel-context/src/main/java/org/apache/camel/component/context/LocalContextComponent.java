@@ -268,6 +268,7 @@ return|return
 name|localCamelContext
 return|;
 block|}
+comment|/**      * Sets the local CamelContext to use.      */
 DECL|method|setLocalCamelContext (CamelContext localCamelContext)
 specifier|public
 name|void

@@ -259,6 +259,7 @@ return|return
 name|contextId
 return|;
 block|}
+comment|/**      * Is the ID you used to register the CamelContext into the Registry.      */
 DECL|method|setContextId (String contextId)
 specifier|public
 name|void
@@ -285,6 +286,7 @@ return|return
 name|localEndpointUrl
 return|;
 block|}
+comment|/**      * Can be a valid Camel URI evaluated within the black box CamelContext.      * Or it can be a logical name which is mapped to any local endpoints.      * For example if you locally have endpoints like direct:invoices and seda:purchaseOrders      * inside a CamelContext of id supplyChain, then you can just use the URIs supplyChain:invoices      * or supplyChain:purchaseOrders to omit the physical endpoint kind and use pure logical URIs.      */
 DECL|method|setLocalEndpointUrl (String localEndpointUrl)
 specifier|public
 name|void
