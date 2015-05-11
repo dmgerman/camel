@@ -98,6 +98,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoTypeConversionAvailableException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -459,9 +471,24 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|nameStyle
+specifier|private
+name|FacebookNameStyle
+name|nameStyle
+decl_stmt|;
+DECL|field|method
+specifier|private
+name|String
+name|method
+decl_stmt|;
 comment|// Facebook4J method name
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"What operation to perform"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -471,14 +498,8 @@ literal|"true"
 argument_list|)
 DECL|field|methodName
 specifier|private
-specifier|final
-name|String
+name|FacebookMethodsType
 name|methodName
-decl_stmt|;
-DECL|field|nameStyle
-specifier|private
-name|FacebookNameStyle
-name|nameStyle
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -487,7 +508,6 @@ specifier|private
 name|FacebookEndpointConfiguration
 name|configuration
 decl_stmt|;
-comment|// property name for Exchange 'In' message body
 annotation|@
 name|UriParam
 DECL|field|inBody
@@ -520,6 +540,8 @@ parameter_list|,
 name|FacebookEndpointConfiguration
 name|configuration
 parameter_list|)
+throws|throws
+name|NoTypeConversionAvailableException
 block|{
 name|super
 argument_list|(
@@ -536,7 +558,7 @@ name|configuration
 expr_stmt|;
 name|this
 operator|.
-name|methodName
+name|method
 operator|=
 name|remaining
 expr_stmt|;
@@ -802,7 +824,7 @@ name|addAll
 argument_list|(
 name|getCandidateMethods
 argument_list|(
-name|methodName
+name|method
 argument_list|,
 name|argNames
 argument_list|)
@@ -840,7 +862,7 @@ name|getCandidateMethods
 argument_list|(
 name|convertToGetMethod
 argument_list|(
-name|methodName
+name|method
 argument_list|)
 argument_list|,
 name|argNames
@@ -881,7 +903,7 @@ name|getCandidateMethods
 argument_list|(
 name|convertToSearchMethod
 argument_list|(
-name|methodName
+name|method
 argument_list|)
 argument_list|,
 name|argNames
@@ -907,7 +929,7 @@ name|format
 argument_list|(
 literal|"No matching operation for %s, with arguments %s"
 argument_list|,
-name|methodName
+name|method
 argument_list|,
 name|arguments
 argument_list|)
@@ -967,7 +989,7 @@ name|missing
 init|=
 name|getMissingProperties
 argument_list|(
-name|methodName
+name|method
 argument_list|,
 name|nameStyle
 argument_list|,
@@ -989,7 +1011,7 @@ name|debug
 argument_list|(
 literal|"Method {} could use one or more properties from {}"
 argument_list|,
-name|methodName
+name|method
 argument_list|,
 name|missing
 argument_list|)
@@ -1005,26 +1027,6 @@ parameter_list|()
 block|{
 return|return
 name|configuration
-return|;
-block|}
-DECL|method|getMethodName ()
-specifier|public
-name|String
-name|getMethodName
-parameter_list|()
-block|{
-return|return
-name|methodName
-return|;
-block|}
-DECL|method|getNameStyle ()
-specifier|public
-name|FacebookNameStyle
-name|getNameStyle
-parameter_list|()
-block|{
-return|return
-name|nameStyle
 return|;
 block|}
 DECL|method|getCandidates ()
@@ -1055,6 +1057,27 @@ return|return
 name|inBody
 return|;
 block|}
+DECL|method|getMethod ()
+specifier|public
+name|String
+name|getMethod
+parameter_list|()
+block|{
+return|return
+name|method
+return|;
+block|}
+DECL|method|getNameStyle ()
+specifier|public
+name|FacebookNameStyle
+name|getNameStyle
+parameter_list|()
+block|{
+return|return
+name|nameStyle
+return|;
+block|}
+comment|/**      * Sets the name of a parameter to be passed in the exchange In Body      */
 DECL|method|setInBody (String inBody)
 specifier|public
 name|void
@@ -1103,6 +1126,22 @@ operator|.
 name|inBody
 operator|=
 name|inBody
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
 expr_stmt|;
 block|}
 block|}

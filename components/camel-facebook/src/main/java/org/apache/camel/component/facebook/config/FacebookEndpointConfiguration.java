@@ -215,6 +215,8 @@ name|center
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Deprecated
 DECL|field|checkinUpdate
 specifier|private
 name|CheckinUpdate
@@ -625,6 +627,7 @@ return|return
 name|achievementURL
 return|;
 block|}
+comment|/**      * The unique URL of the achievement      */
 DECL|method|setAchievementURL (URL achievementURL)
 specifier|public
 name|void
@@ -651,6 +654,7 @@ return|return
 name|albumUpdate
 return|;
 block|}
+comment|/**      * The facebook Album to be created or updated      */
 DECL|method|setAlbumUpdate (AlbumUpdate albumUpdate)
 specifier|public
 name|void
@@ -677,6 +681,7 @@ return|return
 name|albumId
 return|;
 block|}
+comment|/**      * The album ID      */
 DECL|method|setAlbumId (String albumId)
 specifier|public
 name|void
@@ -703,6 +708,7 @@ return|return
 name|appId
 return|;
 block|}
+comment|/**      * The ID of the Facebook Application      */
 DECL|method|setAppId (String appId)
 specifier|public
 name|void
@@ -729,6 +735,7 @@ return|return
 name|center
 return|;
 block|}
+comment|/**      * Location latitude and longitude      */
 DECL|method|setCenter (GeoLocation center)
 specifier|public
 name|void
@@ -755,6 +762,9 @@ return|return
 name|checkinUpdate
 return|;
 block|}
+comment|/**      * The checkin to be created. Deprecated, instead create a Post with an attached location      * @deprecated instead create a Post with an attached location      */
+annotation|@
+name|Deprecated
 DECL|method|setCheckinUpdate (CheckinUpdate checkinUpdate)
 specifier|public
 name|void
@@ -781,6 +791,7 @@ return|return
 name|checkinId
 return|;
 block|}
+comment|/**      * The checkin ID      */
 DECL|method|setCheckinId (String checkinId)
 specifier|public
 name|void
@@ -807,6 +818,7 @@ return|return
 name|commentId
 return|;
 block|}
+comment|/**      * The comment ID      */
 DECL|method|setCommentId (String commentId)
 specifier|public
 name|void
@@ -833,6 +845,7 @@ return|return
 name|description
 return|;
 block|}
+comment|/**      * The description text      */
 DECL|method|setDescription (String description)
 specifier|public
 name|void
@@ -859,6 +872,7 @@ return|return
 name|distance
 return|;
 block|}
+comment|/**      * Distance in meters      */
 DECL|method|setDistance (Integer distance)
 specifier|public
 name|void
@@ -885,6 +899,7 @@ return|return
 name|domainId
 return|;
 block|}
+comment|/**      * The domain ID      */
 DECL|method|setDomainId (String domainId)
 specifier|public
 name|void
@@ -911,6 +926,7 @@ return|return
 name|domainName
 return|;
 block|}
+comment|/**      * The domain name      */
 DECL|method|setDomainName (String domainName)
 specifier|public
 name|void
@@ -940,6 +956,7 @@ return|return
 name|domainNames
 return|;
 block|}
+comment|/**      * The domain names      */
 DECL|method|setDomainNames (List<String> domainNames)
 specifier|public
 name|void
@@ -969,6 +986,7 @@ return|return
 name|eventId
 return|;
 block|}
+comment|/**      * The event ID      */
 DECL|method|setEventId (String eventId)
 specifier|public
 name|void
@@ -995,6 +1013,7 @@ return|return
 name|eventUpdate
 return|;
 block|}
+comment|/**      * The event to be created or updated      */
 DECL|method|setEventUpdate (EventUpdate eventUpdate)
 specifier|public
 name|void
@@ -1021,6 +1040,7 @@ return|return
 name|friendId
 return|;
 block|}
+comment|/**      * The friend ID      */
 DECL|method|setFriendId (String friendId)
 specifier|public
 name|void
@@ -1047,6 +1067,7 @@ return|return
 name|friendUserId
 return|;
 block|}
+comment|/**      * The friend user ID      */
 DECL|method|setFriendUserId (String friendUserId)
 specifier|public
 name|void
@@ -1073,6 +1094,7 @@ return|return
 name|friendlistId
 return|;
 block|}
+comment|/**      * The friend list ID      */
 DECL|method|setFriendlistId (String friendlistId)
 specifier|public
 name|void
@@ -1099,6 +1121,7 @@ return|return
 name|friendlistName
 return|;
 block|}
+comment|/**      * The friend list Name      */
 DECL|method|setFriendlistName (String friendlistName)
 specifier|public
 name|void
@@ -1125,6 +1148,7 @@ return|return
 name|groupId
 return|;
 block|}
+comment|/**      * The group ID      */
 DECL|method|setGroupId (String groupId)
 specifier|public
 name|void
@@ -1154,6 +1178,7 @@ return|return
 name|ids
 return|;
 block|}
+comment|/**      * The ids of users      */
 DECL|method|setIds (List<String> ids)
 specifier|public
 name|void
@@ -1183,6 +1208,7 @@ return|return
 name|includeRead
 return|;
 block|}
+comment|/**      * Enables notifications that the user has already read in addition to unread ones      */
 DECL|method|setIncludeRead (Boolean includeRead)
 specifier|public
 name|void
@@ -1209,6 +1235,7 @@ return|return
 name|link
 return|;
 block|}
+comment|/**      * Link URL      */
 DECL|method|setLink (URL link)
 specifier|public
 name|void
@@ -1235,6 +1262,7 @@ return|return
 name|linkId
 return|;
 block|}
+comment|/**      * Link ID      */
 DECL|method|setLinkId (String linkId)
 specifier|public
 name|void
@@ -1261,6 +1289,7 @@ return|return
 name|locale
 return|;
 block|}
+comment|/**      * Desired FQL locale      */
 DECL|method|setLocale (Locale locale)
 specifier|public
 name|void
@@ -1287,6 +1316,7 @@ return|return
 name|message
 return|;
 block|}
+comment|/**      * The message text      */
 DECL|method|setMessage (String message)
 specifier|public
 name|void
@@ -1313,6 +1343,7 @@ return|return
 name|messageId
 return|;
 block|}
+comment|/**      * The message ID      */
 DECL|method|setMessageId (String messageId)
 specifier|public
 name|void
@@ -1339,6 +1370,7 @@ return|return
 name|metric
 return|;
 block|}
+comment|/**      * The metric name      */
 DECL|method|setMetric (String metric)
 specifier|public
 name|void
@@ -1365,6 +1397,7 @@ return|return
 name|name
 return|;
 block|}
+comment|/**      * Test user name, must be of the form 'first last'      */
 DECL|method|setName (String name)
 specifier|public
 name|void
@@ -1391,6 +1424,7 @@ return|return
 name|noteId
 return|;
 block|}
+comment|/**      * The note ID      */
 DECL|method|setNoteId (String noteId)
 specifier|public
 name|void
@@ -1417,6 +1451,7 @@ return|return
 name|notificationId
 return|;
 block|}
+comment|/**      * The notification ID      */
 DECL|method|setNotificationId (String notificationId)
 specifier|public
 name|void
@@ -1443,6 +1478,7 @@ return|return
 name|objectId
 return|;
 block|}
+comment|/**      * The insight object ID      */
 DECL|method|setObjectId (String objectId)
 specifier|public
 name|void
@@ -1469,6 +1505,7 @@ return|return
 name|optionDescription
 return|;
 block|}
+comment|/**      * The question's answer option description      */
 DECL|method|setOptionDescription (String optionDescription)
 specifier|public
 name|void
@@ -1495,6 +1532,7 @@ return|return
 name|permissionName
 return|;
 block|}
+comment|/**      * The permission name      */
 DECL|method|setPermissionName (String permissionName)
 specifier|public
 name|void
@@ -1521,6 +1559,7 @@ return|return
 name|permissions
 return|;
 block|}
+comment|/**      * Test user permissions in the format perm1,perm2,...      */
 DECL|method|setPermissions (String permissions)
 specifier|public
 name|void
@@ -1547,6 +1586,7 @@ return|return
 name|photoId
 return|;
 block|}
+comment|/**      * The photo ID      */
 DECL|method|setPhotoId (String photoId)
 specifier|public
 name|void
@@ -1573,6 +1613,7 @@ return|return
 name|placeId
 return|;
 block|}
+comment|/**      * The place ID      */
 DECL|method|setPlaceId (String placeId)
 specifier|public
 name|void
@@ -1599,6 +1640,7 @@ return|return
 name|postId
 return|;
 block|}
+comment|/**      * The post ID      */
 DECL|method|setPostId (String postId)
 specifier|public
 name|void
@@ -1625,6 +1667,7 @@ return|return
 name|postUpdate
 return|;
 block|}
+comment|/**      * The post to create or update      */
 DECL|method|setPostUpdate (PostUpdate postUpdate)
 specifier|public
 name|void
@@ -1656,6 +1699,7 @@ return|return
 name|queries
 return|;
 block|}
+comment|/**      * FQL queries      */
 DECL|method|setQueries (Map<String, String> queries)
 specifier|public
 name|void
@@ -1687,6 +1731,7 @@ return|return
 name|query
 return|;
 block|}
+comment|/**      * FQL query or search terms for search* endpoints      */
 DECL|method|setQuery (String query)
 specifier|public
 name|void
@@ -1713,6 +1758,7 @@ return|return
 name|questionId
 return|;
 block|}
+comment|/**      * The question id      */
 DECL|method|setQuestionId (String questionId)
 specifier|public
 name|void
@@ -1739,6 +1785,7 @@ return|return
 name|reading
 return|;
 block|}
+comment|/**      * Optional reading parameters. See Reading Options(#reading)      */
 DECL|method|setReading (Reading reading)
 specifier|public
 name|void
@@ -1765,6 +1812,7 @@ return|return
 name|scoreValue
 return|;
 block|}
+comment|/**      * The numeric score with value      */
 DECL|method|setScoreValue (Integer scoreValue)
 specifier|public
 name|void
@@ -1791,6 +1839,7 @@ return|return
 name|size
 return|;
 block|}
+comment|/**      * The picture size, one of large, normal, small or square      */
 DECL|method|setSize (PictureSize size)
 specifier|public
 name|void
@@ -1817,6 +1866,7 @@ return|return
 name|source
 return|;
 block|}
+comment|/**      * The media content from either a java.io.File or java.io.Inputstream      */
 DECL|method|setSource (Media source)
 specifier|public
 name|void
@@ -1843,6 +1893,7 @@ return|return
 name|subject
 return|;
 block|}
+comment|/**      * The note of the subject      */
 DECL|method|setSubject (String subject)
 specifier|public
 name|void
@@ -1869,6 +1920,7 @@ return|return
 name|tagUpdate
 return|;
 block|}
+comment|/**      * Photo tag information      */
 DECL|method|setTagUpdate (TagUpdate tagUpdate)
 specifier|public
 name|void
@@ -1895,6 +1947,7 @@ return|return
 name|testUser1
 return|;
 block|}
+comment|/**      * Test user 1      */
 DECL|method|setTestUser1 (TestUser testUser1)
 specifier|public
 name|void
@@ -1921,6 +1974,7 @@ return|return
 name|testUser2
 return|;
 block|}
+comment|/**      * Test user 2      */
 DECL|method|setTestUser2 (TestUser testUser2)
 specifier|public
 name|void
@@ -1947,6 +2001,7 @@ return|return
 name|testUserId
 return|;
 block|}
+comment|/**      * The ID of the test user      */
 DECL|method|setTestUserId (String testUserId)
 specifier|public
 name|void
@@ -1973,6 +2028,7 @@ return|return
 name|title
 return|;
 block|}
+comment|/**      * The title text      */
 DECL|method|setTitle (String title)
 specifier|public
 name|void
@@ -1999,6 +2055,7 @@ return|return
 name|toUserId
 return|;
 block|}
+comment|/**      * The ID of the user to tag      */
 DECL|method|setToUserId (String toUserId)
 specifier|public
 name|void
@@ -2028,6 +2085,7 @@ return|return
 name|toUserIds
 return|;
 block|}
+comment|/**      * The IDs of the users to tag      */
 DECL|method|setToUserIds (List<String> toUserIds)
 specifier|public
 name|void
@@ -2057,6 +2115,7 @@ return|return
 name|userId1
 return|;
 block|}
+comment|/**      * The ID of a user 1      */
 DECL|method|setUserId1 (String userId1)
 specifier|public
 name|void
@@ -2083,6 +2142,7 @@ return|return
 name|userId2
 return|;
 block|}
+comment|/**      * The ID of a user 2      */
 DECL|method|setUserId2 (String userId2)
 specifier|public
 name|void
@@ -2109,6 +2169,7 @@ return|return
 name|userId
 return|;
 block|}
+comment|/**      * The Facebook user ID      */
 DECL|method|setUserId (String userId)
 specifier|public
 name|void
@@ -2138,6 +2199,7 @@ return|return
 name|userIds
 return|;
 block|}
+comment|/**      * The IDs of users to invite to event      */
 DECL|method|setUserIds (List<String> userIds)
 specifier|public
 name|void
@@ -2167,6 +2229,7 @@ return|return
 name|userLocale
 return|;
 block|}
+comment|/**      * The test user locale      */
 DECL|method|setUserLocale (String userLocale)
 specifier|public
 name|void
@@ -2193,6 +2256,7 @@ return|return
 name|videoId
 return|;
 block|}
+comment|/**      * The video ID      */
 DECL|method|setVideoId (String videoId)
 specifier|public
 name|void

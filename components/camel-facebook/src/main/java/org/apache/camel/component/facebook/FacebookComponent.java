@@ -342,6 +342,7 @@ return|return
 name|configuration
 return|;
 block|}
+comment|/**      * To use the shared configuration      */
 DECL|method|setConfiguration (FacebookConfiguration configuration)
 specifier|public
 name|void

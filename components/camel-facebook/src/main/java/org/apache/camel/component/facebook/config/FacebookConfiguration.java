@@ -175,6 +175,11 @@ name|oAuthAccessToken
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"https://www.facebook.com/dialog/oauth"
+argument_list|)
 DECL|field|oAuthAuthorizationURL
 specifier|private
 name|String
@@ -189,6 +194,11 @@ name|oAuthPermissions
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"https://graph.facebook.com/oauth/access_token"
+argument_list|)
 DECL|field|oAuthAccessTokenURL
 specifier|private
 name|String
@@ -210,6 +220,11 @@ name|clientVersion
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|debugEnabled
 specifier|private
 name|Boolean
@@ -217,6 +232,11 @@ name|debugEnabled
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|gzipEnabled
 specifier|private
 name|Boolean
@@ -224,6 +244,11 @@ name|gzipEnabled
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"20000"
+argument_list|)
 DECL|field|httpConnectionTimeout
 specifier|private
 name|Integer
@@ -231,6 +256,11 @@ name|httpConnectionTimeout
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"2"
+argument_list|)
 DECL|field|httpDefaultMaxPerRoute
 specifier|private
 name|Integer
@@ -238,6 +268,11 @@ name|httpDefaultMaxPerRoute
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"20"
+argument_list|)
 DECL|field|httpMaxTotalConnections
 specifier|private
 name|Integer
@@ -273,6 +308,11 @@ name|httpProxyUser
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"120000"
+argument_list|)
 DECL|field|httpReadTimeout
 specifier|private
 name|Integer
@@ -280,6 +320,11 @@ name|httpReadTimeout
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"0"
+argument_list|)
 DECL|field|httpRetryCount
 specifier|private
 name|Integer
@@ -287,6 +332,11 @@ name|httpRetryCount
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"5"
+argument_list|)
 DECL|field|httpRetryIntervalSeconds
 specifier|private
 name|Integer
@@ -294,6 +344,11 @@ name|httpRetryIntervalSeconds
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"40000"
+argument_list|)
 DECL|field|httpStreamingReadTimeout
 specifier|private
 name|Integer
@@ -301,6 +356,11 @@ name|httpStreamingReadTimeout
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|jsonStoreEnabled
 specifier|private
 name|Boolean
@@ -308,6 +368,11 @@ name|jsonStoreEnabled
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|mbeanEnabled
 specifier|private
 name|Boolean
@@ -315,6 +380,11 @@ name|mbeanEnabled
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|prettyDebugEnabled
 specifier|private
 name|Boolean
@@ -322,6 +392,11 @@ name|prettyDebugEnabled
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"https://graph.facebook.com/"
+argument_list|)
 DECL|field|restBaseURL
 specifier|private
 name|String
@@ -329,6 +404,11 @@ name|restBaseURL
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|useSSL
 specifier|private
 name|Boolean
@@ -336,6 +416,11 @@ name|useSSL
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"https://graph-video.facebook.com/"
+argument_list|)
 DECL|field|videoBaseURL
 specifier|private
 name|String
@@ -911,6 +996,7 @@ return|return
 name|oAuthAccessToken
 return|;
 block|}
+comment|/**      * The user access token      */
 DECL|method|setOAuthAccessToken (String oAuthAccessToken)
 specifier|public
 name|void
@@ -937,6 +1023,7 @@ return|return
 name|oAuthAccessTokenURL
 return|;
 block|}
+comment|/**      * OAuth access token URL      */
 DECL|method|setOAuthAccessTokenURL (String oAuthAccessTokenURL)
 specifier|public
 name|void
@@ -963,6 +1050,7 @@ return|return
 name|oAuthAppId
 return|;
 block|}
+comment|/**      * The application Id      */
 DECL|method|setOAuthAppId (String oAuthAppId)
 specifier|public
 name|void
@@ -989,6 +1077,7 @@ return|return
 name|oAuthAppSecret
 return|;
 block|}
+comment|/**      * The application Secret      */
 DECL|method|setOAuthAppSecret (String oAuthAppSecret)
 specifier|public
 name|void
@@ -1015,6 +1104,7 @@ return|return
 name|oAuthAuthorizationURL
 return|;
 block|}
+comment|/**      * OAuth authorization URL      */
 DECL|method|setOAuthAuthorizationURL (String oAuthAuthorizationURL)
 specifier|public
 name|void
@@ -1041,6 +1131,7 @@ return|return
 name|clientURL
 return|;
 block|}
+comment|/**      * Facebook4J API client URL      */
 DECL|method|setClientURL (String clientURL)
 specifier|public
 name|void
@@ -1067,6 +1158,7 @@ return|return
 name|clientVersion
 return|;
 block|}
+comment|/**      * Facebook4J client API version      */
 DECL|method|setClientVersion (String clientVersion)
 specifier|public
 name|void
@@ -1093,6 +1185,7 @@ return|return
 name|debugEnabled
 return|;
 block|}
+comment|/**      * Enables deubg output. Effective only with the embedded logger      */
 DECL|method|setDebugEnabled (Boolean debugEnabled)
 specifier|public
 name|void
@@ -1119,6 +1212,7 @@ return|return
 name|gzipEnabled
 return|;
 block|}
+comment|/**      * Use Facebook GZIP encoding      */
 DECL|method|setGzipEnabled (Boolean gzipEnabled)
 specifier|public
 name|void
@@ -1145,6 +1239,7 @@ return|return
 name|httpConnectionTimeout
 return|;
 block|}
+comment|/**      * Http connection timeout in milliseconds      */
 DECL|method|setHttpConnectionTimeout (Integer httpConnectionTimeout)
 specifier|public
 name|void
@@ -1171,6 +1266,7 @@ return|return
 name|httpDefaultMaxPerRoute
 return|;
 block|}
+comment|/**      * HTTP maximum connections per route      */
 DECL|method|setHttpDefaultMaxPerRoute (Integer httpDefaultMaxPerRoute)
 specifier|public
 name|void
@@ -1197,6 +1293,7 @@ return|return
 name|httpMaxTotalConnections
 return|;
 block|}
+comment|/**      * HTTP maximum total connections      */
 DECL|method|setHttpMaxTotalConnections (Integer httpMaxTotalConnections)
 specifier|public
 name|void
@@ -1223,6 +1320,7 @@ return|return
 name|httpProxyHost
 return|;
 block|}
+comment|/**      * HTTP proxy server host name      */
 DECL|method|setHttpProxyHost (String httpProxyHost)
 specifier|public
 name|void
@@ -1249,6 +1347,7 @@ return|return
 name|httpProxyPassword
 return|;
 block|}
+comment|/**      * HTTP proxy server password      */
 DECL|method|setHttpProxyPassword (String httpProxyPassword)
 specifier|public
 name|void
@@ -1275,6 +1374,7 @@ return|return
 name|httpProxyPort
 return|;
 block|}
+comment|/**      * HTTP proxy server port      */
 DECL|method|setHttpProxyPort (Integer httpProxyPort)
 specifier|public
 name|void
@@ -1301,6 +1401,7 @@ return|return
 name|httpProxyUser
 return|;
 block|}
+comment|/**      * HTTP proxy server user name      */
 DECL|method|setHttpProxyUser (String httpProxyUser)
 specifier|public
 name|void
@@ -1327,6 +1428,7 @@ return|return
 name|httpReadTimeout
 return|;
 block|}
+comment|/**      * Http read timeout in milliseconds      */
 DECL|method|setHttpReadTimeout (Integer httpReadTimeout)
 specifier|public
 name|void
@@ -1353,6 +1455,7 @@ return|return
 name|httpRetryCount
 return|;
 block|}
+comment|/**      * Number of HTTP retries      */
 DECL|method|setHttpRetryCount (Integer httpRetryCount)
 specifier|public
 name|void
@@ -1379,6 +1482,7 @@ return|return
 name|httpRetryIntervalSeconds
 return|;
 block|}
+comment|/**      * HTTP retry interval in seconds      */
 DECL|method|setHttpRetryIntervalSeconds (Integer httpRetryIntervalSeconds)
 specifier|public
 name|void
@@ -1405,6 +1509,7 @@ return|return
 name|httpStreamingReadTimeout
 return|;
 block|}
+comment|/**      * HTTP streaming read timeout in milliseconds      */
 DECL|method|setHttpStreamingReadTimeout (Integer httpStreamingReadTimeout)
 specifier|public
 name|void
@@ -1431,6 +1536,7 @@ return|return
 name|jsonStoreEnabled
 return|;
 block|}
+comment|/**      * If set to true, raw JSON forms will be stored in DataObjectFactory      */
 DECL|method|setJsonStoreEnabled (Boolean jsonStoreEnabled)
 specifier|public
 name|void
@@ -1457,6 +1563,7 @@ return|return
 name|mbeanEnabled
 return|;
 block|}
+comment|/**      * If set to true, Facebook4J mbean will be registerd      */
 DECL|method|setMbeanEnabled (Boolean mbeanEnabled)
 specifier|public
 name|void
@@ -1483,6 +1590,7 @@ return|return
 name|oAuthPermissions
 return|;
 block|}
+comment|/**      * Default OAuth permissions. Comma separated permission names.      * See https://developers.facebook.com/docs/reference/login/#permissions for the detail      */
 DECL|method|setOAuthPermissions (String oAuthPermissions)
 specifier|public
 name|void
@@ -1509,6 +1617,7 @@ return|return
 name|prettyDebugEnabled
 return|;
 block|}
+comment|/**      * Prettify JSON debug output if set to true      */
 DECL|method|setPrettyDebugEnabled (Boolean prettyDebugEnabled)
 specifier|public
 name|void
@@ -1535,6 +1644,7 @@ return|return
 name|restBaseURL
 return|;
 block|}
+comment|/**      * API base URL      */
 DECL|method|setRestBaseURL (String restBaseURL)
 specifier|public
 name|void
@@ -1561,6 +1671,7 @@ return|return
 name|useSSL
 return|;
 block|}
+comment|/**      * Use SSL      */
 DECL|method|setUseSSL (Boolean useSSL)
 specifier|public
 name|void
@@ -1587,6 +1698,7 @@ return|return
 name|videoBaseURL
 return|;
 block|}
+comment|/**      * Video API base URL      */
 DECL|method|setVideoBaseURL (String videoBaseURL)
 specifier|public
 name|void

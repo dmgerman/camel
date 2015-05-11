@@ -917,14 +917,14 @@ literal|"Missing properties for %s, need one or more from %s"
 argument_list|,
 name|endpoint
 operator|.
-name|getMethodName
+name|getMethod
 argument_list|()
 argument_list|,
 name|getMissingProperties
 argument_list|(
 name|endpoint
 operator|.
-name|getMethodName
+name|getMethod
 argument_list|()
 argument_list|,
 name|endpoint
