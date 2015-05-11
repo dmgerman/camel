@@ -434,7 +434,7 @@ name|stream
 argument_list|,
 name|FixedCertificates
 operator|.
-name|SERVER_PASSWD
+name|SERVER_PASSWORD
 argument_list|,
 literal|"PKCS12"
 argument_list|,
@@ -671,7 +671,7 @@ name|setKeyPassword
 argument_list|(
 name|FixedCertificates
 operator|.
-name|CLIENT_PASSWD
+name|CLIENT_PASSWORD
 argument_list|)
 expr_stmt|;
 name|kmp
@@ -812,7 +812,7 @@ name|apnsServiceFactory
 operator|.
 name|setFeedbackHost
 argument_list|(
-name|FixedCertificates
+name|TestConstants
 operator|.
 name|TEST_HOST
 argument_list|)
@@ -821,7 +821,7 @@ name|apnsServiceFactory
 operator|.
 name|setFeedbackPort
 argument_list|(
-name|FixedCertificates
+name|TestConstants
 operator|.
 name|TEST_FEEDBACK_PORT
 argument_list|)
@@ -830,7 +830,7 @@ name|apnsServiceFactory
 operator|.
 name|setGatewayHost
 argument_list|(
-name|FixedCertificates
+name|TestConstants
 operator|.
 name|TEST_HOST
 argument_list|)
@@ -839,7 +839,7 @@ name|apnsServiceFactory
 operator|.
 name|setGatewayPort
 argument_list|(
-name|FixedCertificates
+name|TestConstants
 operator|.
 name|TEST_GATEWAY_PORT
 argument_list|)
