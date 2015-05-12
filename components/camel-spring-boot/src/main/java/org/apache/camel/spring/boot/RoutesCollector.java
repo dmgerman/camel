@@ -242,6 +242,16 @@ operator|.
 name|getApplicationContext
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|applicationContext
+operator|.
+name|getParent
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
 name|CamelContext
 name|camelContext
 init|=
@@ -382,6 +392,17 @@ argument_list|(
 name|e
 argument_list|)
 throw|;
+block|}
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Not at root context - defer adding routes"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|// Helpers
