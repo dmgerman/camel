@@ -517,9 +517,6 @@ name|conf
 operator|.
 name|getPort
 argument_list|()
-operator|.
-name|intValue
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1015,7 +1012,7 @@ literal|1
 argument_list|,
 name|conf
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|size
@@ -1028,7 +1025,7 @@ literal|"127.0.0.1"
 argument_list|,
 name|conf
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|get
@@ -1049,7 +1046,7 @@ literal|9300
 argument_list|,
 name|conf
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|get
@@ -1123,7 +1120,7 @@ literal|2
 argument_list|,
 name|conf
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|size
@@ -1136,7 +1133,7 @@ literal|"127.0.0.1"
 argument_list|,
 name|conf
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|get
@@ -1157,7 +1154,7 @@ literal|9300
 argument_list|,
 name|conf
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|get
@@ -1178,7 +1175,7 @@ literal|"127.0.0.2"
 argument_list|,
 name|conf
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|get
@@ -1199,7 +1196,7 @@ literal|9300
 argument_list|,
 name|conf
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|get
@@ -1273,7 +1270,7 @@ literal|1
 argument_list|,
 name|conf
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|size
@@ -1286,7 +1283,7 @@ literal|"127.0.0.1"
 argument_list|,
 name|conf
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|get
@@ -1307,7 +1304,7 @@ literal|9305
 argument_list|,
 name|conf
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|get
@@ -1381,7 +1378,7 @@ literal|3
 argument_list|,
 name|conf
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|size
@@ -1394,7 +1391,7 @@ literal|"127.0.0.1"
 argument_list|,
 name|conf
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|get
@@ -1415,7 +1412,7 @@ literal|9400
 argument_list|,
 name|conf
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|get
@@ -1436,7 +1433,7 @@ literal|"127.0.0.2"
 argument_list|,
 name|conf
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|get
@@ -1457,7 +1454,7 @@ literal|9300
 argument_list|,
 name|conf
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|get
@@ -1478,7 +1475,7 @@ literal|"127.0.0.3"
 argument_list|,
 name|conf
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|get
@@ -1499,7 +1496,7 @@ literal|9401
 argument_list|,
 name|conf
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|get

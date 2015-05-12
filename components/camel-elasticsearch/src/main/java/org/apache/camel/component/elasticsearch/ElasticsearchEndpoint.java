@@ -102,18 +102,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -404,9 +392,9 @@ name|Exception
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|UnsupportedOperationException
 argument_list|(
-literal|"Cannot consume to a ElasticsearchEndpoint: "
+literal|"Cannot consume from an ElasticsearchEndpoint: "
 operator|+
 name|getEndpointUri
 argument_list|()
@@ -425,6 +413,11 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -513,7 +506,7 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|!=
 literal|null
@@ -521,7 +514,7 @@ operator|&&
 operator|!
 name|configuration
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|isEmpty
@@ -539,7 +532,7 @@ name|ArrayList
 argument_list|(
 name|configuration
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 operator|.
 name|size
@@ -553,7 +546,7 @@ name|address
 range|:
 name|configuration
 operator|.
-name|getTransportAddresses
+name|getTransportAddressesList
 argument_list|()
 control|)
 block|{
@@ -585,7 +578,10 @@ argument_list|(
 operator|new
 name|TransportAddress
 index|[
-literal|0
+name|addresses
+operator|.
+name|size
+argument_list|()
 index|]
 argument_list|)
 argument_list|)

@@ -438,13 +438,21 @@ specifier|private
 name|URI
 name|uri
 decl_stmt|;
+DECL|field|local
+specifier|private
+name|boolean
+name|local
+decl_stmt|;
+DECL|field|transportAddressesList
+specifier|private
+name|List
+argument_list|<
+name|InetSocketTransportAddress
+argument_list|>
+name|transportAddressesList
+decl_stmt|;
 annotation|@
 name|UriPath
-argument_list|(
-name|description
-operator|=
-literal|"Name of cluster or use local for local mode"
-argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -459,17 +467,22 @@ name|clusterName
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|protocolType
-specifier|private
-name|String
-name|protocolType
-decl_stmt|;
+argument_list|(
+name|enums
+operator|=
+literal|"INDEX,BULK,BULK_INDEX,GET_BY_ID,DELETE"
+argument_list|)
 annotation|@
-name|UriParam
-DECL|field|authority
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|operation
 specifier|private
 name|String
-name|authority
+name|operation
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -487,24 +500,31 @@ name|indexType
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"DEFAULT"
+argument_list|)
 DECL|field|consistencyLevel
 specifier|private
 name|WriteConsistencyLevel
 name|consistencyLevel
+init|=
+name|DEFAULT_CONSISTENCY_LEVEL
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"DEFAULT"
+argument_list|)
 DECL|field|replicationType
 specifier|private
 name|ReplicationType
 name|replicationType
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|local
-specifier|private
-name|boolean
-name|local
+init|=
+name|DEFAULT_REPLICATION_TYPE
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -512,18 +532,6 @@ DECL|field|data
 specifier|private
 name|Boolean
 name|data
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|enums
-operator|=
-literal|"INDEX,BULK,BULK_INDEX,GET_BY_ID,DELETE"
-argument_list|)
-DECL|field|operation
-specifier|private
-name|String
-name|operation
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -536,18 +544,22 @@ annotation|@
 name|UriParam
 DECL|field|transportAddresses
 specifier|private
-name|List
-argument_list|<
-name|InetSocketTransportAddress
-argument_list|>
+name|String
 name|transportAddresses
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"9300"
+argument_list|)
 DECL|field|port
 specifier|private
-name|Integer
+name|int
 name|port
+init|=
+name|DEFAULT_PORT
 decl_stmt|;
 DECL|method|ElasticsearchConfiguration (URI uri, Map<String, Object> parameters)
 specifier|public
@@ -605,19 +617,16 @@ argument_list|(
 name|uri
 argument_list|)
 expr_stmt|;
-name|setAuthority
+if|if
+condition|(
+operator|!
+name|isValidAuthority
 argument_list|(
 name|uri
 operator|.
 name|getAuthority
 argument_list|()
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-operator|!
-name|isValidAuthority
-argument_list|()
 condition|)
 block|{
 throw|throw
@@ -641,6 +650,8 @@ name|LOCAL_NAME
 operator|.
 name|equals
 argument_list|(
+name|uri
+operator|.
 name|getAuthority
 argument_list|()
 argument_list|)
@@ -666,6 +677,8 @@ argument_list|)
 expr_stmt|;
 name|setClusterName
 argument_list|(
+name|uri
+operator|.
 name|getAuthority
 argument_list|()
 argument_list|)
@@ -775,8 +788,6 @@ argument_list|)
 expr_stmt|;
 name|transportAddresses
 operator|=
-name|parseTransportAddresses
-argument_list|(
 operator|(
 name|String
 operator|)
@@ -786,6 +797,12 @@ name|remove
 argument_list|(
 name|TRANSPORT_ADDRESSES
 argument_list|)
+expr_stmt|;
+name|transportAddressesList
+operator|=
+name|parseTransportAddresses
+argument_list|(
+name|transportAddresses
 argument_list|)
 expr_stmt|;
 name|String
@@ -816,6 +833,36 @@ argument_list|(
 name|portParam
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|isValidAuthority (String authority)
+specifier|private
+specifier|static
+name|boolean
+name|isValidAuthority
+parameter_list|(
+name|String
+name|authority
+parameter_list|)
+throws|throws
+name|URISyntaxException
+block|{
+if|if
+condition|(
+name|authority
+operator|.
+name|contains
+argument_list|(
+literal|":"
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+return|return
+literal|true
+return|;
 block|}
 DECL|method|parseReplicationType (Map<String, Object> parameters)
 specifier|private
@@ -971,6 +1018,9 @@ name|addressesTrAd
 init|=
 operator|new
 name|ArrayList
+argument_list|<
+name|InetSocketTransportAddress
+argument_list|>
 argument_list|(
 name|addressesStr
 operator|.
@@ -1161,32 +1211,6 @@ name|node
 argument_list|()
 return|;
 block|}
-DECL|method|isValidAuthority ()
-specifier|private
-name|boolean
-name|isValidAuthority
-parameter_list|()
-throws|throws
-name|URISyntaxException
-block|{
-if|if
-condition|(
-name|authority
-operator|.
-name|contains
-argument_list|(
-literal|":"
-argument_list|)
-condition|)
-block|{
-return|return
-literal|false
-return|;
-block|}
-return|return
-literal|true
-return|;
-block|}
 DECL|method|getUri ()
 specifier|public
 name|URI
@@ -1213,32 +1237,6 @@ operator|=
 name|uri
 expr_stmt|;
 block|}
-DECL|method|getProtocolType ()
-specifier|public
-name|String
-name|getProtocolType
-parameter_list|()
-block|{
-return|return
-name|protocolType
-return|;
-block|}
-DECL|method|setProtocolType (String protocolType)
-specifier|public
-name|void
-name|setProtocolType
-parameter_list|(
-name|String
-name|protocolType
-parameter_list|)
-block|{
-name|this
-operator|.
-name|protocolType
-operator|=
-name|protocolType
-expr_stmt|;
-block|}
 DECL|method|getClusterName ()
 specifier|public
 name|String
@@ -1249,6 +1247,7 @@ return|return
 name|clusterName
 return|;
 block|}
+comment|/**      * Name of cluster or use local for local mode      */
 DECL|method|setClusterName (String clusterName)
 specifier|public
 name|void
@@ -1265,32 +1264,6 @@ operator|=
 name|clusterName
 expr_stmt|;
 block|}
-DECL|method|getAuthority ()
-specifier|public
-name|String
-name|getAuthority
-parameter_list|()
-block|{
-return|return
-name|authority
-return|;
-block|}
-DECL|method|setAuthority (String authority)
-specifier|public
-name|void
-name|setAuthority
-parameter_list|(
-name|String
-name|authority
-parameter_list|)
-block|{
-name|this
-operator|.
-name|authority
-operator|=
-name|authority
-expr_stmt|;
-block|}
 DECL|method|getIndexName ()
 specifier|public
 name|String
@@ -1301,6 +1274,7 @@ return|return
 name|indexName
 return|;
 block|}
+comment|/**      * The name of the index to act against      */
 DECL|method|setIndexName (String indexName)
 specifier|public
 name|void
@@ -1327,6 +1301,7 @@ return|return
 name|indexType
 return|;
 block|}
+comment|/**      * The type of the index to act against      */
 DECL|method|setIndexType (String indexType)
 specifier|public
 name|void
@@ -1379,6 +1354,7 @@ return|return
 name|data
 return|;
 block|}
+comment|/**      * Is the node going to be allowed to allocate data (shards) to it or not. This setting map to the<tt>node.data</tt> setting.      */
 DECL|method|setData (boolean data)
 specifier|public
 name|void
@@ -1395,6 +1371,7 @@ operator|=
 name|data
 expr_stmt|;
 block|}
+comment|/**      * What operation to perform      */
 DECL|method|setOperation (String operation)
 specifier|public
 name|void
@@ -1433,6 +1410,7 @@ return|return
 name|ip
 return|;
 block|}
+comment|/**      * The TransportClient remote host ip to use      */
 DECL|method|setIp (String ip)
 specifier|public
 name|void
@@ -1449,12 +1427,22 @@ operator|=
 name|ip
 expr_stmt|;
 block|}
-DECL|method|getTransportAddresses ()
+DECL|method|getTransportAddressesList ()
 specifier|public
 name|List
 argument_list|<
 name|InetSocketTransportAddress
 argument_list|>
+name|getTransportAddressesList
+parameter_list|()
+block|{
+return|return
+name|transportAddressesList
+return|;
+block|}
+DECL|method|getTransportAddresses ()
+specifier|public
+name|String
 name|getTransportAddresses
 parameter_list|()
 block|{
@@ -1462,15 +1450,13 @@ return|return
 name|transportAddresses
 return|;
 block|}
-DECL|method|setTransportAddresses (List<InetSocketTransportAddress> transportAddresses)
+comment|/**      * Comma separated list with ip:port formatted remote transport addresses to use.      * The ip and port options must be left blank for transportAddresses to be considered instead.      */
+DECL|method|setTransportAddresses (String transportAddresses)
 specifier|public
 name|void
 name|setTransportAddresses
 parameter_list|(
-name|List
-argument_list|<
-name|InetSocketTransportAddress
-argument_list|>
+name|String
 name|transportAddresses
 parameter_list|)
 block|{
@@ -1480,10 +1466,19 @@ name|transportAddresses
 operator|=
 name|transportAddresses
 expr_stmt|;
+name|this
+operator|.
+name|transportAddressesList
+operator|=
+name|parseTransportAddresses
+argument_list|(
+name|transportAddresses
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getPort ()
 specifier|public
-name|Integer
+name|int
 name|getPort
 parameter_list|()
 block|{
@@ -1491,12 +1486,13 @@ return|return
 name|port
 return|;
 block|}
-DECL|method|setPort (Integer port)
+comment|/**      * The TransportClient remote port to use (defaults to 9300)      */
+DECL|method|setPort (int port)
 specifier|public
 name|void
 name|setPort
 parameter_list|(
-name|Integer
+name|int
 name|port
 parameter_list|)
 block|{
@@ -1507,6 +1503,7 @@ operator|=
 name|port
 expr_stmt|;
 block|}
+comment|/**      * The write consistency level to use with INDEX and BULK operations (can be any of ONE, QUORUM, ALL or DEFAULT)      */
 DECL|method|setConsistencyLevel (WriteConsistencyLevel consistencyLevel)
 specifier|public
 name|void
@@ -1533,6 +1530,7 @@ return|return
 name|consistencyLevel
 return|;
 block|}
+comment|/**      * The replication type to use with INDEX and BULK operations (can be any of SYNC, ASYNC or DEFAULT)      */
 DECL|method|setReplicationType (ReplicationType replicationType)
 specifier|public
 name|void
