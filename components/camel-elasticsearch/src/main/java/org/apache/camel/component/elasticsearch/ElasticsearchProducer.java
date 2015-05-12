@@ -253,7 +253,7 @@ name|IndexRequest
 condition|)
 block|{
 return|return
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|OPERATION_INDEX
 return|;
@@ -267,7 +267,7 @@ name|GetRequest
 condition|)
 block|{
 return|return
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|OPERATION_GET_BY_ID
 return|;
@@ -299,7 +299,7 @@ argument_list|)
 condition|)
 block|{
 return|return
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|OPERATION_BULK_INDEX
 return|;
@@ -307,7 +307,7 @@ block|}
 else|else
 block|{
 return|return
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|OPERATION_BULK
 return|;
@@ -322,7 +322,7 @@ name|DeleteRequest
 condition|)
 block|{
 return|return
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|OPERATION_DELETE
 return|;
@@ -336,7 +336,7 @@ name|SearchRequest
 condition|)
 block|{
 return|return
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|OPERATION_SEARCH
 return|;
@@ -351,7 +351,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_OPERATION
 argument_list|,
@@ -390,7 +390,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_OPERATION
 operator|+
@@ -457,7 +457,7 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_INDEX_NAME
 argument_list|,
@@ -477,7 +477,7 @@ name|message
 operator|.
 name|setHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_INDEX_NAME
 argument_list|,
@@ -508,7 +508,7 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_INDEX_TYPE
 argument_list|,
@@ -528,7 +528,7 @@ name|message
 operator|.
 name|setHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_INDEX_TYPE
 argument_list|,
@@ -559,7 +559,7 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_CONSISTENCY_LEVEL
 argument_list|,
@@ -579,7 +579,7 @@ name|message
 operator|.
 name|setHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_CONSISTENCY_LEVEL
 argument_list|,
@@ -610,7 +610,7 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_REPLICATION_TYPE
 argument_list|,
@@ -630,7 +630,7 @@ name|message
 operator|.
 name|setHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_REPLICATION_TYPE
 argument_list|,
@@ -660,7 +660,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|OPERATION_INDEX
 operator|.
@@ -704,7 +704,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|OPERATION_GET_BY_ID
 operator|.
@@ -742,7 +742,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|OPERATION_BULK
 operator|.
@@ -783,7 +783,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|OPERATION_BULK_INDEX
 operator|.
@@ -859,7 +859,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|OPERATION_DELETE
 operator|.
@@ -900,7 +900,7 @@ block|}
 elseif|else
 if|if
 condition|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|OPERATION_SEARCH
 operator|.
@@ -944,7 +944,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_OPERATION
 operator|+
@@ -973,7 +973,7 @@ name|message
 operator|.
 name|removeHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_INDEX_NAME
 argument_list|)
@@ -988,7 +988,7 @@ name|message
 operator|.
 name|removeHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_INDEX_TYPE
 argument_list|)
@@ -1003,7 +1003,7 @@ name|message
 operator|.
 name|removeHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_CONSISTENCY_LEVEL
 argument_list|)
@@ -1018,7 +1018,7 @@ name|message
 operator|.
 name|removeHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_REPLICATION_TYPE
 argument_list|)

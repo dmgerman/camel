@@ -330,11 +330,11 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_OPERATION
 argument_list|,
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|OPERATION_INDEX
 argument_list|)
@@ -343,7 +343,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_INDEX_NAME
 argument_list|,
@@ -354,7 +354,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_INDEX_TYPE
 argument_list|,

@@ -76,6 +76,22 @@ name|component
 operator|.
 name|elasticsearch
 operator|.
+name|ElasticsearchConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|elasticsearch
+operator|.
 name|ElasticsearchConfiguration
 import|;
 end_import
@@ -327,7 +343,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_CONSISTENCY_LEVEL
 argument_list|,
@@ -346,7 +362,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_REPLICATION_TYPE
 argument_list|,
@@ -365,7 +381,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_INDEX_NAME
 argument_list|,
@@ -384,7 +400,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_INDEX_TYPE
 argument_list|,
@@ -427,7 +443,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_INDEX_ID
 argument_list|,
@@ -464,7 +480,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_INDEX_NAME
 argument_list|,
@@ -483,7 +499,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_INDEX_TYPE
 argument_list|,
@@ -528,7 +544,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_INDEX_NAME
 argument_list|,
@@ -547,7 +563,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_INDEX_TYPE
 argument_list|,
@@ -614,7 +630,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_INDEX_NAME
 argument_list|,
@@ -633,7 +649,7 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-name|ElasticsearchConfiguration
+name|ElasticsearchConstants
 operator|.
 name|PARAM_INDEX_TYPE
 argument_list|,
