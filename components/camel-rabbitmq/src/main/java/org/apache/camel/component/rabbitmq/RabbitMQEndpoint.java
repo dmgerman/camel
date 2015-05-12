@@ -415,6 +415,11 @@ name|hostname
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|defaultValue
+operator|=
+literal|"5672"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -498,6 +503,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"10"
@@ -512,6 +521,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -553,6 +566,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|bridgeEndpoint
 specifier|private
 name|boolean
@@ -587,6 +605,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"direct"
+argument_list|,
+name|enums
+operator|=
+literal|"direct,fanout,headers,topic"
 argument_list|)
 DECL|field|exchangeType
 specifier|private
@@ -744,17 +766,25 @@ specifier|private
 name|Boolean
 name|topologyRecoveryEnabled
 decl_stmt|;
-comment|//If it is true, prefetchSize, prefetchCount, prefetchGlobal will be used for basicOqs before starting RabbitMQConsumer
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|prefetchEnabled
 specifier|private
 name|boolean
 name|prefetchEnabled
 decl_stmt|;
-comment|//Default in RabbitMq is 0.
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|prefetchSize
 specifier|private
 name|int
@@ -762,23 +792,35 @@ name|prefetchSize
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|prefetchCount
 specifier|private
 name|int
 name|prefetchCount
 decl_stmt|;
-comment|//Default value in RabbitMQ is false.
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|prefetchGlobal
 specifier|private
 name|boolean
 name|prefetchGlobal
 decl_stmt|;
-comment|/**      * Number of concurrent consumer threads      */
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"1"
@@ -790,7 +832,6 @@ name|concurrentConsumers
 init|=
 literal|1
 decl_stmt|;
-comment|//Declares a queue and exchange in RabbitMQ, then binds both.
 annotation|@
 name|UriParam
 argument_list|(
@@ -805,7 +846,6 @@ name|declare
 init|=
 literal|true
 decl_stmt|;
-comment|//Declare dead letter exchange.
 annotation|@
 name|UriParam
 DECL|field|deadLetterExchange
@@ -813,7 +853,6 @@ specifier|private
 name|String
 name|deadLetterExchange
 decl_stmt|;
-comment|//Declare dead letter routing key.
 annotation|@
 name|UriParam
 DECL|field|deadLetterRoutingKey
@@ -821,7 +860,6 @@ specifier|private
 name|String
 name|deadLetterRoutingKey
 decl_stmt|;
-comment|//Declare dead letter queue to declare.
 annotation|@
 name|UriParam
 DECL|field|deadLetterQueue
@@ -829,13 +867,16 @@ specifier|private
 name|String
 name|deadLetterQueue
 decl_stmt|;
-comment|//Dead letter exchange type.
 annotation|@
 name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
 literal|"direct"
+argument_list|,
+name|enums
+operator|=
+literal|"direct,fanout,headers,topic"
 argument_list|)
 DECL|field|deadLetterExchangeType
 specifier|private
@@ -844,10 +885,13 @@ name|deadLetterExchangeType
 init|=
 literal|"direct"
 decl_stmt|;
-comment|//Maximum number of opened channel in pool
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"10"
@@ -859,10 +903,13 @@ name|channelPoolMaxSize
 init|=
 literal|10
 decl_stmt|;
-comment|//Maximum time (in milliseconds) waiting for channel
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"1000"
@@ -876,6 +923,11 @@ literal|1000
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|mandatory
 specifier|private
 name|boolean
@@ -883,6 +935,11 @@ name|mandatory
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|immediate
 specifier|private
 name|boolean
@@ -1820,6 +1877,7 @@ return|return
 name|username
 return|;
 block|}
+comment|/**      * Username in case of authenticated access      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -1846,6 +1904,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * Password for authenticated access      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -1872,6 +1931,7 @@ return|return
 name|vhost
 return|;
 block|}
+comment|/**      * The vhost for the channel      */
 DECL|method|setVhost (String vhost)
 specifier|public
 name|void
@@ -1898,6 +1958,7 @@ return|return
 name|hostname
 return|;
 block|}
+comment|/**      * The hostname of the running rabbitmq instance or cluster.      */
 DECL|method|setHostname (String hostname)
 specifier|public
 name|void
@@ -1924,6 +1985,7 @@ return|return
 name|threadPoolSize
 return|;
 block|}
+comment|/**      * The consumer uses a Thread Pool Executor with a fixed number of threads. This setting allows you to set that number of threads.      */
 DECL|method|setThreadPoolSize (int threadPoolSize)
 specifier|public
 name|void
@@ -1950,6 +2012,7 @@ return|return
 name|portNumber
 return|;
 block|}
+comment|/**      * Port number for the host with the running rabbitmq instance or cluster. Default value is 5672.      */
 DECL|method|setPortNumber (int portNumber)
 specifier|public
 name|void
@@ -1976,6 +2039,7 @@ return|return
 name|autoAck
 return|;
 block|}
+comment|/**      * If messages should be auto acknowledged      */
 DECL|method|setAutoAck (boolean autoAck)
 specifier|public
 name|void
@@ -2002,6 +2066,7 @@ return|return
 name|autoDelete
 return|;
 block|}
+comment|/**      * If it is true, the exchange will be deleted when it is no longer in use      */
 DECL|method|setAutoDelete (boolean autoDelete)
 specifier|public
 name|void
@@ -2028,6 +2093,7 @@ return|return
 name|durable
 return|;
 block|}
+comment|/**      * If we are declaring a durable exchange (the exchange will survive a server restart)      */
 DECL|method|setDurable (boolean durable)
 specifier|public
 name|void
@@ -2054,6 +2120,7 @@ return|return
 name|queue
 return|;
 block|}
+comment|/**      * The queue to receive messages from      */
 DECL|method|setQueue (String queue)
 specifier|public
 name|void
@@ -2080,6 +2147,7 @@ return|return
 name|exchangeName
 return|;
 block|}
+comment|/**      * The exchange name determines which exchange produced messages will sent to.      * In the case of consumers, the exchange name determines which exchange the queue will bind to.      */
 DECL|method|setExchangeName (String exchangeName)
 specifier|public
 name|void
@@ -2106,6 +2174,7 @@ return|return
 name|exchangeType
 return|;
 block|}
+comment|/**      * The exchange type such as direct or topic.      */
 DECL|method|setExchangeType (String exchangeType)
 specifier|public
 name|void
@@ -2132,6 +2201,7 @@ return|return
 name|routingKey
 return|;
 block|}
+comment|/**      * The routing key to use when binding a consumer queue to the exchange.      * For producer routing keys, you set the header rabbitmq.ROUTING_KEY.      */
 DECL|method|setRoutingKey (String routingKey)
 specifier|public
 name|void
@@ -2148,6 +2218,7 @@ operator|=
 name|routingKey
 expr_stmt|;
 block|}
+comment|/**      * If the bridgeEndpoint is true, the producer will ignore the message header of "rabbitmq.EXCHANGE_NAME" and "rabbitmq.ROUTING_KEY"      */
 DECL|method|setBridgeEndpoint (boolean bridgeEndpoint)
 specifier|public
 name|void
@@ -2174,6 +2245,7 @@ return|return
 name|bridgeEndpoint
 return|;
 block|}
+comment|/**      * If this option is set, camel-rabbitmq will try to create connection based on the setting of option addresses.      * The addresses value is a string which looks like "server1:12345, server2:12345"      */
 DECL|method|setAddresses (String addresses)
 specifier|public
 name|void
@@ -2232,6 +2304,7 @@ return|return
 name|connectionTimeout
 return|;
 block|}
+comment|/**      * Connection timeout      */
 DECL|method|setConnectionTimeout (int connectionTimeout)
 specifier|public
 name|void
@@ -2258,6 +2331,7 @@ return|return
 name|requestedChannelMax
 return|;
 block|}
+comment|/**      * Connection requested channel max (max number of channels offered)      */
 DECL|method|setRequestedChannelMax (int requestedChannelMax)
 specifier|public
 name|void
@@ -2284,6 +2358,7 @@ return|return
 name|requestedFrameMax
 return|;
 block|}
+comment|/**      * Connection requested frame max (max size of frame offered)      */
 DECL|method|setRequestedFrameMax (int requestedFrameMax)
 specifier|public
 name|void
@@ -2310,6 +2385,7 @@ return|return
 name|requestedHeartbeat
 return|;
 block|}
+comment|/**      * Connection requested heartbeat (heart-beat in seconds offered)      */
 DECL|method|setRequestedHeartbeat (int requestedHeartbeat)
 specifier|public
 name|void
@@ -2336,6 +2412,7 @@ return|return
 name|sslProtocol
 return|;
 block|}
+comment|/**      * Enables SSL on connection, accepted value are `true`, `TLS` and 'SSLv3`      */
 DECL|method|setSslProtocol (String sslProtocol)
 specifier|public
 name|void
@@ -2362,6 +2439,7 @@ return|return
 name|connectionFactory
 return|;
 block|}
+comment|/**      * To use a custom RabbitMQ connection factory.      * When this option is set, all connection options (connectionTimeout, requestedChannelMax...) set on URI are not used      */
 DECL|method|setConnectionFactory (ConnectionFactory connectionFactory)
 specifier|public
 name|void
@@ -2388,6 +2466,7 @@ return|return
 name|trustManager
 return|;
 block|}
+comment|/**      * Configure SSL trust manager, SSL should be enabled for this option to be effective      */
 DECL|method|setTrustManager (TrustManager trustManager)
 specifier|public
 name|void
@@ -2419,6 +2498,7 @@ return|return
 name|clientProperties
 return|;
 block|}
+comment|/**      * Connection client properties (client info used in negotiating with the server)      */
 DECL|method|setClientProperties (Map<String, Object> clientProperties)
 specifier|public
 name|void
@@ -2450,6 +2530,7 @@ return|return
 name|automaticRecoveryEnabled
 return|;
 block|}
+comment|/**      * Enables connection automatic recovery (uses connection implementation that performs automatic recovery when connection shutdown is not initiated by the application)      */
 DECL|method|setAutomaticRecoveryEnabled (Boolean automaticRecoveryEnabled)
 specifier|public
 name|void
@@ -2476,6 +2557,7 @@ return|return
 name|networkRecoveryInterval
 return|;
 block|}
+comment|/**      * Network recovery interval in milliseconds (interval used when recovering from network failure)      */
 DECL|method|setNetworkRecoveryInterval (Integer networkRecoveryInterval)
 specifier|public
 name|void
@@ -2502,6 +2584,7 @@ return|return
 name|topologyRecoveryEnabled
 return|;
 block|}
+comment|/**      * Enables connection topology recovery (should topology recovery be performed?)      */
 DECL|method|setTopologyRecoveryEnabled (Boolean topologyRecoveryEnabled)
 specifier|public
 name|void
@@ -2528,6 +2611,7 @@ return|return
 name|prefetchEnabled
 return|;
 block|}
+comment|/**      * Enables the quality of service on the RabbitMQConsumer side.      * You need to specify the option of prefetchSize, prefetchCount, prefetchGlobal at the same time      */
 DECL|method|setPrefetchEnabled (boolean prefetchEnabled)
 specifier|public
 name|void
@@ -2544,6 +2628,7 @@ operator|=
 name|prefetchEnabled
 expr_stmt|;
 block|}
+comment|/**      * The maximum amount of content (measured in octets) that the server will deliver, 0 if unlimited.      * You need to specify the option of prefetchSize, prefetchCount, prefetchGlobal at the same time      */
 DECL|method|setPrefetchSize (int prefetchSize)
 specifier|public
 name|void
@@ -2570,6 +2655,7 @@ return|return
 name|prefetchSize
 return|;
 block|}
+comment|/**      * The maximum number of messages that the server will deliver, 0 if unlimited.      * You need to specify the option of prefetchSize, prefetchCount, prefetchGlobal at the same time      */
 DECL|method|setPrefetchCount (int prefetchCount)
 specifier|public
 name|void
@@ -2596,6 +2682,7 @@ return|return
 name|prefetchCount
 return|;
 block|}
+comment|/**      * If the settings should be applied to the entire channel rather than each consumer      * You need to specify the option of prefetchSize, prefetchCount, prefetchGlobal at the same time      */
 DECL|method|setPrefetchGlobal (boolean prefetchGlobal)
 specifier|public
 name|void
@@ -2632,6 +2719,7 @@ return|return
 name|concurrentConsumers
 return|;
 block|}
+comment|/**      * Number of concurrent consumers when consuming from broker. (eg similar as to the same option for the JMS component).      */
 DECL|method|setConcurrentConsumers (int concurrentConsumers)
 specifier|public
 name|void
@@ -2658,6 +2746,7 @@ return|return
 name|declare
 return|;
 block|}
+comment|/**      * If the option is true, camel declare the exchange and queue name and bind them together.      * If the option is false, camel won't declare the exchange and queue name on the server.      */
 DECL|method|setDeclare (boolean declare)
 specifier|public
 name|void
@@ -2684,6 +2773,7 @@ return|return
 name|deadLetterExchange
 return|;
 block|}
+comment|/**      * The name of the dead letter exchange      */
 DECL|method|setDeadLetterExchange (String deadLetterExchange)
 specifier|public
 name|void
@@ -2710,6 +2800,7 @@ return|return
 name|deadLetterQueue
 return|;
 block|}
+comment|/**      * The name of the dead letter queue      */
 DECL|method|setDeadLetterQueue (String deadLetterQueue)
 specifier|public
 name|void
@@ -2736,6 +2827,7 @@ return|return
 name|deadLetterRoutingKey
 return|;
 block|}
+comment|/**      * The routing key for the dead letter exchange      */
 DECL|method|setDeadLetterRoutingKey (String deadLetterRoutingKey)
 specifier|public
 name|void
@@ -2762,6 +2854,7 @@ return|return
 name|deadLetterExchangeType
 return|;
 block|}
+comment|/**      * The type of the dead letter exchange      */
 DECL|method|setDeadLetterExchangeType (String deadLetterExchangeType)
 specifier|public
 name|void
@@ -2778,7 +2871,7 @@ operator|=
 name|deadLetterExchangeType
 expr_stmt|;
 block|}
-comment|/**      * Get maximum number of opened channel in pool      *      * @return Maximum number of opened channel in pool      */
+comment|/**      * Get maximum number of opened channel in pool      */
 DECL|method|getChannelPoolMaxSize ()
 specifier|public
 name|int
@@ -2789,7 +2882,7 @@ return|return
 name|channelPoolMaxSize
 return|;
 block|}
-comment|/**      * Set maximum number of opened channel in pool      *      * @param channelPoolMaxSize Maximum number of opened channel in pool      */
+comment|/**      * Set maximum number of opened channel in pool      */
 DECL|method|setChannelPoolMaxSize (int channelPoolMaxSize)
 specifier|public
 name|void
@@ -2806,7 +2899,6 @@ operator|=
 name|channelPoolMaxSize
 expr_stmt|;
 block|}
-comment|/**      * Get the maximum number of milliseconds to wait for a channel from the pool      *      * @return Maximum number of milliseconds waiting for a channel      */
 DECL|method|getChannelPoolMaxWait ()
 specifier|public
 name|long
@@ -2817,7 +2909,7 @@ return|return
 name|channelPoolMaxWait
 return|;
 block|}
-comment|/**      * Set the maximum number of milliseconds to wait for a channel from the pool      *      * @param channelPoolMaxWait Maximum number of milliseconds waiting for a channel      */
+comment|/**      * Set the maximum number of milliseconds to wait for a channel from the pool      */
 DECL|method|setChannelPoolMaxWait (long channelPoolMaxWait)
 specifier|public
 name|void
@@ -2844,6 +2936,7 @@ return|return
 name|mandatory
 return|;
 block|}
+comment|/**      * This flag tells the server how to react if the message cannot be routed to a queue.      * If this flag is set, the server will return an unroutable message with a Return method.      * If this flag is zero, the server silently drops the message.      *<p/>      * If the header is present rabbitmq.MANDATORY it will override this option.      */
 DECL|method|setMandatory (boolean mandatory)
 specifier|public
 name|void
@@ -2870,6 +2963,7 @@ return|return
 name|immediate
 return|;
 block|}
+comment|/**      * This flag tells the server how to react if the message cannot be routed to a queue consumer immediately.      * If this flag is set, the server will return an undeliverable message with a Return method.      * If this flag is zero, the server will queue the message, but with no guarantee that it will ever be consumed.      *<p/>      * If the header is present rabbitmq.IMMEDIATE it will override this option.      */
 DECL|method|setImmediate (boolean immediate)
 specifier|public
 name|void
@@ -2886,7 +2980,6 @@ operator|=
 name|immediate
 expr_stmt|;
 block|}
-comment|/**      * Get the configurer for setting the queue args in Channel.queueDeclare      * @return      */
 DECL|method|getQueueArgsConfigurer ()
 specifier|public
 name|ArgsConfigurer
@@ -2897,7 +2990,7 @@ return|return
 name|queueArgsConfigurer
 return|;
 block|}
-comment|/**      * Set the configurer for setting the queue args in Channel.queueDeclare      * @param queueArgsConfigurer the queue args configurer      */
+comment|/**      * Set the configurer for setting the queue args in Channel.queueDeclare      */
 DECL|method|setQueueArgsConfigurer (ArgsConfigurer queueArgsConfigurer)
 specifier|public
 name|void
@@ -2914,7 +3007,6 @@ operator|=
 name|queueArgsConfigurer
 expr_stmt|;
 block|}
-comment|/**      * Get the configurer for setting the exchange args in Channel.exchangeDeclare      * @return      */
 DECL|method|getExchangeArgsConfigurer ()
 specifier|public
 name|ArgsConfigurer
@@ -2925,7 +3017,7 @@ return|return
 name|exchangeArgsConfigurer
 return|;
 block|}
-comment|/**      * Set the configurer for setting the exchange args in Channel.exchangeDeclare      * @param queueArgsConfigurer the queue args configurer      */
+comment|/**      * Set the configurer for setting the exchange args in Channel.exchangeDeclare      */
 DECL|method|setExchangeArgsConfigurer (ArgsConfigurer exchangeArgsConfigurer)
 specifier|public
 name|void
