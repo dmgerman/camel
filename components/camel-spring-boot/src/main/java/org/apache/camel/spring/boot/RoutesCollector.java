@@ -158,6 +158,10 @@ name|Resource
 import|;
 end_import
 
+begin_comment
+comment|/**  * Collects routes from the various sources (like Spring application context beans registry or opinionated classpath  * locations) and injects these into the Camel context.  */
+end_comment
+
 begin_class
 DECL|class|RoutesCollector
 specifier|public
