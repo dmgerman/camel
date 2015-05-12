@@ -390,7 +390,7 @@ return|return
 name|transportAddressesList
 return|;
 block|}
-DECL|method|setTransportAddressesList ( List<InetSocketTransportAddress> transportAddressesList)
+DECL|method|setTransportAddressesList (List<InetSocketTransportAddress> transportAddressesList)
 specifier|public
 name|void
 name|setTransportAddressesList
