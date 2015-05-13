@@ -2056,6 +2056,28 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+comment|// set the SO_TIMEOUT for the time after the connect phase
+if|if
+condition|(
+name|configuration
+operator|.
+name|getSoTimeout
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|session
+operator|.
+name|setTimeout
+argument_list|(
+name|configuration
+operator|.
+name|getSoTimeout
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 comment|// set proxy if configured
 if|if
 condition|(
