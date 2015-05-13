@@ -650,6 +650,8 @@ comment|// use ordered thread pool, to ensure we process the events in order, an
 comment|// replies in the expected order. eg this is required by TCP.
 comment|// and use a Camel thread factory so we have consistent thread namings
 comment|// we should use a shared thread pool as recommended by Netty
+comment|// NOTE: if we don't specify the MaxChannelMemorySize and MaxTotalMemorySize, the thread pool
+comment|// could eat up all the heap memory when the tasks are added very fast
 name|String
 name|pattern
 init|=
@@ -682,9 +684,15 @@ argument_list|(
 name|getMaximumPoolSize
 argument_list|()
 argument_list|,
-literal|0L
+name|configuration
+operator|.
+name|getMaxChannelMemorySize
+argument_list|()
 argument_list|,
-literal|0L
+name|configuration
+operator|.
+name|getMaxTotalMemorySize
+argument_list|()
 argument_list|,
 literal|30
 argument_list|,
