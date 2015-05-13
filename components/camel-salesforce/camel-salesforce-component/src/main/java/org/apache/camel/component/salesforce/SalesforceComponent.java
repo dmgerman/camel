@@ -1976,6 +1976,7 @@ return|return
 name|loginConfig
 return|;
 block|}
+comment|/**      * To use the shared SalesforceLoginConfig as login configuration      */
 DECL|method|setLoginConfig (SalesforceLoginConfig loginConfig)
 specifier|public
 name|void
@@ -2002,6 +2003,7 @@ return|return
 name|config
 return|;
 block|}
+comment|/**      * To use the shared SalesforceLoginConfig as configuration      */
 DECL|method|setConfig (SalesforceEndpointConfig config)
 specifier|public
 name|void
@@ -2033,6 +2035,7 @@ return|return
 name|httpClientProperties
 return|;
 block|}
+comment|/**      * Used for configuring HTTP client properties as key/value pairs      */
 DECL|method|setHttpClientProperties (Map<String, Object> httpClientProperties)
 specifier|public
 name|void
@@ -2064,6 +2067,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
+comment|/**      * To configure security using SSLContextParameters      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
@@ -2090,6 +2094,7 @@ return|return
 name|httpProxyHost
 return|;
 block|}
+comment|/**      * To configure HTTP proxy host      */
 DECL|method|setHttpProxyHost (String httpProxyHost)
 specifier|public
 name|void
@@ -2116,6 +2121,7 @@ return|return
 name|httpProxyPort
 return|;
 block|}
+comment|/**      * To configure HTTP proxy port      */
 DECL|method|setHttpProxyPort (Integer httpProxyPort)
 specifier|public
 name|void
@@ -2142,6 +2148,7 @@ return|return
 name|httpProxyUsername
 return|;
 block|}
+comment|/**      * To configure HTTP proxy username      */
 DECL|method|setHttpProxyUsername (String httpProxyUsername)
 specifier|public
 name|void
@@ -2168,6 +2175,7 @@ return|return
 name|httpProxyPassword
 return|;
 block|}
+comment|/**      * To configure HTTP proxy password      */
 DECL|method|setHttpProxyPassword (String httpProxyPassword)
 specifier|public
 name|void
@@ -2195,6 +2203,7 @@ return|return
 name|packages
 return|;
 block|}
+comment|/**      * Package names to scan for DTO classes (multiple packages can be separated by comma).      */
 DECL|method|setPackages (String[] packages)
 specifier|public
 name|void
@@ -2212,6 +2221,7 @@ operator|=
 name|packages
 expr_stmt|;
 block|}
+comment|/**      * Package names to scan for DTO classes (multiple packages can be separated by comma).      */
 DECL|method|setPackages (String packages)
 specifier|public
 name|void
