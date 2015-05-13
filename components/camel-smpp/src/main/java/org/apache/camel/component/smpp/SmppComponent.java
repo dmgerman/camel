@@ -355,6 +355,7 @@ return|return
 name|configuration
 return|;
 block|}
+comment|/**      * To use the shared SmppConfiguration as configuration.      */
 DECL|method|setConfiguration (SmppConfiguration configuration)
 specifier|public
 name|void

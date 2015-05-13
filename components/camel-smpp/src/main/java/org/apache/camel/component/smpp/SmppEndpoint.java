@@ -178,7 +178,7 @@ name|UriEndpoint
 argument_list|(
 name|scheme
 operator|=
-literal|"smpp"
+literal|"smpp,smpps"
 argument_list|,
 name|title
 operator|=

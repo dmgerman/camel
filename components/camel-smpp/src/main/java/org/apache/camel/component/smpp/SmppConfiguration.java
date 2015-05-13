@@ -295,6 +295,11 @@ literal|0
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"0,4,8"
+argument_list|)
 DECL|field|alphabet
 specifier|private
 name|byte
@@ -351,6 +356,11 @@ literal|10000
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"0,1,2"
+argument_list|)
 DECL|field|registeredDelivery
 specifier|private
 name|byte
@@ -369,6 +379,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"CMT"
+argument_list|,
+name|enums
+operator|=
+literal|"CMT,CPT,VMN,VMA,WAP,USSD"
 argument_list|)
 DECL|field|serviceType
 specifier|private
@@ -407,6 +421,11 @@ literal|"1717"
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"0,1,2,3,4,5,6"
+argument_list|)
 DECL|field|sourceAddrTon
 specifier|private
 name|byte
@@ -421,6 +440,11 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"0,1,2,3,4,5,6"
+argument_list|)
 DECL|field|destAddrTon
 specifier|private
 name|byte
@@ -435,6 +459,11 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"0,1,2,3,6,8,9,10,13,18"
+argument_list|)
 DECL|field|sourceAddrNpi
 specifier|private
 name|byte
@@ -449,6 +478,11 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"0,1,2,3,6,8,9,10,13,18"
+argument_list|)
 DECL|field|destAddrNpi
 specifier|private
 name|byte
@@ -484,6 +518,11 @@ literal|0
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"0,1,2,3"
+argument_list|)
 DECL|field|priorityFlag
 specifier|private
 name|byte
@@ -496,6 +535,11 @@ literal|1
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"0,1"
+argument_list|)
 DECL|field|replaceIfPresentFlag
 specifier|private
 name|byte
@@ -510,6 +554,11 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"0,1,2,3,4,5,6"
+argument_list|)
 DECL|field|typeOfNumber
 specifier|private
 name|byte
@@ -524,6 +573,11 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"0,1,2,3,6,8,9,10,13,18"
+argument_list|)
 DECL|field|numberingPlanIndicator
 specifier|private
 name|byte
@@ -731,6 +785,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * Hostname for the SMSC server to use.      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -757,6 +812,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * Port number for the SMSC server to use.      */
 DECL|method|setPort (Integer port)
 specifier|public
 name|void
@@ -783,6 +839,7 @@ return|return
 name|systemId
 return|;
 block|}
+comment|/**      * The system id (username) for connecting to SMSC server.      */
 DECL|method|setSystemId (String systemId)
 specifier|public
 name|void
@@ -799,6 +856,7 @@ operator|=
 name|systemId
 expr_stmt|;
 block|}
+comment|/**      * The password for connecting to SMSC server.      */
 DECL|method|getPassword ()
 specifier|public
 name|String
@@ -819,6 +877,7 @@ return|return
 name|dataCoding
 return|;
 block|}
+comment|/**      * Defines the data coding according the SMPP 3.4 specification, section 5.2.19.      * Example data encodings are:      *<ul>      *<li>0: SMSC Default Alphabet</li>      *<li>3: Latin 1 (ISO-8859-1)</li>      *<li>4: Octet unspecified (8-bit binary)</li>      *<li>8: UCS2 (ISO/IEC-10646)</li>      *<li>13: Extended Kanji JIS(X 0212-1990)</li>      *</ul>      */
 DECL|method|setDataCoding (byte dataCoding)
 specifier|public
 name|void
@@ -845,6 +904,7 @@ return|return
 name|alphabet
 return|;
 block|}
+comment|/**      * Defines encoding of data according the SMPP 3.4 specification, section 5.2.19.      *<ul>      *<li>0: SMSC Default Alphabet      *<li>4: 8 bit Alphabet</li>      *<li>8: UCS2 Alphabet</li></li>      *</ul>      */
 DECL|method|setAlphabet (byte alphabet)
 specifier|public
 name|void
@@ -871,6 +931,7 @@ return|return
 name|encoding
 return|;
 block|}
+comment|/**      * Defines the encoding scheme of the short message user data.      * Only for SubmitSm, ReplaceSm and SubmitMulti.      */
 DECL|method|setEncoding (String encoding)
 specifier|public
 name|void
@@ -934,6 +995,7 @@ return|return
 name|enquireLinkTimer
 return|;
 block|}
+comment|/**      * Defines the interval in milliseconds between the confidence checks.      * The confidence check is used to test the communication path between an ESME and an SMSC.      */
 DECL|method|setEnquireLinkTimer (Integer enquireLinkTimer)
 specifier|public
 name|void
@@ -960,6 +1022,7 @@ return|return
 name|transactionTimer
 return|;
 block|}
+comment|/**      * Defines the maximum period of inactivity allowed after a transaction, after which      * an SMPP entity may assume that the session is no longer active.      * This timer may be active on either communicating SMPP entity (i.e. SMSC or ESME).      */
 DECL|method|setTransactionTimer (Integer transactionTimer)
 specifier|public
 name|void
@@ -986,6 +1049,7 @@ return|return
 name|systemType
 return|;
 block|}
+comment|/**      * This parameter is used to categorize the type of ESME (External Short Message Entity) that is binding to the SMSC (max. 13 characters).      */
 DECL|method|setSystemType (String systemType)
 specifier|public
 name|void
@@ -1012,6 +1076,7 @@ return|return
 name|registeredDelivery
 return|;
 block|}
+comment|/**      * Is used to request an SMSC delivery receipt and/or SME originated acknowledgements. The following values are defined:      *<ul>      *<li>0: No SMSC delivery receipt requested.</li>      *<li>1: SMSC delivery receipt requested where final delivery outcome is success or failure.</li>      *<li>2: SMSC delivery receipt requested where the final delivery outcome is delivery failure.</li>      *</ul>      */
 DECL|method|setRegisteredDelivery (byte registeredDelivery)
 specifier|public
 name|void
@@ -1038,6 +1103,7 @@ return|return
 name|serviceType
 return|;
 block|}
+comment|/**      * The service type parameter can be used to indicate the SMS Application service associated with the message.      * The following generic service_types are defined:      *<ul>      *<li>CMT: Cellular Messaging</li>      *<li>CPT: Cellular Paging</li>      *<li>VMN: Voice Mail Notification</li>      *<li>VMA: Voice Mail Alerting</li>      *<li>WAP: Wireless Application Protocol</li>      *<li>USSD: Unstructured Supplementary Services Data</li>      *</ul>      */
 DECL|method|setServiceType (String serviceType)
 specifier|public
 name|void
@@ -1064,6 +1130,7 @@ return|return
 name|sourceAddrTon
 return|;
 block|}
+comment|/**      * Defines the type of number (TON) to be used in the SME originator address parameters.      * The following TON values are defined:      *<ul>      *<li>0: Unknown</li>      *<li>1: International</li>      *<li>2: National</li>      *<li>3: Network Specific</li>      *<li>4: Subscriber Number</li>      *<li>5: Alphanumeric</li>      *<li>6: Abbreviated</li>      *</ul>      */
 DECL|method|setSourceAddrTon (byte sourceAddrTon)
 specifier|public
 name|void
@@ -1090,6 +1157,7 @@ return|return
 name|destAddrTon
 return|;
 block|}
+comment|/**      * Defines the type of number (TON) to be used in the SME destination address parameters.      * Only for SubmitSm, SubmitMulti, CancelSm and DataSm.      * The following TON values are defined:      *<ul>      *<li>0: Unknown</li>      *<li>1: International</li>      *<li>2: National</li>      *<li>3: Network Specific</li>      *<li>4: Subscriber Number</li>      *<li>5: Alphanumeric</li>      *<li>6: Abbreviated</li>      *</ul>      */
 DECL|method|setDestAddrTon (byte destAddrTon)
 specifier|public
 name|void
@@ -1116,6 +1184,7 @@ return|return
 name|sourceAddrNpi
 return|;
 block|}
+comment|/**      * Defines the numeric plan indicator (NPI) to be used in the SME originator address parameters.      * The following NPI values are defined:      *<ul>      *<li>0: Unknown</li>      *<li>1: ISDN (E163/E164)</li>      *<li>2: Data (X.121)</li>      *<li>3: Telex (F.69)</li>      *<li>6: Land Mobile (E.212)</li>      *<li>8: National</li>      *<li>9: Private</li>      *<li>10: ERMES</li>      *<li>13: Internet (IP)</li>      *<li>18: WAP Client Id (to be defined by WAP Forum)</li>      *</ul>      */
 DECL|method|setSourceAddrNpi (byte sourceAddrNpi)
 specifier|public
 name|void
@@ -1142,6 +1211,7 @@ return|return
 name|destAddrNpi
 return|;
 block|}
+comment|/**      * Defines the type of number (TON) to be used in the SME destination address parameters.      * Only for SubmitSm, SubmitMulti, CancelSm and DataSm.      * The following NPI values are defined:      *<ul>      *<li>0: Unknown</li>      *<li>1: ISDN (E163/E164)</li>      *<li>2: Data (X.121)</li>      *<li>3: Telex (F.69)</li>      *<li>6: Land Mobile (E.212)</li>      *<li>8: National</li>      *<li>9: Private</li>      *<li>10: ERMES</li>      *<li>13: Internet (IP)</li>      *<li>18: WAP Client Id (to be defined by WAP Forum)</li>      *</ul>      */
 DECL|method|setDestAddrNpi (byte destAddrNpi)
 specifier|public
 name|void
@@ -1168,6 +1238,7 @@ return|return
 name|protocolId
 return|;
 block|}
+comment|/**      * The protocol id      */
 DECL|method|setProtocolId (byte protocolId)
 specifier|public
 name|void
@@ -1194,6 +1265,7 @@ return|return
 name|priorityFlag
 return|;
 block|}
+comment|/**      * Allows the originating SME to assign a priority level to the short message.      * Only for SubmitSm and SubmitMulti.      * Four Priority Levels are supported:      *<ul>      *<li>0: Level 0 (lowest) priority</li>      *<li>1: Level 1 priority</li>      *<li>2: Level 2 priority</li>      *<li>3: Level 3 (highest) priority</li>      *</ul>      */
 DECL|method|setPriorityFlag (byte priorityFlag)
 specifier|public
 name|void
@@ -1220,6 +1292,7 @@ return|return
 name|replaceIfPresentFlag
 return|;
 block|}
+comment|/**      * Used to request the SMSC to replace a previously submitted message, that is still pending delivery.      * The SMSC will replace an existing message provided that the source address, destination address and service      * type match the same fields in the new message.      * The following replace if present flag values are defined:      *<ul>      *<li>0: Don't replace</li>      *<li>1: Replace</li>      *</ul>      */
 DECL|method|setReplaceIfPresentFlag (byte replaceIfPresentFlag)
 specifier|public
 name|void
@@ -1246,6 +1319,7 @@ return|return
 name|sourceAddr
 return|;
 block|}
+comment|/**      * Defines the address of SME (Short Message Entity) which originated this message.      */
 DECL|method|setSourceAddr (String sourceAddr)
 specifier|public
 name|void
@@ -1272,6 +1346,7 @@ return|return
 name|destAddr
 return|;
 block|}
+comment|/**      * Defines the destination SME address. For mobile terminated messages, this is the directory number of the recipient MS.      * Only for SubmitSm, SubmitMulti, CancelSm and DataSm.      */
 DECL|method|setDestAddr (String destAddr)
 specifier|public
 name|void
@@ -1298,6 +1373,7 @@ return|return
 name|typeOfNumber
 return|;
 block|}
+comment|/**      * Defines the type of number (TON) to be used in the SME.      * The following TON values are defined:      *<ul>      *<li>0: Unknown</li>      *<li>1: International</li>      *<li>2: National</li>      *<li>3: Network Specific</li>      *<li>4: Subscriber Number</li>      *<li>5: Alphanumeric</li>      *<li>6: Abbreviated</li>      *</ul>      */
 DECL|method|setTypeOfNumber (byte typeOfNumber)
 specifier|public
 name|void
@@ -1324,6 +1400,7 @@ return|return
 name|numberingPlanIndicator
 return|;
 block|}
+comment|/**      * Defines the numeric plan indicator (NPI) to be used in the SME.      * The following NPI values are defined:      *<ul>      *<li>0: Unknown</li>      *<li>1: ISDN (E163/E164)</li>      *<li>2: Data (X.121)</li>      *<li>3: Telex (F.69)</li>      *<li>6: Land Mobile (E.212)</li>      *<li>8: National</li>      *<li>9: Private</li>      *<li>10: ERMES</li>      *<li>13: Internet (IP)</li>      *<li>18: WAP Client Id (to be defined by WAP Forum)</li>      *</ul>      */
 DECL|method|setNumberingPlanIndicator (byte numberingPlanIndicator)
 specifier|public
 name|void
@@ -1350,6 +1427,7 @@ return|return
 name|usingSSL
 return|;
 block|}
+comment|/**      * Whether using SSL with the smpps protocol      */
 DECL|method|setUsingSSL (boolean usingSSL)
 specifier|public
 name|void
@@ -1376,6 +1454,7 @@ return|return
 name|initialReconnectDelay
 return|;
 block|}
+comment|/**      * Defines the initial delay in milliseconds after the consumer/producer tries to reconnect to the SMSC, after the connection was lost.      */
 DECL|method|setInitialReconnectDelay (long initialReconnectDelay)
 specifier|public
 name|void
@@ -1402,6 +1481,7 @@ return|return
 name|reconnectDelay
 return|;
 block|}
+comment|/**      * Defines the interval in milliseconds between the reconnect attempts, if the connection to the SMSC was lost and the previous was not succeed.      */
 DECL|method|setReconnectDelay (long reconnectDelay)
 specifier|public
 name|void
@@ -1428,6 +1508,7 @@ return|return
 name|lazySessionCreation
 return|;
 block|}
+comment|/**      * Sessions can be lazily created to avoid exceptions, if the SMSC is not available when the Camel producer is started.      * Camel will check the in message headers 'CamelSmppSystemId' and 'CamelSmppPassword' of the first exchange.      * If they are present, Camel will use these data to connect to the SMSC.      */
 DECL|method|setLazySessionCreation (boolean lazySessionCreation)
 specifier|public
 name|void
@@ -1454,6 +1535,7 @@ return|return
 name|httpProxyHost
 return|;
 block|}
+comment|/**      * If you need to tunnel SMPP through a HTTP proxy, set this attribute to the hostname or ip address of your HTTP proxy.      */
 DECL|method|setHttpProxyHost (String httpProxyHost)
 specifier|public
 name|void
@@ -1480,6 +1562,7 @@ return|return
 name|httpProxyPort
 return|;
 block|}
+comment|/**      * If you need to tunnel SMPP through a HTTP proxy, set this attribute to the port of your HTTP proxy.      */
 DECL|method|setHttpProxyPort (Integer httpProxyPort)
 specifier|public
 name|void
@@ -1506,6 +1589,7 @@ return|return
 name|httpProxyUsername
 return|;
 block|}
+comment|/**      * If your HTTP proxy requires basic authentication, set this attribute to the username required for your HTTP proxy.      */
 DECL|method|setHttpProxyUsername (String httpProxyUsername)
 specifier|public
 name|void
@@ -1532,6 +1616,7 @@ return|return
 name|httpProxyPassword
 return|;
 block|}
+comment|/**      * If your HTTP proxy requires basic authentication, set this attribute to the password required for your HTTP proxy.      */
 DECL|method|setHttpProxyPassword (String httpProxyPassword)
 specifier|public
 name|void
@@ -1558,6 +1643,7 @@ return|return
 name|sessionStateListener
 return|;
 block|}
+comment|/**      * You can refer to a org.jsmpp.session.SessionStateListener in the Registry to receive callbacks when the session state changed.      */
 DECL|method|setSessionStateListener (SessionStateListener sessionStateListener)
 specifier|public
 name|void
@@ -1584,6 +1670,7 @@ return|return
 name|addressRange
 return|;
 block|}
+comment|/**      *  You can specify the address range for the SmppConsumer as defined in section 5.2.7 of the SMPP 3.4 specification.      *  The SmppConsumer will receive messages only from SMSC's which target an address (MSISDN or IP address) within this range.      */
 DECL|method|setAddressRange (String addressRange)
 specifier|public
 name|void
@@ -1610,6 +1697,7 @@ return|return
 name|splittingPolicy
 return|;
 block|}
+comment|/**      * You can specify a policy for handling long messages:      *<ul>      *<li>ALLOW - the default, long messages are split to 140 bytes per message</li>      *<li>TRUNCATE - long messages are split and only the first fragment will be sent to the SMSC.      *     Some carriers drop subsequent fragments so this reduces load on the SMPP connection sending parts of a message that will never be delivered.</li>      *<li>REJECT - if a message would need to be split, it is rejected with an SMPP NegativeResponseException and the reason code signifying the message is too long.</li>      *</ul>      */
 DECL|method|setSplittingPolicy (SmppSplittingPolicy splittingPolicy)
 specifier|public
 name|void
