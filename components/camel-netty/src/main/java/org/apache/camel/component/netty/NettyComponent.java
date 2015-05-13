@@ -212,6 +212,7 @@ literal|16
 decl_stmt|;
 DECL|field|executorService
 specifier|private
+specifier|volatile
 name|OrderedMemoryAwareThreadPoolExecutor
 name|executorService
 decl_stmt|;
