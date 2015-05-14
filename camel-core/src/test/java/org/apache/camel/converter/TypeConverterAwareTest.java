@@ -91,7 +91,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"179"
+literal|"179.00"
 argument_list|,
 name|order
 operator|.
