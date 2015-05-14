@@ -441,7 +441,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the scope of this idempotent consumer when its boundaries ends.      *<p/>      * The default mode is<tt>onCompletion</tt> which means the idempotent consumer will      * only trigger its completion at the end of the routing of the exchange, when the exchange completes.      * So if the exchange is continued routed after the block ends, then whatever happens there<b>also</b> affect the state.      * For example if the exchange failed due to an exception, then the state of the idempotent consumer will be a rollback.      *<p/>      * The other mode<tt>blockOnly</tt> means that the idempotent consumer will trigger its completion      * when the exchange reached the end of the block of the idempotent consumer pattern. So if the exchange      * is continued routed after the block ends, then whatever happens there does not affect the state.      *      * @param scope   the scope to use      * @return builder      */
+comment|/**      * Sets the scope of this idempotent consumer where its boundaries ends.      *<p/>      * The default mode is<tt>OnCompletion</tt> which means the idempotent consumer will      * only trigger its completion at the end of the routing of the exchange, when the exchange completes.      * So if the exchange is continued routed after the block ends, then whatever happens there<b>also</b> affect the state.      * For example if the exchange failed due to an exception, then the state of the idempotent consumer will be a rollback.      *<p/>      * The other mode<tt>BlockOnly</tt> means that the idempotent consumer will trigger its completion      * when the exchange reached the end of the block of the idempotent consumer pattern. So if the exchange      * is continued routed after the block ends, then whatever happens there does not affect the state.      *      * @param scope   the scope to use      * @return builder      */
 DECL|method|scope (IdempotentConsumerScope scope)
 specifier|public
 name|IdempotentConsumerDefinition
@@ -460,7 +460,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the scope of this idempotent consumer where its boundaries ends to<tt>blockOnly</tt>.      *<p/>      * The<tt>blockOnly</tt> mode means that the idempotent consumer will trigger its completion      * when the exchange reached the end of the block of the idempotent consumer pattern. So if the exchange      * is continued routed after the block ends, then whatever happens there does not affect the state.      *      * @see #scope(IdempotentConsumerScope)      * @return builder      */
+comment|/**      * Sets the scope of this idempotent consumer where its boundaries ends to<tt>BlockOnly</tt>.      *<p/>      * The<tt>BlockOnly</tt> mode means that the idempotent consumer will trigger its completion      * when the exchange reached the end of the block of the idempotent consumer pattern. So if the exchange      * is continued routed after the block ends, then whatever happens there does not affect the state.      *      * @see #scope(IdempotentConsumerScope)      * @return builder      */
 DECL|method|scopeBlockOnly ()
 specifier|public
 name|IdempotentConsumerDefinition
@@ -478,7 +478,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the scope of this idempotent consumer where its boundaries ends to<tt>onCompletion</tt>.      *<p/>      * The<tt>onCompletion</tt> mode means the idempotent consumer will      * only trigger its completion at the end of the routing of the exchange, when the exchange completes.      * So if the exchange is continued routed after the block ends, then whatever happens there<b>also</b> affect the state.      * For example if the exchange failed due to an exception, then the state of the idempotent consumer will be a rollback.      *      * @see #scope(IdempotentConsumerScope)      * @return builder      */
+comment|/**      * Sets the scope of this idempotent consumer where its boundaries ends to<tt>onCompletion</tt>.      *<p/>      * The<tt>OnCompletion</tt> mode means the idempotent consumer will      * only trigger its completion at the end of the routing of the exchange, when the exchange completes.      * So if the exchange is continued routed after the block ends, then whatever happens there<b>also</b> affect the state.      * For example if the exchange failed due to an exception, then the state of the idempotent consumer will be a rollback.      *      * @see #scope(IdempotentConsumerScope)      * @return builder      */
 DECL|method|scopeOnCompletion ()
 specifier|public
 name|IdempotentConsumerDefinition
