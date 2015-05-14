@@ -681,6 +681,7 @@ block|}
 block|}
 comment|// preserve headers from in by copying any non existing headers
 comment|// to avoid overriding existing headers with old values
+comment|// We also need to apply the HeaderFilterStrategy here
 name|MessageHelper
 operator|.
 name|copyHeaders
@@ -691,6 +692,8 @@ name|getIn
 argument_list|()
 argument_list|,
 name|answer
+argument_list|,
+name|strategy
 argument_list|,
 literal|false
 argument_list|)
