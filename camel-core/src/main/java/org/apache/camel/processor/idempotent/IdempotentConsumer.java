@@ -325,6 +325,12 @@ specifier|final
 name|boolean
 name|eager
 decl_stmt|;
+DECL|field|completionEager
+specifier|private
+specifier|final
+name|boolean
+name|completionEager
+decl_stmt|;
 DECL|field|skipDuplicate
 specifier|private
 specifier|final
@@ -337,12 +343,6 @@ specifier|final
 name|boolean
 name|removeOnFailure
 decl_stmt|;
-DECL|field|scopeBlockOnly
-specifier|private
-specifier|final
-name|boolean
-name|scopeBlockOnly
-decl_stmt|;
 DECL|field|duplicateMessageCount
 specifier|private
 specifier|final
@@ -353,7 +353,7 @@ operator|new
 name|AtomicLong
 argument_list|()
 decl_stmt|;
-DECL|method|IdempotentConsumer (Expression messageIdExpression, IdempotentRepository<String> idempotentRepository, boolean eager, boolean skipDuplicate, boolean removeOnFailure, boolean scopeBlockOnly, Processor processor)
+DECL|method|IdempotentConsumer (Expression messageIdExpression, IdempotentRepository<String> idempotentRepository, boolean eager, boolean completionEager, boolean skipDuplicate, boolean removeOnFailure, Processor processor)
 specifier|public
 name|IdempotentConsumer
 parameter_list|(
@@ -370,13 +370,13 @@ name|boolean
 name|eager
 parameter_list|,
 name|boolean
+name|completionEager
+parameter_list|,
+name|boolean
 name|skipDuplicate
 parameter_list|,
 name|boolean
 name|removeOnFailure
-parameter_list|,
-name|boolean
-name|scopeBlockOnly
 parameter_list|,
 name|Processor
 name|processor
@@ -402,6 +402,12 @@ name|eager
 expr_stmt|;
 name|this
 operator|.
+name|completionEager
+operator|=
+name|completionEager
+expr_stmt|;
+name|this
+operator|.
 name|skipDuplicate
 operator|=
 name|skipDuplicate
@@ -411,12 +417,6 @@ operator|.
 name|removeOnFailure
 operator|=
 name|removeOnFailure
-expr_stmt|;
-name|this
-operator|.
-name|scopeBlockOnly
-operator|=
-name|scopeBlockOnly
 expr_stmt|;
 name|this
 operator|.
@@ -736,13 +736,13 @@ name|onCompletion
 argument_list|,
 name|callback
 argument_list|,
-name|scopeBlockOnly
+name|completionEager
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
 operator|!
-name|scopeBlockOnly
+name|completionEager
 condition|)
 block|{
 comment|// the scope is to do the idempotent completion work as an unit of work on the exchange when its done being routed
@@ -988,13 +988,13 @@ specifier|final
 name|AsyncCallback
 name|callback
 decl_stmt|;
-DECL|field|scopeBlockOnly
+DECL|field|completionEager
 specifier|private
 specifier|final
 name|boolean
-name|scopeBlockOnly
+name|completionEager
 decl_stmt|;
-DECL|method|IdempotentConsumerCallback (Exchange exchange, Synchronization onCompletion, AsyncCallback callback, boolean scopeBlockOnly)
+DECL|method|IdempotentConsumerCallback (Exchange exchange, Synchronization onCompletion, AsyncCallback callback, boolean completionEager)
 specifier|public
 name|IdempotentConsumerCallback
 parameter_list|(
@@ -1008,7 +1008,7 @@ name|AsyncCallback
 name|callback
 parameter_list|,
 name|boolean
-name|scopeBlockOnly
+name|completionEager
 parameter_list|)
 block|{
 name|this
@@ -1031,9 +1031,9 @@ name|callback
 expr_stmt|;
 name|this
 operator|.
-name|scopeBlockOnly
+name|completionEager
 operator|=
-name|scopeBlockOnly
+name|completionEager
 expr_stmt|;
 block|}
 annotation|@
@@ -1051,7 +1051,7 @@ try|try
 block|{
 if|if
 condition|(
-name|scopeBlockOnly
+name|completionEager
 condition|)
 block|{
 if|if
@@ -1081,7 +1081,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// if scope is not block only then the onCompletion is invoked as part of the UoW of the Exchange
+comment|// if completion is not eager then the onCompletion is invoked as part of the UoW of the Exchange
 block|}
 finally|finally
 block|{

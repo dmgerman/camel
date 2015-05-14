@@ -259,17 +259,10 @@ name|eager
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|"OnCompletion"
-argument_list|)
-DECL|field|scope
+DECL|field|completionEager
 specifier|private
-name|IdempotentConsumerScope
-name|scope
+name|Boolean
+name|completionEager
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -441,55 +434,19 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the scope of this idempotent consumer where its boundaries ends.      *<p/>      * The default mode is<tt>OnCompletion</tt> which means the idempotent consumer will      * only trigger its completion at the end of the routing of the exchange, when the exchange completes.      * So if the exchange is continued routed after the block ends, then whatever happens there<b>also</b> affect the state.      * For example if the exchange failed due to an exception, then the state of the idempotent consumer will be a rollback.      *<p/>      * The other mode<tt>BlockOnly</tt> means that the idempotent consumer will trigger its completion      * when the exchange reached the end of the block of the idempotent consumer pattern. So if the exchange      * is continued routed after the block ends, then whatever happens there does not affect the state.      *      * @param scope   the scope to use      * @return builder      */
-DECL|method|scope (IdempotentConsumerScope scope)
+comment|/**      * Sets whether to complete the idempotent consumer eager or when the exchange is done.      *<p/>      * If this option is<tt>true</tt> to complete eager, then the idempotent consumer will trigger its completion      * when the exchange reached the end of the block of the idempotent consumer pattern. So if the exchange      * is continued routed after the block ends, then whatever happens there does not affect the state.      *<p/>      * If this option is<tt>false</tt> (default) to<b>not</b> complete eager, then the idempotent consumer      * will complete when the exchange is done being routed. So if the exchange is continued routed after the block ends,      * then whatever happens there<b>also</b> affect the state.      * For example if the exchange failed due to an exception, then the state of the idempotent consumer will be a rollback.      *      * @param completionEager   whether to complete eager or complete when the exchange is done      * @return builder      */
+DECL|method|completionEager (boolean completionEager)
 specifier|public
 name|IdempotentConsumerDefinition
-name|scope
+name|completionEager
 parameter_list|(
-name|IdempotentConsumerScope
-name|scope
+name|boolean
+name|completionEager
 parameter_list|)
 block|{
-name|setScope
+name|setCompletionEager
 argument_list|(
-name|scope
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets the scope of this idempotent consumer where its boundaries ends to<tt>BlockOnly</tt>.      *<p/>      * The<tt>BlockOnly</tt> mode means that the idempotent consumer will trigger its completion      * when the exchange reached the end of the block of the idempotent consumer pattern. So if the exchange      * is continued routed after the block ends, then whatever happens there does not affect the state.      *      * @see #scope(IdempotentConsumerScope)      * @return builder      */
-DECL|method|scopeBlockOnly ()
-specifier|public
-name|IdempotentConsumerDefinition
-name|scopeBlockOnly
-parameter_list|()
-block|{
-name|setScope
-argument_list|(
-name|IdempotentConsumerScope
-operator|.
-name|BlockOnly
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Sets the scope of this idempotent consumer where its boundaries ends to<tt>onCompletion</tt>.      *<p/>      * The<tt>OnCompletion</tt> mode means the idempotent consumer will      * only trigger its completion at the end of the routing of the exchange, when the exchange completes.      * So if the exchange is continued routed after the block ends, then whatever happens there<b>also</b> affect the state.      * For example if the exchange failed due to an exception, then the state of the idempotent consumer will be a rollback.      *      * @see #scope(IdempotentConsumerScope)      * @return builder      */
-DECL|method|scopeOnCompletion ()
-specifier|public
-name|IdempotentConsumerDefinition
-name|scopeOnCompletion
-parameter_list|()
-block|{
-name|setScope
-argument_list|(
-name|IdempotentConsumerScope
-operator|.
-name|OnCompletion
+name|completionEager
 argument_list|)
 expr_stmt|;
 return|return
@@ -691,30 +648,30 @@ operator|=
 name|removeOnFailure
 expr_stmt|;
 block|}
-DECL|method|getScope ()
+DECL|method|getCompletionEager ()
 specifier|public
-name|IdempotentConsumerScope
-name|getScope
+name|Boolean
+name|getCompletionEager
 parameter_list|()
 block|{
 return|return
-name|scope
+name|completionEager
 return|;
 block|}
-DECL|method|setScope (IdempotentConsumerScope scope)
+DECL|method|setCompletionEager (Boolean completionEager)
 specifier|public
 name|void
-name|setScope
+name|setCompletionEager
 parameter_list|(
-name|IdempotentConsumerScope
-name|scope
+name|Boolean
+name|completionEager
 parameter_list|)
 block|{
 name|this
 operator|.
-name|scope
+name|completionEager
 operator|=
-name|scope
+name|completionEager
 expr_stmt|;
 block|}
 annotation|@
@@ -831,20 +788,16 @@ operator|||
 name|getRemoveOnFailure
 argument_list|()
 decl_stmt|;
-comment|// and this is not true by default
+comment|// these boolean should be false by default
 name|boolean
-name|scopeBlockOnly
+name|completionEager
 init|=
-name|getScope
+name|getCompletionEager
 argument_list|()
 operator|!=
 literal|null
 operator|&&
-name|IdempotentConsumerScope
-operator|.
-name|BlockOnly
-operator|==
-name|getScope
+name|getCompletionEager
 argument_list|()
 decl_stmt|;
 return|return
@@ -857,11 +810,11 @@ name|idempotentRepository
 argument_list|,
 name|eager
 argument_list|,
+name|completionEager
+argument_list|,
 name|duplicate
 argument_list|,
 name|remove
-argument_list|,
-name|scopeBlockOnly
 argument_list|,
 name|childProcessor
 argument_list|)

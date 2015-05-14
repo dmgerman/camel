@@ -141,10 +141,10 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|IdempotentConsumerScopeTest
+DECL|class|IdempotentConsumerCompletionEagerTest
 specifier|public
 class|class
-name|IdempotentConsumerScopeTest
+name|IdempotentConsumerCompletionEagerTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -193,10 +193,10 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|testScopeBlockOnly ()
+DECL|method|testCompletionEager ()
 specifier|public
 name|void
-name|testScopeBlockOnly
+name|testCompletionEager
 parameter_list|()
 throws|throws
 name|Exception
@@ -250,8 +250,10 @@ argument_list|,
 name|repo
 argument_list|)
 operator|.
-name|scopeBlockOnly
-argument_list|()
+name|completionEager
+argument_list|(
+literal|true
+argument_list|)
 operator|.
 name|to
 argument_list|(
@@ -398,10 +400,10 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|testScopeOnCompletion ()
+DECL|method|testNotCompletionEager ()
 specifier|public
 name|void
-name|testScopeOnCompletion
+name|testNotCompletionEager
 parameter_list|()
 throws|throws
 name|Exception
@@ -455,8 +457,10 @@ argument_list|,
 name|repo
 argument_list|)
 operator|.
-name|scopeOnCompletion
-argument_list|()
+name|completionEager
+argument_list|(
+literal|false
+argument_list|)
 operator|.
 name|to
 argument_list|(
