@@ -264,6 +264,20 @@ name|Metadata
 argument_list|(
 name|defaultValue
 operator|=
+literal|"OnCompletion"
+argument_list|)
+DECL|field|scope
+specifier|private
+name|IdempotentConsumerScope
+name|scope
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
 literal|"true"
 argument_list|)
 DECL|field|skipDuplicate
@@ -421,6 +435,61 @@ block|{
 name|setEager
 argument_list|(
 name|eager
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the scope of this idempotent consumer when its boundaries ends.      *<p/>      * The default mode is<tt>onCompletion</tt> which means the idempotent consumer will      * only trigger its completion at the end of the routing of the exchange, when the exchange completes.      * So if the exchange is continued routed after the block ends, then whatever happens there<b>also</b> affect the state.      * For example if the exchange failed due to an exception, then the state of the idempotent consumer will be a rollback.      *<p/>      * The other mode<tt>blockOnly</tt> means that the idempotent consumer will trigger its completion      * when the exchange reached the end of the block of the idempotent consumer pattern. So if the exchange      * is continued routed after the block ends, then whatever happens there does not affect the state.      *      * @param scope   the scope to use      * @return builder      */
+DECL|method|scope (IdempotentConsumerScope scope)
+specifier|public
+name|IdempotentConsumerDefinition
+name|scope
+parameter_list|(
+name|IdempotentConsumerScope
+name|scope
+parameter_list|)
+block|{
+name|setScope
+argument_list|(
+name|scope
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the scope of this idempotent consumer where its boundaries ends to<tt>blockOnly</tt>.      *<p/>      * The<tt>blockOnly</tt> mode means that the idempotent consumer will trigger its completion      * when the exchange reached the end of the block of the idempotent consumer pattern. So if the exchange      * is continued routed after the block ends, then whatever happens there does not affect the state.      *      * @see #scope(IdempotentConsumerScope)      * @return builder      */
+DECL|method|scopeBlockOnly ()
+specifier|public
+name|IdempotentConsumerDefinition
+name|scopeBlockOnly
+parameter_list|()
+block|{
+name|setScope
+argument_list|(
+name|IdempotentConsumerScope
+operator|.
+name|BlockOnly
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the scope of this idempotent consumer where its boundaries ends to<tt>onCompletion</tt>.      *<p/>      * The<tt>onCompletion</tt> mode means the idempotent consumer will      * only trigger its completion at the end of the routing of the exchange, when the exchange completes.      * So if the exchange is continued routed after the block ends, then whatever happens there<b>also</b> affect the state.      * For example if the exchange failed due to an exception, then the state of the idempotent consumer will be a rollback.      *      * @see #scope(IdempotentConsumerScope)      * @return builder      */
+DECL|method|scopeOnCompletion ()
+specifier|public
+name|IdempotentConsumerDefinition
+name|scopeOnCompletion
+parameter_list|()
+block|{
+name|setScope
+argument_list|(
+name|IdempotentConsumerScope
+operator|.
+name|OnCompletion
 argument_list|)
 expr_stmt|;
 return|return
@@ -622,6 +691,32 @@ operator|=
 name|removeOnFailure
 expr_stmt|;
 block|}
+DECL|method|getScope ()
+specifier|public
+name|IdempotentConsumerScope
+name|getScope
+parameter_list|()
+block|{
+return|return
+name|scope
+return|;
+block|}
+DECL|method|setScope (IdempotentConsumerScope scope)
+specifier|public
+name|void
+name|setScope
+parameter_list|(
+name|IdempotentConsumerScope
+name|scope
+parameter_list|)
+block|{
+name|this
+operator|.
+name|scope
+operator|=
+name|scope
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 annotation|@
@@ -736,6 +831,22 @@ operator|||
 name|getRemoveOnFailure
 argument_list|()
 decl_stmt|;
+comment|// and this is not true by default
+name|boolean
+name|scopeBlockOnly
+init|=
+name|getScope
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|IdempotentConsumerScope
+operator|.
+name|BlockOnly
+operator|==
+name|getScope
+argument_list|()
+decl_stmt|;
 return|return
 operator|new
 name|IdempotentConsumer
@@ -749,6 +860,8 @@ argument_list|,
 name|duplicate
 argument_list|,
 name|remove
+argument_list|,
+name|scopeBlockOnly
 argument_list|,
 name|childProcessor
 argument_list|)
