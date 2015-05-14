@@ -55,11 +55,6 @@ annotation|@
 name|XmlType
 annotation|@
 name|XmlEnum
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
 DECL|enum|JsonLibrary
 specifier|public
 enum|enum

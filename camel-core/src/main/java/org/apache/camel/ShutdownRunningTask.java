@@ -51,11 +51,6 @@ annotation|@
 name|XmlType
 annotation|@
 name|XmlEnum
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
 DECL|enum|ShutdownRunningTask
 specifier|public
 enum|enum
