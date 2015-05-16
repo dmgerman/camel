@@ -299,11 +299,14 @@ block|}
 elseif|else
 if|if
 condition|(
-name|operation
-operator|==
 name|SolrConstants
 operator|.
 name|OPERATION_INSERT_STREAMING
+operator|.
+name|equals
+argument_list|(
+name|operation
+argument_list|)
 condition|)
 block|{
 return|return

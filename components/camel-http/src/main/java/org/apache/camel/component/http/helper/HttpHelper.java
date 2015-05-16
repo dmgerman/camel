@@ -1827,9 +1827,13 @@ argument_list|(
 name|newUrl
 argument_list|)
 operator|&&
+operator|!
 name|newUrl
-operator|!=
+operator|.
+name|equals
+argument_list|(
 name|url
+argument_list|)
 condition|)
 block|{
 comment|// we got a new url back, that can either be a new absolute url
