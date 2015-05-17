@@ -136,6 +136,26 @@ name|Metadata
 import|;
 end_import
 
+begin_comment
+comment|// TODO: rename to Definition as this is what this is
+end_comment
+
+begin_comment
+comment|// TODO: Do not set default values, but infer those
+end_comment
+
+begin_comment
+comment|// TODO: add javadoc on the setter methods
+end_comment
+
+begin_comment
+comment|// TODO: add @Metadata to define the default values
+end_comment
+
+begin_comment
+comment|// TODO: add required=true if its required (such as name and paramType I would assume)
+end_comment
+
 begin_class
 annotation|@
 name|Metadata
@@ -257,7 +277,7 @@ DECL|method|RestOperationParam ()
 specifier|public
 name|RestOperationParam
 parameter_list|()
-block|{      }
+block|{     }
 DECL|method|getParamType ()
 specifier|public
 name|RestParamType

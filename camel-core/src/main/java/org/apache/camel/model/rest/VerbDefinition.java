@@ -518,6 +518,9 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
+comment|// TODO: The setter should be a plain setter.
+comment|// this logic should be moved to
+comment|// org.apache.camel.model.rest.RestDefinition.asRouteDefinition()
 name|String
 name|s1
 init|=

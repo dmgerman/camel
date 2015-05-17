@@ -56,6 +56,14 @@ name|XmlTransient
 import|;
 end_import
 
+begin_comment
+comment|// TODO: Should not be a Definition as its a builder for Java DSL instead.
+end_comment
+
+begin_comment
+comment|// instead the builder methods should be on RestOperationParam
+end_comment
+
 begin_class
 annotation|@
 name|XmlTransient
