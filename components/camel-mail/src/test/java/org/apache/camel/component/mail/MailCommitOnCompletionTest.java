@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for fetch size.  */
+comment|/**  * Unit test for delete mail runs as an onCompletion.  */
 end_comment
 
 begin_class
