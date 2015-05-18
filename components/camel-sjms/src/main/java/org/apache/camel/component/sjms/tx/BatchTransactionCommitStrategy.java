@@ -92,7 +92,6 @@ specifier|final
 name|int
 name|count
 decl_stmt|;
-comment|/**      * @param count      */
 DECL|method|BatchTransactionCommitStrategy (int count)
 specifier|public
 name|BatchTransactionCommitStrategy

@@ -996,7 +996,7 @@ return|return
 name|asyncStartStopExecutorService
 return|;
 block|}
-comment|/**      * Sets the ConnectionFactory value of connectionFactory for this instance      * of SjmsComponent.      */
+comment|/**      * A ConnectionFactory is required to enable the SjmsComponent.      * It can be set directly or set set as part of a ConnectionResource.      */
 DECL|method|setConnectionFactory (ConnectionFactory connectionFactory)
 specifier|public
 name|void
@@ -1013,7 +1013,6 @@ operator|=
 name|connectionFactory
 expr_stmt|;
 block|}
-comment|/**      * Gets the ConnectionFactory value of connectionFactory for this instance      * of SjmsComponent.      *      * @return the connectionFactory      */
 DECL|method|getConnectionFactory ()
 specifier|public
 name|ConnectionFactory
@@ -1038,6 +1037,7 @@ operator|.
 name|headerFilterStrategy
 return|;
 block|}
+comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel message.      */
 annotation|@
 name|Override
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
@@ -1056,6 +1056,7 @@ operator|=
 name|headerFilterStrategy
 expr_stmt|;
 block|}
+comment|/**      * A ConnectionResource is an interface that allows for customization and container control of the ConnectionFactory.      * See Plugable Connection Resource Management for further details.      */
 DECL|method|setConnectionResource (ConnectionResource connectionResource)
 specifier|public
 name|void
@@ -1082,6 +1083,7 @@ return|return
 name|connectionResource
 return|;
 block|}
+comment|/**      * The maximum number of connections available to endpoints started under this component      */
 DECL|method|setConnectionCount (Integer maxConnections)
 specifier|public
 name|void
@@ -1108,6 +1110,7 @@ return|return
 name|connectionCount
 return|;
 block|}
+comment|/**      * Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification.      * Camel provides one implementation out of the box: default.      * The default strategy will safely marshal dots and hyphens (. and -).      * Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters.      * You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy      * and refer to it using the # notation.      */
 DECL|method|setKeyFormatStrategy (KeyFormatStrategy keyFormatStrategy)
 specifier|public
 name|void
@@ -1134,7 +1137,6 @@ return|return
 name|keyFormatStrategy
 return|;
 block|}
-comment|/**      * Gets the TransactionCommitStrategy value of transactionCommitStrategy for this      * instance of SjmsComponent.      *      * @return the transactionCommitStrategy      */
 DECL|method|getTransactionCommitStrategy ()
 specifier|public
 name|TransactionCommitStrategy
@@ -1145,7 +1147,7 @@ return|return
 name|transactionCommitStrategy
 return|;
 block|}
-comment|/**      * Sets the TransactionCommitStrategy value of transactionCommitStrategy for this      * instance of SjmsComponent.      */
+comment|/**      * To configure which kind of commit strategy to use. Camel provides two implementations out      * of the box, default and batch.      */
 DECL|method|setTransactionCommitStrategy (TransactionCommitStrategy commitStrategy)
 specifier|public
 name|void
@@ -1172,6 +1174,7 @@ return|return
 name|destinationCreationStrategy
 return|;
 block|}
+comment|/**      * To use a custom DestinationCreationStrategy.      */
 DECL|method|setDestinationCreationStrategy (DestinationCreationStrategy destinationCreationStrategy)
 specifier|public
 name|void
@@ -1198,6 +1201,7 @@ return|return
 name|timedTaskManager
 return|;
 block|}
+comment|/**      * To use a custom TimedTaskManager      */
 DECL|method|setTimedTaskManager (TimedTaskManager timedTaskManager)
 specifier|public
 name|void

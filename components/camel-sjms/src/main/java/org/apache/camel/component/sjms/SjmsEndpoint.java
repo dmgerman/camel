@@ -373,6 +373,11 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+DECL|field|topic
+specifier|private
+name|boolean
+name|topic
+decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
@@ -383,6 +388,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"queue"
+argument_list|,
+name|description
+operator|=
+literal|"The kind of destination to use"
 argument_list|)
 DECL|field|destinationType
 specifier|private
@@ -406,6 +415,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -426,6 +439,11 @@ name|transacted
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|namedReplyTo
 specifier|private
 name|String
@@ -437,6 +455,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"AUTO_ACKNOWLEDGE"
+argument_list|,
+name|enums
+operator|=
+literal|"SESSION_TRANSACTED,CLIENT_ACKNOWLEDGE,AUTO_ACKNOWLEDGE,DUPS_OK_ACKNOWLEDGE"
 argument_list|)
 DECL|field|acknowledgementMode
 specifier|private
@@ -446,11 +468,6 @@ init|=
 name|SessionAcknowledgementType
 operator|.
 name|AUTO_ACKNOWLEDGE
-decl_stmt|;
-DECL|field|topic
-specifier|private
-name|boolean
-name|topic
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -469,6 +486,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"1"
@@ -512,6 +533,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -525,6 +550,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|durableSubscriptionId
 specifier|private
 name|String
@@ -533,6 +563,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"5000"
@@ -546,6 +580,11 @@ literal|5000
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|messageSelector
 specifier|private
 name|String
@@ -554,6 +593,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"-1"
@@ -569,6 +612,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"5000"
@@ -597,6 +644,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -611,6 +662,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -980,7 +1035,6 @@ name|getKeyFormatStrategy
 argument_list|()
 return|;
 block|}
-comment|/**      * Use to determine whether or not to process exchanges synchronously.      *      * @return true if endoint is synchronous, otherwise false      */
 DECL|method|isSynchronous ()
 specifier|public
 name|boolean
@@ -991,7 +1045,7 @@ return|return
 name|synchronous
 return|;
 block|}
-comment|/**      * Flag can be set to enable/disable synchronous exchange processing.      *      * @param synchronous true to process synchronously, default is true      */
+comment|/**      * Sets whether synchronous processing should be strictly used or Camel is allowed to use asynchronous processing (if supported).      */
 DECL|method|setSynchronous (boolean synchronous)
 specifier|public
 name|void
@@ -1008,7 +1062,6 @@ operator|=
 name|synchronous
 expr_stmt|;
 block|}
-comment|/**      * Returns the configured acknowledgementMode.      *      * @return the acknowledgementMode      */
 DECL|method|getAcknowledgementMode ()
 specifier|public
 name|SessionAcknowledgementType
@@ -1019,7 +1072,7 @@ return|return
 name|acknowledgementMode
 return|;
 block|}
-comment|/**      * Sets the acknowledgementMode configured on this endpoint.      *      * @param acknowledgementMode default is      *                            SessionAcknowledgementType.AUTO_ACKNOWLEDGE      */
+comment|/**      * The JMS acknowledgement name, which is one of: SESSION_TRANSACTED, CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE      */
 DECL|method|setAcknowledgementMode (SessionAcknowledgementType acknowledgementMode)
 specifier|public
 name|void
@@ -1036,7 +1089,7 @@ operator|=
 name|acknowledgementMode
 expr_stmt|;
 block|}
-comment|/**      * Flag set by the endpoint used by consumers and producers to determine if      * the endpoint is a JMS Topic.      *      * @return the topic true if endpoint is a JMS Topic, default is false      */
+comment|/**      * Flag set by the endpoint used by consumers and producers to determine if      * the endpoint is a JMS Topic.      */
 DECL|method|isTopic ()
 specifier|public
 name|boolean
@@ -1047,7 +1100,7 @@ return|return
 name|topic
 return|;
 block|}
-comment|/**      * Returns the number of Session instances expected on this endpoint.      *      * @return the sessionCount      */
+comment|/**      * Returns the number of Session instances expected on this endpoint.      */
 annotation|@
 name|Deprecated
 DECL|method|getSessionCount ()
@@ -1079,7 +1132,6 @@ operator|=
 name|sessionCount
 expr_stmt|;
 block|}
-comment|/**      * Returns the number of consumer listeners for this endpoint.      *      * @return the producerCount      */
 DECL|method|getProducerCount ()
 specifier|public
 name|int
@@ -1090,7 +1142,7 @@ return|return
 name|producerCount
 return|;
 block|}
-comment|/**      * Sets the number of producers used for this endpoint.      *      * @param producerCount the number of producers for this endpoint, default      *                      is 1      */
+comment|/**      * Sets the number of producers used for this endpoint.      */
 DECL|method|setProducerCount (int producerCount)
 specifier|public
 name|void
@@ -1107,7 +1159,6 @@ operator|=
 name|producerCount
 expr_stmt|;
 block|}
-comment|/**      * Returns the number of consumer listeners for this endpoint.      *      * @return the consumerCount      */
 DECL|method|getConsumerCount ()
 specifier|public
 name|int
@@ -1118,7 +1169,7 @@ return|return
 name|consumerCount
 return|;
 block|}
-comment|/**      * Sets the number of consumer listeners used for this endpoint.      *      * @param consumerCount the number of consumers for this endpoint, default      *                      is 1      */
+comment|/**      * Sets the number of consumer listeners used for this endpoint.      */
 DECL|method|setConsumerCount (int consumerCount)
 specifier|public
 name|void
@@ -1135,7 +1186,6 @@ operator|=
 name|consumerCount
 expr_stmt|;
 block|}
-comment|/**      * Returns the Time To Live set on this endpoint.      *      * @return the ttl      */
 DECL|method|getTtl ()
 specifier|public
 name|long
@@ -1146,7 +1196,7 @@ return|return
 name|ttl
 return|;
 block|}
-comment|/**      * Flag used to adjust the Time To Live value of produced messages.      *      * @param ttl a new TTL, default is -1 (disabled)      */
+comment|/**      * Flag used to adjust the Time To Live value of produced messages.      */
 DECL|method|setTtl (long ttl)
 specifier|public
 name|void
@@ -1163,7 +1213,6 @@ operator|=
 name|ttl
 expr_stmt|;
 block|}
-comment|/**      * Use to determine if the enpoint has message persistence enabled or      * disabled.      *      * @return true if persistent, otherwise false      */
 DECL|method|isPersistent ()
 specifier|public
 name|boolean
@@ -1174,7 +1223,7 @@ return|return
 name|persistent
 return|;
 block|}
-comment|/**      * Flag used to enable/disable message persistence.      *      * @param persistent true if persistent, default is true      */
+comment|/**      * Flag used to enable/disable message persistence.      */
 DECL|method|setPersistent (boolean persistent)
 specifier|public
 name|void
@@ -1191,7 +1240,6 @@ operator|=
 name|persistent
 expr_stmt|;
 block|}
-comment|/**      * Gets the durable subscription Id.      *      * @return the durableSubscriptionId      */
 DECL|method|getDurableSubscriptionId ()
 specifier|public
 name|String
@@ -1202,7 +1250,7 @@ return|return
 name|durableSubscriptionId
 return|;
 block|}
-comment|/**      * Sets the durable subscription Id required for durable topics.      *      * @param durableSubscriptionId durable subscription Id or null      */
+comment|/**      * Sets the durable subscription Id required for durable topics.      */
 DECL|method|setDurableSubscriptionId (String durableSubscriptionId)
 specifier|public
 name|void
@@ -1219,7 +1267,6 @@ operator|=
 name|durableSubscriptionId
 expr_stmt|;
 block|}
-comment|/**      * Returns the InOut response timeout.      *      * @return the responseTimeOut      */
 DECL|method|getResponseTimeOut ()
 specifier|public
 name|long
@@ -1230,7 +1277,7 @@ return|return
 name|responseTimeOut
 return|;
 block|}
-comment|/**      * Sets the amount of time we should wait before timing out a InOut      * response.      *      * @param responseTimeOut response timeout      */
+comment|/**      * Sets the amount of time we should wait before timing out a InOut response.      */
 DECL|method|setResponseTimeOut (long responseTimeOut)
 specifier|public
 name|void
@@ -1247,7 +1294,6 @@ operator|=
 name|responseTimeOut
 expr_stmt|;
 block|}
-comment|/**      * Returns the JMS Message selector syntax used to refine the messages being      * consumed.      *      * @return the messageSelector      */
 DECL|method|getMessageSelector ()
 specifier|public
 name|String
@@ -1258,7 +1304,7 @@ return|return
 name|messageSelector
 return|;
 block|}
-comment|/**      * Sets the JMS Message selector syntax.      *      * @param messageSelector Message selector syntax or null      */
+comment|/**      * Sets the JMS Message selector syntax.      */
 DECL|method|setMessageSelector (String messageSelector)
 specifier|public
 name|void
@@ -1275,7 +1321,6 @@ operator|=
 name|messageSelector
 expr_stmt|;
 block|}
-comment|/**      * If transacted, returns the nubmer of messages to be processed before      * committing the transaction.      *      * @return the transactionBatchCount      */
 DECL|method|getTransactionBatchCount ()
 specifier|public
 name|int
@@ -1286,7 +1331,7 @@ return|return
 name|transactionBatchCount
 return|;
 block|}
-comment|/**      * If transacted sets the number of messages to process before committing a      * transaction.      *      * @param transactionBatchCount number of messages to process before      *                              committing, default is 1      */
+comment|/**      * If transacted sets the number of messages to process before committing a transaction.      */
 DECL|method|setTransactionBatchCount (int transactionBatchCount)
 specifier|public
 name|void
@@ -1303,7 +1348,6 @@ operator|=
 name|transactionBatchCount
 expr_stmt|;
 block|}
-comment|/**      * Returns the timeout value for batch transactions.      *      * @return long      */
 DECL|method|getTransactionBatchTimeout ()
 specifier|public
 name|long
@@ -1314,7 +1358,7 @@ return|return
 name|transactionBatchTimeout
 return|;
 block|}
-comment|/**      * Sets timeout value for batch transactions.      *      * @param transactionBatchTimeout      */
+comment|/**      * Sets timeout (in millis) for batch transactions, the value should be 1000 or higher.      */
 DECL|method|setTransactionBatchTimeout (long transactionBatchTimeout)
 specifier|public
 name|void
@@ -1339,7 +1383,6 @@ name|transactionBatchTimeout
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Gets the commit strategy.      *      * @return the transactionCommitStrategy      */
 DECL|method|getTransactionCommitStrategy ()
 specifier|public
 name|TransactionCommitStrategy
@@ -1350,7 +1393,7 @@ return|return
 name|transactionCommitStrategy
 return|;
 block|}
-comment|/**      * Sets the commit strategy.      *      * @param transactionCommitStrategy commit strategy to use when processing      *                                  transacted messages      */
+comment|/**      * Sets the commit strategy.      */
 DECL|method|setTransactionCommitStrategy (TransactionCommitStrategy transactionCommitStrategy)
 specifier|public
 name|void
@@ -1367,7 +1410,6 @@ operator|=
 name|transactionCommitStrategy
 expr_stmt|;
 block|}
-comment|/**      * Use to determine if transactions are enabled or disabled.      *      * @return true if transacted, otherwise false      */
 DECL|method|isTransacted ()
 specifier|public
 name|boolean
@@ -1378,7 +1420,7 @@ return|return
 name|transacted
 return|;
 block|}
-comment|/**      * Enable/disable flag for transactions      *      * @param transacted true if transacted, otherwise false      */
+comment|/**      * Specifies whether to use transacted mode      */
 DECL|method|setTransacted (boolean transacted)
 specifier|public
 name|void
@@ -1408,7 +1450,6 @@ operator|=
 name|transacted
 expr_stmt|;
 block|}
-comment|/**      * Returns the reply to destination name used for InOut producer endpoints.      *      * @return the namedReplyTo      */
 DECL|method|getNamedReplyTo ()
 specifier|public
 name|String
@@ -1419,7 +1460,7 @@ return|return
 name|namedReplyTo
 return|;
 block|}
-comment|/**      * Sets the reply to destination name used for InOut producer endpoints.      *      * @param namedReplyTo the JMS reply to destination name      */
+comment|/**      * Sets the reply to destination name used for InOut producer endpoints.      */
 DECL|method|setNamedReplyTo (String namedReplyTo)
 specifier|public
 name|void
@@ -1445,6 +1486,7 @@ name|InOut
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Whether to startup the consumer message listener asynchronously, when starting a route.      * For example if a JmsConsumer cannot get a connection to a remote JMS broker, then it may block while retrying      * and/or failover. This will cause Camel to block while starting routes. By setting this option to true,      * you will let routes startup, while the JmsConsumer connects to the JMS broker using a dedicated thread      * in asynchronous mode. If this option is used, then beware that if the connection could not be established,      * then an exception is logged at WARN level, and the consumer will not be able to receive messages;      * You can then restart the route to retry.      */
 DECL|method|setAsyncStartListener (boolean asyncStartListener)
 specifier|public
 name|void
@@ -1461,6 +1503,7 @@ operator|=
 name|asyncStartListener
 expr_stmt|;
 block|}
+comment|/**      * Whether to stop the consumer message listener asynchronously, when stopping a route.      */
 DECL|method|setAsyncStopListener (boolean asyncStopListener)
 specifier|public
 name|void
@@ -1507,6 +1550,7 @@ return|return
 name|prefillPool
 return|;
 block|}
+comment|/**      * Whether to prefill the producer connection pool on startup, or create connections lazy when needed.      */
 DECL|method|setPrefillPool (boolean prefillPool)
 specifier|public
 name|void
@@ -1533,6 +1577,7 @@ return|return
 name|destinationCreationStrategy
 return|;
 block|}
+comment|/**      * To use a custom DestinationCreationStrategy.      */
 DECL|method|setDestinationCreationStrategy (DestinationCreationStrategy destinationCreationStrategy)
 specifier|public
 name|void
@@ -1559,6 +1604,7 @@ return|return
 name|allowNullBody
 return|;
 block|}
+comment|/**      * Whether to allow sending messages with no body. If this option is false and the message body is null, then an JMSException is thrown.      */
 DECL|method|setAllowNullBody (boolean allowNullBody)
 specifier|public
 name|void

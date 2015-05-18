@@ -60,7 +60,6 @@ name|DefaultTransactionCommitStrategy
 implements|implements
 name|TransactionCommitStrategy
 block|{
-comment|/**      * @param exchange      * @return      * @throws Exception      * @see org.apache.camel.component.sjms.TransactionCommitStrategy#commit(org.apache.camel.Exchange)      */
 annotation|@
 name|Override
 DECL|method|commit (Exchange exchange)
@@ -78,7 +77,6 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * @param exchange      * @return      * @throws Exception      * @see org.apache.camel.component.sjms.TransactionCommitStrategy#rollback(org.apache.camel.Exchange)      */
 annotation|@
 name|Override
 DECL|method|rollback (Exchange exchange)
