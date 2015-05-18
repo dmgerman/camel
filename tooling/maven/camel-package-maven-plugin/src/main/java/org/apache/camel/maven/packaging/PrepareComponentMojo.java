@@ -19,6 +19,60 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|maven
+operator|.
+name|packaging
+operator|.
+name|PackageComponentMojo
+operator|.
+name|prepareComponent
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|maven
+operator|.
+name|packaging
+operator|.
+name|PackageDataFormatMojo
+operator|.
+name|prepareDataFormat
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|maven
+operator|.
+name|packaging
+operator|.
+name|PackageLanguageMojo
+operator|.
+name|prepareLanguage
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -99,56 +153,18 @@ import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
-name|apache
+name|sonatype
 operator|.
-name|camel
+name|plexus
 operator|.
-name|maven
+name|build
 operator|.
-name|packaging
+name|incremental
 operator|.
-name|PackageComponentMojo
-operator|.
-name|prepareComponent
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|maven
-operator|.
-name|packaging
-operator|.
-name|PackageDataFormatMojo
-operator|.
-name|prepareDataFormat
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|maven
-operator|.
-name|packaging
-operator|.
-name|PackageLanguageMojo
-operator|.
-name|prepareLanguage
+name|BuildContext
 import|;
 end_import
 
@@ -200,6 +216,12 @@ specifier|private
 name|MavenProjectHelper
 name|projectHelper
 decl_stmt|;
+comment|/**      * build context to check changed files and mark them for refresh      * (used for m2e compatibility)      *       * @component      * @readonly      */
+DECL|field|buildContext
+specifier|private
+name|BuildContext
+name|buildContext
+decl_stmt|;
 comment|/**      * Execute goal.      *      * @throws org.apache.maven.plugin.MojoExecutionException execution of the main class or one of the      *                                                        threads it generated failed.      * @throws org.apache.maven.plugin.MojoFailureException   something bad happened...      */
 DECL|method|execute ()
 specifier|public
@@ -221,6 +243,8 @@ argument_list|,
 name|projectHelper
 argument_list|,
 name|componentOutDir
+argument_list|,
+name|buildContext
 argument_list|)
 expr_stmt|;
 name|prepareDataFormat
@@ -235,6 +259,8 @@ argument_list|,
 name|dataFormatOutDir
 argument_list|,
 name|schemaOutDir
+argument_list|,
+name|buildContext
 argument_list|)
 expr_stmt|;
 name|prepareLanguage
@@ -249,6 +275,8 @@ argument_list|,
 name|languageOutDir
 argument_list|,
 name|schemaOutDir
+argument_list|,
+name|buildContext
 argument_list|)
 expr_stmt|;
 block|}
