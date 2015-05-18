@@ -1345,7 +1345,7 @@ expr_stmt|;
 comment|// add some tolerance
 name|output
 operator|.
-name|setMinimumResultWaitTime
+name|setResultMinimumWaitTime
 argument_list|(
 literal|800
 argument_list|)
