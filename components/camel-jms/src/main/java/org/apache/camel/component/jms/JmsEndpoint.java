@@ -1940,6 +1940,7 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel message.      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
 specifier|public
 name|void
@@ -1994,7 +1995,7 @@ name|this
 argument_list|)
 return|;
 block|}
-comment|/**      * Sets the binding used to convert from a Camel message to and from a JMS      * message      *      * @param binding the binding to use      */
+comment|/**      * Sets the binding used to convert from a Camel message to and from a JMS      * message      */
 DECL|method|setBinding (JmsBinding binding)
 specifier|public
 name|void
@@ -2021,7 +2022,7 @@ return|return
 name|destinationType
 return|;
 block|}
-comment|/**      * The kind of destination to use      * @param destinationType      */
+comment|/**      * The kind of destination to use      */
 DECL|method|setDestinationType (String destinationType)
 specifier|public
 name|void
