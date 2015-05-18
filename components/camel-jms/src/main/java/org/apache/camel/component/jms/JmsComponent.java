@@ -804,7 +804,7 @@ return|return
 name|configuration
 return|;
 block|}
-comment|/**      * Sets the JMS configuration      *      * @param configuration the configuration to use by default for endpoints      */
+comment|/**      * To use a shared JMS configuration      */
 DECL|method|setConfiguration (JmsConfiguration configuration)
 specifier|public
 name|void
@@ -821,6 +821,7 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+comment|/**      * Specifies whether the consumer accept messages while it is stopping.      * You may consider enabling this option, if you start and stop JMS routes at runtime, while there are still messages      * enqued on the queue. If this option is false, and you stop the JMS route, then messages may be rejected,      * and the JMS broker would have to attempt redeliveries, which yet again may be rejected, and eventually the message      * may be moved at a dead letter queue on the JMS broker. To avoid this its recommended to enable this option.      */
 DECL|method|setAcceptMessagesWhileStopping (boolean acceptMessagesWhileStopping)
 specifier|public
 name|void
@@ -839,6 +840,7 @@ name|acceptMessagesWhileStopping
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The JMS acknowledgement mode defined as an Integer.      * Allows you to set vendor-specific extensions to the acknowledgment mode.      * For the regular modes, it is preferable to use the acknowledgementModeName instead.      */
 DECL|method|setAcknowledgementMode (int consumerAcknowledgementMode)
 specifier|public
 name|void
@@ -857,6 +859,7 @@ name|consumerAcknowledgementMode
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Enables eager loading of JMS properties as soon as a message is loaded      * which generally is inefficient as the JMS properties may not be required      * but sometimes can catch early any issues with the underlying JMS provider      * and the use of JMS properties      */
 DECL|method|setEagerLoadingOfProperties (boolean eagerLoadingOfProperties)
 specifier|public
 name|void
@@ -875,6 +878,7 @@ name|eagerLoadingOfProperties
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The JMS acknowledgement name, which is one of: SESSION_TRANSACTED, CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE      */
 DECL|method|setAcknowledgementModeName (String consumerAcknowledgementMode)
 specifier|public
 name|void
@@ -893,6 +897,7 @@ name|consumerAcknowledgementMode
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies whether the consumer container should auto-startup.      */
 DECL|method|setAutoStartup (boolean autoStartup)
 specifier|public
 name|void
@@ -911,6 +916,7 @@ name|autoStartup
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the cache level by ID for the underlying JMS resources. See cacheLevelName option for more details.      */
 DECL|method|setCacheLevel (int cacheLevel)
 specifier|public
 name|void
@@ -929,6 +935,7 @@ name|cacheLevel
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the cache level by name for the underlying JMS resources.      * Possible values are: CACHE_AUTO, CACHE_CONNECTION, CACHE_CONSUMER, CACHE_NONE, and CACHE_SESSION.      * The default setting is CACHE_AUTO. See the Spring documentation and Transactions Cache Levels for more information.      */
 DECL|method|setCacheLevelName (String cacheName)
 specifier|public
 name|void
@@ -947,6 +954,7 @@ name|cacheName
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the cache level by name for the reply consumer when doing request/reply over JMS.      * This option only applies when using fixed reply queues (not temporary).      * Camel will by default use: CACHE_CONSUMER for exclusive or shared w/ replyToSelectorName.      * And CACHE_SESSION for shared without replyToSelectorName. Some JMS brokers such as IBM WebSphere      * may require to set the replyToCacheLevelName=CACHE_NONE to work.      * Note: If using temporary queues then CACHE_NONE is not allowed,      * and you must use a higher value such as CACHE_CONSUMER or CACHE_SESSION.      */
 DECL|method|setReplyToCacheLevelName (String cacheName)
 specifier|public
 name|void
@@ -965,6 +973,7 @@ name|cacheName
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the JMS client ID to use. Note that this value, if specified, must be unique and can only be used by a single JMS connection instance.      * It is typically only required for durable topic subscriptions.      *<p/>      * If using Apache ActiveMQ you may prefer to use Virtual Topics instead.      */
 DECL|method|setClientId (String consumerClientId)
 specifier|public
 name|void
@@ -983,6 +992,7 @@ name|consumerClientId
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies the default number of concurrent consumers when consuming from JMS (not for request/reply over JMS).      * See also the maxMessagesPerTask option to control dynamic scaling up/down of threads.      *<p/>      * When doing request/reply over JMS then the option replyToConcurrentConsumers is used to control number      * of concurrent consumers on the reply message listener.      */
 DECL|method|setConcurrentConsumers (int concurrentConsumers)
 specifier|public
 name|void
@@ -1001,6 +1011,7 @@ name|concurrentConsumers
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies the default number of concurrent consumers when doing request/reply over JMS.      * See also the maxMessagesPerTask option to control dynamic scaling up/down of threads.      */
 DECL|method|setReplyToConcurrentConsumers (int concurrentConsumers)
 specifier|public
 name|void
@@ -1019,6 +1030,7 @@ name|concurrentConsumers
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the default connection factory to be use      */
 DECL|method|setConnectionFactory (ConnectionFactory connectionFactory)
 specifier|public
 name|void
@@ -1037,6 +1049,7 @@ name|connectionFactory
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies whether persistent delivery is used by default.      */
 DECL|method|setDeliveryPersistent (boolean deliveryPersistent)
 specifier|public
 name|void
@@ -1055,6 +1068,7 @@ name|deliveryPersistent
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies the delivery mode to be used. Possible values are      * Possibles values are those defined by javax.jms.DeliveryMode.      * NON_PERSISTENT = 1 and PERSISTENT = 2.      */
 DECL|method|setDeliveryMode (Integer deliveryMode)
 specifier|public
 name|void
@@ -1073,6 +1087,7 @@ name|deliveryMode
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The durable subscriber name for specifying durable topic subscriptions. The clientId option must be configured as well.      */
 DECL|method|setDurableSubscriptionName (String durableSubscriptionName)
 specifier|public
 name|void
@@ -1091,6 +1106,7 @@ name|durableSubscriptionName
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies the JMS Exception Listener that is to be notified of any underlying JMS exceptions.      */
 DECL|method|setExceptionListener (ExceptionListener exceptionListener)
 specifier|public
 name|void
@@ -1109,6 +1125,7 @@ name|exceptionListener
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies a org.springframework.util.ErrorHandler to be invoked in case of any uncaught exceptions thrown while processing a Message.      * By default these exceptions will be logged at the WARN level, if no errorHandler has been configured.      * You can configure logging level and whether stack traces should be logged using errorHandlerLoggingLevel and errorHandlerLogStackTrace options.      * This makes it much easier to configure, than having to code a custom errorHandler.      */
 DECL|method|setErrorHandler (ErrorHandler errorHandler)
 specifier|public
 name|void
@@ -1127,6 +1144,7 @@ name|errorHandler
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Allows to configure the default errorHandler logging level for logging uncaught exceptions.      */
 DECL|method|setErrorHandlerLoggingLevel (LoggingLevel errorHandlerLoggingLevel)
 specifier|public
 name|void
@@ -1145,6 +1163,7 @@ name|errorHandlerLoggingLevel
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Allows to control whether stacktraces should be logged or not, by the default errorHandler.      */
 DECL|method|setErrorHandlerLogStackTrace (boolean errorHandlerLogStackTrace)
 specifier|public
 name|void
@@ -1163,6 +1182,7 @@ name|errorHandlerLogStackTrace
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set if the deliveryMode, priority or timeToLive qualities of service should be used when sending messages.      * This option is based on Spring's JmsTemplate. The deliveryMode, priority and timeToLive options are applied to the current endpoint.      * This contrasts with the preserveMessageQos option, which operates at message granularity,      * reading QoS properties exclusively from the Camel In message headers.      */
 DECL|method|setExplicitQosEnabled (boolean explicitQosEnabled)
 specifier|public
 name|void
@@ -1181,6 +1201,7 @@ name|explicitQosEnabled
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies whether the listener session should be exposed when consuming messages.      */
 DECL|method|setExposeListenerSession (boolean exposeListenerSession)
 specifier|public
 name|void
@@ -1199,6 +1220,7 @@ name|exposeListenerSession
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies the limit for idle executions of a receive task, not having received any message within its execution.      * If this limit is reached, the task will shut down and leave receiving to other executing tasks      * (in the case of dynamic scheduling; see the maxConcurrentConsumers setting).      * There is additional doc available from Spring.      */
 DECL|method|setIdleTaskExecutionLimit (int idleTaskExecutionLimit)
 specifier|public
 name|void
@@ -1217,6 +1239,7 @@ name|idleTaskExecutionLimit
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specify the limit for the number of consumers that are allowed to be idle at any given time.      */
 DECL|method|setIdleConsumerLimit (int idleConsumerLimit)
 specifier|public
 name|void
@@ -1235,6 +1258,7 @@ name|idleConsumerLimit
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies the maximum number of concurrent consumers when consuming from JMS (not for request/reply over JMS).      * See also the maxMessagesPerTask option to control dynamic scaling up/down of threads.      *<p/>      * When doing request/reply over JMS then the option replyToMaxConcurrentConsumers is used to control number      * of concurrent consumers on the reply message listener.      */
 DECL|method|setMaxConcurrentConsumers (int maxConcurrentConsumers)
 specifier|public
 name|void
@@ -1253,6 +1277,7 @@ name|maxConcurrentConsumers
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies the maximum number of concurrent consumers when using request/reply over JMS.      * See also the maxMessagesPerTask option to control dynamic scaling up/down of threads.      */
 DECL|method|setReplyToMaxConcurrentConsumers (int maxConcurrentConsumers)
 specifier|public
 name|void
@@ -1271,6 +1296,7 @@ name|maxConcurrentConsumers
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The number of messages per task. -1 is unlimited.      * If you use a range for concurrent consumers (eg min< max), then this option can be used to set      * a value to eg 100 to control how fast the consumers will shrink when less work is required.      */
 DECL|method|setMaxMessagesPerTask (int maxMessagesPerTask)
 specifier|public
 name|void
@@ -1289,6 +1315,7 @@ name|maxMessagesPerTask
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * To use a custom Spring org.springframework.jms.support.converter.MessageConverter so you can be in control      * how to map to/from a javax.jms.Message.      */
 DECL|method|setMessageConverter (MessageConverter messageConverter)
 specifier|public
 name|void
@@ -1307,6 +1334,7 @@ name|messageConverter
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies whether Camel should auto map the received JMS message to a suited payload type, such as javax.jms.TextMessage to a String etc.      * See section about how mapping works below for more details.      */
 DECL|method|setMapJmsMessage (boolean mapJmsMessage)
 specifier|public
 name|void
@@ -1325,6 +1353,7 @@ name|mapJmsMessage
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * When sending, specifies whether message IDs should be added.      */
 DECL|method|setMessageIdEnabled (boolean messageIdEnabled)
 specifier|public
 name|void
@@ -1343,6 +1372,7 @@ name|messageIdEnabled
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies whether timestamps should be enabled by default on sending messages.      */
 DECL|method|setMessageTimestampEnabled (boolean messageTimestampEnabled)
 specifier|public
 name|void
@@ -1361,6 +1391,7 @@ name|messageTimestampEnabled
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * If true, Camel will always make a JMS message copy of the message when it is passed to the producer for sending.      * Copying the message is needed in some situations, such as when a replyToDestinationSelectorName is set      * (incidentally, Camel will set the alwaysCopyMessage option to true, if a replyToDestinationSelectorName is set)      */
 DECL|method|setAlwaysCopyMessage (boolean alwaysCopyMessage)
 specifier|public
 name|void
@@ -1379,6 +1410,7 @@ name|alwaysCopyMessage
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies whether JMSMessageID should always be used as JMSCorrelationID for InOut messages.      */
 DECL|method|setUseMessageIDAsCorrelationID (boolean useMessageIDAsCorrelationID)
 specifier|public
 name|void
@@ -1397,6 +1429,7 @@ name|useMessageIDAsCorrelationID
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Values greater than 1 specify the message priority when sending (where 0 is the lowest priority and 9 is the highest).      * The explicitQosEnabled option must also be enabled in order for this option to have any effect.      */
 DECL|method|setPriority (int priority)
 specifier|public
 name|void
@@ -1415,6 +1448,7 @@ name|priority
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies whether to inhibit the delivery of messages published by its own connection.      */
 DECL|method|setPubSubNoLocal (boolean pubSubNoLocal)
 specifier|public
 name|void
@@ -1433,6 +1467,7 @@ name|pubSubNoLocal
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The timeout for receiving messages (in milliseconds).      */
 DECL|method|setReceiveTimeout (long receiveTimeout)
 specifier|public
 name|void
@@ -1451,6 +1486,7 @@ name|receiveTimeout
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies the interval between recovery attempts, i.e. when a connection is being refreshed, in milliseconds.      * The default is 5000 ms, that is, 5 seconds.      */
 DECL|method|setRecoveryInterval (long recoveryInterval)
 specifier|public
 name|void
@@ -1469,6 +1505,7 @@ name|recoveryInterval
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Deprecated: Enabled by default, if you specify a durableSubscriptionName and a clientId.      */
 annotation|@
 name|Deprecated
 DECL|method|setSubscriptionDurable (boolean subscriptionDurable)
@@ -1489,6 +1526,7 @@ name|subscriptionDurable
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Allows you to specify a custom task executor for consuming messages.      */
 DECL|method|setTaskExecutor (TaskExecutor taskExecutor)
 specifier|public
 name|void
@@ -1507,6 +1545,7 @@ name|taskExecutor
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * When sending messages, specifies the time-to-live of the message (in milliseconds).      */
 DECL|method|setTimeToLive (long timeToLive)
 specifier|public
 name|void
@@ -1525,6 +1564,7 @@ name|timeToLive
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies whether to use transacted mode      */
 DECL|method|setTransacted (boolean consumerTransacted)
 specifier|public
 name|void
@@ -1543,6 +1583,7 @@ name|consumerTransacted
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * If true, Camel will create a JmsTransactionManager, if there is no transactionManager injected when option transacted=true.      */
 DECL|method|setLazyCreateTransactionManager (boolean lazyCreating)
 specifier|public
 name|void
@@ -1561,6 +1602,7 @@ name|lazyCreating
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The Spring transaction manager to use.      */
 DECL|method|setTransactionManager (PlatformTransactionManager transactionManager)
 specifier|public
 name|void
@@ -1579,6 +1621,7 @@ name|transactionManager
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The name of the transaction to use.      */
 DECL|method|setTransactionName (String transactionName)
 specifier|public
 name|void
@@ -1597,6 +1640,7 @@ name|transactionName
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The timeout value of the transaction (in seconds), if using transacted mode.      */
 DECL|method|setTransactionTimeout (int transactionTimeout)
 specifier|public
 name|void
@@ -1615,6 +1659,7 @@ name|transactionTimeout
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies whether to test the connection on startup.      * This ensures that when Camel starts that all the JMS consumers have a valid connection to the JMS broker.      * If a connection cannot be granted then Camel throws an exception on startup.      * This ensures that Camel is not started with failed connections.      * The JMS producers is tested as well.      */
 DECL|method|setTestConnectionOnStartup (boolean testConnectionOnStartup)
 specifier|public
 name|void
@@ -1633,6 +1678,7 @@ name|testConnectionOnStartup
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Whether to startup the JmsConsumer message listener asynchronously, when starting a route.      * For example if a JmsConsumer cannot get a connection to a remote JMS broker, then it may block while retrying      * and/or failover. This will cause Camel to block while starting routes. By setting this option to true,      * you will let routes startup, while the JmsConsumer connects to the JMS broker using a dedicated thread      * in asynchronous mode. If this option is used, then beware that if the connection could not be established,      * then an exception is logged at WARN level, and the consumer will not be able to receive messages;      * You can then restart the route to retry.      */
 DECL|method|setAsyncStartListener (boolean asyncStartListener)
 specifier|public
 name|void
@@ -1651,6 +1697,7 @@ name|asyncStartListener
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Whether to stop the JmsConsumer message listener asynchronously, when stopping a route.      */
 DECL|method|setAsyncStopListener (boolean asyncStopListener)
 specifier|public
 name|void
@@ -1669,6 +1716,7 @@ name|asyncStopListener
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * When using mapJmsMessage=false Camel will create a new JMS message to send to a new JMS destination      * if you touch the headers (get or set) during the route. Set this option to true to force Camel to send      * the original JMS message that was received.      */
 DECL|method|setForceSendOriginalMessage (boolean forceSendOriginalMessage)
 specifier|public
 name|void
@@ -1687,6 +1735,7 @@ name|forceSendOriginalMessage
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The timeout for waiting for a reply when using the InOut Exchange Pattern (in milliseconds).      * The default is 20 seconds. You can include the header "CamelJmsRequestTimeout" to override this endpoint configured      * timeout value, and thus have per message individual timeout values.      * See also the requestTimeoutCheckerInterval option.      */
 DECL|method|setRequestTimeout (long requestTimeout)
 specifier|public
 name|void
@@ -1705,6 +1754,7 @@ name|requestTimeout
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Configures how often Camel should check for timed out Exchanges when doing request/reply over JMS.      * By default Camel checks once per second. But if you must react faster when a timeout occurs,      * then you can lower this interval, to check more frequently. The timeout is determined by the option requestTimeout.      */
 DECL|method|setRequestTimeoutCheckerInterval (long requestTimeoutCheckerInterval)
 specifier|public
 name|void
@@ -1723,6 +1773,7 @@ name|requestTimeoutCheckerInterval
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * You can transfer the exchange over the wire instead of just the body and headers.      * The following fields are transferred: In body, Out body, Fault body, In headers, Out headers, Fault headers,      * exchange properties, exchange exception.      * This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level.      * You must enable this option on both the producer and consumer side, so Camel knows the payloads is an Exchange and not a regular payload.      */
 DECL|method|setTransferExchange (boolean transferExchange)
 specifier|public
 name|void
@@ -1741,6 +1792,7 @@ name|transferExchange
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * If enabled and you are using Request Reply messaging (InOut) and an Exchange failed on the consumer side,      * then the caused Exception will be send back in response as a javax.jms.ObjectMessage.      * If the client is Camel, the returned Exception is rethrown. This allows you to use Camel JMS as a bridge      * in your routing - for example, using persistent queues to enable robust routing.      * Notice that if you also have transferExchange enabled, this option takes precedence.      * The caught exception is required to be serializable.      * The original Exception on the consumer side can be wrapped in an outer exception      * such as org.apache.camel.RuntimeCamelException when returned to the producer.      */
 DECL|method|setTransferException (boolean transferException)
 specifier|public
 name|void
@@ -1759,6 +1811,7 @@ name|transferException
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Allows you to use your own implementation of the org.springframework.jms.core.JmsOperations interface.      * Camel uses JmsTemplate as default. Can be used for testing purpose, but not used much as stated in the spring API docs.      */
 DECL|method|setJmsOperations (JmsOperations jmsOperations)
 specifier|public
 name|void
@@ -1777,6 +1830,7 @@ name|jmsOperations
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * A pluggable org.springframework.jms.support.destination.DestinationResolver that allows you to use your own resolver      * (for example, to lookup the real destination in a JNDI registry).      */
 DECL|method|setDestinationResolver (DestinationResolver destinationResolver)
 specifier|public
 name|void
@@ -1795,6 +1849,7 @@ name|destinationResolver
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Allows for explicitly specifying which kind of strategy to use for replyTo queues when doing request/reply over JMS.      * Possible values are: Temporary, Shared, or Exclusive.      * By default Camel will use temporary queues. However if replyTo has been configured, then Shared is used by default.      * This option allows you to use exclusive queues instead of shared ones.      * See Camel JMS documentation for more details, and especially the notes about the implications if running in a clustered environment,      * and the fact that Shared reply queues has lower performance than its alternatives Temporary and Exclusive.      */
 DECL|method|setReplyToType (ReplyToType replyToType)
 specifier|public
 name|void
@@ -1813,6 +1868,7 @@ name|replyToType
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set to true, if you want to send message using the QoS settings specified on the message,      * instead of the QoS settings on the JMS endpoint. The following three headers are considered JMSPriority, JMSDeliveryMode,      * and JMSExpiration. You can provide all or only some of them. If not provided, Camel will fall back to use the      * values from the endpoint instead. So, when using this option, the headers override the values from the endpoint.      * The explicitQosEnabled option, by contrast, will only use options set on the endpoint, and not values from the message header.      */
 DECL|method|setPreserveMessageQos (boolean preserveMessageQos)
 specifier|public
 name|void
@@ -1831,6 +1887,7 @@ name|preserveMessageQos
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Whether the JmsConsumer processes the Exchange asynchronously.      * If enabled then the JmsConsumer may pickup the next message from the JMS queue,      * while the previous message is being processed asynchronously (by the Asynchronous Routing Engine).      * This means that messages may be processed not 100% strictly in order. If disabled (as default)      * then the Exchange is fully processed before the JmsConsumer will pickup the next message from the JMS queue.      * Note if transacted has been enabled, then asyncConsumer=true does not run asynchronously, as transaction      * must be executed synchronously (Camel 3.0 may support async transactions).      */
 DECL|method|setAsyncConsumer (boolean asyncConsumer)
 specifier|public
 name|void
@@ -1849,6 +1906,7 @@ name|asyncConsumer
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Whether to allow sending messages with no body. If this option is false and the message body is null, then an JMSException is thrown.      */
 DECL|method|setAllowNullBody (boolean allowNullBody)
 specifier|public
 name|void
@@ -1867,6 +1925,7 @@ name|allowNullBody
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Only applicable when sending to JMS destination using InOnly (eg fire and forget).      * Enabling this option will enrich the Camel Exchange with the actual JMSMessageID      * that was used by the JMS client when the message was sent to the JMS destination.      */
 DECL|method|setIncludeSentJMSMessageID (boolean includeSentJMSMessageID)
 specifier|public
 name|void
@@ -1885,6 +1944,7 @@ name|includeSentJMSMessageID
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Whether to include all JMSXxxx properties when mapping from JMS to Camel Message.      * Setting this to true will include properties such as JMSXAppID, and JMSXUserID etc.      * Note: If you are using a custom headerFilterStrategy then this option does not apply.      */
 DECL|method|setIncludeAllJMSXProperties (boolean includeAllJMSXProperties)
 specifier|public
 name|void
@@ -1903,6 +1963,7 @@ name|includeAllJMSXProperties
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies what default TaskExecutor type to use in the DefaultMessageListenerContainer,      * for both consumer endpoints and the ReplyTo consumer of producer endpoints.      * Possible values: SimpleAsync (uses Spring's SimpleAsyncTaskExecutor) or ThreadPool      * (uses Spring's ThreadPoolTaskExecutor with optimal values - cached threadpool-like).      * If not set, it defaults to the previous behaviour, which uses a cached thread pool      * for consumer endpoints and SimpleAsync for reply consumers.      * The use of ThreadPool is recommended to reduce "thread trash" in elastic configurations      * with dynamically increasing and decreasing concurrent consumers.      */
 DECL|method|setDefaultTaskExecutorType (DefaultTaskExecutorType type)
 specifier|public
 name|void
@@ -1921,6 +1982,7 @@ name|type
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification.      * Camel provides two implementations out of the box: default and passthrough.      * The default strategy will safely marshal dots and hyphens (. and -). The passthrough strategy leaves the key as is.      * Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters.      * You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy      * and refer to it using the # notation.      */
 DECL|method|setJmsKeyFormatStrategy (JmsKeyFormatStrategy jmsKeyFormatStrategy)
 specifier|public
 name|void
@@ -1939,6 +2001,7 @@ name|jmsKeyFormatStrategy
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification.      * Camel provides two implementations out of the box: default and passthrough.      * The default strategy will safely marshal dots and hyphens (. and -). The passthrough strategy leaves the key as is.      * Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters.      * You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy      * and refer to it using the # notation.      */
 DECL|method|setJmsKeyFormatStrategy (String jmsKeyFormatStrategyName)
 specifier|public
 name|void
@@ -1988,6 +2051,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Sets the Spring ApplicationContext to use      */
 DECL|method|setApplicationContext (ApplicationContext applicationContext)
 specifier|public
 name|void
@@ -2030,6 +2094,7 @@ return|return
 name|queueBrowseStrategy
 return|;
 block|}
+comment|/**      * To use a custom QueueBrowseStrategy when browsing queues      */
 DECL|method|setQueueBrowseStrategy (QueueBrowseStrategy queueBrowseStrategy)
 specifier|public
 name|void
@@ -2056,6 +2121,7 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel message.      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
 specifier|public
 name|void
