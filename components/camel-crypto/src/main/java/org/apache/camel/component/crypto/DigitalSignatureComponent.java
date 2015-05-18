@@ -82,20 +82,6 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
 name|UriEndpointComponent
 import|;
 end_import
@@ -113,10 +99,6 @@ operator|.
 name|ObjectHelper
 import|;
 end_import
-
-begin_comment
-comment|/**  *<code>DigitalSignatureComponent</code>  */
-end_comment
 
 begin_class
 DECL|class|DigitalSignatureComponent
@@ -294,6 +276,7 @@ return|return
 name|configuration
 return|;
 block|}
+comment|/**      * To use the shared DigitalSignatureConfiguration as configuration      */
 DECL|method|setConfiguration (DigitalSignatureConfiguration configuration)
 specifier|public
 name|void

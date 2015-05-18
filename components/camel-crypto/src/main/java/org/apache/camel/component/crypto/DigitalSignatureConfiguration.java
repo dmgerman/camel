@@ -364,10 +364,10 @@ name|keystoreName
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|randomName
+DECL|field|secureRandomName
 specifier|private
 name|String
-name|randomName
+name|secureRandomName
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -463,7 +463,7 @@ argument_list|)
 expr_stmt|;
 name|setSecureRandomName
 argument_list|(
-name|randomName
+name|secureRandomName
 argument_list|)
 expr_stmt|;
 block|}
@@ -1183,7 +1183,7 @@ condition|)
 block|{
 name|this
 operator|.
-name|randomName
+name|secureRandomName
 operator|=
 name|randomName
 expr_stmt|;
