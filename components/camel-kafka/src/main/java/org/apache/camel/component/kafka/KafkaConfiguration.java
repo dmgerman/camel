@@ -48,6 +48,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriParam
 import|;
 end_import
@@ -63,6 +77,20 @@ operator|.
 name|spi
 operator|.
 name|UriParams
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
 import|;
 end_import
 
@@ -104,6 +132,13 @@ literal|2181
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|topic
 specifier|private
 name|String
@@ -500,21 +535,63 @@ name|zookeeperSyncTimeMs
 decl_stmt|;
 comment|//Producer configuration properties
 annotation|@
+name|UriPath
+DECL|field|brokers
+specifier|private
+name|String
+name|brokers
+decl_stmt|;
+annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"sync"
+argument_list|,
+name|enums
+operator|=
+literal|"async,sync"
+argument_list|)
 DECL|field|producerType
 specifier|private
 name|String
 name|producerType
+init|=
+literal|"sync"
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"none"
+argument_list|,
+name|enums
+operator|=
+literal|"none,gzip,snappy"
+argument_list|)
 DECL|field|compressionCodec
 specifier|private
 name|String
 name|compressionCodec
+init|=
+literal|"none"
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|compressedTopics
 specifier|private
 name|String
@@ -522,35 +599,96 @@ name|compressedTopics
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"3"
+argument_list|)
 DECL|field|messageSendMaxRetries
 specifier|private
 name|Integer
 name|messageSendMaxRetries
+init|=
+literal|3
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"100"
+argument_list|)
 DECL|field|retryBackoffMs
 specifier|private
 name|Integer
 name|retryBackoffMs
+init|=
+literal|100
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"600000"
+argument_list|)
 DECL|field|topicMetadataRefreshIntervalMs
 specifier|private
 name|Integer
 name|topicMetadataRefreshIntervalMs
+init|=
+literal|600
+operator|*
+literal|1000
 decl_stmt|;
 comment|//Sync producer config
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|""
+operator|+
+literal|100
+operator|*
+literal|1024
+argument_list|)
 DECL|field|sendBufferBytes
 specifier|private
 name|Integer
 name|sendBufferBytes
+init|=
+literal|100
+operator|*
+literal|1024
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"0"
+argument_list|)
 DECL|field|requestRequiredAcks
 specifier|private
 name|short
@@ -558,28 +696,66 @@ name|requestRequiredAcks
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"10000"
+argument_list|)
 DECL|field|requestTimeoutMs
 specifier|private
 name|Integer
 name|requestTimeoutMs
+init|=
+literal|10000
 decl_stmt|;
 comment|//Async producer config
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"5000"
+argument_list|)
 DECL|field|queueBufferingMaxMs
 specifier|private
 name|Integer
 name|queueBufferingMaxMs
+init|=
+literal|5000
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"10000"
+argument_list|)
 DECL|field|queueBufferingMaxMessages
 specifier|private
 name|Integer
 name|queueBufferingMaxMessages
+init|=
+literal|10000
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|queueEnqueueTimeoutMs
 specifier|private
 name|Integer
@@ -587,13 +763,29 @@ name|queueEnqueueTimeoutMs
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"200"
+argument_list|)
 DECL|field|batchNumMessages
 specifier|private
 name|Integer
 name|batchNumMessages
+init|=
+literal|200
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|serializerClass
 specifier|private
 name|String
@@ -601,6 +793,11 @@ name|serializerClass
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|keySerializerClass
 specifier|private
 name|String
@@ -1220,6 +1417,7 @@ return|return
 name|partitioner
 return|;
 block|}
+comment|/**      * The partitioner class for partitioning messages amongst sub-topics. The default partitioner is based on the hash of the key.      */
 DECL|method|setPartitioner (String partitioner)
 specifier|public
 name|void
@@ -1246,6 +1444,7 @@ return|return
 name|topic
 return|;
 block|}
+comment|/**      * Name of the topic to use      */
 DECL|method|setTopic (String topic)
 specifier|public
 name|void
@@ -1272,6 +1471,7 @@ return|return
 name|consumerStreams
 return|;
 block|}
+comment|/**      * Number of concurrent consumers on the consumer      */
 DECL|method|setConsumerStreams (int consumerStreams)
 specifier|public
 name|void
@@ -1568,6 +1768,7 @@ return|return
 name|queuedMaxMessageChunks
 return|;
 block|}
+comment|/**      * Max number of message chunks buffered for consumption. Each chunk can be up to fetch.message.max.bytes.      */
 DECL|method|setQueuedMaxMessageChunks (Integer queuedMaxMessageChunks)
 specifier|public
 name|void
@@ -1854,6 +2055,33 @@ operator|=
 name|zookeeperSyncTimeMs
 expr_stmt|;
 block|}
+DECL|method|getBrokers ()
+specifier|public
+name|String
+name|getBrokers
+parameter_list|()
+block|{
+return|return
+name|brokers
+return|;
+block|}
+comment|/**      * This is for bootstrapping and the producer will only use it for getting metadata (topics, partitions and replicas).      * The socket connections for sending the actual data will be established based on the broker information returned in the metadata.      * The format is host1:port1,host2:port2, and the list can be a subset of brokers or a VIP pointing to a subset of brokers.      *<p/>      * This option is known as<tt>metadata.broker.list</tt> in the Kafka documentation.      */
+DECL|method|setBrokers (String brokers)
+specifier|public
+name|void
+name|setBrokers
+parameter_list|(
+name|String
+name|brokers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|brokers
+operator|=
+name|brokers
+expr_stmt|;
+block|}
 DECL|method|getProducerType ()
 specifier|public
 name|String
@@ -1864,6 +2092,7 @@ return|return
 name|producerType
 return|;
 block|}
+comment|/**      * This parameter specifies whether the messages are sent asynchronously in a background thread.      * Valid values are (1) async for asynchronous send and (2) sync for synchronous send.      * By setting the producer to async we allow batching together of requests (which is great for throughput)      * but open the possibility of a failure of the client machine dropping unsent data.      */
 DECL|method|setProducerType (String producerType)
 specifier|public
 name|void
@@ -1890,6 +2119,7 @@ return|return
 name|compressionCodec
 return|;
 block|}
+comment|/**      * This parameter allows you to specify the compression codec for all data generated by this producer. Valid values are "none", "gzip" and "snappy".      */
 DECL|method|setCompressionCodec (String compressionCodec)
 specifier|public
 name|void
@@ -1916,6 +2146,7 @@ return|return
 name|compressedTopics
 return|;
 block|}
+comment|/**      * This parameter allows you to set whether compression should be turned on for particular topics.      * If the compression codec is anything other than NoCompressionCodec, enable compression only for specified topics if any.      * If the list of compressed topics is empty, then enable the specified compression codec for all topics.      * If the compression codec is NoCompressionCodec, compression is disabled for all topics      */
 DECL|method|setCompressedTopics (String compressedTopics)
 specifier|public
 name|void
@@ -1942,6 +2173,7 @@ return|return
 name|messageSendMaxRetries
 return|;
 block|}
+comment|/**      * This property will cause the producer to automatically retry a failed send request.      * This property specifies the number of retries when such failures occur. Note that setting a non-zero value here      * can lead to duplicates in the case of network errors that cause a message to be sent but the acknowledgement to be lost.      */
 DECL|method|setMessageSendMaxRetries (Integer messageSendMaxRetries)
 specifier|public
 name|void
@@ -1968,6 +2200,7 @@ return|return
 name|retryBackoffMs
 return|;
 block|}
+comment|/**      * Before each retry, the producer refreshes the metadata of relevant topics to see if a new leader has been elected.      * Since leader election takes a bit of time, this property specifies the amount of time that the producer waits before refreshing the metadata.      */
 DECL|method|setRetryBackoffMs (Integer retryBackoffMs)
 specifier|public
 name|void
@@ -1994,6 +2227,7 @@ return|return
 name|topicMetadataRefreshIntervalMs
 return|;
 block|}
+comment|/**      * The producer generally refreshes the topic metadata from brokers when there is a failure (partition missing,      * leader not available...). It will also poll regularly (default: every 10min so 600000ms).      * If you set this to a negative value, metadata will only get refreshed on failure.      * If you set this to zero, the metadata will get refreshed after each message sent (not recommended).      * Important note: the refresh happen only AFTER the message is sent, so if the producer never      * sends a message the metadata is never refreshed      */
 DECL|method|setTopicMetadataRefreshIntervalMs (Integer topicMetadataRefreshIntervalMs)
 specifier|public
 name|void
@@ -2020,6 +2254,7 @@ return|return
 name|sendBufferBytes
 return|;
 block|}
+comment|/**      * Socket write buffer size      */
 DECL|method|setSendBufferBytes (Integer sendBufferBytes)
 specifier|public
 name|void
@@ -2046,6 +2281,7 @@ return|return
 name|requestRequiredAcks
 return|;
 block|}
+comment|/**      * This value controls when a produce request is considered completed. Specifically,      * how many other brokers must have committed the data to their log and acknowledged this to the leader?      * Typical values are (0, 1 or -1):      * 0, which means that the producer never waits for an acknowledgement from the broker (the same behavior as 0.7).      * This option provides the lowest latency but the weakest durability guarantees (some data will be lost when a server fails).      * 1, which means that the producer gets an acknowledgement after the leader replica has received the data.      * This option provides better durability as the client waits until the server acknowledges the request as successful      * (only messages that were written to the now-dead leader but not yet replicated will be lost).      * -1, The producer gets an acknowledgement after all in-sync replicas have received the data.      * This option provides the greatest level of durability.      * However, it does not completely eliminate the risk of message loss because the number of in sync replicas may,      * in rare cases, shrink to 1. If you want to ensure that some minimum number of replicas      * (typically a majority) receive a write, then you must set the topic-level min.insync.replicas setting.      * Please read the Replication section of the design documentation for a more in-depth discussion.      */
 DECL|method|setRequestRequiredAcks (short requestRequiredAcks)
 specifier|public
 name|void
@@ -2072,6 +2308,7 @@ return|return
 name|requestTimeoutMs
 return|;
 block|}
+comment|/**      * The amount of time the broker will wait trying to meet the request.required.acks requirement before sending back an error to the client.      */
 DECL|method|setRequestTimeoutMs (Integer requestTimeoutMs)
 specifier|public
 name|void
@@ -2098,6 +2335,7 @@ return|return
 name|queueBufferingMaxMs
 return|;
 block|}
+comment|/**      * Maximum time to buffer data when using async mode.      * For example a setting of 100 will try to batch together 100ms of messages to send at once.      * This will improve throughput but adds message delivery latency due to the buffering.      */
 DECL|method|setQueueBufferingMaxMs (Integer queueBufferingMaxMs)
 specifier|public
 name|void
@@ -2124,6 +2362,7 @@ return|return
 name|queueBufferingMaxMessages
 return|;
 block|}
+comment|/**      * The maximum number of unsent messages that can be queued up the producer when using async      * mode before either the producer must be blocked or data must be dropped.      */
 DECL|method|setQueueBufferingMaxMessages (Integer queueBufferingMaxMessages)
 specifier|public
 name|void
@@ -2150,6 +2389,7 @@ return|return
 name|queueEnqueueTimeoutMs
 return|;
 block|}
+comment|/**      * The amount of time to block before dropping messages when running in async mode and the buffer has reached      * queue.buffering.max.messages. If set to 0 events will be enqueued immediately or dropped if the queue is full      * (the producer send call will never block). If set to -1 the producer will block indefinitely and never willingly drop a send.      */
 DECL|method|setQueueEnqueueTimeoutMs (Integer queueEnqueueTimeoutMs)
 specifier|public
 name|void
@@ -2176,6 +2416,7 @@ return|return
 name|batchNumMessages
 return|;
 block|}
+comment|/**      * The number of messages to send in one batch when using async mode.      * The producer will wait until either this number of messages are ready to send or queue.buffer.max.ms is reached.      */
 DECL|method|setBatchNumMessages (Integer batchNumMessages)
 specifier|public
 name|void
@@ -2202,6 +2443,7 @@ return|return
 name|serializerClass
 return|;
 block|}
+comment|/**      * The serializer class for messages. The default encoder takes a byte[] and returns the same byte[].      * The default class is kafka.serializer.DefaultEncoder      */
 DECL|method|setSerializerClass (String serializerClass)
 specifier|public
 name|void
@@ -2228,6 +2470,7 @@ return|return
 name|keySerializerClass
 return|;
 block|}
+comment|/**      * The serializer class for keys (defaults to the same as for messages if nothing is given).      */
 DECL|method|setKeySerializerClass (String keySerializerClass)
 specifier|public
 name|void

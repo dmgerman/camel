@@ -256,20 +256,6 @@ implements|implements
 name|MultipleConsumersSupport
 block|{
 annotation|@
-name|UriPath
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|brokers
-specifier|private
-name|String
-name|brokers
-decl_stmt|;
-annotation|@
 name|UriParam
 DECL|field|configuration
 specifier|private
@@ -285,21 +271,16 @@ specifier|public
 name|KafkaEndpoint
 parameter_list|()
 block|{     }
-DECL|method|KafkaEndpoint (String endpointUri, String remaining, KafkaComponent component)
+DECL|method|KafkaEndpoint (String endpointUri, KafkaComponent component)
 specifier|public
 name|KafkaEndpoint
 parameter_list|(
 name|String
 name|endpointUri
 parameter_list|,
-name|String
-name|remaining
-parameter_list|,
 name|KafkaComponent
 name|component
 parameter_list|)
-throws|throws
-name|URISyntaxException
 block|{
 name|super
 argument_list|(
@@ -307,20 +288,6 @@ name|endpointUri
 argument_list|,
 name|component
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|brokers
-operator|=
-name|remaining
-operator|.
-name|split
-argument_list|(
-literal|"\\?"
-argument_list|)
-index|[
-literal|0
-index|]
 expr_stmt|;
 block|}
 DECL|method|getConfiguration ()
@@ -773,8 +740,28 @@ name|getBrokers
 parameter_list|()
 block|{
 return|return
-name|brokers
+name|configuration
+operator|.
+name|getBrokers
+argument_list|()
 return|;
+block|}
+DECL|method|setBrokers (String brokers)
+specifier|public
+name|void
+name|setBrokers
+parameter_list|(
+name|String
+name|brokers
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setBrokers
+argument_list|(
+name|brokers
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getConsumerStreams ()
 specifier|public
