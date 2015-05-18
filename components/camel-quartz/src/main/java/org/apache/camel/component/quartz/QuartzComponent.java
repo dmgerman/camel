@@ -2352,6 +2352,7 @@ return|return
 name|factory
 return|;
 block|}
+comment|/**      * To use the custom SchedulerFactory which is used to create the Scheduler.      */
 DECL|method|setFactory (SchedulerFactory factory)
 specifier|public
 name|void
