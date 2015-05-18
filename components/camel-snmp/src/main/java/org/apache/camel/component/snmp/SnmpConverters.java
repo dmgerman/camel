@@ -254,6 +254,7 @@ comment|//Utility Class
 block|}
 annotation|@
 name|Converter
+comment|// Camel could use this method to convert the String into a List
 DECL|method|toOIDList (String s, Exchange exchange)
 specifier|public
 specifier|static
@@ -266,6 +267,8 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|)
+block|{
+try|try
 block|{
 name|OIDList
 name|list
@@ -384,6 +387,20 @@ block|}
 return|return
 name|list
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// return null if we can't convert without an error
+comment|// and it could let camel to choice the other converter to do the job
+comment|// new OID(...) will throw NumberFormatException if it's not a valid OID
+return|return
+literal|null
+return|;
+block|}
 block|}
 DECL|method|entryAppend (StringBuilder sb, String tag, String value)
 specifier|private
