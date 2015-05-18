@@ -30,20 +30,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|OptionalIdentifiedDefinition
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|xml
@@ -53,6 +39,20 @@ operator|.
 name|annotation
 operator|.
 name|XmlTransient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|OptionalIdentifiedDefinition
 import|;
 end_import
 
