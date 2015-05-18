@@ -1097,7 +1097,7 @@ block|{
 return|return
 name|configuration
 operator|.
-name|getQueuedMaxMessages
+name|getQueuedMaxMessageChunks
 argument_list|()
 return|;
 block|}
@@ -1763,7 +1763,7 @@ parameter_list|)
 block|{
 name|configuration
 operator|.
-name|setQueuedMaxMessages
+name|setQueuedMaxMessageChunks
 argument_list|(
 name|queuedMaxMessages
 argument_list|)

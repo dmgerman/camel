@@ -138,6 +138,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"10"
@@ -152,6 +156,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"1"
@@ -166,6 +174,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"100"
@@ -180,6 +192,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"10000"
@@ -202,6 +218,11 @@ decl_stmt|;
 comment|//Consumer configuration properties
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|consumerId
 specifier|private
 name|String
@@ -209,90 +230,247 @@ name|consumerId
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"30000"
+argument_list|)
 DECL|field|socketTimeoutMs
 specifier|private
 name|Integer
 name|socketTimeoutMs
+init|=
+literal|30
+operator|*
+literal|1000
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|""
+operator|+
+literal|64
+operator|*
+literal|1024
+argument_list|)
 DECL|field|socketReceiveBufferBytes
 specifier|private
 name|Integer
 name|socketReceiveBufferBytes
+init|=
+literal|64
+operator|*
+literal|1024
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|""
+operator|+
+literal|1024
+operator|*
+literal|1024
+argument_list|)
 DECL|field|fetchMessageMaxBytes
 specifier|private
 name|Integer
 name|fetchMessageMaxBytes
+init|=
+literal|1024
+operator|*
+literal|1024
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|autoCommitEnable
 specifier|private
 name|Boolean
 name|autoCommitEnable
+init|=
+literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"60000"
+argument_list|)
 DECL|field|autoCommitIntervalMs
 specifier|private
 name|Integer
 name|autoCommitIntervalMs
+init|=
+literal|60
+operator|*
+literal|1000
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|queuedMaxMessages
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"2"
+argument_list|)
+DECL|field|queuedMaxMessageChunks
 specifier|private
 name|Integer
-name|queuedMaxMessages
+name|queuedMaxMessageChunks
+init|=
+literal|2
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"4"
+argument_list|)
 DECL|field|rebalanceMaxRetries
 specifier|private
 name|Integer
 name|rebalanceMaxRetries
+init|=
+literal|4
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"1"
+argument_list|)
 DECL|field|fetchMinBytes
 specifier|private
 name|Integer
 name|fetchMinBytes
+init|=
+literal|1
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"100"
+argument_list|)
 DECL|field|fetchWaitMaxMs
 specifier|private
 name|Integer
 name|fetchWaitMaxMs
+init|=
+literal|100
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"2000"
+argument_list|)
 DECL|field|rebalanceBackoffMs
 specifier|private
 name|Integer
 name|rebalanceBackoffMs
+init|=
+literal|2000
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"200"
+argument_list|)
 DECL|field|refreshLeaderBackoffMs
 specifier|private
 name|Integer
 name|refreshLeaderBackoffMs
+init|=
+literal|200
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"largest"
+argument_list|,
+name|enums
+operator|=
+literal|"smallest,largest,fail"
+argument_list|)
 DECL|field|autoOffsetReset
 specifier|private
 name|String
 name|autoOffsetReset
+init|=
+literal|"largest"
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|consumerTimeoutMs
 specifier|private
 name|Integer
@@ -727,6 +905,16 @@ name|addPropertyIfNotNull
 argument_list|(
 name|props
 argument_list|,
+literal|"queued.max.message.chunks"
+argument_list|,
+name|getQueuedMaxMessageChunks
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|addPropertyIfNotNull
+argument_list|(
+name|props
+argument_list|,
 literal|"rebalance.max.retries"
 argument_list|,
 name|getRebalanceMaxRetries
@@ -890,6 +1078,7 @@ argument_list|()
 return|;
 block|}
 block|}
+comment|/**      * Specifies the ZooKeeper connection string in the form hostname:port where host and port are the host and port of a ZooKeeper server.      * To allow connecting through other ZooKeeper nodes when that ZooKeeper machine is down you can also specify multiple hosts in the      * form hostname1:port1,hostname2:port2,hostname3:port3.      * The server may also have a ZooKeeper chroot path as part of it's ZooKeeper connection string which puts its data      * under some path in the global ZooKeeper namespace. If so the consumer should use the same chroot path in its connection string.      * For example to give a chroot path of /chroot/path you would give the connection      * string as hostname1:port1,hostname2:port2,hostname3:port3/chroot/path.      */
 DECL|method|setZookeeperConnect (String zookeeperConnect)
 specifier|public
 name|void
@@ -930,6 +1119,7 @@ return|return
 name|zookeeperHost
 return|;
 block|}
+comment|/**      * The zookeeper host to use.      *<p/>      * To connect to multiple zookeeper hosts use the zookeeperConnect option instead.      *<p/>      * This option can only be used if zookeeperConnect is not in use.      */
 DECL|method|setZookeeperHost (String zookeeperHost)
 specifier|public
 name|void
@@ -966,6 +1156,7 @@ return|return
 name|zookeeperPort
 return|;
 block|}
+comment|/**      * The zookeeper port to use      *<p/>      * To connect to multiple zookeeper hosts use the zookeeperConnect option instead.      *<p/>      * This option can only be used if zookeeperConnect is not in use.      */
 DECL|method|setZookeeperPort (int zookeeperPort)
 specifier|public
 name|void
@@ -1002,6 +1193,7 @@ return|return
 name|groupId
 return|;
 block|}
+comment|/**      * A string that uniquely identifies the group of consumer processes to which this consumer belongs.      * By setting the same group id multiple processes indicate that they are all part of the same consumer group.      */
 DECL|method|setGroupId (String groupId)
 specifier|public
 name|void
@@ -1106,6 +1298,7 @@ return|return
 name|batchSize
 return|;
 block|}
+comment|/**      * The batchSize that the BatchingConsumerTask processes once.      */
 DECL|method|setBatchSize (int batchSize)
 specifier|public
 name|void
@@ -1132,6 +1325,7 @@ return|return
 name|barrierAwaitTimeoutMs
 return|;
 block|}
+comment|/**      * If the BatchingConsumerTask processes exchange exceed the batchSize, it will wait for barrierAwaitTimeoutMs.      */
 DECL|method|setBarrierAwaitTimeoutMs (int barrierAwaitTimeoutMs)
 specifier|public
 name|void
@@ -1158,6 +1352,7 @@ return|return
 name|consumersCount
 return|;
 block|}
+comment|/**      * The number of consumers that connect to kafka server      */
 DECL|method|setConsumersCount (int consumersCount)
 specifier|public
 name|void
@@ -1184,6 +1379,7 @@ return|return
 name|clientId
 return|;
 block|}
+comment|/**      * The client id is a user-specified string sent in each request to help trace calls.      * It should logically identify the application making the request.      */
 DECL|method|setClientId (String clientId)
 specifier|public
 name|void
@@ -1210,6 +1406,7 @@ return|return
 name|consumerId
 return|;
 block|}
+comment|/**      * Generated automatically if not set.      */
 DECL|method|setConsumerId (String consumerId)
 specifier|public
 name|void
@@ -1236,6 +1433,7 @@ return|return
 name|socketTimeoutMs
 return|;
 block|}
+comment|/**      * The socket timeout for network requests. The actual timeout set will be max.fetch.wait + socket.timeout.ms.      */
 DECL|method|setSocketTimeoutMs (Integer socketTimeoutMs)
 specifier|public
 name|void
@@ -1262,6 +1460,7 @@ return|return
 name|socketReceiveBufferBytes
 return|;
 block|}
+comment|/**      * The socket receive buffer for network requests      */
 DECL|method|setSocketReceiveBufferBytes (Integer socketReceiveBufferBytes)
 specifier|public
 name|void
@@ -1288,6 +1487,7 @@ return|return
 name|fetchMessageMaxBytes
 return|;
 block|}
+comment|/**      * The number of byes of messages to attempt to fetch for each topic-partition in each fetch request.      * These bytes will be read into memory for each partition, so this helps control the memory used by the consumer.      * The fetch request size must be at least as large as the maximum message size the server allows or else it      * is possible for the producer to send messages larger than the consumer can fetch.      */
 DECL|method|setFetchMessageMaxBytes (Integer fetchMessageMaxBytes)
 specifier|public
 name|void
@@ -1314,6 +1514,7 @@ return|return
 name|autoCommitEnable
 return|;
 block|}
+comment|/**      * If true, periodically commit to ZooKeeper the offset of messages already fetched by the consumer.      * This committed offset will be used when the process fails as the position from which the new consumer will begin.      */
 DECL|method|setAutoCommitEnable (Boolean autoCommitEnable)
 specifier|public
 name|void
@@ -1340,6 +1541,7 @@ return|return
 name|autoCommitIntervalMs
 return|;
 block|}
+comment|/**      * The frequency in ms that the consumer offsets are committed to zookeeper.      */
 DECL|method|setAutoCommitIntervalMs (Integer autoCommitIntervalMs)
 specifier|public
 name|void
@@ -1356,30 +1558,30 @@ operator|=
 name|autoCommitIntervalMs
 expr_stmt|;
 block|}
-DECL|method|getQueuedMaxMessages ()
+DECL|method|getQueuedMaxMessageChunks ()
 specifier|public
 name|Integer
-name|getQueuedMaxMessages
+name|getQueuedMaxMessageChunks
 parameter_list|()
 block|{
 return|return
-name|queuedMaxMessages
+name|queuedMaxMessageChunks
 return|;
 block|}
-DECL|method|setQueuedMaxMessages (Integer queuedMaxMessages)
+DECL|method|setQueuedMaxMessageChunks (Integer queuedMaxMessageChunks)
 specifier|public
 name|void
-name|setQueuedMaxMessages
+name|setQueuedMaxMessageChunks
 parameter_list|(
 name|Integer
-name|queuedMaxMessages
+name|queuedMaxMessageChunks
 parameter_list|)
 block|{
 name|this
 operator|.
-name|queuedMaxMessages
+name|queuedMaxMessageChunks
 operator|=
-name|queuedMaxMessages
+name|queuedMaxMessageChunks
 expr_stmt|;
 block|}
 DECL|method|getRebalanceMaxRetries ()
@@ -1392,6 +1594,7 @@ return|return
 name|rebalanceMaxRetries
 return|;
 block|}
+comment|/**      * When a new consumer joins a consumer group the set of consumers attempt to "rebalance" the load to assign partitions to each consumer.      * If the set of consumers changes while this assignment is taking place the rebalance will fail and retry.      * This setting controls the maximum number of attempts before giving up.      */
 DECL|method|setRebalanceMaxRetries (Integer rebalanceMaxRetries)
 specifier|public
 name|void
@@ -1418,6 +1621,7 @@ return|return
 name|fetchMinBytes
 return|;
 block|}
+comment|/**      * The minimum amount of data the server should return for a fetch request.      * If insufficient data is available the request will wait for that much data to accumulate before answering the request.      */
 DECL|method|setFetchMinBytes (Integer fetchMinBytes)
 specifier|public
 name|void
@@ -1444,6 +1648,7 @@ return|return
 name|fetchWaitMaxMs
 return|;
 block|}
+comment|/**      * The maximum amount of time the server will block before answering the fetch request if there isn't sufficient data to immediately satisfy fetch.min.bytes      */
 DECL|method|setFetchWaitMaxMs (Integer fetchWaitMaxMs)
 specifier|public
 name|void
@@ -1470,6 +1675,7 @@ return|return
 name|rebalanceBackoffMs
 return|;
 block|}
+comment|/**      * Backoff time between retries during rebalance.      */
 DECL|method|setRebalanceBackoffMs (Integer rebalanceBackoffMs)
 specifier|public
 name|void
@@ -1496,6 +1702,7 @@ return|return
 name|refreshLeaderBackoffMs
 return|;
 block|}
+comment|/**      * Backoff time to wait before trying to determine the leader of a partition that has just lost its leader.      */
 DECL|method|setRefreshLeaderBackoffMs (Integer refreshLeaderBackoffMs)
 specifier|public
 name|void
@@ -1522,6 +1729,7 @@ return|return
 name|autoOffsetReset
 return|;
 block|}
+comment|/**      * What to do when there is no initial offset in ZooKeeper or if an offset is out of range:      * smallest : automatically reset the offset to the smallest offset      * largest : automatically reset the offset to the largest offset      * fail: throw exception to the consumer      */
 DECL|method|setAutoOffsetReset (String autoOffsetReset)
 specifier|public
 name|void
@@ -1548,6 +1756,7 @@ return|return
 name|consumerTimeoutMs
 return|;
 block|}
+comment|/**      * Throw a timeout exception to the consumer if no message is available for consumption after the specified interval      */
 DECL|method|setConsumerTimeoutMs (Integer consumerTimeoutMs)
 specifier|public
 name|void
@@ -1574,6 +1783,7 @@ return|return
 name|zookeeperSessionTimeoutMs
 return|;
 block|}
+comment|/**      * ZooKeeper session timeout. If the consumer fails to heartbeat to ZooKeeper for this period of time it is considered dead and a rebalance will occur.      */
 DECL|method|setZookeeperSessionTimeoutMs (Integer zookeeperSessionTimeoutMs)
 specifier|public
 name|void
@@ -1600,6 +1810,7 @@ return|return
 name|zookeeperConnectionTimeoutMs
 return|;
 block|}
+comment|/**      * The max time that the client waits while establishing a connection to zookeeper.      */
 DECL|method|setZookeeperConnectionTimeoutMs (Integer zookeeperConnectionTimeoutMs)
 specifier|public
 name|void
@@ -1626,6 +1837,7 @@ return|return
 name|zookeeperSyncTimeMs
 return|;
 block|}
+comment|/**      * How far a ZK follower can be behind a ZK leader      */
 DECL|method|setZookeeperSyncTimeMs (Integer zookeeperSyncTimeMs)
 specifier|public
 name|void
