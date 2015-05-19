@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This maps to the Swagger Parameter Object.  * see com.wordnik.swagger.model.Parameter  * and https://github.com/swagger-api/swagger-spec/blob/master/versions/1.2.md#524-parameter-object.  */
+comment|/**  * To specify the rest operation parameters using Swagger.  *<p/>  * This maps to the Swagger Parameter Object.  * see com.wordnik.swagger.model.Parameter  * and https://github.com/swagger-api/swagger-spec/blob/master/versions/1.2.md#524-parameter-object.  */
 end_comment
 
 begin_class
@@ -190,49 +190,64 @@ name|verb
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-annotation|@
-name|Metadata
 argument_list|(
 name|required
 operator|=
-literal|"true"
+literal|true
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"path"
 argument_list|)
 DECL|field|paramType
+specifier|private
 name|RestParamType
 name|paramType
+init|=
+name|RestParamType
+operator|.
+name|path
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-annotation|@
-name|Metadata
 argument_list|(
 name|required
 operator|=
-literal|"true"
+literal|true
 argument_list|)
 DECL|field|name
+specifier|private
 name|String
 name|name
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|description
+specifier|private
 name|String
 name|description
-init|=
-literal|""
 decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|defaultValue
+specifier|private
 name|String
 name|defaultValue
-init|=
-literal|""
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|required
+specifier|private
 name|Boolean
 name|required
 init|=
@@ -241,10 +256,9 @@ decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|allowMultiple
+specifier|private
 name|Boolean
 name|allowMultiple
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -256,6 +270,7 @@ operator|=
 literal|"string"
 argument_list|)
 DECL|field|dataType
+specifier|private
 name|String
 name|dataType
 decl_stmt|;
@@ -274,6 +289,7 @@ operator|=
 literal|"value"
 argument_list|)
 DECL|field|allowableValues
+specifier|private
 name|List
 argument_list|<
 name|String
@@ -283,6 +299,7 @@ decl_stmt|;
 annotation|@
 name|XmlAttribute
 DECL|field|paramAccess
+specifier|private
 name|String
 name|paramAccess
 decl_stmt|;
@@ -312,19 +329,8 @@ name|RestParamType
 name|getParamType
 parameter_list|()
 block|{
-if|if
-condition|(
-name|paramType
-operator|!=
-literal|null
-condition|)
 return|return
 name|paramType
-return|;
-return|return
-name|RestParamType
-operator|.
-name|path
 return|;
 block|}
 comment|/**      * Sets the Swagger Parameter type.      */
@@ -485,18 +491,13 @@ name|String
 name|getDataType
 parameter_list|()
 block|{
-if|if
-condition|(
+return|return
 name|dataType
 operator|!=
 literal|null
-condition|)
-block|{
-return|return
+condition|?
 name|dataType
-return|;
-block|}
-return|return
+else|:
 literal|"string"
 return|;
 block|}
@@ -546,7 +547,7 @@ argument_list|>
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the Swagger Parameter alist of allowable values.      */
+comment|/**      * Sets the Swagger Parameter list of allowable values.      */
 DECL|method|setAllowableValues (List<String> allowableValues)
 specifier|public
 name|void

@@ -60,6 +60,10 @@ name|Metadata
 import|;
 end_import
 
+begin_comment
+comment|/**  * Rest parameter types  */
+end_comment
+
 begin_enum
 annotation|@
 name|Metadata
