@@ -477,7 +477,7 @@ operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|Processor
 operator|.
@@ -666,6 +666,8 @@ condition|(
 name|sameBean
 condition|)
 block|{
+try|try
+block|{
 name|beanInvoke
 operator|.
 name|invoke
@@ -675,6 +677,14 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
 comment|// propagate headers
 name|exchange
 operator|.
@@ -695,6 +705,22 @@ name|getHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 name|callback
 operator|.
 name|done
