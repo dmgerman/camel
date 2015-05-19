@@ -30,13 +30,27 @@ name|Header
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|language
+operator|.
+name|Simple
+import|;
+end_import
+
 begin_class
 DECL|class|HelloBean
 specifier|public
 class|class
 name|HelloBean
 block|{
-DECL|method|sayHello (@eaderR)String name)
+DECL|method|sayHello (@eaderR) String name, @Simple(R) String host)
 specifier|public
 name|String
 name|sayHello
@@ -48,6 +62,14 @@ literal|"name"
 argument_list|)
 name|String
 name|name
+parameter_list|,
+annotation|@
+name|Simple
+argument_list|(
+literal|"${sysenv.HOSTNAME}"
+argument_list|)
+name|String
+name|host
 parameter_list|)
 block|{
 return|return
@@ -55,7 +77,9 @@ literal|"Hello "
 operator|+
 name|name
 operator|+
-literal|", how are you?"
+literal|", how are you? You are from host: "
+operator|+
+name|host
 return|;
 block|}
 block|}
