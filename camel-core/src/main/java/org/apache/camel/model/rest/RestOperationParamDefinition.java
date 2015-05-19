@@ -124,6 +124,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlTransient
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -137,23 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|// TODO: rename to Definition as this is what this is
-end_comment
-
-begin_comment
-comment|// TODO: Do not set default values, but infer those
-end_comment
-
-begin_comment
-comment|// TODO: add javadoc on the setter methods
-end_comment
-
-begin_comment
-comment|// TODO: add @Metadata to define the default values
-end_comment
-
-begin_comment
-comment|// TODO: add required=true if its required (such as name and paramType I would assume)
+comment|/**  * This maps to the Swagger Parameter Object.  * see com.wordnik.swagger.model.Parameter  * and https://github.com/swagger-api/swagger-spec/blob/master/versions/1.2.md#524-parameter-object.  */
 end_comment
 
 begin_class
@@ -178,23 +176,40 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|RestOperationParam
+DECL|class|RestOperationParamDefinition
 specifier|public
 class|class
-name|RestOperationParam
+name|RestOperationParamDefinition
 block|{
 annotation|@
-name|XmlAttribute
-DECL|field|paramType
-name|RestParamType
-name|paramType
-init|=
-name|RestParamType
-operator|.
-name|query
+name|XmlTransient
+DECL|field|verb
+specifier|private
+name|VerbDefinition
+name|verb
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|paramType
+name|RestParamType
+name|paramType
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|name
 name|String
 name|name
@@ -233,11 +248,16 @@ literal|false
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"string"
+argument_list|)
 DECL|field|dataType
 name|String
 name|dataType
-init|=
-literal|"string"
 decl_stmt|;
 annotation|@
 name|XmlElementWrapper
@@ -259,13 +279,6 @@ argument_list|<
 name|String
 argument_list|>
 name|allowableValues
-init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|String
-argument_list|>
-argument_list|()
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -273,9 +286,24 @@ DECL|field|paramAccess
 name|String
 name|paramAccess
 decl_stmt|;
-DECL|method|RestOperationParam ()
+DECL|method|RestOperationParamDefinition (VerbDefinition verb)
 specifier|public
-name|RestOperationParam
+name|RestOperationParamDefinition
+parameter_list|(
+name|VerbDefinition
+name|verb
+parameter_list|)
+block|{
+name|this
+operator|.
+name|verb
+operator|=
+name|verb
+expr_stmt|;
+block|}
+DECL|method|RestOperationParamDefinition ()
+specifier|public
+name|RestOperationParamDefinition
 parameter_list|()
 block|{     }
 DECL|method|getParamType ()
@@ -284,10 +312,22 @@ name|RestParamType
 name|getParamType
 parameter_list|()
 block|{
+if|if
+condition|(
+name|paramType
+operator|!=
+literal|null
+condition|)
 return|return
 name|paramType
 return|;
+return|return
+name|RestParamType
+operator|.
+name|path
+return|;
 block|}
+comment|/**      * Sets the Swagger Parameter type.      */
 DECL|method|setParamType (RestParamType paramType)
 specifier|public
 name|void
@@ -314,6 +354,7 @@ return|return
 name|name
 return|;
 block|}
+comment|/**      * Sets the Swagger Parameter name.      */
 DECL|method|setName (String name)
 specifier|public
 name|void
@@ -340,6 +381,7 @@ return|return
 name|description
 return|;
 block|}
+comment|/**      * Sets the Swagger Parameter description.      */
 DECL|method|setDescription (String description)
 specifier|public
 name|void
@@ -356,6 +398,7 @@ operator|=
 name|description
 expr_stmt|;
 block|}
+comment|/**      * Sets the Swagger Parameter default value.      */
 DECL|method|getDefaultValue ()
 specifier|public
 name|String
@@ -392,6 +435,7 @@ return|return
 name|required
 return|;
 block|}
+comment|/**      * Sets the Swagger Parameter required flag.      */
 DECL|method|setRequired (Boolean required)
 specifier|public
 name|void
@@ -418,6 +462,7 @@ return|return
 name|allowMultiple
 return|;
 block|}
+comment|/**      * Sets the Swagger Parameter allowMultiple flag.      */
 DECL|method|setAllowMultiple (Boolean allowMultiple)
 specifier|public
 name|void
@@ -440,10 +485,22 @@ name|String
 name|getDataType
 parameter_list|()
 block|{
+if|if
+condition|(
+name|dataType
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 name|dataType
 return|;
 block|}
+return|return
+literal|"string"
+return|;
+block|}
+comment|/**      * Sets the Swagger Parameter data type.      */
 DECL|method|setDataType (String dataType)
 specifier|public
 name|void
@@ -469,10 +526,27 @@ argument_list|>
 name|getAllowableValues
 parameter_list|()
 block|{
+if|if
+condition|(
+name|allowableValues
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
 name|allowableValues
 return|;
 block|}
+return|return
+operator|new
+name|ArrayList
+argument_list|<
+name|String
+argument_list|>
+argument_list|()
+return|;
+block|}
+comment|/**      * Sets the Swagger Parameter alist of allowable values.      */
 DECL|method|setAllowableValues (List<String> allowableValues)
 specifier|public
 name|void
@@ -502,6 +576,7 @@ return|return
 name|paramAccess
 return|;
 block|}
+comment|/**      * Sets the Swagger Parameter paramAccess flag.      */
 DECL|method|setParamAccess (String paramAccess)
 specifier|public
 name|void
@@ -517,6 +592,194 @@ name|paramAccess
 operator|=
 name|paramAccess
 expr_stmt|;
+block|}
+DECL|method|name (String name)
+specifier|public
+name|RestOperationParamDefinition
+name|name
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|setName
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|description (String name)
+specifier|public
+name|RestOperationParamDefinition
+name|description
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|setDescription
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|defaultValue (String name)
+specifier|public
+name|RestOperationParamDefinition
+name|defaultValue
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|setDefaultValue
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|required (Boolean required)
+specifier|public
+name|RestOperationParamDefinition
+name|required
+parameter_list|(
+name|Boolean
+name|required
+parameter_list|)
+block|{
+name|setRequired
+argument_list|(
+name|required
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|allowMultiple (Boolean allowMultiple)
+specifier|public
+name|RestOperationParamDefinition
+name|allowMultiple
+parameter_list|(
+name|Boolean
+name|allowMultiple
+parameter_list|)
+block|{
+name|setAllowMultiple
+argument_list|(
+name|allowMultiple
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|dataType (String type)
+specifier|public
+name|RestOperationParamDefinition
+name|dataType
+parameter_list|(
+name|String
+name|type
+parameter_list|)
+block|{
+name|setDataType
+argument_list|(
+name|type
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|allowableValues (List<String> allowableValues)
+specifier|public
+name|RestOperationParamDefinition
+name|allowableValues
+parameter_list|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|allowableValues
+parameter_list|)
+block|{
+name|setAllowableValues
+argument_list|(
+name|allowableValues
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|type (RestParamType type)
+specifier|public
+name|RestOperationParamDefinition
+name|type
+parameter_list|(
+name|RestParamType
+name|type
+parameter_list|)
+block|{
+name|setParamType
+argument_list|(
+name|type
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|paramAccess (String paramAccess)
+specifier|public
+name|RestOperationParamDefinition
+name|paramAccess
+parameter_list|(
+name|String
+name|paramAccess
+parameter_list|)
+block|{
+name|setParamAccess
+argument_list|(
+name|paramAccess
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+DECL|method|endParam ()
+specifier|public
+name|RestDefinition
+name|endParam
+parameter_list|()
+block|{
+name|verb
+operator|.
+name|getParams
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+return|return
+name|verb
+operator|.
+name|getRest
+argument_list|()
+return|;
 block|}
 block|}
 end_class
