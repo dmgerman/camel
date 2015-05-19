@@ -280,6 +280,22 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|isAssignableFrom
+import|;
+end_import
+
 begin_comment
 comment|/**  * Helper for introspections of beans.  *<p/>  *<b>Important:</b> Its recommended to call the {@link #stop()} method when  * {@link org.apache.camel.CamelContext} is being stopped. This allows to clear the introspection cache.  *<p/>  * This implementation will skip methods from<tt>java.lang.Object</tt> and<tt>java.lang.reflect.Proxy</tt>.  *<p/>  * This implementation will use a cache when the {@link #getProperties(Object, java.util.Map, String)}  * method is being used. Also the {@link #cacheClass(Class)} method gives access to the introspect cache.  */
 end_comment
@@ -2906,23 +2922,31 @@ block|{
 comment|// try the next method if nothing was found
 continue|continue;
 block|}
-elseif|else
-if|if
-condition|(
-operator|!
-name|parameterType
-operator|.
+else|else
+block|{
+comment|// setter method has not the correct type
+comment|// (must use ObjectHelper.isAssignableFrom which takes primitive types into account)
+name|boolean
+name|assignable
+init|=
 name|isAssignableFrom
 argument_list|(
+name|parameterType
+argument_list|,
 name|ref
 operator|.
 name|getClass
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|assignable
 condition|)
 block|{
-comment|// setter method has not the correct type
 continue|continue;
+block|}
 block|}
 block|}
 try|try
@@ -2936,10 +2960,10 @@ name|value
 operator|==
 literal|null
 operator|||
-name|parameterType
-operator|.
 name|isAssignableFrom
 argument_list|(
+name|parameterType
+argument_list|,
 name|ref
 operator|.
 name|getClass
