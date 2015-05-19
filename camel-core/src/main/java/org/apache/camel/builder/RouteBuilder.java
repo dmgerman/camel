@@ -1295,6 +1295,16 @@ argument_list|)
 expr_stmt|;
 name|builder
 operator|.
+name|setRestCollection
+argument_list|(
+name|this
+operator|.
+name|getRestCollection
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
 name|setErrorHandlerBuilder
 argument_list|(
 name|this

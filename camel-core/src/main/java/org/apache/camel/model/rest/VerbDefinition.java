@@ -267,6 +267,23 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 annotation|@
+name|XmlElementRef
+DECL|field|responseMsgs
+specifier|private
+name|List
+argument_list|<
+name|RestOperationResponseMsgDefinition
+argument_list|>
+name|responseMsgs
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|RestOperationResponseMsgDefinition
+argument_list|>
+argument_list|()
+decl_stmt|;
+annotation|@
 name|XmlAttribute
 DECL|field|uri
 specifier|private
@@ -459,6 +476,39 @@ operator|.
 name|params
 operator|=
 name|params
+expr_stmt|;
+block|}
+DECL|method|getResponseMsgs ()
+specifier|public
+name|List
+argument_list|<
+name|RestOperationResponseMsgDefinition
+argument_list|>
+name|getResponseMsgs
+parameter_list|()
+block|{
+return|return
+name|responseMsgs
+return|;
+block|}
+comment|/**      * Sets swagger operation response messages      */
+DECL|method|setResponseMsgs (List<RestOperationResponseMsgDefinition> params)
+specifier|public
+name|void
+name|setResponseMsgs
+parameter_list|(
+name|List
+argument_list|<
+name|RestOperationResponseMsgDefinition
+argument_list|>
+name|params
+parameter_list|)
+block|{
+name|this
+operator|.
+name|responseMsgs
+operator|=
+name|responseMsgs
 expr_stmt|;
 block|}
 DECL|method|getMethod ()

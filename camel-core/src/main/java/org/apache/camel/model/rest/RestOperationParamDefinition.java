@@ -206,10 +206,6 @@ DECL|field|paramType
 specifier|private
 name|RestParamType
 name|paramType
-init|=
-name|RestParamType
-operator|.
-name|path
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -225,6 +221,13 @@ name|name
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|""
+argument_list|)
 DECL|field|description
 specifier|private
 name|String
@@ -232,6 +235,13 @@ name|description
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|""
+argument_list|)
 DECL|field|defaultValue
 specifier|private
 name|String
@@ -250,11 +260,16 @@ DECL|field|required
 specifier|private
 name|Boolean
 name|required
-init|=
-literal|true
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|allowMultiple
 specifier|private
 name|Boolean
@@ -298,6 +313,13 @@ name|allowableValues
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|""
+argument_list|)
 DECL|field|paramAccess
 specifier|private
 name|String
@@ -331,6 +353,14 @@ parameter_list|()
 block|{
 return|return
 name|paramType
+operator|!=
+literal|null
+condition|?
+name|paramType
+else|:
+name|RestParamType
+operator|.
+name|path
 return|;
 block|}
 comment|/**      * Sets the Swagger Parameter type.      */
@@ -385,6 +415,12 @@ parameter_list|()
 block|{
 return|return
 name|description
+operator|!=
+literal|null
+condition|?
+name|description
+else|:
+literal|""
 return|;
 block|}
 comment|/**      * Sets the Swagger Parameter description.      */
@@ -413,6 +449,12 @@ parameter_list|()
 block|{
 return|return
 name|defaultValue
+operator|!=
+literal|null
+condition|?
+name|defaultValue
+else|:
+literal|""
 return|;
 block|}
 DECL|method|setDefaultValue (String defaultValue)
@@ -439,6 +481,12 @@ parameter_list|()
 block|{
 return|return
 name|required
+operator|!=
+literal|null
+condition|?
+name|required
+else|:
+literal|true
 return|;
 block|}
 comment|/**      * Sets the Swagger Parameter required flag.      */
@@ -466,6 +514,12 @@ parameter_list|()
 block|{
 return|return
 name|allowMultiple
+operator|!=
+literal|null
+condition|?
+name|allowMultiple
+else|:
+literal|false
 return|;
 block|}
 comment|/**      * Sets the Swagger Parameter allowMultiple flag.      */
@@ -575,6 +629,12 @@ parameter_list|()
 block|{
 return|return
 name|paramAccess
+operator|!=
+literal|null
+condition|?
+name|paramAccess
+else|:
+literal|""
 return|;
 block|}
 comment|/**      * Sets the Swagger Parameter paramAccess flag.      */
