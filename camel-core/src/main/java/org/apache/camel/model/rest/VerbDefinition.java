@@ -441,6 +441,26 @@ return|return
 name|params
 return|;
 block|}
+comment|/**      * To specify the REST operation parameters using Swagger.      */
+DECL|method|setParams (List<RestOperationParamDefinition> params)
+specifier|public
+name|void
+name|setParams
+parameter_list|(
+name|List
+argument_list|<
+name|RestOperationParamDefinition
+argument_list|>
+name|params
+parameter_list|)
+block|{
+name|this
+operator|.
+name|params
+operator|=
+name|params
+expr_stmt|;
+block|}
 DECL|method|getMethod ()
 specifier|public
 name|String
