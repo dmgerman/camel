@@ -143,7 +143,7 @@ case|case
 name|InOptionalOut
 case|:
 return|return
-literal|"http://www.w3.org/ns/wsdl/in-optional-out"
+literal|"http://www.w3.org/ns/wsdl/in-opt-out"
 return|;
 case|case
 name|InOut
@@ -167,7 +167,7 @@ case|case
 name|OutOptionalIn
 case|:
 return|return
-literal|"http://www.w3.org/ns/wsdl/out-optional_in"
+literal|"http://www.w3.org/ns/wsdl/out-opt-in"
 return|;
 case|case
 name|RobustInOnly
