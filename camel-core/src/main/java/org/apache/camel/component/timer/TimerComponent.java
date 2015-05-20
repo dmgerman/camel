@@ -490,7 +490,7 @@ comment|// convert time from String to a java.util.Date using the supported patt
 name|String
 name|time
 init|=
-name|getAndRemoveParameter
+name|getAndRemoveOrResolveReferenceParameter
 argument_list|(
 name|parameters
 argument_list|,
@@ -504,7 +504,7 @@ decl_stmt|;
 name|String
 name|pattern
 init|=
-name|getAndRemoveParameter
+name|getAndRemoveOrResolveReferenceParameter
 argument_list|(
 name|parameters
 argument_list|,
