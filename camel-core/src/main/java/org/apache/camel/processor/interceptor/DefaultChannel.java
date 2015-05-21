@@ -1375,6 +1375,18 @@ argument_list|,
 name|next
 argument_list|)
 expr_stmt|;
+comment|// Avoid the stack overflow
+if|if
+condition|(
+operator|!
+name|wrapped
+operator|.
+name|equals
+argument_list|(
+name|bridge
+argument_list|)
+condition|)
+block|{
 name|bridge
 operator|.
 name|setTarget
@@ -1382,6 +1394,18 @@ argument_list|(
 name|wrapped
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// Just skip the wrapped processor
+name|bridge
+operator|.
+name|setTarget
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 name|wrapped
 operator|=
 name|bridge
