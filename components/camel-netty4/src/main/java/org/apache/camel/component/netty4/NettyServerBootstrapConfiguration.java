@@ -157,6 +157,11 @@ literal|"TLSv1,TLSv1.1,TLSv1.2"
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|enums
+operator|=
+literal|"tcp,udp"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -199,6 +204,11 @@ name|port
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|broadcast
 specifier|protected
 name|boolean
@@ -242,6 +252,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"1"
@@ -255,6 +269,11 @@ literal|1
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|workerCount
 specifier|protected
 name|int
@@ -305,6 +324,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"10000"
@@ -318,6 +341,11 @@ literal|10000
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|backlog
 specifier|protected
 name|int
@@ -325,6 +353,11 @@ name|backlog
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|serverInitializerFactory
 specifier|protected
 name|ServerInitializerFactory
@@ -332,6 +365,11 @@ name|serverInitializerFactory
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|nettyServerBootstrapFactory
 specifier|protected
 name|NettyServerBootstrapFactory
@@ -378,6 +416,11 @@ name|sslContextParameters
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|needClientAuth
 specifier|protected
 name|boolean
@@ -462,6 +505,11 @@ name|workerGroup
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|networkInterface
 specifier|protected
 name|String
@@ -506,6 +554,7 @@ return|return
 name|protocol
 return|;
 block|}
+comment|/**      * The protocol to use which can be tcp or udp.      */
 DECL|method|setProtocol (String protocol)
 specifier|public
 name|void
@@ -532,6 +581,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * The hostname.      *<p/>      * For the consumer the hostname is localhost or 0.0.0.0      * For the producer the hostname is the remote host to connect to      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -558,6 +608,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * The host port number      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -584,6 +635,7 @@ return|return
 name|broadcast
 return|;
 block|}
+comment|/**      * Setting to choose Multicast over UDP      */
 DECL|method|setBroadcast (boolean broadcast)
 specifier|public
 name|void
@@ -610,6 +662,7 @@ return|return
 name|sendBufferSize
 return|;
 block|}
+comment|/**      * The TCP/UDP buffer sizes to be used during outbound communication. Size is bytes.      */
 DECL|method|setSendBufferSize (int sendBufferSize)
 specifier|public
 name|void
@@ -636,6 +689,7 @@ return|return
 name|receiveBufferSize
 return|;
 block|}
+comment|/**      * The TCP/UDP buffer sizes to be used during inbound communication. Size is bytes.      */
 DECL|method|setReceiveBufferSize (int receiveBufferSize)
 specifier|public
 name|void
@@ -662,6 +716,7 @@ return|return
 name|receiveBufferSizePredictor
 return|;
 block|}
+comment|/**      * Configures the buffer size predictor. See details at Jetty documentation and this mail thread.      */
 DECL|method|setReceiveBufferSizePredictor (int receiveBufferSizePredictor)
 specifier|public
 name|void
@@ -688,6 +743,7 @@ return|return
 name|workerCount
 return|;
 block|}
+comment|/**      * When netty works on nio mode, it uses default workerCount parameter from Netty, which is cpu_core_threads*2.      * User can use this operation to override the default workerCount from Netty      */
 DECL|method|setWorkerCount (int workerCount)
 specifier|public
 name|void
@@ -714,6 +770,7 @@ return|return
 name|bossCount
 return|;
 block|}
+comment|/**      * When netty works on nio mode, it uses default bossCount parameter from Netty, which is 1.      * User can use this operation to override the default bossCount from Netty      */
 DECL|method|setBossCount (int bossCount)
 specifier|public
 name|void
@@ -740,6 +797,7 @@ return|return
 name|keepAlive
 return|;
 block|}
+comment|/**      * Setting to ensure socket is not closed due to inactivity      */
 DECL|method|setKeepAlive (boolean keepAlive)
 specifier|public
 name|void
@@ -766,6 +824,7 @@ return|return
 name|tcpNoDelay
 return|;
 block|}
+comment|/**      * Setting to improve TCP protocol performance      */
 DECL|method|setTcpNoDelay (boolean tcpNoDelay)
 specifier|public
 name|void
@@ -792,6 +851,7 @@ return|return
 name|reuseAddress
 return|;
 block|}
+comment|/**      * Setting to facilitate socket multiplexing      */
 DECL|method|setReuseAddress (boolean reuseAddress)
 specifier|public
 name|void
@@ -818,6 +878,7 @@ return|return
 name|connectTimeout
 return|;
 block|}
+comment|/**      * Time to wait for a socket connection to be available. Value is in millis.      */
 DECL|method|setConnectTimeout (int connectTimeout)
 specifier|public
 name|void
@@ -844,6 +905,7 @@ return|return
 name|backlog
 return|;
 block|}
+comment|/**      * Allows to configure a backlog for netty consumer (server).      * Note the backlog is just a best effort depending on the OS.      * Setting this option to a value such as 200, 500 or 1000, tells the TCP stack how long the "accept" queue can be      * If this option is not configured, then the backlog depends on OS setting.      */
 DECL|method|setBacklog (int backlog)
 specifier|public
 name|void
@@ -870,6 +932,7 @@ return|return
 name|ssl
 return|;
 block|}
+comment|/**      * Setting to specify whether SSL encryption is applied to this endpoint      */
 DECL|method|setSsl (boolean ssl)
 specifier|public
 name|void
@@ -896,6 +959,7 @@ return|return
 name|sslClientCertHeaders
 return|;
 block|}
+comment|/**      * When enabled and in SSL mode, then the Netty consumer will enrich the Camel Message with headers having      * information about the client certificate such as subject name, issuer name, serial number, and the valid date range.      */
 DECL|method|setSslClientCertHeaders (boolean sslClientCertHeaders)
 specifier|public
 name|void
@@ -922,6 +986,7 @@ return|return
 name|sslHandler
 return|;
 block|}
+comment|/**      * Reference to a class that could be used to return an SSL Handler      */
 DECL|method|setSslHandler (SslHandler sslHandler)
 specifier|public
 name|void
@@ -948,6 +1013,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
+comment|/**      * To configure security using SSLContextParameters      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
@@ -974,6 +1040,7 @@ return|return
 name|needClientAuth
 return|;
 block|}
+comment|/**      * Configures whether the server needs client authentication when using SSL.      */
 DECL|method|setNeedClientAuth (boolean needClientAuth)
 specifier|public
 name|void
@@ -1002,6 +1069,7 @@ return|return
 name|keyStoreFile
 return|;
 block|}
+comment|/**      * Client side certificate keystore to be used for encryption      */
 annotation|@
 name|Deprecated
 DECL|method|setKeyStoreFile (File keyStoreFile)
@@ -1032,6 +1100,7 @@ return|return
 name|trustStoreFile
 return|;
 block|}
+comment|/**      * Server side certificate keystore to be used for encryption      */
 annotation|@
 name|Deprecated
 DECL|method|setTrustStoreFile (File trustStoreFile)
@@ -1060,6 +1129,7 @@ return|return
 name|keyStoreResource
 return|;
 block|}
+comment|/**      * Client side certificate keystore to be used for encryption. Is loaded by default from classpath,      * but you can prefix with "classpath:", "file:", or "http:" to load the resource from different systems.      */
 DECL|method|setKeyStoreResource (String keyStoreResource)
 specifier|public
 name|void
@@ -1086,6 +1156,7 @@ return|return
 name|trustStoreResource
 return|;
 block|}
+comment|/**      * Server side certificate keystore to be used for encryption.      * Is loaded by default from classpath, but you can prefix with "classpath:", "file:", or "http:" to load the resource from different systems.      */
 DECL|method|setTrustStoreResource (String trustStoreResource)
 specifier|public
 name|void
@@ -1112,6 +1183,7 @@ return|return
 name|keyStoreFormat
 return|;
 block|}
+comment|/**      * Keystore format to be used for payload encryption. Defaults to "JKS" if not set      */
 DECL|method|setKeyStoreFormat (String keyStoreFormat)
 specifier|public
 name|void
@@ -1138,6 +1210,7 @@ return|return
 name|securityProvider
 return|;
 block|}
+comment|/**      * Security provider to be used for payload encryption. Defaults to "SunX509" if not set.      */
 DECL|method|setSecurityProvider (String securityProvider)
 specifier|public
 name|void
@@ -1164,6 +1237,7 @@ return|return
 name|passphrase
 return|;
 block|}
+comment|/**      * Password setting to use in order to encrypt/decrypt payloads sent using SSH      */
 DECL|method|setPassphrase (String passphrase)
 specifier|public
 name|void
@@ -1222,6 +1296,7 @@ return|return
 name|serverInitializerFactory
 return|;
 block|}
+comment|/**      * To use a custom ServerInitializerFactory      */
 DECL|method|setServerInitializerFactory (ServerInitializerFactory serverInitializerFactory)
 specifier|public
 name|void
@@ -1248,6 +1323,7 @@ return|return
 name|nettyServerBootstrapFactory
 return|;
 block|}
+comment|/**      * To use a custom NettyServerBootstrapFactory      */
 DECL|method|setNettyServerBootstrapFactory (NettyServerBootstrapFactory nettyServerBootstrapFactory)
 specifier|public
 name|void
@@ -1279,6 +1355,7 @@ return|return
 name|options
 return|;
 block|}
+comment|/**      * Allows to configure additional netty options using "option." as prefix.      * For example "option.child.keepAlive=false" to set the netty option "child.keepAlive=false". See the Netty documentation for possible options that can be used.      */
 DECL|method|setOptions (Map<String, Object> options)
 specifier|public
 name|void
@@ -1310,7 +1387,7 @@ return|return
 name|bossGroup
 return|;
 block|}
-comment|/**      * Set the BossGroup which could be used for handling the new connection of the server side across the NettyEndpoint       * @param bossGroup      */
+comment|/**      * Set the BossGroup which could be used for handling the new connection of the server side across the NettyEndpoint       */
 DECL|method|setBossGroup (EventLoopGroup bossGroup)
 specifier|public
 name|void
@@ -1337,7 +1414,7 @@ return|return
 name|workerGroup
 return|;
 block|}
-comment|/**      * Set the WorkerGroup which could be used for handling selector eventloop across the NettyEndpoint       * @param workerGroup      */
+comment|/**      * To use a explicit EventLoopGroup as the boss thread pool.      * For example to share a thread pool with multiple consumers. By default each consumer has their own boss pool with 1 core thread.      */
 DECL|method|setWorkerGroup (EventLoopGroup workerGroup)
 specifier|public
 name|void
@@ -1364,6 +1441,7 @@ return|return
 name|networkInterface
 return|;
 block|}
+comment|/**      * When using UDP then this option can be used to specify a network interface by its name, such as eth0 to join a multicast group.      */
 DECL|method|setNetworkInterface (String networkInterface)
 specifier|public
 name|void
@@ -1390,6 +1468,7 @@ return|return
 name|enabledProtocols
 return|;
 block|}
+comment|/**      * Which protocols to enable when using SSL      */
 DECL|method|setEnabledProtocols (String enabledProtocols)
 specifier|public
 name|void

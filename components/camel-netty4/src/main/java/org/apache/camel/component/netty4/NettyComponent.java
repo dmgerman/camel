@@ -448,6 +448,7 @@ return|return
 name|configuration
 return|;
 block|}
+comment|/**      * To use the NettyConfiguration as configuration when creating endpoints.      */
 DECL|method|setConfiguration (NettyConfiguration configuration)
 specifier|public
 name|void
@@ -464,6 +465,7 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+comment|/**      * To use the given EventExecutorGroup      */
 DECL|method|setExecutorService (EventExecutorGroup executorService)
 specifier|public
 name|void
@@ -482,24 +484,10 @@ expr_stmt|;
 block|}
 DECL|method|getExecutorService ()
 specifier|public
-specifier|synchronized
 name|EventExecutorGroup
 name|getExecutorService
 parameter_list|()
 block|{
-if|if
-condition|(
-name|executorService
-operator|==
-literal|null
-condition|)
-block|{
-name|executorService
-operator|=
-name|createExecutorService
-argument_list|()
-expr_stmt|;
-block|}
 return|return
 name|executorService
 return|;
