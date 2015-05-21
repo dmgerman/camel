@@ -194,6 +194,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|jsse
@@ -290,16 +304,48 @@ specifier|public
 class|class
 name|SpringWebserviceConfiguration
 block|{
+DECL|field|xmlConverter
+specifier|private
+name|XmlConverter
+name|xmlConverter
+decl_stmt|;
+DECL|field|messageFilter
+specifier|private
+name|MessageFilter
+name|messageFilter
+decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|endpointMappingKey
 specifier|private
 name|EndpointMappingKey
 name|endpointMappingKey
 decl_stmt|;
+annotation|@
+name|UriPath
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|webServiceEndpointUri
+specifier|private
+name|String
+name|webServiceEndpointUri
+decl_stmt|;
 comment|/* Producer configuration */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|webServiceTemplate
 specifier|private
 name|WebServiceTemplate
@@ -307,6 +353,11 @@ name|webServiceTemplate
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|soapAction
 specifier|private
 name|String
@@ -314,6 +365,11 @@ name|soapAction
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|wsAddressingAction
 specifier|private
 name|URI
@@ -321,6 +377,11 @@ name|wsAddressingAction
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|outputAction
 specifier|private
 name|URI
@@ -328,6 +389,11 @@ name|outputAction
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|faultAction
 specifier|private
 name|URI
@@ -335,6 +401,11 @@ name|faultAction
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|faultTo
 specifier|private
 name|URI
@@ -342,6 +413,11 @@ name|faultTo
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|replyTo
 specifier|private
 name|URI
@@ -349,13 +425,23 @@ name|replyTo
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|replyToMessageSender
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|messageSender
 specifier|private
 name|WebServiceMessageSender
-name|replyToMessageSender
+name|messageSender
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|messageIdStrategy
 specifier|private
 name|MessageIdStrategy
@@ -363,6 +449,11 @@ name|messageIdStrategy
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|timeout
 specifier|private
 name|int
@@ -374,6 +465,11 @@ decl_stmt|;
 comment|/* Consumer configuration */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|endpointMapping
 specifier|private
 name|CamelSpringWSEndpointMapping
@@ -381,6 +477,11 @@ name|endpointMapping
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|endpointDispatcher
 specifier|private
 name|CamelEndpointDispatcher
@@ -388,20 +489,27 @@ name|endpointDispatcher
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|sslContextParameters
 specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
-DECL|field|xmlConverter
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|expression
 specifier|private
-name|XmlConverter
-name|xmlConverter
-decl_stmt|;
-DECL|field|messageFilter
-specifier|private
-name|MessageFilter
-name|messageFilter
+name|String
+name|expression
 decl_stmt|;
 DECL|method|getWebServiceTemplate ()
 specifier|public
@@ -413,6 +521,7 @@ return|return
 name|webServiceTemplate
 return|;
 block|}
+comment|/**      * Option to provide a custom WebServiceTemplate.      * This allows for full control over client-side web services handling; like adding a custom interceptor      * or specifying a fault resolver, message sender or message factory.      */
 DECL|method|setWebServiceTemplate (WebServiceTemplate webServiceTemplate)
 specifier|public
 name|void
@@ -429,6 +538,60 @@ operator|=
 name|webServiceTemplate
 expr_stmt|;
 block|}
+DECL|method|getWebServiceEndpointUri ()
+specifier|public
+name|String
+name|getWebServiceEndpointUri
+parameter_list|()
+block|{
+return|return
+name|webServiceEndpointUri
+return|;
+block|}
+comment|/**      * The default Web Service endpoint uri to use for the producer.      */
+DECL|method|setWebServiceEndpointUri (String webServiceEndpointUri)
+specifier|public
+name|void
+name|setWebServiceEndpointUri
+parameter_list|(
+name|String
+name|webServiceEndpointUri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|webServiceEndpointUri
+operator|=
+name|webServiceEndpointUri
+expr_stmt|;
+block|}
+DECL|method|getExpression ()
+specifier|public
+name|String
+name|getExpression
+parameter_list|()
+block|{
+return|return
+name|expression
+return|;
+block|}
+comment|/**      * The XPath expression to use when option type=xpathresult. Then this option is required to be configured.      */
+DECL|method|setExpression (String expression)
+specifier|public
+name|void
+name|setExpression
+parameter_list|(
+name|String
+name|expression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|expression
+operator|=
+name|expression
+expr_stmt|;
+block|}
 DECL|method|getSoapAction ()
 specifier|public
 name|String
@@ -439,6 +602,7 @@ return|return
 name|soapAction
 return|;
 block|}
+comment|/**      * SOAP action to include inside a SOAP request when accessing remote web services      */
 DECL|method|setSoapAction (String soapAction)
 specifier|public
 name|void
@@ -508,6 +672,7 @@ return|return
 name|wsAddressingAction
 return|;
 block|}
+comment|/**      * WS-Addressing 1.0 action header to include when accessing web services.      * The To header is set to the address of the web service as specified in the endpoint URI (default Spring-WS behavior).      */
 DECL|method|setWsAddressingAction (URI wsAddressingAction)
 specifier|public
 name|void
@@ -566,6 +731,7 @@ return|return
 name|timeout
 return|;
 block|}
+comment|/**      * Sets the socket read timeout (in milliseconds) while invoking a webservice using the producer,      * see URLConnection.setReadTimeout() and CommonsHttpMessageSender.setReadTimeout().      * This option works when using the built-in message sender implementations:      * CommonsHttpMessageSender and HttpUrlConnectionMessageSender.      * One of these implementations will be used by default for HTTP based services unless you customize the      * Spring WS configuration options supplied to the component.      * If you are using a non-standard sender, it is assumed that you will handle your own timeout configuration.      * The built-in message sender HttpComponentsMessageSender is considered instead of CommonsHttpMessageSender      * which has been deprecated, see HttpComponentsMessageSender.setReadTimeout().      */
 DECL|method|setTimeout (int timeout)
 specifier|public
 name|void
@@ -592,6 +758,7 @@ return|return
 name|endpointMapping
 return|;
 block|}
+comment|/**      * Reference to an instance of org.apache.camel.component.spring.ws.bean.CamelEndpointMapping in the Registry/ApplicationContext.      * Only one bean is required in the registry to serve all Camel/Spring-WS endpoints.      * This bean is auto-discovered by the MessageDispatcher and used to map requests to Camel endpoints based      * on characteristics specified on the endpoint (like root QName, SOAP action, etc)      */
 DECL|method|setEndpointMapping (CamelSpringWSEndpointMapping endpointMapping)
 specifier|public
 name|void
@@ -644,6 +811,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
+comment|/**      * To configure security using SSLContextParameters      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
@@ -670,6 +838,7 @@ return|return
 name|endpointDispatcher
 return|;
 block|}
+comment|/**      * Spring {@link org.springframework.ws.server.endpoint.MessageEndpoint} for dispatching messages received by Spring-WS to a Camel endpoint,      * to integrate with existing (legacy) endpoint mappings like PayloadRootQNameEndpointMapping, SoapActionEndpointMapping, etc.      */
 DECL|method|setEndpointDispatcher (CamelEndpointDispatcher endpointDispatcher)
 specifier|public
 name|void
@@ -828,7 +997,7 @@ literal|"{"
 argument_list|)
 return|;
 block|}
-comment|/**      * Default setter to override failsafe message filter.      *       * @param messageFilter non-default MessageFilter      */
+comment|/**      * Option to provide a custom MessageFilter. For example when you want to process your headers or attachments by your own.      */
 DECL|method|setMessageFilter (MessageFilter messageFilter)
 specifier|public
 name|void
@@ -845,7 +1014,6 @@ operator|=
 name|messageFilter
 expr_stmt|;
 block|}
-comment|/**      * Gets the configured MessageFilter.      *       * Note: The only place that sets fail safe strategy.      *       * @return instance of MessageFilter that is never null;      */
 DECL|method|getMessageFilter ()
 specifier|public
 name|MessageFilter
@@ -876,7 +1044,6 @@ operator|.
 name|messageFilter
 return|;
 block|}
-comment|/**      * Signifies the value for the response WS-Addressing<code>Action</code>      * header that is provided by the method.      *       * @see {@link Action}      */
 DECL|method|getOutputAction ()
 specifier|public
 name|URI
@@ -886,6 +1053,23 @@ block|{
 return|return
 name|outputAction
 return|;
+block|}
+comment|/**      * Signifies the value for the response WS-Addressing<code>Action</code>      * header that is provided by the method.      *      * @see {@link Action}      */
+DECL|method|setOutputAction (URI outputAction)
+specifier|public
+name|void
+name|setOutputAction
+parameter_list|(
+name|URI
+name|outputAction
+parameter_list|)
+block|{
+name|this
+operator|.
+name|outputAction
+operator|=
+name|outputAction
+expr_stmt|;
 block|}
 DECL|method|setOutputAction (String output)
 specifier|public
@@ -919,23 +1103,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|setOutputAction (URI outputAction)
-specifier|public
-name|void
-name|setOutputAction
-parameter_list|(
-name|URI
-name|outputAction
-parameter_list|)
-block|{
-name|this
-operator|.
-name|outputAction
-operator|=
-name|outputAction
-expr_stmt|;
-block|}
-comment|/**      * Signifies the value for the faultAction response WS-Addressing      *<code>Fault Action</code> header that is provided by the method.      *       * @see {@link Action}      */
 DECL|method|getFaultAction ()
 specifier|public
 name|URI
@@ -946,6 +1113,7 @@ return|return
 name|faultAction
 return|;
 block|}
+comment|/**      * Signifies the value for the faultAction response WS-Addressing      *<code>Fault Action</code> header that is provided by the method.      *      * @see {@link Action}      */
 DECL|method|setFaultAction (String fault)
 specifier|public
 name|void
@@ -978,6 +1146,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Signifies the value for the faultAction response WS-Addressing      *<code>Fault Action</code> header that is provided by the method.      *      * @see {@link Action}      */
 DECL|method|setFaultAction (URI fault)
 specifier|public
 name|void
@@ -994,7 +1163,6 @@ operator|=
 name|fault
 expr_stmt|;
 block|}
-comment|/**      * Signifies the value for the faultAction response WS-Addressing      *<code>FaultTo</code> header that is provided by the method.      *       * @see {@link Action}      */
 DECL|method|getFaultTo ()
 specifier|public
 name|URI
@@ -1005,6 +1173,7 @@ return|return
 name|faultTo
 return|;
 block|}
+comment|/**      * Signifies the value for the faultAction response WS-Addressing      *<code>FaultTo</code> header that is provided by the method.      *      * @see {@link Action}      */
 DECL|method|setFaultTo (String faultTo)
 specifier|public
 name|void
@@ -1037,6 +1206,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Signifies the value for the faultAction response WS-Addressing      *<code>FaultTo</code> header that is provided by the method.      *      * @see {@link Action}      */
 DECL|method|setFaultTo (URI faultTo)
 specifier|public
 name|void
@@ -1053,7 +1223,6 @@ operator|=
 name|faultTo
 expr_stmt|;
 block|}
-comment|/**      * Signifies the value for the replyTo response WS-Addressing      *<code>ReplyTo</code> header that is provided by the method.      *       * @see {@link Action}      */
 DECL|method|getReplyTo ()
 specifier|public
 name|URI
@@ -1064,6 +1233,7 @@ return|return
 name|replyTo
 return|;
 block|}
+comment|/**      * Signifies the value for the replyTo response WS-Addressing      *<code>ReplyTo</code> header that is provided by the method.      *      * @see {@link Action}      */
 DECL|method|setReplyTo (String replyToAction)
 specifier|public
 name|void
@@ -1096,6 +1266,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Signifies the value for the replyTo response WS-Addressing      *<code>ReplyTo</code> header that is provided by the method.      *      * @see {@link Action}      */
 DECL|method|setReplyTo (URI replyToAction)
 specifier|public
 name|void
@@ -1112,7 +1283,6 @@ operator|=
 name|replyToAction
 expr_stmt|;
 block|}
-comment|/** * @return Returns the replyToMessageSender for wsa:replyTo.      */
 DECL|method|getMessageSender ()
 specifier|public
 name|WebServiceMessageSender
@@ -1120,10 +1290,10 @@ name|getMessageSender
 parameter_list|()
 block|{
 return|return
-name|replyToMessageSender
+name|messageSender
 return|;
 block|}
-comment|/**      * @param messageSender The replyToMessageSender for wsa:replyTo to set.      */
+comment|/**      * Option to provide a custom WebServiceMessageSender. For example to perform authentication or use alternative transports      */
 DECL|method|setMessageSender (WebServiceMessageSender messageSender)
 specifier|public
 name|void
@@ -1135,12 +1305,11 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|replyToMessageSender
+name|messageSender
 operator|=
 name|messageSender
 expr_stmt|;
 block|}
-comment|/** * @return Returns the messageIdStrategy.      */
 DECL|method|getMessageIdStrategy ()
 specifier|public
 name|MessageIdStrategy
@@ -1151,7 +1320,7 @@ return|return
 name|messageIdStrategy
 return|;
 block|}
-comment|/**      * @param messageIdStrategy The messageIdStrategy to set.      */
+comment|/**      * Option to provide a custom MessageIdStrategy to control generation of unique message ids.      */
 DECL|method|setMessageIdStrategy (MessageIdStrategy messageIdStrategy)
 specifier|public
 name|void

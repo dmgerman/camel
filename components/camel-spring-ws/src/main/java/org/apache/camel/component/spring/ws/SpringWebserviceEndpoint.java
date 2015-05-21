@@ -124,7 +124,7 @@ literal|"Spring WebService"
 argument_list|,
 name|syntax
 operator|=
-literal|"spring-ws:type:lookupKey"
+literal|"spring-ws:type:lookupKey:webServiceEndpointUri"
 argument_list|,
 name|consumerClass
 operator|=

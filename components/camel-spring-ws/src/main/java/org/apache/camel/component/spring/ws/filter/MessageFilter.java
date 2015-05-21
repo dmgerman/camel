@@ -47,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A strategy instance that filters a WebServiceMessage response.  *   * This class provides an additional configuration that can be managed in your Spring's context.  *   *   */
+comment|/**  * A strategy instance that filters a WebServiceMessage response.  *   * This class provides an additional configuration that can be managed in your Spring's context.  */
 end_comment
 
 begin_interface
@@ -56,8 +56,8 @@ specifier|public
 interface|interface
 name|MessageFilter
 block|{
-comment|/**      * Calls filter for a producer      *       * @param exchange      * @param response provided by the producer      */
-DECL|method|filterProducer (Exchange exchange, WebServiceMessage produceRresponse)
+comment|/**      * Calls filter for a producer      *      * @param exchange the exchange      * @param response provided by the producer      */
+DECL|method|filterProducer (Exchange exchange, WebServiceMessage response)
 name|void
 name|filterProducer
 parameter_list|(
@@ -65,11 +65,11 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|WebServiceMessage
-name|produceRresponse
+name|response
 parameter_list|)
 function_decl|;
-comment|/**      * Calls filter for a consumer      *       * @param exchange      * @param response provided by the consumer      */
-DECL|method|filterConsumer (Exchange exchange, WebServiceMessage consumerResponse)
+comment|/**      * Calls filter for a consumer      *       * @param exchange the exchange      * @param response provided by the consumer      */
+DECL|method|filterConsumer (Exchange exchange, WebServiceMessage response)
 name|void
 name|filterConsumer
 parameter_list|(
@@ -77,7 +77,7 @@ name|Exchange
 name|exchange
 parameter_list|,
 name|WebServiceMessage
-name|consumerResponse
+name|response
 parameter_list|)
 function_decl|;
 block|}

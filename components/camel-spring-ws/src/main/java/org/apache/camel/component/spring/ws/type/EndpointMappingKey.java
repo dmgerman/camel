@@ -32,7 +32,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Metadata
+name|UriParam
 import|;
 end_import
 
@@ -88,12 +88,10 @@ name|EndpointMappingKey
 block|{
 annotation|@
 name|UriPath
-annotation|@
-name|Metadata
 argument_list|(
-name|required
+name|label
 operator|=
-literal|"true"
+literal|"consumer"
 argument_list|)
 DECL|field|type
 specifier|private
@@ -102,12 +100,10 @@ name|type
 decl_stmt|;
 annotation|@
 name|UriPath
-annotation|@
-name|Metadata
 argument_list|(
-name|required
+name|label
 operator|=
-literal|"true"
+literal|"consumer"
 argument_list|)
 DECL|field|lookupKey
 specifier|private
@@ -163,6 +159,7 @@ return|return
 name|type
 return|;
 block|}
+comment|/**      * Endpoint mapping type if endpoint mapping is used.      *<ul>      *<li>rootqname - Offers the option to map web service requests based on the qualified name of the root element contained in the message.</li>      *<li>soapaction - Used to map web service requests based on the SOAP action specified in the header of the message.</li>      *<li>uri - In order to map web service requests that target a specific URI.</li>      *<li>xpathresult - Used to map web service requests based on the evaluation of an XPath expression against the incoming message.      *                       The result of the evaluation should match the XPath result specified in the endpoint URI.</li>      *<li>beanname - Allows you to reference an org.apache.camel.component.spring.ws.bean.CamelEndpointDispatcher object in order to integrate with      *                    existing (legacy) endpoint mappings like PayloadRootQNameEndpointMapping, SoapActionEndpointMapping, etc</li>      *</ul>      */
 DECL|method|setType (EndpointMappingType type)
 specifier|public
 name|void
@@ -189,6 +186,7 @@ return|return
 name|lookupKey
 return|;
 block|}
+comment|/**      * Endpoint mapping key if endpoint mapping is used      */
 DECL|method|setLookupKey (String lookupKey)
 specifier|public
 name|void
