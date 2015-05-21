@@ -131,6 +131,18 @@ name|MockEndpoint
 name|resultEndpoint
 decl_stmt|;
 annotation|@
+name|EndpointInject
+argument_list|(
+name|uri
+operator|=
+literal|"mock:intercepted"
+argument_list|)
+DECL|field|interceptedEndpoint
+specifier|protected
+name|MockEndpoint
+name|interceptedEndpoint
+decl_stmt|;
+annotation|@
 name|Produce
 argument_list|(
 name|uri
@@ -153,6 +165,13 @@ throws|throws
 name|Exception
 block|{
 name|resultEndpoint
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Bla Bla Bla"
+argument_list|)
+expr_stmt|;
+name|interceptedEndpoint
 operator|.
 name|expectedBodiesReceived
 argument_list|(
@@ -216,6 +235,11 @@ operator|.
 name|log
 argument_list|(
 literal|"Intercepted"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:intercepted"
 argument_list|)
 expr_stmt|;
 name|from
