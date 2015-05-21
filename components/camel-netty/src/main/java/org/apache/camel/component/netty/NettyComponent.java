@@ -497,6 +497,7 @@ return|return
 name|configuration
 return|;
 block|}
+comment|/**      * To use the NettyConfiguration as configuration when creating endpoints.      */
 DECL|method|setConfiguration (NettyConfiguration configuration)
 specifier|public
 name|void
@@ -523,6 +524,7 @@ return|return
 name|maximumPoolSize
 return|;
 block|}
+comment|/**      * The core pool size for the ordered thread pool, if its in use.      *<p/>      * The default value is 16.      */
 DECL|method|setMaximumPoolSize (int maximumPoolSize)
 specifier|public
 name|void

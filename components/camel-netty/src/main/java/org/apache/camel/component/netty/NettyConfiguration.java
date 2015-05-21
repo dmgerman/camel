@@ -300,6 +300,11 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|requestTimeout
 specifier|private
 name|long
@@ -417,6 +422,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -438,6 +447,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -452,6 +465,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"WARN"
@@ -468,6 +485,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"WARN"
@@ -484,6 +505,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"DEBUG"
@@ -513,6 +538,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|clientPipelineFactory
 specifier|private
 name|ClientPipelineFactory
@@ -529,6 +559,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -543,6 +577,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"-1"
@@ -557,6 +595,11 @@ literal|1
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|producerPoolMinIdle
 specifier|private
 name|int
@@ -565,6 +608,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"100"
@@ -579,6 +626,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|""
@@ -603,6 +654,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -616,6 +671,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|udpConnectionlessSending
 specifier|private
 name|boolean
@@ -623,6 +683,11 @@ name|udpConnectionlessSending
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|clientMode
 specifier|private
 name|boolean
@@ -630,6 +695,11 @@ name|clientMode
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|useChannelBuffer
 specifier|private
 name|boolean
@@ -638,6 +708,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|""
@@ -662,6 +736,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|""
@@ -1594,6 +1672,7 @@ return|return
 name|requestTimeout
 return|;
 block|}
+comment|/**      * Allows to use a timeout for the Netty producer when calling a remote server.      * By default no timeout is in use. The value is in milli seconds, so eg 30000 is 30 seconds.      * The requestTimeout is using Netty's ReadTimeoutHandler to trigger the timeout.      */
 DECL|method|setRequestTimeout (long requestTimeout)
 specifier|public
 name|void
@@ -1620,6 +1699,7 @@ return|return
 name|sync
 return|;
 block|}
+comment|/**      * Setting to set endpoint as one-way or request-response      */
 DECL|method|setSync (boolean sync)
 specifier|public
 name|void
@@ -1646,6 +1726,7 @@ return|return
 name|textline
 return|;
 block|}
+comment|/**      * Only used for TCP. If no codec is specified, you can use this flag to indicate a text line based codec;      * if not specified or the value is false, then Object Serialization is assumed over TCP.      */
 DECL|method|setTextline (boolean textline)
 specifier|public
 name|void
@@ -1672,6 +1753,7 @@ return|return
 name|decoderMaxLineLength
 return|;
 block|}
+comment|/**      * The max line length to use for the textline codec.      */
 DECL|method|setDecoderMaxLineLength (int decoderMaxLineLength)
 specifier|public
 name|void
@@ -1698,6 +1780,7 @@ return|return
 name|delimiter
 return|;
 block|}
+comment|/**      * The delimiter to use for the textline codec. Possible values are LINE and NULL.      */
 DECL|method|setDelimiter (TextLineDelimiter delimiter)
 specifier|public
 name|void
@@ -1724,6 +1807,7 @@ return|return
 name|autoAppendDelimiter
 return|;
 block|}
+comment|/**      * Whether or not to auto append missing end delimiter when sending using the textline codec.      */
 DECL|method|setAutoAppendDelimiter (boolean autoAppendDelimiter)
 specifier|public
 name|void
@@ -1750,6 +1834,7 @@ return|return
 name|encoding
 return|;
 block|}
+comment|/**      * The encoding (a charset name) to use for the textline codec. If not provided, Camel will use the JVM default Charset.      */
 DECL|method|setEncoding (String encoding)
 specifier|public
 name|void
@@ -1779,6 +1864,7 @@ return|return
 name|decoders
 return|;
 block|}
+comment|/**      * A list of decoders to be used.      * You can use a String which have values separated by comma, and have the values be looked up in the Registry.      * Just remember to prefix the value with # so Camel knows it should lookup.      */
 DECL|method|setDecoders (List<ChannelHandler> decoders)
 specifier|public
 name|void
@@ -1811,6 +1897,7 @@ return|return
 name|encoders
 return|;
 block|}
+comment|/**      * A list of encoders to be used. You can use a String which have values separated by comma, and have the values be looked up in the Registry.      * Just remember to prefix the value with # so Camel knows it should lookup.      */
 DECL|method|setEncoders (List<ChannelHandler> encoders)
 specifier|public
 name|void
@@ -1852,6 +1939,7 @@ literal|0
 argument_list|)
 return|;
 block|}
+comment|/**      * A custom ChannelHandler class that can be used to perform special marshalling of outbound payloads. Must override org.jboss.netty.channel.ChannelDownStreamHandler.      */
 DECL|method|setEncoder (ChannelHandler encoder)
 specifier|public
 name|void
@@ -1903,6 +1991,7 @@ literal|0
 argument_list|)
 return|;
 block|}
+comment|/**      * A custom ChannelHandler class that can be used to perform special marshalling of inbound payloads. Must override org.jboss.netty.channel.ChannelUpStreamHandler.      */
 DECL|method|setDecoder (ChannelHandler decoder)
 specifier|public
 name|void
@@ -1942,6 +2031,7 @@ return|return
 name|disconnect
 return|;
 block|}
+comment|/**      * Whether or not to disconnect(close) from Netty Channel right after use. Can be used for both consumer and producer.      */
 DECL|method|setDisconnect (boolean disconnect)
 specifier|public
 name|void
@@ -1968,6 +2058,7 @@ return|return
 name|lazyChannelCreation
 return|;
 block|}
+comment|/**      * Channels can be lazily created to avoid exceptions, if the remote server is not up and running when the Camel producer is started.      */
 DECL|method|setLazyChannelCreation (boolean lazyChannelCreation)
 specifier|public
 name|void
@@ -1994,6 +2085,7 @@ return|return
 name|transferExchange
 return|;
 block|}
+comment|/**      * Only used for TCP. You can transfer the exchange over the wire instead of just the body.      * The following fields are transferred: In body, Out body, fault body, In headers, Out headers, fault headers,      * exchange properties, exchange exception.      * This requires that the objects are serializable. Camel will exclude any non-serializable objects and log it at WARN level.      */
 DECL|method|setTransferExchange (boolean transferExchange)
 specifier|public
 name|void
@@ -2020,6 +2112,7 @@ return|return
 name|disconnectOnNoReply
 return|;
 block|}
+comment|/**      * If sync is enabled then this option dictates NettyConsumer if it should disconnect where there is no reply to send back.      */
 DECL|method|setDisconnectOnNoReply (boolean disconnectOnNoReply)
 specifier|public
 name|void
@@ -2046,6 +2139,7 @@ return|return
 name|noReplyLogLevel
 return|;
 block|}
+comment|/**      * If sync is enabled this option dictates NettyConsumer which logging level to use when logging a there is no reply to send back.      */
 DECL|method|setNoReplyLogLevel (LoggingLevel noReplyLogLevel)
 specifier|public
 name|void
@@ -2072,6 +2166,7 @@ return|return
 name|serverExceptionCaughtLogLevel
 return|;
 block|}
+comment|/**      * If the server (NettyConsumer) catches an exception then its logged using this logging level.      */
 DECL|method|setServerExceptionCaughtLogLevel (LoggingLevel serverExceptionCaughtLogLevel)
 specifier|public
 name|void
@@ -2098,6 +2193,7 @@ return|return
 name|serverClosedChannelExceptionCaughtLogLevel
 return|;
 block|}
+comment|/**      * If the server (NettyConsumer) catches an java.nio.channels.ClosedChannelException then its logged using this logging level.      * This is used to avoid logging the closed channel exceptions, as clients can disconnect abruptly and then cause a flood of closed exceptions in the Netty server.      */
 DECL|method|setServerClosedChannelExceptionCaughtLogLevel (LoggingLevel serverClosedChannelExceptionCaughtLogLevel)
 specifier|public
 name|void
@@ -2124,6 +2220,7 @@ return|return
 name|allowDefaultCodec
 return|;
 block|}
+comment|/**      * The netty component installs a default codec if both, encoder/deocder is null and textline is false.      * Setting allowDefaultCodec to false prevents the netty component from installing a default codec as the first element in the filter chain.      */
 DECL|method|setAllowDefaultCodec (boolean allowDefaultCodec)
 specifier|public
 name|void
@@ -2140,6 +2237,7 @@ operator|=
 name|allowDefaultCodec
 expr_stmt|;
 block|}
+comment|/**      * To use a custom ClientPipelineFactory      */
 DECL|method|setClientPipelineFactory (ClientPipelineFactory clientPipelineFactory)
 specifier|public
 name|void
@@ -2166,6 +2264,7 @@ return|return
 name|clientPipelineFactory
 return|;
 block|}
+comment|/**      * The core pool size for the ordered thread pool, if its in use.      */
 DECL|method|getMaximumPoolSize ()
 specifier|public
 name|int
@@ -2202,6 +2301,7 @@ return|return
 name|orderedThreadPoolExecutor
 return|;
 block|}
+comment|/**      * Whether to use ordered thread pool, to ensure events are processed orderly on the same channel.      * See details at the netty javadoc of org.jboss.netty.handler.execution.OrderedMemoryAwareThreadPoolExecutor for more details.      */
 DECL|method|setOrderedThreadPoolExecutor (boolean orderedThreadPoolExecutor)
 specifier|public
 name|void
@@ -2228,6 +2328,7 @@ return|return
 name|producerPoolMaxActive
 return|;
 block|}
+comment|/**      * Sets the cap on the number of objects that can be allocated by the pool      * (checked out to clients, or idle awaiting checkout) at a given time. Use a negative value for no limit.      */
 DECL|method|setProducerPoolMaxActive (int producerPoolMaxActive)
 specifier|public
 name|void
@@ -2254,6 +2355,7 @@ return|return
 name|producerPoolMinIdle
 return|;
 block|}
+comment|/**      * Sets the minimum number of instances allowed in the producer pool before the evictor thread (if active) spawns new objects.      */
 DECL|method|setProducerPoolMinIdle (int producerPoolMinIdle)
 specifier|public
 name|void
@@ -2280,6 +2382,7 @@ return|return
 name|producerPoolMaxIdle
 return|;
 block|}
+comment|/**      * Sets the cap on the number of "idle" instances in the pool.      */
 DECL|method|setProducerPoolMaxIdle (int producerPoolMaxIdle)
 specifier|public
 name|void
@@ -2306,6 +2409,7 @@ return|return
 name|producerPoolMinEvictableIdle
 return|;
 block|}
+comment|/**      * Sets the minimum amount of time (value in millis) an object may sit idle in the pool before it is eligible for eviction by the idle object evictor.      */
 DECL|method|setProducerPoolMinEvictableIdle (long producerPoolMinEvictableIdle)
 specifier|public
 name|void
@@ -2332,6 +2436,7 @@ return|return
 name|producerPoolEnabled
 return|;
 block|}
+comment|/**      * Whether producer pool is enabled or not.      * Important: Do not turn this off, as the pooling is needed for handling concurrency and reliable request/reply.      */
 DECL|method|setProducerPoolEnabled (boolean producerPoolEnabled)
 specifier|public
 name|void
@@ -2358,6 +2463,7 @@ return|return
 name|udpConnectionlessSending
 return|;
 block|}
+comment|/**      * This option supports connection less udp sending which is a real fire and forget.      * A connected udp send receive the PortUnreachableException if no one is listen on the receiving port.      */
 DECL|method|setUdpConnectionlessSending (boolean udpConnectionlessSending)
 specifier|public
 name|void
@@ -2384,6 +2490,7 @@ return|return
 name|clientMode
 return|;
 block|}
+comment|/**      * If the clientMode is true, netty consumer will connect the address as a TCP client.      */
 DECL|method|setClientMode (boolean clientMode)
 specifier|public
 name|void
@@ -2410,6 +2517,7 @@ return|return
 name|useChannelBuffer
 return|;
 block|}
+comment|/**      * If the useChannelBuffer is true, netty producer will turn the message body into {@link ChannelBuffer} before sending it out.      */
 DECL|method|setUseChannelBuffer (boolean useChannelBuffer)
 specifier|public
 name|void
@@ -2436,6 +2544,7 @@ return|return
 name|maxChannelMemorySize
 return|;
 block|}
+comment|/**      * The maximum total size of the queued events per channel when using orderedThreadPoolExecutor.      * Specify 0 to disable.      */
 DECL|method|setMaxChannelMemorySize (long maxChannelMemorySize)
 specifier|public
 name|void
@@ -2462,6 +2571,7 @@ return|return
 name|maxTotalMemorySize
 return|;
 block|}
+comment|/**      * The maximum total size of the queued events for this pool when using orderedThreadPoolExecutor.      * Specify 0 to disable.      */
 DECL|method|setMaxTotalMemorySize (long maxTotalMemorySize)
 specifier|public
 name|void
