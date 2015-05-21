@@ -265,6 +265,16 @@ name|configuration
 operator|.
 name|getAccessToken
 argument_list|()
+argument_list|,
+name|configuration
+operator|.
+name|getEmailAddress
+argument_list|()
+argument_list|,
+name|configuration
+operator|.
+name|getP12FileName
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -311,7 +321,7 @@ name|getConfiguration
 argument_list|()
 return|;
 block|}
-comment|/**      * To use the shared configuration      */
+comment|/**      * To use the shared configuration      * @param configuration      */
 annotation|@
 name|Override
 DECL|method|setConfiguration (GoogleCalendarConfiguration configuration)
@@ -331,7 +341,7 @@ name|configuration
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * To use the GoogleCalendarClientFactory as factory for creating the client.      * Will by default use {@link BatchGoogleCalendarClientFactory}      */
+comment|/**      * To use the GoogleCalendarClientFactory as factory for creating the client.      * Will by default use {@link BatchGoogleCalendarClientFactory}      * @param clientFactory      */
 DECL|method|setClientFactory (GoogleCalendarClientFactory clientFactory)
 specifier|public
 name|void

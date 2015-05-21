@@ -224,6 +224,13 @@ name|clientId
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|emailAddress
+specifier|private
+name|String
+name|emailAddress
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|clientSecret
 specifier|private
 name|String
@@ -250,6 +257,13 @@ specifier|private
 name|String
 name|applicationName
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|p12FileName
+specifier|private
+name|String
+name|p12FileName
+decl_stmt|;
 DECL|method|getApiName ()
 specifier|public
 name|GoogleCalendarApiName
@@ -260,7 +274,7 @@ return|return
 name|apiName
 return|;
 block|}
-comment|/**      * What kind of operation to perform      */
+comment|/**      * What kind of operation to perform      * @param apiName      */
 DECL|method|setApiName (GoogleCalendarApiName apiName)
 specifier|public
 name|void
@@ -287,7 +301,7 @@ return|return
 name|methodName
 return|;
 block|}
-comment|/**      * What sub operation to use for the selected operation      */
+comment|/**      * What sub operation to use for the selected operation      * @param methodName      */
 DECL|method|setMethodName (String methodName)
 specifier|public
 name|void
@@ -314,7 +328,7 @@ return|return
 name|clientId
 return|;
 block|}
-comment|/**      * Client ID of the calendar application      */
+comment|/**      * Client ID of the calendar application      * @param clientId      */
 DECL|method|setClientId (String clientId)
 specifier|public
 name|void
@@ -331,6 +345,32 @@ operator|=
 name|clientId
 expr_stmt|;
 block|}
+DECL|method|getEmailAddress ()
+specifier|public
+name|String
+name|getEmailAddress
+parameter_list|()
+block|{
+return|return
+name|emailAddress
+return|;
+block|}
+DECL|method|setEmailAddress (String emailAddress)
+specifier|public
+name|void
+name|setEmailAddress
+parameter_list|(
+name|String
+name|emailAddress
+parameter_list|)
+block|{
+name|this
+operator|.
+name|emailAddress
+operator|=
+name|emailAddress
+expr_stmt|;
+block|}
 DECL|method|getClientSecret ()
 specifier|public
 name|String
@@ -341,7 +381,7 @@ return|return
 name|clientSecret
 return|;
 block|}
-comment|/**      * Client secret of the calendar application      */
+comment|/**      * Client secret of the calendar application      * @param clientSecret      */
 DECL|method|setClientSecret (String clientSecret)
 specifier|public
 name|void
@@ -368,7 +408,7 @@ return|return
 name|accessToken
 return|;
 block|}
-comment|/**      * OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.      */
+comment|/**      * OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.      * @param accessToken      */
 DECL|method|setAccessToken (String accessToken)
 specifier|public
 name|void
@@ -395,7 +435,7 @@ return|return
 name|refreshToken
 return|;
 block|}
-comment|/**      * OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.      */
+comment|/**      * OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.      * @param refreshToken      */
 DECL|method|setRefreshToken (String refreshToken)
 specifier|public
 name|void
@@ -422,7 +462,7 @@ return|return
 name|applicationName
 return|;
 block|}
-comment|/**      * Google calendar application name. Example would be "camel-google-calendar/1.0"      */
+comment|/**      * Google calendar application name. Example would be "camel-google-calendar/1.0"      * @param applicationName      */
 DECL|method|setApplicationName (String applicationName)
 specifier|public
 name|void
@@ -452,7 +492,7 @@ return|return
 name|scopes
 return|;
 block|}
-comment|/**      * Specifies the level of permissions you want a calendar application to have to a user account. See https://developers.google.com/google-apps/calendar/auth for more info.      */
+comment|/**      * Specifies the level of permissions you want a calendar application to have to a user account. See https://developers.google.com/google-apps/calendar/auth for more info.      * @param scopes      */
 DECL|method|setScopes (List<String> scopes)
 specifier|public
 name|void
@@ -470,6 +510,32 @@ operator|.
 name|scopes
 operator|=
 name|scopes
+expr_stmt|;
+block|}
+DECL|method|getP12FileName ()
+specifier|public
+name|String
+name|getP12FileName
+parameter_list|()
+block|{
+return|return
+name|p12FileName
+return|;
+block|}
+DECL|method|setP12FileName (String p12FileName)
+specifier|public
+name|void
+name|setP12FileName
+parameter_list|(
+name|String
+name|p12FileName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|p12FileName
+operator|=
+name|p12FileName
 expr_stmt|;
 block|}
 block|}
