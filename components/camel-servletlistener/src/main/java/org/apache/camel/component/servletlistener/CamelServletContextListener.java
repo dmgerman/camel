@@ -755,31 +755,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|// just log if we could not use all the parameters, as they may be used by others
-if|if
-condition|(
-operator|!
-name|map
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"There are {} ServletContext init parameters, unknown to Camel. Maybe they are used by other frameworks? [{}]"
-argument_list|,
-name|map
-operator|.
-name|size
-argument_list|()
-argument_list|,
-name|map
-argument_list|)
-expr_stmt|;
-block|}
 try|try
 block|{
 if|if
@@ -1037,6 +1012,31 @@ name|route
 argument_list|)
 throw|;
 block|}
+block|}
+comment|// just log if we could not use all the parameters, as they may be used by others
+if|if
+condition|(
+operator|!
+name|map
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"There are {} ServletContext init parameters, unknown to Camel. Maybe they are used by other frameworks? [{}]"
+argument_list|,
+name|map
+operator|.
+name|size
+argument_list|()
+argument_list|,
+name|map
+argument_list|)
+expr_stmt|;
 block|}
 try|try
 block|{
