@@ -434,15 +434,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Closing channel: {}"
-argument_list|,
-name|channel
-argument_list|)
-expr_stmt|;
 name|channel
 operator|.
 name|close
