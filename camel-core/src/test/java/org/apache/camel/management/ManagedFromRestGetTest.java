@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|management
@@ -119,16 +129,6 @@ operator|.
 name|rest
 operator|.
 name|RestParamType
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
 import|;
 end_import
 
@@ -338,7 +338,9 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<param paramType=\"query\" name=\"header_letter\" description=\"header param description2\" defaultValue=\"b\" required=\"false\" allowMultiple=\"true\" dataType=\"string\" paramAccess=\"acc2\">"
+literal|"<param paramType=\"query\" name=\"header_letter\" description=\"header param description2\""
+operator|+
+literal|" defaultValue=\"b\" required=\"false\" allowMultiple=\"true\" dataType=\"string\" paramAccess=\"acc2\">"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -348,7 +350,9 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<param paramType=\"header\" name=\"header_count\" description=\"header param description1\" defaultValue=\"1\" required=\"true\" allowMultiple=\"false\" dataType=\"integer\" paramAccess=\"acc1\">"
+literal|"<param paramType=\"header\" name=\"header_count\" description=\"header param description1\" "
+operator|+
+literal|"defaultValue=\"1\" required=\"true\" allowMultiple=\"false\" dataType=\"integer\" paramAccess=\"acc1\">"
 argument_list|)
 argument_list|)
 expr_stmt|;
