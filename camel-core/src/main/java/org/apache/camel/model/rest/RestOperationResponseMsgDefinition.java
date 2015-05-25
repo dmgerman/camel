@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To specify the rest operation parameters using Swagger.  *<p/>  * This maps to the Swagger Parameter Object.  * see com.wordnik.swagger.model.Parameter  * and https://github.com/swagger-api/swagger-spec/blob/master/versions/1.2.md#524-parameter-object.  */
+comment|/**  * To specify the rest operation response messages using Swagger.  *<p/>  * This maps to the Swagger Response Message Object.  * see com.wordnik.swagger.model.ResponseMessage  * and https://github.com/swagger-api/swagger-spec/blob/master/versions/1.2.md#525-response-message-object.  */
 end_comment
 
 begin_class
