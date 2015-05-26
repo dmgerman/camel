@@ -245,6 +245,13 @@ block|{
 comment|/**      * Spring-aware Camel context for the application. Auto-detects and loads all routes available in the Spring      * context.      */
 annotation|@
 name|Bean
+annotation|@
+name|ConditionalOnMissingBean
+argument_list|(
+name|CamelContext
+operator|.
+name|class
+argument_list|)
 DECL|method|camelContext (ApplicationContext applicationContext, CamelConfigurationProperties configurationProperties)
 name|CamelContext
 name|camelContext
@@ -393,6 +400,13 @@ block|}
 comment|/**      * Default producer template for the bootstrapped Camel context.      */
 annotation|@
 name|Bean
+annotation|@
+name|ConditionalOnMissingBean
+argument_list|(
+name|ProducerTemplate
+operator|.
+name|class
+argument_list|)
 DECL|method|producerTemplate (CamelContext camelContext, CamelConfigurationProperties configurationProperties)
 name|ProducerTemplate
 name|producerTemplate
@@ -419,6 +433,13 @@ block|}
 comment|/**      * Default consumer template for the bootstrapped Camel context.      */
 annotation|@
 name|Bean
+annotation|@
+name|ConditionalOnMissingBean
+argument_list|(
+name|ConsumerTemplate
+operator|.
+name|class
+argument_list|)
 DECL|method|consumerTemplate (CamelContext camelContext, CamelConfigurationProperties configurationProperties)
 name|ConsumerTemplate
 name|consumerTemplate
