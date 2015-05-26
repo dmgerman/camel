@@ -425,6 +425,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -438,6 +442,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|bridgeEndpoint
 specifier|private
 name|boolean
@@ -445,6 +454,11 @@ name|bridgeEndpoint
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|matchOnUriPrefix
 specifier|private
 name|boolean
@@ -466,6 +480,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|disableStreamCache
 specifier|private
 name|boolean
@@ -473,6 +492,11 @@ name|disableStreamCache
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|proxyHost
 specifier|private
 name|String
@@ -480,6 +504,11 @@ name|proxyHost
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|proxyPort
 specifier|private
 name|int
@@ -487,6 +516,15 @@ name|proxyPort
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|enums
+operator|=
+literal|"Basic,Digest,NTLM"
+argument_list|)
 DECL|field|authMethodPriority
 specifier|private
 name|String
@@ -501,6 +539,11 @@ name|transferException
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|traceEnabled
 specifier|private
 name|boolean
@@ -508,6 +551,11 @@ name|traceEnabled
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|httpMethodRestrict
 specifier|private
 name|String
@@ -515,6 +563,11 @@ name|httpMethodRestrict
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|responseBufferSize
 specifier|private
 name|Integer
@@ -1241,6 +1294,7 @@ return|return
 name|binding
 return|;
 block|}
+comment|/**      * To use a custom HttpBinding to control the mapping between Camel message and HttpClient.      */
 DECL|method|setBinding (HttpBinding binding)
 specifier|public
 name|void
@@ -1379,6 +1433,7 @@ return|return
 name|httpConnectionManager
 return|;
 block|}
+comment|/**      * To use a custom HttpConnectionManager to manage connections      */
 DECL|method|setHttpConnectionManager (HttpConnectionManager httpConnectionManager)
 specifier|public
 name|void
@@ -1405,6 +1460,7 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel message.      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|void
@@ -1431,6 +1487,7 @@ return|return
 name|throwExceptionOnFailure
 return|;
 block|}
+comment|/**      * Option to disable throwing the HttpOperationFailedException in case of failed responses from the remote server.      * This allows you to get all responses regardless of the HTTP status code.      */
 DECL|method|setThrowExceptionOnFailure (boolean throwExceptionOnFailure)
 specifier|public
 name|void
@@ -1457,6 +1514,7 @@ return|return
 name|bridgeEndpoint
 return|;
 block|}
+comment|/**      * If the option is true, HttpProducer will ignore the Exchange.HTTP_URI header, and use the endpoint's URI for request.      * You may also set the option throwExceptionOnFailure to be false to let the HttpProducer send all the fault response back.      */
 DECL|method|setBridgeEndpoint (boolean bridge)
 specifier|public
 name|void
@@ -1483,6 +1541,7 @@ return|return
 name|matchOnUriPrefix
 return|;
 block|}
+comment|/**      * Whether or not the consumer should try to find a target consumer by matching the URI prefix if no exact match is found.      *<p/>      * See more details at: http://camel.apache.org/how-do-i-let-jetty-match-wildcards.html      */
 DECL|method|setMatchOnUriPrefix (boolean match)
 specifier|public
 name|void
@@ -1511,6 +1570,7 @@ operator|.
 name|disableStreamCache
 return|;
 block|}
+comment|/**      * Determines whether or not the raw input stream from Jetty is cached or not      * (Camel will read the stream into a in memory/overflow to file, Stream caching) cache.      * By default Camel will cache the Jetty input stream to support reading it multiple times to ensure it Camel      * can retrieve all data from the stream. However you can set this option to true when you for example need      * to access the raw stream, such as streaming it directly to a file or other persistent store.      * DefaultHttpBinding will copy the request input stream into a stream cache and put it into message bod      * if this option is false to support reading the stream multiple times.      * If you use Jetty to bridge/proxy an endpoint then consider enabling this option to improve performance,      * in case you do not need to read the message payload multiple times.      */
 DECL|method|setDisableStreamCache (boolean disable)
 specifier|public
 name|void
@@ -1539,6 +1599,7 @@ operator|.
 name|chunked
 return|;
 block|}
+comment|/**      * If this option is false Jetty servlet will disable the HTTP streaming and set the content-length header on the response      */
 DECL|method|setChunked (boolean chunked)
 specifier|public
 name|void
@@ -1565,6 +1626,7 @@ return|return
 name|proxyHost
 return|;
 block|}
+comment|/**      * The proxy host name      */
 DECL|method|setProxyHost (String proxyHost)
 specifier|public
 name|void
@@ -1591,6 +1653,7 @@ return|return
 name|proxyPort
 return|;
 block|}
+comment|/**      * The proxy port number      */
 DECL|method|setProxyPort (int proxyPort)
 specifier|public
 name|void
@@ -1617,6 +1680,7 @@ return|return
 name|authMethodPriority
 return|;
 block|}
+comment|/**      * Authentication method for proxy, either as Basic, Digest or NTLM.      */
 DECL|method|setAuthMethodPriority (String authMethodPriority)
 specifier|public
 name|void
@@ -1643,6 +1707,7 @@ return|return
 name|transferException
 return|;
 block|}
+comment|/**      * Option to disable throwing the HttpOperationFailedException in case of failed responses from the remote server.      * This allows you to get all responses regardless of the HTTP status code.      */
 DECL|method|setTransferException (boolean transferException)
 specifier|public
 name|void
@@ -1671,6 +1736,7 @@ operator|.
 name|traceEnabled
 return|;
 block|}
+comment|/**      * Specifies whether to enable HTTP TRACE for this Jetty consumer. By default TRACE is turned off.      */
 DECL|method|setTraceEnabled (boolean traceEnabled)
 specifier|public
 name|void
@@ -1697,6 +1763,7 @@ return|return
 name|httpMethodRestrict
 return|;
 block|}
+comment|/**      * Used to only allow consuming if the HttpMethod matches, such as GET/POST/PUT etc.      * Multiple methods can be specified separated by comma.      */
 DECL|method|setHttpMethodRestrict (String httpMethodRestrict)
 specifier|public
 name|void
@@ -1723,6 +1790,7 @@ return|return
 name|urlRewrite
 return|;
 block|}
+comment|/**      * Refers to a custom org.apache.camel.component.http.UrlRewrite which allows you to rewrite urls when you bridge/proxy endpoints.      * See more details at http://camel.apache.org/urlrewrite.html      */
 DECL|method|setUrlRewrite (UrlRewrite urlRewrite)
 specifier|public
 name|void
@@ -1749,6 +1817,7 @@ return|return
 name|responseBufferSize
 return|;
 block|}
+comment|/**      * To use a custom buffer size on the javax.servlet.ServletResponse.      */
 DECL|method|setResponseBufferSize (Integer responseBufferSize)
 specifier|public
 name|void

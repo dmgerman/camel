@@ -1820,6 +1820,7 @@ return|return
 name|httpClientConfigurer
 return|;
 block|}
+comment|/**      * To use the custom HttpClientConfigurer to perform configuration of the HttpClient that will be used.      */
 DECL|method|setHttpClientConfigurer (HttpClientConfigurer httpClientConfigurer)
 specifier|public
 name|void
@@ -1846,6 +1847,7 @@ return|return
 name|httpConnectionManager
 return|;
 block|}
+comment|/**      * To use a custom HttpConnectionManager to manage connections      */
 DECL|method|setHttpConnectionManager (HttpConnectionManager httpConnectionManager)
 specifier|public
 name|void
@@ -1872,6 +1874,7 @@ return|return
 name|httpBinding
 return|;
 block|}
+comment|/**      * To use a custom HttpBinding to control the mapping between Camel message and HttpClient.      */
 DECL|method|setHttpBinding (HttpBinding httpBinding)
 specifier|public
 name|void
@@ -1898,6 +1901,7 @@ return|return
 name|httpConfiguration
 return|;
 block|}
+comment|/**      * To use the shared HttpConfiguration as base configuration.      */
 DECL|method|setHttpConfiguration (HttpConfiguration httpConfiguration)
 specifier|public
 name|void

@@ -36,7 +36,7 @@ block|,
 name|Digest
 block|,
 name|NTLM
-block|; }
+block|}
 end_enum
 
 end_unit
