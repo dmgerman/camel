@@ -816,7 +816,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Cannot put the message header key={0}, value={1} into Sqs MessageAttribute"
+literal|"Cannot put the message header key={}, value={} into Sqs MessageAttribute"
 argument_list|,
 name|entry
 operator|.
