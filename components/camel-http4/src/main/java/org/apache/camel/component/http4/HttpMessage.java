@@ -225,7 +225,7 @@ comment|// implementation of the binding
 name|getEndpoint
 argument_list|()
 operator|.
-name|getBinding
+name|getHttpBinding
 argument_list|()
 operator|.
 name|readRequest
@@ -270,7 +270,7 @@ return|return
 name|getEndpoint
 argument_list|()
 operator|.
-name|getBinding
+name|getHttpBinding
 argument_list|()
 operator|.
 name|parseBody

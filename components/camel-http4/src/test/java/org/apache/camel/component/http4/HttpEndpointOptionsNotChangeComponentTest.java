@@ -222,7 +222,7 @@ name|class
 argument_list|,
 name|end
 operator|.
-name|getBinding
+name|getHttpBinding
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -249,7 +249,7 @@ name|class
 argument_list|,
 name|end2
 operator|.
-name|getBinding
+name|getHttpBinding
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -276,7 +276,7 @@ name|class
 argument_list|,
 name|end3
 operator|.
-name|getBinding
+name|getHttpBinding
 argument_list|()
 argument_list|)
 expr_stmt|;

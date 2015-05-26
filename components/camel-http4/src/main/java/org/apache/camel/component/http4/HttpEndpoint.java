@@ -457,6 +457,10 @@ argument_list|(
 name|required
 operator|=
 literal|"true"
+argument_list|,
+name|label
+operator|=
+literal|"producer"
 argument_list|)
 DECL|field|httpUri
 specifier|private
@@ -476,14 +480,18 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|binding
+DECL|field|httpBinding
 specifier|private
 name|HttpBinding
-name|binding
+name|httpBinding
 decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -497,6 +505,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|bridgeEndpoint
 specifier|private
 name|boolean
@@ -504,6 +517,11 @@ name|bridgeEndpoint
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|matchOnUriPrefix
 specifier|private
 name|boolean
@@ -525,6 +543,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|disableStreamCache
 specifier|private
 name|boolean
@@ -539,6 +562,11 @@ name|transferException
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|traceEnabled
 specifier|private
 name|boolean
@@ -546,6 +574,11 @@ name|traceEnabled
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|authenticationPreemptive
 specifier|private
 name|boolean
@@ -553,6 +586,11 @@ name|authenticationPreemptive
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|httpMethodRestrict
 specifier|private
 name|String
@@ -561,6 +599,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -1231,7 +1273,7 @@ return|return
 name|httpContext
 return|;
 block|}
-comment|/**      * Register a custom configuration strategy for new {@link HttpClient} instances      * created by producers or consumers such as to configure authentication mechanisms etc      *      * @param httpClientConfigurer the strategy for configuring new {@link HttpClient} instances      */
+comment|/**      * Register a custom configuration strategy for new {@link HttpClient} instances      * created by producers or consumers such as to configure authentication mechanisms etc      */
 DECL|method|setHttpClientConfigurer (HttpClientConfigurer httpClientConfigurer)
 specifier|public
 name|void
@@ -1248,27 +1290,27 @@ operator|=
 name|httpClientConfigurer
 expr_stmt|;
 block|}
-DECL|method|getBinding ()
+DECL|method|getHttpBinding ()
 specifier|public
 name|HttpBinding
-name|getBinding
+name|getHttpBinding
 parameter_list|()
 block|{
 if|if
 condition|(
-name|binding
+name|httpBinding
 operator|==
 literal|null
 condition|)
 block|{
 comment|// create a new binding and use the options from this endpoint
-name|binding
+name|httpBinding
 operator|=
 operator|new
 name|DefaultHttpBinding
 argument_list|()
 expr_stmt|;
-name|binding
+name|httpBinding
 operator|.
 name|setHeaderFilterStrategy
 argument_list|(
@@ -1276,7 +1318,7 @@ name|getHeaderFilterStrategy
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|binding
+name|httpBinding
 operator|.
 name|setTransferException
 argument_list|(
@@ -1286,55 +1328,24 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|binding
+name|httpBinding
 return|;
 block|}
-DECL|method|setBinding (HttpBinding binding)
-specifier|public
-name|void
-name|setBinding
-parameter_list|(
-name|HttpBinding
-name|binding
-parameter_list|)
-block|{
-name|this
-operator|.
-name|binding
-operator|=
-name|binding
-expr_stmt|;
-block|}
-DECL|method|setHttpBinding (HttpBinding binding)
+comment|/**      * To use a custom HttpBinding to control the mapping between Camel message and HttpClient.      */
+DECL|method|setHttpBinding (HttpBinding httpBinding)
 specifier|public
 name|void
 name|setHttpBinding
 parameter_list|(
 name|HttpBinding
-name|binding
+name|httpBinding
 parameter_list|)
 block|{
 name|this
 operator|.
-name|binding
+name|httpBinding
 operator|=
-name|binding
-expr_stmt|;
-block|}
-DECL|method|setHttpBindingRef (HttpBinding binding)
-specifier|public
-name|void
-name|setHttpBindingRef
-parameter_list|(
-name|HttpBinding
-name|binding
-parameter_list|)
-block|{
-name|this
-operator|.
-name|binding
-operator|=
-name|binding
+name|httpBinding
 expr_stmt|;
 block|}
 DECL|method|setHttpContext (HttpContext httpContext)
@@ -1456,6 +1467,7 @@ return|return
 name|httpUri
 return|;
 block|}
+comment|/**      * The url of the HTTP endpoint to call.      */
 DECL|method|setHttpUri (URI httpUri)
 specifier|public
 name|void
@@ -1482,6 +1494,7 @@ return|return
 name|clientConnectionManager
 return|;
 block|}
+comment|/**      * To use a custom HttpClientConnectionManager to manage connections      */
 DECL|method|setClientConnectionManager (HttpClientConnectionManager clientConnectionManager)
 specifier|public
 name|void
@@ -1508,6 +1521,7 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel message.      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|void
@@ -1534,6 +1548,7 @@ return|return
 name|throwExceptionOnFailure
 return|;
 block|}
+comment|/**      * Option to disable throwing the HttpOperationFailedException in case of failed responses from the remote server.      * This allows you to get all responses regardless of the HTTP status code.      */
 DECL|method|setThrowExceptionOnFailure (boolean throwExceptionOnFailure)
 specifier|public
 name|void
@@ -1560,6 +1575,7 @@ return|return
 name|bridgeEndpoint
 return|;
 block|}
+comment|/**      * If the option is true, HttpProducer will ignore the Exchange.HTTP_URI header, and use the endpoint's URI for request.      * You may also set the option throwExceptionOnFailure to be false to let the HttpProducer send all the fault response back.      */
 DECL|method|setBridgeEndpoint (boolean bridge)
 specifier|public
 name|void
@@ -1586,6 +1602,7 @@ return|return
 name|matchOnUriPrefix
 return|;
 block|}
+comment|/**      * Whether or not the consumer should try to find a target consumer by matching the URI prefix if no exact match is found.      *<p/>      * See more details at: http://camel.apache.org/how-do-i-let-jetty-match-wildcards.html      */
 DECL|method|setMatchOnUriPrefix (boolean match)
 specifier|public
 name|void
@@ -1614,6 +1631,7 @@ operator|.
 name|disableStreamCache
 return|;
 block|}
+comment|/**      * Determines whether or not the raw input stream from Jetty is cached or not      * (Camel will read the stream into a in memory/overflow to file, Stream caching) cache.      * By default Camel will cache the Jetty input stream to support reading it multiple times to ensure it Camel      * can retrieve all data from the stream. However you can set this option to true when you for example need      * to access the raw stream, such as streaming it directly to a file or other persistent store.      * DefaultHttpBinding will copy the request input stream into a stream cache and put it into message bod      * if this option is false to support reading the stream multiple times.      * If you use Jetty to bridge/proxy an endpoint then consider enabling this option to improve performance,      * in case you do not need to read the message payload multiple times.      */
 DECL|method|setDisableStreamCache (boolean disable)
 specifier|public
 name|void
@@ -1642,6 +1660,7 @@ operator|.
 name|chunked
 return|;
 block|}
+comment|/**      * If this option is false Jetty servlet will disable the HTTP streaming and set the content-length header on the response      */
 DECL|method|setChunked (boolean chunked)
 specifier|public
 name|void
@@ -1668,6 +1687,7 @@ return|return
 name|transferException
 return|;
 block|}
+comment|/**      * Option to disable throwing the HttpOperationFailedException in case of failed responses from the remote server.      * This allows you to get all responses regardless of the HTTP status code.      */
 DECL|method|setTransferException (boolean transferException)
 specifier|public
 name|void
@@ -1696,6 +1716,7 @@ operator|.
 name|traceEnabled
 return|;
 block|}
+comment|/**      * Specifies whether to enable HTTP TRACE for this Jetty consumer. By default TRACE is turned off.      */
 DECL|method|setTraceEnabled (boolean traceEnabled)
 specifier|public
 name|void
@@ -1722,6 +1743,7 @@ return|return
 name|httpMethodRestrict
 return|;
 block|}
+comment|/**      * Used to only allow consuming if the HttpMethod matches, such as GET/POST/PUT etc.      * Multiple methods can be specified separated by comma.      */
 DECL|method|setHttpMethodRestrict (String httpMethodRestrict)
 specifier|public
 name|void
@@ -1748,6 +1770,7 @@ return|return
 name|urlRewrite
 return|;
 block|}
+comment|/**      * Refers to a custom org.apache.camel.component.http.UrlRewrite which allows you to rewrite urls when you bridge/proxy endpoints.      * See more details at http://camel.apache.org/urlrewrite.html      */
 DECL|method|setUrlRewrite (UrlRewrite urlRewrite)
 specifier|public
 name|void
@@ -1774,6 +1797,7 @@ return|return
 name|clearExpiredCookies
 return|;
 block|}
+comment|/**      * Whether to clear expired cookies before sending the HTTP request.      * This ensures the cookies store does not keep growing by adding new cookies which is newer removed when they are expired.      */
 DECL|method|setClearExpiredCookies (boolean clearExpiredCookies)
 specifier|public
 name|void
@@ -1800,6 +1824,7 @@ return|return
 name|cookieStore
 return|;
 block|}
+comment|/**      * To use a custom org.apache.http.client.CookieStore.      * By default the org.apache.http.impl.client.BasicCookieStore is used which is an in-memory only cookie store.      * Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie      * shouldn't be stored as we are just bridging (eg acting as a proxy).      */
 DECL|method|setCookieStore (CookieStore cookieStore)
 specifier|public
 name|void
@@ -1826,6 +1851,7 @@ return|return
 name|authenticationPreemptive
 return|;
 block|}
+comment|/**      * If this option is true, camel-http4 sends preemptive basic authentication to the server.      */
 DECL|method|setAuthenticationPreemptive (boolean authenticationPreemptive)
 specifier|public
 name|void

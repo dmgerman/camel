@@ -1701,7 +1701,7 @@ expr_stmt|;
 block|}
 name|endpoint
 operator|.
-name|setBinding
+name|setHttpBinding
 argument_list|(
 name|getHttpBinding
 argument_list|()
@@ -2096,6 +2096,7 @@ return|return
 name|httpClientConfigurer
 return|;
 block|}
+comment|/**      * To use the custom HttpClientConfigurer to perform configuration of the HttpClient that will be used.      */
 DECL|method|setHttpClientConfigurer (HttpClientConfigurer httpClientConfigurer)
 specifier|public
 name|void
@@ -2122,6 +2123,7 @@ return|return
 name|clientConnectionManager
 return|;
 block|}
+comment|/**      * To use a custom HttpClientConnectionManager to manage connections      */
 DECL|method|setClientConnectionManager (HttpClientConnectionManager clientConnectionManager)
 specifier|public
 name|void
@@ -2148,6 +2150,7 @@ return|return
 name|httpBinding
 return|;
 block|}
+comment|/**      * To use a custom HttpBinding to control the mapping between Camel message and HttpClient.      */
 DECL|method|setHttpBinding (HttpBinding httpBinding)
 specifier|public
 name|void
@@ -2174,6 +2177,7 @@ return|return
 name|httpContext
 return|;
 block|}
+comment|/**      * To use a custom org.apache.http.protocol.HttpContext when executing requests.      */
 DECL|method|setHttpContext (HttpContext httpContext)
 specifier|public
 name|void
@@ -2200,6 +2204,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
+comment|/**      * To configure security using SSLContextParameters.      * Important: Only one instance of org.apache.camel.util.jsse.SSLContextParameters is supported per HttpComponent.      * If you need to use 2 or more different instances, you need to define a new HttpComponent per instance you need.      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
@@ -2226,6 +2231,7 @@ return|return
 name|x509HostnameVerifier
 return|;
 block|}
+comment|/**      * To use a custom X509HostnameVerifier such as org.apache.http.conn.ssl.StrictHostnameVerifier      * or org.apache.http.conn.ssl.AllowAllHostnameVerifier.      */
 DECL|method|setX509HostnameVerifier (X509HostnameVerifier x509HostnameVerifier)
 specifier|public
 name|void
@@ -2252,6 +2258,7 @@ return|return
 name|maxTotalConnections
 return|;
 block|}
+comment|/**      * The maximum number of connections.      */
 DECL|method|setMaxTotalConnections (int maxTotalConnections)
 specifier|public
 name|void
@@ -2278,6 +2285,7 @@ return|return
 name|connectionsPerRoute
 return|;
 block|}
+comment|/**      * The maximum number of connections per route.      */
 DECL|method|setConnectionsPerRoute (int connectionsPerRoute)
 specifier|public
 name|void
@@ -2304,6 +2312,7 @@ return|return
 name|connectionTimeToLive
 return|;
 block|}
+comment|/**      * The time for connection to live, the time unit is millisecond, the default value is always keep alive.      */
 DECL|method|setConnectionTimeToLive (long connectionTimeToLive)
 specifier|public
 name|void
@@ -2330,6 +2339,7 @@ return|return
 name|cookieStore
 return|;
 block|}
+comment|/**      * To use a custom org.apache.http.client.CookieStore.      * By default the org.apache.http.impl.client.BasicCookieStore is used which is an in-memory only cookie store.      * Notice if bridgeEndpoint=true then the cookie store is forced to be a noop cookie store as cookie      * shouldn't be stored as we are just bridging (eg acting as a proxy).      */
 DECL|method|setCookieStore (CookieStore cookieStore)
 specifier|public
 name|void

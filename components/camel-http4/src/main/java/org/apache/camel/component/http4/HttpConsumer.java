@@ -124,7 +124,7 @@ return|return
 name|getEndpoint
 argument_list|()
 operator|.
-name|getBinding
+name|getHttpBinding
 argument_list|()
 return|;
 block|}
