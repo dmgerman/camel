@@ -186,7 +186,12 @@ name|socketAudits
 init|=
 operator|new
 name|HashMap
-argument_list|<>
+argument_list|<
+name|Integer
+argument_list|,
+name|boolean
+index|[]
+argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|method|getFtpUrl ()
