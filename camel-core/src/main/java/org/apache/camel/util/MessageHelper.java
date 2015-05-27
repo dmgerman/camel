@@ -2077,7 +2077,7 @@ condition|(
 operator|!
 name|strategy
 operator|.
-name|applyFilterToCamelHeaders
+name|applyFilterToExternalHeaders
 argument_list|(
 name|key
 argument_list|,

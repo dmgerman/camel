@@ -656,7 +656,7 @@ argument_list|()
 decl_stmt|;
 name|headerFilterStrategy
 operator|.
-name|setOutFilterPattern
+name|setInFilterPattern
 argument_list|(
 literal|"foo"
 argument_list|)

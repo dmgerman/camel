@@ -164,6 +164,22 @@ name|component
 operator|.
 name|http
 operator|.
+name|HttpProtocolHeaderFilterStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|http
+operator|.
 name|helper
 operator|.
 name|HttpHelper
@@ -267,6 +283,15 @@ name|headerFilterStrategy
 init|=
 operator|new
 name|HttpHeaderFilterStrategy
+argument_list|()
+decl_stmt|;
+DECL|field|httpProtocolHeaderFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|httpProtocolHeaderFilterStrategy
+init|=
+operator|new
+name|HttpProtocolHeaderFilterStrategy
 argument_list|()
 decl_stmt|;
 DECL|field|throwExceptionOnFailure
@@ -681,7 +706,7 @@ block|}
 block|}
 comment|// preserve headers from in by copying any non existing headers
 comment|// to avoid overriding existing headers with old values
-comment|// We also need to apply the HeaderFilterStrategy here
+comment|// We also need to apply the httpProtocolHeaderFilterStrategy to filter the http protocol header
 name|MessageHelper
 operator|.
 name|copyHeaders
@@ -693,7 +718,7 @@ argument_list|()
 argument_list|,
 name|answer
 argument_list|,
-name|strategy
+name|httpProtocolHeaderFilterStrategy
 argument_list|,
 literal|false
 argument_list|)
