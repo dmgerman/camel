@@ -376,6 +376,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|MessageHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -416,8 +430,15 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-annotation|@
-name|Override
+DECL|field|httpProtocolHeaderFilterStrategy
+specifier|protected
+name|HeaderFilterStrategy
+name|httpProtocolHeaderFilterStrategy
+init|=
+operator|new
+name|HttpProtocolHeaderFilterStrategy
+argument_list|()
+decl_stmt|;
 DECL|method|prepareRequest (AhcEndpoint endpoint, Exchange exchange)
 specifier|public
 name|Request
@@ -1243,20 +1264,26 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|exchange
+comment|// preserve headers from in by copying any non existing headers
+comment|// to avoid overriding existing headers with old values
+comment|// Just filter the http protocol headers
+name|MessageHelper
 operator|.
-name|getOut
-argument_list|()
-operator|.
-name|setHeaders
+name|copyHeaders
 argument_list|(
 name|exchange
 operator|.
 name|getIn
 argument_list|()
+argument_list|,
+name|exchange
 operator|.
-name|getHeaders
+name|getOut
 argument_list|()
+argument_list|,
+name|httpProtocolHeaderFilterStrategy
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|exchange
