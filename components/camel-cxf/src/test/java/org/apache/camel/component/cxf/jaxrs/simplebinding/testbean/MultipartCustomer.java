@@ -197,6 +197,12 @@ return|;
 block|}
 annotation|@
 name|POST
+annotation|@
+name|Path
+argument_list|(
+literal|"/withoutParameters"
+argument_list|)
+comment|// Added the path due to change of CXF-6321
 DECL|method|multipartPostWithoutParameters ( @ultipartvalue = R, type = R) DataHandler dh1, @Multipart(value = R, type = R) DataHandler dh2, @Multipart(value = R, type = R) Customer request)
 specifier|public
 name|Response

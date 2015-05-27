@@ -2734,7 +2734,7 @@ literal|"http://localhost:"
 operator|+
 name|PORT_PATH
 operator|+
-literal|"/rest/customerservice/customers/multipart"
+literal|"/rest/customerservice/customers/multipart/withoutParameters"
 argument_list|)
 decl_stmt|;
 name|MultipartEntityBuilder
