@@ -581,6 +581,15 @@ specifier|private
 name|boolean
 name|transferException
 decl_stmt|;
+DECL|field|httpProtocolHeaderFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|httpProtocolHeaderFilterStrategy
+init|=
+operator|new
+name|HttpProtocolHeaderFilterStrategy
+argument_list|()
+decl_stmt|;
 DECL|method|HttpProducer (HttpEndpoint endpoint)
 specifier|public
 name|HttpProducer
@@ -1324,6 +1333,7 @@ block|}
 block|}
 comment|// preserve headers from in by copying any non existing headers
 comment|// to avoid overriding existing headers with old values
+comment|// Just filter the http protocol headers
 name|MessageHelper
 operator|.
 name|copyHeaders
@@ -1334,6 +1344,8 @@ name|getIn
 argument_list|()
 argument_list|,
 name|answer
+argument_list|,
+name|httpProtocolHeaderFilterStrategy
 argument_list|,
 literal|false
 argument_list|)
