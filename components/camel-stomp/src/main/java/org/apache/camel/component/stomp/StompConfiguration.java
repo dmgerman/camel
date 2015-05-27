@@ -117,6 +117,13 @@ specifier|private
 name|String
 name|passcode
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|host
+specifier|private
+name|String
+name|host
+decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
 specifier|public
@@ -162,6 +169,16 @@ parameter_list|()
 block|{
 return|return
 name|brokerURL
+return|;
+block|}
+DECL|method|getHost ()
+specifier|public
+name|String
+name|getHost
+parameter_list|()
+block|{
+return|return
+name|host
 return|;
 block|}
 comment|/**      * The URI of the Stomp broker to connect to      */
