@@ -462,6 +462,18 @@ condition|(
 name|loggedIn
 condition|)
 block|{
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isSendNoop
+argument_list|()
+condition|)
+block|{
 try|try
 block|{
 name|noop
@@ -490,7 +502,6 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
-block|}
 name|log
 operator|.
 name|trace
@@ -500,6 +511,23 @@ argument_list|,
 name|noop
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// okay send noop is disabled then we would regard the op as success
+name|noop
+operator|=
+literal|true
+expr_stmt|;
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"preWriteCheck send noop disabled"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|// if not alive then reconnect
 if|if
 condition|(

@@ -320,6 +320,24 @@ specifier|private
 name|boolean
 name|ignoreFileNotFoundOrPermissionError
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|sendNoop
+specifier|private
+name|boolean
+name|sendNoop
+init|=
+literal|true
+decl_stmt|;
 DECL|method|RemoteFileConfiguration ()
 specifier|public
 name|RemoteFileConfiguration
@@ -1041,6 +1059,33 @@ operator|.
 name|ignoreFileNotFoundOrPermissionError
 operator|=
 name|ignoreFileNotFoundOrPermissionError
+expr_stmt|;
+block|}
+DECL|method|isSendNoop ()
+specifier|public
+name|boolean
+name|isSendNoop
+parameter_list|()
+block|{
+return|return
+name|sendNoop
+return|;
+block|}
+comment|/**      * Whether to send a noop command as a pre-write check before uploading files to the FTP server.      *<p/>      * This is enabled by default as a validation of the connection is still valid, which allows to silently      * re-connect to be able to upload the file. However if this causes problems, you can turn this option off.      */
+DECL|method|setSendNoop (boolean sendNoop)
+specifier|public
+name|void
+name|setSendNoop
+parameter_list|(
+name|boolean
+name|sendNoop
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sendNoop
+operator|=
+name|sendNoop
 expr_stmt|;
 block|}
 comment|/**      * Normalizes the given path according to the configured path separator.      *      * @param path  the given path      * @return the normalized path      */
