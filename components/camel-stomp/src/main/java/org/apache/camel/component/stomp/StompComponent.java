@@ -264,6 +264,25 @@ name|passcode
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The virtual host      */
+DECL|method|setHost (String host)
+specifier|public
+name|void
+name|setHost
+parameter_list|(
+name|String
+name|host
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setHost
+argument_list|(
+name|host
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
