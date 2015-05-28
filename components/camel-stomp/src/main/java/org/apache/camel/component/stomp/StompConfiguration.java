@@ -181,6 +181,22 @@ return|return
 name|host
 return|;
 block|}
+DECL|method|setHost (String host)
+specifier|public
+name|void
+name|setHost
+parameter_list|(
+name|String
+name|host
+parameter_list|)
+block|{
+name|this
+operator|.
+name|host
+operator|=
+name|host
+expr_stmt|;
+block|}
 comment|/**      * The URI of the Stomp broker to connect to      */
 DECL|method|setBrokerURL (String brokerURL)
 specifier|public
