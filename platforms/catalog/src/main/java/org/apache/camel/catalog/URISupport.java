@@ -1049,13 +1049,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Assembles a query from the given map.      *      * @param options  the map with the options (eg key/value pairs)      * @return a query string with<tt>key1=value&key2=value2&...</tt>, or an empty string if there is no options.      * @throws URISyntaxException is thrown if uri has invalid syntax.      */
+comment|/**      * Assembles a query from the given map.      *      * @param options  the map with the options (eg key/value pairs)      * @param ampersand to use& for Java code, and&amp; for XML      * @return a query string with<tt>key1=value&key2=value2&...</tt>, or an empty string if there is no options.      * @throws URISyntaxException is thrown if uri has invalid syntax.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|createQueryString (Map<String, String> options)
+DECL|method|createQueryString (Map<String, String> options, String ampersand)
 specifier|public
 specifier|static
 name|String
@@ -1068,6 +1068,9 @@ argument_list|,
 name|String
 argument_list|>
 name|options
+parameter_list|,
+name|String
+name|ampersand
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -1123,7 +1126,7 @@ name|rc
 operator|.
 name|append
 argument_list|(
-literal|"&"
+name|ampersand
 argument_list|)
 expr_stmt|;
 block|}
