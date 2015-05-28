@@ -181,6 +181,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * The virtual host name      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
