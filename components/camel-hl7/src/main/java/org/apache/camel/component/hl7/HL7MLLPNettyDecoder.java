@@ -258,6 +258,8 @@ operator|!=
 literal|null
 condition|)
 block|{
+try|try
+block|{
 name|int
 name|pos
 init|=
@@ -342,6 +344,15 @@ name|getStartByte
 argument_list|()
 argument_list|)
 throw|;
+block|}
+block|}
+finally|finally
+block|{
+name|buf
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 comment|// Message not complete yet - return null to be called again
