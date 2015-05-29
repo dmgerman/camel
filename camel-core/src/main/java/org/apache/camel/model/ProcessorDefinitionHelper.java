@@ -1187,6 +1187,18 @@ name|choice
 argument_list|)
 expr_stmt|;
 block|}
+comment|// only look at when/otherwise if current< maxDeep (or max deep is disabled)
+if|if
+condition|(
+name|maxDeep
+operator|<
+literal|0
+operator|||
+name|current
+operator|<
+name|maxDeep
+condition|)
+block|{
 for|for
 control|(
 name|WhenDefinition
@@ -1291,6 +1303,7 @@ name|maxDeep
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 comment|// do not check children as we already did that
 continue|continue;
 block|}
@@ -1332,6 +1345,18 @@ name|doTry
 argument_list|)
 expr_stmt|;
 block|}
+comment|// only look at children if current< maxDeep (or max deep is disabled)
+if|if
+condition|(
+name|maxDeep
+operator|<
+literal|0
+operator|||
+name|current
+operator|<
+name|maxDeep
+condition|)
+block|{
 name|List
 argument_list|<
 name|ProcessorDefinition
@@ -1427,6 +1452,7 @@ argument_list|,
 name|maxDeep
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// do not check children as we already did that
 continue|continue;
