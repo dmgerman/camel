@@ -116,10 +116,10 @@ name|JdbcComponent
 extends|extends
 name|UriEndpointComponent
 block|{
-DECL|field|ds
+DECL|field|dataSource
 specifier|private
 name|DataSource
-name|ds
+name|dataSource
 decl_stmt|;
 DECL|method|JdbcComponent ()
 specifier|public
@@ -179,9 +179,14 @@ block|{
 name|DataSource
 name|dataSource
 decl_stmt|;
+name|String
+name|dataSourceRef
+decl_stmt|;
 if|if
 condition|(
-name|ds
+name|this
+operator|.
+name|dataSource
 operator|!=
 literal|null
 condition|)
@@ -189,7 +194,13 @@ block|{
 comment|// prefer to use datasource set by setter
 name|dataSource
 operator|=
-name|ds
+name|this
+operator|.
+name|dataSource
+expr_stmt|;
+name|dataSourceRef
+operator|=
+literal|"component"
 expr_stmt|;
 block|}
 else|else
@@ -209,6 +220,10 @@ name|DataSource
 operator|.
 name|class
 argument_list|)
+expr_stmt|;
+name|dataSourceRef
+operator|=
+name|remaining
 expr_stmt|;
 block|}
 name|Map
@@ -243,6 +258,13 @@ argument_list|)
 decl_stmt|;
 name|jdbc
 operator|.
+name|setDataSourceName
+argument_list|(
+name|dataSourceRef
+argument_list|)
+expr_stmt|;
+name|jdbc
+operator|.
 name|setParameters
 argument_list|(
 name|params
@@ -271,7 +293,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|ds
+name|dataSource
 operator|=
 name|dataSource
 expr_stmt|;

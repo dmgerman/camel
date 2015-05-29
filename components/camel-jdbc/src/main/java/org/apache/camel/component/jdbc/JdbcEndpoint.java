@@ -174,7 +174,7 @@ literal|"JDBC"
 argument_list|,
 name|syntax
 operator|=
-literal|"jdbc:dataSource"
+literal|"jdbc:dataSourceName"
 argument_list|,
 name|producerOnly
 operator|=
@@ -191,6 +191,11 @@ name|JdbcEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
+DECL|field|dataSource
+specifier|private
+name|DataSource
+name|dataSource
+decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -200,10 +205,10 @@ name|required
 operator|=
 literal|"true"
 argument_list|)
-DECL|field|dataSource
+DECL|field|dataSourceName
 specifier|private
-name|DataSource
-name|dataSource
+name|String
+name|dataSourceName
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -406,6 +411,33 @@ argument_list|,
 name|parameters
 argument_list|)
 return|;
+block|}
+DECL|method|getDataSourceName ()
+specifier|public
+name|String
+name|getDataSourceName
+parameter_list|()
+block|{
+return|return
+name|dataSourceName
+return|;
+block|}
+comment|/**      * Name of DataSource to lookup in the Registry.      */
+DECL|method|setDataSourceName (String dataSourceName)
+specifier|public
+name|void
+name|setDataSourceName
+parameter_list|(
+name|String
+name|dataSourceName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dataSourceName
+operator|=
+name|dataSourceName
+expr_stmt|;
 block|}
 DECL|method|getReadSize ()
 specifier|public
@@ -750,6 +782,14 @@ name|createEndpointUri
 parameter_list|()
 block|{
 return|return
+name|dataSourceName
+operator|!=
+literal|null
+condition|?
+literal|"jdbc:"
+operator|+
+name|dataSourceName
+else|:
 literal|"jdbc"
 return|;
 block|}
