@@ -348,6 +348,7 @@ block|}
 block|}
 finally|finally
 block|{
+comment|// We need to release the buf here to avoid the memory leak
 name|buf
 operator|.
 name|release
