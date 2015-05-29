@@ -329,6 +329,39 @@ specifier|private
 name|Integer
 name|httpProxyPort
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|latitude
+specifier|private
+name|Double
+name|latitude
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|longitude
+specifier|private
+name|Double
+name|longitude
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|radius
+specifier|private
+name|Double
+name|radius
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"km"
+argument_list|)
+DECL|field|distanceMetric
+specifier|private
+name|String
+name|distanceMetric
+decl_stmt|;
 comment|/**      * Singleton, on demand instances of Twitter4J's Twitter& TwitterStream.      * This should not be created by an endpoint's doStart(), etc., since      * instances of twitter and/or twitterStream can be supplied by the route      * itself.  Further, as an example, we don't want to initialize twitter      * if we only need twitterStream.      */
 DECL|field|twitter
 specifier|private
@@ -1120,6 +1153,114 @@ block|{
 return|return
 name|httpProxyPort
 return|;
+block|}
+DECL|method|getLongitude ()
+specifier|public
+name|Double
+name|getLongitude
+parameter_list|()
+block|{
+return|return
+name|longitude
+return|;
+block|}
+comment|/**      * Used by the non-stream geography search.      * @param longitude      */
+DECL|method|setLongitude (Double longitude)
+specifier|public
+name|void
+name|setLongitude
+parameter_list|(
+name|Double
+name|longitude
+parameter_list|)
+block|{
+name|this
+operator|.
+name|longitude
+operator|=
+name|longitude
+expr_stmt|;
+block|}
+DECL|method|getRadius ()
+specifier|public
+name|Double
+name|getRadius
+parameter_list|()
+block|{
+return|return
+name|radius
+return|;
+block|}
+comment|/**      * Used by the non-stream geography search.      * @param radius      */
+DECL|method|setRadius (Double radius)
+specifier|public
+name|void
+name|setRadius
+parameter_list|(
+name|Double
+name|radius
+parameter_list|)
+block|{
+name|this
+operator|.
+name|radius
+operator|=
+name|radius
+expr_stmt|;
+block|}
+DECL|method|getDistanceMetric ()
+specifier|public
+name|String
+name|getDistanceMetric
+parameter_list|()
+block|{
+return|return
+name|distanceMetric
+return|;
+block|}
+comment|/**      * Used by the non-stream geography search, defaults to km.      * @param distanceMetric      */
+DECL|method|setDistanceMetric (String distanceMetric)
+specifier|public
+name|void
+name|setDistanceMetric
+parameter_list|(
+name|String
+name|distanceMetric
+parameter_list|)
+block|{
+name|this
+operator|.
+name|distanceMetric
+operator|=
+name|distanceMetric
+expr_stmt|;
+block|}
+DECL|method|getLatitude ()
+specifier|public
+name|Double
+name|getLatitude
+parameter_list|()
+block|{
+return|return
+name|latitude
+return|;
+block|}
+comment|/**      * Used by the non-stream geography search.      * @param latitude      */
+DECL|method|setLatitude (Double latitude)
+specifier|public
+name|void
+name|setLatitude
+parameter_list|(
+name|Double
+name|latitude
+parameter_list|)
+block|{
+name|this
+operator|.
+name|latitude
+operator|=
+name|latitude
+expr_stmt|;
 block|}
 block|}
 end_class
