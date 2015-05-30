@@ -1561,7 +1561,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|12
+literal|13
 argument_list|,
 name|smppMessage
 operator|.
@@ -1911,7 +1911,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|12
+literal|13
 argument_list|,
 name|smppMessage
 operator|.
