@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|jayway
+operator|.
+name|jsonpath
+operator|.
+name|Option
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -80,6 +92,11 @@ specifier|final
 name|String
 name|expression
 decl_stmt|;
+DECL|field|engine
+specifier|private
+name|JsonPathEngine
+name|engine
+decl_stmt|;
 DECL|field|resultType
 specifier|private
 name|Class
@@ -88,11 +105,11 @@ name|?
 argument_list|>
 name|resultType
 decl_stmt|;
-DECL|field|engine
+DECL|field|options
 specifier|private
-specifier|final
-name|JsonPathEngine
-name|engine
+name|Option
+index|[]
+name|options
 decl_stmt|;
 DECL|method|JsonPathExpression (String expression)
 specifier|public
@@ -108,6 +125,13 @@ name|expression
 operator|=
 name|expression
 expr_stmt|;
+block|}
+DECL|method|init ()
+specifier|public
+name|void
+name|init
+parameter_list|()
+block|{
 try|try
 block|{
 name|engine
@@ -116,6 +140,8 @@ operator|new
 name|JsonPathEngine
 argument_list|(
 name|expression
+argument_list|,
+name|options
 argument_list|)
 expr_stmt|;
 block|}
@@ -166,6 +192,34 @@ operator|.
 name|resultType
 operator|=
 name|resultType
+expr_stmt|;
+block|}
+DECL|method|getOptions ()
+specifier|public
+name|Option
+index|[]
+name|getOptions
+parameter_list|()
+block|{
+return|return
+name|options
+return|;
+block|}
+DECL|method|setOptions (Option[] options)
+specifier|public
+name|void
+name|setOptions
+parameter_list|(
+name|Option
+index|[]
+name|options
+parameter_list|)
+block|{
+name|this
+operator|.
+name|options
+operator|=
+name|options
 expr_stmt|;
 block|}
 annotation|@

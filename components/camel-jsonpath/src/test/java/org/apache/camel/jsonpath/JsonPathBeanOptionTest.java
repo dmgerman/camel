@@ -69,10 +69,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|JsonPathBeanTest
+DECL|class|JsonPathBeanOptionTest
 specifier|public
 class|class
-name|JsonPathBeanTest
+name|JsonPathBeanOptionTest
 extends|extends
 name|CamelTestSupport
 block|{
