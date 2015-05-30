@@ -356,6 +356,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"km"
+argument_list|,
+name|enums
+operator|=
+literal|"mi,km"
 argument_list|)
 DECL|field|distanceMetric
 specifier|private
@@ -1164,7 +1168,7 @@ return|return
 name|longitude
 return|;
 block|}
-comment|/**      * Used by the non-stream geography search.      * @param longitude      */
+comment|/**      * Used by the non-stream geography search to search by longitude.      *<p/>      * You need to configure all the following options: longitude, latitude, radius, and distanceMetric.      */
 DECL|method|setLongitude (Double longitude)
 specifier|public
 name|void
@@ -1181,6 +1185,33 @@ operator|=
 name|longitude
 expr_stmt|;
 block|}
+DECL|method|getLatitude ()
+specifier|public
+name|Double
+name|getLatitude
+parameter_list|()
+block|{
+return|return
+name|latitude
+return|;
+block|}
+comment|/**      * Used by the non-stream geography search to search by lattitude.      *<p/>      * You need to configure all the following options: longitude, latitude, radius, and distanceMetric.      */
+DECL|method|setLatitude (Double latitude)
+specifier|public
+name|void
+name|setLatitude
+parameter_list|(
+name|Double
+name|latitude
+parameter_list|)
+block|{
+name|this
+operator|.
+name|latitude
+operator|=
+name|latitude
+expr_stmt|;
+block|}
 DECL|method|getRadius ()
 specifier|public
 name|Double
@@ -1191,7 +1222,7 @@ return|return
 name|radius
 return|;
 block|}
-comment|/**      * Used by the non-stream geography search.      * @param radius      */
+comment|/**      * Used by the non-stream geography search to search by radius.      *<p/>      * You need to configure all the following options: longitude, latitude, radius, and distanceMetric.      */
 DECL|method|setRadius (Double radius)
 specifier|public
 name|void
@@ -1218,7 +1249,7 @@ return|return
 name|distanceMetric
 return|;
 block|}
-comment|/**      * Used by the non-stream geography search, defaults to km.      * @param distanceMetric      */
+comment|/**      * Used by the non-stream geography search, to search by radius using the configured metrics.      *<p/>      * The unit can either be mi for miles, or km for kilometers.      *<p/>      * You need to configure all the following options: longitude, latitude, radius, and distanceMetric.      */
 DECL|method|setDistanceMetric (String distanceMetric)
 specifier|public
 name|void
@@ -1233,33 +1264,6 @@ operator|.
 name|distanceMetric
 operator|=
 name|distanceMetric
-expr_stmt|;
-block|}
-DECL|method|getLatitude ()
-specifier|public
-name|Double
-name|getLatitude
-parameter_list|()
-block|{
-return|return
-name|latitude
-return|;
-block|}
-comment|/**      * Used by the non-stream geography search.      * @param latitude      */
-DECL|method|setLatitude (Double latitude)
-specifier|public
-name|void
-name|setLatitude
-parameter_list|(
-name|Double
-name|latitude
-parameter_list|)
-block|{
-name|this
-operator|.
-name|latitude
-operator|=
-name|latitude
 expr_stmt|;
 block|}
 block|}
