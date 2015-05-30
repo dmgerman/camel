@@ -206,6 +206,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"60"
@@ -233,6 +237,11 @@ name|keywords
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|locations
 specifier|private
 name|String
@@ -240,6 +249,11 @@ name|locations
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|userIds
 specifier|private
 name|String
@@ -262,6 +276,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"1"
@@ -331,6 +349,11 @@ name|httpProxyPort
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|latitude
 specifier|private
 name|Double
@@ -338,6 +361,11 @@ name|latitude
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|longitude
 specifier|private
 name|Double
@@ -345,6 +373,11 @@ name|longitude
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|radius
 specifier|private
 name|Double
@@ -353,6 +386,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"km"
@@ -1195,7 +1232,7 @@ return|return
 name|latitude
 return|;
 block|}
-comment|/**      * Used by the non-stream geography search to search by lattitude.      *<p/>      * You need to configure all the following options: longitude, latitude, radius, and distanceMetric.      */
+comment|/**      * Used by the non-stream geography search to search by latitude.      *<p/>      * You need to configure all the following options: longitude, latitude, radius, and distanceMetric.      */
 DECL|method|setLatitude (Double latitude)
 specifier|public
 name|void
