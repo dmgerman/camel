@@ -15,7 +15,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * To perform optional initialization on an element after its properties has been configured.  */
+comment|/**  * To perform optional initialization on an element after its properties has been configured.  *<p/>  * Currently only languages is supported using this callback.  */
 end_comment
 
 begin_interface
