@@ -672,6 +672,30 @@ name|text
 argument_list|)
 return|;
 block|}
+comment|/**      * Evaluates a<a      * href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a>      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as PathNotFoundException      * @return the builder to continue processing the DSL      */
+DECL|method|jsonpath (String text, boolean suppressExceptions)
+specifier|public
+name|T
+name|jsonpath
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|boolean
+name|suppressExceptions
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|jsonpath
+argument_list|(
+name|text
+argument_list|,
+name|suppressExceptions
+argument_list|)
+return|;
+block|}
 comment|/**      * Evaluates a<a      * href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a>      *      * @param text the expression to be evaluated      * @param resultType the return type expected by the expression      * @return the builder to continue processing the DSL      */
 DECL|method|jsonpath (String text, Class<?> resultType)
 specifier|public
@@ -694,6 +718,38 @@ operator|.
 name|jsonpath
 argument_list|(
 name|text
+argument_list|,
+name|resultType
+argument_list|)
+return|;
+block|}
+comment|/**      * Evaluates a<a      * href="http://camel.apache.org/jsonpath.html">Json Path      * expression</a>      *      * @param text the expression to be evaluated      * @param suppressExceptions whether to suppress exceptions such as PathNotFoundException      * @param resultType the return type expected by the expression      * @return the builder to continue processing the DSL      */
+DECL|method|jsonpath (String text, boolean suppressExceptions, Class<?> resultType)
+specifier|public
+name|T
+name|jsonpath
+parameter_list|(
+name|String
+name|text
+parameter_list|,
+name|boolean
+name|suppressExceptions
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|resultType
+parameter_list|)
+block|{
+return|return
+name|delegate
+operator|.
+name|jsonpath
+argument_list|(
+name|text
+argument_list|,
+name|suppressExceptions
 argument_list|,
 name|resultType
 argument_list|)

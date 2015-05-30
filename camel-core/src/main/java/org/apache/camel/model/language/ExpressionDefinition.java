@@ -180,6 +180,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AfterPropertiesConfigured
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|CamelContext
 import|;
 end_import
@@ -1344,6 +1356,11 @@ operator|=
 name|expressionType
 expr_stmt|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|configurePredicate (CamelContext camelContext, Predicate predicate)
 specifier|protected
 name|void
@@ -1355,7 +1372,35 @@ parameter_list|,
 name|Predicate
 name|predicate
 parameter_list|)
-block|{     }
+block|{
+comment|// allows to perform additional logic after the properties has been configured which may be needed
+comment|// in the various camel components outside camel-core
+if|if
+condition|(
+name|predicate
+operator|instanceof
+name|AfterPropertiesConfigured
+condition|)
+block|{
+operator|(
+operator|(
+name|AfterPropertiesConfigured
+operator|)
+name|predicate
+operator|)
+operator|.
+name|afterPropertiesConfigured
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|configureExpression (CamelContext camelContext, Expression expression)
 specifier|protected
 name|void
@@ -1367,7 +1412,30 @@ parameter_list|,
 name|Expression
 name|expression
 parameter_list|)
-block|{     }
+block|{
+comment|// allows to perform additional logic after the properties has been configured which may be needed
+comment|// in the various camel components outside camel-core
+if|if
+condition|(
+name|expression
+operator|instanceof
+name|AfterPropertiesConfigured
+condition|)
+block|{
+operator|(
+operator|(
+name|AfterPropertiesConfigured
+operator|)
+name|expression
+operator|)
+operator|.
+name|afterPropertiesConfigured
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 comment|/**      * Sets a named property on the object instance using introspection      */
 DECL|method|setProperty (Object bean, String name, Object value)
 specifier|protected
