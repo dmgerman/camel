@@ -156,6 +156,15 @@ name|String
 name|value
 parameter_list|()
 function_decl|;
+comment|/**      * Whether to suppress exceptions such as PathNotFoundException      */
+DECL|method|suppressExceptions ()
+DECL|field|false
+name|boolean
+name|suppressExceptions
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 comment|/**      * To configure the json path options to use      */
 DECL|method|options ()
 name|Option

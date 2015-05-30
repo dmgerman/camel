@@ -18,18 +18,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|jayway
-operator|.
-name|jsonpath
-operator|.
-name|Option
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -69,10 +57,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|JsonPathBeanOptionTest
+DECL|class|JsonPathBeanSuppressExceptionsTest
 specifier|public
 class|class
-name|JsonPathBeanOptionTest
+name|JsonPathBeanSuppressExceptionsTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -200,7 +188,7 @@ class|class
 name|FullNameBean
 block|{
 comment|// middle name is optional
-DECL|method|getName (@sonPathR) String first, @JsonPath(value = R, options = Option.SUPPRESS_EXCEPTIONS) String middle, @JsonPath(R) String last)
+DECL|method|getName (@sonPathR) String first, @JsonPath(value = R, suppressExceptions = true) String middle, @JsonPath(R) String last)
 specifier|public
 specifier|static
 name|String
@@ -221,11 +209,9 @@ name|value
 operator|=
 literal|"person.middlename"
 argument_list|,
-name|options
+name|suppressExceptions
 operator|=
-name|Option
-operator|.
-name|SUPPRESS_EXCEPTIONS
+literal|true
 argument_list|)
 name|String
 name|middle

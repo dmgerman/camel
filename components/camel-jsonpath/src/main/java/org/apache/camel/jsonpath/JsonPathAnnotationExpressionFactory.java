@@ -172,6 +172,16 @@ name|JsonPath
 operator|)
 name|annotation
 decl_stmt|;
+name|answer
+operator|.
+name|setSuppressExceptions
+argument_list|(
+name|jsonPathAnnotation
+operator|.
+name|suppressExceptions
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Option
 index|[]
 name|options

@@ -105,6 +105,11 @@ name|?
 argument_list|>
 name|resultType
 decl_stmt|;
+DECL|field|suppressExceptions
+specifier|private
+name|boolean
+name|suppressExceptions
+decl_stmt|;
 DECL|field|options
 specifier|private
 name|Option
@@ -141,6 +146,8 @@ name|JsonPathEngine
 argument_list|(
 name|expression
 argument_list|,
+name|suppressExceptions
+argument_list|,
 name|options
 argument_list|)
 expr_stmt|;
@@ -175,6 +182,7 @@ return|return
 name|resultType
 return|;
 block|}
+comment|/**      * To configure the result type to use      */
 DECL|method|setResultType (Class<?> resultType)
 specifier|public
 name|void
@@ -194,6 +202,33 @@ operator|=
 name|resultType
 expr_stmt|;
 block|}
+DECL|method|isSuppressExceptions ()
+specifier|public
+name|boolean
+name|isSuppressExceptions
+parameter_list|()
+block|{
+return|return
+name|suppressExceptions
+return|;
+block|}
+comment|/**      * Whether to suppress exceptions such as PathNotFoundException      */
+DECL|method|setSuppressExceptions (boolean suppressExceptions)
+specifier|public
+name|void
+name|setSuppressExceptions
+parameter_list|(
+name|boolean
+name|suppressExceptions
+parameter_list|)
+block|{
+name|this
+operator|.
+name|suppressExceptions
+operator|=
+name|suppressExceptions
+expr_stmt|;
+block|}
 DECL|method|getOptions ()
 specifier|public
 name|Option
@@ -205,6 +240,7 @@ return|return
 name|options
 return|;
 block|}
+comment|/**      * To configure the json path options to use      */
 DECL|method|setOptions (Option[] options)
 specifier|public
 name|void
