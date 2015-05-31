@@ -784,12 +784,12 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Reads the response body from the given http servlet request.      *      * @param request  http servlet request      * @param exchange the exchange      * @return the response body, can be<tt>null</tt> if no body      * @throws IOException is thrown if error reading response body      */
-DECL|method|readResponseBodyFromServletRequest (HttpServletRequest request, Exchange exchange)
+comment|/**      * Reads the response body from the given http servlet request.      *      * @param request  http servlet request      * @param exchange the exchange      * @return the request body, can be<tt>null</tt> if no body      * @throws IOException is thrown if error reading response body      */
+DECL|method|readRequestBodyFromServletRequest (HttpServletRequest request, Exchange exchange)
 specifier|public
 specifier|static
 name|Object
-name|readResponseBodyFromServletRequest
+name|readRequestBodyFromServletRequest
 parameter_list|(
 name|HttpServletRequest
 name|request
@@ -822,11 +822,11 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Reads the response body from the given input stream.      *      * @param is       the input stream      * @param exchange the exchange      * @return the response body, can be<tt>null</tt> if no body      * @throws IOException is thrown if error reading response body      */
-DECL|method|readResponseBodyFromInputStream (InputStream is, Exchange exchange)
+DECL|method|readRequestBodyFromInputStream (InputStream is, Exchange exchange)
 specifier|public
 specifier|static
 name|Object
-name|readResponseBodyFromInputStream
+name|readRequestBodyFromInputStream
 parameter_list|(
 name|InputStream
 name|is
@@ -896,6 +896,86 @@ operator|.
 name|DISABLE_HTTP_STREAM_CACHE
 argument_list|,
 name|disableStreamCaching
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|)
+condition|)
+block|{
+return|return
+name|is
+return|;
+block|}
+else|else
+block|{
+name|CachedOutputStream
+name|cos
+init|=
+operator|new
+name|CachedOutputStream
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+name|IOHelper
+operator|.
+name|copyAndCloseInput
+argument_list|(
+name|is
+argument_list|,
+name|cos
+argument_list|)
+expr_stmt|;
+return|return
+name|cos
+operator|.
+name|newStreamCache
+argument_list|()
+return|;
+block|}
+block|}
+comment|/**      * Reads the response body from the given input stream.      *      * @param is       the input stream      * @param exchange the exchange      * @return the response body, can be<tt>null</tt> if no body      * @throws IOException is thrown if error reading response body      */
+DECL|method|readResponseBodyFromInputStream (InputStream is, Exchange exchange)
+specifier|public
+specifier|static
+name|Object
+name|readResponseBodyFromInputStream
+parameter_list|(
+name|InputStream
+name|is
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+name|is
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+comment|// convert the input stream to StreamCache if the stream cache is not disabled
+if|if
+condition|(
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|DISABLE_HTTP_STREAM_CACHE
+argument_list|,
+name|Boolean
+operator|.
+name|FALSE
 argument_list|,
 name|Boolean
 operator|.

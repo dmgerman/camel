@@ -2913,7 +2913,7 @@ comment|// read the response body from servlet request
 return|return
 name|HttpHelper
 operator|.
-name|readResponseBodyFromServletRequest
+name|readRequestBodyFromServletRequest
 argument_list|(
 name|request
 argument_list|,
