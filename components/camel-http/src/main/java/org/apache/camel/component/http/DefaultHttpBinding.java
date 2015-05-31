@@ -2909,7 +2909,7 @@ literal|null
 return|;
 block|}
 block|}
-comment|// reade the response body from servlet request
+comment|// read the response body from servlet request
 return|return
 name|HttpHelper
 operator|.
