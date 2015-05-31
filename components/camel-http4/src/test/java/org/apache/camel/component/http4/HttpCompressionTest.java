@@ -397,7 +397,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *   * @version   */
+comment|/**  *  * @version  */
 end_comment
 
 begin_class
@@ -525,15 +525,6 @@ operator|.
 name|getHeaders
 argument_list|()
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|headers
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 name|HttpStatus

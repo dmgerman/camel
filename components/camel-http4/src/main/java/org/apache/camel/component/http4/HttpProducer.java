@@ -615,7 +615,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * @version  */
 end_comment
 
 begin_class
@@ -1372,20 +1372,6 @@ range|:
 name|headers
 control|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"headers name "
-operator|+
-name|header
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|String
 name|name
 init|=
