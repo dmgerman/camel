@@ -76,9 +76,7 @@ name|Exception
 block|{
 name|getMockEndpoint
 argument_list|(
-operator|(
 literal|"mock:errors"
-operator|)
 argument_list|)
 operator|.
 name|expectedMessageCount
@@ -111,9 +109,7 @@ name|Exception
 block|{
 name|getMockEndpoint
 argument_list|(
-operator|(
 literal|"mock:errors"
-operator|)
 argument_list|)
 operator|.
 name|expectedMessageCount
