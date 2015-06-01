@@ -72,9 +72,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|apache
 operator|.
-name|Logger
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
 import|;
 end_import
 
@@ -82,13 +86,68 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|apache
 operator|.
-name|LoggerFactory
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
 import|;
 end_import
 
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"slack"
+argument_list|,
+name|title
+operator|=
+literal|"Slack"
+argument_list|,
+name|syntax
+operator|=
+literal|"slack:channel"
+argument_list|,
+name|producerOnly
+operator|=
+literal|true
+argument_list|,
+name|label
+operator|=
+literal|"social"
+argument_list|)
 DECL|class|SlackEndpoint
 specifier|public
 class|class
@@ -96,43 +155,43 @@ name|SlackEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
+annotation|@
+name|UriPath
+annotation|@
+name|Metadata
 argument_list|(
-name|SlackEndpoint
-operator|.
-name|class
+name|required
+operator|=
+literal|"true"
 argument_list|)
-decl_stmt|;
-DECL|field|webhookUrl
-specifier|private
-name|String
-name|webhookUrl
-decl_stmt|;
-DECL|field|username
-specifier|private
-name|String
-name|username
-decl_stmt|;
 DECL|field|channel
 specifier|private
 name|String
 name|channel
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|webhookUrl
+specifier|private
+name|String
+name|webhookUrl
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|username
+specifier|private
+name|String
+name|username
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|iconUrl
 specifier|private
 name|String
 name|iconUrl
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|iconEmoji
 specifier|private
 name|String
@@ -176,7 +235,6 @@ operator|=
 name|channelName
 expr_stmt|;
 block|}
-comment|/**      * Creates a SlackProducer      *      * @return SlackProducer      * @throws Exception      */
 annotation|@
 name|Override
 DECL|method|createProducer ()
@@ -200,7 +258,6 @@ return|return
 name|producer
 return|;
 block|}
-comment|/**      * Unsupported operation      *      * @param processor      * @return      * @throws java.lang.UnsupportedOperationException      */
 annotation|@
 name|Override
 DECL|method|createConsumer (Processor processor)
@@ -237,6 +294,23 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**      * The incoming webhook URL      */
+DECL|method|setWebhookUrl (String webhookUrl)
+specifier|public
+name|void
+name|setWebhookUrl
+parameter_list|(
+name|String
+name|webhookUrl
+parameter_list|)
+block|{
+name|this
+operator|.
+name|webhookUrl
+operator|=
+name|webhookUrl
+expr_stmt|;
+block|}
 DECL|method|getWebhookUrl ()
 specifier|public
 name|String
@@ -246,6 +320,33 @@ block|{
 return|return
 name|webhookUrl
 return|;
+block|}
+DECL|method|getChannel ()
+specifier|public
+name|String
+name|getChannel
+parameter_list|()
+block|{
+return|return
+name|channel
+return|;
+block|}
+comment|/**      * The channel name (syntax #name) or slackuser (syntax @userName) to send a message directly to an user.      */
+DECL|method|setChannel (String channel)
+specifier|public
+name|void
+name|setChannel
+parameter_list|(
+name|String
+name|channel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|channel
+operator|=
+name|channel
+expr_stmt|;
 block|}
 DECL|method|getUsername ()
 specifier|public
@@ -257,6 +358,7 @@ return|return
 name|username
 return|;
 block|}
+comment|/**      * This is the username that the bot will have when sending messages to a channel or user.      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -273,16 +375,6 @@ operator|=
 name|username
 expr_stmt|;
 block|}
-DECL|method|getChannel ()
-specifier|public
-name|String
-name|getChannel
-parameter_list|()
-block|{
-return|return
-name|channel
-return|;
-block|}
 DECL|method|getIconUrl ()
 specifier|public
 name|String
@@ -293,6 +385,7 @@ return|return
 name|iconUrl
 return|;
 block|}
+comment|/**      * The avatar that the component will use when sending message to a channel or user.      */
 DECL|method|setIconUrl (String iconUrl)
 specifier|public
 name|void
@@ -319,6 +412,7 @@ return|return
 name|iconEmoji
 return|;
 block|}
+comment|/**      * Use a Slack emoji as an avatar      */
 DECL|method|setIconEmoji (String iconEmoji)
 specifier|public
 name|void

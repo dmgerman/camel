@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -40,37 +50,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -80,31 +60,27 @@ specifier|public
 class|class
 name|SlackComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|SlackComponent
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|webhookUrl
 specifier|private
 name|String
 name|webhookUrl
 decl_stmt|;
-comment|/**      * Create a slack endpoint      *      * @param uri the full URI of the endpoint      * @param channelName the channel or username that the message should be sent to      * @param parameters the optional parameters passed in      * @return the camel endpoint      * @throws Exception      */
+DECL|method|SlackComponent ()
+specifier|public
+name|SlackComponent
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|SlackEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Create a slack endpoint      *      * @param uri         the full URI of the endpoint      * @param channelName the channel or username that the message should be sent to      * @param parameters  the optional parameters passed in      * @return the camel endpoint      */
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String channelName, Map<String, Object> parameters)
@@ -153,7 +129,6 @@ return|return
 name|endpoint
 return|;
 block|}
-comment|/**      * Getter for the incoming webhook URL      *      * @return String containing the incoming webhook URL      */
 DECL|method|getWebhookUrl ()
 specifier|public
 name|String
@@ -164,7 +139,7 @@ return|return
 name|webhookUrl
 return|;
 block|}
-comment|/**      * Setter for the incoming webhook URL      *      * @param webhookUrl the incoming webhook URL      */
+comment|/**      * The incoming webhook URL      */
 DECL|method|setWebhookUrl (String webhookUrl)
 specifier|public
 name|void
