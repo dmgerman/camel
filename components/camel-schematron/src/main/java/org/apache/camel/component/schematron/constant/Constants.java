@@ -94,6 +94,24 @@ name|SCHEMATRON_TEMPLATES_ROOT_DIR
 init|=
 literal|"iso-schematron-xslt2"
 decl_stmt|;
+DECL|field|SAXON_TRANSFORMER_FACTORY_CLASS_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SAXON_TRANSFORMER_FACTORY_CLASS_NAME
+init|=
+literal|"net.sf.saxon.TransformerFactoryImpl"
+decl_stmt|;
+DECL|field|LINE_NUMBERING
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|LINE_NUMBERING
+init|=
+literal|"http://saxon.sf.net/feature/linenumbering"
+decl_stmt|;
 DECL|method|Constants ()
 specifier|private
 name|Constants

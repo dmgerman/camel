@@ -70,6 +70,16 @@ name|StreamSource
 import|;
 end_import
 
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|*
+import|;
+end_import
+
 begin_comment
 comment|/**  * Class path resolver for schematron templates  *  */
 end_comment
@@ -124,15 +134,22 @@ return|return
 operator|new
 name|StreamSource
 argument_list|(
-name|ClassLoader
+name|ClassPathURIResolver
 operator|.
-name|getSystemResourceAsStream
+name|class
+operator|.
+name|getClassLoader
+argument_list|()
+operator|.
+name|getResourceAsStream
 argument_list|(
 name|rulesDir
 operator|.
 name|concat
 argument_list|(
-literal|"/"
+name|File
+operator|.
+name|separator
 argument_list|)
 operator|.
 name|concat

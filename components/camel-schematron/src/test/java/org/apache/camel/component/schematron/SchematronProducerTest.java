@@ -32,6 +32,30 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|TransformerFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|net
+operator|.
+name|sf
+operator|.
+name|saxon
+operator|.
+name|TransformerFactoryImpl
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -69,6 +93,24 @@ operator|.
 name|constant
 operator|.
 name|Constants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|schematron
+operator|.
+name|processor
+operator|.
+name|ClassPathURIResolver
 import|;
 end_import
 
@@ -141,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Schematron Producer Unit Test.  *   */
+comment|/**  * Schematron Producer Unit Test.  *  */
 end_comment
 
 begin_class
@@ -174,6 +216,26 @@ operator|new
 name|SchematronEndpoint
 argument_list|()
 decl_stmt|;
+name|TransformerFactory
+name|fac
+init|=
+operator|new
+name|TransformerFactoryImpl
+argument_list|()
+decl_stmt|;
+name|fac
+operator|.
+name|setURIResolver
+argument_list|(
+operator|new
+name|ClassPathURIResolver
+argument_list|(
+name|Constants
+operator|.
+name|SCHEMATRON_TEMPLATES_ROOT_DIR
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|Templates
 name|templates
 init|=
@@ -182,7 +244,7 @@ operator|.
 name|newInstance
 argument_list|()
 operator|.
-name|newTemplates
+name|getTemplates
 argument_list|(
 name|ClassLoader
 operator|.
@@ -190,6 +252,8 @@ name|getSystemResourceAsStream
 argument_list|(
 literal|"sch/schematron-1.sch"
 argument_list|)
+argument_list|,
+name|fac
 argument_list|)
 decl_stmt|;
 name|endpoint
@@ -277,23 +341,6 @@ name|SUCCESS
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"We should get the report here."
-argument_list|,
-name|exc
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-name|Constants
-operator|.
-name|VALIDATION_REPORT
-argument_list|)
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -315,7 +362,7 @@ name|context
 argument_list|,
 name|ExchangePattern
 operator|.
-name|InOnly
+name|InOut
 argument_list|)
 decl_stmt|;
 name|exc
@@ -344,11 +391,9 @@ expr_stmt|;
 comment|// assert
 name|assertTrue
 argument_list|(
-literal|"The validation status should be failed."
-argument_list|,
 name|exc
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getHeader
@@ -363,23 +408,6 @@ argument_list|(
 name|Constants
 operator|.
 name|FAILED
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertNotNull
-argument_list|(
-literal|"We should get the report here."
-argument_list|,
-name|exc
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeader
-argument_list|(
-name|Constants
-operator|.
-name|VALIDATION_REPORT
 argument_list|)
 argument_list|)
 expr_stmt|;
