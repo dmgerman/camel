@@ -274,7 +274,7 @@ return|return
 name|apiName
 return|;
 block|}
-comment|/**      * What kind of operation to perform      * @param apiName      */
+comment|/**      * What kind of operation to perform      */
 DECL|method|setApiName (GoogleCalendarApiName apiName)
 specifier|public
 name|void
@@ -301,7 +301,7 @@ return|return
 name|methodName
 return|;
 block|}
-comment|/**      * What sub operation to use for the selected operation      * @param methodName      */
+comment|/**      * What sub operation to use for the selected operation      */
 DECL|method|setMethodName (String methodName)
 specifier|public
 name|void
@@ -328,7 +328,7 @@ return|return
 name|clientId
 return|;
 block|}
-comment|/**      * Client ID of the calendar application      * @param clientId      */
+comment|/**      * Client ID of the calendar application      */
 DECL|method|setClientId (String clientId)
 specifier|public
 name|void
@@ -355,6 +355,7 @@ return|return
 name|emailAddress
 return|;
 block|}
+comment|/**      * The emailAddress of the Google Service Account.      */
 DECL|method|setEmailAddress (String emailAddress)
 specifier|public
 name|void
@@ -381,7 +382,7 @@ return|return
 name|clientSecret
 return|;
 block|}
-comment|/**      * Client secret of the calendar application      * @param clientSecret      */
+comment|/**      * Client secret of the calendar application      */
 DECL|method|setClientSecret (String clientSecret)
 specifier|public
 name|void
@@ -408,7 +409,7 @@ return|return
 name|accessToken
 return|;
 block|}
-comment|/**      * OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.      * @param accessToken      */
+comment|/**      * OAuth 2 access token. This typically expires after an hour so refreshToken is recommended for long term usage.      */
 DECL|method|setAccessToken (String accessToken)
 specifier|public
 name|void
@@ -435,7 +436,7 @@ return|return
 name|refreshToken
 return|;
 block|}
-comment|/**      * OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.      * @param refreshToken      */
+comment|/**      * OAuth 2 refresh token. Using this, the Google Calendar component can obtain a new accessToken whenever the current one expires - a necessity if the application is long-lived.      */
 DECL|method|setRefreshToken (String refreshToken)
 specifier|public
 name|void
@@ -462,7 +463,7 @@ return|return
 name|applicationName
 return|;
 block|}
-comment|/**      * Google calendar application name. Example would be "camel-google-calendar/1.0"      * @param applicationName      */
+comment|/**      * Google calendar application name. Example would be "camel-google-calendar/1.0"      */
 DECL|method|setApplicationName (String applicationName)
 specifier|public
 name|void
@@ -492,7 +493,7 @@ return|return
 name|scopes
 return|;
 block|}
-comment|/**      * Specifies the level of permissions you want a calendar application to have to a user account. See https://developers.google.com/google-apps/calendar/auth for more info.      * @param scopes      */
+comment|/**      * Specifies the level of permissions you want a calendar application to have to a user account. See https://developers.google.com/google-apps/calendar/auth for more info.      */
 DECL|method|setScopes (List<String> scopes)
 specifier|public
 name|void
@@ -522,6 +523,7 @@ return|return
 name|p12FileName
 return|;
 block|}
+comment|/**      * The name of the p12 file which has the private key to use with the Google Service Account.      */
 DECL|method|setP12FileName (String p12FileName)
 specifier|public
 name|void
