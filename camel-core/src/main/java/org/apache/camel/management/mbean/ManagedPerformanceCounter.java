@@ -1585,6 +1585,26 @@ name|String
 operator|.
 name|format
 argument_list|(
+literal|" startTimestamp=\"%s\""
+argument_list|,
+name|dateAsString
+argument_list|(
+name|startTimestamp
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
 literal|" resetTimestamp=\"%s\""
 argument_list|,
 name|dateAsString

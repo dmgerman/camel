@@ -249,6 +249,13 @@ name|selfProcessingTime
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|startTimestamp
+specifier|private
+name|String
+name|startTimestamp
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|resetTimestamp
 specifier|private
 name|String
@@ -706,6 +713,32 @@ operator|.
 name|exchangesInflight
 operator|=
 name|exchangesInflight
+expr_stmt|;
+block|}
+DECL|method|getStartTimestamp ()
+specifier|public
+name|String
+name|getStartTimestamp
+parameter_list|()
+block|{
+return|return
+name|startTimestamp
+return|;
+block|}
+DECL|method|setStartTimestamp (String startTimestamp)
+specifier|public
+name|void
+name|setStartTimestamp
+parameter_list|(
+name|String
+name|startTimestamp
+parameter_list|)
+block|{
+name|this
+operator|.
+name|startTimestamp
+operator|=
+name|startTimestamp
 expr_stmt|;
 block|}
 DECL|method|getResetTimestamp ()

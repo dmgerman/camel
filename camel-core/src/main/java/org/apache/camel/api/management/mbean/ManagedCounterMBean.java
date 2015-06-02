@@ -85,6 +85,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Timestamp when the stats was initially started"
+argument_list|)
+DECL|method|getStartTimestamp ()
+name|Date
+name|getStartTimestamp
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Timestamp when the stats was last reset or initially started"
 argument_list|)
 DECL|method|getResetTimestamp ()
