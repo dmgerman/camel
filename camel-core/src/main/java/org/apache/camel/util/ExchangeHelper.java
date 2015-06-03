@@ -925,13 +925,16 @@ operator|.
 name|getExchangeId
 argument_list|()
 decl_stmt|;
+comment|// make sure to do a safe copy as the correlated copy can be routed independently of the source.
 name|Exchange
 name|copy
 init|=
 name|exchange
 operator|.
 name|copy
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 decl_stmt|;
 comment|// do not reuse message id on copy
 if|if
