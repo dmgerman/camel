@@ -92,7 +92,7 @@ argument_list|()
 operator|.
 name|simple
 argument_list|(
-literal|"${ref:myBean}"
+literal|"ref:myBean"
 argument_list|)
 operator|.
 name|to
