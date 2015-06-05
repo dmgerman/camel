@@ -475,7 +475,7 @@ specifier|final
 name|String
 name|CMIS_ENDPOINT_TEST_SERVER
 init|=
-literal|"http://localhost:%s/chemistry-opencmis-server-inmemory/atom"
+literal|"http://localhost:%s/chemistry-opencmis-server-inmemory/atom11"
 decl_stmt|;
 DECL|field|OPEN_CMIS_SERVER_WAR_PATH
 specifier|protected
@@ -484,7 +484,7 @@ specifier|final
 name|String
 name|OPEN_CMIS_SERVER_WAR_PATH
 init|=
-literal|"target/dependency/chemistry-opencmis-server-inmemory-0.8.0.war"
+literal|"target/dependency/chemistry-opencmis-server-inmemory-0.13.0.war"
 decl_stmt|;
 DECL|field|cmisServer
 specifier|protected
