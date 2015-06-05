@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -70,18 +80,8 @@ name|StreamSource
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|*
-import|;
-end_import
-
 begin_comment
-comment|/**  * Class path resolver for schematron templates  *  */
+comment|/**  * Class path resolver for schematron templates  */
 end_comment
 
 begin_class
@@ -94,10 +94,11 @@ name|URIResolver
 block|{
 DECL|field|rulesDir
 specifier|private
+specifier|final
 name|String
 name|rulesDir
 decl_stmt|;
-comment|/**      * Constructor setter for rules directory path.      * @param rulesDir      */
+comment|/**      * Constructor setter for rules directory path.      */
 DECL|method|ClassPathURIResolver (final String rulesDir)
 specifier|public
 name|ClassPathURIResolver

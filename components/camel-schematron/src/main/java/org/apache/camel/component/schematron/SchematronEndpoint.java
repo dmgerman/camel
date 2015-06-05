@@ -365,6 +365,8 @@ name|DefaultEndpoint
 block|{
 DECL|field|LOG
 specifier|private
+specifier|static
+specifier|final
 name|Logger
 name|LOG
 init|=
@@ -744,7 +746,7 @@ block|{
 comment|// provide the class loader of this component to work in OSGi environments
 name|Class
 argument_list|<
-name|?
+name|TransformerFactory
 argument_list|>
 name|factoryClass
 init|=
@@ -757,6 +759,10 @@ operator|.
 name|resolveMandatoryClass
 argument_list|(
 name|SAXON_TRANSFORMER_FACTORY_CLASS_NAME
+argument_list|,
+name|TransformerFactory
+operator|.
+name|class
 argument_list|,
 name|SchematronComponent
 operator|.
@@ -777,9 +783,6 @@ argument_list|)
 expr_stmt|;
 name|transformerFactory
 operator|=
-operator|(
-name|TransformerFactory
-operator|)
 name|getCamelContext
 argument_list|()
 operator|.
