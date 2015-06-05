@@ -4393,7 +4393,7 @@ condition|)
 block|{
 name|createContainerCmd
 operator|.
-name|withDisableNetwork
+name|withNetworkDisabled
 argument_list|(
 name|disableNetwork
 argument_list|)
