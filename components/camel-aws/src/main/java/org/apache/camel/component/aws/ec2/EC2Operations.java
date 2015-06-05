@@ -37,6 +37,9 @@ name|stopInstances
 block|,
 DECL|enumConstant|terminateInstances
 name|terminateInstances
+block|,
+DECL|enumConstant|describeInstances
+name|describeInstances
 block|}
 end_enum
 
