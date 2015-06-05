@@ -382,7 +382,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<respMsg code=\"300\" message=\"test msg\" responseModel=\"java.lang.Integer\"/>"
+literal|"<responseMessage code=\"300\" message=\"test msg\" responseModel=\"java.lang.Integer\"/>"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -498,7 +498,7 @@ argument_list|(
 literal|"application/json"
 argument_list|)
 operator|.
-name|restParam
+name|param
 argument_list|()
 operator|.
 name|type
@@ -562,7 +562,7 @@ operator|.
 name|endParam
 argument_list|()
 operator|.
-name|restParam
+name|param
 argument_list|()
 operator|.
 name|type
@@ -626,7 +626,7 @@ operator|.
 name|endParam
 argument_list|()
 operator|.
-name|restResponseMsg
+name|responseMessage
 argument_list|()
 operator|.
 name|code
@@ -646,7 +646,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|endResponseMsg
+name|endResponseMessage
 argument_list|()
 operator|.
 name|to

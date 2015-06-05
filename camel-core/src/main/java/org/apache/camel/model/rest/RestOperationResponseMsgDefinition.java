@@ -119,7 +119,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"respMsg"
+literal|"responseMessage"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -357,10 +357,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|endResponseMsg ()
+DECL|method|endResponseMessage ()
 specifier|public
 name|RestDefinition
-name|endResponseMsg
+name|endResponseMessage
 parameter_list|()
 block|{
 name|verb

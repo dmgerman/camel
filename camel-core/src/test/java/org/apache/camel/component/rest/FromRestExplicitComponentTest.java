@@ -135,7 +135,7 @@ argument_list|(
 literal|"application/json"
 argument_list|)
 operator|.
-name|restParam
+name|param
 argument_list|()
 operator|.
 name|type
@@ -157,10 +157,6 @@ argument_list|)
 operator|.
 name|allowableValues
 argument_list|(
-name|Arrays
-operator|.
-name|asList
-argument_list|(
 literal|"1"
 argument_list|,
 literal|"2"
@@ -168,7 +164,6 @@ argument_list|,
 literal|"3"
 argument_list|,
 literal|"4"
-argument_list|)
 argument_list|)
 operator|.
 name|defaultValue
@@ -199,7 +194,7 @@ operator|.
 name|endParam
 argument_list|()
 operator|.
-name|restParam
+name|param
 argument_list|()
 operator|.
 name|type
@@ -221,10 +216,6 @@ argument_list|)
 operator|.
 name|allowableValues
 argument_list|(
-name|Arrays
-operator|.
-name|asList
-argument_list|(
 literal|"a"
 argument_list|,
 literal|"b"
@@ -232,7 +223,6 @@ argument_list|,
 literal|"c"
 argument_list|,
 literal|"d"
-argument_list|)
 argument_list|)
 operator|.
 name|defaultValue
@@ -263,7 +253,7 @@ operator|.
 name|endParam
 argument_list|()
 operator|.
-name|restResponseMsg
+name|responseMessage
 argument_list|()
 operator|.
 name|code
@@ -283,7 +273,7 @@ operator|.
 name|class
 argument_list|)
 operator|.
-name|endResponseMsg
+name|endResponseMessage
 argument_list|()
 operator|.
 name|to

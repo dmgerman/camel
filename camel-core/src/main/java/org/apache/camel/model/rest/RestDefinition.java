@@ -1033,10 +1033,10 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|restParam ()
+DECL|method|param ()
 specifier|public
 name|RestOperationParamDefinition
-name|restParam
+name|param
 parameter_list|()
 block|{
 if|if
@@ -1074,16 +1074,16 @@ literal|1
 argument_list|)
 decl_stmt|;
 return|return
-name|restParam
+name|param
 argument_list|(
 name|verb
 argument_list|)
 return|;
 block|}
-DECL|method|restParam (VerbDefinition verb)
+DECL|method|param (VerbDefinition verb)
 specifier|public
 name|RestOperationParamDefinition
-name|restParam
+name|param
 parameter_list|(
 name|VerbDefinition
 name|verb
@@ -1097,10 +1097,10 @@ name|verb
 argument_list|)
 return|;
 block|}
-DECL|method|restResponseMsg ()
+DECL|method|responseMessage ()
 specifier|public
 name|RestOperationResponseMsgDefinition
-name|restResponseMsg
+name|responseMessage
 parameter_list|()
 block|{
 if|if
@@ -1138,16 +1138,16 @@ literal|1
 argument_list|)
 decl_stmt|;
 return|return
-name|restResponseMsg
+name|responseMessage
 argument_list|(
 name|verb
 argument_list|)
 return|;
 block|}
-DECL|method|restResponseMsg (VerbDefinition verb)
+DECL|method|responseMessage (VerbDefinition verb)
 specifier|public
 name|RestOperationResponseMsgDefinition
-name|restResponseMsg
+name|responseMessage
 parameter_list|(
 name|VerbDefinition
 name|verb
@@ -2723,7 +2723,7 @@ operator|!
 name|found
 condition|)
 block|{
-name|restParam
+name|param
 argument_list|(
 name|verb
 argument_list|)
@@ -2795,7 +2795,7 @@ operator|+
 literal|"]"
 expr_stmt|;
 block|}
-name|restParam
+name|param
 argument_list|(
 name|verb
 argument_list|)
