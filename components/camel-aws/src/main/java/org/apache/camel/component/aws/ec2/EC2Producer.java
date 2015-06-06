@@ -1123,7 +1123,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Run Instances command returned the error code {}"
+literal|"Start Instances command returned the error code {}"
 argument_list|,
 name|ase
 operator|.
@@ -1249,7 +1249,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Run Instances command returned the error code {}"
+literal|"Stop Instances command returned the error code {}"
 argument_list|,
 name|ase
 operator|.
@@ -1375,7 +1375,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Run Instances command returned the error code {}"
+literal|"Terminate Instances command returned the error code {}"
 argument_list|,
 name|ase
 operator|.
