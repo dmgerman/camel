@@ -78,6 +78,12 @@ name|INSTANCE_EBS_OPTIMIZED
 init|=
 literal|"CamelAwsEC2InstanceEbsOptimized"
 decl_stmt|;
+DECL|field|INSTANCE_SECURITY_GROUPS
+name|String
+name|INSTANCE_SECURITY_GROUPS
+init|=
+literal|"CamelAwsEC2InstanceSecurityGroups"
+decl_stmt|;
 DECL|field|INSTANCES_IDS
 name|String
 name|INSTANCES_IDS
