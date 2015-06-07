@@ -459,7 +459,6 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// TODO: this operation is currently not supported by hazelcast
 name|exchange
 operator|.
 name|getOut
@@ -490,7 +489,6 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// TODO: this operation is currently not supported by hazelcast
 if|if
 condition|(
 literal|null
@@ -573,7 +571,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// TODO: this operation is currently not supported by hazelcast
 comment|// removes the element at the specified position
 name|int
 name|position
