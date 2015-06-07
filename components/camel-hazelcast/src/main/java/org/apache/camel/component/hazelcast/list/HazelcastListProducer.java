@@ -353,6 +353,17 @@ name|exchange
 argument_list|)
 expr_stmt|;
 break|break;
+case|case
+name|HazelcastConstants
+operator|.
+name|CLEAR_OPERATION
+case|:
+name|this
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+break|break;
 default|default:
 throw|throw
 operator|new
@@ -577,6 +588,18 @@ name|position
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|clear ()
+specifier|private
+name|void
+name|clear
+parameter_list|()
+block|{
+name|list
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
