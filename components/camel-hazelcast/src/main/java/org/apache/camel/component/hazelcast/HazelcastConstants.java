@@ -308,6 +308,24 @@ name|PUT_IF_ABSENT_OPERATION
 init|=
 literal|8
 decl_stmt|;
+DECL|field|ADD_ALL_OPERATION
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|ADD_ALL_OPERATION
+init|=
+literal|9
+decl_stmt|;
+DECL|field|REMOVE_ALL_OPERATION
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|REMOVE_ALL_OPERATION
+init|=
+literal|10
+decl_stmt|;
 comment|// multimap
 DECL|field|REMOVEVALUE_OPERATION
 specifier|public
@@ -316,7 +334,7 @@ specifier|final
 name|int
 name|REMOVEVALUE_OPERATION
 init|=
-literal|10
+literal|11
 decl_stmt|;
 comment|// atomic numbers
 DECL|field|INCREMENT_OPERATION
