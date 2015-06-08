@@ -139,6 +139,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// make sure to use upper case
+if|if
+condition|(
+name|key
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// make sure to use underscore as dash is not supported as ENV variables
 name|key
 operator|=
 name|key
@@ -148,6 +156,13 @@ argument_list|(
 name|Locale
 operator|.
 name|ENGLISH
+argument_list|)
+operator|.
+name|replace
+argument_list|(
+literal|'-'
+argument_list|,
+literal|'_'
 argument_list|)
 expr_stmt|;
 comment|// a service should have both the host and port defined
@@ -200,6 +215,10 @@ return|return
 name|defaultValue
 return|;
 block|}
+block|}
+return|return
+name|defaultValue
+return|;
 block|}
 block|}
 end_class
