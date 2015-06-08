@@ -322,8 +322,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// notice we use an absolute starting path: /tmp/mytemp
-comment|// - we must remember to use // slash because of the url separator
 name|from
 argument_list|(
 literal|"ftp://localhost:"
@@ -331,7 +329,7 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"//tmp/mytemp?username=admin&password=admin&delay=10s&disconnect=true&streamDownload=true"
+literal|"/tmp/mytemp?username=admin&password=admin&delay=10s&disconnect=true&streamDownload=true"
 operator|+
 literal|"&move=done&moveFailed=failed"
 argument_list|)

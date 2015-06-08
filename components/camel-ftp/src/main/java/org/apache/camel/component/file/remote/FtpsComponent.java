@@ -194,6 +194,15 @@ name|baseUri
 argument_list|)
 argument_list|)
 decl_stmt|;
+name|FtpUtils
+operator|.
+name|ensureRelativeFtpDirectory
+argument_list|(
+name|this
+argument_list|,
+name|config
+argument_list|)
+expr_stmt|;
 name|FtpsEndpoint
 name|endpoint
 init|=
