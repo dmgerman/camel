@@ -1487,7 +1487,8 @@ name|ByteArrayInputStream
 argument_list|(
 name|body
 argument_list|)
-init|; ObjectInputStream o = new ObjectInputStream(b)
+init|;                             ObjectInputStream o = new ObjectInputStream(b)
+empty_stmt|;
 block|)
 block|{
 name|messageBody
@@ -1828,6 +1829,7 @@ operator|new
 name|ByteArrayOutputStream
 argument_list|()
 init|; ObjectOutputStream o = new ObjectOutputStream(b)
+empty_stmt|;
 block|)
 block|{
 name|o

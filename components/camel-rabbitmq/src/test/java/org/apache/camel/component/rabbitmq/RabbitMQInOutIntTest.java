@@ -727,7 +727,11 @@ name|headers
 init|=
 operator|new
 name|HashMap
-argument_list|<>
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|TestSerializableObject
@@ -810,7 +814,11 @@ name|tmpMap
 init|=
 operator|new
 name|HashMap
-argument_list|<>
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|List
@@ -821,7 +829,9 @@ name|tmpList
 init|=
 operator|new
 name|ArrayList
-argument_list|<>
+argument_list|<
+name|String
+argument_list|>
 argument_list|()
 decl_stmt|;
 for|for
@@ -1025,6 +1035,7 @@ name|ObjectOutputStream
 argument_list|(
 name|b
 argument_list|)
+init|;
 init|)
 block|{
 name|o
@@ -1066,6 +1077,7 @@ name|ObjectInputStream
 argument_list|(
 name|b
 argument_list|)
+init|;
 init|)
 block|{
 name|newFoo

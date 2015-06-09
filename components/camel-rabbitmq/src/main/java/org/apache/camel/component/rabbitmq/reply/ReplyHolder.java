@@ -22,6 +22,18 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|rabbitmq
+operator|.
+name|client
+operator|.
+name|AMQP
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -41,18 +53,6 @@ operator|.
 name|camel
 operator|.
 name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|rabbitmq
-operator|.
-name|client
-operator|.
-name|AMQP
 import|;
 end_import
 
@@ -110,7 +110,7 @@ name|BasicProperties
 name|properties
 decl_stmt|;
 comment|/**      * Constructor to use when a reply message was received      */
-DECL|method|ReplyHolder (Exchange exchange, AsyncCallback callback, String originalCorrelationId, String correlationId,AMQP.BasicProperties properties, byte[] message)
+DECL|method|ReplyHolder (Exchange exchange, AsyncCallback callback, String originalCorrelationId, String correlationId, AMQP.BasicProperties properties, byte[] message)
 specifier|public
 name|ReplyHolder
 parameter_list|(
