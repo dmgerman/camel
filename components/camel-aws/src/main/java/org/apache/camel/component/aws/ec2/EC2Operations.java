@@ -46,6 +46,12 @@ name|describeInstancesStatus
 block|,
 DECL|enumConstant|rebootInstances
 name|rebootInstances
+block|,
+DECL|enumConstant|monitorInstances
+name|monitorInstances
+block|,
+DECL|enumConstant|unmonitorInstances
+name|unmonitorInstances
 block|}
 end_enum
 
