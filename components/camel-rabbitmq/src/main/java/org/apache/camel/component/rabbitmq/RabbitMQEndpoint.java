@@ -519,6 +519,16 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// header to indicate that the message body needs to be de-serialized
+DECL|field|SERIALIZE_HEADER
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|SERIALIZE_HEADER
+init|=
+literal|"CamelSerialize"
+decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -1103,8 +1113,6 @@ DECL|field|transferException
 specifier|private
 name|boolean
 name|transferException
-init|=
-literal|false
 decl_stmt|;
 comment|// camel-jms supports this setting but it is not currently configurable in camel-rabbitmq
 DECL|field|useMessageIDAsCorrelationID
@@ -1132,8 +1140,6 @@ DECL|field|replyTo
 specifier|private
 name|String
 name|replyTo
-init|=
-literal|null
 decl_stmt|;
 DECL|field|messageConverter
 specifier|private
@@ -1143,16 +1149,6 @@ init|=
 operator|new
 name|RabbitMQMessageConverter
 argument_list|()
-decl_stmt|;
-comment|// header to indicate that the message body needs to be de-serialized
-DECL|field|SERIALIZE_HEADER
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|SERIALIZE_HEADER
-init|=
-literal|"CamelSerialize"
 decl_stmt|;
 DECL|method|RabbitMQEndpoint ()
 specifier|public
