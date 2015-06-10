@@ -1949,7 +1949,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Describe Instances Status command returned the error code {}"
+literal|"Reboot Instances command returned the error code {}"
 argument_list|,
 name|ase
 operator|.
