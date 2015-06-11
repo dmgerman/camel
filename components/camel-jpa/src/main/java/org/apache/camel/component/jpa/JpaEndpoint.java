@@ -1262,6 +1262,7 @@ return|return
 name|remove
 return|;
 block|}
+comment|/**      * Indicates to use entityManager.remove(entity).      */
 DECL|method|setRemove (boolean isRemove)
 specifier|public
 name|void
