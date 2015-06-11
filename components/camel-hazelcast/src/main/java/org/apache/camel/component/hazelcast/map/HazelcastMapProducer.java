@@ -621,6 +621,19 @@ name|exchange
 argument_list|)
 expr_stmt|;
 break|break;
+case|case
+name|HazelcastConstants
+operator|.
+name|EVICT_OPERATION
+case|:
+name|this
+operator|.
+name|evict
+argument_list|(
+name|oid
+argument_list|)
+expr_stmt|;
+break|break;
 default|default:
 throw|throw
 operator|new
@@ -1111,6 +1124,26 @@ name|cache
 operator|.
 name|clear
 argument_list|()
+expr_stmt|;
+block|}
+comment|/**      * Eviction operation for a specific key      */
+DECL|method|evict (Object oid)
+specifier|private
+name|void
+name|evict
+parameter_list|(
+name|Object
+name|oid
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cache
+operator|.
+name|evict
+argument_list|(
+name|oid
+argument_list|)
 expr_stmt|;
 block|}
 block|}

@@ -335,6 +335,15 @@ name|RETAIN_ALL_OPERATION
 init|=
 literal|11
 decl_stmt|;
+DECL|field|EVICT_OPERATION
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|EVICT_OPERATION
+init|=
+literal|12
+decl_stmt|;
 comment|// multimap
 DECL|field|REMOVEVALUE_OPERATION
 specifier|public
@@ -343,7 +352,7 @@ specifier|final
 name|int
 name|REMOVEVALUE_OPERATION
 init|=
-literal|12
+literal|14
 decl_stmt|;
 comment|// atomic numbers
 DECL|field|INCREMENT_OPERATION
