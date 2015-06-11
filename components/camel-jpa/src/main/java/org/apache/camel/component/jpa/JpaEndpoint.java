@@ -569,6 +569,18 @@ specifier|private
 name|boolean
 name|usePassedInEntityManager
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|isRemove
+specifier|private
+name|boolean
+name|isRemove
+decl_stmt|;
 DECL|method|JpaEndpoint ()
 specifier|public
 name|JpaEndpoint
@@ -1238,6 +1250,32 @@ operator|.
 name|usePersist
 operator|=
 name|usePersist
+expr_stmt|;
+block|}
+DECL|method|isRemove ()
+specifier|public
+name|boolean
+name|isRemove
+parameter_list|()
+block|{
+return|return
+name|isRemove
+return|;
+block|}
+DECL|method|setRemove (boolean isRemove)
+specifier|public
+name|void
+name|setRemove
+parameter_list|(
+name|boolean
+name|isRemove
+parameter_list|)
+block|{
+name|this
+operator|.
+name|isRemove
+operator|=
+name|isRemove
 expr_stmt|;
 block|}
 DECL|method|isJoinTransaction ()
