@@ -634,6 +634,17 @@ name|oid
 argument_list|)
 expr_stmt|;
 break|break;
+case|case
+name|HazelcastConstants
+operator|.
+name|EVICT_ALL_OPERATION
+case|:
+name|this
+operator|.
+name|evictAll
+argument_list|()
+expr_stmt|;
+break|break;
 default|default:
 throw|throw
 operator|new
@@ -1144,6 +1155,21 @@ name|evict
 argument_list|(
 name|oid
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Evict All operation       */
+DECL|method|evictAll ()
+specifier|private
+name|void
+name|evictAll
+parameter_list|()
+block|{
+name|this
+operator|.
+name|cache
+operator|.
+name|evictAll
+argument_list|()
 expr_stmt|;
 block|}
 block|}

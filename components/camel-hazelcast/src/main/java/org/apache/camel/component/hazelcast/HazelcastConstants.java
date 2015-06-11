@@ -344,6 +344,15 @@ name|EVICT_OPERATION
 init|=
 literal|12
 decl_stmt|;
+DECL|field|EVICT_ALL_OPERATION
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|EVICT_ALL_OPERATION
+init|=
+literal|13
+decl_stmt|;
 comment|// multimap
 DECL|field|REMOVEVALUE_OPERATION
 specifier|public
