@@ -576,10 +576,10 @@ name|label
 operator|=
 literal|"producer"
 argument_list|)
-DECL|field|isRemove
+DECL|field|remove
 specifier|private
 name|boolean
-name|isRemove
+name|remove
 decl_stmt|;
 DECL|method|JpaEndpoint ()
 specifier|public
@@ -1259,7 +1259,7 @@ name|isRemove
 parameter_list|()
 block|{
 return|return
-name|isRemove
+name|remove
 return|;
 block|}
 DECL|method|setRemove (boolean isRemove)
@@ -1273,7 +1273,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|isRemove
+name|remove
 operator|=
 name|isRemove
 expr_stmt|;
