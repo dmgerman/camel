@@ -498,6 +498,15 @@ operator|.
 name|GET_ALL_OPERATION
 argument_list|)
 expr_stmt|;
+name|addMapping
+argument_list|(
+literal|"clear"
+argument_list|,
+name|HazelcastConstants
+operator|.
+name|CLEAR_OPERATION
+argument_list|)
+expr_stmt|;
 comment|// multimap
 name|addMapping
 argument_list|(
