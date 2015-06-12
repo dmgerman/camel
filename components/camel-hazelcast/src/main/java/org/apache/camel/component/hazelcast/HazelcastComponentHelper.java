@@ -561,6 +561,15 @@ operator|.
 name|RETAIN_ALL_OPERATION
 argument_list|)
 expr_stmt|;
+name|addMapping
+argument_list|(
+literal|"valueCount"
+argument_list|,
+name|HazelcastConstants
+operator|.
+name|VALUE_COUNT_OPERATION
+argument_list|)
+expr_stmt|;
 comment|// multimap
 name|addMapping
 argument_list|(
