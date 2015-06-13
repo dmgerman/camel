@@ -196,7 +196,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"http,websocket"
+literal|"websocket"
 argument_list|)
 DECL|class|CometdEndpoint
 specifier|public

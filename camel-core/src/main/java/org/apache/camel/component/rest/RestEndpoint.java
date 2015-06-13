@@ -246,7 +246,7 @@ literal|true
 argument_list|,
 name|label
 operator|=
-literal|"core,http,rest"
+literal|"core,rest"
 argument_list|)
 DECL|class|RestEndpoint
 specifier|public

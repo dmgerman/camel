@@ -536,7 +536,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"http,rest"
+literal|"rest"
 argument_list|)
 DECL|class|CxfRsEndpoint
 specifier|public

@@ -1202,7 +1202,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"http,soap,webservice"
+literal|"soap,webservice"
 argument_list|)
 DECL|class|CxfEndpoint
 specifier|public
