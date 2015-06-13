@@ -4434,6 +4434,20 @@ name|transportHeaders
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+comment|// no propagated transport headers does really mean no headers, not the ones
+comment|// from the previous request or response propagated with the invocation context
+name|cxfContext
+operator|.
+name|remove
+argument_list|(
+name|Message
+operator|.
+name|PROTOCOL_HEADERS
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|getContentFromCxf (Message message, DataFormat dataFormat)
 specifier|protected
