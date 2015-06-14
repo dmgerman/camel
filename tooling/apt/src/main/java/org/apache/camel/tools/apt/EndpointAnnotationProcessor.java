@@ -2139,6 +2139,11 @@ operator|.
 name|getScheme
 argument_list|()
 argument_list|,
+name|componentModel
+operator|.
+name|getExtendsScheme
+argument_list|()
+argument_list|,
 name|entry
 operator|.
 name|getName
