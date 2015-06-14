@@ -172,6 +172,7 @@ decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|proxy
+specifier|protected
 name|Proxy
 name|proxy
 decl_stmt|;
@@ -355,18 +356,17 @@ return|return
 name|operations
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|getScheme ()
+DECL|method|getProxy ()
 specifier|public
-name|String
-name|getScheme
+name|Proxy
+name|getProxy
 parameter_list|()
 block|{
 return|return
-literal|"sftp"
+name|proxy
 return|;
 block|}
+comment|/**      * To use a custom configured com.jcraft.jsch.Proxy.      * This proxy is used to consume/send messages from the target SFTP host.      */
 DECL|method|setProxy (Proxy proxy)
 specifier|public
 name|void
@@ -382,6 +382,18 @@ name|proxy
 operator|=
 name|proxy
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getScheme ()
+specifier|public
+name|String
+name|getScheme
+parameter_list|()
+block|{
+return|return
+literal|"sftp"
+return|;
 block|}
 block|}
 end_class
