@@ -149,6 +149,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"no"
+argument_list|,
+name|enums
+operator|=
+literal|"no,yes"
 argument_list|)
 DECL|field|strictHostKeyChecking
 specifier|private
@@ -257,6 +261,7 @@ return|return
 name|knownHostsFile
 return|;
 block|}
+comment|/**      * Sets the known_hosts file, so that the SFTP endpoint can do host key verification.      */
 DECL|method|setKnownHostsFile (String knownHostsFile)
 specifier|public
 name|void
@@ -283,6 +288,7 @@ return|return
 name|knownHostsUri
 return|;
 block|}
+comment|/**      * Sets the known_hosts file (loaded from classpath by default), so that the SFTP endpoint can do host key verification.      */
 DECL|method|setKnownHostsUri (String knownHostsUri)
 specifier|public
 name|void
@@ -337,6 +343,7 @@ return|return
 name|privateKeyFile
 return|;
 block|}
+comment|/**      * Set the private key file to that the SFTP endpoint can do private key verification.      */
 DECL|method|setPrivateKeyFile (String privateKeyFile)
 specifier|public
 name|void
@@ -363,6 +370,7 @@ return|return
 name|privateKeyUri
 return|;
 block|}
+comment|/**      * Set the private key file (loaded from classpath by default) to that the SFTP endpoint can do private key verification.      */
 DECL|method|setPrivateKeyUri (String privateKeyUri)
 specifier|public
 name|void
@@ -390,6 +398,7 @@ return|return
 name|privateKey
 return|;
 block|}
+comment|/**      * Set the private key as byte[] to that the SFTP endpoint can do private key verification.      */
 DECL|method|setPrivateKey (byte[] privateKey)
 specifier|public
 name|void
@@ -417,6 +426,7 @@ return|return
 name|privateKeyPassphrase
 return|;
 block|}
+comment|/**      * Set the private key file passphrase to that the SFTP endpoint can do private key verification.      */
 DECL|method|setPrivateKeyPassphrase (String privateKeyFilePassphrase)
 specifier|public
 name|void
@@ -499,6 +509,7 @@ return|return
 name|strictHostKeyChecking
 return|;
 block|}
+comment|/**      * Sets whether to use strict host key checking.      */
 DECL|method|setStrictHostKeyChecking (String strictHostKeyChecking)
 specifier|public
 name|void
@@ -515,6 +526,7 @@ operator|=
 name|strictHostKeyChecking
 expr_stmt|;
 block|}
+comment|/**      * Allows you to set the serverAliveInterval of the sftp session      */
 DECL|method|setServerAliveInterval (int serverAliveInterval)
 specifier|public
 name|void
@@ -541,6 +553,7 @@ return|return
 name|serverAliveInterval
 return|;
 block|}
+comment|/**      * Allows you to set the serverAliveCountMax of the sftp session      */
 DECL|method|setServerAliveCountMax (int serverAliveCountMax)
 specifier|public
 name|void
@@ -567,6 +580,7 @@ return|return
 name|serverAliveCountMax
 return|;
 block|}
+comment|/**      * Allows you to set chmod on the stored file. For example chmod=640.      */
 DECL|method|setChmod (String chmod)
 specifier|public
 name|void
@@ -593,6 +607,7 @@ return|return
 name|chmod
 return|;
 block|}
+comment|/**      * Set a comma separated list of ciphers that will be used in order of preference.      * Possible cipher names are defined by JCraft JSCH. Some examples include: aes128-ctr,aes128-cbc,3des-ctr,3des-cbc,blowfish-cbc,aes192-cbc,aes256-cbc.      * If not specified the default list from JSCH will be used.      */
 DECL|method|setCiphers (String ciphers)
 specifier|public
 name|void
@@ -629,6 +644,7 @@ return|return
 name|compression
 return|;
 block|}
+comment|/**      * To use compression. Specify a level from 1 to 10.      * Important: You must manually add the needed JSCH zlib JAR to the classpath for compression support.      */
 DECL|method|setCompression (int compression)
 specifier|public
 name|void
@@ -645,6 +661,7 @@ operator|=
 name|compression
 expr_stmt|;
 block|}
+comment|/**      * Set the preferred authentications which SFTP endpoint will used. Some example include:password,publickey.      * If not specified the default list from JSCH will be used.      */
 DECL|method|setPreferredAuthentications (String pAuthentications)
 specifier|public
 name|void

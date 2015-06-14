@@ -221,6 +221,11 @@ name|HttpEndpoint
 block|{
 annotation|@
 name|UriPath
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(

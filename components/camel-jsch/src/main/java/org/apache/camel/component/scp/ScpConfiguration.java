@@ -157,6 +157,15 @@ name|privateKeyFilePassphrase
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"no,yes"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"no"
+argument_list|)
 DECL|field|strictHostKeyChecking
 specifier|private
 name|String
@@ -288,6 +297,7 @@ return|return
 name|useUserKnownHostsFile
 return|;
 block|}
+comment|/**      * If knownHostFile has not been explicit configured, then use the host file from System.getProperty("user.home") + "/.ssh/known_hosts"      */
 DECL|method|setUseUserKnownHostsFile (boolean useUserKnownHostsFile)
 specifier|public
 name|void
@@ -366,6 +376,7 @@ return|return
 name|strictHostKeyChecking
 return|;
 block|}
+comment|/**      * Sets whether to use strict host key checking. Possible values are: no, yes      */
 DECL|method|setStrictHostKeyChecking (String strictHostKeyChecking)
 specifier|public
 name|void
@@ -434,6 +445,7 @@ return|return
 name|serverAliveCountMax
 return|;
 block|}
+comment|/**      * Allows you to set chmod on the stored file. For example chmod=664.      */
 DECL|method|setChmod (String chmod)
 specifier|public
 name|void
@@ -558,6 +570,33 @@ operator|.
 name|compression
 operator|=
 name|compression
+expr_stmt|;
+block|}
+DECL|method|isVerboseLogging ()
+specifier|public
+name|boolean
+name|isVerboseLogging
+parameter_list|()
+block|{
+return|return
+name|verboseLogging
+return|;
+block|}
+comment|/**      * To enable verbose logging      */
+DECL|method|setVerboseLogging (boolean verboseLogging)
+specifier|public
+name|void
+name|setVerboseLogging
+parameter_list|(
+name|boolean
+name|verboseLogging
+parameter_list|)
+block|{
+name|this
+operator|.
+name|verboseLogging
+operator|=
+name|verboseLogging
 expr_stmt|;
 block|}
 block|}

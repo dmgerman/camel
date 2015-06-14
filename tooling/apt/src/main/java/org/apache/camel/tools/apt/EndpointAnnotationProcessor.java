@@ -1665,7 +1665,7 @@ argument_list|(
 literal|"\n    "
 argument_list|)
 expr_stmt|;
-comment|// as its json we need to sanitize the docs
+comment|// either we have the documentation from this apt plugin or we need help to find it from extended component
 name|String
 name|doc
 init|=
@@ -1674,6 +1674,40 @@ operator|.
 name|getDocumentationWithNotes
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|Strings
+operator|.
+name|isNullOrEmpty
+argument_list|(
+name|doc
+argument_list|)
+condition|)
+block|{
+name|doc
+operator|=
+name|DocumentationHelper
+operator|.
+name|findComponentJavaDoc
+argument_list|(
+name|componentModel
+operator|.
+name|getScheme
+argument_list|()
+argument_list|,
+name|componentModel
+operator|.
+name|getExtendsScheme
+argument_list|()
+argument_list|,
+name|entry
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// as its json we need to sanitize the docs
 name|doc
 operator|=
 name|sanitizeDescription
@@ -1898,6 +1932,7 @@ argument_list|(
 literal|"\n    "
 argument_list|)
 expr_stmt|;
+comment|// either we have the documentation from this apt plugin or we need help to find it from extended component
 name|String
 name|doc
 init|=
@@ -1906,6 +1941,40 @@ operator|.
 name|getDocumentation
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|Strings
+operator|.
+name|isNullOrEmpty
+argument_list|(
+name|doc
+argument_list|)
+condition|)
+block|{
+name|doc
+operator|=
+name|DocumentationHelper
+operator|.
+name|findEndpointJavaDoc
+argument_list|(
+name|componentModel
+operator|.
+name|getScheme
+argument_list|()
+argument_list|,
+name|componentModel
+operator|.
+name|getExtendsScheme
+argument_list|()
+argument_list|,
+name|entry
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// as its json we need to sanitize the docs
 name|doc
 operator|=
 name|sanitizeDescription
@@ -2109,7 +2178,7 @@ argument_list|(
 literal|"\n    "
 argument_list|)
 expr_stmt|;
-comment|// as its json we need to sanitize the docs
+comment|// either we have the documentation from this apt plugin or we need help to find it from extended component
 name|String
 name|doc
 init|=
@@ -2132,7 +2201,7 @@ name|doc
 operator|=
 name|DocumentationHelper
 operator|.
-name|findJavaDoc
+name|findEndpointJavaDoc
 argument_list|(
 name|componentModel
 operator|.
@@ -2151,6 +2220,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// as its json we need to sanitize the docs
 name|doc
 operator|=
 name|sanitizeDescription
@@ -3926,6 +3996,28 @@ operator|.
 name|label
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|Strings
+operator|.
+name|isNullOrEmpty
+argument_list|(
+name|label
+argument_list|)
+operator|&&
+name|metadata
+operator|!=
+literal|null
+condition|)
+block|{
+name|label
+operator|=
+name|metadata
+operator|.
+name|label
+argument_list|()
+expr_stmt|;
+block|}
 name|TypeMirror
 name|fieldType
 init|=
@@ -4292,6 +4384,28 @@ operator|.
 name|label
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|Strings
+operator|.
+name|isNullOrEmpty
+argument_list|(
+name|label
+argument_list|)
+operator|&&
+name|metadata
+operator|!=
+literal|null
+condition|)
+block|{
+name|label
+operator|=
+name|metadata
+operator|.
+name|label
+argument_list|()
+expr_stmt|;
+block|}
 comment|// if the field type is a nested parameter then iterate through its fields
 name|TypeMirror
 name|fieldType

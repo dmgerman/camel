@@ -345,6 +345,7 @@ name|DefaultEndpoint
 implements|implements
 name|HeaderFilterStrategyAware
 block|{
+comment|// Note: all consumer options must be documented with description in annotations so extended components can access the documentation
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -388,16 +389,17 @@ name|urlRewrite
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
 name|required
 operator|=
 literal|"true"
-argument_list|,
-name|label
-operator|=
-literal|"producer"
 argument_list|)
 DECL|field|httpUri
 specifier|private
@@ -458,6 +460,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Whether or not the consumer should try to find a target consumer by matching the URI prefix if no exact match is found."
 argument_list|)
 DECL|field|matchOnUriPrefix
 specifier|private
@@ -484,6 +490,26 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Determines whether or not the raw input stream from Jetty is cached or not"
+operator|+
+literal|" (Camel will read the stream into a in memory/overflow to file, Stream caching) cache."
+operator|+
+literal|" By default Camel will cache the Jetty input stream to support reading it multiple times to ensure it Camel"
+operator|+
+literal|" can retrieve all data from the stream. However you can set this option to true when you for example need"
+operator|+
+literal|" to access the raw stream, such as streaming it directly to a file or other persistent store."
+operator|+
+literal|" DefaultHttpBinding will copy the request input stream into a stream cache and put it into message body"
+operator|+
+literal|" if this option is false to support reading the stream multiple times."
+operator|+
+literal|" If you use Jetty to bridge/proxy an endpoint then consider enabling this option to improve performance,"
+operator|+
+literal|" in case you do not need to read the message payload multiple times."
 argument_list|)
 DECL|field|disableStreamCache
 specifier|private
@@ -543,6 +569,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Specifies whether to enable HTTP TRACE for this Jetty consumer. By default TRACE is turned off."
 argument_list|)
 DECL|field|traceEnabled
 specifier|private
@@ -555,6 +585,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Used to only allow consuming if the HttpMethod matches, such as GET/POST/PUT etc. Multiple methods can be specified separated by comma."
 argument_list|)
 DECL|field|httpMethodRestrict
 specifier|private
@@ -567,6 +601,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom buffer size on the javax.servlet.ServletResponse."
 argument_list|)
 DECL|field|responseBufferSize
 specifier|private
@@ -1570,7 +1608,7 @@ operator|.
 name|disableStreamCache
 return|;
 block|}
-comment|/**      * Determines whether or not the raw input stream from Jetty is cached or not      * (Camel will read the stream into a in memory/overflow to file, Stream caching) cache.      * By default Camel will cache the Jetty input stream to support reading it multiple times to ensure it Camel      * can retrieve all data from the stream. However you can set this option to true when you for example need      * to access the raw stream, such as streaming it directly to a file or other persistent store.      * DefaultHttpBinding will copy the request input stream into a stream cache and put it into message bod      * if this option is false to support reading the stream multiple times.      * If you use Jetty to bridge/proxy an endpoint then consider enabling this option to improve performance,      * in case you do not need to read the message payload multiple times.      */
+comment|/**      * Determines whether or not the raw input stream from Jetty is cached or not      * (Camel will read the stream into a in memory/overflow to file, Stream caching) cache.      * By default Camel will cache the Jetty input stream to support reading it multiple times to ensure it Camel      * can retrieve all data from the stream. However you can set this option to true when you for example need      * to access the raw stream, such as streaming it directly to a file or other persistent store.      * DefaultHttpBinding will copy the request input stream into a stream cache and put it into message body      * if this option is false to support reading the stream multiple times.      * If you use Jetty to bridge/proxy an endpoint then consider enabling this option to improve performance,      * in case you do not need to read the message payload multiple times.      */
 DECL|method|setDisableStreamCache (boolean disable)
 specifier|public
 name|void

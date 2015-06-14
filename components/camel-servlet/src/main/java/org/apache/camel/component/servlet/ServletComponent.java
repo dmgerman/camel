@@ -978,6 +978,7 @@ return|return
 name|servletName
 return|;
 block|}
+comment|/**      * Default name of servlet to use. The default name is<tt>CamelServlet</tt>.      */
 DECL|method|setServletName (String servletName)
 specifier|public
 name|void
@@ -1004,6 +1005,7 @@ return|return
 name|httpRegistry
 return|;
 block|}
+comment|/**      * To use a custom {@link org.apache.camel.component.servlet.HttpRegistry}.      */
 DECL|method|setHttpRegistry (HttpRegistry httpRegistry)
 specifier|public
 name|void
