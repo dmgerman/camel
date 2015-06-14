@@ -208,7 +208,7 @@ literal|"atmosphere-websocket"
 argument_list|,
 name|extendsScheme
 operator|=
-literal|"websocket"
+literal|"servlet"
 argument_list|,
 name|title
 operator|=

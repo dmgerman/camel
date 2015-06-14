@@ -582,6 +582,14 @@ name|scheme
 argument_list|()
 decl_stmt|;
 name|String
+name|extendsScheme
+init|=
+name|uriEndpoint
+operator|.
+name|extendsScheme
+argument_list|()
+decl_stmt|;
+name|String
 name|title
 init|=
 name|uriEndpoint
@@ -631,6 +639,23 @@ argument_list|(
 literal|","
 argument_list|)
 decl_stmt|;
+name|String
+index|[]
+name|extendsSchemes
+init|=
+name|extendsScheme
+operator|!=
+literal|null
+condition|?
+name|extendsScheme
+operator|.
+name|split
+argument_list|(
+literal|","
+argument_list|)
+else|:
+literal|null
+decl_stmt|;
 for|for
 control|(
 name|int
@@ -656,6 +681,34 @@ name|schemes
 index|[
 name|i
 index|]
+decl_stmt|;
+specifier|final
+name|String
+name|extendsAlias
+init|=
+name|extendsSchemes
+operator|!=
+literal|null
+condition|?
+operator|(
+name|i
+operator|<
+name|extendsSchemes
+operator|.
+name|length
+condition|?
+name|extendsSchemes
+index|[
+name|i
+index|]
+else|:
+name|extendsSchemes
+index|[
+literal|0
+index|]
+operator|)
+else|:
+literal|null
 decl_stmt|;
 specifier|final
 name|String
@@ -816,6 +869,8 @@ argument_list|,
 name|aliasTitle
 argument_list|,
 name|alias
+argument_list|,
+name|extendsAlias
 argument_list|,
 name|label
 argument_list|)
@@ -1136,7 +1191,7 @@ literal|"</html>"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|writeJSonSchemeDocumentation (PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, UriEndpoint uriEndpoint, String title, String scheme, String label)
+DECL|method|writeJSonSchemeDocumentation (PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, UriEndpoint uriEndpoint, String title, String scheme, final String extendsScheme, String label)
 specifier|protected
 name|void
 name|writeJSonSchemeDocumentation
@@ -1159,6 +1214,10 @@ parameter_list|,
 name|String
 name|scheme
 parameter_list|,
+specifier|final
+name|String
+name|extendsScheme
+parameter_list|,
 name|String
 name|label
 parameter_list|)
@@ -1176,6 +1235,8 @@ argument_list|,
 name|title
 argument_list|,
 name|scheme
+argument_list|,
+name|extendsScheme
 argument_list|,
 name|label
 argument_list|)
@@ -2828,7 +2889,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|findComponentProperties (RoundEnvironment roundEnv, UriEndpoint uriEndpoint, String title, String scheme, String label)
+DECL|method|findComponentProperties (RoundEnvironment roundEnv, UriEndpoint uriEndpoint, String title, String scheme, String extendsScheme, String label)
 specifier|protected
 name|ComponentModel
 name|findComponentProperties
@@ -2844,6 +2905,9 @@ name|title
 parameter_list|,
 name|String
 name|scheme
+parameter_list|,
+name|String
+name|extendsScheme
 parameter_list|,
 name|String
 name|label
@@ -2882,10 +2946,7 @@ name|model
 operator|.
 name|setExtendsScheme
 argument_list|(
-name|uriEndpoint
-operator|.
 name|extendsScheme
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|model
