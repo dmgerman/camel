@@ -757,6 +757,7 @@ return|return
 name|maximumReconnectAttempts
 return|;
 block|}
+comment|/**      * Specifies the maximum reconnect attempts Camel performs when it tries to connect to the remote FTP server. Use 0 to disable this behavior.      */
 DECL|method|setMaximumReconnectAttempts (int maximumReconnectAttempts)
 specifier|public
 name|void
@@ -783,6 +784,7 @@ return|return
 name|reconnectDelay
 return|;
 block|}
+comment|/**      * Delay in millis Camel will wait before performing a reconnect attempt.      */
 DECL|method|setReconnectDelay (long reconnectDelay)
 specifier|public
 name|void
@@ -809,6 +811,7 @@ return|return
 name|disconnect
 return|;
 block|}
+comment|/**      * Whether or not to disconnect from remote FTP server right after use.      * Disconnect will only disconnect the current connection to the FTP server.      * If you have a consumer which you want to stop, then you need to stop the consumer/route instead.      */
 DECL|method|setDisconnect (boolean disconnect)
 specifier|public
 name|void
@@ -835,6 +838,7 @@ return|return
 name|fastExistsCheck
 return|;
 block|}
+comment|/**      * If set this option to be true, camel-ftp will use the list file directly to check if the file exists.      * Since some FTP server may not support to list the file directly, if the option is false,      * camel-ftp will use the old way to list the directory and check if the file exists.      * This option also influences readLock=changed to control whether it performs a fast check to update file information or not.      * This can be used to speed up the process if the FTP server has a lot of files.      */
 DECL|method|setFastExistsCheck (boolean fastExistsCheck)
 specifier|public
 name|void
@@ -863,6 +867,7 @@ operator|.
 name|download
 return|;
 block|}
+comment|/**      * Whether the FTP consumer should download the file.      * If this option is set to false, then the message body will be null, but the consumer will still trigger a Camel      * Exchange that has details about the file such as file name, file size, etc. It's just that the file will not be downloaded.      */
 DECL|method|setDownload (boolean download)
 specifier|public
 name|void

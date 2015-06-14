@@ -991,7 +991,7 @@ return|return
 name|soTimeout
 return|;
 block|}
-comment|/**      * Sets the soTimeout option.      *<p/>      * Used by FTPClient      */
+comment|/**      * Sets the soTimeout on the FTP client.      */
 DECL|method|setSoTimeout (int soTimeout)
 specifier|public
 name|void
@@ -1006,6 +1006,33 @@ operator|.
 name|soTimeout
 operator|=
 name|soTimeout
+expr_stmt|;
+block|}
+DECL|method|getDataTimeout ()
+specifier|public
+name|int
+name|getDataTimeout
+parameter_list|()
+block|{
+return|return
+name|dataTimeout
+return|;
+block|}
+comment|/**      * Sets the data timeout on the FTP client.      */
+DECL|method|setDataTimeout (int dataTimeout)
+specifier|public
+name|void
+name|setDataTimeout
+parameter_list|(
+name|int
+name|dataTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dataTimeout
+operator|=
+name|dataTimeout
 expr_stmt|;
 block|}
 annotation|@

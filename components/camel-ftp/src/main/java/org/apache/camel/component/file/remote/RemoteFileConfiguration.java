@@ -721,6 +721,7 @@ return|return
 name|binary
 return|;
 block|}
+comment|/**      * Specifies the file transfer mode, BINARY or ASCII. Default is ASCII (false).      */
 DECL|method|setBinary (boolean binary)
 specifier|public
 name|void
