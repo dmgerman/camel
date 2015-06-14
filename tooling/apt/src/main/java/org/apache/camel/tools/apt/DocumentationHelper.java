@@ -471,8 +471,8 @@ name|String
 name|extendsScheme
 parameter_list|)
 block|{
-comment|// TODO: scan components for each component and find component name from extendsScheme
-comment|// and then find the package name where the json file is
+comment|// we cannot use classloader to load external resources from other JARs during apt plugin,
+comment|// so load these resources using the file system
 if|if
 condition|(
 literal|"file"
