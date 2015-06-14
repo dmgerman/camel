@@ -285,12 +285,10 @@ name|handlers
 decl_stmt|;
 annotation|@
 name|UriPath
-annotation|@
-name|Metadata
 argument_list|(
-name|required
+name|defaultValue
 operator|=
-literal|"true"
+literal|"0.0.0.0"
 argument_list|)
 DECL|field|host
 specifier|private
@@ -299,12 +297,10 @@ name|host
 decl_stmt|;
 annotation|@
 name|UriPath
-annotation|@
-name|Metadata
 argument_list|(
-name|required
+name|defaultValue
 operator|=
-literal|"true"
+literal|"9292"
 argument_list|)
 DECL|field|port
 specifier|private
@@ -327,6 +323,11 @@ name|resourceUri
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|sendToAll
 specifier|private
 name|Boolean
@@ -367,7 +368,6 @@ specifier|private
 name|String
 name|allowedOrigins
 decl_stmt|;
-comment|// Used to filter CORS
 annotation|@
 name|UriParam
 DECL|field|filterPath
@@ -375,7 +375,6 @@ specifier|private
 name|String
 name|filterPath
 decl_stmt|;
-comment|// Base Resource for the ServletContextHandler
 annotation|@
 name|UriParam
 DECL|field|staticResources
@@ -383,9 +382,13 @@ specifier|private
 name|String
 name|staticResources
 decl_stmt|;
-comment|// Here are the configuration on the WebSocketComponentServlet
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"8192"
+argument_list|)
 DECL|field|bufferSize
 specifier|private
 name|Integer
@@ -393,6 +396,11 @@ name|bufferSize
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"300000"
+argument_list|)
 DECL|field|maxIdleTime
 specifier|private
 name|Integer
@@ -407,6 +415,11 @@ name|maxTextMessageSize
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"-1"
+argument_list|)
 DECL|field|maxBinaryMessageSize
 specifier|private
 name|Integer
@@ -414,6 +427,11 @@ name|maxBinaryMessageSize
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"13"
+argument_list|)
 DECL|field|minVersion
 specifier|private
 name|Integer
@@ -737,6 +755,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * The hostname. The default value is<tt>0.0.0.0</tt>.      * Setting this option on the component will use the component configured value as default.      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -753,6 +772,7 @@ operator|=
 name|host
 expr_stmt|;
 block|}
+comment|/**      * The port number. The default value is<tt>9292</tt>.      * Setting this option on the component will use the component configured value as default.      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -779,6 +799,7 @@ return|return
 name|staticResources
 return|;
 block|}
+comment|/**      * Set a resource path for static resources (such as .html files etc).      *<p/>      * The resources can be loaded from classpath, if you prefix with<tt>classpath:</tt>,      * otherwise the resources is loaded from file system or from JAR files.      *<p/>      * For example to load from root classpath use<tt>classpath:.</tt>, or      *<tt>classpath:WEB-INF/static</tt>      *<p/>      * If not configured (eg<tt>null</tt>) then no static resource is in use.      */
 DECL|method|setStaticResources (String staticResources)
 specifier|public
 name|void
@@ -805,6 +826,7 @@ return|return
 name|sendToAll
 return|;
 block|}
+comment|/**      * To send to all websocket subscribers. Can be used to configure on endpoint level, instead of having to use the WebsocketConstants.SEND_TO_ALL header on the message.      */
 DECL|method|setSendToAll (Boolean sendToAll)
 specifier|public
 name|void
@@ -847,6 +869,7 @@ name|getPath
 argument_list|()
 return|;
 block|}
+comment|/**      * Whether to enable session support which enables HttpSession for each http request.      */
 DECL|method|setSessionSupport (boolean support)
 specifier|public
 name|void
@@ -881,6 +904,7 @@ return|return
 name|bufferSize
 return|;
 block|}
+comment|/**      * Set the buffer size of the websocketServlet, which is also the max frame byte size (default 8192)      */
 DECL|method|setBufferSize (Integer bufferSize)
 specifier|public
 name|void
@@ -907,6 +931,7 @@ return|return
 name|maxIdleTime
 return|;
 block|}
+comment|/**      * Set the time in ms that the websocket created by the websocketServlet may be idle before closing. (default is 300000)      */
 DECL|method|setMaxIdleTime (Integer maxIdleTime)
 specifier|public
 name|void
@@ -933,6 +958,7 @@ return|return
 name|maxTextMessageSize
 return|;
 block|}
+comment|/**      * Can be used to set the size in characters that the websocket created by the websocketServlet may be accept before closing.      */
 DECL|method|setMaxTextMessageSize (Integer maxTextMessageSize)
 specifier|public
 name|void
@@ -959,6 +985,7 @@ return|return
 name|maxBinaryMessageSize
 return|;
 block|}
+comment|/**      * Can be used to set the size in bytes that the websocket created by the websocketServlet may be accept before closing. (Default is -1 - or unlimited)      */
 DECL|method|setMaxBinaryMessageSize (Integer maxBinaryMessageSize)
 specifier|public
 name|void
@@ -985,6 +1012,7 @@ return|return
 name|minVersion
 return|;
 block|}
+comment|/**      * Can be used to set the minimum protocol version accepted for the websocketServlet. (Default 13 - the RFC6455 version)      */
 DECL|method|setMinVersion (Integer minVersion)
 specifier|public
 name|void
@@ -1043,6 +1071,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
+comment|/**      * To configure security using SSLContextParameters      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
@@ -1071,6 +1100,7 @@ operator|.
 name|enableJmx
 return|;
 block|}
+comment|/**      * If this option is true, Jetty JMX support will be enabled for this endpoint. See Jetty JMX support for more details.      */
 DECL|method|setEnableJmx (boolean enableJmx)
 specifier|public
 name|void
@@ -1097,6 +1127,7 @@ return|return
 name|allowedOrigins
 return|;
 block|}
+comment|/**      * The CORS allowed origins. Use * to allow all.      */
 DECL|method|setAllowedOrigins (String allowedOrigins)
 specifier|public
 name|void
@@ -1123,6 +1154,7 @@ return|return
 name|crossOriginFilterOn
 return|;
 block|}
+comment|/**      * Whether to enable CORS      */
 DECL|method|setCrossOriginFilterOn (boolean crossOriginFilterOn)
 specifier|public
 name|void
@@ -1149,6 +1181,7 @@ return|return
 name|filterPath
 return|;
 block|}
+comment|/**      * Context path for filtering CORS      */
 DECL|method|setFilterPath (String filterPath)
 specifier|public
 name|void
@@ -1165,22 +1198,6 @@ operator|=
 name|filterPath
 expr_stmt|;
 block|}
-DECL|method|setPort (Integer port)
-specifier|public
-name|void
-name|setPort
-parameter_list|(
-name|Integer
-name|port
-parameter_list|)
-block|{
-name|this
-operator|.
-name|port
-operator|=
-name|port
-expr_stmt|;
-block|}
 DECL|method|getResourceUri ()
 specifier|public
 name|String
@@ -1191,6 +1208,7 @@ return|return
 name|resourceUri
 return|;
 block|}
+comment|/**      * Name of the websocket channel to use      */
 DECL|method|setResourceUri (String resourceUri)
 specifier|public
 name|void

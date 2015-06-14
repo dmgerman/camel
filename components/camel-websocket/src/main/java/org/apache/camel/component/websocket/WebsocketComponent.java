@@ -3452,7 +3452,7 @@ return|return
 name|staticResources
 return|;
 block|}
-comment|/**      * Set a resource path for static resources (such as .html files etc).      *<p/>      * The resources can be loaded from classpath, if you prefix with<tt>classpath:</tt>,      * otherwise the resources is loaded from file system or from JAR files.      *<p/>      * For example to load from root classpath use<tt>classpath:.</tt>, or      *<tt>classpath:WEB-INF/static</tt>      *<p/>      * If not configured (eg<tt>null</tt>) then no static resource is in use.      *      * @param staticResources the base path      */
+comment|/**      * Set a resource path for static resources (such as .html files etc).      *<p/>      * The resources can be loaded from classpath, if you prefix with<tt>classpath:</tt>,      * otherwise the resources is loaded from file system or from JAR files.      *<p/>      * For example to load from root classpath use<tt>classpath:.</tt>, or      *<tt>classpath:WEB-INF/static</tt>      *<p/>      * If not configured (eg<tt>null</tt>) then no static resource is in use.      */
 DECL|method|setStaticResources (String staticResources)
 specifier|public
 name|void
@@ -3479,6 +3479,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * The hostname. The default value is<tt>0.0.0.0</tt>      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -3505,6 +3506,7 @@ return|return
 name|port
 return|;
 block|}
+comment|/**      * The port number. The default value is<tt>9292</tt>      */
 DECL|method|setPort (Integer port)
 specifier|public
 name|void
@@ -3551,6 +3553,7 @@ return|return
 name|sslKeystore
 return|;
 block|}
+comment|/**      * The password for the keystore when using SSL.      */
 DECL|method|setSslKeyPassword (String sslKeyPassword)
 specifier|public
 name|void
@@ -3567,6 +3570,7 @@ operator|=
 name|sslKeyPassword
 expr_stmt|;
 block|}
+comment|/**      * The password when using SSL.      */
 DECL|method|setSslPassword (String sslPassword)
 specifier|public
 name|void
@@ -3583,6 +3587,7 @@ operator|=
 name|sslPassword
 expr_stmt|;
 block|}
+comment|/**      * The path to the keystore.      */
 DECL|method|setSslKeystore (String sslKeystore)
 specifier|public
 name|void
@@ -3599,6 +3604,7 @@ operator|=
 name|sslKeystore
 expr_stmt|;
 block|}
+comment|/**      * If this option is true, Jetty JMX support will be enabled for this endpoint. See Jetty JMX support for more details.      */
 DECL|method|setEnableJmx (boolean enableJmx)
 specifier|public
 name|void
@@ -3635,6 +3641,7 @@ return|return
 name|minThreads
 return|;
 block|}
+comment|/**      * To set a value for minimum number of threads in server thread pool.      */
 DECL|method|setMinThreads (Integer minThreads)
 specifier|public
 name|void
@@ -3661,6 +3668,7 @@ return|return
 name|maxThreads
 return|;
 block|}
+comment|/**      * To set a value for maximum number of threads in server thread pool.      */
 DECL|method|setMaxThreads (Integer maxThreads)
 specifier|public
 name|void
@@ -3687,6 +3695,7 @@ return|return
 name|threadPool
 return|;
 block|}
+comment|/**      * To use a custom thread pool for the server.      */
 DECL|method|setThreadPool (ThreadPool threadPool)
 specifier|public
 name|void
@@ -3713,6 +3722,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
+comment|/**      * To configure security using SSLContextParameters      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
