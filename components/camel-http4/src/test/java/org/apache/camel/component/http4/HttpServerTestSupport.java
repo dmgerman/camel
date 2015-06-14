@@ -99,7 +99,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Abstract base class for unit testing using a http server.  * The setUp method starts the server before the camel context is started and  * the tearDown method stops the server after the camel context is stopped.  *  * @version  */
+comment|/**  * Abstract base class for unit testing using a http server.  * This class contains an empty configuration to be used.  *  * @version  */
 end_comment
 
 begin_class
