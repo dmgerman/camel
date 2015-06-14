@@ -50,7 +50,7 @@ specifier|public
 class|class
 name|HelloBean
 block|{
-DECL|method|sayHello (@eaderR) String name, @Simple(R) String host)
+DECL|method|sayHello (@eaderR) String name, @Simple(R) String country)
 specifier|public
 name|String
 name|sayHello
@@ -66,10 +66,10 @@ parameter_list|,
 annotation|@
 name|Simple
 argument_list|(
-literal|"${sysenv.HOSTNAME}"
+literal|"${sys.user.country}"
 argument_list|)
 name|String
-name|host
+name|country
 parameter_list|)
 block|{
 return|return
@@ -77,9 +77,9 @@ literal|"Hello "
 operator|+
 name|name
 operator|+
-literal|", how are you? You are from host: "
+literal|", how are you? You are from: "
 operator|+
-name|host
+name|country
 return|;
 block|}
 block|}
