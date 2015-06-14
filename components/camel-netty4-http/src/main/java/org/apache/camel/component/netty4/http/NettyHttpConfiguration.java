@@ -90,6 +90,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriParam
 import|;
 end_import
@@ -138,6 +152,13 @@ name|NettyConfiguration
 block|{
 annotation|@
 name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|path
 specifier|private
 name|String
@@ -216,6 +237,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -246,20 +271,6 @@ init|=
 literal|1024
 operator|*
 literal|1024
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|chunked
-specifier|private
-name|boolean
-name|chunked
-init|=
-literal|true
 decl_stmt|;
 DECL|method|NettyHttpConfiguration ()
 specifier|public
@@ -388,6 +399,7 @@ return|return
 name|compression
 return|;
 block|}
+comment|/**      * Allow using gzip/deflate for compression on the Netty HTTP server if the client supports it from the HTTP headers.      */
 DECL|method|setCompression (boolean compression)
 specifier|public
 name|void
@@ -414,6 +426,7 @@ return|return
 name|throwExceptionOnFailure
 return|;
 block|}
+comment|/**      * Option to disable throwing the HttpOperationFailedException in case of failed responses from the remote server.      * This allows you to get all responses regardless of the HTTP status code.      */
 DECL|method|setThrowExceptionOnFailure (boolean throwExceptionOnFailure)
 specifier|public
 name|void
@@ -440,6 +453,7 @@ return|return
 name|transferException
 return|;
 block|}
+comment|/**      * If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back serialized      * in the response as a application/x-java-serialized-object content type.      * On the producer side the exception will be deserialized and thrown as is, instead of the HttpOperationFailedException.      * The caused exception is required to be serialized.      */
 DECL|method|setTransferException (boolean transferException)
 specifier|public
 name|void
@@ -466,6 +480,7 @@ return|return
 name|urlDecodeHeaders
 return|;
 block|}
+comment|/**      * If this option is enabled, then during binding from Netty to Camel Message then the header values will be URL decoded      * (eg %20 will be a space character. Notice this option is used by the default org.apache.camel.component.netty.http.NettyHttpBinding      * and therefore if you implement a custom org.apache.camel.component.netty4.http.NettyHttpBinding then you would      * need to decode the headers accordingly to this option.      */
 DECL|method|setUrlDecodeHeaders (boolean urlDecodeHeaders)
 specifier|public
 name|void
@@ -492,6 +507,7 @@ return|return
 name|mapHeaders
 return|;
 block|}
+comment|/**      * If this option is enabled, then during binding from Netty to Camel Message then the headers will be mapped as well      * (eg added as header to the Camel Message as well). You can turn off this option to disable this.      * The headers can still be accessed from the org.apache.camel.component.netty.http.NettyHttpMessage message with      * the method getHttpRequest() that returns the Netty HTTP request io.netty.handler.codec.http.HttpRequest instance.      */
 DECL|method|setMapHeaders (boolean mapHeaders)
 specifier|public
 name|void
@@ -518,6 +534,7 @@ return|return
 name|matchOnUriPrefix
 return|;
 block|}
+comment|/**      * Whether or not Camel should try to find a target consumer by matching the URI prefix if no exact match is found.      */
 DECL|method|setMatchOnUriPrefix (boolean matchOnUriPrefix)
 specifier|public
 name|void
@@ -544,6 +561,7 @@ return|return
 name|bridgeEndpoint
 return|;
 block|}
+comment|/**      * If the option is true, the producer will ignore the Exchange.HTTP_URI header, and use the endpoint's URI for request.      * You may also set the throwExceptionOnFailure to be false to let the producer send all the fault response back.      * The consumer working in the bridge mode will skip the gzip compression and WWW URL form encoding (by adding the Exchange.SKIP_GZIP_ENCODING      * and Exchange.SKIP_WWW_FORM_URLENCODED headers to the consumed exchange).      */
 DECL|method|setBridgeEndpoint (boolean bridgeEndpoint)
 specifier|public
 name|void
@@ -570,6 +588,7 @@ return|return
 name|path
 return|;
 block|}
+comment|/**      * Resource path      */
 DECL|method|setPath (String path)
 specifier|public
 name|void
@@ -596,6 +615,7 @@ return|return
 name|disableStreamCache
 return|;
 block|}
+comment|/**      * Determines whether or not the raw input stream from Netty HttpRequest#getContent() is cached or not      * (Camel will read the stream into a in light-weight memory based Stream caching) cache.      * By default Camel will cache the Netty input stream to support reading it multiple times to ensure it Camel      * can retrieve all data from the stream. However you can set this option to true when you for example need to      * access the raw stream, such as streaming it directly to a file or other persistent store. Mind that      * if you enable this option, then you cannot read the Netty stream multiple times out of the box, and you would      * need manually to reset the reader index on the Netty raw stream.      */
 DECL|method|setDisableStreamCache (boolean disableStreamCache)
 specifier|public
 name|void
@@ -622,6 +642,7 @@ return|return
 name|send503whenSuspended
 return|;
 block|}
+comment|/**      * Whether to send back HTTP status code 503 when the consumer has been suspended.      * If the option is false then the Netty Acceptor is unbound when the consumer is suspended, so clients cannot connect anymore.      */
 DECL|method|setSend503whenSuspended (boolean send503whenSuspended)
 specifier|public
 name|void
@@ -638,32 +659,6 @@ operator|=
 name|send503whenSuspended
 expr_stmt|;
 block|}
-DECL|method|isChunked ()
-specifier|public
-name|boolean
-name|isChunked
-parameter_list|()
-block|{
-return|return
-name|chunked
-return|;
-block|}
-DECL|method|setChunked (boolean chunked)
-specifier|public
-name|void
-name|setChunked
-parameter_list|(
-name|boolean
-name|chunked
-parameter_list|)
-block|{
-name|this
-operator|.
-name|chunked
-operator|=
-name|chunked
-expr_stmt|;
-block|}
 DECL|method|getChunkedMaxContentLength ()
 specifier|public
 name|int
@@ -674,6 +669,7 @@ return|return
 name|chunkedMaxContentLength
 return|;
 block|}
+comment|/**      * Value in bytes the max content length per chunked frame received on the Netty HTTP server.      */
 DECL|method|setChunkedMaxContentLength (int chunkedMaxContentLength)
 specifier|public
 name|void
