@@ -282,6 +282,11 @@ name|HttpAuthenticationTest
 extends|extends
 name|BaseHttpTest
 block|{
+DECL|field|localServer
+specifier|private
+name|HttpServer
+name|localServer
+decl_stmt|;
 DECL|field|user
 specifier|private
 name|String
@@ -295,11 +300,6 @@ name|String
 name|password
 init|=
 literal|"password"
-decl_stmt|;
-DECL|field|localServer
-specifier|protected
-name|HttpServer
-name|localServer
 decl_stmt|;
 annotation|@
 name|Before
@@ -472,7 +472,7 @@ name|exchange
 parameter_list|)
 throws|throws
 name|Exception
-block|{             }
+block|{                 }
 block|}
 argument_list|)
 decl_stmt|;
@@ -657,7 +657,7 @@ name|exchange
 parameter_list|)
 throws|throws
 name|Exception
-block|{             }
+block|{                 }
 block|}
 argument_list|)
 decl_stmt|;
