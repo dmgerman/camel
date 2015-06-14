@@ -122,20 +122,6 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|verboseLogging
-specifier|private
-name|boolean
-name|verboseLogging
-init|=
-literal|true
-decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|knownHostsFile
 specifier|private
 name|String
@@ -173,27 +159,6 @@ name|strictHostKeyChecking
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|serverAliveInterval
-specifier|private
-name|int
-name|serverAliveInterval
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"1"
-argument_list|)
-DECL|field|serverAliveCountMax
-specifier|private
-name|int
-name|serverAliveCountMax
-init|=
-literal|1
-decl_stmt|;
-annotation|@
-name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
@@ -214,13 +179,6 @@ DECL|field|ciphers
 specifier|private
 name|String
 name|ciphers
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|compression
-specifier|private
-name|int
-name|compression
 decl_stmt|;
 DECL|method|ScpConfiguration ()
 specifier|public
@@ -271,6 +229,7 @@ return|return
 name|knownHostsFile
 return|;
 block|}
+comment|/**      * Sets the known_hosts file, so that the jsch endpoint can do host key verification.      */
 DECL|method|setKnownHostsFile (String knownHostsFile)
 specifier|public
 name|void
@@ -324,6 +283,7 @@ return|return
 name|privateKeyFile
 return|;
 block|}
+comment|/**      * Set the private key file to that the SFTP endpoint can do private key verification.      */
 DECL|method|setPrivateKeyFile (String privateKeyFile)
 specifier|public
 name|void
@@ -350,6 +310,7 @@ return|return
 name|privateKeyFilePassphrase
 return|;
 block|}
+comment|/**      * Set the private key file passphrase to that the SFTP endpoint can do private key verification.      */
 DECL|method|setPrivateKeyFilePassphrase (String privateKeyFilePassphrase)
 specifier|public
 name|void
@@ -392,58 +353,6 @@ name|strictHostKeyChecking
 operator|=
 name|strictHostKeyChecking
 expr_stmt|;
-block|}
-DECL|method|setServerAliveInterval (int serverAliveInterval)
-specifier|public
-name|void
-name|setServerAliveInterval
-parameter_list|(
-name|int
-name|serverAliveInterval
-parameter_list|)
-block|{
-name|this
-operator|.
-name|serverAliveInterval
-operator|=
-name|serverAliveInterval
-expr_stmt|;
-block|}
-DECL|method|getServerAliveInterval ()
-specifier|public
-name|int
-name|getServerAliveInterval
-parameter_list|()
-block|{
-return|return
-name|serverAliveInterval
-return|;
-block|}
-DECL|method|setServerAliveCountMax (int serverAliveCountMax)
-specifier|public
-name|void
-name|setServerAliveCountMax
-parameter_list|(
-name|int
-name|serverAliveCountMax
-parameter_list|)
-block|{
-name|this
-operator|.
-name|serverAliveCountMax
-operator|=
-name|serverAliveCountMax
-expr_stmt|;
-block|}
-DECL|method|getServerAliveCountMax ()
-specifier|public
-name|int
-name|getServerAliveCountMax
-parameter_list|()
-block|{
-return|return
-name|serverAliveCountMax
-return|;
 block|}
 comment|/**      * Allows you to set chmod on the stored file. For example chmod=664.      */
 DECL|method|setChmod (String chmod)
@@ -520,6 +429,7 @@ return|return
 name|chmod
 return|;
 block|}
+comment|/**      * Set a comma separated list of ciphers that will be used in order of preference.      * Possible cipher names are defined by JCraft JSCH. Some examples include: aes128-ctr,aes128-cbc,3des-ctr,3des-cbc,blowfish-cbc,aes192-cbc,aes256-cbc.      * If not specified the default list from JSCH will be used.      */
 DECL|method|setCiphers (String ciphers)
 specifier|public
 name|void
@@ -545,59 +455,6 @@ block|{
 return|return
 name|ciphers
 return|;
-block|}
-DECL|method|getCompression ()
-specifier|public
-name|int
-name|getCompression
-parameter_list|()
-block|{
-return|return
-name|compression
-return|;
-block|}
-DECL|method|setCompression (int compression)
-specifier|public
-name|void
-name|setCompression
-parameter_list|(
-name|int
-name|compression
-parameter_list|)
-block|{
-name|this
-operator|.
-name|compression
-operator|=
-name|compression
-expr_stmt|;
-block|}
-DECL|method|isVerboseLogging ()
-specifier|public
-name|boolean
-name|isVerboseLogging
-parameter_list|()
-block|{
-return|return
-name|verboseLogging
-return|;
-block|}
-comment|/**      * To enable verbose logging      */
-DECL|method|setVerboseLogging (boolean verboseLogging)
-specifier|public
-name|void
-name|setVerboseLogging
-parameter_list|(
-name|boolean
-name|verboseLogging
-parameter_list|)
-block|{
-name|this
-operator|.
-name|verboseLogging
-operator|=
-name|verboseLogging
-expr_stmt|;
 block|}
 block|}
 end_class
