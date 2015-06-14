@@ -345,7 +345,7 @@ name|DefaultEndpoint
 implements|implements
 name|HeaderFilterStrategyAware
 block|{
-comment|// Note: all consumer options must be documented with description in annotations so extended components can access the documentation
+comment|// Note: all options must be documented with description in annotations so extended components can access the documentation
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -393,6 +393,10 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"The url of the HTTP endpoint to call."
 argument_list|)
 annotation|@
 name|Metadata
@@ -408,6 +412,11 @@ name|httpUri
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"To use a custom HeaderFilterStrategy to filter header to and from Camel message."
+argument_list|)
 DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
@@ -419,6 +428,11 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"To use a custom HttpBinding to control the mapping between Camel message and HttpClient."
+argument_list|)
 DECL|field|binding
 specifier|private
 name|HttpBinding
@@ -434,6 +448,12 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Option to disable throwing the HttpOperationFailedException in case of failed responses from the remote server."
+operator|+
+literal|" This allows you to get all responses regardless of the HTTP status code."
 argument_list|)
 DECL|field|throwExceptionOnFailure
 specifier|private
@@ -448,6 +468,12 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"If the option is true, HttpProducer will ignore the Exchange.HTTP_URI header, and use the endpoint's URI for request."
+operator|+
+literal|" You may also set the option throwExceptionOnFailure to be false to let the HttpProducer send all the fault response back."
 argument_list|)
 DECL|field|bridgeEndpoint
 specifier|private
@@ -476,6 +502,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"If this option is false Jetty servlet will disable the HTTP streaming and set the content-length header on the response"
 argument_list|)
 DECL|field|chunked
 specifier|private
@@ -522,6 +552,10 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"The proxy host name"
 argument_list|)
 DECL|field|proxyHost
 specifier|private
@@ -534,6 +568,10 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"The proxy port number"
 argument_list|)
 DECL|field|proxyPort
 specifier|private
@@ -550,6 +588,10 @@ argument_list|,
 name|enums
 operator|=
 literal|"Basic,Digest,NTLM"
+argument_list|,
+name|description
+operator|=
+literal|"Authentication method for proxy, either as Basic, Digest or NTLM."
 argument_list|)
 DECL|field|authMethodPriority
 specifier|private

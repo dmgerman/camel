@@ -426,6 +426,11 @@ name|HttpServletResponse
 argument_list|>
 name|inboundBinding
 decl_stmt|;
+DECL|field|queue
+specifier|private
+name|Queue
+name|queue
+decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -440,17 +445,45 @@ specifier|private
 name|String
 name|queueName
 decl_stmt|;
-DECL|field|queue
-specifier|private
-name|Queue
-name|queue
-decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"worker"
+argument_list|)
 DECL|field|workerRoot
 specifier|private
 name|String
 name|workerRoot
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|inboundBindingRef
+specifier|private
+name|String
+name|inboundBindingRef
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|outboundBindingRef
+specifier|private
+name|String
+name|outboundBindingRef
 decl_stmt|;
 DECL|method|GTaskEndpoint (String endpointUri, ServletComponent component, URI httpUri, HttpClientParams params, HttpConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
 specifier|public
@@ -628,7 +661,6 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * @see #setWorkerRoot(String)      */
 DECL|method|getWorkerRoot ()
 specifier|public
 name|String
@@ -639,7 +671,7 @@ return|return
 name|workerRoot
 return|;
 block|}
-comment|/**      * Sets the web hook path root.       *      * @param workerRoot the assumed web hook path root. The default is<code>worker</code>.      *                   The servlet handling the callback from the task queueing service should have      *                   a<code>/worker/*</code> servlet mapping in this case. If another servlet mapping      *                   is used it must be set here accordingly.      */
+comment|/**      * The servlet mapping for callback handlers. By default, this component requires a callback servlet mapping of /worker/*.      * If another servlet mapping is used e.g. /myworker/* it must be set as option on the producer side: to("gtask:myqueue?workerRoot=myworker").      */
 DECL|method|setWorkerRoot (String workerRoot)
 specifier|public
 name|void
@@ -692,6 +724,7 @@ return|return
 name|queueName
 return|;
 block|}
+comment|/**      * Name of queue      */
 DECL|method|setQueueName (String queueName)
 specifier|public
 name|void
@@ -706,6 +739,60 @@ operator|.
 name|queueName
 operator|=
 name|queueName
+expr_stmt|;
+block|}
+DECL|method|getInboundBindingRef ()
+specifier|public
+name|String
+name|getInboundBindingRef
+parameter_list|()
+block|{
+return|return
+name|inboundBindingRef
+return|;
+block|}
+comment|/**      * Reference to an InboundBinding<GTaskEndpoint, HttpServletRequest, HttpServletResponse> in the Registry for      * customizing the binding of an Exchange to the Servlet API.      * The referenced binding is used as post-processor to org.apache.camel.component.http.HttpBinding.      */
+DECL|method|setInboundBindingRef (String inboundBindingRef)
+specifier|public
+name|void
+name|setInboundBindingRef
+parameter_list|(
+name|String
+name|inboundBindingRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|inboundBindingRef
+operator|=
+name|inboundBindingRef
+expr_stmt|;
+block|}
+DECL|method|getOutboundBindingRef ()
+specifier|public
+name|String
+name|getOutboundBindingRef
+parameter_list|()
+block|{
+return|return
+name|outboundBindingRef
+return|;
+block|}
+comment|/**      * Reference to an OutboundBinding<GTaskEndpoint, TaskOptions, void> in the Registry for customizing the binding of an Exchange to the task queueing service.      */
+DECL|method|setOutboundBindingRef (String outboundBindingRef)
+specifier|public
+name|void
+name|setOutboundBindingRef
+parameter_list|(
+name|String
+name|outboundBindingRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|outboundBindingRef
+operator|=
+name|outboundBindingRef
 expr_stmt|;
 block|}
 DECL|method|createProducer ()

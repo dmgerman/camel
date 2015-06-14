@@ -287,6 +287,11 @@ name|mailService
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"The email of the sender"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -434,6 +439,7 @@ return|return
 name|subject
 return|;
 block|}
+comment|/**      * Subject of the email.      */
 DECL|method|setSubject (String subject)
 specifier|public
 name|void
@@ -460,6 +466,7 @@ return|return
 name|to
 return|;
 block|}
+comment|/**      * To-receiver of the email. This can be a single receiver or a comma-separated list of receivers.      */
 DECL|method|setTo (String to)
 specifier|public
 name|void
@@ -486,6 +493,7 @@ return|return
 name|cc
 return|;
 block|}
+comment|/**      * Cc-receiver of the email. This can be a single receiver or a comma-separated list of receivers.      */
 DECL|method|setCc (String cc)
 specifier|public
 name|void
@@ -512,6 +520,7 @@ return|return
 name|bcc
 return|;
 block|}
+comment|/**      * Bcc-receiver of the email. This can be a single receiver or a comma-separated list of receivers.      */
 DECL|method|setBcc (String bcc)
 specifier|public
 name|void
