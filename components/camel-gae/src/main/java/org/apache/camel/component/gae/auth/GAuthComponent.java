@@ -172,6 +172,7 @@ return|return
 name|consumerKey
 return|;
 block|}
+comment|/**      * Domain identifying the web application. This is the domain used when registering the application with Google.      * Example: camelcloud.appspot.com. For a non-registered application use anonymous.      */
 DECL|method|setConsumerKey (String consumerKey)
 specifier|public
 name|void
@@ -198,6 +199,7 @@ return|return
 name|consumerSecret
 return|;
 block|}
+comment|/**      * Consumer secret of the web application. The consumer secret is generated when when registering the application with Google.      * It is needed if the HMAC-SHA1 signature method shall be used. For a non-registered application use anonymous.      */
 DECL|method|setConsumerSecret (String consumerSecret)
 specifier|public
 name|void
@@ -224,6 +226,7 @@ return|return
 name|keyLoader
 return|;
 block|}
+comment|/**      * To configure a key loader to use.      * Part of camel-gae are two key loaders: GAuthPk8Loader for loading a private key from a PKCS#8 file and GAuthJksLoader to load a private key from a Java key store.      * It is needed if the RSA-SHA1 signature method shall be used. These classes are defined in the org.apache.camel.component.gae.auth package.      */
 DECL|method|setKeyLoader (GAuthKeyLoader keyLoader)
 specifier|public
 name|void
