@@ -186,7 +186,7 @@ literal|"CometD"
 argument_list|,
 name|syntax
 operator|=
-literal|"cometd:protocol:host:port/channelName"
+literal|"cometd:host:port/channelName"
 argument_list|,
 name|consumerClass
 operator|=
@@ -217,20 +217,11 @@ name|uri
 decl_stmt|;
 annotation|@
 name|UriPath
-annotation|@
-name|Metadata
 argument_list|(
-name|required
+name|description
 operator|=
-literal|"true"
+literal|"Hostname"
 argument_list|)
-DECL|field|protocol
-specifier|private
-name|String
-name|protocol
-decl_stmt|;
-annotation|@
-name|UriPath
 annotation|@
 name|Metadata
 argument_list|(
@@ -245,6 +236,11 @@ name|host
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"Host port number"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -259,6 +255,11 @@ name|port
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"The channelName represents a topic that can be subscribed to by the Camel endpoints."
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -343,6 +344,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|sessionHeadersEnabled
 specifier|private
 name|boolean
@@ -354,6 +360,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"1"
+argument_list|,
+name|enums
+operator|=
+literal|"0,1,2"
 argument_list|)
 DECL|field|logLevel
 specifier|private
@@ -371,6 +381,11 @@ name|crossOriginFilterOn
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"*"
+argument_list|)
 DECL|field|allowedOrigins
 specifier|private
 name|String
@@ -386,6 +401,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -443,17 +462,6 @@ name|URI
 argument_list|(
 name|uri
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|protocol
-operator|=
-name|this
-operator|.
-name|uri
-operator|.
-name|getScheme
-argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -719,6 +727,7 @@ return|return
 name|baseResource
 return|;
 block|}
+comment|/**      * The root directory for the web resources or classpath. Use the protocol file: or classpath: depending      * if you want that the component loads the resource from file system or classpath.      * Classpath is required for OSGI deployment where the resources are packaged in the jar      */
 DECL|method|setBaseResource (String baseResource)
 specifier|public
 name|void
@@ -745,6 +754,7 @@ return|return
 name|timeout
 return|;
 block|}
+comment|/**      * The server side poll timeout in milliseconds. This is how long the server will hold a reconnect request before responding.      */
 DECL|method|setTimeout (int timeout)
 specifier|public
 name|void
@@ -771,6 +781,7 @@ return|return
 name|interval
 return|;
 block|}
+comment|/**      * The client side poll timeout in milliseconds. How long a client will wait between reconnects      */
 DECL|method|setInterval (int interval)
 specifier|public
 name|void
@@ -797,6 +808,7 @@ return|return
 name|maxInterval
 return|;
 block|}
+comment|/**      * The max client side poll timeout in milliseconds. A client will be removed if a connection is not received in this time.      */
 DECL|method|setMaxInterval (int maxInterval)
 specifier|public
 name|void
@@ -823,6 +835,7 @@ return|return
 name|multiFrameInterval
 return|;
 block|}
+comment|/**      * The client side poll timeout, if multiple connections are detected from the same browser.      */
 DECL|method|setMultiFrameInterval (int multiFrameInterval)
 specifier|public
 name|void
@@ -849,6 +862,7 @@ return|return
 name|jsonCommented
 return|;
 block|}
+comment|/**      * If true, the server will accept JSON wrapped in a comment and will generate JSON wrapped in a comment. This is a defence against Ajax Hijacking.      */
 DECL|method|setJsonCommented (boolean commented)
 specifier|public
 name|void
@@ -863,6 +877,7 @@ operator|=
 name|commented
 expr_stmt|;
 block|}
+comment|/**      * Whether to include the server session headers in the Camel message when creating a Camel Message for incoming requests.      */
 DECL|method|setSessionHeadersEnabled (boolean enable)
 specifier|public
 name|void
@@ -879,10 +894,10 @@ operator|=
 name|enable
 expr_stmt|;
 block|}
-DECL|method|areSessionHeadersEnabled ()
+DECL|method|isSessionHeadersEnabled ()
 specifier|public
 name|boolean
-name|areSessionHeadersEnabled
+name|isSessionHeadersEnabled
 parameter_list|()
 block|{
 return|return
@@ -899,6 +914,7 @@ return|return
 name|logLevel
 return|;
 block|}
+comment|/**      * Logging level. 0=none, 1=info, 2=debug.      */
 DECL|method|setLogLevel (int logLevel)
 specifier|public
 name|void
@@ -925,6 +941,7 @@ return|return
 name|allowedOrigins
 return|;
 block|}
+comment|/**      * The origins domain that support to cross, if the crosssOriginFilterOn is true      */
 DECL|method|setAllowedOrigins (String allowedOrigins)
 specifier|public
 name|void
@@ -951,6 +968,7 @@ return|return
 name|crossOriginFilterOn
 return|;
 block|}
+comment|/**      * If true, the server will support for cross-domain filtering      */
 DECL|method|setCrossOriginFilterOn (boolean crossOriginFilterOn)
 specifier|public
 name|void
@@ -977,6 +995,7 @@ return|return
 name|filterPath
 return|;
 block|}
+comment|/**      * The filterPath will be used by the CrossOriginFilter, if the crosssOriginFilterOn is true      */
 DECL|method|setFilterPath (String filterPath)
 specifier|public
 name|void
@@ -1003,6 +1022,7 @@ return|return
 name|disconnectLocalSession
 return|;
 block|}
+comment|/**      * Whether to disconnect local sessions after publishing a message to its channel.      * Disconnecting local session is needed as they are not swept by default by CometD, and therefore you can run out of memory.      */
 DECL|method|setDisconnectLocalSession (boolean disconnectLocalSession)
 specifier|public
 name|void

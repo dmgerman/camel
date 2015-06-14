@@ -571,7 +571,7 @@ name|when
 argument_list|(
 name|endpoint
 operator|.
-name|areSessionHeadersEnabled
+name|isSessionHeadersEnabled
 argument_list|()
 argument_list|)
 operator|.

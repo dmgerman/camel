@@ -409,7 +409,7 @@ literal|false
 else|:
 name|endpoint
 operator|.
-name|areSessionHeadersEnabled
+name|isSessionHeadersEnabled
 argument_list|()
 decl_stmt|;
 return|return

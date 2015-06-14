@@ -530,7 +530,7 @@ name|assertTrue
 argument_list|(
 name|cometdEndpoint
 operator|.
-name|areSessionHeadersEnabled
+name|isSessionHeadersEnabled
 argument_list|()
 argument_list|)
 expr_stmt|;

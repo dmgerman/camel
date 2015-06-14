@@ -1580,6 +1580,7 @@ return|return
 name|sslKeystore
 return|;
 block|}
+comment|/**      * The password for the keystore when using SSL.      */
 DECL|method|setSslKeyPassword (String sslKeyPassword)
 specifier|public
 name|void
@@ -1596,6 +1597,7 @@ operator|=
 name|sslKeyPassword
 expr_stmt|;
 block|}
+comment|/**      * The password when using SSL.      */
 DECL|method|setSslPassword (String sslPassword)
 specifier|public
 name|void
@@ -1612,6 +1614,7 @@ operator|=
 name|sslPassword
 expr_stmt|;
 block|}
+comment|/**      * The path to the keystore.      */
 DECL|method|setSslKeystore (String sslKeystore)
 specifier|public
 name|void
@@ -1628,6 +1631,7 @@ operator|=
 name|sslKeystore
 expr_stmt|;
 block|}
+comment|/**      * To use a custom configured SecurityPolicy to control authorization      */
 DECL|method|setSecurityPolicy (SecurityPolicy securityPolicy)
 specifier|public
 name|void
@@ -1669,6 +1673,7 @@ return|return
 name|extensions
 return|;
 block|}
+comment|/**      * To use a list of custom BayeuxServer.Extension that allows modifying incoming and outgoing requests.      */
 DECL|method|setExtensions (List<BayeuxServer.Extension> extensions)
 specifier|public
 name|void
@@ -1776,6 +1781,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
+comment|/**      * To configure security using SSLContextParameters      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
