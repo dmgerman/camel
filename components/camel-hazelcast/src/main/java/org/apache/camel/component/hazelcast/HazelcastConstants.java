@@ -446,6 +446,15 @@ name|POLL_OPERATION
 init|=
 literal|34
 decl_stmt|;
+DECL|field|REMAINING_CAPACITY_OPERATION
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|REMAINING_CAPACITY_OPERATION
+init|=
+literal|35
+decl_stmt|;
 comment|// topic
 DECL|field|PUBLISH_OPERATION
 specifier|public
@@ -454,7 +463,7 @@ specifier|final
 name|int
 name|PUBLISH_OPERATION
 init|=
-literal|35
+literal|36
 decl_stmt|;
 comment|/*      * header values      */
 comment|// listener actions
