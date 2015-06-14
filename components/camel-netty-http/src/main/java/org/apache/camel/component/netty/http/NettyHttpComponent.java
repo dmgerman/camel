@@ -1097,6 +1097,7 @@ return|return
 name|nettyHttpBinding
 return|;
 block|}
+comment|/**      * To use a custom org.apache.camel.component.netty.http.NettyHttpBinding for binding to/from Netty and Camel Message API.      */
 DECL|method|setNettyHttpBinding (NettyHttpBinding nettyHttpBinding)
 specifier|public
 name|void
@@ -1123,6 +1124,7 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter headers.      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|void
@@ -1149,6 +1151,7 @@ return|return
 name|securityConfiguration
 return|;
 block|}
+comment|/**      * Refers to a org.apache.camel.component.netty.http.NettyHttpSecurityConfiguration for configuring secure web resources.      */
 DECL|method|setSecurityConfiguration (NettyHttpSecurityConfiguration securityConfiguration)
 specifier|public
 name|void

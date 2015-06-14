@@ -257,13 +257,6 @@ name|JettyHttpEndpoint
 extends|extends
 name|HttpEndpoint
 block|{
-annotation|@
-name|UriParam
-DECL|field|sessionSupport
-specifier|private
-name|boolean
-name|sessionSupport
-decl_stmt|;
 DECL|field|handlers
 specifier|private
 name|List
@@ -277,60 +270,6 @@ specifier|private
 name|HttpClient
 name|client
 decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|httpClientMinThreads
-specifier|private
-name|Integer
-name|httpClientMinThreads
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|httpClientMaxThreads
-specifier|private
-name|Integer
-name|httpClientMaxThreads
-decl_stmt|;
-DECL|field|jettyBinding
-specifier|private
-name|JettyHttpBinding
-name|jettyBinding
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|enableJmx
-specifier|private
-name|boolean
-name|enableJmx
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|enableMultipartFilter
-specifier|private
-name|boolean
-name|enableMultipartFilter
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|sendServerVersion
-specifier|private
-name|boolean
-name|sendServerVersion
-init|=
-literal|true
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|sendDateHeader
-specifier|private
-name|boolean
-name|sendDateHeader
-decl_stmt|;
 DECL|field|multipartFilter
 specifier|private
 name|Filter
@@ -343,20 +282,6 @@ argument_list|<
 name|Filter
 argument_list|>
 name|filters
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|continuationTimeout
-specifier|private
-name|Long
-name|continuationTimeout
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|useContinuation
-specifier|private
-name|Boolean
-name|useContinuation
 decl_stmt|;
 DECL|field|sslContextParameters
 specifier|private
@@ -372,6 +297,189 @@ argument_list|,
 name|Object
 argument_list|>
 name|httpClientParameters
+decl_stmt|;
+DECL|field|jettyBinding
+specifier|private
+name|JettyHttpBinding
+name|jettyBinding
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Specifies whether to enable the session manager on the server side of Jetty."
+argument_list|)
+DECL|field|sessionSupport
+specifier|private
+name|boolean
+name|sessionSupport
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"8"
+argument_list|,
+name|description
+operator|=
+literal|"To set a value for minimum number of threads in HttpClient thread pool."
+operator|+
+literal|" This setting override any setting configured on component level."
+operator|+
+literal|" Notice that both a min and max size must be configured. If not set it default to min 8 threads used in Jettys thread pool."
+argument_list|)
+DECL|field|httpClientMinThreads
+specifier|private
+name|Integer
+name|httpClientMinThreads
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"254"
+argument_list|,
+name|description
+operator|=
+literal|"To set a value for maximum number of threads in HttpClient thread pool."
+operator|+
+literal|" This setting override any setting configured on component level."
+operator|+
+literal|" Notice that both a min and max size must be configured. If not set it default to max 254 threads used in Jettys thread pool."
+argument_list|)
+DECL|field|httpClientMaxThreads
+specifier|private
+name|Integer
+name|httpClientMaxThreads
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"If this option is true, Jetty JMX support will be enabled for this endpoint. See Jetty JMX support for more details."
+argument_list|)
+DECL|field|enableJmx
+specifier|private
+name|boolean
+name|enableJmx
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"Whether Jetty org.eclipse.jetty.servlets.MultiPartFilter is enabled or not."
+operator|+
+literal|" You should set this value to false when bridging endpoints, to ensure multipart requests is proxied/bridged as well."
+argument_list|)
+DECL|field|enableMultipartFilter
+specifier|private
+name|boolean
+name|enableMultipartFilter
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"If the option is true, jetty will send the server header with the jetty version information to the client which sends the request."
+operator|+
+literal|" NOTE please make sure there is no any other camel-jetty endpoint is share the same port, otherwise this option may not work as expected."
+argument_list|)
+DECL|field|sendServerVersion
+specifier|private
+name|boolean
+name|sendServerVersion
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"If the option is true, jetty server will send the date header to the client which sends the request."
+operator|+
+literal|" NOTE please make sure there is no any other camel-jetty endpoint is share the same port, otherwise this option may not work as expected."
+argument_list|)
+DECL|field|sendDateHeader
+specifier|private
+name|boolean
+name|sendDateHeader
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"30000"
+argument_list|,
+name|description
+operator|=
+literal|"Allows to set a timeout in millis when using Jetty as consumer (server)."
+operator|+
+literal|" By default Jetty uses 30000. You can use a value of<= 0 to never expire."
+operator|+
+literal|" If a timeout occurs then the request will be expired and Jetty will return back a http error 503 to the client."
+operator|+
+literal|" This option is only in use when using Jetty with the Asynchronous Routing Engine."
+argument_list|)
+DECL|field|continuationTimeout
+specifier|private
+name|Long
+name|continuationTimeout
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Whether or not to use Jetty continuations for the Jetty Server."
+argument_list|)
+DECL|field|useContinuation
+specifier|private
+name|Boolean
+name|useContinuation
 decl_stmt|;
 DECL|method|JettyHttpEndpoint (JettyHttpComponent component, String uri, URI httpURL)
 specifier|public
@@ -691,6 +799,7 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * Specifies whether to enable the session manager on the server side of Jetty.      */
 DECL|method|setSessionSupport (boolean support)
 specifier|public
 name|void
@@ -856,6 +965,7 @@ operator|.
 name|enableJmx
 return|;
 block|}
+comment|/**      * If this option is true, Jetty JMX support will be enabled for this endpoint. See Jetty JMX support for more details.      */
 DECL|method|setEnableJmx (boolean enableJmx)
 specifier|public
 name|void
@@ -882,6 +992,7 @@ return|return
 name|sendServerVersion
 return|;
 block|}
+comment|/**      * If the option is true, jetty will send the server header with the jetty version information to the client which sends the request.      * NOTE please make sure there is no any other camel-jetty endpoint is share the same port, otherwise this option may not work as expected.      */
 DECL|method|setSendServerVersion (boolean sendServerVersion)
 specifier|public
 name|void
@@ -908,6 +1019,7 @@ return|return
 name|sendDateHeader
 return|;
 block|}
+comment|/**      * If the option is true, jetty server will send the date header to the client which sends the request.      * NOTE please make sure there is no any other camel-jetty endpoint is share the same port, otherwise this option may not work as expected.      */
 DECL|method|setSendDateHeader (boolean sendDateHeader)
 specifier|public
 name|void
@@ -934,6 +1046,7 @@ return|return
 name|enableMultipartFilter
 return|;
 block|}
+comment|/**      * Whether Jetty org.eclipse.jetty.servlets.MultiPartFilter is enabled or not.      * You should set this value to false when bridging endpoints, to ensure multipart requests is proxied/bridged as well.      */
 DECL|method|setEnableMultipartFilter (boolean enableMultipartFilter)
 specifier|public
 name|void
@@ -950,6 +1063,7 @@ operator|=
 name|enableMultipartFilter
 expr_stmt|;
 block|}
+comment|/**      * Allows using a custom multipart filter. Note: setting multipartFilter forces the value of enableMultipartFilter to true.      */
 DECL|method|setMultipartFilter (Filter filter)
 specifier|public
 name|void
@@ -1018,6 +1132,7 @@ return|return
 name|continuationTimeout
 return|;
 block|}
+comment|/**      * Allows to set a timeout in millis when using Jetty as consumer (server).      * By default Jetty uses 30000. You can use a value of<= 0 to never expire.      * If a timeout occurs then the request will be expired and Jetty will return back a http error 503 to the client.      * This option is only in use when using Jetty with the Asynchronous Routing Engine.      */
 DECL|method|setContinuationTimeout (Long continuationTimeout)
 specifier|public
 name|void
@@ -1044,6 +1159,7 @@ return|return
 name|useContinuation
 return|;
 block|}
+comment|/**      * Whether or not to use Jetty continuations for the Jetty Server.      */
 DECL|method|setUseContinuation (Boolean useContinuation)
 specifier|public
 name|void
@@ -1070,6 +1186,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
+comment|/**      * To configure security using SSLContextParameters      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
@@ -1096,6 +1213,7 @@ return|return
 name|httpClientMinThreads
 return|;
 block|}
+comment|/**      * To set a value for minimum number of threads in HttpClient thread pool.      * This setting override any setting configured on component level.      * Notice that both a min and max size must be configured. If not set it default to min 8 threads used in Jettys thread pool.      */
 DECL|method|setHttpClientMinThreads (Integer httpClientMinThreads)
 specifier|public
 name|void
@@ -1122,6 +1240,7 @@ return|return
 name|httpClientMaxThreads
 return|;
 block|}
+comment|/**      * To set a value for maximum number of threads in HttpClient thread pool.      * This setting override any setting configured on component level.      * Notice that both a min and max size must be configured. If not set it default to max 254 threads used in Jettys thread pool.      */
 DECL|method|setHttpClientMaxThreads (Integer httpClientMaxThreads)
 specifier|public
 name|void
@@ -1153,6 +1272,7 @@ return|return
 name|httpClientParameters
 return|;
 block|}
+comment|/**      * Configuration of Jetty's HttpClient. For example, setting httpClient.idleTimeout=30000 sets the idle timeout to 30 seconds.      * And httpClient.timeout=30000 sets the request timeout to 30 seconds, in case you want to timeout sooner if you have long running request/response calls.      */
 DECL|method|setHttpClientParameters (Map<String, Object> httpClientParameters)
 specifier|public
 name|void

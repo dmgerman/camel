@@ -333,11 +333,15 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|nettyHttpBinding
 specifier|private
 name|NettyHttpBinding
 name|nettyHttpBinding
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
@@ -364,11 +368,20 @@ specifier|private
 name|String
 name|httpMethodRestrict
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|nettySharedHttpServer
 specifier|private
 name|NettySharedHttpServer
 name|nettySharedHttpServer
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|securityConfiguration
 specifier|private
 name|NettyHttpSecurityConfiguration
@@ -776,6 +789,7 @@ return|return
 name|nettyHttpBinding
 return|;
 block|}
+comment|/**      * To use a custom org.apache.camel.component.netty.http.NettyHttpBinding for binding to/from Netty and Camel Message API.      */
 DECL|method|setNettyHttpBinding (NettyHttpBinding nettyHttpBinding)
 specifier|public
 name|void
@@ -802,6 +816,7 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+comment|/**      * To use a custom org.apache.camel.spi.HeaderFilterStrategy to filter headers.      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|void
@@ -836,6 +851,7 @@ return|return
 name|traceEnabled
 return|;
 block|}
+comment|/**      * Specifies whether to enable HTTP TRACE for this Netty HTTP consumer. By default TRACE is turned off.      */
 DECL|method|setTraceEnabled (boolean traceEnabled)
 specifier|public
 name|void
@@ -862,6 +878,7 @@ return|return
 name|httpMethodRestrict
 return|;
 block|}
+comment|/**      * To disable HTTP methods on the Netty HTTP consumer. You can specify multiple separated by comma.      */
 DECL|method|setHttpMethodRestrict (String httpMethodRestrict)
 specifier|public
 name|void
@@ -888,6 +905,7 @@ return|return
 name|nettySharedHttpServer
 return|;
 block|}
+comment|/**      * To use a shared Netty HTTP server. See Netty HTTP Server Example for more details.      */
 DECL|method|setNettySharedHttpServer (NettySharedHttpServer nettySharedHttpServer)
 specifier|public
 name|void
@@ -914,6 +932,7 @@ return|return
 name|securityConfiguration
 return|;
 block|}
+comment|/**      * Refers to a org.apache.camel.component.netty.http.NettyHttpSecurityConfiguration for configuring secure web resources.      */
 DECL|method|setSecurityConfiguration (NettyHttpSecurityConfiguration securityConfiguration)
 specifier|public
 name|void
