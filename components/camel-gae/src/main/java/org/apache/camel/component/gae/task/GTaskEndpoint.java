@@ -366,6 +366,10 @@ name|scheme
 operator|=
 literal|"gtask"
 argument_list|,
+name|extendsScheme
+operator|=
+literal|"servlet"
+argument_list|,
 name|title
 operator|=
 literal|"Google Task"

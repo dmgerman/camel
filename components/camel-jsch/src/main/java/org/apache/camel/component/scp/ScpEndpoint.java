@@ -152,6 +152,10 @@ name|scheme
 operator|=
 literal|"scp"
 argument_list|,
+name|extendsScheme
+operator|=
+literal|"ftp"
+argument_list|,
 name|title
 operator|=
 literal|"SCP"

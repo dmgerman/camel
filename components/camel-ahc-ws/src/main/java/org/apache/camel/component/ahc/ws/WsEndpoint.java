@@ -294,6 +294,10 @@ name|scheme
 operator|=
 literal|"ahc-ws,ahc-wss"
 argument_list|,
+name|extendsScheme
+operator|=
+literal|"ahc,ahc"
+argument_list|,
 name|title
 operator|=
 literal|"AHC Websocket,AHC Secure Websocket"

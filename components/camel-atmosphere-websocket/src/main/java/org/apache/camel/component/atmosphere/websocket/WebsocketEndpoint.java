@@ -206,6 +206,10 @@ name|scheme
 operator|=
 literal|"atmosphere-websocket"
 argument_list|,
+name|extendsScheme
+operator|=
+literal|"websocket"
+argument_list|,
 name|title
 operator|=
 literal|"Atmosphere Websocket"

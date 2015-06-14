@@ -128,6 +128,10 @@ name|scheme
 operator|=
 literal|"sftp"
 argument_list|,
+name|extendsScheme
+operator|=
+literal|"file"
+argument_list|,
 name|title
 operator|=
 literal|"SFTP"

@@ -72,6 +72,10 @@ name|scheme
 operator|=
 literal|"amqp"
 argument_list|,
+name|extendsScheme
+operator|=
+literal|"jms"
+argument_list|,
 name|title
 operator|=
 literal|"AMQP"

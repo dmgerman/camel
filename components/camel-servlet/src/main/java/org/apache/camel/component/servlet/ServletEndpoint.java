@@ -186,6 +186,10 @@ name|scheme
 operator|=
 literal|"servlet"
 argument_list|,
+name|extendsScheme
+operator|=
+literal|"http"
+argument_list|,
 name|title
 operator|=
 literal|"Servlet"

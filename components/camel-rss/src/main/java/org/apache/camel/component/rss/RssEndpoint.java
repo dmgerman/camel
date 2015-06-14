@@ -184,6 +184,10 @@ name|scheme
 operator|=
 literal|"rss"
 argument_list|,
+name|extendsScheme
+operator|=
+literal|"atom"
+argument_list|,
 name|title
 operator|=
 literal|"RSS"

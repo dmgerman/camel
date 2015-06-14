@@ -104,11 +104,19 @@ specifier|public
 annotation_defn|@interface
 name|UriEndpoint
 block|{
-comment|/**      * Represents the URI scheme name of this endpoint.      *<p/>      * Multiple scheme names can be defined as a comma separated value.      * For example to associate<tt>http</tt> and<tt>https</tt> to the same endpoint implementation.      */
+comment|/**      * Represents the URI scheme name of this endpoint.      *<p/>      * Multiple scheme names can be defined as a comma separated value.      * For example to associate<tt>http</tt> and<tt>https</tt> to the same endpoint implementation.      *<p/>      * The order of the scheme names here should be the same order as in {@link #extendsScheme()} so their are paired.      */
 DECL|method|scheme ()
 name|String
 name|scheme
 parameter_list|()
+function_decl|;
+comment|/**      * Used when an endpoint is extending another endpoint      *<p/>      * Multiple scheme names can be defined as a comma separated value.      * For example to associate<tt>ftp</tt> and<tt>ftps</tt> to the same endpoint implementation.      * The order of the scheme names here should be the same order as in {@link #scheme()} so their are paired.      */
+DECL|method|extendsScheme ()
+name|String
+name|extendsScheme
+parameter_list|()
+default|default
+literal|""
 function_decl|;
 comment|/**      * Represent the URI syntax the endpoint must use.      *<p/>      * The syntax follows the patterns such as:      *<ul>      *<li>scheme:host:port</li>      *<li>scheme:host:port/path</li>      *<li>scheme:path</li>      *<li>scheme:path/path2</li>      *</ul>      * Where each path maps to the name of the endpoint {@link org.apache.camel.spi.UriPath} option.      * The query parameters is implied and should not be included in the syntax.      *<p/>      * Some examples:      *<ul>      *<li>file:directoryName</li>      *<li>ftp:host:port/directoryName</li>      *<li>jms:destinationType:destinationName</li>      *</ul>      */
 DECL|method|syntax ()
