@@ -305,7 +305,7 @@ break|break;
 case|case
 name|HazelcastConstants
 operator|.
-name|GET_AND_ADD
+name|GET_AND_ADD_OPERATION
 case|:
 name|this
 operator|.

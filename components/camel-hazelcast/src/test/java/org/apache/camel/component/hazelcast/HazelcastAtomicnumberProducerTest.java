@@ -994,7 +994,7 @@ name|constant
 argument_list|(
 name|HazelcastConstants
 operator|.
-name|GET_AND_ADD
+name|GET_AND_ADD_OPERATION
 argument_list|)
 argument_list|)
 operator|.

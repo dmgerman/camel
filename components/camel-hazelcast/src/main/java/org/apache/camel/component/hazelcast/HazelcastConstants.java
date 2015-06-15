@@ -427,12 +427,12 @@ name|COMPARE_AND_SET_OPERATION
 init|=
 literal|24
 decl_stmt|;
-DECL|field|GET_AND_ADD
+DECL|field|GET_AND_ADD_OPERATION
 specifier|public
 specifier|static
 specifier|final
 name|int
-name|GET_AND_ADD
+name|GET_AND_ADD_OPERATION
 init|=
 literal|25
 decl_stmt|;

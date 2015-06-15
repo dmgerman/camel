@@ -632,7 +632,7 @@ literal|"getAndAdd"
 argument_list|,
 name|HazelcastConstants
 operator|.
-name|GET_AND_ADD
+name|GET_AND_ADD_OPERATION
 argument_list|)
 expr_stmt|;
 comment|// queue
