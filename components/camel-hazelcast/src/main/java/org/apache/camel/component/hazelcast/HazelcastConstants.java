@@ -162,6 +162,15 @@ name|QUERY
 init|=
 literal|"CamelHazelcastQuery"
 decl_stmt|;
+DECL|field|EXPECTED_VALUE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|EXPECTED_VALUE
+init|=
+literal|"CamelHazelcastExpectedValue"
+decl_stmt|;
 comment|/*      * outgoing header properties      */
 DECL|field|LISTENER_ACTION
 specifier|public
@@ -408,6 +417,15 @@ name|int
 name|DESTROY_OPERATION
 init|=
 literal|23
+decl_stmt|;
+DECL|field|COMPARE_AND_SET_OPERATION
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|COMPARE_AND_SET_OPERATION
+init|=
+literal|24
 decl_stmt|;
 comment|// queue
 DECL|field|ADD_OPERATION

@@ -617,6 +617,15 @@ operator|.
 name|DESTROY_OPERATION
 argument_list|)
 expr_stmt|;
+name|addMapping
+argument_list|(
+literal|"compareAndSet"
+argument_list|,
+name|HazelcastConstants
+operator|.
+name|COMPARE_AND_SET_OPERATION
+argument_list|)
+expr_stmt|;
 comment|// queue
 name|addMapping
 argument_list|(
