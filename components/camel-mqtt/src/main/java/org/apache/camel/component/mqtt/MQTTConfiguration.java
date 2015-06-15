@@ -96,18 +96,6 @@ name|org
 operator|.
 name|fusesource
 operator|.
-name|hawtbuf
-operator|.
-name|UTF8Buffer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|fusesource
-operator|.
 name|hawtdispatch
 operator|.
 name|DispatchQueue
@@ -201,6 +189,11 @@ decl_stmt|;
 comment|// inherited options from MQTT
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"tcp://127.0.0.1:1883"
+argument_list|)
 DECL|field|host
 name|URI
 name|host
@@ -390,7 +383,76 @@ DECL|field|tracer
 name|Tracer
 name|tracer
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|clientId
+name|String
+name|clientId
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|cleanSession
+name|boolean
+name|cleanSession
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|keepAlive
+name|short
+name|keepAlive
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|willTopic
+name|String
+name|willTopic
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|willMessage
+name|String
+name|willMessage
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"AT_MOST_ONCE"
+argument_list|)
+DECL|field|willQos
+name|QoS
+name|willQos
+init|=
+name|QoS
+operator|.
+name|AT_MOST_ONCE
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|willRetain
+name|QoS
+name|willRetain
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"3.1"
+argument_list|)
+DECL|field|version
+name|String
+name|version
+decl_stmt|;
 comment|/**      * These a properties that are looked for in an Exchange - to publish to      */
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"MQTTTopicPropertyName"
+argument_list|)
 DECL|field|mqttTopicPropertyName
 specifier|private
 name|String
@@ -398,6 +460,13 @@ name|mqttTopicPropertyName
 init|=
 literal|"MQTTTopicPropertyName"
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"MQTTRetain"
+argument_list|)
 DECL|field|mqttRetainPropertyName
 specifier|private
 name|String
@@ -405,6 +474,13 @@ name|mqttRetainPropertyName
 init|=
 literal|"MQTTRetain"
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"MQTTQos"
+argument_list|)
 DECL|field|mqttQosPropertyName
 specifier|private
 name|String
@@ -415,6 +491,8 @@ decl_stmt|;
 comment|/**      * These are set on the Endpoint - together with properties inherited from MQTT      */
 annotation|@
 name|UriParam
+annotation|@
+name|Deprecated
 DECL|field|subscribeTopicName
 specifier|private
 name|String
@@ -496,15 +574,15 @@ name|byDefaultRetain
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|qos
-specifier|private
-name|QoS
-name|qos
-init|=
-name|QoS
-operator|.
-name|AT_LEAST_ONCE
-decl_stmt|;
+argument_list|(
+name|enums
+operator|=
+literal|"AT_MOST_ONCE,AT_LEAST_ONCE,EXACTLY_ONCE"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"AT_LEAST_ONCE"
+argument_list|)
 DECL|field|qualityOfService
 specifier|private
 name|String
@@ -517,6 +595,15 @@ operator|.
 name|name
 argument_list|()
 decl_stmt|;
+DECL|field|qos
+specifier|private
+name|QoS
+name|qos
+init|=
+name|QoS
+operator|.
+name|AT_LEAST_ONCE
+decl_stmt|;
 DECL|method|getQualityOfService ()
 specifier|public
 name|String
@@ -527,6 +614,7 @@ return|return
 name|qualityOfService
 return|;
 block|}
+comment|/**      * Quality of service level to use for topics.      */
 DECL|method|setQualityOfService (String qualityOfService)
 specifier|public
 name|void
@@ -562,6 +650,8 @@ return|return
 name|qos
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getSubscribeTopicName ()
 specifier|public
 name|String
@@ -572,6 +662,9 @@ return|return
 name|subscribeTopicName
 return|;
 block|}
+comment|/**      * The name of the Topic to subscribe to for messages.      */
+annotation|@
+name|Deprecated
 DECL|method|setSubscribeTopicName (String subscribeTopicName)
 specifier|public
 name|void
@@ -598,6 +691,7 @@ return|return
 name|subscribeTopicNames
 return|;
 block|}
+comment|/**      * A comma-delimited list of Topics to subscribe to for messages.      * Note that each item of this list can contain MQTT wildcards ('\+' and/or '#'), in order to subscribe      * to topics matching a certain pattern within a hierarchy.      * For example, '\+' is a wildcard for all topics at a level within the hierarchy,      * so if a broker has topics "topics/one" and "topics/two", then "topics/\+" can be used to subscribe to both.      * A caveat to consider here is that if the broker adds "topics/three", the route would also begin to receive messages from that topic.      */
 DECL|method|setSubscribeTopicNames (String subscribeTopicNames)
 specifier|public
 name|void
@@ -624,6 +718,7 @@ return|return
 name|publishTopicName
 return|;
 block|}
+comment|/**      * The default Topic to publish messages on      */
 DECL|method|setPublishTopicName (String publishTopicName)
 specifier|public
 name|void
@@ -682,6 +777,7 @@ return|return
 name|mqttRetainPropertyName
 return|;
 block|}
+comment|/**      * The property name to look for on an Exchange for an individual published message.      * If this is set (expects a Boolean value) - then the retain property will be set on the message sent to the MQTT message broker.      */
 DECL|method|setMqttRetainPropertyName (String mqttRetainPropertyName)
 specifier|public
 name|void
@@ -708,6 +804,7 @@ return|return
 name|mqttQosPropertyName
 return|;
 block|}
+comment|/**      * The property name to look for on an Exchange for an individual published message.      * If this is set (one of AtMostOnce, AtLeastOnce or ExactlyOnce ) - then that QoS will be set on the message sent to the MQTT message broker.      */
 DECL|method|setMqttQosPropertyName (String mqttQosPropertyName)
 specifier|public
 name|void
@@ -734,6 +831,7 @@ return|return
 name|connectWaitInSeconds
 return|;
 block|}
+comment|/**      * Delay in seconds the Component will wait for a connection to be established to the MQTT broker      */
 DECL|method|setConnectWaitInSeconds (int connectWaitInSeconds)
 specifier|public
 name|void
@@ -760,6 +858,7 @@ return|return
 name|disconnectWaitInSeconds
 return|;
 block|}
+comment|/**      * The number of seconds the Component will wait for a valid disconnect on stop() from the MQTT broker      */
 DECL|method|setDisconnectWaitInSeconds (int disconnectWaitInSeconds)
 specifier|public
 name|void
@@ -786,6 +885,7 @@ return|return
 name|sendWaitInSeconds
 return|;
 block|}
+comment|/**      * The maximum time the Component will wait for a receipt from the MQTT broker to acknowledge a published message before throwing an exception      */
 DECL|method|setSendWaitInSeconds (int sendWaitInSeconds)
 specifier|public
 name|void
@@ -812,6 +912,7 @@ return|return
 name|byDefaultRetain
 return|;
 block|}
+comment|/**      * The default retain policy to be used on messages sent to the MQTT broker      */
 DECL|method|setByDefaultRetain (boolean byDefaultRetain)
 specifier|public
 name|void
@@ -943,6 +1044,7 @@ name|tracer
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      *  Use to set the client Id of the session.      *  This is what an MQTT server uses to identify a session where setCleanSession(false); is being used.      *  The id must be 23 characters or less. Defaults to auto generated id (based on your socket address, port and timestamp).      */
 annotation|@
 name|Override
 DECL|method|setClientId (String clientId)
@@ -962,25 +1064,27 @@ name|clientId
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set to false if you want the MQTT server to persist topic subscriptions and ack positions across client sessions. Defaults to true.      */
 annotation|@
 name|Override
-DECL|method|setClientId (UTF8Buffer clientId)
+DECL|method|setCleanSession (boolean cleanSession)
 specifier|public
 name|void
-name|setClientId
+name|setCleanSession
 parameter_list|(
-name|UTF8Buffer
-name|clientId
+name|boolean
+name|cleanSession
 parameter_list|)
 block|{
 name|super
 operator|.
-name|setClientId
+name|setCleanSession
 argument_list|(
-name|clientId
+name|cleanSession
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Configures the Keep Alive timer in seconds. Defines the maximum time interval between messages received from a client.      * It enables the server to detect that the network connection to a client has dropped, without having to wait for the long TCP/IP timeout.      */
 annotation|@
 name|Override
 DECL|method|setKeepAlive (short keepAlive)
@@ -1000,6 +1104,7 @@ name|keepAlive
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Password to be used for authentication against the MQTT broker      */
 annotation|@
 name|Override
 DECL|method|setPassword (String password)
@@ -1019,25 +1124,7 @@ name|password
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|setPassword (UTF8Buffer password)
-specifier|public
-name|void
-name|setPassword
-parameter_list|(
-name|UTF8Buffer
-name|password
-parameter_list|)
-block|{
-name|super
-operator|.
-name|setPassword
-argument_list|(
-name|password
-argument_list|)
-expr_stmt|;
-block|}
+comment|/**      * Username to be used for authentication against the MQTT broker      */
 annotation|@
 name|Override
 DECL|method|setUserName (String userName)
@@ -1057,25 +1144,7 @@ name|userName
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|setUserName (UTF8Buffer userName)
-specifier|public
-name|void
-name|setUserName
-parameter_list|(
-name|UTF8Buffer
-name|userName
-parameter_list|)
-block|{
-name|super
-operator|.
-name|setUserName
-argument_list|(
-name|userName
-argument_list|)
-expr_stmt|;
-block|}
+comment|/**      * The Will message to send. Defaults to a zero length message.      */
 annotation|@
 name|Override
 DECL|method|setWillMessage (String willMessage)
@@ -1095,25 +1164,7 @@ name|willMessage
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|setWillMessage (UTF8Buffer willMessage)
-specifier|public
-name|void
-name|setWillMessage
-parameter_list|(
-name|UTF8Buffer
-name|willMessage
-parameter_list|)
-block|{
-name|super
-operator|.
-name|setWillMessage
-argument_list|(
-name|willMessage
-argument_list|)
-expr_stmt|;
-block|}
+comment|/**      * Sets the quality of service to use for the Will message. Defaults to QoS.AT_MOST_ONCE.      */
 annotation|@
 name|Override
 DECL|method|setWillQos (QoS willQos)
@@ -1133,6 +1184,7 @@ name|willQos
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set to "3.1.1" to use MQTT version 3.1.1. Otherwise defaults to the 3.1 protocol version.      */
 annotation|@
 name|Override
 DECL|method|setVersion (String version)
@@ -1167,6 +1219,7 @@ name|getVersion
 argument_list|()
 return|;
 block|}
+comment|/**      * Set to true if you want the Will to be published with the retain option.      */
 annotation|@
 name|Override
 DECL|method|setWillRetain (boolean willRetain)
@@ -1186,6 +1239,7 @@ name|willRetain
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * If set the server will publish the client's Will message to the specified topics if the client has an unexpected disconnection.      */
 annotation|@
 name|Override
 DECL|method|setWillTopic (String willTopic)
@@ -1194,25 +1248,6 @@ name|void
 name|setWillTopic
 parameter_list|(
 name|String
-name|willTopic
-parameter_list|)
-block|{
-name|super
-operator|.
-name|setWillTopic
-argument_list|(
-name|willTopic
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|setWillTopic (UTF8Buffer willTopic)
-specifier|public
-name|void
-name|setWillTopic
-parameter_list|(
-name|UTF8Buffer
 name|willTopic
 parameter_list|)
 block|{
@@ -1307,6 +1342,7 @@ name|getLocalAddress
 argument_list|()
 return|;
 block|}
+comment|/**      * The local InetAddress and port to use      */
 annotation|@
 name|Override
 DECL|method|setLocalAddress (String localAddress)
@@ -1362,6 +1398,7 @@ name|getMaxReadRate
 argument_list|()
 return|;
 block|}
+comment|/**      * Sets the maximum bytes per second that this transport will receive data at.      * This setting throttles reads so that the rate is not exceeded. Defaults to 0 which disables throttling.      */
 annotation|@
 name|Override
 DECL|method|setMaxReadRate (int maxReadRate)
@@ -1396,6 +1433,7 @@ name|getMaxWriteRate
 argument_list|()
 return|;
 block|}
+comment|/**      * Sets the maximum bytes per second that this transport will send data at.      * This setting throttles writes so that the rate is not exceeded. Defaults to 0 which disables throttling.      */
 annotation|@
 name|Override
 DECL|method|setMaxWriteRate (int maxWriteRate)
@@ -1430,6 +1468,7 @@ name|getReceiveBufferSize
 argument_list|()
 return|;
 block|}
+comment|/**      * Sets the size of the internal socket receive buffer. Defaults to 65536 (64k)      */
 annotation|@
 name|Override
 DECL|method|setReceiveBufferSize (int receiveBufferSize)
@@ -1464,32 +1503,7 @@ name|getHost
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|setHost (String host, int port)
-specifier|public
-name|void
-name|setHost
-parameter_list|(
-name|String
-name|host
-parameter_list|,
-name|int
-name|port
-parameter_list|)
-throws|throws
-name|URISyntaxException
-block|{
-name|super
-operator|.
-name|setHost
-argument_list|(
-name|host
-argument_list|,
-name|port
-argument_list|)
-expr_stmt|;
-block|}
+comment|/**      * The URI of the MQTT broker to connect too - this component also supports SSL - e.g. ssl://127.0.0.1:8883      */
 annotation|@
 name|Override
 DECL|method|setHost (String host)
@@ -1511,6 +1525,7 @@ name|host
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The URI of the MQTT broker to connect too - this component also supports SSL - e.g. ssl://127.0.0.1:8883      */
 annotation|@
 name|Override
 DECL|method|setHost (URI host)
@@ -1545,6 +1560,7 @@ name|getSendBufferSize
 argument_list|()
 return|;
 block|}
+comment|/**      *  Sets the size of the internal socket send buffer. Defaults to 65536 (64k)      */
 annotation|@
 name|Override
 DECL|method|setSendBufferSize (int sendBufferSize)
@@ -1613,6 +1629,7 @@ name|getTrafficClass
 argument_list|()
 return|;
 block|}
+comment|/**      * Sets traffic class or type-of-service octet in the IP header for packets sent from the transport.      * Defaults to 8 which means the traffic should be optimized for throughput.      */
 annotation|@
 name|Override
 DECL|method|setTrafficClass (int trafficClass)
@@ -1681,6 +1698,7 @@ name|getConnectAttemptsMax
 argument_list|()
 return|;
 block|}
+comment|/**      * The maximum number of reconnect attempts before an error is reported back to the client on the first attempt      * by the client to connect to a server. Set to -1 to use unlimited attempts. Defaults to -1.      */
 annotation|@
 name|Override
 DECL|method|setConnectAttemptsMax (long connectAttemptsMax)
@@ -1715,6 +1733,7 @@ name|getReconnectAttemptsMax
 argument_list|()
 return|;
 block|}
+comment|/**      * The maximum number of reconnect attempts before an error is reported back to the client after a server      * connection had previously been established. Set to -1 to use unlimited attempts. Defaults to -1.      */
 annotation|@
 name|Override
 DECL|method|setReconnectAttemptsMax (long reconnectAttemptsMax)
@@ -1749,6 +1768,7 @@ name|getReconnectBackOffMultiplier
 argument_list|()
 return|;
 block|}
+comment|/**      * The Exponential backoff be used between reconnect attempts. Set to 1 to disable exponential backoff. Defaults to 2.      */
 annotation|@
 name|Override
 DECL|method|setReconnectBackOffMultiplier (double reconnectBackOffMultiplier)
@@ -1783,6 +1803,7 @@ name|getReconnectDelay
 argument_list|()
 return|;
 block|}
+comment|/**      * How long to wait in ms before the first reconnect attempt. Defaults to 10.      */
 annotation|@
 name|Override
 DECL|method|setReconnectDelay (long reconnectDelay)
@@ -1817,6 +1838,7 @@ name|getReconnectDelayMax
 argument_list|()
 return|;
 block|}
+comment|/**      * The maximum amount of time in ms to wait between reconnect attempts. Defaults to 30,000.      */
 annotation|@
 name|Override
 DECL|method|setReconnectDelayMax (long reconnectDelayMax)

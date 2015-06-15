@@ -223,6 +223,7 @@ return|return
 name|host
 return|;
 block|}
+comment|/**      * The URI of the MQTT broker to connect too - this component also supports SSL - e.g. ssl://127.0.0.1:8883      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -249,6 +250,7 @@ return|return
 name|userName
 return|;
 block|}
+comment|/**      * Username to be used for authentication against the MQTT broker      */
 DECL|method|setUserName (String userName)
 specifier|public
 name|void
@@ -275,6 +277,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * Password to be used for authentication against the MQTT broker      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void

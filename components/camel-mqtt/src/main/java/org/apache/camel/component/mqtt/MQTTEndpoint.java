@@ -389,28 +389,6 @@ specifier|private
 name|CallbackConnection
 name|connection
 decl_stmt|;
-annotation|@
-name|UriPath
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|name
-specifier|private
-name|String
-name|name
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|configuration
-specifier|private
-specifier|final
-name|MQTTConfiguration
-name|configuration
-decl_stmt|;
 DECL|field|connected
 specifier|private
 specifier|volatile
@@ -432,6 +410,28 @@ argument_list|<
 name|MQTTConsumer
 argument_list|>
 argument_list|()
+decl_stmt|;
+annotation|@
+name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|name
+specifier|private
+name|String
+name|name
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|configuration
+specifier|private
+specifier|final
+name|MQTTConfiguration
+name|configuration
 decl_stmt|;
 DECL|method|MQTTEndpoint (String uri, MQTTComponent component, MQTTConfiguration properties)
 specifier|public
@@ -532,6 +532,7 @@ return|return
 name|name
 return|;
 block|}
+comment|/**      * A logical name to use which is not the topic name.      */
 DECL|method|setName (String name)
 specifier|public
 name|void
