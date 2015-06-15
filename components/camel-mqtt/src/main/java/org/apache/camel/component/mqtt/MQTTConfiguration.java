@@ -296,19 +296,6 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"true"
-argument_list|)
-DECL|field|useLocalHost
-name|boolean
-name|useLocalHost
-init|=
-literal|true
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
 literal|"10"
 argument_list|)
 DECL|field|reconnectDelay
@@ -376,12 +363,6 @@ name|connectAttemptsMax
 init|=
 operator|-
 literal|1
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|tracer
-name|Tracer
-name|tracer
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -691,7 +672,7 @@ return|return
 name|subscribeTopicNames
 return|;
 block|}
-comment|/**      * A comma-delimited list of Topics to subscribe to for messages.      * Note that each item of this list can contain MQTT wildcards ('\+' and/or '#'), in order to subscribe      * to topics matching a certain pattern within a hierarchy.      * For example, '\+' is a wildcard for all topics at a level within the hierarchy,      * so if a broker has topics "topics/one" and "topics/two", then "topics/\+" can be used to subscribe to both.      * A caveat to consider here is that if the broker adds "topics/three", the route would also begin to receive messages from that topic.      */
+comment|/**      * A comma-delimited list of Topics to subscribe to for messages.      * Note that each item of this list can contain MQTT wildcards (+ and/or #), in order to subscribe      * to topics matching a certain pattern within a hierarchy.      * For example, + is a wildcard for all topics at a level within the hierarchy,      * so if a broker has topics topics/one and topics/two, then topics/+ can be used to subscribe to both.      * A caveat to consider here is that if the broker adds topics/three, the route would also begin to receive messages from that topic.      */
 DECL|method|setSubscribeTopicNames (String subscribeTopicNames)
 specifier|public
 name|void
@@ -1025,25 +1006,6 @@ name|qualityOfService
 argument_list|)
 throw|;
 block|}
-annotation|@
-name|Override
-DECL|method|setTracer (Tracer tracer)
-specifier|public
-name|void
-name|setTracer
-parameter_list|(
-name|Tracer
-name|tracer
-parameter_list|)
-block|{
-name|super
-operator|.
-name|setTracer
-argument_list|(
-name|tracer
-argument_list|)
-expr_stmt|;
-block|}
 comment|/**      *  Use to set the client Id of the session.      *  This is what an MQTT server uses to identify a session where setCleanSession(false); is being used.      *  The id must be 23 characters or less. Defaults to auto generated id (based on your socket address, port and timestamp).      */
 annotation|@
 name|Override
@@ -1164,7 +1126,7 @@ name|willMessage
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Sets the quality of service to use for the Will message. Defaults to QoS.AT_MOST_ONCE.      */
+comment|/**      * Sets the quality of service to use for the Will message. Defaults to AT_MOST_ONCE.      */
 annotation|@
 name|Override
 DECL|method|setWillQos (QoS willQos)
@@ -1184,7 +1146,7 @@ name|willQos
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Set to "3.1.1" to use MQTT version 3.1.1. Otherwise defaults to the 3.1 protocol version.      */
+comment|/**      * Set to 3.1.1 to use MQTT version 3.1.1. Otherwise defaults to the 3.1 protocol version.      */
 annotation|@
 name|Override
 DECL|method|setVersion (String version)
@@ -1274,6 +1236,7 @@ name|getBlockingExecutor
 argument_list|()
 return|;
 block|}
+comment|/**      * SSL connections perform blocking operations against internal thread pool unless you call the setBlockingExecutor method to configure that executor they will use instead.      */
 annotation|@
 name|Override
 DECL|method|setBlockingExecutor (Executor blockingExecutor)
@@ -1308,6 +1271,7 @@ name|getDispatchQueue
 argument_list|()
 return|;
 block|}
+comment|/**      * A HawtDispatch dispatch queue is used to synchronize access to the connection.      * If an explicit queue is not configured via the setDispatchQueue method, then a new queue will be created for the connection.      * Setting an explicit queue might be handy if you want multiple connection to share the same queue for synchronization.      */
 annotation|@
 name|Override
 DECL|method|setDispatchQueue (DispatchQueue dispatchQueue)
@@ -1595,6 +1559,7 @@ name|getSslContext
 argument_list|()
 return|;
 block|}
+comment|/**      * To configure security using SSLContext configuration      */
 annotation|@
 name|Override
 DECL|method|setSslContext (SSLContext sslContext)
@@ -1646,40 +1611,6 @@ operator|.
 name|setTrafficClass
 argument_list|(
 name|trafficClass
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|isUseLocalHost ()
-specifier|public
-name|boolean
-name|isUseLocalHost
-parameter_list|()
-block|{
-return|return
-name|super
-operator|.
-name|isUseLocalHost
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|setUseLocalHost (boolean useLocalHost)
-specifier|public
-name|void
-name|setUseLocalHost
-parameter_list|(
-name|boolean
-name|useLocalHost
-parameter_list|)
-block|{
-name|super
-operator|.
-name|setUseLocalHost
-argument_list|(
-name|useLocalHost
 argument_list|)
 expr_stmt|;
 block|}
@@ -1857,21 +1788,6 @@ argument_list|(
 name|reconnectDelayMax
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|getTracer ()
-specifier|public
-name|Tracer
-name|getTracer
-parameter_list|()
-block|{
-return|return
-name|super
-operator|.
-name|getTracer
-argument_list|()
-return|;
 block|}
 block|}
 end_class
