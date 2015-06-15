@@ -338,6 +338,7 @@ return|return
 name|configuration
 return|;
 block|}
+comment|/**      * To use a shared configured configuration as base for creating new endpoints.      */
 DECL|method|setConfiguration (KestrelConfiguration configuration)
 specifier|public
 name|void
