@@ -626,6 +626,15 @@ operator|.
 name|COMPARE_AND_SET_OPERATION
 argument_list|)
 expr_stmt|;
+name|addMapping
+argument_list|(
+literal|"getAndAdd"
+argument_list|,
+name|HazelcastConstants
+operator|.
+name|GET_AND_ADD
+argument_list|)
+expr_stmt|;
 comment|// queue
 name|addMapping
 argument_list|(

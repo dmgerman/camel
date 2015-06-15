@@ -427,6 +427,15 @@ name|COMPARE_AND_SET_OPERATION
 init|=
 literal|24
 decl_stmt|;
+DECL|field|GET_AND_ADD
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|GET_AND_ADD
+init|=
+literal|25
+decl_stmt|;
 comment|// queue
 DECL|field|ADD_OPERATION
 specifier|public
