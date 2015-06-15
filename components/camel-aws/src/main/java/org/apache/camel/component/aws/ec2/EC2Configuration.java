@@ -44,6 +44,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriParam
 import|;
 end_import
@@ -62,6 +76,20 @@ name|UriParams
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
+import|;
+end_import
+
 begin_class
 annotation|@
 name|UriParams
@@ -70,6 +98,25 @@ specifier|public
 class|class
 name|EC2Configuration
 block|{
+annotation|@
+name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"Logical name"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|label
+specifier|private
+name|String
+name|label
+decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|amazonEc2Client
@@ -100,6 +147,13 @@ name|amazonEc2Endpoint
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|operation
 specifier|private
 name|EC2Operations
@@ -115,6 +169,7 @@ return|return
 name|amazonEc2Client
 return|;
 block|}
+comment|/**      * To use a existing configured AmazonEC2Client as client      */
 DECL|method|setAmazonEc2Client (AmazonEC2Client amazonEc2Client)
 specifier|public
 name|void
@@ -141,6 +196,7 @@ return|return
 name|accessKey
 return|;
 block|}
+comment|/**      * Amazon AWS Access Key      */
 DECL|method|setAccessKey (String accessKey)
 specifier|public
 name|void
@@ -167,6 +223,7 @@ return|return
 name|secretKey
 return|;
 block|}
+comment|/**      * Amazon AWS Secret Key      */
 DECL|method|setSecretKey (String secretKey)
 specifier|public
 name|void
@@ -193,6 +250,7 @@ return|return
 name|amazonEc2Endpoint
 return|;
 block|}
+comment|/**      * The region with which the AWS-EC2 client wants to work with.      */
 DECL|method|setAmazonEc2Endpoint (String amazonEc2Endpoint)
 specifier|public
 name|void
@@ -219,6 +277,7 @@ return|return
 name|operation
 return|;
 block|}
+comment|/**      * The operation to perform      */
 DECL|method|setOperation (EC2Operations operation)
 specifier|public
 name|void
