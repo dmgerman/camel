@@ -94,16 +94,6 @@ name|javax
 operator|.
 name|sip
 operator|.
-name|Dialog
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|sip
-operator|.
 name|InvalidArgumentException
 import|;
 end_import
@@ -479,6 +469,26 @@ name|IMPLEMENTATION
 init|=
 literal|"gov.nist"
 decl_stmt|;
+DECL|field|component
+specifier|private
+name|SipComponent
+name|component
+decl_stmt|;
+DECL|field|protocol
+specifier|private
+name|String
+name|protocol
+decl_stmt|;
+DECL|field|parameters
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -492,21 +502,6 @@ DECL|field|uri
 specifier|private
 name|URI
 name|uri
-decl_stmt|;
-DECL|field|parameters
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|parameters
-decl_stmt|;
-DECL|field|component
-specifier|private
-name|SipComponent
-name|component
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -543,11 +538,6 @@ specifier|private
 name|ListeningPoint
 name|listeningPoint
 decl_stmt|;
-DECL|field|protocol
-specifier|private
-name|String
-name|protocol
-decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|sipUri
@@ -557,17 +547,35 @@ name|sipUri
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"NAME_NOT_SET"
+argument_list|)
 DECL|field|stackName
 specifier|private
 name|String
 name|stackName
+init|=
+literal|"NAME_NOT_SET"
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"tcp"
+argument_list|,
+name|enums
+operator|=
+literal|"tcp,udp"
+argument_list|)
 DECL|field|transport
 specifier|private
 name|String
 name|transport
+init|=
+literal|"tcp"
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -599,80 +607,129 @@ name|eventId
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"3600"
+argument_list|)
 DECL|field|msgExpiration
 specifier|private
 name|int
 name|msgExpiration
+init|=
+literal|3600
 decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|useRouterForAllUris
 specifier|private
-name|String
+name|boolean
 name|useRouterForAllUris
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"10000"
+argument_list|)
 DECL|field|receiveTimeoutMillis
 specifier|private
 name|long
 name|receiveTimeoutMillis
+init|=
+literal|10000
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"1048576"
+argument_list|)
 DECL|field|maxMessageSize
 specifier|private
-name|String
+name|int
 name|maxMessageSize
+init|=
+literal|1048576
 decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|cacheConnections
 specifier|private
-name|String
+name|boolean
 name|cacheConnections
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"text"
+argument_list|)
 DECL|field|contentType
 specifier|private
 name|String
 name|contentType
+init|=
+literal|"text"
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"plain"
+argument_list|)
 DECL|field|contentSubType
 specifier|private
 name|String
 name|contentSubType
+init|=
+literal|"plain"
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"off"
+argument_list|)
 DECL|field|automaticDialogSupport
 specifier|private
 name|String
 name|automaticDialogSupport
+init|=
+literal|"off"
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|nistServerLog
+DECL|field|implementationServerLogFile
 specifier|private
 name|String
-name|nistServerLog
+name|implementationServerLogFile
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|nistDebugLog
+DECL|field|implementationDebugLogFile
 specifier|private
 name|String
-name|nistDebugLog
+name|implementationDebugLogFile
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|nistTraceLevel
+argument_list|(
+name|defaultValue
+operator|=
+literal|"0"
+argument_list|)
+DECL|field|implementationTraceLevel
 specifier|private
 name|String
-name|nistTraceLevel
+name|implementationTraceLevel
+init|=
+literal|"0"
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -681,31 +738,43 @@ specifier|private
 name|SipFactory
 name|sipFactory
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|fromUser
 specifier|private
 name|String
 name|fromUser
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|fromHost
 specifier|private
 name|String
 name|fromHost
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|fromPort
 specifier|private
 name|int
 name|fromPort
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|toUser
 specifier|private
 name|String
 name|toUser
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|toHost
 specifier|private
 name|String
 name|toHost
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|toPort
 specifier|private
 name|int
@@ -791,20 +860,6 @@ specifier|private
 name|ExpiresHeader
 name|expiresHeader
 decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|clientTransactionId
-specifier|private
-name|ClientTransaction
-name|clientTransactionId
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|dialog
-specifier|private
-name|Dialog
-name|dialog
-decl_stmt|;
 DECL|method|SipConfiguration ()
 specifier|public
 name|SipConfiguration
@@ -822,66 +877,6 @@ operator|.
 name|setPathName
 argument_list|(
 name|IMPLEMENTATION
-argument_list|)
-expr_stmt|;
-name|setStackName
-argument_list|(
-literal|"NAME_NOT_SET"
-argument_list|)
-expr_stmt|;
-name|setTransport
-argument_list|(
-literal|"tcp"
-argument_list|)
-expr_stmt|;
-name|setMaxMessageSize
-argument_list|(
-literal|"1048576"
-argument_list|)
-expr_stmt|;
-name|setCacheConnections
-argument_list|(
-literal|"false"
-argument_list|)
-expr_stmt|;
-name|setAutomaticDialogSupport
-argument_list|(
-literal|"off"
-argument_list|)
-expr_stmt|;
-name|setContentType
-argument_list|(
-literal|"text"
-argument_list|)
-expr_stmt|;
-name|setContentSubType
-argument_list|(
-literal|"plain"
-argument_list|)
-expr_stmt|;
-name|setReceiveTimeoutMillis
-argument_list|(
-literal|10000
-argument_list|)
-expr_stmt|;
-name|setConsumer
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-name|setUseRouterForAllUris
-argument_list|(
-literal|"false"
-argument_list|)
-expr_stmt|;
-name|setMsgExpiration
-argument_list|(
-literal|3600
-argument_list|)
-expr_stmt|;
-name|setPresenceAgent
-argument_list|(
-literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -1054,6 +1049,10 @@ condition|)
 block|{
 name|setMaxMessageSize
 argument_list|(
+name|Integer
+operator|.
+name|valueOf
+argument_list|(
 operator|(
 name|String
 operator|)
@@ -1062,6 +1061,7 @@ operator|.
 name|get
 argument_list|(
 literal|"maxMessageSize"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1078,6 +1078,10 @@ condition|)
 block|{
 name|setCacheConnections
 argument_list|(
+name|Boolean
+operator|.
+name|valueOf
+argument_list|(
 operator|(
 name|String
 operator|)
@@ -1086,6 +1090,7 @@ operator|.
 name|get
 argument_list|(
 literal|"cacheConnections"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1256,6 +1261,10 @@ condition|)
 block|{
 name|setUseRouterForAllUris
 argument_list|(
+name|Boolean
+operator|.
+name|valueOf
+argument_list|(
 operator|(
 name|String
 operator|)
@@ -1264,6 +1273,7 @@ operator|.
 name|get
 argument_list|(
 literal|"useRouterForAllUris"
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1545,7 +1555,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|nistDebugLog
+name|implementationDebugLogFile
 operator|=
 name|component
 operator|.
@@ -1562,7 +1572,7 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-name|nistServerLog
+name|implementationServerLogFile
 operator|=
 name|component
 operator|.
@@ -1579,7 +1589,7 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-name|nistTraceLevel
+name|implementationTraceLevel
 operator|=
 name|component
 operator|.
@@ -2576,6 +2586,8 @@ name|setProperty
 argument_list|(
 literal|"gov.nist.javax.sip.MAX_MESSAGE_SIZE"
 argument_list|,
+literal|""
+operator|+
 name|getMaxMessageSize
 argument_list|()
 argument_list|)
@@ -2586,7 +2598,9 @@ name|setProperty
 argument_list|(
 literal|"gov.nist.javax.sip.CACHE_CLIENT_CONNECTIONS"
 argument_list|,
-name|getCacheConnections
+literal|""
+operator|+
+name|isCacheConnections
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2596,20 +2610,22 @@ name|setProperty
 argument_list|(
 literal|"javax.sip.USE_ROUTER_FOR_ALL_URIS"
 argument_list|,
-name|getUseRouterForAllUris
+literal|""
+operator|+
+name|isUseRouterForAllUris
 argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
 operator|(
-name|nistDebugLog
+name|implementationDebugLogFile
 operator|!=
 literal|null
 operator|)
 operator|&&
 operator|(
-name|nistServerLog
+name|implementationServerLogFile
 operator|!=
 literal|null
 operator|)
@@ -2621,7 +2637,7 @@ name|setProperty
 argument_list|(
 literal|"gov.nist.javax.sip.DEBUG_LOG"
 argument_list|,
-name|nistDebugLog
+name|implementationDebugLogFile
 argument_list|)
 expr_stmt|;
 name|properties
@@ -2630,7 +2646,7 @@ name|setProperty
 argument_list|(
 literal|"gov.nist.javax.sip.SERVER_LOG"
 argument_list|,
-name|nistServerLog
+name|implementationServerLogFile
 argument_list|)
 expr_stmt|;
 name|properties
@@ -2639,7 +2655,7 @@ name|setProperty
 argument_list|(
 literal|"gov.nist.javax.sip.TRACE_LEVEL"
 argument_list|,
-name|nistTraceLevel
+name|implementationTraceLevel
 argument_list|)
 expr_stmt|;
 block|}
@@ -2657,6 +2673,7 @@ return|return
 name|addressFactory
 return|;
 block|}
+comment|/**      * To use a custom AddressFactory      */
 DECL|method|setAddressFactory (AddressFactory addressFactory)
 specifier|public
 name|void
@@ -2683,6 +2700,7 @@ return|return
 name|messageFactory
 return|;
 block|}
+comment|/**      * To use a custom MessageFactory      */
 DECL|method|setMessageFactory (MessageFactory messageFactory)
 specifier|public
 name|void
@@ -2709,6 +2727,7 @@ return|return
 name|headerFactory
 return|;
 block|}
+comment|/**      * To use a custom HeaderFactory      */
 DECL|method|setHeaderFactory (HeaderFactory headerFactory)
 specifier|public
 name|void
@@ -2735,6 +2754,7 @@ return|return
 name|sipStack
 return|;
 block|}
+comment|/**      * To use a custom SipStack      */
 DECL|method|setSipStack (SipStack sipStack)
 specifier|public
 name|void
@@ -2751,32 +2771,6 @@ operator|=
 name|sipStack
 expr_stmt|;
 block|}
-DECL|method|getProtocol ()
-specifier|public
-name|String
-name|getProtocol
-parameter_list|()
-block|{
-return|return
-name|protocol
-return|;
-block|}
-DECL|method|setProtocol (String protocol)
-specifier|public
-name|void
-name|setProtocol
-parameter_list|(
-name|String
-name|protocol
-parameter_list|)
-block|{
-name|this
-operator|.
-name|protocol
-operator|=
-name|protocol
-expr_stmt|;
-block|}
 DECL|method|getSipUri ()
 specifier|public
 name|SipURI
@@ -2787,6 +2781,7 @@ return|return
 name|sipUri
 return|;
 block|}
+comment|/**      * To use a custom SipURI. If none configured, then the SipUri fallback to use the options toUser toHost:toPort      */
 DECL|method|setSipUri (SipURI sipUri)
 specifier|public
 name|void
@@ -2813,6 +2808,7 @@ return|return
 name|stackName
 return|;
 block|}
+comment|/**      * Name of the SIP Stack instance associated with an SIP Endpoint.      */
 DECL|method|setStackName (String stackName)
 specifier|public
 name|void
@@ -2839,6 +2835,7 @@ return|return
 name|transport
 return|;
 block|}
+comment|/**      * Setting for choice of transport protocol. Valid choices are "tcp" or "udp".      */
 DECL|method|setTransport (String transport)
 specifier|public
 name|void
@@ -2857,7 +2854,7 @@ expr_stmt|;
 block|}
 DECL|method|getMaxMessageSize ()
 specifier|public
-name|String
+name|int
 name|getMaxMessageSize
 parameter_list|()
 block|{
@@ -2865,12 +2862,13 @@ return|return
 name|maxMessageSize
 return|;
 block|}
-DECL|method|setMaxMessageSize (String maxMessageSize)
+comment|/**      * Setting for maximum allowed Message size in bytes.      */
+DECL|method|setMaxMessageSize (int maxMessageSize)
 specifier|public
 name|void
 name|setMaxMessageSize
 parameter_list|(
-name|String
+name|int
 name|maxMessageSize
 parameter_list|)
 block|{
@@ -2891,6 +2889,7 @@ return|return
 name|automaticDialogSupport
 return|;
 block|}
+comment|/**      * Setting to specify whether every communication should be associated with a dialog.      */
 DECL|method|setAutomaticDialogSupport (String automaticDialogSupport)
 specifier|public
 name|void
@@ -2907,22 +2906,23 @@ operator|=
 name|automaticDialogSupport
 expr_stmt|;
 block|}
-DECL|method|getCacheConnections ()
+DECL|method|isCacheConnections ()
 specifier|public
-name|String
-name|getCacheConnections
+name|boolean
+name|isCacheConnections
 parameter_list|()
 block|{
 return|return
 name|cacheConnections
 return|;
 block|}
-DECL|method|setCacheConnections (String cacheConnections)
+comment|/**      * Should connections be cached by the SipStack to reduce cost of connection creation. This is useful if the connection is used for long running conversations.      */
+DECL|method|setCacheConnections (boolean cacheConnections)
 specifier|public
 name|void
 name|setCacheConnections
 parameter_list|(
-name|String
+name|boolean
 name|cacheConnections
 parameter_list|)
 block|{
@@ -2943,6 +2943,7 @@ return|return
 name|listeningPoint
 return|;
 block|}
+comment|/**      * To use a custom ListeningPoint implementation      */
 DECL|method|setListeningPoint (ListeningPoint listeningPoint)
 specifier|public
 name|void
@@ -2959,6 +2960,7 @@ operator|=
 name|listeningPoint
 expr_stmt|;
 block|}
+comment|/**      * Setting for contentType can be set to any valid MimeType.      */
 DECL|method|setContentType (String contentType)
 specifier|public
 name|void
@@ -2985,6 +2987,7 @@ return|return
 name|contentType
 return|;
 block|}
+comment|/**      * Setting for contentSubType can be set to any valid MimeSubType.      */
 DECL|method|setContentSubType (String contentSubType)
 specifier|public
 name|void
@@ -3011,6 +3014,7 @@ return|return
 name|contentSubType
 return|;
 block|}
+comment|/**      * Number of maximum proxy forwards      */
 DECL|method|setMaxForwards (int maxForwards)
 specifier|public
 name|void
@@ -3037,6 +3041,7 @@ return|return
 name|maxForwards
 return|;
 block|}
+comment|/**      * Setting for specifying amount of time to wait for a Response and/or Acknowledgement can be received from another SIP stack      */
 DECL|method|setReceiveTimeoutMillis (long receiveTimeoutMillis)
 specifier|public
 name|void
@@ -3125,82 +3130,85 @@ return|return
 name|component
 return|;
 block|}
-DECL|method|getNistServerLog ()
+DECL|method|getImplementationServerLogFile ()
 specifier|public
 name|String
-name|getNistServerLog
+name|getImplementationServerLogFile
 parameter_list|()
 block|{
 return|return
-name|nistServerLog
+name|implementationServerLogFile
 return|;
 block|}
-DECL|method|setNistServerLog (String nistServerLog)
+comment|/**      * Name of server log file to use for logging      */
+DECL|method|setImplementationServerLogFile (String implementationServerLogFile)
 specifier|public
 name|void
-name|setNistServerLog
+name|setImplementationServerLogFile
 parameter_list|(
 name|String
-name|nistServerLog
+name|implementationServerLogFile
 parameter_list|)
 block|{
 name|this
 operator|.
-name|nistServerLog
+name|implementationServerLogFile
 operator|=
-name|nistServerLog
+name|implementationServerLogFile
 expr_stmt|;
 block|}
-DECL|method|getNistDebugLog ()
+DECL|method|getImplementationDebugLogFile ()
 specifier|public
 name|String
-name|getNistDebugLog
+name|getImplementationDebugLogFile
 parameter_list|()
 block|{
 return|return
-name|nistDebugLog
+name|implementationDebugLogFile
 return|;
 block|}
-DECL|method|setNistDebugLog (String nistDebugLog)
+comment|/**      * Name of client debug log file to use for logging      */
+DECL|method|setImplementationDebugLogFile (String implementationDebugLogFile)
 specifier|public
 name|void
-name|setNistDebugLog
+name|setImplementationDebugLogFile
 parameter_list|(
 name|String
-name|nistDebugLog
+name|implementationDebugLogFile
 parameter_list|)
 block|{
 name|this
 operator|.
-name|nistDebugLog
+name|implementationDebugLogFile
 operator|=
-name|nistDebugLog
+name|implementationDebugLogFile
 expr_stmt|;
 block|}
-DECL|method|getNistTraceLevel ()
+DECL|method|getImplementationTraceLevel ()
 specifier|public
 name|String
-name|getNistTraceLevel
+name|getImplementationTraceLevel
 parameter_list|()
 block|{
 return|return
-name|nistTraceLevel
+name|implementationTraceLevel
 return|;
 block|}
-DECL|method|setNistTraceLevel (String nistTraceLevel)
+comment|/**      * Logging level for tracing      */
+DECL|method|setImplementationTraceLevel (String implementationTraceLevel)
 specifier|public
 name|void
-name|setNistTraceLevel
+name|setImplementationTraceLevel
 parameter_list|(
 name|String
-name|nistTraceLevel
+name|implementationTraceLevel
 parameter_list|)
 block|{
 name|this
 operator|.
-name|nistTraceLevel
+name|implementationTraceLevel
 operator|=
-name|nistTraceLevel
+name|implementationTraceLevel
 expr_stmt|;
 block|}
 DECL|method|getSipFactory ()
@@ -3213,6 +3221,7 @@ return|return
 name|sipFactory
 return|;
 block|}
+comment|/**      * To use a custom SipFactory to create the SipStack to be used      */
 DECL|method|setSipFactory (SipFactory sipFactory)
 specifier|public
 name|void
@@ -3239,6 +3248,7 @@ return|return
 name|fromUser
 return|;
 block|}
+comment|/**      * Username of the message originator. Mandatory setting unless a registry based custom FromHeader is specified.      */
 DECL|method|setFromUser (String fromUser)
 specifier|public
 name|void
@@ -3265,6 +3275,7 @@ return|return
 name|fromHost
 return|;
 block|}
+comment|/**      * Hostname of the message originator. Mandatory setting unless a registry based FromHeader is specified      */
 DECL|method|setFromHost (String fromHost)
 specifier|public
 name|void
@@ -3291,6 +3302,7 @@ return|return
 name|fromPort
 return|;
 block|}
+comment|/**      * Port of the message originator. Mandatory setting unless a registry based FromHeader is specified      */
 DECL|method|setFromPort (int fromPort)
 specifier|public
 name|void
@@ -3317,6 +3329,7 @@ return|return
 name|toUser
 return|;
 block|}
+comment|/**      * Username of the message receiver. Mandatory setting unless a registry based custom ToHeader is specified.      */
 DECL|method|setToUser (String toUser)
 specifier|public
 name|void
@@ -3343,6 +3356,7 @@ return|return
 name|toHost
 return|;
 block|}
+comment|/**      * Hostname of the message receiver. Mandatory setting unless a registry based ToHeader is specified      */
 DECL|method|setToHost (String toHost)
 specifier|public
 name|void
@@ -3369,6 +3383,7 @@ return|return
 name|toPort
 return|;
 block|}
+comment|/**      * Portname of the message receiver. Mandatory setting unless a registry based ToHeader is specified      */
 DECL|method|setToPort (int toPort)
 specifier|public
 name|void
@@ -3395,6 +3410,7 @@ return|return
 name|fromHeader
 return|;
 block|}
+comment|/**      * A custom Header object containing message originator settings. Must implement the type javax.sip.header.FromHeader      */
 DECL|method|setFromHeader (FromHeader fromHeader)
 specifier|public
 name|void
@@ -3421,6 +3437,7 @@ return|return
 name|toHeader
 return|;
 block|}
+comment|/**      * A custom Header object containing message receiver settings. Must implement the type javax.sip.header.ToHeader      */
 DECL|method|setToHeader (ToHeader toHeader)
 specifier|public
 name|void
@@ -3450,6 +3467,7 @@ return|return
 name|viaHeaders
 return|;
 block|}
+comment|/**      * List of custom Header objects of the type javax.sip.header.ViaHeader.      * Each ViaHeader containing a proxy address for request forwarding. (Note this header is automatically updated by each proxy when the request arrives at its listener)      */
 DECL|method|setViaHeaders (List<ViaHeader> viaHeaders)
 specifier|public
 name|void
@@ -3479,6 +3497,7 @@ return|return
 name|contentTypeHeader
 return|;
 block|}
+comment|/**      * A custom Header object containing message content details. Must implement the type javax.sip.header.ContentTypeHeader      */
 DECL|method|setContentTypeHeader (ContentTypeHeader contentTypeHeader)
 specifier|public
 name|void
@@ -3505,6 +3524,7 @@ return|return
 name|callIdHeader
 return|;
 block|}
+comment|/**      * A custom Header object containing call details. Must implement the type javax.sip.header.CallIdHeader      */
 DECL|method|setCallIdHeader (CallIdHeader callIdHeader)
 specifier|public
 name|void
@@ -3531,6 +3551,7 @@ return|return
 name|maxForwardsHeader
 return|;
 block|}
+comment|/**      * A custom Header object containing details on maximum proxy forwards.      * This header places a limit on the viaHeaders possible. Must implement the type javax.sip.header.MaxForwardsHeader      */
 DECL|method|setMaxForwardsHeader (MaxForwardsHeader maxForwardsHeader)
 specifier|public
 name|void
@@ -3557,6 +3578,7 @@ return|return
 name|contactHeader
 return|;
 block|}
+comment|/**      * An optional custom Header object containing verbose contact details (email, phone number etc). Must implement the type javax.sip.header.ContactHeader      */
 DECL|method|setContactHeader (ContactHeader contactHeader)
 specifier|public
 name|void
@@ -3583,6 +3605,7 @@ return|return
 name|extensionHeader
 return|;
 block|}
+comment|/**      * A custom Header object containing user/application specific details. Must implement the type javax.sip.header.ExtensionHeader      */
 DECL|method|setExtensionHeader (ExtensionHeader extensionHeader)
 specifier|public
 name|void
@@ -3599,6 +3622,7 @@ operator|=
 name|extensionHeader
 expr_stmt|;
 block|}
+comment|/**      * URI of the SIP server to connect to (the username and password can be included such as: john:secret@myserver:9999)      */
 DECL|method|setUri (URI uri)
 specifier|public
 name|void
@@ -3625,6 +3649,7 @@ return|return
 name|uri
 return|;
 block|}
+comment|/**      * This setting is used to determine whether the kind of header (FromHeader,ToHeader etc) that needs to be created for this endpoint      */
 DECL|method|setConsumer (boolean consumer)
 specifier|public
 name|void
@@ -3651,58 +3676,7 @@ return|return
 name|consumer
 return|;
 block|}
-DECL|method|setClientTransactionId (ClientTransaction clientTransactionId)
-specifier|public
-name|void
-name|setClientTransactionId
-parameter_list|(
-name|ClientTransaction
-name|clientTransactionId
-parameter_list|)
-block|{
-name|this
-operator|.
-name|clientTransactionId
-operator|=
-name|clientTransactionId
-expr_stmt|;
-block|}
-DECL|method|getClientTransactionId ()
-specifier|public
-name|ClientTransaction
-name|getClientTransactionId
-parameter_list|()
-block|{
-return|return
-name|clientTransactionId
-return|;
-block|}
-DECL|method|setDialog (Dialog dialog)
-specifier|public
-name|void
-name|setDialog
-parameter_list|(
-name|Dialog
-name|dialog
-parameter_list|)
-block|{
-name|this
-operator|.
-name|dialog
-operator|=
-name|dialog
-expr_stmt|;
-block|}
-DECL|method|getDialog ()
-specifier|public
-name|Dialog
-name|getDialog
-parameter_list|()
-block|{
-return|return
-name|dialog
-return|;
-block|}
+comment|/**      * A custom Header object containing event details. Must implement the type javax.sip.header.EventHeader      */
 DECL|method|setEventHeader (EventHeader eventHeader)
 specifier|public
 name|void
@@ -3729,6 +3703,7 @@ return|return
 name|eventHeader
 return|;
 block|}
+comment|/**      * Setting for a String based event Id. Mandatory setting unless a registry based FromHeader is specified      */
 DECL|method|setEventHeaderName (String eventHeaderName)
 specifier|public
 name|void
@@ -3755,6 +3730,7 @@ return|return
 name|eventHeaderName
 return|;
 block|}
+comment|/**      * Setting for a String based event Id. Mandatory setting unless a registry based FromHeader is specified      */
 DECL|method|setEventId (String eventId)
 specifier|public
 name|void
@@ -3781,12 +3757,13 @@ return|return
 name|eventId
 return|;
 block|}
-DECL|method|setUseRouterForAllUris (String useRouterForAllUris)
+comment|/**      * This setting is used when requests are sent to the Presence Agent via a proxy.      */
+DECL|method|setUseRouterForAllUris (boolean useRouterForAllUris)
 specifier|public
 name|void
 name|setUseRouterForAllUris
 parameter_list|(
-name|String
+name|boolean
 name|useRouterForAllUris
 parameter_list|)
 block|{
@@ -3797,10 +3774,10 @@ operator|=
 name|useRouterForAllUris
 expr_stmt|;
 block|}
-DECL|method|getUseRouterForAllUris ()
+DECL|method|isUseRouterForAllUris ()
 specifier|public
-name|String
-name|getUseRouterForAllUris
+name|boolean
+name|isUseRouterForAllUris
 parameter_list|()
 block|{
 return|return
@@ -3817,6 +3794,7 @@ return|return
 name|msgExpiration
 return|;
 block|}
+comment|/**      * The amount of time a message received at an endpoint is considered valid      */
 DECL|method|setMsgExpiration (int msgExpiration)
 specifier|public
 name|void
@@ -3843,6 +3821,7 @@ return|return
 name|expiresHeader
 return|;
 block|}
+comment|/**      * A custom Header object containing message expiration details. Must implement the type javax.sip.header.ExpiresHeader      */
 DECL|method|setExpiresHeader (ExpiresHeader expiresHeader)
 specifier|public
 name|void
@@ -3869,6 +3848,7 @@ return|return
 name|presenceAgent
 return|;
 block|}
+comment|/**      * This setting is used to distinguish between a Presence Agent& a consumer.      * This is due to the fact that the SIP Camel component ships with a basic Presence Agent (for testing purposes only). Consumers have to set this flag to true.      */
 DECL|method|setPresenceAgent (boolean presenceAgent)
 specifier|public
 name|void

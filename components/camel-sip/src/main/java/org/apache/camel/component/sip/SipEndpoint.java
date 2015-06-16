@@ -114,7 +114,7 @@ name|UriEndpoint
 argument_list|(
 name|scheme
 operator|=
-literal|"sip"
+literal|"sip,sips"
 argument_list|,
 name|title
 operator|=
@@ -126,7 +126,7 @@ literal|"sip:uri"
 argument_list|,
 name|label
 operator|=
-literal|"messaging"
+literal|"messaging,mobile"
 argument_list|)
 DECL|class|SipEndpoint
 specifier|public
