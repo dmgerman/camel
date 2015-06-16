@@ -3802,6 +3802,7 @@ return|return
 name|socketFactory
 return|;
 block|}
+comment|/**      * To configure a map which contains custom WebSocketFactory for sub protocols. The key in the map is the sub protocol.      *<p/>      * The<tt>default</tt> key is reserved for the default implementation.      */
 DECL|method|setSocketFactory (Map<String, WebSocketFactory> socketFactory)
 specifier|public
 name|void
