@@ -570,6 +570,24 @@ operator|.
 name|VALUE_COUNT_OPERATION
 argument_list|)
 expr_stmt|;
+name|addMapping
+argument_list|(
+literal|"containsKey"
+argument_list|,
+name|HazelcastConstants
+operator|.
+name|CONTAINS_KEY_OPERATION
+argument_list|)
+expr_stmt|;
+name|addMapping
+argument_list|(
+literal|"containsValue"
+argument_list|,
+name|HazelcastConstants
+operator|.
+name|CONTAINS_VALUE_OPERATION
+argument_list|)
+expr_stmt|;
 comment|// multimap
 name|addMapping
 argument_list|(

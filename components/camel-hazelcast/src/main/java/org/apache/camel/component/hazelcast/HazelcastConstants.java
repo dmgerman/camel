@@ -371,6 +371,24 @@ name|VALUE_COUNT_OPERATION
 init|=
 literal|14
 decl_stmt|;
+DECL|field|CONTAINS_KEY_OPERATION
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|CONTAINS_KEY_OPERATION
+init|=
+literal|15
+decl_stmt|;
+DECL|field|CONTAINS_VALUE_OPERATION
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|CONTAINS_VALUE_OPERATION
+init|=
+literal|16
+decl_stmt|;
 comment|// multimap
 DECL|field|REMOVEVALUE_OPERATION
 specifier|public
@@ -379,7 +397,7 @@ specifier|final
 name|int
 name|REMOVEVALUE_OPERATION
 init|=
-literal|15
+literal|17
 decl_stmt|;
 comment|// atomic numbers
 DECL|field|INCREMENT_OPERATION
