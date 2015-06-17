@@ -583,6 +583,44 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+DECL|method|testEchoEndpointWithIgnoreResponseBody ()
+specifier|public
+name|void
+name|testEchoEndpointWithIgnoreResponseBody
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|out
+init|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+literal|"http://localhost:"
+operator|+
+name|port1
+operator|+
+literal|"/echo?ignoreResponseBody=true"
+argument_list|,
+literal|"HelloWorld"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertNull
+argument_list|(
+literal|"Get a wrong output "
+argument_list|,
+name|out
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
 DECL|method|testPostParameter ()
 specifier|public
 name|void

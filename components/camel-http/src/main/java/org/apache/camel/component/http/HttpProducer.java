@@ -1187,6 +1187,12 @@ argument_list|(
 name|method
 argument_list|,
 name|exchange
+argument_list|,
+name|getEndpoint
+argument_list|()
+operator|.
+name|isIgnoreResponseBody
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Message
@@ -1428,6 +1434,12 @@ argument_list|(
 name|method
 argument_list|,
 name|exchange
+argument_list|,
+name|getEndpoint
+argument_list|()
+operator|.
+name|isIgnoreResponseBody
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -1692,8 +1704,8 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Extracts the response from the method as a InputStream.      *      * @param method the method that was executed      * @return the response either as a stream, or as a deserialized java object      * @throws IOException can be thrown      */
-DECL|method|extractResponseBody (HttpMethod method, Exchange exchange)
+comment|/**      * Extracts the response from the method as a InputStream.      *      * @param method the method that was executed      * @param ignoreResponseBody if it is true, camel don't read the response and cached the input stream      * @return the response either as a stream, or as a deserialized java object      * @throws IOException can be thrown      */
+DECL|method|extractResponseBody (HttpMethod method, Exchange exchange, boolean ignoreResponseBody)
 specifier|protected
 specifier|static
 name|Object
@@ -1704,6 +1716,9 @@ name|method
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|boolean
+name|ignoreResponseBody
 parameter_list|)
 throws|throws
 name|IOException
@@ -1828,16 +1843,6 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-name|InputStream
-name|response
-init|=
-name|doExtractResponseBodyAsStream
-argument_list|(
-name|is
-argument_list|,
-name|exchange
-argument_list|)
-decl_stmt|;
 comment|// if content type is a serialized java object then de-serialize it back to a Java object
 if|if
 condition|(
@@ -1860,7 +1865,7 @@ name|HttpHelper
 operator|.
 name|deserializeJavaObjectFromStream
 argument_list|(
-name|response
+name|is
 argument_list|,
 name|exchange
 operator|.
@@ -1871,6 +1876,27 @@ return|;
 block|}
 else|else
 block|{
+name|InputStream
+name|response
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|ignoreResponseBody
+condition|)
+block|{
+name|response
+operator|=
+name|doExtractResponseBodyAsStream
+argument_list|(
+name|is
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|response
 return|;
