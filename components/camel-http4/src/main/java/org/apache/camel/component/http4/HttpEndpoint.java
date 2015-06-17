@@ -614,6 +614,22 @@ name|clearExpiredCookies
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|ignoreResponseBody
+specifier|private
+name|boolean
+name|ignoreResponseBody
+decl_stmt|;
 DECL|method|HttpEndpoint ()
 specifier|public
 name|HttpEndpoint
@@ -1866,6 +1882,33 @@ operator|.
 name|authenticationPreemptive
 operator|=
 name|authenticationPreemptive
+expr_stmt|;
+block|}
+DECL|method|isIgnoreResponseBody ()
+specifier|public
+name|boolean
+name|isIgnoreResponseBody
+parameter_list|()
+block|{
+return|return
+name|ignoreResponseBody
+return|;
+block|}
+comment|/**      * If this option is true, The http producer won't read response body and cached the input stream.      */
+DECL|method|setIgnoreResponseBody (boolean ignoreResponseBody)
+specifier|public
+name|void
+name|setIgnoreResponseBody
+parameter_list|(
+name|boolean
+name|ignoreResponseBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreResponseBody
+operator|=
+name|ignoreResponseBody
 expr_stmt|;
 block|}
 block|}
