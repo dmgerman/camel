@@ -160,7 +160,23 @@ name|UriParam
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParams
+import|;
+end_import
+
 begin_class
+annotation|@
+name|UriParams
 DECL|class|XmlVerifierConfiguration
 specifier|public
 class|class
@@ -170,13 +186,16 @@ name|XmlSignatureConfiguration
 block|{
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"verify"
+argument_list|)
 DECL|field|keySelector
 specifier|private
 name|KeySelector
 name|keySelector
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|keySelectorName
 specifier|private
 name|String
@@ -184,13 +203,16 @@ name|keySelectorName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"verify"
+argument_list|)
 DECL|field|xmlSignatureChecker
 specifier|private
 name|XmlSignatureChecker
 name|xmlSignatureChecker
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|xmlSignatureCheckerName
 specifier|private
 name|String
@@ -198,6 +220,11 @@ name|xmlSignatureCheckerName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"verify"
+argument_list|)
 DECL|field|xmlSignature2Message
 specifier|private
 name|XmlSignature2Message
@@ -207,8 +234,6 @@ operator|new
 name|DefaultXmlSignature2Message
 argument_list|()
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|xmlSignature2MessageName
 specifier|private
 name|String
@@ -216,6 +241,11 @@ name|xmlSignature2MessageName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"verify"
+argument_list|)
 DECL|field|validationFailedHandler
 specifier|private
 name|ValidationFailedHandler
@@ -225,8 +255,6 @@ operator|new
 name|DefaultValidationFailedHandler
 argument_list|()
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|validationFailedHandlerName
 specifier|private
 name|String
@@ -234,6 +262,11 @@ name|validationFailedHandlerName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"verify"
+argument_list|)
 DECL|field|outputNodeSearch
 specifier|private
 name|Object
@@ -242,6 +275,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"verify"
+argument_list|,
 name|defaultValue
 operator|=
 name|DefaultXmlSignature2Message
@@ -260,6 +297,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"verify"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"false"
@@ -276,6 +317,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"verify"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -362,6 +407,7 @@ name|validationFailedHandlerName
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Provides the key for validating the XML signature.      */
 DECL|method|setKeySelector (KeySelector keySelector)
 specifier|public
 name|void
@@ -388,7 +434,7 @@ return|return
 name|keySelector
 return|;
 block|}
-comment|/**      * Sets the reference name for a KeySelector that can be found in the      * registry.      */
+comment|/**      * Sets the reference name for a KeySelector that can be found in the registry.      */
 DECL|method|setKeySelector (String keySelectorName)
 specifier|public
 name|void
@@ -467,6 +513,7 @@ return|return
 name|xmlSignatureChecker
 return|;
 block|}
+comment|/**      * This interface allows the application to check the XML signature before the validation is executed.      * This step is recommended in http://www.w3.org/TR/xmldsig-bestpractices/#check-what-is-signed      */
 DECL|method|setXmlSignatureChecker (XmlSignatureChecker xmlSignatureChecker)
 specifier|public
 name|void
@@ -483,7 +530,7 @@ operator|=
 name|xmlSignatureChecker
 expr_stmt|;
 block|}
-comment|/**      * Sets the reference name for a application checker that can be found in      * the registry.      */
+comment|/**      * Sets the reference name for a application checker that can be found in the registry.      */
 DECL|method|setXmlSignatureChecker (String xmlSignatureCheckerName)
 specifier|public
 name|void
@@ -562,6 +609,7 @@ return|return
 name|xmlSignature2Message
 return|;
 block|}
+comment|/**      * Bean which maps the XML signature to the output-message after the validation.      * How this mapping should be done can be configured by the options outputNodeSearchType, outputNodeSearch, and removeSignatureElements.      * The default implementation offers three possibilities which are related to the three output node search types "Default", "ElementName", and "XPath".      * The default implementation determines a node which is then serialized and set to the body of the output message      * If the search type is "ElementName" then the output node (which must be in this case an element) is determined      * by the local name and namespace defined in the search value (see option outputNodeSearch).      * If the search type is "XPath" then the output node is determined by the XPath specified in the search value      * (in this case the output node can be of type "Element", "TextNode" or "Document").      * If the output node search type is "Default" then the following rules apply:      * In the enveloped XML signature case (there is a reference with URI="" and transform "http://www.w3.org/2000/09/xmldsig#enveloped-signature"),      * the incoming XML document without the Signature element is set to the output message body.      * In the non-enveloped XML signature case, the message body is determined from a referenced Object;      * this is explained in more detail in chapter "Output Node Determination in Enveloping XML Signature Case".      */
 DECL|method|setXmlSignature2Message (XmlSignature2Message xmlSignature2Message)
 specifier|public
 name|void
@@ -657,6 +705,7 @@ return|return
 name|validationFailedHandler
 return|;
 block|}
+comment|/**      * Handles the different validation failed situations.      * The default implementation throws specific exceptions for the different situations      * (All exceptions have the package name org.apache.camel.component.xmlsecurity.api and are a sub-class of XmlSignatureInvalidException.      * If the signature value validation fails, a XmlSignatureInvalidValueException is thrown.      * If a reference validation fails, a XmlSignatureInvalidContentHashException is thrown. For more detailed information, see the JavaDoc.      */
 DECL|method|setValidationFailedHandler (ValidationFailedHandler validationFailedHandler)
 specifier|public
 name|void
@@ -751,7 +800,7 @@ return|return
 name|outputNodeSearch
 return|;
 block|}
-comment|/**      * Sets the output node search value for determining the node from the XML      * signature document which shall be set to the output message body. The      * class of the value depends on the type of the output node search. The      * output node search is forwarded to {@link XmlSignature2Message}.      *       */
+comment|/**      * Sets the output node search value for determining the node from the XML      * signature document which shall be set to the output message body. The      * class of the value depends on the type of the output node search. The      * output node search is forwarded to {@link XmlSignature2Message}.      */
 DECL|method|setOutputNodeSearch (Object outputNodeSearch)
 specifier|public
 name|void
@@ -778,7 +827,7 @@ return|return
 name|outputNodeSearchType
 return|;
 block|}
-comment|/**      * Determines the search type for determining the output node which is      * serialized into the output message bodyF. See      * {@link #setOutputNodeSearch(Object)}. The supported default search types      * you can find in {@link DefaultXmlSignature2Message}.      *       * @param outputNodeSearchType      */
+comment|/**      * Determines the search type for determining the output node which is      * serialized into the output message bodyF. See      * {@link #setOutputNodeSearch(Object)}. The supported default search types      * you can find in {@link DefaultXmlSignature2Message}.      */
 DECL|method|setOutputNodeSearchType (String outputNodeSearchType)
 specifier|public
 name|void
@@ -832,6 +881,7 @@ return|return
 name|secureValidation
 return|;
 block|}
+comment|/**      * Enables secure validation. If true then secure validation is enabled.      */
 DECL|method|setSecureValidation (Boolean secureValidation)
 specifier|public
 name|void

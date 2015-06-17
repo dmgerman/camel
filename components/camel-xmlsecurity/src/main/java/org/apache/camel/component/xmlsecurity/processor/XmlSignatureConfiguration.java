@@ -177,6 +177,11 @@ name|uriDereferencer
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"verify,sign"
+argument_list|)
 DECL|field|baseUri
 specifier|private
 name|String
@@ -184,6 +189,11 @@ name|baseUri
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"verify,sign"
+argument_list|)
 DECL|field|cryptoContextProperties
 specifier|private
 name|Map
@@ -197,6 +207,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"verify,sign"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -213,6 +227,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"verify,sign"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"false"
@@ -229,6 +247,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"verify,sign"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -244,6 +266,11 @@ name|TRUE
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"verify,sign"
+argument_list|)
 DECL|field|schemaResourceUri
 specifier|private
 name|String
@@ -251,6 +278,11 @@ name|schemaResourceUri
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"verify,sign"
+argument_list|)
 DECL|field|outputXmlEncoding
 specifier|private
 name|String
@@ -297,7 +329,7 @@ return|return
 name|uriDereferencer
 return|;
 block|}
-comment|/**      * If you want to restrict the remote access via reference URIs, you can set      * an own dereferencer. Optional parameter. If not set the provider default      * dereferencer is used which can resolve URI fragments, HTTP, file and      * XPpointer URIs.      *<p>      * Attention: The implementation is provider dependent!      *       * @param uriDereferencer      * @see XMLCryptoContext#setURIDereferencer(URIDereferencer)      */
+comment|/**      * If you want to restrict the remote access via reference URIs, you can set      * an own dereferencer. Optional parameter. If not set the provider default      * dereferencer is used which can resolve URI fragments, HTTP, file and      * XPpointer URIs.      *<p>      * Attention: The implementation is provider dependent!      *       * @see XMLCryptoContext#setURIDereferencer(URIDereferencer)      */
 DECL|method|setUriDereferencer (URIDereferencer uriDereferencer)
 specifier|public
 name|void
@@ -324,7 +356,7 @@ return|return
 name|baseUri
 return|;
 block|}
-comment|/**      * You can set a base URI which is used in the URI dereferencing. Relative      * URIs are then concatenated with the base URI.      *       * @param baseUri      *            base URI      *       * @see XMLCryptoContext#setBaseURI(String)      */
+comment|/**      * You can set a base URI which is used in the URI dereferencing. Relative      * URIs are then concatenated with the base URI.      *      * @see XMLCryptoContext#setBaseURI(String)      */
 DECL|method|setBaseUri (String baseUri)
 specifier|public
 name|void
@@ -358,7 +390,7 @@ return|return
 name|cryptoContextProperties
 return|;
 block|}
-comment|/**      * Sets the crypto context properties. See      * {@link XMLCryptoContext#setProperty(String, Object)}. Possible properties      * are defined in {@link XMLSignContext} an {@link XMLValidateContext} (see      * Supported Properties).      *<p>      * The following properties are set by default to the value      * {@link Boolean#TRUE} for the XML validation. If you want to switch these      * features off you must set the property value to {@link Boolean#FALSE}.      *<ul>      *<li><code>"org.jcp.xml.dsig.validateManifests"</code></li>      *<li><code>"javax.xml.crypto.dsig.cacheReference"</code></li>      *</ul>      *       * @param cryptoContextProperties      */
+comment|/**      * Sets the crypto context properties. See      * {@link XMLCryptoContext#setProperty(String, Object)}. Possible properties      * are defined in {@link XMLSignContext} an {@link XMLValidateContext} (see      * Supported Properties).      *<p>      * The following properties are set by default to the value      * {@link Boolean#TRUE} for the XML validation. If you want to switch these      * features off you must set the property value to {@link Boolean#FALSE}.      *<ul>      *<li><code>"org.jcp.xml.dsig.validateManifests"</code></li>      *<li><code>"javax.xml.crypto.dsig.cacheReference"</code></li>      *</ul>      */
 DECL|method|setCryptoContextProperties (Map<String, ? extends Object> cryptoContextProperties)
 specifier|public
 name|void
@@ -392,7 +424,7 @@ return|return
 name|disallowDoctypeDecl
 return|;
 block|}
-comment|/**      * Disallows that the incoming XML document contains DTD DOCTYPE      * declaration. The default value is {@link Boolean#TRUE}.      *       * @param disallowDoctypeDecl      *            if set to {@link Boolean#FALSE} then DOCTYPE declaration is      *            allowed, otherwise not      */
+comment|/**      * Disallows that the incoming XML document contains DTD DOCTYPE      * declaration. The default value is {@link Boolean#TRUE}.      *       * @param disallowDoctypeDecl if set to {@link Boolean#FALSE} then DOCTYPE declaration is allowed, otherwise not      */
 DECL|method|setDisallowDoctypeDecl (Boolean disallowDoctypeDecl)
 specifier|public
 name|void
@@ -501,7 +533,7 @@ return|return
 name|outputXmlEncoding
 return|;
 block|}
-comment|/**      * The character encoding of the resulting signed XML document. If      *<code>null</code> then the encoding of the original XML document is used.      *       * @param outputXmlEncoding      *            character encoding      */
+comment|/**      * The character encoding of the resulting signed XML document. If      *<code>null</code> then the encoding of the original XML document is used.      */
 DECL|method|setOutputXmlEncoding (String outputXmlEncoding)
 specifier|public
 name|void

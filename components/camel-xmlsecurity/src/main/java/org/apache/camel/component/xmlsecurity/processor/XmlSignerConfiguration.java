@@ -262,28 +262,36 @@ name|XmlSignatureConfiguration
 block|{
 annotation|@
 name|UriParam
-DECL|field|keyAccessor
+argument_list|(
+name|label
+operator|=
+literal|"sign"
+argument_list|)
+DECL|field|parentXpath
 specifier|private
-name|KeyAccessor
-name|keyAccessor
+name|XPathFilterParameterSpec
+name|parentXpath
 decl_stmt|;
-comment|/**      * Optional canonicalization method for SignerInfo. Default value is      * {@link CanonicalizationMethod#INCLUSIVE}.      *       */
+DECL|field|xpathsToIdAttributes
+specifier|private
+name|List
+argument_list|<
+name|XPathFilterParameterSpec
+argument_list|>
+name|xpathsToIdAttributes
+init|=
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|canonicalizationMethod
-specifier|private
-name|AlgorithmMethod
-name|canonicalizationMethod
-init|=
-operator|new
-name|XmlSignatureTransform
 argument_list|(
-name|CanonicalizationMethod
-operator|.
-name|INCLUSIVE
+name|label
+operator|=
+literal|"sign"
 argument_list|)
-decl_stmt|;
-comment|/**      * Optional transform methods. Default value is      * {@link CanonicalizationMethod#INCLUSIVE}.      */
 DECL|field|transformMethods
 specifier|private
 name|List
@@ -306,8 +314,68 @@ name|INCLUSIVE
 argument_list|)
 argument_list|)
 decl_stmt|;
+DECL|field|transformMethodsName
+specifier|private
+name|String
+name|transformMethodsName
+decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"sign"
+argument_list|)
+DECL|field|keyAccessor
+specifier|private
+name|KeyAccessor
+name|keyAccessor
+decl_stmt|;
+DECL|field|keyAccessorName
+specifier|private
+name|String
+name|keyAccessorName
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"sign"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"http://www.w3.org/TR/2001/REC-xml-c14n-20010315"
+argument_list|)
+DECL|field|canonicalizationMethod
+specifier|private
+name|AlgorithmMethod
+name|canonicalizationMethod
+init|=
+operator|new
+name|XmlSignatureTransform
+argument_list|(
+name|CanonicalizationMethod
+operator|.
+name|INCLUSIVE
+argument_list|)
+decl_stmt|;
+DECL|field|canonicalizationMethodName
+specifier|private
+name|String
+name|canonicalizationMethodName
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"sign"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"http://www.w3.org/2000/09/xmldsig#rsa-sha1"
+argument_list|)
 DECL|field|signatureAlgorithm
 specifier|private
 name|String
@@ -315,9 +383,13 @@ name|signatureAlgorithm
 init|=
 literal|"http://www.w3.org/2000/09/xmldsig#rsa-sha1"
 decl_stmt|;
-comment|/**      * Digest algorithm URI. Optional parameter. This digest algorithm is used      * for calculating the digest of the input message. If this digest algorithm      * is not specified then the digest algorithm is calculated from the      * signature algorithm. Example: "http://www.w3.org/2001/04/xmlenc#sha256"      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"sign"
+argument_list|)
 DECL|field|digestAlgorithm
 specifier|private
 name|String
@@ -326,6 +398,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"sign"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -342,6 +418,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"sign"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"ds"
@@ -355,30 +435,47 @@ literal|"ds"
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"sign"
+argument_list|)
 DECL|field|contentObjectId
 specifier|private
 name|String
 name|contentObjectId
 decl_stmt|;
-comment|// default value is null so that a unique ID is generated.
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"sign"
+argument_list|)
 DECL|field|signatureId
 specifier|private
 name|String
 name|signatureId
 decl_stmt|;
-comment|/**      * The URI of the content reference. This value can be overwritten by the      * header {@link XmlSignatureConstants#HEADER_CONTENT_REFERENCE_URI}. Can      * only be used in connection with the enveloped case when you specify a      * schema (see {@link #setSchemaResourceUri(String)}. Will be ignored in the      * enveloping and detached case.      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"sign"
+argument_list|)
 DECL|field|contentReferenceUri
 specifier|private
 name|String
 name|contentReferenceUri
 decl_stmt|;
-comment|/**      * Type of the content reference. The default value is<code>null</code>.      * This value can be overwritten by the header      * {@link XmlSignatureConstants#HEADER_CONTENT_REFERENCE_TYPE}.      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"sign"
+argument_list|)
 DECL|field|contentReferenceType
 specifier|private
 name|String
@@ -386,6 +483,11 @@ name|contentReferenceType
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"sign"
+argument_list|)
 DECL|field|parentLocalName
 specifier|private
 name|String
@@ -393,15 +495,23 @@ name|parentLocalName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"sign"
+argument_list|)
 DECL|field|parentNamespace
 specifier|private
 name|String
 name|parentNamespace
 decl_stmt|;
-comment|/**      * Indicator whether the message body contains plain text. The default value      * is<code>false</code>, indicating that the message body contains XML. The      * value can be overwritten by the header      * {@link XmlSignatureConstants#HEADER_MESSAGE_IS_PLAIN_TEXT}.      */
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"sign"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"false"
@@ -415,9 +525,17 @@ name|Boolean
 operator|.
 name|FALSE
 decl_stmt|;
-comment|/**      * Encoding of the plain text. Only relevant if the message body is plain      * text (see parameter {@link #plainText}. Default value is "UTF-8".      *       */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"sign"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"UTF-8"
+argument_list|)
 DECL|field|plainTextEncoding
 specifier|private
 name|String
@@ -425,53 +543,18 @@ name|plainTextEncoding
 init|=
 literal|"UTF-8"
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"sign"
+argument_list|)
 DECL|field|properties
 specifier|private
 name|XmlSignatureProperties
 name|properties
 decl_stmt|;
-DECL|field|xpathsToIdAttributes
-specifier|private
-name|List
-argument_list|<
-name|XPathFilterParameterSpec
-argument_list|>
-name|xpathsToIdAttributes
-init|=
-name|Collections
-operator|.
-name|emptyList
-argument_list|()
-decl_stmt|;
-DECL|field|parentXpath
-specifier|private
-name|XPathFilterParameterSpec
-name|parentXpath
-decl_stmt|;
-comment|/* references that should be resolved when the context changes */
-annotation|@
-name|UriParam
-DECL|field|keyAccessorName
-specifier|private
-name|String
-name|keyAccessorName
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|canonicalizationMethodName
-specifier|private
-name|String
-name|canonicalizationMethodName
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|transformMethodsName
-specifier|private
-name|String
-name|transformMethodsName
-decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|propertiesName
 specifier|private
 name|String
@@ -563,6 +646,7 @@ return|return
 name|keyAccessor
 return|;
 block|}
+comment|/**      * For the signing process, a private key is necessary. You specify a key accessor bean which provides this private key.      * The key accessor bean must implement the KeyAccessor interface. The package org.apache.camel.component.xmlsecurity.api      * contains the default implementation class DefaultKeyAccessor which reads the private key from a Java keystore.      */
 DECL|method|setKeyAccessor (KeyAccessor keyAccessor)
 specifier|public
 name|void
@@ -579,7 +663,7 @@ operator|=
 name|keyAccessor
 expr_stmt|;
 block|}
-comment|/**      * Sets the reference name for a KeyAccessor that can be found in the      * registry.      */
+comment|/**      * Sets the reference name for a KeyAccessor that can be found in the registry.      */
 DECL|method|setKeyAccessor (String keyAccessorName)
 specifier|public
 name|void
@@ -658,6 +742,7 @@ return|return
 name|canonicalizationMethod
 return|;
 block|}
+comment|/**      * Canonicalization method used to canonicalize the SignedInfo element before the digest is calculated.      * You can use the helper methods XmlSignatureHelper.getCanonicalizationMethod(String algorithm)      * or getCanonicalizationMethod(String algorithm, List<String> inclusiveNamespacePrefixes) to create a canonicalization method.      */
 DECL|method|setCanonicalizationMethod (AlgorithmMethod canonicalizationMethod)
 specifier|public
 name|void
@@ -674,7 +759,7 @@ operator|=
 name|canonicalizationMethod
 expr_stmt|;
 block|}
-comment|/**      * Sets the reference name for a AlgorithmMethod that can be found in the      * registry.      */
+comment|/**      * Sets the reference name for a AlgorithmMethod that can be found in the registry.      */
 DECL|method|setCanonicalizationMethod (String canonicalizationMethodName)
 specifier|public
 name|void
@@ -756,6 +841,7 @@ return|return
 name|transformMethods
 return|;
 block|}
+comment|/**      * Transforms which are executed on the message body before the digest is calculated.      * By default, C14n is added and in the case of enveloped signature (see option parentLocalName) also http://www.w3.org/2000/09/xmldsig#enveloped-signature      * is added at position 0 of the list. Use methods in XmlSignatureHelper to create the transform methods.      */
 DECL|method|setTransformMethods (List<AlgorithmMethod> transformMethods)
 specifier|public
 name|void
@@ -775,7 +861,7 @@ operator|=
 name|transformMethods
 expr_stmt|;
 block|}
-comment|/**      * Sets the reference name for a List<AlgorithmMethod> that can be found in      * the registry.      */
+comment|/**      * Sets the reference name for a List<AlgorithmMethod> that can be found in the registry.      */
 DECL|method|setTransformMethods (String transformMethodsName)
 specifier|public
 name|void
@@ -862,7 +948,7 @@ return|return
 name|signatureAlgorithm
 return|;
 block|}
-comment|/**      * Signature algorithm. Default value is      * "http://www.w3.org/2000/09/xmldsig#rsa-sha1".      *       * @param signatureAlgorithm      *            signature algorithm      */
+comment|/**      * Signature algorithm. Default value is      * "http://www.w3.org/2000/09/xmldsig#rsa-sha1".      */
 DECL|method|setSignatureAlgorithm (String signatureAlgorithm)
 specifier|public
 name|void
@@ -889,6 +975,7 @@ return|return
 name|digestAlgorithm
 return|;
 block|}
+comment|/**      * Digest algorithm URI. Optional parameter. This digest algorithm is used      * for calculating the digest of the input message. If this digest algorithm      * is not specified then the digest algorithm is calculated from the      * signature algorithm. Example: "http://www.w3.org/2001/04/xmlenc#sha256"      */
 DECL|method|setDigestAlgorithm (String digestAlgorithm)
 specifier|public
 name|void
@@ -915,7 +1002,7 @@ return|return
 name|addKeyInfoReference
 return|;
 block|}
-comment|/**      * In order to protect the KeyInfo element from tampering you can add a      * reference to the signed info element so that it is protected via the      * signature value. The default value is<tt>true</tt>.      *<p>      * Only relevant when a KeyInfo is returned by {@link KeyAccessor}. and      * {@link KeyInfo#getId()} is not<code>null</code>.      *       * @param addKeyInfoReference      *            boolean value      */
+comment|/**      * In order to protect the KeyInfo element from tampering you can add a      * reference to the signed info element so that it is protected via the      * signature value. The default value is<tt>true</tt>.      *<p>      * Only relevant when a KeyInfo is returned by {@link KeyAccessor}. and      * {@link KeyInfo#getId()} is not<code>null</code>.      */
 DECL|method|setAddKeyInfoReference (Boolean addKeyInfoReference)
 specifier|public
 name|void
@@ -1044,7 +1131,7 @@ return|return
 name|contentObjectId
 return|;
 block|}
-comment|/**      * Sets the content object Id attribute value. By default a UUID is      * generated. If you set the<code>null</code> value, then a new UUID will      * be generated. Only used in the enveloping case.      *       * @param contentObjectId      */
+comment|/**      * Sets the content object Id attribute value. By default a UUID is      * generated. If you set the<code>null</code> value, then a new UUID will      * be generated. Only used in the enveloping case.      */
 DECL|method|setContentObjectId (String contentObjectId)
 specifier|public
 name|void
@@ -1071,7 +1158,7 @@ return|return
 name|signatureId
 return|;
 block|}
-comment|/**      * Sets the signature Id. If this parameter is not set (null value) then a      * unique ID is generated for the signature ID (default). If this parameter      * is set to "" (empty string) then no Id attribute is created in the      * signature element.      *       * @param signatureId      */
+comment|/**      * Sets the signature Id. If this parameter is not set (null value) then a      * unique ID is generated for the signature ID (default). If this parameter      * is set to "" (empty string) then no Id attribute is created in the      * signature element.      */
 DECL|method|setSignatureId (String signatureId)
 specifier|public
 name|void
@@ -1098,7 +1185,7 @@ return|return
 name|contentReferenceUri
 return|;
 block|}
-comment|/**      * Reference URI for the content to be signed. Only used in the enveloped      * case. If the reference URI contains an ID attribute value, then the      * resource schema URI ( {@link #setSchemaResourceUri(String)}) must also be      * set because the schema validator will then find out which attributes are      * ID attributes. Will be ignored in the enveloping or detached case.      *       * @param referenceUri      */
+comment|/**      * Reference URI for the content to be signed. Only used in the enveloped      * case. If the reference URI contains an ID attribute value, then the      * resource schema URI ( {@link #setSchemaResourceUri(String)}) must also be      * set because the schema validator will then find out which attributes are      * ID attributes. Will be ignored in the enveloping or detached case.      */
 DECL|method|setContentReferenceUri (String referenceUri)
 specifier|public
 name|void
@@ -1125,6 +1212,7 @@ return|return
 name|contentReferenceType
 return|;
 block|}
+comment|/**      * Type of the content reference. The default value is<code>null</code>.      * This value can be overwritten by the header      * {@link XmlSignatureConstants#HEADER_CONTENT_REFERENCE_TYPE}.      */
 DECL|method|setContentReferenceType (String referenceType)
 specifier|public
 name|void
@@ -1151,6 +1239,7 @@ return|return
 name|plainText
 return|;
 block|}
+comment|/**      * Indicator whether the message body contains plain text. The default value      * is<code>false</code>, indicating that the message body contains XML. The      * value can be overwritten by the header      * {@link XmlSignatureConstants#HEADER_MESSAGE_IS_PLAIN_TEXT}.      */
 DECL|method|setPlainText (Boolean plainText)
 specifier|public
 name|void
@@ -1177,6 +1266,7 @@ return|return
 name|plainTextEncoding
 return|;
 block|}
+comment|/**      * Encoding of the plain text. Only relevant if the message body is plain      * text (see parameter {@link #plainText}. Default value is "UTF-8".      */
 DECL|method|setPlainTextEncoding (String plainTextEncoding)
 specifier|public
 name|void
@@ -1203,6 +1293,7 @@ return|return
 name|properties
 return|;
 block|}
+comment|/**      * For adding additional References and Objects to the XML signature which contain additional properties,      * you can provide a bean which implements the XmlSignatureProperties interface.      */
 DECL|method|setProperties (XmlSignatureProperties properties)
 specifier|public
 name|void
@@ -1219,7 +1310,7 @@ operator|=
 name|properties
 expr_stmt|;
 block|}
-comment|/**      * Sets the reference name for a XmlSignatureProperties that can be found in      * the registry.      */
+comment|/**      * Sets the reference name for a XmlSignatureProperties that can be found in the registry.      */
 DECL|method|setProperties (String propertiesName)
 specifier|public
 name|void
@@ -1405,7 +1496,7 @@ return|return
 name|xpathsToIdAttributes
 return|;
 block|}
-comment|/**      * Define the elements which are signed in the detached case via XPATH      * expressions to ID attributes (attributes of type ID). For each element      * found via the XPATH expression a detached signature is created whose      * reference URI contains the corresponding attribute value (preceded by      * '#'). The signature becomes the last sibling of the signed element.      * Elements with deeper hierarchy level are signed first.      *<p>      * You can also set the XPATH list dynamically via the header      * {@link XmlSignatureConstants#HEADER_XPATHS_TO_ID_ATTRIBUTES}.      *<p>      * The parameter {@link #setParentLocalName(String)} or {@link #setParentXpath(XPathFilterParameterSpec)}      * for enveloped signature and this parameter for detached signature must not      * be set in the same configuration.      *       * @param xpathsToIdAttributes      */
+comment|/**      * Define the elements which are signed in the detached case via XPATH      * expressions to ID attributes (attributes of type ID). For each element      * found via the XPATH expression a detached signature is created whose      * reference URI contains the corresponding attribute value (preceded by      * '#'). The signature becomes the last sibling of the signed element.      * Elements with deeper hierarchy level are signed first.      *<p>      * You can also set the XPATH list dynamically via the header      * {@link XmlSignatureConstants#HEADER_XPATHS_TO_ID_ATTRIBUTES}.      *<p>      * The parameter {@link #setParentLocalName(String)} or {@link #setParentXpath(XPathFilterParameterSpec)}      * for enveloped signature and this parameter for detached signature must not      * be set in the same configuration.      */
 DECL|method|setXpathsToIdAttributes (List<XPathFilterParameterSpec> xpathsToIdAttributes)
 specifier|public
 name|void
@@ -1460,7 +1551,7 @@ return|return
 name|parentXpath
 return|;
 block|}
-comment|/** Sets the XPath to find the parent node in the enveloped case.       * Either you specify the parent node via this method or the local name and namespace of the parent       * with the methods {@link #setParentLocalName(String)} and {@link #setParentNamespace(String)}.       *<p>      * Default value is<code>null</code>. The value must be<code>null</code> for enveloping and      * detached XML signature.      *<p>      * If the parameters<tt>parentXpath</tt> and<tt>parentLocalName</tt> are specified      * in the same configuration then an exception is thrown.      *       * @param parentXpath xpath to the parent node, if the xpath returns several values then the first Element node is used      */
+comment|/**      * Sets the XPath to find the parent node in the enveloped case.      * Either you specify the parent node via this method or the local name and namespace of the parent       * with the methods {@link #setParentLocalName(String)} and {@link #setParentNamespace(String)}.       *<p>      * Default value is<code>null</code>. The value must be<code>null</code> for enveloping and      * detached XML signature.      *<p>      * If the parameters<tt>parentXpath</tt> and<tt>parentLocalName</tt> are specified      * in the same configuration then an exception is thrown.      *       * @param parentXpath xpath to the parent node, if the xpath returns several values then the first Element node is used      */
 DECL|method|setParentXpath (XPathFilterParameterSpec parentXpath)
 specifier|public
 name|void

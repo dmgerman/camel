@@ -304,6 +304,7 @@ return|return
 name|command
 return|;
 block|}
+comment|/**      * Whether to sign or verify.      */
 DECL|method|setCommand (XmlCommand command)
 specifier|public
 name|void
@@ -330,6 +331,7 @@ return|return
 name|name
 return|;
 block|}
+comment|/**      * The name part in the URI can be chosen by the user to distinguish between different signer/verifier endpoints within the camel context.      */
 DECL|method|setName (String name)
 specifier|public
 name|void
