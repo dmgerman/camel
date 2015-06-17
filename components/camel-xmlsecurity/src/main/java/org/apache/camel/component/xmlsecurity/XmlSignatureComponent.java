@@ -433,6 +433,7 @@ return|return
 name|signerConfiguration
 return|;
 block|}
+comment|/**      * To use a shared XmlSignerConfiguration configuration to use as base for configuring endpoints.      */
 DECL|method|setSignerConfiguration (XmlSignerConfiguration signerConfiguration)
 specifier|public
 name|void
@@ -473,6 +474,7 @@ return|return
 name|verifierConfiguration
 return|;
 block|}
+comment|/**      * To use a shared XmlVerifierConfiguration configuration to use as base for configuring endpoints.      */
 DECL|method|setVerifierConfiguration (XmlVerifierConfiguration verifierConfiguration)
 specifier|public
 name|void
