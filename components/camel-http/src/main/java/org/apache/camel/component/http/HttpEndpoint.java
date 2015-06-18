@@ -600,6 +600,13 @@ name|authMethodPriority
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"Option to disable throwing the HttpOperationFailedException in case of failed responses from the remote server."
+operator|+
+literal|" This allows you to get all responses regardless of the HTTP status code."
+argument_list|)
 DECL|field|transferException
 specifier|private
 name|boolean
