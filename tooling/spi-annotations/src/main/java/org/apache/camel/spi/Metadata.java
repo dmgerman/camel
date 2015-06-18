@@ -144,6 +144,14 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Returns a description of this entity.      *<p/>      * This is used for documentation and tooling only.      */
+DECL|method|description ()
+name|String
+name|description
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 block|}
 end_annotation_defn
 
