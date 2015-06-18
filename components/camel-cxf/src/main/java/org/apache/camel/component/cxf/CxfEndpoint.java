@@ -1420,6 +1420,11 @@ name|String
 argument_list|>
 name|schemaLocations
 decl_stmt|;
+DECL|field|transportId
+specifier|private
+name|String
+name|transportId
+decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
@@ -1634,13 +1639,6 @@ DECL|field|mergeProtocolHeaders
 specifier|private
 name|boolean
 name|mergeProtocolHeaders
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|transportId
-specifier|private
-name|String
-name|transportId
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -4833,6 +4831,7 @@ return|return
 name|cxfBinding
 return|;
 block|}
+comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel message.      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|void
@@ -5383,6 +5382,7 @@ literal|null
 expr_stmt|;
 block|}
 block|}
+comment|/**      * The service publish address.      */
 DECL|method|setAddress (String address)
 specifier|public
 name|void
@@ -6397,6 +6397,7 @@ name|bindingId
 argument_list|)
 return|;
 block|}
+comment|/**      * The bindingId for the service model to use.      */
 DECL|method|setBindingId (String bindingId)
 specifier|public
 name|void
@@ -6433,6 +6434,7 @@ return|return
 name|skipFaultLogging
 return|;
 block|}
+comment|/**      * This option controls whether the PhaseInterceptorChain skips logging the Fault that it catches.      */
 DECL|method|setSkipFaultLogging (boolean skipFaultLogging)
 specifier|public
 name|void
@@ -6459,6 +6461,7 @@ return|return
 name|mergeProtocolHeaders
 return|;
 block|}
+comment|/**      * Whether to merge protocol headers. If enabled then propagating headers between Camel and CXF becomes more consistent and similar. For more details see CAMEL-6393.      */
 DECL|method|setMergeProtocolHeaders (boolean mergeProtocolHeaders)
 specifier|public
 name|void
