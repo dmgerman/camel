@@ -660,9 +660,9 @@ name|label
 operator|=
 literal|"producer"
 argument_list|,
-name|defaultValue
+name|description
 operator|=
-literal|"false"
+literal|"If this option is true, The http producer won't read response body and cache the input stream"
 argument_list|)
 DECL|field|ignoreResponseBody
 specifier|private
@@ -1940,7 +1940,7 @@ return|return
 name|ignoreResponseBody
 return|;
 block|}
-comment|/**      * If this option is true, The http producer won't read response body and cache the input stream.      *      */
+comment|/**      * If this option is true, The http producer won't read response body and cache the input stream.      */
 DECL|method|setIgnoreResponseBody (boolean ignoreResponseBody)
 specifier|public
 name|void
