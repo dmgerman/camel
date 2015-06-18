@@ -90,6 +90,12 @@ name|INSTANCES_IDS
 init|=
 literal|"CamelAwsEC2InstancesIds"
 decl_stmt|;
+DECL|field|INSTANCES_KEY_PAIR
+name|String
+name|INSTANCES_KEY_PAIR
+init|=
+literal|"CamelAwsEC2InstancesKeyPair"
+decl_stmt|;
 block|}
 end_interface
 
