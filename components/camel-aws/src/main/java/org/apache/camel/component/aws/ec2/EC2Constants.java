@@ -96,6 +96,12 @@ name|INSTANCES_KEY_PAIR
 init|=
 literal|"CamelAwsEC2InstancesKeyPair"
 decl_stmt|;
+DECL|field|INSTANCES_CLIENT_TOKEN
+name|String
+name|INSTANCES_CLIENT_TOKEN
+init|=
+literal|"CamelAwsEC2InstancesClientToken"
+decl_stmt|;
 block|}
 end_interface
 
