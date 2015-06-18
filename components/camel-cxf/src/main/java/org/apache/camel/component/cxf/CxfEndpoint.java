@@ -264,42 +264,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Document
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Element
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|w3c
-operator|.
-name|dom
-operator|.
-name|Node
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|apache
 operator|.
 name|camel
@@ -900,6 +864,20 @@ name|cxf
 operator|.
 name|interceptor
 operator|.
+name|AbstractLoggingInterceptor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|interceptor
+operator|.
 name|Interceptor
 import|;
 end_import
@@ -1174,6 +1152,42 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Document
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Element
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|w3c
+operator|.
+name|dom
+operator|.
+name|Node
+import|;
+end_import
+
 begin_comment
 comment|/**  * Defines the<a href="http://camel.apache.org/cxf.html">CXF Endpoint</a>.  * It contains a list of properties for CXF endpoint including {@link DataFormat},  * {@link CxfBinding}, and {@link HeaderFilterStrategy}.  The default DataFormat  * mode is {@link DataFormat#POJO}.  */
 end_comment
@@ -1233,160 +1247,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|bus
-specifier|protected
-name|Bus
-name|bus
-decl_stmt|;
-annotation|@
-name|UriPath
-argument_list|(
-name|description
-operator|=
-literal|"To lookup an existing configured CxfEndpoint. Must used bean: as prefix."
-argument_list|)
-DECL|field|beanId
-specifier|private
-name|String
-name|beanId
-decl_stmt|;
-annotation|@
-name|UriPath
-DECL|field|address
-specifier|private
-name|String
-name|address
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|createBus
-specifier|private
-name|boolean
-name|createBus
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|wsdlURL
-specifier|private
-name|String
-name|wsdlURL
-decl_stmt|;
-DECL|field|serviceClass
-specifier|private
-name|Class
-argument_list|<
-name|?
-argument_list|>
-name|serviceClass
-decl_stmt|;
-DECL|field|portName
-specifier|private
-name|QName
-name|portName
-decl_stmt|;
-DECL|field|serviceName
-specifier|private
-name|QName
-name|serviceName
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|portNameString
-specifier|private
-name|String
-name|portNameString
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|serviceNameString
-specifier|private
-name|String
-name|serviceNameString
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|defaultOperationName
-specifier|private
-name|String
-name|defaultOperationName
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|defaultOperationNamespace
-specifier|private
-name|String
-name|defaultOperationNamespace
-decl_stmt|;
-comment|// This is for invoking the CXFClient with wrapped parameters of unwrapped parameters
-annotation|@
-name|UriParam
-DECL|field|isWrapped
-specifier|private
-name|boolean
-name|isWrapped
-decl_stmt|;
-comment|// This is for marshal or unmarshal message with the document-literal wrapped or unwrapped style
-annotation|@
-name|UriParam
-DECL|field|wrappedStyle
-specifier|private
-name|Boolean
-name|wrappedStyle
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|allowStreaming
-specifier|private
-name|Boolean
-name|allowStreaming
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"POJO"
-argument_list|)
-DECL|field|dataFormat
-specifier|private
-name|DataFormat
-name|dataFormat
-init|=
-name|DataFormat
-operator|.
-name|POJO
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|publishedEndpointUrl
-specifier|private
-name|String
-name|publishedEndpointUrl
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|inOut
-specifier|private
-name|boolean
-name|inOut
-init|=
-literal|true
-decl_stmt|;
-DECL|field|cxfBinding
-specifier|private
-name|CxfBinding
-name|cxfBinding
-decl_stmt|;
-DECL|field|headerFilterStrategy
-specifier|private
-name|HeaderFilterStrategy
-name|headerFilterStrategy
-decl_stmt|;
 DECL|field|getBusHasBeenCalled
 specifier|private
 name|AtomicBoolean
@@ -1398,54 +1258,26 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|isSetDefaultBus
+DECL|field|createBus
 specifier|private
+specifier|volatile
 name|boolean
-name|isSetDefaultBus
+name|createBus
 decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|loggingFeatureEnabled
+DECL|field|bindingConfig
 specifier|private
-name|boolean
-name|loggingFeatureEnabled
+name|BindingConfiguration
+name|bindingConfig
 decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|loggingSizeLimit
+DECL|field|dataBinding
 specifier|private
-name|int
-name|loggingSizeLimit
+name|DataBinding
+name|dataBinding
 decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|mtomEnabled
+DECL|field|serviceFactoryBean
 specifier|private
-name|boolean
-name|mtomEnabled
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|skipPayloadMessagePartCheck
-specifier|private
-name|boolean
-name|skipPayloadMessagePartCheck
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|skipFaultLogging
-specifier|private
-name|boolean
-name|skipFaultLogging
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|mergeProtocolHeaders
-specifier|private
-name|boolean
-name|mergeProtocolHeaders
+name|Object
+name|serviceFactoryBean
 decl_stmt|;
 DECL|field|properties
 specifier|private
@@ -1572,11 +1404,6 @@ name|Feature
 argument_list|>
 argument_list|()
 decl_stmt|;
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"rawtypes"
-argument_list|)
 DECL|field|handlers
 specifier|private
 name|List
@@ -1594,6 +1421,221 @@ argument_list|>
 name|schemaLocations
 decl_stmt|;
 annotation|@
+name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"To lookup an existing configured CxfEndpoint. Must used bean: as prefix."
+argument_list|)
+DECL|field|beanId
+specifier|private
+name|String
+name|beanId
+decl_stmt|;
+annotation|@
+name|UriPath
+DECL|field|address
+specifier|private
+name|String
+name|address
+decl_stmt|;
+annotation|@
+name|UriPath
+DECL|field|bus
+specifier|protected
+name|Bus
+name|bus
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|wsdlURL
+specifier|private
+name|String
+name|wsdlURL
+decl_stmt|;
+DECL|field|serviceClass
+specifier|private
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|serviceClass
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|name
+operator|=
+literal|"portName"
+argument_list|)
+DECL|field|portNameString
+specifier|private
+name|String
+name|portNameString
+decl_stmt|;
+DECL|field|portName
+specifier|private
+name|QName
+name|portName
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|name
+operator|=
+literal|"serviceName"
+argument_list|)
+DECL|field|serviceNameString
+specifier|private
+name|String
+name|serviceNameString
+decl_stmt|;
+DECL|field|serviceName
+specifier|private
+name|QName
+name|serviceName
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|defaultOperationName
+specifier|private
+name|String
+name|defaultOperationName
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|defaultOperationNamespace
+specifier|private
+name|String
+name|defaultOperationNamespace
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|wrapped
+specifier|private
+name|boolean
+name|wrapped
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|wrappedStyle
+specifier|private
+name|Boolean
+name|wrappedStyle
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|allowStreaming
+specifier|private
+name|Boolean
+name|allowStreaming
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"POJO"
+argument_list|)
+DECL|field|dataFormat
+specifier|private
+name|DataFormat
+name|dataFormat
+init|=
+name|DataFormat
+operator|.
+name|POJO
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|publishedEndpointUrl
+specifier|private
+name|String
+name|publishedEndpointUrl
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|cxfBinding
+specifier|private
+name|CxfBinding
+name|cxfBinding
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|headerFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|defaultBus
+specifier|private
+name|boolean
+name|defaultBus
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|loggingFeatureEnabled
+specifier|private
+name|boolean
+name|loggingFeatureEnabled
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|""
+operator|+
+name|AbstractLoggingInterceptor
+operator|.
+name|DEFAULT_LIMIT
+argument_list|)
+DECL|field|loggingSizeLimit
+specifier|private
+name|int
+name|loggingSizeLimit
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|mtomEnabled
+specifier|private
+name|boolean
+name|mtomEnabled
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|skipPayloadMessagePartCheck
+specifier|private
+name|boolean
+name|skipPayloadMessagePartCheck
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|skipFaultLogging
+specifier|private
+name|boolean
+name|skipFaultLogging
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|mergeProtocolHeaders
+specifier|private
+name|boolean
+name|mergeProtocolHeaders
+decl_stmt|;
+annotation|@
 name|UriParam
 DECL|field|transportId
 specifier|private
@@ -1607,27 +1649,13 @@ specifier|private
 name|String
 name|bindingId
 decl_stmt|;
-DECL|field|bindingConfig
-specifier|private
-name|BindingConfiguration
-name|bindingConfig
-decl_stmt|;
-DECL|field|dataBinding
-specifier|private
-name|DataBinding
-name|dataBinding
-decl_stmt|;
-DECL|field|serviceFactoryBean
-specifier|private
-name|Object
-name|serviceFactoryBean
-decl_stmt|;
-DECL|field|configurer
+annotation|@
+name|UriParam
+DECL|field|cxfEndpointConfigurer
 specifier|private
 name|CxfEndpointConfigurer
-name|configurer
+name|cxfEndpointConfigurer
 decl_stmt|;
-comment|// The continuation timeout value for CXF continuation to use
 annotation|@
 name|UriParam
 argument_list|(
@@ -1642,7 +1670,6 @@ name|continuationTimeout
 init|=
 literal|30000
 decl_stmt|;
-comment|// basic authentication option for the CXF client
 annotation|@
 name|UriParam
 DECL|field|username
@@ -4287,6 +4314,7 @@ return|return
 name|dataFormat
 return|;
 block|}
+comment|/**      * The data type messages supported by the CXF endpoint.      */
 DECL|method|setDataFormat (DataFormat format)
 specifier|public
 name|void
@@ -4314,6 +4342,7 @@ name|publishedEndpointUrl
 argument_list|)
 return|;
 block|}
+comment|/**      * This option can override the endpointUrl that published from the WSDL which can be accessed with service address url plus ?wsd      */
 DECL|method|setPublishedEndpointUrl (String url)
 specifier|public
 name|void
@@ -4341,6 +4370,7 @@ name|wsdlURL
 argument_list|)
 return|;
 block|}
+comment|/**      * The location of the WSDL. Can be on the classpath, file system, or be hosted remotely.      */
 DECL|method|setWsdlURL (String url)
 specifier|public
 name|void
@@ -4368,6 +4398,7 @@ return|return
 name|serviceClass
 return|;
 block|}
+comment|/**      * The class name of the SEI (Service Endpoint Interface) class which could have JSR181 annotation or not.      */
 DECL|method|setServiceClass (Class<?> cls)
 specifier|public
 name|void
@@ -4385,6 +4416,7 @@ operator|=
 name|cls
 expr_stmt|;
 block|}
+comment|/**      * The class name of the SEI (Service Endpoint Interface) class which could have JSR181 annotation or not.      */
 DECL|method|setServiceClass (Object instance)
 specifier|public
 name|void
@@ -4404,6 +4436,7 @@ name|instance
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The class name of the SEI (Service Endpoint Interface) class which could have JSR181 annotation or not.      */
 DECL|method|setServiceClass (String type)
 specifier|public
 name|void
@@ -4449,6 +4482,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The service name this service is implementing, it maps to the wsdl:service@name.      */
 DECL|method|setServiceNameString (String service)
 specifier|public
 name|void
@@ -4463,6 +4497,7 @@ operator|=
 name|service
 expr_stmt|;
 block|}
+comment|/**      * The service name this service is implementing, it maps to the wsdl:service@name.      */
 DECL|method|setServiceName (QName service)
 specifier|public
 name|void
@@ -4473,6 +4508,21 @@ name|service
 parameter_list|)
 block|{
 name|serviceName
+operator|=
+name|service
+expr_stmt|;
+block|}
+comment|/**      * The service name this service is implementing, it maps to the wsdl:service@name.      */
+DECL|method|setService (String service)
+specifier|public
+name|void
+name|setService
+parameter_list|(
+name|String
+name|service
+parameter_list|)
+block|{
+name|serviceNameString
 operator|=
 name|service
 expr_stmt|;
@@ -4545,6 +4595,7 @@ return|return
 name|portName
 return|;
 block|}
+comment|/**      * The endpoint name this service is implementing, it maps to the wsdl:port@name. In the format of ns:PORT_NAME where ns is a namespace prefix valid at this scope.      */
 DECL|method|setPortName (QName port)
 specifier|public
 name|void
@@ -4559,6 +4610,38 @@ operator|=
 name|port
 expr_stmt|;
 block|}
+comment|/**      * The endpoint name this service is implementing, it maps to the wsdl:port@name. In the format of ns:PORT_NAME where ns is a namespace prefix valid at this scope.      */
+DECL|method|setPortNameString (String portNameString)
+specifier|public
+name|void
+name|setPortNameString
+parameter_list|(
+name|String
+name|portNameString
+parameter_list|)
+block|{
+name|this
+operator|.
+name|portNameString
+operator|=
+name|portNameString
+expr_stmt|;
+block|}
+DECL|method|setPortName (String portName)
+specifier|public
+name|void
+name|setPortName
+parameter_list|(
+name|String
+name|portName
+parameter_list|)
+block|{
+name|portNameString
+operator|=
+name|portName
+expr_stmt|;
+block|}
+comment|/**      * The port name this service is implementing, it maps to the wsdl:port@name.      */
 DECL|method|setEndpointNameString (String port)
 specifier|public
 name|void
@@ -4573,6 +4656,7 @@ operator|=
 name|port
 expr_stmt|;
 block|}
+comment|/**      * The port name this service is implementing, it maps to the wsdl:port@name.      */
 DECL|method|setEndpointName (QName port)
 specifier|public
 name|void
@@ -4600,6 +4684,7 @@ name|defaultOperationName
 argument_list|)
 return|;
 block|}
+comment|/**      * This option will set the default operationName that will be used by the CxfProducer which invokes the remote service.      */
 DECL|method|setDefaultOperationName (String name)
 specifier|public
 name|void
@@ -4627,6 +4712,7 @@ name|defaultOperationNamespace
 argument_list|)
 return|;
 block|}
+comment|/**      * This option will set the default operationNamespace that will be used by the CxfProducer which invokes the remote service.      */
 DECL|method|setDefaultOperationNamespace (String namespace)
 specifier|public
 name|void
@@ -4641,32 +4727,6 @@ operator|=
 name|namespace
 expr_stmt|;
 block|}
-DECL|method|isInOut ()
-specifier|public
-name|boolean
-name|isInOut
-parameter_list|()
-block|{
-return|return
-name|inOut
-return|;
-block|}
-DECL|method|setInOut (boolean inOut)
-specifier|public
-name|void
-name|setInOut
-parameter_list|(
-name|boolean
-name|inOut
-parameter_list|)
-block|{
-name|this
-operator|.
-name|inOut
-operator|=
-name|inOut
-expr_stmt|;
-block|}
 DECL|method|isWrapped ()
 specifier|public
 name|boolean
@@ -4674,9 +4734,10 @@ name|isWrapped
 parameter_list|()
 block|{
 return|return
-name|isWrapped
+name|wrapped
 return|;
 block|}
+comment|/**      * Which kind of operation that CXF endpoint producer will invoke      */
 DECL|method|setWrapped (boolean wrapped)
 specifier|public
 name|void
@@ -4686,7 +4747,9 @@ name|boolean
 name|wrapped
 parameter_list|)
 block|{
-name|isWrapped
+name|this
+operator|.
+name|wrapped
 operator|=
 name|wrapped
 expr_stmt|;
@@ -4701,6 +4764,7 @@ return|return
 name|wrappedStyle
 return|;
 block|}
+comment|/**      * The WSDL style that describes how parameters are represented in the SOAP body.      * If the value is false, CXF will chose the document-literal unwrapped style,      * If the value is true, CXF will chose the document-literal wrapped style      */
 DECL|method|setWrappedStyle (Boolean wrapped)
 specifier|public
 name|void
@@ -4715,18 +4779,21 @@ operator|=
 name|wrapped
 expr_stmt|;
 block|}
-DECL|method|setAllowStreaming (Boolean b)
+comment|/**      * This option controls whether the CXF component, when running in PAYLOAD mode, will DOM parse the incoming messages      * into DOM Elements or keep the payload as a javax.xml.transform.Source object that would allow streaming in some cases.      */
+DECL|method|setAllowStreaming (Boolean allowStreaming)
 specifier|public
 name|void
 name|setAllowStreaming
 parameter_list|(
 name|Boolean
-name|b
+name|allowStreaming
 parameter_list|)
 block|{
+name|this
+operator|.
 name|allowStreaming
 operator|=
-name|b
+name|allowStreaming
 expr_stmt|;
 block|}
 DECL|method|getAllowStreaming ()
@@ -4739,6 +4806,7 @@ return|return
 name|allowStreaming
 return|;
 block|}
+comment|/**      * To use a custom CxfBinding to control the binding between Camel Message and CXF Message.      */
 DECL|method|setCxfBinding (CxfBinding cxfBinding)
 specifier|public
 name|void
@@ -4811,6 +4879,7 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+comment|/**      * To use a custom configured CXF Bus.      */
 DECL|method|setBus (Bus bus)
 specifier|public
 name|void
@@ -4882,7 +4951,7 @@ argument_list|(
 literal|true
 argument_list|)
 operator|&&
-name|isSetDefaultBus
+name|defaultBus
 condition|)
 block|{
 name|BusFactory
@@ -4906,32 +4975,34 @@ return|return
 name|bus
 return|;
 block|}
-DECL|method|setSetDefaultBus (boolean isSetDefaultBus)
+comment|/**      * Will set the default bus when CXF endpoint create a bus by itself      */
+DECL|method|setDefaultBus (boolean defaultBus)
 specifier|public
 name|void
-name|setSetDefaultBus
+name|setDefaultBus
 parameter_list|(
 name|boolean
-name|isSetDefaultBus
+name|defaultBus
 parameter_list|)
 block|{
 name|this
 operator|.
-name|isSetDefaultBus
+name|defaultBus
 operator|=
-name|isSetDefaultBus
+name|defaultBus
 expr_stmt|;
 block|}
-DECL|method|isSetDefaultBus ()
+DECL|method|isDefaultBus ()
 specifier|public
 name|boolean
-name|isSetDefaultBus
+name|isDefaultBus
 parameter_list|()
 block|{
 return|return
-name|isSetDefaultBus
+name|defaultBus
 return|;
 block|}
+comment|/**      * This option enables CXF Logging Feature which writes inbound and outbound SOAP messages to log.      */
 DECL|method|setLoggingFeatureEnabled (boolean loggingFeatureEnabled)
 specifier|public
 name|void
@@ -4968,6 +5039,7 @@ return|return
 name|loggingSizeLimit
 return|;
 block|}
+comment|/**      * To limit the total size of number of bytes the logger will output when logging feature has been enabled.      */
 DECL|method|setLoggingSizeLimit (int loggingSizeLimit)
 specifier|public
 name|void
@@ -4985,7 +5057,7 @@ name|loggingSizeLimit
 expr_stmt|;
 block|}
 DECL|method|isSkipPayloadMessagePartCheck ()
-specifier|protected
+specifier|public
 name|boolean
 name|isSkipPayloadMessagePartCheck
 parameter_list|()
@@ -4994,8 +5066,9 @@ return|return
 name|skipPayloadMessagePartCheck
 return|;
 block|}
+comment|/**      * Sets whether SOAP message validation should be disabled.      */
 DECL|method|setSkipPayloadMessagePartCheck (boolean skipPayloadMessagePartCheck)
-specifier|protected
+specifier|public
 name|void
 name|setSkipPayloadMessagePartCheck
 parameter_list|(
@@ -5351,6 +5424,7 @@ name|address
 argument_list|)
 return|;
 block|}
+comment|/**      * To enable MTOM (attachments). This requires to use POJO or PAYLOAD data format mode.      */
 DECL|method|setMtomEnabled (boolean mtomEnabled)
 specifier|public
 name|void
@@ -5387,6 +5461,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * This option is used to set the basic authentication information of password for the CXF client.      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -5413,6 +5488,7 @@ return|return
 name|username
 return|;
 block|}
+comment|/**      * This option is used to set the basic authentication information of username for the CXF client.      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -6474,9 +6550,10 @@ name|getCxfEndpointConfigurer
 parameter_list|()
 block|{
 return|return
-name|configurer
+name|cxfEndpointConfigurer
 return|;
 block|}
+comment|/**      * This option could apply the implementation of org.apache.camel.component.cxf.CxfEndpointConfigurer which supports to configure the CXF endpoint      * in  programmatic way. User can configure the CXF server and client by implementing configure{Server|Client} method of CxfEndpointConfigurer.      */
 DECL|method|setCxfEndpointConfigurer (CxfEndpointConfigurer configurer)
 specifier|public
 name|void
@@ -6488,7 +6565,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|configurer
+name|cxfEndpointConfigurer
 operator|=
 name|configurer
 expr_stmt|;
@@ -6503,6 +6580,7 @@ return|return
 name|continuationTimeout
 return|;
 block|}
+comment|/**      * This option is used to set the CXF continuation timeout which could be used in CxfConsumer by default when the CXF server is using Jetty or Servlet transport.      */
 DECL|method|setContinuationTimeout (long continuationTimeout)
 specifier|public
 name|void

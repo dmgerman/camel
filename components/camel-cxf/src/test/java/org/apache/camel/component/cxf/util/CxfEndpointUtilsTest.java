@@ -204,7 +204,7 @@ literal|"&portName={http://www.example.com/test}PortName"
 operator|+
 literal|"&serviceName={http://www.example.com/test}ServiceName"
 operator|+
-literal|"&setDefaultBus=true"
+literal|"&defaultBus=true"
 decl_stmt|;
 DECL|field|NO_SERVICE_CLASS_URI
 specifier|private
