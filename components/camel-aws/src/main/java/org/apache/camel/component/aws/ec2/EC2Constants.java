@@ -102,6 +102,12 @@ name|INSTANCES_CLIENT_TOKEN
 init|=
 literal|"CamelAwsEC2InstancesClientToken"
 decl_stmt|;
+DECL|field|INSTANCES_PLACEMENT
+name|String
+name|INSTANCES_PLACEMENT
+init|=
+literal|"CamelAwsEC2InstancesPlacement"
+decl_stmt|;
 block|}
 end_interface
 
