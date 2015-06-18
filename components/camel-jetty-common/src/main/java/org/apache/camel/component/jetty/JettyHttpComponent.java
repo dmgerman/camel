@@ -3161,6 +3161,7 @@ return|return
 name|sslKeyPassword
 return|;
 block|}
+comment|/**      * The key password, which is used to access the certificate's key entry in the keystore (this is the same password that is supplied to the keystore command's -keypass option).      */
 DECL|method|setSslKeyPassword (String sslKeyPassword)
 specifier|public
 name|void
@@ -3187,6 +3188,7 @@ return|return
 name|sslPassword
 return|;
 block|}
+comment|/**      * The ssl password, which is required to access the keystore file (this is the same password that is supplied to the keystore command's -storepass option).      */
 DECL|method|setSslPassword (String sslPassword)
 specifier|public
 name|void
@@ -3203,6 +3205,7 @@ operator|=
 name|sslPassword
 expr_stmt|;
 block|}
+comment|/**      * Specifies the location of the Java keystore file, which contains the Jetty server's own X.509 certificate in a key entry.      */
 DECL|method|setKeystore (String sslKeystore)
 specifier|public
 name|void
@@ -3239,6 +3242,7 @@ return|return
 name|errorHandler
 return|;
 block|}
+comment|/**      * This option is used to set the ErrorHandler that Jetty server uses.      */
 DECL|method|setErrorHandler (ErrorHandler errorHandler)
 specifier|public
 name|void
@@ -3787,6 +3791,7 @@ return|return
 name|sslSocketConnectors
 return|;
 block|}
+comment|/**      * A map which contains per port number specific SSL connectors.      */
 DECL|method|setSslSocketConnectors (Map <Integer, Connector> connectors)
 specifier|public
 name|void
@@ -3806,6 +3811,7 @@ operator|=
 name|connectors
 expr_stmt|;
 block|}
+comment|/**      * A map which contains per port number specific HTTP connectors. Uses the same principle as sslSocketConnectors.      */
 DECL|method|setSocketConnectors (Map<Integer, Connector> socketConnectors)
 specifier|public
 name|void
@@ -4170,6 +4176,7 @@ return|return
 name|httpClientMinThreads
 return|;
 block|}
+comment|/**      * To set a value for minimum number of threads in HttpClient thread pool. Notice that both a min and max size must be configured.      */
 DECL|method|setHttpClientMinThreads (Integer httpClientMinThreads)
 specifier|public
 name|void
@@ -4196,6 +4203,7 @@ return|return
 name|httpClientMaxThreads
 return|;
 block|}
+comment|/**      * To set a value for maximum number of threads in HttpClient thread pool. Notice that both a min and max size must be configured.      */
 DECL|method|setHttpClientMaxThreads (Integer httpClientMaxThreads)
 specifier|public
 name|void
@@ -4222,6 +4230,7 @@ return|return
 name|minThreads
 return|;
 block|}
+comment|/**      * To set a value for minimum number of threads in server thread pool. Notice that both a min and max size must be configured.      */
 DECL|method|setMinThreads (Integer minThreads)
 specifier|public
 name|void
@@ -4248,6 +4257,7 @@ return|return
 name|maxThreads
 return|;
 block|}
+comment|/**      * To set a value for maximum number of threads in server thread pool. Notice that both a min and max size must be configured.      */
 DECL|method|setMaxThreads (Integer maxThreads)
 specifier|public
 name|void
@@ -4274,6 +4284,7 @@ return|return
 name|threadPool
 return|;
 block|}
+comment|/**      * To use a custom thread pool for the server. This option should only be used in special circumstances.      */
 DECL|method|setThreadPool (ThreadPool threadPool)
 specifier|public
 name|void
@@ -4290,6 +4301,17 @@ operator|=
 name|threadPool
 expr_stmt|;
 block|}
+DECL|method|isEnableJmx ()
+specifier|public
+name|boolean
+name|isEnableJmx
+parameter_list|()
+block|{
+return|return
+name|enableJmx
+return|;
+block|}
+comment|/**      * If this option is true, Jetty JMX support will be enabled for this endpoint.      */
 DECL|method|setEnableJmx (boolean enableJmx)
 specifier|public
 name|void
@@ -4306,16 +4328,6 @@ operator|=
 name|enableJmx
 expr_stmt|;
 block|}
-DECL|method|isEnableJmx ()
-specifier|public
-name|boolean
-name|isEnableJmx
-parameter_list|()
-block|{
-return|return
-name|enableJmx
-return|;
-block|}
 DECL|method|getJettyHttpBinding ()
 specifier|public
 name|JettyHttpBinding
@@ -4326,6 +4338,7 @@ return|return
 name|jettyHttpBinding
 return|;
 block|}
+comment|/**      * To use a custom org.apache.camel.component.jetty.JettyHttpBinding, which are used to customize how a response should be written for the producer.      */
 DECL|method|setJettyHttpBinding (JettyHttpBinding jettyHttpBinding)
 specifier|public
 name|void
@@ -4434,6 +4447,7 @@ operator|.
 name|mbContainer
 return|;
 block|}
+comment|/**      * To use a existing configured org.eclipse.jetty.jmx.MBeanContainer if JMX is enabled that Jetty uses for registering mbeans.      */
 DECL|method|setMbContainer (MBeanContainer mbContainer)
 specifier|public
 name|void
@@ -4465,6 +4479,7 @@ return|return
 name|sslSocketConnectorProperties
 return|;
 block|}
+comment|/**      * A map which contains general SSL connector properties.      */
 DECL|method|setSslSocketConnectorProperties (Map<String, Object> sslSocketConnectorProperties)
 specifier|public
 name|void
@@ -4501,6 +4516,7 @@ return|return
 name|socketConnectorProperties
 return|;
 block|}
+comment|/**      * A map which contains general HTTP connector properties. Uses the same principle as sslSocketConnectorProperties.      */
 DECL|method|setSocketConnectorProperties (Map<String, Object> socketConnectorProperties)
 specifier|public
 name|void
@@ -4614,6 +4630,7 @@ return|return
 name|continuationTimeout
 return|;
 block|}
+comment|/**      * Allows to set a timeout in millis when using Jetty as consumer (server).      * By default Jetty uses 30000. You can use a value of<= 0 to never expire.      * If a timeout occurs then the request will be expired and Jetty will return back a http error 503 to the client.      * This option is only in use when using Jetty with the Asynchronous Routing Engine.      */
 DECL|method|setContinuationTimeout (Long continuationTimeout)
 specifier|public
 name|void
@@ -4640,6 +4657,7 @@ return|return
 name|useContinuation
 return|;
 block|}
+comment|/**      * Whether or not to use Jetty continuations for the Jetty Server.      */
 DECL|method|setUseContinuation (boolean useContinuation)
 specifier|public
 name|void
@@ -4666,6 +4684,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
+comment|/**      * To configure security using SSLContextParameters      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
@@ -4692,6 +4711,7 @@ return|return
 name|responseBufferSize
 return|;
 block|}
+comment|/**      * Allows to configure a custom value of the response buffer size on the Jetty connectors.      */
 DECL|method|setResponseBufferSize (Integer responseBufferSize)
 specifier|public
 name|void
@@ -4718,6 +4738,7 @@ return|return
 name|requestBufferSize
 return|;
 block|}
+comment|/**      * Allows to configure a custom value of the request buffer size on the Jetty connectors.      */
 DECL|method|setRequestBufferSize (Integer requestBufferSize)
 specifier|public
 name|void
@@ -4744,6 +4765,7 @@ return|return
 name|requestHeaderSize
 return|;
 block|}
+comment|/**      * Allows to configure a custom value of the request header size on the Jetty connectors.      */
 DECL|method|setRequestHeaderSize (Integer requestHeaderSize)
 specifier|public
 name|void
@@ -4770,6 +4792,7 @@ return|return
 name|responseHeaderSize
 return|;
 block|}
+comment|/**      * Allows to configure a custom value of the response header size on the Jetty connectors.      */
 DECL|method|setResponseHeaderSize (Integer responseHeaderSize)
 specifier|public
 name|void
@@ -4796,6 +4819,7 @@ return|return
 name|proxyHost
 return|;
 block|}
+comment|/**      * To use a http proxy to configure the hostname.      */
 DECL|method|setProxyHost (String proxyHost)
 specifier|public
 name|void
@@ -4822,6 +4846,7 @@ return|return
 name|proxyPort
 return|;
 block|}
+comment|/**      * To use a http proxy to configure the port number.      */
 DECL|method|setProxyPort (Integer proxyPort)
 specifier|public
 name|void
