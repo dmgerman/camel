@@ -582,33 +582,35 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|bus
-specifier|protected
-name|Bus
-name|bus
-decl_stmt|;
-DECL|field|entityProviders
-specifier|protected
-name|List
-argument_list|<
-name|Object
-argument_list|>
-name|entityProviders
+DECL|field|interceptorHolder
+specifier|private
+specifier|final
+name|InterceptorHolder
+name|interceptorHolder
 init|=
 operator|new
-name|LinkedList
-argument_list|<
-name|Object
-argument_list|>
+name|InterceptorHolder
 argument_list|()
 decl_stmt|;
-DECL|field|schemaLocations
-specifier|protected
-name|List
+DECL|field|parameters
+specifier|private
+name|Map
 argument_list|<
 name|String
+argument_list|,
+name|String
 argument_list|>
-name|schemaLocations
+name|parameters
+decl_stmt|;
+DECL|field|properties
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|properties
 decl_stmt|;
 annotation|@
 name|UriPath
@@ -629,16 +631,8 @@ specifier|private
 name|String
 name|address
 decl_stmt|;
-DECL|field|parameters
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
-name|parameters
-decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|resourceClasses
 specifier|private
 name|List
@@ -650,15 +644,93 @@ argument_list|>
 argument_list|>
 name|resourceClasses
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|modelRef
+specifier|private
+name|String
+name|modelRef
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"Default"
+argument_list|)
+DECL|field|bindingStyle
+specifier|private
+name|BindingStyle
+name|bindingStyle
+init|=
+name|BindingStyle
+operator|.
+name|Default
+decl_stmt|;
+annotation|@
+name|UriPath
+DECL|field|bus
+specifier|protected
+name|Bus
+name|bus
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|binding
 specifier|private
 name|CxfRsBinding
 name|binding
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|providers
+specifier|private
+name|List
+argument_list|<
+name|Object
+argument_list|>
+name|providers
+init|=
+operator|new
+name|LinkedList
+argument_list|<
+name|Object
+argument_list|>
+argument_list|()
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|schemaLocations
+specifier|private
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|schemaLocations
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|features
+specifier|private
+name|List
+argument_list|<
+name|Feature
+argument_list|>
+name|features
+init|=
+operator|new
+name|ModCountCopyOnWriteArrayList
+argument_list|<
+name|Feature
+argument_list|>
+argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -735,23 +807,6 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"Default"
-argument_list|)
-DECL|field|bindingStyle
-specifier|private
-name|BindingStyle
-name|bindingStyle
-init|=
-name|BindingStyle
-operator|.
-name|Default
-decl_stmt|;
-comment|// The continuation timeout value for CXF continuation to use
-annotation|@
-name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
 literal|"30000"
 argument_list|)
 DECL|field|continuationTimeout
@@ -763,10 +818,10 @@ literal|30000
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|isSetDefaultBus
+DECL|field|defaultBus
 specifier|private
 name|boolean
-name|isSetDefaultBus
+name|defaultBus
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -781,47 +836,6 @@ DECL|field|propagateContexts
 specifier|private
 name|boolean
 name|propagateContexts
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|modelRef
-specifier|private
-name|String
-name|modelRef
-decl_stmt|;
-DECL|field|features
-specifier|private
-name|List
-argument_list|<
-name|Feature
-argument_list|>
-name|features
-init|=
-operator|new
-name|ModCountCopyOnWriteArrayList
-argument_list|<
-name|Feature
-argument_list|>
-argument_list|()
-decl_stmt|;
-DECL|field|interceptorHolder
-specifier|private
-name|InterceptorHolder
-name|interceptorHolder
-init|=
-operator|new
-name|InterceptorHolder
-argument_list|()
-decl_stmt|;
-DECL|field|properties
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|properties
 decl_stmt|;
 DECL|method|CxfRsEndpoint ()
 specifier|public
@@ -878,6 +892,18 @@ name|endpointUri
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|isLenientProperties ()
+specifier|public
+name|boolean
+name|isLenientProperties
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 comment|// This method is for CxfRsComponent setting the EndpointUri
 DECL|method|updateEndpointUri (String endpointUri)
 specifier|protected
@@ -930,6 +956,7 @@ return|return
 name|parameters
 return|;
 block|}
+comment|/**      * If it is true, the CxfRsProducer will use the HttpClientAPI to invoke the service.      * If it is false, the CxfRsProducer will use the ProxyClientAPI to invoke the service      */
 DECL|method|setHttpClientAPI (boolean clientAPI)
 specifier|public
 name|void
@@ -954,18 +981,6 @@ return|return
 name|httpClientAPI
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|isLenientProperties ()
-specifier|public
-name|boolean
-name|isLenientProperties
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
 name|HeaderFilterStrategy
@@ -976,6 +991,7 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel message.      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy strategy)
 specifier|public
 name|void
@@ -1064,6 +1080,7 @@ return|return
 literal|false
 return|;
 block|}
+comment|/**      * To use a custom CxfBinding to control the binding between Camel Message and CXF Message.      */
 DECL|method|setBinding (CxfRsBinding binding)
 specifier|public
 name|void
@@ -1100,6 +1117,7 @@ return|return
 name|skipFaultLogging
 return|;
 block|}
+comment|/**      * This option controls whether the PhaseInterceptorChain skips logging the Fault that it catches.      */
 DECL|method|setSkipFaultLogging (boolean skipFaultLogging)
 specifier|public
 name|void
@@ -1998,6 +2016,7 @@ name|resourceClass
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The resource classes which you want to export as REST service. Multiple classes can be separated by comma.      */
 DECL|method|setResourceClasses (List<Class<?>> resourceClasses)
 specifier|public
 name|void
@@ -2044,6 +2063,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * The service publish address.      */
 DECL|method|setAddress (String address)
 specifier|public
 name|void
@@ -2060,6 +2080,7 @@ operator|=
 name|address
 expr_stmt|;
 block|}
+comment|/**      * This option is used to specify the model file which is useful for the resource class without annotation.      * When using this option, then the service class can be omitted, to  emulate document-only endpoints      */
 DECL|method|setModelRef (String ref)
 specifier|public
 name|void
@@ -2089,6 +2110,7 @@ name|address
 argument_list|)
 return|;
 block|}
+comment|/**      * This option enables CXF Logging Feature which writes inbound and outbound REST messages to log.      */
 DECL|method|isLoggingFeatureEnabled ()
 specifier|public
 name|boolean
@@ -2125,6 +2147,7 @@ return|return
 name|loggingSizeLimit
 return|;
 block|}
+comment|/**      * To limit the total size of number of bytes the logger will output when logging feature has been enabled.      */
 DECL|method|setLoggingSizeLimit (int loggingSizeLimit)
 specifier|public
 name|void
@@ -2151,6 +2174,7 @@ return|return
 name|throwExceptionOnFailure
 return|;
 block|}
+comment|/**      * This option tells the CxfRsProducer to inspect return codes and will generate an Exception if the return code is larger than 207.      */
 DECL|method|setThrowExceptionOnFailure (boolean throwExceptionOnFailure)
 specifier|public
 name|void
@@ -2167,7 +2191,7 @@ operator|=
 name|throwExceptionOnFailure
 expr_stmt|;
 block|}
-comment|/**      * @param maxClientCacheSize the maxClientCacheSize to set      */
+comment|/**      * This option allows you to configure the maximum size of the cache.      * The implementation caches CXF clients or ClientFactoryBean in CxfProvider and CxfRsProvider.      */
 DECL|method|setMaxClientCacheSize (int maxClientCacheSize)
 specifier|public
 name|void
@@ -2184,7 +2208,6 @@ operator|=
 name|maxClientCacheSize
 expr_stmt|;
 block|}
-comment|/**      * @return the maxClientCacheSize      */
 DECL|method|getMaxClientCacheSize ()
 specifier|public
 name|int
@@ -2195,6 +2218,7 @@ return|return
 name|maxClientCacheSize
 return|;
 block|}
+comment|/**      * To use a custom configured CXF Bus.      */
 DECL|method|setBus (Bus bus)
 specifier|public
 name|void
@@ -2212,7 +2236,7 @@ name|bus
 expr_stmt|;
 if|if
 condition|(
-name|isSetDefaultBus
+name|defaultBus
 condition|)
 block|{
 name|BusFactory
@@ -2243,10 +2267,11 @@ return|return
 name|bus
 return|;
 block|}
-DECL|method|setSetDefaultBus (boolean isSetDefaultBus)
+comment|/**      * Will set the default bus when CXF endpoint create a bus by itself      */
+DECL|method|setDefaultBus (boolean isSetDefaultBus)
 specifier|public
 name|void
-name|setSetDefaultBus
+name|setDefaultBus
 parameter_list|(
 name|boolean
 name|isSetDefaultBus
@@ -2254,19 +2279,19 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|isSetDefaultBus
+name|defaultBus
 operator|=
 name|isSetDefaultBus
 expr_stmt|;
 block|}
-DECL|method|isSetDefaultBus ()
+DECL|method|isDefaultBus ()
 specifier|public
 name|boolean
-name|isSetDefaultBus
+name|isDefaultBus
 parameter_list|()
 block|{
 return|return
-name|isSetDefaultBus
+name|defaultBus
 return|;
 block|}
 DECL|method|isIgnoreDeleteMethodMessageBody ()
@@ -2279,6 +2304,7 @@ return|return
 name|ignoreDeleteMethodMessageBody
 return|;
 block|}
+comment|/**      * This option is used to tell CxfRsProducer to ignore the message body of the DELETE method when using HTTP API.      */
 DECL|method|setIgnoreDeleteMethodMessageBody (boolean ignoreDeleteMethodMessageBody)
 specifier|public
 name|void
@@ -2315,9 +2341,10 @@ name|getProviders
 parameter_list|()
 block|{
 return|return
-name|entityProviders
+name|providers
 return|;
 block|}
+comment|/**      * Set custom JAX-RS provider(s) list to the CxfRs endpoint.      */
 DECL|method|setProviders (List<?> providers)
 specifier|public
 name|void
@@ -2332,7 +2359,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|entityProviders
+name|providers
 operator|.
 name|addAll
 argument_list|(
@@ -2340,6 +2367,7 @@ name|providers
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set custom JAX-RS provider to the CxfRs endpoint.      */
 DECL|method|setProvider (Object provider)
 specifier|public
 name|void
@@ -2349,7 +2377,7 @@ name|Object
 name|provider
 parameter_list|)
 block|{
-name|entityProviders
+name|providers
 operator|.
 name|add
 argument_list|(
@@ -2357,6 +2385,7 @@ name|provider
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the locations of the schema(s) which can be used to validate the incoming XML or JAXB-driven JSON.      */
 DECL|method|setSchemaLocation (String schema)
 specifier|public
 name|void
@@ -2377,6 +2406,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the locations of the schema(s) which can be used to validate the incoming XML or JAXB-driven JSON.      */
 DECL|method|setSchemaLocations (List<String> schemas)
 specifier|public
 name|void
@@ -2493,6 +2523,7 @@ name|getOutInterceptors
 argument_list|()
 return|;
 block|}
+comment|/**      * Set the inInterceptors to the CxfRs endpoint.      */
 DECL|method|setInInterceptors (List<Interceptor<? extends Message>> interceptors)
 specifier|public
 name|void
@@ -2518,6 +2549,7 @@ name|interceptors
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the inFaultInterceptors to the CxfRs endpoint.      */
 DECL|method|setInFaultInterceptors (List<Interceptor<? extends Message>> interceptors)
 specifier|public
 name|void
@@ -2543,6 +2575,7 @@ name|interceptors
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the outInterceptor to the CxfRs endpoint.      */
 DECL|method|setOutInterceptors (List<Interceptor<? extends Message>> interceptors)
 specifier|public
 name|void
@@ -2568,6 +2601,7 @@ name|interceptors
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Set the outFaultInterceptors to the CxfRs endpoint.      */
 DECL|method|setOutFaultInterceptors (List<Interceptor<? extends Message>> interceptors)
 specifier|public
 name|void
@@ -2606,6 +2640,7 @@ return|return
 name|features
 return|;
 block|}
+comment|/**      * Set the feature list to the CxfRs endpoint.      */
 DECL|method|setFeatures (List<Feature> features)
 specifier|public
 name|void
@@ -2683,7 +2718,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * See documentation of {@link BindingStyle}.      */
+comment|/**      *  Sets how requests and responses will be mapped to/from Camel. Two values are possible:      *<ul>      *<li>SimpleConsumer: This binding style processes request parameters, multiparts, etc. and maps them to IN headers, IN attachments and to the message body.      *                          It aims to eliminate low-level processing of {@link org.apache.cxf.message.MessageContentsList}.      *                          It also also adds more flexibility and simplicity to the response mapping.      *                          Only available for consumers.      *</li>      *<li>Default: The default style. For consumers this passes on a MessageContentsList to the route, requiring low-level processing in the route.      *                   This is the traditional binding style, which simply dumps the {@link org.apache.cxf.message.MessageContentsList} coming in from the CXF stack      *                   onto the IN message body. The user is then responsible for processing it according to the contract defined by the JAX-RS method signature.      *</li>      *<li>Custom: allows you to specify a custom binding through the binding option.</li>      *</ul>      */
 DECL|method|setBindingStyle (BindingStyle bindingStyle)
 specifier|public
 name|void
@@ -2869,6 +2904,7 @@ return|return
 name|continuationTimeout
 return|;
 block|}
+comment|/**      * This option is used to set the CXF continuation timeout which could be used in CxfConsumer by default when the CXF server is using Jetty or Servlet transport.      */
 DECL|method|setContinuationTimeout (long continuationTimeout)
 specifier|public
 name|void
@@ -2885,14 +2921,6 @@ operator|=
 name|continuationTimeout
 expr_stmt|;
 block|}
-DECL|class|InterceptorHolder
-specifier|private
-specifier|static
-class|class
-name|InterceptorHolder
-extends|extends
-name|AbstractBasicInterceptorProvider
-block|{     }
 DECL|method|isPerformInvocation ()
 specifier|public
 name|boolean
@@ -2903,6 +2931,7 @@ return|return
 name|performInvocation
 return|;
 block|}
+comment|/**      * When the option is true, Camel will perform the invocation of the resource class instance and put the response object into the exchange for further processing.      */
 DECL|method|setPerformInvocation (boolean performInvocation)
 specifier|public
 name|void
@@ -2929,6 +2958,7 @@ return|return
 name|propagateContexts
 return|;
 block|}
+comment|/**      * When the option is true, JAXRS UriInfo, HttpHeaders, Request and SecurityContext contexts will be available to      * custom CXFRS processors as typed Camel exchange properties.      * These contexts can be used to analyze the current requests using JAX-RS API.      */
 DECL|method|setPropagateContexts (boolean propagateContexts)
 specifier|public
 name|void
@@ -2945,6 +2975,14 @@ operator|=
 name|propagateContexts
 expr_stmt|;
 block|}
+DECL|class|InterceptorHolder
+specifier|private
+specifier|static
+class|class
+name|InterceptorHolder
+extends|extends
+name|AbstractBasicInterceptorProvider
+block|{     }
 block|}
 end_class
 
