@@ -305,6 +305,12 @@ specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
+comment|/**      * Whether to validate if the components, data formats, and languages are properly documented and have all the needed details.      *      * @parameter default-value="true"      */
+DECL|field|validate
+specifier|protected
+name|Boolean
+name|validate
+decl_stmt|;
 comment|/**      * The output directory for components catalog      *      * @parameter default-value="${project.build.directory}/classes/org/apache/camel/catalog/components"      */
 DECL|field|componentsOutDir
 specifier|protected
