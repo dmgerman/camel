@@ -468,7 +468,7 @@ name|RunInstancesResult
 operator|)
 name|exchange
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getBody
@@ -678,7 +678,7 @@ name|RunInstancesResult
 operator|)
 name|exchange
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getBody
@@ -908,7 +908,7 @@ name|StartInstancesResult
 operator|)
 name|exchange
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getBody
@@ -1058,7 +1058,7 @@ name|StopInstancesResult
 operator|)
 name|exchange
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getBody
@@ -1208,7 +1208,7 @@ name|TerminateInstancesResult
 operator|)
 name|exchange
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getBody
@@ -1360,7 +1360,7 @@ name|DescribeInstancesResult
 operator|)
 name|exchange
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getBody
@@ -1479,7 +1479,7 @@ name|DescribeInstanceStatusResult
 operator|)
 name|exchange
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getBody
@@ -1668,7 +1668,7 @@ name|MonitorInstancesResult
 operator|)
 name|exchange
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getBody
@@ -1807,7 +1807,7 @@ name|UnmonitorInstancesResult
 operator|)
 name|exchange
 operator|.
-name|getIn
+name|getOut
 argument_list|()
 operator|.
 name|getBody
