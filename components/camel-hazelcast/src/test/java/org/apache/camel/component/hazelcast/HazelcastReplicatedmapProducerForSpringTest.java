@@ -442,6 +442,32 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+DECL|method|testClear ()
+specifier|public
+name|void
+name|testClear
+parameter_list|()
+block|{
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:clear"
+argument_list|,
+literal|"test"
+argument_list|)
+expr_stmt|;
+name|verify
+argument_list|(
+name|map
+argument_list|)
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Test
 DECL|method|testContainsKey ()
 specifier|public
 name|void
