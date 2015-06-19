@@ -164,7 +164,7 @@ decl_stmt|;
 annotation|@
 name|Ignore
 argument_list|(
-literal|"test manual"
+literal|"test manual, irc.codehaus.org has been closed"
 argument_list|)
 annotation|@
 name|Test
