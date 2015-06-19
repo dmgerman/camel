@@ -187,7 +187,7 @@ argument_list|)
 decl_stmt|;
 name|ejb
 operator|.
-name|setProperties
+name|setJndiProperties
 argument_list|(
 name|properties
 argument_list|)
