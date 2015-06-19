@@ -312,6 +312,15 @@ name|Message
 name|message
 parameter_list|)
 function_decl|;
+comment|/**      * Copies the attachments of the other message into this message      *      * @param message the other message      */
+DECL|method|copyAttachments (Message message)
+name|void
+name|copyAttachments
+parameter_list|(
+name|Message
+name|message
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the attachment specified by the id      *      * @param id the id under which the attachment is stored      * @return the data handler for this attachment or<tt>null</tt>      */
 DECL|method|getAttachment (String id)
 name|DataHandler

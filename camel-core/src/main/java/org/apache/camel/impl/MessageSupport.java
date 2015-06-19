@@ -637,6 +637,47 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|copyAttachments
+argument_list|(
+name|that
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getExchange ()
+specifier|public
+name|Exchange
+name|getExchange
+parameter_list|()
+block|{
+return|return
+name|exchange
+return|;
+block|}
+DECL|method|setExchange (Exchange exchange)
+specifier|public
+name|void
+name|setExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exchange
+operator|=
+name|exchange
+expr_stmt|;
+block|}
+DECL|method|copyAttachments (Message that)
+specifier|public
+name|void
+name|copyAttachments
+parameter_list|(
+name|Message
+name|that
+parameter_list|)
+block|{
 comment|// the attachments may be the same instance if the end user has made some mistake
 comment|// and set the OUT message with the same attachment instance of the IN message etc
 name|boolean
@@ -709,32 +750,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-DECL|method|getExchange ()
-specifier|public
-name|Exchange
-name|getExchange
-parameter_list|()
-block|{
-return|return
-name|exchange
-return|;
-block|}
-DECL|method|setExchange (Exchange exchange)
-specifier|public
-name|void
-name|setExchange
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-block|{
-name|this
-operator|.
-name|exchange
-operator|=
-name|exchange
-expr_stmt|;
 block|}
 comment|/**      * Returns a new instance      */
 DECL|method|newInstance ()
