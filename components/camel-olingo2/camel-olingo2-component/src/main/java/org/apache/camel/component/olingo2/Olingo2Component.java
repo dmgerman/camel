@@ -545,6 +545,26 @@ name|endpointConfiguration
 argument_list|)
 return|;
 block|}
+comment|/**      * To use the shared configuration      */
+annotation|@
+name|Override
+DECL|method|setConfiguration (Olingo2Configuration configuration)
+specifier|public
+name|void
+name|setConfiguration
+parameter_list|(
+name|Olingo2Configuration
+name|configuration
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setConfiguration
+argument_list|(
+name|configuration
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createApiProxy (Olingo2Configuration endpointConfiguration)
 specifier|public
 name|Olingo2AppWrapper

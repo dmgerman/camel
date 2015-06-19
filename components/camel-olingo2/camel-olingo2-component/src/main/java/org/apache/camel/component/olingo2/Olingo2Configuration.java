@@ -252,6 +252,11 @@ name|serviceUri
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"application/json;charset=utf-8"
+argument_list|)
 DECL|field|contentType
 specifier|private
 name|String
@@ -271,9 +276,15 @@ name|String
 argument_list|>
 name|httpHeaders
 decl_stmt|;
-comment|// common connection parameters for convenience
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|""
+operator|+
+name|DEFAULT_TIMEOUT
+argument_list|)
 DECL|field|connectTimeout
 specifier|private
 name|int
@@ -283,6 +294,13 @@ name|DEFAULT_TIMEOUT
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|""
+operator|+
+name|DEFAULT_TIMEOUT
+argument_list|)
 DECL|field|socketTimeout
 specifier|private
 name|int
@@ -304,7 +322,6 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
-comment|// for more complex configuration, use a client builder
 annotation|@
 name|UriParam
 DECL|field|httpAsyncClientBuilder
@@ -376,6 +393,7 @@ return|return
 name|serviceUri
 return|;
 block|}
+comment|/**      * Target OData service base URI, e.g. http://services.odata.org/OData/OData.svc      */
 DECL|method|setServiceUri (String serviceUri)
 specifier|public
 name|void
@@ -402,6 +420,7 @@ return|return
 name|contentType
 return|;
 block|}
+comment|/**      * Content-Type header value can be used to specify JSON or XML message format, defaults to application/json;charset=utf-8      */
 DECL|method|setContentType (String contentType)
 specifier|public
 name|void
@@ -433,6 +452,7 @@ return|return
 name|httpHeaders
 return|;
 block|}
+comment|/**      * Custom HTTP headers to inject into every request, this could include OAuth tokens, etc.      */
 DECL|method|setHttpHeaders (Map<String, String> httpHeaders)
 specifier|public
 name|void
@@ -464,6 +484,7 @@ return|return
 name|connectTimeout
 return|;
 block|}
+comment|/**      * HTTP connection creation timeout in milliseconds, defaults to 30,000 (30 seconds)      */
 DECL|method|setConnectTimeout (int connectTimeout)
 specifier|public
 name|void
@@ -490,6 +511,7 @@ return|return
 name|socketTimeout
 return|;
 block|}
+comment|/**      * HTTP request timeout in milliseconds, defaults to 30,000 (30 seconds)      */
 DECL|method|setSocketTimeout (int socketTimeout)
 specifier|public
 name|void
@@ -516,6 +538,7 @@ return|return
 name|proxy
 return|;
 block|}
+comment|/**      * HTTP proxy server configuration      */
 DECL|method|setProxy (HttpHost proxy)
 specifier|public
 name|void
@@ -542,6 +565,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
+comment|/**      * To configure security using SSLContextParameters      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
@@ -568,6 +592,7 @@ return|return
 name|httpAsyncClientBuilder
 return|;
 block|}
+comment|/**      * Custom HTTP async client builder for more complex HTTP client configuration, overrides connectionTimeout, socketTimeout, proxy and sslContext.      * Note that a socketTimeout MUST be specified in the builder, otherwise OData requests could block indefinitely      */
 DECL|method|setHttpAsyncClientBuilder (HttpAsyncClientBuilder httpAsyncClientBuilder)
 specifier|public
 name|void

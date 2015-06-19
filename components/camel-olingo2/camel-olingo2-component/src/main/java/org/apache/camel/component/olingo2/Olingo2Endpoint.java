@@ -278,9 +278,9 @@ name|Olingo2Consumer
 operator|.
 name|class
 argument_list|,
-name|consumerPrefix
+name|label
 operator|=
-literal|"consumer"
+literal|"cloud"
 argument_list|)
 DECL|class|Olingo2Endpoint
 specifier|public
