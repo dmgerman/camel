@@ -206,7 +206,7 @@ specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * Whether to validate if the components, data formats, and languages are properly documented and have all the needed details.      *      * @parameter default-value="false"      */
+comment|/**      * Whether to validate if the components, data formats, and languages are properly documented and have all the needed details.      *      * @parameter default-value="true"      */
 DECL|field|validate
 specifier|protected
 name|Boolean
