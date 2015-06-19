@@ -234,6 +234,13 @@ name|group
 operator|+
 literal|"\":"
 argument_list|)
+operator|&&
+name|s
+operator|.
+name|endsWith
+argument_list|(
+literal|"{"
+argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
