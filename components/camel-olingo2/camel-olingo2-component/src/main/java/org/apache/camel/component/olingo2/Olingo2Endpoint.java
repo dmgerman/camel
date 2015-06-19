@@ -198,6 +198,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|component
@@ -361,6 +375,13 @@ name|String
 argument_list|>
 name|endpointPropertyNames
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|configuration
+specifier|private
+name|Olingo2Configuration
+name|configuration
+decl_stmt|;
 DECL|field|apiProxy
 specifier|private
 name|Olingo2AppWrapper
@@ -408,6 +429,12 @@ argument_list|)
 argument_list|,
 name|endpointConfiguration
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|endpointConfiguration
 expr_stmt|;
 comment|// get all endpoint property names
 name|endpointPropertyNames
