@@ -157,10 +157,10 @@ specifier|private
 name|Context
 name|context
 decl_stmt|;
-DECL|field|jndiProperties
+DECL|field|properties
 specifier|private
 name|Properties
-name|jndiProperties
+name|properties
 decl_stmt|;
 DECL|method|EjbComponent ()
 specifier|public
@@ -286,31 +286,31 @@ operator|=
 name|context
 expr_stmt|;
 block|}
-DECL|method|getJndiProperties ()
+DECL|method|getProperties ()
 specifier|public
 name|Properties
-name|getJndiProperties
+name|getProperties
 parameter_list|()
 block|{
 return|return
-name|jndiProperties
+name|properties
 return|;
 block|}
 comment|/**      * Properties for creating javax.naming.Context if a context has not been configured.      */
-DECL|method|setJndiProperties (Properties jndiProperties)
+DECL|method|setProperties (Properties properties)
 specifier|public
 name|void
-name|setJndiProperties
+name|setProperties
 parameter_list|(
 name|Properties
-name|jndiProperties
+name|properties
 parameter_list|)
 block|{
 name|this
 operator|.
-name|jndiProperties
+name|properties
 operator|=
-name|jndiProperties
+name|properties
 expr_stmt|;
 block|}
 annotation|@
@@ -334,7 +334,7 @@ name|context
 operator|==
 literal|null
 operator|&&
-name|jndiProperties
+name|properties
 operator|!=
 literal|null
 condition|)
@@ -344,7 +344,7 @@ operator|=
 operator|new
 name|InitialContext
 argument_list|(
-name|getJndiProperties
+name|getProperties
 argument_list|()
 argument_list|)
 expr_stmt|;
