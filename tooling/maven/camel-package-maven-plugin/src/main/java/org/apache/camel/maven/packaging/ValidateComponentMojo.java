@@ -241,6 +241,23 @@ name|MojoExecutionException
 throws|,
 name|MojoFailureException
 block|{
+if|if
+condition|(
+operator|!
+name|validate
+condition|)
+block|{
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Validation disabled"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 specifier|final
 name|Set
 argument_list|<
@@ -250,7 +267,9 @@ name|jsonFiles
 init|=
 operator|new
 name|TreeSet
-argument_list|<>
+argument_list|<
+name|File
+argument_list|>
 argument_list|()
 decl_stmt|;
 name|PackageHelper
@@ -273,19 +292,6 @@ name|failed
 init|=
 literal|false
 decl_stmt|;
-if|if
-condition|(
-name|validate
-condition|)
-block|{
-name|getLog
-argument_list|()
-operator|.
-name|info
-argument_list|(
-literal|"Validating ..."
-argument_list|)
-expr_stmt|;
 for|for
 control|(
 name|File
@@ -311,6 +317,16 @@ operator|new
 name|ErrorDetail
 argument_list|()
 decl_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Validating file "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
 name|validate
 argument_list|(
 name|file
@@ -346,7 +362,7 @@ literal|": "
 operator|+
 name|name
 operator|+
-literal|" has errors!"
+literal|" has validation errors"
 argument_list|)
 expr_stmt|;
 if|if
@@ -362,7 +378,7 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-literal|"Missing description on "
+literal|"Missing description on: "
 operator|+
 name|detail
 operator|.
@@ -384,7 +400,7 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-literal|"Missing label on "
+literal|"Missing label on: "
 operator|+
 name|detail
 operator|.
@@ -491,7 +507,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-block|}
 if|if
 condition|(
 name|failed
@@ -501,9 +516,21 @@ throw|throw
 operator|new
 name|MojoFailureException
 argument_list|(
-literal|"There are validation errors, see above!"
+literal|"Validating failed, see errors above!"
 argument_list|)
 throw|;
+block|}
+else|else
+block|{
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Validation complete"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}

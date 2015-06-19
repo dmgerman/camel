@@ -413,6 +413,7 @@ name|executeXmlSchemas
 argument_list|()
 expr_stmt|;
 block|}
+comment|// TODO: Remove some of the missing check as we should have that out of the box with the validate goal
 DECL|method|executeModel ()
 specifier|protected
 name|void

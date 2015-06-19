@@ -116,14 +116,6 @@ name|ErrorDetail
 name|errorDetail
 parameter_list|)
 block|{
-name|String
-name|name
-init|=
-name|asName
-argument_list|(
-name|file
-argument_list|)
-decl_stmt|;
 try|try
 block|{
 name|String
@@ -390,7 +382,7 @@ condition|)
 block|{
 name|errorDetail
 operator|.
-name|setMissingDescription
+name|setMissingSyntax
 argument_list|(
 literal|true
 argument_list|)
