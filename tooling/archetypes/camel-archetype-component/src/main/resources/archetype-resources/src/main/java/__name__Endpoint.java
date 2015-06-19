@@ -300,6 +300,7 @@ argument_list|,
 name|title
 operator|=
 literal|"${name}"
+argument_list|,
 name|syntax
 operator|=
 literal|"${scheme}:name"
@@ -466,6 +467,10 @@ return|;
 block|}
 end_function
 
+begin_comment
+comment|/**      * Some description of this option, and what it does      */
+end_comment
+
 begin_function
 specifier|public
 name|void
@@ -495,6 +500,10 @@ name|name
 return|;
 block|}
 end_function
+
+begin_comment
+comment|/**      * Some description of this option, and what it does      */
+end_comment
 
 begin_function
 specifier|public
