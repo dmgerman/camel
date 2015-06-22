@@ -38,6 +38,10 @@ name|List
 import|;
 end_import
 
+begin_comment
+comment|/**  * Holder to keep information about detected errors.  */
+end_comment
+
 begin_class
 DECL|class|ErrorDetail
 specifier|public
@@ -72,6 +76,7 @@ name|missingUriPath
 decl_stmt|;
 DECL|field|missingComponentDocumentation
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|String
@@ -85,6 +90,7 @@ argument_list|()
 decl_stmt|;
 DECL|field|missingEndpointDocumentation
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|String
@@ -107,7 +113,7 @@ name|missingLabel
 operator|||
 name|missingDescription
 operator|||
-name|missingDescription
+name|missingSyntax
 operator|||
 name|missingUriPath
 operator|||
