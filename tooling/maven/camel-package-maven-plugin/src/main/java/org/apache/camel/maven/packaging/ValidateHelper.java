@@ -374,10 +374,13 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+comment|// syntax check is only for the components
 if|if
 condition|(
 operator|!
 name|syntax
+operator|&&
+name|isComponent
 condition|)
 block|{
 name|errorDetail
