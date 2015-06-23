@@ -280,6 +280,31 @@ name|class
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// and a guard property if using the flexible toolbox aggregator
+name|DefaultExchangeHolder
+operator|.
+name|addProperty
+argument_list|(
+name|pe
+argument_list|,
+name|Exchange
+operator|.
+name|AGGREGATED_COLLECTION_GUARD
+argument_list|,
+name|exchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|AGGREGATED_COLLECTION_GUARD
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// persist the from endpoint as well
 if|if
 condition|(

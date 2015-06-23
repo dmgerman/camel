@@ -223,15 +223,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|COLLECTION_AGGR_GUARD_PROPERTY
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|COLLECTION_AGGR_GUARD_PROPERTY
-init|=
-literal|"CamelFlexAggrStrCollectionGuard"
-decl_stmt|;
 DECL|field|pickExpression
 specifier|private
 name|Expression
@@ -973,7 +964,9 @@ name|oldExchange
 operator|.
 name|getProperty
 argument_list|(
-name|COLLECTION_AGGR_GUARD_PROPERTY
+name|Exchange
+operator|.
+name|AGGREGATED_COLLECTION_GUARD
 argument_list|,
 name|Boolean
 operator|.
@@ -1023,7 +1016,9 @@ name|oldExchange
 operator|.
 name|setProperty
 argument_list|(
-name|COLLECTION_AGGR_GUARD_PROPERTY
+name|Exchange
+operator|.
+name|AGGREGATED_COLLECTION_GUARD
 argument_list|,
 name|Boolean
 operator|.

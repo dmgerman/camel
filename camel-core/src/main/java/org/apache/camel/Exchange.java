@@ -114,6 +114,12 @@ name|AGGREGATED_CORRELATION_KEY
 init|=
 literal|"CamelAggregatedCorrelationKey"
 decl_stmt|;
+DECL|field|AGGREGATED_COLLECTION_GUARD
+name|String
+name|AGGREGATED_COLLECTION_GUARD
+init|=
+literal|"CamelAggregatedCollectionGuard"
+decl_stmt|;
 DECL|field|AGGREGATION_STRATEGY
 name|String
 name|AGGREGATION_STRATEGY
