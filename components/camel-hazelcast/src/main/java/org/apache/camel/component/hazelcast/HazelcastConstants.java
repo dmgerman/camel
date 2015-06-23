@@ -171,6 +171,15 @@ name|EXPECTED_VALUE
 init|=
 literal|"CamelHazelcastExpectedValue"
 decl_stmt|;
+DECL|field|DRAIN_TO_COLLECTION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DRAIN_TO_COLLECTION
+init|=
+literal|"CamelHazelcastDrainToCollection"
+decl_stmt|;
 comment|/*      * outgoing header properties      */
 DECL|field|LISTENER_ACTION
 specifier|public
@@ -500,6 +509,15 @@ name|REMAINING_CAPACITY_OPERATION
 init|=
 literal|35
 decl_stmt|;
+DECL|field|DRAIN_TO_OPERATION
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|DRAIN_TO_OPERATION
+init|=
+literal|36
+decl_stmt|;
 comment|// topic
 DECL|field|PUBLISH_OPERATION
 specifier|public
@@ -508,7 +526,7 @@ specifier|final
 name|int
 name|PUBLISH_OPERATION
 init|=
-literal|36
+literal|37
 decl_stmt|;
 comment|/*      * header values      */
 comment|// listener actions
