@@ -699,6 +699,15 @@ operator|.
 name|REMAINING_CAPACITY_OPERATION
 argument_list|)
 expr_stmt|;
+name|addMapping
+argument_list|(
+literal|"drainTo"
+argument_list|,
+name|HazelcastConstants
+operator|.
+name|DRAIN_TO_OPERATION
+argument_list|)
+expr_stmt|;
 comment|// topic
 name|addMapping
 argument_list|(
