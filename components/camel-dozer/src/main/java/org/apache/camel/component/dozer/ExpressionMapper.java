@@ -86,7 +86,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|ResourceHelper
+name|IOHelper
 import|;
 end_import
 
@@ -100,7 +100,7 @@ name|camel
 operator|.
 name|util
 operator|.
-name|IOHelper
+name|ResourceHelper
 import|;
 end_import
 
@@ -177,6 +177,9 @@ literal|"Current exchange has not been set for ExpressionMapper"
 argument_list|)
 throw|;
 block|}
+name|Expression
+name|exp
+decl_stmt|;
 comment|// Resolve the language being used for this expression and evaluate
 name|Exchange
 name|exchange
@@ -205,11 +208,6 @@ name|scheme
 init|=
 name|getSchemePart
 argument_list|()
-decl_stmt|;
-name|Expression
-name|exp
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
