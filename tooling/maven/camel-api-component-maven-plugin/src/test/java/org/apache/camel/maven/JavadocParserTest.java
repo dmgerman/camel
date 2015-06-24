@@ -194,16 +194,18 @@ name|getErrorMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertEquals
 argument_list|(
 literal|"Java6 getMethods"
+argument_list|,
+literal|65
 argument_list|,
 name|htmlParser
 operator|.
 name|getMethods
 argument_list|()
 operator|.
-name|isEmpty
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -242,16 +244,18 @@ name|getErrorMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertEquals
 argument_list|(
 literal|"Java7 getMethods"
+argument_list|,
+literal|65
 argument_list|,
 name|htmlParser
 operator|.
 name|getMethods
 argument_list|()
 operator|.
-name|isEmpty
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -290,16 +294,18 @@ name|getErrorMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertEquals
 argument_list|(
 literal|"Java8 getMethods"
+argument_list|,
+literal|67
 argument_list|,
 name|htmlParser
 operator|.
 name|getMethods
 argument_list|()
 operator|.
-name|isEmpty
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;

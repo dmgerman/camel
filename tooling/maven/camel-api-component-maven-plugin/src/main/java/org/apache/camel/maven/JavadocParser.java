@@ -888,6 +888,12 @@ name|ParserState
 operator|.
 name|METHOD_SUMMARY
 operator|&&
+operator|!
+name|methods
+operator|.
+name|isEmpty
+argument_list|()
+operator|&&
 name|HTML
 operator|.
 name|Tag
