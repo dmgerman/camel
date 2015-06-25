@@ -1172,7 +1172,7 @@ name|addPropertyIfNotNull
 argument_list|(
 name|props
 argument_list|,
-literal|"zookeeper.session.timeout.msÂ "
+literal|"zookeeper.session.timeout.ms"
 argument_list|,
 name|getZookeeperSessionTimeoutMs
 argument_list|()
@@ -1192,7 +1192,7 @@ name|addPropertyIfNotNull
 argument_list|(
 name|props
 argument_list|,
-literal|"zookeeper.sync.time.msÂ "
+literal|"zookeeper.sync.time.ms"
 argument_list|,
 name|getZookeeperSyncTimeMs
 argument_list|()
