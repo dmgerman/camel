@@ -269,6 +269,24 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+comment|// configure endpoint properties
+name|endpoint
+operator|.
+name|configureProperties
+argument_list|(
+name|parameters
+argument_list|)
+expr_stmt|;
+comment|// validate parameters
+name|validateParameters
+argument_list|(
+name|uri
+argument_list|,
+name|parameters
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
 return|return
 name|endpoint
 return|;
