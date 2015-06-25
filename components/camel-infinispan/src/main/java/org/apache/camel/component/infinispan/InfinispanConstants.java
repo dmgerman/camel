@@ -156,6 +156,12 @@ name|CLEAR
 init|=
 literal|"CamelInfinispanOperationClear"
 decl_stmt|;
+DECL|field|CLEAR_ASYNC
+name|String
+name|CLEAR_ASYNC
+init|=
+literal|"CamelInfinispanOperationClearAsync"
+decl_stmt|;
 DECL|field|SIZE
 name|String
 name|SIZE
