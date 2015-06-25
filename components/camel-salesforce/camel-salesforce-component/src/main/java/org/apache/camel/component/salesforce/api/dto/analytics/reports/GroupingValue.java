@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.salesforce.api.dto
+DECL|package|org.apache.camel.component.salesforce.api.dto.analytics.reports
 package|package
 name|org
 operator|.
@@ -19,18 +19,42 @@ operator|.
 name|api
 operator|.
 name|dto
+operator|.
+name|analytics
+operator|.
+name|reports
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|salesforce
+operator|.
+name|api
+operator|.
+name|dto
+operator|.
+name|AbstractDTOBase
+import|;
+end_import
+
 begin_comment
-comment|/**  * Salesforce DTO for picklist value.  */
+comment|/**  * Report results grouping value.  */
 end_comment
 
 begin_class
-DECL|class|PickListValue
+DECL|class|GroupingValue
 specifier|public
 class|class
-name|PickListValue
+name|GroupingValue
 extends|extends
 name|AbstractDTOBase
 block|{
@@ -39,26 +63,28 @@ specifier|private
 name|String
 name|value
 decl_stmt|;
+DECL|field|key
+specifier|private
+name|String
+name|key
+decl_stmt|;
 DECL|field|label
 specifier|private
 name|String
 name|label
 decl_stmt|;
-DECL|field|active
+DECL|field|groupings
 specifier|private
-name|Boolean
-name|active
-decl_stmt|;
-DECL|field|defaultValue
-specifier|private
-name|Boolean
-name|defaultValue
-decl_stmt|;
-DECL|field|validFor
-specifier|private
-name|byte
+name|GroupingValue
 index|[]
-name|validFor
+name|groupings
+decl_stmt|;
+comment|// TODO the description is vague about this!!!
+DECL|field|dategroupings
+specifier|private
+name|GroupingValue
+index|[]
+name|dategroupings
 decl_stmt|;
 DECL|method|getValue ()
 specifier|public
@@ -84,6 +110,32 @@ operator|.
 name|value
 operator|=
 name|value
+expr_stmt|;
+block|}
+DECL|method|getKey ()
+specifier|public
+name|String
+name|getKey
+parameter_list|()
+block|{
+return|return
+name|key
+return|;
+block|}
+DECL|method|setKey (String key)
+specifier|public
+name|void
+name|setKey
+parameter_list|(
+name|String
+name|key
+parameter_list|)
+block|{
+name|this
+operator|.
+name|key
+operator|=
+name|key
 expr_stmt|;
 block|}
 DECL|method|getLabel ()
@@ -112,84 +164,60 @@ operator|=
 name|label
 expr_stmt|;
 block|}
-DECL|method|getActive ()
+DECL|method|getGroupings ()
 specifier|public
-name|Boolean
-name|getActive
+name|GroupingValue
+index|[]
+name|getGroupings
 parameter_list|()
 block|{
 return|return
-name|active
+name|groupings
 return|;
 block|}
-DECL|method|setActive (Boolean active)
+DECL|method|setGroupings (GroupingValue[] groupings)
 specifier|public
 name|void
-name|setActive
+name|setGroupings
 parameter_list|(
-name|Boolean
-name|active
+name|GroupingValue
+index|[]
+name|groupings
 parameter_list|)
 block|{
 name|this
 operator|.
-name|active
+name|groupings
 operator|=
-name|active
+name|groupings
 expr_stmt|;
 block|}
-DECL|method|getDefaultValue ()
+DECL|method|getDategroupings ()
 specifier|public
-name|Boolean
-name|getDefaultValue
+name|GroupingValue
+index|[]
+name|getDategroupings
 parameter_list|()
 block|{
 return|return
-name|defaultValue
+name|dategroupings
 return|;
 block|}
-DECL|method|setDefaultValue (Boolean defaultValue)
+DECL|method|setDategroupings (GroupingValue[] dategroupings)
 specifier|public
 name|void
-name|setDefaultValue
+name|setDategroupings
 parameter_list|(
-name|Boolean
-name|defaultValue
+name|GroupingValue
+index|[]
+name|dategroupings
 parameter_list|)
 block|{
 name|this
 operator|.
-name|defaultValue
+name|dategroupings
 operator|=
-name|defaultValue
-expr_stmt|;
-block|}
-DECL|method|getValidFor ()
-specifier|public
-name|byte
-index|[]
-name|getValidFor
-parameter_list|()
-block|{
-return|return
-name|validFor
-return|;
-block|}
-DECL|method|setValidFor (byte[] validFor)
-specifier|public
-name|void
-name|setValidFor
-parameter_list|(
-name|byte
-index|[]
-name|validFor
-parameter_list|)
-block|{
-name|this
-operator|.
-name|validFor
-operator|=
-name|validFor
+name|dategroupings
 expr_stmt|;
 block|}
 block|}

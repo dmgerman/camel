@@ -158,6 +158,11 @@ specifier|private
 name|String
 name|tabs
 decl_stmt|;
+DECL|field|wave
+specifier|private
+name|String
+name|wave
+decl_stmt|;
 DECL|method|getSobjects ()
 specifier|public
 name|String
@@ -702,6 +707,32 @@ operator|.
 name|tabs
 operator|=
 name|tabs
+expr_stmt|;
+block|}
+DECL|method|getWave ()
+specifier|public
+name|String
+name|getWave
+parameter_list|()
+block|{
+return|return
+name|wave
+return|;
+block|}
+DECL|method|setWave (String wave)
+specifier|public
+name|void
+name|setWave
+parameter_list|(
+name|String
+name|wave
+parameter_list|)
+block|{
+name|this
+operator|.
+name|wave
+operator|=
+name|wave
 expr_stmt|;
 block|}
 block|}

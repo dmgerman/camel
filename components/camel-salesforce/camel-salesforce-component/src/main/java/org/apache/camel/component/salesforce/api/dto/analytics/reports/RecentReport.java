@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.salesforce.api.dto
+DECL|package|org.apache.camel.component.salesforce.api.dto.analytics.reports
 package|package
 name|org
 operator|.
@@ -19,177 +19,198 @@ operator|.
 name|api
 operator|.
 name|dto
+operator|.
+name|analytics
+operator|.
+name|reports
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|salesforce
+operator|.
+name|api
+operator|.
+name|dto
+operator|.
+name|AbstractDTOBase
+import|;
+end_import
+
 begin_comment
-comment|/**  * Salesforce DTO for picklist value.  */
+comment|/**  * Report list info DTO.  */
 end_comment
 
 begin_class
-DECL|class|PickListValue
+DECL|class|RecentReport
 specifier|public
 class|class
-name|PickListValue
+name|RecentReport
 extends|extends
 name|AbstractDTOBase
 block|{
-DECL|field|value
+DECL|field|name
 specifier|private
 name|String
-name|value
+name|name
 decl_stmt|;
-DECL|field|label
+DECL|field|id
 specifier|private
 name|String
-name|label
+name|id
 decl_stmt|;
-DECL|field|active
+DECL|field|url
 specifier|private
-name|Boolean
-name|active
+name|String
+name|url
 decl_stmt|;
-DECL|field|defaultValue
+DECL|field|describeUrl
 specifier|private
-name|Boolean
-name|defaultValue
+name|String
+name|describeUrl
 decl_stmt|;
-DECL|field|validFor
+DECL|field|instancesUrl
 specifier|private
-name|byte
-index|[]
-name|validFor
+name|String
+name|instancesUrl
 decl_stmt|;
-DECL|method|getValue ()
+DECL|method|getName ()
 specifier|public
 name|String
-name|getValue
+name|getName
 parameter_list|()
 block|{
 return|return
-name|value
+name|name
 return|;
 block|}
-DECL|method|setValue (String value)
+DECL|method|setName (String name)
 specifier|public
 name|void
-name|setValue
+name|setName
 parameter_list|(
 name|String
-name|value
+name|name
 parameter_list|)
 block|{
 name|this
 operator|.
-name|value
+name|name
 operator|=
-name|value
+name|name
 expr_stmt|;
 block|}
-DECL|method|getLabel ()
+DECL|method|getId ()
 specifier|public
 name|String
-name|getLabel
+name|getId
 parameter_list|()
 block|{
 return|return
-name|label
+name|id
 return|;
 block|}
-DECL|method|setLabel (String label)
+DECL|method|setId (String id)
 specifier|public
 name|void
-name|setLabel
+name|setId
 parameter_list|(
 name|String
-name|label
+name|id
 parameter_list|)
 block|{
 name|this
 operator|.
-name|label
+name|id
 operator|=
-name|label
+name|id
 expr_stmt|;
 block|}
-DECL|method|getActive ()
+DECL|method|getUrl ()
 specifier|public
-name|Boolean
-name|getActive
+name|String
+name|getUrl
 parameter_list|()
 block|{
 return|return
-name|active
+name|url
 return|;
 block|}
-DECL|method|setActive (Boolean active)
+DECL|method|setUrl (String url)
 specifier|public
 name|void
-name|setActive
+name|setUrl
 parameter_list|(
-name|Boolean
-name|active
+name|String
+name|url
 parameter_list|)
 block|{
 name|this
 operator|.
-name|active
+name|url
 operator|=
-name|active
+name|url
 expr_stmt|;
 block|}
-DECL|method|getDefaultValue ()
+DECL|method|getDescribeUrl ()
 specifier|public
-name|Boolean
-name|getDefaultValue
+name|String
+name|getDescribeUrl
 parameter_list|()
 block|{
 return|return
-name|defaultValue
+name|describeUrl
 return|;
 block|}
-DECL|method|setDefaultValue (Boolean defaultValue)
+DECL|method|setDescribeUrl (String describeUrl)
 specifier|public
 name|void
-name|setDefaultValue
+name|setDescribeUrl
 parameter_list|(
-name|Boolean
-name|defaultValue
+name|String
+name|describeUrl
 parameter_list|)
 block|{
 name|this
 operator|.
-name|defaultValue
+name|describeUrl
 operator|=
-name|defaultValue
+name|describeUrl
 expr_stmt|;
 block|}
-DECL|method|getValidFor ()
+DECL|method|getInstancesUrl ()
 specifier|public
-name|byte
-index|[]
-name|getValidFor
+name|String
+name|getInstancesUrl
 parameter_list|()
 block|{
 return|return
-name|validFor
+name|instancesUrl
 return|;
 block|}
-DECL|method|setValidFor (byte[] validFor)
+DECL|method|setInstancesUrl (String instancesUrl)
 specifier|public
 name|void
-name|setValidFor
+name|setInstancesUrl
 parameter_list|(
-name|byte
-index|[]
-name|validFor
+name|String
+name|instancesUrl
 parameter_list|)
 block|{
 name|this
 operator|.
-name|validFor
+name|instancesUrl
 operator|=
-name|validFor
+name|instancesUrl
 expr_stmt|;
 block|}
 block|}

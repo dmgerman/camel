@@ -314,6 +314,11 @@ specifier|private
 name|String
 name|referenceTargetField
 decl_stmt|;
+DECL|field|encrypted
+specifier|private
+name|Boolean
+name|encrypted
+decl_stmt|;
 DECL|method|getLength ()
 specifier|public
 name|Integer
@@ -1624,6 +1629,32 @@ operator|.
 name|referenceTargetField
 operator|=
 name|referenceTargetField
+expr_stmt|;
+block|}
+DECL|method|getEncrypted ()
+specifier|public
+name|Boolean
+name|getEncrypted
+parameter_list|()
+block|{
+return|return
+name|encrypted
+return|;
+block|}
+DECL|method|setEncrypted (Boolean encrypted)
+specifier|public
+name|void
+name|setEncrypted
+parameter_list|(
+name|Boolean
+name|encrypted
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encrypted
+operator|=
+name|encrypted
 expr_stmt|;
 block|}
 block|}

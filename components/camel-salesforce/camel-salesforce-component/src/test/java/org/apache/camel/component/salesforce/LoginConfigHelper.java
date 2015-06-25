@@ -87,7 +87,7 @@ extends|extends
 name|Assert
 block|{
 DECL|field|TEST_LOGIN_PROPERTIES
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|String

@@ -435,6 +435,9 @@ operator|=
 operator|new
 name|DefaultBulkApiClient
 argument_list|(
+operator|(
+name|String
+operator|)
 name|endpointConfigMap
 operator|.
 name|get
@@ -615,9 +618,12 @@ throw|throw
 operator|new
 name|SalesforceException
 argument_list|(
-literal|"Unknow operation name: "
+literal|"Unknown operation name: "
 operator|+
 name|operationName
+operator|.
+name|value
+argument_list|()
 argument_list|,
 literal|null
 argument_list|)
@@ -644,6 +650,9 @@ argument_list|(
 literal|"Error processing %s: [%s] \"%s\""
 argument_list|,
 name|operationName
+operator|.
+name|value
+argument_list|()
 argument_list|,
 name|e
 operator|.
@@ -692,6 +701,9 @@ argument_list|(
 literal|"Unexpected Error processing %s: \"%s\""
 argument_list|,
 name|operationName
+operator|.
+name|value
+argument_list|()
 argument_list|,
 name|e
 operator|.
@@ -735,6 +747,9 @@ argument_list|(
 literal|"Unexpected Error processing %s: \"%s\""
 argument_list|,
 name|operationName
+operator|.
+name|value
+argument_list|()
 argument_list|,
 name|e
 operator|.
