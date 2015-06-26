@@ -167,7 +167,7 @@ specifier|final
 name|String
 name|REPO_PATH
 init|=
-literal|"target/repository-simple-diff-workspace"
+literal|"target/repository-simple-security"
 decl_stmt|;
 DECL|field|CUSTOM_WORKSPACE_NAME
 specifier|protected
