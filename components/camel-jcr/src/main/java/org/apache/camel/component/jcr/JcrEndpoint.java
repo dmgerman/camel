@@ -352,6 +352,13 @@ name|sessionLiveCheckInterval
 init|=
 literal|60000L
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|workspaceName
+specifier|private
+name|String
+name|workspaceName
+decl_stmt|;
 DECL|method|JcrEndpoint (String endpointUri, JcrComponent component)
 specifier|protected
 name|JcrEndpoint
@@ -973,6 +980,33 @@ operator|.
 name|sessionLiveCheckInterval
 operator|=
 name|sessionLiveCheckInterval
+expr_stmt|;
+block|}
+comment|/**      * The workspace to access. If it's not specified then the default one will be used      */
+DECL|method|getWorkspaceName ()
+specifier|public
+name|String
+name|getWorkspaceName
+parameter_list|()
+block|{
+return|return
+name|workspaceName
+return|;
+block|}
+DECL|method|setWorkspaceName (String workspaceName)
+specifier|public
+name|void
+name|setWorkspaceName
+parameter_list|(
+name|String
+name|workspaceName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|workspaceName
+operator|=
+name|workspaceName
 expr_stmt|;
 block|}
 comment|/**      * Gets the destination name which was configured from the endpoint uri.      *      * @return the destination name resolved from the endpoint uri      */

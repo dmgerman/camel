@@ -133,7 +133,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+name|JcrEndpoint
+name|endpoint
+init|=
 operator|new
 name|JcrEndpoint
 argument_list|(
@@ -141,6 +143,16 @@ name|uri
 argument_list|,
 name|this
 argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
+argument_list|,
+name|properties
+argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
 return|;
 block|}
 block|}
