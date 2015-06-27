@@ -487,6 +487,14 @@ block|{
 name|showOptions
 argument_list|()
 expr_stmt|;
+comment|// no need to process further if user just wants help
+name|System
+operator|.
+name|exit
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 argument_list|)
@@ -500,7 +508,7 @@ literal|"c"
 argument_list|,
 literal|"command"
 argument_list|,
-literal|"Command either encrypt or decrypt"
+literal|"Command can be encrypt or decrypt"
 argument_list|,
 literal|"command"
 argument_list|)
@@ -707,7 +715,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"Apache Camel Jasypt takes the following options"
+literal|"Apache Camel Jasypt takes the following options:"
 argument_list|)
 expr_stmt|;
 name|System
