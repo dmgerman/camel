@@ -151,6 +151,15 @@ name|DESTROY_NODE
 init|=
 literal|"CamelJcloudsDestroyNode"
 decl_stmt|;
+DECL|field|REBOOT_NODE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|REBOOT_NODE
+init|=
+literal|"CamelJcloudsRebootNode"
+decl_stmt|;
 DECL|field|RUN_SCRIPT
 specifier|public
 specifier|static

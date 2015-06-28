@@ -434,6 +434,25 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|JcloudsConstants
+operator|.
+name|REBOOT_NODE
+operator|.
+name|equals
+argument_list|(
+name|operation
+argument_list|)
+condition|)
+block|{
+name|destroyNode
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Create a node with the specified group.      */
 DECL|method|createNode (Exchange exchange)
@@ -953,6 +972,35 @@ operator|.
 name|setBody
 argument_list|(
 name|hardwareProfiles
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Reboot the node with the specified nodeId.      */
+DECL|method|rebootNode (Exchange exchange)
+specifier|protected
+name|void
+name|rebootNode
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|Predicate
+argument_list|<
+name|NodeMetadata
+argument_list|>
+name|predicate
+init|=
+name|getNodePredicate
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+name|computeService
+operator|.
+name|rebootNodesMatching
+argument_list|(
+name|predicate
 argument_list|)
 expr_stmt|;
 block|}
