@@ -160,6 +160,15 @@ name|REBOOT_NODE
 init|=
 literal|"CamelJcloudsRebootNode"
 decl_stmt|;
+DECL|field|SUSPEND_NODE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SUSPEND_NODE
+init|=
+literal|"CamelJcloudsSuspendNode"
+decl_stmt|;
 DECL|field|RUN_SCRIPT
 specifier|public
 specifier|static
