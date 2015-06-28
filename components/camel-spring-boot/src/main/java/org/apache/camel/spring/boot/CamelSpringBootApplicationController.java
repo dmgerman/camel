@@ -88,6 +88,16 @@ name|ApplicationContext
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|PreDestroy
+import|;
+end_import
+
 begin_class
 DECL|class|CamelSpringBootApplicationController
 specifier|public
@@ -198,6 +208,20 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+annotation|@
+name|PreDestroy
+DECL|method|destroy ()
+specifier|private
+name|void
+name|destroy
+parameter_list|()
+block|{
+name|mainSupport
+operator|.
+name|completed
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
