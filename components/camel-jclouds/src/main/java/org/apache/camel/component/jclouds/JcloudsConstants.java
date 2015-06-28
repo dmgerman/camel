@@ -169,6 +169,15 @@ name|SUSPEND_NODE
 init|=
 literal|"CamelJcloudsSuspendNode"
 decl_stmt|;
+DECL|field|RESUME_NODE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|RESUME_NODE
+init|=
+literal|"CamelJcloudsResumeNode"
+decl_stmt|;
 DECL|field|RUN_SCRIPT
 specifier|public
 specifier|static
