@@ -447,7 +447,7 @@ name|operation
 argument_list|)
 condition|)
 block|{
-name|destroyNode
+name|rebootNode
 argument_list|(
 name|exchange
 argument_list|)
