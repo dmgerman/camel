@@ -459,8 +459,7 @@ init|=
 operator|new
 name|DefaultExchange
 argument_list|(
-name|getCamelContext
-argument_list|()
+name|this
 argument_list|,
 name|getExchangePattern
 argument_list|()
