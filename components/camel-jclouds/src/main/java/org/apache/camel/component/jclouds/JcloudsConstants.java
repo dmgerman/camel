@@ -115,6 +115,15 @@ name|COUNT_BLOBS
 init|=
 literal|"CamelJcloudsCountBlobs"
 decl_stmt|;
+DECL|field|REMOVE_BLOB
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|REMOVE_BLOB
+init|=
+literal|"CamelJcloudsRemoveBlob"
+decl_stmt|;
 DECL|field|LIST_IMAGES
 specifier|public
 specifier|static

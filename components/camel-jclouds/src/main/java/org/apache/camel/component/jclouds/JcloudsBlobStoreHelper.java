@@ -537,6 +537,47 @@ return|return
 name|blobsCount
 return|;
 block|}
+comment|/**      * Reads from a {@link BlobStore}. It returns an Object.      */
+DECL|method|removeBlob (BlobStore blobStore, String container, String blobName)
+specifier|public
+specifier|static
+name|void
+name|removeBlob
+parameter_list|(
+name|BlobStore
+name|blobStore
+parameter_list|,
+name|String
+name|container
+parameter_list|,
+name|String
+name|blobName
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+if|if
+condition|(
+operator|!
+name|Strings
+operator|.
+name|isNullOrEmpty
+argument_list|(
+name|blobName
+argument_list|)
+condition|)
+block|{
+name|blobStore
+operator|.
+name|removeBlob
+argument_list|(
+name|container
+argument_list|,
+name|blobName
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 end_class
 
