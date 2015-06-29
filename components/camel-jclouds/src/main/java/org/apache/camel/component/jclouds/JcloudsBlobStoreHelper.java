@@ -509,6 +509,34 @@ return|return
 name|is
 return|;
 block|}
+comment|/**      * Return the count of all the blobs in the container      */
+DECL|method|countBlob (BlobStore blobStore, String container)
+specifier|public
+specifier|static
+name|long
+name|countBlob
+parameter_list|(
+name|BlobStore
+name|blobStore
+parameter_list|,
+name|String
+name|container
+parameter_list|)
+block|{
+name|long
+name|blobsCount
+init|=
+name|blobStore
+operator|.
+name|countBlobs
+argument_list|(
+name|container
+argument_list|)
+decl_stmt|;
+return|return
+name|blobsCount
+return|;
+block|}
 block|}
 end_class
 

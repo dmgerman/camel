@@ -106,6 +106,15 @@ name|GET
 init|=
 literal|"CamelJcloudsGet"
 decl_stmt|;
+DECL|field|COUNT_BLOBS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|COUNT_BLOBS
+init|=
+literal|"CamelJcloudsCountBlobs"
+decl_stmt|;
 DECL|field|LIST_IMAGES
 specifier|public
 specifier|static
