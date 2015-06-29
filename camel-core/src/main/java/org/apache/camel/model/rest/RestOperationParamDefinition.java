@@ -335,6 +335,11 @@ specifier|private
 name|String
 name|paramAccess
 decl_stmt|;
+DECL|method|RestOperationParamDefinition ()
+specifier|public
+name|RestOperationParamDefinition
+parameter_list|()
+block|{     }
 DECL|method|RestOperationParamDefinition (VerbDefinition verb)
 specifier|public
 name|RestOperationParamDefinition
@@ -350,11 +355,6 @@ operator|=
 name|verb
 expr_stmt|;
 block|}
-DECL|method|RestOperationParamDefinition ()
-specifier|public
-name|RestOperationParamDefinition
-parameter_list|()
-block|{     }
 DECL|method|getParamType ()
 specifier|public
 name|RestParamType
@@ -664,6 +664,7 @@ operator|=
 name|paramAccess
 expr_stmt|;
 block|}
+comment|/**      * Name of the parameter.      *<p/>      * This option is mandatory.      */
 DECL|method|name (String name)
 specifier|public
 name|RestOperationParamDefinition
@@ -682,6 +683,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Description of the parameter.      */
 DECL|method|description (String name)
 specifier|public
 name|RestOperationParamDefinition
@@ -700,6 +702,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The default value of the parameter.      */
 DECL|method|defaultValue (String name)
 specifier|public
 name|RestOperationParamDefinition
@@ -718,6 +721,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Whether the parameter is required      */
 DECL|method|required (Boolean required)
 specifier|public
 name|RestOperationParamDefinition
@@ -736,6 +740,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Whether the parameter can be used multiple times      */
 DECL|method|allowMultiple (Boolean allowMultiple)
 specifier|public
 name|RestOperationParamDefinition
@@ -754,6 +759,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The data type of the parameter such as string,int      */
 DECL|method|dataType (String type)
 specifier|public
 name|RestOperationParamDefinition
@@ -772,6 +778,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Allowed values of the parameter when its an enum type      */
 DECL|method|allowableValues (List<String> allowableValues)
 specifier|public
 name|RestOperationParamDefinition
@@ -793,6 +800,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Allowed values of the parameter when its an enum type      */
 DECL|method|allowableValues (String... allowableValues)
 specifier|public
 name|RestOperationParamDefinition
@@ -817,6 +825,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The parameter type such as body, form, header, path, query      */
 DECL|method|type (RestParamType type)
 specifier|public
 name|RestOperationParamDefinition
@@ -835,6 +844,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * A flag to hide the parameter if set to false      */
 DECL|method|paramAccess (String paramAccess)
 specifier|public
 name|RestOperationParamDefinition
@@ -853,6 +863,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Ends the configuration of this parameter      */
 DECL|method|endParam ()
 specifier|public
 name|RestDefinition

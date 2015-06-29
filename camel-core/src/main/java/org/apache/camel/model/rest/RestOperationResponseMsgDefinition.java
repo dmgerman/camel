@@ -297,6 +297,7 @@ operator|=
 name|message
 expr_stmt|;
 block|}
+comment|/**      * The return code      */
 DECL|method|code (int code)
 specifier|public
 name|RestOperationResponseMsgDefinition
@@ -315,6 +316,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The return message      */
 DECL|method|message (String msg)
 specifier|public
 name|RestOperationResponseMsgDefinition
@@ -333,6 +335,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The response model      */
 DECL|method|responseModel (Class<?> type)
 specifier|public
 name|RestOperationResponseMsgDefinition
@@ -357,6 +360,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Ends the configuration of this response message      */
 DECL|method|endResponseMessage ()
 specifier|public
 name|RestDefinition
