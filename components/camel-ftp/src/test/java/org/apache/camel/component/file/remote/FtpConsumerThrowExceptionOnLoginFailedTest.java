@@ -187,7 +187,7 @@ argument_list|()
 operator|+
 literal|"/badlogin?password=cantremember"
 operator|+
-literal|"&throwExceptionOnConnectFailed=true&maximumReconnectAttempts=0&pollStrategy=#myPoll"
+literal|"&throwExceptionOnConnectFailed=true&maximumReconnectAttempts=0&pollStrategy=#myPoll&autoCreate=false"
 return|;
 block|}
 annotation|@
