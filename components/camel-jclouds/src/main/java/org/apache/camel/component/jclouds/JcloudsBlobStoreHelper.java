@@ -537,7 +537,7 @@ return|return
 name|blobsCount
 return|;
 block|}
-comment|/**      * Reads from a {@link BlobStore}. It returns an Object.      */
+comment|/**      * Remove a specific blob from a {@link BlobStore}      */
 DECL|method|removeBlob (BlobStore blobStore, String container, String blobName)
 specifier|public
 specifier|static
@@ -577,6 +577,30 @@ name|blobName
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+comment|/**      * Clear a {@link BlobStore} specific container      */
+DECL|method|clearContainer (BlobStore blobStore, String container)
+specifier|public
+specifier|static
+name|void
+name|clearContainer
+parameter_list|(
+name|BlobStore
+name|blobStore
+parameter_list|,
+name|String
+name|container
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|blobStore
+operator|.
+name|clearContainer
+argument_list|(
+name|container
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

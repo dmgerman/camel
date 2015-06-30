@@ -124,6 +124,15 @@ name|REMOVE_BLOB
 init|=
 literal|"CamelJcloudsRemoveBlob"
 decl_stmt|;
+DECL|field|CLEAR_CONTAINER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CLEAR_CONTAINER
+init|=
+literal|"CamelJcloudsClearContainer"
+decl_stmt|;
 DECL|field|LIST_IMAGES
 specifier|public
 specifier|static
