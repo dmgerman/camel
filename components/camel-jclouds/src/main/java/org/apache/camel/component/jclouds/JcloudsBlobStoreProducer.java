@@ -389,6 +389,13 @@ name|operation
 argument_list|)
 condition|)
 block|{
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
 name|JcloudsBlobStoreHelper
 operator|.
 name|containerExists
@@ -396,6 +403,7 @@ argument_list|(
 name|blobStore
 argument_list|,
 name|container
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
