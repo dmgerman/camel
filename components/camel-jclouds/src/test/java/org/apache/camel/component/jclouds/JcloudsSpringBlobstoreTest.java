@@ -467,6 +467,44 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|testBlobStoreClear ()
+specifier|public
+name|void
+name|testBlobStoreClear
+parameter_list|()
+throws|throws
+name|InterruptedException
+block|{
+name|Long
+name|count
+init|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+literal|"direct:clear"
+argument_list|,
+literal|"Some message"
+argument_list|,
+name|Long
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+operator|new
+name|Long
+argument_list|(
+literal|0
+argument_list|)
+argument_list|,
+name|count
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
