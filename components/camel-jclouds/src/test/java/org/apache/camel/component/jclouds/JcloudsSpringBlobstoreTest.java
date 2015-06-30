@@ -505,6 +505,26 @@ name|count
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|testBlobStoreDelete ()
+specifier|public
+name|void
+name|testBlobStoreDelete
+parameter_list|()
+throws|throws
+name|InterruptedException
+block|{
+name|template
+operator|.
+name|requestBody
+argument_list|(
+literal|"direct:delete"
+argument_list|,
+literal|"Some message"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
