@@ -40,6 +40,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|ws
@@ -655,6 +665,35 @@ decl_stmt|;
 return|return
 name|result
 return|;
+block|}
+comment|/**      * Delete a list of {@link BlobStore} blob      */
+DECL|method|removeBlobs (BlobStore blobStore, String container, List blobNames)
+specifier|public
+specifier|static
+name|void
+name|removeBlobs
+parameter_list|(
+name|BlobStore
+name|blobStore
+parameter_list|,
+name|String
+name|container
+parameter_list|,
+name|List
+name|blobNames
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|blobStore
+operator|.
+name|removeBlobs
+argument_list|(
+name|container
+argument_list|,
+name|blobNames
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
