@@ -602,6 +602,30 @@ name|container
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Delete a {@link BlobStore} specific container      */
+DECL|method|deleteContainer (BlobStore blobStore, String container)
+specifier|public
+specifier|static
+name|void
+name|deleteContainer
+parameter_list|(
+name|BlobStore
+name|blobStore
+parameter_list|,
+name|String
+name|container
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|blobStore
+operator|.
+name|deleteContainer
+argument_list|(
+name|container
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

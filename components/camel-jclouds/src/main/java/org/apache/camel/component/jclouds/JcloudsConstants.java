@@ -133,6 +133,15 @@ name|CLEAR_CONTAINER
 init|=
 literal|"CamelJcloudsClearContainer"
 decl_stmt|;
+DECL|field|DELETE_CONTAINER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DELETE_CONTAINER
+init|=
+literal|"CamelJcloudsDeleteContainer"
+decl_stmt|;
 DECL|field|LIST_IMAGES
 specifier|public
 specifier|static
