@@ -626,6 +626,36 @@ name|container
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Check if a {@link BlobStore} specific container exists or not      */
+DECL|method|containerExists (BlobStore blobStore, String container)
+specifier|public
+specifier|static
+name|boolean
+name|containerExists
+parameter_list|(
+name|BlobStore
+name|blobStore
+parameter_list|,
+name|String
+name|container
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+name|boolean
+name|result
+init|=
+name|blobStore
+operator|.
+name|containerExists
+argument_list|(
+name|container
+argument_list|)
+decl_stmt|;
+return|return
+name|result
+return|;
+block|}
 block|}
 end_class
 

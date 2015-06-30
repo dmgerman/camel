@@ -142,6 +142,15 @@ name|DELETE_CONTAINER
 init|=
 literal|"CamelJcloudsDeleteContainer"
 decl_stmt|;
+DECL|field|CONTAINER_EXISTS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CONTAINER_EXISTS
+init|=
+literal|"CamelJcloudsExistsContainer"
+decl_stmt|;
 DECL|field|LIST_IMAGES
 specifier|public
 specifier|static
