@@ -231,6 +231,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|description
+operator|=
+literal|"If the option is true, then KafkaProducer will ignore the KafkaConstants.TOPIC header setting of the inbound message."
+argument_list|,
 name|defaultValue
 operator|=
 literal|"false"
