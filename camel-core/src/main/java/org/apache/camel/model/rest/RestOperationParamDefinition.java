@@ -160,6 +160,20 @@ name|Metadata
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * To specify the rest operation parameters using Swagger.  *<p/>  * This maps to the Swagger Parameter Object.  * see com.wordnik.swagger.model.Parameter  * and https://github.com/swagger-api/swagger-spec/blob/master/versions/1.2.md#524-parameter-object.  */
 end_comment
@@ -870,6 +884,16 @@ name|RestDefinition
 name|endParam
 parameter_list|()
 block|{
+comment|// name is mandatory
+name|ObjectHelper
+operator|.
+name|notEmpty
+argument_list|(
+name|name
+argument_list|,
+literal|"name"
+argument_list|)
+expr_stmt|;
 name|verb
 operator|.
 name|getParams

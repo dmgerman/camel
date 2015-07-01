@@ -2688,6 +2688,19 @@ name|getParams
 argument_list|()
 control|)
 block|{
+comment|// name is mandatory
+name|ObjectHelper
+operator|.
+name|notEmpty
+argument_list|(
+name|param
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+literal|"parameter name"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|param
