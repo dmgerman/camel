@@ -766,6 +766,87 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testEqualIgnoreOperator ()
+specifier|public
+name|void
+name|testEqualIgnoreOperator
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// string to string comparison
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} =~ 'abc'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} =~ 'ABC'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} =~ 'Abc'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} =~ 'Def'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.foo} =~ '1'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+comment|// integer to string comparison
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar} =~ '123'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar} =~ 123"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar} =~ '444'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar} =~ 444"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.header.bar} =~ '1'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testNotEqualOperator ()
 specifier|public
 name|void

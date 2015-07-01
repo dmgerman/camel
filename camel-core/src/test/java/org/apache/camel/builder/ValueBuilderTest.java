@@ -162,6 +162,21 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
+name|mock
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|isEqualToIgnoreCase
+argument_list|(
+literal|"hello WORLD"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -243,6 +258,21 @@ operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|isEqualToIgnoreCase
+argument_list|(
+literal|"hello world"
 argument_list|)
 expr_stmt|;
 name|template

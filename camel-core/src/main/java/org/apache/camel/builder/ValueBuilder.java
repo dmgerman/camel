@@ -360,6 +360,37 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+DECL|method|isEqualToIgnoreCase (Object value)
+specifier|public
+name|Predicate
+name|isEqualToIgnoreCase
+parameter_list|(
+name|Object
+name|value
+parameter_list|)
+block|{
+name|Expression
+name|right
+init|=
+name|asExpression
+argument_list|(
+name|value
+argument_list|)
+decl_stmt|;
+return|return
+name|onNewPredicate
+argument_list|(
+name|PredicateBuilder
+operator|.
+name|isEqualToIgnoreCase
+argument_list|(
+name|expression
+argument_list|,
+name|right
+argument_list|)
+argument_list|)
+return|;
+block|}
 DECL|method|isLessThan (Object value)
 specifier|public
 name|Predicate
