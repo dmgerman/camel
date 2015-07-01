@@ -338,9 +338,9 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<param paramType=\"query\" name=\"header_letter\" description=\"header param description2\""
+literal|"<param name=\"header_letter\" type=\"query\" description=\"header param description2\""
 operator|+
-literal|" defaultValue=\"b\" required=\"false\" allowMultiple=\"true\" dataType=\"string\" paramAccess=\"acc2\">"
+literal|" defaultValue=\"b\" required=\"false\" allowMultiple=\"true\" dataType=\"string\" access=\"acc2\">"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -350,9 +350,9 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<param paramType=\"header\" name=\"header_count\" description=\"header param description1\" "
+literal|"<param name=\"header_count\" type=\"header\" description=\"header param description1\" "
 operator|+
-literal|"defaultValue=\"1\" required=\"true\" allowMultiple=\"false\" dataType=\"integer\" paramAccess=\"acc1\">"
+literal|"defaultValue=\"1\" required=\"true\" allowMultiple=\"false\" dataType=\"integer\" access=\"acc1\">"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -554,7 +554,7 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|paramAccess
+name|access
 argument_list|(
 literal|"acc1"
 argument_list|)
@@ -618,7 +618,7 @@ argument_list|(
 literal|false
 argument_list|)
 operator|.
-name|paramAccess
+name|access
 argument_list|(
 literal|"acc2"
 argument_list|)

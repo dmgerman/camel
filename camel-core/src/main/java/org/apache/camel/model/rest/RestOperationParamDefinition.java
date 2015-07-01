@@ -219,17 +219,10 @@ name|required
 operator|=
 literal|true
 argument_list|)
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|"path"
-argument_list|)
-DECL|field|paramType
+DECL|field|name
 specifier|private
-name|RestParamType
-name|paramType
+name|String
+name|name
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -238,10 +231,17 @@ name|required
 operator|=
 literal|true
 argument_list|)
-DECL|field|name
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"path"
+argument_list|)
+DECL|field|type
 specifier|private
-name|String
-name|name
+name|RestParamType
+name|type
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -344,10 +344,10 @@ name|defaultValue
 operator|=
 literal|""
 argument_list|)
-DECL|field|paramAccess
+DECL|field|access
 specifier|private
 name|String
-name|paramAccess
+name|access
 decl_stmt|;
 DECL|method|RestOperationParamDefinition ()
 specifier|public
@@ -369,18 +369,18 @@ operator|=
 name|verb
 expr_stmt|;
 block|}
-DECL|method|getParamType ()
+DECL|method|getType ()
 specifier|public
 name|RestParamType
-name|getParamType
+name|getType
 parameter_list|()
 block|{
 return|return
-name|paramType
+name|type
 operator|!=
 literal|null
 condition|?
-name|paramType
+name|type
 else|:
 name|RestParamType
 operator|.
@@ -388,20 +388,20 @@ name|path
 return|;
 block|}
 comment|/**      * Sets the Swagger Parameter type.      */
-DECL|method|setParamType (RestParamType paramType)
+DECL|method|setType (RestParamType type)
 specifier|public
 name|void
-name|setParamType
+name|setType
 parameter_list|(
 name|RestParamType
-name|paramType
+name|type
 parameter_list|)
 block|{
 name|this
 operator|.
-name|paramType
+name|type
 operator|=
-name|paramType
+name|type
 expr_stmt|;
 block|}
 DECL|method|getName ()
@@ -571,12 +571,6 @@ parameter_list|()
 block|{
 return|return
 name|dataType
-operator|!=
-literal|null
-condition|?
-name|dataType
-else|:
-literal|"string"
 return|;
 block|}
 comment|/**      * Sets the Swagger Parameter data type.      */
@@ -645,37 +639,37 @@ operator|=
 name|allowableValues
 expr_stmt|;
 block|}
-DECL|method|getParamAccess ()
+DECL|method|getAccess ()
 specifier|public
 name|String
-name|getParamAccess
+name|getAccess
 parameter_list|()
 block|{
 return|return
-name|paramAccess
+name|access
 operator|!=
 literal|null
 condition|?
-name|paramAccess
+name|access
 else|:
 literal|""
 return|;
 block|}
 comment|/**      * Sets the Swagger Parameter paramAccess flag.      */
-DECL|method|setParamAccess (String paramAccess)
+DECL|method|setAccess (String access)
 specifier|public
 name|void
-name|setParamAccess
+name|setAccess
 parameter_list|(
 name|String
-name|paramAccess
+name|access
 parameter_list|)
 block|{
 name|this
 operator|.
-name|paramAccess
+name|access
 operator|=
-name|paramAccess
+name|access
 expr_stmt|;
 block|}
 comment|/**      * Name of the parameter.      *<p/>      * This option is mandatory.      */
@@ -773,7 +767,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The data type of the parameter such as string,int      */
+comment|/**      * The data type of the parameter such as<tt>string</tt>,<tt>long</tt>,<tt>int</tt>,<tt>boolean</tt>      */
 DECL|method|dataType (String type)
 specifier|public
 name|RestOperationParamDefinition
@@ -849,7 +843,7 @@ name|RestParamType
 name|type
 parameter_list|)
 block|{
-name|setParamType
+name|setType
 argument_list|(
 name|type
 argument_list|)
@@ -858,17 +852,17 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * A flag to hide the parameter if set to false      */
-DECL|method|paramAccess (String paramAccess)
+comment|/**      * Parameter access. Use<tt>false</tt> or<tt>internal</tt> to indicate the parameter      * should be hidden for the public.      */
+DECL|method|access (String paramAccess)
 specifier|public
 name|RestOperationParamDefinition
-name|paramAccess
+name|access
 parameter_list|(
 name|String
 name|paramAccess
 parameter_list|)
 block|{
-name|setParamAccess
+name|setAccess
 argument_list|(
 name|paramAccess
 argument_list|)

@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -186,7 +176,7 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|paramAccess
+name|access
 argument_list|(
 literal|"acc1"
 argument_list|)
@@ -245,7 +235,7 @@ argument_list|(
 literal|false
 argument_list|)
 operator|.
-name|paramAccess
+name|access
 argument_list|(
 literal|"acc2"
 argument_list|)

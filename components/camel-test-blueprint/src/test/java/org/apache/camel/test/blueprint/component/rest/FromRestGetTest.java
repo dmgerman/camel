@@ -350,7 +350,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getParamType
+name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -378,7 +378,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getParamType
+name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -798,7 +798,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getParamAccess
+name|getAccess
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -824,7 +824,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getParamAccess
+name|getAccess
 argument_list|()
 argument_list|)
 expr_stmt|;

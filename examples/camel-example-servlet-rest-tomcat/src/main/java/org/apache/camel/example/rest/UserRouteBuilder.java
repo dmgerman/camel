@@ -80,7 +80,7 @@ name|rest
 operator|.
 name|RestParamType
 operator|.
-name|query
+name|path
 import|;
 end_import
 
@@ -196,7 +196,7 @@ argument_list|)
 operator|.
 name|type
 argument_list|(
-name|query
+name|path
 argument_list|)
 operator|.
 name|description

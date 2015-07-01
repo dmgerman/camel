@@ -379,7 +379,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getParamType
+name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -407,7 +407,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getParamType
+name|getType
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -827,7 +827,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getParamAccess
+name|getAccess
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -853,7 +853,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getParamAccess
+name|getAccess
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1151,7 +1151,7 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|paramAccess
+name|access
 argument_list|(
 literal|"acc1"
 argument_list|)
@@ -1210,7 +1210,7 @@ argument_list|(
 literal|false
 argument_list|)
 operator|.
-name|paramAccess
+name|access
 argument_list|(
 literal|"acc2"
 argument_list|)
