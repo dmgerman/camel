@@ -18,7 +18,42 @@ name|rest
 package|;
 end_package
 
+begin_import
+import|import
+name|com
+operator|.
+name|wordnik
+operator|.
+name|swagger
+operator|.
+name|annotations
+operator|.
+name|ApiModel
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|wordnik
+operator|.
+name|swagger
+operator|.
+name|annotations
+operator|.
+name|ApiModelProperty
+import|;
+end_import
+
 begin_class
+annotation|@
+name|ApiModel
+argument_list|(
+name|description
+operator|=
+literal|"Represents an user of the system"
+argument_list|)
 DECL|class|User
 specifier|public
 class|class
@@ -63,6 +98,17 @@ operator|=
 name|name
 expr_stmt|;
 block|}
+annotation|@
+name|ApiModelProperty
+argument_list|(
+name|value
+operator|=
+literal|"The id of the user"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|method|getId ()
 specifier|public
 name|int
@@ -89,6 +135,17 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+annotation|@
+name|ApiModelProperty
+argument_list|(
+name|value
+operator|=
+literal|"The name of the user"
+argument_list|,
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|method|getName ()
 specifier|public
 name|String
