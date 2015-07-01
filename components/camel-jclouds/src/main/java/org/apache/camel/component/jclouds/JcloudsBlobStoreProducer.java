@@ -552,9 +552,6 @@ condition|)
 block|{
 name|blobName
 operator|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -565,6 +562,10 @@ argument_list|(
 name|JcloudsConstants
 operator|.
 name|BLOB_NAME
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -618,9 +619,6 @@ condition|)
 block|{
 name|containerName
 operator|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -631,6 +629,10 @@ argument_list|(
 name|JcloudsConstants
 operator|.
 name|CONTAINER_NAME
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -684,9 +686,6 @@ condition|)
 block|{
 name|operation
 operator|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -697,6 +696,10 @@ argument_list|(
 name|JcloudsConstants
 operator|.
 name|OPERATION
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -750,9 +753,6 @@ condition|)
 block|{
 name|operation
 operator|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -763,6 +763,10 @@ argument_list|(
 name|JcloudsConstants
 operator|.
 name|LOCATION_ID
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -810,9 +814,6 @@ condition|)
 block|{
 name|blobNames
 operator|=
-operator|(
-name|List
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -823,6 +824,10 @@ argument_list|(
 name|JcloudsConstants
 operator|.
 name|BLOB_NAME_LIST
+argument_list|,
+name|List
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}

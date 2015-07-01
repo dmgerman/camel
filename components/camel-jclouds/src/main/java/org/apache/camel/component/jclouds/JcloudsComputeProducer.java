@@ -1454,9 +1454,6 @@ condition|)
 block|{
 name|operation
 operator|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -1467,6 +1464,10 @@ argument_list|(
 name|JcloudsConstants
 operator|.
 name|OPERATION
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -1656,9 +1657,6 @@ condition|)
 block|{
 name|imageId
 operator|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -1669,6 +1667,10 @@ argument_list|(
 name|JcloudsConstants
 operator|.
 name|IMAGE_ID
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -1717,9 +1719,6 @@ condition|)
 block|{
 name|hardwareId
 operator|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -1730,6 +1729,10 @@ argument_list|(
 name|JcloudsConstants
 operator|.
 name|HARDWARE_ID
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -1778,9 +1781,6 @@ condition|)
 block|{
 name|locationId
 operator|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -1791,6 +1791,10 @@ argument_list|(
 name|JcloudsConstants
 operator|.
 name|LOCATION_ID
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -1839,9 +1843,6 @@ condition|)
 block|{
 name|nodeId
 operator|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -1852,6 +1853,10 @@ argument_list|(
 name|JcloudsConstants
 operator|.
 name|NODE_ID
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -1900,9 +1905,6 @@ condition|)
 block|{
 name|group
 operator|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -1913,6 +1915,10 @@ argument_list|(
 name|JcloudsConstants
 operator|.
 name|GROUP
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
@@ -1961,9 +1967,6 @@ condition|)
 block|{
 name|user
 operator|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -1974,6 +1977,10 @@ argument_list|(
 name|JcloudsConstants
 operator|.
 name|USER
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 block|}
