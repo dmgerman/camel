@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Netty HTTP based {@link org.apache.camel.Message}.  *<p/>  * This implementation allows direct access to the Netty {@link HttpRequest} using  * the {@link #getHttpRequest()} method.  */
+comment|/**  * Netty HTTP based {@link org.apache.camel.Message}.  *<p/>  * This implementation allows direct access to the Netty {@link FullHttpRequest} using  * the {@link #getHttpRequest()} method.  */
 end_comment
 
 begin_class
