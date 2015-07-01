@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
 name|apache
@@ -61,6 +61,8 @@ operator|.
 name|rest
 operator|.
 name|RestParamType
+operator|.
+name|body
 import|;
 end_import
 
@@ -78,7 +80,7 @@ name|rest
 operator|.
 name|RestParamType
 operator|.
-name|*
+name|query
 import|;
 end_import
 
