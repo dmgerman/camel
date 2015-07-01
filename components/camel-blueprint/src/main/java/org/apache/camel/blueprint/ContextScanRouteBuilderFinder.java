@@ -148,7 +148,13 @@ specifier|final
 name|PackageScanFilter
 name|filter
 decl_stmt|;
-DECL|method|ContextScanRouteBuilderFinder (BlueprintCamelContext camelContext, PackageScanFilter filter)
+DECL|field|includeNonSingletons
+specifier|private
+specifier|final
+name|boolean
+name|includeNonSingletons
+decl_stmt|;
+DECL|method|ContextScanRouteBuilderFinder (BlueprintCamelContext camelContext, PackageScanFilter filter, boolean includeNonSingletons)
 specifier|public
 name|ContextScanRouteBuilderFinder
 parameter_list|(
@@ -157,6 +163,9 @@ name|camelContext
 parameter_list|,
 name|PackageScanFilter
 name|filter
+parameter_list|,
+name|boolean
+name|includeNonSingletons
 parameter_list|)
 block|{
 name|this
@@ -173,6 +182,12 @@ operator|.
 name|filter
 operator|=
 name|filter
+expr_stmt|;
+name|this
+operator|.
+name|includeNonSingletons
+operator|=
+name|includeNonSingletons
 expr_stmt|;
 block|}
 comment|/**      * Appends all the {@link org.apache.camel.builder.RouteBuilder} instances that can be found in the context      */
@@ -205,6 +220,8 @@ argument_list|,
 name|RoutesBuilder
 operator|.
 name|class
+argument_list|,
+name|includeNonSingletons
 argument_list|)
 decl_stmt|;
 for|for

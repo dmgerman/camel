@@ -1933,13 +1933,16 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|findRouteBuildersByContextScan (PackageScanFilter filter, List<RoutesBuilder> builders)
+DECL|method|findRouteBuildersByContextScan (PackageScanFilter filter, boolean includeNonSingletons, List<RoutesBuilder> builders)
 specifier|protected
 name|void
 name|findRouteBuildersByContextScan
 parameter_list|(
 name|PackageScanFilter
 name|filter
+parameter_list|,
+name|boolean
+name|includeNonSingletons
 parameter_list|,
 name|List
 argument_list|<
@@ -1960,6 +1963,8 @@ name|getContext
 argument_list|()
 argument_list|,
 name|filter
+argument_list|,
+name|includeNonSingletons
 argument_list|)
 decl_stmt|;
 name|finder

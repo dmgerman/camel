@@ -5792,9 +5792,29 @@ name|exclude
 argument_list|)
 expr_stmt|;
 block|}
+comment|// lets be false by default, to skip prototype beans
+name|boolean
+name|includeNonSingletons
+init|=
+name|contextScanDef
+operator|.
+name|getIncludeNonSingletons
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|contextScanDef
+operator|.
+name|getIncludeNonSingletons
+argument_list|()
+else|:
+literal|false
+decl_stmt|;
 name|findRouteBuildersByContextScan
 argument_list|(
 name|filter
+argument_list|,
+name|includeNonSingletons
 argument_list|,
 name|builders
 argument_list|)
@@ -5823,7 +5843,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-DECL|method|findRouteBuildersByContextScan (PackageScanFilter filter, List<RoutesBuilder> builders)
+DECL|method|findRouteBuildersByContextScan (PackageScanFilter filter, boolean includeNonSingletons, List<RoutesBuilder> builders)
 specifier|protected
 specifier|abstract
 name|void
@@ -5831,6 +5851,9 @@ name|findRouteBuildersByContextScan
 parameter_list|(
 name|PackageScanFilter
 name|filter
+parameter_list|,
+name|boolean
+name|includeNonSingletons
 parameter_list|,
 name|List
 argument_list|<

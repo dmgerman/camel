@@ -74,6 +74,20 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlElement
 import|;
 end_import
@@ -138,6 +152,13 @@ class|class
 name|ContextScanDefinition
 block|{
 annotation|@
+name|XmlAttribute
+DECL|field|includeNonSingletons
+specifier|private
+name|Boolean
+name|includeNonSingletons
+decl_stmt|;
+annotation|@
 name|XmlElement
 argument_list|(
 name|name
@@ -186,6 +207,33 @@ specifier|public
 name|ContextScanDefinition
 parameter_list|()
 block|{     }
+DECL|method|getIncludeNonSingletons ()
+specifier|public
+name|Boolean
+name|getIncludeNonSingletons
+parameter_list|()
+block|{
+return|return
+name|includeNonSingletons
+return|;
+block|}
+comment|/**      * Whether to include non-singleton beans (prototypes)      *<p/>      * By default only singleton beans is included in the context scan      */
+DECL|method|setIncludeNonSingletons (Boolean includeNonSingletons)
+specifier|public
+name|void
+name|setIncludeNonSingletons
+parameter_list|(
+name|Boolean
+name|includeNonSingletons
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeNonSingletons
+operator|=
+name|includeNonSingletons
+expr_stmt|;
+block|}
 DECL|method|getExcludes ()
 specifier|public
 name|List
@@ -197,19 +245,6 @@ parameter_list|()
 block|{
 return|return
 name|excludes
-return|;
-block|}
-DECL|method|getIncludes ()
-specifier|public
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|getIncludes
-parameter_list|()
-block|{
-return|return
-name|includes
 return|;
 block|}
 comment|/**      * Exclude finding route builder from these java package names.      */
@@ -231,6 +266,19 @@ name|excludes
 operator|=
 name|excludes
 expr_stmt|;
+block|}
+DECL|method|getIncludes ()
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getIncludes
+parameter_list|()
+block|{
+return|return
+name|includes
+return|;
 block|}
 comment|/**      * Include finding route builder from these java package names.      */
 DECL|method|setIncludes (List<String> includes)
