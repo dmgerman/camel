@@ -532,6 +532,10 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
 name|exchange
 operator|.
 name|getIn
@@ -543,8 +547,7 @@ name|JcloudsConstants
 operator|.
 name|BLOB_NAME
 argument_list|)
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
 name|blobName
@@ -595,6 +598,10 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
 name|exchange
 operator|.
 name|getIn
@@ -606,8 +613,7 @@ name|JcloudsConstants
 operator|.
 name|CONTAINER_NAME
 argument_list|)
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
 name|containerName
@@ -658,6 +664,10 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
 name|exchange
 operator|.
 name|getIn
@@ -669,8 +679,7 @@ name|JcloudsConstants
 operator|.
 name|OPERATION
 argument_list|)
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
 name|operation
@@ -721,6 +730,10 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
 name|exchange
 operator|.
 name|getIn
@@ -732,8 +745,7 @@ name|JcloudsConstants
 operator|.
 name|LOCATION_ID
 argument_list|)
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
 name|operation
