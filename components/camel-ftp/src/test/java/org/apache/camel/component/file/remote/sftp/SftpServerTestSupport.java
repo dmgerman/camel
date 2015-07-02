@@ -279,11 +279,6 @@ name|setUpServer
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|setUpServer ()
 specifier|protected
 name|void

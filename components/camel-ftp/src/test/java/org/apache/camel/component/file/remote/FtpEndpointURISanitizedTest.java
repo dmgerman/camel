@@ -142,6 +142,9 @@ argument_list|(
 operator|(
 operator|(
 name|FtpEndpoint
+argument_list|<
+name|?
+argument_list|>
 operator|)
 name|endpoint
 operator|)
