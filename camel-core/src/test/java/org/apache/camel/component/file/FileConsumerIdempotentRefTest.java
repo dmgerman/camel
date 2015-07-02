@@ -418,6 +418,16 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|clear ()
+specifier|public
+name|void
+name|clear
+parameter_list|()
+block|{
+return|return;
+block|}
 DECL|method|start ()
 specifier|public
 name|void

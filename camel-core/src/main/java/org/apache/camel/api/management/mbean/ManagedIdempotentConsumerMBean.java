@@ -84,6 +84,18 @@ name|void
 name|resetDuplicateMessageCount
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Clear the repository containing Messages"
+argument_list|)
+DECL|method|clear ()
+name|void
+name|clear
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

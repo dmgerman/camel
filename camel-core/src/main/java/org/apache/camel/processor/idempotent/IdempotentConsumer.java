@@ -946,6 +946,19 @@ name|messageId
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Clear the idempotent repository      */
+DECL|method|clear ()
+specifier|public
+name|void
+name|clear
+parameter_list|()
+block|{
+name|idempotentRepository
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 comment|/**      * A strategy method to allow derived classes to overload the behaviour of      * processing a duplicate message      *      * @param exchange  the exchange      * @param messageId the message ID of this exchange      */
 DECL|method|onDuplicateMessage (Exchange exchange, String messageId)
 specifier|protected

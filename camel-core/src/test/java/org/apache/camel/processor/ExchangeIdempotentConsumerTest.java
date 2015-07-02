@@ -657,6 +657,20 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|clear ()
+specifier|public
+name|void
+name|clear
+parameter_list|()
+block|{
+name|delegate
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|add (String key)
 specifier|public
 name|boolean

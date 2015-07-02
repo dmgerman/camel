@@ -674,6 +674,31 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Clear the store"
+argument_list|)
+DECL|method|clear ()
+specifier|public
+name|void
+name|clear
+parameter_list|()
+block|{
+synchronized|synchronized
+init|(
+name|cache
+init|)
+block|{
+name|cache
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 DECL|method|getFileStore ()
 specifier|public
 name|File
