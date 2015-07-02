@@ -758,6 +758,8 @@ specifier|private
 name|WebSocket
 name|getWebSocket
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 return|return
 name|getEndpoint
