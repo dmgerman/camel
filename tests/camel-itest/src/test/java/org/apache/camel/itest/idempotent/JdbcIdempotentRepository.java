@@ -197,6 +197,20 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|clear ()
+specifier|public
+name|void
+name|clear
+parameter_list|()
+block|{
+name|jdbc
+operator|.
+name|update
+argument_list|(
+literal|"DELETE * FROM ProcessedPayments"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|start ()
 specifier|public
 name|void
