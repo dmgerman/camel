@@ -586,6 +586,46 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|testClear ()
+specifier|public
+name|void
+name|testClear
+parameter_list|()
+block|{
+comment|// Given
+name|String
+name|key
+init|=
+literal|"Remove_Exists"
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|exists
+argument_list|(
+name|key
+argument_list|)
+argument_list|)
+expr_stmt|;
+comment|// When
+name|idempotentRepository
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+comment|// Then
+name|assertFalse
+argument_list|(
+name|idempotentRepository
+operator|.
+name|contains
+argument_list|(
+name|key
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

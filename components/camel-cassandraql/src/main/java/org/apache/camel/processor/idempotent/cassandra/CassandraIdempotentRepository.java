@@ -154,6 +154,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|datastax
+operator|.
+name|driver
+operator|.
+name|core
+operator|.
+name|querybuilder
+operator|.
+name|Truncate
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -306,6 +322,24 @@ name|generateSelect
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|utils
+operator|.
+name|cassandra
+operator|.
+name|CassandraUtils
+operator|.
+name|generateTruncate
+import|;
+end_import
+
 begin_comment
 comment|/**  * Implementation of {@link IdempotentRepository} using Cassandra table to store  * message ids.  * Advice: use LeveledCompaction for this table and tune read/write consistency levels.  * Warning: Cassandra is not the best tool for queuing use cases  * See http://www.datastax.com/dev/blog/cassandra-anti-patterns-queues-and-queue-like-datasets  *  * @param<K> Message Id  */
 end_comment
@@ -413,6 +447,11 @@ DECL|field|deleteStatement
 specifier|private
 name|PreparedStatement
 name|deleteStatement
+decl_stmt|;
+DECL|field|truncateStatement
+specifier|private
+name|PreparedStatement
+name|truncateStatement
 decl_stmt|;
 DECL|method|CassandraIdempotentRepository ()
 specifier|public
@@ -600,6 +639,9 @@ name|initSelectStatement
 argument_list|()
 expr_stmt|;
 name|initDeleteStatement
+argument_list|()
+expr_stmt|;
+name|initClearStatement
 argument_list|()
 expr_stmt|;
 block|}
@@ -932,6 +974,80 @@ argument_list|)
 argument_list|)
 argument_list|)
 return|;
+block|}
+comment|// -------------------------------------------------------------------------
+comment|// Clear the repository
+DECL|method|initClearStatement ()
+specifier|protected
+name|void
+name|initClearStatement
+parameter_list|()
+block|{
+name|Truncate
+name|truncate
+init|=
+name|generateTruncate
+argument_list|(
+name|table
+argument_list|)
+decl_stmt|;
+name|truncate
+operator|=
+name|applyConsistencyLevel
+argument_list|(
+name|truncate
+argument_list|,
+name|writeConsistencyLevel
+argument_list|)
+expr_stmt|;
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Generated truncate for clear operation {}"
+argument_list|,
+name|truncate
+argument_list|)
+expr_stmt|;
+name|truncateStatement
+operator|=
+name|getSession
+argument_list|()
+operator|.
+name|prepare
+argument_list|(
+name|truncate
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|clear ()
+specifier|public
+name|void
+name|clear
+parameter_list|()
+block|{
+name|LOGGER
+operator|.
+name|debug
+argument_list|(
+literal|"Clear table {}"
+argument_list|,
+name|table
+argument_list|)
+expr_stmt|;
+name|getSession
+argument_list|()
+operator|.
+name|execute
+argument_list|(
+name|truncateStatement
+operator|.
+name|bind
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|// -------------------------------------------------------------------------
 comment|// Getters& Setters
