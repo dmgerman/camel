@@ -1196,12 +1196,12 @@ argument_list|(
 name|item
 argument_list|)
 expr_stmt|;
+block|}
 name|entityManager
 operator|.
 name|flush
 argument_list|()
 expr_stmt|;
-block|}
 block|}
 return|return
 name|Boolean

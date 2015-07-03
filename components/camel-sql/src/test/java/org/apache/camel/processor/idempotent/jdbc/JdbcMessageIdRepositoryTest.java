@@ -215,6 +215,15 @@ name|SELECT_ALL_STRING
 init|=
 literal|"SELECT messageId FROM CAMEL_MESSAGEPROCESSED WHERE processorName = ?"
 decl_stmt|;
+DECL|field|CLEAR_STRING
+specifier|protected
+specifier|static
+specifier|final
+name|String
+name|CLEAR_STRING
+init|=
+literal|"DELETE FROM CAMEL_MESSAGEPROCESSED WHERE processorName = ?"
+decl_stmt|;
 DECL|field|PROCESSOR_NAME
 specifier|protected
 specifier|static
@@ -683,6 +692,15 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+name|jdbcTemplate
+operator|.
+name|update
+argument_list|(
+name|CLEAR_STRING
+argument_list|,
+name|PROCESSOR_NAME
+argument_list|)
+expr_stmt|;
 comment|// only message 1 and 3 should be in jdbc repo
 name|List
 argument_list|<
@@ -705,7 +723,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|2
+literal|0
 argument_list|,
 name|receivedMessageIds
 operator|.
@@ -713,9 +731,9 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertFalse
 argument_list|(
-literal|"Should contain message 1"
+literal|"Should not contain message 1"
 argument_list|,
 name|receivedMessageIds
 operator|.
@@ -725,9 +743,9 @@ literal|"1"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
+name|assertFalse
 argument_list|(
-literal|"Should contain message 3"
+literal|"Should not contain message 3"
 argument_list|,
 name|receivedMessageIds
 operator|.

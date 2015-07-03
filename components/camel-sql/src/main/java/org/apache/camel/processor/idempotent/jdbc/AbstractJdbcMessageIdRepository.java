@@ -384,6 +384,14 @@ name|T
 name|key
 parameter_list|)
 function_decl|;
+comment|/**      * Operations that deletes all the rows      *      * @param key  the key      * @return int number of rows deleted      */
+DECL|method|delete ()
+specifier|protected
+specifier|abstract
+name|int
+name|delete
+parameter_list|()
+function_decl|;
 comment|/**      * Creates the transaction template      */
 DECL|method|createTransactionTemplate (DataSource dataSource)
 specifier|protected
@@ -695,6 +703,53 @@ operator|.
 name|booleanValue
 argument_list|()
 return|;
+block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Clear the store"
+argument_list|)
+annotation|@
+name|Override
+DECL|method|clear ()
+specifier|public
+name|void
+name|clear
+parameter_list|()
+block|{
+name|transactionTemplate
+operator|.
+name|execute
+argument_list|(
+operator|new
+name|TransactionCallback
+argument_list|<
+name|Boolean
+argument_list|>
+argument_list|()
+block|{
+specifier|public
+name|Boolean
+name|doInTransaction
+parameter_list|(
+name|TransactionStatus
+name|status
+parameter_list|)
+block|{
+name|delete
+argument_list|()
+expr_stmt|;
+return|return
+name|Boolean
+operator|.
+name|TRUE
+return|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

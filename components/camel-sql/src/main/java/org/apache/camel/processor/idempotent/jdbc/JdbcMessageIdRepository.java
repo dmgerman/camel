@@ -163,6 +163,13 @@ name|deleteString
 init|=
 literal|"DELETE FROM CAMEL_MESSAGEPROCESSED WHERE processorName = ? AND messageId = ?"
 decl_stmt|;
+DECL|field|clearString
+specifier|private
+name|String
+name|clearString
+init|=
+literal|"DELETE FROM CAMEL_MESSAGEPROCESSED WHERE processorName = ?"
+decl_stmt|;
 DECL|method|JdbcMessageIdRepository ()
 specifier|public
 name|JdbcMessageIdRepository
@@ -444,6 +451,25 @@ argument_list|,
 name|processorName
 argument_list|,
 name|key
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|delete ()
+specifier|protected
+name|int
+name|delete
+parameter_list|()
+block|{
+return|return
+name|jdbcTemplate
+operator|.
+name|update
+argument_list|(
+name|clearString
+argument_list|,
+name|processorName
 argument_list|)
 return|;
 block|}
