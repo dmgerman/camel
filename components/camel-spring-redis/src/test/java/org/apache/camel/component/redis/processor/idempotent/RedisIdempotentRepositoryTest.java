@@ -300,6 +300,30 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+DECL|method|shouldClearRepository ()
+specifier|public
+name|void
+name|shouldClearRepository
+parameter_list|()
+block|{
+name|idempotentRepository
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+name|verify
+argument_list|(
+name|setOperations
+argument_list|)
+operator|.
+name|remove
+argument_list|(
+name|REPOSITORY
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
 DECL|method|shouldReturnProcessorName ()
 specifier|public
 name|void

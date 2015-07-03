@@ -411,6 +411,27 @@ literal|null
 return|;
 block|}
 annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Clear the store"
+argument_list|)
+DECL|method|clear ()
+specifier|public
+name|void
+name|clear
+parameter_list|()
+block|{
+name|setOperations
+operator|.
+name|remove
+argument_list|(
+name|processorName
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
 name|ManagedAttribute
 argument_list|(
 name|description
