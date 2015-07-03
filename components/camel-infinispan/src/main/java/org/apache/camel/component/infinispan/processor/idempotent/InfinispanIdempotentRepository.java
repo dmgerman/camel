@@ -385,6 +385,28 @@ literal|null
 return|;
 block|}
 annotation|@
+name|Override
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Clear the store"
+argument_list|)
+DECL|method|clear ()
+specifier|public
+name|void
+name|clear
+parameter_list|()
+block|{
+name|getCache
+argument_list|()
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
 name|ManagedAttribute
 argument_list|(
 name|description
