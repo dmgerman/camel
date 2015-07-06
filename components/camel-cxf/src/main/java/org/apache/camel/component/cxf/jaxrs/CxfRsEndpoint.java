@@ -582,6 +582,13 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|UriPath
+DECL|field|bus
+specifier|protected
+name|Bus
+name|bus
+decl_stmt|;
 DECL|field|interceptorHolder
 specifier|private
 specifier|final
@@ -666,13 +673,6 @@ init|=
 name|BindingStyle
 operator|.
 name|Default
-decl_stmt|;
-annotation|@
-name|UriPath
-DECL|field|bus
-specifier|protected
-name|Bus
-name|bus
 decl_stmt|;
 annotation|@
 name|UriParam
