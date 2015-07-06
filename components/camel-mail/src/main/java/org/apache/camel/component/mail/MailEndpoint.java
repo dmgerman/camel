@@ -223,6 +223,34 @@ name|ScheduledPollEndpoint
 block|{
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|""
+operator|+
+name|MailConsumer
+operator|.
+name|DEFAULT_CONSUMER_DELAY
+argument_list|,
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Milliseconds before the next poll."
+argument_list|)
+DECL|field|delay
+specifier|private
+name|long
+name|delay
+init|=
+name|MailConsumer
+operator|.
+name|DEFAULT_CONSUMER_DELAY
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|configuration
 specifier|private
 name|MailConfiguration
@@ -286,7 +314,17 @@ DECL|method|MailEndpoint ()
 specifier|public
 name|MailEndpoint
 parameter_list|()
-block|{     }
+block|{
+comment|// ScheduledPollConsumer default delay is 500 millis and that is too often for polling a mailbox,
+comment|// so we override with a new default value. End user can override this value by providing a consumer.delay parameter
+name|setDelay
+argument_list|(
+name|MailConsumer
+operator|.
+name|DEFAULT_CONSUMER_DELAY
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|MailEndpoint (String uri, MailComponent component, MailConfiguration configuration)
 specifier|public
 name|MailEndpoint
@@ -314,6 +352,13 @@ name|configuration
 operator|=
 name|configuration
 expr_stmt|;
+name|setDelay
+argument_list|(
+name|MailConsumer
+operator|.
+name|DEFAULT_CONSUMER_DELAY
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Deprecated
@@ -339,6 +384,13 @@ name|configuration
 operator|=
 name|configuration
 expr_stmt|;
+name|setDelay
+argument_list|(
+name|MailConsumer
+operator|.
+name|DEFAULT_CONSUMER_DELAY
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|MailEndpoint (String endpointUri)
 specifier|public
@@ -355,6 +407,13 @@ argument_list|,
 operator|new
 name|MailConfiguration
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|setDelay
+argument_list|(
+name|MailConsumer
+operator|.
+name|DEFAULT_CONSUMER_DELAY
 argument_list|)
 expr_stmt|;
 block|}
@@ -522,17 +581,6 @@ name|configuration
 operator|.
 name|isSkipFailedMessage
 argument_list|()
-argument_list|)
-expr_stmt|;
-comment|// ScheduledPollConsumer default delay is 500 millis and that is too often for polling a mailbox,
-comment|// so we override with a new default value. End user can override this value by providing a consumer.delay parameter
-name|answer
-operator|.
-name|setDelay
-argument_list|(
-name|MailConsumer
-operator|.
-name|DEFAULT_CONSUMER_DELAY
 argument_list|)
 expr_stmt|;
 name|answer
