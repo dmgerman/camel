@@ -3181,7 +3181,9 @@ name|Metadata
 argument_list|(
 name|description
 operator|=
-literal|"The key password, which is used to access the certificate's key entry in the keystore (this is the same password that is supplied to the keystore command's -keypass option)."
+literal|"The key password, which is used to access the certificate's key entry in the keystore "
+operator|+
+literal|"(this is the same password that is supplied to the keystore command's -keypass option)."
 argument_list|)
 DECL|method|setSslKeyPassword (String sslKeyPassword)
 specifier|public
