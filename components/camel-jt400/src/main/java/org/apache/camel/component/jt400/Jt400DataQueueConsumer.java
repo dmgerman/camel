@@ -428,6 +428,13 @@ name|getCamelContext
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|exchange
+operator|.
+name|setFromEndpoint
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|entry
@@ -626,6 +633,13 @@ name|getCamelContext
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|exchange
+operator|.
+name|setFromEndpoint
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|entry
