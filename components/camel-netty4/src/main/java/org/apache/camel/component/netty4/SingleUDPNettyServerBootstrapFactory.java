@@ -832,7 +832,10 @@ name|bootstrap
 operator|.
 name|bind
 argument_list|(
-name|hostAddress
+name|configuration
+operator|.
+name|getPort
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|channelFuture
