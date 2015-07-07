@@ -1008,6 +1008,36 @@ name|systemName
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|setSecured (boolean secured)
+specifier|public
+name|void
+name|setSecured
+parameter_list|(
+name|boolean
+name|secured
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setSecured
+argument_list|(
+name|secured
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isSecured ()
+specifier|public
+name|boolean
+name|isSecured
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|isSecured
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 

@@ -412,6 +412,14 @@ name|SearchType
 operator|.
 name|EQ
 decl_stmt|;
+comment|/**      * Whether connections to AS/400 are secured with SSL.      */
+annotation|@
+name|UriParam
+DECL|field|secured
+specifier|private
+name|boolean
+name|secured
+decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|outputFieldsIdxArray
@@ -862,6 +870,32 @@ return|return
 name|outputFieldsIdxArray
 return|;
 block|}
+DECL|method|isSecured ()
+specifier|public
+name|boolean
+name|isSecured
+parameter_list|()
+block|{
+return|return
+name|secured
+return|;
+block|}
+DECL|method|setSecured (boolean secured)
+specifier|public
+name|void
+name|setSecured
+parameter_list|(
+name|boolean
+name|secured
+parameter_list|)
+block|{
+name|this
+operator|.
+name|secured
+operator|=
+name|secured
+expr_stmt|;
+block|}
 comment|/**      * Specifies which fields (program parameters) are output parameters.      */
 DECL|method|setOutputFieldsIdxArray (Integer[] outputFieldsIdxArray)
 specifier|public
@@ -1102,6 +1136,28 @@ name|connectionPool
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|isSecured
+argument_list|()
+condition|)
+block|{
+name|system
+operator|=
+name|connectionPool
+operator|.
+name|getSecureConnection
+argument_list|(
+name|systemName
+argument_list|,
+name|userID
+argument_list|,
+name|password
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|system
 operator|=
 name|connectionPool
@@ -1115,6 +1171,7 @@ argument_list|,
 name|password
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|ccsid
