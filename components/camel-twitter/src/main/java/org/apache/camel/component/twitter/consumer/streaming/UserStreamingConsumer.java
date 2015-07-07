@@ -445,6 +445,63 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
+DECL|method|onRetweetedRetweet (User source, User target, Status retweetedStatus)
+specifier|public
+name|void
+name|onRetweetedRetweet
+parameter_list|(
+name|User
+name|source
+parameter_list|,
+name|User
+name|target
+parameter_list|,
+name|Status
+name|retweetedStatus
+parameter_list|)
+block|{
+comment|// TODO Auto-generated method stub
+block|}
+annotation|@
+name|Override
+DECL|method|onFavoritedRetweet (User source, User target, Status favoritedRetweeet)
+specifier|public
+name|void
+name|onFavoritedRetweet
+parameter_list|(
+name|User
+name|source
+parameter_list|,
+name|User
+name|target
+parameter_list|,
+name|Status
+name|favoritedRetweeet
+parameter_list|)
+block|{
+comment|// TODO Auto-generated method stub
+block|}
+annotation|@
+name|Override
+DECL|method|onQuotedTweet (User source, User target, Status quotingTweet)
+specifier|public
+name|void
+name|onQuotedTweet
+parameter_list|(
+name|User
+name|source
+parameter_list|,
+name|User
+name|target
+parameter_list|,
+name|Status
+name|quotingTweet
+parameter_list|)
+block|{
+comment|// TODO Auto-generated method stub
+block|}
 block|}
 end_class
 
