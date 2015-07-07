@@ -198,6 +198,16 @@ operator|.
 name|createProducerProperties
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getBrokers
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|props
 operator|.
 name|put
@@ -210,6 +220,7 @@ name|getBrokers
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|props
 return|;
