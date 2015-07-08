@@ -266,14 +266,12 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|/**      * Pool from which physical connections to the system are obtained.      */
 DECL|field|connectionPool
 specifier|private
 specifier|final
 name|AS400ConnectionPool
 name|connectionPool
 decl_stmt|;
-comment|/**      * ID of the AS/400 user.      */
 annotation|@
 name|UriPath
 annotation|@
@@ -288,7 +286,6 @@ specifier|private
 name|String
 name|userID
 decl_stmt|;
-comment|/**      * Password of the AS/400 user.      */
 annotation|@
 name|UriPath
 annotation|@
@@ -303,7 +300,6 @@ specifier|private
 name|String
 name|password
 decl_stmt|;
-comment|/**      * Name of the AS/400 system.      */
 annotation|@
 name|UriPath
 annotation|@
@@ -318,7 +314,6 @@ specifier|private
 name|String
 name|systemName
 decl_stmt|;
-comment|/**      * Fully qualified integrated file system path name of the target object of      * this endpoint (either data queue or program).      */
 annotation|@
 name|UriPath
 annotation|@
@@ -347,7 +342,6 @@ specifier|private
 name|Jt400Type
 name|type
 decl_stmt|;
-comment|/**      * CCSID to use for the connection with the AS/400 system.      */
 annotation|@
 name|UriParam
 DECL|field|ccsid
@@ -357,7 +351,6 @@ name|ccsid
 init|=
 name|DEFAULT_SYSTEM_CCSID
 decl_stmt|;
-comment|/**      * Data format for sending messages.      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -374,7 +367,6 @@ name|Format
 operator|.
 name|text
 decl_stmt|;
-comment|/**      * Whether AS/400 prompting is enabled in the environment running Camel.      */
 annotation|@
 name|UriParam
 DECL|field|guiAvailable
@@ -412,7 +404,6 @@ name|SearchType
 operator|.
 name|EQ
 decl_stmt|;
-comment|/**      * Whether connections to AS/400 are secured with SSL.      */
 annotation|@
 name|UriParam
 DECL|field|secured
@@ -880,6 +871,7 @@ return|return
 name|secured
 return|;
 block|}
+comment|/**      * Whether connections to AS/400 are secured with SSL.      */
 DECL|method|setSecured (boolean secured)
 specifier|public
 name|void
