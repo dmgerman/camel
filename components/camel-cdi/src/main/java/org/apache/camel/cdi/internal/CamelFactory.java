@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * produces {@link Endpoint} and {@link org.apache.camel.ProducerTemplate} instances for injection into beans  */
+comment|/**  * Produces {@link Endpoint} and {@link org.apache.camel.ProducerTemplate} instances for injection into beans  */
 end_comment
 
 begin_class

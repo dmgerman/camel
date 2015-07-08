@@ -1011,7 +1011,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Lets detect all beans annotated with @Consume and      * beans of type {@link RouteBuilder} which are annotated with {@link org.apache.camel.cdi.ContextName}      * so they can be auto-registered      */
+comment|/**      * Lets detect all beans annotated with @Consume so they can be auto-registered      */
 DECL|method|detectConsumeBeans (@bserves ProcessBean<?> event)
 specifier|public
 name|void
@@ -1263,7 +1263,7 @@ return|return
 name|config
 return|;
 block|}
-comment|/**      * Lets detect all producer methods creating instances of {@link RouteBuilder} which are annotated with {@link org      * .apache.camel.cdi.ContextName}      * so they can be auto-registered      */
+comment|/**      * Lets detect all producer methods creating instances of {@link RouteBuilder} which are annotated with      * {@link org.apache.camel.cdi.ContextName} so they can be auto-registered      */
 DECL|method|detectProducerRoutes (@bserves ProcessProducerMethod<?, ?> event)
 specifier|public
 name|void
