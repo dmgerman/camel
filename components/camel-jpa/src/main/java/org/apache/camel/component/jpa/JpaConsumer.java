@@ -1476,13 +1476,6 @@ operator|!
 name|getEndpoint
 argument_list|()
 operator|.
-name|isConsumeDelete
-argument_list|()
-operator|||
-operator|!
-name|getEndpoint
-argument_list|()
-operator|.
 name|isConsumeLockEntity
 argument_list|()
 condition|)
