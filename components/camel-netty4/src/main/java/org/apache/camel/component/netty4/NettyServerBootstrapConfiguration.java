@@ -515,6 +515,36 @@ specifier|protected
 name|String
 name|networkInterface
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|reconnect
+specifier|private
+name|boolean
+name|reconnect
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"10000"
+argument_list|)
+DECL|field|reconnectInterval
+specifier|private
+name|int
+name|reconnectInterval
+init|=
+literal|10000
+decl_stmt|;
 DECL|method|getAddress ()
 specifier|public
 name|String
@@ -1485,6 +1515,60 @@ operator|=
 name|enabledProtocols
 expr_stmt|;
 block|}
+comment|/**      * Used only in clientMode in consumer, the consumer will attempt to reconnect on disconnection if this is enabled      */
+DECL|method|isReconnect ()
+specifier|public
+name|boolean
+name|isReconnect
+parameter_list|()
+block|{
+return|return
+name|reconnect
+return|;
+block|}
+DECL|method|setReconnect (boolean reconnect)
+specifier|public
+name|void
+name|setReconnect
+parameter_list|(
+name|boolean
+name|reconnect
+parameter_list|)
+block|{
+name|this
+operator|.
+name|reconnect
+operator|=
+name|reconnect
+expr_stmt|;
+block|}
+comment|/**      * Used if reconnect and clientMode is enabled. The interval in milli seconds to attempt reconnection      */
+DECL|method|getReconnectInterval ()
+specifier|public
+name|int
+name|getReconnectInterval
+parameter_list|()
+block|{
+return|return
+name|reconnectInterval
+return|;
+block|}
+DECL|method|setReconnectInterval (int reconnectInterval)
+specifier|public
+name|void
+name|setReconnectInterval
+parameter_list|(
+name|int
+name|reconnectInterval
+parameter_list|)
+block|{
+name|this
+operator|.
+name|reconnectInterval
+operator|=
+name|reconnectInterval
+expr_stmt|;
+block|}
 comment|/**      * Checks if the other {@link NettyServerBootstrapConfiguration} is compatible      * with this, as a Netty listener bound on port X shares the same common      * {@link NettyServerBootstrapConfiguration}, which must be identical.      */
 DECL|method|compatible (NettyServerBootstrapConfiguration other)
 specifier|public
@@ -2144,6 +2228,36 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|reconnect
+operator|!=
+name|other
+operator|.
+name|reconnect
+condition|)
+block|{
+name|isCompatible
+operator|=
+literal|false
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|reconnectInterval
+operator|!=
+name|other
+operator|.
+name|reconnectInterval
+condition|)
+block|{
+name|isCompatible
+operator|=
+literal|false
+expr_stmt|;
+block|}
 return|return
 name|isCompatible
 return|;
@@ -2300,6 +2414,18 @@ operator|+
 literal|", networkInterface='"
 operator|+
 name|networkInterface
+operator|+
+literal|'\''
+operator|+
+literal|", reconnect='"
+operator|+
+name|reconnect
+operator|+
+literal|'\''
+operator|+
+literal|", reconnectInterval='"
+operator|+
+name|reconnectInterval
 operator|+
 literal|'\''
 operator|+
