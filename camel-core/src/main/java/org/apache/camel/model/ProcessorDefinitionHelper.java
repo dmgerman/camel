@@ -2621,7 +2621,7 @@ name|definition
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Inspects the given definition and resolves any property placeholders from its properties.      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will be property placeholder resolved.      *      * @param camelContext the Camel context      * @param definition   the definition      * @throws Exception is thrown if property placeholders was used and there was an error resolving them      * @see org.apache.camel.CamelContext#resolvePropertyPlaceholders(String)      * @see org.apache.camel.component.properties.PropertiesComponent      */
+comment|/**      * Inspects the given definition and resolves any property placeholders from its properties.      *<p/>      * This implementation will check all the getter/setter pairs on this instance and for all the values      * (which is a String type) will be property placeholder resolved. The definition should implement {@link OtherAttributesAware}      *      * @param camelContext the Camel context      * @param definition   the definition which should implement {@link OtherAttributesAware}      * @throws Exception is thrown if property placeholders was used and there was an error resolving them      * @see org.apache.camel.CamelContext#resolvePropertyPlaceholders(String)      * @see org.apache.camel.component.properties.PropertiesComponent      */
 DECL|method|resolvePropertyPlaceholders (CamelContext camelContext, Object definition)
 specifier|public
 specifier|static
@@ -2675,11 +2675,8 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
-name|processorDefinition
+name|OtherAttributesAware
+name|other
 init|=
 literal|null
 decl_stmt|;
@@ -2687,16 +2684,13 @@ if|if
 condition|(
 name|definition
 operator|instanceof
-name|ProcessorDefinition
+name|OtherAttributesAware
 condition|)
 block|{
-name|processorDefinition
+name|other
 operator|=
 operator|(
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|OtherAttributesAware
 operator|)
 name|definition
 expr_stmt|;
@@ -2705,11 +2699,11 @@ comment|// include additional properties which have the Camel placeholder QName
 comment|// and when the definition parameter is this (otherAttributes belong to this)
 if|if
 condition|(
-name|processorDefinition
+name|other
 operator|!=
 literal|null
 operator|&&
-name|processorDefinition
+name|other
 operator|.
 name|getOtherAttributes
 argument_list|()
@@ -2722,7 +2716,7 @@ control|(
 name|QName
 name|key
 range|:
-name|processorDefinition
+name|other
 operator|.
 name|getOtherAttributes
 argument_list|()
@@ -2757,7 +2751,7 @@ decl_stmt|;
 name|Object
 name|value
 init|=
-name|processorDefinition
+name|other
 operator|.
 name|getOtherAttributes
 argument_list|()

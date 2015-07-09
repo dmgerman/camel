@@ -18,6 +18,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|xml
@@ -54,6 +64,20 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlAnyAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlTransient
 import|;
 end_import
@@ -69,6 +93,18 @@ operator|.
 name|annotation
 operator|.
 name|XmlType
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|namespace
+operator|.
+name|QName
 import|;
 end_import
 
@@ -202,6 +238,8 @@ class|class
 name|DataFormatDefinition
 extends|extends
 name|IdentifiedType
+implements|implements
+name|OtherAttributesAware
 block|{
 annotation|@
 name|XmlTransient
@@ -216,6 +254,19 @@ DECL|field|dataFormatName
 specifier|private
 name|String
 name|dataFormatName
+decl_stmt|;
+comment|// use xs:any to support optional property placeholders
+annotation|@
+name|XmlAnyAttribute
+DECL|field|otherAttributes
+specifier|private
+name|Map
+argument_list|<
+name|QName
+argument_list|,
+name|Object
+argument_list|>
+name|otherAttributes
 decl_stmt|;
 DECL|method|DataFormatDefinition ()
 specifier|public
@@ -288,15 +339,10 @@ expr_stmt|;
 comment|// try to let resolver see if it can resolve it, its not always possible
 name|type
 operator|=
-operator|(
-operator|(
-name|ModelCamelContext
-operator|)
 name|routeContext
 operator|.
 name|getCamelContext
 argument_list|()
-operator|)
 operator|.
 name|resolveDataFormatDefinition
 argument_list|(
@@ -741,6 +787,42 @@ operator|.
 name|dataFormat
 operator|=
 name|dataFormat
+expr_stmt|;
+block|}
+DECL|method|getOtherAttributes ()
+specifier|public
+name|Map
+argument_list|<
+name|QName
+argument_list|,
+name|Object
+argument_list|>
+name|getOtherAttributes
+parameter_list|()
+block|{
+return|return
+name|otherAttributes
+return|;
+block|}
+DECL|method|setOtherAttributes (Map<QName, Object> otherAttributes)
+specifier|public
+name|void
+name|setOtherAttributes
+parameter_list|(
+name|Map
+argument_list|<
+name|QName
+argument_list|,
+name|Object
+argument_list|>
+name|otherAttributes
+parameter_list|)
+block|{
+name|this
+operator|.
+name|otherAttributes
+operator|=
+name|otherAttributes
 expr_stmt|;
 block|}
 DECL|method|getShortName ()

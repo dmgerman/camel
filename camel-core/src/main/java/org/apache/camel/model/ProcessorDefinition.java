@@ -754,6 +754,8 @@ name|Type
 argument_list|>
 implements|implements
 name|Block
+implements|,
+name|OtherAttributesAware
 block|{
 annotation|@
 name|XmlTransient
@@ -10132,6 +10134,8 @@ operator|=
 name|inheritErrorHandler
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|getOtherAttributes ()
 specifier|public
 name|Map
@@ -10147,6 +10151,8 @@ return|return
 name|otherAttributes
 return|;
 block|}
+annotation|@
+name|Override
 DECL|method|setOtherAttributes (Map<QName, Object> otherAttributes)
 specifier|public
 name|void
