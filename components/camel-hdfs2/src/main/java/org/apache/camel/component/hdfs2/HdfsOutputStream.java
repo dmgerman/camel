@@ -391,6 +391,29 @@ argument_list|)
 argument_list|)
 condition|)
 block|{
+comment|//only check if not directory
+if|if
+condition|(
+operator|!
+name|ret
+operator|.
+name|info
+operator|.
+name|getFileSystem
+argument_list|()
+operator|.
+name|isDirectory
+argument_list|(
+operator|new
+name|Path
+argument_list|(
+name|ret
+operator|.
+name|actualPath
+argument_list|)
+argument_list|)
+condition|)
+block|{
 if|if
 condition|(
 name|configuration
@@ -429,6 +452,7 @@ argument_list|(
 literal|"The file already exists"
 argument_list|)
 throw|;
+block|}
 block|}
 block|}
 block|}
