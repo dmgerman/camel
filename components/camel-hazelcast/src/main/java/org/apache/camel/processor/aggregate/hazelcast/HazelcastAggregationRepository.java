@@ -297,7 +297,6 @@ end_comment
 begin_class
 DECL|class|HazelcastAggregationRepository
 specifier|public
-specifier|final
 class|class
 name|HazelcastAggregationRepository
 extends|extends
@@ -1886,7 +1885,7 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|unmarshallExchange (CamelContext camelContext, DefaultExchangeHolder holder)
-specifier|private
+specifier|protected
 name|Exchange
 name|unmarshallExchange
 parameter_list|(
