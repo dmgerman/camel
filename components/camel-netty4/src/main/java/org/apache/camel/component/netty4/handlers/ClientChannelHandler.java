@@ -624,7 +624,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO Auto-generated method stub
 name|messageReceived
 operator|=
 literal|true
