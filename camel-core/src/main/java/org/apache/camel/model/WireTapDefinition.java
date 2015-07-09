@@ -593,25 +593,6 @@ name|producer
 argument_list|)
 decl_stmt|;
 comment|// and wrap in unit of work
-name|String
-name|routeId
-init|=
-name|routeContext
-operator|.
-name|getRoute
-argument_list|()
-operator|.
-name|idOrCreate
-argument_list|(
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getNodeIdFactory
-argument_list|()
-argument_list|)
-decl_stmt|;
 name|CamelInternalProcessor
 name|internal
 init|=
@@ -630,7 +611,7 @@ name|CamelInternalProcessor
 operator|.
 name|UnitOfWorkProcessorAdvice
 argument_list|(
-name|routeId
+name|routeContext
 argument_list|)
 argument_list|)
 expr_stmt|;

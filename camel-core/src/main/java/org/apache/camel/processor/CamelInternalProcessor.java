@@ -1722,7 +1722,9 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Advice to inject the current {@link RouteContext} into the {@link UnitOfWork} on the {@link Exchange}      */
+comment|/**      * Advice to inject the current {@link RouteContext} into the {@link UnitOfWork} on the {@link Exchange}      *      * @deprecated this logic has been merged into {@link org.apache.camel.processor.CamelInternalProcessor.UnitOfWorkProcessorAdvice}      */
+annotation|@
+name|Deprecated
 DECL|class|RouteContextAdvice
 specifier|public
 specifier|static
@@ -2703,25 +2705,25 @@ argument_list|<
 name|UnitOfWork
 argument_list|>
 block|{
-DECL|field|routeId
+DECL|field|routeContext
 specifier|private
 specifier|final
-name|String
-name|routeId
+name|RouteContext
+name|routeContext
 decl_stmt|;
-DECL|method|UnitOfWorkProcessorAdvice (String routeId)
+DECL|method|UnitOfWorkProcessorAdvice (RouteContext routeContext)
 specifier|public
 name|UnitOfWorkProcessorAdvice
 parameter_list|(
-name|String
-name|routeId
+name|RouteContext
+name|routeContext
 parameter_list|)
 block|{
 name|this
 operator|.
-name|routeId
+name|routeContext
 operator|=
-name|routeId
+name|routeContext
 expr_stmt|;
 block|}
 annotation|@
@@ -2741,7 +2743,7 @@ comment|// if the exchange doesn't have from route id set, then set it if it ori
 comment|// from this unit of work
 if|if
 condition|(
-name|routeId
+name|routeContext
 operator|!=
 literal|null
 operator|&&
@@ -2753,6 +2755,25 @@ operator|==
 literal|null
 condition|)
 block|{
+name|String
+name|routeId
+init|=
+name|routeContext
+operator|.
+name|getRoute
+argument_list|()
+operator|.
+name|idOrCreate
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getNodeIdFactory
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|exchange
 operator|.
 name|setFromRouteId
@@ -2761,6 +2782,12 @@ name|routeId
 argument_list|)
 expr_stmt|;
 block|}
+comment|// only return UnitOfWork if we created a new as then its us that handle the lifecycle to done the created UoW
+name|UnitOfWork
+name|created
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|exchange
@@ -2773,32 +2800,60 @@ condition|)
 block|{
 comment|// If there is no existing UoW, then we should start one and
 comment|// terminate it once processing is completed for the exchange.
-name|UnitOfWork
-name|uow
-init|=
+name|created
+operator|=
 name|createUnitOfWork
 argument_list|(
 name|exchange
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|exchange
 operator|.
 name|setUnitOfWork
 argument_list|(
-name|uow
+name|created
 argument_list|)
 expr_stmt|;
-name|uow
+name|created
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
-return|return
-name|uow
-return|;
+block|}
+comment|// for any exchange we should push/pop route context so we can keep track of which route we are routing
+if|if
+condition|(
+name|routeContext
+operator|!=
+literal|null
+condition|)
+block|{
+name|UnitOfWork
+name|existing
+init|=
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|existing
+operator|!=
+literal|null
+condition|)
+block|{
+name|existing
+operator|.
+name|pushRouteContext
+argument_list|(
+name|routeContext
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 return|return
-literal|null
+name|created
 return|;
 block|}
 annotation|@
@@ -2817,6 +2872,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|UnitOfWork
+name|existing
+init|=
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+decl_stmt|;
 comment|// execute done on uow if we created it, and the consumer is not doing it
 if|if
 condition|(
@@ -2833,6 +2896,24 @@ name|uow
 argument_list|,
 name|exchange
 argument_list|)
+expr_stmt|;
+block|}
+comment|// after UoW is done lets pop the route context which must be done on every existing UoW
+if|if
+condition|(
+name|routeContext
+operator|!=
+literal|null
+operator|&&
+name|existing
+operator|!=
+literal|null
+condition|)
+block|{
+name|existing
+operator|.
+name|popRouteContext
+argument_list|()
 expr_stmt|;
 block|}
 block|}
@@ -2876,12 +2957,12 @@ specifier|final
 name|UnitOfWork
 name|parent
 decl_stmt|;
-DECL|method|ChildUnitOfWorkProcessorAdvice (String routeId, UnitOfWork parent)
+DECL|method|ChildUnitOfWorkProcessorAdvice (RouteContext routeContext, UnitOfWork parent)
 specifier|public
 name|ChildUnitOfWorkProcessorAdvice
 parameter_list|(
-name|String
-name|routeId
+name|RouteContext
+name|routeContext
 parameter_list|,
 name|UnitOfWork
 name|parent
@@ -2889,7 +2970,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|routeId
+name|routeContext
 argument_list|)
 expr_stmt|;
 name|this

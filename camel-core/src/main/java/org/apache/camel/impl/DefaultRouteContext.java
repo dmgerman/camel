@@ -940,6 +940,7 @@ argument_list|,
 name|eventDrivenProcessors
 argument_list|)
 decl_stmt|;
+comment|// force creating the route id so its known ahead of the route is started
 name|String
 name|routeId
 init|=
@@ -972,20 +973,6 @@ operator|new
 name|CamelInternalProcessor
 operator|.
 name|UnitOfWorkProcessorAdvice
-argument_list|(
-name|routeId
-argument_list|)
-argument_list|)
-expr_stmt|;
-comment|// and then in route context so we can keep track which route this is at runtime
-name|internal
-operator|.
-name|addAdvice
-argument_list|(
-operator|new
-name|CamelInternalProcessor
-operator|.
-name|RouteContextAdvice
 argument_list|(
 name|this
 argument_list|)
