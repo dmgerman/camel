@@ -150,6 +150,22 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|PipelineHelper
+operator|.
+name|continueProcessing
+import|;
+end_import
+
 begin_comment
 comment|/**  * The processor which sends messages in a loop.  */
 end_comment
@@ -433,6 +449,22 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// check for error if so we should break out
+if|if
+condition|(
+operator|!
+name|continueProcessing
+argument_list|(
+name|target
+argument_list|,
+literal|"so breaking out of loop"
+argument_list|,
+name|LOG
+argument_list|)
+condition|)
+block|{
+break|break;
+block|}
 comment|// increment counter before next loop
 name|index
 operator|.
@@ -635,6 +667,22 @@ expr_stmt|;
 comment|// the remainder of the routing slip will be completed async
 comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
 return|return;
+block|}
+comment|// check for error if so we should break out
+if|if
+condition|(
+operator|!
+name|continueProcessing
+argument_list|(
+name|target
+argument_list|,
+literal|"so breaking out of loop"
+argument_list|,
+name|LOG
+argument_list|)
+condition|)
+block|{
+break|break;
 block|}
 comment|// increment counter before next loop
 name|index
