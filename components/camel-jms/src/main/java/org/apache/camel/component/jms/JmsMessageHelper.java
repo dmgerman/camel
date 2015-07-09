@@ -1462,6 +1462,42 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Gets the JMSCorrelationIDAsBytes from the message.      *      * @param message the message      * @return the JMSCorrelationIDAsBytes, or<tt>null</tt> if not able to get      */
+DECL|method|getJMSCorrelationIDAsBytes (Message message)
+specifier|public
+specifier|static
+name|String
+name|getJMSCorrelationIDAsBytes
+parameter_list|(
+name|Message
+name|message
+parameter_list|)
+block|{
+try|try
+block|{
+return|return
+operator|new
+name|String
+argument_list|(
+name|message
+operator|.
+name|getJMSCorrelationIDAsBytes
+argument_list|()
+argument_list|)
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// ignore if JMS broker do not support this
+block|}
+return|return
+literal|null
+return|;
+block|}
 block|}
 end_class
 
