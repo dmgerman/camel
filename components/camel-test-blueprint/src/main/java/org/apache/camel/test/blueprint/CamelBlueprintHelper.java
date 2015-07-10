@@ -1353,6 +1353,7 @@ literal|null
 condition|)
 block|{
 comment|// ensure we update
+comment|// we *have to* use "null" as 2nd arg to have correct bundle location for Configuration object
 name|Configuration
 name|config
 init|=
@@ -1361,6 +1362,8 @@ operator|.
 name|getConfiguration
 argument_list|(
 name|pid
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|LOG
