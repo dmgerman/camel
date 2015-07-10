@@ -374,6 +374,7 @@ argument_list|>
 name|context
 parameter_list|)
 block|{
+comment|// create CdiCamelContext and set its name
 name|CdiCamelContext
 name|camelContext
 init|=
@@ -402,6 +403,17 @@ name|camelContextName
 argument_list|)
 expr_stmt|;
 block|}
+comment|// then do dependency injection
+name|target
+operator|.
+name|inject
+argument_list|(
+name|camelContext
+argument_list|,
+name|context
+argument_list|)
+expr_stmt|;
+comment|// and post construct which will start Camel
 name|target
 operator|.
 name|postConstruct
