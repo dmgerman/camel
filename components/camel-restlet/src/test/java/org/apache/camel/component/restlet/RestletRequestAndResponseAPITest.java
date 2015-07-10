@@ -187,7 +187,7 @@ argument_list|,
 literal|"Carlsberg"
 argument_list|)
 expr_stmt|;
-name|Object
+name|String
 name|out
 init|=
 name|template
@@ -199,6 +199,10 @@ argument_list|,
 literal|null
 argument_list|,
 name|headers
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -343,10 +347,14 @@ name|getOut
 argument_list|()
 operator|.
 name|getBody
-argument_list|()
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// the restlet response should be accessible if neeeded
+comment|// the restlet response should be accessible if needed
 name|Response
 name|response
 init|=
@@ -449,7 +457,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// the Restlet request should be available if neeeded
+comment|// the Restlet request should be available if needed
 name|Request
 name|request
 init|=

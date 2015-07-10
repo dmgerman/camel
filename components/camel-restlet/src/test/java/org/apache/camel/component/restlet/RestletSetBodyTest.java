@@ -240,7 +240,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"restlet:http://0.0.0.0:"
+literal|"restlet:http://localhost:"
 operator|+
 name|portNum
 operator|+
@@ -277,7 +277,7 @@ init|=
 operator|new
 name|HttpGet
 argument_list|(
-literal|"http://0.0.0.0:"
+literal|"http://localhost:"
 operator|+
 name|portNum
 operator|+
@@ -449,7 +449,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"restlet:http://0.0.0.0:"
+literal|"restlet:http://localhost:"
 operator|+
 name|portNum
 operator|+
@@ -496,7 +496,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"restlet:http://0.0.0.0:"
+literal|"restlet:http://localhost:"
 operator|+
 name|portNum
 operator|+
@@ -505,7 +505,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"http://127.0.0.1:"
+literal|"http://localhost:"
 operator|+
 name|portNum2
 operator|+
@@ -523,7 +523,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"jetty:http://0.0.0.0:"
+literal|"jetty:http://localhost:"
 operator|+
 name|portNum2
 operator|+
@@ -590,7 +590,7 @@ argument_list|)
 decl_stmt|;
 name|from
 argument_list|(
-literal|"restlet:http://0.0.0.0:"
+literal|"restlet:http://localhost:"
 operator|+
 name|portNum
 operator|+
@@ -617,7 +617,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"restlet:http://0.0.0.0:"
+literal|"restlet:http://localhost:"
 operator|+
 name|portNum
 operator|+

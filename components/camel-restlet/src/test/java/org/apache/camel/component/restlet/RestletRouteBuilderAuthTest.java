@@ -176,9 +176,6 @@ expr_stmt|;
 name|String
 name|response
 init|=
-operator|(
-name|String
-operator|)
 name|template
 operator|.
 name|requestBodyAndHeaders
@@ -188,6 +185,10 @@ argument_list|,
 literal|"<order foo='1'/>"
 argument_list|,
 name|headers
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 comment|// END SNIPPET: auth_request
