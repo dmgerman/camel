@@ -26,6 +26,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|nio
 operator|.
 name|channels
@@ -908,6 +918,44 @@ return|return;
 block|}
 else|else
 block|{
+if|if
+condition|(
+literal|"Broken pipe"
+operator|.
+name|equals
+argument_list|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+condition|)
+block|{
+comment|// Can't recover channel at this point. Only valid thing to do is close. A TCP RST is a possible cause for this.
+comment|// Note that trying to write to channel in this state will cause infinite recursion in netty 3.x
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Channel pipe is broken. Closing channel now."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+name|ctx
+operator|.
+name|getChannel
+argument_list|()
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// we cannot throw the exception here
 name|LOG
 operator|.
@@ -999,6 +1047,7 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
