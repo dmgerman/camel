@@ -437,8 +437,14 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Exchange["
-operator|+
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"Exchange[%s][%s]"
+argument_list|,
+name|exchangeId
+argument_list|,
 operator|(
 name|out
 operator|==
@@ -448,8 +454,7 @@ name|in
 else|:
 name|out
 operator|)
-operator|+
-literal|"]"
+argument_list|)
 return|;
 block|}
 DECL|method|copy ()
