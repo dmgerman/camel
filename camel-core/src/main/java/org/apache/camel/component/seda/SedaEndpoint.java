@@ -610,6 +610,24 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|limitConcurrentConsumers
+specifier|private
+name|boolean
+name|limitConcurrentConsumers
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
 argument_list|)
 DECL|field|multipleConsumers
 specifier|private
@@ -707,6 +725,18 @@ DECL|field|failIfNoConsumers
 specifier|private
 name|boolean
 name|failIfNoConsumers
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|discardIfNoConsumers
+specifier|private
+name|boolean
+name|discardIfNoConsumers
 decl_stmt|;
 DECL|field|queueFactory
 specifier|private
@@ -1670,6 +1700,35 @@ return|return
 name|concurrentConsumers
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|isLimitConcurrentConsumers ()
+specifier|public
+name|boolean
+name|isLimitConcurrentConsumers
+parameter_list|()
+block|{
+return|return
+name|limitConcurrentConsumers
+return|;
+block|}
+comment|/**      * Whether to limit the number of concurrentConsumers to the maximum of 500.      * By default, an exception will be thrown if an endpoint is configured with a greater number. You can disable that check by turning this option off.      */
+DECL|method|setLimitConcurrentConsumers (boolean limitConcurrentConsumers)
+specifier|public
+name|void
+name|setLimitConcurrentConsumers
+parameter_list|(
+name|boolean
+name|limitConcurrentConsumers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|limitConcurrentConsumers
+operator|=
+name|limitConcurrentConsumers
+expr_stmt|;
+block|}
 DECL|method|getWaitForTaskToComplete ()
 specifier|public
 name|WaitForTaskToComplete
@@ -1738,7 +1797,7 @@ return|return
 name|failIfNoConsumers
 return|;
 block|}
-comment|/**      * Whether the producer should fail by throwing an exception, when sending to a SEDA queue with no active consumers.      */
+comment|/**      * Whether the producer should fail by throwing an exception, when sending to a queue with no active consumers.      *<p/>      * Only one of the options<tt>discardIfNoConsumers</tt> and<tt>failIfNoConsumers</tt> can be enabled at the same time.      */
 DECL|method|setFailIfNoConsumers (boolean failIfNoConsumers)
 specifier|public
 name|void
@@ -1753,6 +1812,35 @@ operator|.
 name|failIfNoConsumers
 operator|=
 name|failIfNoConsumers
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|isDiscardIfNoConsumers ()
+specifier|public
+name|boolean
+name|isDiscardIfNoConsumers
+parameter_list|()
+block|{
+return|return
+name|discardIfNoConsumers
+return|;
+block|}
+comment|/**      * Whether the producer should discard the message (do not add the message to the queue), when sending to a queue with no active consumers.      *<p/>      * Only one of the options<tt>discardIfNoConsumers</tt> and<tt>failIfNoConsumers</tt> can be enabled at the same time.      */
+DECL|method|setDiscardIfNoConsumers (boolean discardIfNoConsumers)
+specifier|public
+name|void
+name|setDiscardIfNoConsumers
+parameter_list|(
+name|boolean
+name|discardIfNoConsumers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|discardIfNoConsumers
+operator|=
+name|discardIfNoConsumers
 expr_stmt|;
 block|}
 annotation|@
