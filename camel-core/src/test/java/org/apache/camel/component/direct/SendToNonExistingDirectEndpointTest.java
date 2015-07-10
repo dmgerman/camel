@@ -134,16 +134,6 @@ name|cause
 argument_list|)
 expr_stmt|;
 comment|// ensure backwards compatibility
-name|assertEquals
-argument_list|(
-literal|"No consumers available on endpoint: Endpoint[direct://foo]. Exchange[Message: Hello World]"
-argument_list|,
-name|cause
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|assertNotNull
 argument_list|(
 name|cause

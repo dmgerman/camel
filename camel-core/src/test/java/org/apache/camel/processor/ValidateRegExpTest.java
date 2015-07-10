@@ -286,7 +286,7 @@ argument_list|()
 operator|.
 name|endsWith
 argument_list|(
-literal|"Exchange[Message: 1.1.2010]"
+literal|"[Message: 1.1.2010]"
 argument_list|)
 argument_list|)
 expr_stmt|;

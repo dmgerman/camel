@@ -2178,14 +2178,17 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Invalid correlation key. Exchange[Message: B]"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Invalid correlation key."
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ap
@@ -2477,14 +2480,17 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"The correlation key [123] has been closed. Exchange[Message: C]"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"The correlation key [123] has been closed."
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

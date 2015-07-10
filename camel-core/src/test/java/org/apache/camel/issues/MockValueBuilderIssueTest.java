@@ -199,16 +199,22 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-name|assertEquals
+name|String
+name|s
+init|=
+literal|"Assertion error at index 0 on mock mock://result with predicate: exchangeProperty(foo) contains 4 evaluated as: 123 contains 4"
+decl_stmt|;
+name|assertTrue
 argument_list|(
-literal|"Assertion error at index 0 on mock mock://result with predicate: exchangeProperty(foo) contains 4"
-operator|+
-literal|" evaluated as: 123 contains 4 on Exchange[Message: Hello World]"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+name|s
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

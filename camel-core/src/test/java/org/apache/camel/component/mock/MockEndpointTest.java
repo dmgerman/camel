@@ -2982,16 +2982,22 @@ name|AssertionError
 name|e
 parameter_list|)
 block|{
-name|assertEquals
+name|String
+name|s
+init|=
+literal|"Assertion error at index 1 on mock mock://result with predicate: header(bar) == 444 evaluated as: 234 == 444"
+decl_stmt|;
+name|assertTrue
 argument_list|(
-literal|"Assertion error at index 1 on mock mock://result with predicate: header(bar) == 444"
-operator|+
-literal|" evaluated as: 234 == 444 on Exchange[Message: Hello World]"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+name|s
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3092,16 +3098,22 @@ name|AssertionError
 name|e
 parameter_list|)
 block|{
-name|assertEquals
+name|String
+name|s
+init|=
+literal|"Assertion error at index 1 on mock mock://result with predicate: header(bar) is null evaluated as: 234 is null"
+decl_stmt|;
+name|assertTrue
 argument_list|(
-literal|"Assertion error at index 1 on mock mock://result with predicate: header(bar) is null"
-operator|+
-literal|" evaluated as: 234 is null on Exchange[Message: Hello World]"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+name|s
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -3206,16 +3218,22 @@ name|AssertionError
 name|e
 parameter_list|)
 block|{
-name|assertEquals
+name|String
+name|s
+init|=
+literal|"Assertion error at index 1 on mock mock://result with predicate: header(bar) instanceof java.lang.String"
+decl_stmt|;
+name|assertTrue
 argument_list|(
-literal|"Assertion error at index 1 on mock mock://result with predicate: header(bar) instanceof"
-operator|+
-literal|" java.lang.String on Exchange[Message: Hello World]"
-argument_list|,
 name|e
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+name|s
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

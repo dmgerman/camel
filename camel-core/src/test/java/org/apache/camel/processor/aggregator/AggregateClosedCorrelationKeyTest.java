@@ -265,14 +265,17 @@ name|getCorrelationKey
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"The correlation key [1] has been closed. Exchange[Message: C]"
-argument_list|,
 name|cause
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"The correlation key [1] has been closed."
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -505,14 +508,17 @@ name|getCorrelationKey
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"The correlation key [2] has been closed. Exchange[Message: H]"
-argument_list|,
 name|cause
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"The correlation key [2] has been closed."
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -569,14 +575,17 @@ name|getCorrelationKey
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"The correlation key [3] has been closed. Exchange[Message: I]"
-argument_list|,
 name|cause
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"The correlation key [3] has been closed."
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

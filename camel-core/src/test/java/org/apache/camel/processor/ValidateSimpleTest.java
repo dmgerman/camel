@@ -237,12 +237,13 @@ name|getCause
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
+name|String
+name|s
+init|=
 literal|"Validation failed for Predicate[Simple: ${body} contains 'Camel']."
-operator|+
-literal|" Exchange[Message: Bye World]"
-argument_list|,
+decl_stmt|;
+name|assertTrue
+argument_list|(
 name|e
 operator|.
 name|getCause
@@ -250,6 +251,11 @@ argument_list|()
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+name|s
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

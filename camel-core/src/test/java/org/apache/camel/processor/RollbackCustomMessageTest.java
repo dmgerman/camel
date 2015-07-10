@@ -121,10 +121,8 @@ name|getCause
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"boo. Exchange[Message: Hello World]"
-argument_list|,
 name|e
 operator|.
 name|getCause
@@ -132,6 +130,11 @@ argument_list|()
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"boo"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

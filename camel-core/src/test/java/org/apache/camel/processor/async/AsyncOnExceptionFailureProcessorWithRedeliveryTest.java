@@ -186,14 +186,17 @@ name|getCause
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Simulated error at attempt 1. Exchange[Message: Hello Camel]"
-argument_list|,
 name|cause
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Simulated error at attempt 1."
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

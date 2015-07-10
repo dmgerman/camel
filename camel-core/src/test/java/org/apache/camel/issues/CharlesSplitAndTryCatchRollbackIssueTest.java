@@ -372,7 +372,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"Sequential processing failed for number 2. Exchange[Message: Kaboom]"
+literal|"Sequential processing failed for number 2."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -391,14 +391,17 @@ name|getCause
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Intended rollback. Exchange[Message: Kaboom]"
-argument_list|,
 name|re
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Intended rollback"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -508,7 +511,7 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"Sequential processing failed for number 3. Exchange[Message: Kaboom]"
+literal|"Sequential processing failed for number 3."
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -527,14 +530,17 @@ name|getCause
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Intended rollback. Exchange[Message: Kaboom]"
-argument_list|,
 name|re
 operator|.
 name|getMessage
 argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"Intended rollback"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
