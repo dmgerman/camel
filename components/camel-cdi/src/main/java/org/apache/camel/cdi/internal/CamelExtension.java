@@ -1450,6 +1450,11 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Lets perform injection of all beans which use Camel annotations      */
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|onInjectionTarget (@bserves ProcessInjectionTarget<?> event)
 specifier|public
 name|void
@@ -1548,20 +1553,25 @@ annotation|@
 name|Override
 specifier|public
 name|void
-name|postConstruct
+name|inject
 parameter_list|(
 name|Object
 name|instance
+parameter_list|,
+name|CreationalContext
+name|ctx
 parameter_list|)
 block|{
 name|super
 operator|.
-name|postConstruct
+name|inject
 argument_list|(
 name|instance
+argument_list|,
+name|ctx
 argument_list|)
 expr_stmt|;
-comment|// now lets do the post instruct to inject our Camel injections
+comment|// now lets inject our Camel injections to the bean instance
 name|adapter
 operator|.
 name|inject
