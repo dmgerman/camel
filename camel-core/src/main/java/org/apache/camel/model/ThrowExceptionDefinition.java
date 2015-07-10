@@ -501,6 +501,33 @@ operator|=
 name|message
 expr_stmt|;
 block|}
+DECL|method|getExceptionType ()
+specifier|public
+name|String
+name|getExceptionType
+parameter_list|()
+block|{
+return|return
+name|exceptionType
+return|;
+block|}
+comment|/**      * The class of the exception to create using the message.      *      * @see #setMessage(String)      */
+DECL|method|setExceptionType (String exceptionType)
+specifier|public
+name|void
+name|setExceptionType
+parameter_list|(
+name|String
+name|exceptionType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exceptionType
+operator|=
+name|exceptionType
+expr_stmt|;
+block|}
 DECL|method|getExceptionClass ()
 specifier|public
 name|Class
