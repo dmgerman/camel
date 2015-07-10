@@ -1567,24 +1567,7 @@ name|isSuccess
 argument_list|()
 condition|)
 block|{
-comment|// no success the set the caused exception and signal callback and break
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|channelFuture
-operator|.
-name|getCause
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|producerCallback
-operator|.
-name|done
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
+comment|// no success then exit, (any exception has been handled by ClientChannelHandler#exceptionCaught)
 return|return;
 block|}
 comment|// if we do not expect any reply then signal callback to continue routing

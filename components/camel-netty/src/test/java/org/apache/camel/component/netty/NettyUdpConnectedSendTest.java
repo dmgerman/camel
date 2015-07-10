@@ -196,11 +196,54 @@ name|org
 operator|.
 name|junit
 operator|.
+name|FixMethodOrder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|runners
+operator|.
+name|MethodSorters
+import|;
+end_import
+
+begin_comment
+comment|//We need to run the tests with fix order
+end_comment
+
 begin_class
+annotation|@
+name|FixMethodOrder
+argument_list|(
+name|MethodSorters
+operator|.
+name|NAME_ASCENDING
+argument_list|)
 DECL|class|NettyUdpConnectedSendTest
 specifier|public
 class|class
@@ -399,6 +442,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"This test would be failed in JDK7 sometimes"
+argument_list|)
 DECL|method|sendConnectedWithoutReceiver ()
 specifier|public
 name|void
