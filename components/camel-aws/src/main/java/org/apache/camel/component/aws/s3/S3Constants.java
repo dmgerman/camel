@@ -126,6 +126,12 @@ name|S3_HEADERS
 init|=
 literal|"CamelAwsS3Headers"
 decl_stmt|;
+DECL|field|SERVER_SIDE_ENCRYPTION
+name|String
+name|SERVER_SIDE_ENCRYPTION
+init|=
+literal|"CamelAwsS3ServerSideEncryption"
+decl_stmt|;
 block|}
 end_interface
 

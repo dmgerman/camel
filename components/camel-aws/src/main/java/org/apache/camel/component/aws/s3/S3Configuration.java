@@ -267,6 +267,18 @@ specifier|private
 name|String
 name|storageClass
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|serverSideEncryption
+specifier|private
+name|String
+name|serverSideEncryption
+decl_stmt|;
 DECL|method|getPartSize ()
 specifier|public
 name|long
@@ -643,6 +655,33 @@ operator|.
 name|storageClass
 operator|=
 name|storageClass
+expr_stmt|;
+block|}
+DECL|method|getServerSideEncryption ()
+specifier|public
+name|String
+name|getServerSideEncryption
+parameter_list|()
+block|{
+return|return
+name|serverSideEncryption
+return|;
+block|}
+comment|/**      * Sets the server-side encryption algorithm when encrypting the object using AWS-managed keys.      * For example use<tt>AES256</tt>.      */
+DECL|method|setServerSideEncryption (String serverSideEncryption)
+specifier|public
+name|void
+name|setServerSideEncryption
+parameter_list|(
+name|String
+name|serverSideEncryption
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serverSideEncryption
+operator|=
+name|serverSideEncryption
 expr_stmt|;
 block|}
 block|}
