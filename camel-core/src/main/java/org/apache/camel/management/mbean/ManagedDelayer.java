@@ -230,6 +230,20 @@ name|delay
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getDelayedCount ()
+specifier|public
+name|int
+name|getDelayedCount
+parameter_list|()
+block|{
+return|return
+name|getDelayer
+argument_list|()
+operator|.
+name|getDelayedCount
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 
