@@ -153,10 +153,20 @@ parameter_list|()
 default|default
 literal|0
 function_decl|;
-comment|/**      * Position of the field in the message generated (should start from 1)      */
+comment|/**      * Position of the field in the message generated (should start from 1)      *      * @deprecated use {@link #outPos()}      */
+annotation|@
+name|Deprecated
 DECL|method|position ()
 name|int
 name|position
+parameter_list|()
+default|default
+literal|0
+function_decl|;
+comment|/**      * Position of the field in the message generated (should start from 1)      */
+DECL|method|outPos ()
+name|int
+name|outPos
 parameter_list|()
 default|default
 literal|0
