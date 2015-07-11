@@ -460,31 +460,6 @@ name|predicate
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|createExpression (CamelContext camelContext)
-specifier|public
-name|Expression
-name|createExpression
-parameter_list|(
-name|CamelContext
-name|camelContext
-parameter_list|)
-block|{
-name|Expression
-name|answer
-init|=
-name|super
-operator|.
-name|createExpression
-argument_list|(
-name|camelContext
-argument_list|)
-decl_stmt|;
-return|return
-name|answer
-return|;
-block|}
 block|}
 end_class
 

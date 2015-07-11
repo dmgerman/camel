@@ -82,6 +82,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ResourceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Creates an {@link org.apache.camel.language.Simple} language builder.  *<p/>  * This builder is available in the Java DSL from the {@link RouteBuilder} which means that using  * simple language for {@link Expression}s or {@link Predicate}s is very easy with the help of this builder.  *  * @version   */
 end_comment
@@ -356,9 +370,9 @@ argument_list|(
 literal|"simple"
 argument_list|)
 decl_stmt|;
-comment|// resolve property placeholders
 try|try
 block|{
+comment|// resolve property placeholders
 name|String
 name|resolve
 init|=
@@ -372,6 +386,21 @@ argument_list|(
 name|text
 argument_list|)
 decl_stmt|;
+comment|// and optional it be refer to an external script on the file/classpath
+name|resolve
+operator|=
+name|ResourceHelper
+operator|.
+name|resolveOptionalExternalScript
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
+name|resolve
+argument_list|)
+expr_stmt|;
 return|return
 name|simple
 operator|.
@@ -424,9 +453,9 @@ argument_list|(
 literal|"simple"
 argument_list|)
 decl_stmt|;
-comment|// resolve property placeholders
 try|try
 block|{
+comment|// resolve property placeholders
 name|String
 name|resolve
 init|=
@@ -440,6 +469,21 @@ argument_list|(
 name|text
 argument_list|)
 decl_stmt|;
+comment|// and optional it be refer to an external script on the file/classpath
+name|resolve
+operator|=
+name|ResourceHelper
+operator|.
+name|resolveOptionalExternalScript
+argument_list|(
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+argument_list|,
+name|resolve
+argument_list|)
+expr_stmt|;
 return|return
 name|simple
 operator|.

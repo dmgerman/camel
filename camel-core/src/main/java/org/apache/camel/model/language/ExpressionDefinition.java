@@ -394,6 +394,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ResourceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A useful base class for an expression  */
 end_comment
@@ -1042,6 +1056,18 @@ name|trim
 argument_list|()
 expr_stmt|;
 block|}
+comment|// resolve the expression as it may be an external script from the classpath/file etc
+name|exp
+operator|=
+name|ResourceHelper
+operator|.
+name|resolveOptionalExternalScript
+argument_list|(
+name|camelContext
+argument_list|,
+name|exp
+argument_list|)
+expr_stmt|;
 name|predicate
 operator|=
 name|language
@@ -1187,6 +1213,18 @@ name|trim
 argument_list|()
 expr_stmt|;
 block|}
+comment|// resolve the expression as it may be an external script from the classpath/file etc
+name|exp
+operator|=
+name|ResourceHelper
+operator|.
+name|resolveOptionalExternalScript
+argument_list|(
+name|camelContext
+argument_list|,
+name|exp
+argument_list|)
+expr_stmt|;
 name|setExpressionValue
 argument_list|(
 name|language
