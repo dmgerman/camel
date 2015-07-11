@@ -574,6 +574,23 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"OK"
+argument_list|,
+name|out
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_RESPONSE_TEXT
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
 literal|"Bye World"
 argument_list|,
 name|out

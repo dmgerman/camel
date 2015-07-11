@@ -626,6 +626,20 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"Not Implemented"
+argument_list|,
+name|headers
+operator|.
+name|get
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_RESPONSE_TEXT
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
 literal|"26"
 argument_list|,
 name|headers

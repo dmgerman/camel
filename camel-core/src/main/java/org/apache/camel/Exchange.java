@@ -464,6 +464,12 @@ name|HTTP_RESPONSE_CODE
 init|=
 literal|"CamelHttpResponseCode"
 decl_stmt|;
+DECL|field|HTTP_RESPONSE_TEXT
+name|String
+name|HTTP_RESPONSE_TEXT
+init|=
+literal|"CamelHttpResponseText"
+decl_stmt|;
 DECL|field|HTTP_URI
 name|String
 name|HTTP_URI

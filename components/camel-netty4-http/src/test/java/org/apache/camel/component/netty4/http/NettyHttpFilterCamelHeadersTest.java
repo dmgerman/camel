@@ -227,7 +227,7 @@ name|key
 operator|.
 name|equalsIgnoreCase
 argument_list|(
-name|NettyHttpConstants
+name|Exchange
 operator|.
 name|HTTP_RESPONSE_TEXT
 argument_list|)

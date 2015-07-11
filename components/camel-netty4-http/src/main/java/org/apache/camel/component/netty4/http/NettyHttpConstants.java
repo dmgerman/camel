@@ -20,6 +20,18 @@ name|http
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
 begin_comment
 comment|/**  * Netty HTTP constants.  */
 end_comment
@@ -49,6 +61,8 @@ name|CONTENT_TYPE_WWW_FORM_URLENCODED
 init|=
 literal|"application/x-www-form-urlencoded"
 decl_stmt|;
+annotation|@
+name|Deprecated
 DECL|field|HTTP_RESPONSE_TEXT
 specifier|public
 specifier|static
@@ -56,7 +70,9 @@ specifier|final
 name|String
 name|HTTP_RESPONSE_TEXT
 init|=
-literal|"CamelHttpResponseText"
+name|Exchange
+operator|.
+name|HTTP_RESPONSE_TEXT
 decl_stmt|;
 DECL|field|HTTP_AUTHENTICATION
 specifier|public

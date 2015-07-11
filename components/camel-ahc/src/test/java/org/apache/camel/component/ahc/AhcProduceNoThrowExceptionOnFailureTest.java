@@ -108,6 +108,20 @@ argument_list|,
 literal|500
 argument_list|)
 expr_stmt|;
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|expectedHeaderReceived
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_RESPONSE_TEXT
+argument_list|,
+literal|"Server Error"
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody

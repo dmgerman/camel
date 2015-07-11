@@ -190,6 +190,23 @@ name|HTTP_RESPONSE_CODE
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Server Error"
+argument_list|,
+name|reply
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_RESPONSE_TEXT
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

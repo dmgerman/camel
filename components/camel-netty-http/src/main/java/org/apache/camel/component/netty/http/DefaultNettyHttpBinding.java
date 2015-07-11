@@ -1833,7 +1833,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|NettyHttpConstants
+name|Exchange
 operator|.
 name|HTTP_RESPONSE_TEXT
 argument_list|,
