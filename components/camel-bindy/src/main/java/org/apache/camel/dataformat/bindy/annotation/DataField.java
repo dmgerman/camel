@@ -75,7 +75,7 @@ specifier|public
 annotation_defn|@interface
 name|DataField
 block|{
-comment|/**      * Position of the data in the record, must start from 1 (mandatory).      */
+comment|/**      * Position of the data in the input record, must start from 1 (mandatory).      */
 DECL|method|pos ()
 name|int
 name|pos
@@ -153,20 +153,10 @@ parameter_list|()
 default|default
 literal|0
 function_decl|;
-comment|/**      * Position of the field in the message generated (should start from 1)      *      * @deprecated use {@link #outPos()}      */
-annotation|@
-name|Deprecated
+comment|/**      * Position of the field in the output message generated (should start from 1)      *      * @see #pos()      */
 DECL|method|position ()
 name|int
 name|position
-parameter_list|()
-default|default
-literal|0
-function_decl|;
-comment|/**      * Position of the field in the message generated (should start from 1)      */
-DECL|method|outPos ()
-name|int
-name|outPos
 parameter_list|()
 default|default
 literal|0
