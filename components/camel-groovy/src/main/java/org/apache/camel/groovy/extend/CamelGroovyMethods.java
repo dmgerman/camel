@@ -993,6 +993,40 @@ argument_list|)
 return|;
 block|}
 comment|// Extension Methods that use Closures as expressions
+DECL|method|script (ProcessorDefinition<?> self, Closure<?> expression)
+specifier|public
+specifier|static
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|script
+parameter_list|(
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|self
+parameter_list|,
+name|Closure
+argument_list|<
+name|?
+argument_list|>
+name|expression
+parameter_list|)
+block|{
+return|return
+name|self
+operator|.
+name|script
+argument_list|(
+name|toExpression
+argument_list|(
+name|expression
+argument_list|)
+argument_list|)
+return|;
+block|}
 DECL|method|transform (ProcessorDefinition<?> self, Closure<?> expression)
 specifier|public
 specifier|static

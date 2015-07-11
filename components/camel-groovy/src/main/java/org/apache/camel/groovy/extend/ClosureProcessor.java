@@ -65,6 +65,7 @@ name|Processor
 block|{
 DECL|field|closure
 specifier|private
+specifier|final
 name|Closure
 argument_list|<
 name|?
