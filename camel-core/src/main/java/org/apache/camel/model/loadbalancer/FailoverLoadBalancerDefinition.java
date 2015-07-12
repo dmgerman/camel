@@ -297,6 +297,13 @@ name|roundRobin
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|sticky
+specifier|private
+name|Boolean
+name|sticky
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 annotation|@
 name|Metadata
 argument_list|(
@@ -512,6 +519,21 @@ name|roundRobin
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|sticky
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setSticky
+argument_list|(
+name|sticky
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|answer
 return|;
@@ -598,7 +620,7 @@ return|return
 name|roundRobin
 return|;
 block|}
-comment|/**      * Whether or not the failover load balancer should operate in round robin mode or not.      * If not, then it will always start from the first endpoint when a new message is to be processed.      * In other words it restart from the top for every message.      * If round robin is enabled, then it keeps state and will continue with the next endpoint in a round robin fashion.      * When using round robin it will not stick to last known good endpoint, it will always pick the next endpoint to use.      */
+comment|/**      * Whether or not the failover load balancer should operate in round robin mode or not.      * If not, then it will always start from the first endpoint when a new message is to be processed.      * In other words it restart from the top for every message.      * If round robin is enabled, then it keeps state and will continue with the next endpoint in a round robin fashion.      *<p/>      * You can also enable sticky mode together with round robin, if so then it will pick the last known good endpoint      * to use when starting the load balancing (instead of using the next when starting).      */
 DECL|method|setRoundRobin (Boolean roundRobin)
 specifier|public
 name|void
@@ -613,6 +635,33 @@ operator|.
 name|roundRobin
 operator|=
 name|roundRobin
+expr_stmt|;
+block|}
+DECL|method|getSticky ()
+specifier|public
+name|Boolean
+name|getSticky
+parameter_list|()
+block|{
+return|return
+name|sticky
+return|;
+block|}
+comment|/**      * Whether or not the failover load balancer should operate in sticky mode or not.      * If not, then it will always start from the first endpoint when a new message is to be processed.      * In other words it restart from the top for every message.      * If sticky is enabled, then it keeps state and will continue with the last known good endpoint.      *<p/>      * You can also enable sticky mode together with round robin, if so then it will pick the last known good endpoint      * to use when starting the load balancing (instead of using the next when starting).      */
+DECL|method|setSticky (Boolean sticky)
+specifier|public
+name|void
+name|setSticky
+parameter_list|(
+name|Boolean
+name|sticky
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sticky
+operator|=
+name|sticky
 expr_stmt|;
 block|}
 DECL|method|getMaximumFailoverAttempts ()

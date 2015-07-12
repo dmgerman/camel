@@ -218,6 +218,11 @@ specifier|private
 name|boolean
 name|roundRobin
 decl_stmt|;
+DECL|field|sticky
+specifier|private
+name|boolean
+name|sticky
+decl_stmt|;
 DECL|field|maximumFailoverAttempts
 specifier|private
 name|int
@@ -239,6 +244,16 @@ argument_list|(
 operator|-
 literal|1
 argument_list|)
+decl_stmt|;
+DECL|field|lastGoodIndex
+specifier|private
+specifier|final
+name|AtomicInteger
+name|lastGoodIndex
+init|=
+operator|new
+name|AtomicInteger
+argument_list|()
 decl_stmt|;
 DECL|method|FailOverLoadBalancer ()
 specifier|public
@@ -381,6 +396,32 @@ operator|.
 name|roundRobin
 operator|=
 name|roundRobin
+expr_stmt|;
+block|}
+DECL|method|isSticky ()
+specifier|public
+name|boolean
+name|isSticky
+parameter_list|()
+block|{
+return|return
+name|sticky
+return|;
+block|}
+DECL|method|setSticky (boolean sticky)
+specifier|public
+name|void
+name|setSticky
+parameter_list|(
+name|boolean
+name|sticky
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sticky
+operator|=
+name|sticky
 expr_stmt|;
 block|}
 DECL|method|getMaximumFailoverAttempts ()
@@ -614,6 +655,24 @@ init|=
 literal|null
 decl_stmt|;
 comment|// get the next processor
+if|if
+condition|(
+name|isSticky
+argument_list|()
+condition|)
+block|{
+name|index
+operator|.
+name|set
+argument_list|(
+name|lastGoodIndex
+operator|.
+name|get
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
 if|if
 condition|(
 name|isRoundRobin
@@ -912,6 +971,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// remember last good index
+name|lastGoodIndex
+operator|.
+name|set
+argument_list|(
+name|index
+operator|.
+name|get
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// and copy the current result to original so it will contain this result of this eip
 if|if
 condition|(
@@ -1412,6 +1482,17 @@ comment|// so we break out now, then the callback will be invoked which then con
 return|return;
 block|}
 block|}
+comment|// remember last good index
+name|lastGoodIndex
+operator|.
+name|set
+argument_list|(
+name|index
+operator|.
+name|get
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// and copy the current result to original so it will contain this result of this eip
 if|if
 condition|(
@@ -1453,7 +1534,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-empty_stmt|;
 block|}
 DECL|method|toString ()
 specifier|public
