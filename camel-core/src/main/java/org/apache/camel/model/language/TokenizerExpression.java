@@ -387,7 +387,7 @@ return|return
 name|inheritNamespaceTagName
 return|;
 block|}
-comment|/**      * To inherit namepaces from a root/parent tag name      */
+comment|/**      * To inherit namepaces from a root/parent tag name when using XML      */
 DECL|method|setInheritNamespaceTagName (String inheritNamespaceTagName)
 specifier|public
 name|void
@@ -441,7 +441,7 @@ return|return
 name|includeTokens
 return|;
 block|}
-comment|/**      * Whether to include the tokens in the parts      *<p/>      * The default value is false      */
+comment|/**      * Whether to include the tokens in the parts when using pairs      *<p/>      * The default value is false      */
 DECL|method|setIncludeTokens (Boolean includeTokens)
 specifier|public
 name|void
