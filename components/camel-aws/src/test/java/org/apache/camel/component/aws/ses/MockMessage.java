@@ -223,7 +223,7 @@ name|disposition
 parameter_list|)
 throws|throws
 name|MessagingException
-block|{		 	}
+block|{     }
 annotation|@
 name|Override
 DECL|method|getDescription ()
@@ -250,7 +250,7 @@ name|description
 parameter_list|)
 throws|throws
 name|MessagingException
-block|{ 	}
+block|{     }
 annotation|@
 name|Override
 DECL|method|getFileName ()
@@ -277,7 +277,7 @@ name|filename
 parameter_list|)
 throws|throws
 name|MessagingException
-block|{ 	}
+block|{     }
 annotation|@
 name|Override
 DECL|method|getInputStream ()
@@ -336,7 +336,7 @@ name|dh
 parameter_list|)
 throws|throws
 name|MessagingException
-block|{ 	}
+block|{     }
 annotation|@
 name|Override
 DECL|method|setContent (Object obj, String type)
@@ -352,7 +352,7 @@ name|type
 parameter_list|)
 throws|throws
 name|MessagingException
-block|{ 	}
+block|{     }
 annotation|@
 name|Override
 DECL|method|setText (String text)
@@ -365,7 +365,7 @@ name|text
 parameter_list|)
 throws|throws
 name|MessagingException
-block|{ 	}
+block|{     }
 annotation|@
 name|Override
 DECL|method|setContent (Multipart mp)
@@ -378,7 +378,7 @@ name|mp
 parameter_list|)
 throws|throws
 name|MessagingException
-block|{	 	}
+block|{     }
 annotation|@
 name|Override
 DECL|method|writeTo (OutputStream os)
@@ -393,17 +393,17 @@ throws|throws
 name|IOException
 throws|,
 name|MessagingException
-block|{		 	}
+block|{     }
 annotation|@
 name|Override
-DECL|method|getHeader (String header_name)
+DECL|method|getHeader (String headername)
 specifier|public
 name|String
 index|[]
 name|getHeader
 parameter_list|(
 name|String
-name|header_name
+name|headername
 parameter_list|)
 throws|throws
 name|MessagingException
@@ -414,51 +414,49 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|setHeader (String header_name, String header_value)
+DECL|method|setHeader (String headername, String headervalue)
 specifier|public
 name|void
 name|setHeader
 parameter_list|(
 name|String
-name|header_name
+name|headername
 parameter_list|,
 name|String
-name|header_value
+name|headervalue
 parameter_list|)
 throws|throws
 name|MessagingException
-block|{ 	}
+block|{     }
 annotation|@
 name|Override
-DECL|method|addHeader (String header_name, String header_value)
+DECL|method|addHeader (String headername, String headervalue)
 specifier|public
 name|void
 name|addHeader
 parameter_list|(
 name|String
-name|header_name
+name|headername
 parameter_list|,
 name|String
-name|header_value
+name|headervalue
 parameter_list|)
 throws|throws
 name|MessagingException
-block|{
-comment|// TODO Auto-generated method stub
-block|}
+block|{     }
 annotation|@
 name|Override
-DECL|method|removeHeader (String header_name)
+DECL|method|removeHeader (String headername)
 specifier|public
 name|void
 name|removeHeader
 parameter_list|(
 name|String
-name|header_name
+name|headername
 parameter_list|)
 throws|throws
 name|MessagingException
-block|{ 	}
+block|{     }
 annotation|@
 name|Override
 DECL|method|getAllHeaders ()
@@ -475,14 +473,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getMatchingHeaders (String[] header_names)
+DECL|method|getMatchingHeaders (String[] headernames)
 specifier|public
 name|Enumeration
 name|getMatchingHeaders
 parameter_list|(
 name|String
 index|[]
-name|header_names
+name|headernames
 parameter_list|)
 throws|throws
 name|MessagingException
@@ -493,14 +491,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getNonMatchingHeaders (String[] header_names)
+DECL|method|getNonMatchingHeaders (String[] headernames)
 specifier|public
 name|Enumeration
 name|getNonMatchingHeaders
 parameter_list|(
 name|String
 index|[]
-name|header_names
+name|headernames
 parameter_list|)
 throws|throws
 name|MessagingException
@@ -533,9 +531,7 @@ name|setFrom
 parameter_list|()
 throws|throws
 name|MessagingException
-block|{
-comment|// TODO Auto-generated method stub
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|setFrom (Address address)
@@ -548,7 +544,7 @@ name|address
 parameter_list|)
 throws|throws
 name|MessagingException
-block|{	 	}
+block|{     }
 annotation|@
 name|Override
 DECL|method|addFrom (Address[] addresses)
@@ -562,7 +558,7 @@ name|addresses
 parameter_list|)
 throws|throws
 name|MessagingException
-block|{		 	}
+block|{     }
 annotation|@
 name|Override
 DECL|method|getRecipients (RecipientType type)
@@ -597,7 +593,7 @@ name|addresses
 parameter_list|)
 throws|throws
 name|MessagingException
-block|{ 	}
+block|{     }
 annotation|@
 name|Override
 DECL|method|addRecipients (RecipientType type, Address[] addresses)
@@ -614,9 +610,7 @@ name|addresses
 parameter_list|)
 throws|throws
 name|MessagingException
-block|{
-comment|// TODO Auto-generated method stub
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|getSubject ()
@@ -643,9 +637,7 @@ name|subject
 parameter_list|)
 throws|throws
 name|MessagingException
-block|{
-comment|// TODO Auto-generated method stub
-block|}
+block|{     }
 annotation|@
 name|Override
 DECL|method|getSentDate ()
@@ -656,7 +648,6 @@ parameter_list|()
 throws|throws
 name|MessagingException
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|null
 return|;
@@ -673,7 +664,7 @@ name|date
 parameter_list|)
 throws|throws
 name|MessagingException
-block|{		 	}
+block|{     }
 annotation|@
 name|Override
 DECL|method|getReceivedDate ()
@@ -717,7 +708,7 @@ name|set
 parameter_list|)
 throws|throws
 name|MessagingException
-block|{		 	}
+block|{     }
 annotation|@
 name|Override
 DECL|method|reply (boolean replyToAll)
@@ -744,7 +735,7 @@ name|saveChanges
 parameter_list|()
 throws|throws
 name|MessagingException
-block|{		 	}
+block|{     }
 block|}
 end_class
 

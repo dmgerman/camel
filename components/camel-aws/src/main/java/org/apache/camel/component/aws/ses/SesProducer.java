@@ -851,7 +851,13 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// TODO Auto-generated catch block
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Cannot write to byte Array"
+argument_list|)
+expr_stmt|;
 name|e
 operator|.
 name|printStackTrace
