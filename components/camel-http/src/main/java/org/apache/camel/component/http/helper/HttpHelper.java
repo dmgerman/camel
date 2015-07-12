@@ -1299,7 +1299,7 @@ name|queryString
 operator|=
 name|uri
 operator|.
-name|getQuery
+name|getRawQuery
 argument_list|()
 expr_stmt|;
 block|}
