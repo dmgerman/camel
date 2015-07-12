@@ -566,6 +566,8 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|SendRawEmailRequest
 name|request
@@ -777,6 +779,8 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|com
 operator|.
@@ -858,11 +862,9 @@ argument_list|(
 literal|"Cannot write to byte Array"
 argument_list|)
 expr_stmt|;
+throw|throw
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+throw|;
 block|}
 name|byte
 index|[]
