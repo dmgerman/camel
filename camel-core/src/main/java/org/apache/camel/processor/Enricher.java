@@ -108,6 +108,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Producer
 import|;
 end_import
@@ -153,6 +165,34 @@ operator|.
 name|spi
 operator|.
 name|IdAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RouteContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UnitOfWork
 import|;
 end_import
 
@@ -344,6 +384,11 @@ specifier|private
 name|boolean
 name|aggregateOnException
 decl_stmt|;
+DECL|field|shareUnitOfWork
+specifier|private
+name|boolean
+name|shareUnitOfWork
+decl_stmt|;
 comment|/**      * Creates a new {@link Enricher}. The default aggregation strategy is to      * copy the additional data obtained from the enricher's resource over the      * input data. When using the copy aggregation strategy the enricher      * degenerates to a normal transformer.      *       * @param producer producer to resource endpoint.      */
 DECL|method|Enricher (Producer producer)
 specifier|public
@@ -359,11 +404,13 @@ name|defaultAggregationStrategy
 argument_list|()
 argument_list|,
 name|producer
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates a new {@link Enricher}.      *       * @param aggregationStrategy  aggregation strategy to aggregate input data and additional data.      * @param producer producer to resource endpoint.      */
-DECL|method|Enricher (AggregationStrategy aggregationStrategy, Producer producer)
+comment|/**      * Creates a new {@link Enricher}.      *       * @param aggregationStrategy  aggregation strategy to aggregate input data and additional data.      * @param producer producer to resource endpoint.      * @param shareUnitOfWork whether to share unit of work      */
+DECL|method|Enricher (AggregationStrategy aggregationStrategy, Producer producer, boolean shareUnitOfWork)
 specifier|public
 name|Enricher
 parameter_list|(
@@ -372,6 +419,9 @@ name|aggregationStrategy
 parameter_list|,
 name|Producer
 name|producer
+parameter_list|,
+name|boolean
+name|shareUnitOfWork
 parameter_list|)
 block|{
 name|this
@@ -385,6 +435,12 @@ operator|.
 name|producer
 operator|=
 name|producer
+expr_stmt|;
+name|this
+operator|.
+name|shareUnitOfWork
+operator|=
+name|shareUnitOfWork
 expr_stmt|;
 block|}
 DECL|method|getId ()
@@ -998,6 +1054,39 @@ argument_list|(
 name|pattern
 argument_list|)
 expr_stmt|;
+comment|// if we share unit of work, we need to prepare the resource exchange
+if|if
+condition|(
+name|isShareUnitOfWork
+argument_list|()
+condition|)
+block|{
+name|target
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|PARENT_UNIT_OF_WORK
+argument_list|,
+name|source
+operator|.
+name|getUnitOfWork
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// and then share the unit of work
+name|target
+operator|.
+name|setUnitOfWork
+argument_list|(
+name|source
+operator|.
+name|getUnitOfWork
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|target
 return|;
@@ -1049,6 +1138,16 @@ return|return
 operator|new
 name|CopyAggregationStrategy
 argument_list|()
+return|;
+block|}
+DECL|method|isShareUnitOfWork ()
+specifier|public
+name|boolean
+name|isShareUnitOfWork
+parameter_list|()
+block|{
+return|return
+name|shareUnitOfWork
 return|;
 block|}
 annotation|@

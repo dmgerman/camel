@@ -325,6 +325,13 @@ specifier|private
 name|AggregationStrategy
 name|aggregationStrategy
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|shareUnitOfWork
+specifier|private
+name|Boolean
+name|shareUnitOfWork
+decl_stmt|;
 DECL|method|EnrichDefinition ()
 specifier|public
 name|EnrichDefinition
@@ -537,6 +544,17 @@ name|resourceRef
 argument_list|)
 expr_stmt|;
 block|}
+name|boolean
+name|isShareUnitOfWork
+init|=
+name|getShareUnitOfWork
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|getShareUnitOfWork
+argument_list|()
+decl_stmt|;
 name|Enricher
 name|enricher
 init|=
@@ -549,6 +567,8 @@ name|endpoint
 operator|.
 name|createProducer
 argument_list|()
+argument_list|,
+name|isShareUnitOfWork
 argument_list|)
 decl_stmt|;
 name|AggregationStrategy
@@ -941,6 +961,33 @@ operator|.
 name|aggregateOnException
 operator|=
 name|aggregateOnException
+expr_stmt|;
+block|}
+DECL|method|getShareUnitOfWork ()
+specifier|public
+name|Boolean
+name|getShareUnitOfWork
+parameter_list|()
+block|{
+return|return
+name|shareUnitOfWork
+return|;
+block|}
+comment|/**      * Shares the {@link org.apache.camel.spi.UnitOfWork} with the parent and the resource exchange.      * Enrich will by default not share unit of work between the parent exchange and the resource exchange.      * This means the resource exchange has its own individual unit of work.      */
+DECL|method|setShareUnitOfWork (Boolean shareUnitOfWork)
+specifier|public
+name|void
+name|setShareUnitOfWork
+parameter_list|(
+name|Boolean
+name|shareUnitOfWork
+parameter_list|)
+block|{
+name|this
+operator|.
+name|shareUnitOfWork
+operator|=
+name|shareUnitOfWork
 expr_stmt|;
 block|}
 block|}
