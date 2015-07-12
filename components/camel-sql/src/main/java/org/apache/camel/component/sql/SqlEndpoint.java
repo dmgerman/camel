@@ -480,6 +480,18 @@ specifier|private
 name|String
 name|outputHeader
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|useMessageBodyForSql
+specifier|private
+name|boolean
+name|useMessageBodyForSql
+decl_stmt|;
 DECL|method|SqlEndpoint ()
 specifier|public
 name|SqlEndpoint
@@ -663,6 +675,8 @@ argument_list|,
 name|batch
 argument_list|,
 name|alwaysPopulateStatement
+argument_list|,
+name|useMessageBodyForSql
 argument_list|)
 decl_stmt|;
 name|result
@@ -1142,6 +1156,33 @@ operator|.
 name|outputHeader
 operator|=
 name|outputHeader
+expr_stmt|;
+block|}
+DECL|method|isUseMessageBodyForSql ()
+specifier|public
+name|boolean
+name|isUseMessageBodyForSql
+parameter_list|()
+block|{
+return|return
+name|useMessageBodyForSql
+return|;
+block|}
+comment|/**      * Whether to use the message body as the SQL and then headers for parameters.      *<p/>      * If this option is enabled then the SQL in the uri is not used.      */
+DECL|method|setUseMessageBodyForSql (boolean useMessageBodyForSql)
+specifier|public
+name|void
+name|setUseMessageBodyForSql
+parameter_list|(
+name|boolean
+name|useMessageBodyForSql
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useMessageBodyForSql
+operator|=
+name|useMessageBodyForSql
 expr_stmt|;
 block|}
 DECL|method|getDataSourceRef ()

@@ -96,6 +96,16 @@ name|SQL_GENERATED_KEYS_DATA
 init|=
 literal|"CamelSqlGeneratedKeyRows"
 decl_stmt|;
+comment|/**      * The SQL parameters when using the option useMessageBodyForSql      */
+DECL|field|SQL_PARAMETERS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SQL_PARAMETERS
+init|=
+literal|"CamelSqlParameters"
+decl_stmt|;
 DECL|method|SqlConstants ()
 specifier|private
 name|SqlConstants
