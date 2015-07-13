@@ -52,10 +52,10 @@ name|PollEnrichExpressionTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testPollEnricExpression ()
+DECL|method|testPollEnrichExpression ()
 specifier|public
 name|void
-name|testPollEnricExpression
+name|testPollEnrichExpression
 parameter_list|()
 throws|throws
 name|Exception
@@ -70,6 +70,8 @@ argument_list|(
 literal|"Hello World"
 argument_list|,
 literal|"Bye World"
+argument_list|,
+literal|"Hi World"
 argument_list|)
 expr_stmt|;
 name|template
@@ -92,6 +94,15 @@ argument_list|)
 expr_stmt|;
 name|template
 operator|.
+name|sendBody
+argument_list|(
+literal|"seda:foo"
+argument_list|,
+literal|"Hi World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
 name|sendBodyAndHeader
 argument_list|(
 literal|"direct:start"
@@ -114,6 +125,19 @@ argument_list|,
 literal|"source"
 argument_list|,
 literal|"seda:bar"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|null
+argument_list|,
+literal|"source"
+argument_list|,
+literal|"seda:foo"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied

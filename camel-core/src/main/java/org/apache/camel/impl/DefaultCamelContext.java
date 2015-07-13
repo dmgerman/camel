@@ -15167,6 +15167,11 @@ argument_list|)
 expr_stmt|;
 name|addService
 argument_list|(
+name|pollingConsumerServicePool
+argument_list|)
+expr_stmt|;
+name|addService
+argument_list|(
 name|inflightRepository
 argument_list|)
 expr_stmt|;
