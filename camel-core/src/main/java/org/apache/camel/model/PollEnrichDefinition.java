@@ -631,7 +631,6 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|// TODO: add cacheSize option
 comment|/**      * Timeout in millis when polling from the external service.      *<p/>      * The timeout has influence about the poll enrich behavior. It basically operations in three different modes:      *<ul>      *<li>negative value - Waits until a message is available and then returns it. Warning that this method could block indefinitely if no messages are available.</li>      *<li>0 - Attempts to receive a message exchange immediately without waiting and returning<tt>null</tt> if a message exchange is not available yet.</li>      *<li>positive value - Attempts to receive a message exchange, waiting up to the given timeout to expire if a message is not yet available. Returns<tt>null</tt> if timed out</li>      *</ul>      * The default value is -1 and therefore the method could block indefinitely, and therefore its recommended to use a timeout value      */
 DECL|method|timeout (long timeout)
 specifier|public

@@ -106,7 +106,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|Expression
 import|;
 end_import
 
@@ -196,20 +196,6 @@ name|RouteContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Enriches a message with data from a secondary resource  *  * @see Enricher  */
 end_comment
@@ -241,40 +227,8 @@ specifier|public
 class|class
 name|EnrichDefinition
 extends|extends
-name|NoOutputDefinition
-argument_list|<
-name|EnrichDefinition
-argument_list|>
-implements|implements
-name|EndpointRequiredDefinition
+name|NoOutputExpressionNode
 block|{
-annotation|@
-name|XmlAttribute
-argument_list|(
-name|name
-operator|=
-literal|"uri"
-argument_list|)
-DECL|field|resourceUri
-specifier|private
-name|String
-name|resourceUri
-decl_stmt|;
-comment|// TODO: For Camel 3.0 we should remove this ref attribute as you can do that in the uri, by prefixing with ref:
-annotation|@
-name|XmlAttribute
-argument_list|(
-name|name
-operator|=
-literal|"ref"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|field|resourceRef
-specifier|private
-name|String
-name|resourceRef
-decl_stmt|;
 annotation|@
 name|XmlAttribute
 argument_list|(
@@ -332,6 +286,13 @@ specifier|private
 name|Boolean
 name|shareUnitOfWork
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|cacheSize
+specifier|private
+name|Integer
+name|cacheSize
+decl_stmt|;
 DECL|method|EnrichDefinition ()
 specifier|public
 name|EnrichDefinition
@@ -340,36 +301,15 @@ block|{
 name|this
 argument_list|(
 literal|null
-argument_list|,
-literal|null
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|EnrichDefinition (String resourceUri)
-specifier|public
-name|EnrichDefinition
-parameter_list|(
-name|String
-name|resourceUri
-parameter_list|)
-block|{
-name|this
-argument_list|(
-literal|null
-argument_list|,
-name|resourceUri
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|EnrichDefinition (AggregationStrategy aggregationStrategy, String resourceUri)
+DECL|method|EnrichDefinition (AggregationStrategy aggregationStrategy)
 specifier|public
 name|EnrichDefinition
 parameter_list|(
 name|AggregationStrategy
 name|aggregationStrategy
-parameter_list|,
-name|String
-name|resourceUri
 parameter_list|)
 block|{
 name|this
@@ -377,12 +317,6 @@ operator|.
 name|aggregationStrategy
 operator|=
 name|aggregationStrategy
-expr_stmt|;
-name|this
-operator|.
-name|resourceUri
-operator|=
-name|resourceUri
 expr_stmt|;
 block|}
 annotation|@
@@ -396,36 +330,10 @@ block|{
 return|return
 literal|"Enrich["
 operator|+
-name|description
+name|getExpression
 argument_list|()
 operator|+
-literal|" "
-operator|+
-name|aggregationStrategy
-operator|+
 literal|"]"
-return|;
-block|}
-DECL|method|description ()
-specifier|protected
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-name|FromDefinition
-operator|.
-name|description
-argument_list|(
-name|resourceUri
-argument_list|,
-name|resourceRef
-argument_list|,
-operator|(
-name|Endpoint
-operator|)
-literal|null
-argument_list|)
 return|;
 block|}
 annotation|@
@@ -439,37 +347,11 @@ block|{
 return|return
 literal|"enrich["
 operator|+
-name|description
+name|getExpression
 argument_list|()
 operator|+
 literal|"]"
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getEndpointUri ()
-specifier|public
-name|String
-name|getEndpointUri
-parameter_list|()
-block|{
-if|if
-condition|(
-name|resourceUri
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|resourceUri
-return|;
-block|}
-else|else
-block|{
-return|return
-literal|null
-return|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -484,66 +366,18 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|ObjectHelper
-operator|.
-name|isEmpty
-argument_list|(
-name|resourceUri
-argument_list|)
-operator|&&
-name|ObjectHelper
-operator|.
-name|isEmpty
-argument_list|(
-name|resourceRef
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Either uri or ref must be provided for resource endpoint"
-argument_list|)
-throw|;
-block|}
 comment|// lookup endpoint
-name|Endpoint
-name|endpoint
+name|Expression
+name|exp
+init|=
+name|getExpression
+argument_list|()
+operator|.
+name|createExpression
+argument_list|(
+name|routeContext
+argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|resourceUri
-operator|!=
-literal|null
-condition|)
-block|{
-name|endpoint
-operator|=
-name|routeContext
-operator|.
-name|resolveEndpoint
-argument_list|(
-name|resourceUri
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|endpoint
-operator|=
-name|routeContext
-operator|.
-name|resolveEndpoint
-argument_list|(
-literal|null
-argument_list|,
-name|resourceRef
-argument_list|)
-expr_stmt|;
-block|}
 name|boolean
 name|isShareUnitOfWork
 init|=
@@ -561,16 +395,16 @@ init|=
 operator|new
 name|Enricher
 argument_list|(
-literal|null
-argument_list|,
-name|endpoint
-operator|.
-name|createProducer
-argument_list|()
-argument_list|,
-name|isShareUnitOfWork
+name|exp
 argument_list|)
 decl_stmt|;
+name|enricher
+operator|.
+name|setShareUnitOfWork
+argument_list|(
+name|isShareUnitOfWork
+argument_list|)
+expr_stmt|;
 name|AggregationStrategy
 name|strategy
 init|=
@@ -582,17 +416,9 @@ decl_stmt|;
 if|if
 condition|(
 name|strategy
-operator|==
+operator|!=
 literal|null
 condition|)
-block|{
-name|enricher
-operator|.
-name|setDefaultAggregationStrategy
-argument_list|()
-expr_stmt|;
-block|}
-else|else
 block|{
 name|enricher
 operator|.
@@ -604,8 +430,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|getAggregateOnException
-argument_list|()
+name|aggregateOnException
 operator|!=
 literal|null
 condition|)
@@ -614,8 +439,7 @@ name|enricher
 operator|.
 name|setAggregateOnException
 argument_list|(
-name|getAggregateOnException
-argument_list|()
+name|aggregateOnException
 argument_list|)
 expr_stmt|;
 block|}
@@ -772,62 +596,140 @@ return|return
 name|strategy
 return|;
 block|}
-DECL|method|getResourceUri ()
+comment|// Fluent API
+comment|// -------------------------------------------------------------------------
+comment|/**      * Sets the AggregationStrategy to be used to merge the reply from the external service, into a single outgoing message.      * By default Camel will use the reply from the external service as outgoing message.      */
+DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
-name|String
-name|getResourceUri
-parameter_list|()
-block|{
-return|return
-name|resourceUri
-return|;
-block|}
-comment|/**      * The endpoint uri for the external service to enrich from. You must use either uri or ref.      */
-DECL|method|setResourceUri (String resourceUri)
-specifier|public
-name|void
-name|setResourceUri
+name|EnrichDefinition
+name|aggregationStrategy
 parameter_list|(
-name|String
-name|resourceUri
+name|AggregationStrategy
+name|aggregationStrategy
 parameter_list|)
 block|{
-name|this
-operator|.
-name|resourceUri
-operator|=
-name|resourceUri
+name|setAggregationStrategy
+argument_list|(
+name|aggregationStrategy
+argument_list|)
 expr_stmt|;
-block|}
-DECL|method|getResourceRef ()
-specifier|public
-name|String
-name|getResourceRef
-parameter_list|()
-block|{
 return|return
-name|resourceRef
+name|this
 return|;
 block|}
-comment|/**      * Refers to the endpoint for the external service to enrich from. You must use either uri or ref.      *      * @deprecated use uri with ref:uri instead      */
-annotation|@
-name|Deprecated
-DECL|method|setResourceRef (String resourceRef)
+comment|/**      * Refers to an AggregationStrategy to be used to merge the reply from the external service, into a single outgoing message.      * By default Camel will use the reply from the external service as outgoing message.      */
+DECL|method|aggregationStrategyRef (String aggregationStrategyRef)
 specifier|public
-name|void
-name|setResourceRef
+name|EnrichDefinition
+name|aggregationStrategyRef
 parameter_list|(
 name|String
-name|resourceRef
+name|aggregationStrategyRef
 parameter_list|)
 block|{
-name|this
-operator|.
-name|resourceRef
-operator|=
-name|resourceRef
+name|setAggregationStrategyRef
+argument_list|(
+name|aggregationStrategyRef
+argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
+comment|/**      * This option can be used to explicit declare the method name to use, when using POJOs as the AggregationStrategy.      */
+DECL|method|aggregationStrategyMethodName (String aggregationStrategyMethodName)
+specifier|public
+name|EnrichDefinition
+name|aggregationStrategyMethodName
+parameter_list|(
+name|String
+name|aggregationStrategyMethodName
+parameter_list|)
+block|{
+name|setAggregationStrategyMethodName
+argument_list|(
+name|aggregationStrategyMethodName
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * If this option is false then the aggregate method is not used if there was no data to enrich.      * If this option is true then null values is used as the oldExchange (when no data to enrich),      * when using POJOs as the AggregationStrategy.      */
+DECL|method|aggregationStrategyMethodAllowNull (boolean aggregationStrategyMethodAllowNull)
+specifier|public
+name|EnrichDefinition
+name|aggregationStrategyMethodAllowNull
+parameter_list|(
+name|boolean
+name|aggregationStrategyMethodAllowNull
+parameter_list|)
+block|{
+name|setAggregationStrategyMethodAllowNull
+argument_list|(
+name|aggregationStrategyMethodAllowNull
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * If this option is false then the aggregate method is not used if there was an exception thrown while trying      * to retrieve the data to enrich from the resource. Setting this option to true allows end users to control what      * to do if there was an exception in the aggregate method. For example to suppress the exception      * or set a custom message body etc.      */
+DECL|method|aggregateOnException (boolean aggregateOnException)
+specifier|public
+name|EnrichDefinition
+name|aggregateOnException
+parameter_list|(
+name|boolean
+name|aggregateOnException
+parameter_list|)
+block|{
+name|setAggregateOnException
+argument_list|(
+name|aggregateOnException
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Shares the {@link org.apache.camel.spi.UnitOfWork} with the parent and the resource exchange.      * Enrich will by default not share unit of work between the parent exchange and the resource exchange.      * This means the resource exchange has its own individual unit of work.      */
+DECL|method|shareUnitOfWork ()
+specifier|public
+name|EnrichDefinition
+name|shareUnitOfWork
+parameter_list|()
+block|{
+name|setShareUnitOfWork
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the maximum size used by the {@link org.apache.camel.impl.ConsumerCache} which is used      * to cache and reuse consumers when using this pollEnrich, when uris are reused.      *      * @param cacheSize  the cache size, use<tt>0</tt> for default cache size, or<tt>-1</tt> to turn cache off.      * @return the builder      */
+DECL|method|cacheSize (int cacheSize)
+specifier|public
+name|EnrichDefinition
+name|cacheSize
+parameter_list|(
+name|int
+name|cacheSize
+parameter_list|)
+block|{
+name|setCacheSize
+argument_list|(
+name|cacheSize
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|// Properties
+comment|// -------------------------------------------------------------------------
 DECL|method|getAggregationStrategyRef ()
 specifier|public
 name|String
@@ -838,7 +740,6 @@ return|return
 name|aggregationStrategyRef
 return|;
 block|}
-comment|/**      * Refers to an AggregationStrategy to be used to merge the reply from the external service, into a single outgoing message.      * By default Camel will use the reply from the external service as outgoing message.      */
 DECL|method|setAggregationStrategyRef (String aggregationStrategyRef)
 specifier|public
 name|void
@@ -865,7 +766,6 @@ return|return
 name|aggregationStrategyMethodName
 return|;
 block|}
-comment|/**      * This option can be used to explicit declare the method name to use, when using POJOs as the AggregationStrategy.      */
 DECL|method|setAggregationStrategyMethodName (String aggregationStrategyMethodName)
 specifier|public
 name|void
@@ -892,7 +792,6 @@ return|return
 name|aggregationStrategyMethodAllowNull
 return|;
 block|}
-comment|/**      * If this option is false then the aggregate method is not used if there was no data to enrich.      * If this option is true then null values is used as the oldExchange (when no data to enrich),      * when using POJOs as the AggregationStrategy.      */
 DECL|method|setAggregationStrategyMethodAllowNull (Boolean aggregationStrategyMethodAllowNull)
 specifier|public
 name|void
@@ -919,7 +818,6 @@ return|return
 name|aggregationStrategy
 return|;
 block|}
-comment|/**      * Sets the AggregationStrategy to be used to merge the reply from the external service, into a single outgoing message.      * By default Camel will use the reply from the external service as outgoing message.      */
 DECL|method|setAggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|void
@@ -946,7 +844,6 @@ return|return
 name|aggregateOnException
 return|;
 block|}
-comment|/**      * If this option is false then the aggregate method is not used if there was an exception thrown while trying      * to retrieve the data to enrich from the resource. Setting this option to true allows end users to control what      * to do if there was an exception in the aggregate method. For example to suppress the exception      * or set a custom message body etc.      */
 DECL|method|setAggregateOnException (Boolean aggregateOnException)
 specifier|public
 name|void
@@ -973,7 +870,6 @@ return|return
 name|shareUnitOfWork
 return|;
 block|}
-comment|/**      * Shares the {@link org.apache.camel.spi.UnitOfWork} with the parent and the resource exchange.      * Enrich will by default not share unit of work between the parent exchange and the resource exchange.      * This means the resource exchange has its own individual unit of work.      */
 DECL|method|setShareUnitOfWork (Boolean shareUnitOfWork)
 specifier|public
 name|void
@@ -988,6 +884,32 @@ operator|.
 name|shareUnitOfWork
 operator|=
 name|shareUnitOfWork
+expr_stmt|;
+block|}
+DECL|method|getCacheSize ()
+specifier|public
+name|Integer
+name|getCacheSize
+parameter_list|()
+block|{
+return|return
+name|cacheSize
+return|;
+block|}
+DECL|method|setCacheSize (Integer cacheSize)
+specifier|public
+name|void
+name|setCacheSize
+parameter_list|(
+name|Integer
+name|cacheSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cacheSize
+operator|=
+name|cacheSize
 expr_stmt|;
 block|}
 block|}
