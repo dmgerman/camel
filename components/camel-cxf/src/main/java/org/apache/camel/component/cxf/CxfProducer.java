@@ -220,6 +220,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|cxf
 operator|.
 name|Bus
@@ -427,6 +441,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// failsafe as cxf may not ensure the endpoint is started (CAMEL-8956)
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|client
