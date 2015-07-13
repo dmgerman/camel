@@ -9328,7 +9328,7 @@ name|resourceUri
 argument_list|,
 name|aggregationStrategy
 argument_list|,
-literal|false
+name|aggregateOnException
 argument_list|,
 literal|false
 argument_list|)
