@@ -96,18 +96,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -286,8 +274,6 @@ name|ServiceSupport
 implements|implements
 name|AsyncProcessor
 implements|,
-name|EndpointAware
-implements|,
 name|IdAware
 implements|,
 name|CamelContextAware
@@ -328,12 +314,6 @@ specifier|private
 name|AggregationStrategy
 name|aggregationStrategy
 decl_stmt|;
-DECL|field|consumer
-specifier|private
-specifier|final
-name|PollingConsumer
-name|consumer
-decl_stmt|;
 DECL|field|expression
 specifier|private
 specifier|final
@@ -350,74 +330,11 @@ specifier|private
 name|boolean
 name|aggregateOnException
 decl_stmt|;
-comment|/**      * Creates a new {@link PollEnricher}. The default aggregation strategy is to      * copy the additional data obtained from the enricher's resource over the      * input data. When using the copy aggregation strategy the enricher      * degenerates to a normal transformer.      *      * @param consumer consumer to resource endpoint.      */
-DECL|method|PollEnricher (PollingConsumer consumer)
+comment|/**      * Creates a new {@link PollEnricher}.      *      * @param expression expression to use to compute the endpoint to poll from.      * @param timeout timeout in millis      */
+DECL|method|PollEnricher (Expression expression, long timeout)
 specifier|public
 name|PollEnricher
 parameter_list|(
-name|PollingConsumer
-name|consumer
-parameter_list|)
-block|{
-name|this
-argument_list|(
-name|defaultAggregationStrategy
-argument_list|()
-argument_list|,
-name|consumer
-argument_list|,
-literal|0
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Creates a new {@link PollEnricher}.      *      * @param aggregationStrategy  aggregation strategy to aggregate input data and additional data.      * @param consumer consumer to resource endpoint.      * @param timeout timeout in millis      */
-DECL|method|PollEnricher (AggregationStrategy aggregationStrategy, PollingConsumer consumer, long timeout)
-specifier|public
-name|PollEnricher
-parameter_list|(
-name|AggregationStrategy
-name|aggregationStrategy
-parameter_list|,
-name|PollingConsumer
-name|consumer
-parameter_list|,
-name|long
-name|timeout
-parameter_list|)
-block|{
-name|this
-operator|.
-name|aggregationStrategy
-operator|=
-name|aggregationStrategy
-expr_stmt|;
-name|this
-operator|.
-name|consumer
-operator|=
-name|consumer
-expr_stmt|;
-name|this
-operator|.
-name|expression
-operator|=
-literal|null
-expr_stmt|;
-name|this
-operator|.
-name|timeout
-operator|=
-name|timeout
-expr_stmt|;
-block|}
-comment|/**      * Creates a new {@link PollEnricher}.      *      * @param aggregationStrategy  aggregation strategy to aggregate input data and additional data.      * @param expression expression to use to compute the endpoint to poll from.      * @param timeout timeout in millis      */
-DECL|method|PollEnricher (AggregationStrategy aggregationStrategy, Expression expression, long timeout)
-specifier|public
-name|PollEnricher
-parameter_list|(
-name|AggregationStrategy
-name|aggregationStrategy
-parameter_list|,
 name|Expression
 name|expression
 parameter_list|,
@@ -427,21 +344,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|aggregationStrategy
-operator|=
-name|aggregationStrategy
-expr_stmt|;
-name|this
-operator|.
 name|expression
 operator|=
 name|expression
-expr_stmt|;
-name|this
-operator|.
-name|consumer
-operator|=
-literal|null
 expr_stmt|;
 name|this
 operator|.
@@ -501,25 +406,6 @@ name|id
 operator|=
 name|id
 expr_stmt|;
-block|}
-DECL|method|getEndpoint ()
-specifier|public
-name|Endpoint
-name|getEndpoint
-parameter_list|()
-block|{
-return|return
-name|consumer
-operator|!=
-literal|null
-condition|?
-name|consumer
-operator|.
-name|getEndpoint
-argument_list|()
-else|:
-literal|null
-return|;
 block|}
 DECL|method|getAggregationStrategy ()
 specifier|public
@@ -694,23 +580,12 @@ return|;
 block|}
 comment|// which consumer to use
 name|PollingConsumer
-name|target
-init|=
 name|consumer
 decl_stmt|;
 name|Endpoint
 name|endpoint
-init|=
-literal|null
 decl_stmt|;
 comment|// use dynamic endpoint so calculate the endpoint to use
-if|if
-condition|(
-name|expression
-operator|!=
-literal|null
-condition|)
-block|{
 try|try
 block|{
 name|Object
@@ -737,7 +612,7 @@ name|recipient
 argument_list|)
 expr_stmt|;
 comment|// acquire the consumer from the cache
-name|target
+name|consumer
 operator|=
 name|consumerCache
 operator|.
@@ -771,7 +646,6 @@ return|return
 literal|true
 return|;
 block|}
-block|}
 name|Exchange
 name|resourceExchange
 decl_stmt|;
@@ -790,7 +664,7 @@ name|debug
 argument_list|(
 literal|"Consumer receive: {}"
 argument_list|,
-name|target
+name|consumer
 argument_list|)
 expr_stmt|;
 name|resourceExchange
@@ -815,12 +689,12 @@ name|debug
 argument_list|(
 literal|"Consumer receiveNoWait: {}"
 argument_list|,
-name|target
+name|consumer
 argument_list|)
 expr_stmt|;
 name|resourceExchange
 operator|=
-name|target
+name|consumer
 operator|.
 name|receiveNoWait
 argument_list|()
@@ -836,12 +710,12 @@ literal|"Consumer receive with timeout: {} ms. {}"
 argument_list|,
 name|timeout
 argument_list|,
-name|target
+name|consumer
 argument_list|)
 expr_stmt|;
 name|resourceExchange
 operator|=
-name|target
+name|consumer
 operator|.
 name|receive
 argument_list|(
@@ -912,23 +786,15 @@ block|}
 finally|finally
 block|{
 comment|// return the consumer back to the cache
-if|if
-condition|(
-name|expression
-operator|!=
-literal|null
-condition|)
-block|{
 name|consumerCache
 operator|.
 name|releasePollingConsumer
 argument_list|(
 name|endpoint
 argument_list|,
-name|target
+name|consumer
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 try|try
 block|{
@@ -1042,7 +908,7 @@ name|Exchange
 operator|.
 name|TO_ENDPOINT
 argument_list|,
-name|target
+name|consumer
 operator|.
 name|getEndpoint
 argument_list|()
@@ -1065,7 +931,7 @@ name|Exchange
 operator|.
 name|TO_ENDPOINT
 argument_list|,
-name|target
+name|consumer
 operator|.
 name|getEndpoint
 argument_list|()
@@ -1237,7 +1103,7 @@ block|{
 return|return
 literal|"PollEnrich["
 operator|+
-name|consumer
+name|expression
 operator|+
 literal|"]"
 return|;
@@ -1252,10 +1118,6 @@ name|Exception
 block|{
 if|if
 condition|(
-name|expression
-operator|!=
-literal|null
-operator|&&
 name|consumerCache
 operator|==
 literal|null
@@ -1280,8 +1142,6 @@ name|startServices
 argument_list|(
 name|consumerCache
 argument_list|,
-name|consumer
-argument_list|,
 name|aggregationStrategy
 argument_list|)
 expr_stmt|;
@@ -1298,11 +1158,9 @@ name|ServiceHelper
 operator|.
 name|stopServices
 argument_list|(
-name|consumerCache
-argument_list|,
-name|consumer
-argument_list|,
 name|aggregationStrategy
+argument_list|,
+name|consumerCache
 argument_list|)
 expr_stmt|;
 block|}
@@ -1318,11 +1176,9 @@ name|ServiceHelper
 operator|.
 name|stopAndShutdownServices
 argument_list|(
-name|consumerCache
-argument_list|,
-name|consumer
-argument_list|,
 name|aggregationStrategy
+argument_list|,
+name|consumerCache
 argument_list|)
 expr_stmt|;
 block|}

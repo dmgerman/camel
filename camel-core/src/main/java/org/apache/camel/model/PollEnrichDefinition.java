@@ -68,20 +68,6 @@ name|bind
 operator|.
 name|annotation
 operator|.
-name|XmlElementRef
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|bind
-operator|.
-name|annotation
-operator|.
 name|XmlRootElement
 import|;
 end_import
@@ -120,18 +106,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Expression
 import|;
 end_import
@@ -144,35 +118,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|PollingConsumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|language
-operator|.
-name|ExpressionDefinition
 import|;
 end_import
 
@@ -250,20 +196,6 @@ name|RouteContext
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Enriches messages with data polled from a secondary resource  *  * @see org.apache.camel.processor.Enricher  */
 end_comment
@@ -295,47 +227,8 @@ specifier|public
 class|class
 name|PollEnrichDefinition
 extends|extends
-name|NoOutputDefinition
-argument_list|<
-name|PollEnrichDefinition
-argument_list|>
-implements|implements
-name|EndpointRequiredDefinition
+name|NoOutputExpressionNode
 block|{
-annotation|@
-name|XmlElementRef
-DECL|field|expression
-specifier|private
-name|ExpressionDefinition
-name|expression
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-argument_list|(
-name|name
-operator|=
-literal|"uri"
-argument_list|)
-DECL|field|resourceUri
-specifier|private
-name|String
-name|resourceUri
-decl_stmt|;
-comment|// TODO: For Camel 3.0 we should remove this ref attribute as you can do that in the uri, by prefixing with ref:
-annotation|@
-name|XmlAttribute
-argument_list|(
-name|name
-operator|=
-literal|"ref"
-argument_list|)
-annotation|@
-name|Deprecated
-DECL|field|resourceRef
-specifier|private
-name|String
-name|resourceRef
-decl_stmt|;
 annotation|@
 name|XmlAttribute
 annotation|@
@@ -405,15 +298,12 @@ specifier|public
 name|PollEnrichDefinition
 parameter_list|()
 block|{     }
-DECL|method|PollEnrichDefinition (AggregationStrategy aggregationStrategy, String resourceUri, long timeout)
+DECL|method|PollEnrichDefinition (AggregationStrategy aggregationStrategy, long timeout)
 specifier|public
 name|PollEnrichDefinition
 parameter_list|(
 name|AggregationStrategy
 name|aggregationStrategy
-parameter_list|,
-name|String
-name|resourceUri
 parameter_list|,
 name|long
 name|timeout
@@ -424,12 +314,6 @@ operator|.
 name|aggregationStrategy
 operator|=
 name|aggregationStrategy
-expr_stmt|;
-name|this
-operator|.
-name|resourceUri
-operator|=
-name|resourceUri
 expr_stmt|;
 name|this
 operator|.
@@ -449,38 +333,10 @@ block|{
 return|return
 literal|"PollEnrich["
 operator|+
-name|description
+name|getExpression
 argument_list|()
-operator|+
-literal|" "
-operator|+
-name|aggregationStrategy
 operator|+
 literal|"]"
-return|;
-block|}
-DECL|method|description ()
-specifier|protected
-name|String
-name|description
-parameter_list|()
-block|{
-return|return
-name|FromDefinition
-operator|.
-name|description
-argument_list|(
-name|getResourceUri
-argument_list|()
-argument_list|,
-name|getResourceRef
-argument_list|()
-argument_list|,
-operator|(
-name|Endpoint
-operator|)
-literal|null
-argument_list|)
 return|;
 block|}
 annotation|@
@@ -494,37 +350,11 @@ block|{
 return|return
 literal|"pollEnrich["
 operator|+
-name|description
+name|getExpression
 argument_list|()
 operator|+
 literal|"]"
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getEndpointUri ()
-specifier|public
-name|String
-name|getEndpointUri
-parameter_list|()
-block|{
-if|if
-condition|(
-name|resourceUri
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|resourceUri
-return|;
-block|}
-else|else
-block|{
-return|return
-literal|null
-return|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -539,94 +369,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-if|if
-condition|(
-name|ObjectHelper
-operator|.
-name|isEmpty
-argument_list|(
-name|resourceUri
-argument_list|)
-operator|&&
-name|ObjectHelper
-operator|.
-name|isEmpty
-argument_list|(
-name|resourceRef
-argument_list|)
-operator|&&
-name|expression
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Either resourceUri, resourceRef or expression must be configured"
-argument_list|)
-throw|;
-block|}
-comment|// lookup endpoint
-name|PollingConsumer
-name|consumer
-init|=
-literal|null
-decl_stmt|;
-if|if
-condition|(
-name|resourceUri
-operator|!=
-literal|null
-condition|)
-block|{
-name|Endpoint
-name|endpoint
-init|=
-name|routeContext
-operator|.
-name|resolveEndpoint
-argument_list|(
-name|resourceUri
-argument_list|)
-decl_stmt|;
-name|consumer
-operator|=
-name|endpoint
-operator|.
-name|createPollingConsumer
-argument_list|()
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|resourceRef
-operator|!=
-literal|null
-condition|)
-block|{
-name|Endpoint
-name|endpoint
-init|=
-name|routeContext
-operator|.
-name|resolveEndpoint
-argument_list|(
-literal|null
-argument_list|,
-name|resourceRef
-argument_list|)
-decl_stmt|;
-name|consumer
-operator|=
-name|endpoint
-operator|.
-name|createPollingConsumer
-argument_list|()
-expr_stmt|;
-block|}
 comment|// if no timeout then we should block, and there use a negative timeout
 name|long
 name|time
@@ -640,69 +382,28 @@ else|:
 operator|-
 literal|1
 decl_stmt|;
-comment|// create the expression if any was configured
 name|Expression
 name|exp
 init|=
-name|createResourceExpression
+name|getExpression
+argument_list|()
+operator|.
+name|createExpression
 argument_list|(
 name|routeContext
 argument_list|)
 decl_stmt|;
 name|PollEnricher
 name|enricher
+init|=
+operator|new
+name|PollEnricher
+argument_list|(
+name|exp
+argument_list|,
+name|time
+argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|exp
-operator|!=
-literal|null
-condition|)
-block|{
-name|enricher
-operator|=
-operator|new
-name|PollEnricher
-argument_list|(
-literal|null
-argument_list|,
-name|exp
-argument_list|,
-name|time
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|consumer
-operator|!=
-literal|null
-condition|)
-block|{
-name|enricher
-operator|=
-operator|new
-name|PollEnricher
-argument_list|(
-literal|null
-argument_list|,
-name|consumer
-argument_list|,
-name|time
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Either resourceUri, resourceRef or expression must be configured"
-argument_list|)
-throw|;
-block|}
 name|AggregationStrategy
 name|strategy
 init|=
@@ -904,95 +605,125 @@ return|return
 name|strategy
 return|;
 block|}
-comment|/**      * Creates the {@link org.apache.camel.Expression} from the expression node to use to compute the endpoint to poll from.      *      * @param routeContext  the route context      * @return the created expression, or<tt>null</tt> if no expression configured      */
-DECL|method|createResourceExpression (RouteContext routeContext)
-specifier|protected
-name|Expression
-name|createResourceExpression
+comment|// Fluent API
+comment|// -------------------------------------------------------------------------
+comment|// TODO: add cacheSize option
+comment|/**      * Timeout in millis when polling from the external service.      *<p/>      * The timeout has influence about the poll enrich behavior. It basically operations in three different modes:      *<ul>      *<li>negative value - Waits until a message is available and then returns it. Warning that this method could block indefinitely if no messages are available.</li>      *<li>0 - Attempts to receive a message exchange immediately without waiting and returning<tt>null</tt> if a message exchange is not available yet.</li>      *<li>positive value - Attempts to receive a message exchange, waiting up to the given timeout to expire if a message is not yet available. Returns<tt>null</tt> if timed out</li>      *</ul>      * The default value is -1 and therefore the method could block indefinitely, and therefore its recommended to use a timeout value      */
+DECL|method|timeout (long timeout)
+specifier|public
+name|PollEnrichDefinition
+name|timeout
 parameter_list|(
-name|RouteContext
-name|routeContext
+name|long
+name|timeout
 parameter_list|)
 block|{
-if|if
-condition|(
-name|expression
-operator|!=
-literal|null
-condition|)
-block|{
-return|return
-name|expression
-operator|.
-name|createExpression
+name|setTimeout
 argument_list|(
-name|routeContext
+name|timeout
 argument_list|)
-return|;
-block|}
-else|else
-block|{
+expr_stmt|;
 return|return
-literal|null
+name|this
 return|;
 block|}
-block|}
-DECL|method|getResourceUri ()
+comment|/**      * Sets the AggregationStrategy to be used to merge the reply from the external service, into a single outgoing message.      * By default Camel will use the reply from the external service as outgoing message.      */
+DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
-name|String
-name|getResourceUri
-parameter_list|()
-block|{
-return|return
-name|resourceUri
-return|;
-block|}
-comment|/**      * The endpoint uri for the external service to poll enrich from. You must use either uri or ref.      */
-DECL|method|setResourceUri (String resourceUri)
-specifier|public
-name|void
-name|setResourceUri
+name|PollEnrichDefinition
+name|aggregationStrategy
 parameter_list|(
-name|String
-name|resourceUri
+name|AggregationStrategy
+name|aggregationStrategy
 parameter_list|)
 block|{
-name|this
-operator|.
-name|resourceUri
-operator|=
-name|resourceUri
+name|setAggregationStrategy
+argument_list|(
+name|aggregationStrategy
+argument_list|)
 expr_stmt|;
-block|}
-DECL|method|getResourceRef ()
-specifier|public
-name|String
-name|getResourceRef
-parameter_list|()
-block|{
 return|return
-name|resourceRef
+name|this
 return|;
 block|}
-comment|/**      * Refers to the endpoint for the external service to poll enrich from. You must use either uri or ref.      *      * @deprecated use uri with ref:uri instead      */
-annotation|@
-name|Deprecated
-DECL|method|setResourceRef (String resourceRef)
+comment|/**      * Refers to an AggregationStrategy to be used to merge the reply from the external service, into a single outgoing message.      * By default Camel will use the reply from the external service as outgoing message.      */
+DECL|method|aggregationStrategyRef (String aggregationStrategyRef)
 specifier|public
-name|void
-name|setResourceRef
+name|PollEnrichDefinition
+name|aggregationStrategyRef
 parameter_list|(
 name|String
-name|resourceRef
+name|aggregationStrategyRef
 parameter_list|)
 block|{
-name|this
-operator|.
-name|resourceRef
-operator|=
-name|resourceRef
+name|setAggregationStrategyRef
+argument_list|(
+name|aggregationStrategyRef
+argument_list|)
 expr_stmt|;
+return|return
+name|this
+return|;
 block|}
+comment|/**      * This option can be used to explicit declare the method name to use, when using POJOs as the AggregationStrategy.      */
+DECL|method|aggregationStrategyMethodName (String aggregationStrategyMethodName)
+specifier|public
+name|PollEnrichDefinition
+name|aggregationStrategyMethodName
+parameter_list|(
+name|String
+name|aggregationStrategyMethodName
+parameter_list|)
+block|{
+name|setAggregationStrategyMethodName
+argument_list|(
+name|aggregationStrategyMethodName
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * If this option is false then the aggregate method is not used if there was no data to enrich.      * If this option is true then null values is used as the oldExchange (when no data to enrich),      * when using POJOs as the AggregationStrategy.      */
+DECL|method|aggregationStrategyMethodAllowNull (boolean aggregationStrategyMethodAllowNull)
+specifier|public
+name|PollEnrichDefinition
+name|aggregationStrategyMethodAllowNull
+parameter_list|(
+name|boolean
+name|aggregationStrategyMethodAllowNull
+parameter_list|)
+block|{
+name|setAggregationStrategyMethodAllowNull
+argument_list|(
+name|aggregationStrategyMethodAllowNull
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * If this option is false then the aggregate method is not used if there was an exception thrown while trying      * to retrieve the data to enrich from the resource. Setting this option to true allows end users to control what      * to do if there was an exception in the aggregate method. For example to suppress the exception      * or set a custom message body etc.      */
+DECL|method|aggregateOnException (boolean aggregateOnException)
+specifier|public
+name|PollEnrichDefinition
+name|aggregateOnException
+parameter_list|(
+name|boolean
+name|aggregateOnException
+parameter_list|)
+block|{
+name|setAggregateOnException
+argument_list|(
+name|aggregateOnException
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|// Properties
+comment|// -------------------------------------------------------------------------
 DECL|method|getTimeout ()
 specifier|public
 name|Long
@@ -1003,7 +734,6 @@ return|return
 name|timeout
 return|;
 block|}
-comment|/**      * Timeout in millis when polling from the external service.      *<p/>      * The timeout has influence about the poll enrich behavior. It basically operations in three different modes:      *<ul>      *<li>negative value - Waits until a message is available and then returns it. Warning that this method could block indefinitely if no messages are available.</li>      *<li>0 - Attempts to receive a message exchange immediately without waiting and returning<tt>null</tt> if a message exchange is not available yet.</li>      *<li>positive value - Attempts to receive a message exchange, waiting up to the given timeout to expire if a message is not yet available. Returns<tt>null</tt> if timed out</li>      *</ul>      * The default value is -1 and therefore the method could block indefinitely, and therefore its recommended to use a timeout value      */
 DECL|method|setTimeout (Long timeout)
 specifier|public
 name|void
@@ -1030,7 +760,6 @@ return|return
 name|aggregationStrategyRef
 return|;
 block|}
-comment|/**      * Refers to an AggregationStrategy to be used to merge the reply from the external service, into a single outgoing message.      * By default Camel will use the reply from the external service as outgoing message.      */
 DECL|method|setAggregationStrategyRef (String aggregationStrategyRef)
 specifier|public
 name|void
@@ -1057,7 +786,6 @@ return|return
 name|aggregationStrategyMethodName
 return|;
 block|}
-comment|/**      * This option can be used to explicit declare the method name to use, when using POJOs as the AggregationStrategy.      */
 DECL|method|setAggregationStrategyMethodName (String aggregationStrategyMethodName)
 specifier|public
 name|void
@@ -1084,7 +812,6 @@ return|return
 name|aggregationStrategyMethodAllowNull
 return|;
 block|}
-comment|/**      * If this option is false then the aggregate method is not used if there was no data to enrich.      * If this option is true then null values is used as the oldExchange (when no data to enrich),      * when using POJOs as the AggregationStrategy.      */
 DECL|method|setAggregationStrategyMethodAllowNull (Boolean aggregationStrategyMethodAllowNull)
 specifier|public
 name|void
@@ -1111,7 +838,6 @@ return|return
 name|aggregationStrategy
 return|;
 block|}
-comment|/**      * Sets the AggregationStrategy to be used to merge the reply from the external service, into a single outgoing message.      * By default Camel will use the reply from the external service as outgoing message.      */
 DECL|method|setAggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|void
@@ -1138,7 +864,6 @@ return|return
 name|aggregateOnException
 return|;
 block|}
-comment|/**      * If this option is false then the aggregate method is not used if there was an exception thrown while trying      * to retrieve the data to enrich from the resource. Setting this option to true allows end users to control what      * to do if there was an exception in the aggregate method. For example to suppress the exception      * or set a custom message body etc.      */
 DECL|method|setAggregateOnException (Boolean aggregateOnException)
 specifier|public
 name|void
@@ -1153,33 +878,6 @@ operator|.
 name|aggregateOnException
 operator|=
 name|aggregateOnException
-expr_stmt|;
-block|}
-DECL|method|getExpression ()
-specifier|public
-name|ExpressionDefinition
-name|getExpression
-parameter_list|()
-block|{
-return|return
-name|expression
-return|;
-block|}
-comment|/**      * Sets an expression to use for dynamic computing the endpoint to poll from.      *<p/>      * If this option is set, then<tt>resourceUri</tt> or<tt>resourceRef</tt> is not in use.      */
-DECL|method|setExpression (ExpressionDefinition expression)
-specifier|public
-name|void
-name|setExpression
-parameter_list|(
-name|ExpressionDefinition
-name|expression
-parameter_list|)
-block|{
-name|this
-operator|.
-name|expression
-operator|=
-name|expression
 expr_stmt|;
 block|}
 block|}
