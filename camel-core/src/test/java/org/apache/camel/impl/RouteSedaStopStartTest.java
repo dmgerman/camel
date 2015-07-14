@@ -87,17 +87,17 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|RouteSedaSuspendResumeTest
+DECL|class|RouteSedaStopStartTest
 specifier|public
 class|class
-name|RouteSedaSuspendResumeTest
+name|RouteSedaStopStartTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testSuspendResume ()
+DECL|method|testStopStart ()
 specifier|public
 name|void
-name|testSuspendResume
+name|testStopStart
 parameter_list|()
 throws|throws
 name|Exception
@@ -133,7 +133,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Suspending"
+literal|"Stopping"
 argument_list|)
 expr_stmt|;
 comment|// now suspend and dont expect a message to be routed
@@ -149,14 +149,14 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
-name|suspendRoute
+name|stopRoute
 argument_list|(
 literal|"foo"
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Suspended"
+literal|"Stopped"
 argument_list|,
 name|context
 operator|.
@@ -188,7 +188,7 @@ condition|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Suspended"
+literal|"Stopped"
 argument_list|,
 operator|(
 operator|(
@@ -225,7 +225,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Resuming"
+literal|"Starting"
 argument_list|)
 expr_stmt|;
 comment|// now resume and expect the previous message to be routed
@@ -241,7 +241,7 @@ argument_list|)
 expr_stmt|;
 name|context
 operator|.
-name|resumeRoute
+name|startRoute
 argument_list|(
 literal|"foo"
 argument_list|)

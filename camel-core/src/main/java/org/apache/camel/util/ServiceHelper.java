@@ -808,7 +808,7 @@ name|firstException
 throw|;
 block|}
 block|}
-comment|/**      * Resumes each element of the given {@code services} if {@code services} itself is      * not {@code null}, otherwise this method would return immediately.      *<p/>      * If there's any exception being thrown while resuming the elements one after the      * other this method would rethrow the<b>first</b> such exception being thrown.      *       * @see #resumeService(Service)      */
+comment|/**      * Resumes each element of the given {@code services} if {@code services} itself is      * not {@code null}, otherwise this method would return immediately.      *<p/>      * If there's any exception being thrown while resuming the elements one after the      * other this method would rethrow the<b>first</b> such exception being thrown.      *       * @see #resumeService(Object)      */
 DECL|method|resumeServices (Collection<?> services)
 specifier|public
 specifier|static
@@ -923,13 +923,13 @@ throw|;
 block|}
 block|}
 comment|/**      * Resumes the given {@code service}.      *<p/>      * If {@code service} is a {@link org.apache.camel.SuspendableService} then      * it's {@link org.apache.camel.SuspendableService#resume()} is called but      *<b>only</b> if {@code service} is already {@link #isSuspended(Object)      * suspended}.      *<p/>      * If {@code service} is<b>not</b> a      * {@link org.apache.camel.SuspendableService} then it's      * {@link org.apache.camel.Service#start()} is called.      *<p/>      * Calling this method has no effect if {@code service} is {@code null}.      *       * @param service the service      * @return<tt>true</tt> if either<tt>resume</tt> method or      *         {@link #startService(Service)} was called,<tt>false</tt>      *         otherwise.      * @throws Exception is thrown if error occurred      * @see #startService(Service)      */
-DECL|method|resumeService (Service service)
+DECL|method|resumeService (Object service)
 specifier|public
 specifier|static
 name|boolean
 name|resumeService
 parameter_list|(
-name|Service
+name|Object
 name|service
 parameter_list|)
 throws|throws
@@ -995,7 +995,7 @@ literal|true
 return|;
 block|}
 block|}
-comment|/**      * Suspends each element of the given {@code services} if {@code services} itself is      * not {@code null}, otherwise this method would return immediately.      *<p/>      * If there's any exception being thrown while suspending the elements one after the      * other this method would rethrow the<b>first</b> such exception being thrown.      *       * @see #suspendService(Service)      */
+comment|/**      * Suspends each element of the given {@code services} if {@code services} itself is      * not {@code null}, otherwise this method would return immediately.      *<p/>      * If there's any exception being thrown while suspending the elements one after the      * other this method would rethrow the<b>first</b> such exception being thrown.      *       * @see #suspendService(Object)      */
 DECL|method|suspendServices (Collection<?> services)
 specifier|public
 specifier|static
@@ -1110,13 +1110,13 @@ throw|;
 block|}
 block|}
 comment|/**      * Suspends the given {@code service}.      *<p/>      * If {@code service} is a {@link org.apache.camel.SuspendableService} then      * it's {@link org.apache.camel.SuspendableService#suspend()} is called but      *<b>only</b> if {@code service} is<b>not</b> already      * {@link #isSuspended(Object) suspended}.      *<p/>      * If {@code service} is<b>not</b> a      * {@link org.apache.camel.SuspendableService} then it's      * {@link org.apache.camel.Service#stop()} is called.      *<p/>      * Calling this method has no effect if {@code service} is {@code null}.      *       * @param service the service      * @return<tt>true</tt> if either the<tt>suspend</tt> method or      *         {@link #stopService(Object)} was called,<tt>false</tt>      *         otherwise.      * @throws Exception is thrown if error occurred      * @see #stopService(Object)      */
-DECL|method|suspendService (Service service)
+DECL|method|suspendService (Object service)
 specifier|public
 specifier|static
 name|boolean
 name|suspendService
 parameter_list|(
-name|Service
+name|Object
 name|service
 parameter_list|)
 throws|throws
