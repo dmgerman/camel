@@ -804,6 +804,7 @@ return|return
 name|otherAttributes
 return|;
 block|}
+comment|/**      * Adds an optional attribute      */
 DECL|method|setOtherAttributes (Map<QName, Object> otherAttributes)
 specifier|public
 name|void
