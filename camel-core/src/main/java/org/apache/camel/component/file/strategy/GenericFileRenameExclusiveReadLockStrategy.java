@@ -640,6 +640,19 @@ parameter_list|)
 block|{
 comment|// noop - we do not use marker file with the rename strategy
 block|}
+annotation|@
+name|Override
+DECL|method|setDeleteOrphanLockFiles (boolean deleteOrphanLockFiles)
+specifier|public
+name|void
+name|setDeleteOrphanLockFiles
+parameter_list|(
+name|boolean
+name|deleteOrphanLockFiles
+parameter_list|)
+block|{
+comment|// noop - we do not use marker file with the rename strategy
+block|}
 block|}
 end_class
 

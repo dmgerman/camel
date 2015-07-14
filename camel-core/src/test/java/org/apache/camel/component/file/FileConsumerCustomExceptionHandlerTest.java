@@ -777,6 +777,19 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
+DECL|method|setDeleteOrphanLockFiles (boolean deleteOrphanLockFiles)
+specifier|public
+name|void
+name|setDeleteOrphanLockFiles
+parameter_list|(
+name|boolean
+name|deleteOrphanLockFiles
+parameter_list|)
+block|{
+comment|// noop
+block|}
 DECL|method|getCounter ()
 specifier|public
 name|int

@@ -1133,6 +1133,24 @@ literal|"consumer"
 argument_list|,
 name|defaultValue
 operator|=
+literal|"true"
+argument_list|)
+DECL|field|readLockDeleteOrphanLockFiles
+specifier|protected
+name|boolean
+name|readLockDeleteOrphanLockFiles
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
 literal|"WARN"
 argument_list|)
 DECL|field|readLockLoggingLevel
@@ -3592,6 +3610,33 @@ operator|=
 name|readLockMarkerFile
 expr_stmt|;
 block|}
+DECL|method|isReadLockDeleteOrphanLockFiles ()
+specifier|public
+name|boolean
+name|isReadLockDeleteOrphanLockFiles
+parameter_list|()
+block|{
+return|return
+name|readLockDeleteOrphanLockFiles
+return|;
+block|}
+comment|/**      * Whether or not read lock with marker files should upon startup delete any orphan read lock files, which may      * have been left on the file system, if Camel was not properly shutdown (such as a JVM crash).      *<p/>      * If turning this option to<tt>false</tt> then any orphaned lock file will cause Camel to not attempt to pickup      * that file, this could also be due another node is concurrently reading files from the same shared directory.      */
+DECL|method|setReadLockDeleteOrphanLockFiles (boolean readLockDeleteOrphanLockFiles)
+specifier|public
+name|void
+name|setReadLockDeleteOrphanLockFiles
+parameter_list|(
+name|boolean
+name|readLockDeleteOrphanLockFiles
+parameter_list|)
+block|{
+name|this
+operator|.
+name|readLockDeleteOrphanLockFiles
+operator|=
+name|readLockDeleteOrphanLockFiles
+expr_stmt|;
+block|}
 DECL|method|getReadLockLoggingLevel ()
 specifier|public
 name|LoggingLevel
@@ -4653,6 +4698,15 @@ argument_list|(
 literal|"readLockMarkerFile"
 argument_list|,
 name|readLockMarkerFile
+argument_list|)
+expr_stmt|;
+name|params
+operator|.
+name|put
+argument_list|(
+literal|"readLockDeleteOrphanLockFiles"
+argument_list|,
+name|readLockDeleteOrphanLockFiles
 argument_list|)
 expr_stmt|;
 name|params

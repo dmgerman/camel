@@ -203,6 +203,15 @@ name|boolean
 name|markerFile
 parameter_list|)
 function_decl|;
+comment|/**      * Sets whether orphan marker files should be deleted upon startup      *      * @param deleteOrphanLockFiles<tt>true</tt> to delete files,<tt>false</tt> to skip this check      */
+DECL|method|setDeleteOrphanLockFiles (boolean deleteOrphanLockFiles)
+name|void
+name|setDeleteOrphanLockFiles
+parameter_list|(
+name|boolean
+name|deleteOrphanLockFiles
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

@@ -220,6 +220,13 @@ name|markerFile
 init|=
 literal|true
 decl_stmt|;
+DECL|field|deleteOrphanLockFiles
+specifier|private
+name|boolean
+name|deleteOrphanLockFiles
+init|=
+literal|true
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|prepareOnStartup (GenericFileOperations<File> operations, GenericFileEndpoint<File> endpoint)
@@ -239,6 +246,11 @@ name|File
 argument_list|>
 name|endpoint
 parameter_list|)
+block|{
+if|if
+condition|(
+name|deleteOrphanLockFiles
+condition|)
 block|{
 name|String
 name|dir
@@ -311,6 +323,7 @@ name|taken
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
@@ -691,6 +704,24 @@ operator|.
 name|markerFile
 operator|=
 name|markerFile
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|setDeleteOrphanLockFiles (boolean deleteOrphanLockFiles)
+specifier|public
+name|void
+name|setDeleteOrphanLockFiles
+parameter_list|(
+name|boolean
+name|deleteOrphanLockFiles
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deleteOrphanLockFiles
+operator|=
+name|deleteOrphanLockFiles
 expr_stmt|;
 block|}
 DECL|method|deleteLockFiles (File dir, boolean recursive)

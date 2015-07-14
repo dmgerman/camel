@@ -887,6 +887,19 @@ parameter_list|)
 block|{
 comment|// noop - not supported by ftp
 block|}
+annotation|@
+name|Override
+DECL|method|setDeleteOrphanLockFiles (boolean deleteOrphanLockFiles)
+specifier|public
+name|void
+name|setDeleteOrphanLockFiles
+parameter_list|(
+name|boolean
+name|deleteOrphanLockFiles
+parameter_list|)
+block|{
+comment|// noop - not supported by ftp
+block|}
 DECL|method|getMinLength ()
 specifier|public
 name|long
