@@ -174,12 +174,12 @@ throw|;
 block|}
 else|else
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"message ignored, no consumers available on endpoint: "
-operator|+
+literal|"message ignored, no consumers available on endpoint: {}"
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
@@ -251,12 +251,12 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"message ignored, no consumers available on endpoint: "
-operator|+
+literal|"message ignored, no consumers available on endpoint: {}"
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;
