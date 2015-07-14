@@ -24,6 +24,17 @@ specifier|public
 class|class
 name|CamelCustomer
 block|{
+DECL|method|CamelCustomer ()
+specifier|public
+name|CamelCustomer
+parameter_list|()
+block|{     }
+DECL|method|extraMethod ()
+specifier|public
+name|void
+name|extraMethod
+parameter_list|()
+block|{     }
 DECL|method|isGoldCustomer (String body)
 specifier|public
 specifier|static

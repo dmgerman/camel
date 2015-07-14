@@ -27,6 +27,13 @@ specifier|final
 class|class
 name|CamelVersionHelper
 block|{
+DECL|method|CamelVersionHelper ()
+specifier|private
+name|CamelVersionHelper
+parameter_list|()
+block|{
+comment|//utility class, never constructed
+block|}
 comment|/**      * Checks whether other>= base      *      * @param base  the base version      * @param other the other version      * @return<tt>true</tt> if GE,<tt>false</tt> otherwise      */
 DECL|method|isGE (String base, String other)
 specifier|public

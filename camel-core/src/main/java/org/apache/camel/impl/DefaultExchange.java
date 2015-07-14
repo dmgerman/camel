@@ -445,7 +445,6 @@ literal|"Exchange[%s][%s]"
 argument_list|,
 name|exchangeId
 argument_list|,
-operator|(
 name|out
 operator|==
 literal|null
@@ -453,7 +452,6 @@ condition|?
 name|in
 else|:
 name|out
-operator|)
 argument_list|)
 return|;
 block|}

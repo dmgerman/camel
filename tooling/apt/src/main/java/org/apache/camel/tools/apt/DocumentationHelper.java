@@ -137,6 +137,13 @@ specifier|final
 class|class
 name|DocumentationHelper
 block|{
+DECL|method|DocumentationHelper ()
+specifier|private
+name|DocumentationHelper
+parameter_list|()
+block|{
+comment|//utility class, never constructed
+block|}
 DECL|method|findComponentJavaDoc (String scheme, String extendsScheme, String fieldName)
 specifier|public
 specifier|static
