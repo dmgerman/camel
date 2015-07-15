@@ -90,6 +90,7 @@ name|UndertowError500Test
 extends|extends
 name|CamelTestSupport
 block|{
+comment|// TODO: add unit test should use dynamic port number, see camel-jetty9 for example
 annotation|@
 name|Test
 DECL|method|testHttp500Error ()

@@ -256,7 +256,7 @@ literal|"Undertow"
 argument_list|,
 name|syntax
 operator|=
-literal|"undertow:host:port/path"
+literal|"undertow:httpURI"
 argument_list|,
 name|consumerClass
 operator|=
@@ -293,25 +293,10 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|undertowHttpBinding
-specifier|private
-name|UndertowHttpBinding
-name|undertowHttpBinding
-decl_stmt|;
 DECL|field|component
 specifier|private
 name|UndertowComponent
 name|component
-decl_stmt|;
-DECL|field|headerFilterStrategy
-specifier|private
-name|HeaderFilterStrategy
-name|headerFilterStrategy
-decl_stmt|;
-DECL|field|sslContext
-specifier|private
-name|SSLContext
-name|sslContext
 decl_stmt|;
 annotation|@
 name|UriPath
@@ -322,6 +307,32 @@ name|httpURI
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|undertowHttpBinding
+specifier|private
+name|UndertowHttpBinding
+name|undertowHttpBinding
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|headerFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|sslContext
+specifier|private
+name|SSLContext
+name|sslContext
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|httpMethodRestrict
 specifier|private
 name|String
@@ -329,6 +340,15 @@ name|httpMethodRestrict
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|matchOnUriPrefix
 specifier|private
 name|Boolean
@@ -338,6 +358,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|throwExceptionOnFailure
 specifier|private
 name|Boolean
@@ -388,6 +413,18 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|getComponent ()
+specifier|public
+name|UndertowComponent
+name|getComponent
+parameter_list|()
+block|{
+return|return
+name|component
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -402,6 +439,60 @@ name|UndertowProducer
 argument_list|(
 name|this
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createConsumer (Processor processor)
+specifier|public
+name|Consumer
+name|createConsumer
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+operator|new
+name|UndertowConsumer
+argument_list|(
+name|this
+argument_list|,
+name|processor
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createPollingConsumer ()
+specifier|public
+name|PollingConsumer
+name|createPollingConsumer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|//throw exception as polling consumer is not supported
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"This component does not support polling consumer"
+argument_list|)
+throw|;
+block|}
+annotation|@
+name|Override
+DECL|method|isSingleton ()
+specifier|public
+name|boolean
+name|isSingleton
+parameter_list|()
+block|{
+return|return
+literal|true
 return|;
 block|}
 DECL|method|createExchange (HttpServerExchange httpExchange)
@@ -473,56 +564,6 @@ return|return
 name|exchange
 return|;
 block|}
-DECL|method|createConsumer (Processor processor)
-specifier|public
-name|Consumer
-name|createConsumer
-parameter_list|(
-name|Processor
-name|processor
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-return|return
-operator|new
-name|UndertowConsumer
-argument_list|(
-name|this
-argument_list|,
-name|processor
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|createPollingConsumer ()
-specifier|public
-name|PollingConsumer
-name|createPollingConsumer
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|//throw exception as polling consumer is not supported
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"This component does not support polling consumer"
-argument_list|)
-throw|;
-block|}
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 DECL|method|getHttpURI ()
 specifier|public
 name|URI
@@ -533,7 +574,7 @@ return|return
 name|httpURI
 return|;
 block|}
-comment|/**      * Set full HTTP URI      */
+comment|/**      * The url of the HTTP endpoint to use.      */
 DECL|method|setHttpURI (URI httpURI)
 specifier|public
 name|void
@@ -560,7 +601,7 @@ return|return
 name|httpMethodRestrict
 return|;
 block|}
-comment|/**      * Configure set of allowed HTTP request method      */
+comment|/**      * Used to only allow consuming if the HttpMethod matches, such as GET/POST/PUT etc. Multiple methods can be specified separated by comma.      */
 DECL|method|setHttpMethodRestrict (String httpMethodRestrict)
 specifier|public
 name|void
@@ -587,7 +628,7 @@ return|return
 name|matchOnUriPrefix
 return|;
 block|}
-comment|/**      * Set if URI should be matched on prefix      */
+comment|/**      * Whether or not the consumer should try to find a target consumer by matching the URI prefix if no exact match is found.      */
 DECL|method|setMatchOnUriPrefix (Boolean matchOnUriPrefix)
 specifier|public
 name|void
@@ -614,6 +655,7 @@ return|return
 name|headerFilterStrategy
 return|;
 block|}
+comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel message.      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|void
@@ -647,6 +689,7 @@ return|return
 name|sslContext
 return|;
 block|}
+comment|/**      * To configure security using SSLContextParameters      */
 DECL|method|setSslContext (SSLContext sslContext)
 specifier|public
 name|void
@@ -673,7 +716,7 @@ return|return
 name|throwExceptionOnFailure
 return|;
 block|}
-comment|/**      * Configure if exception should be thrown on failure      */
+comment|/**      * If the option is true, HttpProducer will ignore the Exchange.HTTP_URI header, and use the endpoint's URI for request.      * You may also set the option throwExceptionOnFailure to be false to let the producer send all the fault response back.      */
 DECL|method|setThrowExceptionOnFailure (Boolean throwExceptionOnFailure)
 specifier|public
 name|void
@@ -700,7 +743,7 @@ return|return
 name|transferException
 return|;
 block|}
-comment|/**      * Configure if exception should be transferred to client      */
+comment|/**      * Option to disable throwing the HttpOperationFailedException in case of failed responses from the remote server.      * This allows you to get all responses regardless of the HTTP status code.      */
 DECL|method|setTransferException (Boolean transferException)
 specifier|public
 name|void
@@ -727,6 +770,7 @@ return|return
 name|undertowHttpBinding
 return|;
 block|}
+comment|/**      * To use a custom UndertowHttpBinding to control the mapping between Camel message and undertow.      */
 DECL|method|setUndertowHttpBinding (UndertowHttpBinding undertowHttpBinding)
 specifier|public
 name|void
@@ -741,34 +785,6 @@ operator|.
 name|undertowHttpBinding
 operator|=
 name|undertowHttpBinding
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|getComponent ()
-specifier|public
-name|UndertowComponent
-name|getComponent
-parameter_list|()
-block|{
-return|return
-name|component
-return|;
-block|}
-DECL|method|setComponent (UndertowComponent component)
-specifier|public
-name|void
-name|setComponent
-parameter_list|(
-name|UndertowComponent
-name|component
-parameter_list|)
-block|{
-name|this
-operator|.
-name|component
-operator|=
-name|component
 expr_stmt|;
 block|}
 block|}
