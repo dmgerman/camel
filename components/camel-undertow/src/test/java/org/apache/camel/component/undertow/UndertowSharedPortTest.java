@@ -157,36 +157,6 @@ parameter_list|)
 throws|throws
 name|InterruptedException
 block|{
-name|String
-name|response
-init|=
-name|template
-operator|.
-name|requestBody
-argument_list|(
-literal|"undertow://http://localhost:{{port}}/"
-operator|+
-name|pathSuffix
-argument_list|,
-literal|"Hello Camel!"
-argument_list|,
-name|String
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|response
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Hello Camel!"
-argument_list|,
-name|response
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mockEndpoint
 init|=
@@ -205,16 +175,14 @@ name|Exchange
 operator|.
 name|HTTP_METHOD
 argument_list|,
-literal|"GET"
+literal|"POST"
 argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Number of exchanges in mock:"
-operator|+
-name|pathSuffix
+literal|"Number of exchanges in mock:myapp "
 operator|+
 name|mockEndpoint
 operator|.
@@ -224,6 +192,43 @@ operator|.
 name|size
 argument_list|()
 argument_list|)
+expr_stmt|;
+name|String
+name|response
+init|=
+name|template
+operator|.
+name|requestBody
+argument_list|(
+literal|"undertow:http://localhost:{{port}}/"
+operator|+
+name|pathSuffix
+argument_list|,
+literal|"Hello Camel!"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|response
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Bye Camel! "
+operator|+
+name|pathSuffix
+argument_list|,
+name|response
+argument_list|)
+expr_stmt|;
+name|mockEndpoint
+operator|.
+name|assertIsSatisfied
+argument_list|()
 expr_stmt|;
 for|for
 control|(
@@ -238,7 +243,7 @@ control|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Hello Camel! Bye Camel! "
+literal|"Bye Camel! "
 operator|+
 name|pathSuffix
 argument_list|,
@@ -256,11 +261,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|mockEndpoint
-operator|.
-name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Override

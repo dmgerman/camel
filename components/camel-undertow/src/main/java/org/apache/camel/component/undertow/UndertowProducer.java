@@ -279,7 +279,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Undertow producer.  *<p/>  * The implementation of Producer is considered as experimental. The Undertow client classes are not thread safe,  * their purpose is for the reverse proxy usage inside Undertow itself. This may change in the future versions and  * general purpose HTTP client wrapper will be added. Therefore this Producer may be changed too.  */
+comment|/**  * The Undertow producer.  *  * The implementation of Producer is considered as experimental. The Undertow client classes are not thread safe,  * their purpose is for the reverse proxy usage inside Undertow itself. This may change in the future versions and  * general purpose HTTP client wrapper will be added. Therefore this Producer may be changed too.  */
 end_comment
 
 begin_class
@@ -433,6 +433,19 @@ argument_list|(
 name|Protocols
 operator|.
 name|HTTP_1_1
+argument_list|)
+expr_stmt|;
+name|request
+operator|.
+name|setPath
+argument_list|(
+name|endpoint
+operator|.
+name|getHttpURI
+argument_list|()
+operator|.
+name|getPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Object

@@ -140,14 +140,14 @@ name|Exchange
 operator|.
 name|HTTP_METHOD
 argument_list|,
-literal|"GET"
+literal|"POST"
 argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Number of exchanges in mock:myapp"
+literal|"Number of exchanges in mock:myapp "
 operator|+
 name|mockEndpoint
 operator|.
@@ -204,7 +204,7 @@ control|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Hello Camel! Bye Camel!"
+literal|"Bye Camel!"
 argument_list|,
 name|exchange
 operator|.
