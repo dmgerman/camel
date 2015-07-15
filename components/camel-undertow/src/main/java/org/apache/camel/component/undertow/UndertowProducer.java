@@ -130,6 +130,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncCallback
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -168,7 +180,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultProducer
+name|DefaultAsyncProducer
 import|;
 end_import
 
@@ -267,7 +279,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Undertow producer.  *  * The implementation of Producer is considered as experimental. The Undertow client classes are not thread safe,  * their purpose is for the reverse proxy usage inside Undertow itself. This may change in the future versions and  * general purpose HTTP client wrapper will be added. Therefore this Producer may be changed too.  */
+comment|/**  * The Undertow producer.  *<p/>  * The implementation of Producer is considered as experimental. The Undertow client classes are not thread safe,  * their purpose is for the reverse proxy usage inside Undertow itself. This may change in the future versions and  * general purpose HTTP client wrapper will be added. Therefore this Producer may be changed too.  */
 end_comment
 
 begin_class
@@ -276,7 +288,7 @@ specifier|public
 class|class
 name|UndertowProducer
 extends|extends
-name|DefaultProducer
+name|DefaultAsyncProducer
 block|{
 DECL|field|LOG
 specifier|private
@@ -331,35 +343,21 @@ return|return
 name|endpoint
 return|;
 block|}
-DECL|method|setEndpoint (UndertowEndpoint endpoint)
-specifier|public
-name|void
-name|setEndpoint
-parameter_list|(
-name|UndertowEndpoint
-name|endpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
-expr_stmt|;
-block|}
-comment|// TODO: use async routing engine
 annotation|@
 name|Override
-DECL|method|process (Exchange exchange)
+DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
-name|void
+name|boolean
 name|process
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
 parameter_list|)
-throws|throws
-name|Exception
+block|{
+try|try
 block|{
 specifier|final
 name|UndertowClient
@@ -514,9 +512,40 @@ argument_list|(
 name|bodyAsByte
 argument_list|,
 name|exchange
+argument_list|,
+name|callback
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+comment|// use async routing engine
+return|return
+literal|false
+return|;
 block|}
 DECL|method|getRequestBody (ClientRequest request, Exchange camelExchange)
 specifier|private
@@ -567,15 +596,23 @@ argument_list|>
 block|{
 DECL|field|body
 specifier|private
+specifier|final
 name|ByteBuffer
 name|body
 decl_stmt|;
 DECL|field|camelExchange
 specifier|private
+specifier|final
 name|Exchange
 name|camelExchange
 decl_stmt|;
-DECL|method|UndertowProducerCallback (ByteBuffer body, Exchange camelExchange)
+DECL|field|callback
+specifier|private
+specifier|final
+name|AsyncCallback
+name|callback
+decl_stmt|;
+DECL|method|UndertowProducerCallback (ByteBuffer body, Exchange camelExchange, AsyncCallback callback)
 specifier|public
 name|UndertowProducerCallback
 parameter_list|(
@@ -584,6 +621,9 @@ name|body
 parameter_list|,
 name|Exchange
 name|camelExchange
+parameter_list|,
+name|AsyncCallback
+name|callback
 parameter_list|)
 block|{
 name|this
@@ -598,7 +638,14 @@ name|camelExchange
 operator|=
 name|camelExchange
 expr_stmt|;
+name|this
+operator|.
+name|callback
+operator|=
+name|callback
+expr_stmt|;
 block|}
+comment|// TODO: Add some logging of those events at trace or debug level
 annotation|@
 name|Override
 DECL|method|completed (ClientExchange clientExchange)
@@ -631,15 +678,11 @@ name|ClientExchange
 name|clientExchange
 parameter_list|)
 block|{
+try|try
+block|{
 name|Message
 name|message
 init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|message
-operator|=
 name|endpoint
 operator|.
 name|getUndertowHttpBinding
@@ -651,22 +694,7 @@ name|clientExchange
 argument_list|,
 name|camelExchange
 argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-name|camelExchange
-operator|.
-name|setException
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 if|if
 condition|(
 name|ExchangeHelper
@@ -696,6 +724,32 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|camelExchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// make sure to call callback
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 annotation|@
 name|Override
 specifier|public
@@ -711,6 +765,14 @@ operator|.
 name|setException
 argument_list|(
 name|e
+argument_list|)
+expr_stmt|;
+comment|// make sure to call callback
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -752,6 +814,14 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+comment|// make sure to call callback
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 annotation|@
@@ -770,6 +840,14 @@ operator|.
 name|setException
 argument_list|(
 name|e
+argument_list|)
+expr_stmt|;
+comment|// make sure to call callback
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
