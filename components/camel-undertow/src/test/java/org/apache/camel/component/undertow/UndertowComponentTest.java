@@ -181,7 +181,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Hello Camel!"
+literal|"Bye Camel!"
 argument_list|,
 name|response
 argument_list|)
