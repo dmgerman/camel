@@ -64,22 +64,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -112,7 +96,7 @@ specifier|public
 class|class
 name|UndertowComponentTest
 extends|extends
-name|CamelTestSupport
+name|BaseUndertowTest
 block|{
 DECL|field|LOG
 specifier|private
@@ -147,7 +131,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"undertow://http://localhost:8888/myapp"
+literal|"undertow://http://localhost:{{port}}/myapp"
 argument_list|,
 literal|"Hello Camel!"
 argument_list|,
@@ -156,11 +140,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|//        MockEndpoint mockEndpoint = getMockEndpoint("mock:myapp");
-comment|//        assertTrue(mockEndpoint.getExchanges().size() == 1);
-comment|//        for (Exchange exchange : mockEndpoint.getExchanges()) {
-comment|//            assertEquals("Bye Camel", exchange.getIn().getBody(String.class));
-comment|//        }
 name|assertNotNull
 argument_list|(
 name|response
@@ -236,12 +215,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|//        Exchange out = template.request("undertow:http://localhost:8888/myapp", new Processor() {
-comment|//            @Override
-comment|//            public void process(Exchange exchange) throws Exception {
-comment|//                exchange.getIn().setBody("Hello World!");
-comment|//            }
-comment|//        });
 name|mockEndpoint
 operator|.
 name|assertIsSatisfied
@@ -270,7 +243,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"undertow:http://localhost:8888/myapp"
+literal|"undertow:http://localhost:{{port}}/myapp"
 argument_list|)
 operator|.
 name|transform
@@ -286,9 +259,6 @@ argument_list|(
 literal|"mock:myapp"
 argument_list|)
 expr_stmt|;
-comment|//                from("undertow:http://localhost:8888/bar")
-comment|//                        .transform(bodyAs(String.class).append(" Bar Camel!"))
-comment|//                        .to("mock:bar");
 block|}
 block|}
 return|;

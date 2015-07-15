@@ -60,22 +60,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -88,9 +72,8 @@ specifier|public
 class|class
 name|UndertowError500Test
 extends|extends
-name|CamelTestSupport
+name|BaseUndertowTest
 block|{
-comment|// TODO: add unit test should use dynamic port number, see camel-jetty9 for example
 annotation|@
 name|Test
 DECL|method|testHttp500Error ()
@@ -117,7 +100,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:8888/foo"
+literal|"http://localhost:{{port}}/foo"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -168,7 +151,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"undertow:http://localhost:8888/foo"
+literal|"undertow:http://localhost:{{port}}/foo"
 argument_list|)
 operator|.
 name|to

@@ -48,22 +48,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|test
-operator|.
-name|junit4
-operator|.
-name|CamelTestSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -76,7 +60,7 @@ specifier|public
 class|class
 name|UndertowHttpProducerTest
 extends|extends
-name|CamelTestSupport
+name|BaseUndertowTest
 block|{
 annotation|@
 name|Test
@@ -109,7 +93,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"http://localhost:8888/foo"
+literal|"http://localhost:{{port}}/foo"
 argument_list|,
 literal|null
 argument_list|,
@@ -160,7 +144,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"http://localhost:8888/foo"
+literal|"http://localhost:{{port}}/foo"
 argument_list|,
 literal|null
 argument_list|,
@@ -227,7 +211,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"http://localhost:8888/foo"
+literal|"http://localhost:{{port}}/foo"
 argument_list|,
 literal|"Hello World"
 argument_list|,
@@ -279,7 +263,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"undertow:http://localhost:8888/foo"
+literal|"undertow:http://localhost:{{port}}/foo"
 argument_list|)
 operator|.
 name|to
