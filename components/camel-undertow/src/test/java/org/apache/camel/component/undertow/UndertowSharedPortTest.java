@@ -18,10 +18,6 @@ name|undertow
 package|;
 end_package
 
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|UndertowSharedPortTest
 specifier|public

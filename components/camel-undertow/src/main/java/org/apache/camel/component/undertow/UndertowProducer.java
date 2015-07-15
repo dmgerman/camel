@@ -267,7 +267,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Undertow producer.  *  * The implementation of Producer is considered as experimental. The Undertow client classes are not thread safe,  * their purpose is for the reverse proxy usage inside Undertow itself. This may change in the future versions and  * general purpose HTTP client wrapper will be added. Therefore this Producer may be changed too.  *  */
+comment|/**  * The Undertow producer.  *  * The implementation of Producer is considered as experimental. The Undertow client classes are not thread safe,  * their purpose is for the reverse proxy usage inside Undertow itself. This may change in the future versions and  * general purpose HTTP client wrapper will be added. Therefore this Producer may be changed too.  */
 end_comment
 
 begin_class
@@ -347,6 +347,7 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
+comment|// TODO: use async routing engine
 annotation|@
 name|Override
 DECL|method|process (Exchange exchange)
@@ -360,18 +361,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Producer endpoint uri "
-operator|+
-name|endpoint
-operator|.
-name|getHttpURI
-argument_list|()
-argument_list|)
-expr_stmt|;
 specifier|final
 name|UndertowClient
 name|client
@@ -756,18 +745,6 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Failed with: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|camelExchange
 operator|.
 name|setException
@@ -788,18 +765,6 @@ name|IOException
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Failed with: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|camelExchange
 operator|.
 name|setException

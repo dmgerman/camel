@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The Undertow consumer.  *  */
+comment|/**  * The Undertow consumer.  */
 end_comment
 
 begin_class

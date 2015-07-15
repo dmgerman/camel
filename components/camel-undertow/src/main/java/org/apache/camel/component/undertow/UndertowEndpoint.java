@@ -239,7 +239,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an Undertow endpoint.  *  */
+comment|/**  * Represents an Undertow endpoint.  */
 end_comment
 
 begin_class
@@ -533,7 +533,7 @@ return|return
 name|httpURI
 return|;
 block|}
-comment|/**      * Set full HTTP URI      * @param httpURI      */
+comment|/**      * Set full HTTP URI      */
 DECL|method|setHttpURI (URI httpURI)
 specifier|public
 name|void
@@ -560,7 +560,7 @@ return|return
 name|httpMethodRestrict
 return|;
 block|}
-comment|/**      * Configure set of allowed HTTP request method      * @param httpMethodRestrict      */
+comment|/**      * Configure set of allowed HTTP request method      */
 DECL|method|setHttpMethodRestrict (String httpMethodRestrict)
 specifier|public
 name|void
@@ -587,7 +587,7 @@ return|return
 name|matchOnUriPrefix
 return|;
 block|}
-comment|/**      * Set if URI should be matched on prefix      * @param matchOnUriPrefix      */
+comment|/**      * Set if URI should be matched on prefix      */
 DECL|method|setMatchOnUriPrefix (Boolean matchOnUriPrefix)
 specifier|public
 name|void
@@ -673,7 +673,7 @@ return|return
 name|throwExceptionOnFailure
 return|;
 block|}
-comment|/**      * Configure if exception should be thrown on failure      * @param throwExceptionOnFailure      */
+comment|/**      * Configure if exception should be thrown on failure      */
 DECL|method|setThrowExceptionOnFailure (Boolean throwExceptionOnFailure)
 specifier|public
 name|void
@@ -700,7 +700,7 @@ return|return
 name|transferException
 return|;
 block|}
-comment|/**      * Configure if expcetion should be transfered to client      * @param transferException      */
+comment|/**      * Configure if exception should be transferred to client      */
 DECL|method|setTransferException (Boolean transferException)
 specifier|public
 name|void

@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Util class for useful methods used all over the component  *  */
+comment|/**  * Util class for useful methods used all over the component  */
 end_comment
 
 begin_class

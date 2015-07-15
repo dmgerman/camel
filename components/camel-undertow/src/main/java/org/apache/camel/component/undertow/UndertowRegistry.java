@@ -74,18 +74,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|RuntimeCamelException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -103,7 +91,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This class is used to hold Undertow instances during runtime.  * One of the benefits is reuse of same TCP port for more endpoints.  *  */
+comment|/**  * This class is used to hold Undertow instances during runtime.  * One of the benefits is reuse of same TCP port for more endpoints.  */
 end_comment
 
 begin_class
@@ -275,9 +263,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|IllegalArgumentException
 argument_list|(
-literal|"Can't register UndertowConsumer on different host and same port: {}"
+literal|"Cannot register UndertowConsumer on different host and same port: {}"
 operator|+
 name|host
 operator|+
@@ -337,9 +325,9 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|RuntimeCamelException
+name|IllegalArgumentException
 argument_list|(
-literal|"Can't register UndertowConsumer with different SSL config"
+literal|"Cannot register UndertowConsumer with different SSL config"
 argument_list|)
 throw|;
 block|}
@@ -384,13 +372,15 @@ expr_stmt|;
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
+name|LOG
+operator|.
+name|debug
 argument_list|(
-literal|"This consumer is not registered"
+literal|"Cannot unregister consumer {} as it was not registered"
+argument_list|,
+name|consumer
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 DECL|method|isEmpty ()

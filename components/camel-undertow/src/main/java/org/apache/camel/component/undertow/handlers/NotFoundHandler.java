@@ -57,7 +57,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Custom handler to inform client that no matching path was found  *  */
+comment|/**  * Custom handler to inform client that no matching path was found  */
 end_comment
 
 begin_class

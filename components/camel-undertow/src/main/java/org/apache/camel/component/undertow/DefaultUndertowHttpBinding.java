@@ -347,7 +347,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultUndertowHttpBinding represent binding used by default, if user doesn't provide any.  * By default {@link HttpHeaderFilterStrategy} is also used.  *  */
+comment|/**  * DefaultUndertowHttpBinding represent binding used by default, if user doesn't provide any.  * By default {@link HttpHeaderFilterStrategy} is also used.  */
 end_comment
 
 begin_class

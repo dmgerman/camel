@@ -31,7 +31,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Copy of {@link org.apache.camel.Exchange} headers fields, to return them as {@link HttpString} for Undertow  *  */
+comment|/**  * Copy of {@link org.apache.camel.Exchange} headers fields, to return them as {@link HttpString} for Undertow  */
 end_comment
 
 begin_class

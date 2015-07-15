@@ -191,7 +191,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Custom handler to process incoming HTTP request and prepare them  * to be used in the Camel route.  *  * This class can be considered part of UndertowConsumer implementation.  *  */
+comment|/**  * Custom handler to process incoming HTTP request and prepare them  * to be used in the Camel route.  *  * This class can be considered part of UndertowConsumer implementation.  */
 end_comment
 
 begin_class

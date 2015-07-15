@@ -377,7 +377,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the component that manages {@link UndertowEndpoint}.  *  */
+comment|/**  * Represents the component that manages {@link UndertowEndpoint}.  */
 end_comment
 
 begin_class
@@ -553,17 +553,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Remaining: "
-operator|+
-name|remaining
-argument_list|)
-expr_stmt|;
 name|String
 name|address
 init|=
@@ -1304,7 +1293,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"::Rebuild for path: {}"
+literal|"Rebuild for path: {}"
 argument_list|,
 name|httpUri
 operator|.
@@ -1575,7 +1564,7 @@ name|newServer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * To use the custom HttpClientConfigurer to perform configuration of the HttpClient that will be used.      *      * @param httpClientConfigurer      */
+comment|/**      * To use the custom HttpClientConfigurer to perform configuration of the HttpClient that will be used.      */
 annotation|@
 name|Override
 DECL|method|setHttpClientConfigurer (HttpClientConfigurer httpClientConfigurer)
@@ -1595,7 +1584,7 @@ name|httpClientConfigurer
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * To use a custom HttpConnectionManager to manage connections      *      * @param httpConnectionManager      */
+comment|/**      * To use a custom HttpConnectionManager to manage connections      */
 annotation|@
 name|Override
 DECL|method|setHttpConnectionManager (HttpConnectionManager httpConnectionManager)
@@ -1615,7 +1604,7 @@ name|httpConnectionManager
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * To use a custom HttpBinding to control the mapping between Camel message and HttpClient.      *      * @param httpBinding      */
+comment|/**      * To use a custom HttpBinding to control the mapping between Camel message and HttpClient.      */
 annotation|@
 name|Override
 DECL|method|setHttpBinding (HttpBinding httpBinding)
@@ -1635,7 +1624,7 @@ name|httpBinding
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * To use the shared HttpConfiguration as base configuration.      *      * @param httpConfiguration      */
+comment|/**      * To use the shared HttpConfiguration as base configuration.      */
 annotation|@
 name|Override
 DECL|method|setHttpConfiguration (HttpConfiguration httpConfiguration)

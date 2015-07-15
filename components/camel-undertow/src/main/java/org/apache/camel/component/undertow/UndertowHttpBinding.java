@@ -115,7 +115,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Interface to define custom binding for the component  *  */
+comment|/**  * Interface to define custom binding for the component  */
 end_comment
 
 begin_interface
