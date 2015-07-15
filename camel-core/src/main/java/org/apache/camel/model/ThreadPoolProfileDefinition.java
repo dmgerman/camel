@@ -219,6 +219,8 @@ name|String
 name|keepAliveTime
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+annotation|@
 name|XmlJavaTypeAdapter
 argument_list|(
 name|TimeUnitAdapter
