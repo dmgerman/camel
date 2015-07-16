@@ -485,7 +485,16 @@ literal|"decoder"
 argument_list|,
 operator|new
 name|HttpRequestDecoder
+argument_list|(
+literal|4096
+argument_list|,
+name|configuration
+operator|.
+name|getMaxHeaderSize
 argument_list|()
+argument_list|,
+literal|8192
+argument_list|)
 argument_list|)
 expr_stmt|;
 if|if

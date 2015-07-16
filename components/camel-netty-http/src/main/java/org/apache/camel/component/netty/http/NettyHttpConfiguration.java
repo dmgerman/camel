@@ -138,6 +138,24 @@ name|ChannelHandler
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|jboss
+operator|.
+name|netty
+operator|.
+name|handler
+operator|.
+name|codec
+operator|.
+name|frame
+operator|.
+name|TooLongFrameException
+import|;
+end_import
+
 begin_comment
 comment|/**  * Extended configuration for using HTTP with Netty.  */
 end_comment
@@ -273,6 +291,20 @@ init|=
 literal|1024
 operator|*
 literal|1024
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"8192"
+argument_list|)
+DECL|field|maxHeaderSize
+specifier|private
+name|int
+name|maxHeaderSize
+init|=
+literal|8192
 decl_stmt|;
 DECL|method|NettyHttpConfiguration ()
 specifier|public
@@ -686,6 +718,33 @@ operator|.
 name|chunkedMaxContentLength
 operator|=
 name|chunkedMaxContentLength
+expr_stmt|;
+block|}
+DECL|method|getMaxHeaderSize ()
+specifier|public
+name|int
+name|getMaxHeaderSize
+parameter_list|()
+block|{
+return|return
+name|maxHeaderSize
+return|;
+block|}
+comment|/**      * The maximum length of all headers.      * If the sum of the length of each header exceeds this value, a {@link TooLongFrameException} will be raised.      */
+DECL|method|setMaxHeaderSize (int maxHeaderSize)
+specifier|public
+name|void
+name|setMaxHeaderSize
+parameter_list|(
+name|int
+name|maxHeaderSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxHeaderSize
+operator|=
+name|maxHeaderSize
 expr_stmt|;
 block|}
 comment|// Don't support allowDefaultCodec
