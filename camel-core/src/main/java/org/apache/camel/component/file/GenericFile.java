@@ -168,6 +168,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|copyFromAbsoluteFilePath
+specifier|private
+name|String
+name|copyFromAbsoluteFilePath
+decl_stmt|;
 DECL|field|endpointPath
 specifier|private
 name|String
@@ -298,6 +303,16 @@ name|e
 argument_list|)
 throw|;
 block|}
+name|result
+operator|.
+name|setCopyFromAbsoluteFilePath
+argument_list|(
+name|source
+operator|.
+name|getAbsoluteFilePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|result
 operator|.
 name|setEndpointPath
@@ -1687,6 +1702,32 @@ operator|.
 name|directory
 operator|=
 name|directory
+expr_stmt|;
+block|}
+DECL|method|getCopyFromAbsoluteFilePath ()
+specifier|public
+name|String
+name|getCopyFromAbsoluteFilePath
+parameter_list|()
+block|{
+return|return
+name|copyFromAbsoluteFilePath
+return|;
+block|}
+DECL|method|setCopyFromAbsoluteFilePath (String copyFromAbsoluteFilePath)
+specifier|public
+name|void
+name|setCopyFromAbsoluteFilePath
+parameter_list|(
+name|String
+name|copyFromAbsoluteFilePath
+parameter_list|)
+block|{
+name|this
+operator|.
+name|copyFromAbsoluteFilePath
+operator|=
+name|copyFromAbsoluteFilePath
 expr_stmt|;
 block|}
 comment|/**      * Fixes the path separator to be according to the protocol      */

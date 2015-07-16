@@ -396,13 +396,19 @@ name|lockFileName
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// store read-lock state
 name|exchange
 operator|.
 name|setProperty
 argument_list|(
+name|asReadLockKey
+argument_list|(
+name|file
+argument_list|,
 name|Exchange
 operator|.
 name|FILE_LOCK_FILE_ACQUIRED
+argument_list|)
 argument_list|,
 name|acquired
 argument_list|)
@@ -411,9 +417,14 @@ name|exchange
 operator|.
 name|setProperty
 argument_list|(
+name|asReadLockKey
+argument_list|(
+name|file
+argument_list|,
 name|Exchange
 operator|.
 name|FILE_LOCK_FILE_NAME
+argument_list|)
 argument_list|,
 name|lockFileName
 argument_list|)
@@ -559,16 +570,21 @@ block|{
 comment|// if not using marker file then nothing to release
 return|return;
 block|}
-comment|// only release the file if camel get the lock before
-if|if
-condition|(
+name|boolean
+name|acquired
+init|=
 name|exchange
 operator|.
 name|getProperty
 argument_list|(
+name|asReadLockKey
+argument_list|(
+name|file
+argument_list|,
 name|Exchange
 operator|.
 name|FILE_LOCK_FILE_ACQUIRED
+argument_list|)
 argument_list|,
 literal|false
 argument_list|,
@@ -576,6 +592,11 @@ name|Boolean
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+comment|// only release the file if camel get the lock before
+if|if
+condition|(
+name|acquired
 condition|)
 block|{
 name|String
@@ -585,13 +606,13 @@ name|exchange
 operator|.
 name|getProperty
 argument_list|(
+name|asReadLockKey
+argument_list|(
+name|file
+argument_list|,
 name|Exchange
 operator|.
 name|FILE_LOCK_FILE_NAME
-argument_list|,
-name|getLockFileName
-argument_list|(
-name|file
 argument_list|)
 argument_list|,
 name|String
@@ -861,6 +882,50 @@ operator|+
 name|FileComponent
 operator|.
 name|DEFAULT_LOCK_FILE_POSTFIX
+return|;
+block|}
+DECL|method|asReadLockKey (GenericFile file, String key)
+specifier|private
+specifier|static
+name|String
+name|asReadLockKey
+parameter_list|(
+name|GenericFile
+name|file
+parameter_list|,
+name|String
+name|key
+parameter_list|)
+block|{
+comment|// use the copy from absolute path as that was the original path of the file when the lock was acquired
+comment|// for example if the file consumer uses preMove then the file is moved and therefore has another name
+comment|// that would no longer match
+name|String
+name|path
+init|=
+name|file
+operator|.
+name|getCopyFromAbsoluteFilePath
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|file
+operator|.
+name|getCopyFromAbsoluteFilePath
+argument_list|()
+else|:
+name|file
+operator|.
+name|getAbsoluteFilePath
+argument_list|()
+decl_stmt|;
+return|return
+name|path
+operator|+
+literal|"-"
+operator|+
+name|key
 return|;
 block|}
 block|}
