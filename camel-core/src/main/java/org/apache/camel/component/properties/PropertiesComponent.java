@@ -232,6 +232,36 @@ name|SUFFIX_TOKEN
 init|=
 name|DEFAULT_SUFFIX_TOKEN
 decl_stmt|;
+comment|/**      *  Never check system properties.      */
+DECL|field|SYSTEM_PROPERTIES_MODE_NEVER
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|SYSTEM_PROPERTIES_MODE_NEVER
+init|=
+literal|0
+decl_stmt|;
+comment|/**      * Check system properties if not resolvable in the specified properties.      */
+DECL|field|SYSTEM_PROPERTIES_MODE_FALLBACK
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|SYSTEM_PROPERTIES_MODE_FALLBACK
+init|=
+literal|1
+decl_stmt|;
+comment|/**      * Check system properties first, before trying the specified properties.      * This allows system properties to override any other property source.      *<p/>      * This is the default.      */
+DECL|field|SYSTEM_PROPERTIES_MODE_OVERRIDE
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|SYSTEM_PROPERTIES_MODE_OVERRIDE
+init|=
+literal|2
+decl_stmt|;
 comment|/**      * Key for stores special override properties that containers such as OSGi can store      * in the OSGi service registry      */
 DECL|field|OVERRIDE_PROPERTIES
 specifier|public
@@ -402,6 +432,13 @@ DECL|field|overrideProperties
 specifier|private
 name|Properties
 name|overrideProperties
+decl_stmt|;
+DECL|field|systemPropertiesMode
+specifier|private
+name|int
+name|systemPropertiesMode
+init|=
+name|SYSTEM_PROPERTIES_MODE_OVERRIDE
 decl_stmt|;
 DECL|method|PropertiesComponent ()
 specifier|public
@@ -1476,6 +1513,33 @@ name|name
 argument_list|)
 return|;
 block|}
+DECL|method|getSystemPropertiesMode ()
+specifier|public
+name|int
+name|getSystemPropertiesMode
+parameter_list|()
+block|{
+return|return
+name|systemPropertiesMode
+return|;
+block|}
+comment|/**      * Sets the system property mode.      *      * @see #SYSTEM_PROPERTIES_MODE_NEVER      * @see #SYSTEM_PROPERTIES_MODE_FALLBACK      * @see #SYSTEM_PROPERTIES_MODE_OVERRIDE      */
+DECL|method|setSystemPropertiesMode (int systemPropertiesMode)
+specifier|public
+name|void
+name|setSystemPropertiesMode
+parameter_list|(
+name|int
+name|systemPropertiesMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|systemPropertiesMode
+operator|=
+name|systemPropertiesMode
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -1491,6 +1555,31 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|systemPropertiesMode
+operator|!=
+name|SYSTEM_PROPERTIES_MODE_NEVER
+operator|&&
+name|systemPropertiesMode
+operator|!=
+name|SYSTEM_PROPERTIES_MODE_FALLBACK
+operator|&&
+name|systemPropertiesMode
+operator|!=
+name|SYSTEM_PROPERTIES_MODE_OVERRIDE
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Option systemPropertiesMode has invalid value: "
+operator|+
+name|systemPropertiesMode
+argument_list|)
+throw|;
+block|}
 comment|// inject the component to the parser
 if|if
 condition|(

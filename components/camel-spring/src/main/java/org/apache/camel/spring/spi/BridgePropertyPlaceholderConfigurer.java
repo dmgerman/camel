@@ -237,6 +237,16 @@ specifier|private
 name|Boolean
 name|ignoreResourceNotFound
 decl_stmt|;
+DECL|method|getSystemPropertiesMode ()
+specifier|public
+name|int
+name|getSystemPropertiesMode
+parameter_list|()
+block|{
+return|return
+name|systemPropertiesMode
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|processProperties (ConfigurableListableBeanFactory beanFactoryToProcess, Properties props)

@@ -2286,6 +2286,17 @@ name|pc
 argument_list|)
 expr_stmt|;
 block|}
+comment|// use the spring system properties mode which has a different value than Camel may have
+name|pc
+operator|.
+name|setSystemPropertiesMode
+argument_list|(
+name|configurer
+operator|.
+name|getSystemPropertiesMode
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// replace existing resolver with us
 name|configurer
 operator|.
