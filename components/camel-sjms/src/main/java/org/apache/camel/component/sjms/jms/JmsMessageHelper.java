@@ -425,6 +425,34 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 block|{
+return|return
+name|createExchange
+argument_list|(
+name|message
+argument_list|,
+name|endpoint
+argument_list|,
+literal|null
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates an Exchange from a JMS Message.      * @param message The JMS message.      * @param endpoint The Endpoint to use to create the Exchange object.      * @param keyFormatStrategy the a {@link KeyFormatStrategy} to used to      *                          format keys in a JMS 1.1 compliant manner. If null the      *                          {@link DefaultJmsKeyFormatStrategy} will be used.      * @return Populated Exchange.      */
+DECL|method|createExchange (Message message, Endpoint endpoint, KeyFormatStrategy keyFormatStrategy)
+specifier|public
+specifier|static
+name|Exchange
+name|createExchange
+parameter_list|(
+name|Message
+name|message
+parameter_list|,
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|KeyFormatStrategy
+name|keyFormatStrategy
+parameter_list|)
+block|{
 name|Exchange
 name|exchange
 init|=
@@ -432,6 +460,21 @@ name|endpoint
 operator|.
 name|createExchange
 argument_list|()
+decl_stmt|;
+name|KeyFormatStrategy
+name|initialisedKeyFormatStrategy
+init|=
+operator|(
+name|keyFormatStrategy
+operator|==
+literal|null
+operator|)
+condition|?
+operator|new
+name|DefaultJmsKeyFormatStrategy
+argument_list|()
+else|:
+name|keyFormatStrategy
 decl_stmt|;
 return|return
 name|populateExchange
@@ -442,15 +485,7 @@ name|exchange
 argument_list|,
 literal|false
 argument_list|,
-operator|(
-operator|(
-name|SjmsEndpoint
-operator|)
-name|endpoint
-operator|)
-operator|.
-name|getJmsKeyFormatStrategy
-argument_list|()
+name|initialisedKeyFormatStrategy
 argument_list|)
 return|;
 block|}
@@ -1421,7 +1456,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Adds or updates the {@link Message} headers. Header names and values are      * checked for JMS 1.1 compliance.      *      * @param jmsMessage        the {@link Message} to add or update the headers on      * @param messageHeaders    a {@link Map} of String/Object pairs      * @param keyFormatStrategy the a {@link KeyFormatStrategy} to used to      *                          format keys in a JMS 1.1 compliant manner. If null the      *                          {@link DefaultJmsKeyFormatStrategy} will be used.      * @return {@link Message}      */
+comment|/**      * Adds or updates the {@link Message} headers. Header names and values are      * checked for JMS 1.1 compliance.      *      * @param jmsMessage        the {@link Message} to add or update the headers on      * @param messageHeaders    a {@link Map} of String/Object pairs      * @param keyFormatStrategy the a {@link KeyFormatStrategy} to used to      *                          format keys in a JMS 1.1 compliant manner.      * @return {@link Message}      */
 DECL|method|setJmsMessageHeaders (final Message jmsMessage, Map<String, Object> messageHeaders, KeyFormatStrategy keyFormatStrategy)
 specifier|private
 specifier|static
