@@ -65,6 +65,13 @@ specifier|private
 name|boolean
 name|compression
 decl_stmt|;
+DECL|field|maxHeadersSize
+specifier|private
+name|int
+name|maxHeadersSize
+init|=
+literal|8192
+decl_stmt|;
 DECL|method|isChunked ()
 specifier|public
 name|boolean
@@ -141,6 +148,32 @@ operator|.
 name|compression
 operator|=
 name|compression
+expr_stmt|;
+block|}
+DECL|method|getMaxHeadersSize ()
+specifier|public
+name|int
+name|getMaxHeadersSize
+parameter_list|()
+block|{
+return|return
+name|maxHeadersSize
+return|;
+block|}
+DECL|method|setMaxHeadersSize (int maxHeadersSize)
+specifier|public
+name|void
+name|setMaxHeadersSize
+parameter_list|(
+name|int
+name|maxHeadersSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxHeadersSize
+operator|=
+name|maxHeadersSize
 expr_stmt|;
 block|}
 block|}
