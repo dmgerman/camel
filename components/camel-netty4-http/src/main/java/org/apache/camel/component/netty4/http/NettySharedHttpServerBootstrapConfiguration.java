@@ -65,10 +65,10 @@ specifier|private
 name|boolean
 name|compression
 decl_stmt|;
-DECL|field|maxHeadersSize
+DECL|field|maxHeaderSize
 specifier|private
 name|int
-name|maxHeadersSize
+name|maxHeaderSize
 init|=
 literal|8192
 decl_stmt|;
@@ -150,30 +150,30 @@ operator|=
 name|compression
 expr_stmt|;
 block|}
-DECL|method|getMaxHeadersSize ()
+DECL|method|getMaxHeaderSize ()
 specifier|public
 name|int
-name|getMaxHeadersSize
+name|getMaxHeaderSize
 parameter_list|()
 block|{
 return|return
-name|maxHeadersSize
+name|maxHeaderSize
 return|;
 block|}
-DECL|method|setMaxHeadersSize (int maxHeadersSize)
+DECL|method|setMaxHeaderSize (int maxHeaderSize)
 specifier|public
 name|void
-name|setMaxHeadersSize
+name|setMaxHeaderSize
 parameter_list|(
 name|int
-name|maxHeadersSize
+name|maxHeaderSize
 parameter_list|)
 block|{
 name|this
 operator|.
-name|maxHeadersSize
+name|maxHeaderSize
 operator|=
-name|maxHeadersSize
+name|maxHeaderSize
 expr_stmt|;
 block|}
 block|}

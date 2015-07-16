@@ -479,7 +479,7 @@ literal|409
 argument_list|,
 name|configuration
 operator|.
-name|getMaxHeadersSize
+name|getMaxHeaderSize
 argument_list|()
 argument_list|,
 literal|8192
