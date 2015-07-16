@@ -74,6 +74,24 @@ name|TOPIC
 init|=
 literal|"kafka.TOPIC"
 decl_stmt|;
+DECL|field|KAFKA_DEFAULT_ENCODER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|KAFKA_DEFAULT_ENCODER
+init|=
+literal|"kafka.serializer.DefaultEncoder"
+decl_stmt|;
+DECL|field|KAFKA_STRING_ENCODER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|KAFKA_STRING_ENCODER
+init|=
+literal|"kafka.serializer.StringEncoder"
+decl_stmt|;
 DECL|method|KafkaConstants ()
 specifier|private
 name|KafkaConstants
