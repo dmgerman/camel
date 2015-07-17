@@ -200,6 +200,21 @@ name|boolean
 name|useReaderForPayload
 parameter_list|)
 function_decl|;
+comment|/**      * Whether to eager check whether the HTTP requests has content if the content-length header is 0 or not present.      * This can be turned on in case HTTP clients do not send streamed data.      */
+DECL|method|isEagerCheckContentAvailable ()
+name|boolean
+name|isEagerCheckContentAvailable
+parameter_list|()
+function_decl|;
+comment|/**      * Whether to eager check whether the HTTP requests has content if the content-length header is 0 or not present.      * This can be turned on in case HTTP clients do not send streamed data.      */
+DECL|method|setEagerCheckContentAvailable (boolean eagerCheckContentAvailable)
+name|void
+name|setEagerCheckContentAvailable
+parameter_list|(
+name|boolean
+name|eagerCheckContentAvailable
+parameter_list|)
+function_decl|;
 comment|/**      * If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back      * serialized in the response as a application/x-java-serialized-object content type (for example using Jetty or      * Servlet Camel components). On the producer side the exception will be deserialized and thrown as is,      * instead of the HttpOperationFailedException. The caused exception is required to be serialized.      */
 DECL|method|isTransferException ()
 name|boolean

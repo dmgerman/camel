@@ -218,13 +218,13 @@ name|boolean
 name|isTransferException
 parameter_list|()
 function_decl|;
-comment|/**      * Whether to eager check whether the HTTP requests has content.      * This can be used to turn off in case HTTP clients send streamed data and the available check must be delayed.      */
+comment|/**      * Whether to eager check whether the HTTP requests has content if the content-length header is 0 or not present.      * This can be turned on in case HTTP clients do not send streamed data.      */
 DECL|method|isEagerCheckContentAvailable ()
 name|boolean
 name|isEagerCheckContentAvailable
 parameter_list|()
 function_decl|;
-comment|/**      * Whether to eager check whether the HTTP requests has content.      * This can be used to turn off in case HTTP clients send streamed data and the available check must be delayed.      */
+comment|/**      * Whether to eager check whether the HTTP requests has content if the content-length header is 0 or not present.      * This can be turned on in case HTTP clients do not send streamed data.      */
 DECL|method|setEagerCheckContentAvailable (boolean eagerCheckContentAvailable)
 name|void
 name|setEagerCheckContentAvailable
