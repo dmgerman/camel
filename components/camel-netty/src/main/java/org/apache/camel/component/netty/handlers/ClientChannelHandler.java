@@ -498,6 +498,38 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|Throwable
+name|initialCause
+init|=
+name|exchange
+operator|.
+name|getException
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|initialCause
+operator|!=
+literal|null
+operator|&&
+name|initialCause
+operator|.
+name|getCause
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+name|initialCause
+operator|.
+name|initCause
+argument_list|(
+name|cause
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// set the cause on the exchange
 name|exchange
 operator|.
@@ -506,6 +538,7 @@ argument_list|(
 name|cause
 argument_list|)
 expr_stmt|;
+block|}
 comment|// close channel in case an exception was thrown
 name|NettyHelper
 operator|.
