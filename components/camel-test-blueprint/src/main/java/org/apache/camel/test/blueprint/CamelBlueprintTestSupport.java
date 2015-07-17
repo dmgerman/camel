@@ -1001,7 +1001,7 @@ argument_list|)
 decl_stmt|;
 comment|// passing null as second argument ties the configuration to correct bundle.
 comment|// using single-arg method causes:
-comment|// *ERROR* Cannot use configuration xxx.properties for [org.osgi.service.cm.ManagedService, id=N, bundle=N/jar:file:xyz.jar!/]: No visibility to configuration bound to file:pojosr
+comment|// *ERROR* Cannot use configuration xxx.properties for [org.osgi.service.cm.ManagedService, id=N, bundle=N/jar:file:xyz.jar!/]: No visibility to configuration bound to felix-connect
 name|Configuration
 name|config
 init|=

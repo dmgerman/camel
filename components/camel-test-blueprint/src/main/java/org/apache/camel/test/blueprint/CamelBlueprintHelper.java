@@ -845,7 +845,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// ensure pojosr stores bundles in an unique target directory
+comment|// ensure felix-connect stores bundles in an unique target directory
 name|String
 name|uid
 init|=
@@ -986,7 +986,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// setup pojosr to use our bundles
+comment|// setup felix-connect to use our bundles
 name|Map
 argument_list|<
 name|String
