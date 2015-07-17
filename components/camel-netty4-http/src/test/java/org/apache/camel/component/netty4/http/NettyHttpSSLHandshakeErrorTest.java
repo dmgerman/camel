@@ -136,7 +136,9 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"netty4-http:https://localhost:{{port}}?ssl=true&needClientAuth=true&keyStoreFormat=JKS&passphrase=storepassword&keyStoreResource=jsse/server-keystore.jks&trustStoreResource=jsse/server-truststore.jks"
+literal|"netty4-http:https://localhost:{{port}}?ssl=true&needClientAuth=true&keyStoreFormat=JKS"
+operator|+
+literal|"&passphrase=storepassword&keyStoreResource=jsse/server-keystore.jks&trustStoreResource=jsse/server-truststore.jks"
 argument_list|)
 operator|.
 name|to
@@ -169,7 +171,9 @@ name|template
 operator|.
 name|send
 argument_list|(
-literal|"netty4-http:https://localhost:{{port}}?requestTimeout=10000&throwExceptionOnFailure=false&ssl=true&keyStoreFormat=JKS&passphrase=storepassword&keyStoreResource=jsse/client-keystore.jks&trustStoreResource=jsse/server-truststore.jks"
+literal|"netty4-http:https://localhost:{{port}}?requestTimeout=10000&throwExceptionOnFailure=false"
+operator|+
+literal|"&ssl=true&keyStoreFormat=JKS&passphrase=storepassword&keyStoreResource=jsse/client-keystore.jks&trustStoreResource=jsse/server-truststore.jks"
 argument_list|,
 name|exchange
 argument_list|)
