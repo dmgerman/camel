@@ -68,6 +68,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|security
@@ -1171,6 +1181,40 @@ name|path
 argument_list|)
 condition|)
 block|{
+comment|// need to match by lower case as we want to ignore case on context-path
+name|path
+operator|=
+name|path
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+expr_stmt|;
+name|String
+name|match
+init|=
+name|target
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|match
+operator|.
+name|startsWith
+argument_list|(
+name|path
+argument_list|)
+condition|)
+block|{
 name|target
 operator|=
 name|target
@@ -1183,6 +1227,7 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|// is it a restricted resource?
 name|String
