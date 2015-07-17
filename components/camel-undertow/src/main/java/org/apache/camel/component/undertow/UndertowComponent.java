@@ -1604,6 +1604,33 @@ name|httpConnectionManager
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getUndertowHttpBinding ()
+specifier|public
+name|UndertowHttpBinding
+name|getUndertowHttpBinding
+parameter_list|()
+block|{
+return|return
+name|undertowHttpBinding
+return|;
+block|}
+comment|/**      * To use a custom HttpBinding to control the mapping between Camel message and HttpClient.      */
+DECL|method|setUndertowHttpBinding (UndertowHttpBinding undertowHttpBinding)
+specifier|public
+name|void
+name|setUndertowHttpBinding
+parameter_list|(
+name|UndertowHttpBinding
+name|undertowHttpBinding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|undertowHttpBinding
+operator|=
+name|undertowHttpBinding
+expr_stmt|;
+block|}
 comment|/**      * To use a custom HttpBinding to control the mapping between Camel message and HttpClient.      */
 annotation|@
 name|Override
