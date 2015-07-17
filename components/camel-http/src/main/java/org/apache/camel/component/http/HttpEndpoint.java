@@ -676,6 +676,24 @@ specifier|private
 name|boolean
 name|ignoreResponseBody
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Whether to eager check whether the HTTP requests has content if the content-length header is 0 or not present."
+operator|+
+literal|" This can be turned on in case HTTP clients do not send streamed data."
+argument_list|)
+DECL|field|eagerCheckContentAvailable
+specifier|private
+name|boolean
+name|eagerCheckContentAvailable
+decl_stmt|;
 DECL|method|HttpEndpoint ()
 specifier|public
 name|HttpEndpoint
@@ -1392,6 +1410,14 @@ name|isTransferException
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|binding
+operator|.
+name|setEagerCheckContentAvailable
+argument_list|(
+name|isEagerCheckContentAvailable
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|binding
@@ -1962,6 +1988,33 @@ operator|.
 name|ignoreResponseBody
 operator|=
 name|ignoreResponseBody
+expr_stmt|;
+block|}
+DECL|method|isEagerCheckContentAvailable ()
+specifier|public
+name|boolean
+name|isEagerCheckContentAvailable
+parameter_list|()
+block|{
+return|return
+name|eagerCheckContentAvailable
+return|;
+block|}
+comment|/**      * Whether to eager check whether the HTTP requests has content.      * This can be used to turn off in case HTTP clients send streamed data and the available check must be delayed.      */
+DECL|method|setEagerCheckContentAvailable (boolean eagerCheckContentAvailable)
+specifier|public
+name|void
+name|setEagerCheckContentAvailable
+parameter_list|(
+name|boolean
+name|eagerCheckContentAvailable
+parameter_list|)
+block|{
+name|this
+operator|.
+name|eagerCheckContentAvailable
+operator|=
+name|eagerCheckContentAvailable
 expr_stmt|;
 block|}
 block|}

@@ -419,6 +419,11 @@ specifier|private
 name|boolean
 name|useReaderForPayload
 decl_stmt|;
+DECL|field|eagerCheckContentAvailable
+specifier|private
+name|boolean
+name|eagerCheckContentAvailable
+decl_stmt|;
 DECL|field|transferException
 specifier|private
 name|boolean
@@ -2883,6 +2888,9 @@ condition|(
 name|len
 operator|<
 literal|0
+operator|&&
+name|isEagerCheckContentAvailable
+argument_list|()
 condition|)
 block|{
 name|InputStream
@@ -2949,6 +2957,32 @@ operator|.
 name|useReaderForPayload
 operator|=
 name|useReaderForPayload
+expr_stmt|;
+block|}
+DECL|method|isEagerCheckContentAvailable ()
+specifier|public
+name|boolean
+name|isEagerCheckContentAvailable
+parameter_list|()
+block|{
+return|return
+name|eagerCheckContentAvailable
+return|;
+block|}
+DECL|method|setEagerCheckContentAvailable (boolean eagerCheckContentAvailable)
+specifier|public
+name|void
+name|setEagerCheckContentAvailable
+parameter_list|(
+name|boolean
+name|eagerCheckContentAvailable
+parameter_list|)
+block|{
+name|this
+operator|.
+name|eagerCheckContentAvailable
+operator|=
+name|eagerCheckContentAvailable
 expr_stmt|;
 block|}
 DECL|method|isTransferException ()
