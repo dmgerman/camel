@@ -22,6 +22,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|ConnectionFactory
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -59,30 +79,6 @@ operator|.
 name|ObjectHelper
 import|;
 end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|ConnectionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_comment
-comment|/**  * @author jkorab  */
-end_comment
 
 begin_class
 DECL|class|SjmsBatchComponent
@@ -140,7 +136,7 @@ name|notNull
 argument_list|(
 name|connectionFactory
 argument_list|,
-literal|"connectionFactory is null"
+literal|"connectionFactory"
 argument_list|)
 expr_stmt|;
 name|SjmsBatchEndpoint
@@ -177,6 +173,7 @@ return|return
 name|connectionFactory
 return|;
 block|}
+comment|/**      * A ConnectionFactory is required to enable the SjmsBatchComponent.      */
 DECL|method|setConnectionFactory (ConnectionFactory connectionFactory)
 specifier|public
 name|void

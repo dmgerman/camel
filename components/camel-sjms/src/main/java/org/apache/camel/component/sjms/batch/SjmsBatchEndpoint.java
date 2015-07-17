@@ -172,17 +172,13 @@ name|UriPath
 import|;
 end_import
 
-begin_comment
-comment|/**  * @author jkorab  */
-end_comment
-
 begin_class
 annotation|@
 name|UriEndpoint
 argument_list|(
 name|scheme
 operator|=
-literal|"sjmsBatch"
+literal|"sjms-batch"
 argument_list|,
 name|title
 operator|=
@@ -190,7 +186,7 @@ literal|"Simple JMS Batch Component"
 argument_list|,
 name|syntax
 operator|=
-literal|"sjms-batch:destinationName?aggregationStrategy=#aggStrategy"
+literal|"sjms-batch:destinationName"
 argument_list|,
 name|consumerClass
 operator|=
@@ -239,16 +235,17 @@ literal|"CamelSjmsBatchSize"
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
 name|required
 operator|=
 literal|"true"
-argument_list|,
-name|description
-operator|=
-literal|"The destination name. Only queues are supported, names may be prefixed by 'queue:'."
 argument_list|)
 DECL|field|destinationName
 specifier|private
@@ -265,14 +262,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"1"
-argument_list|,
-name|description
-operator|=
-literal|"The number of JMS sessions to consume from"
 argument_list|)
 DECL|field|consumerCount
 specifier|private
-name|Integer
+name|int
 name|consumerCount
 init|=
 literal|1
@@ -287,14 +280,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"200"
-argument_list|,
-name|description
-operator|=
-literal|"The number of messages consumed at which the batch will be completed"
 argument_list|)
 DECL|field|completionSize
 specifier|private
-name|Integer
+name|int
 name|completionSize
 init|=
 name|DEFAULT_COMPLETION_SIZE
@@ -309,14 +298,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"500"
-argument_list|,
-name|description
-operator|=
-literal|"The timeout from receipt of the first first message when the batch will be completed"
 argument_list|)
 DECL|field|completionTimeout
 specifier|private
-name|Integer
+name|int
 name|completionTimeout
 init|=
 name|DEFAULT_COMPLETION_TIMEOUT
@@ -331,20 +316,21 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"1000"
-argument_list|,
-name|description
-operator|=
-literal|"The duration in milliseconds of each poll for messages. "
-operator|+
-literal|"completionTimeOut will be used if it is shorter and a batch has started."
 argument_list|)
 DECL|field|pollDuration
 specifier|private
-name|Integer
+name|int
 name|pollDuration
 init|=
 literal|1000
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -352,32 +338,16 @@ name|required
 operator|=
 literal|"true"
 argument_list|)
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
-name|description
-operator|=
-literal|"A #-reference to an AggregationStrategy visible to Camel"
-argument_list|)
 DECL|field|aggregationStrategy
 specifier|private
 name|AggregationStrategy
 name|aggregationStrategy
 decl_stmt|;
-DECL|field|topic
-specifier|private
-name|boolean
-name|topic
-decl_stmt|;
 DECL|method|SjmsBatchEndpoint ()
 specifier|public
 name|SjmsBatchEndpoint
 parameter_list|()
-block|{}
+block|{     }
 DECL|method|SjmsBatchEndpoint (String endpointUri, Component component, String remaining)
 specifier|public
 name|SjmsBatchEndpoint
@@ -508,6 +478,7 @@ return|return
 name|aggregationStrategy
 return|;
 block|}
+comment|/**      * The aggregation strategy to use, which merges all the batched messages into a single message      */
 DECL|method|setAggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|void
@@ -524,9 +495,47 @@ operator|=
 name|aggregationStrategy
 expr_stmt|;
 block|}
+comment|/**      * The destination name. Only queues are supported, names may be prefixed by 'queue:'.      */
+DECL|method|getDestinationName ()
+specifier|public
+name|String
+name|getDestinationName
+parameter_list|()
+block|{
+return|return
+name|destinationName
+return|;
+block|}
+DECL|method|getConsumerCount ()
+specifier|public
+name|int
+name|getConsumerCount
+parameter_list|()
+block|{
+return|return
+name|consumerCount
+return|;
+block|}
+comment|/**      * The number of JMS sessions to consume from      */
+DECL|method|setConsumerCount (int consumerCount)
+specifier|public
+name|void
+name|setConsumerCount
+parameter_list|(
+name|int
+name|consumerCount
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumerCount
+operator|=
+name|consumerCount
+expr_stmt|;
+block|}
 DECL|method|getCompletionSize ()
 specifier|public
-name|Integer
+name|int
 name|getCompletionSize
 parameter_list|()
 block|{
@@ -534,12 +543,13 @@ return|return
 name|completionSize
 return|;
 block|}
-DECL|method|setCompletionSize (Integer completionSize)
+comment|/**      * The number of messages consumed at which the batch will be completed      */
+DECL|method|setCompletionSize (int completionSize)
 specifier|public
 name|void
 name|setCompletionSize
 parameter_list|(
-name|Integer
+name|int
 name|completionSize
 parameter_list|)
 block|{
@@ -552,7 +562,7 @@ expr_stmt|;
 block|}
 DECL|method|getCompletionTimeout ()
 specifier|public
-name|Integer
+name|int
 name|getCompletionTimeout
 parameter_list|()
 block|{
@@ -560,12 +570,13 @@ return|return
 name|completionTimeout
 return|;
 block|}
-DECL|method|setCompletionTimeout (Integer completionTimeout)
+comment|/**      * The timeout from receipt of the first first message when the batch will be completed      */
+DECL|method|setCompletionTimeout (int completionTimeout)
 specifier|public
 name|void
 name|setCompletionTimeout
 parameter_list|(
-name|Integer
+name|int
 name|completionTimeout
 parameter_list|)
 block|{
@@ -574,63 +585,11 @@ operator|.
 name|completionTimeout
 operator|=
 name|completionTimeout
-expr_stmt|;
-block|}
-DECL|method|getDestinationName ()
-specifier|public
-name|String
-name|getDestinationName
-parameter_list|()
-block|{
-return|return
-name|destinationName
-return|;
-block|}
-DECL|method|setDestinationName (String destinationName)
-specifier|public
-name|void
-name|setDestinationName
-parameter_list|(
-name|String
-name|destinationName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|destinationName
-operator|=
-name|destinationName
-expr_stmt|;
-block|}
-DECL|method|getConsumerCount ()
-specifier|public
-name|Integer
-name|getConsumerCount
-parameter_list|()
-block|{
-return|return
-name|consumerCount
-return|;
-block|}
-DECL|method|setConsumerCount (Integer consumerCount)
-specifier|public
-name|void
-name|setConsumerCount
-parameter_list|(
-name|Integer
-name|consumerCount
-parameter_list|)
-block|{
-name|this
-operator|.
-name|consumerCount
-operator|=
-name|consumerCount
 expr_stmt|;
 block|}
 DECL|method|getPollDuration ()
 specifier|public
-name|Integer
+name|int
 name|getPollDuration
 parameter_list|()
 block|{
@@ -638,12 +597,13 @@ return|return
 name|pollDuration
 return|;
 block|}
-DECL|method|setPollDuration (Integer pollDuration)
+comment|/**      * The duration in milliseconds of each poll for messages.      * completionTimeOut will be used if it is shorter and a batch has started.      */
+DECL|method|setPollDuration (int pollDuration)
 specifier|public
 name|void
 name|setPollDuration
 parameter_list|(
-name|Integer
+name|int
 name|pollDuration
 parameter_list|)
 block|{

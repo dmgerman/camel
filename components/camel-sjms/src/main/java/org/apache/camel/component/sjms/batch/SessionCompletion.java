@@ -22,6 +22,26 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|JMSException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|Session
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -66,30 +86,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|JMSException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|Session
-import|;
-end_import
-
-begin_comment
-comment|/**  * @author jkorab  */
-end_comment
-
 begin_class
 DECL|class|SessionCompletion
 class|class
@@ -97,20 +93,20 @@ name|SessionCompletion
 implements|implements
 name|Synchronization
 block|{
-DECL|field|log
+DECL|field|LOG
 specifier|private
+specifier|static
 specifier|final
 name|Logger
-name|log
+name|LOG
 init|=
 name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|this
+name|SessionCompletion
 operator|.
-name|getClass
-argument_list|()
+name|class
 argument_list|)
 decl_stmt|;
 DECL|field|session
@@ -119,6 +115,7 @@ specifier|final
 name|Session
 name|session
 decl_stmt|;
+comment|// TODO: add more details in the commit/rollback eg such as message id
 DECL|method|SessionCompletion (Session session)
 specifier|public
 name|SessionCompletion
@@ -127,13 +124,6 @@ name|Session
 name|session
 parameter_list|)
 block|{
-assert|assert
-operator|(
-name|session
-operator|!=
-literal|null
-operator|)
-assert|;
 name|this
 operator|.
 name|session
@@ -154,7 +144,7 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -173,7 +163,7 @@ name|JMSException
 name|ex
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(
@@ -207,7 +197,7 @@ parameter_list|)
 block|{
 try|try
 block|{
-name|log
+name|LOG
 operator|.
 name|debug
 argument_list|(
@@ -226,7 +216,7 @@ name|JMSException
 name|ex
 parameter_list|)
 block|{
-name|log
+name|LOG
 operator|.
 name|error
 argument_list|(

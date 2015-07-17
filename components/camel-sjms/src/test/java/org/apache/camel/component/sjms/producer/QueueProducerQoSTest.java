@@ -206,7 +206,7 @@ init|=
 literal|"expiredAdvisoryRoute"
 decl_stmt|;
 DECL|field|MOCK_EXPIRED_ADVISORY
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|String

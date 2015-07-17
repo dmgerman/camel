@@ -109,10 +109,10 @@ name|IllegalArgumentException
 operator|.
 name|class
 argument_list|)
-DECL|method|testIsTopic_nullDestinationName ()
+DECL|method|testIsTopicNullDestinationName ()
 specifier|public
 name|void
-name|testIsTopic_nullDestinationName
+name|testIsTopicNullDestinationName
 parameter_list|()
 throws|throws
 name|Exception
@@ -195,10 +195,10 @@ name|IllegalArgumentException
 operator|.
 name|class
 argument_list|)
-DECL|method|testGetShortName_nullDestinationName ()
+DECL|method|testGetShortNameNullDestinationName ()
 specifier|public
 name|void
-name|testGetShortName_nullDestinationName
+name|testGetShortNameNullDestinationName
 parameter_list|()
 throws|throws
 name|Exception

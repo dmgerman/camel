@@ -22,13 +22,41 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|text
 operator|.
-name|activemq
+name|SimpleDateFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|java
 operator|.
-name|ActiveMQConnectionFactory
+name|util
+operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|jms
+operator|.
+name|ConnectionFactory
 import|;
 end_import
 
@@ -40,11 +68,7 @@ name|apache
 operator|.
 name|activemq
 operator|.
-name|broker
-operator|.
-name|jmx
-operator|.
-name|DestinationViewMBean
+name|ActiveMQConnectionFactory
 import|;
 end_import
 
@@ -240,50 +264,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import
-name|javax
-operator|.
-name|jms
-operator|.
-name|ConnectionFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|text
-operator|.
-name|SimpleDateFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_comment
-comment|/**  * @author jkorab  */
-end_comment
-
 begin_class
 DECL|class|SjmsBatchConsumerTest
 specifier|public
@@ -294,6 +274,7 @@ name|CamelTestSupport
 block|{
 DECL|field|LOG
 specifier|private
+specifier|static
 specifier|final
 name|Logger
 name|LOG
@@ -575,9 +556,7 @@ literal|200
 decl_stmt|;
 name|fromF
 argument_list|(
-literal|"sjms-batch:%s?completionTimeout=%s&completionSize=%s"
-operator|+
-literal|"&consumerCount=%s&aggregationStrategy=#testStrategy"
+literal|"sjms-batch:%s?completionTimeout=%s&completionSize=%s&consumerCount=%s&aggregationStrategy=#testStrategy"
 argument_list|,
 name|queueName
 argument_list|,
@@ -738,10 +717,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testConsumption_completionSize ()
+DECL|method|testConsumptionCompletionSize ()
 specifier|public
 name|void
-name|testConsumption_completionSize
+name|testConsumptionCompletionSize
 parameter_list|()
 throws|throws
 name|Exception
@@ -879,10 +858,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testConsumption_completionTimeout ()
+DECL|method|testConsumptionCompletionTimeout ()
 specifier|public
 name|void
-name|testConsumption_completionTimeout
+name|testConsumptionCompletionTimeout
 parameter_list|()
 throws|throws
 name|Exception
@@ -1027,10 +1006,10 @@ block|}
 comment|/**      * Checks whether multiple consumer endpoints can operate in parallel.      */
 annotation|@
 name|Test
-DECL|method|testConsumption_multipleConsumerEndpoints ()
+DECL|method|testConsumptionMultipleConsumerEndpoints ()
 specifier|public
 name|void
-name|testConsumption_multipleConsumerEndpoints
+name|testConsumptionMultipleConsumerEndpoints
 parameter_list|()
 throws|throws
 name|Exception
@@ -1237,10 +1216,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testConsumption_rollback ()
+DECL|method|testConsumptionRollback ()
 specifier|public
 name|void
-name|testConsumption_rollback
+name|testConsumptionRollback
 parameter_list|()
 throws|throws
 name|Exception

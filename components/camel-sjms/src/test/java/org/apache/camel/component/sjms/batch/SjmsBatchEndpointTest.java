@@ -188,10 +188,6 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|/**  * @author jkorab  */
-end_comment
-
 begin_class
 DECL|class|SjmsBatchEndpointTest
 specifier|public
@@ -442,10 +438,10 @@ name|IllegalArgumentException
 operator|.
 name|class
 argument_list|)
-DECL|method|testConsumer_negativePollDuration ()
+DECL|method|testConsumerNegativePollDuration ()
 specifier|public
 name|void
-name|testConsumer_negativePollDuration
+name|testConsumerNegativePollDuration
 parameter_list|()
 throws|throws
 name|Exception
@@ -496,10 +492,10 @@ name|IllegalArgumentException
 operator|.
 name|class
 argument_list|)
-DECL|method|testConsumer_negativeConsumerCount ()
+DECL|method|testConsumerNegativeConsumerCount ()
 specifier|public
 name|void
-name|testConsumer_negativeConsumerCount
+name|testConsumerNegativeConsumerCount
 parameter_list|()
 throws|throws
 name|Exception
@@ -550,10 +546,10 @@ name|FailedToCreateRouteException
 operator|.
 name|class
 argument_list|)
-DECL|method|testConsumer_topic ()
+DECL|method|testConsumerTopic ()
 specifier|public
 name|void
-name|testConsumer_topic
+name|testConsumerTopic
 parameter_list|()
 throws|throws
 name|Exception
