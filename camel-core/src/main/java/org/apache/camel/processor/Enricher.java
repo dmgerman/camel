@@ -417,6 +417,11 @@ specifier|private
 name|int
 name|cacheSize
 decl_stmt|;
+DECL|field|ignoreInvalidEndpoint
+specifier|private
+name|boolean
+name|ignoreInvalidEndpoint
+decl_stmt|;
 DECL|method|Enricher (Expression expression)
 specifier|public
 name|Enricher
@@ -588,6 +593,32 @@ operator|=
 name|cacheSize
 expr_stmt|;
 block|}
+DECL|method|isIgnoreInvalidEndpoint ()
+specifier|public
+name|boolean
+name|isIgnoreInvalidEndpoint
+parameter_list|()
+block|{
+return|return
+name|ignoreInvalidEndpoint
+return|;
+block|}
+DECL|method|setIgnoreInvalidEndpoint (boolean ignoreInvalidEndpoint)
+specifier|public
+name|void
+name|setIgnoreInvalidEndpoint
+parameter_list|(
+name|boolean
+name|ignoreInvalidEndpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreInvalidEndpoint
+operator|=
+name|ignoreInvalidEndpoint
+expr_stmt|;
+block|}
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -634,11 +665,15 @@ name|Endpoint
 name|endpoint
 decl_stmt|;
 comment|// use dynamic endpoint so calculate the endpoint to use
-try|try
-block|{
 name|Object
 name|recipient
 init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|recipient
+operator|=
 name|expression
 operator|.
 name|evaluate
@@ -649,7 +684,7 @@ name|Object
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|endpoint
 operator|=
 name|resolveEndpoint
@@ -676,6 +711,37 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isIgnoreInvalidEndpoint
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Endpoint uri is invalid: "
+operator|+
+name|recipient
+operator|+
+literal|". This exception will be ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
 name|exchange
 operator|.
 name|setException
@@ -683,6 +749,7 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 name|callback
 operator|.
 name|done

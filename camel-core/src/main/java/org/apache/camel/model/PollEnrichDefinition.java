@@ -316,6 +316,13 @@ specifier|private
 name|Integer
 name|cacheSize
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|ignoreInvalidEndpoint
+specifier|private
+name|Boolean
+name|ignoreInvalidEndpoint
+decl_stmt|;
 DECL|method|PollEnrichDefinition ()
 specifier|public
 name|PollEnrichDefinition
@@ -405,6 +412,17 @@ else|:
 operator|-
 literal|1
 decl_stmt|;
+name|boolean
+name|isIgnoreInvalidEndpoint
+init|=
+name|getIgnoreInvalidEndpoint
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|getIgnoreInvalidEndpoint
+argument_list|()
+decl_stmt|;
 name|Expression
 name|exp
 init|=
@@ -492,6 +510,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|enricher
+operator|.
+name|setIgnoreInvalidEndpoint
+argument_list|(
+name|isIgnoreInvalidEndpoint
+argument_list|)
+expr_stmt|;
 return|return
 name|enricher
 return|;
@@ -780,6 +805,22 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Ignore the invalidate endpoint exception when try to create a producer with that endpoint      *      * @return the builder      */
+DECL|method|ignoreInvalidEndpoint ()
+specifier|public
+name|PollEnrichDefinition
+name|ignoreInvalidEndpoint
+parameter_list|()
+block|{
+name|setIgnoreInvalidEndpoint
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 comment|/**      * Expression that computes the endpoint uri to use as the resource endpoint to enrich from      */
@@ -983,6 +1024,32 @@ operator|.
 name|cacheSize
 operator|=
 name|cacheSize
+expr_stmt|;
+block|}
+DECL|method|getIgnoreInvalidEndpoint ()
+specifier|public
+name|Boolean
+name|getIgnoreInvalidEndpoint
+parameter_list|()
+block|{
+return|return
+name|ignoreInvalidEndpoint
+return|;
+block|}
+DECL|method|setIgnoreInvalidEndpoint (Boolean ignoreInvalidEndpoint)
+specifier|public
+name|void
+name|setIgnoreInvalidEndpoint
+parameter_list|(
+name|Boolean
+name|ignoreInvalidEndpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreInvalidEndpoint
+operator|=
+name|ignoreInvalidEndpoint
 expr_stmt|;
 block|}
 block|}
