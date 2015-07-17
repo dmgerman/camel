@@ -28,18 +28,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -101,20 +89,6 @@ operator|.
 name|aggregate
 operator|.
 name|AggregationStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Synchronization
 import|;
 end_import
 
@@ -571,7 +545,7 @@ annotation|@
 name|Override
 DECL|method|getEndpoint ()
 specifier|public
-name|Endpoint
+name|SjmsBatchEndpoint
 name|getEndpoint
 parameter_list|()
 block|{
@@ -949,8 +923,8 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
-comment|// destinationName only creates queues; there is no additional value to be gained
-comment|// by transactionally consuming topic messages in batches
+comment|// only batch consumption from queues is supported - it makes no sense to transactionally consume
+comment|// from a topic as you don't car about message loss, users can just use a regular aggregator instead
 name|Queue
 name|queue
 init|=
@@ -1556,10 +1530,16 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Processing batch:size={}:total={}"
-argument_list|,
+literal|"Processing batch["
+operator|+
+name|id
+operator|+
+literal|"]:size="
+operator|+
 name|batchSize
-argument_list|,
+operator|+
+literal|":total="
+operator|+
 name|messagesReceived
 operator|.
 name|addAndGet
@@ -1569,8 +1549,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|Synchronization
-name|committing
+name|SessionCompletion
+name|sessionCompletion
 init|=
 operator|new
 name|SessionCompletion
@@ -1582,7 +1562,7 @@ name|exchange
 operator|.
 name|addOnCompletion
 argument_list|(
-name|committing
+name|sessionCompletion
 argument_list|)
 expr_stmt|;
 try|try
