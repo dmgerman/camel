@@ -27,7 +27,10 @@ enum|enum
 name|GitType
 block|{
 DECL|enumConstant|COMMIT
+DECL|enumConstant|TAG
 name|COMMIT
+block|,
+name|TAG
 block|}
 end_enum
 

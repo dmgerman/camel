@@ -88,6 +88,20 @@ name|eclipse
 operator|.
 name|jgit
 operator|.
+name|lib
+operator|.
+name|Ref
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|jgit
+operator|.
 name|revwalk
 operator|.
 name|RevCommit
@@ -95,10 +109,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|GitCommitConsumer
+DECL|class|GitTagConsumer
 specifier|public
 class|class
-name|GitCommitConsumer
+name|GitTagConsumer
 extends|extends
 name|AbstractGitConsumer
 block|{
@@ -111,9 +125,9 @@ operator|new
 name|ArrayList
 argument_list|()
 decl_stmt|;
-DECL|method|GitCommitConsumer (GitEndpoint endpoint, Processor processor)
+DECL|method|GitTagConsumer (GitEndpoint endpoint, Processor processor)
 specifier|public
-name|GitCommitConsumer
+name|GitTagConsumer
 parameter_list|(
 name|GitEndpoint
 name|endpoint
@@ -145,19 +159,16 @@ name|count
 init|=
 literal|0
 decl_stmt|;
-name|Iterable
+name|List
 argument_list|<
-name|RevCommit
+name|Ref
 argument_list|>
-name|commits
+name|call
 init|=
 name|getGit
 argument_list|()
 operator|.
-name|log
-argument_list|()
-operator|.
-name|all
+name|tagList
 argument_list|()
 operator|.
 name|call
@@ -165,10 +176,10 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|RevCommit
-name|commit
+name|Ref
+name|ref
 range|:
-name|commits
+name|call
 control|)
 block|{
 if|if
@@ -178,9 +189,9 @@ name|used
 operator|.
 name|contains
 argument_list|(
-name|commit
+name|ref
 operator|.
-name|getId
+name|getName
 argument_list|()
 argument_list|)
 condition|)
@@ -201,7 +212,7 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
-name|commit
+name|ref
 argument_list|)
 expr_stmt|;
 name|getProcessor
@@ -216,9 +227,9 @@ name|used
 operator|.
 name|add
 argument_list|(
-name|commit
+name|ref
 operator|.
-name|getId
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
