@@ -114,6 +114,24 @@ name|LOG_OPERATION
 init|=
 literal|"log"
 decl_stmt|;
+DECL|field|PUSH_OPERATION
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|PUSH_OPERATION
+init|=
+literal|"push"
+decl_stmt|;
+DECL|field|PULL_OPERATION
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|PULL_OPERATION
+init|=
+literal|"pull"
+decl_stmt|;
 block|}
 end_interface
 
