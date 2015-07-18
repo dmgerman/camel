@@ -246,6 +246,13 @@ name|branchName
 decl_stmt|;
 annotation|@
 name|UriPath
+DECL|field|tagName
+specifier|private
+name|String
+name|tagName
+decl_stmt|;
+annotation|@
+name|UriPath
 argument_list|(
 name|label
 operator|=
@@ -573,6 +580,32 @@ operator|.
 name|type
 operator|=
 name|type
+expr_stmt|;
+block|}
+DECL|method|getTagName ()
+specifier|public
+name|String
+name|getTagName
+parameter_list|()
+block|{
+return|return
+name|tagName
+return|;
+block|}
+DECL|method|setTagName (String tagName)
+specifier|public
+name|void
+name|setTagName
+parameter_list|(
+name|String
+name|tagName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|tagName
+operator|=
+name|tagName
 expr_stmt|;
 block|}
 block|}

@@ -96,8 +96,6 @@ name|component
 operator|.
 name|git
 operator|.
-name|producer
-operator|.
 name|GitTestSupport
 import|;
 end_import
@@ -143,20 +141,6 @@ operator|.
 name|api
 operator|.
 name|Status
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|jgit
-operator|.
-name|lib
-operator|.
-name|Ref
 import|;
 end_import
 

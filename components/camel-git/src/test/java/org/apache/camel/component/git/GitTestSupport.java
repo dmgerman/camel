@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.git.producer
+DECL|package|org.apache.camel.component.git
 package|package
 name|org
 operator|.
@@ -15,8 +15,6 @@ operator|.
 name|component
 operator|.
 name|git
-operator|.
-name|producer
 package|;
 end_package
 
@@ -214,6 +212,15 @@ name|String
 name|BRANCH_TEST
 init|=
 literal|"testBranch"
+decl_stmt|;
+DECL|field|TAG_TEST
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|TAG_TEST
+init|=
+literal|"testTag"
 decl_stmt|;
 annotation|@
 name|Override

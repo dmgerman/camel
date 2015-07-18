@@ -98,6 +98,15 @@ name|DELETE_BRANCH_OPERATION
 init|=
 literal|"deleteBranch"
 decl_stmt|;
+DECL|field|CREATE_TAG_OPERATION
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|CREATE_TAG_OPERATION
+init|=
+literal|"createTag"
+decl_stmt|;
 DECL|field|STATUS_OPERATION
 specifier|public
 specifier|final
