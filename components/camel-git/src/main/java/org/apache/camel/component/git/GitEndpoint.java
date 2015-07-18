@@ -160,10 +160,10 @@ name|required
 operator|=
 literal|"true"
 argument_list|)
-DECL|field|remotePath
+DECL|field|localPath
 specifier|private
 name|String
-name|remotePath
+name|localPath
 decl_stmt|;
 annotation|@
 name|UriPath
@@ -193,10 +193,10 @@ name|password
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|localPath
+DECL|field|remotePath
 specifier|private
 name|String
-name|localPath
+name|remotePath
 decl_stmt|;
 annotation|@
 name|UriParam

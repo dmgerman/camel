@@ -78,6 +78,15 @@ name|CREATE_BRANCH_OPERATION
 init|=
 literal|"createBranch"
 decl_stmt|;
+DECL|field|DELETE_BRANCH_OPERATION
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|DELETE_BRANCH_OPERATION
+init|=
+literal|"deleteBranch"
+decl_stmt|;
 block|}
 end_interface
 
