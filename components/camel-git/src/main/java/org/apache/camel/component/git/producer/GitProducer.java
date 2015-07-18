@@ -714,7 +714,7 @@ condition|)
 block|{
 name|result
 operator|=
-name|Git
+name|git
 operator|.
 name|cloneRepository
 argument_list|()
@@ -832,7 +832,7 @@ try|try
 block|{
 name|result
 operator|=
-name|Git
+name|git
 operator|.
 name|init
 argument_list|()
