@@ -51,6 +51,15 @@ name|ADD_OPERATION
 init|=
 literal|"add"
 decl_stmt|;
+DECL|field|COMMIT_OPERATION
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|COMMIT_OPERATION
+init|=
+literal|"commit"
+decl_stmt|;
 block|}
 end_interface
 

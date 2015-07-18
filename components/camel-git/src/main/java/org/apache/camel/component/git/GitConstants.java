@@ -42,6 +42,15 @@ name|GIT_FILE_NAME
 init|=
 literal|"CamelGitFilename"
 decl_stmt|;
+DECL|field|GIT_COMMIT_MESSAGE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|GIT_COMMIT_MESSAGE
+init|=
+literal|"CamelGitCommitMessage"
+decl_stmt|;
 block|}
 end_interface
 
