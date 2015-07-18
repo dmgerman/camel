@@ -102,10 +102,10 @@ name|GitCommitConsumer
 extends|extends
 name|AbstractGitConsumer
 block|{
-DECL|field|used
+DECL|field|commitsConsumed
 specifier|private
 name|List
-name|used
+name|commitsConsumed
 init|=
 operator|new
 name|ArrayList
@@ -174,7 +174,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|used
+name|commitsConsumed
 operator|.
 name|contains
 argument_list|(
@@ -212,7 +212,7 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-name|used
+name|commitsConsumed
 operator|.
 name|add
 argument_list|(

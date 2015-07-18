@@ -102,10 +102,10 @@ name|GitTagConsumer
 extends|extends
 name|AbstractGitConsumer
 block|{
-DECL|field|used
+DECL|field|tagsConsumed
 specifier|private
 name|List
-name|used
+name|tagsConsumed
 init|=
 operator|new
 name|ArrayList
@@ -171,7 +171,7 @@ block|{
 if|if
 condition|(
 operator|!
-name|used
+name|tagsConsumed
 operator|.
 name|contains
 argument_list|(
@@ -209,7 +209,7 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-name|used
+name|tagsConsumed
 operator|.
 name|add
 argument_list|(
