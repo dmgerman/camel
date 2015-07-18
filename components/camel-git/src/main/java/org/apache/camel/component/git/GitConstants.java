@@ -33,6 +33,15 @@ name|GIT_OPERATION
 init|=
 literal|"CamelGitOperation"
 decl_stmt|;
+DECL|field|GIT_FILE_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|GIT_FILE_NAME
+init|=
+literal|"CamelGitFilename"
+decl_stmt|;
 block|}
 end_interface
 

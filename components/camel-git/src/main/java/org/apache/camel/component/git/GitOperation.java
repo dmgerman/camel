@@ -42,6 +42,15 @@ name|INIT_OPERATION
 init|=
 literal|"init"
 decl_stmt|;
+DECL|field|ADD_OPERATION
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|ADD_OPERATION
+init|=
+literal|"add"
+decl_stmt|;
 block|}
 end_interface
 
