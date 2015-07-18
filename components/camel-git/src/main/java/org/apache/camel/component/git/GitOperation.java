@@ -105,6 +105,15 @@ name|STATUS_OPERATION
 init|=
 literal|"status"
 decl_stmt|;
+DECL|field|LOG_OPERATION
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|LOG_OPERATION
+init|=
+literal|"log"
+decl_stmt|;
 block|}
 end_interface
 
