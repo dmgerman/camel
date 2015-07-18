@@ -211,9 +211,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAdd
@@ -254,7 +254,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -267,7 +267,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
 literal|".git"
 argument_list|)
@@ -306,7 +306,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -343,7 +343,7 @@ name|GitConstants
 operator|.
 name|GIT_COMMIT_MESSAGE
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 block|}
@@ -408,7 +408,7 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=add"
 argument_list|)
@@ -422,7 +422,7 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=commit"
 argument_list|)
@@ -436,7 +436,7 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=push&remotePath=remoteURL&username=xxx&password=xxx"
 argument_list|)

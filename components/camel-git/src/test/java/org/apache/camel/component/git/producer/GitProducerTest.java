@@ -239,7 +239,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
 literal|".git"
 argument_list|)
@@ -280,7 +280,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
 literal|".git"
 argument_list|)
@@ -318,9 +318,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAdd
@@ -361,7 +361,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -374,7 +374,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
 literal|".git"
 argument_list|)
@@ -413,7 +413,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -445,9 +445,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAdd
@@ -488,7 +488,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -501,7 +501,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
 literal|".git"
 argument_list|)
@@ -540,7 +540,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -577,7 +577,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -589,7 +589,7 @@ operator|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
 literal|".git"
 argument_list|)
@@ -637,7 +637,7 @@ name|GitConstants
 operator|.
 name|GIT_COMMIT_MESSAGE
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 block|}
@@ -682,7 +682,7 @@ operator|.
 name|getShortMessage
 argument_list|()
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 name|count
@@ -719,7 +719,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -751,9 +751,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAdd
@@ -794,7 +794,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -807,7 +807,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
 literal|".git"
 argument_list|)
@@ -846,7 +846,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -883,7 +883,7 @@ name|GitConstants
 operator|.
 name|GIT_COMMIT_MESSAGE
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 block|}
@@ -928,7 +928,7 @@ operator|.
 name|getShortMessage
 argument_list|()
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 name|count
@@ -970,9 +970,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAdd
@@ -1013,7 +1013,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -1026,7 +1026,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
 literal|".git"
 argument_list|)
@@ -1065,7 +1065,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1102,7 +1102,7 @@ name|GitConstants
 operator|.
 name|GIT_COMMIT_MESSAGE
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 block|}
@@ -1147,7 +1147,7 @@ operator|.
 name|getShortMessage
 argument_list|()
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 name|count
@@ -1182,7 +1182,7 @@ argument_list|)
 operator|.
 name|setName
 argument_list|(
-name|BRANCH_TEST
+name|branchTest
 argument_list|)
 operator|.
 name|setUpstreamMode
@@ -1228,7 +1228,7 @@ name|GitConstants
 operator|.
 name|GIT_COMMIT_MESSAGE
 argument_list|,
-name|COMMIT_MESSAGE_BRANCH
+name|commitMessageBranch
 argument_list|)
 expr_stmt|;
 block|}
@@ -1270,7 +1270,7 @@ operator|.
 name|getShortMessage
 argument_list|()
 argument_list|,
-name|COMMIT_MESSAGE_BRANCH
+name|commitMessageBranch
 argument_list|)
 expr_stmt|;
 if|if
@@ -1286,7 +1286,7 @@ operator|.
 name|getShortMessage
 argument_list|()
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 name|count
@@ -1328,9 +1328,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAdd
@@ -1371,7 +1371,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -1411,7 +1411,7 @@ name|GitConstants
 operator|.
 name|GIT_COMMIT_MESSAGE
 argument_list|,
-name|COMMIT_MESSAGE_ALL
+name|commitMessageAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -1456,7 +1456,7 @@ operator|.
 name|getShortMessage
 argument_list|()
 argument_list|,
-name|COMMIT_MESSAGE_ALL
+name|commitMessageAll
 argument_list|)
 expr_stmt|;
 name|count
@@ -1498,9 +1498,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAdd
@@ -1541,7 +1541,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -1554,7 +1554,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
 literal|".git"
 argument_list|)
@@ -1593,7 +1593,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1630,7 +1630,7 @@ name|GitConstants
 operator|.
 name|GIT_COMMIT_MESSAGE
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 block|}
@@ -1675,7 +1675,7 @@ operator|.
 name|getShortMessage
 argument_list|()
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 name|count
@@ -1710,7 +1710,7 @@ argument_list|)
 operator|.
 name|setName
 argument_list|(
-name|BRANCH_TEST
+name|branchTest
 argument_list|)
 operator|.
 name|setUpstreamMode
@@ -1729,9 +1729,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_BRANCH_TO_ADD
+name|filenameBranchToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAdd1
@@ -1772,7 +1772,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_BRANCH_TO_ADD
+name|filenameBranchToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -1812,7 +1812,7 @@ name|GitConstants
 operator|.
 name|GIT_COMMIT_MESSAGE
 argument_list|,
-name|COMMIT_MESSAGE_ALL
+name|commitMessageAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -1854,7 +1854,7 @@ operator|.
 name|getShortMessage
 argument_list|()
 argument_list|,
-name|COMMIT_MESSAGE_ALL
+name|commitMessageAll
 argument_list|)
 expr_stmt|;
 if|if
@@ -1870,7 +1870,7 @@ operator|.
 name|getShortMessage
 argument_list|()
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 name|count
@@ -1912,9 +1912,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAdd
@@ -1955,7 +1955,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -1968,7 +1968,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
 literal|".git"
 argument_list|)
@@ -2007,7 +2007,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2044,7 +2044,7 @@ name|GitConstants
 operator|.
 name|GIT_COMMIT_MESSAGE
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 block|}
@@ -2089,7 +2089,7 @@ operator|.
 name|getShortMessage
 argument_list|()
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 name|count
@@ -2124,7 +2124,7 @@ argument_list|)
 operator|.
 name|setName
 argument_list|(
-name|BRANCH_TEST
+name|branchTest
 argument_list|)
 operator|.
 name|setUpstreamMode
@@ -2143,9 +2143,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_BRANCH_TO_ADD
+name|filenameBranchToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAdd1
@@ -2186,7 +2186,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_BRANCH_TO_ADD
+name|filenameBranchToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -2226,7 +2226,7 @@ name|GitConstants
 operator|.
 name|GIT_COMMIT_MESSAGE
 argument_list|,
-name|COMMIT_MESSAGE_ALL
+name|commitMessageAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -2268,7 +2268,7 @@ operator|.
 name|getShortMessage
 argument_list|()
 argument_list|,
-name|COMMIT_MESSAGE_ALL
+name|commitMessageAll
 argument_list|)
 expr_stmt|;
 if|if
@@ -2284,7 +2284,7 @@ operator|.
 name|getShortMessage
 argument_list|()
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 name|count
@@ -2331,7 +2331,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -2358,7 +2358,7 @@ argument_list|)
 operator|.
 name|setName
 argument_list|(
-name|BRANCH_TEST
+name|branchTest
 argument_list|)
 operator|.
 name|call
@@ -2383,7 +2383,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2415,9 +2415,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAdd
@@ -2458,7 +2458,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -2471,7 +2471,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
 literal|".git"
 argument_list|)
@@ -2510,7 +2510,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2547,7 +2547,7 @@ name|GitConstants
 operator|.
 name|GIT_COMMIT_MESSAGE
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 block|}
@@ -2610,7 +2610,7 @@ name|equals
 argument_list|(
 literal|"refs/heads/"
 operator|+
-name|BRANCH_TEST
+name|branchTest
 argument_list|)
 condition|)
 block|{
@@ -2655,9 +2655,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAdd
@@ -2698,7 +2698,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -2711,7 +2711,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
 literal|".git"
 argument_list|)
@@ -2750,7 +2750,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2787,7 +2787,7 @@ name|GitConstants
 operator|.
 name|GIT_COMMIT_MESSAGE
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 block|}
@@ -2850,7 +2850,7 @@ name|equals
 argument_list|(
 literal|"refs/heads/"
 operator|+
-name|BRANCH_TEST
+name|branchTest
 argument_list|)
 condition|)
 block|{
@@ -2909,7 +2909,7 @@ name|equals
 argument_list|(
 literal|"refs/heads/"
 operator|+
-name|BRANCH_TEST
+name|branchTest
 argument_list|)
 condition|)
 block|{
@@ -2954,9 +2954,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAdd
@@ -2997,7 +2997,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -3010,7 +3010,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
 literal|".git"
 argument_list|)
@@ -3050,7 +3050,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3082,9 +3082,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAdd
@@ -3125,7 +3125,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -3138,7 +3138,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
 literal|".git"
 argument_list|)
@@ -3178,7 +3178,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3215,7 +3215,7 @@ name|GitConstants
 operator|.
 name|GIT_COMMIT_MESSAGE
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 block|}
@@ -3278,7 +3278,7 @@ name|equals
 argument_list|(
 literal|"refs/heads/"
 operator|+
-name|BRANCH_TEST
+name|branchTest
 argument_list|)
 condition|)
 block|{
@@ -3301,9 +3301,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_BRANCH_TO_ADD
+name|filenameBranchToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAddDifferent
@@ -3344,7 +3344,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_BRANCH_TO_ADD
+name|filenameBranchToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -3375,7 +3375,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|FILENAME_BRANCH_TO_ADD
+name|filenameBranchToAdd
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3407,9 +3407,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAdd
@@ -3450,7 +3450,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -3463,7 +3463,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
 literal|".git"
 argument_list|)
@@ -3503,7 +3503,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3540,7 +3540,7 @@ name|GitConstants
 operator|.
 name|GIT_COMMIT_MESSAGE
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 block|}
@@ -3581,7 +3581,7 @@ operator|.
 name|getShortMessage
 argument_list|()
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 block|}
@@ -3613,9 +3613,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAdd
@@ -3656,7 +3656,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -3669,7 +3669,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
 literal|".git"
 argument_list|)
@@ -3709,7 +3709,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -3746,7 +3746,7 @@ name|GitConstants
 operator|.
 name|GIT_COMMIT_MESSAGE
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 block|}
@@ -3787,7 +3787,7 @@ operator|.
 name|getShortMessage
 argument_list|()
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 block|}
@@ -3847,7 +3847,7 @@ name|equals
 argument_list|(
 literal|"refs/heads/"
 operator|+
-name|BRANCH_TEST
+name|branchTest
 argument_list|)
 condition|)
 block|{
@@ -3870,9 +3870,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_BRANCH_TO_ADD
+name|filenameBranchToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAddDifferent
@@ -3913,7 +3913,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_BRANCH_TO_ADD
+name|filenameBranchToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -3953,7 +3953,7 @@ name|GitConstants
 operator|.
 name|GIT_COMMIT_MESSAGE
 argument_list|,
-name|COMMIT_MESSAGE_ALL
+name|commitMessageAll
 argument_list|)
 expr_stmt|;
 block|}
@@ -4001,7 +4001,7 @@ operator|.
 name|getShortMessage
 argument_list|()
 argument_list|,
-name|COMMIT_MESSAGE_ALL
+name|commitMessageAll
 argument_list|)
 expr_stmt|;
 if|if
@@ -4017,7 +4017,7 @@ operator|.
 name|getShortMessage
 argument_list|()
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 name|count
@@ -4052,9 +4052,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAdd
@@ -4095,7 +4095,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -4108,7 +4108,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
 literal|".git"
 argument_list|)
@@ -4147,7 +4147,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4184,7 +4184,7 @@ name|GitConstants
 operator|.
 name|GIT_COMMIT_MESSAGE
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 block|}
@@ -4247,7 +4247,7 @@ name|equals
 argument_list|(
 literal|"refs/tags/"
 operator|+
-name|TAG_TEST
+name|tagTest
 argument_list|)
 condition|)
 block|{
@@ -4292,9 +4292,9 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 decl_stmt|;
 name|fileToAdd
@@ -4335,7 +4335,7 @@ name|GitConstants
 operator|.
 name|GIT_FILE_NAME
 argument_list|,
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 expr_stmt|;
 block|}
@@ -4348,7 +4348,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 argument_list|,
 literal|".git"
 argument_list|)
@@ -4387,7 +4387,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-name|FILENAME_TO_ADD
+name|filenameToAdd
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -4424,7 +4424,7 @@ name|GitConstants
 operator|.
 name|GIT_COMMIT_MESSAGE
 argument_list|,
-name|COMMIT_MESSAGE
+name|commitMessage
 argument_list|)
 expr_stmt|;
 block|}
@@ -4487,7 +4487,7 @@ name|equals
 argument_list|(
 literal|"refs/tags/"
 operator|+
-name|TAG_TEST
+name|tagTest
 argument_list|)
 condition|)
 block|{
@@ -4547,7 +4547,7 @@ name|equals
 argument_list|(
 literal|"refs/tags/"
 operator|+
-name|TAG_TEST
+name|tagTest
 argument_list|)
 condition|)
 block|{
@@ -4603,7 +4603,7 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?remotePath=https://github.com/oscerd/json-webserver-example.git&operation=clone"
 argument_list|)
@@ -4617,7 +4617,7 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=init"
 argument_list|)
@@ -4631,7 +4631,7 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=add"
 argument_list|)
@@ -4645,7 +4645,7 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=rm"
 argument_list|)
@@ -4659,11 +4659,11 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=add&branchName="
 operator|+
-name|BRANCH_TEST
+name|branchTest
 argument_list|)
 expr_stmt|;
 name|from
@@ -4675,11 +4675,11 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=add&branchName="
 operator|+
-name|BRANCH_TEST
+name|branchTest
 argument_list|)
 expr_stmt|;
 name|from
@@ -4691,7 +4691,7 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=commit"
 argument_list|)
@@ -4705,11 +4705,11 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=commit&branchName="
 operator|+
-name|BRANCH_TEST
+name|branchTest
 argument_list|)
 expr_stmt|;
 name|from
@@ -4721,7 +4721,7 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=commit"
 argument_list|)
@@ -4735,11 +4735,11 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=commit&branchName="
 operator|+
-name|BRANCH_TEST
+name|branchTest
 argument_list|)
 expr_stmt|;
 name|from
@@ -4751,11 +4751,11 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=createBranch&branchName="
 operator|+
-name|BRANCH_TEST
+name|branchTest
 argument_list|)
 expr_stmt|;
 name|from
@@ -4767,11 +4767,11 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=deleteBranch&branchName="
 operator|+
-name|BRANCH_TEST
+name|branchTest
 argument_list|)
 expr_stmt|;
 name|from
@@ -4783,7 +4783,7 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=status"
 argument_list|)
@@ -4797,11 +4797,11 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=status&branchName="
 operator|+
-name|BRANCH_TEST
+name|branchTest
 argument_list|)
 expr_stmt|;
 name|from
@@ -4813,7 +4813,7 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=log"
 argument_list|)
@@ -4827,11 +4827,11 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=log&branchName="
 operator|+
-name|BRANCH_TEST
+name|branchTest
 argument_list|)
 expr_stmt|;
 name|from
@@ -4843,11 +4843,11 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=createTag&tagName="
 operator|+
-name|TAG_TEST
+name|tagTest
 argument_list|)
 expr_stmt|;
 name|from
@@ -4859,11 +4859,11 @@ name|to
 argument_list|(
 literal|"git://"
 operator|+
-name|GIT_LOCAL_REPO
+name|gitLocalRepo
 operator|+
 literal|"?operation=deleteTag&tagName="
 operator|+
-name|TAG_TEST
+name|tagTest
 argument_list|)
 expr_stmt|;
 block|}
