@@ -679,6 +679,26 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"If this option is true then IN exchange headers will be copied to OUT exchange headers"
+operator|+
+literal|" according to copy strategy."
+argument_list|)
+DECL|field|copyHeaders
+specifier|private
+name|boolean
+name|copyHeaders
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
 name|label
 operator|=
 literal|"consumer"
@@ -1988,6 +2008,33 @@ operator|.
 name|ignoreResponseBody
 operator|=
 name|ignoreResponseBody
+expr_stmt|;
+block|}
+comment|/**      * If this option is true then IN exchange headers will be copied to OUT exchange headers according to copy strategy.      */
+DECL|method|isCopyHeaders ()
+specifier|public
+name|boolean
+name|isCopyHeaders
+parameter_list|()
+block|{
+return|return
+name|copyHeaders
+return|;
+block|}
+DECL|method|setCopyHeaders (boolean copyHeaders)
+specifier|public
+name|void
+name|setCopyHeaders
+parameter_list|(
+name|boolean
+name|copyHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|copyHeaders
+operator|=
+name|copyHeaders
 expr_stmt|;
 block|}
 DECL|method|isEagerCheckContentAvailable ()

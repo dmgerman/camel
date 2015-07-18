@@ -526,13 +526,25 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-literal|"body should contain:<html>"
+literal|"body should contain:<html"
 argument_list|,
 name|body
 operator|.
 name|contains
 argument_list|(
-literal|"<html>"
+literal|"<html"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+literal|"body should contain:</html>"
+argument_list|,
+name|body
+operator|.
+name|contains
+argument_list|(
+literal|"</html>"
 argument_list|)
 argument_list|)
 expr_stmt|;

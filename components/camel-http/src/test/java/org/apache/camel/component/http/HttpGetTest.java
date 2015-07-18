@@ -388,7 +388,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"http2://http://www.google.com/search"
+literal|"http2://www.google.com/search"
 argument_list|)
 operator|.
 name|to

@@ -152,6 +152,8 @@ name|setUp
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|checkHeaders (Map<String, Object> headers)
 specifier|protected
 name|void

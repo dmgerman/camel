@@ -1504,9 +1504,18 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// preserve headers from in by copying any non existing headers
-comment|// to avoid overriding existing headers with old values
-comment|// Just filter the http protocol headers
+comment|// endpoint might be configured to copy headers from in to out
+comment|// to avoid overriding existing headers with old values just
+comment|// filter the http protocol headers
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|isCopyHeaders
+argument_list|()
+condition|)
+block|{
 name|MessageHelper
 operator|.
 name|copyHeaders
@@ -1523,6 +1532,7 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|populateHttpOperationFailedException (Exchange exchange, HttpRequestBase httpRequest, HttpResponse httpResponse, int responseCode)
 specifier|protected
