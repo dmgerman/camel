@@ -304,6 +304,11 @@ name|remotePath
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|operation
 specifier|private
 name|String
@@ -367,6 +372,7 @@ name|GitType
 operator|.
 name|COMMIT
 condition|)
+block|{
 return|return
 operator|new
 name|GitCommitConsumer
@@ -376,6 +382,7 @@ argument_list|,
 name|processor
 argument_list|)
 return|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -385,6 +392,7 @@ name|GitType
 operator|.
 name|TAG
 condition|)
+block|{
 return|return
 operator|new
 name|GitTagConsumer
@@ -394,6 +402,7 @@ argument_list|,
 name|processor
 argument_list|)
 return|;
+block|}
 elseif|else
 if|if
 condition|(
@@ -403,6 +412,7 @@ name|GitType
 operator|.
 name|BRANCH
 condition|)
+block|{
 return|return
 operator|new
 name|GitBranchConsumer
@@ -412,7 +422,9 @@ argument_list|,
 name|processor
 argument_list|)
 return|;
+block|}
 else|else
+block|{
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -423,6 +435,7 @@ name|type
 argument_list|)
 throw|;
 block|}
+block|}
 annotation|@
 name|Override
 DECL|method|isSingleton ()
@@ -431,11 +444,11 @@ name|boolean
 name|isSingleton
 parameter_list|()
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|false
 return|;
 block|}
+comment|/**      * The remote repository path      */
 DECL|method|getRemotePath ()
 specifier|public
 name|String
@@ -462,6 +475,7 @@ operator|=
 name|remotePath
 expr_stmt|;
 block|}
+comment|/**      * The branch name to work on      */
 DECL|method|getBranchName ()
 specifier|public
 name|String
@@ -488,6 +502,7 @@ operator|=
 name|branchName
 expr_stmt|;
 block|}
+comment|/**      * Remote repository username      */
 DECL|method|getUsername ()
 specifier|public
 name|String
@@ -514,6 +529,7 @@ operator|=
 name|username
 expr_stmt|;
 block|}
+comment|/**      * Remote repository password      */
 DECL|method|getPassword ()
 specifier|public
 name|String
@@ -540,6 +556,7 @@ operator|=
 name|password
 expr_stmt|;
 block|}
+comment|/**      * Local repository path      */
 DECL|method|getLocalPath ()
 specifier|public
 name|String
@@ -566,6 +583,7 @@ operator|=
 name|localPath
 expr_stmt|;
 block|}
+comment|/**      * The operation to do on the repository      */
 DECL|method|getOperation ()
 specifier|public
 name|String
@@ -592,6 +610,7 @@ operator|=
 name|operation
 expr_stmt|;
 block|}
+comment|/**      * The consumer type      */
 DECL|method|getType ()
 specifier|public
 name|GitType
@@ -618,6 +637,7 @@ operator|=
 name|type
 expr_stmt|;
 block|}
+comment|/**      * The tag name to work on      */
 DECL|method|getTagName ()
 specifier|public
 name|String

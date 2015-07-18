@@ -94,20 +94,6 @@ name|Ref
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|jgit
-operator|.
-name|revwalk
-operator|.
-name|RevCommit
-import|;
-end_import
-
 begin_class
 DECL|class|GitTagConsumer
 specifier|public

@@ -1263,6 +1263,7 @@ name|count
 operator|==
 literal|0
 condition|)
+block|{
 name|assertEquals
 argument_list|(
 name|rev
@@ -1273,12 +1274,14 @@ argument_list|,
 name|commitMessageBranch
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|count
 operator|==
 literal|1
 condition|)
+block|{
 name|assertEquals
 argument_list|(
 name|rev
@@ -1289,6 +1292,7 @@ argument_list|,
 name|commitMessage
 argument_list|)
 expr_stmt|;
+block|}
 name|count
 operator|++
 expr_stmt|;
@@ -1847,6 +1851,7 @@ name|count
 operator|==
 literal|0
 condition|)
+block|{
 name|assertEquals
 argument_list|(
 name|rev
@@ -1857,12 +1862,14 @@ argument_list|,
 name|commitMessageAll
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|count
 operator|==
 literal|1
 condition|)
+block|{
 name|assertEquals
 argument_list|(
 name|rev
@@ -1873,6 +1880,7 @@ argument_list|,
 name|commitMessage
 argument_list|)
 expr_stmt|;
+block|}
 name|count
 operator|++
 expr_stmt|;
@@ -2261,6 +2269,7 @@ name|count
 operator|==
 literal|0
 condition|)
+block|{
 name|assertEquals
 argument_list|(
 name|rev
@@ -2271,12 +2280,14 @@ argument_list|,
 name|commitMessageAll
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|count
 operator|==
 literal|1
 condition|)
+block|{
 name|assertEquals
 argument_list|(
 name|rev
@@ -2287,6 +2298,7 @@ argument_list|,
 name|commitMessage
 argument_list|)
 expr_stmt|;
+block|}
 name|count
 operator|++
 expr_stmt|;
@@ -3994,6 +4006,7 @@ name|count
 operator|==
 literal|0
 condition|)
+block|{
 name|assertEquals
 argument_list|(
 name|rev
@@ -4004,12 +4017,14 @@ argument_list|,
 name|commitMessageAll
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|count
 operator|==
 literal|1
 condition|)
+block|{
 name|assertEquals
 argument_list|(
 name|rev
@@ -4020,6 +4035,7 @@ argument_list|,
 name|commitMessage
 argument_list|)
 expr_stmt|;
+block|}
 name|count
 operator|++
 expr_stmt|;
