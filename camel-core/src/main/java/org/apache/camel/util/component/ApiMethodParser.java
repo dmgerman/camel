@@ -130,6 +130,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -521,6 +535,26 @@ range|:
 name|signatures
 control|)
 block|{
+comment|// skip comment or empty lines
+if|if
+condition|(
+name|signature
+operator|.
+name|startsWith
+argument_list|(
+literal|"##"
+argument_list|)
+operator|||
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|signature
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 comment|// remove all modifiers and type parameters for method
 name|signature
 operator|=
