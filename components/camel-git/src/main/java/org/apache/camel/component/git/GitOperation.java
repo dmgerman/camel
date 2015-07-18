@@ -51,6 +51,15 @@ name|ADD_OPERATION
 init|=
 literal|"add"
 decl_stmt|;
+DECL|field|REMOVE_OPERATION
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|REMOVE_OPERATION
+init|=
+literal|"remove"
+decl_stmt|;
 DECL|field|COMMIT_OPERATION
 specifier|public
 specifier|final
