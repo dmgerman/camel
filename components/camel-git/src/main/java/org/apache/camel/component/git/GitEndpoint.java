@@ -138,7 +138,7 @@ literal|"Git"
 argument_list|,
 name|syntax
 operator|=
-literal|"git:localpath"
+literal|"git://localpath"
 argument_list|,
 name|label
 operator|=
@@ -255,9 +255,14 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO Auto-generated method stub
 return|return
-literal|null
+operator|new
+name|GitConsumer
+argument_list|(
+name|this
+argument_list|,
+name|processor
+argument_list|)
 return|;
 block|}
 annotation|@
