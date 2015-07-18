@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.apache.camel.component.git
+DECL|package|org.apache.camel.component.git.producer
 package|package
 name|org
 operator|.
@@ -11,6 +11,8 @@ operator|.
 name|component
 operator|.
 name|git
+operator|.
+name|producer
 package|;
 end_package
 
@@ -43,6 +45,38 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|git
+operator|.
+name|GitConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|git
+operator|.
+name|GitEndpoint
 import|;
 end_import
 
@@ -252,6 +286,16 @@ specifier|final
 name|GitEndpoint
 name|endpoint
 decl_stmt|;
+DECL|field|repo
+specifier|private
+name|Repository
+name|repo
+decl_stmt|;
+DECL|field|git
+specifier|private
+name|Git
+name|git
+decl_stmt|;
 DECL|method|GitProducer (GitEndpoint endpoint)
 specifier|public
 name|GitProducer
@@ -274,6 +318,65 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|repo
+operator|=
+name|getLocalRepository
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|git
+operator|=
+operator|new
+name|Git
+argument_list|(
+name|repo
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
+name|repo
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|git
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -287,9 +390,6 @@ name|Exception
 block|{
 name|String
 name|operation
-decl_stmt|;
-name|Repository
-name|repo
 decl_stmt|;
 if|if
 condition|(
@@ -356,11 +456,6 @@ name|operation
 argument_list|)
 throw|;
 block|}
-name|repo
-operator|=
-name|getLocalRepository
-argument_list|()
-expr_stmt|;
 switch|switch
 condition|(
 name|operation
@@ -402,8 +497,6 @@ argument_list|(
 name|exchange
 argument_list|,
 name|operation
-argument_list|,
-name|repo
 argument_list|)
 expr_stmt|;
 break|break;
@@ -417,8 +510,6 @@ argument_list|(
 name|exchange
 argument_list|,
 name|operation
-argument_list|,
-name|repo
 argument_list|)
 expr_stmt|;
 break|break;
@@ -432,8 +523,6 @@ argument_list|(
 name|exchange
 argument_list|,
 name|operation
-argument_list|,
-name|repo
 argument_list|)
 expr_stmt|;
 break|break;
@@ -447,8 +536,6 @@ argument_list|(
 name|exchange
 argument_list|,
 name|operation
-argument_list|,
-name|repo
 argument_list|)
 expr_stmt|;
 break|break;
@@ -462,8 +549,6 @@ argument_list|(
 name|exchange
 argument_list|,
 name|operation
-argument_list|,
-name|repo
 argument_list|)
 expr_stmt|;
 break|break;
@@ -477,8 +562,6 @@ argument_list|(
 name|exchange
 argument_list|,
 name|operation
-argument_list|,
-name|repo
 argument_list|)
 expr_stmt|;
 break|break;
@@ -492,8 +575,6 @@ argument_list|(
 name|exchange
 argument_list|,
 name|operation
-argument_list|,
-name|repo
 argument_list|)
 expr_stmt|;
 break|break;
@@ -507,8 +588,6 @@ argument_list|(
 name|exchange
 argument_list|,
 name|operation
-argument_list|,
-name|repo
 argument_list|)
 expr_stmt|;
 break|break;
@@ -522,8 +601,6 @@ argument_list|(
 name|exchange
 argument_list|,
 name|operation
-argument_list|,
-name|repo
 argument_list|)
 expr_stmt|;
 break|break;
@@ -537,17 +614,10 @@ argument_list|(
 name|exchange
 argument_list|,
 name|operation
-argument_list|,
-name|repo
 argument_list|)
 expr_stmt|;
 break|break;
 block|}
-name|repo
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 DECL|method|doClone (Exchange exchange, String operation)
 specifier|protected
@@ -560,6 +630,8 @@ parameter_list|,
 name|String
 name|operation
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|Git
 name|result
@@ -675,11 +747,9 @@ operator|+
 literal|" operation"
 argument_list|)
 expr_stmt|;
+throw|throw
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+throw|;
 block|}
 finally|finally
 block|{
@@ -701,6 +771,8 @@ parameter_list|,
 name|String
 name|operation
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|Git
 name|result
@@ -779,11 +851,9 @@ operator|+
 literal|" operation"
 argument_list|)
 expr_stmt|;
+throw|throw
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+throw|;
 block|}
 finally|finally
 block|{
@@ -794,7 +864,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-DECL|method|doAdd (Exchange exchange, String operation, Repository repo)
+DECL|method|doAdd (Exchange exchange, String operation)
 specifier|protected
 name|void
 name|doAdd
@@ -804,16 +874,10 @@ name|exchange
 parameter_list|,
 name|String
 name|operation
-parameter_list|,
-name|Repository
-name|repo
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-name|Git
-name|git
-init|=
-literal|null
-decl_stmt|;
 name|String
 name|fileName
 init|=
@@ -872,14 +936,6 @@ throw|;
 block|}
 try|try
 block|{
-name|git
-operator|=
-operator|new
-name|Git
-argument_list|(
-name|repo
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|ObjectHelper
@@ -946,14 +1002,12 @@ operator|+
 literal|" operation"
 argument_list|)
 expr_stmt|;
+throw|throw
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+throw|;
 block|}
 block|}
-DECL|method|doRemove (Exchange exchange, String operation, Repository repo)
+DECL|method|doRemove (Exchange exchange, String operation)
 specifier|protected
 name|void
 name|doRemove
@@ -963,16 +1017,10 @@ name|exchange
 parameter_list|,
 name|String
 name|operation
-parameter_list|,
-name|Repository
-name|repo
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-name|Git
-name|git
-init|=
-literal|null
-decl_stmt|;
 name|String
 name|fileName
 init|=
@@ -1031,14 +1079,6 @@ throw|;
 block|}
 try|try
 block|{
-name|git
-operator|=
-operator|new
-name|Git
-argument_list|(
-name|repo
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|ObjectHelper
@@ -1105,14 +1145,12 @@ operator|+
 literal|" operation"
 argument_list|)
 expr_stmt|;
+throw|throw
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+throw|;
 block|}
 block|}
-DECL|method|doCommit (Exchange exchange, String operation, Repository repo)
+DECL|method|doCommit (Exchange exchange, String operation)
 specifier|protected
 name|void
 name|doCommit
@@ -1122,16 +1160,10 @@ name|exchange
 parameter_list|,
 name|String
 name|operation
-parameter_list|,
-name|Repository
-name|repo
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-name|Git
-name|git
-init|=
-literal|null
-decl_stmt|;
 name|String
 name|commitMessage
 init|=
@@ -1190,14 +1222,6 @@ throw|;
 block|}
 try|try
 block|{
-name|git
-operator|=
-operator|new
-name|Git
-argument_list|(
-name|repo
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|ObjectHelper
@@ -1264,14 +1288,12 @@ operator|+
 literal|" operation"
 argument_list|)
 expr_stmt|;
+throw|throw
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+throw|;
 block|}
 block|}
-DECL|method|doCommitAll (Exchange exchange, String operation, Repository repo)
+DECL|method|doCommitAll (Exchange exchange, String operation)
 specifier|protected
 name|void
 name|doCommitAll
@@ -1281,16 +1303,10 @@ name|exchange
 parameter_list|,
 name|String
 name|operation
-parameter_list|,
-name|Repository
-name|repo
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-name|Git
-name|git
-init|=
-literal|null
-decl_stmt|;
 name|String
 name|commitMessage
 init|=
@@ -1349,14 +1365,6 @@ throw|;
 block|}
 try|try
 block|{
-name|git
-operator|=
-operator|new
-name|Git
-argument_list|(
-name|repo
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|ObjectHelper
@@ -1428,14 +1436,12 @@ operator|+
 literal|" operation"
 argument_list|)
 expr_stmt|;
+throw|throw
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+throw|;
 block|}
 block|}
-DECL|method|doCreateBranch (Exchange exchange, String operation, Repository repo)
+DECL|method|doCreateBranch (Exchange exchange, String operation)
 specifier|protected
 name|void
 name|doCreateBranch
@@ -1445,16 +1451,10 @@ name|exchange
 parameter_list|,
 name|String
 name|operation
-parameter_list|,
-name|Repository
-name|repo
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-name|Git
-name|git
-init|=
-literal|null
-decl_stmt|;
 if|if
 condition|(
 name|ObjectHelper
@@ -1480,14 +1480,6 @@ throw|;
 block|}
 try|try
 block|{
-name|git
-operator|=
-operator|new
-name|Git
-argument_list|(
-name|repo
-argument_list|)
-expr_stmt|;
 name|git
 operator|.
 name|branchCreate
@@ -1522,14 +1514,12 @@ operator|+
 literal|" operation"
 argument_list|)
 expr_stmt|;
+throw|throw
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+throw|;
 block|}
 block|}
-DECL|method|doDeleteBranch (Exchange exchange, String operation, Repository repo)
+DECL|method|doDeleteBranch (Exchange exchange, String operation)
 specifier|protected
 name|void
 name|doDeleteBranch
@@ -1539,16 +1529,10 @@ name|exchange
 parameter_list|,
 name|String
 name|operation
-parameter_list|,
-name|Repository
-name|repo
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-name|Git
-name|git
-init|=
-literal|null
-decl_stmt|;
 if|if
 condition|(
 name|ObjectHelper
@@ -1574,14 +1558,6 @@ throw|;
 block|}
 try|try
 block|{
-name|git
-operator|=
-operator|new
-name|Git
-argument_list|(
-name|repo
-argument_list|)
-expr_stmt|;
 name|git
 operator|.
 name|branchDelete
@@ -1616,14 +1592,12 @@ operator|+
 literal|" operation"
 argument_list|)
 expr_stmt|;
+throw|throw
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+throw|;
 block|}
 block|}
-DECL|method|doStatus (Exchange exchange, String operation, Repository repo)
+DECL|method|doStatus (Exchange exchange, String operation)
 specifier|protected
 name|void
 name|doStatus
@@ -1633,16 +1607,10 @@ name|exchange
 parameter_list|,
 name|String
 name|operation
-parameter_list|,
-name|Repository
-name|repo
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-name|Git
-name|git
-init|=
-literal|null
-decl_stmt|;
 name|Status
 name|status
 init|=
@@ -1650,14 +1618,6 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-name|git
-operator|=
-operator|new
-name|Git
-argument_list|(
-name|repo
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|ObjectHelper
@@ -1721,11 +1681,9 @@ operator|+
 literal|" operation"
 argument_list|)
 expr_stmt|;
+throw|throw
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+throw|;
 block|}
 name|exchange
 operator|.
@@ -1738,7 +1696,7 @@ name|status
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doLog (Exchange exchange, String operation, Repository repo)
+DECL|method|doLog (Exchange exchange, String operation)
 specifier|protected
 name|void
 name|doLog
@@ -1748,16 +1706,10 @@ name|exchange
 parameter_list|,
 name|String
 name|operation
-parameter_list|,
-name|Repository
-name|repo
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-name|Git
-name|git
-init|=
-literal|null
-decl_stmt|;
 name|Iterable
 argument_list|<
 name|RevCommit
@@ -1768,14 +1720,6 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-name|git
-operator|=
-operator|new
-name|Git
-argument_list|(
-name|repo
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|ObjectHelper
@@ -1839,11 +1783,9 @@ operator|+
 literal|" operation"
 argument_list|)
 expr_stmt|;
+throw|throw
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+throw|;
 block|}
 name|exchange
 operator|.
@@ -1856,7 +1798,7 @@ name|revCommit
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doPush (Exchange exchange, String operation, Repository repo)
+DECL|method|doPush (Exchange exchange, String operation)
 specifier|protected
 name|void
 name|doPush
@@ -1866,16 +1808,10 @@ name|exchange
 parameter_list|,
 name|String
 name|operation
-parameter_list|,
-name|Repository
-name|repo
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-name|Git
-name|git
-init|=
-literal|null
-decl_stmt|;
 name|Iterable
 argument_list|<
 name|PushResult
@@ -1886,14 +1822,6 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-name|git
-operator|=
-operator|new
-name|Git
-argument_list|(
-name|repo
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|ObjectHelper
@@ -2055,11 +1983,9 @@ operator|+
 literal|" operation"
 argument_list|)
 expr_stmt|;
+throw|throw
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+throw|;
 block|}
 name|exchange
 operator|.
@@ -2072,7 +1998,7 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doPull (Exchange exchange, String operation, Repository repo)
+DECL|method|doPull (Exchange exchange, String operation)
 specifier|protected
 name|void
 name|doPull
@@ -2082,16 +2008,10 @@ name|exchange
 parameter_list|,
 name|String
 name|operation
-parameter_list|,
-name|Repository
-name|repo
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-name|Git
-name|git
-init|=
-literal|null
-decl_stmt|;
 name|PullResult
 name|result
 init|=
@@ -2099,14 +2019,6 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-name|git
-operator|=
-operator|new
-name|Git
-argument_list|(
-name|repo
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|ObjectHelper
@@ -2268,11 +2180,9 @@ operator|+
 literal|" operation"
 argument_list|)
 expr_stmt|;
+throw|throw
 name|e
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
+throw|;
 block|}
 name|exchange
 operator|.

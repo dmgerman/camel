@@ -194,10 +194,10 @@ name|GitTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|commitTest ()
+DECL|method|commitConsumerTest ()
 specifier|public
 name|void
-name|commitTest
+name|commitConsumerTest
 parameter_list|()
 throws|throws
 name|Exception
@@ -725,6 +725,8 @@ argument_list|(
 literal|"git://"
 operator|+
 name|GIT_LOCAL_REPO
+operator|+
+literal|"?type=commit"
 argument_list|)
 operator|.
 name|to
