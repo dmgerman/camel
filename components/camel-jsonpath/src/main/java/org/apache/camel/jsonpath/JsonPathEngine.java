@@ -504,7 +504,7 @@ block|}
 else|else
 block|{
 comment|// no json encoding specified --> assume json encoding is unicode and determine the specific unicode encoding according to RFC-4627
-comment|// this is a temporary solution, it can be removed as sson as jsonpath offers the encoding detection
+comment|// this is a temporary solution, it can be removed as soon as jsonpath offers the encoding detection
 name|JsonStream
 name|jsonStream
 init|=
