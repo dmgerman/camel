@@ -108,7 +108,7 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
-name|setRemotePath
+name|setLocalPath
 argument_list|(
 name|remaining
 argument_list|)

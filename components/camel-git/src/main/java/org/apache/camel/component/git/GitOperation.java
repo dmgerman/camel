@@ -60,6 +60,15 @@ name|COMMIT_OPERATION
 init|=
 literal|"commit"
 decl_stmt|;
+DECL|field|COMMIT_ALL_OPERATION
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|COMMIT_ALL_OPERATION
+init|=
+literal|"commitAll"
+decl_stmt|;
 block|}
 end_interface
 
