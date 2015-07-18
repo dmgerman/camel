@@ -107,6 +107,15 @@ name|CREATE_TAG_OPERATION
 init|=
 literal|"createTag"
 decl_stmt|;
+DECL|field|DELETE_TAG_OPERATION
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|DELETE_TAG_OPERATION
+init|=
+literal|"deleteTag"
+decl_stmt|;
 DECL|field|STATUS_OPERATION
 specifier|public
 specifier|final
