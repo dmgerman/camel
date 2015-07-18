@@ -28,9 +28,12 @@ name|GitType
 block|{
 DECL|enumConstant|COMMIT
 DECL|enumConstant|TAG
+DECL|enumConstant|BRANCH
 name|COMMIT
 block|,
 name|TAG
+block|,
+name|BRANCH
 block|}
 end_enum
 
