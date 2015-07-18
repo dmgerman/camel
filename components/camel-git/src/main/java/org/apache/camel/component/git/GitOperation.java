@@ -69,6 +69,15 @@ name|COMMIT_ALL_OPERATION
 init|=
 literal|"commitAll"
 decl_stmt|;
+DECL|field|CREATE_BRANCH_OPERATION
+specifier|public
+specifier|final
+specifier|static
+name|String
+name|CREATE_BRANCH_OPERATION
+init|=
+literal|"createBranch"
+decl_stmt|;
 block|}
 end_interface
 
