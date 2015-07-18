@@ -253,6 +253,15 @@ argument_list|(
 literal|5000
 argument_list|)
 expr_stmt|;
+comment|// explicitly set RemoteFilePollingConsumerPollStrategy otherwise
+comment|// DefaultPollingConsumerPollStrategy is be used
+name|setPollStrategy
+argument_list|(
+operator|new
+name|RemoteFilePollingConsumerPollStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|RemoteFileEndpoint (String uri, RemoteFileComponent<T> component, RemoteFileConfiguration configuration)
 specifier|public
@@ -293,6 +302,15 @@ expr_stmt|;
 name|setReadLockCheckInterval
 argument_list|(
 literal|5000
+argument_list|)
+expr_stmt|;
+comment|// explicitly set RemoteFilePollingConsumerPollStrategy otherwise
+comment|// DefaultPollingConsumerPollStrategy is be used
+name|setPollStrategy
+argument_list|(
+operator|new
+name|RemoteFilePollingConsumerPollStrategy
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
