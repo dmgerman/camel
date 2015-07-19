@@ -228,11 +228,11 @@ literal|"Git"
 argument_list|,
 name|syntax
 operator|=
-literal|"git://localpath"
+literal|"git:localpath"
 argument_list|,
 name|label
 operator|=
-literal|"api,file"
+literal|"file"
 argument_list|)
 DECL|class|GitEndpoint
 specifier|public
@@ -256,21 +256,21 @@ name|String
 name|localPath
 decl_stmt|;
 annotation|@
-name|UriPath
+name|UriParam
 DECL|field|branchName
 specifier|private
 name|String
 name|branchName
 decl_stmt|;
 annotation|@
-name|UriPath
+name|UriParam
 DECL|field|tagName
 specifier|private
 name|String
 name|tagName
 decl_stmt|;
 annotation|@
-name|UriPath
+name|UriParam
 argument_list|(
 name|label
 operator|=
@@ -429,7 +429,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Cannot create producer with type "
+literal|"Cannot create consumer with type "
 operator|+
 name|type
 argument_list|)
@@ -445,7 +445,7 @@ name|isSingleton
 parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 comment|/**      * The remote repository path      */
