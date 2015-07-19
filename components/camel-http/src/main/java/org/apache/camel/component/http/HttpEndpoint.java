@@ -679,15 +679,19 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
 argument_list|,
 name|description
 operator|=
-literal|"If this option is true then IN exchange headers will be copied to OUT exchange headers"
+literal|"If this option is true then IN exchange headers will be copied to OUT exchange headers according to copy strategy."
 operator|+
-literal|" according to copy strategy."
+literal|" Setting this to false, allows to only include the headers from the HTTP response (not propagating IN headers)."
 argument_list|)
 DECL|field|copyHeaders
 specifier|private
@@ -2010,7 +2014,7 @@ operator|=
 name|ignoreResponseBody
 expr_stmt|;
 block|}
-comment|/**      * If this option is true then IN exchange headers will be copied to OUT exchange headers according to copy strategy.      */
+comment|/**      * If this option is true then IN exchange headers will be copied to OUT exchange headers according to copy strategy.      * Setting this to false, allows to only include the headers from the HTTP response (not propagating IN headers).      */
 DECL|method|isCopyHeaders ()
 specifier|public
 name|boolean

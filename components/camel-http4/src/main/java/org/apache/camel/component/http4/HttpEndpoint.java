@@ -1972,7 +1972,7 @@ operator|=
 name|eagerCheckContentAvailable
 expr_stmt|;
 block|}
-comment|/**      * If this option is true then IN exchange headers will be copied to OUT exchange headers according to copy strategy.      */
+comment|/**      * If this option is true then IN exchange headers will be copied to OUT exchange headers according to copy strategy.      * Setting this to false, allows to only include the headers from the HTTP response (not propagating IN headers).      */
 DECL|method|isCopyHeaders ()
 specifier|public
 name|boolean
