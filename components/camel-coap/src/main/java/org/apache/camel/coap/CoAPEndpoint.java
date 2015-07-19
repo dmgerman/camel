@@ -136,7 +136,7 @@ literal|"CoAP"
 argument_list|,
 name|syntax
 operator|=
-literal|"coap:name"
+literal|"coap:uri"
 argument_list|,
 name|consumerClass
 operator|=
@@ -146,7 +146,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"CoAP"
+literal|"iot"
 argument_list|)
 DECL|class|CoAPEndpoint
 specifier|public
