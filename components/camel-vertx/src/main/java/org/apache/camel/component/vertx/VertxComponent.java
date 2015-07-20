@@ -866,6 +866,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Using Vert.x instance set on the component level."
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
