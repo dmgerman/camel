@@ -1302,7 +1302,7 @@ block|,
 literal|"rawtypes"
 block|}
 argument_list|)
-DECL|method|setPersistentFileForConfigAdmin (BundleContext bundleContext, String pid, String fileName, final Dictionary props, String symbolicName, Set<Long> bpEvents)
+DECL|method|setPersistentFileForConfigAdmin (BundleContext bundleContext, String pid, String fileName, final Dictionary props, String symbolicName, Set<Long> bpEvents, boolean expectReload)
 specifier|public
 specifier|static
 name|void
@@ -1329,6 +1329,9 @@ argument_list|<
 name|Long
 argument_list|>
 name|bpEvents
+parameter_list|,
+name|boolean
+name|expectReload
 parameter_list|)
 throws|throws
 name|IOException
@@ -1479,8 +1482,13 @@ argument_list|,
 name|props
 argument_list|)
 expr_stmt|;
-comment|// we will have update and in consequence, BP container reload, let's wait for it to
+comment|// we may have update and in consequence, BP container reload, let's wait for it to
 comment|// be CREATED again
+if|if
+condition|(
+name|expectReload
+condition|)
+block|{
 name|CamelBlueprintHelper
 operator|.
 name|waitForBlueprintContainer
@@ -1539,6 +1547,17 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|config
+operator|.
+name|update
+argument_list|(
+name|props
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
