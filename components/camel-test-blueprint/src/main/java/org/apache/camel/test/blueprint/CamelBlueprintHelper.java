@@ -950,17 +950,6 @@ argument_list|,
 name|tempDir
 argument_list|)
 expr_stmt|;
-comment|// explicitly set this to "false" - we will not depend on the order of starting bundles,
-comment|// (and running their BP containers) but we will have to do more synchornization
-name|System
-operator|.
-name|setProperty
-argument_list|(
-literal|"org.apache.aries.blueprint.synchronous"
-argument_list|,
-literal|"false"
-argument_list|)
-expr_stmt|;
 name|createDirectory
 argument_list|(
 name|tempDir

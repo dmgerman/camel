@@ -486,6 +486,17 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**      *<p>Override this method if you want to start Blueprint containers asynchronously using the thread      * that starts the bundles itself.      * By default this method returns<code>true</code> which means Blueprint Extender will use thread pool      * (threads named "<code>Blueprint Extender: N</code>") to startup Blueprint containers.</p>      *<p>Karaf and Fuse OSGi containers use synchronous startup.</p>      *<p>Asynchronous startup is more in the<em>spirit</em> of OSGi and usually means that if everything works fine      * asynchronously, it'll work synchronously as well. This isn't always true otherwise.</p>      * @return      */
+DECL|method|useAsynchronousBlueprintStartup ()
+specifier|protected
+name|boolean
+name|useAsynchronousBlueprintStartup
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -503,6 +514,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|System
+operator|.
+name|setProperty
+argument_list|(
+literal|"org.apache.aries.blueprint.synchronous"
+argument_list|,
+name|Boolean
+operator|.
+name|toString
+argument_list|(
+operator|!
+name|useAsynchronousBlueprintStartup
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
 specifier|final
 name|String
 name|symbolicName
