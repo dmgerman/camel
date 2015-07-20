@@ -360,6 +360,16 @@ argument_list|)
 decl_stmt|;
 name|processor
 operator|.
+name|setCamelContext
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|processor
+operator|.
 name|setPattern
 argument_list|(
 name|pattern
