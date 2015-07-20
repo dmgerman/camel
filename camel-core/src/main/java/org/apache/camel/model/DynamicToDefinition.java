@@ -328,6 +328,17 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|ObjectHelper
+operator|.
+name|notEmpty
+argument_list|(
+name|uri
+argument_list|,
+literal|"uri"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
 name|List
 argument_list|<
 name|Expression
@@ -513,6 +524,8 @@ init|=
 operator|new
 name|DynamicSendProcessor
 argument_list|(
+name|uri
+argument_list|,
 name|exp
 argument_list|)
 decl_stmt|;
@@ -595,7 +608,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the maximum size used by the {@link org.apache.camel.impl.ConsumerCache} which is used      * to cache and reuse consumers when using this pollEnrich, when uris are reused.      *      * @param cacheSize  the cache size, use<tt>0</tt> for default cache size, or<tt>-1</tt> to turn cache off.      * @return the builder      */
+comment|/**      * Sets the maximum size used by the {@link org.apache.camel.impl.ConsumerCache} which is used to cache and reuse producers.      *      * @param cacheSize  the cache size, use<tt>0</tt> for default cache size, or<tt>-1</tt> to turn cache off.      * @return the builder      */
 DECL|method|cacheSize (int cacheSize)
 specifier|public
 name|DynamicToDefinition

@@ -319,6 +319,12 @@ specifier|protected
 name|CamelContext
 name|camelContext
 decl_stmt|;
+DECL|field|uri
+specifier|protected
+specifier|final
+name|String
+name|uri
+decl_stmt|;
 DECL|field|expression
 specifier|protected
 specifier|final
@@ -350,14 +356,23 @@ specifier|protected
 name|int
 name|cacheSize
 decl_stmt|;
-DECL|method|DynamicSendProcessor (Expression expression)
+DECL|method|DynamicSendProcessor (String uri, Expression expression)
 specifier|public
 name|DynamicSendProcessor
 parameter_list|(
+name|String
+name|uri
+parameter_list|,
 name|Expression
 name|expression
 parameter_list|)
 block|{
+name|this
+operator|.
+name|uri
+operator|=
+name|uri
+expr_stmt|;
 name|this
 operator|.
 name|expression
@@ -998,6 +1013,16 @@ name|camelContext
 operator|=
 name|camelContext
 expr_stmt|;
+block|}
+DECL|method|getUri ()
+specifier|public
+name|String
+name|getUri
+parameter_list|()
+block|{
+return|return
+name|uri
+return|;
 block|}
 DECL|method|getExpression ()
 specifier|public
