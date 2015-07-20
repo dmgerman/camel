@@ -37,10 +37,10 @@ import|;
 end_import
 
 begin_interface
-DECL|interface|ManagedDynamicSendProcessorMBean
+DECL|interface|ManagedSendDynamicProcessorMBean
 specifier|public
 interface|interface
-name|ManagedDynamicSendProcessorMBean
+name|ManagedSendDynamicProcessorMBean
 extends|extends
 name|ManagedProcessorMBean
 block|{

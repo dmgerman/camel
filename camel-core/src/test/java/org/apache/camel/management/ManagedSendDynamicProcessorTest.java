@@ -95,17 +95,17 @@ comment|/**  * @version   */
 end_comment
 
 begin_class
-DECL|class|ManagedDynamicSendProcessorTest
+DECL|class|ManagedSendDynamicProcessorTest
 specifier|public
 class|class
-name|ManagedDynamicSendProcessorTest
+name|ManagedSendDynamicProcessorTest
 extends|extends
 name|ManagementTestSupport
 block|{
-DECL|method|testManageDynamicSendProcessor ()
+DECL|method|testManageSendDynamicProcessor ()
 specifier|public
 name|void
-name|testManageDynamicSendProcessor
+name|testManageSendDynamicProcessor
 parameter_list|()
 throws|throws
 name|Exception

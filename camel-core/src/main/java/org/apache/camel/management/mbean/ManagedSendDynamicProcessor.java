@@ -60,7 +60,7 @@ name|management
 operator|.
 name|mbean
 operator|.
-name|ManagedDynamicSendProcessorMBean
+name|ManagedSendDynamicProcessorMBean
 import|;
 end_import
 
@@ -88,7 +88,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|DynamicSendProcessor
+name|SendDynamicProcessor
 import|;
 end_import
 
@@ -130,21 +130,21 @@ name|ManagedResource
 argument_list|(
 name|description
 operator|=
-literal|"Managed DynamicSendProcessor"
+literal|"Managed SendDynamicProcessor"
 argument_list|)
-DECL|class|ManagedDynamicSendProcessor
+DECL|class|ManagedSendDynamicProcessor
 specifier|public
 class|class
-name|ManagedDynamicSendProcessor
+name|ManagedSendDynamicProcessor
 extends|extends
 name|ManagedProcessor
 implements|implements
-name|ManagedDynamicSendProcessorMBean
+name|ManagedSendDynamicProcessorMBean
 block|{
 DECL|field|processor
 specifier|private
 specifier|final
-name|DynamicSendProcessor
+name|SendDynamicProcessor
 name|processor
 decl_stmt|;
 DECL|field|uri
@@ -152,14 +152,14 @@ specifier|private
 name|String
 name|uri
 decl_stmt|;
-DECL|method|ManagedDynamicSendProcessor (CamelContext context, DynamicSendProcessor processor, ProcessorDefinition<?> definition)
+DECL|method|ManagedSendDynamicProcessor (CamelContext context, SendDynamicProcessor processor, ProcessorDefinition<?> definition)
 specifier|public
-name|ManagedDynamicSendProcessor
+name|ManagedSendDynamicProcessor
 parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|DynamicSendProcessor
+name|SendDynamicProcessor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
@@ -255,7 +255,7 @@ block|}
 block|}
 DECL|method|getProcessor ()
 specifier|public
-name|DynamicSendProcessor
+name|SendDynamicProcessor
 name|getProcessor
 parameter_list|()
 block|{

@@ -164,7 +164,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|DynamicSendProcessor
+name|SendDynamicProcessor
 import|;
 end_import
 
@@ -250,14 +250,14 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|DynamicToDefinition
+DECL|class|ToDynamicDefinition
 specifier|public
 class|class
-name|DynamicToDefinition
+name|ToDynamicDefinition
 extends|extends
 name|NoOutputDefinition
 argument_list|<
-name|DynamicToDefinition
+name|ToDynamicDefinition
 argument_list|>
 block|{
 annotation|@
@@ -295,14 +295,14 @@ specifier|private
 name|Boolean
 name|ignoreInvalidEndpoint
 decl_stmt|;
-DECL|method|DynamicToDefinition ()
+DECL|method|ToDynamicDefinition ()
 specifier|public
-name|DynamicToDefinition
+name|ToDynamicDefinition
 parameter_list|()
 block|{     }
-DECL|method|DynamicToDefinition (String uri)
+DECL|method|ToDynamicDefinition (String uri)
 specifier|public
-name|DynamicToDefinition
+name|ToDynamicDefinition
 parameter_list|(
 name|String
 name|uri
@@ -518,11 +518,11 @@ name|list
 argument_list|)
 expr_stmt|;
 block|}
-name|DynamicSendProcessor
+name|SendDynamicProcessor
 name|processor
 init|=
 operator|new
-name|DynamicSendProcessor
+name|SendDynamicProcessor
 argument_list|(
 name|uri
 argument_list|,
@@ -592,7 +592,7 @@ comment|// ---------------------------------------------------------------------
 comment|/**      * Sets the optional {@link ExchangePattern} used to invoke this endpoint      */
 DECL|method|pattern (ExchangePattern pattern)
 specifier|public
-name|DynamicToDefinition
+name|ToDynamicDefinition
 name|pattern
 parameter_list|(
 name|ExchangePattern
@@ -611,7 +611,7 @@ block|}
 comment|/**      * Sets the maximum size used by the {@link org.apache.camel.impl.ConsumerCache} which is used to cache and reuse producers.      *      * @param cacheSize  the cache size, use<tt>0</tt> for default cache size, or<tt>-1</tt> to turn cache off.      * @return the builder      */
 DECL|method|cacheSize (int cacheSize)
 specifier|public
-name|DynamicToDefinition
+name|ToDynamicDefinition
 name|cacheSize
 parameter_list|(
 name|int
@@ -630,7 +630,7 @@ block|}
 comment|/**      * Ignore the invalidate endpoint exception when try to create a producer with that endpoint      *      * @return the builder      */
 DECL|method|ignoreInvalidEndpoint ()
 specifier|public
-name|DynamicToDefinition
+name|ToDynamicDefinition
 name|ignoreInvalidEndpoint
 parameter_list|()
 block|{

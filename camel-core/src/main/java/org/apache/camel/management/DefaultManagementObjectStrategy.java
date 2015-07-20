@@ -318,7 +318,7 @@ name|management
 operator|.
 name|mbean
 operator|.
-name|ManagedDynamicSendProcessor
+name|ManagedSendDynamicProcessor
 import|;
 end_import
 
@@ -598,7 +598,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|DynamicSendProcessor
+name|SendDynamicProcessor
 import|;
 end_import
 
@@ -1476,18 +1476,18 @@ if|if
 condition|(
 name|target
 operator|instanceof
-name|DynamicSendProcessor
+name|SendDynamicProcessor
 condition|)
 block|{
 name|answer
 operator|=
 operator|new
-name|ManagedDynamicSendProcessor
+name|ManagedSendDynamicProcessor
 argument_list|(
 name|context
 argument_list|,
 operator|(
-name|DynamicSendProcessor
+name|SendDynamicProcessor
 operator|)
 name|target
 argument_list|,

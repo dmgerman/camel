@@ -285,10 +285,10 @@ comment|/**  * Processor for forwarding exchanges to a dynamic endpoint destinat
 end_comment
 
 begin_class
-DECL|class|DynamicSendProcessor
+DECL|class|SendDynamicProcessor
 specifier|public
 class|class
-name|DynamicSendProcessor
+name|SendDynamicProcessor
 extends|extends
 name|ServiceSupport
 implements|implements
@@ -309,7 +309,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|DynamicSendProcessor
+name|SendDynamicProcessor
 operator|.
 name|class
 argument_list|)
@@ -356,9 +356,9 @@ specifier|protected
 name|int
 name|cacheSize
 decl_stmt|;
-DECL|method|DynamicSendProcessor (String uri, Expression expression)
+DECL|method|SendDynamicProcessor (String uri, Expression expression)
 specifier|public
-name|DynamicSendProcessor
+name|SendDynamicProcessor
 parameter_list|(
 name|String
 name|uri

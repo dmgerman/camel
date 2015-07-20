@@ -357,7 +357,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Processor for forwarding exchanges to a static endpoint destination.  *  * @see org.apache.camel.processor.DynamicSendProcessor  */
+comment|/**  * Processor for forwarding exchanges to a static endpoint destination.  *  * @see SendDynamicProcessor  */
 end_comment
 
 begin_class

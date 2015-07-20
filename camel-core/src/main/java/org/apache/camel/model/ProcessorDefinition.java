@@ -2844,11 +2844,11 @@ name|String
 name|uri
 parameter_list|)
 block|{
-name|DynamicToDefinition
+name|ToDynamicDefinition
 name|answer
 init|=
 operator|new
-name|DynamicToDefinition
+name|ToDynamicDefinition
 argument_list|()
 decl_stmt|;
 name|answer
@@ -2888,11 +2888,11 @@ name|boolean
 name|ignoreInvalidEndpoint
 parameter_list|)
 block|{
-name|DynamicToDefinition
+name|ToDynamicDefinition
 name|answer
 init|=
 operator|new
-name|DynamicToDefinition
+name|ToDynamicDefinition
 argument_list|()
 decl_stmt|;
 name|answer
