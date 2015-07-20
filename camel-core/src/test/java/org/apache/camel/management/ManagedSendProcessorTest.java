@@ -412,7 +412,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"description\": \"Sends the message to an endpoint\""
+literal|"\"description\": \"Sends the message to a static endpoint\""
 argument_list|)
 argument_list|)
 expr_stmt|;
