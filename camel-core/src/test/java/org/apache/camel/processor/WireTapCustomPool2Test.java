@@ -243,9 +243,6 @@ argument_list|)
 comment|// pass in the custom pool to the wireTap DSL
 operator|.
 name|wireTap
-argument_list|()
-operator|.
-name|constant
 argument_list|(
 literal|"direct:tap"
 argument_list|)

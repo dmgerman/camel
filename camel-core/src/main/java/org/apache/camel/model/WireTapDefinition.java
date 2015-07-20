@@ -312,12 +312,23 @@ DECL|class|WireTapDefinition
 specifier|public
 class|class
 name|WireTapDefinition
+parameter_list|<
+name|Type
 extends|extends
-name|NoOutputExpressionNode
+name|ProcessorDefinition
+parameter_list|<
+name|Type
+parameter_list|>
+parameter_list|>
+extends|extends
+name|ToDynamicDefinition
 implements|implements
 name|ExecutorServiceAwareDefinition
 argument_list|<
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 argument_list|>
 block|{
 annotation|@
@@ -398,13 +409,6 @@ name|copy
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|cacheSize
-specifier|private
-name|Integer
-name|cacheSize
-decl_stmt|;
-annotation|@
-name|XmlAttribute
 DECL|field|onPrepareRef
 specifier|private
 name|String
@@ -416,13 +420,6 @@ DECL|field|onPrepare
 specifier|private
 name|Processor
 name|onPrepare
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-DECL|field|ignoreInvalidEndpoint
-specifier|private
-name|Boolean
-name|ignoreInvalidEndpoint
 decl_stmt|;
 DECL|method|WireTapDefinition ()
 specifier|public
@@ -477,53 +474,16 @@ comment|// create the send dynamic producer to send to the wire tapped endpoint
 name|SendDynamicProcessor
 name|dynamicTo
 init|=
-operator|new
+operator|(
 name|SendDynamicProcessor
-argument_list|(
-name|getExpression
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|dynamicTo
+operator|)
+name|super
 operator|.
-name|setCamelContext
+name|createProcessor
 argument_list|(
 name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
 argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|cacheSize
-operator|!=
-literal|null
-condition|)
-block|{
-name|dynamicTo
-operator|.
-name|setCacheSize
-argument_list|(
-name|cacheSize
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|ignoreInvalidEndpoint
-operator|!=
-literal|null
-condition|)
-block|{
-name|dynamicTo
-operator|.
-name|setIgnoreInvalidEndpoint
-argument_list|(
-name|ignoreInvalidEndpoint
-argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 comment|// create error handler we need to use for processing the wire tapped
 name|Processor
 name|target
@@ -576,8 +536,7 @@ init|=
 operator|new
 name|WireTapProcessor
 argument_list|(
-name|getExpression
-argument_list|()
+name|dynamicTo
 argument_list|,
 name|internal
 argument_list|,
@@ -733,36 +692,6 @@ name|onPrepare
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|cacheSize
-operator|!=
-literal|null
-condition|)
-block|{
-name|answer
-operator|.
-name|setCacheSize
-argument_list|(
-name|cacheSize
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|ignoreInvalidEndpoint
-operator|!=
-literal|null
-condition|)
-block|{
-name|answer
-operator|.
-name|setIgnoreInvalidEndpoint
-argument_list|(
-name|ignoreInvalidEndpoint
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|answer
 return|;
@@ -790,7 +719,7 @@ block|{
 return|return
 literal|"WireTap["
 operator|+
-name|getExpression
+name|getUri
 argument_list|()
 operator|+
 literal|"]"
@@ -807,11 +736,59 @@ block|{
 return|return
 literal|"wireTap["
 operator|+
-name|getExpression
+name|getUri
 argument_list|()
 operator|+
 literal|"]"
 return|;
+block|}
+annotation|@
+name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
+DECL|method|end ()
+specifier|public
+name|Type
+name|end
+parameter_list|()
+block|{
+comment|// allow end() to return to previous type so you can continue in the DSL
+return|return
+operator|(
+name|Type
+operator|)
+name|super
+operator|.
+name|end
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|addOutput (ProcessorDefinition<?> output)
+specifier|public
+name|void
+name|addOutput
+parameter_list|(
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|output
+parameter_list|)
+block|{
+comment|// add outputs on parent as this wiretap does not support outputs
+name|getParent
+argument_list|()
+operator|.
+name|addOutput
+argument_list|(
+name|output
+argument_list|)
+expr_stmt|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
@@ -919,7 +896,11 @@ parameter_list|)
 block|{
 name|setNewExchangeExpression
 argument_list|(
+operator|new
+name|ExpressionSubElementDefinition
+argument_list|(
 name|expression
+argument_list|)
 argument_list|)
 expr_stmt|;
 return|return
@@ -1033,6 +1014,8 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the maximum size used by the {@link org.apache.camel.impl.ProducerCache} which is used      * to cache and reuse producers, when uris are reused.      *      * @param cacheSize  the cache size, use<tt>0</tt> for default cache size, or<tt>-1</tt> to turn cache off.      * @return the builder      */
+annotation|@
+name|Override
 DECL|method|cacheSize (int cacheSize)
 specifier|public
 name|WireTapDefinition
@@ -1052,6 +1035,8 @@ name|this
 return|;
 block|}
 comment|/**      * Ignore the invalidate endpoint exception when try to create a producer with that endpoint      *      * @return the builder      */
+annotation|@
+name|Override
 DECL|method|ignoreInvalidEndpoint ()
 specifier|public
 name|WireTapDefinition
@@ -1069,24 +1054,38 @@ return|;
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
-comment|/**      * Expression that returns the uri to use for the wire tap destination      */
 annotation|@
 name|Override
-DECL|method|setExpression (ExpressionDefinition expression)
+DECL|method|getUri ()
 specifier|public
-name|void
-name|setExpression
-parameter_list|(
-name|ExpressionDefinition
-name|expression
-parameter_list|)
+name|String
+name|getUri
+parameter_list|()
 block|{
-comment|// override to include javadoc what the expression is used for
+return|return
 name|super
 operator|.
-name|setExpression
+name|getUri
+argument_list|()
+return|;
+block|}
+comment|/**      * The uri of the endpoint to wiretap to. The uri can be dynamic computed using the {@link org.apache.camel.language.simple.SimpleLanguage} expression.      */
+annotation|@
+name|Override
+DECL|method|setUri (String uri)
+specifier|public
+name|void
+name|setUri
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setUri
 argument_list|(
-name|expression
+name|uri
 argument_list|)
 expr_stmt|;
 block|}
@@ -1154,41 +1153,21 @@ return|return
 name|newExchangeExpression
 return|;
 block|}
-comment|/**      * Expression used for creating a new body as the message to use for wire tapping      */
-DECL|method|setNewExchangeExpression (ExpressionSubElementDefinition expression)
+comment|/**      * Uses the expression for creating a new body as the message to use for wire tapping      */
+DECL|method|setNewExchangeExpression (ExpressionSubElementDefinition newExchangeExpression)
 specifier|public
 name|void
 name|setNewExchangeExpression
 parameter_list|(
 name|ExpressionSubElementDefinition
-name|expression
+name|newExchangeExpression
 parameter_list|)
 block|{
 name|this
 operator|.
 name|newExchangeExpression
 operator|=
-name|expression
-expr_stmt|;
-block|}
-DECL|method|setNewExchangeExpression (Expression expression)
-specifier|public
-name|void
-name|setNewExchangeExpression
-parameter_list|(
-name|Expression
-name|expression
-parameter_list|)
-block|{
-name|this
-operator|.
 name|newExchangeExpression
-operator|=
-operator|new
-name|ExpressionSubElementDefinition
-argument_list|(
-name|expression
-argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getExecutorService ()
@@ -1351,58 +1330,6 @@ operator|.
 name|headers
 operator|=
 name|headers
-expr_stmt|;
-block|}
-DECL|method|getCacheSize ()
-specifier|public
-name|Integer
-name|getCacheSize
-parameter_list|()
-block|{
-return|return
-name|cacheSize
-return|;
-block|}
-DECL|method|setCacheSize (Integer cacheSize)
-specifier|public
-name|void
-name|setCacheSize
-parameter_list|(
-name|Integer
-name|cacheSize
-parameter_list|)
-block|{
-name|this
-operator|.
-name|cacheSize
-operator|=
-name|cacheSize
-expr_stmt|;
-block|}
-DECL|method|getIgnoreInvalidEndpoint ()
-specifier|public
-name|Boolean
-name|getIgnoreInvalidEndpoint
-parameter_list|()
-block|{
-return|return
-name|ignoreInvalidEndpoint
-return|;
-block|}
-DECL|method|setIgnoreInvalidEndpoint (Boolean ignoreInvalidEndpoint)
-specifier|public
-name|void
-name|setIgnoreInvalidEndpoint
-parameter_list|(
-name|Boolean
-name|ignoreInvalidEndpoint
-parameter_list|)
-block|{
-name|this
-operator|.
-name|ignoreInvalidEndpoint
-operator|=
-name|ignoreInvalidEndpoint
 expr_stmt|;
 block|}
 block|}

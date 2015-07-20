@@ -237,10 +237,7 @@ name|sanitizeUri
 argument_list|(
 name|processor
 operator|.
-name|getExpression
-argument_list|()
-operator|.
-name|toString
+name|getUri
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -251,10 +248,7 @@ name|uri
 operator|=
 name|processor
 operator|.
-name|getExpression
-argument_list|()
-operator|.
-name|toString
+name|getUri
 argument_list|()
 expr_stmt|;
 block|}
@@ -269,10 +263,10 @@ return|return
 name|processor
 return|;
 block|}
-DECL|method|getExpression ()
+DECL|method|getUri ()
 specifier|public
 name|String
-name|getExpression
+name|getUri
 parameter_list|()
 block|{
 return|return

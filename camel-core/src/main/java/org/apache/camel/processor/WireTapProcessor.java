@@ -366,11 +366,17 @@ specifier|private
 name|CamelContext
 name|camelContext
 decl_stmt|;
-DECL|field|expression
+DECL|field|dynamicProcessor
 specifier|private
 specifier|final
-name|Expression
-name|expression
+name|SendDynamicProcessor
+name|dynamicProcessor
+decl_stmt|;
+DECL|field|uri
+specifier|private
+specifier|final
+name|String
+name|uri
 decl_stmt|;
 DECL|field|processor
 specifier|private
@@ -395,17 +401,6 @@ specifier|private
 specifier|volatile
 name|boolean
 name|shutdownExecutorService
-decl_stmt|;
-comment|// only used for management to be able to report the setting
-DECL|field|cacheSize
-specifier|private
-name|int
-name|cacheSize
-decl_stmt|;
-DECL|field|ignoreInvalidEndpoint
-specifier|private
-name|boolean
-name|ignoreInvalidEndpoint
 decl_stmt|;
 comment|// expression or processor used for populating a new exchange to send
 comment|// as opposed to traditional wiretap that sends a copy of the original exchange
@@ -432,12 +427,12 @@ specifier|private
 name|Processor
 name|onPrepare
 decl_stmt|;
-DECL|method|WireTapProcessor (Expression expression, Processor processor, ExchangePattern exchangePattern, ExecutorService executorService, boolean shutdownExecutorService)
+DECL|method|WireTapProcessor (SendDynamicProcessor dynamicProcessor, Processor processor, ExchangePattern exchangePattern, ExecutorService executorService, boolean shutdownExecutorService)
 specifier|public
 name|WireTapProcessor
 parameter_list|(
-name|Expression
-name|expression
+name|SendDynamicProcessor
+name|dynamicProcessor
 parameter_list|,
 name|Processor
 name|processor
@@ -454,9 +449,18 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|expression
+name|dynamicProcessor
 operator|=
-name|expression
+name|dynamicProcessor
+expr_stmt|;
+name|this
+operator|.
+name|uri
+operator|=
+name|dynamicProcessor
+operator|.
+name|getUri
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -503,7 +507,7 @@ block|{
 return|return
 literal|"WireTap["
 operator|+
-name|expression
+name|uri
 operator|+
 literal|"]"
 return|;
@@ -519,7 +523,7 @@ block|{
 return|return
 literal|"wireTap("
 operator|+
-name|expression
+name|uri
 operator|+
 literal|")"
 return|;
@@ -701,7 +705,7 @@ name|debug
 argument_list|(
 literal|">>>> (wiretap) {} {}"
 argument_list|,
-name|expression
+name|uri
 argument_list|,
 name|wireTapExchange
 argument_list|)
@@ -730,7 +734,7 @@ name|wireTapExchange
 operator|+
 literal|" wiretap to "
 operator|+
-name|expression
+name|uri
 operator|+
 literal|". This exception will be ignored."
 argument_list|,
@@ -1047,16 +1051,6 @@ name|InOnly
 argument_list|)
 return|;
 block|}
-DECL|method|getExpression ()
-specifier|public
-name|Expression
-name|getExpression
-parameter_list|()
-block|{
-return|return
-name|expression
-return|;
-block|}
 DECL|method|getNewExchangeProcessors ()
 specifier|public
 name|List
@@ -1201,6 +1195,16 @@ operator|=
 name|onPrepare
 expr_stmt|;
 block|}
+DECL|method|getUri ()
+specifier|public
+name|String
+name|getUri
+parameter_list|()
+block|{
+return|return
+name|uri
+return|;
+block|}
 DECL|method|getCacheSize ()
 specifier|public
 name|int
@@ -1208,24 +1212,11 @@ name|getCacheSize
 parameter_list|()
 block|{
 return|return
-name|cacheSize
-return|;
-block|}
-DECL|method|setCacheSize (int cacheSize)
-specifier|public
-name|void
-name|setCacheSize
-parameter_list|(
-name|int
-name|cacheSize
-parameter_list|)
-block|{
-name|this
+name|dynamicProcessor
 operator|.
-name|cacheSize
-operator|=
-name|cacheSize
-expr_stmt|;
+name|getCacheSize
+argument_list|()
+return|;
 block|}
 DECL|method|isIgnoreInvalidEndpoint ()
 specifier|public
@@ -1234,24 +1225,11 @@ name|isIgnoreInvalidEndpoint
 parameter_list|()
 block|{
 return|return
-name|ignoreInvalidEndpoint
-return|;
-block|}
-DECL|method|setIgnoreInvalidEndpoint (boolean ignoreInvalidEndpoint)
-specifier|public
-name|void
-name|setIgnoreInvalidEndpoint
-parameter_list|(
-name|boolean
-name|ignoreInvalidEndpoint
-parameter_list|)
-block|{
-name|this
+name|dynamicProcessor
 operator|.
-name|ignoreInvalidEndpoint
-operator|=
-name|ignoreInvalidEndpoint
-expr_stmt|;
+name|isIgnoreInvalidEndpoint
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override

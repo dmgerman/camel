@@ -49,15 +49,15 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Expression that returns the uri to use for the wire tap destination"
+literal|"The uri of the endpoint to wiretap to. The uri can be dynamic computed using the expressions."
 argument_list|,
 name|mask
 operator|=
 literal|true
 argument_list|)
-DECL|method|getExpression ()
+DECL|method|getUri ()
 name|String
-name|getExpression
+name|getUri
 parameter_list|()
 function_decl|;
 annotation|@

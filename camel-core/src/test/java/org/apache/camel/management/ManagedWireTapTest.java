@@ -254,12 +254,12 @@ name|getAttribute
 argument_list|(
 name|on
 argument_list|,
-literal|"Expression"
+literal|"Uri"
 argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"simple{direct:${header.whereto}}"
+literal|"direct:${header.whereto}"
 argument_list|,
 name|uri
 argument_list|)
@@ -382,6 +382,18 @@ operator|.
 name|contains
 argument_list|(
 literal|"\"description\": \"Routes a copy of a message (or creates a new message) to a secondary destination while continue routing the original message"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|" \"uri\": { \"kind\": \"attribute\", \"required\": \"true\", \"type\": \"string\", \"javaType\": \"java.lang.String\","
+operator|+
+literal|" \"deprecated\": \"false\", \"value\": \"direct:${header.whereto}\""
 argument_list|)
 argument_list|)
 expr_stmt|;

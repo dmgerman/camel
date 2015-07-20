@@ -208,9 +208,6 @@ comment|// tap a new message and send it to direct:tap
 comment|// the new message should be Bye World with 2 headers
 operator|.
 name|wireTap
-argument_list|()
-operator|.
-name|constant
 argument_list|(
 literal|"direct:tap"
 argument_list|)

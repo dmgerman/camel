@@ -136,10 +136,7 @@ argument_list|)
 operator|.
 name|wireTap
 argument_list|(
-name|simple
-argument_list|(
 literal|"mock:${header.tap}"
-argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e1

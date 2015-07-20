@@ -6741,81 +6741,13 @@ operator|)
 name|this
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other using {@link ExchangePattern#InOnly}.      *      * @return the builder      */
-DECL|method|wireTap ()
-specifier|public
-name|ExpressionClause
-argument_list|<
-name|WireTapDefinition
-argument_list|>
-name|wireTap
-parameter_list|()
-block|{
-name|WireTapDefinition
-name|answer
-init|=
-operator|new
-name|WireTapDefinition
-argument_list|()
-decl_stmt|;
-name|addOutput
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
-return|return
-name|ExpressionClause
-operator|.
-name|createAndSetExpression
-argument_list|(
-name|answer
-argument_list|)
-return|;
-block|}
-comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other using {@link ExchangePattern#InOnly}.      *      * @param expression  the expression to compute the uri to use as wire tap      * @return the builder      */
-DECL|method|wireTap (Expression expression)
-specifier|public
-name|Type
-name|wireTap
-parameter_list|(
-name|Expression
-name|expression
-parameter_list|)
-block|{
-name|WireTapDefinition
-name|answer
-init|=
-operator|new
-name|WireTapDefinition
-argument_list|()
-decl_stmt|;
-name|answer
-operator|.
-name|setExpression
-argument_list|(
-operator|new
-name|ExpressionDefinition
-argument_list|(
-name|expression
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|addOutput
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
-return|return
-operator|(
-name|Type
-operator|)
-name|this
-return|;
-block|}
-comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other using {@link ExchangePattern#InOnly}.      *      * @param uri  the destination      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other using {@link ExchangePattern#InOnly}.      *      * @param uri  the dynamic endpoint to wiretap to (resolved using simple language by default)      * @return the builder      */
 DECL|method|wireTap (String uri)
 specifier|public
+name|WireTapDefinition
+argument_list|<
 name|Type
+argument_list|>
 name|wireTap
 parameter_list|(
 name|String
@@ -6831,13 +6763,9 @@ argument_list|()
 decl_stmt|;
 name|answer
 operator|.
-name|setExpression
-argument_list|(
-operator|new
-name|SimpleExpression
+name|setUri
 argument_list|(
 name|uri
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|addOutput
@@ -6846,16 +6774,18 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|answer
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other using {@link ExchangePattern#InOnly}.      *      * @param uri  the destination      * @param      executorService a custom {@link ExecutorService} to use as thread pool      *             for sending tapped exchanges      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other using {@link ExchangePattern#InOnly}.      *      * @param uri  the dynamic endpoint to wiretap to (resolved using simple language by default)      * @param      executorService a custom {@link ExecutorService} to use as thread pool      *             for sending tapped exchanges      * @return the builder      * @deprecated use the fluent builder from {@link WireTapDefinition}, will be removed in Camel 3.0      */
+annotation|@
+name|Deprecated
 DECL|method|wireTap (String uri, ExecutorService executorService)
 specifier|public
+name|WireTapDefinition
+argument_list|<
 name|Type
+argument_list|>
 name|wireTap
 parameter_list|(
 name|String
@@ -6874,13 +6804,9 @@ argument_list|()
 decl_stmt|;
 name|answer
 operator|.
-name|setExpression
-argument_list|(
-operator|new
-name|SimpleExpression
+name|setUri
 argument_list|(
 name|uri
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|answer
@@ -6896,16 +6822,18 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|answer
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other using {@link ExchangePattern#InOnly}.      *      * @param uri  the destination      * @param      executorServiceRef reference to lookup a custom {@link ExecutorService}      *             to use as thread pool for sending tapped exchanges      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other using {@link ExchangePattern#InOnly}.      *      * @param uri  the dynamic endpoint to wiretap to (resolved using simple language by default)      * @param      executorServiceRef reference to lookup a custom {@link ExecutorService}      *             to use as thread pool for sending tapped exchanges      * @return the builder      * @deprecated use the fluent builder from {@link WireTapDefinition}, will be removed in Camel 3.0      */
+annotation|@
+name|Deprecated
 DECL|method|wireTap (String uri, String executorServiceRef)
 specifier|public
+name|WireTapDefinition
+argument_list|<
 name|Type
+argument_list|>
 name|wireTap
 parameter_list|(
 name|String
@@ -6924,13 +6852,9 @@ argument_list|()
 decl_stmt|;
 name|answer
 operator|.
-name|setExpression
-argument_list|(
-operator|new
-name|SimpleExpression
+name|setUri
 argument_list|(
 name|uri
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|answer
@@ -6946,16 +6870,18 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|answer
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *<p/>      * Will use a copy of the original Exchange which is passed in as argument      * to the given expression      *      * @param uri  the destination      * @param body expression that creates the body to send      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *<p/>      * Will use a copy of the original Exchange which is passed in as argument      * to the given expression      *      * @param uri  the dynamic endpoint to wiretap to (resolved using simple language by default)      * @param body expression that creates the body to send      * @return the builder      * @deprecated use the fluent builder from {@link WireTapDefinition}, will be removed in Camel 3.0      */
+annotation|@
+name|Deprecated
 DECL|method|wireTap (String uri, Expression body)
 specifier|public
+name|WireTapDefinition
+argument_list|<
 name|Type
+argument_list|>
 name|wireTap
 parameter_list|(
 name|String
@@ -6976,10 +6902,15 @@ name|body
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *      * @param uri  the destination      * @param copy whether or not use a copy of the original exchange or a new empty exchange      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *      * @param uri  the dynamic endpoint to wiretap to (resolved using simple language by default)      * @param copy whether or not use a copy of the original exchange or a new empty exchange      * @return the builder      * @deprecated use the fluent builder from {@link WireTapDefinition}, will be removed in Camel 3.0      */
+annotation|@
+name|Deprecated
 DECL|method|wireTap (String uri, boolean copy)
 specifier|public
+name|WireTapDefinition
+argument_list|<
 name|Type
+argument_list|>
 name|wireTap
 parameter_list|(
 name|String
@@ -6998,13 +6929,9 @@ argument_list|()
 decl_stmt|;
 name|answer
 operator|.
-name|setExpression
-argument_list|(
-operator|new
-name|SimpleExpression
+name|setUri
 argument_list|(
 name|uri
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|answer
@@ -7020,16 +6947,18 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|answer
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *      * @param uri  the destination      * @param copy whether or not use a copy of the original exchange or a new empty exchange      * @param body expression that creates the body to send      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *      * @param uri  the dynamic endpoint to wiretap to (resolved using simple language by default)      * @param copy whether or not use a copy of the original exchange or a new empty exchange      * @param body expression that creates the body to send      * @return the builder      * @deprecated use the fluent builder from {@link WireTapDefinition}, will be removed in Camel 3.0      */
+annotation|@
+name|Deprecated
 DECL|method|wireTap (String uri, boolean copy, Expression body)
 specifier|public
+name|WireTapDefinition
+argument_list|<
 name|Type
+argument_list|>
 name|wireTap
 parameter_list|(
 name|String
@@ -7051,13 +6980,9 @@ argument_list|()
 decl_stmt|;
 name|answer
 operator|.
-name|setExpression
-argument_list|(
-operator|new
-name|SimpleExpression
+name|setUri
 argument_list|(
 name|uri
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|answer
@@ -7071,7 +6996,11 @@ name|answer
 operator|.
 name|setNewExchangeExpression
 argument_list|(
+operator|new
+name|ExpressionSubElementDefinition
+argument_list|(
 name|body
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|addOutput
@@ -7080,16 +7009,18 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|answer
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *<p/>      * Will use a copy of the original Exchange which is passed in as argument      * to the given processor      *      * @param uri  the destination      * @param processor  processor preparing the new exchange to send      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *<p/>      * Will use a copy of the original Exchange which is passed in as argument      * to the given processor      *      * @param uri  the dynamic endpoint to wiretap to (resolved using simple language by default)      * @param processor  processor preparing the new exchange to send      * @return the builder      * @deprecated use the fluent builder from {@link WireTapDefinition}, will be removed in Camel 3.0      */
+annotation|@
+name|Deprecated
 DECL|method|wireTap (String uri, Processor processor)
 specifier|public
+name|WireTapDefinition
+argument_list|<
 name|Type
+argument_list|>
 name|wireTap
 parameter_list|(
 name|String
@@ -7110,10 +7041,15 @@ name|processor
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *      * @param uri  the destination      * @param copy whether or not use a copy of the original exchange or a new empty exchange      * @param processor  processor preparing the new exchange to send      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends a new {@link org.apache.camel.Exchange} to the destination      * using {@link ExchangePattern#InOnly}.      *      * @param uri  the dynamic endpoint to wiretap to (resolved using simple language by default)      * @param copy whether or not use a copy of the original exchange or a new empty exchange      * @param processor  processor preparing the new exchange to send      * @return the builder      * @deprecated use the fluent builder from {@link WireTapDefinition}, will be removed in Camel 3.0      */
+annotation|@
+name|Deprecated
 DECL|method|wireTap (String uri, boolean copy, Processor processor)
 specifier|public
+name|WireTapDefinition
+argument_list|<
 name|Type
+argument_list|>
 name|wireTap
 parameter_list|(
 name|String
@@ -7135,13 +7071,9 @@ argument_list|()
 decl_stmt|;
 name|answer
 operator|.
-name|setExpression
-argument_list|(
-operator|new
-name|SimpleExpression
+name|setUri
 argument_list|(
 name|uri
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|answer
@@ -7164,10 +7096,7 @@ name|answer
 argument_list|)
 expr_stmt|;
 return|return
-operator|(
-name|Type
-operator|)
-name|this
+name|answer
 return|;
 block|}
 comment|/**      * Pushes the given block on the stack as current block      *      * @param block  the block      */

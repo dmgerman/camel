@@ -251,7 +251,10 @@ operator|.
 name|wireTap
 argument_list|(
 literal|"direct:tap"
-argument_list|,
+argument_list|)
+operator|.
+name|executorService
+argument_list|(
 name|pool
 argument_list|)
 operator|.
