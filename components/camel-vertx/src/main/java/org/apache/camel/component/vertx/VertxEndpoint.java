@@ -64,6 +64,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|MultipleConsumersSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -186,6 +198,8 @@ class|class
 name|VertxEndpoint
 extends|extends
 name|DefaultEndpoint
+implements|implements
+name|MultipleConsumersSupport
 block|{
 annotation|@
 name|UriPath
@@ -305,6 +319,18 @@ DECL|method|isSingleton ()
 specifier|public
 name|boolean
 name|isSingleton
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isMultipleConsumersSupported ()
+specifier|public
+name|boolean
+name|isMultipleConsumersSupported
 parameter_list|()
 block|{
 return|return
