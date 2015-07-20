@@ -37,10 +37,10 @@ import|;
 end_import
 
 begin_interface
-DECL|interface|ManagedSendDynamicProcessorMBean
+DECL|interface|ManagedWireTapMBean
 specifier|public
 interface|interface
-name|ManagedSendDynamicProcessorMBean
+name|ManagedWireTapMBean
 extends|extends
 name|ManagedProcessorMBean
 block|{
@@ -49,27 +49,15 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"The uri of the endpoint to send to. The uri can be dynamic computed using the expressions."
+literal|"Expression that returns the uri to use for the wire tap destination"
 argument_list|,
 name|mask
 operator|=
 literal|true
 argument_list|)
-DECL|method|getUri ()
+DECL|method|getExpression ()
 name|String
-name|getUri
-parameter_list|()
-function_decl|;
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Message Exchange Pattern"
-argument_list|)
-DECL|method|getMessageExchangePattern ()
-name|String
-name|getMessageExchangePattern
+name|getExpression
 parameter_list|()
 function_decl|;
 annotation|@
@@ -94,6 +82,18 @@ argument_list|)
 DECL|method|isIgnoreInvalidEndpoint ()
 name|Boolean
 name|isIgnoreInvalidEndpoint
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Uses a copy of the original exchange"
+argument_list|)
+DECL|method|isCopy ()
+name|Boolean
+name|isCopy
 parameter_list|()
 function_decl|;
 block|}

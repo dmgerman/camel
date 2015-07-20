@@ -396,6 +396,17 @@ specifier|volatile
 name|boolean
 name|shutdownExecutorService
 decl_stmt|;
+comment|// only used for management to be able to report the setting
+DECL|field|cacheSize
+specifier|private
+name|int
+name|cacheSize
+decl_stmt|;
+DECL|field|ignoreInvalidEndpoint
+specifier|private
+name|boolean
+name|ignoreInvalidEndpoint
+decl_stmt|;
 comment|// expression or processor used for populating a new exchange to send
 comment|// as opposed to traditional wiretap that sends a copy of the original exchange
 DECL|field|newExchangeExpression
@@ -1036,6 +1047,16 @@ name|InOnly
 argument_list|)
 return|;
 block|}
+DECL|method|getExpression ()
+specifier|public
+name|Expression
+name|getExpression
+parameter_list|()
+block|{
+return|return
+name|expression
+return|;
+block|}
 DECL|method|getNewExchangeProcessors ()
 specifier|public
 name|List
@@ -1178,6 +1199,58 @@ operator|.
 name|onPrepare
 operator|=
 name|onPrepare
+expr_stmt|;
+block|}
+DECL|method|getCacheSize ()
+specifier|public
+name|int
+name|getCacheSize
+parameter_list|()
+block|{
+return|return
+name|cacheSize
+return|;
+block|}
+DECL|method|setCacheSize (int cacheSize)
+specifier|public
+name|void
+name|setCacheSize
+parameter_list|(
+name|int
+name|cacheSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cacheSize
+operator|=
+name|cacheSize
+expr_stmt|;
+block|}
+DECL|method|isIgnoreInvalidEndpoint ()
+specifier|public
+name|boolean
+name|isIgnoreInvalidEndpoint
+parameter_list|()
+block|{
+return|return
+name|ignoreInvalidEndpoint
+return|;
+block|}
+DECL|method|setIgnoreInvalidEndpoint (boolean ignoreInvalidEndpoint)
+specifier|public
+name|void
+name|setIgnoreInvalidEndpoint
+parameter_list|(
+name|boolean
+name|ignoreInvalidEndpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreInvalidEndpoint
+operator|=
+name|ignoreInvalidEndpoint
 expr_stmt|;
 block|}
 annotation|@
