@@ -40,6 +40,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|PreDestroy
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -85,16 +95,6 @@ operator|.
 name|context
 operator|.
 name|ApplicationContext
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|annotation
-operator|.
-name|PreDestroy
 import|;
 end_import
 

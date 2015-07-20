@@ -79,6 +79,11 @@ specifier|final
 class|class
 name|CdiBeanManagerHelper
 block|{
+DECL|method|CdiBeanManagerHelper ()
+specifier|private
+name|CdiBeanManagerHelper
+parameter_list|()
+block|{     }
 comment|/**      * To lookup a bean by a type      */
 DECL|method|lookupBeanByType (BeanManager beanManager, Class<T> type)
 specifier|public
