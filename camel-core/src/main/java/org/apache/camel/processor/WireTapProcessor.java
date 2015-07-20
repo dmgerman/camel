@@ -102,7 +102,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|CamelContext
 import|;
 end_import
 
@@ -114,7 +114,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointAware
+name|CamelContextAware
 import|;
 end_import
 
@@ -268,20 +268,6 @@ name|camel
 operator|.
 name|util
 operator|.
-name|EventHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
 name|ExchangeHelper
 import|;
 end_import
@@ -311,20 +297,6 @@ operator|.
 name|util
 operator|.
 name|ServiceHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|StopWatch
 import|;
 end_import
 
@@ -364,9 +336,9 @@ name|AsyncProcessor
 implements|,
 name|Traceable
 implements|,
-name|EndpointAware
-implements|,
 name|IdAware
+implements|,
+name|CamelContextAware
 block|{
 DECL|field|LOG
 specifier|private
@@ -389,11 +361,16 @@ specifier|private
 name|String
 name|id
 decl_stmt|;
-DECL|field|destination
+DECL|field|camelContext
+specifier|private
+name|CamelContext
+name|camelContext
+decl_stmt|;
+DECL|field|expression
 specifier|private
 specifier|final
-name|Endpoint
-name|destination
+name|Expression
+name|expression
 decl_stmt|;
 DECL|field|processor
 specifier|private
@@ -444,12 +421,12 @@ specifier|private
 name|Processor
 name|onPrepare
 decl_stmt|;
-DECL|method|WireTapProcessor (Endpoint destination, Processor processor, ExchangePattern exchangePattern, ExecutorService executorService, boolean shutdownExecutorService)
+DECL|method|WireTapProcessor (Expression expression, Processor processor, ExchangePattern exchangePattern, ExecutorService executorService, boolean shutdownExecutorService)
 specifier|public
 name|WireTapProcessor
 parameter_list|(
-name|Endpoint
-name|destination
+name|Expression
+name|expression
 parameter_list|,
 name|Processor
 name|processor
@@ -466,9 +443,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|destination
+name|expression
 operator|=
-name|destination
+name|expression
 expr_stmt|;
 name|this
 operator|.
@@ -515,7 +492,7 @@ block|{
 return|return
 literal|"WireTap["
 operator|+
-name|destination
+name|expression
 operator|+
 literal|"]"
 return|;
@@ -531,7 +508,7 @@ block|{
 return|return
 literal|"wireTap("
 operator|+
-name|destination
+name|expression
 operator|+
 literal|")"
 return|;
@@ -562,15 +539,31 @@ operator|=
 name|id
 expr_stmt|;
 block|}
-DECL|method|getEndpoint ()
+DECL|method|getCamelContext ()
 specifier|public
-name|Endpoint
-name|getEndpoint
+name|CamelContext
+name|getCamelContext
 parameter_list|()
 block|{
 return|return
-name|destination
+name|camelContext
 return|;
+block|}
+DECL|method|setCamelContext (CamelContext camelContext)
+specifier|public
+name|void
+name|setCamelContext
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
 block|}
 DECL|method|process (Exchange exchange)
 specifier|public
@@ -689,37 +682,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-specifier|final
-name|StopWatch
-name|watch
-init|=
-operator|new
-name|StopWatch
-argument_list|()
-decl_stmt|;
 try|try
 block|{
-name|EventHelper
-operator|.
-name|notifyExchangeSending
-argument_list|(
-name|wireTapExchange
-operator|.
-name|getContext
-argument_list|()
-argument_list|,
-name|wireTapExchange
-argument_list|,
-name|destination
-argument_list|)
-expr_stmt|;
 name|LOG
 operator|.
 name|debug
 argument_list|(
 literal|">>>> (wiretap) {} {}"
 argument_list|,
-name|destination
+name|expression
 argument_list|,
 name|wireTapExchange
 argument_list|)
@@ -748,39 +719,11 @@ name|wireTapExchange
 operator|+
 literal|" wiretap to "
 operator|+
-name|destination
+name|expression
 operator|+
 literal|". This exception will be ignored."
 argument_list|,
 name|e
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-comment|// emit event that the exchange was sent to the endpoint
-name|long
-name|timeTaken
-init|=
-name|watch
-operator|.
-name|stop
-argument_list|()
-decl_stmt|;
-name|EventHelper
-operator|.
-name|notifyExchangeSent
-argument_list|(
-name|wireTapExchange
-operator|.
-name|getContext
-argument_list|()
-argument_list|,
-name|wireTapExchange
-argument_list|,
-name|destination
-argument_list|,
-name|timeTaken
 argument_list|)
 expr_stmt|;
 block|}
@@ -845,21 +788,6 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|// set property which endpoint we send to
-name|answer
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|TO_ENDPOINT
-argument_list|,
-name|destination
-operator|.
-name|getEndpointUri
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// prepare the exchange
 if|if
 condition|(
@@ -1310,8 +1238,6 @@ condition|(
 name|shutdownExecutorService
 condition|)
 block|{
-name|destination
-operator|.
 name|getCamelContext
 argument_list|()
 operator|.

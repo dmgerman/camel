@@ -119,6 +119,9 @@ literal|"direct:start"
 argument_list|)
 operator|.
 name|wireTap
+argument_list|()
+operator|.
+name|constant
 argument_list|(
 literal|"direct:a"
 argument_list|)

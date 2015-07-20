@@ -376,10 +376,7 @@ operator|.
 name|wireTap
 argument_list|(
 literal|"direct:foo"
-argument_list|)
-operator|.
-name|newExchange
-argument_list|(
+argument_list|,
 operator|new
 name|Processor
 argument_list|()
@@ -786,10 +783,7 @@ operator|.
 name|wireTap
 argument_list|(
 literal|"direct:foo"
-argument_list|)
-operator|.
-name|newExchangeBody
-argument_list|(
+argument_list|,
 name|simple
 argument_list|(
 literal|"Bye ${body}"

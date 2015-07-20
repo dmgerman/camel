@@ -255,9 +255,6 @@ argument_list|(
 literal|"mock:camel"
 argument_list|)
 operator|.
-name|end
-argument_list|()
-operator|.
 name|when
 argument_list|(
 name|body
@@ -272,13 +269,9 @@ operator|.
 name|wireTap
 argument_list|(
 literal|"mock:donkey"
+argument_list|,
+literal|true
 argument_list|)
-operator|.
-name|copy
-argument_list|()
-operator|.
-name|end
-argument_list|()
 operator|.
 name|otherwise
 argument_list|()
