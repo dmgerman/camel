@@ -470,6 +470,14 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
+comment|// must use InOnly for WireTap
+name|setPattern
+argument_list|(
+name|ExchangePattern
+operator|.
+name|InOnly
+argument_list|)
+expr_stmt|;
 comment|// create the send dynamic producer to send to the wire tapped endpoint
 name|SendDynamicProcessor
 name|dynamicTo
