@@ -444,18 +444,26 @@ literal|true
 argument_list|)
 decl_stmt|;
 comment|// create the send dynamic producer to send to the wire tapped endpoint
-name|Processor
+name|SendDynamicProcessor
 name|dynamicTo
 init|=
 operator|new
 name|SendDynamicProcessor
 argument_list|(
-literal|null
-argument_list|,
 name|getExpression
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|dynamicTo
+operator|.
+name|setCamelContext
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// create error handler we need to use for processing the wire tapped
 name|Processor
 name|target

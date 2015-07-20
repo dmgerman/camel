@@ -356,6 +356,27 @@ specifier|protected
 name|int
 name|cacheSize
 decl_stmt|;
+DECL|method|SendDynamicProcessor (Expression expression)
+specifier|public
+name|SendDynamicProcessor
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uri
+operator|=
+literal|null
+expr_stmt|;
+name|this
+operator|.
+name|expression
+operator|=
+name|expression
+expr_stmt|;
+block|}
 DECL|method|SendDynamicProcessor (String uri, Expression expression)
 specifier|public
 name|SendDynamicProcessor
