@@ -219,8 +219,6 @@ specifier|private
 name|BindyType
 name|type
 decl_stmt|;
-comment|//@XmlAttribute
-comment|//private String[] packages;
 annotation|@
 name|XmlAttribute
 DECL|field|classType
@@ -283,31 +281,11 @@ operator|=
 name|type
 expr_stmt|;
 block|}
-comment|/*     public String[] getPackages() {         return packages;     }      /**      * The java package names to scan for model classes.      */
-DECL|method|setPackages (String[] packages)
-specifier|public
-name|void
-name|setPackages
-parameter_list|(
-name|String
-index|[]
-name|packages
-parameter_list|)
-block|{
-name|this
-operator|.
-name|packages
-operator|=
-name|packages
-expr_stmt|;
-block|}
-operator|*
-operator|/
 DECL|method|getClassType ()
 specifier|public
 name|String
 name|getClassType
-argument_list|()
+parameter_list|()
 block|{
 return|return
 name|classType
@@ -330,6 +308,7 @@ operator|=
 name|classType
 expr_stmt|;
 block|}
+comment|/**      * Type of model class to use.      */
 DECL|method|setClassType (Class<?> classType)
 specifier|public
 name|void
