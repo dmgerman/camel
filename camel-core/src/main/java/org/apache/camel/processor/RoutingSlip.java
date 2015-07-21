@@ -575,6 +575,26 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+DECL|method|getExpression ()
+specifier|public
+name|Expression
+name|getExpression
+parameter_list|()
+block|{
+return|return
+name|expression
+return|;
+block|}
+DECL|method|getUriDelimiter ()
+specifier|public
+name|String
+name|getUriDelimiter
+parameter_list|()
+block|{
+return|return
+name|uriDelimiter
+return|;
+block|}
 DECL|method|setDelimiter (String delimiter)
 specifier|public
 name|void
