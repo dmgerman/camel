@@ -164,20 +164,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Required
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|RouteContext
 import|;
 end_import
@@ -425,8 +411,6 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Name of exchange property to set a new value      */
-annotation|@
-name|Required
 DECL|method|setPropertyName (String propertyName)
 specifier|public
 name|void

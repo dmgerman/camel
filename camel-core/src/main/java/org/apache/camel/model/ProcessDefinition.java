@@ -174,20 +174,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Required
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|RouteContext
 import|;
 end_import
@@ -390,8 +376,6 @@ name|ref
 return|;
 block|}
 comment|/**      * Reference to the {@link Processor} to lookup in the registry to use.      */
-annotation|@
-name|Required
 DECL|method|setRef (String ref)
 specifier|public
 name|void

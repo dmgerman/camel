@@ -122,20 +122,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Required
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|RouteContext
 import|;
 end_import
@@ -194,6 +180,13 @@ name|EndpointRequiredDefinition
 block|{
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|uri
 specifier|private
 name|String
@@ -376,8 +369,6 @@ return|;
 block|}
 block|}
 comment|/**      * Sets the URI of the endpoint to use      *      * @param uri the endpoint URI to use      */
-annotation|@
-name|Required
 DECL|method|setUri (String uri)
 specifier|public
 name|void

@@ -288,20 +288,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Required
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|RouteContext
 import|;
 end_import
@@ -431,6 +417,13 @@ name|id
 decl_stmt|;
 annotation|@
 name|XmlValue
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|expression
 specifier|private
 name|String
@@ -1222,8 +1215,6 @@ name|expression
 return|;
 block|}
 comment|/**      * The expression value in your chosen language syntax      */
-annotation|@
-name|Required
 DECL|method|setExpression (String expression)
 specifier|public
 name|void

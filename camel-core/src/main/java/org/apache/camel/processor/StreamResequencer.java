@@ -158,6 +158,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Navigate
 import|;
 end_import
@@ -437,6 +449,12 @@ specifier|final
 name|Processor
 name|processor
 decl_stmt|;
+DECL|field|expression
+specifier|private
+specifier|final
+name|Expression
+name|expression
+decl_stmt|;
 DECL|field|delivery
 specifier|private
 name|Delivery
@@ -453,7 +471,7 @@ name|boolean
 name|ignoreInvalidExchanges
 decl_stmt|;
 comment|/**      * Creates a new {@link StreamResequencer} instance.      *       * @param processor next processor that processes re-ordered exchanges.      * @param comparator a sequence element comparator for exchanges.      */
-DECL|method|StreamResequencer (CamelContext camelContext, Processor processor, SequenceElementComparator<Exchange> comparator)
+DECL|method|StreamResequencer (CamelContext camelContext, Processor processor, SequenceElementComparator<Exchange> comparator, Expression expression)
 specifier|public
 name|StreamResequencer
 parameter_list|(
@@ -468,6 +486,9 @@ argument_list|<
 name|Exchange
 argument_list|>
 name|comparator
+parameter_list|,
+name|Expression
+name|expression
 parameter_list|)
 block|{
 name|ObjectHelper
@@ -515,6 +536,12 @@ name|processor
 expr_stmt|;
 name|this
 operator|.
+name|expression
+operator|=
+name|expression
+expr_stmt|;
+name|this
+operator|.
 name|exceptionHandler
 operator|=
 operator|new
@@ -526,6 +553,16 @@ name|getClass
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getExpression ()
+specifier|public
+name|Expression
+name|getExpression
+parameter_list|()
+block|{
+return|return
+name|expression
+return|;
 block|}
 comment|/**      * Returns this resequencer's exception handler.      */
 DECL|method|getExceptionHandler ()
@@ -633,6 +670,26 @@ argument_list|(
 name|rejectOld
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|isRejectOld ()
+specifier|public
+name|boolean
+name|isRejectOld
+parameter_list|()
+block|{
+return|return
+name|engine
+operator|.
+name|getRejectOld
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|engine
+operator|.
+name|getRejectOld
+argument_list|()
+return|;
 block|}
 comment|/**      * Sets whether to ignore invalid exchanges which cannot be used by this stream resequencer.      *<p/>      * Default is<tt>false</tt>, by which an {@link CamelExchangeException} is thrown if the {@link Exchange}      * is invalid.      */
 DECL|method|setIgnoreInvalidExchanges (boolean ignoreInvalidExchanges)

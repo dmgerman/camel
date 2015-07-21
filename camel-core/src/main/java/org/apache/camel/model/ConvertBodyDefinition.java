@@ -160,20 +160,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Required
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|RouteContext
 import|;
 end_import
@@ -478,8 +464,6 @@ name|type
 return|;
 block|}
 comment|/**      * The java type to convert to      */
-annotation|@
-name|Required
 DECL|method|setType (String type)
 specifier|public
 name|void

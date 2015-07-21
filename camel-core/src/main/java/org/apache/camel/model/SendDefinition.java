@@ -132,7 +132,7 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Required
+name|Metadata
 import|;
 end_import
 
@@ -199,6 +199,13 @@ name|EndpointRequiredDefinition
 block|{
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|uri
 specifier|protected
 name|String
@@ -373,8 +380,6 @@ name|uri
 return|;
 block|}
 comment|/**      * Sets the uri of the endpoint to send to.      *      * @param uri the uri of the endpoint      */
-annotation|@
-name|Required
 DECL|method|setUri (String uri)
 specifier|public
 name|void

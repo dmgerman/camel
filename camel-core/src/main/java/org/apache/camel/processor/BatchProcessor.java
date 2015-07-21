@@ -464,6 +464,16 @@ specifier|private
 name|boolean
 name|ignoreInvalidExchanges
 decl_stmt|;
+DECL|field|reverse
+specifier|private
+name|boolean
+name|reverse
+decl_stmt|;
+DECL|field|allowDuplicates
+specifier|private
+name|boolean
+name|allowDuplicates
+decl_stmt|;
 DECL|field|completionPredicate
 specifier|private
 name|Predicate
@@ -627,6 +637,16 @@ return|;
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
+DECL|method|getExpression ()
+specifier|public
+name|Expression
+name|getExpression
+parameter_list|()
+block|{
+return|return
+name|expression
+return|;
+block|}
 DECL|method|getExceptionHandler ()
 specifier|public
 name|ExceptionHandler
@@ -837,6 +857,58 @@ operator|.
 name|ignoreInvalidExchanges
 operator|=
 name|ignoreInvalidExchanges
+expr_stmt|;
+block|}
+DECL|method|isReverse ()
+specifier|public
+name|boolean
+name|isReverse
+parameter_list|()
+block|{
+return|return
+name|reverse
+return|;
+block|}
+DECL|method|setReverse (boolean reverse)
+specifier|public
+name|void
+name|setReverse
+parameter_list|(
+name|boolean
+name|reverse
+parameter_list|)
+block|{
+name|this
+operator|.
+name|reverse
+operator|=
+name|reverse
+expr_stmt|;
+block|}
+DECL|method|isAllowDuplicates ()
+specifier|public
+name|boolean
+name|isAllowDuplicates
+parameter_list|()
+block|{
+return|return
+name|allowDuplicates
+return|;
+block|}
+DECL|method|setAllowDuplicates (boolean allowDuplicates)
+specifier|public
+name|void
+name|setAllowDuplicates
+parameter_list|(
+name|boolean
+name|allowDuplicates
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowDuplicates
+operator|=
+name|allowDuplicates
 expr_stmt|;
 block|}
 DECL|method|getCompletionPredicate ()
