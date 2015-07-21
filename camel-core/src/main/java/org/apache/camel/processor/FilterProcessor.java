@@ -167,6 +167,12 @@ specifier|final
 name|Predicate
 name|predicate
 decl_stmt|;
+DECL|field|filtered
+specifier|private
+specifier|transient
+name|long
+name|filtered
+decl_stmt|;
 DECL|method|FilterProcessor (Predicate predicate, Processor processor)
 specifier|public
 name|FilterProcessor
@@ -263,6 +269,9 @@ condition|(
 name|matches
 condition|)
 block|{
+name|filtered
+operator|++
+expr_stmt|;
 return|return
 name|processor
 operator|.
@@ -359,6 +368,29 @@ return|return
 name|predicate
 return|;
 block|}
+comment|/**      * Gets the number of Exchanges that matched the filter predicate and therefore as filtered.      */
+DECL|method|getFilteredCount ()
+specifier|public
+name|long
+name|getFilteredCount
+parameter_list|()
+block|{
+return|return
+name|filtered
+return|;
+block|}
+comment|/**      * Reset counters.      */
+DECL|method|reset ()
+specifier|public
+name|void
+name|reset
+parameter_list|()
+block|{
+name|filtered
+operator|=
+literal|0
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -372,6 +404,10 @@ block|{
 name|super
 operator|.
 name|doStart
+argument_list|()
+expr_stmt|;
+comment|// restart counter
+name|reset
 argument_list|()
 expr_stmt|;
 name|ServiceHelper

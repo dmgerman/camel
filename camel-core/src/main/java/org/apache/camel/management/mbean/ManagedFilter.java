@@ -154,6 +154,26 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|reset ()
+specifier|public
+specifier|synchronized
+name|void
+name|reset
+parameter_list|()
+block|{
+name|processor
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|getFilter ()
 specifier|public
 name|String
@@ -167,6 +187,21 @@ name|getPredicate
 argument_list|()
 operator|.
 name|toString
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getFilteredCount ()
+specifier|public
+name|Long
+name|getFilteredCount
+parameter_list|()
+block|{
+return|return
+name|processor
+operator|.
+name|getFilteredCount
 argument_list|()
 return|;
 block|}
