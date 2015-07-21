@@ -6009,6 +6009,16 @@ return|return
 name|parallelProcessing
 return|;
 block|}
+DECL|method|isParallelAggregate ()
+specifier|public
+name|boolean
+name|isParallelAggregate
+parameter_list|()
+block|{
+return|return
+name|parallelAggregate
+return|;
+block|}
 DECL|method|isShareUnitOfWork ()
 specifier|public
 name|boolean
