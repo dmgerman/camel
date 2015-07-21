@@ -661,7 +661,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Enables asynchronous delay which means the thread will<b>no</b> block while delaying.      *      * @return the builder      */
+comment|/**      * Enables asynchronous delay which means the thread will<b>not</b> block while delaying.      *      * @return the builder      */
 DECL|method|asyncDelayed ()
 specifier|public
 name|ThrottleDefinition

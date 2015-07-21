@@ -99,6 +99,30 @@ name|int
 name|getDelayedCount
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Enables asynchronous delay which means the thread will not block while delaying"
+argument_list|)
+DECL|method|isAsyncDelayed ()
+name|Boolean
+name|isAsyncDelayed
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether or not the caller should run the task when it was rejected by the thread pool"
+argument_list|)
+DECL|method|isCallerRunsWhenRejected ()
+name|Boolean
+name|isCallerRunsWhenRejected
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
