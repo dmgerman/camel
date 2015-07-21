@@ -60,7 +60,7 @@ name|management
 operator|.
 name|mbean
 operator|.
-name|ManagedRoutingSlipMBean
+name|ManagedRecipientListMBean
 import|;
 end_import
 
@@ -88,7 +88,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|RoutingSlip
+name|RecipientList
 import|;
 end_import
 
@@ -130,21 +130,21 @@ name|ManagedResource
 argument_list|(
 name|description
 operator|=
-literal|"Managed RoutingSlip"
+literal|"Managed RecipientList"
 argument_list|)
-DECL|class|ManagedRoutingSlip
+DECL|class|ManagedRecipientList
 specifier|public
 class|class
-name|ManagedRoutingSlip
+name|ManagedRecipientList
 extends|extends
 name|ManagedProcessor
 implements|implements
-name|ManagedRoutingSlipMBean
+name|ManagedRecipientListMBean
 block|{
 DECL|field|processor
 specifier|private
 specifier|final
-name|RoutingSlip
+name|RecipientList
 name|processor
 decl_stmt|;
 DECL|field|uri
@@ -152,14 +152,14 @@ specifier|private
 name|String
 name|uri
 decl_stmt|;
-DECL|method|ManagedRoutingSlip (CamelContext context, RoutingSlip processor, ProcessorDefinition<?> definition)
+DECL|method|ManagedRecipientList (CamelContext context, RecipientList processor, ProcessorDefinition<?> definition)
 specifier|public
-name|ManagedRoutingSlip
+name|ManagedRecipientList
 parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|RoutingSlip
+name|RecipientList
 name|processor
 parameter_list|,
 name|ProcessorDefinition
@@ -275,7 +275,7 @@ block|{
 return|return
 name|processor
 operator|.
-name|getUriDelimiter
+name|getDelimiter
 argument_list|()
 return|;
 block|}
@@ -296,16 +296,91 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|isIgnoreInvalidEndpoints ()
+DECL|method|isParallelAggregate ()
 specifier|public
 name|Boolean
-name|isIgnoreInvalidEndpoints
+name|isParallelAggregate
 parameter_list|()
 block|{
 return|return
 name|processor
 operator|.
-name|isIgnoreInvalidEndpoints
+name|isParallelAggregate
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isParallelProcessing ()
+specifier|public
+name|Boolean
+name|isParallelProcessing
+parameter_list|()
+block|{
+return|return
+name|processor
+operator|.
+name|isParallelProcessing
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isStreaming ()
+specifier|public
+name|Boolean
+name|isStreaming
+parameter_list|()
+block|{
+return|return
+name|processor
+operator|.
+name|isStreaming
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isStopOnException ()
+specifier|public
+name|Boolean
+name|isStopOnException
+parameter_list|()
+block|{
+return|return
+name|processor
+operator|.
+name|isStopOnException
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isShareUnitOfWork ()
+specifier|public
+name|Boolean
+name|isShareUnitOfWork
+parameter_list|()
+block|{
+return|return
+name|processor
+operator|.
+name|isShareUnitOfWork
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getTimeout ()
+specifier|public
+name|Long
+name|getTimeout
+parameter_list|()
+block|{
+return|return
+name|processor
+operator|.
+name|getTimeout
 argument_list|()
 return|;
 block|}

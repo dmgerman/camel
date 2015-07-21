@@ -1168,6 +1168,26 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+DECL|method|getExpression ()
+specifier|public
+name|Expression
+name|getExpression
+parameter_list|()
+block|{
+return|return
+name|expression
+return|;
+block|}
+DECL|method|getDelimiter ()
+specifier|public
+name|String
+name|getDelimiter
+parameter_list|()
+block|{
+return|return
+name|delimiter
+return|;
+block|}
 DECL|method|isStreaming ()
 specifier|public
 name|boolean

@@ -50,6 +50,10 @@ argument_list|(
 name|description
 operator|=
 literal|"Expression to define the routing slip, which defines which endpoints to route the message in a pipeline style."
+argument_list|,
+name|mask
+operator|=
+literal|true
 argument_list|)
 DECL|method|getExpression ()
 name|String

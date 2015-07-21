@@ -50,6 +50,10 @@ argument_list|(
 name|description
 operator|=
 literal|"Expression to call that returns the endpoint(s) to route to in the dynamic routing"
+argument_list|,
+name|mask
+operator|=
+literal|true
 argument_list|)
 DECL|method|getExpression ()
 name|String

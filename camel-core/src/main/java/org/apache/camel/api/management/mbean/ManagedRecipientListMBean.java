@@ -37,13 +37,53 @@ import|;
 end_import
 
 begin_interface
-DECL|interface|ManagedMulticastMBean
+DECL|interface|ManagedRecipientListMBean
 specifier|public
 interface|interface
-name|ManagedMulticastMBean
+name|ManagedRecipientListMBean
 extends|extends
 name|ManagedProcessorMBean
 block|{
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Expression that returns which endpoints (url) to send the message to (the recipients)."
+argument_list|,
+name|mask
+operator|=
+literal|true
+argument_list|)
+DECL|method|getExpression ()
+name|String
+name|getExpression
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The uri delimiter to use"
+argument_list|)
+DECL|method|getUriDelimiter ()
+name|String
+name|getUriDelimiter
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Sets the maximum size used by the ProducerCache which is used to cache and reuse producers"
+argument_list|)
+DECL|method|getCacheSize ()
+name|Integer
+name|getCacheSize
+parameter_list|()
+function_decl|;
 annotation|@
 name|ManagedAttribute
 argument_list|(
@@ -61,7 +101,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"If enabled then sending messages to the multicasts occurs concurrently."
+literal|"If enabled then sending messages to the recipient lists occurs concurrently."
 argument_list|)
 DECL|method|isParallelProcessing ()
 name|Boolean
