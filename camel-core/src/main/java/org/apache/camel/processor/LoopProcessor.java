@@ -788,6 +788,16 @@ return|return
 name|expression
 return|;
 block|}
+DECL|method|isCopy ()
+specifier|public
+name|boolean
+name|isCopy
+parameter_list|()
+block|{
+return|return
+name|copy
+return|;
+block|}
 DECL|method|getTraceLabel ()
 specifier|public
 name|String
