@@ -182,6 +182,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|beanHolder
+specifier|private
+specifier|final
+name|BeanHolder
+name|beanHolder
+decl_stmt|;
 DECL|field|processor
 specifier|private
 name|Processor
@@ -196,11 +202,6 @@ DECL|field|method
 specifier|private
 name|String
 name|method
-decl_stmt|;
-DECL|field|beanHolder
-specifier|private
-name|BeanHolder
-name|beanHolder
 decl_stmt|;
 DECL|field|shorthandMethod
 specifier|private
