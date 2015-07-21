@@ -7318,11 +7318,9 @@ name|random
 operator|.
 name|nextInt
 argument_list|(
-operator|(
 name|max
 operator|-
 name|min
-operator|)
 argument_list|)
 operator|+
 name|min
