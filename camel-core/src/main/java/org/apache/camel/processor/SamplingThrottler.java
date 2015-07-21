@@ -456,6 +456,36 @@ literal|"]"
 return|;
 block|}
 block|}
+DECL|method|getMessageFrequency ()
+specifier|public
+name|long
+name|getMessageFrequency
+parameter_list|()
+block|{
+return|return
+name|messageFrequency
+return|;
+block|}
+DECL|method|getSamplePeriod ()
+specifier|public
+name|long
+name|getSamplePeriod
+parameter_list|()
+block|{
+return|return
+name|samplePeriod
+return|;
+block|}
+DECL|method|getUnits ()
+specifier|public
+name|TimeUnit
+name|getUnits
+parameter_list|()
+block|{
+return|return
+name|units
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|process (Exchange exchange, AsyncCallback callback)
