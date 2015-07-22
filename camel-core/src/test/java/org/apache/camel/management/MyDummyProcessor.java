@@ -18,11 +18,13 @@ end_package
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|management
+name|apache
 operator|.
-name|MBeanServer
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -34,53 +36,41 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|Processor
 import|;
 end_import
 
-begin_comment
-comment|/**  * Base class for JMX tests.  *  * @version   */
-end_comment
-
 begin_class
-DECL|class|ManagementTestSupport
+DECL|class|MyDummyProcessor
 specifier|public
-specifier|abstract
 class|class
-name|ManagementTestSupport
-extends|extends
-name|ContextTestSupport
+name|MyDummyProcessor
+implements|implements
+name|Processor
 block|{
 annotation|@
 name|Override
-DECL|method|useJmx ()
-specifier|protected
-name|boolean
-name|useJmx
-parameter_list|()
+DECL|method|process (Exchange exchange)
+specifier|public
+name|void
+name|process
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|Exception
 block|{
-return|return
-literal|true
-return|;
-block|}
-DECL|method|getMBeanServer ()
-specifier|protected
-name|MBeanServer
-name|getMBeanServer
-parameter_list|()
-block|{
-return|return
-name|context
+name|exchange
 operator|.
-name|getManagementStrategy
+name|getIn
 argument_list|()
 operator|.
-name|getManagementAgent
-argument_list|()
-operator|.
-name|getMBeanServer
-argument_list|()
-return|;
+name|setBody
+argument_list|(
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class

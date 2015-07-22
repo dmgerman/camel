@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.management
+DECL|package|org.apache.camel.api.management.mbean
 package|package
 name|org
 operator|.
@@ -12,19 +12,13 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
 name|management
+operator|.
+name|mbean
 package|;
 end_package
-
-begin_import
-import|import
-name|javax
-operator|.
-name|management
-operator|.
-name|MBeanServer
-import|;
-end_import
 
 begin_import
 import|import
@@ -34,56 +28,48 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ContextTestSupport
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedAttribute
 import|;
 end_import
 
-begin_comment
-comment|/**  * Base class for JMX tests.  *  * @version   */
-end_comment
-
-begin_class
-DECL|class|ManagementTestSupport
+begin_interface
+DECL|interface|ManagedProcessMBean
 specifier|public
-specifier|abstract
-class|class
-name|ManagementTestSupport
+interface|interface
+name|ManagedProcessMBean
 extends|extends
-name|ContextTestSupport
+name|ManagedProcessorMBean
 block|{
 annotation|@
-name|Override
-DECL|method|useJmx ()
-specifier|protected
-name|boolean
-name|useJmx
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Reference to the Processor to lookup in the registry to use"
+argument_list|)
+DECL|method|getRef ()
+name|String
+name|getRef
 parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-DECL|method|getMBeanServer ()
-specifier|protected
-name|MBeanServer
-name|getMBeanServer
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The class name of the Processor in use (may be null if not resolved yet)"
+argument_list|)
+DECL|method|getProcessorClassName ()
+name|String
+name|getProcessorClassName
 parameter_list|()
-block|{
-return|return
-name|context
-operator|.
-name|getManagementStrategy
-argument_list|()
-operator|.
-name|getManagementAgent
-argument_list|()
-operator|.
-name|getMBeanServer
-argument_list|()
-return|;
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 
