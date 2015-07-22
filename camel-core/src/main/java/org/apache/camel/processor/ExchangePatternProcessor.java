@@ -195,6 +195,16 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+DECL|method|getExchangePattern ()
+specifier|public
+name|ExchangePattern
+name|getExchangePattern
+parameter_list|()
+block|{
+return|return
+name|exchangePattern
+return|;
+block|}
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
