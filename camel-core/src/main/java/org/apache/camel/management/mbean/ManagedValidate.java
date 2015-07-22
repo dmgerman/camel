@@ -60,7 +60,7 @@ name|management
 operator|.
 name|mbean
 operator|.
-name|ManagedFilterMBean
+name|ManagedValidateMBean
 import|;
 end_import
 
@@ -88,7 +88,9 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|FilterProcessor
+name|validation
+operator|.
+name|PredicateValidatingProcessor
 import|;
 end_import
 
@@ -102,31 +104,31 @@ name|ManagedResource
 argument_list|(
 name|description
 operator|=
-literal|"Managed Filter"
+literal|"Managed Validate"
 argument_list|)
-DECL|class|ManagedFilter
+DECL|class|ManagedValidate
 specifier|public
 class|class
-name|ManagedFilter
+name|ManagedValidate
 extends|extends
 name|ManagedProcessor
 implements|implements
-name|ManagedFilterMBean
+name|ManagedValidateMBean
 block|{
 DECL|field|processor
 specifier|private
 specifier|final
-name|FilterProcessor
+name|PredicateValidatingProcessor
 name|processor
 decl_stmt|;
-DECL|method|ManagedFilter (CamelContext context, FilterProcessor processor, ProcessorDefinition<?> definition)
+DECL|method|ManagedValidate (CamelContext context, PredicateValidatingProcessor processor, ProcessorDefinition<?> definition)
 specifier|public
-name|ManagedFilter
+name|ManagedValidate
 parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|FilterProcessor
+name|PredicateValidatingProcessor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
@@ -154,26 +156,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|reset ()
-specifier|public
-specifier|synchronized
-name|void
-name|reset
-parameter_list|()
-block|{
-name|processor
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-name|super
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
 DECL|method|getPredicate ()
 specifier|public
 name|String
@@ -187,21 +169,6 @@ name|getPredicate
 argument_list|()
 operator|.
 name|toString
-argument_list|()
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|getFilteredCount ()
-specifier|public
-name|Long
-name|getFilteredCount
-parameter_list|()
-block|{
-return|return
-name|processor
-operator|.
-name|getFilteredCount
 argument_list|()
 return|;
 block|}

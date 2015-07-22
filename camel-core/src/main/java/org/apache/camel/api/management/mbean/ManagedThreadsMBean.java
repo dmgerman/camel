@@ -37,10 +37,10 @@ import|;
 end_import
 
 begin_interface
-DECL|interface|ManagedFilterMBean
+DECL|interface|ManagedThreadsMBean
 specifier|public
 interface|interface
-name|ManagedFilterMBean
+name|ManagedThreadsMBean
 extends|extends
 name|ManagedProcessorMBean
 block|{
@@ -49,11 +49,11 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Predicate to determine if the message should be filtered or not"
+literal|"Whether or not the caller should run the task when it was rejected by the thread pool"
 argument_list|)
-DECL|method|getPredicate ()
-name|String
-name|getPredicate
+DECL|method|isCallerRunsWhenRejected ()
+name|Boolean
+name|isCallerRunsWhenRejected
 parameter_list|()
 function_decl|;
 annotation|@
@@ -61,11 +61,11 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Gets the number of Exchanges that matched the filter predicate and therefore as filtered"
+literal|"How to handle tasks which cannot be accepted by the thread pool"
 argument_list|)
-DECL|method|getFilteredCount ()
-name|Long
-name|getFilteredCount
+DECL|method|getRejectedPolicy ()
+name|String
+name|getRejectedPolicy
 parameter_list|()
 function_decl|;
 block|}

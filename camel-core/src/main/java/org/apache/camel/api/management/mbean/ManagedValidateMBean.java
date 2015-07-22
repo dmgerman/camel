@@ -37,10 +37,10 @@ import|;
 end_import
 
 begin_interface
-DECL|interface|ManagedFilterMBean
+DECL|interface|ManagedValidateMBean
 specifier|public
 interface|interface
-name|ManagedFilterMBean
+name|ManagedValidateMBean
 extends|extends
 name|ManagedProcessorMBean
 block|{
@@ -49,23 +49,11 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Predicate to determine if the message should be filtered or not"
+literal|"Predicate to determine if the message is valid or not"
 argument_list|)
 DECL|method|getPredicate ()
 name|String
 name|getPredicate
-parameter_list|()
-function_decl|;
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Gets the number of Exchanges that matched the filter predicate and therefore as filtered"
-argument_list|)
-DECL|method|getFilteredCount ()
-name|Long
-name|getFilteredCount
 parameter_list|()
 function_decl|;
 block|}

@@ -60,7 +60,7 @@ name|management
 operator|.
 name|mbean
 operator|.
-name|ManagedFilterMBean
+name|ManagedThreadsMBean
 import|;
 end_import
 
@@ -88,7 +88,7 @@ name|camel
 operator|.
 name|processor
 operator|.
-name|FilterProcessor
+name|ThreadsProcessor
 import|;
 end_import
 
@@ -102,31 +102,31 @@ name|ManagedResource
 argument_list|(
 name|description
 operator|=
-literal|"Managed Filter"
+literal|"Managed Threads"
 argument_list|)
-DECL|class|ManagedFilter
+DECL|class|ManagedThreads
 specifier|public
 class|class
-name|ManagedFilter
+name|ManagedThreads
 extends|extends
 name|ManagedProcessor
 implements|implements
-name|ManagedFilterMBean
+name|ManagedThreadsMBean
 block|{
 DECL|field|processor
 specifier|private
 specifier|final
-name|FilterProcessor
+name|ThreadsProcessor
 name|processor
 decl_stmt|;
-DECL|method|ManagedFilter (CamelContext context, FilterProcessor processor, ProcessorDefinition<?> definition)
+DECL|method|ManagedThreads (CamelContext context, ThreadsProcessor processor, ProcessorDefinition<?> definition)
 specifier|public
-name|ManagedFilter
+name|ManagedThreads
 parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|FilterProcessor
+name|ThreadsProcessor
 name|processor
 parameter_list|,
 name|ProcessorDefinition
@@ -154,56 +154,53 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|reset ()
+DECL|method|isCallerRunsWhenRejected ()
 specifier|public
-specifier|synchronized
-name|void
-name|reset
+name|Boolean
+name|isCallerRunsWhenRejected
 parameter_list|()
 block|{
+return|return
 name|processor
 operator|.
-name|reset
+name|isCallerRunsWhenRejected
 argument_list|()
-expr_stmt|;
-name|super
-operator|.
-name|reset
-argument_list|()
-expr_stmt|;
+return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getPredicate ()
+DECL|method|getRejectedPolicy ()
 specifier|public
 name|String
-name|getPredicate
+name|getRejectedPolicy
 parameter_list|()
+block|{
+if|if
+condition|(
+name|processor
+operator|.
+name|getRejectedPolicy
+argument_list|()
+operator|!=
+literal|null
+condition|)
 block|{
 return|return
 name|processor
 operator|.
-name|getPredicate
+name|getRejectedPolicy
 argument_list|()
 operator|.
-name|toString
+name|name
 argument_list|()
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|getFilteredCount ()
-specifier|public
-name|Long
-name|getFilteredCount
-parameter_list|()
+else|else
 block|{
 return|return
-name|processor
-operator|.
-name|getFilteredCount
-argument_list|()
+literal|null
 return|;
+block|}
 block|}
 block|}
 end_class
