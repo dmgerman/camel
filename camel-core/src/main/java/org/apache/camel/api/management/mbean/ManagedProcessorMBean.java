@@ -199,6 +199,20 @@ name|boolean
 name|allOptions
 parameter_list|)
 function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Dumps the processor as XML"
+argument_list|)
+DECL|method|dumpProcessorAsXml ()
+name|String
+name|dumpProcessorAsXml
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
 block|}
 end_interface
 
