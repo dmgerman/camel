@@ -277,6 +277,28 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|String
+name|lan
+init|=
+operator|(
+name|String
+operator|)
+name|mbeanServer
+operator|.
+name|getAttribute
+argument_list|(
+name|on
+argument_list|,
+literal|"ExpressionLanguage"
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"simple"
+argument_list|,
+name|lan
+argument_list|)
+expr_stmt|;
+name|String
 name|uri
 init|=
 operator|(
@@ -293,7 +315,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Simple: seda:${header.whereto}"
+literal|"seda:${header.whereto}"
 argument_list|,
 name|uri
 argument_list|)

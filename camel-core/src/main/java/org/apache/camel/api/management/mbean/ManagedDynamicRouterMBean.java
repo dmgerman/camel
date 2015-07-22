@@ -49,6 +49,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"The language for the expression"
+argument_list|)
+DECL|method|getExpressionLanguage ()
+name|String
+name|getExpressionLanguage
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Expression to call that returns the endpoint(s) to route to in the dynamic routing"
 argument_list|,
 name|mask

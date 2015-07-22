@@ -74,7 +74,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorDefinition
+name|PollEnrichDefinition
 import|;
 end_import
 
@@ -152,7 +152,7 @@ specifier|private
 name|String
 name|uri
 decl_stmt|;
-DECL|method|ManagedPollEnricher (CamelContext context, PollEnricher processor, ProcessorDefinition<?> definition)
+DECL|method|ManagedPollEnricher (CamelContext context, PollEnricher processor, PollEnrichDefinition definition)
 specifier|public
 name|ManagedPollEnricher
 parameter_list|(
@@ -162,10 +162,7 @@ parameter_list|,
 name|PollEnricher
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|PollEnrichDefinition
 name|definition
 parameter_list|)
 block|{
@@ -226,12 +223,13 @@ literal|false
 decl_stmt|;
 name|uri
 operator|=
-name|processor
+name|getDefinition
+argument_list|()
 operator|.
 name|getExpression
 argument_list|()
 operator|.
-name|toString
+name|getExpression
 argument_list|()
 expr_stmt|;
 if|if
@@ -252,6 +250,24 @@ block|}
 block|}
 annotation|@
 name|Override
+DECL|method|getDefinition ()
+specifier|public
+name|PollEnrichDefinition
+name|getDefinition
+parameter_list|()
+block|{
+return|return
+operator|(
+name|PollEnrichDefinition
+operator|)
+name|super
+operator|.
+name|getDefinition
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getProcessor ()
 specifier|public
 name|PollEnricher
@@ -260,6 +276,25 @@ parameter_list|()
 block|{
 return|return
 name|processor
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getExpressionLanguage ()
+specifier|public
+name|String
+name|getExpressionLanguage
+parameter_list|()
+block|{
+return|return
+name|getDefinition
+argument_list|()
+operator|.
+name|getExpression
+argument_list|()
+operator|.
+name|getLanguage
+argument_list|()
 return|;
 block|}
 annotation|@

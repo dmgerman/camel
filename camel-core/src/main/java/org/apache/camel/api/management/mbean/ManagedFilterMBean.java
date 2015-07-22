@@ -49,7 +49,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"The language used for the predicate to determine if the message should be filtered or not"
+literal|"The language for the predicate"
 argument_list|)
 DECL|method|getPredicateLanguage ()
 name|String
