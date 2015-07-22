@@ -234,11 +234,12 @@ parameter_list|)
 block|{
 name|this
 argument_list|(
-name|maximumCacheSize
+literal|16
 argument_list|,
 name|maximumCacheSize
 argument_list|)
 expr_stmt|;
+comment|// 16 is the default initial capacity in ConcurrentLinkedHashMap
 block|}
 comment|/**      * Constructs an empty<tt>LRUCache</tt> instance with the      * specified initial capacity, maximumCacheSize, and will stop on eviction.      *      * @param initialCapacity  the initial capacity.      * @param maximumCacheSize the max capacity.      * @throws IllegalArgumentException if the initial capacity is negative      */
 DECL|method|LRUCache (int initialCapacity, int maximumCacheSize)
