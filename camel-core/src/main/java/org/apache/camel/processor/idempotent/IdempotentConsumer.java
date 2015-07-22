@@ -906,6 +906,46 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|isEager ()
+specifier|public
+name|boolean
+name|isEager
+parameter_list|()
+block|{
+return|return
+name|eager
+return|;
+block|}
+DECL|method|isCompletionEager ()
+specifier|public
+name|boolean
+name|isCompletionEager
+parameter_list|()
+block|{
+return|return
+name|completionEager
+return|;
+block|}
+DECL|method|isSkipDuplicate ()
+specifier|public
+name|boolean
+name|isSkipDuplicate
+parameter_list|()
+block|{
+return|return
+name|skipDuplicate
+return|;
+block|}
+DECL|method|isRemoveOnFailure ()
+specifier|public
+name|boolean
+name|isRemoveOnFailure
+parameter_list|()
+block|{
+return|return
+name|removeOnFailure
+return|;
+block|}
 comment|/**      * Resets the duplicate message counter to<code>0L</code>.      */
 DECL|method|resetDuplicateMessageCount ()
 specifier|public

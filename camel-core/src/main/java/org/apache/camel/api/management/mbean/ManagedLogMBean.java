@@ -36,27 +36,11 @@ name|ManagedAttribute
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|api
-operator|.
-name|management
-operator|.
-name|ManagedOperation
-import|;
-end_import
-
 begin_interface
-DECL|interface|ManagedIdempotentConsumerMBean
+DECL|interface|ManagedLogMBean
 specifier|public
 interface|interface
-name|ManagedIdempotentConsumerMBean
+name|ManagedLogMBean
 extends|extends
 name|ManagedProcessorMBean
 block|{
@@ -65,11 +49,11 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Whether to eagerly add the key to the idempotent repository or wait until the exchange is complete"
+literal|"The log message (uses simple language)"
 argument_list|)
-DECL|method|isEager ()
-name|Boolean
-name|isEager
+DECL|method|getMessage ()
+name|String
+name|getMessage
 parameter_list|()
 function_decl|;
 annotation|@
@@ -77,11 +61,11 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Whether to complete the idempotent consumer eager or when the exchange is done"
+literal|"The logging level"
 argument_list|)
-DECL|method|isCompletionEager ()
-name|Boolean
-name|isCompletionEager
+DECL|method|getLoggingLevel ()
+name|String
+name|getLoggingLevel
 parameter_list|()
 function_decl|;
 annotation|@
@@ -89,11 +73,11 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"whether to skip duplicates or not"
+literal|"The name of the logger"
 argument_list|)
-DECL|method|isSkipDuplicate ()
-name|Boolean
-name|isSkipDuplicate
+DECL|method|getLogName ()
+name|String
+name|getLogName
 parameter_list|()
 function_decl|;
 annotation|@
@@ -101,47 +85,11 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"whether to remove or keep the key on failure"
+literal|"To use slf4j marker"
 argument_list|)
-DECL|method|isRemoveOnFailure ()
-name|Boolean
-name|isRemoveOnFailure
-parameter_list|()
-function_decl|;
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Current count of duplicate Messages"
-argument_list|)
-DECL|method|getDuplicateMessageCount ()
-name|long
-name|getDuplicateMessageCount
-parameter_list|()
-function_decl|;
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Reset the current count of duplicate Messages"
-argument_list|)
-DECL|method|resetDuplicateMessageCount ()
-name|void
-name|resetDuplicateMessageCount
-parameter_list|()
-function_decl|;
-annotation|@
-name|ManagedOperation
-argument_list|(
-name|description
-operator|=
-literal|"Clear the repository containing Messages"
-argument_list|)
-DECL|method|clear ()
-name|void
-name|clear
+DECL|method|getMarker ()
+name|String
+name|getMarker
 parameter_list|()
 function_decl|;
 block|}

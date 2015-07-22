@@ -354,6 +354,26 @@ operator|=
 name|id
 expr_stmt|;
 block|}
+DECL|method|getExpression ()
+specifier|public
+name|Expression
+name|getExpression
+parameter_list|()
+block|{
+return|return
+name|expression
+return|;
+block|}
+DECL|method|getLogger ()
+specifier|public
+name|CamelLogger
+name|getLogger
+parameter_list|()
+block|{
+return|return
+name|logger
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()

@@ -509,6 +509,16 @@ name|logName
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getMarker ()
+specifier|public
+name|Marker
+name|getMarker
+parameter_list|()
+block|{
+return|return
+name|marker
+return|;
+block|}
 DECL|method|setMarker (Marker marker)
 specifier|public
 name|void
