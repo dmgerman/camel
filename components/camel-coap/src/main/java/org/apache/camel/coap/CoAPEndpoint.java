@@ -100,6 +100,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriPath
 import|;
 end_import
@@ -162,6 +176,20 @@ specifier|private
 name|URI
 name|uri
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"*"
+argument_list|)
+DECL|field|coapMethod
+specifier|private
+name|String
+name|coapMethod
+init|=
+literal|"*"
+decl_stmt|;
 DECL|field|component
 specifier|private
 name|CoAPComponent
@@ -221,6 +249,31 @@ name|component
 operator|=
 name|component
 expr_stmt|;
+block|}
+DECL|method|setCoapMethod (String m)
+specifier|public
+name|void
+name|setCoapMethod
+parameter_list|(
+name|String
+name|m
+parameter_list|)
+block|{
+name|coapMethod
+operator|=
+name|m
+expr_stmt|;
+block|}
+comment|/**      * The CoAP method this endpoint binds to. Default is to bind to all ("*") but can      * be restricted to GET, POST, PUT, DELETE       * @return      */
+DECL|method|getCoapMethod ()
+specifier|public
+name|String
+name|getCoapMethod
+parameter_list|()
+block|{
+return|return
+name|coapMethod
+return|;
 block|}
 DECL|method|createProducer ()
 specifier|public
