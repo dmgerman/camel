@@ -422,7 +422,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|" \"uri\": { \"kind\": \"attribute\", \"required\": \"false\", \"type\": \"string\", \"javaType\": \"java.lang.String\","
+literal|" \"uri\": { \"kind\": \"attribute\", \"required\": \"true\", \"type\": \"string\", \"javaType\": \"java.lang.String\","
 operator|+
 literal|" \"deprecated\": \"false\", \"value\": \"mock:result\""
 argument_list|)
