@@ -473,6 +473,33 @@ specifier|public
 name|ResequenceDefinition
 parameter_list|()
 block|{     }
+DECL|method|ResequenceDefinition (Expression expression)
+specifier|public
+name|ResequenceDefinition
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+if|if
+condition|(
+name|expression
+operator|!=
+literal|null
+condition|)
+block|{
+name|setExpression
+argument_list|(
+name|ExpressionNodeHelper
+operator|.
+name|toExpressionDefinition
+argument_list|(
+name|expression
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 DECL|method|getOutputs ()
 specifier|public
 name|List

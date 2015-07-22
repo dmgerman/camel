@@ -66,6 +66,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Predicate
 import|;
 end_import
@@ -168,6 +180,34 @@ specifier|public
 name|ValidateDefinition
 parameter_list|()
 block|{     }
+DECL|method|ValidateDefinition (Expression expression)
+specifier|public
+name|ValidateDefinition
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|expression
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|ValidateDefinition (Predicate predicate)
+specifier|public
+name|ValidateDefinition
+parameter_list|(
+name|Predicate
+name|predicate
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|predicate
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()

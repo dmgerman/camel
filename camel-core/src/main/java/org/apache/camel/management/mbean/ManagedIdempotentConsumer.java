@@ -74,7 +74,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorDefinition
+name|IdempotentConsumerDefinition
 import|;
 end_import
 
@@ -111,7 +111,7 @@ name|ManagedProcessor
 implements|implements
 name|ManagedIdempotentConsumerMBean
 block|{
-DECL|method|ManagedIdempotentConsumer (CamelContext context, IdempotentConsumer idempotentConsumer, ProcessorDefinition<?> definition)
+DECL|method|ManagedIdempotentConsumer (CamelContext context, IdempotentConsumer idempotentConsumer, IdempotentConsumerDefinition definition)
 specifier|public
 name|ManagedIdempotentConsumer
 parameter_list|(
@@ -121,10 +121,7 @@ parameter_list|,
 name|IdempotentConsumer
 name|idempotentConsumer
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|IdempotentConsumerDefinition
 name|definition
 parameter_list|)
 block|{
@@ -137,6 +134,62 @@ argument_list|,
 name|definition
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getDefinition ()
+specifier|public
+name|IdempotentConsumerDefinition
+name|getDefinition
+parameter_list|()
+block|{
+return|return
+operator|(
+name|IdempotentConsumerDefinition
+operator|)
+name|super
+operator|.
+name|getDefinition
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getExpressionLanguage ()
+specifier|public
+name|String
+name|getExpressionLanguage
+parameter_list|()
+block|{
+return|return
+name|getDefinition
+argument_list|()
+operator|.
+name|getExpression
+argument_list|()
+operator|.
+name|getLanguage
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getExpression ()
+specifier|public
+name|String
+name|getExpression
+parameter_list|()
+block|{
+return|return
+name|getDefinition
+argument_list|()
+operator|.
+name|getExpression
+argument_list|()
+operator|.
+name|getExpression
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override

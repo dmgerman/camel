@@ -74,7 +74,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorDefinition
+name|LoopDefinition
 import|;
 end_import
 
@@ -119,13 +119,7 @@ specifier|final
 name|LoopProcessor
 name|processor
 decl_stmt|;
-DECL|field|uri
-specifier|private
-specifier|final
-name|String
-name|uri
-decl_stmt|;
-DECL|method|ManagedLoop (CamelContext context, LoopProcessor processor, ProcessorDefinition<?> definition)
+DECL|method|ManagedLoop (CamelContext context, LoopProcessor processor, LoopDefinition definition)
 specifier|public
 name|ManagedLoop
 parameter_list|(
@@ -135,10 +129,7 @@ parameter_list|,
 name|LoopProcessor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|LoopDefinition
 name|definition
 parameter_list|)
 block|{
@@ -157,18 +148,43 @@ name|processor
 operator|=
 name|processor
 expr_stmt|;
-name|this
+block|}
+annotation|@
+name|Override
+DECL|method|getDefinition ()
+specifier|public
+name|LoopDefinition
+name|getDefinition
+parameter_list|()
+block|{
+return|return
+operator|(
+name|LoopDefinition
+operator|)
+name|super
 operator|.
-name|uri
-operator|=
-name|processor
+name|getDefinition
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getExpressionLanguage ()
+specifier|public
+name|String
+name|getExpressionLanguage
+parameter_list|()
+block|{
+return|return
+name|getDefinition
+argument_list|()
 operator|.
 name|getExpression
 argument_list|()
 operator|.
-name|toString
+name|getLanguage
 argument_list|()
-expr_stmt|;
+return|;
 block|}
 annotation|@
 name|Override
@@ -179,7 +195,14 @@ name|getExpression
 parameter_list|()
 block|{
 return|return
-name|uri
+name|getDefinition
+argument_list|()
+operator|.
+name|getExpression
+argument_list|()
+operator|.
+name|getExpression
+argument_list|()
 return|;
 block|}
 annotation|@

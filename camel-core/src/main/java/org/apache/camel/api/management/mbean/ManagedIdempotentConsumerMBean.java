@@ -65,6 +65,30 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"The language for the expression"
+argument_list|)
+DECL|method|getExpressionLanguage ()
+name|String
+name|getExpressionLanguage
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Expression used to calculate the correlation key to use for duplicate check"
+argument_list|)
+DECL|method|getExpression ()
+name|String
+name|getExpression
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Whether to eagerly add the key to the idempotent repository or wait until the exchange is complete"
 argument_list|)
 DECL|method|isEager ()
