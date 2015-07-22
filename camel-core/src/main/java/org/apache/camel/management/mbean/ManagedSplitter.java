@@ -74,7 +74,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorDefinition
+name|SplitDefinition
 import|;
 end_import
 
@@ -119,7 +119,7 @@ specifier|final
 name|Splitter
 name|processor
 decl_stmt|;
-DECL|method|ManagedSplitter (CamelContext context, Splitter processor, ProcessorDefinition<?> definition)
+DECL|method|ManagedSplitter (CamelContext context, Splitter processor, SplitDefinition definition)
 specifier|public
 name|ManagedSplitter
 parameter_list|(
@@ -129,10 +129,7 @@ parameter_list|,
 name|Splitter
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|SplitDefinition
 name|definition
 parameter_list|)
 block|{
@@ -154,6 +151,43 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|getDefinition ()
+specifier|public
+name|SplitDefinition
+name|getDefinition
+parameter_list|()
+block|{
+return|return
+operator|(
+name|SplitDefinition
+operator|)
+name|super
+operator|.
+name|getDefinition
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getExpressionLanguage ()
+specifier|public
+name|String
+name|getExpressionLanguage
+parameter_list|()
+block|{
+return|return
+name|getDefinition
+argument_list|()
+operator|.
+name|getExpression
+argument_list|()
+operator|.
+name|getLanguage
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getExpression ()
 specifier|public
 name|String
@@ -161,12 +195,13 @@ name|getExpression
 parameter_list|()
 block|{
 return|return
-name|processor
+name|getDefinition
+argument_list|()
 operator|.
 name|getExpression
 argument_list|()
 operator|.
-name|toString
+name|getExpression
 argument_list|()
 return|;
 block|}

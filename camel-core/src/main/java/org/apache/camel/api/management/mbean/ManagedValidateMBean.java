@@ -49,6 +49,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"The language for the predicate"
+argument_list|)
+DECL|method|getPredicateLanguage ()
+name|String
+name|getPredicateLanguage
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Predicate to determine if the message is valid or not"
 argument_list|)
 DECL|method|getPredicate ()

@@ -49,6 +49,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"The language for the expression"
+argument_list|)
+DECL|method|getExpressionLanguage ()
+name|String
+name|getExpressionLanguage
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Expression of how to split the message body, such as as-is, using a tokenizer, or using an xpath."
 argument_list|)
 DECL|method|getExpression ()

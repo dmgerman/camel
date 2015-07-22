@@ -49,6 +49,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"The language for the expression"
+argument_list|)
+DECL|method|getExpressionLanguage ()
+name|String
+name|getExpressionLanguage
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Expression to define the routing slip, which defines which endpoints to route the message in a pipeline style."
 argument_list|,
 name|mask

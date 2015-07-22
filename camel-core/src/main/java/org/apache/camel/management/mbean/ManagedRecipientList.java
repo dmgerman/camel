@@ -74,7 +74,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorDefinition
+name|RecipientListDefinition
 import|;
 end_import
 
@@ -152,7 +152,7 @@ specifier|private
 name|String
 name|uri
 decl_stmt|;
-DECL|method|ManagedRecipientList (CamelContext context, RecipientList processor, ProcessorDefinition<?> definition)
+DECL|method|ManagedRecipientList (CamelContext context, RecipientList processor, RecipientListDefinition definition)
 specifier|public
 name|ManagedRecipientList
 parameter_list|(
@@ -162,10 +162,7 @@ parameter_list|,
 name|RecipientList
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|RecipientListDefinition
 name|definition
 parameter_list|)
 block|{
@@ -228,12 +225,13 @@ literal|false
 decl_stmt|;
 name|uri
 operator|=
-name|processor
+name|getDefinition
+argument_list|()
 operator|.
 name|getExpression
 argument_list|()
 operator|.
-name|toString
+name|getExpression
 argument_list|()
 expr_stmt|;
 if|if
@@ -251,6 +249,43 @@ name|uri
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getDefinition ()
+specifier|public
+name|RecipientListDefinition
+name|getDefinition
+parameter_list|()
+block|{
+return|return
+operator|(
+name|RecipientListDefinition
+operator|)
+name|super
+operator|.
+name|getDefinition
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getExpressionLanguage ()
+specifier|public
+name|String
+name|getExpressionLanguage
+parameter_list|()
+block|{
+return|return
+name|getDefinition
+argument_list|()
+operator|.
+name|getExpression
+argument_list|()
+operator|.
+name|getLanguage
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override

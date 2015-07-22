@@ -74,7 +74,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorDefinition
+name|ValidateDefinition
 import|;
 end_import
 
@@ -121,7 +121,7 @@ specifier|final
 name|PredicateValidatingProcessor
 name|processor
 decl_stmt|;
-DECL|method|ManagedValidate (CamelContext context, PredicateValidatingProcessor processor, ProcessorDefinition<?> definition)
+DECL|method|ManagedValidate (CamelContext context, PredicateValidatingProcessor processor, ValidateDefinition definition)
 specifier|public
 name|ManagedValidate
 parameter_list|(
@@ -131,10 +131,7 @@ parameter_list|,
 name|PredicateValidatingProcessor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|ValidateDefinition
 name|definition
 parameter_list|)
 block|{
@@ -156,6 +153,43 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|getDefinition ()
+specifier|public
+name|ValidateDefinition
+name|getDefinition
+parameter_list|()
+block|{
+return|return
+operator|(
+name|ValidateDefinition
+operator|)
+name|super
+operator|.
+name|getDefinition
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getPredicateLanguage ()
+specifier|public
+name|String
+name|getPredicateLanguage
+parameter_list|()
+block|{
+return|return
+name|getDefinition
+argument_list|()
+operator|.
+name|getExpression
+argument_list|()
+operator|.
+name|getLanguage
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getPredicate ()
 specifier|public
 name|String
@@ -163,12 +197,13 @@ name|getPredicate
 parameter_list|()
 block|{
 return|return
-name|processor
-operator|.
-name|getPredicate
+name|getDefinition
 argument_list|()
 operator|.
-name|toString
+name|getExpression
+argument_list|()
+operator|.
+name|getExpression
 argument_list|()
 return|;
 block|}

@@ -49,6 +49,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"The language for the expression"
+argument_list|)
+DECL|method|getExpressionLanguage ()
+name|String
+name|getExpressionLanguage
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Expression to return the transformed message body (the new message body to use)"
 argument_list|)
 DECL|method|getExpression ()

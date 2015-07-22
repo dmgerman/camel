@@ -74,7 +74,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ProcessorDefinition
+name|SetPropertyDefinition
 import|;
 end_import
 
@@ -119,13 +119,7 @@ specifier|final
 name|SetPropertyProcessor
 name|processor
 decl_stmt|;
-DECL|field|expression
-specifier|private
-specifier|final
-name|String
-name|expression
-decl_stmt|;
-DECL|method|ManagedSetProperty (CamelContext context, SetPropertyProcessor processor, ProcessorDefinition<?> definition)
+DECL|method|ManagedSetProperty (CamelContext context, SetPropertyProcessor processor, SetPropertyDefinition definition)
 specifier|public
 name|ManagedSetProperty
 parameter_list|(
@@ -135,10 +129,7 @@ parameter_list|,
 name|SetPropertyProcessor
 name|processor
 parameter_list|,
-name|ProcessorDefinition
-argument_list|<
-name|?
-argument_list|>
+name|SetPropertyDefinition
 name|definition
 parameter_list|)
 block|{
@@ -157,18 +148,24 @@ name|processor
 operator|=
 name|processor
 expr_stmt|;
-name|this
+block|}
+annotation|@
+name|Override
+DECL|method|getDefinition ()
+specifier|public
+name|SetPropertyDefinition
+name|getDefinition
+parameter_list|()
+block|{
+return|return
+operator|(
+name|SetPropertyDefinition
+operator|)
+name|super
 operator|.
-name|expression
-operator|=
-name|processor
-operator|.
-name|getExpression
+name|getDefinition
 argument_list|()
-operator|.
-name|toString
-argument_list|()
-expr_stmt|;
+return|;
 block|}
 annotation|@
 name|Override
@@ -187,6 +184,25 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|getExpressionLanguage ()
+specifier|public
+name|String
+name|getExpressionLanguage
+parameter_list|()
+block|{
+return|return
+name|getDefinition
+argument_list|()
+operator|.
+name|getExpression
+argument_list|()
+operator|.
+name|getLanguage
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getExpression ()
 specifier|public
 name|String
@@ -194,7 +210,14 @@ name|getExpression
 parameter_list|()
 block|{
 return|return
-name|expression
+name|getDefinition
+argument_list|()
+operator|.
+name|getExpression
+argument_list|()
+operator|.
+name|getExpression
+argument_list|()
 return|;
 block|}
 block|}
