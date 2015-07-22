@@ -273,7 +273,7 @@ specifier|private
 specifier|final
 name|List
 argument_list|<
-name|Processor
+name|FilterProcessor
 argument_list|>
 name|filters
 decl_stmt|;
@@ -283,13 +283,13 @@ specifier|final
 name|Processor
 name|otherwise
 decl_stmt|;
-DECL|method|ChoiceProcessor (List<Processor> filters, Processor otherwise)
+DECL|method|ChoiceProcessor (List<FilterProcessor> filters, Processor otherwise)
 specifier|public
 name|ChoiceProcessor
 parameter_list|(
 name|List
 argument_list|<
-name|Processor
+name|FilterProcessor
 argument_list|>
 name|filters
 parameter_list|,
@@ -456,7 +456,7 @@ comment|// as we should only pick one processor
 name|boolean
 name|matches
 init|=
-literal|true
+literal|false
 decl_stmt|;
 if|if
 condition|(
@@ -521,6 +521,14 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+else|else
+block|{
+comment|// its the otherwise processor, so its a match
+name|matches
+operator|=
+literal|true
+expr_stmt|;
 block|}
 comment|// check for error if so we should break out
 if|if
@@ -696,7 +704,7 @@ DECL|method|getFilters ()
 specifier|public
 name|List
 argument_list|<
-name|Processor
+name|FilterProcessor
 argument_list|>
 name|getFilters
 parameter_list|()

@@ -984,7 +984,7 @@ argument_list|)
 decl_stmt|;
 name|List
 argument_list|<
-name|Processor
+name|FilterProcessor
 argument_list|>
 name|filters
 init|=
@@ -1015,13 +1015,6 @@ argument_list|(
 literal|0
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|filter1
-operator|instanceof
-name|FilterProcessor
-argument_list|)
-expr_stmt|;
 name|assertSendTo
 argument_list|(
 name|unwrapChannel
@@ -1053,13 +1046,6 @@ argument_list|(
 literal|1
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|filter2
-operator|instanceof
-name|FilterProcessor
-argument_list|)
-expr_stmt|;
 name|assertSendTo
 argument_list|(
 name|unwrapChannel
