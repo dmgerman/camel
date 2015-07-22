@@ -224,7 +224,7 @@ DECL|method|SubnetInfo ()
 specifier|private
 name|SubnetInfo
 parameter_list|()
-block|{ }
+block|{          }
 DECL|method|netmask ()
 specifier|private
 name|int
