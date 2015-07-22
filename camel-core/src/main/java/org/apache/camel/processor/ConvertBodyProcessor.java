@@ -575,6 +575,16 @@ return|return
 name|type
 return|;
 block|}
+DECL|method|getCharset ()
+specifier|public
+name|String
+name|getCharset
+parameter_list|()
+block|{
+return|return
+name|charset
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()

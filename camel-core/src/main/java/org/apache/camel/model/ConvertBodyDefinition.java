@@ -268,7 +268,7 @@ name|setType
 argument_list|(
 name|typeClass
 operator|.
-name|getName
+name|getCanonicalName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -296,7 +296,7 @@ name|setType
 argument_list|(
 name|typeClass
 operator|.
-name|getName
+name|getCanonicalName
 argument_list|()
 argument_list|)
 expr_stmt|;
