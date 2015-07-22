@@ -2730,6 +2730,17 @@ name|FilterProcessor
 operator|)
 name|target
 argument_list|,
+operator|(
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|FilterDefinition
+operator|)
 name|definition
 argument_list|)
 expr_stmt|;
