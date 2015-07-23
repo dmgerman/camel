@@ -130,11 +130,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|http
 operator|.
-name|http4
+name|common
 operator|.
-name|HttpMethods
+name|HttpHelper
 import|;
 end_import
 
@@ -150,7 +150,7 @@ name|http
 operator|.
 name|common
 operator|.
-name|HttpHelper
+name|HttpMethods
 import|;
 end_import
 
@@ -683,7 +683,7 @@ block|{
 name|HttpMethods
 name|method
 init|=
-name|HttpMethodHelper
+name|HttpHelper
 operator|.
 name|createMethod
 argument_list|(
@@ -729,7 +729,7 @@ block|{
 name|HttpMethods
 name|method
 init|=
-name|HttpMethodHelper
+name|HttpHelper
 operator|.
 name|createMethod
 argument_list|(
@@ -773,7 +773,7 @@ block|{
 name|HttpMethods
 name|method
 init|=
-name|HttpMethodHelper
+name|HttpHelper
 operator|.
 name|createMethod
 argument_list|(
@@ -817,7 +817,7 @@ block|{
 name|HttpMethods
 name|method
 init|=
-name|HttpMethodHelper
+name|HttpHelper
 operator|.
 name|createMethod
 argument_list|(
@@ -861,7 +861,7 @@ block|{
 name|HttpMethods
 name|method
 init|=
-name|HttpMethodHelper
+name|HttpHelper
 operator|.
 name|createMethod
 argument_list|(

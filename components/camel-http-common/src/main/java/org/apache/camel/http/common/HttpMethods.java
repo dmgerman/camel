@@ -31,6 +31,7 @@ DECL|enumConstant|DELETE
 DECL|enumConstant|HEAD
 DECL|enumConstant|OPTIONS
 DECL|enumConstant|TRACE
+DECL|enumConstant|PATCH
 name|GET
 block|,
 name|POST
@@ -44,6 +45,8 @@ block|,
 name|OPTIONS
 block|,
 name|TRACE
+block|,
+name|PATCH
 block|}
 end_enum
 

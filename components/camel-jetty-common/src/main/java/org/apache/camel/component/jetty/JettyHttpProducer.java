@@ -577,9 +577,8 @@ operator|=
 name|rewriteUrl
 expr_stmt|;
 block|}
-comment|// TODO: should not use that
-name|HttpMethods
-name|method
+name|String
+name|methodName
 init|=
 name|HttpHelper
 operator|.
@@ -600,6 +599,9 @@ argument_list|()
 operator|!=
 literal|null
 argument_list|)
+operator|.
+name|name
+argument_list|()
 decl_stmt|;
 name|JettyContentExchange
 name|httpExchange
@@ -636,10 +638,7 @@ name|httpExchange
 operator|.
 name|setMethod
 argument_list|(
-name|method
-operator|.
-name|name
-argument_list|()
+name|methodName
 argument_list|)
 expr_stmt|;
 if|if
@@ -719,8 +718,9 @@ name|httpExchange
 operator|.
 name|setSupportRedirect
 argument_list|(
-operator|new
 name|Boolean
+operator|.
+name|valueOf
 argument_list|(
 name|supportRedirect
 argument_list|)
@@ -736,7 +736,7 @@ literal|"Using URL: {} with method: {}"
 argument_list|,
 name|url
 argument_list|,
-name|method
+name|methodName
 argument_list|)
 expr_stmt|;
 comment|// if there is a body to send as data
