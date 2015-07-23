@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|HeaderFilterStrategyComponent
@@ -63,8 +51,7 @@ specifier|protected
 name|HttpConfiguration
 name|httpConfiguration
 decl_stmt|;
-comment|// TODO: HttpCommonEndpoint
-DECL|method|HttpCommonComponent (Class<? extends Endpoint> endpointClass)
+DECL|method|HttpCommonComponent (Class<? extends HttpCommonEndpoint> endpointClass)
 specifier|public
 name|HttpCommonComponent
 parameter_list|(
@@ -72,7 +59,7 @@ name|Class
 argument_list|<
 name|?
 extends|extends
-name|Endpoint
+name|HttpCommonEndpoint
 argument_list|>
 name|endpointClass
 parameter_list|)

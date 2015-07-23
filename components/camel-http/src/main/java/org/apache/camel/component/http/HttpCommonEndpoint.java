@@ -165,18 +165,16 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|HttpEndpoint
+name|HttpCommonEndpoint
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
 DECL|field|component
-specifier|private
 name|HttpCommonComponent
 name|component
 decl_stmt|;
 DECL|field|urlRewrite
-specifier|private
 name|UrlRewrite
 name|urlRewrite
 decl_stmt|;
@@ -199,7 +197,6 @@ operator|=
 literal|"true"
 argument_list|)
 DECL|field|httpUri
-specifier|private
 name|URI
 name|httpUri
 decl_stmt|;
@@ -211,7 +208,6 @@ operator|=
 literal|"To use a custom HeaderFilterStrategy to filter header to and from Camel message."
 argument_list|)
 DECL|field|headerFilterStrategy
-specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
 init|=
@@ -227,7 +223,6 @@ operator|=
 literal|"To use a custom HttpBinding to control the mapping between Camel message and HttpClient."
 argument_list|)
 DECL|field|binding
-specifier|private
 name|HttpBinding
 name|binding
 decl_stmt|;
@@ -249,7 +244,6 @@ operator|+
 literal|" This allows you to get all responses regardless of the HTTP status code."
 argument_list|)
 DECL|field|throwExceptionOnFailure
-specifier|private
 name|boolean
 name|throwExceptionOnFailure
 init|=
@@ -269,7 +263,6 @@ operator|+
 literal|" You may also set the option throwExceptionOnFailure to be false to let the HttpProducer send all the fault response back."
 argument_list|)
 DECL|field|bridgeEndpoint
-specifier|private
 name|boolean
 name|bridgeEndpoint
 decl_stmt|;
@@ -285,7 +278,6 @@ operator|=
 literal|"Whether or not the consumer should try to find a target consumer by matching the URI prefix if no exact match is found."
 argument_list|)
 DECL|field|matchOnUriPrefix
-specifier|private
 name|boolean
 name|matchOnUriPrefix
 decl_stmt|;
@@ -301,7 +293,6 @@ operator|=
 literal|"If this option is false Jetty servlet will disable the HTTP streaming and set the content-length header on the response"
 argument_list|)
 DECL|field|chunked
-specifier|private
 name|boolean
 name|chunked
 init|=
@@ -335,7 +326,6 @@ operator|+
 literal|" in case you do not need to read the message payload multiple times."
 argument_list|)
 DECL|field|disableStreamCache
-specifier|private
 name|boolean
 name|disableStreamCache
 decl_stmt|;
@@ -351,7 +341,6 @@ operator|=
 literal|"The proxy host name"
 argument_list|)
 DECL|field|proxyHost
-specifier|private
 name|String
 name|proxyHost
 decl_stmt|;
@@ -367,7 +356,6 @@ operator|=
 literal|"The proxy port number"
 argument_list|)
 DECL|field|proxyPort
-specifier|private
 name|int
 name|proxyPort
 decl_stmt|;
@@ -387,7 +375,6 @@ operator|=
 literal|"Authentication method for proxy, either as Basic, Digest or NTLM."
 argument_list|)
 DECL|field|authMethodPriority
-specifier|private
 name|String
 name|authMethodPriority
 decl_stmt|;
@@ -401,7 +388,6 @@ operator|+
 literal|" This allows you to get all responses regardless of the HTTP status code."
 argument_list|)
 DECL|field|transferException
-specifier|private
 name|boolean
 name|transferException
 decl_stmt|;
@@ -417,7 +403,6 @@ operator|=
 literal|"Specifies whether to enable HTTP TRACE for this Jetty consumer. By default TRACE is turned off."
 argument_list|)
 DECL|field|traceEnabled
-specifier|private
 name|boolean
 name|traceEnabled
 decl_stmt|;
@@ -433,7 +418,6 @@ operator|=
 literal|"Used to only allow consuming if the HttpMethod matches, such as GET/POST/PUT etc. Multiple methods can be specified separated by comma."
 argument_list|)
 DECL|field|httpMethodRestrict
-specifier|private
 name|String
 name|httpMethodRestrict
 decl_stmt|;
@@ -449,7 +433,6 @@ operator|=
 literal|"To use a custom buffer size on the javax.servlet.ServletResponse."
 argument_list|)
 DECL|field|responseBufferSize
-specifier|private
 name|Integer
 name|responseBufferSize
 decl_stmt|;
@@ -465,7 +448,6 @@ operator|=
 literal|"If this option is true, The http producer won't read response body and cache the input stream"
 argument_list|)
 DECL|field|ignoreResponseBody
-specifier|private
 name|boolean
 name|ignoreResponseBody
 decl_stmt|;
@@ -487,7 +469,6 @@ operator|+
 literal|" Setting this to false, allows to only include the headers from the HTTP response (not propagating IN headers)."
 argument_list|)
 DECL|field|copyHeaders
-specifier|private
 name|boolean
 name|copyHeaders
 init|=
@@ -507,7 +488,6 @@ operator|+
 literal|" This can be turned on in case HTTP clients do not send streamed data."
 argument_list|)
 DECL|field|eagerCheckContentAvailable
-specifier|private
 name|boolean
 name|eagerCheckContentAvailable
 decl_stmt|;
