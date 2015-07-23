@@ -74,9 +74,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|http
+name|jms
 operator|.
-name|HttpOperationFailedException
+name|JmsComponent
 import|;
 end_import
 
@@ -88,11 +88,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|http
 operator|.
-name|jms
+name|common
 operator|.
-name|JmsComponent
+name|HttpOperationFailedException
 import|;
 end_import
 
