@@ -239,6 +239,9 @@ case|:
 case|case
 name|SENT
 case|:
+case|case
+name|RECEIVED
+case|:
 return|return
 operator|new
 name|YammerMessagePollingConsumer
