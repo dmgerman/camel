@@ -86,27 +86,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
+operator|.
+name|common
 operator|.
 name|DefaultHttpBinding
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|http
-operator|.
-name|HttpEndpoint
 import|;
 end_import
 
@@ -248,13 +232,6 @@ operator|.
 name|createRegistry
 argument_list|()
 decl_stmt|;
-name|HttpEndpoint
-name|ep
-init|=
-operator|new
-name|HttpEndpoint
-argument_list|()
-decl_stmt|;
 name|jndi
 operator|.
 name|bind
@@ -263,9 +240,7 @@ literal|"default"
 argument_list|,
 operator|new
 name|DefaultHttpBinding
-argument_list|(
-name|ep
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|jndi
@@ -276,9 +251,7 @@ literal|"myownbinder"
 argument_list|,
 operator|new
 name|MyHttpBinding
-argument_list|(
-name|ep
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -372,20 +345,6 @@ name|MyHttpBinding
 extends|extends
 name|DefaultHttpBinding
 block|{
-DECL|method|MyHttpBinding (HttpEndpoint ep)
-specifier|public
-name|MyHttpBinding
-parameter_list|(
-name|HttpEndpoint
-name|ep
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|ep
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|doWriteExceptionResponse (Throwable exception, HttpServletResponse response)

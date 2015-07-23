@@ -56,9 +56,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|http
+name|jetty
 operator|.
-name|HttpOperationFailedException
+name|BaseJettyTest
 import|;
 end_import
 
@@ -70,11 +70,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|http
 operator|.
-name|jetty
+name|common
 operator|.
-name|BaseJettyTest
+name|HttpOperationFailedException
 import|;
 end_import
 

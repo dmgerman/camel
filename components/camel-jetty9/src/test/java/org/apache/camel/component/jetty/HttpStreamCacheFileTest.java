@@ -86,11 +86,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|converter
 operator|.
-name|http
+name|stream
 operator|.
-name|HttpOperationFailedException
+name|CachedOutputStream
 import|;
 end_import
 
@@ -102,11 +102,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|converter
+name|http
 operator|.
-name|stream
+name|common
 operator|.
-name|CachedOutputStream
+name|HttpOperationFailedException
 import|;
 end_import
 

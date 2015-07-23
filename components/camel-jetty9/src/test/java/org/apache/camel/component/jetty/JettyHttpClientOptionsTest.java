@@ -44,7 +44,7 @@ name|component
 operator|.
 name|http
 operator|.
-name|HttpEndpoint
+name|HttpProducer
 import|;
 end_import
 
@@ -56,11 +56,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
 operator|.
-name|HttpProducer
+name|common
+operator|.
+name|HttpCommonEndpoint
 import|;
 end_import
 
@@ -111,7 +111,7 @@ throws|throws
 name|Exception
 block|{
 comment|// assert jetty was configured with our timeout
-name|HttpEndpoint
+name|HttpCommonEndpoint
 name|jettyEndpoint
 init|=
 name|context
@@ -120,7 +120,7 @@ name|getEndpoint
 argument_list|(
 literal|"http://localhost:{{port}}/myapp/myservice?httpClient.soTimeout=5555"
 argument_list|,
-name|HttpEndpoint
+name|HttpCommonEndpoint
 operator|.
 name|class
 argument_list|)
@@ -205,7 +205,7 @@ throws|throws
 name|Exception
 block|{
 comment|// setup the Proxy setting through the URI
-name|HttpEndpoint
+name|HttpCommonEndpoint
 name|jettyEndpoint
 init|=
 name|context
@@ -214,7 +214,7 @@ name|getEndpoint
 argument_list|(
 literal|"jetty://http://localhost:{{port}}/proxy/setting?proxyHost=192.168.0.1&proxyPort=9090"
 argument_list|,
-name|HttpEndpoint
+name|HttpCommonEndpoint
 operator|.
 name|class
 argument_list|)
@@ -282,7 +282,7 @@ name|getEndpoint
 argument_list|(
 literal|"jetty://http://localhost:{{port}}/proxy2/setting"
 argument_list|,
-name|HttpEndpoint
+name|HttpCommonEndpoint
 operator|.
 name|class
 argument_list|)

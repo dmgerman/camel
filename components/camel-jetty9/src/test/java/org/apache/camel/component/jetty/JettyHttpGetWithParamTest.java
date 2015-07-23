@@ -66,9 +66,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|http
+name|mock
 operator|.
-name|HttpMessage
+name|MockEndpoint
 import|;
 end_import
 
@@ -80,11 +80,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|http
 operator|.
-name|mock
+name|common
 operator|.
-name|MockEndpoint
+name|HttpMessage
 import|;
 end_import
 

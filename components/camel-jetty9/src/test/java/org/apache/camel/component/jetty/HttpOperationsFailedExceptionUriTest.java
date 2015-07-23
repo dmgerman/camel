@@ -76,9 +76,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
+operator|.
+name|common
 operator|.
 name|HttpOperationFailedException
 import|;

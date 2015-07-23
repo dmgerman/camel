@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Component
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -78,9 +66,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|http
+name|mock
 operator|.
-name|HttpOperationFailedException
+name|MockEndpoint
 import|;
 end_import
 
@@ -92,11 +80,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|http
 operator|.
-name|mock
+name|common
 operator|.
-name|MockEndpoint
+name|HttpOperationFailedException
 import|;
 end_import
 
