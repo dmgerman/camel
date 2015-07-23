@@ -147,8 +147,6 @@ block|{
 comment|// Helper class
 block|}
 comment|/**      * Creates the HttpMethod to use to call the remote server, often either its GET or POST.      *      * @param exchange the exchange      * @return the created method      * @throws URISyntaxException       */
-annotation|@
-name|Deprecated
 DECL|method|createMethod (Exchange exchange, HttpEndpoint endpoint, boolean hasPayload)
 specifier|public
 specifier|static
