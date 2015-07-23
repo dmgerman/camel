@@ -84,18 +84,6 @@ name|PaxExam
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assume
-operator|.
-name|assumeTrue
-import|;
-end_import
-
 begin_class
 annotation|@
 name|RunWith
@@ -135,7 +123,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//        Vert.x can be deployed only to Java 7 JVM
+comment|// vertx requires Java 1.8
 name|String
 name|javaVersion
 init|=
@@ -146,21 +134,22 @@ argument_list|(
 literal|"java.version"
 argument_list|)
 decl_stmt|;
-name|assumeTrue
-argument_list|(
+if|if
+condition|(
 name|javaVersion
 operator|.
 name|startsWith
 argument_list|(
-literal|"1.7"
+literal|"1.8"
 argument_list|)
-argument_list|)
-expr_stmt|;
+condition|)
+block|{
 name|testComponent
 argument_list|(
 name|COMPONENT
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Configuration
