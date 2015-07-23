@@ -58,6 +58,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|urlrewrite
+operator|.
+name|HttpUrlRewrite
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|JndiRegistry
@@ -105,11 +121,11 @@ name|createRegistry
 argument_list|()
 decl_stmt|;
 comment|// START SNIPPET: e1
-name|Http4UrlRewrite
+name|HttpUrlRewrite
 name|myRewrite
 init|=
 operator|new
-name|Http4UrlRewrite
+name|HttpUrlRewrite
 argument_list|()
 decl_stmt|;
 name|myRewrite
