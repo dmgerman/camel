@@ -128,38 +128,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|http
-operator|.
-name|DefaultHttpBinding
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|http
-operator|.
-name|HttpMessage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|HeaderFilterStrategy
@@ -167,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Binds the {@link TaskOptions} of the task queueing service to a Camel  * {@link Exchange} for outbound communication. For inbound communication a  * {@link HttpMessage} is bound to {@link Exchange}.  */
+comment|/**  * Binds the {@link TaskOptions} of the task queueing service to a Camel  * {@link Exchange} for outbound communication. For inbound communication a  * {@link org.apache.camel.http.common.HttpMessage} is bound to {@link Exchange}.  */
 end_comment
 
 begin_class
@@ -337,7 +305,7 @@ block|}
 comment|// ----------------------------------------------------------------
 comment|//  Inbound binding
 comment|// ----------------------------------------------------------------
-comment|/**      * Replaces the task service-specific headers (<code>X-AppEngine-*</code>)      * with Camel-specific headers.      *       * @see GTaskBinding#GTASK_QUEUE_NAME      * @see GTaskBinding#GTASK_TASK_NAME      * @see GTaskBinding#GTASK_RETRY_COUNT      * @see DefaultHttpBinding#readRequest(HttpServletRequest, HttpMessage)      */
+comment|/**      * Replaces the task service-specific headers (<code>X-AppEngine-*</code>)      * with Camel-specific headers.      *       * @see GTaskBinding#GTASK_QUEUE_NAME      * @see GTaskBinding#GTASK_TASK_NAME      * @see GTaskBinding#GTASK_RETRY_COUNT      * @see org.apache.camel.http.common.DefaultHttpBinding#readRequest(HttpServletRequest, org.apache.camel.http.common.HttpMessage)      */
 DECL|method|readRequest (GTaskEndpoint endpoint, Exchange exchange, HttpServletRequest request)
 specifier|public
 name|Exchange

@@ -266,38 +266,6 @@ name|camel
 operator|.
 name|component
 operator|.
-name|http
-operator|.
-name|HttpBinding
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|http
-operator|.
-name|HttpClientConfigurer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
 name|servlet
 operator|.
 name|ServletComponent
@@ -317,6 +285,22 @@ operator|.
 name|servlet
 operator|.
 name|ServletEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|http
+operator|.
+name|common
+operator|.
+name|HttpBinding
 import|;
 end_import
 
@@ -359,36 +343,6 @@ operator|.
 name|util
 operator|.
 name|UnsafeUriCharactersEncoder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|httpclient
-operator|.
-name|HttpConnectionManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|httpclient
-operator|.
-name|params
-operator|.
-name|HttpClientParams
 import|;
 end_import
 
@@ -505,7 +459,7 @@ name|HttpServletResponse
 argument_list|>
 name|inboundBinding
 decl_stmt|;
-DECL|method|GHttpEndpoint (String endpointUri, ServletComponent component, URI httpUri, HttpClientParams params, HttpConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
+DECL|method|GHttpEndpoint (String endpointUri, ServletComponent component, URI httpUri)
 specifier|public
 name|GHttpEndpoint
 parameter_list|(
@@ -517,15 +471,6 @@ name|component
 parameter_list|,
 name|URI
 name|httpUri
-parameter_list|,
-name|HttpClientParams
-name|params
-parameter_list|,
-name|HttpConnectionManager
-name|httpConnectionManager
-parameter_list|,
-name|HttpClientConfigurer
-name|clientConfigurer
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -541,12 +486,6 @@ argument_list|,
 name|component
 argument_list|,
 name|httpUri
-argument_list|,
-name|params
-argument_list|,
-name|httpConnectionManager
-argument_list|,
-name|clientConfigurer
 argument_list|)
 expr_stmt|;
 name|urlFetchService
@@ -810,7 +749,7 @@ operator|=
 name|inboundBinding
 expr_stmt|;
 block|}
-comment|/**      * Proxies the {@link HttpBinding} returned by {@link super#getBinding()}      * with a dynamic proxy. The proxy's invocation handler further delegates to      * {@link InboundBinding#readRequest(org.apache.camel.Endpoint, Exchange, Object)}      * .      *       * @return proxied {@link HttpBinding}.      */
+comment|/**      * Proxies the {@link org.apache.camel.http.common.HttpBinding} returned by {@link super#getBinding()}      * with a dynamic proxy. The proxy's invocation handler further delegates to      * {@link InboundBinding#readRequest(org.apache.camel.Endpoint, Exchange, Object)}      * .      *       * @return proxied {@link org.apache.camel.http.common.HttpBinding}.      */
 annotation|@
 name|Override
 DECL|method|getBinding ()
