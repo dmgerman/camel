@@ -86,22 +86,6 @@ name|camel
 operator|.
 name|component
 operator|.
-name|http
-operator|.
-name|HttpClientConfigurer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
 name|servlet
 operator|.
 name|ServletEndpoint
@@ -161,36 +145,6 @@ operator|.
 name|spi
 operator|.
 name|UriPath
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|httpclient
-operator|.
-name|HttpConnectionManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|httpclient
-operator|.
-name|params
-operator|.
-name|HttpClientParams
 import|;
 end_import
 
@@ -273,7 +227,7 @@ specifier|private
 name|boolean
 name|useStreaming
 decl_stmt|;
-DECL|method|WebsocketEndpoint (String endPointURI, WebsocketComponent component, URI httpUri, HttpClientParams params, HttpConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
+DECL|method|WebsocketEndpoint (String endPointURI, WebsocketComponent component, URI httpUri)
 specifier|public
 name|WebsocketEndpoint
 parameter_list|(
@@ -285,15 +239,6 @@ name|component
 parameter_list|,
 name|URI
 name|httpUri
-parameter_list|,
-name|HttpClientParams
-name|params
-parameter_list|,
-name|HttpConnectionManager
-name|httpConnectionManager
-parameter_list|,
-name|HttpClientConfigurer
-name|clientConfigurer
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -305,12 +250,6 @@ argument_list|,
 name|component
 argument_list|,
 name|httpUri
-argument_list|,
-name|params
-argument_list|,
-name|httpConnectionManager
-argument_list|,
-name|clientConfigurer
 argument_list|)
 expr_stmt|;
 comment|//TODO find a better way of assigning the store

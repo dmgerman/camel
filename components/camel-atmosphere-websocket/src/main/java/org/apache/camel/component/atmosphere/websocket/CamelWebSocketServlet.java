@@ -74,9 +74,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|http
+name|servlet
 operator|.
-name|HttpConsumer
+name|CamelHttpTransportServlet
 import|;
 end_import
 
@@ -88,11 +88,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|http
 operator|.
-name|servlet
+name|common
 operator|.
-name|CamelHttpTransportServlet
+name|HttpConsumer
 import|;
 end_import
 

@@ -168,7 +168,7 @@ name|AtmosphereConfig
 name|config
 parameter_list|)
 block|{
-comment|// TODO Auto-generated method stub
+comment|// noop
 block|}
 annotation|@
 name|Override
