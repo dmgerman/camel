@@ -134,11 +134,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
 operator|.
-name|HttpConsumer
+name|common
+operator|.
+name|HttpCommonEndpoint
 import|;
 end_import
 
@@ -150,11 +150,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
 operator|.
-name|HttpEndpoint
+name|common
+operator|.
+name|HttpConsumer
 import|;
 end_import
 
@@ -255,7 +255,7 @@ specifier|abstract
 class|class
 name|JettyHttpEndpoint
 extends|extends
-name|HttpEndpoint
+name|HttpCommonEndpoint
 block|{
 DECL|field|handlers
 specifier|private

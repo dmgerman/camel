@@ -138,9 +138,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
+operator|.
+name|common
 operator|.
 name|CamelServlet
 import|;
@@ -154,9 +154,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
+operator|.
+name|common
 operator|.
 name|HttpConsumer
 import|;
@@ -170,11 +170,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
 operator|.
-name|HttpMessage
+name|common
+operator|.
+name|HttpHelper
 import|;
 end_import
 
@@ -186,13 +186,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
 operator|.
-name|helper
+name|common
 operator|.
-name|HttpHelper
+name|HttpMessage
 import|;
 end_import
 

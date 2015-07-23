@@ -274,9 +274,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
+operator|.
+name|common
 operator|.
 name|CamelServlet
 import|;
@@ -290,9 +290,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
+operator|.
+name|common
 operator|.
 name|HttpBinding
 import|;
@@ -306,11 +306,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
 operator|.
-name|HttpComponent
+name|common
+operator|.
+name|HttpCommonComponent
 import|;
 end_import
 
@@ -322,9 +322,25 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|http
+operator|.
+name|common
+operator|.
+name|HttpCommonEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
 operator|.
 name|http
+operator|.
+name|common
 operator|.
 name|HttpConsumer
 import|;
@@ -338,25 +354,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
 operator|.
-name|HttpEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|http
+name|common
 operator|.
 name|UrlRewrite
 import|;
@@ -917,7 +917,7 @@ specifier|abstract
 class|class
 name|JettyHttpComponent
 extends|extends
-name|HttpComponent
+name|HttpCommonComponent
 implements|implements
 name|RestConsumerFactory
 block|{
@@ -2761,12 +2761,12 @@ literal|0
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|enableMultipartFilter (HttpEndpoint endpoint, Server server, String connectorKey)
+DECL|method|enableMultipartFilter (HttpCommonEndpoint endpoint, Server server, String connectorKey)
 specifier|private
 name|void
 name|enableMultipartFilter
 parameter_list|(
-name|HttpEndpoint
+name|HttpCommonEndpoint
 name|endpoint
 parameter_list|,
 name|Server
@@ -3017,7 +3017,7 @@ throws|throws
 name|Exception
 block|{
 comment|// If the connector is not needed anymore then stop it
-name|HttpEndpoint
+name|HttpCommonEndpoint
 name|endpoint
 init|=
 name|consumer
@@ -3130,12 +3130,12 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|getConnectorKey (HttpEndpoint endpoint)
+DECL|method|getConnectorKey (HttpCommonEndpoint endpoint)
 specifier|private
 name|String
 name|getConnectorKey
 parameter_list|(
-name|HttpEndpoint
+name|HttpCommonEndpoint
 name|endpoint
 parameter_list|)
 block|{

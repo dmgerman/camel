@@ -212,7 +212,7 @@ name|boolean
 name|supportRedirect
 parameter_list|)
 function_decl|;
-comment|/*      * Send using jetty HttpClient and return. The callback will be called when the response       * arrives        */
+comment|/*      * Send using jetty HttpClient and return. The callback will be called when the response arrives      */
 DECL|method|send (HttpClient client)
 name|void
 name|send

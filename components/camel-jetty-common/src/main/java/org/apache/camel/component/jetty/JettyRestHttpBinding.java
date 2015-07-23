@@ -38,9 +38,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
+operator|.
+name|common
 operator|.
 name|DefaultHttpBinding
 import|;
@@ -54,11 +54,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
 operator|.
-name|HttpEndpoint
+name|common
+operator|.
+name|HttpCommonEndpoint
 import|;
 end_import
 
@@ -70,9 +70,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
+operator|.
+name|common
 operator|.
 name|HttpMessage
 import|;
@@ -93,11 +93,11 @@ specifier|public
 name|JettyRestHttpBinding
 parameter_list|()
 block|{     }
-DECL|method|JettyRestHttpBinding (HttpEndpoint ep)
+DECL|method|JettyRestHttpBinding (HttpCommonEndpoint ep)
 specifier|public
 name|JettyRestHttpBinding
 parameter_list|(
-name|HttpEndpoint
+name|HttpCommonEndpoint
 name|ep
 parameter_list|)
 block|{

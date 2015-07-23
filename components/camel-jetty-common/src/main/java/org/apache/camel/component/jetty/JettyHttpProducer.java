@@ -166,9 +166,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
+operator|.
+name|common
 operator|.
 name|HttpConstants
 import|;
@@ -182,11 +182,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
 operator|.
-name|HttpMethods
+name|common
+operator|.
+name|HttpHelper
 import|;
 end_import
 
@@ -198,13 +198,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
 operator|.
-name|helper
+name|common
 operator|.
-name|HttpHelper
+name|HttpMethods
 import|;
 end_import
 
@@ -579,8 +577,9 @@ operator|=
 name|rewriteUrl
 expr_stmt|;
 block|}
+comment|// TODO: should not use that
 name|HttpMethods
-name|methodToUse
+name|method
 init|=
 name|HttpHelper
 operator|.
@@ -601,19 +600,6 @@ argument_list|()
 operator|!=
 literal|null
 argument_list|)
-decl_stmt|;
-name|String
-name|method
-init|=
-name|methodToUse
-operator|.
-name|createMethod
-argument_list|(
-name|url
-argument_list|)
-operator|.
-name|getName
-argument_list|()
 decl_stmt|;
 name|JettyContentExchange
 name|httpExchange
@@ -651,6 +637,9 @@ operator|.
 name|setMethod
 argument_list|(
 name|method
+operator|.
+name|name
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
