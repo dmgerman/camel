@@ -1196,10 +1196,40 @@ name|RestConfiguration
 name|restConfiguration
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the current REST configuration      *      * @return the configuration, or<tt>null</tt> if none has been configured.      */
+comment|/**      * Gets the default REST configuration      *      * @return the configuration, or<tt>null</tt> if none has been configured.      */
 DECL|method|getRestConfiguration ()
 name|RestConfiguration
 name|getRestConfiguration
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom {@link org.apache.camel.spi.RestConfiguration}      *      * @param restConfiguration the REST configuration      */
+DECL|method|addRestConfiguration (RestConfiguration restConfiguration)
+name|void
+name|addRestConfiguration
+parameter_list|(
+name|RestConfiguration
+name|restConfiguration
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the REST configuration for the given component      * @param component the component name to get the configuration      * @param defaultIfNotFound determine if the default configuration is returned if there isn't a       *        specific configuration for the given component        * @return the configuration, or<tt>null</tt> if none has been configured.      */
+DECL|method|getRestConfiguration (String component, boolean defaultIfNotFound)
+name|RestConfiguration
+name|getRestConfiguration
+parameter_list|(
+name|String
+name|component
+parameter_list|,
+name|boolean
+name|defaultIfNotFound
+parameter_list|)
+function_decl|;
+comment|/**      * Gets all the RestConfigurations       * @return      */
+DECL|method|getRestConfigurations ()
+name|Collection
+argument_list|<
+name|RestConfiguration
+argument_list|>
+name|getRestConfigurations
 parameter_list|()
 function_decl|;
 comment|/**      * Returns the order in which the route inputs was started.      *<p/>      * The order may not be according to the startupOrder defined on the route.      * For example a route could be started manually later, or new routes added at runtime.      *      * @return a list in the order how routes was started      */

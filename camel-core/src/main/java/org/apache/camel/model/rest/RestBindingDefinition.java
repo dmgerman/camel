@@ -198,6 +198,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|RestConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RouteContext
 import|;
 end_import
@@ -309,6 +323,18 @@ name|Boolean
 name|enableCORS
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+DECL|field|component
+specifier|private
+name|String
+name|component
+decl_stmt|;
+DECL|method|RestBindingDefinition ()
+specifier|public
+name|RestBindingDefinition
+parameter_list|()
+block|{        }
+annotation|@
 name|Override
 DECL|method|toString ()
 specifier|public
@@ -341,14 +367,23 @@ operator|.
 name|getCamelContext
 argument_list|()
 decl_stmt|;
-comment|// these options can be overriden per rest verb
-name|String
-name|mode
+name|RestConfiguration
+name|config
 init|=
 name|context
 operator|.
 name|getRestConfiguration
-argument_list|()
+argument_list|(
+name|component
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+comment|// these options can be overriden per rest verb
+name|String
+name|mode
+init|=
+name|config
 operator|.
 name|getBindingMode
 argument_list|()
@@ -374,10 +409,7 @@ block|}
 name|boolean
 name|cors
 init|=
-name|context
-operator|.
-name|getRestConfiguration
-argument_list|()
+name|config
 operator|.
 name|isEnableCORS
 argument_list|()
@@ -397,10 +429,7 @@ block|}
 name|boolean
 name|skip
 init|=
-name|context
-operator|.
-name|getRestConfiguration
-argument_list|()
+name|config
 operator|.
 name|isSkipBindingOnErrorCode
 argument_list|()
@@ -426,10 +455,7 @@ name|String
 argument_list|>
 name|corsHeaders
 init|=
-name|context
-operator|.
-name|getRestConfiguration
-argument_list|()
+name|config
 operator|.
 name|getCorsHeaders
 argument_list|()
@@ -479,10 +505,7 @@ comment|// setup json data format
 name|String
 name|name
 init|=
-name|context
-operator|.
-name|getRestConfiguration
-argument_list|()
+name|config
 operator|.
 name|getJsonDataFormat
 argument_list|()
@@ -691,6 +714,8 @@ expr_stmt|;
 block|}
 name|setAdditionalConfiguration
 argument_list|(
+name|config
+argument_list|,
 name|context
 argument_list|,
 name|json
@@ -806,6 +831,8 @@ expr_stmt|;
 block|}
 name|setAdditionalConfiguration
 argument_list|(
+name|config
+argument_list|,
 name|context
 argument_list|,
 name|outJson
@@ -824,10 +851,7 @@ block|}
 comment|// setup xml data format
 name|name
 operator|=
-name|context
-operator|.
-name|getRestConfiguration
-argument_list|()
+name|config
 operator|.
 name|getXmlDataFormat
 argument_list|()
@@ -1025,6 +1049,8 @@ expr_stmt|;
 block|}
 name|setAdditionalConfiguration
 argument_list|(
+name|config
+argument_list|,
 name|context
 argument_list|,
 name|jaxb
@@ -1165,6 +1191,8 @@ expr_stmt|;
 block|}
 name|setAdditionalConfiguration
 argument_list|(
+name|config
+argument_list|,
 name|context
 argument_list|,
 name|outJaxb
@@ -1206,11 +1234,14 @@ name|corsHeaders
 argument_list|)
 return|;
 block|}
-DECL|method|setAdditionalConfiguration (CamelContext context, DataFormat dataFormat, String prefix)
+DECL|method|setAdditionalConfiguration (RestConfiguration config, CamelContext context, DataFormat dataFormat, String prefix)
 specifier|private
 name|void
 name|setAdditionalConfiguration
 parameter_list|(
+name|RestConfiguration
+name|config
+parameter_list|,
 name|CamelContext
 name|context
 parameter_list|,
@@ -1225,10 +1256,7 @@ name|Exception
 block|{
 if|if
 condition|(
-name|context
-operator|.
-name|getRestConfiguration
-argument_list|()
+name|config
 operator|.
 name|getDataFormatProperties
 argument_list|()
@@ -1236,10 +1264,7 @@ operator|!=
 literal|null
 operator|&&
 operator|!
-name|context
-operator|.
-name|getRestConfiguration
-argument_list|()
+name|config
 operator|.
 name|getDataFormatProperties
 argument_list|()
@@ -1281,10 +1306,7 @@ name|Object
 argument_list|>
 name|entry
 range|:
-name|context
-operator|.
-name|getRestConfiguration
-argument_list|()
+name|config
 operator|.
 name|getDataFormatProperties
 argument_list|()
@@ -1429,6 +1451,33 @@ parameter_list|()
 block|{
 return|return
 name|consumes
+return|;
+block|}
+comment|/**      * Sets the component name that this definition will apply to        */
+DECL|method|setComponent (String component)
+specifier|public
+name|void
+name|setComponent
+parameter_list|(
+name|String
+name|component
+parameter_list|)
+block|{
+name|this
+operator|.
+name|component
+operator|=
+name|component
+expr_stmt|;
+block|}
+DECL|method|getComponent ()
+specifier|public
+name|String
+name|getComponent
+parameter_list|()
+block|{
+return|return
+name|component
 return|;
 block|}
 comment|/**      * To define the content type what the REST service consumes (accept as input), such as application/xml or application/json      */
