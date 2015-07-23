@@ -82,27 +82,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
 operator|.
-name|HttpClientConfigurer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|common
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|http
-operator|.
-name|HttpEndpoint
+name|HttpCommonEndpoint
 import|;
 end_import
 
@@ -145,36 +129,6 @@ operator|.
 name|spi
 operator|.
 name|UriPath
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|httpclient
-operator|.
-name|HttpConnectionManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|httpclient
-operator|.
-name|params
-operator|.
-name|HttpClientParams
 import|;
 end_import
 
@@ -217,7 +171,7 @@ specifier|public
 class|class
 name|ServletEndpoint
 extends|extends
-name|HttpEndpoint
+name|HttpCommonEndpoint
 block|{
 annotation|@
 name|UriPath
@@ -243,7 +197,7 @@ specifier|public
 name|ServletEndpoint
 parameter_list|()
 block|{     }
-DECL|method|ServletEndpoint (String endPointURI, ServletComponent component, URI httpUri, HttpClientParams params, HttpConnectionManager httpConnectionManager, HttpClientConfigurer clientConfigurer)
+DECL|method|ServletEndpoint (String endPointURI, ServletComponent component, URI httpUri)
 specifier|public
 name|ServletEndpoint
 parameter_list|(
@@ -255,15 +209,6 @@ name|component
 parameter_list|,
 name|URI
 name|httpUri
-parameter_list|,
-name|HttpClientParams
-name|params
-parameter_list|,
-name|HttpConnectionManager
-name|httpConnectionManager
-parameter_list|,
-name|HttpClientConfigurer
-name|clientConfigurer
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -275,12 +220,6 @@ argument_list|,
 name|component
 argument_list|,
 name|httpUri
-argument_list|,
-name|params
-argument_list|,
-name|httpConnectionManager
-argument_list|,
-name|clientConfigurer
 argument_list|)
 expr_stmt|;
 block|}

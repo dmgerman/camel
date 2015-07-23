@@ -88,9 +88,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
+operator|.
+name|common
 operator|.
 name|HttpConsumer
 import|;
@@ -104,16 +104,16 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
 name|http
+operator|.
+name|common
 operator|.
 name|HttpServletResolveConsumerStrategy
 import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.component.http.HttpServletResolveConsumerStrategy} that supports the Rest DSL.  */
+comment|/**  * A {@link org.apache.camel.http.common.HttpServletResolveConsumerStrategy} that supports the Rest DSL.  */
 end_comment
 
 begin_class
