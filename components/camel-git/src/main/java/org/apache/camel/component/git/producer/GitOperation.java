@@ -110,6 +110,12 @@ name|PULL_OPERATION
 init|=
 literal|"pull"
 decl_stmt|;
+DECL|field|SHOW_BRANCHES
+name|String
+name|SHOW_BRANCHES
+init|=
+literal|"showBranches"
+decl_stmt|;
 block|}
 end_interface
 
