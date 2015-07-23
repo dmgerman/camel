@@ -128,6 +128,15 @@ name|NETTY_SSL_CLIENT_CERT_NOT_AFTER
 init|=
 literal|"CamelNettySSLClientCertNotAfter"
 decl_stmt|;
+DECL|field|NETTY_REQUEST_TIMEOUT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NETTY_REQUEST_TIMEOUT
+init|=
+literal|"CamelNettyRequestTimeout"
+decl_stmt|;
 DECL|method|NettyConstants ()
 specifier|private
 name|NettyConstants

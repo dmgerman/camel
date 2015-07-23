@@ -74,6 +74,15 @@ name|NETTY_LOCAL_ADDRESS
 init|=
 literal|"CamelNettyLocalAddress"
 decl_stmt|;
+DECL|field|NETTY_REQUEST_TIMEOUT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NETTY_REQUEST_TIMEOUT
+init|=
+literal|"CamelNettyRequestTimeout"
+decl_stmt|;
 DECL|field|NETTY_SSL_SESSION
 specifier|public
 specifier|static

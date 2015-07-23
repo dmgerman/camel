@@ -765,19 +765,6 @@ name|messageEvent
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|producer
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|getRequestTimeout
-argument_list|()
-operator|>
-literal|0
-condition|)
-block|{
 name|ChannelHandler
 name|handler
 init|=
@@ -815,7 +802,6 @@ argument_list|(
 name|handler
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|Exchange
 name|exchange
