@@ -110,20 +110,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|HeaderFilterStrategyComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|HeaderFilterStrategy
@@ -270,7 +256,7 @@ specifier|public
 class|class
 name|HttpComponent
 extends|extends
-name|HeaderFilterStrategyComponent
+name|HttpCommonComponent
 block|{
 DECL|field|httpClientConfigurer
 specifier|protected
@@ -281,16 +267,6 @@ DECL|field|httpConnectionManager
 specifier|protected
 name|HttpConnectionManager
 name|httpConnectionManager
-decl_stmt|;
-DECL|field|httpBinding
-specifier|protected
-name|HttpBinding
-name|httpBinding
-decl_stmt|;
-DECL|field|httpConfiguration
-specifier|protected
-name|HttpConfiguration
-name|httpConfiguration
 decl_stmt|;
 DECL|method|HttpComponent ()
 specifier|public
@@ -324,31 +300,7 @@ name|endpointClass
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Connects the URL specified on the endpoint to the specified processor.      *      * @param consumer the consumer      * @throws Exception can be thrown      */
-DECL|method|connect (HttpConsumer consumer)
-specifier|public
-name|void
-name|connect
-parameter_list|(
-name|HttpConsumer
-name|consumer
-parameter_list|)
-throws|throws
-name|Exception
-block|{     }
-comment|/**      * Disconnects the URL specified on the endpoint from the specified processor.      *      * @param consumer the consumer      * @throws Exception can be thrown      */
-DECL|method|disconnect (HttpConsumer consumer)
-specifier|public
-name|void
-name|disconnect
-parameter_list|(
-name|HttpConsumer
-name|consumer
-parameter_list|)
-throws|throws
-name|Exception
-block|{     }
-comment|/**       * Creates the HttpClientConfigurer based on the given parameters      *       * @param parameters the map of parameters       * @return the configurer      */
+comment|/**      * Creates the HttpClientConfigurer based on the given parameters      *       * @param parameters the map of parameters       * @return the configurer      */
 DECL|method|createHttpClientConfigurer (Map<String, Object> parameters, Set<AuthMethod> authMethods)
 specifier|protected
 name|HttpClientConfigurer
@@ -1798,18 +1750,6 @@ name|configurer
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|useIntrospectionOnEndpoint ()
-specifier|protected
-name|boolean
-name|useIntrospectionOnEndpoint
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 DECL|method|getHttpClientConfigurer ()
 specifier|public
 name|HttpClientConfigurer
@@ -1862,60 +1802,6 @@ operator|.
 name|httpConnectionManager
 operator|=
 name|httpConnectionManager
-expr_stmt|;
-block|}
-DECL|method|getHttpBinding ()
-specifier|public
-name|HttpBinding
-name|getHttpBinding
-parameter_list|()
-block|{
-return|return
-name|httpBinding
-return|;
-block|}
-comment|/**      * To use a custom HttpBinding to control the mapping between Camel message and HttpClient.      */
-DECL|method|setHttpBinding (HttpBinding httpBinding)
-specifier|public
-name|void
-name|setHttpBinding
-parameter_list|(
-name|HttpBinding
-name|httpBinding
-parameter_list|)
-block|{
-name|this
-operator|.
-name|httpBinding
-operator|=
-name|httpBinding
-expr_stmt|;
-block|}
-DECL|method|getHttpConfiguration ()
-specifier|public
-name|HttpConfiguration
-name|getHttpConfiguration
-parameter_list|()
-block|{
-return|return
-name|httpConfiguration
-return|;
-block|}
-comment|/**      * To use the shared HttpConfiguration as base configuration.      */
-DECL|method|setHttpConfiguration (HttpConfiguration httpConfiguration)
-specifier|public
-name|void
-name|setHttpConfiguration
-parameter_list|(
-name|HttpConfiguration
-name|httpConfiguration
-parameter_list|)
-block|{
-name|this
-operator|.
-name|httpConfiguration
-operator|=
-name|httpConfiguration
 expr_stmt|;
 block|}
 block|}
