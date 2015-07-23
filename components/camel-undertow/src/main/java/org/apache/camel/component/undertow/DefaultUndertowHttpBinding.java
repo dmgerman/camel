@@ -238,22 +238,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|http
-operator|.
-name|HttpHeaderFilterStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultMessage
@@ -347,7 +331,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * DefaultUndertowHttpBinding represent binding used by default, if user doesn't provide any.  * By default {@link HttpHeaderFilterStrategy} is also used.  */
+comment|/**  * DefaultUndertowHttpBinding represent binding used by default, if user doesn't provide any.  * By default {@link UndertowHeaderFilterStrategy} is also used.  */
 end_comment
 
 begin_class
@@ -390,7 +374,7 @@ operator|.
 name|headerFilterStrategy
 operator|=
 operator|new
-name|HttpHeaderFilterStrategy
+name|UndertowHeaderFilterStrategy
 argument_list|()
 expr_stmt|;
 block|}
