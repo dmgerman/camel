@@ -112,11 +112,57 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|http
 operator|.
-name|http4
+name|common
 operator|.
-name|helper
+name|HttpBinding
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|http
+operator|.
+name|common
+operator|.
+name|HttpCommonComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|http
+operator|.
+name|common
+operator|.
+name|HttpConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|http
+operator|.
+name|common
 operator|.
 name|HttpHelper
 import|;
@@ -130,9 +176,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|http
 operator|.
-name|HeaderFilterStrategyComponent
+name|common
+operator|.
+name|UrlRewrite
 import|;
 end_import
 
@@ -466,7 +514,7 @@ specifier|public
 class|class
 name|HttpComponent
 extends|extends
-name|HeaderFilterStrategyComponent
+name|HttpCommonComponent
 block|{
 DECL|field|LOG
 specifier|private
@@ -493,11 +541,6 @@ DECL|field|clientConnectionManager
 specifier|protected
 name|HttpClientConnectionManager
 name|clientConnectionManager
-decl_stmt|;
-DECL|field|httpBinding
-specifier|protected
-name|HttpBinding
-name|httpBinding
 decl_stmt|;
 DECL|field|httpContext
 specifier|protected
@@ -560,30 +603,25 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Connects the URL specified on the endpoint to the specified processor.      *      * @param consumer the consumer      * @throws Exception can be thrown      */
-DECL|method|connect (HttpConsumer consumer)
+DECL|method|HttpComponent (Class<? extends HttpEndpoint> endpointClass)
 specifier|public
-name|void
-name|connect
+name|HttpComponent
 parameter_list|(
-name|HttpConsumer
-name|consumer
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|HttpEndpoint
+argument_list|>
+name|endpointClass
 parameter_list|)
-throws|throws
-name|Exception
-block|{     }
-comment|/**      * Disconnects the URL specified on the endpoint from the specified processor.      *      * @param consumer the consumer      * @throws Exception can be thrown      */
-DECL|method|disconnect (HttpConsumer consumer)
-specifier|public
-name|void
-name|disconnect
-parameter_list|(
-name|HttpConsumer
-name|consumer
-parameter_list|)
-throws|throws
-name|Exception
-block|{     }
+block|{
+name|super
+argument_list|(
+name|endpointClass
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Creates the HttpClientConfigurer based on the given parameters      *      * @param parameters the map of parameters      * @param secure whether the endpoint is secure (eg https4)      * @return the configurer      * @throws Exception is thrown if error creating configurer      */
 DECL|method|createHttpClientConfigurer (Map<String, Object> parameters, boolean secure)
 specifier|protected
@@ -1701,7 +1739,7 @@ expr_stmt|;
 block|}
 name|endpoint
 operator|.
-name|setHttpBinding
+name|setBinding
 argument_list|(
 name|getHttpBinding
 argument_list|()
@@ -1716,7 +1754,7 @@ condition|)
 block|{
 name|endpoint
 operator|.
-name|setHttpBinding
+name|setBinding
 argument_list|(
 name|httpBinding
 argument_list|)
@@ -2140,16 +2178,6 @@ operator|=
 name|clientConnectionManager
 expr_stmt|;
 block|}
-DECL|method|getHttpBinding ()
-specifier|public
-name|HttpBinding
-name|getHttpBinding
-parameter_list|()
-block|{
-return|return
-name|httpBinding
-return|;
-block|}
 comment|/**      * To use a custom HttpBinding to control the mapping between Camel message and HttpClient.      */
 DECL|method|setHttpBinding (HttpBinding httpBinding)
 specifier|public
@@ -2160,11 +2188,34 @@ name|HttpBinding
 name|httpBinding
 parameter_list|)
 block|{
-name|this
+comment|// need to override and call super for component docs
+name|super
 operator|.
+name|setHttpBinding
+argument_list|(
 name|httpBinding
-operator|=
-name|httpBinding
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * To use the shared HttpConfiguration as base configuration.      */
+annotation|@
+name|Override
+DECL|method|setHttpConfiguration (HttpConfiguration httpConfiguration)
+specifier|public
+name|void
+name|setHttpConfiguration
+parameter_list|(
+name|HttpConfiguration
+name|httpConfiguration
+parameter_list|)
+block|{
+comment|// need to override and call super for component docs
+name|super
+operator|.
+name|setHttpConfiguration
+argument_list|(
+name|httpConfiguration
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getHttpContext ()

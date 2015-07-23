@@ -30,6 +30,22 @@ name|Producer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|http
+operator|.
+name|common
+operator|.
+name|UrlRewrite
+import|;
+end_import
+
 begin_comment
 comment|// START SNIPPET: e1
 end_comment

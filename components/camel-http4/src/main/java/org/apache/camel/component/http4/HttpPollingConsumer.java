@@ -84,11 +84,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|http
 operator|.
-name|http4
-operator|.
-name|helper
+name|common
 operator|.
 name|HttpHelper
 import|;
