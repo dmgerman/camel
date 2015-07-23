@@ -173,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@code SecureProtocolSocketFactory} implementation to allow configuration  * of Commons HTTP SSL/TLS options based on a {@link #JSSEClientParameters}  * instance or a provided {@code SSLSocketFactory} instance.  */
+comment|/**  * A {@code SecureProtocolSocketFactory} implementation to allow configuration  * of Commons HTTP SSL/TLS options based on a JSSEClientParameters  * instance or a provided {@code SSLSocketFactory} instance.  */
 end_comment
 
 begin_class
