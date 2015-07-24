@@ -20,6 +20,34 @@ name|mbean
 package|;
 end_package
 
+begin_import
+import|import
+name|javax
+operator|.
+name|management
+operator|.
+name|openmbean
+operator|.
+name|TabularData
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedOperation
+import|;
+end_import
+
 begin_interface
 DECL|interface|ManagedChoiceMBean
 specifier|public
@@ -27,7 +55,20 @@ interface|interface
 name|ManagedChoiceMBean
 extends|extends
 name|ManagedProcessorMBean
-block|{  }
+block|{
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Statistics of the content based router for each predicate"
+argument_list|)
+DECL|method|choiceStatistics ()
+name|TabularData
+name|choiceStatistics
+parameter_list|()
+function_decl|;
+block|}
 end_interface
 
 end_unit

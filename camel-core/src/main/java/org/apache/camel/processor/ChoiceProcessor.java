@@ -283,6 +283,12 @@ specifier|final
 name|Processor
 name|otherwise
 decl_stmt|;
+DECL|field|notFiltered
+specifier|private
+specifier|transient
+name|long
+name|notFiltered
+decl_stmt|;
 DECL|method|ChoiceProcessor (List<FilterProcessor> filters, Processor otherwise)
 specifier|public
 name|ChoiceProcessor
@@ -479,23 +485,9 @@ name|matches
 operator|=
 name|filter
 operator|.
-name|getPredicate
-argument_list|()
-operator|.
 name|matches
 argument_list|(
 name|exchange
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|FILTER_MATCHED
-argument_list|,
-name|matches
 argument_list|)
 expr_stmt|;
 comment|// as we have pre evaluated the predicate then use its processor directly when routing
@@ -525,6 +517,9 @@ block|}
 else|else
 block|{
 comment|// its the otherwise processor, so its a match
+name|notFiltered
+operator|++
+expr_stmt|;
 name|matches
 operator|=
 literal|true
@@ -722,6 +717,44 @@ block|{
 return|return
 name|otherwise
 return|;
+block|}
+comment|/**      * Gets the number of Exchanges that did not match any predicate and are routed using otherwise      */
+DECL|method|getNotFilteredCount ()
+specifier|public
+name|long
+name|getNotFilteredCount
+parameter_list|()
+block|{
+return|return
+name|notFiltered
+return|;
+block|}
+comment|/**      * Reset counters.      */
+DECL|method|reset ()
+specifier|public
+name|void
+name|reset
+parameter_list|()
+block|{
+for|for
+control|(
+name|FilterProcessor
+name|filter
+range|:
+name|getFilters
+argument_list|()
+control|)
+block|{
+name|filter
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
+name|notFiltered
+operator|=
+literal|0
+expr_stmt|;
 block|}
 DECL|method|next ()
 specifier|public
