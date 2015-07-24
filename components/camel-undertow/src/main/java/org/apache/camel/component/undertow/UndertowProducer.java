@@ -128,6 +128,18 @@ name|undertow
 operator|.
 name|util
 operator|.
+name|HttpString
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|undertow
+operator|.
+name|util
+operator|.
 name|Protocols
 import|;
 end_import
@@ -466,6 +478,29 @@ operator|.
 name|toASCIIString
 argument_list|()
 expr_stmt|;
+comment|// what http method to use
+name|HttpString
+name|method
+init|=
+name|UndertowHelper
+operator|.
+name|createMethod
+argument_list|(
+name|exchange
+argument_list|,
+name|endpoint
+argument_list|,
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+operator|!=
+literal|null
+argument_list|)
+decl_stmt|;
 name|ClientRequest
 name|request
 init|=
@@ -487,6 +522,13 @@ operator|.
 name|setPath
 argument_list|(
 name|url
+argument_list|)
+expr_stmt|;
+name|request
+operator|.
+name|setMethod
+argument_list|(
+name|method
 argument_list|)
 expr_stmt|;
 name|Object
@@ -515,7 +557,7 @@ name|bodyAsByte
 init|=
 name|tc
 operator|.
-name|convertTo
+name|tryConvertTo
 argument_list|(
 name|ByteBuffer
 operator|.
@@ -548,6 +590,26 @@ name|array
 argument_list|()
 operator|.
 name|length
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Executing http {} method: {}"
+argument_list|,
+name|method
+argument_list|,
+name|url
 argument_list|)
 expr_stmt|;
 block|}
@@ -613,11 +675,7 @@ name|Exchange
 name|camelExchange
 parameter_list|)
 block|{
-name|Object
-name|result
-decl_stmt|;
-name|result
-operator|=
+return|return
 name|endpoint
 operator|.
 name|getUndertowHttpBinding
@@ -632,9 +690,6 @@ operator|.
 name|getIn
 argument_list|()
 argument_list|)
-expr_stmt|;
-return|return
-name|result
 return|;
 block|}
 comment|/**      * Everything important happens in callback      */
@@ -699,7 +754,6 @@ operator|=
 name|callback
 expr_stmt|;
 block|}
-comment|// TODO: Add some logging of those events at trace or debug level
 annotation|@
 name|Override
 DECL|method|completed (ClientExchange clientExchange)
@@ -732,6 +786,15 @@ name|ClientExchange
 name|clientExchange
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"completed: {}"
+argument_list|,
+name|clientExchange
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|Message
@@ -814,6 +877,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"failed: {}"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|camelExchange
 operator|.
 name|setException
@@ -889,6 +961,15 @@ name|IOException
 name|e
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"failed: {}"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 name|camelExchange
 operator|.
 name|setException
