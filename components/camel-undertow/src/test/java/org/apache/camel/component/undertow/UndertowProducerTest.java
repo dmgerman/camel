@@ -50,16 +50,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -72,8 +62,6 @@ name|UndertowProducerTest
 extends|extends
 name|BaseUndertowTest
 block|{
-annotation|@
-name|Ignore
 annotation|@
 name|Test
 DECL|method|testHttpSimple ()
@@ -125,8 +113,6 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Ignore
 annotation|@
 name|Test
 DECL|method|testHttpSimpleHeader ()
@@ -184,8 +170,6 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Ignore
 annotation|@
 name|Test
 DECL|method|testHttpSimpleHeaderAndBody ()

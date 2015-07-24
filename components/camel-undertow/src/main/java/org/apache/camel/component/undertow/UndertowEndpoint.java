@@ -222,6 +222,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -298,6 +314,11 @@ specifier|private
 name|UndertowComponent
 name|component
 decl_stmt|;
+DECL|field|sslContext
+specifier|private
+name|SSLContext
+name|sslContext
+decl_stmt|;
 annotation|@
 name|UriPath
 DECL|field|httpURI
@@ -321,10 +342,10 @@ name|headerFilterStrategy
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|sslContext
+DECL|field|sslContextParameters
 specifier|private
-name|SSLContext
-name|sslContext
+name|SSLContextParameters
+name|sslContextParameters
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -564,6 +585,16 @@ return|return
 name|exchange
 return|;
 block|}
+DECL|method|getSslContext ()
+specifier|public
+name|SSLContext
+name|getSslContext
+parameter_list|()
+block|{
+return|return
+name|sslContext
+return|;
+block|}
 DECL|method|getHttpURI ()
 specifier|public
 name|URI
@@ -679,31 +710,31 @@ name|headerFilterStrategy
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getSslContext ()
+DECL|method|getSslContextParameters ()
 specifier|public
-name|SSLContext
-name|getSslContext
+name|SSLContextParameters
+name|getSslContextParameters
 parameter_list|()
 block|{
 return|return
-name|sslContext
+name|sslContextParameters
 return|;
 block|}
 comment|/**      * To configure security using SSLContextParameters      */
-DECL|method|setSslContext (SSLContext sslContext)
+DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
-name|setSslContext
+name|setSslContextParameters
 parameter_list|(
-name|SSLContext
-name|sslContext
+name|SSLContextParameters
+name|sslContextParameters
 parameter_list|)
 block|{
 name|this
 operator|.
-name|sslContext
+name|sslContextParameters
 operator|=
-name|sslContext
+name|sslContextParameters
 expr_stmt|;
 block|}
 DECL|method|getThrowExceptionOnFailure ()
@@ -786,6 +817,37 @@ name|undertowHttpBinding
 operator|=
 name|undertowHttpBinding
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|sslContextParameters
+operator|!=
+literal|null
+condition|)
+block|{
+name|sslContext
+operator|=
+name|sslContextParameters
+operator|.
+name|createSSLContext
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
