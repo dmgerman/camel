@@ -1233,11 +1233,7 @@ name|def
 operator|.
 name|setCorrelationExpression
 argument_list|(
-operator|new
-name|ExpressionSubElementDefinition
-argument_list|(
 name|correlationExpression
-argument_list|)
 argument_list|)
 expr_stmt|;
 name|setLoadBalancerType
