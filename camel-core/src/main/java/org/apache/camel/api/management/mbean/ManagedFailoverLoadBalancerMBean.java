@@ -92,6 +92,18 @@ name|Integer
 name|getMaximumFailoverAttempts
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The class names of the exceptions the load balancer uses (separated by comma)"
+argument_list|)
+DECL|method|getExceptions ()
+name|String
+name|getExceptions
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
