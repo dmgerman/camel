@@ -49,11 +49,23 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Reference to the custom load balancer to lookup from the registry to be used"
+argument_list|)
+DECL|method|getRef ()
+name|String
+name|getRef
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"The custom load balancer class name"
 argument_list|)
-DECL|method|getCustomLoadBalancerClassName ()
+DECL|method|getLoadBalancerClassName ()
 name|String
-name|getCustomLoadBalancerClassName
+name|getLoadBalancerClassName
 parameter_list|()
 function_decl|;
 annotation|@
