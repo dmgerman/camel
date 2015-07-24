@@ -13228,7 +13228,7 @@ name|restConfigurations
 operator|.
 name|get
 argument_list|(
-literal|"default"
+literal|""
 argument_list|)
 decl_stmt|;
 if|if
@@ -13267,7 +13267,7 @@ name|restConfigurations
 operator|.
 name|put
 argument_list|(
-literal|"default"
+literal|""
 argument_list|,
 name|restConfiguration
 argument_list|)
@@ -13332,7 +13332,7 @@ condition|)
 block|{
 name|component
 operator|=
-literal|"default"
+literal|""
 expr_stmt|;
 block|}
 name|RestConfiguration

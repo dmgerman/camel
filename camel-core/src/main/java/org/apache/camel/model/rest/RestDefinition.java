@@ -2606,6 +2606,12 @@ condition|(
 name|component
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|component
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|options

@@ -432,7 +432,7 @@ block|{
 return|return
 name|restConfiguration
 argument_list|(
-literal|"default"
+literal|""
 argument_list|)
 return|;
 block|}
@@ -488,6 +488,15 @@ operator|new
 name|RestConfigurationDefinition
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+operator|!
+name|component
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|restConfiguration
 operator|.
 name|component
@@ -495,6 +504,7 @@ argument_list|(
 name|component
 argument_list|)
 expr_stmt|;
+block|}
 name|restConfigurations
 operator|.
 name|put
@@ -1655,7 +1665,7 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-literal|"default"
+literal|""
 operator|.
 name|equals
 argument_list|(
