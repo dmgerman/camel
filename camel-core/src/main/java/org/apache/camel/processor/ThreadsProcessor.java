@@ -781,6 +781,16 @@ operator|=
 name|rejectedPolicy
 expr_stmt|;
 block|}
+DECL|method|getExecutorService ()
+specifier|public
+name|ExecutorService
+name|getExecutorService
+parameter_list|()
+block|{
+return|return
+name|executorService
+return|;
+block|}
 DECL|method|toString ()
 specifier|public
 name|String

@@ -68,6 +68,126 @@ name|String
 name|getRejectedPolicy
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Core pool size"
+argument_list|)
+DECL|method|getCorePoolSize ()
+name|int
+name|getCorePoolSize
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Pool size"
+argument_list|)
+DECL|method|getPoolSize ()
+name|int
+name|getPoolSize
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Maximum pool size"
+argument_list|)
+DECL|method|getMaximumPoolSize ()
+name|int
+name|getMaximumPoolSize
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Largest pool size"
+argument_list|)
+DECL|method|getLargestPoolSize ()
+name|int
+name|getLargestPoolSize
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Active count"
+argument_list|)
+DECL|method|getActiveCount ()
+name|int
+name|getActiveCount
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Task count"
+argument_list|)
+DECL|method|getTaskCount ()
+name|long
+name|getTaskCount
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Completed task count"
+argument_list|)
+DECL|method|getCompletedTaskCount ()
+name|long
+name|getCompletedTaskCount
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Task queue size"
+argument_list|)
+DECL|method|getTaskQueueSize ()
+name|long
+name|getTaskQueueSize
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Keep alive time in seconds"
+argument_list|)
+DECL|method|getKeepAliveTime ()
+name|long
+name|getKeepAliveTime
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether core threads is allowed to timeout if no tasks in queue to process"
+argument_list|)
+DECL|method|isAllowCoreThreadTimeout ()
+name|boolean
+name|isAllowCoreThreadTimeout
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
