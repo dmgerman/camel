@@ -844,7 +844,7 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-name|UndertowUtils
+name|UndertowHelper
 operator|.
 name|appendHeader
 argument_list|(
@@ -927,7 +927,7 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-name|UndertowUtils
+name|UndertowHelper
 operator|.
 name|appendHeader
 argument_list|(
@@ -1065,7 +1065,7 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-name|UndertowUtils
+name|UndertowHelper
 operator|.
 name|appendHeader
 argument_list|(
@@ -1244,7 +1244,7 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-name|UndertowUtils
+name|UndertowHelper
 operator|.
 name|appendHeader
 argument_list|(
@@ -1327,7 +1327,7 @@ name|exchange
 argument_list|)
 condition|)
 block|{
-name|UndertowUtils
+name|UndertowHelper
 operator|.
 name|appendHeader
 argument_list|(

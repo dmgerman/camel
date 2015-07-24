@@ -396,7 +396,7 @@ specifier|private
 name|Boolean
 name|transferException
 decl_stmt|;
-DECL|method|UndertowEndpoint (String uri, UndertowComponent component, URI httpURI)
+DECL|method|UndertowEndpoint (String uri, UndertowComponent component)
 specifier|public
 name|UndertowEndpoint
 parameter_list|(
@@ -405,9 +405,6 @@ name|uri
 parameter_list|,
 name|UndertowComponent
 name|component
-parameter_list|,
-name|URI
-name|httpURI
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -424,12 +421,6 @@ operator|.
 name|component
 operator|=
 name|component
-expr_stmt|;
-name|this
-operator|.
-name|httpURI
-operator|=
-name|httpURI
 expr_stmt|;
 block|}
 annotation|@
@@ -512,6 +503,19 @@ name|boolean
 name|isSingleton
 parameter_list|()
 block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|isLenientProperties ()
+specifier|public
+name|boolean
+name|isLenientProperties
+parameter_list|()
+block|{
+comment|// true to allow dynamic URI options to be configured and passed to external system for eg. the UndertowProducer
 return|return
 literal|true
 return|;
