@@ -1624,7 +1624,7 @@ expr_stmt|;
 comment|// setup rest configuration before adding the rests
 if|if
 condition|(
-name|getRestConfiguration
+name|getRestConfigurations
 argument_list|()
 operator|!=
 literal|null
@@ -1642,7 +1642,7 @@ name|RestConfigurationDefinition
 argument_list|>
 name|entry
 range|:
-name|getRestConfiguration
+name|getRestConfigurations
 argument_list|()
 operator|.
 name|entrySet
@@ -1763,7 +1763,7 @@ return|return
 name|restCollection
 return|;
 block|}
-DECL|method|getRestConfiguration ()
+DECL|method|getRestConfigurations ()
 specifier|public
 name|Map
 argument_list|<
@@ -1771,7 +1771,7 @@ name|String
 argument_list|,
 name|RestConfigurationDefinition
 argument_list|>
-name|getRestConfiguration
+name|getRestConfigurations
 parameter_list|()
 block|{
 return|return
