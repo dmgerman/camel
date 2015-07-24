@@ -244,9 +244,6 @@ condition|(
 name|matches
 condition|)
 block|{
-name|filtered
-operator|++
-expr_stmt|;
 return|return
 name|processor
 operator|.

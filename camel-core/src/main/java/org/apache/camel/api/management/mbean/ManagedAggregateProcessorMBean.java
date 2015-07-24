@@ -65,6 +65,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"The language for the expression"
+argument_list|)
+DECL|method|getCorrelationExpressionLanguage ()
+name|String
+name|getCorrelationExpressionLanguage
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Correlation Expression"
 argument_list|)
 DECL|method|getCorrelationExpression ()
@@ -82,6 +94,18 @@ argument_list|)
 DECL|method|getCompletionTimeout ()
 name|long
 name|getCompletionTimeout
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The language for the expression"
+argument_list|)
+DECL|method|getCompletionTimeoutLanguage ()
+name|String
+name|getCompletionTimeoutLanguage
 parameter_list|()
 function_decl|;
 annotation|@
@@ -118,6 +142,18 @@ argument_list|)
 DECL|method|getCompletionSize ()
 name|int
 name|getCompletionSize
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The language for the expression"
+argument_list|)
+DECL|method|getCompletionSizeExpressionLanguage ()
+name|String
+name|getCompletionSizeExpressionLanguage
 parameter_list|()
 function_decl|;
 annotation|@
@@ -202,6 +238,18 @@ argument_list|)
 DECL|method|isEagerCheckCompletion ()
 name|boolean
 name|isEagerCheckCompletion
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The language for the predicate"
+argument_list|)
+DECL|method|getCompletionPredicateLanguage ()
+name|String
+name|getCompletionPredicateLanguage
 parameter_list|()
 function_decl|;
 annotation|@
