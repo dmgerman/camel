@@ -283,6 +283,19 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|/**      * Maximum number of outputs, as some load balancers only support 1 processor      */
+DECL|method|getMaximumNumberOfOutputs ()
+specifier|protected
+name|int
+name|getMaximumNumberOfOutputs
+parameter_list|()
+block|{
+return|return
+name|Integer
+operator|.
+name|MAX_VALUE
+return|;
+block|}
 comment|/**      * Allows derived classes to customize the load balancer      */
 DECL|method|configureLoadBalancer (LoadBalancer loadBalancer)
 specifier|protected

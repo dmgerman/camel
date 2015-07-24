@@ -727,6 +727,49 @@ argument_list|(
 name|loadBalancer
 argument_list|)
 expr_stmt|;
+comment|// some load balancers can only support a fixed number of outputs
+name|int
+name|max
+init|=
+name|loadBalancerType
+operator|.
+name|getMaximumNumberOfOutputs
+argument_list|()
+decl_stmt|;
+name|int
+name|size
+init|=
+name|getOutputs
+argument_list|()
+operator|.
+name|size
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|size
+operator|>
+name|max
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"To many outputs configured on "
+operator|+
+name|loadBalancerType
+operator|+
+literal|": "
+operator|+
+name|size
+operator|+
+literal|"> "
+operator|+
+name|max
+argument_list|)
+throw|;
+block|}
 for|for
 control|(
 name|ProcessorDefinition

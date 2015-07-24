@@ -309,6 +309,19 @@ parameter_list|()
 block|{     }
 annotation|@
 name|Override
+DECL|method|getMaximumNumberOfOutputs ()
+specifier|protected
+name|int
+name|getMaximumNumberOfOutputs
+parameter_list|()
+block|{
+comment|// we can only support 1 output
+return|return
+literal|1
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|createLoadBalancer (RouteContext routeContext)
 specifier|protected
 name|LoadBalancer
