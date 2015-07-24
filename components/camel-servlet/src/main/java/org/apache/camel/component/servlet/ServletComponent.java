@@ -943,7 +943,11 @@ name|getCamelContext
 argument_list|()
 operator|.
 name|getRestConfiguration
-argument_list|()
+argument_list|(
+literal|"servlet"
+argument_list|,
+literal|true
+argument_list|)
 decl_stmt|;
 name|Map
 argument_list|<
@@ -962,27 +966,6 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// build query string, and append any endpoint configuration properties
-if|if
-condition|(
-name|config
-operator|.
-name|getComponent
-argument_list|()
-operator|==
-literal|null
-operator|||
-name|config
-operator|.
-name|getComponent
-argument_list|()
-operator|.
-name|equals
-argument_list|(
-literal|"servlet"
-argument_list|)
-condition|)
-block|{
 comment|// setup endpoint options
 if|if
 condition|(
@@ -1013,7 +996,6 @@ name|getEndpointProperties
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|String
 name|query

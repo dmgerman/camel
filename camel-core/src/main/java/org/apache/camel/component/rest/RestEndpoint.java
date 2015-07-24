@@ -734,6 +734,11 @@ name|factory
 init|=
 literal|null
 decl_stmt|;
+name|String
+name|cname
+init|=
+literal|null
+decl_stmt|;
 if|if
 condition|(
 name|getComponentName
@@ -855,6 +860,11 @@ argument_list|)
 throw|;
 block|}
 block|}
+name|cname
+operator|=
+name|getComponentName
+argument_list|()
+expr_stmt|;
 block|}
 comment|// try all components
 if|if
@@ -904,6 +914,10 @@ operator|(
 name|RestConsumerFactory
 operator|)
 name|comp
+expr_stmt|;
+name|cname
+operator|=
+name|name
 expr_stmt|;
 break|break;
 block|}
@@ -1028,7 +1042,11 @@ name|getCamelContext
 argument_list|()
 operator|.
 name|getRestConfiguration
-argument_list|()
+argument_list|(
+name|cname
+argument_list|,
+literal|true
+argument_list|)
 decl_stmt|;
 if|if
 condition|(
