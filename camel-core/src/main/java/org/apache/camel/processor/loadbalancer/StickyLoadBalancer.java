@@ -113,7 +113,7 @@ name|correlationExpression
 decl_stmt|;
 DECL|field|loadBalancer
 specifier|private
-name|QueueLoadBalancer
+name|RoundRobinLoadBalancer
 name|loadBalancer
 decl_stmt|;
 DECL|field|numberOfHashGroups
@@ -154,48 +154,19 @@ name|correlationExpression
 parameter_list|)
 block|{
 name|this
-argument_list|(
+operator|.
 name|correlationExpression
-argument_list|,
+operator|=
+name|correlationExpression
+expr_stmt|;
+name|this
+operator|.
+name|loadBalancer
+operator|=
 operator|new
 name|RoundRobinLoadBalancer
 argument_list|()
-argument_list|)
 expr_stmt|;
-block|}
-DECL|method|StickyLoadBalancer (Expression correlationExpression, QueueLoadBalancer loadBalancer)
-specifier|public
-name|StickyLoadBalancer
-parameter_list|(
-name|Expression
-name|correlationExpression
-parameter_list|,
-name|QueueLoadBalancer
-name|loadBalancer
-parameter_list|)
-block|{
-name|this
-operator|.
-name|correlationExpression
-operator|=
-name|correlationExpression
-expr_stmt|;
-name|this
-operator|.
-name|loadBalancer
-operator|=
-name|loadBalancer
-expr_stmt|;
-block|}
-DECL|method|getCorrelationExpression ()
-specifier|public
-name|Expression
-name|getCorrelationExpression
-parameter_list|()
-block|{
-return|return
-name|correlationExpression
-return|;
 block|}
 DECL|method|chooseProcessor (List<Processor> processors, Exchange exchange)
 specifier|protected
@@ -373,6 +344,29 @@ argument_list|(
 name|processor
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getLastChosenProcessorIndex ()
+specifier|public
+name|int
+name|getLastChosenProcessorIndex
+parameter_list|()
+block|{
+return|return
+name|loadBalancer
+operator|.
+name|getLastChosenProcessorIndex
+argument_list|()
+return|;
+block|}
+DECL|method|getCorrelationExpression ()
+specifier|public
+name|Expression
+name|getCorrelationExpression
+parameter_list|()
+block|{
+return|return
+name|correlationExpression
+return|;
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------

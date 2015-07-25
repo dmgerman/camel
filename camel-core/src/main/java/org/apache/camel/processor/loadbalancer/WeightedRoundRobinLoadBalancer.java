@@ -195,6 +195,10 @@ operator|++
 expr_stmt|;
 block|}
 block|}
+name|lastIndex
+operator|=
+name|counter
+expr_stmt|;
 return|return
 name|processors
 operator|.

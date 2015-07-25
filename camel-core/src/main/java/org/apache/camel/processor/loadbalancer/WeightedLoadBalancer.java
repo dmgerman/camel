@@ -77,6 +77,11 @@ name|DistributionRatio
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|lastIndex
+specifier|transient
+name|int
+name|lastIndex
+decl_stmt|;
 DECL|method|WeightedLoadBalancer (List<Integer> distributionRatios)
 specifier|public
 name|WeightedLoadBalancer
@@ -129,6 +134,16 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|getLastChosenProcessorIndex ()
+specifier|public
+name|int
+name|getLastChosenProcessorIndex
+parameter_list|()
+block|{
+return|return
+name|lastIndex
+return|;
 block|}
 annotation|@
 name|Override

@@ -85,6 +85,12 @@ operator|new
 name|Random
 argument_list|()
 decl_stmt|;
+DECL|field|index
+specifier|private
+specifier|transient
+name|int
+name|index
+decl_stmt|;
 DECL|method|chooseProcessor (List<Processor> processors, Exchange exchange)
 specifier|protected
 specifier|synchronized
@@ -139,16 +145,15 @@ argument_list|)
 return|;
 block|}
 comment|// pick a random
-name|int
 name|index
-init|=
+operator|=
 name|RANDOM
 operator|.
 name|nextInt
 argument_list|(
 name|size
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 return|return
 name|processors
 operator|.
@@ -156,6 +161,16 @@ name|get
 argument_list|(
 name|index
 argument_list|)
+return|;
+block|}
+DECL|method|getLastChosenProcessorIndex ()
+specifier|public
+name|int
+name|getLastChosenProcessorIndex
+parameter_list|()
+block|{
+return|return
+name|index
 return|;
 block|}
 DECL|method|toString ()

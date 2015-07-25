@@ -118,6 +118,16 @@ name|counter
 argument_list|)
 return|;
 block|}
+DECL|method|getLastChosenProcessorIndex ()
+specifier|public
+name|int
+name|getLastChosenProcessorIndex
+parameter_list|()
+block|{
+return|return
+name|counter
+return|;
+block|}
 DECL|method|toString ()
 specifier|public
 name|String

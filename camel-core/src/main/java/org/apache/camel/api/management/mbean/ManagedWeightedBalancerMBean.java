@@ -92,6 +92,18 @@ name|String
 name|getDistributionRatioDelimiter
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Processor id of the last chosen processor"
+argument_list|)
+DECL|method|getLastChosenProcessorId ()
+name|String
+name|getLastChosenProcessorId
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
