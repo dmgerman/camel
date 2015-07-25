@@ -56,7 +56,7 @@ name|com
 operator|.
 name|splunk
 operator|.
-name|Input
+name|Service
 import|;
 end_import
 
@@ -66,7 +66,7 @@ name|com
 operator|.
 name|splunk
 operator|.
-name|Service
+name|TcpInput
 import|;
 end_import
 
@@ -147,9 +147,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-name|Input
+name|TcpInput
 name|input
 init|=
+operator|(
+name|TcpInput
+operator|)
 name|service
 operator|.
 name|getInputs
@@ -205,18 +208,11 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
-name|Socket
-name|socket
-init|=
-name|service
-operator|.
-name|open
-argument_list|(
-name|port
-argument_list|)
-decl_stmt|;
 return|return
-name|socket
+name|input
+operator|.
+name|attach
+argument_list|()
 return|;
 block|}
 block|}
