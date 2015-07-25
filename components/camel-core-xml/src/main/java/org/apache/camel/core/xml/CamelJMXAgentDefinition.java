@@ -247,6 +247,14 @@ specifier|private
 name|String
 name|loadStatisticsEnabled
 decl_stmt|;
+comment|/**      * A flag that indicates whether extended statistics is enabled      */
+annotation|@
+name|XmlAttribute
+DECL|field|extendedStatisticsEnabled
+specifier|private
+name|String
+name|extendedStatisticsEnabled
+decl_stmt|;
 comment|/**      * A flag that indicates whether to include hostname in JMX MBean names.      */
 annotation|@
 name|XmlAttribute
@@ -605,6 +613,32 @@ operator|=
 name|loadStatisticsEnabled
 expr_stmt|;
 block|}
+DECL|method|getExtendedStatisticsEnabled ()
+specifier|public
+name|String
+name|getExtendedStatisticsEnabled
+parameter_list|()
+block|{
+return|return
+name|extendedStatisticsEnabled
+return|;
+block|}
+DECL|method|setExtendedStatisticsEnabled (String extendedStatisticsEnabled)
+specifier|public
+name|void
+name|setExtendedStatisticsEnabled
+parameter_list|(
+name|String
+name|extendedStatisticsEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|extendedStatisticsEnabled
+operator|=
+name|extendedStatisticsEnabled
+expr_stmt|;
+block|}
 DECL|method|getIncludeHostName ()
 specifier|public
 name|String
@@ -848,6 +882,26 @@ operator|.
 name|append
 argument_list|(
 name|loadStatisticsEnabled
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|extendedStatisticsEnabled
+operator|!=
+literal|null
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", extendedStatisticsEnabled="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|extendedStatisticsEnabled
 argument_list|)
 expr_stmt|;
 block|}
