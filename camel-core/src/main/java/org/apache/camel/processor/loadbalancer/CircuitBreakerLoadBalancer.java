@@ -223,6 +223,7 @@ specifier|private
 name|long
 name|lastFailure
 decl_stmt|;
+comment|// stateful statistics
 DECL|field|failures
 specifier|private
 name|AtomicInteger
@@ -243,6 +244,27 @@ argument_list|(
 name|STATE_CLOSED
 argument_list|)
 decl_stmt|;
+DECL|field|statistics
+specifier|private
+specifier|final
+name|ExceptionFailureStatistics
+name|statistics
+init|=
+operator|new
+name|ExceptionFailureStatistics
+argument_list|()
+decl_stmt|;
+DECL|method|CircuitBreakerLoadBalancer ()
+specifier|public
+name|CircuitBreakerLoadBalancer
+parameter_list|()
+block|{
+name|this
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|CircuitBreakerLoadBalancer (List<Class<?>> exceptions)
 specifier|public
 name|CircuitBreakerLoadBalancer
@@ -263,17 +285,12 @@ name|exceptions
 operator|=
 name|exceptions
 expr_stmt|;
-block|}
-DECL|method|CircuitBreakerLoadBalancer ()
-specifier|public
-name|CircuitBreakerLoadBalancer
-parameter_list|()
-block|{
-name|this
+name|statistics
 operator|.
+name|init
+argument_list|(
 name|exceptions
-operator|=
-literal|null
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|setHalfOpenAfter (long halfOpenAfter)
@@ -387,6 +404,7 @@ return|return
 name|exceptions
 return|;
 block|}
+comment|/**      * Has the given Exchange failed      */
 DECL|method|hasFailed (Exchange exchange)
 specifier|protected
 name|boolean
@@ -396,6 +414,17 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+if|if
+condition|(
+name|exchange
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 name|boolean
 name|answer
 init|=
@@ -423,6 +452,7 @@ name|isEmpty
 argument_list|()
 condition|)
 block|{
+comment|// always failover if no exceptions defined
 name|answer
 operator|=
 literal|true
@@ -441,6 +471,7 @@ range|:
 name|exceptions
 control|)
 block|{
+comment|// will look in exception hierarchy
 if|if
 condition|(
 name|exchange
@@ -461,7 +492,38 @@ break|break;
 block|}
 block|}
 block|}
+if|if
+condition|(
+name|answer
+condition|)
+block|{
+comment|// record the failure in the statistics
+name|statistics
+operator|.
+name|onHandledFailure
+argument_list|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
+block|}
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Failed: {} for exchangeId: {}"
+argument_list|,
+name|answer
+argument_list|,
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|answer
 return|;
@@ -1256,6 +1318,80 @@ block|{
 return|return
 literal|"circuitbreaker"
 return|;
+block|}
+DECL|method|getExceptionFailureStatistics ()
+specifier|public
+name|ExceptionFailureStatistics
+name|getExceptionFailureStatistics
+parameter_list|()
+block|{
+return|return
+name|statistics
+return|;
+block|}
+DECL|method|reset ()
+specifier|public
+name|void
+name|reset
+parameter_list|()
+block|{
+comment|// reset state
+name|failures
+operator|.
+name|set
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+name|state
+operator|.
+name|set
+argument_list|(
+name|STATE_CLOSED
+argument_list|)
+expr_stmt|;
+name|statistics
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+comment|// reset state
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
+comment|// noop
 block|}
 DECL|class|CircuitBreakerCallback
 class|class

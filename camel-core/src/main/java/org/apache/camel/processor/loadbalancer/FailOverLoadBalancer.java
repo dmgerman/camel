@@ -231,7 +231,7 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|// stateful counter
+comment|// stateful statistics
 DECL|field|counter
 specifier|private
 specifier|final
@@ -1660,6 +1660,11 @@ argument_list|(
 operator|-
 literal|1
 argument_list|)
+expr_stmt|;
+name|statistics
+operator|.
+name|reset
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@

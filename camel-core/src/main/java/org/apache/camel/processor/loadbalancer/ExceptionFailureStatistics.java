@@ -133,6 +133,13 @@ argument_list|>
 name|exceptions
 parameter_list|)
 block|{
+if|if
+condition|(
+name|exceptions
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|Class
@@ -155,6 +162,7 @@ name|AtomicLong
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getExceptions ()
