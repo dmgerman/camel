@@ -253,7 +253,10 @@ name|lastGoodIndex
 init|=
 operator|new
 name|AtomicInteger
-argument_list|()
+argument_list|(
+operator|-
+literal|1
+argument_list|)
 decl_stmt|;
 DECL|method|FailOverLoadBalancer ()
 specifier|public
@@ -355,6 +358,19 @@ name|camelContext
 operator|=
 name|camelContext
 expr_stmt|;
+block|}
+DECL|method|getLastGoodIndex ()
+specifier|public
+name|int
+name|getLastGoodIndex
+parameter_list|()
+block|{
+return|return
+name|lastGoodIndex
+operator|.
+name|get
+argument_list|()
+return|;
 block|}
 DECL|method|getExceptions ()
 specifier|public
@@ -661,14 +677,32 @@ name|isSticky
 argument_list|()
 condition|)
 block|{
-name|index
-operator|.
-name|set
-argument_list|(
+name|int
+name|idx
+init|=
 name|lastGoodIndex
 operator|.
 name|get
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|idx
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+name|idx
+operator|=
+literal|0
+expr_stmt|;
+block|}
+name|index
+operator|.
+name|set
+argument_list|(
+name|idx
 argument_list|)
 expr_stmt|;
 block|}
@@ -1559,6 +1593,67 @@ block|{
 return|return
 literal|"failover"
 return|;
+block|}
+DECL|method|reset ()
+specifier|public
+name|void
+name|reset
+parameter_list|()
+block|{
+comment|// reset state
+name|lastGoodIndex
+operator|.
+name|set
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+name|counter
+operator|.
+name|set
+argument_list|(
+operator|-
+literal|1
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+comment|// reset state
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
+comment|// noop
 block|}
 block|}
 end_class

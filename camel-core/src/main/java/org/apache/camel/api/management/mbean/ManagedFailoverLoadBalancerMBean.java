@@ -104,6 +104,18 @@ name|String
 name|getExceptions
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Processor id of the last known good processor that succeed processing the exchange"
+argument_list|)
+DECL|method|getLastGoodProcessorId ()
+name|String
+name|getLastGoodProcessorId
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
