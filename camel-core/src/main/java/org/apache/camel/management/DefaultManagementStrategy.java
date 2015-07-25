@@ -366,6 +366,11 @@ specifier|private
 name|boolean
 name|loadStatisticsEnabled
 decl_stmt|;
+DECL|field|extendedStatisticsEnabled
+specifier|private
+name|boolean
+name|extendedStatisticsEnabled
+decl_stmt|;
 DECL|field|camelContext
 specifier|private
 name|CamelContext
@@ -883,6 +888,32 @@ operator|.
 name|loadStatisticsEnabled
 operator|=
 name|loadStatisticsEnabled
+expr_stmt|;
+block|}
+DECL|method|isExtendedStatisticsEnabled ()
+specifier|public
+name|boolean
+name|isExtendedStatisticsEnabled
+parameter_list|()
+block|{
+return|return
+name|extendedStatisticsEnabled
+return|;
+block|}
+DECL|method|setExtendedStatisticsEnabled (boolean extendedStatisticsEnabled)
+specifier|public
+name|void
+name|setExtendedStatisticsEnabled
+parameter_list|(
+name|boolean
+name|extendedStatisticsEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|extendedStatisticsEnabled
+operator|=
+name|extendedStatisticsEnabled
 expr_stmt|;
 block|}
 DECL|method|doStart ()

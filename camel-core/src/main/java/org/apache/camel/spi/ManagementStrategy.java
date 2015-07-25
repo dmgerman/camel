@@ -320,6 +320,21 @@ name|boolean
 name|isLoadStatisticsEnabled
 parameter_list|()
 function_decl|;
+comment|/**      * Sets whether extended statistics is enabled, such as each EIP keep tracks of per endpoint utilization.      *      * @param flag<tt>true</tt> to enable extended statistics      */
+DECL|method|setExtendedStatisticsEnabled (boolean flag)
+name|void
+name|setExtendedStatisticsEnabled
+parameter_list|(
+name|boolean
+name|flag
+parameter_list|)
+function_decl|;
+comment|/**      * Gets whether extended statistics is enabled      *      * @return<tt>true</tt> if enabled      */
+DECL|method|isExtendedStatisticsEnabled ()
+name|boolean
+name|isExtendedStatisticsEnabled
+parameter_list|()
+function_decl|;
 comment|/**      * Sets the statistics level      *<p/>      * Default is {@link org.apache.camel.ManagementStatisticsLevel#All}      *      * @param level the new level      */
 DECL|method|setStatisticsLevel (ManagementStatisticsLevel level)
 name|void

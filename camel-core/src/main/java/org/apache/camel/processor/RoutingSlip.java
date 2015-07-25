@@ -236,6 +236,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|EndpointUtilizationStatistics
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|IdAware
 import|;
 end_import
@@ -1875,6 +1889,19 @@ argument_list|(
 name|producerCache
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|getEndpointUtilizationStatistics ()
+specifier|public
+name|EndpointUtilizationStatistics
+name|getEndpointUtilizationStatistics
+parameter_list|()
+block|{
+return|return
+name|producerCache
+operator|.
+name|getEndpointUtilizationStatistics
+argument_list|()
+return|;
 block|}
 comment|/**      * Returns the outbound message if available. Otherwise return the inbound message.      */
 DECL|method|getResultMessage (Exchange exchange)

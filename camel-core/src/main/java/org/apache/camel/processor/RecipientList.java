@@ -192,6 +192,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|EndpointUtilizationStatistics
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|IdAware
 import|;
 end_import
@@ -1003,6 +1017,19 @@ name|exchange
 argument_list|,
 name|recipient
 argument_list|)
+return|;
+block|}
+DECL|method|getEndpointUtilizationStatistics ()
+specifier|public
+name|EndpointUtilizationStatistics
+name|getEndpointUtilizationStatistics
+parameter_list|()
+block|{
+return|return
+name|producerCache
+operator|.
+name|getEndpointUtilizationStatistics
+argument_list|()
 return|;
 block|}
 DECL|method|doStart ()

@@ -194,6 +194,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|EndpointUtilizationStatistics
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|ServicePool
 import|;
 end_import
@@ -378,12 +392,27 @@ specifier|final
 name|Object
 name|source
 decl_stmt|;
+DECL|field|statistics
+specifier|private
+name|EndpointUtilizationStatistics
+name|statistics
+decl_stmt|;
 DECL|field|eventNotifierEnabled
 specifier|private
 name|boolean
 name|eventNotifierEnabled
 init|=
 literal|true
+decl_stmt|;
+DECL|field|extendedStatistics
+specifier|private
+name|boolean
+name|extendedStatistics
+decl_stmt|;
+DECL|field|maxCacheSize
+specifier|private
+name|int
+name|maxCacheSize
 decl_stmt|;
 DECL|method|ProducerCache (Object source, CamelContext camelContext)
 specifier|public
@@ -442,6 +471,26 @@ name|cacheSize
 argument_list|)
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|producers
+operator|instanceof
+name|LRUCache
+condition|)
+block|{
+name|maxCacheSize
+operator|=
+operator|(
+operator|(
+name|LRUCache
+operator|)
+name|producers
+operator|)
+operator|.
+name|getMaxCacheSize
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|ProducerCache (Object source, CamelContext camelContext, Map<String, Producer> cache)
 specifier|public
@@ -528,6 +577,18 @@ name|producers
 operator|=
 name|cache
 expr_stmt|;
+name|this
+operator|.
+name|extendedStatistics
+operator|=
+name|camelContext
+operator|.
+name|getManagementStrategy
+argument_list|()
+operator|.
+name|isExtendedStatisticsEnabled
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|isEventNotifierEnabled ()
 specifier|public
@@ -539,6 +600,7 @@ return|return
 name|eventNotifierEnabled
 return|;
 block|}
+comment|/**      * Whether {@link org.apache.camel.spi.EventNotifier} is enabled      */
 DECL|method|setEventNotifierEnabled (boolean eventNotifierEnabled)
 specifier|public
 name|void
@@ -553,6 +615,33 @@ operator|.
 name|eventNotifierEnabled
 operator|=
 name|eventNotifierEnabled
+expr_stmt|;
+block|}
+DECL|method|isExtendedStatistics ()
+specifier|public
+name|boolean
+name|isExtendedStatistics
+parameter_list|()
+block|{
+return|return
+name|extendedStatistics
+return|;
+block|}
+comment|/**      * Whether extended JMX statistics is enabled for {@link org.apache.camel.spi.EndpointUtilizationStatistics}      */
+DECL|method|setExtendedStatistics (boolean extendedStatistics)
+specifier|public
+name|void
+name|setExtendedStatistics
+parameter_list|(
+name|boolean
+name|extendedStatistics
+parameter_list|)
+block|{
+name|this
+operator|.
+name|extendedStatistics
+operator|=
+name|extendedStatistics
 expr_stmt|;
 block|}
 comment|/**      * Creates the {@link LRUCache} to be used.      *<p/>      * This implementation returns a {@link LRUCache} instance.       * @param cacheSize the cache size      * @return the cache      */
@@ -1748,6 +1837,28 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|answer
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// record statistics
+if|if
+condition|(
+name|extendedStatistics
+condition|)
+block|{
+name|statistics
+operator|.
+name|onHit
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 return|return
 name|answer
 return|;
@@ -1760,6 +1871,36 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|extendedStatistics
+condition|)
+block|{
+name|int
+name|max
+init|=
+name|maxCacheSize
+operator|==
+literal|0
+condition|?
+name|CamelContextHelper
+operator|.
+name|getMaximumCachePoolSize
+argument_list|(
+name|camelContext
+argument_list|)
+else|:
+name|maxCacheSize
+decl_stmt|;
+name|statistics
+operator|=
+operator|new
+name|DefaultEndpointUtilizationStatistics
+argument_list|(
+name|max
+argument_list|)
+expr_stmt|;
+block|}
 name|ServiceHelper
 operator|.
 name|startServices
@@ -1774,6 +1915,8 @@ name|ServiceHelper
 operator|.
 name|startServices
 argument_list|(
+name|statistics
+argument_list|,
 name|pool
 argument_list|)
 expr_stmt|;
@@ -1789,8 +1932,10 @@ block|{
 comment|// when stopping we intend to shutdown
 name|ServiceHelper
 operator|.
-name|stopAndShutdownService
+name|stopAndShutdownServices
 argument_list|(
+name|statistics
+argument_list|,
 name|pool
 argument_list|)
 expr_stmt|;
@@ -1836,6 +1981,19 @@ operator|.
 name|clear
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|statistics
+operator|!=
+literal|null
+condition|)
+block|{
+name|statistics
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Returns the current size of the cache      *      * @return the current size      */
 DECL|method|size ()
@@ -2110,6 +2268,19 @@ name|resetStatistics
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|statistics
+operator|!=
+literal|null
+condition|)
+block|{
+name|statistics
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Purges this cache      */
 DECL|method|purge ()
@@ -2129,6 +2300,29 @@ operator|.
 name|purge
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|statistics
+operator|!=
+literal|null
+condition|)
+block|{
+name|statistics
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+DECL|method|getEndpointUtilizationStatistics ()
+specifier|public
+name|EndpointUtilizationStatistics
+name|getEndpointUtilizationStatistics
+parameter_list|()
+block|{
+return|return
+name|statistics
+return|;
 block|}
 annotation|@
 name|Override
