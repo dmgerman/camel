@@ -992,6 +992,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|producerCache
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|doStop ()
 specifier|protected
