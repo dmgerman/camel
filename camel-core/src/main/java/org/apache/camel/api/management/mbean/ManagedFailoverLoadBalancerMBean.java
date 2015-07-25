@@ -22,6 +22,18 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|management
+operator|.
+name|openmbean
+operator|.
+name|TabularData
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -33,6 +45,22 @@ operator|.
 name|management
 operator|.
 name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedOperation
 import|;
 end_import
 
@@ -114,6 +142,18 @@ argument_list|)
 DECL|method|getLastGoodProcessorId ()
 name|String
 name|getLastGoodProcessorId
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Statistics of the content based router for each exception"
+argument_list|)
+DECL|method|exceptionStatistics ()
+name|TabularData
+name|exceptionStatistics
 parameter_list|()
 function_decl|;
 block|}

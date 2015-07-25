@@ -258,6 +258,16 @@ operator|-
 literal|1
 argument_list|)
 decl_stmt|;
+DECL|field|statistics
+specifier|private
+specifier|final
+name|ExceptionFailureStatistics
+name|statistics
+init|=
+operator|new
+name|ExceptionFailureStatistics
+argument_list|()
+decl_stmt|;
 DECL|method|FailOverLoadBalancer ()
 specifier|public
 name|FailOverLoadBalancer
@@ -328,6 +338,13 @@ argument_list|)
 throw|;
 block|}
 block|}
+name|statistics
+operator|.
+name|init
+argument_list|(
+name|exceptions
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -553,6 +570,23 @@ expr_stmt|;
 break|break;
 block|}
 block|}
+block|}
+if|if
+condition|(
+name|answer
+condition|)
+block|{
+comment|// record the failure in the statistics
+name|statistics
+operator|.
+name|onHandledFailure
+argument_list|(
+name|exchange
+operator|.
+name|getException
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 name|log
@@ -1592,6 +1626,16 @@ parameter_list|()
 block|{
 return|return
 literal|"failover"
+return|;
+block|}
+DECL|method|getExceptionFailureStatistics ()
+specifier|public
+name|ExceptionFailureStatistics
+name|getExceptionFailureStatistics
+parameter_list|()
+block|{
+return|return
+name|statistics
 return|;
 block|}
 DECL|method|reset ()
