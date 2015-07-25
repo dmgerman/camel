@@ -54,6 +54,16 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+DECL|method|write (String data)
+name|void
+name|write
+parameter_list|(
+name|String
+name|data
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 DECL|method|stop ()
 name|void
 name|stop

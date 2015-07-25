@@ -280,6 +280,22 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|raw
+specifier|private
+name|boolean
+name|raw
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"consumer"
 argument_list|)
 DECL|field|count
@@ -545,6 +561,33 @@ operator|.
 name|tcpReceiverPort
 operator|=
 name|tcpReceiverPort
+expr_stmt|;
+block|}
+DECL|method|isRaw ()
+specifier|public
+name|boolean
+name|isRaw
+parameter_list|()
+block|{
+return|return
+name|raw
+return|;
+block|}
+comment|/**      * Should the payload be inserted raw      */
+DECL|method|setRaw (boolean raw)
+specifier|public
+name|void
+name|setRaw
+parameter_list|(
+name|boolean
+name|raw
+parameter_list|)
+block|{
+name|this
+operator|.
+name|raw
+operator|=
+name|raw
 expr_stmt|;
 block|}
 DECL|method|getSourceType ()

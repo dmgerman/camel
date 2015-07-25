@@ -96,24 +96,6 @@ name|SplunkEndpoint
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|splunk
-operator|.
-name|event
-operator|.
-name|SplunkEvent
-import|;
-end_import
-
 begin_class
 DECL|class|SubmitDataWriter
 specifier|public
@@ -148,12 +130,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doWrite (SplunkEvent event)
+DECL|method|doWrite (String event)
 specifier|protected
 name|void
 name|doWrite
 parameter_list|(
-name|SplunkEvent
+name|String
 name|event
 parameter_list|)
 throws|throws
@@ -179,9 +161,6 @@ argument_list|(
 name|args
 argument_list|,
 name|event
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -205,9 +184,6 @@ argument_list|(
 name|args
 argument_list|,
 name|event
-operator|.
-name|toString
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -389,6 +389,16 @@ name|COMMON_VENDOR
 init|=
 literal|"vendor"
 decl_stmt|;
+comment|/**      * Event break delimiter      */
+DECL|field|LINEBREAK
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|LINEBREAK
+init|=
+literal|"\n"
+decl_stmt|;
 comment|// ----------------------------------
 comment|// Update
 comment|// ----------------------------------
@@ -503,15 +513,6 @@ name|String
 name|THROWABLE_STACKTRACE_ELEMENTS
 init|=
 literal|"stacktrace_elements"
-decl_stmt|;
-DECL|field|LINEBREAK
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|LINEBREAK
-init|=
-literal|"\n"
 decl_stmt|;
 DECL|field|serialVersionUID
 specifier|private
