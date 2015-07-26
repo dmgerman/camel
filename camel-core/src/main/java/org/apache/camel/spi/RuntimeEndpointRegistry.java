@@ -28,13 +28,23 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|Service
+name|StaticService
 import|;
 end_import
 
@@ -48,8 +58,39 @@ specifier|public
 interface|interface
 name|RuntimeEndpointRegistry
 extends|extends
-name|Service
+name|StaticService
 block|{
+comment|/**      * Statistics gathered about the endpoint.      */
+DECL|interface|Statistic
+specifier|public
+interface|interface
+name|Statistic
+block|{
+comment|/**          * The route id (if the endpoint is associated with a route)          */
+DECL|method|getRouteId ()
+name|String
+name|getRouteId
+parameter_list|()
+function_decl|;
+comment|/**          * Whether the endpoint is used as input          *<p/>          * Notice an endpoint can be used as both input and output, such as when its linking two routes          */
+DECL|method|isInput ()
+name|boolean
+name|isInput
+parameter_list|()
+function_decl|;
+comment|/**          * Whether the endpoint is used as output          *<p/>          * Notice an endpoint can be used as both input and output, such as when its linking two routes          */
+DECL|method|isOutput ()
+name|boolean
+name|isOutput
+parameter_list|()
+function_decl|;
+comment|/**          * Usage of the endpoint, such as how many messages it has received / sent to          *<p/>          * This information is only available if {@link org.apache.camel.ManagementStatisticsLevel} is configured as          * {@link org.apache.camel.ManagementStatisticsLevel#Extended}.          */
+DECL|method|getHits ()
+name|long
+name|getHits
+parameter_list|()
+function_decl|;
+block|}
 comment|/**      * Whether gathering runtime usage is enabled or not.      */
 DECL|method|isEnabled ()
 name|boolean
@@ -118,6 +159,17 @@ parameter_list|,
 name|boolean
 name|includeInputs
 parameter_list|)
+function_decl|;
+comment|/**      * Gets details about all the endpoint captured from the given route during runtime routing that are in-use of the routes.      */
+DECL|method|getStatistics ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Statistic
+argument_list|>
+name|getStatistics
+parameter_list|()
 function_decl|;
 block|}
 end_interface
