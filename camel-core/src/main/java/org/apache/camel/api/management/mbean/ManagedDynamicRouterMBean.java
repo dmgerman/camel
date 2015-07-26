@@ -71,6 +71,8 @@ interface|interface
 name|ManagedDynamicRouterMBean
 extends|extends
 name|ManagedProcessorMBean
+extends|,
+name|ManagedExtendedInformation
 block|{
 annotation|@
 name|ManagedAttribute
@@ -143,9 +145,9 @@ name|description
 operator|=
 literal|"Statistics of the endpoints which has been sent to"
 argument_list|)
-DECL|method|endpointStatistics ()
+DECL|method|extendedInformation ()
 name|TabularData
-name|endpointStatistics
+name|extendedInformation
 parameter_list|()
 function_decl|;
 block|}

@@ -522,6 +522,16 @@ name|getIndex
 argument_list|()
 return|;
 block|}
+DECL|method|isSupportExtendedInformation ()
+specifier|public
+name|Boolean
+name|isSupportExtendedInformation
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|getRoute ()
 specifier|public
 name|Route

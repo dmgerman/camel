@@ -400,7 +400,7 @@ name|invoke
 argument_list|(
 name|on
 argument_list|,
-literal|"endpointStatistics"
+literal|"extendedInformation"
 argument_list|,
 literal|null
 argument_list|,

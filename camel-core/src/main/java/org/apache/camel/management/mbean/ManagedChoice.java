@@ -336,6 +336,18 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|isSupportExtendedInformation ()
+specifier|public
+name|Boolean
+name|isSupportExtendedInformation
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|choiceStatistics ()
 specifier|public
 name|TabularData

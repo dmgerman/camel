@@ -145,6 +145,18 @@ name|getIndex
 parameter_list|()
 function_decl|;
 annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether this processor supports extended JMX information"
+argument_list|)
+DECL|method|isSupportExtendedInformation ()
+name|Boolean
+name|isSupportExtendedInformation
+parameter_list|()
+function_decl|;
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description

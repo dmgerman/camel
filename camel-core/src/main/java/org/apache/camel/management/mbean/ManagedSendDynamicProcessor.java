@@ -409,6 +409,18 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
+DECL|method|isSupportExtendedInformation ()
+specifier|public
+name|Boolean
+name|isSupportExtendedInformation
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 DECL|method|getProcessor ()
 specifier|public
 name|SendDynamicProcessor
@@ -490,10 +502,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|endpointStatistics ()
+DECL|method|extendedInformation ()
 specifier|public
 name|TabularData
-name|endpointStatistics
+name|extendedInformation
 parameter_list|()
 block|{
 try|try

@@ -406,6 +406,18 @@ block|}
 block|}
 annotation|@
 name|Override
+DECL|method|isSupportExtendedInformation ()
+specifier|public
+name|Boolean
+name|isSupportExtendedInformation
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getDefinition ()
 specifier|public
 name|RecipientListDefinition
@@ -575,10 +587,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|endpointStatistics ()
+DECL|method|extendedInformation ()
 specifier|public
 name|TabularData
-name|endpointStatistics
+name|extendedInformation
 parameter_list|()
 block|{
 try|try
