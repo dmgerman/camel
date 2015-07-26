@@ -122,6 +122,30 @@ name|enabled
 parameter_list|)
 function_decl|;
 annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Maximum number of endpoints to keep in the cache per route."
+argument_list|)
+DECL|method|getLimit ()
+name|int
+name|getLimit
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Number of endpoints currently in the cache."
+argument_list|)
+DECL|method|size ()
+name|int
+name|size
+parameter_list|()
+function_decl|;
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description

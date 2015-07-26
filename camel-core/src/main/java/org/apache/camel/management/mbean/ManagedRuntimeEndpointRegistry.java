@@ -374,6 +374,36 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|getLimit ()
+specifier|public
+name|int
+name|getLimit
+parameter_list|()
+block|{
+return|return
+name|registry
+operator|.
+name|getLimit
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|size ()
+specifier|public
+name|int
+name|size
+parameter_list|()
+block|{
+return|return
+name|registry
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|getAllEndpoints (boolean includeInputs)
 specifier|public
 name|List
