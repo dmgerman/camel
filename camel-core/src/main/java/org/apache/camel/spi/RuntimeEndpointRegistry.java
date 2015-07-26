@@ -28,16 +28,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -66,22 +56,22 @@ specifier|public
 interface|interface
 name|Statistic
 block|{
+comment|/**          * The endpoint uri          */
+DECL|method|getUri ()
+name|String
+name|getUri
+parameter_list|()
+function_decl|;
 comment|/**          * The route id (if the endpoint is associated with a route)          */
 DECL|method|getRouteId ()
 name|String
 name|getRouteId
 parameter_list|()
 function_decl|;
-comment|/**          * Whether the endpoint is used as input          *<p/>          * Notice an endpoint can be used as both input and output, such as when its linking two routes          */
-DECL|method|isInput ()
-name|boolean
-name|isInput
-parameter_list|()
-function_decl|;
-comment|/**          * Whether the endpoint is used as output          *<p/>          * Notice an endpoint can be used as both input and output, such as when its linking two routes          */
-DECL|method|isOutput ()
-name|boolean
-name|isOutput
+comment|/**          * Whether the endpoint is used as input our output          *<p/>          * The returned value can either be<tt>in</tt> or<tt>out</tt>          */
+DECL|method|getDirection ()
+name|String
+name|getDirection
 parameter_list|()
 function_decl|;
 comment|/**          * Usage of the endpoint, such as how many messages it has received / sent to          *<p/>          * This information is only available if {@link org.apache.camel.ManagementStatisticsLevel} is configured as          * {@link org.apache.camel.ManagementStatisticsLevel#Extended}.          */
@@ -121,10 +111,10 @@ name|int
 name|limit
 parameter_list|)
 function_decl|;
-comment|/**      * Clears the runtime usage gathered      */
-DECL|method|reset ()
+comment|/**      * Clears the registry      */
+DECL|method|clear ()
 name|void
-name|reset
+name|clear
 parameter_list|()
 function_decl|;
 comment|/**      * Number of endpoints currently in the cache.      */
@@ -161,14 +151,12 @@ name|includeInputs
 parameter_list|)
 function_decl|;
 comment|/**      * Gets details about all the endpoint captured from the given route during runtime routing that are in-use of the routes.      */
-DECL|method|getStatistics ()
-name|Map
+DECL|method|getEndpointStatistics ()
+name|List
 argument_list|<
-name|String
-argument_list|,
 name|Statistic
 argument_list|>
-name|getStatistics
+name|getEndpointStatistics
 parameter_list|()
 function_decl|;
 block|}

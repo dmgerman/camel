@@ -87,11 +87,11 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Resets the usage gathered"
+literal|"Clears the registry"
 argument_list|)
-DECL|method|reset ()
+DECL|method|clear ()
 name|void
-name|reset
+name|clear
 parameter_list|()
 function_decl|;
 annotation|@
@@ -99,7 +99,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Whether gathering runtime usage is enabled or not."
+literal|"Whether gathering runtime usage is enabled or not"
 argument_list|)
 DECL|method|isEnabled ()
 name|boolean
@@ -111,7 +111,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Whether gathering runtime usage is enabled or not."
+literal|"Whether gathering runtime usage is enabled or not"
 argument_list|)
 DECL|method|setEnabled (boolean enabled)
 name|void
@@ -126,7 +126,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Maximum number of endpoints to keep in the cache per route."
+literal|"Maximum number of endpoints to keep in the cache per route"
 argument_list|)
 DECL|method|getLimit ()
 name|int
@@ -138,11 +138,11 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Number of endpoints currently in the cache."
+literal|"Number of endpoints currently in the registry"
 argument_list|)
-DECL|method|size ()
+DECL|method|getSize ()
 name|int
-name|size
+name|getSize
 parameter_list|()
 function_decl|;
 annotation|@
@@ -150,7 +150,7 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|" Gets all the endpoint uris captured during runtime that are in-use."
+literal|" Gets all the endpoint urls captured during runtime that are in-use"
 argument_list|)
 DECL|method|getAllEndpoints (boolean includeInputs)
 name|List
@@ -168,7 +168,7 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|" Gets all the endpoint uris captured during runtime that are in-use for the given route."
+literal|" Gets all the endpoint urls captured during runtime that are in-use for the given route"
 argument_list|)
 DECL|method|getEndpointsPerRoute (String routeId, boolean includeInputs)
 name|List
@@ -189,11 +189,11 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Lists all the endpoints in the registry (url)"
+literal|"Lists statistics about all the endpoints in the registry"
 argument_list|)
-DECL|method|listEndpoints ()
+DECL|method|endpointStatistics ()
 name|TabularData
-name|listEndpoints
+name|endpointStatistics
 parameter_list|()
 function_decl|;
 block|}

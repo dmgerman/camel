@@ -499,9 +499,7 @@ literal|"url"
 block|,
 literal|"routeId"
 block|,
-literal|"input"
-block|,
-literal|"output"
+literal|"direction"
 block|,
 literal|"static"
 block|,
@@ -516,9 +514,7 @@ literal|"Url"
 block|,
 literal|"Route Id"
 block|,
-literal|"Input"
-block|,
-literal|"Output"
+literal|"Direction"
 block|,
 literal|"Static"
 block|,
@@ -539,11 +535,7 @@ name|STRING
 block|,
 name|SimpleType
 operator|.
-name|BOOLEAN
-block|,
-name|SimpleType
-operator|.
-name|BOOLEAN
+name|STRING
 block|,
 name|SimpleType
 operator|.
