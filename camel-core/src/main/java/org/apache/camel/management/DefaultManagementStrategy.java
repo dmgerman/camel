@@ -342,25 +342,10 @@ specifier|private
 name|ManagementObjectStrategy
 name|managementObjectStrategy
 decl_stmt|;
-DECL|field|onlyManageProcessorWithCustomId
-specifier|private
-name|Boolean
-name|onlyManageProcessorWithCustomId
-decl_stmt|;
 DECL|field|managementAgent
 specifier|private
 name|ManagementAgent
 name|managementAgent
-decl_stmt|;
-DECL|field|statisticsLevel
-specifier|private
-name|ManagementStatisticsLevel
-name|statisticsLevel
-decl_stmt|;
-DECL|field|loadStatisticsEnabled
-specifier|private
-name|Boolean
-name|loadStatisticsEnabled
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
@@ -588,6 +573,8 @@ operator|=
 name|managementAgent
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|onlyManageProcessorWithCustomId (boolean flag)
 specifier|public
 name|void
@@ -597,24 +584,86 @@ name|boolean
 name|flag
 parameter_list|)
 block|{
-name|onlyManageProcessorWithCustomId
-operator|=
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Using @deprecated option onlyManageProcessorWithCustomId on ManagementStrategy. Configure this on ManagementAgent instead."
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|managementAgent
+operator|!=
+literal|null
+condition|)
+block|{
+name|getManagementAgent
+argument_list|()
+operator|.
+name|setOnlyRegisterProcessorWithCustomId
+argument_list|(
 name|flag
+argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Not started"
+argument_list|)
+throw|;
+block|}
+block|}
+annotation|@
+name|Deprecated
 DECL|method|isOnlyManageProcessorWithCustomId ()
 specifier|public
 name|boolean
 name|isOnlyManageProcessorWithCustomId
 parameter_list|()
 block|{
-return|return
-name|onlyManageProcessorWithCustomId
+if|if
+condition|(
+name|managementAgent
+operator|!=
+literal|null
+condition|)
+block|{
+name|boolean
+name|only
+init|=
+name|getManagementAgent
+argument_list|()
+operator|.
+name|getOnlyRegisterProcessorWithCustomId
+argument_list|()
 operator|!=
 literal|null
 operator|&&
-name|onlyManageProcessorWithCustomId
+name|getManagementAgent
+argument_list|()
+operator|.
+name|getOnlyRegisterProcessorWithCustomId
+argument_list|()
+decl_stmt|;
+return|return
+name|only
 return|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Not started"
+argument_list|)
+throw|;
+block|}
 block|}
 DECL|method|manageProcessor (ProcessorDefinition<?> definition)
 specifier|public
@@ -833,6 +882,8 @@ return|return
 literal|null
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setStatisticsLevel (ManagementStatisticsLevel level)
 specifier|public
 name|void
@@ -842,6 +893,13 @@ name|ManagementStatisticsLevel
 name|level
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Using @deprecated option statisticsLevel on ManagementStrategy. Configure this on ManagementAgent instead."
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|managementAgent
@@ -869,6 +927,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Deprecated
 DECL|method|getStatisticsLevel ()
 specifier|public
 name|ManagementStatisticsLevel
@@ -901,6 +961,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Deprecated
 DECL|method|isLoadStatisticsEnabled ()
 specifier|public
 name|boolean
@@ -946,6 +1008,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setLoadStatisticsEnabled (boolean loadStatisticsEnabled)
 specifier|public
 name|void
@@ -955,6 +1019,13 @@ name|boolean
 name|loadStatisticsEnabled
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Using @deprecated option loadStatisticsEnabled on ManagementStrategy. Configure this on ManagementAgent instead."
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|managementAgent
@@ -1098,50 +1169,6 @@ operator|.
 name|getMBeanObjectDomainName
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|statisticsLevel
-operator|!=
-literal|null
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Using @deprecated option statisticsLevel on ManagementStrategy. Configure this on ManagementAgent instead."
-argument_list|)
-expr_stmt|;
-name|managementAgent
-operator|.
-name|setStatisticsLevel
-argument_list|(
-name|statisticsLevel
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|onlyManageProcessorWithCustomId
-operator|!=
-literal|null
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Using @deprecated option onlyManageProcessorWithCustomId on ManagementStrategy. Configure this on ManagementAgent instead."
-argument_list|)
-expr_stmt|;
-name|managementAgent
-operator|.
-name|setOnlyRegisterProcessorWithCustomId
-argument_list|(
-name|onlyManageProcessorWithCustomId
 argument_list|)
 expr_stmt|;
 block|}
