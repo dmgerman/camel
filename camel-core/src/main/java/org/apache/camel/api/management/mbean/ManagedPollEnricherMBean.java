@@ -22,6 +22,18 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|management
+operator|.
+name|openmbean
+operator|.
+name|TabularData
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -36,6 +48,22 @@ name|ManagedAttribute
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedOperation
+import|;
+end_import
+
 begin_interface
 DECL|interface|ManagedPollEnricherMBean
 specifier|public
@@ -43,6 +71,8 @@ interface|interface
 name|ManagedPollEnricherMBean
 extends|extends
 name|ManagedProcessorMBean
+extends|,
+name|ManagedExtendedInformation
 block|{
 annotation|@
 name|ManagedAttribute
@@ -118,6 +148,18 @@ argument_list|)
 DECL|method|isAggregateOnException ()
 name|Boolean
 name|isAggregateOnException
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Statistics of the endpoints that has been poll enriched from"
+argument_list|)
+DECL|method|extendedInformation ()
+name|TabularData
+name|extendedInformation
 parameter_list|()
 function_decl|;
 block|}
