@@ -2823,6 +2823,13 @@ condition|)
 block|{
 name|disabled
 operator|=
+name|camelJMXAgent
+operator|.
+name|getDisabled
+argument_list|()
+operator|!=
+literal|null
+operator|&&
 name|CamelContextHelper
 operator|.
 name|parseBoolean

@@ -82,7 +82,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ManagementStatisticsLevel
+name|model
+operator|.
+name|IdentifiedType
 import|;
 end_import
 
@@ -94,9 +96,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|util
 operator|.
-name|IdentifiedType
+name|CollectionStringBuffer
 import|;
 end_import
 
@@ -133,8 +135,6 @@ DECL|field|disabled
 specifier|private
 name|String
 name|disabled
-init|=
-literal|"false"
 decl_stmt|;
 comment|/**      * Only register processor if a custom id was defined for it.      */
 annotation|@
@@ -143,8 +143,6 @@ DECL|field|onlyRegisterProcessorWithCustomId
 specifier|private
 name|String
 name|onlyRegisterProcessorWithCustomId
-init|=
-literal|"false"
 decl_stmt|;
 comment|/**      * RMI connector registry port (default 1099)      */
 annotation|@
@@ -193,8 +191,6 @@ DECL|field|createConnector
 specifier|private
 name|String
 name|createConnector
-init|=
-literal|"false"
 decl_stmt|;
 comment|/**      * A flag that indicates whether the platform mbean server should be used      */
 annotation|@
@@ -203,8 +199,6 @@ DECL|field|usePlatformMBeanServer
 specifier|private
 name|String
 name|usePlatformMBeanServer
-init|=
-literal|"true"
 decl_stmt|;
 comment|/**      * A flag that indicates whether to register mbeans always      */
 annotation|@
@@ -221,8 +215,6 @@ DECL|field|registerNewRoutes
 specifier|private
 name|String
 name|registerNewRoutes
-init|=
-literal|"true"
 decl_stmt|;
 comment|/**      * Level of granularity for performance statistics enabled      */
 annotation|@
@@ -231,13 +223,6 @@ DECL|field|statisticsLevel
 specifier|private
 name|String
 name|statisticsLevel
-init|=
-name|ManagementStatisticsLevel
-operator|.
-name|Default
-operator|.
-name|name
-argument_list|()
 decl_stmt|;
 comment|/**      * A flag that indicates whether Load statistics is enabled      */
 annotation|@
@@ -254,8 +239,6 @@ DECL|field|includeHostName
 specifier|private
 name|String
 name|includeHostName
-init|=
-literal|"false"
 decl_stmt|;
 comment|/**      * A flag that indicates whether to remove detected sensitive information (such as passwords) from MBean names and attributes.      */
 annotation|@
@@ -264,8 +247,6 @@ DECL|field|mask
 specifier|private
 name|String
 name|mask
-init|=
-literal|"false"
 decl_stmt|;
 DECL|method|getDisabled ()
 specifier|public
@@ -679,18 +660,47 @@ argument_list|(
 literal|"CamelJMXAgent["
 argument_list|)
 expr_stmt|;
-name|sb
+name|CollectionStringBuffer
+name|csb
+init|=
+operator|new
+name|CollectionStringBuffer
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|disabled
+operator|!=
+literal|null
+condition|)
+block|{
+name|csb
+operator|.
+name|append
+argument_list|(
+literal|"disabled="
+operator|+
+name|disabled
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|usePlatformMBeanServer
+operator|!=
+literal|null
+condition|)
+block|{
+name|csb
 operator|.
 name|append
 argument_list|(
 literal|"usePlatformMBeanServer="
-argument_list|)
-operator|.
-name|append
-argument_list|(
+operator|+
 name|usePlatformMBeanServer
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|createConnector
@@ -698,15 +708,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|sb
+name|csb
 operator|.
 name|append
 argument_list|(
-literal|", createConnector="
-argument_list|)
-operator|.
-name|append
-argument_list|(
+literal|"createConnector="
+operator|+
 name|createConnector
 argument_list|)
 expr_stmt|;
@@ -718,15 +725,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|sb
+name|csb
 operator|.
 name|append
 argument_list|(
-literal|", connectorPort="
-argument_list|)
-operator|.
-name|append
-argument_list|(
+literal|"connectorPort="
+operator|+
 name|connectorPort
 argument_list|)
 expr_stmt|;
@@ -738,15 +742,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|sb
+name|csb
 operator|.
 name|append
 argument_list|(
-literal|", registryPort="
-argument_list|)
-operator|.
-name|append
-argument_list|(
+literal|"registryPort="
+operator|+
 name|registryPort
 argument_list|)
 expr_stmt|;
@@ -758,15 +759,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|sb
+name|csb
 operator|.
 name|append
 argument_list|(
-literal|", serviceUrlPath="
-argument_list|)
-operator|.
-name|append
-argument_list|(
+literal|"serviceUrlPath="
+operator|+
 name|serviceUrlPath
 argument_list|)
 expr_stmt|;
@@ -778,15 +776,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|sb
+name|csb
 operator|.
 name|append
 argument_list|(
-literal|", mbeanServerDefaultDomain="
-argument_list|)
-operator|.
-name|append
-argument_list|(
+literal|"mbeanServerDefaultDomain="
+operator|+
 name|mbeanServerDefaultDomain
 argument_list|)
 expr_stmt|;
@@ -798,15 +793,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|sb
+name|csb
 operator|.
 name|append
 argument_list|(
-literal|", mbeanObjectDomainName="
-argument_list|)
-operator|.
-name|append
-argument_list|(
+literal|"mbeanObjectDomainName="
+operator|+
 name|mbeanObjectDomainName
 argument_list|)
 expr_stmt|;
@@ -818,15 +810,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|sb
+name|csb
 operator|.
 name|append
 argument_list|(
-literal|", statisticsLevel="
-argument_list|)
-operator|.
-name|append
-argument_list|(
+literal|"statisticsLevel="
+operator|+
 name|statisticsLevel
 argument_list|)
 expr_stmt|;
@@ -838,15 +827,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|sb
+name|csb
 operator|.
 name|append
 argument_list|(
-literal|", loadStatisticsEnabled="
-argument_list|)
-operator|.
-name|append
-argument_list|(
+literal|"loadStatisticsEnabled="
+operator|+
 name|loadStatisticsEnabled
 argument_list|)
 expr_stmt|;
@@ -858,15 +844,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|sb
+name|csb
 operator|.
 name|append
 argument_list|(
-literal|", onlyRegisterProcessorWithCustomId="
-argument_list|)
-operator|.
-name|append
-argument_list|(
+literal|"onlyRegisterProcessorWithCustomId="
+operator|+
 name|onlyRegisterProcessorWithCustomId
 argument_list|)
 expr_stmt|;
@@ -878,15 +861,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|sb
+name|csb
 operator|.
 name|append
 argument_list|(
-literal|", registerAlways="
-argument_list|)
-operator|.
-name|append
-argument_list|(
+literal|"registerAlways="
+operator|+
 name|registerAlways
 argument_list|)
 expr_stmt|;
@@ -898,15 +878,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|sb
+name|csb
 operator|.
 name|append
 argument_list|(
-literal|", registerNewRoutes="
-argument_list|)
-operator|.
-name|append
-argument_list|(
+literal|"registerNewRoutes="
+operator|+
 name|registerNewRoutes
 argument_list|)
 expr_stmt|;
@@ -918,15 +895,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|sb
+name|csb
 operator|.
 name|append
 argument_list|(
-literal|", includeHostName="
-argument_list|)
-operator|.
-name|append
-argument_list|(
+literal|"includeHostName="
+operator|+
 name|includeHostName
 argument_list|)
 expr_stmt|;
@@ -938,19 +912,26 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|sb
+name|csb
 operator|.
 name|append
 argument_list|(
-literal|", mask="
-argument_list|)
-operator|.
-name|append
-argument_list|(
+literal|"mask="
+operator|+
 name|mask
 argument_list|)
 expr_stmt|;
 block|}
+name|sb
+operator|.
+name|append
+argument_list|(
+name|csb
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|sb
 operator|.
 name|append
