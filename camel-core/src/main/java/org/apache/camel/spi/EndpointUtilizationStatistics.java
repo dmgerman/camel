@@ -36,33 +36,37 @@ specifier|public
 interface|interface
 name|EndpointUtilizationStatistics
 block|{
-comment|// TODO: document me
+comment|/**      * Maximum number of elements that we can have information about      */
 DECL|method|maxCapacity ()
 name|int
 name|maxCapacity
 parameter_list|()
 function_decl|;
+comment|/**      * Current number of endpoints we have information about      */
 DECL|method|size ()
 name|int
 name|size
 parameter_list|()
 function_decl|;
-DECL|method|onHit (String key)
+comment|/**      * Callback when an endpoint is being utilizated by an {@link org.apache.camel.Processor} EIP      * such as sending a message to a dynamic endpoint.      *      * @param uri  the endpoint uri      */
+DECL|method|onHit (String uri)
 name|void
 name|onHit
 parameter_list|(
 name|String
-name|key
+name|uri
 parameter_list|)
 function_decl|;
-DECL|method|remove (String key)
+comment|/**      * To remove an endpoint from tracking information about its utilization      *      * @param uri  the endpoint uri      */
+DECL|method|remove (String uri)
 name|void
 name|remove
 parameter_list|(
 name|String
-name|key
+name|uri
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the endpoint utilization statistics.      *      * @return a map with uri and number of usage of the endpoint.      */
 DECL|method|getStatistics ()
 name|Map
 argument_list|<
@@ -73,6 +77,7 @@ argument_list|>
 name|getStatistics
 parameter_list|()
 function_decl|;
+comment|/**      * Clears all information.      */
 DECL|method|clear ()
 name|void
 name|clear

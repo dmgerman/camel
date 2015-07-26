@@ -32,12 +32,17 @@ name|TabularData
 import|;
 end_import
 
+begin_comment
+comment|/**  * Additional information gathered if {@link org.apache.camel.ManagementStatisticsLevel} is configured to  * be {@link org.apache.camel.ManagementStatisticsLevel#Extended}.  */
+end_comment
+
 begin_interface
 DECL|interface|ManagedExtendedInformation
 specifier|public
 interface|interface
 name|ManagedExtendedInformation
 block|{
+comment|/**      * Extended information such as utilization of endpoints.      *      * @return tabular data with extended information      */
 DECL|method|extendedInformation ()
 name|TabularData
 name|extendedInformation

@@ -143,14 +143,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|onHit (String key)
+DECL|method|onHit (String uri)
 specifier|public
 specifier|synchronized
 name|void
 name|onHit
 parameter_list|(
 name|String
-name|key
+name|uri
 parameter_list|)
 block|{
 name|Long
@@ -160,7 +160,7 @@ name|map
 operator|.
 name|get
 argument_list|(
-name|key
+name|uri
 argument_list|)
 decl_stmt|;
 if|if
@@ -178,7 +178,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-name|key
+name|uri
 argument_list|,
 name|counter
 argument_list|)
@@ -193,7 +193,7 @@ name|map
 operator|.
 name|put
 argument_list|(
-name|key
+name|uri
 argument_list|,
 name|counter
 argument_list|)
@@ -202,20 +202,20 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|remove (String key)
+DECL|method|remove (String uri)
 specifier|public
 name|void
 name|remove
 parameter_list|(
 name|String
-name|key
+name|uri
 parameter_list|)
 block|{
 name|map
 operator|.
 name|remove
 argument_list|(
-name|key
+name|uri
 argument_list|)
 expr_stmt|;
 block|}
