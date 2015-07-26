@@ -342,6 +342,22 @@ name|http
 operator|.
 name|common
 operator|.
+name|HttpConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|http
+operator|.
+name|common
+operator|.
 name|HttpConsumer
 import|;
 end_import
@@ -4461,6 +4477,60 @@ name|jettyHttpBinding
 operator|=
 name|jettyHttpBinding
 expr_stmt|;
+block|}
+comment|/**      * Not to be used - use JettyHttpBinding instead.      */
+annotation|@
+name|Override
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Not to be used - use JettyHttpBinding instead."
+argument_list|)
+DECL|method|setHttpBinding (HttpBinding httpBinding)
+specifier|public
+name|void
+name|setHttpBinding
+parameter_list|(
+name|HttpBinding
+name|httpBinding
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Not to be used - use JettyHttpBinding instead."
+argument_list|)
+throw|;
+block|}
+comment|/**      * Jetty component does not use HttpConfiguration.      */
+annotation|@
+name|Override
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Jetty component does not use HttpConfiguration."
+argument_list|)
+DECL|method|setHttpConfiguration (HttpConfiguration httpConfiguration)
+specifier|public
+name|void
+name|setHttpConfiguration
+parameter_list|(
+name|HttpConfiguration
+name|httpConfiguration
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Jetty component does not use HttpConfiguration."
+argument_list|)
+throw|;
 block|}
 DECL|method|getMbContainer ()
 specifier|public
