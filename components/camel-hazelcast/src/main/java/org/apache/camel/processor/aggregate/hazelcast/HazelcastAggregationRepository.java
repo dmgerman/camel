@@ -1681,6 +1681,11 @@ argument_list|,
 name|exchangeId
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|useRecovery
+condition|)
+block|{
 name|persistedCache
 operator|.
 name|remove
@@ -1688,6 +1693,7 @@ argument_list|(
 name|exchangeId
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
