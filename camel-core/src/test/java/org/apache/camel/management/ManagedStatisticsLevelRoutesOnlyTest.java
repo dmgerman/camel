@@ -120,6 +120,9 @@ operator|.
 name|getManagementStrategy
 argument_list|()
 operator|.
+name|getManagementAgent
+argument_list|()
+operator|.
 name|setStatisticsLevel
 argument_list|(
 name|ManagementStatisticsLevel

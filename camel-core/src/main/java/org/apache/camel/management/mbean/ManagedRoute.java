@@ -538,6 +538,9 @@ operator|.
 name|getManagementStrategy
 argument_list|()
 operator|.
+name|getManagementAgent
+argument_list|()
+operator|.
 name|getStatisticsLevel
 argument_list|()
 operator|!=

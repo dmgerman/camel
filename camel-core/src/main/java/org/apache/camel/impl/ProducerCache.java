@@ -577,6 +577,20 @@ name|producers
 operator|=
 name|cache
 expr_stmt|;
+comment|// only if JMX is enabled
+if|if
+condition|(
+name|camelContext
+operator|.
+name|getManagementStrategy
+argument_list|()
+operator|.
+name|getManagementAgent
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|this
 operator|.
 name|extendedStatistics
@@ -595,6 +609,16 @@ operator|.
 name|isExtended
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+name|this
+operator|.
+name|extendedStatistics
+operator|=
+literal|false
+expr_stmt|;
+block|}
 block|}
 DECL|method|isEventNotifierEnabled ()
 specifier|public

@@ -130,6 +130,9 @@ operator|.
 name|getManagementStrategy
 argument_list|()
 operator|.
+name|getManagementAgent
+argument_list|()
+operator|.
 name|setStatisticsLevel
 argument_list|(
 name|ManagementStatisticsLevel
@@ -251,7 +254,7 @@ name|longValue
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// disable statistics
+comment|// enable statistics
 name|mbeanServer
 operator|.
 name|setAttribute
