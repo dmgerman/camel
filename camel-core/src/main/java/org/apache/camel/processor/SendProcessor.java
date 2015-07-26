@@ -429,6 +429,12 @@ specifier|protected
 name|String
 name|id
 decl_stmt|;
+DECL|field|counter
+specifier|protected
+specifier|volatile
+name|long
+name|counter
+decl_stmt|;
 DECL|method|SendProcessor (Endpoint destination)
 specifier|public
 name|SendProcessor
@@ -709,6 +715,9 @@ operator|.
 name|getPattern
 argument_list|()
 decl_stmt|;
+name|counter
+operator|++
+expr_stmt|;
 comment|// if we have a producer then use that as its optimized
 if|if
 condition|(
@@ -1055,6 +1064,27 @@ expr_stmt|;
 return|return
 name|exchange
 return|;
+block|}
+DECL|method|getCounter ()
+specifier|public
+name|long
+name|getCounter
+parameter_list|()
+block|{
+return|return
+name|counter
+return|;
+block|}
+DECL|method|reset ()
+specifier|public
+name|void
+name|reset
+parameter_list|()
+block|{
+name|counter
+operator|=
+literal|0
+expr_stmt|;
 block|}
 DECL|method|doStart ()
 specifier|protected

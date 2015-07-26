@@ -522,10 +522,10 @@ name|getIndex
 argument_list|()
 return|;
 block|}
-DECL|method|isSupportExtendedInformation ()
+DECL|method|getSupportExtendedInformation ()
 specifier|public
 name|Boolean
-name|isSupportExtendedInformation
+name|getSupportExtendedInformation
 parameter_list|()
 block|{
 return|return

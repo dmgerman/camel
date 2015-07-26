@@ -151,9 +151,9 @@ name|description
 operator|=
 literal|"Whether this processor supports extended JMX information"
 argument_list|)
-DECL|method|isSupportExtendedInformation ()
+DECL|method|getSupportExtendedInformation ()
 name|Boolean
-name|isSupportExtendedInformation
+name|getSupportExtendedInformation
 parameter_list|()
 function_decl|;
 annotation|@
