@@ -290,7 +290,9 @@ argument_list|>
 name|definition
 parameter_list|)
 function_decl|;
-comment|/**      * Sets the whether only manage processors if they have been configured with a custom id      *<p/>      * Default is false.      *      * @param flag<tt>true</tt> will only manage if custom id was set.      */
+comment|/**      * Sets the whether only manage processors if they have been configured with a custom id      *<p/>      * Default is false.      *      * @param flag<tt>true</tt> will only manage if custom id was set.      * @deprecated use {@link org.apache.camel.spi.ManagementAgent}      */
+annotation|@
+name|Deprecated
 DECL|method|onlyManageProcessorWithCustomId (boolean flag)
 name|void
 name|onlyManageProcessorWithCustomId
@@ -299,13 +301,17 @@ name|boolean
 name|flag
 parameter_list|)
 function_decl|;
-comment|/**      * Checks whether only to manage processors if they have been configured with a custom id      *      * @return true or false      */
+comment|/**      * Checks whether only to manage processors if they have been configured with a custom id      *      * @return true or false      * @deprecated use {@link org.apache.camel.spi.ManagementAgent}      */
+annotation|@
+name|Deprecated
 DECL|method|isOnlyManageProcessorWithCustomId ()
 name|boolean
 name|isOnlyManageProcessorWithCustomId
 parameter_list|()
 function_decl|;
-comment|/**      * Sets whether load statistics is enabled.      *      * @param flag<tt>true</tt> to enable load statistics      */
+comment|/**      * Sets whether load statistics is enabled.      *      * @param flag<tt>true</tt> to enable load statistics      * @deprecated use {@link org.apache.camel.spi.ManagementAgent}      */
+annotation|@
+name|Deprecated
 DECL|method|setLoadStatisticsEnabled (boolean flag)
 name|void
 name|setLoadStatisticsEnabled
@@ -314,28 +320,17 @@ name|boolean
 name|flag
 parameter_list|)
 function_decl|;
-comment|/**      * Gets whether load statistics is enabled      *      * @return<tt>true</tt> if enabled      */
+comment|/**      * Gets whether load statistics is enabled      *      * @return<tt>true</tt> if enabled      * @deprecated use {@link org.apache.camel.spi.ManagementAgent}      */
+annotation|@
+name|Deprecated
 DECL|method|isLoadStatisticsEnabled ()
 name|boolean
 name|isLoadStatisticsEnabled
 parameter_list|()
 function_decl|;
-comment|/**      * Sets whether extended statistics is enabled, such as each EIP keep tracks of per endpoint utilization.      *      * @param flag<tt>true</tt> to enable extended statistics      */
-DECL|method|setExtendedStatisticsEnabled (boolean flag)
-name|void
-name|setExtendedStatisticsEnabled
-parameter_list|(
-name|boolean
-name|flag
-parameter_list|)
-function_decl|;
-comment|/**      * Gets whether extended statistics is enabled      *      * @return<tt>true</tt> if enabled      */
-DECL|method|isExtendedStatisticsEnabled ()
-name|boolean
-name|isExtendedStatisticsEnabled
-parameter_list|()
-function_decl|;
-comment|/**      * Sets the statistics level      *<p/>      * Default is {@link org.apache.camel.ManagementStatisticsLevel#All}      *      * @param level the new level      */
+comment|/**      * Sets the statistics level      *<p/>      * Default is {@link org.apache.camel.ManagementStatisticsLevel#Default}      *      * @param level the new level      * @deprecated use {@link org.apache.camel.spi.ManagementAgent}      */
+annotation|@
+name|Deprecated
 DECL|method|setStatisticsLevel (ManagementStatisticsLevel level)
 name|void
 name|setStatisticsLevel
@@ -344,7 +339,9 @@ name|ManagementStatisticsLevel
 name|level
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the statistics level      *      * @return the level      */
+comment|/**      * Gets the statistics level      *      * @return the level      * @deprecated use {@link org.apache.camel.spi.ManagementAgent}      */
+annotation|@
+name|Deprecated
 DECL|method|getStatisticsLevel ()
 name|ManagementStatisticsLevel
 name|getStatisticsLevel

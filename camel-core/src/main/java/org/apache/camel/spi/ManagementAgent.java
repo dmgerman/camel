@@ -54,6 +54,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ManagementStatisticsLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Service
 import|;
 end_import
@@ -333,6 +345,51 @@ parameter_list|(
 name|Boolean
 name|includeHostName
 parameter_list|)
+function_decl|;
+comment|/**      * The naming pattern for creating the CamelContext management name.      *<p/>      * The default pattern is<tt>#name#</tt>      */
+DECL|method|getManagementNamePattern ()
+name|String
+name|getManagementNamePattern
+parameter_list|()
+function_decl|;
+comment|/**      * The naming pattern for creating the CamelContext management name.      *<p/>      * The default pattern is<tt>#name#</tt>      */
+DECL|method|setManagementNamePattern (String managementNamePattern)
+name|void
+name|setManagementNamePattern
+parameter_list|(
+name|String
+name|managementNamePattern
+parameter_list|)
+function_decl|;
+comment|/**      * Sets whether load statistics is enabled (gathers load statistics using a background thread per CamelContext).      *<p/>      * The default value is<tt>false</tt>      *      * @param flag<tt>true</tt> to enable load statistics      */
+DECL|method|setLoadStatisticsEnabled (Boolean flag)
+name|void
+name|setLoadStatisticsEnabled
+parameter_list|(
+name|Boolean
+name|flag
+parameter_list|)
+function_decl|;
+comment|/**      * Gets whether load statistics is enabled      *      * @return<tt>true</tt> if enabled      */
+DECL|method|getLoadStatisticsEnabled ()
+name|Boolean
+name|getLoadStatisticsEnabled
+parameter_list|()
+function_decl|;
+comment|/**      * Sets the statistics level      *<p/>      * Default is {@link org.apache.camel.ManagementStatisticsLevel#Default}      *<p/>      * The level can be set to<tt>Extended</tt> to gather additional information      *      * @param level the new level      */
+DECL|method|setStatisticsLevel (ManagementStatisticsLevel level)
+name|void
+name|setStatisticsLevel
+parameter_list|(
+name|ManagementStatisticsLevel
+name|level
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the statistics level      *      * @return the level      */
+DECL|method|getStatisticsLevel ()
+name|ManagementStatisticsLevel
+name|getStatisticsLevel
+parameter_list|()
 function_decl|;
 block|}
 end_interface

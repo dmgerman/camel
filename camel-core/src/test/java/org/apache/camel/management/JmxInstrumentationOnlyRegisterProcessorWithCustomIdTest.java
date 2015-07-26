@@ -382,7 +382,10 @@ operator|.
 name|getManagementStrategy
 argument_list|()
 operator|.
-name|onlyManageProcessorWithCustomId
+name|getManagementAgent
+argument_list|()
+operator|.
+name|setOnlyRegisterProcessorWithCustomId
 argument_list|(
 literal|true
 argument_list|)

@@ -586,7 +586,13 @@ operator|.
 name|getManagementStrategy
 argument_list|()
 operator|.
-name|isExtendedStatisticsEnabled
+name|getManagementAgent
+argument_list|()
+operator|.
+name|getStatisticsLevel
+argument_list|()
+operator|.
+name|isExtended
 argument_list|()
 expr_stmt|;
 block|}

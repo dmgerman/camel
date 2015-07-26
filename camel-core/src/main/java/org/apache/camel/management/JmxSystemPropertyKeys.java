@@ -117,6 +117,26 @@ name|ONLY_REGISTER_PROCESSOR_WITH_CUSTOM_ID
 init|=
 literal|"org.apache.camel.jmx.onlyRegisterProcessorWithCustomId"
 decl_stmt|;
+comment|// whether to enable gathering load statistics in the background
+DECL|field|LOAD_STATISTICS_ENABLED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|LOAD_STATISTICS_ENABLED
+init|=
+literal|"org.apache.camel.jmx.loadStatisticsEnabled"
+decl_stmt|;
+comment|// the level of statistics enabled
+DECL|field|STATISTICS_LEVEL
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|STATISTICS_LEVEL
+init|=
+literal|"org.apache.camel.jmx.statisticsLevel"
+decl_stmt|;
 comment|// whether to register always
 DECL|field|REGISTER_ALWAYS
 specifier|public
