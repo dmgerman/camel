@@ -474,6 +474,11 @@ operator|.
 name|getEndpointRegistry
 argument_list|()
 decl_stmt|;
+name|int
+name|index
+init|=
+literal|0
+decl_stmt|;
 for|for
 control|(
 name|RuntimeEndpointRegistry
@@ -566,6 +571,8 @@ operator|new
 name|String
 index|[]
 block|{
+literal|"index"
+block|,
 literal|"url"
 block|,
 literal|"routeId"
@@ -581,6 +588,8 @@ operator|new
 name|Object
 index|[]
 block|{
+name|index
+block|,
 name|url
 block|,
 name|routeId
@@ -599,6 +608,10 @@ name|put
 argument_list|(
 name|data
 argument_list|)
+expr_stmt|;
+comment|// use a counter as the single index in the TabularData as we do not want a multi-value index
+name|index
+operator|++
 expr_stmt|;
 block|}
 return|return

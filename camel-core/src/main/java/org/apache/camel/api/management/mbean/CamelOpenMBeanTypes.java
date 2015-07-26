@@ -469,7 +469,7 @@ operator|new
 name|String
 index|[]
 block|{
-literal|"url"
+literal|"index"
 block|}
 argument_list|)
 return|;
@@ -495,6 +495,8 @@ operator|new
 name|String
 index|[]
 block|{
+literal|"index"
+block|,
 literal|"url"
 block|,
 literal|"routeId"
@@ -510,6 +512,8 @@ operator|new
 name|String
 index|[]
 block|{
+literal|"Index"
+block|,
 literal|"Url"
 block|,
 literal|"Route Id"
@@ -525,6 +529,10 @@ operator|new
 name|OpenType
 index|[]
 block|{
+name|SimpleType
+operator|.
+name|INTEGER
+block|,
 name|SimpleType
 operator|.
 name|STRING
