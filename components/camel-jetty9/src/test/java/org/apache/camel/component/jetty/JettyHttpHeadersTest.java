@@ -174,11 +174,17 @@ name|out
 init|=
 name|template
 operator|.
-name|requestBody
+name|requestBodyAndHeader
 argument_list|(
 literal|"http://localhost:{{port}}/foo?beer=yes"
 argument_list|,
 literal|"Hello World"
+argument_list|,
+name|Exchange
+operator|.
+name|HTTP_METHOD
+argument_list|,
+literal|"POST"
 argument_list|,
 name|String
 operator|.
