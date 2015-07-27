@@ -82,6 +82,16 @@ name|com
 operator|.
 name|splunk
 operator|.
+name|SSLSecurityProtocol
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|splunk
+operator|.
 name|Service
 import|;
 end_import
@@ -194,6 +204,11 @@ DECL|field|useSunHttpsHandler
 specifier|private
 name|boolean
 name|useSunHttpsHandler
+decl_stmt|;
+DECL|field|sslProtocol
+specifier|private
+name|SSLSecurityProtocol
+name|sslProtocol
 decl_stmt|;
 DECL|method|SplunkConnectionFactory (final String host, final int port, final String username, final String password)
 specifier|public
@@ -372,6 +387,32 @@ operator|.
 name|useSunHttpsHandler
 operator|=
 name|useSunHttpsHandler
+expr_stmt|;
+block|}
+DECL|method|getSslProtocol ()
+specifier|public
+name|SSLSecurityProtocol
+name|getSslProtocol
+parameter_list|()
+block|{
+return|return
+name|sslProtocol
+return|;
+block|}
+DECL|method|setSslProtocol (SSLSecurityProtocol sslProtocol)
+specifier|public
+name|void
+name|setSslProtocol
+parameter_list|(
+name|SSLSecurityProtocol
+name|sslProtocol
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslProtocol
+operator|=
+name|sslProtocol
 expr_stmt|;
 block|}
 DECL|method|createService (CamelContext camelContext)
@@ -605,6 +646,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|Service
+operator|.
+name|setSslSecurityProtocol
+argument_list|(
+name|getSslProtocol
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|Service
 operator|.
