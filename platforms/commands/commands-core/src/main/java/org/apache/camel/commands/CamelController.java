@@ -335,6 +335,25 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Return endpoint runtime statistics      *      * @param camelContextName the Camel context.      * @return a list of key/value pairs with endpoint runtime statistics      * @throws java.lang.Exception can be thrown      */
+DECL|method|getEndpointRuntimeStatistics (String camelContextName)
+name|List
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|>
+name|getEndpointRuntimeStatistics
+parameter_list|(
+name|String
+name|camelContextName
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Return the definition of the REST services as XML for the given Camel context.      *      * @param camelContextName the Camel context.      * @return the REST model as xml      * @throws java.lang.Exception can be thrown      */
 DECL|method|getRestModelAsXml (String camelContextName)
 name|String

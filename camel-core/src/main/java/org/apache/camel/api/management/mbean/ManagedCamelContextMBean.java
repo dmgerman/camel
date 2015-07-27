@@ -189,6 +189,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Camel Management StatisticsLevel"
+argument_list|)
+DECL|method|getManagementStatisticsLevel ()
+name|String
+name|getManagementStatisticsLevel
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Camel Properties"
 argument_list|)
 DECL|method|getProperties ()
