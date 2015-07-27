@@ -559,6 +559,14 @@ operator|.
 name|getDirection
 argument_list|()
 decl_stmt|;
+name|long
+name|hits
+init|=
+name|stat
+operator|.
+name|getHits
+argument_list|()
+decl_stmt|;
 name|CompositeData
 name|data
 init|=
@@ -582,6 +590,8 @@ block|,
 literal|"static"
 block|,
 literal|"dynamic"
+block|,
+literal|"hits"
 block|}
 argument_list|,
 operator|new
@@ -599,6 +609,8 @@ block|,
 name|isStatic
 block|,
 name|isDynamic
+block|,
+name|hits
 block|}
 argument_list|)
 decl_stmt|;

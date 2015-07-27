@@ -506,6 +506,8 @@ block|,
 literal|"static"
 block|,
 literal|"dynamic"
+block|,
+literal|"hits"
 block|}
 argument_list|,
 operator|new
@@ -523,6 +525,8 @@ block|,
 literal|"Static"
 block|,
 literal|"Dynamic"
+block|,
+literal|"Hits"
 block|}
 argument_list|,
 operator|new
@@ -552,6 +556,10 @@ block|,
 name|SimpleType
 operator|.
 name|BOOLEAN
+block|,
+name|SimpleType
+operator|.
+name|LONG
 block|}
 argument_list|)
 return|;
