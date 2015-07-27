@@ -25,6 +25,15 @@ specifier|final
 class|class
 name|JacksonConstants
 block|{
+DECL|field|ENABLE_TYPE_CONVERTER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ENABLE_TYPE_CONVERTER
+init|=
+literal|"CamelJacksonEnableTypeConverter"
+decl_stmt|;
 DECL|field|UNMARSHAL_TYPE
 specifier|public
 specifier|static

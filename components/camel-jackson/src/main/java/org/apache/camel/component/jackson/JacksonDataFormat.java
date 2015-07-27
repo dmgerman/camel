@@ -448,6 +448,11 @@ specifier|private
 name|String
 name|disableFeatures
 decl_stmt|;
+DECL|field|enableJacksonTypeConverter
+specifier|private
+name|boolean
+name|enableJacksonTypeConverter
+decl_stmt|;
 comment|/**      * Use the default Jackson {@link ObjectMapper} and {@link Map}      */
 DECL|method|JacksonDataFormat ()
 specifier|public
@@ -1234,6 +1239,33 @@ operator|.
 name|allowJmsType
 operator|=
 name|allowJmsType
+expr_stmt|;
+block|}
+DECL|method|isEnableJacksonTypeConverter ()
+specifier|public
+name|boolean
+name|isEnableJacksonTypeConverter
+parameter_list|()
+block|{
+return|return
+name|enableJacksonTypeConverter
+return|;
+block|}
+comment|/**      * If enabled then Jackson is allowed to attempt to be used during Camels<a href="https://camel.apache.org/type-converter.html">type converter</a>      * as a {@link org.apache.camel.FallbackConverter} that attempts to convert POJOs to/from {@link Map}/{@link List} types.      *<p/>      * This should only be enabled when desired to be used.      */
+DECL|method|setEnableJacksonTypeConverter (boolean enableJacksonTypeConverter)
+specifier|public
+name|void
+name|setEnableJacksonTypeConverter
+parameter_list|(
+name|boolean
+name|enableJacksonTypeConverter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enableJacksonTypeConverter
+operator|=
+name|enableJacksonTypeConverter
 expr_stmt|;
 block|}
 DECL|method|getEnableFeatures ()
