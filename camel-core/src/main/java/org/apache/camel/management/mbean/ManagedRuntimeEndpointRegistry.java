@@ -330,6 +330,20 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|reset ()
+specifier|public
+name|void
+name|reset
+parameter_list|()
+block|{
+name|registry
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|isEnabled ()
 specifier|public
 name|boolean

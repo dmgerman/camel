@@ -95,6 +95,18 @@ name|clear
 parameter_list|()
 function_decl|;
 annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Reset the statistic counters"
+argument_list|)
+DECL|method|reset ()
+name|void
+name|reset
+parameter_list|()
+function_decl|;
+annotation|@
 name|ManagedAttribute
 argument_list|(
 name|description

@@ -117,6 +117,12 @@ name|void
 name|clear
 parameter_list|()
 function_decl|;
+comment|/**      * Reset the statistic counters      */
+DECL|method|reset ()
+name|void
+name|reset
+parameter_list|()
+function_decl|;
 comment|/**      * Number of endpoints currently in the cache.      */
 DECL|method|size ()
 name|int
