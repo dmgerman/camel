@@ -1286,7 +1286,7 @@ name|max
 argument_list|(
 name|MIN_COLUMN_WIDTH
 argument_list|,
-name|staticLen
+name|dynamicLen
 argument_list|)
 expr_stmt|;
 comment|// last row does not have min width
