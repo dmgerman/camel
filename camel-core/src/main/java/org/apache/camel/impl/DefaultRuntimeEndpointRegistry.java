@@ -1399,6 +1399,7 @@ operator|instanceof
 name|ExchangeCreatedEvent
 condition|)
 block|{
+comment|// we only capture details in extended mode
 name|ExchangeCreatedEvent
 name|ece
 init|=
@@ -1463,7 +1464,13 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|event
+operator|instanceof
+name|ExchangeSendingEvent
+condition|)
 block|{
 name|ExchangeSendingEvent
 name|ese
