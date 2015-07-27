@@ -88,6 +88,25 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Get the list of Camel context filter by reg ex.      *      * @param filter           the filter which supports * and ? as wildcards      * @return a list of key/value pairs with CamelContext information      * @throws java.lang.Exception can be thrown      */
+DECL|method|getCamelContexts (String filter)
+name|List
+argument_list|<
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|>
+name|getCamelContexts
+parameter_list|(
+name|String
+name|filter
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Returns detailed CamelContext and route statistics as XML identified by a ID and a Camel context.      *      * @param camelContextName  the Camel context.      * @param fullStats         whether to include verbose stats      * @param includeProcessors whether to embed per processor stats from the route      * @return the CamelContext statistics as XML      * @throws java.lang.Exception can be thrown      */
 DECL|method|getCamelContextStatsAsXml (String camelContextName, boolean fullStats, boolean includeProcessors)
 name|String
@@ -335,7 +354,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Return endpoint runtime statistics      *      * @param camelContextName the Camel context.      * @return a list of key/value pairs with endpoint runtime statistics      * @throws java.lang.Exception can be thrown      */
+comment|/**      * Return endpoint runtime statistics      *      * @param camelContextName the Camel context      * @return a list of key/value pairs with endpoint runtime statistics      * @throws java.lang.Exception can be thrown      */
 DECL|method|getEndpointRuntimeStatistics (String camelContextName)
 name|List
 argument_list|<
