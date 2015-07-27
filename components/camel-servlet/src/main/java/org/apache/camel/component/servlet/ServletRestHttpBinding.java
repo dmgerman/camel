@@ -58,6 +58,22 @@ name|http
 operator|.
 name|common
 operator|.
+name|HttpCommonEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|http
+operator|.
+name|common
+operator|.
 name|HttpMessage
 import|;
 end_import
@@ -70,6 +86,27 @@ name|ServletRestHttpBinding
 extends|extends
 name|DefaultHttpBinding
 block|{
+DECL|method|ServletRestHttpBinding ()
+specifier|public
+name|ServletRestHttpBinding
+parameter_list|()
+block|{     }
+annotation|@
+name|Deprecated
+DECL|method|ServletRestHttpBinding (HttpCommonEndpoint endpoint)
+specifier|public
+name|ServletRestHttpBinding
+parameter_list|(
+name|HttpCommonEndpoint
+name|endpoint
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|populateRequestParameters (HttpServletRequest request, HttpMessage message)
