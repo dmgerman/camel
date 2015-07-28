@@ -1689,10 +1689,7 @@ operator|.
 name|add
 argument_list|(
 operator|(
-name|ModelAwareFilter
-argument_list|<
-name|?
-argument_list|>
+name|Filter
 operator|)
 name|clone
 argument_list|)

@@ -95,11 +95,6 @@ argument_list|<
 name|SkipFilter
 argument_list|>
 block|{
-DECL|method|ModelAwareSkipFilter ()
-specifier|public
-name|ModelAwareSkipFilter
-parameter_list|()
-block|{     }
 DECL|method|ModelAwareSkipFilter (Filter filter)
 specifier|public
 name|ModelAwareSkipFilter
@@ -168,6 +163,7 @@ block|}
 comment|/**      * Wraps an existing {@link SkipFilter} filter into a {@link ModelAwareSkipFilter}.      */
 DECL|method|wrap (SkipFilter filter)
 specifier|public
+specifier|static
 name|ModelAwareSkipFilter
 name|wrap
 parameter_list|(

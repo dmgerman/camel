@@ -217,6 +217,9 @@ argument_list|(
 operator|new
 name|ModelAwareColumnMatchingFilter
 argument_list|()
+operator|.
+name|getFilteredList
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|jndi

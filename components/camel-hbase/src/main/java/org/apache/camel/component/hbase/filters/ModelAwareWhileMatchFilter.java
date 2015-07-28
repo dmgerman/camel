@@ -95,11 +95,6 @@ argument_list|<
 name|WhileMatchFilter
 argument_list|>
 block|{
-DECL|method|ModelAwareWhileMatchFilter ()
-specifier|public
-name|ModelAwareWhileMatchFilter
-parameter_list|()
-block|{     }
 DECL|method|ModelAwareWhileMatchFilter (Filter filter)
 specifier|public
 name|ModelAwareWhileMatchFilter
@@ -168,6 +163,7 @@ block|}
 comment|/**      * Wraps an existing {@link WhileMatchFilter} filter into a {@link ModelAwareWhileMatchFilter}.      */
 DECL|method|wrap (WhileMatchFilter filter)
 specifier|public
+specifier|static
 name|ModelAwareWhileMatchFilter
 name|wrap
 parameter_list|(

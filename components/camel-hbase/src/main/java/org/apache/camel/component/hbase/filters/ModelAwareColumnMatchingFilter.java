@@ -157,20 +157,39 @@ DECL|class|ModelAwareColumnMatchingFilter
 specifier|public
 class|class
 name|ModelAwareColumnMatchingFilter
-extends|extends
-name|FilterList
 implements|implements
 name|ModelAwareFilter
 argument_list|<
 name|FilterList
 argument_list|>
 block|{
+DECL|field|fl
+name|FilterList
+name|fl
+decl_stmt|;
 comment|/**      * Writable constructor, do not use.      */
 DECL|method|ModelAwareColumnMatchingFilter ()
 specifier|public
 name|ModelAwareColumnMatchingFilter
 parameter_list|()
-block|{     }
+block|{
+name|fl
+operator|=
+operator|new
+name|FilterList
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|getFilteredList ()
+specifier|public
+name|FilterList
+name|getFilteredList
+parameter_list|()
+block|{
+return|return
+name|fl
+return|;
+block|}
 comment|/**      * Applies the message to {@link org.apache.hadoop.hbase.filter.Filter} to context.      */
 annotation|@
 name|Override
@@ -186,6 +205,8 @@ name|HBaseRow
 name|rowModel
 parameter_list|)
 block|{
+name|fl
+operator|.
 name|getFilters
 argument_list|()
 operator|.
@@ -289,6 +310,8 @@ argument_list|,
 name|value
 argument_list|)
 decl_stmt|;
+name|fl
+operator|.
 name|addFilter
 argument_list|(
 name|columnValueFilter

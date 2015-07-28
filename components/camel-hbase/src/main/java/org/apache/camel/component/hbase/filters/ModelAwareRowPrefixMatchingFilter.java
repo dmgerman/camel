@@ -92,12 +92,7 @@ specifier|public
 class|class
 name|ModelAwareRowPrefixMatchingFilter
 extends|extends
-name|FilterList
-implements|implements
-name|ModelAwareFilter
-argument_list|<
-name|FilterList
-argument_list|>
+name|ModelAwareFilterList
 block|{
 comment|/**      * Writable constructor, do not use.      */
 DECL|method|ModelAwareRowPrefixMatchingFilter ()

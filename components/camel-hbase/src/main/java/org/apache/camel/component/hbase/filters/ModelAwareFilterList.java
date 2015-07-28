@@ -97,20 +97,30 @@ DECL|class|ModelAwareFilterList
 specifier|public
 class|class
 name|ModelAwareFilterList
-extends|extends
-name|FilterList
 implements|implements
 name|ModelAwareFilter
 argument_list|<
 name|FilterList
 argument_list|>
 block|{
-comment|/**      * Default constructor, filters nothing. Required though for RPC      * deserialization.      */
+DECL|field|fl
+name|FilterList
+name|fl
+decl_stmt|;
+comment|/**      * Default constructor, filters nothing. Required though for RPC deserialization.      */
 DECL|method|ModelAwareFilterList ()
 specifier|public
 name|ModelAwareFilterList
 parameter_list|()
-block|{     }
+block|{
+name|fl
+operator|=
+operator|new
+name|FilterList
+argument_list|()
+expr_stmt|;
+comment|//it's worth to prevent the class against null pointer on fl
+block|}
 comment|/**      * Constructor that takes a set of {@link org.apache.hadoop.hbase.filter.Filter}s. The default operator      * MUST_PASS_ALL is assumed.      *      * @param rowFilters list of filters      */
 DECL|method|ModelAwareFilterList (List<Filter> rowFilters)
 specifier|public
@@ -123,32 +133,42 @@ argument_list|>
 name|rowFilters
 parameter_list|)
 block|{
-name|super
+name|fl
+operator|=
+operator|new
+name|FilterList
 argument_list|(
 name|rowFilters
 argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Constructor that takes an operator.      *      * @param operator Operator to process filter set with.      */
-DECL|method|ModelAwareFilterList (Operator operator)
+DECL|method|ModelAwareFilterList (FilterList.Operator operator)
 specifier|public
 name|ModelAwareFilterList
 parameter_list|(
+name|FilterList
+operator|.
 name|Operator
 name|operator
 parameter_list|)
 block|{
-name|super
+name|fl
+operator|=
+operator|new
+name|FilterList
 argument_list|(
 name|operator
 argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Constructor that takes a set of {@link org.apache.hadoop.hbase.filter.Filter}s and an operator.      *      * @param operator   Operator to process filter set with.      * @param rowFilters Set of row filters.      */
-DECL|method|ModelAwareFilterList (Operator operator, List<Filter> rowFilters)
+DECL|method|ModelAwareFilterList (FilterList.Operator operator, List<Filter> rowFilters)
 specifier|public
 name|ModelAwareFilterList
 parameter_list|(
+name|FilterList
+operator|.
 name|Operator
 name|operator
 parameter_list|,
@@ -159,7 +179,10 @@ argument_list|>
 name|rowFilters
 parameter_list|)
 block|{
-name|super
+name|fl
+operator|=
+operator|new
+name|FilterList
 argument_list|(
 name|operator
 argument_list|,
@@ -206,6 +229,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+comment|//probably and is assignable from filter
 operator|(
 operator|(
 name|ModelAwareFilter
@@ -229,6 +253,7 @@ block|}
 comment|/**      * Wraps an existing {@link FilterList} filter into a {@link ModelAwareFilterList}.      */
 DECL|method|wrap (FilterList filter)
 specifier|public
+specifier|static
 name|ModelAwareFilterList
 name|wrap
 parameter_list|(
@@ -251,6 +276,40 @@ name|getFilters
 argument_list|()
 argument_list|)
 return|;
+block|}
+DECL|method|getFilters ()
+specifier|public
+name|List
+argument_list|<
+name|Filter
+argument_list|>
+name|getFilters
+parameter_list|()
+block|{
+return|return
+name|fl
+operator|.
+name|getFilters
+argument_list|()
+return|;
+block|}
+DECL|method|addFilter (Filter filter)
+specifier|public
+name|void
+name|addFilter
+parameter_list|(
+name|Filter
+name|filter
+parameter_list|)
+block|{
+name|getFilters
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|filter
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
