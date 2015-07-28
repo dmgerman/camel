@@ -100,6 +100,13 @@ name|ManagedProducerRouteAddRemoveRegisterAlwaysTest
 extends|extends
 name|ManagementTestSupport
 block|{
+DECL|field|services
+specifier|private
+name|int
+name|services
+init|=
+literal|11
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createCamelContext ()
@@ -206,7 +213,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|10
+name|services
 argument_list|,
 name|names
 operator|.
@@ -345,7 +352,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|10
+name|services
 argument_list|,
 name|names
 operator|.
@@ -419,7 +426,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|10
+name|services
 argument_list|,
 name|names
 operator|.
