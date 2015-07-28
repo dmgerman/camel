@@ -163,7 +163,7 @@ specifier|final
 name|String
 name|HITS_COLUMN_LABEL
 init|=
-literal|"Hits"
+literal|"Total #"
 decl_stmt|;
 DECL|field|DEFAULT_COLUMN_WIDTH_INCREMENT
 specifier|private
@@ -542,7 +542,7 @@ literal|"------"
 argument_list|,
 literal|"-------"
 argument_list|,
-literal|"----"
+literal|"-------"
 argument_list|)
 argument_list|)
 expr_stmt|;
