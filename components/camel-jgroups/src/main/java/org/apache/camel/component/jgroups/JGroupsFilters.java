@@ -260,7 +260,7 @@ name|body
 argument_list|)
 expr_stmt|;
 return|return
-literal|true
+literal|false
 return|;
 block|}
 block|}
