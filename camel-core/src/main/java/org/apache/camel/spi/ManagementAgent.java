@@ -376,6 +376,21 @@ name|Boolean
 name|getLoadStatisticsEnabled
 parameter_list|()
 function_decl|;
+comment|/**      * Sets whether endpoint runtime statistics is enabled (gathers runtime usage of each incoming and outgoing endpoints).      *<p/>      * The default value is<tt>true</tt>      *      * @param flag<tt>false</tt> to disable endpoint runtime statistics      */
+DECL|method|setEndpointRuntimeStatisticsEnabled (Boolean flag)
+name|void
+name|setEndpointRuntimeStatisticsEnabled
+parameter_list|(
+name|Boolean
+name|flag
+parameter_list|)
+function_decl|;
+comment|/**      * Gets whether load statistics is enabled      *      * @return<tt>true</tt> if enabled      */
+DECL|method|getEndpointRuntimeStatisticsEnabled ()
+name|Boolean
+name|getEndpointRuntimeStatisticsEnabled
+parameter_list|()
+function_decl|;
 comment|/**      * Sets the statistics level      *<p/>      * Default is {@link org.apache.camel.ManagementStatisticsLevel#Default}      *<p/>      * The level can be set to<tt>Extended</tt> to gather additional information      *      * @param level the new level      */
 DECL|method|setStatisticsLevel (ManagementStatisticsLevel level)
 name|void

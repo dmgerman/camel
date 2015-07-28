@@ -232,6 +232,14 @@ specifier|private
 name|String
 name|loadStatisticsEnabled
 decl_stmt|;
+comment|/**      * A flag that indicates whether endpoint runtime statistics is enabled      */
+annotation|@
+name|XmlAttribute
+DECL|field|endpointRuntimeStatisticsEnabled
+specifier|private
+name|String
+name|endpointRuntimeStatisticsEnabled
+decl_stmt|;
 comment|/**      * A flag that indicates whether to include hostname in JMX MBean names.      */
 annotation|@
 name|XmlAttribute
@@ -586,6 +594,32 @@ operator|=
 name|loadStatisticsEnabled
 expr_stmt|;
 block|}
+DECL|method|getEndpointRuntimeStatisticsEnabled ()
+specifier|public
+name|String
+name|getEndpointRuntimeStatisticsEnabled
+parameter_list|()
+block|{
+return|return
+name|endpointRuntimeStatisticsEnabled
+return|;
+block|}
+DECL|method|setEndpointRuntimeStatisticsEnabled (String endpointRuntimeStatisticsEnabled)
+specifier|public
+name|void
+name|setEndpointRuntimeStatisticsEnabled
+parameter_list|(
+name|String
+name|endpointRuntimeStatisticsEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpointRuntimeStatisticsEnabled
+operator|=
+name|endpointRuntimeStatisticsEnabled
+expr_stmt|;
+block|}
 DECL|method|getIncludeHostName ()
 specifier|public
 name|String
@@ -834,6 +868,23 @@ argument_list|(
 literal|"loadStatisticsEnabled="
 operator|+
 name|loadStatisticsEnabled
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|endpointRuntimeStatisticsEnabled
+operator|!=
+literal|null
+condition|)
+block|{
+name|csb
+operator|.
+name|append
+argument_list|(
+literal|"endpointRuntimeStatisticsEnabled="
+operator|+
+name|endpointRuntimeStatisticsEnabled
 argument_list|)
 expr_stmt|;
 block|}

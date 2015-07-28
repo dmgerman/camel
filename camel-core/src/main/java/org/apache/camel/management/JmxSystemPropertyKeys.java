@@ -127,6 +127,16 @@ name|LOAD_STATISTICS_ENABLED
 init|=
 literal|"org.apache.camel.jmx.loadStatisticsEnabled"
 decl_stmt|;
+comment|// whether to enable gathering endpoint runtime statistics
+DECL|field|ENDPOINT_RUNTIME_STATISTICS_ENABLED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ENDPOINT_RUNTIME_STATISTICS_ENABLED
+init|=
+literal|"org.apache.camel.jmx.endpointRuntimeStatisticsEnabled"
+decl_stmt|;
 comment|// the level of statistics enabled
 DECL|field|STATISTICS_LEVEL
 specifier|public
