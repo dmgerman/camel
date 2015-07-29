@@ -746,6 +746,8 @@ operator|new
 name|DestinationNameParser
 argument_list|()
 decl_stmt|;
+name|this
+operator|.
 name|topic
 operator|=
 name|parser
