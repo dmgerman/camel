@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|io
+operator|.
+name|undertow
+operator|.
+name|server
+operator|.
+name|HttpServerExchange
+import|;
+end_import
+
+begin_import
+import|import
 name|java
 operator|.
 name|net
@@ -47,18 +59,6 @@ operator|.
 name|ssl
 operator|.
 name|SSLContext
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|undertow
-operator|.
-name|server
-operator|.
-name|HttpServerExchange
 import|;
 end_import
 
@@ -234,26 +234,6 @@ name|SSLContextParameters
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents an Undertow endpoint.  */
 end_comment
@@ -293,22 +273,6 @@ name|DefaultEndpoint
 implements|implements
 name|HeaderFilterStrategyAware
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|UndertowEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|component
 specifier|private
 name|UndertowComponent
