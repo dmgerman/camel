@@ -147,6 +147,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Number of Exchanges scheduled for redelivery (waiting to be redelivered in the future)"
+argument_list|)
+DECL|method|getPendingRedeliveryCount ()
+name|Integer
+name|getPendingRedeliveryCount
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"RedeliveryPolicy for maximum redeliveries"
 argument_list|)
 DECL|method|getMaximumRedeliveries ()
