@@ -34,6 +34,16 @@ name|java
 operator|.
 name|net
 operator|.
+name|HttpURLConnection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
 name|URL
 import|;
 end_import
@@ -79,16 +89,6 @@ operator|.
 name|io
 operator|.
 name|XmlReader
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|HttpURLConnection
 import|;
 end_import
 

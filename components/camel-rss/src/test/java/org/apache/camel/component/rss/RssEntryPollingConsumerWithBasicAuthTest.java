@@ -94,10 +94,6 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|/**  *   * @author Alexander Friedrichs  */
-end_comment
-
 begin_class
 DECL|class|RssEntryPollingConsumerWithBasicAuthTest
 specifier|public
