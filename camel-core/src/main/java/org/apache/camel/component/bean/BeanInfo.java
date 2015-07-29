@@ -4742,6 +4742,24 @@ return|return
 literal|false
 return|;
 block|}
+comment|// must not be abstract
+if|if
+condition|(
+name|Modifier
+operator|.
+name|isAbstract
+argument_list|(
+name|method
+operator|.
+name|getModifiers
+argument_list|()
+argument_list|)
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 comment|// return type must not be an Exchange and it should not be a bridge method
 if|if
 condition|(
