@@ -243,6 +243,20 @@ name|throttleEntries
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|username
+specifier|private
+name|String
+name|username
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|password
+specifier|private
+name|String
+name|password
+decl_stmt|;
 DECL|method|FeedEndpoint ()
 specifier|public
 name|FeedEndpoint
@@ -715,6 +729,62 @@ name|this
 operator|.
 name|throttleEntries
 return|;
+block|}
+comment|/**      * @return the username      */
+DECL|method|getUsername ()
+specifier|public
+name|String
+name|getUsername
+parameter_list|()
+block|{
+return|return
+name|username
+return|;
+block|}
+comment|/**      * Sets the username to be used for basic authentication      * @param username the username to set      */
+DECL|method|setUsername (String username)
+specifier|public
+name|void
+name|setUsername
+parameter_list|(
+name|String
+name|username
+parameter_list|)
+block|{
+name|this
+operator|.
+name|username
+operator|=
+name|username
+expr_stmt|;
+block|}
+comment|/**      * @return the password      */
+DECL|method|getPassword ()
+specifier|public
+name|String
+name|getPassword
+parameter_list|()
+block|{
+return|return
+name|password
+return|;
+block|}
+comment|/**      * Sets the password to be used for basic authentication      * @param password the password to set      */
+DECL|method|setPassword (String password)
+specifier|public
+name|void
+name|setPassword
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|this
+operator|.
+name|password
+operator|=
+name|password
+expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
