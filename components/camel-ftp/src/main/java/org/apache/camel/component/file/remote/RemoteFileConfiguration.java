@@ -227,10 +227,17 @@ literal|30000
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"300000"
+argument_list|)
 DECL|field|soTimeout
 specifier|private
 name|int
 name|soTimeout
+init|=
+literal|300000
 decl_stmt|;
 annotation|@
 name|UriParam
