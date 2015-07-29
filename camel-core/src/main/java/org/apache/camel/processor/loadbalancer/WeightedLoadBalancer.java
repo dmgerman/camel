@@ -47,6 +47,11 @@ name|WeightedLoadBalancer
 extends|extends
 name|QueueLoadBalancer
 block|{
+DECL|field|lastIndex
+specifier|transient
+name|int
+name|lastIndex
+decl_stmt|;
 DECL|field|distributionRatioList
 specifier|private
 name|List
@@ -76,11 +81,6 @@ argument_list|<
 name|DistributionRatio
 argument_list|>
 argument_list|()
-decl_stmt|;
-DECL|field|lastIndex
-specifier|transient
-name|int
-name|lastIndex
 decl_stmt|;
 DECL|method|WeightedLoadBalancer (List<Integer> distributionRatios)
 specifier|public

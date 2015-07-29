@@ -1770,6 +1770,7 @@ block|}
 DECL|class|EndpointRuntimeStatistics
 specifier|private
 specifier|static
+specifier|final
 class|class
 name|EndpointRuntimeStatistics
 implements|implements
