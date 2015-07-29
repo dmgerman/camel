@@ -730,7 +730,6 @@ operator|.
 name|throttleEntries
 return|;
 block|}
-comment|/**      * @return the username      */
 DECL|method|getUsername ()
 specifier|public
 name|String
@@ -741,7 +740,7 @@ return|return
 name|username
 return|;
 block|}
-comment|/**      * Sets the username to be used for basic authentication      * @param username the username to set      */
+comment|/**      * Sets the username to be used for basic authentication when polling from a HTTP feed      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -758,7 +757,6 @@ operator|=
 name|username
 expr_stmt|;
 block|}
-comment|/**      * @return the password      */
 DECL|method|getPassword ()
 specifier|public
 name|String
@@ -769,7 +767,7 @@ return|return
 name|password
 return|;
 block|}
-comment|/**      * Sets the password to be used for basic authentication      * @param password the password to set      */
+comment|/**      * Sets the password to be used for basic authentication when polling from a HTTP feed      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
