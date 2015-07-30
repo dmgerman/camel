@@ -32,6 +32,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URISyntaxException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashMap
@@ -396,13 +406,9 @@ comment|// create the endpoint first
 name|UndertowEndpoint
 name|endpoint
 init|=
-operator|new
-name|UndertowEndpoint
+name|createEndpointInstance
 argument_list|(
 name|endpointUri
-operator|.
-name|toString
-argument_list|()
 argument_list|,
 name|this
 argument_list|)
@@ -480,6 +486,33 @@ argument_list|)
 expr_stmt|;
 return|return
 name|endpoint
+return|;
+block|}
+DECL|method|createEndpointInstance (URI endpointUri, UndertowComponent component)
+specifier|protected
+name|UndertowEndpoint
+name|createEndpointInstance
+parameter_list|(
+name|URI
+name|endpointUri
+parameter_list|,
+name|UndertowComponent
+name|component
+parameter_list|)
+throws|throws
+name|URISyntaxException
+block|{
+return|return
+operator|new
+name|UndertowEndpoint
+argument_list|(
+name|endpointUri
+operator|.
+name|toString
+argument_list|()
+argument_list|,
+name|component
+argument_list|)
 return|;
 block|}
 annotation|@
@@ -986,6 +1019,9 @@ argument_list|()
 condition|)
 block|{
 comment|//if there no Consumer left, we can shut down server
+name|Undertow
+name|server
+init|=
 name|serversRegistry
 operator|.
 name|get
@@ -995,10 +1031,20 @@ argument_list|)
 operator|.
 name|getServer
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|server
+operator|!=
+literal|null
+condition|)
+block|{
+name|server
 operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+block|}
 name|serversRegistry
 operator|.
 name|remove
@@ -1100,35 +1146,8 @@ name|newServer
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getUndertowHttpBinding ()
-specifier|public
-name|UndertowHttpBinding
-name|getUndertowHttpBinding
-parameter_list|()
-block|{
-return|return
-name|undertowHttpBinding
-return|;
-block|}
-comment|/**      * To use a custom HttpBinding to control the mapping between Camel message and HttpClient.      */
-DECL|method|setUndertowHttpBinding (UndertowHttpBinding undertowHttpBinding)
-specifier|public
-name|void
-name|setUndertowHttpBinding
-parameter_list|(
-name|UndertowHttpBinding
-name|undertowHttpBinding
-parameter_list|)
-block|{
-name|this
-operator|.
-name|undertowHttpBinding
-operator|=
-name|undertowHttpBinding
-expr_stmt|;
-block|}
 DECL|method|rebuildServer (UndertowRegistry registy)
-specifier|private
+specifier|protected
 name|Undertow
 name|rebuildServer
 parameter_list|(
@@ -1325,6 +1344,33 @@ operator|.
 name|build
 argument_list|()
 return|;
+block|}
+DECL|method|getUndertowHttpBinding ()
+specifier|public
+name|UndertowHttpBinding
+name|getUndertowHttpBinding
+parameter_list|()
+block|{
+return|return
+name|undertowHttpBinding
+return|;
+block|}
+comment|/**      * To use a custom HttpBinding to control the mapping between Camel message and HttpClient.      */
+DECL|method|setUndertowHttpBinding (UndertowHttpBinding undertowHttpBinding)
+specifier|public
+name|void
+name|setUndertowHttpBinding
+parameter_list|(
+name|UndertowHttpBinding
+name|undertowHttpBinding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|undertowHttpBinding
+operator|=
+name|undertowHttpBinding
+expr_stmt|;
 block|}
 block|}
 end_class
