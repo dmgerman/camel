@@ -107,6 +107,15 @@ name|LIST_PREFIX
 init|=
 literal|"list:"
 decl_stmt|;
+DECL|field|SET_PREFIX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|SET_PREFIX
+init|=
+literal|"set:"
+decl_stmt|;
 comment|/*      * incoming header properties      */
 DECL|field|OBJECT_ID
 specifier|public
