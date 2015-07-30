@@ -122,7 +122,7 @@ name|contains
 argument_list|(
 literal|"Your URI does not provide a correct 'type' prefix. It should be anything like "
 operator|+
-literal|"'hazelcast:[map:|multimap:|atomicvalue:|instance:|queue:|seda:|list:|replicatedmap:]name' but is 'hazelcast://error:foo"
+literal|"'hazelcast:[map:|multimap:|atomicvalue:|instance:|queue:|seda:|list:|replicatedmap:|set:]name' but is 'hazelcast://error:foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
