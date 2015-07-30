@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|net
+operator|.
+name|URI
+import|;
+end_import
+
+begin_import
+import|import
 name|io
 operator|.
 name|undertow
@@ -27,16 +37,6 @@ operator|.
 name|server
 operator|.
 name|HttpHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URI
 import|;
 end_import
 

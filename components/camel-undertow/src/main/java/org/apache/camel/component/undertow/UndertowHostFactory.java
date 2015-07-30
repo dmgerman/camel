@@ -36,6 +36,7 @@ parameter_list|()
 function_decl|;
 DECL|class|Locator
 specifier|public
+specifier|final
 class|class
 name|Locator
 block|{
@@ -45,6 +46,11 @@ specifier|static
 name|UndertowHostFactory
 name|globalFactory
 decl_stmt|;
+DECL|method|Locator ()
+specifier|private
+name|Locator
+parameter_list|()
+block|{         }
 DECL|method|getUndertowHostFactory ()
 specifier|public
 specifier|static
