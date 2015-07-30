@@ -133,6 +133,37 @@ name|TEST_OPTIONS_PROPERTIES
 init|=
 literal|"/test-options.properties"
 decl_stmt|;
+DECL|field|properties
+specifier|private
+name|Properties
+name|properties
+init|=
+operator|new
+name|Properties
+argument_list|()
+decl_stmt|;
+DECL|method|setDefaultTestProperty (String key, String value)
+specifier|protected
+name|void
+name|setDefaultTestProperty
+parameter_list|(
+name|String
+name|key
+parameter_list|,
+name|String
+name|value
+parameter_list|)
+block|{
+name|properties
+operator|.
+name|setProperty
+argument_list|(
+name|key
+argument_list|,
+name|value
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createCamelContext ()
@@ -153,14 +184,6 @@ name|createCamelContext
 argument_list|()
 decl_stmt|;
 comment|// read Olingo component configuration from TEST_OPTIONS_PROPERTIES
-specifier|final
-name|Properties
-name|properties
-init|=
-operator|new
-name|Properties
-argument_list|()
-decl_stmt|;
 try|try
 block|{
 name|properties
