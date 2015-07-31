@@ -646,6 +646,29 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|Service
+operator|.
+name|DEFAULT_SCHEME
+operator|.
+name|equals
+argument_list|(
+name|getScheme
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Https in use. Setting SSL protocol to {}"
+argument_list|,
+name|getSslProtocol
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Service
 operator|.
 name|setSslSecurityProtocol
@@ -654,6 +677,7 @@ name|getSslProtocol
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|Service
 operator|.

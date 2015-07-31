@@ -145,7 +145,7 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"http"
+literal|"https"
 argument_list|)
 DECL|field|scheme
 specifier|private
