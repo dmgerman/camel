@@ -80,6 +80,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|TimeoutException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|atomic
 operator|.
 name|AtomicBoolean
@@ -303,6 +315,8 @@ name|openConnection
 parameter_list|()
 throws|throws
 name|IOException
+throws|,
+name|TimeoutException
 block|{
 name|log
 operator|.
@@ -600,7 +614,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * If needed, close Connection and Channels      */
+comment|/**      * If needed, close Connection and Channels       */
 DECL|method|closeConnectionAndChannel ()
 specifier|private
 name|void
@@ -608,6 +622,8 @@ name|closeConnectionAndChannel
 parameter_list|()
 throws|throws
 name|IOException
+throws|,
+name|TimeoutException
 block|{
 if|if
 condition|(
@@ -632,11 +648,31 @@ operator|.
 name|consumers
 control|)
 block|{
+try|try
+block|{
 name|consumer
 operator|.
 name|stop
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|TimeoutException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Timeout occured"
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 name|this
 operator|.
@@ -1224,6 +1260,8 @@ name|stop
 parameter_list|()
 throws|throws
 name|IOException
+throws|,
+name|TimeoutException
 block|{
 if|if
 condition|(
@@ -1240,11 +1278,31 @@ name|tag
 argument_list|)
 expr_stmt|;
 block|}
+try|try
+block|{
 name|channel
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|TimeoutException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|error
+argument_list|(
+literal|"Timeout occured"
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 block|}
 comment|/**      * Task in charge of opening connection and adding listener when consumer is started      * and broker is not available.      */

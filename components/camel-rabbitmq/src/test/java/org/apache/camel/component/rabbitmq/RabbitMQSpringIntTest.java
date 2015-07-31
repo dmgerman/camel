@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeoutException
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|rabbitmq
@@ -332,6 +344,8 @@ name|openConnection
 parameter_list|()
 throws|throws
 name|IOException
+throws|,
+name|TimeoutException
 block|{
 if|if
 condition|(
@@ -383,6 +397,8 @@ name|openChannel
 parameter_list|()
 throws|throws
 name|IOException
+throws|,
+name|TimeoutException
 block|{
 if|if
 condition|(
@@ -420,6 +436,8 @@ name|bindQueueExchange
 parameter_list|()
 throws|throws
 name|IOException
+throws|,
+name|TimeoutException
 block|{
 name|openChannel
 argument_list|()
@@ -432,6 +450,8 @@ specifier|public
 name|void
 name|closeConnection
 parameter_list|()
+throws|throws
+name|TimeoutException
 block|{
 if|if
 condition|(

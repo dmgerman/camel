@@ -174,6 +174,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeoutException
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|net
@@ -2100,6 +2112,8 @@ name|executor
 parameter_list|)
 throws|throws
 name|IOException
+throws|,
+name|TimeoutException
 block|{
 if|if
 condition|(
