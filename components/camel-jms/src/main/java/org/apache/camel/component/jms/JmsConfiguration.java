@@ -1216,6 +1216,8 @@ specifier|private
 name|boolean
 name|includeSentJMSMessageID
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|defaultTaskExecutorType
 specifier|private
 name|DefaultTaskExecutorType
