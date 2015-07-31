@@ -698,6 +698,11 @@ operator|.
 name|unbindAndClose
 argument_list|()
 expr_stmt|;
+comment|// clear session as we closed it successfully
+name|session
+operator|=
+literal|null
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -709,16 +714,15 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Could not close session "
+literal|"Cannot close session due "
 operator|+
-name|session
+name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|session
-operator|=
-literal|null
-expr_stmt|;
 block|}
 block|}
 DECL|method|reconnect (final long initialReconnectDelay)
@@ -784,7 +788,9 @@ parameter_list|(
 name|InterruptedException
 name|e
 parameter_list|)
-block|{                         }
+block|{
+comment|// ignore
+block|}
 name|int
 name|attempt
 init|=
