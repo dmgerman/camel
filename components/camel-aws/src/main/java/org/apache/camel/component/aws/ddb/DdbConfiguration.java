@@ -191,6 +191,20 @@ specifier|private
 name|String
 name|keyAttributeType
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|proxyHost
+specifier|private
+name|String
+name|proxyHost
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|proxyPort
+specifier|private
+name|Integer
+name|proxyPort
+decl_stmt|;
 comment|/**      * The region with which the AWS-DDB client wants to work with.      */
 DECL|method|setAmazonDdbEndpoint (String amazonDdbEndpoint)
 specifier|public
@@ -486,6 +500,60 @@ operator|.
 name|keyAttributeType
 operator|=
 name|keyAttributeType
+expr_stmt|;
+block|}
+comment|/**      * To define a proxy host when instantiating the SQS client      */
+DECL|method|getProxyHost ()
+specifier|public
+name|String
+name|getProxyHost
+parameter_list|()
+block|{
+return|return
+name|proxyHost
+return|;
+block|}
+DECL|method|setProxyHost (String proxyHost)
+specifier|public
+name|void
+name|setProxyHost
+parameter_list|(
+name|String
+name|proxyHost
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxyHost
+operator|=
+name|proxyHost
+expr_stmt|;
+block|}
+comment|/**      * To define a proxy port when instantiating the SQS client      */
+DECL|method|getProxyPort ()
+specifier|public
+name|Integer
+name|getProxyPort
+parameter_list|()
+block|{
+return|return
+name|proxyPort
+return|;
+block|}
+DECL|method|setProxyPort (Integer proxyPort)
+specifier|public
+name|void
+name|setProxyPort
+parameter_list|(
+name|Integer
+name|proxyPort
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxyPort
+operator|=
+name|proxyPort
 expr_stmt|;
 block|}
 block|}
