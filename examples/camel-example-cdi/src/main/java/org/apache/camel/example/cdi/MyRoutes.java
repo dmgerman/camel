@@ -64,20 +64,6 @@ name|camel
 operator|.
 name|cdi
 operator|.
-name|ContextName
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cdi
-operator|.
 name|Uri
 import|;
 end_import
@@ -87,8 +73,6 @@ comment|/**  * Configures all our Camel routes, components, endpoints and beans 
 end_comment
 
 begin_class
-annotation|@
-name|ContextName
 DECL|class|MyRoutes
 specifier|public
 class|class
@@ -127,8 +111,6 @@ specifier|public
 name|void
 name|configure
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// you can configure the route rule with Java DSL here
 name|from

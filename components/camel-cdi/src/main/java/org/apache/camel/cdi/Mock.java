@@ -87,10 +87,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A qualifier for injecting instances of {@link org.apache.camel.component.mock.MockEndpoint} into a bean.  */
+comment|/**  * A qualifier for injecting instances of {@link org.apache.camel.component.mock.MockEndpoint} into a bean.  *  * @deprecated Use {@link org.apache.camel.cdi.Uri} instead:  *  *<pre><code>  * {@literal @}Inject  * {@literal @}Uri("mock:outbound")  * MockEndpoint mock;  *</code></pre>  */
 end_comment
 
 begin_annotation_defn
+annotation|@
+name|Deprecated
 annotation|@
 name|Qualifier
 annotation|@
@@ -126,7 +128,7 @@ specifier|public
 annotation_defn|@interface
 name|Mock
 block|{
-comment|/**      * Returns an optional URI used to create the MockEndpoint      */
+comment|/**      * Returns an optional URI used to create the {@code MockEndpoint}.      */
 annotation|@
 name|Nonbinding
 DECL|method|value ()
@@ -136,7 +138,7 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
-comment|/**      * Returns the name of the CamelContext to use to resolve the endpoint for this URI      */
+comment|/**      * Returns the name of the Camel context to use to resolve the {@code MockEndpoint}.      */
 annotation|@
 name|Nonbinding
 DECL|method|context ()

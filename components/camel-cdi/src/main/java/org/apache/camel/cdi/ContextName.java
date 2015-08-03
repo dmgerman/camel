@@ -66,35 +66,33 @@ end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|enterprise
 operator|.
-name|camel
+name|util
 operator|.
-name|CamelContext
+name|AnnotationLiteral
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|inject
 operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|RouteBuilder
+name|Qualifier
 import|;
 end_import
 
 begin_comment
-comment|/**  * Used to bind objects to a named {@link CamelContext} instance   * such as {@link RouteBuilder} instances.  */
+comment|/**  * CDI qualifier to be used for multi Camel contexts CDI deployment.  * {@code CamelContext} beans can be annotated with the {@code @ContextName} qualifier  * so that the Camel context is named accordingly, e.g.:  *  *<pre><code>  * {@literal @}ApplicationScoped  * {@literal @}ContextName("foo")  * public class FooCamelContext extends DefaultCamelContext {  * }  *</code></pre>  *  * Camel resources like route builders, endpoints and producer templates can be annotated with  * the {@code @ContextName} qualifier as well so that they are associated with the  * corresponding Camel context, e.g.:  *  *<pre><code>  * {@literal @}ContextName("foo")  * public class FooRouteBuilder extends RouteBuilder {  *  *     {@literal @}Override  *     public void configure() {  *         from("direct:bar").to("mock:bar");  *     }  * }  *  * {@literal @}Inject  * {@literal @}ContextName("foo")  * {@literal @}Uri("direct:bar")  * ProducerTemplate barProducer;  *  * {@literal @}Inject  * {@literal @}ContextName("foo")  * {@literal @}Uri("mock:bar")  * MockEndpoint barMockEndpoint;  *</code></pre>  *  * @see org.apache.camel.CamelContext  *  */
 end_comment
 
 begin_annotation_defn
+annotation|@
+name|Qualifier
 annotation|@
 name|Retention
 argument_list|(
@@ -128,14 +126,67 @@ specifier|public
 annotation_defn|@interface
 name|ContextName
 block|{
-comment|/**      * Returns the name of the CamelContext to add the routes to.      * If no value is specified then the default CamelContext is used.      */
+comment|/**      * Returns the name of the Camel context.      */
 DECL|method|value ()
 name|String
 name|value
 parameter_list|()
-default|default
-literal|""
 function_decl|;
+DECL|class|Literal
+specifier|final
+class|class
+name|Literal
+extends|extends
+name|AnnotationLiteral
+argument_list|<
+name|ContextName
+argument_list|>
+implements|implements
+name|ContextName
+block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
+DECL|field|name
+specifier|private
+specifier|final
+name|String
+name|name
+decl_stmt|;
+DECL|method|Literal (String name)
+specifier|public
+name|Literal
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|this
+operator|.
+name|name
+operator|=
+name|name
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|value ()
+specifier|public
+name|String
+name|value
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
+block|}
+block|}
 block|}
 end_annotation_defn
 

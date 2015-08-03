@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An injection annotation to define the<a href="http://camel.apache.org/uris.html">Camel URI</a> used  * to reference the underlying<a href="http://camel.apache.org/endpoint.html">Camel Endpoint</a>.  *  * This annotation can be used to annotate an @Inject injection point for values of type  * {@link org.apache.camel.Endpoint} or {@link org.apache.camel.ProducerTemplate} with a String URI.  *  * For example:  *<code>  *     public class Foo {  *         @Inject @Uri("mock:foo") Endpoint endpoint;  *  *         @Inject @Uri("seda:bar") ProducerTemplate producer;  *     }  *</code>  */
+comment|/**  * A CDI qualifier to define the<a href="http://camel.apache.org/uris.html">Camel URI</a> associated to  * the annotated resource. This annotation can be used to annotate an {@code @Inject} injection point for  * values of type {@link org.apache.camel.Endpoint} or {@link org.apache.camel.ProducerTemplate}. For example:  *<pre><code>  * {@literal @}Inject  * {@literal @}Uri("mock:foo")  * Endpoint endpoint;  *  * {@literal @}Inject  * {@literal @}Uri("seda:bar")  * ProducerTemplate producer;  *</code></pre>  */
 end_comment
 
 begin_annotation_defn
@@ -126,18 +126,20 @@ specifier|public
 annotation_defn|@interface
 name|Uri
 block|{
-comment|/**      * Returns the<a href="http://camel.apache.org/uris.html">Camel URI</a> of the endpoint      */
+comment|/**      * Returns the<a href="http://camel.apache.org/uris.html">Camel URI</a> of the resource.      */
+DECL|method|value ()
 annotation|@
 name|Nonbinding
-DECL|method|value ()
 name|String
 name|value
 parameter_list|()
 function_decl|;
-comment|/**      * Returns the name of the CamelContext to use to resolve the endpoint for this URI      */
+comment|/**      * Returns the name of the {@code CamelContext} to use to resolve the Camel resource for this URI.      *      * @deprecated Use the {@link ContextName} qualifier to specify the name of the {@code CamelContext} instead:      *<pre><code>      * {@literal @}Inject      * {@literal @}ContextName("foo")      * {@literal @}Uri("seda:bar")      * Endpoint endpoint;      *</code></pre>      */
+annotation|@
+name|Deprecated
+DECL|method|context ()
 annotation|@
 name|Nonbinding
-DECL|method|context ()
 name|String
 name|context
 parameter_list|()

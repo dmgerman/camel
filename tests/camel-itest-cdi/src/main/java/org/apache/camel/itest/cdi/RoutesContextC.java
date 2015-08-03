@@ -142,10 +142,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_comment
-comment|/**  * Uses contextC implicitly using that context for all injection points without  * having to mention them on each camel annotation  */
-end_comment
-
 begin_class
 annotation|@
 name|ContextName
@@ -178,6 +174,11 @@ decl_stmt|;
 annotation|@
 name|Inject
 annotation|@
+name|ContextName
+argument_list|(
+literal|"contextC"
+argument_list|)
+annotation|@
 name|Uri
 argument_list|(
 literal|"seda:C.a"
@@ -192,6 +193,10 @@ argument_list|(
 name|uri
 operator|=
 literal|"mock:C.b"
+argument_list|,
+name|context
+operator|=
+literal|"contextC"
 argument_list|)
 DECL|field|b
 name|MockEndpoint
@@ -199,6 +204,11 @@ name|b
 decl_stmt|;
 annotation|@
 name|Inject
+annotation|@
+name|ContextName
+argument_list|(
+literal|"contextC"
+argument_list|)
 annotation|@
 name|Uri
 argument_list|(
@@ -230,7 +240,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|sendMessages ()
-specifier|public
 name|void
 name|sendMessages
 parameter_list|()

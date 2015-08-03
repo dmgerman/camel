@@ -248,11 +248,6 @@ comment|/**  * Configures all our Camel routes, components, endpoints and beans 
 end_comment
 
 begin_class
-annotation|@
-name|ContextName
-argument_list|(
-literal|"myCdiCamelContext"
-argument_list|)
 DECL|class|MyRoutes
 specifier|public
 class|class
@@ -291,8 +286,6 @@ specifier|public
 name|void
 name|configure
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 comment|// you can configure the route rule with Java DSL here
 name|from
