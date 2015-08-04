@@ -406,6 +406,21 @@ name|ManagementStatisticsLevel
 name|getStatisticsLevel
 parameter_list|()
 function_decl|;
+comment|/**      * Gets whether host IP Address to be used instead of host name.      *      * @return<tt>true</tt> if included      */
+DECL|method|getUseHostIPAddress ()
+name|Boolean
+name|getUseHostIPAddress
+parameter_list|()
+function_decl|;
+comment|/**      * Sets whether to use host IP Address       * @param useHostIPAddress<tt>true</tt> to use IP Address.      */
+DECL|method|setUseHostIPAddress (Boolean useHostIPAddress)
+name|void
+name|setUseHostIPAddress
+parameter_list|(
+name|Boolean
+name|useHostIPAddress
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

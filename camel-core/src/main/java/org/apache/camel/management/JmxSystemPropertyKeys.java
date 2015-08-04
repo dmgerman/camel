@@ -197,6 +197,16 @@ name|MANAGEMENT_NAME_PATTERN
 init|=
 literal|"org.apache.camel.jmx.managementNamePattern"
 decl_stmt|;
+comment|// flag to enable host ip address instead of host name
+DECL|field|USE_HOST_IP_ADDRESS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|USE_HOST_IP_ADDRESS
+init|=
+literal|"org.apache.camel.jmx.useHostIPAddress"
+decl_stmt|;
 DECL|method|JmxSystemPropertyKeys ()
 specifier|private
 name|JmxSystemPropertyKeys

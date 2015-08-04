@@ -248,6 +248,14 @@ specifier|private
 name|String
 name|includeHostName
 decl_stmt|;
+comment|/**      * A flag that indicates whether to use hostname or IP Address in the service url.      */
+annotation|@
+name|XmlAttribute
+DECL|field|useHostIPAddress
+specifier|private
+name|String
+name|useHostIPAddress
+decl_stmt|;
 comment|/**      * A flag that indicates whether to remove detected sensitive information (such as passwords) from MBean names and attributes.      */
 annotation|@
 name|XmlAttribute
@@ -672,6 +680,32 @@ operator|=
 name|mask
 expr_stmt|;
 block|}
+DECL|method|getUseHostIPAddress ()
+specifier|public
+name|String
+name|getUseHostIPAddress
+parameter_list|()
+block|{
+return|return
+name|useHostIPAddress
+return|;
+block|}
+DECL|method|setUseHostIPAddress (String useHostIPAddress)
+specifier|public
+name|void
+name|setUseHostIPAddress
+parameter_list|(
+name|String
+name|useHostIPAddress
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useHostIPAddress
+operator|=
+name|useHostIPAddress
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -953,6 +987,23 @@ argument_list|(
 literal|"includeHostName="
 operator|+
 name|includeHostName
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|useHostIPAddress
+operator|!=
+literal|null
+condition|)
+block|{
+name|csb
+operator|.
+name|append
+argument_list|(
+literal|"useHostIPAddress="
+operator|+
+name|useHostIPAddress
 argument_list|)
 expr_stmt|;
 block|}
