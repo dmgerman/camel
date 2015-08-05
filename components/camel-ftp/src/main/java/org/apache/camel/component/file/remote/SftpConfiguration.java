@@ -48,6 +48,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|LoggingLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|UriParam
@@ -211,6 +223,22 @@ DECL|field|preferredAuthentications
 specifier|private
 name|String
 name|preferredAuthentications
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"WARN"
+argument_list|)
+DECL|field|jschLoggingLevel
+specifier|private
+name|LoggingLevel
+name|jschLoggingLevel
+init|=
+name|LoggingLevel
+operator|.
+name|WARN
 decl_stmt|;
 DECL|method|SftpConfiguration ()
 specifier|public
@@ -687,6 +715,33 @@ block|{
 return|return
 name|preferredAuthentications
 return|;
+block|}
+DECL|method|getJschLoggingLevel ()
+specifier|public
+name|LoggingLevel
+name|getJschLoggingLevel
+parameter_list|()
+block|{
+return|return
+name|jschLoggingLevel
+return|;
+block|}
+comment|/**      * Sets the logging level of JSCH activity.      *<p/>      * Because JSCH is verbose by default at INFO level, the default value is<tt>WARN</tt>      */
+DECL|method|setJschLoggingLevel (LoggingLevel jschLoggingLevel)
+specifier|public
+name|void
+name|setJschLoggingLevel
+parameter_list|(
+name|LoggingLevel
+name|jschLoggingLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jschLoggingLevel
+operator|=
+name|jschLoggingLevel
+expr_stmt|;
 block|}
 block|}
 end_class

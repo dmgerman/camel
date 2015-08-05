@@ -338,6 +338,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|LoggingLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|file
@@ -1073,7 +1085,15 @@ name|setLogger
 argument_list|(
 operator|new
 name|JSchLogger
+argument_list|(
+name|endpoint
+operator|.
+name|getConfiguration
 argument_list|()
+operator|.
+name|getJschLoggingLevel
+argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|SftpConfiguration
@@ -2113,6 +2133,27 @@ name|jsch
 operator|.
 name|Logger
 block|{
+DECL|field|loggingLevel
+specifier|private
+specifier|final
+name|LoggingLevel
+name|loggingLevel
+decl_stmt|;
+DECL|method|JSchLogger (LoggingLevel loggingLevel)
+specifier|private
+name|JSchLogger
+parameter_list|(
+name|LoggingLevel
+name|loggingLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|loggingLevel
+operator|=
+name|loggingLevel
+expr_stmt|;
+block|}
 DECL|method|isEnabled (int level)
 specifier|public
 name|boolean
@@ -2132,6 +2173,15 @@ name|FATAL
 case|:
 comment|// use ERROR as FATAL
 return|return
+name|loggingLevel
+operator|.
+name|isGE
+argument_list|(
+name|LoggingLevel
+operator|.
+name|ERROR
+argument_list|)
+operator|&&
 name|LOG
 operator|.
 name|isErrorEnabled
@@ -2141,6 +2191,15 @@ case|case
 name|ERROR
 case|:
 return|return
+name|loggingLevel
+operator|.
+name|isGE
+argument_list|(
+name|LoggingLevel
+operator|.
+name|ERROR
+argument_list|)
+operator|&&
 name|LOG
 operator|.
 name|isErrorEnabled
@@ -2150,6 +2209,15 @@ case|case
 name|WARN
 case|:
 return|return
+name|loggingLevel
+operator|.
+name|isGE
+argument_list|(
+name|LoggingLevel
+operator|.
+name|WARN
+argument_list|)
+operator|&&
 name|LOG
 operator|.
 name|isWarnEnabled
@@ -2159,6 +2227,15 @@ case|case
 name|INFO
 case|:
 return|return
+name|loggingLevel
+operator|.
+name|isGE
+argument_list|(
+name|LoggingLevel
+operator|.
+name|INFO
+argument_list|)
+operator|&&
 name|LOG
 operator|.
 name|isInfoEnabled
@@ -2166,6 +2243,15 @@ argument_list|()
 return|;
 default|default:
 return|return
+name|loggingLevel
+operator|.
+name|isGE
+argument_list|(
+name|LoggingLevel
+operator|.
+name|DEBUG
+argument_list|)
+operator|&&
 name|LOG
 operator|.
 name|isDebugEnabled
@@ -2198,8 +2284,8 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"JSCH -> "
-operator|+
+literal|"JSCH -> {}"
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
@@ -2211,8 +2297,8 @@ name|LOG
 operator|.
 name|error
 argument_list|(
-literal|"JSCH -> "
-operator|+
+literal|"JSCH -> {}"
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
@@ -2224,8 +2310,8 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"JSCH -> "
-operator|+
+literal|"JSCH -> {}"
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
@@ -2237,8 +2323,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"JSCH -> "
-operator|+
+literal|"JSCH -> {}"
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
@@ -2248,8 +2334,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"JSCH -> "
-operator|+
+literal|"JSCH -> {}"
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
