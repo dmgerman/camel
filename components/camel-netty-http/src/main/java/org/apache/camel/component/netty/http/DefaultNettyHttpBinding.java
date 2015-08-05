@@ -1141,27 +1141,6 @@ literal|"Basic"
 argument_list|)
 condition|)
 block|{
-if|if
-condition|(
-name|headerFilterStrategy
-operator|!=
-literal|null
-operator|&&
-operator|!
-name|headerFilterStrategy
-operator|.
-name|applyFilterToExternalHeaders
-argument_list|(
-name|NettyHttpConstants
-operator|.
-name|HTTP_AUTHENTICATION
-argument_list|,
-literal|"Basic"
-argument_list|,
-name|exchange
-argument_list|)
-condition|)
-block|{
 name|NettyHttpHelper
 operator|.
 name|appendHeader
@@ -1175,7 +1154,6 @@ argument_list|,
 literal|"Basic"
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 comment|// add the headers one by one, and use the header filter strategy

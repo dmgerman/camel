@@ -461,7 +461,8 @@ name|exchange
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertFalse
+comment|// any Camel header should be filtered
+name|assertTrue
 argument_list|(
 name|filter
 operator|.
@@ -475,7 +476,7 @@ name|exchange
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertTrue
 argument_list|(
 name|filter
 operator|.
@@ -848,6 +849,7 @@ name|exchange
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// any Camel header should be filtered
 name|assertTrue
 argument_list|(
 name|filter
