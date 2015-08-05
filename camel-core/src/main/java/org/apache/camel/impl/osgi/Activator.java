@@ -19,22 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|org
-operator|.
-name|osgi
-operator|.
-name|framework
-operator|.
-name|wiring
-operator|.
-name|BundleRevision
-operator|.
-name|PACKAGE_NAMESPACE
-import|;
-end_import
-
-begin_import
 import|import
 name|java
 operator|.
@@ -672,6 +656,22 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|osgi
+operator|.
+name|framework
+operator|.
+name|wiring
+operator|.
+name|BundleRevision
+operator|.
+name|PACKAGE_NAMESPACE
+import|;
+end_import
+
 begin_class
 DECL|class|Activator
 specifier|public
@@ -777,6 +777,7 @@ name|tracker
 decl_stmt|;
 DECL|field|resolvers
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|Long
@@ -808,6 +809,7 @@ decl_stmt|;
 comment|// Map from package name to the capability we export for this package
 DECL|field|packageCapabilities
 specifier|private
+specifier|final
 name|Map
 argument_list|<
 name|String
@@ -925,7 +927,7 @@ literal|"Camel activator stopped"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Caches the package capabilities that are needed for a set of interface classes      *        * @param classes interfaces we want to track      */
+comment|/**      * Caches the package capabilities that are needed for a set of interface classes      */
 DECL|method|cachePackageCapabilities (BundleContext context)
 specifier|private
 name|void
@@ -1928,7 +1930,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Check if bundle can see the given class      * @param bundle      * @param clazz      * @return      */
+comment|/**      * Check if bundle can see the given class      */
 DECL|method|canSee (Bundle bundle, Class<?> clazz)
 specifier|protected
 name|boolean
@@ -2613,11 +2615,7 @@ name|Constants
 operator|.
 name|SERVICE_RANKING
 argument_list|,
-operator|new
-name|Integer
-argument_list|(
 literal|100
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
