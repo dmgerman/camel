@@ -866,7 +866,7 @@ name|assertTrue
 argument_list|(
 name|filter
 operator|.
-name|applyFilterToExternalHeaders
+name|applyFilterToCamelHeaders
 argument_list|(
 literal|"CamelHeader"
 argument_list|,
@@ -880,7 +880,7 @@ name|assertTrue
 argument_list|(
 name|filter
 operator|.
-name|applyFilterToExternalHeaders
+name|applyFilterToCamelHeaders
 argument_list|(
 literal|"org.apache.camel.header"
 argument_list|,
