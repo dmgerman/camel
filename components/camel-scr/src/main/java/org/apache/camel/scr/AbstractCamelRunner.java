@@ -595,9 +595,9 @@ parameter_list|)
 block|{
 if|if
 condition|(
-literal|null
-operator|!=
 name|bundleContext
+operator|!=
+literal|null
 condition|)
 block|{
 name|context
