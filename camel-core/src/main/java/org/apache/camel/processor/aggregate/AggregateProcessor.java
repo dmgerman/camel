@@ -4004,6 +4004,55 @@ name|timeout
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Current number of closed correlation keys in the memory cache      */
+DECL|method|getClosedCorrelationKeysCacheSize ()
+specifier|public
+name|int
+name|getClosedCorrelationKeysCacheSize
+parameter_list|()
+block|{
+if|if
+condition|(
+name|closedCorrelationKeys
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|closedCorrelationKeys
+operator|.
+name|size
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|0
+return|;
+block|}
+block|}
+comment|/**      * Clear all the closed correlation keys stored in the cache      */
+DECL|method|clearClosedCorrelationKeysCache ()
+specifier|public
+name|void
+name|clearClosedCorrelationKeysCache
+parameter_list|()
+block|{
+if|if
+condition|(
+name|closedCorrelationKeys
+operator|!=
+literal|null
+condition|)
+block|{
+name|closedCorrelationKeys
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 DECL|method|getStatistics ()
 specifier|public
 name|AggregateProcessorStatistics

@@ -197,7 +197,7 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Whether to close the correlation group on completion"
+literal|"Whether to close the correlation group on completion if this value is> 0."
 argument_list|)
 DECL|method|getCloseCorrelationKeyOnCompletion ()
 name|Integer
@@ -337,6 +337,30 @@ argument_list|)
 DECL|method|forceCompletionOfAllGroups ()
 name|int
 name|forceCompletionOfAllGroups
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Current number of closed correlation keys in the memory cache"
+argument_list|)
+DECL|method|getClosedCorrelationKeysCacheSize ()
+name|int
+name|getClosedCorrelationKeysCacheSize
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Clear all the closed correlation keys stored in the cache"
+argument_list|)
+DECL|method|clearClosedCorrelationKeysCache ()
+name|void
+name|clearClosedCorrelationKeysCache
 parameter_list|()
 function_decl|;
 annotation|@

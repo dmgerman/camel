@@ -96,20 +96,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|ProcessorDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|aggregate
@@ -807,6 +793,31 @@ return|return
 literal|0
 return|;
 block|}
+block|}
+DECL|method|getClosedCorrelationKeysCacheSize ()
+specifier|public
+name|int
+name|getClosedCorrelationKeysCacheSize
+parameter_list|()
+block|{
+return|return
+name|processor
+operator|.
+name|getClosedCorrelationKeysCacheSize
+argument_list|()
+return|;
+block|}
+DECL|method|clearClosedCorrelationKeysCache ()
+specifier|public
+name|void
+name|clearClosedCorrelationKeysCache
+parameter_list|()
+block|{
+name|processor
+operator|.
+name|clearClosedCorrelationKeysCache
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|getTotalIn ()
 specifier|public
