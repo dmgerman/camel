@@ -124,6 +124,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|junit
+operator|.
+name|Test
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|context
@@ -339,8 +349,8 @@ block|}
 block|}
 return|;
 block|}
-comment|// need cxf-3.0.6
-comment|//    @Test
+annotation|@
+name|Test
 DECL|method|testInvokeRouter ()
 specifier|public
 name|void
