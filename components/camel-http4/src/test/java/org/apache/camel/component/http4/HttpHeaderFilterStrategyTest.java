@@ -473,7 +473,8 @@ name|exchange
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertFalse
+comment|// any Camel header should be filtered
+name|assertTrue
 argument_list|(
 name|filter
 operator|.
@@ -487,7 +488,7 @@ name|exchange
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertFalse
+name|assertTrue
 argument_list|(
 name|filter
 operator|.
@@ -860,11 +861,12 @@ name|exchange
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// any Camel header should be filtered
 name|assertTrue
 argument_list|(
 name|filter
 operator|.
-name|applyFilterToCamelHeaders
+name|applyFilterToExternalHeaders
 argument_list|(
 literal|"CamelHeader"
 argument_list|,
@@ -878,7 +880,7 @@ name|assertTrue
 argument_list|(
 name|filter
 operator|.
-name|applyFilterToCamelHeaders
+name|applyFilterToExternalHeaders
 argument_list|(
 literal|"org.apache.camel.header"
 argument_list|,

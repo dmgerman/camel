@@ -165,6 +165,11 @@ argument_list|(
 literal|"(?i)(Camel|org\\.apache\\.camel)[\\.|a-z|A-z|0-9]*"
 argument_list|)
 expr_stmt|;
+name|setInFilterPattern
+argument_list|(
+literal|"(?i)(Camel|org\\.apache\\.camel)[\\.|a-z|A-z|0-9]*"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
