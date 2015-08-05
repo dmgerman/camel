@@ -1764,6 +1764,26 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isSynchronous
+argument_list|()
+condition|)
+block|{
+comment|// process synchronously
+name|getProcessor
+argument_list|()
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// process the exchange using the async consumer to support async routing engine
 comment|// which can be supported by this file consumer as all the done work is
 comment|// provided in the GenericFileOnCompletion
@@ -1815,6 +1835,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
