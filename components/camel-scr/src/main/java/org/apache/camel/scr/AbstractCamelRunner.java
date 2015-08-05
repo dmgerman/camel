@@ -330,20 +330,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|ModelCamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ReflectionHelper
@@ -436,7 +422,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|context
 specifier|protected
-name|ModelCamelContext
+name|CamelContext
 name|context
 decl_stmt|;
 DECL|field|registry
@@ -447,6 +433,11 @@ init|=
 operator|new
 name|SimpleRegistry
 argument_list|()
+decl_stmt|;
+DECL|field|active
+specifier|protected
+name|boolean
+name|active
 decl_stmt|;
 DECL|field|executor
 specifier|private
@@ -474,12 +465,6 @@ specifier|private
 specifier|volatile
 name|boolean
 name|started
-decl_stmt|;
-DECL|field|active
-specifier|protected
-specifier|volatile
-name|boolean
-name|active
 decl_stmt|;
 DECL|method|activate (final BundleContext bundleContext, final Map<String, String> props)
 specifier|public
@@ -1168,7 +1153,7 @@ block|}
 block|}
 DECL|method|getContext ()
 specifier|public
-name|ModelCamelContext
+name|CamelContext
 name|getContext
 parameter_list|()
 block|{
