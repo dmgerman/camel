@@ -543,7 +543,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SFTP remote file operations  */
+comment|/**  * SFTP remote file operations  *<p/>  * The JSCH session and channel are not thread-safe so we need to synchronize access to using this operation.  */
 end_comment
 
 begin_class
@@ -665,6 +665,7 @@ expr_stmt|;
 block|}
 DECL|method|connect (RemoteFileConfiguration configuration)
 specifier|public
+specifier|synchronized
 name|boolean
 name|connect
 parameter_list|(
@@ -2345,6 +2346,7 @@ block|}
 block|}
 DECL|method|isConnected ()
 specifier|public
+specifier|synchronized
 name|boolean
 name|isConnected
 parameter_list|()
@@ -2373,6 +2375,7 @@ return|;
 block|}
 DECL|method|disconnect ()
 specifier|public
+specifier|synchronized
 name|void
 name|disconnect
 parameter_list|()
@@ -2418,6 +2421,7 @@ block|}
 block|}
 DECL|method|deleteFile (String name)
 specifier|public
+specifier|synchronized
 name|boolean
 name|deleteFile
 parameter_list|(
@@ -2470,6 +2474,7 @@ block|}
 block|}
 DECL|method|renameFile (String from, String to)
 specifier|public
+specifier|synchronized
 name|boolean
 name|renameFile
 parameter_list|(
@@ -2533,6 +2538,7 @@ block|}
 block|}
 DECL|method|buildDirectory (String directory, boolean absolute)
 specifier|public
+specifier|synchronized
 name|boolean
 name|buildDirectory
 parameter_list|(
@@ -2850,6 +2856,7 @@ return|;
 block|}
 DECL|method|getCurrentDirectory ()
 specifier|public
+specifier|synchronized
 name|String
 name|getCurrentDirectory
 parameter_list|()
@@ -2905,6 +2912,7 @@ block|}
 block|}
 DECL|method|changeCurrentDirectory (String path)
 specifier|public
+specifier|synchronized
 name|void
 name|changeCurrentDirectory
 parameter_list|(
@@ -3233,6 +3241,7 @@ block|}
 block|}
 DECL|method|changeToParentDirectory ()
 specifier|public
+specifier|synchronized
 name|void
 name|changeToParentDirectory
 parameter_list|()
@@ -3291,6 +3300,7 @@ expr_stmt|;
 block|}
 DECL|method|listFiles ()
 specifier|public
+specifier|synchronized
 name|List
 argument_list|<
 name|ChannelSftp
@@ -3311,6 +3321,7 @@ return|;
 block|}
 DECL|method|listFiles (String path)
 specifier|public
+specifier|synchronized
 name|List
 argument_list|<
 name|ChannelSftp
@@ -3440,6 +3451,7 @@ block|}
 block|}
 DECL|method|retrieveFile (String name, Exchange exchange)
 specifier|public
+specifier|synchronized
 name|boolean
 name|retrieveFile
 parameter_list|(
@@ -3497,10 +3509,9 @@ argument_list|)
 return|;
 block|}
 block|}
-annotation|@
-name|Override
 DECL|method|releaseRetreivedFileResources (Exchange exchange)
 specifier|public
+specifier|synchronized
 name|void
 name|releaseRetreivedFileResources
 parameter_list|(
@@ -4341,6 +4352,7 @@ return|;
 block|}
 DECL|method|storeFile (String name, Exchange exchange)
 specifier|public
+specifier|synchronized
 name|boolean
 name|storeFile
 parameter_list|(
@@ -5270,6 +5282,7 @@ block|}
 block|}
 DECL|method|existsFile (String name)
 specifier|public
+specifier|synchronized
 name|boolean
 name|existsFile
 parameter_list|(
@@ -5570,6 +5583,7 @@ block|}
 block|}
 DECL|method|sendNoop ()
 specifier|public
+specifier|synchronized
 name|boolean
 name|sendNoop
 parameter_list|()
@@ -5619,6 +5633,7 @@ return|;
 block|}
 DECL|method|sendSiteCommand (String command)
 specifier|public
+specifier|synchronized
 name|boolean
 name|sendSiteCommand
 parameter_list|(
