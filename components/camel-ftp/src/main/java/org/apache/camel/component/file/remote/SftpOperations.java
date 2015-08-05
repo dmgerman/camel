@@ -2175,7 +2175,7 @@ comment|// use ERROR as FATAL
 return|return
 name|loggingLevel
 operator|.
-name|isGE
+name|isEnabled
 argument_list|(
 name|LoggingLevel
 operator|.
@@ -2193,7 +2193,7 @@ case|:
 return|return
 name|loggingLevel
 operator|.
-name|isGE
+name|isEnabled
 argument_list|(
 name|LoggingLevel
 operator|.
@@ -2211,7 +2211,7 @@ case|:
 return|return
 name|loggingLevel
 operator|.
-name|isGE
+name|isEnabled
 argument_list|(
 name|LoggingLevel
 operator|.
@@ -2229,7 +2229,7 @@ case|:
 return|return
 name|loggingLevel
 operator|.
-name|isGE
+name|isEnabled
 argument_list|(
 name|LoggingLevel
 operator|.
@@ -2245,7 +2245,7 @@ default|default:
 return|return
 name|loggingLevel
 operator|.
-name|isGE
+name|isEnabled
 argument_list|(
 name|LoggingLevel
 operator|.

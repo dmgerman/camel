@@ -726,7 +726,7 @@ return|return
 name|jschLoggingLevel
 return|;
 block|}
-comment|/**      * Sets the logging level of JSCH activity.      *<p/>      * Because JSCH is verbose by default at INFO level, the default value is<tt>WARN</tt>      */
+comment|/**      * The logging level to use for JSCH activity logging.      * As JSCH is verbose at by default at INFO level the threshold is WARN by default.      */
 DECL|method|setJschLoggingLevel (LoggingLevel jschLoggingLevel)
 specifier|public
 name|void
