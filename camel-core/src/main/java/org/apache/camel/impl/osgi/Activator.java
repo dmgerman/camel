@@ -1951,6 +1951,21 @@ argument_list|>
 name|clazz
 parameter_list|)
 block|{
+if|if
+condition|(
+name|bundle
+operator|.
+name|getBundleId
+argument_list|()
+operator|==
+name|bundleId
+condition|)
+block|{
+comment|// Need extra handling of camel core as it does not import the api
+return|return
+literal|true
+return|;
+block|}
 name|BundleCapability
 name|packageCap
 init|=
