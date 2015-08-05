@@ -919,6 +919,11 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|packageCapabilities
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 name|LOG
 operator|.
 name|info
