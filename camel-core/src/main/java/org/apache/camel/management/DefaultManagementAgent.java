@@ -1708,8 +1708,6 @@ operator|=
 name|includeHostName
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|getUseHostIPAddress ()
 specifier|public
 name|Boolean
@@ -1724,8 +1722,6 @@ operator|&&
 name|useHostIPAddress
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|setUseHostIPAddress (Boolean useHostIPAddress)
 specifier|public
 name|void
@@ -2629,7 +2625,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Cannot determine localhost name. Using default: "
+literal|"Cannot determine localhost name or address. Using default: "
 operator|+
 name|DEFAULT_REGISTRY_PORT
 argument_list|,
