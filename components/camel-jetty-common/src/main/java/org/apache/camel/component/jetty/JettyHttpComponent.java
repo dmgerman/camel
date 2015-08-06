@@ -1710,6 +1710,31 @@ name|parameters
 argument_list|)
 decl_stmt|;
 comment|// create endpoint after all known parameters have been extracted from parameters
+comment|// include component scheme in the uri
+name|String
+name|scheme
+init|=
+name|ObjectHelper
+operator|.
+name|before
+argument_list|(
+name|uri
+argument_list|,
+literal|":"
+argument_list|)
+decl_stmt|;
+name|endpointUri
+operator|=
+operator|new
+name|URI
+argument_list|(
+name|scheme
+operator|+
+literal|":"
+operator|+
+name|endpointUri
+argument_list|)
+expr_stmt|;
 name|JettyHttpEndpoint
 name|endpoint
 init|=
