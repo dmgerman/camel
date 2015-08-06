@@ -38,6 +38,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|management
+operator|.
+name|JmxSystemPropertyKeys
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|test
 operator|.
 name|junit4
@@ -54,10 +68,12 @@ name|BaseQuartzTest
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|method|isEnableJmx ()
+annotation|@
+name|Override
+DECL|method|useJmx ()
 specifier|protected
 name|boolean
-name|isEnableJmx
+name|useJmx
 parameter_list|()
 block|{
 return|return
@@ -100,7 +116,7 @@ name|quartz
 operator|.
 name|setEnableJmx
 argument_list|(
-name|isEnableJmx
+name|useJmx
 argument_list|()
 argument_list|)
 expr_stmt|;

@@ -72,11 +72,9 @@ return|;
 block|}
 else|else
 block|{
+comment|// fallback as name
 return|return
 name|camelContext
-operator|.
-name|getManagementNameStrategy
-argument_list|()
 operator|.
 name|getName
 argument_list|()
