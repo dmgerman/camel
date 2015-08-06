@@ -347,7 +347,12 @@ name|assertEquals
 argument_list|(
 literal|"getGroup()"
 argument_list|,
-literal|"Camel"
+literal|"Camel_"
+operator|+
+name|context
+operator|.
+name|getManagementName
+argument_list|()
 argument_list|,
 name|triggerKey
 operator|.
@@ -374,7 +379,12 @@ name|assertEquals
 argument_list|(
 literal|"getJobGroup"
 argument_list|,
-literal|"Camel"
+literal|"Camel_"
+operator|+
+name|context
+operator|.
+name|getManagementName
+argument_list|()
 argument_list|,
 name|jobDetail
 operator|.

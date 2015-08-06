@@ -70,30 +70,6 @@ name|QuartzManagementTest
 extends|extends
 name|BaseQuartzTest
 block|{
-annotation|@
-name|Override
-DECL|method|useJmx ()
-specifier|protected
-name|boolean
-name|useJmx
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|isEnableJmx ()
-specifier|protected
-name|boolean
-name|isEnableJmx
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
 DECL|method|getMBeanServer ()
 specifier|protected
 name|MBeanServer
