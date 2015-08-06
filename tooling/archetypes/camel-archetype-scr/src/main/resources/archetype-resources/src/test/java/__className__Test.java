@@ -214,11 +214,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|scr
-operator|.
-name|internal
-operator|.
-name|ScrHelper
+name|CamelContext
 import|;
 end_import
 
@@ -278,7 +274,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|ModelCamelContext
+name|RouteDefinition
 import|;
 end_import
 
@@ -290,9 +286,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|scr
 operator|.
-name|RouteDefinition
+name|ScrHelper
 import|;
 end_import
 
@@ -439,7 +435,7 @@ name|className
 block|}
 name|integration
 block|;
-name|ModelCamelContext
+name|CamelContext
 name|context
 block|;      @
 name|Before
