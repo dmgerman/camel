@@ -809,12 +809,12 @@ index|[]
 argument_list|>
 name|stream
 decl_stmt|;
-DECL|field|berrier
+DECL|field|barrier
 specifier|private
 name|CyclicBarrier
-name|berrier
+name|barrier
 decl_stmt|;
-DECL|method|BatchingConsumerTask (KafkaStream<byte[], byte[]> stream, CyclicBarrier berrier)
+DECL|method|BatchingConsumerTask (KafkaStream<byte[], byte[]> stream, CyclicBarrier barrier)
 specifier|public
 name|BatchingConsumerTask
 parameter_list|(
@@ -829,7 +829,7 @@ argument_list|>
 name|stream
 parameter_list|,
 name|CyclicBarrier
-name|berrier
+name|barrier
 parameter_list|)
 block|{
 name|this
@@ -840,9 +840,9 @@ name|stream
 expr_stmt|;
 name|this
 operator|.
-name|berrier
+name|barrier
 operator|=
-name|berrier
+name|barrier
 expr_stmt|;
 block|}
 DECL|method|run ()
@@ -1024,7 +1024,7 @@ block|{
 comment|// Need to commit the offset for the last round
 try|try
 block|{
-name|berrier
+name|barrier
 operator|.
 name|await
 argument_list|(
