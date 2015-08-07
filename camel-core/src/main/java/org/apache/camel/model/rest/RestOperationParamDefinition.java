@@ -571,6 +571,12 @@ parameter_list|()
 block|{
 return|return
 name|dataType
+operator|!=
+literal|null
+condition|?
+name|dataType
+else|:
+literal|"string"
 return|;
 block|}
 comment|/**      * Sets the Swagger Parameter data type.      */
