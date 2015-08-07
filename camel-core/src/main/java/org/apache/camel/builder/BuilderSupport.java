@@ -241,6 +241,10 @@ operator|.
 name|context
 operator|=
 name|context
+operator|!=
+literal|null
+condition|?
+name|context
 operator|.
 name|adapt
 argument_list|(
@@ -248,6 +252,8 @@ name|ModelCamelContext
 operator|.
 name|class
 argument_list|)
+else|:
+literal|null
 expr_stmt|;
 block|}
 comment|// Builder methods
