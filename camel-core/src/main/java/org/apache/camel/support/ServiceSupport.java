@@ -1100,6 +1100,24 @@ name|get
 argument_list|()
 return|;
 block|}
+DECL|method|isSuspendingOrSuspended ()
+specifier|public
+name|boolean
+name|isSuspendingOrSuspended
+parameter_list|()
+block|{
+return|return
+name|suspending
+operator|.
+name|get
+argument_list|()
+operator|||
+name|suspended
+operator|.
+name|get
+argument_list|()
+return|;
+block|}
 comment|/**      * Implementations override this method to support customized start/stop.      *<p/>      *<b>Important:</b> See {@link #doStop()} for more details.      *       * @see #doStop()      */
 DECL|method|doStart ()
 specifier|protected
