@@ -1082,6 +1082,7 @@ name|isStoppingOrStopped
 argument_list|()
 return|;
 block|}
+comment|/**      * Is the service in progress of being stopped or already stopped      */
 DECL|method|isStoppingOrStopped ()
 specifier|public
 name|boolean
@@ -1100,6 +1101,7 @@ name|get
 argument_list|()
 return|;
 block|}
+comment|/**      * Is the service in progress of being suspended or already suspended      */
 DECL|method|isSuspendingOrSuspended ()
 specifier|public
 name|boolean
