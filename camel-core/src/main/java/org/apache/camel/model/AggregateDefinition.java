@@ -398,6 +398,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|CamelContextHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|SynchronousExecutorService
@@ -3117,6 +3131,25 @@ block|{
 name|setParallelProcessing
 argument_list|(
 literal|true
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * When aggregated are completed they are being send out of the aggregator.      * This option indicates whether or not Camel should use a thread pool with multiple threads for concurrency.      * If no custom thread pool has been specified then Camel creates a default pool with 10 concurrent threads.      */
+DECL|method|parallelProcessing (boolean parallelProcessing)
+specifier|public
+name|AggregateDefinition
+name|parallelProcessing
+parameter_list|(
+name|boolean
+name|parallelProcessing
+parameter_list|)
+block|{
+name|setParallelProcessing
+argument_list|(
+name|parallelProcessing
 argument_list|)
 expr_stmt|;
 return|return

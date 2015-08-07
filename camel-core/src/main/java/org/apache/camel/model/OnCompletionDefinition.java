@@ -1129,6 +1129,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * If enabled then the on completion process will run asynchronously by a separate thread from a thread pool.      * By default this is false, meaning the on completion process will run synchronously using the same caller thread as from the route.      *      * @return the builder      */
+DECL|method|parallelProcessing (boolean parallelProcessing)
+specifier|public
+name|OnCompletionDefinition
+name|parallelProcessing
+parameter_list|(
+name|boolean
+name|parallelProcessing
+parameter_list|)
+block|{
+name|setParallelProcessing
+argument_list|(
+name|parallelProcessing
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|getOutputs ()
 specifier|public
 name|List

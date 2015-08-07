@@ -952,6 +952,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * If enabled then processing each splitted messages occurs concurrently.      * Note the caller thread will still wait until all messages has been fully processed, before it continues.      * Its only processing the sub messages from the splitter which happens concurrently.      *      * @return the builder      */
+DECL|method|parallelProcessing (boolean parallelProcessing)
+specifier|public
+name|SplitDefinition
+name|parallelProcessing
+parameter_list|(
+name|boolean
+name|parallelProcessing
+parameter_list|)
+block|{
+name|setParallelProcessing
+argument_list|(
+name|parallelProcessing
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * If enabled then the aggregate method on AggregationStrategy can be called concurrently.      * Notice that this would require the implementation of AggregationStrategy to be implemented as thread-safe.      * By default this is false meaning that Camel synchronizes the call to the aggregate method.      * Though in some use-cases this can be used to archive higher performance when the AggregationStrategy is implemented as thread-safe.      *      * @return the builder      */
 DECL|method|parallelAggregate ()
 specifier|public

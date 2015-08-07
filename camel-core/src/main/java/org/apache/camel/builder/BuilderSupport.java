@@ -240,10 +240,14 @@ name|this
 operator|.
 name|context
 operator|=
-operator|(
-name|ModelCamelContext
-operator|)
 name|context
+operator|.
+name|adapt
+argument_list|(
+name|ModelCamelContext
+operator|.
+name|class
+argument_list|)
 expr_stmt|;
 block|}
 comment|// Builder methods

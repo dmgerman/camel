@@ -1641,6 +1641,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Enable stream caching for this route.      *      * @param streamCache whether to use stream caching (true or false), the value can be a property placeholder      * @return the builder      */
+DECL|method|streamCaching (String streamCache)
+specifier|public
+name|RouteDefinition
+name|streamCaching
+parameter_list|(
+name|String
+name|streamCache
+parameter_list|)
+block|{
+name|setStreamCache
+argument_list|(
+name|streamCache
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Disable tracing for this route.      *      * @return the builder      */
 DECL|method|noTracing ()
 specifier|public
@@ -1673,6 +1692,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Enable tracing for this route.      *      * @param tracing whether to use tracing (true or false), the value can be a property placeholder      * @return the builder      */
+DECL|method|tracing (String tracing)
+specifier|public
+name|RouteDefinition
+name|tracing
+parameter_list|(
+name|String
+name|tracing
+parameter_list|)
+block|{
+name|setTrace
+argument_list|(
+name|tracing
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Enable message history for this route.      *      * @return the builder      */
 DECL|method|messageHistory ()
 specifier|public
@@ -1683,6 +1721,25 @@ block|{
 name|setMessageHistory
 argument_list|(
 literal|"true"
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Enable message history for this route.      *      * @param messageHistory whether to use message history (true or false), the value can be a property placeholder      * @return the builder      */
+DECL|method|messageHistory (String messageHistory)
+specifier|public
+name|RouteDefinition
+name|messageHistory
+parameter_list|(
+name|String
+name|messageHistory
+parameter_list|)
+block|{
+name|setMessageHistory
+argument_list|(
+name|messageHistory
 argument_list|)
 expr_stmt|;
 return|return
@@ -1814,7 +1871,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the auto startup property on this route.      *      * @param autoStartup - String indicator ("true" or "false")      * @return the builder      */
+comment|/**      * Sets the auto startup property on this route.      *      * @param autoStartup whether to auto startup (true or false), the value can be a property placeholder      * @return the builder      */
 DECL|method|autoStartup (String autoStartup)
 specifier|public
 name|RouteDefinition
