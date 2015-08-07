@@ -925,9 +925,9 @@ argument_list|)
 expr_stmt|;
 name|dataFormat
 operator|.
-name|setIgnoreInvalidRecords
+name|setIgnoreUnidentifiedRecords
 argument_list|(
-name|ignoreInvalidRecords
+name|ignoreUnidentifiedRecords
 argument_list|)
 expr_stmt|;
 name|dataFormat
