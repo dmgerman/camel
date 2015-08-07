@@ -198,6 +198,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -539,6 +553,7 @@ name|getTopic
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// commit periodically
 if|if
 condition|(
 name|endpoint
@@ -568,9 +583,6 @@ operator|||
 name|endpoint
 operator|.
 name|getConsumerTimeoutMs
-argument_list|()
-operator|.
-name|intValue
 argument_list|()
 operator|<
 literal|0
@@ -652,6 +664,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// auto commit
 for|for
 control|(
 specifier|final
@@ -675,6 +688,8 @@ argument_list|(
 operator|new
 name|AutoCommitConsumerTask
 argument_list|(
+name|consumer
+argument_list|,
 name|stream
 argument_list|)
 argument_list|)
@@ -739,6 +754,11 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+name|consumerBarriers
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|executor
@@ -1080,6 +1100,7 @@ name|Runnable
 block|{
 DECL|field|consumer
 specifier|private
+specifier|final
 name|ConsumerConnector
 name|consumer
 decl_stmt|;
@@ -1106,6 +1127,20 @@ name|void
 name|run
 parameter_list|()
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Commit offsets on consumer: {}"
+argument_list|,
+name|ObjectHelper
+operator|.
+name|getIdentityHashCode
+argument_list|(
+name|consumer
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|consumer
 operator|.
 name|commitOffsets
@@ -1119,6 +1154,12 @@ name|AutoCommitConsumerTask
 implements|implements
 name|Runnable
 block|{
+DECL|field|consumer
+specifier|private
+specifier|final
+name|ConsumerConnector
+name|consumer
+decl_stmt|;
 DECL|field|stream
 specifier|private
 name|KafkaStream
@@ -1131,10 +1172,13 @@ index|[]
 argument_list|>
 name|stream
 decl_stmt|;
-DECL|method|AutoCommitConsumerTask (KafkaStream<byte[], byte[]> stream)
+DECL|method|AutoCommitConsumerTask (ConsumerConnector consumer, KafkaStream<byte[], byte[]> stream)
 specifier|public
 name|AutoCommitConsumerTask
 parameter_list|(
+name|ConsumerConnector
+name|consumer
+parameter_list|,
 name|KafkaStream
 argument_list|<
 name|byte
@@ -1146,6 +1190,12 @@ argument_list|>
 name|stream
 parameter_list|)
 block|{
+name|this
+operator|.
+name|consumer
+operator|=
+name|consumer
+expr_stmt|;
 name|this
 operator|.
 name|stream
@@ -1178,6 +1228,10 @@ comment|// only poll the next message if we are allowed to run and are not suspe
 while|while
 condition|(
 name|isRunAllowed
+argument_list|()
+operator|&&
+operator|!
+name|isSuspendingOrSuspended
 argument_list|()
 operator|&&
 name|it
@@ -1241,6 +1295,26 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// no more data so commit offset
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Commit offsets on consumer: {}"
+argument_list|,
+name|ObjectHelper
+operator|.
+name|getIdentityHashCode
+argument_list|(
+name|consumer
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|consumer
+operator|.
+name|commitOffsets
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 block|}
