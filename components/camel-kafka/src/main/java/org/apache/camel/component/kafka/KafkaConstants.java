@@ -74,6 +74,15 @@ name|TOPIC
 init|=
 literal|"kafka.TOPIC"
 decl_stmt|;
+DECL|field|OFFSET
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OFFSET
+init|=
+literal|"kafka.OFFSET"
+decl_stmt|;
 DECL|field|KAFKA_DEFAULT_ENCODER
 specifier|public
 specifier|static
