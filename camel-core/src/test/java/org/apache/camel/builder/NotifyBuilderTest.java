@@ -1826,7 +1826,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"filter(body contains World).whenDone(3)"
+literal|"filter(simple{${body}} contains World).whenDone(3)"
 argument_list|,
 name|notify
 operator|.

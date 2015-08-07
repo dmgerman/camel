@@ -116,17 +116,17 @@ specifier|public
 name|ExchangePropertyExpression
 parameter_list|()
 block|{     }
-DECL|method|ExchangePropertyExpression (String expression)
+DECL|method|ExchangePropertyExpression (String name)
 specifier|public
 name|ExchangePropertyExpression
 parameter_list|(
 name|String
-name|expression
+name|name
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|expression
+name|name
 argument_list|)
 expr_stmt|;
 block|}
