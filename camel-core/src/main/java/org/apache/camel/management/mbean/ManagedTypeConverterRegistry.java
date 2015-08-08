@@ -386,6 +386,38 @@ name|size
 argument_list|()
 return|;
 block|}
+DECL|method|getTypeConverterExistsLoggingLevel ()
+specifier|public
+name|String
+name|getTypeConverterExistsLoggingLevel
+parameter_list|()
+block|{
+return|return
+name|registry
+operator|.
+name|getTypeConverterExistsLoggingLevel
+argument_list|()
+operator|.
+name|name
+argument_list|()
+return|;
+block|}
+DECL|method|getTypeConverterExists ()
+specifier|public
+name|String
+name|getTypeConverterExists
+parameter_list|()
+block|{
+return|return
+name|registry
+operator|.
+name|getTypeConverterExists
+argument_list|()
+operator|.
+name|name
+argument_list|()
+return|;
+block|}
 DECL|method|hasTypeConverter (String fromType, String toType)
 specifier|public
 name|boolean

@@ -184,6 +184,30 @@ name|getNumberOfTypeConverters
 parameter_list|()
 function_decl|;
 annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Logging level to use if attempting to add a duplicate type converter"
+argument_list|)
+DECL|method|getTypeConverterExistsLoggingLevel ()
+name|String
+name|getTypeConverterExistsLoggingLevel
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"What to do if attempting to add a duplicate type converter (Override, Ignore or Fail)"
+argument_list|)
+DECL|method|getTypeConverterExists ()
+name|String
+name|getTypeConverterExists
+parameter_list|()
+function_decl|;
+annotation|@
 name|ManagedOperation
 argument_list|(
 name|description

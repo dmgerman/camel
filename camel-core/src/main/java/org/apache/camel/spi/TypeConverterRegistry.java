@@ -144,9 +144,9 @@ parameter_list|)
 function_decl|;
 block|}
 comment|/**      * What to do if attempting to add a duplicate type converter      */
-DECL|enum|TypeConverterAddDuplicate
+DECL|enum|TypeConverterExists
 enum|enum
-name|TypeConverterAddDuplicate
+name|TypeConverterExists
 block|{
 DECL|enumConstant|Overwrite
 DECL|enumConstant|Ignore
@@ -276,33 +276,33 @@ name|size
 parameter_list|()
 function_decl|;
 comment|/**      * The logging level to use when logging that a type converter already exists when attempting to add a duplicate type converter.      *<p/>      * The default logging level is<tt>WARN</tt>      */
-DECL|method|getAddDuplicateTypeConverterLoggingLevel ()
+DECL|method|getTypeConverterExistsLoggingLevel ()
 name|LoggingLevel
-name|getAddDuplicateTypeConverterLoggingLevel
+name|getTypeConverterExistsLoggingLevel
 parameter_list|()
 function_decl|;
 comment|/**      * The logging level to use when logging that a type converter already exists when attempting to add a duplicate type converter.      *<p/>      * The default logging level is<tt>WARN</tt>      */
-DECL|method|setAddDuplicateTypeConverterLoggingLevel (LoggingLevel loggingLevel)
+DECL|method|setTypeConverterExistsLoggingLevel (LoggingLevel typeConverterExistsLoggingLevel)
 name|void
-name|setAddDuplicateTypeConverterLoggingLevel
+name|setTypeConverterExistsLoggingLevel
 parameter_list|(
 name|LoggingLevel
-name|loggingLevel
+name|typeConverterExistsLoggingLevel
 parameter_list|)
 function_decl|;
 comment|/**      * What should happen when attempting to add a duplicate type converter.      *<p/>      * The default behavior is to override the existing.      */
-DECL|method|getAddDuplicateTypeConverter ()
-name|TypeConverterAddDuplicate
-name|getAddDuplicateTypeConverter
+DECL|method|getTypeConverterExists ()
+name|TypeConverterExists
+name|getTypeConverterExists
 parameter_list|()
 function_decl|;
 comment|/**      * What should happen when attempting to add a duplicate type converter.      *<p/>      * The default behavior is to override the existing.      */
-DECL|method|setAddDuplicateTypeConverter (TypeConverterAddDuplicate addDuplicateTypeConverter)
+DECL|method|setTypeConverterExists (TypeConverterExists typeConverterExists)
 name|void
-name|setAddDuplicateTypeConverter
+name|setTypeConverterExists
 parameter_list|(
-name|TypeConverterAddDuplicate
-name|addDuplicateTypeConverter
+name|TypeConverterExists
+name|typeConverterExists
 parameter_list|)
 function_decl|;
 block|}

@@ -567,19 +567,19 @@ specifier|final
 name|FactoryFinder
 name|factoryFinder
 decl_stmt|;
-DECL|field|addDuplicateTypeConverter
+DECL|field|typeConverterExists
 specifier|protected
-name|TypeConverterAddDuplicate
-name|addDuplicateTypeConverter
+name|TypeConverterExists
+name|typeConverterExists
 init|=
-name|TypeConverterAddDuplicate
+name|TypeConverterExists
 operator|.
 name|Overwrite
 decl_stmt|;
-DECL|field|addDuplicateTypeConverterLoggingLevel
+DECL|field|typeConverterExistsLoggingLevel
 specifier|protected
 name|LoggingLevel
-name|addDuplicateTypeConverterLoggingLevel
+name|typeConverterExistsLoggingLevel
 init|=
 name|LoggingLevel
 operator|.
@@ -2178,9 +2178,9 @@ block|{
 comment|// duplicate detected
 if|if
 condition|(
-name|addDuplicateTypeConverter
+name|typeConverterExists
 operator|==
-name|TypeConverterAddDuplicate
+name|TypeConverterExists
 operator|.
 name|Overwrite
 condition|)
@@ -2200,7 +2200,7 @@ name|CamelLogger
 argument_list|(
 name|log
 argument_list|,
-name|addDuplicateTypeConverterLoggingLevel
+name|typeConverterExistsLoggingLevel
 argument_list|)
 decl_stmt|;
 name|logger
@@ -2238,9 +2238,9 @@ block|}
 elseif|else
 if|if
 condition|(
-name|addDuplicateTypeConverter
+name|typeConverterExists
 operator|==
-name|TypeConverterAddDuplicate
+name|TypeConverterExists
 operator|.
 name|Ignore
 condition|)
@@ -2260,7 +2260,7 @@ name|CamelLogger
 argument_list|(
 name|log
 argument_list|,
-name|addDuplicateTypeConverterLoggingLevel
+name|typeConverterExistsLoggingLevel
 argument_list|)
 decl_stmt|;
 name|logger
@@ -3444,65 +3444,65 @@ block|}
 end_function
 
 begin_function
-DECL|method|getAddDuplicateTypeConverterLoggingLevel ()
+DECL|method|getTypeConverterExistsLoggingLevel ()
 specifier|public
 name|LoggingLevel
-name|getAddDuplicateTypeConverterLoggingLevel
+name|getTypeConverterExistsLoggingLevel
 parameter_list|()
 block|{
 return|return
-name|addDuplicateTypeConverterLoggingLevel
+name|typeConverterExistsLoggingLevel
 return|;
 block|}
 end_function
 
 begin_function
-DECL|method|setAddDuplicateTypeConverterLoggingLevel (LoggingLevel addTypeConverterExistsLoggingLevel)
+DECL|method|setTypeConverterExistsLoggingLevel (LoggingLevel typeConverterExistsLoggingLevel)
 specifier|public
 name|void
-name|setAddDuplicateTypeConverterLoggingLevel
+name|setTypeConverterExistsLoggingLevel
 parameter_list|(
 name|LoggingLevel
-name|addTypeConverterExistsLoggingLevel
+name|typeConverterExistsLoggingLevel
 parameter_list|)
 block|{
 name|this
 operator|.
-name|addDuplicateTypeConverterLoggingLevel
+name|typeConverterExistsLoggingLevel
 operator|=
-name|addTypeConverterExistsLoggingLevel
+name|typeConverterExistsLoggingLevel
 expr_stmt|;
 block|}
 end_function
 
 begin_function
-DECL|method|getAddDuplicateTypeConverter ()
+DECL|method|getTypeConverterExists ()
 specifier|public
-name|TypeConverterAddDuplicate
-name|getAddDuplicateTypeConverter
+name|TypeConverterExists
+name|getTypeConverterExists
 parameter_list|()
 block|{
 return|return
-name|addDuplicateTypeConverter
+name|typeConverterExists
 return|;
 block|}
 end_function
 
 begin_function
-DECL|method|setAddDuplicateTypeConverter (TypeConverterAddDuplicate addDuplicateTypeConverter)
+DECL|method|setTypeConverterExists (TypeConverterExists typeConverterExists)
 specifier|public
 name|void
-name|setAddDuplicateTypeConverter
+name|setTypeConverterExists
 parameter_list|(
-name|TypeConverterAddDuplicate
-name|addDuplicateTypeConverter
+name|TypeConverterExists
+name|typeConverterExists
 parameter_list|)
 block|{
 name|this
 operator|.
-name|addDuplicateTypeConverter
+name|typeConverterExists
 operator|=
-name|addDuplicateTypeConverter
+name|typeConverterExists
 expr_stmt|;
 block|}
 end_function
