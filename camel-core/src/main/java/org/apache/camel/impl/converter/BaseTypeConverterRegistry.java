@@ -2175,7 +2175,20 @@ operator|!=
 name|converter
 condition|)
 block|{
-comment|// duplicate detected
+comment|// add the converter unless we should ignore
+name|boolean
+name|add
+init|=
+literal|true
+decl_stmt|;
+comment|// if converter is not null then a duplicate exists
+if|if
+condition|(
+name|converter
+operator|!=
+literal|null
+condition|)
+block|{
 if|if
 condition|(
 name|typeConverterExists
@@ -2183,13 +2196,6 @@ operator|==
 name|TypeConverterExists
 operator|.
 name|Overwrite
-condition|)
-block|{
-if|if
-condition|(
-name|converter
-operator|!=
-literal|null
 condition|)
 block|{
 name|CamelLogger
@@ -2217,24 +2223,6 @@ name|typeConverter
 argument_list|)
 expr_stmt|;
 block|}
-name|typeMappings
-operator|.
-name|put
-argument_list|(
-name|key
-argument_list|,
-name|typeConverter
-argument_list|)
-expr_stmt|;
-comment|// remove any previous misses, as we added the new type converter
-name|misses
-operator|.
-name|remove
-argument_list|(
-name|key
-argument_list|)
-expr_stmt|;
-block|}
 elseif|else
 if|if
 condition|(
@@ -2243,13 +2231,6 @@ operator|==
 name|TypeConverterExists
 operator|.
 name|Ignore
-condition|)
-block|{
-if|if
-condition|(
-name|converter
-operator|!=
-literal|null
 condition|)
 block|{
 name|CamelLogger
@@ -2267,7 +2248,7 @@ name|logger
 operator|.
 name|log
 argument_list|(
-literal|"Ignore duplicate type converter from: "
+literal|"Ignoring duplicate type converter from: "
 operator|+
 name|converter
 operator|+
@@ -2276,7 +2257,10 @@ operator|+
 name|typeConverter
 argument_list|)
 expr_stmt|;
-block|}
+name|add
+operator|=
+literal|false
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -2290,6 +2274,30 @@ argument_list|,
 name|fromType
 argument_list|)
 throw|;
+block|}
+block|}
+if|if
+condition|(
+name|add
+condition|)
+block|{
+name|typeMappings
+operator|.
+name|put
+argument_list|(
+name|key
+argument_list|,
+name|typeConverter
+argument_list|)
+expr_stmt|;
+comment|// remove any previous misses, as we added the new type converter
+name|misses
+operator|.
+name|remove
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
