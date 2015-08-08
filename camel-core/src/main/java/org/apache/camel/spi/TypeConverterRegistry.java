@@ -70,6 +70,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|TypeConverterExists
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|TypeConverters
 import|;
 end_import
@@ -142,20 +154,6 @@ name|boolean
 name|statisticsEnabled
 parameter_list|)
 function_decl|;
-block|}
-comment|/**      * What to do if attempting to add a duplicate type converter      */
-DECL|enum|TypeConverterExists
-enum|enum
-name|TypeConverterExists
-block|{
-DECL|enumConstant|Overwrite
-DECL|enumConstant|Ignore
-DECL|enumConstant|Fail
-name|Overwrite
-block|,
-name|Ignore
-block|,
-name|Fail
 block|}
 comment|/**      * Registers a new type converter.      *<p/>      * This method may throw {@link org.apache.camel.TypeConverterExistsException} if configured to fail if an existing      * type converter already exists      *      * @param toType        the type to convert to      * @param fromType      the type to convert from      * @param typeConverter the type converter to use      */
 DECL|method|addTypeConverter (Class<?> toType, Class<?> fromType, TypeConverter typeConverter)

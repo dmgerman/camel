@@ -242,6 +242,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|TypeConverterExists
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|TypeConverterExistsException
 import|;
 end_import
@@ -574,7 +586,7 @@ name|typeConverterExists
 init|=
 name|TypeConverterExists
 operator|.
-name|Overwrite
+name|Override
 decl_stmt|;
 DECL|field|typeConverterExistsLoggingLevel
 specifier|protected
@@ -2195,7 +2207,7 @@ name|typeConverterExists
 operator|==
 name|TypeConverterExists
 operator|.
-name|Overwrite
+name|Override
 condition|)
 block|{
 name|CamelLogger

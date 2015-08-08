@@ -90,7 +90,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|TypeConverterExistsException
+name|TypeConverterExists
 import|;
 end_import
 
@@ -102,9 +102,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|TypeConverterRegistry
+name|TypeConverterExistsException
 import|;
 end_import
 
@@ -326,8 +324,6 @@ argument_list|()
 operator|.
 name|setTypeConverterExists
 argument_list|(
-name|TypeConverterRegistry
-operator|.
 name|TypeConverterExists
 operator|.
 name|Ignore
@@ -406,8 +402,6 @@ argument_list|()
 operator|.
 name|setTypeConverterExists
 argument_list|(
-name|TypeConverterRegistry
-operator|.
 name|TypeConverterExists
 operator|.
 name|Fail
