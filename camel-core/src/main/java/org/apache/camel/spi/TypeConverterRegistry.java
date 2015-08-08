@@ -34,6 +34,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|LoggingLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|StaticService
 import|;
 end_import
@@ -131,7 +143,21 @@ name|statisticsEnabled
 parameter_list|)
 function_decl|;
 block|}
-comment|/**      * Registers a new type converter      *      * @param toType        the type to convert to      * @param fromType      the type to convert from      * @param typeConverter the type converter to use      */
+comment|/**      * What to do if attempting to add a duplicate type converter      */
+DECL|enum|TypeConverterAddDuplicate
+enum|enum
+name|TypeConverterAddDuplicate
+block|{
+DECL|enumConstant|Overwrite
+DECL|enumConstant|Ignore
+DECL|enumConstant|Fail
+name|Overwrite
+block|,
+name|Ignore
+block|,
+name|Fail
+block|}
+comment|/**      * Registers a new type converter.      *<p/>      * This method may throw {@link org.apache.camel.TypeConverterExistsException} if configured to fail if an existing      * type converter already exists      *      * @param toType        the type to convert to      * @param fromType      the type to convert from      * @param typeConverter the type converter to use      */
 DECL|method|addTypeConverter (Class<?> toType, Class<?> fromType, TypeConverter typeConverter)
 name|void
 name|addTypeConverter
@@ -248,6 +274,36 @@ DECL|method|size ()
 name|int
 name|size
 parameter_list|()
+function_decl|;
+comment|/**      * The logging level to use when logging that a type converter already exists when attempting to add a duplicate type converter.      *<p/>      * The default logging level is<tt>WARN</tt>      */
+DECL|method|getAddDuplicateTypeConverterLoggingLevel ()
+name|LoggingLevel
+name|getAddDuplicateTypeConverterLoggingLevel
+parameter_list|()
+function_decl|;
+comment|/**      * The logging level to use when logging that a type converter already exists when attempting to add a duplicate type converter.      *<p/>      * The default logging level is<tt>WARN</tt>      */
+DECL|method|setAddDuplicateTypeConverterLoggingLevel (LoggingLevel loggingLevel)
+name|void
+name|setAddDuplicateTypeConverterLoggingLevel
+parameter_list|(
+name|LoggingLevel
+name|loggingLevel
+parameter_list|)
+function_decl|;
+comment|/**      * What should happen when attempting to add a duplicate type converter.      *<p/>      * The default behavior is to override the existing.      */
+DECL|method|getAddDuplicateTypeConverter ()
+name|TypeConverterAddDuplicate
+name|getAddDuplicateTypeConverter
+parameter_list|()
+function_decl|;
+comment|/**      * What should happen when attempting to add a duplicate type converter.      *<p/>      * The default behavior is to override the existing.      */
+DECL|method|setAddDuplicateTypeConverter (TypeConverterAddDuplicate addDuplicateTypeConverter)
+name|void
+name|setAddDuplicateTypeConverter
+parameter_list|(
+name|TypeConverterAddDuplicate
+name|addDuplicateTypeConverter
+parameter_list|)
 function_decl|;
 block|}
 end_interface
