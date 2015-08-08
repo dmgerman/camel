@@ -161,14 +161,11 @@ argument_list|()
 decl_stmt|;
 name|dataformate
 operator|.
-name|setPackages
+name|setClassType
 argument_list|(
-operator|new
 name|String
-index|[]
-block|{
-literal|"Dummy"
-block|}
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 return|return
