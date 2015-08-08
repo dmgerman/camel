@@ -100,6 +100,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|http
 operator|.
 name|HttpResponse
@@ -313,6 +327,19 @@ name|getIconEmoji
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// use charset from exchange or fallback to the default charset
+name|String
+name|charset
+init|=
+name|IOHelper
+operator|.
+name|getCharsetName
+argument_list|(
+name|exchange
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
 comment|// Set the post body
 name|String
 name|json
@@ -329,6 +356,8 @@ operator|new
 name|StringEntity
 argument_list|(
 name|json
+argument_list|,
+name|charset
 argument_list|)
 decl_stmt|;
 comment|// Do the post
