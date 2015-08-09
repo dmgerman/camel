@@ -1463,20 +1463,14 @@ name|DBObject
 name|dbObj
 parameter_list|)
 block|{
+comment|//        Exchange exchange = new DefaultExchange(this.getCamelContext(), getExchangePattern());
 name|Exchange
 name|exchange
 init|=
-operator|new
-name|DefaultExchange
-argument_list|(
-name|this
+name|super
 operator|.
-name|getCamelContext
+name|createExchange
 argument_list|()
-argument_list|,
-name|getExchangePattern
-argument_list|()
-argument_list|)
 decl_stmt|;
 name|Message
 name|message
