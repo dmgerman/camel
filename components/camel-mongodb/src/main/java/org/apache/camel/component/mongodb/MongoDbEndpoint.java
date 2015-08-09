@@ -1463,7 +1463,6 @@ name|DBObject
 name|dbObj
 parameter_list|)
 block|{
-comment|//        Exchange exchange = new DefaultExchange(this.getCamelContext(), getExchangePattern());
 name|Exchange
 name|exchange
 init|=
