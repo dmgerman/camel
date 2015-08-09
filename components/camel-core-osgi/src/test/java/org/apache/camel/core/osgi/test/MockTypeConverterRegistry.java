@@ -48,7 +48,31 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|LoggingLevel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|TypeConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|TypeConverterExists
 import|;
 end_import
 
@@ -321,6 +345,52 @@ operator|.
 name|size
 argument_list|()
 return|;
+block|}
+DECL|method|getTypeConverterExistsLoggingLevel ()
+specifier|public
+name|LoggingLevel
+name|getTypeConverterExistsLoggingLevel
+parameter_list|()
+block|{
+return|return
+name|LoggingLevel
+operator|.
+name|WARN
+return|;
+block|}
+DECL|method|setTypeConverterExistsLoggingLevel (LoggingLevel loggingLevel)
+specifier|public
+name|void
+name|setTypeConverterExistsLoggingLevel
+parameter_list|(
+name|LoggingLevel
+name|loggingLevel
+parameter_list|)
+block|{
+comment|// noop
+block|}
+DECL|method|getTypeConverterExists ()
+specifier|public
+name|TypeConverterExists
+name|getTypeConverterExists
+parameter_list|()
+block|{
+return|return
+name|TypeConverterExists
+operator|.
+name|Override
+return|;
+block|}
+DECL|method|setTypeConverterExists (TypeConverterExists typeConverterExists)
+specifier|public
+name|void
+name|setTypeConverterExists
+parameter_list|(
+name|TypeConverterExists
+name|typeConverterExists
+parameter_list|)
+block|{
+comment|// noop
 block|}
 DECL|method|start ()
 specifier|public
