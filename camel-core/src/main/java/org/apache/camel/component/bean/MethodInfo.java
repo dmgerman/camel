@@ -2439,10 +2439,11 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|createParametersExpression ()
+DECL|method|createParameterExpressions ()
 specifier|protected
 name|Expression
-name|createParametersExpression
+index|[]
+name|createParameterExpressions
 parameter_list|()
 block|{
 specifier|final
@@ -2522,6 +2523,24 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
+name|expressions
+return|;
+block|}
+DECL|method|createParametersExpression ()
+specifier|protected
+name|Expression
+name|createParametersExpression
+parameter_list|()
+block|{
+specifier|final
+name|Expression
+index|[]
+name|expressions
+init|=
+name|createParameterExpressions
+argument_list|()
+decl_stmt|;
+return|return
 operator|new
 name|Expression
 argument_list|()
@@ -2555,7 +2574,9 @@ init|=
 operator|new
 name|Object
 index|[
-name|size
+name|expressions
+operator|.
+name|length
 index|]
 decl_stmt|;
 name|Object
@@ -2766,7 +2787,9 @@ literal|0
 init|;
 name|i
 operator|<
-name|size
+name|expressions
+operator|.
+name|length
 condition|;
 name|i
 operator|++
