@@ -1474,8 +1474,9 @@ decl_stmt|;
 name|Message
 name|message
 init|=
-operator|new
-name|DefaultMessage
+name|exchange
+operator|.
+name|getIn
 argument_list|()
 decl_stmt|;
 name|message
@@ -1516,13 +1517,6 @@ operator|.
 name|setBody
 argument_list|(
 name|dbObj
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|setIn
-argument_list|(
-name|message
 argument_list|)
 expr_stmt|;
 return|return
