@@ -48,7 +48,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Endpoint
+name|builder
+operator|.
+name|ProxyBuilder
 import|;
 end_import
 
@@ -74,41 +76,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|bean
-operator|.
-name|ProxyHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|DefaultCamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|jndi
-operator|.
-name|JndiContext
 import|;
 end_import
 
@@ -132,39 +102,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// START SNIPPET: register
-comment|// lets populate the context with the services we need
-comment|// note that we could just use a spring.xml file to avoid this step
-name|JndiContext
-name|context
-init|=
-operator|new
-name|JndiContext
-argument_list|()
-decl_stmt|;
-name|context
-operator|.
-name|bind
-argument_list|(
-literal|"bye"
-argument_list|,
-operator|new
-name|SayService
-argument_list|(
-literal|"Good Bye!"
-argument_list|)
-argument_list|)
-expr_stmt|;
 name|CamelContext
 name|camelContext
 init|=
 operator|new
 name|DefaultCamelContext
-argument_list|(
-name|context
-argument_list|)
+argument_list|()
 decl_stmt|;
-comment|// END SNIPPET: register
 comment|// START SNIPPET: route
 comment|// lets add simple route
 name|camelContext
@@ -185,9 +129,12 @@ argument_list|(
 literal|"direct:hello"
 argument_list|)
 operator|.
-name|to
+name|transform
+argument_list|()
+operator|.
+name|constant
 argument_list|(
-literal|"bean:bye"
+literal|"Good Bye!"
 argument_list|)
 expr_stmt|;
 block|}
@@ -201,25 +148,22 @@ name|start
 argument_list|()
 expr_stmt|;
 comment|// START SNIPPET: invoke
-name|Endpoint
-name|endpoint
-init|=
-name|camelContext
-operator|.
-name|getEndpoint
-argument_list|(
-literal|"direct:hello"
-argument_list|)
-decl_stmt|;
 name|ISay
 name|proxy
 init|=
-name|ProxyHelper
-operator|.
-name|createProxy
+operator|new
+name|ProxyBuilder
 argument_list|(
+name|camelContext
+argument_list|)
+operator|.
 name|endpoint
-argument_list|,
+argument_list|(
+literal|"direct:hello"
+argument_list|)
+operator|.
+name|build
+argument_list|(
 name|ISay
 operator|.
 name|class
