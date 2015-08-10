@@ -127,7 +127,7 @@ name|createProxyObject
 argument_list|(
 name|endpoint
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|producer
 argument_list|,
@@ -241,7 +241,7 @@ name|createProxy
 argument_list|(
 name|endpoint
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|cl
 argument_list|,
@@ -339,7 +339,7 @@ name|createProxy
 argument_list|(
 name|endpoint
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|cl
 argument_list|,
@@ -450,7 +450,7 @@ name|createProxy
 argument_list|(
 name|endpoint
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|cl
 argument_list|,
@@ -494,7 +494,7 @@ name|createProxy
 argument_list|(
 name|endpoint
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|cl
 argument_list|,
@@ -576,7 +576,7 @@ name|createProxy
 argument_list|(
 name|endpoint
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|toArray
 argument_list|(
@@ -615,7 +615,7 @@ name|createProxy
 argument_list|(
 name|endpoint
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|interfaceClasses
 argument_list|)
@@ -693,7 +693,7 @@ name|createProxy
 argument_list|(
 name|endpoint
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|producer
 argument_list|,
@@ -737,7 +737,7 @@ name|createProxyObject
 argument_list|(
 name|endpoint
 argument_list|,
-literal|false
+literal|true
 argument_list|,
 name|producer
 argument_list|,

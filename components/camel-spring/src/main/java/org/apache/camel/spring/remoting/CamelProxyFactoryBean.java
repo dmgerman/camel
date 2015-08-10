@@ -411,6 +411,7 @@ argument_list|)
 throw|;
 block|}
 block|}
+comment|// binding is enabled by default
 name|boolean
 name|bind
 init|=
@@ -422,7 +423,7 @@ condition|?
 name|getBinding
 argument_list|()
 else|:
-literal|false
+literal|true
 decl_stmt|;
 try|try
 block|{
