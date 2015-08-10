@@ -669,7 +669,7 @@ parameter_list|)
 throws|throws
 name|Throwable
 function_decl|;
-DECL|method|invokeProxy (final Method method, final ExchangePattern pattern, Object[] args)
+DECL|method|invokeProxy (final Method method, final ExchangePattern pattern, Object[] args, boolean binding)
 specifier|protected
 name|Object
 name|invokeProxy
@@ -685,6 +685,9 @@ parameter_list|,
 name|Object
 index|[]
 name|args
+parameter_list|,
+name|boolean
+name|binding
 parameter_list|)
 throws|throws
 name|Throwable
@@ -702,12 +705,11 @@ name|pattern
 argument_list|)
 decl_stmt|;
 comment|// use method info to map to exchange
-comment|// we support @Header, @Body and @ExchangeProperty to map to Exchange
-name|boolean
-name|found
-init|=
-literal|false
-decl_stmt|;
+if|if
+condition|(
+name|binding
+condition|)
+block|{
 name|int
 name|index
 init|=
@@ -784,10 +786,6 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-name|found
-operator|=
-literal|true
-expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -830,10 +828,6 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
-name|found
-operator|=
-literal|true
-expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -861,10 +855,6 @@ argument_list|(
 name|value
 argument_list|)
 expr_stmt|;
-name|found
-operator|=
-literal|true
-expr_stmt|;
 block|}
 else|else
 block|{
@@ -885,13 +875,10 @@ name|index
 operator|++
 expr_stmt|;
 block|}
-comment|// backwards compatible where the body is a BeanInvocation
-if|if
-condition|(
-operator|!
-name|found
-condition|)
+block|}
+else|else
 block|{
+comment|// no binding so use the old behavior with BeanInvocation as the body
 name|BeanInvocation
 name|invocation
 init|=
@@ -916,7 +903,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|found
+name|binding
 condition|)
 block|{
 name|LOG

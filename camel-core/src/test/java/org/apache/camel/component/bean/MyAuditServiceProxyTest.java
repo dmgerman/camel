@@ -96,6 +96,7 @@ argument_list|,
 literal|"1234"
 argument_list|)
 expr_stmt|;
+comment|// must enable binding on proxy
 name|MyAuditService
 name|service
 init|=
@@ -108,6 +109,11 @@ operator|.
 name|endpoint
 argument_list|(
 literal|"direct:proxy"
+argument_list|)
+operator|.
+name|binding
+argument_list|(
+literal|true
 argument_list|)
 operator|.
 name|build

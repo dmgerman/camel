@@ -92,6 +92,11 @@ specifier|private
 name|Endpoint
 name|endpoint
 decl_stmt|;
+DECL|field|binding
+specifier|private
+name|boolean
+name|binding
+decl_stmt|;
 DECL|method|ProxyBuilder (CamelContext camelContext)
 specifier|public
 name|ProxyBuilder
@@ -147,6 +152,26 @@ operator|.
 name|endpoint
 operator|=
 name|endpoint
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Whether to use binding or not.      *<p/>      * If binding is enabled then Camel will bind the method parameters to the input {@link org.apache.camel.Message}      * on the {@link org.apache.camel.Exchange} when invoking the proxy.      *      * @param binding<tt>true</tt> to use binding,<tt>false</tt> to use the old behavior with using a {@link org.apache.camel.component.bean.BeanInvocation}      *                as a provisional message body      * @return the builder      */
+DECL|method|binding (boolean binding)
+specifier|public
+name|ProxyBuilder
+name|binding
+parameter_list|(
+name|boolean
+name|binding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|binding
+operator|=
+name|binding
 expr_stmt|;
 return|return
 name|this
@@ -231,6 +256,8 @@ operator|.
 name|createProxy
 argument_list|(
 name|endpoint
+argument_list|,
+name|binding
 argument_list|,
 name|interfaceClasses
 argument_list|)
