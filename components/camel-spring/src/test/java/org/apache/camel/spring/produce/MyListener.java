@@ -62,15 +62,7 @@ specifier|public
 interface|interface
 name|MyListener
 block|{
-DECL|method|sayHello (String name)
-name|String
-name|sayHello
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-function_decl|;
-DECL|method|greet (@eaders Map<String, Object>headers, @Body String name)
+DECL|method|greet (@eaders Map<String, Object> headers, @Body String name)
 name|String
 name|greet
 parameter_list|(

@@ -117,30 +117,6 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|sayHello (String name)
-specifier|public
-name|String
-name|sayHello
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Invoked sayHello with: "
-operator|+
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-literal|"Hello "
-operator|+
-name|name
-return|;
-block|}
 annotation|@
 name|Consume
 argument_list|(

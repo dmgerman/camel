@@ -116,37 +116,6 @@ name|producer
 decl_stmt|;
 annotation|@
 name|Test
-DECL|method|testInvokeService ()
-specifier|public
-name|void
-name|testInvokeService
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// lets send a message
-name|String
-name|actual
-init|=
-name|producer
-operator|.
-name|sayHello
-argument_list|(
-literal|"James"
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"response"
-argument_list|,
-literal|"Hello James"
-argument_list|,
-name|actual
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Test
 DECL|method|testInvokeServiceWithMessageHeader ()
 specifier|public
 name|void
