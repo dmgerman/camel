@@ -241,6 +241,8 @@ name|createProxy
 argument_list|(
 name|endpoint
 argument_list|,
+literal|false
+argument_list|,
 name|cl
 argument_list|,
 name|toArray
@@ -448,6 +450,8 @@ name|createProxy
 argument_list|(
 name|endpoint
 argument_list|,
+literal|false
+argument_list|,
 name|cl
 argument_list|,
 name|toArray
@@ -572,6 +576,8 @@ name|createProxy
 argument_list|(
 name|endpoint
 argument_list|,
+literal|false
+argument_list|,
 name|toArray
 argument_list|(
 name|interfaceClass
@@ -687,6 +693,8 @@ name|createProxy
 argument_list|(
 name|endpoint
 argument_list|,
+literal|false
+argument_list|,
 name|producer
 argument_list|,
 name|toArray
@@ -696,7 +704,9 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Proxy which sends the exchange to the endpoint.      */
+comment|/**      * Creates a Proxy which sends the exchange to the endpoint.      *      * @deprecated use the same method name with binding as parameter      */
+annotation|@
+name|Deprecated
 DECL|method|createProxy (Endpoint endpoint, Producer producer, Class<T>... interfaceClasses)
 specifier|public
 specifier|static
@@ -726,6 +736,60 @@ return|return
 name|createProxyObject
 argument_list|(
 name|endpoint
+argument_list|,
+literal|false
+argument_list|,
+name|producer
+argument_list|,
+name|getClassLoader
+argument_list|(
+name|interfaceClasses
+argument_list|)
+argument_list|,
+name|interfaceClasses
+argument_list|,
+name|createMethodInfoCache
+argument_list|(
+name|endpoint
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/**      * Creates a Proxy which sends the exchange to the endpoint.      */
+DECL|method|createProxy (Endpoint endpoint, boolean binding, Producer producer, Class<T>... interfaceClasses)
+specifier|public
+specifier|static
+parameter_list|<
+name|T
+parameter_list|>
+name|T
+name|createProxy
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|boolean
+name|binding
+parameter_list|,
+name|Producer
+name|producer
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+modifier|...
+name|interfaceClasses
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+name|createProxyObject
+argument_list|(
+name|endpoint
+argument_list|,
+name|binding
 argument_list|,
 name|producer
 argument_list|,

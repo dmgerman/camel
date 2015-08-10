@@ -257,6 +257,13 @@ name|String
 name|serviceInterface
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+DECL|field|binding
+specifier|private
+name|Boolean
+name|binding
+decl_stmt|;
+annotation|@
 name|XmlTransient
 DECL|field|endpoint
 specifier|private
@@ -514,6 +521,19 @@ argument_list|)
 throw|;
 block|}
 block|}
+name|boolean
+name|bind
+init|=
+name|getBinding
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|getBinding
+argument_list|()
+else|:
+literal|false
+decl_stmt|;
 try|try
 block|{
 name|producer
@@ -551,6 +571,8 @@ operator|.
 name|createProxy
 argument_list|(
 name|endpoint
+argument_list|,
+name|bind
 argument_list|,
 name|producer
 argument_list|,
@@ -641,6 +663,32 @@ operator|.
 name|serviceRef
 operator|=
 name|serviceRef
+expr_stmt|;
+block|}
+DECL|method|getBinding ()
+specifier|public
+name|Boolean
+name|getBinding
+parameter_list|()
+block|{
+return|return
+name|binding
+return|;
+block|}
+DECL|method|setBinding (Boolean binding)
+specifier|public
+name|void
+name|setBinding
+parameter_list|(
+name|Boolean
+name|binding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|binding
+operator|=
+name|binding
 expr_stmt|;
 block|}
 DECL|method|getServiceInterface ()

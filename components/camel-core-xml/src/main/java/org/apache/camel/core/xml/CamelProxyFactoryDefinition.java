@@ -114,6 +114,13 @@ specifier|private
 name|String
 name|camelContextId
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|binding
+specifier|private
+name|Boolean
+name|binding
+decl_stmt|;
 block|}
 end_class
 

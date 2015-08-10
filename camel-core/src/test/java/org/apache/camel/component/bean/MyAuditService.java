@@ -42,26 +42,12 @@ name|Header
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|InOnly
-import|;
-end_import
-
 begin_interface
 DECL|interface|MyAuditService
 specifier|public
 interface|interface
 name|MyAuditService
 block|{
-annotation|@
-name|InOnly
 DECL|method|auditMessage (@eaderR) String uuid, @Body String body)
 name|void
 name|auditMessage
