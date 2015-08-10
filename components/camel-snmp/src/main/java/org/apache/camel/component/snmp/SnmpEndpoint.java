@@ -60,18 +60,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ExchangePattern
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -85,20 +73,6 @@ operator|.
 name|camel
 operator|.
 name|Producer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultExchange
 import|;
 end_import
 
@@ -704,64 +678,13 @@ name|PDU
 name|pdu
 parameter_list|)
 block|{
-return|return
-name|createExchange
-argument_list|(
-name|getExchangePattern
-argument_list|()
-argument_list|,
-name|pdu
-argument_list|)
-return|;
-block|}
-comment|/**      * creates an exchange for the given message      *      * @param pdu the pdu      * @param event a snmp4j CommandResponderEvent      * @return an exchange      */
-DECL|method|createExchange (PDU pdu, CommandResponderEvent event)
-specifier|public
-name|Exchange
-name|createExchange
-parameter_list|(
-name|PDU
-name|pdu
-parameter_list|,
-name|CommandResponderEvent
-name|event
-parameter_list|)
-block|{
-return|return
-name|createExchange
-argument_list|(
-name|getExchangePattern
-argument_list|()
-argument_list|,
-name|pdu
-argument_list|,
-name|event
-argument_list|)
-return|;
-block|}
-comment|/**      * creates an exchange for the given pattern and message      *      * @param pattern the message exchange pattern      * @param pdu     the pdu      * @return the exchange      */
-DECL|method|createExchange (ExchangePattern pattern, PDU pdu)
-specifier|private
-name|Exchange
-name|createExchange
-parameter_list|(
-name|ExchangePattern
-name|pattern
-parameter_list|,
-name|PDU
-name|pdu
-parameter_list|)
-block|{
 name|Exchange
 name|exchange
 init|=
-operator|new
-name|DefaultExchange
-argument_list|(
-name|this
-argument_list|,
-name|pattern
-argument_list|)
+name|super
+operator|.
+name|createExchange
+argument_list|()
 decl_stmt|;
 name|exchange
 operator|.
@@ -778,15 +701,12 @@ return|return
 name|exchange
 return|;
 block|}
-comment|/**      * creates an exchange for the given pattern and message      *      * @param pattern the message exchange pattern      * @param pdu     the pdu      * @param event   a snmp4j CommandResponderEvent      * @return the exchange      */
-DECL|method|createExchange (ExchangePattern pattern, PDU pdu, CommandResponderEvent event)
-specifier|private
+comment|/**      * creates an exchange for the given message      *      * @param pdu the pdu      * @param event a snmp4j CommandResponderEvent      * @return an exchange      */
+DECL|method|createExchange (PDU pdu, CommandResponderEvent event)
+specifier|public
 name|Exchange
 name|createExchange
 parameter_list|(
-name|ExchangePattern
-name|pattern
-parameter_list|,
 name|PDU
 name|pdu
 parameter_list|,
@@ -797,13 +717,10 @@ block|{
 name|Exchange
 name|exchange
 init|=
-operator|new
-name|DefaultExchange
-argument_list|(
-name|this
-argument_list|,
-name|pattern
-argument_list|)
+name|super
+operator|.
+name|createExchange
+argument_list|()
 decl_stmt|;
 name|exchange
 operator|.

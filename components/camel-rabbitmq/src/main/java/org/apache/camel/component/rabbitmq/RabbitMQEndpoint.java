@@ -388,20 +388,6 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultExchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
 name|DefaultMessage
 import|;
 end_import
@@ -1239,15 +1225,10 @@ block|{
 name|Exchange
 name|exchange
 init|=
-operator|new
-name|DefaultExchange
-argument_list|(
-name|getCamelContext
+name|super
+operator|.
+name|createExchange
 argument_list|()
-argument_list|,
-name|getExchangePattern
-argument_list|()
-argument_list|)
 decl_stmt|;
 name|setRabbitExchange
 argument_list|(
@@ -1264,7 +1245,7 @@ return|return
 name|exchange
 return|;
 block|}
-comment|/**      * Gets the message converter to convert between rabbit and camel      * @return      */
+comment|/**      * Gets the message converter to convert between rabbit and camel      */
 DECL|method|getMessageConverter ()
 specifier|protected
 name|RabbitMQMessageConverter
@@ -1642,7 +1623,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Sends the body that is on the exchange      * @param camelExchange      * @param channel      * @param properties      * @throws IOException      */
+comment|/**      * Sends the body that is on the exchange      */
 end_comment
 
 begin_function
@@ -2013,7 +1994,7 @@ end_expr_stmt
 
 begin_comment
 unit|}
-comment|/**      * Extracts name of the rabbitmq exchange      *       * @param msg      * @return      */
+comment|/**      * Extracts name of the rabbitmq exchange      */
 end_comment
 
 begin_function

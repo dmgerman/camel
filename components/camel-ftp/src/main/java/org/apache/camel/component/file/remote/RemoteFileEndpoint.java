@@ -348,11 +348,10 @@ block|{
 name|Exchange
 name|answer
 init|=
-operator|new
-name|DefaultExchange
-argument_list|(
-name|this
-argument_list|)
+name|super
+operator|.
+name|createExchange
+argument_list|()
 decl_stmt|;
 if|if
 condition|(

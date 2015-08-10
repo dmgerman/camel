@@ -1757,11 +1757,10 @@ block|{
 name|Exchange
 name|exchange
 init|=
-operator|new
-name|DefaultExchange
+name|super
+operator|.
+name|createExchange
 argument_list|(
-name|this
-argument_list|,
 name|pattern
 argument_list|)
 decl_stmt|;

@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -75,20 +65,6 @@ operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultExchange
 import|;
 end_import
 
@@ -356,26 +332,6 @@ operator|new
 name|JavaSpaceProducer
 argument_list|(
 name|this
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|createExchange ()
-specifier|public
-name|DefaultExchange
-name|createExchange
-parameter_list|()
-block|{
-return|return
-operator|new
-name|DefaultExchange
-argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|getExchangePattern
-argument_list|()
 argument_list|)
 return|;
 block|}
