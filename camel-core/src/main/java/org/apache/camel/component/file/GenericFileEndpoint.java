@@ -2430,7 +2430,7 @@ return|return
 name|include
 return|;
 block|}
-comment|/**      * Is used to include files, if filename matches the regex pattern.      */
+comment|/**      * Is used to include files, if filename matches the regex pattern.      *<p/>      * Notice if you use symbols such as plus sign and others you would need to configure      * this using the RAW() syntax if configuring this as an endpoint uri.      * See more details at<a href="http://camel.apache.org/how-do-i-configure-endpoints.html">configuring endpoint uris</a>      */
 DECL|method|setInclude (String include)
 specifier|public
 name|void
@@ -2457,7 +2457,7 @@ return|return
 name|exclude
 return|;
 block|}
-comment|/**      * Is used to exclude files, if filename matches the regex pattern.      */
+comment|/**      * Is used to exclude files, if filename matches the regex pattern.      *<p/>      * Notice if you use symbols such as plus sign and others you would need to configure      * this using the RAW() syntax if configuring this as an endpoint uri.      * See more details at<a href="http://camel.apache.org/how-do-i-configure-endpoints.html">configuring endpoint uris</a>      */
 DECL|method|setExclude (String exclude)
 specifier|public
 name|void
