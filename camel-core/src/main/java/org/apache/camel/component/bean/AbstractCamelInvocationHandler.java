@@ -731,12 +731,14 @@ argument_list|,
 name|pattern
 argument_list|)
 decl_stmt|;
-comment|// use method info to map to exchange
 if|if
 condition|(
 name|binding
 condition|)
 block|{
+comment|// in binding mode we bind the passed in arguments (args) to the created exchange
+comment|// using the existing Camel @Body, @Header, @Headers, @ExchangeProperty annotations
+comment|// if no annotation then its bound as the message body
 name|int
 name|index
 init|=
