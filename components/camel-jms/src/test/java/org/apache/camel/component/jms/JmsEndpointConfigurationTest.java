@@ -1673,7 +1673,10 @@ name|assertNotNull
 argument_list|(
 name|endpoint
 operator|.
-name|getCamelId
+name|getCamelContext
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1987,7 +1990,7 @@ argument_list|()
 argument_list|,
 name|endpoint
 operator|.
-name|getState
+name|getStatus
 argument_list|()
 argument_list|)
 expr_stmt|;

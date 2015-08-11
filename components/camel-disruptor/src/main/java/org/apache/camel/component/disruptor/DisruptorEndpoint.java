@@ -626,115 +626,6 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Camel ID"
-argument_list|)
-DECL|method|getCamelId ()
-specifier|public
-name|String
-name|getCamelId
-parameter_list|()
-block|{
-return|return
-name|getCamelContext
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Camel ManagementName"
-argument_list|)
-DECL|method|getCamelManagementName ()
-specifier|public
-name|String
-name|getCamelManagementName
-parameter_list|()
-block|{
-return|return
-name|getCamelContext
-argument_list|()
-operator|.
-name|getManagementName
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Endpoint Uri"
-argument_list|,
-name|mask
-operator|=
-literal|true
-argument_list|)
-DECL|method|getEndpointUri ()
-specifier|public
-name|String
-name|getEndpointUri
-parameter_list|()
-block|{
-return|return
-name|super
-operator|.
-name|getEndpointUri
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Service State"
-argument_list|)
-DECL|method|getState ()
-specifier|public
-name|String
-name|getState
-parameter_list|()
-block|{
-name|ServiceStatus
-name|status
-init|=
-name|this
-operator|.
-name|getStatus
-argument_list|()
-decl_stmt|;
-comment|// if no status exists then its stopped
-if|if
-condition|(
-name|status
-operator|==
-literal|null
-condition|)
-block|{
-name|status
-operator|=
-name|ServiceStatus
-operator|.
-name|Stopped
-expr_stmt|;
-block|}
-return|return
-name|status
-operator|.
-name|name
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
 literal|"Queue name"
 argument_list|)
 DECL|method|getName ()
@@ -831,6 +722,13 @@ return|return
 name|concurrentConsumers
 return|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Option to specify whether the caller should wait for the async task to complete or not before continuing"
+argument_list|)
 DECL|method|getWaitForTaskToComplete ()
 specifier|public
 name|WaitForTaskToComplete
@@ -861,6 +759,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Timeout (in milliseconds) before a producer will stop waiting for an asynchronous task to complete"
+argument_list|)
 DECL|method|getTimeout ()
 specifier|public
 name|long
@@ -889,9 +792,27 @@ operator|=
 name|timeout
 expr_stmt|;
 block|}
-comment|/**      * Specifies whether multiple consumers are allowed.      * If enabled, you can use Disruptor for Publish-Subscribe messaging.      * That is, you can send a message to the queue and have each consumer receive a copy of the message.      * When enabled, this option should be specified on every consumer endpoint.      */
+annotation|@
+name|Override
 annotation|@
 name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Specifies whether multiple consumers are allowed"
+argument_list|)
+DECL|method|isMultipleConsumersSupported ()
+specifier|public
+name|boolean
+name|isMultipleConsumersSupported
+parameter_list|()
+block|{
+return|return
+name|isMultipleConsumers
+argument_list|()
+return|;
+block|}
+comment|/**      * Specifies whether multiple consumers are allowed.      * If enabled, you can use Disruptor for Publish-Subscribe messaging.      * That is, you can send a message to the queue and have each consumer receive a copy of the message.      * When enabled, this option should be specified on every consumer endpoint.      */
 DECL|method|isMultipleConsumers ()
 specifier|public
 name|boolean
@@ -941,21 +862,6 @@ argument_list|)
 return|;
 block|}
 annotation|@
-name|Override
-annotation|@
-name|ManagedAttribute
-DECL|method|isMultipleConsumersSupported ()
-specifier|public
-name|boolean
-name|isMultipleConsumersSupported
-parameter_list|()
-block|{
-return|return
-name|isMultipleConsumers
-argument_list|()
-return|;
-block|}
-annotation|@
 name|ManagedAttribute
 DECL|method|isBlockWhenFull ()
 specifier|public
@@ -984,6 +890,13 @@ operator|=
 name|blockWhenFull
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Defines the strategy used by consumer threads to wait on new exchanges to be published"
+argument_list|)
 DECL|method|getWaitStrategy ()
 specifier|public
 name|DisruptorWaitStrategy
@@ -1011,6 +924,13 @@ operator|=
 name|waitStrategy
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|" Defines the producers allowed on the Disruptor"
+argument_list|)
 DECL|method|getProducerType ()
 specifier|public
 name|DisruptorProducerType
