@@ -300,7 +300,10 @@ literal|6
 argument_list|,
 name|endpoint
 operator|.
-name|queueSize
+name|getExchanges
+argument_list|()
+operator|.
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -465,7 +468,10 @@ literal|8
 argument_list|,
 name|endpoint
 operator|.
-name|queueSize
+name|getExchanges
+argument_list|()
+operator|.
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -631,7 +637,10 @@ literal|8
 argument_list|,
 name|endpoint
 operator|.
-name|queueSize
+name|getExchanges
+argument_list|()
+operator|.
+name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
