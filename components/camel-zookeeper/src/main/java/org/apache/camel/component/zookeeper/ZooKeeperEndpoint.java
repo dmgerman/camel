@@ -72,18 +72,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ServiceStatus
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|api
 operator|.
 name|management
@@ -352,119 +340,6 @@ return|return
 name|connectionManager
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Camel ID"
-argument_list|)
-DECL|method|getCamelId ()
-specifier|public
-name|String
-name|getCamelId
-parameter_list|()
-block|{
-return|return
-name|getCamelContext
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Camel ManagementName"
-argument_list|)
-DECL|method|getCamelManagementName ()
-specifier|public
-name|String
-name|getCamelManagementName
-parameter_list|()
-block|{
-return|return
-name|getCamelContext
-argument_list|()
-operator|.
-name|getManagementName
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Endpoint Uri"
-argument_list|,
-name|mask
-operator|=
-literal|true
-argument_list|)
-annotation|@
-name|Override
-DECL|method|getEndpointUri ()
-specifier|public
-name|String
-name|getEndpointUri
-parameter_list|()
-block|{
-return|return
-name|super
-operator|.
-name|getEndpointUri
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Service State"
-argument_list|)
-DECL|method|getState ()
-specifier|public
-name|String
-name|getState
-parameter_list|()
-block|{
-name|ServiceStatus
-name|status
-init|=
-name|this
-operator|.
-name|getStatus
-argument_list|()
-decl_stmt|;
-comment|// if no status exists then its stopped
-if|if
-condition|(
-name|status
-operator|==
-literal|null
-condition|)
-block|{
-name|status
-operator|=
-name|ServiceStatus
-operator|.
-name|Stopped
-expr_stmt|;
-block|}
-return|return
-name|status
-operator|.
-name|name
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|setPath (String path)
 specifier|public
 name|void
@@ -515,8 +390,6 @@ name|getTimeout
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|setTimeout (int timeout)
 specifier|public
 name|void
@@ -551,8 +424,6 @@ name|isRepeat
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|setRepeat (boolean shouldRepeat)
 specifier|public
 name|void
@@ -590,8 +461,6 @@ name|getServers
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|setServers (List<String> servers)
 specifier|public
 name|void
@@ -629,8 +498,6 @@ name|isListChildren
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|setListChildren (boolean listChildren)
 specifier|public
 name|void
@@ -665,8 +532,6 @@ name|isCreate
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|setCreate (boolean shouldCreate)
 specifier|public
 name|void
@@ -701,8 +566,6 @@ name|getBackoff
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|setBackoff (long backoff)
 specifier|public
 name|void
@@ -724,8 +587,6 @@ block|}
 comment|/**      * @deprecated The usage of this property has no effect at all.      */
 annotation|@
 name|Deprecated
-annotation|@
-name|ManagedAttribute
 DECL|method|getAwaitExistence ()
 specifier|public
 name|boolean
@@ -743,8 +604,6 @@ block|}
 comment|/**      * @deprecated The usage of this property has no effect at all.      */
 annotation|@
 name|Deprecated
-annotation|@
-name|ManagedAttribute
 DECL|method|setAwaitExistence (boolean awaitExistence)
 specifier|public
 name|void
@@ -801,19 +660,6 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|getManagedObject (ZooKeeperEndpoint arg0)
-specifier|public
-name|Object
-name|getManagedObject
-parameter_list|(
-name|ZooKeeperEndpoint
-name|arg0
-parameter_list|)
-block|{
-return|return
-name|this
-return|;
-block|}
 annotation|@
 name|ManagedAttribute
 DECL|method|isSendEmptyMessageOnDelete ()
@@ -830,8 +676,6 @@ name|isSendEmptyMessageOnDelete
 argument_list|()
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
 DECL|method|setSendEmptyMessageOnDelete (boolean sendEmptyMessageOnDelete)
 specifier|public
 name|void

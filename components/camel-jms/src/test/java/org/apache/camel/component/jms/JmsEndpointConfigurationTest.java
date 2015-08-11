@@ -1984,9 +1984,6 @@ argument_list|(
 name|ServiceStatus
 operator|.
 name|Started
-operator|.
-name|toString
-argument_list|()
 argument_list|,
 name|endpoint
 operator|.
