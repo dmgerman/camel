@@ -679,69 +679,6 @@ return|return
 name|contentCache
 return|;
 block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Endpoint State"
-argument_list|)
-DECL|method|getState ()
-specifier|public
-name|String
-name|getState
-parameter_list|()
-block|{
-return|return
-name|getStatus
-argument_list|()
-operator|.
-name|name
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Camel ID"
-argument_list|)
-DECL|method|getCamelId ()
-specifier|public
-name|String
-name|getCamelId
-parameter_list|()
-block|{
-return|return
-name|getCamelContext
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Camel ManagementName"
-argument_list|)
-DECL|method|getCamelManagementName ()
-specifier|public
-name|String
-name|getCamelManagementName
-parameter_list|()
-block|{
-return|return
-name|getCamelContext
-argument_list|()
-operator|.
-name|getManagementName
-argument_list|()
-return|;
-block|}
 DECL|method|findOrCreateEndpoint (String uri, String newResourceUri)
 specifier|public
 name|XsltEndpoint
@@ -876,6 +813,13 @@ operator|=
 name|xslt
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The name of the template to load from classpath or file system"
+argument_list|)
 DECL|method|getResourceUri ()
 specifier|public
 name|String
@@ -984,6 +928,13 @@ operator|=
 name|transformerFactory
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to use Saxon as the transformerFactoryClass"
+argument_list|)
 DECL|method|isSaxon ()
 specifier|public
 name|boolean
@@ -1038,6 +989,13 @@ operator|=
 name|resultHandlerFactory
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether or not to throw an exception if the input body is null"
+argument_list|)
 DECL|method|isFailOnNullBody ()
 specifier|public
 name|boolean
@@ -1065,6 +1023,13 @@ operator|=
 name|failOnNullBody
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"What kind of option to use."
+argument_list|)
 DECL|method|getOutput ()
 specifier|public
 name|XsltOutput
@@ -1146,6 +1111,13 @@ operator|=
 name|errorListener
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Cache for the resource content (the stylesheet file) when it is loaded."
+argument_list|)
 DECL|method|isContentCache ()
 specifier|public
 name|boolean
@@ -1200,6 +1172,13 @@ operator|=
 name|uriResolver
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to allow using StAX as the javax.xml.transform.Source"
+argument_list|)
 DECL|method|isAllowStAX ()
 specifier|public
 name|boolean

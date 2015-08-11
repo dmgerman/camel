@@ -473,6 +473,18 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|isSingleton ()
+specifier|public
+name|boolean
+name|isSingleton
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void
@@ -806,110 +818,6 @@ name|time
 operator|=
 name|time
 expr_stmt|;
-block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Singleton"
-argument_list|)
-DECL|method|isSingleton ()
-specifier|public
-name|boolean
-name|isSingleton
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Camel id"
-argument_list|)
-DECL|method|getCamelId ()
-specifier|public
-name|String
-name|getCamelId
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Camel ManagementName"
-argument_list|)
-DECL|method|getCamelManagementName ()
-specifier|public
-name|String
-name|getCamelManagementName
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getManagementName
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Endpoint Uri"
-argument_list|)
-DECL|method|getEndpointUri ()
-specifier|public
-name|String
-name|getEndpointUri
-parameter_list|()
-block|{
-return|return
-name|super
-operator|.
-name|getEndpointUri
-argument_list|()
-return|;
-block|}
-annotation|@
-name|ManagedAttribute
-argument_list|(
-name|description
-operator|=
-literal|"Endpoint State"
-argument_list|)
-DECL|method|getState ()
-specifier|public
-name|String
-name|getState
-parameter_list|()
-block|{
-return|return
-name|getStatus
-argument_list|()
-operator|.
-name|name
-argument_list|()
-return|;
 block|}
 DECL|method|getTimer (TimerConsumer consumer)
 specifier|public
