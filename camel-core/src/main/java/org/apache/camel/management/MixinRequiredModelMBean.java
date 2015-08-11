@@ -32,6 +32,16 @@ name|javax
 operator|.
 name|management
 operator|.
+name|DynamicMBean
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|management
+operator|.
 name|MBeanException
 import|;
 end_import
@@ -139,16 +149,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link RequiredModelMBean} which allows us to intercept invoking operations on the MBean.  *<p/>  * For example if mask has been enabled on JMX, then we use this implementation  * to hide sensitive information from the returned JMX attributes / operations.  */
+comment|/**  * A {@link javax.management.modelmbean.RequiredModelMBean} which allows us to intercept invoking operations on the MBean.  *<p/>  * This allows us to intercept calls to custom mbeans where allows us to mix-in the standard set of mbean attributes  * and operations that Camel provides out of the box.  *<p/>  * For example if mask has been enabled on JMX, then we use this implementation  * to hide sensitive information from the returned JMX attributes / operations.  */
 end_comment
 
 begin_class
-annotation|@
-name|Deprecated
-DECL|class|MaskRequiredModelMBean
+DECL|class|MixinRequiredModelMBean
 specifier|public
 class|class
-name|MaskRequiredModelMBean
+name|MixinRequiredModelMBean
 extends|extends
 name|RequiredModelMBean
 block|{
@@ -163,7 +171,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|MaskRequiredModelMBean
+name|MixinRequiredModelMBean
 operator|.
 name|class
 argument_list|)
@@ -173,9 +181,19 @@ specifier|private
 name|boolean
 name|mask
 decl_stmt|;
-DECL|method|MaskRequiredModelMBean ()
+DECL|field|defaultMbi
+specifier|private
+name|ModelMBeanInfo
+name|defaultMbi
+decl_stmt|;
+DECL|field|defaultObject
+specifier|private
+name|DynamicMBean
+name|defaultObject
+decl_stmt|;
+DECL|method|MixinRequiredModelMBean ()
 specifier|public
-name|MaskRequiredModelMBean
+name|MixinRequiredModelMBean
 parameter_list|()
 throws|throws
 name|MBeanException
@@ -184,15 +202,21 @@ name|RuntimeOperationsException
 block|{
 comment|// must have default no-arg constructor
 block|}
-DECL|method|MaskRequiredModelMBean (ModelMBeanInfo mbi, boolean mask)
+DECL|method|MixinRequiredModelMBean (ModelMBeanInfo mbi, boolean mask, ModelMBeanInfo defaultMbi, DynamicMBean defaultObject)
 specifier|public
-name|MaskRequiredModelMBean
+name|MixinRequiredModelMBean
 parameter_list|(
 name|ModelMBeanInfo
 name|mbi
 parameter_list|,
 name|boolean
 name|mask
+parameter_list|,
+name|ModelMBeanInfo
+name|defaultMbi
+parameter_list|,
+name|DynamicMBean
+name|defaultObject
 parameter_list|)
 throws|throws
 name|MBeanException
@@ -209,6 +233,18 @@ operator|.
 name|mask
 operator|=
 name|mask
+expr_stmt|;
+name|this
+operator|.
+name|defaultMbi
+operator|=
+name|defaultMbi
+expr_stmt|;
+name|this
+operator|.
+name|defaultObject
+operator|=
+name|defaultObject
 expr_stmt|;
 block|}
 DECL|method|isMask ()
@@ -246,7 +282,41 @@ name|ReflectionException
 block|{
 name|Object
 name|answer
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|defaultMbi
+operator|!=
+literal|null
+operator|&&
+name|defaultObject
+operator|!=
+literal|null
+operator|&&
+name|isDefaultOperation
+argument_list|(
+name|opName
+argument_list|)
+condition|)
+block|{
+name|answer
+operator|=
+name|defaultObject
+operator|.
+name|invoke
+argument_list|(
+name|opName
+argument_list|,
+name|opArgs
+argument_list|,
+name|sig
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|answer
+operator|=
 name|super
 operator|.
 name|invoke
@@ -257,7 +327,8 @@ name|opArgs
 argument_list|,
 name|sig
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// mask the answer if enabled and it was a String type (we cannot mask other types)
 if|if
 condition|(
@@ -295,6 +366,48 @@ expr_stmt|;
 block|}
 return|return
 name|answer
+return|;
+block|}
+DECL|method|isDefaultOperation (String opName)
+specifier|protected
+name|boolean
+name|isDefaultOperation
+parameter_list|(
+name|String
+name|opName
+parameter_list|)
+block|{
+for|for
+control|(
+name|MBeanOperationInfo
+name|info
+range|:
+name|defaultMbi
+operator|.
+name|getOperations
+argument_list|()
+control|)
+block|{
+if|if
+condition|(
+name|info
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|opName
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+block|}
+return|return
+literal|false
 return|;
 block|}
 DECL|method|isMaskOperation (String opName)
