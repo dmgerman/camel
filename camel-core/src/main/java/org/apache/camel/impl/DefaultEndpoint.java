@@ -402,6 +402,11 @@ name|pollingConsumerBlockWhenFull
 init|=
 literal|true
 decl_stmt|;
+DECL|field|pollingConsumerBlockTimeout
+specifier|private
+name|long
+name|pollingConsumerBlockTimeout
+decl_stmt|;
 comment|/**      * Constructs a fully-initialized DefaultEndpoint instance. This is the      * preferred method of constructing an object from Java code (as opposed to      * Spring beans, etc.).      *       * @param endpointUri the full URI used to create this endpoint      * @param component the component that created this endpoint      */
 DECL|method|DefaultEndpoint (String endpointUri, Component component)
 specifier|protected
@@ -810,19 +815,36 @@ throws|throws
 name|Exception
 block|{
 comment|// should not call configurePollingConsumer when its EventDrivenPollingConsumer
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating EventDrivenPollingConsumer with queueSize: {} and blockWhenFull: {}"
+literal|"Creating EventDrivenPollingConsumer with queueSize: {} blockWhenFull: {} blockTimeout: {}"
 argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
 name|getPollingConsumerQueueSize
 argument_list|()
-argument_list|,
+block|,
 name|isPollingConsumerBlockWhenFull
 argument_list|()
+block|,
+name|getPollingConsumerBlockTimeout
+argument_list|()
+block|}
 argument_list|)
 expr_stmt|;
+block|}
 name|EventDrivenPollingConsumer
 name|consumer
 init|=
@@ -840,6 +862,14 @@ operator|.
 name|setBlockWhenFull
 argument_list|(
 name|isPollingConsumerBlockWhenFull
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|consumer
+operator|.
+name|setBlockTimeout
+argument_list|(
+name|getPollingConsumerBlockTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1006,6 +1036,34 @@ operator|.
 name|pollingConsumerBlockWhenFull
 operator|=
 name|pollingConsumerBlockWhenFull
+expr_stmt|;
+block|}
+comment|/**      * Sets the timeout in millis to use when adding to the internal queue off when {@link org.apache.camel.impl.EventDrivenPollingConsumer}      * is being used.      *      * @see #setPollingConsumerBlockWhenFull(boolean)      */
+DECL|method|getPollingConsumerBlockTimeout ()
+specifier|public
+name|long
+name|getPollingConsumerBlockTimeout
+parameter_list|()
+block|{
+return|return
+name|pollingConsumerBlockTimeout
+return|;
+block|}
+comment|/**      * Sets the timeout in millis to use when adding to the internal queue off when {@link org.apache.camel.impl.EventDrivenPollingConsumer}      * is being used.      *      * @see #setPollingConsumerBlockWhenFull(boolean)      */
+DECL|method|setPollingConsumerBlockTimeout (long pollingConsumerBlockTimeout)
+specifier|public
+name|void
+name|setPollingConsumerBlockTimeout
+parameter_list|(
+name|long
+name|pollingConsumerBlockTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pollingConsumerBlockTimeout
+operator|=
+name|pollingConsumerBlockTimeout
 expr_stmt|;
 block|}
 DECL|method|configureProperties (Map<String, Object> options)
