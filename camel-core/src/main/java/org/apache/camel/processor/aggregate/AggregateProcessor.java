@@ -346,6 +346,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ShutdownRunningTask
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|TimeoutMap
 import|;
 end_import
@@ -429,6 +441,20 @@ operator|.
 name|spi
 operator|.
 name|RecoverableAggregationRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|ShutdownAware
 import|;
 end_import
 
@@ -642,6 +668,8 @@ implements|,
 name|Traceable
 implements|,
 name|ShutdownPrepared
+implements|,
+name|ShutdownAware
 implements|,
 name|IdAware
 block|{
@@ -1255,6 +1283,11 @@ DECL|field|forceCompletionOnStop
 specifier|private
 name|boolean
 name|forceCompletionOnStop
+decl_stmt|;
+DECL|field|completeAllOnStop
+specifier|private
+name|boolean
+name|completeAllOnStop
 decl_stmt|;
 DECL|field|deadLetterProducerTemplate
 specifier|private
@@ -4336,6 +4369,16 @@ operator|=
 name|completionFromBatchConsumer
 expr_stmt|;
 block|}
+DECL|method|isCompleteAllOnStop ()
+specifier|public
+name|boolean
+name|isCompleteAllOnStop
+parameter_list|()
+block|{
+return|return
+name|completeAllOnStop
+return|;
+block|}
 DECL|method|getExceptionHandler ()
 specifier|public
 name|ExceptionHandler
@@ -4480,6 +4523,22 @@ operator|.
 name|forceCompletionOnStop
 operator|=
 name|forceCompletionOnStop
+expr_stmt|;
+block|}
+DECL|method|setCompleteAllOnStop (boolean completeAllOnStop)
+specifier|public
+name|void
+name|setCompleteAllOnStop
+parameter_list|(
+name|boolean
+name|completeAllOnStop
+parameter_list|)
+block|{
+name|this
+operator|.
+name|completeAllOnStop
+operator|=
+name|completeAllOnStop
 expr_stmt|;
 block|}
 DECL|method|setTimeoutCheckerExecutorService (ScheduledExecutorService timeoutCheckerExecutorService)
@@ -6472,6 +6531,68 @@ block|{
 name|doForceCompletionOnStop
 argument_list|()
 expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|deferShutdown (ShutdownRunningTask shutdownRunningTask)
+specifier|public
+name|boolean
+name|deferShutdown
+parameter_list|(
+name|ShutdownRunningTask
+name|shutdownRunningTask
+parameter_list|)
+block|{
+comment|// not in use
+return|return
+literal|true
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getPendingExchangesSize ()
+specifier|public
+name|int
+name|getPendingExchangesSize
+parameter_list|()
+block|{
+if|if
+condition|(
+name|completeAllOnStop
+condition|)
+block|{
+comment|// we want to regard all pending exchanges in the repo as inflight
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|keys
+init|=
+name|getAggregationRepository
+argument_list|()
+operator|.
+name|getKeys
+argument_list|()
+decl_stmt|;
+return|return
+name|keys
+operator|!=
+literal|null
+condition|?
+name|keys
+operator|.
+name|size
+argument_list|()
+else|:
+literal|0
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|0
+return|;
 block|}
 block|}
 DECL|method|doForceCompletionOnStop ()

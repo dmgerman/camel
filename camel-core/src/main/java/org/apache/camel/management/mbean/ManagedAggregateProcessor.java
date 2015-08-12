@@ -669,6 +669,19 @@ name|isCompletionFromBatchConsumer
 argument_list|()
 return|;
 block|}
+DECL|method|isCompleteAllOnStop ()
+specifier|public
+name|boolean
+name|isCompleteAllOnStop
+parameter_list|()
+block|{
+return|return
+name|processor
+operator|.
+name|isCompleteAllOnStop
+argument_list|()
+return|;
+block|}
 DECL|method|getInProgressCompleteExchanges ()
 specifier|public
 name|int

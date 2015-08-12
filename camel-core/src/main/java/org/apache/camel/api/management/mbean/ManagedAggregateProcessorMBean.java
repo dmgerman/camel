@@ -293,6 +293,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"Indicates to wait to complete all current and partial (pending) aggregated exchanges when the context is stopped"
+argument_list|)
+DECL|method|isCompleteAllOnStop ()
+name|boolean
+name|isCompleteAllOnStop
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Number of completed exchanges which are currently in-flight"
 argument_list|)
 DECL|method|getInProgressCompleteExchanges ()
