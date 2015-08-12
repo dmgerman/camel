@@ -697,14 +697,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Create body content from a non Exception object. If the inputObject is a      * BeanInvocation the following should be considered: The first parameter      * will be used for the SOAP body. BeanInvocations with more than one      * parameter are not supported. So the interface should be in doc lit bare      * style.      *       * @param inputObject      *            object to be put into the SOAP body      * @param soapAction      *            for name resolution      * @param headerElements      *            in/out parameter used to capture header content if present      *                  * @return JAXBElement for the body content      */
-DECL|method|createContentFromObject (final Object inputObject, String soapAction, List<JAXBElement<?>> headerElements)
+DECL|method|createContentFromObject (final Object inputObject, String soapAction, List<Object> headerElements)
 specifier|protected
 name|List
 argument_list|<
-name|JAXBElement
-argument_list|<
-name|?
-argument_list|>
+name|Object
 argument_list|>
 name|createContentFromObject
 parameter_list|(
@@ -717,10 +714,7 @@ name|soapAction
 parameter_list|,
 name|List
 argument_list|<
-name|JAXBElement
-argument_list|<
-name|?
-argument_list|>
+name|Object
 argument_list|>
 name|headerElements
 parameter_list|)
@@ -964,20 +958,14 @@ expr_stmt|;
 block|}
 name|List
 argument_list|<
-name|JAXBElement
-argument_list|<
-name|?
-argument_list|>
+name|Object
 argument_list|>
 name|bodyElements
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|JAXBElement
-argument_list|<
-name|?
-argument_list|>
+name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
