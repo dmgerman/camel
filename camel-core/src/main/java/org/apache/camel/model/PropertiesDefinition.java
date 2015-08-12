@@ -200,7 +200,6 @@ return|return
 name|properties
 return|;
 block|}
-comment|/***      * @return A Map of the contained DataFormatType's indexed by id.      */
 DECL|method|asMap ()
 specifier|public
 name|Map
