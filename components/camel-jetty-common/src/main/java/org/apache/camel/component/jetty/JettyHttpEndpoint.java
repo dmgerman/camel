@@ -932,6 +932,14 @@ name|isTransferException
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|jettyBinding
+operator|.
+name|setOkStatusCodeRange
+argument_list|(
+name|getOkStatusCodeRange
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|jettyBinding

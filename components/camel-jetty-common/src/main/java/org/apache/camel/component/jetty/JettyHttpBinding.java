@@ -54,7 +54,7 @@ specifier|public
 interface|interface
 name|JettyHttpBinding
 block|{
-comment|/**      * Parses the response from the Jetty client.      *      * @param exchange  the Exchange which to populate with the response      * @param httpExchange  the response from the Jetty client      * @throws Exception is thrown if error parsing response      */
+comment|/**      * Parses the response from the Jetty client.      *      * @param exchange     the Exchange which to populate with the response      * @param httpExchange the response from the Jetty client      * @throws Exception is thrown if error parsing response      */
 DECL|method|populateResponse (Exchange exchange, JettyContentExchange httpExchange)
 name|void
 name|populateResponse
@@ -112,6 +112,21 @@ DECL|method|isTransferException ()
 name|boolean
 name|isTransferException
 parameter_list|()
+function_decl|;
+comment|/**      * The status codes which is considered a success response. The values are inclusive. The range must be defined as from-to with the dash included.      *<p/>      * The default range is<tt>200-299</tt>      */
+DECL|method|getOkStatusCodeRange ()
+name|String
+name|getOkStatusCodeRange
+parameter_list|()
+function_decl|;
+comment|/**      * The status codes which is considered a success response. The values are inclusive. The range must be defined as from-to with the dash included.      *<p/>      * The default range is<tt>200-299</tt>      */
+DECL|method|setOkStatusCodeRange (String okStatusCodeRange)
+name|void
+name|setOkStatusCodeRange
+parameter_list|(
+name|String
+name|okStatusCodeRange
+parameter_list|)
 function_decl|;
 block|}
 end_interface

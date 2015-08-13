@@ -302,6 +302,11 @@ specifier|private
 name|boolean
 name|transferException
 decl_stmt|;
+DECL|field|okStatusCodeRange
+specifier|private
+name|String
+name|okStatusCodeRange
+decl_stmt|;
 DECL|method|DefaultJettyHttpBinding ()
 specifier|public
 name|DefaultJettyHttpBinding
@@ -371,15 +376,21 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|boolean
+name|ok
+init|=
+name|HttpHelper
+operator|.
+name|isStatusCodeOk
+argument_list|(
+name|responseCode
+argument_list|,
+name|okStatusCodeRange
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|responseCode
-operator|>=
-literal|100
-operator|&&
-name|responseCode
-operator|<
-literal|300
+name|ok
 condition|)
 block|{
 comment|// only populate response for OK response
@@ -520,6 +531,32 @@ operator|.
 name|transferException
 operator|=
 name|transferException
+expr_stmt|;
+block|}
+DECL|method|getOkStatusCodeRange ()
+specifier|public
+name|String
+name|getOkStatusCodeRange
+parameter_list|()
+block|{
+return|return
+name|okStatusCodeRange
+return|;
+block|}
+DECL|method|setOkStatusCodeRange (String okStatusCodeRange)
+specifier|public
+name|void
+name|setOkStatusCodeRange
+parameter_list|(
+name|String
+name|okStatusCodeRange
+parameter_list|)
+block|{
+name|this
+operator|.
+name|okStatusCodeRange
+operator|=
+name|okStatusCodeRange
 expr_stmt|;
 block|}
 DECL|method|populateResponse (Exchange exchange, JettyContentExchange httpExchange, Message in, HeaderFilterStrategy strategy, int responseCode)

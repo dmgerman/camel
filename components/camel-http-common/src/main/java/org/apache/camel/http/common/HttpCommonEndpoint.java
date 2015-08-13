@@ -122,26 +122,6 @@ name|UriPath
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_class
 DECL|class|HttpCommonEndpoint
 specifier|public
@@ -154,22 +134,6 @@ implements|implements
 name|HeaderFilterStrategyAware
 block|{
 comment|// Note: all options must be documented with description in annotations so extended components can access the documentation
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|HttpCommonEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|component
 name|HttpCommonComponent
 name|component
@@ -490,6 +454,28 @@ argument_list|)
 DECL|field|eagerCheckContentAvailable
 name|boolean
 name|eagerCheckContentAvailable
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"200-299"
+argument_list|,
+name|description
+operator|=
+literal|"The status codes which is considered a success response. The values are inclusive. The range must be defined as from-to with the dash included."
+argument_list|)
+DECL|field|okStatusCodeRange
+specifier|private
+name|String
+name|okStatusCodeRange
+init|=
+literal|"200-299"
 decl_stmt|;
 DECL|method|HttpCommonEndpoint ()
 specifier|public
@@ -1234,6 +1220,33 @@ operator|.
 name|eagerCheckContentAvailable
 operator|=
 name|eagerCheckContentAvailable
+expr_stmt|;
+block|}
+DECL|method|getOkStatusCodeRange ()
+specifier|public
+name|String
+name|getOkStatusCodeRange
+parameter_list|()
+block|{
+return|return
+name|okStatusCodeRange
+return|;
+block|}
+comment|/**      * The status codes which is considered a success response. The values are inclusive. The range must be defined as from-to with the dash included.      *<p/>      * The default range is<tt>200-299</tt>      */
+DECL|method|setOkStatusCodeRange (String okStatusCodeRange)
+specifier|public
+name|void
+name|setOkStatusCodeRange
+parameter_list|(
+name|String
+name|okStatusCodeRange
+parameter_list|)
+block|{
+name|this
+operator|.
+name|okStatusCodeRange
+operator|=
+name|okStatusCodeRange
 expr_stmt|;
 block|}
 block|}
