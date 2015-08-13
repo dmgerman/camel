@@ -355,11 +355,7 @@ name|configuration
 operator|=
 operator|new
 name|Configuration
-argument_list|(
-name|Configuration
-operator|.
-name|VERSION_2_3_21
-argument_list|)
+argument_list|()
 expr_stmt|;
 name|configuration
 operator|.
