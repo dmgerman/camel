@@ -250,6 +250,9 @@ argument_list|(
 name|exchange
 argument_list|,
 name|callback
+argument_list|,
+name|getConfiguration
+argument_list|()
 argument_list|)
 argument_list|)
 return|;
@@ -414,7 +417,13 @@ specifier|final
 name|AsyncCallback
 name|callback
 decl_stmt|;
-DECL|method|NettyHttpProducerCallback (Exchange exchange, AsyncCallback callback)
+DECL|field|configuration
+specifier|private
+specifier|final
+name|NettyHttpConfiguration
+name|configuration
+decl_stmt|;
+DECL|method|NettyHttpProducerCallback (Exchange exchange, AsyncCallback callback, NettyHttpConfiguration configuration)
 specifier|private
 name|NettyHttpProducerCallback
 parameter_list|(
@@ -423,6 +432,9 @@ name|exchange
 parameter_list|,
 name|AsyncCallback
 name|callback
+parameter_list|,
+name|NettyHttpConfiguration
+name|configuration
 parameter_list|)
 block|{
 name|this
@@ -436,6 +448,12 @@ operator|.
 name|callback
 operator|=
 name|callback
+expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
 expr_stmt|;
 block|}
 annotation|@
@@ -549,12 +567,26 @@ argument_list|,
 name|code
 argument_list|)
 expr_stmt|;
-comment|// if there was a http error code (300 or higher) then check if we should throw an exception
+comment|// if there was a http error code then check if we should throw an exception
+name|boolean
+name|ok
+init|=
+name|NettyHttpHelper
+operator|.
+name|isStatusCodeOk
+argument_list|(
+name|code
+argument_list|,
+name|configuration
+operator|.
+name|getOkStatusCodeRange
+argument_list|()
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
-name|code
-operator|>=
-literal|300
+operator|!
+name|ok
 operator|&&
 name|getConfiguration
 argument_list|()
