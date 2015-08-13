@@ -1124,7 +1124,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Evaluates the given xpath using the provided body.      *      * @param context the camel context      * @param body    the body      * @param type    the type to return      * @return result of the evaluation      */
+comment|/**      * Evaluates the given xpath using the provided body.      *<p/>      * The evaluation uses by default {@link javax.xml.xpath.XPathConstants#NODESET} as the type      * used during xpath evaluation. The output from xpath is then afterwards type converted      * using Camel's type converter to the given type.      *<p/>      * If you want to evaluate xpath using a different type, then call {@link #setResultType(Class)}      * prior to calling this evaluate method.      *      * @param context the camel context      * @param body    the body      * @param type    the type to return      * @return result of the evaluation      */
 DECL|method|evaluate (CamelContext context, Object body, Class<T> type)
 specifier|public
 parameter_list|<
@@ -1243,6 +1243,13 @@ argument_list|(
 name|XPathConstants
 operator|.
 name|STRING
+argument_list|)
+expr_stmt|;
+name|setResultType
+argument_list|(
+name|String
+operator|.
+name|class
 argument_list|)
 expr_stmt|;
 try|try
