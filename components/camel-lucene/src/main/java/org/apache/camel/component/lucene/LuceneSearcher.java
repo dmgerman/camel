@@ -419,9 +419,9 @@ name|searchPhrase
 argument_list|,
 name|maxNumberOfHits
 argument_list|,
-name|Version
+name|LuceneConstants
 operator|.
-name|LUCENE_4_10_3
+name|LUCENE_VERSION
 argument_list|,
 literal|false
 argument_list|)

@@ -181,9 +181,9 @@ specifier|private
 name|Version
 name|luceneVersion
 init|=
-name|Version
+name|LuceneConstants
 operator|.
-name|LUCENE_4_10_3
+name|LUCENE_VERSION
 decl_stmt|;
 annotation|@
 name|UriPath
