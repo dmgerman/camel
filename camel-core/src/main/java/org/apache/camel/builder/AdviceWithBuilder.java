@@ -649,7 +649,7 @@ name|type
 argument_list|,
 name|selectFirst
 argument_list|,
-name|selectFirst
+name|selectLast
 argument_list|,
 name|selectFrom
 argument_list|,
