@@ -359,6 +359,23 @@ literal|"b2"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong form parameter from the message header"
+argument_list|,
+literal|"localhost"
+argument_list|,
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+literal|"host"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|UpstreamMessageEvent
 name|event
 init|=

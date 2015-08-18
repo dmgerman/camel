@@ -3374,12 +3374,28 @@ name|uri
 argument_list|)
 decl_stmt|;
 name|String
-name|host
+name|hostHeader
 init|=
 name|u
 operator|.
 name|getHost
 argument_list|()
+operator|+
+operator|(
+name|configuration
+operator|.
+name|isUseRelativePath
+argument_list|()
+condition|?
+literal|":"
+operator|+
+name|u
+operator|.
+name|getPort
+argument_list|()
+else|:
+literal|""
+operator|)
 decl_stmt|;
 name|request
 operator|.
@@ -3394,7 +3410,7 @@ name|Names
 operator|.
 name|HOST
 argument_list|,
-name|host
+name|hostHeader
 argument_list|)
 expr_stmt|;
 name|LOG
@@ -3403,7 +3419,7 @@ name|trace
 argument_list|(
 literal|"Host: {}"
 argument_list|,
-name|host
+name|hostHeader
 argument_list|)
 expr_stmt|;
 comment|// configure connection to accordingly to keep alive configuration
