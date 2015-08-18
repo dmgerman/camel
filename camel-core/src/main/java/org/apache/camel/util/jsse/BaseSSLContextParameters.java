@@ -412,6 +412,10 @@ argument_list|(
 literal|".*_NULL_.*"
 argument_list|,
 literal|".*_anon_.*"
+argument_list|,
+literal|".*_EXPORT_.*"
+argument_list|,
+literal|".*_DES_.*"
 argument_list|)
 argument_list|)
 decl_stmt|;
