@@ -328,6 +328,22 @@ name|okStatusCodeRange
 init|=
 literal|"200-299"
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|useRelativePath
+specifier|private
+name|boolean
+name|useRelativePath
+decl_stmt|;
 DECL|method|NettyHttpConfiguration ()
 specifier|public
 name|NettyHttpConfiguration
@@ -823,6 +839,35 @@ name|okStatusCodeRange
 operator|=
 name|okStatusCodeRange
 expr_stmt|;
+block|}
+comment|/**      * Sets whether to use a relative path in HTTP requests.      */
+DECL|method|setUseRelativePath (boolean useRelativePath)
+specifier|public
+name|void
+name|setUseRelativePath
+parameter_list|(
+name|boolean
+name|useRelativePath
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useRelativePath
+operator|=
+name|useRelativePath
+expr_stmt|;
+block|}
+DECL|method|isUseRelativePath ()
+specifier|public
+name|boolean
+name|isUseRelativePath
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|useRelativePath
+return|;
 block|}
 block|}
 end_class

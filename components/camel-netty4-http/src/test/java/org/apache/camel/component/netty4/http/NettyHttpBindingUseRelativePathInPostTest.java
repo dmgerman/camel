@@ -40,18 +40,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Message
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -113,10 +101,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|NettyHttpBindingPreservePostFormUrlEncodedBodyTest
+DECL|class|NettyHttpBindingUseRelativePathInPostTest
 specifier|public
 class|class
-name|NettyHttpBindingPreservePostFormUrlEncodedBodyTest
+name|NettyHttpBindingUseRelativePathInPostTest
 extends|extends
 name|BaseNettyTest
 block|{
@@ -137,7 +125,7 @@ name|template
 operator|.
 name|request
 argument_list|(
-literal|"netty4-http:http://localhost:{{port}}/myapp/myservice?query1=a&query2=b"
+literal|"netty4-http:http://localhost:{{port}}/myapp/myservice?query1=a&query2=b&useRelativePath=true"
 argument_list|,
 operator|new
 name|Processor
@@ -374,9 +362,9 @@ operator|.
 name|getHttpRequest
 argument_list|()
 decl_stmt|;
-name|assertNotEquals
+name|assertEquals
 argument_list|(
-literal|"Relative path should NOT be used in POST"
+literal|"Relative path not used in POST"
 argument_list|,
 literal|"/myapp/myservice?query1=a&query2=b"
 argument_list|,
