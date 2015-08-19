@@ -66,6 +66,15 @@ name|JCR_GET_BY_ID
 init|=
 literal|"CamelJcrGetById"
 decl_stmt|;
+DECL|field|JCR_NODE_TYPE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JCR_NODE_TYPE
+init|=
+literal|"CamelJcrNodeType"
+decl_stmt|;
 DECL|method|JcrConstants ()
 specifier|private
 name|JcrConstants
