@@ -366,6 +366,16 @@ name|DELETE_METHOD
 init|=
 literal|"delete"
 decl_stmt|;
+comment|// unparsed variants
+DECL|field|UREAD_METHOD
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|UREAD_METHOD
+init|=
+literal|"uread"
+decl_stmt|;
 DECL|field|endpointPropertyNames
 specifier|private
 specifier|final
@@ -516,6 +526,14 @@ name|equals
 argument_list|(
 name|methodName
 argument_list|)
+operator|&&
+operator|!
+name|UREAD_METHOD
+operator|.
+name|equals
+argument_list|(
+name|methodName
+argument_list|)
 condition|)
 block|{
 throw|throw
@@ -629,6 +647,13 @@ name|methodName
 argument_list|)
 operator|||
 name|DELETE_METHOD
+operator|.
+name|equals
+argument_list|(
+name|methodName
+argument_list|)
+operator|||
+name|UREAD_METHOD
 operator|.
 name|equals
 argument_list|(
