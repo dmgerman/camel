@@ -95,19 +95,19 @@ comment|/**  * OptaPlanner unit test with Camel  */
 end_comment
 
 begin_class
-DECL|class|OptaPlannerTest
+DECL|class|OptaPlannerSyncSolverTest
 specifier|public
 class|class
-name|OptaPlannerTest
+name|OptaPlannerSyncSolverTest
 extends|extends
 name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testCloudBalance4computers12processes ()
+DECL|method|testSynchronousProblemSolving ()
 specifier|public
 name|void
-name|testCloudBalance4computers12processes
+name|testSynchronousProblemSolving
 parameter_list|()
 throws|throws
 name|Exception
