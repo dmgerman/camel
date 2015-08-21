@@ -192,7 +192,7 @@ extends|extends
 name|DefaultEndpoint
 block|{
 DECL|field|SOLVERS
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|Map

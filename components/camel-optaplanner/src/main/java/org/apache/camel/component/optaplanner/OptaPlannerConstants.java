@@ -66,11 +66,11 @@ name|IS_TERMINATE_EARLY
 init|=
 literal|"CamelOptaPlannerIsTerminateEarly"
 decl_stmt|;
-DECL|field|IS_FACT_PROCESSED
+DECL|field|IS_EVERY_PROBLEM_FACT_CHANGE_PROCESSED
 name|String
-name|IS_FACT_PROCESSED
+name|IS_EVERY_PROBLEM_FACT_CHANGE_PROCESSED
 init|=
-literal|"CamelOptaPlannerIsFactProcessed"
+literal|"CamelOptaPlannerIsEveryProblemFactChangeProcessed"
 decl_stmt|;
 block|}
 end_interface

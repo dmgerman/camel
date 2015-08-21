@@ -622,7 +622,7 @@ name|setHeader
 argument_list|(
 name|OptaPlannerConstants
 operator|.
-name|IS_FACT_PROCESSED
+name|IS_EVERY_PROBLEM_FACT_CHANGE_PROCESSED
 argument_list|,
 name|solver
 operator|.
