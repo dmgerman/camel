@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jetty
+DECL|package|org.apache.camel.http.common
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|http
 operator|.
-name|jetty
+name|common
 package|;
 end_package
 
@@ -68,38 +68,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|http
-operator|.
-name|common
-operator|.
-name|HttpConsumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|http
-operator|.
-name|common
-operator|.
-name|HttpServletResolveConsumerStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|support
 operator|.
 name|RestConsumerContextPathMatcher
@@ -111,10 +79,10 @@ comment|/**  * A {@link org.apache.camel.http.common.HttpServletResolveConsumerS
 end_comment
 
 begin_class
-DECL|class|JettyRestServletResolveConsumerStrategy
+DECL|class|HttpRestServletResolveConsumerStrategy
 specifier|public
 class|class
-name|JettyRestServletResolveConsumerStrategy
+name|HttpRestServletResolveConsumerStrategy
 extends|extends
 name|HttpServletResolveConsumerStrategy
 block|{
