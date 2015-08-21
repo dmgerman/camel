@@ -800,6 +800,15 @@ name|DOCKER_VOLUMES_FROM
 init|=
 literal|"CamelDockerVolumesFrom"
 decl_stmt|;
+DECL|field|DOCKER_DOMAIN_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DOCKER_DOMAIN_NAME
+init|=
+literal|"CamelDockerDomainName"
+decl_stmt|;
 comment|/**      * Start Container *      */
 DECL|field|DOCKER_BINDS
 specifier|public

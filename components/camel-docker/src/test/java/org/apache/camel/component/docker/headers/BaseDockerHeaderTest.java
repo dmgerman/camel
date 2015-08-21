@@ -439,6 +439,16 @@ return|return
 literal|"https://index.docker.io/v1/"
 return|;
 block|}
+DECL|method|isSecure ()
+specifier|public
+name|boolean
+name|isSecure
+parameter_list|()
+block|{
+return|return
+literal|false
+return|;
+block|}
 DECL|method|getMockObject ()
 specifier|public
 name|T
@@ -662,14 +672,24 @@ name|clientProfile
 operator|.
 name|setLoggingFilter
 argument_list|(
-literal|false
+name|getLoggingFilter
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|clientProfile
 operator|.
 name|setFollowRedirectFilter
 argument_list|(
-literal|false
+name|getFollowRedirectFilter
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|clientProfile
+operator|.
+name|setSecure
+argument_list|(
+name|isSecure
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
