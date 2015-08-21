@@ -56,6 +56,10 @@ name|Locale
 import|;
 end_import
 
+begin_comment
+comment|/**  * A context path matcher when using rest-dsl that allows components to reuse the same matching logic.  *<p/>  * The component should use the {@link #matchBestPath(String, String, java.util.List)} with the request details  * and the matcher returns the best matched, or<tt>null</tt> if none could be determined.  *<p/>  * The {@link ConsumerPath} is used for the components to provide the details to the matcher.  */
+end_comment
+
 begin_class
 DECL|class|RestConsumerContextPathMatcher
 specifier|public
@@ -63,6 +67,7 @@ specifier|final
 class|class
 name|RestConsumerContextPathMatcher
 block|{
+comment|/**      * Consumer path details which must be implemented and provided by the components.      */
 DECL|interface|ConsumerPath
 specifier|public
 interface|interface
@@ -71,22 +76,26 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
+comment|/**          * Any HTTP restrict method that would not be allowed          */
 DECL|method|getRestrictMethod ()
 name|String
 name|getRestrictMethod
 parameter_list|()
 function_decl|;
+comment|/**          * The consumer context-path which may include wildcards          */
 DECL|method|getConsumerPath ()
 name|String
 name|getConsumerPath
 parameter_list|()
 function_decl|;
+comment|/**          * The consumer implementation          */
 DECL|method|getConsumer ()
 name|T
 name|getConsumer
 parameter_list|()
 function_decl|;
 block|}
+comment|/**      * Finds the best matching of the list of consumer paths that should service the incoming request.      *      * @param requestMethod   the incoming request HTTP method      * @param requestPath     the incoming request context path      * @param consumerPaths   the list of consumer context path details      * @return the best matched consumer, or<tt>null</tt> if none could be determined.      */
 DECL|method|matchBestPath (String requestMethod, String requestPath, List<ConsumerPath> consumerPaths)
 specifier|public
 specifier|static

@@ -120,6 +120,11 @@ name|HttpServletResolveConsumerStrategy
 block|{
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|resolve (HttpServletRequest request, Map<String, HttpConsumer> consumers)
 specifier|public
 name|HttpConsumer
