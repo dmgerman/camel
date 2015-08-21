@@ -1613,6 +1613,7 @@ block|}
 comment|/**      * Counts the number of wildcards in the path      *      * @param consumerPath  the consumer path which may use { } tokens      * @return number of wildcards, or<tt>0</tt> if no wildcards      */
 DECL|method|countWildcards (String consumerPath)
 specifier|private
+specifier|static
 name|int
 name|countWildcards
 parameter_list|(
