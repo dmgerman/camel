@@ -212,6 +212,15 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// look for the error message which is sent by MyErrorHandler
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Response: {}"
+argument_list|,
+name|response
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"Get a wrong error message"

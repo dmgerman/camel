@@ -95,7 +95,113 @@ name|getConsumer
 parameter_list|()
 function_decl|;
 block|}
-comment|/**      * Finds the best matching of the list of consumer paths that should service the incoming request.      *      * @param requestMethod   the incoming request HTTP method      * @param requestPath     the incoming request context path      * @param consumerPaths   the list of consumer context path details      * @return the best matched consumer, or<tt>null</tt> if none could be determined.      */
+comment|/**      * Does the incoming request match the given consumer path (ignore case)      *      * @param requestPath      the incoming request context path      * @param consumerPath     a consumer path      * @param matchOnUriPrefix whether to use the matchOnPrefix option      * @return<tt>true</tt> if matched,<tt>false</tt> otherwise      */
+DECL|method|matchPath (String requestPath, String consumerPath, boolean matchOnUriPrefix)
+specifier|public
+specifier|static
+name|boolean
+name|matchPath
+parameter_list|(
+name|String
+name|requestPath
+parameter_list|,
+name|String
+name|consumerPath
+parameter_list|,
+name|boolean
+name|matchOnUriPrefix
+parameter_list|)
+block|{
+comment|// deal with null parameters
+if|if
+condition|(
+name|requestPath
+operator|==
+literal|null
+operator|&&
+name|consumerPath
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+if|if
+condition|(
+name|requestPath
+operator|==
+literal|null
+operator|||
+name|consumerPath
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|false
+return|;
+block|}
+name|String
+name|p1
+init|=
+name|requestPath
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|)
+decl_stmt|;
+name|String
+name|p2
+init|=
+name|consumerPath
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|p1
+operator|.
+name|equals
+argument_list|(
+name|p2
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+if|if
+condition|(
+name|matchOnUriPrefix
+operator|&&
+name|p1
+operator|.
+name|startsWith
+argument_list|(
+name|p2
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+return|return
+literal|false
+return|;
+block|}
+comment|/**      * Finds the best matching of the list of consumer paths that should service the incoming request.      *      * @param requestMethod the incoming request HTTP method      * @param requestPath   the incoming request context path      * @param consumerPaths the list of consumer context path details      * @return the best matched consumer, or<tt>null</tt> if none could be determined.      */
 DECL|method|matchBestPath (String requestMethod, String requestPath, List<ConsumerPath> consumerPaths)
 specifier|public
 specifier|static
@@ -399,7 +505,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Matches the given request HTTP method with the configured HTTP method of the consumer      *      * @param method    the request HTTP method      * @param restrict  the consumer configured HTTP restrict method      * @return<tt>true</tt> if matched,<tt>false</tt> otherwise      */
+comment|/**      * Matches the given request HTTP method with the configured HTTP method of the consumer      *      * @param method   the request HTTP method      * @param restrict the consumer configured HTTP restrict method      * @return<tt>true</tt> if matched,<tt>false</tt> otherwise      */
 DECL|method|matchRestMethod (String method, String restrict)
 specifier|private
 specifier|static
@@ -462,7 +568,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Matches the given request path with the configured consumer path      *      * @param requestPath   the request path      * @param consumerPath  the consumer path which may use { } tokens      * @return<tt>true</tt> if matched,<tt>false</tt> otherwise      */
+comment|/**      * Matches the given request path with the configured consumer path      *      * @param requestPath  the request path      * @param consumerPath the consumer path which may use { } tokens      * @return<tt>true</tt> if matched,<tt>false</tt> otherwise      */
 DECL|method|matchRestPath (String requestPath, String consumerPath, boolean wildcard)
 specifier|private
 specifier|static
@@ -672,11 +778,13 @@ block|}
 if|if
 condition|(
 operator|!
-name|p1
-operator|.
-name|equals
+name|matchPath
 argument_list|(
+name|p1
+argument_list|,
 name|p2
+argument_list|,
+literal|false
 argument_list|)
 condition|)
 block|{
@@ -690,7 +798,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Counts the number of wildcards in the path      *      * @param consumerPath  the consumer path which may use { } tokens      * @return number of wildcards, or<tt>0</tt> if no wildcards      */
+comment|/**      * Counts the number of wildcards in the path      *      * @param consumerPath the consumer path which may use { } tokens      * @return number of wildcards, or<tt>0</tt> if no wildcards      */
 DECL|method|countWildcards (String consumerPath)
 specifier|private
 specifier|static

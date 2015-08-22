@@ -40,6 +40,20 @@ name|HttpServletRequest
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|RestConsumerContextPathMatcher
+import|;
+end_import
+
 begin_comment
 comment|/**  * A default implementation of {@link org.apache.camel.http.common.ServletResolveConsumerStrategy}.  */
 end_comment
@@ -142,17 +156,9 @@ argument_list|(
 name|key
 argument_list|)
 decl_stmt|;
-comment|// Just make sure the we get the right consumer path first
-if|if
-condition|(
-name|consumerPath
-operator|.
-name|equals
-argument_list|(
-name|path
-argument_list|)
-operator|||
-operator|(
+name|boolean
+name|matchOnUriPrefix
+init|=
 name|consumer
 operator|.
 name|getEndpoint
@@ -160,14 +166,20 @@ argument_list|()
 operator|.
 name|isMatchOnUriPrefix
 argument_list|()
-operator|&&
-name|path
+decl_stmt|;
+comment|// Just make sure the we get the right consumer path first
+if|if
+condition|(
+name|RestConsumerContextPathMatcher
 operator|.
-name|startsWith
+name|matchPath
 argument_list|(
+name|path
+argument_list|,
 name|consumerPath
+argument_list|,
+name|matchOnUriPrefix
 argument_list|)
-operator|)
 condition|)
 block|{
 name|answer
