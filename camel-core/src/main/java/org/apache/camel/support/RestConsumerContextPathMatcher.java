@@ -530,21 +530,6 @@ return|return
 literal|true
 return|;
 block|}
-comment|// always match OPTIONS as some REST clients uses that prior to calling the service
-if|if
-condition|(
-literal|"OPTIONS"
-operator|.
-name|equals
-argument_list|(
-name|method
-argument_list|)
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
 return|return
 name|restrict
 operator|.
@@ -552,7 +537,7 @@ name|toLowerCase
 argument_list|(
 name|Locale
 operator|.
-name|US
+name|ENGLISH
 argument_list|)
 operator|.
 name|contains
@@ -563,7 +548,7 @@ name|toLowerCase
 argument_list|(
 name|Locale
 operator|.
-name|US
+name|ENGLISH
 argument_list|)
 argument_list|)
 return|;
