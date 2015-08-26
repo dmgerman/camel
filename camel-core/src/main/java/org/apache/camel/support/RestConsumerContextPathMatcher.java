@@ -67,6 +67,11 @@ specifier|final
 class|class
 name|RestConsumerContextPathMatcher
 block|{
+DECL|method|RestConsumerContextPathMatcher ()
+specifier|private
+name|RestConsumerContextPathMatcher
+parameter_list|()
+block|{              }
 comment|/**      * Consumer path details which must be implemented and provided by the components.      */
 DECL|interface|ConsumerPath
 specifier|public
