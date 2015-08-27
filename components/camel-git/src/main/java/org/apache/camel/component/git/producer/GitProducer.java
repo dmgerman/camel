@@ -691,7 +691,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Local path must specified to execute "
+literal|"Unsupported operation "
 operator|+
 name|operation
 argument_list|)
