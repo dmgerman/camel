@@ -226,6 +226,14 @@ if|if
 condition|(
 name|isPrepareStatements
 argument_list|()
+operator|&&
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCql
+argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|this
