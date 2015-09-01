@@ -398,7 +398,6 @@ literal|1
 index|]
 argument_list|)
 expr_stmt|;
-empty_stmt|;
 block|}
 block|}
 return|return
@@ -542,6 +541,7 @@ name|length
 operator|!=
 literal|2
 condition|)
+block|{
 throw|throw
 operator|new
 name|RuntimeException
@@ -551,6 +551,7 @@ operator|+
 name|prm
 argument_list|)
 throw|;
+block|}
 name|prmTypesAndValues
 index|[
 name|ndx
@@ -580,10 +581,12 @@ expr_stmt|;
 block|}
 block|}
 else|else
+block|{
 name|prmTypesAndValues
 operator|=
 literal|null
 expr_stmt|;
+block|}
 name|Object
 name|customObj
 decl_stmt|;
@@ -815,6 +818,7 @@ name|parameters
 operator|.
 name|length
 condition|)
+block|{
 return|return
 name|ndx
 operator|==
@@ -829,6 +833,7 @@ operator|.
 name|isArray
 argument_list|()
 return|;
+block|}
 if|if
 condition|(
 name|ndx
@@ -895,9 +900,11 @@ argument_list|(
 name|prmClass
 argument_list|)
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 name|ndx
 operator|++
 expr_stmt|;
@@ -937,9 +944,11 @@ argument_list|(
 name|prmClass
 argument_list|)
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 block|}
 name|ndx
 operator|++
@@ -1251,9 +1260,11 @@ operator|.
 name|isVarArgs
 argument_list|()
 condition|)
+block|{
 return|return
 name|method
 return|;
+block|}
 block|}
 block|}
 return|return
