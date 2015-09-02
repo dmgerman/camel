@@ -2295,7 +2295,7 @@ if|if
 condition|(
 name|getLoggingSizeLimit
 argument_list|()
-operator|>
+operator|!=
 literal|0
 condition|)
 block|{
@@ -3356,7 +3356,7 @@ if|if
 condition|(
 name|getLoggingSizeLimit
 argument_list|()
-operator|>
+operator|!=
 literal|0
 condition|)
 block|{
