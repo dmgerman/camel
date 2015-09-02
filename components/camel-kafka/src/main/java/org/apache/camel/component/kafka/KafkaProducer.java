@@ -317,10 +317,7 @@ name|KafkaConstants
 operator|.
 name|TOPIC
 argument_list|,
-name|endpoint
-operator|.
-name|getTopic
-argument_list|()
+name|topic
 argument_list|,
 name|String
 operator|.
