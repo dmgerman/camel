@@ -5052,7 +5052,7 @@ return|return
 name|loggingSizeLimit
 return|;
 block|}
-comment|/**      * To limit the total size of number of bytes the logger will output when logging feature has been enabled.      */
+comment|/**      * To limit the total size of number of bytes the logger will output when logging feature has been enabled and -1 for no limit.      */
 DECL|method|setLoggingSizeLimit (int loggingSizeLimit)
 specifier|public
 name|void
@@ -5062,6 +5062,22 @@ name|int
 name|loggingSizeLimit
 parameter_list|)
 block|{
+if|if
+condition|(
+name|loggingSizeLimit
+operator|<
+operator|-
+literal|1
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"LoggingSizeLimit must be greater or equal to -1."
+argument_list|)
+throw|;
+block|}
 name|this
 operator|.
 name|loggingSizeLimit
