@@ -777,6 +777,21 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Marks the route definition as un-prepared.      *<p/>      * This is needed if routes have been created by components such as      *<tt>camel-scala</tt>. To unset the prepare so the routes can be prepared      * at a later stage when scala has build the routes completely.      */
+DECL|method|markUnprepared ()
+specifier|public
+name|void
+name|markUnprepared
+parameter_list|()
+block|{
+name|prepared
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
