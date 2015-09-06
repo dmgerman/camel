@@ -142,8 +142,22 @@ name|ExpressionAdapter
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IOHelper
+import|;
+end_import
+
 begin_comment
-comment|/**  * A {@link org.apache.camel.Expression} which can be used to split a {@link MailMessage}  * per attachment. For example if a mail message has 5 attachments, then this  * expression will return a<tt>List&lt;Message&gt;</tt> that contains 5 {@link Message}.  * The message can be split 2 ways:  *<table>  *<tr>  *<td>As an attachment</td>  *<td>  *       The message is split into cloned messages, each has only one attachment.  The mail attachment in each message  *       remains unprocessed.  *</td>  *</tr>  *<tr>  *<td>As a byte[]</td>  *<td>  *       The attachments are split into new messages as the body. This allows the split messages to be easily used by  *       other processors / routes, as many other camel components can work on the byte[], e.g. it can be written to disk  *       using camel-file.  *</td>  *</tr>  *</table>  *  * In both cases the attachment name is written to a the camel header&quot;CamelSplitAttachmentId&quot;  */
+comment|/**  * A {@link org.apache.camel.Expression} which can be used to split a {@link MailMessage}  * per attachment. For example if a mail message has 5 attachments, then this  * expression will return a<tt>List&lt;Message&gt;</tt> that contains 5 {@link Message}.  * The message can be split 2 ways:  *<table>  *<tr>  *<td>As an attachment</td>  *<td>  *       The message is split into cloned messages, each has only one attachment.  The mail attachment in each message  *       remains unprocessed.  *</td>  *</tr>  *<tr>  *<td>As a byte[] or String</td>  *<td>  *       The attachments are split into new messages as the body. This allows the split messages to be easily used by  *       other processors / routes, as many other camel components can work on the byte[] or String, e.g. it can be written to disk  *       using camel-file.  *</td>  *</tr>  *</table>  *  * In both cases the attachment name is written to a the camel header&quot;CamelSplitAttachmentId&quot;  */
 end_comment
 
 begin_class
@@ -472,9 +486,36 @@ return|return
 name|outMessage
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|attachment
+operator|instanceof
+name|String
+operator|||
+name|attachment
+operator|instanceof
+name|byte
+index|[]
+condition|)
+block|{
+name|outMessage
+operator|.
+name|setBody
+argument_list|(
+name|attachment
+argument_list|)
+expr_stmt|;
+return|return
+name|outMessage
+return|;
+block|}
+else|else
+block|{
 return|return
 literal|null
 return|;
+block|}
 block|}
 DECL|method|readMimePart (InputStream mimePartStream)
 specifier|private
@@ -488,8 +529,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|//  mimePartStream could be base64 encoded, or not, but we don't need to worry about it as
-comment|// camel is smart enough to wrap it in a decoder stream (eg Base64DecoderStream) when required
+comment|// mimePartStream could be base64 encoded, or not, but we don't need to worry about it as
+comment|// Camel is smart enough to wrap it in a decoder stream (eg Base64DecoderStream) when required
 name|ByteArrayOutputStream
 name|bos
 init|=
@@ -497,56 +538,14 @@ operator|new
 name|ByteArrayOutputStream
 argument_list|()
 decl_stmt|;
-name|int
-name|len
-decl_stmt|;
-name|byte
-index|[]
-name|buf
-init|=
-operator|new
-name|byte
-index|[
-literal|1024
-index|]
-decl_stmt|;
-while|while
-condition|(
-operator|(
-name|len
-operator|=
-name|mimePartStream
+name|IOHelper
 operator|.
-name|read
+name|copyAndCloseInput
 argument_list|(
-name|buf
+name|mimePartStream
 argument_list|,
-literal|0
-argument_list|,
-literal|1024
-argument_list|)
-operator|)
-operator|!=
-operator|-
-literal|1
-condition|)
-block|{
 name|bos
-operator|.
-name|write
-argument_list|(
-name|buf
-argument_list|,
-literal|0
-argument_list|,
-name|len
 argument_list|)
-expr_stmt|;
-block|}
-name|mimePartStream
-operator|.
-name|close
-argument_list|()
 expr_stmt|;
 return|return
 name|bos
