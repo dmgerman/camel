@@ -239,6 +239,8 @@ name|createProxy
 argument_list|(
 name|endpoint
 argument_list|,
+literal|false
+argument_list|,
 name|ISay
 operator|.
 name|class
