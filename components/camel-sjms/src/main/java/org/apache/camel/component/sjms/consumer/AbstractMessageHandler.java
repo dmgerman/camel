@@ -122,38 +122,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|sjms
-operator|.
-name|jms
-operator|.
-name|JmsMessageHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultExchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|Synchronization
@@ -342,33 +310,18 @@ literal|null
 decl_stmt|;
 try|try
 block|{
-name|SjmsEndpoint
-name|endpoint
-init|=
-operator|(
-name|SjmsEndpoint
-operator|)
-name|getEndpoint
-argument_list|()
-decl_stmt|;
 specifier|final
-name|DefaultExchange
+name|Exchange
 name|exchange
 init|=
-operator|(
-name|DefaultExchange
-operator|)
-name|JmsMessageHelper
+name|getEndpoint
+argument_list|()
 operator|.
 name|createExchange
 argument_list|(
 name|message
 argument_list|,
-name|endpoint
-argument_list|,
-name|endpoint
-operator|.
-name|getJmsKeyFormatStrategy
+name|getSession
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -417,7 +370,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"  Handling synchronous message: {}"
+literal|"Handling synchronous message: {}"
 argument_list|,
 name|exchange
 operator|.
@@ -440,7 +393,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"  Handling asynchronous message: {}"
+literal|"Handling asynchronous message: {}"
 argument_list|,
 name|exchange
 operator|.
@@ -503,13 +456,6 @@ block|{
 if|if
 condition|(
 name|exchange
-operator|!=
-literal|null
-condition|)
-block|{
-if|if
-condition|(
-name|exchange
 operator|.
 name|getException
 argument_list|()
@@ -530,7 +476,6 @@ block|{
 throw|throw
 name|e
 throw|;
-block|}
 block|}
 block|}
 block|}
@@ -563,7 +508,6 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      * @param exchange      */
 DECL|method|handleMessage (final Exchange exchange)
 specifier|public
 specifier|abstract

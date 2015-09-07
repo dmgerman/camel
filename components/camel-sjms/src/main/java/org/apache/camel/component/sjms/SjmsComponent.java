@@ -172,7 +172,25 @@ name|sjms
 operator|.
 name|jms
 operator|.
-name|KeyFormatStrategy
+name|JmsKeyFormatStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sjms
+operator|.
+name|jms
+operator|.
+name|MessageCreatedStrategy
 import|;
 end_import
 
@@ -305,10 +323,10 @@ operator|new
 name|SjmsHeaderFilterStrategy
 argument_list|()
 decl_stmt|;
-DECL|field|keyFormatStrategy
+DECL|field|jmsKeyFormatStrategy
 specifier|private
-name|KeyFormatStrategy
-name|keyFormatStrategy
+name|JmsKeyFormatStrategy
+name|jmsKeyFormatStrategy
 init|=
 operator|new
 name|DefaultJmsKeyFormatStrategy
@@ -340,6 +358,11 @@ DECL|field|asyncStartStopExecutorService
 specifier|private
 name|ExecutorService
 name|asyncStartStopExecutorService
+decl_stmt|;
+DECL|field|messageCreatedStrategy
+specifier|private
+name|MessageCreatedStrategy
+name|messageCreatedStrategy
 decl_stmt|;
 DECL|method|SjmsComponent ()
 specifier|public
@@ -904,30 +927,30 @@ name|connectionCount
 return|;
 block|}
 comment|/**      * Pluggable strategy for encoding and decoding JMS keys so they can be compliant with the JMS specification.      * Camel provides one implementation out of the box: default.      * The default strategy will safely marshal dots and hyphens (. and -).      * Can be used for JMS brokers which do not care whether JMS header keys contain illegal characters.      * You can provide your own implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy      * and refer to it using the # notation.      */
-DECL|method|setKeyFormatStrategy (KeyFormatStrategy keyFormatStrategy)
+DECL|method|setJmsKeyFormatStrategy (JmsKeyFormatStrategy jmsKeyFormatStrategy)
 specifier|public
 name|void
-name|setKeyFormatStrategy
+name|setJmsKeyFormatStrategy
 parameter_list|(
-name|KeyFormatStrategy
-name|keyFormatStrategy
+name|JmsKeyFormatStrategy
+name|jmsKeyFormatStrategy
 parameter_list|)
 block|{
 name|this
 operator|.
-name|keyFormatStrategy
+name|jmsKeyFormatStrategy
 operator|=
-name|keyFormatStrategy
+name|jmsKeyFormatStrategy
 expr_stmt|;
 block|}
-DECL|method|getKeyFormatStrategy ()
+DECL|method|getJmsKeyFormatStrategy ()
 specifier|public
-name|KeyFormatStrategy
-name|getKeyFormatStrategy
+name|JmsKeyFormatStrategy
+name|getJmsKeyFormatStrategy
 parameter_list|()
 block|{
 return|return
-name|keyFormatStrategy
+name|jmsKeyFormatStrategy
 return|;
 block|}
 DECL|method|getTransactionCommitStrategy ()
@@ -1009,6 +1032,33 @@ operator|.
 name|timedTaskManager
 operator|=
 name|timedTaskManager
+expr_stmt|;
+block|}
+DECL|method|getMessageCreatedStrategy ()
+specifier|public
+name|MessageCreatedStrategy
+name|getMessageCreatedStrategy
+parameter_list|()
+block|{
+return|return
+name|messageCreatedStrategy
+return|;
+block|}
+comment|/**      * To use the given MessageCreatedStrategy which are invoked when Camel creates new instances of<tt>javax.jms.Message</tt>      * objects when Camel is sending a JMS message.      */
+DECL|method|setMessageCreatedStrategy (MessageCreatedStrategy messageCreatedStrategy)
+specifier|public
+name|void
+name|setMessageCreatedStrategy
+parameter_list|(
+name|MessageCreatedStrategy
+name|messageCreatedStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageCreatedStrategy
+operator|=
+name|messageCreatedStrategy
 expr_stmt|;
 block|}
 block|}

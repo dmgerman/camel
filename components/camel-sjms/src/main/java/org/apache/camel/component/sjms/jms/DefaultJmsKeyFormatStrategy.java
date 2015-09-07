@@ -30,7 +30,7 @@ specifier|public
 class|class
 name|DefaultJmsKeyFormatStrategy
 implements|implements
-name|KeyFormatStrategy
+name|JmsKeyFormatStrategy
 block|{
 DECL|method|encodeKey (String key)
 specifier|public

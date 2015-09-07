@@ -1072,8 +1072,6 @@ parameter_list|)
 block|{
 name|TransactionCommitStrategy
 name|commitStrategy
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(

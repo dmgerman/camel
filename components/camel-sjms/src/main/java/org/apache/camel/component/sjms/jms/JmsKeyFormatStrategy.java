@@ -25,10 +25,10 @@ comment|/**  * Strategy for applying encoding and decoding of JMS headers so the
 end_comment
 
 begin_interface
-DECL|interface|KeyFormatStrategy
+DECL|interface|JmsKeyFormatStrategy
 specifier|public
 interface|interface
-name|KeyFormatStrategy
+name|JmsKeyFormatStrategy
 block|{
 comment|/**      * Encodes the key before its sent as a {@link javax.jms.Message} message.      *      * @param key the original key      * @return the encoded key      */
 DECL|method|encodeKey (String key)

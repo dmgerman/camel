@@ -49,9 +49,30 @@ specifier|public
 name|SjmsHeaderFilterStrategy
 parameter_list|()
 block|{
+name|this
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|SjmsHeaderFilterStrategy (boolean includeAllJMSXProperties)
+specifier|public
+name|SjmsHeaderFilterStrategy
+parameter_list|(
+name|boolean
+name|includeAllJMSXProperties
+parameter_list|)
+block|{
+if|if
+condition|(
+operator|!
+name|includeAllJMSXProperties
+condition|)
+block|{
 name|initialize
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|initialize ()
 specifier|protected
@@ -59,10 +80,8 @@ name|void
 name|initialize
 parameter_list|()
 block|{
-comment|// ignore provider specified JMS extension headers see page 39 of JMS
-comment|// 1.1 specification
-comment|// added "JMSXRecvTimestamp" as a workaround for an Oracle bug/typo in
-comment|// AqjmsMessage
+comment|// ignore provider specified JMS extension headers see page 39 of JMS 1.1 specification
+comment|// added "JMSXRecvTimestamp" as a workaround for an Oracle bug/typo in AqjmsMessage
 name|getOutFilter
 argument_list|()
 operator|.
