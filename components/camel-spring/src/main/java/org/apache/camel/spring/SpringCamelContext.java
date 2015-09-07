@@ -500,6 +500,9 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|/**      * @deprecated its better to create and boot Spring the standard Spring way and to get hold of CamelContext      * using the Spring API.      */
+annotation|@
+name|Deprecated
 DECL|method|springCamelContext (ApplicationContext applicationContext)
 specifier|public
 specifier|static
@@ -521,6 +524,9 @@ literal|true
 argument_list|)
 return|;
 block|}
+comment|/**      * @deprecated its better to create and boot Spring the standard Spring way and to get hold of CamelContext      * using the Spring API.      */
+annotation|@
+name|Deprecated
 DECL|method|springCamelContext (ApplicationContext applicationContext, boolean maybeStart)
 specifier|public
 specifier|static
@@ -612,6 +618,9 @@ return|return
 name|answer
 return|;
 block|}
+comment|/**      * @deprecated its better to create and boot Spring the standard Spring way and to get hold of CamelContext      * using the Spring API.      */
+annotation|@
+name|Deprecated
 DECL|method|springCamelContext (String configLocations)
 specifier|public
 specifier|static
