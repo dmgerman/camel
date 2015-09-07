@@ -198,13 +198,6 @@ name|contentCache
 init|=
 literal|true
 decl_stmt|;
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|saxon
 specifier|private
 name|boolean
