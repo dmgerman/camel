@@ -579,6 +579,8 @@ name|JmsMessageHelper
 operator|.
 name|createMessage
 argument_list|(
+name|exchange
+argument_list|,
 name|producer
 operator|.
 name|getSession
@@ -607,6 +609,8 @@ name|JmsMessageHelper
 operator|.
 name|createMessage
 argument_list|(
+name|exchange
+argument_list|,
 name|producer
 operator|.
 name|getSession
@@ -656,6 +660,8 @@ name|JmsMessageHelper
 operator|.
 name|createMessage
 argument_list|(
+name|exchange
+argument_list|,
 name|producer
 operator|.
 name|getSession
@@ -693,6 +699,8 @@ name|JmsMessageHelper
 operator|.
 name|createMessage
 argument_list|(
+name|exchange
+argument_list|,
 name|producer
 operator|.
 name|getSession
