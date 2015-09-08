@@ -1095,6 +1095,18 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|replyToSameDestinationAllowed
+specifier|private
+name|boolean
+name|replyToSameDestinationAllowed
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
 name|enums
 operator|=
 literal|"Bytes,Map,Object,Stream,Text"
@@ -5145,7 +5157,7 @@ return|return
 name|replyToOverride
 return|;
 block|}
-comment|/**      *  Provides an explicit ReplyTo destination in the JMS message, which overrides the setting of replyTo.      *  It is useful if you want to forward the message to a remote Queue and receive the reply message from the ReplyTo destination.      */
+comment|/**      * Provides an explicit ReplyTo destination in the JMS message, which overrides the setting of replyTo.      * It is useful if you want to forward the message to a remote Queue and receive the reply message from the ReplyTo destination.      */
 DECL|method|setReplyToOverride (String replyToDestination)
 specifier|public
 name|void
@@ -5163,6 +5175,33 @@ name|normalizeDestinationName
 argument_list|(
 name|replyToDestination
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isReplyToSameDestinationAllowed ()
+specifier|public
+name|boolean
+name|isReplyToSameDestinationAllowed
+parameter_list|()
+block|{
+return|return
+name|replyToSameDestinationAllowed
+return|;
+block|}
+comment|/**      * Whether a JMS consumer is allowed to send a reply message to the same destination that the consumer is using to      * consume from. This prevents an endless loop by consuming and sending back the same message to itself.      */
+DECL|method|setReplyToSameDestinationAllowed (boolean replyToSameDestinationAllowed)
+specifier|public
+name|void
+name|setReplyToSameDestinationAllowed
+parameter_list|(
+name|boolean
+name|replyToSameDestinationAllowed
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyToSameDestinationAllowed
+operator|=
+name|replyToSameDestinationAllowed
 expr_stmt|;
 block|}
 DECL|method|getJmsMessageType ()
