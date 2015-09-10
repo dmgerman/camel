@@ -718,6 +718,34 @@ operator|.
 name|PUBLISH_OPERATION
 argument_list|)
 expr_stmt|;
+comment|// ringbuffer
+name|addMapping
+argument_list|(
+literal|"capacity"
+argument_list|,
+name|HazelcastConstants
+operator|.
+name|GET_CAPACITY_OPERATION
+argument_list|)
+expr_stmt|;
+name|addMapping
+argument_list|(
+literal|"readonceHead"
+argument_list|,
+name|HazelcastConstants
+operator|.
+name|READ_ONCE_HEAD_OPERATION
+argument_list|)
+expr_stmt|;
+name|addMapping
+argument_list|(
+literal|"readonceTail"
+argument_list|,
+name|HazelcastConstants
+operator|.
+name|READ_ONCE_TAIL_OPERATION
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|addMapping (String operationName, int operationNumber)
 specifier|private

@@ -34,6 +34,7 @@ DECL|enumConstant|atomicvalue
 DECL|enumConstant|instance
 DECL|enumConstant|list
 DECL|enumConstant|replicatedmap
+DECL|enumConstant|ringbuffer
 name|map
 block|,
 name|multimap
@@ -53,6 +54,8 @@ block|,
 name|list
 block|,
 name|replicatedmap
+block|,
+name|ringbuffer
 block|}
 end_enum
 

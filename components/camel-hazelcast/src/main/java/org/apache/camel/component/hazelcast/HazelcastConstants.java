@@ -116,6 +116,15 @@ name|SET_PREFIX
 init|=
 literal|"set:"
 decl_stmt|;
+DECL|field|RINGBUFFER_PREFIX
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|RINGBUFFER_PREFIX
+init|=
+literal|"ringbuffer:"
+decl_stmt|;
 comment|/*      * incoming header properties      */
 DECL|field|OBJECT_ID
 specifier|public
@@ -536,6 +545,34 @@ name|int
 name|PUBLISH_OPERATION
 init|=
 literal|37
+decl_stmt|;
+comment|// ring_buffer
+DECL|field|READ_ONCE_HEAD_OPERATION
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|READ_ONCE_HEAD_OPERATION
+init|=
+literal|38
+decl_stmt|;
+DECL|field|READ_ONCE_TAIL_OPERATION
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|READ_ONCE_TAIL_OPERATION
+init|=
+literal|39
+decl_stmt|;
+DECL|field|GET_CAPACITY_OPERATION
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|GET_CAPACITY_OPERATION
+init|=
+literal|40
 decl_stmt|;
 comment|/*      * header values      */
 comment|// listener actions
