@@ -259,6 +259,19 @@ argument_list|>
 name|getResponseHeaders
 parameter_list|()
 function_decl|;
+DECL|method|getRequestHeaders ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Collection
+argument_list|<
+name|String
+argument_list|>
+argument_list|>
+name|getRequestHeaders
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
