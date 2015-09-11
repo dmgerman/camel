@@ -935,14 +935,18 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|path
+name|configuration
+operator|.
+name|getPath
+argument_list|()
 operator|!=
 literal|null
 condition|)
 block|{
 comment|// need to match by lower case as we want to ignore case on context-path
-name|path
-operator|=
+name|String
+name|matchPath
+init|=
 name|path
 operator|.
 name|toLowerCase
@@ -951,7 +955,7 @@ name|Locale
 operator|.
 name|US
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|String
 name|match
 init|=
@@ -982,7 +986,7 @@ name|match
 operator|!=
 literal|null
 operator|&&
-name|path
+name|matchPath
 operator|.
 name|startsWith
 argument_list|(
@@ -1007,6 +1011,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// keep the path uri using the case the request provided (do not convert to lower case)
 name|headers
 operator|.
 name|put
