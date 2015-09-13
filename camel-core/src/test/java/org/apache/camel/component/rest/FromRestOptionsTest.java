@@ -187,8 +187,8 @@ extends|extends
 name|ContextTestSupport
 block|{
 DECL|field|ALLOWS
-specifier|final
 specifier|static
+specifier|final
 name|String
 name|ALLOWS
 init|=
