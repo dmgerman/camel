@@ -505,6 +505,10 @@ comment|// common options
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -519,6 +523,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
 name|defaultValue
 operator|=
 literal|""
@@ -538,13 +546,6 @@ name|BUFFER_SIZE
 decl_stmt|;
 annotation|@
 name|UriParam
-DECL|field|flatten
-specifier|protected
-name|boolean
-name|flatten
-decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|charset
 specifier|protected
 name|String
@@ -558,6 +559,18 @@ name|Expression
 name|fileName
 decl_stmt|;
 comment|// producer options
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|flatten
+specifier|protected
+name|boolean
+name|flatten
+decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
@@ -607,7 +620,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -625,7 +638,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|)
 DECL|field|keepLastModified
 specifier|protected
@@ -649,7 +662,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|)
 DECL|field|allowNullBody
 specifier|protected
@@ -661,7 +674,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|)
 DECL|field|chmod
 specifier|protected
@@ -681,7 +694,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|)
 DECL|field|processStrategy
 specifier|protected
@@ -696,7 +709,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|)
 DECL|field|inProgressRepository
 specifier|protected
@@ -715,7 +728,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|)
 DECL|field|localWorkDirectory
 specifier|protected
@@ -727,7 +740,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|)
 DECL|field|startingDirectoryMustExist
 specifier|protected
@@ -739,7 +752,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|)
 DECL|field|directoryMustExist
 specifier|protected
@@ -799,7 +812,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,filter"
 argument_list|,
 name|defaultValue
 operator|=
@@ -817,7 +830,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,filter"
 argument_list|,
 name|defaultValue
 operator|=
@@ -841,7 +854,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,filter"
 argument_list|)
 DECL|field|minDepth
 specifier|protected
@@ -853,7 +866,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,filter"
 argument_list|)
 DECL|field|include
 specifier|protected
@@ -865,7 +878,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,filter"
 argument_list|)
 DECL|field|exclude
 specifier|protected
@@ -877,7 +890,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,filter"
 argument_list|)
 DECL|field|move
 specifier|protected
@@ -925,7 +938,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,filter"
 argument_list|)
 DECL|field|idempotent
 specifier|protected
@@ -937,7 +950,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,filter"
 argument_list|)
 DECL|field|idempotentKey
 specifier|protected
@@ -949,7 +962,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,filter"
 argument_list|)
 DECL|field|idempotentRepository
 specifier|protected
@@ -964,7 +977,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,filter"
 argument_list|)
 DECL|field|filter
 specifier|protected
@@ -988,7 +1001,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,filter"
 argument_list|)
 DECL|field|antInclude
 specifier|protected
@@ -1000,7 +1013,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,filter"
 argument_list|)
 DECL|field|antExclude
 specifier|protected
@@ -1012,7 +1025,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,sort"
 argument_list|)
 DECL|field|sorter
 specifier|protected
@@ -1030,7 +1043,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,sort"
 argument_list|)
 DECL|field|sortBy
 specifier|protected
@@ -1045,7 +1058,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,sort"
 argument_list|)
 DECL|field|shuffle
 specifier|protected
@@ -1057,7 +1070,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,lock"
 argument_list|,
 name|enums
 operator|=
@@ -1075,7 +1088,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,lock"
 argument_list|,
 name|defaultValue
 operator|=
@@ -1093,7 +1106,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,lock"
 argument_list|,
 name|defaultValue
 operator|=
@@ -1111,7 +1124,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,lock"
 argument_list|,
 name|defaultValue
 operator|=
@@ -1129,7 +1142,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,lock"
 argument_list|,
 name|defaultValue
 operator|=
@@ -1147,7 +1160,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,lock"
 argument_list|,
 name|defaultValue
 operator|=
@@ -1167,7 +1180,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,lock"
 argument_list|,
 name|defaultValue
 operator|=
@@ -1185,7 +1198,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,lock"
 argument_list|,
 name|defaultValue
 operator|=
@@ -1201,7 +1214,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,lock"
 argument_list|,
 name|defaultValue
 operator|=
@@ -1219,7 +1232,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,lock"
 argument_list|)
 DECL|field|readLockRemoveOnCommit
 specifier|protected
@@ -1231,7 +1244,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,lock"
 argument_list|)
 DECL|field|exclusiveReadLockStrategy
 specifier|protected
@@ -1246,7 +1259,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|)
 DECL|field|onCompletionExceptionHandler
 specifier|protected

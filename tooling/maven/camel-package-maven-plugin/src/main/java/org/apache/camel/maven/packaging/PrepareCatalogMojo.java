@@ -1775,7 +1775,6 @@ name|part
 argument_list|)
 expr_stmt|;
 block|}
-break|break;
 block|}
 block|}
 comment|// check all the endpoint options and grab the label(s) they use
@@ -1855,7 +1854,6 @@ name|part
 argument_list|)
 expr_stmt|;
 block|}
-break|break;
 block|}
 block|}
 block|}
