@@ -367,6 +367,10 @@ name|XMLConstants
 operator|.
 name|W3C_XML_SCHEMA_NS_URI
 argument_list|,
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
 name|description
 operator|=
 literal|"Configures the W3C XML Schema Namespace URI."
@@ -383,6 +387,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
 name|description
 operator|=
 literal|"To use a custom javax.xml.validation.SchemaFactory"
@@ -395,6 +403,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
 name|description
 operator|=
 literal|"To use a custom org.apache.camel.processor.validation.ValidatorErrorHandler. The default error handler captures the errors and throws an exception."
@@ -411,6 +423,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
 name|description
 operator|=
 literal|"Whether DOMSource/DOMResult or SaxSource/SaxResult should be used by the validator."
@@ -427,6 +443,10 @@ name|defaultValue
 operator|=
 literal|"true"
 argument_list|,
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
 name|description
 operator|=
 literal|"Whether the Schema instance should be shared or not. This option is introduced to work around a JDK 1.6.x bug. Xerces should not have this issue."
@@ -441,6 +461,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
 name|description
 operator|=
 literal|"To use a custom LSResourceResolver"

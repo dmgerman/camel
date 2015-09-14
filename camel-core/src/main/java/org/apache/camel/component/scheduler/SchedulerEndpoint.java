@@ -193,6 +193,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"1"
+argument_list|,
+name|label
+operator|=
+literal|"scheduler"
 argument_list|)
 DECL|field|concurrentTasks
 specifier|private

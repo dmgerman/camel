@@ -336,6 +336,10 @@ name|defaultValue
 operator|=
 literal|"InOnly"
 argument_list|,
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
 name|description
 operator|=
 literal|"Sets the default exchange pattern when creating an exchange"
@@ -357,6 +361,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"false"
+argument_list|,
+name|label
+operator|=
+literal|"advanced"
 argument_list|,
 name|description
 operator|=

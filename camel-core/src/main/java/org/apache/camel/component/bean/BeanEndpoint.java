@@ -229,6 +229,18 @@ name|UriParam
 argument_list|(
 name|description
 operator|=
+literal|"Sets the name of the method to invoke on the bean"
+argument_list|)
+DECL|field|method
+specifier|private
+name|String
+name|method
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
 literal|"If enabled, Camel will cache the result of the first Registry look-up. Cache can be enabled if the bean in the Registry is defined as a singleton scope."
 argument_list|)
 DECL|field|cache
@@ -239,6 +251,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
 name|description
 operator|=
 literal|"How to treat the parameters which are passed from the message body."
@@ -255,18 +271,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|description
+name|label
 operator|=
-literal|"Sets the name of the method to invoke on the bean"
-argument_list|)
-DECL|field|method
-specifier|private
-name|String
-name|method
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
+literal|"advanced"
+argument_list|,
 name|description
 operator|=
 literal|"Used for configuring additional properties on the bean"

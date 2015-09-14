@@ -569,7 +569,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -587,7 +587,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|)
 DECL|field|multipleConsumers
 specifier|private
@@ -599,7 +599,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|)
 DECL|field|purgeWhenStopping
 specifier|private
@@ -611,7 +611,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|,
 name|defaultValue
 operator|=

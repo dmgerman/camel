@@ -245,7 +245,7 @@ literal|"true"
 argument_list|,
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,scheduler"
 argument_list|,
 name|description
 operator|=
@@ -267,7 +267,7 @@ literal|"1000"
 argument_list|,
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,scheduler"
 argument_list|,
 name|description
 operator|=
@@ -289,7 +289,7 @@ literal|"500"
 argument_list|,
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,scheduler"
 argument_list|,
 name|description
 operator|=
@@ -311,7 +311,7 @@ literal|"MILLISECONDS"
 argument_list|,
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,scheduler"
 argument_list|,
 name|description
 operator|=
@@ -335,7 +335,7 @@ literal|"true"
 argument_list|,
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,scheduler"
 argument_list|,
 name|description
 operator|=
@@ -379,7 +379,7 @@ literal|"TRACE"
 argument_list|,
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,scheduler"
 argument_list|,
 name|description
 operator|=
@@ -415,7 +415,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,scheduler"
 argument_list|,
 name|description
 operator|=
@@ -435,7 +435,7 @@ literal|"spring,quartz2"
 argument_list|,
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,scheduler"
 argument_list|,
 name|description
 operator|=
@@ -457,7 +457,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,scheduler"
 argument_list|,
 name|description
 operator|=
@@ -478,7 +478,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,scheduler"
 argument_list|,
 name|description
 operator|=
@@ -494,7 +494,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,scheduler"
 argument_list|,
 name|description
 operator|=
@@ -514,7 +514,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,scheduler"
 argument_list|,
 name|description
 operator|=
@@ -530,7 +530,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,scheduler"
 argument_list|,
 name|description
 operator|=

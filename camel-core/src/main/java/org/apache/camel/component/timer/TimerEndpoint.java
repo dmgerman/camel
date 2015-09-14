@@ -278,6 +278,11 @@ name|timerName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|time
 specifier|private
 name|Date
@@ -324,6 +329,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|label
+operator|=
+literal|"advanced"
 argument_list|)
 DECL|field|daemon
 specifier|private
@@ -346,6 +355,11 @@ name|repeatCount
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|timer
 specifier|private
 name|Timer
