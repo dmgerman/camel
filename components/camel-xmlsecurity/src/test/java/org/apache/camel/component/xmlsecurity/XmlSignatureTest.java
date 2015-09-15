@@ -1141,16 +1141,66 @@ specifier|protected
 specifier|static
 name|String
 name|payload
+decl_stmt|;
+DECL|field|includeNewLine
+specifier|private
+specifier|static
+name|boolean
+name|includeNewLine
 init|=
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-operator|+
-literal|"<root xmlns=\"http://test/test\"><test>Test Message</test></root>"
+literal|true
 decl_stmt|;
 DECL|field|keyPair
 specifier|private
 name|KeyPair
 name|keyPair
 decl_stmt|;
+static|static
+block|{
+if|if
+condition|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.version"
+argument_list|)
+operator|!=
+literal|null
+operator|&&
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.version"
+argument_list|)
+operator|.
+name|startsWith
+argument_list|(
+literal|"1.9"
+argument_list|)
+condition|)
+block|{
+name|includeNewLine
+operator|=
+literal|false
+expr_stmt|;
+block|}
+name|payload
+operator|=
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+operator|+
+operator|(
+name|includeNewLine
+condition|?
+literal|"\n"
+else|:
+literal|""
+operator|)
+operator|+
+literal|"<root xmlns=\"http://test/test\"><test>Test Message</test></root>"
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createRegistry ()
@@ -1464,7 +1514,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-name|getVerifierEncpointURIEnveloping
+name|getVerifierEndpointURIEnveloping
 argument_list|()
 argument_list|)
 operator|.
@@ -3212,7 +3262,15 @@ comment|// example from http://www.w3.org/TR/2002/REC-xmldsig-filter2-20021108/
 name|String
 name|payload
 init|=
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+operator|+
+operator|(
+name|includeNewLine
+condition|?
+literal|"\n"
+else|:
+literal|""
+operator|)
 operator|+
 literal|"<Document xmlns=\"http://test/test\">                             "
 operator|+
@@ -4645,9 +4703,16 @@ expr_stmt|;
 name|String
 name|detachedPayload
 init|=
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 operator|+
-comment|//
+operator|(
+name|includeNewLine
+condition|?
+literal|"\n"
+else|:
+literal|""
+operator|)
+operator|+
 literal|"<ns:root xmlns:ns=\"http://test\"><a ID=\"myID\"><b>bValue</b></a></ns:root>"
 decl_stmt|;
 name|MockEndpoint
@@ -4909,9 +4974,16 @@ block|{
 name|String
 name|detachedPayload
 init|=
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 operator|+
-comment|//
+operator|(
+name|includeNewLine
+condition|?
+literal|"\n"
+else|:
+literal|""
+operator|)
+operator|+
 literal|"<ns:root xmlns:ns=\"http://test\"><a ID=\"myID\"><b>bValue</b></a></ns:root>"
 decl_stmt|;
 name|MockEndpoint
@@ -5108,9 +5180,16 @@ block|{
 name|String
 name|detachedPayload
 init|=
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 operator|+
-comment|//
+operator|(
+name|includeNewLine
+condition|?
+literal|"\n"
+else|:
+literal|""
+operator|)
+operator|+
 literal|"<ns:root xmlns:ns=\"http://test\"><test ID=\"myID\"><b>bValue</b><ts:B xmlns:ts=\"http://testB\"><C ID=\"cID\"><D>dvalue</D></C></ts:B></test></ns:root>"
 decl_stmt|;
 name|MockEndpoint
@@ -5441,9 +5520,16 @@ block|{
 name|String
 name|detachedPayload
 init|=
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 operator|+
-comment|//
+operator|(
+name|includeNewLine
+condition|?
+literal|"\n"
+else|:
+literal|""
+operator|)
+operator|+
 literal|"<ns:root xmlns:ns=\"http://test\"><a ID=\"myID\"><error>bValue</error></a></ns:root>"
 decl_stmt|;
 name|MockEndpoint
@@ -5497,9 +5583,16 @@ block|{
 name|String
 name|detachedPayload
 init|=
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 operator|+
-comment|//
+operator|(
+name|includeNewLine
+condition|?
+literal|"\n"
+else|:
+literal|""
+operator|)
+operator|+
 literal|"<ns:root xmlns:ns=\"http://test\"><a ID=\"myID\"><b>bValue</b></a></ns:root>"
 decl_stmt|;
 name|XmlSignerEndpoint
@@ -5620,9 +5713,16 @@ decl_stmt|;
 name|String
 name|detachedPayload
 init|=
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 operator|+
-comment|//
+operator|(
+name|includeNewLine
+condition|?
+literal|"\n"
+else|:
+literal|""
+operator|)
+operator|+
 literal|"<ns:root xmlns:ns=\"http://test\"><a ID=\"myID\" stringAttr=\""
 operator|+
 name|value
@@ -5773,9 +5873,16 @@ block|{
 name|String
 name|detachedPayload
 init|=
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 operator|+
-comment|//
+operator|(
+name|includeNewLine
+condition|?
+literal|"\n"
+else|:
+literal|""
+operator|)
+operator|+
 literal|"<ns:root xmlns:ns=\"http://test\"><a ID=\"myID\"><b>bValue</b></a></ns:root>"
 decl_stmt|;
 return|return
@@ -5881,9 +5988,16 @@ block|{
 name|String
 name|detachedPayload
 init|=
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 operator|+
-comment|//
+operator|(
+name|includeNewLine
+condition|?
+literal|"\n"
+else|:
+literal|""
+operator|)
+operator|+
 literal|"<ns:root ID=\"rootId\" xmlns:ns=\"http://test\"><a ID=\"myID\"><b>bValue</b></a></ns:root>"
 decl_stmt|;
 name|String
@@ -5963,7 +6077,7 @@ decl_stmt|;
 name|String
 name|signerEncoding
 init|=
-literal|"UTF-16LE"
+literal|"UTF-16"
 decl_stmt|;
 name|String
 name|outputEncoding
@@ -5980,7 +6094,7 @@ decl_stmt|;
 name|String
 name|verifierEndpointUri
 init|=
-name|getVerifierEncpointURIEnveloping
+name|getVerifierEndpointURIEnveloping
 argument_list|()
 decl_stmt|;
 name|String
@@ -6007,9 +6121,9 @@ block|}
 end_function
 
 begin_function
-DECL|method|getVerifierEncpointURIEnveloping ()
+DECL|method|getVerifierEndpointURIEnveloping ()
 name|String
-name|getVerifierEncpointURIEnveloping
+name|getVerifierEndpointURIEnveloping
 parameter_list|()
 block|{
 return|return
@@ -6049,7 +6163,7 @@ decl_stmt|;
 name|String
 name|signerEncoding
 init|=
-literal|"UTF-16LE"
+literal|"UTF-16"
 decl_stmt|;
 name|String
 name|outputEncoding
@@ -6134,7 +6248,15 @@ literal|"<?xml version=\"1.0\" encoding=\""
 operator|+
 name|encoding
 operator|+
-literal|"\"?>\n"
+literal|"\"?>"
+operator|+
+operator|(
+name|includeNewLine
+condition|?
+literal|"\n"
+else|:
+literal|""
+operator|)
 operator|+
 literal|"<root xmlns=\"http://test/test\"><test>Test Message</test></root>"
 decl_stmt|;
@@ -6559,9 +6681,16 @@ block|{
 name|String
 name|myPayload
 init|=
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 operator|+
-comment|//
+operator|(
+name|includeNewLine
+condition|?
+literal|"\n"
+else|:
+literal|""
+operator|)
+operator|+
 literal|"<ns:root ID=\"rootId\" xmlns:ns=\"http://test\"></ns:root>"
 decl_stmt|;
 name|endpoint
@@ -6637,7 +6766,15 @@ block|{
 name|String
 name|myPayload
 init|=
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+operator|+
+operator|(
+name|includeNewLine
+condition|?
+literal|"\n"
+else|:
+literal|""
+operator|)
 operator|+
 literal|"<ns:root xmlns:ns=\"http://test\"><a>a1</a><a/><test>Test Message</test></ns:root>"
 decl_stmt|;

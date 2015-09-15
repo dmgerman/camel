@@ -435,9 +435,9 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getVerifierEncpointURIEnveloping ()
+DECL|method|getVerifierEndpointURIEnveloping ()
 name|String
-name|getVerifierEncpointURIEnveloping
+name|getVerifierEndpointURIEnveloping
 parameter_list|()
 block|{
 return|return

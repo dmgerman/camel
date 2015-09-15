@@ -775,16 +775,63 @@ specifier|private
 specifier|static
 name|String
 name|payload
-init|=
-literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-operator|+
-literal|"<root xmlns=\"http://test/test\"><test>Test Message</test></root>"
 decl_stmt|;
 DECL|field|keyPair
 specifier|private
 name|KeyPair
 name|keyPair
 decl_stmt|;
+static|static
+block|{
+name|boolean
+name|includeNewLine
+init|=
+literal|true
+decl_stmt|;
+if|if
+condition|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.version"
+argument_list|)
+operator|!=
+literal|null
+operator|&&
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.version"
+argument_list|)
+operator|.
+name|startsWith
+argument_list|(
+literal|"1.9"
+argument_list|)
+condition|)
+block|{
+name|includeNewLine
+operator|=
+literal|false
+expr_stmt|;
+block|}
+name|payload
+operator|=
+literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+operator|+
+operator|(
+name|includeNewLine
+condition|?
+literal|"\n"
+else|:
+literal|""
+operator|)
+operator|+
+literal|"<root xmlns=\"http://test/test\"><test>Test Message</test></root>"
+expr_stmt|;
+block|}
 DECL|method|SignatureAlgorithmTest ()
 specifier|public
 name|SignatureAlgorithmTest
