@@ -166,6 +166,13 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
+literal|"Expected method mapping not found:"
+operator|+
+name|method
+operator|.
+name|getName
+argument_list|()
+argument_list|,
 name|methodsType
 argument_list|)
 expr_stmt|;
