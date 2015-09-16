@@ -2795,6 +2795,8 @@ name|void
 name|run
 parameter_list|()
 block|{
+try|try
+block|{
 if|if
 condition|(
 name|parallelAggregate
@@ -2828,11 +2830,43 @@ name|subExchange
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// wrap in exception to explain where it failed
+name|subExchange
+operator|.
+name|setException
+argument_list|(
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Parallel processing failed for number "
+operator|+
+name|aggregated
+operator|.
+name|get
+argument_list|()
+argument_list|,
+name|subExchange
+argument_list|,
+name|e
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
 name|aggregated
 operator|.
 name|incrementAndGet
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|/**      * Worker task to aggregate the old and new exchange on-the-fly for completed tasks when using parallel processing.      */

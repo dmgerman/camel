@@ -514,7 +514,7 @@ return|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Sets the AggregationStrategy to be used to assemble the replies from the multicasts, into a single outgoing message from the Multicast.      * By default Camel will use the last reply as the outgoing message. You can also use a POJO as the AggregationStrategy      */
+comment|/**      * Sets the AggregationStrategy to be used to assemble the replies from the multicasts, into a single outgoing message from the Multicast.      * By default Camel will use the last reply as the outgoing message. You can also use a POJO as the AggregationStrategy.      * If an exception is thrown from the aggregate method in the AggregationStrategy, then by default, that exception      * is not handled by the error handler. The error handler can be enabled to react if enabling the shareUnitOfWork option.      */
 DECL|method|aggregationStrategy (AggregationStrategy aggregationStrategy)
 specifier|public
 name|MulticastDefinition
@@ -533,7 +533,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets a reference to the AggregationStrategy to be used to assemble the replies from the multicasts, into a single outgoing message from the Multicast.      * By default Camel will use the last reply as the outgoing message. You can also use a POJO as the AggregationStrategy      */
+comment|/**      * Sets a reference to the AggregationStrategy to be used to assemble the replies from the multicasts, into a single outgoing message from the Multicast.      * By default Camel will use the last reply as the outgoing message. You can also use a POJO as the AggregationStrategy      * If an exception is thrown from the aggregate method in the AggregationStrategy, then by default, that exception      * is not handled by the error handler. The error handler can be enabled to react if enabling the shareUnitOfWork option.      */
 DECL|method|aggregationStrategyRef (String aggregationStrategyRef)
 specifier|public
 name|MulticastDefinition
