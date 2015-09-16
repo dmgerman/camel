@@ -2329,16 +2329,6 @@ operator|=
 name|videoId
 expr_stmt|;
 block|}
-DECL|method|getIncludeRead ()
-specifier|public
-name|Boolean
-name|getIncludeRead
-parameter_list|()
-block|{
-return|return
-name|includeRead
-return|;
-block|}
 DECL|method|getPictureId ()
 specifier|public
 name|Integer
@@ -2349,6 +2339,7 @@ return|return
 name|pictureId
 return|;
 block|}
+comment|/**      * The picture id      */
 DECL|method|setPictureId (Integer pictureId)
 specifier|public
 name|void
@@ -2375,6 +2366,7 @@ return|return
 name|pictureId2
 return|;
 block|}
+comment|/**      * The picture2 id      */
 DECL|method|setPictureId2 (Integer pictureId2)
 specifier|public
 name|void
@@ -2401,6 +2393,7 @@ return|return
 name|pictureSize
 return|;
 block|}
+comment|/**      * The picture size      */
 DECL|method|setPictureSize (PictureSize pictureSize)
 specifier|public
 name|void
@@ -2427,6 +2420,7 @@ return|return
 name|pageId
 return|;
 block|}
+comment|/**      * The page id      */
 DECL|method|setPageId (String pageId)
 specifier|public
 name|void
@@ -2453,6 +2447,7 @@ return|return
 name|tabId
 return|;
 block|}
+comment|/**      * The tab id      */
 DECL|method|setTabId (String tabId)
 specifier|public
 name|void
@@ -2479,6 +2474,7 @@ return|return
 name|isHidden
 return|;
 block|}
+comment|/**      * Whether hidden      */
 DECL|method|setIsHidden (Boolean isHidden)
 specifier|public
 name|void
@@ -2505,6 +2501,7 @@ return|return
 name|offerId
 return|;
 block|}
+comment|/**      * The offer id      */
 DECL|method|setOfferId (String offerId)
 specifier|public
 name|void
@@ -2531,6 +2528,7 @@ return|return
 name|milestoneId
 return|;
 block|}
+comment|/**      * The milestone id      */
 DECL|method|setMilestoneId (String milestoneId)
 specifier|public
 name|void
