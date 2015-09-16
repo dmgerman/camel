@@ -2414,7 +2414,7 @@ return|;
 block|}
 comment|/**      * Gets the bundle descriptors as {@link URL} resources.      *      * @param descriptors the bundle descriptors, can be separated by comma      * @return the bundle descriptors.      * @throws FileNotFoundException is thrown if a bundle descriptor cannot be found      */
 DECL|method|getBlueprintDescriptors (String descriptors)
-specifier|private
+specifier|protected
 specifier|static
 name|Collection
 argument_list|<
