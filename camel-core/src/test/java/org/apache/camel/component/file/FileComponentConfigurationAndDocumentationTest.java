@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"exclude\": { \"kind\": \"parameter\", \"label\": \"consumer\", \"type\": \"string\""
+literal|"\"exclude\": { \"kind\": \"parameter\", \"label\": \"consumer,filter\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
