@@ -203,7 +203,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"exchangePattern\": { \"kind\": \"parameter\", \"type\": \"string\", \"javaType\": \"org.apache.camel.ExchangePattern\""
+literal|"\"exchangePattern\": { \"kind\": \"parameter\", \"label\": \"advanced\", \"type\": \"string\", \"javaType\": \"org.apache.camel.ExchangePattern\""
 operator|+
 literal|", \"enum\": [ \"InOnly\", \"RobustInOnly\", \"InOut\", \"InOptionalOut\", \"OutOnly\", \"RobustOutOnly\", \"OutIn\", \"OutOptionalIn\" ]"
 argument_list|)
