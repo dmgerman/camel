@@ -59,7 +59,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.example.rest.User} service which we rest enable from the {@link org.apache.camel.example.rest.UserRouteBuilder}.  */
+comment|/**  * A {@link org.apache.camel.example.rest.User} service which we rest enable the routes defined in the XML file.  */
 end_comment
 
 begin_class

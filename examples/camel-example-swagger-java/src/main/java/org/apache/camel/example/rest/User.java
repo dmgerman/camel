@@ -20,9 +20,7 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|wordnik
+name|io
 operator|.
 name|swagger
 operator|.
@@ -34,9 +32,7 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|wordnik
+name|io
 operator|.
 name|swagger
 operator|.
