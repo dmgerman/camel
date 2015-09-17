@@ -216,6 +216,22 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|swagger
+operator|.
+name|SwaggerHelper
+operator|.
+name|buildUrl
+import|;
+end_import
+
 begin_class
 DECL|class|RestSwaggerApiDeclarationServlet
 specifier|public
@@ -988,11 +1004,12 @@ name|swaggerConfig
 operator|.
 name|setBasePath
 argument_list|(
+name|buildUrl
+argument_list|(
 name|path
-operator|+
-literal|"/"
-operator|+
+argument_list|,
 name|base
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
