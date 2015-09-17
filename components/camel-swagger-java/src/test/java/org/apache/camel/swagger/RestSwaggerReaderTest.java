@@ -564,7 +564,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"/hello//bye\""
+literal|"\"/hello/bye\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -584,7 +584,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"/hello//bye/{name}\""
+literal|"\"/hello/bye/{name}\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -594,7 +594,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"/hello//hi/{name}\""
+literal|"\"/hello/hi/{name}\""
 argument_list|)
 argument_list|)
 expr_stmt|;
