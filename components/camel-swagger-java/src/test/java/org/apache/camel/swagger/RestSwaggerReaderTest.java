@@ -240,6 +240,16 @@ argument_list|(
 literal|"/hello"
 argument_list|)
 operator|.
+name|consumes
+argument_list|(
+literal|"application/json"
+argument_list|)
+operator|.
+name|produces
+argument_list|(
+literal|"application/json"
+argument_list|)
+operator|.
 name|get
 argument_list|(
 literal|"/hi/{name}"
@@ -321,6 +331,22 @@ operator|.
 name|endParam
 argument_list|()
 operator|.
+name|responseMessage
+argument_list|()
+operator|.
+name|code
+argument_list|(
+literal|200
+argument_list|)
+operator|.
+name|message
+argument_list|(
+literal|"A reply message"
+argument_list|)
+operator|.
+name|endResponseMessage
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"log:bye"
@@ -334,6 +360,16 @@ operator|.
 name|description
 argument_list|(
 literal|"To update the greeting message"
+argument_list|)
+operator|.
+name|consumes
+argument_list|(
+literal|"application/xml"
+argument_list|)
+operator|.
+name|produces
+argument_list|(
+literal|"application/xml"
 argument_list|)
 operator|.
 name|param
