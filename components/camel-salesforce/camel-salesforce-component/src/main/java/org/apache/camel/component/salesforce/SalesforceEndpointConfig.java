@@ -710,6 +710,7 @@ return|return
 name|format
 return|;
 block|}
+comment|/**      * Payload format to use for Salesforce API calls, either JSON or XML, defaults to JSON      */
 DECL|method|setFormat (PayloadFormat format)
 specifier|public
 name|void
@@ -736,6 +737,7 @@ return|return
 name|apiVersion
 return|;
 block|}
+comment|/**      * Salesforce API version, defaults to SalesforceEndpointConfig.DEFAULT_VERSION      */
 DECL|method|setApiVersion (String apiVersion)
 specifier|public
 name|void
@@ -762,6 +764,7 @@ return|return
 name|sObjectName
 return|;
 block|}
+comment|/**      * SObject name if required or supported by API      */
 DECL|method|setSObjectName (String sObjectName)
 specifier|public
 name|void
@@ -788,6 +791,7 @@ return|return
 name|sObjectId
 return|;
 block|}
+comment|/**      * SObject ID if required by API      */
 DECL|method|setSObjectId (String sObjectId)
 specifier|public
 name|void
@@ -814,6 +818,7 @@ return|return
 name|sObjectFields
 return|;
 block|}
+comment|/**      * SObject fields to retrieve      */
 DECL|method|setSObjectFields (String sObjectFields)
 specifier|public
 name|void
@@ -840,6 +845,7 @@ return|return
 name|sObjectIdName
 return|;
 block|}
+comment|/**      * SObject external ID field name      */
 DECL|method|setSObjectIdName (String sObjectIdName)
 specifier|public
 name|void
@@ -866,6 +872,7 @@ return|return
 name|sObjectIdValue
 return|;
 block|}
+comment|/**      * SObject external ID field value      */
 DECL|method|setSObjectIdValue (String sObjectIdValue)
 specifier|public
 name|void
@@ -892,6 +899,7 @@ return|return
 name|sObjectBlobFieldName
 return|;
 block|}
+comment|/**      * SObject blob field name      */
 DECL|method|setSObjectBlobFieldName (String sObjectBlobFieldName)
 specifier|public
 name|void
@@ -918,6 +926,7 @@ return|return
 name|sObjectClass
 return|;
 block|}
+comment|/**      * Fully qualified SObject class name, usually generated using camel-salesforce-maven-plugin      */
 DECL|method|setSObjectClass (String sObjectClass)
 specifier|public
 name|void
@@ -944,6 +953,7 @@ return|return
 name|sObjectQuery
 return|;
 block|}
+comment|/**      * Salesforce SOQL query string      */
 DECL|method|setSObjectQuery (String sObjectQuery)
 specifier|public
 name|void
@@ -970,6 +980,7 @@ return|return
 name|sObjectSearch
 return|;
 block|}
+comment|/**      * Salesforce SOSL search string      */
 DECL|method|setSObjectSearch (String sObjectSearch)
 specifier|public
 name|void
@@ -996,6 +1007,7 @@ return|return
 name|apexMethod
 return|;
 block|}
+comment|/**      * APEX method name      */
 DECL|method|setApexMethod (String apexMethod)
 specifier|public
 name|void
@@ -1022,6 +1034,7 @@ return|return
 name|apexUrl
 return|;
 block|}
+comment|/**      * APEX method URL      */
 DECL|method|setApexUrl (String apexUrl)
 specifier|public
 name|void
@@ -1066,6 +1079,7 @@ name|apexQueryParams
 argument_list|)
 return|;
 block|}
+comment|/**      * Query params for APEX method      */
 DECL|method|setApexQueryParams (Map<String, Object> apexQueryParams)
 specifier|public
 name|void
@@ -1097,6 +1111,7 @@ return|return
 name|contentType
 return|;
 block|}
+comment|/**      * Bulk API content type, one of XML, CSV, ZIP_XML, ZIP_CSV      */
 DECL|method|setContentType (ContentType contentType)
 specifier|public
 name|void
@@ -1123,6 +1138,7 @@ return|return
 name|jobId
 return|;
 block|}
+comment|/**      * Bulk API Job ID      */
 DECL|method|setJobId (String jobId)
 specifier|public
 name|void
@@ -1149,6 +1165,7 @@ return|return
 name|batchId
 return|;
 block|}
+comment|/**      * Bulk API Batch ID      */
 DECL|method|setBatchId (String batchId)
 specifier|public
 name|void
@@ -1175,6 +1192,7 @@ return|return
 name|resultId
 return|;
 block|}
+comment|/**      * Bulk API Result ID      */
 DECL|method|setResultId (String resultId)
 specifier|public
 name|void
@@ -1201,6 +1219,7 @@ return|return
 name|updateTopic
 return|;
 block|}
+comment|/**      * Whether to update an existing Push Topic when using the Streaming API, defaults to false      */
 DECL|method|setUpdateTopic (boolean updateTopic)
 specifier|public
 name|void
@@ -1227,6 +1246,7 @@ return|return
 name|notifyForFields
 return|;
 block|}
+comment|/**      * Notify for fields, options are ALL, REFERENCED, SELECT, WHERE      */
 DECL|method|setNotifyForFields (NotifyForFieldsEnum notifyForFields)
 specifier|public
 name|void
@@ -1253,6 +1273,7 @@ return|return
 name|notifyForOperations
 return|;
 block|}
+comment|/**      * Notify for operations, options are ALL, CREATE, EXTENDED, UPDATE (API version< 29.0)      */
 DECL|method|setNotifyForOperations (NotifyForOperationsEnum notifyForOperations)
 specifier|public
 name|void
@@ -1279,6 +1300,7 @@ return|return
 name|notifyForOperationCreate
 return|;
 block|}
+comment|/**      * Notify for create operation, defaults to false (API version>= 29.0)      */
 DECL|method|setNotifyForOperationCreate (Boolean notifyForOperationCreate)
 specifier|public
 name|void
@@ -1305,6 +1327,7 @@ return|return
 name|notifyForOperationUpdate
 return|;
 block|}
+comment|/**      * Notify for update operation, defaults to false (API version>= 29.0)      */
 DECL|method|setNotifyForOperationUpdate (Boolean notifyForOperationUpdate)
 specifier|public
 name|void
@@ -1331,6 +1354,7 @@ return|return
 name|notifyForOperationDelete
 return|;
 block|}
+comment|/**      * Notify for delete operation, defaults to false (API version>= 29.0)      */
 DECL|method|setNotifyForOperationDelete (Boolean notifyForOperationDelete)
 specifier|public
 name|void
@@ -1357,6 +1381,7 @@ return|return
 name|notifyForOperationUndelete
 return|;
 block|}
+comment|/**      * Notify for un-delete operation, defaults to false (API version>= 29.0)      */
 DECL|method|setNotifyForOperationUndelete (Boolean notifyForOperationUndelete)
 specifier|public
 name|void
@@ -1383,6 +1408,7 @@ return|return
 name|reportId
 return|;
 block|}
+comment|/**      * Salesforce1 Analytics report Id      */
 DECL|method|setReportId (String reportId)
 specifier|public
 name|void
@@ -1409,6 +1435,7 @@ return|return
 name|includeDetails
 return|;
 block|}
+comment|/**      * Include details in Salesforce1 Analytics report, defaults to false.      */
 DECL|method|setIncludeDetails (Boolean includeDetails)
 specifier|public
 name|void
@@ -1435,6 +1462,7 @@ return|return
 name|reportMetadata
 return|;
 block|}
+comment|/**      * Salesforce1 Analytics report metadata for filtering      */
 DECL|method|setReportMetadata (ReportMetadata reportMetadata)
 specifier|public
 name|void
@@ -1461,6 +1489,7 @@ return|return
 name|instanceId
 return|;
 block|}
+comment|/**      * Salesforce1 Analytics report execution instance ID      */
 DECL|method|setInstanceId (String instanceId)
 specifier|public
 name|void
@@ -1477,6 +1506,7 @@ operator|=
 name|instanceId
 expr_stmt|;
 block|}
+comment|/**      * Custom Jetty Http Client to use to connect to Salesforce.      */
 DECL|method|setHttpClient (HttpClient httpClient)
 specifier|public
 name|void

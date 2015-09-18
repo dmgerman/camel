@@ -153,6 +153,7 @@ return|return
 name|loginUrl
 return|;
 block|}
+comment|/**      * Salesforce login URL, defaults to https://login.salesforce.com      */
 DECL|method|setLoginUrl (String loginUrl)
 specifier|public
 name|void
@@ -179,6 +180,7 @@ return|return
 name|clientId
 return|;
 block|}
+comment|/**      * Salesforce connected application Consumer Key      */
 DECL|method|setClientId (String clientId)
 specifier|public
 name|void
@@ -205,6 +207,7 @@ return|return
 name|clientSecret
 return|;
 block|}
+comment|/**      * Salesforce connected application Consumer Secret      */
 DECL|method|setClientSecret (String clientSecret)
 specifier|public
 name|void
@@ -231,6 +234,7 @@ return|return
 name|userName
 return|;
 block|}
+comment|/**      * Salesforce account user name      */
 DECL|method|setUserName (String userName)
 specifier|public
 name|void
@@ -257,6 +261,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * Salesforce account password      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -283,6 +288,7 @@ return|return
 name|lazyLogin
 return|;
 block|}
+comment|/**      * Flag to enable/disable lazy OAuth, default is false. When enabled, OAuth token retrieval or generation is not done until the first API call      */
 DECL|method|setLazyLogin (boolean lazyLogin)
 specifier|public
 name|void
