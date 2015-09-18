@@ -143,10 +143,10 @@ comment|/**  * The default Camel swagger servlet to use when exposing the APIs o
 end_comment
 
 begin_class
-DECL|class|DefaultCamelSwaggerServlet
+DECL|class|RestSwaggerServlet
 specifier|public
 class|class
-name|DefaultCamelSwaggerServlet
+name|RestSwaggerServlet
 extends|extends
 name|RestSwaggerAbstractServlet
 block|{
