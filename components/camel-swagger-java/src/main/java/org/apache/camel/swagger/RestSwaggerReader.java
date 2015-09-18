@@ -442,6 +442,20 @@ name|ClassResolver
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A Camel REST-DSL swagger reader that parse the rest-dsl into a swagger model representation.  */
 end_comment
@@ -452,14 +466,20 @@ specifier|public
 class|class
 name|RestSwaggerReader
 block|{
-comment|/**      * Read the REST-DSL definition and parse that as a Swagger model representation      *      * @param rest              the rest-dsl      * @param config            the swagger configuration      * @param classResolver     class resolver to use      * @return the swagger model      */
-DECL|method|read (RestDefinition rest, BeanConfig config, ClassResolver classResolver)
+comment|/**      * Read the REST-DSL definition's and parse that as a Swagger model representation      *      * @param rests             the rest-dsl      * @param route             optional route path to filter the rest-dsl to only include from the chose route      * @param config            the swagger configuration      * @param classResolver     class resolver to use      * @return the swagger model      */
+DECL|method|read (List<RestDefinition> rests, String route, BeanConfig config, ClassResolver classResolver)
 specifier|public
 name|Swagger
 name|read
 parameter_list|(
+name|List
+argument_list|<
 name|RestDefinition
-name|rest
+argument_list|>
+name|rests
+parameter_list|,
+name|String
+name|route
 parameter_list|,
 name|BeanConfig
 name|config
@@ -475,6 +495,89 @@ operator|new
 name|Swagger
 argument_list|()
 decl_stmt|;
+for|for
+control|(
+name|RestDefinition
+name|rest
+range|:
+name|rests
+control|)
+block|{
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|route
+argument_list|)
+operator|&&
+operator|!
+name|route
+operator|.
+name|equals
+argument_list|(
+literal|"/"
+argument_list|)
+condition|)
+block|{
+comment|// filter by route
+if|if
+condition|(
+operator|!
+name|rest
+operator|.
+name|getPath
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+name|route
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
+block|}
+name|parse
+argument_list|(
+name|swagger
+argument_list|,
+name|rest
+argument_list|,
+name|classResolver
+argument_list|)
+expr_stmt|;
+block|}
+comment|// configure before returning
+name|swagger
+operator|=
+name|config
+operator|.
+name|configure
+argument_list|(
+name|swagger
+argument_list|)
+expr_stmt|;
+return|return
+name|swagger
+return|;
+block|}
+DECL|method|parse (Swagger swagger, RestDefinition rest, ClassResolver classResolver)
+specifier|private
+name|void
+name|parse
+parameter_list|(
+name|Swagger
+name|swagger
+parameter_list|,
+name|RestDefinition
+name|rest
+parameter_list|,
+name|ClassResolver
+name|classResolver
+parameter_list|)
+block|{
 name|List
 argument_list|<
 name|VerbDefinition
@@ -1323,19 +1426,6 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
-comment|// configure before returning
-name|swagger
-operator|=
-name|config
-operator|.
-name|configure
-argument_list|(
-name|swagger
-argument_list|)
-expr_stmt|;
-return|return
-name|swagger
-return|;
 block|}
 DECL|method|asModel (String typeName, Swagger swagger)
 specifier|private

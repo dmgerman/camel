@@ -160,6 +160,20 @@ name|io
 operator|.
 name|swagger
 operator|.
+name|core
+operator|.
+name|filter
+operator|.
+name|SpecFilter
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|swagger
+operator|.
 name|jaxrs
 operator|.
 name|config
@@ -888,31 +902,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: implement these
-if|if
-condition|(
-operator|!
-name|route
-operator|.
-name|equals
-argument_list|(
-literal|""
-argument_list|)
-operator|&&
-operator|!
-name|route
-operator|.
-name|equals
-argument_list|(
-literal|"/"
-argument_list|)
-condition|)
-block|{
-comment|// render overview if the route is empty or is the root path
-comment|// renderApiDeclaration(request, response, contextId, route);
-block|}
-else|else
-block|{
 name|renderResourceListing
 argument_list|(
 name|request
@@ -920,9 +909,10 @@ argument_list|,
 name|response
 argument_list|,
 name|contextId
+argument_list|,
+name|route
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 catch|catch
@@ -947,7 +937,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|renderResourceListing (HttpServletRequest request, HttpServletResponse response, String contextId)
+DECL|method|renderResourceListing (HttpServletRequest request, HttpServletResponse response, String contextId, String route)
 specifier|private
 name|void
 name|renderResourceListing
@@ -960,6 +950,9 @@ name|response
 parameter_list|,
 name|String
 name|contextId
+parameter_list|,
+name|String
+name|route
 parameter_list|)
 throws|throws
 name|Exception
@@ -1022,15 +1015,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// TODO: combine the rests
-for|for
-control|(
-name|RestDefinition
-name|rest
-range|:
-name|rests
-control|)
-block|{
+comment|// read the rest-dsl into swagger model
 name|Swagger
 name|swagger
 init|=
@@ -1038,7 +1023,9 @@ name|reader
 operator|.
 name|read
 argument_list|(
-name|rest
+name|rests
+argument_list|,
+name|route
 argument_list|,
 name|swaggerConfig
 argument_list|,
@@ -1086,7 +1073,6 @@ argument_list|,
 name|swagger
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 else|else
 block|{
