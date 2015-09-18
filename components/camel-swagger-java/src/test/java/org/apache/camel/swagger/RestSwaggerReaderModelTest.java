@@ -287,6 +287,17 @@ operator|.
 name|class
 argument_list|)
 operator|.
+name|responseMessage
+argument_list|()
+operator|.
+name|message
+argument_list|(
+literal|"The user returned"
+argument_list|)
+operator|.
+name|endResponseMessage
+argument_list|()
+operator|.
 name|param
 argument_list|()
 operator|.
@@ -380,6 +391,17 @@ operator|.
 name|class
 argument_list|)
 operator|.
+name|responseMessage
+argument_list|()
+operator|.
+name|message
+argument_list|(
+literal|"All the found users"
+argument_list|)
+operator|.
+name|endResponseMessage
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"bean:userService?method=listUsers"
@@ -448,6 +470,27 @@ operator|.
 name|setBasePath
 argument_list|(
 literal|"/api"
+argument_list|)
+expr_stmt|;
+name|config
+operator|.
+name|setTitle
+argument_list|(
+literal|"Camel User store"
+argument_list|)
+expr_stmt|;
+name|config
+operator|.
+name|setLicense
+argument_list|(
+literal|"Apache 2.0"
+argument_list|)
+expr_stmt|;
+name|config
+operator|.
+name|setLicenseUrl
+argument_list|(
+literal|"http://www.apache.org/licenses/LICENSE-2.0.html"
 argument_list|)
 expr_stmt|;
 name|RestSwaggerReader
@@ -538,7 +581,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"description\" : \"Output type\""
+literal|"\"description\" : \"The user returned\""
 argument_list|)
 argument_list|)
 expr_stmt|;
