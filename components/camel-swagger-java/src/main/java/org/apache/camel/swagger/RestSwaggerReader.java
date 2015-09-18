@@ -475,13 +475,6 @@ operator|new
 name|Swagger
 argument_list|()
 decl_stmt|;
-name|config
-operator|.
-name|configure
-argument_list|(
-name|swagger
-argument_list|)
-expr_stmt|;
 name|List
 argument_list|<
 name|VerbDefinition
@@ -1330,6 +1323,16 @@ name|path
 argument_list|)
 expr_stmt|;
 block|}
+comment|// configure before returning
+name|swagger
+operator|=
+name|config
+operator|.
+name|configure
+argument_list|(
+name|swagger
+argument_list|)
+expr_stmt|;
 return|return
 name|swagger
 return|;
