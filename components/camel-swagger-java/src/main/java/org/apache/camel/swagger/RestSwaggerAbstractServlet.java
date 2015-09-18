@@ -160,20 +160,6 @@ name|io
 operator|.
 name|swagger
 operator|.
-name|core
-operator|.
-name|filter
-operator|.
-name|SpecFilter
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|swagger
-operator|.
 name|jaxrs
 operator|.
 name|config
@@ -296,12 +282,16 @@ name|buildUrl
 import|;
 end_import
 
+begin_comment
+comment|/**  * Base class for rest-dsl swagger integration to use a servlet to service the swagger api.  */
+end_comment
+
 begin_class
-DECL|class|RestSwaggerApiDeclarationServlet
+DECL|class|RestSwaggerAbstractServlet
 specifier|public
 specifier|abstract
 class|class
-name|RestSwaggerApiDeclarationServlet
+name|RestSwaggerAbstractServlet
 extends|extends
 name|HttpServlet
 block|{
@@ -314,7 +304,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|RestSwaggerApiDeclarationServlet
+name|RestSwaggerAbstractServlet
 operator|.
 name|class
 argument_list|)

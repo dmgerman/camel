@@ -138,13 +138,17 @@ name|CamelVersionHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * The default Camel swagger servlet to use when exposing the APIs of the rest-dsl using swagger.  *<p/>  * This requires Camel version 2.15 or better at runtime (and JMX to be enabled).  */
+end_comment
+
 begin_class
 DECL|class|DefaultCamelSwaggerServlet
 specifier|public
 class|class
 name|DefaultCamelSwaggerServlet
 extends|extends
-name|RestSwaggerApiDeclarationServlet
+name|RestSwaggerAbstractServlet
 block|{
 annotation|@
 name|Override
