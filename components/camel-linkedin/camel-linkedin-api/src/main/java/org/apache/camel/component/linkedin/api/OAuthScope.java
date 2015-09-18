@@ -60,6 +60,10 @@ argument_list|(
 literal|"r_contactinfo"
 argument_list|)
 block|,
+DECL|enumConstant|Deprecated
+annotation|@
+name|Deprecated
+comment|// use W_SHARE instead
 DECL|enumConstant|RW_NUS
 name|RW_NUS
 argument_list|(
@@ -82,6 +86,12 @@ DECL|enumConstant|W_MESSAGES
 name|W_MESSAGES
 argument_list|(
 literal|"w_messages"
+argument_list|)
+block|,
+DECL|enumConstant|W_SHARE
+name|W_SHARE
+argument_list|(
+literal|"w_share"
 argument_list|)
 block|;
 DECL|field|value
