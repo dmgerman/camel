@@ -335,6 +335,13 @@ name|path
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|tag
+specifier|private
+name|String
+name|tag
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|consumes
 specifier|private
 name|String
@@ -429,6 +436,33 @@ operator|.
 name|path
 operator|=
 name|path
+expr_stmt|;
+block|}
+DECL|method|getTag ()
+specifier|public
+name|String
+name|getTag
+parameter_list|()
+block|{
+return|return
+name|tag
+return|;
+block|}
+comment|/**      * To configure a special tag for the operations within this rest definition.      */
+DECL|method|setTag (String tag)
+specifier|public
+name|void
+name|setTag
+parameter_list|(
+name|String
+name|tag
+parameter_list|)
+block|{
+name|this
+operator|.
+name|tag
+operator|=
+name|tag
 expr_stmt|;
 block|}
 DECL|method|getConsumes ()
@@ -614,6 +648,25 @@ block|{
 name|setPath
 argument_list|(
 name|path
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * To set the tag to use of this REST service      */
+DECL|method|tag (String tag)
+specifier|public
+name|RestDefinition
+name|tag
+parameter_list|(
+name|String
+name|tag
+parameter_list|)
+block|{
+name|setTag
+argument_list|(
+name|tag
 argument_list|)
 expr_stmt|;
 return|return

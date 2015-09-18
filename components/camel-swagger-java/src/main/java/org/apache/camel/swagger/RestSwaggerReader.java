@@ -632,9 +632,22 @@ name|VerbOrdering
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// we need to group the operations within the same tag, so use the path as default if not configured
 name|String
 name|pathAsTag
 init|=
+name|rest
+operator|.
+name|getTag
+argument_list|()
+operator|!=
+literal|null
+condition|?
+name|rest
+operator|.
+name|getTag
+argument_list|()
+else|:
 name|FileUtil
 operator|.
 name|stripLeadingSeparator

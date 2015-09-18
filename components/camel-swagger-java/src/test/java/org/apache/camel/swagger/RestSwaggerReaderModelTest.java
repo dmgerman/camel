@@ -255,6 +255,11 @@ argument_list|(
 literal|"/user"
 argument_list|)
 operator|.
+name|tag
+argument_list|(
+literal|"dude"
+argument_list|)
+operator|.
 name|description
 argument_list|(
 literal|"User rest service"
