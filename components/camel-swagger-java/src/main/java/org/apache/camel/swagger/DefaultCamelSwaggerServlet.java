@@ -260,7 +260,7 @@ name|id
 argument_list|)
 condition|)
 block|{
-comment|// filter out older Camel versions as this requires Camel 2.15 or better
+comment|// filter out older Camel versions as this requires Camel 2.15 or better (rest-dsl)
 name|String
 name|version
 init|=
@@ -467,7 +467,7 @@ literal|1
 argument_list|)
 expr_stmt|;
 block|}
-comment|// filter out older Camel versions as this requires Camel 2.15 or better
+comment|// filter out older Camel versions as this requires Camel 2.15 or better (rest-dsl)
 name|String
 name|version
 init|=

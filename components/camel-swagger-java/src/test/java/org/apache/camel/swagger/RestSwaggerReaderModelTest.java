@@ -185,10 +185,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|RestSwaggerReaderTest
+DECL|class|RestSwaggerReaderModelTest
 specifier|public
 class|class
-name|RestSwaggerReaderTest
+name|RestSwaggerReaderModelTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -249,9 +249,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// this user REST service is json only
 name|rest
 argument_list|(
-literal|"/hello"
+literal|"/user"
+argument_list|)
+operator|.
+name|description
+argument_list|(
+literal|"User rest service"
 argument_list|)
 operator|.
 name|consumes
@@ -266,12 +272,19 @@ argument_list|)
 operator|.
 name|get
 argument_list|(
-literal|"/hi/{name}"
+literal|"/{id}"
 argument_list|)
 operator|.
 name|description
 argument_list|(
-literal|"Saying hi"
+literal|"Find user by id"
+argument_list|)
+operator|.
+name|outType
+argument_list|(
+name|User
+operator|.
+name|class
 argument_list|)
 operator|.
 name|param
@@ -279,7 +292,7 @@ argument_list|()
 operator|.
 name|name
 argument_list|(
-literal|"name"
+literal|"id"
 argument_list|)
 operator|.
 name|type
@@ -289,14 +302,14 @@ operator|.
 name|path
 argument_list|)
 operator|.
-name|dataType
-argument_list|(
-literal|"string"
-argument_list|)
-operator|.
 name|description
 argument_list|(
-literal|"Who is it"
+literal|"The id of the user to get"
+argument_list|)
+operator|.
+name|dataType
+argument_list|(
+literal|"integer"
 argument_list|)
 operator|.
 name|endParam
@@ -304,86 +317,22 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"log:hi"
+literal|"bean:userService?method=getUser(${header.id})"
 argument_list|)
 operator|.
-name|get
-argument_list|(
-literal|"/bye/{name}"
-argument_list|)
+name|put
+argument_list|()
 operator|.
 name|description
 argument_list|(
-literal|"Saying bye"
-argument_list|)
-operator|.
-name|param
-argument_list|()
-operator|.
-name|name
-argument_list|(
-literal|"name"
+literal|"Updates or create a user"
 argument_list|)
 operator|.
 name|type
 argument_list|(
-name|RestParamType
+name|User
 operator|.
-name|path
-argument_list|)
-operator|.
-name|dataType
-argument_list|(
-literal|"string"
-argument_list|)
-operator|.
-name|description
-argument_list|(
-literal|"Who is it"
-argument_list|)
-operator|.
-name|endParam
-argument_list|()
-operator|.
-name|responseMessage
-argument_list|()
-operator|.
-name|code
-argument_list|(
-literal|200
-argument_list|)
-operator|.
-name|message
-argument_list|(
-literal|"A reply message"
-argument_list|)
-operator|.
-name|endResponseMessage
-argument_list|()
-operator|.
-name|to
-argument_list|(
-literal|"log:bye"
-argument_list|)
-operator|.
-name|post
-argument_list|(
-literal|"/bye"
-argument_list|)
-operator|.
-name|description
-argument_list|(
-literal|"To update the greeting message"
-argument_list|)
-operator|.
-name|consumes
-argument_list|(
-literal|"application/xml"
-argument_list|)
-operator|.
-name|produces
-argument_list|(
-literal|"application/xml"
+name|class
 argument_list|)
 operator|.
 name|param
@@ -391,7 +340,7 @@ argument_list|()
 operator|.
 name|name
 argument_list|(
-literal|"greeting"
+literal|"body"
 argument_list|)
 operator|.
 name|type
@@ -401,14 +350,9 @@ operator|.
 name|body
 argument_list|)
 operator|.
-name|dataType
-argument_list|(
-literal|"string"
-argument_list|)
-operator|.
 name|description
 argument_list|(
-literal|"Message to use as greeting"
+literal|"The user to update or create"
 argument_list|)
 operator|.
 name|endParam
@@ -416,7 +360,29 @@ argument_list|()
 operator|.
 name|to
 argument_list|(
-literal|"log:bye"
+literal|"bean:userService?method=updateUser"
+argument_list|)
+operator|.
+name|get
+argument_list|(
+literal|"/findAll"
+argument_list|)
+operator|.
+name|description
+argument_list|(
+literal|"Find all users"
+argument_list|)
+operator|.
+name|outTypeList
+argument_list|(
+name|User
+operator|.
+name|class
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"bean:userService?method=listUsers"
 argument_list|)
 expr_stmt|;
 block|}
@@ -572,7 +538,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"basePath\" : \"/api\""
+literal|"\"description\" : \"Output type\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -582,7 +548,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"/hello/bye\""
+literal|"\"$ref\" : \"#/definitions/User\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -592,7 +558,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"summary\" : \"To update the greeting message\""
+literal|"\"x-className\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -602,17 +568,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"/hello/bye/{name}\""
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|"\"/hello/hi/{name}\""
+literal|"\"format\" : \"org.apache.camel.swagger.User\""
 argument_list|)
 argument_list|)
 expr_stmt|;
