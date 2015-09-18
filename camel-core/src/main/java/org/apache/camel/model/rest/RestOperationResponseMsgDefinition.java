@@ -103,7 +103,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To specify the rest operation response messages using Swagger.  *<p/>  * This maps to the Swagger Response Message Object.  * see com.wordnik.swagger.model.ResponseMessage  * and https://github.com/swagger-api/swagger-spec/blob/master/versions/1.2.md#525-response-message-object.  */
+comment|/**  * To specify the rest operation response messages using Swagger.  *<p/>  * This maps to the Swagger Response Message Object.  */
 end_comment
 
 begin_class
@@ -142,14 +142,16 @@ name|verb
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
 argument_list|(
-name|required
+name|defaultValue
 operator|=
-literal|true
+literal|"200"
 argument_list|)
 DECL|field|code
 specifier|private
-name|int
+name|String
 name|code
 decl_stmt|;
 annotation|@
@@ -200,27 +202,26 @@ parameter_list|()
 block|{     }
 DECL|method|getCode ()
 specifier|public
-name|int
+name|String
 name|getCode
 parameter_list|()
 block|{
 return|return
 name|code
 operator|!=
-literal|0
+literal|null
 condition|?
 name|code
 else|:
-literal|200
+literal|"200"
 return|;
 block|}
-comment|/**      * Sets the Swagger Operation's ResponseMessage code      */
-DECL|method|setCode (int code)
+DECL|method|setCode (String code)
 specifier|public
 name|void
 name|setCode
 parameter_list|(
-name|int
+name|String
 name|code
 parameter_list|)
 block|{
@@ -247,7 +248,6 @@ else|:
 literal|""
 return|;
 block|}
-comment|/**      * Sets the Swagger Operation's ResponseMessage responseModel      */
 DECL|method|setResponseModel (String responseModel)
 specifier|public
 name|void
@@ -280,7 +280,6 @@ else|:
 literal|"success"
 return|;
 block|}
-comment|/**      * Sets the Swagger Operation's ResponseMessage message      */
 DECL|method|setMessage (String message)
 specifier|public
 name|void
@@ -297,13 +296,34 @@ operator|=
 name|message
 expr_stmt|;
 block|}
-comment|/**      * The return code      */
+comment|/**      * The response code such as a HTTP status code.      */
 DECL|method|code (int code)
 specifier|public
 name|RestOperationResponseMsgDefinition
 name|code
 parameter_list|(
 name|int
+name|code
+parameter_list|)
+block|{
+name|setCode
+argument_list|(
+literal|""
+operator|+
+name|code
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The response code such as a HTTP status code. Can use<tt>general</tt>, or other words      * to indicate general error responses that do not map to a specific HTTP status code.      */
+DECL|method|code (String code)
+specifier|public
+name|RestOperationResponseMsgDefinition
+name|code
+parameter_list|(
+name|String
 name|code
 parameter_list|)
 block|{
@@ -316,7 +336,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The return message      */
+comment|/**      * The response message (description)      */
 DECL|method|message (String msg)
 specifier|public
 name|RestOperationResponseMsgDefinition

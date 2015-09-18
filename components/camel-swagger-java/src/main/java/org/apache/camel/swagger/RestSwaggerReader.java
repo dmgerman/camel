@@ -1077,6 +1077,7 @@ name|getRequired
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// set type on parameter
 if|if
 condition|(
 name|parameter
@@ -1114,6 +1115,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// set schema on body parameter
 if|if
 condition|(
 name|parameter
@@ -1182,6 +1184,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// if we have an out type then set that as response message
 if|if
 condition|(
 name|verb
@@ -1236,6 +1239,7 @@ name|response
 argument_list|)
 expr_stmt|;
 block|}
+comment|// enrich with configured response messages from the rest-dsl
 for|for
 control|(
 name|RestOperationResponseMsgDefinition
@@ -1250,6 +1254,20 @@ block|{
 name|Response
 name|response
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|op
+operator|.
+name|getResponses
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|response
+operator|=
 name|op
 operator|.
 name|getResponses
@@ -1257,14 +1275,13 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|""
-operator|+
 name|msg
 operator|.
 name|getCode
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|response
@@ -1293,8 +1310,6 @@ name|op
 operator|.
 name|addResponse
 argument_list|(
-literal|""
-operator|+
 name|msg
 operator|.
 name|getCode
