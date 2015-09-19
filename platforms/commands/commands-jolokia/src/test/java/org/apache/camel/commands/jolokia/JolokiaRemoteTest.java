@@ -220,7 +220,7 @@ name|controller
 operator|.
 name|getCamelContextInformation
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|)
 decl_stmt|;
 name|System
@@ -267,7 +267,7 @@ name|controller
 operator|.
 name|getCamelContextStatsAsXml
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|,
 literal|true
 argument_list|,
@@ -315,7 +315,7 @@ name|controller
 operator|.
 name|suspendContext
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|)
 expr_stmt|;
 name|Map
@@ -330,7 +330,7 @@ name|controller
 operator|.
 name|getCamelContextInformation
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|)
 decl_stmt|;
 name|System
@@ -353,7 +353,7 @@ name|controller
 operator|.
 name|resumeContext
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|)
 expr_stmt|;
 name|data
@@ -362,7 +362,7 @@ name|controller
 operator|.
 name|getCamelContextInformation
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|)
 expr_stmt|;
 name|System
@@ -472,7 +472,7 @@ name|controller
 operator|.
 name|getRoutes
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|)
 decl_stmt|;
 name|System
@@ -573,7 +573,7 @@ name|controller
 operator|.
 name|resetRouteStats
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|)
 expr_stmt|;
 block|}
@@ -608,9 +608,9 @@ name|controller
 operator|.
 name|suspendRoute
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|,
-literal|"route2"
+literal|"route1"
 argument_list|)
 expr_stmt|;
 name|List
@@ -628,9 +628,9 @@ name|controller
 operator|.
 name|getRoutes
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|,
-literal|"route2"
+literal|"route1"
 argument_list|)
 decl_stmt|;
 name|System
@@ -653,9 +653,9 @@ name|controller
 operator|.
 name|resumeRoute
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|,
-literal|"route2"
+literal|"route1"
 argument_list|)
 expr_stmt|;
 name|data
@@ -664,9 +664,9 @@ name|controller
 operator|.
 name|getRoutes
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|,
-literal|"route2"
+literal|"route1"
 argument_list|)
 expr_stmt|;
 name|System
@@ -713,9 +713,9 @@ name|controller
 operator|.
 name|getRouteModelAsXml
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|,
-literal|"route2"
+literal|"route1"
 argument_list|)
 decl_stmt|;
 name|System
@@ -762,9 +762,9 @@ name|controller
 operator|.
 name|getRouteStatsAsXml
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|,
-literal|"route2"
+literal|"route1"
 argument_list|,
 literal|true
 argument_list|,
@@ -815,7 +815,7 @@ name|controller
 operator|.
 name|getRestModelAsXml
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|)
 decl_stmt|;
 name|System
@@ -870,7 +870,7 @@ name|controller
 operator|.
 name|getEndpoints
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|)
 decl_stmt|;
 name|System
@@ -925,7 +925,7 @@ name|controller
 operator|.
 name|getRestServices
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|)
 decl_stmt|;
 name|System
@@ -972,7 +972,7 @@ name|controller
 operator|.
 name|explainEndpointAsJSon
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|,
 literal|"log:foo"
 argument_list|,
@@ -1023,7 +1023,7 @@ name|controller
 operator|.
 name|explainEipAsJSon
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|,
 literal|"transform"
 argument_list|,
@@ -1082,7 +1082,7 @@ name|controller
 operator|.
 name|listComponents
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|)
 decl_stmt|;
 name|System
@@ -1137,7 +1137,7 @@ name|controller
 operator|.
 name|browseInflightExchanges
 argument_list|(
-literal|"myCamel"
+literal|"camel-1"
 argument_list|,
 literal|500
 argument_list|,

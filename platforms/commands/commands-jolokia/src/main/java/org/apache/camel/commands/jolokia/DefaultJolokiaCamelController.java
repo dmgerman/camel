@@ -3109,16 +3109,16 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|getRouteModelAsXml (String camelContextName, String routeId)
+DECL|method|getRouteModelAsXml (String routeId, String camelContextName)
 specifier|public
 name|String
 name|getRouteModelAsXml
 parameter_list|(
 name|String
-name|camelContextName
+name|routeId
 parameter_list|,
 name|String
-name|routeId
+name|camelContextName
 parameter_list|)
 throws|throws
 name|Exception
@@ -3229,16 +3229,16 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getRouteStatsAsXml (String camelContextName, String routeId, boolean fullStats, boolean includeProcessors)
+DECL|method|getRouteStatsAsXml (String routeId, String camelContextName, boolean fullStats, boolean includeProcessors)
 specifier|public
 name|String
 name|getRouteStatsAsXml
 parameter_list|(
 name|String
-name|camelContextName
+name|routeId
 parameter_list|,
 name|String
-name|routeId
+name|camelContextName
 parameter_list|,
 name|boolean
 name|fullStats
@@ -4272,6 +4272,13 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|data
+operator|!=
+literal|null
+condition|)
+block|{
 for|for
 control|(
 name|Object
@@ -4536,6 +4543,7 @@ argument_list|(
 name|row
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 comment|// sort the list
