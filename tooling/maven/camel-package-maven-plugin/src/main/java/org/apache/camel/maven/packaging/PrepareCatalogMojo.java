@@ -306,7 +306,7 @@ specifier|final
 name|int
 name|UNUSED_LABELS_WARN
 init|=
-literal|20
+literal|15
 decl_stmt|;
 comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
 DECL|field|project
