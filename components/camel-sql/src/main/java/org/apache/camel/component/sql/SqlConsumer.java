@@ -148,20 +148,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|UriParam
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|CastUtils
@@ -270,29 +256,21 @@ specifier|final
 name|SqlProcessingStrategy
 name|sqlProcessingStrategy
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|onConsume
 specifier|private
 name|String
 name|onConsume
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|onConsumeFailed
 specifier|private
 name|String
 name|onConsumeFailed
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|onConsumeBatchComplete
 specifier|private
 name|String
 name|onConsumeBatchComplete
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|useIterator
 specifier|private
 name|boolean
@@ -300,15 +278,11 @@ name|useIterator
 init|=
 literal|true
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|routeEmptyResultSet
 specifier|private
 name|boolean
 name|routeEmptyResultSet
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|expectedUpdateCount
 specifier|private
 name|int
@@ -317,8 +291,6 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-annotation|@
-name|UriParam
 DECL|field|breakBatchOnConsumeFail
 specifier|private
 name|boolean
@@ -1311,7 +1283,6 @@ operator|=
 name|onConsumeBatchComplete
 expr_stmt|;
 block|}
-comment|/**      * Indicates how resultset should be delivered to the route      */
 DECL|method|isUseIterator ()
 specifier|public
 name|boolean
@@ -1339,7 +1310,6 @@ operator|=
 name|useIterator
 expr_stmt|;
 block|}
-comment|/**      * Indicates whether empty resultset should be allowed to be sent to the next hop or not      */
 DECL|method|isRouteEmptyResultSet ()
 specifier|public
 name|boolean
@@ -1377,7 +1347,7 @@ return|return
 name|expectedUpdateCount
 return|;
 block|}
-comment|/**      * Sets an expected update count to validate when using onConsume.      *      * @param expectedUpdateCount typically set this value to<tt>1</tt> to expect 1 row updated.      */
+comment|/**      * Sets an expected update count to validate when using onConsume.      */
 DECL|method|setExpectedUpdateCount (int expectedUpdateCount)
 specifier|public
 name|void

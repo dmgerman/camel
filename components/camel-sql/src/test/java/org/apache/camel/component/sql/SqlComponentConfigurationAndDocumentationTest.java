@@ -185,7 +185,7 @@ name|context
 operator|.
 name|explainEndpointJson
 argument_list|(
-literal|"sql:select?dataSourceRef=jdbc/myDataSource&allowNamedParameters=true&consumer.onConsume=foo"
+literal|"sql:select?dataSourceRef=jdbc/myDataSource&allowNamedParameters=true&onConsume=foo"
 argument_list|,
 literal|true
 argument_list|)
@@ -201,7 +201,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"onConsumeBatchComplete\": { \"kind\": \"parameter\", \"type\": \"string\""
+literal|"\"onConsumeBatchComplete\": { \"kind\": \"parameter\", \"label\": \"consumer\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -211,7 +211,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"parametersCount\": { \"kind\": \"parameter\", \"type\": \"integer\""
+literal|"\"parametersCount\": { \"kind\": \"parameter\", \"label\": \"producer,advanced\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -221,7 +221,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"onConsume\": { \"kind\": \"parameter\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\", \"value\": \"foo\""
+literal|"\"onConsume\": { \"kind\": \"parameter\", \"label\": \"consumer\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\", \"value\": \"foo\""
 argument_list|)
 argument_list|)
 expr_stmt|;
