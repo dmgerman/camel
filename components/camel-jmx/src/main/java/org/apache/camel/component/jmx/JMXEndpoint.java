@@ -118,6 +118,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -288,14 +302,26 @@ decl_stmt|;
 comment|/**      * URI Property: [monitor types only] The frequency to poll the bean to check the monitor.        */
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"10000"
+argument_list|)
 DECL|field|granularityPeriod
 specifier|private
 name|long
 name|granularityPeriod
+init|=
+literal|10000
 decl_stmt|;
 comment|/**      * URI Property: [monitor types only] The type of monitor to create. One of string, gauge, counter.        */
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"counter,gauge,string"
+argument_list|)
 DECL|field|monitorType
 specifier|private
 name|String
@@ -304,6 +330,11 @@ decl_stmt|;
 comment|/**      * URI Property: [counter monitor only] Initial threshold for the monitor. The value must exceed this before notifications are fired.        */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"counter"
+argument_list|)
 DECL|field|initThreshold
 specifier|private
 name|int
@@ -312,6 +343,11 @@ decl_stmt|;
 comment|/**      * URI Property: [counter monitor only] The amount to increment the threshold after it's been exceeded.        */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"counter"
+argument_list|)
 DECL|field|offset
 specifier|private
 name|int
@@ -320,6 +356,11 @@ decl_stmt|;
 comment|/**      * URI Property: [counter monitor only] The value at which the counter is reset to zero        */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"counter"
+argument_list|)
 DECL|field|modulus
 specifier|private
 name|int
@@ -328,6 +369,11 @@ decl_stmt|;
 comment|/**      * URI Property: [counter + gauge monitor only] If true, then the value reported in the notification is the difference from the threshold as opposed to the value itself.        */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"counter,gauge"
+argument_list|)
 DECL|field|differenceMode
 specifier|private
 name|boolean
@@ -336,6 +382,11 @@ decl_stmt|;
 comment|/**      * URI Property: [gauge monitor only] If true, the gauge will fire a notification when the high threshold is exceeded        */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"gauge"
+argument_list|)
 DECL|field|notifyHigh
 specifier|private
 name|boolean
@@ -344,6 +395,11 @@ decl_stmt|;
 comment|/**      * URI Property: [gauge monitor only] If true, the gauge will fire a notification when the low threshold is exceeded        */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"gauge"
+argument_list|)
 DECL|field|notifyLow
 specifier|private
 name|boolean
@@ -352,6 +408,11 @@ decl_stmt|;
 comment|/**      * URI Property: [gauge monitor only] Value for the gauge's high threshold        */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"gauge"
+argument_list|)
 DECL|field|thresholdHigh
 specifier|private
 name|Double
@@ -360,6 +421,11 @@ decl_stmt|;
 comment|/**      * URI Property: [gauge monitor only] Value for the gauge's low threshold        */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"gauge"
+argument_list|)
 DECL|field|thresholdLow
 specifier|private
 name|Double
@@ -368,6 +434,11 @@ decl_stmt|;
 comment|/**      * URI Property: [string monitor only] If true, the string monitor will fire a notification when the string attribute differs from the string to compare.        */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"string"
+argument_list|)
 DECL|field|notifyDiffer
 specifier|private
 name|boolean
@@ -376,6 +447,11 @@ decl_stmt|;
 comment|/**      * URI Property: [string monitor only] If true, the string monitor will fire a notification when the string attribute matches the string to compare.        */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"string"
+argument_list|)
 DECL|field|notifyMatch
 specifier|private
 name|boolean
@@ -384,6 +460,11 @@ decl_stmt|;
 comment|/**      * URI Property: [string monitor only] Value for the string monitor's string to compare.        */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"string"
+argument_list|)
 DECL|field|stringToCompare
 specifier|private
 name|String
@@ -396,6 +477,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"xml"
+argument_list|,
+name|enums
+operator|=
+literal|"xml,raw"
 argument_list|)
 DECL|field|format
 specifier|private
@@ -407,6 +492,11 @@ decl_stmt|;
 comment|/**      * URI Property: credentials for making a remote connection      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|user
 specifier|private
 name|String
@@ -415,6 +505,11 @@ decl_stmt|;
 comment|/**      * URI Property: credentials for making a remote connection      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|password
 specifier|private
 name|String
@@ -423,6 +518,13 @@ decl_stmt|;
 comment|/**      * URI Property: The domain for the mbean you're connecting to      */
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|objectDomain
 specifier|private
 name|String
@@ -439,6 +541,11 @@ decl_stmt|;
 comment|/**      * URI Property: Reference to a bean that implements the NotificationFilter.      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|notificationFilter
 specifier|private
 name|NotificationFilter
@@ -447,6 +554,11 @@ decl_stmt|;
 comment|/**      * URI Property: Value to handback to the listener when a notification is received. This value will be put in the message header with the key "jmx.handback"      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|handback
 specifier|private
 name|Object
@@ -459,6 +571,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|label
+operator|=
+literal|"advanced"
 argument_list|)
 DECL|field|testConnectionOnStartup
 specifier|private
@@ -470,6 +586,11 @@ decl_stmt|;
 comment|/**      * URI Property:  If true the consumer will attempt to reconnect to the JMX server when any connection failure occurs.  The consumer will attempt      *                to re-establish the JMX connection every 'x' seconds until the connection is made-- where 'x' is the configured  reconnectionDelay      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|reconnectOnConnectionFailure
 specifier|private
 name|boolean
@@ -482,6 +603,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"10"
+argument_list|,
+name|label
+operator|=
+literal|"advanced"
 argument_list|)
 DECL|field|reconnectDelay
 specifier|private
