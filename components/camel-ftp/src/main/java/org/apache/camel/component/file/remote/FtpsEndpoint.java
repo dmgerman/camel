@@ -311,6 +311,13 @@ name|Object
 argument_list|>
 name|ftpClientTrustStoreParameters
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|sslContextParameters
 specifier|protected
 name|SSLContextParameters
@@ -381,8 +388,6 @@ name|Exception
 block|{
 name|FTPSClient
 name|client
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1231,7 +1236,7 @@ return|return
 name|operations
 return|;
 block|}
-comment|/**      * Returns the FTPSClient. This method exists only for convenient.      *       * @return ftpsClient      */
+comment|/**      * Returns the FTPSClient. This method exists only for convenient.      */
 DECL|method|getFtpsClient ()
 specifier|public
 name|FTPSClient
@@ -1246,7 +1251,7 @@ name|getFtpClient
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns the FtpsConfiguration. This method exists only for convenient.      *       * @return ftpsConfiguration      */
+comment|/**      * Returns the FtpsConfiguration. This method exists only for convenient.      */
 DECL|method|getFtpsConfiguration ()
 specifier|public
 name|FtpsConfiguration

@@ -83,6 +83,11 @@ literal|21
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|account
 specifier|private
 name|String
