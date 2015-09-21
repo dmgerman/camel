@@ -32,6 +32,20 @@ name|jackson
 operator|.
 name|annotate
 operator|.
+name|JsonIgnoreProperties
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|codehaus
+operator|.
+name|jackson
+operator|.
+name|annotate
+operator|.
 name|JsonProperty
 import|;
 end_import
@@ -41,6 +55,13 @@ comment|/**  * DTO for Salesforce login  */
 end_comment
 
 begin_class
+annotation|@
+name|JsonIgnoreProperties
+argument_list|(
+name|ignoreUnknown
+operator|=
+literal|true
+argument_list|)
 DECL|class|LoginToken
 specifier|public
 class|class
