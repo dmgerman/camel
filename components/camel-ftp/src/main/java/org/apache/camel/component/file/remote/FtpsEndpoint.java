@@ -284,13 +284,6 @@ argument_list|<
 name|FTPFile
 argument_list|>
 block|{
-annotation|@
-name|UriParam
-DECL|field|configuration
-specifier|protected
-name|FtpsConfiguration
-name|configuration
-decl_stmt|;
 DECL|field|ftpClientKeyStoreParameters
 specifier|protected
 name|Map
@@ -310,6 +303,13 @@ argument_list|,
 name|Object
 argument_list|>
 name|ftpClientTrustStoreParameters
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|configuration
+specifier|protected
+name|FtpsConfiguration
+name|configuration
 decl_stmt|;
 annotation|@
 name|UriParam

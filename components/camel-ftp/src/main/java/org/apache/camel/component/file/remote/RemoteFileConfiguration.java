@@ -213,6 +213,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"10000"
+argument_list|,
+name|label
+operator|=
+literal|"advanced"
 argument_list|)
 DECL|field|connectTimeout
 specifier|private
@@ -227,6 +231,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"30000"
+argument_list|,
+name|label
+operator|=
+literal|"advanced"
 argument_list|)
 DECL|field|timeout
 specifier|private
@@ -241,6 +249,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"300000"
+argument_list|,
+name|label
+operator|=
+literal|"advanced"
 argument_list|)
 DECL|field|soTimeout
 specifier|private
@@ -258,7 +270,7 @@ literal|"32768"
 argument_list|,
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|)
 DECL|field|receiveBufferSize
 specifier|private
@@ -271,6 +283,11 @@ literal|1024
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|throwExceptionOnConnectFailed
 specifier|private
 name|boolean
@@ -278,6 +295,11 @@ name|throwExceptionOnConnectFailed
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|siteCommand
 specifier|private
 name|String
@@ -289,6 +311,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|label
+operator|=
+literal|"advanced"
 argument_list|)
 DECL|field|stepwise
 specifier|private
@@ -334,7 +360,7 @@ literal|"true"
 argument_list|,
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|)
 DECL|field|useList
 specifier|private
@@ -348,7 +374,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|)
 DECL|field|ignoreFileNotFoundOrPermissionError
 specifier|private
@@ -360,7 +386,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|,
 name|defaultValue
 operator|=

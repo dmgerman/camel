@@ -171,6 +171,11 @@ name|configuration
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|proxy
 specifier|protected
 name|Proxy

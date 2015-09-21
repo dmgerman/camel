@@ -234,6 +234,11 @@ literal|1
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|)
 DECL|field|chmod
 specifier|private
 name|String
