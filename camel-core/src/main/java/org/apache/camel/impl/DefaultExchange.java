@@ -444,6 +444,12 @@ argument_list|(
 literal|"Exchange[%s][%s]"
 argument_list|,
 name|exchangeId
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
+name|exchangeId
 argument_list|,
 name|out
 operator|==
