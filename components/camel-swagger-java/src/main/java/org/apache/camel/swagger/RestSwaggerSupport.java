@@ -54,6 +54,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Set
 import|;
 end_import
@@ -250,11 +260,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|swagger
-operator|.
 name|spi
 operator|.
-name|SwaggerApiProvider
+name|RestApiResponseAdapter
 import|;
 end_import
 
@@ -292,6 +300,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * A support class for that allows SPI to plugin  * and offer Swagger API service listings as part of the Camel component. This allows rest-dsl components  * such as servlet/jetty/netty4-http to offer Swagger API listings with minimal effort.  */
+end_comment
+
 begin_class
 DECL|class|RestSwaggerSupport
 specifier|public
@@ -328,7 +340,7 @@ specifier|private
 name|boolean
 name|cors
 decl_stmt|;
-DECL|method|initSwagger (BeanConfig swaggerConfig, SwaggerApiProvider config)
+DECL|method|initSwagger (BeanConfig swaggerConfig, Map<String, Object> config)
 specifier|public
 name|void
 name|initSwagger
@@ -336,7 +348,12 @@ parameter_list|(
 name|BeanConfig
 name|swaggerConfig
 parameter_list|,
-name|SwaggerApiProvider
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|config
 parameter_list|)
 block|{
@@ -344,9 +361,12 @@ comment|// configure swagger options
 name|String
 name|s
 init|=
+operator|(
+name|String
+operator|)
 name|config
 operator|.
-name|getInitParameter
+name|get
 argument_list|(
 literal|"swagger.version"
 argument_list|)
@@ -368,9 +388,12 @@ expr_stmt|;
 block|}
 name|s
 operator|=
+operator|(
+name|String
+operator|)
 name|config
 operator|.
-name|getInitParameter
+name|get
 argument_list|(
 literal|"base.path"
 argument_list|)
@@ -392,9 +415,12 @@ expr_stmt|;
 block|}
 name|s
 operator|=
+operator|(
+name|String
+operator|)
 name|config
 operator|.
-name|getInitParameter
+name|get
 argument_list|(
 literal|"host"
 argument_list|)
@@ -416,9 +442,12 @@ expr_stmt|;
 block|}
 name|s
 operator|=
+operator|(
+name|String
+operator|)
 name|config
 operator|.
-name|getInitParameter
+name|get
 argument_list|(
 literal|"cors"
 argument_list|)
@@ -442,9 +471,12 @@ expr_stmt|;
 block|}
 name|s
 operator|=
+operator|(
+name|String
+operator|)
 name|config
 operator|.
-name|getInitParameter
+name|get
 argument_list|(
 literal|"schemas"
 argument_list|)
@@ -494,9 +526,12 @@ block|}
 name|String
 name|version
 init|=
+operator|(
+name|String
+operator|)
 name|config
 operator|.
-name|getInitParameter
+name|get
 argument_list|(
 literal|"api.version"
 argument_list|)
@@ -504,9 +539,12 @@ decl_stmt|;
 name|String
 name|title
 init|=
+operator|(
+name|String
+operator|)
 name|config
 operator|.
-name|getInitParameter
+name|get
 argument_list|(
 literal|"api.title"
 argument_list|)
@@ -514,9 +552,12 @@ decl_stmt|;
 name|String
 name|description
 init|=
+operator|(
+name|String
+operator|)
 name|config
 operator|.
-name|getInitParameter
+name|get
 argument_list|(
 literal|"api.description"
 argument_list|)
@@ -524,9 +565,12 @@ decl_stmt|;
 name|String
 name|termsOfService
 init|=
+operator|(
+name|String
+operator|)
 name|config
 operator|.
-name|getInitParameter
+name|get
 argument_list|(
 literal|"api.termsOfService"
 argument_list|)
@@ -534,9 +578,12 @@ decl_stmt|;
 name|String
 name|licenseName
 init|=
+operator|(
+name|String
+operator|)
 name|config
 operator|.
-name|getInitParameter
+name|get
 argument_list|(
 literal|"api.license.name"
 argument_list|)
@@ -544,9 +591,12 @@ decl_stmt|;
 name|String
 name|licenseUrl
 init|=
+operator|(
+name|String
+operator|)
 name|config
 operator|.
-name|getInitParameter
+name|get
 argument_list|(
 literal|"api.license.url"
 argument_list|)
@@ -554,9 +604,12 @@ decl_stmt|;
 name|String
 name|contactName
 init|=
+operator|(
+name|String
+operator|)
 name|config
 operator|.
-name|getInitParameter
+name|get
 argument_list|(
 literal|"api.contact.name"
 argument_list|)
@@ -564,9 +617,12 @@ decl_stmt|;
 name|String
 name|contactUrl
 init|=
+operator|(
+name|String
+operator|)
 name|config
 operator|.
-name|getInitParameter
+name|get
 argument_list|(
 literal|"api.contact.url"
 argument_list|)
@@ -574,9 +630,12 @@ decl_stmt|;
 name|String
 name|contactEmail
 init|=
+operator|(
+name|String
+operator|)
 name|config
 operator|.
-name|getInitParameter
+name|get
 argument_list|(
 literal|"api.contact.email"
 argument_list|)
@@ -1073,13 +1132,13 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|renderResourceListing (SwaggerApiProvider provider, BeanConfig swaggerConfig, String contextId, String route)
+DECL|method|renderResourceListing (RestApiResponseAdapter response, BeanConfig swaggerConfig, String contextId, String route)
 specifier|public
 name|void
 name|renderResourceListing
 parameter_list|(
-name|SwaggerApiProvider
-name|provider
+name|RestApiResponseAdapter
+name|response
 parameter_list|,
 name|BeanConfig
 name|swaggerConfig
@@ -1105,7 +1164,7 @@ condition|(
 name|cors
 condition|)
 block|{
-name|provider
+name|response
 operator|.
 name|addHeader
 argument_list|(
@@ -1114,7 +1173,7 @@ argument_list|,
 literal|"Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
 argument_list|)
 expr_stmt|;
-name|provider
+name|response
 operator|.
 name|addHeader
 argument_list|(
@@ -1123,7 +1182,7 @@ argument_list|,
 literal|"GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT, PATCH"
 argument_list|)
 expr_stmt|;
-name|provider
+name|response
 operator|.
 name|addHeader
 argument_list|(
@@ -1201,7 +1260,7 @@ name|mapper
 operator|.
 name|writeValue
 argument_list|(
-name|provider
+name|response
 operator|.
 name|getOutputStream
 argument_list|()
@@ -1212,7 +1271,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|provider
+name|response
 operator|.
 name|noContent
 argument_list|()
@@ -1220,13 +1279,13 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Renders a list of available CamelContexts in the JVM      */
-DECL|method|renderCamelContexts (SwaggerApiProvider provider)
+DECL|method|renderCamelContexts (RestApiResponseAdapter response)
 specifier|public
 name|void
 name|renderCamelContexts
 parameter_list|(
-name|SwaggerApiProvider
-name|provider
+name|RestApiResponseAdapter
+name|response
 parameter_list|)
 throws|throws
 name|Exception
@@ -1243,7 +1302,7 @@ condition|(
 name|cors
 condition|)
 block|{
-name|provider
+name|response
 operator|.
 name|addHeader
 argument_list|(
@@ -1252,7 +1311,7 @@ argument_list|,
 literal|"Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
 argument_list|)
 expr_stmt|;
-name|provider
+name|response
 operator|.
 name|addHeader
 argument_list|(
@@ -1261,7 +1320,7 @@ argument_list|,
 literal|"GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT, PATCH"
 argument_list|)
 expr_stmt|;
-name|provider
+name|response
 operator|.
 name|addHeader
 argument_list|(
@@ -1280,7 +1339,7 @@ init|=
 name|findCamelContexts
 argument_list|()
 decl_stmt|;
-name|provider
+name|response
 operator|.
 name|getOutputStream
 argument_list|()
@@ -1321,7 +1380,7 @@ argument_list|(
 name|i
 argument_list|)
 decl_stmt|;
-name|provider
+name|response
 operator|.
 name|getOutputStream
 argument_list|()
@@ -1352,7 +1411,7 @@ operator|-
 literal|1
 condition|)
 block|{
-name|provider
+name|response
 operator|.
 name|getOutputStream
 argument_list|()
@@ -1367,7 +1426,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|provider
+name|response
 operator|.
 name|getOutputStream
 argument_list|()

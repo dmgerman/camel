@@ -128,6 +128,11 @@ specifier|private
 name|String
 name|contextPath
 decl_stmt|;
+DECL|field|apiContextPath
+specifier|private
+name|String
+name|apiContextPath
+decl_stmt|;
 DECL|field|restHostNameResolver
 specifier|private
 name|RestHostNameResolver
@@ -354,6 +359,33 @@ block|{
 name|this
 operator|.
 name|contextPath
+operator|=
+name|contextPath
+expr_stmt|;
+block|}
+DECL|method|getApiContextPath ()
+specifier|public
+name|String
+name|getApiContextPath
+parameter_list|()
+block|{
+return|return
+name|apiContextPath
+return|;
+block|}
+comment|/**      * Sets a leading API context-path the REST API services will be using.      *<p/>      * This can be used when using components such as<tt>camel-servlet</tt> where the deployed web application      * is deployed using a context-path.      *      * @param contextPath the API context path      */
+DECL|method|setApiContextPath (String contextPath)
+specifier|public
+name|void
+name|setApiContextPath
+parameter_list|(
+name|String
+name|contextPath
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiContextPath
 operator|=
 name|contextPath
 expr_stmt|;
