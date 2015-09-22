@@ -118,6 +118,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|RestConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RestConsumerFactory
 import|;
 end_import
@@ -134,7 +148,7 @@ name|RestApiConsumerFactory
 block|{
 annotation|@
 name|Override
-DECL|method|createConsumer (CamelContext camelContext, Processor processor, String verb, String basePath, String uriTemplate, String consumes, String produces, Map<String, Object> parameters)
+DECL|method|createConsumer (CamelContext camelContext, Processor processor, String verb, String basePath, String uriTemplate, String consumes, String produces, RestConfiguration configuration, Map<String, Object> parameters)
 specifier|public
 name|Consumer
 name|createConsumer
@@ -159,6 +173,9 @@ name|consumes
 parameter_list|,
 name|String
 name|produces
+parameter_list|,
+name|RestConfiguration
+name|configuration
 parameter_list|,
 name|Map
 argument_list|<
@@ -258,7 +275,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createApiConsumer (CamelContext camelContext, Processor processor, String contextPath, Map<String, Object> parameters)
+DECL|method|createApiConsumer (CamelContext camelContext, Processor processor, String contextPath, RestConfiguration configuration, Map<String, Object> parameters)
 specifier|public
 name|Consumer
 name|createApiConsumer
@@ -271,6 +288,9 @@ name|processor
 parameter_list|,
 name|String
 name|contextPath
+parameter_list|,
+name|RestConfiguration
+name|configuration
 parameter_list|,
 name|Map
 argument_list|<

@@ -256,6 +256,26 @@ name|out
 operator|.
 name|contains
 argument_list|(
+literal|"\"version\" : \"1.2.3\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|out
+operator|.
+name|contains
+argument_list|(
+literal|"\"title\" : \"The hello rest thing\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|out
+operator|.
+name|contains
+argument_list|(
 literal|"\"/hello/bye/{name}\""
 argument_list|)
 argument_list|)
@@ -327,6 +347,27 @@ operator|.
 name|apiContextPath
 argument_list|(
 literal|"/api-doc"
+argument_list|)
+operator|.
+name|apiProperty
+argument_list|(
+literal|"cors"
+argument_list|,
+literal|"true"
+argument_list|)
+operator|.
+name|apiProperty
+argument_list|(
+literal|"api.title"
+argument_list|,
+literal|"The hello rest thing"
+argument_list|)
+operator|.
+name|apiProperty
+argument_list|(
+literal|"api.version"
+argument_list|,
+literal|"1.2.3"
 argument_list|)
 expr_stmt|;
 name|rest

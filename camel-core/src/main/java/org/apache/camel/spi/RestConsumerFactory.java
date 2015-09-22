@@ -69,7 +69,7 @@ interface|interface
 name|RestConsumerFactory
 block|{
 comment|/**      * Creates a new REST<a      * href="http://camel.apache.org/event-driven-consumer.html">Event      * Driven Consumer</a>, which consumes messages from the endpoint using the given processor      *      * @param camelContext the camel context      * @param processor    the processor      * @param verb         HTTP verb such as GET, POST      * @param basePath     base path      * @param uriTemplate  uri template      * @param consumes     media-types for what this REST service consume as input (accept-type), is<tt>null</tt> or<tt>&#42;/&#42;</tt> for anything      * @param produces     media-types for what this REST service produces as output, can be<tt>null</tt>      * @param parameters   additional parameters      * @return a newly created REST consumer      * @throws Exception can be thrown      */
-DECL|method|createConsumer (CamelContext camelContext, Processor processor, String verb, String basePath, String uriTemplate, String consumes, String produces, Map<String, Object> parameters)
+DECL|method|createConsumer (CamelContext camelContext, Processor processor, String verb, String basePath, String uriTemplate, String consumes, String produces, RestConfiguration configuration, Map<String, Object> parameters)
 name|Consumer
 name|createConsumer
 parameter_list|(
@@ -93,6 +93,9 @@ name|consumes
 parameter_list|,
 name|String
 name|produces
+parameter_list|,
+name|RestConfiguration
+name|configuration
 parameter_list|,
 name|Map
 argument_list|<

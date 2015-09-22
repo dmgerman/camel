@@ -108,6 +108,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|RestConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|RestConsumerFactory
 import|;
 end_import
@@ -122,7 +136,7 @@ name|RestConsumerFactory
 block|{
 annotation|@
 name|Override
-DECL|method|createConsumer (CamelContext camelContext, Processor processor, String verb, String path, String uriTemplate, String consumes, String produces, Map<String, Object> parameters)
+DECL|method|createConsumer (CamelContext camelContext, Processor processor, String verb, String basePath, String uriTemplate, String consumes, String produces, RestConfiguration configuration, Map<String, Object> parameters)
 specifier|public
 name|Consumer
 name|createConsumer
@@ -137,7 +151,7 @@ name|String
 name|verb
 parameter_list|,
 name|String
-name|path
+name|basePath
 parameter_list|,
 name|String
 name|uriTemplate
@@ -147,6 +161,9 @@ name|consumes
 parameter_list|,
 name|String
 name|produces
+parameter_list|,
+name|RestConfiguration
+name|configuration
 parameter_list|,
 name|Map
 argument_list|<
@@ -176,7 +193,7 @@ name|ActiveMQUuidGenerator
 operator|.
 name|generateSanitizedId
 argument_list|(
-name|path
+name|basePath
 operator|+
 name|uriTemplate
 argument_list|)
@@ -190,7 +207,7 @@ name|ActiveMQUuidGenerator
 operator|.
 name|generateSanitizedId
 argument_list|(
-name|path
+name|basePath
 argument_list|)
 expr_stmt|;
 block|}

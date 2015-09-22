@@ -467,6 +467,19 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|RestConfiguration
+name|config
+init|=
+name|getCamelContext
+argument_list|()
+operator|.
+name|getRestConfiguration
+argument_list|(
+name|componentName
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
 comment|// calculate the url to the rest API service
 name|String
 name|path
@@ -507,6 +520,8 @@ name|getCamelContext
 argument_list|()
 argument_list|,
 name|path
+argument_list|,
+name|config
 argument_list|,
 name|getParameters
 argument_list|()
@@ -860,6 +875,8 @@ argument_list|,
 name|processor
 argument_list|,
 name|path
+argument_list|,
+name|config
 argument_list|,
 name|getParameters
 argument_list|()

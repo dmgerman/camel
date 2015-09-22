@@ -78,6 +78,20 @@ name|RestApiProcessorFactory
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RestConfiguration
+import|;
+end_import
+
 begin_class
 DECL|class|DummyRestProcessorFactory
 specifier|public
@@ -88,7 +102,7 @@ name|RestApiProcessorFactory
 block|{
 annotation|@
 name|Override
-DECL|method|createApiProcessor (CamelContext camelContext, String contextPath, Map<String, Object> parameters)
+DECL|method|createApiProcessor (CamelContext camelContext, String contextPath, RestConfiguration configuration, Map<String, Object> parameters)
 specifier|public
 name|Processor
 name|createApiProcessor
@@ -98,6 +112,9 @@ name|camelContext
 parameter_list|,
 name|String
 name|contextPath
+parameter_list|,
+name|RestConfiguration
+name|configuration
 parameter_list|,
 name|Map
 argument_list|<
@@ -127,7 +144,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// noop;
+comment|// noop
 block|}
 block|}
 return|;

@@ -213,6 +213,16 @@ name|Object
 argument_list|>
 name|dataFormatProperties
 decl_stmt|;
+DECL|field|apiProperties
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|apiProperties
+decl_stmt|;
 DECL|field|corsHeaders
 specifier|private
 name|Map
@@ -752,6 +762,43 @@ operator|.
 name|dataFormatProperties
 operator|=
 name|dataFormatProperties
+expr_stmt|;
+block|}
+DECL|method|getApiProperties ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getApiProperties
+parameter_list|()
+block|{
+return|return
+name|apiProperties
+return|;
+block|}
+comment|/**      * Sets additional options on api level      *      * @param apiProperties the options      */
+DECL|method|setApiProperties (Map<String, Object> apiProperties)
+specifier|public
+name|void
+name|setApiProperties
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|apiProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiProperties
+operator|=
+name|apiProperties
 expr_stmt|;
 block|}
 comment|/**      * Gets the CORS headers to use if CORS has been enabled.      *      * @return the CORS headers      */

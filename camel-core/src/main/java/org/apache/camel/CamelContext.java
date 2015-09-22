@@ -1211,7 +1211,7 @@ name|RestConfiguration
 name|restConfiguration
 parameter_list|)
 function_decl|;
-comment|/**      * Gets the REST configuration for the given component      * @param component the component name to get the configuration      * @param defaultIfNotFound determine if the default configuration is returned if there isn't a       *        specific configuration for the given component        * @return the configuration, or<tt>null</tt> if none has been configured.      */
+comment|/**      * Gets the REST configuration for the given component      *      * @param component the component name to get the configuration      * @param defaultIfNotFound determine if the default configuration is returned if there isn't a       *        specific configuration for the given component        * @return the configuration, or<tt>null</tt> if none has been configured.      */
 DECL|method|getRestConfiguration (String component, boolean defaultIfNotFound)
 name|RestConfiguration
 name|getRestConfiguration
@@ -1223,7 +1223,7 @@ name|boolean
 name|defaultIfNotFound
 parameter_list|)
 function_decl|;
-comment|/**      * Gets all the RestConfigurations       * @return      */
+comment|/**      * Gets all the RestConfiguration's      */
 DECL|method|getRestConfigurations ()
 name|Collection
 argument_list|<

@@ -3392,7 +3392,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createConsumer (CamelContext camelContext, Processor processor, String verb, String basePath, String uriTemplate, String consumes, String produces, Map<String, Object> parameters)
+DECL|method|createConsumer (CamelContext camelContext, Processor processor, String verb, String basePath, String uriTemplate, String consumes, String produces, RestConfiguration configuration, Map<String, Object> parameters)
 specifier|public
 name|Consumer
 name|createConsumer
@@ -3417,6 +3417,9 @@ name|consumes
 parameter_list|,
 name|String
 name|produces
+parameter_list|,
+name|RestConfiguration
+name|configuration
 parameter_list|,
 name|Map
 argument_list|<
@@ -3503,6 +3506,17 @@ comment|// if no explicit port/host configured, then use port from rest configur
 name|RestConfiguration
 name|config
 init|=
+name|configuration
+decl_stmt|;
+if|if
+condition|(
+name|config
+operator|==
+literal|null
+condition|)
+block|{
+name|config
+operator|=
 name|getCamelContext
 argument_list|()
 operator|.
@@ -3512,7 +3526,8 @@ literal|"restlet"
 argument_list|,
 literal|true
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|config
@@ -3647,11 +3662,6 @@ comment|// build query string, and append any endpoint configuration properties
 if|if
 condition|(
 name|config
-operator|!=
-literal|null
-operator|&&
-operator|(
-name|config
 operator|.
 name|getComponent
 argument_list|()
@@ -3667,7 +3677,6 @@ name|equals
 argument_list|(
 literal|"restlet"
 argument_list|)
-operator|)
 condition|)
 block|{
 comment|// setup endpoint options
@@ -3833,10 +3842,6 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|config
-operator|!=
-literal|null
-operator|&&
 name|config
 operator|.
 name|getConsumerProperties

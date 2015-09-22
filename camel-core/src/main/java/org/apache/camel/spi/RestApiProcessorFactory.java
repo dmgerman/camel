@@ -57,7 +57,7 @@ interface|interface
 name|RestApiProcessorFactory
 block|{
 comment|/**      * Creates a new REST API<a      * href="http://camel.apache.org/processor.html">Processor      *</a>, which provides API listing of the REST services      *      * @param camelContext the camel context      * @param contextPath  the context-path      * @param parameters   additional parameters      *      * @return a newly created REST API provider      * @throws Exception can be thrown      */
-DECL|method|createApiProcessor (CamelContext camelContext, String contextPath, Map<String, Object> parameters)
+DECL|method|createApiProcessor (CamelContext camelContext, String contextPath, RestConfiguration configuration, Map<String, Object> parameters)
 name|Processor
 name|createApiProcessor
 parameter_list|(
@@ -66,6 +66,9 @@ name|camelContext
 parameter_list|,
 name|String
 name|contextPath
+parameter_list|,
+name|RestConfiguration
+name|configuration
 parameter_list|,
 name|Map
 argument_list|<
