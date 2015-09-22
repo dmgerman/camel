@@ -186,6 +186,11 @@ name|path
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|)
 DECL|field|urlDecodeHeaders
 specifier|private
 name|boolean
@@ -194,6 +199,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -207,6 +216,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|)
 DECL|field|compression
 specifier|private
 name|boolean
@@ -215,6 +229,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -228,6 +246,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|transferException
 specifier|private
 name|boolean
@@ -235,6 +258,11 @@ name|transferException
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|matchOnUriPrefix
 specifier|private
 name|boolean
@@ -249,6 +277,11 @@ name|bridgeEndpoint
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|)
 DECL|field|disableStreamCache
 specifier|private
 name|boolean
@@ -275,6 +308,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|,
 name|defaultValue
 operator|=
 literal|""
@@ -297,7 +334,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -315,7 +352,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -333,11 +370,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
+literal|"producer,advanced"
 argument_list|)
 DECL|field|useRelativePath
 specifier|private
@@ -840,7 +873,7 @@ operator|=
 name|okStatusCodeRange
 expr_stmt|;
 block|}
-comment|/**      * Sets whether to use a relative path in HTTP requests.      */
+comment|/**      * Sets whether to use a relative path in HTTP requests.      *<p/>      * Some third party backend systems such as IBM Datapower do not support absolute URIs in HTTP POSTs, and setting      * this option to<tt>true</tt> can work around this problem.      */
 DECL|method|setUseRelativePath (boolean useRelativePath)
 specifier|public
 name|void
