@@ -588,7 +588,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Exchange[null]"
+literal|"Exchange[]"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -808,7 +808,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"Exchange[null]"
+literal|"Exchange[]"
 argument_list|)
 argument_list|)
 expr_stmt|;
