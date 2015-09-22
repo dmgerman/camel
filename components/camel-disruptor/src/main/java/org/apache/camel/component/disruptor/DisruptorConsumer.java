@@ -563,12 +563,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|prepareShutdown (final boolean forced)
+DECL|method|prepareShutdown (boolean suspendOnly, boolean forced)
 specifier|public
 name|void
 name|prepareShutdown
 parameter_list|(
-specifier|final
+name|boolean
+name|suspendOnly
+parameter_list|,
 name|boolean
 name|forced
 parameter_list|)
