@@ -18,50 +18,34 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|IOException
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
 begin_comment
-comment|/**  * An adapter to allow Camel rest-api to use Camel components to render the api response.  */
+comment|/**  * Factory to create {@link RestApiResponseAdapter} which allows Camel components  * to provide a response adapter to be used by the rest-dsl api support.  */
 end_comment
 
 begin_interface
-DECL|interface|RestApiResponseAdapter
+DECL|interface|RestApiResponseAdapterFactory
 specifier|public
 interface|interface
-name|RestApiResponseAdapter
+name|RestApiResponseAdapterFactory
 block|{
-DECL|method|addHeader (String name, String value)
-name|void
-name|addHeader
+comment|/**      * Creates a new {@link RestApiResponseAdapter}      *      * @param exchange  the exchange      * @return the adapter      */
+DECL|method|newAdapter (Exchange exchange)
+name|RestApiResponseAdapter
+name|newAdapter
 parameter_list|(
-name|String
-name|name
-parameter_list|,
-name|String
-name|value
+name|Exchange
+name|exchange
 parameter_list|)
-function_decl|;
-DECL|method|writeBytes (byte[] bytes)
-name|void
-name|writeBytes
-parameter_list|(
-name|byte
-index|[]
-name|bytes
-parameter_list|)
-throws|throws
-name|IOException
-function_decl|;
-DECL|method|noContent ()
-name|void
-name|noContent
-parameter_list|()
 function_decl|;
 block|}
 end_interface
