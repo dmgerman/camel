@@ -243,6 +243,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"65536"
@@ -257,6 +261,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"65536"
@@ -270,6 +278,11 @@ literal|65536
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|receiveBufferSizePredictor
 specifier|protected
 name|int
@@ -280,7 +293,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -298,7 +311,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|)
 DECL|field|workerCount
 specifier|protected
@@ -370,7 +383,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|)
 DECL|field|backlog
 specifier|protected
@@ -382,7 +395,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|)
 DECL|field|serverPipelineFactory
 specifier|protected
@@ -394,7 +407,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|)
 DECL|field|nettyServerBootstrapFactory
 specifier|protected
@@ -414,6 +427,11 @@ decl_stmt|;
 comment|// SSL options is also part of the server bootstrap as the server listener on port X is either plain or SSL
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|ssl
 specifier|protected
 name|boolean
@@ -421,6 +439,11 @@ name|ssl
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|sslClientCertHeaders
 specifier|protected
 name|boolean
@@ -428,6 +451,11 @@ name|sslClientCertHeaders
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|sslHandler
 specifier|protected
 name|SslHandler
@@ -435,6 +463,11 @@ name|sslHandler
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|sslContextParameters
 specifier|protected
 name|SSLContextParameters
@@ -445,7 +478,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,security"
 argument_list|)
 DECL|field|needClientAuth
 specifier|protected
@@ -454,6 +487,11 @@ name|needClientAuth
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|keyStoreFile
 specifier|protected
 name|File
@@ -461,6 +499,11 @@ name|keyStoreFile
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|trustStoreFile
 specifier|protected
 name|File
@@ -468,6 +511,11 @@ name|trustStoreFile
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|keyStoreResource
 specifier|protected
 name|String
@@ -475,6 +523,11 @@ name|keyStoreResource
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|trustStoreResource
 specifier|protected
 name|String
@@ -486,6 +539,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"JKS"
+argument_list|,
+name|label
+operator|=
+literal|"security"
 argument_list|)
 DECL|field|keyStoreFormat
 specifier|protected
@@ -500,6 +557,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"SunX509"
+argument_list|,
+name|label
+operator|=
+literal|"security"
 argument_list|)
 DECL|field|securityProvider
 specifier|protected
@@ -514,6 +575,10 @@ argument_list|(
 name|defaultValue
 operator|=
 name|DEFAULT_ENABLED_PROTOCOLS
+argument_list|,
+name|label
+operator|=
+literal|"security"
 argument_list|)
 DECL|field|enabledProtocols
 specifier|protected
@@ -524,6 +589,11 @@ name|DEFAULT_ENABLED_PROTOCOLS
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|passphrase
 specifier|protected
 name|String
@@ -544,7 +614,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|)
 DECL|field|networkInterface
 specifier|protected

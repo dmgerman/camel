@@ -424,7 +424,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -439,6 +439,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|transferExchange
 specifier|private
 name|boolean
@@ -467,7 +472,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -487,7 +492,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -507,7 +512,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -541,7 +546,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|)
 DECL|field|clientPipelineFactory
 specifier|private
@@ -561,7 +566,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -579,7 +584,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -598,7 +603,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|)
 DECL|field|producerPoolMinIdle
 specifier|private
@@ -610,7 +615,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -628,7 +633,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -656,7 +661,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -674,7 +679,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|)
 DECL|field|udpConnectionlessSending
 specifier|private
@@ -698,7 +703,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"producer,advanced"
 argument_list|)
 DECL|field|useChannelBuffer
 specifier|private
@@ -710,7 +715,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -738,7 +743,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
