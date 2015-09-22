@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spi
+DECL|package|org.apache.camel.swagger
 package|package
 name|org
 operator|.
@@ -12,7 +12,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|swagger
 package|;
 end_package
 
@@ -25,10 +25,6 @@ operator|.
 name|IOException
 import|;
 end_import
-
-begin_comment
-comment|/**  * An adapter to allow Camel rest-api to use Camel components to render the api response.  */
-end_comment
 
 begin_interface
 DECL|interface|RestApiResponseAdapter

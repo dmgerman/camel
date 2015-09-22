@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Netty HTTP {@link org.apache.camel.component.netty.handlers.ClientChannelHandler} that handles the response combing  * back from the HTTP server, called by this client.  *  */
+comment|/**  * Netty HTTP {@link org.apache.camel.component.netty4.handlers.ClientChannelHandler} that handles the response combing  * back from the HTTP server, called by this client.  */
 end_comment
 
 begin_class

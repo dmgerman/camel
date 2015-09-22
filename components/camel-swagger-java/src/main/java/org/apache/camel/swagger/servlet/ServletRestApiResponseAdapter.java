@@ -48,7 +48,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
+name|swagger
 operator|.
 name|RestApiResponseAdapter
 import|;
