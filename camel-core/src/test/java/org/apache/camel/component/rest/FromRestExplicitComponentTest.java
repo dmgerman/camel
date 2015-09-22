@@ -266,6 +266,22 @@ operator|.
 name|endResponseMessage
 argument_list|()
 operator|.
+name|responseMessage
+argument_list|()
+operator|.
+name|code
+argument_list|(
+literal|"error"
+argument_list|)
+operator|.
+name|message
+argument_list|(
+literal|"does not work"
+argument_list|)
+operator|.
+name|endResponseMessage
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"direct:bye"
