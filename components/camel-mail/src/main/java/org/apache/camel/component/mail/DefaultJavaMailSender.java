@@ -506,7 +506,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Sending MimMessage: {} using host: {}"
+literal|"Sending MimeMessage: {} using host: {}"
 argument_list|,
 name|mimeMessage
 argument_list|,
