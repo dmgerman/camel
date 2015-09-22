@@ -816,13 +816,16 @@ expr_stmt|;
 block|}
 continue|continue;
 block|}
-comment|// do not poll if we are suspended
+comment|// do not poll if we are suspended or starting again after resuming
 if|if
 condition|(
 name|isSuspending
 argument_list|()
 operator|||
 name|isSuspended
+argument_list|()
+operator|||
+name|isStarting
 argument_list|()
 condition|)
 block|{
@@ -1445,8 +1448,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|doStart
-argument_list|()
+name|endpoint
+operator|.
+name|onStarted
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|doStop ()
