@@ -601,15 +601,34 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|prepareShutdown (boolean forced)
+DECL|method|prepareShutdown (boolean suspendOnly, boolean forced)
 specifier|public
 name|void
 name|prepareShutdown
 parameter_list|(
 name|boolean
+name|suspendOnly
+parameter_list|,
+name|boolean
 name|forced
 parameter_list|)
 block|{
+comment|// if we are suspending then we want to keep the thread running but just not route the exchange
+comment|// this logic is only when we stop or shutdown the consumer
+if|if
+condition|(
+name|suspendOnly
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Skip preparing to shutdown as consumer is being suspended"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|// signal we want to shutdown
 name|shutdownPending
 operator|=

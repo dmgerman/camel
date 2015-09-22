@@ -300,11 +300,14 @@ return|return
 literal|0
 return|;
 block|}
-DECL|method|prepareShutdown (boolean forced)
+DECL|method|prepareShutdown (boolean suspendOnly, boolean forced)
 specifier|public
 name|void
 name|prepareShutdown
 parameter_list|(
+name|boolean
+name|suspendOnly
+parameter_list|,
 name|boolean
 name|forced
 parameter_list|)

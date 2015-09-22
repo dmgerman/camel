@@ -145,6 +145,14 @@ argument_list|(
 literal|"foo"
 argument_list|)
 expr_stmt|;
+comment|// need to give seda consumer thread time to idle
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
 name|template
 operator|.
 name|sendBody

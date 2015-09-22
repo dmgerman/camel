@@ -962,6 +962,46 @@ name|routesOrdered
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|suspendOnly
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Starting to graceful suspend "
+operator|+
+name|routesOrdered
+operator|.
+name|size
+argument_list|()
+operator|+
+literal|" routes (timeout "
+operator|+
+name|timeout
+operator|+
+literal|" "
+operator|+
+name|timeUnit
+operator|.
+name|toString
+argument_list|()
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|)
+operator|+
+literal|")"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|LOG
 operator|.
 name|info
@@ -994,6 +1034,7 @@ operator|+
 literal|")"
 argument_list|)
 expr_stmt|;
+block|}
 comment|// use another thread to perform the shutdowns so we can support timeout
 name|timeoutOccurred
 operator|.
@@ -1181,6 +1222,8 @@ block|{
 name|prepareShutdown
 argument_list|(
 name|service
+argument_list|,
+literal|false
 argument_list|,
 literal|true
 argument_list|,
@@ -1912,8 +1955,8 @@ literal|null
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Prepares the services for shutdown, by invoking the {@link ShutdownPrepared#prepareShutdown(boolean)} method      * on the service if it implement this interface.      *      * @param service the service      * @param forced  whether to force shutdown      * @param includeChildren whether to prepare the child of the service as well      */
-DECL|method|prepareShutdown (Service service, boolean forced, boolean includeChildren, boolean suppressLogging)
+comment|/**      * Prepares the services for shutdown, by invoking the {@link ShutdownPrepared#prepareShutdown(boolean, boolean)} method      * on the service if it implement this interface.      *      * @param service the service      * @param forced  whether to force shutdown      * @param includeChildren whether to prepare the child of the service as well      */
+DECL|method|prepareShutdown (Service service, boolean suspendOnly, boolean forced, boolean includeChildren, boolean suppressLogging)
 specifier|private
 specifier|static
 name|void
@@ -1921,6 +1964,9 @@ name|prepareShutdown
 parameter_list|(
 name|Service
 name|service
+parameter_list|,
+name|boolean
+name|suspendOnly
 parameter_list|,
 name|boolean
 name|forced
@@ -2018,6 +2064,8 @@ operator|)
 operator|.
 name|prepareShutdown
 argument_list|(
+name|suspendOnly
+argument_list|,
 name|forced
 argument_list|)
 expr_stmt|;
@@ -2614,6 +2662,8 @@ name|prepareShutdown
 argument_list|(
 name|service
 argument_list|,
+name|suspendOnly
+argument_list|,
 literal|false
 argument_list|,
 literal|true
@@ -2993,6 +3043,8 @@ name|prepareShutdown
 argument_list|(
 name|consumer
 argument_list|,
+name|suspendOnly
+argument_list|,
 name|forced
 argument_list|,
 literal|false
@@ -3147,6 +3199,8 @@ decl_stmt|;
 name|prepareShutdown
 argument_list|(
 name|service
+argument_list|,
+name|suspendOnly
 argument_list|,
 name|forced
 argument_list|,
