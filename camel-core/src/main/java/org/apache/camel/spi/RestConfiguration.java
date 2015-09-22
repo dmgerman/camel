@@ -108,6 +108,11 @@ specifier|private
 name|String
 name|component
 decl_stmt|;
+DECL|field|apiComponent
+specifier|private
+name|String
+name|apiComponent
+decl_stmt|;
 DECL|field|scheme
 specifier|private
 name|String
@@ -259,6 +264,34 @@ operator|.
 name|component
 operator|=
 name|componentName
+expr_stmt|;
+block|}
+comment|/**      * Gets the name of the Camel component to use as the REST API (such as swagger)      *      * @return the component name, or<tt>null</tt> to let Camel use the default name<tt>swagger</tt>      */
+DECL|method|getApiComponent ()
+specifier|public
+name|String
+name|getApiComponent
+parameter_list|()
+block|{
+return|return
+name|apiComponent
+return|;
+block|}
+comment|/**      * Sets the name of the Camel component to use as the REST API (such as swagger)      *      * @param apiComponent the name of the component (such as swagger)      */
+DECL|method|setApiComponent (String apiComponent)
+specifier|public
+name|void
+name|setApiComponent
+parameter_list|(
+name|String
+name|apiComponent
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiComponent
+operator|=
+name|apiComponent
 expr_stmt|;
 block|}
 comment|/**      * Gets the hostname to use by the REST consumer      *      * @return the hostname, or<tt>null</tt> to use default hostname      */
