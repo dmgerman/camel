@@ -288,7 +288,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<get>"
+literal|"<get"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -308,7 +308,7 @@ name|xml
 operator|.
 name|contains
 argument_list|(
-literal|"<post>"
+literal|"<post"
 argument_list|)
 argument_list|)
 expr_stmt|;

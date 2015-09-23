@@ -587,7 +587,14 @@ name|next
 argument_list|()
 expr_stmt|;
 block|}
-comment|// lookup on classpath using factory finder
+comment|// lookup on classpath using factory finder to automatic find it (just add camel-swagger-java to classpath etc)
+if|if
+condition|(
+name|factory
+operator|==
+literal|null
+condition|)
+block|{
 name|String
 name|name
 init|=
@@ -644,6 +651,7 @@ name|RestApiProcessorFactory
 operator|)
 name|instance
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
