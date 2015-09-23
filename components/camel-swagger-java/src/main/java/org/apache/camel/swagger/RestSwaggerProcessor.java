@@ -92,6 +92,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -150,17 +164,26 @@ specifier|final
 name|String
 name|contextIdPattern
 decl_stmt|;
+DECL|field|contextIdListing
+specifier|private
+specifier|final
+name|boolean
+name|contextIdListing
+decl_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|RestSwaggerProcessor (String contextIdPattern, Map<String, Object> parameters)
+DECL|method|RestSwaggerProcessor (String contextIdPattern, boolean contextIdListing, Map<String, Object> parameters)
 specifier|public
 name|RestSwaggerProcessor
 parameter_list|(
 name|String
 name|contextIdPattern
+parameter_list|,
+name|boolean
+name|contextIdListing
 parameter_list|,
 name|Map
 argument_list|<
@@ -176,6 +199,12 @@ operator|.
 name|contextIdPattern
 operator|=
 name|contextIdPattern
+expr_stmt|;
+name|this
+operator|.
+name|contextIdListing
+operator|=
+name|contextIdListing
 expr_stmt|;
 name|this
 operator|.
@@ -274,15 +303,14 @@ block|{
 comment|// render list of camel contexts as root
 if|if
 condition|(
-name|route
-operator|==
-literal|null
-operator|||
-name|route
+name|contextIdListing
+operator|&&
+operator|(
+name|ObjectHelper
 operator|.
-name|equals
+name|isEmpty
 argument_list|(
-literal|""
+name|route
 argument_list|)
 operator|||
 name|route
@@ -291,6 +319,7 @@ name|equals
 argument_list|(
 literal|"/"
 argument_list|)
+operator|)
 condition|)
 block|{
 name|support
@@ -306,6 +335,19 @@ argument_list|)
 expr_stmt|;
 block|}
 else|else
+block|{
+name|String
+name|name
+decl_stmt|;
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|route
+argument_list|)
+condition|)
 block|{
 comment|// first part is the camel context
 if|if
@@ -329,9 +371,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// the remainder is the route part
-name|String
 name|name
-init|=
+operator|=
 name|route
 operator|.
 name|split
@@ -341,7 +382,7 @@ argument_list|)
 index|[
 literal|0
 index|]
-decl_stmt|;
+expr_stmt|;
 if|if
 condition|(
 name|route
@@ -363,6 +404,21 @@ operator|.
 name|length
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// listing not enabled then get current camel context as the name
+name|name
+operator|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|getName
+argument_list|()
 expr_stmt|;
 block|}
 name|boolean

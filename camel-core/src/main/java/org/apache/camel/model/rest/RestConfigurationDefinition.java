@@ -278,6 +278,13 @@ name|apiContextIdPattern
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|apiContextListing
+specifier|private
+name|Boolean
+name|apiContextListing
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|hostNameResolver
 specifier|private
 name|RestHostNameResolver
@@ -671,6 +678,33 @@ operator|.
 name|apiContextIdPattern
 operator|=
 name|apiContextIdPattern
+expr_stmt|;
+block|}
+DECL|method|getApiContextListing ()
+specifier|public
+name|Boolean
+name|getApiContextListing
+parameter_list|()
+block|{
+return|return
+name|apiContextListing
+return|;
+block|}
+comment|/**      * Sets whether listing of all available CamelContext's with REST services in the JVM is enabled. If enabled it allows to discover      * these contexts, if<tt>false</tt> then only the current CamelContext is in use.      */
+DECL|method|setApiContextListing (Boolean apiContextListing)
+specifier|public
+name|void
+name|setApiContextListing
+parameter_list|(
+name|Boolean
+name|apiContextListing
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiContextListing
+operator|=
+name|apiContextListing
 expr_stmt|;
 block|}
 DECL|method|getHostNameResolver ()
@@ -1183,6 +1217,25 @@ block|{
 name|setApiContextIdPattern
 argument_list|(
 name|pattern
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether listing of all available CamelContext's with REST services in the JVM is enabled. If enabled it allows to discover      * these contexts, if<tt>false</tt> then only the current CamelContext is in use.      */
+DECL|method|apiContextListing (boolean listing)
+specifier|public
+name|RestConfigurationDefinition
+name|apiContextListing
+parameter_list|(
+name|boolean
+name|listing
+parameter_list|)
+block|{
+name|setApiContextListing
+argument_list|(
+name|listing
 argument_list|)
 expr_stmt|;
 return|return
@@ -1797,6 +1850,21 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|apiContextListing
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setApiContextListing
+argument_list|(
+name|apiContextListing
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(

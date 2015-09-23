@@ -68,7 +68,6 @@ specifier|public
 interface|interface
 name|RestApiConsumerFactory
 block|{
-comment|// TODO: merge this method to RestConsumerFactory
 comment|/**      * Creates a new REST API<a      * href="http://camel.apache.org/event-driven-consumer.html">Event      * Driven Consumer</a>, which provides API listing of the REST services      *      * @param camelContext the camel context      * @param processor    the processor      * @param contextPath  the context-path      * @param parameters   additional parameters      *      * @return a newly created REST API consumer      * @throws Exception can be thrown      */
 DECL|method|createApiConsumer (CamelContext camelContext, Processor processor, String contextPath, RestConfiguration configuration, Map<String, Object> parameters)
 name|Consumer

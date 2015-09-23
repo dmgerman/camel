@@ -143,6 +143,11 @@ specifier|private
 name|String
 name|apiContextIdPattern
 decl_stmt|;
+DECL|field|apiContextListing
+specifier|private
+name|boolean
+name|apiContextListing
+decl_stmt|;
 DECL|field|restHostNameResolver
 specifier|private
 name|RestHostNameResolver
@@ -463,6 +468,33 @@ operator|.
 name|apiContextIdPattern
 operator|=
 name|apiContextIdPattern
+expr_stmt|;
+block|}
+DECL|method|isApiContextListing ()
+specifier|public
+name|boolean
+name|isApiContextListing
+parameter_list|()
+block|{
+return|return
+name|apiContextListing
+return|;
+block|}
+comment|/**      * Sets whether listing of all available CamelContext's with REST services in the JVM is enabled. If enabled it allows to discover      * these contexts, if<tt>false</tt> then only the current CamelContext is in use.      */
+DECL|method|setApiContextListing (boolean apiContextListing)
+specifier|public
+name|void
+name|setApiContextListing
+parameter_list|(
+name|boolean
+name|apiContextListing
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiContextListing
+operator|=
+name|apiContextListing
 expr_stmt|;
 block|}
 comment|/**      * Gets the resolver to use for resolving hostname      *      * @return the resolver      */
