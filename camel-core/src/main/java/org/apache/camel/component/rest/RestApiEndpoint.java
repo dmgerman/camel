@@ -654,11 +654,6 @@ condition|)
 block|{
 comment|// if no explicit port/host configured, then use port from rest configuration
 name|String
-name|scheme
-init|=
-literal|"http"
-decl_stmt|;
-name|String
 name|host
 init|=
 literal|""
@@ -668,24 +663,6 @@ name|port
 init|=
 literal|80
 decl_stmt|;
-if|if
-condition|(
-name|config
-operator|.
-name|getScheme
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|scheme
-operator|=
-name|config
-operator|.
-name|getScheme
-argument_list|()
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|config
@@ -781,13 +758,10 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// no host was configured so calculate a host to use
+comment|// there should be no schema in the host (but only port)
 name|String
 name|targetHost
 init|=
-name|scheme
-operator|+
-literal|"://"
-operator|+
 name|host
 operator|+
 operator|(
