@@ -1329,13 +1329,16 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Renders a list of available CamelContexts in the JVM      */
-DECL|method|renderCamelContexts (RestApiResponseAdapter response, String contextIdPattern)
+DECL|method|renderCamelContexts (RestApiResponseAdapter response, String contextId, String contextIdPattern)
 specifier|public
 name|void
 name|renderCamelContexts
 parameter_list|(
 name|RestApiResponseAdapter
 name|response
+parameter_list|,
+name|String
+name|contextId
 parameter_list|,
 name|String
 name|contextIdPattern
@@ -1411,6 +1414,13 @@ name|findCamelContexts
 argument_list|()
 decl_stmt|;
 comment|// filter non matched CamelContext's
+if|if
+condition|(
+name|contextIdPattern
+operator|!=
+literal|null
+condition|)
+block|{
 name|Iterator
 argument_list|<
 name|String
@@ -1440,7 +1450,31 @@ argument_list|()
 decl_stmt|;
 name|boolean
 name|match
-init|=
+decl_stmt|;
+if|if
+condition|(
+literal|"#name#"
+operator|.
+name|equals
+argument_list|(
+name|contextIdPattern
+argument_list|)
+condition|)
+block|{
+name|match
+operator|=
+name|name
+operator|.
+name|equals
+argument_list|(
+name|contextId
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|match
+operator|=
 name|EndpointHelper
 operator|.
 name|matchPattern
@@ -1449,7 +1483,8 @@ name|name
 argument_list|,
 name|contextIdPattern
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 operator|!
@@ -1461,6 +1496,7 @@ operator|.
 name|remove
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 name|sb

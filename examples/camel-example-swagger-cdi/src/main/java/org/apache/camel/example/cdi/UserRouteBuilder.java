@@ -160,7 +160,7 @@ name|port
 argument_list|(
 literal|8080
 argument_list|)
-comment|// add swagger api-doc out of the box, and only allow to docs for this CamelContext
+comment|// add swagger api-doc out of the box, and only allow the docs for this CamelContext (#name#)
 operator|.
 name|apiContextPath
 argument_list|(
