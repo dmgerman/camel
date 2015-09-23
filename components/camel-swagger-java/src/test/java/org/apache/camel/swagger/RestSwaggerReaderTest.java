@@ -473,6 +473,11 @@ literal|null
 argument_list|,
 name|config
 argument_list|,
+name|context
+operator|.
+name|getName
+argument_list|()
+argument_list|,
 operator|new
 name|DefaultClassResolver
 argument_list|()

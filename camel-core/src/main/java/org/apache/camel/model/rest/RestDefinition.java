@@ -3041,6 +3041,13 @@ name|getNodeIdFactory
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|verb
+operator|.
+name|setRouteId
+argument_list|(
+name|routeId
+argument_list|)
+expr_stmt|;
 name|options
 operator|.
 name|put

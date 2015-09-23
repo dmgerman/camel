@@ -493,7 +493,7 @@ class|class
 name|RestSwaggerReader
 block|{
 comment|/**      * Read the REST-DSL definition's and parse that as a Swagger model representation      *      * @param rests             the rest-dsl      * @param route             optional route path to filter the rest-dsl to only include from the chose route      * @param config            the swagger configuration      * @param classResolver     class resolver to use      * @return the swagger model      */
-DECL|method|read (List<RestDefinition> rests, String route, BeanConfig config, ClassResolver classResolver)
+DECL|method|read (List<RestDefinition> rests, String route, BeanConfig config, String camelContextId, ClassResolver classResolver)
 specifier|public
 name|Swagger
 name|read
@@ -509,6 +509,9 @@ name|route
 parameter_list|,
 name|BeanConfig
 name|config
+parameter_list|,
+name|String
+name|camelContextId
 parameter_list|,
 name|ClassResolver
 name|classResolver
@@ -571,6 +574,8 @@ name|swagger
 argument_list|,
 name|rest
 argument_list|,
+name|camelContextId
+argument_list|,
 name|classResolver
 argument_list|)
 expr_stmt|;
@@ -589,7 +594,7 @@ return|return
 name|swagger
 return|;
 block|}
-DECL|method|parse (Swagger swagger, RestDefinition rest, ClassResolver classResolver)
+DECL|method|parse (Swagger swagger, RestDefinition rest, String camelContextId, ClassResolver classResolver)
 specifier|private
 name|void
 name|parse
@@ -599,6 +604,9 @@ name|swagger
 parameter_list|,
 name|RestDefinition
 name|rest
+parameter_list|,
+name|String
+name|camelContextId
 parameter_list|,
 name|ClassResolver
 name|classResolver
@@ -918,6 +926,34 @@ operator|.
 name|addTag
 argument_list|(
 name|pathAsTag
+argument_list|)
+expr_stmt|;
+comment|// add id as vendor extensions
+name|op
+operator|.
+name|getVendorExtensions
+argument_list|()
+operator|.
+name|put
+argument_list|(
+literal|"x-camelContextId"
+argument_list|,
+name|camelContextId
+argument_list|)
+expr_stmt|;
+name|op
+operator|.
+name|getVendorExtensions
+argument_list|()
+operator|.
+name|put
+argument_list|(
+literal|"x-routeId"
+argument_list|,
+name|verb
+operator|.
+name|getRouteId
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|Path

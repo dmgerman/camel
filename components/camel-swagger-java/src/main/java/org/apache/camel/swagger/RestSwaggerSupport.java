@@ -1222,6 +1222,8 @@ name|route
 argument_list|,
 name|swaggerConfig
 argument_list|,
+name|contextId
+argument_list|,
 operator|new
 name|DefaultClassResolver
 argument_list|()
