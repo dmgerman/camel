@@ -224,7 +224,7 @@ literal|"REST API"
 argument_list|,
 name|syntax
 operator|=
-literal|"rest-api:path"
+literal|"rest-api:path/contextId"
 argument_list|,
 name|consumerOnly
 operator|=
@@ -272,6 +272,13 @@ DECL|field|path
 specifier|private
 name|String
 name|path
+decl_stmt|;
+annotation|@
+name|UriPath
+DECL|field|contextIdPattern
+specifier|private
+name|String
+name|contextIdPattern
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -359,6 +366,33 @@ operator|.
 name|path
 operator|=
 name|path
+expr_stmt|;
+block|}
+DECL|method|getContextIdPattern ()
+specifier|public
+name|String
+name|getContextIdPattern
+parameter_list|()
+block|{
+return|return
+name|contextIdPattern
+return|;
+block|}
+comment|/**      * Optional CamelContext id pattern to only allow Rest APIs from rest services within CamelContext's which name matches the pattern.      */
+DECL|method|setContextIdPattern (String contextIdPattern)
+specifier|public
+name|void
+name|setContextIdPattern
+parameter_list|(
+name|String
+name|contextIdPattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contextIdPattern
+operator|=
+name|contextIdPattern
 expr_stmt|;
 block|}
 DECL|method|getComponentName ()
@@ -630,6 +664,9 @@ name|getCamelContext
 argument_list|()
 argument_list|,
 name|path
+argument_list|,
+name|getContextIdPattern
+argument_list|()
 argument_list|,
 name|config
 argument_list|,

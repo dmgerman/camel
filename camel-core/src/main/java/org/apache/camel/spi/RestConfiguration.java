@@ -138,6 +138,11 @@ specifier|private
 name|String
 name|apiContextPath
 decl_stmt|;
+DECL|field|apiContextIdPattern
+specifier|private
+name|String
+name|apiContextIdPattern
+decl_stmt|;
 DECL|field|restHostNameResolver
 specifier|private
 name|RestHostNameResolver
@@ -431,6 +436,33 @@ operator|.
 name|apiContextPath
 operator|=
 name|contextPath
+expr_stmt|;
+block|}
+DECL|method|getApiContextIdPattern ()
+specifier|public
+name|String
+name|getApiContextIdPattern
+parameter_list|()
+block|{
+return|return
+name|apiContextIdPattern
+return|;
+block|}
+comment|/**      * Optional CamelContext id pattern to only allow Rest APIs from rest services within CamelContext's which name matches the pattern.      *<p/>      * The pattern<tt>#name#</tt> refers to the CamelContext name, to match on the current CamelContext only.      * For any other value, the pattern uses the rules from {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)}      *      * @param apiContextIdPattern  the pattern      */
+DECL|method|setApiContextIdPattern (String apiContextIdPattern)
+specifier|public
+name|void
+name|setApiContextIdPattern
+parameter_list|(
+name|String
+name|apiContextIdPattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiContextIdPattern
+operator|=
+name|apiContextIdPattern
 expr_stmt|;
 block|}
 comment|/**      * Gets the resolver to use for resolving hostname      *      * @return the resolver      */

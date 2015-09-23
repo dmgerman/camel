@@ -56,8 +56,8 @@ specifier|public
 interface|interface
 name|RestApiProcessorFactory
 block|{
-comment|/**      * Creates a new REST API<a      * href="http://camel.apache.org/processor.html">Processor      *</a>, which provides API listing of the REST services      *      * @param camelContext the camel context      * @param contextPath  the context-path      * @param parameters   additional parameters      *      * @return a newly created REST API provider      * @throws Exception can be thrown      */
-DECL|method|createApiProcessor (CamelContext camelContext, String contextPath, RestConfiguration configuration, Map<String, Object> parameters)
+comment|/**      * Creates a new REST API<a      * href="http://camel.apache.org/processor.html">Processor      *</a>, which provides API listing of the REST services      *      * @param camelContext      the camel context      * @param contextPath       the context-path      * @param contextIdPattern  id pattern to only allow Rest APIs from rest services within CamelContext's which name matches the pattern.      * @param parameters        additional parameters      * @return a newly created REST API provider      * @throws Exception can be thrown      */
+DECL|method|createApiProcessor (CamelContext camelContext, String contextPath, String contextIdPattern, RestConfiguration configuration, Map<String, Object> parameters)
 name|Processor
 name|createApiProcessor
 parameter_list|(
@@ -66,6 +66,9 @@ name|camelContext
 parameter_list|,
 name|String
 name|contextPath
+parameter_list|,
+name|String
+name|contextIdPattern
 parameter_list|,
 name|RestConfiguration
 name|configuration

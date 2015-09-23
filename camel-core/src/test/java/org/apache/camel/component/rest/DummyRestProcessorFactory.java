@@ -102,7 +102,7 @@ name|RestApiProcessorFactory
 block|{
 annotation|@
 name|Override
-DECL|method|createApiProcessor (CamelContext camelContext, String contextPath, RestConfiguration configuration, Map<String, Object> parameters)
+DECL|method|createApiProcessor (CamelContext camelContext, String contextPath, String contextIdPattern, RestConfiguration configuration, Map<String, Object> parameters)
 specifier|public
 name|Processor
 name|createApiProcessor
@@ -112,6 +112,9 @@ name|camelContext
 parameter_list|,
 name|String
 name|contextPath
+parameter_list|,
+name|String
+name|contextIdPattern
 parameter_list|,
 name|RestConfiguration
 name|configuration

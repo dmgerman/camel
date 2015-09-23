@@ -88,7 +88,7 @@ name|RestApiProcessorFactory
 block|{
 annotation|@
 name|Override
-DECL|method|createApiProcessor (CamelContext camelContext, String contextPath, RestConfiguration configuration, Map<String, Object> parameters)
+DECL|method|createApiProcessor (CamelContext camelContext, String contextPath, String contextIdPattern, RestConfiguration configuration, Map<String, Object> parameters)
 specifier|public
 name|Processor
 name|createApiProcessor
@@ -98,6 +98,9 @@ name|camelContext
 parameter_list|,
 name|String
 name|contextPath
+parameter_list|,
+name|String
+name|contextIdPattern
 parameter_list|,
 name|RestConfiguration
 name|configuration
@@ -117,6 +120,8 @@ return|return
 operator|new
 name|RestSwaggerProcessor
 argument_list|(
+name|contextIdPattern
+argument_list|,
 name|configuration
 operator|.
 name|getApiProperties
