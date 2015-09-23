@@ -58,11 +58,26 @@ name|TreeMap
 import|;
 end_import
 
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
+name|Named
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@link org.apache.camel.example.cdi.User} service which we rest enable the routes defined in the XML file.  */
 end_comment
 
 begin_class
+annotation|@
+name|Named
+argument_list|(
+literal|"userService"
+argument_list|)
 DECL|class|UserService
 specifier|public
 class|class
