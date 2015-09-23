@@ -282,6 +282,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|ClassResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|CamelVersionHelper
@@ -1154,7 +1168,7 @@ return|return
 name|answer
 return|;
 block|}
-DECL|method|renderResourceListing (RestApiResponseAdapter response, BeanConfig swaggerConfig, String contextId, String route)
+DECL|method|renderResourceListing (RestApiResponseAdapter response, BeanConfig swaggerConfig, String contextId, String route, ClassResolver classResolver)
 specifier|public
 name|void
 name|renderResourceListing
@@ -1170,6 +1184,9 @@ name|contextId
 parameter_list|,
 name|String
 name|route
+parameter_list|,
+name|ClassResolver
+name|classResolver
 parameter_list|)
 throws|throws
 name|Exception
@@ -1248,9 +1265,7 @@ name|swaggerConfig
 argument_list|,
 name|contextId
 argument_list|,
-operator|new
-name|DefaultClassResolver
-argument_list|()
+name|classResolver
 argument_list|)
 decl_stmt|;
 name|ObjectMapper
