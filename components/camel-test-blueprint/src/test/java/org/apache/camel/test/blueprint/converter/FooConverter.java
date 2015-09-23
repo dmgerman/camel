@@ -40,6 +40,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|TypeConverters
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|test
 operator|.
 name|blueprint
@@ -49,26 +61,22 @@ import|;
 end_import
 
 begin_class
-annotation|@
-name|Converter
-DECL|class|MyConverter
+DECL|class|FooConverter
 specifier|public
-specifier|final
 class|class
-name|MyConverter
+name|FooConverter
+implements|implements
+name|TypeConverters
 block|{
-DECL|method|MyConverter ()
-specifier|private
-name|MyConverter
+DECL|method|FooConverter ()
+specifier|public
+name|FooConverter
 parameter_list|()
-block|{
-comment|//Helper class
-block|}
+block|{     }
 annotation|@
 name|Converter
 DECL|method|convertToFoo (String data)
 specifier|public
-specifier|static
 name|Foo
 name|convertToFoo
 parameter_list|(
