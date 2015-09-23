@@ -830,7 +830,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|300
+literal|"300"
 argument_list|,
 name|rest
 operator|.
