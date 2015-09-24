@@ -224,6 +224,19 @@ parameter_list|)
 throws|throws
 name|MalformedObjectNameException
 function_decl|;
+DECL|method|getObjectNameForDataFormat (CamelContext context, DataFormat endpoint)
+name|ObjectName
+name|getObjectNameForDataFormat
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|DataFormat
+name|endpoint
+parameter_list|)
+throws|throws
+name|MalformedObjectNameException
+function_decl|;
 DECL|method|getObjectNameForErrorHandler (RouteContext routeContext, Processor errorHandler, ErrorHandlerFactory builder)
 name|ObjectName
 name|getObjectNameForErrorHandler
