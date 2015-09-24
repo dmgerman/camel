@@ -225,7 +225,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Sends the message to a dynamic endpoint (uri supports languages)  *<p/>  * You can specify multiple languages in the uri separated by the plus sign, such as<tt>mock:+xpath:/order/@uri</tt>  * where<tt>mock:</tt> would be a prefix to a xpath expression.  *<p/>  * For more dynamic behavior use<a href="http://camel.apache.org/recipient-list.html">Recipient List</a> or  *<a href="http://camel.apache.org/dynamic-router.html">Dynamic Router</a> EIP instead.  */
+comment|/**  * Sends the message to a dynamic endpoint  *<p/>  * You can specify multiple languages in the uri separated by the plus sign, such as<tt>mock:+language:xpath:/order/@uri</tt>  * where<tt>mock:</tt> would be a prefix to a xpath expression.  *<p/>  * For more dynamic behavior use<a href="http://camel.apache.org/recipient-list.html">Recipient List</a> or  *<a href="http://camel.apache.org/dynamic-router.html">Dynamic Router</a> EIP instead.  */
 end_comment
 
 begin_class
@@ -452,13 +452,32 @@ control|)
 block|{
 comment|// the part may have optional language to use, so you can mix languages
 name|String
+name|value
+init|=
+name|ObjectHelper
+operator|.
+name|after
+argument_list|(
+name|part
+argument_list|,
+literal|"language:"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|value
+operator|!=
+literal|null
+condition|)
+block|{
+name|String
 name|before
 init|=
 name|ObjectHelper
 operator|.
 name|before
 argument_list|(
-name|part
+name|value
 argument_list|,
 literal|":"
 argument_list|)
@@ -470,7 +489,7 @@ name|ObjectHelper
 operator|.
 name|after
 argument_list|(
-name|part
+name|value
 argument_list|,
 literal|":"
 argument_list|)
@@ -486,7 +505,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// maybe its a language
+comment|// maybe its a language, must have language: as prefix
 try|try
 block|{
 name|Language
@@ -526,6 +545,7 @@ argument_list|(
 name|exp
 argument_list|)
 expr_stmt|;
+continue|continue;
 block|}
 block|}
 catch|catch
@@ -535,6 +555,7 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore
+block|}
 block|}
 block|}
 comment|// fallback and use simple language

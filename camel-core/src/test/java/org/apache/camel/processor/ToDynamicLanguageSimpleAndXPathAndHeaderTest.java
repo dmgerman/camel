@@ -139,7 +139,7 @@ argument_list|)
 operator|.
 name|toD
 argument_list|(
-literal|"mock:+xpath:/order/@uri+header:sub"
+literal|"mock:+language:xpath:/order/@uri+language:header:sub"
 argument_list|)
 expr_stmt|;
 block|}

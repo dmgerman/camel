@@ -536,7 +536,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"description\": \"Sends the message to a dynamic endpoint (uri supports languages)"
+literal|"\"description\": \"Sends the message to a dynamic endpoint"
 argument_list|)
 argument_list|)
 expr_stmt|;

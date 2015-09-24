@@ -131,7 +131,7 @@ argument_list|)
 operator|.
 name|toD
 argument_list|(
-literal|"xpath:/order/@uri"
+literal|"language:xpath:/order/@uri"
 argument_list|)
 expr_stmt|;
 block|}
