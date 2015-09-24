@@ -182,6 +182,17 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
+DECL|method|getManagedObjectForDataFormat (CamelContext context, DataFormat dataFormat)
+name|Object
+name|getManagedObjectForDataFormat
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|DataFormat
+name|dataFormat
+parameter_list|)
+function_decl|;
 DECL|method|getManagedObjectForEndpoint (CamelContext context, Endpoint endpoint)
 name|Object
 name|getManagedObjectForEndpoint
