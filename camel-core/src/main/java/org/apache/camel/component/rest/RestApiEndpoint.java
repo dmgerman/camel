@@ -70,6 +70,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoFactoryAvailableException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|NoSuchBeanException
 import|;
 end_import
@@ -109,6 +121,20 @@ operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|FactoryFinder
 import|;
 end_import
 
@@ -621,8 +647,10 @@ operator|=
 name|DEFAULT_API_COMPONENT_NAME
 expr_stmt|;
 block|}
-name|Object
-name|instance
+try|try
+block|{
+name|FactoryFinder
+name|finder
 init|=
 name|getCamelContext
 argument_list|()
@@ -631,6 +659,11 @@ name|getFactoryFinder
 argument_list|(
 name|RESOURCE_PATH
 argument_list|)
+decl_stmt|;
+name|Object
+name|instance
+init|=
+name|finder
 operator|.
 name|newInstance
 argument_list|(
@@ -651,6 +684,15 @@ name|RestApiProcessorFactory
 operator|)
 name|instance
 expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|NoFactoryAvailableException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
 block|}
 block|}
 if|if
@@ -872,7 +914,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Cannot find RestApiProcessorFactory in Registry or classpath"
+literal|"Cannot find RestApiProcessorFactory in Registry or classpath (such as the camel-swagger-java component)"
 argument_list|)
 throw|;
 block|}
