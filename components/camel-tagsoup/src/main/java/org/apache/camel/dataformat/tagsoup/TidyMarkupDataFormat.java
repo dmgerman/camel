@@ -136,6 +136,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -317,6 +331,8 @@ DECL|class|TidyMarkupDataFormat
 specifier|public
 class|class
 name|TidyMarkupDataFormat
+extends|extends
+name|ServiceSupport
 implements|implements
 name|DataFormat
 block|{
@@ -441,7 +457,7 @@ literal|" Only unmarshal is supported"
 argument_list|)
 throw|;
 block|}
-comment|/**      * Unmarshal the data      *       * @throws Exception      */
+comment|/**      * Unmarshal the data      */
 DECL|method|unmarshal (Exchange exchange, InputStream inputStream)
 specifier|public
 name|Object
@@ -719,7 +735,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      * Create the tagSoup Parser      *       * @return      * @throws CamelException      */
+comment|/**      * Create the tagSoup Parser      */
 DECL|method|createTagSoupParser ()
 specifier|protected
 name|XMLReader
@@ -890,50 +906,6 @@ return|return
 name|reader
 return|;
 block|}
-comment|/**      * @param htmlSchema      *            the htmlSchema to set      */
-DECL|method|setParsingSchema (Schema schema)
-specifier|public
-name|void
-name|setParsingSchema
-parameter_list|(
-name|Schema
-name|schema
-parameter_list|)
-block|{
-name|this
-operator|.
-name|parsingSchema
-operator|=
-name|schema
-expr_stmt|;
-block|}
-comment|/**      * @return the htmlSchema      */
-DECL|method|getParsingSchema ()
-specifier|public
-name|Schema
-name|getParsingSchema
-parameter_list|()
-block|{
-if|if
-condition|(
-name|parsingSchema
-operator|==
-literal|null
-condition|)
-block|{
-name|this
-operator|.
-name|parsingSchema
-operator|=
-operator|new
-name|HTMLSchema
-argument_list|()
-expr_stmt|;
-block|}
-return|return
-name|parsingSchema
-return|;
-block|}
 DECL|method|createContentHandler (Writer w)
 specifier|protected
 name|ContentHandler
@@ -1024,7 +996,48 @@ return|return
 name|xmlWriter
 return|;
 block|}
-comment|/**      * @param parserFeatures      *            the parserFeatures to set      */
+DECL|method|setParsingSchema (Schema schema)
+specifier|public
+name|void
+name|setParsingSchema
+parameter_list|(
+name|Schema
+name|schema
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parsingSchema
+operator|=
+name|schema
+expr_stmt|;
+block|}
+DECL|method|getParsingSchema ()
+specifier|public
+name|Schema
+name|getParsingSchema
+parameter_list|()
+block|{
+if|if
+condition|(
+name|parsingSchema
+operator|==
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|parsingSchema
+operator|=
+operator|new
+name|HTMLSchema
+argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|parsingSchema
+return|;
+block|}
 DECL|method|setParserFeatures (Map<String, Boolean> parserFeatures)
 specifier|public
 name|void
@@ -1046,7 +1059,6 @@ operator|=
 name|parserFeatures
 expr_stmt|;
 block|}
-comment|/**      * @return the parserFeatures      */
 DECL|method|getParserFeatures ()
 specifier|public
 name|Map
@@ -1062,7 +1074,6 @@ return|return
 name|parserFeatures
 return|;
 block|}
-comment|/**      * @param parserPropeties      *            the parserPropeties to set      */
 DECL|method|setParserPropeties (Map<String, Object> parserPropeties)
 specifier|public
 name|void
@@ -1084,7 +1095,6 @@ operator|=
 name|parserPropeties
 expr_stmt|;
 block|}
-comment|/**      * @return the parserPropeties      */
 DECL|method|getParserPropeties ()
 specifier|public
 name|Map
@@ -1100,7 +1110,6 @@ return|return
 name|parserPropeties
 return|;
 block|}
-comment|/**      * @param method      *            the method to set      */
 DECL|method|setMethod (String method)
 specifier|public
 name|void
@@ -1117,7 +1126,6 @@ operator|=
 name|method
 expr_stmt|;
 block|}
-comment|/**      * @return the method      */
 DECL|method|getMethod ()
 specifier|public
 name|String
@@ -1128,7 +1136,6 @@ return|return
 name|method
 return|;
 block|}
-comment|/**      * @return the dataObjectType      */
 DECL|method|getDataObjectType ()
 specifier|public
 name|Class
@@ -1142,7 +1149,6 @@ return|return
 name|dataObjectType
 return|;
 block|}
-comment|/**      * @param dataObjectType      *            the dataObjectType to set      */
 DECL|method|setDataObjectType (Class<?> dataObjectType)
 specifier|public
 name|void
@@ -1161,6 +1167,30 @@ name|dataObjectType
 operator|=
 name|dataObjectType
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 block|}
 end_class

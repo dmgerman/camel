@@ -34,16 +34,6 @@ name|java
 operator|.
 name|io
 operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
 name|InputStream
 import|;
 end_import
@@ -55,16 +45,6 @@ operator|.
 name|io
 operator|.
 name|OutputStream
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|UnsupportedEncodingException
 import|;
 end_import
 
@@ -190,18 +170,6 @@ name|google
 operator|.
 name|zxing
 operator|.
-name|WriterException
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|google
-operator|.
-name|zxing
-operator|.
 name|client
 operator|.
 name|j2se
@@ -306,33 +274,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NoTypeConversionAvailableException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|TypeConversionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|DataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ServiceSupport
 import|;
 end_import
 
@@ -371,7 +329,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * {@link DataFormat} to create (encode) and   * read (decode) barcodes. For more info about  * the available barcodes have a look at:<br/><br/>  *   * https://github.com/zxing/zxing  *   */
+comment|/**  * {@link DataFormat} to create (encode) and  * read (decode) barcodes. For more info about  * the available barcodes have a look at:<br/><br/>  *<p/>  * https://github.com/zxing/zxing  */
 end_comment
 
 begin_class
@@ -379,6 +337,8 @@ DECL|class|BarcodeDataFormat
 specifier|public
 class|class
 name|BarcodeDataFormat
+extends|extends
+name|ServiceSupport
 implements|implements
 name|DataFormat
 block|{
@@ -472,7 +432,7 @@ name|optimizeHints
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Create instance with custom {@link BarcodeFormat}. The other       * values are default.      *       * @param format the barcode format      */
+comment|/**      * Create instance with custom {@link BarcodeFormat}. The other      * values are default.      *      * @param format the barcode format      */
 DECL|method|BarcodeDataFormat (final BarcodeFormat format)
 specifier|public
 name|BarcodeDataFormat
@@ -502,7 +462,7 @@ name|optimizeHints
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Create instance with custom height and width. The other       * values are default.      *       * @param height the image height      * @param width the image width      */
+comment|/**      * Create instance with custom height and width. The other      * values are default.      *      * @param height the image height      * @param width  the image width      */
 DECL|method|BarcodeDataFormat (final int width, final int height)
 specifier|public
 name|BarcodeDataFormat
@@ -545,7 +505,7 @@ name|optimizeHints
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Create instance with custom {@link BarcodeImageType}. The other       * values are default.      *       * @param type the type (format) of the image. e.g. PNG      */
+comment|/**      * Create instance with custom {@link BarcodeImageType}. The other      * values are default.      *      * @param type the type (format) of the image. e.g. PNG      */
 DECL|method|BarcodeDataFormat (final BarcodeImageType type)
 specifier|public
 name|BarcodeDataFormat
@@ -575,8 +535,8 @@ name|optimizeHints
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Create instance with custom height, width and image type. The other       * values are default.      *       * @param height the image height      * @param width the image width      * @param type the type (format) of the image. e.g. PNG      * @param format the barcode format      */
-DECL|method|BarcodeDataFormat (final int width, final int height , final BarcodeImageType type, final BarcodeFormat format)
+comment|/**      * Create instance with custom height, width and image type. The other      * values are default.      *      * @param height the image height      * @param width  the image width      * @param type   the type (format) of the image. e.g. PNG      * @param format the barcode format      */
+DECL|method|BarcodeDataFormat (final int width, final int height, final BarcodeImageType type, final BarcodeFormat format)
 specifier|public
 name|BarcodeDataFormat
 parameter_list|(
@@ -644,10 +604,10 @@ name|optimizeHints
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Marshall a {@link String} payload to a code image.      *       * @param exchange      * @param graph      * @param stream      * @throws Exception       */
+comment|/**      * Marshall a {@link String} payload to a code image.      */
 annotation|@
 name|Override
-DECL|method|marshal (final Exchange exchange, final Object graph , final OutputStream stream)
+DECL|method|marshal (final Exchange exchange, final Object graph, final OutputStream stream)
 specifier|public
 name|void
 name|marshal
@@ -679,7 +639,7 @@ name|stream
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Unmarshall a code image to a {@link String} payload.      *       * @param exchange      * @param stream      * @return      * @throws Exception       */
+comment|/**      * Unmarshall a code image to a {@link String} payload.      */
 annotation|@
 name|Override
 DECL|method|unmarshal (final Exchange exchange, final InputStream stream)
@@ -843,7 +803,7 @@ name|TRUE
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Writes the image file to the output stream.      *       * @param graph the object graph      * @param exchange the camel exchange      * @param stream the output stream      * @throws WriterException      * @throws UnsupportedEncodingException      * @throws IOException       * @throws org.apache.camel.NoTypeConversionAvailableException       */
+comment|/**      * Writes the image file to the output stream.      *      * @param graph    the object graph      * @param exchange the camel exchange      * @param stream   the output stream      */
 DECL|method|printImage (final Exchange exchange, final Object graph, final OutputStream stream)
 specifier|private
 name|void
@@ -862,15 +822,7 @@ name|OutputStream
 name|stream
 parameter_list|)
 throws|throws
-name|WriterException
-throws|,
-name|UnsupportedEncodingException
-throws|,
-name|IOException
-throws|,
-name|TypeConversionException
-throws|,
-name|NoTypeConversionAvailableException
+name|Exception
 block|{
 specifier|final
 name|String
@@ -960,7 +912,7 @@ name|stream
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Reads the message from a code.      *       * @param exchange      * @param stream      * @return      * @throws Exception      */
+comment|/**      * Reads the message from a code.      */
 DECL|method|readImage (final Exchange exchange, final InputStream stream)
 specifier|private
 name|String
@@ -1067,8 +1019,8 @@ name|getText
 argument_list|()
 return|;
 block|}
-comment|/**      * Adds a new hint value to writer (encode) hint map.      *       * @param hintType      * @param value       */
-DECL|method|addToHintMap (final EncodeHintType hintType , final Object value)
+comment|/**      * Adds a new hint value to writer (encode) hint map.      */
+DECL|method|addToHintMap (final EncodeHintType hintType, final Object value)
 specifier|public
 specifier|final
 name|void
@@ -1117,8 +1069,8 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds a new hint value to reader (decode) hint map.      *       * @param hintType      * @param value       */
-DECL|method|addToHintMap (final DecodeHintType hintType , final Object value)
+comment|/**      * Adds a new hint value to reader (decode) hint map.      */
+DECL|method|addToHintMap (final DecodeHintType hintType, final Object value)
 specifier|public
 specifier|final
 name|void
@@ -1145,7 +1097,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Removes a hint from writer (encode) hint map.      *       * @param hintType       */
+comment|/**      * Removes a hint from writer (encode) hint map.      */
 DECL|method|removeFromHintMap (final EncodeHintType hintType)
 specifier|public
 specifier|final
@@ -1206,9 +1158,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Could not find encode hint type '%s' in "
-operator|+
-literal|"writer hint map."
+literal|"Could not find encode hint type '%s' in writer hint map."
 argument_list|,
 name|hintType
 operator|.
@@ -1219,7 +1169,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Removes a hint from reader (decode) hint map.      *       * @param hintType       */
+comment|/**      * Removes a hint from reader (decode) hint map.      */
 DECL|method|removeFromHintMap (final DecodeHintType hintType)
 specifier|public
 specifier|final
@@ -1280,9 +1230,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Could not find decode hint type '%s' in"
-operator|+
-literal|" reader hint map."
+literal|"Could not find decode hint type '%s' in reader hint map."
 argument_list|,
 name|hintType
 operator|.
@@ -1293,7 +1241,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * The (default) parameters.      *       * @return       */
+comment|/**      * The (default) parameters.      */
 DECL|method|getParams ()
 specifier|public
 specifier|final
@@ -1305,7 +1253,7 @@ return|return
 name|params
 return|;
 block|}
-comment|/**      * The writer (encode) hint map.      *       * @return       */
+comment|/**      * The writer (encode) hint map.      */
 DECL|method|getWriterHintMap ()
 specifier|public
 specifier|final
@@ -1322,7 +1270,7 @@ return|return
 name|writerHintMap
 return|;
 block|}
-comment|/**      * The reader (decode) hint map.      *       * @return       */
+comment|/**      * The reader (decode) hint map.      */
 DECL|method|getReaderHintMap ()
 specifier|public
 specifier|final
@@ -1425,6 +1373,30 @@ argument_list|(
 name|height
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 block|}
 end_class
