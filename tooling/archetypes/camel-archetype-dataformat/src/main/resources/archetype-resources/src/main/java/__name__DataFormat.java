@@ -225,6 +225,20 @@ name|DataFormat
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</a> ({@link DataFormat})  * for ${name} data.  */
 end_comment
@@ -242,6 +256,8 @@ end_class
 begin_expr_stmt
 DECL|class|$
 name|DataFormat
+expr|extends
+name|ServiceSupport
 expr|implements
 name|DataFormat
 block|{
@@ -333,6 +349,34 @@ name|bytes
 return|;
 end_return
 
-unit|} }
+begin_function
+unit|}      @
+name|Override
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// init logic here
+block|}
+end_function
+
+begin_function
+annotation|@
+name|Override
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// cleanup logic here
+block|}
+end_function
+
+unit|}
 end_unit
 
