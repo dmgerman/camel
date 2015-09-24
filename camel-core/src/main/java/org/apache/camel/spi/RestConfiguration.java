@@ -27,7 +27,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Configuration use by {@link org.apache.camel.spi.RestConsumerFactory} for Camel components to support  * the Camel {@link org.apache.camel.model.rest.RestDefinition rest} DSL.  */
+comment|/**  * Configuration use by {@link org.apache.camel.spi.RestConsumerFactory} and {@link org.apache.camel.spi.RestApiConsumerFactory}  * for Camel components to support the Camel {@link org.apache.camel.model.rest.RestDefinition rest} DSL.  */
 end_comment
 
 begin_class

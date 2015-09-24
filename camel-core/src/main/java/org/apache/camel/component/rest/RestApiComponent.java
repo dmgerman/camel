@@ -54,6 +54,10 @@ name|UriEndpointComponent
 import|;
 end_import
 
+begin_comment
+comment|/**  * Rest API component.  */
+end_comment
+
 begin_class
 DECL|class|RestApiComponent
 specifier|public

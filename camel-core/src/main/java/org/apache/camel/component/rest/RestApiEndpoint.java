@@ -1189,11 +1189,6 @@ operator|+
 name|path
 expr_stmt|;
 block|}
-comment|// TODO: is this needed?
-comment|// there may be an optional context path configured to help Camel calculate the correct urls for the REST services
-comment|// this may be needed when using camel-servlet where we cannot get the actual context-path or port number of the servlet engine
-comment|// during init of the servlet
-comment|/*            String contextPath = config.getApiContextPath();             if (contextPath != null) {                 if (!contextPath.startsWith("/")) {                     path = "/" + contextPath + path;                 } else {                     path = contextPath + path;                 }             } */
 name|Consumer
 name|consumer
 init|=

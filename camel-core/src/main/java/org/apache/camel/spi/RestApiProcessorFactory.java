@@ -50,6 +50,10 @@ name|Processor
 import|;
 end_import
 
+begin_comment
+comment|/**  * Allows SPI to plugin a {@link RestApiProcessorFactory} that creates the Camel {@link Processor} responsible  * for servicing and generating the REST API documentation.  *<p/>  * For example the<tt>camel-swagger-java</tt> component provides such a factory that uses Swagger to generate the documentation.  */
+end_comment
+
 begin_interface
 DECL|interface|RestApiProcessorFactory
 specifier|public

@@ -82,6 +82,10 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * REST-DSL component.  */
+end_comment
+
 begin_class
 DECL|class|RestComponent
 specifier|public
