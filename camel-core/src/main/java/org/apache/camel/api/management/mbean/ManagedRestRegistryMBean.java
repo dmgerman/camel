@@ -96,6 +96,18 @@ name|TabularData
 name|listRestServices
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Outputs the Rest services API documentation in JSon (requires camel-swagger-java on classpath)"
+argument_list|)
+DECL|method|apiDocAsJson ()
+name|String
+name|apiDocAsJson
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

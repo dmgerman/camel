@@ -328,6 +328,31 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// should not be enabled as api-doc is not enabled or camel-swagger-java is not on classpath
+name|String
+name|json
+init|=
+operator|(
+name|String
+operator|)
+name|mbeanServer
+operator|.
+name|invoke
+argument_list|(
+name|name
+argument_list|,
+literal|"apiDocAsJson"
+argument_list|,
+literal|null
+argument_list|,
+literal|null
+argument_list|)
+decl_stmt|;
+name|assertNull
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
 comment|// remove all routes
 for|for
 control|(
