@@ -1378,11 +1378,6 @@ name|pgpSec
 argument_list|)
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 DECL|method|findPublicKeys (List<String> useridParts, boolean forEncryption, PGPPublicKeyRingCollection pgpPublicKeyringCollection)
 specifier|public
 specifier|static
@@ -2850,11 +2845,6 @@ expr_stmt|;
 comment|// add all signing keys
 for|for
 control|(
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
 name|Iterator
 argument_list|<
 name|PGPSecretKey
