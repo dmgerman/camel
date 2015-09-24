@@ -342,68 +342,68 @@ specifier|volatile
 name|boolean
 name|initDone
 decl_stmt|;
-DECL|field|contextIdPattern
+DECL|field|apiContextIdPattern
 specifier|private
 name|String
-name|contextIdPattern
+name|apiContextIdPattern
 decl_stmt|;
-DECL|field|contextIdListing
+DECL|field|apiContextIdListing
 specifier|private
 name|boolean
-name|contextIdListing
+name|apiContextIdListing
 decl_stmt|;
-DECL|method|getContextIdPattern ()
+DECL|method|getApiContextIdPattern ()
 specifier|public
 name|String
-name|getContextIdPattern
+name|getApiContextIdPattern
 parameter_list|()
 block|{
 return|return
-name|contextIdPattern
+name|apiContextIdPattern
 return|;
 block|}
-comment|/**      * Optional CamelContext id pattern to only allow Rest APIs from rest services within CamelContext's which name matches the pattern.      *<p/>      * The pattern uses the rules from {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)}      *      * @param contextIdPattern  the pattern      */
-DECL|method|setContextIdPattern (String contextIdPattern)
+comment|/**      * Optional CamelContext id pattern to only allow Rest APIs from rest services within CamelContext's which name matches the pattern.      *<p/>      * The pattern uses the rules from {@link org.apache.camel.util.EndpointHelper#matchPattern(String, String)}      *      * @param apiContextIdPattern  the pattern      */
+DECL|method|setApiContextIdPattern (String apiContextIdPattern)
 specifier|public
 name|void
-name|setContextIdPattern
+name|setApiContextIdPattern
 parameter_list|(
 name|String
-name|contextIdPattern
+name|apiContextIdPattern
 parameter_list|)
 block|{
 name|this
 operator|.
-name|contextIdPattern
+name|apiContextIdPattern
 operator|=
-name|contextIdPattern
+name|apiContextIdPattern
 expr_stmt|;
 block|}
-DECL|method|isContextIdListing ()
+DECL|method|isApiContextIdListing ()
 specifier|public
 name|boolean
-name|isContextIdListing
+name|isApiContextIdListing
 parameter_list|()
 block|{
 return|return
-name|contextIdListing
+name|apiContextIdListing
 return|;
 block|}
 comment|/**      * Sets whether listing of all available CamelContext's with REST services in the JVM is enabled. If enabled it allows to discover      * these contexts, if<tt>false</tt> then only if there is exactly one CamelContext then its used.      */
-DECL|method|setContextIdListing (boolean contextIdListing)
+DECL|method|setApiContextIdListing (boolean apiContextIdListing)
 specifier|public
 name|void
-name|setContextIdListing
+name|setApiContextIdListing
 parameter_list|(
 name|boolean
-name|contextIdListing
+name|apiContextIdListing
 parameter_list|)
 block|{
 name|this
 operator|.
-name|contextIdListing
+name|apiContextIdListing
 operator|=
-name|contextIdListing
+name|apiContextIdListing
 expr_stmt|;
 block|}
 annotation|@
@@ -500,6 +500,62 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+comment|// allow to configure these options from the servlet config as well
+name|Object
+name|pattern
+init|=
+name|parameters
+operator|.
+name|remove
+argument_list|(
+literal|"apiContextIdPattern"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|pattern
+operator|!=
+literal|null
+condition|)
+block|{
+name|apiContextIdPattern
+operator|=
+name|pattern
+operator|.
+name|toString
+argument_list|()
+expr_stmt|;
+block|}
+name|Object
+name|listing
+init|=
+name|parameters
+operator|.
+name|remove
+argument_list|(
+literal|"apiContextIdListing"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|listing
+operator|!=
+literal|null
+condition|)
+block|{
+name|apiContextIdListing
+operator|=
+name|Boolean
+operator|.
+name|valueOf
+argument_list|(
+name|listing
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -558,7 +614,7 @@ block|{
 comment|// render list of camel contexts as root
 if|if
 condition|(
-name|contextIdListing
+name|apiContextIdListing
 operator|&&
 operator|(
 name|ObjectHelper
@@ -585,7 +641,7 @@ name|adapter
 argument_list|,
 name|contextId
 argument_list|,
-name|contextIdPattern
+name|apiContextIdPattern
 argument_list|)
 expr_stmt|;
 block|}
@@ -717,7 +773,7 @@ literal|true
 expr_stmt|;
 if|if
 condition|(
-name|contextIdPattern
+name|apiContextIdPattern
 operator|!=
 literal|null
 condition|)
@@ -728,7 +784,7 @@ literal|"#name#"
 operator|.
 name|equals
 argument_list|(
-name|contextIdPattern
+name|apiContextIdPattern
 argument_list|)
 condition|)
 block|{
@@ -748,7 +804,7 @@ name|matchPattern
 argument_list|(
 name|name
 argument_list|,
-name|contextIdPattern
+name|apiContextIdPattern
 argument_list|)
 expr_stmt|;
 block|}
@@ -772,7 +828,7 @@ index|[]
 block|{
 name|name
 block|,
-name|contextIdPattern
+name|apiContextIdPattern
 block|,
 name|match
 block|}
