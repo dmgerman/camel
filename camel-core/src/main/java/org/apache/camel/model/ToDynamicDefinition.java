@@ -502,6 +502,13 @@ argument_list|(
 name|before
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|partLanguage
+operator|!=
+literal|null
+condition|)
+block|{
 name|Expression
 name|exp
 init|=
@@ -519,7 +526,7 @@ argument_list|(
 name|exp
 argument_list|)
 expr_stmt|;
-continue|continue;
+block|}
 block|}
 catch|catch
 parameter_list|(

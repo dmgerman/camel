@@ -544,6 +544,8 @@ operator|=
 name|createScriptEngine
 argument_list|(
 name|scriptLanguage
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|this
@@ -1107,6 +1109,28 @@ name|scriptText
 argument_list|)
 return|;
 block|}
+comment|/**      * Whether the given language is a language that is supported by a scripting engine.      */
+DECL|method|supportScriptLanguage (String language)
+specifier|public
+specifier|static
+name|boolean
+name|supportScriptLanguage
+parameter_list|(
+name|String
+name|language
+parameter_list|)
+block|{
+return|return
+name|createScriptEngine
+argument_list|(
+name|language
+argument_list|,
+literal|true
+argument_list|)
+operator|!=
+literal|null
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getCompiledScript ()
@@ -1372,6 +1396,8 @@ init|=
 name|createScriptEngine
 argument_list|(
 name|language
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 if|if
@@ -1392,7 +1418,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|createScriptEngine (String language)
+DECL|method|createScriptEngine (String language, boolean allowNull)
 specifier|protected
 specifier|static
 name|ScriptEngine
@@ -1400,6 +1426,9 @@ name|createScriptEngine
 parameter_list|(
 name|String
 name|language
+parameter_list|,
+name|boolean
+name|allowNull
 parameter_list|)
 block|{
 name|ScriptEngine
@@ -1445,6 +1474,9 @@ condition|(
 name|engine
 operator|==
 literal|null
+operator|&&
+operator|!
+name|allowNull
 condition|)
 block|{
 throw|throw
