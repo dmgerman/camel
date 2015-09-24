@@ -84,11 +84,26 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Online access to yammer and fails with 401 authentication error"
+argument_list|)
 DECL|class|YammerUserPollEnrichRouteTest
 specifier|public
 class|class
