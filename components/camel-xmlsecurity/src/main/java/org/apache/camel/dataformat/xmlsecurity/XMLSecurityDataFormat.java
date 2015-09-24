@@ -254,6 +254,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -563,6 +577,8 @@ DECL|class|XMLSecurityDataFormat
 specifier|public
 class|class
 name|XMLSecurityDataFormat
+extends|extends
+name|ServiceSupport
 implements|implements
 name|DataFormat
 implements|,
@@ -2132,6 +2148,30 @@ block|{
 return|return
 name|camelContext
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 comment|/**      * Sets missing properties that are defined in the Camel context.      * @deprecated  this operation populates the data format using depreciated properties and will be      *              removed at the end of the deprecation period      */
 annotation|@
