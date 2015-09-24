@@ -153,7 +153,7 @@ comment|// setup context path and port number that netty will use
 operator|.
 name|contextPath
 argument_list|(
-literal|"/rest"
+literal|"/"
 argument_list|)
 operator|.
 name|port
