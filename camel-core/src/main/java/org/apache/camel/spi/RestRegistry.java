@@ -212,6 +212,12 @@ name|int
 name|size
 parameter_list|()
 function_decl|;
+comment|/**      * Outputs the Rest services API documentation in JSon (requires camel-swagger-java on classpath)      *      * @return  the API docs in JSon, or<tt>null</tt> if camel-swagger-java is not on classpath      */
+DECL|method|apiDocAsJson ()
+name|String
+name|apiDocAsJson
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

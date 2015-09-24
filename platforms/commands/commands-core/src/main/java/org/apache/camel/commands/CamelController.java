@@ -384,6 +384,17 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Return the REST services API documentation as JSon (requires camel-swagger-java on classpath)      *      * @param camelContextName the Camel context.      * @return the REST API documentation as JSon      * @throws java.lang.Exception can be thrown      */
+DECL|method|getRestApiDocAsJson (String camelContextName)
+name|String
+name|getRestApiDocAsJson
+parameter_list|(
+name|String
+name|camelContextName
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Return the REST services for the given Camel context.      *      * @param camelContextName the Camel context.      * @return a list of key/value pairs with REST information      * @throws java.lang.Exception can be thrown      */
 DECL|method|getRestServices (String camelContextName)
 name|List
