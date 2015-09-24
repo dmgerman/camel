@@ -3131,7 +3131,7 @@ operator|.
 name|getRestRegistry
 argument_list|()
 operator|.
-name|apiDocsAsJson
+name|apiDocAsJson
 argument_list|()
 return|;
 block|}
