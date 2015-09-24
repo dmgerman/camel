@@ -610,11 +610,16 @@ name|camelContext
 argument_list|)
 expr_stmt|;
 block|}
-name|ServiceHelper
+comment|// add dataFormat as service which will also start the service
+comment|// (false => we and handling the lifecycle of the dataFormat)
+name|getCamelContext
+argument_list|()
 operator|.
-name|startService
+name|addService
 argument_list|(
 name|dataFormat
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -631,6 +636,14 @@ block|{
 name|ServiceHelper
 operator|.
 name|stopService
+argument_list|(
+name|dataFormat
+argument_list|)
+expr_stmt|;
+name|getCamelContext
+argument_list|()
+operator|.
+name|removeService
 argument_list|(
 name|dataFormat
 argument_list|)

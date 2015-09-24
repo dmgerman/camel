@@ -268,6 +268,8 @@ specifier|static
 specifier|final
 class|class
 name|MyReverseDataFormat
+extends|extends
+name|ServiceSupport
 implements|implements
 name|DataFormat
 block|{
@@ -442,6 +444,30 @@ operator|.
 name|toString
 argument_list|()
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 block|}
 comment|// END SNIPPET: e2

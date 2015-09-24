@@ -95,6 +95,16 @@ DECL|class|StringDataFormat
 specifier|public
 class|class
 name|StringDataFormat
+extends|extends
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ServiceSupport
 implements|implements
 name|DataFormat
 block|{
@@ -288,6 +298,30 @@ block|}
 return|return
 name|answer
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 block|}
 end_class
