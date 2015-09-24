@@ -148,6 +148,16 @@ argument_list|(
 name|parameters
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|configuration
+operator|.
+name|getApiProperties
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|options
 operator|.
 name|putAll
@@ -158,6 +168,7 @@ name|getApiProperties
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 comment|// need to include host in options
 name|String
 name|host
