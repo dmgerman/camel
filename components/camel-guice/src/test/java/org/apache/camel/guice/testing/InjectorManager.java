@@ -233,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Used to manage the injectors for the various injection points  *   */
+comment|/**  * Used to manage the injectors for the various injection points  */
 end_comment
 
 begin_class
@@ -528,21 +528,14 @@ argument_list|)
 expr_stmt|;
 name|Injector
 name|classInjector
-decl_stmt|;
-synchronized|synchronized
-init|(
-name|injectors
-init|)
-block|{
-name|classInjector
-operator|=
+init|=
 name|injectors
 operator|.
 name|get
 argument_list|(
 name|moduleType
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 if|if
 condition|(
 name|classInjector
@@ -575,7 +568,6 @@ argument_list|,
 name|classInjector
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|injectors
 operator|.
@@ -766,7 +758,6 @@ range|:
 name|entries
 control|)
 block|{
-comment|// Object key = entry.getKey();
 name|Injector
 name|injector
 init|=
