@@ -233,6 +233,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|DataFormatName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -260,7 +274,18 @@ expr|extends
 name|ServiceSupport
 expr|implements
 name|DataFormat
+operator|,
+name|DataFormatName
 block|{
+specifier|public
+name|String
+name|getDataFormatName
+argument_list|()
+block|{
+return|return
+literal|"${scheme}"
+return|;
+block|}
 specifier|public
 name|void
 name|marshal
@@ -277,6 +302,7 @@ argument_list|)
 throws|throws
 name|Exception
 block|{
+comment|// marshal from the Java object (graph) to the ${scheme} type
 name|byte
 index|[]
 name|bytes
@@ -298,31 +324,38 @@ expr|class
 argument_list|,
 name|graph
 argument_list|)
-block|;
+expr_stmt|;
+end_expr_stmt
+
+begin_expr_stmt
 name|stream
 operator|.
 name|write
 argument_list|(
 name|bytes
 argument_list|)
-block|;     }
-specifier|public
+expr_stmt|;
+end_expr_stmt
+
+begin_function
+unit|}      public
 name|Object
 name|unmarshal
-argument_list|(
+parameter_list|(
 name|Exchange
 name|exchange
-argument_list|,
+parameter_list|,
 name|InputStream
 name|stream
-argument_list|)
+parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// unmarshal from the input stream of ${scheme} to Java object (graph)
 name|byte
 index|[]
 name|bytes
-operator|=
+init|=
 name|exchange
 operator|.
 name|getContext
@@ -340,17 +373,15 @@ expr|class
 argument_list|,
 name|stream
 argument_list|)
-expr_stmt|;
-end_expr_stmt
-
-begin_return
+decl_stmt|;
 return|return
 name|bytes
 return|;
-end_return
+block|}
+end_function
 
 begin_function
-unit|}      @
+annotation|@
 name|Override
 specifier|protected
 name|void
