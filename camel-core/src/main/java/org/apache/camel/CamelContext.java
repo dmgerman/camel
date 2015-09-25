@@ -2407,6 +2407,21 @@ name|boolean
 name|includeAllOptions
 parameter_list|)
 function_decl|;
+comment|/**      * Returns a JSON schema representation of the component parameters (not endpoint parameters) for the given component by its id.      *      * @param dataFormat the data format instance.      * @param includeAllOptions whether to include non configured options also (eg default options)      * @return the json      */
+DECL|method|explainDataFormatJson (String dataFormatName, DataFormat dataFormat, boolean includeAllOptions)
+name|String
+name|explainDataFormatJson
+parameter_list|(
+name|String
+name|dataFormatName
+parameter_list|,
+name|DataFormat
+name|dataFormat
+parameter_list|,
+name|boolean
+name|includeAllOptions
+parameter_list|)
+function_decl|;
 comment|/**      * Returns a JSON schema representation of the endpoint parameters for the given endpoint uri.      *      * @param uri the endpoint uri      * @param includeAllOptions whether to include non configured options also (eg default options)      * @return the json or<tt>null</tt> if uri parameters is invalid, or the component is<b>not</b> built with JSon schema support      */
 DECL|method|explainEndpointJson (String uri, boolean includeAllOptions)
 name|String

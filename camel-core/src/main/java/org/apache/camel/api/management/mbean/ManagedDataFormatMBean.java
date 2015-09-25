@@ -75,6 +75,18 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"The name of the data format"
+argument_list|)
+DECL|method|getName ()
+name|String
+name|getName
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"Camel ID"
 argument_list|)
 DECL|method|getCamelId ()
