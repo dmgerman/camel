@@ -447,6 +447,18 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|getDataFormatName ()
+specifier|public
+name|String
+name|getDataFormatName
+parameter_list|()
+block|{
+return|return
+literal|"soapjaxb"
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|doStart ()
 specifier|protected
 name|void

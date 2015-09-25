@@ -608,6 +608,18 @@ name|fields
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|getDataFormatName ()
+specifier|public
+name|String
+name|getDataFormatName
+parameter_list|()
+block|{
+return|return
+literal|"univocity-fixed"
+return|;
+block|}
 block|}
 end_class
 

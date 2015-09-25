@@ -249,7 +249,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</a>  * ({@link DataFormat}) using XStream and Jettison to marshal to and from JSON  *  * @version  */
+comment|/**  * A<a href="http://camel.apache.org/data-format.html">data format</a>  * ({@link org.apache.camel.spi.DataFormat}) using XStream and Jettison to marshal to and from JSON  *  * @version  */
 end_comment
 
 begin_class
@@ -316,6 +316,18 @@ argument_list|(
 name|nstjsons
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getDataFormatName ()
+specifier|public
+name|String
+name|getDataFormatName
+parameter_list|()
+block|{
+return|return
+literal|"json"
+return|;
 block|}
 DECL|method|isPrettyPrint ()
 specifier|public

@@ -340,6 +340,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|DataFormatName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|xml
 operator|.
 name|sax
@@ -538,6 +552,8 @@ name|ServiceSupport
 implements|implements
 name|DataFormat
 implements|,
+name|DataFormatName
+implements|,
 name|CamelContextAware
 block|{
 DECL|field|LOG
@@ -732,6 +748,18 @@ name|contextPath
 operator|=
 name|contextPath
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getDataFormatName ()
+specifier|public
+name|String
+name|getDataFormatName
+parameter_list|()
+block|{
+return|return
+literal|"jaxb"
+return|;
 block|}
 DECL|method|marshal (Exchange exchange, Object graph, OutputStream stream)
 specifier|public

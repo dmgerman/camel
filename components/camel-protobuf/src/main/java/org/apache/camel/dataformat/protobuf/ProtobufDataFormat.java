@@ -158,6 +158,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|DataFormatName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -187,6 +201,8 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|DataFormat
+implements|,
+name|DataFormatName
 implements|,
 name|CamelContextAware
 block|{
@@ -224,6 +240,18 @@ name|defaultInstance
 operator|=
 name|defaultInstance
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getDataFormatName ()
+specifier|public
+name|String
+name|getDataFormatName
+parameter_list|()
+block|{
+return|return
+literal|"protobuf"
+return|;
 block|}
 DECL|method|getCamelContext ()
 specifier|public

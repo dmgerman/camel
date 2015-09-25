@@ -288,6 +288,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|DataFormatName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -341,6 +355,8 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|DataFormat
+implements|,
+name|DataFormatName
 block|{
 comment|/**      * Logger.      */
 DECL|field|LOG
@@ -603,6 +619,18 @@ operator|.
 name|optimizeHints
 argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getDataFormatName ()
+specifier|public
+name|String
+name|getDataFormatName
+parameter_list|()
+block|{
+return|return
+literal|"barcode"
+return|;
 block|}
 comment|/**      * Marshall a {@link String} payload to a code image.      */
 annotation|@

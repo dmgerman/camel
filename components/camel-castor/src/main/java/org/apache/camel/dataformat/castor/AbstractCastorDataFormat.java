@@ -150,6 +150,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|DataFormatName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -241,6 +255,8 @@ name|ServiceSupport
 implements|implements
 name|DataFormat
 implements|,
+name|DataFormatName
+implements|,
 name|CamelContextAware
 block|{
 comment|/**      * The default encoding used for stream access.      */
@@ -312,6 +328,18 @@ name|xmlContext
 operator|=
 name|xmlContext
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getDataFormatName ()
+specifier|public
+name|String
+name|getDataFormatName
+parameter_list|()
+block|{
+return|return
+literal|"castor"
+return|;
 block|}
 DECL|method|marshal (Exchange exchange, Object body, OutputStream outputStream)
 specifier|public

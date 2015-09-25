@@ -200,6 +200,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|DataFormatName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -267,6 +281,8 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|DataFormat
+implements|,
+name|DataFormatName
 block|{
 DECL|field|KEY
 specifier|public
@@ -412,6 +428,18 @@ name|cryptoProvider
 operator|=
 name|cryptoProvider
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getDataFormatName ()
+specifier|public
+name|String
+name|getDataFormatName
+parameter_list|()
+block|{
+return|return
+literal|"crypto"
+return|;
 block|}
 DECL|method|initializeCipher (int mode, Key key, byte[] iv)
 specifier|private

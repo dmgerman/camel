@@ -136,20 +136,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|support
-operator|.
-name|ServiceSupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|w3c
 operator|.
 name|dom
@@ -229,6 +215,34 @@ operator|.
 name|spi
 operator|.
 name|DataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|DataFormatName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|support
+operator|.
+name|ServiceSupport
 import|;
 end_import
 
@@ -335,6 +349,8 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|DataFormat
+implements|,
+name|DataFormatName
 block|{
 comment|/*      * Our Logger      */
 DECL|field|LOG
@@ -429,6 +445,18 @@ name|Object
 argument_list|>
 name|parserPropeties
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|getDataFormatName ()
+specifier|public
+name|String
+name|getDataFormatName
+parameter_list|()
+block|{
+return|return
+literal|"tidyMarkup"
+return|;
+block|}
 comment|/**      * Unsupported operation. We cannot create ugly HTML.      */
 DECL|method|marshal (Exchange exchange, Object object, OutputStream outputStream)
 specifier|public

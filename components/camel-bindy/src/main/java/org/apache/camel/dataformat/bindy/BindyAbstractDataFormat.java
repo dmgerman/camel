@@ -70,6 +70,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|DataFormatName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -86,6 +100,8 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|DataFormat
+implements|,
+name|DataFormatName
 block|{
 DECL|field|locale
 specifier|private
@@ -127,6 +143,18 @@ name|classType
 operator|=
 name|classType
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getDataFormatName ()
+specifier|public
+name|String
+name|getDataFormatName
+parameter_list|()
+block|{
+return|return
+literal|"bindy"
+return|;
 block|}
 DECL|method|getClassType ()
 specifier|public
