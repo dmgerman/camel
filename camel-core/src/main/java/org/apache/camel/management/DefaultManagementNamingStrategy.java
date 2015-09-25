@@ -212,6 +212,20 @@ name|camel
 operator|.
 name|builder
 operator|.
+name|DefaultErrorHandlerBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
 name|ErrorHandlerBuilderRef
 import|;
 end_import
@@ -1275,8 +1289,9 @@ operator|.
 name|getRef
 argument_list|()
 expr_stmt|;
-name|builder
-operator|=
+name|ErrorHandlerFactory
+name|refBuilder
+init|=
 name|ErrorHandlerBuilderRef
 operator|.
 name|lookupErrorHandlerBuilder
@@ -1288,7 +1303,19 @@ operator|.
 name|getRef
 argument_list|()
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|refBuilder
+operator|!=
+literal|null
+condition|)
+block|{
+name|builder
+operator|=
+name|refBuilder
 expr_stmt|;
+block|}
 comment|// must do a 2nd lookup in case this is also a reference
 comment|// (this happens with spring DSL using errorHandlerRef on<route> as it gets a bit
 comment|// complex with indirections for error handler references
@@ -1323,7 +1350,7 @@ name|DEFAULT_ERROR_HANDLER_BUILDER
 argument_list|)
 condition|)
 block|{
-name|builder
+name|refBuilder
 operator|=
 name|ErrorHandlerBuilderRef
 operator|.
@@ -1337,6 +1364,13 @@ name|getRef
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|refBuilder
+operator|!=
+literal|null
+condition|)
+block|{
 name|ref
 operator|=
 name|builderRef
@@ -1344,6 +1378,11 @@ operator|.
 name|getRef
 argument_list|()
 expr_stmt|;
+name|builder
+operator|=
+name|refBuilder
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}

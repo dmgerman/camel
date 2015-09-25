@@ -604,7 +604,7 @@ name|answer
 operator|=
 name|routeContext
 operator|.
-name|mandatoryLookup
+name|lookup
 argument_list|(
 name|ref
 argument_list|,
