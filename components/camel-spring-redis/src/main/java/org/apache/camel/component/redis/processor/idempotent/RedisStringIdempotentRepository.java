@@ -1,4 +1,8 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
+begin_comment
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+end_comment
+
 begin_package
 DECL|package|org.apache.camel.component.redis.processor.idempotent
 package|package
@@ -17,6 +21,70 @@ operator|.
 name|idempotent
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedOperation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedResource
+import|;
+end_import
 
 begin_import
 import|import
@@ -126,39 +194,14 @@ name|ValueOperations
 import|;
 end_import
 
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
 begin_class
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Spring Redis based message id repository"
+argument_list|)
 DECL|class|RedisStringIdempotentRepository
 specifier|public
 class|class
@@ -177,13 +220,12 @@ name|String
 argument_list|>
 name|valueOperations
 decl_stmt|;
-comment|/*   The expiry time frame for the item in seconds    */
 DECL|field|expiry
 specifier|private
-name|Long
+name|long
 name|expiry
 decl_stmt|;
-DECL|method|RedisStringIdempotentRepository ( RedisTemplate<String, String> redisTemplate, String processorName)
+DECL|method|RedisStringIdempotentRepository (RedisTemplate<String, String> redisTemplate, String processorName)
 specifier|public
 name|RedisStringIdempotentRepository
 parameter_list|(
@@ -217,6 +259,13 @@ argument_list|()
 expr_stmt|;
 block|}
 annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Does the store contain the given key"
+argument_list|)
+annotation|@
 name|Override
 DECL|method|contains (String key)
 specifier|public
@@ -240,24 +289,19 @@ name|key
 argument_list|)
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
+return|return
 name|value
 operator|!=
 literal|null
-condition|)
-block|{
-return|return
-literal|true
 return|;
 block|}
-else|else
-block|{
-return|return
-literal|false
-return|;
-block|}
-block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Adds the key to the store"
+argument_list|)
 annotation|@
 name|Override
 DECL|method|add (String key)
@@ -287,8 +331,8 @@ decl_stmt|;
 if|if
 condition|(
 name|expiry
-operator|!=
-literal|null
+operator|>
+literal|0
 condition|)
 block|{
 name|valueOperations
@@ -315,6 +359,13 @@ return|return
 name|added
 return|;
 block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Remove the key from the store"
+argument_list|)
 annotation|@
 name|Override
 DECL|method|remove (String key)
@@ -343,6 +394,15 @@ return|return
 literal|true
 return|;
 block|}
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Clear the store"
+argument_list|)
+annotation|@
+name|Override
 DECL|method|clear ()
 specifier|public
 name|void
@@ -486,7 +546,7 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createRedisKey (String key)
-specifier|public
+specifier|protected
 name|String
 name|createRedisKey
 parameter_list|(
@@ -495,30 +555,17 @@ name|key
 parameter_list|)
 block|{
 return|return
-operator|new
-name|StringBuilder
-argument_list|(
 name|getProcessorName
 argument_list|()
-argument_list|)
-operator|.
-name|append
-argument_list|(
+operator|+
 literal|":"
-argument_list|)
-operator|.
-name|append
-argument_list|(
+operator|+
 name|key
-argument_list|)
-operator|.
-name|toString
-argument_list|()
 return|;
 block|}
 DECL|method|getExpiry ()
 specifier|public
-name|Long
+name|long
 name|getExpiry
 parameter_list|()
 block|{
@@ -526,13 +573,13 @@ return|return
 name|expiry
 return|;
 block|}
-comment|/**    * Exire all newly added items after the given number of seconds    */
-DECL|method|setExpiry (Long expiry)
+comment|/**      * Expire all newly added items after the given number of seconds (0 means never expire)      */
+DECL|method|setExpiry (long expiry)
 specifier|public
 name|void
 name|setExpiry
 parameter_list|(
-name|Long
+name|long
 name|expiry
 parameter_list|)
 block|{
