@@ -301,6 +301,18 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
+name|Override
+DECL|method|getDataFormatName ()
+specifier|public
+name|String
+name|getDataFormatName
+parameter_list|()
+block|{
+return|return
+literal|"bindy-kvp"
+return|;
+block|}
+annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"

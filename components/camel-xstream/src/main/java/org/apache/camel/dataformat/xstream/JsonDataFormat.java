@@ -326,7 +326,7 @@ name|getDataFormatName
 parameter_list|()
 block|{
 return|return
-literal|"json"
+literal|"json-xstream"
 return|;
 block|}
 DECL|method|isPrettyPrint ()

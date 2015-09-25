@@ -144,18 +144,6 @@ operator|=
 name|classType
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|getDataFormatName ()
-specifier|public
-name|String
-name|getDataFormatName
-parameter_list|()
-block|{
-return|return
-literal|"bindy"
-return|;
-block|}
 DECL|method|getClassType ()
 specifier|public
 name|Class
