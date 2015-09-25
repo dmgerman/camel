@@ -274,6 +274,22 @@ name|core
 operator|.
 name|osgi
 operator|.
+name|OsgiServiceRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|core
+operator|.
+name|osgi
+operator|.
 name|utils
 operator|.
 name|BundleDelegatingClassLoader
@@ -330,9 +346,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|spi
 operator|.
-name|ModelCamelContext
+name|Registry
 import|;
 end_import
 
@@ -436,17 +452,13 @@ argument_list|)
 decl_stmt|;
 DECL|field|context
 specifier|protected
-name|ModelCamelContext
+name|CamelContext
 name|context
 decl_stmt|;
 DECL|field|registry
 specifier|protected
-name|SimpleRegistry
+name|Registry
 name|registry
-init|=
-operator|new
-name|SimpleRegistry
-argument_list|()
 decl_stmt|;
 comment|// Configured fields
 DECL|field|camelContextId
@@ -614,6 +626,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|registry
+operator|=
+operator|new
+name|OsgiServiceRegistry
+argument_list|(
+name|bundleContext
+argument_list|)
+expr_stmt|;
 name|context
 operator|=
 operator|new
@@ -656,6 +676,12 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|registry
+operator|=
+operator|new
+name|SimpleRegistry
+argument_list|()
+expr_stmt|;
 name|context
 operator|=
 operator|new
@@ -711,6 +737,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// TODO: allow to configure these options and not hardcode
 name|context
 operator|.
 name|setUseMDCLogging
@@ -839,14 +866,14 @@ block|}
 comment|// Set property prefix
 if|if
 condition|(
-literal|null
-operator|!=
 name|System
 operator|.
 name|getProperty
 argument_list|(
 name|PROPERTY_PREFIX
 argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
 name|pc
@@ -866,9 +893,9 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-literal|null
-operator|!=
 name|props
+operator|!=
+literal|null
 condition|)
 block|{
 name|Properties
@@ -1109,6 +1136,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+comment|// LOL so the best we can do is to try to start every 5th second and cross our fingers - yeah OSGi is lovely ;(
 name|log
 operator|.
 name|warn
@@ -1150,7 +1178,7 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"Failed to stop Camel context."
 argument_list|,
@@ -1479,7 +1507,7 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"Error setting field "
 operator|+
