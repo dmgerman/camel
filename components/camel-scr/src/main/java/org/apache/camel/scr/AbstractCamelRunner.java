@@ -1136,7 +1136,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// LOL so the best we can do is to try to start every 5th second and cross our fingers - yeah OSGi is lovely ;(
+comment|// we should have a better way - than just try every 5th second to try to start the bundle
 name|log
 operator|.
 name|warn
