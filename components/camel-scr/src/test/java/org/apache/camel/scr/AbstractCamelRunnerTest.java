@@ -185,6 +185,11 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+DECL|field|integration
+specifier|private
+name|ConcreteCamelRunner
+name|integration
+decl_stmt|;
 annotation|@
 name|Before
 DECL|method|setUp ()
@@ -221,24 +226,36 @@ argument_list|(
 literal|"*******************************************************************"
 argument_list|)
 expr_stmt|;
+comment|// Set property prefix for unit testing
+name|System
+operator|.
+name|setProperty
+argument_list|(
+name|AbstractCamelRunner
+operator|.
+name|PROPERTY_PREFIX
+argument_list|,
+literal|"unit"
+argument_list|)
+expr_stmt|;
+comment|// Prepare the integration
+name|integration
+operator|=
+operator|new
+name|ConcreteCamelRunner
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testDeepConfigure ()
+DECL|method|testConfigure ()
 specifier|public
 name|void
-name|testDeepConfigure
+name|testConfigure
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ConcreteCamelRunner
-name|integration
-init|=
-operator|new
-name|ConcreteCamelRunner
-argument_list|()
-decl_stmt|;
 name|integration
 operator|.
 name|activate
@@ -253,7 +270,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Overriding camelContextId failed (deep configure)"
+literal|"Configuring camelContextId with prefix failed"
 argument_list|,
 name|integration
 operator|.
@@ -262,7 +279,7 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-literal|"camelContextId"
+literal|"unit.camelContextId"
 argument_list|)
 argument_list|,
 name|integration
@@ -283,13 +300,6 @@ name|void
 name|testActivateDeactivate
 parameter_list|()
 block|{
-name|ConcreteCamelRunner
-name|integration
-init|=
-operator|new
-name|ConcreteCamelRunner
-argument_list|()
-decl_stmt|;
 try|try
 block|{
 name|integration
@@ -378,13 +388,6 @@ name|void
 name|testPrepareRunStop
 parameter_list|()
 block|{
-name|ConcreteCamelRunner
-name|integration
-init|=
-operator|new
-name|ConcreteCamelRunner
-argument_list|()
-decl_stmt|;
 try|try
 block|{
 name|integration
@@ -488,13 +491,6 @@ name|void
 name|testDelayedStart
 parameter_list|()
 block|{
-name|ConcreteCamelRunner
-name|integration
-init|=
-operator|new
-name|ConcreteCamelRunner
-argument_list|()
-decl_stmt|;
 try|try
 block|{
 name|integration
@@ -615,13 +611,6 @@ name|void
 name|testDelayedStartCancel
 parameter_list|()
 block|{
-name|ConcreteCamelRunner
-name|integration
-init|=
-operator|new
-name|ConcreteCamelRunner
-argument_list|()
-decl_stmt|;
 name|Map
 argument_list|<
 name|String

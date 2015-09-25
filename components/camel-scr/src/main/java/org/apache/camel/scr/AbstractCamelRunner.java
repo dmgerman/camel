@@ -434,8 +434,14 @@ operator|new
 name|SimpleRegistry
 argument_list|()
 decl_stmt|;
+comment|// Configured fields
+DECL|field|camelContextId
+specifier|private
+name|String
+name|camelContextId
+decl_stmt|;
 DECL|field|active
-specifier|protected
+specifier|private
 name|boolean
 name|active
 decl_stmt|;
@@ -563,6 +569,8 @@ expr_stmt|;
 name|setupCamelContext
 argument_list|(
 name|bundleContext
+argument_list|,
+name|camelContextId
 argument_list|)
 expr_stmt|;
 block|}
@@ -652,19 +660,27 @@ argument_list|,
 name|log
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|setupCamelContext (final BundleContext bundleContext, final String camelContextId)
+specifier|protected
+name|void
+name|setupCamelContext
+parameter_list|(
+specifier|final
+name|BundleContext
+name|bundleContext
+parameter_list|,
+specifier|final
 name|String
-name|name
-init|=
-name|props
-operator|.
-name|remove
-argument_list|(
-literal|"camelContextId"
-argument_list|)
-decl_stmt|;
+name|camelContextId
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// Set up CamelContext
 if|if
 condition|(
-name|name
+name|camelContextId
 operator|!=
 literal|null
 condition|)
@@ -676,40 +692,11 @@ argument_list|(
 operator|new
 name|ExplicitCamelContextNameStrategy
 argument_list|(
-name|name
+name|camelContextId
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// ensure we publish this CamelContext to the OSGi service registry
-name|context
-operator|.
-name|getManagementStrategy
-argument_list|()
-operator|.
-name|addEventNotifier
-argument_list|(
-operator|new
-name|OsgiCamelContextPublisher
-argument_list|(
-name|bundleContext
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|setupCamelContext (final BundleContext bundleContext)
-specifier|protected
-name|void
-name|setupCamelContext
-parameter_list|(
-specifier|final
-name|BundleContext
-name|bundleContext
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// Set up CamelContext
 name|context
 operator|.
 name|setUseMDCLogging
@@ -749,6 +736,21 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// ensure we publish this CamelContext to the OSGi service registry
+name|context
+operator|.
+name|getManagementStrategy
+argument_list|()
+operator|.
+name|addEventNotifier
+argument_list|(
+operator|new
+name|OsgiCamelContextPublisher
+argument_list|(
+name|bundleContext
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|setupPropertiesComponent (final CamelContext context, final Map<String, String> props, Logger log)
 specifier|public

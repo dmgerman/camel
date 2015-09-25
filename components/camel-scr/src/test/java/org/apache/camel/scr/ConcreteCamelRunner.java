@@ -286,7 +286,16 @@ name|put
 argument_list|(
 literal|"camelContextId"
 argument_list|,
-literal|"camel-runner-test"
+literal|"camel-runner"
+argument_list|)
+expr_stmt|;
+name|defaultProps
+operator|.
+name|put
+argument_list|(
+literal|"unit.camelContextId"
+argument_list|,
+literal|"camel-runner-unitTest"
 argument_list|)
 expr_stmt|;
 name|defaultProps
