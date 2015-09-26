@@ -218,7 +218,7 @@ literal|"JOLT"
 argument_list|,
 name|syntax
 operator|=
-literal|"jolt:/spec.json"
+literal|"jolt:resourceUri"
 argument_list|,
 name|producerOnly
 operator|=
@@ -384,7 +384,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Velocity content read from resource {} with resourceUri: {} for endpoint {}"
+literal|"Jolt content read from resource {} with resourceUri: {} for endpoint {}"
 argument_list|,
 operator|new
 name|Object
