@@ -134,6 +134,26 @@ name|java
 operator|.
 name|util
 operator|.
+name|Set
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|TreeSet
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|concurrent
 operator|.
 name|ConcurrentHashMap
@@ -738,18 +758,23 @@ index|[]
 name|getAvailableScriptNames
 parameter_list|()
 block|{
-name|List
+comment|// use a set to avoid duplicate names
+name|Set
 argument_list|<
 name|String
 argument_list|>
 name|names
 init|=
 operator|new
-name|ArrayList
+name|TreeSet
 argument_list|<
 name|String
 argument_list|>
-argument_list|()
+argument_list|(
+name|String
+operator|.
+name|CASE_INSENSITIVE_ORDER
+argument_list|)
 decl_stmt|;
 for|for
 control|(
@@ -1159,8 +1184,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Found ScriptEngineFactory in "
-operator|+
+literal|"Found ScriptEngineFactory in bundle: {}"
+argument_list|,
 name|bundle
 operator|.
 name|getSymbolicName
