@@ -62,7 +62,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -86,38 +86,24 @@ specifier|public
 class|class
 name|JoltComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 DECL|field|transform
 specifier|private
 name|Transform
 name|transform
 decl_stmt|;
-DECL|method|getTransform ()
+DECL|method|JoltComponent ()
 specifier|public
-name|Transform
-name|getTransform
+name|JoltComponent
 parameter_list|()
 block|{
-return|return
-name|transform
-return|;
-block|}
-comment|/**      * Explicitly sets the Transform to use. If not set a Transform specified by the transformDsl will be created      */
-DECL|method|setTransform (Transform transform)
-specifier|public
-name|void
-name|setTransform
-parameter_list|(
-name|Transform
-name|transform
-parameter_list|)
-block|{
-name|this
+name|super
+argument_list|(
+name|JoltEndpoint
 operator|.
-name|transform
-operator|=
-name|transform
+name|class
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -220,6 +206,33 @@ block|}
 return|return
 name|answer
 return|;
+block|}
+DECL|method|getTransform ()
+specifier|public
+name|Transform
+name|getTransform
+parameter_list|()
+block|{
+return|return
+name|transform
+return|;
+block|}
+comment|/**      * Explicitly sets the Transform to use. If not set a Transform specified by the transformDsl will be created      */
+DECL|method|setTransform (Transform transform)
+specifier|public
+name|void
+name|setTransform
+parameter_list|(
+name|Transform
+name|transform
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transform
+operator|=
+name|transform
+expr_stmt|;
 block|}
 block|}
 end_class

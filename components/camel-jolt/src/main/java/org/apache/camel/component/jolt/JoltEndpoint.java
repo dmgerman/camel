@@ -589,7 +589,7 @@ return|return
 name|transformDsl
 return|;
 block|}
-comment|/**      * Specifies the Transform DSL of the enpoint resource. If non is specified<code>Chainr</code> will be used.      */
+comment|/**      * Specifies the Transform DSL of the endpoint resource. If none is specified<code>Chainr</code> will be used.      */
 DECL|method|setTransformDsl (JoltTransformType transformType)
 specifier|public
 name|void
