@@ -125,12 +125,7 @@ name|Exception
 block|{
 name|testComponent
 argument_list|(
-literal|"rnc"
-argument_list|)
-expr_stmt|;
-name|testComponent
-argument_list|(
-literal|"rng"
+name|COMPONENT
 argument_list|)
 expr_stmt|;
 block|}
