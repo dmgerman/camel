@@ -232,9 +232,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|spi
 operator|.
-name|SimpleRegistry
+name|Registry
 import|;
 end_import
 
@@ -268,7 +268,7 @@ name|Route
 expr|extends
 name|RouteBuilder
 block|{
-name|SimpleRegistry
+name|Registry
 name|registry
 block|;
 comment|// Configured fields
@@ -300,7 +300,7 @@ block|}
 name|Route
 argument_list|(
 name|final
-name|SimpleRegistry
+name|Registry
 name|registry
 argument_list|)
 block|{
@@ -322,8 +322,6 @@ block|{
 name|checkProperties
 argument_list|()
 block|;
-comment|// Add a bean to Camel context registry
-comment|// registry.put("test", "bean");
 name|errorHandler
 argument_list|(
 name|defaultErrorHandler
