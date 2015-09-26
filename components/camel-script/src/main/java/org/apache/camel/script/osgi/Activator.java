@@ -74,6 +74,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Dictionary
 import|;
 end_import
@@ -1310,6 +1320,11 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getScriptNames (ScriptEngineFactory factory)
 specifier|private
 name|List
@@ -1327,8 +1342,6 @@ argument_list|<
 name|String
 argument_list|>
 name|names
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(
@@ -1350,14 +1363,9 @@ block|{
 comment|// return an empty script name list
 name|names
 operator|=
-operator|new
-name|ArrayList
-argument_list|<
-name|String
-argument_list|>
-argument_list|(
-literal|0
-argument_list|)
+name|Collections
+operator|.
+name|EMPTY_LIST
 expr_stmt|;
 block|}
 return|return
@@ -1391,8 +1399,6 @@ argument_list|)
 decl_stmt|;
 name|String
 name|className
-init|=
-literal|null
 decl_stmt|;
 while|while
 condition|(
@@ -1495,6 +1501,7 @@ argument_list|(
 name|className
 argument_list|)
 decl_stmt|;
+comment|// OSGi classloading trouble (with jruby)
 if|if
 condition|(
 operator|!
@@ -1508,18 +1515,9 @@ name|cls
 argument_list|)
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalStateException
-argument_list|(
-literal|"Invalid ScriptEngineFactory: "
-operator|+
-name|cls
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-throw|;
+return|return
+literal|null
+return|;
 block|}
 return|return
 operator|(
@@ -1576,6 +1574,13 @@ init|=
 name|getFactory
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|factory
+operator|!=
+literal|null
+condition|)
+block|{
 name|List
 argument_list|<
 name|String
@@ -1693,6 +1698,7 @@ return|return
 literal|null
 return|;
 block|}
+block|}
 catch|catch
 parameter_list|(
 name|Exception
@@ -1720,6 +1726,9 @@ return|return
 literal|null
 return|;
 block|}
+return|return
+literal|null
+return|;
 block|}
 annotation|@
 name|Override

@@ -82,7 +82,7 @@ name|CamelContext
 name|context
 parameter_list|)
 block|{
-comment|// only return if we can suppor the language
+comment|// only return if we can support the language
 if|if
 condition|(
 name|ScriptBuilder

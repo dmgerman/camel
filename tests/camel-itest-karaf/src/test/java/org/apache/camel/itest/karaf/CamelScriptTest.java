@@ -125,7 +125,7 @@ name|Exception
 block|{
 name|testLanguage
 argument_list|(
-name|COMPONENT
+literal|"Groovy"
 argument_list|)
 expr_stmt|;
 block|}
@@ -143,6 +143,8 @@ return|return
 name|configure
 argument_list|(
 name|COMPONENT
+argument_list|,
+literal|"script-groovy"
 argument_list|)
 return|;
 block|}
