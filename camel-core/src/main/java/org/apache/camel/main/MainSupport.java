@@ -1820,6 +1820,23 @@ name|routeBuilder
 argument_list|)
 expr_stmt|;
 block|}
+comment|// allow to do configuration before its started
+for|for
+control|(
+name|MainListener
+name|listener
+range|:
+name|listeners
+control|)
+block|{
+name|listener
+operator|.
+name|configure
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|addRouteBuilder (RouteBuilder routeBuilder)
 specifier|public

@@ -16,6 +16,18 @@ name|main
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * A useful base class for {@link org.apache.camel.main.MainListener} implementations.  */
 end_comment
@@ -35,6 +47,17 @@ name|beforeStart
 parameter_list|(
 name|MainSupport
 name|main
+parameter_list|)
+block|{
+comment|// noop
+block|}
+DECL|method|configure (CamelContext context)
+specifier|public
+name|void
+name|configure
+parameter_list|(
+name|CamelContext
+name|context
 parameter_list|)
 block|{
 comment|// noop

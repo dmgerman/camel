@@ -16,6 +16,18 @@ name|main
 package|;
 end_package
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
+
 begin_comment
 comment|/**  * A lifecycle listener to receive callbacks when the main is started and stopped.  */
 end_comment
@@ -26,13 +38,22 @@ specifier|public
 interface|interface
 name|MainListener
 block|{
-comment|/**      * Callback before the CamelContext(s) is being started.      *      * @param main  the main instance      */
+comment|/**      * Callback before the CamelContext(s) is being created and started.      *      * @param main  the main instance      */
 DECL|method|beforeStart (MainSupport main)
 name|void
 name|beforeStart
 parameter_list|(
 name|MainSupport
 name|main
+parameter_list|)
+function_decl|;
+comment|/**      * Callback to configure<b>each</b> created CamelContext.      *<p/>      * Notice this callback will be invoked for<b>each</b> CamelContext and therefore can be invoked      * multiple times if there is 2 or more CamelContext's being created.      *      * @param context the created CamelContext      */
+DECL|method|configure (CamelContext context)
+name|void
+name|configure
+parameter_list|(
+name|CamelContext
+name|context
 parameter_list|)
 function_decl|;
 comment|/**      * Callback after the CamelContext(s) has been started.      *      * @param main  the main instance      */
