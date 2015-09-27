@@ -614,12 +614,12 @@ name|this
 return|;
 block|}
 comment|/**      * Sets the time period during which the maximum request count per period      *      * @param maximumRequestsPerPeriod  the maximum request count number per time period      * @return the builder      */
-DECL|method|maximumRequestsPerPeriod (Long maximumRequestsPerPeriod)
+DECL|method|maximumRequestsPerPeriod (long maximumRequestsPerPeriod)
 specifier|public
 name|ThrottleDefinition
 name|maximumRequestsPerPeriod
 parameter_list|(
-name|Long
+name|long
 name|maximumRequestsPerPeriod
 parameter_list|)
 block|{
