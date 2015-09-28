@@ -344,6 +344,13 @@ name|enableJmx
 init|=
 literal|true
 decl_stmt|;
+DECL|field|prefixInstanceName
+specifier|private
+name|boolean
+name|prefixInstanceName
+init|=
+literal|true
+decl_stmt|;
 DECL|method|QuartzComponent ()
 specifier|public
 name|QuartzComponent
@@ -537,6 +544,33 @@ operator|=
 name|propertiesFile
 expr_stmt|;
 block|}
+DECL|method|isPrefixInstanceName ()
+specifier|public
+name|boolean
+name|isPrefixInstanceName
+parameter_list|()
+block|{
+return|return
+name|prefixInstanceName
+return|;
+block|}
+comment|/**      * Whether to prefix the Quartz Scheduler instance name with the CamelContext name.      *<p/>      * This is enabled by default, to let each CamelContext use its own Quartz scheduler instance by default.      * You can set this option to<tt>false</tt> to reuse Quartz scheduler instances between multiple CamelContext's.      */
+DECL|method|setPrefixInstanceName (boolean prefixInstanceName)
+specifier|public
+name|void
+name|setPrefixInstanceName
+parameter_list|(
+name|boolean
+name|prefixInstanceName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|prefixInstanceName
+operator|=
+name|prefixInstanceName
+expr_stmt|;
+block|}
 DECL|method|getSchedulerFactory ()
 specifier|public
 name|SchedulerFactory
@@ -606,6 +640,12 @@ literal|"true"
 argument_list|)
 expr_stmt|;
 comment|// camel context name will be a suffix to use one scheduler per context
+if|if
+condition|(
+name|isPrefixInstanceName
+argument_list|()
+condition|)
+block|{
 name|String
 name|instName
 init|=
@@ -625,6 +665,7 @@ argument_list|,
 name|instName
 argument_list|)
 expr_stmt|;
+block|}
 comment|// enable jmx unless configured to not do so
 if|if
 condition|(
@@ -744,6 +785,13 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// camel context name will be a suffix to use one scheduler per context
+if|if
+condition|(
+name|isPrefixInstanceName
+argument_list|()
+condition|)
+block|{
+comment|// camel context name will be a suffix to use one scheduler per context
 name|String
 name|instName
 init|=
@@ -763,6 +811,7 @@ argument_list|,
 name|instName
 argument_list|)
 expr_stmt|;
+block|}
 comment|// force disabling update checker (will do online check over the internet)
 name|prop
 operator|.
