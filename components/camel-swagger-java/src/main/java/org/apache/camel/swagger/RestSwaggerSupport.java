@@ -1249,6 +1249,17 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|response
+operator|.
+name|addHeader
+argument_list|(
+name|Exchange
+operator|.
+name|CONTENT_TYPE
+argument_list|,
+literal|"application/json"
+argument_list|)
+expr_stmt|;
 comment|// read the rest-dsl into swagger model
 name|Swagger
 name|swagger
