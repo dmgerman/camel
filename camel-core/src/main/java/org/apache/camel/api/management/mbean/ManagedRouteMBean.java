@@ -112,6 +112,18 @@ name|String
 name|getState
 parameter_list|()
 function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Route Uptime"
+argument_list|)
+DECL|method|getUptime ()
+name|String
+name|getUptime
+parameter_list|()
+function_decl|;
 comment|/**      * @deprecated use {@link #getExchangesInflight()}      */
 annotation|@
 name|ManagedAttribute

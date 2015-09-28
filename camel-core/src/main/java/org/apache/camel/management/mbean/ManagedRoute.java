@@ -707,6 +707,19 @@ name|name
 argument_list|()
 return|;
 block|}
+DECL|method|getUptime ()
+specifier|public
+name|String
+name|getUptime
+parameter_list|()
+block|{
+return|return
+name|route
+operator|.
+name|getUptime
+argument_list|()
+return|;
+block|}
 DECL|method|getInflightExchanges ()
 specifier|public
 name|Integer

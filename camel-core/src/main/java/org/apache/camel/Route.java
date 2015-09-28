@@ -96,6 +96,12 @@ name|String
 name|getId
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the uptime in a human readable format      *      * @return the uptime in days/hours/minutes      */
+DECL|method|getUptime ()
+name|String
+name|getUptime
+parameter_list|()
+function_decl|;
 comment|/**      * Gets the inbound {@link Consumer}      *      * @return the inbound consumer      */
 DECL|method|getConsumer ()
 name|Consumer

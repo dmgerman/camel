@@ -32,6 +32,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Date
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
 import|;
 end_import
@@ -120,6 +130,20 @@ name|ServiceSupport
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|TimeUtils
+import|;
+end_import
+
 begin_comment
 comment|/**  * Default implementation of {@link Route}.  *<p/>  * Use the API from {@link org.apache.camel.CamelContext} to control the lifecycle of a route,  * such as starting and stopping using the {@link org.apache.camel.CamelContext#startRoute(String)}  * and {@link org.apache.camel.CamelContext#stopRoute(String)} methods.  *  * @version   */
 end_comment
@@ -182,6 +206,11 @@ specifier|private
 specifier|final
 name|RouteContext
 name|routeContext
+decl_stmt|;
+DECL|field|startDate
+specifier|private
+name|Date
+name|startDate
 decl_stmt|;
 DECL|method|DefaultRoute (RouteContext routeContext, Endpoint endpoint)
 specifier|public
@@ -276,6 +305,50 @@ argument_list|(
 name|Route
 operator|.
 name|ID_PROPERTY
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getUptime ()
+specifier|public
+name|String
+name|getUptime
+parameter_list|()
+block|{
+comment|// compute and log uptime
+if|if
+condition|(
+name|startDate
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|""
+return|;
+block|}
+name|long
+name|delta
+init|=
+operator|new
+name|Date
+argument_list|()
+operator|.
+name|getTime
+argument_list|()
+operator|-
+name|startDate
+operator|.
+name|getTime
+argument_list|()
+decl_stmt|;
+return|return
+name|TimeUtils
+operator|.
+name|printDuration
+argument_list|(
+name|delta
 argument_list|)
 return|;
 block|}
@@ -477,7 +550,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+name|startDate
+operator|=
+operator|new
+name|Date
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|doStop ()
 specifier|protected
@@ -487,7 +565,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+comment|// and clear start date
+name|startDate
+operator|=
+literal|null
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -499,6 +581,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// and clear start date
+name|startDate
+operator|=
+literal|null
+expr_stmt|;
 comment|// clear services when shutting down
 name|services
 operator|.
