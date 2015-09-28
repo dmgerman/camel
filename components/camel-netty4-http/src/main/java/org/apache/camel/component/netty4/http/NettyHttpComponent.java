@@ -1636,6 +1636,7 @@ operator|=
 name|num
 expr_stmt|;
 block|}
+comment|// prefix path with context-path if configured in rest-dsl configuration
 name|String
 name|contextPath
 init|=
@@ -1672,6 +1673,16 @@ argument_list|(
 name|contextPath
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|contextPath
+argument_list|)
+condition|)
+block|{
 name|path
 operator|=
 name|contextPath
@@ -1680,6 +1691,7 @@ literal|"/"
 operator|+
 name|path
 expr_stmt|;
+block|}
 block|}
 comment|// if no explicit hostname set then resolve the hostname
 if|if

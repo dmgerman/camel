@@ -1151,6 +1151,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// do not append with context-path as the servlet path should be without context-path
 name|String
 name|query
 init|=
