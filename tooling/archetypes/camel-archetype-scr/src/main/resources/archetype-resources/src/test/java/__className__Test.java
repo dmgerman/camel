@@ -530,10 +530,7 @@ name|context
 operator|.
 name|disableJMX
 argument_list|()
-block|;
-comment|// Fake a component for test
-comment|// context.addComponent("amq", new MockComponent());
-block|}
+block|;     }
 expr|@
 name|After
 specifier|public
@@ -626,7 +623,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// resultEndpoint.expectedMessageCount(1); // If you want to just check the number of messages
 name|resultEndpoint
 operator|.
 name|expectedBodiesReceived
@@ -634,7 +630,6 @@ argument_list|(
 literal|"hello"
 argument_list|)
 expr_stmt|;
-comment|// If you want to check the contents
 comment|// Start the integration
 name|integration
 operator|.
