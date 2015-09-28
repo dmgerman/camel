@@ -1228,7 +1228,7 @@ range|:
 name|components
 control|)
 block|{
-comment|// skip camel-jetty9 as its a duplicate of camel-jetty8
+comment|// skip camel-jetty8 as its a duplicate of camel-jetty9
 if|if
 condition|(
 name|dir
@@ -1237,7 +1237,7 @@ name|isDirectory
 argument_list|()
 operator|&&
 operator|!
-literal|"camel-jetty9"
+literal|"camel-jetty8"
 operator|.
 name|equals
 argument_list|(
