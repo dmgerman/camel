@@ -1578,6 +1578,12 @@ argument_list|()
 operator|.
 name|isUseJDBC4ColumnNameAndLabelSemantics
 argument_list|()
+argument_list|,
+name|getEndpoint
+argument_list|()
+operator|.
+name|isUseGetBytesForBlob
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|List
@@ -1666,6 +1672,12 @@ name|getEndpoint
 argument_list|()
 operator|.
 name|isUseJDBC4ColumnNameAndLabelSemantics
+argument_list|()
+argument_list|,
+name|getEndpoint
+argument_list|()
+operator|.
+name|isUseGetBytesForBlob
 argument_list|()
 argument_list|)
 decl_stmt|;

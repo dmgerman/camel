@@ -264,6 +264,13 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|useGetBytesForBlob
+specifier|private
+name|boolean
+name|useGetBytesForBlob
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|prepareStatementStrategy
 specifier|private
 name|JdbcPrepareStatementStrategy
@@ -771,6 +778,35 @@ operator|.
 name|beanRowMapper
 operator|=
 name|beanRowMapper
+expr_stmt|;
+block|}
+DECL|method|isUseGetBytesForBlob ()
+specifier|public
+name|boolean
+name|isUseGetBytesForBlob
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|useGetBytesForBlob
+return|;
+block|}
+comment|/**      * To read BLOB columns as bytes instead of string data.      *<p/>      * This may be needed for certain databases such as Oracle where you must read BLOB columns as bytes.      */
+DECL|method|setUseGetBytesForBlob (boolean useGetBytesForBlob)
+specifier|public
+name|void
+name|setUseGetBytesForBlob
+parameter_list|(
+name|boolean
+name|useGetBytesForBlob
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useGetBytesForBlob
+operator|=
+name|useGetBytesForBlob
 expr_stmt|;
 block|}
 annotation|@
