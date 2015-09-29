@@ -81,7 +81,7 @@ name|JpaHelper
 parameter_list|()
 block|{     }
 comment|/**      * Gets or creates an {@link javax.persistence.EntityManager} to use.      *      * @param exchange                 the current exchange, or<tt>null</tt> if no exchange      * @param entityManagerFactory     the entity manager factory (mandatory)      * @param usePassedInEntityManager whether to use an existing {@link javax.persistence.EntityManager} which has been stored      *                                 on the exchange in the header with key {@link org.apache.camel.component.jpa.JpaConstants#ENTITY_MANAGER}      * @param useSharedEntityManager   whether to use SharedEntityManagerCreator if not already passed in                                   * @return the entity manager (is never null)      */
-DECL|method|getTargetEntityManager (Exchange exchange, EntityManagerFactory entityManagerFactory, boolean usePassedInEntityManager, boolean useSharedEntityManager)
+DECL|method|getTargetEntityManager (Exchange exchange, EntityManagerFactory entityManagerFactory, boolean usePassedInEntityManager, boolean useSharedEntityManager, boolean allowRecreate)
 specifier|public
 specifier|static
 name|EntityManager
@@ -98,6 +98,9 @@ name|usePassedInEntityManager
 parameter_list|,
 name|boolean
 name|useSharedEntityManager
+parameter_list|,
+name|boolean
+name|allowRecreate
 parameter_list|)
 block|{
 name|EntityManager
@@ -186,6 +189,61 @@ condition|(
 name|em
 operator|==
 literal|null
+condition|)
+block|{
+comment|// create a new entity manager
+name|em
+operator|=
+name|entityManagerFactory
+operator|.
+name|createEntityManager
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|exchange
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// we want to reuse the EM so store as property and make sure we close it when done with the exchange
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|JpaConstants
+operator|.
+name|ENTITY_MANAGER
+argument_list|,
+name|em
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|addOnCompletion
+argument_list|(
+operator|new
+name|JpaCloseEntityManagerOnCompletion
+argument_list|(
+name|em
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|allowRecreate
+operator|&&
+name|em
+operator|==
+literal|null
+operator|||
+operator|!
+name|em
+operator|.
+name|isOpen
+argument_list|()
 condition|)
 block|{
 comment|// create a new entity manager

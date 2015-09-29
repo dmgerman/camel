@@ -590,6 +590,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|sharedEntityManager
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// Run this in single transaction.
@@ -777,6 +779,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|sharedEntityManager
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 comment|// Run this in single transaction.
@@ -922,6 +926,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|sharedEntityManager
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Boolean
@@ -1109,6 +1115,8 @@ argument_list|,
 literal|true
 argument_list|,
 name|sharedEntityManager
+argument_list|,
+literal|true
 argument_list|)
 decl_stmt|;
 name|Boolean
