@@ -1316,6 +1316,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|isStopped
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|info
@@ -1328,6 +1335,7 @@ operator|+
 literal|" stopping"
 argument_list|)
 expr_stmt|;
+block|}
 comment|// call completed to properly stop as we count down the waiting latch
 name|completed
 argument_list|()
@@ -1341,6 +1349,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|isStarted
+argument_list|()
+condition|)
+block|{
+comment|// only log if we are not already started as camel-spring-boot etc. has a different start ordering
 name|LOG
 operator|.
 name|info
@@ -1353,6 +1369,7 @@ operator|+
 literal|" starting"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|waitUntilCompleted ()
 specifier|protected
