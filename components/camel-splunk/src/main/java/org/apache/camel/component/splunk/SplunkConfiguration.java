@@ -300,6 +300,18 @@ name|label
 operator|=
 literal|"producer"
 argument_list|)
+DECL|field|eventHost
+specifier|private
+name|String
+name|eventHost
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|tcpReceiverPort
 specifier|private
 name|int
@@ -672,6 +684,33 @@ operator|.
 name|source
 operator|=
 name|source
+expr_stmt|;
+block|}
+DECL|method|getEventHost ()
+specifier|public
+name|String
+name|getEventHost
+parameter_list|()
+block|{
+return|return
+name|eventHost
+return|;
+block|}
+comment|/**      * Override the default Splunk event host field      */
+DECL|method|setEventHost (String eventHost)
+specifier|public
+name|void
+name|setEventHost
+parameter_list|(
+name|String
+name|eventHost
+parameter_list|)
+block|{
+name|this
+operator|.
+name|eventHost
+operator|=
+name|eventHost
 expr_stmt|;
 block|}
 comment|/**      * Splunk index to write to      */
