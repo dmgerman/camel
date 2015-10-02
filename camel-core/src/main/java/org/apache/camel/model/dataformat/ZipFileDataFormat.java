@@ -138,7 +138,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"dataformat,transformation"
+literal|"dataformat,transformation,file"
 argument_list|,
 name|title
 operator|=

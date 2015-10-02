@@ -300,7 +300,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"language"
+literal|"language,core,java"
 argument_list|,
 name|title
 operator|=

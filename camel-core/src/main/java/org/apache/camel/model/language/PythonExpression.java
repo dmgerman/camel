@@ -84,7 +84,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"language"
+literal|"language,script"
 argument_list|,
 name|title
 operator|=

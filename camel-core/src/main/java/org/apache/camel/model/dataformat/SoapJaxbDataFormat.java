@@ -152,7 +152,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"dataformat,transformation"
+literal|"dataformat,transformation,xml"
 argument_list|,
 name|title
 operator|=

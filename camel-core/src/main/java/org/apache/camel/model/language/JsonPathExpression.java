@@ -162,7 +162,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"language"
+literal|"language,json"
 argument_list|,
 name|title
 operator|=

@@ -98,7 +98,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"dataformat,transformation"
+literal|"dataformat,transformation,core"
 argument_list|,
 name|title
 operator|=
