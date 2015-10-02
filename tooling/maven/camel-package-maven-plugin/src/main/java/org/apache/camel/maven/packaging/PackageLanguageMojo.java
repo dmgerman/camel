@@ -464,7 +464,7 @@ name|Collections
 operator|.
 name|singletonList
 argument_list|(
-literal|"**/dataformat.properties"
+literal|"**/language.properties"
 argument_list|)
 argument_list|,
 name|Collections
@@ -975,16 +975,27 @@ literal|"title"
 argument_list|)
 condition|)
 block|{
-name|languageModel
-operator|.
-name|setTitle
+comment|// title may be special for some languages
+name|String
+name|title
+init|=
+name|asTitle
 argument_list|(
+name|name
+argument_list|,
 name|row
 operator|.
 name|get
 argument_list|(
 literal|"title"
 argument_list|)
+argument_list|)
+decl_stmt|;
+name|languageModel
+operator|.
+name|setTitle
+argument_list|(
+name|title
 argument_list|)
 expr_stmt|;
 block|}
@@ -998,16 +1009,27 @@ literal|"description"
 argument_list|)
 condition|)
 block|{
-name|languageModel
-operator|.
-name|setDescription
+comment|// description may be special for some languages
+name|String
+name|desc
+init|=
+name|asDescription
 argument_list|(
+name|name
+argument_list|,
 name|row
 operator|.
 name|get
 argument_list|(
 literal|"description"
 argument_list|)
+argument_list|)
+decl_stmt|;
+name|languageModel
+operator|.
+name|setDescription
+argument_list|(
+name|desc
 argument_list|)
 expr_stmt|;
 block|}
@@ -1701,6 +1723,70 @@ return|return
 name|name
 return|;
 block|}
+DECL|method|asTitle (String name, String title)
+specifier|private
+specifier|static
+name|String
+name|asTitle
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|title
+parameter_list|)
+block|{
+comment|// special for some languages
+if|if
+condition|(
+literal|"file"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+literal|"File"
+return|;
+block|}
+return|return
+name|title
+return|;
+block|}
+DECL|method|asDescription (String name, String description)
+specifier|private
+specifier|static
+name|String
+name|asDescription
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|description
+parameter_list|)
+block|{
+comment|// special for some languages
+if|if
+condition|(
+literal|"file"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+literal|"For expressions and predicates using the file/simple language"
+return|;
+block|}
+return|return
+name|description
+return|;
+block|}
 DECL|method|findCamelCoreArtifact (MavenProject project)
 specifier|private
 specifier|static
@@ -1874,7 +1960,7 @@ argument_list|(
 literal|"{"
 argument_list|)
 decl_stmt|;
-comment|// component model
+comment|// language model
 name|buffer
 operator|.
 name|append

@@ -2046,7 +2046,7 @@ argument_list|(
 literal|"{"
 argument_list|)
 decl_stmt|;
-comment|// component model
+comment|// dataformat model
 name|buffer
 operator|.
 name|append
