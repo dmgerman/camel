@@ -1986,6 +1986,13 @@ name|getName
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|packageCap
+operator|!=
+literal|null
+condition|)
+block|{
 name|BundleWiring
 name|wiring
 init|=
@@ -2035,6 +2042,7 @@ block|{
 return|return
 literal|true
 return|;
+block|}
 block|}
 block|}
 return|return
