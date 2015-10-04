@@ -1516,7 +1516,7 @@ argument_list|(
 literal|"unchecked"
 argument_list|)
 DECL|method|queryForList (ResultSet rs, boolean allowMapToClass)
-specifier|protected
+specifier|public
 name|List
 argument_list|<
 name|?
@@ -1659,7 +1659,7 @@ argument_list|(
 literal|"unchecked"
 argument_list|)
 DECL|method|queryForObject (ResultSet rs)
-specifier|protected
+specifier|public
 name|Object
 name|queryForObject
 parameter_list|(
