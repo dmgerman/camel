@@ -324,6 +324,11 @@ name|jdbcTemplate
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"Sets the SQL query to perform"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -338,6 +343,11 @@ name|query
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"Sets the reference to a DataSource to lookup from the registry, to use for communicating with the database."
+argument_list|)
 annotation|@
 name|Deprecated
 DECL|field|dataSourceRef
@@ -347,6 +357,11 @@ name|dataSourceRef
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"Sets the DataSource to use to communicate with the database."
+argument_list|)
 DECL|field|dataSource
 specifier|private
 name|DataSource
@@ -358,6 +373,10 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"Enables or disables batch mode"
 argument_list|)
 DECL|field|batch
 specifier|private
@@ -370,6 +389,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Sets the maximum number of messages to poll"
 argument_list|)
 DECL|field|maxMessagesPerPoll
 specifier|private
@@ -382,6 +405,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Allows to plugin to use a custom org.apache.camel.component.sql.SqlProcessingStrategy to execute queries when the consumer has processed the rows/batch."
 argument_list|)
 DECL|field|processingStrategy
 specifier|private
@@ -394,6 +421,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Allows to plugin to use a custom org.apache.camel.component.sql.SqlPrepareStatementStrategy to control preparation of the query and prepared statement."
 argument_list|)
 DECL|field|prepareStatementStrategy
 specifier|private
@@ -406,6 +437,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"After processing each row then this query can be executed, if the Exchange was processed successfully, for example to mark the row as processed. The query can have parameter."
 argument_list|)
 DECL|field|onConsume
 specifier|private
@@ -418,6 +453,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"After processing each row then this query can be executed, if the Exchange failed, for example to mark the row as failed. The query can have parameter."
 argument_list|)
 DECL|field|onConsumeFailed
 specifier|private
@@ -430,6 +469,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"After processing the entire batch, this query can be executed to bulk update rows etc. The query cannot have parameters."
 argument_list|)
 DECL|field|onConsumeBatchComplete
 specifier|private
@@ -446,6 +489,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Sets how resultset should be delivered to route. Indicates delivery as either a list or individual object. defaults to true."
 argument_list|)
 DECL|field|useIterator
 specifier|private
@@ -460,6 +507,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Sets whether empty resultset should be allowed to be sent to the next hop. Defaults to false. So the empty resultset will be filtered out."
 argument_list|)
 DECL|field|routeEmptyResultSet
 specifier|private
@@ -476,6 +527,10 @@ argument_list|,
 name|defaultValue
 operator|=
 literal|"-1"
+argument_list|,
+name|description
+operator|=
+literal|"Sets an expected update count to validate when using onConsume."
 argument_list|)
 DECL|field|expectedUpdateCount
 specifier|private
@@ -491,6 +546,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Sets whether to break batch if onConsume failed."
 argument_list|)
 DECL|field|breakBatchOnConsumeFail
 specifier|private
@@ -503,6 +562,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Whether to allow using named parameters in the queries."
 argument_list|)
 DECL|field|allowNamedParameters
 specifier|private
@@ -517,6 +580,14 @@ argument_list|(
 name|label
 operator|=
 literal|"producer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"If enabled then the populateStatement method from org.apache.camel.component.sql.SqlPrepareStatementStrategy is always invoked, "
+operator|+
+literal|"also if there is no expected parameters to be prepared. When this is false then the populateStatement is only invoked if there is 1"
+operator|+
+literal|" or more expected parameters to be set; for example this avoids reading the message body/headers for SQL queries with no parameters."
 argument_list|)
 DECL|field|alwaysPopulateStatement
 specifier|private
@@ -529,6 +600,12 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|","
+argument_list|,
+name|description
+operator|=
+literal|"The separator to use when parameter values is taken from message body (if the body is a String type), to be inserted at # placeholders."
+operator|+
+literal|"Notice if you use named parameters, then a Map type is used instead. The default value is ,"
 argument_list|)
 DECL|field|separator
 specifier|private
@@ -543,6 +620,20 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"SelectList"
+argument_list|,
+name|description
+operator|=
+literal|"Make the output of consumer or producer to SelectList as List of Map, or SelectOne as single Java object in the following way:"
+operator|+
+literal|"a) If the query has only single column, then that JDBC Column object is returned. (such as SELECT COUNT( * ) FROM PROJECT will return a Long object."
+operator|+
+literal|"b) If the query has more than one column, then it will return a Map of that result."
+operator|+
+literal|"c) If the outputClass is set, then it will convert the query result into an Java bean object by calling all the setters that match the column names."
+operator|+
+literal|"It will assume your class has a default constructor to create instance with."
+operator|+
+literal|"d) If the query resulted in more than one rows, it throws an non-unique result exception."
 argument_list|)
 DECL|field|outputType
 specifier|private
@@ -555,6 +646,11 @@ name|SelectList
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"Specify the full package and class name to use as conversion when outputType=SelectOne."
+argument_list|)
 DECL|field|outputClass
 specifier|private
 name|String
@@ -566,6 +662,12 @@ argument_list|(
 name|label
 operator|=
 literal|"producer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"If set greater than zero, then Camel will use this count value of parameters to replace instead of"
+operator|+
+literal|" querying via JDBC metadata API. This is useful if the JDBC vendor could not return correct parameters count, then user may override instead."
 argument_list|)
 DECL|field|parametersCount
 specifier|private
@@ -578,6 +680,10 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"If set, will ignore the results of the SQL query and use the existing IN message as the OUT message for the continuation of processing"
 argument_list|)
 DECL|field|noop
 specifier|private
@@ -586,6 +692,15 @@ name|noop
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"Store the query result in a header instead of the message body. By default, outputHeader == null and the query result is stored"
+operator|+
+literal|" in the message body, any existing content in the message body is discarded. If outputHeader is set, the value is used as the name of the header"
+operator|+
+literal|" to store the query result and the original message body is preserved."
+argument_list|)
 DECL|field|outputHeader
 specifier|private
 name|String
@@ -597,6 +712,10 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"Whether to use the message body as the SQL and then headers for parameters. If this option is enabled then the SQL in the uri is not used."
 argument_list|)
 DECL|field|useMessageBodyForSql
 specifier|private
@@ -1392,7 +1511,7 @@ return|return
 name|useIterator
 return|;
 block|}
-comment|/**      * Sets how resultset should be delivered to route.      * Indicates delivery as either a list or individual object.      * defaults to true.      */
+comment|/**      * Sets how resultset should be delivered to route. Indicates delivery as either a list or individual object. defaults to true.      */
 DECL|method|setUseIterator (boolean useIterator)
 specifier|public
 name|void
@@ -1419,7 +1538,7 @@ return|return
 name|routeEmptyResultSet
 return|;
 block|}
-comment|/**      * Sets whether empty resultset should be allowed to be sent to the next hop.      * defaults to false. So the empty resultset will be filtered out.      */
+comment|/**      * Sets whether empty resultset should be allowed to be sent to the next hop.      * Defaults to false. So the empty resultset will be filtered out.      */
 DECL|method|setRouteEmptyResultSet (boolean routeEmptyResultSet)
 specifier|public
 name|void

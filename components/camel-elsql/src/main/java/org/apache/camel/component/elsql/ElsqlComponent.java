@@ -58,18 +58,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Endpoint
 import|;
 end_import
@@ -82,11 +70,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|impl
 operator|.
-name|sql
-operator|.
-name|SqlComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -128,7 +114,9 @@ name|jdbc
 operator|.
 name|core
 operator|.
-name|JdbcTemplate
+name|namedparam
+operator|.
+name|NamedParameterJdbcTemplate
 import|;
 end_import
 
@@ -138,8 +126,13 @@ specifier|public
 class|class
 name|ElsqlComponent
 extends|extends
-name|SqlComponent
+name|UriEndpointComponent
 block|{
+DECL|field|dataSource
+specifier|private
+name|DataSource
+name|dataSource
+decl_stmt|;
 DECL|field|elSqlConfig
 specifier|private
 name|ElSqlConfig
@@ -150,18 +143,13 @@ specifier|private
 name|String
 name|resourceUri
 decl_stmt|;
-DECL|method|ElsqlComponent (CamelContext context)
+DECL|method|ElsqlComponent ()
 specifier|public
 name|ElsqlComponent
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
+parameter_list|()
 block|{
 name|super
 argument_list|(
-name|context
-argument_list|,
 name|ElsqlEndpoint
 operator|.
 name|class
@@ -295,11 +283,11 @@ literal|"DataSource must be configured"
 argument_list|)
 throw|;
 block|}
-name|JdbcTemplate
+name|NamedParameterJdbcTemplate
 name|jdbcTemplate
 init|=
 operator|new
-name|JdbcTemplate
+name|NamedParameterJdbcTemplate
 argument_list|(
 name|target
 argument_list|)
@@ -333,7 +321,7 @@ name|remaining
 operator|.
 name|split
 argument_list|(
-literal|"/"
+literal|":"
 argument_list|)
 decl_stmt|;
 if|if
@@ -426,6 +414,63 @@ return|return
 name|endpoint
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|elSqlConfig
+operator|==
+literal|null
+condition|)
+block|{
+name|elSqlConfig
+operator|=
+name|ElSqlConfig
+operator|.
+name|DEFAULT
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|getDataSource ()
+specifier|public
+name|DataSource
+name|getDataSource
+parameter_list|()
+block|{
+return|return
+name|dataSource
+return|;
+block|}
+comment|/**      * Sets the DataSource to use to communicate with the database.      */
 DECL|method|getElSqlConfig ()
 specifier|public
 name|ElSqlConfig
@@ -478,46 +523,6 @@ operator|.
 name|resourceUri
 operator|=
 name|resourceUri
-expr_stmt|;
-block|}
-comment|/**      * Sets the DataSource to use to communicate with the database.      */
-annotation|@
-name|Override
-DECL|method|setDataSource (DataSource dataSource)
-specifier|public
-name|void
-name|setDataSource
-parameter_list|(
-name|DataSource
-name|dataSource
-parameter_list|)
-block|{
-name|super
-operator|.
-name|setDataSource
-argument_list|(
-name|dataSource
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * Sets whether to use placeholder and replace all placeholder characters with ? sign in the SQL queries.      *<p/>      * This option is default<tt>true</tt>      */
-annotation|@
-name|Override
-DECL|method|setUsePlaceholder (boolean usePlaceholder)
-specifier|public
-name|void
-name|setUsePlaceholder
-parameter_list|(
-name|boolean
-name|usePlaceholder
-parameter_list|)
-block|{
-name|super
-operator|.
-name|setUsePlaceholder
-argument_list|(
-name|usePlaceholder
-argument_list|)
 expr_stmt|;
 block|}
 block|}
