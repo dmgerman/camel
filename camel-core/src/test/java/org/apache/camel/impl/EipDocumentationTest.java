@@ -247,7 +247,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"label\": \"language\""
+literal|"\"label\": \"language,core,java\""
 argument_list|)
 argument_list|)
 expr_stmt|;
