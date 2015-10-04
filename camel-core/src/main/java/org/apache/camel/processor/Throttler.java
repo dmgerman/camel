@@ -618,6 +618,8 @@ specifier|synchronized
 name|TimeSlot
 name|nextSlot
 parameter_list|()
+throws|throws
+name|ThrottlerRejectedExecutionException
 block|{
 if|if
 condition|(
@@ -633,6 +635,32 @@ name|TimeSlot
 argument_list|()
 expr_stmt|;
 block|}
+else|else
+block|{
+if|if
+condition|(
+name|rejectExecution
+operator|&&
+name|slot
+operator|.
+name|isFull
+argument_list|()
+operator|&&
+operator|!
+name|slot
+operator|.
+name|isPast
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|ThrottlerRejectedExecutionException
+argument_list|(
+literal|"Exceed the max request limit!"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|slot
@@ -640,7 +668,6 @@ operator|.
 name|isFull
 argument_list|()
 operator|||
-operator|!
 name|slot
 operator|.
 name|isPast
@@ -654,6 +681,7 @@ operator|.
 name|next
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 name|slot
 operator|.
@@ -789,7 +817,7 @@ argument_list|()
 decl_stmt|;
 return|return
 name|current
-operator|<
+operator|>
 operator|(
 name|startTime
 operator|+
