@@ -104,7 +104,25 @@ name|jdbc
 operator|.
 name|core
 operator|.
-name|JdbcTemplate
+name|namedparam
+operator|.
+name|NamedParameterJdbcTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jdbc
+operator|.
+name|core
+operator|.
+name|namedparam
+operator|.
+name|SqlParameterSource
 import|;
 end_import
 
@@ -116,7 +134,7 @@ name|ElsqlConsumer
 extends|extends
 name|SqlConsumer
 block|{
-DECL|method|ElsqlConsumer (DefaultSqlEndpoint endpoint, Processor processor, JdbcTemplate jdbcTemplate, String query, SqlPrepareStatementStrategy sqlPrepareStatementStrategy, SqlProcessingStrategy sqlProcessingStrategy)
+DECL|method|ElsqlConsumer (DefaultSqlEndpoint endpoint, Processor processor, NamedParameterJdbcTemplate namedJdbcTemplate, String query, SqlParameterSource parameterSource, SqlPrepareStatementStrategy sqlPrepareStatementStrategy, SqlProcessingStrategy sqlProcessingStrategy)
 specifier|public
 name|ElsqlConsumer
 parameter_list|(
@@ -126,11 +144,14 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|JdbcTemplate
-name|jdbcTemplate
+name|NamedParameterJdbcTemplate
+name|namedJdbcTemplate
 parameter_list|,
 name|String
 name|query
+parameter_list|,
+name|SqlParameterSource
+name|parameterSource
 parameter_list|,
 name|SqlPrepareStatementStrategy
 name|sqlPrepareStatementStrategy
@@ -145,9 +166,11 @@ name|endpoint
 argument_list|,
 name|processor
 argument_list|,
-name|jdbcTemplate
+name|namedJdbcTemplate
 argument_list|,
 name|query
+argument_list|,
+name|parameterSource
 argument_list|,
 name|sqlPrepareStatementStrategy
 argument_list|,
