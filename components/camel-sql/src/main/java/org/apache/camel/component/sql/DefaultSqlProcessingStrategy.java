@@ -159,13 +159,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|commit (final SqlEndpoint endpoint, final Exchange exchange, final Object data, final JdbcTemplate jdbcTemplate, final String query)
+DECL|method|commit (final DefaultSqlEndpoint endpoint, final Exchange exchange, final Object data, final JdbcTemplate jdbcTemplate, final String query)
 specifier|public
 name|int
 name|commit
 parameter_list|(
 specifier|final
-name|SqlEndpoint
+name|DefaultSqlEndpoint
 name|endpoint
 parameter_list|,
 specifier|final
@@ -332,13 +332,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|commitBatchComplete (final SqlEndpoint endpoint, final JdbcTemplate jdbcTemplate, final String query)
+DECL|method|commitBatchComplete (final DefaultSqlEndpoint endpoint, final JdbcTemplate jdbcTemplate, final String query)
 specifier|public
 name|int
 name|commitBatchComplete
 parameter_list|(
 specifier|final
-name|SqlEndpoint
+name|DefaultSqlEndpoint
 name|endpoint
 parameter_list|,
 specifier|final

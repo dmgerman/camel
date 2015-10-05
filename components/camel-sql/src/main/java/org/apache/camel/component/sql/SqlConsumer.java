@@ -378,13 +378,13 @@ annotation|@
 name|Override
 DECL|method|getEndpoint ()
 specifier|public
-name|SqlEndpoint
+name|DefaultSqlEndpoint
 name|getEndpoint
 parameter_list|()
 block|{
 return|return
 operator|(
-name|SqlEndpoint
+name|DefaultSqlEndpoint
 operator|)
 name|super
 operator|.

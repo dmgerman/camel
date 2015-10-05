@@ -55,11 +55,11 @@ interface|interface
 name|SqlProcessingStrategy
 block|{
 comment|/**      * Commit callback if there are a query to be run after processing.      *      * @param endpoint     the endpoint      * @param exchange     The exchange after it has been processed      * @param data         The original data delivered to the route      * @param jdbcTemplate The JDBC template      * @param query        The SQL query to execute      * @return the update count if the query returned an update count      * @throws Exception can be thrown in case of error      */
-DECL|method|commit (SqlEndpoint endpoint, Exchange exchange, Object data, JdbcTemplate jdbcTemplate, String query)
+DECL|method|commit (DefaultSqlEndpoint endpoint, Exchange exchange, Object data, JdbcTemplate jdbcTemplate, String query)
 name|int
 name|commit
 parameter_list|(
-name|SqlEndpoint
+name|DefaultSqlEndpoint
 name|endpoint
 parameter_list|,
 name|Exchange
@@ -78,11 +78,11 @@ throws|throws
 name|Exception
 function_decl|;
 comment|/**      * Commit callback when the batch is complete. This allows you to do one extra query after all rows has been processed in the batch.      *      * @param endpoint     the endpoint      * @param jdbcTemplate The JDBC template      * @param query        The SQL query to execute      * @return the update count if the query returned an update count      * @throws Exception can be thrown in case of error      */
-DECL|method|commitBatchComplete (SqlEndpoint endpoint, JdbcTemplate jdbcTemplate, String query)
+DECL|method|commitBatchComplete (DefaultSqlEndpoint endpoint, JdbcTemplate jdbcTemplate, String query)
 name|int
 name|commitBatchComplete
 parameter_list|(
-name|SqlEndpoint
+name|DefaultSqlEndpoint
 name|endpoint
 parameter_list|,
 name|JdbcTemplate
