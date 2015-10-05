@@ -363,7 +363,6 @@ argument_list|)
 decl_stmt|;
 DECL|field|elSql
 specifier|private
-specifier|volatile
 name|ElSql
 name|elSql
 decl_stmt|;
@@ -392,6 +391,13 @@ DECL|field|resourceUri
 specifier|private
 name|String
 name|resourceUri
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|databaseVendor
+specifier|private
+name|ElSqlDatabaseVendor
+name|databaseVendor
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -655,17 +661,6 @@ name|ObjectHelper
 operator|.
 name|notNull
 argument_list|(
-name|elSqlConfig
-argument_list|,
-literal|"elSqlConfig"
-argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
 name|resourceUri
 argument_list|,
 literal|"resourceUri"
@@ -673,6 +668,43 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|elSqlConfig
+operator|==
+literal|null
+operator|&&
+name|databaseVendor
+operator|!=
+literal|null
+condition|)
+block|{
+name|elSqlConfig
+operator|=
+name|databaseVendor
+operator|.
+name|asElSqlConfig
+argument_list|()
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|elSqlConfig
+operator|==
+literal|null
+condition|)
+block|{
+name|elSqlConfig
+operator|=
+name|ElSqlDatabaseVendor
+operator|.
+name|Default
+operator|.
+name|asElSqlConfig
+argument_list|()
+expr_stmt|;
+block|}
 name|URL
 name|url
 init|=
@@ -712,6 +744,33 @@ return|return
 name|elsqlName
 return|;
 block|}
+DECL|method|getDatabaseVendor ()
+specifier|public
+name|ElSqlDatabaseVendor
+name|getDatabaseVendor
+parameter_list|()
+block|{
+return|return
+name|databaseVendor
+return|;
+block|}
+comment|/**      * To use a vendor specific {@link com.opengamma.elsql.ElSqlConfig}      */
+DECL|method|setDatabaseVendor (ElSqlDatabaseVendor databaseVendor)
+specifier|public
+name|void
+name|setDatabaseVendor
+parameter_list|(
+name|ElSqlDatabaseVendor
+name|databaseVendor
+parameter_list|)
+block|{
+name|this
+operator|.
+name|databaseVendor
+operator|=
+name|databaseVendor
+expr_stmt|;
+block|}
 DECL|method|getElSqlConfig ()
 specifier|public
 name|ElSqlConfig
@@ -722,7 +781,7 @@ return|return
 name|elSqlConfig
 return|;
 block|}
-comment|/**      * The elsql configuration to use      */
+comment|/**      * To use a specific configured ElSqlConfig. It may be better to use the<tt>databaseVendor</tt> option instead.      */
 DECL|method|setElSqlConfig (ElSqlConfig elSqlConfig)
 specifier|public
 name|void
@@ -749,7 +808,7 @@ return|return
 name|resourceUri
 return|;
 block|}
-comment|/**      * The eqlsql resource tile which contains the elsql SQL statements to use      */
+comment|/**      * The resource file which contains the elsql SQL statements to use      */
 DECL|method|setResourceUri (String resourceUri)
 specifier|public
 name|void

@@ -128,6 +128,11 @@ name|ElsqlComponent
 extends|extends
 name|UriEndpointComponent
 block|{
+DECL|field|databaseVendor
+specifier|private
+name|ElSqlDatabaseVendor
+name|databaseVendor
+decl_stmt|;
 DECL|field|dataSource
 specifier|private
 name|DataSource
@@ -362,7 +367,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Invalid uri. Must by elsql:elsqlName/resourceUri, was: "
+literal|"Invalid uri. Must by elsql:elsqlName:resourceUri, was: "
 operator|+
 name|uri
 argument_list|)
@@ -492,6 +497,34 @@ argument_list|)
 decl_stmt|;
 name|endpoint
 operator|.
+name|setElSqlConfig
+argument_list|(
+name|elSqlConfig
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setDatabaseVendor
+argument_list|(
+name|databaseVendor
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setDataSource
+argument_list|(
+name|ds
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setDataSourceRef
+argument_list|(
+name|dataSourceRef
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
 name|setOnConsume
 argument_list|(
 name|onConsume
@@ -511,75 +544,35 @@ argument_list|(
 name|onConsumeBatchComplete
 argument_list|)
 expr_stmt|;
-name|endpoint
-operator|.
-name|setDataSource
-argument_list|(
-name|ds
-argument_list|)
-expr_stmt|;
-name|endpoint
-operator|.
-name|setDataSourceRef
-argument_list|(
-name|dataSourceRef
-argument_list|)
-expr_stmt|;
-name|endpoint
-operator|.
-name|setElSqlConfig
-argument_list|(
-name|elSqlConfig
-argument_list|)
-expr_stmt|;
 return|return
 name|endpoint
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
+DECL|method|getDatabaseVendor ()
+specifier|public
+name|ElSqlDatabaseVendor
+name|getDatabaseVendor
 parameter_list|()
-throws|throws
-name|Exception
 block|{
-name|super
+return|return
+name|databaseVendor
+return|;
+block|}
+comment|/**      * To use a vendor specific {@link com.opengamma.elsql.ElSqlConfig}      */
+DECL|method|setDatabaseVendor (ElSqlDatabaseVendor databaseVendor)
+specifier|public
+name|void
+name|setDatabaseVendor
+parameter_list|(
+name|ElSqlDatabaseVendor
+name|databaseVendor
+parameter_list|)
+block|{
+name|this
 operator|.
-name|doStart
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|elSqlConfig
-operator|==
-literal|null
-condition|)
-block|{
-name|elSqlConfig
+name|databaseVendor
 operator|=
-name|ElSqlConfig
-operator|.
-name|DEFAULT
-expr_stmt|;
-block|}
-block|}
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|doStop
-argument_list|()
+name|databaseVendor
 expr_stmt|;
 block|}
 comment|/**      * Sets the DataSource to use to communicate with the database.      */
@@ -620,7 +613,7 @@ return|return
 name|elSqlConfig
 return|;
 block|}
-comment|/**      * To use the given ElSqlConfig as configuration      */
+comment|/**      * To use a specific configured ElSqlConfig. It may be better to use the<tt>databaseVendor</tt> option instead.      */
 DECL|method|setElSqlConfig (ElSqlConfig elSqlConfig)
 specifier|public
 name|void
@@ -647,7 +640,7 @@ return|return
 name|resourceUri
 return|;
 block|}
-comment|/**      * The eqlsql resource tile which contains the elsql SQL statements to use      */
+comment|/**      * The resource file which contains the elsql SQL statements to use      */
 DECL|method|setResourceUri (String resourceUri)
 specifier|public
 name|void
