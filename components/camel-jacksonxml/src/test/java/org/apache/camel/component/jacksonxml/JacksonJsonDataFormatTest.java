@@ -32,22 +32,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|dataformat
-operator|.
-name|JsonLibrary
-import|;
-end_import
-
 begin_class
 DECL|class|JacksonJsonDataFormatTest
 specifier|public
