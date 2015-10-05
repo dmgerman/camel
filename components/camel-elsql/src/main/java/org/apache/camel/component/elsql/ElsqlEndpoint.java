@@ -112,7 +112,7 @@ name|component
 operator|.
 name|sql
 operator|.
-name|SqlEndpoint
+name|DefaultSqlEndpoint
 import|;
 end_import
 
@@ -293,7 +293,7 @@ specifier|public
 class|class
 name|ElsqlEndpoint
 extends|extends
-name|SqlEndpoint
+name|DefaultSqlEndpoint
 block|{
 DECL|field|elSql
 specifier|private
@@ -359,8 +359,6 @@ argument_list|(
 name|uri
 argument_list|,
 name|component
-argument_list|,
-literal|null
 argument_list|,
 literal|null
 argument_list|)

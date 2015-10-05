@@ -319,11 +319,11 @@ name|DataHolder
 parameter_list|()
 block|{         }
 block|}
-DECL|method|SqlConsumer (SqlEndpoint endpoint, Processor processor, JdbcTemplate jdbcTemplate, String query, SqlPrepareStatementStrategy sqlPrepareStatementStrategy, SqlProcessingStrategy sqlProcessingStrategy)
+DECL|method|SqlConsumer (DefaultSqlEndpoint endpoint, Processor processor, JdbcTemplate jdbcTemplate, String query, SqlPrepareStatementStrategy sqlPrepareStatementStrategy, SqlProcessingStrategy sqlProcessingStrategy)
 specifier|public
 name|SqlConsumer
 parameter_list|(
-name|SqlEndpoint
+name|DefaultSqlEndpoint
 name|endpoint
 parameter_list|,
 name|Processor

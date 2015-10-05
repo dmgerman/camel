@@ -42,7 +42,7 @@ name|component
 operator|.
 name|sql
 operator|.
-name|SqlConsumer
+name|DefaultSqlEndpoint
 import|;
 end_import
 
@@ -58,7 +58,7 @@ name|component
 operator|.
 name|sql
 operator|.
-name|SqlEndpoint
+name|SqlConsumer
 import|;
 end_import
 
@@ -116,11 +116,11 @@ name|ElsqlConsumer
 extends|extends
 name|SqlConsumer
 block|{
-DECL|method|ElsqlConsumer (SqlEndpoint endpoint, Processor processor, JdbcTemplate jdbcTemplate, String query, SqlPrepareStatementStrategy sqlPrepareStatementStrategy, SqlProcessingStrategy sqlProcessingStrategy)
+DECL|method|ElsqlConsumer (DefaultSqlEndpoint endpoint, Processor processor, JdbcTemplate jdbcTemplate, String query, SqlPrepareStatementStrategy sqlPrepareStatementStrategy, SqlProcessingStrategy sqlProcessingStrategy)
 specifier|public
 name|ElsqlConsumer
 parameter_list|(
-name|SqlEndpoint
+name|DefaultSqlEndpoint
 name|endpoint
 parameter_list|,
 name|Processor

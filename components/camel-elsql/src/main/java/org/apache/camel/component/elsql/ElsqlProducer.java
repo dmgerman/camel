@@ -122,22 +122,6 @@ name|component
 operator|.
 name|sql
 operator|.
-name|SqlEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|sql
-operator|.
 name|SqlOutputType
 import|;
 end_import
@@ -256,11 +240,11 @@ specifier|final
 name|NamedParameterJdbcTemplate
 name|jdbcTemplate
 decl_stmt|;
-DECL|method|ElsqlProducer (SqlEndpoint endpoint, ElSql elSql, String elSqlName, NamedParameterJdbcTemplate jdbcTemplate)
+DECL|method|ElsqlProducer (ElsqlEndpoint endpoint, ElSql elSql, String elSqlName, NamedParameterJdbcTemplate jdbcTemplate)
 specifier|public
 name|ElsqlProducer
 parameter_list|(
-name|SqlEndpoint
+name|ElsqlEndpoint
 name|endpoint
 parameter_list|,
 name|ElSql
