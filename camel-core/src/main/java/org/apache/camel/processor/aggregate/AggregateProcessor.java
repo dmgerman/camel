@@ -2307,6 +2307,14 @@ name|size
 operator|=
 literal|1
 expr_stmt|;
+comment|// make sure to track timeout as we just restart the correlation group when we are in pre completion mode
+name|trackTimeout
+argument_list|(
+name|key
+argument_list|,
+name|newExchange
+argument_list|)
+expr_stmt|;
 block|}
 comment|// aggregate the exchanges
 try|try
@@ -2587,7 +2595,13 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|answer
+operator|!=
+literal|null
+condition|)
 block|{
 comment|// we are complete for this exchange
 name|answer
@@ -3381,6 +3395,15 @@ literal|null
 condition|)
 block|{
 comment|// cleanup timeout map if it was a incoming exchange which triggered the timeout (and not the timeout checker)
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Removing correlation key {} from timeout"
+argument_list|,
+name|key
+argument_list|)
+expr_stmt|;
 name|timeoutMap
 operator|.
 name|remove
