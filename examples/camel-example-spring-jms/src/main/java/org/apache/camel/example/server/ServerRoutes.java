@@ -78,7 +78,7 @@ comment|//from("jms:queue:numbers").to("bean:multiplier");
 comment|// bean is using explicit bean bindings to lookup the multiplier bean and invoke the multiply method
 comment|//from("jms:queue:numbers").bean("multiplier", "multiply");
 comment|// the same as above but expressed as a URI configuration
-comment|//from("jms:queue:numbers").to("bean:multiplier?methodName=multiply");
+comment|//from("jms:queue:numbers").to("bean:multiplier?method=multiply");
 block|}
 block|}
 end_class
