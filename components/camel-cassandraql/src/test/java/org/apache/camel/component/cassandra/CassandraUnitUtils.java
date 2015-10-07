@@ -261,10 +261,6 @@ argument_list|(
 name|dataset
 argument_list|,
 literal|"/camel-cassandra.yaml"
-argument_list|,
-name|HOST
-argument_list|,
-literal|9042
 argument_list|)
 return|;
 block|}
