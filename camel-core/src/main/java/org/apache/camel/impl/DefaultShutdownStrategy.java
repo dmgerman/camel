@@ -874,6 +874,22 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// timeout must be a positive value
+if|if
+condition|(
+name|timeout
+operator|<=
+literal|0
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Timeout must be a positive value"
+argument_list|)
+throw|;
+block|}
 comment|// just return if no routes to shutdown
 if|if
 condition|(
