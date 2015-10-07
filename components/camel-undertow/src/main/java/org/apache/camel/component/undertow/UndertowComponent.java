@@ -256,6 +256,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|IntrospectionSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|URISupport
 import|;
 end_import
@@ -418,6 +432,24 @@ argument_list|,
 name|parameters
 argument_list|)
 decl_stmt|;
+comment|// any additional channel options
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|options
+init|=
+name|IntrospectionSupport
+operator|.
+name|extractProperties
+argument_list|(
+name|parameters
+argument_list|,
+literal|"option."
+argument_list|)
+decl_stmt|;
 comment|// create the endpoint first
 name|UndertowEndpoint
 name|endpoint
@@ -443,6 +475,21 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|options
+operator|!=
+literal|null
+condition|)
+block|{
+name|endpoint
+operator|.
+name|setOptions
+argument_list|(
+name|options
+argument_list|)
+expr_stmt|;
+block|}
 comment|// then re-create the http uri with the remaining parameters which the endpoint did not use
 name|URI
 name|httpUri
