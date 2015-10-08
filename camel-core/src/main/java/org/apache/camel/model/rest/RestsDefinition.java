@@ -259,6 +259,7 @@ return|return
 name|rests
 return|;
 block|}
+comment|/**      * The rest services      */
 DECL|method|setRests (List<RestDefinition> rests)
 specifier|public
 name|void
