@@ -1863,6 +1863,9 @@ name|tokens
 index|[
 literal|0
 index|]
+operator|.
+name|trim
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|int
@@ -1876,6 +1879,9 @@ name|tokens
 index|[
 literal|1
 index|]
+operator|.
+name|trim
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
@@ -1899,6 +1905,9 @@ operator|.
 name|parseInt
 argument_list|(
 name|values
+operator|.
+name|trim
+argument_list|()
 argument_list|)
 decl_stmt|;
 return|return
