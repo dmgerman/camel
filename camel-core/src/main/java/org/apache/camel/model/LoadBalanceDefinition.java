@@ -416,6 +416,7 @@ operator|.
 name|class
 argument_list|)
 block|,
+comment|// TODO: Camel 3.0 - Should be named customLoadBalancer to avoid naming clash with custom dataformat
 annotation|@
 name|XmlElement
 argument_list|(
