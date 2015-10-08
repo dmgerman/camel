@@ -144,7 +144,7 @@ name|Metadata
 argument_list|(
 name|label
 operator|=
-literal|"configuration,resequence"
+literal|"eip,routing,resequence"
 argument_list|)
 annotation|@
 name|XmlRootElement
