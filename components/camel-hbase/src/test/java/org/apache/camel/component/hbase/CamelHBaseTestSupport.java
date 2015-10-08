@@ -506,9 +506,9 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
-literal|"couldn't start HBase cluster."
+literal|"couldn't start HBase cluster. Test is not started, but passed!"
 argument_list|,
 name|e
 argument_list|)
