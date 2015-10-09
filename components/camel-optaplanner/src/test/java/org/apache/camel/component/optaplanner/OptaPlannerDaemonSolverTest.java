@@ -76,7 +76,7 @@ name|apache
 operator|.
 name|commons
 operator|.
-name|lang
+name|lang3
 operator|.
 name|ObjectUtils
 import|;
@@ -300,7 +300,7 @@ argument_list|)
 operator|.
 name|setExpectedCount
 argument_list|(
-literal|1
+literal|0
 argument_list|)
 expr_stmt|;
 name|template
@@ -511,7 +511,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|3
+literal|4
 argument_list|,
 name|bestSolution
 operator|.
