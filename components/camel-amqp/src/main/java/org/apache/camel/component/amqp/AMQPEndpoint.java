@@ -94,6 +94,7 @@ name|label
 operator|=
 literal|"messaging"
 argument_list|)
+comment|/**  * AMQP endpoint. This class extends JmsEndpoint because it uses Apache Qpid JMS-compatible client for  * performing the AMQP connectivity.  */
 DECL|class|AMQPEndpoint
 specifier|public
 class|class
