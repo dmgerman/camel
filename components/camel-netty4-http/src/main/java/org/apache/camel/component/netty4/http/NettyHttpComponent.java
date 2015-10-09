@@ -736,7 +736,22 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-comment|// create the address uri which includes the remainder parameters (which is not configuration parameters for this component)
+name|NettyHttpBinding
+name|bindingFromUri
+init|=
+name|resolveAndRemoveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"nettyHttpBinding"
+argument_list|,
+name|NettyHttpBinding
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|// create the address uri which includes the remainder parameters (which
+comment|// is not configuration parameters for this component)
 name|URI
 name|u
 init|=
@@ -779,7 +794,8 @@ argument_list|,
 name|config
 argument_list|)
 decl_stmt|;
-comment|// must use a copy of the binding on the endpoint to avoid sharing same instance that can cause side-effects
+comment|// must use a copy of the binding on the endpoint to avoid sharing same
+comment|// instance that can cause side-effects
 if|if
 condition|(
 name|answer
@@ -793,9 +809,28 @@ block|{
 name|Object
 name|binding
 init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|bindingFromUri
+operator|!=
+literal|null
+condition|)
+block|{
+name|binding
+operator|=
+name|bindingFromUri
+expr_stmt|;
+block|}
+else|else
+block|{
+name|binding
+operator|=
 name|getNettyHttpBinding
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|binding
