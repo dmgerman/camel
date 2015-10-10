@@ -69,10 +69,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|addHeader (String name, String value)
+DECL|method|setHeader (String name, String value)
 specifier|public
 name|void
-name|addHeader
+name|setHeader
 parameter_list|(
 name|String
 name|name

@@ -222,20 +222,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultClassResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|model
 operator|.
 name|ModelHelper
@@ -1205,7 +1191,7 @@ condition|)
 block|{
 name|response
 operator|.
-name|addHeader
+name|setHeader
 argument_list|(
 literal|"Access-Control-Allow-Headers"
 argument_list|,
@@ -1214,7 +1200,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|.
-name|addHeader
+name|setHeader
 argument_list|(
 literal|"Access-Control-Allow-Methods"
 argument_list|,
@@ -1223,7 +1209,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|.
-name|addHeader
+name|setHeader
 argument_list|(
 literal|"Access-Control-Allow-Origin"
 argument_list|,
@@ -1251,7 +1237,7 @@ condition|)
 block|{
 name|response
 operator|.
-name|addHeader
+name|setHeader
 argument_list|(
 name|Exchange
 operator|.
@@ -1326,7 +1312,7 @@ name|length
 decl_stmt|;
 name|response
 operator|.
-name|addHeader
+name|setHeader
 argument_list|(
 name|Exchange
 operator|.
@@ -1386,7 +1372,7 @@ condition|)
 block|{
 name|response
 operator|.
-name|addHeader
+name|setHeader
 argument_list|(
 literal|"Access-Control-Allow-Headers"
 argument_list|,
@@ -1395,7 +1381,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|.
-name|addHeader
+name|setHeader
 argument_list|(
 literal|"Access-Control-Allow-Methods"
 argument_list|,
@@ -1404,7 +1390,7 @@ argument_list|)
 expr_stmt|;
 name|response
 operator|.
-name|addHeader
+name|setHeader
 argument_list|(
 literal|"Access-Control-Allow-Origin"
 argument_list|,
@@ -1414,7 +1400,7 @@ expr_stmt|;
 block|}
 name|response
 operator|.
-name|addHeader
+name|setHeader
 argument_list|(
 name|Exchange
 operator|.
@@ -1615,7 +1601,7 @@ argument_list|()
 decl_stmt|;
 name|response
 operator|.
-name|addHeader
+name|setHeader
 argument_list|(
 name|Exchange
 operator|.
