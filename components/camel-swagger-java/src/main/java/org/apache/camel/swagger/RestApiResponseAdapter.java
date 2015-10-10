@@ -32,6 +32,7 @@ specifier|public
 interface|interface
 name|RestApiResponseAdapter
 block|{
+comment|/**      * Sets a header (do not add multiple values)      */
 DECL|method|addHeader (String name, String value)
 name|void
 name|addHeader

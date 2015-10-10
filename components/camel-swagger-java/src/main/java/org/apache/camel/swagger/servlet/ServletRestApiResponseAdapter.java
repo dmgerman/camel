@@ -97,9 +97,10 @@ name|String
 name|value
 parameter_list|)
 block|{
+comment|// use set header to avoid adding the same value multiple times (the method should have been named setHeader really)
 name|response
 operator|.
-name|addHeader
+name|setHeader
 argument_list|(
 name|name
 argument_list|,
