@@ -1691,7 +1691,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|8
+literal|6
 argument_list|,
 name|StringHelper
 operator|.
@@ -1705,7 +1705,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|8
+literal|6
 argument_list|,
 name|StringHelper
 operator|.
@@ -1891,7 +1891,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|14
+literal|12
 argument_list|,
 name|StringHelper
 operator|.
@@ -1905,7 +1905,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|14
+literal|12
 argument_list|,
 name|StringHelper
 operator|.

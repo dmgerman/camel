@@ -2459,6 +2459,8 @@ parameter_list|)
 throws|throws
 name|URISyntaxException
 block|{
+comment|// NOTICE: This logic is similar to org.apache.camel.util.EndpointHelper#endpointProperties
+comment|// as the catalog also offers similar functionality (without having camel-core on classpath)
 comment|// parse the uri
 name|URI
 name|u
