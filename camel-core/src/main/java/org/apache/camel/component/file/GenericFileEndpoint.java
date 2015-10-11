@@ -800,7 +800,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,filter"
 argument_list|)
 DECL|field|maxMessagesPerPoll
 specifier|protected
