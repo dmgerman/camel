@@ -25,6 +25,15 @@ specifier|final
 class|class
 name|PahoConstants
 block|{
+DECL|field|HEASER_MQTT_PROPERTIES
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEASER_MQTT_PROPERTIES
+init|=
+literal|"MqttProperties"
+decl_stmt|;
 DECL|field|HEADER_ORIGINAL_MESSAGE
 specifier|public
 specifier|static

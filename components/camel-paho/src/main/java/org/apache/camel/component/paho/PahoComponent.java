@@ -93,6 +93,11 @@ specifier|private
 name|MqttConnectOptions
 name|connectOptions
 decl_stmt|;
+DECL|field|headerType
+specifier|private
+name|String
+name|headerType
+decl_stmt|;
 DECL|method|PahoComponent ()
 specifier|public
 name|PahoComponent
@@ -186,6 +191,21 @@ name|connectOptions
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|headerType
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setHeaderType
+argument_list|(
+name|headerType
+argument_list|)
+expr_stmt|;
+block|}
 name|setProperties
 argument_list|(
 name|answer
@@ -276,6 +296,33 @@ operator|.
 name|connectOptions
 operator|=
 name|connectOptions
+expr_stmt|;
+block|}
+DECL|method|getHeaderType ()
+specifier|public
+name|String
+name|getHeaderType
+parameter_list|()
+block|{
+return|return
+name|headerType
+return|;
+block|}
+comment|/**      * Exchange header type.      */
+DECL|method|setHeaderType (String headerType)
+specifier|public
+name|void
+name|setHeaderType
+parameter_list|(
+name|String
+name|headerType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerType
+operator|=
+name|headerType
 expr_stmt|;
 block|}
 block|}
