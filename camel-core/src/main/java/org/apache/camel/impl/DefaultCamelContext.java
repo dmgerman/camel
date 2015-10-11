@@ -12385,6 +12385,7 @@ block|}
 block|}
 block|}
 block|}
+comment|// skip component properties
 name|json
 operator|=
 name|ObjectHelper
@@ -12393,9 +12394,10 @@ name|before
 argument_list|(
 name|json
 argument_list|,
-literal|"  \"properties\": {"
+literal|"  \"componentProperties\": {"
 argument_list|)
 expr_stmt|;
+comment|// and rewrite properties
 name|StringBuilder
 name|buffer
 init|=
