@@ -190,22 +190,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
-operator|.
-name|language
-operator|.
-name|ExpressionDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|processor
 operator|.
 name|CamelInternalProcessor
@@ -804,6 +788,9 @@ comment|/**      * Uses a custom thread pool      *      * @param executorServic
 DECL|method|executorService (ExecutorService executorService)
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|executorService
 parameter_list|(
 name|ExecutorService
@@ -823,6 +810,9 @@ comment|/**      * Uses a custom thread pool      *      * @param executorServic
 DECL|method|executorServiceRef (String executorServiceRef)
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|executorServiceRef
 parameter_list|(
 name|String
@@ -842,6 +832,9 @@ comment|/**      * Uses a copy of the original exchange      *      * @return th
 DECL|method|copy ()
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|copy
 parameter_list|()
 block|{
@@ -858,6 +851,9 @@ comment|/**      * Uses a copy of the original exchange      *      * @param cop
 DECL|method|copy (boolean copy)
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|copy
 parameter_list|(
 name|boolean
@@ -879,6 +875,9 @@ name|Deprecated
 DECL|method|newExchange (Expression expression)
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|newExchange
 parameter_list|(
 name|Expression
@@ -896,6 +895,9 @@ comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, u
 DECL|method|newExchangeBody (Expression expression)
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|newExchangeBody
 parameter_list|(
 name|Expression
@@ -919,6 +921,9 @@ comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, u
 DECL|method|newExchangeRef (String ref)
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|newExchangeRef
 parameter_list|(
 name|String
@@ -938,6 +943,9 @@ comment|/**      * Sends a<i>new</i> Exchange, instead of tapping an existing, u
 DECL|method|newExchange (Processor processor)
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|newExchange
 parameter_list|(
 name|Processor
@@ -957,6 +965,9 @@ comment|/**      * Sets a header on the<i>new</i> Exchange, instead of tapping a
 DECL|method|newExchangeHeader (String headerName, Expression expression)
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|newExchangeHeader
 parameter_list|(
 name|String
@@ -987,6 +998,9 @@ comment|/**      * Uses the {@link Processor} when preparing the {@link org.apac
 DECL|method|onPrepare (Processor onPrepare)
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|onPrepare
 parameter_list|(
 name|Processor
@@ -1006,6 +1020,9 @@ comment|/**      * Uses the {@link Processor} when preparing the {@link org.apac
 DECL|method|onPrepareRef (String onPrepareRef)
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|onPrepareRef
 parameter_list|(
 name|String
@@ -1027,6 +1044,9 @@ name|Override
 DECL|method|cacheSize (int cacheSize)
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|cacheSize
 parameter_list|(
 name|int
@@ -1048,6 +1068,9 @@ name|Override
 DECL|method|ignoreInvalidEndpoint ()
 specifier|public
 name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
 name|ignoreInvalidEndpoint
 parameter_list|()
 block|{
