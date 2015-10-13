@@ -29,6 +29,34 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|support
+operator|.
+name|AbstractApplicationContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|context
+operator|.
+name|support
+operator|.
+name|ClassPathXmlApplicationContext
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -47,12 +75,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|Base64DataFormatLineLengthTest
+DECL|class|SpringBase64DataFormatLineLengthTest
 specifier|public
 class|class
-name|Base64DataFormatLineLengthTest
+name|SpringBase64DataFormatLineLengthTest
 extends|extends
-name|Base64DataFormatTestBase
+name|SpringBase64DataFormatTestBase
 block|{
 DECL|field|ENCODED
 specifier|private
@@ -103,25 +131,6 @@ literal|"TCRJ/SE7CVrEfmdmROlJpAJHfUlQIJq1aW3mTE5zTmAygypxRUDCmA+eY9wdCicF\r\n"
 operator|+
 literal|"p6YptdCEK3P27QzZsSASAByd5jxHMiIBkdwGzj1501xZ7hFLJDXDTQ==\r\n"
 decl_stmt|;
-DECL|method|Base64DataFormatLineLengthTest ()
-specifier|public
-name|Base64DataFormatLineLengthTest
-parameter_list|()
-block|{
-name|format
-operator|=
-operator|new
-name|Base64DataFormat
-argument_list|()
-expr_stmt|;
-name|format
-operator|.
-name|setLineLength
-argument_list|(
-literal|64
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Test
 DECL|method|testEncode ()
@@ -163,6 +172,22 @@ argument_list|,
 name|DECODED
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|createApplicationContext ()
+specifier|protected
+name|AbstractApplicationContext
+name|createApplicationContext
+parameter_list|()
+block|{
+return|return
+operator|new
+name|ClassPathXmlApplicationContext
+argument_list|(
+literal|"org/apache/camel/dataFormat/base64/SpringBase64DataFormatLineLengthTest.xml"
+argument_list|)
+return|;
 block|}
 block|}
 end_class
