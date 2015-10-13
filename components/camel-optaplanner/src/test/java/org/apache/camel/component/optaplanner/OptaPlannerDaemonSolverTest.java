@@ -104,6 +104,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -220,6 +230,12 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"https://issues.jboss.org/browse/PLANNER-468"
+argument_list|)
+comment|// TODO Unignore when upgraded to optaplanner 6.3.1+
 DECL|method|testAsynchronousProblemSolving ()
 specifier|public
 name|void
