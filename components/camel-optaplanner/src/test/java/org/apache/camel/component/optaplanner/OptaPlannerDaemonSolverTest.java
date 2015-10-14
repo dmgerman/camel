@@ -230,12 +230,6 @@ name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"https://issues.jboss.org/browse/PLANNER-468"
-argument_list|)
-comment|// TODO Unignore when upgraded to optaplanner 6.3.1+
 DECL|method|testAsynchronousProblemSolving ()
 specifier|public
 name|void
@@ -624,6 +618,11 @@ name|beforeProblemFactRemoved
 argument_list|(
 name|workingComputer
 argument_list|)
+expr_stmt|;
+name|scoreDirector
+operator|.
+name|triggerVariableListeners
+argument_list|()
 expr_stmt|;
 break|break;
 block|}

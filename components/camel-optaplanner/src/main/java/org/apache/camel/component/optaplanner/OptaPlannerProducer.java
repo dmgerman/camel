@@ -375,6 +375,8 @@ name|void
 name|run
 parameter_list|()
 block|{
+try|try
+block|{
 name|solver
 operator|.
 name|solve
@@ -385,6 +387,25 @@ operator|)
 name|body
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|LOGGER
+operator|.
+name|error
+argument_list|(
+literal|"Asynchronously solving failed for solverId ({})"
+argument_list|,
+name|solverId
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 argument_list|)
