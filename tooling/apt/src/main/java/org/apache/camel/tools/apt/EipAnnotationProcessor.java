@@ -475,9 +475,17 @@ specifier|private
 specifier|static
 specifier|final
 name|String
+index|[]
 name|ONE_OF_LANGUAGES
 init|=
+operator|new
+name|String
+index|[]
+block|{
 literal|"org.apache.camel.model.language.ExpressionDefinition"
+block|,
+literal|"org.apache.camel.model.language.NamespaceAwareExpression"
+block|}
 decl_stmt|;
 comment|// special for inputs (these classes have sub classes, so we use this to find all classes)
 DECL|field|ONE_OF_INPUTS
@@ -2909,9 +2917,17 @@ name|kind
 operator|=
 literal|"expression"
 expr_stmt|;
+for|for
+control|(
+name|String
+name|language
+range|:
+name|ONE_OF_LANGUAGES
+control|)
+block|{
 name|fieldTypeName
 operator|=
-name|ONE_OF_LANGUAGES
+name|language
 expr_stmt|;
 name|TypeElement
 name|languages
@@ -2920,7 +2936,7 @@ name|findTypeElement
 argument_list|(
 name|roundEnv
 argument_list|,
-name|ONE_OF_LANGUAGES
+name|language
 argument_list|)
 decl_stmt|;
 name|String
@@ -3006,6 +3022,7 @@ argument_list|(
 name|childName
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -5323,6 +5340,14 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
+for|for
+control|(
+name|String
+name|language
+range|:
+name|ONE_OF_LANGUAGES
+control|)
+block|{
 name|TypeElement
 name|languages
 init|=
@@ -5330,7 +5355,7 @@ name|findTypeElement
 argument_list|(
 name|roundEnv
 argument_list|,
-name|ONE_OF_LANGUAGES
+name|language
 argument_list|)
 decl_stmt|;
 name|String
@@ -5416,6 +5441,7 @@ argument_list|(
 name|childName
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
