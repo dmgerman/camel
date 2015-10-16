@@ -1063,6 +1063,8 @@ argument_list|(
 name|token
 argument_list|,
 name|regex
+argument_list|,
+name|group
 argument_list|)
 return|;
 block|}
