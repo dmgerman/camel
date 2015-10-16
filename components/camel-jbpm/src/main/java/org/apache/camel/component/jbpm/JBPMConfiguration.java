@@ -50,16 +50,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Objects
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|naming
@@ -197,20 +187,12 @@ specifier|private
 name|String
 name|operation
 decl_stmt|;
-comment|/**      * Specifies the key to use      */
-annotation|@
-name|UriParam
-DECL|field|key
-specifier|private
-name|String
-name|key
-decl_stmt|;
 comment|/**      * Specifies the value to use      */
 annotation|@
 name|UriParam
 DECL|field|value
 specifier|private
-name|Objects
+name|Object
 name|value
 decl_stmt|;
 DECL|field|processId
@@ -250,7 +232,7 @@ name|eventType
 decl_stmt|;
 DECL|field|event
 specifier|private
-name|String
+name|Object
 name|event
 decl_stmt|;
 DECL|field|maxNumber
@@ -397,35 +379,9 @@ operator|=
 name|operation
 expr_stmt|;
 block|}
-DECL|method|getKey ()
-specifier|public
-name|String
-name|getKey
-parameter_list|()
-block|{
-return|return
-name|key
-return|;
-block|}
-DECL|method|setKey (String key)
-specifier|public
-name|void
-name|setKey
-parameter_list|(
-name|String
-name|key
-parameter_list|)
-block|{
-name|this
-operator|.
-name|key
-operator|=
-name|key
-expr_stmt|;
-block|}
 DECL|method|getValue ()
 specifier|public
-name|Objects
+name|Object
 name|getValue
 parameter_list|()
 block|{
@@ -433,12 +389,12 @@ return|return
 name|value
 return|;
 block|}
-DECL|method|setValue (Objects value)
+DECL|method|setValue (Object value)
 specifier|public
 name|void
 name|setValue
 parameter_list|(
-name|Objects
+name|Object
 name|value
 parameter_list|)
 block|{
@@ -565,7 +521,7 @@ expr_stmt|;
 block|}
 DECL|method|getEvent ()
 specifier|public
-name|String
+name|Object
 name|getEvent
 parameter_list|()
 block|{
@@ -573,12 +529,12 @@ return|return
 name|event
 return|;
 block|}
-DECL|method|setEvent (String event)
+DECL|method|setEvent (Object event)
 specifier|public
 name|void
 name|setEvent
 parameter_list|(
-name|String
+name|Object
 name|event
 parameter_list|)
 block|{

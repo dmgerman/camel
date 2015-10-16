@@ -105,7 +105,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"direct:rest"
+literal|"direct:start"
 argument_list|,
 literal|null
 argument_list|,
@@ -166,7 +166,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"direct:rest"
+literal|"direct:start"
 argument_list|)
 operator|.
 name|to

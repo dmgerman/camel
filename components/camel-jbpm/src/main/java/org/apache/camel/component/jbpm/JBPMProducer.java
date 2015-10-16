@@ -2993,7 +2993,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|String
+name|Object
 name|event
 init|=
 name|exchange
@@ -3006,10 +3006,6 @@ argument_list|(
 name|JBPMConstants
 operator|.
 name|EVENT
-argument_list|,
-name|String
-operator|.
-name|class
 argument_list|)
 decl_stmt|;
 if|if
