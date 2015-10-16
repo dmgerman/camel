@@ -386,7 +386,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/component/jackson/SpringJacksonMarshalUnmarshalListTest.xml"
+literal|"org/apache/camel/component/jacksonxml/SpringJacksonMarshalUnmarshalListTest.xml"
 argument_list|)
 return|;
 block|}
