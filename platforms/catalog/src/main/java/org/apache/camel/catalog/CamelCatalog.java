@@ -349,6 +349,12 @@ parameter_list|)
 throws|throws
 name|URISyntaxException
 function_decl|;
+comment|/**      * Lists all the component summary details in JSon      */
+DECL|method|listComponentAsJson ()
+name|String
+name|listComponentAsJson
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

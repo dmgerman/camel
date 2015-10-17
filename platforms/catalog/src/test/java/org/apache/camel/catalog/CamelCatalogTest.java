@@ -1409,6 +1409,30 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|testListComponentAsJosn ()
+specifier|public
+name|void
+name|testListComponentAsJosn
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|json
+init|=
+name|catalog
+operator|.
+name|listComponentAsJson
+argument_list|()
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
