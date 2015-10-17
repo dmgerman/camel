@@ -1462,6 +1462,13 @@ operator|.
 name|getFromEndpoint
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|!=
+literal|null
+condition|)
+block|{
 name|String
 name|routeId
 init|=
@@ -1505,6 +1512,7 @@ argument_list|(
 name|key
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 elseif|else
