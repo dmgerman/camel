@@ -305,7 +305,9 @@ literal|"consumer"
 argument_list|,
 name|description
 operator|=
-literal|"After processing each row then this query can be executed, if the Exchange was processed successfully, for example to mark the row as processed. The query can have parameter."
+literal|"After processing each row then this query can be executed, if the Exchange was processed successfully, for example to mark the row as processed. The query can have"
+operator|+
+literal|" parameter."
 argument_list|)
 DECL|field|onConsume
 specifier|private

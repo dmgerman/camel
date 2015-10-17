@@ -221,7 +221,9 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"onConsume\": { \"kind\": \"parameter\", \"label\": \"consumer\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\", \"value\": \"foo\""
+literal|"\"onConsume\": { \"kind\": \"parameter\", \"label\": \"consumer\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\", "
+operator|+
+literal|"\"value\": \"foo\""
 argument_list|)
 argument_list|)
 expr_stmt|;
