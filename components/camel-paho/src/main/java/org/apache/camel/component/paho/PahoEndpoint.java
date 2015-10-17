@@ -29,14 +29,14 @@ import|;
 end_import
 
 begin_import
-import|import
-name|javax
+import|import static
+name|java
 operator|.
-name|xml
+name|lang
 operator|.
-name|xpath
+name|System
 operator|.
-name|XPathConstants
+name|nanoTime
 import|;
 end_import
 
@@ -287,18 +287,6 @@ operator|.
 name|slf4j
 operator|.
 name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|System
-operator|.
-name|nanoTime
 import|;
 end_import
 
