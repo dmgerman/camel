@@ -101,6 +101,30 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Test
+DECL|method|testGetVersion ()
+specifier|public
+name|void
+name|testGetVersion
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|version
+init|=
+name|catalog
+operator|.
+name|getCatalogVersion
+argument_list|()
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|version
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
 DECL|method|testFindLanguageNames ()
 specifier|public
 name|void

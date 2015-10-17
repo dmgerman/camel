@@ -372,6 +372,31 @@ argument_list|(
 literal|"(\\w+)"
 argument_list|)
 decl_stmt|;
+DECL|field|version
+specifier|private
+specifier|final
+name|VersionHelper
+name|version
+init|=
+operator|new
+name|VersionHelper
+argument_list|()
+decl_stmt|;
+annotation|@
+name|Override
+DECL|method|getCatalogVersion ()
+specifier|public
+name|String
+name|getCatalogVersion
+parameter_list|()
+block|{
+return|return
+name|version
+operator|.
+name|getVersion
+argument_list|()
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|findComponentNames ()

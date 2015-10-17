@@ -78,6 +78,12 @@ specifier|public
 interface|interface
 name|CamelCatalog
 block|{
+comment|/**      * The version of this Camel Catalog      */
+DECL|method|getCatalogVersion ()
+name|String
+name|getCatalogVersion
+parameter_list|()
+function_decl|;
 comment|/**      * Find all the component names from the Camel catalog      */
 DECL|method|findComponentNames ()
 name|List
