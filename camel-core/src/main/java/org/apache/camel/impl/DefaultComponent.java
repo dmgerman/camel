@@ -912,37 +912,6 @@ argument_list|>
 name|parameters
 parameter_list|)
 block|{
-comment|// check for uri containing& but no ? marker
-if|if
-condition|(
-name|uri
-operator|.
-name|contains
-argument_list|(
-literal|"&"
-argument_list|)
-operator|&&
-operator|!
-name|uri
-operator|.
-name|contains
-argument_list|(
-literal|"?"
-argument_list|)
-condition|)
-block|{
-throw|throw
-operator|new
-name|ResolveEndpointFailedException
-argument_list|(
-name|uri
-argument_list|,
-literal|"Invalid uri syntax: no ? marker however the uri "
-operator|+
-literal|"has& parameter separators. Check the uri if its missing a ? marker."
-argument_list|)
-throw|;
-block|}
 comment|// check for uri containing double&& markers without include by RAW
 if|if
 condition|(

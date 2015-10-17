@@ -90,38 +90,6 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testNoQuestionMarker ()
-specifier|public
-name|void
-name|testNoQuestionMarker
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-try|try
-block|{
-name|context
-operator|.
-name|getEndpoint
-argument_list|(
-literal|"timer://foo&fixedRate=true&delay=0&period=500"
-argument_list|)
-expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should have thrown ResolveEndpointFailedException"
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|ResolveEndpointFailedException
-name|e
-parameter_list|)
-block|{
-comment|// ok
-block|}
-block|}
 DECL|method|testUnknownParameter ()
 specifier|public
 name|void
