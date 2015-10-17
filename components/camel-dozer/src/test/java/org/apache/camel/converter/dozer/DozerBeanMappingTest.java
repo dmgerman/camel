@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/*  * #%L  * Wildfly Camel :: Testsuite  * %%  * Copyright (C) 2013 - 2014 RedHat  * %%  * Licensed under the Apache License, Version 2.0 (the "License");  * you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  * #L%  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -191,13 +191,13 @@ throws|throws
 name|Exception
 block|{
 name|CamelContext
-name|camelctx
+name|context
 init|=
 operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
-name|camelctx
+name|context
 operator|.
 name|addRoutes
 argument_list|(
@@ -245,24 +245,19 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
 literal|"bean-to-map-dozer-mappings.xml"
-block|}
 argument_list|)
 argument_list|)
 expr_stmt|;
 operator|new
 name|DozerTypeConverterLoader
 argument_list|(
-name|camelctx
+name|context
 argument_list|,
 name|mconfig
 argument_list|)
 expr_stmt|;
-name|camelctx
+name|context
 operator|.
 name|start
 argument_list|()
@@ -272,7 +267,7 @@ block|{
 name|ProducerTemplate
 name|producer
 init|=
-name|camelctx
+name|context
 operator|.
 name|createProducerTemplate
 argument_list|()
@@ -337,7 +332,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|camelctx
+name|context
 operator|.
 name|stop
 argument_list|()
@@ -355,13 +350,13 @@ throws|throws
 name|Exception
 block|{
 name|CamelContext
-name|camelctx
+name|context
 init|=
 operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
-name|camelctx
+name|context
 operator|.
 name|addRoutes
 argument_list|(
@@ -409,19 +404,14 @@ name|Arrays
 operator|.
 name|asList
 argument_list|(
-operator|new
-name|String
-index|[]
-block|{
 literal|"bean-to-bean-dozer-mappings.xml"
-block|}
 argument_list|)
 argument_list|)
 expr_stmt|;
 operator|new
 name|DozerTypeConverterLoader
 argument_list|(
-name|camelctx
+name|context
 argument_list|,
 name|mconfig
 argument_list|)
@@ -441,7 +431,7 @@ argument_list|,
 literal|"12345"
 argument_list|)
 decl_stmt|;
-name|camelctx
+name|context
 operator|.
 name|start
 argument_list|()
@@ -451,7 +441,7 @@ block|{
 name|ProducerTemplate
 name|producer
 init|=
-name|camelctx
+name|context
 operator|.
 name|createProducerTemplate
 argument_list|()
@@ -541,7 +531,7 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
-name|camelctx
+name|context
 operator|.
 name|stop
 argument_list|()
