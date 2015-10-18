@@ -68,10 +68,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_comment
-comment|/**  * Represents the component that manages {@link GitEndpoint}.  */
-end_comment
-
 begin_class
 DECL|class|KubernetesComponent
 specifier|public
