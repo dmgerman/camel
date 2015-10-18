@@ -4172,7 +4172,7 @@ name|json
 argument_list|,
 literal|"\"component\": {"
 argument_list|,
-literal|"\"componentProperties\""
+literal|"\"componentProperties\": {"
 argument_list|)
 expr_stmt|;
 name|json
@@ -4333,7 +4333,7 @@ name|json
 argument_list|,
 literal|"\"dataformat\": {"
 argument_list|,
-literal|"\"properties\""
+literal|"\"properties\": {"
 argument_list|)
 expr_stmt|;
 name|json
@@ -4494,7 +4494,7 @@ name|json
 argument_list|,
 literal|"\"language\": {"
 argument_list|,
-literal|"\"properties\""
+literal|"\"properties\": {"
 argument_list|)
 expr_stmt|;
 name|json
@@ -4655,7 +4655,7 @@ name|json
 argument_list|,
 literal|"\"model\": {"
 argument_list|,
-literal|"\"properties\""
+literal|"\"properties\": {"
 argument_list|)
 expr_stmt|;
 name|json
