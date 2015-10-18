@@ -48,6 +48,16 @@ end_import
 
 begin_import
 import|import
+name|junit
+operator|.
+name|framework
+operator|.
+name|TestCase
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|fasterxml
@@ -76,16 +86,6 @@ end_import
 
 begin_import
 import|import
-name|junit
-operator|.
-name|framework
-operator|.
-name|TestCase
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|junit
@@ -107,18 +107,6 @@ operator|.
 name|CatalogHelper
 operator|.
 name|loadText
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertNotNull
 import|;
 end_import
 
@@ -1606,6 +1594,53 @@ init|=
 name|catalog
 operator|.
 name|listModelsAsJson
+argument_list|()
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
+comment|// validate we can parse the json
+name|ObjectMapper
+name|mapper
+init|=
+operator|new
+name|ObjectMapper
+argument_list|()
+decl_stmt|;
+name|JsonNode
+name|tree
+init|=
+name|mapper
+operator|.
+name|readTree
+argument_list|(
+name|json
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+name|tree
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testSummaryAsJson ()
+specifier|public
+name|void
+name|testSummaryAsJson
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|json
+init|=
+name|catalog
+operator|.
+name|summaryAsJson
 argument_list|()
 decl_stmt|;
 name|assertNotNull

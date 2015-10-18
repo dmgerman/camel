@@ -373,6 +373,12 @@ name|String
 name|listModelsAsJson
 parameter_list|()
 function_decl|;
+comment|/**      * Reports a summary what the catalog contains in JSon      */
+DECL|method|summaryAsJson ()
+name|String
+name|summaryAsJson
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
