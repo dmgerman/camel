@@ -349,10 +349,28 @@ parameter_list|)
 throws|throws
 name|URISyntaxException
 function_decl|;
-comment|/**      * Lists all the component summary details in JSon      */
-DECL|method|listComponentAsJson ()
+comment|/**      * Lists all the components summary details in JSon      */
+DECL|method|listComponentsAsJson ()
 name|String
-name|listComponentAsJson
+name|listComponentsAsJson
+parameter_list|()
+function_decl|;
+comment|/**      * Lists all the data formats summary details in JSon      */
+DECL|method|listDataFormatsAsJson ()
+name|String
+name|listDataFormatsAsJson
+parameter_list|()
+function_decl|;
+comment|/**      * Lists all the languages summary details in JSon      */
+DECL|method|listLanguagesAsJson ()
+name|String
+name|listLanguagesAsJson
+parameter_list|()
+function_decl|;
+comment|/**      * Lists all the models (EIPs) summary details in JSon      */
+DECL|method|listModelsAsJson ()
+name|String
+name|listModelsAsJson
 parameter_list|()
 function_decl|;
 block|}
