@@ -203,7 +203,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Base class for implementation inheritance for different clauses in the<a  * href="http://camel.apache.org/dsl.html">Java DSL</a>  *  * @version   */
+comment|/**  * Base class for implementation inheritance for different clauses in the<a  * href="http://camel.apache.org/dsl.html">Java DSL</a>  *  * @version  */
 end_comment
 
 begin_class
@@ -621,6 +621,64 @@ name|resultType
 argument_list|)
 return|;
 block|}
+comment|/**      * Returns a simple expression value builder, using String.format style      */
+DECL|method|simpleF (String format, Object...values)
+specifier|public
+name|SimpleBuilder
+name|simpleF
+parameter_list|(
+name|String
+name|format
+parameter_list|,
+name|Object
+modifier|...
+name|values
+parameter_list|)
+block|{
+return|return
+name|SimpleBuilder
+operator|.
+name|simpleF
+argument_list|(
+name|format
+argument_list|,
+name|values
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a simple expression value builder, using String.format style      */
+DECL|method|simpleF (String format, Class<?> resultType, Object...values)
+specifier|public
+name|SimpleBuilder
+name|simpleF
+parameter_list|(
+name|String
+name|format
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|resultType
+parameter_list|,
+name|Object
+modifier|...
+name|values
+parameter_list|)
+block|{
+return|return
+name|SimpleBuilder
+operator|.
+name|simpleF
+argument_list|(
+name|format
+argument_list|,
+name|resultType
+argument_list|,
+name|values
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns a xpath expression value builder      * @param value The XPath expression      * @return A new XPathBuilder object      */
 DECL|method|xpath (String value)
 specifier|public
@@ -881,7 +939,7 @@ name|uri
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns an expression value builder that replaces all occurrences of the       * regular expression with the given replacement      */
+comment|/**      * Returns an expression value builder that replaces all occurrences of the      * regular expression with the given replacement      */
 DECL|method|regexReplaceAll (Expression content, String regex, String replacement)
 specifier|public
 name|ValueBuilder
@@ -910,7 +968,7 @@ name|replacement
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns an expression value builder that replaces all occurrences of the       * regular expression with the given replacement      */
+comment|/**      * Returns an expression value builder that replaces all occurrences of the      * regular expression with the given replacement      */
 DECL|method|regexReplaceAll (Expression content, String regex, Expression replacement)
 specifier|public
 name|ValueBuilder

@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates an {@link org.apache.camel.language.Simple} language builder.  *<p/>  * This builder is available in the Java DSL from the {@link RouteBuilder} which means that using  * simple language for {@link Expression}s or {@link Predicate}s is very easy with the help of this builder.  *  * @version   */
+comment|/**  * Creates an {@link org.apache.camel.language.Simple} language builder.  *<p/>  * This builder is available in the Java DSL from the {@link RouteBuilder} which means that using  * simple language for {@link Expression}s or {@link Predicate}s is very easy with the help of this builder.  *  * @version  */
 end_comment
 
 begin_class
@@ -203,6 +203,70 @@ argument_list|)
 expr_stmt|;
 return|return
 name|answer
+return|;
+block|}
+DECL|method|simpleF (String formatText, Object...values)
+specifier|public
+specifier|static
+name|SimpleBuilder
+name|simpleF
+parameter_list|(
+name|String
+name|formatText
+parameter_list|,
+name|Object
+modifier|...
+name|values
+parameter_list|)
+block|{
+return|return
+name|simple
+argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
+name|formatText
+argument_list|,
+name|values
+argument_list|)
+argument_list|)
+return|;
+block|}
+DECL|method|simpleF (String formatText, Class<?> resultType, Object...values)
+specifier|public
+specifier|static
+name|SimpleBuilder
+name|simpleF
+parameter_list|(
+name|String
+name|formatText
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|resultType
+parameter_list|,
+name|Object
+modifier|...
+name|values
+parameter_list|)
+block|{
+return|return
+name|simple
+argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
+name|formatText
+argument_list|,
+name|values
+argument_list|)
+argument_list|,
+name|resultType
+argument_list|)
 return|;
 block|}
 DECL|method|getText ()
