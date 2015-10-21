@@ -590,6 +590,15 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|filters
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|Filter
 name|compoundFilter
 init|=
@@ -606,6 +615,7 @@ argument_list|(
 name|compoundFilter
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|rowModel

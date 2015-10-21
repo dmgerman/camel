@@ -222,6 +222,7 @@ name|getFilteredList
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|//not used, filters need to be rethink
 name|jndi
 operator|.
 name|bind
@@ -374,6 +375,8 @@ argument_list|()
 decl_stmt|;
 name|assertTrue
 argument_list|(
+literal|"two first keys returned"
+argument_list|,
 name|out
 operator|.
 name|getHeaders
@@ -393,7 +396,6 @@ literal|0
 index|]
 argument_list|)
 operator|&&
-operator|!
 name|out
 operator|.
 name|getHeaders
@@ -488,7 +490,7 @@ name|HBaseConstants
 operator|.
 name|SCAN
 operator|+
-literal|"&maxResults=2&filters=#myFilters"
+literal|"&maxResults=2"
 argument_list|)
 expr_stmt|;
 block|}
