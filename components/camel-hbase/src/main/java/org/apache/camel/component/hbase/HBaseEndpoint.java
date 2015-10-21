@@ -472,19 +472,24 @@ specifier|private
 name|int
 name|maxMessagesPerPoll
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"UserGroupInformation for HBase communication. If not specified, then Camel talks with HBase without Kerberos"
+argument_list|)
+DECL|field|ugi
+specifier|private
+name|UserGroupInformation
+name|ugi
+decl_stmt|;
 comment|/** 	 * in the purpose of performance optimization 	 */
 DECL|field|tableNameBytes
 specifier|private
 name|byte
 index|[]
 name|tableNameBytes
-decl_stmt|;
-DECL|field|ugi
-specifier|private
-name|UserGroupInformation
-name|ugi
-init|=
-literal|null
 decl_stmt|;
 DECL|method|HBaseEndpoint (String uri, HBaseComponent component, HTablePool tablePool, String tableName)
 specifier|public
