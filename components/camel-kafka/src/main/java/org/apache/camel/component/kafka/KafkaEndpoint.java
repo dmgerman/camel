@@ -2048,6 +2048,66 @@ operator|=
 name|bridgeEndpoint
 expr_stmt|;
 block|}
+DECL|method|getOffsetsStorage ()
+specifier|public
+name|String
+name|getOffsetsStorage
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getOffsetsStorage
+argument_list|()
+return|;
+block|}
+DECL|method|setOffsetsStorage (String offsetsStorage)
+specifier|public
+name|void
+name|setOffsetsStorage
+parameter_list|(
+name|String
+name|offsetsStorage
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setOffsetsStorage
+argument_list|(
+name|offsetsStorage
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isDualCommitEnabled ()
+specifier|public
+name|Boolean
+name|isDualCommitEnabled
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|isDualCommitEnabled
+argument_list|()
+return|;
+block|}
+DECL|method|setDualCommitEnabled (boolean dualCommitEnabled)
+specifier|public
+name|void
+name|setDualCommitEnabled
+parameter_list|(
+name|boolean
+name|dualCommitEnabled
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setDualCommitEnabled
+argument_list|(
+name|dualCommitEnabled
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 
