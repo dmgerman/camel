@@ -24,6 +24,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -91,6 +101,11 @@ argument_list|(
 name|PaxExam
 operator|.
 name|class
+argument_list|)
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Need OSGi bundles of hadoop, and it does not run well in OSGi neither"
 argument_list|)
 DECL|class|CamelHbaseTest
 specifier|public
