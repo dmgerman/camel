@@ -155,9 +155,6 @@ name|escapeChar
 operator|=
 name|escapeChar
 expr_stmt|;
-name|reset
-argument_list|()
-expr_stmt|;
 return|return
 name|this
 return|;

@@ -233,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This abstract class contains all the common parts for all the uniVocity parsers.  *<p/>  * All setters methods<b>must</b> call the {@link #reset()} method in order to clear the cache for marshalling and  * unmarshalling.  *  * @param<F>   uniVocity format class  * @param<CWS> uniVocity writer settings class  * @param<W>   uniVocity writer class  * @param<CPS> uniVocity parser settings class  * @param<P>   uniVocity parser class  * @param<DF>  the data format class (for providing a fluent API)  */
+comment|/**  * This abstract class contains all the common parts for all the uniVocity parsers.  *<p/>  *  * @param<F>   uniVocity format class  * @param<CWS> uniVocity writer settings class  * @param<W>   uniVocity writer class  * @param<CPS> uniVocity parser settings class  * @param<P>   uniVocity parser class  * @param<DF>  the data format class (for providing a fluent API)  */
 end_comment
 
 begin_class
@@ -694,9 +694,6 @@ name|nullValue
 operator|=
 name|nullValue
 expr_stmt|;
-name|reset
-argument_list|()
-expr_stmt|;
 return|return
 name|self
 argument_list|()
@@ -728,9 +725,6 @@ operator|.
 name|skipEmptyLines
 operator|=
 name|skipEmptyLines
-expr_stmt|;
-name|reset
-argument_list|()
 expr_stmt|;
 return|return
 name|self
@@ -764,9 +758,6 @@ name|ignoreTrailingWhitespaces
 operator|=
 name|ignoreTrailingWhitespaces
 expr_stmt|;
-name|reset
-argument_list|()
-expr_stmt|;
 return|return
 name|self
 argument_list|()
@@ -799,9 +790,6 @@ name|ignoreLeadingWhitespaces
 operator|=
 name|ignoreLeadingWhitespaces
 expr_stmt|;
-name|reset
-argument_list|()
-expr_stmt|;
 return|return
 name|self
 argument_list|()
@@ -833,9 +821,6 @@ operator|.
 name|headersDisabled
 operator|=
 name|headersDisabled
-expr_stmt|;
-name|reset
-argument_list|()
 expr_stmt|;
 return|return
 name|self
@@ -871,9 +856,6 @@ name|headers
 operator|=
 name|headers
 expr_stmt|;
-name|reset
-argument_list|()
-expr_stmt|;
 return|return
 name|self
 argument_list|()
@@ -905,9 +887,6 @@ operator|.
 name|headerExtractionEnabled
 operator|=
 name|headerExtractionEnabled
-expr_stmt|;
-name|reset
-argument_list|()
 expr_stmt|;
 return|return
 name|self
@@ -941,9 +920,6 @@ name|numberOfRecordsToRead
 operator|=
 name|numberOfRecordsToRead
 expr_stmt|;
-name|reset
-argument_list|()
-expr_stmt|;
 return|return
 name|self
 argument_list|()
@@ -975,9 +951,6 @@ operator|.
 name|emptyValue
 operator|=
 name|emptyValue
-expr_stmt|;
-name|reset
-argument_list|()
 expr_stmt|;
 return|return
 name|self
@@ -1011,9 +984,6 @@ name|lineSeparator
 operator|=
 name|lineSeparator
 expr_stmt|;
-name|reset
-argument_list|()
-expr_stmt|;
 return|return
 name|self
 argument_list|()
@@ -1045,9 +1015,6 @@ operator|.
 name|normalizedLineSeparator
 operator|=
 name|normalizedLineSeparator
-expr_stmt|;
-name|reset
-argument_list|()
 expr_stmt|;
 return|return
 name|self
@@ -1081,9 +1048,6 @@ name|comment
 operator|=
 name|comment
 expr_stmt|;
-name|reset
-argument_list|()
-expr_stmt|;
 return|return
 name|self
 argument_list|()
@@ -1116,9 +1080,6 @@ name|lazyLoad
 operator|=
 name|lazyLoad
 expr_stmt|;
-name|reset
-argument_list|()
-expr_stmt|;
 return|return
 name|self
 argument_list|()
@@ -1150,9 +1111,6 @@ operator|.
 name|asMap
 operator|=
 name|asMap
-expr_stmt|;
-name|reset
-argument_list|()
 expr_stmt|;
 return|return
 name|self
@@ -1332,30 +1290,6 @@ name|comment
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-comment|/**      * Resets the caches. It<b>must</b> be called when a setter is called.      */
-DECL|method|reset ()
-specifier|protected
-name|void
-name|reset
-parameter_list|()
-block|{
-name|writerSettings
-operator|=
-literal|null
-expr_stmt|;
-name|marshaller
-operator|=
-literal|null
-expr_stmt|;
-name|parserSettings
-operator|=
-literal|null
-expr_stmt|;
-name|unmarshaller
-operator|=
-literal|null
-expr_stmt|;
 block|}
 comment|/**      * Creates and configures the writer settings.      *      * @return new configured instance of the writer settings      */
 DECL|method|createAndConfigureWriterSettings ()
@@ -1553,7 +1487,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+name|writerSettings
+operator|=
+literal|null
+expr_stmt|;
+name|marshaller
+operator|=
+literal|null
+expr_stmt|;
+name|parserSettings
+operator|=
+literal|null
+expr_stmt|;
+name|unmarshaller
+operator|=
+literal|null
+expr_stmt|;
 block|}
 annotation|@
 name|Override

@@ -197,9 +197,6 @@ name|fieldLengths
 operator|=
 name|fieldLengths
 expr_stmt|;
-name|reset
-argument_list|()
-expr_stmt|;
 return|return
 name|this
 return|;
@@ -230,9 +227,6 @@ operator|.
 name|skipTrailingCharsUntilNewline
 operator|=
 name|skipTrailingCharsUntilNewline
-expr_stmt|;
-name|reset
-argument_list|()
 expr_stmt|;
 return|return
 name|this
@@ -265,9 +259,6 @@ name|recordEndsOnNewline
 operator|=
 name|recordEndsOnNewline
 expr_stmt|;
-name|reset
-argument_list|()
-expr_stmt|;
 return|return
 name|this
 return|;
@@ -298,9 +289,6 @@ operator|.
 name|padding
 operator|=
 name|padding
-expr_stmt|;
-name|reset
-argument_list|()
 expr_stmt|;
 return|return
 name|this

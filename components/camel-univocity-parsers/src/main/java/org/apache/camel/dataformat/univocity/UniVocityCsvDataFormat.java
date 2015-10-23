@@ -170,9 +170,6 @@ name|quoteAllFields
 operator|=
 name|quoteAllFields
 expr_stmt|;
-name|reset
-argument_list|()
-expr_stmt|;
 return|return
 name|this
 return|;
@@ -203,9 +200,6 @@ operator|.
 name|quote
 operator|=
 name|quote
-expr_stmt|;
-name|reset
-argument_list|()
 expr_stmt|;
 return|return
 name|this
@@ -238,9 +232,6 @@ name|quoteEscape
 operator|=
 name|quoteEscape
 expr_stmt|;
-name|reset
-argument_list|()
-expr_stmt|;
 return|return
 name|this
 return|;
@@ -271,9 +262,6 @@ operator|.
 name|delimiter
 operator|=
 name|delimiter
-expr_stmt|;
-name|reset
-argument_list|()
 expr_stmt|;
 return|return
 name|this
