@@ -484,7 +484,7 @@ specifier|private
 name|UserGroupInformation
 name|ugi
 decl_stmt|;
-comment|/** 	 * in the purpose of performance optimization 	 */
+comment|/**      * in the purpose of performance optimization      */
 DECL|field|tableNameBytes
 specifier|private
 name|byte
@@ -947,7 +947,7 @@ operator|=
 name|maxMessagesPerPoll
 expr_stmt|;
 block|}
-comment|/**      * Defines privileges to communicate with HBase table by {@link #getTable()}       * @param ugi      */
+comment|/**      * Defines privileges to communicate with HBase table by {@link #getTable()}      * @param ugi      */
 DECL|method|setUgi (UserGroupInformation ugi)
 specifier|public
 name|void
@@ -964,7 +964,7 @@ operator|=
 name|ugi
 expr_stmt|;
 block|}
-comment|/** 	 * Gets connection to the table (secured or not, depends on the object initialization) 	 * please remember to close the table after use 	 * @return table, remember to close! 	 */
+comment|/**      * Gets connection to the table (secured or not, depends on the object initialization)      * please remember to close the table after use      * @return table, remember to close!      */
 DECL|method|getTable ()
 specifier|public
 name|HTableInterface
