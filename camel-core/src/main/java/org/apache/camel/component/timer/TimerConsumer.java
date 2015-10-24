@@ -56,6 +56,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|atomic
 operator|.
 name|AtomicLong
@@ -204,6 +216,11 @@ specifier|volatile
 name|boolean
 name|configured
 decl_stmt|;
+DECL|field|executorService
+specifier|private
+name|ExecutorService
+name|executorService
+decl_stmt|;
 DECL|method|TimerConsumer (TimerEndpoint endpoint, Processor processor)
 specifier|public
 name|TimerConsumer
@@ -256,6 +273,16 @@ name|doStart
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getDelay
+argument_list|()
+operator|>=
+literal|0
+condition|)
 block|{
 name|task
 operator|=
@@ -339,7 +366,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// no need to fire anymore as we exceeded repeat count
+comment|// no need to fire anymore as we exceeded repeat
+comment|// count
 name|LOG
 operator|.
 name|debug
@@ -368,7 +396,8 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-comment|// catch all to avoid the JVM closing the thread and not firing again
+comment|// catch all to avoid the JVM closing the thread and not
+comment|// firing again
 name|LOG
 operator|.
 name|warn
@@ -382,7 +411,8 @@ block|}
 block|}
 block|}
 expr_stmt|;
-comment|// only configure task if CamelContext already started, otherwise the StartupListener
+comment|// only configure task if CamelContext already started, otherwise
+comment|// the StartupListener
 comment|// is configuring the task later
 if|if
 condition|(
@@ -416,6 +446,99 @@ argument_list|(
 name|task
 argument_list|,
 name|timer
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+comment|// if the delay is negative then we use an ExecutorService and fire messages as soon as possible
+name|executorService
+operator|=
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|newSingleThreadExecutor
+argument_list|(
+name|this
+argument_list|,
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|executorService
+operator|.
+name|execute
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
+specifier|final
+name|AtomicLong
+name|counter
+init|=
+operator|new
+name|AtomicLong
+argument_list|()
+decl_stmt|;
+name|long
+name|count
+init|=
+name|counter
+operator|.
+name|incrementAndGet
+argument_list|()
+decl_stmt|;
+while|while
+condition|(
+operator|(
+name|endpoint
+operator|.
+name|getRepeatCount
+argument_list|()
+operator|<=
+literal|0
+operator|||
+name|count
+operator|<=
+name|endpoint
+operator|.
+name|getRepeatCount
+argument_list|()
+operator|)
+operator|&&
+name|isRunAllowed
+argument_list|()
+condition|)
+block|{
+name|sendTimerExchange
+argument_list|(
+name|count
+argument_list|)
+expr_stmt|;
+name|count
+operator|=
+name|counter
+operator|.
+name|incrementAndGet
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -459,6 +582,32 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
+comment|// if executorService is instantiated then we shutdown it
+if|if
+condition|(
+name|executorService
+operator|!=
+literal|null
+condition|)
+block|{
+name|endpoint
+operator|.
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|shutdown
+argument_list|(
+name|executorService
+argument_list|)
+expr_stmt|;
+name|executorService
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
