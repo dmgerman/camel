@@ -1597,9 +1597,9 @@ argument_list|()
 decl_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Registering module: {}"
+literal|"Registering JaxbAnnotationModule: {}"
 argument_list|,
 name|module
 argument_list|)
@@ -2004,7 +2004,7 @@ control|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Registering module: {}"
 argument_list|,
@@ -2091,7 +2091,7 @@ argument_list|)
 decl_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Registering module: {} -> {}"
 argument_list|,
@@ -2183,7 +2183,7 @@ argument_list|)
 decl_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Registering module: {} -> {}"
 argument_list|,
