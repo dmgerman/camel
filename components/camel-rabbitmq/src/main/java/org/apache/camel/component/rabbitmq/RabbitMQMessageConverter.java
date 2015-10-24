@@ -587,7 +587,7 @@ name|contentType
 init|=
 name|msg
 operator|.
-name|getHeader
+name|removeHeader
 argument_list|(
 name|RabbitMQConstants
 operator|.
@@ -618,7 +618,7 @@ name|priority
 init|=
 name|msg
 operator|.
-name|getHeader
+name|removeHeader
 argument_list|(
 name|RabbitMQConstants
 operator|.
@@ -654,7 +654,7 @@ name|messageId
 init|=
 name|msg
 operator|.
-name|getHeader
+name|removeHeader
 argument_list|(
 name|RabbitMQConstants
 operator|.
@@ -685,7 +685,7 @@ name|clusterId
 init|=
 name|msg
 operator|.
-name|getHeader
+name|removeHeader
 argument_list|(
 name|RabbitMQConstants
 operator|.
@@ -716,7 +716,7 @@ name|replyTo
 init|=
 name|msg
 operator|.
-name|getHeader
+name|removeHeader
 argument_list|(
 name|RabbitMQConstants
 operator|.
@@ -747,7 +747,7 @@ name|correlationId
 init|=
 name|msg
 operator|.
-name|getHeader
+name|removeHeader
 argument_list|(
 name|RabbitMQConstants
 operator|.
@@ -778,7 +778,7 @@ name|deliveryMode
 init|=
 name|msg
 operator|.
-name|getHeader
+name|removeHeader
 argument_list|(
 name|RabbitMQConstants
 operator|.
@@ -814,7 +814,7 @@ name|userId
 init|=
 name|msg
 operator|.
-name|getHeader
+name|removeHeader
 argument_list|(
 name|RabbitMQConstants
 operator|.
@@ -845,7 +845,7 @@ name|type
 init|=
 name|msg
 operator|.
-name|getHeader
+name|removeHeader
 argument_list|(
 name|RabbitMQConstants
 operator|.
@@ -876,7 +876,7 @@ name|contentEncoding
 init|=
 name|msg
 operator|.
-name|getHeader
+name|removeHeader
 argument_list|(
 name|RabbitMQConstants
 operator|.
@@ -907,7 +907,7 @@ name|expiration
 init|=
 name|msg
 operator|.
-name|getHeader
+name|removeHeader
 argument_list|(
 name|RabbitMQConstants
 operator|.
@@ -938,7 +938,7 @@ name|appId
 init|=
 name|msg
 operator|.
-name|getHeader
+name|removeHeader
 argument_list|(
 name|RabbitMQConstants
 operator|.
@@ -969,7 +969,7 @@ name|timestamp
 init|=
 name|msg
 operator|.
-name|getHeader
+name|removeHeader
 argument_list|(
 name|RabbitMQConstants
 operator|.
