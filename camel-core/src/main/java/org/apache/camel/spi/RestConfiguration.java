@@ -138,6 +138,11 @@ specifier|private
 name|String
 name|apiContextPath
 decl_stmt|;
+DECL|field|apiContextRouteId
+specifier|private
+name|String
+name|apiContextRouteId
+decl_stmt|;
 DECL|field|apiContextIdPattern
 specifier|private
 name|String
@@ -441,6 +446,33 @@ operator|.
 name|apiContextPath
 operator|=
 name|contextPath
+expr_stmt|;
+block|}
+DECL|method|getApiContextRouteId ()
+specifier|public
+name|String
+name|getApiContextRouteId
+parameter_list|()
+block|{
+return|return
+name|apiContextRouteId
+return|;
+block|}
+comment|/**      * Sets the route id to use for the route that services the REST API.      *<p/>      * The route will by default use an auto assigned route id.      *      * @param apiContextRouteId  the route id      */
+DECL|method|setApiContextRouteId (String apiContextRouteId)
+specifier|public
+name|void
+name|setApiContextRouteId
+parameter_list|(
+name|String
+name|apiContextRouteId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiContextRouteId
+operator|=
+name|apiContextRouteId
 expr_stmt|;
 block|}
 DECL|method|getApiContextIdPattern ()

@@ -271,6 +271,13 @@ name|apiContextPath
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|apiContextRouteId
+specifier|private
+name|String
+name|apiContextRouteId
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|apiContextIdPattern
 specifier|private
 name|String
@@ -651,6 +658,33 @@ operator|.
 name|apiContextPath
 operator|=
 name|contextPath
+expr_stmt|;
+block|}
+DECL|method|getApiContextRouteId ()
+specifier|public
+name|String
+name|getApiContextRouteId
+parameter_list|()
+block|{
+return|return
+name|apiContextRouteId
+return|;
+block|}
+comment|/**      * Sets the route id to use for the route that services the REST API.      *<p/>      * The route will by default use an auto assigned route id.      *      * @param apiContextRouteId  the route id      */
+DECL|method|setApiContextRouteId (String apiContextRouteId)
+specifier|public
+name|void
+name|setApiContextRouteId
+parameter_list|(
+name|String
+name|apiContextRouteId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiContextRouteId
+operator|=
+name|apiContextRouteId
 expr_stmt|;
 block|}
 DECL|method|getApiContextIdPattern ()
@@ -1198,6 +1232,25 @@ block|{
 name|setApiContextPath
 argument_list|(
 name|contextPath
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the route id to use for the route that services the REST API.      */
+DECL|method|apiContextRouteId (String routeId)
+specifier|public
+name|RestConfigurationDefinition
+name|apiContextRouteId
+parameter_list|(
+name|String
+name|routeId
+parameter_list|)
+block|{
+name|setApiContextRouteId
+argument_list|(
+name|routeId
 argument_list|)
 expr_stmt|;
 return|return
@@ -1800,6 +1853,28 @@ argument_list|(
 name|context
 argument_list|,
 name|apiContextPath
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|apiContextRouteId
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setApiContextRouteId
+argument_list|(
+name|CamelContextHelper
+operator|.
+name|parseText
+argument_list|(
+name|context
+argument_list|,
+name|apiContextRouteId
 argument_list|)
 argument_list|)
 expr_stmt|;
