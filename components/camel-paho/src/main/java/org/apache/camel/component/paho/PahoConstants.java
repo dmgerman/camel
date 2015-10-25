@@ -18,6 +18,10 @@ name|paho
 package|;
 end_package
 
+begin_comment
+comment|/**  * Constants to use when working with Paho component.  */
+end_comment
+
 begin_class
 DECL|class|PahoConstants
 specifier|public
@@ -25,6 +29,7 @@ specifier|final
 class|class
 name|PahoConstants
 block|{
+comment|/**      * Header indicating a topic of a MQTT message.      */
 DECL|field|MQTT_TOPIC
 specifier|public
 specifier|static
