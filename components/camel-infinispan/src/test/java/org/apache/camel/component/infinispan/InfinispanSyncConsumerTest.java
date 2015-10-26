@@ -109,7 +109,7 @@ argument_list|)
 expr_stmt|;
 name|mockResult
 operator|.
-name|setMinimumResultWaitTime
+name|setResultMinimumWaitTime
 argument_list|(
 literal|900
 argument_list|)
