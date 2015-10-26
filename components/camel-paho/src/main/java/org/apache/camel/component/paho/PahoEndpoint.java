@@ -456,6 +456,22 @@ name|persistence
 init|=
 name|MEMORY
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"Base directory used by file persistence."
+argument_list|,
+name|defaultValue
+operator|=
+literal|"Current directory"
+argument_list|)
+DECL|field|filePersistenceDirectory
+specifier|private
+name|String
+name|filePersistenceDirectory
+decl_stmt|;
 comment|// Collaboration members
 annotation|@
 name|UriParam
@@ -648,19 +664,45 @@ name|MqttClientPersistence
 name|resolvePersistence
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
 name|persistence
 operator|==
 name|MEMORY
-condition|?
+condition|)
+block|{
+return|return
 operator|new
 name|MemoryPersistence
 argument_list|()
-else|:
+return|;
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|filePersistenceDirectory
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|MqttDefaultFilePersistence
+argument_list|(
+name|filePersistenceDirectory
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+return|return
 operator|new
 name|MqttDefaultFilePersistence
 argument_list|()
 return|;
+block|}
+block|}
 block|}
 DECL|method|resolveMqttConnectOptions ()
 specifier|protected
@@ -956,6 +998,33 @@ operator|.
 name|persistence
 operator|=
 name|persistence
+expr_stmt|;
+block|}
+DECL|method|getFilePersistenceDirectory ()
+specifier|public
+name|String
+name|getFilePersistenceDirectory
+parameter_list|()
+block|{
+return|return
+name|filePersistenceDirectory
+return|;
+block|}
+comment|/**      * Base directory used by the file persistence provider.      */
+DECL|method|setFilePersistenceDirectory (String filePersistenceDirectory)
+specifier|public
+name|void
+name|setFilePersistenceDirectory
+parameter_list|(
+name|String
+name|filePersistenceDirectory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|filePersistenceDirectory
+operator|=
+name|filePersistenceDirectory
 expr_stmt|;
 block|}
 DECL|method|getClient ()
