@@ -70,6 +70,10 @@ name|MqttConnectOptions
 import|;
 end_import
 
+begin_comment
+comment|/**  * Component to integrate with the Eclispe Paho MQTT library.  */
+end_comment
+
 begin_class
 DECL|class|PahoComponent
 specifier|public
@@ -106,6 +110,7 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Overridden
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -199,6 +204,7 @@ return|return
 name|answer
 return|;
 block|}
+comment|// Getters and setters
 DECL|method|getBrokerUrl ()
 specifier|public
 name|String
