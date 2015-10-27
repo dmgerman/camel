@@ -392,6 +392,26 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_class
 annotation|@
 name|ManagedResource
@@ -411,6 +431,22 @@ name|TimerListener
 implements|,
 name|ManagedRouteMBean
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|ManagedRoute
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|VALUE_UNKNOWN
 specifier|public
 specifier|static
@@ -1556,6 +1592,22 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Updating route: {} from xml: {}"
+argument_list|,
+name|def
+operator|.
+name|getId
+argument_list|()
+argument_list|,
+name|xml
+argument_list|)
+expr_stmt|;
+try|try
+block|{
 comment|// add will remove existing route first
 name|context
 operator|.
@@ -1564,6 +1616,48 @@ argument_list|(
 name|def
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// log the error as warn as the management api may be invoked remotely over JMX which does not propagate such exception
+name|String
+name|msg
+init|=
+literal|"Error updating route: "
+operator|+
+name|def
+operator|.
+name|getId
+argument_list|()
+operator|+
+literal|" from xml: "
+operator|+
+name|xml
+operator|+
+literal|" due: "
+operator|+
+name|e
+operator|.
+name|getMessage
+argument_list|()
+decl_stmt|;
+name|LOG
+operator|.
+name|warn
+argument_list|(
+name|msg
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
 block|}
 DECL|method|dumpRouteStatsAsXml (boolean fullStats, boolean includeProcessors)
 specifier|public
