@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements. See the NOTICE file distributed with this  * work for additional information regarding copyright ownership. The ASF  * licenses this file to You under the Apache License, Version 2.0 (the  * "License"); you may not use this file except in compliance with the License.  * You may obtain a copy of the License at  *  * http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the  * License for the specific language governing permissions and limitations under  * the License.  */
 end_comment
 
 begin_package
@@ -348,6 +348,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+annotation|@
+name|Override
 DECL|method|execute (ExecCommand command)
 specifier|public
 name|ExecResult
@@ -519,65 +521,6 @@ name|getMessage
 argument_list|()
 argument_list|)
 expr_stmt|;
-throw|throw
-operator|new
-name|ExecException
-argument_list|(
-literal|"Failed to execute command "
-operator|+
-name|command
-argument_list|,
-name|ee
-argument_list|)
-throw|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ioe
-parameter_list|)
-block|{
-comment|// workaround to ignore if the stream was already closes due some race condition in commons-exec
-name|String
-name|msg
-init|=
-name|ioe
-operator|.
-name|getMessage
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|msg
-operator|!=
-literal|null
-operator|&&
-literal|"stream closed"
-operator|.
-name|equals
-argument_list|(
-name|msg
-operator|.
-name|toLowerCase
-argument_list|(
-name|Locale
-operator|.
-name|ENGLISH
-argument_list|)
-argument_list|)
-condition|)
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Ignoring Stream closed IOException"
-argument_list|,
-name|ioe
-argument_list|)
-expr_stmt|;
-comment|// if the size is zero, we have no output, so construct the result
-comment|// with null (required by ExecResult)
 name|InputStream
 name|stdout
 init|=
@@ -620,12 +563,81 @@ name|toByteArray
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// use 0 as exit value as the executor didn't return the value
+throw|throw
+operator|new
+name|ExecException
+argument_list|(
+literal|"Failed to execute command "
+operator|+
+name|command
+argument_list|,
+name|stdout
+argument_list|,
+name|stderr
+argument_list|,
+name|ee
+operator|.
+name|getExitValue
+argument_list|()
+argument_list|,
+name|ee
+argument_list|)
+throw|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|ioe
+parameter_list|)
+block|{
+name|InputStream
+name|stdout
+init|=
+name|out
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|?
+literal|null
+else|:
+operator|new
+name|ByteArrayInputStream
+argument_list|(
+name|out
+operator|.
+name|toByteArray
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|InputStream
+name|stderr
+init|=
+name|err
+operator|.
+name|size
+argument_list|()
+operator|==
+literal|0
+condition|?
+literal|null
+else|:
+operator|new
+name|ByteArrayInputStream
+argument_list|(
+name|err
+operator|.
+name|toByteArray
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|int
 name|exitValue
 init|=
 literal|0
 decl_stmt|;
+comment|// use 0 as exit value as the executor didn't return the value
 if|if
 condition|(
 name|executor
@@ -647,6 +659,45 @@ name|getExitValue
 argument_list|()
 expr_stmt|;
 block|}
+comment|// workaround to ignore if the stream was already closes due some race condition in commons-exec
+name|String
+name|msg
+init|=
+name|ioe
+operator|.
+name|getMessage
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|msg
+operator|!=
+literal|null
+operator|&&
+literal|"stream closed"
+operator|.
+name|equals
+argument_list|(
+name|msg
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|ENGLISH
+argument_list|)
+argument_list|)
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Ignoring Stream closed IOException"
+argument_list|,
+name|ioe
+argument_list|)
+expr_stmt|;
 name|ExecResult
 name|result
 init|=
@@ -693,6 +744,12 @@ argument_list|(
 literal|"Unable to execute command "
 operator|+
 name|command
+argument_list|,
+name|stdout
+argument_list|,
+name|stderr
+argument_list|,
+name|exitValue
 argument_list|,
 name|ioe
 argument_list|)
@@ -804,7 +861,7 @@ return|return
 name|executor
 return|;
 block|}
-comment|/**      * Transforms an {@link ExecCommand} to a {@link CommandLine}. No quoting fo      * the arguments is used.      *       * @param execCommand a not-null<code>ExecCommand</code> instance.      * @return a {@link CommandLine} object.      */
+comment|/**      * Transforms an {@link ExecCommand} to a {@link CommandLine}. No quoting fo      * the arguments is used.      *      * @param execCommand a not-null<code>ExecCommand</code> instance.      * @return a {@link CommandLine} object.      */
 DECL|method|toCommandLine (ExecCommand execCommand)
 specifier|protected
 name|CommandLine
