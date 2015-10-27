@@ -1291,22 +1291,6 @@ name|trace
 operator|=
 literal|true
 expr_stmt|;
-for|for
-control|(
-name|CamelContext
-name|context
-range|:
-name|camelContexts
-control|)
-block|{
-name|context
-operator|.
-name|setTracing
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 DECL|method|doStop ()
 specifier|protected
@@ -1815,6 +1799,19 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|trace
+condition|)
+block|{
+name|camelContext
+operator|.
+name|setTracing
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 comment|// try to load the route builders from the routeBuilderClasses
 name|loadRouteBuilders
 argument_list|(
