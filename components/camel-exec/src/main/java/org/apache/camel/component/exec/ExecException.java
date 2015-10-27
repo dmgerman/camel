@@ -52,6 +52,15 @@ name|ExecException
 extends|extends
 name|RuntimeCamelException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|7808703605527644487L
+decl_stmt|;
 DECL|field|exitValue
 specifier|private
 specifier|final
@@ -69,15 +78,6 @@ specifier|private
 specifier|final
 name|InputStream
 name|stderr
-decl_stmt|;
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-literal|7808703605527644487L
 decl_stmt|;
 DECL|method|ExecException (String message, final InputStream stdout, final InputStream stderr, final int exitValue)
 specifier|public
