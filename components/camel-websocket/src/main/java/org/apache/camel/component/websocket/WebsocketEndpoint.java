@@ -631,17 +631,6 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
-name|component
-operator|.
-name|addServlet
-argument_list|(
-name|sync
-argument_list|,
-name|consumer
-argument_list|,
-name|resourceUri
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|disconnect (WebsocketConsumer consumer)
 specifier|public
@@ -661,7 +650,6 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
-comment|// Servlet should be removed
 block|}
 DECL|method|connect (WebsocketProducer producer)
 specifier|public
@@ -679,17 +667,6 @@ operator|.
 name|connect
 argument_list|(
 name|producer
-argument_list|)
-expr_stmt|;
-name|component
-operator|.
-name|addServlet
-argument_list|(
-name|sync
-argument_list|,
-name|producer
-argument_list|,
-name|resourceUri
 argument_list|)
 expr_stmt|;
 block|}
@@ -711,7 +688,6 @@ argument_list|(
 name|producer
 argument_list|)
 expr_stmt|;
-comment|// Servlet should be removed
 block|}
 annotation|@
 name|Override
@@ -1224,6 +1200,19 @@ name|resourceUri
 operator|=
 name|resourceUri
 expr_stmt|;
+block|}
+comment|/**      * NodeSynchronization      * @return NodeSynchronization      */
+DECL|method|getNodeSynchronization ()
+specifier|public
+name|NodeSynchronization
+name|getNodeSynchronization
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|sync
+return|;
 block|}
 annotation|@
 name|Override
