@@ -288,7 +288,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"servlet:///hello?transferException=true"
+literal|"servlet:hello?transferException=true"
 argument_list|)
 operator|.
 name|throwException

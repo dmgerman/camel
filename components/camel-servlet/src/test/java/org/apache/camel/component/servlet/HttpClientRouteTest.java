@@ -889,7 +889,7 @@ expr_stmt|;
 comment|// START SNIPPET: route
 name|from
 argument_list|(
-literal|"servlet:///hello?matchOnUriPrefix=true"
+literal|"servlet:hello?matchOnUriPrefix=true"
 argument_list|)
 operator|.
 name|process
@@ -1060,7 +1060,7 @@ expr_stmt|;
 comment|// END SNIPPET: route
 name|from
 argument_list|(
-literal|"servlet:///testHttpMethodRestrict?httpMethodRestrict=POST"
+literal|"servlet:testHttpMethodRestrict?httpMethodRestrict=POST"
 argument_list|)
 operator|.
 name|process
@@ -1110,7 +1110,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"servlet:///testConverter?matchOnUriPrefix=true"
+literal|"servlet:testConverter?matchOnUriPrefix=true"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -1210,7 +1210,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"servlet:///testUnicodeWithStringResponse?matchOnUriPrefix=true"
+literal|"servlet:testUnicodeWithStringResponse?matchOnUriPrefix=true"
 argument_list|)
 operator|.
 name|process
@@ -1278,7 +1278,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"servlet:///testUnicodeWithObjectResponse?matchOnUriPrefix=true"
+literal|"servlet:testUnicodeWithObjectResponse?matchOnUriPrefix=true"
 argument_list|)
 operator|.
 name|process

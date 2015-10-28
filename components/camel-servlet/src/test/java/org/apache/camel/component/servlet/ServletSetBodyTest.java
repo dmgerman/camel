@@ -172,7 +172,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"servlet:///hello"
+literal|"servlet:/hello"
 argument_list|)
 operator|.
 name|setBody

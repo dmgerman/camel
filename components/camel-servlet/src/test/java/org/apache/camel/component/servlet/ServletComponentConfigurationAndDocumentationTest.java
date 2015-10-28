@@ -119,7 +119,7 @@ name|comp
 operator|.
 name|createConfiguration
 argument_list|(
-literal|"servlet://foo?servletName=MyServlet&proxyHost=myotherproxy&proxyPort=2345"
+literal|"servlet:foo?servletName=MyServlet&proxyHost=myotherproxy&proxyPort=2345"
 argument_list|)
 decl_stmt|;
 name|assertEquals
