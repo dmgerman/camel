@@ -702,6 +702,21 @@ name|getFromEndpoint
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|id
+operator|==
+literal|null
+condition|)
+block|{
+name|id
+operator|=
+name|exchange
+operator|.
+name|getFromRouteId
+argument_list|()
+expr_stmt|;
+block|}
 comment|// filter non matching exchanges
 return|return
 name|EndpointHelper
