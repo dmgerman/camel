@@ -402,6 +402,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|/* The Camel Route uses the apache-camel appid to access the openweathermap service */
 name|from
 argument_list|(
 literal|"direct:start"
@@ -409,7 +410,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"weather:foo?location=Madrid,Spain"
+literal|"weather:foo?location=Madrid,Spain&appid=9162755b2efa555823cfe0451d7fff38"
 argument_list|)
 operator|.
 name|to

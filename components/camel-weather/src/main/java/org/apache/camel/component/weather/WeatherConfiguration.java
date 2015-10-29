@@ -288,6 +288,13 @@ specifier|private
 name|String
 name|headerName
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|appid
+specifier|private
+name|String
+name|appid
+decl_stmt|;
 DECL|method|WeatherConfiguration (WeatherComponent component)
 specifier|public
 name|WeatherConfiguration
@@ -582,6 +589,33 @@ operator|=
 name|lon
 expr_stmt|;
 block|}
+comment|/**      * APPID ID used to authenticate the user connected to the API Server      */
+DECL|method|setAppid (String appid)
+specifier|public
+name|void
+name|setAppid
+parameter_list|(
+name|String
+name|appid
+parameter_list|)
+block|{
+name|this
+operator|.
+name|appid
+operator|=
+name|appid
+expr_stmt|;
+block|}
+DECL|method|getAppid ()
+specifier|public
+name|String
+name|getAppid
+parameter_list|()
+block|{
+return|return
+name|appid
+return|;
+block|}
 DECL|method|getQuery ()
 specifier|public
 name|String
@@ -741,6 +775,22 @@ name|name
 argument_list|()
 operator|.
 name|toLowerCase
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|getAppid
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|+=
+literal|"&APPID="
+operator|+
+name|getAppid
 argument_list|()
 expr_stmt|;
 block|}
