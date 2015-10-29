@@ -670,7 +670,7 @@ operator|=
 name|clientKeyPassphrase
 expr_stmt|;
 block|}
-comment|/**      * The Auth Token       */
+comment|/**      * The Auth Token      */
 DECL|method|getOauthToken ()
 specifier|public
 name|String
