@@ -130,6 +130,12 @@ name|PARAM_REPLICATION_TYPE
 init|=
 literal|"replicationType"
 decl_stmt|;
+DECL|field|PARENT
+name|String
+name|PARENT
+init|=
+literal|"parent"
+decl_stmt|;
 DECL|field|TRANSPORT_ADDRESSES
 name|String
 name|TRANSPORT_ADDRESSES
