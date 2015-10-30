@@ -102,18 +102,6 @@ name|io
 operator|.
 name|swagger
 operator|.
-name|converter
-operator|.
-name|ModelConverters
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|swagger
-operator|.
 name|jaxrs
 operator|.
 name|config
@@ -686,6 +674,16 @@ operator|.
 name|getDescriptionText
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|pathAsTag
+argument_list|)
+condition|)
+block|{
 comment|// add rest as tag
 name|Tag
 name|tag
@@ -715,6 +713,7 @@ argument_list|(
 name|tag
 argument_list|)
 expr_stmt|;
+block|}
 comment|// gather all types in use
 name|Set
 argument_list|<
@@ -932,6 +931,16 @@ operator|new
 name|Operation
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|pathAsTag
+argument_list|)
+condition|)
+block|{
 comment|// group in the same tag
 name|op
 operator|.
@@ -940,6 +949,7 @@ argument_list|(
 name|pathAsTag
 argument_list|)
 expr_stmt|;
+block|}
 comment|// add id as vendor extensions
 name|op
 operator|.
