@@ -802,7 +802,7 @@ decl_stmt|;
 name|String
 name|host
 init|=
-literal|""
+literal|"localhost"
 decl_stmt|;
 name|int
 name|port
