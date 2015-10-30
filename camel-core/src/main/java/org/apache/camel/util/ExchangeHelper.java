@@ -2932,10 +2932,7 @@ condition|)
 block|{
 name|exchange
 operator|.
-name|getIn
-argument_list|()
-operator|.
-name|copyFrom
+name|setIn
 argument_list|(
 name|exchange
 operator|.
