@@ -223,6 +223,20 @@ name|name
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|appid
+specifier|private
+name|String
+name|appid
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|location
 specifier|private
 name|String
@@ -287,13 +301,6 @@ DECL|field|headerName
 specifier|private
 name|String
 name|headerName
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|appid
-specifier|private
-name|String
-name|appid
 decl_stmt|;
 DECL|method|WeatherConfiguration (WeatherComponent component)
 specifier|public
