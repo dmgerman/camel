@@ -296,7 +296,7 @@ literal|"Netty HTTP"
 argument_list|,
 name|syntax
 operator|=
-literal|"netty-http:host:port/path"
+literal|"netty-http:protocol:host:port/path"
 argument_list|,
 name|consumerClass
 operator|=

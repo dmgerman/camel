@@ -278,7 +278,7 @@ literal|"Netty4 HTTP"
 argument_list|,
 name|syntax
 operator|=
-literal|"netty4-http:host:port/path"
+literal|"netty4-http:protocol:host:port/path"
 argument_list|,
 name|consumerClass
 operator|=

@@ -172,6 +172,29 @@ name|NettyConfiguration
 block|{
 annotation|@
 name|UriPath
+argument_list|(
+name|enums
+operator|=
+literal|"http,https"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"http"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|protocol
+specifier|private
+name|String
+name|protocol
+decl_stmt|;
+annotation|@
+name|UriPath
 annotation|@
 name|Metadata
 argument_list|(
@@ -493,6 +516,33 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+DECL|method|getProtocol ()
+specifier|public
+name|String
+name|getProtocol
+parameter_list|()
+block|{
+return|return
+name|protocol
+return|;
+block|}
+comment|/**      * The protocol to use which is either http or https      */
+DECL|method|setProtocol (String protocol)
+specifier|public
+name|void
+name|setProtocol
+parameter_list|(
+name|String
+name|protocol
+parameter_list|)
+block|{
+name|this
+operator|.
+name|protocol
+operator|=
+name|protocol
+expr_stmt|;
 block|}
 DECL|method|isCompression ()
 specifier|public
