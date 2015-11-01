@@ -482,8 +482,6 @@ argument_list|)
 decl_stmt|;
 name|ClientNonNamespaceOperation
 argument_list|<
-name|KubernetesClient
-argument_list|,
 name|Node
 argument_list|,
 name|NodeList
@@ -498,9 +496,7 @@ name|DoneableNode
 argument_list|>
 argument_list|>
 name|nodes
-decl_stmt|;
-name|nodes
-operator|=
+init|=
 name|getEndpoint
 argument_list|()
 operator|.
@@ -509,7 +505,7 @@ argument_list|()
 operator|.
 name|nodes
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 for|for
 control|(
 name|Map

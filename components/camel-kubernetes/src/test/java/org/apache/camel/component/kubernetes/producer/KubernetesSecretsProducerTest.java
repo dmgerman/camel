@@ -52,20 +52,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|ning
-operator|.
-name|http
-operator|.
-name|util
-operator|.
-name|Base64
-import|;
-end_import
-
-begin_import
-import|import
 name|io
 operator|.
 name|fabric8
@@ -193,6 +179,22 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|commons
+operator|.
+name|codec
+operator|.
+name|binary
+operator|.
+name|Base64
 import|;
 end_import
 
@@ -636,7 +638,7 @@ literal|"username"
 argument_list|,
 name|Base64
 operator|.
-name|encode
+name|encodeBase64String
 argument_list|(
 literal|"pippo"
 operator|.
@@ -653,7 +655,7 @@ literal|"password"
 argument_list|,
 name|Base64
 operator|.
-name|encode
+name|encodeBase64String
 argument_list|(
 literal|"password"
 operator|.

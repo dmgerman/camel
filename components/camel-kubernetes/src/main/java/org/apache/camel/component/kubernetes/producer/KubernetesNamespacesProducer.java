@@ -558,8 +558,6 @@ throw|;
 block|}
 name|ClientNonNamespaceOperation
 argument_list|<
-name|KubernetesClient
-argument_list|,
 name|Namespace
 argument_list|,
 name|NamespaceList
@@ -574,9 +572,7 @@ name|DoneableNamespace
 argument_list|>
 argument_list|>
 name|namespaces
-decl_stmt|;
-name|namespaces
-operator|=
+init|=
 name|getEndpoint
 argument_list|()
 operator|.
@@ -585,7 +581,7 @@ argument_list|()
 operator|.
 name|namespaces
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 for|for
 control|(
 name|Map
