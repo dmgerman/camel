@@ -2685,6 +2685,16 @@ literal|" has no syntax defined in the json schema"
 argument_list|)
 throw|;
 block|}
+comment|// clip the scheme from the syntax
+name|syntax
+operator|=
+name|after
+argument_list|(
+name|syntax
+argument_list|,
+literal|":"
+argument_list|)
+expr_stmt|;
 comment|// parse the syntax and find the same group in the uri
 name|Matcher
 name|matcher
@@ -2747,6 +2757,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// clip the scheme from the uri
+name|uri
+operator|=
+name|after
+argument_list|(
+name|uri
+argument_list|,
+literal|":"
+argument_list|)
+expr_stmt|;
 name|String
 name|uriPath
 init|=
