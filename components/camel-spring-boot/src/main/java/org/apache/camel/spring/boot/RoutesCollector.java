@@ -80,18 +80,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ServiceStatus
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|model
 operator|.
 name|RoutesDefinition
@@ -203,6 +191,12 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// Collaborators
+DECL|field|applicationContext
+specifier|private
+specifier|final
+name|ApplicationContext
+name|applicationContext
+decl_stmt|;
 DECL|field|camelContextConfigurations
 specifier|private
 specifier|final
@@ -213,10 +207,13 @@ argument_list|>
 name|camelContextConfigurations
 decl_stmt|;
 comment|// Constructors
-DECL|method|RoutesCollector (List<CamelContextConfiguration> camelContextConfigurations)
+DECL|method|RoutesCollector (ApplicationContext applicationContext, List<CamelContextConfiguration> camelContextConfigurations)
 specifier|public
 name|RoutesCollector
 parameter_list|(
+name|ApplicationContext
+name|applicationContext
+parameter_list|,
 name|List
 argument_list|<
 name|CamelContextConfiguration
@@ -224,6 +221,12 @@ argument_list|>
 name|camelContextConfigurations
 parameter_list|)
 block|{
+name|this
+operator|.
+name|applicationContext
+operator|=
+name|applicationContext
+expr_stmt|;
 name|this
 operator|.
 name|camelContextConfigurations
@@ -258,6 +261,19 @@ operator|.
 name|getApplicationContext
 argument_list|()
 decl_stmt|;
+comment|// only listen to context refreshs of "my" applicationContext
+if|if
+condition|(
+name|this
+operator|.
+name|applicationContext
+operator|.
+name|equals
+argument_list|(
+name|applicationContext
+argument_list|)
+condition|)
+block|{
 name|CamelContext
 name|camelContext
 init|=
@@ -273,19 +289,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// if we have not yet started
-if|if
-condition|(
-name|camelContext
-operator|.
-name|getStatus
-argument_list|()
-operator|==
-name|ServiceStatus
-operator|.
-name|Stopped
-condition|)
-block|{
 name|LOG
 operator|.
 name|debug
