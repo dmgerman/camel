@@ -454,6 +454,14 @@ specifier|private
 name|NettyHttpSecurityConfiguration
 name|securityConfiguration
 decl_stmt|;
+comment|// If the port is not specified Netty set it to -1, we need to set it on a default port in this case
+DECL|field|defaultPortIfNotProvided
+specifier|private
+name|int
+name|defaultPortIfNotProvided
+init|=
+literal|80
+decl_stmt|;
 DECL|method|NettyHttpComponent ()
 specifier|public
 name|NettyHttpComponent
@@ -1096,6 +1104,25 @@ name|uri
 operator|.
 name|getPath
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|configuration
+operator|.
+name|getPort
+argument_list|()
+operator|==
+operator|-
+literal|1
+condition|)
+block|{
+name|configuration
+operator|.
+name|setPort
+argument_list|(
+name|defaultPortIfNotProvided
 argument_list|)
 expr_stmt|;
 block|}
