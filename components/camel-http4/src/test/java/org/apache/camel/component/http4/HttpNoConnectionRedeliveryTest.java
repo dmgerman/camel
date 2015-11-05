@@ -375,7 +375,7 @@ argument_list|()
 operator|.
 name|contains
 argument_list|(
-literal|"refused"
+literal|"failed"
 argument_list|)
 argument_list|)
 expr_stmt|;
