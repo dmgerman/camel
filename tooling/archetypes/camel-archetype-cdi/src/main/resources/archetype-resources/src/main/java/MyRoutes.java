@@ -285,13 +285,6 @@ name|Endpoint
 name|resultEndpoint
 decl_stmt|;
 annotation|@
-name|Inject
-DECL|field|someBean
-specifier|private
-name|SomeBean
-name|someBean
-decl_stmt|;
-annotation|@
 name|Override
 DECL|method|configure ()
 specifier|public
@@ -307,9 +300,9 @@ argument_list|(
 name|inputEndpoint
 argument_list|)
 operator|.
-name|bean
+name|beanRef
 argument_list|(
-name|someBean
+literal|"counterBean"
 argument_list|)
 operator|.
 name|to
