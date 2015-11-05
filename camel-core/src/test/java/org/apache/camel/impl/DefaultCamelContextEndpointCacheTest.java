@@ -156,7 +156,6 @@ operator|new
 name|DefaultEndpoint
 argument_list|()
 block|{
-comment|// FIXME: another endpoint that works without a Component
 specifier|public
 name|Producer
 name|createProducer

@@ -76,7 +76,7 @@ name|Serializable
 implements|,
 name|Cloneable
 block|{
-comment|// TODO: Camel 2.9/3.0 consider moving to org.apache.camel
+comment|// TODO: Camel 3.0 consider moving to org.apache.camel
 DECL|field|serialVersionUID
 specifier|private
 specifier|static
