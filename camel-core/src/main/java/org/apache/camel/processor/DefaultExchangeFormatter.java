@@ -456,7 +456,7 @@ literal|"formatting"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"1000"
+literal|"10000"
 argument_list|)
 DECL|field|maxChars
 specifier|private
