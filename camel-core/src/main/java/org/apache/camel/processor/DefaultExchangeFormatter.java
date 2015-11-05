@@ -114,6 +114,34 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParams
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|MessageHelper
@@ -153,6 +181,8 @@ comment|/**  * Default {@link ExchangeFormatter} that have fine grained options 
 end_comment
 
 begin_class
+annotation|@
+name|UriParams
 DECL|class|DefaultExchangeFormatter
 specifier|public
 class|class
@@ -197,11 +227,29 @@ name|Tab
 block|,
 name|Fixed
 block|}
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"formatting"
+argument_list|)
 DECL|field|showExchangeId
 specifier|private
 name|boolean
 name|showExchangeId
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"formatting"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|showExchangePattern
 specifier|private
 name|boolean
@@ -209,16 +257,41 @@ name|showExchangePattern
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"formatting"
+argument_list|)
 DECL|field|showProperties
 specifier|private
 name|boolean
 name|showProperties
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"formatting"
+argument_list|)
 DECL|field|showHeaders
 specifier|private
 name|boolean
 name|showHeaders
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"formatting"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|skipBodyLineSeparator
 specifier|private
 name|boolean
@@ -226,13 +299,21 @@ name|skipBodyLineSeparator
 init|=
 literal|true
 decl_stmt|;
-DECL|field|showBodyType
-specifier|private
-name|boolean
-name|showBodyType
-init|=
-literal|true
-decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"formatting"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Show the message body."
+argument_list|)
 DECL|field|showBody
 specifier|private
 name|boolean
@@ -240,51 +321,143 @@ name|showBody
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"formatting"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|showBodyType
+specifier|private
+name|boolean
+name|showBodyType
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"formatting"
+argument_list|)
 DECL|field|showOut
 specifier|private
 name|boolean
 name|showOut
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"formatting"
+argument_list|)
 DECL|field|showException
 specifier|private
 name|boolean
 name|showException
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"formatting"
+argument_list|)
 DECL|field|showCaughtException
 specifier|private
 name|boolean
 name|showCaughtException
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"formatting"
+argument_list|)
 DECL|field|showStackTrace
 specifier|private
 name|boolean
 name|showStackTrace
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"formatting"
+argument_list|)
 DECL|field|showAll
 specifier|private
 name|boolean
 name|showAll
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"formatting"
+argument_list|)
 DECL|field|multiline
 specifier|private
 name|boolean
 name|multiline
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"formatting"
+argument_list|)
 DECL|field|showFuture
 specifier|private
 name|boolean
 name|showFuture
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"formatting"
+argument_list|)
 DECL|field|showStreams
 specifier|private
 name|boolean
 name|showStreams
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"formatting"
+argument_list|)
 DECL|field|showFiles
 specifier|private
 name|boolean
 name|showFiles
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"formatting"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"1000"
+argument_list|)
 DECL|field|maxChars
 specifier|private
 name|int
@@ -292,6 +465,21 @@ name|maxChars
 init|=
 literal|10000
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"formatting"
+argument_list|,
+name|enums
+operator|=
+literal|"Default,Tab,Fixed"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"Default"
+argument_list|)
 DECL|field|style
 specifier|private
 name|OutputStyle
@@ -1264,6 +1452,7 @@ return|return
 name|showExchangeId
 return|;
 block|}
+comment|/**      * Show the unique exchange ID.      */
 DECL|method|setShowExchangeId (boolean showExchangeId)
 specifier|public
 name|void
@@ -1290,6 +1479,7 @@ return|return
 name|showProperties
 return|;
 block|}
+comment|/**      * Show the exchange properties.      */
 DECL|method|setShowProperties (boolean showProperties)
 specifier|public
 name|void
@@ -1316,6 +1506,7 @@ return|return
 name|showHeaders
 return|;
 block|}
+comment|/**      * Show the message headers.      */
 DECL|method|setShowHeaders (boolean showHeaders)
 specifier|public
 name|void
@@ -1342,6 +1533,7 @@ return|return
 name|skipBodyLineSeparator
 return|;
 block|}
+comment|/**      * Whether to skip line separators when logging the message body.      * This allows to log the message body in one line, setting this option to false will preserve any line separators      * from the body, which then will log the body as is.      */
 DECL|method|setSkipBodyLineSeparator (boolean skipBodyLineSeparator)
 specifier|public
 name|void
@@ -1368,6 +1560,7 @@ return|return
 name|showBodyType
 return|;
 block|}
+comment|/**      * Show the body Java type.      */
 DECL|method|setShowBodyType (boolean showBodyType)
 specifier|public
 name|void
@@ -1394,6 +1587,7 @@ return|return
 name|showBody
 return|;
 block|}
+comment|/*      * Show the message body.      */
 DECL|method|setShowBody (boolean showBody)
 specifier|public
 name|void
@@ -1420,6 +1614,7 @@ return|return
 name|showOut
 return|;
 block|}
+comment|/**      * If the exchange has an out message, show the out message.      */
 DECL|method|setShowOut (boolean showOut)
 specifier|public
 name|void
@@ -1446,6 +1641,7 @@ return|return
 name|showAll
 return|;
 block|}
+comment|/**      * Quick option for turning all options on. (multiline, maxChars has to be manually set if to be used)      */
 DECL|method|setShowAll (boolean showAll)
 specifier|public
 name|void
@@ -1472,6 +1668,7 @@ return|return
 name|showException
 return|;
 block|}
+comment|/**      * If the exchange has an exception, show the exception message (no stacktrace)      */
 DECL|method|setShowException (boolean showException)
 specifier|public
 name|void
@@ -1498,6 +1695,7 @@ return|return
 name|showStackTrace
 return|;
 block|}
+comment|/**      * Show the stack trace, if an exchange has an exception. Only effective if one of showAll, showException or showCaughtException are enabled.      */
 DECL|method|setShowStackTrace (boolean showStackTrace)
 specifier|public
 name|void
@@ -1524,6 +1722,7 @@ return|return
 name|showCaughtException
 return|;
 block|}
+comment|/**      * f the exchange has a caught exception, show the exception message (no stack trace).      * A caught exception is stored as a property on the exchange (using the key {@link org.apache.camel.Exchange#EXCEPTION_CAUGHT}      * and for instance a doCatch can catch exceptions.      */
 DECL|method|setShowCaughtException (boolean showCaughtException)
 specifier|public
 name|void
@@ -1560,6 +1759,7 @@ return|return
 name|maxChars
 return|;
 block|}
+comment|/**      * Limits the number of characters logged per line.      */
 DECL|method|setMaxChars (int maxChars)
 specifier|public
 name|void
@@ -1603,7 +1803,7 @@ return|return
 name|showFuture
 return|;
 block|}
-comment|/**      * If enabled Camel will on Future objects wait for it to complete to obtain the payload to be logged.      *<p/>      * Is default disabled.      */
+comment|/**      * If enabled Camel will on Future objects wait for it to complete to obtain the payload to be logged.      */
 DECL|method|setShowFuture (boolean showFuture)
 specifier|public
 name|void
@@ -1630,6 +1830,7 @@ return|return
 name|showExchangePattern
 return|;
 block|}
+comment|/**      * Shows the Message Exchange Pattern (or MEP for short).      */
 DECL|method|setShowExchangePattern (boolean showExchangePattern)
 specifier|public
 name|void
@@ -1656,7 +1857,7 @@ return|return
 name|showStreams
 return|;
 block|}
-comment|/**      * If enabled Camel will output stream objects      *<p/>      * Is default disabled.      */
+comment|/**      * Whether Camel should show stream bodies or not (eg such as java.io.InputStream).      * Beware if you enable this option then you may not be able later to access the message body      * as the stream have already been read by this logger.      * To remedy this you will have to use Stream Caching.      */
 DECL|method|setShowStreams (boolean showStreams)
 specifier|public
 name|void
@@ -1683,7 +1884,7 @@ return|return
 name|showFiles
 return|;
 block|}
-comment|/**      * If enabled Camel will output files      *<p/>      * Is default disabled.      */
+comment|/**      * If enabled Camel will output files      */
 DECL|method|setShowFiles (boolean showFiles)
 specifier|public
 name|void

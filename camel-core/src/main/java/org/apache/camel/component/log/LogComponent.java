@@ -412,7 +412,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// do not set properties, the exchangeFormatter is explicitly set, thefore the
+comment|// do not set properties, the exchangeFormatter is explicitly set, therefore the
 comment|// user would have set its properties explicitly too
 name|localFormatter
 operator|=

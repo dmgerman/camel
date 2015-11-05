@@ -104,6 +104,20 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|DefaultExchangeFormatter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|ThroughputLogger
 import|;
 end_import
@@ -161,6 +175,20 @@ operator|.
 name|spi
 operator|.
 name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParams
 import|;
 end_import
 
@@ -341,6 +369,14 @@ DECL|field|groupDelay
 specifier|private
 name|Long
 name|groupDelay
+decl_stmt|;
+comment|// we want to include the uri options of the DefaultExchangeFormatter
+annotation|@
+name|UriParam
+DECL|field|exchangeFormatter
+specifier|private
+name|DefaultExchangeFormatter
+name|exchangeFormatter
 decl_stmt|;
 DECL|method|LogEndpoint ()
 specifier|public
