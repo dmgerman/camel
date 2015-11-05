@@ -483,12 +483,13 @@ return|return
 name|maclength
 return|;
 block|}
-DECL|method|attachStream (ByteArrayOutputStream outputStream)
+DECL|method|attachStream (final OutputStream outputStream)
 specifier|public
 name|void
 name|attachStream
 parameter_list|(
-name|ByteArrayOutputStream
+specifier|final
+name|OutputStream
 name|outputStream
 parameter_list|)
 block|{
