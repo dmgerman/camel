@@ -2166,10 +2166,8 @@ argument_list|(
 literal|0
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|answer
 operator|.
-name|awaitUninterruptibly
+name|sync
 argument_list|()
 expr_stmt|;
 name|Channel

@@ -598,10 +598,8 @@ name|getPort
 argument_list|()
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|future
 operator|.
-name|awaitUninterruptibly
+name|sync
 argument_list|()
 expr_stmt|;
 name|channel
@@ -676,6 +674,8 @@ specifier|protected
 name|void
 name|startServerBootstrap
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 comment|// prefer using explicit configured thread pools
 name|EventLoopGroup
@@ -918,7 +918,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 name|ChannelFuture
-name|channelFutrue
+name|channelFuture
 init|=
 name|serverBootstrap
 operator|.
@@ -938,15 +938,13 @@ name|getPort
 argument_list|()
 argument_list|)
 argument_list|)
-decl_stmt|;
-name|channelFutrue
 operator|.
-name|awaitUninterruptibly
+name|sync
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|channel
 operator|=
-name|channelFutrue
+name|channelFuture
 operator|.
 name|channel
 argument_list|()
@@ -996,13 +994,6 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|allChannels
-operator|!=
-literal|null
-condition|)
-block|{
 name|allChannels
 operator|.
 name|close
@@ -1011,7 +1002,6 @@ operator|.
 name|awaitUninterruptibly
 argument_list|()
 expr_stmt|;
-block|}
 comment|// and then shutdown the thread pools
 if|if
 condition|(
