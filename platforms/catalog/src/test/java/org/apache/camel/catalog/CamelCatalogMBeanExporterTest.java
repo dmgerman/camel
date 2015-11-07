@@ -49,12 +49,38 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
+name|org
+operator|.
 name|junit
 operator|.
-name|framework
+name|Assert
 operator|.
-name|TestCase
+name|assertFalse
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertTrue
 import|;
 end_import
 
@@ -63,8 +89,6 @@ DECL|class|CamelCatalogMBeanExporterTest
 specifier|public
 class|class
 name|CamelCatalogMBeanExporterTest
-extends|extends
-name|TestCase
 block|{
 DECL|field|exporter
 specifier|private
