@@ -467,6 +467,20 @@ name|ServicePropertiesFunction
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|addFunction
+argument_list|(
+operator|new
+name|ServiceHostPropertiesFunction
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|addFunction
+argument_list|(
+operator|new
+name|ServicePortPropertiesFunction
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|PropertiesComponent (String location)
 specifier|public
