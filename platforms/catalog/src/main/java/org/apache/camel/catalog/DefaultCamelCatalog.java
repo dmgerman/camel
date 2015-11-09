@@ -4295,6 +4295,18 @@ argument_list|,
 name|ampersand
 argument_list|)
 decl_stmt|;
+comment|// we do not want to use %23 for # syntax
+name|query
+operator|=
+name|query
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\=\\%23"
+argument_list|,
+literal|"=#"
+argument_list|)
+expr_stmt|;
 name|sb
 operator|.
 name|append
