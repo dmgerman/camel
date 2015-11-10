@@ -130,7 +130,7 @@ specifier|public
 class|class
 name|ContextInfoCommand
 extends|extends
-name|AbstractCamelCommand
+name|AbstractContextCommand
 block|{
 DECL|field|XML_TIMESTAMP_FORMAT
 specifier|public
@@ -155,11 +155,6 @@ specifier|private
 name|StringEscape
 name|stringEscape
 decl_stmt|;
-DECL|field|context
-specifier|private
-name|String
-name|context
-decl_stmt|;
 DECL|field|verbose
 specifier|private
 name|boolean
@@ -177,11 +172,10 @@ name|boolean
 name|verbose
 parameter_list|)
 block|{
-name|this
-operator|.
+name|super
+argument_list|(
 name|context
-operator|=
-name|context
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -209,13 +203,16 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|execute (CamelController camelController, PrintStream out, PrintStream err)
-specifier|public
+DECL|method|performContextCommand (CamelController camelController, String contextName, PrintStream out, PrintStream err)
+specifier|protected
 name|Object
-name|execute
+name|performContextCommand
 parameter_list|(
 name|CamelController
 name|camelController
+parameter_list|,
+name|String
+name|contextName
 parameter_list|,
 name|PrintStream
 name|out
