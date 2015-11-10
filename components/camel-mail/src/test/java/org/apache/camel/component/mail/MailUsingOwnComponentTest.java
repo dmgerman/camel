@@ -183,13 +183,6 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
-name|myMailbox
-operator|.
-name|setCamelContext
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
 name|addComponent
