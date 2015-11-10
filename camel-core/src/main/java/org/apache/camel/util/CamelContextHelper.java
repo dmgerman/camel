@@ -2951,7 +2951,9 @@ name|answer
 operator|=
 operator|new
 name|PropertiesComponent
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|camelContext
 operator|.

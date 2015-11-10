@@ -359,6 +359,11 @@ argument_list|(
 name|this
 argument_list|)
 decl_stmt|;
+DECL|field|isDefaultCreated
+specifier|private
+name|boolean
+name|isDefaultCreated
+decl_stmt|;
 DECL|field|locations
 specifier|private
 name|String
@@ -480,6 +485,21 @@ operator|new
 name|ServicePortPropertiesFunction
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|PropertiesComponent (boolean isDefaultCreated)
+specifier|public
+name|PropertiesComponent
+parameter_list|(
+name|boolean
+name|isDefaultCreated
+parameter_list|)
+block|{
+name|this
+operator|.
+name|isDefaultCreated
+operator|=
+name|isDefaultCreated
 expr_stmt|;
 block|}
 DECL|method|PropertiesComponent (String location)
@@ -947,9 +967,7 @@ name|isDefaultCreated
 parameter_list|()
 block|{
 return|return
-name|locations
-operator|==
-literal|null
+name|isDefaultCreated
 return|;
 block|}
 DECL|method|getLocations ()
