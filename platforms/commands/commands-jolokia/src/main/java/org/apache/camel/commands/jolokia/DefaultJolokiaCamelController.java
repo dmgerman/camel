@@ -491,6 +491,30 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|using (J4pClient client)
+specifier|public
+name|void
+name|using
+parameter_list|(
+name|J4pClient
+name|client
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jolokia
+operator|=
+name|client
+expr_stmt|;
+name|this
+operator|.
+name|url
+operator|=
+literal|null
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|connect (String url, String username, String password)
 specifier|public
 name|void

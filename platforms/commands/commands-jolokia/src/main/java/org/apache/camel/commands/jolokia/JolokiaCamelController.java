@@ -32,6 +32,18 @@ name|CamelController
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|jolokia
+operator|.
+name|client
+operator|.
+name|J4pClient
+import|;
+end_import
+
 begin_interface
 DECL|interface|JolokiaCamelController
 specifier|public
@@ -40,7 +52,16 @@ name|JolokiaCamelController
 extends|extends
 name|CamelController
 block|{
-comment|/**      * Connects to the remote JVM using the given url to the remote jolokia agent      *      * @param url the url for the remote jolokia agent      * @param username optional username      * @param password optional password      * @throws Exception can be thrown      */
+comment|/**      * To use the existing {@link org.jolokia.client.J4pClient} with this controller.      *      * @param client the client to use      */
+DECL|method|using (J4pClient client)
+name|void
+name|using
+parameter_list|(
+name|J4pClient
+name|client
+parameter_list|)
+function_decl|;
+comment|/**      * Connects to the remote JVM using the given url to the remote Jolokia agent      *      * @param url the url for the remote jolokia agent      * @param username optional username      * @param password optional password      * @throws Exception can be thrown      */
 DECL|method|connect (String url, String username, String password)
 name|void
 name|connect
