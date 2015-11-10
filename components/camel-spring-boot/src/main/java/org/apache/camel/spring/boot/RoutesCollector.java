@@ -418,7 +418,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Not at root context - defer adding routes"
+literal|"Camel already started, not adding routes."
 argument_list|)
 expr_stmt|;
 block|}
