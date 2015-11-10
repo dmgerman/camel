@@ -93,6 +93,16 @@ name|HEADER_XPATHS_TO_ID_ATTRIBUTES
 init|=
 literal|"CamelXmlSignatureXpathsToIdAttributes"
 decl_stmt|;
+comment|/**      * Header for dynamic specifying the transform methods of the reference to the      * signed data. The value of the header must be a comma separated list with      * the transform algorithms, for example:      * "http://www.w3.org/2000/09/xmldsig#enveloped-signature,http://www.w3.org/TR/2001/REC-xml-c14n-20010315"      *<p>      * Used for the XML signer. This header will overwrite the configuration      * property "transformMethods". You cannot use transform algorithms, which      * need parameters like http://www.w3.org/TR/1999/REC-xslt-19991116,      * http://www.w3.org/2002/06/xmldsig-filter2, or      * http://www.w3.org/TR/1999/REC-xpath-19991116.      */
+DECL|field|HEADER_TRANSFORM_METHODS
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|HEADER_TRANSFORM_METHODS
+init|=
+literal|"CamelXmlSignatureTransformMethods"
+decl_stmt|;
 comment|/*------------------------- headers for XAdES signer ----------------------------------------------------------*/
 comment|/**      * Header for the 'Id' attribute value of the XAdES element      * 'QualifyingProperties'      *       */
 DECL|field|HEADER_XADES_QUALIFYING_PROPERTIES_ID
