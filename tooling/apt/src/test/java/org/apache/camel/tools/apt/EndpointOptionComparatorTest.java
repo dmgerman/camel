@@ -202,7 +202,7 @@ init|=
 operator|new
 name|EndpointOption
 argument_list|(
-literal|"aaa"
+literal|"first"
 argument_list|,
 literal|"string"
 argument_list|,
@@ -231,7 +231,7 @@ init|=
 operator|new
 name|EndpointOption
 argument_list|(
-literal|"ccc"
+literal|"synchronous"
 argument_list|,
 literal|"string"
 argument_list|,
@@ -260,7 +260,7 @@ init|=
 operator|new
 name|EndpointOption
 argument_list|(
-literal|"ddd"
+literal|"second"
 argument_list|,
 literal|"string"
 argument_list|,
@@ -289,7 +289,7 @@ init|=
 operator|new
 name|EndpointOption
 argument_list|(
-literal|"bbb"
+literal|"country"
 argument_list|,
 literal|"string"
 argument_list|,
@@ -368,7 +368,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"aaa"
+literal|"first"
 argument_list|,
 name|list
 operator|.
@@ -381,9 +381,10 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// common
 name|assertEquals
 argument_list|(
-literal|"ddd"
+literal|"second"
 argument_list|,
 name|list
 operator|.
@@ -396,9 +397,10 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// common
 name|assertEquals
 argument_list|(
-literal|"bbb"
+literal|"synchronous"
 argument_list|,
 name|list
 operator|.
@@ -411,9 +413,10 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// advanced
 name|assertEquals
 argument_list|(
-literal|"ccc"
+literal|"country"
 argument_list|,
 name|list
 operator|.
@@ -426,6 +429,7 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// filter
 block|}
 block|}
 end_class

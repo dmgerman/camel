@@ -121,6 +121,16 @@ argument_list|)
 condition|)
 block|{
 comment|// we want to put advanced into own group, so look for a label that has advanced as prefix x,advanced => x (advanced)
+if|if
+condition|(
+name|value
+operator|.
+name|contains
+argument_list|(
+literal|"advanced"
+argument_list|)
+condition|)
+block|{
 name|value
 operator|=
 name|value
@@ -132,6 +142,17 @@ argument_list|,
 literal|"$1 (advanced)"
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|value
+operator|.
+name|contains
+argument_list|(
+literal|","
+argument_list|)
+condition|)
+block|{
 name|String
 index|[]
 name|array
@@ -155,6 +176,14 @@ operator|-
 literal|1
 index|]
 expr_stmt|;
+block|}
+else|else
+block|{
+name|answer
+operator|=
+name|value
+expr_stmt|;
+block|}
 comment|// if we are in consumer/producer only mode, then enrich the advanced label to indicate its advanced of those
 if|if
 condition|(
