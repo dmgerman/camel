@@ -776,6 +776,20 @@ name|routingKey
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|skipQueueDeclare
+specifier|private
+name|boolean
+name|skipQueueDeclare
+init|=
+literal|false
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|addresses
 specifier|private
 name|Address
@@ -2388,6 +2402,10 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+operator|!
+name|isSkipQueueDeclare
+argument_list|()
+operator|&&
 name|getQueue
 argument_list|()
 operator|!=
@@ -3256,6 +3274,42 @@ name|routingKey
 operator|=
 name|routingKey
 expr_stmt|;
+block|}
+end_function
+
+begin_comment
+comment|/**      * If true the producer will not declare and bind a queue.      * This can be used for directing messages via an existing routing key.      */
+end_comment
+
+begin_function
+DECL|method|setSkipQueueDeclare (boolean skipQueueDeclare)
+specifier|public
+name|void
+name|setSkipQueueDeclare
+parameter_list|(
+name|boolean
+name|skipQueueDeclare
+parameter_list|)
+block|{
+name|this
+operator|.
+name|skipQueueDeclare
+operator|=
+name|skipQueueDeclare
+expr_stmt|;
+block|}
+end_function
+
+begin_function
+DECL|method|isSkipQueueDeclare ()
+specifier|public
+name|boolean
+name|isSkipQueueDeclare
+parameter_list|()
+block|{
+return|return
+name|skipQueueDeclare
+return|;
 block|}
 end_function
 
