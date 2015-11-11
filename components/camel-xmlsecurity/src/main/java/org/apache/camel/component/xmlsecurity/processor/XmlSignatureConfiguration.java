@@ -180,7 +180,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"verify,sign"
+literal|"common"
 argument_list|)
 DECL|field|baseUri
 specifier|private
@@ -192,7 +192,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"verify,sign"
+literal|"common"
 argument_list|)
 DECL|field|cryptoContextProperties
 specifier|private
@@ -209,7 +209,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"verify,sign"
+literal|"common"
 argument_list|,
 name|defaultValue
 operator|=
@@ -229,7 +229,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"verify,sign"
+literal|"common"
 argument_list|,
 name|defaultValue
 operator|=
@@ -249,7 +249,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"verify,sign"
+literal|"common"
 argument_list|,
 name|defaultValue
 operator|=
@@ -269,7 +269,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"verify,sign"
+literal|"common"
 argument_list|)
 DECL|field|schemaResourceUri
 specifier|private
@@ -281,7 +281,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"verify,sign"
+literal|"common"
 argument_list|)
 DECL|field|outputXmlEncoding
 specifier|private
