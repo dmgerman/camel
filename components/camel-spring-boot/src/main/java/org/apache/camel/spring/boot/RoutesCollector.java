@@ -273,6 +273,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// if we have not yet started
 if|if
 condition|(
 name|camelContext
@@ -342,13 +343,15 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|RuntimeException
+name|CamelSpringBootInitializationException
 argument_list|(
 name|e
 argument_list|)
 throw|;
 block|}
 block|}
+try|try
+block|{
 name|loadXmlRoutes
 argument_list|(
 name|applicationContext
@@ -356,13 +359,6 @@ argument_list|,
 name|camelContext
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|camelContextConfigurations
-operator|!=
-literal|null
-condition|)
-block|{
 for|for
 control|(
 name|CamelContextConfiguration
@@ -388,9 +384,6 @@ name|camelContext
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-try|try
-block|{
 name|camelContext
 operator|.
 name|start
@@ -435,6 +428,8 @@ parameter_list|,
 name|CamelContext
 name|camelContext
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|LOG
 operator|.
@@ -502,20 +497,6 @@ argument_list|(
 literal|"No XMl routes found in the classpath (/camel/*.xml). Skipping XML routes detection."
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|e
-argument_list|)
-throw|;
 block|}
 block|}
 block|}
