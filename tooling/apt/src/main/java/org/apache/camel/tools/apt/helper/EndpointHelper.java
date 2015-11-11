@@ -184,42 +184,6 @@ operator|=
 name|value
 expr_stmt|;
 block|}
-comment|// if we are in consumer/producer only mode, then enrich the advanced label to indicate its advanced of those
-if|if
-condition|(
-name|answer
-operator|.
-name|equals
-argument_list|(
-literal|"advanced"
-argument_list|)
-operator|&&
-name|consumerOnly
-condition|)
-block|{
-name|answer
-operator|=
-literal|"consumer (advanced)"
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|answer
-operator|.
-name|equals
-argument_list|(
-literal|"advanced"
-argument_list|)
-operator|&&
-name|producerOnly
-condition|)
-block|{
-name|answer
-operator|=
-literal|"producer (advanced)"
-expr_stmt|;
-block|}
 block|}
 return|return
 name|answer
