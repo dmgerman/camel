@@ -308,6 +308,8 @@ name|tools
 operator|.
 name|apt
 operator|.
+name|helper
+operator|.
 name|IOHelper
 operator|.
 name|loadText
@@ -326,6 +328,8 @@ name|tools
 operator|.
 name|apt
 operator|.
+name|helper
+operator|.
 name|Strings
 operator|.
 name|canonicalClassName
@@ -343,6 +347,8 @@ operator|.
 name|tools
 operator|.
 name|apt
+operator|.
+name|helper
 operator|.
 name|Strings
 operator|.

@@ -361,6 +361,42 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|tools
+operator|.
+name|apt
+operator|.
+name|helper
+operator|.
+name|JsonSchemaHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|tools
+operator|.
+name|apt
+operator|.
+name|helper
+operator|.
+name|Strings
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -371,6 +407,8 @@ operator|.
 name|tools
 operator|.
 name|apt
+operator|.
+name|helper
 operator|.
 name|JsonSchemaHelper
 operator|.
@@ -390,6 +428,8 @@ name|tools
 operator|.
 name|apt
 operator|.
+name|helper
+operator|.
 name|Strings
 operator|.
 name|canonicalClassName
@@ -408,6 +448,8 @@ name|tools
 operator|.
 name|apt
 operator|.
+name|helper
+operator|.
 name|Strings
 operator|.
 name|isNullOrEmpty
@@ -425,6 +467,8 @@ operator|.
 name|tools
 operator|.
 name|apt
+operator|.
+name|helper
 operator|.
 name|Strings
 operator|.
@@ -1372,6 +1416,8 @@ name|entry
 operator|.
 name|isDeprecated
 argument_list|()
+argument_list|,
+literal|null
 argument_list|,
 literal|null
 argument_list|,

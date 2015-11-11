@@ -4,8 +4,8 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.tools.apt
-DECL|package|org.apache.camel.tools.apt
+DECL|package|org.apache.camel.tools.apt.helper
+DECL|package|org.apache.camel.tools.apt.helper
 package|package
 name|org
 operator|.
@@ -16,6 +16,8 @@ operator|.
 name|tools
 operator|.
 name|apt
+operator|.
+name|helper
 package|;
 end_package
 
@@ -120,6 +122,7 @@ end_comment
 begin_class
 DECL|class|JsonSchemaHelper
 DECL|class|JsonSchemaHelper
+specifier|public
 specifier|final
 class|class
 name|JsonSchemaHelper
@@ -165,8 +168,8 @@ specifier|private
 name|JsonSchemaHelper
 parameter_list|()
 block|{     }
-DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes)
-DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes)
+DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes)
+DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes)
 specifier|public
 specifier|static
 name|String
@@ -192,6 +195,9 @@ name|description
 parameter_list|,
 name|Boolean
 name|deprecated
+parameter_list|,
+name|String
+name|group
 parameter_list|,
 name|String
 name|label
@@ -265,6 +271,38 @@ name|kind
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// we want group early so its easier to spot
+if|if
+condition|(
+operator|!
+name|Strings
+operator|.
+name|isNullOrEmpty
+argument_list|(
+name|group
+argument_list|)
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", \"group\": "
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|Strings
+operator|.
+name|doubleQuote
+argument_list|(
+name|group
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|// we want label early so its easier to spot
 if|if
 condition|(
