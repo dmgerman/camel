@@ -284,7 +284,7 @@ name|uri
 parameter_list|)
 function_decl|;
 comment|/**      * Creates an endpoint uri in Java style from the information in the json schema      *      * @param scheme the endpoint schema      * @param json the json schema with the endpoint properties      * @return the constructed endpoint uri      * @throws java.net.URISyntaxException is thrown if there is encoding error      */
-DECL|method|asEndpointUri (String scheme, String json)
+DECL|method|asEndpointUri (String scheme, String json, boolean encode)
 name|String
 name|asEndpointUri
 parameter_list|(
@@ -293,12 +293,15 @@ name|scheme
 parameter_list|,
 name|String
 name|json
+parameter_list|,
+name|boolean
+name|encode
 parameter_list|)
 throws|throws
 name|URISyntaxException
 function_decl|;
 comment|/**      * Creates an endpoint uri in XML style (eg escape& as&ampl;) from the information in the json schema      *      * @param scheme the endpoint schema      * @param json the json schema with the endpoint properties      * @return the constructed endpoint uri      * @throws java.net.URISyntaxException is thrown if there is encoding error      */
-DECL|method|asEndpointUriXml (String scheme, String json)
+DECL|method|asEndpointUriXml (String scheme, String json, boolean encode)
 name|String
 name|asEndpointUriXml
 parameter_list|(
@@ -307,12 +310,15 @@ name|scheme
 parameter_list|,
 name|String
 name|json
+parameter_list|,
+name|boolean
+name|encode
 parameter_list|)
 throws|throws
 name|URISyntaxException
 function_decl|;
 comment|/**      * Creates an endpoint uri in Java style from the information from the properties      *      * @param scheme the endpoint schema      * @param properties the properties as key value pairs      * @return the constructed endpoint uri      * @throws java.net.URISyntaxException is thrown if there is encoding error      */
-DECL|method|asEndpointUri (String scheme, Map<String, String> properties)
+DECL|method|asEndpointUri (String scheme, Map<String, String> properties, boolean encode)
 name|String
 name|asEndpointUri
 parameter_list|(
@@ -326,12 +332,15 @@ argument_list|,
 name|String
 argument_list|>
 name|properties
+parameter_list|,
+name|boolean
+name|encode
 parameter_list|)
 throws|throws
 name|URISyntaxException
 function_decl|;
 comment|/**      * Creates an endpoint uri in XML style (eg escape& as&ampl;) from the information from the properties      *      * @param scheme the endpoint schema      * @param properties the properties as key value pairs      * @return the constructed endpoint uri      * @throws java.net.URISyntaxException is thrown if there is encoding error      */
-DECL|method|asEndpointUriXml (String scheme, Map<String, String> properties)
+DECL|method|asEndpointUriXml (String scheme, Map<String, String> properties, boolean encode)
 name|String
 name|asEndpointUriXml
 parameter_list|(
@@ -345,6 +354,9 @@ argument_list|,
 name|String
 argument_list|>
 name|properties
+parameter_list|,
+name|boolean
+name|encode
 parameter_list|)
 throws|throws
 name|URISyntaxException

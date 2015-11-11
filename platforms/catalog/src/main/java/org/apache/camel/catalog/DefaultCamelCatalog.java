@@ -3343,7 +3343,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|asEndpointUri (String scheme, String json)
+DECL|method|asEndpointUri (String scheme, String json, boolean encode)
 specifier|public
 name|String
 name|asEndpointUri
@@ -3353,6 +3353,9 @@ name|scheme
 parameter_list|,
 name|String
 name|json
+parameter_list|,
+name|boolean
+name|encode
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -3365,12 +3368,14 @@ argument_list|,
 name|json
 argument_list|,
 literal|"&"
+argument_list|,
+name|encode
 argument_list|)
 return|;
 block|}
 annotation|@
 name|Override
-DECL|method|asEndpointUriXml (String scheme, String json)
+DECL|method|asEndpointUriXml (String scheme, String json, boolean encode)
 specifier|public
 name|String
 name|asEndpointUriXml
@@ -3380,6 +3385,9 @@ name|scheme
 parameter_list|,
 name|String
 name|json
+parameter_list|,
+name|boolean
+name|encode
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -3392,10 +3400,12 @@ argument_list|,
 name|json
 argument_list|,
 literal|"&amp;"
+argument_list|,
+name|encode
 argument_list|)
 return|;
 block|}
-DECL|method|doAsEndpointUri (String scheme, String json, String ampersand)
+DECL|method|doAsEndpointUri (String scheme, String json, String ampersand, boolean encode)
 specifier|private
 name|String
 name|doAsEndpointUri
@@ -3408,6 +3418,9 @@ name|json
 parameter_list|,
 name|String
 name|ampersand
+parameter_list|,
+name|boolean
+name|encode
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -3614,12 +3627,14 @@ argument_list|,
 name|copy
 argument_list|,
 name|ampersand
+argument_list|,
+name|encode
 argument_list|)
 return|;
 block|}
 annotation|@
 name|Override
-DECL|method|asEndpointUri (String scheme, Map<String, String> properties)
+DECL|method|asEndpointUri (String scheme, Map<String, String> properties, boolean encode)
 specifier|public
 name|String
 name|asEndpointUri
@@ -3634,6 +3649,9 @@ argument_list|,
 name|String
 argument_list|>
 name|properties
+parameter_list|,
+name|boolean
+name|encode
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -3646,12 +3664,14 @@ argument_list|,
 name|properties
 argument_list|,
 literal|"&"
+argument_list|,
+name|encode
 argument_list|)
 return|;
 block|}
 annotation|@
 name|Override
-DECL|method|asEndpointUriXml (String scheme, Map<String, String> properties)
+DECL|method|asEndpointUriXml (String scheme, Map<String, String> properties, boolean encode)
 specifier|public
 name|String
 name|asEndpointUriXml
@@ -3666,6 +3686,9 @@ argument_list|,
 name|String
 argument_list|>
 name|properties
+parameter_list|,
+name|boolean
+name|encode
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -3678,10 +3701,12 @@ argument_list|,
 name|properties
 argument_list|,
 literal|"&amp;"
+argument_list|,
+name|encode
 argument_list|)
 return|;
 block|}
-DECL|method|doAsEndpointUri (String scheme, Map<String, String> properties, String ampersand)
+DECL|method|doAsEndpointUri (String scheme, Map<String, String> properties, String ampersand, boolean encode)
 specifier|private
 name|String
 name|doAsEndpointUri
@@ -3699,6 +3724,9 @@ name|properties
 parameter_list|,
 name|String
 name|ampersand
+parameter_list|,
+name|boolean
+name|encode
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -4309,6 +4337,8 @@ argument_list|(
 name|copy
 argument_list|,
 name|ampersand
+argument_list|,
+name|encode
 argument_list|)
 decl_stmt|;
 comment|// we do not want to use %23 for # syntax

@@ -1083,7 +1083,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|createQueryString (Map<String, String> options, String ampersand)
+DECL|method|createQueryString (Map<String, String> options, String ampersand, boolean encode)
 specifier|public
 specifier|static
 name|String
@@ -1099,6 +1099,9 @@ name|options
 parameter_list|,
 name|String
 name|ampersand
+parameter_list|,
+name|boolean
+name|encode
 parameter_list|)
 throws|throws
 name|URISyntaxException
@@ -1198,6 +1201,8 @@ argument_list|,
 name|s
 argument_list|,
 name|rc
+argument_list|,
+name|encode
 argument_list|)
 expr_stmt|;
 block|}
@@ -1247,7 +1252,7 @@ name|se
 throw|;
 block|}
 block|}
-DECL|method|appendQueryStringParameter (String key, String value, StringBuilder rc)
+DECL|method|appendQueryStringParameter (String key, String value, StringBuilder rc, boolean encode)
 specifier|private
 specifier|static
 name|void
@@ -1261,9 +1266,17 @@ name|value
 parameter_list|,
 name|StringBuilder
 name|rc
+parameter_list|,
+name|boolean
+name|encode
 parameter_list|)
 throws|throws
 name|UnsupportedEncodingException
+block|{
+if|if
+condition|(
+name|encode
+condition|)
 block|{
 name|rc
 operator|.
@@ -1279,6 +1292,17 @@ name|CHARSET
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|rc
+operator|.
+name|append
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
+block|}
 comment|// only append if value is not null
 if|if
 condition|(
@@ -1322,6 +1346,11 @@ expr_stmt|;
 block|}
 else|else
 block|{
+if|if
+condition|(
+name|encode
+condition|)
+block|{
 name|rc
 operator|.
 name|append
@@ -1336,6 +1365,17 @@ name|CHARSET
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+name|rc
+operator|.
+name|append
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
