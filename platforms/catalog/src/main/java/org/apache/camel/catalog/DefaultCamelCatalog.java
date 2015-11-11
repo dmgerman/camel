@@ -326,6 +326,22 @@ name|catalog
 operator|.
 name|URISupport
 operator|.
+name|normalizeUri
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|catalog
+operator|.
+name|URISupport
+operator|.
 name|stripQuery
 import|;
 end_import
@@ -2560,12 +2576,12 @@ name|URISyntaxException
 block|{
 comment|// NOTICE: This logic is similar to org.apache.camel.util.EndpointHelper#endpointProperties
 comment|// as the catalog also offers similar functionality (without having camel-core on classpath)
+comment|// need to normalize uri first
 comment|// parse the uri
 name|URI
 name|u
 init|=
-operator|new
-name|URI
+name|normalizeUri
 argument_list|(
 name|uri
 argument_list|)

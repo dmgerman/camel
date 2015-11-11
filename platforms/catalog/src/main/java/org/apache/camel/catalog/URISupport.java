@@ -151,6 +151,34 @@ parameter_list|()
 block|{
 comment|// Helper class
 block|}
+comment|/**      * Normalizes the URI so unsafe charachters is encoded      *      * @param uri the input uri      * @return as URI instance      * @throws URISyntaxException is thrown if syntax error in the input uri      */
+DECL|method|normalizeUri (String uri)
+specifier|public
+specifier|static
+name|URI
+name|normalizeUri
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+throws|throws
+name|URISyntaxException
+block|{
+return|return
+operator|new
+name|URI
+argument_list|(
+name|UnsafeUriCharactersEncoder
+operator|.
+name|encode
+argument_list|(
+name|uri
+argument_list|,
+literal|true
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * Strips the query parameters from the uri      *      * @param uri  the uri      * @return the uri without the query parameter      */
 DECL|method|stripQuery (String uri)
 specifier|public
