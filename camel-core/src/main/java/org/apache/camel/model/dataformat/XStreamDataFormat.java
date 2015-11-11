@@ -372,6 +372,13 @@ name|String
 name|mode
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+DECL|field|permissions
+specifier|private
+name|String
+name|permissions
+decl_stmt|;
+annotation|@
 name|XmlJavaTypeAdapter
 argument_list|(
 name|ConvertersAdapter
@@ -751,6 +758,33 @@ operator|=
 name|implicitCollections
 expr_stmt|;
 block|}
+DECL|method|getPermissions ()
+specifier|public
+name|String
+name|getPermissions
+parameter_list|()
+block|{
+return|return
+name|permissions
+return|;
+block|}
+comment|/**      * Adds permissionsList      */
+DECL|method|setPermissions (String permissions)
+specifier|public
+name|void
+name|setPermissions
+parameter_list|(
+name|String
+name|permissions
+parameter_list|)
+block|{
+name|this
+operator|.
+name|permissions
+operator|=
+name|permissions
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createDataFormat (RouteContext routeContext)
@@ -961,6 +995,29 @@ argument_list|,
 name|this
 operator|.
 name|implicitCollections
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|this
+operator|.
+name|permissions
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"permissions"
+argument_list|,
+name|this
+operator|.
+name|permissions
 argument_list|)
 expr_stmt|;
 block|}
