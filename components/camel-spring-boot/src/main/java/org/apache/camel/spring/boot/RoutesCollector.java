@@ -289,6 +289,18 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// only add and start Camel if its stopped (initial state)
+if|if
+condition|(
+name|camelContext
+operator|.
+name|getStatus
+argument_list|()
+operator|.
+name|isStopped
+argument_list|()
+condition|)
+block|{
 name|LOG
 operator|.
 name|debug
@@ -415,6 +427,19 @@ operator|.
 name|debug
 argument_list|(
 literal|"Camel already started, not adding routes."
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Ignore ContextRefreshedEvent: {}"
+argument_list|,
+name|contextRefreshedEvent
 argument_list|)
 expr_stmt|;
 block|}
