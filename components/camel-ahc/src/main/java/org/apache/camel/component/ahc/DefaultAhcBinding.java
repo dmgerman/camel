@@ -918,6 +918,34 @@ name|contentType
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|endpoint
+operator|.
+name|getComponent
+argument_list|()
+operator|.
+name|isAllowJavaSerializedObject
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Content-type "
+operator|+
+name|AhcConstants
+operator|.
+name|CONTENT_TYPE_JAVA_SERIALIZED_OBJECT
+operator|+
+literal|" is not allowed"
+argument_list|,
+name|exchange
+argument_list|)
+throw|;
+block|}
 comment|// serialized java object
 name|Serializable
 name|obj
@@ -1583,7 +1611,8 @@ name|body
 init|=
 name|is
 decl_stmt|;
-comment|// if content type is a serialized java object then de-serialize it back to a Java object
+comment|// if content type is a serialized java object then de-serialize it back to a Java object but only if its allowed
+comment|// an exception can also be transffered as java object
 if|if
 condition|(
 name|contentType
@@ -1600,6 +1629,22 @@ name|CONTENT_TYPE_JAVA_SERIALIZED_OBJECT
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getComponent
+argument_list|()
+operator|.
+name|isAllowJavaSerializedObject
+argument_list|()
+operator|||
+name|endpoint
+operator|.
+name|isTransferException
+argument_list|()
+condition|)
+block|{
 name|body
 operator|=
 name|AhcHelper
@@ -1609,6 +1654,7 @@ argument_list|(
 name|is
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(

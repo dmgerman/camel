@@ -250,6 +250,11 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
+DECL|field|allowJavaSerializedObject
+specifier|private
+name|boolean
+name|allowJavaSerializedObject
+decl_stmt|;
 DECL|method|AhcComponent ()
 specifier|public
 name|AhcComponent
@@ -731,6 +736,33 @@ operator|.
 name|sslContextParameters
 operator|=
 name|sslContextParameters
+expr_stmt|;
+block|}
+DECL|method|isAllowJavaSerializedObject ()
+specifier|public
+name|boolean
+name|isAllowJavaSerializedObject
+parameter_list|()
+block|{
+return|return
+name|allowJavaSerializedObject
+return|;
+block|}
+comment|/**      * Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object      *<p/>      * This is by default turned off. If you enable this then be aware that Java will deserialize the incoming      * data from the request to Java and that can be a potential security risk.      */
+DECL|method|setAllowJavaSerializedObject (boolean allowJavaSerializedObject)
+specifier|public
+name|void
+name|setAllowJavaSerializedObject
+parameter_list|(
+name|boolean
+name|allowJavaSerializedObject
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowJavaSerializedObject
+operator|=
+name|allowJavaSerializedObject
 expr_stmt|;
 block|}
 DECL|method|createAddressUri (String uri, String remaining)
