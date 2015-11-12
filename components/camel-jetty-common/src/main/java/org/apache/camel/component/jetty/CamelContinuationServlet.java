@@ -551,15 +551,6 @@ name|isAllowJavaSerializedObject
 argument_list|()
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"415 miser !!!"
-argument_list|)
-expr_stmt|;
 name|response
 operator|.
 name|sendError
