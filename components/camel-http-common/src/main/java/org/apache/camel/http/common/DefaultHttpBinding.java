@@ -3218,6 +3218,32 @@ operator|=
 name|transferException
 expr_stmt|;
 block|}
+DECL|method|isAllowJavaSerializedObject ()
+specifier|public
+name|boolean
+name|isAllowJavaSerializedObject
+parameter_list|()
+block|{
+return|return
+name|allowJavaSerializedObject
+return|;
+block|}
+DECL|method|setAllowJavaSerializedObject (boolean allowJavaSerializedObject)
+specifier|public
+name|void
+name|setAllowJavaSerializedObject
+parameter_list|(
+name|boolean
+name|allowJavaSerializedObject
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowJavaSerializedObject
+operator|=
+name|allowJavaSerializedObject
+expr_stmt|;
+block|}
 DECL|method|getHeaderFilterStrategy ()
 specifier|public
 name|HeaderFilterStrategy

@@ -98,7 +98,7 @@ name|boolean
 name|isThrowExceptionOnFailure
 parameter_list|()
 function_decl|;
-comment|/**      * Whether to transfer exception back as a serialized java object      * if processing failed due to an exception      *      * @param transferException<tt>true</tt> to transfer exception      */
+comment|/**      * Whether to transfer exception back as a serialized java object      * if processing failed due to an exception      *<p/>      * This is by default turned off. If you enable this then be aware that Java will deserialize the incoming      * data from the request to Java and that can be a potential security risk.      *      * @param transferException<tt>true</tt> to transfer exception      */
 DECL|method|setTransferException (boolean transferException)
 name|void
 name|setTransferException
@@ -107,10 +107,25 @@ name|boolean
 name|transferException
 parameter_list|)
 function_decl|;
-comment|/**      * Whether to transfer exception back as a serialized java object      * if processing failed due to an exception      *      * @return<tt>true</tt> to transfer exception      */
+comment|/**      * Whether to transfer exception back as a serialized java object      * if processing failed due to an exception      *<p/>      * This is by default turned off. If you enable this then be aware that Java will deserialize the incoming      * data from the request to Java and that can be a potential security risk.      *      * @return<tt>true</tt> to transfer exception      */
 DECL|method|isTransferException ()
 name|boolean
 name|isTransferException
+parameter_list|()
+function_decl|;
+comment|/**      * Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object      *<p/>      * This is by default turned off. If you enable this then be aware that Java will deserialize the incoming      * data from the request to Java and that can be a potential security risk.      *      * @param allowJavaSerializedObject<tt>true</tt> to allow serializing java objects      */
+DECL|method|setAllowJavaSerializedObject (boolean allowJavaSerializedObject)
+name|void
+name|setAllowJavaSerializedObject
+parameter_list|(
+name|boolean
+name|allowJavaSerializedObject
+parameter_list|)
+function_decl|;
+comment|/**      * Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object      *<p/>      * This is by default turned off. If you enable this then be aware that Java will deserialize the incoming      * data from the request to Java and that can be a potential security risk.      */
+DECL|method|isAllowJavaSerializedObject ()
+name|boolean
+name|isAllowJavaSerializedObject
 parameter_list|()
 function_decl|;
 comment|/**      * The status codes which is considered a success response. The values are inclusive. The range must be defined as from-to with the dash included.      *<p/>      * The default range is<tt>200-299</tt>      */

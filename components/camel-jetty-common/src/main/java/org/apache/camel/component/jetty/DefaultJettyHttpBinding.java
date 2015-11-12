@@ -302,6 +302,11 @@ specifier|private
 name|boolean
 name|transferException
 decl_stmt|;
+DECL|field|allowJavaSerializedObject
+specifier|private
+name|boolean
+name|allowJavaSerializedObject
+decl_stmt|;
 DECL|field|okStatusCodeRange
 specifier|private
 name|String
@@ -531,6 +536,32 @@ operator|.
 name|transferException
 operator|=
 name|transferException
+expr_stmt|;
+block|}
+DECL|method|isAllowJavaSerializedObject ()
+specifier|public
+name|boolean
+name|isAllowJavaSerializedObject
+parameter_list|()
+block|{
+return|return
+name|allowJavaSerializedObject
+return|;
+block|}
+DECL|method|setAllowJavaSerializedObject (boolean allowJavaSerializedObject)
+specifier|public
+name|void
+name|setAllowJavaSerializedObject
+parameter_list|(
+name|boolean
+name|allowJavaSerializedObject
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowJavaSerializedObject
+operator|=
+name|allowJavaSerializedObject
 expr_stmt|;
 block|}
 DECL|method|getOkStatusCodeRange ()
@@ -1061,6 +1092,16 @@ name|contentType
 argument_list|)
 condition|)
 block|{
+comment|// only deserialize java if allowed
+if|if
+condition|(
+name|isAllowJavaSerializedObject
+argument_list|()
+operator|||
+name|isTransferException
+argument_list|()
+condition|)
+block|{
 try|try
 block|{
 name|InputStream
@@ -1115,6 +1156,14 @@ argument_list|,
 name|e
 argument_list|)
 throw|;
+block|}
+block|}
+else|else
+block|{
+comment|// empty body
+return|return
+literal|null
+return|;
 block|}
 block|}
 else|else
