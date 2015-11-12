@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"kind\": \"parameter\", \"group\": \"consuner\", \"label\": \"consuner\", \"type\": \"integer\""
+literal|"\"kind\": \"parameter\", \"group\": \"consumer\", \"label\": \"consumer\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;

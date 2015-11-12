@@ -351,7 +351,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consuner"
+literal|"consumer"
 argument_list|,
 name|defaultValue
 operator|=
@@ -367,7 +367,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consuner"
+literal|"consumer"
 argument_list|,
 name|defaultValue
 operator|=
@@ -401,7 +401,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consuner"
+literal|"consumer"
 argument_list|,
 name|defaultValue
 operator|=
