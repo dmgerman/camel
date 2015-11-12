@@ -520,6 +520,13 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|XStreamUtils
+operator|.
+name|addDefaultPermissions
+argument_list|(
+name|xStream
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
