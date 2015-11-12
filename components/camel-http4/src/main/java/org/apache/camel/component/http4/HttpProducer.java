@@ -2020,7 +2020,6 @@ block|}
 comment|/**      * Extracts the response from the method as a InputStream.      *      * @param httpRequest the method that was executed      * @return the response either as a stream, or as a deserialized java object      * @throws IOException can be thrown      */
 DECL|method|extractResponseBody (HttpRequestBase httpRequest, HttpResponse httpResponse, Exchange exchange, boolean ignoreResponseBody)
 specifier|protected
-specifier|static
 name|Object
 name|extractResponseBody
 parameter_list|(
@@ -2195,6 +2194,25 @@ name|CONTENT_TYPE_JAVA_SERIALIZED_OBJECT
 argument_list|)
 condition|)
 block|{
+comment|// only deserialize java if allowed
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getComponent
+argument_list|()
+operator|.
+name|isAllowJavaSerializedObject
+argument_list|()
+operator|||
+name|getEndpoint
+argument_list|()
+operator|.
+name|isTransferException
+argument_list|()
+condition|)
+block|{
 return|return
 name|HttpHelper
 operator|.
@@ -2208,6 +2226,14 @@ name|getContext
 argument_list|()
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+comment|// empty response
+return|return
+literal|null
+return|;
+block|}
 block|}
 else|else
 block|{
@@ -2703,6 +2729,45 @@ name|contentTypeString
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|getEndpoint
+argument_list|()
+operator|.
+name|getComponent
+argument_list|()
+operator|.
+name|isAllowJavaSerializedObject
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Content-type "
+operator|+
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|http
+operator|.
+name|common
+operator|.
+name|HttpConstants
+operator|.
+name|CONTENT_TYPE_JAVA_SERIALIZED_OBJECT
+operator|+
+literal|" is not allowed"
+argument_list|,
+name|exchange
+argument_list|)
+throw|;
+block|}
 comment|// serialized java object
 name|Serializable
 name|obj

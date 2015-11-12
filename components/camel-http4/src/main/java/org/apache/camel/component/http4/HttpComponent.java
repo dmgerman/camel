@@ -2218,6 +2218,27 @@ name|httpConfiguration
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Whether to allow java serialization when a request uses context-type=application/x-java-serialized-object      *<p/>      * This is by default turned off. If you enable this then be aware that Java will deserialize the incoming      * data from the request to Java and that can be a potential security risk.      */
+annotation|@
+name|Override
+DECL|method|setAllowJavaSerializedObject (boolean allowJavaSerializedObject)
+specifier|public
+name|void
+name|setAllowJavaSerializedObject
+parameter_list|(
+name|boolean
+name|allowJavaSerializedObject
+parameter_list|)
+block|{
+comment|// need to override and call super for component docs
+name|super
+operator|.
+name|setAllowJavaSerializedObject
+argument_list|(
+name|allowJavaSerializedObject
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getHttpContext ()
 specifier|public
 name|HttpContext
