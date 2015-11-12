@@ -338,6 +338,24 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Test
+DECL|method|shouldCreateConsumerTemplate ()
+specifier|public
+name|void
+name|shouldCreateConsumerTemplate
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertNotNull
+argument_list|(
+name|router
+operator|.
+name|consumerTemplate
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

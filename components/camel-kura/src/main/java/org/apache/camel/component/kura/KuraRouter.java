@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|ConsumerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ProducerTemplate
 import|;
 end_import
@@ -169,6 +181,11 @@ specifier|protected
 name|ProducerTemplate
 name|producerTemplate
 decl_stmt|;
+DECL|field|consumerTemplate
+specifier|protected
+name|ConsumerTemplate
+name|consumerTemplate
+decl_stmt|;
 comment|// Lifecycle
 annotation|@
 name|Override
@@ -246,6 +263,13 @@ operator|=
 name|camelContext
 operator|.
 name|createProducerTemplate
+argument_list|()
+expr_stmt|;
+name|consumerTemplate
+operator|=
+name|camelContext
+operator|.
+name|createConsumerTemplate
 argument_list|()
 expr_stmt|;
 name|log
