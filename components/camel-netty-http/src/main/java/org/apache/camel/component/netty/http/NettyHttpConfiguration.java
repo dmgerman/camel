@@ -608,7 +608,7 @@ return|return
 name|transferException
 return|;
 block|}
-comment|/**      * If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back serialized      * in the response as a application/x-java-serialized-object content type.      * On the producer side the exception will be deserialized and thrown as is, instead of the HttpOperationFailedException.      * The caused exception is required to be serialized.      */
+comment|/**      * If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back serialized      * in the response as a application/x-java-serialized-object content type.      * On the producer side the exception will be deserialized and thrown as is, instead of the HttpOperationFailedException.      * The caused exception is required to be serialized.      *<p/>      * This is by default turned off. If you enable this then be aware that Java will deserialize the incoming      * data from the request to Java and that can be a potential security risk.      */
 DECL|method|setTransferException (boolean transferException)
 specifier|public
 name|void
