@@ -623,6 +623,8 @@ literal|"option"
 block|,
 literal|"kind"
 block|,
+literal|"group"
+block|,
 literal|"label"
 block|,
 literal|"type"
@@ -646,6 +648,8 @@ literal|"Option"
 block|,
 literal|"Kind"
 block|,
+literal|"Group"
+block|,
 literal|"Label"
 block|,
 literal|"Type"
@@ -665,6 +669,10 @@ operator|new
 name|OpenType
 index|[]
 block|{
+name|SimpleType
+operator|.
+name|STRING
+block|,
 name|SimpleType
 operator|.
 name|STRING
@@ -903,6 +911,8 @@ literal|"option"
 block|,
 literal|"kind"
 block|,
+literal|"group"
+block|,
 literal|"label"
 block|,
 literal|"type"
@@ -926,6 +936,8 @@ literal|"Option"
 block|,
 literal|"Kind"
 block|,
+literal|"Group"
+block|,
 literal|"Label"
 block|,
 literal|"Type"
@@ -945,6 +957,10 @@ operator|new
 name|OpenType
 index|[]
 block|{
+name|SimpleType
+operator|.
+name|STRING
+block|,
 name|SimpleType
 operator|.
 name|STRING
