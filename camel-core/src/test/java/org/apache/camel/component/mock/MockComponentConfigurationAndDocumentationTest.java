@@ -177,6 +177,15 @@ argument_list|(
 name|json
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+name|json
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|json
@@ -241,9 +250,9 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"retainFirst\": { \"kind\": \"parameter\", \"label\": \"producer\", \"type\": \"integer\""
+literal|"\"retainFirst\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\", \"type\": \"integer\","
 operator|+
-literal|", \"javaType\": \"int\", \"deprecated\": \"false\", \"value\": \"10\""
+literal|" \"javaType\": \"int\", \"deprecated\": \"false\", \"value\": \"10\""
 argument_list|)
 argument_list|)
 expr_stmt|;
