@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"script\": { \"kind\": \"parameter\", \"type\": \"string\""
+literal|"\"languageName\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": \"true\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"cacheScript\": { \"kind\": \"parameter\", \"type\": \"boolean\""
+literal|"\"script\": { \"kind\": \"parameter\", \"group\": \"producer\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;

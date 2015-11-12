@@ -195,7 +195,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"action\": { \"kind\": \"parameter\", \"type\": \"string\""
+literal|"\"action\": { \"kind\": \"parameter\", \"group\": \"producer\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -205,7 +205,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"async\": { \"kind\": \"parameter\", \"type\": \"boolean\""
+literal|"\"async\": { \"kind\": \"parameter\", \"group\": \"producer\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

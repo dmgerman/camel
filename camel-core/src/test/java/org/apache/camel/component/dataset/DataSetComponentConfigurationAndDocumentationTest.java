@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"preloadSize\": { \"kind\": \"parameter\", \"type\": \"integer\""
+literal|"\"name\": { \"kind\": \"path\", \"group\": \"common\", \"required\": \"true\", \"type\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"minRate\": { \"kind\": \"parameter\", \"type\": \"integer\""
+literal|"\"kind\": \"parameter\", \"group\": \"consuner\", \"label\": \"consuner\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -203,19 +203,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"exchangePattern\": { \"kind\": \"parameter\", \"label\": \"advanced\", \"type\": \"string\", \"javaType\": \"org.apache.camel.ExchangePattern\""
-operator|+
-literal|", \"enum\": [ \"InOnly\", \"RobustInOnly\", \"InOut\", \"InOptionalOut\", \"OutOnly\", \"RobustOutOnly\", \"OutIn\", \"OutOptionalIn\" ]"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|"\"InOut\""
+literal|"\"retainFirst\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\", \"type\": \"integer"
 argument_list|)
 argument_list|)
 expr_stmt|;

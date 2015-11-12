@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"level\": { \"kind\": \"parameter\", \"type\": \"string\""
+literal|"\"loggerName\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": \"true\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,17 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"groupInterval\": { \"kind\": \"parameter\", \"type\": \"integer\""
+literal|"\"level\": { \"kind\": \"parameter\", \"group\": \"producer\", \"type\": \"string\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"showBody\": { \"kind\": \"parameter\", \"group\": \"formatting\", \"label\": \"formatting\""
 argument_list|)
 argument_list|)
 expr_stmt|;

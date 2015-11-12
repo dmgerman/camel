@@ -183,9 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timerName\": { \"kind\": \"path\", \"required\": \"true\", \"type\": \"string\", \"javaType\": \"java.lang.String\""
-operator|+
-literal|", \"deprecated\": \"false\", \"description\": \"The name of the timer\" }"
+literal|"\"timerName\": { \"kind\": \"path\", \"group\": \"consumer\", \"required\": \"true\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -195,7 +193,17 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"delay\": { \"kind\": \"parameter\", \"type\": \"integer\""
+literal|"\"delay\": { \"kind\": \"parameter\", \"group\": \"consumer\", \"type\": \"integer\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"timer\": { \"kind\": \"parameter\", \"group\": \"advanced\", \"label\": \"advanced\""
 argument_list|)
 argument_list|)
 expr_stmt|;

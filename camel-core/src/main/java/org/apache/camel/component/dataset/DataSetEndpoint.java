@@ -349,6 +349,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consuner"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"0"
@@ -361,6 +365,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consuner"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"3"
@@ -375,6 +383,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"0"
@@ -387,6 +399,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consuner"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"0"
@@ -399,6 +415,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"1000"
@@ -817,7 +837,7 @@ return|return
 name|consumeDelay
 return|;
 block|}
-comment|/**      * Allows a delay to be specified which causes consumers to pause - to simulate slow consumers      */
+comment|/**      * Allows a delay to be specified which causes a delay when a message is consumed by the producer (to simulate slow processing)      */
 DECL|method|setConsumeDelay (long consumeDelay)
 specifier|public
 name|void
@@ -844,7 +864,7 @@ return|return
 name|produceDelay
 return|;
 block|}
-comment|/**      * Allows a delay to be specified which causes producers to pause - to simulate slow producers      */
+comment|/**      * Allows a delay to be specified which causes a delay when a message is sent by the consumer (to simulate slow processing)      */
 DECL|method|setProduceDelay (long produceDelay)
 specifier|public
 name|void

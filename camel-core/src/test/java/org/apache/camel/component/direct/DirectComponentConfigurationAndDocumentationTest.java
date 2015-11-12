@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timeout\": { \"kind\": \"parameter\", \"label\": \"producer\", \"type\": \"integer\""
+literal|"\"name\": { \"kind\": \"path\", \"group\": \"common\", \"required\": \"true\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"block\": { \"kind\": \"parameter\", \"label\": \"producer\", \"type\": \"boolean\""
+literal|"\"timeout\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -265,30 +265,6 @@ argument_list|(
 literal|"Should have found some auto-generated JSON"
 argument_list|,
 name|json
-argument_list|)
-expr_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-name|json
-argument_list|)
-expr_stmt|;
-comment|// should include javadoc
-name|assertTrue
-argument_list|(
-literal|"Should include javadoc"
-argument_list|,
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|"\"timeout\": { \"kind\": \"parameter\", \"label\": \"producer\","
-operator|+
-literal|" \"type\": \"integer\", \"javaType\": \"long\", \"deprecated\": \"false\", \"defaultValue\": \"30000\","
-operator|+
-literal|" \"description\": \"The timeout value to use if block is enabled."
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

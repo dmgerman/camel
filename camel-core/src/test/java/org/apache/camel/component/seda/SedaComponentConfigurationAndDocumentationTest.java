@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"concurrentConsumers\": { \"kind\": \"parameter\", \"label\": \"consumer\", \"type\": \"integer\""
+literal|"\"concurrentConsumers\": { \"kind\": \"parameter\", \"group\": \"consumer\", \"label\": \"consumer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,17 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"timeout\": { \"kind\": \"parameter\", \"label\": \"producer\", \"type\": \"integer\""
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|"\"blockWhenFull\": { \"kind\": \"parameter\", \"label\": \"producer\", \"type\": \"boolean\""
+literal|"\"timeout\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\""
 argument_list|)
 argument_list|)
 expr_stmt|;

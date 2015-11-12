@@ -1743,9 +1743,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"groupDelay\": { \"kind\": \"parameter\", \"type\": \"integer\", \"javaType\": \"java.lang.Long\", \"deprecated\": \"false\", \"value\": \"2000\","
-operator|+
-literal|" \"description\": \"Set the initial delay for stats (in millis)\" }"
+literal|"\"loggerName\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": \"true\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1755,21 +1753,9 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"groupSize\": { \"kind\": \"parameter\", \"type\": \"integer\", \"javaType\": \"java.lang.Integer\", \"deprecated\": \"false\", \"value\": \"5\","
+literal|"\"groupSize\": { \"kind\": \"parameter\", \"group\": \"producer\", \"type\": \"integer\","
 operator|+
-literal|" \"description\": \"An integer that specifies a group size for throughput logging.\" }"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|"\"loggerName\": { \"kind\": \"path\", \"required\": \"true\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\","
-operator|+
-literal|" \"value\": \"foo\", \"description\": \"The logger name to use\" }"
+literal|" \"javaType\": \"java.lang.Integer\", \"deprecated\": \"false\", \"value\": \"5\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1891,7 +1877,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|12
+literal|30
 argument_list|,
 name|StringHelper
 operator|.
@@ -1905,7 +1891,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|12
+literal|30
 argument_list|,
 name|StringHelper
 operator|.
@@ -1943,9 +1929,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"groupDelay\": { \"kind\": \"parameter\", \"type\": \"integer\", \"javaType\": \"java.lang.Long\", \"deprecated\": \"false\", \"value\": \"2000\","
-operator|+
-literal|" \"description\": \"Set the initial delay for stats (in millis)\" }"
+literal|"\"loggerName\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": \"true\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1955,31 +1939,9 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"groupSize\": { \"kind\": \"parameter\", \"type\": \"integer\", \"javaType\": \"java.lang.Integer\", \"deprecated\": \"false\", \"value\": \"5\","
+literal|"\"groupSize\": { \"kind\": \"parameter\", \"group\": \"producer\", \"type\": \"integer\","
 operator|+
-literal|" \"description\": \"An integer that specifies a group size for throughput logging.\" }"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|"\"loggerName\": { \"kind\": \"path\", \"required\": \"true\", \"type\": \"string\", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\","
-operator|+
-literal|" \"value\": \"foo\", \"description\": \"The logger name to use\" }"
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|"\"marker\": { \"kind\": \"parameter\", \"type\": \"string\", \"javaType\": \"java.lang.String\""
+literal|" \"javaType\": \"java.lang.Integer\", \"deprecated\": \"false\", \"value\": \"5\""
 argument_list|)
 argument_list|)
 expr_stmt|;

@@ -217,7 +217,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"name\": { \"kind\": \"path\", \"required\": \"true\", \"type\": \"string\", \"javaType\": \"java.lang.String\","
+literal|"\"name\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": \"true\", \"type\": \"string\", \"javaType\": \"java.lang.String\","
 operator|+
 literal|" \"deprecated\": \"false\", \"description\": \"Name of data format\" }"
 argument_list|)
@@ -229,7 +229,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"operation\": { \"kind\": \"path\", \"required\": \"true\", \"type\": \"string\""
+literal|"\"operation\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": \"true\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -239,7 +239,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"synchronous\": { \"kind\": \"parameter\", \"label\": \"advanced\", \"type\": \"boolean\""
+literal|"\"synchronous\": { \"kind\": \"parameter\", \"group\": \"advanced\", \"label\": \"advanced\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;

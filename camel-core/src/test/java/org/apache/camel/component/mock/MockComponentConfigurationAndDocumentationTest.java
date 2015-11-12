@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"name\": { \"kind\": \"path\", \"required\": \"true\", \"type\": \"string\""
+literal|"\"name\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": \"true\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"expectedCount\": { \"kind\": \"parameter\", \"type\": \"integer\""
+literal|"\"expectedCount\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -203,7 +203,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"retainFirst\": { \"kind\": \"parameter\", \"type\": \"integer\""
+literal|"\"retainFirst\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -241,29 +241,9 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"name\": { \"kind\": \"path\", \"required\": \"true\", \"type\": \"string\", \"javaType\": \"java.lang.String\","
+literal|"\"retainFirst\": { \"kind\": \"parameter\", \"label\": \"producer\", \"type\": \"integer\""
 operator|+
-literal|" \"deprecated\": \"false\", \"value\": \"foo\", \"description\": \"Name of mock endpoint\""
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|"\"expectedCount\": { \"kind\": \"parameter\", \"type\": \"integer\""
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
-literal|"\"retainFirst\": { \"kind\": \"parameter\", \"type\": \"integer\""
+literal|", \"javaType\": \"int\", \"deprecated\": \"false\", \"value\": \"10\""
 argument_list|)
 argument_list|)
 expr_stmt|;

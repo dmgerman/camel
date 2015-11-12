@@ -183,7 +183,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"doneFileName\": { \"kind\": \"parameter\", \"label\": \"producer\", \"type\": \"string\""
+literal|"\"directoryName\": { \"kind\": \"path\", \"group\": \"common\", \"required\": \"true\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -193,7 +193,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"exclude\": { \"kind\": \"parameter\", \"label\": \"consumer,filter\", \"type\": \"string\""
+literal|"\"doneFileName\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -203,7 +203,17 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"delete\": { \"kind\": \"parameter\", \"label\": \"consumer\", \"type\": \"boolean\""
+literal|"\"autoCreate\": { \"kind\": \"parameter\", \"group\": \"advanced\", \"label\": \"advanced\", \"type\": \"boolean\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"readLockMinAge\": { \"kind\": \"parameter\", \"group\": \"lock\", \"label\": \"consumer,lock\""
 argument_list|)
 argument_list|)
 expr_stmt|;
