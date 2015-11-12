@@ -531,6 +531,16 @@ operator|.
 name|isTransferException
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|endpoint
+operator|.
+name|getComponent
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
 name|this
 operator|.
 name|allowJavaSerializedObject
@@ -543,6 +553,7 @@ operator|.
 name|isAllowJavaSerializedObject
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|readRequest (HttpServletRequest request, HttpMessage message)
 specifier|public
@@ -985,6 +996,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+comment|// only deserialize java if allowed
 if|if
 condition|(
 name|allowJavaSerializedObject
@@ -1071,19 +1083,14 @@ block|}
 block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-literal|"Content-type "
-operator|+
-name|HttpConstants
+comment|// set empty body
+name|message
 operator|.
-name|CONTENT_TYPE_JAVA_SERIALIZED_OBJECT
-operator|+
-literal|" is not allowed"
+name|setBody
+argument_list|(
+literal|null
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 name|populateAttachments

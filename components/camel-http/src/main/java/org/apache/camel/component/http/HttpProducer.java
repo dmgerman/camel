@@ -182,6 +182,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RuntimeCamelException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|file
@@ -1787,7 +1799,6 @@ block|}
 comment|/**      * Extracts the response from the method as a InputStream.      *      * @param method the method that was executed      * @param ignoreResponseBody if it is true, camel don't read the response and cached the input stream      * @return the response either as a stream, or as a deserialized java object      * @throws IOException can be thrown      */
 DECL|method|extractResponseBody (HttpMethod method, Exchange exchange, boolean ignoreResponseBody)
 specifier|protected
-specifier|static
 name|Object
 name|extractResponseBody
 parameter_list|(
@@ -1940,6 +1951,25 @@ name|CONTENT_TYPE_JAVA_SERIALIZED_OBJECT
 argument_list|)
 condition|)
 block|{
+comment|// only deserialize java if allowed
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getComponent
+argument_list|()
+operator|.
+name|isAllowJavaSerializedObject
+argument_list|()
+operator|||
+name|getEndpoint
+argument_list|()
+operator|.
+name|isTransferException
+argument_list|()
+condition|)
+block|{
 return|return
 name|HttpHelper
 operator|.
@@ -1953,6 +1983,14 @@ name|getContext
 argument_list|()
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+comment|// empty response
+return|return
+literal|null
+return|;
+block|}
 block|}
 else|else
 block|{
@@ -2477,6 +2515,35 @@ name|contentType
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|getEndpoint
+argument_list|()
+operator|.
+name|getComponent
+argument_list|()
+operator|.
+name|isAllowJavaSerializedObject
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|CamelExchangeException
+argument_list|(
+literal|"Content-type "
+operator|+
+name|HttpConstants
+operator|.
+name|CONTENT_TYPE_JAVA_SERIALIZED_OBJECT
+operator|+
+literal|" is not allowed"
+argument_list|,
+name|exchange
+argument_list|)
+throw|;
+block|}
 comment|// serialized java object
 name|Serializable
 name|obj
