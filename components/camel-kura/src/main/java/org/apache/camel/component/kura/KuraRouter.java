@@ -223,6 +223,19 @@ argument_list|(
 name|camelContext
 argument_list|)
 expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"About to start Camel Kura router: {}"
+argument_list|,
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|camelContext
 operator|.
 name|start
