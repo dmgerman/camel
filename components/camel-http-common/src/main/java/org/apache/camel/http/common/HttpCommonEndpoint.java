@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Component
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultEndpoint
@@ -347,9 +359,17 @@ name|UriParam
 argument_list|(
 name|description
 operator|=
-literal|"Option to disable throwing the HttpOperationFailedException in case of failed responses from the remote server."
+literal|"If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back serialized"
 operator|+
-literal|" This allows you to get all responses regardless of the HTTP status code."
+literal|" in the response as a application/x-java-serialized-object content type."
+operator|+
+literal|" On the producer side the exception will be deserialized and thrown as is, instead of the HttpOperationFailedException."
+operator|+
+literal|" The caused exception is required to be serialized."
+operator|+
+literal|" This is by default turned off. If you enable this then be aware that Java will deserialize the incoming"
+operator|+
+literal|" data from the request to Java and that can be a potential security risk."
 argument_list|)
 DECL|field|transferException
 name|boolean
@@ -555,6 +575,24 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getComponent ()
+specifier|public
+name|HttpCommonComponent
+name|getComponent
+parameter_list|()
+block|{
+return|return
+operator|(
+name|HttpCommonComponent
+operator|)
+name|super
+operator|.
+name|getComponent
+argument_list|()
+return|;
 block|}
 DECL|method|isLenientProperties ()
 specifier|public
@@ -1014,7 +1052,7 @@ return|return
 name|transferException
 return|;
 block|}
-comment|/**      * Option to disable throwing the HttpOperationFailedException in case of failed responses from the remote server.      * This allows you to get all responses regardless of the HTTP status code.      */
+comment|/**      * If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back serialized      * in the response as a application/x-java-serialized-object content type.      * On the producer side the exception will be deserialized and thrown as is, instead of the HttpOperationFailedException.      * The caused exception is required to be serialized.      *<p/>      * This is by default turned off. If you enable this then be aware that Java will deserialize the incoming      * data from the request to Java and that can be a potential security risk.      */
 DECL|method|setTransferException (boolean transferException)
 specifier|public
 name|void

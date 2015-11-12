@@ -467,6 +467,11 @@ specifier|private
 name|boolean
 name|transferException
 decl_stmt|;
+DECL|field|allowJavaSerializedObject
+specifier|private
+name|boolean
+name|allowJavaSerializedObject
+decl_stmt|;
 DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
@@ -524,6 +529,18 @@ operator|=
 name|endpoint
 operator|.
 name|isTransferException
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|allowJavaSerializedObject
+operator|=
+name|endpoint
+operator|.
+name|getComponent
+argument_list|()
+operator|.
+name|isAllowJavaSerializedObject
 argument_list|()
 expr_stmt|;
 block|}
@@ -968,6 +985,14 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|allowJavaSerializedObject
+operator|||
+name|isTransferException
+argument_list|()
+condition|)
+block|{
 try|try
 block|{
 name|InputStream
@@ -1040,6 +1065,23 @@ argument_list|(
 literal|"Cannot deserialize body to Java object"
 argument_list|,
 name|e
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+literal|"Content-type "
+operator|+
+name|HttpConstants
+operator|.
+name|CONTENT_TYPE_JAVA_SERIALIZED_OBJECT
+operator|+
+literal|" is not allowed"
 argument_list|)
 throw|;
 block|}
@@ -2326,6 +2368,14 @@ name|contentType
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|allowJavaSerializedObject
+operator|||
+name|isTransferException
+argument_list|()
+condition|)
+block|{
 try|try
 block|{
 name|Object
@@ -2363,6 +2413,23 @@ operator|new
 name|IOException
 argument_list|(
 name|e
+argument_list|)
+throw|;
+block|}
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+literal|"Content-type "
+operator|+
+name|HttpConstants
+operator|.
+name|CONTENT_TYPE_JAVA_SERIALIZED_OBJECT
+operator|+
+literal|" is not allowed"
 argument_list|)
 throw|;
 block|}
