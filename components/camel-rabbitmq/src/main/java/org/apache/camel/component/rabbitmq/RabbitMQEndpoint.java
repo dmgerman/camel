@@ -776,17 +776,10 @@ name|routingKey
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|skipQueueDeclare
 specifier|private
 name|boolean
 name|skipQueueDeclare
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|UriParam
