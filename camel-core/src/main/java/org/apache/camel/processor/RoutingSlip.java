@@ -920,9 +920,13 @@ literal|true
 return|;
 block|}
 return|return
-name|doRoutingSlip
+name|doRoutingSlipWithExpression
 argument_list|(
 name|exchange
+argument_list|,
+name|this
+operator|.
+name|expression
 argument_list|,
 name|callback
 argument_list|)
@@ -950,41 +954,41 @@ operator|instanceof
 name|Expression
 condition|)
 block|{
-name|this
-operator|.
-name|expression
-operator|=
+return|return
+name|doRoutingSlipWithExpression
+argument_list|(
+name|exchange
+argument_list|,
 operator|(
 name|Expression
 operator|)
 name|routingSlip
-expr_stmt|;
+argument_list|,
+name|callback
+argument_list|)
+return|;
 block|}
 else|else
 block|{
-name|this
-operator|.
-name|expression
-operator|=
+return|return
+name|doRoutingSlipWithExpression
+argument_list|(
+name|exchange
+argument_list|,
 name|ExpressionBuilder
 operator|.
 name|constantExpression
 argument_list|(
 name|routingSlip
 argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|doRoutingSlip
-argument_list|(
-name|exchange
 argument_list|,
 name|callback
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates the route slip iterator to be used.      *      * @param exchange the exchange      * @return the iterator, should never be<tt>null</tt>      */
-DECL|method|createRoutingSlipIterator (final Exchange exchange)
+block|}
+comment|/**      * Creates the route slip iterator to be used.      *      * @param exchange the exchange      * @param expression the expression      * @return the iterator, should never be<tt>null</tt>      */
+DECL|method|createRoutingSlipIterator (final Exchange exchange, final Expression expression)
 specifier|protected
 name|RoutingSlipIterator
 name|createRoutingSlipIterator
@@ -992,6 +996,10 @@ parameter_list|(
 specifier|final
 name|Exchange
 name|exchange
+parameter_list|,
+specifier|final
+name|Expression
+name|expression
 parameter_list|)
 throws|throws
 name|Exception
@@ -1082,14 +1090,18 @@ block|}
 block|}
 return|;
 block|}
-DECL|method|doRoutingSlip (final Exchange exchange, final AsyncCallback callback)
+DECL|method|doRoutingSlipWithExpression (final Exchange exchange, final Expression expression, final AsyncCallback callback)
 specifier|private
 name|boolean
-name|doRoutingSlip
+name|doRoutingSlipWithExpression
 parameter_list|(
 specifier|final
 name|Exchange
 name|exchange
+parameter_list|,
+specifier|final
+name|Expression
+name|expression
 parameter_list|,
 specifier|final
 name|AsyncCallback
@@ -1111,6 +1123,8 @@ operator|=
 name|createRoutingSlipIterator
 argument_list|(
 name|exchange
+argument_list|,
+name|expression
 argument_list|)
 expr_stmt|;
 block|}

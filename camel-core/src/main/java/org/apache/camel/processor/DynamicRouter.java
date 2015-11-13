@@ -128,13 +128,16 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createRoutingSlipIterator (Exchange exchange)
+DECL|method|createRoutingSlipIterator (Exchange exchange, Expression expression)
 specifier|protected
 name|RoutingSlipIterator
 name|createRoutingSlipIterator
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|Expression
+name|expression
 parameter_list|)
 throws|throws
 name|Exception
