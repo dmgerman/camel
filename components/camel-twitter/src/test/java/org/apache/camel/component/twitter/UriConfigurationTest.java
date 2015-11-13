@@ -464,13 +464,14 @@ argument_list|(
 name|json
 argument_list|)
 expr_stmt|;
+comment|// REVIST this comparison test may be sensitive to some changes.
 name|assertTrue
 argument_list|(
 name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"accessToken\": { \"kind\": \"parameter\", \"type\": \"string\""
+literal|"\"accessToken\": { \"kind\": \"parameter\", \"group\": \"common\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -480,7 +481,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"consumerKey\": { \"kind\": \"parameter\", \"type\": \"string\""
+literal|"\"consumerKey\": { \"kind\": \"parameter\", \"group\": \"common\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
