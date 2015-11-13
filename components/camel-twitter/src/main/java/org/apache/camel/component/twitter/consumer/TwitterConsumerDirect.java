@@ -74,9 +74,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|direct
+name|twitter
 operator|.
-name|DirectConsumer
+name|TwitterEndpoint
 import|;
 end_import
 
@@ -88,11 +88,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|impl
 operator|.
-name|twitter
-operator|.
-name|TwitterEndpoint
+name|DefaultConsumer
 import|;
 end_import
 
@@ -106,7 +104,7 @@ specifier|public
 class|class
 name|TwitterConsumerDirect
 extends|extends
-name|DirectConsumer
+name|DefaultConsumer
 block|{
 DECL|field|twitter4jConsumer
 specifier|private
