@@ -245,7 +245,9 @@ literal|"advanced"
 argument_list|,
 name|description
 operator|=
-literal|"If enabled, Camel will cache the result of the first Registry look-up. Cache can be enabled if the bean in the Registry is defined as a singleton scope."
+literal|"If enabled, Camel will cache the result of the first Registry look-up."
+operator|+
+literal|" Cache can be enabled if the bean in the Registry is defined as a singleton scope."
 argument_list|)
 DECL|field|cache
 specifier|private
