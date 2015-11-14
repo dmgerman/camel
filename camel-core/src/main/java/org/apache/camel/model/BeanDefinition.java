@@ -467,7 +467,7 @@ condition|)
 block|{
 name|methodText
 operator|=
-literal|" method: "
+literal|" method:"
 operator|+
 name|method
 expr_stmt|;

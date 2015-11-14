@@ -1184,6 +1184,8 @@ literal|null
 condition|)
 block|{
 return|return
+literal|"ref:"
+operator|+
 name|bean
 return|;
 block|}
@@ -1196,6 +1198,8 @@ literal|null
 condition|)
 block|{
 return|return
+literal|"ref:"
+operator|+
 name|ref
 return|;
 block|}
@@ -1230,7 +1234,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"bean{"
+literal|"bean["
 operator|+
 name|beanName
 argument_list|()
@@ -1240,14 +1244,14 @@ name|method
 operator|!=
 literal|null
 condition|?
-literal|", method="
+literal|" method:"
 operator|+
 name|method
 else|:
 literal|""
 operator|)
 operator|+
-literal|"}"
+literal|"]"
 return|;
 block|}
 block|}

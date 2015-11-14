@@ -541,7 +541,7 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|" method: "
+literal|" method:"
 argument_list|)
 operator|.
 name|append
