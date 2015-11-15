@@ -181,11 +181,31 @@ specifier|private
 name|Context
 name|context
 decl_stmt|;
+DECL|field|environment
+specifier|private
+name|Map
+name|environment
+decl_stmt|;
 DECL|method|JndiRegistry ()
 specifier|public
 name|JndiRegistry
 parameter_list|()
 block|{     }
+DECL|method|JndiRegistry (Map environment)
+specifier|public
+name|JndiRegistry
+parameter_list|(
+name|Map
+name|environment
+parameter_list|)
+block|{
+name|this
+operator|.
+name|environment
+operator|=
+name|environment
+expr_stmt|;
+block|}
 DECL|method|JndiRegistry (Context context)
 specifier|public
 name|JndiRegistry
@@ -756,9 +776,9 @@ name|NamingException
 block|{
 name|Hashtable
 argument_list|<
-name|?
+name|Object
 argument_list|,
-name|?
+name|Object
 argument_list|>
 name|properties
 init|=
@@ -776,6 +796,43 @@ name|getProperties
 argument_list|()
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|environment
+operator|!=
+literal|null
+condition|)
+block|{
+name|properties
+operator|.
+name|putAll
+argument_list|(
+name|environment
+argument_list|)
+expr_stmt|;
+block|}
+comment|// must include a factory if none provided
+if|if
+condition|(
+operator|!
+name|properties
+operator|.
+name|containsKey
+argument_list|(
+literal|"java.naming.factory.initial"
+argument_list|)
+condition|)
+block|{
+name|properties
+operator|.
+name|put
+argument_list|(
+literal|"java.naming.factory.initial"
+argument_list|,
+literal|"org.apache.camel.util.jndi.CamelInitialContextFactory"
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 operator|new
 name|InitialContext
