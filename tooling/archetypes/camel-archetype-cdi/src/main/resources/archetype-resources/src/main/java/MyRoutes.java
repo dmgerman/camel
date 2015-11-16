@@ -300,9 +300,9 @@ argument_list|(
 name|inputEndpoint
 argument_list|)
 operator|.
-name|beanRef
+name|to
 argument_list|(
-literal|"counterBean"
+literal|"bean:counterBean"
 argument_list|)
 operator|.
 name|to

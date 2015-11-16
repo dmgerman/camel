@@ -24,6 +24,16 @@ name|javax
 operator|.
 name|inject
 operator|.
+name|Named
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
 name|Singleton
 import|;
 end_import
@@ -31,31 +41,38 @@ end_import
 begin_class
 annotation|@
 name|Singleton
+annotation|@
+name|Named
+argument_list|(
+literal|"counterBean"
+argument_list|)
 DECL|class|SomeBean
 specifier|public
 class|class
 name|SomeBean
 block|{
+DECL|field|counter
+specifier|private
+name|int
+name|counter
+decl_stmt|;
 DECL|method|someMethod (String body)
 specifier|public
-name|void
+name|String
 name|someMethod
 parameter_list|(
 name|String
 name|body
 parameter_list|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Received: "
+return|return
+literal|"Saying Hello World "
 operator|+
-name|body
-argument_list|)
-expr_stmt|;
+operator|++
+name|counter
+operator|+
+literal|" times"
+return|;
 block|}
 block|}
 end_class
