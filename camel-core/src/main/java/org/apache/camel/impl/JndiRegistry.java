@@ -164,6 +164,22 @@ name|Registry
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jndi
+operator|.
+name|CamelInitialContextFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@link Registry} implementation which looks up the objects in JNDI  */
 end_comment
@@ -186,11 +202,24 @@ specifier|private
 name|Map
 name|environment
 decl_stmt|;
+DECL|field|standalone
+specifier|private
+specifier|final
+name|boolean
+name|standalone
+decl_stmt|;
 DECL|method|JndiRegistry ()
 specifier|public
 name|JndiRegistry
 parameter_list|()
-block|{     }
+block|{
+name|this
+operator|.
+name|standalone
+operator|=
+literal|false
+expr_stmt|;
+block|}
 DECL|method|JndiRegistry (Map environment)
 specifier|public
 name|JndiRegistry
@@ -204,6 +233,12 @@ operator|.
 name|environment
 operator|=
 name|environment
+expr_stmt|;
+name|this
+operator|.
+name|standalone
+operator|=
+literal|false
 expr_stmt|;
 block|}
 DECL|method|JndiRegistry (Context context)
@@ -219,6 +254,28 @@ operator|.
 name|context
 operator|=
 name|context
+expr_stmt|;
+name|this
+operator|.
+name|standalone
+operator|=
+literal|false
+expr_stmt|;
+block|}
+comment|/**      * Whether to use standalone mode, where the JNDI initial context factory is using      * {@link CamelInitialContextFactory}.      */
+DECL|method|JndiRegistry (boolean standalone)
+specifier|public
+name|JndiRegistry
+parameter_list|(
+name|boolean
+name|standalone
+parameter_list|)
+block|{
+name|this
+operator|.
+name|standalone
+operator|=
+literal|true
 expr_stmt|;
 block|}
 DECL|method|lookupByNameAndType (String name, Class<T> type)
@@ -811,9 +868,11 @@ name|environment
 argument_list|)
 expr_stmt|;
 block|}
-comment|// must include a factory if none provided
+comment|// must include a factory if none provided in standalone mode
 if|if
 condition|(
+name|standalone
+operator|&&
 operator|!
 name|properties
 operator|.

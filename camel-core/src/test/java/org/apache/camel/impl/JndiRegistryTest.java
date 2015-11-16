@@ -370,10 +370,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testDefault ()
+DECL|method|testStandalone ()
 specifier|public
 name|void
-name|testDefault
+name|testStandalone
 parameter_list|()
 throws|throws
 name|Exception
@@ -383,7 +383,9 @@ name|jndi
 init|=
 operator|new
 name|JndiRegistry
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 decl_stmt|;
 name|jndi
 operator|.
@@ -407,10 +409,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testMap ()
+DECL|method|testCamelContextFactory ()
 specifier|public
 name|void
-name|testMap
+name|testCamelContextFactory
 parameter_list|()
 throws|throws
 name|Exception
