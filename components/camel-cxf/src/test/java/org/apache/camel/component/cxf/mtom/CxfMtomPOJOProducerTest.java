@@ -462,12 +462,11 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-comment|// Make sure we don't put the attachement into out message
 name|assertEquals
 argument_list|(
-literal|"The attachement size should be 0 "
+literal|"The attachement size should be 2 "
 argument_list|,
-literal|0
+literal|2
 argument_list|,
 name|exchange
 operator|.

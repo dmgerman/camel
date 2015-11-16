@@ -1312,7 +1312,7 @@ name|class
 argument_list|)
 argument_list|)
 decl_stmt|;
-comment|// propagate attachments if the data format is not POJO with MTOM enabled
+comment|// propagate attachments
 if|if
 condition|(
 name|cxfMessage
@@ -1321,20 +1321,6 @@ name|getAttachments
 argument_list|()
 operator|!=
 literal|null
-operator|&&
-operator|!
-operator|(
-name|DataFormat
-operator|.
-name|POJO
-operator|.
-name|equals
-argument_list|(
-name|dataFormat
-argument_list|)
-operator|&&
-name|isXop
-operator|)
 condition|)
 block|{
 comment|// propagate attachments
@@ -2487,20 +2473,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
-comment|// propagate attachments if the data format is not POJO
-if|if
-condition|(
-operator|!
-name|DataFormat
-operator|.
-name|POJO
-operator|.
-name|equals
-argument_list|(
-name|dataFormat
-argument_list|)
-condition|)
-block|{
+comment|// propagate attachments
 name|Set
 argument_list|<
 name|Attachment
@@ -2617,7 +2590,6 @@ argument_list|(
 name|attachments
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 name|BindingOperationInfo
 name|boi
