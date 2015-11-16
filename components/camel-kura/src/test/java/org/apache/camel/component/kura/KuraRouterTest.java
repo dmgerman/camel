@@ -489,11 +489,8 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_class
-
-begin_class
 DECL|class|TestKuraRouter
+specifier|static
 class|class
 name|TestKuraRouter
 extends|extends
@@ -533,6 +530,7 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 return|;
+block|}
 block|}
 block|}
 end_class
