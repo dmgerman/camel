@@ -895,15 +895,7 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|map
-operator|.
-name|put
-argument_list|(
-literal|"protocol"
-argument_list|,
-literal|"http"
-argument_list|)
-expr_stmt|;
+comment|// use default protocol
 name|map
 operator|.
 name|put
@@ -961,6 +953,36 @@ argument_list|,
 name|uri
 argument_list|)
 expr_stmt|;
+comment|// lets add a protocol
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"protocol"
+argument_list|,
+literal|"https"
+argument_list|)
+expr_stmt|;
+name|uri
+operator|=
+name|catalog
+operator|.
+name|asEndpointUri
+argument_list|(
+literal|"netty4-http"
+argument_list|,
+name|map
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"netty4-http:https:localhost:8080/foo/bar?disconnect=true"
+argument_list|,
+name|uri
+argument_list|)
+expr_stmt|;
 comment|// lets set a query parameter in the path
 name|map
 operator|.
@@ -995,7 +1017,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"netty4-http:http:localhost:8080/foo/bar?verbose=true&disconnect=true"
+literal|"netty4-http:https:localhost:8080/foo/bar?verbose=true&disconnect=true"
 argument_list|,
 name|uri
 argument_list|)
