@@ -205,7 +205,7 @@ argument_list|(
 name|consumerSecret
 argument_list|)
 expr_stmt|;
-comment|// poll for gaga, every 2nd second
+comment|// poll for gaga, every 5nd second
 name|route
 operator|.
 name|setSearchTerm
@@ -217,7 +217,7 @@ name|route
 operator|.
 name|setDelay
 argument_list|(
-literal|2
+literal|5
 argument_list|)
 expr_stmt|;
 comment|// web socket on port 9090
