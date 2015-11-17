@@ -44,6 +44,14 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 function_decl|;
+DECL|method|afterApplicationStart (CamelContext camelContext)
+name|void
+name|afterApplicationStart
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
