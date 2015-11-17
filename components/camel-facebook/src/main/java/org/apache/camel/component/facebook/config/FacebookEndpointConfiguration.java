@@ -80,6 +80,14 @@ begin_import
 import|import
 name|facebook4j
 operator|.
+name|CommentUpdate
+import|;
+end_import
+
+begin_import
+import|import
+name|facebook4j
+operator|.
 name|EventUpdate
 import|;
 end_import
@@ -235,6 +243,13 @@ DECL|field|commentId
 specifier|private
 name|String
 name|commentId
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|commentUpdate
+specifier|private
+name|CommentUpdate
+name|commentUpdate
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -900,6 +915,33 @@ block|{
 return|return
 name|description
 return|;
+block|}
+DECL|method|getCommentUpdate ()
+specifier|public
+name|CommentUpdate
+name|getCommentUpdate
+parameter_list|()
+block|{
+return|return
+name|commentUpdate
+return|;
+block|}
+comment|/**      * The facebook Comment to be created or updated      */
+DECL|method|setCommentUpdate (CommentUpdate commentUpdate)
+specifier|public
+name|void
+name|setCommentUpdate
+parameter_list|(
+name|CommentUpdate
+name|commentUpdate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|commentUpdate
+operator|=
+name|commentUpdate
+expr_stmt|;
 block|}
 comment|/**      * The description text      */
 DECL|method|setDescription (String description)
