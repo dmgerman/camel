@@ -106,12 +106,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"undertow:http://localhost:"
-operator|+
-name|getPort
-argument_list|()
-operator|+
-literal|"/users/lives"
+literal|"undertow:http://localhost:{{port}}/users/lives"
 argument_list|,
 name|body
 argument_list|,
@@ -150,12 +145,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"undertow:http://localhost:"
-operator|+
-name|getPort
-argument_list|()
-operator|+
-literal|"/users/lives"
+literal|"undertow:http://localhost:{{port}}/users/lives"
 argument_list|,
 literal|null
 argument_list|,

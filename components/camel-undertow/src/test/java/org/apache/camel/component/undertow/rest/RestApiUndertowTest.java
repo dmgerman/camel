@@ -127,13 +127,6 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-name|out
-argument_list|)
-expr_stmt|;
 name|assertTrue
 argument_list|(
 name|out

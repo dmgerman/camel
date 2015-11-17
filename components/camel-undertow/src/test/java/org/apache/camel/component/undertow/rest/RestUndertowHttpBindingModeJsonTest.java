@@ -163,12 +163,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"undertow:http://localhost:"
-operator|+
-name|getPort
-argument_list|()
-operator|+
-literal|"/users/new"
+literal|"undertow:http://localhost:{{port}}/users/new"
 argument_list|,
 name|body
 argument_list|)
