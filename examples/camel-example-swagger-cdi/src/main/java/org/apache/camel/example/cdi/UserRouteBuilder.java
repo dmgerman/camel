@@ -63,6 +63,22 @@ import|;
 end_import
 
 begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestHostNameResolver
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -134,6 +150,7 @@ name|component
 argument_list|(
 literal|"netty4-http"
 argument_list|)
+comment|// use json binding mode so Camel automatic binds json<--> pojo
 operator|.
 name|bindingMode
 argument_list|(
@@ -149,11 +166,16 @@ literal|"prettyPrint"
 argument_list|,
 literal|"true"
 argument_list|)
-comment|// setup context path and port number that netty will use
+comment|// setup context path on localhost and port number that netty will use
 operator|.
 name|contextPath
 argument_list|(
 literal|"/"
+argument_list|)
+operator|.
+name|host
+argument_list|(
+literal|"localhost"
 argument_list|)
 operator|.
 name|port
