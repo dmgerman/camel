@@ -55,26 +55,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -101,22 +81,6 @@ specifier|final
 class|class
 name|JolokiaClientFactory
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|JolokiaClientFactory
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|JolokiaClientFactory ()
 specifier|private
 name|JolokiaClientFactory
@@ -138,15 +102,6 @@ name|String
 name|password
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"Creating jolokia client at URL: {}"
-argument_list|,
-name|jolokiaUrl
-argument_list|)
-expr_stmt|;
 name|J4pClientBuilder
 name|builder
 init|=
