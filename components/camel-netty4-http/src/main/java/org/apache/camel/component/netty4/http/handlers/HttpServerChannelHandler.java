@@ -1980,7 +1980,7 @@ else|else
 block|{
 name|LOG
 operator|.
-name|warn
+name|debug
 argument_list|(
 literal|"Closing channel as an exception was thrown from Netty"
 argument_list|,
