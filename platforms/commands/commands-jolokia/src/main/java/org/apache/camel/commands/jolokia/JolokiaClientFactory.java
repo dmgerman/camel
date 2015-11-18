@@ -54,22 +54,6 @@ name|J4pClientBuilder
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|isNotEmpty
-import|;
-end_import
-
 begin_comment
 comment|/**  * A factory to create a {@link org.jolokia.client.J4pClient} jolokia client that connects to a remote JVM.  */
 end_comment
@@ -184,6 +168,28 @@ return|return
 name|builder
 operator|.
 name|build
+argument_list|()
+return|;
+block|}
+DECL|method|isNotEmpty (String text)
+specifier|private
+specifier|static
+name|boolean
+name|isNotEmpty
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+return|return
+name|text
+operator|!=
+literal|null
+operator|&&
+operator|!
+name|text
+operator|.
+name|isEmpty
 argument_list|()
 return|;
 block|}
