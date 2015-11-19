@@ -485,6 +485,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|lenientContextPath
+argument_list|()
+condition|)
+block|{
 comment|// the uri must have a leading slash for the context-path matching to work with servlet, and it can be something people
 comment|// forget to add and then the servlet consumer cannot match the context-path as would have been expected
 name|String
@@ -546,6 +552,7 @@ literal|":"
 operator|+
 name|after
 expr_stmt|;
+block|}
 comment|// restructure uri to be based on the parameters left as we dont want to include the Camel internal options
 name|URI
 name|httpUri
@@ -726,6 +733,17 @@ argument_list|)
 expr_stmt|;
 return|return
 name|endpoint
+return|;
+block|}
+comment|/**      * Whether defining the context-path is lenient and do not require an exact leading slash.      */
+DECL|method|lenientContextPath ()
+specifier|protected
+name|boolean
+name|lenientContextPath
+parameter_list|()
+block|{
+return|return
+literal|true
 return|;
 block|}
 comment|/**      * Strategy to create the servlet endpoint.      */

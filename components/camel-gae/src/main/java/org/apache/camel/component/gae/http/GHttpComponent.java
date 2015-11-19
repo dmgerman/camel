@@ -392,6 +392,19 @@ name|httpUri
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|lenientContextPath ()
+specifier|protected
+name|boolean
+name|lenientContextPath
+parameter_list|()
+block|{
+comment|// must use the path as-is
+return|return
+literal|false
+return|;
+block|}
 block|}
 end_class
 
