@@ -528,11 +528,6 @@ name|Message
 name|getNextElement
 parameter_list|()
 block|{
-name|Message
-name|answer
-init|=
-literal|null
-decl_stmt|;
 if|if
 condition|(
 name|tarInputStream
@@ -541,7 +536,7 @@ literal|null
 condition|)
 block|{
 return|return
-name|answer
+literal|null
 return|;
 block|}
 try|try
@@ -571,12 +566,13 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|Message
 name|answer
-operator|=
+init|=
 operator|new
 name|DefaultMessage
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 name|answer
 operator|.
 name|getHeaders
@@ -670,6 +666,9 @@ argument_list|(
 literal|"Closed tarInputStream"
 argument_list|)
 expr_stmt|;
+return|return
+literal|null
+return|;
 block|}
 block|}
 catch|catch
@@ -687,9 +686,6 @@ name|exception
 argument_list|)
 throw|;
 block|}
-return|return
-name|answer
-return|;
 block|}
 DECL|method|checkNullAnswer (Message answer)
 specifier|public

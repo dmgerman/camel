@@ -358,17 +358,20 @@ name|className
 expr_stmt|;
 block|}
 comment|/*      * (non-Javadoc)      * @see org.apache.camel.spi.DataFormat#marshal(org.apache.camel.Exchange,      * java.lang.Object, java.io.OutputStream)      */
-DECL|method|marshal (Exchange exchange, Object graph, OutputStream outputStream)
+DECL|method|marshal (final Exchange exchange, final Object graph, final OutputStream outputStream)
 specifier|public
 name|void
 name|marshal
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|,
+specifier|final
 name|Object
 name|graph
 parameter_list|,
+specifier|final
 name|OutputStream
 name|outputStream
 parameter_list|)
@@ -389,14 +392,16 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/*      * (non-Javadoc)      * @see org.apache.camel.spi.DataFormat#unmarshal(org.apache.camel.Exchange,      * java.io.InputStream)      */
-DECL|method|unmarshal (Exchange exchange, InputStream inputStream)
+DECL|method|unmarshal (final Exchange exchange, final InputStream inputStream)
 specifier|public
 name|Object
 name|unmarshal
 parameter_list|(
+specifier|final
 name|Exchange
 name|exchange
 parameter_list|,
+specifier|final
 name|InputStream
 name|inputStream
 parameter_list|)
@@ -457,14 +462,16 @@ name|build
 argument_list|()
 return|;
 block|}
-DECL|method|loadDefaultInstance (String className, CamelContext context)
+DECL|method|loadDefaultInstance (final String className, final CamelContext context)
 specifier|protected
 name|Message
 name|loadDefaultInstance
 parameter_list|(
+specifier|final
 name|String
 name|className
 parameter_list|,
+specifier|final
 name|CamelContext
 name|context
 parameter_list|)
@@ -522,17 +529,12 @@ operator|.
 name|invoke
 argument_list|(
 literal|null
-argument_list|,
-operator|new
-name|Object
-index|[
-literal|0
-index|]
 argument_list|)
 return|;
 block|}
 catch|catch
 parameter_list|(
+specifier|final
 name|Exception
 name|ex
 parameter_list|)
