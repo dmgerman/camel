@@ -415,7 +415,7 @@ name|notNull
 argument_list|(
 name|reference
 argument_list|,
-literal|"Could not instantiate bean of type "
+literal|"Could not instantiate bean of type: "
 operator|+
 name|beanClass
 operator|.
@@ -429,6 +429,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+comment|// we should not toString reference instance as in CDI it may be proxied
 if|if
 condition|(
 name|reference
@@ -485,11 +486,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Invalid route builder "
-operator|+
-name|reference
-operator|+
-literal|" of type "
+literal|"Invalid route builder of type: "
 operator|+
 name|beanClass
 operator|.
@@ -511,17 +508,26 @@ throw|throw
 operator|new
 name|RuntimeCamelException
 argument_list|(
-literal|"Could not add "
+literal|"Error adding route builder of type: "
 operator|+
-name|reference
+name|beanClass
+operator|.
+name|getName
+argument_list|()
 operator|+
 literal|" to CamelContext: "
 operator|+
 name|camelContext
+operator|.
+name|getName
+argument_list|()
 operator|+
-literal|". Reason: "
+literal|" due "
 operator|+
 name|e
+operator|.
+name|getMessage
+argument_list|()
 argument_list|,
 name|e
 argument_list|)
