@@ -176,7 +176,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"awaitJob\": { \"kind\": \"parameter\", \"label\": \"consumer\", \"type\": \"boolean\""
+literal|"\"command\": { \"kind\": \"parameter\", \"group\": \"common\", \"type\": \"string\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -186,7 +186,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"command\": { \"kind\": \"parameter\", \"type\": \"string\""
+literal|"\"jobTimeToRun\": { \"kind\": \"parameter\", \"group\": \"common\", \"type\": \"integer\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -196,7 +196,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"jobTimeToRun\": { \"kind\": \"parameter\", \"type\": \"integer\""
+literal|"\"awaitJob\": { \"kind\": \"parameter\", \"group\": \"consumer\", \"label\": \"consumer\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
 expr_stmt|;
