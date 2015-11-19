@@ -314,7 +314,8 @@ name|configurationAdmin
 operator|.
 name|getConfiguration
 argument_list|(
-literal|"kura.camel"
+name|camelXmlRoutesPid
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -673,8 +674,18 @@ argument_list|)
 return|;
 block|}
 comment|// Private helpers
+DECL|method|camelXmlRoutesPid ()
+specifier|protected
+name|String
+name|camelXmlRoutesPid
+parameter_list|()
+block|{
+return|return
+literal|"kura.camel"
+return|;
+block|}
 DECL|method|camelXmlRoutesProperty ()
-specifier|private
+specifier|protected
 name|String
 name|camelXmlRoutesProperty
 parameter_list|()
