@@ -171,6 +171,14 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
+comment|// give time for file to be deleted
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
 comment|// the temporary files should have been deleted
 name|File
 name|file
