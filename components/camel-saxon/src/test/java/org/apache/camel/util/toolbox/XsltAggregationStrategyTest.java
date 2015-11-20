@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for the {@link XsltAggregationStrategy}.  *<p>  * Need to use Saxon to get a predictable result: we cannot rely on the JDK's XSLT processor as it can vary across  * platforms and JDK versions. Also, Xalan does not handle node-set properties well.  */
+comment|/**  * Unit test for the {@link XsltAggregationStrategy}.  *<p>  * Need to use Saxon to get a predictable result: We cannot rely on the JDK's XSLT processor as it can vary across  * platforms and JDK versions. Also, Xalan does not handle node-set properties well.  */
 end_comment
 
 begin_class
@@ -96,13 +96,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|context
-operator|.
-name|startRoute
-argument_list|(
-literal|"route1"
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -123,6 +116,13 @@ operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?><item>ABC</item>"
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|startRoute
+argument_list|(
+literal|"route1"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -139,13 +139,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|context
-operator|.
-name|startRoute
-argument_list|(
-literal|"route2"
-argument_list|)
-expr_stmt|;
 name|MockEndpoint
 name|mock
 init|=
@@ -166,6 +159,13 @@ operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"<?xml version=\"1.0\" encoding=\"UTF-8\"?><item>ABC</item>"
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|startRoute
+argument_list|(
+literal|"route2"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -196,7 +196,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:src/test/resources/org/apache/camel/util/toolbox?noop=true&antInclude=*.xml"
+literal|"file:src/test/resources/org/apache/camel/util/toolbox?noop=true&sortBy=file:name&antInclude=*.xml"
 argument_list|)
 operator|.
 name|routeId
@@ -239,7 +239,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"file:src/test/resources/org/apache/camel/util/toolbox?noop=true&antInclude=*.xml"
+literal|"file:src/test/resources/org/apache/camel/util/toolbox?noop=true&sortBy=file:name&antInclude=*.xml"
 argument_list|)
 operator|.
 name|routeId
