@@ -926,20 +926,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-else|else
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Unable to remove key {} from repository {}: Not Found"
-argument_list|,
-name|key
-argument_list|,
-name|repositoryName
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 catch|catch
 parameter_list|(
@@ -1046,24 +1032,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-else|else
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Unable to confirm exchangeId [{}]"
-argument_list|,
-name|exchangeId
-operator|+
-literal|" from repository "
-operator|+
-name|repositoryName
-operator|+
-literal|": Not Found"
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 DECL|method|getKeys ()
 specifier|public
@@ -1113,8 +1081,6 @@ argument_list|()
 decl_stmt|;
 name|String
 name|keyBuffer
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -1198,13 +1164,6 @@ name|length
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|key
-operator|!=
-literal|null
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -1221,7 +1180,6 @@ argument_list|(
 name|key
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 finally|finally
@@ -1294,8 +1252,6 @@ argument_list|()
 decl_stmt|;
 name|String
 name|keyBuffer
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -1372,13 +1328,6 @@ name|length
 argument_list|()
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|exchangeId
-operator|!=
-literal|null
-condition|)
-block|{
 name|LOG
 operator|.
 name|trace
@@ -1395,7 +1344,6 @@ argument_list|(
 name|exchangeId
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 finally|finally
