@@ -315,7 +315,7 @@ control|)
 block|{
 name|template
 operator|.
-name|sendBody
+name|asyncSendBody
 argument_list|(
 literal|"disruptor:testMultipleConsumers"
 argument_list|,
@@ -347,14 +347,25 @@ operator|.
 name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|4
-argument_list|,
+name|int
+name|count
+init|=
 name|threadCounter
 operator|.
 name|getThreadIdCount
 argument_list|()
+decl_stmt|;
+name|assertTrue
+argument_list|(
+literal|"Should be "
+operator|+
+name|count
+operator|+
+literal|">= 4"
+argument_list|,
+name|count
+operator|>=
+literal|4
 argument_list|)
 expr_stmt|;
 block|}
