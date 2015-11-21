@@ -73,33 +73,46 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test that file consumer will exclude pre and postfixes  */
+comment|/**  * Unit test that file consumer will include pre and postfixes  */
 end_comment
 
 begin_class
-DECL|class|FileConsumerExcludeNameTest
+DECL|class|FileConsumerIncludeNameCaseSensitiveTest
 specifier|public
 class|class
-name|FileConsumerExcludeNameTest
+name|FileConsumerIncludeNameCaseSensitiveTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testExludePreAndPostfixes ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|setUp ()
+specifier|protected
 name|void
-name|testExludePreAndPostfixes
+name|setUp
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 name|deleteDirectory
 argument_list|(
-literal|"target/exclude"
+literal|"target/include"
 argument_list|)
 expr_stmt|;
-name|prepareFiles
+name|super
+operator|.
+name|setUp
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|testIncludePreAndPostfixes ()
+specifier|public
+name|void
+name|testIncludePreAndPostfixes
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|MockEndpoint
 name|mock
 init|=
@@ -117,16 +130,17 @@ argument_list|,
 literal|"Reports"
 argument_list|,
 literal|"Reports3"
-argument_list|,
-literal|"Secret2"
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|4
+literal|3
 argument_list|)
+expr_stmt|;
+name|sendFiles
+argument_list|()
 expr_stmt|;
 name|mock
 operator|.
@@ -134,10 +148,10 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|prepareFiles ()
+DECL|method|sendFiles ()
 specifier|private
 name|void
-name|prepareFiles
+name|sendFiles
 parameter_list|()
 throws|throws
 name|Exception
@@ -145,7 +159,7 @@ block|{
 name|String
 name|url
 init|=
-literal|"file://target/exclude"
+literal|"file://target/include"
 decl_stmt|;
 name|template
 operator|.
@@ -260,7 +274,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/exclude/?exclude=^secret.*|.*xml$&caseSensitive=true"
+literal|"file://target/include/?include=^report.*txt$&caseSensitive=false"
 argument_list|)
 operator|.
 name|convertBodyTo

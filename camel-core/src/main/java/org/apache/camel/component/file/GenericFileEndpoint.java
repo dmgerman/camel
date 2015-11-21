@@ -891,6 +891,22 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer,filter"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|caseSensitive
+specifier|protected
+name|Boolean
+name|caseSensitive
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,filter"
 argument_list|)
 DECL|field|move
 specifier|protected
@@ -2489,6 +2505,33 @@ operator|.
 name|exclude
 operator|=
 name|exclude
+expr_stmt|;
+block|}
+DECL|method|getCaseSensitive ()
+specifier|public
+name|Boolean
+name|getCaseSensitive
+parameter_list|()
+block|{
+return|return
+name|caseSensitive
+return|;
+block|}
+comment|/**      * Is used to determine if the include& exclude patterns are case sensitive or not      * @param caseSensitive      */
+DECL|method|setCaseSensitive (Boolean caseSensitive)
+specifier|public
+name|void
+name|setCaseSensitive
+parameter_list|(
+name|Boolean
+name|caseSensitive
+parameter_list|)
+block|{
+name|this
+operator|.
+name|caseSensitive
+operator|=
+name|caseSensitive
 expr_stmt|;
 block|}
 DECL|method|getAntInclude ()

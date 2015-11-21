@@ -219,6 +219,36 @@ argument_list|,
 literal|"report3.txt"
 argument_list|)
 expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+name|url
+argument_list|,
+literal|"Report 4"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"Report4.txt"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBodyAndHeader
+argument_list|(
+name|url
+argument_list|,
+literal|"Secret"
+argument_list|,
+name|Exchange
+operator|.
+name|FILE_NAME
+argument_list|,
+literal|"Secret.txt"
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
 specifier|protected
@@ -242,7 +272,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/includeexclude/?include=.*txt&exclude=hello.*"
+literal|"file://target/includeexclude/?include=report.*txt&exclude=hello.*"
 argument_list|)
 operator|.
 name|convertBodyTo
