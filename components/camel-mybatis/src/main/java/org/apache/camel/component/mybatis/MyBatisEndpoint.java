@@ -267,6 +267,24 @@ name|label
 operator|=
 literal|"consumer"
 argument_list|,
+name|description
+operator|=
+literal|"Enables or disables transaction. If enabled then if processing an exchange failed then the consumer"
+operator|+
+literal|"break out processing any further exchanges to cause a rollback eager."
+argument_list|)
+DECL|field|transacted
+specifier|private
+name|boolean
+name|transacted
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"0"
@@ -579,6 +597,33 @@ operator|.
 name|toUpperCase
 argument_list|()
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isTransacted ()
+specifier|public
+name|boolean
+name|isTransacted
+parameter_list|()
+block|{
+return|return
+name|transacted
+return|;
+block|}
+comment|/**      * Enables or disables transaction. If enabled then if processing an exchange failed then the consumer      + break out processing any further exchanges to cause a rollback eager      */
+DECL|method|setTransacted (boolean transacted)
+specifier|public
+name|void
+name|setTransacted
+parameter_list|(
+name|boolean
+name|transacted
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transacted
+operator|=
+name|transacted
 expr_stmt|;
 block|}
 DECL|method|getProcessingStrategy ()
