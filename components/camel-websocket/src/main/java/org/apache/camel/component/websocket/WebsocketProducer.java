@@ -100,7 +100,6 @@ name|WebsocketProducerConsumer
 block|{
 DECL|field|store
 specifier|private
-specifier|final
 name|WebsocketStore
 name|store
 decl_stmt|;
@@ -116,27 +115,18 @@ specifier|final
 name|WebsocketEndpoint
 name|endpoint
 decl_stmt|;
-DECL|method|WebsocketProducer (WebsocketEndpoint endpoint, WebsocketStore store)
+DECL|method|WebsocketProducer (WebsocketEndpoint endpoint)
 specifier|public
 name|WebsocketProducer
 parameter_list|(
 name|WebsocketEndpoint
 name|endpoint
-parameter_list|,
-name|WebsocketStore
-name|store
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|endpoint
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|store
-operator|=
-name|store
 expr_stmt|;
 name|this
 operator|.
@@ -592,6 +582,23 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+comment|//Store is set/unset upon connect/disconnect of the producer
+DECL|method|setStore (WebsocketStore store)
+specifier|public
+name|void
+name|setStore
+parameter_list|(
+name|WebsocketStore
+name|store
+parameter_list|)
+block|{
+name|this
+operator|.
+name|store
+operator|=
+name|store
+expr_stmt|;
 block|}
 block|}
 end_class

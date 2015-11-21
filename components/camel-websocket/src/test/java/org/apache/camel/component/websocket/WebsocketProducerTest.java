@@ -396,7 +396,12 @@ operator|new
 name|WebsocketProducer
 argument_list|(
 name|endpoint
-argument_list|,
+argument_list|)
+expr_stmt|;
+name|websocketProducer
+operator|.
+name|setStore
+argument_list|(
 name|store
 argument_list|)
 expr_stmt|;
