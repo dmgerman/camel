@@ -128,13 +128,15 @@ argument_list|(
 literal|"Reports"
 argument_list|,
 literal|"Reports"
+argument_list|,
+literal|"Reports3"
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|2
+literal|3
 argument_list|)
 expr_stmt|;
 name|sendFiles

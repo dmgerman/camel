@@ -123,18 +123,20 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedMessageCount
-argument_list|(
-literal|2
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
 name|expectedBodiesReceivedInAnyOrder
 argument_list|(
 literal|"Report 2"
 argument_list|,
 literal|"Report 3"
+argument_list|,
+literal|"Report 4"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|3
 argument_list|)
 expr_stmt|;
 name|sendFiles

@@ -117,15 +117,13 @@ argument_list|,
 literal|"Reports"
 argument_list|,
 literal|"Reports3"
-argument_list|,
-literal|"Secret2"
 argument_list|)
 expr_stmt|;
 name|mock
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|4
+literal|3
 argument_list|)
 expr_stmt|;
 name|mock
@@ -260,7 +258,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file://target/exclude/?exclude=^secret.*|.*xml$&caseSensitive=true"
+literal|"file://target/exclude/?exclude=^secret.*|.*xml$"
 argument_list|)
 operator|.
 name|convertBodyTo
