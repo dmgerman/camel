@@ -208,12 +208,11 @@ argument_list|(
 literal|"target/changed/out/slowfile.dat"
 argument_list|)
 expr_stmt|;
-comment|// writing takes ~2 seconds, and then it has to age for at least minAge milliseconds (3 seconds)
 name|mock
 operator|.
 name|expectedMessagesMatches
 argument_list|(
-name|property
+name|exchangeProperty
 argument_list|(
 name|Exchange
 operator|.
@@ -236,7 +235,7 @@ operator|.
 name|getTime
 argument_list|()
 operator|+
-literal|5000
+literal|3000
 argument_list|)
 argument_list|)
 expr_stmt|;

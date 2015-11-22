@@ -315,12 +315,34 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a value builder for the given property      */
+comment|/**      * Returns a value builder for the given exchange property      */
+annotation|@
+name|Deprecated
 DECL|method|property (String name)
 specifier|public
 specifier|static
 name|ValueBuilder
 name|property
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+name|exchangeProperty
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a value builder for the given exchange property      */
+DECL|method|exchangeProperty (String name)
+specifier|public
+specifier|static
+name|ValueBuilder
+name|exchangeProperty
 parameter_list|(
 name|String
 name|name

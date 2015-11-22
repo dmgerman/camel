@@ -213,7 +213,7 @@ name|mock
 operator|.
 name|expectedMessagesMatches
 argument_list|(
-name|property
+name|exchangeProperty
 argument_list|(
 name|Exchange
 operator|.
