@@ -398,7 +398,9 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the outbound body on an      * exchange      */
+comment|/**      * Returns a predicate and value builder for the outbound body on an      * exchange      *       * @deprecated use {@link #body()}      */
+annotation|@
+name|Deprecated
 DECL|method|outBody ()
 specifier|public
 specifier|static
@@ -413,7 +415,9 @@ name|outBody
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the outbound message body as a      * specific type      */
+comment|/**      * Returns a predicate and value builder for the outbound message body as a      * specific type      *       * @deprecated use {@link #bodyAs(Class)}      */
+annotation|@
+name|Deprecated
 DECL|method|outBodyAs (Class<T> type)
 specifier|public
 specifier|static
@@ -454,7 +458,9 @@ name|faultBody
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the fault message body as a      * specific type      */
+comment|/**      * Returns a predicate and value builder for the fault message body as a      * specific type      *       * @deprecated use {@link #bodyAs(Class)}      */
+annotation|@
+name|Deprecated
 DECL|method|faultBodyAs (Class<T> type)
 specifier|public
 specifier|static
