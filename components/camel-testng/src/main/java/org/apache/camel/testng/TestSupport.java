@@ -382,12 +382,34 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a value builder for the given property      */
+comment|/**      * Returns a value builder for the given property      *       * @deprecated use {@link #exchangeProperty(String)}      */
+annotation|@
+name|Deprecated
 DECL|method|property (String name)
 specifier|public
 specifier|static
 name|ValueBuilder
 name|property
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|Builder
+operator|.
+name|exchangeProperty
+argument_list|(
+name|name
+argument_list|)
+return|;
+block|}
+comment|/**      * Returns a value builder for the given exchange property      */
+DECL|method|exchangeProperty (String name)
+specifier|public
+specifier|static
+name|ValueBuilder
+name|exchangeProperty
 parameter_list|(
 name|String
 name|name
@@ -443,7 +465,9 @@ name|type
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the outbound body on an      * exchange      */
+comment|/**      * Returns a predicate and value builder for the outbound body on an      * exchange      *      * @deprecated use {@link #body()}      */
+annotation|@
+name|Deprecated
 DECL|method|outBody ()
 specifier|public
 specifier|static
@@ -458,7 +482,7 @@ name|outBody
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the outbound message body as a      * specific type      */
+comment|/**      * Returns a predicate and value builder for the outbound message body as a      * specific type      *      * @deprecated use {@link #bodyAs(Class)}      */
 DECL|method|outBodyAs (Class<T> type)
 specifier|public
 specifier|static
@@ -499,7 +523,9 @@ name|faultBody
 argument_list|()
 return|;
 block|}
-comment|/**      * Returns a predicate and value builder for the fault message body as a      * specific type      */
+comment|/**      * Returns a predicate and value builder for the fault message body as a      * specific type      *      * @deprecated use {@link #bodyAs(Class)}      */
+annotation|@
+name|Deprecated
 DECL|method|faultBodyAs (Class<T> type)
 specifier|public
 specifier|static
