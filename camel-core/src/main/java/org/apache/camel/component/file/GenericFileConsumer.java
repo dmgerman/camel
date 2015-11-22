@@ -2425,7 +2425,6 @@ literal|false
 return|;
 block|}
 block|}
-comment|//Msno
 comment|// use file expression for a simple dynamic file filter
 if|if
 condition|(
