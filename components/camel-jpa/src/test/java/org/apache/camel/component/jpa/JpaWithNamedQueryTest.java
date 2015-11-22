@@ -644,11 +644,12 @@ argument_list|)
 expr_stmt|;
 comment|// lets now test that the database is updated
 comment|// we need to sleep as we will be invoked from inside the transaction!
+comment|// org.apache.openjpa.persistence.InvalidStateException: This operation cannot be performed while a Transaction is active.
 name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1000
+literal|2000
 argument_list|)
 expr_stmt|;
 name|transactionTemplate
