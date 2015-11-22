@@ -632,9 +632,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 throws|throws
-name|InvalidPayloadException
-throws|,
-name|IOException
+name|Exception
 block|{
 name|Reader
 name|bodyReader
@@ -651,6 +649,8 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+try|try
+block|{
 if|if
 condition|(
 name|FlatpackType
@@ -677,6 +677,25 @@ argument_list|(
 name|exchange
 argument_list|)
 return|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// must close reader in case of some exception
+name|IOHelper
+operator|.
+name|close
+argument_list|(
+name|bodyReader
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
 block|}
 block|}
 DECL|method|createFixedParser (String resourceUri, Reader bodyReader)
