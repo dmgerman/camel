@@ -315,7 +315,7 @@ name|name
 argument_list|)
 return|;
 block|}
-comment|/**      * Returns a value builder for the given exchange property      */
+comment|/**      * Returns a value builder for the given exchange property      *       * @deprecated use {@link #exchangeProperty(String)}      */
 annotation|@
 name|Deprecated
 DECL|method|property (String name)
