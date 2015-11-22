@@ -257,8 +257,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Auto creating \""
-operator|+
+literal|"Auto creating directory: {}"
+argument_list|,
 name|endpoint
 operator|.
 name|getConfiguration
@@ -295,22 +295,33 @@ name|GenericFileOperationFailedException
 name|e
 parameter_list|)
 block|{
-if|if
-condition|(
-name|getEndpoint
-argument_list|()
+comment|// log a WARN as we want to start the consumer.
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Error auto creating directory: "
+operator|+
+name|endpoint
 operator|.
 name|getConfiguration
 argument_list|()
 operator|.
-name|isThrowExceptionOnConnectFailed
+name|getDirectory
 argument_list|()
-condition|)
-block|{
-throw|throw
+operator|+
+literal|" due "
+operator|+
 name|e
-throw|;
-block|}
+operator|.
+name|getMessage
+argument_list|()
+operator|+
+literal|". This exception is ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
