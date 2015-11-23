@@ -1811,6 +1811,25 @@ name|transferException
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * If enabled and you are using Request Reply messaging (InOut) and an Exchange failed with a SOAP fault (not exception) on the consumer side,      * then the fault flag on {@link org.apache.camel.Message#isFault()} will be send back in the response as a JMS header with the key      * {@link JmsConstants#JMS_TRANSFER_FAULT}.      * If the client is Camel, the returned fault flag will be set on the {@link org.apache.camel.Message#setFault(boolean)}.      *<p/>      * You may want to enable this when using Camel components that support faults such as SOAP based such as cxf or spring-ws.      */
+DECL|method|setTransferFault (boolean transferFault)
+specifier|public
+name|void
+name|setTransferFault
+parameter_list|(
+name|boolean
+name|transferFault
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setTransferFault
+argument_list|(
+name|transferFault
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Allows you to use your own implementation of the org.springframework.jms.core.JmsOperations interface.      * Camel uses JmsTemplate as default. Can be used for testing purpose, but not used much as stated in the spring API docs.      */
 DECL|method|setJmsOperations (JmsOperations jmsOperations)
 specifier|public

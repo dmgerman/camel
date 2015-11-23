@@ -83,6 +83,15 @@ name|JMS_REQUEST_TIMEOUT
 init|=
 literal|"CamelJmsRequestTimeout"
 decl_stmt|;
+DECL|field|JMS_TRANSFER_FAULT
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|JMS_TRANSFER_FAULT
+init|=
+literal|"CamelJmsTransferFault"
+decl_stmt|;
 DECL|method|JmsConstants ()
 specifier|private
 name|JmsConstants
