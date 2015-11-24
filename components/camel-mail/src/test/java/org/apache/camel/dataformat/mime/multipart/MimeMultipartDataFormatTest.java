@@ -994,17 +994,6 @@ argument_list|,
 literal|"text/plain;charset=iso8859-1;other-parameter=true"
 argument_list|)
 expr_stmt|;
-name|in
-operator|.
-name|setHeader
-argument_list|(
-name|Exchange
-operator|.
-name|CONTENT_ENCODING
-argument_list|,
-literal|"UTF8"
-argument_list|)
-expr_stmt|;
 name|addAttachment
 argument_list|(
 name|attContentType
@@ -1071,7 +1060,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"UTF8"
+literal|"iso8859-1"
 argument_list|,
 name|out
 operator|.
