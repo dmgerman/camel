@@ -479,10 +479,10 @@ name|description
 operator|=
 literal|"UserGroupInformation for HBase communication. If not specified, then Camel talks with HBase without Kerberos"
 argument_list|)
-DECL|field|ugi
+DECL|field|userGroupInformation
 specifier|private
 name|UserGroupInformation
-name|ugi
+name|userGroupInformation
 decl_stmt|;
 comment|/**      * in the purpose of performance optimization      */
 DECL|field|tableNameBytes
@@ -947,21 +947,21 @@ operator|=
 name|maxMessagesPerPoll
 expr_stmt|;
 block|}
-comment|/**      * Defines privileges to communicate with HBase table by {@link #getTable()}      * @param ugi      */
-DECL|method|setUgi (UserGroupInformation ugi)
+comment|/**      * Defines privileges to communicate with HBase table by {@link #getTable()}      * @param userGroupInformation      */
+DECL|method|setUserGroupInformation (UserGroupInformation userGroupInformation)
 specifier|public
 name|void
-name|setUgi
+name|setUserGroupInformation
 parameter_list|(
 name|UserGroupInformation
-name|ugi
+name|userGroupInformation
 parameter_list|)
 block|{
 name|this
 operator|.
-name|ugi
+name|userGroupInformation
 operator|=
-name|ugi
+name|userGroupInformation
 expr_stmt|;
 block|}
 comment|/**      * Gets connection to the table (secured or not, depends on the object initialization)      * please remember to close the table after use      * @return table, remember to close!      */
@@ -973,13 +973,13 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|ugi
+name|userGroupInformation
 operator|!=
 literal|null
 condition|)
 block|{
 return|return
-name|ugi
+name|userGroupInformation
 operator|.
 name|doAs
 argument_list|(
