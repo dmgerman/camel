@@ -613,6 +613,24 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// Callbacks
+annotation|@
+name|Override
+DECL|method|configure ()
+specifier|public
+name|void
+name|configure
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"No programmatic routes configuration found."
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
