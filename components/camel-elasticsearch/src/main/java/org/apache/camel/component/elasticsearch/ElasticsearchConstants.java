@@ -64,6 +64,12 @@ name|OPERATION_INDEX
 init|=
 literal|"INDEX"
 decl_stmt|;
+DECL|field|OPERATION_UPDATE
+name|String
+name|OPERATION_UPDATE
+init|=
+literal|"UPDATE"
+decl_stmt|;
 DECL|field|OPERATION_BULK
 name|String
 name|OPERATION_BULK
