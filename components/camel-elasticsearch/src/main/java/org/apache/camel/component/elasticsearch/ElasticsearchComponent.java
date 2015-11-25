@@ -102,6 +102,18 @@ name|org
 operator|.
 name|elasticsearch
 operator|.
+name|client
+operator|.
+name|Client
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|elasticsearch
+operator|.
 name|common
 operator|.
 name|transport
@@ -122,6 +134,11 @@ name|ElasticsearchComponent
 extends|extends
 name|UriEndpointComponent
 block|{
+DECL|field|client
+specifier|private
+name|Client
+name|client
+decl_stmt|;
 DECL|method|ElasticsearchComponent ()
 specifier|public
 name|ElasticsearchComponent
@@ -302,6 +319,8 @@ argument_list|,
 name|this
 argument_list|,
 name|config
+argument_list|,
+name|client
 argument_list|)
 decl_stmt|;
 return|return
@@ -466,6 +485,33 @@ block|}
 return|return
 name|addressesTrAd
 return|;
+block|}
+DECL|method|getClient ()
+specifier|public
+name|Client
+name|getClient
+parameter_list|()
+block|{
+return|return
+name|client
+return|;
+block|}
+comment|/**      * To use an existing configured Elasticsearch client, instead of creating a client per endpoint.      */
+DECL|method|setClient (Client client)
+specifier|public
+name|void
+name|setClient
+parameter_list|(
+name|Client
+name|client
+parameter_list|)
+block|{
+name|this
+operator|.
+name|client
+operator|=
+name|client
+expr_stmt|;
 block|}
 block|}
 end_class
