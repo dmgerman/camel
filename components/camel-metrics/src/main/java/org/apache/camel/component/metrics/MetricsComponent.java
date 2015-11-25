@@ -559,6 +559,15 @@ operator|.
 name|MILLISECONDS
 argument_list|)
 operator|.
+name|withLoggingLevel
+argument_list|(
+name|Slf4jReporter
+operator|.
+name|LoggingLevel
+operator|.
+name|DEBUG
+argument_list|)
+operator|.
 name|build
 argument_list|()
 decl_stmt|;
