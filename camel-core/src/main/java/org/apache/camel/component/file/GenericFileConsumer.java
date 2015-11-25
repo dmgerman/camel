@@ -244,18 +244,6 @@ parameter_list|>
 extends|extends
 name|ScheduledBatchPollingConsumer
 block|{
-DECL|field|excludePattern
-specifier|private
-specifier|final
-name|Pattern
-name|excludePattern
-decl_stmt|;
-DECL|field|includePattern
-specifier|private
-specifier|final
-name|Pattern
-name|includePattern
-decl_stmt|;
 DECL|field|log
 specifier|protected
 specifier|final
@@ -326,6 +314,18 @@ specifier|protected
 specifier|volatile
 name|boolean
 name|prepareOnStartup
+decl_stmt|;
+DECL|field|includePattern
+specifier|private
+specifier|final
+name|Pattern
+name|includePattern
+decl_stmt|;
+DECL|field|excludePattern
+specifier|private
+specifier|final
+name|Pattern
+name|excludePattern
 decl_stmt|;
 DECL|method|GenericFileConsumer (GenericFileEndpoint<T> endpoint, Processor processor, GenericFileOperations<T> operations)
 specifier|public
