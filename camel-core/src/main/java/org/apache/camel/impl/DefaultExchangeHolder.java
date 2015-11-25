@@ -157,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Holder object for sending an exchange over a remote wire as a serialized object.  * This is usually configured using the<tt>transferExchange=true</tt> option on the endpoint.  *<p/>  * Note: Message body of type {@link File} or {@link WrappedFile} is<b>not</b> supported and  * a {@link RuntimeExchangeException} is thrown.  *<p/>  * As opposed to normal usage where only the body part of the exchange is transferred over the wire,  * this holder object serializes the following fields over the wire:  *<ul>  *<li>exchangeId</li>  *<li>in body</li>  *<li>out body</li>  *<li>in headers</li>  *<li>out headers</li>  *<li>fault body</li>  *<li>fault headers</li>  *<li>exchange properties</li>  *<li>exception</li>  *</ul>  * The body is serialized and stored as serialized bytes. The header and exchange properties only include  * primitive, and String types (and Exception types for exchange properties). Any other type is skipped.  *<p/>  * Any object that is not serializable will be skipped and Camel will log this at WARN level.  *  * @version   */
+comment|/**  * Holder object for sending an exchange over a remote wire as a serialized object.  * This is usually configured using the<tt>transferExchange=true</tt> option on the endpoint.  *<br/>  *<b>Note:</b> Message body of type {@link File} or {@link WrappedFile} is<b>not</b> supported and  * a {@link RuntimeExchangeException} is thrown.  *<br/>  * As opposed to normal usage where only the body part of the exchange is transferred over the wire,  * this holder object serializes the following fields over the wire:  *<ul>  *<li>exchangeId</li>  *<li>in body</li>  *<li>out body</li>  *<li>fault body</li>  *<li>exchange properties</li>  *<li>exception</li>  *</ul>  * And the following headers is transferred if their values are of primitive types, String or Number based.  *<ul>  *<li>in headers</li>  *<li>out headers</li>  *<li>fault headers</li>  *</ul>  * The body is serialized and stored as serialized bytes. The header and exchange properties only include  * primitive, String, and Number types (and Exception types for exchange properties). Any other type is skipped.  *<br/>  * Any message body object that is not serializable will be skipped and Camel will log this at<tt>WARN</tt> level.  * And any message header values that is not a primitive value will be skipped and Camel will log this at<tt>DEBUG</tt> level.  *  * @version   */
 end_comment
 
 begin_class
@@ -1257,6 +1257,18 @@ argument_list|()
 control|)
 block|{
 comment|// silently skip any values which is null
+if|if
+condition|(
+name|entry
+operator|.
+name|getValue
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 name|Object
 name|value
 init|=
@@ -1437,6 +1449,18 @@ argument_list|()
 control|)
 block|{
 comment|// silently skip any values which is null
+if|if
+condition|(
+name|entry
+operator|.
+name|getValue
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 name|Object
 name|value
 init|=
@@ -1805,17 +1829,6 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|key
-operator|.
-name|startsWith
-argument_list|(
-literal|"Camel"
-argument_list|)
-condition|)
-block|{
-comment|// log Camel at DEBUG level
-if|if
-condition|(
 name|LOG
 operator|.
 name|isDebugEnabled
@@ -1825,36 +1838,6 @@ block|{
 name|LOG
 operator|.
 name|debug
-argument_list|(
-literal|"Exchange {} containing key: {} with object: {} of type: {} is not valid header type, it will be excluded by the holder."
-argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
-name|type
-block|,
-name|key
-block|,
-name|value
-block|,
-name|ObjectHelper
-operator|.
-name|classCanonicalName
-argument_list|(
-name|value
-argument_list|)
-block|}
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-comment|// log regular at WARN level
-name|LOG
-operator|.
-name|warn
 argument_list|(
 literal|"Exchange {} containing key: {} with object: {} of type: {} is not valid header type, it will be excluded by the holder."
 argument_list|,
@@ -1897,17 +1880,6 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|key
-operator|.
-name|startsWith
-argument_list|(
-literal|"Camel"
-argument_list|)
-condition|)
-block|{
-comment|// log Camel at DEBUG level
-if|if
-condition|(
 name|LOG
 operator|.
 name|isDebugEnabled
@@ -1917,36 +1889,6 @@ block|{
 name|LOG
 operator|.
 name|debug
-argument_list|(
-literal|"Exchange {} containing key: {} with object: {} of type: {} is not valid exchange property type, it will be excluded by the holder."
-argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
-name|type
-block|,
-name|key
-block|,
-name|value
-block|,
-name|ObjectHelper
-operator|.
-name|classCanonicalName
-argument_list|(
-name|value
-argument_list|)
-block|}
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
-comment|// log regular at WARN level
-name|LOG
-operator|.
-name|warn
 argument_list|(
 literal|"Exchange {} containing key: {} with object: {} of type: {} is not valid exchange property type, it will be excluded by the holder."
 argument_list|,
