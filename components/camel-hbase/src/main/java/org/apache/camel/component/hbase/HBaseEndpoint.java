@@ -474,11 +474,6 @@ name|maxMessagesPerPoll
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|description
-operator|=
-literal|"UserGroupInformation for HBase communication. If not specified, then Camel talks with HBase without Kerberos"
-argument_list|)
 DECL|field|userGroupInformation
 specifier|private
 name|UserGroupInformation
@@ -947,7 +942,17 @@ operator|=
 name|maxMessagesPerPoll
 expr_stmt|;
 block|}
-comment|/**      * Defines privileges to communicate with HBase table by {@link #getTable()}      * @param userGroupInformation      */
+DECL|method|getUserGroupInformation ()
+specifier|public
+name|UserGroupInformation
+name|getUserGroupInformation
+parameter_list|()
+block|{
+return|return
+name|userGroupInformation
+return|;
+block|}
+comment|/**      * Defines privileges to communicate with HBase such as using kerberos.      */
 DECL|method|setUserGroupInformation (UserGroupInformation userGroupInformation)
 specifier|public
 name|void
