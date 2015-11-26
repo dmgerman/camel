@@ -112,13 +112,19 @@ end_import
 
 begin_import
 import|import
-name|org
+name|kafka
 operator|.
-name|I0Itec
+name|utils
 operator|.
-name|zkclient
+name|ZkUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|scala
 operator|.
-name|ZkClient
+name|Option
 import|;
 end_import
 
@@ -290,10 +296,10 @@ name|ports
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getZkClient ()
+DECL|method|getZkUtils ()
 specifier|public
-name|ZkClient
-name|getZkClient
+name|ZkUtils
+name|getZkUtils
 parameter_list|()
 block|{
 for|for
@@ -307,7 +313,7 @@ block|{
 return|return
 name|server
 operator|.
-name|zkClient
+name|zkUtils
 argument_list|()
 return|;
 block|}
@@ -337,7 +343,7 @@ name|AdminUtils
 operator|.
 name|createTopic
 argument_list|(
-name|getZkClient
+name|getZkUtils
 argument_list|()
 argument_list|,
 name|topic
@@ -720,6 +726,14 @@ argument_list|)
 argument_list|,
 operator|new
 name|SystemTime
+argument_list|()
+argument_list|,
+name|Option
+operator|.
+expr|<
+name|String
+operator|>
+name|empty
 argument_list|()
 argument_list|)
 decl_stmt|;
