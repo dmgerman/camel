@@ -132,6 +132,22 @@ name|component
 operator|.
 name|netty4
 operator|.
+name|NettyConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|netty4
+operator|.
 name|NettyConstants
 import|;
 end_import
@@ -293,6 +309,8 @@ parameter_list|(
 name|ChannelHandlerContext
 name|ctx
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -327,6 +345,13 @@ name|ctx
 operator|.
 name|channel
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|channelActive
+argument_list|(
+name|ctx
 argument_list|)
 expr_stmt|;
 block|}
@@ -499,6 +524,8 @@ parameter_list|(
 name|ChannelHandlerContext
 name|ctx
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -562,18 +589,20 @@ name|channel
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
+name|NettyConfiguration
+name|configuration
+init|=
 name|producer
 operator|.
 name|getConfiguration
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|configuration
 operator|.
 name|isSync
 argument_list|()
-operator|&&
-operator|!
-name|messageReceived
 operator|&&
 operator|!
 name|exceptionHandled
@@ -586,6 +615,20 @@ literal|true
 expr_stmt|;
 comment|// session was closed but no message received. This could be because the remote server had an internal error
 comment|// and could not return a response. We should count down to stop waiting for a response
+name|String
+name|address
+init|=
+name|configuration
+operator|!=
+literal|null
+condition|?
+name|configuration
+operator|.
+name|getAddress
+argument_list|()
+else|:
+literal|""
+decl_stmt|;
 if|if
 condition|(
 name|LOG
@@ -600,13 +643,7 @@ name|debug
 argument_list|(
 literal|"Channel closed but no message received from address: {}"
 argument_list|,
-name|producer
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|getAddress
-argument_list|()
+name|address
 argument_list|)
 expr_stmt|;
 block|}
@@ -619,13 +656,7 @@ name|CamelExchangeException
 argument_list|(
 literal|"No response received from remote server: "
 operator|+
-name|producer
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|getAddress
-argument_list|()
+name|address
 argument_list|,
 name|exchange
 argument_list|)
@@ -640,6 +671,14 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+comment|// make sure the event can be processed by other handlers
+name|super
+operator|.
+name|channelInactive
+argument_list|(
+name|ctx
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

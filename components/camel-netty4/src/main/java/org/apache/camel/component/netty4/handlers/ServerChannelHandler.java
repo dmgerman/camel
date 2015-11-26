@@ -301,6 +301,8 @@ parameter_list|(
 name|ChannelHandlerContext
 name|ctx
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -337,6 +339,13 @@ name|channel
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
+name|channelActive
+argument_list|(
+name|ctx
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -348,6 +357,8 @@ parameter_list|(
 name|ChannelHandlerContext
 name|ctx
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 if|if
 condition|(
@@ -382,6 +393,13 @@ name|ctx
 operator|.
 name|channel
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|channelInactive
+argument_list|(
+name|ctx
 argument_list|)
 expr_stmt|;
 block|}
