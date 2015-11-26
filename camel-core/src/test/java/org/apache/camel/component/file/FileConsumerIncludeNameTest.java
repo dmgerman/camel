@@ -123,11 +123,11 @@ argument_list|)
 decl_stmt|;
 name|mock
 operator|.
-name|expectedBodiesReceived
+name|expectedBodiesReceivedInAnyOrder
 argument_list|(
-literal|"Reports"
+literal|"Reports1"
 argument_list|,
-literal|"Reports"
+literal|"Reports2"
 argument_list|,
 literal|"Reports3"
 argument_list|)
@@ -182,7 +182,7 @@ name|sendBodyAndHeader
 argument_list|(
 name|url
 argument_list|,
-literal|"Reports"
+literal|"Reports1"
 argument_list|,
 name|Exchange
 operator|.
@@ -212,7 +212,7 @@ name|sendBodyAndHeader
 argument_list|(
 name|url
 argument_list|,
-literal|"Reports"
+literal|"Reports2"
 argument_list|,
 name|Exchange
 operator|.
