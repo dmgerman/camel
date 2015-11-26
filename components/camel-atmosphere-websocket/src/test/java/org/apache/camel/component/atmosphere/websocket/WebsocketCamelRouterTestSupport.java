@@ -192,6 +192,11 @@ specifier|protected
 name|Server
 name|server
 decl_stmt|;
+DECL|field|servletHolder
+specifier|protected
+name|ServletHolder
+name|servletHolder
+decl_stmt|;
 annotation|@
 name|Before
 DECL|method|setUp ()
@@ -261,9 +266,8 @@ argument_list|(
 name|context
 argument_list|)
 expr_stmt|;
-name|ServletHolder
 name|servletHolder
-init|=
+operator|=
 operator|new
 name|ServletHolder
 argument_list|(
@@ -271,7 +275,7 @@ operator|new
 name|CamelWebSocketServlet
 argument_list|()
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|servletHolder
 operator|.
 name|setName
