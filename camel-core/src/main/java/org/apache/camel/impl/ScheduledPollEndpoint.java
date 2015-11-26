@@ -431,7 +431,11 @@ name|UriParam
 argument_list|(
 name|enums
 operator|=
-literal|"spring,quartz2"
+literal|"none,spring,quartz2"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"none"
 argument_list|,
 name|label
 operator|=
@@ -450,6 +454,8 @@ DECL|field|schedulerName
 specifier|private
 name|String
 name|schedulerName
+init|=
+literal|"none"
 decl_stmt|;
 comment|// used when configuring scheduler using a string value
 annotation|@
@@ -703,7 +709,23 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// special for scheduler if its "spring"
+if|if
+condition|(
+literal|"none"
+operator|.
+name|equals
+argument_list|(
+name|schedulerName
+argument_list|)
+condition|)
+block|{
+comment|// no cron scheduler in use
+name|scheduler
+operator|=
+literal|null
+expr_stmt|;
+block|}
+comment|// special for scheduler if its "spring" or "quartz2"
 if|if
 condition|(
 literal|"spring"
