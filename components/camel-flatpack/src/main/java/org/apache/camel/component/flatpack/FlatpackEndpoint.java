@@ -335,7 +335,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Processing fixed width or delimited files or messages using the FlatPack library.  *  * @version   */
+comment|/**  * Processing fixed width or delimited files or messages using the FlatPack library.  *  * @version  */
 end_comment
 
 begin_class
@@ -752,7 +752,8 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|allowShortLines
+name|isAllowShortLines
+argument_list|()
 condition|)
 block|{
 name|parser
@@ -772,7 +773,8 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ignoreExtraColumns
+name|isIgnoreExtraColumns
+argument_list|()
 condition|)
 block|{
 name|parser
@@ -822,6 +824,9 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+name|Parser
+name|parser
+decl_stmt|;
 if|if
 condition|(
 name|ObjectHelper
@@ -833,7 +838,8 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-return|return
+name|parser
+operator|=
 name|getParserFactory
 argument_list|()
 operator|.
@@ -845,7 +851,7 @@ name|delimiter
 argument_list|,
 name|textQualifier
 argument_list|)
-return|;
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -881,9 +887,8 @@ name|exchange
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|Parser
 name|parser
-init|=
+operator|=
 name|getParserFactory
 argument_list|()
 operator|.
@@ -899,7 +904,8 @@ name|textQualifier
 argument_list|,
 name|ignoreFirstRecord
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|isAllowShortLines
@@ -945,7 +951,6 @@ block|}
 return|return
 name|parser
 return|;
-block|}
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
