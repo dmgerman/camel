@@ -725,7 +725,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|// special for scheduler if its "spring" or "quartz2"
+elseif|else
 if|if
 condition|(
 literal|"spring"
@@ -736,6 +736,7 @@ name|schedulerName
 argument_list|)
 condition|)
 block|{
+comment|// special for scheduler if its "spring" or "quartz2"
 try|try
 block|{
 name|Class
@@ -808,6 +809,7 @@ name|schedulerName
 argument_list|)
 condition|)
 block|{
+comment|// special for scheduler if its "spring" or "quartz2"
 try|try
 block|{
 name|Class
@@ -871,6 +873,7 @@ block|}
 block|}
 else|else
 block|{
+comment|// must refer to a custom scheduler by the given name
 name|setScheduler
 argument_list|(
 name|CamelContextHelper
@@ -1674,7 +1677,7 @@ operator|=
 name|scheduler
 expr_stmt|;
 block|}
-comment|/**      * Allow to plugin a custom org.apache.camel.spi.ScheduledPollConsumerScheduler to use as the scheduler for      * firing when the polling consumer runs. This option is used for referring to one of the built-in schedulers      * either<tt>spring</tt>, or<tt>quartz2</tt>.      */
+comment|/**      * Allow to plugin a custom org.apache.camel.spi.ScheduledPollConsumerScheduler to use as the scheduler for      * firing when the polling consumer runs. This option is used for referring to one of the built-in schedulers      * either<tt>spring</tt>, or<tt>quartz2</tt>. Using<tt>none</tt> refers to no scheduler to be used.      */
 DECL|method|setScheduler (String schedulerName)
 specifier|public
 name|void
