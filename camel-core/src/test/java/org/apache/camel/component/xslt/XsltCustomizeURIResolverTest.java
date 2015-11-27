@@ -310,9 +310,6 @@ operator|.
 name|resolveMandatoryResourceAsInputStream
 argument_list|(
 name|context
-operator|.
-name|getClassResolver
-argument_list|()
 argument_list|,
 name|href
 argument_list|)

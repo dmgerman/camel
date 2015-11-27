@@ -344,7 +344,9 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"URL to a local resource on the classpath or a full URL to a remote resource or resource on the file system which contains the XSD to validate against."
+literal|"URL to a local resource on the classpath, or a reference to lookup a bean in the Registry,"
+operator|+
+literal|" or a full URL to a remote resource or resource on the file system which contains the XSD to validate against."
 argument_list|)
 annotation|@
 name|Metadata
@@ -581,9 +583,6 @@ name|resolveMandatoryResourceAsInputStream
 argument_list|(
 name|getCamelContext
 argument_list|()
-operator|.
-name|getClassResolver
-argument_list|()
 argument_list|,
 name|resourceUri
 argument_list|)
@@ -808,7 +807,7 @@ return|return
 name|resourceUri
 return|;
 block|}
-comment|/**      * URL to a local resource on the classpath or a full URL to a remote resource or resource on the file system which contains the XSD to validate against.      */
+comment|/**      * URL to a local resource on the classpath,or a reference to lookup a bean in the Registry,      * or a full URL to a remote resource or resource on the file system which contains the XSD to validate against.      */
 DECL|method|setResourceUri (String resourceUri)
 specifier|public
 name|void

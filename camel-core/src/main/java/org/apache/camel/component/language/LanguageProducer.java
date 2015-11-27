@@ -351,9 +351,6 @@ argument_list|()
 operator|.
 name|getCamelContext
 argument_list|()
-operator|.
-name|getClassResolver
-argument_list|()
 argument_list|,
 name|script
 argument_list|)

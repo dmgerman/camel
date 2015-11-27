@@ -290,7 +290,7 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"Path to the resource"
+literal|"Path to the resource, or a reference to lookup a bean in the Registry to use as the resource"
 argument_list|)
 annotation|@
 name|Metadata
@@ -476,9 +476,6 @@ name|resolveMandatoryResourceAsInputStream
 argument_list|(
 name|getCamelContext
 argument_list|()
-operator|.
-name|getClassResolver
-argument_list|()
 argument_list|,
 name|uri
 argument_list|)
@@ -630,7 +627,7 @@ return|return
 name|resourceUri
 return|;
 block|}
-comment|/**      * Path to the resource      *      * @param resourceUri  the resource path      */
+comment|/**      * Path to the resource, or a reference to lookup a bean in the Registry to use as the resource      *      * @param resourceUri  the resource path      */
 DECL|method|setResourceUri (String resourceUri)
 specifier|public
 name|void
