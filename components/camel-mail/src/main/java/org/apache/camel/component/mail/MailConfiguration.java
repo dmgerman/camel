@@ -1436,7 +1436,7 @@ name|protocol
 operator|+
 literal|".socketFactory.class"
 argument_list|,
-literal|"org.apache.camel.component.mail.security.DummySSLSocketFactory"
+literal|"org.apache.camel.component.mail.DummySSLSocketFactory"
 argument_list|)
 expr_stmt|;
 name|properties
