@@ -1263,9 +1263,6 @@ operator|.
 name|resolveMandatoryResourceAsInputStream
 argument_list|(
 name|context
-operator|.
-name|getClassResolver
-argument_list|()
 argument_list|,
 name|filename
 argument_list|)

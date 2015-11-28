@@ -971,9 +971,6 @@ name|exchange
 operator|.
 name|getContext
 argument_list|()
-operator|.
-name|getClassResolver
-argument_list|()
 argument_list|,
 name|getDefinition
 argument_list|()
@@ -1091,9 +1088,6 @@ argument_list|(
 name|exchange
 operator|.
 name|getContext
-argument_list|()
-operator|.
-name|getClassResolver
 argument_list|()
 argument_list|,
 name|getDefinition
@@ -1222,9 +1216,6 @@ name|exchange
 operator|.
 name|getContext
 argument_list|()
-operator|.
-name|getClassResolver
-argument_list|()
 argument_list|,
 name|getDefinition
 argument_list|()
@@ -1348,9 +1339,6 @@ argument_list|(
 name|exchange
 operator|.
 name|getContext
-argument_list|()
-operator|.
-name|getClassResolver
 argument_list|()
 argument_list|,
 name|getDefinition

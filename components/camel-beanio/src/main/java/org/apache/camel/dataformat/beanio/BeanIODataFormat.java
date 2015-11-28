@@ -520,9 +520,6 @@ name|resolveMandatoryResourceAsInputStream
 argument_list|(
 name|getCamelContext
 argument_list|()
-operator|.
-name|getClassResolver
-argument_list|()
 argument_list|,
 name|mapping
 argument_list|)

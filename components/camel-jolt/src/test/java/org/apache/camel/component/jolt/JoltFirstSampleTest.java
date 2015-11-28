@@ -134,9 +134,6 @@ operator|.
 name|resolveMandatoryResourceAsInputStream
 argument_list|(
 name|context
-operator|.
-name|getClassResolver
-argument_list|()
 argument_list|,
 literal|"org/apache/camel/component/jolt/firstSample/output.json"
 argument_list|)
@@ -156,9 +153,6 @@ operator|.
 name|resolveMandatoryResourceAsInputStream
 argument_list|(
 name|context
-operator|.
-name|getClassResolver
-argument_list|()
 argument_list|,
 literal|"org/apache/camel/component/jolt/firstSample/input.json"
 argument_list|)

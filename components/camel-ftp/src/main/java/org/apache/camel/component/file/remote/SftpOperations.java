@@ -1408,9 +1408,6 @@ name|endpoint
 operator|.
 name|getCamelContext
 argument_list|()
-operator|.
-name|getClassResolver
-argument_list|()
 argument_list|,
 name|sftpConfig
 operator|.
@@ -1673,9 +1670,6 @@ argument_list|(
 name|endpoint
 operator|.
 name|getCamelContext
-argument_list|()
-operator|.
-name|getClassResolver
 argument_list|()
 argument_list|,
 name|sftpConfig
