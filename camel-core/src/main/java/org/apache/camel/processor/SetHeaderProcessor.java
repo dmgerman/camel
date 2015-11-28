@@ -48,6 +48,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -156,7 +180,7 @@ decl_stmt|;
 DECL|field|headerName
 specifier|private
 specifier|final
-name|String
+name|Expression
 name|headerName
 decl_stmt|;
 DECL|field|expression
@@ -165,11 +189,11 @@ specifier|final
 name|Expression
 name|expression
 decl_stmt|;
-DECL|method|SetHeaderProcessor (String headerName, Expression expression)
+DECL|method|SetHeaderProcessor (Expression headerName, Expression expression)
 specifier|public
 name|SetHeaderProcessor
 parameter_list|(
-name|String
+name|Expression
 name|headerName
 parameter_list|,
 name|Expression
@@ -289,7 +313,10 @@ name|old
 operator|.
 name|setHeader
 argument_list|(
-name|headerName
+name|resolveHeaderNameByExchange
+argument_list|(
+name|exchange
+argument_list|)
 argument_list|,
 name|newHeader
 argument_list|)
@@ -318,6 +345,30 @@ argument_list|)
 expr_stmt|;
 return|return
 literal|true
+return|;
+block|}
+DECL|method|resolveHeaderNameByExchange (Exchange exchange)
+specifier|private
+name|String
+name|resolveHeaderNameByExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|this
+operator|.
+name|headerName
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
 return|;
 block|}
 annotation|@
@@ -392,6 +443,9 @@ parameter_list|()
 block|{
 return|return
 name|headerName
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 DECL|method|getExpression ()
@@ -414,7 +468,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+comment|//noop
 block|}
 annotation|@
 name|Override

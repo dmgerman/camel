@@ -518,6 +518,20 @@ name|OgnlHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A helper class for working with<a href="http://camel.apache.org/expression.html">expressions</a>.  *  * @version   */
 end_comment
@@ -7248,6 +7262,53 @@ literal|"file:modified"
 return|;
 block|}
 block|}
+return|;
+block|}
+comment|/**      * Returns Simple expression or fallbacks to Constant expression      * if expression str is not Simple expression.      */
+DECL|method|parseSimpleOrFallbackToConstantExpression (String str, CamelContext camelContext)
+specifier|public
+specifier|static
+name|Expression
+name|parseSimpleOrFallbackToConstantExpression
+parameter_list|(
+name|String
+name|str
+parameter_list|,
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+if|if
+condition|(
+name|StringHelper
+operator|.
+name|hasStartToken
+argument_list|(
+name|str
+argument_list|,
+literal|"simple"
+argument_list|)
+condition|)
+block|{
+return|return
+name|camelContext
+operator|.
+name|resolveLanguage
+argument_list|(
+literal|"simple"
+argument_list|)
+operator|.
+name|createExpression
+argument_list|(
+name|str
+argument_list|)
+return|;
+block|}
+return|return
+name|constantExpression
+argument_list|(
+name|str
+argument_list|)
 return|;
 block|}
 DECL|method|propertiesComponentExpression (final String key, final String locations)

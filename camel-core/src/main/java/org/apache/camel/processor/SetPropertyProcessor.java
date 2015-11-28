@@ -48,6 +48,30 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContextAware
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -144,7 +168,7 @@ decl_stmt|;
 DECL|field|propertyName
 specifier|private
 specifier|final
-name|String
+name|Expression
 name|propertyName
 decl_stmt|;
 DECL|field|expression
@@ -153,11 +177,11 @@ specifier|final
 name|Expression
 name|expression
 decl_stmt|;
-DECL|method|SetPropertyProcessor (String propertyName, Expression expression)
+DECL|method|SetPropertyProcessor (Expression propertyName, Expression expression)
 specifier|public
 name|SetPropertyProcessor
 parameter_list|(
-name|String
+name|Expression
 name|propertyName
 parameter_list|,
 name|Expression
@@ -254,7 +278,10 @@ name|exchange
 operator|.
 name|setProperty
 argument_list|(
-name|propertyName
+name|resolvePropertyNameByExchange
+argument_list|(
+name|exchange
+argument_list|)
 argument_list|,
 name|newProperty
 argument_list|)
@@ -283,6 +310,30 @@ argument_list|)
 expr_stmt|;
 return|return
 literal|true
+return|;
+block|}
+DECL|method|resolvePropertyNameByExchange (Exchange exchange)
+specifier|private
+name|String
+name|resolvePropertyNameByExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+return|return
+name|this
+operator|.
+name|propertyName
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
 return|;
 block|}
 annotation|@
@@ -357,6 +408,9 @@ parameter_list|()
 block|{
 return|return
 name|propertyName
+operator|.
+name|toString
+argument_list|()
 return|;
 block|}
 DECL|method|getExpression ()
@@ -379,7 +433,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+comment|//noop
 block|}
 annotation|@
 name|Override
