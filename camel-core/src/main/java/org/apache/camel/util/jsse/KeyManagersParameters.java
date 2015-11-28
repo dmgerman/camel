@@ -492,7 +492,7 @@ name|builder
 operator|.
 name|append
 argument_list|(
-literal|"KeyManagersParameters [keyStore="
+literal|"KeyManagersParameters[keyStore="
 argument_list|)
 expr_stmt|;
 name|builder
@@ -542,21 +542,6 @@ operator|.
 name|append
 argument_list|(
 name|algorithm
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|append
-argument_list|(
-literal|", getContext()="
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|append
-argument_list|(
-name|getCamelContext
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|builder

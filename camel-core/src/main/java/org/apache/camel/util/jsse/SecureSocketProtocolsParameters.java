@@ -122,7 +122,7 @@ name|builder
 operator|.
 name|append
 argument_list|(
-literal|"SecureSocketProtocolsParameters [secureSocketProtocol="
+literal|"SecureSocketProtocolsParameters[secureSocketProtocol="
 argument_list|)
 expr_stmt|;
 name|builder

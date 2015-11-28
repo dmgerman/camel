@@ -97,10 +97,6 @@ import|;
 end_import
 
 begin_comment
-comment|/* ------------------------------------------------------------ */
-end_comment
-
-begin_comment
 comment|/**  * KeyManager to select a key with desired alias while delegating processing to specified KeyManager Can be  * used both with server and client sockets  */
 end_comment
 
@@ -122,7 +118,6 @@ specifier|private
 name|X509KeyManager
 name|keyManager
 decl_stmt|;
-comment|/* ------------------------------------------------------------ */
 comment|/**      * Construct KeyManager instance      *       * @param keyAlias Alias of the key to be selected      * @param keyManager Instance of KeyManager to be wrapped      * @throws Exception      */
 DECL|method|AliasedX509ExtendedKeyManager (String keyAlias, X509KeyManager keyManager)
 specifier|public
@@ -150,8 +145,6 @@ operator|=
 name|keyManager
 expr_stmt|;
 block|}
-comment|/* ------------------------------------------------------------ */
-comment|/**      * @see javax.net.ssl.X509KeyManager#chooseClientAlias(java.lang.String[], java.security.Principal[],      *      java.net.Socket)      */
 DECL|method|chooseClientAlias (String[] keyType, Principal[] issuers, Socket socket)
 specifier|public
 name|String
@@ -188,8 +181,6 @@ else|:
 name|keyAlias
 return|;
 block|}
-comment|/* ------------------------------------------------------------ */
-comment|/**      * @see javax.net.ssl.X509KeyManager#chooseServerAlias(java.lang.String, java.security.Principal[],      *      java.net.Socket)      */
 DECL|method|chooseServerAlias (String keyType, Principal[] issuers, Socket socket)
 specifier|public
 name|String
@@ -225,8 +216,6 @@ else|:
 name|keyAlias
 return|;
 block|}
-comment|/* ------------------------------------------------------------ */
-comment|/**      * @see javax.net.ssl.X509KeyManager#getClientAliases(java.lang.String, java.security.Principal[])      */
 DECL|method|getClientAliases (String keyType, Principal[] issuers)
 specifier|public
 name|String
@@ -252,8 +241,6 @@ name|issuers
 argument_list|)
 return|;
 block|}
-comment|/* ------------------------------------------------------------ */
-comment|/**      * @see javax.net.ssl.X509KeyManager#getServerAliases(java.lang.String, java.security.Principal[])      */
 DECL|method|getServerAliases (String keyType, Principal[] issuers)
 specifier|public
 name|String
@@ -279,8 +266,6 @@ name|issuers
 argument_list|)
 return|;
 block|}
-comment|/* ------------------------------------------------------------ */
-comment|/**      * @see javax.net.ssl.X509KeyManager#getCertificateChain(java.lang.String)      */
 DECL|method|getCertificateChain (String alias)
 specifier|public
 name|X509Certificate
@@ -300,8 +285,6 @@ name|alias
 argument_list|)
 return|;
 block|}
-comment|/* ------------------------------------------------------------ */
-comment|/**      * @see javax.net.ssl.X509KeyManager#getPrivateKey(java.lang.String)      */
 DECL|method|getPrivateKey (String alias)
 specifier|public
 name|PrivateKey
@@ -320,8 +303,6 @@ name|alias
 argument_list|)
 return|;
 block|}
-comment|/* ------------------------------------------------------------ */
-comment|/**      * @see javax.net.ssl.X509ExtendedKeyManager#chooseEngineServerAlias(java.lang.String,      *      java.security.Principal[], javax.net.ssl.SSLEngine)      */
 annotation|@
 name|Override
 DECL|method|chooseEngineServerAlias (String keyType, Principal[] issuers, SSLEngine engine)
@@ -359,8 +340,6 @@ else|:
 name|keyAlias
 return|;
 block|}
-comment|/* ------------------------------------------------------------ */
-comment|/**      * @see javax.net.ssl.X509ExtendedKeyManager#chooseEngineClientAlias(String[], Principal[], SSLEngine)      */
 annotation|@
 name|Override
 DECL|method|chooseEngineClientAlias (String keyType[], Principal[] issuers, SSLEngine engine)

@@ -493,7 +493,7 @@ name|builder
 operator|.
 name|append
 argument_list|(
-literal|"FilterParameters [include="
+literal|"FilterParameters[include="
 argument_list|)
 expr_stmt|;
 name|builder
@@ -553,21 +553,6 @@ argument_list|()
 index|]
 argument_list|)
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|append
-argument_list|(
-literal|", getContext()="
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|append
-argument_list|(
-name|getCamelContext
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|builder

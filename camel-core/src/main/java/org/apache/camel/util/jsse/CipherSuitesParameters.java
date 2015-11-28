@@ -122,7 +122,7 @@ name|builder
 operator|.
 name|append
 argument_list|(
-literal|"CipherSuitesParameters [cipherSuite="
+literal|"CipherSuitesParameters[cipherSuite="
 argument_list|)
 expr_stmt|;
 name|builder

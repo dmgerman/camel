@@ -144,6 +144,12 @@ specifier|protected
 name|String
 name|algorithm
 decl_stmt|;
+comment|/**      * To use a existing configured trust manager instead of using {@link TrustManagerFactory} to      * get the {@link TrustManager}.      */
+DECL|field|trustManager
+specifier|protected
+name|TrustManager
+name|trustManager
+decl_stmt|;
 comment|/**      * Creates {@link TrustManager}s based on this instance's configuration and the      * {@code KeyStore} produced by the configuration returned from      * {@link #getKeyStore()}. The {@code KeyManager}s are produced from a      * factory created by using the provider and algorithm identifiers returned      * by {@link #getProvider()} and {@link #getAlgorithm()}, respectively. If      * either of these methods returns null, the default JSSE value is used      * instead.      *       * @return the initialized {@code TrustManager}s      * @throws GeneralSecurityException if there is an error creating the      *             {@code TrustManagers}s or in creating the {@code KeyStore}      * @throws IOException if there is an error loading the {@code KeyStore}      *      * @see KeyStoreParameters#createKeyStore()      */
 DECL|method|createTrustManagers ()
 specifier|public
@@ -156,6 +162,23 @@ name|GeneralSecurityException
 throws|,
 name|IOException
 block|{
+if|if
+condition|(
+name|trustManager
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// use existing trust manager
+return|return
+operator|new
+name|TrustManager
+index|[]
+block|{
+name|trustManager
+block|}
+return|;
+block|}
 name|LOG
 operator|.
 name|trace
@@ -409,6 +432,33 @@ operator|=
 name|value
 expr_stmt|;
 block|}
+DECL|method|getTrustManager ()
+specifier|public
+name|TrustManager
+name|getTrustManager
+parameter_list|()
+block|{
+return|return
+name|trustManager
+return|;
+block|}
+comment|/**      * To use a existing configured trust manager instead of using {@link TrustManagerFactory} to      * get the {@link TrustManager}.      */
+DECL|method|setTrustManager (TrustManager trustManager)
+specifier|public
+name|void
+name|setTrustManager
+parameter_list|(
+name|TrustManager
+name|trustManager
+parameter_list|)
+block|{
+name|this
+operator|.
+name|trustManager
+operator|=
+name|trustManager
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -424,11 +474,42 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|trustManager
+operator|!=
+literal|null
+condition|)
+block|{
 name|builder
 operator|.
 name|append
 argument_list|(
-literal|"TrustManagerType [keyStore="
+literal|"TrustManagerType[trustManager="
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|append
+argument_list|(
+name|trustManager
+argument_list|)
+expr_stmt|;
+name|builder
+operator|.
+name|append
+argument_list|(
+literal|"]"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|builder
+operator|.
+name|append
+argument_list|(
+literal|"TrustManagerType[keyStore="
 argument_list|)
 expr_stmt|;
 name|builder
@@ -470,24 +551,10 @@ name|builder
 operator|.
 name|append
 argument_list|(
-literal|", getContext()="
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|append
-argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|append
-argument_list|(
 literal|"]"
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|builder
 operator|.

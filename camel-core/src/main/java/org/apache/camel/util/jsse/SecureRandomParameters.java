@@ -286,7 +286,7 @@ name|builder
 operator|.
 name|append
 argument_list|(
-literal|"SecureRandomParameters [algorithm="
+literal|"SecureRandomParameters[algorithm="
 argument_list|)
 expr_stmt|;
 name|builder
@@ -308,21 +308,6 @@ operator|.
 name|append
 argument_list|(
 name|provider
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|append
-argument_list|(
-literal|", getContext()="
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|append
-argument_list|(
-name|getCamelContext
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|builder

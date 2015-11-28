@@ -287,7 +287,7 @@ name|builder
 operator|.
 name|append
 argument_list|(
-literal|"SSLContextClientParameters [getCipherSuites()="
+literal|"SSLContextClientParameters[getCipherSuites()="
 argument_list|)
 expr_stmt|;
 name|builder
@@ -355,21 +355,6 @@ operator|.
 name|append
 argument_list|(
 name|getSessionTimeout
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|append
-argument_list|(
-literal|", getContext()="
-argument_list|)
-expr_stmt|;
-name|builder
-operator|.
-name|append
-argument_list|(
-name|getCamelContext
 argument_list|()
 argument_list|)
 expr_stmt|;
