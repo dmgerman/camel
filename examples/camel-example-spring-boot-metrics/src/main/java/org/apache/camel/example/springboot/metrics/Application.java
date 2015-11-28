@@ -295,7 +295,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|" *** STARTING CAMEL METRICS EXAMPLE APPLICATION ***"
+literal|" *** Starting Camel Metrics Example Application ***"
 argument_list|)
 expr_stmt|;
 name|SpringApplication
@@ -422,7 +422,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer://foo?period=6000&daemon=false"
+literal|"timer://foo?period=6000"
 argument_list|)
 operator|.
 name|routeId
@@ -472,7 +472,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer://foo?period=2000&daemon=false"
+literal|"timer://foo?period=2000"
 argument_list|)
 operator|.
 name|routeId
@@ -523,7 +523,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Configuring camel metrics on all routes"
+literal|"Configuring Camel metrics on all routes"
 argument_list|)
 expr_stmt|;
 name|MetricsRoutePolicyFactory
@@ -547,6 +547,18 @@ argument_list|(
 name|fac
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|void
+name|afterApplicationStart
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+comment|// noop
 block|}
 block|}
 return|;
