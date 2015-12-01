@@ -124,7 +124,7 @@ name|amqp
 operator|.
 name|AMQPComponent
 operator|.
-name|amqp10Component
+name|amqpComponent
 import|;
 end_import
 
@@ -355,7 +355,7 @@ name|addComponent
 argument_list|(
 literal|"amqp1-0"
 argument_list|,
-name|amqp10Component
+name|amqpComponent
 argument_list|(
 literal|"amqp://localhost:5672"
 argument_list|)
