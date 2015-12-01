@@ -105,7 +105,10 @@ name|expectedHeaderReceived
 argument_list|(
 literal|"host"
 argument_list|,
-literal|"localhost"
+literal|"localhost:"
+operator|+
+name|getPort
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint

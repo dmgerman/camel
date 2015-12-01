@@ -347,7 +347,10 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong form parameter from the message header"
 argument_list|,
-literal|"localhost"
+literal|"localhost:"
+operator|+
+name|getPort
+argument_list|()
 argument_list|,
 name|exchange
 operator|.
