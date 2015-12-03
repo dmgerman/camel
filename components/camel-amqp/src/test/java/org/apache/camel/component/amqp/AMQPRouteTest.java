@@ -80,9 +80,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|jms
+name|mock
 operator|.
-name|JmsConstants
+name|MockEndpoint
 import|;
 end_import
 
@@ -94,11 +94,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|impl
 operator|.
-name|mock
-operator|.
-name|MockEndpoint
+name|JndiRegistry
 import|;
 end_import
 
@@ -314,7 +312,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"amqp:queue:ping"
+literal|"amqp-customized:queue:ping"
 argument_list|,
 name|expectedBody
 argument_list|,
@@ -344,7 +342,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"amqp:queue:inOut"
+literal|"amqp-customized:queue:inOut"
 argument_list|,
 name|expectedBody
 argument_list|,
@@ -399,7 +397,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"amqp:topic:ping"
+literal|"amqp-customized:topic:ping"
 argument_list|,
 name|expectedBody
 argument_list|,
@@ -435,7 +433,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"amqp:wildcard.foo.bar"
+literal|"amqp-customized:wildcard.foo.bar"
 argument_list|,
 name|expectedBody
 argument_list|)
@@ -484,7 +482,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"amqp:queue:ping"
+literal|"amqp-customized:queue:ping"
 argument_list|,
 name|expectedBody
 argument_list|)
@@ -496,6 +494,43 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// Routes fixtures
+annotation|@
+name|Override
+DECL|method|createRegistry ()
+specifier|protected
+name|JndiRegistry
+name|createRegistry
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|JndiRegistry
+name|registry
+init|=
+name|super
+operator|.
+name|createRegistry
+argument_list|()
+decl_stmt|;
+name|registry
+operator|.
+name|bind
+argument_list|(
+literal|"amqpConnection"
+argument_list|,
+operator|new
+name|AMQPConnectionDetails
+argument_list|(
+literal|"amqp://localhost:"
+operator|+
+name|amqpPort
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|registry
+return|;
+block|}
 DECL|method|createCamelContext ()
 specifier|protected
 name|CamelContext
@@ -516,7 +551,7 @@ name|camelContext
 operator|.
 name|addComponent
 argument_list|(
-literal|"amqp"
+literal|"amqp-customized"
 argument_list|,
 name|amqpComponent
 argument_list|(
@@ -552,7 +587,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"amqp:queue:ping"
+literal|"amqp-customized:queue:ping"
 argument_list|)
 operator|.
 name|to
@@ -567,7 +602,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"amqp:queue:inOut"
+literal|"amqp-customized:queue:inOut"
 argument_list|)
 operator|.
 name|setBody
@@ -580,7 +615,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"amqp:topic:ping"
+literal|"amqp-customized:topic:ping"
 argument_list|)
 operator|.
 name|to
@@ -595,7 +630,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"amqp:topic:ping"
+literal|"amqp-customized:topic:ping"
 argument_list|)
 operator|.
 name|to
@@ -610,7 +645,22 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"amqp:queue:wildcard.>"
+literal|"amqp-customized:queue:wildcard.>"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:routing"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:result"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"amqp:queue:uriEndpoint"
 argument_list|)
 operator|.
 name|to
