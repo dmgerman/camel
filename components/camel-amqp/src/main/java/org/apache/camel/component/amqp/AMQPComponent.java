@@ -108,6 +108,7 @@ name|AMQPComponent
 extends|extends
 name|JmsComponent
 block|{
+comment|// Constructors
 DECL|method|AMQPComponent ()
 specifier|public
 name|AMQPComponent
@@ -167,6 +168,7 @@ name|connectionFactory
 argument_list|)
 expr_stmt|;
 block|}
+comment|// Factory methods
 comment|/**      * Use {@code amqpComponent(String uri)} instead.      */
 annotation|@
 name|Deprecated
@@ -222,6 +224,50 @@ init|=
 operator|new
 name|JmsConnectionFactory
 argument_list|(
+name|uri
+argument_list|)
+decl_stmt|;
+name|connectionFactory
+operator|.
+name|setTopicPrefix
+argument_list|(
+literal|"topic://"
+argument_list|)
+expr_stmt|;
+return|return
+operator|new
+name|AMQPComponent
+argument_list|(
+name|connectionFactory
+argument_list|)
+return|;
+block|}
+DECL|method|amqpComponent (String uri, String username, String password)
+specifier|public
+specifier|static
+name|AMQPComponent
+name|amqpComponent
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|String
+name|username
+parameter_list|,
+name|String
+name|password
+parameter_list|)
+block|{
+name|JmsConnectionFactory
+name|connectionFactory
+init|=
+operator|new
+name|JmsConnectionFactory
+argument_list|(
+name|username
+argument_list|,
+name|password
+argument_list|,
 name|uri
 argument_list|)
 decl_stmt|;
