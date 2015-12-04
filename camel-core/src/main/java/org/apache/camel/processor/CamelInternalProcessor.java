@@ -178,20 +178,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultMessageHistory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|management
 operator|.
 name|DelegatePerformanceCounter
@@ -301,6 +287,20 @@ operator|.
 name|spi
 operator|.
 name|InflightRepository
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|MessageHistoryFactory
 import|;
 end_import
 
@@ -3088,6 +3088,12 @@ argument_list|<
 name|MessageHistory
 argument_list|>
 block|{
+DECL|field|factory
+specifier|private
+specifier|final
+name|MessageHistoryFactory
+name|factory
+decl_stmt|;
 DECL|field|definition
 specifier|private
 specifier|final
@@ -3103,10 +3109,13 @@ specifier|final
 name|String
 name|routeId
 decl_stmt|;
-DECL|method|MessageHistoryAdvice (ProcessorDefinition<?> definition)
+DECL|method|MessageHistoryAdvice (MessageHistoryFactory factory, ProcessorDefinition<?> definition)
 specifier|public
 name|MessageHistoryAdvice
 parameter_list|(
+name|MessageHistoryFactory
+name|factory
+parameter_list|,
 name|ProcessorDefinition
 argument_list|<
 name|?
@@ -3114,6 +3123,12 @@ argument_list|>
 name|definition
 parameter_list|)
 block|{
+name|this
+operator|.
+name|factory
+operator|=
+name|factory
+expr_stmt|;
 name|this
 operator|.
 name|definition
@@ -3195,8 +3210,9 @@ block|}
 name|MessageHistory
 name|history
 init|=
-operator|new
-name|DefaultMessageHistory
+name|factory
+operator|.
+name|newMessageHistory
 argument_list|(
 name|routeId
 argument_list|,

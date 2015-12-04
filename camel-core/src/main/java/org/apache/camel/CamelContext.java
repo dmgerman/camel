@@ -514,6 +514,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|MessageHistoryFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|ModelJAXBContextFactory
 import|;
 end_import
@@ -2193,6 +2207,23 @@ name|setProcessorFactory
 parameter_list|(
 name|ProcessorFactory
 name|processorFactory
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the current {@link org.apache.camel.spi.MessageHistoryFactory}      *      * @return the factory      */
+DECL|method|getMessageHistoryFactory ()
+specifier|public
+name|MessageHistoryFactory
+name|getMessageHistoryFactory
+parameter_list|()
+function_decl|;
+comment|/**      * Sets a custom {@link org.apache.camel.spi.MessageHistoryFactory}      *      * @param messageHistoryFactory the custom factory      */
+DECL|method|setMessageHistoryFactory (MessageHistoryFactory messageHistoryFactory)
+specifier|public
+name|void
+name|setMessageHistoryFactory
+parameter_list|(
+name|MessageHistoryFactory
+name|messageHistoryFactory
 parameter_list|)
 function_decl|;
 comment|/**      * Gets the current {@link Debugger}      *      * @return the debugger      */
