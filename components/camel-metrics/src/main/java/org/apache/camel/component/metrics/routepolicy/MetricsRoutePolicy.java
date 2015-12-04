@@ -744,7 +744,6 @@ argument_list|,
 name|type
 argument_list|)
 expr_stmt|;
-comment|// use dot to separate context from route, and dot for the type name
 return|return
 name|answer
 return|;
