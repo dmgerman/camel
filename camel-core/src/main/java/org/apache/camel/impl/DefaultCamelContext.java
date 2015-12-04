@@ -16687,6 +16687,11 @@ argument_list|(
 name|restRegistry
 argument_list|)
 expr_stmt|;
+name|addService
+argument_list|(
+name|messageHistoryFactory
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|runtimeEndpointRegistry
