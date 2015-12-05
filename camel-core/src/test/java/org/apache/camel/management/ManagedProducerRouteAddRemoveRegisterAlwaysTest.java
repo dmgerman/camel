@@ -105,7 +105,7 @@ specifier|private
 name|int
 name|services
 init|=
-literal|11
+literal|8
 decl_stmt|;
 annotation|@
 name|Override
