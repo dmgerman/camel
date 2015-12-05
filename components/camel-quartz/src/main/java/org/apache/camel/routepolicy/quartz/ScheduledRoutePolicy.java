@@ -58,6 +58,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NonManagedService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Route
 import|;
 end_import
@@ -202,6 +214,8 @@ extends|extends
 name|RoutePolicySupport
 implements|implements
 name|ScheduledRoutePolicyConstants
+implements|,
+name|NonManagedService
 block|{
 DECL|field|LOG
 specifier|private
