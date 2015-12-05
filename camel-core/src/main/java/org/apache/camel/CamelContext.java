@@ -2211,14 +2211,12 @@ parameter_list|)
 function_decl|;
 comment|/**      * Gets the current {@link org.apache.camel.spi.MessageHistoryFactory}      *      * @return the factory      */
 DECL|method|getMessageHistoryFactory ()
-specifier|public
 name|MessageHistoryFactory
 name|getMessageHistoryFactory
 parameter_list|()
 function_decl|;
 comment|/**      * Sets a custom {@link org.apache.camel.spi.MessageHistoryFactory}      *      * @param messageHistoryFactory the custom factory      */
 DECL|method|setMessageHistoryFactory (MessageHistoryFactory messageHistoryFactory)
-specifier|public
 name|void
 name|setMessageHistoryFactory
 parameter_list|(
