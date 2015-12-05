@@ -1228,7 +1228,10 @@ operator|.
 name|getValue
 argument_list|()
 operator|.
-name|getProperty
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
 argument_list|(
 name|KinesisConstants
 operator|.
@@ -1252,7 +1255,10 @@ operator|.
 name|getValue
 argument_list|()
 operator|.
-name|getProperty
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
 argument_list|(
 name|KinesisConstants
 operator|.
@@ -1276,7 +1282,10 @@ operator|.
 name|getValue
 argument_list|()
 operator|.
-name|getProperty
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
 argument_list|(
 name|KinesisConstants
 operator|.
@@ -1300,7 +1309,10 @@ operator|.
 name|getValue
 argument_list|()
 operator|.
-name|getProperty
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
 argument_list|(
 name|KinesisConstants
 operator|.
