@@ -356,6 +356,12 @@ name|IOException
 throws|,
 name|ServletException
 block|{
+name|this
+operator|.
+name|enableEventsResending
+operator|=
+name|enableEventsResending
+expr_stmt|;
 name|framework
 operator|.
 name|doCometSupport
@@ -374,12 +380,6 @@ argument_list|(
 name|response
 argument_list|)
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|enableEventsResending
-operator|=
-name|enableEventsResending
 expr_stmt|;
 block|}
 DECL|method|sendMessage (final String connectionKey, Object message)
