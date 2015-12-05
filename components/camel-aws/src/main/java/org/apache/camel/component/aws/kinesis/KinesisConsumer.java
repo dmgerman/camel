@@ -22,6 +22,36 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|ArrayDeque
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Queue
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|amazonaws
@@ -143,36 +173,6 @@ operator|.
 name|model
 operator|.
 name|Record
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|ArrayDeque
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|List
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Queue
 import|;
 end_import
 
@@ -302,8 +302,6 @@ DECL|field|currentShardIterator
 specifier|private
 name|String
 name|currentShardIterator
-init|=
-literal|null
 decl_stmt|;
 DECL|method|KinesisConsumer (KinesisEndpoint endpoint, Processor processor)
 specifier|public
@@ -324,7 +322,6 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
-comment|/*      * Returns the number of messages polled.      */
 annotation|@
 name|Override
 DECL|method|poll ()
@@ -397,8 +394,8 @@ argument_list|)
 decl_stmt|;
 comment|// May cache the last successful sequence number, and pass it to the
 comment|// getRecords request. That way, on the next poll, we start from where
-comment|// we left off, however, I don't know what happens to subsiquent
-comment|// exchanges when an earlier echange fails.
+comment|// we left off, however, I don't know what happens to subsequent
+comment|// exchanges when an earlier echangee fails.
 name|currentShardIterator
 operator|=
 name|result

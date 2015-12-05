@@ -200,6 +200,10 @@ name|syntax
 operator|=
 literal|"aws-kinesis:streamName"
 argument_list|,
+name|consumerOnly
+operator|=
+literal|true
+argument_list|,
 name|consumerClass
 operator|=
 name|KinesisConsumer
@@ -222,7 +226,7 @@ name|UriPath
 argument_list|(
 name|label
 operator|=
-literal|"consumer,producer"
+literal|"consumer"
 argument_list|,
 name|description
 operator|=
@@ -274,6 +278,10 @@ argument_list|,
 name|description
 operator|=
 literal|"Maximum number of records that will be fetched in each poll"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"1"
 argument_list|)
 DECL|field|maxResultsPerRequest
 specifier|private
@@ -455,7 +463,6 @@ name|boolean
 name|isSingleton
 parameter_list|()
 block|{
-comment|// probably right.
 return|return
 literal|true
 return|;
@@ -583,9 +590,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"KinesisEndpoint{"
-operator|+
-literal|"amazonKinesisClient=[redacted], maxResultsPerRequest="
+literal|"KinesisEndpoint{amazonKinesisClient=[redacted], maxResultsPerRequest="
 operator|+
 name|maxResultsPerRequest
 operator|+

@@ -22,22 +22,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|amazonaws
-operator|.
-name|services
-operator|.
-name|kinesis
-operator|.
-name|model
-operator|.
-name|Record
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|nio
@@ -59,14 +43,18 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
+import|import
+name|com
 operator|.
-name|hamcrest
+name|amazonaws
 operator|.
-name|CoreMatchers
+name|services
 operator|.
-name|is
+name|kinesis
+operator|.
+name|model
+operator|.
+name|Record
 import|;
 end_import
 
@@ -84,11 +72,23 @@ begin_import
 import|import static
 name|org
 operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
 name|junit
 operator|.
 name|Assert
 operator|.
-name|*
+name|assertThat
 import|;
 end_import
 

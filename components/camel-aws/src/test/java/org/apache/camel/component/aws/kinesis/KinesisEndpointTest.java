@@ -91,30 +91,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|CoreMatchers
-operator|.
-name|is
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertThat
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -168,6 +144,30 @@ name|MockitoJUnitRunner
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|is
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertThat
+import|;
+end_import
+
 begin_class
 annotation|@
 name|RunWith
@@ -181,9 +181,9 @@ specifier|public
 class|class
 name|KinesisEndpointTest
 block|{
-DECL|field|amazonKinesisClient
 annotation|@
 name|Mock
+DECL|field|amazonKinesisClient
 specifier|private
 name|AmazonKinesis
 name|amazonKinesisClient
