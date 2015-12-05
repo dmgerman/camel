@@ -285,10 +285,10 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testMetricsRoutePolicy ()
+DECL|method|testMessageHistory ()
 specifier|public
 name|void
-name|testMetricsRoutePolicy
+name|testMessageHistory
 parameter_list|()
 throws|throws
 name|Exception
