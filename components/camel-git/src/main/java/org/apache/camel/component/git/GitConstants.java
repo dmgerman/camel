@@ -42,6 +42,18 @@ name|GIT_COMMIT_MESSAGE
 init|=
 literal|"CamelGitCommitMessage"
 decl_stmt|;
+DECL|field|GIT_COMMIT_USERNAME
+name|String
+name|GIT_COMMIT_USERNAME
+init|=
+literal|"CamelGitCommitUsername"
+decl_stmt|;
+DECL|field|GIT_COMMIT_EMAIL
+name|String
+name|GIT_COMMIT_EMAIL
+init|=
+literal|"CamelGitCommitEmail"
+decl_stmt|;
 block|}
 end_interface
 
