@@ -242,6 +242,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NonManagedService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -2595,6 +2607,18 @@ operator|||
 name|service
 operator|instanceof
 name|InstrumentationProcessor
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
+comment|// skip non managed services
+if|if
+condition|(
+name|service
+operator|instanceof
+name|NonManagedService
 condition|)
 block|{
 return|return

@@ -24,6 +24,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NonManagedService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|TimerListenerManager
@@ -41,6 +53,8 @@ class|class
 name|ManagedLoadTimer
 extends|extends
 name|TimerListenerManager
+implements|implements
+name|NonManagedService
 block|{
 comment|// empty on purpose
 block|}

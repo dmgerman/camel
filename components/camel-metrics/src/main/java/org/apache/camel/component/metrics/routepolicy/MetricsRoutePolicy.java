@@ -88,6 +88,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NonManagedService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Route
 import|;
 end_import
@@ -131,6 +143,8 @@ class|class
 name|MetricsRoutePolicy
 extends|extends
 name|RoutePolicySupport
+implements|implements
+name|NonManagedService
 block|{
 DECL|field|metricsRegistry
 specifier|private
