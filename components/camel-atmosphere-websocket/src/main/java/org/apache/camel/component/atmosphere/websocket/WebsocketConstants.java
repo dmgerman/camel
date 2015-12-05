@@ -40,6 +40,15 @@ name|CONNECTION_KEY
 init|=
 literal|"websocket.connectionKey"
 decl_stmt|;
+DECL|field|CONNECTION_KEY_LIST
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|CONNECTION_KEY_LIST
+init|=
+literal|"websocket.connectionKey.list"
+decl_stmt|;
 DECL|field|SEND_TO_ALL
 specifier|public
 specifier|static
@@ -57,6 +66,15 @@ name|String
 name|EVENT_TYPE
 init|=
 literal|"websocket.eventType"
+decl_stmt|;
+DECL|field|ERROR_TYPE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|ERROR_TYPE
+init|=
+literal|"websocket.errorType"
 decl_stmt|;
 DECL|field|ONOPEN_EVENT_TYPE
 specifier|public
@@ -84,6 +102,15 @@ name|int
 name|ONERROR_EVENT_TYPE
 init|=
 operator|-
+literal|1
+decl_stmt|;
+DECL|field|MESSAGE_NOT_SENT_ERROR_TYPE
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|MESSAGE_NOT_SENT_ERROR_TYPE
+init|=
 literal|1
 decl_stmt|;
 DECL|method|WebsocketConstants ()

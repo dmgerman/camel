@@ -194,6 +194,11 @@ specifier|private
 name|WebSocketStore
 name|store
 decl_stmt|;
+DECL|field|websocketConsumer
+specifier|private
+name|WebsocketConsumer
+name|websocketConsumer
+decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
@@ -331,7 +336,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+name|websocketConsumer
+operator|=
 operator|new
 name|WebsocketConsumer
 argument_list|(
@@ -339,6 +345,9 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
+expr_stmt|;
+return|return
+name|websocketConsumer
 return|;
 block|}
 annotation|@
@@ -414,6 +423,16 @@ parameter_list|()
 block|{
 return|return
 name|store
+return|;
+block|}
+DECL|method|getWebsocketConsumer ()
+specifier|public
+name|WebsocketConsumer
+name|getWebsocketConsumer
+parameter_list|()
+block|{
+return|return
+name|websocketConsumer
 return|;
 block|}
 block|}
