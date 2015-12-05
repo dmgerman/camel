@@ -422,6 +422,7 @@ name|size
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// get the message history service using JMX
 name|String
 name|name
 init|=
