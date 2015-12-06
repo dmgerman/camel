@@ -44,7 +44,7 @@ name|LUCENE_VERSION
 init|=
 name|Version
 operator|.
-name|LUCENE_4_10_4
+name|LUCENE_5_2_1
 decl_stmt|;
 block|}
 end_interface

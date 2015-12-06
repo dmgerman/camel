@@ -337,6 +337,9 @@ operator|new
 name|NIOFSDirectory
 argument_list|(
 name|indexDirectory
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -355,6 +358,9 @@ name|File
 argument_list|(
 literal|"./indexDirectory"
 argument_list|)
+operator|.
+name|toPath
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -851,10 +857,6 @@ operator|=
 operator|new
 name|IndexWriterConfig
 argument_list|(
-name|LuceneConstants
-operator|.
-name|LUCENE_VERSION
-argument_list|,
 name|getAnalyzer
 argument_list|()
 argument_list|)
@@ -913,13 +915,7 @@ operator|new
 name|FieldType
 argument_list|()
 decl_stmt|;
-name|answer
-operator|.
-name|setIndexed
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
+comment|//answer.setIndexed(true);
 name|answer
 operator|.
 name|setStored

@@ -899,7 +899,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"elasticsearch://local?operation=INDEX&indexName=twitter&indexType=tweet&replicationType=SYNC"
+literal|"elasticsearch://local?operation=INDEX&indexName=twitter&indexType=tweet"
 argument_list|)
 expr_stmt|;
 name|from

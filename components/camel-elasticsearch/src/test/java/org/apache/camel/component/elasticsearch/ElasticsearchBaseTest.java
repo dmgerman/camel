@@ -88,7 +88,7 @@ name|common
 operator|.
 name|settings
 operator|.
-name|ImmutableSettings
+name|Settings
 import|;
 end_import
 
@@ -185,7 +185,7 @@ argument_list|)
 operator|.
 name|settings
 argument_list|(
-name|ImmutableSettings
+name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
@@ -202,6 +202,13 @@ argument_list|(
 literal|"path.data"
 argument_list|,
 literal|"target/data"
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"path.home"
+argument_list|,
+literal|"target/home"
 argument_list|)
 argument_list|)
 operator|.
