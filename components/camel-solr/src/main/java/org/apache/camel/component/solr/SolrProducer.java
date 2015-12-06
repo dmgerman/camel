@@ -118,6 +118,22 @@ name|client
 operator|.
 name|solrj
 operator|.
+name|SolrClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|client
+operator|.
+name|solrj
+operator|.
 name|SolrServer
 import|;
 end_import
@@ -218,33 +234,33 @@ name|DefaultProducer
 block|{
 DECL|field|httpServer
 specifier|private
-name|SolrServer
+name|SolrClient
 name|httpServer
 decl_stmt|;
 DECL|field|concSolrServer
 specifier|private
-name|SolrServer
+name|SolrClient
 name|concSolrServer
 decl_stmt|;
 DECL|field|cloudSolrServer
 specifier|private
-name|SolrServer
+name|SolrClient
 name|cloudSolrServer
 decl_stmt|;
-DECL|method|SolrProducer (SolrEndpoint endpoint, SolrServer solrServer, SolrServer concSolrServer, SolrServer cloudSolrServer)
+DECL|method|SolrProducer (SolrEndpoint endpoint, SolrClient solrServer, SolrClient concSolrServer, SolrClient cloudSolrServer)
 specifier|public
 name|SolrProducer
 parameter_list|(
 name|SolrEndpoint
 name|endpoint
 parameter_list|,
-name|SolrServer
+name|SolrClient
 name|solrServer
 parameter_list|,
-name|SolrServer
+name|SolrClient
 name|concSolrServer
 parameter_list|,
-name|SolrServer
+name|SolrClient
 name|cloudSolrServer
 parameter_list|)
 block|{
@@ -274,7 +290,7 @@ expr_stmt|;
 block|}
 DECL|method|getBestSolrServer (String operation)
 specifier|private
-name|SolrServer
+name|SolrClient
 name|getBestSolrServer
 parameter_list|(
 name|String
@@ -374,7 +390,7 @@ literal|" header is missing"
 argument_list|)
 throw|;
 block|}
-name|SolrServer
+name|SolrClient
 name|serverToUse
 init|=
 name|getBestSolrServer
@@ -619,7 +635,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|insert (Exchange exchange, SolrServer solrServer)
+DECL|method|insert (Exchange exchange, SolrClient solrServer)
 specifier|private
 name|void
 name|insert
@@ -627,7 +643,7 @@ parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|,
-name|SolrServer
+name|SolrClient
 name|solrServer
 parameter_list|)
 throws|throws

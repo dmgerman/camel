@@ -168,7 +168,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|CloudSolrServer
+name|CloudSolrClient
 import|;
 end_import
 
@@ -186,7 +186,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|ConcurrentUpdateSolrServer
+name|ConcurrentUpdateSolrClient
 import|;
 end_import
 
@@ -204,7 +204,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|HttpSolrServer
+name|HttpSolrClient
 import|;
 end_import
 
@@ -540,11 +540,11 @@ return|;
 block|}
 DECL|method|getCloudServer ()
 specifier|private
-name|CloudSolrServer
+name|CloudSolrClient
 name|getCloudServer
 parameter_list|()
 block|{
-name|CloudSolrServer
+name|CloudSolrClient
 name|rVal
 init|=
 literal|null
@@ -569,7 +569,7 @@ block|{
 name|rVal
 operator|=
 operator|new
-name|CloudSolrServer
+name|CloudSolrClient
 argument_list|(
 name|zkHost
 argument_list|)
@@ -629,7 +629,7 @@ operator|.
 name|SolrServerReference
 argument_list|()
 expr_stmt|;
-name|CloudSolrServer
+name|CloudSolrClient
 name|cloudServer
 init|=
 name|getCloudServer
@@ -642,20 +642,20 @@ operator|==
 literal|null
 condition|)
 block|{
-name|HttpSolrServer
+name|HttpSolrClient
 name|solrServer
 init|=
 operator|new
-name|HttpSolrServer
+name|HttpSolrClient
 argument_list|(
 name|url
 argument_list|)
 decl_stmt|;
-name|ConcurrentUpdateSolrServer
+name|ConcurrentUpdateSolrClient
 name|solrStreamingServer
 init|=
 operator|new
-name|ConcurrentUpdateSolrServer
+name|ConcurrentUpdateSolrClient
 argument_list|(
 name|url
 argument_list|,

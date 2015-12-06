@@ -22,6 +22,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Arrays
@@ -69,6 +79,22 @@ operator|.
 name|builder
 operator|.
 name|RouteBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|solr
+operator|.
+name|client
+operator|.
+name|solrj
+operator|.
+name|SolrClient
 import|;
 end_import
 
@@ -416,6 +442,8 @@ name|query
 parameter_list|)
 throws|throws
 name|SolrServerException
+throws|,
+name|IOException
 block|{
 name|SolrQuery
 name|solrQuery
@@ -431,7 +459,7 @@ argument_list|(
 name|query
 argument_list|)
 expr_stmt|;
-name|SolrServer
+name|SolrClient
 name|solrServer
 init|=
 name|solrFixtures

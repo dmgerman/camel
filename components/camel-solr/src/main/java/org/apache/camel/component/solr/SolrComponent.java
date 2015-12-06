@@ -22,6 +22,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashMap
@@ -90,7 +100,7 @@ name|client
 operator|.
 name|solrj
 operator|.
-name|SolrServer
+name|SolrClient
 import|;
 end_import
 
@@ -108,7 +118,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|CloudSolrServer
+name|CloudSolrClient
 import|;
 end_import
 
@@ -126,7 +136,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|ConcurrentUpdateSolrServer
+name|ConcurrentUpdateSolrClient
 import|;
 end_import
 
@@ -144,7 +154,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|HttpSolrServer
+name|HttpSolrClient
 import|;
 end_import
 
@@ -235,22 +245,22 @@ argument_list|()
 decl_stmt|;
 DECL|field|solrServer
 specifier|private
-name|HttpSolrServer
+name|HttpSolrClient
 name|solrServer
 decl_stmt|;
 DECL|field|updateSolrServer
 specifier|private
-name|ConcurrentUpdateSolrServer
+name|ConcurrentUpdateSolrClient
 name|updateSolrServer
 decl_stmt|;
 DECL|field|cloudSolrServer
 specifier|private
-name|CloudSolrServer
+name|CloudSolrClient
 name|cloudSolrServer
 decl_stmt|;
 DECL|method|getSolrServer ()
 specifier|public
-name|HttpSolrServer
+name|HttpSolrClient
 name|getSolrServer
 parameter_list|()
 block|{
@@ -258,12 +268,12 @@ return|return
 name|solrServer
 return|;
 block|}
-DECL|method|setSolrServer (HttpSolrServer solrServer)
+DECL|method|setSolrServer (HttpSolrClient solrServer)
 specifier|public
 name|void
 name|setSolrServer
 parameter_list|(
-name|HttpSolrServer
+name|HttpSolrClient
 name|solrServer
 parameter_list|)
 block|{
@@ -276,7 +286,7 @@ expr_stmt|;
 block|}
 DECL|method|getUpdateSolrServer ()
 specifier|public
-name|ConcurrentUpdateSolrServer
+name|ConcurrentUpdateSolrClient
 name|getUpdateSolrServer
 parameter_list|()
 block|{
@@ -284,12 +294,12 @@ return|return
 name|updateSolrServer
 return|;
 block|}
-DECL|method|setUpdateSolrServer (ConcurrentUpdateSolrServer updateSolrServer)
+DECL|method|setUpdateSolrServer (ConcurrentUpdateSolrClient updateSolrServer)
 specifier|public
 name|void
 name|setUpdateSolrServer
 parameter_list|(
-name|ConcurrentUpdateSolrServer
+name|ConcurrentUpdateSolrClient
 name|updateSolrServer
 parameter_list|)
 block|{
@@ -302,7 +312,7 @@ expr_stmt|;
 block|}
 DECL|method|getCloudSolrServer ()
 specifier|public
-name|CloudSolrServer
+name|CloudSolrClient
 name|getCloudSolrServer
 parameter_list|()
 block|{
@@ -310,12 +320,12 @@ return|return
 name|cloudSolrServer
 return|;
 block|}
-DECL|method|setCloudSolrServer (CloudSolrServer cloudServer)
+DECL|method|setCloudSolrServer (CloudSolrClient cloudServer)
 specifier|public
 name|void
 name|setCloudSolrServer
 parameter_list|(
-name|CloudSolrServer
+name|CloudSolrClient
 name|cloudServer
 parameter_list|)
 block|{
@@ -503,14 +513,16 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|shutdownServer (SolrServer server)
+DECL|method|shutdownServer (SolrClient server)
 specifier|private
 name|void
 name|shutdownServer
 parameter_list|(
-name|SolrServer
+name|SolrClient
 name|server
 parameter_list|)
+throws|throws
+name|IOException
 block|{
 if|if
 condition|(
@@ -530,7 +542,7 @@ argument_list|)
 expr_stmt|;
 name|server
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 block|}

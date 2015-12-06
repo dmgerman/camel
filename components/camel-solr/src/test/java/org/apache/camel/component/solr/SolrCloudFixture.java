@@ -102,7 +102,7 @@ name|solrj
 operator|.
 name|impl
 operator|.
-name|CloudSolrServer
+name|CloudSolrClient
 import|;
 end_import
 
@@ -341,7 +341,7 @@ name|SolrZkClient
 name|zkClient
 decl_stmt|;
 DECL|field|solrClient
-name|CloudSolrServer
+name|CloudSolrClient
 name|solrClient
 decl_stmt|;
 DECL|method|SolrCloudFixture (String solrHome)
@@ -362,6 +362,12 @@ argument_list|(
 literal|1
 argument_list|,
 literal|"/solr"
+argument_list|,
+operator|new
+name|File
+argument_list|(
+literal|"target/tmp"
+argument_list|)
 argument_list|,
 operator|new
 name|File
@@ -477,7 +483,7 @@ block|}
 name|solrClient
 operator|=
 operator|new
-name|CloudSolrServer
+name|CloudSolrClient
 argument_list|(
 name|zkAddr
 argument_list|,
@@ -583,7 +589,7 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createCollection (CloudSolrServer server, String name, int numShards, int replicationFactor, String configName)
+DECL|method|createCollection (CloudSolrClient server, String name, int numShards, int replicationFactor, String configName)
 specifier|protected
 name|NamedList
 argument_list|<
@@ -591,7 +597,7 @@ name|Object
 argument_list|>
 name|createCollection
 parameter_list|(
-name|CloudSolrServer
+name|CloudSolrClient
 name|server
 parameter_list|,
 name|String
@@ -1020,7 +1026,7 @@ name|Exception
 block|{
 name|solrClient
 operator|.
-name|shutdown
+name|close
 argument_list|()
 expr_stmt|;
 name|miniCluster
