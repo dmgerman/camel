@@ -48,9 +48,9 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
-name|message
+name|support
 operator|.
 name|GenericMessage
 import|;
@@ -81,7 +81,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
 name|Message
 argument_list|<
@@ -115,7 +115,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
 name|Message
 argument_list|<
@@ -172,7 +172,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
 name|Message
 argument_list|<
@@ -209,7 +209,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|storeToCamelMessage (org.springframework.integration.Message<?> siMessage, org.apache.camel.Message cMessage)
+DECL|method|storeToCamelMessage (org.springframework.messaging.Message<?> siMessage, org.apache.camel.Message cMessage)
 specifier|public
 specifier|static
 name|void
@@ -219,7 +219,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
 name|Message
 argument_list|<

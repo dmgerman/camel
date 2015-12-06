@@ -92,7 +92,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
 name|Message
 import|;
@@ -118,9 +118,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
-operator|.
-name|core
+name|messaging
 operator|.
 name|MessageHandler
 import|;

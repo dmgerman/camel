@@ -62,7 +62,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
 name|Message
 argument_list|<
@@ -75,7 +75,7 @@ specifier|public
 name|SpringIntegrationMessage
 parameter_list|()
 block|{     }
-DECL|method|SpringIntegrationMessage (org.springframework.integration.Message<?> message)
+DECL|method|SpringIntegrationMessage (org.springframework.messaging.Message<?> message)
 specifier|public
 name|SpringIntegrationMessage
 parameter_list|(
@@ -83,7 +83,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
 name|Message
 argument_list|<
@@ -99,7 +99,7 @@ operator|=
 name|message
 expr_stmt|;
 block|}
-DECL|method|setMessage (org.springframework.integration.Message<?> message)
+DECL|method|setMessage (org.springframework.messaging.Message<?> message)
 specifier|public
 name|void
 name|setMessage
@@ -108,7 +108,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
 name|Message
 argument_list|<
@@ -130,7 +130,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
 name|Message
 argument_list|<

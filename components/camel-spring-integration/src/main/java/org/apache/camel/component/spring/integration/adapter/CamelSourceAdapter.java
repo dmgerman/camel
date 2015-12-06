@@ -156,7 +156,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
 name|Message
 import|;
@@ -168,7 +168,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
 name|MessageChannel
 import|;
@@ -180,7 +180,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
 name|MessageHeaders
 import|;
@@ -206,9 +206,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
-operator|.
-name|core
+name|messaging
 operator|.
 name|MessageHandler
 import|;
@@ -337,7 +335,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
 name|Message
 argument_list|<

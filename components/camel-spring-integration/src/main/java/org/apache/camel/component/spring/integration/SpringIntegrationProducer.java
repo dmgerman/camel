@@ -92,7 +92,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
 name|Message
 import|;
@@ -104,7 +104,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
 name|MessageChannel
 import|;
@@ -116,7 +116,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
 name|MessageHeaders
 import|;
@@ -142,9 +142,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
-operator|.
-name|core
+name|messaging
 operator|.
 name|MessageHandler
 import|;
@@ -172,13 +170,11 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
-name|support
+name|core
 operator|.
-name|channel
-operator|.
-name|ChannelResolver
+name|DestinationResolver
 import|;
 end_import
 
@@ -196,11 +192,14 @@ name|DefaultProducer
 implements|implements
 name|Processor
 block|{
-DECL|field|channelResolver
+DECL|field|destinationResolver
 specifier|private
 specifier|final
-name|ChannelResolver
-name|channelResolver
+name|DestinationResolver
+argument_list|<
+name|MessageChannel
+argument_list|>
+name|destinationResolver
 decl_stmt|;
 DECL|field|inputChannel
 specifier|private
@@ -230,7 +229,7 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|channelResolver
+name|destinationResolver
 operator|=
 operator|new
 name|BeanFactoryChannelResolver
@@ -328,9 +327,9 @@ argument_list|)
 expr_stmt|;
 name|outputChannel
 operator|=
-name|channelResolver
+name|destinationResolver
 operator|.
-name|resolveChannelName
+name|resolveDestination
 argument_list|(
 name|outputChannelName
 argument_list|)
@@ -397,9 +396,9 @@ operator|=
 operator|(
 name|DirectChannel
 operator|)
-name|channelResolver
+name|destinationResolver
 operator|.
-name|resolveChannelName
+name|resolveDestination
 argument_list|(
 name|getEndpoint
 argument_list|()
@@ -539,7 +538,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
 name|Message
 argument_list|<

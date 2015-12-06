@@ -158,7 +158,7 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
 name|MessageChannel
 import|;
