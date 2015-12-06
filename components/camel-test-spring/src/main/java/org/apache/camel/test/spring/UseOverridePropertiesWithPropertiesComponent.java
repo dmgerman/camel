@@ -78,16 +78,6 @@ name|Target
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Test
-import|;
-end_import
-
 begin_comment
 comment|/**  * Indicates that the annotated method returns a {@link java.util.Properties} for use in the test, and that  * those properties override any existing properties configured on the {@link org.apache.camel.component.properties.PropertiesComponent}.  */
 end_comment
