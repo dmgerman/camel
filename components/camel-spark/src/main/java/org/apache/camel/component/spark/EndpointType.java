@@ -26,9 +26,12 @@ name|EndpointType
 block|{
 DECL|enumConstant|rdd
 DECL|enumConstant|dataframe
+DECL|enumConstant|hive
 name|rdd
 block|,
 name|dataframe
+block|,
+name|hive
 block|}
 end_enum
 
