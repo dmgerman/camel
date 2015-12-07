@@ -369,7 +369,10 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+specifier|final
+name|KinesisConsumer
+name|consumer
+init|=
 operator|new
 name|KinesisConsumer
 argument_list|(
@@ -377,6 +380,17 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
+decl_stmt|;
+name|consumer
+operator|.
+name|setSchedulerProperties
+argument_list|(
+name|getSchedulerProperties
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|consumer
 return|;
 block|}
 DECL|method|createExchange (Record record)
