@@ -638,6 +638,17 @@ name|Object
 name|message
 parameter_list|)
 block|{
+if|if
+condition|(
+name|websocket
+operator|!=
+literal|null
+operator|&&
+name|message
+operator|!=
+literal|null
+condition|)
+block|{
 name|executor
 operator|.
 name|execute
@@ -749,6 +760,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|getWebSocket (final String connectionKey)
 specifier|private
