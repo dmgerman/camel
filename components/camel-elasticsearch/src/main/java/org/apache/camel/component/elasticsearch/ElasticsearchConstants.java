@@ -72,6 +72,12 @@ name|OPERATION_GET_BY_ID
 init|=
 literal|"GET_BY_ID"
 decl_stmt|;
+DECL|field|OPERATION_MULTIGET
+name|String
+name|OPERATION_MULTIGET
+init|=
+literal|"MULTIGET"
+decl_stmt|;
 DECL|field|OPERATION_DELETE
 name|String
 name|OPERATION_DELETE
