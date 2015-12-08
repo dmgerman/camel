@@ -319,6 +319,16 @@ name|getName
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|//REVISIT we need to disable JSR356 detection for now when using jetty-9.3 when using atmosphere-2.4.x
+name|framework
+operator|.
+name|addInitParameter
+argument_list|(
+literal|"org.atmosphere.suppressDetectingJSR356"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
 name|framework
 operator|.
 name|init
