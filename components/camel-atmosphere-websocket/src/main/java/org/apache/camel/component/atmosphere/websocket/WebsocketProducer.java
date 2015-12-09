@@ -193,6 +193,17 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|executor
+specifier|private
+specifier|static
+name|ExecutorService
+name|executor
+init|=
+name|Executors
+operator|.
+name|newSingleThreadExecutor
+argument_list|()
+decl_stmt|;
 DECL|field|notValidConnectionKeys
 specifier|private
 name|List
@@ -204,17 +215,6 @@ init|=
 operator|new
 name|ArrayList
 argument_list|<>
-argument_list|()
-decl_stmt|;
-DECL|field|executor
-specifier|private
-specifier|static
-name|ExecutorService
-name|executor
-init|=
-name|Executors
-operator|.
-name|newSingleThreadExecutor
 argument_list|()
 decl_stmt|;
 DECL|method|WebsocketProducer (WebsocketEndpoint endpoint)
