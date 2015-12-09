@@ -320,11 +320,12 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|//REVISIT we need to disable JSR356 detection for now when using jetty-9.3 when using atmosphere-2.4.x
+comment|//TODO switch to use contant ApplicationConfig.WEBSOCKET_SUPPRESS_JSR356 aftr atmosphere-2.4.2
 name|framework
 operator|.
 name|addInitParameter
 argument_list|(
-literal|"org.atmosphere.suppressDetectingJSR356"
+literal|"org.atmosphere.websocket.suppressJSR356"
 argument_list|,
 literal|"true"
 argument_list|)
