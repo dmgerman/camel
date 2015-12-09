@@ -278,13 +278,7 @@ name|maven
 operator|.
 name|doxia
 operator|.
-name|module
-operator|.
-name|xhtml
-operator|.
-name|decoration
-operator|.
-name|render
+name|siterenderer
 operator|.
 name|RenderingContext
 import|;
