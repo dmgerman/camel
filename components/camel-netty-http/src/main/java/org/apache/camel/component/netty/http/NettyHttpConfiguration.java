@@ -202,6 +202,27 @@ name|required
 operator|=
 literal|"true"
 argument_list|)
+DECL|field|host
+specifier|private
+name|String
+name|host
+decl_stmt|;
+annotation|@
+name|UriPath
+DECL|field|port
+specifier|private
+name|int
+name|port
+decl_stmt|;
+annotation|@
+name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|path
 specifier|private
 name|String
@@ -542,6 +563,80 @@ operator|.
 name|protocol
 operator|=
 name|protocol
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getHost ()
+specifier|public
+name|String
+name|getHost
+parameter_list|()
+block|{
+comment|// override to setup better documentation for netty-http
+return|return
+name|super
+operator|.
+name|getHost
+argument_list|()
+return|;
+block|}
+comment|/**      * The local hostname such as localhost, or 0.0.0.0 when being a consumer.      * The remote HTTP server hostname when using producer.      */
+annotation|@
+name|Override
+DECL|method|setHost (String host)
+specifier|public
+name|void
+name|setHost
+parameter_list|(
+name|String
+name|host
+parameter_list|)
+block|{
+comment|// override to setup better documentation for netty-http
+name|super
+operator|.
+name|setHost
+argument_list|(
+name|host
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getPort ()
+specifier|public
+name|int
+name|getPort
+parameter_list|()
+block|{
+comment|// override to setup better documentation for netty-http
+return|return
+name|super
+operator|.
+name|getPort
+argument_list|()
+return|;
+block|}
+comment|/**      * The port number. Is default 80 for http and 443 for https.      */
+annotation|@
+name|Override
+DECL|method|setPort (int port)
+specifier|public
+name|void
+name|setPort
+parameter_list|(
+name|int
+name|port
+parameter_list|)
+block|{
+comment|// override to setup better documentation for netty-http
+name|super
+operator|.
+name|setPort
+argument_list|(
+name|port
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|isCompression ()
