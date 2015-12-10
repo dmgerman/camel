@@ -6692,6 +6692,45 @@ operator|)
 name|this
 return|;
 block|}
+comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other using {@link ExchangePattern#InOnly}.      *      * @param endpoint  the endpoint to wiretap to      * @return the builder      */
+DECL|method|wireTap (Endpoint endpoint)
+specifier|public
+name|WireTapDefinition
+argument_list|<
+name|Type
+argument_list|>
+name|wireTap
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|)
+block|{
+name|WireTapDefinition
+name|answer
+init|=
+operator|new
+name|WireTapDefinition
+argument_list|()
+decl_stmt|;
+name|answer
+operator|.
+name|setUri
+argument_list|(
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      *<a href="http://camel.apache.org/wiretap.html">WireTap EIP:</a>      * Sends messages to all its child outputs; so that each processor and      * destination gets a copy of the original message to avoid the processors      * interfering with each other using {@link ExchangePattern#InOnly}.      *      * @param uri  the dynamic endpoint to wiretap to (resolved using simple language by default)      * @return the builder      */
 DECL|method|wireTap (String uri)
 specifier|public
