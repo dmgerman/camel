@@ -280,7 +280,7 @@ specifier|private
 name|int
 name|maxResultsPerRequest
 init|=
-literal|1
+literal|100
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -292,6 +292,10 @@ argument_list|,
 name|description
 operator|=
 literal|"Defines where in the DynaboDB stream to start getting records"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"LATEST"
 argument_list|)
 DECL|field|iteratorType
 specifier|private
@@ -300,7 +304,7 @@ name|iteratorType
 init|=
 name|ShardIteratorType
 operator|.
-name|TRIM_HORIZON
+name|LATEST
 decl_stmt|;
 DECL|method|DdbStreamEndpoint (String uri, String tableName, DdbStreamComponent component)
 specifier|public
