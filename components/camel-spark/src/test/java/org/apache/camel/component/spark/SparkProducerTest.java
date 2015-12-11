@@ -353,7 +353,7 @@ DECL|field|sparkUri
 name|String
 name|sparkUri
 init|=
-literal|"spark:rdd?rdd=#pomRdd"
+literal|"spark:rdd?rdd=#testFileRdd"
 decl_stmt|;
 DECL|field|sparkDataFrameUri
 name|String
@@ -417,7 +417,7 @@ name|registry
 operator|.
 name|bind
 argument_list|(
-literal|"pomRdd"
+literal|"testFileRdd"
 argument_list|,
 name|sparkContext
 operator|.
@@ -529,7 +529,7 @@ name|shouldExecuteRddCallback
 parameter_list|()
 block|{
 name|long
-name|pomLinesCount
+name|linesCount
 init|=
 name|template
 operator|.
@@ -587,7 +587,7 @@ name|Truth
 operator|.
 name|assertThat
 argument_list|(
-name|pomLinesCount
+name|linesCount
 argument_list|)
 operator|.
 name|isEqualTo
