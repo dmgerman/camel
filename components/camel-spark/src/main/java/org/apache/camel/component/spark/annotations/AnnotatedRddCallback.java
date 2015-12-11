@@ -28,6 +28,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|spark
@@ -35,6 +47,10 @@ operator|.
 name|RddCallback
 import|;
 end_import
+
+begin_comment
+comment|/**  * Provides facade for working with annotated RDD callbacks i.e. POJO classes with an appropriate annotations on  * selected methods.  */
+end_comment
 
 begin_class
 DECL|class|AnnotatedRddCallback
@@ -63,6 +79,29 @@ operator|new
 name|AnnotatedRddCallbackProxy
 argument_list|(
 name|objectWithCallback
+argument_list|)
+return|;
+block|}
+DECL|method|annotatedRddCallback (Object objectWithCallback, CamelContext camelContext)
+specifier|public
+specifier|static
+name|RddCallback
+name|annotatedRddCallback
+parameter_list|(
+name|Object
+name|objectWithCallback
+parameter_list|,
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+return|return
+operator|new
+name|AnnotatedRddCallbackProxy
+argument_list|(
+name|objectWithCallback
+argument_list|,
+name|camelContext
 argument_list|)
 return|;
 block|}
