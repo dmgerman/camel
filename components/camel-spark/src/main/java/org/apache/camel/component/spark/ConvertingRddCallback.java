@@ -19,6 +19,18 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|String
+operator|.
+name|format
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -47,11 +59,11 @@ import|;
 end_import
 
 begin_class
-DECL|class|TypedRddCallback
+DECL|class|ConvertingRddCallback
 specifier|public
 specifier|abstract
 class|class
-name|TypedRddCallback
+name|ConvertingRddCallback
 parameter_list|<
 name|T
 parameter_list|>
@@ -74,15 +86,15 @@ name|Class
 index|[]
 name|payloadsTypes
 decl_stmt|;
-DECL|method|TypedRddCallback (CamelContext camelContext, Class[] payloadsTypes)
+DECL|method|ConvertingRddCallback (CamelContext camelContext, Class... payloadsTypes)
 specifier|public
-name|TypedRddCallback
+name|ConvertingRddCallback
 parameter_list|(
 name|CamelContext
 name|camelContext
 parameter_list|,
 name|Class
-index|[]
+modifier|...
 name|payloadsTypes
 parameter_list|)
 block|{
@@ -114,6 +126,41 @@ modifier|...
 name|payloads
 parameter_list|)
 block|{
+if|if
+condition|(
+name|payloads
+operator|.
+name|length
+operator|!=
+name|payloadsTypes
+operator|.
+name|length
+condition|)
+block|{
+name|String
+name|message
+init|=
+name|format
+argument_list|(
+literal|"Received %d payloads, but expected %d."
+argument_list|,
+name|payloads
+operator|.
+name|length
+argument_list|,
+name|payloadsTypes
+operator|.
+name|length
+argument_list|)
+decl_stmt|;
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+name|message
+argument_list|)
+throw|;
+block|}
 for|for
 control|(
 name|int
