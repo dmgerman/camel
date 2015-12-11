@@ -336,6 +336,8 @@ operator|.
 name|maxMemory
 argument_list|()
 operator|>
+literal|2
+operator|*
 literal|1024
 operator|*
 literal|1024
