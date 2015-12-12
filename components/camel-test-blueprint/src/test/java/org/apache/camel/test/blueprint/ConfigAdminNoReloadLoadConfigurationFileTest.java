@@ -86,8 +86,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// Even if we update config admin configuration, update-strategy="none" won't cause reload of BP
-comment|// container and reinjection of bean properties
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
@@ -95,7 +93,7 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"${greeting} World"
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|template

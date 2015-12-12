@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Dictionary
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|junit
@@ -39,18 +29,14 @@ import|;
 end_import
 
 begin_comment
-comment|// START SNIPPET: e1
-end_comment
-
-begin_comment
-comment|/**  * This example will load a Blueprint .cfg file (which will initialize configadmin), and also override its property  * placeholders from this unit test source code directly (the change won't reload blueprint container).  */
+comment|/**  * {@link #loadConfigAdminConfigurationFile()} will override properties set by<code>&lt;cm:default-properties&gt;</code>  */
 end_comment
 
 begin_class
-DECL|class|ConfigAdminNoReloadLoadConfigurationFileAndOverrideTest
+DECL|class|ConfigAdminNoReloadLoadConfigurationFileDefaultPropertiesTest
 specifier|public
 class|class
-name|ConfigAdminNoReloadLoadConfigurationFileAndOverrideTest
+name|ConfigAdminNoReloadLoadConfigurationFileDefaultPropertiesTest
 extends|extends
 name|CamelBlueprintTestSupport
 block|{
@@ -62,11 +48,11 @@ name|String
 name|getBlueprintDescriptor
 parameter_list|()
 block|{
-comment|// which blueprint XML file to use for this test
 return|return
-literal|"org/apache/camel/test/blueprint/configadmin-no-reload-loadfileoverride.xml"
+literal|"org/apache/camel/test/blueprint/configadmin-no-reload-loadfile-default-properties.xml"
 return|;
 block|}
+comment|// START SNIPPET: e1
 annotation|@
 name|Override
 DECL|method|loadConfigAdminConfigurationFile ()
@@ -76,7 +62,8 @@ index|[]
 name|loadConfigAdminConfigurationFile
 parameter_list|()
 block|{
-comment|// which .cfg file to use, and the name of the persistence-id
+comment|// String[0] = tell Camel the path of the .cfg file to use for OSGi ConfigAdmin in the blueprint XML file
+comment|// String[1] = tell Camel the persistence-id of the cm:property-placeholder in the blueprint XML file
 return|return
 operator|new
 name|String
@@ -88,34 +75,7 @@ literal|"stuff"
 block|}
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|useOverridePropertiesWithConfigAdmin (Dictionary props)
-specifier|protected
-name|String
-name|useOverridePropertiesWithConfigAdmin
-parameter_list|(
-name|Dictionary
-name|props
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// override / add extra properties
-name|props
-operator|.
-name|put
-argument_list|(
-literal|"destination"
-argument_list|,
-literal|"mock:extra"
-argument_list|)
-expr_stmt|;
-comment|// return the persistence-id to use
-return|return
-literal|"stuff"
-return|;
-block|}
+comment|// END SNIPPET: e1
 annotation|@
 name|Test
 DECL|method|testConfigAdmin ()
@@ -126,18 +86,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// mock:original comes from<cm:default-properties>/<cm:property name="destination" value="mock:original" />
-name|getMockEndpoint
-argument_list|(
-literal|"mock:original"
-argument_list|)
-operator|.
-name|setExpectedMessageCount
-argument_list|(
-literal|0
-argument_list|)
-expr_stmt|;
-comment|// mock:result comes from loadConfigAdminConfigurationFile()
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
@@ -146,19 +94,6 @@ operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"Bye World"
-argument_list|,
-literal|"Yay Bye WorldYay Bye World"
-argument_list|)
-expr_stmt|;
-comment|// mock:extra comes from useOverridePropertiesWithConfigAdmin(), but BP container isn't reloaded
-name|getMockEndpoint
-argument_list|(
-literal|"mock:extra"
-argument_list|)
-operator|.
-name|setExpectedMessageCount
-argument_list|(
-literal|0
 argument_list|)
 expr_stmt|;
 name|template
@@ -176,10 +111,6 @@ expr_stmt|;
 block|}
 block|}
 end_class
-
-begin_comment
-comment|// END SNIPPET: e1
-end_comment
 
 end_unit
 

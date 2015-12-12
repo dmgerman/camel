@@ -22,90 +22,142 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|ProducerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
 import|;
 end_import
 
-begin_comment
-comment|/**  * Same as {@link ConfigAdminNoReloadLoadConfigurationFileTest} except this time Blueprint container will reloaded  */
-end_comment
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertEquals
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertNotNull
+import|;
+end_import
 
 begin_class
-DECL|class|ConfigAdminLoadConfigurationFileTest
+DECL|class|MainNoPidTest
 specifier|public
 class|class
-name|ConfigAdminLoadConfigurationFileTest
-extends|extends
-name|CamelBlueprintTestSupport
+name|MainNoPidTest
 block|{
-annotation|@
-name|Override
-DECL|method|getBlueprintDescriptor ()
-specifier|protected
-name|String
-name|getBlueprintDescriptor
-parameter_list|()
-block|{
-return|return
-literal|"org/apache/camel/test/blueprint/configadmin-loadfile.xml"
-return|;
-block|}
-comment|// START SNIPPET: e1
-annotation|@
-name|Override
-DECL|method|loadConfigAdminConfigurationFile ()
-specifier|protected
-name|String
-index|[]
-name|loadConfigAdminConfigurationFile
-parameter_list|()
-block|{
-comment|// String[0] = tell Camel the path of the .cfg file to use for OSGi ConfigAdmin in the blueprint XML file
-comment|// String[1] = tell Camel the persistence-id of the cm:property-placeholder in the blueprint XML file
-return|return
-operator|new
-name|String
-index|[]
-block|{
-literal|"src/test/resources/etc/stuff.cfg"
-block|,
-literal|"stuff"
-block|}
-return|;
-block|}
-comment|// END SNIPPET: e1
 annotation|@
 name|Test
-DECL|method|testConfigAdmin ()
+DECL|method|testMyMain ()
 specifier|public
 name|void
-name|testConfigAdmin
+name|testMyMain
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
+name|Main
+name|main
+init|=
+operator|new
+name|Main
+argument_list|()
+decl_stmt|;
+name|main
 operator|.
-name|expectedBodiesReceived
+name|setBundleName
 argument_list|(
-literal|"Bye World"
+literal|"MyMainBundle"
 argument_list|)
 expr_stmt|;
+comment|// as we run this test without packing ourselves as bundle, then include ourselves
+name|main
+operator|.
+name|setIncludeSelfAsBundle
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// setup the blueprint file here
+name|main
+operator|.
+name|setDescriptors
+argument_list|(
+literal|"org/apache/camel/test/blueprint/main-no-pid-loadfile.xml"
+argument_list|)
+expr_stmt|;
+name|main
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|ProducerTemplate
+name|template
+init|=
+name|main
+operator|.
+name|getCamelTemplate
+argument_list|()
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"We should get the template here"
+argument_list|,
+name|template
+argument_list|)
+expr_stmt|;
+name|String
+name|result
+init|=
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"World"
+literal|"hello"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Get a wrong response"
+argument_list|,
+literal|"Good morning hello"
+argument_list|,
+name|result
 argument_list|)
 expr_stmt|;
-name|assertMockEndpointsSatisfied
+name|main
+operator|.
+name|stop
 argument_list|()
 expr_stmt|;
 block|}

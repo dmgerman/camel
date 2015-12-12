@@ -43,7 +43,7 @@ comment|// START SNIPPET: e1
 end_comment
 
 begin_comment
-comment|/**  * This example will load a Blueprint .cfdg file, and also override its property placeholders from this unit test  * source code directly.  */
+comment|/**  * This example will load a Blueprint .cfg file (which will initialize configadmin), and also override its property  * placeholders from this unit test source code directly (the change will reload blueprint container).  */
 end_comment
 
 begin_class
@@ -126,7 +126,29 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// regular unit test method
+comment|// mock:original comes from<cm:default-properties>/<cm:property name="destination" value="mock:original" />
+name|getMockEndpoint
+argument_list|(
+literal|"mock:original"
+argument_list|)
+operator|.
+name|setExpectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// mock:result comes from loadConfigAdminConfigurationFile()
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+operator|.
+name|setExpectedMessageCount
+argument_list|(
+literal|0
+argument_list|)
+expr_stmt|;
+comment|// mock:extra comes from useOverridePropertiesWithConfigAdmin()
 name|getMockEndpoint
 argument_list|(
 literal|"mock:extra"

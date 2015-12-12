@@ -29,14 +29,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Same as {@link ConfigAdminNoReloadLoadConfigurationFileTest} except this time Blueprint container will reloaded  */
+comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|ConfigAdminLoadConfigurationFileTest
+DECL|class|ConfigAdminNoReloadDefaultPropertiesTest
 specifier|public
 class|class
-name|ConfigAdminLoadConfigurationFileTest
+name|ConfigAdminNoReloadDefaultPropertiesTest
 extends|extends
 name|CamelBlueprintTestSupport
 block|{
@@ -49,33 +49,9 @@ name|getBlueprintDescriptor
 parameter_list|()
 block|{
 return|return
-literal|"org/apache/camel/test/blueprint/configadmin-loadfile.xml"
+literal|"org/apache/camel/test/blueprint/configadmin-no-reload-default-properties.xml"
 return|;
 block|}
-comment|// START SNIPPET: e1
-annotation|@
-name|Override
-DECL|method|loadConfigAdminConfigurationFile ()
-specifier|protected
-name|String
-index|[]
-name|loadConfigAdminConfigurationFile
-parameter_list|()
-block|{
-comment|// String[0] = tell Camel the path of the .cfg file to use for OSGi ConfigAdmin in the blueprint XML file
-comment|// String[1] = tell Camel the persistence-id of the cm:property-placeholder in the blueprint XML file
-return|return
-operator|new
-name|String
-index|[]
-block|{
-literal|"src/test/resources/etc/stuff.cfg"
-block|,
-literal|"stuff"
-block|}
-return|;
-block|}
-comment|// END SNIPPET: e1
 annotation|@
 name|Test
 DECL|method|testConfigAdmin ()
@@ -93,7 +69,7 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Bye World"
+literal|"Good morning World"
 argument_list|)
 expr_stmt|;
 name|template
