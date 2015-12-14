@@ -241,19 +241,6 @@ name|timePeriodMillis
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getThrottledCount ()
-specifier|public
-name|int
-name|getThrottledCount
-parameter_list|()
-block|{
-return|return
-name|throttler
-operator|.
-name|getDelayedCount
-argument_list|()
-return|;
-block|}
 DECL|method|isAsyncDelayed ()
 specifier|public
 name|Boolean
