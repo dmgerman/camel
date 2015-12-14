@@ -167,7 +167,10 @@ name|buffer
 operator|.
 name|append
 argument_list|(
-literal|"\n"
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

@@ -833,7 +833,10 @@ name|bw
 operator|.
 name|write
 argument_list|(
-literal|"\n"
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|bw

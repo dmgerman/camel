@@ -152,7 +152,10 @@ name|assertEquals
 argument_list|(
 name|message
 operator|+
-literal|"\n"
+name|System
+operator|.
+name|lineSeparator
+argument_list|()
 argument_list|,
 operator|new
 name|String
