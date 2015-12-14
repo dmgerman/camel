@@ -379,9 +379,7 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-name|PahoConstants
-operator|.
-name|DEFAULT_QOS_STRING
+literal|"2"
 argument_list|)
 DECL|field|qos
 specifier|private
@@ -397,9 +395,7 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-name|PahoConstants
-operator|.
-name|DEFAULT_RETAINED_STRING
+literal|"false"
 argument_list|)
 DECL|field|retained
 specifier|private
