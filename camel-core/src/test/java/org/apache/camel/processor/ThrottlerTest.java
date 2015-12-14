@@ -224,15 +224,6 @@ name|assertIsSatisfied
 argument_list|()
 expr_stmt|;
 block|}
-comment|//    public void testNoNestedProcessor() throws Exception {
-comment|//        if (!canTest()) {
-comment|//            return;
-comment|//        }
-comment|//
-comment|//        MockEndpoint resultEndpoint = resolveMandatoryEndpoint("mock:result", MockEndpoint.class);
-comment|//        long elapsed = sendMessagesAndAwaitDelivery(MESSAGE_COUNT, "direct:noNestedProcessor", MESSAGE_COUNT, resultEndpoint);
-comment|//        assertThrottlerTiming(elapsed, 1, INTERVAL, MESSAGE_COUNT);
-comment|//    }
 DECL|method|testSendLotsOfMessagesWithRejectExecution ()
 specifier|public
 name|void
@@ -1397,7 +1388,6 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 expr_stmt|;
-comment|//                from("direct:noNestedProcessor").throttle(1).timePeriodMillis(INTERVAL).end().to("log:result", "mock:result");
 block|}
 block|}
 return|;
