@@ -29,18 +29,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|System
-operator|.
-name|nanoTime
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -290,96 +278,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|paho
-operator|.
-name|PahoPersistence
-operator|.
-name|MEMORY
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|paho
-operator|.
-name|PahoConstants
-operator|.
-name|DEFAULT_BROKER_URL
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|paho
-operator|.
-name|PahoConstants
-operator|.
-name|DEFAULT_QOS_STRING
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|paho
-operator|.
-name|PahoConstants
-operator|.
-name|DEFAULT_QOS
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|paho
-operator|.
-name|PahoConstants
-operator|.
-name|DEFAULT_RETAINED_STRING
-import|;
-end_import
-
 begin_class
 annotation|@
 name|UriEndpoint
@@ -453,6 +351,8 @@ name|clientId
 init|=
 literal|"camel-"
 operator|+
+name|System
+operator|.
 name|nanoTime
 argument_list|()
 decl_stmt|;
@@ -461,6 +361,8 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
+name|PahoConstants
+operator|.
 name|DEFAULT_BROKER_URL
 argument_list|)
 DECL|field|brokerUrl
@@ -468,6 +370,8 @@ specifier|private
 name|String
 name|brokerUrl
 init|=
+name|PahoConstants
+operator|.
 name|DEFAULT_BROKER_URL
 decl_stmt|;
 annotation|@
@@ -475,6 +379,8 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
+name|PahoConstants
+operator|.
 name|DEFAULT_QOS_STRING
 argument_list|)
 DECL|field|qos
@@ -482,6 +388,8 @@ specifier|private
 name|int
 name|qos
 init|=
+name|PahoConstants
+operator|.
 name|DEFAULT_QOS
 decl_stmt|;
 annotation|@
@@ -489,14 +397,14 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
+name|PahoConstants
+operator|.
 name|DEFAULT_RETAINED_STRING
 argument_list|)
 DECL|field|retained
 specifier|private
 name|boolean
 name|retained
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -510,6 +418,8 @@ specifier|private
 name|PahoPersistence
 name|persistence
 init|=
+name|PahoPersistence
+operator|.
 name|MEMORY
 decl_stmt|;
 annotation|@
@@ -724,6 +634,8 @@ if|if
 condition|(
 name|persistence
 operator|==
+name|PahoPersistence
+operator|.
 name|MEMORY
 condition|)
 block|{
@@ -1038,7 +950,7 @@ return|return
 name|retained
 return|;
 block|}
-comment|/**      * Retain option      * @param retained true/false      */
+comment|/**      * Retain option      *       * @param retained true/false      */
 DECL|method|setRetained (boolean retained)
 specifier|public
 name|void
