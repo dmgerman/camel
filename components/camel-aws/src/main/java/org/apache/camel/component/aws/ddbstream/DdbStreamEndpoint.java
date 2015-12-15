@@ -435,7 +435,6 @@ name|boolean
 name|isSingleton
 parameter_list|()
 block|{
-comment|// probably right.
 return|return
 literal|true
 return|;
@@ -449,7 +448,6 @@ return|return
 name|amazonDynamoDbStreamsClient
 return|;
 block|}
-comment|// required for injection.
 DECL|method|getAmazonDynamoDBStreamsClient ()
 specifier|public
 name|AmazonDynamoDBStreams
