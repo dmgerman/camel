@@ -231,6 +231,20 @@ name|ElasticsearchConstants
 operator|.
 name|DEFAULT_PORT
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|clientTransportSniff
+specifier|private
+name|Boolean
+name|clientTransportSniff
+init|=
+literal|true
+decl_stmt|;
 comment|/**      * Name of cluster or use local for local mode      */
 DECL|method|getClusterName ()
 specifier|public
@@ -472,6 +486,33 @@ operator|.
 name|port
 operator|=
 name|port
+expr_stmt|;
+block|}
+comment|/**      * Is the client allowed to sniff the rest of the cluster or not (default true). This setting map to the<tt>client.transport.sniff</tt> setting.      */
+DECL|method|getClientTransportSniff ()
+specifier|public
+name|Boolean
+name|getClientTransportSniff
+parameter_list|()
+block|{
+return|return
+name|clientTransportSniff
+return|;
+block|}
+DECL|method|setClientTransportSniff (Boolean clientTransportSniff)
+specifier|public
+name|void
+name|setClientTransportSniff
+parameter_list|(
+name|Boolean
+name|clientTransportSniff
+parameter_list|)
+block|{
+name|this
+operator|.
+name|clientTransportSniff
+operator|=
+name|clientTransportSniff
 expr_stmt|;
 block|}
 DECL|method|isLocal ()

@@ -723,10 +723,6 @@ name|Settings
 operator|.
 name|settingsBuilder
 argument_list|()
-comment|// setting the classloader here will allow the underlying elasticsearch-java
-comment|// class to find its names.txt in an OSGi environment (otherwise the thread
-comment|// classloader is used, which won't be able to see the file causing a startup
-comment|// exception).
 operator|.
 name|put
 argument_list|(
@@ -756,7 +752,10 @@ name|put
 argument_list|(
 literal|"client.transport.sniff"
 argument_list|,
-literal|true
+name|configuration
+operator|.
+name|getClientTransportSniff
+argument_list|()
 argument_list|)
 operator|.
 name|put
