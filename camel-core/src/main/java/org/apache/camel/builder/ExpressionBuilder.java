@@ -7264,7 +7264,7 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Returns Simple expression or fallbacks to Constant expression      * if expression str is not Simple expression.      */
+comment|/**      * Returns Simple expression or fallback to Constant expression if expression str is not Simple expression.      */
 DECL|method|parseSimpleOrFallbackToConstantExpression (String str, CamelContext camelContext)
 specifier|public
 specifier|static
