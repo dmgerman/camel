@@ -1612,7 +1612,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * For additional configuration options on data format level      */
+comment|/**      * For configuring an api property, such as<tt>api.title</tt>, or<tt>api.version</tt>.      */
 DECL|method|apiProperty (String key, String value)
 specifier|public
 name|RestConfigurationDefinition

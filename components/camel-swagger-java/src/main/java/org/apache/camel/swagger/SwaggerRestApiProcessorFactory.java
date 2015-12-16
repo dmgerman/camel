@@ -270,6 +270,13 @@ operator|.
 name|getContextPath
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|path
+operator|!=
+literal|null
+condition|)
+block|{
 name|options
 operator|.
 name|put
@@ -279,6 +286,7 @@ argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 operator|new
 name|RestSwaggerProcessor
