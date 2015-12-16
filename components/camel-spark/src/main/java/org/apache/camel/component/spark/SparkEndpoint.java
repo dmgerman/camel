@@ -149,6 +149,10 @@ import|;
 end_import
 
 begin_comment
+comment|/**  * Spark endpoint can be used to create various type of producers, including RDD-, DataFrame- and Hive-based.  */
+end_comment
+
+begin_comment
 comment|// @UriEndpoint(scheme = "spark", producerOnly = true, title = "Apache Spark", syntax = "spark:jobType", label = "bigdata,iot")
 end_comment
 
@@ -383,6 +387,13 @@ operator|.
 name|rdd
 condition|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"About to create RDD producer."
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|RddSparkProducer
@@ -401,6 +412,13 @@ operator|.
 name|dataframe
 condition|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"About to create DataFrame producer."
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|DataFrameSparkProducer
@@ -411,6 +429,13 @@ return|;
 block|}
 else|else
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"About to create Hive producer."
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|HiveSparkProducer
