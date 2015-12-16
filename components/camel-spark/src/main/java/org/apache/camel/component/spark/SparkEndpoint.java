@@ -88,6 +88,20 @@ name|org
 operator|.
 name|apache
 operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
 name|spark
 operator|.
 name|api
@@ -123,28 +137,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|spi
-operator|.
-name|LoggerFactoryBinder
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -155,6 +147,10 @@ operator|.
 name|getLogger
 import|;
 end_import
+
+begin_comment
+comment|// @UriEndpoint(scheme = "spark", producerOnly = true, title = "Apache Spark", syntax = "spark:jobType", label = "bigdata,iot")
+end_comment
 
 begin_class
 DECL|class|SparkEndpoint
@@ -180,33 +176,99 @@ name|class
 argument_list|)
 decl_stmt|;
 comment|// Endpoint collaborators
+annotation|@
+name|UriParam
+argument_list|(
+name|name
+operator|=
+literal|"rdd"
+argument_list|,
+name|description
+operator|=
+literal|"RDD to compute against."
+argument_list|)
 DECL|field|rdd
 specifier|private
 name|AbstractJavaRDDLike
 name|rdd
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|name
+operator|=
+literal|"rddCallback"
+argument_list|,
+name|description
+operator|=
+literal|"Function performing action against an RDD."
+argument_list|)
 DECL|field|rddCallback
 specifier|private
 name|RddCallback
 name|rddCallback
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|name
+operator|=
+literal|"dataFrame"
+argument_list|,
+name|description
+operator|=
+literal|"DataFrame to compute against."
+argument_list|)
 DECL|field|dataFrame
 specifier|private
 name|DataFrame
 name|dataFrame
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|name
+operator|=
+literal|"dataFrameCallback"
+argument_list|,
+name|description
+operator|=
+literal|"Function performing action against an DataFrame."
+argument_list|)
 DECL|field|dataFrameCallback
 specifier|private
 name|DataFrameCallback
 name|dataFrameCallback
 decl_stmt|;
 comment|// Endpoint configuration
+annotation|@
+name|UriParam
+argument_list|(
+name|name
+operator|=
+literal|"endpointType"
+argument_list|,
+name|description
+operator|=
+literal|"Type of the endpoint (rdd, dataframe, hive)."
+argument_list|)
 DECL|field|endpointType
 specifier|private
 specifier|final
 name|EndpointType
 name|endpointType
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|name
+operator|=
+literal|"collect"
+argument_list|,
+name|description
+operator|=
+literal|"Indicates if results should be collected or counted."
+argument_list|)
 DECL|field|collect
 specifier|private
 name|boolean
