@@ -14532,7 +14532,10 @@ operator|!=
 literal|null
 operator|&&
 operator|!
-name|component
+name|config
+operator|.
+name|getComponent
+argument_list|()
 operator|.
 name|equals
 argument_list|(
