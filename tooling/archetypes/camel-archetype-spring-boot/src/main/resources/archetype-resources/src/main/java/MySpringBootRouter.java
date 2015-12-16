@@ -243,7 +243,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"timer://trigger"
+literal|"timer:trigger"
 argument_list|)
 operator|.
 name|transform
@@ -257,8 +257,6 @@ operator|.
 name|to
 argument_list|(
 literal|"log:out"
-argument_list|,
-literal|"mock:test"
 argument_list|)
 expr_stmt|;
 block|}
