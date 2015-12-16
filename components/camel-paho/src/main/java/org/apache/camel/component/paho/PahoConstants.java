@@ -86,7 +86,7 @@ name|CAMEL_PAHO_MSG_QOS
 init|=
 name|CAMEL_PAHO
 operator|+
-literal|".qos"
+literal|"Qos"
 decl_stmt|;
 DECL|field|CAMEL_PAHO_MSG_RETAINED
 specifier|public
@@ -97,7 +97,7 @@ name|CAMEL_PAHO_MSG_RETAINED
 init|=
 name|CAMEL_PAHO
 operator|+
-literal|".retained"
+literal|"Retained"
 decl_stmt|;
 DECL|method|PahoConstants ()
 specifier|private
