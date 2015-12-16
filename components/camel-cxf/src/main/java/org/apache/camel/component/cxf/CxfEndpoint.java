@@ -6766,6 +6766,23 @@ operator|=
 name|serviceFactoryBean
 expr_stmt|;
 block|}
+DECL|method|setServiceFactory (Object serviceFactoryBean)
+specifier|public
+name|void
+name|setServiceFactory
+parameter_list|(
+name|Object
+name|serviceFactoryBean
+parameter_list|)
+block|{
+comment|// needed a setter with this name as the cxf namespace parser expects this name
+name|this
+operator|.
+name|serviceFactoryBean
+operator|=
+name|serviceFactoryBean
+expr_stmt|;
+block|}
 DECL|method|getCxfEndpointConfigurer ()
 specifier|public
 name|CxfEndpointConfigurer
