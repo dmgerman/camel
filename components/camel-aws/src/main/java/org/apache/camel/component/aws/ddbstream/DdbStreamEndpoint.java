@@ -322,6 +322,8 @@ comment|// sequence number from persistant storage or somewhere else.
 comment|// This can be done by having the type of the parameter an interface
 comment|// and supplying a default implementation and a converter from a long/String
 comment|// to an instance of this interface.
+comment|// Note that the shard list needs to have the ability to start at the shard
+comment|// that includes the supplied sequence number
 DECL|method|DdbStreamEndpoint (String uri, String tableName, DdbStreamComponent component)
 specifier|public
 name|DdbStreamEndpoint
@@ -453,6 +455,37 @@ parameter_list|()
 block|{
 return|return
 literal|true
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"DdbStreamEndpoint{"
+operator|+
+literal|"tableName="
+operator|+
+name|tableName
+operator|+
+literal|", amazonDynamoDbStreamsClient=[redacted], maxResultsPerRequest="
+operator|+
+name|maxResultsPerRequest
+operator|+
+literal|", iteratorType="
+operator|+
+name|iteratorType
+operator|+
+literal|", uri="
+operator|+
+name|getEndpointUri
+argument_list|()
+operator|+
+literal|'}'
 return|;
 block|}
 DECL|method|getClient ()
