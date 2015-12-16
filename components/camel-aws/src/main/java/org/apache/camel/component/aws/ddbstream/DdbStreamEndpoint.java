@@ -194,7 +194,11 @@ literal|"aws-ddbstream"
 argument_list|,
 name|title
 operator|=
-literal|"AWS Kinesis"
+literal|"AWS DynamoDB Streams"
+argument_list|,
+name|consumerOnly
+operator|=
+literal|true
 argument_list|,
 name|syntax
 operator|=
@@ -222,7 +226,7 @@ name|UriPath
 argument_list|(
 name|label
 operator|=
-literal|"consumer,producer"
+literal|"consumer"
 argument_list|,
 name|description
 operator|=
@@ -291,7 +295,13 @@ literal|"consumer"
 argument_list|,
 name|description
 operator|=
-literal|"Defines where in the DynaboDB stream to start getting records"
+literal|"Defines where in the DynaboDB stream"
+operator|+
+literal|" to start getting records. Note that using TRIM_HORIZON can cause a"
+operator|+
+literal|" significant delay before the stream has caught up to real-time."
+operator|+
+literal|" Currently only LATEST and TRIM_HORIZON are supported."
 argument_list|,
 name|defaultValue
 operator|=
@@ -306,6 +316,12 @@ name|ShardIteratorType
 operator|.
 name|LATEST
 decl_stmt|;
+comment|// TODO add the ability to use ShardIteratorType.{AT,AFTER}_SEQUENCE_NUMBER
+comment|// by specifying either a sequence number itself or a bean to fetch the
+comment|// sequence number from persistant storage or somewhere else.
+comment|// This can be done by having the type of the parameter an interface
+comment|// and supplying a default implementation and a converter from a long/String
+comment|// to an instance of this interface.
 DECL|method|DdbStreamEndpoint (String uri, String tableName, DdbStreamComponent component)
 specifier|public
 name|DdbStreamEndpoint
