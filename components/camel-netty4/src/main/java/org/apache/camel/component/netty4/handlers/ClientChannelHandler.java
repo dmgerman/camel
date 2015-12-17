@@ -647,6 +647,16 @@ name|address
 argument_list|)
 expr_stmt|;
 block|}
+comment|// don't fail the exchange if we actually specify to disconnect
+if|if
+condition|(
+operator|!
+name|configuration
+operator|.
+name|isDisconnect
+argument_list|()
+condition|)
+block|{
 name|exchange
 operator|.
 name|setException
@@ -662,6 +672,7 @@ name|exchange
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 comment|// signal callback
 name|callback
 operator|.
