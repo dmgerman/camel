@@ -686,7 +686,15 @@ name|Throwable
 name|e
 parameter_list|)
 block|{
-comment|// ignore
+name|dumpExceptionToErrorFile
+argument_list|(
+literal|"camel-apt-error.log"
+argument_list|,
+literal|"Error processing EIP model"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 literal|true
