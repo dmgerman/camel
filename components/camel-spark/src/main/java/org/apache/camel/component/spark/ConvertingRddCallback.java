@@ -19,6 +19,18 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|String
+operator|.
+name|format
+import|;
+end_import
+
+begin_import
 import|import
 name|org
 operator|.
@@ -43,18 +55,6 @@ operator|.
 name|java
 operator|.
 name|JavaRDDLike
-import|;
-end_import
-
-begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|String
-operator|.
-name|format
 import|;
 end_import
 
