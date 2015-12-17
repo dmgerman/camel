@@ -449,7 +449,7 @@ name|sparkContext
 operator|.
 name|textFile
 argument_list|(
-literal|"testrdd.txt"
+literal|"src/test/resources/testrdd.txt"
 argument_list|)
 argument_list|)
 expr_stmt|;
