@@ -30,7 +30,7 @@ name|api
 operator|.
 name|java
 operator|.
-name|AbstractJavaRDDLike
+name|JavaRDDLike
 import|;
 end_import
 
@@ -47,11 +47,11 @@ parameter_list|<
 name|T
 parameter_list|>
 block|{
-DECL|method|onRdd (AbstractJavaRDDLike rdd, Object... payloads)
+DECL|method|onRdd (JavaRDDLike rdd, Object... payloads)
 name|T
 name|onRdd
 parameter_list|(
-name|AbstractJavaRDDLike
+name|JavaRDDLike
 name|rdd
 parameter_list|,
 name|Object

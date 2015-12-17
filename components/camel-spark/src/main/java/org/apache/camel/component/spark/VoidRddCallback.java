@@ -30,7 +30,7 @@ name|api
 operator|.
 name|java
 operator|.
-name|AbstractJavaRDDLike
+name|JavaRDDLike
 import|;
 end_import
 
@@ -46,13 +46,13 @@ argument_list|<
 name|Void
 argument_list|>
 block|{
-DECL|method|doOnRdd (AbstractJavaRDDLike rdd, Object... payloads)
+DECL|method|doOnRdd (JavaRDDLike rdd, Object... payloads)
 specifier|public
 specifier|abstract
 name|void
 name|doOnRdd
 parameter_list|(
-name|AbstractJavaRDDLike
+name|JavaRDDLike
 name|rdd
 parameter_list|,
 name|Object
@@ -62,12 +62,12 @@ parameter_list|)
 function_decl|;
 annotation|@
 name|Override
-DECL|method|onRdd (AbstractJavaRDDLike rdd, Object... payloads)
+DECL|method|onRdd (JavaRDDLike rdd, Object... payloads)
 specifier|public
 name|Void
 name|onRdd
 parameter_list|(
-name|AbstractJavaRDDLike
+name|JavaRDDLike
 name|rdd
 parameter_list|,
 name|Object

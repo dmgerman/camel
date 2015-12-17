@@ -66,7 +66,7 @@ name|api
 operator|.
 name|java
 operator|.
-name|AbstractJavaRDDLike
+name|JavaRDD
 import|;
 end_import
 
@@ -82,7 +82,7 @@ name|api
 operator|.
 name|java
 operator|.
-name|JavaRDD
+name|JavaRDDLike
 import|;
 end_import
 
@@ -157,7 +157,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|AbstractJavaRDDLike
+name|JavaRDDLike
 name|rdd
 init|=
 name|resolveRdd
@@ -342,7 +342,7 @@ block|}
 block|}
 DECL|method|resolveRdd (Exchange exchange)
 specifier|protected
-name|AbstractJavaRDDLike
+name|JavaRDDLike
 name|resolveRdd
 parameter_list|(
 name|Exchange

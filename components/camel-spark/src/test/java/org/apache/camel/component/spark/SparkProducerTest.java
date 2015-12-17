@@ -146,7 +146,7 @@ name|api
 operator|.
 name|java
 operator|.
-name|AbstractJavaRDDLike
+name|JavaRDD
 import|;
 end_import
 
@@ -162,7 +162,7 @@ name|api
 operator|.
 name|java
 operator|.
-name|JavaRDD
+name|JavaRDDLike
 import|;
 end_import
 
@@ -523,7 +523,7 @@ specifier|public
 name|Object
 name|onRdd
 parameter_list|(
-name|AbstractJavaRDDLike
+name|JavaRDDLike
 name|rdd
 parameter_list|,
 name|Object
@@ -587,7 +587,7 @@ specifier|public
 name|Long
 name|onRdd
 parameter_list|(
-name|AbstractJavaRDDLike
+name|JavaRDDLike
 name|rdd
 parameter_list|,
 name|Object
@@ -663,7 +663,7 @@ specifier|public
 name|Long
 name|onRdd
 parameter_list|(
-name|AbstractJavaRDDLike
+name|JavaRDDLike
 name|rdd
 parameter_list|,
 name|Object
@@ -754,7 +754,7 @@ specifier|public
 name|Long
 name|onRdd
 parameter_list|(
-name|AbstractJavaRDDLike
+name|JavaRDDLike
 name|rdd
 parameter_list|,
 name|Object
@@ -843,7 +843,7 @@ specifier|public
 name|Long
 name|doOnRdd
 parameter_list|(
-name|AbstractJavaRDDLike
+name|JavaRDDLike
 name|rdd
 parameter_list|,
 name|Object
@@ -1003,7 +1003,7 @@ specifier|public
 name|void
 name|doOnRdd
 parameter_list|(
-name|AbstractJavaRDDLike
+name|JavaRDDLike
 name|rdd
 parameter_list|,
 name|Object

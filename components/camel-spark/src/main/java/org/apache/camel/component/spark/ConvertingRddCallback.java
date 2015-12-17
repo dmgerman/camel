@@ -19,18 +19,6 @@ package|;
 end_package
 
 begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|String
-operator|.
-name|format
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -54,7 +42,19 @@ name|api
 operator|.
 name|java
 operator|.
-name|AbstractJavaRDDLike
+name|JavaRDDLike
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|String
+operator|.
+name|format
 import|;
 end_import
 
@@ -113,12 +113,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|onRdd (AbstractJavaRDDLike rdd, Object... payloads)
+DECL|method|onRdd (JavaRDDLike rdd, Object... payloads)
 specifier|public
 name|T
 name|onRdd
 parameter_list|(
-name|AbstractJavaRDDLike
+name|JavaRDDLike
 name|rdd
 parameter_list|,
 name|Object
@@ -211,13 +211,13 @@ name|payloads
 argument_list|)
 return|;
 block|}
-DECL|method|doOnRdd (AbstractJavaRDDLike rdd, Object... payloads)
+DECL|method|doOnRdd (JavaRDDLike rdd, Object... payloads)
 specifier|public
 specifier|abstract
 name|T
 name|doOnRdd
 parameter_list|(
-name|AbstractJavaRDDLike
+name|JavaRDDLike
 name|rdd
 parameter_list|,
 name|Object

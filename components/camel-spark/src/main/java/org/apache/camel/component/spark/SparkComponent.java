@@ -66,7 +66,7 @@ name|api
 operator|.
 name|java
 operator|.
-name|AbstractJavaRDDLike
+name|JavaRDDLike
 import|;
 end_import
 
@@ -80,7 +80,7 @@ name|UriEndpointComponent
 block|{
 DECL|field|rdd
 specifier|private
-name|AbstractJavaRDDLike
+name|JavaRDDLike
 name|rdd
 decl_stmt|;
 DECL|field|rddCallback
@@ -157,7 +157,7 @@ return|;
 block|}
 DECL|method|getRdd ()
 specifier|public
-name|AbstractJavaRDDLike
+name|JavaRDDLike
 name|getRdd
 parameter_list|()
 block|{
@@ -166,12 +166,12 @@ name|rdd
 return|;
 block|}
 comment|/**      * RDD to compute against.      */
-DECL|method|setRdd (AbstractJavaRDDLike rdd)
+DECL|method|setRdd (JavaRDDLike rdd)
 specifier|public
 name|void
 name|setRdd
 parameter_list|(
-name|AbstractJavaRDDLike
+name|JavaRDDLike
 name|rdd
 parameter_list|)
 block|{
