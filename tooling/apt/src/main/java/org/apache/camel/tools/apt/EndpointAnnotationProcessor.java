@@ -635,6 +635,8 @@ name|RoundEnvironment
 name|roundEnv
 parameter_list|)
 block|{
+try|try
+block|{
 if|if
 condition|(
 name|roundEnv
@@ -690,6 +692,15 @@ name|element
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// ignore
 block|}
 return|return
 literal|true
