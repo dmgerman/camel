@@ -125,6 +125,24 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|EndpointType
+name|type
+init|=
+name|getCamelContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|mandatoryConvertTo
+argument_list|(
+name|EndpointType
+operator|.
+name|class
+argument_list|,
+name|remaining
+argument_list|)
+decl_stmt|;
 return|return
 operator|new
 name|SparkEndpoint
@@ -133,12 +151,7 @@ name|uri
 argument_list|,
 name|this
 argument_list|,
-name|EndpointType
-operator|.
-name|valueOf
-argument_list|(
-name|remaining
-argument_list|)
+name|type
 argument_list|)
 return|;
 block|}
@@ -152,6 +165,7 @@ return|return
 name|rdd
 return|;
 block|}
+comment|/**      * RDD to compute against.      */
 DECL|method|setRdd (AbstractJavaRDDLike rdd)
 specifier|public
 name|void
@@ -178,6 +192,7 @@ return|return
 name|rddCallback
 return|;
 block|}
+comment|/**      * Function performing action against an RDD.      */
 DECL|method|setRddCallback (RddCallback rddCallback)
 specifier|public
 name|void

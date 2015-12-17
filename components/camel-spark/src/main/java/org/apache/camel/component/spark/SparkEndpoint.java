@@ -78,6 +78,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -93,6 +107,20 @@ operator|.
 name|spi
 operator|.
 name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
 import|;
 end_import
 
@@ -152,11 +180,30 @@ begin_comment
 comment|/**  * Spark endpoint can be used to create various type of producers, including RDD-, DataFrame- and Hive-based.  */
 end_comment
 
-begin_comment
-comment|// @UriEndpoint(scheme = "spark", producerOnly = true, title = "Apache Spark", syntax = "spark:jobType", label = "bigdata,iot")
-end_comment
-
 begin_class
+annotation|@
+name|UriEndpoint
+argument_list|(
+name|scheme
+operator|=
+literal|"spark"
+argument_list|,
+name|title
+operator|=
+literal|"Apache Spark"
+argument_list|,
+name|syntax
+operator|=
+literal|"spark:endpointType"
+argument_list|,
+name|producerOnly
+operator|=
+literal|true
+argument_list|,
+name|label
+operator|=
+literal|"bigdata,iot"
+argument_list|)
 DECL|class|SparkEndpoint
 specifier|public
 class|class
@@ -181,16 +228,21 @@ argument_list|)
 decl_stmt|;
 comment|// Endpoint collaborators
 annotation|@
-name|UriParam
+name|UriPath
+annotation|@
+name|Metadata
 argument_list|(
-name|name
+name|required
 operator|=
-literal|"rdd"
-argument_list|,
-name|description
-operator|=
-literal|"RDD to compute against."
+literal|"true"
 argument_list|)
+DECL|field|endpointType
+specifier|private
+name|EndpointType
+name|endpointType
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|rdd
 specifier|private
 name|AbstractJavaRDDLike
@@ -198,15 +250,6 @@ name|rdd
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|name
-operator|=
-literal|"rddCallback"
-argument_list|,
-name|description
-operator|=
-literal|"Function performing action against an RDD."
-argument_list|)
 DECL|field|rddCallback
 specifier|private
 name|RddCallback
@@ -214,15 +257,6 @@ name|rddCallback
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|name
-operator|=
-literal|"dataFrame"
-argument_list|,
-name|description
-operator|=
-literal|"DataFrame to compute against."
-argument_list|)
 DECL|field|dataFrame
 specifier|private
 name|DataFrame
@@ -230,15 +264,6 @@ name|dataFrame
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|name
-operator|=
-literal|"dataFrameCallback"
-argument_list|,
-name|description
-operator|=
-literal|"Function performing action against an DataFrame."
-argument_list|)
 DECL|field|dataFrameCallback
 specifier|private
 name|DataFrameCallback
@@ -248,30 +273,9 @@ comment|// Endpoint configuration
 annotation|@
 name|UriParam
 argument_list|(
-name|name
+name|defaultValue
 operator|=
-literal|"endpointType"
-argument_list|,
-name|description
-operator|=
-literal|"Type of the endpoint (rdd, dataframe, hive)."
-argument_list|)
-DECL|field|endpointType
-specifier|private
-specifier|final
-name|EndpointType
-name|endpointType
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|name
-operator|=
-literal|"collect"
-argument_list|,
-name|description
-operator|=
-literal|"Indicates if results should be collected or counted."
+literal|"true"
 argument_list|)
 DECL|field|collect
 specifier|private
@@ -371,7 +375,7 @@ name|Exception
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Creating {} Spark producer."
 argument_list|,
@@ -389,7 +393,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"About to create RDD producer."
 argument_list|)
@@ -414,7 +418,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"About to create DataFrame producer."
 argument_list|)
@@ -431,7 +435,7 @@ else|else
 block|{
 name|LOG
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"About to create Hive producer."
 argument_list|)
@@ -497,6 +501,33 @@ name|getComponent
 argument_list|()
 return|;
 block|}
+DECL|method|getEndpointType ()
+specifier|public
+name|EndpointType
+name|getEndpointType
+parameter_list|()
+block|{
+return|return
+name|endpointType
+return|;
+block|}
+comment|/**      * Type of the endpoint (rdd, dataframe, hive).      */
+DECL|method|setEndpointType (EndpointType endpointType)
+specifier|public
+name|void
+name|setEndpointType
+parameter_list|(
+name|EndpointType
+name|endpointType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|endpointType
+operator|=
+name|endpointType
+expr_stmt|;
+block|}
 DECL|method|getRdd ()
 specifier|public
 name|AbstractJavaRDDLike
@@ -507,6 +538,7 @@ return|return
 name|rdd
 return|;
 block|}
+comment|/**      * RDD to compute against.      */
 DECL|method|setRdd (AbstractJavaRDDLike rdd)
 specifier|public
 name|void
@@ -533,6 +565,7 @@ return|return
 name|rddCallback
 return|;
 block|}
+comment|/**      * Function performing action against an RDD.      */
 DECL|method|setRddCallback (RddCallback rddCallback)
 specifier|public
 name|void
@@ -559,6 +592,7 @@ return|return
 name|dataFrame
 return|;
 block|}
+comment|/**      * DataFrame to compute against.      */
 DECL|method|setDataFrame (DataFrame dataFrame)
 specifier|public
 name|void
@@ -585,6 +619,7 @@ return|return
 name|dataFrameCallback
 return|;
 block|}
+comment|/**      * Function performing action against an DataFrame.      */
 DECL|method|setDataFrameCallback (DataFrameCallback dataFrameCallback)
 specifier|public
 name|void
@@ -611,6 +646,7 @@ return|return
 name|collect
 return|;
 block|}
+comment|/**      * Indicates if results should be collected or counted.      */
 DECL|method|setCollect (boolean collect)
 specifier|public
 name|void
