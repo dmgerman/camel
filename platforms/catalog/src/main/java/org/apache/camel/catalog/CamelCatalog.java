@@ -78,6 +78,12 @@ specifier|public
 interface|interface
 name|CamelCatalog
 block|{
+comment|/**      * Enables caching of the resources which makes the catalog faster, but keeps data in memory during caching.      *<p/>      * The catalog does not cache by default.      */
+DECL|method|enableCache ()
+name|void
+name|enableCache
+parameter_list|()
+function_decl|;
 comment|/**      * The version of this Camel Catalog      */
 DECL|method|getCatalogVersion ()
 name|String
