@@ -1440,27 +1440,16 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|LOG
+name|getExceptionHandler
+argument_list|()
 operator|.
-name|warn
+name|handleException
 argument_list|(
-literal|"Exchange failed, so rolling back message status: "
-operator|+
+literal|"Error during processing exchange. Will attempt to process the message on next poll."
+argument_list|,
 name|exchange
 argument_list|,
 name|cause
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Exchange failed, so rolling back message status: {}"
-argument_list|,
-name|exchange
 argument_list|)
 expr_stmt|;
 block|}
