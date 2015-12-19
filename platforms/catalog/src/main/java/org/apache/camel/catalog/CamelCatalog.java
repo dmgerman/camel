@@ -280,6 +280,24 @@ parameter_list|)
 throws|throws
 name|URISyntaxException
 function_decl|;
+comment|/**      * Parses and validates the endpoint uri and constructs a key/value properties of each option      *      * @param uri  the endpoint uri      * @return invalid properties as key/value properties of each invalid option, returns an empty map if no validation errors      */
+DECL|method|validateProperties (String uri)
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|validateProperties
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+throws|throws
+name|URISyntaxException
+function_decl|;
+comment|// TODO: json with error instead of map
+comment|// with description of the error, index, etc
 comment|/**      * Returns the component name from the given endpoint uri      *      * @param uri  the endpoint uri      * @return the component name (aka scheme), or<tt>null</tt> if not possible to determine      */
 DECL|method|endpointComponentName (String uri)
 name|String
