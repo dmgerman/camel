@@ -288,8 +288,6 @@ parameter_list|(
 name|String
 name|uri
 parameter_list|)
-throws|throws
-name|URISyntaxException
 function_decl|;
 comment|/**      * Returns the component name from the given endpoint uri      *      * @param uri  the endpoint uri      * @return the component name (aka scheme), or<tt>null</tt> if not possible to determine      */
 DECL|method|endpointComponentName (String uri)

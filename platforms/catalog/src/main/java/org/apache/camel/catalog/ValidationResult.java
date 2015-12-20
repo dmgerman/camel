@@ -54,6 +54,18 @@ name|ValidationResult
 implements|implements
 name|Serializable
 block|{
+comment|// component
+DECL|field|syntaxError
+specifier|private
+name|String
+name|syntaxError
+decl_stmt|;
+DECL|field|unknownComponent
+specifier|private
+name|String
+name|unknownComponent
+decl_stmt|;
+comment|// options
 DECL|field|unknown
 specifier|private
 name|Set
@@ -109,6 +121,14 @@ name|isSuccess
 parameter_list|()
 block|{
 return|return
+name|syntaxError
+operator|==
+literal|null
+operator|&&
+name|unknownComponent
+operator|==
+literal|null
+operator|&&
 name|unknown
 operator|==
 literal|null
@@ -133,6 +153,38 @@ name|invalidNumber
 operator|==
 literal|null
 return|;
+block|}
+DECL|method|addSyntaxError (String syntaxError)
+specifier|public
+name|void
+name|addSyntaxError
+parameter_list|(
+name|String
+name|syntaxError
+parameter_list|)
+block|{
+name|this
+operator|.
+name|syntaxError
+operator|=
+name|syntaxError
+expr_stmt|;
+block|}
+DECL|method|addUnknownComponent (String name)
+specifier|public
+name|void
+name|addUnknownComponent
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|this
+operator|.
+name|unknownComponent
+operator|=
+name|name
+expr_stmt|;
 block|}
 DECL|method|addUnknown (String name)
 specifier|public
@@ -338,6 +390,16 @@ name|name
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getSyntaxError ()
+specifier|public
+name|String
+name|getSyntaxError
+parameter_list|()
+block|{
+return|return
+name|syntaxError
+return|;
+block|}
 DECL|method|getUnknown ()
 specifier|public
 name|Set
@@ -349,6 +411,16 @@ parameter_list|()
 block|{
 return|return
 name|unknown
+return|;
+block|}
+DECL|method|getUnknownComponent ()
+specifier|public
+name|String
+name|getUnknownComponent
+parameter_list|()
+block|{
+return|return
+name|unknownComponent
 return|;
 block|}
 DECL|method|getRequired ()
