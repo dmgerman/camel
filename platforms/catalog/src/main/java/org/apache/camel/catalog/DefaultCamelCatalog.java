@@ -3783,6 +3783,8 @@ operator|.
 name|addInvalidEnum
 argument_list|(
 name|name
+argument_list|,
+name|value
 argument_list|)
 expr_stmt|;
 block|}
@@ -3830,6 +3832,8 @@ operator|.
 name|addInvalidBoolean
 argument_list|(
 name|name
+argument_list|,
+name|value
 argument_list|)
 expr_stmt|;
 block|}
@@ -3887,6 +3891,8 @@ operator|.
 name|addInvalidInteger
 argument_list|(
 name|name
+argument_list|,
+name|value
 argument_list|)
 expr_stmt|;
 block|}
@@ -3957,6 +3963,8 @@ operator|.
 name|addInvalidNumber
 argument_list|(
 name|name
+argument_list|,
+name|value
 argument_list|)
 expr_stmt|;
 block|}
