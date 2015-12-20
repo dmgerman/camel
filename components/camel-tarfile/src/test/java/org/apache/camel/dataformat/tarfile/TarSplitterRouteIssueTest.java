@@ -130,15 +130,6 @@ literal|"src/test/resources/data/tarfile3.tar"
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// TODO: a bug which causes the TarSplitter to include an extra empty entry
-comment|// the bug is in the TarIterator hasNext / next
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|2000
-argument_list|)
-expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
