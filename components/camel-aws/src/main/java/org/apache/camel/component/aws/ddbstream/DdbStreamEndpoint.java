@@ -301,7 +301,9 @@ literal|" to start getting records. Note that using TRIM_HORIZON can cause a"
 operator|+
 literal|" significant delay before the stream has caught up to real-time."
 operator|+
-literal|" Currently only LATEST and TRIM_HORIZON are supported."
+literal|" if {AT,AFTER}_SEQUENCE_NUMBER are used, then a sequenceNumberProvider"
+operator|+
+literal|" MUST be supplied."
 argument_list|,
 name|defaultValue
 operator|=
@@ -324,6 +326,26 @@ comment|// and supplying a default implementation and a converter from a long/St
 comment|// to an instance of this interface.
 comment|// Note that the shard list needs to have the ability to start at the shard
 comment|// that includes the supplied sequence number
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Provider for the sequence number when"
+operator|+
+literal|" using one of the two ShardIteratorType.{AT,AFTER}_SEQUENCE_NUMBER"
+operator|+
+literal|" iterator types. Can be a registry reference or a literal sequence number."
+argument_list|)
+DECL|field|sequenceNumberProvider
+specifier|private
+name|SequenceNumberProvider
+name|sequenceNumberProvider
+decl_stmt|;
 DECL|method|DdbStreamEndpoint (String uri, String tableName, DdbStreamComponent component)
 specifier|public
 name|DdbStreamEndpoint
@@ -457,6 +479,60 @@ return|return
 literal|true
 return|;
 block|}
+DECL|method|getSequenceNumber ()
+specifier|public
+name|String
+name|getSequenceNumber
+parameter_list|()
+block|{
+switch|switch
+condition|(
+name|getIteratorType
+argument_list|()
+condition|)
+block|{
+case|case
+name|AFTER_SEQUENCE_NUMBER
+case|:
+case|case
+name|AT_SEQUENCE_NUMBER
+case|:
+if|if
+condition|(
+literal|null
+operator|==
+name|getSequenceNumberProvider
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"sequenceNumberProvider must be"
+operator|+
+literal|" provided, either as an implementation of"
+operator|+
+literal|" SequenceNumberProvider or a literal String."
+argument_list|)
+throw|;
+block|}
+else|else
+block|{
+return|return
+name|getSequenceNumberProvider
+argument_list|()
+operator|.
+name|getSequenceNumber
+argument_list|()
+return|;
+block|}
+default|default:
+return|return
+literal|""
+return|;
+block|}
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -479,6 +555,10 @@ operator|+
 literal|", iteratorType="
 operator|+
 name|iteratorType
+operator|+
+literal|", sequenceNumberProvider="
+operator|+
+name|sequenceNumberProvider
 operator|+
 literal|", uri="
 operator|+
@@ -599,6 +679,32 @@ operator|.
 name|iteratorType
 operator|=
 name|iteratorType
+expr_stmt|;
+block|}
+DECL|method|getSequenceNumberProvider ()
+specifier|public
+name|SequenceNumberProvider
+name|getSequenceNumberProvider
+parameter_list|()
+block|{
+return|return
+name|sequenceNumberProvider
+return|;
+block|}
+DECL|method|setSequenceNumberProvider (SequenceNumberProvider sequenceNumberProvider)
+specifier|public
+name|void
+name|setSequenceNumberProvider
+parameter_list|(
+name|SequenceNumberProvider
+name|sequenceNumberProvider
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sequenceNumberProvider
+operator|=
+name|sequenceNumberProvider
 expr_stmt|;
 block|}
 block|}
