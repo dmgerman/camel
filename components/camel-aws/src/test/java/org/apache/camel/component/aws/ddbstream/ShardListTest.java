@@ -22,22 +22,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|amazonaws
-operator|.
-name|services
-operator|.
-name|dynamodbv2
-operator|.
-name|model
-operator|.
-name|SequenceNumberRange
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -53,6 +37,22 @@ operator|.
 name|util
 operator|.
 name|List
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|dynamodbv2
+operator|.
+name|model
+operator|.
+name|SequenceNumberRange
 import|;
 end_import
 
@@ -103,16 +103,6 @@ operator|.
 name|Assert
 operator|.
 name|assertThat
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|Ignore
 import|;
 end_import
 

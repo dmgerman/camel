@@ -37,6 +37,7 @@ annotation|@
 name|Converter
 DECL|class|StringSequenceNumberConverter
 specifier|public
+specifier|final
 class|class
 name|StringSequenceNumberConverter
 block|{
