@@ -918,6 +918,10 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
 argument_list|)
 DECL|field|explicitQosEnabled
 specifier|private
