@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|javax
-operator|.
-name|net
-operator|.
-name|ssl
-operator|.
-name|TrustManager
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|io
@@ -203,6 +191,18 @@ operator|.
 name|concurrent
 operator|.
 name|TimeoutException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|net
+operator|.
+name|ssl
+operator|.
+name|TrustManager
 import|;
 end_import
 
