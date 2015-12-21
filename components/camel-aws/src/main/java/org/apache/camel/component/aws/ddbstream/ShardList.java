@@ -415,11 +415,11 @@ name|atAfterSeq
 argument_list|(
 name|sequenceNumber
 argument_list|,
-name|AtAfterCondition
+name|BigIntComparisons
 operator|.
 name|Conditions
 operator|.
-name|AFTER
+name|LT
 argument_list|)
 return|;
 block|}
@@ -436,22 +436,22 @@ name|atAfterSeq
 argument_list|(
 name|sequenceNumber
 argument_list|,
-name|AtAfterCondition
+name|BigIntComparisons
 operator|.
 name|Conditions
 operator|.
-name|AT
+name|LTEQ
 argument_list|)
 return|;
 block|}
-DECL|method|atAfterSeq (String sequenceNumber, AtAfterCondition condition)
+DECL|method|atAfterSeq (String sequenceNumber, BigIntComparisons condition)
 name|Shard
 name|atAfterSeq
 parameter_list|(
 name|String
 name|sequenceNumber
 parameter_list|,
-name|AtAfterCondition
+name|BigIntComparisons
 name|condition
 parameter_list|)
 block|{

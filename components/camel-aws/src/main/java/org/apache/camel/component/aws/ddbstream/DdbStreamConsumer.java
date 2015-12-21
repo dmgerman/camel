@@ -881,19 +881,19 @@ case|:
 comment|// if you request with a sequence number that is LESS than the
 comment|// start of the shard, you get a HTTP 400 from AWS.
 comment|// So only add the sequence number if the endpoints
-comment|// sequence number is AT or AFTER the starting sequence for
-comment|// the shard.
+comment|// sequence number is less than or equal to the starting
+comment|// sequence for the shard.
 comment|// Otherwise change the shart iterator type to trim_horizon
 comment|// because we get a 400 when we use one of the
 comment|// {at,after}_sequence_number iterator types and don't supply
 comment|// a sequence number.
 if|if
 condition|(
-name|AtAfterCondition
+name|BigIntComparisons
 operator|.
 name|Conditions
 operator|.
-name|AT
+name|LTEQ
 operator|.
 name|matches
 argument_list|(
@@ -931,15 +931,6 @@ name|getEndpoint
 argument_list|()
 operator|.
 name|getSequenceNumber
-argument_list|()
-argument_list|)
-operator|.
-name|withShardIteratorType
-argument_list|(
-name|getEndpoint
-argument_list|()
-operator|.
-name|getIteratorType
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1019,7 +1010,7 @@ name|ArrayDeque
 argument_list|<>
 argument_list|()
 decl_stmt|;
-name|AtAfterCondition
+name|BigIntComparisons
 name|condition
 decl_stmt|;
 name|BigInteger
@@ -1041,11 +1032,11 @@ name|AFTER_SEQUENCE_NUMBER
 case|:
 name|condition
 operator|=
-name|AtAfterCondition
+name|BigIntComparisons
 operator|.
 name|Conditions
 operator|.
-name|AFTER
+name|LT
 expr_stmt|;
 name|providedSeqNum
 operator|=
@@ -1068,11 +1059,11 @@ name|AT_SEQUENCE_NUMBER
 case|:
 name|condition
 operator|=
-name|AtAfterCondition
+name|BigIntComparisons
 operator|.
 name|Conditions
 operator|.
-name|AT
+name|LTEQ
 expr_stmt|;
 name|providedSeqNum
 operator|=

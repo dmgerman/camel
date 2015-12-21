@@ -31,20 +31,20 @@ import|;
 end_import
 
 begin_interface
-DECL|interface|AtAfterCondition
+DECL|interface|BigIntComparisons
 interface|interface
-name|AtAfterCondition
+name|BigIntComparisons
 block|{
-comment|/**      * @return true if sequenceNumber is (at,after) the endpointSequenceNumber.      */
-DECL|method|matches (BigInteger endpointSequenceNumber, BigInteger sequenceNumber)
+comment|/**      * @return true if the first parameter is LT/LTEQ/EQ/GTEQ/GT the second      */
+DECL|method|matches (BigInteger first, BigInteger second)
 name|boolean
 name|matches
 parameter_list|(
 name|BigInteger
-name|endpointSequenceNumber
+name|first
 parameter_list|,
 name|BigInteger
-name|sequenceNumber
+name|second
 parameter_list|)
 function_decl|;
 DECL|enum|Conditions
@@ -52,11 +52,11 @@ specifier|static
 enum|enum
 name|Conditions
 implements|implements
-name|AtAfterCondition
+name|BigIntComparisons
 block|{
-DECL|enumConstant|AFTER
-DECL|method|AFTER ()
-name|AFTER
+DECL|enumConstant|LT
+DECL|method|LT ()
+name|LT
 parameter_list|()
 block|{
 annotation|@
@@ -66,18 +66,18 @@ name|boolean
 name|matches
 parameter_list|(
 name|BigInteger
-name|endpointSequenceNumber
+name|first
 parameter_list|,
 name|BigInteger
-name|sequenceNumber
+name|second
 parameter_list|)
 block|{
 return|return
-name|endpointSequenceNumber
+name|first
 operator|.
 name|compareTo
 argument_list|(
-name|sequenceNumber
+name|second
 argument_list|)
 operator|<
 literal|0
@@ -85,9 +85,9 @@ return|;
 block|}
 block|}
 block|,
-DECL|enumConstant|AT
-DECL|method|AT ()
-name|AT
+DECL|enumConstant|LTEQ
+DECL|method|LTEQ ()
+name|LTEQ
 parameter_list|()
 block|{
 annotation|@
@@ -97,25 +97,25 @@ name|boolean
 name|matches
 parameter_list|(
 name|BigInteger
-name|endpointSequenceNumber
+name|first
 parameter_list|,
 name|BigInteger
-name|sequenceNumber
+name|second
 parameter_list|)
 block|{
 return|return
-name|endpointSequenceNumber
+name|first
 operator|.
 name|compareTo
 argument_list|(
-name|sequenceNumber
+name|second
 argument_list|)
 operator|<=
 literal|0
 return|;
 block|}
 block|}
-comment|// TODO rename to LT/LTEQ/EQ/GTEQ/GT
+comment|// TODO Add EQ/GTEQ/GT as needed, but note that GTEQ == !LT and GT == !LTEQ and EQ == (!LT&& !GT)
 block|}
 block|}
 end_interface
