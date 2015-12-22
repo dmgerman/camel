@@ -2570,12 +2570,12 @@ throws|throws
 name|Exception
 block|{
 comment|// valid
-name|ValidationResult
+name|EndpointValidationResult
 name|result
 init|=
 name|catalog
 operator|.
-name|validateProperties
+name|validateEndpointProperties
 argument_list|(
 literal|"log:mylog"
 argument_list|)
@@ -2593,7 +2593,7 @@ name|result
 operator|=
 name|catalog
 operator|.
-name|validateProperties
+name|validateEndpointProperties
 argument_list|(
 literal|"log:mylog?level=WARN&foo=bar"
 argument_list|)
@@ -2624,7 +2624,7 @@ name|result
 operator|=
 name|catalog
 operator|.
-name|validateProperties
+name|validateEndpointProperties
 argument_list|(
 literal|"jms:unknown:myqueue"
 argument_list|)
@@ -2657,7 +2657,7 @@ name|result
 operator|=
 name|catalog
 operator|.
-name|validateProperties
+name|validateEndpointProperties
 argument_list|(
 literal|"yammer:MESSAGES?accessToken=aaa&consumerKey=bbb&consumerSecret=ccc&useJson=true&initialDelay=500"
 argument_list|)
@@ -2675,7 +2675,7 @@ name|result
 operator|=
 name|catalog
 operator|.
-name|validateProperties
+name|validateEndpointProperties
 argument_list|(
 literal|"yammer:MESSAGES?accessToken=aaa&consumerKey=&useJson=no&initialDelay=five"
 argument_list|)
@@ -2749,7 +2749,7 @@ name|result
 operator|=
 name|catalog
 operator|.
-name|validateProperties
+name|validateEndpointProperties
 argument_list|(
 literal|"mqtt:myqtt?reconnectBackOffMultiplier=2.5"
 argument_list|)
@@ -2767,7 +2767,7 @@ name|result
 operator|=
 name|catalog
 operator|.
-name|validateProperties
+name|validateEndpointProperties
 argument_list|(
 literal|"mqtt:myqtt?reconnectBackOffMultiplier=five"
 argument_list|)
@@ -2800,7 +2800,7 @@ name|result
 operator|=
 name|catalog
 operator|.
-name|validateProperties
+name|validateEndpointProperties
 argument_list|(
 literal|"foo:bar?me=you"
 argument_list|)
@@ -2837,12 +2837,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ValidationResult
+name|EndpointValidationResult
 name|result
 init|=
 name|catalog
 operator|.
-name|validateProperties
+name|validateEndpointProperties
 argument_list|(
 literal|"yammer:MESSAGES?blah=yada&accessToken=aaa&consumerKey=&useJson=no&initialDelay=five"
 argument_list|)
@@ -2874,7 +2874,7 @@ name|result
 operator|=
 name|catalog
 operator|.
-name|validateProperties
+name|validateEndpointProperties
 argument_list|(
 literal|"jms:unknown:myqueue"
 argument_list|)

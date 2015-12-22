@@ -3472,20 +3472,20 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|validateProperties (String uri)
+DECL|method|validateEndpointProperties (String uri)
 specifier|public
-name|ValidationResult
-name|validateProperties
+name|EndpointValidationResult
+name|validateEndpointProperties
 parameter_list|(
 name|String
 name|uri
 parameter_list|)
 block|{
-name|ValidationResult
+name|EndpointValidationResult
 name|result
 init|=
 operator|new
-name|ValidationResult
+name|EndpointValidationResult
 argument_list|(
 name|uri
 argument_list|)

@@ -81,10 +81,10 @@ comment|/**  * Details result of validating endpoint uri.  */
 end_comment
 
 begin_class
-DECL|class|ValidationResult
+DECL|class|EndpointValidationResult
 specifier|public
 class|class
-name|ValidationResult
+name|EndpointValidationResult
 implements|implements
 name|Serializable
 block|{
@@ -173,9 +173,9 @@ name|String
 argument_list|>
 name|invalidNumber
 decl_stmt|;
-DECL|method|ValidationResult (String uri)
+DECL|method|EndpointValidationResult (String uri)
 specifier|public
-name|ValidationResult
+name|EndpointValidationResult
 parameter_list|(
 name|String
 name|uri

@@ -281,9 +281,9 @@ throws|throws
 name|URISyntaxException
 function_decl|;
 comment|/**      * Parses and validates the endpoint uri and constructs a key/value properties of each option      *      * @param uri  the endpoint uri      * @return validation result      */
-DECL|method|validateProperties (String uri)
-name|ValidationResult
-name|validateProperties
+DECL|method|validateEndpointProperties (String uri)
+name|EndpointValidationResult
+name|validateEndpointProperties
 parameter_list|(
 name|String
 name|uri
