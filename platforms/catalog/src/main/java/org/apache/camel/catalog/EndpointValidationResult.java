@@ -94,6 +94,11 @@ specifier|final
 name|String
 name|uri
 decl_stmt|;
+DECL|field|errors
+specifier|private
+name|int
+name|errors
+decl_stmt|;
 comment|// component
 DECL|field|syntaxError
 specifier|private
@@ -208,6 +213,16 @@ return|return
 name|uri
 return|;
 block|}
+DECL|method|getNumberOfErrors ()
+specifier|public
+name|int
+name|getNumberOfErrors
+parameter_list|()
+block|{
+return|return
+name|errors
+return|;
+block|}
 DECL|method|isSuccess ()
 specifier|public
 name|boolean
@@ -284,6 +299,9 @@ name|syntaxError
 operator|=
 name|syntaxError
 expr_stmt|;
+name|errors
+operator|++
+expr_stmt|;
 block|}
 DECL|method|addUnknownComponent (String name)
 specifier|public
@@ -299,6 +317,9 @@ operator|.
 name|unknownComponent
 operator|=
 name|name
+expr_stmt|;
+name|errors
+operator|++
 expr_stmt|;
 block|}
 DECL|method|addUnknown (String name)
@@ -327,6 +348,17 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|unknown
+operator|.
+name|contains
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
 name|unknown
 operator|.
 name|add
@@ -334,6 +366,10 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+name|errors
+operator|++
+expr_stmt|;
+block|}
 block|}
 DECL|method|addRequired (String name)
 specifier|public
@@ -361,6 +397,17 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|required
+operator|.
+name|contains
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
 name|required
 operator|.
 name|add
@@ -368,6 +415,10 @@ argument_list|(
 name|name
 argument_list|)
 expr_stmt|;
+name|errors
+operator|++
+expr_stmt|;
+block|}
 block|}
 DECL|method|addInvalidEnum (String name, String value)
 specifier|public
@@ -400,6 +451,17 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|invalidEnum
+operator|.
+name|containsKey
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
 name|invalidEnum
 operator|.
 name|put
@@ -409,6 +471,10 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+name|errors
+operator|++
+expr_stmt|;
+block|}
 block|}
 DECL|method|addInvalidEnumChoices (String name, String[] choices)
 specifier|public
@@ -484,6 +550,17 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|invalidReference
+operator|.
+name|containsKey
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
 name|invalidReference
 operator|.
 name|put
@@ -493,6 +570,10 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+name|errors
+operator|++
+expr_stmt|;
+block|}
 block|}
 DECL|method|addInvalidBoolean (String name, String value)
 specifier|public
@@ -525,6 +606,17 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|invalidBoolean
+operator|.
+name|containsKey
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
 name|invalidBoolean
 operator|.
 name|put
@@ -534,6 +626,10 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+name|errors
+operator|++
+expr_stmt|;
+block|}
 block|}
 DECL|method|addInvalidInteger (String name, String value)
 specifier|public
@@ -566,6 +662,17 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|invalidInteger
+operator|.
+name|containsKey
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
 name|invalidInteger
 operator|.
 name|put
@@ -575,6 +682,10 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+name|errors
+operator|++
+expr_stmt|;
+block|}
 block|}
 DECL|method|addInvalidNumber (String name, String value)
 specifier|public
@@ -607,6 +718,17 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|invalidNumber
+operator|.
+name|containsKey
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
 name|invalidNumber
 operator|.
 name|put
@@ -616,6 +738,10 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+name|errors
+operator|++
+expr_stmt|;
+block|}
 block|}
 DECL|method|getSyntaxError ()
 specifier|public

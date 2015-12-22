@@ -2619,6 +2619,16 @@ literal|"foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|result
+operator|.
+name|getNumberOfErrors
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// enum
 name|result
 operator|=
@@ -2652,6 +2662,16 @@ literal|"destinationType"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|result
+operator|.
+name|getNumberOfErrors
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// reference okay
 name|result
 operator|=
@@ -2667,6 +2687,16 @@ argument_list|(
 name|result
 operator|.
 name|isSuccess
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|result
+operator|.
+name|getNumberOfErrors
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2703,6 +2733,16 @@ literal|"jmsKeyFormatStrategy"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|result
+operator|.
+name|getNumberOfErrors
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// okay
 name|result
 operator|=
@@ -2736,6 +2776,16 @@ argument_list|(
 name|result
 operator|.
 name|isSuccess
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|4
+argument_list|,
+name|result
+operator|.
+name|getNumberOfErrors
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -2813,6 +2863,16 @@ name|isSuccess
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|0
+argument_list|,
+name|result
+operator|.
+name|getNumberOfErrors
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// number
 name|result
 operator|=
@@ -2846,6 +2906,16 @@ literal|"reconnectBackOffMultiplier"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|result
+operator|.
+name|getNumberOfErrors
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// unknown component
 name|result
 operator|=
@@ -2875,6 +2945,16 @@ name|equals
 argument_list|(
 literal|"foo"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|result
+operator|.
+name|getNumberOfErrors
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// invalid boolean but default value
@@ -2908,6 +2988,16 @@ name|get
 argument_list|(
 literal|"showAll"
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|result
+operator|.
+name|getNumberOfErrors
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
