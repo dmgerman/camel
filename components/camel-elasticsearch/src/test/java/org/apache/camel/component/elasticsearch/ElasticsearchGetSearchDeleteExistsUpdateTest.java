@@ -1001,8 +1001,19 @@ operator|.
 name|OPERATION_EXISTS
 argument_list|)
 expr_stmt|;
-name|ExistsResponse
-name|response
+name|headers
+operator|.
+name|put
+argument_list|(
+name|ElasticsearchConstants
+operator|.
+name|PARAM_INDEX_NAME
+argument_list|,
+literal|"twitter"
+argument_list|)
+expr_stmt|;
+name|Boolean
+name|exists
 init|=
 name|template
 operator|.
@@ -1014,7 +1025,7 @@ literal|""
 argument_list|,
 name|headers
 argument_list|,
-name|ExistsResponse
+name|Boolean
 operator|.
 name|class
 argument_list|)
@@ -1023,17 +1034,14 @@ name|assertNotNull
 argument_list|(
 literal|"response should not be null"
 argument_list|,
-name|response
+name|exists
 argument_list|)
 expr_stmt|;
-name|assertNotNull
+name|assertTrue
 argument_list|(
-literal|"response source should not be null"
+literal|"Index should exists"
 argument_list|,
-name|response
-operator|.
 name|exists
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
