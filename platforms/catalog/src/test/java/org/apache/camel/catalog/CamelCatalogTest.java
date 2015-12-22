@@ -186,6 +186,11 @@ specifier|public
 class|class
 name|CamelCatalogTest
 block|{
+DECL|field|catalog
+specifier|static
+name|CamelCatalog
+name|catalog
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -201,11 +206,6 @@ name|CamelCatalogTest
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-DECL|field|catalog
-specifier|static
-name|CamelCatalog
-name|catalog
 decl_stmt|;
 annotation|@
 name|BeforeClass
