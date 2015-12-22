@@ -374,6 +374,22 @@ name|catalog
 operator|.
 name|JSonSchemaHelper
 operator|.
+name|isPropertyObject
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|catalog
+operator|.
+name|JSonSchemaHelper
+operator|.
 name|isPropertyRequired
 import|;
 end_import
@@ -3669,7 +3685,6 @@ argument_list|,
 name|name
 argument_list|)
 decl_stmt|;
-comment|// unknown option
 if|if
 condition|(
 name|row
@@ -3677,6 +3692,7 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// unknown option
 name|result
 operator|.
 name|addUnknown
@@ -3687,7 +3703,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// invalid value/type
 comment|// is required but the value is empty
 name|boolean
 name|required
@@ -3802,6 +3817,47 @@ argument_list|(
 name|name
 argument_list|,
 name|choices
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// is reference lookup of bean
+if|if
+condition|(
+name|isPropertyObject
+argument_list|(
+name|rows
+argument_list|,
+name|name
+argument_list|)
+condition|)
+block|{
+comment|// must start with # and be at least 2 characters
+if|if
+condition|(
+operator|!
+name|value
+operator|.
+name|startsWith
+argument_list|(
+literal|"#"
+argument_list|)
+operator|||
+name|value
+operator|.
+name|length
+argument_list|()
+operator|<=
+literal|1
+condition|)
+block|{
+name|result
+operator|.
+name|addInvalidReference
+argument_list|(
+name|name
+argument_list|,
+name|value
 argument_list|)
 expr_stmt|;
 block|}
