@@ -198,6 +198,16 @@ operator|=
 name|uri
 expr_stmt|;
 block|}
+DECL|method|getUri ()
+specifier|public
+name|String
+name|getUri
+parameter_list|()
+block|{
+return|return
+name|uri
+return|;
+block|}
 DECL|method|isSuccess ()
 specifier|public
 name|boolean
