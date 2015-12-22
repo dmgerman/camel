@@ -90,6 +90,12 @@ name|OPERATION_SEARCH
 init|=
 literal|"SEARCH"
 decl_stmt|;
+DECL|field|OPERATION_EXISTS
+name|String
+name|OPERATION_EXISTS
+init|=
+literal|"EXISTS"
+decl_stmt|;
 DECL|field|PARAM_INDEX_ID
 name|String
 name|PARAM_INDEX_ID
