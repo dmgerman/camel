@@ -626,10 +626,10 @@ specifier|private
 name|boolean
 name|caching
 decl_stmt|;
-DECL|field|suggestion
+DECL|field|suggestionStrategy
 specifier|private
-name|Suggestion
-name|suggestion
+name|SuggestionStrategy
+name|suggestionStrategy
 decl_stmt|;
 comment|/**      * Creates the {@link CamelCatalog} without caching enabled.      */
 DECL|method|DefaultCamelCatalog ()
@@ -668,44 +668,21 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|enableLuceneSuggestion ()
+DECL|method|setSuggestion (SuggestionStrategy suggestionStrategy)
 specifier|public
 name|void
-name|enableLuceneSuggestion
-parameter_list|()
-block|{
-comment|// must be optional so create the class using forName
-try|try
-block|{
-name|Class
-name|clazz
-init|=
-name|Class
-operator|.
-name|forName
-argument_list|(
-literal|"org.apache.camel.catalog.lucene.LuceneSuggestion"
-argument_list|)
-decl_stmt|;
-name|suggestion
-operator|=
-operator|(
-name|Suggestion
-operator|)
-name|clazz
-operator|.
-name|newInstance
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
+name|setSuggestion
 parameter_list|(
-name|Throwable
-name|e
+name|SuggestionStrategy
+name|suggestionStrategy
 parameter_list|)
 block|{
-comment|// ignore
-block|}
+name|this
+operator|.
+name|suggestionStrategy
+operator|=
+name|suggestionStrategy
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -3764,7 +3741,7 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|suggestion
+name|suggestionStrategy
 operator|!=
 literal|null
 condition|)
@@ -3773,7 +3750,7 @@ name|String
 index|[]
 name|suggestions
 init|=
-name|suggestion
+name|suggestionStrategy
 operator|.
 name|suggestEndpointOptions
 argument_list|(

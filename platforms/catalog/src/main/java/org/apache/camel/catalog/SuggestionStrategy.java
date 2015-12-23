@@ -27,14 +27,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To provide suggestions for unknown endpoint options  */
+comment|/**  * Strategy to provide suggestions for unknown endpoint options  */
 end_comment
 
 begin_interface
-DECL|interface|Suggestion
+DECL|interface|SuggestionStrategy
 specifier|public
 interface|interface
-name|Suggestion
+name|SuggestionStrategy
 block|{
 comment|/**      * Provides a list of valid option names for a did you mean function.      *      * @param names  valid names      * @param option unknown option name      * @return a list of suggested names (did you mean)      */
 DECL|method|suggestEndpointOptions (Set<String> names, String option)
