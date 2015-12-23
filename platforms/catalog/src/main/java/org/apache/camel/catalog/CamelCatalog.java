@@ -84,6 +84,12 @@ name|void
 name|enableCache
 parameter_list|()
 function_decl|;
+comment|/**      * Enables did you mean functionality using Apache Lucene to provide a list of suggested option names      * when {@link #validateEndpointProperties(String)} fails due unknown or mistyped option names.      */
+DECL|method|enableLuceneSuggestion ()
+name|void
+name|enableLuceneSuggestion
+parameter_list|()
+function_decl|;
 comment|/**      * The version of this Camel Catalog      */
 DECL|method|getCatalogVersion ()
 name|String
