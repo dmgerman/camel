@@ -1071,7 +1071,7 @@ name|put
 argument_list|(
 name|name
 argument_list|,
-literal|"Unknown field. Did you mean: "
+literal|"Unknown option. Did you mean: "
 operator|+
 name|str
 argument_list|)
@@ -1085,7 +1085,7 @@ name|put
 argument_list|(
 name|name
 argument_list|,
-literal|"Unknown field."
+literal|"Unknown option."
 argument_list|)
 expr_stmt|;
 block|}
@@ -1112,7 +1112,7 @@ name|put
 argument_list|(
 name|name
 argument_list|,
-literal|"Missing required field"
+literal|"Missing required option"
 argument_list|)
 expr_stmt|;
 block|}

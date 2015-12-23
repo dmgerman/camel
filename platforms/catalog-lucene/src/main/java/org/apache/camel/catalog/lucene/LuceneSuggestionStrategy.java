@@ -62,9 +62,9 @@ name|lucene
 operator|.
 name|analysis
 operator|.
-name|standard
+name|core
 operator|.
-name|StandardAnalyzer
+name|KeywordAnalyzer
 import|;
 end_import
 
@@ -145,7 +145,7 @@ specifier|private
 name|int
 name|maxSuggestions
 init|=
-literal|5
+literal|3
 decl_stmt|;
 annotation|@
 name|Override
@@ -246,14 +246,13 @@ operator|new
 name|IndexWriterConfig
 argument_list|(
 operator|new
-name|StandardAnalyzer
+name|KeywordAnalyzer
 argument_list|()
 argument_list|)
 argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
-comment|// suggest up to 5 names
 return|return
 name|checker
 operator|.
