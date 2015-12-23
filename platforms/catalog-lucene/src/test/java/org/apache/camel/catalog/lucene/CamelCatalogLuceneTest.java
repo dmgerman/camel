@@ -143,7 +143,7 @@ argument_list|()
 expr_stmt|;
 name|catalog
 operator|.
-name|setSuggestion
+name|setSuggestionStrategy
 argument_list|(
 operator|new
 name|LuceneSuggestionStrategy

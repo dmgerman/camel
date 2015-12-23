@@ -85,9 +85,9 @@ name|enableCache
 parameter_list|()
 function_decl|;
 comment|/**      * To plugin a custom {@link SuggestionStrategy} to provide suggestion for unknown options      */
-DECL|method|setSuggestion (SuggestionStrategy suggestionStrategy)
+DECL|method|setSuggestionStrategy (SuggestionStrategy suggestionStrategy)
 name|void
-name|setSuggestion
+name|setSuggestionStrategy
 parameter_list|(
 name|SuggestionStrategy
 name|suggestionStrategy

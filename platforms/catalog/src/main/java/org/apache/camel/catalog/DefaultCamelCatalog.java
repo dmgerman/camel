@@ -668,10 +668,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|setSuggestion (SuggestionStrategy suggestionStrategy)
+DECL|method|setSuggestionStrategy (SuggestionStrategy suggestionStrategy)
 specifier|public
 name|void
-name|setSuggestion
+name|setSuggestionStrategy
 parameter_list|(
 name|SuggestionStrategy
 name|suggestionStrategy
