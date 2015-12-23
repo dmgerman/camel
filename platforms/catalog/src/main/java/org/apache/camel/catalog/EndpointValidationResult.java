@@ -1037,7 +1037,7 @@ name|unknownSuggestions
 operator|.
 name|containsKey
 argument_list|(
-name|unknown
+name|name
 argument_list|)
 condition|)
 block|{
@@ -1049,7 +1049,7 @@ name|unknownSuggestions
 operator|.
 name|get
 argument_list|(
-name|unknown
+name|name
 argument_list|)
 decl_stmt|;
 name|String
