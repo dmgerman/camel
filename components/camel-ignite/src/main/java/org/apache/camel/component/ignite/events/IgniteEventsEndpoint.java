@@ -284,7 +284,7 @@ literal|"Ignite Events"
 argument_list|,
 name|syntax
 operator|=
-literal|"ignite:events:endpointId"
+literal|"ignite:events:[endpointId]"
 argument_list|,
 name|label
 operator|=

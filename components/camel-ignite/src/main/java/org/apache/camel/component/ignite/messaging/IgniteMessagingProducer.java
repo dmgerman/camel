@@ -150,6 +150,10 @@ name|IgniteMessaging
 import|;
 end_import
 
+begin_comment
+comment|/**  * Ignite Messaging producer.  */
+end_comment
+
 begin_class
 DECL|class|IgniteMessagingProducer
 specifier|public

@@ -20,6 +20,10 @@ name|messaging
 package|;
 end_package
 
+begin_comment
+comment|/**  * Enum for Ignite Messaging send modes.  */
+end_comment
+
 begin_enum
 DECL|enum|IgniteMessagingSendMode
 specifier|public

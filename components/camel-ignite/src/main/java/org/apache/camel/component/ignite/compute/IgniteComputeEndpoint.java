@@ -194,7 +194,7 @@ literal|"Ignite Compute"
 argument_list|,
 name|syntax
 operator|=
-literal|"ignite:compute:endpointId"
+literal|"ignite:compute:[endpointId]"
 argument_list|,
 name|label
 operator|=

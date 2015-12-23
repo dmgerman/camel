@@ -154,6 +154,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * Ignite Messaging consumer.  */
+end_comment
+
 begin_class
 DECL|class|IgniteMessagingConsumer
 specifier|public
@@ -283,6 +287,26 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Processing Ignite message for subscription {} with payload {}."
+argument_list|,
+name|uuid
+argument_list|,
+name|payload
+argument_list|)
+expr_stmt|;
+block|}
 name|getProcessor
 argument_list|()
 operator|.
@@ -385,6 +409,18 @@ argument_list|,
 name|predicate
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Started Ignite Messaging consumer for topic {}."
+argument_list|,
+name|endpoint
+operator|.
+name|getTopic
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -411,6 +447,18 @@ name|getTopic
 argument_list|()
 argument_list|,
 name|predicate
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Stopped Ignite Messaging consumer for topic {}."
+argument_list|,
+name|endpoint
+operator|.
+name|getTopic
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

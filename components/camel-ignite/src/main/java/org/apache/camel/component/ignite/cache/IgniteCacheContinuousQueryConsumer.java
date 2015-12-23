@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|cache
@@ -335,6 +345,23 @@ expr_stmt|;
 name|launchContinuousQuery
 argument_list|()
 expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Started Ignite Cache Continuous Query consumer for cache {} with query:Â {}."
+argument_list|,
+name|cache
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|endpoint
+operator|.
+name|getQuery
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|maybeFireExistingQueryResults
 argument_list|()
 expr_stmt|;
@@ -562,6 +589,24 @@ name|CacheEntryListenerException
 block|{
 if|if
 condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Processing Continuous Query event(s):Â {}."
+argument_list|,
+name|events
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
 operator|!
 name|endpoint
 operator|.
@@ -662,6 +707,23 @@ name|cursor
 operator|.
 name|close
 argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Stopped Ignite Cache Continuous Query consumer for cache {} with query:Â {}."
+argument_list|,
+name|cache
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|endpoint
+operator|.
+name|getQuery
+argument_list|()
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|fireSingleExchange (CacheEntryEvent<? extends Object, ? extends Object> entry)

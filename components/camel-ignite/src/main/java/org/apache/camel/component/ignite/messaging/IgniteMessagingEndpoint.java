@@ -190,6 +190,10 @@ name|IgniteMessaging
 import|;
 end_import
 
+begin_comment
+comment|/**  * Ignite Messaging endpoint.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
@@ -209,6 +213,12 @@ argument_list|,
 name|label
 operator|=
 literal|"nosql,cache,messaging"
+argument_list|,
+name|consumerClass
+operator|=
+name|IgniteMessagingConsumer
+operator|.
+name|class
 argument_list|)
 DECL|class|IgniteMessagingEndpoint
 specifier|public

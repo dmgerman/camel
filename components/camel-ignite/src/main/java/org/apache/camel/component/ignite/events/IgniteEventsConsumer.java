@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -266,6 +276,24 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Processing Ignite Event: {}."
+argument_list|,
+name|event
+argument_list|)
+expr_stmt|;
+block|}
 name|getAsyncProcessor
 argument_list|()
 operator|.
@@ -440,6 +468,20 @@ argument_list|,
 name|eventTypes
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Started local Ignite Events consumer for events: {}."
+argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|eventTypes
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -463,6 +505,20 @@ argument_list|(
 name|predicate
 argument_list|,
 name|eventTypes
+argument_list|)
+expr_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Stopped local Ignite Events consumer for events: {}."
+argument_list|,
+name|Arrays
+operator|.
+name|asList
+argument_list|(
+name|eventTypes
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
