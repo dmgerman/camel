@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Apache Lucene based {@link SuggestionStrategy}.  */
+comment|/**  * Apache Lucene based {@link SuggestionStrategy}.  *<p/>  * This is a simple implementation using in-memory directory and no state.  */
 end_comment
 
 begin_class
@@ -140,9 +140,16 @@ name|LuceneSuggestionStrategy
 implements|implements
 name|SuggestionStrategy
 block|{
+DECL|field|maxSuggestions
+specifier|private
+name|int
+name|maxSuggestions
+init|=
+literal|5
+decl_stmt|;
 annotation|@
 name|Override
-DECL|method|suggestEndpointOptions (Set<String> names, String option)
+DECL|method|suggestEndpointOptions (Set<String> names, String unknownOption)
 specifier|public
 name|String
 index|[]
@@ -155,9 +162,10 @@ argument_list|>
 name|names
 parameter_list|,
 name|String
-name|option
+name|unknownOption
 parameter_list|)
 block|{
+comment|// each option must be on a separate line in a String
 name|StringBuilder
 name|sb
 init|=
@@ -211,6 +219,7 @@ argument_list|(
 name|reader
 argument_list|)
 decl_stmt|;
+comment|// use in-memory lucene spell checker to make the suggestions
 name|RAMDirectory
 name|dir
 init|=
@@ -250,9 +259,9 @@ name|checker
 operator|.
 name|suggestSimilar
 argument_list|(
-name|option
+name|unknownOption
 argument_list|,
-literal|5
+name|maxSuggestions
 argument_list|)
 return|;
 block|}
