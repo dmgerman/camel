@@ -310,6 +310,24 @@ operator|.
 name|endParam
 argument_list|()
 operator|.
+name|responseMessage
+argument_list|()
+operator|.
+name|code
+argument_list|(
+literal|200
+argument_list|)
+operator|.
+name|responseModel
+argument_list|(
+name|DayResponse
+operator|.
+name|class
+argument_list|)
+operator|.
+name|endResponseMessage
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"log:week"
@@ -482,6 +500,26 @@ operator|.
 name|contains
 argument_list|(
 literal|"\"enum\" : [ \"monday\", \"tuesday\", \"wednesday\", \"thursday\", \"friday\" ]"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"$ref\" : \"#/definitions/DayResponse\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"format\" : \"org.apache.camel.swagger.DayResponse\""
 argument_list|)
 argument_list|)
 expr_stmt|;
