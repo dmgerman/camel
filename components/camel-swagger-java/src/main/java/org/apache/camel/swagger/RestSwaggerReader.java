@@ -1365,6 +1365,27 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|param
+operator|.
+name|getAllowableValues
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|sp
+operator|.
+name|setEnum
+argument_list|(
+name|param
+operator|.
+name|getAllowableValues
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// set schema on body parameter
 if|if
