@@ -451,7 +451,8 @@ name|isDeclare
 argument_list|()
 condition|)
 block|{
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|declareExchangeAndQueue
 argument_list|(
