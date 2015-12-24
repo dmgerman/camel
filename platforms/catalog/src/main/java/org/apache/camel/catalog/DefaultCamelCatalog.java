@@ -3783,6 +3783,34 @@ block|}
 block|}
 else|else
 block|{
+comment|// default value
+name|String
+name|defaultValue
+init|=
+name|getPropertyDefaultValue
+argument_list|(
+name|rows
+argument_list|,
+name|name
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|defaultValue
+operator|!=
+literal|null
+condition|)
+block|{
+name|result
+operator|.
+name|addDefaultValue
+argument_list|(
+name|name
+argument_list|,
+name|defaultValue
+argument_list|)
+expr_stmt|;
+block|}
 comment|// is required but the value is empty
 name|boolean
 name|required
