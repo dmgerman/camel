@@ -356,12 +356,15 @@ name|RoutesCollector
 operator|.
 name|class
 argument_list|)
-DECL|method|routesCollector (ApplicationContext applicationContext)
+DECL|method|routesCollector (ApplicationContext applicationContext, CamelConfigurationProperties configurationProperties)
 name|RoutesCollector
 name|routesCollector
 parameter_list|(
 name|ApplicationContext
 name|applicationContext
+parameter_list|,
+name|CamelConfigurationProperties
+name|configurationProperties
 parameter_list|)
 block|{
 name|Collection
@@ -396,6 +399,8 @@ argument_list|>
 argument_list|(
 name|configurations
 argument_list|)
+argument_list|,
+name|configurationProperties
 argument_list|)
 return|;
 block|}

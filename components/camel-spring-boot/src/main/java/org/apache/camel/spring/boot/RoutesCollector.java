@@ -218,8 +218,14 @@ name|CamelContextConfiguration
 argument_list|>
 name|camelContextConfigurations
 decl_stmt|;
+DECL|field|configurationProperties
+specifier|private
+specifier|final
+name|CamelConfigurationProperties
+name|configurationProperties
+decl_stmt|;
 comment|// Constructors
-DECL|method|RoutesCollector (ApplicationContext applicationContext, List<CamelContextConfiguration> camelContextConfigurations)
+DECL|method|RoutesCollector (ApplicationContext applicationContext, List<CamelContextConfiguration> camelContextConfigurations, CamelConfigurationProperties configurationProperties)
 specifier|public
 name|RoutesCollector
 parameter_list|(
@@ -231,6 +237,9 @@ argument_list|<
 name|CamelContextConfiguration
 argument_list|>
 name|camelContextConfigurations
+parameter_list|,
+name|CamelConfigurationProperties
+name|configurationProperties
 parameter_list|)
 block|{
 name|this
@@ -251,6 +260,12 @@ argument_list|>
 argument_list|(
 name|camelContextConfigurations
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|configurationProperties
+operator|=
+name|configurationProperties
 expr_stmt|;
 block|}
 comment|// Overridden
@@ -273,7 +288,7 @@ operator|.
 name|getApplicationContext
 argument_list|()
 decl_stmt|;
-comment|// only listen to context refreshs of "my" applicationContext
+comment|// only listen to context refresh of "my" applicationContext
 if|if
 condition|(
 name|this
@@ -422,13 +437,38 @@ block|}
 block|}
 try|try
 block|{
+name|boolean
+name|scan
+init|=
+operator|!
+name|configurationProperties
+operator|.
+name|getXmlRoutes
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"false"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|scan
+condition|)
+block|{
 name|loadXmlRoutes
 argument_list|(
 name|applicationContext
 argument_list|,
 name|camelContext
+argument_list|,
+name|configurationProperties
+operator|.
+name|getXmlRoutes
+argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 for|for
 control|(
 name|CamelContextConfiguration
@@ -516,7 +556,7 @@ expr_stmt|;
 block|}
 block|}
 comment|// Helpers
-DECL|method|loadXmlRoutes (ApplicationContext applicationContext, CamelContext camelContext)
+DECL|method|loadXmlRoutes (ApplicationContext applicationContext, CamelContext camelContext, String directory)
 specifier|private
 name|void
 name|loadXmlRoutes
@@ -526,15 +566,20 @@ name|applicationContext
 parameter_list|,
 name|CamelContext
 name|camelContext
+parameter_list|,
+name|String
+name|directory
 parameter_list|)
 throws|throws
 name|Exception
 block|{
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Started XML routes detection. Scanning classpath (/camel/*.xml)..."
+literal|"Loading additional Camel XML routes from: {}"
+argument_list|,
+name|directory
 argument_list|)
 expr_stmt|;
 try|try
@@ -547,7 +592,7 @@ name|applicationContext
 operator|.
 name|getResources
 argument_list|(
-literal|"classpath:camel/*.xml"
+name|directory
 argument_list|)
 decl_stmt|;
 for|for
@@ -558,6 +603,15 @@ range|:
 name|xmlRoutes
 control|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Found XML route: {}"
+argument_list|,
+name|xmlRoute
+argument_list|)
+expr_stmt|;
 name|RoutesDefinition
 name|xmlDefinition
 init|=
@@ -593,7 +647,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"No XMl routes found in the classpath (/camel/*.xml). Skipping XML routes detection."
+literal|"No XMl routes found in {}. Skipping XML routes detection."
+argument_list|,
+name|directory
 argument_list|)
 expr_stmt|;
 block|}

@@ -86,6 +86,14 @@ specifier|private
 name|String
 name|name
 decl_stmt|;
+comment|/**      * Directory to scan for adding additional XML routes.      * You can turn this off by setting the value to<tt>false</tt>      */
+DECL|field|xmlRoutes
+specifier|private
+name|String
+name|xmlRoutes
+init|=
+literal|"classpath:camel/*.xml"
+decl_stmt|;
 comment|// Getters& setters
 DECL|method|isJmxEnabled ()
 specifier|public
@@ -215,6 +223,32 @@ operator|.
 name|name
 operator|=
 name|name
+expr_stmt|;
+block|}
+DECL|method|getXmlRoutes ()
+specifier|public
+name|String
+name|getXmlRoutes
+parameter_list|()
+block|{
+return|return
+name|xmlRoutes
+return|;
+block|}
+DECL|method|setXmlRoutes (String xmlRoutes)
+specifier|public
+name|void
+name|setXmlRoutes
+parameter_list|(
+name|String
+name|xmlRoutes
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xmlRoutes
+operator|=
+name|xmlRoutes
 expr_stmt|;
 block|}
 block|}
