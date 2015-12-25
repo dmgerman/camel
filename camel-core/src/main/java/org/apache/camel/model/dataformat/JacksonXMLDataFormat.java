@@ -209,6 +209,13 @@ name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute
+DECL|field|xmlMapper
+specifier|private
+name|String
+name|xmlMapper
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|prettyPrint
 specifier|private
 name|Boolean
@@ -323,6 +330,33 @@ name|super
 argument_list|(
 literal|"jacksonxml"
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getXmlMapper ()
+specifier|public
+name|String
+name|getXmlMapper
+parameter_list|()
+block|{
+return|return
+name|xmlMapper
+return|;
+block|}
+comment|/**      * Lookup and use the existing XmlMapper with the given id.      */
+DECL|method|setXmlMapper (String xmlMapper)
+specifier|public
+name|void
+name|setXmlMapper
+parameter_list|(
+name|String
+name|xmlMapper
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xmlMapper
+operator|=
+name|xmlMapper
 expr_stmt|;
 block|}
 DECL|method|getPrettyPrint ()
@@ -824,6 +858,25 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
+if|if
+condition|(
+name|xmlMapper
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"xmlMapper"
+argument_list|,
+name|xmlMapper
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|unmarshalType

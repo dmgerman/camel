@@ -376,16 +376,15 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|xmlMapper
-specifier|private
-specifier|final
-name|XmlMapper
-name|xmlMapper
-decl_stmt|;
 DECL|field|camelContext
 specifier|private
 name|CamelContext
 name|camelContext
+decl_stmt|;
+DECL|field|xmlMapper
+specifier|private
+name|XmlMapper
+name|xmlMapper
 decl_stmt|;
 DECL|field|collectionType
 specifier|private
@@ -554,14 +553,6 @@ name|boolean
 name|enableJaxbAnnotationModule
 parameter_list|)
 block|{
-name|this
-operator|.
-name|xmlMapper
-operator|=
-operator|new
-name|XmlMapper
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|unmarshalType
@@ -863,6 +854,34 @@ block|}
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
+DECL|method|getXmlMapper ()
+specifier|public
+name|XmlMapper
+name|getXmlMapper
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|xmlMapper
+return|;
+block|}
+DECL|method|setXmlMapper (XmlMapper xmlMapper)
+specifier|public
+name|void
+name|setXmlMapper
+parameter_list|(
+name|XmlMapper
+name|xmlMapper
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xmlMapper
+operator|=
+name|xmlMapper
+expr_stmt|;
+block|}
 DECL|method|getUnmarshalType ()
 specifier|public
 name|Class
@@ -964,18 +983,6 @@ name|jsonView
 operator|=
 name|jsonView
 expr_stmt|;
-block|}
-DECL|method|getXmlMapper ()
-specifier|public
-name|XmlMapper
-name|getXmlMapper
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|xmlMapper
-return|;
 block|}
 DECL|method|getInclude ()
 specifier|public
@@ -1584,6 +1591,20 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|xmlMapper
+operator|==
+literal|null
+condition|)
+block|{
+name|xmlMapper
+operator|=
+operator|new
+name|XmlMapper
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|enableJaxbAnnotationModule

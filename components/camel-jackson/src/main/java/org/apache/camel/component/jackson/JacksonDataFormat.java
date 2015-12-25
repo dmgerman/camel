@@ -374,16 +374,15 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|objectMapper
-specifier|private
-specifier|final
-name|ObjectMapper
-name|objectMapper
-decl_stmt|;
 DECL|field|camelContext
 specifier|private
 name|CamelContext
 name|camelContext
+decl_stmt|;
+DECL|field|objectMapper
+specifier|private
+name|ObjectMapper
+name|objectMapper
 decl_stmt|;
 DECL|field|collectionType
 specifier|private
@@ -552,14 +551,6 @@ name|boolean
 name|enableJaxbAnnotationModule
 parameter_list|)
 block|{
-name|this
-operator|.
-name|objectMapper
-operator|=
-operator|new
-name|ObjectMapper
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|unmarshalType
@@ -861,6 +852,34 @@ block|}
 block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
+DECL|method|getObjectMapper ()
+specifier|public
+name|ObjectMapper
+name|getObjectMapper
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|objectMapper
+return|;
+block|}
+DECL|method|setObjectMapper (ObjectMapper objectMapper)
+specifier|public
+name|void
+name|setObjectMapper
+parameter_list|(
+name|ObjectMapper
+name|objectMapper
+parameter_list|)
+block|{
+name|this
+operator|.
+name|objectMapper
+operator|=
+name|objectMapper
+expr_stmt|;
+block|}
 DECL|method|getUnmarshalType ()
 specifier|public
 name|Class
@@ -962,18 +981,6 @@ name|jsonView
 operator|=
 name|jsonView
 expr_stmt|;
-block|}
-DECL|method|getObjectMapper ()
-specifier|public
-name|ObjectMapper
-name|getObjectMapper
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|objectMapper
-return|;
 block|}
 DECL|method|getInclude ()
 specifier|public
@@ -1582,6 +1589,20 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|objectMapper
+operator|==
+literal|null
+condition|)
+block|{
+name|objectMapper
+operator|=
+operator|new
+name|ObjectMapper
+argument_list|()
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|enableJaxbAnnotationModule

@@ -223,6 +223,13 @@ name|DataFormatDefinition
 block|{
 annotation|@
 name|XmlAttribute
+DECL|field|objectMapper
+specifier|private
+name|String
+name|objectMapper
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|prettyPrint
 specifier|private
 name|Boolean
@@ -377,6 +384,33 @@ operator|.
 name|library
 operator|=
 name|library
+expr_stmt|;
+block|}
+DECL|method|getObjectMapper ()
+specifier|public
+name|String
+name|getObjectMapper
+parameter_list|()
+block|{
+return|return
+name|objectMapper
+return|;
+block|}
+comment|/**      * Lookup and use the existing ObjectMapper with the given id when using Jackson.      */
+DECL|method|setObjectMapper (String objectMapper)
+specifier|public
+name|void
+name|setObjectMapper
+parameter_list|(
+name|String
+name|objectMapper
+parameter_list|)
+block|{
+name|this
+operator|.
+name|objectMapper
+operator|=
+name|objectMapper
 expr_stmt|;
 block|}
 DECL|method|getPrettyPrint ()
@@ -1068,6 +1102,25 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
+if|if
+condition|(
+name|objectMapper
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"objectMapper"
+argument_list|,
+name|objectMapper
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|unmarshalType
