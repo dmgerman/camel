@@ -1428,7 +1428,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * For additional configuration options on component level      */
+comment|/**      * For additional configuration options on component level      *<p/>      * The value can use<tt>#</tt> to refer to a bean to lookup in the registry.      */
 DECL|method|componentProperty (String key, String value)
 specifier|public
 name|RestConfigurationDefinition
@@ -1474,7 +1474,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * For additional configuration options on endpoint level      */
+comment|/**      * For additional configuration options on endpoint level      *<p/>      * The value can use<tt>#</tt> to refer to a bean to lookup in the registry.      */
 DECL|method|endpointProperty (String key, String value)
 specifier|public
 name|RestConfigurationDefinition
@@ -1520,7 +1520,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * For additional configuration options on consumer level      */
+comment|/**      * For additional configuration options on consumer level      *<p/>      * The value can use<tt>#</tt> to refer to a bean to lookup in the registry.      */
 DECL|method|consumerProperty (String key, String value)
 specifier|public
 name|RestConfigurationDefinition
@@ -1566,7 +1566,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * For additional configuration options on data format level      */
+comment|/**      * For additional configuration options on data format level      *<p/>      * The value can use<tt>#</tt> to refer to a bean to lookup in the registry.      */
 DECL|method|dataFormatProperty (String key, String value)
 specifier|public
 name|RestConfigurationDefinition
