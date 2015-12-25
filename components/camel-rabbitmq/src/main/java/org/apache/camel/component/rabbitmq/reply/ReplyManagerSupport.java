@@ -667,13 +667,6 @@ name|ReplyHolder
 name|holder
 parameter_list|)
 block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"in processReply"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|holder
@@ -803,6 +796,8 @@ name|holder
 operator|.
 name|getMessage
 argument_list|()
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// restore correlation id in case the remote server messed with it

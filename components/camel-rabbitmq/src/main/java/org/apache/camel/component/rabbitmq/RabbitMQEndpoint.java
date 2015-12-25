@@ -1298,6 +1298,8 @@ argument_list|,
 name|properties
 argument_list|,
 name|body
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 return|return
@@ -1315,7 +1317,7 @@ return|return
 name|messageConverter
 return|;
 block|}
-DECL|method|setRabbitExchange (Exchange camelExchange, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
+DECL|method|setRabbitExchange (Exchange camelExchange, Envelope envelope, AMQP.BasicProperties properties, byte[] body, boolean out)
 specifier|public
 name|void
 name|setRabbitExchange
@@ -1334,11 +1336,30 @@ parameter_list|,
 name|byte
 index|[]
 name|body
+parameter_list|,
+name|boolean
+name|out
 parameter_list|)
 block|{
 name|Message
 name|message
 decl_stmt|;
+if|if
+condition|(
+name|out
+condition|)
+block|{
+comment|// use OUT message
+name|message
+operator|=
+name|camelExchange
+operator|.
+name|getOut
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
 if|if
 condition|(
 name|camelExchange
@@ -1373,6 +1394,7 @@ argument_list|(
 name|message
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 if|if
 condition|(
