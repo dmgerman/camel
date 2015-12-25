@@ -865,6 +865,23 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// must be a reference value
+name|String
+name|ref
+init|=
+name|xmlMapper
+operator|.
+name|startsWith
+argument_list|(
+literal|"#"
+argument_list|)
+condition|?
+name|xmlMapper
+else|:
+literal|"#"
+operator|+
+name|xmlMapper
+decl_stmt|;
 name|setProperty
 argument_list|(
 name|camelContext
@@ -873,7 +890,7 @@ name|dataFormat
 argument_list|,
 literal|"xmlMapper"
 argument_list|,
-name|xmlMapper
+name|ref
 argument_list|)
 expr_stmt|;
 block|}

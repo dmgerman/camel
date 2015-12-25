@@ -1109,6 +1109,23 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// must be a reference value
+name|String
+name|ref
+init|=
+name|objectMapper
+operator|.
+name|startsWith
+argument_list|(
+literal|"#"
+argument_list|)
+condition|?
+name|objectMapper
+else|:
+literal|"#"
+operator|+
+name|objectMapper
+decl_stmt|;
 name|setProperty
 argument_list|(
 name|camelContext
@@ -1117,7 +1134,7 @@ name|dataFormat
 argument_list|,
 literal|"objectMapper"
 argument_list|,
-name|objectMapper
+name|ref
 argument_list|)
 expr_stmt|;
 block|}
