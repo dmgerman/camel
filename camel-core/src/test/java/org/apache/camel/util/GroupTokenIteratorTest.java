@@ -129,10 +129,10 @@ comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|GroupIteratorTest
+DECL|class|GroupTokenIteratorTest
 specifier|public
 class|class
-name|GroupIteratorTest
+name|GroupTokenIteratorTest
 extends|extends
 name|TestSupport
 block|{
@@ -231,11 +231,11 @@ argument_list|(
 literal|"\n"
 argument_list|)
 expr_stmt|;
-name|GroupIterator
+name|GroupTokenIterator
 name|gi
 init|=
 operator|new
-name|GroupIterator
+name|GroupTokenIterator
 argument_list|(
 name|exchange
 argument_list|,
@@ -384,11 +384,11 @@ name|displayName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|GroupIterator
+name|GroupTokenIterator
 name|gi
 init|=
 operator|new
-name|GroupIterator
+name|GroupTokenIterator
 argument_list|(
 name|exchange
 argument_list|,
