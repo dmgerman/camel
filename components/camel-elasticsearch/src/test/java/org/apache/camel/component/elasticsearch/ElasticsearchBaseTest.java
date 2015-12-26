@@ -147,13 +147,13 @@ extends|extends
 name|CamelTestSupport
 block|{
 DECL|field|node
-specifier|private
+specifier|public
 specifier|static
 name|Node
 name|node
 decl_stmt|;
 DECL|field|client
-specifier|private
+specifier|public
 specifier|static
 name|Client
 name|client

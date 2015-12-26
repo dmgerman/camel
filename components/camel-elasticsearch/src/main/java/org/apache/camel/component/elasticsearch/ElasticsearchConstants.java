@@ -90,6 +90,12 @@ name|OPERATION_SEARCH
 init|=
 literal|"SEARCH"
 decl_stmt|;
+DECL|field|OPERATION_MULTISEARCH
+name|String
+name|OPERATION_MULTISEARCH
+init|=
+literal|"MULTISEARCH"
+decl_stmt|;
 DECL|field|OPERATION_EXISTS
 name|String
 name|OPERATION_EXISTS
