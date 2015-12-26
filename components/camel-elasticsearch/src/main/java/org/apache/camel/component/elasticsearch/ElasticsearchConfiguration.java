@@ -150,7 +150,7 @@ name|UriParam
 argument_list|(
 name|enums
 operator|=
-literal|"INDEX,UPDATE,BULK,BULK_INDEX,GET_BY_ID,MULTIGET,DELETE,EXISTS"
+literal|"INDEX,UPDATE,BULK,BULK_INDEX,GET_BY_ID,MULTIGET,DELETE,EXISTS,SEARCH,MULTISEARCH"
 argument_list|)
 annotation|@
 name|Metadata
