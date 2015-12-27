@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a GeoCoder endpoint.  */
+comment|/**  * The geocoder component is used for looking up geocodes (latitude and longitude) for a given address, or reverse lookup.  */
 end_comment
 
 begin_class

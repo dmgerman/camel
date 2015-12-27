@@ -346,7 +346,7 @@ literal|"elsql"
 argument_list|,
 name|title
 operator|=
-literal|"SQL"
+literal|"ElSQL"
 argument_list|,
 name|syntax
 operator|=

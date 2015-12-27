@@ -239,7 +239,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a GoogleCalendar endpoint.  */
+comment|/**  * The google-calendar component provides access to Google Calendar.  */
 end_comment
 
 begin_class

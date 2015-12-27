@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Secure FTP endpoint  */
+comment|/**  *  The sftp (FTP over SSH) component is used for uploading or downloading files from SFTP servers.  */
 end_comment
 
 begin_class

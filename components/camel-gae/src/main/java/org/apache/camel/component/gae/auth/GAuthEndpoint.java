@@ -275,7 +275,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a<a href="http://camel.apache.org/gauth.html">GAuth Endpoint</a>.  * Instances can have one of two names, either<code>authorize</code> for  * requesting an unauthorized request token or<code>upgrade</code> for  * upgrading an authorized request token to an access token. The corresponding  * endpoint URIs are<code>gauth:authorize</code> and<code>gauth:upgrade</code>  * , respectively.  */
+comment|/**  * The gauth component is used by web applications to implement a Google-specific OAuth consumer.  *  * Represents a<a href="http://camel.apache.org/gauth.html">GAuth Endpoint</a>.  * Instances can have one of two names, either<code>authorize</code> for  * requesting an unauthorized request token or<code>upgrade</code> for  * upgrading an authorized request token to an access token. The corresponding  * endpoint URIs are<code>gauth:authorize</code> and<code>gauth:upgrade</code>  * , respectively.  */
 end_comment
 
 begin_class
@@ -300,7 +300,7 @@ literal|true
 argument_list|,
 name|label
 operator|=
-literal|"cloud"
+literal|"cloud,paas"
 argument_list|)
 DECL|class|GAuthEndpoint
 specifier|public

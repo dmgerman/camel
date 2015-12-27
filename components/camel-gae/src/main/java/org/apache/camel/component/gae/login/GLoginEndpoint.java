@@ -157,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a<a href="http://camel.apache.org/glogin.html">GLogin  * Endpoint</a>.  */
+comment|/**  * The glogin component is used by Camel applications outside Google App Engine (GAE) for programmatic login to GAE applications.  */
 end_comment
 
 begin_class
@@ -182,7 +182,7 @@ literal|true
 argument_list|,
 name|label
 operator|=
-literal|"cloud"
+literal|"cloud,paas"
 argument_list|)
 DECL|class|GLoginEndpoint
 specifier|public

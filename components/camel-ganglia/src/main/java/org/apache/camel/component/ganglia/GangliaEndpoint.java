@@ -162,6 +162,10 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * The ganglia component is used for sending metrics to the Ganglia monitoring system.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

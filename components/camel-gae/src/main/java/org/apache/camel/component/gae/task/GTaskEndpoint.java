@@ -309,7 +309,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a<a href="http://camel.apache.org/gtask.html">Google App Engine Task Queueing endpoint</a>.  */
+comment|/**  * The gtask component is used for sending messages to GAE task queue service.  */
 end_comment
 
 begin_class
@@ -338,7 +338,7 @@ literal|true
 argument_list|,
 name|label
 operator|=
-literal|"cloud"
+literal|"cloud,paas"
 argument_list|)
 DECL|class|GTaskEndpoint
 specifier|public

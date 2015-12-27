@@ -347,7 +347,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a<a href="http://camel.apache.org/ghttp.html">Google App Engine  * HTTP endpoint</a>.  */
+comment|/**  * The ghttp component provides HTTP connectivity to the GAE.  */
 end_comment
 
 begin_class
@@ -376,7 +376,7 @@ literal|true
 argument_list|,
 name|label
 operator|=
-literal|"cloud"
+literal|"cloud,paas"
 argument_list|)
 DECL|class|GHttpEndpoint
 specifier|public

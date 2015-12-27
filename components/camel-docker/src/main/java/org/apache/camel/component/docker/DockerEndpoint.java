@@ -196,7 +196,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"container,cloud,management,platform"
+literal|"container,cloud,paas"
 argument_list|)
 DECL|class|DockerEndpoint
 specifier|public

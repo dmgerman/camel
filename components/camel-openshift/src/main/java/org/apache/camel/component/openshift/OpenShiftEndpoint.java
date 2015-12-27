@@ -198,7 +198,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"cloud"
+literal|"cloud,paas"
 argument_list|)
 DECL|class|OpenShiftEndpoint
 specifier|public

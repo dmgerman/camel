@@ -335,7 +335,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Processing fixed width or delimited files or messages using the FlatPack library.  *  * @version  */
+comment|/**  * The flatpack component supports fixed width and delimited file parsing via the FlatPack library.  */
 end_comment
 
 begin_class

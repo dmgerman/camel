@@ -496,7 +496,7 @@ literal|"kubernetes:master"
 argument_list|,
 name|label
 operator|=
-literal|"cloud,paas"
+literal|"container,cloud,paas"
 argument_list|)
 DECL|class|KubernetesEndpoint
 specifier|public

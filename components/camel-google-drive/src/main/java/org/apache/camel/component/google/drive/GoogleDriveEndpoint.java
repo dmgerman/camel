@@ -239,7 +239,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a GoogleDrive endpoint.  */
+comment|/**  * The google-driverr component provides access to Google Drive file storage service.  */
 end_comment
 
 begin_class

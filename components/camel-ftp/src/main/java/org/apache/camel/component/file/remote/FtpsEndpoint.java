@@ -241,7 +241,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FTP Secure (FTP over SSL/TLS) endpoint  *   * @version   */
+comment|/**  * The ftps (FTP secure SSL/TLS) component is used for uploading or downloading files from FTP servers.  */
 end_comment
 
 begin_class

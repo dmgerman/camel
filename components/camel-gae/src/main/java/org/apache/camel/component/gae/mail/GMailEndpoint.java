@@ -225,7 +225,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a<a href="http://camel.apache.org/gmail.html">Google App Engine Mail endpoint</a>.  */
+comment|/**  * The gmail component is used for sending emails to GAE.  */
 end_comment
 
 begin_class
@@ -250,7 +250,7 @@ literal|true
 argument_list|,
 name|label
 operator|=
-literal|"cloud,mail"
+literal|"cloud,mail,paas"
 argument_list|)
 DECL|class|GMailEndpoint
 specifier|public

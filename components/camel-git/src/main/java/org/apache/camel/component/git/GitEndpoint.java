@@ -214,6 +214,10 @@ name|UriPath
 import|;
 end_import
 
+begin_comment
+comment|/**  * The git component is used for working with git repositories.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

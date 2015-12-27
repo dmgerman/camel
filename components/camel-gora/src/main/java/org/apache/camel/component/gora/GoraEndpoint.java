@@ -124,28 +124,8 @@ name|DataStore
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
-comment|/**  * Gora endpoint  */
+comment|/**  * The gora component allows you to work with NoSQL databases using the Apache Gora framework.  */
 end_comment
 
 begin_class
@@ -181,23 +161,6 @@ name|GoraEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-comment|/**      * logger      */
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|GoraEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|/**      * Gora DataStore      */
 DECL|field|dataStore
 specifier|private
@@ -265,7 +228,6 @@ operator|=
 name|dataStore
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|createProducer ()
@@ -292,9 +254,6 @@ name|dataStore
 argument_list|)
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
-annotation|@
-name|Override
 DECL|method|createConsumer (final Processor processor)
 specifier|public
 name|Consumer
@@ -325,7 +284,6 @@ name|dataStore
 argument_list|)
 return|;
 block|}
-comment|/**      * Get Configutation      *      * @return      */
 DECL|method|getConfiguration ()
 specifier|public
 name|GoraConfiguration
@@ -336,7 +294,6 @@ return|return
 name|configuration
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|isSingleton ()

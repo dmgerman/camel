@@ -195,7 +195,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Fop endpoint.  */
+comment|/**  * The fop component allows you to render a message into different output formats using Apache FOP.  */
 end_comment
 
 begin_class

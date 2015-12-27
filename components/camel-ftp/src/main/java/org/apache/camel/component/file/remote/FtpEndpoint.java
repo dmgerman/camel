@@ -233,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * FTP endpoint  */
+comment|/**  * The ftp component is used for uploading or downloading files from FTP servers.  */
 end_comment
 
 begin_class

@@ -239,7 +239,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a GoogleMail endpoint.  */
+comment|/**  * The google-mail component provides access to Google Mail  */
 end_comment
 
 begin_class
