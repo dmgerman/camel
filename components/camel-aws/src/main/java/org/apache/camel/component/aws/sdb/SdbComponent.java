@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://aws.amazon.com/simpledb/">AWS SDB component</a>   */
+comment|/**  * For working with Amazon's SimpleDB (SDB).  */
 end_comment
 
 begin_class

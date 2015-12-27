@@ -284,10 +284,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_comment
-comment|/**  * Defines the<a href="http://camel.apache.org/aws.html">AWS SDB Endpoint</a>.    */
-end_comment
-
 begin_class
 annotation|@
 name|UriEndpoint

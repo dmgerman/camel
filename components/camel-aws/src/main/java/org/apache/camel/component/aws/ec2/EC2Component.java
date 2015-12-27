@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://aws.amazon.com/ec2/">AWS EC2 Component</a>   */
+comment|/**  * For working with Amazon's Elastic Compute Cloud (EC2).  */
 end_comment
 
 begin_class

@@ -185,7 +185,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  Defines the<a href="http://camel.apache.org/ahc.html">Async HTTP Client Component</a>  */
+comment|/**  *  To call external HTTP services using<a href="http://github.com/sonatype/async-http-client">Async Http Client</a>  */
 end_comment
 
 begin_class

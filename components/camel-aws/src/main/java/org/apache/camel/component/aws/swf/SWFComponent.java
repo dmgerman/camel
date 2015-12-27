@@ -71,7 +71,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://aws.amazon.com/swf/">Amazon Simple Workflow Component</a>  */
+comment|/**  * For Messaging with Amazon's Simple Workflow Service (SWF).  */
 end_comment
 
 begin_class

@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  Defines the<a href="http://camel.apache.org/ws.html">WebSocket Client Component</a>  */
+comment|/**  *  To exchange data with external Websocket servers using<a href="http://github.com/sonatype/async-http-client">Async Http Client</a>  */
 end_comment
 
 begin_class

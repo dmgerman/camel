@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://aws.amazon.com/dynamodb/">AWS DynamoDB component</a>  */
+comment|/**  * For working with Amazon's DynamoDB (DDB).  */
 end_comment
 
 begin_class

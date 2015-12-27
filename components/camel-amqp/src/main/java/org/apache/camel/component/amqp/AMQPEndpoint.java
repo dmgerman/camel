@@ -64,6 +64,10 @@ name|UriEndpoint
 import|;
 end_import
 
+begin_comment
+comment|/**  * AMQP endpoint. This class extends JmsEndpoint because it uses Apache Qpid JMS-compatible client for  * performing the AMQP connectivity.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
@@ -94,7 +98,6 @@ name|label
 operator|=
 literal|"messaging"
 argument_list|)
-comment|/**  * AMQP endpoint. This class extends JmsEndpoint because it uses Apache Qpid JMS-compatible client for  * performing the AMQP connectivity.  */
 DECL|class|AMQPEndpoint
 specifier|public
 class|class

@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://aws.amazon.com/sns/">AWS SNS Component</a>   */
+comment|/**  * For Messaging with Amazon's Simple Notification Service (SNS).  */
 end_comment
 
 begin_class

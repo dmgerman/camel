@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://aws.amazon.com/s3/">AWS S3 Component</a>   */
+comment|/**  * For working with Amazon's Simple Storage Service (S3).  */
 end_comment
 
 begin_class

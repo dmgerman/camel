@@ -82,6 +82,10 @@ name|ServletEndpoint
 import|;
 end_import
 
+begin_comment
+comment|/**  * To exchange data with external Websocket clients using Atmosphere  */
+end_comment
+
 begin_class
 DECL|class|WebsocketComponent
 specifier|public

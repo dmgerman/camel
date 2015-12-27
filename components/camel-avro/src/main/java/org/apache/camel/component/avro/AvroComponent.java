@@ -162,6 +162,10 @@ name|URISupport
 import|;
 end_import
 
+begin_comment
+comment|/**  * Working with Apache Avro for data serialization.  */
+end_comment
+
 begin_class
 DECL|class|AvroComponent
 specifier|public

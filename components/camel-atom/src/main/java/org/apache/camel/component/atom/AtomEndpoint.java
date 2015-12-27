@@ -128,10 +128,6 @@ name|UriEndpoint
 import|;
 end_import
 
-begin_comment
-comment|/**  * Atom is used for polling atom feeds  *  * @version   */
-end_comment
-
 begin_class
 annotation|@
 name|UriEndpoint
@@ -160,7 +156,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"feeds"
+literal|"rss"
 argument_list|)
 DECL|class|AtomEndpoint
 specifier|public

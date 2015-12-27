@@ -198,10 +198,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_comment
-comment|/**  * Defines the<a href="http://aws.amazon.com/cloudwatch/">AWS CloudWatch Endpoint</a>  */
-end_comment
-
 begin_class
 annotation|@
 name|UriEndpoint

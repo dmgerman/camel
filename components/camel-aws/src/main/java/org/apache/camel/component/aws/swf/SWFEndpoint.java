@@ -214,10 +214,6 @@ name|ExchangeHelper
 import|;
 end_import
 
-begin_comment
-comment|/**  * Defines the<a href="http://aws.amazon.com/swf/">Amazon Simple Workflow Endpoint</a>  */
-end_comment
-
 begin_class
 annotation|@
 name|UriEndpoint

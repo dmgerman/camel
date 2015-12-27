@@ -208,7 +208,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"feeds"
+literal|"rss"
 argument_list|)
 DECL|class|RssEndpoint
 specifier|public

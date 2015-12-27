@@ -1111,6 +1111,8 @@ name|roundEnv
 argument_list|,
 name|uriEndpoint
 argument_list|,
+name|classElement
+argument_list|,
 name|title
 argument_list|,
 name|scheme
@@ -1446,6 +1448,8 @@ argument_list|(
 name|roundEnv
 argument_list|,
 name|uriEndpoint
+argument_list|,
+name|classElement
 argument_list|,
 name|title
 argument_list|,
@@ -3305,7 +3309,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|findComponentProperties (RoundEnvironment roundEnv, UriEndpoint uriEndpoint, String title, String scheme, String extendsScheme, String label)
+DECL|method|findComponentProperties (RoundEnvironment roundEnv, UriEndpoint uriEndpoint, TypeElement endpointClassElement, String title, String scheme, String extendsScheme, String label)
 specifier|protected
 name|ComponentModel
 name|findComponentProperties
@@ -3315,6 +3319,9 @@ name|roundEnv
 parameter_list|,
 name|UriEndpoint
 name|uriEndpoint
+parameter_list|,
+name|TypeElement
+name|endpointClassElement
 parameter_list|,
 name|String
 name|title
@@ -3620,17 +3627,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// favor to use class javadoc of component as description
-if|if
-condition|(
-name|model
-operator|.
-name|getJavaType
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
+comment|// favor to use endpoint class javadoc as description
 name|Elements
 name|elementUtils
 init|=
@@ -3646,9 +3643,12 @@ name|findTypeElement
 argument_list|(
 name|roundEnv
 argument_list|,
-name|model
+name|endpointClassElement
 operator|.
-name|getJavaType
+name|getQualifiedName
+argument_list|()
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -3705,7 +3705,6 @@ argument_list|(
 name|doc
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 block|}

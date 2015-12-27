@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://camel.apache.org/atom.html">Atom Component</a>.  *<p/>  * Camel uses Apache Abdera as the Atom implementation.  *  * @version   */
+comment|/**  * To consume Atom RSS feeds.  */
 end_comment
 
 begin_class

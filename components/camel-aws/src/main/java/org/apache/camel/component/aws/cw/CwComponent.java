@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://aws.amazon.com/cloudwatch/">AWS CloudWatch Component</a>  */
+comment|/**  * For working with Amazon's CloudWatch (CW).  */
 end_comment
 
 begin_class

@@ -88,6 +88,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * For working with Amazon's DynamoDB (DDB) Streams.  */
+end_comment
+
 begin_class
 DECL|class|DdbStreamComponent
 specifier|public
@@ -180,18 +184,6 @@ argument_list|,
 name|this
 argument_list|)
 decl_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Created endpoint: {}"
-argument_list|,
-name|endpoint
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-expr_stmt|;
 return|return
 name|endpoint
 return|;

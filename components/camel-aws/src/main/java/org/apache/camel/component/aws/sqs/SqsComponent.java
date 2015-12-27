@@ -69,7 +69,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://camel.apache.org/aws.html">AWS Component</a>   *   */
+comment|/**  * For Messaging with Amazon's Simple Queue Service (SQS).  */
 end_comment
 
 begin_class
