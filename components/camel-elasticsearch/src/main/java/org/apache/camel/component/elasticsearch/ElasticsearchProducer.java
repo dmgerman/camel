@@ -444,7 +444,7 @@ if|if
 condition|(
 name|request
 operator|instanceof
-name|MultiGetRequest
+name|MultiSearchRequest
 condition|)
 block|{
 return|return
