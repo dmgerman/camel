@@ -278,6 +278,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * Component for communicating with MQTT M2M message brokers using Eclipse Paho MQTT Client.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
@@ -298,7 +302,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"messaging"
+literal|"messaging,iot"
 argument_list|,
 name|syntax
 operator|=

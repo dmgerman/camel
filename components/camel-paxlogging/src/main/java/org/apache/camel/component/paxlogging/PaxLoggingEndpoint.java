@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Paxlogging endpoint.  */
+comment|/**  * The paxlogging component can be used in an OSGi environment to receive PaxLogging events and process them.  */
 end_comment
 
 begin_class

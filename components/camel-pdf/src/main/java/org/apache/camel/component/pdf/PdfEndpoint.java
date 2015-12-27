@@ -108,6 +108,10 @@ name|UriParam
 import|;
 end_import
 
+begin_comment
+comment|/**  * The pdf components provides the ability to create, modify or extract content from PDF documents.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

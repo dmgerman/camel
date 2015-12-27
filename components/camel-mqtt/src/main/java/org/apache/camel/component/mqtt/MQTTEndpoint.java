@@ -533,7 +533,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Component for communicating with MQTT M2M message brokers  */
+comment|/**  * Component for communicating with MQTT M2M message brokers using FuseSource MQTT Client.  */
 end_comment
 
 begin_class

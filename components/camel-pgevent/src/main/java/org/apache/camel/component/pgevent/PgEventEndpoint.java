@@ -52,18 +52,6 @@ begin_import
 import|import
 name|javax
 operator|.
-name|naming
-operator|.
-name|directory
-operator|.
-name|InvalidAttributesException
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
 name|sql
 operator|.
 name|DataSource
@@ -241,7 +229,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a PgEvent endpoint.  */
+comment|/**  * The pgevent component allows for producing/consuming  PostgreSQL events related to the LISTEN/NOTIFY commands.  *  * This requires using PostgreSQL 8.3 or newer.  */
 end_comment
 
 begin_class
@@ -434,8 +422,6 @@ parameter_list|,
 name|PgEventComponent
 name|component
 parameter_list|)
-throws|throws
-name|InvalidAttributesException
 block|{
 name|super
 argument_list|(
@@ -467,8 +453,6 @@ parameter_list|,
 name|DataSource
 name|dataSource
 parameter_list|)
-throws|throws
-name|InvalidAttributesException
 block|{
 name|super
 argument_list|(
@@ -608,7 +592,7 @@ return|return
 name|conn
 return|;
 block|}
-comment|/**      * Parse the provided URI and extract available parameters      *      * @throws InvalidAttributesException if there is an error in the parameters      */
+comment|/**      * Parse the provided URI and extract available parameters      *      * @throws IllegalArgumentException if there is an error in the parameters      */
 DECL|method|parseUri ()
 specifier|protected
 specifier|final
@@ -616,7 +600,7 @@ name|void
 name|parseUri
 parameter_list|()
 throws|throws
-name|InvalidAttributesException
+name|IllegalArgumentException
 block|{
 name|LOG
 operator|.
@@ -872,7 +856,7 @@ else|else
 block|{
 throw|throw
 operator|new
-name|InvalidAttributesException
+name|IllegalArgumentException
 argument_list|(
 literal|"The provided URL does not match the acceptable patterns."
 argument_list|)
@@ -908,7 +892,7 @@ parameter_list|()
 throws|throws
 name|InvalidClassException
 throws|,
-name|InvalidAttributesException
+name|IllegalArgumentException
 block|{
 if|if
 condition|(
@@ -928,7 +912,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|InvalidAttributesException
+name|IllegalArgumentException
 argument_list|(
 literal|"A required parameter was not set when creating this Endpoint (channel)"
 argument_list|)
@@ -985,7 +969,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|InvalidAttributesException
+name|IllegalArgumentException
 argument_list|(
 literal|"A required parameter was "
 operator|+
