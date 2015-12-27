@@ -158,6 +158,10 @@ name|UriPath
 import|;
 end_import
 
+begin_comment
+comment|/**  * For sending notifications to Apple iOS devices  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

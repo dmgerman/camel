@@ -289,7 +289,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Box endpoint.  */
+comment|/**  * For uploading, downloading and managing files, folders, groups, collaborations, etc on box DOT com.  */
 end_comment
 
 begin_class

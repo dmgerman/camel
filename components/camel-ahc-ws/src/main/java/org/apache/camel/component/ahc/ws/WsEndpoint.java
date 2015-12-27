@@ -286,6 +286,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * To exchange data with external Websocket servers using<a href="http://github.com/sonatype/async-http-client">Async Http Client</a>  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

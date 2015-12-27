@@ -65,7 +65,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * AMQP endpoint. This class extends JmsEndpoint because it uses Apache Qpid JMS-compatible client for  * performing the AMQP connectivity.  */
+comment|/**  * Messaging with AMQP protocol using Apache QPid Client.  *  * This class extends JmsEndpoint because it uses Apache Qpid JMS-compatible client for  * performing the AMQP connectivity.  */
 end_comment
 
 begin_class

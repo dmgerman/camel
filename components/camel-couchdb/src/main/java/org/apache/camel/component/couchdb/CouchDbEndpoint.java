@@ -168,6 +168,10 @@ name|CouchDbClient
 import|;
 end_import
 
+begin_comment
+comment|/**  * The couchdb component is used for integrate with CouchDB databases.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

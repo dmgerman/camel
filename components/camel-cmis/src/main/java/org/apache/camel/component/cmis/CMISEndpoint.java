@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a CMIS endpoint.  */
+comment|/**  * The cmis component uses the Apache Chemistry client API and allows you to add/read nodes to/from a CMIS compliant content repositories.  */
 end_comment
 
 begin_class

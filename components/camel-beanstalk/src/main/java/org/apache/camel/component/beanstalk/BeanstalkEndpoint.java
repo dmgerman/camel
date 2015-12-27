@@ -260,6 +260,10 @@ name|UriPath
 import|;
 end_import
 
+begin_comment
+comment|/**  * The beanstalk component is used for job retrieval and post-processing of Beanstalk jobs.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

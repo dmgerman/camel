@@ -222,6 +222,10 @@ name|buildValidatorFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * The Validator component performs bean validation of the message body using the Java Bean Validation API.  *  * Camel uses the reference implementation, which is Hibernate Validator.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

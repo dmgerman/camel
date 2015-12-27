@@ -128,6 +128,10 @@ name|UriEndpoint
 import|;
 end_import
 
+begin_comment
+comment|/**  * The atom component is used for consuming Atom RSS feeds.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

@@ -169,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Endpoint for Camel Cometd.  */
+comment|/**  * The cometd component is a transport for working with the Jetty implementation of the cometd/bayeux protocol.  *  * Using this component in combination with the dojo toolkit library it's possible to push Camel messages directly  * into the browser using an AJAX based mechanism.  */
 end_comment
 
 begin_class

@@ -90,22 +90,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|datastax
-operator|.
-name|driver
-operator|.
-name|core
-operator|.
-name|policies
-operator|.
-name|LoadBalancingPolicy
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -267,7 +251,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Cassandra 2 CQL3 endpoint  */
+comment|/**  * The cql component aims at integrating Cassandra 2.0+ using the CQL3 API (not the Thrift API).  *  * It's based on Cassandra Java Driver provided by DataStax.  */
 end_comment
 
 begin_class

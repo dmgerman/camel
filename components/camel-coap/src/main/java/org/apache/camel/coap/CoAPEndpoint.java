@@ -133,7 +133,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a CoAP endpoint.  */
+comment|/**  * The coap component is used for sending and receiving messages from COAP capable devices.  */
 end_comment
 
 begin_class

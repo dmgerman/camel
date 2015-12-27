@@ -184,6 +184,10 @@ name|UriParam
 import|;
 end_import
 
+begin_comment
+comment|/**  * The crypto component is used for signing and verifying exchanges using the Signature Service of the Java Cryptographic Extension (JCE).  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

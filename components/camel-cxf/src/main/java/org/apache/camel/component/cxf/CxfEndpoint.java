@@ -1237,7 +1237,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://camel.apache.org/cxf.html">CXF Endpoint</a>.  * It contains a list of properties for CXF endpoint including {@link DataFormat},  * {@link CxfBinding}, and {@link HeaderFilterStrategy}.  The default DataFormat  * mode is {@link DataFormat#POJO}.  */
+comment|/**  * The cxf component is used for SOAP WebServices using Apache CXF.  */
 end_comment
 
 begin_class

@@ -162,34 +162,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
-operator|.
-name|DefaultExchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultMessage
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|UriEndpoint
@@ -243,6 +215,10 @@ operator|.
 name|LoggerFactory
 import|;
 end_import
+
+begin_comment
+comment|/**  * The cache component enables you to perform caching operations using EHCache as the Cache Implementation.  *  * The cache itself is created on demand or if a cache of that name already exists then it is simply utilized with its original settings.  * This component supports producer and event based consumer endpoints.  * The Cache consumer is an event based consumer and can be used to listen and respond to specific cache activities.  * If you need to perform selections from a pre-existing cache, use the processors defined for the cache component.  */
+end_comment
 
 begin_class
 annotation|@
