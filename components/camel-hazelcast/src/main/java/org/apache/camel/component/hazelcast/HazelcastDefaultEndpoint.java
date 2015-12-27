@@ -148,6 +148,10 @@ name|UriPath
 import|;
 end_import
 
+begin_comment
+comment|/**  * The hazelcast component allows you to work with the Hazelcast distributed data grid / cache.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

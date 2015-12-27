@@ -273,7 +273,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an HBase endpoint.  */
+comment|/**  * For reading/writing from/to an HBase store (Hadoop database)  */
 end_comment
 
 begin_class

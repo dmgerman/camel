@@ -235,10 +235,10 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Using Hipchat API URL: "
-operator|+
+literal|"Using Hipchat API URL: {}"
+argument_list|,
 name|endpoint
 operator|.
 name|getConfiguration

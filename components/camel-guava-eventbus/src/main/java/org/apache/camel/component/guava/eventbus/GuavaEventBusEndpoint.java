@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Guava EventBus (http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/eventbus/EventBus.html)  * endpoint. Can create both producer and consumer ends of the route.  */
+comment|/**  * The guava-eventbus component provides integration bridge between Camel and Google Guava EventBus.  */
 end_comment
 
 begin_class
