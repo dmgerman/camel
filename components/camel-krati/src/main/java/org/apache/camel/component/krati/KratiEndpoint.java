@@ -247,7 +247,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Krati endpoint.  */
+comment|/**  * The krati allows the use krati datastores and datasets inside Camel.  */
 end_comment
 
 begin_class

@@ -154,6 +154,10 @@ name|UriParam
 import|;
 end_import
 
+begin_comment
+comment|/**  * The kafka component allows messages to be sent to (or consumed from) Apache Kafka brokers.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

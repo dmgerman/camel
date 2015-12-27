@@ -120,6 +120,10 @@ name|UriParam
 import|;
 end_import
 
+begin_comment
+comment|/**  * To insert or query from Apache Lucene databases.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

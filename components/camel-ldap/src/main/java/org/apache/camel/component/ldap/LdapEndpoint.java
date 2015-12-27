@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an endpoint that synchronously invokes an LDAP server when a producer sends a message to it.  */
+comment|/**  * The ldap component allows you to perform searches in LDAP servers using filters as the message payload.  */
 end_comment
 
 begin_class

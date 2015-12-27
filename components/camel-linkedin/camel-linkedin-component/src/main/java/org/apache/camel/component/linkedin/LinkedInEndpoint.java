@@ -417,7 +417,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a LinkedIn endpoint.  */
+comment|/**  * The linkedin component is uses for retrieving LinkedIn user profiles, connections, companies, groups, posts, etc.  */
 end_comment
 
 begin_class

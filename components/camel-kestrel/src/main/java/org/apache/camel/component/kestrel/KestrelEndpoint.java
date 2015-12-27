@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Camel endpoint for communication with a kestrel based queue.  */
+comment|/**  * The kestrel component allows messages to be sent to (or consumed from) Kestrel brokers.  */
 end_comment
 
 begin_class
