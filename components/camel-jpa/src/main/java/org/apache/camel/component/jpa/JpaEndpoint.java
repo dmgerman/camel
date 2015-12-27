@@ -338,6 +338,10 @@ name|TransactionTemplate
 import|;
 end_import
 
+begin_comment
+comment|/**  * The jpa component enables you to store and retrieve Java objects from databases using JPA.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

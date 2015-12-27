@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Secure Copy Endpoint  */
+comment|/**  * To copy files using the secure copy protocol (SCP).  */
 end_comment
 
 begin_class

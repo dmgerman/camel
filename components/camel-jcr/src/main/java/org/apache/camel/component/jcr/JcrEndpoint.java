@@ -201,7 +201,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A JCR endpoint  */
+comment|/**  * The jcr component allows you to add/read nodes to/from a JCR compliant content repository.  */
 end_comment
 
 begin_class

@@ -184,6 +184,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * The jbpm component provides integration with jBPM (Business Process Management)  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

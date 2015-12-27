@@ -571,7 +571,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/jms.html">JMS Endpoint</a>  *  * @version  */
+comment|/**  * The jms component allows messages to be sent to (or consumed from) a JMS Queue or Topic.  */
 end_comment
 
 begin_class

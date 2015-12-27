@@ -204,6 +204,10 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * The jolt component allows you to process a JSON messages using an JOLT specification (such as JSON-JSON transformation).  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

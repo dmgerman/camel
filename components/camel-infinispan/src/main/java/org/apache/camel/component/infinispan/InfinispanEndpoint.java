@@ -96,6 +96,10 @@ name|UriParam
 import|;
 end_import
 
+begin_comment
+comment|/**  * For reading/writing from/to Infinispan distributed key/value store and data grid.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

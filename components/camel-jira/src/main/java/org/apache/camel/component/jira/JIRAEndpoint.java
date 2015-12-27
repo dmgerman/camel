@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The endpoint encapsulates portions of the JIRA API, relying on the jira-rest-java-client SDK.  * Available endpoint URIs include:  *   * CONSUMERS  * jira://newIssue (new tickets)  * jira://newComment (new comments on tickets)  *   * The endpoints will respond with jira-rest-java-client POJOs (Issue, Comment, etc.)  *   * Note: Rather than webhooks, this endpoint relies on simple polling.  Reasons include:  * - concerned about reliability/stability if this somehow relied on an exposed, embedded server (Jetty?)  * - the types of payloads we're polling aren't typically large (plus, paging is available in the API)  * - need to support apps running somewhere not publicly accessible where a webhook would fail  */
+comment|/**  * The jira component interacts with the JIRA issue tracker.  *  * The endpoint encapsulates portions of the JIRA API, relying on the jira-rest-java-client SDK.  * Available endpoint URIs include:  *   * CONSUMERS  * jira://newIssue (new tickets)  * jira://newComment (new comments on tickets)  *   * The endpoints will respond with jira-rest-java-client POJOs (Issue, Comment, etc.)  *   * Note: Rather than webhooks, this endpoint relies on simple polling.  Reasons include:  * - concerned about reliability/stability if this somehow relied on an exposed, embedded server (Jetty?)  * - the types of payloads we're polling aren't typically large (plus, paging is available in the API)  * - need to support apps running somewhere not publicly accessible where a webhook would fail  */
 end_comment
 
 begin_class

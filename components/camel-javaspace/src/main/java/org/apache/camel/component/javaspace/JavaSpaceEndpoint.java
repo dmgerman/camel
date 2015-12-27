@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * Sending and receiving messages through JavaSpace.  */
 end_comment
 
 begin_class

@@ -157,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version  */
+comment|/**  * The jdbc component enables you to access databases through JDBC, where SQL queries are sent in the message body.  */
 end_comment
 
 begin_class

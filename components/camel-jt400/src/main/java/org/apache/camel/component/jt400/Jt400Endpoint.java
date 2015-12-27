@@ -206,6 +206,10 @@ name|URISupport
 import|;
 end_import
 
+begin_comment
+comment|/**  * The jt400 component allows you to exchanges messages with an AS/400 system using data queues or program call.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

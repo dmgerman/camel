@@ -226,6 +226,10 @@ name|ResourceHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * Validates the payload of a message using RelaxNG Syntax using Jing library.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

@@ -222,6 +222,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * The jgroups component provides exchange of messages between Camel and JGroups clusters.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

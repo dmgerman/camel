@@ -60,6 +60,10 @@ name|UriParam
 import|;
 end_import
 
+begin_comment
+comment|/**  * For interacting with cloud compute& blobstore service via jclouds.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
