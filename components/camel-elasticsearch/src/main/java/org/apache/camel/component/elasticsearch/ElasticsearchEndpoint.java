@@ -253,7 +253,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an Elasticsearch endpoint.  */
+comment|/**  * The elasticsearch component is used for interfacing with ElasticSearch server.  */
 end_comment
 
 begin_class

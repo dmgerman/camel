@@ -60,6 +60,10 @@ name|UriEndpoint
 import|;
 end_import
 
+begin_comment
+comment|/**  * The ejb component is for invoking EJB Java beans from Camel.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

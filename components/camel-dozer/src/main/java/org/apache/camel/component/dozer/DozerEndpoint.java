@@ -222,6 +222,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * The dozer component provides the ability to map between Java beans using the Dozer mapping library.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

@@ -111,7 +111,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * EventAdmin endpoint  */
+comment|/**  * The eventadmin component can be used in an OSGi environment to receive OSGi EventAdmin events and process them.  */
 end_comment
 
 begin_class

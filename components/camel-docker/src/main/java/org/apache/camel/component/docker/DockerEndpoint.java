@@ -169,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Docker endpoint.  */
+comment|/**  * The docker component is used for managing Docker containers.  */
 end_comment
 
 begin_class
@@ -196,7 +196,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"container,cloud,platform"
+literal|"container,cloud,management,platform"
 argument_list|)
 DECL|class|DockerEndpoint
 specifier|public

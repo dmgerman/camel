@@ -157,7 +157,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The endpoint utilizes an {@link ExecCommandExecutor} to execute a system  * command when it receives message exchanges.  *  * @see ExecBinding  * @see ExecCommandExecutor  * @see ExecCommand  * @see ExecResult  */
+comment|/**  * The exec component can be used to execute OS system commands.  */
 end_comment
 
 begin_class

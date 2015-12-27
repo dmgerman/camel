@@ -122,6 +122,10 @@ name|UriPath
 import|;
 end_import
 
+begin_comment
+comment|/**  * To lookup domain information and run DNS queries using DNSJava.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

@@ -332,6 +332,10 @@ name|SqlParameterSource
 import|;
 end_import
 
+begin_comment
+comment|/**  * The elsql component is an extension to the existing SQL Component that uses ElSql to define the SQL queries.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

@@ -332,6 +332,10 @@ name|POLL_CONSUMER_DELAY
 import|;
 end_import
 
+begin_comment
+comment|/**  * For uploading, downloading and managing files, folders, groups, collaborations, etc on dropbox DOT com.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
