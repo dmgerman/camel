@@ -329,7 +329,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Schematron Endpoint.  */
+comment|/**  *  Validates the payload of a message using the Schematron Library.  */
 end_comment
 
 begin_class

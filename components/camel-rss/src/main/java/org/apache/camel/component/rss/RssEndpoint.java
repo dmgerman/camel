@@ -173,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Is used for polling rss feeds.  */
+comment|/**  * The rss component is used for consuming RSS feeds.  */
 end_comment
 
 begin_class

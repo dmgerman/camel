@@ -138,6 +138,10 @@ name|UriPath
 import|;
 end_import
 
+begin_comment
+comment|/**  * The sap-netweaver component integrates with the SAP NetWeaver Gateway using HTTP transports.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

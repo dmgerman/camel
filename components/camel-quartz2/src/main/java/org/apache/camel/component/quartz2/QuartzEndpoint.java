@@ -395,7 +395,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * This endpoint represent each job to be created in scheduler. When consumer is started or stopped, it will  * call back into {@link #onConsumerStart(QuartzConsumer)} to add/resume or {@link #onConsumerStop(QuartzConsumer)}  * to pause the scheduler trigger.  */
+comment|/**  * Provides a scheduled delivery of messages using the Quartz 2.x scheduler  */
 end_comment
 
 begin_class

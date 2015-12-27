@@ -239,7 +239,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a<a href="http://www.restlet.org/"> endpoint</a>  *  * @version   */
+comment|/**  * Component for consuming and producing Restful resources using Restlet  */
 end_comment
 
 begin_class

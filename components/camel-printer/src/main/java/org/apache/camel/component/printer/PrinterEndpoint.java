@@ -108,6 +108,10 @@ name|UriParam
 import|;
 end_import
 
+begin_comment
+comment|/**  * The printer component is used for sending messages to printers as print jobs.  *  * Obviously the payload has to be a formatted piece of payload in order for the component to appropriately print it.  * The objective is to be able to direct specific payloads as jobs to a line printer in a camel flow.  *  * The functionality allows for the payload to be printed on a default printer, named local, remote or wirelessly  * linked printer using the javax printing API under the covers.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

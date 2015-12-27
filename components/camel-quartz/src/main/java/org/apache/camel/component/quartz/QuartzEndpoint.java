@@ -303,7 +303,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A<a href="http://activemq.apache.org/quartz.html">Quartz Endpoint</a>  *  * @version   */
+comment|/**  * Provides a scheduled delivery of messages using the Quartz 1.x scheduler  */
 end_comment
 
 begin_class

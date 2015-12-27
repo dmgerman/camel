@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Salesforce endpoint.  */
+comment|/**  * The salesforce component is used for integrating Camel with the massive Salesforce API.  */
 end_comment
 
 begin_class

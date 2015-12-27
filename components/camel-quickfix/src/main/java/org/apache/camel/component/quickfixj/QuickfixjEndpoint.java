@@ -260,6 +260,10 @@ name|SessionID
 import|;
 end_import
 
+begin_comment
+comment|/**  * The quickfix component allows to send Financial Interchange (FIX) messages to the QuickFix engine.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

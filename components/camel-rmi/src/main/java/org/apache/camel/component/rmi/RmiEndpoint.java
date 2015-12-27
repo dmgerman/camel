@@ -213,7 +213,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * The rmi component is for invoking Java RMI beans from Camel.  */
 end_comment
 
 begin_class

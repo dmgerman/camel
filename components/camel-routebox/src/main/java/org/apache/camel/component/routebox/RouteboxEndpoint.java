@@ -84,6 +84,10 @@ name|UriParam
 import|;
 end_import
 
+begin_comment
+comment|/**  * The routebox component allows to send/receive messages between Camel routes in a black box way.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

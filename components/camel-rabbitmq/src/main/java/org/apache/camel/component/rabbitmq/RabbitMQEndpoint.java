@@ -490,6 +490,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * The rabbitmq component allows AMQP messages to be sent to (or consumed from) a RabbitMQ broker.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
