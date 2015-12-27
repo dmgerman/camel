@@ -122,7 +122,7 @@ literal|"sip,sips"
 argument_list|,
 name|title
 operator|=
-literal|"SIP (Session Initiation Protocol)"
+literal|"SIP"
 argument_list|,
 name|syntax
 operator|=
