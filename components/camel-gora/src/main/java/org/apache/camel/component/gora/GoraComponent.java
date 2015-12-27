@@ -148,10 +148,6 @@ name|GORA_DEFAULT_DATASTORE_KEY
 import|;
 end_import
 
-begin_comment
-comment|/**  * Camel-Gora {@link Endpoint}.  *  */
-end_comment
-
 begin_class
 DECL|class|GoraComponent
 specifier|public
@@ -254,7 +250,6 @@ name|configuration
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|createEndpoint (final String uri, final String remaining, final Map<String, Object> parameters)
@@ -304,28 +299,11 @@ argument_list|(
 name|remaining
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|init
 argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|IOException
-name|ex
-parameter_list|)
-block|{
-throw|throw
-operator|new
-name|RuntimeException
-argument_list|(
-name|ex
-argument_list|)
-throw|;
-block|}
 return|return
 operator|new
 name|GoraEndpoint
@@ -340,7 +318,7 @@ name|dataStore
 argument_list|)
 return|;
 block|}
-comment|/**      * Get DataStore      *      * @return DataStore      */
+comment|/**      * Get DataStore      */
 DECL|method|getDataStore ()
 specifier|public
 name|DataStore
@@ -356,7 +334,6 @@ return|return
 name|dataStore
 return|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -382,7 +359,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|doStop ()

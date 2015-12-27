@@ -98,9 +98,8 @@ specifier|final
 name|String
 name|value
 decl_stmt|;
-comment|/**      * Enum constructor      *      * @param str Operation Value      */
+comment|/**      * Enum constructor      */
 DECL|method|GoraOperation (final String str)
-specifier|private
 name|GoraOperation
 parameter_list|(
 specifier|final

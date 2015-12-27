@@ -187,7 +187,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Camel-Gora {@link DefaultProducer}.  *  */
+comment|/**  * Camel-Gora {@link DefaultProducer}.  */
 end_comment
 
 begin_class
@@ -619,7 +619,9 @@ throw|throw
 operator|new
 name|RuntimeException
 argument_list|(
-literal|"Unknown operation!"
+literal|"Unknown operation: "
+operator|+
+name|operation
 argument_list|)
 throw|;
 block|}
@@ -646,6 +648,23 @@ operator|.
 name|setBody
 argument_list|(
 name|result
+argument_list|)
+expr_stmt|;
+comment|// preserve headers
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|setHeaders
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeaders
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

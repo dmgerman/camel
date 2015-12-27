@@ -135,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Gora Configuration.  *  */
+comment|/**  * Gora Configuration.  */
 end_comment
 
 begin_class
@@ -337,7 +337,7 @@ return|return
 name|keyClass
 return|;
 block|}
-comment|/**      * Set type class of the key      *      * @param keyClass      */
+comment|/**      * Set type class of the key      */
 DECL|method|setKeyClass (final String keyClass)
 specifier|public
 name|void
@@ -371,7 +371,7 @@ operator|=
 name|keyClass
 expr_stmt|;
 block|}
-comment|/**      * Get type of the value      *      * @return      */
+comment|/**      * Get type of the value      */
 DECL|method|getValueClass ()
 specifier|public
 name|String
@@ -382,7 +382,7 @@ return|return
 name|valueClass
 return|;
 block|}
-comment|/**      * Set type of the value      *      * @param valueClass      */
+comment|/**      * Set type of the value      */
 DECL|method|setValueClass (final String valueClass)
 specifier|public
 name|void
@@ -416,7 +416,7 @@ operator|=
 name|valueClass
 expr_stmt|;
 block|}
-comment|/**      * Get type of the dataStore      *      * @return  DataStore class      */
+comment|/**      * Get type of the dataStore      */
 DECL|method|getDataStoreClass ()
 specifier|public
 name|String
@@ -427,7 +427,7 @@ return|return
 name|dataStoreClass
 return|;
 block|}
-comment|/**      * Set type of the dataStore      *      * @param dataStoreClass      */
+comment|/**      * Set type of the dataStore      */
 DECL|method|setDataStoreClass (String dataStoreClass)
 specifier|public
 name|void
@@ -460,7 +460,7 @@ operator|=
 name|dataStoreClass
 expr_stmt|;
 block|}
-comment|/**      * Get Hadoop Configuration      *      * @return      */
+comment|/**      * Get Hadoop Configuration      */
 DECL|method|getHadoopConfiguration ()
 specifier|public
 name|Configuration
@@ -471,7 +471,7 @@ return|return
 name|hadoopConfiguration
 return|;
 block|}
-comment|/**      * Get Start Time      *      * @return      */
+comment|/**      * Get Start Time      */
 DECL|method|getStartTime ()
 specifier|public
 name|long
@@ -482,7 +482,7 @@ return|return
 name|startTime
 return|;
 block|}
-comment|/**      * Set Start Time      *      * @return      */
+comment|/**      * Set Start Time      */
 DECL|method|setStartTime (long startTime)
 specifier|public
 name|void
@@ -499,7 +499,7 @@ operator|=
 name|startTime
 expr_stmt|;
 block|}
-comment|/**      * Get End Time      *      * @return      */
+comment|/**      * Get End Time      */
 DECL|method|getEndTime ()
 specifier|public
 name|long
@@ -510,7 +510,7 @@ return|return
 name|endTime
 return|;
 block|}
-comment|/**      * Set End Time      *      * @return      */
+comment|/**      * Set End Time      */
 DECL|method|setEndTime (long endTime)
 specifier|public
 name|void
@@ -527,7 +527,7 @@ operator|=
 name|endTime
 expr_stmt|;
 block|}
-comment|/**      * Get Time Range From      *      * @return      */
+comment|/**      * Get Time Range From      */
 DECL|method|getTimeRangeFrom ()
 specifier|public
 name|long
@@ -538,7 +538,7 @@ return|return
 name|timeRangeFrom
 return|;
 block|}
-comment|/**      * Set Time Range From      *      * @return      */
+comment|/**      * Set Time Range From      */
 DECL|method|setTimeRangeFrom (long timeRangeFrom)
 specifier|public
 name|void
@@ -555,7 +555,7 @@ operator|=
 name|timeRangeFrom
 expr_stmt|;
 block|}
-comment|/**      * Get Time Range To      *      * @return      */
+comment|/**      * Get Time Range To      */
 DECL|method|getTimeRangeTo ()
 specifier|public
 name|long
@@ -566,7 +566,7 @@ return|return
 name|timeRangeTo
 return|;
 block|}
-comment|/**      * Set Time Range To      *      * @return      */
+comment|/**      * Set Time Range To      */
 DECL|method|setTimeRangeTo (long timeRangeTo)
 specifier|public
 name|void
@@ -583,7 +583,7 @@ operator|=
 name|timeRangeTo
 expr_stmt|;
 block|}
-comment|/**      * Get Limit      *      * @return      */
+comment|/**      * Get Limit      */
 DECL|method|getLimit ()
 specifier|public
 name|long
@@ -594,7 +594,7 @@ return|return
 name|limit
 return|;
 block|}
-comment|/**      * Set Limit      *      * @param limit      */
+comment|/**      * Set Limit      */
 DECL|method|setLimit (long limit)
 specifier|public
 name|void
@@ -611,7 +611,7 @@ operator|=
 name|limit
 expr_stmt|;
 block|}
-comment|/**      * Get Timestamp      *      * @return      */
+comment|/**      * Get Timestamp      */
 DECL|method|getTimestamp ()
 specifier|public
 name|long
@@ -622,7 +622,7 @@ return|return
 name|timestamp
 return|;
 block|}
-comment|/**      * Set Timestamp      *      * @param timestamp      */
+comment|/**      * Set Timestamp      */
 DECL|method|setTimestamp (long timestamp)
 specifier|public
 name|void
@@ -639,7 +639,7 @@ operator|=
 name|timestamp
 expr_stmt|;
 block|}
-comment|/**      * Get Start Key      *      * @return      */
+comment|/**      * Get Start Key      */
 DECL|method|getStartKey ()
 specifier|public
 name|Object
@@ -650,7 +650,7 @@ return|return
 name|startKey
 return|;
 block|}
-comment|/**      * Set Start Key      *      * @param startKey      */
+comment|/**      * Set Start Key      */
 DECL|method|setStartKey (Object startKey)
 specifier|public
 name|void
@@ -667,7 +667,7 @@ operator|=
 name|startKey
 expr_stmt|;
 block|}
-comment|/**      * Get End Key      *      * @return      */
+comment|/**      * Get End Key      */
 DECL|method|getEndKey ()
 specifier|public
 name|Object
@@ -678,7 +678,7 @@ return|return
 name|endKey
 return|;
 block|}
-comment|/**      * Set End Key      *      * @param endKey      */
+comment|/**      * Set End Key      */
 DECL|method|setEndKey (Object endKey)
 specifier|public
 name|void
@@ -695,7 +695,7 @@ operator|=
 name|endKey
 expr_stmt|;
 block|}
-comment|/**      * Get Key Range From      * @return      */
+comment|/**      * Get Key Range From      */
 DECL|method|getKeyRangeFrom ()
 specifier|public
 name|Object
@@ -706,7 +706,7 @@ return|return
 name|keyRangeFrom
 return|;
 block|}
-comment|/**      * Set Key Range From      *      * @param keyRangeFrom      */
+comment|/**      * Set Key Range From      */
 DECL|method|setKeyRangeFrom (Object keyRangeFrom)
 specifier|public
 name|void
@@ -723,7 +723,7 @@ operator|=
 name|keyRangeFrom
 expr_stmt|;
 block|}
-comment|/**      * Get Key Range To      * @return      */
+comment|/**      * Get Key Range To      */
 DECL|method|getKeyRangeTo ()
 specifier|public
 name|Object
@@ -734,7 +734,7 @@ return|return
 name|keyRangeTo
 return|;
 block|}
-comment|/**      * Set Key Range To      *      * @param keyRangeTo      */
+comment|/**      * Set Key Range To      */
 DECL|method|setKeyRangeTo (Object keyRangeTo)
 specifier|public
 name|void
@@ -751,7 +751,7 @@ operator|=
 name|keyRangeTo
 expr_stmt|;
 block|}
-comment|/**      * Get Fields      *      * @return      */
+comment|/**      * Get Fields      */
 DECL|method|getFields ()
 specifier|public
 name|Strings
@@ -762,7 +762,7 @@ return|return
 name|fields
 return|;
 block|}
-comment|/**      * Set Fields      *      * @param fields      */
+comment|/**      * Set Fields      */
 DECL|method|setFields (Strings fields)
 specifier|public
 name|void
@@ -779,7 +779,7 @@ operator|=
 name|fields
 expr_stmt|;
 block|}
-comment|/**      * Get Concurrent Consumers      * @return      */
+comment|/**      * Get Concurrent Consumers      */
 DECL|method|getConcurrentConsumers ()
 specifier|public
 name|int
@@ -790,7 +790,7 @@ return|return
 name|concurrentConsumers
 return|;
 block|}
-comment|/**      * Set Concurrent Consumers      *      * @param concurrentConsumers      */
+comment|/**      * Set Concurrent Consumers      */
 DECL|method|setConcurrentConsumers (int concurrentConsumers)
 specifier|public
 name|void
@@ -807,7 +807,7 @@ operator|=
 name|concurrentConsumers
 expr_stmt|;
 block|}
-comment|/**      * Get flush on every operation      *      * @return      */
+comment|/**      * Get flush on every operation      */
 DECL|method|isFlushOnEveryOperation ()
 specifier|public
 name|boolean
@@ -818,7 +818,7 @@ return|return
 name|flushOnEveryOperation
 return|;
 block|}
-comment|/**      * Set flush on every operation      *      * @param flushOnEveryOperation      */
+comment|/**      * Set flush on every operation      */
 DECL|method|setFlushOnEveryOperation (boolean flushOnEveryOperation)
 specifier|public
 name|void
@@ -835,7 +835,7 @@ operator|=
 name|flushOnEveryOperation
 expr_stmt|;
 block|}
-comment|/**      * Set Hadoop Configuration      *      * @param hadoopConfiguration      */
+comment|/**      * Set Hadoop Configuration      */
 DECL|method|setHadoopConfiguration (Configuration hadoopConfiguration)
 specifier|public
 name|void

@@ -336,7 +336,6 @@ name|configuration
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|poll ()
@@ -359,7 +358,7 @@ operator|.
 name|createExchange
 argument_list|()
 decl_stmt|;
-comment|// compute time (aprox) since last update
+comment|// compute time (approx) since last update
 if|if
 condition|(
 name|firstRun

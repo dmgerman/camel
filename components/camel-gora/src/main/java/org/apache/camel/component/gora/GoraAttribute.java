@@ -128,7 +128,6 @@ name|value
 decl_stmt|;
 comment|/**      * Enum constructor      *      * @param str Operation Value      */
 DECL|method|GoraAttribute (final String str)
-specifier|private
 name|GoraAttribute
 parameter_list|(
 specifier|final
