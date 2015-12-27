@@ -273,7 +273,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Camel Mustache endpoint.  */
+comment|/**  * Generates a response using a Mustache template.  */
 end_comment
 
 begin_class

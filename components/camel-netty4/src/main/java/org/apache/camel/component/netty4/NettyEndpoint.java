@@ -230,6 +230,10 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * Socket level networking using TCP or UDP with the Netty 4.x library.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

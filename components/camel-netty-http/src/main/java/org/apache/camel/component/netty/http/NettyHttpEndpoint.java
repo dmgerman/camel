@@ -275,7 +275,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * HTTP based {@link NettyEndpoint}  */
+comment|/**  * Netty HTTP server and client using the Netty 3.x library.  */
 end_comment
 
 begin_class

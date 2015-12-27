@@ -344,6 +344,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * Component for working with documents stored in MongoDB database.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

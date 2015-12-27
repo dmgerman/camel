@@ -161,7 +161,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * OptaPlanner endpoint for Camel  */
+comment|/**  * Solves the planning problem contained in a message with OptaPlanner.  */
 end_comment
 
 begin_class

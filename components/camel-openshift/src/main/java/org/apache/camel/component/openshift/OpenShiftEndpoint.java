@@ -174,6 +174,10 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * To manage your Openshift 2.x applications.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

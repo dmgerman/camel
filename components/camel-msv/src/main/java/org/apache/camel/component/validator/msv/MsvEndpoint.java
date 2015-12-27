@@ -104,6 +104,10 @@ name|RELAXNGSchemaFactoryImpl
 import|;
 end_import
 
+begin_comment
+comment|/**  * Validates the payload of a message using the MSV Library.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

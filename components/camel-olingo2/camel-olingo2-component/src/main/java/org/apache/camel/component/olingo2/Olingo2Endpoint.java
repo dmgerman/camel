@@ -253,7 +253,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Olingo2 endpoint.  */
+comment|/**  * Communicates with OData 2.0 and 3.0 services using Apache Olingo.  */
 end_comment
 
 begin_class

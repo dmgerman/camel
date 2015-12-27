@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Endpoint for Camel Mail.  */
+comment|/**  * To send or receive emails using imap/pop3 or stmp protocols.  */
 end_comment
 
 begin_class

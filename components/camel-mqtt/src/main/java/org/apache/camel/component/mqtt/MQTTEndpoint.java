@@ -533,7 +533,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * MQTT endpoint  */
+comment|/**  * Component for communicating with MQTT M2M message brokers  */
 end_comment
 
 begin_class
@@ -560,7 +560,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"messaging"
+literal|"messaging,iot"
 argument_list|)
 DECL|class|MQTTEndpoint
 specifier|public
