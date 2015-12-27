@@ -192,6 +192,10 @@ name|JobLauncher
 import|;
 end_import
 
+begin_comment
+comment|/**  * The spring-batch component allows to send messages to Spring Batch for further processing.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

@@ -374,6 +374,10 @@ name|UNSUBSCRIBE
 import|;
 end_import
 
+begin_comment
+comment|/**  * The stomp component is used for communicating with Stomp compliant message brokers.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

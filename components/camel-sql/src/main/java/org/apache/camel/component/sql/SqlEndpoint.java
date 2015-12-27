@@ -137,7 +137,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * SQL Endpoint. Endpoint URI should contain valid SQL statement, but instead of  * question marks (that are parameter placeholders), sharp signs should be used.  * This is because in camel question mark has other meaning.  */
+comment|/**  * The sql component can be used to perform SQL query to a database.  */
 end_comment
 
 begin_class

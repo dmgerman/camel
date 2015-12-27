@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Redis endpoint.  */
+comment|/**  * The spring-redis component allows sending and receiving messages from Redis.  */
 end_comment
 
 begin_class

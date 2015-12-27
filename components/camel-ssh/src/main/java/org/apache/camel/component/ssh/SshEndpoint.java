@@ -257,7 +257,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents an SSH endpoint.  */
+comment|/**  * The ssh component enables access to SSH servers such that you can send an SSH command, and process the response.  */
 end_comment
 
 begin_class

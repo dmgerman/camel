@@ -150,6 +150,10 @@ name|LdapTemplate
 import|;
 end_import
 
+begin_comment
+comment|/**  * The spring-ldap component allows you to perform searches in LDAP servers using filters as the message payload.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

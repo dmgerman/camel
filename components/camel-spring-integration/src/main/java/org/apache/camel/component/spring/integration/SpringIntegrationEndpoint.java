@@ -165,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://camel.apache.org/springIntergration.html">Spring Integration Endpoint</a>  *  * @version   */
+comment|/**  * Bridges Camel with Spring Integration.  */
 end_comment
 
 begin_class

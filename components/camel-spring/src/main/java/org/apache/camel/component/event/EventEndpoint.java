@@ -221,7 +221,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An<a href="http://camel.apache.org/event.html">Event Endpoint</a>  * for working with Spring ApplicationEvents  *  * @version   */
+comment|/**  * The spring-event component allows to listen for Spring Application Events.  */
 end_comment
 
 begin_class

@@ -124,6 +124,10 @@ name|EndpointHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * The stax component allows messages to be process through a SAX ContentHandler.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

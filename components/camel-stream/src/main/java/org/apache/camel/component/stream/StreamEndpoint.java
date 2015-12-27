@@ -180,6 +180,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * The stream: component provides access to the system-in, system-out and system-err streams as well as allowing streaming of file and URL.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
