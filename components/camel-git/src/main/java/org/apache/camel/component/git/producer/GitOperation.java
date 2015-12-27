@@ -116,6 +116,12 @@ name|SHOW_BRANCHES
 init|=
 literal|"showBranches"
 decl_stmt|;
+DECL|field|CHERRYPICK_OPERATION
+name|String
+name|CHERRYPICK_OPERATION
+init|=
+literal|"cherryPick"
+decl_stmt|;
 block|}
 end_interface
 

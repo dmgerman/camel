@@ -54,6 +54,12 @@ name|GIT_COMMIT_EMAIL
 init|=
 literal|"CamelGitCommitEmail"
 decl_stmt|;
+DECL|field|GIT_COMMIT_ID
+name|String
+name|GIT_COMMIT_ID
+init|=
+literal|"CamelGitCommitId"
+decl_stmt|;
 block|}
 end_interface
 
