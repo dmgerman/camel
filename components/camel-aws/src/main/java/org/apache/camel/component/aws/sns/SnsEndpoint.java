@@ -266,6 +266,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * The aws-sns component is used for sending messages to an Amazon Simple Notification Topic  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

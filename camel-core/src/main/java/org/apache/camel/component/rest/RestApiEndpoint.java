@@ -276,6 +276,10 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * The rest-api component is used for providing Swagger API of the REST services which has been defined using the rest-dsl in Camel.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

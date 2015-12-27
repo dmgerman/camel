@@ -262,20 +262,6 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultExchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
 name|ScheduledPollEndpoint
 import|;
 end_import
@@ -343,7 +329,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Defines the<a href="http://camel.apache.org/aws.html">AWS S3 Endpoint</a>.  */
+comment|/**  * The aws-s3 component is used for storing and retrieving objetc from Amazon S3 Storage Service.  */
 end_comment
 
 begin_class

@@ -198,6 +198,10 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * The aws-cw component is used for sending metrics to an Amazon CloudWatch.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

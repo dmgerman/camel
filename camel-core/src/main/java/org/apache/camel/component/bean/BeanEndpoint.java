@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Endpoint for the bean component.  *  * @version   */
+comment|/**  * The<a href="http://camel.apache.org/bean.html">Bean Component</a> is for invoking Java beans from Camel.  */
 end_comment
 
 begin_class

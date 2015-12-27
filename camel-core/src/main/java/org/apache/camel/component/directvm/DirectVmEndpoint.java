@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The direct-vm endpoint.  */
+comment|/**  * The direct-vm component provides direct, synchronous call to another endpoint from any CamelContext in the same JVM.  *  * This endpoint can be used to connect existing routes in the same JVM between different CamelContexts.  */
 end_comment
 
 begin_class

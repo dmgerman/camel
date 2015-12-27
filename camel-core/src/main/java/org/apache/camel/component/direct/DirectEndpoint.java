@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a direct endpoint that synchronously invokes the consumer of the  * endpoint when a producer sends a message to it.  *  * @version   */
+comment|/**  * The direct component provides direct, synchronous call to another endpoint from the same CamelContext.  *  * This endpoint can be used to connect existing routes in the same CamelContext.  */
 end_comment
 
 begin_class

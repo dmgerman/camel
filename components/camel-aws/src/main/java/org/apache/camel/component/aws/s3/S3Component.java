@@ -68,10 +68,6 @@ name|UriEndpointComponent
 import|;
 end_import
 
-begin_comment
-comment|/**  * For working with Amazon's Simple Storage Service (S3).  */
-end_comment
-
 begin_class
 DECL|class|S3Component
 specifier|public

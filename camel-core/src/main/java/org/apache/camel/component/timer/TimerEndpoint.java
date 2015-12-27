@@ -213,7 +213,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a timer endpoint that can generate periodic inbound exchanges triggered by a timer.  *  * @version   */
+comment|/**  * The timer component is used for generating message exchanges when a timer fires.  *  * This component is similar to the scheduler component, but has much less functionality.  */
 end_comment
 
 begin_class

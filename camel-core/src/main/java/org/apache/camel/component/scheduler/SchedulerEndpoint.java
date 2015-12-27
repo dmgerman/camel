@@ -136,6 +136,10 @@ name|UriPath
 import|;
 end_import
 
+begin_comment
+comment|/**  * The scheduler component is used for generating message exchanges when a scheduler fires.  *  * This component is similar to the timer component, but it offers more functionality in terms of scheduling.  * Also this component uses JDK ScheduledExecutorService. Where as the timer uses a JDK Timer.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

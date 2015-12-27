@@ -175,7 +175,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * File endpoint.  */
+comment|/**  * The file component is used for reading or writing files.  */
 end_comment
 
 begin_class

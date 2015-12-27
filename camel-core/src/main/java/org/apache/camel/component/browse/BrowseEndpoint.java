@@ -233,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An endpoint which maintains a {@link List} of {@link Exchange} instances  * which can be useful for tooling, debugging and visualising routes.  *  * @version   */
+comment|/**  * The browse component is used for viewsing the messages received on endpoints that supports {@link BrowsableEndpoint}.  *  * This can be useful for testing, visualisation tools or debugging. he exchanges sent to the endpoint are all available to be browsed.  */
 end_comment
 
 begin_class

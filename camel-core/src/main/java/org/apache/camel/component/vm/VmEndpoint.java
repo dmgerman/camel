@@ -112,6 +112,10 @@ name|UriEndpoint
 import|;
 end_import
 
+begin_comment
+comment|/**  * The vm component provides asynchronous call to another endpoint from the same CamelContext.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

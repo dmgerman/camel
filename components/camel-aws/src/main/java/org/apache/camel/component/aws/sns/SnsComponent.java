@@ -68,10 +68,6 @@ name|UriEndpointComponent
 import|;
 end_import
 
-begin_comment
-comment|/**  * For Messaging with Amazon's Simple Notification Service (SNS).  */
-end_comment
-
 begin_class
 DECL|class|SnsComponent
 specifier|public

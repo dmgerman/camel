@@ -70,10 +70,6 @@ name|IntrospectionSupport
 import|;
 end_import
 
-begin_comment
-comment|/**  * For Messaging with Amazon's Simple Workflow Service (SWF).  */
-end_comment
-
 begin_class
 DECL|class|SWFComponent
 specifier|public

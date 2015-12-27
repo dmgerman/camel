@@ -436,6 +436,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * The aws-sqs component is used for sending and receiving messages to Amazon's SQS service.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

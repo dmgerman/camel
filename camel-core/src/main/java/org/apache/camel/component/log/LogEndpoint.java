@@ -245,7 +245,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Logger endpoint.  */
+comment|/**  * The log component logs message exchanges to the underlying logging mechanism.  *  * Camel uses sfl4j which allows you to configure logging to the actual logging system.  */
 end_comment
 
 begin_class

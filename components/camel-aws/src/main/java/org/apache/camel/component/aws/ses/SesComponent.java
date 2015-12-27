@@ -68,10 +68,6 @@ name|UriEndpointComponent
 import|;
 end_import
 
-begin_comment
-comment|/**  * For working with Amazon's Simple Email Service (SES).  */
-end_comment
-
 begin_class
 DECL|class|SesComponent
 specifier|public

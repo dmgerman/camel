@@ -385,7 +385,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation of the<a  * href="http://camel.apache.org/queue.html">Queue components</a> for  * asynchronous SEDA exchanges on a {@link BlockingQueue} within a CamelContext  */
+comment|/**  * The seda component provides asynchronous call to another endpoint from any CamelContext in the same JVM.  */
 end_comment
 
 begin_class

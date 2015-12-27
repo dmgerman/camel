@@ -198,6 +198,10 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * The aws-ses component is used for sending emails with Amazon's SES service.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

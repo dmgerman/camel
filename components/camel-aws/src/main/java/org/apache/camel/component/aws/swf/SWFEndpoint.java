@@ -214,6 +214,10 @@ name|ExchangeHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * The aws-swf component is used for managing workflows from Amazon Simple Workflow.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

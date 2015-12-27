@@ -68,10 +68,6 @@ name|UriEndpointComponent
 import|;
 end_import
 
-begin_comment
-comment|/**  * For working with Amazon's SimpleDB (SDB).  */
-end_comment
-
 begin_class
 DECL|class|SdbComponent
 specifier|public

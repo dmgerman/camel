@@ -236,6 +236,10 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * The rest component is used for hosting REST services which has been defined using the rest-dsl in Camel.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

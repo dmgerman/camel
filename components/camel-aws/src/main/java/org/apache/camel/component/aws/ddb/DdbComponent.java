@@ -68,10 +68,6 @@ name|UriEndpointComponent
 import|;
 end_import
 
-begin_comment
-comment|/**  * For working with Amazon's DynamoDB (DDB).  */
-end_comment
-
 begin_class
 DECL|class|DdbComponent
 specifier|public

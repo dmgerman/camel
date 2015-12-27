@@ -160,6 +160,10 @@ name|CamelContextHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * The ref component is used for lookup of existing endpoints bound in the Registry.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

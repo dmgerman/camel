@@ -340,6 +340,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * The aws-ddb component is used for storing and retrieving data from Amazon's DynamoDB service.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

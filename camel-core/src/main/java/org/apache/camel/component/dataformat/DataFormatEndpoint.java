@@ -216,6 +216,10 @@ name|ServiceHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * The dataformat component is used for working with Data Formats as if it was a regular Component supporting Endpoints and URIs.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

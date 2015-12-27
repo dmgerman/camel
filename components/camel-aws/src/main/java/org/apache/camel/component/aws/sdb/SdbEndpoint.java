@@ -284,6 +284,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * The aws-sdb component is for storing and retrieving data from/to Amazon's SDB service.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

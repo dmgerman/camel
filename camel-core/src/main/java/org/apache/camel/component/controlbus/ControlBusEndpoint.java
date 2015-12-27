@@ -189,7 +189,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The control bus endpoint.  */
+comment|/**  * The controlbus component provides easy management of Camel applications based on the Control Bus EIP pattern.  *  * For example, by sending a message to an Endpoint you can control the lifecycle of routes, or gather performance statistics.  */
 end_comment
 
 begin_class

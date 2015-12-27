@@ -292,6 +292,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * Validates the payload of a message using XML Schema and JAXP Validation  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
