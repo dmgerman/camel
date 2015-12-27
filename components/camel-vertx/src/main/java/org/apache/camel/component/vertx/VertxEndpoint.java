@@ -163,7 +163,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Camel Endpoint for working with<a href="http://vertx.io/">vert.x</a> event bus endpoints  */
+comment|/**  * The vertx component is used for sending and receive messages from a vertx event bus.  */
 end_comment
 
 begin_class

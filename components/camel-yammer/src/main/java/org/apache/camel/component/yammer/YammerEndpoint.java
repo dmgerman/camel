@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Yammer endpoint.  */
+comment|/**  * The yammer component allows you to interact with the Yammer enterprise social network.  */
 end_comment
 
 begin_class

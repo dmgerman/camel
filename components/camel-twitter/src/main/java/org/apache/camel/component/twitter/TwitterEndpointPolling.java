@@ -183,7 +183,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Twitter polling endpoint  */
+comment|/**  * This component integrates with Twitter to send tweets or search for tweets and more.  */
 end_comment
 
 begin_class

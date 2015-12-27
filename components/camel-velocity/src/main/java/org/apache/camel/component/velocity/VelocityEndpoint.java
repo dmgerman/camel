@@ -292,6 +292,10 @@ name|CommonsLogLogChute
 import|;
 end_import
 
+begin_comment
+comment|/**  * Generates a response using an Apache Velocity template.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

@@ -200,6 +200,10 @@ name|UriPath
 import|;
 end_import
 
+begin_comment
+comment|/**  * Used to sign and verify exchanges using the XML signature specification.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

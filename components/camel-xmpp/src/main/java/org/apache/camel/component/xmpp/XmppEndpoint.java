@@ -377,7 +377,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A XMPP Endpoint  */
+comment|/**  * To send and receive messages from a XMPP (chat) server.  */
 end_comment
 
 begin_class

@@ -221,7 +221,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a xmlrpc endpoint.  */
+comment|/**  * The xmlrpc component is used for sending messages to a XML RPC service.  */
 end_comment
 
 begin_class

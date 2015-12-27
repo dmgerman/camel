@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<code>ZooKeeperEndpoint</code>  */
+comment|/**  * The zookeeper component allows interaction with a ZooKeeper cluster.  */
 end_comment
 
 begin_class
