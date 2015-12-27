@@ -292,6 +292,10 @@ name|POLL_CONSUMER_DELAY
 import|;
 end_import
 
+begin_comment
+comment|/**  * The atmos component is used for integrating with EMC's Atomos Storage.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

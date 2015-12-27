@@ -252,15 +252,6 @@ argument_list|,
 name|out
 argument_list|)
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-name|out
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
 name|stop

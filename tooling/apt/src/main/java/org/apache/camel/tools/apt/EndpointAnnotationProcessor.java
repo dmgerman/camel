@@ -3487,18 +3487,46 @@ argument_list|)
 decl_stmt|;
 comment|// now we have a lot more data, so we need to load it as key/value
 comment|// need to sanitize the description first
-comment|//            String doc = map.get("projectDescription");
-comment|//            if (doc != null) {
-comment|//                model.setDescription(sanitizeDescription(doc, true));
-comment|//            } else {
+name|String
+name|doc
+init|=
+name|map
+operator|.
+name|get
+argument_list|(
+literal|"projectDescription"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|doc
+operator|!=
+literal|null
+condition|)
+block|{
 name|model
 operator|.
 name|setDescription
 argument_list|(
-literal|"TODO"
+name|sanitizeDescription
+argument_list|(
+name|doc
+argument_list|,
+literal|true
+argument_list|)
 argument_list|)
 expr_stmt|;
-comment|//            }
+block|}
+else|else
+block|{
+name|model
+operator|.
+name|setDescription
+argument_list|(
+literal|""
+argument_list|)
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|map

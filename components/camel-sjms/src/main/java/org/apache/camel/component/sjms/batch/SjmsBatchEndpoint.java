@@ -336,6 +336,10 @@ name|UriPath
 import|;
 end_import
 
+begin_comment
+comment|/**  * The sjms-batch component is a specialized for highly performant, transactional batch consumption from a JMS queue.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
