@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Spark endpoint can be used to create various type of producers, including RDD-, DataFrame- and Hive-based.  */
+comment|/**  * The spark component can be used to send RDD or DataFrame jobs to Apache Spark cluster.  */
 end_comment
 
 begin_class

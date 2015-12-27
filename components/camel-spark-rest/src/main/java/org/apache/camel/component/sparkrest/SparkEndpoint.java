@@ -160,6 +160,10 @@ name|HttpMethod
 import|;
 end_import
 
+begin_comment
+comment|/**  * The spark-rest component is used for hosting REST services which has been defined using Camel rest-dsl.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

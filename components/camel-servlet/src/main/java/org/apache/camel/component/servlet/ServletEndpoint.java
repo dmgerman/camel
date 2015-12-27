@@ -146,6 +146,10 @@ name|UriPath
 import|;
 end_import
 
+begin_comment
+comment|/**  * To use a HTTP Servlet as entry for Camel routes when running in a servlet container.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

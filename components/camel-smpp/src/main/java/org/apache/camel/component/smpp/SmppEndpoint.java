@@ -169,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A SMPP Endpoint  *   * @version   */
+comment|/**  * To send and receive SMS using a SMSC (Short Message Service Center).  */
 end_comment
 
 begin_class
@@ -196,7 +196,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"mobile,messaging"
+literal|"mobile"
 argument_list|)
 DECL|class|SmppEndpoint
 specifier|public

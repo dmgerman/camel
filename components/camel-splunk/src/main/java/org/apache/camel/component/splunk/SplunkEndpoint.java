@@ -171,7 +171,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Splunk endpoint.  */
+comment|/**  * The splunk component allows to publish or search for events in Splunk.  */
 end_comment
 
 begin_class

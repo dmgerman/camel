@@ -124,6 +124,10 @@ name|UriPath
 import|;
 end_import
 
+begin_comment
+comment|/**  * The slack component allows you to send messages to Slack.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint

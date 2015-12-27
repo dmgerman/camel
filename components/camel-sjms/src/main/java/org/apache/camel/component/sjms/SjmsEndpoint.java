@@ -439,7 +439,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A JMS Endpoint  */
+comment|/**  * The sjms component (simple jms) allows messages to be sent to (or consumed from) a JMS Queue or Topic.  *  * This component uses plain JMS API where as the jms component uses Spring JMS.  */
 end_comment
 
 begin_class

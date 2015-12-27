@@ -209,7 +209,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Solr endpoint.  */
+comment|/**  * The solr component allows you to interface with an Apache Lucene Solr server  */
 end_comment
 
 begin_class

@@ -108,6 +108,10 @@ name|UriParam
 import|;
 end_import
 
+begin_comment
+comment|/**  * To send and receive messages using the SIP protocol (used in telco and mobile).  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
@@ -126,7 +130,7 @@ literal|"sip:uri"
 argument_list|,
 name|label
 operator|=
-literal|"messaging,mobile"
+literal|"mobile"
 argument_list|)
 DECL|class|SipEndpoint
 specifier|public

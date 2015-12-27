@@ -210,6 +210,10 @@ name|SecurityLevel
 import|;
 end_import
 
+begin_comment
+comment|/**  * The snmp component gives you the ability to poll SNMP capable devices or receiving traps.  */
+end_comment
+
 begin_class
 annotation|@
 name|UriEndpoint
