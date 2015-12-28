@@ -273,7 +273,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generates a response using a Mustache template.  */
+comment|/**  * Transforms the message using a Mustache template.  */
 end_comment
 
 begin_class

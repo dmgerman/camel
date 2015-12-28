@@ -293,7 +293,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generates a response using an Apache Velocity template.  */
+comment|/**  * Transforms the message using a Velocity template.  */
 end_comment
 
 begin_class

@@ -215,7 +215,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generates a response using an MVEL template.  */
+comment|/**  * Transforms the message using a MVEL template.  */
 end_comment
 
 begin_class
