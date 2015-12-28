@@ -242,7 +242,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|makeClient (String clientId, String clientSecret, Collection<String> scopes, String applicationName, String refreshToken, String accessToken, String emailAddress, String p12FileName)
+DECL|method|makeClient (String clientId, String clientSecret, Collection<String> scopes, String applicationName, String refreshToken, String accessToken, String emailAddress, String p12FileName, String user)
 specifier|public
 name|Calendar
 name|makeClient
@@ -273,6 +273,9 @@ name|emailAddress
 parameter_list|,
 name|String
 name|p12FileName
+parameter_list|,
+name|String
+name|user
 parameter_list|)
 block|{
 name|Credential
@@ -317,6 +320,8 @@ argument_list|,
 name|p12FileName
 argument_list|,
 name|scopes
+argument_list|,
+name|user
 argument_list|)
 expr_stmt|;
 block|}
@@ -472,7 +477,7 @@ name|build
 argument_list|()
 return|;
 block|}
-DECL|method|authorizeServiceAccount (String emailAddress, String p12FileName, Collection<String> scopes)
+DECL|method|authorizeServiceAccount (String emailAddress, String p12FileName, Collection<String> scopes, String user)
 specifier|private
 name|Credential
 name|authorizeServiceAccount
@@ -488,6 +493,9 @@ argument_list|<
 name|String
 argument_list|>
 name|scopes
+parameter_list|,
+name|String
+name|user
 parameter_list|)
 throws|throws
 name|Exception
@@ -500,6 +508,7 @@ operator|.
 name|newTrustedTransport
 argument_list|()
 decl_stmt|;
+comment|// set the service account user when provided
 name|GoogleCredential
 name|credential
 init|=
@@ -536,6 +545,11 @@ operator|.
 name|setServiceAccountScopes
 argument_list|(
 name|scopes
+argument_list|)
+operator|.
+name|setServiceAccountUser
+argument_list|(
+name|user
 argument_list|)
 operator|.
 name|build

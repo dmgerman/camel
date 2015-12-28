@@ -52,7 +52,7 @@ specifier|public
 interface|interface
 name|GoogleCalendarClientFactory
 block|{
-DECL|method|makeClient (String clientId, String clientSecret, Collection<String> scopes, String applicationName, String refreshToken, String accessToken, String emailAddress, String p12FileName)
+DECL|method|makeClient (String clientId, String clientSecret, Collection<String> scopes, String applicationName, String refreshToken, String accessToken, String emailAddress, String p12FileName, String user)
 name|Calendar
 name|makeClient
 parameter_list|(
@@ -82,6 +82,9 @@ name|emailAddress
 parameter_list|,
 name|String
 name|p12FileName
+parameter_list|,
+name|String
+name|user
 parameter_list|)
 function_decl|;
 block|}

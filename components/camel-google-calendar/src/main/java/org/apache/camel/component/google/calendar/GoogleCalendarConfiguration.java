@@ -264,6 +264,13 @@ specifier|private
 name|String
 name|p12FileName
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|user
+specifier|private
+name|String
+name|user
+decl_stmt|;
 DECL|method|getApiName ()
 specifier|public
 name|GoogleCalendarApiName
@@ -538,6 +545,33 @@ operator|.
 name|p12FileName
 operator|=
 name|p12FileName
+expr_stmt|;
+block|}
+DECL|method|getUser ()
+specifier|public
+name|String
+name|getUser
+parameter_list|()
+block|{
+return|return
+name|user
+return|;
+block|}
+comment|/**      * The email address of the user the application is trying to impersonate in the service account flow      */
+DECL|method|setUser (String user)
+specifier|public
+name|void
+name|setUser
+parameter_list|(
+name|String
+name|user
+parameter_list|)
+block|{
+name|this
+operator|.
+name|user
+operator|=
+name|user
 expr_stmt|;
 block|}
 block|}
