@@ -209,7 +209,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The solr component allows you to interface with an Apache Lucene Solr server  */
+comment|/**  * The solr component allows you to interface with an Apache Lucene Solr server.  */
 end_comment
 
 begin_class

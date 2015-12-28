@@ -311,7 +311,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The disruptor component provides asynchronous SEDA behavior much as the standard SEDA Component,  * but utilizes a Disruptor instead of a BlockingQueue utilized by the standard SEDA.  */
+comment|/**  * The disruptor component provides asynchronous SEDA behavior using LMAX Disruptor.  *  * This component works much as the standard SEDA Component, but utilizes a Disruptor  * instead of a BlockingQueue utilized by the standard SEDA.  */
 end_comment
 
 begin_class

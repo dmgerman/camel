@@ -303,7 +303,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Provides a scheduled delivery of messages using the Quartz 1.x scheduler  */
+comment|/**  * Provides a scheduled delivery of messages using the Quartz 1.x scheduler.  */
 end_comment
 
 begin_class

@@ -293,7 +293,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generates a response using a Chunk template  */
+comment|/**  * Generates a response using a Chunk template.  */
 end_comment
 
 begin_class

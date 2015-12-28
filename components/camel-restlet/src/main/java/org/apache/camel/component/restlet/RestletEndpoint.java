@@ -239,7 +239,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Component for consuming and producing Restful resources using Restlet  */
+comment|/**  * Component for consuming and producing Restful resources using Restlet.  */
 end_comment
 
 begin_class

@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Polls the weather information from Open Weather Map  */
+comment|/**  * Polls the weather information from Open Weather Map.  */
 end_comment
 
 begin_class

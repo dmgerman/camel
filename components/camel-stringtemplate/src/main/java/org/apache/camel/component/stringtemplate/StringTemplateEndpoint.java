@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generates a response using a String Template  */
+comment|/**  * Generates a response using a String Template.  */
 end_comment
 
 begin_class

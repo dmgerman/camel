@@ -233,7 +233,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To call external HTTP services using<a href="http://github.com/sonatype/async-http-client">Async Http Client</a>  */
+comment|/**  * To call external HTTP services using<a href="http://github.com/sonatype/async-http-client">Async Http Client</a>.  */
 end_comment
 
 begin_class

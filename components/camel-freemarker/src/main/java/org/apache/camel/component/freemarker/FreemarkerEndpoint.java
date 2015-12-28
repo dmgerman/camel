@@ -187,7 +187,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generates a response using a FreeMarker template  */
+comment|/**  * Generates a response using a FreeMarker template.  */
 end_comment
 
 begin_class

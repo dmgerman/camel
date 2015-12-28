@@ -319,7 +319,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The undertow component provides HTTP-based endpoints for consuming and producing HTTP requests  */
+comment|/**  * The undertow component provides HTTP-based endpoints for consuming and producing HTTP requests.  */
 end_comment
 
 begin_class

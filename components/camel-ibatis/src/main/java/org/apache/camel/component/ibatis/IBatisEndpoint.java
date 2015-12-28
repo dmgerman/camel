@@ -205,7 +205,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Performs a query, poll, insert, update or delete in a relational database using Apache iBATIS  */
+comment|/**  * Performs a query, poll, insert, update or delete in a relational database using Apache iBATIS.  */
 end_comment
 
 begin_class

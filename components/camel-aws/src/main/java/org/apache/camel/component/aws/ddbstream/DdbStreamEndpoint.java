@@ -185,7 +185,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The aws-ddbstream component is used for working with Amazon DynamoDB Streams  */
+comment|/**  * The aws-ddbstream component is used for working with Amazon DynamoDB Streams.  */
 end_comment
 
 begin_class

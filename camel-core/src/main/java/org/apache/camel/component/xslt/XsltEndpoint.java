@@ -347,7 +347,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Generates a response using an XSLT template  */
+comment|/**  * Generates a response using an XSLT template.  */
 end_comment
 
 begin_class

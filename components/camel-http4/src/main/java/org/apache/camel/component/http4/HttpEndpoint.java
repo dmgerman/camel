@@ -321,7 +321,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For calling out to external HTTP servers using Apache HTTP Client 4.x  */
+comment|/**  * For calling out to external HTTP servers using Apache HTTP Client 4.x.  */
 end_comment
 
 begin_class

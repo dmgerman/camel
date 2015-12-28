@@ -189,7 +189,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Performs a query, poll, insert, update or delete in a relational database using MyBatis  */
+comment|/**  * Performs a query, poll, insert, update or delete in a relational database using MyBatis.  */
 end_comment
 
 begin_class

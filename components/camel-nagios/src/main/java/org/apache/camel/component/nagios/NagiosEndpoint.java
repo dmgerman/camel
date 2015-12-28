@@ -165,7 +165,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To send passive checks to Nagios using JSendNSCA  */
+comment|/**  * To send passive checks to Nagios using JSendNSCA.  */
 end_comment
 
 begin_class

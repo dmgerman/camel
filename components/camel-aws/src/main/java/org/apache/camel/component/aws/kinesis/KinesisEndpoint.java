@@ -185,7 +185,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The aws-kinesis component is for consuming records from Amazon Kinesis Streams  */
+comment|/**  * The aws-kinesis component is for consuming records from Amazon Kinesis Streams.  */
 end_comment
 
 begin_class

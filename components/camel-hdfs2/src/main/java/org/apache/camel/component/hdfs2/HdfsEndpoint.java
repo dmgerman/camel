@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For reading/writing from/to an HDFS filesystem using Hadoop 2.x  */
+comment|/**  * For reading/writing from/to an HDFS filesystem using Hadoop 2.x.  */
 end_comment
 
 begin_class

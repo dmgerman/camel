@@ -173,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The aws-ec2 is used for managing Amazon EC2 instances  */
+comment|/**  * The aws-ec2 is used for managing Amazon EC2 instances.  */
 end_comment
 
 begin_class
