@@ -230,7 +230,7 @@ argument_list|>
 name|unmarshalType
 decl_stmt|;
 annotation|@
-name|XmlTransient
+name|XmlAttribute
 DECL|field|useList
 specifier|private
 name|Boolean
