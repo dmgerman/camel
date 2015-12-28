@@ -84,7 +84,37 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Collection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -209,6 +239,11 @@ argument_list|<
 name|?
 argument_list|>
 name|unmarshalType
+decl_stmt|;
+DECL|field|useList
+specifier|private
+name|boolean
+name|useList
 decl_stmt|;
 DECL|method|BoonDataFormat ()
 specifier|public
@@ -472,6 +507,47 @@ name|this
 operator|.
 name|objectMapper
 return|;
+block|}
+DECL|method|isUseList ()
+specifier|public
+name|boolean
+name|isUseList
+parameter_list|()
+block|{
+return|return
+name|useList
+return|;
+block|}
+DECL|method|setUseList (boolean useList)
+specifier|public
+name|void
+name|setUseList
+parameter_list|(
+name|boolean
+name|useList
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useList
+operator|=
+name|useList
+expr_stmt|;
+block|}
+comment|/**      * Uses {@link java.util.List} when unmarshalling.      */
+DECL|method|useList ()
+specifier|public
+name|void
+name|useList
+parameter_list|()
+block|{
+name|setUnmarshalType
+argument_list|(
+name|List
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
