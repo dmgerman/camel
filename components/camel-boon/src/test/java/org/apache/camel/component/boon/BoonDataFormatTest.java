@@ -778,8 +778,10 @@ argument_list|()
 decl_stmt|;
 name|formatList
 operator|.
-name|useList
-argument_list|()
+name|setUseList
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|from
 argument_list|(

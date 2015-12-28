@@ -446,7 +446,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+if|if
+condition|(
+name|useList
+condition|)
+block|{
+name|useList
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -508,22 +516,22 @@ operator|.
 name|objectMapper
 return|;
 block|}
-DECL|method|isUseList ()
+DECL|method|getUseList ()
 specifier|public
-name|boolean
-name|isUseList
+name|Boolean
+name|getUseList
 parameter_list|()
 block|{
 return|return
 name|useList
 return|;
 block|}
-DECL|method|setUseList (boolean useList)
+DECL|method|setUseList (Boolean useList)
 specifier|public
 name|void
 name|setUseList
 parameter_list|(
-name|boolean
+name|Boolean
 name|useList
 parameter_list|)
 block|{

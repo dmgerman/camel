@@ -229,6 +229,13 @@ name|?
 argument_list|>
 name|unmarshalType
 decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|useList
+specifier|private
+name|Boolean
+name|useList
+decl_stmt|;
 DECL|method|BoonDataFormat ()
 specifier|public
 name|BoonDataFormat
@@ -318,6 +325,33 @@ operator|.
 name|unmarshalTypeName
 operator|=
 name|unmarshalTypeName
+expr_stmt|;
+block|}
+DECL|method|isUseList ()
+specifier|public
+name|boolean
+name|isUseList
+parameter_list|()
+block|{
+return|return
+name|useList
+return|;
+block|}
+comment|/**      * To unarmshal to a List of Map or a List of Pojo.      */
+DECL|method|setUseList (boolean useList)
+specifier|public
+name|void
+name|setUseList
+parameter_list|(
+name|boolean
+name|useList
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useList
+operator|=
+name|useList
 expr_stmt|;
 block|}
 annotation|@
@@ -415,6 +449,25 @@ argument_list|,
 literal|"unmarshalType"
 argument_list|,
 name|unmarshalType
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|useList
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"useList"
+argument_list|,
+name|useList
 argument_list|)
 expr_stmt|;
 block|}
