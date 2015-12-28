@@ -584,6 +584,17 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+name|reconnect
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+DECL|method|reconnect ()
+specifier|private
+name|void
+name|reconnect
+parameter_list|()
+block|{
 comment|// Open connection, and start message listener in background
 name|Integer
 name|networkRecoveryInterval
@@ -626,8 +637,21 @@ name|startConsumerCallable
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|doResume ()
+specifier|protected
+name|void
+name|doResume
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|reconnect
+argument_list|()
+expr_stmt|;
 block|}
-comment|/**      * If needed, close Connection and Channels       */
+comment|/**      * If needed, close Connection and Channels      */
 DECL|method|closeConnectionAndChannel ()
 specifier|private
 name|void
@@ -724,6 +748,20 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doSuspend ()
+specifier|protected
+name|void
+name|doSuspend
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|closeConnectionAndChannel
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -1122,7 +1160,8 @@ name|isOutCapable
 argument_list|()
 condition|)
 block|{
-comment|// the inOut exchange failed so put the exception in the body and send back
+comment|// the inOut exchange failed so put the exception in the body
+comment|// and send back
 name|msg
 operator|.
 name|setBody
@@ -1392,7 +1431,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      * Task in charge of opening connection and adding listener when consumer is started      * and broker is not available.      */
+comment|/**      * Task in charge of opening connection and adding listener when consumer is      * started and broker is not available.      */
 DECL|class|StartConsumerCallable
 specifier|private
 class|class
