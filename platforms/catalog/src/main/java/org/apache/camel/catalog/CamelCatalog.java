@@ -93,6 +93,18 @@ name|SuggestionStrategy
 name|suggestionStrategy
 parameter_list|)
 function_decl|;
+comment|/**      * Adds a 3rd party component to this catalog.      *      * @param name      the component name      * @param className the fully qualified class name for the component class      */
+DECL|method|addComponent (String name, String className)
+name|void
+name|addComponent
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|className
+parameter_list|)
+function_decl|;
 comment|/**      * The version of this Camel Catalog      */
 DECL|method|getCatalogVersion ()
 name|String
