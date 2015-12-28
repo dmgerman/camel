@@ -105,6 +105,18 @@ name|String
 name|className
 parameter_list|)
 function_decl|;
+comment|/**      * Adds a 3rd party data format to this catalog.      *      * @param name      the data format name      * @param className the fully qualified class name for the data format class      */
+DECL|method|addDataFormat (String name, String className)
+name|void
+name|addDataFormat
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|className
+parameter_list|)
+function_decl|;
 comment|/**      * The version of this Camel Catalog      */
 DECL|method|getCatalogVersion ()
 name|String
