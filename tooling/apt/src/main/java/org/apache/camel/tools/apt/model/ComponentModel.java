@@ -87,6 +87,11 @@ specifier|private
 name|boolean
 name|producerOnly
 decl_stmt|;
+DECL|field|deprecated
+specifier|private
+name|boolean
+name|deprecated
+decl_stmt|;
 DECL|method|ComponentModel (String scheme)
 specifier|public
 name|ComponentModel
@@ -396,6 +401,32 @@ operator|.
 name|producerOnly
 operator|=
 name|producerOnly
+expr_stmt|;
+block|}
+DECL|method|isDeprecated ()
+specifier|public
+name|boolean
+name|isDeprecated
+parameter_list|()
+block|{
+return|return
+name|deprecated
+return|;
+block|}
+DECL|method|setDeprecated (boolean deprecated)
+specifier|public
+name|void
+name|setDeprecated
+parameter_list|(
+name|boolean
+name|deprecated
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deprecated
+operator|=
+name|deprecated
 expr_stmt|;
 block|}
 block|}
