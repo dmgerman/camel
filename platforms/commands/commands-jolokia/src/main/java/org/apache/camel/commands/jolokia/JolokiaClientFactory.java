@@ -54,6 +54,18 @@ name|J4pClientBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|jolokia
+operator|.
+name|client
+operator|.
+name|J4pClientBuilderFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * A factory to create a {@link org.jolokia.client.J4pClient} jolokia client that connects to a remote JVM.  */
 end_comment
@@ -89,7 +101,7 @@ block|{
 name|J4pClientBuilder
 name|builder
 init|=
-name|J4pClient
+name|J4pClientBuilderFactory
 operator|.
 name|url
 argument_list|(

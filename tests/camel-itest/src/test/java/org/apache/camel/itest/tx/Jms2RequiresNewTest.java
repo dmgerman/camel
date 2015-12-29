@@ -102,16 +102,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|After
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Before
 import|;
 end_import

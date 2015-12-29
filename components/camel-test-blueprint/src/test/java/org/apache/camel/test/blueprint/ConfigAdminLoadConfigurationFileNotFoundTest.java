@@ -28,18 +28,6 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|osgi
-operator|.
-name|framework
-operator|.
-name|BundleContext
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment

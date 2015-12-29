@@ -483,6 +483,8 @@ argument_list|()
 return|;
 block|}
 comment|/**      * Returns a predicate and value builder for the outbound message body as a      * specific type      *      * @deprecated use {@link #bodyAs(Class)}      */
+annotation|@
+name|Deprecated
 DECL|method|outBodyAs (Class<T> type)
 specifier|public
 specifier|static

@@ -50,10 +50,6 @@ name|HazelcastInstance
 import|;
 end_import
 
-begin_expr_stmt
-operator|.
-end_expr_stmt
-
 begin_import
 import|import
 name|com
