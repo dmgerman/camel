@@ -84,16 +84,6 @@ name|javax
 operator|.
 name|sip
 operator|.
-name|ClientTransaction
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|sip
-operator|.
 name|InvalidArgumentException
 import|;
 end_import

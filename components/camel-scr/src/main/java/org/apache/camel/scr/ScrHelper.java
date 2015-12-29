@@ -90,6 +90,18 @@ name|xml
 operator|.
 name|stream
 operator|.
+name|XMLStreamConstants
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|stream
+operator|.
 name|events
 operator|.
 name|XMLEvent
@@ -279,7 +291,7 @@ operator|.
 name|getEventType
 argument_list|()
 operator|==
-name|XMLEvent
+name|XMLStreamConstants
 operator|.
 name|START_ELEMENT
 operator|&&
@@ -338,7 +350,7 @@ operator|.
 name|getEventType
 argument_list|()
 operator|==
-name|XMLEvent
+name|XMLStreamConstants
 operator|.
 name|START_ELEMENT
 operator|&&
@@ -411,7 +423,7 @@ operator|.
 name|getEventType
 argument_list|()
 operator|==
-name|XMLEvent
+name|XMLStreamConstants
 operator|.
 name|END_ELEMENT
 operator|&&

@@ -22,20 +22,6 @@ name|dto
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|codehaus
-operator|.
-name|jackson
-operator|.
-name|annotate
-operator|.
-name|JsonProperty
-import|;
-end_import
-
 begin_comment
 comment|/**  * Salesforce DTO for compound type GeoLocation.  */
 end_comment

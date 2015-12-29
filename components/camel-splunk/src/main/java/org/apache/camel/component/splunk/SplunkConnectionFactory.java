@@ -82,6 +82,16 @@ name|com
 operator|.
 name|splunk
 operator|.
+name|HttpService
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|splunk
+operator|.
 name|SSLSecurityProtocol
 import|;
 end_import
@@ -669,7 +679,7 @@ name|getSslProtocol
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Service
+name|HttpService
 operator|.
 name|setSslSecurityProtocol
 argument_list|(
