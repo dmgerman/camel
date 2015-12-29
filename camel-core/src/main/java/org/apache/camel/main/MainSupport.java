@@ -1792,6 +1792,20 @@ name|routeBuilder
 argument_list|)
 expr_stmt|;
 block|}
+comment|// register lifecycle so we are notified in Camel is stopped from JMX or somewhere else
+name|camelContext
+operator|.
+name|addLifecycleStrategy
+argument_list|(
+operator|new
+name|MainLifecycleStrategy
+argument_list|(
+name|completed
+argument_list|,
+name|latch
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// allow to do configuration before its started
 for|for
 control|(

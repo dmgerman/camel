@@ -130,7 +130,7 @@ operator|.
 name|enableHangupSupport
 argument_list|()
 expr_stmt|;
-comment|// bind MyBean into the registery
+comment|// bind MyBean into the registry
 name|main
 operator|.
 name|bind
@@ -259,7 +259,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"MyBean.calleMe method has been called"
+literal|"MyBean.callMe method has been called"
 argument_list|)
 expr_stmt|;
 block|}
