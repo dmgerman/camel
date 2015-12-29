@@ -949,9 +949,6 @@ argument_list|)
 decl_stmt|;
 name|select
 operator|=
-operator|(
-name|Select
-operator|)
 name|applyConsistencyLevel
 argument_list|(
 name|select

@@ -28,24 +28,6 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|dataformat
-operator|.
-name|base64
-operator|.
-name|Base64TestConstants
-operator|.
-name|DECODED
-import|;
-end_import
-
 begin_class
 DECL|class|Base64DataFormatDefaultsTest
 specifier|public
