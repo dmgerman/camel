@@ -82,14 +82,6 @@ begin_import
 import|import
 name|facebook4j
 operator|.
-name|Reading
-import|;
-end_import
-
-begin_import
-import|import
-name|facebook4j
-operator|.
 name|json
 operator|.
 name|DataObjectFactory

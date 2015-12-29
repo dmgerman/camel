@@ -50,17 +50,9 @@ name|HazelcastInstance
 import|;
 end_import
 
-begin_import
-import|import
-name|com
+begin_expr_stmt
 operator|.
-name|hazelcast
-operator|.
-name|core
-operator|.
-name|MultiMap
-import|;
-end_import
+end_expr_stmt
 
 begin_import
 import|import

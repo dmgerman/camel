@@ -104,20 +104,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|mail
-operator|.
-name|internet
-operator|.
-name|MimeMessage
-operator|.
-name|RecipientType
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|google

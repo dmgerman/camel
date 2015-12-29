@@ -913,11 +913,6 @@ operator|.
 name|Item
 name|item
 init|=
-operator|(
-name|MultiGetRequest
-operator|.
-name|Item
-operator|)
 name|it
 operator|.
 name|next
@@ -993,9 +988,6 @@ block|{
 name|SearchRequest
 name|item
 init|=
-operator|(
-name|SearchRequest
-operator|)
 name|it
 operator|.
 name|next
