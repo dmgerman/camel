@@ -160,9 +160,6 @@ block|{
 name|Exchange
 name|exchange
 init|=
-operator|(
-name|Exchange
-operator|)
 name|iter
 operator|.
 name|next

@@ -589,9 +589,6 @@ block|{
 name|Reader
 name|reader
 init|=
-operator|(
-name|Reader
-operator|)
 name|ss
 operator|.
 name|getReader

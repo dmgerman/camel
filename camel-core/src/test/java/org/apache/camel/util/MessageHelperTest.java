@@ -184,20 +184,6 @@ name|DefaultMessage
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|HeaderFilterStrategy
-import|;
-end_import
-
 begin_comment
 comment|/**  * Test cases for {@link MessageHelper}  */
 end_comment
