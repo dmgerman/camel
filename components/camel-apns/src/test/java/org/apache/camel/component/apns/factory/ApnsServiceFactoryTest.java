@@ -34,20 +34,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|notnoop
-operator|.
-name|apns
-operator|.
-name|utils
-operator|.
-name|FixedCertificates
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
