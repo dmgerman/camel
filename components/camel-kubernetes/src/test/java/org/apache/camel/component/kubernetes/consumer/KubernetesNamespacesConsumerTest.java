@@ -498,9 +498,6 @@ block|{
 name|Namespace
 name|namespace
 init|=
-operator|(
-name|Namespace
-operator|)
 name|it
 operator|.
 name|next

@@ -74,16 +74,6 @@ name|com
 operator|.
 name|mongodb
 operator|.
-name|CommandResult
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|mongodb
-operator|.
 name|DB
 import|;
 end_import

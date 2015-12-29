@@ -475,9 +475,6 @@ decl_stmt|;
 name|String
 name|maxIdleTimeUnit
 init|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -751,9 +748,6 @@ decl_stmt|;
 name|String
 name|maxIdleTimeUnit
 init|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn
@@ -1269,9 +1263,6 @@ decl_stmt|;
 name|String
 name|maxIdleTimeUnit
 init|=
-operator|(
-name|String
-operator|)
 name|exchange
 operator|.
 name|getIn

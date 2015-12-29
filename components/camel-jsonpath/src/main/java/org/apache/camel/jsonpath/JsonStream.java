@@ -1356,14 +1356,9 @@ name|min
 argument_list|(
 name|n
 argument_list|,
-call|(
-name|long
-call|)
-argument_list|(
 name|inputEnd
 operator|-
 name|inputIndex
-argument_list|)
 argument_list|)
 decl_stmt|;
 for|for

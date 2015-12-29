@@ -50,16 +50,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|naming
-operator|.
-name|InitialContext
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache

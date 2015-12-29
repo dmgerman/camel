@@ -60,16 +60,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Set
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -77,18 +67,6 @@ operator|.
 name|camel
 operator|.
 name|EndpointInject
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
 import|;
 end_import
 
@@ -155,20 +133,6 @@ operator|.
 name|blobstore
 operator|.
 name|BlobStoreContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|jclouds
-operator|.
-name|compute
-operator|.
-name|domain
-operator|.
-name|Image
 import|;
 end_import
 

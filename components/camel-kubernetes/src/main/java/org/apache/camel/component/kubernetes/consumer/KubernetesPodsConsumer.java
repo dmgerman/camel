@@ -619,9 +619,6 @@ block|{
 name|PodEvent
 name|podEvent
 init|=
-operator|(
-name|PodEvent
-operator|)
 name|entry
 operator|.
 name|getValue

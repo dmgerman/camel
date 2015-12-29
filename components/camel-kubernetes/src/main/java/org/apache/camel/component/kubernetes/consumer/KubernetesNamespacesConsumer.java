@@ -619,9 +619,6 @@ block|{
 name|NamespaceEvent
 name|namespaceEvent
 init|=
-operator|(
-name|NamespaceEvent
-operator|)
 name|entry
 operator|.
 name|getValue

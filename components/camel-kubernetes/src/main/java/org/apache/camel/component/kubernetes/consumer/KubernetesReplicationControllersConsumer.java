@@ -619,9 +619,6 @@ block|{
 name|ReplicationControllerEvent
 name|serviceEvent
 init|=
-operator|(
-name|ReplicationControllerEvent
-operator|)
 name|entry
 operator|.
 name|getValue

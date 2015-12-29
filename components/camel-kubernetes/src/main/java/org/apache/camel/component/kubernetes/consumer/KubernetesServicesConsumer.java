@@ -619,9 +619,6 @@ block|{
 name|ServiceEvent
 name|serviceEvent
 init|=
-operator|(
-name|ServiceEvent
-operator|)
 name|entry
 operator|.
 name|getValue
