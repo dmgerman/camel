@@ -34,6 +34,16 @@ name|java
 operator|.
 name|text
 operator|.
+name|DateFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|text
+operator|.
 name|SimpleDateFormat
 import|;
 end_import
@@ -3800,7 +3810,7 @@ name|value
 decl_stmt|;
 name|value
 operator|=
-name|SimpleDateFormat
+name|DateFormat
 operator|.
 name|getInstance
 argument_list|()

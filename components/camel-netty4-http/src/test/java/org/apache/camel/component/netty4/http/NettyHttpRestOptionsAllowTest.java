@@ -94,20 +94,6 @@ name|camel
 operator|.
 name|Exchange
 operator|.
-name|HTTP_METHOD
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Exchange
-operator|.
 name|HTTP_RESPONSE_CODE
 import|;
 end_import
