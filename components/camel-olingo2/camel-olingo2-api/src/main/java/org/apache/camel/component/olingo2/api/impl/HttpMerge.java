@@ -83,9 +83,6 @@ name|URI
 name|uri
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|setURI
 argument_list|(
 name|uri
@@ -101,9 +98,6 @@ name|String
 name|uri
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|setURI
 argument_list|(
 name|URI

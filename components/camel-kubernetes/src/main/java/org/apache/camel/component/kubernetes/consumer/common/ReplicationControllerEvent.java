@@ -91,9 +91,6 @@ name|ReplicationController
 name|rc
 parameter_list|)
 block|{
-name|super
-argument_list|()
-expr_stmt|;
 name|this
 operator|.
 name|action
