@@ -252,18 +252,20 @@ init|=
 literal|0x0a
 decl_stmt|;
 comment|// LF (line feed, new line) - decimal 10, octal 012
-DECL|field|log
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
 name|Logger
-name|log
+name|LOG
 init|=
 name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|this
+name|MllpEndpoint
 operator|.
-name|getClass
-argument_list|()
+name|class
 argument_list|)
 decl_stmt|;
 annotation|@
@@ -298,6 +300,7 @@ operator|-
 literal|1
 decl_stmt|;
 comment|// TODO:  Move URI Params to a MllpConfiguration class
+comment|// TODO: Move the description documentation to javadoc in the setter method
 annotation|@
 name|UriParam
 argument_list|(
@@ -528,6 +531,8 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
+comment|// TODO: this logic should be in component class
+comment|// TODO: all the options in the endpoint should be getter/setter so you can configure them as plain Java
 comment|// mllp://hostname:port
 name|String
 name|hostPort
@@ -653,24 +658,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createExchange ()
-specifier|public
-name|Exchange
-name|createExchange
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|createExchange
-argument_list|(
-name|getExchangePattern
-argument_list|()
-argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createExchange (ExchangePattern exchangePattern)
 specifier|public
 name|Exchange
@@ -740,9 +727,9 @@ parameter_list|)
 block|{
 if|if
 condition|(
-literal|null
-operator|!=
 name|charsetName
+operator|!=
+literal|null
 condition|)
 block|{
 name|mllpExchange
@@ -766,7 +753,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|log
+name|LOG
 operator|.
 name|trace
 argument_list|(
@@ -797,7 +784,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|log
+name|LOG
 operator|.
 name|trace
 argument_list|(
@@ -809,7 +796,9 @@ name|getEndpointKey
 argument_list|()
 argument_list|)
 expr_stmt|;
-return|return
+name|Consumer
+name|consumer
+init|=
 operator|new
 name|MllpTcpServerConsumer
 argument_list|(
@@ -817,6 +806,14 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
+decl_stmt|;
+name|configureConsumer
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
+return|return
+name|consumer
 return|;
 block|}
 annotation|@

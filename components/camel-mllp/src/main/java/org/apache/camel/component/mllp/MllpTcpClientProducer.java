@@ -574,8 +574,6 @@ expr_stmt|;
 name|byte
 index|[]
 name|acknowledgementBytes
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
