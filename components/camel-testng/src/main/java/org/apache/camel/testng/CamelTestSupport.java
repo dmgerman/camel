@@ -216,6 +216,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|RoutesBuilder
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Service
 import|;
 end_import
@@ -1167,7 +1179,7 @@ name|isUseRouteBuilder
 argument_list|()
 condition|)
 block|{
-name|RouteBuilder
+name|RoutesBuilder
 index|[]
 name|builders
 init|=
@@ -1176,7 +1188,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|RouteBuilder
+name|RoutesBuilder
 name|builder
 range|:
 name|builders
@@ -1938,10 +1950,10 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Factory method which derived classes can use to create a {@link RouteBuilder}      * to define the routes for testing      */
+comment|/**      * Factory method which derived classes can use to create a {@link RoutesBuilder}      * to define the routes for testing      */
 DECL|method|createRouteBuilder ()
 specifier|protected
-name|RouteBuilder
+name|RoutesBuilder
 name|createRouteBuilder
 parameter_list|()
 throws|throws
@@ -1962,10 +1974,10 @@ block|}
 block|}
 return|;
 block|}
-comment|/**      * Factory method which derived classes can use to create an array of      * {@link org.apache.camel.builder.RouteBuilder}s to define the routes for testing      *      * @see #createRouteBuilder()      */
+comment|/**      * Factory method which derived classes can use to create an array of      * {@link org.apache.camel.RoutesBuilder}s to define the routes for testing      *      * @see #createRouteBuilder()      */
 DECL|method|createRouteBuilders ()
 specifier|protected
-name|RouteBuilder
+name|RoutesBuilder
 index|[]
 name|createRouteBuilders
 parameter_list|()
@@ -1974,7 +1986,7 @@ name|Exception
 block|{
 return|return
 operator|new
-name|RouteBuilder
+name|RoutesBuilder
 index|[]
 block|{
 name|createRouteBuilder
