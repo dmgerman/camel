@@ -2207,6 +2207,8 @@ name|cache
 operator|.
 name|get
 argument_list|(
+literal|"model-"
+operator|+
 name|file
 argument_list|)
 expr_stmt|;
@@ -2270,6 +2272,8 @@ name|cache
 operator|.
 name|put
 argument_list|(
+literal|"model-"
+operator|+
 name|file
 argument_list|,
 name|answer
@@ -2322,6 +2326,8 @@ name|cache
 operator|.
 name|get
 argument_list|(
+literal|"component-"
+operator|+
 name|file
 argument_list|)
 expr_stmt|;
@@ -2488,6 +2494,8 @@ name|cache
 operator|.
 name|put
 argument_list|(
+literal|"component-"
+operator|+
 name|file
 argument_list|,
 name|answer
@@ -2540,6 +2548,8 @@ name|cache
 operator|.
 name|get
 argument_list|(
+literal|"dataformat-"
+operator|+
 name|file
 argument_list|)
 expr_stmt|;
@@ -2706,6 +2716,8 @@ name|cache
 operator|.
 name|put
 argument_list|(
+literal|"dataformat-"
+operator|+
 name|file
 argument_list|,
 name|answer
@@ -2758,6 +2770,8 @@ name|cache
 operator|.
 name|get
 argument_list|(
+literal|"language-"
+operator|+
 name|file
 argument_list|)
 expr_stmt|;
@@ -2821,6 +2835,8 @@ name|cache
 operator|.
 name|put
 argument_list|(
+literal|"language-"
+operator|+
 name|file
 argument_list|,
 name|answer
