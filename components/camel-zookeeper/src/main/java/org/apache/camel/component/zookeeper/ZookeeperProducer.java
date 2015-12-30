@@ -397,6 +397,7 @@ literal|"DELETE"
 decl_stmt|;
 DECL|field|configuration
 specifier|private
+specifier|final
 name|ZooKeeperConfiguration
 name|configuration
 decl_stmt|;
@@ -682,48 +683,6 @@ operator|.
 name|format
 argument_list|(
 literal|"Starting zookeeper producer of '%s'"
-argument_list|,
-name|configuration
-operator|.
-name|getPath
-argument_list|()
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
-if|if
-condition|(
-name|log
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|trace
-argument_list|(
-name|String
-operator|.
-name|format
-argument_list|(
-literal|"Shutting down zookeeper producer of '%s'"
 argument_list|,
 name|configuration
 operator|.

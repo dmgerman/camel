@@ -168,7 +168,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Creating connection with static configuration of {}"
+literal|"Creating connection to ZooKeeper: {}"
 argument_list|,
 name|configuration
 argument_list|)
@@ -198,6 +198,15 @@ name|void
 name|shutdown
 parameter_list|()
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Shutting down connection to ZooKeeper: {}"
+argument_list|,
+name|configuration
+argument_list|)
+expr_stmt|;
 name|holder
 operator|.
 name|closeConnection
