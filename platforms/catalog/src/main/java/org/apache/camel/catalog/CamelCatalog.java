@@ -322,6 +322,24 @@ name|String
 name|uri
 parameter_list|)
 function_decl|;
+comment|/**      * Parses and validates the simple expression.      *<p/>      *<b>Important:</b> This requires having<tt>camel-core</tt> on the classpath      *      * @param simple  the simple expression      * @return validation result      */
+DECL|method|validateSimpleExpression (String simple)
+name|SimpleValidationResult
+name|validateSimpleExpression
+parameter_list|(
+name|String
+name|simple
+parameter_list|)
+function_decl|;
+comment|/**      * Parses and validates the simple predicate      *<p/>      *<b>Important:</b> This requires having<tt>camel-core</tt> on the classpath      *      * @param simple  the simple predicate      * @return validation result      */
+DECL|method|validateSimplePredicate (String simple)
+name|SimpleValidationResult
+name|validateSimplePredicate
+parameter_list|(
+name|String
+name|simple
+parameter_list|)
+function_decl|;
 comment|/**      * Returns the component name from the given endpoint uri      *      * @param uri  the endpoint uri      * @return the component name (aka scheme), or<tt>null</tt> if not possible to determine      */
 DECL|method|endpointComponentName (String uri)
 name|String
