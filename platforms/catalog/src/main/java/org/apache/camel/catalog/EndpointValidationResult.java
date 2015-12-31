@@ -1016,12 +1016,15 @@ return|return
 name|defaultValues
 return|;
 block|}
-comment|/**      * A human readable summary of the validation errors.      *      * @return the summary, or<tt>null</tt> if no validation errors      */
-DECL|method|summaryErrorMessage ()
+comment|/**      * A human readable summary of the validation errors.      *      * @param includeHeader whether to include a header      * @return the summary, or<tt>null</tt> if no validation errors      */
+DECL|method|summaryErrorMessage (boolean includeHeader)
 specifier|public
 name|String
 name|summaryErrorMessage
-parameter_list|()
+parameter_list|(
+name|boolean
+name|includeHeader
+parameter_list|)
 block|{
 if|if
 condition|(
@@ -1151,7 +1154,7 @@ name|put
 argument_list|(
 name|name
 argument_list|,
-literal|"Unknown option."
+literal|"Unknown option"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1561,6 +1564,11 @@ operator|new
 name|StringBuilder
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|includeHeader
+condition|)
+block|{
 name|sb
 operator|.
 name|append
@@ -1579,7 +1587,15 @@ name|sb
 operator|.
 name|append
 argument_list|(
-literal|"\n\t"
+literal|"\n"
+argument_list|)
+expr_stmt|;
+block|}
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"\t"
 argument_list|)
 operator|.
 name|append
@@ -1643,13 +1659,6 @@ name|out
 argument_list|)
 expr_stmt|;
 block|}
-name|sb
-operator|.
-name|append
-argument_list|(
-literal|"\n\n"
-argument_list|)
-expr_stmt|;
 return|return
 name|sb
 operator|.

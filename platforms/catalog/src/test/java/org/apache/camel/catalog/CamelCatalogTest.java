@@ -3050,7 +3050,9 @@ init|=
 name|result
 operator|.
 name|summaryErrorMessage
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 decl_stmt|;
 name|LOG
 operator|.
@@ -3081,7 +3083,9 @@ operator|=
 name|result
 operator|.
 name|summaryErrorMessage
-argument_list|()
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
