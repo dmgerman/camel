@@ -350,7 +350,7 @@ literal|"sjms-batch"
 argument_list|,
 name|title
 operator|=
-literal|"Simple JMS Batch Component"
+literal|"Simple JMS Batch"
 argument_list|,
 name|syntax
 operator|=
