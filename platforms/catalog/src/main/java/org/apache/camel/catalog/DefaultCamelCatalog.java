@@ -348,6 +348,22 @@ name|catalog
 operator|.
 name|JSonSchemaHelper
 operator|.
+name|getPropertyKind
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|catalog
+operator|.
+name|JSonSchemaHelper
+operator|.
 name|getRow
 import|;
 end_import
@@ -4382,9 +4398,27 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// is reference lookup of bean
+comment|// is reference lookup of bean (not applicable for @UriPath)
+name|String
+name|kind
+init|=
+name|getPropertyKind
+argument_list|(
+name|rows
+argument_list|,
+name|name
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
+operator|!
+literal|"path"
+operator|.
+name|equals
+argument_list|(
+name|kind
+argument_list|)
+operator|&&
 name|isPropertyObject
 argument_list|(
 name|rows
