@@ -221,13 +221,6 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|setExpectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -287,13 +280,6 @@ argument_list|,
 literal|"Hello World 3"
 argument_list|,
 literal|"Hello World 4"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|setExpectedMessageCount
-argument_list|(
-literal|3
 argument_list|)
 expr_stmt|;
 name|template
@@ -383,13 +369,6 @@ argument_list|(
 literal|"Hello World 2"
 argument_list|,
 literal|"Hello World 4"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|setExpectedMessageCount
-argument_list|(
-literal|2
 argument_list|)
 expr_stmt|;
 name|template
@@ -599,13 +578,6 @@ argument_list|(
 literal|"Hello World 3"
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|setExpectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -693,13 +665,6 @@ argument_list|(
 literal|"Hello World"
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|setExpectedMessageCount
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -742,13 +707,6 @@ argument_list|(
 literal|"Hello World 2"
 argument_list|,
 literal|"Hello World 4"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|setExpectedMessageCount
-argument_list|(
-literal|2
 argument_list|)
 expr_stmt|;
 name|template
@@ -842,13 +800,6 @@ argument_list|,
 literal|"Hello World 8"
 argument_list|,
 literal|"Hello World 10"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|setExpectedMessageCount
-argument_list|(
-literal|4
 argument_list|)
 expr_stmt|;
 name|template
@@ -1058,13 +1009,6 @@ argument_list|(
 literal|"Hello World 3"
 argument_list|,
 literal|"Hello World 4"
-argument_list|)
-expr_stmt|;
-name|mock
-operator|.
-name|setExpectedMessageCount
-argument_list|(
-literal|2
 argument_list|)
 expr_stmt|;
 name|template
