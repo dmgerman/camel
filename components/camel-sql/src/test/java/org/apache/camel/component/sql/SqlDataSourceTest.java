@@ -386,7 +386,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"sql:select * from projects where license = # order by id?dataSource=dataSource"
+literal|"sql:select * from projects where license = # order by id?dataSource=#dataSource"
 argument_list|)
 operator|.
 name|to

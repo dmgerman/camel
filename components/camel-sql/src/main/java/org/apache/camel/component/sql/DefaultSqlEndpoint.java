@@ -490,7 +490,7 @@ name|description
 operator|=
 literal|"The separator to use when parameter values is taken from message body (if the body is a String type), to be inserted at # placeholders."
 operator|+
-literal|"Notice if you use named parameters, then a Map type is used instead. The default value is ,"
+literal|"Notice if you use named parameters, then a Map type is used instead. The default value is comma"
 argument_list|)
 DECL|field|separator
 specifier|private
@@ -606,6 +606,30 @@ DECL|field|useMessageBodyForSql
 specifier|private
 name|boolean
 name|useMessageBodyForSql
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"#"
+argument_list|,
+name|description
+operator|=
+literal|"Specifies a character that will be replaced to ? in SQL query."
+operator|+
+literal|" Notice, that it is simple String.replaceAll() operation and no SQL parsing is involved (quoted strings will also change)."
+argument_list|)
+DECL|field|placeholder
+specifier|private
+name|String
+name|placeholder
+init|=
+literal|"#"
 decl_stmt|;
 DECL|method|DefaultSqlEndpoint ()
 specifier|public
@@ -956,7 +980,7 @@ return|return
 name|separator
 return|;
 block|}
-comment|/**      * The separator to use when parameter values is taken from message body (if the body is a String type), to be inserted at # placeholders.      * Notice if you use named parameters, then a Map type is used instead.      *<p/>      * The default value is ,      */
+comment|/**      * The separator to use when parameter values is taken from message body (if the body is a String type), to be inserted at # placeholders.      * Notice if you use named parameters, then a Map type is used instead.      *<p/>      * The default value is comma.      */
 DECL|method|setSeparator (char separator)
 specifier|public
 name|void
@@ -1295,6 +1319,33 @@ operator|.
 name|breakBatchOnConsumeFail
 operator|=
 name|breakBatchOnConsumeFail
+expr_stmt|;
+block|}
+DECL|method|getPlaceholder ()
+specifier|public
+name|String
+name|getPlaceholder
+parameter_list|()
+block|{
+return|return
+name|placeholder
+return|;
+block|}
+comment|/**      * Specifies a character that will be replaced to ? in SQL query.      * Notice, that it is simple String.replaceAll() operation and no SQL parsing is involved (quoted strings will also change).      */
+DECL|method|setPlaceholder (String placeholder)
+specifier|public
+name|void
+name|setPlaceholder
+parameter_list|(
+name|String
+name|placeholder
+parameter_list|)
+block|{
+name|this
+operator|.
+name|placeholder
+operator|=
+name|placeholder
 expr_stmt|;
 block|}
 annotation|@
