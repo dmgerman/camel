@@ -274,7 +274,7 @@ literal|"Language"
 argument_list|,
 name|syntax
 operator|=
-literal|"language:languageName"
+literal|"language:languageName:resourceUri"
 argument_list|,
 name|producerOnly
 operator|=
