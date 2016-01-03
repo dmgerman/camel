@@ -1279,12 +1279,12 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|getPropertyOptionalPrefix (List<Map<String, String>> rows, String name)
-DECL|method|getPropertyOptionalPrefix (List<Map<String, String>> rows, String name)
+DECL|method|stripOptionalPrefixFromName (List<Map<String, String>> rows, String name)
+DECL|method|stripOptionalPrefixFromName (List<Map<String, String>> rows, String name)
 specifier|public
 specifier|static
 name|String
-name|getPropertyOptionalPrefix
+name|stripOptionalPrefixFromName
 parameter_list|(
 name|List
 argument_list|<
@@ -1354,18 +1354,13 @@ literal|"name"
 argument_list|)
 condition|)
 block|{
-name|String
-name|key
-init|=
-name|name
-decl_stmt|;
 if|if
 condition|(
 name|optionalPrefix
 operator|!=
 literal|null
 operator|&&
-name|key
+name|name
 operator|.
 name|startsWith
 argument_list|(
@@ -1373,9 +1368,9 @@ name|optionalPrefix
 argument_list|)
 condition|)
 block|{
-name|key
+name|name
 operator|=
-name|key
+name|name
 operator|.
 name|substring
 argument_list|(
@@ -1385,13 +1380,13 @@ name|length
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// found the optional prefix so remove it from the key, and lookup again
+comment|// try again
 return|return
-name|getPropertyOptionalPrefix
+name|stripOptionalPrefixFromName
 argument_list|(
 name|rows
 argument_list|,
-name|key
+name|name
 argument_list|)
 return|;
 block|}
@@ -1399,7 +1394,7 @@ else|else
 block|{
 name|found
 operator|=
-name|key
+name|name
 operator|.
 name|equals
 argument_list|(
@@ -1419,12 +1414,12 @@ name|found
 condition|)
 block|{
 return|return
-name|optionalPrefix
+name|name
 return|;
 block|}
 block|}
 return|return
-literal|null
+name|name
 return|;
 block|}
 DECL|method|getPropertyEnum (List<Map<String, String>> rows, String name)
