@@ -166,6 +166,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ExceptionHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|HasId
 import|;
 end_import
@@ -346,12 +360,36 @@ literal|"Allows for bridging the consumer to the Camel routing Error Handler, wh
 operator|+
 literal|" the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler."
 operator|+
-literal|" By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions,that by default will be logged at WARN/ERROR level and ignored."
+literal|" By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions, that will be logged at WARN/ERROR level and ignored."
 argument_list|)
 DECL|field|bridgeErrorHandler
 specifier|private
 name|boolean
 name|bridgeErrorHandler
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|,
+name|optionalPrefix
+operator|=
+literal|"consumer."
+argument_list|,
+name|description
+operator|=
+literal|"To let the consumer use a custom ExceptionHandler."
+operator|+
+literal|" Notice if the option bridgeErrorHandler is enabled then this options is not in use."
+operator|+
+literal|" By default the consumer will deal with exceptions, that will be logged at WARN/ERROR level and ignored."
+argument_list|)
+DECL|field|exceptionHandler
+specifier|private
+name|ExceptionHandler
+name|exceptionHandler
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1024,7 +1062,7 @@ return|return
 name|bridgeErrorHandler
 return|;
 block|}
-comment|/**      * Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while      * the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and      * handled by the routing Error Handler.      *<p/>      * By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions,      * that by default will be logged at WARN/ERROR level and ignored.      */
+comment|/**      * Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while      * the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and      * handled by the routing Error Handler.      *<p/>      * By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions,      * that will be logged at WARN/ERROR level and ignored.      */
 DECL|method|setBridgeErrorHandler (boolean bridgeErrorHandler)
 specifier|public
 name|void
@@ -1039,6 +1077,33 @@ operator|.
 name|bridgeErrorHandler
 operator|=
 name|bridgeErrorHandler
+expr_stmt|;
+block|}
+DECL|method|getExceptionHandler ()
+specifier|public
+name|ExceptionHandler
+name|getExceptionHandler
+parameter_list|()
+block|{
+return|return
+name|exceptionHandler
+return|;
+block|}
+comment|/**      * To let the consumer use a custom ExceptionHandler.      + Notice if the option bridgeErrorHandler is enabled then this options is not in use.      + By default the consumer will deal with exceptions, that will be logged at WARN/ERROR level and ignored.      */
+DECL|method|setExceptionHandler (ExceptionHandler exceptionHandler)
+specifier|public
+name|void
+name|setExceptionHandler
+parameter_list|(
+name|ExceptionHandler
+name|exceptionHandler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exceptionHandler
+operator|=
+name|exceptionHandler
 expr_stmt|;
 block|}
 comment|/**      * Gets the {@link org.apache.camel.PollingConsumer} queue size, when {@link org.apache.camel.impl.EventDrivenPollingConsumer}      * is being used. Notice some Camel components may have their own implementation of {@link org.apache.camel.PollingConsumer} and      * therefore not using the default {@link org.apache.camel.impl.EventDrivenPollingConsumer} implementation.      *<p/>      * The default value is<tt>1000</tt>      */
@@ -1673,7 +1738,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// the bridgeErrorHandler was orignally configured as consumer.bridgeErrorHandler so map to that style
+comment|// the bridgeErrorHandler/exceptionHandler was originally configured with consumer. prefix, such as consumer.bridgeErrorHandler=true
+comment|// so if they have been configured on the endpoint then map to the old naming style
 if|if
 condition|(
 name|bridgeErrorHandler
@@ -1687,6 +1753,24 @@ argument_list|(
 literal|"bridgeErrorHandler"
 argument_list|,
 literal|"true"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|exceptionHandler
+operator|!=
+literal|null
+condition|)
+block|{
+name|getConsumerProperties
+argument_list|()
+operator|.
+name|put
+argument_list|(
+literal|"exceptionHandler"
+argument_list|,
+name|exceptionHandler
 argument_list|)
 expr_stmt|;
 block|}
