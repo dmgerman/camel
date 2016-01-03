@@ -105,6 +105,11 @@ specifier|private
 name|String
 name|documentation
 decl_stmt|;
+DECL|field|optionalPrefix
+specifier|private
+name|String
+name|optionalPrefix
+decl_stmt|;
 DECL|field|deprecated
 specifier|private
 name|boolean
@@ -133,7 +138,7 @@ name|String
 argument_list|>
 name|enums
 decl_stmt|;
-DECL|method|EndpointOption (String name, String type, String required, String defaultValue, String defaultValueNote, String documentation, boolean deprecated, String group, String label, boolean enumType, Set<String> enums)
+DECL|method|EndpointOption (String name, String type, String required, String defaultValue, String defaultValueNote, String documentation, String optionalPrefix, boolean deprecated, String group, String label, boolean enumType, Set<String> enums)
 specifier|public
 name|EndpointOption
 parameter_list|(
@@ -154,6 +159,9 @@ name|defaultValueNote
 parameter_list|,
 name|String
 name|documentation
+parameter_list|,
+name|String
+name|optionalPrefix
 parameter_list|,
 name|boolean
 name|deprecated
@@ -209,6 +217,12 @@ operator|.
 name|documentation
 operator|=
 name|documentation
+expr_stmt|;
+name|this
+operator|.
+name|optionalPrefix
+operator|=
+name|optionalPrefix
 expr_stmt|;
 name|this
 operator|.
@@ -289,6 +303,16 @@ parameter_list|()
 block|{
 return|return
 name|documentation
+return|;
+block|}
+DECL|method|getOptionalPrefix ()
+specifier|public
+name|String
+name|getOptionalPrefix
+parameter_list|()
+block|{
+return|return
+name|optionalPrefix
 return|;
 block|}
 DECL|method|isDeprecated ()

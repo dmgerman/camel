@@ -1459,6 +1459,8 @@ name|entry
 operator|.
 name|getOneOfTypes
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;

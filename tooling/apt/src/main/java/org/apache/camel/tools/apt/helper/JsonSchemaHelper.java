@@ -188,8 +188,8 @@ specifier|private
 name|JsonSchemaHelper
 parameter_list|()
 block|{     }
-DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes)
-DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes)
+DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, String optionalPrefix)
+DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, String optionalPrefix)
 specifier|public
 specifier|static
 name|String
@@ -239,6 +239,9 @@ argument_list|<
 name|String
 argument_list|>
 name|oneOffTypes
+parameter_list|,
+name|String
+name|optionalPrefix
 parameter_list|)
 block|{
 name|String
@@ -624,6 +627,45 @@ operator|+
 name|type
 operator|+
 literal|"\""
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|Strings
+operator|.
+name|isNullOrEmpty
+argument_list|(
+name|optionalPrefix
+argument_list|)
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", \"optionalPrefix\": "
+argument_list|)
+expr_stmt|;
+name|String
+name|text
+init|=
+name|safeDefaultValue
+argument_list|(
+name|optionalPrefix
+argument_list|)
+decl_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|Strings
+operator|.
+name|doubleQuote
+argument_list|(
+name|text
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

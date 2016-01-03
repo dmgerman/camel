@@ -2106,6 +2106,12 @@ operator|=
 literal|"false"
 expr_stmt|;
 block|}
+comment|// component options do not have optional prefix
+name|String
+name|optionalPrefix
+init|=
+literal|""
+decl_stmt|;
 name|buffer
 operator|.
 name|append
@@ -2160,6 +2166,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|optionalPrefix
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2416,6 +2424,12 @@ operator|=
 literal|"false"
 expr_stmt|;
 block|}
+comment|// @UriPath options do not have optional prefix
+name|String
+name|optionalPrefix
+init|=
+literal|""
+decl_stmt|;
 name|buffer
 operator|.
 name|append
@@ -2470,6 +2484,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|optionalPrefix
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2703,6 +2719,14 @@ operator|=
 literal|"false"
 expr_stmt|;
 block|}
+name|String
+name|optionalPrefix
+init|=
+name|entry
+operator|.
+name|getOptionalPrefix
+argument_list|()
+decl_stmt|;
 name|buffer
 operator|.
 name|append
@@ -2757,6 +2781,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|null
+argument_list|,
+name|optionalPrefix
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -5021,6 +5047,14 @@ operator|+
 name|name
 expr_stmt|;
 name|String
+name|optionalPrefix
+init|=
+name|param
+operator|.
+name|optionalPrefix
+argument_list|()
+decl_stmt|;
+name|String
 name|defaultValue
 init|=
 name|param
@@ -5461,6 +5495,8 @@ name|docComment
 operator|.
 name|trim
 argument_list|()
+argument_list|,
+name|optionalPrefix
 argument_list|,
 name|deprecated
 argument_list|,

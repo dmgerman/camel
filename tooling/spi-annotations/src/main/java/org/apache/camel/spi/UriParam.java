@@ -160,6 +160,14 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * If the parameter can be configured with an optional prefix.      *<p/>      * For example to configure consumer options, the parameters can be prefixed with<tt>consumer.</tt>, eg<tt>consumer.delay=5000</tt>      */
+DECL|method|optionalPrefix ()
+name|String
+name|optionalPrefix
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 block|}
 end_annotation_defn
 
