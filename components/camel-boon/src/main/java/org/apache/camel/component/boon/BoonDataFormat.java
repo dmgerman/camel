@@ -118,6 +118,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NonManagedService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|DataFormat
@@ -148,7 +160,7 @@ name|camel
 operator|.
 name|support
 operator|.
-name|ChildServiceSupport
+name|ServiceSupport
 import|;
 end_import
 
@@ -200,11 +212,13 @@ specifier|public
 class|class
 name|BoonDataFormat
 extends|extends
-name|ChildServiceSupport
+name|ServiceSupport
 implements|implements
 name|DataFormat
 implements|,
 name|DataFormatName
+implements|,
+name|NonManagedService
 block|{
 DECL|field|objectMapper
 specifier|private
