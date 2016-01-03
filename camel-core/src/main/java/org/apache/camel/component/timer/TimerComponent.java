@@ -589,6 +589,13 @@ argument_list|(
 name|date
 argument_list|)
 expr_stmt|;
+name|answer
+operator|.
+name|setPattern
+argument_list|(
+name|pattern
+argument_list|)
+expr_stmt|;
 block|}
 name|setProperties
 argument_list|(

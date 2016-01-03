@@ -347,11 +347,27 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.String"
 argument_list|)
 DECL|field|time
 specifier|private
 name|Date
 name|time
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|pattern
+specifier|private
+name|String
+name|pattern
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -831,6 +847,33 @@ operator|.
 name|time
 operator|=
 name|time
+expr_stmt|;
+block|}
+DECL|method|getPattern ()
+specifier|public
+name|String
+name|getPattern
+parameter_list|()
+block|{
+return|return
+name|pattern
+return|;
+block|}
+comment|/**      * Allows you to specify a custom Date pattern to use for setting the time option using URI syntax.      */
+DECL|method|setPattern (String pattern)
+specifier|public
+name|void
+name|setPattern
+parameter_list|(
+name|String
+name|pattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pattern
+operator|=
+name|pattern
 expr_stmt|;
 block|}
 DECL|method|getTimer (TimerConsumer consumer)
