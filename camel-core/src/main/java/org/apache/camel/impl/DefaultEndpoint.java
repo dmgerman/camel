@@ -332,6 +332,30 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|optionalPrefix
+operator|=
+literal|"consumer."
+argument_list|,
+name|description
+operator|=
+literal|"Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while"
+operator|+
+literal|" the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and handled by the routing Error Handler."
+operator|+
+literal|" By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions,that by default will be logged at WARN/ERROR level and ignored."
+argument_list|)
+DECL|field|bridgeErrorHandler
+specifier|private
+name|boolean
+name|bridgeErrorHandler
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
 name|defaultValue
 operator|=
 literal|"InOnly"
@@ -990,6 +1014,33 @@ operator|=
 name|synchronous
 expr_stmt|;
 block|}
+DECL|method|isBridgeErrorHandler ()
+specifier|public
+name|boolean
+name|isBridgeErrorHandler
+parameter_list|()
+block|{
+return|return
+name|bridgeErrorHandler
+return|;
+block|}
+comment|/**      * Allows for bridging the consumer to the Camel routing Error Handler, which mean any exceptions occurred while      * the consumer is trying to pickup incoming messages, or the likes, will now be processed as a message and      * handled by the routing Error Handler.      *<p/>      * By default the consumer will use the org.apache.camel.spi.ExceptionHandler to deal with exceptions,      * that by default will be logged at WARN/ERROR level and ignored.      */
+DECL|method|setBridgeErrorHandler (boolean bridgeErrorHandler)
+specifier|public
+name|void
+name|setBridgeErrorHandler
+parameter_list|(
+name|boolean
+name|bridgeErrorHandler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bridgeErrorHandler
+operator|=
+name|bridgeErrorHandler
+expr_stmt|;
+block|}
 comment|/**      * Gets the {@link org.apache.camel.PollingConsumer} queue size, when {@link org.apache.camel.impl.EventDrivenPollingConsumer}      * is being used. Notice some Camel components may have their own implementation of {@link org.apache.camel.PollingConsumer} and      * therefore not using the default {@link org.apache.camel.impl.EventDrivenPollingConsumer} implementation.      *<p/>      * The default value is<tt>1000</tt>      */
 DECL|method|getPollingConsumerQueueSize ()
 specifier|public
@@ -1622,7 +1673,23 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+comment|// the bridgeErrorHandler was orignally configured as consumer.bridgeErrorHandler so map to that style
+if|if
+condition|(
+name|bridgeErrorHandler
+condition|)
+block|{
+name|getConsumerProperties
+argument_list|()
+operator|.
+name|put
+argument_list|(
+literal|"bridgeErrorHandler"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
