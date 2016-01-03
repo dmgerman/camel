@@ -4835,6 +4835,106 @@ block|}
 block|}
 return|;
 block|}
+DECL|method|groupXmlIteratorExpression (final Expression expression, final int group)
+specifier|public
+specifier|static
+name|Expression
+name|groupXmlIteratorExpression
+parameter_list|(
+specifier|final
+name|Expression
+name|expression
+parameter_list|,
+specifier|final
+name|int
+name|group
+parameter_list|)
+block|{
+return|return
+operator|new
+name|ExpressionAdapter
+argument_list|()
+block|{
+specifier|public
+name|Object
+name|evaluate
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// evaluate expression as iterator
+name|Iterator
+argument_list|<
+name|?
+argument_list|>
+name|it
+init|=
+name|expression
+operator|.
+name|evaluate
+argument_list|(
+name|exchange
+argument_list|,
+name|Iterator
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|it
+argument_list|,
+literal|"expression: "
+operator|+
+name|expression
+operator|+
+literal|" evaluated on "
+operator|+
+name|exchange
+operator|+
+literal|" must return an java.util.Iterator"
+argument_list|)
+expr_stmt|;
+comment|// must use GroupTokenIterator in xml mode as we want to concat the xml parts into a single message
+return|return
+operator|new
+name|GroupTokenIterator
+argument_list|(
+name|exchange
+argument_list|,
+name|it
+argument_list|,
+literal|null
+argument_list|,
+name|group
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"group "
+operator|+
+name|expression
+operator|+
+literal|" "
+operator|+
+name|group
+operator|+
+literal|" times"
+return|;
+block|}
+block|}
+return|;
+block|}
 DECL|method|groupIteratorExpression (final Expression expression, final String token, final int group)
 specifier|public
 specifier|static
