@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.apache.camel.component.sql.sspt
+DECL|package|org.apache.camel.component.sql.stored.template
 package|package
 name|org
 operator|.
@@ -12,7 +12,9 @@ name|component
 operator|.
 name|sql
 operator|.
-name|sspt
+name|stored
+operator|.
+name|template
 package|;
 end_package
 
@@ -28,11 +30,13 @@ name|component
 operator|.
 name|sql
 operator|.
-name|sspt
+name|stored
+operator|.
+name|template
 operator|.
 name|ast
 operator|.
-name|ParseException
+name|ParseRuntimeException
 import|;
 end_import
 
@@ -48,7 +52,9 @@ name|component
 operator|.
 name|sql
 operator|.
-name|sspt
+name|stored
+operator|.
+name|template
 operator|.
 name|ast
 operator|.
@@ -68,9 +74,33 @@ name|component
 operator|.
 name|sql
 operator|.
-name|sspt
+name|stored
 operator|.
-name|parser
+name|template
+operator|.
+name|generated
+operator|.
+name|ParseException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sql
+operator|.
+name|stored
+operator|.
+name|template
+operator|.
+name|generated
 operator|.
 name|SSPTParser
 import|;
@@ -97,14 +127,14 @@ import|;
 end_import
 
 begin_class
-DECL|class|SimpleStoredProcedureFactory
+DECL|class|TemplateStoredProcedureFactory
 specifier|public
 class|class
-name|SimpleStoredProcedureFactory
+name|TemplateStoredProcedureFactory
 block|{
 DECL|method|createFromString (String string, DataSource dataSource)
 specifier|public
-name|SimpleStoredProcedure
+name|TemplateStoredProcedure
 name|createFromString
 parameter_list|(
 name|String
@@ -113,8 +143,6 @@ parameter_list|,
 name|DataSource
 name|dataSource
 parameter_list|)
-throws|throws
-name|ParseException
 block|{
 name|Template
 name|sptpRootNode
@@ -126,7 +154,7 @@ argument_list|)
 decl_stmt|;
 return|return
 operator|new
-name|SimpleStoredProcedure
+name|TemplateStoredProcedure
 argument_list|(
 name|dataSource
 argument_list|,
@@ -142,8 +170,8 @@ parameter_list|(
 name|String
 name|template
 parameter_list|)
-throws|throws
-name|ParseException
+block|{
+try|try
 block|{
 name|SSPTParser
 name|parser
@@ -168,6 +196,21 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+catch|catch
+parameter_list|(
+name|ParseException
+name|parseException
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|ParseRuntimeException
+argument_list|(
+name|parseException
+argument_list|)
+throw|;
+block|}
+block|}
 DECL|method|validate (Template input)
 specifier|private
 name|Template
@@ -176,8 +219,6 @@ parameter_list|(
 name|Template
 name|input
 parameter_list|)
-throws|throws
-name|ParseException
 block|{
 if|if
 condition|(
@@ -192,7 +233,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ParseException
+name|ParseRuntimeException
 argument_list|(
 literal|"At least one OUT parameter must be given."
 argument_list|)

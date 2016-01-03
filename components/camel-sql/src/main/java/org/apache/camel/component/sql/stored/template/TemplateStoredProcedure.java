@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.apache.camel.component.sql.sspt
+DECL|package|org.apache.camel.component.sql.stored.template
 package|package
 name|org
 operator|.
@@ -12,7 +12,9 @@ name|component
 operator|.
 name|sql
 operator|.
-name|sspt
+name|stored
+operator|.
+name|template
 package|;
 end_package
 
@@ -40,7 +42,9 @@ name|component
 operator|.
 name|sql
 operator|.
-name|sspt
+name|stored
+operator|.
+name|template
 operator|.
 name|ast
 operator|.
@@ -60,7 +64,9 @@ name|component
 operator|.
 name|sql
 operator|.
-name|sspt
+name|stored
+operator|.
+name|template
 operator|.
 name|ast
 operator|.
@@ -80,7 +86,9 @@ name|component
 operator|.
 name|sql
 operator|.
-name|sspt
+name|stored
+operator|.
+name|template
 operator|.
 name|ast
 operator|.
@@ -161,10 +169,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|SimpleStoredProcedure
+DECL|class|TemplateStoredProcedure
 specifier|public
 class|class
-name|SimpleStoredProcedure
+name|TemplateStoredProcedure
 extends|extends
 name|StoredProcedure
 block|{
@@ -172,9 +180,9 @@ DECL|field|template
 name|Template
 name|template
 decl_stmt|;
-DECL|method|SimpleStoredProcedure (DataSource dataSource, Template template)
+DECL|method|TemplateStoredProcedure (DataSource dataSource, Template template)
 specifier|public
-name|SimpleStoredProcedure
+name|TemplateStoredProcedure
 parameter_list|(
 name|DataSource
 name|dataSource

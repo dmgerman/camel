@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_package
-DECL|package|org.apache.camel.component.sql.sspt.ast
+DECL|package|org.apache.camel.component.sql.stored.template.ast
 package|package
 name|org
 operator|.
@@ -12,7 +12,9 @@ name|component
 operator|.
 name|sql
 operator|.
-name|sspt
+name|stored
+operator|.
+name|template
 operator|.
 name|ast
 package|;
@@ -111,7 +113,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ParseException
+name|ParseRuntimeException
 argument_list|(
 literal|"Field "
 operator|+
@@ -142,7 +144,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ParseException
+name|ParseRuntimeException
 argument_list|(
 name|e
 argument_list|)
@@ -268,7 +270,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ParseException
+name|ParseRuntimeException
 argument_list|(
 literal|"Unable to map SQL type "
 operator|+
