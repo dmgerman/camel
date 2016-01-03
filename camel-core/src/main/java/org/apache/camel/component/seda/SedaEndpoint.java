@@ -448,15 +448,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|queue
-specifier|private
-specifier|volatile
-name|BlockingQueue
-argument_list|<
-name|Exchange
-argument_list|>
-name|queue
-decl_stmt|;
 DECL|field|producers
 specifier|private
 specifier|final
@@ -525,6 +516,22 @@ DECL|field|name
 specifier|private
 name|String
 name|name
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Define the queue instance which will be used by the endpoint"
+argument_list|)
+DECL|field|queue
+specifier|private
+name|BlockingQueue
+name|queue
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1509,7 +1516,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Define the queue instance which will be used by seda endpoint.      *<p/>      * This option is only for rare use-cases where you want to use a custom queue instance.      */
+comment|/**      * Define the queue instance which will be used by the endpoint.      *<p/>      * This option is only for rare use-cases where you want to use a custom queue instance.      */
 DECL|method|setQueue (BlockingQueue<Exchange> queue)
 specifier|public
 name|void
