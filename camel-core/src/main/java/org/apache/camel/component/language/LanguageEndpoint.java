@@ -325,6 +325,26 @@ specifier|private
 name|String
 name|languageName
 decl_stmt|;
+comment|// resourceUri is optional in the language endpoint
+annotation|@
+name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"Path to the resource, or a reference to lookup a bean in the Registry to use as the resource"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|resourceUri
+specifier|private
+name|String
+name|resourceUri
+decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|script
@@ -774,6 +794,41 @@ name|languageName
 operator|=
 name|languageName
 expr_stmt|;
+block|}
+comment|/**      * Path to the resource, or a reference to lookup a bean in the Registry to use as the resource      *      * @param resourceUri  the resource path      */
+annotation|@
+name|Override
+DECL|method|setResourceUri (String resourceUri)
+specifier|public
+name|void
+name|setResourceUri
+parameter_list|(
+name|String
+name|resourceUri
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setResourceUri
+argument_list|(
+name|resourceUri
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getResourceUri ()
+specifier|public
+name|String
+name|getResourceUri
+parameter_list|()
+block|{
+return|return
+name|super
+operator|.
+name|getResourceUri
+argument_list|()
+return|;
 block|}
 comment|/**      * Sets the script to execute      *      * @param script the script      */
 DECL|method|setScript (String script)
