@@ -206,6 +206,13 @@ argument_list|(
 name|reporter
 argument_list|)
 expr_stmt|;
+name|endpoint
+operator|.
+name|setReportGroup
+argument_list|(
+name|value
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|endpoint

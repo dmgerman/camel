@@ -109,7 +109,7 @@ comment|// this will result in polling again and potentially picking up files
 comment|// that already are in progress
 name|from
 argument_list|(
-literal|"file:target/filestress?maxMessagesPerPoll=50&readLock=lockFile"
+literal|"file:target/filestress?maxMessagesPerPoll=50&readLock=fileLock"
 argument_list|)
 operator|.
 name|routeId

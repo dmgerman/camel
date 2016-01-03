@@ -345,7 +345,7 @@ expr_stmt|;
 comment|// for no locks
 name|from
 argument_list|(
-literal|"file://target/reports/notlocked/?noop=true&readLock=false"
+literal|"file://target/reports/notlocked/?noop=true&readLock=none"
 argument_list|)
 operator|.
 name|process

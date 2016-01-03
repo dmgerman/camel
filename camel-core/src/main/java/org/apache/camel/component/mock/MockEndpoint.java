@@ -889,6 +889,18 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"producer"
+argument_list|)
+DECL|field|reportGroup
+specifier|private
+name|int
+name|reportGroup
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"producer,advanced"
 argument_list|,
 name|defaultValue
@@ -4875,6 +4887,33 @@ operator|.
 name|retainLast
 operator|=
 name|retainLast
+expr_stmt|;
+block|}
+DECL|method|isReportGroup ()
+specifier|public
+name|int
+name|isReportGroup
+parameter_list|()
+block|{
+return|return
+name|reportGroup
+return|;
+block|}
+comment|/**      * A number that is used to turn on throughput logging based on groups of the size.      */
+DECL|method|setReportGroup (int reportGroup)
+specifier|public
+name|void
+name|setReportGroup
+parameter_list|(
+name|int
+name|reportGroup
+parameter_list|)
+block|{
+name|this
+operator|.
+name|reportGroup
+operator|=
+name|reportGroup
 expr_stmt|;
 block|}
 DECL|method|isCopyOnExchange ()
