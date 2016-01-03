@@ -110,7 +110,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
+name|UriEndpointComponent
 import|;
 end_import
 
@@ -177,7 +177,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/properties">Properties Component</a> allows you to use property placeholders when defining Endpoint URIs  *  * @version   */
+comment|/**  * The<a href="http://camel.apache.org/properties">Properties Component</a> allows you to use property placeholders when defining Endpoint URIs  */
 end_comment
 
 begin_class
@@ -186,7 +186,7 @@ specifier|public
 class|class
 name|PropertiesComponent
 extends|extends
-name|DefaultComponent
+name|UriEndpointComponent
 block|{
 comment|/**      * The default prefix token.      */
 DECL|field|DEFAULT_PREFIX_TOKEN
@@ -450,6 +450,13 @@ specifier|public
 name|PropertiesComponent
 parameter_list|()
 block|{
+name|super
+argument_list|(
+name|PropertiesEndpoint
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
 comment|// include out of the box functions
 name|addFunction
 argument_list|(
@@ -656,7 +663,9 @@ argument_list|,
 name|endpointUri
 argument_list|)
 expr_stmt|;
-return|return
+name|Endpoint
+name|delegate
+init|=
 name|getCamelContext
 argument_list|()
 operator|.
@@ -664,6 +673,29 @@ name|getEndpoint
 argument_list|(
 name|endpointUri
 argument_list|)
+decl_stmt|;
+name|PropertiesEndpoint
+name|answer
+init|=
+operator|new
+name|PropertiesEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|delegate
+argument_list|,
+name|this
+argument_list|)
+decl_stmt|;
+name|setProperties
+argument_list|(
+name|answer
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
 return|;
 block|}
 DECL|method|parseUri (String uri)
@@ -984,6 +1016,7 @@ return|return
 name|locations
 return|;
 block|}
+comment|/**      * A list of locations to load properties. You can use comma to separate multiple locations.      * This option will override any default locations and only use the locations from this option.      */
 DECL|method|setLocations (String[] locations)
 specifier|public
 name|void
@@ -1053,6 +1086,7 @@ operator|=
 name|locations
 expr_stmt|;
 block|}
+comment|/**      * A list of locations to load properties. You can use comma to separate multiple locations.      * This option will override any default locations and only use the locations from this option.      */
 DECL|method|setLocation (String location)
 specifier|public
 name|void
@@ -1110,6 +1144,7 @@ return|return
 name|propertiesResolver
 return|;
 block|}
+comment|/**      * To use a custom PropertiesResolver      */
 DECL|method|setPropertiesResolver (PropertiesResolver propertiesResolver)
 specifier|public
 name|void
@@ -1136,6 +1171,7 @@ return|return
 name|propertiesParser
 return|;
 block|}
+comment|/**      * To use a custom PropertiesParser      */
 DECL|method|setPropertiesParser (PropertiesParser propertiesParser)
 specifier|public
 name|void
@@ -1162,6 +1198,7 @@ return|return
 name|cache
 return|;
 block|}
+comment|/**      * Whether or not to cache loaded properties. The default value is true.      */
 DECL|method|setCache (boolean cache)
 specifier|public
 name|void
@@ -1188,6 +1225,7 @@ return|return
 name|propertyPrefix
 return|;
 block|}
+comment|/**      * Optional prefix prepended to property names before resolution.      */
 DECL|method|setPropertyPrefix (String propertyPrefix)
 specifier|public
 name|void
@@ -1246,6 +1284,7 @@ return|return
 name|propertySuffix
 return|;
 block|}
+comment|/**      * Optional suffix appended to property names before resolution.      */
 DECL|method|setPropertySuffix (String propertySuffix)
 specifier|public
 name|void
@@ -1304,6 +1343,7 @@ return|return
 name|fallbackToUnaugmentedProperty
 return|;
 block|}
+comment|/**      * If true, first attempt resolution of property name augmented with propertyPrefix and propertySuffix      * before falling back the plain property name specified. If false, only the augmented property name is searched.      */
 DECL|method|setFallbackToUnaugmentedProperty (boolean fallbackToUnaugmentedProperty)
 specifier|public
 name|void
@@ -1330,6 +1370,7 @@ return|return
 name|ignoreMissingLocation
 return|;
 block|}
+comment|/**      * Whether to silently ignore if a location cannot be located, such as a properties file not found.      */
 DECL|method|setIgnoreMissingLocation (boolean ignoreMissingLocation)
 specifier|public
 name|void
