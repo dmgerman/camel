@@ -347,10 +347,6 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
-argument_list|,
-name|javaType
-operator|=
-literal|"java.lang.String"
 argument_list|)
 DECL|field|time
 specifier|private
