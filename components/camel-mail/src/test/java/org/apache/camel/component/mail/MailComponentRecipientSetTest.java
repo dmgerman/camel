@@ -502,7 +502,7 @@ argument_list|()
 decl_stmt|;
 name|config
 operator|.
-name|setCC
+name|setCc
 argument_list|(
 literal|"spy@spy.com"
 argument_list|)
@@ -542,7 +542,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"smtp://localhost?username=james2&password=secret&To=a@a.com"
+literal|"smtp://localhost?username=james2&password=secret&to=a@a.com"
 argument_list|)
 expr_stmt|;
 name|from
@@ -552,7 +552,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"smtp://localhost?username=james&password=secret&To=b@b.com&From=you@you.com"
+literal|"smtp://localhost?username=james&password=secret&to=b@b.com&from=you@you.com"
 argument_list|)
 expr_stmt|;
 name|from
@@ -562,7 +562,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"smtp://localhost?username=admin&password=secret&To=c@c.com&CC=you@you.com,them@them.com"
+literal|"smtp://localhost?username=admin&password=secret&to=c@c.com&cc=you@you.com,them@them.com"
 argument_list|)
 expr_stmt|;
 block|}

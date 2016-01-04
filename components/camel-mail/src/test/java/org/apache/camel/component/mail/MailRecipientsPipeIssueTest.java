@@ -296,7 +296,7 @@ block|{
 name|String
 name|recipients
 init|=
-literal|"&To=camel|pipes@riders.org;easy@riders.org"
+literal|"&to=camel|pipes@riders.org;easy@riders.org"
 decl_stmt|;
 name|from
 argument_list|(
@@ -305,7 +305,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"smtp://you@mymailserver.com?password=secret&From=you@apache.org"
+literal|"smtp://you@mymailserver.com?password=secret&from=you@apache.org"
 operator|+
 name|recipients
 argument_list|)

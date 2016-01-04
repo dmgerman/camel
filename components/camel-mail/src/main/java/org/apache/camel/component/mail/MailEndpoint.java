@@ -288,6 +288,14 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer,filter"
+argument_list|,
+name|prefix
+operator|=
+literal|"searchTerm."
+argument_list|,
+name|multiValue
+operator|=
+literal|true
 argument_list|)
 DECL|field|searchTerm
 specifier|private
@@ -300,6 +308,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer,sort"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.String"
 argument_list|)
 DECL|field|sortTerm
 specifier|private

@@ -627,13 +627,13 @@ name|Exception
 block|{
 comment|// START SNIPPET: e1
 comment|// all the recipients of this mail are:
-comment|// To: camel@riders.org , easy@riders.org
-comment|// CC: me@you.org
-comment|// BCC: someone@somewhere.org
+comment|// to: camel@riders.org , easy@riders.org
+comment|// cc: me@you.org
+comment|// bcc: someone@somewhere.org
 name|String
 name|recipients
 init|=
-literal|"&To=camel@riders.org,easy@riders.org&CC=me@you.org&BCC=someone@somewhere.org"
+literal|"&to=camel@riders.org,easy@riders.org&cc=me@you.org&bcc=someone@somewhere.org"
 decl_stmt|;
 name|from
 argument_list|(
@@ -642,7 +642,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"smtp://you@mymailserver.com?password=secret&From=you@apache.org"
+literal|"smtp://you@mymailserver.com?password=secret&from=you@apache.org"
 operator|+
 name|recipients
 argument_list|)

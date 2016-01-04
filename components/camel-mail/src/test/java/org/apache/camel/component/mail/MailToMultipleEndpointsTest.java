@@ -445,7 +445,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"smtp://localhost?username=james2&password=secret&To=a@a.com&From=me@me.com"
+literal|"smtp://localhost?username=james2&password=secret&to=a@a.com&from=me@me.com"
 argument_list|)
 expr_stmt|;
 name|from
@@ -455,7 +455,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"smtp://localhost?username=james&password=secret&To=b@b.com&From=you@you.com"
+literal|"smtp://localhost?username=james&password=secret&to=b@b.com&from=you@you.com"
 argument_list|)
 expr_stmt|;
 name|from
@@ -465,7 +465,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"smtp://localhost?username=admin&password=secret&To=c@c.com&From=me@me.com&CC=you@you.com,them@them.com"
+literal|"smtp://localhost?username=admin&password=secret&to=c@c.com&from=me@me.com&cc=you@you.com,them@them.com"
 argument_list|)
 expr_stmt|;
 block|}

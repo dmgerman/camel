@@ -238,7 +238,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"smtp://localhost?To=claus@localhost,willem@localhost&CC=james@localhost"
+literal|"smtp://localhost?to=claus@localhost,willem@localhost&cc=james@localhost"
 argument_list|,
 literal|"Hello World"
 argument_list|)

@@ -265,7 +265,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"pop3://claus@localhost?To=someone@outhere.com&CC=none@world.com&consumer.delay=1000"
+literal|"pop3://claus@localhost?to=someone@outhere.com&cc=none@world.com&consumer.delay=1000"
 argument_list|)
 operator|.
 name|to
