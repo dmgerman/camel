@@ -412,6 +412,22 @@ name|catalog
 operator|.
 name|JSonSchemaHelper
 operator|.
+name|isComponentLenientProperties
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|catalog
+operator|.
+name|JSonSchemaHelper
+operator|.
 name|isPropertyBoolean
 import|;
 end_import
@@ -4097,6 +4113,9 @@ argument_list|>
 argument_list|>
 name|rows
 decl_stmt|;
+name|boolean
+name|lenientProperties
+decl_stmt|;
 try|try
 block|{
 comment|// parse the uri
@@ -4142,6 +4161,26 @@ return|return
 name|result
 return|;
 block|}
+name|rows
+operator|=
+name|JSonSchemaHelper
+operator|.
+name|parseJsonSchema
+argument_list|(
+literal|"component"
+argument_list|,
+name|json
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|lenientProperties
+operator|=
+name|isComponentLenientProperties
+argument_list|(
+name|rows
+argument_list|)
+expr_stmt|;
 name|rows
 operator|=
 name|JSonSchemaHelper
@@ -4366,6 +4405,14 @@ literal|null
 condition|)
 block|{
 comment|// unknown option
+comment|// only add as error if the component is not lenient properties
+comment|// as if we are lenient then the option is a dynamic extra option which we cannot validate
+if|if
+condition|(
+operator|!
+name|lenientProperties
+condition|)
+block|{
 name|result
 operator|.
 name|addUnknown
@@ -4412,6 +4459,7 @@ argument_list|,
 name|suggestions
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
