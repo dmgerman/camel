@@ -220,25 +220,7 @@ name|Template
 name|input
 parameter_list|)
 block|{
-if|if
-condition|(
-name|input
-operator|.
-name|getOutParameterList
-argument_list|()
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-throw|throw
-operator|new
-name|ParseRuntimeException
-argument_list|(
-literal|"At least one OUT parameter must be given."
-argument_list|)
-throw|;
-block|}
+comment|//TODO:remove validation ?
 return|return
 name|input
 return|;

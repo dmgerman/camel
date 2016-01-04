@@ -106,6 +106,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|UnsafeUriCharactersEncoder
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|sql
@@ -255,7 +269,12 @@ block|{
 return|return
 literal|"sql-stored:"
 operator|+
+name|UnsafeUriCharactersEncoder
+operator|.
+name|encode
+argument_list|(
 name|template
+argument_list|)
 return|;
 block|}
 block|}
