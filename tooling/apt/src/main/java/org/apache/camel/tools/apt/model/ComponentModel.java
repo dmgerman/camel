@@ -92,6 +92,11 @@ specifier|private
 name|boolean
 name|deprecated
 decl_stmt|;
+DECL|field|lenientProperties
+specifier|private
+name|boolean
+name|lenientProperties
+decl_stmt|;
 DECL|method|ComponentModel (String scheme)
 specifier|public
 name|ComponentModel
@@ -427,6 +432,32 @@ operator|.
 name|deprecated
 operator|=
 name|deprecated
+expr_stmt|;
+block|}
+DECL|method|isLenientProperties ()
+specifier|public
+name|boolean
+name|isLenientProperties
+parameter_list|()
+block|{
+return|return
+name|lenientProperties
+return|;
+block|}
+DECL|method|setLenientProperties (boolean lenientProperties)
+specifier|public
+name|void
+name|setLenientProperties
+parameter_list|(
+name|boolean
+name|lenientProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|lenientProperties
+operator|=
+name|lenientProperties
 expr_stmt|;
 block|}
 block|}

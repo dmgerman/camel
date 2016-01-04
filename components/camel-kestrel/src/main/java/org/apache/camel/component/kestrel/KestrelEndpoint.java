@@ -368,18 +368,6 @@ name|queue
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|isLenientProperties ()
-specifier|public
-name|boolean
-name|isLenientProperties
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 DECL|method|isSingleton ()
 specifier|public
 name|boolean
@@ -387,7 +375,7 @@ name|isSingleton
 parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 block|}

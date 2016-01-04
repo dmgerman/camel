@@ -197,6 +197,10 @@ argument_list|,
 name|label
 operator|=
 literal|"container,cloud,paas"
+argument_list|,
+name|lenientProperties
+operator|=
+literal|true
 argument_list|)
 DECL|class|DockerEndpoint
 specifier|public

@@ -197,6 +197,10 @@ argument_list|,
 name|label
 operator|=
 literal|"mobile"
+argument_list|,
+name|lenientProperties
+operator|=
+literal|true
 argument_list|)
 DECL|class|SmppEndpoint
 specifier|public

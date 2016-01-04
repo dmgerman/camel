@@ -263,6 +263,10 @@ argument_list|,
 name|label
 operator|=
 literal|"core,rest"
+argument_list|,
+name|lenientProperties
+operator|=
+literal|true
 argument_list|)
 DECL|class|RestEndpoint
 specifier|public
