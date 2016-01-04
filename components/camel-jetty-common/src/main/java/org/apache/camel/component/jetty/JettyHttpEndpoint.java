@@ -257,51 +257,15 @@ name|JettyHttpEndpoint
 extends|extends
 name|HttpCommonEndpoint
 block|{
-DECL|field|handlers
-specifier|private
-name|List
-argument_list|<
-name|Handler
-argument_list|>
-name|handlers
-decl_stmt|;
 DECL|field|client
 specifier|private
 name|HttpClient
 name|client
 decl_stmt|;
-DECL|field|multipartFilter
-specifier|private
-name|Filter
-name|multipartFilter
-decl_stmt|;
-DECL|field|filters
-specifier|private
-name|List
-argument_list|<
-name|Filter
-argument_list|>
-name|filters
-decl_stmt|;
 DECL|field|sslContextParameters
 specifier|private
 name|SSLContextParameters
 name|sslContextParameters
-decl_stmt|;
-DECL|field|httpClientParameters
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|httpClientParameters
-decl_stmt|;
-DECL|field|jettyBinding
-specifier|private
-name|JettyHttpBinding
-name|jettyBinding
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -480,6 +444,199 @@ DECL|field|useContinuation
 specifier|private
 name|Boolean
 name|useContinuation
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"If the option is true, Jetty server will setup the CrossOriginFilter which supports the CORS out of box."
+argument_list|)
+DECL|field|enableCORS
+specifier|private
+name|boolean
+name|enableCORS
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|,
+name|prefix
+operator|=
+literal|"httpClient."
+argument_list|,
+name|multiValue
+operator|=
+literal|true
+argument_list|,
+name|description
+operator|=
+literal|"Configuration of Jetty's HttpClient. For example, setting httpClient.idleTimeout=30000 sets the idle timeout to 30 seconds."
+operator|+
+literal|" And httpClient.timeout=30000 sets the request timeout to 30 seconds, in case you want to timeout sooner if you have long running request/response calls."
+argument_list|)
+DECL|field|httpClientParameters
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|httpClientParameters
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.String"
+argument_list|,
+name|description
+operator|=
+literal|"Specifies a comma-delimited set of Handler instances to lookup in your Registry."
+operator|+
+literal|" These handlers are added to the Jetty servlet context (for example, to add security)."
+operator|+
+literal|" Important: You can not use different handlers with different Jetty endpoints using the same port number."
+operator|+
+literal|" The handlers is associated to the port number. If you need different handlers, then use different port numbers."
+argument_list|)
+DECL|field|handlers
+specifier|private
+name|List
+argument_list|<
+name|Handler
+argument_list|>
+name|handlers
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.String"
+argument_list|,
+name|name
+operator|=
+literal|"filtersRef"
+argument_list|,
+name|description
+operator|=
+literal|"Allows using a custom filters which is putted into a list and can be find in the Registry."
+operator|+
+literal|" Multiple values can be separated by comma."
+argument_list|)
+DECL|field|filters
+specifier|private
+name|List
+argument_list|<
+name|Filter
+argument_list|>
+name|filters
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom JettyHttpBinding which be used to customize how a response should be written for the producer."
+argument_list|)
+DECL|field|jettyBinding
+specifier|private
+name|JettyHttpBinding
+name|jettyBinding
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom JettyHttpBinding which be used to customize how a response should be written for the producer."
+argument_list|)
+annotation|@
+name|Deprecated
+DECL|field|jettyBindingRef
+specifier|private
+name|String
+name|jettyBindingRef
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Option to disable throwing the HttpOperationFailedException in case of failed responses from the remote server."
+operator|+
+literal|" This allows you to get all responses regardless of the HTTP status code."
+argument_list|)
+annotation|@
+name|Deprecated
+DECL|field|httpBindingRef
+specifier|private
+name|String
+name|httpBindingRef
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Allows using a custom multipart filter. Note: setting multipartFilterRef forces the value of enableMultipartFilter to true."
+argument_list|)
+DECL|field|multipartFilter
+specifier|private
+name|Filter
+name|multipartFilter
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Allows using a custom multipart filter. Note: setting multipartFilterRef forces the value of enableMultipartFilter to true."
+argument_list|)
+annotation|@
+name|Deprecated
+DECL|field|multipartFilterRef
+specifier|private
+name|String
+name|multipartFilterRef
 decl_stmt|;
 DECL|method|JettyHttpEndpoint (JettyHttpComponent component, String uri, URI httpURL)
 specifier|public
@@ -837,6 +994,7 @@ return|return
 name|handlers
 return|;
 block|}
+comment|/**      * Specifies a comma-delimited set of org.mortbay.jetty.Handler instances in your Registry (such as your Spring ApplicationContext).      * These handlers are added to the Jetty servlet context (for example, to add security).      * Important: You can not use different handlers with different Jetty endpoints using the same port number.      * The handlers is associated to the port number. If you need different handlers, then use different port numbers.      */
 DECL|method|setHandlers (List<Handler> handlers)
 specifier|public
 name|void
@@ -965,6 +1123,7 @@ return|return
 name|jettyBinding
 return|;
 block|}
+comment|/**      * To use a custom JettyHttpBinding which be used to customize how a response should be written for the producer.      */
 DECL|method|setJettyBinding (JettyHttpBinding jettyBinding)
 specifier|public
 name|void
@@ -1118,6 +1277,7 @@ return|return
 name|multipartFilter
 return|;
 block|}
+comment|/**      * Allows using a custom filters which is putted into a list and can be find in the Registry.      * Multiple values can be separated by comma.      */
 DECL|method|setFilters (List<Filter> filterList)
 specifier|public
 name|void
@@ -1320,6 +1480,33 @@ operator|.
 name|httpClientParameters
 operator|=
 name|httpClientParameters
+expr_stmt|;
+block|}
+DECL|method|isEnableCORS ()
+specifier|public
+name|boolean
+name|isEnableCORS
+parameter_list|()
+block|{
+return|return
+name|enableCORS
+return|;
+block|}
+comment|/**      * If the option is true, Jetty server will setup the CrossOriginFilter which supports the CORS out of box.      */
+DECL|method|setEnableCORS (boolean enableCORS)
+specifier|public
+name|void
+name|setEnableCORS
+parameter_list|(
+name|boolean
+name|enableCORS
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enableCORS
+operator|=
+name|enableCORS
 expr_stmt|;
 block|}
 DECL|method|createContentExchange ()
