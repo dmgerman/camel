@@ -318,7 +318,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty4-http://http://localhost:{{port}}/methodRestrict?httpMethodRestrict=POST"
+literal|"netty4-http:http://localhost:{{port}}/methodRestrict?httpMethodRestrict=POST"
 argument_list|)
 operator|.
 name|process

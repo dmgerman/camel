@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -412,6 +422,32 @@ specifier|private
 name|NettyHttpSecurityConfiguration
 name|securityConfiguration
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,security"
+argument_list|,
+name|prefix
+operator|=
+literal|"securityConfiguration."
+argument_list|,
+name|multiValue
+operator|=
+literal|true
+argument_list|)
+DECL|field|securityOptions
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|securityOptions
+decl_stmt|;
+comment|// to include in component docs
 DECL|method|NettyHttpEndpoint (String endpointUri, NettyHttpComponent component, NettyConfiguration configuration)
 specifier|public
 name|NettyHttpEndpoint
@@ -972,6 +1008,43 @@ operator|.
 name|securityConfiguration
 operator|=
 name|securityConfiguration
+expr_stmt|;
+block|}
+DECL|method|getSecurityOptions ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getSecurityOptions
+parameter_list|()
+block|{
+return|return
+name|securityOptions
+return|;
+block|}
+comment|/**      * To configure NettyHttpSecurityConfiguration using key/value pairs from the map      */
+DECL|method|setSecurityOptions (Map<String, Object> securityOptions)
+specifier|public
+name|void
+name|setSecurityOptions
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|securityOptions
+parameter_list|)
+block|{
+name|this
+operator|.
+name|securityOptions
+operator|=
+name|securityOptions
 expr_stmt|;
 block|}
 annotation|@
