@@ -368,7 +368,7 @@ name|facebook
 operator|.
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 import|;
 end_import
 
@@ -615,7 +615,7 @@ name|properties
 operator|.
 name|get
 argument_list|(
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 decl_stmt|;
 if|if
@@ -855,7 +855,7 @@ name|argNames
 operator|.
 name|add
 argument_list|(
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -1409,7 +1409,7 @@ name|arguments
 operator|.
 name|remove
 argument_list|(
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 decl_stmt|;
 if|if
@@ -1458,7 +1458,7 @@ name|format
 argument_list|(
 literal|"Error creating property [%s]: %s"
 argument_list|,
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|,
 name|e
 operator|.
@@ -1486,7 +1486,7 @@ name|format
 argument_list|(
 literal|"Error creating property [%s]: %s"
 argument_list|,
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|,
 name|e
 operator|.
@@ -1621,7 +1621,7 @@ name|arguments
 operator|.
 name|put
 argument_list|(
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|,
 name|reading
 argument_list|)

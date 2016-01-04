@@ -520,7 +520,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GET_ACCOUNTS_WITH_ID
@@ -560,7 +560,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 comment|// ActivityMethods
@@ -589,7 +589,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETACTIVITIES_WITH_ID
@@ -629,7 +629,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 comment|// AlbumMethods
@@ -802,7 +802,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETALBUMCOMMENTS
@@ -842,7 +842,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETALBUMCOVERPHOTO
@@ -898,7 +898,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETALBUMPHOTOS
@@ -938,7 +938,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETALBUMS
@@ -966,7 +966,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETALBUMS_WITH_ID
@@ -1006,7 +1006,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|LIKEALBUM
@@ -1139,7 +1139,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETCHECKINCOMMENTS
@@ -1179,7 +1179,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETCHECKINLIKES
@@ -1219,7 +1219,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETCHECKINS
@@ -1247,7 +1247,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETCHECKINS_WITH_ID
@@ -1287,7 +1287,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|LIKECHECKIN
@@ -1392,7 +1392,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETCOMMENT_WITH_OPTIONS
@@ -1416,7 +1416,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETCOMMENTLIKES
@@ -1456,7 +1456,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|LIKECOMMENT
@@ -1675,7 +1675,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETEVENTPHOTOS
@@ -1715,7 +1715,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETEVENTPICTUREURL
@@ -1781,7 +1781,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETEVENTS_WITH_ID
@@ -1821,7 +1821,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETEVENTVIDEOS
@@ -1861,7 +1861,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETRSVPSTATUSASINVITED
@@ -2399,7 +2399,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETFAMILY_WITH_ID
@@ -2439,7 +2439,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 comment|// FavouriteMethods
@@ -2468,7 +2468,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETBOOKS_WITH_ID
@@ -2508,7 +2508,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETGAMES
@@ -2536,7 +2536,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETGAMES_WITH_ID
@@ -2576,7 +2576,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETINTERESTS
@@ -2620,7 +2620,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETINTERESTS_WITH_ID_OPTIONS
@@ -2644,7 +2644,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETMOVIES
@@ -2672,7 +2672,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETMOVIES_WITH_ID
@@ -2712,7 +2712,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETMUSIC
@@ -2740,7 +2740,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETMUSIC_WITH_ID
@@ -2780,7 +2780,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETTELEVISION
@@ -2808,7 +2808,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETTELEVISION_WITH_ID
@@ -2848,7 +2848,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 comment|// FQLMethods
@@ -3064,7 +3064,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETBELONGSFRIEND_WITH_ID
@@ -3116,7 +3116,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETFRIENDLIST
@@ -3156,7 +3156,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETFRIENDLISTMEMBERS
@@ -3200,7 +3200,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETFRIENDLISTS_WITH_ID
@@ -3240,7 +3240,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETFRIENDREQUESTS
@@ -3268,7 +3268,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETFRIENDREQUESTS_WITH_ID
@@ -3308,7 +3308,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETFRIENDS
@@ -3336,7 +3336,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETFRIENDS_WITH_ID
@@ -3376,7 +3376,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETTAGGABLEFRIENDS
@@ -3420,7 +3420,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETTAGGABLEFRIENDS_WITH_ID_OPTIONS
@@ -3444,7 +3444,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETMUTUALFRIENDS
@@ -3484,7 +3484,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETMUTUALFRIENDS_WITH_ID
@@ -3536,7 +3536,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|REMOVEFRIENDLISTMEMBER
@@ -3651,7 +3651,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETACHIEVEMENTS_WITH_ID
@@ -3691,7 +3691,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETSCORES
@@ -3719,7 +3719,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETSCORES_WITH_ID
@@ -3759,7 +3759,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|POSTACHIEVEMENT
@@ -3876,7 +3876,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETGROUPDOCS
@@ -3916,7 +3916,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETGROUPFEED
@@ -3956,7 +3956,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETGROUPMEMBERS
@@ -3996,7 +3996,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETGROUPPICTUREURL
@@ -4040,7 +4040,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETGROUPS_WITH_ID
@@ -4080,7 +4080,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|POSTGROUPFEED_WITH_POSTUPDATE
@@ -4227,7 +4227,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 comment|// LikeMethods
@@ -4256,7 +4256,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETUSERLIKES_WITH_ID
@@ -4296,7 +4296,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 comment|// LinkMethods
@@ -4381,7 +4381,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETLINKCOMMENTS
@@ -4421,7 +4421,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETLINKLIKES
@@ -4461,7 +4461,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|LIKELINK
@@ -4522,7 +4522,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETLOCATIONS_WITH_ID
@@ -4562,7 +4562,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETTAGGEDPLACES
@@ -4590,7 +4590,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETTAGGEDPLACES_WITH_ID
@@ -4630,7 +4630,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 comment|// MessageMethods
@@ -4659,7 +4659,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETINBOX_WITH_ID
@@ -4699,7 +4699,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETMESSAGE
@@ -4739,7 +4739,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETOUTBOX
@@ -4767,7 +4767,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETOUTBOX_WITH_ID
@@ -4807,7 +4807,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETUPDATES
@@ -4835,7 +4835,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETUPDATES_WITH_ID
@@ -4875,7 +4875,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 comment|// NoteMethods
@@ -4988,7 +4988,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETNOTECOMMENTS
@@ -5028,7 +5028,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETNOTELIKES
@@ -5068,7 +5068,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETNOTES
@@ -5096,7 +5096,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETNOTES_WITH_ID
@@ -5136,7 +5136,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|LIKENOTE
@@ -5213,7 +5213,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETNOTIFICATIONS_WITH_OPTIONS_INCLUDEREAD
@@ -5231,7 +5231,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|,
 name|boolean
 operator|.
@@ -5299,7 +5299,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETNOTIFICATIONS_WITH_ID_OPTIONS_INCLUDEREAD
@@ -5323,7 +5323,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|,
 name|boolean
 operator|.
@@ -5629,7 +5629,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETPHOTOCOMMENTS
@@ -5669,7 +5669,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETPHOTOLIKES
@@ -5709,7 +5709,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETPHOTOS
@@ -5737,7 +5737,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETPHOTOS_WITH_ID
@@ -5777,7 +5777,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETPHOTOURL
@@ -5833,7 +5833,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|LIKEPHOTO
@@ -5954,7 +5954,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETPOKES_WITH_ID
@@ -5994,7 +5994,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 comment|// PostMethods
@@ -6083,7 +6083,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETFEED_WITH_ID
@@ -6123,7 +6123,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETHOME
@@ -6151,7 +6151,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETLINKS
@@ -6179,7 +6179,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETLINKS_WITH_ID
@@ -6219,7 +6219,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETPOST
@@ -6259,7 +6259,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETPOSTCOMMENTS
@@ -6299,7 +6299,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETPOSTLIKES
@@ -6339,7 +6339,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETPOSTS
@@ -6367,7 +6367,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETPOSTS_WITH_ID
@@ -6407,7 +6407,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETSTATUSES
@@ -6435,7 +6435,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETSTATUSES_WITH_ID
@@ -6475,7 +6475,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETTAGGED
@@ -6503,7 +6503,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETTAGGED_WITH_ID
@@ -6543,7 +6543,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|LIKEPOST
@@ -6818,7 +6818,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETQUESTIONOPTIONS
@@ -6858,7 +6858,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETQUESTIONOPTIONVOTES
@@ -6902,7 +6902,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETQUESTIONS_WITH_ID
@@ -6942,7 +6942,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 comment|// SubscribeMethods
@@ -6971,7 +6971,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETSUBSCRIBEDTO_WITH_ID
@@ -7011,7 +7011,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETSUBSCRIBERS
@@ -7039,7 +7039,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETSUBSCRIBERS_WITH_ID
@@ -7079,7 +7079,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 comment|// TestUserMethods
@@ -7213,7 +7213,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETPICTUREURL
@@ -7431,7 +7431,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETUSERS
@@ -7537,7 +7537,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETVIDEOCOMMENTS
@@ -7577,7 +7577,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETVIDEOCOVER
@@ -7633,7 +7633,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETVIDEOS
@@ -7661,7 +7661,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GETVIDEOS_WITH_ID
@@ -7701,7 +7701,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|LIKEVIDEO
@@ -7774,7 +7774,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|SEARCHCHECKINS
@@ -7802,7 +7802,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|SEARCHEVENTS
@@ -7842,7 +7842,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|SEARCHGROUPS
@@ -7882,7 +7882,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|SEARCHLOCATIONS
@@ -7934,7 +7934,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|SEARCHLOCATIONS_WITH_ID
@@ -7974,7 +7974,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|SEARCHPLACES
@@ -8014,7 +8014,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|SEARCHPLACES_WITH_CENTER
@@ -8078,7 +8078,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|SEARCHPOSTS
@@ -8118,7 +8118,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|SEARCHUSERS
@@ -8158,7 +8158,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 comment|// FROM UPDATE to 2.2.2 API
@@ -8241,7 +8241,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GET_PROMOTABLE_POSTS_WITH_PAGEID_AND_READING
@@ -8265,7 +8265,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|POST_PAGE_PHOTO
@@ -8343,7 +8343,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GET_PAGE
@@ -8387,7 +8387,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GET_PAGE_WITH_ID_AND_READING
@@ -8411,7 +8411,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GET_PAGE_PICTURE_URL
@@ -8791,7 +8791,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GET_PAGE_INSIGHTS
@@ -8831,7 +8831,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GET_MILESTONES
@@ -8875,7 +8875,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GET_PAGE_INSIGHTS_WITH_PAGEID_AND_READING
@@ -8899,7 +8899,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|CREATE_MILESTONE
@@ -8997,7 +8997,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GET_PAGE_ADMINS_WITH_PAGEID_AND_READING
@@ -9021,7 +9021,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GET_TABS
@@ -9065,7 +9065,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GET_TABS_WITH_PAGEID_AND_READING
@@ -9089,7 +9089,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GET_INSTALLED_TABS
@@ -9151,7 +9151,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GET_INSTALLED_TABS_WITH_PAGEID_AND_READING
@@ -9181,7 +9181,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|INSTALL_TAB
@@ -9351,7 +9351,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GET_BLOCKED_WITH_PAGEID_AND_READING
@@ -9375,7 +9375,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|UNBLOCK
@@ -9457,7 +9457,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GET_OFFERS_WITH_PAGEID_AND_READING
@@ -9481,7 +9481,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|CREATE_OFFER
@@ -9591,7 +9591,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GET_LIKED_PAGE_WITH_USERID
@@ -9643,7 +9643,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|DELETE_PERMISSION
@@ -9725,7 +9725,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|GET_UPLOADED_PHOTOS_WITH_PAGEID_AND_READING
@@ -9749,7 +9749,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|POSTPHOTO_UPDATE
@@ -9925,7 +9925,7 @@ name|class
 argument_list|,
 name|FacebookConstants
 operator|.
-name|READING_PPROPERTY
+name|READING_PROPERTY
 argument_list|)
 block|,
 DECL|enumConstant|CREATETESTUSER_WITH_INSTALLED

@@ -218,7 +218,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"facebook://user"
+literal|"facebook:getuserlikes"
 argument_list|)
 operator|.
 name|to

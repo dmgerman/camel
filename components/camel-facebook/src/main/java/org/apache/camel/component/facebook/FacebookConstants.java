@@ -29,9 +29,9 @@ interface|interface
 name|FacebookConstants
 block|{
 comment|// reading options property name and prefix for uri property
-DECL|field|READING_PPROPERTY
+DECL|field|READING_PROPERTY
 name|String
-name|READING_PPROPERTY
+name|READING_PROPERTY
 init|=
 literal|"reading"
 decl_stmt|;
@@ -39,7 +39,7 @@ DECL|field|READING_PREFIX
 name|String
 name|READING_PREFIX
 init|=
-name|READING_PPROPERTY
+name|READING_PROPERTY
 operator|+
 literal|"."
 decl_stmt|;
