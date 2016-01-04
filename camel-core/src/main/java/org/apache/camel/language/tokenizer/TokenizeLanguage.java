@@ -164,6 +164,11 @@ specifier|private
 name|int
 name|group
 decl_stmt|;
+DECL|field|skipFirst
+specifier|private
+name|boolean
+name|skipFirst
+decl_stmt|;
 DECL|method|tokenize (String token)
 specifier|public
 specifier|static
@@ -588,6 +593,26 @@ name|token
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|group
+operator|==
+literal|0
+operator|&&
+name|skipFirst
+condition|)
+block|{
+comment|// wrap in skip first (if group then it has its own skip first logic)
+name|answer
+operator|=
+name|ExpressionBuilder
+operator|.
+name|skipFirstExpression
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|// if group then wrap answer in group expression
 if|if
@@ -628,6 +653,8 @@ argument_list|,
 name|token
 argument_list|,
 name|group
+argument_list|,
+name|skipFirst
 argument_list|)
 expr_stmt|;
 block|}
@@ -873,6 +900,32 @@ operator|.
 name|group
 operator|=
 name|group
+expr_stmt|;
+block|}
+DECL|method|isSkipFirst ()
+specifier|public
+name|boolean
+name|isSkipFirst
+parameter_list|()
+block|{
+return|return
+name|skipFirst
+return|;
+block|}
+DECL|method|setSkipFirst (boolean skipFirst)
+specifier|public
+name|void
+name|setSkipFirst
+parameter_list|(
+name|boolean
+name|skipFirst
+parameter_list|)
+block|{
+name|this
+operator|.
+name|skipFirst
+operator|=
+name|skipFirst
 expr_stmt|;
 block|}
 DECL|method|isSingleton ()

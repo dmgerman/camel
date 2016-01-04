@@ -252,6 +252,13 @@ specifier|private
 name|Integer
 name|group
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|skipFirst
+specifier|private
+name|Boolean
+name|skipFirst
+decl_stmt|;
 DECL|method|TokenizerExpression ()
 specifier|public
 name|TokenizerExpression
@@ -485,6 +492,33 @@ operator|=
 name|group
 expr_stmt|;
 block|}
+DECL|method|getSkipFirst ()
+specifier|public
+name|Boolean
+name|getSkipFirst
+parameter_list|()
+block|{
+return|return
+name|skipFirst
+return|;
+block|}
+comment|/**      * To skip the very first element      */
+DECL|method|setSkipFirst (Boolean skipFirst)
+specifier|public
+name|void
+name|setSkipFirst
+parameter_list|(
+name|Boolean
+name|skipFirst
+parameter_list|)
+block|{
+name|this
+operator|.
+name|skipFirst
+operator|=
+name|skipFirst
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createExpression (CamelContext camelContext)
@@ -628,6 +662,21 @@ operator|.
 name|setGroup
 argument_list|(
 name|group
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|skipFirst
+operator|!=
+literal|null
+condition|)
+block|{
+name|language
+operator|.
+name|setSkipFirst
+argument_list|(
+name|skipFirst
 argument_list|)
 expr_stmt|;
 block|}
