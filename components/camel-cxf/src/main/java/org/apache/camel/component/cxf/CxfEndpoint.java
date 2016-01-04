@@ -1334,16 +1334,6 @@ specifier|private
 name|Object
 name|serviceFactoryBean
 decl_stmt|;
-DECL|field|properties
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|properties
-decl_stmt|;
 DECL|field|in
 specifier|private
 name|List
@@ -1506,6 +1496,8 @@ specifier|private
 name|String
 name|wsdlURL
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|serviceClass
 specifier|private
 name|Class
@@ -1729,6 +1721,31 @@ DECL|field|password
 specifier|private
 name|String
 name|password
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|prefix
+operator|=
+literal|"properties."
+argument_list|,
+name|multiValue
+operator|=
+literal|true
+argument_list|)
+DECL|field|properties
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|properties
 decl_stmt|;
 DECL|method|CxfEndpoint ()
 specifier|public
@@ -5323,6 +5340,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|/**      * To set additional CXF options using the key/value pairs from the Map.      * For example to turn on stacktraces in SOAP faults,<tt>properties.faultStackTraceEnabled=true</tt>      */
 DECL|method|setProperties (Map<String, Object> properties)
 specifier|public
 name|void
