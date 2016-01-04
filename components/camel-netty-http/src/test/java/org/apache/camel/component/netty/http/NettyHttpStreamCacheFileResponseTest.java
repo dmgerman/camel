@@ -311,7 +311,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"netty-http://http://localhost:{{port}}/myserver"
+literal|"netty-http:http://localhost:{{port}}/myserver"
 argument_list|)
 comment|// wrap the response in 2 input streams so it will force caching to disk
 operator|.
