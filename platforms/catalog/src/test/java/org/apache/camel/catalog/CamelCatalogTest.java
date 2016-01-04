@@ -3123,6 +3123,24 @@ name|isSuccess
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// prefix
+name|result
+operator|=
+name|catalog
+operator|.
+name|validateEndpointProperties
+argument_list|(
+literal|"file:inbox?delay=5000&scheduler.foo=123&scheduler.bar=456"
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|result
+operator|.
+name|isSuccess
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test

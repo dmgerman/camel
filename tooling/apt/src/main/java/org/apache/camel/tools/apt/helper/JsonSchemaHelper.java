@@ -188,8 +188,8 @@ specifier|private
 name|JsonSchemaHelper
 parameter_list|()
 block|{     }
-DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, String optionalPrefix)
-DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, String optionalPrefix)
+DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, String optionalPrefix, String prefix, boolean multiValue)
+DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, String optionalPrefix, String prefix, boolean multiValue)
 specifier|public
 specifier|static
 name|String
@@ -242,6 +242,12 @@ name|oneOffTypes
 parameter_list|,
 name|String
 name|optionalPrefix
+parameter_list|,
+name|String
+name|prefix
+parameter_list|,
+name|boolean
+name|multiValue
 parameter_list|)
 block|{
 name|String
@@ -665,6 +671,70 @@ operator|.
 name|doubleQuote
 argument_list|(
 name|text
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|Strings
+operator|.
+name|isNullOrEmpty
+argument_list|(
+name|prefix
+argument_list|)
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", \"prefix\": "
+argument_list|)
+expr_stmt|;
+name|String
+name|text
+init|=
+name|safeDefaultValue
+argument_list|(
+name|prefix
+argument_list|)
+decl_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|Strings
+operator|.
+name|doubleQuote
+argument_list|(
+name|text
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|multiValue
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", \"multiValue\": "
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|Strings
+operator|.
+name|doubleQuote
+argument_list|(
+literal|"true"
 argument_list|)
 argument_list|)
 expr_stmt|;

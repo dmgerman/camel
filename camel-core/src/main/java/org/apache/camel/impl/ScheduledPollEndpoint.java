@@ -501,9 +501,13 @@ comment|// used when configuring scheduler using a string value
 annotation|@
 name|UriParam
 argument_list|(
-name|optionalPrefix
+name|prefix
 operator|=
-literal|"consumer."
+literal|"scheduler."
+argument_list|,
+name|multiValue
+operator|=
+literal|true
 argument_list|,
 name|label
 operator|=
