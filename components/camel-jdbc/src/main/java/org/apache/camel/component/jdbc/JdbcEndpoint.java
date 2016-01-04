@@ -238,6 +238,17 @@ name|resetAutoCommit
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|prefix
+operator|=
+literal|"statement."
+argument_list|,
+name|multiValue
+operator|=
+literal|true
+argument_list|)
 DECL|field|parameters
 specifier|private
 name|Map
