@@ -192,36 +192,6 @@ specifier|public
 class|class
 name|SWFConfiguration
 block|{
-DECL|field|clientConfigurationParameters
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|clientConfigurationParameters
-decl_stmt|;
-DECL|field|sWClientParameters
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|sWClientParameters
-decl_stmt|;
-DECL|field|startWorkflowOptionsParameters
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|startWorkflowOptionsParameters
-decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
@@ -499,6 +469,81 @@ init|=
 literal|100
 decl_stmt|;
 comment|// aws-sdk default
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|prefix
+operator|=
+literal|"clientConfiguration."
+argument_list|,
+name|multiValue
+operator|=
+literal|true
+argument_list|)
+DECL|field|clientConfigurationParameters
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|clientConfigurationParameters
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|prefix
+operator|=
+literal|"sWClient."
+argument_list|,
+name|multiValue
+operator|=
+literal|true
+argument_list|)
+DECL|field|sWClientParameters
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|sWClientParameters
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|prefix
+operator|=
+literal|"startWorkflowOptions."
+argument_list|,
+name|multiValue
+operator|=
+literal|true
+argument_list|)
+DECL|field|startWorkflowOptionsParameters
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|startWorkflowOptionsParameters
+decl_stmt|;
 DECL|method|getAccessKey ()
 specifier|public
 name|String
@@ -730,6 +775,7 @@ return|return
 name|clientConfigurationParameters
 return|;
 block|}
+comment|/**      * To configure the ClientConfiguration using the key/values from the Map.      */
 DECL|method|setClientConfigurationParameters (Map<String, Object> clientConfigurationParameters)
 specifier|public
 name|void
@@ -751,7 +797,7 @@ operator|=
 name|clientConfigurationParameters
 expr_stmt|;
 block|}
-DECL|method|getsWClientParameters ()
+DECL|method|getSWClientParameters ()
 specifier|public
 name|Map
 argument_list|<
@@ -759,17 +805,18 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|getsWClientParameters
+name|getSWClientParameters
 parameter_list|()
 block|{
 return|return
 name|sWClientParameters
 return|;
 block|}
-DECL|method|setsWClientParameters (Map<String, Object> sWClientParameters)
+comment|/**      * To configure the AmazonSimpleWorkflowClient using the key/values from the Map.      */
+DECL|method|setSWClientParameters (Map<String, Object> sWClientParameters)
 specifier|public
 name|void
-name|setsWClientParameters
+name|setSWClientParameters
 parameter_list|(
 name|Map
 argument_list|<
@@ -829,6 +876,7 @@ return|return
 name|startWorkflowOptionsParameters
 return|;
 block|}
+comment|/**      * To configure the StartWorkflowOptions using the key/values from the Map.      * @param startWorkflowOptionsParameters      */
 DECL|method|setStartWorkflowOptionsParameters (Map<String, Object> startWorkflowOptionsParameters)
 specifier|public
 name|void

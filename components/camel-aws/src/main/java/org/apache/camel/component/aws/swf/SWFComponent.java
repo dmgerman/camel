@@ -194,7 +194,7 @@ argument_list|)
 expr_stmt|;
 name|configuration
 operator|.
-name|setsWClientParameters
+name|setSWClientParameters
 argument_list|(
 name|sWClientParameters
 argument_list|)

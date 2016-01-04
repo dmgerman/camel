@@ -539,7 +539,7 @@ condition|(
 operator|!
 name|configuration
 operator|.
-name|getsWClientParameters
+name|getSWClientParameters
 argument_list|()
 operator|.
 name|isEmpty
@@ -552,7 +552,7 @@ name|client
 argument_list|,
 name|configuration
 operator|.
-name|getsWClientParameters
+name|getSWClientParameters
 argument_list|()
 argument_list|)
 expr_stmt|;
