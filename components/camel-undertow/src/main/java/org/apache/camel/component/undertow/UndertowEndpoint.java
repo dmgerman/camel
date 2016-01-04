@@ -538,6 +538,14 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|prefix
+operator|=
+literal|"option."
+argument_list|,
+name|multiValue
+operator|=
+literal|true
 argument_list|)
 DECL|field|options
 specifier|private
