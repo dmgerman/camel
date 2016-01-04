@@ -277,6 +277,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|prefix
+operator|=
+literal|"bean."
+argument_list|,
 name|label
 operator|=
 literal|"advanced"
@@ -284,6 +288,10 @@ argument_list|,
 name|description
 operator|=
 literal|"Used for configuring additional properties on the bean"
+argument_list|,
+name|multiValue
+operator|=
+literal|true
 argument_list|)
 DECL|field|parameters
 specifier|private

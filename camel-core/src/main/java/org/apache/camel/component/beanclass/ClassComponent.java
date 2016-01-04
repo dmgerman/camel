@@ -88,6 +88,20 @@ name|ConstantBeanHolder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|IntrospectionSupport
+import|;
+end_import
+
 begin_comment
 comment|/**  * The<a href="http://camel.apache.org/class.html">Class Component</a> is for binding JavaBeans to Camel message exchanges based on class name.  *<p/>  * This component is an extension to the {@link org.apache.camel.component.bean.BeanComponent}.  *  * @version   */
 end_comment
@@ -194,12 +208,46 @@ argument_list|(
 name|clazz
 argument_list|)
 decl_stmt|;
+comment|// the bean.xxx options is for the bean
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|options
+init|=
+name|IntrospectionSupport
+operator|.
+name|extractProperties
+argument_list|(
+name|parameters
+argument_list|,
+literal|"bean."
+argument_list|)
+decl_stmt|;
+name|endpoint
+operator|.
+name|setParameters
+argument_list|(
+name|options
+argument_list|)
+expr_stmt|;
 comment|// now set additional properties on it
 name|setProperties
 argument_list|(
 name|bean
 argument_list|,
-name|parameters
+name|options
+argument_list|)
+expr_stmt|;
+name|validateParameters
+argument_list|(
+name|uri
+argument_list|,
+name|options
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 comment|// and register the bean as a holder on the endpoint

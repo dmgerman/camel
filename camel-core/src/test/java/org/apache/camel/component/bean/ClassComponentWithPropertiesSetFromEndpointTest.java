@@ -118,7 +118,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"class:org.apache.camel.component.bean.MyPrefixBean?prefix=Bye"
+literal|"class:org.apache.camel.component.bean.MyPrefixBean?bean.prefix=Bye"
 argument_list|)
 operator|.
 name|to

@@ -83,10 +83,6 @@ argument_list|,
 name|label
 operator|=
 literal|"core,java"
-argument_list|,
-name|lenientProperties
-operator|=
-literal|true
 argument_list|)
 DECL|class|ClassEndpoint
 specifier|public
@@ -113,18 +109,6 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|isLenientProperties ()
-specifier|public
-name|boolean
-name|isLenientProperties
-parameter_list|()
-block|{
-return|return
-literal|true
-return|;
 block|}
 block|}
 end_class
