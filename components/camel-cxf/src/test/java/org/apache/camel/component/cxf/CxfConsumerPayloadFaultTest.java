@@ -384,11 +384,7 @@ literal|"&"
 operator|+
 name|WSDL_URL_PROP
 operator|+
-literal|"&dataFormat="
-operator|+
-name|DataFormat
-operator|.
-name|PAYLOAD
+literal|"&dataFormat=payload"
 decl_stmt|;
 annotation|@
 name|Override

@@ -92,7 +92,7 @@ expr_stmt|;
 comment|// The consumer is running in payload mode
 name|from
 argument_list|(
-literal|"cxf:bean:serviceEndpoint?DataFormat=PAYLOAD"
+literal|"cxf:bean:serviceEndpoint?dataFormat=PAYLOAD"
 argument_list|)
 comment|// Use stream caching to trigger the issue
 operator|.

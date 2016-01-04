@@ -118,26 +118,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|cxf
-operator|.
-name|jaxrs
-operator|.
-name|CxfRsEndpoint
-operator|.
-name|BindingStyle
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|impl
 operator|.
 name|JndiRegistry
@@ -643,7 +623,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|null
 return|;
@@ -669,7 +648,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|null
 return|;
@@ -690,7 +668,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|null
 return|;
@@ -721,7 +698,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// TODO Auto-generated method stub
 return|return
 literal|null
 return|;

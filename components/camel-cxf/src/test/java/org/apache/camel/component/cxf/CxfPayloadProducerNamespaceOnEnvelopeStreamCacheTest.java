@@ -106,7 +106,7 @@ expr_stmt|;
 comment|// This route just returns the test message
 name|from
 argument_list|(
-literal|"cxf:bean:serviceEndpoint?DataFormat=MESSAGE"
+literal|"cxf:bean:serviceEndpoint?dataFormat=MESSAGE"
 argument_list|)
 operator|.
 name|setBody
