@@ -157,10 +157,6 @@ argument_list|,
 name|label
 operator|=
 literal|"core,testing"
-argument_list|,
-name|lenientProperties
-operator|=
-literal|true
 argument_list|)
 DECL|class|StubEndpoint
 specifier|public
@@ -279,18 +275,6 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
-return|;
-block|}
-annotation|@
-name|Override
-DECL|method|isLenientProperties ()
-specifier|public
-name|boolean
-name|isLenientProperties
-parameter_list|()
-block|{
-return|return
-literal|true
 return|;
 block|}
 block|}

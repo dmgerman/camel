@@ -4116,6 +4116,9 @@ decl_stmt|;
 name|boolean
 name|lenientProperties
 decl_stmt|;
+name|String
+name|scheme
+decl_stmt|;
 try|try
 block|{
 comment|// parse the uri
@@ -4127,14 +4130,13 @@ argument_list|(
 name|uri
 argument_list|)
 decl_stmt|;
-name|String
 name|scheme
-init|=
+operator|=
 name|u
 operator|.
 name|getScheme
 argument_list|()
-decl_stmt|;
+expr_stmt|;
 name|String
 name|json
 init|=
@@ -4405,12 +4407,20 @@ literal|null
 condition|)
 block|{
 comment|// unknown option
-comment|// only add as error if the component is not lenient properties
+comment|// only add as error if the component is not lenient properties, or not stub component
 comment|// as if we are lenient then the option is a dynamic extra option which we cannot validate
 if|if
 condition|(
 operator|!
 name|lenientProperties
+operator|&&
+operator|!
+literal|"stub"
+operator|.
+name|equals
+argument_list|(
+name|scheme
+argument_list|)
 condition|)
 block|{
 name|result
