@@ -262,11 +262,6 @@ specifier|private
 name|HttpClient
 name|client
 decl_stmt|;
-DECL|field|sslContextParameters
-specifier|private
-name|SSLContextParameters
-name|sslContextParameters
-decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
@@ -637,6 +632,40 @@ DECL|field|multipartFilterRef
 specifier|private
 name|String
 name|multipartFilterRef
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|description
+operator|=
+literal|"To configure security using SSLContextParameters"
+argument_list|)
+DECL|field|sslContextParameters
+specifier|private
+name|SSLContextParameters
+name|sslContextParameters
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|description
+operator|=
+literal|"To configure security using SSLContextParameters"
+argument_list|)
+annotation|@
+name|Deprecated
+DECL|field|sslContextParametersRef
+specifier|private
+name|String
+name|sslContextParametersRef
 decl_stmt|;
 DECL|method|JettyHttpEndpoint (JettyHttpComponent component, String uri, URI httpURL)
 specifier|public
@@ -1389,6 +1418,37 @@ operator|.
 name|sslContextParameters
 operator|=
 name|sslContextParameters
+expr_stmt|;
+block|}
+annotation|@
+name|Deprecated
+DECL|method|getSslContextParametersRef ()
+specifier|public
+name|String
+name|getSslContextParametersRef
+parameter_list|()
+block|{
+return|return
+name|sslContextParametersRef
+return|;
+block|}
+comment|/**      * To configure security using SSLContextParameters      */
+annotation|@
+name|Deprecated
+DECL|method|setSslContextParametersRef (String sslContextParametersRef)
+specifier|public
+name|void
+name|setSslContextParametersRef
+parameter_list|(
+name|String
+name|sslContextParametersRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParametersRef
+operator|=
+name|sslContextParametersRef
 expr_stmt|;
 block|}
 DECL|method|getHttpClientMinThreads ()
