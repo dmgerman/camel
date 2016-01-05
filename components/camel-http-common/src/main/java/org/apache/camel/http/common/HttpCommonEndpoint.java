@@ -138,10 +138,6 @@ DECL|field|component
 name|HttpCommonComponent
 name|component
 decl_stmt|;
-DECL|field|urlRewrite
-name|UrlRewrite
-name|urlRewrite
-decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
@@ -484,6 +480,24 @@ name|String
 name|okStatusCodeRange
 init|=
 literal|"200-299"
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Refers to a custom org.apache.camel.component.http.UrlRewrite which allows you to rewrite urls when you bridge/proxy endpoints."
+operator|+
+literal|" See more details at http://camel.apache.org/urlrewrite.html"
+argument_list|)
+DECL|field|urlRewrite
+specifier|private
+name|UrlRewrite
+name|urlRewrite
 decl_stmt|;
 DECL|method|HttpCommonEndpoint ()
 specifier|public
