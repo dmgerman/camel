@@ -182,9 +182,9 @@ name|description
 operator|=
 literal|"To use a custom HttpBinding to control the mapping between Camel message and HttpClient."
 argument_list|)
-DECL|field|binding
+DECL|field|httpBinding
 name|HttpBinding
-name|binding
+name|httpBinding
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -619,27 +619,56 @@ return|;
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
+annotation|@
+name|Deprecated
 DECL|method|getBinding ()
 specifier|public
 name|HttpBinding
 name|getBinding
 parameter_list|()
 block|{
+return|return
+name|httpBinding
+return|;
+block|}
+annotation|@
+name|Deprecated
+DECL|method|setBinding (HttpBinding httpBinding)
+specifier|public
+name|void
+name|setBinding
+parameter_list|(
+name|HttpBinding
+name|httpBinding
+parameter_list|)
+block|{
+name|setHttpBinding
+argument_list|(
+name|httpBinding
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getHttpBinding ()
+specifier|public
+name|HttpBinding
+name|getHttpBinding
+parameter_list|()
+block|{
 if|if
 condition|(
-name|binding
+name|httpBinding
 operator|==
 literal|null
 condition|)
 block|{
 comment|// create a new binding and use the options from this endpoint
-name|binding
+name|httpBinding
 operator|=
 operator|new
 name|DefaultHttpBinding
 argument_list|()
 expr_stmt|;
-name|binding
+name|httpBinding
 operator|.
 name|setHeaderFilterStrategy
 argument_list|(
@@ -647,7 +676,7 @@ name|getHeaderFilterStrategy
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|binding
+name|httpBinding
 operator|.
 name|setTransferException
 argument_list|(
@@ -663,7 +692,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|binding
+name|httpBinding
 operator|.
 name|setAllowJavaSerializedObject
 argument_list|(
@@ -675,7 +704,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|binding
+name|httpBinding
 operator|.
 name|setEagerCheckContentAvailable
 argument_list|(
@@ -685,24 +714,24 @@ argument_list|)
 expr_stmt|;
 block|}
 return|return
-name|binding
+name|httpBinding
 return|;
 block|}
 comment|/**      * To use a custom HttpBinding to control the mapping between Camel message and HttpClient.      */
-DECL|method|setBinding (HttpBinding binding)
+DECL|method|setHttpBinding (HttpBinding httpBinding)
 specifier|public
 name|void
-name|setBinding
+name|setHttpBinding
 parameter_list|(
 name|HttpBinding
-name|binding
+name|httpBinding
 parameter_list|)
 block|{
 name|this
 operator|.
-name|binding
+name|httpBinding
 operator|=
-name|binding
+name|httpBinding
 expr_stmt|;
 block|}
 DECL|method|getPath ()
