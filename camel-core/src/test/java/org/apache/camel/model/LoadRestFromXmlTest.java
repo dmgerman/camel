@@ -212,10 +212,10 @@ return|return
 name|jndi
 return|;
 block|}
-DECL|method|testLoadRouteFromXml ()
+DECL|method|testLoadRestFromXml ()
 specifier|public
 name|void
-name|testLoadRouteFromXml
+name|testLoadRestFromXml
 parameter_list|()
 throws|throws
 name|Exception
