@@ -141,7 +141,7 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * Loads a collection of rest definitions from the given {@link java.io.InputStream}. 	 * 	 * @param is input stream with the rest(s) definition to add 	 * @throws Exception if the rest definitions could not be loaded for whatever reason 	 * @return the rest definitions 	 */
+comment|/**      * Loads a collection of rest definitions from the given {@link java.io.InputStream}.      *      * @param is input stream with the rest(s) definition to add      * @return the rest definitions      * @throws Exception if the rest definitions could not be loaded for whatever reason      */
 DECL|method|loadRestsDefinition (InputStream is)
 name|RestsDefinition
 name|loadRestsDefinition
