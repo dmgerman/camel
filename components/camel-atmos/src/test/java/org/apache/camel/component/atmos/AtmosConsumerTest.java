@@ -154,11 +154,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"atmos:foo/"
-operator|+
-name|get
-operator|+
-literal|"?remotePath=/path"
+literal|"atmos:foo/get?remotePath=/path"
 argument_list|)
 operator|.
 name|to
@@ -188,11 +184,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"atmos:foo/"
-operator|+
-name|get
-operator|+
-literal|"?remotePath=/path"
+literal|"atmos:foo/get?remotePath=/path"
 argument_list|,
 name|AtmosEndpoint
 operator|.

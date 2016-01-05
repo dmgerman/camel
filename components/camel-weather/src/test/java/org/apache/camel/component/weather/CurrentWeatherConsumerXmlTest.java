@@ -119,7 +119,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"weather:foo?mode=XML"
+literal|"weather:foo?mode=XML&appId=9162755b2efa555823cfe0451d7fff38"
 argument_list|)
 operator|.
 name|to
