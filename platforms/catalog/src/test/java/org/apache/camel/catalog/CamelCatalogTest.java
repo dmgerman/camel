@@ -3230,6 +3230,24 @@ name|isSuccess
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// 2 slash after component name
+name|result
+operator|=
+name|catalog
+operator|.
+name|validateEndpointProperties
+argument_list|(
+literal|"atmos://put?remotePath=/dummy.txt"
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|result
+operator|.
+name|isSuccess
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
