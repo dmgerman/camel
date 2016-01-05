@@ -281,11 +281,6 @@ argument_list|<
 name|FTPFile
 argument_list|>
 block|{
-DECL|field|ftpClient
-specifier|protected
-name|FTPClient
-name|ftpClient
-decl_stmt|;
 DECL|field|soTimeout
 specifier|protected
 name|int
@@ -364,6 +359,18 @@ argument_list|,
 name|Object
 argument_list|>
 name|ftpClientParameters
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|ftpClient
+specifier|protected
+name|FTPClient
+name|ftpClient
 decl_stmt|;
 DECL|method|FtpEndpoint ()
 specifier|public
@@ -1005,6 +1012,7 @@ return|return
 name|ftpClient
 return|;
 block|}
+comment|/**      * To use a custom instance of FTPClient      */
 DECL|method|setFtpClient (FTPClient ftpClient)
 specifier|public
 name|void
