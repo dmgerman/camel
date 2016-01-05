@@ -1154,7 +1154,7 @@ name|setSoTimeout
 argument_list|(
 name|endpoint
 operator|.
-name|responseTimeout
+name|receiveTimeout
 argument_list|)
 expr_stmt|;
 block|}

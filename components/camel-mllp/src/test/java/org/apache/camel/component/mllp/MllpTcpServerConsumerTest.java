@@ -384,7 +384,7 @@ argument_list|)
 expr_stmt|;
 name|fromF
 argument_list|(
-literal|"mllp://%s:%d?autoAck=true&connectTimeout=%d&responseTimeout=%d"
+literal|"mllp://%s:%d?autoAck=true&connectTimeout=%d&receiveTimeout=%d"
 argument_list|,
 name|mllpClient
 operator|.

@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a MLLP endpoint.  *  * NOTE: MLLP payloads are not logged unless the logging level is set to DEBUG or TRACE to avoid introducing PHI  * into the log files.  Logging of PHI can be globally disabled by setting the org.apache.camel.mllp.logPHI system  * property to false.  *<p/>  */
+comment|/**  * Represents a MLLP endpoint.  *<p/>  * NOTE: MLLP payloads are not logged unless the logging level is set to DEBUG or TRACE to avoid introducing PHI  * into the log files.  Logging of PHI can be globally disabled by setting the org.apache.camel.mllp.logPHI system  * property to false.  *<p/>  */
 end_comment
 
 begin_class
@@ -274,10 +274,6 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"0.0.0.0"
-argument_list|,
-name|description
-operator|=
-literal|"Hostname or IP for connection"
 argument_list|)
 DECL|field|hostname
 name|String
@@ -299,20 +295,12 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
-comment|// TODO:  Move URI Params to a MllpConfiguration class
-comment|// TODO: Move the description documentation to javadoc in the setter method
 annotation|@
 name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
 literal|"5"
-argument_list|,
-name|description
-operator|=
-literal|"TCP Server only - The maximum queue length for incoming connection indications (a request to connect) is set to the backlog parameter. If a "
-operator|+
-literal|"connection indication arrives when the queue is full, the connection is refused."
 argument_list|)
 DECL|field|backlog
 name|int
@@ -342,17 +330,13 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"30000"
-argument_list|,
-name|description
-operator|=
-literal|"TCP Server only - timeout value while waiting for a TCP connection (milliseconds)"
+literal|"60000"
 argument_list|)
 DECL|field|acceptTimeout
 name|int
 name|acceptTimeout
 init|=
-literal|30000
+literal|60000
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -360,10 +344,6 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"30000"
-argument_list|,
-name|description
-operator|=
-literal|"TCP Client only - timeout value while establishing for a TCP connection (milliseconds)"
 argument_list|)
 DECL|field|connectTimeout
 name|int
@@ -376,17 +356,13 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"5000"
-argument_list|,
-name|description
-operator|=
-literal|"Timeout value (milliseconds) used when reading a message from an external"
+literal|"10000"
 argument_list|)
-DECL|field|responseTimeout
+DECL|field|receiveTimeout
 name|int
-name|responseTimeout
+name|receiveTimeout
 init|=
-literal|5000
+literal|10000
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -394,10 +370,6 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
-argument_list|,
-name|description
-operator|=
-literal|"Enable/disable the SO_KEEPALIVE socket option."
 argument_list|)
 DECL|field|keepAlive
 name|boolean
@@ -411,10 +383,6 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
-argument_list|,
-name|description
-operator|=
-literal|"Enable/disable the TCP_NODELAY socket option."
 argument_list|)
 DECL|field|tcpNoDelay
 name|boolean
@@ -428,10 +396,6 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"false"
-argument_list|,
-name|description
-operator|=
-literal|"Enable/disable the SO_REUSEADDR socket option."
 argument_list|)
 DECL|field|reuseAddress
 name|boolean
@@ -440,9 +404,9 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|description
+name|defaultValue
 operator|=
-literal|"Sets the SO_RCVBUF option to the specified value"
+literal|"System Default"
 argument_list|)
 DECL|field|receiveBufferSize
 name|Integer
@@ -451,28 +415,13 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|description
+name|defaultValue
 operator|=
-literal|"Sets the SO_SNDBUF option to the specified value"
+literal|"System Default"
 argument_list|)
 DECL|field|sendBufferSize
 name|Integer
 name|sendBufferSize
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"0"
-argument_list|,
-name|description
-operator|=
-literal|"The amount of time a TCP connection can remain idle before it is closed"
-argument_list|)
-DECL|field|idleTimeout
-name|int
-name|idleTimeout
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -491,10 +440,6 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
-argument_list|,
-name|description
-operator|=
-literal|"MLLP Consumers only - Automatically generate and send an MLLP Acknowledgement"
 argument_list|)
 DECL|field|autoAck
 name|boolean
@@ -505,9 +450,9 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|description
+name|defaultValue
 operator|=
-literal|"Set the CamelCharsetName property on the exchange"
+literal|"System Default"
 argument_list|)
 DECL|field|charsetName
 name|String
@@ -531,116 +476,6 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
-comment|// TODO: this logic should be in component class
-comment|// TODO: all the options in the endpoint should be getter/setter so you can configure them as plain Java
-comment|// mllp://hostname:port
-name|String
-name|hostPort
-decl_stmt|;
-comment|// look for options
-name|int
-name|optionsStartIndex
-init|=
-name|uri
-operator|.
-name|indexOf
-argument_list|(
-literal|'?'
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|-
-literal|1
-operator|==
-name|optionsStartIndex
-condition|)
-block|{
-comment|// No options - just get the host/port stuff
-name|hostPort
-operator|=
-name|uri
-operator|.
-name|substring
-argument_list|(
-literal|7
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|hostPort
-operator|=
-name|uri
-operator|.
-name|substring
-argument_list|(
-literal|7
-argument_list|,
-name|optionsStartIndex
-argument_list|)
-expr_stmt|;
-block|}
-comment|// Make sure it has a host - may just be a port
-name|int
-name|colonIndex
-init|=
-name|hostPort
-operator|.
-name|indexOf
-argument_list|(
-literal|':'
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-operator|-
-literal|1
-operator|!=
-name|colonIndex
-condition|)
-block|{
-name|hostname
-operator|=
-name|hostPort
-operator|.
-name|substring
-argument_list|(
-literal|0
-argument_list|,
-name|colonIndex
-argument_list|)
-expr_stmt|;
-name|port
-operator|=
-name|Integer
-operator|.
-name|parseInt
-argument_list|(
-name|hostPort
-operator|.
-name|substring
-argument_list|(
-name|colonIndex
-operator|+
-literal|1
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// No host specified - leave the default host and set the port
-name|port
-operator|=
-name|Integer
-operator|.
-name|parseInt
-argument_list|(
-name|hostPort
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -848,6 +683,7 @@ return|return
 name|charsetName
 return|;
 block|}
+comment|/**      * Set the CamelCharsetName property on the exchange      *      * @param charsetName      */
 DECL|method|setCharsetName (String charsetName)
 specifier|public
 name|void
@@ -874,6 +710,23 @@ return|return
 name|hostname
 return|;
 block|}
+comment|/**      * Hostname or IP for connection for the TCP connection      *      * @param hostname Hostname or IP      */
+DECL|method|setHostname (String hostname)
+specifier|public
+name|void
+name|setHostname
+parameter_list|(
+name|String
+name|hostname
+parameter_list|)
+block|{
+name|this
+operator|.
+name|hostname
+operator|=
+name|hostname
+expr_stmt|;
+block|}
 DECL|method|getPort ()
 specifier|public
 name|int
@@ -884,7 +737,23 @@ return|return
 name|port
 return|;
 block|}
-comment|/**      * The maximum queue length for incoming connection indications (a request to connect) is set to the backlog parameter. If a connection indication arrives when the queue is full, the connection      * is refused.      */
+comment|/**      * Port number for the TCP connection      *      * @param port TCP port      */
+DECL|method|setPort (int port)
+specifier|public
+name|void
+name|setPort
+parameter_list|(
+name|int
+name|port
+parameter_list|)
+block|{
+name|this
+operator|.
+name|port
+operator|=
+name|port
+expr_stmt|;
+block|}
 DECL|method|getBacklog ()
 specifier|public
 name|int
@@ -922,6 +791,7 @@ return|return
 name|acceptTimeout
 return|;
 block|}
+comment|/**      * Timeout value while waiting for a TCP connection      *<p/>      * TCP Server Only      *      * @param acceptTimeout timeout in milliseconds      */
 DECL|method|setAcceptTimeout (int acceptTimeout)
 specifier|public
 name|void
@@ -948,6 +818,7 @@ return|return
 name|connectTimeout
 return|;
 block|}
+comment|/**      * Timeout value for establishing for a TCP connection      *<p/>      * TCP Client only      *      * @param connectTimeout timeout in milliseconds      */
 DECL|method|setConnectTimeout (int connectTimeout)
 specifier|public
 name|void
@@ -964,30 +835,31 @@ operator|=
 name|connectTimeout
 expr_stmt|;
 block|}
-DECL|method|getResponseTimeout ()
+DECL|method|getReceiveTimeout ()
 specifier|public
 name|int
-name|getResponseTimeout
+name|getReceiveTimeout
 parameter_list|()
 block|{
 return|return
-name|responseTimeout
+name|receiveTimeout
 return|;
 block|}
-DECL|method|setResponseTimeout (int responseTimeout)
+comment|/**      * The SO_TIMEOUT value used when waiting for the start of an MLLP frame      *      * @param receiveTimeout timeout in milliseconds      */
+DECL|method|setReceiveTimeout (int receiveTimeout)
 specifier|public
 name|void
-name|setResponseTimeout
+name|setReceiveTimeout
 parameter_list|(
 name|int
-name|responseTimeout
+name|receiveTimeout
 parameter_list|)
 block|{
 name|this
 operator|.
-name|responseTimeout
+name|receiveTimeout
 operator|=
-name|responseTimeout
+name|receiveTimeout
 expr_stmt|;
 block|}
 DECL|method|isKeepAlive ()
@@ -1000,6 +872,7 @@ return|return
 name|keepAlive
 return|;
 block|}
+comment|/**      * Enable/disable the SO_KEEPALIVE socket option.      *      * @param keepAlive enable SO_KEEPALIVE when true; otherwise disable SO_KEEPALIVE      */
 DECL|method|setKeepAlive (boolean keepAlive)
 specifier|public
 name|void
@@ -1026,6 +899,7 @@ return|return
 name|tcpNoDelay
 return|;
 block|}
+comment|/**      * Enable/disable the TCP_NODELAY socket option.      *      * @param tcpNoDelay enable TCP_NODELAY when true; otherwise disable TCP_NODELAY      */
 DECL|method|setTcpNoDelay (boolean tcpNoDelay)
 specifier|public
 name|void
@@ -1052,6 +926,7 @@ return|return
 name|reuseAddress
 return|;
 block|}
+comment|/**      * Enable/disable the SO_REUSEADDR socket option.      *      * @param reuseAddress enable SO_REUSEADDR when true; otherwise disable SO_REUSEADDR      */
 DECL|method|setReuseAddress (boolean reuseAddress)
 specifier|public
 name|void
@@ -1078,12 +953,13 @@ return|return
 name|receiveBufferSize
 return|;
 block|}
-DECL|method|setReceiveBufferSize (int receiveBufferSize)
+comment|/**      * Sets the SO_RCVBUF option to the specified value      *      * @param receiveBufferSize the SO_RCVBUF option value.  If null, the system default is used      */
+DECL|method|setReceiveBufferSize (Integer receiveBufferSize)
 specifier|public
 name|void
 name|setReceiveBufferSize
 parameter_list|(
-name|int
+name|Integer
 name|receiveBufferSize
 parameter_list|)
 block|{
@@ -1104,12 +980,13 @@ return|return
 name|sendBufferSize
 return|;
 block|}
-DECL|method|setSendBufferSize (int sendBufferSize)
+comment|/**      * Sets the SO_SNDBUF option to the specified value      *      * @param sendBufferSize the SO_SNDBUF option value.  If null, the system default is used      */
+DECL|method|setSendBufferSize (Integer sendBufferSize)
 specifier|public
 name|void
 name|setSendBufferSize
 parameter_list|(
-name|int
+name|Integer
 name|sendBufferSize
 parameter_list|)
 block|{
@@ -1130,6 +1007,7 @@ return|return
 name|autoAck
 return|;
 block|}
+comment|/**      * Enable/Disable the automatic generation of a MLLP Acknowledgement      *      * MLLP Consumers only      *      * @param autoAck enabled if true, otherwise disabled      */
 DECL|method|setAutoAck (boolean autoAck)
 specifier|public
 name|void

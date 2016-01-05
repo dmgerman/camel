@@ -475,7 +475,7 @@ argument_list|)
 operator|.
 name|toF
 argument_list|(
-literal|"mllp://%s:%d?connectTimeout=%d&responseTimeout=%d"
+literal|"mllp://%s:%d?connectTimeout=%d&receiveTimeout=%d"
 argument_list|,
 literal|"0.0.0.0"
 argument_list|,
