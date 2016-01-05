@@ -3210,6 +3210,26 @@ literal|"foo"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// data format
+name|result
+operator|=
+name|catalog
+operator|.
+name|validateEndpointProperties
+argument_list|(
+literal|"dataformat:string:marshal?charset=utf-8"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|result
+operator|.
+name|isSuccess
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
