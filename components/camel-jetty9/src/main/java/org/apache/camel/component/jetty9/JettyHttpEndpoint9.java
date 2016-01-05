@@ -165,6 +165,10 @@ argument_list|,
 name|label
 operator|=
 literal|"http"
+argument_list|,
+name|lenientProperties
+operator|=
+literal|true
 argument_list|)
 DECL|class|JettyHttpEndpoint9
 specifier|public
