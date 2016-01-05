@@ -389,31 +389,9 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-comment|// TODO we need to remove the Ref in Camel 3.0
 name|HttpBinding
 name|binding
 init|=
-name|resolveAndRemoveReferenceParameter
-argument_list|(
-name|parameters
-argument_list|,
-literal|"httpBindingRef"
-argument_list|,
-name|HttpBinding
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|binding
-operator|==
-literal|null
-condition|)
-block|{
-comment|// just check the httpBinding parameter
-name|binding
-operator|=
 name|resolveAndRemoveReferenceParameter
 argument_list|(
 name|parameters
@@ -424,8 +402,7 @@ name|HttpBinding
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 name|Boolean
 name|matchOnUriPrefix
 init|=

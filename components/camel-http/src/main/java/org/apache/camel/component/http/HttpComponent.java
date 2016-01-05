@@ -386,31 +386,9 @@ name|authMethods
 parameter_list|)
 block|{
 comment|// prefer to use endpoint configured over component configured
-comment|// TODO cmueller: remove the "httpClientConfigurerRef" look up in Camel 3.0
 name|HttpClientConfigurer
 name|configurer
 init|=
-name|resolveAndRemoveReferenceParameter
-argument_list|(
-name|parameters
-argument_list|,
-literal|"httpClientConfigurerRef"
-argument_list|,
-name|HttpClientConfigurer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|configurer
-operator|==
-literal|null
-condition|)
-block|{
-comment|// try without ref
-name|configurer
-operator|=
 name|resolveAndRemoveReferenceParameter
 argument_list|(
 name|parameters
@@ -421,8 +399,7 @@ name|HttpClientConfigurer
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 if|if
 condition|(
 name|configurer
@@ -1247,31 +1224,9 @@ name|parameters
 argument_list|)
 decl_stmt|;
 comment|// must extract well known parameters before we create the endpoint
-comment|// TODO cmueller: remove the "httpBindingRef" look up in Camel 3.0
 name|HttpBinding
 name|binding
 init|=
-name|resolveAndRemoveReferenceParameter
-argument_list|(
-name|parameters
-argument_list|,
-literal|"httpBindingRef"
-argument_list|,
-name|HttpBinding
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|binding
-operator|==
-literal|null
-condition|)
-block|{
-comment|// try without ref
-name|binding
-operator|=
 name|resolveAndRemoveReferenceParameter
 argument_list|(
 name|parameters
@@ -1282,8 +1237,7 @@ name|HttpBinding
 operator|.
 name|class
 argument_list|)
-expr_stmt|;
-block|}
+decl_stmt|;
 name|String
 name|proxyHost
 init|=

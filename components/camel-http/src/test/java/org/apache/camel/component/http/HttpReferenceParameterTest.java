@@ -121,7 +121,7 @@ specifier|final
 name|String
 name|TEST_URI_1
 init|=
-literal|"http://localhost:8080?httpBindingRef=#customBinding&httpClientConfigurerRef=#customConfigurer"
+literal|"http://localhost:8080?httpBinding=#customBinding&httpClientConfigurer=#customConfigurer"
 decl_stmt|;
 DECL|field|TEST_URI_2
 specifier|private
@@ -130,7 +130,7 @@ specifier|final
 name|String
 name|TEST_URI_2
 init|=
-literal|"http://localhost:8081?httpBindingRef=customBinding&httpClientConfigurerRef=customConfigurer"
+literal|"http://localhost:8081?httpBinding=customBinding&httpClientConfigurer=customConfigurer"
 decl_stmt|;
 DECL|field|endpoint1
 specifier|private
@@ -216,10 +216,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testHttpBindingRef ()
+DECL|method|testHttpBinding ()
 specifier|public
 name|void
-name|testHttpBindingRef
+name|testHttpBinding
 parameter_list|()
 block|{
 name|assertSame

@@ -308,7 +308,7 @@ argument_list|)
 operator|.
 name|endpointProperty
 argument_list|(
-literal|"httpBindingRef"
+literal|"httpBinding"
 argument_list|,
 literal|"#myBinding"
 argument_list|)
