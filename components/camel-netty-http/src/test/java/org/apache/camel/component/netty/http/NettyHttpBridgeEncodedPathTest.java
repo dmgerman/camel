@@ -242,7 +242,7 @@ block|}
 decl_stmt|;
 name|from
 argument_list|(
-literal|"netty-http://http://localhost:"
+literal|"netty-http:http://localhost:"
 operator|+
 name|port2
 operator|+
@@ -256,7 +256,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"netty-http://http://localhost:"
+literal|"netty-http:http://localhost:"
 operator|+
 name|port1
 operator|+
@@ -265,7 +265,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"netty-http://http://localhost:"
+literal|"netty-http:http://localhost:"
 operator|+
 name|port1
 operator|+
