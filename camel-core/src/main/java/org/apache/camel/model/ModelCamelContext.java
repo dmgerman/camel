@@ -84,6 +84,22 @@ name|RestDefinition
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|rest
+operator|.
+name|RestsDefinition
+import|;
+end_import
+
 begin_comment
 comment|/**  * Model level interface for the {@link CamelContext}  */
 end_comment
@@ -118,6 +134,17 @@ comment|/**      * Loads a collection of route definitions from the given {@link
 DECL|method|loadRoutesDefinition (InputStream is)
 name|RoutesDefinition
 name|loadRoutesDefinition
+parameter_list|(
+name|InputStream
+name|is
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Loads a collection of rest definitions from the given {@link java.io.InputStream}. 	 * 	 * @param is input stream with the rest(s) definition to add 	 * @throws Exception if the rest definitions could not be loaded for whatever reason 	 * @return the rest definitions 	 */
+DECL|method|loadRestsDefinition (InputStream is)
+name|RestsDefinition
+name|loadRestsDefinition
 parameter_list|(
 name|InputStream
 name|is
