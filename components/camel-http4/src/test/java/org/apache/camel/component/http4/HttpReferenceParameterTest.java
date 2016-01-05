@@ -160,7 +160,7 @@ specifier|final
 name|String
 name|TEST_URI_2
 init|=
-literal|"http4://localhost:8081?httpBinding=customBinding&httpClientConfigurer=customConfigurer&httpContext=customContext"
+literal|"http4://localhost:8081?httpBinding=#customBinding&httpClientConfigurer=#customConfigurer&httpContext=#customContext"
 decl_stmt|;
 DECL|field|endpoint1
 specifier|private
