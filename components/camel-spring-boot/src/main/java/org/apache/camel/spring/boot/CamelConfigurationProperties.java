@@ -94,6 +94,14 @@ name|xmlRoutes
 init|=
 literal|"classpath:camel/*.xml"
 decl_stmt|;
+comment|/**      * Directory to scan for adding additional XML rests.      * You can turn this off by setting the value to<tt>false</tt>      */
+DECL|field|xmlRests
+specifier|private
+name|String
+name|xmlRests
+init|=
+literal|"classpath:camel-rest/*.xml"
+decl_stmt|;
 comment|// Getters& setters
 DECL|method|isJmxEnabled ()
 specifier|public
@@ -249,6 +257,32 @@ operator|.
 name|xmlRoutes
 operator|=
 name|xmlRoutes
+expr_stmt|;
+block|}
+DECL|method|getXmlRests ()
+specifier|public
+name|String
+name|getXmlRests
+parameter_list|()
+block|{
+return|return
+name|xmlRests
+return|;
+block|}
+DECL|method|setXmlRests (String xmlRests)
+specifier|public
+name|void
+name|setXmlRests
+parameter_list|(
+name|String
+name|xmlRests
+parameter_list|)
+block|{
+name|this
+operator|.
+name|xmlRests
+operator|=
+name|xmlRests
 expr_stmt|;
 block|}
 block|}
