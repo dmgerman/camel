@@ -4085,6 +4085,29 @@ name|String
 name|uri
 parameter_list|)
 block|{
+return|return
+name|validateEndpointProperties
+argument_list|(
+name|uri
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|validateEndpointProperties (String uri, boolean ignoreLenientProperties)
+specifier|public
+name|EndpointValidationResult
+name|validateEndpointProperties
+parameter_list|(
+name|String
+name|uri
+parameter_list|,
+name|boolean
+name|ignoreLenientProperties
+parameter_list|)
+block|{
 name|EndpointValidationResult
 name|result
 init|=
@@ -4176,8 +4199,12 @@ argument_list|,
 literal|false
 argument_list|)
 expr_stmt|;
+comment|// only enable lenient properties if we should not ignore
 name|lenientProperties
 operator|=
+operator|!
+name|ignoreLenientProperties
+operator|&&
 name|isComponentLenientProperties
 argument_list|(
 name|rows

@@ -3159,7 +3159,7 @@ name|isSuccess
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// lenient
+comment|// lenient on
 name|result
 operator|=
 name|catalog
@@ -3175,6 +3175,39 @@ name|result
 operator|.
 name|isSuccess
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// lenient off
+name|result
+operator|=
+name|catalog
+operator|.
+name|validateEndpointProperties
+argument_list|(
+literal|"dataformat:string:marshal?foo=bar"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertFalse
+argument_list|(
+name|result
+operator|.
+name|isSuccess
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|result
+operator|.
+name|getUnknown
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"foo"
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
