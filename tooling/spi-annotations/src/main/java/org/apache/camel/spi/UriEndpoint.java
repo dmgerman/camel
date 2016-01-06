@@ -124,6 +124,14 @@ name|String
 name|syntax
 parameter_list|()
 function_decl|;
+comment|/**      * If the endpoint supports specifying username and/or password in the UserInfo part of the URI, then the      * alternative syntax can represent this such as:      *<ul>      *<li>ftp:userName:password@host:port/directoryName</li>      *<li>ssh:username:password@host:port</li>      *</ul>      */
+DECL|method|alternativeSyntax ()
+name|String
+name|alternativeSyntax
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 comment|/**      * Represents the consumer class which is injected and created by consumers      */
 DECL|method|consumerClass ()
 DECL|field|Object.class

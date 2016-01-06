@@ -42,6 +42,11 @@ specifier|private
 name|String
 name|syntax
 decl_stmt|;
+DECL|field|alternativeSyntax
+specifier|private
+name|String
+name|alternativeSyntax
+decl_stmt|;
 DECL|field|javaType
 specifier|private
 name|String
@@ -172,6 +177,32 @@ operator|.
 name|syntax
 operator|=
 name|syntax
+expr_stmt|;
+block|}
+DECL|method|getAlternativeSyntax ()
+specifier|public
+name|String
+name|getAlternativeSyntax
+parameter_list|()
+block|{
+return|return
+name|alternativeSyntax
+return|;
+block|}
+DECL|method|setAlternativeSyntax (String alternativeSyntax)
+specifier|public
+name|void
+name|setAlternativeSyntax
+parameter_list|(
+name|String
+name|alternativeSyntax
+parameter_list|)
+block|{
+name|this
+operator|.
+name|alternativeSyntax
+operator|=
+name|alternativeSyntax
 expr_stmt|;
 block|}
 DECL|method|getJavaType ()

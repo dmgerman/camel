@@ -150,6 +150,10 @@ name|syntax
 operator|=
 literal|"ssh:host:port"
 argument_list|,
+name|alternativeSyntax
+operator|=
+literal|"ssh:username:password@host:port"
+argument_list|,
 name|consumerClass
 operator|=
 name|SshConsumer

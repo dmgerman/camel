@@ -256,6 +256,10 @@ name|syntax
 operator|=
 literal|"ftp:host:port/directoryName"
 argument_list|,
+name|alternativeSyntax
+operator|=
+literal|"ftp:username:password@host:port/directoryName"
+argument_list|,
 name|consumerClass
 operator|=
 name|FtpConsumer
