@@ -299,15 +299,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|oids
-specifier|private
-name|OIDList
-name|oids
-init|=
-operator|new
-name|OIDList
-argument_list|()
-decl_stmt|;
 DECL|field|address
 specifier|private
 specifier|transient
@@ -538,6 +529,22 @@ DECL|field|snmpContextEngineId
 specifier|private
 name|String
 name|snmpContextEngineId
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.String"
+argument_list|)
+DECL|field|oids
+specifier|private
+name|OIDList
+name|oids
+init|=
+operator|new
+name|OIDList
+argument_list|()
 decl_stmt|;
 comment|/**      * creates a snmp endpoint      *      * @param uri       the endpoint uri      * @param component the component      */
 DECL|method|SnmpEndpoint (String uri, SnmpComponent component)
