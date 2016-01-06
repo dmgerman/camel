@@ -272,6 +272,13 @@ specifier|private
 name|XPathFilterParameterSpec
 name|parentXpath
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"sign"
+argument_list|)
 DECL|field|xpathsToIdAttributes
 specifier|private
 name|List

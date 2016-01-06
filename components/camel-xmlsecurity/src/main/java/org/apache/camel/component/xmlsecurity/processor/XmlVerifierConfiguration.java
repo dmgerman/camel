@@ -266,6 +266,10 @@ argument_list|(
 name|label
 operator|=
 literal|"verify"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.String"
 argument_list|)
 DECL|field|outputNodeSearch
 specifier|private
@@ -896,6 +900,33 @@ operator|.
 name|secureValidation
 operator|=
 name|secureValidation
+expr_stmt|;
+block|}
+DECL|method|getValidationFailedHandlerName ()
+specifier|public
+name|String
+name|getValidationFailedHandlerName
+parameter_list|()
+block|{
+return|return
+name|validationFailedHandlerName
+return|;
+block|}
+comment|/**      * Name of handler to      * @param validationFailedHandlerName      */
+DECL|method|setValidationFailedHandlerName (String validationFailedHandlerName)
+specifier|public
+name|void
+name|setValidationFailedHandlerName
+parameter_list|(
+name|String
+name|validationFailedHandlerName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|validationFailedHandlerName
+operator|=
+name|validationFailedHandlerName
 expr_stmt|;
 block|}
 block|}

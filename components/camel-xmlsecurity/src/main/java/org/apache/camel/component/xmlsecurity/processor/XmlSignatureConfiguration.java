@@ -170,11 +170,6 @@ specifier|private
 name|CamelContext
 name|context
 decl_stmt|;
-DECL|field|uriDereferencer
-specifier|private
-name|URIDereferencer
-name|uriDereferencer
-decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
@@ -287,6 +282,18 @@ DECL|field|outputXmlEncoding
 specifier|private
 name|String
 name|outputXmlEncoding
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|uriDereferencer
+specifier|private
+name|URIDereferencer
+name|uriDereferencer
 decl_stmt|;
 DECL|method|XmlSignatureConfiguration ()
 specifier|public
