@@ -30,6 +30,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|management
@@ -616,9 +626,24 @@ init|=
 literal|10
 decl_stmt|;
 comment|/**      * URI Property: properties for the object name. These values will be used if the objectName param is not set      */
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|prefix
+operator|=
+literal|"key."
+argument_list|,
+name|multiValue
+operator|=
+literal|true
+argument_list|)
 DECL|field|objectProperties
 specifier|private
-name|Hashtable
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1132,7 +1157,7 @@ expr_stmt|;
 block|}
 DECL|method|getObjectProperties ()
 specifier|public
-name|Hashtable
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -1146,18 +1171,18 @@ name|objectProperties
 return|;
 block|}
 comment|/**      * Setter for the ObjectProperties is either called by reflection when      * processing the URI or manually by the component.      *<p/>      * If the URI contained a value with a reference like "objectProperties=#myHashtable"      * then the Hashtable will be set in place.      *<p/>      * If there are extra properties that begin with "key." then the component will      * create a Hashtable with these values after removing the "key." prefix.      */
-DECL|method|setObjectProperties (Hashtable<String, String> aObjectProperties)
+DECL|method|setObjectProperties (Map<String, String> objectProperties)
 specifier|public
 name|void
 name|setObjectProperties
 parameter_list|(
-name|Hashtable
+name|Map
 argument_list|<
 name|String
 argument_list|,
 name|String
 argument_list|>
-name|aObjectProperties
+name|objectProperties
 parameter_list|)
 block|{
 if|if
@@ -1176,9 +1201,11 @@ literal|"Cannot set both objectName and objectProperties"
 argument_list|)
 throw|;
 block|}
+name|this
+operator|.
 name|objectProperties
 operator|=
-name|aObjectProperties
+name|objectProperties
 expr_stmt|;
 block|}
 DECL|method|getJMXObjectName ()
@@ -1705,6 +1732,31 @@ expr_stmt|;
 block|}
 else|else
 block|{
+name|Hashtable
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|ht
+init|=
+operator|new
+name|Hashtable
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|ht
+operator|.
+name|putAll
+argument_list|(
+name|getObjectProperties
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|objectName
 operator|=
 operator|new
@@ -1713,8 +1765,7 @@ argument_list|(
 name|getObjectDomain
 argument_list|()
 argument_list|,
-name|getObjectProperties
-argument_list|()
+name|ht
 argument_list|)
 expr_stmt|;
 block|}

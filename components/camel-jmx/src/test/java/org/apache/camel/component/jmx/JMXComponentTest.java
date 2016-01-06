@@ -24,7 +24,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Hashtable
+name|Map
 import|;
 end_import
 
@@ -171,7 +171,7 @@ argument_list|(
 name|ep
 argument_list|)
 expr_stmt|;
-name|Hashtable
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -266,7 +266,7 @@ name|getObjectName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Hashtable
+name|Map
 argument_list|<
 name|String
 argument_list|,
