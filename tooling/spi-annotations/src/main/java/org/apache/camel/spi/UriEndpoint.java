@@ -187,6 +187,14 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+comment|/**      * To exclude one or more properties in this endpoint.      *<p/>      * This is used when a Camel component extend another component, and then may need to not use some of the properties from      * the parent component. Multiple properties can be separated by comma.      */
+DECL|method|excludeProperties ()
+name|String
+name|excludeProperties
+parameter_list|()
+default|default
+literal|""
+function_decl|;
 block|}
 end_annotation_defn
 

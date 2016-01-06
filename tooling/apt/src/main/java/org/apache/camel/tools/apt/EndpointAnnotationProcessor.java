@@ -1274,6 +1274,11 @@ argument_list|,
 name|classElement
 argument_list|,
 literal|""
+argument_list|,
+name|uriEndpoint
+operator|.
+name|excludeProperties
+argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// This code is not my fault, it seems to honestly be the hacky way to find a class name in APT :)
@@ -1382,6 +1387,11 @@ argument_list|,
 name|consumerElement
 argument_list|,
 name|consumerPrefix
+argument_list|,
+name|uriEndpoint
+operator|.
+name|excludeProperties
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|found
@@ -1565,6 +1575,11 @@ argument_list|,
 name|classElement
 argument_list|,
 literal|""
+argument_list|,
+name|uriEndpoint
+operator|.
+name|excludeProperties
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|String
@@ -2882,7 +2897,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-DECL|method|writeHtmlDocumentationAndFieldInjections (PrintWriter writer, RoundEnvironment roundEnv, ComponentModel componentModel, TypeElement classElement, String prefix)
+DECL|method|writeHtmlDocumentationAndFieldInjections (PrintWriter writer, RoundEnvironment roundEnv, ComponentModel componentModel, TypeElement classElement, String prefix, String excludeProperties)
 specifier|protected
 name|void
 name|writeHtmlDocumentationAndFieldInjections
@@ -2901,6 +2916,9 @@ name|classElement
 parameter_list|,
 name|String
 name|prefix
+parameter_list|,
+name|String
+name|excludeProperties
 parameter_list|)
 block|{
 name|String
@@ -2997,6 +3015,8 @@ argument_list|,
 name|classElement
 argument_list|,
 name|prefix
+argument_list|,
+name|excludeProperties
 argument_list|)
 expr_stmt|;
 comment|// sort the endpoint options in the standard order we prefer
@@ -4544,7 +4564,7 @@ break|break;
 block|}
 block|}
 block|}
-DECL|method|findClassProperties (PrintWriter writer, RoundEnvironment roundEnv, ComponentModel componentModel, Set<EndpointPath> endpointPaths, Set<EndpointOption> endpointOptions, TypeElement classElement, String prefix)
+DECL|method|findClassProperties (PrintWriter writer, RoundEnvironment roundEnv, ComponentModel componentModel, Set<EndpointPath> endpointPaths, Set<EndpointOption> endpointOptions, TypeElement classElement, String prefix, String excludeProperties)
 specifier|protected
 name|void
 name|findClassProperties
@@ -4575,6 +4595,9 @@ name|classElement
 parameter_list|,
 name|String
 name|prefix
+parameter_list|,
+name|String
+name|excludeProperties
 parameter_list|)
 block|{
 name|Elements
@@ -4697,6 +4720,19 @@ name|prefix
 operator|+
 name|name
 expr_stmt|;
+comment|// should we exclude the name?
+if|if
+condition|(
+name|excludeProperty
+argument_list|(
+name|excludeProperties
+argument_list|,
+name|name
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 name|String
 name|defaultValue
 init|=
@@ -5130,6 +5166,19 @@ name|prefix
 operator|+
 name|name
 expr_stmt|;
+comment|// should we exclude the name?
+if|if
+condition|(
+name|excludeProperty
+argument_list|(
+name|excludeProperties
+argument_list|,
+name|name
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 name|String
 name|paramOptionalPrefix
 init|=
@@ -5333,6 +5382,8 @@ argument_list|,
 name|fieldTypeElement
 argument_list|,
 name|nestedPrefix
+argument_list|,
+name|excludeProperties
 argument_list|)
 expr_stmt|;
 block|}
@@ -5683,8 +5734,60 @@ break|break;
 block|}
 block|}
 block|}
+DECL|method|excludeProperty (String excludeProperties, String name)
+specifier|private
+specifier|static
+name|boolean
+name|excludeProperty
+parameter_list|(
+name|String
+name|excludeProperties
+parameter_list|,
+name|String
+name|name
+parameter_list|)
+block|{
+name|String
+index|[]
+name|excludes
+init|=
+name|excludeProperties
+operator|.
+name|split
+argument_list|(
+literal|","
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|String
+name|exclude
+range|:
+name|excludes
+control|)
+block|{
+if|if
+condition|(
+name|name
+operator|.
+name|equals
+argument_list|(
+name|exclude
+argument_list|)
+condition|)
+block|{
+return|return
+literal|true
+return|;
+block|}
+block|}
+return|return
+literal|false
+return|;
+block|}
 DECL|method|parseAsMap (String data)
 specifier|protected
+specifier|static
 name|Map
 argument_list|<
 name|String

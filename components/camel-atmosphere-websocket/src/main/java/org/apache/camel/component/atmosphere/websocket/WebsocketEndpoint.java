@@ -181,6 +181,10 @@ argument_list|,
 name|label
 operator|=
 literal|"websocket"
+argument_list|,
+name|excludeProperties
+operator|=
+literal|"httpUri,contextPath"
 argument_list|)
 DECL|class|WebsocketEndpoint
 specifier|public
