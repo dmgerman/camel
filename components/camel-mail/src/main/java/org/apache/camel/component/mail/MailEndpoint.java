@@ -178,6 +178,10 @@ name|syntax
 operator|=
 literal|"imap:host:port"
 argument_list|,
+name|alternativeSyntax
+operator|=
+literal|"imap:username:password@host:port"
+argument_list|,
 name|consumerClass
 operator|=
 name|MailConsumer

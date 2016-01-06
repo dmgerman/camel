@@ -220,6 +220,10 @@ name|syntax
 operator|=
 literal|"jcr:host/base"
 argument_list|,
+name|alternativeSyntax
+operator|=
+literal|"jcr:username:password@host/base"
+argument_list|,
 name|consumerClass
 operator|=
 name|JcrConsumer

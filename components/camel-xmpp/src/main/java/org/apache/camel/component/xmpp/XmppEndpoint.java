@@ -396,6 +396,10 @@ name|syntax
 operator|=
 literal|"xmpp:host:port/participant"
 argument_list|,
+name|alternativeSyntax
+operator|=
+literal|"xmpp:user:password@host:port/participant"
+argument_list|,
 name|consumerClass
 operator|=
 name|XmppConsumer

@@ -220,6 +220,10 @@ name|syntax
 operator|=
 literal|"irc:hostname:port"
 argument_list|,
+name|alternativeSyntax
+operator|=
+literal|"irc:username:password@hostname:port"
+argument_list|,
 name|consumerClass
 operator|=
 name|IrcConsumer
