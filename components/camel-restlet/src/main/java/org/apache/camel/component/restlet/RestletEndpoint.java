@@ -444,6 +444,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"GET"
+argument_list|,
+name|enums
+operator|=
+literal|"ALL,CONNECT,DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT,TRACE"
 argument_list|)
 DECL|field|restletMethod
 specifier|private
@@ -460,6 +464,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.String"
 argument_list|)
 DECL|field|restletMethods
 specifier|private
@@ -1036,7 +1044,7 @@ operator|.
 name|InOut
 return|;
 block|}
-comment|/**      * Specify one or more methods separated by commas (e.g. restletMethods=post,put) to be serviced by a restlet consumer endpoint.      * If both restletMethod and restletMethods options are specified, the restletMethod setting is ignored.      */
+comment|/**      * Specify one or more methods separated by commas (e.g. restletMethods=post,put) to be serviced by a restlet consumer endpoint.      * If both restletMethod and restletMethods options are specified, the restletMethod setting is ignored.      * The possible methods are: ALL,CONNECT,DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT,TRACE      */
 DECL|method|setRestletMethods (Method[] restletMethods)
 specifier|public
 name|void
