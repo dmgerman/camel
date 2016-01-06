@@ -228,7 +228,9 @@ name|parser
 init|=
 operator|new
 name|TemplateStoredProcedureFactory
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 annotation|@
 name|Test

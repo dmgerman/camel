@@ -90,6 +90,20 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jdbc
+operator|.
+name|core
+operator|.
+name|JdbcTemplate
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|sql
@@ -138,14 +152,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-DECL|field|templateStoredProcedureFactory
-name|TemplateStoredProcedureFactory
-name|templateStoredProcedureFactory
-init|=
-operator|new
-name|TemplateStoredProcedureFactory
-argument_list|()
-decl_stmt|;
 DECL|method|SqlStoredComponent (CamelContext context, Class<? extends Endpoint> endpointClass)
 specifier|public
 name|SqlStoredComponent
@@ -300,9 +306,11 @@ return|return
 operator|new
 name|SqlStoredEndpoint
 argument_list|(
-name|templateStoredProcedureFactory
-argument_list|,
+operator|new
+name|JdbcTemplate
+argument_list|(
 name|target
+argument_list|)
 argument_list|,
 name|remaining
 argument_list|)

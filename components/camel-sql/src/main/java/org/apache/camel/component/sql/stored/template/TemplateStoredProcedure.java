@@ -106,6 +106,20 @@ name|jdbc
 operator|.
 name|core
 operator|.
+name|JdbcTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|jdbc
+operator|.
+name|core
+operator|.
 name|SqlOutParameter
 import|;
 end_import
@@ -180,12 +194,12 @@ DECL|field|template
 name|Template
 name|template
 decl_stmt|;
-DECL|method|TemplateStoredProcedure (DataSource dataSource, Template template)
+DECL|method|TemplateStoredProcedure (JdbcTemplate jdbcTemplate, Template template)
 specifier|public
 name|TemplateStoredProcedure
 parameter_list|(
-name|DataSource
-name|dataSource
+name|JdbcTemplate
+name|jdbcTemplate
 parameter_list|,
 name|Template
 name|template
@@ -199,7 +213,10 @@ name|template
 expr_stmt|;
 name|setDataSource
 argument_list|(
-name|dataSource
+name|jdbcTemplate
+operator|.
+name|getDataSource
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|setSql

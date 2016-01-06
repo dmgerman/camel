@@ -120,11 +120,15 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|sql
+name|springframework
 operator|.
-name|DataSource
+name|jdbc
+operator|.
+name|core
+operator|.
+name|JdbcTemplate
 import|;
 end_import
 
@@ -180,21 +184,18 @@ specifier|final
 name|TemplateStoredProcedureFactory
 name|templateStoredProcedureFactory
 decl_stmt|;
-DECL|field|dataSource
+DECL|field|jdbcTemplate
 specifier|private
 specifier|final
-name|DataSource
-name|dataSource
+name|JdbcTemplate
+name|jdbcTemplate
 decl_stmt|;
-DECL|method|SqlStoredEndpoint (TemplateStoredProcedureFactory templateStoredProcedureFactory, DataSource dataSource, String template)
+DECL|method|SqlStoredEndpoint (JdbcTemplate jdbcTemplate, String template)
 specifier|public
 name|SqlStoredEndpoint
 parameter_list|(
-name|TemplateStoredProcedureFactory
-name|templateStoredProcedureFactory
-parameter_list|,
-name|DataSource
-name|dataSource
+name|JdbcTemplate
+name|jdbcTemplate
 parameter_list|,
 name|String
 name|template
@@ -204,13 +205,17 @@ name|this
 operator|.
 name|templateStoredProcedureFactory
 operator|=
-name|templateStoredProcedureFactory
+operator|new
+name|TemplateStoredProcedureFactory
+argument_list|(
+name|jdbcTemplate
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|dataSource
+name|jdbcTemplate
 operator|=
-name|dataSource
+name|jdbcTemplate
 expr_stmt|;
 name|this
 operator|.
@@ -235,14 +240,9 @@ name|SqlStoredProducer
 argument_list|(
 name|this
 argument_list|,
-name|templateStoredProcedureFactory
-operator|.
-name|createFromString
-argument_list|(
 name|template
 argument_list|,
-name|dataSource
-argument_list|)
+name|templateStoredProcedureFactory
 argument_list|)
 return|;
 block|}

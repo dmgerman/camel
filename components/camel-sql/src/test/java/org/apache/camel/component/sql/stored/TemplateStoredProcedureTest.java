@@ -197,10 +197,6 @@ block|{
 DECL|field|parser
 name|TemplateStoredProcedureFactory
 name|parser
-init|=
-operator|new
-name|TemplateStoredProcedureFactory
-argument_list|()
 decl_stmt|;
 DECL|field|db
 specifier|private
@@ -251,6 +247,14 @@ argument_list|(
 name|db
 argument_list|)
 expr_stmt|;
+name|parser
+operator|=
+operator|new
+name|TemplateStoredProcedureFactory
+argument_list|(
+name|jdbcTemplate
+argument_list|)
+expr_stmt|;
 name|super
 operator|.
 name|setUp
@@ -271,7 +275,7 @@ init|=
 operator|new
 name|TemplateStoredProcedure
 argument_list|(
-name|db
+name|jdbcTemplate
 argument_list|,
 name|parser
 operator|.
@@ -359,7 +363,7 @@ init|=
 operator|new
 name|TemplateStoredProcedure
 argument_list|(
-name|db
+name|jdbcTemplate
 argument_list|,
 name|parser
 operator|.
