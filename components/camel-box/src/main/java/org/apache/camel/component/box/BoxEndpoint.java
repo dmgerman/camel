@@ -321,7 +321,12 @@ argument_list|,
 name|label
 operator|=
 literal|"api,file,cloud"
+argument_list|,
+name|lenientProperties
+operator|=
+literal|true
 argument_list|)
+comment|// need to be lenient as the box component has a bunch of generated configuration classes that lacks documentation
 DECL|class|BoxEndpoint
 specifier|public
 class|class
