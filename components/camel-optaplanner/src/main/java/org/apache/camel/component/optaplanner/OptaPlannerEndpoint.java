@@ -178,7 +178,7 @@ literal|"OptaPlanner"
 argument_list|,
 name|syntax
 operator|=
-literal|"optaplanner:resourceUri"
+literal|"optaplanner:configFile"
 argument_list|,
 name|label
 operator|=

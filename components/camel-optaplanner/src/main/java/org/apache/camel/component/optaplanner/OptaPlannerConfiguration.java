@@ -82,7 +82,20 @@ specifier|public
 class|class
 name|OptaPlannerConfiguration
 block|{
-comment|/**      * Specifies the solverId to user for the solver instance key      */
+annotation|@
+name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|configFile
+specifier|private
+name|String
+name|configFile
+decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
@@ -103,22 +116,6 @@ name|OptaPlannerConstants
 operator|.
 name|DEFAULT_SOLVER_ID
 decl_stmt|;
-comment|/**      * Specifies the location to the solver file      */
-annotation|@
-name|UriPath
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|configFile
-specifier|private
-name|String
-name|configFile
-decl_stmt|;
-comment|/**      * Specifies the thread pool size to use when async is true      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -137,49 +134,29 @@ name|threadPoolSize
 init|=
 literal|10
 decl_stmt|;
-comment|/**      * Specifies to perform operations in async mode      */
 annotation|@
 name|UriParam
 argument_list|(
 name|label
 operator|=
 literal|"producer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"false"
 argument_list|)
 DECL|field|async
 specifier|private
 name|boolean
 name|async
 decl_stmt|;
-DECL|method|getSolverId ()
+DECL|method|getConfigFile ()
 specifier|public
 name|String
-name|getSolverId
+name|getConfigFile
 parameter_list|()
 block|{
 return|return
-name|solverId
+name|configFile
 return|;
 block|}
-DECL|method|setSolverId (String solverId)
-specifier|public
-name|void
-name|setSolverId
-parameter_list|(
-name|String
-name|solverId
-parameter_list|)
-block|{
-name|this
-operator|.
-name|solverId
-operator|=
-name|solverId
-expr_stmt|;
-block|}
+comment|/**      * Specifies the location to the solver file      */
 DECL|method|setConfigFile (String configFile)
 specifier|public
 name|void
@@ -196,15 +173,32 @@ operator|=
 name|configFile
 expr_stmt|;
 block|}
-DECL|method|getConfigFile ()
+DECL|method|getSolverId ()
 specifier|public
 name|String
-name|getConfigFile
+name|getSolverId
 parameter_list|()
 block|{
 return|return
-name|configFile
+name|solverId
 return|;
+block|}
+comment|/**      * Specifies the solverId to user for the solver instance key      */
+DECL|method|setSolverId (String solverId)
+specifier|public
+name|void
+name|setSolverId
+parameter_list|(
+name|String
+name|solverId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|solverId
+operator|=
+name|solverId
+expr_stmt|;
 block|}
 DECL|method|getThreadPoolSize ()
 specifier|public
@@ -216,6 +210,7 @@ return|return
 name|threadPoolSize
 return|;
 block|}
+comment|/**      * Specifies the thread pool size to use when async is true      */
 DECL|method|setThreadPoolSize (int threadPoolSize)
 specifier|public
 name|void
@@ -242,6 +237,7 @@ return|return
 name|async
 return|;
 block|}
+comment|/**      * Specifies to perform operations in async mode      */
 DECL|method|setAsync (boolean async)
 specifier|public
 name|void
