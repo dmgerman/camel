@@ -906,7 +906,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"xmlsecurity:sign://xades?keyAccessor=#keyAccessorDefault&properties=#xmlSignatureProperties&parentLocalName=root&parentNamespace=http://test/test"
+literal|"xmlsecurity:sign:xades?keyAccessor=#keyAccessorDefault&properties=#xmlSignatureProperties&parentLocalName=root&parentNamespace=http://test/test"
 argument_list|)
 operator|.
 name|to
@@ -952,7 +952,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"xmlsecurity:sign://xades?keyAccessor=#keyAccessorDefault&properties=#xmlSignatureProperties"
+literal|"xmlsecurity:sign:xades?keyAccessor=#keyAccessorDefault&properties=#xmlSignatureProperties"
 argument_list|)
 operator|.
 name|to
@@ -998,7 +998,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"xmlsecurity:sign://xades?keyAccessor=#keyAccessorDefault&properties=#xmlSignatureProperties&signatureId="
+literal|"xmlsecurity:sign:xades?keyAccessor=#keyAccessorDefault&properties=#xmlSignatureProperties&signatureId="
 argument_list|)
 operator|.
 name|to
@@ -1044,7 +1044,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"xmlsecurity:sign://detached?keyAccessor=#keyAccessorDefault&xpathsToIdAttributes=#xpathsToIdAttributes&"
+literal|"xmlsecurity:sign:detached?keyAccessor=#keyAccessorDefault&xpathsToIdAttributes=#xpathsToIdAttributes&"
 comment|//
 operator|+
 literal|"schemaResourceUri=org/apache/camel/component/xmlsecurity/Test.xsd&properties=#xmlSignatureProperties"
@@ -4436,7 +4436,7 @@ argument_list|()
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"xmlsecurity:sign://xades?keyAccessor=#keyAccessorDefault&properties=#xmlSignatureProperties"
+literal|"xmlsecurity:sign:xades?keyAccessor=#keyAccessorDefault&properties=#xmlSignatureProperties"
 argument_list|)
 return|;
 block|}

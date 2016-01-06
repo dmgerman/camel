@@ -375,7 +375,7 @@ argument_list|()
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"xmlsecurity:sign://detached?keyAccessor=#accessorRsa&xpathsToIdAttributes=#xpathsToIdAttributes&"
+literal|"xmlsecurity:sign:detached?keyAccessor=#accessorRsa&xpathsToIdAttributes=#xpathsToIdAttributes&"
 comment|//
 operator|+
 literal|"schemaResourceUri=org/apache/camel/component/xmlsecurity/Test.xsd&signatureId=&clearHeaders=false"
@@ -404,7 +404,7 @@ operator|.
 name|getEndpoint
 argument_list|(
 comment|//
-literal|"xmlsecurity:sign://signexceptioninvalidkey?keyAccessor=#accessorRsa"
+literal|"xmlsecurity:sign:signexceptioninvalidkey?keyAccessor=#accessorRsa"
 argument_list|)
 decl_stmt|;
 return|return
@@ -419,7 +419,7 @@ name|getVerifierEndpointURIEnveloped
 parameter_list|()
 block|{
 return|return
-literal|"xmlsecurity:verify://enveloped?keySelector=#selectorRsa"
+literal|"xmlsecurity:verify:enveloped?keySelector=#selectorRsa"
 return|;
 block|}
 annotation|@
@@ -430,7 +430,7 @@ name|getSignerEndpointURIEnveloped
 parameter_list|()
 block|{
 return|return
-literal|"xmlsecurity:sign://enveloped?keyAccessor=#accessorRsa&parentLocalName=root&parentNamespace=http://test/test"
+literal|"xmlsecurity:sign:enveloped?keyAccessor=#accessorRsa&parentLocalName=root&parentNamespace=http://test/test"
 return|;
 block|}
 annotation|@
@@ -441,7 +441,7 @@ name|getVerifierEndpointURIEnveloping
 parameter_list|()
 block|{
 return|return
-literal|"xmlsecurity:verify://enveloping?keySelector=#selectorRsa"
+literal|"xmlsecurity:verify:enveloping?keySelector=#selectorRsa"
 return|;
 block|}
 annotation|@
@@ -452,7 +452,7 @@ name|getSignerEndpointURIEnveloping
 parameter_list|()
 block|{
 return|return
-literal|"xmlsecurity:sign://enveloping?keyAccessor=#accessorRsa"
+literal|"xmlsecurity:sign:enveloping?keyAccessor=#accessorRsa"
 return|;
 block|}
 annotation|@

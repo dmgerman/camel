@@ -267,7 +267,7 @@ name|format
 argument_list|(
 literal|"An invalid xmlsecurity uri was provided '%s'."
 operator|+
-literal|" Check the uri matches the format xmlsecurity:sign://<name> or xmlsecurity:verify://<name>"
+literal|" Check the uri matches the format xmlsecurity:sign://<name> or xmlsecurity:verify:<name>"
 argument_list|,
 name|uri
 argument_list|)

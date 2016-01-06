@@ -218,7 +218,7 @@ literal|"XML Security"
 argument_list|,
 name|syntax
 operator|=
-literal|"xmlsecurity:command/name"
+literal|"xmlsecurity:command:name"
 argument_list|,
 name|producerOnly
 operator|=
