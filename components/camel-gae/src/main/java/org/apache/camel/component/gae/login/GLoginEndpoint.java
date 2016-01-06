@@ -183,6 +183,10 @@ argument_list|,
 name|label
 operator|=
 literal|"cloud,paas"
+argument_list|,
+name|excludeProperties
+operator|=
+literal|"httpUri"
 argument_list|)
 DECL|class|GLoginEndpoint
 specifier|public
@@ -202,6 +206,11 @@ argument_list|,
 name|GLoginData
 argument_list|>
 name|outboundBinding
+decl_stmt|;
+DECL|field|service
+specifier|private
+name|GLoginService
+name|service
 decl_stmt|;
 annotation|@
 name|UriPath
@@ -259,10 +268,12 @@ specifier|private
 name|boolean
 name|devMode
 decl_stmt|;
-DECL|field|service
+annotation|@
+name|UriParam
+DECL|field|serviceRef
 specifier|private
-name|GLoginService
-name|service
+name|String
+name|serviceRef
 decl_stmt|;
 comment|/**      * Creates a new GLoginEndpoint.      *       * @param endpointUri the endpoint uri      * @param component component that created this endpoint.      * @param hostName internet hostname of a GAE application, for example      *<code>example.appspot.com</code>, or<code>localhost</code> if      *            the application is running on a local development server.      * @param devPort port for connecting to the local development server.      */
 DECL|method|GLoginEndpoint (String endpointUri, Component component, String hostName, int devPort)
@@ -556,6 +567,33 @@ operator|.
 name|service
 operator|=
 name|service
+expr_stmt|;
+block|}
+DECL|method|getServiceRef ()
+specifier|public
+name|String
+name|getServiceRef
+parameter_list|()
+block|{
+return|return
+name|serviceRef
+return|;
+block|}
+comment|/**      * A reference name to lookup a {@link GLoginService} from the registry.      *<p/>      * The GloginService the service that makes the remote calls to Google services or the      * local development server.      */
+DECL|method|setServiceRef (String serviceRef)
+specifier|public
+name|void
+name|setServiceRef
+parameter_list|(
+name|String
+name|serviceRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serviceRef
+operator|=
+name|serviceRef
 expr_stmt|;
 block|}
 comment|/**      * Creates a {@link GLoginProducer}.      */

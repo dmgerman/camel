@@ -251,6 +251,10 @@ argument_list|,
 name|label
 operator|=
 literal|"cloud,mail,paas"
+argument_list|,
+name|excludeProperties
+operator|=
+literal|"httpUri"
 argument_list|)
 DECL|class|GMailEndpoint
 specifier|public

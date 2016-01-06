@@ -339,6 +339,10 @@ argument_list|,
 name|label
 operator|=
 literal|"cloud,paas"
+argument_list|,
+name|excludeProperties
+operator|=
+literal|"httpUri"
 argument_list|)
 DECL|class|GTaskEndpoint
 specifier|public

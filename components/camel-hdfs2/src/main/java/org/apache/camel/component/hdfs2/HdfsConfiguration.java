@@ -400,13 +400,9 @@ literal|"NULL"
 argument_list|)
 DECL|field|keyType
 specifier|private
-name|HdfsWritableFactories
-operator|.
 name|WritableType
 name|keyType
 init|=
-name|HdfsWritableFactories
-operator|.
 name|WritableType
 operator|.
 name|NULL
@@ -420,13 +416,9 @@ literal|"BYTES"
 argument_list|)
 DECL|field|valueType
 specifier|private
-name|HdfsWritableFactories
-operator|.
 name|WritableType
 name|valueType
 init|=
-name|HdfsWritableFactories
-operator|.
 name|WritableType
 operator|.
 name|BYTES
@@ -919,10 +911,8 @@ name|dflt
 return|;
 block|}
 block|}
-DECL|method|getWritableType (Map<String, Object> hdfsSettings, String param, HdfsWritableFactories.WritableType dflt)
+DECL|method|getWritableType (Map<String, Object> hdfsSettings, String param, WritableType dflt)
 specifier|private
-name|HdfsWritableFactories
-operator|.
 name|WritableType
 name|getWritableType
 parameter_list|(
@@ -937,8 +927,6 @@ parameter_list|,
 name|String
 name|param
 parameter_list|,
-name|HdfsWritableFactories
-operator|.
 name|WritableType
 name|dflt
 parameter_list|)
@@ -964,8 +952,6 @@ literal|null
 condition|)
 block|{
 return|return
-name|HdfsWritableFactories
-operator|.
 name|WritableType
 operator|.
 name|valueOf
@@ -2065,8 +2051,6 @@ return|;
 block|}
 DECL|method|getKeyType ()
 specifier|public
-name|HdfsWritableFactories
-operator|.
 name|WritableType
 name|getKeyType
 parameter_list|()
@@ -2076,13 +2060,11 @@ name|keyType
 return|;
 block|}
 comment|/**      * The type for the key in case of sequence or map files.      */
-DECL|method|setKeyType (HdfsWritableFactories.WritableType keyType)
+DECL|method|setKeyType (WritableType keyType)
 specifier|public
 name|void
 name|setKeyType
 parameter_list|(
-name|HdfsWritableFactories
-operator|.
 name|WritableType
 name|keyType
 parameter_list|)
@@ -2096,8 +2078,6 @@ expr_stmt|;
 block|}
 DECL|method|getValueType ()
 specifier|public
-name|HdfsWritableFactories
-operator|.
 name|WritableType
 name|getValueType
 parameter_list|()
@@ -2107,13 +2087,11 @@ name|valueType
 return|;
 block|}
 comment|/**      * The type for the key in case of sequence or map files      */
-DECL|method|setValueType (HdfsWritableFactories.WritableType valueType)
+DECL|method|setValueType (WritableType valueType)
 specifier|public
 name|void
 name|setValueType
 parameter_list|(
-name|HdfsWritableFactories
-operator|.
 name|WritableType
 name|valueType
 parameter_list|)
