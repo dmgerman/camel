@@ -230,6 +230,13 @@ name|encoding
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|templateUpdateDelay
+specifier|private
+name|int
+name|templateUpdateDelay
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|configuration
 specifier|private
 name|Configuration
@@ -331,6 +338,33 @@ block|{
 return|return
 name|encoding
 return|;
+block|}
+DECL|method|getTemplateUpdateDelay ()
+specifier|public
+name|int
+name|getTemplateUpdateDelay
+parameter_list|()
+block|{
+return|return
+name|templateUpdateDelay
+return|;
+block|}
+comment|/**      * Number of seconds the loaded template resource will remain in the cache.      */
+DECL|method|setTemplateUpdateDelay (int templateUpdateDelay)
+specifier|public
+name|void
+name|setTemplateUpdateDelay
+parameter_list|(
+name|int
+name|templateUpdateDelay
+parameter_list|)
+block|{
+name|this
+operator|.
+name|templateUpdateDelay
+operator|=
+name|templateUpdateDelay
+expr_stmt|;
 block|}
 DECL|method|getConfiguration ()
 specifier|public
