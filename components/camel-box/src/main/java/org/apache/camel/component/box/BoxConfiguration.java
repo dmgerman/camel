@@ -243,13 +243,6 @@ name|authSecureStorage
 decl_stmt|;
 annotation|@
 name|UriParam
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
 DECL|field|userName
 specifier|private
 name|String
