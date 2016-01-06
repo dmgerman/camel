@@ -267,13 +267,6 @@ name|host
 decl_stmt|;
 annotation|@
 name|UriPath
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
 DECL|field|base
 specifier|private
 name|String
