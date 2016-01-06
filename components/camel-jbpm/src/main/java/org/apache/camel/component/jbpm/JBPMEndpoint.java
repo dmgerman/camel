@@ -202,7 +202,7 @@ literal|"JBPM"
 argument_list|,
 name|syntax
 operator|=
-literal|"jbpm:host"
+literal|"jbpm:connectionURL"
 argument_list|,
 name|producerOnly
 operator|=
@@ -240,14 +240,8 @@ annotation|@
 name|UriParam
 DECL|field|configuration
 specifier|private
-specifier|final
 name|JBPMConfiguration
 name|configuration
-decl_stmt|;
-DECL|field|runtimeEngine
-specifier|private
-name|RuntimeEngine
-name|runtimeEngine
 decl_stmt|;
 DECL|method|JBPMEndpoint (String uri, JBPMComponent component, JBPMConfiguration configuration)
 specifier|public
@@ -280,15 +274,15 @@ name|configuration
 operator|=
 name|configuration
 expr_stmt|;
-name|LOGGER
-operator|.
-name|trace
-argument_list|(
-literal|"creating endpoint: [{}]"
-argument_list|,
-name|configuration
-argument_list|)
-expr_stmt|;
+block|}
+DECL|method|createProducer ()
+specifier|public
+name|Producer
+name|createProducer
+parameter_list|()
+throws|throws
+name|Exception
+block|{
 name|RemoteRestRuntimeEngineBuilder
 name|engineBuilder
 init|=
@@ -444,29 +438,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|RuntimeEngine
 name|runtimeEngine
-operator|=
+init|=
 name|engineBuilder
 operator|.
 name|build
 argument_list|()
-expr_stmt|;
-name|LOGGER
-operator|.
-name|trace
-argument_list|(
-literal|"created endpoint"
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|createProducer ()
-specifier|public
-name|Producer
-name|createProducer
-parameter_list|()
-throws|throws
-name|Exception
-block|{
+decl_stmt|;
 return|return
 operator|new
 name|JBPMProducer
@@ -513,6 +492,22 @@ block|{
 return|return
 literal|true
 return|;
+block|}
+DECL|method|setConfiguration (JBPMConfiguration configuration)
+specifier|public
+name|void
+name|setConfiguration
+parameter_list|(
+name|JBPMConfiguration
+name|configuration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
+expr_stmt|;
 block|}
 DECL|method|getConfiguration ()
 specifier|public

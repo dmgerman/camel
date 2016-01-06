@@ -432,6 +432,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|enums
+operator|=
+literal|"ACKNOWLEDGED,W1,W2,W3,UNACKNOWLEDGED,JOURNALED,MAJORITY,SAFE"
+argument_list|)
 DECL|field|writeConcern
 specifier|private
 name|WriteConcern

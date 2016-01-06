@@ -545,7 +545,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"metrics:A"
+literal|"metrics:counter://A"
 argument_list|)
 operator|.
 name|to

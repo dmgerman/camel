@@ -160,7 +160,20 @@ specifier|public
 class|class
 name|JBPMConfiguration
 block|{
-comment|/**      * Specifies the operation to perform      */
+annotation|@
+name|UriPath
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|connectionURL
+specifier|private
+name|URL
+name|connectionURL
+decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
@@ -177,147 +190,6 @@ specifier|private
 name|String
 name|operation
 decl_stmt|;
-comment|/**      * Specifies the value to use      */
-annotation|@
-name|UriParam
-DECL|field|value
-specifier|private
-name|Object
-name|value
-decl_stmt|;
-DECL|field|processId
-specifier|private
-name|String
-name|processId
-decl_stmt|;
-DECL|field|parameters
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|parameters
-decl_stmt|;
-comment|/**      * Specifies the process instance to interact with      */
-annotation|@
-name|UriParam
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|processInstanceId
-specifier|private
-name|Long
-name|processInstanceId
-decl_stmt|;
-DECL|field|eventType
-specifier|private
-name|String
-name|eventType
-decl_stmt|;
-DECL|field|event
-specifier|private
-name|Object
-name|event
-decl_stmt|;
-DECL|field|maxNumber
-specifier|private
-name|Integer
-name|maxNumber
-decl_stmt|;
-DECL|field|identifier
-specifier|private
-name|String
-name|identifier
-decl_stmt|;
-DECL|field|workItemId
-specifier|private
-name|Long
-name|workItemId
-decl_stmt|;
-DECL|field|taskId
-specifier|private
-name|Long
-name|taskId
-decl_stmt|;
-DECL|field|userId
-specifier|private
-name|String
-name|userId
-decl_stmt|;
-DECL|field|language
-specifier|private
-name|String
-name|language
-decl_stmt|;
-DECL|field|targetUserId
-specifier|private
-name|String
-name|targetUserId
-decl_stmt|;
-DECL|field|attachmentId
-specifier|private
-name|Long
-name|attachmentId
-decl_stmt|;
-DECL|field|contentId
-specifier|private
-name|Long
-name|contentId
-decl_stmt|;
-DECL|field|task
-specifier|private
-name|Task
-name|task
-decl_stmt|;
-DECL|field|entities
-specifier|private
-name|List
-argument_list|<
-name|OrganizationalEntity
-argument_list|>
-name|entities
-decl_stmt|;
-DECL|field|statuses
-specifier|private
-name|List
-argument_list|<
-name|Status
-argument_list|>
-name|statuses
-decl_stmt|;
-comment|//connection
-DECL|field|userName
-specifier|private
-name|String
-name|userName
-decl_stmt|;
-DECL|field|password
-specifier|private
-name|String
-name|password
-decl_stmt|;
-comment|/**      * Specifies the connection url to the jBPM system      */
-annotation|@
-name|UriPath
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|connectionURL
-specifier|private
-name|URL
-name|connectionURL
-decl_stmt|;
-comment|/**      * Specifies the deploymentId to use      */
 annotation|@
 name|UriParam
 annotation|@
@@ -332,11 +204,186 @@ specifier|private
 name|String
 name|deploymentId
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|processInstanceId
+specifier|private
+name|Long
+name|processInstanceId
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|value
+specifier|private
+name|Object
+name|value
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|processId
+specifier|private
+name|String
+name|processId
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|eventType
+specifier|private
+name|String
+name|eventType
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|event
+specifier|private
+name|Object
+name|event
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|maxNumber
+specifier|private
+name|Integer
+name|maxNumber
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|identifier
+specifier|private
+name|String
+name|identifier
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|workItemId
+specifier|private
+name|Long
+name|workItemId
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|taskId
+specifier|private
+name|Long
+name|taskId
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|userId
+specifier|private
+name|String
+name|userId
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|language
+specifier|private
+name|String
+name|language
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|targetUserId
+specifier|private
+name|String
+name|targetUserId
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|attachmentId
+specifier|private
+name|Long
+name|attachmentId
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|contentId
+specifier|private
+name|Long
+name|contentId
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|task
+specifier|private
+name|Task
+name|task
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|entities
+specifier|private
+name|List
+argument_list|<
+name|OrganizationalEntity
+argument_list|>
+name|entities
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|statuses
+specifier|private
+name|List
+argument_list|<
+name|Status
+argument_list|>
+name|statuses
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
+DECL|field|userName
+specifier|private
+name|String
+name|userName
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
+DECL|field|password
+specifier|private
+name|String
+name|password
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|timeout
 specifier|private
 name|Integer
 name|timeout
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|parameters
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|extraJaxbClasses
 specifier|private
 name|Class
@@ -353,6 +400,7 @@ return|return
 name|operation
 return|;
 block|}
+comment|/**      * The operation to perform      */
 DECL|method|setOperation (String operation)
 specifier|public
 name|void
@@ -379,6 +427,7 @@ return|return
 name|value
 return|;
 block|}
+comment|/**      * the value to assign to the global identifier      */
 DECL|method|setValue (Object value)
 specifier|public
 name|void
@@ -405,6 +454,7 @@ return|return
 name|processId
 return|;
 block|}
+comment|/**      * the id of the process that should be acted upon      */
 DECL|method|setProcessId (String processId)
 specifier|public
 name|void
@@ -436,6 +486,7 @@ return|return
 name|parameters
 return|;
 block|}
+comment|/**      * the variables that should be set for various operations      */
 DECL|method|setParameters (Map<String, Object> parameters)
 specifier|public
 name|void
@@ -467,6 +518,7 @@ return|return
 name|processInstanceId
 return|;
 block|}
+comment|/**      * the id of the process instance      */
 DECL|method|setProcessInstanceId (Long processInstanceId)
 specifier|public
 name|void
@@ -493,6 +545,7 @@ return|return
 name|eventType
 return|;
 block|}
+comment|/**      * the type of event to use when signalEvent operation is performed      */
 DECL|method|setEventType (String eventType)
 specifier|public
 name|void
@@ -519,6 +572,7 @@ return|return
 name|event
 return|;
 block|}
+comment|/**      * the data associated with this event when signalEvent operation is performed      */
 DECL|method|setEvent (Object event)
 specifier|public
 name|void
@@ -545,6 +599,7 @@ return|return
 name|maxNumber
 return|;
 block|}
+comment|/**      * the maximum number of rules that should be fired      */
 DECL|method|setMaxNumber (Integer maxNumber)
 specifier|public
 name|void
@@ -571,6 +626,7 @@ return|return
 name|identifier
 return|;
 block|}
+comment|/**      * identifier the global identifier      */
 DECL|method|setIdentifier (String identifier)
 specifier|public
 name|void
@@ -597,6 +653,7 @@ return|return
 name|workItemId
 return|;
 block|}
+comment|/**      * the id of the work item      */
 DECL|method|setWorkItemId (Long workItemId)
 specifier|public
 name|void
@@ -623,6 +680,7 @@ return|return
 name|taskId
 return|;
 block|}
+comment|/**      *the id of the task      */
 DECL|method|setTaskId (Long taskId)
 specifier|public
 name|void
@@ -649,6 +707,7 @@ return|return
 name|userId
 return|;
 block|}
+comment|/**      * userId to use with task operations      */
 DECL|method|setUserId (String userId)
 specifier|public
 name|void
@@ -675,6 +734,7 @@ return|return
 name|task
 return|;
 block|}
+comment|/**      * The task instance to use with task operations      */
 DECL|method|setTask (Task task)
 specifier|public
 name|void
@@ -701,6 +761,7 @@ return|return
 name|language
 return|;
 block|}
+comment|/**      * The language to use when filtering user tasks      */
 DECL|method|setLanguage (String language)
 specifier|public
 name|void
@@ -727,6 +788,7 @@ return|return
 name|targetUserId
 return|;
 block|}
+comment|/**      * The targetUserId used when delegating a task      */
 DECL|method|setTargetUserId (String targetUserId)
 specifier|public
 name|void
@@ -753,6 +815,7 @@ return|return
 name|attachmentId
 return|;
 block|}
+comment|/**      * attachId to use when retrieving attachments      */
 DECL|method|setAttachmentId (Long attachmentId)
 specifier|public
 name|void
@@ -779,6 +842,7 @@ return|return
 name|contentId
 return|;
 block|}
+comment|/**      * contentId to use when retrieving attachments      */
 DECL|method|setContentId (Long contentId)
 specifier|public
 name|void
@@ -808,6 +872,7 @@ return|return
 name|entities
 return|;
 block|}
+comment|/**      * The potentialOwners when nominateTask operation is performed      */
 DECL|method|setEntities (List<OrganizationalEntity> entities)
 specifier|public
 name|void
@@ -840,6 +905,7 @@ return|return
 name|statuses
 return|;
 block|}
+comment|/**      * The list of status to use when filtering tasks      */
 DECL|method|setStatuses (List<Status> statuses)
 specifier|public
 name|void
@@ -869,6 +935,7 @@ return|return
 name|userName
 return|;
 block|}
+comment|/**      * Username for authentication      */
 DECL|method|setUserName (String userName)
 specifier|public
 name|void
@@ -895,6 +962,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * Password for authentication      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -921,6 +989,7 @@ return|return
 name|connectionURL
 return|;
 block|}
+comment|/**      * The URL to the jBPM server.      */
 DECL|method|setConnectionURL (URL connectionURL)
 specifier|public
 name|void
@@ -947,6 +1016,7 @@ return|return
 name|deploymentId
 return|;
 block|}
+comment|/**      * The id of the deployment      */
 DECL|method|setDeploymentId (String deploymentId)
 specifier|public
 name|void
@@ -973,6 +1043,7 @@ return|return
 name|timeout
 return|;
 block|}
+comment|/**      * A timeout value      */
 DECL|method|setTimeout (Integer timeout)
 specifier|public
 name|void
@@ -1000,6 +1071,7 @@ return|return
 name|extraJaxbClasses
 return|;
 block|}
+comment|/**      * To load additional classes when working with XML      */
 DECL|method|setExtraJaxbClasses (Class[] extraJaxbClasses)
 specifier|public
 name|void

@@ -241,13 +241,11 @@ specifier|volatile
 name|int
 name|pendingExchanges
 decl_stmt|;
-comment|/**      * Statement to run after data has been processed in the route      */
 DECL|field|onConsume
 specifier|private
 name|String
 name|onConsume
 decl_stmt|;
-comment|/**      * Process resultset individually or as a list      */
 DECL|field|useIterator
 specifier|private
 name|boolean
@@ -255,7 +253,6 @@ name|useIterator
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Whether allow empty resultset to be routed to the next hop      */
 DECL|field|routeEmptyResultSet
 specifier|private
 name|boolean
