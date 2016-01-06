@@ -507,7 +507,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"elsql:allProjects:elsql/projects.elsql?dataSource=dataSource"
+literal|"elsql:allProjects:elsql/projects.elsql?dataSource=#dataSource"
 argument_list|)
 operator|.
 name|to

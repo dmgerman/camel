@@ -497,6 +497,22 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|defaultValue
+operator|=
+literal|""
+operator|+
+name|DisruptorComponent
+operator|.
+name|DEFAULT_BUFFER_SIZE
+argument_list|)
+DECL|field|size
+specifier|private
+name|int
+name|size
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
 name|label
 operator|=
 literal|"producer"
@@ -778,6 +794,40 @@ operator|.
 name|timeout
 operator|=
 name|timeout
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The maximum capacity of the Disruptors ringbuffer"
+argument_list|)
+DECL|method|getSize ()
+specifier|public
+name|int
+name|getSize
+parameter_list|()
+block|{
+return|return
+name|size
+return|;
+block|}
+comment|/**      * The maximum capacity of the Disruptors ringbuffer      * Will be effectively increased to the nearest power of two.      * Notice: Mind if you use this option, then its the first endpoint being created with the queue name,      * that determines the size. To make sure all endpoints use same size, then configure the size option      * on all of them, or the first endpoint being created.      */
+DECL|method|setSize (int size)
+specifier|public
+name|void
+name|setSize
+parameter_list|(
+name|int
+name|size
+parameter_list|)
+block|{
+name|this
+operator|.
+name|size
+operator|=
+name|size
 expr_stmt|;
 block|}
 annotation|@

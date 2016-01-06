@@ -2476,7 +2476,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"elasticsearch://local"
+literal|"elasticsearch://local?operation=INDEX"
 argument_list|)
 expr_stmt|;
 name|from
