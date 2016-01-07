@@ -118,6 +118,17 @@ name|Cloneable
 block|{
 annotation|@
 name|UriPath
+argument_list|(
+name|enums
+operator|=
+literal|"events,stats,auth,info,ping,version,imagebuild,imagecreate,imageinspect,imagelist,imagepull,imagepush"
+operator|+
+literal|"imageremove,imagesearch,imagetag,containerattach,containercommit,containercopyfile,containercreate,containerdiff"
+operator|+
+literal|"inspectcontainer,containerkill,containerlist,containerlog,containerpause,containerrestart,containerremove,containerstart"
+operator|+
+literal|"containerstop,containertop,containerunpause,containerwait,execcreate,execstart"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
