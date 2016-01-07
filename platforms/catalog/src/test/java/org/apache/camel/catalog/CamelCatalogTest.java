@@ -3445,6 +3445,42 @@ name|isSuccess
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// userinfo with both user and password and placeholder
+name|result
+operator|=
+name|catalog
+operator|.
+name|validateEndpointProperties
+argument_list|(
+literal|"ssh://smx:smx@localhost:8181?timeout=3000"
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|result
+operator|.
+name|isSuccess
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// and should also work when port is using a placeholder
+name|result
+operator|=
+name|catalog
+operator|.
+name|validateEndpointProperties
+argument_list|(
+literal|"ssh://smx:smx@localhost:{{port}}?timeout=3000"
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|result
+operator|.
+name|isSuccess
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// placeholder for a bunch of optional options
 name|result
 operator|=
