@@ -4210,6 +4210,16 @@ name|scheme
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|result
+operator|.
+name|addUnknownComponent
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|result
 return|;
