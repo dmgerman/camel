@@ -190,7 +190,7 @@ name|UriPath
 argument_list|(
 name|enums
 operator|=
-literal|"create,delete,get,getProfile,gmailImport,insert,list,modify,patch,send,trash,untrash,update"
+literal|"attachments,create,delete,get,getProfile,gmailImport,insert,list,modify,patch,send,trash,untrash,update"
 argument_list|)
 annotation|@
 name|Metadata
