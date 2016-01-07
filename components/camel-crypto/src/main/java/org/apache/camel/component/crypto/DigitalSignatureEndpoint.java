@@ -202,7 +202,7 @@ literal|"Crypto (JCE)"
 argument_list|,
 name|syntax
 operator|=
-literal|"crypto:cryptoOperation"
+literal|"crypto:cryptoOperation:name"
 argument_list|,
 name|producerOnly
 operator|=
@@ -334,19 +334,7 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|getManagedObject (DigitalSignatureEndpoint endpoint)
-specifier|public
-name|Object
-name|getManagedObject
-parameter_list|(
-name|DigitalSignatureEndpoint
-name|endpoint
-parameter_list|)
-block|{
-return|return
-name|this
-return|;
-block|}
+comment|/**      * Sets the configuration to use      */
 DECL|method|setConfiguration (DigitalSignatureConfiguration configuration)
 specifier|public
 name|void

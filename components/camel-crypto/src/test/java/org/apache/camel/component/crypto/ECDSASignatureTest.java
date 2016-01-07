@@ -504,7 +504,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"crypto:sign://ecdsa-sha1?algorithm=SHA1withECDSA"
+literal|"crypto:sign:ecdsa-sha1?algorithm=SHA1withECDSA"
 argument_list|,
 name|DigitalSignatureEndpoint
 operator|.
@@ -520,7 +520,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"crypto:verify://ecdsa-sha1?algorithm=SHA1withECDSA"
+literal|"crypto:verify:ecdsa-sha1?algorithm=SHA1withECDSA"
 argument_list|,
 name|DigitalSignatureEndpoint
 operator|.
@@ -542,12 +542,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"crypto:sign://ecdsa-sha1?algorithm=SHA1withECDSA"
+literal|"crypto:sign:ecdsa-sha1?algorithm=SHA1withECDSA"
 argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"crypto:verify://ecdsa-sha1?algorithm=SHA1withECDSA"
+literal|"crypto:verify:ecdsa-sha1?algorithm=SHA1withECDSA"
 argument_list|)
 operator|.
 name|to
