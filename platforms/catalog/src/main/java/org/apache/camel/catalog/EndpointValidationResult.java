@@ -115,7 +115,7 @@ specifier|private
 name|int
 name|errors
 decl_stmt|;
-comment|// component
+comment|// general
 DECL|field|syntaxError
 specifier|private
 name|String
@@ -125,6 +125,11 @@ DECL|field|unknownComponent
 specifier|private
 name|String
 name|unknownComponent
+decl_stmt|;
+DECL|field|incapable
+specifier|private
+name|String
+name|incapable
 decl_stmt|;
 comment|// options
 DECL|field|unknown
@@ -277,6 +282,10 @@ name|unknownComponent
 operator|==
 literal|null
 operator|&&
+name|incapable
+operator|==
+literal|null
+operator|&&
 name|unknown
 operator|==
 literal|null
@@ -335,6 +344,25 @@ operator|.
 name|syntaxError
 operator|=
 name|syntaxError
+expr_stmt|;
+name|errors
+operator|++
+expr_stmt|;
+block|}
+DECL|method|addIncapable (String uri)
+specifier|public
+name|void
+name|addIncapable
+parameter_list|(
+name|String
+name|uri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|incapable
+operator|=
+name|uri
 expr_stmt|;
 name|errors
 operator|++
@@ -874,6 +902,16 @@ return|return
 name|syntaxError
 return|;
 block|}
+DECL|method|getIncapable ()
+specifier|public
+name|String
+name|getIncapable
+parameter_list|()
+block|{
+return|return
+name|incapable
+return|;
+block|}
 DECL|method|getUnknown ()
 specifier|public
 name|Set
@@ -1052,6 +1090,20 @@ return|return
 literal|null
 return|;
 block|}
+if|if
+condition|(
+name|incapable
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+literal|"Incapable of parsing uri "
+operator|+
+name|incapable
+return|;
+block|}
+elseif|else
 if|if
 condition|(
 name|syntaxError

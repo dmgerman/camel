@@ -4142,6 +4142,28 @@ decl_stmt|;
 name|String
 name|scheme
 decl_stmt|;
+comment|// skip uris that may start with a placeholder
+if|if
+condition|(
+name|uri
+operator|.
+name|startsWith
+argument_list|(
+literal|"{{"
+argument_list|)
+condition|)
+block|{
+name|result
+operator|.
+name|addIncapable
+argument_list|(
+name|uri
+argument_list|)
+expr_stmt|;
+return|return
+name|result
+return|;
+block|}
 try|try
 block|{
 comment|// parse the uri
