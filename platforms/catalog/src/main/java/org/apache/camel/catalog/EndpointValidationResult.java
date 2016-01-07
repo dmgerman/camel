@@ -1098,7 +1098,7 @@ literal|null
 condition|)
 block|{
 return|return
-literal|"Incapable of parsing uri "
+literal|"\tIncapable of parsing uri: "
 operator|+
 name|incapable
 return|;
@@ -1112,7 +1112,7 @@ literal|null
 condition|)
 block|{
 return|return
-literal|"Syntax error "
+literal|"\tSyntax error: "
 operator|+
 name|syntaxError
 return|;
@@ -1126,7 +1126,7 @@ literal|null
 condition|)
 block|{
 return|return
-literal|"Unknown component "
+literal|"\tUnknown component: "
 operator|+
 name|unknownComponent
 return|;
