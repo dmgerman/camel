@@ -360,6 +360,31 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|name
+operator|=
+literal|"configuration"
+argument_list|,
+name|javaType
+operator|=
+literal|"org.apache.camel.component.netty.http.NettyHttpConfiguration"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom configured NettyHttpConfiguration for configuring this endpoint."
+argument_list|)
+DECL|field|httpConfiguration
+specifier|private
+name|Object
+name|httpConfiguration
+decl_stmt|;
+comment|// to include in component docs as NettyHttpConfiguration is a @UriParams class
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
 argument_list|)
 DECL|field|nettyHttpBinding
 specifier|private
