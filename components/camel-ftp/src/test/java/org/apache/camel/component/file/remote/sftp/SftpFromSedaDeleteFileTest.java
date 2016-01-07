@@ -136,7 +136,7 @@ name|FTP_ROOT_DIR
 operator|+
 literal|"?username=admin&knownHostsFile=./src/test/resources/known_hosts&privateKeyFile=./src/test/resources/id_rsa"
 operator|+
-literal|"&privateKeyFilePassphrase=secret&delay=500&disconnect=false&delete=true"
+literal|"&privateKeyPassphrase=secret&delay=500&disconnect=false&delete=true"
 return|;
 block|}
 annotation|@
