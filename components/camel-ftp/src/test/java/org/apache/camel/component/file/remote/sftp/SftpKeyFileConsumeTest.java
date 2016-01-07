@@ -203,7 +203,7 @@ literal|"/"
 operator|+
 name|FTP_ROOT_DIR
 operator|+
-literal|"?username=admin&knownHostsFile=./src/test/resources/known_hosts&privateKeyFile=./src/test/resources/id_rsa&privateKeyFilePassphrase=secret&delay=10s&disconnect=true"
+literal|"?username=admin&knownHostsFile=./src/test/resources/known_hosts&privateKeyFile=./src/test/resources/id_rsa&privateKeyPassphrase=secret&delay=10s&disconnect=true"
 argument_list|)
 operator|.
 name|routeId

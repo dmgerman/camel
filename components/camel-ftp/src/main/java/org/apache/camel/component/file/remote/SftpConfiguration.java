@@ -127,6 +127,13 @@ specifier|private
 name|String
 name|knownHostsUri
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|knownHosts
 specifier|private
 name|byte
@@ -157,6 +164,13 @@ specifier|private
 name|String
 name|privateKeyUri
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|privateKey
 specifier|private
 name|byte
@@ -175,6 +189,13 @@ specifier|private
 name|String
 name|privateKeyPassphrase
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|keyPair
 specifier|private
 name|KeyPair
@@ -402,6 +423,7 @@ return|return
 name|knownHosts
 return|;
 block|}
+comment|/**      * Sets the known_hosts from the byte array, so that the SFTP endpoint can do host key verification.      */
 DECL|method|setKnownHosts (byte[] knownHosts)
 specifier|public
 name|void
@@ -429,7 +451,7 @@ return|return
 name|privateKeyFile
 return|;
 block|}
-comment|/**      * Set the private key file to that the SFTP endpoint can do private key verification.      */
+comment|/**      * Set the private key file so that the SFTP endpoint can do private key verification.      */
 DECL|method|setPrivateKeyFile (String privateKeyFile)
 specifier|public
 name|void
@@ -456,7 +478,7 @@ return|return
 name|privateKeyUri
 return|;
 block|}
-comment|/**      * Set the private key file (loaded from classpath by default) to that the SFTP endpoint can do private key verification.      */
+comment|/**      * Set the private key file (loaded from classpath by default) so that the SFTP endpoint can do private key verification.      */
 DECL|method|setPrivateKeyUri (String privateKeyUri)
 specifier|public
 name|void
@@ -484,7 +506,7 @@ return|return
 name|privateKey
 return|;
 block|}
-comment|/**      * Set the private key as byte[] to that the SFTP endpoint can do private key verification.      */
+comment|/**      * Set the private key as byte[] so that the SFTP endpoint can do private key verification.      */
 DECL|method|setPrivateKey (byte[] privateKey)
 specifier|public
 name|void
@@ -512,7 +534,7 @@ return|return
 name|privateKeyPassphrase
 return|;
 block|}
-comment|/**      * Set the private key file passphrase to that the SFTP endpoint can do private key verification.      */
+comment|/**      * Set the private key file passphrase so that the SFTP endpoint can do private key verification.      */
 DECL|method|setPrivateKeyPassphrase (String privateKeyFilePassphrase)
 specifier|public
 name|void
@@ -569,6 +591,7 @@ return|return
 name|keyPair
 return|;
 block|}
+comment|/**      * Sets a key pair of the public and private key so to that the SFTP endpoint can do public/private key verification.      */
 DECL|method|setKeyPair (KeyPair keyPair)
 specifier|public
 name|void

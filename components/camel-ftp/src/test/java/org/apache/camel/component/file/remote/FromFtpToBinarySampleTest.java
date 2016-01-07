@@ -109,11 +109,7 @@ comment|// we use a delay of 60 minutes (eg. once pr. hour we poll the FTP serve
 name|long
 name|delay
 init|=
-literal|60
-operator|*
-literal|60
-operator|*
-literal|1000L
+literal|3600000
 decl_stmt|;
 comment|// from the given FTP server we poll (= download) all the files
 comment|// from the public/reports folder as BINARY types and store this as files
