@@ -3445,6 +3445,24 @@ name|isSuccess
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// placeholder for a bunch of optional options
+name|result
+operator|=
+name|catalog
+operator|.
+name|validateEndpointProperties
+argument_list|(
+literal|"aws-swf://activity?{{options}}"
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|result
+operator|.
+name|isSuccess
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test

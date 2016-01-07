@@ -4430,7 +4430,24 @@ name|name
 argument_list|)
 decl_stmt|;
 name|boolean
-name|placeholder
+name|namePlaceholder
+init|=
+name|name
+operator|.
+name|startsWith
+argument_list|(
+literal|"{{"
+argument_list|)
+operator|&&
+name|name
+operator|.
+name|endsWith
+argument_list|(
+literal|"}}"
+argument_list|)
+decl_stmt|;
+name|boolean
+name|valuePlaceholder
 init|=
 name|value
 operator|.
@@ -4516,9 +4533,13 @@ condition|)
 block|{
 comment|// unknown option
 comment|// only add as error if the component is not lenient properties, or not stub component
+comment|// and the name is not a property placeholder for one or more values
 comment|// as if we are lenient then the option is a dynamic extra option which we cannot validate
 if|if
 condition|(
+operator|!
+name|namePlaceholder
+operator|&&
 operator|!
 name|lenientProperties
 operator|&&
@@ -4658,7 +4679,7 @@ operator|!
 name|mulitValue
 operator|&&
 operator|!
-name|placeholder
+name|valuePlaceholder
 operator|&&
 operator|!
 name|lookup
@@ -4794,7 +4815,7 @@ operator|!
 name|mulitValue
 operator|&&
 operator|!
-name|placeholder
+name|valuePlaceholder
 operator|&&
 operator|!
 name|lookup
@@ -4849,7 +4870,7 @@ operator|!
 name|mulitValue
 operator|&&
 operator|!
-name|placeholder
+name|valuePlaceholder
 operator|&&
 operator|!
 name|lookup
@@ -4895,7 +4916,7 @@ operator|!
 name|mulitValue
 operator|&&
 operator|!
-name|placeholder
+name|valuePlaceholder
 operator|&&
 operator|!
 name|lookup
