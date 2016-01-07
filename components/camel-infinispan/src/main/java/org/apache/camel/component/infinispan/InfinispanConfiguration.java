@@ -126,11 +126,6 @@ specifier|public
 class|class
 name|InfinispanConfiguration
 block|{
-DECL|field|cacheContainer
-specifier|private
-name|BasicCacheContainer
-name|cacheContainer
-decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -144,6 +139,13 @@ DECL|field|host
 specifier|private
 name|String
 name|host
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|cacheContainer
+specifier|private
+name|BasicCacheContainer
+name|cacheContainer
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -167,7 +169,7 @@ name|enums
 operator|=
 literal|"put,putAll,putIfAbsent,putAsync,putAllAsync,putIfAbsentAsync,get,containsKey,containsValue,remove,removeAsync,"
 operator|+
-literal|"replace,replaceAsync,clear,size"
+literal|"replace,replaceAsync,clear,clearAsync,size"
 argument_list|)
 DECL|field|command
 specifier|private
@@ -198,6 +200,10 @@ argument_list|(
 name|label
 operator|=
 literal|"consumer"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.String"
 argument_list|)
 DECL|field|eventTypes
 specifier|private
