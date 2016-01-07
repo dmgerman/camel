@@ -367,7 +367,9 @@ argument_list|(
 name|methodName
 argument_list|)
 expr_stmt|;
-return|return
+name|GoogleDriveEndpoint
+name|endpoint
+init|=
 operator|new
 name|GoogleDriveEndpoint
 argument_list|(
@@ -381,6 +383,16 @@ name|methodName
 argument_list|,
 name|endpointConfiguration
 argument_list|)
+decl_stmt|;
+name|endpoint
+operator|.
+name|setClientFactory
+argument_list|(
+name|clientFactory
+argument_list|)
+expr_stmt|;
+return|return
+name|endpoint
 return|;
 block|}
 block|}

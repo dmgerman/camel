@@ -177,6 +177,13 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|enums
+operator|=
+literal|"drive-about,drive-apps,drive-changes,drive-channels,drive-children,drive-comments,drive-files,drive-parents"
+operator|+
+literal|",drive-permissions,drive-properties,drive-realtime,drive-replies,drive-revisions"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -194,7 +201,7 @@ name|UriPath
 argument_list|(
 name|enums
 operator|=
-literal|"copy,delete,get,getIdForEmail,insert,list,patch,stop,touch,untrash,update,watch"
+literal|"copy,delete,get,getIdForEmail,insert,list,patch,stop,touch,trash,untrash,update,watch"
 argument_list|)
 annotation|@
 name|Metadata

@@ -239,7 +239,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The google-driverr component provides access to Google Drive file storage service.  */
+comment|/**  * The google-drive component provides access to Google Drive file storage service.  */
 end_comment
 
 begin_class
@@ -295,6 +295,13 @@ DECL|field|configuration
 specifier|private
 name|GoogleDriveConfiguration
 name|configuration
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|clientFactory
+specifier|private
+name|GoogleDriveClientFactory
+name|clientFactory
 decl_stmt|;
 DECL|method|GoogleDriveEndpoint (String uri, GoogleDriveComponent component, GoogleDriveApiName apiName, String methodName, GoogleDriveConfiguration endpointConfiguration)
 specifier|public
@@ -671,18 +678,10 @@ name|getClientFactory
 parameter_list|()
 block|{
 return|return
-operator|(
-operator|(
-name|GoogleDriveComponent
-operator|)
-name|getComponent
-argument_list|()
-operator|)
-operator|.
-name|getClientFactory
-argument_list|()
+name|clientFactory
 return|;
 block|}
+comment|/**      * To use the GoogleCalendarClientFactory as factory for creating the client.      * Will by default use {@link BatchGoogleDriveClientFactory}      */
 DECL|method|setClientFactory (GoogleDriveClientFactory clientFactory)
 specifier|public
 name|void
@@ -692,18 +691,11 @@ name|GoogleDriveClientFactory
 name|clientFactory
 parameter_list|)
 block|{
-operator|(
-operator|(
-name|GoogleDriveComponent
-operator|)
-name|getComponent
-argument_list|()
-operator|)
+name|this
 operator|.
-name|setClientFactory
-argument_list|(
 name|clientFactory
-argument_list|)
+operator|=
+name|clientFactory
 expr_stmt|;
 block|}
 block|}
