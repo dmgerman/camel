@@ -152,13 +152,6 @@ name|enums
 operator|=
 literal|"INDEX,UPDATE,BULK,BULK_INDEX,GET_BY_ID,MULTIGET,DELETE,EXISTS,SEARCH,MULTISEARCH"
 argument_list|)
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
 DECL|field|operation
 specifier|private
 name|String
