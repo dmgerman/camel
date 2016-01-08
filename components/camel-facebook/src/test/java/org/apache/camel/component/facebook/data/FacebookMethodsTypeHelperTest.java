@@ -790,6 +790,22 @@ operator|.
 name|getType
 argument_list|()
 decl_stmt|;
+comment|// skip readingOptions
+if|if
+condition|(
+literal|"readingOptions"
+operator|.
+name|equals
+argument_list|(
+name|field
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
 specifier|final
 name|Class
 argument_list|<
