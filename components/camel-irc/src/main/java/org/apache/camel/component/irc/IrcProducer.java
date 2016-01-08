@@ -308,6 +308,13 @@ throw|;
 block|}
 if|if
 condition|(
+name|msg
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
 name|isMessageACommand
 argument_list|(
 name|msg
@@ -399,6 +406,7 @@ argument_list|,
 name|msg
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

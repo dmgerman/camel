@@ -162,6 +162,11 @@ name|message
 operator|=
 name|message
 expr_stmt|;
+name|setBody
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|IrcMessage (String messageType, String target, IRCUser user, String message)
 specifier|public
@@ -203,6 +208,11 @@ operator|.
 name|message
 operator|=
 name|message
+expr_stmt|;
+name|setBody
+argument_list|(
+name|message
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|IrcMessage (String messageType, String target, IRCUser user, String whoWasKickedNick, String message)
@@ -254,6 +264,11 @@ operator|.
 name|message
 operator|=
 name|message
+expr_stmt|;
+name|setBody
+argument_list|(
+name|message
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|IrcMessage (String messageType, String target, IRCUser user)
@@ -329,6 +344,11 @@ operator|.
 name|message
 operator|=
 name|message
+expr_stmt|;
+name|setBody
+argument_list|(
+name|message
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getMessageType ()
