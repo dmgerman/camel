@@ -20,26 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Map
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|braintreegateway
@@ -121,6 +101,26 @@ operator|.
 name|component
 operator|.
 name|AbstractApiComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
 import|;
 end_import
 
@@ -303,6 +303,21 @@ argument_list|(
 name|configuration
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getConfiguration ()
+specifier|public
+name|BraintreeConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|super
+operator|.
+name|getConfiguration
+argument_list|()
+return|;
 block|}
 DECL|method|getGateway (BraintreeConfiguration configuration)
 specifier|private
