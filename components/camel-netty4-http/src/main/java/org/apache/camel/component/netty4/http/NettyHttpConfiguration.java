@@ -156,10 +156,6 @@ argument_list|(
 name|enums
 operator|=
 literal|"http,https"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"http"
 argument_list|)
 annotation|@
 name|Metadata

@@ -239,7 +239,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty-http:0.0.0.0:{{port}}/foo"
+literal|"netty-http:http:0.0.0.0:{{port}}/foo"
 argument_list|)
 operator|.
 name|to

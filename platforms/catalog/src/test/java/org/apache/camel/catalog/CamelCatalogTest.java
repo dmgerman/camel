@@ -965,7 +965,16 @@ name|String
 argument_list|>
 argument_list|()
 decl_stmt|;
-comment|// use default protocol
+comment|// use http protocol
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"protocol"
+argument_list|,
+literal|"http"
+argument_list|)
+expr_stmt|;
 name|map
 operator|.
 name|put
@@ -1023,7 +1032,7 @@ argument_list|,
 name|uri
 argument_list|)
 expr_stmt|;
-comment|// lets add a protocol
+comment|// lets switch protocol
 name|map
 operator|.
 name|put
