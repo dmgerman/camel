@@ -186,7 +186,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|3
+literal|2
 argument_list|,
 name|mock
 operator|.
@@ -242,7 +242,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"jdbc:testdb"
+literal|"jdbc:testdb?statement.maxRows=2"
 argument_list|)
 operator|.
 name|to
