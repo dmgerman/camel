@@ -248,7 +248,6 @@ specifier|private
 name|String
 name|privateKey
 decl_stmt|;
-comment|/**      * @return the environment      */
 DECL|method|getEnvironment ()
 specifier|public
 name|String
@@ -266,7 +265,7 @@ name|ENVIRONMENT
 argument_list|)
 return|;
 block|}
-comment|/**      * @param environment the environment Either SANDBOX or PRODUCTION      */
+comment|/**      * The environment Either SANDBOX or PRODUCTION      */
 DECL|method|setEnvironment (String environment)
 specifier|public
 name|void
@@ -283,7 +282,6 @@ operator|=
 name|environment
 expr_stmt|;
 block|}
-comment|/**      * @return the merchant id      */
 DECL|method|getMerchantId ()
 specifier|public
 name|String
@@ -301,7 +299,7 @@ name|MERCHANT_ID
 argument_list|)
 return|;
 block|}
-comment|/**      * @param merchantId the merchant id provided by Braintree.      */
+comment|/**      * The merchant id provided by Braintree.      */
 DECL|method|setMerchantId (String merchantId)
 specifier|public
 name|void
@@ -318,7 +316,6 @@ operator|=
 name|merchantId
 expr_stmt|;
 block|}
-comment|/**      * @return the public key      */
 DECL|method|getPublicKey ()
 specifier|public
 name|String
@@ -336,7 +333,7 @@ name|PUBLIC_KEY
 argument_list|)
 return|;
 block|}
-comment|/**      * @param publicKey the public key provided by Braintree.      */
+comment|/**      * The public key provided by Braintree.      */
 DECL|method|setPublicKey (String publicKey)
 specifier|public
 name|void
@@ -353,7 +350,6 @@ operator|=
 name|publicKey
 expr_stmt|;
 block|}
-comment|/**      * @return the private key      */
 DECL|method|getPrivateKey ()
 specifier|public
 name|String
@@ -371,7 +367,7 @@ name|PRIVATE_KEY
 argument_list|)
 return|;
 block|}
-comment|/**      * @param privateKey the private key provided by Braintree.      */
+comment|/**      * The private key provided by Braintree.      */
 DECL|method|setPrivateKey (String privateKey)
 specifier|public
 name|void
@@ -388,7 +384,7 @@ operator|=
 name|privateKey
 expr_stmt|;
 block|}
-comment|/**      * Helper method to get and Environment object from its name      *      * @return the environment      */
+comment|/**      * Helper method to get and Environment object from its name      */
 DECL|method|getBraintreeEnvironment ()
 specifier|private
 name|Environment
@@ -470,7 +466,7 @@ argument_list|)
 argument_list|)
 throw|;
 block|}
-comment|/**      * Contruct a BraintreeGateway from configuration      *      * @return a braintree gateway      */
+comment|/**      * Construct a BraintreeGateway from configuration      */
 DECL|method|newBraintreeGateway ()
 name|BraintreeGateway
 name|newBraintreeGateway
@@ -494,7 +490,6 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/*     public void validate() {         if (ObjectHelper.isEmpty(environment)             || ObjectHelper.isEmpty(merchantId)             || ObjectHelper.isEmpty(publicKey)             || ObjectHelper.isEmpty(privateKey)) {             throw new IllegalArgumentException(String.format(                 "Missing required properties %s, %s, %s, %s", ENVIRONMENT, MERCHANT_ID, PUBLIC_KEY, PRIVATE_KEY));         }     }     */
 block|}
 end_class
 

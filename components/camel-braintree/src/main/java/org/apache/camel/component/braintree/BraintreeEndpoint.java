@@ -208,6 +208,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|component
 operator|.
 name|AbstractApiEndpoint
@@ -247,7 +261,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents a Braintree endpoint.  */
+comment|/**  * The braintree component is used for integrating with the Braintree Payment System.  */
 end_comment
 
 begin_class
@@ -403,22 +417,17 @@ throws|throws
 name|Exception
 block|{
 comment|// make sure inBody is not set for consumers
-if|if
-condition|(
-name|inBody
-operator|!=
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|ObjectHelper
+operator|.
+name|notNull
 argument_list|(
-literal|"Option inBody is not supported for consumer endpoint"
+name|inBody
+argument_list|,
+literal|"inbody"
+argument_list|,
+name|this
 argument_list|)
-throw|;
-block|}
-specifier|final
+expr_stmt|;
 name|BraintreeConsumer
 name|consumer
 init|=
