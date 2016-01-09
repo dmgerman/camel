@@ -1268,6 +1268,13 @@ if|if
 condition|(
 name|path
 operator|.
+name|length
+argument_list|()
+operator|>
+literal|1
+operator|&&
+name|path
+operator|.
 name|startsWith
 argument_list|(
 literal|"/"
@@ -1320,6 +1327,13 @@ operator|=
 name|uri
 operator|.
 name|endsWith
+argument_list|(
+literal|"/"
+argument_list|)
+operator|||
+name|path
+operator|.
+name|startsWith
 argument_list|(
 literal|"/"
 argument_list|)
