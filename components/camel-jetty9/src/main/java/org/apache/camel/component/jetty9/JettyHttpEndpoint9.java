@@ -210,12 +210,13 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getBinding ()
+DECL|method|getHttpBinding ()
 specifier|public
 name|HttpBinding
-name|getBinding
+name|getHttpBinding
 parameter_list|()
 block|{
+comment|// make sure we include jetty9 variant of the http binding
 if|if
 condition|(
 name|this
@@ -284,10 +285,10 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|setBinding (HttpBinding binding)
+DECL|method|setHttpBinding (HttpBinding binding)
 specifier|public
 name|void
-name|setBinding
+name|setHttpBinding
 parameter_list|(
 name|HttpBinding
 name|binding
@@ -295,7 +296,7 @@ parameter_list|)
 block|{
 name|super
 operator|.
-name|setBinding
+name|setHttpBinding
 argument_list|(
 name|binding
 argument_list|)
