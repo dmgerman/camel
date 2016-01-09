@@ -252,7 +252,7 @@ expr_stmt|;
 block|}
 name|assertMockEndpointsSatisfied
 argument_list|(
-literal|5
+literal|10
 argument_list|,
 name|TimeUnit
 operator|.
@@ -353,7 +353,7 @@ expr_stmt|;
 block|}
 name|assertMockEndpointsSatisfied
 argument_list|(
-literal|5
+literal|10
 argument_list|,
 name|TimeUnit
 operator|.
