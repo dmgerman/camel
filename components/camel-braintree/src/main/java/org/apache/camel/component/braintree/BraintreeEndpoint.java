@@ -416,18 +416,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// make sure inBody is not set for consumers
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|inBody
-argument_list|,
-literal|"inbody"
-argument_list|,
-name|this
-argument_list|)
-expr_stmt|;
 name|BraintreeConsumer
 name|consumer
 init|=

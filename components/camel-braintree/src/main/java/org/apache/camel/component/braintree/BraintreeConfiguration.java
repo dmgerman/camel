@@ -459,7 +459,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Environment should be  development, sandbox or production, got %s"
+literal|"Environment should be development, sandbox or production, got %s"
 argument_list|,
 name|name
 argument_list|)
