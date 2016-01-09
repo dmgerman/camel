@@ -178,8 +178,6 @@ comment|//TODO: as rest of types.
 comment|//TODO: add test for each type.
 name|Class
 name|ret
-init|=
-literal|null
 decl_stmt|;
 switch|switch
 condition|(

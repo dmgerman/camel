@@ -106,11 +106,6 @@ name|SqlStoredProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|templateStoredProcedureFactory
-specifier|private
-name|TemplateStoredProcedureFactory
-name|templateStoredProcedureFactory
-decl_stmt|;
 DECL|field|defaultTemplateStoredProcedure
 specifier|private
 name|TemplateStoredProcedure
@@ -134,12 +129,6 @@ name|super
 argument_list|(
 name|endpoint
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|templateStoredProcedureFactory
-operator|=
-name|templateStoredProcedureFactory
 expr_stmt|;
 name|this
 operator|.
