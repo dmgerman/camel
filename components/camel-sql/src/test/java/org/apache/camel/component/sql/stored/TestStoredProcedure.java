@@ -43,6 +43,7 @@ end_import
 begin_class
 DECL|class|TestStoredProcedure
 specifier|public
+specifier|final
 class|class
 name|TestStoredProcedure
 block|{
@@ -62,6 +63,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|method|TestStoredProcedure ()
+specifier|private
+name|TestStoredProcedure
+parameter_list|()
+block|{     }
 DECL|method|addnumbers (int val1, int val2, int[] ret)
 specifier|public
 specifier|static

@@ -155,7 +155,8 @@ class|class
 name|TemplateStoredProcedureFactory
 block|{
 DECL|field|TEMPLATE_CACHE_DEFAULT_SIZE
-specifier|private
+specifier|public
+specifier|static
 specifier|final
 name|int
 name|TEMPLATE_CACHE_DEFAULT_SIZE
@@ -186,7 +187,7 @@ argument_list|,
 name|TemplateStoredProcedure
 argument_list|>
 argument_list|(
-literal|200
+name|TEMPLATE_CACHE_DEFAULT_SIZE
 argument_list|)
 decl_stmt|;
 DECL|method|TemplateStoredProcedureFactory (JdbcTemplate jdbcTemplate)
