@@ -20,10 +20,6 @@ name|ast
 package|;
 end_package
 
-begin_comment
-comment|/**  * Created by snurmine on 1/3/16.  */
-end_comment
-
 begin_class
 DECL|class|ParseRuntimeException
 specifier|public
