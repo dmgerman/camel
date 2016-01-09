@@ -269,7 +269,7 @@ name|EndpointInject
 argument_list|(
 name|uri
 operator|=
-literal|"hipchat://?authToken=anything&consumeUsers=@AUser"
+literal|"hipchat:http://api.hipchat.com?authToken=anything&consumeUsers=@AUser"
 argument_list|)
 DECL|field|template
 specifier|private
@@ -574,7 +574,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"hipchat://?authToken=anything&consumeUsers=@AUser,@BUser"
+literal|"hipchat:http://api.hipchat.com?authToken=anything&consumeUsers=@AUser,@BUser"
 argument_list|)
 operator|.
 name|to

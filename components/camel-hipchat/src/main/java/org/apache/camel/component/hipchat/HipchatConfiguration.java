@@ -28,6 +28,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriParam
 import|;
 end_import
@@ -70,30 +84,26 @@ name|HipchatConfiguration
 block|{
 annotation|@
 name|UriPath
+annotation|@
+name|Metadata
 argument_list|(
-name|defaultValue
+name|required
 operator|=
-name|HipchatConstants
-operator|.
-name|DEFAULT_PROTOCOL
+literal|"true"
 argument_list|)
 DECL|field|protocol
 specifier|private
 name|String
 name|protocol
-init|=
-name|HipchatConstants
-operator|.
-name|DEFAULT_PROTOCOL
 decl_stmt|;
 annotation|@
 name|UriPath
+annotation|@
+name|Metadata
 argument_list|(
-name|defaultValue
+name|required
 operator|=
-name|HipchatConstants
-operator|.
-name|DEFAULT_HOST
+literal|"true"
 argument_list|)
 DECL|field|host
 specifier|private
@@ -148,7 +158,7 @@ return|return
 name|host
 return|;
 block|}
-comment|/**      * The host for the hipchat server. Is by default api.hipchat.com      */
+comment|/**      * The host for the hipchat server, such as api.hipchat.com      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -202,7 +212,7 @@ return|return
 name|protocol
 return|;
 block|}
-comment|/**      * The protocol for the hipchat server. Is by default http.      */
+comment|/**      * The protocol for the hipchat server, such as http.      */
 DECL|method|setProtocol (String protocol)
 specifier|public
 name|void

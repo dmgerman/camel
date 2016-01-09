@@ -122,7 +122,7 @@ init|=
 operator|new
 name|HipchatEndpoint
 argument_list|(
-literal|"hipchat://?authKey=token"
+literal|"hipchat:http://api.hipchat.com?authKey=token"
 argument_list|,
 name|component
 argument_list|)

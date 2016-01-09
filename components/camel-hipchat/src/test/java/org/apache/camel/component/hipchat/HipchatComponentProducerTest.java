@@ -1570,7 +1570,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hipchat://?authToken=anything"
+literal|"hipchat:http:api.hipchat.com?authToken=anything"
 argument_list|)
 operator|.
 name|to

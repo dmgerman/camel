@@ -285,7 +285,7 @@ block|{
 name|String
 name|hipchatEndpointUri
 init|=
-literal|"hipchat://?authToken=XXXX&consumeUsers=@ShreyasPurohit&delay=1000"
+literal|"hipchat:http:api.hipchat.com?authToken=XXXX&consumeUsers=@ShreyasPurohit&delay=1000"
 decl_stmt|;
 name|from
 argument_list|(
