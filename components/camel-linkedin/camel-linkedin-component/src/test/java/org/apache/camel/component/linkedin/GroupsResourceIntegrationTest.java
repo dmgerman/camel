@@ -167,20 +167,7 @@ specifier|final
 name|String
 name|PATH_PREFIX
 init|=
-name|LinkedInApiCollection
-operator|.
-name|getCollection
-argument_list|()
-operator|.
-name|getApiName
-argument_list|(
-name|GroupsResourceApiMethod
-operator|.
-name|class
-argument_list|)
-operator|.
-name|getName
-argument_list|()
+literal|"groups"
 decl_stmt|;
 comment|// TODO provide parameter values for addPost
 annotation|@

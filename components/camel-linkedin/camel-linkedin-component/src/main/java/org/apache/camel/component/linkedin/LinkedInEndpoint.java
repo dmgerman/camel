@@ -445,6 +445,10 @@ operator|=
 name|LinkedInConsumer
 operator|.
 name|class
+argument_list|,
+name|lenientProperties
+operator|=
+literal|true
 argument_list|)
 DECL|class|LinkedInEndpoint
 specifier|public

@@ -187,20 +187,7 @@ specifier|final
 name|String
 name|PATH_PREFIX
 init|=
-name|LinkedInApiCollection
-operator|.
-name|getCollection
-argument_list|()
-operator|.
-name|getApiName
-argument_list|(
-name|PeopleResourceApiMethod
-operator|.
-name|class
-argument_list|)
-operator|.
-name|getName
-argument_list|()
+literal|"people"
 decl_stmt|;
 comment|// TODO provide parameter values for addActivity
 annotation|@
