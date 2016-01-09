@@ -641,6 +641,35 @@ init|=
 name|retrieveMessages
 argument_list|()
 decl_stmt|;
+comment|// need to call setPeek on java-mail to avoid the message being flagged eagerly as SEEN on the server in case
+comment|// we process the message and rollback due an exception
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isPeek
+argument_list|()
+condition|)
+block|{
+for|for
+control|(
+name|Message
+name|message
+range|:
+name|messages
+control|)
+block|{
+name|peekMessage
+argument_list|(
+name|message
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 name|polledMessages
 operator|=
 name|processBatch
@@ -1059,26 +1088,6 @@ operator|.
 name|getOriginalMessage
 argument_list|()
 decl_stmt|;
-comment|// need to call setPeek on java-mail to avoid the message being flagged eagerly as SEEN on the server in case
-comment|// we process the message and rollback due an exception
-if|if
-condition|(
-name|getEndpoint
-argument_list|()
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|isPeek
-argument_list|()
-condition|)
-block|{
-name|peekMessage
-argument_list|(
-name|mail
-argument_list|)
-expr_stmt|;
-block|}
 comment|// add on completion to handle after work when the exchange is done
 name|exchange
 operator|.
