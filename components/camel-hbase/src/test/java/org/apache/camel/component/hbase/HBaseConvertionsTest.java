@@ -810,7 +810,7 @@ name|HBaseConstants
 operator|.
 name|SCAN
 operator|+
-literal|"&maxResults=2&family=family1&qualifier=column1"
+literal|"&maxResults=2&row.family=family1&row.qualifier=column1"
 argument_list|)
 expr_stmt|;
 block|}

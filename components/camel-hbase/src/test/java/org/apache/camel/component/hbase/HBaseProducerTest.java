@@ -3050,7 +3050,7 @@ literal|"hbase://"
 operator|+
 name|PERSON_TABLE
 operator|+
-literal|"?family=info&qualifier=firstName&family2=birthdate&qualifier2=year"
+literal|"?row.family=info&row.qualifier=firstName&row.family2=birthdate&row.qualifier2=year"
 argument_list|)
 expr_stmt|;
 name|from
