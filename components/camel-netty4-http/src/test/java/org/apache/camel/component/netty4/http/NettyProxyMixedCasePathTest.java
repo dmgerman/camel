@@ -69,7 +69,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty4-http:http://0.0.0.0:{{port}}/Shopping"
+literal|"netty4-http:http://localhost:{{port}}/Shopping"
 argument_list|,
 literal|"Camel"
 argument_list|,
@@ -91,7 +91,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty4-http:http://0.0.0.0:{{port}}/shopping"
+literal|"netty4-http:http://localhost:{{port}}/shopping"
 argument_list|,
 literal|"World"
 argument_list|,
@@ -139,7 +139,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"netty4-http:http://0.0.0.0:{{port}}/ws/svc/Shopping"
+literal|"netty4-http:http://localhost:{{port}}/ws/svc/Shopping"
 argument_list|)
 expr_stmt|;
 name|from

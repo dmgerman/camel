@@ -91,7 +91,7 @@ specifier|private
 name|String
 name|url
 init|=
-literal|"netty4-http:http://0.0.0.0:"
+literal|"netty4-http:http://localhost:"
 operator|+
 name|getPort
 argument_list|()

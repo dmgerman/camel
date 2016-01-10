@@ -151,7 +151,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"netty4-http:http://0.0.0.0:"
+literal|"netty4-http:http://localhost:"
 operator|+
 name|port2
 operator|+

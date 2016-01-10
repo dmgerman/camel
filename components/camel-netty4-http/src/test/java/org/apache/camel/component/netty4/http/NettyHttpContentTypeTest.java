@@ -135,7 +135,7 @@ name|Exchange
 operator|.
 name|HTTP_URL
 argument_list|,
-literal|"http://0.0.0.0:"
+literal|"http://localhost:"
 operator|+
 name|getPort
 argument_list|()
@@ -180,7 +180,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"netty4-http:http://0.0.0.0:{{port}}/foo"
+literal|"netty4-http:http://localhost:{{port}}/foo"
 argument_list|,
 name|data
 argument_list|,
@@ -263,7 +263,7 @@ name|Exchange
 operator|.
 name|HTTP_URL
 argument_list|,
-literal|"http://0.0.0.0:"
+literal|"http://localhost:"
 operator|+
 name|getPort
 argument_list|()
@@ -308,7 +308,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"netty4-http:http://0.0.0.0:{{port}}/foo"
+literal|"netty4-http:http://localhost:{{port}}/foo"
 argument_list|,
 name|data
 argument_list|,
@@ -391,7 +391,7 @@ name|Exchange
 operator|.
 name|HTTP_URL
 argument_list|,
-literal|"http://0.0.0.0:"
+literal|"http://localhost:"
 operator|+
 name|getPort
 argument_list|()
@@ -436,7 +436,7 @@ name|template
 operator|.
 name|requestBodyAndHeader
 argument_list|(
-literal|"netty4-http:http://0.0.0.0:{{port}}/foo"
+literal|"netty4-http:http://localhost:{{port}}/foo"
 argument_list|,
 name|data
 argument_list|,
