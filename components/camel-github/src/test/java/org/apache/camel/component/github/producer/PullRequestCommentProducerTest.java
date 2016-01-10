@@ -284,9 +284,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"github://pullRequestComment?"
-operator|+
-name|GITHUB_CREDENTIALS_STRING
+literal|"github://pullRequestComment?username=someguy&password=apassword&repoOwner=anotherguy&repoName=somerepo"
 argument_list|)
 expr_stmt|;
 block|}

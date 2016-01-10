@@ -225,9 +225,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"github://pullRequest?"
-operator|+
-name|GITHUB_CREDENTIALS_STRING
+literal|"github://pullRequest?username=someguy&password=apassword&repoOwner=anotherguy&repoName=somerepo"
 argument_list|)
 operator|.
 name|process
