@@ -301,12 +301,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"dropbox://search?"
-operator|+
-name|getAuthParams
-argument_list|()
-operator|+
-literal|"&remotePath=/XXX&query=XXX"
+literal|"dropbox://search?accessToken={{accessToken}}&clientIdentifier={{clientIdentifier}}&remotePath=/XXX&query=XXX"
 argument_list|)
 operator|.
 name|to

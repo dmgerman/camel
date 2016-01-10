@@ -301,12 +301,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"dropbox://put?"
-operator|+
-name|getAuthParams
-argument_list|()
-operator|+
-literal|"&uploadMode=add&localPath=/XXX&remotePath=/XXX"
+literal|"dropbox://put?accessToken={{accessToken}}&clientIdentifier={{clientIdentifier}}&uploadMode=add&localPath=/XXX&remotePath=/XXX"
 argument_list|)
 operator|.
 name|to

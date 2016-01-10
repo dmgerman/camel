@@ -176,30 +176,16 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|getAuthParams ()
+annotation|@
+name|Override
+DECL|method|useOverridePropertiesWithPropertiesComponent ()
 specifier|protected
-name|String
-name|getAuthParams
+name|Properties
+name|useOverridePropertiesWithPropertiesComponent
 parameter_list|()
 block|{
 return|return
-literal|"accessToken="
-operator|+
 name|properties
-operator|.
-name|get
-argument_list|(
-literal|"accessToken"
-argument_list|)
-operator|+
-literal|"&clientIdentifier="
-operator|+
-name|properties
-operator|.
-name|get
-argument_list|(
-literal|"clientIdentifier"
-argument_list|)
 return|;
 block|}
 block|}

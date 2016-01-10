@@ -70,9 +70,7 @@ name|dropbox
 operator|.
 name|integration
 operator|.
-name|consumer
-operator|.
-name|DropboxScheduledPollGetConsumer
+name|DropboxTestSupport
 import|;
 end_import
 
@@ -84,11 +82,15 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|test
+name|component
 operator|.
-name|junit4
+name|dropbox
 operator|.
-name|CamelTestSupport
+name|integration
+operator|.
+name|consumer
+operator|.
+name|DropboxScheduledPollGetConsumer
 import|;
 end_import
 
@@ -112,34 +114,21 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|dropbox
-operator|.
-name|util
-operator|.
-name|DropboxOperation
-operator|.
-name|get
-import|;
-end_import
-
 begin_class
 DECL|class|DropboxConsumerTest
 specifier|public
 class|class
 name|DropboxConsumerTest
 extends|extends
-name|CamelTestSupport
+name|DropboxTestSupport
 block|{
+DECL|method|DropboxConsumerTest ()
+specifier|public
+name|DropboxConsumerTest
+parameter_list|()
+throws|throws
+name|Exception
+block|{     }
 annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
@@ -166,11 +155,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"dropbox://"
-operator|+
-name|get
-operator|+
-literal|"?accessToken=token&remotePath=/path"
+literal|"dropbox://get?accessToken={{accessToken}}&clientIdentifier={{clientIdentifier}}&remotePath=/path"
 argument_list|)
 operator|.
 name|to
@@ -200,11 +185,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"dropbox://"
-operator|+
-name|get
-operator|+
-literal|"?accessToken=token&remotePath=/path"
+literal|"dropbox://get?accessToken={{accessToken}}&clientIdentifier={{clientIdentifier}}&remotePath=/path"
 argument_list|)
 decl_stmt|;
 comment|// When
