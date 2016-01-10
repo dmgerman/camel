@@ -359,7 +359,12 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|Integer
+operator|.
+name|valueOf
+argument_list|(
 literal|3338
+argument_list|)
 argument_list|,
 name|twitterEndpoint
 operator|.

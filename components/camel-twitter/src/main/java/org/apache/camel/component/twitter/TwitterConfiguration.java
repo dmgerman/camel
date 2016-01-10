@@ -157,7 +157,13 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"What kind of type to use"
+literal|"The kind of endpoint"
+argument_list|,
+name|enums
+operator|=
+literal|"directmessage,search,streaming/filter,streaming/sample,streaming/user"
+operator|+
+literal|",timeline/home,timeline/mentions,timeline/retweetsofme,timeline/user"
 argument_list|)
 annotation|@
 name|Metadata
@@ -165,6 +171,26 @@ argument_list|(
 name|required
 operator|=
 literal|"true"
+argument_list|)
+DECL|field|kind
+specifier|private
+name|String
+name|kind
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"direct"
+argument_list|,
+name|enums
+operator|=
+literal|"polling,direct,event"
 argument_list|)
 DECL|field|type
 specifier|private
@@ -452,6 +478,13 @@ specifier|private
 name|Twitter
 name|twitter
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|)
 DECL|field|twitterStream
 specifier|private
 name|TwitterStream
@@ -680,6 +713,7 @@ return|return
 name|twitterStream
 return|;
 block|}
+comment|/**      * To use a custom instance of TwitterStream      */
 DECL|method|setTwitterStream (TwitterStream twitterStream)
 specifier|public
 name|void
@@ -725,6 +759,33 @@ block|}
 return|return
 name|twitterStream
 return|;
+block|}
+DECL|method|getKind ()
+specifier|public
+name|String
+name|getKind
+parameter_list|()
+block|{
+return|return
+name|kind
+return|;
+block|}
+comment|/**      * What polling mode to use, direct, polling or event based.      * The event mode is only supported when the endpoint kind is event based.      */
+DECL|method|setKind (String kind)
+specifier|public
+name|void
+name|setKind
+parameter_list|(
+name|String
+name|kind
+parameter_list|)
+block|{
+name|this
+operator|.
+name|kind
+operator|=
+name|kind
+expr_stmt|;
 block|}
 DECL|method|getConsumerKey ()
 specifier|public
@@ -925,6 +986,7 @@ return|return
 name|type
 return|;
 block|}
+comment|/**      * Endpoint type to use. Only streaming supports event type.      */
 DECL|method|setType (EndpointType type)
 specifier|public
 name|void
@@ -1212,12 +1274,12 @@ name|httpProxyPassword
 return|;
 block|}
 comment|/**      * The http proxy port which can be used for the camel-twitter. Can also be configured on the TwitterComponent level instead.      */
-DECL|method|setHttpProxyPort (int httpProxyPort)
+DECL|method|setHttpProxyPort (Integer httpProxyPort)
 specifier|public
 name|void
 name|setHttpProxyPort
 parameter_list|(
-name|int
+name|Integer
 name|httpProxyPort
 parameter_list|)
 block|{
@@ -1230,7 +1292,7 @@ expr_stmt|;
 block|}
 DECL|method|getHttpProxyPort ()
 specifier|public
-name|int
+name|Integer
 name|getHttpProxyPort
 parameter_list|()
 block|{

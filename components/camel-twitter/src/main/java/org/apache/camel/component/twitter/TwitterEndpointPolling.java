@@ -207,7 +207,7 @@ literal|"Twitter"
 argument_list|,
 name|syntax
 operator|=
-literal|"twitter:type"
+literal|"twitter:kind"
 argument_list|,
 name|consumerClass
 operator|=
