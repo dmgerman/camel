@@ -758,7 +758,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|file
 operator|.
@@ -1207,7 +1207,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|file
 operator|.
@@ -1428,7 +1428,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|file
 operator|.
@@ -1600,7 +1600,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|file
 operator|.
@@ -1775,7 +1775,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|file
 operator|.
@@ -2111,7 +2111,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|file
 operator|.
@@ -2326,7 +2326,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|file
 operator|.
@@ -2501,7 +2501,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|file
 operator|.
@@ -2676,7 +2676,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|file
 operator|.
@@ -2851,7 +2851,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|file
 operator|.
@@ -3026,7 +3026,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|file
 operator|.
@@ -3213,7 +3213,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|file
 operator|.
@@ -3388,7 +3388,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|file
 operator|.
@@ -3581,7 +3581,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|file
 operator|.

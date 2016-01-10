@@ -2794,7 +2794,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2://localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2812,7 +2812,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2829,7 +2829,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2846,7 +2846,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2863,7 +2863,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2880,7 +2880,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2897,7 +2897,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2914,7 +2914,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2932,7 +2932,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2949,7 +2949,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2967,7 +2967,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -2985,7 +2985,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.
@@ -3002,7 +3002,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs2:///"
+literal|"hdfs2:localhost/"
 operator|+
 name|TEMP_DIR
 operator|.

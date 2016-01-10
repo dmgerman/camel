@@ -255,7 +255,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hdfs:///"
+literal|"hdfs:localhost/"
 operator|+
 name|file
 operator|.
@@ -267,7 +267,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"hdfs:///"
+literal|"hdfs:localhost/"
 operator|+
 name|file
 operator|.
