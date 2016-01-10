@@ -232,7 +232,7 @@ literal|"Git"
 argument_list|,
 name|syntax
 operator|=
-literal|"git:localpath"
+literal|"git:localPath"
 argument_list|,
 name|label
 operator|=

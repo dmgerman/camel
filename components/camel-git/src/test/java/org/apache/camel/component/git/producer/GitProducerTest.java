@@ -6130,7 +6130,7 @@ literal|"git://"
 operator|+
 name|gitLocalRepo
 operator|+
-literal|"?operation=rm"
+literal|"?operation=remove"
 argument_list|)
 expr_stmt|;
 name|from
