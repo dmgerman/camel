@@ -476,15 +476,13 @@ specifier|private
 name|FacebookNameStyle
 name|nameStyle
 decl_stmt|;
-DECL|field|method
-specifier|private
-name|String
-name|method
-decl_stmt|;
-comment|// Facebook4J method name
 annotation|@
 name|UriPath
 argument_list|(
+name|name
+operator|=
+literal|"methodName"
+argument_list|,
 name|description
 operator|=
 literal|"What operation to perform"
@@ -496,6 +494,11 @@ name|required
 operator|=
 literal|"true"
 argument_list|)
+DECL|field|method
+specifier|private
+name|String
+name|method
+decl_stmt|;
 DECL|field|methodName
 specifier|private
 name|FacebookMethodsType
@@ -1126,22 +1129,6 @@ operator|.
 name|inBody
 operator|=
 name|inBody
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|doStart
-argument_list|()
 expr_stmt|;
 block|}
 block|}
