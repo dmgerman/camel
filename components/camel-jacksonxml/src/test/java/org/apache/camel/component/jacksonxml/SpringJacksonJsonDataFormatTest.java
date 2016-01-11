@@ -369,7 +369,7 @@ decl_stmt|;
 name|String
 name|expected
 init|=
-literal|"<HashMap>\n<name>Camel</name>\n</HashMap>"
+literal|"<HashMap>\n<name>Camel</name>\n</HashMap>\n"
 decl_stmt|;
 name|assertEquals
 argument_list|(
