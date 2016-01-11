@@ -168,15 +168,6 @@ name|IGNITE_SETS_OPERATION
 init|=
 literal|"CamelIgniteSetsOperation"
 decl_stmt|;
-DECL|field|IGNITE_SETS_OPERATION_RESULT
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|IGNITE_SETS_OPERATION_RESULT
-init|=
-literal|"CamelIgniteSetsOperationResult"
-decl_stmt|;
 comment|// Ignite ID Gen.
 DECL|field|IGNITE_IDGEN_OPERATION
 specifier|public
