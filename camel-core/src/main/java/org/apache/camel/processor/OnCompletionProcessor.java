@@ -710,6 +710,7 @@ parameter_list|)
 block|{
 comment|// must remember some properties which we cannot use during onCompletion processing
 comment|// as otherwise we may cause issues
+comment|// but keep the caused exception stored as a property (Exchange.EXCEPTION_CAUGHT) on the exchange
 name|Object
 name|stop
 init|=
@@ -732,18 +733,6 @@ argument_list|(
 name|Exchange
 operator|.
 name|FAILURE_HANDLED
-argument_list|)
-decl_stmt|;
-name|Object
-name|caught
-init|=
-name|exchange
-operator|.
-name|removeProperty
-argument_list|(
-name|Exchange
-operator|.
-name|EXCEPTION_CAUGHT
 argument_list|)
 decl_stmt|;
 name|Object
@@ -859,25 +848,6 @@ operator|.
 name|FAILURE_HANDLED
 argument_list|,
 name|failureHandled
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|caught
-operator|!=
-literal|null
-condition|)
-block|{
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|EXCEPTION_CAUGHT
-argument_list|,
-name|caught
 argument_list|)
 expr_stmt|;
 block|}
