@@ -311,7 +311,9 @@ name|UriPath
 argument_list|(
 name|enums
 operator|=
-literal|"bean,constant,el,exchangeProperty,file,groovy,header,javascript,jsonpath,jxpath,mvel,ognl,php,python,ref,ruby,simple,spel,sql,terser,tokenize,xpath,xquery,xtokenize"
+literal|"bean,constant,el,exchangeProperty,file,groovy,header,javascript,jsonpath,jxpath,mvel,ognl,php,python"
+operator|+
+literal|",ref,ruby,simple,spel,sql,terser,tokenize,xpath,xquery,xtokenize"
 argument_list|)
 annotation|@
 name|Metadata
