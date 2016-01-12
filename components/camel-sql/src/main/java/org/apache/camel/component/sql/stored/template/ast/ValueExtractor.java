@@ -26,111 +26,39 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|ArrayList
-import|;
-end_import
-
-begin_import
-import|import
-name|java
+name|camel
 operator|.
-name|util
-operator|.
-name|List
+name|Exchange
 import|;
 end_import
 
 begin_comment
-comment|/**  * Root element of Simple Stored Procedure Template AST.  */
+comment|/**  * ValueExtractotr extracts value from Exchange and Container object.  * Usually each input parameter has one extractor which extracts  * parameter value from input "map" to be sent into db.  */
 end_comment
 
-begin_class
-DECL|class|Template
+begin_interface
+DECL|interface|ValueExtractor
 specifier|public
-class|class
-name|Template
+interface|interface
+name|ValueExtractor
 block|{
-DECL|field|parameterList
-specifier|private
-specifier|final
-name|List
-argument_list|<
+DECL|method|eval (Exchange exchange, Object container)
 name|Object
-argument_list|>
-name|parameterList
-init|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|()
-decl_stmt|;
-DECL|field|procedureName
-specifier|private
-name|String
-name|procedureName
-decl_stmt|;
-DECL|method|addParameter (Object parameter)
-specifier|public
-name|void
-name|addParameter
+name|eval
 parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
 name|Object
-name|parameter
+name|container
 parameter_list|)
-block|{
-name|parameterList
-operator|.
-name|add
-argument_list|(
-name|parameter
-argument_list|)
-expr_stmt|;
+function_decl|;
 block|}
-DECL|method|getProcedureName ()
-specifier|public
-name|String
-name|getProcedureName
-parameter_list|()
-block|{
-return|return
-name|procedureName
-return|;
-block|}
-DECL|method|setProcedureName (String procedureName)
-specifier|public
-name|void
-name|setProcedureName
-parameter_list|(
-name|String
-name|procedureName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|procedureName
-operator|=
-name|procedureName
-expr_stmt|;
-block|}
-DECL|method|getParameterList ()
-specifier|public
-name|List
-argument_list|<
-name|Object
-argument_list|>
-name|getParameterList
-parameter_list|()
-block|{
-return|return
-name|parameterList
-return|;
-block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

@@ -40,7 +40,7 @@ name|ParseException
 extends|extends
 name|Exception
 block|{
-comment|/**    * The version identifier for this Serializable class.    * Increment only if the<i>serialized</i> form of the    * class changes.    */
+comment|/**      * The version identifier for this Serializable class.      * Increment only if the<i>serialized</i> form of the      * class changes.      */
 DECL|field|serialVersionUID
 specifier|private
 specifier|static
@@ -50,7 +50,43 @@ name|serialVersionUID
 init|=
 literal|1L
 decl_stmt|;
-comment|/**    * This constructor is used by the method "generateParseException"    * in the generated parser.  Calling this constructor generates    * a new object of this type with the fields "currentToken",    * "expectedTokenSequences", and "tokenImage" set.    */
+comment|/**      * This is the last token that has been consumed successfully.  If      * this object has been created due to a parse error, the token      * followng this token will (therefore) be the first error token.      */
+DECL|field|currentToken
+specifier|public
+name|Token
+name|currentToken
+decl_stmt|;
+comment|/**      * Each entry in this array is an array of integers.  Each array      * of integers represents a sequence of tokens (by their ordinal      * values) that is expected at this point of the parse.      */
+DECL|field|expectedTokenSequences
+specifier|public
+name|int
+index|[]
+index|[]
+name|expectedTokenSequences
+decl_stmt|;
+comment|/**      * This is a reference to the "tokenImage" array of the generated      * parser within which the parse error occurred.  This array is      * defined in the generated ...Constants interface.      */
+DECL|field|tokenImage
+specifier|public
+name|String
+index|[]
+name|tokenImage
+decl_stmt|;
+comment|/**      * The end of line string for this machine.      */
+DECL|field|eol
+specifier|protected
+name|String
+name|eol
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"line.separator"
+argument_list|,
+literal|"\n"
+argument_list|)
+decl_stmt|;
+comment|/**      * This constructor is used by the method "generateParseException"      * in the generated parser.  Calling this constructor generates      * a new object of this type with the fields "currentToken",      * "expectedTokenSequences", and "tokenImage" set.      */
 DECL|method|ParseException (Token currentTokenVal, int[][] expectedTokenSequencesVal, String[] tokenImageVal )
 specifier|public
 name|ParseException
@@ -93,7 +129,7 @@ operator|=
 name|tokenImageVal
 expr_stmt|;
 block|}
-comment|/**    * The following constructors are for use by you for whatever    * purpose you can think of.  Constructing the exception in this    * manner makes the exception behave in the normal way - i.e., as    * documented in the class "Throwable".  The fields "errorToken",    * "expectedTokenSequences", and "tokenImage" do not contain    * relevant information.  The JavaCC generated code does not use    * these constructors.    */
+comment|/**      * The following constructors are for use by you for whatever      * purpose you can think of.  Constructing the exception in this      * manner makes the exception behave in the normal way - i.e., as      * documented in the class "Throwable".  The fields "errorToken",      * "expectedTokenSequences", and "tokenImage" do not contain      * relevant information.  The JavaCC generated code does not use      * these constructors.      */
 DECL|method|ParseException ()
 specifier|public
 name|ParseException
@@ -118,28 +154,7 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**    * This is the last token that has been consumed successfully.  If    * this object has been created due to a parse error, the token    * followng this token will (therefore) be the first error token.    */
-DECL|field|currentToken
-specifier|public
-name|Token
-name|currentToken
-decl_stmt|;
-comment|/**    * Each entry in this array is an array of integers.  Each array    * of integers represents a sequence of tokens (by their ordinal    * values) that is expected at this point of the parse.    */
-DECL|field|expectedTokenSequences
-specifier|public
-name|int
-index|[]
-index|[]
-name|expectedTokenSequences
-decl_stmt|;
-comment|/**    * This is a reference to the "tokenImage" array of the generated    * parser within which the parse error occurred.  This array is    * defined in the generated ...Constants interface.    */
-DECL|field|tokenImage
-specifier|public
-name|String
-index|[]
-name|tokenImage
-decl_stmt|;
-comment|/**    * It uses "currentToken" and "expectedTokenSequences" to generate a parse    * error message and returns it.  If this object has been created    * due to a parse error, and you do not catch it (it gets thrown    * from the parser) the correct error message    * gets displayed.    */
+comment|/**      * It uses "currentToken" and "expectedTokenSequences" to generate a parse      * error message and returns it.  If this object has been created      * due to a parse error, and you do not catch it (it gets thrown      * from the parser) the correct error message      * gets displayed.      */
 DECL|method|initialise (Token currentToken, int[][] expectedTokenSequences, String[] tokenImage)
 specifier|private
 specifier|static
@@ -459,22 +474,7 @@ return|return
 name|retval
 return|;
 block|}
-comment|/**    * The end of line string for this machine.    */
-DECL|field|eol
-specifier|protected
-name|String
-name|eol
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"line.separator"
-argument_list|,
-literal|"\n"
-argument_list|)
-decl_stmt|;
-comment|/**    * Used to convert raw characters to their escaped version    * when these raw version cannot be used as part of an ASCII    * string literal.    */
+comment|/**      * Used to convert raw characters to their escaped version      * when these raw version cannot be used as part of an ASCII      * string literal.      */
 DECL|method|add_escapes (String str)
 specifier|static
 name|String

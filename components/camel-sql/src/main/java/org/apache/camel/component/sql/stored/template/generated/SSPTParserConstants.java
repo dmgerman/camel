@@ -56,18 +56,32 @@ init|=
 literal|7
 decl_stmt|;
 comment|/** RegularExpression Id. */
+DECL|field|SPECIAL
+name|int
+name|SPECIAL
+init|=
+literal|8
+decl_stmt|;
+comment|/** RegularExpression Id. */
 DECL|field|SIMPLE_EXP_TOKEN
 name|int
 name|SIMPLE_EXP_TOKEN
 init|=
-literal|8
+literal|9
+decl_stmt|;
+comment|/** RegularExpression Id. */
+DECL|field|PARAMETER_POS_TOKEN
+name|int
+name|PARAMETER_POS_TOKEN
+init|=
+literal|10
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|IDENTIFIER
 name|int
 name|IDENTIFIER
 init|=
-literal|9
+literal|11
 decl_stmt|;
 comment|/** Lexical state. */
 DECL|field|DEFAULT
@@ -99,10 +113,14 @@ literal|"<DIGIT>"
 block|,
 literal|"<LETTER>"
 block|,
+literal|"<SPECIAL>"
+block|,
 literal|"<SIMPLE_EXP_TOKEN>"
 block|,
+literal|"<PARAMETER_POS_TOKEN>"
+block|,
 literal|"<IDENTIFIER>"
-block|,   }
+block|,     }
 decl_stmt|;
 block|}
 end_interface

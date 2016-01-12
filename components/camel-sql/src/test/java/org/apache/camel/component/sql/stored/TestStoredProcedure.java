@@ -22,6 +22,20 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
+name|AtomicLong
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|slf4j
@@ -47,6 +61,19 @@ specifier|final
 class|class
 name|TestStoredProcedure
 block|{
+DECL|field|BATCHFN_CALL_COUNTER
+specifier|public
+specifier|static
+specifier|final
+name|AtomicLong
+name|BATCHFN_CALL_COUNTER
+init|=
+operator|new
+name|AtomicLong
+argument_list|(
+literal|0
+argument_list|)
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -68,11 +95,11 @@ specifier|private
 name|TestStoredProcedure
 parameter_list|()
 block|{     }
-DECL|method|addnumbers (int val1, int val2, int[] ret)
+DECL|method|subnumbers (int val1, int val2, int[] ret)
 specifier|public
 specifier|static
 name|void
-name|addnumbers
+name|subnumbers
 parameter_list|(
 name|int
 name|val1
@@ -102,8 +129,48 @@ literal|0
 index|]
 operator|=
 name|val1
-operator|+
+operator|-
 name|val2
+expr_stmt|;
+block|}
+DECL|method|batchfn (String val1)
+specifier|public
+specifier|static
+name|void
+name|batchfn
+parameter_list|(
+name|String
+name|val1
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"calling batchfn:{}"
+argument_list|,
+name|val1
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|val1
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Argument val1 is null!"
+argument_list|)
+throw|;
+block|}
+name|BATCHFN_CALL_COUNTER
+operator|.
+name|incrementAndGet
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|niladic ()
