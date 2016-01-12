@@ -1143,8 +1143,14 @@ argument_list|(
 literal|"Starting acceptor thread"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 while|while
 condition|(
+operator|!
+name|isInterrupted
+argument_list|()
+operator|&&
 literal|null
 operator|!=
 name|serverSocket
@@ -1161,8 +1167,6 @@ name|isClosed
 argument_list|()
 condition|)
 block|{
-comment|/* ? set this here ? */
-comment|// serverSocket.setSoTimeout( 10000 );
 comment|// TODO: Need to check maxConnections and figure out what to do when exceeded
 name|Socket
 name|socket
@@ -1210,15 +1214,16 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Exception encountered closing ServerSocket after SocketException on accept()"
+literal|"Exception encountered closing ServerSocket after SocketException on accept() - ignoring"
 argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+continue|continue;
 block|}
 catch|catch
 parameter_list|(
@@ -1259,15 +1264,16 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Exception encountered closing ServerSocket after exception on accept()"
+literal|"Exception encountered closing ServerSocket after exception on accept() - ignoring"
 argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+continue|continue;
 block|}
 try|try
 block|{
@@ -1560,7 +1566,7 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"accept loop interrupted - closing ServerSocket"
 argument_list|)
@@ -1581,9 +1587,9 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|warn
+name|debug
 argument_list|(
-literal|"Exception encountered closing ServerSocket after InterruptedException"
+literal|"Exception encountered closing ServerSocket after InterruptedException - ignoring"
 argument_list|,
 name|ex
 argument_list|)
@@ -1600,16 +1606,19 @@ name|log
 operator|.
 name|error
 argument_list|(
-literal|"Exception accepting new connection"
+literal|"Exception accepting new connection - retrying"
 argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+finally|finally
+block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"ServerSocket.accept loop finished - closing listener"
 argument_list|)
@@ -1648,13 +1657,14 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|warn
+name|debug
 argument_list|(
-literal|"Exception encountered closing ServerSocket after accept loop had exited"
+literal|"Exception encountered closing ServerSocket after accept loop had exited - ignoring"
 argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
@@ -1704,7 +1714,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Exception encountered closing ServerSocket in interrupt() method"
+literal|"Exception encountered closing ServerSocket in interrupt() method - ignoring"
 argument_list|,
 name|ioEx
 argument_list|)
