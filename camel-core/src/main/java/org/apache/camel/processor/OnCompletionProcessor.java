@@ -932,7 +932,7 @@ name|setProperty
 argument_list|(
 name|Exchange
 operator|.
-name|ROLLBACK_ONLY
+name|ROLLBACK_ONLY_LAST
 argument_list|,
 name|rollbackOnlyLast
 argument_list|)
