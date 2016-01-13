@@ -336,6 +336,16 @@ operator|.
 name|receive
 argument_list|()
 decl_stmt|;
+name|frame
+operator|.
+name|contentAsString
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"test message "
+argument_list|)
+expr_stmt|;
 name|latch
 operator|.
 name|countDown
@@ -408,9 +418,16 @@ argument_list|()
 operator|.
 name|setBody
 argument_list|(
+operator|(
 literal|"test message "
 operator|+
 name|i
+operator|)
+operator|.
+name|getBytes
+argument_list|(
+literal|"UTF-8"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|producer

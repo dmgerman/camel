@@ -867,6 +867,7 @@ name|destination
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|//Fix for CAMEL-9506 leveraging the camel converter to do the change
 name|frame
 operator|.
 name|content
@@ -879,10 +880,11 @@ name|getIn
 argument_list|()
 operator|.
 name|getBody
-argument_list|()
+argument_list|(
+name|String
 operator|.
-name|toString
-argument_list|()
+name|class
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
