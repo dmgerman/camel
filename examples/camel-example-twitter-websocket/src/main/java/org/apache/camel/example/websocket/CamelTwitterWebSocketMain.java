@@ -163,12 +163,6 @@ operator|new
 name|Main
 argument_list|()
 decl_stmt|;
-comment|// enable hangup support which mean we detect when the JVM terminates, and stop Camel graceful
-name|main
-operator|.
-name|enableHangupSupport
-argument_list|()
-expr_stmt|;
 name|TwitterWebSocketRoute
 name|route
 init|=

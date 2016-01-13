@@ -177,11 +177,6 @@ argument_list|(
 literal|"org/apache/camel/test/blueprint/xpath/*.xml"
 argument_list|)
 expr_stmt|;
-name|main
-operator|.
-name|enableHangupSupport
-argument_list|()
-expr_stmt|;
 comment|// run for 1 second and then stop automatic
 name|main
 operator|.

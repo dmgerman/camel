@@ -185,11 +185,6 @@ try|try
 block|{
 name|mainSupport
 operator|.
-name|enableHangupSupport
-argument_list|()
-expr_stmt|;
-name|mainSupport
-operator|.
 name|run
 argument_list|()
 expr_stmt|;

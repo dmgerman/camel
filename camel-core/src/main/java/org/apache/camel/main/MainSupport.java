@@ -351,6 +351,16 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
+DECL|field|hangupInterceptor
+specifier|protected
+specifier|final
+name|HangupInterceptor
+name|hangupInterceptor
+init|=
+operator|new
+name|HangupInterceptor
+argument_list|()
+decl_stmt|;
 DECL|field|duration
 specifier|protected
 name|long
@@ -417,7 +427,6 @@ decl_stmt|;
 comment|/**      * A class for intercepting the hang up signal and do a graceful shutdown of the Camel.      */
 DECL|class|HangupInterceptor
 specifier|private
-specifier|static
 specifier|final
 class|class
 name|HangupInterceptor
@@ -438,23 +447,6 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-DECL|field|mainInstance
-name|MainSupport
-name|mainInstance
-decl_stmt|;
-DECL|method|HangupInterceptor (MainSupport main)
-specifier|public
-name|HangupInterceptor
-parameter_list|(
-name|MainSupport
-name|main
-parameter_list|)
-block|{
-name|mainInstance
-operator|=
-name|main
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|run ()
@@ -472,7 +464,9 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|mainInstance
+name|MainSupport
+operator|.
+name|this
 operator|.
 name|stop
 argument_list|()
@@ -703,6 +697,16 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+name|Runtime
+operator|.
+name|getRuntime
+argument_list|()
+operator|.
+name|addShutdownHook
+argument_list|(
+name|hangupInterceptor
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Runs this process with the given arguments, and will wait until completed, or the JVM terminates.      */
 DECL|method|run ()
@@ -771,32 +775,46 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Enables the hangup support. Gracefully stops by calling stop() on a      * Hangup signal.      */
-DECL|method|enableHangupSupport ()
+comment|/**      * Disable the hangup support. No graceful stop by calling stop() on a      * Hangup signal.      */
+DECL|method|disableHangupSupport ()
 specifier|public
 name|void
-name|enableHangupSupport
+name|disableHangupSupport
 parameter_list|()
 block|{
-name|HangupInterceptor
-name|interceptor
+name|boolean
+name|result
 init|=
-operator|new
-name|HangupInterceptor
-argument_list|(
-name|this
-argument_list|)
-decl_stmt|;
 name|Runtime
 operator|.
 name|getRuntime
 argument_list|()
 operator|.
-name|addShutdownHook
+name|removeShutdownHook
 argument_list|(
-name|interceptor
+name|hangupInterceptor
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+operator|&&
+name|result
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"HangupInterceptor ({}) successfully removed"
+argument_list|,
+name|hangupInterceptor
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * Adds a {@link org.apache.camel.main.MainListener} to receive callbacks when the main is started or stopping      *      * @param listener the listener      */
 DECL|method|addMainListener (MainListener listener)

@@ -244,11 +244,6 @@ name|main
 expr_stmt|;
 name|main
 operator|.
-name|enableHangupSupport
-argument_list|()
-expr_stmt|;
-name|main
-operator|.
 name|run
 argument_list|(
 name|args

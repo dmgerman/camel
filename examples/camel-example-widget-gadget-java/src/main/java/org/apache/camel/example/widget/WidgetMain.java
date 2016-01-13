@@ -113,12 +113,6 @@ name|CreateOrderRoute
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// allow to graceful shutdown when the JVM is terminated
-name|main
-operator|.
-name|enableHangupSupport
-argument_list|()
-expr_stmt|;
 comment|// start and run Camel (block)
 name|main
 operator|.

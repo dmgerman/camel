@@ -77,12 +77,6 @@ argument_list|(
 literal|"META-INF/spring/camel-context.xml"
 argument_list|)
 expr_stmt|;
-comment|// enable hangup support allows Camel to detect when the JVM is terminated
-name|main
-operator|.
-name|enableHangupSupport
-argument_list|()
-expr_stmt|;
 comment|// run and block until Camel is stopped (or JVM terminated)
 name|main
 operator|.

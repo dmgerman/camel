@@ -278,11 +278,6 @@ argument_list|()
 expr_stmt|;
 name|main
 operator|.
-name|enableHangupSupport
-argument_list|()
-expr_stmt|;
-name|main
-operator|.
 name|bind
 argument_list|(
 literal|"test"

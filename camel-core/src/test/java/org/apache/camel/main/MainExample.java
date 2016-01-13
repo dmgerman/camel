@@ -124,12 +124,6 @@ operator|new
 name|Main
 argument_list|()
 expr_stmt|;
-comment|// enable hangup support so you can press ctrl + c to terminate the JVM
-name|main
-operator|.
-name|enableHangupSupport
-argument_list|()
-expr_stmt|;
 comment|// bind MyBean into the registry
 name|main
 operator|.
