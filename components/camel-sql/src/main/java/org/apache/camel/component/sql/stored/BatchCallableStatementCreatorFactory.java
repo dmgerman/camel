@@ -462,12 +462,17 @@ return|return
 name|params
 return|;
 block|}
-DECL|method|newCallableStatementCreator (Map params)
+DECL|method|newCallableStatementCreator (Map<String, ?> params)
 specifier|public
 name|CallableStatementCreator
 name|newCallableStatementCreator
 parameter_list|(
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|?
+argument_list|>
 name|params
 parameter_list|)
 block|{

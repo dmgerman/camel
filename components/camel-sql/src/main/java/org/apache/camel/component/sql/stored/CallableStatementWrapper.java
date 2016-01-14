@@ -200,6 +200,11 @@ DECL|field|batchItems
 name|List
 argument_list|<
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|?
+argument_list|>
 argument_list|>
 name|batchItems
 decl_stmt|;
@@ -289,6 +294,11 @@ specifier|final
 name|Iterator
 argument_list|<
 name|Map
+argument_list|<
+name|String
+argument_list|,
+name|?
+argument_list|>
 argument_list|>
 name|params
 init|=

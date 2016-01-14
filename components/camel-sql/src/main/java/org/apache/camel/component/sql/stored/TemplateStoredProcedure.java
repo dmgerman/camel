@@ -364,7 +364,7 @@ name|SqlOutParameter
 argument_list|(
 name|outParameter
 operator|.
-name|getOutHeader
+name|getOutValueMapKey
 argument_list|()
 argument_list|,
 name|outParameter
@@ -465,23 +465,13 @@ name|getProcedureName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Object
-argument_list|>
-name|ret
-init|=
+return|return
 name|super
 operator|.
 name|execute
 argument_list|(
 name|params
 argument_list|)
-decl_stmt|;
-return|return
-name|ret
 return|;
 block|}
 DECL|method|getTemplate ()

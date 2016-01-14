@@ -181,7 +181,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
+DECL|method|createEndpoint (String uri, String template, Map<String, Object> parameters)
 specifier|protected
 name|Endpoint
 name|createEndpoint
@@ -190,7 +190,7 @@ name|String
 name|uri
 parameter_list|,
 name|String
-name|remaining
+name|template
 parameter_list|,
 name|Map
 argument_list|<
@@ -271,11 +271,6 @@ name|JdbcTemplate
 argument_list|(
 name|target
 argument_list|)
-decl_stmt|;
-name|String
-name|template
-init|=
-name|remaining
 decl_stmt|;
 name|SqlStoredEndpoint
 name|endpoint

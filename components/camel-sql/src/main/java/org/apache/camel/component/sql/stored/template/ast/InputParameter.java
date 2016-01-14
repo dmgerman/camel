@@ -134,18 +134,12 @@ specifier|final
 name|int
 name|sqlType
 decl_stmt|;
-DECL|field|javaType
-specifier|private
-specifier|final
-name|Class
-name|javaType
-decl_stmt|;
 DECL|field|valueExtractor
 specifier|private
 name|ValueExtractor
 name|valueExtractor
 decl_stmt|;
-DECL|method|InputParameter (String name, int sqlType, Token valueSrcToken, Class javaType)
+DECL|method|InputParameter (String name, int sqlType, Token valueSrcToken)
 specifier|public
 name|InputParameter
 parameter_list|(
@@ -157,9 +151,6 @@ name|sqlType
 parameter_list|,
 name|Token
 name|valueSrcToken
-parameter_list|,
-name|Class
-name|javaType
 parameter_list|)
 block|{
 name|this
@@ -173,12 +164,6 @@ operator|.
 name|sqlType
 operator|=
 name|sqlType
-expr_stmt|;
-name|this
-operator|.
-name|javaType
-operator|=
-name|javaType
 expr_stmt|;
 name|parseValueExpression
 argument_list|(
@@ -248,7 +233,9 @@ name|evaluate
 argument_list|(
 name|exchange
 argument_list|,
-name|javaType
+name|Object
+operator|.
+name|class
 argument_list|)
 return|;
 block|}
@@ -321,8 +308,6 @@ block|}
 expr_stmt|;
 block|}
 block|}
-comment|/*public Object getParameterValueFromContainer(Exchange exchange, Object container) {         if (this.valueExpression != null) {             return valueExpression.evaluate(exchange, this.getJavaType());         } else {             return getValueFromMap((Map<String, Object>) container);         }     }*/
-comment|/*private Object getValueFromMap(Map<String, Object> container) {         return container.get(mapKey);     }*/
 DECL|method|getName ()
 specifier|public
 name|String
@@ -341,16 +326,6 @@ parameter_list|()
 block|{
 return|return
 name|sqlType
-return|;
-block|}
-DECL|method|getJavaType ()
-specifier|public
-name|Class
-name|getJavaType
-parameter_list|()
-block|{
-return|return
-name|javaType
 return|;
 block|}
 DECL|method|getValueExtractor ()

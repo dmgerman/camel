@@ -42,22 +42,6 @@ name|Exchange
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|sql
-operator|.
-name|SqlProducer
-import|;
-end_import
-
 begin_comment
 comment|/**  * Wrapper that simplifies operations on  {@link java.sql.CallableStatement}  * in {@link SqlStoredProducer}.  * Wrappers are statefull objects and must not be reused.  */
 end_comment

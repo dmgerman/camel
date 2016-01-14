@@ -40,12 +40,12 @@ specifier|private
 name|int
 name|sqlType
 decl_stmt|;
-DECL|field|outHeader
+DECL|field|outValueMapKey
 specifier|private
 name|String
-name|outHeader
+name|outValueMapKey
 decl_stmt|;
-DECL|method|OutParameter (String name, int sqlType, String outHeader)
+DECL|method|OutParameter (String name, int sqlType, String outValueMapKey)
 specifier|public
 name|OutParameter
 parameter_list|(
@@ -56,7 +56,7 @@ name|int
 name|sqlType
 parameter_list|,
 name|String
-name|outHeader
+name|outValueMapKey
 parameter_list|)
 block|{
 name|this
@@ -73,9 +73,9 @@ name|sqlType
 expr_stmt|;
 name|this
 operator|.
-name|outHeader
+name|outValueMapKey
 operator|=
-name|outHeader
+name|outValueMapKey
 expr_stmt|;
 block|}
 DECL|method|getName ()
@@ -98,14 +98,14 @@ return|return
 name|sqlType
 return|;
 block|}
-DECL|method|getOutHeader ()
+DECL|method|getOutValueMapKey ()
 specifier|public
 name|String
-name|getOutHeader
+name|getOutValueMapKey
 parameter_list|()
 block|{
 return|return
-name|outHeader
+name|outValueMapKey
 return|;
 block|}
 block|}
