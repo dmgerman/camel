@@ -1305,6 +1305,10 @@ argument_list|,
 name|enums
 operator|=
 literal|"default,passthrough"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.String"
 argument_list|)
 DECL|field|jmsKeyFormatStrategy
 specifier|private
@@ -1460,6 +1464,13 @@ name|allowNullBody
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|messageListenerContainerFactory
 specifier|private
 name|MessageListenerContainerFactory

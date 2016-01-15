@@ -252,11 +252,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|innerContext
-specifier|private
-name|CamelContext
-name|innerContext
-decl_stmt|;
 DECL|field|uri
 specifier|private
 name|URI
@@ -266,11 +261,6 @@ DECL|field|authority
 specifier|private
 name|String
 name|authority
-decl_stmt|;
-DECL|field|innerProducerTemplate
-specifier|private
-name|ProducerTemplate
-name|innerProducerTemplate
 decl_stmt|;
 annotation|@
 name|UriPath
@@ -423,10 +413,34 @@ name|label
 operator|=
 literal|"advanced"
 argument_list|)
+DECL|field|innerContext
+specifier|private
+name|CamelContext
+name|innerContext
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|innerRegistry
 specifier|private
 name|Registry
 name|innerRegistry
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|innerProducerTemplate
+specifier|private
+name|ProducerTemplate
+name|innerProducerTemplate
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1075,6 +1089,7 @@ return|return
 name|innerContext
 return|;
 block|}
+comment|/**      * A string representing a key in the Camel Registry matching an object value of the type org.apache.camel.CamelContext.      * If a CamelContext is not provided by the user a CamelContext is automatically created for deployment of inner routes.      */
 DECL|method|setInnerContext (CamelContext innerContext)
 specifier|public
 name|void
