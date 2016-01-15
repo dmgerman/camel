@@ -95,7 +95,7 @@ name|template
 operator|.
 name|requestBody
 argument_list|(
-literal|"netty-http:http://0.0.0.0:{{port}}/SHoppING/HelloWorld"
+literal|"netty-http:http://localhost:{{port}}/SHoppING/HelloWorld"
 argument_list|,
 literal|"Camel"
 argument_list|,

@@ -272,7 +272,7 @@ name|template
 operator|.
 name|requestBodyAndHeaders
 argument_list|(
-literal|"netty-http:http://0.0.0.0:9001/foo?decoders=#myDecoders"
+literal|"netty-http:http://localhost:9001/foo?decoders=#myDecoders"
 argument_list|,
 name|data
 argument_list|,

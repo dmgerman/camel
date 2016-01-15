@@ -231,7 +231,7 @@ argument_list|()
 operator|.
 name|constant
 argument_list|(
-literal|"netty-http:http://0.0.0.0:{{port}}"
+literal|"netty-http:http://localhost:{{port}}"
 argument_list|)
 expr_stmt|;
 block|}
