@@ -2892,7 +2892,7 @@ name|catalog
 operator|.
 name|validateEndpointProperties
 argument_list|(
-literal|"jms:queue:myqueue?jmsKeyFormatStrategy=key"
+literal|"jms:queue:myqueue?jmsKeyFormatStrategy=foo"
 argument_list|)
 expr_stmt|;
 name|assertFalse
@@ -2905,11 +2905,11 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"key"
+literal|"foo"
 argument_list|,
 name|result
 operator|.
-name|getInvalidReference
+name|getInvalidEnum
 argument_list|()
 operator|.
 name|get

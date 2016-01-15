@@ -382,7 +382,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|FailedToCreateProducerException
+name|FailedToCreateRouteException
 operator|.
 name|class
 argument_list|)
@@ -416,7 +416,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"sjms-batch:testQueue"
+literal|"sjms-batch:testQueue?aggregationStrategy=#unknown"
 argument_list|)
 expr_stmt|;
 block|}

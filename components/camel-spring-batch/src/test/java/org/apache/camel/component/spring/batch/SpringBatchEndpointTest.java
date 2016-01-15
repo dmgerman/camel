@@ -1132,7 +1132,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"spring-batch:mockJob?jobLauncherRef=alternativeJobLauncher"
+literal|"spring-batch:mockJob?jobLauncher=#alternativeJobLauncher"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1158,7 +1158,7 @@ argument_list|()
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"spring-batch:mockJob?jobLauncherRef=alternativeJobLauncher"
+literal|"spring-batch:mockJob?jobLauncher=#alternativeJobLauncher"
 argument_list|,
 name|SpringBatchEndpoint
 operator|.

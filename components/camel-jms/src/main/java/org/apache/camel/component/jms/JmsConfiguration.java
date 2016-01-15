@@ -999,6 +999,13 @@ init|=
 operator|-
 literal|1
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|messageConverter
 specifier|private
 name|MessageConverter
@@ -1294,6 +1301,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|enums
+operator|=
+literal|"default,passthrough"
 argument_list|)
 DECL|field|jmsKeyFormatStrategy
 specifier|private

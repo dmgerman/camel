@@ -295,7 +295,7 @@ name|jmsEndpoint
 init|=
 name|getMandatoryEndpoint
 argument_list|(
-literal|"activemq:queue:inbox?messageListenerContainerFactoryRef=myListenerContainerFactory"
+literal|"activemq:queue:inbox?messageListenerContainerFactory=#myListenerContainerFactory"
 argument_list|,
 name|JmsEndpoint
 operator|.
@@ -452,7 +452,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"activemq:queue:inbox?messageListenerContainerFactoryRef=myListenerContainerFactory"
+literal|"activemq:queue:inbox?messageListenerContainerFactory=#myListenerContainerFactory"
 argument_list|)
 operator|.
 name|to
