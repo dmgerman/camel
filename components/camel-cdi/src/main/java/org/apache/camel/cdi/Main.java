@@ -130,6 +130,22 @@ name|CdiContainer
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|deltaspike
+operator|.
+name|cdise
+operator|.
+name|api
+operator|.
+name|CdiContainerLoader
+import|;
+end_import
+
 begin_comment
 comment|/**  * Camel CDI boot integration. Allows Camel and CDI to be booted up on the command line as a JVM process.  * See http://camel.apache.org/camel-boot.html.  */
 end_comment
@@ -411,29 +427,9 @@ throws|throws
 name|Exception
 block|{
 comment|// TODO: Use standard CDI Java SE support when CDI 2.0 becomes a prerequisite
-name|org
-operator|.
-name|apache
-operator|.
-name|deltaspike
-operator|.
-name|cdise
-operator|.
-name|api
-operator|.
 name|CdiContainer
 name|container
 init|=
-name|org
-operator|.
-name|apache
-operator|.
-name|deltaspike
-operator|.
-name|cdise
-operator|.
-name|api
-operator|.
 name|CdiContainerLoader
 operator|.
 name|getCdiContainer
