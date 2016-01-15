@@ -84,6 +84,16 @@ name|javax
 operator|.
 name|management
 operator|.
+name|AttributeNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|management
+operator|.
 name|MBeanServer
 import|;
 end_import
@@ -1135,6 +1145,8 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// filter out older Camel versions as this requires Camel 2.15 or better (rest-dsl)
+try|try
+block|{
 name|String
 name|version
 init|=
@@ -1169,6 +1181,15 @@ argument_list|(
 name|id
 argument_list|)
 expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|AttributeNotFoundException
+name|ex
+parameter_list|)
+block|{
+comment|// ignore
 block|}
 block|}
 return|return
