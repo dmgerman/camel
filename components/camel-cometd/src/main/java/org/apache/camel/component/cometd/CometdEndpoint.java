@@ -404,17 +404,11 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"true"
 argument_list|)
 DECL|field|disconnectLocalSession
 specifier|private
 name|boolean
 name|disconnectLocalSession
-init|=
-literal|true
 decl_stmt|;
 DECL|method|CometdEndpoint (CometdComponent component, String uri, String remaining, Map<String, Object> parameters)
 specifier|public
