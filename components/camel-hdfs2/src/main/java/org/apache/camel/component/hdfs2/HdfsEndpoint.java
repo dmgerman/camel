@@ -96,7 +96,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultEndpoint
+name|ScheduledPollEndpoint
 import|;
 end_import
 
@@ -163,7 +163,7 @@ specifier|public
 class|class
 name|HdfsEndpoint
 extends|extends
-name|DefaultEndpoint
+name|ScheduledPollEndpoint
 block|{
 annotation|@
 name|UriParam
