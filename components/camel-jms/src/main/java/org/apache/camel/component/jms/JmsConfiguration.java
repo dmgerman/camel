@@ -2800,7 +2800,7 @@ return|return
 name|consumerType
 return|;
 block|}
-comment|/**      * The consumer type to use, which can be one of: Simple, Default, or Custom.      * The consumer type determines which Spring JMS listener to use. Default will use org.springframework.jms.listener.DefaultMessageListenerContainer,      * Simple will use org.springframework.jms.listener.SimpleMessageListenerContainer.      * When Custom is specified, the MessageListenerContainerFactory defined by the messageListenerContainerFactoryRef option      * will determine what org.springframework.jms.listener.AbstractMessageListenerContainer to use.      */
+comment|/**      * The consumer type to use, which can be one of: Simple, Default, or Custom.      * The consumer type determines which Spring JMS listener to use. Default will use org.springframework.jms.listener.DefaultMessageListenerContainer,      * Simple will use org.springframework.jms.listener.SimpleMessageListenerContainer.      * When Custom is specified, the MessageListenerContainerFactory defined by the messageListenerContainerFactory option      * will determine what org.springframework.jms.listener.AbstractMessageListenerContainer to use.      */
 DECL|method|setConsumerType (ConsumerType consumerType)
 specifier|public
 name|void
