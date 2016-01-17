@@ -1175,6 +1175,22 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Sets the JMS selector to use"
+argument_list|)
+DECL|field|selector
+specifier|private
+name|String
+name|selector
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
 name|defaultValue
 operator|=
 literal|"-1"
@@ -6563,6 +6579,33 @@ operator|.
 name|messageCreatedStrategy
 operator|=
 name|messageCreatedStrategy
+expr_stmt|;
+block|}
+DECL|method|getSelector ()
+specifier|public
+name|String
+name|getSelector
+parameter_list|()
+block|{
+return|return
+name|selector
+return|;
+block|}
+comment|/**      * Sets the JMS selector to use      */
+DECL|method|setSelector (String selector)
+specifier|public
+name|void
+name|setSelector
+parameter_list|(
+name|String
+name|selector
+parameter_list|)
+block|{
+name|this
+operator|.
+name|selector
+operator|=
+name|selector
 expr_stmt|;
 block|}
 block|}

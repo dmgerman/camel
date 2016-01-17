@@ -664,6 +664,10 @@ argument_list|,
 name|enums
 operator|=
 literal|"queue,topic,temp:queue,temp:topic"
+argument_list|,
+name|description
+operator|=
+literal|"The kind of destination to use"
 argument_list|)
 DECL|field|destinationType
 specifier|private
@@ -672,6 +676,11 @@ name|destinationType
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"Name of the queue or topic to use as destination"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -695,23 +704,15 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom HeaderFilterStrategy to filter header to and from Camel message."
 argument_list|)
 DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|)
-DECL|field|selector
-specifier|private
-name|String
-name|selector
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -2100,33 +2101,6 @@ operator|.
 name|configuration
 operator|=
 name|configuration
-expr_stmt|;
-block|}
-DECL|method|getSelector ()
-specifier|public
-name|String
-name|getSelector
-parameter_list|()
-block|{
-return|return
-name|selector
-return|;
-block|}
-comment|/**      * Sets the JMS selector to use      */
-DECL|method|setSelector (String selector)
-specifier|public
-name|void
-name|setSelector
-parameter_list|(
-name|String
-name|selector
-parameter_list|)
-block|{
-name|this
-operator|.
-name|selector
-operator|=
-name|selector
 expr_stmt|;
 block|}
 DECL|method|isSingleton ()
@@ -5145,6 +5119,38 @@ operator|.
 name|get
 argument_list|()
 return|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|getSelector ()
+specifier|public
+name|String
+name|getSelector
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getSelector
+argument_list|()
+return|;
+block|}
+DECL|method|setSelector (String selector)
+specifier|public
+name|void
+name|setSelector
+parameter_list|(
+name|String
+name|selector
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setSelector
+argument_list|(
+name|selector
+argument_list|)
+expr_stmt|;
 block|}
 comment|// Implementation methods
 comment|//-------------------------------------------------------------------------
