@@ -2731,6 +2731,46 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+DECL|method|validateActiveMQProperties ()
+specifier|public
+name|void
+name|validateActiveMQProperties
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// add activemq as known component
+name|catalog
+operator|.
+name|addComponent
+argument_list|(
+literal|"activemq"
+argument_list|,
+literal|"org.apache.activemq.camel.component.ActiveMQComponent"
+argument_list|)
+expr_stmt|;
+comment|// activemq
+name|EndpointValidationResult
+name|result
+init|=
+name|catalog
+operator|.
+name|validateEndpointProperties
+argument_list|(
+literal|"activemq:temp:queue:cheese"
+argument_list|)
+decl_stmt|;
+name|assertTrue
+argument_list|(
+name|result
+operator|.
+name|isSuccess
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
 DECL|method|validateProperties ()
 specifier|public
 name|void
