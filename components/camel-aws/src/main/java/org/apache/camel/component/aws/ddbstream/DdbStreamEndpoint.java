@@ -322,14 +322,6 @@ name|ShardIteratorType
 operator|.
 name|LATEST
 decl_stmt|;
-comment|// TODO add the ability to use ShardIteratorType.{AT,AFTER}_SEQUENCE_NUMBER
-comment|// by specifying either a sequence number itself or a bean to fetch the
-comment|// sequence number from persistant storage or somewhere else.
-comment|// This can be done by having the type of the parameter an interface
-comment|// and supplying a default implementation and a converter from a long/String
-comment|// to an instance of this interface.
-comment|// Note that the shard list needs to have the ability to start at the shard
-comment|// that includes the supplied sequence number
 annotation|@
 name|UriParam
 argument_list|(
