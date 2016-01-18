@@ -430,7 +430,7 @@ argument_list|()
 operator|.
 name|withShardIterator
 argument_list|(
-name|getShardItertor
+name|getShardIterator
 argument_list|()
 argument_list|)
 operator|.
@@ -623,10 +623,10 @@ name|getEndpoint
 argument_list|()
 return|;
 block|}
-DECL|method|getShardItertor ()
+DECL|method|getShardIterator ()
 specifier|private
 name|String
-name|getShardItertor
+name|getShardIterator
 parameter_list|()
 block|{
 comment|// either return a cached one or get a new one via a GetShardIterator request.
