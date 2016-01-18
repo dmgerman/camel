@@ -550,6 +550,7 @@ name|NettyConfiguration
 argument_list|()
 expr_stmt|;
 block|}
+comment|//Only setup the executorService if it is needed
 if|if
 condition|(
 name|configuration
@@ -629,7 +630,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//Only shutdown the executorService if it is create by netty component
+comment|//Only shutdown the executorService if it is created by netty component
 if|if
 condition|(
 name|configuration
