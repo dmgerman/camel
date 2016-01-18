@@ -330,20 +330,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Metadata
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|UriParam
 import|;
 end_import
@@ -1334,6 +1320,18 @@ DECL|field|onCompletionExceptionHandler
 specifier|protected
 name|ExceptionHandler
 name|onCompletionExceptionHandler
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|)
+DECL|field|extendedAttributes
+specifier|protected
+name|String
+name|extendedAttributes
 decl_stmt|;
 DECL|method|GenericFileEndpoint ()
 specifier|public
@@ -4212,6 +4210,33 @@ operator|.
 name|onCompletionExceptionHandler
 operator|=
 name|onCompletionExceptionHandler
+expr_stmt|;
+block|}
+DECL|method|getExtendedAttributes ()
+specifier|public
+name|String
+name|getExtendedAttributes
+parameter_list|()
+block|{
+return|return
+name|extendedAttributes
+return|;
+block|}
+comment|/**      * To define which file attributes of interest. Like posix:permissions,posix:owner,basic:lastAccessTime,      * it supports basic wildcard like posix:*, basic:lastAccessTime      */
+DECL|method|setExtendedAttributes (String extendedAttributes)
+specifier|public
+name|void
+name|setExtendedAttributes
+parameter_list|(
+name|String
+name|extendedAttributes
+parameter_list|)
+block|{
+name|this
+operator|.
+name|extendedAttributes
+operator|=
+name|extendedAttributes
 expr_stmt|;
 block|}
 comment|/**      * Configures the given message with the file which sets the body to the      * file object.      */
