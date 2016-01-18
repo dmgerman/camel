@@ -206,10 +206,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|RouteTest
+DECL|class|BlueprintBeanPropertiesOverrideFromFileRouteTest
 specifier|public
 class|class
-name|RouteTest
+name|BlueprintBeanPropertiesOverrideFromFileRouteTest
 extends|extends
 name|CamelBlueprintTestSupport
 block|{
@@ -222,7 +222,28 @@ name|getBlueprintDescriptor
 parameter_list|()
 block|{
 return|return
-literal|"/OSGI-INF/blueprint/blueprint.xml"
+literal|"/OSGI-INF/blueprint/blueprint-bean.xml"
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|loadConfigAdminConfigurationFile ()
+specifier|protected
+name|String
+index|[]
+name|loadConfigAdminConfigurationFile
+parameter_list|()
+block|{
+comment|// which .cfg file to use, and the name of the persistence-id
+return|return
+operator|new
+name|String
+index|[]
+block|{
+literal|"src/test/resources/etc/HelloBean.cfg"
+block|,
+literal|"HelloBean"
+block|}
 return|;
 block|}
 annotation|@
