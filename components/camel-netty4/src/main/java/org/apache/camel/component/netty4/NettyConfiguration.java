@@ -592,24 +592,6 @@ literal|"consumer,advanced"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"16"
-argument_list|)
-DECL|field|maximumPoolSize
-specifier|private
-name|int
-name|maximumPoolSize
-init|=
-literal|16
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"consumer,advanced"
-argument_list|,
-name|defaultValue
-operator|=
 literal|"true"
 argument_list|)
 DECL|field|usingExecutorService
@@ -2422,33 +2404,6 @@ operator|.
 name|clientInitializerFactory
 operator|=
 name|clientInitializerFactory
-expr_stmt|;
-block|}
-DECL|method|getMaximumPoolSize ()
-specifier|public
-name|int
-name|getMaximumPoolSize
-parameter_list|()
-block|{
-return|return
-name|maximumPoolSize
-return|;
-block|}
-comment|/**      * The core pool size for the ordered thread pool, if its in use.      */
-DECL|method|setMaximumPoolSize (int maximumPoolSize)
-specifier|public
-name|void
-name|setMaximumPoolSize
-parameter_list|(
-name|int
-name|maximumPoolSize
-parameter_list|)
-block|{
-name|this
-operator|.
-name|maximumPoolSize
-operator|=
-name|maximumPoolSize
 expr_stmt|;
 block|}
 DECL|method|isUsingExecutorService ()

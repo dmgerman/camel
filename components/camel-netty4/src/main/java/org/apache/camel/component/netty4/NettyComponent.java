@@ -169,6 +169,13 @@ specifier|private
 name|NettyConfiguration
 name|configuration
 decl_stmt|;
+DECL|field|maximumPoolSize
+specifier|private
+name|int
+name|maximumPoolSize
+init|=
+literal|16
+decl_stmt|;
 DECL|field|executorService
 specifier|private
 specifier|volatile
@@ -223,6 +230,33 @@ name|NettyEndpoint
 operator|.
 name|class
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getMaximumPoolSize ()
+specifier|public
+name|int
+name|getMaximumPoolSize
+parameter_list|()
+block|{
+return|return
+name|maximumPoolSize
+return|;
+block|}
+comment|/**      * The thread pool size for the EventExecutorGroup if its in use.      *<p/>      * The default value is 16.      */
+DECL|method|setMaximumPoolSize (int maximumPoolSize)
+specifier|public
+name|void
+name|setMaximumPoolSize
+parameter_list|(
+name|int
+name|maximumPoolSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maximumPoolSize
+operator|=
+name|maximumPoolSize
 expr_stmt|;
 block|}
 annotation|@
@@ -578,8 +612,6 @@ return|return
 operator|new
 name|DefaultEventExecutorGroup
 argument_list|(
-name|configuration
-operator|.
 name|getMaximumPoolSize
 argument_list|()
 argument_list|,
@@ -597,8 +629,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|//Only shutdown the executorService if it is create by netty component
 if|if
 condition|(
+name|configuration
+operator|.
+name|isUsingExecutorService
+argument_list|()
+operator|&&
 name|executorService
 operator|!=
 literal|null
@@ -610,7 +648,7 @@ operator|.
 name|getExecutorServiceManager
 argument_list|()
 operator|.
-name|shutdownNow
+name|shutdownGraceful
 argument_list|(
 name|executorService
 argument_list|)
