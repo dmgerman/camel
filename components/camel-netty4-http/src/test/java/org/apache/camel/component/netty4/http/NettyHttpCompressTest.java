@@ -268,7 +268,7 @@ name|template
 operator|.
 name|requestBodyAndHeaders
 argument_list|(
-literal|"netty4-http:http://localhost:9001/foo?decoders=#myDecoders"
+literal|"netty4-http:http://localhost:{{port}}/foo?decoders=#myDecoders"
 argument_list|,
 name|data
 argument_list|,
@@ -317,7 +317,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"netty4-http:http://0.0.0.0:9001/foo?compression=true"
+literal|"netty4-http:http://0.0.0.0:{{port}}/foo?compression=true"
 argument_list|)
 operator|.
 name|transform
