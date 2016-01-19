@@ -393,6 +393,11 @@ name|getSchedulerProperties
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|configureConsumer
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
 return|return
 name|consumer
 return|;
