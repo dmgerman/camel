@@ -266,7 +266,7 @@ name|poolSize
 init|=
 literal|10
 decl_stmt|;
-comment|/**      * The Nats servers      */
+comment|/**      * URLs to one or more NAT servers. Use comma to separate URLs when specifying multiple servers.      */
 DECL|method|getServers ()
 specifier|public
 name|String

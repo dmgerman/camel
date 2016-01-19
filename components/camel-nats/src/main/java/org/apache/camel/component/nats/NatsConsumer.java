@@ -152,22 +152,16 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|executor
-specifier|protected
-name|ExecutorService
-name|executor
-decl_stmt|;
-DECL|field|endpoint
-specifier|private
-specifier|final
-name|NatsEndpoint
-name|endpoint
-decl_stmt|;
 DECL|field|processor
 specifier|private
 specifier|final
 name|Processor
 name|processor
+decl_stmt|;
+DECL|field|executor
+specifier|private
+name|ExecutorService
+name|executor
 decl_stmt|;
 DECL|field|connection
 specifier|private
@@ -196,12 +190,6 @@ name|endpoint
 argument_list|,
 name|processor
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
 expr_stmt|;
 name|this
 operator|.
@@ -252,7 +240,8 @@ argument_list|)
 expr_stmt|;
 name|executor
 operator|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|createExecutor
 argument_list|()
@@ -302,6 +291,7 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
+comment|// TODO: Should we not unsubscribe first?
 name|LOG
 operator|.
 name|debug
@@ -505,8 +495,8 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received Message: "
-operator|+
+literal|"Received Message: {}"
+argument_list|,
 name|msg
 argument_list|)
 expr_stmt|;
@@ -596,8 +586,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|IOException
-name|e1
+name|Throwable
+name|e
 parameter_list|)
 block|{
 name|getExceptionHandler
@@ -607,7 +597,7 @@ name|handleException
 argument_list|(
 literal|"Error during processing"
 argument_list|,
-name|e1
+name|e
 argument_list|)
 expr_stmt|;
 block|}
