@@ -291,7 +291,45 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
-comment|// TODO: Should we not unsubscribe first?
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Flushing Messages before stopping"
+argument_list|)
+expr_stmt|;
+name|connection
+operator|.
+name|flush
+argument_list|()
+expr_stmt|;
+try|try
+block|{
+name|connection
+operator|.
+name|unsubscribe
+argument_list|(
+name|sid
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|getExceptionHandler
+argument_list|()
+operator|.
+name|handleException
+argument_list|(
+literal|"Error during unsubscribing"
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
 name|LOG
 operator|.
 name|debug
