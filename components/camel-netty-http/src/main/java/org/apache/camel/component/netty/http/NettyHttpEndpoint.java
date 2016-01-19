@@ -321,6 +321,12 @@ argument_list|,
 name|lenientProperties
 operator|=
 literal|true
+argument_list|,
+name|excludeProperties
+operator|=
+literal|"textline,delimiter,autoAppendDelimiter,decoderMaxLineLength,encoding,allowDefaultCodec,udpConnectionlessSending,networkInterface"
+operator|+
+literal|",clientMode,reconnect,reconnectInterval,broadcast"
 argument_list|)
 DECL|class|NettyHttpEndpoint
 specifier|public
