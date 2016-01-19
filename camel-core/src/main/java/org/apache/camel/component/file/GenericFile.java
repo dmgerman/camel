@@ -168,6 +168,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|probeContentType
+specifier|private
+specifier|final
+name|boolean
+name|probeContentType
+decl_stmt|;
 DECL|field|copyFromAbsoluteFilePath
 specifier|private
 name|String
@@ -236,6 +242,32 @@ specifier|private
 name|String
 name|charset
 decl_stmt|;
+DECL|method|GenericFile ()
+specifier|public
+name|GenericFile
+parameter_list|()
+block|{
+name|this
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|GenericFile (boolean probeContentType)
+specifier|public
+name|GenericFile
+parameter_list|(
+name|boolean
+name|probeContentType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|probeContentType
+operator|=
+name|probeContentType
+expr_stmt|;
+block|}
 DECL|method|getFileSeparator ()
 specifier|public
 name|char
@@ -693,6 +725,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
+name|probeContentType
+operator|&&
 name|file
 operator|instanceof
 name|File
@@ -735,8 +769,8 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
-name|ex
+name|Throwable
+name|e
 parameter_list|)
 block|{
 comment|// just ignore the exception

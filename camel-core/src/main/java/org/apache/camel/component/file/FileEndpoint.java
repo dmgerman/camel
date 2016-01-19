@@ -40,6 +40,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|file
+operator|.
+name|Files
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -59,6 +71,18 @@ operator|.
 name|camel
 operator|.
 name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Message
 import|;
 end_import
 
@@ -292,6 +316,18 @@ name|boolean
 name|forceWrites
 init|=
 literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|)
+DECL|field|probeContentType
+specifier|private
+name|boolean
+name|probeContentType
 decl_stmt|;
 DECL|method|FileEndpoint ()
 specifier|public
@@ -945,6 +981,33 @@ operator|.
 name|forceWrites
 operator|=
 name|forceWrites
+expr_stmt|;
+block|}
+DECL|method|isProbeContentType ()
+specifier|public
+name|boolean
+name|isProbeContentType
+parameter_list|()
+block|{
+return|return
+name|probeContentType
+return|;
+block|}
+comment|/**      * Whether to enable probing of the content type. If enable then the consumer uses {@link Files#probeContentType(java.nio.file.Path)} to      * determine the content-type of the file, and store that as a header with key {@link Exchange#FILE_CONTENT_TYPE} on the {@link Message}.      */
+DECL|method|setProbeContentType (boolean probeContentType)
+specifier|public
+name|void
+name|setProbeContentType
+parameter_list|(
+name|boolean
+name|probeContentType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|probeContentType
+operator|=
+name|probeContentType
 expr_stmt|;
 block|}
 block|}
