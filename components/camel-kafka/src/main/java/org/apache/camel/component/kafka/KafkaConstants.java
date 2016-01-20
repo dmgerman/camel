@@ -54,7 +54,7 @@ specifier|final
 name|String
 name|PARTITION
 init|=
-literal|"kafka.EXCHANGE_NAME"
+literal|"kafka.PARTITION"
 decl_stmt|;
 DECL|field|KEY
 specifier|public
@@ -63,7 +63,7 @@ specifier|final
 name|String
 name|KEY
 init|=
-literal|"kafka.CONTENT_TYPE"
+literal|"kafka.KEY"
 decl_stmt|;
 DECL|field|TOPIC
 specifier|public
