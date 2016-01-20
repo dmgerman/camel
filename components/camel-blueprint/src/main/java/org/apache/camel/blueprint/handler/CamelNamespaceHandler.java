@@ -2184,12 +2184,22 @@ condition|)
 block|{
 name|factory2
 operator|.
-name|addDependsOn
+name|setDependsOn
+argument_list|(
+name|Arrays
+operator|.
+name|asList
 argument_list|(
 name|ccfb
 operator|.
 name|getDependsOn
 argument_list|()
+operator|.
+name|split
+argument_list|(
+literal|" |,"
+argument_list|)
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
