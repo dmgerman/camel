@@ -612,7 +612,9 @@ init|=
 name|undertest
 operator|.
 name|getShardIterator
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|ArgumentCaptor
 argument_list|<
@@ -701,7 +703,9 @@ init|=
 name|undertest
 operator|.
 name|getShardIterator
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|verify
 argument_list|(
@@ -759,7 +763,9 @@ init|=
 name|undertest
 operator|.
 name|getShardIterator
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|ArgumentCaptor
 argument_list|<
@@ -870,7 +876,9 @@ operator|=
 name|undertest
 operator|.
 name|getShardIterator
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 expr_stmt|;
 name|undertest
 operator|.
@@ -1030,7 +1038,9 @@ init|=
 name|undertest
 operator|.
 name|getShardIterator
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|ArgumentCaptor
 argument_list|<
@@ -1123,7 +1133,9 @@ init|=
 name|undertest
 operator|.
 name|getShardIterator
-argument_list|()
+argument_list|(
+literal|null
+argument_list|)
 decl_stmt|;
 name|ArgumentCaptor
 argument_list|<

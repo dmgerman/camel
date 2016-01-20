@@ -253,10 +253,13 @@ operator|=
 name|endpoint
 expr_stmt|;
 block|}
-DECL|method|getShardIterator ()
+DECL|method|getShardIterator (String resumeFromSequenceNumber)
 name|String
 name|getShardIterator
-parameter_list|()
+parameter_list|(
+name|String
+name|resumeFromSequenceNumber
+parameter_list|)
 block|{
 comment|// either return a cached one or get a new one via a GetShardIterator request.
 if|if
