@@ -20,13 +20,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|javax
 operator|.
-name|apache
+name|inject
 operator|.
-name|camel
-operator|.
-name|Endpoint
+name|Inject
 import|;
 end_import
 
@@ -38,7 +36,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|EndpointInject
+name|Endpoint
 import|;
 end_import
 
@@ -70,6 +68,20 @@ name|ContextName
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
+name|Uri
+import|;
+end_import
+
 begin_class
 annotation|@
 name|ContextName
@@ -84,15 +96,16 @@ extends|extends
 name|RouteBuilder
 block|{
 annotation|@
-name|EndpointInject
+name|Inject
+annotation|@
+name|ContextName
 argument_list|(
-name|uri
-operator|=
-literal|"direct:inbound"
-argument_list|,
-name|context
-operator|=
 literal|"first"
+argument_list|)
+annotation|@
+name|Uri
+argument_list|(
+literal|"direct:inbound"
 argument_list|)
 DECL|field|inbound
 specifier|private

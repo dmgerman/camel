@@ -196,6 +196,12 @@ name|DefaultCamelContext
 argument_list|>
 name|target
 decl_stmt|;
+DECL|field|name
+specifier|private
+specifier|final
+name|String
+name|name
+decl_stmt|;
 DECL|method|CdiCamelContextBean (CdiCamelContextAnnotated annotated, InjectionTarget<DefaultCamelContext> target)
 name|CdiCamelContextBean
 parameter_list|(
@@ -232,6 +238,33 @@ operator|.
 name|target
 operator|=
 name|target
+expr_stmt|;
+name|this
+operator|.
+name|name
+operator|=
+name|annotated
+operator|.
+name|isAnnotationPresent
+argument_list|(
+name|ContextName
+operator|.
+name|class
+argument_list|)
+condition|?
+name|annotated
+operator|.
+name|getAnnotation
+argument_list|(
+name|ContextName
+operator|.
+name|class
+argument_list|)
+operator|.
+name|value
+argument_list|()
+else|:
+literal|"Default"
 expr_stmt|;
 block|}
 annotation|@
@@ -413,7 +446,11 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Default CDI Camel Context"
+literal|"Camel context bean ["
+operator|+
+name|name
+operator|+
+literal|"]"
 return|;
 block|}
 annotation|@
@@ -492,6 +529,12 @@ argument_list|()
 operator|.
 name|getName
 argument_list|()
+operator|+
+literal|"["
+operator|+
+name|name
+operator|+
+literal|"]"
 return|;
 block|}
 block|}
