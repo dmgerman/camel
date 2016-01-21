@@ -341,7 +341,7 @@ operator|.
 name|getPackage
 argument_list|()
 argument_list|)
-comment|// Test class
+comment|// Test classes
 operator|.
 name|addClasses
 argument_list|(
