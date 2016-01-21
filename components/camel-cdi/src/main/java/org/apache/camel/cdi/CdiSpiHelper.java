@@ -288,7 +288,6 @@ argument_list|)
 return|;
 block|}
 DECL|method|getFirstElementOfType (Collection<E> collection, Class<T> type)
-specifier|private
 specifier|static
 parameter_list|<
 name|E
