@@ -310,10 +310,10 @@ name|Arquillian
 operator|.
 name|class
 argument_list|)
-DECL|class|RawEventEndpointTest
+DECL|class|RawEventEndpointCdi12Test
 specifier|public
 class|class
-name|RawEventEndpointTest
+name|RawEventEndpointCdi12Test
 block|{
 annotation|@
 name|Inject
