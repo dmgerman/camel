@@ -398,7 +398,7 @@ decl_stmt|;
 for|for
 control|(
 name|T
-name|qualifier
+name|annotation
 range|:
 name|annotations
 control|)
@@ -427,7 +427,7 @@ name|exclusion
 operator|.
 name|isAssignableFrom
 argument_list|(
-name|qualifier
+name|annotation
 operator|.
 name|getClass
 argument_list|()
@@ -451,7 +451,7 @@ name|set
 operator|.
 name|add
 argument_list|(
-name|qualifier
+name|annotation
 argument_list|)
 expr_stmt|;
 block|}
