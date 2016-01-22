@@ -368,7 +368,7 @@ name|facebook
 operator|.
 name|FacebookConstants
 operator|.
-name|READING_PROPERTY
+name|READING_PREFIX
 import|;
 end_import
 
@@ -386,7 +386,7 @@ name|facebook
 operator|.
 name|FacebookConstants
 operator|.
-name|READING_PREFIX
+name|READING_PROPERTY
 import|;
 end_import
 
