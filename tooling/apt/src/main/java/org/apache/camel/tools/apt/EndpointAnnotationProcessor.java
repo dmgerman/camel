@@ -608,6 +608,7 @@ name|EndpointAnnotationProcessor
 extends|extends
 name|AbstractAnnotationProcessor
 block|{
+comment|// CHECKSTYLE:OFF
 DECL|field|HEADER_FILTER_STRATEGY_JAVADOC
 specifier|private
 specifier|static
@@ -6002,6 +6003,7 @@ return|return
 name|answer
 return|;
 block|}
+comment|// CHECKSTYLE:ON
 block|}
 end_class
 
