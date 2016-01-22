@@ -105,6 +105,7 @@ block|{
 DECL|field|PORT
 specifier|private
 specifier|static
+specifier|final
 name|int
 name|PORT
 init|=
