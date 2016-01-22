@@ -624,6 +624,7 @@ name|DefaultCamelCatalog
 implements|implements
 name|CamelCatalog
 block|{
+comment|// CHECKSTYLE:OFF
 DECL|field|MODELS_CATALOG
 specifier|private
 specifier|static
@@ -9192,6 +9193,7 @@ return|return
 name|answer
 return|;
 block|}
+comment|// CHECKSTYLE:ON
 block|}
 end_class
 
