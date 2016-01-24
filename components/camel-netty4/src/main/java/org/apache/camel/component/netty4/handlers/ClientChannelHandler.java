@@ -589,6 +589,18 @@ name|channel
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// this channel is maybe closing graceful and the exchange is already done
+comment|// and if so we should not trigger an exception
+name|boolean
+name|doneUoW
+init|=
+name|exchange
+operator|.
+name|getUnitOfWork
+argument_list|()
+operator|==
+literal|null
+decl_stmt|;
 name|NettyConfiguration
 name|configuration
 init|=
@@ -603,6 +615,9 @@ name|configuration
 operator|.
 name|isSync
 argument_list|()
+operator|&&
+operator|!
+name|doneUoW
 operator|&&
 operator|!
 name|messageReceived
