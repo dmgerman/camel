@@ -605,6 +605,9 @@ name|isSync
 argument_list|()
 operator|&&
 operator|!
+name|messageReceived
+operator|&&
+operator|!
 name|exceptionHandled
 condition|)
 block|{
@@ -1017,6 +1020,32 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|channelReadComplete (ChannelHandlerContext ctx)
+specifier|public
+name|void
+name|channelReadComplete
+parameter_list|(
+name|ChannelHandlerContext
+name|ctx
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+comment|// reset flag after we have read the complete
+name|messageReceived
+operator|=
+literal|false
+expr_stmt|;
+name|super
+operator|.
+name|channelReadComplete
+argument_list|(
+name|ctx
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Gets the Camel {@link Message} to use as the message to be set on the current {@link Exchange} when      * we have received a reply message.      *<p/>      *      * @param exchange      the current exchange      * @param ctx       the channel handler context      * @param message  the incoming event which has the response message from Netty.      * @return the Camel {@link Message} to set on the current {@link Exchange} as the response message.      * @throws Exception is thrown if error getting the response message      */
 DECL|method|getResponseMessage (Exchange exchange, ChannelHandlerContext ctx, Object message)
