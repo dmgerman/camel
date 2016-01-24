@@ -56,6 +56,20 @@ name|io
 operator|.
 name|netty
 operator|.
+name|channel
+operator|.
+name|group
+operator|.
+name|ChannelGroup
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|netty
+operator|.
 name|handler
 operator|.
 name|ssl
@@ -599,6 +613,18 @@ DECL|field|workerGroup
 specifier|protected
 name|EventLoopGroup
 name|workerGroup
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|)
+DECL|field|channelGroup
+specifier|protected
+name|ChannelGroup
+name|channelGroup
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1562,6 +1588,33 @@ operator|.
 name|workerGroup
 operator|=
 name|workerGroup
+expr_stmt|;
+block|}
+DECL|method|getChannelGroup ()
+specifier|public
+name|ChannelGroup
+name|getChannelGroup
+parameter_list|()
+block|{
+return|return
+name|channelGroup
+return|;
+block|}
+comment|/**      * To use a explicit ChannelGroup.      */
+DECL|method|setChannelGroup (ChannelGroup channelGroup)
+specifier|public
+name|void
+name|setChannelGroup
+parameter_list|(
+name|ChannelGroup
+name|channelGroup
+parameter_list|)
+block|{
+name|this
+operator|.
+name|channelGroup
+operator|=
+name|channelGroup
 expr_stmt|;
 block|}
 DECL|method|getNetworkInterface ()
