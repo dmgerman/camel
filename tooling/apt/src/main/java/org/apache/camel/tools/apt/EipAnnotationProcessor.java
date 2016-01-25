@@ -974,7 +974,7 @@ name|handler
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|writeJSonSchemeDocumentation (PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, XmlRootElement rootElement, String javaTypeName, String name)
+DECL|method|writeJSonSchemeDocumentation (PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, XmlRootElement rootElement, String javaTypeName, String modelName)
 specifier|protected
 name|void
 name|writeJSonSchemeDocumentation
@@ -995,7 +995,7 @@ name|String
 name|javaTypeName
 parameter_list|,
 name|String
-name|name
+name|modelName
 parameter_list|)
 block|{
 comment|// gather eip information
@@ -1010,7 +1010,7 @@ name|classElement
 argument_list|,
 name|javaTypeName
 argument_list|,
-name|name
+name|modelName
 argument_list|)
 decl_stmt|;
 comment|// get endpoint information which is divided into paths and options (though there should really only be one path)
@@ -1046,6 +1046,8 @@ argument_list|,
 name|classElement
 argument_list|,
 literal|""
+argument_list|,
+name|modelName
 argument_list|)
 expr_stmt|;
 comment|// after we have found all the options then figure out if the model accepts input/output
@@ -1692,7 +1694,7 @@ return|return
 name|model
 return|;
 block|}
-DECL|method|findClassProperties (PrintWriter writer, RoundEnvironment roundEnv, Set<EipOption> eipOptions, TypeElement originalClassType, TypeElement classElement, String prefix)
+DECL|method|findClassProperties (PrintWriter writer, RoundEnvironment roundEnv, Set<EipOption> eipOptions, TypeElement originalClassType, TypeElement classElement, String prefix, String modelName)
 specifier|protected
 name|void
 name|findClassProperties
@@ -1717,6 +1719,9 @@ name|classElement
 parameter_list|,
 name|String
 name|prefix
+parameter_list|,
+name|String
+name|modelName
 parameter_list|)
 block|{
 while|while
@@ -1798,6 +1803,8 @@ argument_list|,
 name|eipOptions
 argument_list|,
 name|prefix
+argument_list|,
+name|modelName
 argument_list|)
 decl_stmt|;
 if|if
@@ -1844,6 +1851,8 @@ argument_list|,
 name|eipOptions
 argument_list|,
 name|prefix
+argument_list|,
+name|modelName
 argument_list|)
 expr_stmt|;
 block|}
@@ -2171,7 +2180,7 @@ break|break;
 block|}
 block|}
 block|}
-DECL|method|processAttribute (RoundEnvironment roundEnv, TypeElement originalClassType, TypeElement classElement, VariableElement fieldElement, String fieldName, XmlAttribute attribute, Set<EipOption> eipOptions, String prefix)
+DECL|method|processAttribute (RoundEnvironment roundEnv, TypeElement originalClassType, TypeElement classElement, VariableElement fieldElement, String fieldName, XmlAttribute attribute, Set<EipOption> eipOptions, String prefix, String modelName)
 specifier|private
 name|boolean
 name|processAttribute
@@ -2202,6 +2211,9 @@ name|eipOptions
 parameter_list|,
 name|String
 name|prefix
+parameter_list|,
+name|String
+name|modelName
 parameter_list|)
 block|{
 name|Elements
@@ -2519,7 +2531,7 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|processValue (RoundEnvironment roundEnv, TypeElement originalClassType, TypeElement classElement, VariableElement fieldElement, String fieldName, XmlValue value, Set<EipOption> eipOptions, String prefix)
+DECL|method|processValue (RoundEnvironment roundEnv, TypeElement originalClassType, TypeElement classElement, VariableElement fieldElement, String fieldName, XmlValue value, Set<EipOption> eipOptions, String prefix, String modelName)
 specifier|private
 name|void
 name|processValue
@@ -2550,6 +2562,9 @@ name|eipOptions
 parameter_list|,
 name|String
 name|prefix
+parameter_list|,
+name|String
+name|modelName
 parameter_list|)
 block|{
 name|Elements
@@ -2566,6 +2581,44 @@ name|name
 init|=
 name|fieldName
 decl_stmt|;
+if|if
+condition|(
+literal|"method"
+operator|.
+name|equals
+argument_list|(
+name|modelName
+argument_list|)
+operator|||
+literal|"tokenize"
+operator|.
+name|equals
+argument_list|(
+name|modelName
+argument_list|)
+operator|||
+literal|"xtokenize"
+operator|.
+name|equals
+argument_list|(
+name|modelName
+argument_list|)
+condition|)
+block|{
+comment|// skip expression attribute on these three languages as they are solely configured using attributes
+if|if
+condition|(
+literal|"expression"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return;
+block|}
+block|}
 name|name
 operator|=
 name|prefix
