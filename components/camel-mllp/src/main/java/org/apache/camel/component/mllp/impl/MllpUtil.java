@@ -86,6 +86,16 @@ name|java
 operator|.
 name|net
 operator|.
+name|SocketException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
 name|SocketTimeoutException
 import|;
 end_import
@@ -298,7 +308,7 @@ comment|/**      * Open the MLLP frame by reading from the Socket until the begg
 DECL|method|openFrame (Socket socket)
 specifier|public
 specifier|static
-name|void
+name|boolean
 name|openFrame
 parameter_list|(
 name|Socket
@@ -337,6 +347,9 @@ argument_list|)
 decl_stmt|;
 name|int
 name|readByte
+init|=
+operator|-
+literal|1
 decl_stmt|;
 try|try
 block|{
@@ -355,7 +368,9 @@ block|{
 case|case
 name|START_OF_BLOCK
 case|:
-return|return;
+return|return
+literal|true
+return|;
 case|case
 name|END_OF_STREAM
 case|:
@@ -364,7 +379,9 @@ argument_list|(
 name|socket
 argument_list|)
 expr_stmt|;
-return|return;
+return|return
+literal|false
+return|;
 default|default:
 comment|// Continue on and process the out-of-frame data
 block|}
@@ -379,6 +396,60 @@ comment|// Just pass this on - the caller will wrap it in a MllpTimeoutException
 throw|throw
 name|normaTimeoutEx
 throw|;
+block|}
+catch|catch
+parameter_list|(
+name|SocketException
+name|socketEx
+parameter_list|)
+block|{
+if|if
+condition|(
+name|socket
+operator|.
+name|isClosed
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Socket closed while opening MLLP frame - ignoring exception"
+argument_list|,
+name|socketEx
+argument_list|)
+expr_stmt|;
+return|return
+literal|false
+return|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|error
+argument_list|(
+literal|"Unexpected Exception occurred opening MLLP frame - resetting the connection"
+argument_list|)
+expr_stmt|;
+name|MllpUtil
+operator|.
+name|resetConnection
+argument_list|(
+name|socket
+argument_list|)
+expr_stmt|;
+throw|throw
+operator|new
+name|MllpException
+argument_list|(
+literal|"Unexpected Exception occurred opening MLLP frame"
+argument_list|,
+name|socketEx
+argument_list|)
+throw|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -695,6 +766,9 @@ argument_list|)
 throw|;
 block|}
 block|}
+return|return
+literal|false
+return|;
 block|}
 comment|/**      * Close a MLLP frame by reading from the socket until the end of the frame is found.      *<p/>      * The method assumes the MLLP frame has already been opened and the first byte available      * will be the first byte of the framed message.      *<p/>      * The method consumes the END_OF_BLOCK and END_OF_DATA bytes from the stream before returning the payload      *<p/>      * If any errors occur (including MLLP frame errors) while opening the frame, the socket will be closed and an      * Exception will be thrown.      *      * @param socket the Socket to be read      * @return the payload of the MLLP-Enveloped message as a byte[]      * @throws MllpTimeoutException      thrown if a timeout occurs while closing the MLLP frame      * @throws MllpCorruptFrameException if the MLLP Frame is corrupted in some way      * @throws MllpException             for other unexpected error conditions      */
 DECL|method|closeFrame (Socket socket)
@@ -1471,6 +1545,12 @@ condition|(
 literal|null
 operator|!=
 name|socket
+operator|&&
+operator|!
+name|socket
+operator|.
+name|isClosed
+argument_list|()
 condition|)
 block|{
 try|try

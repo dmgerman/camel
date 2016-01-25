@@ -273,13 +273,11 @@ name|UriPath
 argument_list|(
 name|defaultValue
 operator|=
-literal|"0.0.0.0"
+literal|"null"
 argument_list|)
 DECL|field|hostname
 name|String
 name|hostname
-init|=
-literal|"0.0.0.0"
 decl_stmt|;
 annotation|@
 name|UriPath
@@ -314,16 +312,25 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"30000"
-argument_list|,
-name|description
-operator|=
-literal|"TCP Server only - timeout value while waiting for a TCP listener to start (milliseconds)"
 argument_list|)
 DECL|field|bindTimeout
 name|int
 name|bindTimeout
 init|=
 literal|30000
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"5000"
+argument_list|)
+DECL|field|bindRetryInterval
+name|int
+name|bindRetryInterval
+init|=
+literal|5000
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -710,7 +717,7 @@ return|return
 name|hostname
 return|;
 block|}
-comment|/**      * Hostname or IP for connection for the TCP connection      *      * @param hostname Hostname or IP      */
+comment|/**      * Hostname or IP for connection for the TCP connection.      *      * The default value is null, which means any local IP address      *      * @param hostname Hostname or IP      */
 DECL|method|setHostname (String hostname)
 specifier|public
 name|void
@@ -779,6 +786,60 @@ operator|.
 name|backlog
 operator|=
 name|backlog
+expr_stmt|;
+block|}
+DECL|method|getBindTimeout ()
+specifier|public
+name|int
+name|getBindTimeout
+parameter_list|()
+block|{
+return|return
+name|bindTimeout
+return|;
+block|}
+comment|/**      * TCP Server Only - The number of milliseconds to retry binding to a server port      */
+DECL|method|setBindTimeout (int bindTimeout)
+specifier|public
+name|void
+name|setBindTimeout
+parameter_list|(
+name|int
+name|bindTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bindTimeout
+operator|=
+name|bindTimeout
+expr_stmt|;
+block|}
+DECL|method|getBindRetryInterval ()
+specifier|public
+name|int
+name|getBindRetryInterval
+parameter_list|()
+block|{
+return|return
+name|bindRetryInterval
+return|;
+block|}
+comment|/**      * TCP Server Only - The number of milliseconds to wait between bind attempts      */
+DECL|method|setBindRetryInterval (int bindRetryInterval)
+specifier|public
+name|void
+name|setBindRetryInterval
+parameter_list|(
+name|int
+name|bindRetryInterval
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bindRetryInterval
+operator|=
+name|bindRetryInterval
 expr_stmt|;
 block|}
 DECL|method|getAcceptTimeout ()
