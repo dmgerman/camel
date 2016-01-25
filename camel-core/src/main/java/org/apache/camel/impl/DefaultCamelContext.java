@@ -16030,7 +16030,7 @@ literal|" routes, of which "
 operator|+
 name|started
 operator|+
-literal|" is started."
+literal|" are started."
 argument_list|)
 expr_stmt|;
 name|log
