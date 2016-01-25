@@ -661,13 +661,6 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|xslt
-operator|.
-name|setCamelContext
-argument_list|(
-name|context
-argument_list|)
-expr_stmt|;
 name|configureOutput
 argument_list|(
 name|xslt

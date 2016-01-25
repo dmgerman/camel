@@ -1659,24 +1659,8 @@ argument_list|(
 name|resourceUri
 argument_list|)
 expr_stmt|;
-comment|// and then inject camel context and start service
-name|xslt
-operator|.
-name|setCamelContext
-argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|// the processor is the xslt builder
 name|setProcessor
-argument_list|(
-name|xslt
-argument_list|)
-expr_stmt|;
-name|ServiceHelper
-operator|.
-name|startService
 argument_list|(
 name|xslt
 argument_list|)
