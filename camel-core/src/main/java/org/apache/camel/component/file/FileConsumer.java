@@ -231,15 +231,6 @@ operator|.
 name|getDirectory
 argument_list|()
 expr_stmt|;
-name|this
-operator|.
-name|extendedAttributes
-operator|=
-operator|new
-name|HashSet
-argument_list|<>
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|endpoint
@@ -250,6 +241,15 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|this
+operator|.
+name|extendedAttributes
+operator|=
+operator|new
+name|HashSet
+argument_list|<>
+argument_list|()
+expr_stmt|;
 for|for
 control|(
 name|String
@@ -665,11 +665,9 @@ expr_stmt|;
 comment|// matched file so add
 if|if
 condition|(
-operator|!
 name|extendedAttributes
-operator|.
-name|isEmpty
-argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|Path
