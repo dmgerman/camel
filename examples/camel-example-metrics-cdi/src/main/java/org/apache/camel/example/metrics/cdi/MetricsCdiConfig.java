@@ -74,6 +74,16 @@ name|javax
 operator|.
 name|inject
 operator|.
+name|Inject
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|inject
+operator|.
 name|Named
 import|;
 end_import
@@ -165,6 +175,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|ApplicationScoped
 DECL|class|MetricsCdiConfig
 class|class
 name|MetricsCdiConfig
@@ -190,20 +202,23 @@ operator|new
 name|MetricRegistry
 argument_list|()
 decl_stmt|;
-annotation|@
-name|Produces
-annotation|@
-name|ApplicationScoped
-DECL|method|reporter (MetricRegistry registry)
+DECL|field|reporter
 specifier|private
+specifier|final
 name|Slf4jReporter
 name|reporter
+decl_stmt|;
+annotation|@
+name|Inject
+DECL|method|MetricsCdiConfig (MetricRegistry registry)
+name|MetricsCdiConfig
 parameter_list|(
 name|MetricRegistry
 name|registry
 parameter_list|)
 block|{
-return|return
+name|reporter
+operator|=
 name|Slf4jReporter
 operator|.
 name|forRegistry
@@ -227,11 +242,10 @@ argument_list|)
 operator|.
 name|build
 argument_list|()
-return|;
+expr_stmt|;
 block|}
-DECL|method|onStart (@bserves CamelContextStartedEvent event, Slf4jReporter reporter)
+DECL|method|onStart (@bserves CamelContextStartedEvent event)
 specifier|private
-specifier|static
 name|void
 name|onStart
 parameter_list|(
@@ -239,9 +253,6 @@ annotation|@
 name|Observes
 name|CamelContextStartedEvent
 name|event
-parameter_list|,
-name|Slf4jReporter
-name|reporter
 parameter_list|)
 block|{
 name|reporter
@@ -256,9 +267,8 @@ name|SECONDS
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|onStop (@bserves CamelContextStoppedEvent event, Slf4jReporter reporter)
+DECL|method|onStop (@bserves CamelContextStoppedEvent event)
 specifier|private
-specifier|static
 name|void
 name|onStop
 parameter_list|(
@@ -266,9 +276,6 @@ annotation|@
 name|Observes
 name|CamelContextStoppedEvent
 name|event
-parameter_list|,
-name|Slf4jReporter
-name|reporter
 parameter_list|)
 block|{
 name|reporter
@@ -279,7 +286,6 @@ expr_stmt|;
 block|}
 DECL|method|configure (@bserves MetricsConfiguration config)
 specifier|private
-specifier|static
 name|void
 name|configure
 parameter_list|(
