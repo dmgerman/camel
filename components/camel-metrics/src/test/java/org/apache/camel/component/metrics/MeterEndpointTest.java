@@ -132,21 +132,9 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|CoreMatchers
+name|Matchers
 operator|.
-name|is
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|hamcrest
-operator|.
-name|MatcherAssert
-operator|.
-name|assertThat
+name|instanceOf
 import|;
 end_import
 
@@ -158,7 +146,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|instanceOf
+name|is
 import|;
 end_import
 
@@ -183,6 +171,18 @@ operator|.
 name|Matchers
 operator|.
 name|nullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertThat
 import|;
 end_import
 

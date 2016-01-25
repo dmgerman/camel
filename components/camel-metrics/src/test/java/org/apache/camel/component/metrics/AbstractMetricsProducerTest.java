@@ -202,7 +202,7 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|CoreMatchers
+name|Matchers
 operator|.
 name|is
 import|;
@@ -212,9 +212,9 @@ begin_import
 import|import static
 name|org
 operator|.
-name|hamcrest
+name|junit
 operator|.
-name|MatcherAssert
+name|Assert
 operator|.
 name|assertThat
 import|;

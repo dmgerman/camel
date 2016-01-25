@@ -190,9 +190,9 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|CoreMatchers
+name|Matchers
 operator|.
-name|is
+name|instanceOf
 import|;
 end_import
 
@@ -204,7 +204,7 @@ name|hamcrest
 operator|.
 name|Matchers
 operator|.
-name|instanceOf
+name|is
 import|;
 end_import
 

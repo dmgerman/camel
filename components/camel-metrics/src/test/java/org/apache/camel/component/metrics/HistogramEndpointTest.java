@@ -132,9 +132,9 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|CoreMatchers
+name|Matchers
 operator|.
-name|is
+name|instanceOf
 import|;
 end_import
 
@@ -144,9 +144,9 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|MatcherAssert
+name|Matchers
 operator|.
-name|assertThat
+name|is
 import|;
 end_import
 
@@ -171,6 +171,18 @@ operator|.
 name|Matchers
 operator|.
 name|nullValue
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assert
+operator|.
+name|assertThat
 import|;
 end_import
 
@@ -362,9 +374,12 @@ name|producer
 argument_list|,
 name|is
 argument_list|(
+name|instanceOf
+argument_list|(
 name|HistogramProducer
 operator|.
 name|class
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;

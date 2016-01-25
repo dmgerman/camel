@@ -216,7 +216,7 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|CoreMatchers
+name|Matchers
 operator|.
 name|containsString
 import|;
@@ -228,7 +228,7 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|CoreMatchers
+name|Matchers
 operator|.
 name|instanceOf
 import|;
