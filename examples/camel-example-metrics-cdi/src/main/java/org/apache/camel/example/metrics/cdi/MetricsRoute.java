@@ -66,6 +66,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|cdi
+operator|.
+name|ContextName
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|metrics
@@ -75,6 +89,11 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|ContextName
+argument_list|(
+literal|"camel-example-metrics-cdi"
+argument_list|)
 DECL|class|MetricsRoute
 class|class
 name|MetricsRoute

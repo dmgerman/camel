@@ -324,6 +324,13 @@ argument_list|>
 name|ratio
 decl_stmt|;
 annotation|@
+name|Inject
+DECL|field|context
+specifier|private
+name|CamelContext
+name|context
+decl_stmt|;
+annotation|@
 name|Deployment
 DECL|method|deployment ()
 specifier|public
@@ -391,14 +398,38 @@ return|;
 block|}
 annotation|@
 name|Test
-DECL|method|testMetricsValues (CamelContext context)
+DECL|method|testContextName ()
+specifier|public
+name|void
+name|testContextName
+parameter_list|()
+block|{
+name|assertThat
+argument_list|(
+literal|"Context name is incorrect!"
+argument_list|,
+name|context
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|is
+argument_list|(
+name|equalTo
+argument_list|(
+literal|"camel-example-metrics-cdi"
+argument_list|)
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Test
+DECL|method|testMetricsValues ()
 specifier|public
 name|void
 name|testMetricsValues
-parameter_list|(
-name|CamelContext
-name|context
-parameter_list|)
+parameter_list|()
 throws|throws
 name|Exception
 block|{
