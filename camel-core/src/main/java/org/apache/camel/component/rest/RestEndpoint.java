@@ -1178,7 +1178,7 @@ name|path
 expr_stmt|;
 block|}
 comment|// there may be an optional context path configured to help Camel calculate the correct urls for the REST services
-comment|// this may be needed when using camel-serlvet where we cannot get the actual context-path or port number of the servlet engine
+comment|// this may be needed when using camel-servlet where we cannot get the actual context-path or port number of the servlet engine
 comment|// during init of the servlet
 name|String
 name|contextPath
