@@ -508,12 +508,13 @@ return|return
 name|value
 return|;
 block|}
-DECL|method|getValue (String key, List<Map<String, String>> rows)
-DECL|method|getValue (String key, List<Map<String, String>> rows)
+comment|/**      * Gets the value with the key in a safe way, eg returning an empty string if there was no value for the key.      */
+DECL|method|getSafeValue (String key, List<Map<String, String>> rows)
+DECL|method|getSafeValue (String key, List<Map<String, String>> rows)
 specifier|public
 specifier|static
 name|String
-name|getValue
+name|getSafeValue
 parameter_list|(
 name|String
 name|key
@@ -566,15 +567,16 @@ return|;
 block|}
 block|}
 return|return
-literal|null
+literal|""
 return|;
 block|}
-DECL|method|getValue (String key, Map<String, String> rows)
-DECL|method|getValue (String key, Map<String, String> rows)
+comment|/**      * Gets the value with the key in a safe way, eg returning an empty string if there was no value for the key.      */
+DECL|method|getSafeValue (String key, Map<String, String> rows)
+DECL|method|getSafeValue (String key, Map<String, String> rows)
 specifier|public
 specifier|static
 name|String
-name|getValue
+name|getSafeValue
 parameter_list|(
 name|String
 name|key
@@ -610,7 +612,7 @@ name|value
 return|;
 block|}
 return|return
-literal|null
+literal|""
 return|;
 block|}
 block|}
