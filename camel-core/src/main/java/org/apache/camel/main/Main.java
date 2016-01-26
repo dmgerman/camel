@@ -180,6 +180,16 @@ argument_list|(
 name|args
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|exit
+argument_list|(
+name|main
+operator|.
+name|getExitCode
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 comment|/**      * Returns the currently executing main      *      * @return the current running instance      */
 DECL|method|getInstance ()
