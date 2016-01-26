@@ -163,6 +163,15 @@ name|ReplyHolder
 name|holder
 parameter_list|)
 function_decl|;
+comment|/**      * Unregister a correlationId when you no longer need a reply      *       * @param correlationId      */
+DECL|method|cancelCorrelationId (String correlationId)
+name|void
+name|cancelCorrelationId
+parameter_list|(
+name|String
+name|correlationId
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 

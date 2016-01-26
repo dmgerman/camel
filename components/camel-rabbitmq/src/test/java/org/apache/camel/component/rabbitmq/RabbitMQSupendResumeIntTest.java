@@ -149,7 +149,7 @@ specifier|final
 name|String
 name|EXCHANGE
 init|=
-literal|"ex4"
+literal|"ex6"
 decl_stmt|;
 annotation|@
 name|EndpointInject
@@ -172,7 +172,7 @@ literal|"rabbitmq:localhost:5672/"
 operator|+
 name|EXCHANGE
 operator|+
-literal|"?username=cameltest&password=cameltest&queue=q3&routingKey=rk3&autoDelete=false"
+literal|"?username=cameltest&password=cameltest&queue=q6&routingKey=rk3&autoDelete=false"
 argument_list|)
 DECL|field|rabbitMQEndpoint
 specifier|private

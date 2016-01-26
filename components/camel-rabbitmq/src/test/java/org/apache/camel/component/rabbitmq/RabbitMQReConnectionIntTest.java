@@ -169,7 +169,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Integration test to check that RabbitMQ Endpoint is able to reconnect to broker when broker  * is not avaibable.  *<ul>  *<li>Stop the broker</li>  *<li>Run the test: the producer complains it can not send messages, the consumer is silent</li>  *<li>Start the broker: the producer sends messages, and the consumer receives messages</li>  *<li>Stop the broker: the producer complains it can not send messages, the consumer is silent</li>  *<li>Start the broker: the producer sends messages, and the consumer receives messages</li>  *</ul>  */
+comment|/**  * Integration test to check that RabbitMQ Endpoint is able to reconnect to broker when broker  * is not available.  *<ul>  *<li>Stop the broker</li>  *<li>Run the test: the producer complains it can not send messages, the consumer is silent</li>  *<li>Start the broker: the producer sends messages, and the consumer receives messages</li>  *<li>Stop the broker: the producer complains it can not send messages, the consumer is silent</li>  *<li>Start the broker: the producer sends messages, and the consumer receives messages</li>  *<li>Kill all connections from the broker: the producer sends messages, and the consumer receives messages</li>  *</ul>  */
 end_comment
 
 begin_class

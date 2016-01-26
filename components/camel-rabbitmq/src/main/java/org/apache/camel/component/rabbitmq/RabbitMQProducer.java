@@ -411,12 +411,64 @@ name|Exception
 block|{
 name|Channel
 name|channel
-init|=
+decl_stmt|;
+try|try
+block|{
+name|channel
+operator|=
 name|channelPool
 operator|.
 name|borrowObject
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalStateException
+name|e
+parameter_list|)
+block|{
+comment|// Since this method is not synchronized its possible the
+comment|// channelPool has been cleared by another thread
+name|checkConnectionAndChannelPool
+argument_list|()
+expr_stmt|;
+name|channel
+operator|=
+name|channelPool
+operator|.
+name|borrowObject
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|channel
+operator|.
+name|isOpen
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Got a closed channel from the pool"
+argument_list|)
+expr_stmt|;
+comment|// Reconnect if another thread hasn't yet
+name|checkConnectionAndChannelPool
+argument_list|()
+expr_stmt|;
+name|channel
+operator|=
+name|channelPool
+operator|.
+name|borrowObject
+argument_list|()
+expr_stmt|;
+block|}
 try|try
 block|{
 return|return
@@ -439,9 +491,10 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Open connection and initialize channel pool      */
+comment|/**      * Open connection and initialize channel pool      * @throws Exception      */
 DECL|method|openConnectionAndChannelPool ()
 specifier|private
+specifier|synchronized
 name|void
 name|openConnectionAndChannelPool
 parameter_list|()
@@ -563,6 +616,59 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|/**      * This will reconnect only if the connection is closed.      * @throws Exception      */
+DECL|method|checkConnectionAndChannelPool ()
+specifier|private
+specifier|synchronized
+name|void
+name|checkConnectionAndChannelPool
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|this
+operator|.
+name|conn
+operator|==
+literal|null
+operator|||
+operator|!
+name|this
+operator|.
+name|conn
+operator|.
+name|isOpen
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Reconnecting to RabbitMQ"
+argument_list|)
+expr_stmt|;
+try|try
+block|{
+name|closeConnectionAndChannel
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// no op
+block|}
+name|openConnectionAndChannelPool
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()
@@ -617,27 +723,59 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Failed to create connection"
+literal|"Failed to create connection. It will attempt to connect again when publishing a message."
 argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * If needed, close Connection and Channel      */
+comment|/**      * If needed, close Connection and Channel      * @throws IOException      */
 DECL|method|closeConnectionAndChannel ()
 specifier|private
+specifier|synchronized
 name|void
 name|closeConnectionAndChannel
 parameter_list|()
 throws|throws
-name|Exception
+name|IOException
+block|{
+if|if
+condition|(
+name|channelPool
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
 block|{
 name|channelPool
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+name|channelPool
+operator|=
+literal|null
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|IOException
+argument_list|(
+literal|"Error closing channelPool"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
+block|}
 if|if
 condition|(
 name|conn
@@ -1092,6 +1230,8 @@ argument_list|,
 name|timeout
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|basicPublish
 argument_list|(
 name|exchange
@@ -1101,6 +1241,24 @@ argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|replyManager
+operator|.
+name|cancelCorrelationId
+argument_list|(
+name|correlationId
+argument_list|)
+expr_stmt|;
+throw|throw
+name|e
+throw|;
+block|}
 comment|// continue routing asynchronously (reply will be processed async when its received)
 return|return
 literal|false
@@ -1273,8 +1431,8 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// Open connection and channel lazily
-name|openConnectionAndChannelPool
+comment|// Open connection and channel lazily if another thread hasn't
+name|checkConnectionAndChannelPool
 argument_list|()
 expr_stmt|;
 block|}
