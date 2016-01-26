@@ -223,14 +223,8 @@ expr_stmt|;
 name|Stomp
 name|stomp
 init|=
-operator|new
-name|Stomp
-argument_list|(
-literal|"tcp://localhost:"
-operator|+
-name|getPort
+name|createStompClient
 argument_list|()
-argument_list|)
 decl_stmt|;
 specifier|final
 name|BlockingConnection

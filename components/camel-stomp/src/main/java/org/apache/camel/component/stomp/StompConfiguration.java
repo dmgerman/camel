@@ -72,6 +72,22 @@ name|UriParams
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
 begin_class
 annotation|@
 name|UriParams
@@ -123,6 +139,18 @@ DECL|field|host
 specifier|private
 name|String
 name|host
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
+DECL|field|sslContextParameters
+specifier|private
+name|SSLContextParameters
+name|sslContextParameters
 decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
@@ -267,6 +295,33 @@ operator|.
 name|passcode
 operator|=
 name|passcode
+expr_stmt|;
+block|}
+DECL|method|getSslContextParameters ()
+specifier|public
+name|SSLContextParameters
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|sslContextParameters
+return|;
+block|}
+comment|/**      * To configure security using SSLContextParameters      */
+DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
 expr_stmt|;
 block|}
 block|}
