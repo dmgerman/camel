@@ -108,6 +108,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlTransient
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -281,6 +295,18 @@ name|RestBindingDefinition
 argument_list|>
 block|{
 annotation|@
+name|XmlTransient
+DECL|field|defaultValues
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|defaultValues
+decl_stmt|;
+annotation|@
 name|XmlAttribute
 DECL|field|consumes
 specifier|private
@@ -347,7 +373,7 @@ DECL|method|RestBindingDefinition ()
 specifier|public
 name|RestBindingDefinition
 parameter_list|()
-block|{        }
+block|{     }
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -393,7 +419,7 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-comment|// these options can be overriden per rest verb
+comment|// these options can be overridden per rest verb
 name|String
 name|mode
 init|=
@@ -514,6 +540,8 @@ argument_list|,
 name|cors
 argument_list|,
 name|corsHeaders
+argument_list|,
+name|defaultValues
 argument_list|)
 return|;
 block|}
@@ -1221,6 +1249,8 @@ argument_list|,
 name|cors
 argument_list|,
 name|corsHeaders
+argument_list|,
+name|defaultValues
 argument_list|)
 return|;
 block|}
@@ -1450,6 +1480,64 @@ parameter_list|()
 block|{
 return|return
 name|consumes
+return|;
+block|}
+comment|/**      * Adds a default value for the query parameter      *      * @param paramName   query parameter name      * @param defaultValue the default value      */
+DECL|method|addDefaultValue (String paramName, String defaultValue)
+specifier|public
+name|void
+name|addDefaultValue
+parameter_list|(
+name|String
+name|paramName
+parameter_list|,
+name|String
+name|defaultValue
+parameter_list|)
+block|{
+if|if
+condition|(
+name|defaultValues
+operator|==
+literal|null
+condition|)
+block|{
+name|defaultValues
+operator|=
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+argument_list|()
+expr_stmt|;
+block|}
+name|defaultValues
+operator|.
+name|put
+argument_list|(
+name|paramName
+argument_list|,
+name|defaultValue
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Gets the registered default values for query parameters      */
+DECL|method|getDefaultValues ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getDefaultValues
+parameter_list|()
+block|{
+return|return
+name|defaultValues
 return|;
 block|}
 comment|/**      * Sets the component name that this definition will apply to        */
