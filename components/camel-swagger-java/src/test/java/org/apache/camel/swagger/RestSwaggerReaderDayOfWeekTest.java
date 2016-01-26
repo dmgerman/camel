@@ -289,6 +289,11 @@ argument_list|(
 literal|"Day of week"
 argument_list|)
 operator|.
+name|defaultValue
+argument_list|(
+literal|"friday"
+argument_list|)
+operator|.
 name|dataType
 argument_list|(
 literal|"string"
@@ -490,6 +495,16 @@ operator|.
 name|contains
 argument_list|(
 literal|"\"host\" : \"localhost:8080\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"default\" : \"friday\""
 argument_list|)
 argument_list|)
 expr_stmt|;
