@@ -248,6 +248,8 @@ init|=
 operator|new
 name|MllpServerResource
 argument_list|(
+literal|"localhost"
+argument_list|,
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
