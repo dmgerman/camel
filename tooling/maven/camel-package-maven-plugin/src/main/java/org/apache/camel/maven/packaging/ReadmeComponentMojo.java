@@ -562,9 +562,9 @@ name|between
 argument_list|(
 name|text
 argument_list|,
-literal|"//// endpoint options: START"
+literal|"// endpoint options: START"
 argument_list|,
-literal|"//// endpoint options: END"
+literal|"// endpoint options: END"
 argument_list|)
 decl_stmt|;
 if|if
@@ -631,7 +631,7 @@ name|before
 argument_list|(
 name|text
 argument_list|,
-literal|"//// endpoint options: START"
+literal|"// endpoint options: START"
 argument_list|)
 decl_stmt|;
 name|String
@@ -643,18 +643,18 @@ name|after
 argument_list|(
 name|text
 argument_list|,
-literal|"//// endpoint options: END"
+literal|"// endpoint options: END"
 argument_list|)
 decl_stmt|;
 name|text
 operator|=
 name|before
 operator|+
-literal|"//// endpoint options: START\n"
+literal|"\n// endpoint options: START\n"
 operator|+
 name|changed
 operator|+
-literal|"//// endpoint options: END\n"
+literal|"\n// endpoint options: END\n"
 operator|+
 name|after
 expr_stmt|;
@@ -692,7 +692,7 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-literal|"\t//// endpoint options: START"
+literal|"\t// endpoint options: START"
 argument_list|)
 expr_stmt|;
 name|getLog
@@ -700,7 +700,7 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-literal|"\t//// endpoint options: END"
+literal|"\t// endpoint options: END"
 argument_list|)
 expr_stmt|;
 block|}
