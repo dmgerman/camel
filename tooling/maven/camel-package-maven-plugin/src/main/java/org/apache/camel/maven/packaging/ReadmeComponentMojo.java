@@ -296,6 +296,24 @@ name|loadText
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|maven
+operator|.
+name|packaging
+operator|.
+name|PackageHelper
+operator|.
+name|writeText
+import|;
+end_import
+
 begin_comment
 comment|/**  * Generate or updates the component readme.md file in the project root directory.  *  * @goal update-readme  */
 end_comment
@@ -314,11 +332,17 @@ specifier|protected
 name|MavenProject
 name|project
 decl_stmt|;
-comment|/**      * The output directory for generated readme file      *      * @parameter default-value="${project.build.directory}"      */
+comment|/**      * The project build directory      *      * @parameter default-value="${project.build.directory}"      */
 DECL|field|buildDir
 specifier|protected
 name|File
 name|buildDir
+decl_stmt|;
+comment|/**      * The documentation directory      *      * @parameter default-value="${basedir}/src/main/docs"      */
+DECL|field|docDir
+specifier|protected
+name|File
+name|docDir
 decl_stmt|;
 comment|/**      * build context to check changed files and mark them for refresh (used for      * m2e compatibility)      *      * @component      * @readonly      */
 DECL|field|buildContext
@@ -377,7 +401,7 @@ name|CamelComponentsModelFilter
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// only if there is components we should create/update the readme file
+comment|// only if there is components we should update the documentation files
 if|if
 condition|(
 operator|!
@@ -402,12 +426,6 @@ operator|+
 literal|" components"
 argument_list|)
 expr_stmt|;
-name|File
-name|readmeFile
-init|=
-name|initReadMeFile
-argument_list|()
-decl_stmt|;
 for|for
 control|(
 name|String
@@ -433,6 +451,20 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// file
+name|File
+name|file
+init|=
+operator|new
+name|File
+argument_list|(
+name|docDir
+argument_list|,
+name|componentName
+operator|+
+literal|".adoc"
+argument_list|)
+decl_stmt|;
 name|ComponentModel
 name|model
 init|=
@@ -467,32 +499,214 @@ argument_list|(
 name|model
 argument_list|)
 decl_stmt|;
-name|getLog
-argument_list|()
-operator|.
-name|info
+comment|//                    getLog().info(header);
+comment|//                    getLog().info(options);
+comment|//                    getLog().info(options2);
+comment|// update the endpoint options
+name|updateEndpointOptions
 argument_list|(
-name|header
-argument_list|)
-expr_stmt|;
-name|getLog
-argument_list|()
-operator|.
-name|info
-argument_list|(
-name|options
-argument_list|)
-expr_stmt|;
-name|getLog
-argument_list|()
-operator|.
-name|info
-argument_list|(
+name|file
+argument_list|,
 name|options2
 argument_list|)
 expr_stmt|;
 block|}
 block|}
+block|}
+block|}
+DECL|method|updateEndpointOptions (File file, String changed)
+specifier|private
+name|void
+name|updateEndpointOptions
+parameter_list|(
+name|File
+name|file
+parameter_list|,
+name|String
+name|changed
+parameter_list|)
+throws|throws
+name|MojoExecutionException
+block|{
+if|if
+condition|(
+operator|!
+name|file
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
+try|try
+block|{
+name|String
+name|text
+init|=
+name|loadText
+argument_list|(
+operator|new
+name|FileInputStream
+argument_list|(
+name|file
+argument_list|)
+argument_list|)
+decl_stmt|;
+name|String
+name|existing
+init|=
+name|StringHelper
+operator|.
+name|between
+argument_list|(
+name|text
+argument_list|,
+literal|"//// endpoint options: START"
+argument_list|,
+literal|"//// endpoint options: END"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|existing
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|existing
+operator|.
+name|equals
+argument_list|(
+name|changed
+argument_list|)
+condition|)
+block|{
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"No changes to file: "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Updating file: "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
+name|String
+name|before
+init|=
+name|StringHelper
+operator|.
+name|before
+argument_list|(
+name|text
+argument_list|,
+literal|"//// endpoint options: START"
+argument_list|)
+decl_stmt|;
+name|String
+name|after
+init|=
+name|StringHelper
+operator|.
+name|after
+argument_list|(
+name|text
+argument_list|,
+literal|"//// endpoint options: END"
+argument_list|)
+decl_stmt|;
+name|text
+operator|=
+name|before
+operator|+
+name|changed
+operator|+
+name|after
+expr_stmt|;
+name|writeText
+argument_list|(
+name|file
+argument_list|,
+name|text
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|getLog
+argument_list|()
+operator|.
+name|warn
+argument_list|(
+literal|"Cannot find markers in file "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|warn
+argument_list|(
+literal|"Add the following markers"
+argument_list|)
+expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|warn
+argument_list|(
+literal|"\t//// endpoint options: START"
+argument_list|)
+expr_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|warn
+argument_list|(
+literal|"\t//// endpoint options: END"
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|MojoExecutionException
+argument_list|(
+literal|"Error reading file "
+operator|+
+name|file
+operator|+
+literal|" Reason: "
+operator|+
+name|e
+argument_list|,
+name|e
+argument_list|)
+throw|;
 block|}
 block|}
 DECL|method|loadComponentJson (Set<File> jsonFiles, String componentName)
