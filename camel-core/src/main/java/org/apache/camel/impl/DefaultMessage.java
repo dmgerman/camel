@@ -157,6 +157,23 @@ name|DataHandler
 argument_list|>
 name|attachments
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+name|MessageHelper
+operator|.
+name|extractBodyForLogging
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
 DECL|method|isFault ()
 specifier|public
 name|boolean

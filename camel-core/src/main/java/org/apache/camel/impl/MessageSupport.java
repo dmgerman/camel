@@ -866,32 +866,6 @@ return|return
 name|uuid
 return|;
 block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-comment|// do not output details from message body/headers etc as it may contain sensitive data
-return|return
-name|String
-operator|.
-name|format
-argument_list|(
-literal|"Message[%s]"
-argument_list|,
-name|messageId
-operator|==
-literal|null
-condition|?
-literal|""
-else|:
-name|messageId
-argument_list|)
-return|;
-block|}
 block|}
 end_class
 
