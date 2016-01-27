@@ -26,6 +26,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|List
 import|;
 end_import
@@ -108,19 +118,35 @@ name|version
 decl_stmt|;
 DECL|field|componentOptions
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|ComponentOptionModel
 argument_list|>
 name|componentOptions
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|ComponentOptionModel
+argument_list|>
+argument_list|()
 decl_stmt|;
 DECL|field|endpointOptions
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|EndpointOptionModel
 argument_list|>
 name|endpointOptions
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|EndpointOptionModel
+argument_list|>
+argument_list|()
 decl_stmt|;
 DECL|method|getKind ()
 specifier|public
@@ -499,23 +525,21 @@ return|return
 name|componentOptions
 return|;
 block|}
-DECL|method|setComponentOptions (List<ComponentOptionModel> componentOptions)
+DECL|method|addComponentOption (ComponentOptionModel option)
 specifier|public
 name|void
-name|setComponentOptions
+name|addComponentOption
 parameter_list|(
-name|List
-argument_list|<
 name|ComponentOptionModel
-argument_list|>
-name|componentOptions
+name|option
 parameter_list|)
 block|{
-name|this
+name|componentOptions
 operator|.
-name|componentOptions
-operator|=
-name|componentOptions
+name|add
+argument_list|(
+name|option
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getEndpointOptions ()
@@ -531,23 +555,21 @@ return|return
 name|endpointOptions
 return|;
 block|}
-DECL|method|setEndpointOptions (List<EndpointOptionModel> endpointOptions)
+DECL|method|addEndpointOption (EndpointOptionModel option)
 specifier|public
 name|void
-name|setEndpointOptions
+name|addEndpointOption
 parameter_list|(
-name|List
-argument_list|<
 name|EndpointOptionModel
-argument_list|>
-name|endpointOptions
+name|option
 parameter_list|)
 block|{
-name|this
+name|endpointOptions
 operator|.
-name|endpointOptions
-operator|=
-name|endpointOptions
+name|add
+argument_list|(
+name|option
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getShortJavaType ()
