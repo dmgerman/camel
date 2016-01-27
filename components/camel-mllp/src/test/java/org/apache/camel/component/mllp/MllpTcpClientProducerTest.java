@@ -242,6 +242,8 @@ init|=
 operator|new
 name|MllpServerResource
 argument_list|(
+literal|"localhost"
+argument_list|,
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
@@ -477,7 +479,10 @@ name|toF
 argument_list|(
 literal|"mllp://%s:%d?connectTimeout=%d&receiveTimeout=%d"
 argument_list|,
-literal|"0.0.0.0"
+name|mllpServer
+operator|.
+name|getListenHost
+argument_list|()
 argument_list|,
 name|mllpServer
 operator|.

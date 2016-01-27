@@ -218,6 +218,12 @@ name|MllpTcpClientProducerAcknowledgementTest
 extends|extends
 name|CamelTestSupport
 block|{
+DECL|field|mllpHost
+name|String
+name|mllpHost
+init|=
+literal|"localhost"
+decl_stmt|;
 annotation|@
 name|Rule
 DECL|field|mllpServer
@@ -228,6 +234,8 @@ init|=
 operator|new
 name|MllpServerResource
 argument_list|(
+name|mllpHost
+argument_list|,
 name|AvailablePortFinder
 operator|.
 name|getNextAvailable
@@ -354,19 +362,6 @@ name|routeId
 init|=
 literal|"mllp-sender"
 decl_stmt|;
-name|String
-name|host
-init|=
-literal|"0.0.0.0"
-decl_stmt|;
-name|int
-name|port
-init|=
-name|mllpServer
-operator|.
-name|getListenPort
-argument_list|()
-decl_stmt|;
 specifier|public
 name|void
 name|configure
@@ -397,7 +392,7 @@ name|ERROR
 argument_list|,
 name|routeId
 argument_list|,
-literal|"AR Acknowledgemnet"
+literal|"AR Acknowledgement"
 argument_list|)
 expr_stmt|;
 name|onException
@@ -478,9 +473,15 @@ name|toF
 argument_list|(
 literal|"mllp://%s:%d"
 argument_list|,
-name|host
+name|mllpServer
+operator|.
+name|getListenHost
+argument_list|()
 argument_list|,
-name|port
+name|mllpServer
+operator|.
+name|getListenPort
+argument_list|()
 argument_list|)
 operator|.
 name|log

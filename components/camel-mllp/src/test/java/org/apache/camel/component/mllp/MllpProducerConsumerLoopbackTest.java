@@ -233,6 +233,12 @@ operator|.
 name|getNextAvailable
 argument_list|()
 decl_stmt|;
+DECL|field|mllpHost
+name|String
+name|mllpHost
+init|=
+literal|"localhost"
+decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
@@ -354,7 +360,9 @@ parameter_list|()
 block|{
 name|fromF
 argument_list|(
-literal|"mllp:%d?autoAck=true"
+literal|"mllp://%s:%d?autoAck=true"
+argument_list|,
+name|mllpHost
 argument_list|,
 name|mllpPort
 argument_list|)
@@ -419,11 +427,6 @@ name|routeId
 init|=
 literal|"mllp-sender"
 decl_stmt|;
-name|String
-name|host
-init|=
-literal|"0.0.0.0"
-decl_stmt|;
 specifier|public
 name|void
 name|configure
@@ -457,7 +460,7 @@ name|toF
 argument_list|(
 literal|"mllp://%s:%d"
 argument_list|,
-name|host
+name|mllpHost
 argument_list|,
 name|mllpPort
 argument_list|)
