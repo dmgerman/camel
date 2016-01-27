@@ -574,6 +574,21 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// remove leading line breaks etc
+name|existing
+operator|=
+name|existing
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
+name|changed
+operator|=
+name|changed
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|existing
@@ -635,7 +650,11 @@ name|text
 operator|=
 name|before
 operator|+
+literal|"//// endpoint options: START\n"
+operator|+
 name|changed
+operator|+
+literal|"//// endpoint options: END\n"
 operator|+
 name|after
 expr_stmt|;
