@@ -481,9 +481,14 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"AddingService: {}"
+literal|"AddingService: {}, Bundle: {}"
 argument_list|,
 name|serviceReference
+argument_list|,
+name|serviceReference
+operator|.
+name|getBundle
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|TypeConverterLoader
@@ -496,58 +501,6 @@ argument_list|(
 name|serviceReference
 argument_list|)
 decl_stmt|;
-comment|// just make sure we don't load the bundle converter this time
-if|if
-condition|(
-name|delegate
-operator|!=
-literal|null
-condition|)
-block|{
-try|try
-block|{
-name|ServiceHelper
-operator|.
-name|stopService
-argument_list|(
-name|this
-operator|.
-name|delegate
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Error stopping service due: "
-operator|+
-name|e
-operator|.
-name|getMessage
-argument_list|()
-operator|+
-literal|". This exception will be ignored."
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-comment|// It can force camel to reload the type converter again
-name|this
-operator|.
-name|delegate
-operator|=
-literal|null
-expr_stmt|;
-block|}
 return|return
 name|loader
 return|;
@@ -586,9 +539,14 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"RemovedService: {}"
+literal|"RemovedService: {}, Bundle: {}"
 argument_list|,
 name|serviceReference
+argument_list|,
+name|serviceReference
+operator|.
+name|getBundle
+argument_list|()
 argument_list|)
 expr_stmt|;
 try|try
@@ -634,6 +592,7 @@ name|delegate
 operator|=
 literal|null
 expr_stmt|;
+comment|// TODO: reloading all type converters when one service is removed is suboptimal...
 block|}
 annotation|@
 name|Override
