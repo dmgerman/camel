@@ -211,6 +211,13 @@ name|headersInline
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|includeHeaders
+specifier|private
+name|String
+name|includeHeaders
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 annotation|@
 name|Metadata
 argument_list|(
@@ -307,6 +314,27 @@ argument_list|,
 literal|"headersInline"
 argument_list|,
 name|getHeadersInline
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|getIncludeHeaders
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"includeHeaders"
+argument_list|,
+name|getIncludeHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -422,6 +450,33 @@ parameter_list|()
 block|{
 return|return
 name|binaryContent
+return|;
+block|}
+comment|/**      * A regex that defines which Camel headers are also included as MIME headers      * into the MIME multipart. This will only work if headersInline is set to true.      *<p>      * Default is to include no headers      */
+DECL|method|setIncludeHeaders (String includeHeaders)
+specifier|public
+name|void
+name|setIncludeHeaders
+parameter_list|(
+name|String
+name|includeHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeHeaders
+operator|=
+name|includeHeaders
+expr_stmt|;
+block|}
+DECL|method|getIncludeHeaders ()
+specifier|public
+name|String
+name|getIncludeHeaders
+parameter_list|()
+block|{
+return|return
+name|includeHeaders
 return|;
 block|}
 comment|/**      * Defines whether the content of binary parts in the MIME multipart is      * binary (true) or Base-64 encoded (false)      *<p>      * Default is "false".      */
