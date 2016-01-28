@@ -142,18 +142,6 @@ name|javax
 operator|.
 name|xml
 operator|.
-name|stream
-operator|.
-name|XMLStreamReader
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|xml
-operator|.
 name|transform
 operator|.
 name|ErrorListener
@@ -420,7 +408,7 @@ name|converter
 operator|.
 name|jaxp
 operator|.
-name|StaxSource
+name|StAX2SAXSource
 import|;
 end_import
 
@@ -824,18 +812,6 @@ operator|.
 name|getResult
 argument_list|()
 decl_stmt|;
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-literal|"isXalanTransformer"
-argument_list|,
-name|isXalanTransformer
-argument_list|(
-name|transformer
-argument_list|)
-argument_list|)
-expr_stmt|;
 comment|// let's copy the headers before we invoke the transform in case they modify them
 name|Message
 name|out
@@ -922,6 +898,36 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|source
+operator|instanceof
+name|StAXSource
+condition|)
+block|{
+comment|// Always convert StAXSource to SAXSource.
+comment|// * Xalan and Saxon-B don't support StAXSource.
+comment|// * The JDK default implementation (XSLTC) doesn't handle CDATA events
+comment|//   (see com.sun.org.apache.xalan.internal.xsltc.trax.StAXStream2SAX).
+comment|// * Saxon-HE/PE/EE seem to support StAXSource, but don't advertise this
+comment|//   officially (via TransformerFactory.getFeature(StAXSource.FEATURE))
+name|source
+operator|=
+operator|new
+name|StAX2SAXSource
+argument_list|(
+operator|(
+operator|(
+name|StAXSource
+operator|)
+name|source
+operator|)
+operator|.
+name|getXMLStreamReader
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|LOG
 operator|.
 name|trace
@@ -973,29 +979,6 @@ name|is
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-DECL|method|isXalanTransformer (Transformer transformer)
-name|boolean
-name|isXalanTransformer
-parameter_list|(
-name|Transformer
-name|transformer
-parameter_list|)
-block|{
-return|return
-name|transformer
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-operator|.
-name|startsWith
-argument_list|(
-literal|"org.apache.xalan.transformer"
-argument_list|)
-return|;
 block|}
 DECL|method|isSaxonTransformer (Transformer transformer)
 name|boolean
@@ -2096,7 +2079,7 @@ return|return
 literal|true
 return|;
 block|}
-comment|/**      * Converts the inbound body to a {@link Source}, if the body is<b>not</b> already a {@link Source}.      *<p/>      * This implementation will prefer to source in the following order:      *<ul>      *<li>StAX - Is StAX is allowed</li>      *<li>SAX - SAX as 2nd choice</li>      *<li>Stream - Stream as 3rd choice</li>      *<li>DOM - DOM as 4th choice</li>      *</ul>      */
+comment|/**      * Converts the inbound body to a {@link Source}, if the body is<b>not</b> already a {@link Source}.      *<p/>      * This implementation will prefer to source in the following order:      *<ul>      *<li>StAX - If StAX is allowed</li>      *<li>SAX - SAX as 2nd choice</li>      *<li>Stream - Stream as 3rd choice</li>      *<li>DOM - DOM as 4th choice</li>      *</ul>      */
 DECL|method|getSource (Exchange exchange, Object body)
 specifier|protected
 name|Source
@@ -2109,20 +2092,6 @@ name|Object
 name|body
 parameter_list|)
 block|{
-name|Boolean
-name|isXalanTransformer
-init|=
-name|exchange
-operator|.
-name|getProperty
-argument_list|(
-literal|"isXalanTransformer"
-argument_list|,
-name|Boolean
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 comment|// body may already be a source
 if|if
 condition|(
@@ -2156,53 +2125,7 @@ name|isAllowStAX
 argument_list|()
 condition|)
 block|{
-if|if
-condition|(
-name|isXalanTransformer
-condition|)
-block|{
-name|XMLStreamReader
-name|reader
-init|=
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|getTypeConverter
-argument_list|()
-operator|.
-name|tryConvertTo
-argument_list|(
-name|XMLStreamReader
-operator|.
-name|class
-argument_list|,
-name|exchange
-argument_list|,
-name|body
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|reader
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// create a new SAXSource with stax parser API
-name|source
-operator|=
-operator|new
-name|StaxSource
-argument_list|(
-name|reader
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-else|else
-block|{
+comment|// try StAX if enabled
 name|source
 operator|=
 name|exchange
@@ -2224,7 +2147,6 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(

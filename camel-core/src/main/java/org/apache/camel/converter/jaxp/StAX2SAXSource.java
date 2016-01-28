@@ -229,14 +229,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A streaming {@link javax.xml.transform.sax.SAXSource}  */
+comment|/**  * Adapter to turn a StAX {@link XMLStreamReader} into a {@link SAXSource}.  */
 end_comment
 
 begin_class
-DECL|class|StaxSource
+DECL|class|StAX2SAXSource
 specifier|public
 class|class
-name|StaxSource
+name|StAX2SAXSource
 extends|extends
 name|SAXSource
 implements|implements
@@ -257,9 +257,9 @@ specifier|private
 name|LexicalHandler
 name|lexicalHandler
 decl_stmt|;
-DECL|method|StaxSource (XMLStreamReader streamReader)
+DECL|method|StAX2SAXSource (XMLStreamReader streamReader)
 specifier|public
-name|StaxSource
+name|StAX2SAXSource
 parameter_list|(
 name|XMLStreamReader
 name|streamReader
@@ -1374,7 +1374,7 @@ parameter_list|)
 throws|throws
 name|SAXException
 block|{
-name|StaxSource
+name|StAX2SAXSource
 operator|.
 name|this
 operator|.
@@ -1393,7 +1393,7 @@ parameter_list|)
 throws|throws
 name|SAXException
 block|{
-name|StaxSource
+name|StAX2SAXSource
 operator|.
 name|this
 operator|.

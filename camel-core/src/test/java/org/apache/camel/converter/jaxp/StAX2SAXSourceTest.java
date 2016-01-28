@@ -203,10 +203,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|StaxSourceTest
+DECL|class|StAX2SAXSourceTest
 specifier|public
 class|class
-name|StaxSourceTest
+name|StAX2SAXSourceTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -320,11 +320,11 @@ argument_list|,
 name|baos
 argument_list|)
 decl_stmt|;
-name|StaxSource
+name|StAX2SAXSource
 name|staxSource
 init|=
 operator|new
-name|StaxSource
+name|StAX2SAXSource
 argument_list|(
 name|reader
 argument_list|)
