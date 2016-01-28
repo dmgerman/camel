@@ -266,10 +266,10 @@ name|Arquillian
 operator|.
 name|class
 argument_list|)
-DECL|class|MetricsSampleTest
+DECL|class|ApplicationTest
 specifier|public
 class|class
-name|MetricsSampleTest
+name|ApplicationTest
 block|{
 annotation|@
 name|Inject
@@ -377,7 +377,7 @@ comment|// Test classes
 operator|.
 name|addPackage
 argument_list|(
-name|MetricsSampleTest
+name|Application
 operator|.
 name|class
 operator|.
