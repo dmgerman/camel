@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.example.metrics.cdi
+DECL|package|org.apache.camel.example.cdi.metrics
 package|package
 name|org
 operator|.
@@ -14,9 +14,9 @@ name|camel
 operator|.
 name|example
 operator|.
-name|metrics
-operator|.
 name|cdi
+operator|.
+name|metrics
 package|;
 end_package
 
