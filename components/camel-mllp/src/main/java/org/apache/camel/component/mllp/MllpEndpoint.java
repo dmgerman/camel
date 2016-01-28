@@ -102,6 +102,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -270,10 +284,12 @@ argument_list|)
 decl_stmt|;
 annotation|@
 name|UriPath
+annotation|@
+name|Metadata
 argument_list|(
-name|defaultValue
+name|required
 operator|=
-literal|"null"
+literal|"true"
 argument_list|)
 DECL|field|hostname
 name|String
@@ -281,10 +297,12 @@ name|hostname
 decl_stmt|;
 annotation|@
 name|UriPath
+annotation|@
+name|Metadata
 argument_list|(
-name|description
+name|required
 operator|=
-literal|"TCP Port for connection"
+literal|"true"
 argument_list|)
 DECL|field|port
 name|int
@@ -399,47 +417,21 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|reuseAddress
 name|boolean
 name|reuseAddress
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"System Default"
-argument_list|)
 DECL|field|receiveBufferSize
 name|Integer
 name|receiveBufferSize
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"System Default"
-argument_list|)
 DECL|field|sendBufferSize
 name|Integer
 name|sendBufferSize
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|description
-operator|=
-literal|"The TCP mode of the endpoint (client or server).  Defaults to client for Producers and server for Consumers"
-argument_list|)
-DECL|field|tcpMode
-name|String
-name|tcpMode
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -456,11 +448,6 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"System Default"
-argument_list|)
 DECL|field|charsetName
 name|String
 name|charsetName
@@ -690,7 +677,7 @@ return|return
 name|charsetName
 return|;
 block|}
-comment|/**      * Set the CamelCharsetName property on the exchange      *      * @param charsetName      */
+comment|/**      * Set the CamelCharsetName property on the exchange      *      * @param charsetName the charset      */
 DECL|method|setCharsetName (String charsetName)
 specifier|public
 name|void
