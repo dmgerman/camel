@@ -1469,6 +1469,15 @@ name|getAllowableValues
 argument_list|()
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|param
+operator|.
+name|getAllowableValues
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|sp
