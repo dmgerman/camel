@@ -596,6 +596,16 @@ literal|"\"format\" : \"org.apache.camel.swagger.User\""
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertFalse
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"enum\""
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|context
 operator|.
 name|stop
