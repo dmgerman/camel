@@ -537,6 +537,33 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
+literal|"RedeliveryPolicy for logging exhausted with message history"
+argument_list|)
+DECL|method|getLogExhaustedMessageBody ()
+name|Boolean
+name|getLogExhaustedMessageBody
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"RedeliveryPolicy for logging exhausted with message body"
+argument_list|)
+DECL|method|setLogExhaustedMessageBody (Boolean log)
+name|void
+name|setLogExhaustedMessageBody
+parameter_list|(
+name|Boolean
+name|log
+parameter_list|)
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
 literal|"RedeliveryPolicy for logging handled and continued exceptions"
 argument_list|)
 DECL|method|getLogContinued ()

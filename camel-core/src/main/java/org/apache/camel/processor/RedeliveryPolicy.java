@@ -257,6 +257,11 @@ specifier|protected
 name|Boolean
 name|logExhaustedMessageHistory
 decl_stmt|;
+DECL|field|logExhaustedMessageBody
+specifier|protected
+name|Boolean
+name|logExhaustedMessageBody
+decl_stmt|;
 DECL|field|logRetryAttempted
 specifier|protected
 name|boolean
@@ -359,6 +364,10 @@ operator|+
 literal|", logExhaustedMessageHistory="
 operator|+
 name|logExhaustedMessageHistory
+operator|+
+literal|", logExhaustedMessageBody="
+operator|+
+name|logExhaustedMessageBody
 operator|+
 literal|", useExponentialBackOff="
 operator|+
@@ -1103,6 +1112,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether to log exhausted errors including message body (requires message history to be enabled)      */
+DECL|method|logExhaustedMessageBody (boolean logExhaustedMessageBody)
+specifier|public
+name|RedeliveryPolicy
+name|logExhaustedMessageBody
+parameter_list|(
+name|boolean
+name|logExhaustedMessageBody
+parameter_list|)
+block|{
+name|setLogExhaustedMessageBody
+argument_list|(
+name|logExhaustedMessageBody
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the delay pattern with delay intervals.      */
 DECL|method|delayPattern (String delayPattern)
 specifier|public
@@ -1807,6 +1835,49 @@ operator|.
 name|logExhaustedMessageHistory
 operator|=
 name|logExhaustedMessageHistory
+expr_stmt|;
+block|}
+DECL|method|isLogExhaustedMessageBody ()
+specifier|public
+name|boolean
+name|isLogExhaustedMessageBody
+parameter_list|()
+block|{
+comment|// should default be disabled
+return|return
+name|logExhaustedMessageBody
+operator|!=
+literal|null
+operator|&&
+name|logExhaustedMessageBody
+return|;
+block|}
+comment|/**      * Whether the option logExhaustedMessageBody has been configured or not      *      * @return<tt>null</tt> if not configured, or the configured value as true or false      * @see #isLogExhaustedMessageBody()      */
+DECL|method|getLogExhaustedMessageBody ()
+specifier|public
+name|Boolean
+name|getLogExhaustedMessageBody
+parameter_list|()
+block|{
+return|return
+name|logExhaustedMessageBody
+return|;
+block|}
+comment|/**      * Sets whether exhausted message body/headers should be logged with message history included      * (requires logExhaustedMessageHistory to be enabled).      */
+DECL|method|setLogExhaustedMessageBody (Boolean logExhaustedMessageBody)
+specifier|public
+name|void
+name|setLogExhaustedMessageBody
+parameter_list|(
+name|Boolean
+name|logExhaustedMessageBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logExhaustedMessageBody
+operator|=
+name|logExhaustedMessageBody
 expr_stmt|;
 block|}
 DECL|method|isAsyncDelayedRedelivery ()

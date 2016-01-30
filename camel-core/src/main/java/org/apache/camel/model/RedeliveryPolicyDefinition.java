@@ -311,6 +311,13 @@ name|logExhaustedMessageHistory
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|logExhaustedMessageBody
+specifier|private
+name|String
+name|logExhaustedMessageBody
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|disableRedelivery
 specifier|private
 name|String
@@ -761,6 +768,28 @@ argument_list|(
 name|context
 argument_list|,
 name|logExhaustedMessageHistory
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|logExhaustedMessageBody
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setLogExhaustedMessageBody
+argument_list|(
+name|CamelContextHelper
+operator|.
+name|parseBoolean
+argument_list|(
+name|context
+argument_list|,
+name|logExhaustedMessageBody
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1471,6 +1500,49 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether exhausted message body should be logged including message history or not (supports property placeholders).      * Can be used to include or reduce verbose. Requires<tt>logExhaustedMessageHistory</tt> to be enabled.      *      * @param logExhaustedMessageBody  whether exhausted message body should be logged with message history      * @return the builder      */
+DECL|method|logExhaustedMessageBody (boolean logExhaustedMessageBody)
+specifier|public
+name|RedeliveryPolicyDefinition
+name|logExhaustedMessageBody
+parameter_list|(
+name|boolean
+name|logExhaustedMessageBody
+parameter_list|)
+block|{
+name|setLogExhaustedMessageBody
+argument_list|(
+name|Boolean
+operator|.
+name|toString
+argument_list|(
+name|logExhaustedMessageBody
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether exhausted message body should be logged including message history or not (supports property placeholders).      * Can be used to include or reduce verbose. Requires<tt>logExhaustedMessageHistory</tt> to be enabled.      *      * @param logExhaustedMessageBody  whether exhausted message body should be logged with message history      * @return the builder      */
+DECL|method|logExhaustedMessageBody (String logExhaustedMessageBody)
+specifier|public
+name|RedeliveryPolicyDefinition
+name|logExhaustedMessageBody
+parameter_list|(
+name|String
+name|logExhaustedMessageBody
+parameter_list|)
+block|{
+name|setLogExhaustedMessageBody
+argument_list|(
+name|logExhaustedMessageBody
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the maximum redeliveries      *<ul>      *<li>x = redeliver at most x times</li>      *<li>0 = no redeliveries</li>      *<li>-1 = redeliver forever</li>      *</ul>      *      * @param maximumRedeliveries  the value      * @return the builder      */
 DECL|method|maximumRedeliveries (int maximumRedeliveries)
 specifier|public
@@ -2142,6 +2214,32 @@ operator|.
 name|logExhaustedMessageHistory
 operator|=
 name|logExhaustedMessageHistory
+expr_stmt|;
+block|}
+DECL|method|getLogExhaustedMessageBody ()
+specifier|public
+name|String
+name|getLogExhaustedMessageBody
+parameter_list|()
+block|{
+return|return
+name|logExhaustedMessageBody
+return|;
+block|}
+DECL|method|setLogExhaustedMessageBody (String logExhaustedMessageBody)
+specifier|public
+name|void
+name|setLogExhaustedMessageBody
+parameter_list|(
+name|String
+name|logExhaustedMessageBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logExhaustedMessageBody
+operator|=
+name|logExhaustedMessageBody
 expr_stmt|;
 block|}
 DECL|method|getDisableRedelivery ()

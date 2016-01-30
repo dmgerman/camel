@@ -5454,6 +5454,21 @@ name|isLogExhaustedMessageHistory
 argument_list|()
 condition|)
 block|{
+comment|// only use the exchange formatter if we should log exhausted message body
+name|ExchangeFormatter
+name|formatter
+init|=
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|isLogExhaustedMessageBody
+argument_list|()
+condition|?
+name|exchangeFormatter
+else|:
+literal|null
+decl_stmt|;
 name|String
 name|routeStackTrace
 init|=
@@ -5463,7 +5478,7 @@ name|dumpMessageHistoryStacktrace
 argument_list|(
 name|exchange
 argument_list|,
-name|exchangeFormatter
+name|formatter
 argument_list|,
 name|e
 operator|!=

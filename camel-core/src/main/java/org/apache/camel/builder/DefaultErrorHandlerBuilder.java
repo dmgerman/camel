@@ -954,6 +954,27 @@ return|return
 name|this
 return|;
 block|}
+DECL|method|logExhaustedMessageBody (boolean logExhaustedMessageBody)
+specifier|public
+name|DefaultErrorHandlerBuilder
+name|logExhaustedMessageBody
+parameter_list|(
+name|boolean
+name|logExhaustedMessageBody
+parameter_list|)
+block|{
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|setLogExhaustedMessageBody
+argument_list|(
+name|logExhaustedMessageBody
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 DECL|method|exchangeFormatterRef (String exchangeFormatterRef)
 specifier|public
 name|DefaultErrorHandlerBuilder

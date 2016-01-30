@@ -2212,6 +2212,50 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets whether to log exhausted message body with message history.      * Requires<tt>logExhaustedMessageHistory</tt> to be enabled.      */
+DECL|method|logExhaustedMessageBody (boolean logExhaustedMessageBody)
+specifier|public
+name|OnExceptionDefinition
+name|logExhaustedMessageBody
+parameter_list|(
+name|boolean
+name|logExhaustedMessageBody
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|logExhaustedMessageBody
+argument_list|(
+name|logExhaustedMessageBody
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets whether to log exhausted message body with message history.      * Requires<tt>logExhaustedMessageHistory</tt> to be enabled.      */
+DECL|method|logExhaustedMessageBody (String logExhaustedMessageBody)
+specifier|public
+name|OnExceptionDefinition
+name|logExhaustedMessageBody
+parameter_list|(
+name|String
+name|logExhaustedMessageBody
+parameter_list|)
+block|{
+name|getOrCreateRedeliveryPolicy
+argument_list|()
+operator|.
+name|logExhaustedMessageBody
+argument_list|(
+name|logExhaustedMessageBody
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Sets the maximum redeliveries      *<ul>      *<li>5 = default value</li>      *<li>0 = no redeliveries</li>      *<li>-1 = redeliver forever</li>      *</ul>      *      * @param maximumRedeliveries the value      * @return the builder      */
 DECL|method|maximumRedeliveries (int maximumRedeliveries)
 specifier|public
