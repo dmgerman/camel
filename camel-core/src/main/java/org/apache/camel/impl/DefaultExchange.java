@@ -436,12 +436,13 @@ name|String
 name|toString
 parameter_list|()
 block|{
+comment|// do not output information about the message as it may contain sensitive information
 return|return
 name|String
 operator|.
 name|format
 argument_list|(
-literal|"Exchange[%s][%s]"
+literal|"Exchange[%s]"
 argument_list|,
 name|exchangeId
 operator|==
@@ -450,14 +451,6 @@ condition|?
 literal|""
 else|:
 name|exchangeId
-argument_list|,
-name|out
-operator|==
-literal|null
-condition|?
-name|in
-else|:
-name|out
 argument_list|)
 return|;
 block|}

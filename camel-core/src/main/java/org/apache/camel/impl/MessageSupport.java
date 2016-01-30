@@ -92,6 +92,32 @@ specifier|private
 name|String
 name|messageId
 decl_stmt|;
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+comment|// do not output information about the message as it may contain sensitive information
+return|return
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"Message[%s]"
+argument_list|,
+name|messageId
+operator|==
+literal|null
+condition|?
+literal|""
+else|:
+name|messageId
+argument_list|)
+return|;
+block|}
 DECL|method|getBody ()
 specifier|public
 name|Object

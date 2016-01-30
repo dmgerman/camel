@@ -225,6 +225,9 @@ name|e
 parameter_list|)
 block|{
 comment|// expected
+name|PredicateValidationException
+name|cause
+init|=
 name|assertIsInstanceOf
 argument_list|(
 name|PredicateValidationException
@@ -236,16 +239,13 @@ operator|.
 name|getCause
 argument_list|()
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 comment|// as the Expression could be different between the DSL and simple language, here we just check part of the message
 name|assertTrue
 argument_list|(
 literal|"Get a wrong exception message"
 argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
+name|cause
 operator|.
 name|getMessage
 argument_list|()
@@ -258,10 +258,7 @@ argument_list|)
 expr_stmt|;
 name|assertTrue
 argument_list|(
-name|e
-operator|.
-name|getCause
-argument_list|()
+name|cause
 operator|.
 name|getMessage
 argument_list|()
@@ -272,22 +269,29 @@ literal|"^\\d{2}\\.\\d{2}\\.\\d{4}$"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertTrue
-argument_list|(
-literal|"Get a wrong exception message"
-argument_list|,
-name|e
+name|String
+name|body
+init|=
+name|cause
 operator|.
-name|getCause
+name|getExchange
 argument_list|()
 operator|.
-name|getMessage
+name|getIn
 argument_list|()
 operator|.
-name|endsWith
+name|getBody
 argument_list|(
-literal|"[Message: 1.1.2010]"
+name|String
+operator|.
+name|class
 argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"1.1.2010"
+argument_list|,
+name|body
 argument_list|)
 expr_stmt|;
 block|}

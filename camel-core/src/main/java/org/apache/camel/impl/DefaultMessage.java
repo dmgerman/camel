@@ -106,20 +106,6 @@ name|EndpointHelper
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|MessageHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * The default implementation of {@link org.apache.camel.Message}  *<p/>  * This implementation uses a {@link org.apache.camel.util.CaseInsensitiveMap} storing the headers.  * This allows us to be able to lookup headers using case insensitive keys, making it easier for end users  * as they do not have to be worried about using exact keys.  * See more details at {@link org.apache.camel.util.CaseInsensitiveMap}.  *  * @version   */
 end_comment
@@ -157,23 +143,6 @@ name|DataHandler
 argument_list|>
 name|attachments
 decl_stmt|;
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-name|MessageHelper
-operator|.
-name|extractBodyForLogging
-argument_list|(
-name|this
-argument_list|)
-return|;
-block|}
 DECL|method|isFault ()
 specifier|public
 name|boolean

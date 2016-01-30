@@ -213,7 +213,8 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|assertTrue
+comment|// message body is not dumped when browsing exchange
+name|assertFalse
 argument_list|(
 name|out
 operator|.
@@ -256,7 +257,8 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-name|assertTrue
+comment|// message body is not dumped when browsing exchange
+name|assertFalse
 argument_list|(
 name|out
 operator|.
