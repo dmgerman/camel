@@ -82,6 +82,15 @@ name|LogDebugBodyMaxCharsTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|field|myFormatter
+specifier|private
+name|TraceExchangeFormatter
+name|myFormatter
+init|=
+operator|new
+name|TraceExchangeFormatter
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -111,6 +120,37 @@ argument_list|,
 literal|"20"
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|createRegistry ()
+specifier|protected
+name|JndiRegistry
+name|createRegistry
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|JndiRegistry
+name|jndi
+init|=
+name|super
+operator|.
+name|createRegistry
+argument_list|()
+decl_stmt|;
+name|jndi
+operator|.
+name|bind
+argument_list|(
+literal|"logFormatter"
+argument_list|,
+name|myFormatter
+argument_list|)
+expr_stmt|;
+return|return
+name|jndi
+return|;
 block|}
 DECL|method|testLogBodyMaxLengthTest ()
 specifier|public
@@ -197,27 +237,19 @@ comment|// should be clipped after 20 chars
 name|String
 name|msg
 init|=
-name|mock
+name|myFormatter
 operator|.
-name|getReceivedExchanges
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|toString
+name|getMessage
 argument_list|()
 decl_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Message: 01234567890123456789... [Body clipped after 20 chars, total length is 1000]"
-argument_list|,
 name|msg
+operator|.
+name|endsWith
+argument_list|(
+literal|"Body: 01234567890123456789... [Body clipped after 20 chars, total length is 1000]]"
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// but body and clipped should not be the same
@@ -288,27 +320,19 @@ comment|// should not be clipped as the message is< 20 chars
 name|String
 name|msg
 init|=
-name|mock
+name|myFormatter
 operator|.
-name|getReceivedExchanges
-argument_list|()
-operator|.
-name|get
-argument_list|(
-literal|0
-argument_list|)
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|toString
+name|getMessage
 argument_list|()
 decl_stmt|;
-name|assertEquals
+name|assertTrue
 argument_list|(
-literal|"Message: 1234567890"
-argument_list|,
 name|msg
+operator|.
+name|endsWith
+argument_list|(
+literal|"Body: 1234567890]"
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// but body and clipped should not be the same
