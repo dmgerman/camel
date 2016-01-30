@@ -690,6 +690,7 @@ argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 comment|// marker must be provided
 switch|switch
@@ -897,6 +898,7 @@ argument_list|,
 name|th
 argument_list|)
 expr_stmt|;
+return|return;
 block|}
 comment|// marker must be provided
 switch|switch
