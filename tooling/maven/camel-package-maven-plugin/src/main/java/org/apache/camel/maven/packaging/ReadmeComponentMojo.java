@@ -465,6 +465,14 @@ name|json
 argument_list|)
 decl_stmt|;
 name|boolean
+name|exists
+init|=
+name|file
+operator|.
+name|exists
+argument_list|()
+decl_stmt|;
+name|boolean
 name|updated
 init|=
 literal|false
@@ -535,7 +543,24 @@ argument_list|()
 operator|.
 name|info
 argument_list|(
-literal|"Updated file: "
+literal|"Updated doc file: "
+operator|+
+name|file
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|exists
+condition|)
+block|{
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"No changes to doc file: "
 operator|+
 name|file
 argument_list|)
@@ -548,7 +573,7 @@ argument_list|()
 operator|.
 name|info
 argument_list|(
-literal|"No changes to file: "
+literal|"No component doc file: "
 operator|+
 name|file
 argument_list|)
