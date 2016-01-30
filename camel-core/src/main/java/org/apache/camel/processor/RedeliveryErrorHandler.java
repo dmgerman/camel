@@ -548,6 +548,12 @@ specifier|final
 name|ExchangeFormatter
 name|exchangeFormatter
 decl_stmt|;
+DECL|field|customExchangeFormatter
+specifier|protected
+specifier|final
+name|boolean
+name|customExchangeFormatter
+decl_stmt|;
 DECL|field|onPrepare
 specifier|protected
 specifier|final
@@ -1186,6 +1192,12 @@ name|exchangeFormatter
 operator|=
 name|formatter
 expr_stmt|;
+name|this
+operator|.
+name|customExchangeFormatter
+operator|=
+literal|true
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -1205,6 +1217,12 @@ block|}
 block|}
 else|else
 block|{
+name|this
+operator|.
+name|customExchangeFormatter
+operator|=
+literal|false
+expr_stmt|;
 comment|// setup exchange formatter to be used for message history dump
 name|DefaultExchangeFormatter
 name|formatter
@@ -5366,6 +5384,27 @@ name|isLogExhaustedMessageHistory
 argument_list|()
 condition|)
 block|{
+comment|// only use the exchange formatter if we should log exhausted message body (and if using a custom formatter then always use it)
+name|ExchangeFormatter
+name|formatter
+init|=
+name|customExchangeFormatter
+condition|?
+name|exchangeFormatter
+else|:
+operator|(
+name|data
+operator|.
+name|currentRedeliveryPolicy
+operator|.
+name|isLogExhaustedMessageBody
+argument_list|()
+condition|?
+name|exchangeFormatter
+else|:
+literal|null
+operator|)
+decl_stmt|;
 name|String
 name|routeStackTrace
 init|=
@@ -5375,7 +5414,7 @@ name|dumpMessageHistoryStacktrace
 argument_list|(
 name|exchange
 argument_list|,
-name|exchangeFormatter
+name|formatter
 argument_list|,
 literal|false
 argument_list|)
@@ -5454,10 +5493,15 @@ name|isLogExhaustedMessageHistory
 argument_list|()
 condition|)
 block|{
-comment|// only use the exchange formatter if we should log exhausted message body
+comment|// only use the exchange formatter if we should log exhausted message body (and if using a custom formatter then always use it)
 name|ExchangeFormatter
 name|formatter
 init|=
+name|customExchangeFormatter
+condition|?
+name|exchangeFormatter
+else|:
+operator|(
 name|data
 operator|.
 name|currentRedeliveryPolicy
@@ -5468,6 +5512,7 @@ condition|?
 name|exchangeFormatter
 else|:
 literal|null
+operator|)
 decl_stmt|;
 name|String
 name|routeStackTrace
