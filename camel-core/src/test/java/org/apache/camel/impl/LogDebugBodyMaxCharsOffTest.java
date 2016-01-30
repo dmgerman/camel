@@ -82,15 +82,6 @@ name|LogDebugBodyMaxCharsOffTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|field|myFormatter
-specifier|private
-name|TraceExchangeFormatter
-name|myFormatter
-init|=
-operator|new
-name|TraceExchangeFormatter
-argument_list|()
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -145,7 +136,9 @@ name|bind
 argument_list|(
 literal|"logFormatter"
 argument_list|,
-name|myFormatter
+operator|new
+name|TraceExchangeFormatter
+argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
@@ -234,6 +227,23 @@ name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
 comment|// should be empty body as toString on the message will return an empty body
+name|TraceExchangeFormatter
+name|myFormatter
+init|=
+name|context
+operator|.
+name|getRegistry
+argument_list|()
+operator|.
+name|lookupByNameAndType
+argument_list|(
+literal|"logFormatter"
+argument_list|,
+name|TraceExchangeFormatter
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|String
 name|msg
 init|=
