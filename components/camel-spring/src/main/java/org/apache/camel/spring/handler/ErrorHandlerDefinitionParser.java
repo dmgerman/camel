@@ -335,6 +335,7 @@ return|return
 literal|false
 return|;
 block|}
+comment|// CHECKSTYLE:OFF
 return|return
 operator|!
 name|attributeName
@@ -400,6 +401,7 @@ argument_list|(
 literal|"transactionManagerRef"
 argument_list|)
 return|;
+comment|// CHECKSTYLE:ON
 block|}
 annotation|@
 name|Override
