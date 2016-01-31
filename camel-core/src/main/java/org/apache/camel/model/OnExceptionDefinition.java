@@ -541,6 +541,18 @@ name|XmlAttribute
 argument_list|(
 name|name
 operator|=
+literal|"onExceptionOccurredRef"
+argument_list|)
+DECL|field|onExceptionbOccurredRef
+specifier|private
+name|String
+name|onExceptionbOccurredRef
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|name
+operator|=
 literal|"useOriginalMessage"
 argument_list|)
 DECL|field|useOriginalMessagePolicy
@@ -613,6 +625,13 @@ DECL|field|onRedelivery
 specifier|private
 name|Processor
 name|onRedelivery
+decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|onExceptionOccurred
+specifier|private
+name|Processor
+name|onExceptionOccurred
 decl_stmt|;
 annotation|@
 name|XmlTransient
@@ -1004,6 +1023,11 @@ argument_list|(
 name|routeContext
 argument_list|)
 expr_stmt|;
+name|setOnExceptionOccurredFromOnExceptionOccurredRef
+argument_list|(
+name|routeContext
+argument_list|)
+expr_stmt|;
 comment|// load exception classes
 if|if
 condition|(
@@ -1353,6 +1377,10 @@ operator|==
 literal|null
 operator|&&
 name|onRedelivery
+operator|==
+literal|null
+operator|&&
+name|onExceptionOccurred
 operator|==
 literal|null
 condition|)
@@ -2515,6 +2543,44 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets a processor that should be processed<b>just after</b> an exception occurred.      * Can be used to perform custom logging about the occurred exception at the exact time it happened.      *<p/>      * Important: Any exception thrown from this processor will be ignored.      */
+DECL|method|onExceptionOccurred (Processor processor)
+specifier|public
+name|OnExceptionDefinition
+name|onExceptionOccurred
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+block|{
+name|setOnExceptionOccurred
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets a reference to a processor that should be processed<b>just after</b> an exception occurred.      * Can be used to perform custom logging about the occurred exception at the exact time it happened.      *<p/>      * Important: Any exception thrown from this processor will be ignored.      *      * @param ref  reference to the processor      */
+DECL|method|onExceptionOccurredRef (String ref)
+specifier|public
+name|OnExceptionDefinition
+name|onExceptionOccurredRef
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|setOnExceptionbOccurredRef
+argument_list|(
+name|ref
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
 annotation|@
@@ -2988,6 +3054,58 @@ operator|=
 name|onRedeliveryRef
 expr_stmt|;
 block|}
+DECL|method|getOnExceptionOccurred ()
+specifier|public
+name|Processor
+name|getOnExceptionOccurred
+parameter_list|()
+block|{
+return|return
+name|onExceptionOccurred
+return|;
+block|}
+DECL|method|setOnExceptionOccurred (Processor onExceptionOccurred)
+specifier|public
+name|void
+name|setOnExceptionOccurred
+parameter_list|(
+name|Processor
+name|onExceptionOccurred
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onExceptionOccurred
+operator|=
+name|onExceptionOccurred
+expr_stmt|;
+block|}
+DECL|method|getOnExceptionbOccurredRef ()
+specifier|public
+name|String
+name|getOnExceptionbOccurredRef
+parameter_list|()
+block|{
+return|return
+name|onExceptionbOccurredRef
+return|;
+block|}
+DECL|method|setOnExceptionbOccurredRef (String onExceptionbOccurredRef)
+specifier|public
+name|void
+name|setOnExceptionbOccurredRef
+parameter_list|(
+name|String
+name|onExceptionbOccurredRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onExceptionbOccurredRef
+operator|=
+name|onExceptionbOccurredRef
+expr_stmt|;
+block|}
 DECL|method|getUseOriginalMessagePolicy ()
 specifier|public
 name|Boolean
@@ -3323,6 +3441,53 @@ decl_stmt|;
 name|setOnRedelivery
 argument_list|(
 name|onRedelivery
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|setOnExceptionOccurredFromOnExceptionOccurredRef (RouteContext routeContext)
+specifier|private
+name|void
+name|setOnExceptionOccurredFromOnExceptionOccurredRef
+parameter_list|(
+name|RouteContext
+name|routeContext
+parameter_list|)
+block|{
+comment|// lookup onRedelivery if ref is provided
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|onExceptionbOccurredRef
+argument_list|)
+condition|)
+block|{
+comment|// if ref is provided then use mandatory lookup to fail if not found
+name|Processor
+name|onExceptionOccurred
+init|=
+name|CamelContextHelper
+operator|.
+name|mandatoryLookup
+argument_list|(
+name|routeContext
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|onExceptionbOccurredRef
+argument_list|,
+name|Processor
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|setOnExceptionOccurred
+argument_list|(
+name|onExceptionOccurred
 argument_list|)
 expr_stmt|;
 block|}

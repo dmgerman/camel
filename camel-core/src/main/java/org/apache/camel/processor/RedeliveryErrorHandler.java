@@ -554,11 +554,17 @@ specifier|final
 name|boolean
 name|customExchangeFormatter
 decl_stmt|;
-DECL|field|onPrepare
+DECL|field|onPrepareProcessor
 specifier|protected
 specifier|final
 name|Processor
-name|onPrepare
+name|onPrepareProcessor
+decl_stmt|;
+DECL|field|onExceptionProcessor
+specifier|protected
+specifier|final
+name|Processor
+name|onExceptionProcessor
 decl_stmt|;
 comment|/**      * Contains the current redelivery data      */
 DECL|class|RedeliveryData
@@ -613,6 +619,10 @@ DECL|field|onPrepareProcessor
 name|Processor
 name|onPrepareProcessor
 decl_stmt|;
+DECL|field|onExceptionProcessor
+name|Processor
+name|onExceptionProcessor
+decl_stmt|;
 DECL|field|handledPredicate
 name|Predicate
 name|handledPredicate
@@ -663,7 +673,21 @@ name|this
 operator|.
 name|onPrepareProcessor
 operator|=
-name|onPrepare
+name|RedeliveryErrorHandler
+operator|.
+name|this
+operator|.
+name|onPrepareProcessor
+expr_stmt|;
+name|this
+operator|.
+name|onExceptionProcessor
+operator|=
+name|RedeliveryErrorHandler
+operator|.
+name|this
+operator|.
+name|onExceptionProcessor
 expr_stmt|;
 name|this
 operator|.
@@ -1000,7 +1024,7 @@ name|sync
 return|;
 block|}
 block|}
-DECL|method|RedeliveryErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Processor deadLetter, String deadLetterUri, boolean deadLetterHandleNewException, boolean useOriginalMessagePolicy, Predicate retryWhile, ScheduledExecutorService executorService, Processor onPrepare)
+DECL|method|RedeliveryErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, Processor deadLetter, String deadLetterUri, boolean deadLetterHandleNewException, boolean useOriginalMessagePolicy, Predicate retryWhile, ScheduledExecutorService executorService, Processor onPrepareProcessor, Processor onExceptionProcessor)
 specifier|public
 name|RedeliveryErrorHandler
 parameter_list|(
@@ -1038,7 +1062,10 @@ name|ScheduledExecutorService
 name|executorService
 parameter_list|,
 name|Processor
-name|onPrepare
+name|onPrepareProcessor
+parameter_list|,
+name|Processor
+name|onExceptionProcessor
 parameter_list|)
 block|{
 name|ObjectHelper
@@ -1142,9 +1169,15 @@ name|executorService
 expr_stmt|;
 name|this
 operator|.
-name|onPrepare
+name|onPrepareProcessor
 operator|=
-name|onPrepare
+name|onPrepareProcessor
+expr_stmt|;
+name|this
+operator|.
+name|onExceptionProcessor
+operator|=
+name|onExceptionProcessor
 expr_stmt|;
 if|if
 condition|(
@@ -1788,6 +1821,13 @@ name|data
 argument_list|,
 name|isDeadLetterChannel
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|onExceptionOccurred
+argument_list|(
+name|exchange
+argument_list|,
+name|data
 argument_list|)
 expr_stmt|;
 block|}
@@ -2475,6 +2515,13 @@ name|data
 argument_list|,
 name|isDeadLetterChannel
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|onExceptionOccurred
+argument_list|(
+name|exchange
+argument_list|,
+name|data
 argument_list|)
 expr_stmt|;
 block|}
@@ -3621,6 +3668,28 @@ operator|=
 name|processor
 expr_stmt|;
 block|}
+comment|// route specific on exception occurred?
+name|processor
+operator|=
+name|exceptionPolicy
+operator|.
+name|getOnExceptionOccurred
+argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|processor
+operator|!=
+literal|null
+condition|)
+block|{
+name|data
+operator|.
+name|onExceptionProcessor
+operator|=
+name|processor
+expr_stmt|;
+block|}
 block|}
 comment|// only log if not failure handled or not an exhausted unit of work
 if|if
@@ -3700,7 +3769,92 @@ name|data
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Gives an optional configure redelivery processor a chance to process before the Exchange      * will be redelivered. This can be used to alter the Exchange.      */
+comment|/**      * Gives an optional configured OnExceptionOccurred processor a chance to process just after an exception      * was thrown while processing the Exchange. This allows to execute the processor at the same time the exception was thrown.      */
+DECL|method|onExceptionOccurred (Exchange exchange, final RedeliveryData data)
+specifier|protected
+name|void
+name|onExceptionOccurred
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+specifier|final
+name|RedeliveryData
+name|data
+parameter_list|)
+block|{
+if|if
+condition|(
+name|data
+operator|.
+name|onExceptionProcessor
+operator|==
+literal|null
+condition|)
+block|{
+return|return;
+block|}
+comment|// run this synchronously as its just a Processor
+try|try
+block|{
+if|if
+condition|(
+name|log
+operator|.
+name|isTraceEnabled
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"OnExceptionOccurred processor {} is processing Exchange: {} due exception occurred"
+argument_list|,
+name|data
+operator|.
+name|onExceptionProcessor
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+name|data
+operator|.
+name|onExceptionProcessor
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// we dont not want new exception to override existing, so log it as a WARN
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Error during processing OnExceptionOccurred. This exception is ignored."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"OnExceptionOccurred processor done"
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Gives an optional configured redelivery processor a chance to process before the Exchange      * will be redelivered. This can be used to alter the Exchange.      */
 DECL|method|deliverToOnRedeliveryProcessor (final Exchange exchange, final RedeliveryData data)
 specifier|protected
 name|void
@@ -4034,7 +4188,7 @@ expr_stmt|;
 comment|// invoke custom on prepare
 if|if
 condition|(
-name|onPrepare
+name|onPrepareProcessor
 operator|!=
 literal|null
 condition|)
@@ -4047,12 +4201,12 @@ name|trace
 argument_list|(
 literal|"OnPrepare processor {} is processing Exchange: {}"
 argument_list|,
-name|onPrepare
+name|onPrepareProcessor
 argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-name|onPrepare
+name|onPrepareProcessor
 operator|.
 name|process
 argument_list|(
@@ -4287,7 +4441,7 @@ block|{
 comment|// invoke custom on prepare
 if|if
 condition|(
-name|onPrepare
+name|onPrepareProcessor
 operator|!=
 literal|null
 condition|)
@@ -4300,12 +4454,12 @@ name|trace
 argument_list|(
 literal|"OnPrepare processor {} is processing Exchange: {}"
 argument_list|,
-name|onPrepare
+name|onPrepareProcessor
 argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-name|onPrepare
+name|onPrepareProcessor
 operator|.
 name|process
 argument_list|(

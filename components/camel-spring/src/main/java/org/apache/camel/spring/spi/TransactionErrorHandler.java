@@ -282,8 +282,8 @@ specifier|final
 name|LoggingLevel
 name|rollbackLoggingLevel
 decl_stmt|;
-comment|/**      * Creates the transaction error handler.      *      * @param camelContext            the camel context      * @param output                  outer processor that should use this default error handler      * @param logger                  logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor     an optional processor to run before redelivery attempt      * @param redeliveryPolicy        policy for redelivery      * @param exceptionPolicyStrategy strategy for onException handling      * @param transactionTemplate     the transaction template      * @param retryWhile              retry while      * @param executorService         the {@link java.util.concurrent.ScheduledExecutorService} to be used for redelivery thread pool. Can be<tt>null</tt>.      * @param rollbackLoggingLevel    logging level to use for logging transaction rollback occurred      */
-DECL|method|TransactionErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, TransactionTemplate transactionTemplate, Predicate retryWhile, ScheduledExecutorService executorService, LoggingLevel rollbackLoggingLevel)
+comment|/**      * Creates the transaction error handler.      *      * @param camelContext            the camel context      * @param output                  outer processor that should use this default error handler      * @param logger                  logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor     an optional processor to run before redelivery attempt      * @param redeliveryPolicy        policy for redelivery      * @param exceptionPolicyStrategy strategy for onException handling      * @param transactionTemplate     the transaction template      * @param retryWhile              retry while      * @param executorService         the {@link java.util.concurrent.ScheduledExecutorService} to be used for redelivery thread pool. Can be<tt>null</tt>.      * @param rollbackLoggingLevel    logging level to use for logging transaction rollback occurred      * @param onExceptionOccurredProcessor  a custom {@link org.apache.camel.Processor} to process the {@link org.apache.camel.Exchange} just after an exception was thrown.      */
+DECL|method|TransactionErrorHandler (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, TransactionTemplate transactionTemplate, Predicate retryWhile, ScheduledExecutorService executorService, LoggingLevel rollbackLoggingLevel, Processor onExceptionOccurredProcessor)
 specifier|public
 name|TransactionErrorHandler
 parameter_list|(
@@ -316,6 +316,9 @@ name|executorService
 parameter_list|,
 name|LoggingLevel
 name|rollbackLoggingLevel
+parameter_list|,
+name|Processor
+name|onExceptionOccurredProcessor
 parameter_list|)
 block|{
 name|super
@@ -343,6 +346,8 @@ argument_list|,
 name|executorService
 argument_list|,
 literal|null
+argument_list|,
+name|onExceptionOccurredProcessor
 argument_list|)
 expr_stmt|;
 name|setExceptionPolicy

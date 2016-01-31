@@ -306,6 +306,11 @@ specifier|protected
 name|Processor
 name|onPrepareFailure
 decl_stmt|;
+DECL|field|onExceptionOccurred
+specifier|protected
+name|Processor
+name|onExceptionOccurred
+decl_stmt|;
 DECL|method|DefaultErrorHandlerBuilder ()
 specifier|public
 name|DefaultErrorHandlerBuilder
@@ -367,6 +372,9 @@ argument_list|()
 argument_list|)
 argument_list|,
 name|getOnPrepareFailure
+argument_list|()
+argument_list|,
+name|getOnExceptionOccurred
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -552,6 +560,36 @@ operator|.
 name|setDeadLetterUri
 argument_list|(
 name|deadLetterUri
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|onPrepareFailure
+operator|!=
+literal|null
+condition|)
+block|{
+name|other
+operator|.
+name|setOnPrepareFailure
+argument_list|(
+name|onPrepareFailure
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|onExceptionOccurred
+operator|!=
+literal|null
+condition|)
+block|{
+name|other
+operator|.
+name|setOnExceptionOccurred
+argument_list|(
+name|onExceptionOccurred
 argument_list|)
 expr_stmt|;
 block|}
@@ -1285,6 +1323,25 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets a custom {@link org.apache.camel.Processor} to process the {@link org.apache.camel.Exchange} just after an exception was thrown.      * This allows to execute the processor at the same time the exception was thrown.      *<p/>      * Important: Any exception thrown from this processor will be ignored.      *      * @param processor the processor      * @return the builder      */
+DECL|method|onExceptionOccurred (Processor processor)
+specifier|public
+name|DefaultErrorHandlerBuilder
+name|onExceptionOccurred
+parameter_list|(
+name|Processor
+name|processor
+parameter_list|)
+block|{
+name|setOnExceptionOccurred
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|// Properties
 comment|// -------------------------------------------------------------------------
 DECL|method|getFailureProcessor ()
@@ -1714,6 +1771,32 @@ operator|.
 name|onPrepareFailure
 operator|=
 name|onPrepareFailure
+expr_stmt|;
+block|}
+DECL|method|getOnExceptionOccurred ()
+specifier|public
+name|Processor
+name|getOnExceptionOccurred
+parameter_list|()
+block|{
+return|return
+name|onExceptionOccurred
+return|;
+block|}
+DECL|method|setOnExceptionOccurred (Processor onExceptionOccurred)
+specifier|public
+name|void
+name|setOnExceptionOccurred
+parameter_list|(
+name|Processor
+name|onExceptionOccurred
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onExceptionOccurred
+operator|=
+name|onExceptionOccurred
 expr_stmt|;
 block|}
 DECL|method|createRedeliveryPolicy ()

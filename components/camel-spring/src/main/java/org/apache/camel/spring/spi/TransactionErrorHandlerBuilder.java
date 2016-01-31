@@ -643,6 +643,9 @@ argument_list|)
 argument_list|,
 name|getRollbackLoggingLevel
 argument_list|()
+argument_list|,
+name|getOnExceptionOccurred
+argument_list|()
 argument_list|)
 decl_stmt|;
 comment|// configure error handler before we can use it

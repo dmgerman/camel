@@ -214,6 +214,13 @@ name|onRedeliveryRef
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|onExceptionOccurredRef
+specifier|private
+name|String
+name|onExceptionOccurredRef
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|onPrepareFailureRef
 specifier|private
 name|String

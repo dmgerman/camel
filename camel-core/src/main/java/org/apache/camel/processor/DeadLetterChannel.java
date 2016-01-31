@@ -118,8 +118,8 @@ name|DeadLetterChannel
 extends|extends
 name|RedeliveryErrorHandler
 block|{
-comment|/**      * Creates the dead letter channel.      *      * @param camelContext              the camel context      * @param output                    outer processor that should use this dead letter channel      * @param logger                    logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor       an optional processor to run before redelivery attempt      * @param redeliveryPolicy          policy for redelivery      * @param exceptionPolicyStrategy   strategy for onException handling      * @param deadLetter                the failure processor to send failed exchanges to      * @param deadLetterUri             an optional uri for logging purpose      * @param deadLetterHandleException whether dead letter channel should handle (and ignore) exceptions which may be thrown during sending the message to the dead letter endpoint      * @param useOriginalBodyPolicy     should the original IN body be moved to the dead letter queue or the current exchange IN body?      * @param retryWhile                retry while      * @param executorService           the {@link java.util.concurrent.ScheduledExecutorService} to be used for redelivery thread pool. Can be<tt>null</tt>.      * @param onPrepare                 a custom {@link org.apache.camel.Processor} to prepare the {@link org.apache.camel.Exchange} before      *                                  handled by the failure processor / dead letter channel.      */
-DECL|method|DeadLetterChannel (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, Processor deadLetter, String deadLetterUri, boolean deadLetterHandleException, boolean useOriginalBodyPolicy, Predicate retryWhile, ScheduledExecutorService executorService, Processor onPrepare)
+comment|/**      * Creates the dead letter channel.      *      * @param camelContext                  the camel context      * @param output                        outer processor that should use this dead letter channel      * @param logger                        logger to use for logging failures and redelivery attempts      * @param redeliveryProcessor           an optional processor to run before redelivery attempt      * @param redeliveryPolicy              policy for redelivery      * @param exceptionPolicyStrategy       strategy for onException handling      * @param deadLetter                    the failure processor to send failed exchanges to      * @param deadLetterUri                 an optional uri for logging purpose      * @param deadLetterHandleException     whether dead letter channel should handle (and ignore) exceptions which may be thrown during sending the message to the dead letter endpoint      * @param useOriginalBodyPolicy         should the original IN body be moved to the dead letter queue or the current exchange IN body?      * @param retryWhile                    retry while      * @param executorService               the {@link java.util.concurrent.ScheduledExecutorService} to be used for redelivery thread pool. Can be<tt>null</tt>.      * @param onPrepareProcessor            a custom {@link org.apache.camel.Processor} to prepare the {@link org.apache.camel.Exchange} before      *                                      handled by the failure processor / dead letter channel.      * @param onExceptionOccurredProcessor  a custom {@link org.apache.camel.Processor} to process the {@link org.apache.camel.Exchange} just after an exception was thrown.      */
+DECL|method|DeadLetterChannel (CamelContext camelContext, Processor output, CamelLogger logger, Processor redeliveryProcessor, RedeliveryPolicy redeliveryPolicy, ExceptionPolicyStrategy exceptionPolicyStrategy, Processor deadLetter, String deadLetterUri, boolean deadLetterHandleException, boolean useOriginalBodyPolicy, Predicate retryWhile, ScheduledExecutorService executorService, Processor onPrepareProcessor, Processor onExceptionOccurredProcessor)
 specifier|public
 name|DeadLetterChannel
 parameter_list|(
@@ -160,7 +160,10 @@ name|ScheduledExecutorService
 name|executorService
 parameter_list|,
 name|Processor
-name|onPrepare
+name|onPrepareProcessor
+parameter_list|,
+name|Processor
+name|onExceptionOccurredProcessor
 parameter_list|)
 block|{
 name|super
@@ -187,7 +190,9 @@ name|retryWhile
 argument_list|,
 name|executorService
 argument_list|,
-name|onPrepare
+name|onPrepareProcessor
+argument_list|,
+name|onExceptionOccurredProcessor
 argument_list|)
 expr_stmt|;
 name|setExceptionPolicy
