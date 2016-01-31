@@ -3162,8 +3162,16 @@ name|field
 argument_list|)
 condition|)
 block|{
-name|fileName
-operator|=
+name|String
+name|enumName
+init|=
+name|description
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"_"
+operator|+
 name|utility
 operator|.
 name|enumTypeName
@@ -3173,6 +3181,10 @@ operator|.
 name|getName
 argument_list|()
 argument_list|)
+decl_stmt|;
+name|fileName
+operator|=
+name|enumName
 operator|+
 name|JAVA_EXT
 expr_stmt|;
@@ -3230,6 +3242,15 @@ argument_list|(
 literal|"field"
 argument_list|,
 name|field
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|put
+argument_list|(
+literal|"enumName"
+argument_list|,
+name|enumName
 argument_list|)
 expr_stmt|;
 name|context
@@ -3761,11 +3782,14 @@ name|name
 argument_list|)
 return|;
 block|}
-DECL|method|getFieldType (SObjectField field)
+DECL|method|getFieldType (SObjectDescription description, SObjectField field)
 specifier|public
 name|String
 name|getFieldType
 parameter_list|(
+name|SObjectDescription
+name|description
+parameter_list|,
 name|SObjectField
 name|field
 parameter_list|)
@@ -3783,6 +3807,13 @@ condition|)
 block|{
 comment|// use a pick list enum, which will be created after generating the SObject class
 return|return
+name|description
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"_"
+operator|+
 name|enumTypeName
 argument_list|(
 name|field
@@ -3803,6 +3834,13 @@ condition|)
 block|{
 comment|// use a pick list enum array, enum will be created after generating the SObject class
 return|return
+name|description
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"_"
+operator|+
 name|enumTypeName
 argument_list|(
 name|field
