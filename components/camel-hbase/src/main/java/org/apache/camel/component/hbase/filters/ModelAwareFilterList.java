@@ -311,6 +311,18 @@ name|filter
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getFilteredList ()
+specifier|public
+name|FilterList
+name|getFilteredList
+parameter_list|()
+block|{
+return|return
+name|fl
+return|;
+block|}
 block|}
 end_class
 

@@ -252,6 +252,10 @@ condition|(
 name|name
 operator|==
 literal|null
+operator|&&
+name|n
+operator|!=
+literal|null
 condition|)
 block|{
 name|name

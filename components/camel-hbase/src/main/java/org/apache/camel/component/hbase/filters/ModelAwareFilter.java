@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -66,6 +76,22 @@ name|Filter
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|hadoop
+operator|.
+name|hbase
+operator|.
+name|filter
+operator|.
+name|FilterList
+import|;
+end_import
+
 begin_interface
 DECL|interface|ModelAwareFilter
 specifier|public
@@ -88,6 +114,11 @@ parameter_list|,
 name|HBaseRow
 name|rowModel
 parameter_list|)
+function_decl|;
+DECL|method|getFilteredList ()
+name|FilterList
+name|getFilteredList
+parameter_list|()
 function_decl|;
 block|}
 end_interface
