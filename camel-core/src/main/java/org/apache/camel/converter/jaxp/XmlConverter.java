@@ -4541,11 +4541,13 @@ name|transformerFactory
 operator|!=
 literal|null
 condition|)
+block|{
 name|configureSaxonTransformerFactory
 argument_list|(
 name|transformerFactory
 argument_list|)
 expr_stmt|;
+block|}
 name|this
 operator|.
 name|transformerFactory

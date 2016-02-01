@@ -317,7 +317,9 @@ operator|)
 operator|!=
 literal|null
 condition|)
+block|{
 break|break;
+block|}
 block|}
 if|if
 condition|(
@@ -348,6 +350,7 @@ block|}
 comment|/**      * Wraps another XMLReader for single use only.      */
 DECL|class|OneTimeXMLReader
 specifier|private
+specifier|final
 class|class
 name|OneTimeXMLReader
 implements|implements
@@ -633,6 +636,7 @@ name|xmlReader
 operator|==
 literal|null
 condition|)
+block|{
 throw|throw
 operator|new
 name|IllegalStateException
@@ -640,6 +644,7 @@ argument_list|(
 literal|"OneTimeXMLReader.parse() can only be used once!"
 argument_list|)
 throw|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -699,6 +704,7 @@ argument_list|(
 name|name
 argument_list|)
 condition|)
+block|{
 name|initFeatures
 operator|.
 name|put
@@ -718,6 +724,7 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|xmlReader
 operator|.
 name|setFeature
@@ -786,6 +793,7 @@ argument_list|(
 name|name
 argument_list|)
 condition|)
+block|{
 name|initProperties
 operator|.
 name|put
@@ -800,6 +808,7 @@ name|name
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 name|xmlReader
 operator|.
 name|setProperty
