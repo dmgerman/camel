@@ -241,24 +241,6 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"60"
-argument_list|)
-DECL|field|delay
-specifier|private
-name|int
-name|delay
-init|=
-literal|60
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
 literal|"filter"
 argument_list|)
 DECL|field|keywords
@@ -947,33 +929,6 @@ operator|.
 name|keywords
 operator|=
 name|keywords
-expr_stmt|;
-block|}
-DECL|method|getDelay ()
-specifier|public
-name|int
-name|getDelay
-parameter_list|()
-block|{
-return|return
-name|delay
-return|;
-block|}
-comment|/**      * Delay in seconds between polling from twitter.      */
-DECL|method|setDelay (int delay)
-specifier|public
-name|void
-name|setDelay
-parameter_list|(
-name|int
-name|delay
-parameter_list|)
-block|{
-name|this
-operator|.
-name|delay
-operator|=
-name|delay
 expr_stmt|;
 block|}
 DECL|method|getType ()

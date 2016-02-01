@@ -59,7 +59,7 @@ name|getUri
 parameter_list|()
 block|{
 return|return
-literal|"twitter://search?type=polling&keywords=java&"
+literal|"twitter://search?type=polling&keywords=java&delay=5000&"
 return|;
 block|}
 annotation|@
