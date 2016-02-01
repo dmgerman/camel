@@ -891,6 +891,20 @@ operator|=
 literal|false
 expr_stmt|;
 block|}
+comment|/**      * Hangup support is enabled by default.      *      * @deprecated is enabled by default now, so no longer need to call this method.      */
+annotation|@
+name|Deprecated
+DECL|method|enableHangupSupport ()
+specifier|public
+name|void
+name|enableHangupSupport
+parameter_list|()
+block|{
+name|hangupInterceptorEnabled
+operator|=
+literal|true
+expr_stmt|;
+block|}
 comment|/**      * Adds a {@link org.apache.camel.main.MainListener} to receive callbacks when the main is started or stopping      *      * @param listener the listener      */
 DECL|method|addMainListener (MainListener listener)
 specifier|public
