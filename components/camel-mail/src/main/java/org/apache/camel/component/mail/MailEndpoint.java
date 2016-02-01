@@ -202,6 +202,10 @@ block|{
 annotation|@
 name|UriParam
 argument_list|(
+name|optionalPrefix
+operator|=
+literal|"consumer."
+argument_list|,
 name|defaultValue
 operator|=
 literal|""
@@ -212,7 +216,7 @@ name|DEFAULT_CONSUMER_DELAY
 argument_list|,
 name|label
 operator|=
-literal|"consumer"
+literal|"consumer,scheduler"
 argument_list|,
 name|description
 operator|=
@@ -939,6 +943,32 @@ operator|.
 name|postProcessAction
 operator|=
 name|postProcessAction
+expr_stmt|;
+block|}
+comment|/**      * Milliseconds before the next poll.      */
+annotation|@
+name|Override
+DECL|method|setDelay (long delay)
+specifier|public
+name|void
+name|setDelay
+parameter_list|(
+name|long
+name|delay
+parameter_list|)
+block|{
+name|super
+operator|.
+name|setDelay
+argument_list|(
+name|delay
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|delay
+operator|=
+name|delay
 expr_stmt|;
 block|}
 block|}
