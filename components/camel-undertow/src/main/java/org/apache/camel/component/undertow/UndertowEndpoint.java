@@ -408,6 +408,11 @@ name|httpURI
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|undertowHttpBinding
 specifier|private
 name|UndertowHttpBinding
@@ -415,6 +420,11 @@ name|undertowHttpBinding
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
@@ -422,6 +432,11 @@ name|headerFilterStrategy
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|sslContextParameters
 specifier|private
 name|SSLContextParameters
