@@ -293,6 +293,24 @@ specifier|private
 name|Integer
 name|proxyPort
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|includeBody
+specifier|private
+name|boolean
+name|includeBody
+init|=
+literal|true
+decl_stmt|;
 DECL|method|getPartSize ()
 specifier|public
 name|long
@@ -303,7 +321,7 @@ return|return
 name|partSize
 return|;
 block|}
-comment|/**      * Setup the partSize which is used in multi part upload, the default size is 25M.      */
+comment|/**      * *Camel 2.15.0*: Setup the partSize which is used in multi part upload, the default size is 25M.      */
 DECL|method|setPartSize (long partSize)
 specifier|public
 name|void
@@ -330,7 +348,7 @@ return|return
 name|multiPartUpload
 return|;
 block|}
-comment|/**      * If it is true, Camel will upload the file with multi part format, the part size is decided by the option of partSize      */
+comment|/**      * *Camel 2.15.0*: If it is true, camel will upload the file with multi part format, the part size is decided by the option of `partSize`      */
 DECL|method|setMultiPartUpload (boolean multiPartUpload)
 specifier|public
 name|void
@@ -438,7 +456,7 @@ return|return
 name|amazonS3Client
 return|;
 block|}
-comment|/**      * To use the AmazonS3 as the client      */
+comment|/**      * Reference to a `com.amazonaws.services.sqs.AmazonS3` in the link:registry.html[Registry].      */
 DECL|method|setAmazonS3Client (AmazonS3 amazonS3Client)
 specifier|public
 name|void
@@ -465,7 +483,7 @@ return|return
 name|prefix
 return|;
 block|}
-comment|/**      * The prefix which is used in the com.amazonaws.services.s3.model.ListObjectsRequest to only consume objects we are interested in.      */
+comment|/**      * *Camel 2.10.1*: The prefix which is used in the com.amazonaws.services.s3.model.ListObjectsRequest      * to only consume objects we are interested in.      */
 DECL|method|setPrefix (String prefix)
 specifier|public
 name|void
@@ -546,7 +564,7 @@ return|return
 name|region
 return|;
 block|}
-comment|/**      * The region where the bucket is located.      */
+comment|/**      * The region where the bucket is located. This option is used in the      * `com.amazonaws.services.s3.model.CreateBucketRequest`.      */
 DECL|method|setRegion (String region)
 specifier|public
 name|void
@@ -573,7 +591,34 @@ return|return
 name|deleteAfterRead
 return|;
 block|}
-comment|/**      * Delete objects from S3 after it has been retrieved.      */
+comment|/**      * *Camel 2.17*: If it is true, the exchange body will be set to a stream to the contents of the file.      * If false, the headers will be set with the S3 object metadata, but the body will be null.      */
+DECL|method|setIncludeBody (boolean includeBody)
+specifier|public
+name|void
+name|setIncludeBody
+parameter_list|(
+name|boolean
+name|includeBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeBody
+operator|=
+name|includeBody
+expr_stmt|;
+block|}
+DECL|method|isIncludeBody ()
+specifier|public
+name|boolean
+name|isIncludeBody
+parameter_list|()
+block|{
+return|return
+name|includeBody
+return|;
+block|}
+comment|/**      * Delete objects from S3 after they have been retrieved.  The delete is only performed if the Exchange is committed.      * If a rollback occurs, the object is not deleted.      */
 DECL|method|setDeleteAfterRead (boolean deleteAfterRead)
 specifier|public
 name|void
@@ -600,7 +645,7 @@ return|return
 name|deleteAfterWrite
 return|;
 block|}
-comment|/**      * Delete file object after the S3 file has been uploaded      */
+comment|/**      * *Camel 2.11.0*: Delete file object after the S3 file has been uploaded      */
 DECL|method|setDeleteAfterWrite (boolean deleteAfterWrite)
 specifier|public
 name|void
@@ -627,7 +672,7 @@ return|return
 name|policy
 return|;
 block|}
-comment|/**      * The policy for this bucket      */
+comment|/**      * *Camel 2.8.4*: The policy for this queue to set in the `com.amazonaws.services.s3.AmazonS3#setBucketPolicy()` method.      */
 DECL|method|setPolicy (String policy)
 specifier|public
 name|void
@@ -654,7 +699,7 @@ return|return
 name|storageClass
 return|;
 block|}
-comment|/**      * The storage class      */
+comment|/**      * *Camel 2.8.4*: The storage class to set in the `com.amazonaws.services.s3.model.PutObjectRequest` request.      */
 DECL|method|setStorageClass (String storageClass)
 specifier|public
 name|void
@@ -681,7 +726,7 @@ return|return
 name|serverSideEncryption
 return|;
 block|}
-comment|/**      * Sets the server-side encryption algorithm when encrypting the object using AWS-managed keys.      * For example use<tt>AES256</tt>.      */
+comment|/**      * *Camel 2.16*: Sets the server-side encryption algorithm when encrypting the object using AWS-managed keys.      * For example use<tt>AES256</tt>.      */
 DECL|method|setServerSideEncryption (String serverSideEncryption)
 specifier|public
 name|void
@@ -698,7 +743,6 @@ operator|=
 name|serverSideEncryption
 expr_stmt|;
 block|}
-comment|/**      * To define a proxy host when instantiating the SQS client      */
 DECL|method|getProxyHost ()
 specifier|public
 name|String
@@ -709,6 +753,7 @@ return|return
 name|proxyHost
 return|;
 block|}
+comment|/**      * *Camel 2.16*: To define a proxy host when instantiating the SQS client      */
 DECL|method|setProxyHost (String proxyHost)
 specifier|public
 name|void
@@ -725,7 +770,6 @@ operator|=
 name|proxyHost
 expr_stmt|;
 block|}
-comment|/**      * To define a proxy port when instantiating the SQS client      */
 DECL|method|getProxyPort ()
 specifier|public
 name|Integer
@@ -736,6 +780,7 @@ return|return
 name|proxyPort
 return|;
 block|}
+comment|/**      * *Camel 2.16*: Specify a proxy port to be used inside the client definition.      */
 DECL|method|setProxyPort (Integer proxyPort)
 specifier|public
 name|void
