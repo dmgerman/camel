@@ -358,13 +358,6 @@ condition|)
 block|{
 try|try
 block|{
-name|configuration
-operator|.
-name|setReadingOptions
-argument_list|(
-name|readingProperties
-argument_list|)
-expr_stmt|;
 comment|// add to an existing reading reference?
 comment|// NOTE Reading class does not support overwriting properties!!!
 name|Reading
