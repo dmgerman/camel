@@ -186,6 +186,26 @@ name|BeforeClass
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_class
 DECL|class|BaseEmbeddedKafkaTest
 specifier|public
@@ -203,6 +223,22 @@ DECL|field|embeddedKafkaCluster
 specifier|static
 name|EmbeddedKafkaCluster
 name|embeddedKafkaCluster
+decl_stmt|;
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|BaseEmbeddedKafkaTest
+operator|.
+name|class
+argument_list|)
 decl_stmt|;
 DECL|field|zookeeperPort
 specifier|private
@@ -313,13 +349,11 @@ name|printStackTrace
 argument_list|()
 expr_stmt|;
 block|}
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"### Embedded Zookeeper connection: "
+literal|"Embedded Zookeeper connection: "
 operator|+
 name|embeddedZookeeper
 operator|.
@@ -332,13 +366,11 @@ operator|.
 name|startup
 argument_list|()
 expr_stmt|;
-name|System
+name|LOG
 operator|.
-name|out
-operator|.
-name|println
+name|info
 argument_list|(
-literal|"### Embedded Kafka cluster broker list: "
+literal|"Embedded Kafka cluster broker list: "
 operator|+
 name|embeddedKafkaCluster
 operator|.
