@@ -1216,7 +1216,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Resolves a reference list parameter by making lookups in the registry.      * The parameter value must be one of the following:      *<ul>      *<li>a comma-separated list of references to beans of type T</li>      *<li>a single reference to a bean type T</li>      *<li>a single reference to a bean of type java.util.List</li>      *</ul>      *      * @param context     Camel context to use for lookup.      * @param value       reference parameter value.      * @param elementType result list element type.      * @return list of lookup results.      * @throws IllegalArgumentException if any referenced object was not found in registry.      */
+comment|/**      * Resolves a reference list parameter by making lookups in the registry.      * The parameter value must be one of the following:      *<ul>      *<li>a comma-separated list of references to beans of type T</li>      *<li>a single reference to a bean type T</li>      *<li>a single reference to a bean of type java.util.List</li>      *</ul>      *      * @param context     Camel context to use for lookup.      * @param value       reference parameter value.      * @param elementType result list element type.      * @return list of lookup results, will always return a list.      * @throws IllegalArgumentException if any referenced object was not found in registry.      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -1259,9 +1259,11 @@ literal|null
 condition|)
 block|{
 return|return
-name|Collections
-operator|.
-name|emptyList
+operator|new
+name|ArrayList
+argument_list|<
+name|T
+argument_list|>
 argument_list|()
 return|;
 block|}
