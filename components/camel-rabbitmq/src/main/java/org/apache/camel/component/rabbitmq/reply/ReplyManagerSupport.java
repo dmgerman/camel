@@ -882,10 +882,8 @@ if|if
 condition|(
 name|exchange
 operator|.
-name|getOut
+name|hasOut
 argument_list|()
-operator|!=
-literal|null
 condition|)
 block|{
 name|exchange
