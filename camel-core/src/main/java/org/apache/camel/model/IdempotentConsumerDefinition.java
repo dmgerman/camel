@@ -732,17 +732,6 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-comment|// add as service to CamelContext so we can managed it and it ensures it will be shutdown when camel shutdowns
-name|routeContext
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|addService
-argument_list|(
-name|idempotentRepository
-argument_list|)
-expr_stmt|;
 name|Expression
 name|expression
 init|=

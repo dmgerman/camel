@@ -79,7 +79,7 @@ name|E
 name|key
 parameter_list|)
 function_decl|;
-comment|/**      * Clear the repository.      *<p/>      *<b>Important:</b> Read the class javadoc about eager vs non-eager mode.      *      */
+comment|/**      * Clear the repository.      *<p/>      *<b>Important:</b> Read the class javadoc about eager vs non-eager mode.      */
 DECL|method|clear ()
 name|void
 name|clear
