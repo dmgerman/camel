@@ -202,6 +202,15 @@ argument_list|(
 name|deadLetter
 argument_list|)
 expr_stmt|;
+comment|// DLC do not log exhausted by default
+name|getRedeliveryPolicy
+argument_list|()
+operator|.
+name|setLogExhausted
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|DeadLetterChannelBuilder (String uri)
 specifier|public

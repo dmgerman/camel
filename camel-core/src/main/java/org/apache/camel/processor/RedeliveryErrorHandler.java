@@ -5115,57 +5115,6 @@ comment|// do not log new exception
 return|return;
 block|}
 comment|// if we should not rollback, then check whether logging is enabled
-comment|// depending on what kind of error handler we should
-name|boolean
-name|logExhausted
-decl_stmt|;
-if|if
-condition|(
-name|isDeadLetterChannel
-condition|)
-block|{
-comment|// if DLC then log exhausted should not be default
-name|logExhausted
-operator|=
-name|data
-operator|.
-name|currentRedeliveryPolicy
-operator|.
-name|getLogExhaustedMessageHistory
-argument_list|()
-operator|!=
-literal|null
-operator|&&
-name|data
-operator|.
-name|currentRedeliveryPolicy
-operator|.
-name|isLogExhaustedMessageHistory
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// for any other error handler log exhausted should be default
-name|logExhausted
-operator|=
-name|data
-operator|.
-name|currentRedeliveryPolicy
-operator|.
-name|getLogExhaustedMessageHistory
-argument_list|()
-operator|==
-literal|null
-operator|||
-name|data
-operator|.
-name|currentRedeliveryPolicy
-operator|.
-name|isLogExhaustedMessageHistory
-argument_list|()
-expr_stmt|;
-block|}
 if|if
 condition|(
 operator|!
@@ -5173,7 +5122,6 @@ name|newException
 operator|&&
 name|handled
 operator|&&
-operator|(
 operator|!
 name|data
 operator|.
@@ -5181,13 +5129,9 @@ name|currentRedeliveryPolicy
 operator|.
 name|isLogHandled
 argument_list|()
-operator|&&
-operator|!
-name|logExhausted
-operator|)
 condition|)
 block|{
-comment|// do not log handled (but log exhausted message history can overrule log handled)
+comment|// do not log handled
 return|return;
 block|}
 if|if

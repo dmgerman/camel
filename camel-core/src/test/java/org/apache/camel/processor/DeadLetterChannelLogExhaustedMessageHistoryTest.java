@@ -122,6 +122,17 @@ name|maximumRedeliveries
 argument_list|(
 literal|3
 argument_list|)
+comment|// need to turn on logging handled and exhausted to see this with DLC
+operator|.
+name|logHandled
+argument_list|(
+literal|true
+argument_list|)
+operator|.
+name|logExhausted
+argument_list|(
+literal|true
+argument_list|)
 operator|.
 name|logExhaustedMessageHistory
 argument_list|(
