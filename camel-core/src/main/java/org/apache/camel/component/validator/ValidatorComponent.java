@@ -54,6 +54,20 @@ name|UriEndpointComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_comment
 comment|/**  * The<a href="http://camel.apache.org/validation.html">Validator Component</a> is for validating XML against a schema  *  * @version  */
 end_comment
@@ -66,6 +80,22 @@ name|ValidatorComponent
 extends|extends
 name|UriEndpointComponent
 block|{
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom LSResourceResolver which depends on a dynamic endpoint resource URI"
+argument_list|)
+DECL|field|resourceResolverFactory
+specifier|private
+name|ValidatorResourceResolverFactory
+name|resourceResolverFactory
+decl_stmt|;
 DECL|method|ValidatorComponent ()
 specifier|public
 name|ValidatorComponent
@@ -96,6 +126,32 @@ name|super
 argument_list|(
 name|endpointClass
 argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getResourceResolverFactory ()
+specifier|public
+name|ValidatorResourceResolverFactory
+name|getResourceResolverFactory
+parameter_list|()
+block|{
+return|return
+name|resourceResolverFactory
+return|;
+block|}
+DECL|method|setResourceResolverFactory (ValidatorResourceResolverFactory resourceResolverFactory)
+specifier|public
+name|void
+name|setResourceResolverFactory
+parameter_list|(
+name|ValidatorResourceResolverFactory
+name|resourceResolverFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resourceResolverFactory
+operator|=
+name|resourceResolverFactory
 expr_stmt|;
 block|}
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> parameters)
@@ -133,6 +189,57 @@ argument_list|,
 name|remaining
 argument_list|)
 decl_stmt|;
+comment|// lookup custom resolver to use
+name|ValidatorResourceResolverFactory
+name|resolverFactory
+init|=
+name|resolveAndRemoveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"resourceResolverFactory"
+argument_list|,
+name|ValidatorResourceResolverFactory
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|resolverFactory
+operator|==
+literal|null
+condition|)
+block|{
+comment|// not in endpoint then use component specific resource resolver factory
+name|resolverFactory
+operator|=
+name|getResourceResolverFactory
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|resolverFactory
+operator|==
+literal|null
+condition|)
+block|{
+comment|// fallback to use a Camel default resource resolver factory
+name|resolverFactory
+operator|=
+operator|new
+name|DefaultValidatorResourceResolverFactory
+argument_list|()
+expr_stmt|;
+block|}
+name|endpoint
+operator|.
+name|setResourceResolverFactory
+argument_list|(
+name|resolverFactory
+argument_list|)
+expr_stmt|;
 name|setProperties
 argument_list|(
 name|endpoint

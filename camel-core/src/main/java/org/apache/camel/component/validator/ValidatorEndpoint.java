@@ -538,12 +538,31 @@ literal|"advanced"
 argument_list|,
 name|description
 operator|=
-literal|"To use a custom LSResourceResolver"
+literal|"To use a custom LSResourceResolver.  Do not use together with resourceResolverFactory"
 argument_list|)
 DECL|field|resourceResolver
 specifier|private
 name|LSResourceResolver
 name|resourceResolver
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom LSResourceResolver which depends on a dynamic endpoint resource URI. "
+operator|+
+comment|//
+literal|"The default resource resolver factory resturns a resource resolver which can read files from the class path and file system. Do not use together with resourceResolver."
+argument_list|)
+DECL|field|resourceResolverFactory
+specifier|private
+name|ValidatorResourceResolverFactory
+name|resourceResolverFactory
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -724,6 +743,36 @@ name|resourceResolver
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|resourceResolverFactory
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// set the created resource resolver to the resourceResolver variable, so that it can
+comment|// be accessed by the endpoint
+name|resourceResolver
+operator|=
+name|resourceResolverFactory
+operator|.
+name|createResourceResolver
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|resourceUri
+argument_list|)
+expr_stmt|;
+name|schemaReader
+operator|.
+name|setResourceResolver
+argument_list|(
+name|resourceResolver
+argument_list|)
+expr_stmt|;
+block|}
 else|else
 block|{
 name|schemaReader
@@ -731,7 +780,10 @@ operator|.
 name|setResourceResolver
 argument_list|(
 operator|new
-name|DefaultLSResourceResolver
+name|DefaultValidatorResourceResolverFactory
+argument_list|()
+operator|.
+name|createResourceResolver
 argument_list|(
 name|getCamelContext
 argument_list|()
@@ -1141,7 +1193,7 @@ return|return
 name|resourceResolver
 return|;
 block|}
-comment|/**      * To use a custom LSResourceResolver      */
+comment|/**      * To use a custom LSResourceResolver. See also {@link #setResourceResolverFactory(ValidatorResourceResolverFactory)}      */
 DECL|method|setResourceResolver (LSResourceResolver resourceResolver)
 specifier|public
 name|void
@@ -1156,6 +1208,33 @@ operator|.
 name|resourceResolver
 operator|=
 name|resourceResolver
+expr_stmt|;
+block|}
+DECL|method|getResourceResolverFactory ()
+specifier|public
+name|ValidatorResourceResolverFactory
+name|getResourceResolverFactory
+parameter_list|()
+block|{
+return|return
+name|resourceResolverFactory
+return|;
+block|}
+comment|/** For creating a resource resolver which depends on the endpoint resource URI.       * Must not be used in combination with method {@link #setResourceResolver(LSResourceResolver).       * If not set then {@link DefaultValidatorResourceResolverFactory} is used       */
+DECL|method|setResourceResolverFactory (ValidatorResourceResolverFactory resourceResolverFactory)
+specifier|public
+name|void
+name|setResourceResolverFactory
+parameter_list|(
+name|ValidatorResourceResolverFactory
+name|resourceResolverFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resourceResolverFactory
+operator|=
+name|resourceResolverFactory
 expr_stmt|;
 block|}
 DECL|method|isFailOnNullBody ()
