@@ -157,9 +157,6 @@ name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
-name|InvalidPayloadRuntimeException
-name|cause
-init|=
 name|assertIsInstanceOf
 argument_list|(
 name|InvalidPayloadRuntimeException
@@ -170,19 +167,6 @@ name|e
 operator|.
 name|getCause
 argument_list|()
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-name|cause
-operator|.
-name|getMessage
-argument_list|()
-operator|.
-name|contains
-argument_list|(
-literal|"Body is null"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
