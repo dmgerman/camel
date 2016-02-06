@@ -4807,10 +4807,15 @@ condition|(
 name|isDeadLetterChannel
 condition|)
 block|{
-comment|// use the handled option from the DLC
+comment|// DLC is always handling the first thrown exception,
+comment|// but if its a new exception then use the configured option
 name|boolean
 name|handled
 init|=
+name|newException
+operator|==
+literal|null
+operator|||
 name|data
 operator|.
 name|handleNewException
@@ -4883,7 +4888,7 @@ name|handled
 argument_list|,
 literal|false
 argument_list|,
-name|isDeadLetterChannel
+literal|true
 argument_list|,
 name|exchange
 argument_list|,
