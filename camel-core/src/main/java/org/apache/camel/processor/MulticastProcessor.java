@@ -4542,7 +4542,7 @@ condition|(
 name|stoppedOnException
 condition|)
 block|{
-comment|// if we stopped due an exception then only propagte the exception
+comment|// if we stopped due an exception then only propagate the exception
 name|original
 operator|.
 name|setException

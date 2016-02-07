@@ -1019,13 +1019,12 @@ expr_stmt|;
 name|Message
 name|original
 init|=
-name|exchange
-operator|.
-name|getUnitOfWork
-argument_list|()
+name|ExchangeHelper
 operator|.
 name|getOriginalInMessage
-argument_list|()
+argument_list|(
+name|exchange
+argument_list|)
 decl_stmt|;
 name|answer
 operator|.

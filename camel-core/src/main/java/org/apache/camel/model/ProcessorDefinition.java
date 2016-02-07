@@ -492,6 +492,20 @@ name|camel
 operator|.
 name|processor
 operator|.
+name|CamelInternalProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
 name|InterceptEndpointProcessor
 import|;
 end_import
@@ -2626,10 +2640,36 @@ name|routeContext
 argument_list|)
 expr_stmt|;
 block|}
-comment|// inject id
+comment|// unwrap internal processor so we can set id on the actual processor
+name|Processor
+name|idProcessor
+init|=
+name|processor
+decl_stmt|;
 if|if
 condition|(
 name|processor
+operator|instanceof
+name|CamelInternalProcessor
+condition|)
+block|{
+name|idProcessor
+operator|=
+operator|(
+operator|(
+name|CamelInternalProcessor
+operator|)
+name|processor
+operator|)
+operator|.
+name|getProcessor
+argument_list|()
+expr_stmt|;
+block|}
+comment|// inject id
+if|if
+condition|(
+name|idProcessor
 operator|instanceof
 name|IdAware
 condition|)
@@ -2654,7 +2694,7 @@ operator|(
 operator|(
 name|IdAware
 operator|)
-name|processor
+name|idProcessor
 operator|)
 operator|.
 name|setId
