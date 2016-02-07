@@ -226,6 +226,18 @@ argument_list|>
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|failedExceptions
+operator|.
+name|contains
+argument_list|(
+name|exception
+argument_list|)
+condition|)
+block|{
+comment|// avoid adding the same exception multiple times
 name|failedExceptions
 operator|.
 name|add
@@ -233,6 +245,7 @@ argument_list|(
 name|exception
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class
