@@ -119,6 +119,7 @@ end_import
 begin_class
 DECL|class|InfinispanOperation
 specifier|public
+specifier|final
 class|class
 name|InfinispanOperation
 block|{
@@ -139,59 +140,30 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|cache
+DECL|method|InfinispanOperation ()
 specifier|private
-specifier|final
-name|BasicCache
-argument_list|<
-name|Object
-argument_list|,
-name|Object
-argument_list|>
-name|cache
-decl_stmt|;
-DECL|field|configuration
-specifier|private
-specifier|final
-name|InfinispanConfiguration
-name|configuration
-decl_stmt|;
-DECL|method|InfinispanOperation (BasicCache<Object, Object> cache, InfinispanConfiguration configuration)
-specifier|public
 name|InfinispanOperation
-parameter_list|(
-name|BasicCache
-argument_list|<
-name|Object
-argument_list|,
-name|Object
-argument_list|>
-name|cache
-parameter_list|,
-name|InfinispanConfiguration
-name|configuration
-parameter_list|)
-block|{
-name|this
-operator|.
-name|cache
-operator|=
-name|cache
-expr_stmt|;
-name|this
-operator|.
-name|configuration
-operator|=
-name|configuration
-expr_stmt|;
-block|}
-DECL|method|process (Exchange exchange)
+parameter_list|()
+block|{     }
+DECL|method|process (Exchange exchange, InfinispanConfiguration configuration, BasicCache<Object, Object> cache)
 specifier|public
+specifier|static
 name|void
 name|process
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|InfinispanConfiguration
+name|configuration
+parameter_list|,
+name|BasicCache
+argument_list|<
+name|Object
+argument_list|,
+name|Object
+argument_list|>
+name|cache
 parameter_list|)
 block|{
 name|Operation
@@ -200,6 +172,8 @@ init|=
 name|getOperation
 argument_list|(
 name|exchange
+argument_list|,
+name|configuration
 argument_list|)
 decl_stmt|;
 name|operation
@@ -212,13 +186,17 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getOperation (Exchange exchange)
+DECL|method|getOperation (Exchange exchange, InfinispanConfiguration configuration)
 specifier|private
+specifier|static
 name|Operation
 name|getOperation
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|InfinispanConfiguration
+name|configuration
 parameter_list|)
 block|{
 name|String
@@ -311,6 +289,7 @@ argument_list|)
 return|;
 block|}
 DECL|enum|Operation
+specifier|private
 enum|enum
 name|Operation
 block|{
