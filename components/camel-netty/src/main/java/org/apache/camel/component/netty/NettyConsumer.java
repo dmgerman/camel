@@ -428,6 +428,11 @@ argument_list|(
 name|nettyServerBootstrapFactory
 argument_list|)
 expr_stmt|;
+name|super
+operator|.
+name|doSuspend
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -445,6 +450,11 @@ name|resumeService
 argument_list|(
 name|nettyServerBootstrapFactory
 argument_list|)
+expr_stmt|;
+name|super
+operator|.
+name|doResume
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getContext ()

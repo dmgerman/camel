@@ -363,6 +363,8 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|NettyServerBootstrapFactory
+implements|,
+name|Suspendable
 block|{
 DECL|field|LOG
 specifier|protected
@@ -684,6 +686,30 @@ block|{
 name|stopServerBootstrap
 argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doResume ()
+specifier|protected
+name|void
+name|doResume
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|doSuspend ()
+specifier|protected
+name|void
+name|doSuspend
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 DECL|method|startServerBootstrap ()
 specifier|protected
