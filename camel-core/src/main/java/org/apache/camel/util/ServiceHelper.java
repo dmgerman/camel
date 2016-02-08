@@ -146,6 +146,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Suspendable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|SuspendableService
 import|;
 end_import
@@ -1109,7 +1121,7 @@ name|firstException
 throw|;
 block|}
 block|}
-comment|/**      * Suspends the given {@code service}.      *<p/>      * If {@code service} is a {@link org.apache.camel.SuspendableService} then      * it's {@link org.apache.camel.SuspendableService#suspend()} is called but      *<b>only</b> if {@code service} is<b>not</b> already      * {@link #isSuspended(Object) suspended}.      *<p/>      * If {@code service} is<b>not</b> a      * {@link org.apache.camel.SuspendableService} then it's      * {@link org.apache.camel.Service#stop()} is called.      *<p/>      * Calling this method has no effect if {@code service} is {@code null}.      *       * @param service the service      * @return<tt>true</tt> if either the<tt>suspend</tt> method or      *         {@link #stopService(Object)} was called,<tt>false</tt>      *         otherwise.      * @throws Exception is thrown if error occurred      * @see #stopService(Object)      */
+comment|/**      * Suspends the given {@code service}.      *<p/>      * If {@code service} is both {@link org.apache.camel.Suspendable} and {@link org.apache.camel.SuspendableService} then      * it's {@link org.apache.camel.SuspendableService#suspend()} is called but      *<b>only</b> if {@code service} is<b>not</b> already      * {@link #isSuspended(Object) suspended}.      *<p/>      * If {@code service} is<b>not</b> a      * {@link org.apache.camel.Suspendable} and {@link org.apache.camel.SuspendableService} then it's      * {@link org.apache.camel.Service#stop()} is called.      *<p/>      * Calling this method has no effect if {@code service} is {@code null}.      *       * @param service the service      * @return<tt>true</tt> if either the<tt>suspend</tt> method or      *         {@link #stopService(Object)} was called,<tt>false</tt>      *         otherwise.      * @throws Exception is thrown if error occurred      * @see #stopService(Object)      */
 DECL|method|suspendService (Object service)
 specifier|public
 specifier|static
@@ -1124,6 +1136,10 @@ name|Exception
 block|{
 if|if
 condition|(
+name|service
+operator|instanceof
+name|Suspendable
+operator|&&
 name|service
 operator|instanceof
 name|SuspendableService

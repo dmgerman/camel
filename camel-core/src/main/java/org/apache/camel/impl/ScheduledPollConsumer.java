@@ -140,6 +140,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Suspendable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|SuspendableService
 import|;
 end_import
@@ -249,7 +261,7 @@ name|DefaultConsumer
 implements|implements
 name|Runnable
 implements|,
-name|SuspendableService
+name|Suspendable
 implements|,
 name|PollingConsumerPollingStrategy
 block|{

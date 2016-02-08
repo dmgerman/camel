@@ -182,7 +182,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|SuspendableService
+name|Suspendable
 import|;
 end_import
 
@@ -364,7 +364,7 @@ name|Runnable
 implements|,
 name|ShutdownAware
 implements|,
-name|SuspendableService
+name|Suspendable
 block|{
 DECL|field|LOG
 specifier|private

@@ -280,6 +280,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Suspendable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|SuspendableService
 import|;
 end_import
@@ -2500,7 +2512,7 @@ name|shutdown
 operator|&&
 name|consumer
 operator|instanceof
-name|SuspendableService
+name|Suspendable
 condition|)
 block|{
 comment|// we prefer to suspend over shutdown

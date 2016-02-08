@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Suspendable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|SuspendableService
 import|;
 end_import
@@ -68,7 +80,7 @@ name|DirectVmConsumer
 extends|extends
 name|DefaultConsumer
 implements|implements
-name|SuspendableService
+name|Suspendable
 block|{
 DECL|method|DirectVmConsumer (DirectVmEndpoint endpoint, Processor processor)
 specifier|public

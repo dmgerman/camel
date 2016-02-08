@@ -646,6 +646,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Suspendable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|SuspendableService
 import|;
 end_import
@@ -1969,7 +1981,7 @@ name|ServiceSupport
 implements|implements
 name|ModelCamelContext
 implements|,
-name|SuspendableService
+name|Suspendable
 block|{
 DECL|field|log
 specifier|private
@@ -7310,13 +7322,24 @@ name|routeService
 argument_list|)
 expr_stmt|;
 comment|// must suspend the route as well
-name|ServiceHelper
-operator|.
-name|suspendService
-argument_list|(
+if|if
+condition|(
 name|route
-argument_list|)
+operator|instanceof
+name|SuspendableService
+condition|)
+block|{
+operator|(
+operator|(
+name|SuspendableService
+operator|)
+name|route
+operator|)
+operator|.
+name|suspend
+argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|suspendRoute (String routeId, long timeout, TimeUnit timeUnit)
@@ -7444,13 +7467,24 @@ name|routeService
 argument_list|)
 expr_stmt|;
 comment|// must suspend the route as well
-name|ServiceHelper
-operator|.
-name|suspendService
-argument_list|(
+if|if
+condition|(
 name|route
-argument_list|)
+operator|instanceof
+name|SuspendableService
+condition|)
+block|{
+operator|(
+operator|(
+name|SuspendableService
+operator|)
+name|route
+operator|)
+operator|.
+name|suspend
+argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|addService (Object object)
