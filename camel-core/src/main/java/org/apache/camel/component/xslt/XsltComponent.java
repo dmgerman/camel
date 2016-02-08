@@ -192,11 +192,31 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom UriResolver. Should not be used together with the option 'uriResolverFactory'."
 argument_list|)
 DECL|field|uriResolver
 specifier|private
 name|URIResolver
 name|uriResolver
+decl_stmt|;
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"To use a custom UriResolver which depends on a dynamic endpoint resource URI. Should not be used together with the option 'uriResolver'."
+argument_list|)
+DECL|field|uriResolverFactory
+specifier|private
+name|XsltUriResolverFactory
+name|uriResolverFactory
 decl_stmt|;
 annotation|@
 name|Metadata
@@ -257,6 +277,33 @@ operator|=
 name|xmlConverter
 expr_stmt|;
 block|}
+DECL|method|getUriResolverFactory ()
+specifier|public
+name|XsltUriResolverFactory
+name|getUriResolverFactory
+parameter_list|()
+block|{
+return|return
+name|uriResolverFactory
+return|;
+block|}
+comment|/**      * To use a custom javax.xml.transform.URIResolver which depends on a dynamic endpoint resource URI or which is a subclass of {@link XsltUriResolver}.      *  Do not use in combination with uriResolver.      * See also {@link #setUriResolver(URIResolver)}.      */
+DECL|method|setUriResolverFactory (XsltUriResolverFactory uriResolverFactory)
+specifier|public
+name|void
+name|setUriResolverFactory
+parameter_list|(
+name|XsltUriResolverFactory
+name|uriResolverFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uriResolverFactory
+operator|=
+name|uriResolverFactory
+expr_stmt|;
+block|}
 DECL|method|getUriResolver ()
 specifier|public
 name|URIResolver
@@ -267,7 +314,7 @@ return|return
 name|uriResolver
 return|;
 block|}
-comment|/**      * To use a custom javax.xml.transform.URIResolver      */
+comment|/**      * To use a custom javax.xml.transform.URIResolver. Do not use in combination with uriResolverFactory.      * See also {@link #setUriResolverFactory(XsltUriResolverFactory)}.      */
 DECL|method|setUriResolver (URIResolver uriResolver)
 specifier|public
 name|void
@@ -478,16 +525,57 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// fallback to use a Camel specific resolver
-name|resolver
+comment|// lookup custom resolver factory to use
+name|XsltUriResolverFactory
+name|resolverFactory
+init|=
+name|resolveAndRemoveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"uriResolverFactory"
+argument_list|,
+name|XsltUriResolverFactory
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|resolverFactory
+operator|==
+literal|null
+condition|)
+block|{
+comment|// not in endpoint then use component specific resolver factory
+name|resolverFactory
+operator|=
+name|getUriResolverFactory
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|resolverFactory
+operator|==
+literal|null
+condition|)
+block|{
+comment|// fallback to use the Default URI resolver factory
+name|resolverFactory
 operator|=
 operator|new
-name|XsltUriResolver
+name|DefaultXsltUriResolverFactory
+argument_list|()
+expr_stmt|;
+block|}
+name|resolver
+operator|=
+name|resolverFactory
+operator|.
+name|createUriResolver
 argument_list|(
 name|getCamelContext
-argument_list|()
-operator|.
-name|getClassResolver
 argument_list|()
 argument_list|,
 name|remaining
