@@ -72,7 +72,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|SuspendableService
+name|Suspendable
 import|;
 end_import
 
@@ -130,7 +130,7 @@ name|JmsConsumer
 extends|extends
 name|DefaultConsumer
 implements|implements
-name|SuspendableService
+name|Suspendable
 block|{
 DECL|field|listenerContainer
 specifier|private

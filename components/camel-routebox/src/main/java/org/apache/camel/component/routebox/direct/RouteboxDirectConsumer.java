@@ -76,7 +76,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|SuspendableService
+name|Suspendable
 import|;
 end_import
 
@@ -152,7 +152,7 @@ name|RouteboxConsumer
 implements|,
 name|ShutdownAware
 implements|,
-name|SuspendableService
+name|Suspendable
 block|{
 DECL|field|producer
 specifier|protected

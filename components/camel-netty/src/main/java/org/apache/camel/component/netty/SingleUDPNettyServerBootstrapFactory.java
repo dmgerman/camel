@@ -92,6 +92,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Suspendable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -672,30 +684,6 @@ block|{
 name|stopServerBootstrap
 argument_list|()
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|doResume ()
-specifier|protected
-name|void
-name|doResume
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// noop
-block|}
-annotation|@
-name|Override
-DECL|method|doSuspend ()
-specifier|protected
-name|void
-name|doSuspend
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// noop
 block|}
 DECL|method|startServerBootstrap ()
 specifier|protected

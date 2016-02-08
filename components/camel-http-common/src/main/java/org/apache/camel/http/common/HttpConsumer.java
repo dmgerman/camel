@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|SuspendableService
+name|Suspendable
 import|;
 end_import
 
@@ -64,7 +64,7 @@ name|HttpConsumer
 extends|extends
 name|DefaultConsumer
 implements|implements
-name|SuspendableService
+name|Suspendable
 block|{
 DECL|field|suspended
 specifier|private
@@ -212,26 +212,44 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|suspend ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doSuspend ()
+specifier|protected
 name|void
-name|suspend
+name|doSuspend
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|suspended
 operator|=
 literal|true
 expr_stmt|;
+name|super
+operator|.
+name|doSuspend
+argument_list|()
+expr_stmt|;
 block|}
-DECL|method|resume ()
-specifier|public
+annotation|@
+name|Override
+DECL|method|doResume ()
+specifier|protected
 name|void
-name|resume
+name|doResume
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|suspended
 operator|=
 literal|false
+expr_stmt|;
+name|super
+operator|.
+name|doResume
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|isSuspended ()

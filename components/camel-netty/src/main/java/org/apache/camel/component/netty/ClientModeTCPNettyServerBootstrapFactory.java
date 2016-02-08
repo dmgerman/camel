@@ -116,6 +116,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Suspendable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -307,6 +319,8 @@ extends|extends
 name|ServiceSupport
 implements|implements
 name|NettyServerBootstrapFactory
+implements|,
+name|Suspendable
 block|{
 DECL|field|LOG
 specifier|protected

@@ -130,6 +130,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Suspendable
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|impl
 operator|.
 name|DefaultConsumer
@@ -143,6 +155,8 @@ class|class
 name|RabbitMQConsumer
 extends|extends
 name|DefaultConsumer
+implements|implements
+name|Suspendable
 block|{
 DECL|field|executor
 specifier|private
@@ -425,36 +439,6 @@ name|consumer
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|executor
-operator|=
-name|endpoint
-operator|.
-name|createExecutor
-argument_list|()
-expr_stmt|;
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Using executor {}"
-argument_list|,
-name|executor
-argument_list|)
-expr_stmt|;
-name|startConsumers
-argument_list|()
-expr_stmt|;
-block|}
 DECL|method|reconnect ()
 specifier|private
 specifier|synchronized
@@ -511,20 +495,6 @@ name|submit
 argument_list|(
 name|startConsumerCallable
 argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|doResume ()
-specifier|protected
-name|void
-name|doResume
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|reconnect
-argument_list|()
 expr_stmt|;
 block|}
 comment|/**      * If needed, close Connection and Channels      */
@@ -636,6 +606,50 @@ throws|throws
 name|Exception
 block|{
 name|closeConnectionAndChannel
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doResume ()
+specifier|protected
+name|void
+name|doResume
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|reconnect
+argument_list|()
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|executor
+operator|=
+name|endpoint
+operator|.
+name|createExecutor
+argument_list|()
+expr_stmt|;
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Using executor {}"
+argument_list|,
+name|executor
+argument_list|)
+expr_stmt|;
+name|startConsumers
 argument_list|()
 expr_stmt|;
 block|}
