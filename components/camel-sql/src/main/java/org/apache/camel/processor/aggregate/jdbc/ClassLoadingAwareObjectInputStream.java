@@ -111,11 +111,6 @@ name|ClassLoadingAwareObjectInputStream
 extends|extends
 name|ObjectInputStream
 block|{
-DECL|field|camelContext
-specifier|private
-name|CamelContext
-name|camelContext
-decl_stmt|;
 DECL|field|FALLBACK_CLASS_LOADER
 specifier|private
 specifier|static
@@ -131,7 +126,7 @@ name|getClassLoader
 argument_list|()
 decl_stmt|;
 comment|/**      * Maps primitive type names to corresponding class objects.      */
-DECL|field|primClasses
+DECL|field|PRIM_CLASSES
 specifier|private
 specifier|static
 specifier|final
@@ -141,7 +136,7 @@ name|String
 argument_list|,
 name|Class
 argument_list|>
-name|primClasses
+name|PRIM_CLASSES
 init|=
 operator|new
 name|HashMap
@@ -155,6 +150,11 @@ literal|8
 argument_list|,
 literal|1.0F
 argument_list|)
+decl_stmt|;
+DECL|field|camelContext
+specifier|private
+name|CamelContext
+name|camelContext
 decl_stmt|;
 DECL|field|inLoader
 specifier|private
@@ -464,7 +464,7 @@ argument_list|<
 name|?
 argument_list|>
 operator|)
-name|primClasses
+name|PRIM_CLASSES
 operator|.
 name|get
 argument_list|(
@@ -500,7 +500,7 @@ block|}
 block|}
 static|static
 block|{
-name|primClasses
+name|PRIM_CLASSES
 operator|.
 name|put
 argument_list|(
@@ -511,7 +511,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|primClasses
+name|PRIM_CLASSES
 operator|.
 name|put
 argument_list|(
@@ -522,7 +522,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|primClasses
+name|PRIM_CLASSES
 operator|.
 name|put
 argument_list|(
@@ -533,7 +533,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|primClasses
+name|PRIM_CLASSES
 operator|.
 name|put
 argument_list|(
@@ -544,7 +544,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|primClasses
+name|PRIM_CLASSES
 operator|.
 name|put
 argument_list|(
@@ -555,7 +555,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|primClasses
+name|PRIM_CLASSES
 operator|.
 name|put
 argument_list|(
@@ -566,7 +566,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|primClasses
+name|PRIM_CLASSES
 operator|.
 name|put
 argument_list|(
@@ -577,7 +577,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|primClasses
+name|PRIM_CLASSES
 operator|.
 name|put
 argument_list|(
@@ -588,7 +588,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-name|primClasses
+name|PRIM_CLASSES
 operator|.
 name|put
 argument_list|(
