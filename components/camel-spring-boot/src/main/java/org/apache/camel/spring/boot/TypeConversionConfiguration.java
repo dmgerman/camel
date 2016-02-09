@@ -193,6 +193,16 @@ name|TypeConversionConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|initMethod
+operator|=
+literal|""
+argument_list|,
+name|destroyMethod
+operator|=
+literal|""
+argument_list|)
+comment|// Camel handles the lifecycle of this bean
 DECL|method|typeConverter (CamelContext camelContext)
 name|TypeConverter
 name|typeConverter
@@ -210,6 +220,16 @@ return|;
 block|}
 annotation|@
 name|Bean
+argument_list|(
+name|initMethod
+operator|=
+literal|""
+argument_list|,
+name|destroyMethod
+operator|=
+literal|""
+argument_list|)
+comment|// Camel handles the lifecycle of this bean
 DECL|method|springTypeConverter (CamelContext camelContext, ConversionService[] conversionServices)
 name|SpringTypeConverter
 name|springTypeConverter
