@@ -2237,6 +2237,17 @@ block|}
 block|}
 else|else
 block|{
+if|if
+condition|(
+operator|!
+name|getEndpoint
+argument_list|()
+operator|.
+name|isDisableStreamCache
+argument_list|()
+condition|)
+block|{
+comment|// wrap the response in a stream cache so its re-readable
 name|InputStream
 name|response
 init|=
@@ -2261,6 +2272,14 @@ block|}
 return|return
 name|response
 return|;
+block|}
+else|else
+block|{
+comment|// use the response stream as-is
+return|return
+name|is
+return|;
+block|}
 block|}
 block|}
 DECL|method|doExtractResponseBodyAsStream (InputStream is, Exchange exchange)

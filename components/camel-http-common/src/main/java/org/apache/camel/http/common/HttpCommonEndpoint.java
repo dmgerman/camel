@@ -263,7 +263,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer"
+literal|"common"
 argument_list|,
 name|description
 operator|=
@@ -284,6 +284,10 @@ operator|+
 literal|" If you use Jetty to bridge/proxy an endpoint then consider enabling this option to improve performance,"
 operator|+
 literal|" in case you do not need to read the message payload multiple times."
+operator|+
+literal|" The http/http4 producer will by default cache the response body stream. If setting this option to true,"
+operator|+
+literal|" then the producers will not cache the response body stream but use the response stream as-is as the message body."
 argument_list|)
 DECL|field|disableStreamCache
 name|boolean
@@ -966,7 +970,7 @@ operator|.
 name|disableStreamCache
 return|;
 block|}
-comment|/**      * Determines whether or not the raw input stream from Jetty is cached or not      * (Camel will read the stream into a in memory/overflow to file, Stream caching) cache.      * By default Camel will cache the Jetty input stream to support reading it multiple times to ensure it Camel      * can retrieve all data from the stream. However you can set this option to true when you for example need      * to access the raw stream, such as streaming it directly to a file or other persistent store.      * DefaultHttpBinding will copy the request input stream into a stream cache and put it into message body      * if this option is false to support reading the stream multiple times.      * If you use Jetty to bridge/proxy an endpoint then consider enabling this option to improve performance,      * in case you do not need to read the message payload multiple times.      */
+comment|/**      * Determines whether or not the raw input stream from Jetty is cached or not      * (Camel will read the stream into a in memory/overflow to file, Stream caching) cache.      * By default Camel will cache the Jetty input stream to support reading it multiple times to ensure it Camel      * can retrieve all data from the stream. However you can set this option to true when you for example need      * to access the raw stream, such as streaming it directly to a file or other persistent store.      * DefaultHttpBinding will copy the request input stream into a stream cache and put it into message body      * if this option is false to support reading the stream multiple times.      * If you use Jetty to bridge/proxy an endpoint then consider enabling this option to improve performance,      * in case you do not need to read the message payload multiple times.      + The http/http4 producer will by default cache the response body stream. If setting this option to true,      + then the producers will not cache the response body stream but use the response stream as-is as the message body.      */
 DECL|method|setDisableStreamCache (boolean disable)
 specifier|public
 name|void
