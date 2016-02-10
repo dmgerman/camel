@@ -24,6 +24,36 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|InputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|Reader
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Set
@@ -57,6 +87,18 @@ operator|.
 name|jaxb
 operator|.
 name|JaxbAnnotationModule
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
 import|;
 end_import
 
@@ -128,6 +170,10 @@ name|TypeConverterRegistry
 import|;
 end_import
 
+begin_comment
+comment|/**  * Jackson {@link org.apache.camel.TypeConverter} that allows converting json to/from POJOs and other types.  *<br/>  * This implementation uses a {@link FallbackConverter}.  *<p/>  * The converter is disabled by default. To enable then set the property  * {@link JacksonConstants#ENABLE_TYPE_CONVERTER} to<tt>true</tt> on {@link CamelContext#getProperties()}.  *<br/>  * The option {@link JacksonConstants#TYPE_CONVERTER_TO_POJO} can be used to allow converting to POJO types. By  * default the converter only attempts to convert to primitive types such as String and numbers. To convert to any kind, then  * enable this by setting {@link JacksonConstants#TYPE_CONVERTER_TO_POJO} to<tt>true</tt> on {@link CamelContext#getProperties()}.  */
+end_comment
+
 begin_class
 DECL|class|JacksonTypeConverters
 specifier|public
@@ -148,15 +194,13 @@ name|init
 decl_stmt|;
 DECL|field|enabled
 specifier|private
-name|Boolean
+name|boolean
 name|enabled
 decl_stmt|;
-DECL|field|pojoOnly
+DECL|field|toPojo
 specifier|private
 name|boolean
-name|pojoOnly
-init|=
-literal|true
+name|toPojo
 decl_stmt|;
 DECL|method|JacksonTypeConverters ()
 specifier|public
@@ -169,7 +213,7 @@ operator|new
 name|ObjectMapper
 argument_list|()
 expr_stmt|;
-comment|// Enables JAXB processing
+comment|// Enables JAXB processing so we can easily convert JAXB annotated pojos also
 name|JaxbAnnotationModule
 name|module
 init|=
@@ -213,7 +257,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// only do this if enabled
+comment|// only do this if enabled (disabled by default)
 if|if
 condition|(
 operator|!
@@ -243,6 +287,25 @@ operator|.
 name|ENABLE_TYPE_CONVERTER
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|text
+operator|!=
+literal|null
+condition|)
+block|{
+name|text
+operator|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+name|text
+argument_list|)
+expr_stmt|;
 name|enabled
 operator|=
 literal|"true"
@@ -252,7 +315,8 @@ argument_list|(
 name|text
 argument_list|)
 expr_stmt|;
-comment|// pojo only by default
+block|}
+comment|// pojoOnly is enabled by default
 name|text
 operator|=
 name|exchange
@@ -267,7 +331,7 @@ name|get
 argument_list|(
 name|JacksonConstants
 operator|.
-name|TYPE_CONVERTER_POJO_ONLY
+name|TYPE_CONVERTER_TO_POJO
 argument_list|)
 expr_stmt|;
 if|if
@@ -277,7 +341,19 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|pojoOnly
+name|text
+operator|=
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+name|text
+argument_list|)
+expr_stmt|;
+name|toPojo
 operator|=
 literal|"true"
 operator|.
@@ -294,10 +370,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|enabled
-operator|==
-literal|null
-operator|||
 operator|!
 name|enabled
 condition|)
@@ -308,7 +380,8 @@ return|;
 block|}
 if|if
 condition|(
-name|pojoOnly
+operator|!
+name|toPojo
 operator|&&
 name|isNotPojoType
 argument_list|(
@@ -341,6 +414,8 @@ name|getRegistry
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// favor use write/read operations as they are higher level than the convertValue
+comment|// if we want to convert to a String or byte[] then use write operation
 if|if
 condition|(
 name|String
@@ -417,8 +492,7 @@ name|type
 argument_list|)
 condition|)
 block|{
-comment|// TODO: favor using mapper readValue
-comment|// if the input is string or input stream
+comment|// if the source value type is readable by the mapper then use its read operation
 if|if
 condition|(
 name|String
@@ -448,6 +522,131 @@ name|type
 argument_list|)
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|byte
+index|[]
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|value
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+condition|)
+block|{
+return|return
+name|mapper
+operator|.
+name|readValue
+argument_list|(
+operator|(
+name|byte
+index|[]
+operator|)
+name|value
+argument_list|,
+name|type
+argument_list|)
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|File
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|value
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+condition|)
+block|{
+return|return
+name|mapper
+operator|.
+name|readValue
+argument_list|(
+operator|(
+name|File
+operator|)
+name|value
+argument_list|,
+name|type
+argument_list|)
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|InputStream
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|value
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+condition|)
+block|{
+return|return
+name|mapper
+operator|.
+name|readValue
+argument_list|(
+operator|(
+name|InputStream
+operator|)
+name|value
+argument_list|,
+name|type
+argument_list|)
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|Reader
+operator|.
+name|class
+operator|.
+name|isAssignableFrom
+argument_list|(
+name|value
+operator|.
+name|getClass
+argument_list|()
+argument_list|)
+condition|)
+block|{
+return|return
+name|mapper
+operator|.
+name|readValue
+argument_list|(
+operator|(
+name|Reader
+operator|)
+name|value
+argument_list|,
+name|type
+argument_list|)
+return|;
+block|}
+else|else
+block|{
+comment|// fallback to generic convert value
 return|return
 name|mapper
 operator|.
@@ -460,11 +659,13 @@ argument_list|)
 return|;
 block|}
 block|}
+block|}
 comment|// Just return null to let other fallback converter to do the job
 return|return
 literal|null
 return|;
 block|}
+comment|/**      * Whether the type is NOT a pojo type but only a set of simple types such as String and numbers.      */
 DECL|method|isNotPojoType (Class<?> type)
 specifier|private
 specifier|static
