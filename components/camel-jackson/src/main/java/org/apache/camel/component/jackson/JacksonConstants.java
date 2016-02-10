@@ -34,6 +34,15 @@ name|ENABLE_TYPE_CONVERTER
 init|=
 literal|"CamelJacksonEnableTypeConverter"
 decl_stmt|;
+DECL|field|TYPE_CONVERTER_POJO_ONLY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|TYPE_CONVERTER_POJO_ONLY
+init|=
+literal|"CamelJacksonTypeConverterPojoOnly"
+decl_stmt|;
 DECL|field|UNMARSHAL_TYPE
 specifier|public
 specifier|static
