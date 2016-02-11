@@ -207,6 +207,13 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+name|connectionFactory
+operator|.
+name|setTrustAllPackages
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 comment|// When using asyncSend, producers will not be guaranteed to send in the order we
 comment|// have in the tests (which may be confusing for queues) so we need this set to false.
 comment|// Another way of guaranteeing order is to use persistent messages or transactions.
@@ -368,6 +375,13 @@ operator|.
 name|setAlwaysSessionAsync
 argument_list|(
 literal|false
+argument_list|)
+expr_stmt|;
+name|connectionFactory
+operator|.
+name|setTrustAllPackages
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// use a pooled connection factory
