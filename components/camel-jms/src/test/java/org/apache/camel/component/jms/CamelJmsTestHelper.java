@@ -291,6 +291,13 @@ name|maximumRedeliveries
 argument_list|)
 expr_stmt|;
 block|}
+name|connectionFactory
+operator|.
+name|setTrustAllPackages
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 return|return
 name|connectionFactory
 return|;
@@ -411,6 +418,13 @@ operator|.
 name|setAlwaysSessionAsync
 argument_list|(
 literal|false
+argument_list|)
+expr_stmt|;
+name|connectionFactory
+operator|.
+name|setTrustAllPackages
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 return|return
