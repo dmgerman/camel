@@ -194,14 +194,6 @@ operator|new
 name|MyEndpoint
 argument_list|()
 decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|ep
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|ep
 operator|.
 name|setEndpointUri

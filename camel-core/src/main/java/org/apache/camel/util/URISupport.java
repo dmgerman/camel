@@ -236,7 +236,7 @@ parameter_list|()
 block|{
 comment|// Helper class
 block|}
-comment|/**      * Removes detected sensitive information (such as passwords) from the URI and returns the result.      *      * @param uri The uri to sanitize.      * @see #SECRETS for the matched pattern      *      * @return Returns null if the uri is null, otherwise the URI with the passphrase, password or secretKey sanitized.      */
+comment|/**      * Removes detected sensitive information (such as passwords) from the URI and returns the result.      *      * @param uri The uri to sanitize.      * @see #SECRETS and #USERINFO_PASSWORD for the matched pattern      *      * @return Returns null if the uri is null, otherwise the URI with the passphrase, password or secretKey sanitized.      */
 DECL|method|sanitizeUri (String uri)
 specifier|public
 specifier|static

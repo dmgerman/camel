@@ -323,6 +323,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|endpointUriToString
+specifier|private
+specifier|transient
+name|String
+name|endpointUriToString
+decl_stmt|;
 DECL|field|endpointUri
 specifier|private
 name|String
@@ -642,6 +648,13 @@ name|String
 name|toString
 parameter_list|()
 block|{
+if|if
+condition|(
+name|endpointUriToString
+operator|==
+literal|null
+condition|)
+block|{
 name|String
 name|value
 init|=
@@ -663,7 +676,8 @@ parameter_list|)
 block|{
 comment|// ignore any exception and use null for building the string value
 block|}
-return|return
+name|endpointUriToString
+operator|=
 name|String
 operator|.
 name|format
@@ -677,6 +691,10 @@ argument_list|(
 name|value
 argument_list|)
 argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|endpointUriToString
 return|;
 block|}
 comment|/**      * Returns a unique String ID which can be used for aliasing without having      * to use the whole URI which is not unique      */
