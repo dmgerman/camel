@@ -383,6 +383,7 @@ name|to
 argument_list|(
 literal|"metrics:meter:generated"
 argument_list|)
+comment|// The 'attempt' meter via @Metered interceptor
 operator|.
 name|bean
 argument_list|(

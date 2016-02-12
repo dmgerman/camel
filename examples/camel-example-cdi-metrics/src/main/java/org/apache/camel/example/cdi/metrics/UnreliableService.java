@@ -34,23 +34,15 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|inject
-operator|.
-name|Inject
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|codahale
 operator|.
 name|metrics
 operator|.
-name|Meter
+name|annotation
+operator|.
+name|Metered
 import|;
 end_import
 
@@ -87,26 +79,16 @@ class|class
 name|UnreliableService
 block|{
 annotation|@
-name|Inject
-DECL|field|attempt
-specifier|private
-name|Meter
-name|attempt
-decl_stmt|;
-DECL|method|unreliable (Exchange exchange)
+name|Metered
+DECL|method|attempt (Exchange exchange)
 specifier|public
 name|void
-name|unreliable
+name|attempt
 parameter_list|(
 name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|attempt
-operator|.
-name|mark
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|Math
