@@ -43,17 +43,17 @@ import|;
 end_import
 
 begin_class
-DECL|class|MulticastShareUnitOfWorkOnExceptionHandledFalseIssueTest
+DECL|class|SplitShareUnitOfWorkOnExceptionHandledFalseIssueTest
 specifier|public
 class|class
-name|MulticastShareUnitOfWorkOnExceptionHandledFalseIssueTest
+name|SplitShareUnitOfWorkOnExceptionHandledFalseIssueTest
 extends|extends
 name|ContextTestSupport
 block|{
-DECL|method|testMulticast ()
+DECL|method|testSplit ()
 specifier|public
 name|void
-name|testMulticast
+name|testSplit
 parameter_list|()
 throws|throws
 name|Exception
@@ -75,7 +75,7 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|1
+literal|2
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -96,7 +96,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Hello World"
+literal|"Camel,Donkey"
 argument_list|)
 expr_stmt|;
 name|fail
@@ -190,8 +190,11 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|multicast
+name|split
+argument_list|(
+name|body
 argument_list|()
+argument_list|)
 operator|.
 name|shareUnitOfWork
 argument_list|()
@@ -220,6 +223,17 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:b"
+argument_list|)
+operator|.
+name|filter
+argument_list|(
+name|body
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+literal|"Donkey"
+argument_list|)
 argument_list|)
 operator|.
 name|throwException
