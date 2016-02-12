@@ -58,7 +58,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: CAMEL-9444: getMockEndpoint("mock:a").expectedMessageCount(1);
+name|getMockEndpoint
+argument_list|(
+literal|"mock:a"
+argument_list|)
+operator|.
+name|expectedMessageCount
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:b"
@@ -102,31 +111,8 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|IllegalArgumentException
-name|cause
-init|=
-name|assertIsInstanceOf
-argument_list|(
-name|IllegalArgumentException
-operator|.
-name|class
-argument_list|,
-name|e
-operator|.
-name|getCause
-argument_list|()
-argument_list|)
-decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Forced"
-argument_list|,
-name|cause
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|//            IllegalArgumentException cause = assertIsInstanceOf(IllegalArgumentException.class, e.getCause());
+comment|//            assertEquals("Forced", cause.getMessage());
 block|}
 name|assertMockEndpointsSatisfied
 argument_list|()

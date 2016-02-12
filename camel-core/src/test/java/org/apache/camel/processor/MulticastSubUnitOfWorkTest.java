@@ -260,7 +260,13 @@ name|expectedBodiesReceived
 argument_list|(
 literal|"Hello"
 argument_list|,
+literal|"Hello"
+argument_list|,
 literal|"Hi"
+argument_list|,
+literal|"Hi"
+argument_list|,
+literal|"Bye"
 argument_list|,
 literal|"Bye"
 argument_list|)
