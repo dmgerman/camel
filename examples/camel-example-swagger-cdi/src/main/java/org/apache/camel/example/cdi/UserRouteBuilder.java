@@ -63,6 +63,16 @@ import|;
 end_import
 
 begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
+name|HttpURLConnection
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -253,7 +263,7 @@ argument_list|)
 operator|.
 name|dataType
 argument_list|(
-literal|"int"
+literal|"integer"
 argument_list|)
 operator|.
 name|endParam
@@ -298,6 +308,19 @@ literal|"The user to update or create"
 argument_list|)
 operator|.
 name|endParam
+argument_list|()
+operator|.
+name|responseMessage
+argument_list|()
+operator|.
+name|code
+argument_list|(
+name|HttpURLConnection
+operator|.
+name|HTTP_OK
+argument_list|)
+operator|.
+name|endResponseMessage
 argument_list|()
 operator|.
 name|to
