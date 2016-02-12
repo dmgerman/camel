@@ -63,16 +63,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|HttpURLConnection
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -269,6 +259,22 @@ operator|.
 name|endParam
 argument_list|()
 operator|.
+name|responseMessage
+argument_list|()
+operator|.
+name|code
+argument_list|(
+literal|200
+argument_list|)
+operator|.
+name|message
+argument_list|(
+literal|"The user"
+argument_list|)
+operator|.
+name|endResponseMessage
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"bean:userService?method=getUser(${header.id})"
@@ -315,9 +321,12 @@ argument_list|()
 operator|.
 name|code
 argument_list|(
-name|HttpURLConnection
+literal|200
+argument_list|)
 operator|.
-name|HTTP_OK
+name|message
+argument_list|(
+literal|"User created or updated"
 argument_list|)
 operator|.
 name|endResponseMessage
@@ -344,6 +353,22 @@ name|User
 operator|.
 name|class
 argument_list|)
+operator|.
+name|responseMessage
+argument_list|()
+operator|.
+name|code
+argument_list|(
+literal|200
+argument_list|)
+operator|.
+name|message
+argument_list|(
+literal|"All users"
+argument_list|)
+operator|.
+name|endResponseMessage
+argument_list|()
 operator|.
 name|to
 argument_list|(
