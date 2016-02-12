@@ -536,6 +536,10 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|javaType
+operator|=
+literal|"java.lang.String"
 argument_list|)
 DECL|field|saxonExtensionFunctions
 specifier|private
@@ -1048,7 +1052,7 @@ return|return
 name|saxonExtensionFunctions
 return|;
 block|}
-comment|/**      * Allows you to use a custom net.sf.saxon.lib.ExtensionFunctionDefinition.      * You would need to add Saxon to the classpath.      */
+comment|/**      * Allows you to use a custom net.sf.saxon.lib.ExtensionFunctionDefinition.      * You would need to add camel-saxon to the classpath.      * The function is looked up in the registry, where you can comma to separate multiple values to lookup.      */
 DECL|method|setSaxonExtensionFunctions (List<Object> extensionFunctions)
 specifier|public
 name|void
@@ -1068,7 +1072,7 @@ operator|=
 name|extensionFunctions
 expr_stmt|;
 block|}
-comment|/**      * Allows you to use a custom net.sf.saxon.lib.ExtensionFunctionDefinition.      * You would need to add Saxon to the classpath.      */
+comment|/**      * Allows you to use a custom net.sf.saxon.lib.ExtensionFunctionDefinition.      * You would need to add camel-saxon to the classpath.      * The function is looked up in the registry, where you can comma to separate multiple values to lookup.      */
 DECL|method|setSaxonExtensionFunctions (String extensionFunctions)
 specifier|public
 name|void
