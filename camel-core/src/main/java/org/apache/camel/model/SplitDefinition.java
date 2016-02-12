@@ -218,6 +218,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
+name|ShareUnitOfWorkAggregationStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Metadata
@@ -678,6 +694,12 @@ argument_list|,
 name|isParallelAggregate
 argument_list|)
 decl_stmt|;
+comment|//        if (isShareUnitOfWork) {
+comment|// wrap answer in a sub unit of work, since we share the unit of work
+comment|//            CamelInternalProcessor internalProcessor = new CamelInternalProcessor(answer);
+comment|//            internalProcessor.addAdvice(new CamelInternalProcessor.SubUnitOfWorkProcessorAdvice());
+comment|//            return internalProcessor;
+comment|//        }
 return|return
 name|answer
 return|;
@@ -824,6 +846,29 @@ name|routeContext
 operator|.
 name|getCamelContext
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|strategy
+operator|!=
+literal|null
+operator|&&
+name|shareUnitOfWork
+operator|!=
+literal|null
+operator|&&
+name|shareUnitOfWork
+condition|)
+block|{
+comment|// wrap strategy in share unit of work
+name|strategy
+operator|=
+operator|new
+name|ShareUnitOfWorkAggregationStrategy
+argument_list|(
+name|strategy
 argument_list|)
 expr_stmt|;
 block|}

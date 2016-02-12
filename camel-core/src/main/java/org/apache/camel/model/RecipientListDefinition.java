@@ -256,6 +256,22 @@ name|processor
 operator|.
 name|aggregate
 operator|.
+name|ShareUnitOfWorkAggregationStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
 name|UseLatestAggregationStrategy
 import|;
 end_import
@@ -1099,7 +1115,7 @@ operator|==
 literal|null
 condition|)
 block|{
-comment|// fallback to use latest
+comment|// default to use latest aggregation strategy
 name|strategy
 operator|=
 operator|new
@@ -1127,6 +1143,25 @@ name|routeContext
 operator|.
 name|getCamelContext
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|shareUnitOfWork
+operator|!=
+literal|null
+operator|&&
+name|shareUnitOfWork
+condition|)
+block|{
+comment|// wrap strategy in share unit of work
+name|strategy
+operator|=
+operator|new
+name|ShareUnitOfWorkAggregationStrategy
+argument_list|(
+name|strategy
 argument_list|)
 expr_stmt|;
 block|}

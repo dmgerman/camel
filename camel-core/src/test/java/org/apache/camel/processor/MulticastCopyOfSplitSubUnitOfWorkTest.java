@@ -66,31 +66,15 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|processor
-operator|.
-name|aggregate
-operator|.
-name|UseLatestAggregationStrategy
-import|;
-end_import
-
 begin_comment
 comment|/**  *  */
 end_comment
 
 begin_class
-DECL|class|SplitSubUnitOfWorkTest
+DECL|class|MulticastCopyOfSplitSubUnitOfWorkTest
 specifier|public
 class|class
-name|SplitSubUnitOfWorkTest
+name|MulticastCopyOfSplitSubUnitOfWorkTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -127,9 +111,9 @@ argument_list|(
 literal|"mock:a"
 argument_list|)
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|"Tiger,Camel"
+literal|1
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -137,11 +121,9 @@ argument_list|(
 literal|"mock:b"
 argument_list|)
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|"Tiger"
-argument_list|,
-literal|"Camel"
+literal|1
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -149,9 +131,9 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|"Tiger,Camel"
+literal|1
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -159,11 +141,9 @@ argument_list|(
 literal|"mock:line"
 argument_list|)
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|"Tiger"
-argument_list|,
-literal|"Camel"
+literal|1
 argument_list|)
 expr_stmt|;
 name|template
@@ -172,7 +152,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Tiger,Camel"
+literal|"Hello World"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -196,9 +176,9 @@ argument_list|(
 literal|"mock:dead"
 argument_list|)
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|"Tiger,Donkey,Camel"
+literal|1
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -216,13 +196,9 @@ argument_list|(
 literal|"mock:b"
 argument_list|)
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|"Tiger"
-argument_list|,
-literal|"Donkey"
-argument_list|,
-literal|"Camel"
+literal|1
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint
@@ -240,11 +216,9 @@ argument_list|(
 literal|"mock:line"
 argument_list|)
 operator|.
-name|expectedBodiesReceived
+name|expectedMessageCount
 argument_list|(
-literal|"Tiger"
-argument_list|,
-literal|"Camel"
+literal|0
 argument_list|)
 expr_stmt|;
 name|template
@@ -253,7 +227,7 @@ name|sendBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Tiger,Donkey,Camel"
+literal|"Hello Donkey"
 argument_list|)
 expr_stmt|;
 name|assertMockEndpointsSatisfied
@@ -323,20 +297,12 @@ name|to
 argument_list|(
 literal|"mock:a"
 argument_list|)
-comment|// share unit of work in the splitter, which tells Camel to propagate failures from
-comment|// processing the splitted messages back to the result of the splitter, which allows
+comment|// share unit of work in the multicast, which tells Camel to propagate failures from
+comment|// processing the multicast messages back to the result of the splitter, which allows
 comment|// it to act as a combined unit of work
 operator|.
-name|split
-argument_list|(
-name|body
+name|multicast
 argument_list|()
-operator|.
-name|tokenize
-argument_list|(
-literal|","
-argument_list|)
-argument_list|)
 operator|.
 name|shareUnitOfWork
 argument_list|()
