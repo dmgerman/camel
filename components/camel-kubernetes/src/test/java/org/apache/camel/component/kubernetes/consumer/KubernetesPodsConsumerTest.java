@@ -319,7 +319,7 @@ literal|"ADDED"
 argument_list|,
 literal|"MODIFIED"
 argument_list|,
-literal|"DELETED"
+literal|"MODIFIED"
 argument_list|)
 expr_stmt|;
 name|Exchange
@@ -645,9 +645,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1
-operator|*
-literal|1000
+literal|3000
 argument_list|)
 expr_stmt|;
 name|mockResultEndpoint

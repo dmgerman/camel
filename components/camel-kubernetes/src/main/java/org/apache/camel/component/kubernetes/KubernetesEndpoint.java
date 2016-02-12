@@ -62,6 +62,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -969,6 +981,32 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|createExecutor ()
+specifier|public
+name|ExecutorService
+name|createExecutor
+parameter_list|()
+block|{
+return|return
+name|getCamelContext
+argument_list|()
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|newFixedThreadPool
+argument_list|(
+name|this
+argument_list|,
+literal|"KubernetesConsumer"
+argument_list|,
+name|configuration
+operator|.
+name|getPoolSize
+argument_list|()
+argument_list|)
+return|;
 block|}
 DECL|method|getKubernetesClient ()
 specifier|public

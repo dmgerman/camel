@@ -36,6 +36,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -638,9 +648,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1
-operator|*
-literal|1000
+literal|3000
 argument_list|)
 expr_stmt|;
 name|mockResultEndpoint

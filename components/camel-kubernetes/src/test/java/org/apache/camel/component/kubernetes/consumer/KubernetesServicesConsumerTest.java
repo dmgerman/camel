@@ -638,9 +638,7 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
-literal|1
-operator|*
-literal|1000
+literal|3000
 argument_list|)
 expr_stmt|;
 name|mockResultEndpoint

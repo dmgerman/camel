@@ -265,6 +265,24 @@ specifier|private
 name|String
 name|namespaceName
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"1"
+argument_list|)
+DECL|field|poolSize
+specifier|private
+name|int
+name|poolSize
+init|=
+literal|1
+decl_stmt|;
 comment|/**      * Kubernetes Master url      */
 DECL|method|getMasterUrl ()
 specifier|public
@@ -749,6 +767,33 @@ operator|.
 name|namespaceName
 operator|=
 name|namespaceName
+expr_stmt|;
+block|}
+comment|/**      * The Consumer pool size      */
+DECL|method|getPoolSize ()
+specifier|public
+name|int
+name|getPoolSize
+parameter_list|()
+block|{
+return|return
+name|poolSize
+return|;
+block|}
+DECL|method|setPoolSize (int poolSize)
+specifier|public
+name|void
+name|setPoolSize
+parameter_list|(
+name|int
+name|poolSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|poolSize
+operator|=
+name|poolSize
 expr_stmt|;
 block|}
 annotation|@
