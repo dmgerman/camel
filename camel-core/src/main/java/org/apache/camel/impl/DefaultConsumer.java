@@ -262,6 +262,12 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+DECL|field|consumerToString
+specifier|private
+specifier|transient
+name|String
+name|consumerToString
+decl_stmt|;
 DECL|field|endpoint
 specifier|private
 specifier|final
@@ -338,7 +344,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|consumerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|consumerToString
+operator|=
 literal|"Consumer["
 operator|+
 name|URISupport
@@ -352,6 +366,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|consumerToString
 return|;
 block|}
 DECL|method|getRoute ()

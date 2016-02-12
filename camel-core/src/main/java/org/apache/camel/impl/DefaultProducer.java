@@ -141,6 +141,12 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+DECL|field|producerToString
+specifier|private
+specifier|transient
+name|String
+name|producerToString
+decl_stmt|;
 DECL|field|endpoint
 specifier|private
 specifier|final
@@ -170,7 +176,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|producerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|producerToString
+operator|=
 literal|"Producer["
 operator|+
 name|URISupport
@@ -184,6 +198,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|producerToString
 return|;
 block|}
 DECL|method|getEndpoint ()
