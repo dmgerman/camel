@@ -129,6 +129,12 @@ specifier|private
 name|boolean
 name|loggedIn
 decl_stmt|;
+DECL|field|remoteFileProducerToString
+specifier|private
+specifier|transient
+name|String
+name|remoteFileProducerToString
+decl_stmt|;
 DECL|method|RemoteFileProducer (RemoteFileEndpoint<T> endpoint, RemoteFileOperations<T> operations)
 specifier|protected
 name|RemoteFileProducer
@@ -923,7 +929,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|remoteFileProducerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|remoteFileProducerToString
+operator|=
 literal|"RemoteFileProducer["
 operator|+
 name|URISupport
@@ -938,6 +952,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|remoteFileProducerToString
 return|;
 block|}
 block|}

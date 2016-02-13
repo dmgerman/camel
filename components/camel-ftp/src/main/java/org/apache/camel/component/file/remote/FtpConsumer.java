@@ -174,6 +174,12 @@ specifier|protected
 name|String
 name|endpointPath
 decl_stmt|;
+DECL|field|ftpConsumerToString
+specifier|private
+specifier|transient
+name|String
+name|ftpConsumerToString
+decl_stmt|;
 DECL|method|FtpConsumer (RemoteFileEndpoint<FTPFile> endpoint, Processor processor, RemoteFileOperations<FTPFile> fileOperations)
 specifier|public
 name|FtpConsumer
@@ -1438,7 +1444,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|ftpConsumerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|ftpConsumerToString
+operator|=
 literal|"FtpConsumer["
 operator|+
 name|URISupport
@@ -1453,6 +1467,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|ftpConsumerToString
 return|;
 block|}
 block|}
