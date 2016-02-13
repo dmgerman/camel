@@ -76,6 +76,12 @@ specifier|final
 name|RedisClient
 name|redisClient
 decl_stmt|;
+DECL|field|redisProducerToString
+specifier|private
+specifier|transient
+name|String
+name|redisProducerToString
+decl_stmt|;
 DECL|method|RedisProducer (RedisEndpoint endpoint, RedisConfiguration configuration)
 specifier|public
 name|RedisProducer
@@ -171,7 +177,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|redisProducerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|redisProducerToString
+operator|=
 literal|"RedisProducer["
 operator|+
 name|URISupport
@@ -186,6 +200,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|redisProducerToString
 return|;
 block|}
 block|}
