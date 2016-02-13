@@ -623,6 +623,7 @@ return|;
 block|}
 comment|// Properties
 comment|//-------------------------------------------------------------------------
+comment|/**      * @deprecated use {@link #getHttpBinding()}      */
 annotation|@
 name|Deprecated
 DECL|method|getBinding ()
@@ -635,6 +636,7 @@ return|return
 name|httpBinding
 return|;
 block|}
+comment|/**      * @deprecated use {@link #setHttpBinding(HttpBinding)}      */
 annotation|@
 name|Deprecated
 DECL|method|setBinding (HttpBinding httpBinding)
