@@ -164,6 +164,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|snsProducerToString
+specifier|private
+specifier|transient
+name|String
+name|snsProducerToString
+decl_stmt|;
 DECL|method|SnsProducer (Endpoint endpoint)
 specifier|public
 name|SnsProducer
@@ -468,7 +474,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|snsProducerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|snsProducerToString
+operator|=
 literal|"SnsProducer["
 operator|+
 name|URISupport
@@ -483,6 +497,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|snsProducerToString
 return|;
 block|}
 annotation|@

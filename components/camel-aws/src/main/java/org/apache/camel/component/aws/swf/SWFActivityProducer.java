@@ -121,6 +121,12 @@ specifier|private
 name|SWFConfiguration
 name|configuration
 decl_stmt|;
+DECL|field|swfActivityProducerToString
+specifier|private
+specifier|transient
+name|String
+name|swfActivityProducerToString
+decl_stmt|;
 DECL|method|SWFActivityProducer (SWFEndpoint endpoint, CamelSWFActivityClient camelSWFActivityClient)
 specifier|public
 name|SWFActivityProducer
@@ -319,7 +325,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|swfActivityProducerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|swfActivityProducerToString
+operator|=
 literal|"SWFActivityProducer["
 operator|+
 name|URISupport
@@ -334,6 +348,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|swfActivityProducerToString
 return|;
 block|}
 block|}

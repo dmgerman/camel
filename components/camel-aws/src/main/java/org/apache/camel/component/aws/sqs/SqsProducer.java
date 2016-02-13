@@ -250,6 +250,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|sqsProducerToString
+specifier|private
+specifier|transient
+name|String
+name|sqsProducerToString
+decl_stmt|;
 DECL|method|SqsProducer (SqsEndpoint endpoint)
 specifier|public
 name|SqsProducer
@@ -602,7 +608,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|sqsProducerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|sqsProducerToString
+operator|=
 literal|"SqsProducer["
 operator|+
 name|URISupport
@@ -617,6 +631,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|sqsProducerToString
 return|;
 block|}
 DECL|method|translateAttributes (Map<String, Object> headers, Exchange exchange)

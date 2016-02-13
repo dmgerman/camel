@@ -330,6 +330,12 @@ specifier|private
 name|boolean
 name|filesConsumed
 decl_stmt|;
+DECL|field|s3ConsumerToString
+specifier|private
+specifier|transient
+name|String
+name|s3ConsumerToString
+decl_stmt|;
 DECL|method|S3Consumer (S3Endpoint endpoint, Processor processor)
 specifier|public
 name|S3Consumer
@@ -1210,7 +1216,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|s3ConsumerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|s3ConsumerToString
+operator|=
 literal|"S3Consumer["
 operator|+
 name|URISupport
@@ -1225,6 +1239,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|s3ConsumerToString
 return|;
 block|}
 block|}

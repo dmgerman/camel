@@ -222,6 +222,12 @@ name|CwProducer
 extends|extends
 name|DefaultProducer
 block|{
+DECL|field|cwProducerToString
+specifier|private
+specifier|transient
+name|String
+name|cwProducerToString
+decl_stmt|;
 DECL|method|CwProducer (Endpoint endpoint)
 specifier|public
 name|CwProducer
@@ -892,7 +898,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|cwProducerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|cwProducerToString
+operator|=
 literal|"CwProducer["
 operator|+
 name|URISupport
@@ -907,6 +921,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|cwProducerToString
 return|;
 block|}
 annotation|@

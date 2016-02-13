@@ -175,6 +175,12 @@ specifier|private
 name|GenericWorkflowWorker
 name|genericWorker
 decl_stmt|;
+DECL|field|swfWorkflowConsumerToString
+specifier|private
+specifier|transient
+name|String
+name|swfWorkflowConsumerToString
+decl_stmt|;
 DECL|method|SWFWorkflowConsumer (SWFEndpoint endpoint, Processor processor, SWFConfiguration configuration)
 specifier|public
 name|SWFWorkflowConsumer
@@ -503,7 +509,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|swfWorkflowConsumerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|swfWorkflowConsumerToString
+operator|=
 literal|"SWFWorkflowConsumer["
 operator|+
 name|URISupport
@@ -518,6 +532,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|swfWorkflowConsumerToString
 return|;
 block|}
 block|}

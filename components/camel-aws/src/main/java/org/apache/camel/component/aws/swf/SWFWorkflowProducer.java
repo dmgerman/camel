@@ -145,6 +145,12 @@ specifier|private
 name|SWFConfiguration
 name|configuration
 decl_stmt|;
+DECL|field|swfWorkflowProducerToString
+specifier|private
+specifier|transient
+name|String
+name|swfWorkflowProducerToString
+decl_stmt|;
 DECL|method|SWFWorkflowProducer (SWFEndpoint endpoint, CamelSWFWorkflowClient camelSWFClient)
 specifier|public
 name|SWFWorkflowProducer
@@ -1003,7 +1009,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|swfWorkflowProducerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|swfWorkflowProducerToString
+operator|=
 literal|"SWFWorkflowProducer["
 operator|+
 name|URISupport
@@ -1018,6 +1032,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|swfWorkflowProducerToString
 return|;
 block|}
 DECL|enum|Operation

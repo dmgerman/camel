@@ -161,6 +161,12 @@ specifier|private
 name|GenericActivityWorker
 name|genericWorker
 decl_stmt|;
+DECL|field|swfActivityConsumerToString
+specifier|private
+specifier|transient
+name|String
+name|swfActivityConsumerToString
+decl_stmt|;
 DECL|method|SWFActivityConsumer (SWFEndpoint endpoint, Processor processor, SWFConfiguration configuration)
 specifier|public
 name|SWFActivityConsumer
@@ -375,7 +381,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|swfActivityConsumerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|swfActivityConsumerToString
+operator|=
 literal|"SWFActivityConsumer["
 operator|+
 name|URISupport
@@ -390,6 +404,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|swfActivityConsumerToString
 return|;
 block|}
 block|}

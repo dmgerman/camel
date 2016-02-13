@@ -84,6 +84,12 @@ name|SdbProducer
 extends|extends
 name|DefaultProducer
 block|{
+DECL|field|sdbProducerToString
+specifier|private
+specifier|transient
+name|String
+name|sdbProducerToString
+decl_stmt|;
 DECL|method|SdbProducer (Endpoint endpoint)
 specifier|public
 name|SdbProducer
@@ -395,7 +401,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|sdbProducerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|sdbProducerToString
+operator|=
 literal|"SdbProducer["
 operator|+
 name|URISupport
@@ -410,6 +424,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|sdbProducerToString
 return|;
 block|}
 annotation|@

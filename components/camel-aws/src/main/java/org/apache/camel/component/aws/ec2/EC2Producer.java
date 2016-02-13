@@ -494,6 +494,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|ec2ProducerToString
+specifier|private
+specifier|transient
+name|String
+name|ec2ProducerToString
+decl_stmt|;
 DECL|method|EC2Producer (Endpoint endpoint)
 specifier|public
 name|EC2Producer
@@ -742,7 +748,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|ec2ProducerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|ec2ProducerToString
+operator|=
 literal|"EC2Producer["
 operator|+
 name|URISupport
@@ -757,6 +771,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|ec2ProducerToString
 return|;
 block|}
 annotation|@

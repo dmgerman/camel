@@ -425,6 +425,12 @@ specifier|private
 name|ScheduledExecutorService
 name|scheduledExecutor
 decl_stmt|;
+DECL|field|sqsConsumerToString
+specifier|private
+specifier|transient
+name|String
+name|sqsConsumerToString
+decl_stmt|;
 DECL|method|SqsConsumer (SqsEndpoint endpoint, Processor processor)
 specifier|public
 name|SqsConsumer
@@ -1522,7 +1528,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|sqsConsumerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|sqsConsumerToString
+operator|=
 literal|"SqsConsumer["
 operator|+
 name|URISupport
@@ -1537,6 +1551,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|sqsConsumerToString
 return|;
 block|}
 annotation|@

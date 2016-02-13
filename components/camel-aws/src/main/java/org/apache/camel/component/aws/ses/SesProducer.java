@@ -258,6 +258,12 @@ name|SesProducer
 extends|extends
 name|DefaultProducer
 block|{
+DECL|field|sesProducerToString
+specifier|private
+specifier|transient
+name|String
+name|sesProducerToString
+decl_stmt|;
 DECL|method|SesProducer (Endpoint endpoint)
 specifier|public
 name|SesProducer
@@ -1234,7 +1240,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|sesProducerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|sesProducerToString
+operator|=
 literal|"SesProducer["
 operator|+
 name|URISupport
@@ -1249,6 +1263,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|sesProducerToString
 return|;
 block|}
 annotation|@

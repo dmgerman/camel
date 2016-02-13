@@ -480,6 +480,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|s3ProducerToString
+specifier|private
+specifier|transient
+name|String
+name|s3ProducerToString
+decl_stmt|;
 DECL|method|S3Producer (final Endpoint endpoint)
 specifier|public
 name|S3Producer
@@ -2035,7 +2041,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|s3ProducerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|s3ProducerToString
+operator|=
 literal|"S3Producer["
 operator|+
 name|URISupport
@@ -2050,6 +2064,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|s3ProducerToString
 return|;
 block|}
 annotation|@

@@ -84,6 +84,12 @@ name|DdbProducer
 extends|extends
 name|DefaultProducer
 block|{
+DECL|field|ddbProducerToString
+specifier|private
+specifier|transient
+name|String
+name|ddbProducerToString
+decl_stmt|;
 DECL|method|DdbProducer (Endpoint endpoint)
 specifier|public
 name|DdbProducer
@@ -411,7 +417,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|ddbProducerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|ddbProducerToString
+operator|=
 literal|"DdbProducer["
 operator|+
 name|URISupport
@@ -426,6 +440,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|ddbProducerToString
 return|;
 block|}
 annotation|@
