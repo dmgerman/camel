@@ -78,6 +78,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|JndiRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -85,13 +99,48 @@ import|;
 end_import
 
 begin_class
-DECL|class|RestJettyGetTest
+DECL|class|RestJettyGetCustomHttpBindingTest
 specifier|public
 class|class
-name|RestJettyGetTest
+name|RestJettyGetCustomHttpBindingTest
 extends|extends
 name|BaseJettyTest
 block|{
+annotation|@
+name|Override
+DECL|method|createRegistry ()
+specifier|protected
+name|JndiRegistry
+name|createRegistry
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|JndiRegistry
+name|jndi
+init|=
+name|super
+operator|.
+name|createRegistry
+argument_list|()
+decl_stmt|;
+name|jndi
+operator|.
+name|bind
+argument_list|(
+literal|"mybinding"
+argument_list|,
+operator|new
+name|MyCustomHttpBinding
+argument_list|(
+literal|"I was here;"
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|jndi
+return|;
+block|}
 annotation|@
 name|Test
 DECL|method|testJettyProducerGet ()
@@ -125,7 +174,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"123;Donald Duck"
+literal|"I was here;123;Donald Duck"
 argument_list|,
 name|out
 argument_list|)
@@ -173,6 +222,13 @@ name|port
 argument_list|(
 name|getPort
 argument_list|()
+argument_list|)
+operator|.
+name|endpointProperty
+argument_list|(
+literal|"httpBindingRef"
+argument_list|,
+literal|"#mybinding"
 argument_list|)
 expr_stmt|;
 comment|// use the rest DSL to define the rest services

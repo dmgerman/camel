@@ -5587,18 +5587,21 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
-comment|// disable this filter as we want to use ours
-name|endpoint
+if|if
+condition|(
+operator|!
+name|map
 operator|.
-name|setEnableMultipartFilter
+name|containsKey
 argument_list|(
-literal|false
+literal|"httpBindingRef"
 argument_list|)
-expr_stmt|;
-comment|// use the rest binding
+condition|)
+block|{
+comment|// use the rest binding, if not using a custom http binding
 name|endpoint
 operator|.
-name|setBinding
+name|setHttpBinding
 argument_list|(
 operator|new
 name|JettyRestHttpBinding
@@ -5607,6 +5610,15 @@ name|endpoint
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// disable this filter as we want to use ours
+name|endpoint
+operator|.
+name|setEnableMultipartFilter
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 comment|// configure consumer properties
 name|Consumer
 name|consumer
