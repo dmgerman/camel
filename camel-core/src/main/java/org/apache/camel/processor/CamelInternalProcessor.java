@@ -1229,13 +1229,18 @@ condition|(
 name|forceShutdown
 condition|)
 block|{
+name|String
+name|msg
+init|=
+literal|"Run not allowed as ShutdownStrategy is forcing shutting down, will reject executing exchange: "
+operator|+
+name|exchange
+decl_stmt|;
 name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Run not allowed as ShutdownStrategy is forcing shutting down, will reject executing exchange: {}"
-argument_list|,
-name|exchange
+name|msg
 argument_list|)
 expr_stmt|;
 if|if
@@ -1254,7 +1259,9 @@ name|setException
 argument_list|(
 operator|new
 name|RejectedExecutionException
-argument_list|()
+argument_list|(
+name|msg
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
