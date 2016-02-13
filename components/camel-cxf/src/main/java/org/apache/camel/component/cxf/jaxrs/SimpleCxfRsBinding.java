@@ -1003,7 +1003,7 @@ block|}
 end_function
 
 begin_comment
-comment|/**      * Filters the response headers that will be sent back to the client.      *<p />      * The {@link DefaultCxfRsBinding} doesn't filter the response headers according to the {@link HeaderFilterStrategy},       * so we handle this task in this binding.      * @param headers      * @param camelExchange      * @return      */
+comment|/**      * Filters the response headers that will be sent back to the client.      *<p />      * The {@link DefaultCxfRsBinding} doesn't filter the response headers according to the {@link HeaderFilterStrategy},       * so we handle this task in this binding.      */
 end_comment
 
 begin_function
@@ -1088,6 +1088,23 @@ name|getValue
 argument_list|()
 argument_list|,
 name|camelExchange
+argument_list|)
+condition|)
+block|{
+continue|continue;
+block|}
+comment|// skip content-length as the simple binding with Response will set correct content-length based
+comment|// on the entity set as the Response
+if|if
+condition|(
+literal|"content-length"
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|entry
+operator|.
+name|getKey
+argument_list|()
 argument_list|)
 condition|)
 block|{
