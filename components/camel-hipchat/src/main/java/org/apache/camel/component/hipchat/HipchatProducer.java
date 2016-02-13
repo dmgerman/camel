@@ -301,6 +301,12 @@ operator|.
 name|createDefault
 argument_list|()
 decl_stmt|;
+DECL|field|hipchatProducerToString
+specifier|private
+specifier|transient
+name|String
+name|hipchatProducerToString
+decl_stmt|;
 DECL|method|HipchatProducer (HipchatEndpoint endpoint)
 specifier|public
 name|HipchatProducer
@@ -941,7 +947,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|hipchatProducerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|hipchatProducerToString
+operator|=
 literal|"HipchatProducer["
 operator|+
 name|URISupport
@@ -956,6 +970,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|hipchatProducerToString
 return|;
 block|}
 block|}

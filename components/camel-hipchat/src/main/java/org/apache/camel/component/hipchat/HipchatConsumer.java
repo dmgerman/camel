@@ -339,6 +339,12 @@ operator|.
 name|createDefault
 argument_list|()
 decl_stmt|;
+DECL|field|hipchatConsumerToString
+specifier|private
+specifier|transient
+name|String
+name|hipchatConsumerToString
+decl_stmt|;
 DECL|method|HipchatConsumer (HipchatEndpoint endpoint, Processor processor)
 specifier|public
 name|HipchatConsumer
@@ -851,7 +857,15 @@ name|String
 name|toString
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|hipchatConsumerToString
+operator|==
+literal|null
+condition|)
+block|{
+name|hipchatConsumerToString
+operator|=
 literal|"HipchatConsumer["
 operator|+
 name|URISupport
@@ -866,6 +880,10 @@ argument_list|()
 argument_list|)
 operator|+
 literal|"]"
+expr_stmt|;
+block|}
+return|return
+name|hipchatConsumerToString
 return|;
 block|}
 block|}
