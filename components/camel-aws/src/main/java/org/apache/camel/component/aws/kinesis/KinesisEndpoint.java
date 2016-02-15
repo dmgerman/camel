@@ -138,34 +138,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|HeaderFilterStrategy
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|HeaderFilterStrategyAware
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|Metadata
 import|;
 end_import
@@ -248,8 +220,6 @@ class|class
 name|KinesisEndpoint
 extends|extends
 name|ScheduledPollEndpoint
-implements|implements
-name|HeaderFilterStrategyAware
 block|{
 annotation|@
 name|UriPath
@@ -339,13 +309,6 @@ init|=
 name|ShardIteratorType
 operator|.
 name|TRIM_HORIZON
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|headerFilterStrategy
-specifier|private
-name|HeaderFilterStrategy
-name|headerFilterStrategy
 decl_stmt|;
 DECL|method|KinesisEndpoint (String uri, String streamName, KinesisComponent component)
 specifier|public
@@ -642,61 +605,6 @@ name|iteratorType
 operator|=
 name|iteratorType
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|getHeaderFilterStrategy ()
-specifier|public
-name|HeaderFilterStrategy
-name|getHeaderFilterStrategy
-parameter_list|()
-block|{
-return|return
-name|headerFilterStrategy
-return|;
-block|}
-annotation|@
-name|Override
-comment|/**      * To use a custom HeaderFilterStrategy to map headers to/from Camel.      */
-DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
-specifier|public
-name|void
-name|setHeaderFilterStrategy
-parameter_list|(
-name|HeaderFilterStrategy
-name|headerFilterStrategy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|headerFilterStrategy
-operator|=
-name|headerFilterStrategy
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-return|return
-literal|"KinesisEndpoint{amazonKinesisClient=[redacted], maxResultsPerRequest="
-operator|+
-name|maxResultsPerRequest
-operator|+
-literal|", iteratorType="
-operator|+
-name|iteratorType
-operator|+
-literal|", streamName="
-operator|+
-name|streamName
-operator|+
-literal|'}'
-return|;
 block|}
 block|}
 end_class
