@@ -339,7 +339,7 @@ parameter_list|()
 block|{
 name|this
 argument_list|(
-name|Map
+name|Object
 operator|.
 name|class
 argument_list|)
