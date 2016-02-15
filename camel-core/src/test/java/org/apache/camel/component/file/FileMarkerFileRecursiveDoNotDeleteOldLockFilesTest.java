@@ -212,13 +212,6 @@ argument_list|(
 literal|"New World"
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|setResultMinimumWaitTime
-argument_list|(
-literal|1000
-argument_list|)
-expr_stmt|;
 comment|// start the route
 name|context
 operator|.
