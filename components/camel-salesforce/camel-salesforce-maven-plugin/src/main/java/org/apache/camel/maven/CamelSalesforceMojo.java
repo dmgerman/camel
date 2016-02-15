@@ -1317,6 +1317,22 @@ specifier|protected
 name|String
 name|packageName
 decl_stmt|;
+annotation|@
+name|Parameter
+argument_list|(
+name|property
+operator|=
+literal|"camelSalesforce.useStringsForPicklists"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|useStringsForPicklists
+specifier|protected
+name|Boolean
+name|useStringsForPicklists
+decl_stmt|;
 DECL|field|engine
 specifier|private
 name|VelocityEngine
@@ -2037,7 +2053,9 @@ name|utility
 init|=
 operator|new
 name|GeneratorUtility
-argument_list|()
+argument_list|(
+name|useStringsForPicklists
+argument_list|)
 decl_stmt|;
 comment|// should we provide a flag to control timestamp generation?
 specifier|final
@@ -3108,6 +3126,15 @@ argument_list|,
 name|generatedDate
 argument_list|)
 expr_stmt|;
+name|context
+operator|.
+name|put
+argument_list|(
+literal|"useStringsForPicklists"
+argument_list|,
+name|useStringsForPicklists
+argument_list|)
+expr_stmt|;
 name|Template
 name|pojoTemplate
 init|=
@@ -3724,6 +3751,26 @@ name|PICKLIST
 init|=
 literal|"picklist"
 decl_stmt|;
+DECL|field|useStringsForPicklists
+specifier|private
+name|Boolean
+name|useStringsForPicklists
+decl_stmt|;
+DECL|method|GeneratorUtility (Boolean useStringsForPicklists)
+specifier|public
+name|GeneratorUtility
+parameter_list|(
+name|Boolean
+name|useStringsForPicklists
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useStringsForPicklists
+operator|=
+name|useStringsForPicklists
+expr_stmt|;
+block|}
 DECL|method|isBlobField (SObjectField field)
 specifier|public
 name|boolean
@@ -3805,6 +3852,22 @@ name|field
 argument_list|)
 condition|)
 block|{
+if|if
+condition|(
+name|useStringsForPicklists
+condition|)
+block|{
+return|return
+name|String
+operator|.
+name|class
+operator|.
+name|getName
+argument_list|()
+return|;
+block|}
+else|else
+block|{
 comment|// use a pick list enum, which will be created after generating the SObject class
 return|return
 name|description
@@ -3823,6 +3886,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+block|}
 elseif|else
 if|if
 condition|(
@@ -3832,7 +3896,11 @@ name|field
 argument_list|)
 condition|)
 block|{
-comment|// use a pick list enum array, enum will be created after generating the SObject class
+if|if
+condition|(
+name|useStringsForPicklists
+condition|)
+block|{
 return|return
 name|description
 operator|.
@@ -3851,6 +3919,22 @@ argument_list|)
 operator|+
 literal|"[]"
 return|;
+block|}
+else|else
+block|{
+comment|// use a pick list enum array, enum will be created after generating the SObject class
+return|return
+name|enumTypeName
+argument_list|(
+name|field
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+operator|+
+literal|"[]"
+return|;
+block|}
 block|}
 else|else
 block|{
