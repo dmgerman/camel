@@ -224,10 +224,6 @@ block|{
 annotation|@
 name|UriPath
 argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
 name|description
 operator|=
 literal|"Name of the stream"
@@ -244,14 +240,9 @@ specifier|private
 name|String
 name|streamName
 decl_stmt|;
-comment|// For now, always assume that we've been supplied a client in the Camel registry.
 annotation|@
 name|UriParam
 argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
 name|description
 operator|=
 literal|"Amazon Kinesis client to use for all requests for this endpoint"
