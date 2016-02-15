@@ -746,7 +746,7 @@ name|int
 name|messageCount
 parameter_list|)
 block|{
-comment|// now assert that they have actually been throttled
+comment|// now assert that they have actually been throttled (use +/- 50 as slack)
 name|long
 name|minimum
 init|=
@@ -758,6 +758,8 @@ name|throttle
 argument_list|,
 name|messageCount
 argument_list|)
+operator|-
+literal|50
 decl_stmt|;
 name|long
 name|maximum
@@ -770,6 +772,8 @@ name|throttle
 argument_list|,
 name|messageCount
 argument_list|)
+operator|+
+literal|50
 decl_stmt|;
 name|log
 operator|.
