@@ -20,26 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|io
-operator|.
-name|InputStream
-import|;
-end_import
-
-begin_import
-import|import
 name|javax
 operator|.
 name|xml
@@ -151,20 +131,6 @@ operator|.
 name|management
 operator|.
 name|ManagedResource
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|converter
-operator|.
-name|IOConverter
 import|;
 end_import
 
@@ -302,54 +268,6 @@ name|UriPath
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|IOHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ResourceHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * Validates the payload of a message using XML Schema and JAXP Validation.  */
 end_comment
@@ -392,22 +310,6 @@ name|ValidatorEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|ValidatorEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
@@ -618,10 +520,6 @@ specifier|private
 specifier|final
 name|SchemaReader
 name|schemaReader
-init|=
-operator|new
-name|SchemaReader
-argument_list|()
 decl_stmt|;
 DECL|field|schemaReaderConfigured
 specifier|private
@@ -633,7 +531,14 @@ DECL|method|ValidatorEndpoint ()
 specifier|public
 name|ValidatorEndpoint
 parameter_list|()
-block|{     }
+block|{
+name|schemaReader
+operator|=
+operator|new
+name|SchemaReader
+argument_list|()
+expr_stmt|;
+block|}
 DECL|method|ValidatorEndpoint (String endpointUri, Component component, String resourceUri)
 specifier|public
 name|ValidatorEndpoint
@@ -661,6 +566,17 @@ name|resourceUri
 operator|=
 name|resourceUri
 expr_stmt|;
+name|schemaReader
+operator|=
+operator|new
+name|SchemaReader
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|resourceUri
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|ManagedOperation
@@ -674,34 +590,7 @@ specifier|public
 name|void
 name|clearCachedSchema
 parameter_list|()
-throws|throws
-name|Exception
 block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"{} rereading schema resource: {}"
-argument_list|,
-name|this
-argument_list|,
-name|resourceUri
-argument_list|)
-expr_stmt|;
-name|byte
-index|[]
-name|bytes
-init|=
-name|readSchemaResource
-argument_list|()
-decl_stmt|;
-name|schemaReader
-operator|.
-name|setSchemaAsByteArray
-argument_list|(
-name|bytes
-argument_list|)
-expr_stmt|;
 name|schemaReader
 operator|.
 name|setSchema
@@ -709,8 +598,7 @@ argument_list|(
 literal|null
 argument_list|)
 expr_stmt|;
-comment|// will cause to reload the schema from
-comment|// the set byte-array on next request
+comment|// will cause to reload the schema
 block|}
 annotation|@
 name|Override
@@ -751,8 +639,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// set the created resource resolver to the resourceResolver variable, so that it can
-comment|// be accessed by the endpoint
 name|resourceResolver
 operator|=
 name|resourceResolverFactory
@@ -765,6 +651,8 @@ argument_list|,
 name|resourceUri
 argument_list|)
 expr_stmt|;
+comment|// set the created resource resolver to the resourceResolver variable, so that it can
+comment|// be accessed by the endpoint
 name|schemaReader
 operator|.
 name|setResourceResolver
@@ -809,31 +697,6 @@ name|getSchemaFactory
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|byte
-index|[]
-name|bytes
-init|=
-name|readSchemaResource
-argument_list|()
-decl_stmt|;
-name|schemaReader
-operator|.
-name|setSchemaAsByteArray
-argument_list|(
-name|bytes
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"{} using schema resource: {}"
-argument_list|,
-name|this
-argument_list|,
-name|resourceUri
-argument_list|)
-expr_stmt|;
 comment|// force loading of schema at create time otherwise concurrent
 comment|// processing could cause thread safe issues for the
 comment|// javax.xml.validation.SchemaFactory
@@ -870,62 +733,6 @@ name|this
 argument_list|,
 name|validator
 argument_list|)
-return|;
-block|}
-DECL|method|readSchemaResource ()
-specifier|protected
-name|byte
-index|[]
-name|readSchemaResource
-parameter_list|()
-throws|throws
-name|IOException
-block|{
-name|InputStream
-name|is
-init|=
-name|ResourceHelper
-operator|.
-name|resolveMandatoryResourceAsInputStream
-argument_list|(
-name|getCamelContext
-argument_list|()
-argument_list|,
-name|resourceUri
-argument_list|)
-decl_stmt|;
-name|byte
-index|[]
-name|bytes
-init|=
-literal|null
-decl_stmt|;
-try|try
-block|{
-name|bytes
-operator|=
-name|IOConverter
-operator|.
-name|toBytes
-argument_list|(
-name|is
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
-comment|// and make sure to close the input stream after the schema has been
-comment|// loaded
-name|IOHelper
-operator|.
-name|close
-argument_list|(
-name|is
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-name|bytes
 return|;
 block|}
 annotation|@
