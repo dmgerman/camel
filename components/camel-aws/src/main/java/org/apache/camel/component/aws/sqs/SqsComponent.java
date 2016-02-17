@@ -233,7 +233,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Extending message visibilty (extendMessageVisibility) requires visibilityTimeout to be set on the Endpoint."
+literal|"Extending message visibility (extendMessageVisibility) requires visibilityTimeout to be set on the Endpoint."
 argument_list|)
 throw|;
 block|}
