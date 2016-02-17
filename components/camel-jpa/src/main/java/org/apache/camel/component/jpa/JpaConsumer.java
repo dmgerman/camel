@@ -549,6 +549,33 @@ name|pendingExchanges
 operator|=
 literal|0
 expr_stmt|;
+comment|// Recreate EntityManager in case it is disposed due to transaction rollback
+if|if
+condition|(
+name|entityManager
+operator|==
+literal|null
+condition|)
+block|{
+name|entityManager
+operator|=
+name|entityManagerFactory
+operator|.
+name|createEntityManager
+argument_list|()
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Recreated EntityManager {} on {}"
+argument_list|,
+name|entityManager
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+block|}
 name|Object
 name|messagePolled
 init|=
@@ -777,6 +804,28 @@ expr_stmt|;
 block|}
 else|else
 block|{
+comment|// Potentially EntityManager could be in an inconsistent state after transaction rollback,
+comment|// so disposing it to have it recreated in next poll. cf. Java Persistence API 3.3.2 Transaction Rollback
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Disposing EntityManager {} on {} due to coming transaction rollback"
+argument_list|,
+name|entityManager
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+name|entityManager
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+name|entityManager
+operator|=
+literal|null
+expr_stmt|;
 comment|// rollback all by throwning exception
 throw|throw
 name|cause
