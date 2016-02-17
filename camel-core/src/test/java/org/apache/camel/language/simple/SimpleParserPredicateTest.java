@@ -1353,6 +1353,36 @@ name|exchange
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// no header with that name
+name|parser
+operator|=
+operator|new
+name|SimplePredicateParser
+argument_list|(
+literal|"${body[unknown]} == 456"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|pre
+operator|=
+name|parser
+operator|.
+name|parsePredicate
+argument_list|()
+expr_stmt|;
+name|assertFalse
+argument_list|(
+literal|"Should not match"
+argument_list|,
+name|pre
+operator|.
+name|matches
+argument_list|(
+name|exchange
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|createRegistry ()
 specifier|protected
