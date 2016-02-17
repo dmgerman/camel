@@ -237,10 +237,7 @@ literal|"consumer"
 argument_list|)
 DECL|field|attributeNames
 specifier|private
-name|Collection
-argument_list|<
 name|String
-argument_list|>
 name|attributeNames
 decl_stmt|;
 annotation|@
@@ -252,10 +249,7 @@ literal|"consumer"
 argument_list|)
 DECL|field|messageAttributeNames
 specifier|private
-name|Collection
-argument_list|<
 name|String
-argument_list|>
 name|messageAttributeNames
 decl_stmt|;
 annotation|@
@@ -553,10 +547,7 @@ expr_stmt|;
 block|}
 DECL|method|getAttributeNames ()
 specifier|public
-name|Collection
-argument_list|<
 name|String
-argument_list|>
 name|getAttributeNames
 parameter_list|()
 block|{
@@ -564,16 +555,13 @@ return|return
 name|attributeNames
 return|;
 block|}
-comment|/**      * A list of attribute names to receive when consuming      */
-DECL|method|setAttributeNames (Collection<String> attributeNames)
+comment|/**      * A list of attribute names to receive when consuming.  Multiple names can be separated by comma.      */
+DECL|method|setAttributeNames (String attributeNames)
 specifier|public
 name|void
 name|setAttributeNames
 parameter_list|(
-name|Collection
-argument_list|<
 name|String
-argument_list|>
 name|attributeNames
 parameter_list|)
 block|{
@@ -586,10 +574,7 @@ expr_stmt|;
 block|}
 DECL|method|getMessageAttributeNames ()
 specifier|public
-name|Collection
-argument_list|<
 name|String
-argument_list|>
 name|getMessageAttributeNames
 parameter_list|()
 block|{
@@ -597,16 +582,13 @@ return|return
 name|messageAttributeNames
 return|;
 block|}
-comment|/**      * A list of message attribute names to receive when consuming      */
-DECL|method|setMessageAttributeNames (Collection<String> messageAttributeNames)
+comment|/**      * A list of message attribute names to receive when consuming. Multiple names can be separated by comma.      */
+DECL|method|setMessageAttributeNames (String messageAttributeNames)
 specifier|public
 name|void
 name|setMessageAttributeNames
 parameter_list|(
-name|Collection
-argument_list|<
 name|String
-argument_list|>
 name|messageAttributeNames
 parameter_list|)
 block|{
