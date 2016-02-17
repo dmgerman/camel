@@ -335,11 +335,16 @@ name|SchemaReader
 parameter_list|()
 block|{
 name|this
-argument_list|(
+operator|.
+name|camelContext
+operator|=
 literal|null
-argument_list|,
+expr_stmt|;
+name|this
+operator|.
+name|schemaResourceUri
+operator|=
 literal|null
-argument_list|)
 expr_stmt|;
 block|}
 comment|/** Specify a camel context and a schema resource URI in order to read the schema via the class resolver specified in the Camel context. */
