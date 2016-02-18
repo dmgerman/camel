@@ -552,6 +552,11 @@ specifier|private
 name|boolean
 name|storeBodyAsText
 decl_stmt|;
+DECL|field|allowSerializedHeaders
+specifier|private
+name|boolean
+name|allowSerializedHeaders
+decl_stmt|;
 comment|/**      * Creates an aggregation repository      */
 DECL|method|JdbcAggregationRepository ()
 specifier|public
@@ -1319,6 +1324,8 @@ argument_list|(
 name|camelContext
 argument_list|,
 name|exchange
+argument_list|,
+name|allowSerializedHeaders
 argument_list|)
 decl_stmt|;
 name|jdbcTemplate
@@ -2291,6 +2298,32 @@ operator|.
 name|storeBodyAsText
 operator|=
 name|storeBodyAsText
+expr_stmt|;
+block|}
+DECL|method|isAllowSerializedHeaders ()
+specifier|public
+name|boolean
+name|isAllowSerializedHeaders
+parameter_list|()
+block|{
+return|return
+name|allowSerializedHeaders
+return|;
+block|}
+DECL|method|setAllowSerializedHeaders (boolean allowSerializedHeaders)
+specifier|public
+name|void
+name|setAllowSerializedHeaders
+parameter_list|(
+name|boolean
+name|allowSerializedHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowSerializedHeaders
+operator|=
+name|allowSerializedHeaders
 expr_stmt|;
 block|}
 comment|/**      * @return the lobHandler      */

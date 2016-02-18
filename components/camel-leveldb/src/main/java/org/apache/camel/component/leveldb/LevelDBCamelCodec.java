@@ -276,7 +276,7 @@ return|return
 name|key
 return|;
 block|}
-DECL|method|marshallExchange (CamelContext camelContext, Exchange exchange)
+DECL|method|marshallExchange (CamelContext camelContext, Exchange exchange, boolean allowSerializedHeaders)
 specifier|public
 name|Buffer
 name|marshallExchange
@@ -286,6 +286,9 @@ name|camelContext
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|boolean
+name|allowSerializedHeaders
 parameter_list|)
 throws|throws
 name|IOException
@@ -308,6 +311,8 @@ argument_list|(
 name|exchange
 argument_list|,
 literal|false
+argument_list|,
+name|allowSerializedHeaders
 argument_list|)
 decl_stmt|;
 comment|// add the aggregated size and timeout property as the only properties we want to retain

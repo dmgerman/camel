@@ -405,6 +405,11 @@ name|maximumRedeliveries
 init|=
 literal|3
 decl_stmt|;
+DECL|field|allowSerializedHeaders
+specifier|private
+name|boolean
+name|allowSerializedHeaders
+decl_stmt|;
 comment|/**      * Creates new {@link HazelcastAggregationRepository} that defaults to non-optimistic locking      * with recoverable behavior and a local Hazelcast instance. Recoverable repository name defaults to      * {@code repositoryName} + "-compeleted".      * @param repositoryName {@link IMap} repository name;      */
 DECL|method|HazelcastAggregationRepository (final String repositoryName)
 specifier|public
@@ -741,6 +746,10 @@ operator|.
 name|marshal
 argument_list|(
 name|newExchange
+argument_list|,
+literal|true
+argument_list|,
+name|allowSerializedHeaders
 argument_list|)
 decl_stmt|;
 specifier|final
@@ -810,6 +819,10 @@ operator|.
 name|marshal
 argument_list|(
 name|oldExchange
+argument_list|,
+literal|true
+argument_list|,
+name|allowSerializedHeaders
 argument_list|)
 decl_stmt|;
 name|DefaultExchangeHolder
@@ -820,6 +833,10 @@ operator|.
 name|marshal
 argument_list|(
 name|newExchange
+argument_list|,
+literal|true
+argument_list|,
+name|allowSerializedHeaders
 argument_list|)
 decl_stmt|;
 if|if
@@ -938,6 +955,10 @@ operator|.
 name|marshal
 argument_list|(
 name|exchange
+argument_list|,
+literal|true
+argument_list|,
+name|allowSerializedHeaders
 argument_list|)
 decl_stmt|;
 name|DefaultExchangeHolder
@@ -1291,6 +1312,32 @@ argument_list|)
 argument_list|)
 return|;
 block|}
+DECL|method|isAllowSerializedHeaders ()
+specifier|public
+name|boolean
+name|isAllowSerializedHeaders
+parameter_list|()
+block|{
+return|return
+name|allowSerializedHeaders
+return|;
+block|}
+DECL|method|setAllowSerializedHeaders (boolean allowSerializedHeaders)
+specifier|public
+name|void
+name|setAllowSerializedHeaders
+parameter_list|(
+name|boolean
+name|allowSerializedHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowSerializedHeaders
+operator|=
+name|allowSerializedHeaders
+expr_stmt|;
+block|}
 comment|/**      * This method performs transactional operation on removing the {@code exchange}      * from the operational storage and moving it into the persistent one if the {@link HazelcastAggregationRepository}      * runs in recoverable mode and {@code optimistic} is false. It will act at<u>your own</u> risk otherwise.      * @param camelContext   the current CamelContext      * @param key            the correlation key      * @param exchange       the exchange to remove      */
 annotation|@
 name|Override
@@ -1317,6 +1364,10 @@ operator|.
 name|marshal
 argument_list|(
 name|exchange
+argument_list|,
+literal|true
+argument_list|,
+name|allowSerializedHeaders
 argument_list|)
 decl_stmt|;
 if|if

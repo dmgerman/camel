@@ -278,6 +278,8 @@ argument_list|(
 name|exchange
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 return|;
 block|}
@@ -387,6 +389,8 @@ operator|.
 name|safeSetInHeaders
 argument_list|(
 name|exchange
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 if|if
@@ -433,6 +437,8 @@ operator|.
 name|safeSetOutHeaders
 argument_list|(
 name|exchange
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -461,6 +467,213 @@ operator|.
 name|safeSetProperties
 argument_list|(
 name|exchange
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+name|payload
+operator|.
+name|exception
+operator|=
+name|exchange
+operator|.
+name|getException
+argument_list|()
+expr_stmt|;
+return|return
+name|payload
+return|;
+block|}
+comment|/**      * Creates a payload object with the information from the given exchange.      *      * @param exchange the exchange, must<b>not</b> be<tt>null</tt>      * @param includeProperties whether or not to include exchange properties      * @param allowSerializedHeaders whether or not to include serialized headers      * @return the holder object with information copied form the exchange      */
+DECL|method|marshal (Exchange exchange, boolean includeProperties, boolean allowSerializedHeaders)
+specifier|public
+specifier|static
+name|DefaultExchangeHolder
+name|marshal
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|boolean
+name|includeProperties
+parameter_list|,
+name|boolean
+name|allowSerializedHeaders
+parameter_list|)
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|exchange
+argument_list|,
+literal|"exchange"
+argument_list|)
+expr_stmt|;
+comment|// we do not support files
+name|Object
+name|body
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|body
+operator|instanceof
+name|WrappedFile
+operator|||
+name|body
+operator|instanceof
+name|File
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeExchangeException
+argument_list|(
+literal|"Message body of type "
+operator|+
+name|body
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
+operator|+
+literal|" is not supported by this marshaller."
+argument_list|,
+name|exchange
+argument_list|)
+throw|;
+block|}
+name|DefaultExchangeHolder
+name|payload
+init|=
+operator|new
+name|DefaultExchangeHolder
+argument_list|()
+decl_stmt|;
+name|payload
+operator|.
+name|exchangeId
+operator|=
+name|exchange
+operator|.
+name|getExchangeId
+argument_list|()
+expr_stmt|;
+name|payload
+operator|.
+name|inBody
+operator|=
+name|checkSerializableBody
+argument_list|(
+literal|"in body"
+argument_list|,
+name|exchange
+argument_list|,
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|payload
+operator|.
+name|safeSetInHeaders
+argument_list|(
+name|exchange
+argument_list|,
+name|allowSerializedHeaders
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|exchange
+operator|.
+name|hasOut
+argument_list|()
+condition|)
+block|{
+name|payload
+operator|.
+name|outBody
+operator|=
+name|checkSerializableBody
+argument_list|(
+literal|"out body"
+argument_list|,
+name|exchange
+argument_list|,
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|getBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|payload
+operator|.
+name|outFaultFlag
+operator|=
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|isFault
+argument_list|()
+expr_stmt|;
+name|payload
+operator|.
+name|safeSetOutHeaders
+argument_list|(
+name|exchange
+argument_list|,
+name|allowSerializedHeaders
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|payload
+operator|.
+name|inFaultFlag
+operator|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|isFault
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|includeProperties
+condition|)
+block|{
+name|payload
+operator|.
+name|safeSetProperties
+argument_list|(
+name|exchange
+argument_list|,
+name|allowSerializedHeaders
 argument_list|)
 expr_stmt|;
 block|}
@@ -853,7 +1066,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-DECL|method|safeSetInHeaders (Exchange exchange)
+DECL|method|safeSetInHeaders (Exchange exchange, boolean allowSerializedHeaders)
 specifier|private
 name|Map
 argument_list|<
@@ -865,6 +1078,9 @@ name|safeSetInHeaders
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|boolean
+name|allowSerializedHeaders
 parameter_list|)
 block|{
 if|if
@@ -899,6 +1115,8 @@ argument_list|()
 operator|.
 name|getHeaders
 argument_list|()
+argument_list|,
+name|allowSerializedHeaders
 argument_list|)
 decl_stmt|;
 if|if
@@ -933,7 +1151,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|safeSetOutHeaders (Exchange exchange)
+DECL|method|safeSetOutHeaders (Exchange exchange, boolean allowSerializedHeaders)
 specifier|private
 name|Map
 argument_list|<
@@ -945,6 +1163,9 @@ name|safeSetOutHeaders
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|boolean
+name|allowSerializedHeaders
 parameter_list|)
 block|{
 if|if
@@ -984,6 +1205,8 @@ argument_list|()
 operator|.
 name|getHeaders
 argument_list|()
+argument_list|,
+name|allowSerializedHeaders
 argument_list|)
 decl_stmt|;
 if|if
@@ -1018,7 +1241,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|safeSetProperties (Exchange exchange)
+DECL|method|safeSetProperties (Exchange exchange, boolean allowSerializedHeaders)
 specifier|private
 name|Map
 argument_list|<
@@ -1030,6 +1253,9 @@ name|safeSetProperties
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|boolean
+name|allowSerializedHeaders
 parameter_list|)
 block|{
 if|if
@@ -1058,6 +1284,8 @@ name|exchange
 operator|.
 name|getProperties
 argument_list|()
+argument_list|,
+name|allowSerializedHeaders
 argument_list|)
 decl_stmt|;
 if|if
@@ -1184,7 +1412,7 @@ literal|null
 return|;
 block|}
 block|}
-DECL|method|checkValidHeaderObjects (String type, Exchange exchange, Map<String, Object> map)
+DECL|method|checkValidHeaderObjects (String type, Exchange exchange, Map<String, Object> map, boolean allowSerializedHeaders)
 specifier|private
 specifier|static
 name|Map
@@ -1208,6 +1436,9 @@ argument_list|,
 name|Object
 argument_list|>
 name|map
+parameter_list|,
+name|boolean
+name|allowSerializedHeaders
 parameter_list|)
 block|{
 if|if
@@ -1283,6 +1514,8 @@ name|entry
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+name|allowSerializedHeaders
 argument_list|)
 decl_stmt|;
 if|if
@@ -1376,7 +1609,7 @@ return|return
 name|result
 return|;
 block|}
-DECL|method|checkValidExchangePropertyObjects (String type, Exchange exchange, Map<String, Object> map)
+DECL|method|checkValidExchangePropertyObjects (String type, Exchange exchange, Map<String, Object> map, boolean allowSerializedHeaders)
 specifier|private
 specifier|static
 name|Map
@@ -1400,6 +1633,9 @@ argument_list|,
 name|Object
 argument_list|>
 name|map
+parameter_list|,
+name|boolean
+name|allowSerializedHeaders
 parameter_list|)
 block|{
 if|if
@@ -1475,6 +1711,8 @@ name|entry
 operator|.
 name|getValue
 argument_list|()
+argument_list|,
+name|allowSerializedHeaders
 argument_list|)
 decl_stmt|;
 if|if
@@ -1568,8 +1806,8 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * We only want to store header values of primitive and String related types.      *<p/>      * This default implementation will allow:      *<ul>      *<li>any primitives and their counter Objects (Integer, Double etc.)</li>      *<li>String and any other literals, Character, CharSequence</li>      *<li>Boolean</li>      *<li>Number</li>      *<li>java.util.Date</li>      *</ul>      *      * @param headerName   the header name      * @param headerValue  the header value      * @return  the value to use,<tt>null</tt> to ignore this header      */
-DECL|method|getValidHeaderValue (String headerName, Object headerValue)
+comment|/**      * We only want to store header values of primitive and String related types.      *<p/>      * This default implementation will allow:      *<ul>      *<li>any primitives and their counter Objects (Integer, Double etc.)</li>      *<li>String and any other literals, Character, CharSequence</li>      *<li>Boolean</li>      *<li>Number</li>      *<li>java.util.Date</li>      *</ul>      *       * We make possible store serialized headers by the boolean field allowSerializedHeaders      *       * @param headerName   the header name      * @param headerValue  the header value      * @param allowSerializedHeaders  the header value      * @return  the value to use,<tt>null</tt> to ignore this header      */
+DECL|method|getValidHeaderValue (String headerName, Object headerValue, boolean allowSerializedHeaders)
 specifier|protected
 specifier|static
 name|Object
@@ -1580,6 +1818,9 @@ name|headerName
 parameter_list|,
 name|Object
 name|headerValue
+parameter_list|,
+name|boolean
+name|allowSerializedHeaders
 parameter_list|)
 block|{
 if|if
@@ -1680,12 +1921,30 @@ return|return
 name|headerValue
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|allowSerializedHeaders
+condition|)
+block|{
+if|if
+condition|(
+name|headerValue
+operator|instanceof
+name|Serializable
+condition|)
+block|{
+return|return
+name|headerValue
+return|;
+block|}
+block|}
 return|return
 literal|null
 return|;
 block|}
 comment|/**      * We only want to store exchange property values of primitive and String related types, and      * as well any caught exception that Camel routing engine has caught.      *<p/>      * This default implementation will allow the same values as {@link #getValidHeaderValue(String, Object)}      * and in addition any value of type {@link Throwable}.      *      * @param propertyName   the property name      * @param propertyValue  the property value      * @return  the value to use,<tt>null</tt> to ignore this header      */
-DECL|method|getValidExchangePropertyValue (String propertyName, Object propertyValue)
+DECL|method|getValidExchangePropertyValue (String propertyName, Object propertyValue, boolean allowSerializedHeaders)
 specifier|protected
 specifier|static
 name|Object
@@ -1696,6 +1955,9 @@ name|propertyName
 parameter_list|,
 name|Object
 name|propertyValue
+parameter_list|,
+name|boolean
+name|allowSerializedHeaders
 parameter_list|)
 block|{
 comment|// for exchange properties we also allow exception to be transferred so people can store caught exception
@@ -1716,6 +1978,8 @@ argument_list|(
 name|propertyName
 argument_list|,
 name|propertyValue
+argument_list|,
+name|allowSerializedHeaders
 argument_list|)
 return|;
 block|}
