@@ -210,6 +210,18 @@ name|EVENT_DATA
 init|=
 literal|"CamelInfinispanEventData"
 decl_stmt|;
+DECL|field|QUERY
+name|String
+name|QUERY
+init|=
+literal|"CamelInfinispanOperationQuery"
+decl_stmt|;
+DECL|field|QUERY_BUILDER
+name|String
+name|QUERY_BUILDER
+init|=
+literal|"CamelInfinispanQueryBuilder"
+decl_stmt|;
 block|}
 end_interface
 
