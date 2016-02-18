@@ -190,14 +190,11 @@ name|String
 argument_list|>
 name|extendedAttributes
 decl_stmt|;
-DECL|method|FileConsumer (GenericFileEndpoint<File> endpoint, Processor processor, GenericFileOperations<File> operations)
+DECL|method|FileConsumer (FileEndpoint endpoint, Processor processor, GenericFileOperations<File> operations)
 specifier|public
 name|FileConsumer
 parameter_list|(
-name|GenericFileEndpoint
-argument_list|<
-name|File
-argument_list|>
+name|FileEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
