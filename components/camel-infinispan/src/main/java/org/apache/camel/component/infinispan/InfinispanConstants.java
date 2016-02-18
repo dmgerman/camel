@@ -204,6 +204,12 @@ name|IGNORE_RETURN_VALUES
 init|=
 literal|"CamelInfinispanIgnoreReturnValues"
 decl_stmt|;
+DECL|field|EVENT_DATA
+name|String
+name|EVENT_DATA
+init|=
+literal|"CamelInfinispanEventData"
+decl_stmt|;
 block|}
 end_interface
 

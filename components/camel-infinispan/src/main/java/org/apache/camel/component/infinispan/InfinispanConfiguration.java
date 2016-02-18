@@ -213,6 +213,29 @@ name|String
 argument_list|>
 name|eventTypes
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|customListener
+specifier|private
+name|InfinispanCustomListener
+name|customListener
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|clustered
+specifier|private
+name|boolean
+name|clustered
+decl_stmt|;
 DECL|method|getCommand ()
 specifier|public
 name|String
@@ -348,6 +371,33 @@ operator|=
 name|sync
 expr_stmt|;
 block|}
+comment|/**      * If true, the listener will be installed for the entire cluster      */
+DECL|method|isClustered ()
+specifier|public
+name|boolean
+name|isClustered
+parameter_list|()
+block|{
+return|return
+name|clustered
+return|;
+block|}
+DECL|method|setClustered (boolean clustered)
+specifier|public
+name|void
+name|setClustered
+parameter_list|(
+name|boolean
+name|clustered
+parameter_list|)
+block|{
+name|this
+operator|.
+name|clustered
+operator|=
+name|clustered
+expr_stmt|;
+block|}
 DECL|method|getEventTypes ()
 specifier|public
 name|Set
@@ -414,6 +464,45 @@ argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+comment|/**      * Returns the custom listener in use, if provided      */
+DECL|method|getCustomListener ()
+specifier|public
+name|InfinispanCustomListener
+name|getCustomListener
+parameter_list|()
+block|{
+return|return
+name|customListener
+return|;
+block|}
+DECL|method|setCustomListener (InfinispanCustomListener customListener)
+specifier|public
+name|void
+name|setCustomListener
+parameter_list|(
+name|InfinispanCustomListener
+name|customListener
+parameter_list|)
+block|{
+name|this
+operator|.
+name|customListener
+operator|=
+name|customListener
+expr_stmt|;
+block|}
+DECL|method|isCustom ()
+specifier|public
+name|boolean
+name|isCustom
+parameter_list|()
+block|{
+return|return
+name|customListener
+operator|!=
+literal|null
+return|;
 block|}
 block|}
 end_class
