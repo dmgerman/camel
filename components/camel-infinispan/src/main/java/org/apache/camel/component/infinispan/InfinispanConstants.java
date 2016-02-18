@@ -198,6 +198,12 @@ name|MAX_IDLE_TIME_UNIT
 init|=
 literal|"CamelInfinispanMaxIdleTimeUnit"
 decl_stmt|;
+DECL|field|IGNORE_RETURN_VALUES
+name|String
+name|IGNORE_RETURN_VALUES
+init|=
+literal|"CamelInfinispanIgnoreReturnValues"
+decl_stmt|;
 block|}
 end_interface
 
