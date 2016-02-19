@@ -1976,6 +1976,37 @@ condition|)
 block|{
 return|return;
 block|}
+name|String
+name|contentType
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|CONTENT_TYPE
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|// need to lower-case so the contains check below can match if using upper case
+name|contentType
+operator|=
+name|contentType
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 comment|// favor json over xml
@@ -1988,6 +2019,17 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// only marshal if its json content type
+if|if
+condition|(
+name|contentType
+operator|.
+name|contains
+argument_list|(
+literal|"json"
+argument_list|)
+condition|)
+block|{
 name|jsonMarshal
 operator|.
 name|process
@@ -1995,6 +2037,7 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 elseif|else
 if|if
@@ -2006,6 +2049,17 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// only marshal if its xml content type
+if|if
+condition|(
+name|contentType
+operator|.
+name|contains
+argument_list|(
+literal|"xml"
+argument_list|)
+condition|)
+block|{
 name|xmlMarshal
 operator|.
 name|process
@@ -2013,6 +2067,7 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 else|else
 block|{
