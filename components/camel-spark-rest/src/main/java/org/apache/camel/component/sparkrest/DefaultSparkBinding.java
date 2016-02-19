@@ -919,6 +919,21 @@ operator|.
 name|getValue
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|Exchange
+operator|.
+name|CONTENT_TYPE
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+name|key
+argument_list|)
+condition|)
+block|{
+comment|// we set content-type later
+continue|continue;
+block|}
 comment|// use an iterator as there can be multiple values. (must not use a delimiter)
 specifier|final
 name|Iterator
