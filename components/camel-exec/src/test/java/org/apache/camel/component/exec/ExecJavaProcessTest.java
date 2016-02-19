@@ -608,7 +608,18 @@ DECL|field|output
 name|MockEndpoint
 name|output
 decl_stmt|;
-comment|/**      * Create JndiRegistry and bind custom {@link org.apache.camel.component.exec.ExecCommandExecutor}      * @return       * @throws java.lang.Exception      */
+annotation|@
+name|Override
+DECL|method|isUseAdviceWith ()
+specifier|public
+name|boolean
+name|isUseAdviceWith
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|createRegistry ()
@@ -652,6 +663,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|output
 operator|.
 name|setExpectedMessageCount
@@ -691,6 +707,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|output
 operator|.
 name|setExpectedMessageCount
@@ -730,6 +751,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|String
 name|commandArgument
 init|=
@@ -807,6 +833,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|String
 name|commandArgument
 init|=
@@ -867,6 +898,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|String
 name|commandArgument
 init|=
@@ -951,6 +987,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 comment|// this will be printed
 name|String
 name|commandArgument
@@ -1052,6 +1093,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 comment|// this will be printed
 name|String
 name|commandArgument
@@ -1155,6 +1201,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|String
 name|commandArgument
 init|=
@@ -1220,6 +1271,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|String
 name|commandArgument
 init|=
@@ -1291,6 +1347,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|String
 name|commandArgument
 init|=
@@ -1403,6 +1464,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|output
 operator|.
 name|setExpectedMessageCount
@@ -1526,6 +1592,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|output
 operator|.
 name|setExpectedMessageCount
@@ -1698,6 +1769,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|output
 operator|.
 name|setExpectedMessageCount
@@ -1877,6 +1953,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|output
 operator|.
 name|setExpectedMessageCount
@@ -2068,6 +2149,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|int
 name|killAfterMillis
 init|=
@@ -2120,6 +2206,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 specifier|final
 name|StringBuilder
 name|builder
@@ -2232,7 +2323,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|//add CustomExecutor
 name|context
 operator|.
 name|getRouteDefinitions
@@ -2277,6 +2367,11 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|output
 operator|.
 name|setExpectedMessageCount
@@ -2294,21 +2389,6 @@ argument_list|,
 name|NO_TIMEOUT
 argument_list|)
 decl_stmt|;
-name|assertEquals
-argument_list|(
-name|ExecException
-operator|.
-name|class
-argument_list|,
-name|out
-operator|.
-name|getException
-argument_list|()
-operator|.
-name|getClass
-argument_list|()
-argument_list|)
-expr_stmt|;
 comment|//test if exitValue and stderr are accessible through thrown ExecException
 name|ExecException
 name|ee
