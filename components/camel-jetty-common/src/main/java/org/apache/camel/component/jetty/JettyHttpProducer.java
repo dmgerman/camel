@@ -1044,13 +1044,6 @@ name|getBody
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|httpExchange
-operator|.
-name|setRequestContent
-argument_list|(
-name|is
-argument_list|)
-expr_stmt|;
 comment|// setup the content length if it is possible
 name|String
 name|length
@@ -1090,6 +1083,31 @@ operator|.
 name|CONTENT_LENGTH
 argument_list|,
 name|length
+argument_list|)
+expr_stmt|;
+comment|//send with content-length
+name|httpExchange
+operator|.
+name|setRequestContent
+argument_list|(
+name|is
+argument_list|,
+operator|new
+name|Integer
+argument_list|(
+name|length
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|//send chunked
+name|httpExchange
+operator|.
+name|setRequestContent
+argument_list|(
+name|is
 argument_list|)
 expr_stmt|;
 block|}

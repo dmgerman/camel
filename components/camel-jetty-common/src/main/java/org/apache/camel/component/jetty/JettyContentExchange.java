@@ -193,6 +193,17 @@ name|InputStream
 name|ins
 parameter_list|)
 function_decl|;
+DECL|method|setRequestContent (InputStream ins, int contentLength)
+name|void
+name|setRequestContent
+parameter_list|(
+name|InputStream
+name|ins
+parameter_list|,
+name|int
+name|contentLength
+parameter_list|)
+function_decl|;
 DECL|method|addRequestHeader (String key, String s)
 name|void
 name|addRequestHeader
