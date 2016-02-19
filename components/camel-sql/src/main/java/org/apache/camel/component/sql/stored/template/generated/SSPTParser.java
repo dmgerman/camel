@@ -126,7 +126,7 @@ name|jj_ntk
 condition|)
 block|{
 case|case
-literal|5
+literal|4
 case|:
 case|case
 name|NUMBER
@@ -169,7 +169,7 @@ name|jj_ntk
 condition|)
 block|{
 case|case
-literal|2
+name|SEPARATOR
 case|:
 empty_stmt|;
 break|break;
@@ -187,7 +187,7 @@ break|;
 block|}
 name|jj_consume_token
 argument_list|(
-literal|2
+name|SEPARATOR
 argument_list|)
 expr_stmt|;
 name|parameter
@@ -216,7 +216,7 @@ empty_stmt|;
 block|}
 name|jj_consume_token
 argument_list|(
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
 name|jj_consume_token
@@ -300,7 +300,7 @@ return|;
 block|}
 break|break;
 case|case
-literal|5
+literal|4
 case|:
 name|param
 operator|=
@@ -370,7 +370,7 @@ argument_list|()
 expr_stmt|;
 name|jj_consume_token
 argument_list|(
-literal|4
+literal|3
 argument_list|)
 expr_stmt|;
 name|valueSrcToken
@@ -434,12 +434,12 @@ name|outValueMapKey
 decl_stmt|;
 name|jj_consume_token
 argument_list|(
-literal|5
+literal|4
 argument_list|)
 expr_stmt|;
 name|jj_consume_token
 argument_list|(
-literal|4
+literal|3
 argument_list|)
 expr_stmt|;
 name|sqlTypeToken
@@ -449,7 +449,7 @@ argument_list|()
 expr_stmt|;
 name|jj_consume_token
 argument_list|(
-literal|4
+literal|3
 argument_list|)
 expr_stmt|;
 name|outValueMapKey
@@ -781,15 +781,15 @@ operator|new
 name|int
 index|[]
 block|{
-literal|0x4
+literal|0x800
 block|,
-literal|0x1060
+literal|0x4030
 block|,
-literal|0x1060
+literal|0x4030
 block|,
-literal|0x1040
+literal|0x4020
 block|,
-literal|0xc00
+literal|0x3000
 block|,}
 expr_stmt|;
 block|}
@@ -1564,7 +1564,7 @@ init|=
 operator|new
 name|boolean
 index|[
-literal|13
+literal|15
 index|]
 decl_stmt|;
 if|if
@@ -1665,7 +1665,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|13
+literal|15
 condition|;
 name|i
 operator|++

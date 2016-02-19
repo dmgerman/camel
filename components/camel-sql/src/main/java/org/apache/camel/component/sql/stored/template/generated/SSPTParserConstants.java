@@ -46,49 +46,70 @@ DECL|field|NUMBER
 name|int
 name|NUMBER
 init|=
-literal|6
+literal|5
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|DIGIT
 name|int
 name|DIGIT
 init|=
-literal|7
+literal|6
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|LETTER
 name|int
 name|LETTER
 init|=
-literal|8
+literal|7
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|SPECIAL
 name|int
 name|SPECIAL
 init|=
+literal|8
+decl_stmt|;
+comment|/** RegularExpression Id. */
+DECL|field|WHITESPACE
+name|int
+name|WHITESPACE
+init|=
 literal|9
+decl_stmt|;
+comment|/** RegularExpression Id. */
+DECL|field|COMMA
+name|int
+name|COMMA
+init|=
+literal|10
+decl_stmt|;
+comment|/** RegularExpression Id. */
+DECL|field|SEPARATOR
+name|int
+name|SEPARATOR
+init|=
+literal|11
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|SIMPLE_EXP_TOKEN
 name|int
 name|SIMPLE_EXP_TOKEN
 init|=
-literal|10
+literal|12
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|PARAMETER_POS_TOKEN
 name|int
 name|PARAMETER_POS_TOKEN
 init|=
-literal|11
+literal|13
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|IDENTIFIER
 name|int
 name|IDENTIFIER
 init|=
-literal|12
+literal|14
 decl_stmt|;
 comment|/** Lexical state. */
 DECL|field|DEFAULT
@@ -108,8 +129,6 @@ literal|"<EOF>"
 block|,
 literal|"\"(\""
 block|,
-literal|"\",\""
-block|,
 literal|"\")\""
 block|,
 literal|"\" \""
@@ -123,6 +142,12 @@ block|,
 literal|"<LETTER>"
 block|,
 literal|"<SPECIAL>"
+block|,
+literal|"<WHITESPACE>"
+block|,
+literal|"\",\""
+block|,
+literal|"<SEPARATOR>"
 block|,
 literal|"<SIMPLE_EXP_TOKEN>"
 block|,
