@@ -46,47 +46,61 @@ DECL|field|NUMBER
 name|int
 name|NUMBER
 init|=
-literal|5
+literal|3
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|DIGIT
 name|int
 name|DIGIT
 init|=
-literal|6
+literal|4
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|LETTER
 name|int
 name|LETTER
 init|=
-literal|7
+literal|5
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|SPECIAL
 name|int
 name|SPECIAL
 init|=
-literal|8
+literal|6
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|WHITESPACE
 name|int
 name|WHITESPACE
 init|=
-literal|9
+literal|7
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|COMMA
 name|int
 name|COMMA
 init|=
-literal|10
+literal|8
 decl_stmt|;
 comment|/** RegularExpression Id. */
 DECL|field|SEPARATOR
 name|int
 name|SEPARATOR
+init|=
+literal|9
+decl_stmt|;
+comment|/** RegularExpression Id. */
+DECL|field|PROCEDURE_BEGIN
+name|int
+name|PROCEDURE_BEGIN
+init|=
+literal|10
+decl_stmt|;
+comment|/** RegularExpression Id. */
+DECL|field|PROCEDURE_END
+name|int
+name|PROCEDURE_END
 init|=
 literal|11
 decl_stmt|;
@@ -127,10 +141,6 @@ init|=
 block|{
 literal|"<EOF>"
 block|,
-literal|"\"(\""
-block|,
-literal|"\")\""
-block|,
 literal|"\" \""
 block|,
 literal|"\"OUT\""
@@ -148,6 +158,10 @@ block|,
 literal|"\",\""
 block|,
 literal|"<SEPARATOR>"
+block|,
+literal|"<PROCEDURE_BEGIN>"
+block|,
+literal|"<PROCEDURE_END>"
 block|,
 literal|"<SIMPLE_EXP_TOKEN>"
 block|,
