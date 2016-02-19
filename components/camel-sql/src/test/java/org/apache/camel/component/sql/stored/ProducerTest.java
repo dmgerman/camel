@@ -185,7 +185,6 @@ extends|extends
 name|CamelTestSupport
 block|{
 DECL|field|db
-specifier|private
 name|EmbeddedDatabase
 name|db
 decl_stmt|;

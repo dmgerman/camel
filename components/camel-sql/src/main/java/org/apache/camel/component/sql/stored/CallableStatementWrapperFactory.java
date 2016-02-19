@@ -194,7 +194,7 @@ expr_stmt|;
 block|}
 DECL|method|create (String sql)
 specifier|public
-name|StamentWrapper
+name|StatementWrapper
 name|create
 parameter_list|(
 name|String

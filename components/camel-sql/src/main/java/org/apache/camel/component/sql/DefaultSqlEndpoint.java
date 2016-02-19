@@ -638,6 +638,28 @@ name|label
 operator|=
 literal|"advanced"
 argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Sets whether to use placeholder and replace all placeholder characters with ? sign in the SQL queries."
+argument_list|)
+DECL|field|usePlaceholder
+specifier|private
+name|boolean
+name|usePlaceholder
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
 name|prefix
 operator|=
 literal|"template."
@@ -1375,6 +1397,33 @@ operator|.
 name|placeholder
 operator|=
 name|placeholder
+expr_stmt|;
+block|}
+DECL|method|isUsePlaceholder ()
+specifier|public
+name|boolean
+name|isUsePlaceholder
+parameter_list|()
+block|{
+return|return
+name|usePlaceholder
+return|;
+block|}
+comment|/**      * Sets whether to use placeholder and replace all placeholder characters with ? sign in the SQL queries.      *<p/>      * This option is default<tt>true</tt>      */
+DECL|method|setUsePlaceholder (boolean usePlaceholder)
+specifier|public
+name|void
+name|setUsePlaceholder
+parameter_list|(
+name|boolean
+name|usePlaceholder
+parameter_list|)
+block|{
+name|this
+operator|.
+name|usePlaceholder
+operator|=
+name|usePlaceholder
 expr_stmt|;
 block|}
 DECL|method|getTemplateOptions ()

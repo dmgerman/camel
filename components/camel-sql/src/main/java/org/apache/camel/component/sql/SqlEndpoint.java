@@ -178,7 +178,7 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"Sets the SQL query to perform"
+literal|"Sets the SQL query to perform. You can externalize the query by using file: or classpath: as prefix and specify the location of the file."
 argument_list|)
 annotation|@
 name|Metadata
@@ -462,7 +462,7 @@ return|return
 name|query
 return|;
 block|}
-comment|/**      * Sets the SQL query to perform      */
+comment|/**      * Sets the SQL query to perform. You can externalize the query by using file: or classpath: as prefix and specify the location of the file.      */
 DECL|method|setQuery (String query)
 specifier|public
 name|void

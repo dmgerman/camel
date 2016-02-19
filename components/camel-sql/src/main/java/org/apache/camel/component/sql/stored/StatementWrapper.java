@@ -43,14 +43,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Wrapper that simplifies operations on  {@link java.sql.CallableStatement}  * in {@link SqlStoredProducer}.  * Wrappers are statefull objects and must not be reused.  */
+comment|/**  * Wrapper that simplifies operations on  {@link java.sql.CallableStatement} in {@link SqlStoredProducer}.  * Wrappers are stateful objects and must not be reused.  */
 end_comment
 
 begin_interface
-DECL|interface|StamentWrapper
+DECL|interface|StatementWrapper
 specifier|public
 interface|interface
-name|StamentWrapper
+name|StatementWrapper
 block|{
 DECL|method|call (WrapperExecuteCallback cb)
 name|void

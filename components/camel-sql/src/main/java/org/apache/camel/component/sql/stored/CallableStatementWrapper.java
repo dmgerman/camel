@@ -180,7 +180,7 @@ specifier|public
 class|class
 name|CallableStatementWrapper
 implements|implements
-name|StamentWrapper
+name|StatementWrapper
 block|{
 DECL|field|factory
 specifier|final

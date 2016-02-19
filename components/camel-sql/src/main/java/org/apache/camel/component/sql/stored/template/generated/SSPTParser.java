@@ -54,9 +54,9 @@ name|SSPTParser
 implements|implements
 name|SSPTParserConstants
 block|{
-DECL|field|paramaterNameCounter
+DECL|field|parameterNameCounter
 name|int
-name|paramaterNameCounter
+name|parameterNameCounter
 init|=
 literal|0
 decl_stmt|;
@@ -69,7 +69,7 @@ return|return
 literal|"_"
 operator|+
 operator|(
-name|paramaterNameCounter
+name|parameterNameCounter
 operator|++
 operator|)
 return|;
@@ -84,7 +84,7 @@ throws|throws
 name|ParseException
 block|{
 name|Token
-name|procudureName
+name|procedureName
 decl_stmt|;
 name|Template
 name|template
@@ -98,7 +98,7 @@ name|parameter
 init|=
 literal|null
 decl_stmt|;
-name|procudureName
+name|procedureName
 operator|=
 name|jj_consume_token
 argument_list|(
@@ -228,7 +228,7 @@ name|template
 operator|.
 name|setProcedureName
 argument_list|(
-name|procudureName
+name|procedureName
 operator|.
 name|toString
 argument_list|()
