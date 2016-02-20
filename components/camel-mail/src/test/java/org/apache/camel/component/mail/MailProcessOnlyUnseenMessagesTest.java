@@ -358,6 +358,18 @@ index|[
 literal|0
 index|]
 operator|.
+name|setHeader
+argument_list|(
+literal|"Message-ID"
+argument_list|,
+literal|"0"
+argument_list|)
+expr_stmt|;
+name|msg
+index|[
+literal|0
+index|]
+operator|.
 name|setFlag
 argument_list|(
 name|Flags
@@ -391,6 +403,18 @@ operator|.
 name|setText
 argument_list|(
 literal|"Message 2"
+argument_list|)
+expr_stmt|;
+name|msg
+index|[
+literal|0
+index|]
+operator|.
+name|setHeader
+argument_list|(
+literal|"Message-ID"
+argument_list|,
+literal|"1"
 argument_list|)
 expr_stmt|;
 name|msg

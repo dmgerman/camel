@@ -345,6 +345,20 @@ index|[
 name|i
 index|]
 operator|.
+name|setHeader
+argument_list|(
+literal|"Message-ID"
+argument_list|,
+literal|""
+operator|+
+name|i
+argument_list|)
+expr_stmt|;
+name|messages
+index|[
+name|i
+index|]
+operator|.
 name|setText
 argument_list|(
 literal|"Message "

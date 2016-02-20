@@ -231,7 +231,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 name|Exchange
 operator|.
@@ -250,7 +250,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 name|Exchange
 operator|.
@@ -269,7 +269,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 name|Exchange
 operator|.
@@ -288,7 +288,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 name|Exchange
 operator|.
@@ -307,7 +307,7 @@ argument_list|(
 literal|4
 argument_list|)
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 name|Exchange
 operator|.
@@ -326,7 +326,7 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 name|Exchange
 operator|.
@@ -345,7 +345,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 name|Exchange
 operator|.
@@ -364,7 +364,7 @@ argument_list|(
 literal|2
 argument_list|)
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 name|Exchange
 operator|.
@@ -383,7 +383,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 name|Exchange
 operator|.
@@ -402,7 +402,7 @@ argument_list|(
 literal|3
 argument_list|)
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 name|Exchange
 operator|.
@@ -421,7 +421,7 @@ argument_list|(
 literal|4
 argument_list|)
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 name|Exchange
 operator|.
@@ -557,6 +557,20 @@ name|sender
 operator|.
 name|getSession
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|messages
+index|[
+name|i
+index|]
+operator|.
+name|setHeader
+argument_list|(
+literal|"Message-ID"
+argument_list|,
+literal|""
+operator|+
+name|i
 argument_list|)
 expr_stmt|;
 name|messages
