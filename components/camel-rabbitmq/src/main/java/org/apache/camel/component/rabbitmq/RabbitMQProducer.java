@@ -1255,9 +1255,16 @@ argument_list|(
 name|correlationId
 argument_list|)
 expr_stmt|;
-throw|throw
+name|exchange
+operator|.
+name|setException
+argument_list|(
 name|e
-throw|;
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
 block|}
 comment|// continue routing asynchronously (reply will be processed async when its received)
 return|return
@@ -1383,14 +1390,6 @@ argument_list|,
 name|key
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|callback
-operator|!=
-literal|null
-condition|)
-block|{
-comment|// we are synchronous so return true
 name|callback
 operator|.
 name|done
@@ -1398,12 +1397,11 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 literal|true
 return|;
 block|}
-comment|/**      * Send a message borrowing a channel from the pool.      *      * @param exchange   Target exchange      * @param routingKey Routing key      * @param properties Header properties      * @param body       Body content      */
+comment|/**      * Send a message borrowing a channel from the pool.      */
 DECL|method|basicPublish (final Exchange camelExchange, final String rabbitExchange, final String routingKey)
 specifier|private
 name|void

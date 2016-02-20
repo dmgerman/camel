@@ -1185,7 +1185,7 @@ argument_list|(
 name|correlation
 argument_list|)
 expr_stmt|;
-comment|// create JMS listener and start it
+comment|// create listener and start it
 name|listenerContainer
 operator|=
 name|createListenerContainer

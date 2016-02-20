@@ -450,9 +450,9 @@ argument_list|()
 decl_stmt|;
 name|log
 operator|.
-name|debug
+name|info
 argument_list|(
-literal|"Temporary queue name {}"
+literal|"Using temporary queue name: {}"
 argument_list|,
 name|result
 operator|.

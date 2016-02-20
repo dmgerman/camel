@@ -294,7 +294,7 @@ return|return
 name|timeout
 return|;
 block|}
-comment|/**      * The message properties      * @return      */
+comment|/**      * The message properties      */
 DECL|method|getProperties ()
 specifier|public
 name|AMQP

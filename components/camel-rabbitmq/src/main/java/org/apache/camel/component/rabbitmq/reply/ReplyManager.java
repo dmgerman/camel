@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The {@link ReplyManager} is responsible for handling<a href="http://camel.apache.org/request-reply.html">request-reply</a>  * over RabbitMQ.  *  * @version   */
+comment|/**  * The {@link ReplyManager} is responsible for handling<a href="http://camel.apache.org/request-reply.html">request-reply</a>  * over RabbitMQ.  *  * @version  */
 end_comment
 
 begin_interface
@@ -82,7 +82,7 @@ specifier|public
 interface|interface
 name|ReplyManager
 block|{
-comment|/**      * Sets the belonging {@link org.apache.camel.component.jms.JmsEndpoint}.      */
+comment|/**      * Sets the belonging {@link RabbitMQEndpoint}      */
 DECL|method|setEndpoint (RabbitMQEndpoint endpoint)
 name|void
 name|setEndpoint
@@ -163,7 +163,7 @@ name|ReplyHolder
 name|holder
 parameter_list|)
 function_decl|;
-comment|/**      * Unregister a correlationId when you no longer need a reply      *       * @param correlationId      */
+comment|/**      * Unregister a correlationId when you no longer need a reply      */
 DECL|method|cancelCorrelationId (String correlationId)
 name|void
 name|cancelCorrelationId
