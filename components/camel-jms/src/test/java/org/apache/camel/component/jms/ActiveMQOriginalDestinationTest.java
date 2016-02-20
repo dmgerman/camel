@@ -429,6 +429,7 @@ name|OriginalDestinationPropagateStrategy
 implements|implements
 name|MessageCreatedStrategy
 block|{
+comment|// TODO: This is supported out of the box from ActiveMQ 5.14 onwards, and hence remove OriginalDestinationPropagateStrategy
 annotation|@
 name|Override
 DECL|method|onMessageCreated (Message message, Session session, Exchange exchange, Throwable cause)
