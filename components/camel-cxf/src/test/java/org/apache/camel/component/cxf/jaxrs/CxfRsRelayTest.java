@@ -590,18 +590,19 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|e
+name|log
 operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
-throw|throw
-operator|new
-name|RuntimeException
+name|warn
 argument_list|(
+literal|"Error uploading to http://localhost:"
+operator|+
+name|port6
+operator|+
+literal|"/CxfRsRelayTest/rest"
+argument_list|,
 name|e
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 block|}

@@ -1068,7 +1068,7 @@ name|isSingleton
 parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 comment|/**      * To use a custom CxfBinding to control the binding between Camel Message and CXF Message.      */
