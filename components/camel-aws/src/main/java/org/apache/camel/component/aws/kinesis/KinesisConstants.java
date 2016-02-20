@@ -44,12 +44,12 @@ name|PARTITION_KEY
 init|=
 literal|"CamelAwsKinesisPartitionKey"
 decl_stmt|;
-comment|/**      * in a Kinesis Record object, the shard ID is obtained from the getPartitionKey method.      */
+comment|/**      * in a Kinesis Record object, the shard ID is used on writes to indicate where the data was stored      */
 DECL|field|SHARD_ID
 name|String
 name|SHARD_ID
 init|=
-literal|"CamelAwsKinesisPartitionKey"
+literal|"CamelAwsKinesisShardId"
 decl_stmt|;
 block|}
 end_interface
