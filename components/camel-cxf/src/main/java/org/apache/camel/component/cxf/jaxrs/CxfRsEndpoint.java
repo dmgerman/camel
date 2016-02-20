@@ -272,6 +272,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|EndpointHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ObjectHelper
 import|;
 end_import
@@ -574,7 +588,12 @@ name|class
 argument_list|)
 decl_stmt|;
 annotation|@
-name|UriPath
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|bus
 specifier|protected
 name|Bus
@@ -652,6 +671,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"Default"
@@ -667,6 +690,11 @@ name|Default
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
@@ -674,6 +702,11 @@ name|headerFilterStrategy
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|binding
 specifier|private
 name|CxfRsBinding
@@ -681,6 +714,11 @@ name|binding
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.String"
+argument_list|)
 DECL|field|providers
 specifier|private
 name|List
@@ -695,6 +733,11 @@ argument_list|<
 name|Object
 argument_list|>
 argument_list|()
+decl_stmt|;
+DECL|field|providersRef
+specifier|private
+name|String
+name|providersRef
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -726,6 +769,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -739,6 +786,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|)
 DECL|field|ignoreDeleteMethodMessageBody
 specifier|private
 name|boolean
@@ -747,6 +799,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -761,6 +817,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"10"
@@ -796,6 +856,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"30000"
@@ -809,6 +873,11 @@ literal|30000
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|defaultBus
 specifier|private
 name|boolean
@@ -816,6 +885,11 @@ name|defaultBus
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|performInvocation
 specifier|private
 name|boolean
@@ -823,6 +897,11 @@ name|performInvocation
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|propagateContexts
 specifier|private
 name|boolean
@@ -2071,7 +2150,7 @@ operator|=
 name|address
 expr_stmt|;
 block|}
-comment|/**      * This option is used to specify the model file which is useful for the resource class without annotation.      * When using this option, then the service class can be omitted, to  emulate document-only endpoints      */
+comment|/**      * This option is used to specify the model file which is useful for the resource class without annotation.      * When using this option, then the service class can be omitted, to emulate document-only endpoints      */
 DECL|method|setModelRef (String ref)
 specifier|public
 name|void
@@ -2335,7 +2414,7 @@ return|return
 name|providers
 return|;
 block|}
-comment|/**      * Set custom JAX-RS provider(s) list to the CxfRs endpoint.      */
+comment|/**      * Set custom JAX-RS provider(s) list to the CxfRs endpoint.      * You can specify a string with a list of providers to lookup in the registy separated by comma.      */
 DECL|method|setProviders (List<?> providers)
 specifier|public
 name|void
@@ -2356,6 +2435,23 @@ name|addAll
 argument_list|(
 name|providers
 argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Set custom JAX-RS provider(s) list which is looked up in the registry. Multiple entries can be separated by comma.      */
+DECL|method|setProviders (String providers)
+specifier|public
+name|void
+name|setProviders
+parameter_list|(
+name|String
+name|providers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|providersRef
+operator|=
+name|providers
 expr_stmt|;
 block|}
 comment|/**      * Set custom JAX-RS provider to the CxfRs endpoint.      */
@@ -2871,6 +2967,58 @@ name|getHeaderFilterStrategy
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+if|if
+condition|(
+name|providersRef
+operator|!=
+literal|null
+condition|)
+block|{
+name|String
+index|[]
+name|names
+init|=
+name|providersRef
+operator|.
+name|split
+argument_list|(
+literal|","
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|String
+name|name
+range|:
+name|names
+control|)
+block|{
+name|Object
+name|provider
+init|=
+name|EndpointHelper
+operator|.
+name|resolveReferenceParameter
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|,
+name|name
+argument_list|,
+name|Object
+operator|.
+name|class
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+name|setProvider
+argument_list|(
+name|provider
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 annotation|@
