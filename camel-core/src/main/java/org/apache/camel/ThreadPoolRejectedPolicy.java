@@ -22,6 +22,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|RejectedExecutionException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|RejectedExecutionHandler
 import|;
 end_import
@@ -140,6 +152,28 @@ operator|.
 name|reject
 argument_list|()
 expr_stmt|;
+block|}
+else|else
+block|{
+throw|throw
+operator|new
+name|RejectedExecutionException
+argument_list|(
+literal|"Task "
+operator|+
+name|r
+operator|.
+name|toString
+argument_list|()
+operator|+
+literal|" rejected from "
+operator|+
+name|executor
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+throw|;
 block|}
 block|}
 annotation|@
