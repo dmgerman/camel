@@ -215,6 +215,11 @@ name|eventTypes
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|customListener
 specifier|private
 name|InfinispanCustomListener

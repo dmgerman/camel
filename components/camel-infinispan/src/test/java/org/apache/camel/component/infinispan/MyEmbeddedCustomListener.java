@@ -92,10 +92,6 @@ name|assertEquals
 import|;
 end_import
 
-begin_comment
-comment|/**  * @author mgencur  */
-end_comment
-
 begin_class
 annotation|@
 name|Listener
