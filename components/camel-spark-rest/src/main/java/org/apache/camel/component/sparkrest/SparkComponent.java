@@ -229,6 +229,21 @@ specifier|private
 name|String
 name|ipAddress
 decl_stmt|;
+DECL|field|minThreads
+specifier|private
+name|int
+name|minThreads
+decl_stmt|;
+DECL|field|maxThreads
+specifier|private
+name|int
+name|maxThreads
+decl_stmt|;
+DECL|field|timeOutMillis
+specifier|private
+name|int
+name|timeOutMillis
+decl_stmt|;
 DECL|field|sparkConfiguration
 specifier|private
 name|SparkConfiguration
@@ -312,6 +327,87 @@ operator|.
 name|ipAddress
 operator|=
 name|ipAddress
+expr_stmt|;
+block|}
+DECL|method|getMinThreads ()
+specifier|public
+name|int
+name|getMinThreads
+parameter_list|()
+block|{
+return|return
+name|minThreads
+return|;
+block|}
+comment|/**      * Minimum number of threads in Spark thread-pool (shared globally)      */
+DECL|method|setMinThreads (int minThreads)
+specifier|public
+name|void
+name|setMinThreads
+parameter_list|(
+name|int
+name|minThreads
+parameter_list|)
+block|{
+name|this
+operator|.
+name|minThreads
+operator|=
+name|minThreads
+expr_stmt|;
+block|}
+DECL|method|getMaxThreads ()
+specifier|public
+name|int
+name|getMaxThreads
+parameter_list|()
+block|{
+return|return
+name|maxThreads
+return|;
+block|}
+comment|/**      * Maximum number of threads in Spark thread-pool (shared globally)      */
+DECL|method|setMaxThreads (int maxThreads)
+specifier|public
+name|void
+name|setMaxThreads
+parameter_list|(
+name|int
+name|maxThreads
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxThreads
+operator|=
+name|maxThreads
+expr_stmt|;
+block|}
+DECL|method|getTimeOutMillis ()
+specifier|public
+name|int
+name|getTimeOutMillis
+parameter_list|()
+block|{
+return|return
+name|timeOutMillis
+return|;
+block|}
+comment|/**      * Thread idle timeout in millis where threads that has been idle for a longer period will be terminated from the thread pool      */
+DECL|method|setTimeOutMillis (int timeOutMillis)
+specifier|public
+name|void
+name|setTimeOutMillis
+parameter_list|(
+name|int
+name|timeOutMillis
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timeOutMillis
+operator|=
+name|timeOutMillis
 expr_stmt|;
 block|}
 DECL|method|getSparkConfiguration ()
