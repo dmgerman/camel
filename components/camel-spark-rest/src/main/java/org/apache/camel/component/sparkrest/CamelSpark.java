@@ -163,6 +163,40 @@ name|idle
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Configures connection to be secure      */
+DECL|method|security (String keystoreFile, String keystorePassword, String truststoreFile, String truststorePassword)
+specifier|public
+specifier|static
+name|void
+name|security
+parameter_list|(
+name|String
+name|keystoreFile
+parameter_list|,
+name|String
+name|keystorePassword
+parameter_list|,
+name|String
+name|truststoreFile
+parameter_list|,
+name|String
+name|truststorePassword
+parameter_list|)
+block|{
+name|Spark
+operator|.
+name|secure
+argument_list|(
+name|keystoreFile
+argument_list|,
+name|keystorePassword
+argument_list|,
+name|truststoreFile
+argument_list|,
+name|truststorePassword
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * Adds a Spark REST verb that routes to the given spark route      *      * @param verb   the HTTP verb      * @param path   the context path      * @param accept the accept header      * @param route  the spark route (we call a Camel route from here)      */
 DECL|method|spark (String verb, String path, String accept, Route route)
 specifier|public
