@@ -550,6 +550,35 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"consumer, advanced"
+argument_list|,
+name|prefix
+operator|=
+literal|"filter."
+argument_list|,
+name|multiValue
+operator|=
+literal|true
+argument_list|,
+name|description
+operator|=
+literal|"Configuration of the filter init parameters. These parameters will be applied to the filter list before starting the jetty server."
+argument_list|)
+DECL|field|filterInitParameters
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|filterInitParameters
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"producer,advanced"
 argument_list|,
 name|description
@@ -1540,6 +1569,43 @@ operator|.
 name|httpClientParameters
 operator|=
 name|httpClientParameters
+expr_stmt|;
+block|}
+DECL|method|getFilterInitParameters ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getFilterInitParameters
+parameter_list|()
+block|{
+return|return
+name|filterInitParameters
+return|;
+block|}
+comment|/**      *  Configuration of the filter init parameters. These parameters will be applied to the filter list before starting the jetty server.      */
+DECL|method|setFilterInitParameters (Map<String, String> filterInitParameters)
+specifier|public
+name|void
+name|setFilterInitParameters
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|filterInitParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|filterInitParameters
+operator|=
+name|filterInitParameters
 expr_stmt|;
 block|}
 DECL|method|isEnableCORS ()

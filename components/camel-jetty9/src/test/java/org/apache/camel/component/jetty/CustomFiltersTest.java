@@ -256,6 +256,11 @@ name|MyTestFilter
 implements|implements
 name|Filter
 block|{
+DECL|field|keyWord
+specifier|private
+name|String
+name|keyWord
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|doFilter (ServletRequest request, ServletResponse response, FilterChain chain)
@@ -292,6 +297,20 @@ argument_list|,
 literal|"true"
 argument_list|)
 expr_stmt|;
+operator|(
+operator|(
+name|HttpServletResponse
+operator|)
+name|response
+operator|)
+operator|.
+name|setHeader
+argument_list|(
+literal|"KeyWord"
+argument_list|,
+name|keyWord
+argument_list|)
+expr_stmt|;
 name|chain
 operator|.
 name|doFilter
@@ -315,7 +334,15 @@ parameter_list|)
 throws|throws
 name|ServletException
 block|{
-comment|// do nothing here
+name|keyWord
+operator|=
+name|filterConfig
+operator|.
+name|getInitParameter
+argument_list|(
+literal|"keyWord"
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -423,6 +450,24 @@ literal|"MyTestFilter"
 argument_list|)
 argument_list|)
 expr_stmt|;
+comment|// just make sure the KeyWord header is set
+name|assertEquals
+argument_list|(
+literal|"Did not set the right KeyWord header"
+argument_list|,
+literal|"KEY"
+argument_list|,
+name|httppost
+operator|.
+name|getResponseHeader
+argument_list|(
+literal|"KeyWord"
+argument_list|)
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -521,7 +566,7 @@ block|{
 comment|// Test the filter list options
 name|from
 argument_list|(
-literal|"jetty://http://localhost:{{port}}/testFilters?filtersRef=myFilters"
+literal|"jetty://http://localhost:{{port}}/testFilters?filtersRef=myFilters&filterInit.keyWord=KEY"
 argument_list|)
 operator|.
 name|process
