@@ -22,6 +22,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ScheduledExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|javax
 operator|.
 name|jms
@@ -428,6 +440,20 @@ name|destinationName
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|aggregationStrategy
+specifier|private
+name|AggregationStrategy
+name|aggregationStrategy
+decl_stmt|;
+annotation|@
+name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
@@ -475,33 +501,31 @@ name|defaultValue
 operator|=
 literal|"1000"
 argument_list|)
+DECL|field|completionInterval
+specifier|private
+name|int
+name|completionInterval
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|sendEmptyMessageWhenIdle
+specifier|private
+name|boolean
+name|sendEmptyMessageWhenIdle
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"1000"
+argument_list|)
 DECL|field|pollDuration
 specifier|private
 name|int
 name|pollDuration
 init|=
 literal|1000
-decl_stmt|;
-annotation|@
-name|UriParam
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|aggregationStrategy
-specifier|private
-name|AggregationStrategy
-name|aggregationStrategy
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|headerFilterStrategy
-specifier|private
-name|HeaderFilterStrategy
-name|headerFilterStrategy
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -540,6 +564,23 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|headerFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|messageCreatedStrategy
 specifier|private
 name|MessageCreatedStrategy
@@ -547,10 +588,27 @@ name|messageCreatedStrategy
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|jmsKeyFormatStrategy
 specifier|private
 name|JmsKeyFormatStrategy
 name|jmsKeyFormatStrategy
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|timeoutCheckerExecutorService
+specifier|private
+name|ScheduledExecutorService
+name|timeoutCheckerExecutorService
 decl_stmt|;
 DECL|method|SjmsBatchEndpoint ()
 specifier|public
@@ -643,14 +701,7 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"Cannot produce though a "
-operator|+
-name|SjmsBatchEndpoint
-operator|.
-name|class
-operator|.
-name|getName
-argument_list|()
+literal|"Producer not supported"
 argument_list|)
 throw|;
 block|}
@@ -667,7 +718,9 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-return|return
+name|SjmsBatchConsumer
+name|consumer
+init|=
 operator|new
 name|SjmsBatchConsumer
 argument_list|(
@@ -675,6 +728,21 @@ name|this
 argument_list|,
 name|processor
 argument_list|)
+decl_stmt|;
+name|consumer
+operator|.
+name|setTimeoutCheckerExecutorService
+argument_list|(
+name|timeoutCheckerExecutorService
+argument_list|)
+expr_stmt|;
+name|configureConsumer
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
+return|return
+name|consumer
 return|;
 block|}
 DECL|method|createExchange (Message message, Session session)
@@ -888,7 +956,7 @@ return|return
 name|completionTimeout
 return|;
 block|}
-comment|/**      * The timeout from receipt of the first first message when the batch will be completed      */
+comment|/**      * The timeout in millis from receipt of the first first message when the batch will be completed.      * The batch may be empty if the timeout triggered and there was no messages in the batch.      *<br/>      * Notice you cannot use both completion timeout and completion interval at the same time, only one can be configured.      */
 DECL|method|setCompletionTimeout (int completionTimeout)
 specifier|public
 name|void
@@ -903,6 +971,60 @@ operator|.
 name|completionTimeout
 operator|=
 name|completionTimeout
+expr_stmt|;
+block|}
+DECL|method|getCompletionInterval ()
+specifier|public
+name|int
+name|getCompletionInterval
+parameter_list|()
+block|{
+return|return
+name|completionInterval
+return|;
+block|}
+comment|/**      * The completion interval in millis, which causes batches to be completed in a scheduled fixed rate every interval.      * The batch may be empty if the timeout triggered and there was no messages in the batch.      *<br/>      * Notice you cannot use both completion timeout and completion interval at the same time, only one can be configured.      */
+DECL|method|setCompletionInterval (int completionInterval)
+specifier|public
+name|void
+name|setCompletionInterval
+parameter_list|(
+name|int
+name|completionInterval
+parameter_list|)
+block|{
+name|this
+operator|.
+name|completionInterval
+operator|=
+name|completionInterval
+expr_stmt|;
+block|}
+DECL|method|isSendEmptyMessageWhenIdle ()
+specifier|public
+name|boolean
+name|isSendEmptyMessageWhenIdle
+parameter_list|()
+block|{
+return|return
+name|sendEmptyMessageWhenIdle
+return|;
+block|}
+comment|/**      * If using completion timeout or interval, then the batch may be empty if the timeout triggered and there was no messages in the batch.      * If this option is<tt>true</tt> and the batch is empty then an empty message is added to the batch so an empty message is routed.      */
+DECL|method|setSendEmptyMessageWhenIdle (boolean sendEmptyMessageWhenIdle)
+specifier|public
+name|void
+name|setSendEmptyMessageWhenIdle
+parameter_list|(
+name|boolean
+name|sendEmptyMessageWhenIdle
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sendEmptyMessageWhenIdle
+operator|=
+name|sendEmptyMessageWhenIdle
 expr_stmt|;
 block|}
 DECL|method|getPollDuration ()
@@ -1123,6 +1245,33 @@ operator|.
 name|includeAllJMSXProperties
 operator|=
 name|includeAllJMSXProperties
+expr_stmt|;
+block|}
+DECL|method|getTimeoutCheckerExecutorService ()
+specifier|public
+name|ScheduledExecutorService
+name|getTimeoutCheckerExecutorService
+parameter_list|()
+block|{
+return|return
+name|timeoutCheckerExecutorService
+return|;
+block|}
+comment|/**      * If using the completionInterval option a background thread is created to trigger the completion interval.      * Set this option to provide a custom thread pool to be used rather than creating a new thread for every consumer.      */
+DECL|method|setTimeoutCheckerExecutorService (ScheduledExecutorService timeoutCheckerExecutorService)
+specifier|public
+name|void
+name|setTimeoutCheckerExecutorService
+parameter_list|(
+name|ScheduledExecutorService
+name|timeoutCheckerExecutorService
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timeoutCheckerExecutorService
+operator|=
+name|timeoutCheckerExecutorService
 expr_stmt|;
 block|}
 block|}

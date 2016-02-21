@@ -165,20 +165,10 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
-literal|"Exception caught while committing: {}"
+literal|"Exception caught while committing JMS session"
 argument_list|,
-name|ex
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|setException
-argument_list|(
 name|ex
 argument_list|)
 expr_stmt|;
@@ -218,20 +208,10 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
-literal|"Exception caught while rolling back: {}"
+literal|"Exception caught while rolling back JMS session"
 argument_list|,
-name|ex
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|setException
-argument_list|(
 name|ex
 argument_list|)
 expr_stmt|;
