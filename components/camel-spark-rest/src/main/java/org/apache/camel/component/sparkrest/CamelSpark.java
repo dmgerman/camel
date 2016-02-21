@@ -98,7 +98,7 @@ name|ip
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Adds a Spark REST verb that routes to the given Camel route      *      * @param verb   the HTTP verb      * @param path   the context path      * @param accept the accept header      * @param route  the Camel route      */
+comment|/**      * Adds a Spark REST verb that routes to the given spark route      *      * @param verb   the HTTP verb      * @param path   the context path      * @param accept the accept header      * @param route  the spark route (we call a Camel route from here)      */
 DECL|method|spark (String verb, String path, String accept, Route route)
 specifier|public
 specifier|static
