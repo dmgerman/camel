@@ -194,14 +194,6 @@ name|URISupport
 import|;
 end_import
 
-begin_import
-import|import
-name|spark
-operator|.
-name|SparkBase
-import|;
-end_import
-
 begin_class
 DECL|class|SparkComponent
 specifier|public
@@ -230,9 +222,7 @@ specifier|private
 name|int
 name|port
 init|=
-name|SparkBase
-operator|.
-name|SPARK_DEFAULT_PORT
+literal|4567
 decl_stmt|;
 DECL|field|ipAddress
 specifier|private
@@ -517,14 +507,12 @@ condition|(
 name|getPort
 argument_list|()
 operator|!=
-name|SparkBase
-operator|.
-name|SPARK_DEFAULT_PORT
+literal|4567
 condition|)
 block|{
-name|SparkBase
+name|CamelSpark
 operator|.
-name|setPort
+name|port
 argument_list|(
 name|getPort
 argument_list|()
@@ -562,9 +550,9 @@ operator|>
 literal|0
 condition|)
 block|{
-name|SparkBase
+name|CamelSpark
 operator|.
-name|setPort
+name|port
 argument_list|(
 name|port
 argument_list|)
@@ -579,9 +567,9 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|SparkBase
+name|CamelSpark
 operator|.
-name|setIpAddress
+name|ipAddress
 argument_list|(
 name|getIpAddress
 argument_list|()
@@ -649,7 +637,7 @@ operator|.
 name|doShutdown
 argument_list|()
 expr_stmt|;
-name|SparkBase
+name|CamelSpark
 operator|.
 name|stop
 argument_list|()
