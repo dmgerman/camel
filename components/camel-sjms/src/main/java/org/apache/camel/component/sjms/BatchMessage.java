@@ -39,10 +39,12 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link List} of these objects can be used to batch a collection of bodies and  * header pairs in one exchange.  */
+comment|/**  * A {@link List} of these objects can be used to batch a collection of bodies and  * header pairs in one exchange.  *<p/>  *<b>Important:</b> This BatchMessage is only supported by<tt>InOnly</tt> messaging style  * (eg you cannot do request/reply with this BatchMessage)  *  * @deprecated do not use, its being removed in a future Camel release  */
 end_comment
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|BatchMessage
 specifier|public
 class|class
