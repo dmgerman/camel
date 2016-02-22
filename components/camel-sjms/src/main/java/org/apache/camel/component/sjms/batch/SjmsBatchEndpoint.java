@@ -410,15 +410,6 @@ name|DEFAULT_COMPLETION_TIMEOUT
 init|=
 literal|500
 decl_stmt|;
-DECL|field|PROPERTY_BATCH_SIZE
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|PROPERTY_BATCH_SIZE
-init|=
-literal|"CamelSjmsBatchSize"
-decl_stmt|;
 DECL|field|binding
 specifier|private
 name|JmsBinding
