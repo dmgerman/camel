@@ -6374,13 +6374,13 @@ if|if
 condition|(
 name|log
 operator|.
-name|isDebugEnabled
+name|isTraceEnabled
 argument_list|()
 condition|)
 block|{
 name|log
 operator|.
-name|debug
+name|trace
 argument_list|(
 literal|"Redelivery enabled: {} on error handler: {}"
 argument_list|,
@@ -6416,13 +6416,13 @@ if|if
 condition|(
 name|log
 operator|.
-name|isTraceEnabled
+name|isDebugEnabled
 argument_list|()
 condition|)
 block|{
 name|log
 operator|.
-name|trace
+name|debug
 argument_list|(
 literal|"Using ExecutorService: {} for redeliveries on error handler: {}"
 argument_list|,
