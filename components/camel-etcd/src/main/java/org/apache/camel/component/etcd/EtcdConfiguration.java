@@ -72,10 +72,21 @@ name|EtcdConfiguration
 block|{
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+name|EtcdConstants
+operator|.
+name|ETCD_DEFAULT_URIS
+argument_list|)
 DECL|field|uris
 specifier|private
 name|String
 name|uris
+init|=
+name|EtcdConstants
+operator|.
+name|ETCD_DEFAULT_URIS
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -115,6 +126,11 @@ name|password
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|sendEmptyExchangeOnTimeout
 specifier|private
 name|boolean
@@ -156,7 +172,7 @@ return|return
 name|uris
 return|;
 block|}
-comment|/**      * TODO: document me      */
+comment|/**      * To set the URIs the client connects.      */
 DECL|method|setUris (String uris)
 specifier|public
 name|void
@@ -183,7 +199,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
-comment|/**      * TODO: document me      */
+comment|/**      * To configure security using SSLContextParameters.      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
@@ -210,7 +226,7 @@ return|return
 name|userName
 return|;
 block|}
-comment|/**      * TODO: document me      */
+comment|/**      * The user name to use for basic authentication.      */
 DECL|method|setUserName (String userName)
 specifier|public
 name|void
@@ -237,7 +253,7 @@ return|return
 name|password
 return|;
 block|}
-comment|/**      * TODO: document me      */
+comment|/**      * The password to use for basic authentication.      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -264,7 +280,7 @@ return|return
 name|sendEmptyExchangeOnTimeout
 return|;
 block|}
-comment|/**      * TODO: document me      */
+comment|/**      * To send an empty message in case of timeout watching for a key.      */
 DECL|method|setSendEmptyExchangeOnTimeout (boolean sendEmptyExchangeOnTimeout)
 specifier|public
 name|void
@@ -291,7 +307,7 @@ return|return
 name|recursive
 return|;
 block|}
-comment|/**      * TODO: document me      */
+comment|/**      * To apply an action recursively.      */
 DECL|method|setRecursive (boolean recursive)
 specifier|public
 name|void
@@ -318,7 +334,7 @@ return|return
 name|timeToLive
 return|;
 block|}
-comment|/**      * TODO: document me      */
+comment|/**      * To set the lifespan of a key in milliseconds.      */
 DECL|method|setTimeToLive (Integer timeToLive)
 specifier|public
 name|void
@@ -345,7 +361,7 @@ return|return
 name|timeout
 return|;
 block|}
-comment|/**      * TODO: document me      */
+comment|/**      * To set the maximum time an action could take to complete.      */
 DECL|method|setTimeout (Long timeout)
 specifier|public
 name|void

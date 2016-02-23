@@ -197,10 +197,10 @@ return|return
 name|configuration
 return|;
 block|}
-DECL|method|getActionNamespace ()
+DECL|method|getNamespace ()
 specifier|protected
 name|EtcdNamespace
-name|getActionNamespace
+name|getNamespace
 parameter_list|()
 block|{
 return|return

@@ -130,20 +130,6 @@ name|UriPath
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
 begin_comment
 comment|/**  * Represents a etcd endpoint.  */
 end_comment
@@ -187,9 +173,12 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"The namespace"
+literal|"The API namespace to use"
+argument_list|,
+name|enums
+operator|=
+literal|"keys,stats,watch"
 argument_list|)
-comment|// TODO: document me
 annotation|@
 name|Metadata
 argument_list|(
@@ -208,9 +197,15 @@ name|UriPath
 argument_list|(
 name|description
 operator|=
-literal|"The path"
+literal|"The path the enpoint refers to"
 argument_list|)
-comment|// TODO: document me
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|path
 specifier|private
 specifier|final
@@ -307,6 +302,18 @@ operator|.
 name|namespace
 return|;
 block|}
+DECL|method|getPath ()
+specifier|public
+name|String
+name|getPath
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|path
+return|;
+block|}
 DECL|method|createClient ()
 specifier|public
 name|EtcdClient
@@ -318,10 +325,6 @@ block|{
 name|String
 index|[]
 name|uris
-init|=
-name|EtcdConstants
-operator|.
-name|ETCD_DEFAULT_URIS
 decl_stmt|;
 if|if
 condition|(
@@ -339,6 +342,20 @@ name|configuration
 operator|.
 name|getUris
 argument_list|()
+operator|.
+name|split
+argument_list|(
+literal|","
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|uris
+operator|=
+name|EtcdConstants
+operator|.
+name|ETCD_DEFAULT_URIS
 operator|.
 name|split
 argument_list|(
@@ -416,18 +433,6 @@ argument_list|)
 argument_list|,
 name|etcdUriList
 argument_list|)
-return|;
-block|}
-DECL|method|getPath ()
-specifier|public
-name|String
-name|getPath
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|path
 return|;
 block|}
 DECL|method|createSslContext (EtcdConfiguration configuration)
