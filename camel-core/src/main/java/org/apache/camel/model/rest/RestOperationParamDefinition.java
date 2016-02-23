@@ -292,12 +292,26 @@ name|Metadata
 argument_list|(
 name|defaultValue
 operator|=
-literal|"false"
+literal|"csv"
 argument_list|)
 DECL|field|allowMultiple
 specifier|private
-name|Boolean
+name|AllowMultiple
 name|allowMultiple
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"string"
+argument_list|)
+DECL|field|arrayType
+specifier|private
+name|String
+name|arrayType
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -532,27 +546,21 @@ expr_stmt|;
 block|}
 DECL|method|getAllowMultiple ()
 specifier|public
-name|Boolean
+name|AllowMultiple
 name|getAllowMultiple
 parameter_list|()
 block|{
 return|return
 name|allowMultiple
-operator|!=
-literal|null
-condition|?
-name|allowMultiple
-else|:
-literal|false
 return|;
 block|}
-comment|/**      * Sets the Swagger Parameter allowMultiple flag.      */
-DECL|method|setAllowMultiple (Boolean allowMultiple)
+comment|/**      * Sets the Swagger Parameter allowMultiple type.      */
+DECL|method|setAllowMultiple (AllowMultiple allowMultiple)
 specifier|public
 name|void
 name|setAllowMultiple
 parameter_list|(
-name|Boolean
+name|AllowMultiple
 name|allowMultiple
 parameter_list|)
 block|{
@@ -561,6 +569,33 @@ operator|.
 name|allowMultiple
 operator|=
 name|allowMultiple
+expr_stmt|;
+block|}
+DECL|method|getArrayType ()
+specifier|public
+name|String
+name|getArrayType
+parameter_list|()
+block|{
+return|return
+name|arrayType
+return|;
+block|}
+comment|/**      * Sets the Swagger Parameter array type.      * Required if data type is "array". Describes the type of items in the array.      */
+DECL|method|setArrayType (String arrayType)
+specifier|public
+name|void
+name|setArrayType
+parameter_list|(
+name|String
+name|arrayType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|arrayType
+operator|=
+name|arrayType
 expr_stmt|;
 block|}
 DECL|method|getDataType ()
@@ -755,18 +790,37 @@ name|this
 return|;
 block|}
 comment|/**      * Whether the parameter can be used multiple times      */
-DECL|method|allowMultiple (Boolean allowMultiple)
+DECL|method|allowMultiple (AllowMultiple allowMultiple)
 specifier|public
 name|RestOperationParamDefinition
 name|allowMultiple
 parameter_list|(
-name|Boolean
+name|AllowMultiple
 name|allowMultiple
 parameter_list|)
 block|{
 name|setAllowMultiple
 argument_list|(
 name|allowMultiple
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The data type of the array data type      */
+DECL|method|arrayType (String arrayType)
+specifier|public
+name|RestOperationParamDefinition
+name|arrayType
+parameter_list|(
+name|String
+name|arrayType
+parameter_list|)
+block|{
+name|setArrayType
+argument_list|(
+name|arrayType
 argument_list|)
 expr_stmt|;
 return|return
