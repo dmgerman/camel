@@ -1207,7 +1207,7 @@ name|nullToEmpty
 argument_list|(
 name|streamReader
 operator|.
-name|getAttributeType
+name|getAttributeValue
 argument_list|(
 name|index
 argument_list|)
