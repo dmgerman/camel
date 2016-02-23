@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|javax
-operator|.
-name|net
-operator|.
-name|ssl
-operator|.
-name|SSLContext
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -84,11 +72,6 @@ name|EtcdConfiguration
 block|{
 annotation|@
 name|UriParam
-argument_list|(
-name|multiValue
-operator|=
-literal|true
-argument_list|)
 DECL|field|uris
 specifier|private
 name|String
@@ -133,15 +116,9 @@ decl_stmt|;
 annotation|@
 name|UriParam
 DECL|field|sendEmptyExchangeOnTimeout
+specifier|private
 name|boolean
 name|sendEmptyExchangeOnTimeout
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|path
-specifier|private
-name|String
-name|path
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -302,33 +279,6 @@ operator|.
 name|sendEmptyExchangeOnTimeout
 operator|=
 name|sendEmptyExchangeOnTimeout
-expr_stmt|;
-block|}
-DECL|method|getPath ()
-specifier|public
-name|String
-name|getPath
-parameter_list|()
-block|{
-return|return
-name|path
-return|;
-block|}
-comment|/**      * TODO: document me      */
-DECL|method|setPath (String path)
-specifier|public
-name|void
-name|setPath
-parameter_list|(
-name|String
-name|path
-parameter_list|)
-block|{
-name|this
-operator|.
-name|path
-operator|=
-name|path
 expr_stmt|;
 block|}
 DECL|method|isRecursive ()

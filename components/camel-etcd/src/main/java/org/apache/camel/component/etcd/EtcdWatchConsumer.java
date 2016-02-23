@@ -234,10 +234,7 @@ name|endpoint
 operator|.
 name|getRemainingPath
 argument_list|(
-name|configuration
-operator|.
-name|getPath
-argument_list|()
+name|path
 argument_list|)
 expr_stmt|;
 block|}
