@@ -60,6 +60,7 @@ end_comment
 
 begin_class
 DECL|class|AbstractEtcdPollingConsumer
+specifier|public
 specifier|abstract
 class|class
 name|AbstractEtcdPollingConsumer

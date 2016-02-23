@@ -78,6 +78,7 @@ begin_class
 annotation|@
 name|UriParams
 DECL|class|EtcdConfiguration
+specifier|public
 class|class
 name|EtcdConfiguration
 block|{
@@ -129,6 +130,45 @@ specifier|private
 name|String
 name|password
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|sendEmptyExchangeOnTimeout
+name|boolean
+name|sendEmptyExchangeOnTimeout
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|path
+specifier|private
+name|String
+name|path
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|recursive
+specifier|private
+name|boolean
+name|recursive
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|timeToLive
+specifier|private
+name|Integer
+name|timeToLive
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|timeout
+specifier|private
+name|Long
+name|timeout
+decl_stmt|;
 DECL|method|getUris ()
 specifier|public
 name|String
@@ -139,18 +179,7 @@ return|return
 name|uris
 return|;
 block|}
-DECL|method|hasUris ()
-specifier|public
-name|boolean
-name|hasUris
-parameter_list|()
-block|{
-return|return
-name|uris
-operator|!=
-literal|null
-return|;
-block|}
+comment|/**      * TODO: document me      */
 DECL|method|setUris (String uris)
 specifier|public
 name|void
@@ -177,6 +206,7 @@ return|return
 name|sslContextParameters
 return|;
 block|}
+comment|/**      * TODO: document me      */
 DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
 specifier|public
 name|void
@@ -203,6 +233,7 @@ return|return
 name|userName
 return|;
 block|}
+comment|/**      * TODO: document me      */
 DECL|method|setUserName (String userName)
 specifier|public
 name|void
@@ -229,6 +260,7 @@ return|return
 name|password
 return|;
 block|}
+comment|/**      * TODO: document me      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -245,25 +277,140 @@ operator|=
 name|password
 expr_stmt|;
 block|}
-DECL|method|createSslContext ()
-name|SSLContext
-name|createSslContext
+DECL|method|isSendEmptyExchangeOnTimeout ()
+specifier|public
+name|boolean
+name|isSendEmptyExchangeOnTimeout
 parameter_list|()
-throws|throws
-name|Exception
 block|{
 return|return
-name|sslContextParameters
-operator|!=
-literal|null
-condition|?
-name|sslContextParameters
-operator|.
-name|createSSLContext
-argument_list|()
-else|:
-literal|null
+name|sendEmptyExchangeOnTimeout
 return|;
+block|}
+comment|/**      * TODO: document me      */
+DECL|method|setSendEmptyExchangeOnTimeout (boolean sendEmptyExchangeOnTimeout)
+specifier|public
+name|void
+name|setSendEmptyExchangeOnTimeout
+parameter_list|(
+name|boolean
+name|sendEmptyExchangeOnTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sendEmptyExchangeOnTimeout
+operator|=
+name|sendEmptyExchangeOnTimeout
+expr_stmt|;
+block|}
+DECL|method|getPath ()
+specifier|public
+name|String
+name|getPath
+parameter_list|()
+block|{
+return|return
+name|path
+return|;
+block|}
+comment|/**      * TODO: document me      */
+DECL|method|setPath (String path)
+specifier|public
+name|void
+name|setPath
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+name|this
+operator|.
+name|path
+operator|=
+name|path
+expr_stmt|;
+block|}
+DECL|method|isRecursive ()
+specifier|public
+name|boolean
+name|isRecursive
+parameter_list|()
+block|{
+return|return
+name|recursive
+return|;
+block|}
+comment|/**      * TODO: document me      */
+DECL|method|setRecursive (boolean recursive)
+specifier|public
+name|void
+name|setRecursive
+parameter_list|(
+name|boolean
+name|recursive
+parameter_list|)
+block|{
+name|this
+operator|.
+name|recursive
+operator|=
+name|recursive
+expr_stmt|;
+block|}
+DECL|method|getTimeToLive ()
+specifier|public
+name|Integer
+name|getTimeToLive
+parameter_list|()
+block|{
+return|return
+name|timeToLive
+return|;
+block|}
+comment|/**      * TODO: document me      */
+DECL|method|setTimeToLive (Integer timeToLive)
+specifier|public
+name|void
+name|setTimeToLive
+parameter_list|(
+name|Integer
+name|timeToLive
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timeToLive
+operator|=
+name|timeToLive
+expr_stmt|;
+block|}
+DECL|method|getTimeout ()
+specifier|public
+name|Long
+name|getTimeout
+parameter_list|()
+block|{
+return|return
+name|timeout
+return|;
+block|}
+comment|/**      * TODO: document me      */
+DECL|method|setTimeout (Long timeout)
+specifier|public
+name|void
+name|setTimeout
+parameter_list|(
+name|Long
+name|timeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timeout
+operator|=
+name|timeout
+expr_stmt|;
 block|}
 block|}
 end_class

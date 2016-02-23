@@ -48,6 +48,7 @@ end_comment
 
 begin_class
 DECL|class|AbstractEtcdProducer
+specifier|public
 specifier|abstract
 class|class
 name|AbstractEtcdProducer

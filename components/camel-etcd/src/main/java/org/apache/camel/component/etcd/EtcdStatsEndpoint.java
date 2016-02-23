@@ -66,15 +66,13 @@ end_import
 
 begin_class
 DECL|class|EtcdStatsEndpoint
+specifier|public
 class|class
 name|EtcdStatsEndpoint
 extends|extends
 name|AbstractEtcdEndpoint
-argument_list|<
-name|EtcdStatsConfiguration
-argument_list|>
 block|{
-DECL|method|EtcdStatsEndpoint ( String uri, EtcdComponent component, EtcdStatsConfiguration configuration, EtcdNamespace namespace, String path)
+DECL|method|EtcdStatsEndpoint ( String uri, EtcdComponent component, EtcdConfiguration configuration, EtcdNamespace namespace, String path)
 specifier|public
 name|EtcdStatsEndpoint
 parameter_list|(
@@ -84,7 +82,7 @@ parameter_list|,
 name|EtcdComponent
 name|component
 parameter_list|,
-name|EtcdStatsConfiguration
+name|EtcdConfiguration
 name|configuration
 parameter_list|,
 name|EtcdNamespace
@@ -127,7 +125,7 @@ argument_list|,
 name|getConfiguration
 argument_list|()
 argument_list|,
-name|getActionNamespace
+name|getNamespace
 argument_list|()
 argument_list|,
 name|getPath
@@ -159,7 +157,7 @@ argument_list|,
 name|getConfiguration
 argument_list|()
 argument_list|,
-name|getActionNamespace
+name|getNamespace
 argument_list|()
 argument_list|,
 name|getPath

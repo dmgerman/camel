@@ -44,12 +44,14 @@ end_import
 
 begin_class
 DECL|class|EtcdStatsConsumer
+specifier|public
 class|class
 name|EtcdStatsConsumer
 extends|extends
 name|AbstractEtcdPollingConsumer
 block|{
-DECL|method|EtcdStatsConsumer (EtcdStatsEndpoint endpoint, Processor processor, EtcdStatsConfiguration configuration, EtcdNamespace namespace, String path)
+DECL|method|EtcdStatsConsumer (EtcdStatsEndpoint endpoint, Processor processor, EtcdConfiguration configuration, EtcdNamespace namespace, String path)
+specifier|public
 name|EtcdStatsConsumer
 parameter_list|(
 name|EtcdStatsEndpoint
@@ -58,7 +60,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|EtcdStatsConfiguration
+name|EtcdConfiguration
 name|configuration
 parameter_list|,
 name|EtcdNamespace

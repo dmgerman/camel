@@ -34,6 +34,7 @@ end_import
 
 begin_enum
 DECL|enum|EtcdNamespace
+specifier|public
 enum|enum
 name|EtcdNamespace
 block|{

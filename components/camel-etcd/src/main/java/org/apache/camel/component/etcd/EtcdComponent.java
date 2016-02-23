@@ -187,7 +187,7 @@ argument_list|,
 name|loadConfiguration
 argument_list|(
 operator|new
-name|EtcdStatsConfiguration
+name|EtcdConfiguration
 argument_list|()
 argument_list|,
 name|parameters
@@ -212,7 +212,7 @@ argument_list|,
 name|loadConfiguration
 argument_list|(
 operator|new
-name|EtcdWatchConfiguration
+name|EtcdConfiguration
 argument_list|()
 argument_list|,
 name|parameters
@@ -237,7 +237,7 @@ argument_list|,
 name|loadConfiguration
 argument_list|(
 operator|new
-name|EtcdKeysConfiguration
+name|EtcdConfiguration
 argument_list|()
 argument_list|,
 name|parameters

@@ -134,6 +134,7 @@ end_import
 
 begin_class
 DECL|class|EtcdWatchConsumer
+specifier|public
 class|class
 name|EtcdWatchConsumer
 extends|extends
@@ -171,7 +172,7 @@ decl_stmt|;
 DECL|field|configuration
 specifier|private
 specifier|final
-name|EtcdWatchConfiguration
+name|EtcdConfiguration
 name|configuration
 decl_stmt|;
 DECL|field|defaultPath
@@ -180,7 +181,8 @@ specifier|final
 name|String
 name|defaultPath
 decl_stmt|;
-DECL|method|EtcdWatchConsumer (EtcdWatchEndpoint endpoint, Processor processor, EtcdWatchConfiguration configuration, EtcdNamespace namespace, String path)
+DECL|method|EtcdWatchConsumer (EtcdWatchEndpoint endpoint, Processor processor, EtcdConfiguration configuration, EtcdNamespace namespace, String path)
+specifier|public
 name|EtcdWatchConsumer
 parameter_list|(
 name|EtcdWatchEndpoint
@@ -189,7 +191,7 @@ parameter_list|,
 name|Processor
 name|processor
 parameter_list|,
-name|EtcdWatchConfiguration
+name|EtcdConfiguration
 name|configuration
 parameter_list|,
 name|EtcdNamespace
@@ -515,8 +517,10 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|hasTimeout
+name|getTimeout
 argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|request

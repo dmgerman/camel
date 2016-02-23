@@ -56,15 +56,13 @@ end_import
 
 begin_class
 DECL|class|EtcdKeysEndpoint
+specifier|public
 class|class
 name|EtcdKeysEndpoint
 extends|extends
 name|AbstractEtcdEndpoint
-argument_list|<
-name|EtcdKeysConfiguration
-argument_list|>
 block|{
-DECL|method|EtcdKeysEndpoint ( String uri, EtcdComponent component, EtcdKeysConfiguration configuration, EtcdNamespace namespace, String path)
+DECL|method|EtcdKeysEndpoint ( String uri, EtcdComponent component, EtcdConfiguration configuration, EtcdNamespace namespace, String path)
 specifier|public
 name|EtcdKeysEndpoint
 parameter_list|(
@@ -74,7 +72,7 @@ parameter_list|,
 name|EtcdComponent
 name|component
 parameter_list|,
-name|EtcdKeysConfiguration
+name|EtcdConfiguration
 name|configuration
 parameter_list|,
 name|EtcdNamespace
@@ -117,7 +115,7 @@ argument_list|,
 name|getConfiguration
 argument_list|()
 argument_list|,
-name|getActionNamespace
+name|getNamespace
 argument_list|()
 argument_list|,
 name|getPath

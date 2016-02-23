@@ -128,6 +128,7 @@ end_import
 
 begin_class
 DECL|class|EtcdKeysProducer
+specifier|public
 class|class
 name|EtcdKeysProducer
 extends|extends
@@ -136,7 +137,7 @@ block|{
 DECL|field|configuration
 specifier|private
 specifier|final
-name|EtcdKeysConfiguration
+name|EtcdConfiguration
 name|configuration
 decl_stmt|;
 DECL|field|defaultPath
@@ -145,13 +146,14 @@ specifier|final
 name|String
 name|defaultPath
 decl_stmt|;
-DECL|method|EtcdKeysProducer (EtcdKeysEndpoint endpoint, EtcdKeysConfiguration configuration, EtcdNamespace namespace, String path)
+DECL|method|EtcdKeysProducer (EtcdKeysEndpoint endpoint, EtcdConfiguration configuration, EtcdNamespace namespace, String path)
+specifier|public
 name|EtcdKeysProducer
 parameter_list|(
 name|EtcdKeysEndpoint
 name|endpoint
 parameter_list|,
-name|EtcdKeysConfiguration
+name|EtcdConfiguration
 name|configuration
 parameter_list|,
 name|EtcdNamespace
@@ -409,8 +411,10 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|hasTimeToLive
+name|getTimeToLive
 argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|request
@@ -428,8 +432,10 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|hasTimeout
+name|getTimeout
 argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|request
@@ -517,8 +523,10 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|hasTimeout
+name|getTimeout
 argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|request
@@ -623,8 +631,10 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|hasTimeout
+name|getTimeout
 argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|request

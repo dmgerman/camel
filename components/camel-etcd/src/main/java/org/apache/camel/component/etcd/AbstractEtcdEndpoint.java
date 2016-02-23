@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|net
+operator|.
+name|ssl
+operator|.
+name|SSLContext
+import|;
+end_import
+
+begin_import
+import|import
 name|mousio
 operator|.
 name|etcd4j
@@ -100,6 +112,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriPath
 import|;
 end_import
@@ -136,7 +162,7 @@ literal|"etcd"
 argument_list|,
 name|syntax
 operator|=
-literal|"etcd:namespace"
+literal|"etcd:namespace/path"
 argument_list|,
 name|consumerClass
 operator|=
@@ -149,14 +175,10 @@ operator|=
 literal|"etcd"
 argument_list|)
 DECL|class|AbstractEtcdEndpoint
+specifier|public
 specifier|abstract
 class|class
 name|AbstractEtcdEndpoint
-parameter_list|<
-name|C
-extends|extends
-name|EtcdConfiguration
-parameter_list|>
 extends|extends
 name|DefaultEndpoint
 block|{
@@ -167,6 +189,7 @@ name|description
 operator|=
 literal|"The namespace"
 argument_list|)
+comment|// TODO: document me
 annotation|@
 name|Metadata
 argument_list|(
@@ -180,19 +203,29 @@ specifier|final
 name|EtcdNamespace
 name|namespace
 decl_stmt|;
-DECL|field|configuration
-specifier|private
-specifier|final
-name|C
-name|configuration
-decl_stmt|;
+annotation|@
+name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"The path"
+argument_list|)
+comment|// TODO: document me
 DECL|field|path
 specifier|private
 specifier|final
 name|String
 name|path
 decl_stmt|;
-DECL|method|AbstractEtcdEndpoint (String uri, EtcdComponent component, C configuration, EtcdNamespace namespace, String path)
+annotation|@
+name|UriParam
+DECL|field|configuration
+specifier|private
+specifier|final
+name|EtcdConfiguration
+name|configuration
+decl_stmt|;
+DECL|method|AbstractEtcdEndpoint (String uri, EtcdComponent component, EtcdConfiguration configuration, EtcdNamespace namespace, String path)
 specifier|protected
 name|AbstractEtcdEndpoint
 parameter_list|(
@@ -202,7 +235,7 @@ parameter_list|,
 name|EtcdComponent
 name|component
 parameter_list|,
-name|C
+name|EtcdConfiguration
 name|configuration
 parameter_list|,
 name|EtcdNamespace
@@ -252,7 +285,7 @@ return|;
 block|}
 DECL|method|getConfiguration ()
 specifier|public
-name|C
+name|EtcdConfiguration
 name|getConfiguration
 parameter_list|()
 block|{
@@ -262,10 +295,10 @@ operator|.
 name|configuration
 return|;
 block|}
-DECL|method|getActionNamespace ()
+DECL|method|getNamespace ()
 specifier|public
 name|EtcdNamespace
-name|getActionNamespace
+name|getNamespace
 parameter_list|()
 block|{
 return|return
@@ -294,8 +327,10 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|hasUris
+name|getUris
 argument_list|()
+operator|!=
+literal|null
 condition|)
 block|{
 name|uris
@@ -363,10 +398,10 @@ argument_list|(
 operator|new
 name|EtcdSecurityContext
 argument_list|(
-name|configuration
-operator|.
 name|createSslContext
-argument_list|()
+argument_list|(
+name|configuration
+argument_list|)
 argument_list|,
 name|configuration
 operator|.
@@ -438,6 +473,41 @@ expr_stmt|;
 block|}
 return|return
 name|path
+return|;
+block|}
+DECL|method|createSslContext (EtcdConfiguration configuration)
+specifier|private
+name|SSLContext
+name|createSslContext
+parameter_list|(
+name|EtcdConfiguration
+name|configuration
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|configuration
+operator|.
+name|getSslContextParameters
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|configuration
+operator|.
+name|getSslContextParameters
+argument_list|()
+operator|.
+name|createSSLContext
+argument_list|()
+return|;
+block|}
+return|return
+literal|null
 return|;
 block|}
 block|}

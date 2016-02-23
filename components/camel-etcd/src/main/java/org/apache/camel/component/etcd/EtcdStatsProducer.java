@@ -32,18 +32,20 @@ end_import
 
 begin_class
 DECL|class|EtcdStatsProducer
+specifier|public
 class|class
 name|EtcdStatsProducer
 extends|extends
 name|AbstractEtcdProducer
 block|{
-DECL|method|EtcdStatsProducer (EtcdStatsEndpoint endpoint, EtcdStatsConfiguration configuration, EtcdNamespace namespace, String path)
+DECL|method|EtcdStatsProducer (EtcdStatsEndpoint endpoint, EtcdConfiguration configuration, EtcdNamespace namespace, String path)
+specifier|public
 name|EtcdStatsProducer
 parameter_list|(
 name|EtcdStatsEndpoint
 name|endpoint
 parameter_list|,
-name|EtcdStatsConfiguration
+name|EtcdConfiguration
 name|configuration
 parameter_list|,
 name|EtcdNamespace

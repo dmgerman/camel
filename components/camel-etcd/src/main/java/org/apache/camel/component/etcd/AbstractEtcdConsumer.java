@@ -60,6 +60,7 @@ end_comment
 
 begin_class
 DECL|class|AbstractEtcdConsumer
+specifier|public
 specifier|abstract
 class|class
 name|AbstractEtcdConsumer
@@ -201,38 +202,6 @@ expr_stmt|;
 block|}
 return|return
 name|client
-return|;
-block|}
-DECL|method|getConfiguration ()
-specifier|protected
-name|EtcdConfiguration
-name|getConfiguration
-parameter_list|()
-block|{
-return|return
-name|configuration
-return|;
-block|}
-DECL|method|getActionNamespace ()
-specifier|protected
-name|EtcdNamespace
-name|getActionNamespace
-parameter_list|()
-block|{
-return|return
-name|namespace
-return|;
-block|}
-DECL|method|getPath ()
-specifier|protected
-name|String
-name|getPath
-parameter_list|()
-block|{
-return|return
-name|this
-operator|.
-name|path
 return|;
 block|}
 block|}
