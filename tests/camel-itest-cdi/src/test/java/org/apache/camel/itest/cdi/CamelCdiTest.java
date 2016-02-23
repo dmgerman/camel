@@ -852,10 +852,11 @@ name|camelContexts
 operator|.
 name|select
 argument_list|(
-operator|new
 name|ContextName
 operator|.
 name|Literal
+operator|.
+name|of
 argument_list|(
 name|contextName
 argument_list|)

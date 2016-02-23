@@ -160,7 +160,7 @@ name|String
 name|name
 decl_stmt|;
 DECL|method|Literal (String name)
-specifier|public
+specifier|private
 name|Literal
 parameter_list|(
 name|String
@@ -173,6 +173,24 @@ name|name
 operator|=
 name|name
 expr_stmt|;
+block|}
+DECL|method|of (String name)
+specifier|public
+specifier|static
+name|Literal
+name|of
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+operator|new
+name|Literal
+argument_list|(
+name|name
+argument_list|)
+return|;
 block|}
 annotation|@
 name|Override

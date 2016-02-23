@@ -805,10 +805,11 @@ name|DefaultLiteral
 operator|.
 name|INSTANCE
 else|:
-operator|new
 name|ContextName
 operator|.
 name|Literal
+operator|.
+name|of
 argument_list|(
 name|contextName
 argument_list|)
