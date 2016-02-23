@@ -568,7 +568,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"etcd:/keys"
+literal|"etcd:keys"
 argument_list|)
 operator|.
 name|to
@@ -583,7 +583,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"etcd:/keys"
+literal|"etcd:keys"
 argument_list|)
 operator|.
 name|to
@@ -598,7 +598,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"etcd:/keys"
+literal|"etcd:keys"
 argument_list|)
 operator|.
 name|to

@@ -204,6 +204,36 @@ return|return
 name|client
 return|;
 block|}
+DECL|method|getConfiguration ()
+specifier|public
+name|EtcdConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
+return|;
+block|}
+DECL|method|getNamespace ()
+specifier|public
+name|EtcdNamespace
+name|getNamespace
+parameter_list|()
+block|{
+return|return
+name|namespace
+return|;
+block|}
+DECL|method|getPath ()
+specifier|public
+name|String
+name|getPath
+parameter_list|()
+block|{
+return|return
+name|path
+return|;
+block|}
 block|}
 end_class
 

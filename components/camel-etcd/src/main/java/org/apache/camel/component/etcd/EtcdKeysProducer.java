@@ -140,12 +140,6 @@ specifier|final
 name|EtcdConfiguration
 name|configuration
 decl_stmt|;
-DECL|field|defaultPath
-specifier|private
-specifier|final
-name|String
-name|defaultPath
-decl_stmt|;
 DECL|method|EtcdKeysProducer (EtcdKeysEndpoint endpoint, EtcdConfiguration configuration, EtcdNamespace namespace, String path)
 specifier|public
 name|EtcdKeysProducer
@@ -179,17 +173,6 @@ operator|.
 name|configuration
 operator|=
 name|configuration
-expr_stmt|;
-name|this
-operator|.
-name|defaultPath
-operator|=
-name|endpoint
-operator|.
-name|getRemainingPath
-argument_list|(
-name|path
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -252,7 +235,8 @@ condition|)
 block|{
 name|path
 operator|=
-name|defaultPath
+name|getPath
+argument_list|()
 expr_stmt|;
 block|}
 name|ObjectHelper

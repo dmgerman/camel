@@ -387,7 +387,7 @@ block|{
 comment|// CONSUMER
 name|from
 argument_list|(
-literal|"etcd:/stats/leader?consumer.delay=50&consumer.initialDelay=0"
+literal|"etcd:stats/leader?consumer.delay=50&consumer.initialDelay=0"
 argument_list|)
 operator|.
 name|to
@@ -397,7 +397,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"etcd:/stats/self?consumer.delay=50&consumer.initialDelay=0"
+literal|"etcd:stats/self?consumer.delay=50&consumer.initialDelay=0"
 argument_list|)
 operator|.
 name|to
@@ -407,7 +407,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"etcd:/stats/store?consumer.delay=50&consumer.initialDelay=0"
+literal|"etcd:stats/store?consumer.delay=50&consumer.initialDelay=0"
 argument_list|)
 operator|.
 name|to
@@ -423,7 +423,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"etcd:/stats/leader"
+literal|"etcd:stats/leader"
 argument_list|)
 operator|.
 name|to
@@ -438,7 +438,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"etcd:/stats/self"
+literal|"etcd:stats/self"
 argument_list|)
 operator|.
 name|to
@@ -453,7 +453,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"etcd:/stats/store"
+literal|"etcd:stats/store"
 argument_list|)
 operator|.
 name|to

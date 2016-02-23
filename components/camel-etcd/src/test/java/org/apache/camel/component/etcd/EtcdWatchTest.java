@@ -424,7 +424,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"etcd:/watch/myKey1"
+literal|"etcd:watch/myKey1"
 argument_list|)
 operator|.
 name|process
@@ -439,7 +439,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"etcd:/watch/recursive?recursive=true"
+literal|"etcd:watch/recursive?recursive=true"
 argument_list|)
 operator|.
 name|process
@@ -459,7 +459,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"etcd:/watch?path=/myKey2"
+literal|"etcd:watch/myKey2"
 argument_list|)
 operator|.
 name|process
@@ -474,7 +474,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"etcd:/watch/timeoutKey?timeout=250&sendEmptyExchangeOnTimeout=true"
+literal|"etcd:watch/timeoutKey?timeout=250&sendEmptyExchangeOnTimeout=true"
 argument_list|)
 operator|.
 name|to

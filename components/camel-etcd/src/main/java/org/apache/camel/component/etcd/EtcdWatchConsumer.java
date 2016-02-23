@@ -175,12 +175,6 @@ specifier|final
 name|EtcdConfiguration
 name|configuration
 decl_stmt|;
-DECL|field|defaultPath
-specifier|private
-specifier|final
-name|String
-name|defaultPath
-decl_stmt|;
 DECL|method|EtcdWatchConsumer (EtcdWatchEndpoint endpoint, Processor processor, EtcdConfiguration configuration, EtcdNamespace namespace, String path)
 specifier|public
 name|EtcdWatchConsumer
@@ -225,17 +219,6 @@ operator|.
 name|configuration
 operator|=
 name|configuration
-expr_stmt|;
-name|this
-operator|.
-name|defaultPath
-operator|=
-name|endpoint
-operator|.
-name|getRemainingPath
-argument_list|(
-name|path
-argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -364,9 +347,10 @@ name|LOGGER
 operator|.
 name|debug
 argument_list|(
-literal|"Timeout watching for "
-operator|+
-name|defaultPath
+literal|"Timeout watching for {}"
+argument_list|,
+name|getPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -377,8 +361,6 @@ name|isSendEmptyExchangeOnTimeout
 argument_list|()
 condition|)
 block|{
-try|try
-block|{
 name|Exchange
 name|exchange
 init|=
@@ -387,6 +369,8 @@ operator|.
 name|createExchange
 argument_list|()
 decl_stmt|;
+try|try
+block|{
 name|exchange
 operator|.
 name|getIn
@@ -412,7 +396,8 @@ name|EtcdConstants
 operator|.
 name|ETCD_PATH
 argument_list|,
-name|defaultPath
+name|getPath
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|exchange
@@ -440,13 +425,18 @@ name|Exception
 name|e1
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+name|getExceptionHandler
+argument_list|()
+operator|.
+name|handleException
 argument_list|(
-name|e
+literal|"Error processing exchange"
+argument_list|,
+name|exchange
+argument_list|,
+name|e1
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 block|}
@@ -490,7 +480,8 @@ argument_list|()
 operator|.
 name|get
 argument_list|(
-name|defaultPath
+name|getPath
+argument_list|()
 argument_list|)
 operator|.
 name|waitForChange
