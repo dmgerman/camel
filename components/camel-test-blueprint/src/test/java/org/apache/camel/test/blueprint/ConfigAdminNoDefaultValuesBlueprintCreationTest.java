@@ -20,16 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Dictionary
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|junit
@@ -38,8 +28,20 @@ name|Test
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|CoreMatchers
+operator|.
+name|equalTo
+import|;
+end_import
+
 begin_comment
-comment|/**  *  */
+comment|/**  * A test showing that if Blueprint XML contains property placeholders, some property source has to be defined.  */
 end_comment
 
 begin_class
@@ -52,15 +54,53 @@ name|CamelBlueprintTestSupport
 block|{
 annotation|@
 name|Override
-DECL|method|expectBlueprintContainerReloadOnConfigAdminUpdate ()
-specifier|protected
-name|boolean
-name|expectBlueprintContainerReloadOnConfigAdminUpdate
+DECL|method|setUp ()
+specifier|public
+name|void
+name|setUp
 parameter_list|()
+throws|throws
+name|Exception
 block|{
-return|return
-literal|true
-return|;
+try|try
+block|{
+name|super
+operator|.
+name|setUp
+argument_list|()
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should fail, because Blueprint XML uses property placeholders, but we didn't define any property sources"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|assertThat
+argument_list|(
+name|e
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getCause
+argument_list|()
+operator|.
+name|getMessage
+argument_list|()
+argument_list|,
+name|equalTo
+argument_list|(
+literal|"Property placeholder key: destination not found"
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -75,73 +115,15 @@ literal|"org/apache/camel/test/blueprint/configadmin-endpoint-no-defaults.xml"
 return|;
 block|}
 annotation|@
-name|Override
-DECL|method|useOverridePropertiesWithConfigAdmin (Dictionary props)
-specifier|protected
-name|String
-name|useOverridePropertiesWithConfigAdmin
-parameter_list|(
-name|Dictionary
-name|props
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-name|props
-operator|.
-name|put
-argument_list|(
-literal|"greeting"
-argument_list|,
-literal|"Bye"
-argument_list|)
-expr_stmt|;
-name|props
-operator|.
-name|put
-argument_list|(
-literal|"destination"
-argument_list|,
-literal|"mock:result"
-argument_list|)
-expr_stmt|;
-return|return
-literal|"my-placeholders"
-return|;
-block|}
-annotation|@
 name|Test
-DECL|method|testConfigAdmin ()
+DECL|method|test ()
 specifier|public
 name|void
-name|testConfigAdmin
+name|test
 parameter_list|()
 throws|throws
 name|Exception
-block|{
-name|getMockEndpoint
-argument_list|(
-literal|"mock:result"
-argument_list|)
-operator|.
-name|expectedBodiesReceived
-argument_list|(
-literal|"Bye World"
-argument_list|)
-expr_stmt|;
-name|template
-operator|.
-name|sendBody
-argument_list|(
-literal|"direct:start"
-argument_list|,
-literal|"World"
-argument_list|)
-expr_stmt|;
-name|assertMockEndpointsSatisfied
-argument_list|()
-expr_stmt|;
-block|}
+block|{     }
 block|}
 end_class
 

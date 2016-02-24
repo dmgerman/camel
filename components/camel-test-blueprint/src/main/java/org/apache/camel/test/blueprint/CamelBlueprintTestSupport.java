@@ -929,12 +929,6 @@ name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|expectReload
-condition|)
-block|{
 name|CamelBlueprintHelper
 operator|.
 name|waitForBlueprintContainer
@@ -952,7 +946,6 @@ argument_list|,
 literal|null
 argument_list|)
 expr_stmt|;
-block|}
 comment|// must reuse props as we can do both load from .cfg file and override afterwards
 specifier|final
 name|Dictionary
