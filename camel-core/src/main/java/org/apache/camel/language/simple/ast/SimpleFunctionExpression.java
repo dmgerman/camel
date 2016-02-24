@@ -665,11 +665,13 @@ init|=
 name|createSimpleFileExpression
 argument_list|(
 name|remainder
+argument_list|,
+name|strict
 argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|function
+name|fileExpression
 operator|!=
 literal|null
 condition|)
@@ -2267,13 +2269,16 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|createSimpleFileExpression (String remainder)
+DECL|method|createSimpleFileExpression (String remainder, boolean strict)
 specifier|private
 name|Expression
 name|createSimpleFileExpression
 parameter_list|(
 name|String
 name|remainder
+parameter_list|,
+name|boolean
+name|strict
 parameter_list|)
 block|{
 if|if
@@ -2573,6 +2578,11 @@ name|fileLastModifiedExpression
 argument_list|()
 return|;
 block|}
+if|if
+condition|(
+name|strict
+condition|)
+block|{
 throw|throw
 operator|new
 name|SimpleParserException
@@ -2587,6 +2597,10 @@ name|getIndex
 argument_list|()
 argument_list|)
 throw|;
+block|}
+return|return
+literal|null
+return|;
 block|}
 DECL|method|ifStartsWithReturnRemainder (String prefix, String text)
 specifier|private

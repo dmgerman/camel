@@ -826,6 +826,22 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testSimpleFileDir ()
+specifier|public
+name|void
+name|testSimpleFileDir
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assertExpression
+argument_list|(
+literal|"file:mydir"
+argument_list|,
+literal|"file:mydir"
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testEmptyExpression ()
 specifier|public
 name|void
