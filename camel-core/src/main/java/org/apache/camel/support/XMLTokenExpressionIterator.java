@@ -333,7 +333,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *  */
+comment|/**  * An {@link org.apache.camel.language.tokenizer.XMLTokenizeLanguage} based iterator.  */
 end_comment
 
 begin_class
@@ -552,41 +552,7 @@ name|XMLStreamException
 throws|,
 name|UnsupportedEncodingException
 block|{
-name|Reader
-name|reader
-decl_stmt|;
-if|if
-condition|(
-name|charset
-operator|==
-literal|null
-condition|)
-block|{
-name|reader
-operator|=
-operator|new
-name|InputStreamReader
-argument_list|(
-name|in
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-name|reader
-operator|=
-operator|new
-name|InputStreamReader
-argument_list|(
-name|in
-argument_list|,
-name|charset
-argument_list|)
-expr_stmt|;
-block|}
-name|XMLTokenIterator
-name|iterator
-init|=
+return|return
 operator|new
 name|XMLTokenIterator
 argument_list|(
@@ -598,11 +564,10 @@ name|mode
 argument_list|,
 name|group
 argument_list|,
-name|reader
+name|in
+argument_list|,
+name|charset
 argument_list|)
-decl_stmt|;
-return|return
-name|iterator
 return|;
 block|}
 DECL|method|createIterator (Reader in)
@@ -619,9 +584,7 @@ parameter_list|)
 throws|throws
 name|XMLStreamException
 block|{
-name|XMLTokenIterator
-name|iterator
-init|=
+return|return
 operator|new
 name|XMLTokenIterator
 argument_list|(
@@ -635,9 +598,6 @@ name|group
 argument_list|,
 name|in
 argument_list|)
-decl_stmt|;
-return|return
-name|iterator
 return|;
 block|}
 annotation|@
@@ -880,6 +840,12 @@ argument_list|(
 literal|"xmlns(:\\w+|)\\s*=\\s*('[^']*'|\"[^\"]*\")"
 argument_list|)
 decl_stmt|;
+DECL|field|originalInputStream
+specifier|private
+specifier|transient
+name|InputStream
+name|originalInputStream
+decl_stmt|;
 DECL|field|splitpath
 specifier|private
 name|AttributedQName
@@ -1043,6 +1009,12 @@ name|charset
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|originalInputStream
+operator|=
+name|in
+expr_stmt|;
 block|}
 DECL|method|XMLTokenIterator (String path, Map<String, String> nsmap, char mode, int group, InputStream in, String charset)
 specifier|public
@@ -1085,6 +1057,8 @@ name|nsmap
 argument_list|,
 name|mode
 argument_list|,
+name|group
+argument_list|,
 operator|new
 name|InputStreamReader
 argument_list|(
@@ -1093,6 +1067,12 @@ argument_list|,
 name|charset
 argument_list|)
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|originalInputStream
+operator|=
+name|in
 expr_stmt|;
 block|}
 DECL|method|XMLTokenIterator (String path, Map<String, String> nsmap, char mode, Reader in)
@@ -1662,10 +1642,10 @@ return|return
 name|c
 return|;
 block|}
-DECL|method|getCurrenText ()
+DECL|method|getCurrentText ()
 specifier|private
 name|String
-name|getCurrenText
+name|getCurrentText
 parameter_list|()
 block|{
 name|int
@@ -2092,7 +2072,7 @@ name|token
 init|=
 name|createContextualToken
 argument_list|(
-name|getCurrenText
+name|getCurrentText
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2889,7 +2869,7 @@ block|}
 name|String
 name|token
 init|=
-name|getCurrenText
+name|getCurrentText
 argument_list|()
 decl_stmt|;
 comment|// perform the second compliance test
@@ -3476,17 +3456,27 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|XMLStreamException
+name|Exception
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|IOException
+comment|// ignore
+block|}
+comment|// need to close the original input stream as well as the reader do not delegate close it
+if|if
+condition|(
+name|originalInputStream
+operator|!=
+literal|null
+condition|)
+block|{
+name|IOHelper
+operator|.
+name|close
 argument_list|(
-name|e
+name|originalInputStream
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 block|}
 block|}
