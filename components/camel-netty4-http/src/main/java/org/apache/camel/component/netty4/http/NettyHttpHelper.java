@@ -1152,10 +1152,36 @@ argument_list|(
 name|url
 argument_list|)
 decl_stmt|;
-comment|// is a query string provided in the endpoint URI or in a header (header overrules endpoint)
+comment|// is a query string provided in the endpoint URI or in a header
+comment|// (header overrules endpoint, raw query header overrules query header)
 name|String
 name|queryString
 init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|Exchange
+operator|.
+name|HTTP_RAW_QUERY
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|queryString
+operator|==
+literal|null
+condition|)
+block|{
+name|queryString
+operator|=
 name|exchange
 operator|.
 name|getIn
@@ -1171,7 +1197,8 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|queryString

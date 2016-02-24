@@ -1517,7 +1517,7 @@ name|getRawQuery
 argument_list|()
 expr_stmt|;
 block|}
-comment|// We should user the query string from the HTTP_URI header
+comment|// We should use the query string from the HTTP_URI header
 if|if
 condition|(
 name|queryString
