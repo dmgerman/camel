@@ -404,6 +404,7 @@ argument_list|)
 expr_stmt|;
 return|return;
 block|}
+comment|// figure out if continuation is enabled and what timeout to use
 name|boolean
 name|useContinuation
 init|=
@@ -463,9 +464,6 @@ block|{
 name|useContinuation
 operator|=
 name|epUseContinuation
-operator|.
-name|booleanValue
-argument_list|()
 expr_stmt|;
 block|}
 else|else
@@ -534,7 +532,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"Usage of continuation is disabled, either by component or endpoint configuration, fall back to normal servlet processing instead"
+literal|"Usage of continuation is disabled, either by component or endpoint configuration, fallback to normal servlet processing instead"
 argument_list|)
 expr_stmt|;
 name|super
