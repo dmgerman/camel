@@ -111,6 +111,15 @@ name|QUARTZ_TRIGGER_SIMPLE_REPEAT_INTERVAL
 init|=
 literal|"CamelQuartzTriggerSimpleRepeatInterval"
 decl_stmt|;
+DECL|field|QUARTZ_CAMEL_CUSTOM_CALENDAR
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|QUARTZ_CAMEL_CUSTOM_CALENDAR
+init|=
+literal|"CamelQuartzCustomCalendar"
+decl_stmt|;
 DECL|method|QuartzConstants ()
 specifier|private
 name|QuartzConstants
