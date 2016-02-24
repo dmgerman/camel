@@ -100,6 +100,18 @@ name|netty
 operator|.
 name|channel
 operator|.
+name|Channel
+import|;
+end_import
+
+begin_import
+import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|channel
+operator|.
 name|ChannelHandler
 import|;
 end_import
@@ -141,6 +153,18 @@ operator|.
 name|util
 operator|.
 name|CharsetUtil
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -743,6 +767,18 @@ DECL|field|udpByteArrayCodec
 specifier|private
 name|boolean
 name|udpByteArrayCodec
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|reuseChannel
+specifier|private
+name|boolean
+name|reuseChannel
 decl_stmt|;
 comment|/**      * Returns a copy of this configuration      */
 DECL|method|copy ()
@@ -2674,6 +2710,33 @@ operator|.
 name|udpByteArrayCodec
 operator|=
 name|udpByteArrayCodec
+expr_stmt|;
+block|}
+DECL|method|isReuseChannel ()
+specifier|public
+name|boolean
+name|isReuseChannel
+parameter_list|()
+block|{
+return|return
+name|reuseChannel
+return|;
+block|}
+comment|/**      * This option allows producers to reuse the same Netty {@link Channel} for the lifecycle of processing the {@link Exchange}.      * This is useable if you need to call a server multiple times in a Camel route and want to use the same network connection.      * When using this the channel is not returned to the connection pool until the {@link Exchange} is done; or disconnected      * if the disconnect option is set to true.      *<p/>      * The reused {@link Channel} is stored on the {@link Exchange} as an exchange property with the key {@link NettyConstants#NETTY_CHANNEL}      * which allows you to obtain the channel during routing and use it as well.      */
+DECL|method|setReuseChannel (boolean reuseChannel)
+specifier|public
+name|void
+name|setReuseChannel
+parameter_list|(
+name|boolean
+name|reuseChannel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|reuseChannel
+operator|=
+name|reuseChannel
 expr_stmt|;
 block|}
 DECL|method|addToHandlersList (List<T> configured, List<T> handlers, Class<T> handlerType)

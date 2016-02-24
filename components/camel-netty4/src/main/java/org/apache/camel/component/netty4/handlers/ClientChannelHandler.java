@@ -983,8 +983,18 @@ operator|=
 name|close
 expr_stmt|;
 block|}
+comment|// we should not close if we are reusing the channel
 if|if
 condition|(
+operator|!
+name|producer
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isReuseChannel
+argument_list|()
+operator|&&
 name|disconnect
 condition|)
 block|{

@@ -137,6 +137,15 @@ name|NETTY_REQUEST_TIMEOUT
 init|=
 literal|"CamelNettyRequestTimeout"
 decl_stmt|;
+DECL|field|NETTY_CHANNEL
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|NETTY_CHANNEL
+init|=
+literal|"CamelNettyChannel"
+decl_stmt|;
 DECL|method|NettyConstants ()
 specifier|private
 name|NettyConstants
