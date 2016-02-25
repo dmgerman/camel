@@ -330,6 +330,24 @@ operator|.
 name|class
 argument_list|)
 operator|.
+name|header
+argument_list|(
+literal|"X-Rate-Limit-Limit"
+argument_list|)
+operator|.
+name|description
+argument_list|(
+literal|"The number of allowed requests in the current period"
+argument_list|)
+operator|.
+name|dataType
+argument_list|(
+literal|"integer"
+argument_list|)
+operator|.
+name|endHeader
+argument_list|()
+operator|.
 name|endResponseMessage
 argument_list|()
 operator|.
@@ -535,6 +553,26 @@ operator|.
 name|contains
 argument_list|(
 literal|"\"format\" : \"org.apache.camel.swagger.DayResponse\""
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"X-Rate-Limit-Limit\" : {"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|json
+operator|.
+name|contains
+argument_list|(
+literal|"\"description\" : \"The number of allowed requests in the current period\""
 argument_list|)
 argument_list|)
 expr_stmt|;

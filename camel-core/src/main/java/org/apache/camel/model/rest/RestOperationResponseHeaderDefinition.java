@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p>  * http://www.apache.org/licenses/LICENSE-2.0  *<p>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -175,7 +175,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To specify the rest operation parameters using Swagger.  *<p/>  * This maps to the Swagger Parameter Message Object.  */
+comment|/**  * To specify the rest operation response headers using Swagger.  *<p>  * This maps to the Swagger Response Header Object.  */
 end_comment
 
 begin_class
@@ -191,7 +191,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"param"
+literal|"responseHeader"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -200,17 +200,17 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|RestOperationParamDefinition
+DECL|class|RestOperationResponseHeaderDefinition
 specifier|public
 class|class
-name|RestOperationParamDefinition
+name|RestOperationResponseHeaderDefinition
 block|{
 annotation|@
 name|XmlTransient
-DECL|field|verb
+DECL|field|response
 specifier|private
-name|VerbDefinition
-name|verb
+name|RestOperationResponseMsgDefinition
+name|response
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -226,25 +226,6 @@ name|name
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|true
-argument_list|)
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|"path"
-argument_list|)
-DECL|field|type
-specifier|private
-name|RestParamType
-name|type
-decl_stmt|;
-annotation|@
-name|XmlAttribute
 annotation|@
 name|Metadata
 argument_list|(
@@ -256,34 +237,6 @@ DECL|field|description
 specifier|private
 name|String
 name|description
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|""
-argument_list|)
-DECL|field|defaultValue
-specifier|private
-name|String
-name|defaultValue
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
-DECL|field|required
-specifier|private
-name|Boolean
-name|required
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -349,74 +302,60 @@ name|String
 argument_list|>
 name|allowableValues
 decl_stmt|;
-annotation|@
-name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|""
-argument_list|)
-DECL|field|access
-specifier|private
-name|String
-name|access
-decl_stmt|;
-DECL|method|RestOperationParamDefinition ()
+DECL|method|RestOperationResponseHeaderDefinition (RestOperationResponseMsgDefinition response)
 specifier|public
-name|RestOperationParamDefinition
-parameter_list|()
-block|{     }
-DECL|method|RestOperationParamDefinition (VerbDefinition verb)
-specifier|public
-name|RestOperationParamDefinition
+name|RestOperationResponseHeaderDefinition
 parameter_list|(
-name|VerbDefinition
-name|verb
+name|RestOperationResponseMsgDefinition
+name|response
 parameter_list|)
 block|{
 name|this
+argument_list|()
+expr_stmt|;
+name|this
 operator|.
-name|verb
+name|response
 operator|=
-name|verb
+name|response
 expr_stmt|;
 block|}
-DECL|method|getType ()
+DECL|method|RestOperationResponseHeaderDefinition ()
 specifier|public
-name|RestParamType
-name|getType
+name|RestOperationResponseHeaderDefinition
+parameter_list|()
+block|{
+name|this
+operator|.
+name|collectionFormat
+operator|=
+name|CollectionFormat
+operator|.
+name|csv
+expr_stmt|;
+name|this
+operator|.
+name|arrayType
+operator|=
+literal|"string"
+expr_stmt|;
+name|this
+operator|.
+name|dataType
+operator|=
+literal|"string"
+expr_stmt|;
+block|}
+comment|/**      * Ends the configuration of this response message      */
+DECL|method|endResponseHeader ()
+specifier|public
+name|RestOperationResponseMsgDefinition
+name|endResponseHeader
 parameter_list|()
 block|{
 return|return
-name|type
-operator|!=
-literal|null
-condition|?
-name|type
-else|:
-name|RestParamType
-operator|.
-name|path
+name|response
 return|;
-block|}
-comment|/**      * Sets the Swagger Parameter type.      */
-DECL|method|setType (RestParamType type)
-specifier|public
-name|void
-name|setType
-parameter_list|(
-name|RestParamType
-name|type
-parameter_list|)
-block|{
-name|this
-operator|.
-name|type
-operator|=
-name|type
-expr_stmt|;
 block|}
 DECL|method|getName ()
 specifier|public
@@ -428,7 +367,6 @@ return|return
 name|name
 return|;
 block|}
-comment|/**      * Sets the Swagger Parameter name.      */
 DECL|method|setName (String name)
 specifier|public
 name|void
@@ -453,15 +391,8 @@ parameter_list|()
 block|{
 return|return
 name|description
-operator|!=
-literal|null
-condition|?
-name|description
-else|:
-literal|""
 return|;
 block|}
-comment|/**      * Sets the Swagger Parameter description.      */
 DECL|method|setDescription (String description)
 specifier|public
 name|void
@@ -476,72 +407,6 @@ operator|.
 name|description
 operator|=
 name|description
-expr_stmt|;
-block|}
-comment|/**      * Sets the Swagger Parameter default value.      */
-DECL|method|getDefaultValue ()
-specifier|public
-name|String
-name|getDefaultValue
-parameter_list|()
-block|{
-return|return
-name|defaultValue
-operator|!=
-literal|null
-condition|?
-name|defaultValue
-else|:
-literal|""
-return|;
-block|}
-DECL|method|setDefaultValue (String defaultValue)
-specifier|public
-name|void
-name|setDefaultValue
-parameter_list|(
-name|String
-name|defaultValue
-parameter_list|)
-block|{
-name|this
-operator|.
-name|defaultValue
-operator|=
-name|defaultValue
-expr_stmt|;
-block|}
-DECL|method|getRequired ()
-specifier|public
-name|Boolean
-name|getRequired
-parameter_list|()
-block|{
-return|return
-name|required
-operator|!=
-literal|null
-condition|?
-name|required
-else|:
-literal|true
-return|;
-block|}
-comment|/**      * Sets the Swagger Parameter required flag.      */
-DECL|method|setRequired (Boolean required)
-specifier|public
-name|void
-name|setRequired
-parameter_list|(
-name|Boolean
-name|required
-parameter_list|)
-block|{
-name|this
-operator|.
-name|required
-operator|=
-name|required
 expr_stmt|;
 block|}
 DECL|method|getCollectionFormat ()
@@ -606,15 +471,9 @@ parameter_list|()
 block|{
 return|return
 name|dataType
-operator|!=
-literal|null
-condition|?
-name|dataType
-else|:
-literal|"string"
 return|;
 block|}
-comment|/**      * Sets the Swagger Parameter data type.      */
+comment|/**      * Sets the Swagger header data type.      */
 DECL|method|setDataType (String dataType)
 specifier|public
 name|void
@@ -660,7 +519,7 @@ argument_list|>
 argument_list|()
 return|;
 block|}
-comment|/**      * Sets the Swagger Parameter list of allowable values (enum).      */
+comment|/**      * Sets the Swagger Parameter list of allowable values.      */
 DECL|method|setAllowableValues (List<String> allowableValues)
 specifier|public
 name|void
@@ -680,43 +539,10 @@ operator|=
 name|allowableValues
 expr_stmt|;
 block|}
-DECL|method|getAccess ()
-specifier|public
-name|String
-name|getAccess
-parameter_list|()
-block|{
-return|return
-name|access
-operator|!=
-literal|null
-condition|?
-name|access
-else|:
-literal|""
-return|;
-block|}
-comment|/**      * Sets the Swagger Parameter paramAccess flag.      */
-DECL|method|setAccess (String access)
-specifier|public
-name|void
-name|setAccess
-parameter_list|(
-name|String
-name|access
-parameter_list|)
-block|{
-name|this
-operator|.
-name|access
-operator|=
-name|access
-expr_stmt|;
-block|}
-comment|/**      * Name of the parameter.      *<p/>      * This option is mandatory.      */
+comment|/**      * Name of the parameter.      *<p>      * This option is mandatory.      */
 DECL|method|name (String name)
 specifier|public
-name|RestOperationParamDefinition
+name|RestOperationResponseHeaderDefinition
 name|name
 parameter_list|(
 name|String
@@ -735,7 +561,7 @@ block|}
 comment|/**      * Description of the parameter.      */
 DECL|method|description (String name)
 specifier|public
-name|RestOperationParamDefinition
+name|RestOperationResponseHeaderDefinition
 name|description
 parameter_list|(
 name|String
@@ -751,48 +577,10 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The default value of the parameter.      */
-DECL|method|defaultValue (String name)
-specifier|public
-name|RestOperationParamDefinition
-name|defaultValue
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|setDefaultValue
-argument_list|(
-name|name
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Whether the parameter is required      */
-DECL|method|required (Boolean required)
-specifier|public
-name|RestOperationParamDefinition
-name|required
-parameter_list|(
-name|Boolean
-name|required
-parameter_list|)
-block|{
-name|setRequired
-argument_list|(
-name|required
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
 comment|/**      * Sets the collection format.      */
 DECL|method|collectionFormat (CollectionFormat collectionFormat)
 specifier|public
-name|RestOperationParamDefinition
+name|RestOperationResponseHeaderDefinition
 name|collectionFormat
 parameter_list|(
 name|CollectionFormat
@@ -811,7 +599,7 @@ block|}
 comment|/**      * The data type of the array data type      */
 DECL|method|arrayType (String arrayType)
 specifier|public
-name|RestOperationParamDefinition
+name|RestOperationResponseHeaderDefinition
 name|arrayType
 parameter_list|(
 name|String
@@ -827,10 +615,10 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The data type of the parameter such as<tt>string</tt>,<tt>integer</tt>,<tt>boolean</tt>      */
+comment|/**      * The data type of the header such as<tt>string</tt>,<tt>integer</tt>,<tt>boolean</tt>      */
 DECL|method|dataType (String type)
 specifier|public
-name|RestOperationParamDefinition
+name|RestOperationResponseHeaderDefinition
 name|dataType
 parameter_list|(
 name|String
@@ -846,10 +634,10 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Allowed values of the parameter when its an enum type      */
+comment|/**      * Allowed values of the header when its an enum type      */
 DECL|method|allowableValues (List<String> allowableValues)
 specifier|public
-name|RestOperationParamDefinition
+name|RestOperationResponseHeaderDefinition
 name|allowableValues
 parameter_list|(
 name|List
@@ -871,7 +659,7 @@ block|}
 comment|/**      * Allowed values of the parameter when its an enum type      */
 DECL|method|allowableValues (String... allowableValues)
 specifier|public
-name|RestOperationParamDefinition
+name|RestOperationResponseHeaderDefinition
 name|allowableValues
 parameter_list|(
 name|String
@@ -893,52 +681,14 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The parameter type such as body, form, header, path, query      */
-DECL|method|type (RestParamType type)
+comment|/**      * Ends the configuration of this header      */
+DECL|method|endHeader ()
 specifier|public
-name|RestOperationParamDefinition
-name|type
-parameter_list|(
-name|RestParamType
-name|type
-parameter_list|)
-block|{
-name|setType
-argument_list|(
-name|type
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Parameter access. Use<tt>false</tt> or<tt>internal</tt> to indicate the parameter      * should be hidden for the public.      */
-DECL|method|access (String paramAccess)
-specifier|public
-name|RestOperationParamDefinition
-name|access
-parameter_list|(
-name|String
-name|paramAccess
-parameter_list|)
-block|{
-name|setAccess
-argument_list|(
-name|paramAccess
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Ends the configuration of this parameter      */
-DECL|method|endParam ()
-specifier|public
-name|RestDefinition
-name|endParam
+name|RestOperationResponseMsgDefinition
+name|endHeader
 parameter_list|()
 block|{
-comment|// name is mandatory
+comment|// name and type is mandatory
 name|ObjectHelper
 operator|.
 name|notEmpty
@@ -948,21 +698,17 @@ argument_list|,
 literal|"name"
 argument_list|)
 expr_stmt|;
-name|verb
+name|ObjectHelper
 operator|.
-name|getParams
-argument_list|()
-operator|.
-name|add
+name|notEmpty
 argument_list|(
-name|this
+name|dataType
+argument_list|,
+literal|"dataType"
 argument_list|)
 expr_stmt|;
 return|return
-name|verb
-operator|.
-name|getRest
-argument_list|()
+name|response
 return|;
 block|}
 block|}

@@ -480,6 +480,24 @@ operator|.
 name|class
 argument_list|)
 operator|.
+name|header
+argument_list|(
+literal|"rate"
+argument_list|)
+operator|.
+name|description
+argument_list|(
+literal|"Rate limit"
+argument_list|)
+operator|.
+name|dataType
+argument_list|(
+literal|"integer"
+argument_list|)
+operator|.
+name|endHeader
+argument_list|()
+operator|.
 name|endResponseMessage
 argument_list|()
 operator|.
