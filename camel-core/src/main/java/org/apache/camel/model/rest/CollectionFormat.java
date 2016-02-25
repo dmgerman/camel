@@ -60,10 +60,6 @@ name|Metadata
 import|;
 end_import
 
-begin_comment
-comment|/**  * Rest parameter types  */
-end_comment
-
 begin_enum
 annotation|@
 name|Metadata
@@ -76,30 +72,25 @@ annotation|@
 name|XmlType
 annotation|@
 name|XmlEnum
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|)
-DECL|enum|RestParamType
+DECL|enum|CollectionFormat
 specifier|public
 enum|enum
-name|RestParamType
+name|CollectionFormat
 block|{
-DECL|enumConstant|body
-DECL|enumConstant|formData
-DECL|enumConstant|header
-DECL|enumConstant|path
-DECL|enumConstant|query
-name|body
+DECL|enumConstant|csv
+DECL|enumConstant|ssv
+DECL|enumConstant|tsv
+DECL|enumConstant|pipes
+DECL|enumConstant|multi
+name|csv
 block|,
-name|formData
+name|ssv
 block|,
-name|header
+name|tsv
 block|,
-name|path
+name|pipes
 block|,
-name|query
+name|multi
 block|}
 end_enum
 

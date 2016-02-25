@@ -44,7 +44,7 @@ name|model
 operator|.
 name|rest
 operator|.
-name|AllowMultiple
+name|CollectionFormat
 import|;
 end_import
 
@@ -231,9 +231,9 @@ argument_list|(
 literal|"b"
 argument_list|)
 operator|.
-name|allowMultiple
+name|collectionFormat
 argument_list|(
-name|AllowMultiple
+name|CollectionFormat
 operator|.
 name|multi
 argument_list|)

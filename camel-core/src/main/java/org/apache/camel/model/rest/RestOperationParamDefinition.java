@@ -175,7 +175,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To specify the rest operation parameters using Swagger.  *<p/>  * This maps to the Swagger Parameter Object.  * see com.wordnik.swagger.model.Parameter  * and https://github.com/swagger-api/swagger-spec/blob/master/versions/1.2.md#524-parameter-object.  */
+comment|/**  * To specify the rest operation parameters using Swagger.  *<p/>  * This maps to the Swagger Parameter Message Object.  */
 end_comment
 
 begin_class
@@ -294,10 +294,10 @@ name|defaultValue
 operator|=
 literal|"csv"
 argument_list|)
-DECL|field|allowMultiple
+DECL|field|collectionFormat
 specifier|private
-name|AllowMultiple
-name|allowMultiple
+name|CollectionFormat
+name|collectionFormat
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -544,31 +544,31 @@ operator|=
 name|required
 expr_stmt|;
 block|}
-DECL|method|getAllowMultiple ()
+DECL|method|getCollectionFormat ()
 specifier|public
-name|AllowMultiple
-name|getAllowMultiple
+name|CollectionFormat
+name|getCollectionFormat
 parameter_list|()
 block|{
 return|return
-name|allowMultiple
+name|collectionFormat
 return|;
 block|}
-comment|/**      * Sets the Swagger Parameter allowMultiple type.      */
-DECL|method|setAllowMultiple (AllowMultiple allowMultiple)
+comment|/**      * Sets the Swagger Parameter collection format.      */
+DECL|method|setCollectionFormat (CollectionFormat collectionFormat)
 specifier|public
 name|void
-name|setAllowMultiple
+name|setCollectionFormat
 parameter_list|(
-name|AllowMultiple
-name|allowMultiple
+name|CollectionFormat
+name|collectionFormat
 parameter_list|)
 block|{
 name|this
 operator|.
-name|allowMultiple
+name|collectionFormat
 operator|=
-name|allowMultiple
+name|collectionFormat
 expr_stmt|;
 block|}
 DECL|method|getArrayType ()
@@ -789,19 +789,19 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Whether the parameter can be used multiple times      */
-DECL|method|allowMultiple (AllowMultiple allowMultiple)
+comment|/**      * Sets the collection format.      */
+DECL|method|collectionFormat (CollectionFormat collectionFormat)
 specifier|public
 name|RestOperationParamDefinition
-name|allowMultiple
+name|collectionFormat
 parameter_list|(
-name|AllowMultiple
-name|allowMultiple
+name|CollectionFormat
+name|collectionFormat
 parameter_list|)
 block|{
-name|setAllowMultiple
+name|setCollectionFormat
 argument_list|(
-name|allowMultiple
+name|collectionFormat
 argument_list|)
 expr_stmt|;
 return|return
@@ -827,7 +827,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The data type of the parameter such as<tt>string</tt>,<tt>long</tt>,<tt>int</tt>,<tt>boolean</tt>      */
+comment|/**      * The data type of the parameter such as<tt>string</tt>,<tt>integer</tt>,<tt>boolean</tt>      */
 DECL|method|dataType (String type)
 specifier|public
 name|RestOperationParamDefinition

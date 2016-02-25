@@ -94,7 +94,7 @@ name|model
 operator|.
 name|rest
 operator|.
-name|AllowMultiple
+name|CollectionFormat
 import|;
 end_import
 
@@ -659,9 +659,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|Boolean
-operator|.
-name|FALSE
+literal|null
 argument_list|,
 name|rest
 operator|.
@@ -681,15 +679,15 @@ argument_list|(
 literal|0
 argument_list|)
 operator|.
-name|getAllowMultiple
+name|getCollectionFormat
 argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|Boolean
+name|CollectionFormat
 operator|.
-name|TRUE
+name|multi
 argument_list|,
 name|rest
 operator|.
@@ -709,7 +707,7 @@ argument_list|(
 literal|1
 argument_list|)
 operator|.
-name|getAllowMultiple
+name|getCollectionFormat
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1232,9 +1230,9 @@ argument_list|(
 literal|"b"
 argument_list|)
 operator|.
-name|allowMultiple
+name|collectionFormat
 argument_list|(
-name|AllowMultiple
+name|CollectionFormat
 operator|.
 name|multi
 argument_list|)

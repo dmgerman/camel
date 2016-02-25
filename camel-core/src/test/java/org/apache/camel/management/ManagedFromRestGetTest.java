@@ -128,7 +128,7 @@ name|model
 operator|.
 name|rest
 operator|.
-name|AllowMultiple
+name|CollectionFormat
 import|;
 end_import
 
@@ -356,7 +356,7 @@ name|contains
 argument_list|(
 literal|"<param name=\"header_letter\" type=\"query\" description=\"header param description2\""
 operator|+
-literal|" defaultValue=\"b\" required=\"false\" allowMultiple=\"true\" dataType=\"string\" access=\"acc2\">"
+literal|" defaultValue=\"b\" required=\"false\" collectionFormat=\"multi\" dataType=\"string\" access=\"acc2\">"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -368,7 +368,7 @@ name|contains
 argument_list|(
 literal|"<param name=\"header_count\" type=\"header\" description=\"header param description1\" "
 operator|+
-literal|"defaultValue=\"1\" required=\"true\" allowMultiple=\"false\" dataType=\"integer\" access=\"acc1\">"
+literal|"defaultValue=\"1\" required=\"true\" dataType=\"integer\" access=\"acc1\">"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -614,9 +614,9 @@ argument_list|(
 literal|"b"
 argument_list|)
 operator|.
-name|allowMultiple
+name|collectionFormat
 argument_list|(
-name|AllowMultiple
+name|CollectionFormat
 operator|.
 name|multi
 argument_list|)
