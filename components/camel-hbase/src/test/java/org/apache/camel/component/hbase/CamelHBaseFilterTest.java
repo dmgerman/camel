@@ -291,7 +291,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_FAMILY
 operator|.
@@ -311,7 +311,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_QUALIFIER
 operator|.
@@ -334,7 +334,7 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_VALUE
 operator|.

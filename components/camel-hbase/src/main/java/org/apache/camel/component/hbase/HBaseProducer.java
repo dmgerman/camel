@@ -218,7 +218,7 @@ name|hadoop
 operator|.
 name|hbase
 operator|.
-name|KeyValue
+name|Cell
 import|;
 end_import
 
@@ -251,22 +251,6 @@ operator|.
 name|client
 operator|.
 name|Get
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|hadoop
-operator|.
-name|hbase
-operator|.
-name|client
-operator|.
-name|HTableInterface
 import|;
 end_import
 
@@ -331,6 +315,22 @@ operator|.
 name|client
 operator|.
 name|Scan
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|hadoop
+operator|.
+name|hbase
+operator|.
+name|client
+operator|.
+name|Table
 import|;
 end_import
 
@@ -446,15 +446,16 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|HTableInterface
+try|try
+init|(
+name|Table
 name|table
 init|=
 name|endpoint
 operator|.
 name|getTable
 argument_list|()
-decl_stmt|;
-try|try
+init|)
 block|{
 name|updateHeaders
 argument_list|(
@@ -553,9 +554,7 @@ name|putOperations
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Put
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -566,9 +565,7 @@ name|deleteOperations
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|Delete
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -579,9 +576,7 @@ name|getOperationResult
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|HBaseRow
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|List
@@ -592,9 +587,7 @@ name|scanOperationResult
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|HBaseRow
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 for|for
@@ -743,11 +736,6 @@ argument_list|(
 name|putOperations
 argument_list|)
 expr_stmt|;
-name|table
-operator|.
-name|flushCommits
-argument_list|()
-expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -821,14 +809,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-finally|finally
-block|{
-name|table
-operator|.
-name|close
-argument_list|()
-expr_stmt|;
 block|}
 block|}
 comment|/**      * Creates an HBase {@link Put} on a specific row, using a collection of values (family/column/value pairs).      *      * @param hRow      * @throws Exception      */
@@ -971,7 +951,7 @@ argument_list|)
 expr_stmt|;
 name|put
 operator|.
-name|add
+name|addColumn
 argument_list|(
 name|HBaseHelper
 operator|.
@@ -1012,12 +992,12 @@ name|put
 return|;
 block|}
 comment|/**      * Performs an HBase {@link Get} on a specific row, using a collection of values (family/column/value pairs).      * The result is<p>the most recent entry</p> for each column.      */
-DECL|method|getCells (HTableInterface table, HBaseRow hRow)
+DECL|method|getCells (Table table, HBaseRow hRow)
 specifier|private
 name|HBaseRow
 name|getCells
 parameter_list|(
-name|HTableInterface
+name|Table
 name|table
 parameter_list|,
 name|HBaseRow
@@ -1041,9 +1021,7 @@ name|resultCells
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|HBaseCell
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|ObjectHelper
@@ -1277,13 +1255,13 @@ argument_list|)
 expr_stmt|;
 name|List
 argument_list|<
-name|KeyValue
+name|Cell
 argument_list|>
 name|kvs
 init|=
 name|result
 operator|.
-name|getColumn
+name|getColumnCells
 argument_list|(
 name|HBaseHelper
 operator|.
@@ -1444,7 +1422,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Performs an HBase {@link Get} on a specific row, using a collection of values (family/column/value pairs).      * The result is<p>the most recent entry</p> for each column.      */
-DECL|method|scanCells (HTableInterface table, HBaseRow model, String start, Integer maxRowScan, List<Filter> filters)
+DECL|method|scanCells (Table table, HBaseRow model, String start, Integer maxRowScan, List<Filter> filters)
 specifier|private
 name|List
 argument_list|<
@@ -1452,7 +1430,7 @@ name|HBaseRow
 argument_list|>
 name|scanCells
 parameter_list|(
-name|HTableInterface
+name|Table
 name|table
 parameter_list|,
 name|HBaseRow
@@ -1481,9 +1459,7 @@ name|rowSet
 init|=
 operator|new
 name|LinkedList
-argument_list|<
-name|HBaseRow
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|HBaseRow
@@ -1909,11 +1885,12 @@ name|getQualifier
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
+name|Cell
+name|cell
+init|=
 name|result
 operator|.
-name|getColumnLatest
+name|getColumnLatestCell
 argument_list|(
 name|HBaseHelper
 operator|.
@@ -1929,6 +1906,10 @@ argument_list|(
 name|column
 argument_list|)
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|cell
 operator|!=
 literal|null
 condition|)
@@ -1937,24 +1918,7 @@ name|resultCell
 operator|.
 name|setTimestamp
 argument_list|(
-name|result
-operator|.
-name|getColumnLatest
-argument_list|(
-name|HBaseHelper
-operator|.
-name|getHBaseFieldAsBytes
-argument_list|(
-name|family
-argument_list|)
-argument_list|,
-name|HBaseHelper
-operator|.
-name|getHBaseFieldAsBytes
-argument_list|(
-name|column
-argument_list|)
-argument_list|)
+name|cell
 operator|.
 name|getTimestamp
 argument_list|()

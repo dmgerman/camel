@@ -56,7 +56,7 @@ name|hbase
 operator|.
 name|client
 operator|.
-name|HTableInterface
+name|Table
 import|;
 end_import
 
@@ -107,12 +107,12 @@ decl_stmt|;
 comment|/**      * Performs a {@link Delete} of the specified row.      */
 annotation|@
 name|Override
-DECL|method|remove (HTableInterface table, byte[] row)
+DECL|method|remove (Table table, byte[] row)
 specifier|public
 name|void
 name|remove
 parameter_list|(
-name|HTableInterface
+name|Table
 name|table
 parameter_list|,
 name|byte

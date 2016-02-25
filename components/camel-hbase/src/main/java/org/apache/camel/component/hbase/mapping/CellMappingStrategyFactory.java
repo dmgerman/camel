@@ -130,7 +130,7 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|DEFAULT_STRATIGIES
+DECL|field|DEFAULT_STRATEGIES
 specifier|private
 specifier|static
 specifier|final
@@ -140,7 +140,7 @@ name|String
 argument_list|,
 name|CellMappingStrategy
 argument_list|>
-name|DEFAULT_STRATIGIES
+name|DEFAULT_STRATEGIES
 init|=
 operator|new
 name|HashMap
@@ -156,7 +156,7 @@ specifier|public
 name|CellMappingStrategyFactory
 parameter_list|()
 block|{
-name|DEFAULT_STRATIGIES
+name|DEFAULT_STRATEGIES
 operator|.
 name|put
 argument_list|(
@@ -167,7 +167,7 @@ name|HeaderMappingStrategy
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|DEFAULT_STRATIGIES
+name|DEFAULT_STRATEGIES
 operator|.
 name|put
 argument_list|(
@@ -208,7 +208,7 @@ condition|)
 block|{
 name|strategy
 operator|=
-name|DEFAULT_STRATIGIES
+name|DEFAULT_STRATEGIES
 operator|.
 name|get
 argument_list|(
@@ -271,7 +271,7 @@ return|;
 block|}
 comment|//Fallback to the default strategy.
 return|return
-name|DEFAULT_STRATIGIES
+name|DEFAULT_STRATEGIES
 operator|.
 name|get
 argument_list|(

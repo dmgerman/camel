@@ -86,7 +86,7 @@ name|component
 operator|.
 name|hbase
 operator|.
-name|HbaseAttribute
+name|HBaseAttribute
 import|;
 end_import
 
@@ -197,7 +197,7 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_ROW_ID
 operator|.
@@ -214,7 +214,7 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_ROW_TYPE
 operator|.
@@ -273,7 +273,7 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_FAMILY
 operator|.
@@ -293,7 +293,7 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_QUALIFIER
 operator|.
@@ -310,7 +310,7 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_VALUE
 operator|.
@@ -327,7 +327,7 @@ name|message
 operator|.
 name|getHeader
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_VALUE_TYPE
 operator|.
@@ -511,11 +511,7 @@ name|rows
 init|=
 operator|new
 name|LinkedHashMap
-argument_list|<
-name|Object
-argument_list|,
-name|HBaseRow
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|HBaseRow
@@ -731,7 +727,7 @@ name|message
 operator|.
 name|setHeader
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_VALUE
 operator|.
@@ -845,7 +841,7 @@ name|message
 operator|.
 name|setHeader
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_ROW_ID
 operator|.
@@ -864,7 +860,7 @@ name|message
 operator|.
 name|setHeader
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_FAMILY
 operator|.
@@ -883,7 +879,7 @@ name|message
 operator|.
 name|setHeader
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_QUALIFIER
 operator|.
@@ -902,7 +898,7 @@ name|message
 operator|.
 name|setHeader
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_VALUE
 operator|.

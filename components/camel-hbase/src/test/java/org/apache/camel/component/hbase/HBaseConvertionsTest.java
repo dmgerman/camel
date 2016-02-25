@@ -273,7 +273,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_ROW_ID
 operator|.
@@ -290,7 +290,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_FAMILY
 operator|.
@@ -304,7 +304,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_QUALIFIER
 operator|.
@@ -321,7 +321,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_VALUE
 operator|.
@@ -338,7 +338,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_ROW_ID
 operator|.
@@ -357,7 +357,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_FAMILY
 operator|.
@@ -373,7 +373,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_QUALIFIER
 operator|.
@@ -392,7 +392,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_VALUE
 operator|.
@@ -411,7 +411,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_ROW_ID
 operator|.
@@ -430,7 +430,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_FAMILY
 operator|.
@@ -446,7 +446,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_QUALIFIER
 operator|.
@@ -465,7 +465,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|HbaseAttribute
+name|HBaseAttribute
 operator|.
 name|HBASE_VALUE
 operator|.

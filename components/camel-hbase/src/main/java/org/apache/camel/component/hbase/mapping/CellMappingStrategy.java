@@ -81,7 +81,7 @@ name|Message
 name|message
 parameter_list|)
 function_decl|;
-comment|/**      * Applies the KeyValues of a get opration to the {@link Exchange}.      *      * @param message The message that will be applied the Get result.      * @param data The rows that will be applied to the message.      */
+comment|/**      * Applies the KeyValues of a get operation to the {@link Exchange}.      *      * @param message The message that will be applied the Get result.      * @param data The rows that will be applied to the message.      */
 DECL|method|applyGetResults (Message message, HBaseData data)
 name|void
 name|applyGetResults

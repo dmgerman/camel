@@ -30,7 +30,7 @@ name|hbase
 operator|.
 name|client
 operator|.
-name|HTableInterface
+name|Table
 import|;
 end_import
 
@@ -41,11 +41,11 @@ interface|interface
 name|HBaseRemoveHandler
 block|{
 comment|/**      * 'Removes' a row from the table.      * The removal is not necessarily physical remove.      * The implementation decides how a row can be considered as removed.      */
-DECL|method|remove (HTableInterface table, byte[] row)
+DECL|method|remove (Table table, byte[] row)
 name|void
 name|remove
 parameter_list|(
-name|HTableInterface
+name|Table
 name|table
 parameter_list|,
 name|byte
