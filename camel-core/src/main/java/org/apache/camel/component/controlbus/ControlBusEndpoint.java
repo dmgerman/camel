@@ -447,7 +447,7 @@ return|return
 name|routeId
 return|;
 block|}
-comment|/**      * To specify a route by its id.      */
+comment|/**      * To specify a route by its id.      * The special keyword "current" indicates the current route.      */
 DECL|method|setRouteId (String routeId)
 specifier|public
 name|void
