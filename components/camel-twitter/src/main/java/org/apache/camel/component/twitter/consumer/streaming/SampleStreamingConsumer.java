@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.twitter.producer
+DECL|package|org.apache.camel.component.twitter.consumer.streaming
 package|package
 name|org
 operator|.
@@ -16,7 +16,9 @@ name|component
 operator|.
 name|twitter
 operator|.
-name|producer
+name|consumer
+operator|.
+name|streaming
 package|;
 end_package
 
@@ -38,56 +40,65 @@ end_import
 
 begin_import
 import|import
-name|org
+name|twitter4j
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
-name|DefaultProducer
+name|StallWarning
 import|;
 end_import
 
 begin_comment
-comment|/**  * Abstracts common producer capabilities.  */
+comment|/**  * Consumes the sample stream  */
 end_comment
 
 begin_class
-DECL|class|Twitter4JProducer
+DECL|class|SampleStreamingConsumer
 specifier|public
-specifier|abstract
 class|class
-name|Twitter4JProducer
+name|SampleStreamingConsumer
 extends|extends
-name|DefaultProducer
+name|AbstractStreamingConsumer
 block|{
-comment|/**      * Instance of TwitterEndpoint.      */
-DECL|field|te
-specifier|protected
-name|TwitterEndpoint
-name|te
-decl_stmt|;
-DECL|method|Twitter4JProducer (TwitterEndpoint te)
-specifier|protected
-name|Twitter4JProducer
+DECL|method|SampleStreamingConsumer (TwitterEndpoint endpoint)
+specifier|public
+name|SampleStreamingConsumer
 parameter_list|(
 name|TwitterEndpoint
-name|te
+name|endpoint
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|te
+name|endpoint
 argument_list|)
 expr_stmt|;
-name|this
+block|}
+annotation|@
+name|Override
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+block|{
+name|getTwitterStream
+argument_list|()
 operator|.
-name|te
-operator|=
-name|te
+name|sample
+argument_list|()
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|onStallWarning (StallWarning stallWarning)
+specifier|public
+name|void
+name|onStallWarning
+parameter_list|(
+name|StallWarning
+name|stallWarning
+parameter_list|)
+block|{
+comment|// noop
 block|}
 block|}
 end_class

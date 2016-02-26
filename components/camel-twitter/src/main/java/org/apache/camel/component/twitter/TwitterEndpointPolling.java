@@ -100,7 +100,7 @@ name|twitter
 operator|.
 name|consumer
 operator|.
-name|Twitter4JConsumer
+name|TwitterConsumer
 import|;
 end_import
 
@@ -211,7 +211,7 @@ literal|"twitter:kind"
 argument_list|,
 name|consumerClass
 operator|=
-name|Twitter4JConsumer
+name|TwitterConsumer
 operator|.
 name|class
 argument_list|,
@@ -308,12 +308,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Twitter4JConsumer
+name|TwitterConsumer
 name|twitter4jConsumer
 init|=
-name|Twitter4JFactory
+name|TwitterHelper
 operator|.
-name|getConsumer
+name|createConsumer
 argument_list|(
 name|this
 argument_list|,
@@ -365,9 +365,9 @@ throws|throws
 name|Exception
 block|{
 return|return
-name|Twitter4JFactory
+name|TwitterHelper
 operator|.
-name|getProducer
+name|createProducer
 argument_list|(
 name|this
 argument_list|,

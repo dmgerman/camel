@@ -24,19 +24,21 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
+name|util
 operator|.
-name|Serializable
+name|List
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|util
+name|apache
 operator|.
-name|List
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -60,51 +62,99 @@ begin_import
 import|import
 name|twitter4j
 operator|.
+name|Paging
+import|;
+end_import
+
+begin_import
+import|import
+name|twitter4j
+operator|.
+name|Twitter
+import|;
+end_import
+
+begin_import
+import|import
+name|twitter4j
+operator|.
 name|TwitterException
 import|;
 end_import
 
 begin_class
-DECL|class|Twitter4JConsumer
+DECL|class|TwitterConsumer
 specifier|public
 specifier|abstract
 class|class
-name|Twitter4JConsumer
+name|TwitterConsumer
 block|{
 comment|/**      * Instance of TwitterEndpoint.      */
-DECL|field|te
+DECL|field|endpoint
 specifier|protected
+specifier|final
 name|TwitterEndpoint
-name|te
+name|endpoint
 decl_stmt|;
 comment|/**      * The last tweet ID received.      */
 DECL|field|lastId
-specifier|protected
+specifier|private
 name|long
 name|lastId
-init|=
-literal|1
 decl_stmt|;
-DECL|method|Twitter4JConsumer (TwitterEndpoint te)
+DECL|method|TwitterConsumer (TwitterEndpoint endpoint)
 specifier|protected
-name|Twitter4JConsumer
+name|TwitterConsumer
 parameter_list|(
 name|TwitterEndpoint
-name|te
+name|endpoint
 parameter_list|)
 block|{
 name|this
 operator|.
-name|te
+name|endpoint
 operator|=
-name|te
+name|endpoint
+expr_stmt|;
+name|this
+operator|.
+name|lastId
+operator|=
+operator|-
+literal|1
 expr_stmt|;
 block|}
+comment|/**      * Called by polling consumers during each poll.  It needs to be separate      * from directConsume() since, as an example, streaming API polling allows      * tweets to build up between polls.      */
+DECL|method|pollConsume ()
+specifier|public
+specifier|abstract
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+name|pollConsume
+parameter_list|()
+throws|throws
+name|TwitterException
+function_decl|;
+comment|/**      * Called by direct consumers.      */
+DECL|method|directConsume ()
+specifier|public
+specifier|abstract
+name|List
+argument_list|<
+name|Exchange
+argument_list|>
+name|directConsume
+parameter_list|()
+throws|throws
+name|TwitterException
+function_decl|;
 comment|/**      * Can't assume that the end of the list will be the most recent ID.      * The Twitter API sometimes returns them slightly out of order.      */
-DECL|method|checkLastId (long newId)
+DECL|method|setLastIdIfGreater (long newId)
 specifier|protected
 name|void
-name|checkLastId
+name|setLastIdIfGreater
 parameter_list|(
 name|long
 name|newId
@@ -123,36 +173,6 @@ name|newId
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Called by polling consumers during each poll.  It needs to be separate      * from directConsume() since, as an example, streaming API polling allows      * tweets to build up between polls.      */
-DECL|method|pollConsume ()
-specifier|public
-specifier|abstract
-name|List
-argument_list|<
-name|?
-extends|extends
-name|Serializable
-argument_list|>
-name|pollConsume
-parameter_list|()
-throws|throws
-name|TwitterException
-function_decl|;
-comment|/**      * Called by direct consumers.      */
-DECL|method|directConsume ()
-specifier|public
-specifier|abstract
-name|List
-argument_list|<
-name|?
-extends|extends
-name|Serializable
-argument_list|>
-name|directConsume
-parameter_list|()
-throws|throws
-name|TwitterException
-function_decl|;
 comment|/**      * Support to update the Consumer's lastId when starting the consumer      * @param sinceId      */
 DECL|method|setLastId (long sinceId)
 specifier|public
@@ -167,6 +187,46 @@ name|lastId
 operator|=
 name|sinceId
 expr_stmt|;
+block|}
+DECL|method|getTwitter ()
+specifier|protected
+name|Twitter
+name|getTwitter
+parameter_list|()
+block|{
+return|return
+name|endpoint
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|getTwitter
+argument_list|()
+return|;
+block|}
+DECL|method|getLastId ()
+specifier|protected
+name|long
+name|getLastId
+parameter_list|()
+block|{
+return|return
+name|lastId
+return|;
+block|}
+DECL|method|getLastIdPaging ()
+specifier|protected
+name|Paging
+name|getLastIdPaging
+parameter_list|()
+block|{
+return|return
+operator|new
+name|Paging
+argument_list|(
+name|lastId
+argument_list|)
+return|;
 block|}
 block|}
 end_class

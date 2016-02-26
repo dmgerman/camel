@@ -100,19 +100,19 @@ specifier|public
 class|class
 name|DirectMessageProducer
 extends|extends
-name|Twitter4JProducer
+name|TwitterProducer
 block|{
-DECL|method|DirectMessageProducer (TwitterEndpoint te)
+DECL|method|DirectMessageProducer (TwitterEndpoint endpoint)
 specifier|public
 name|DirectMessageProducer
 parameter_list|(
 name|TwitterEndpoint
-name|te
+name|endpoint
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|te
+name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
@@ -131,7 +131,7 @@ comment|// send direct message
 name|String
 name|toUsername
 init|=
-name|te
+name|endpoint
 operator|.
 name|getProperties
 argument_list|()
@@ -228,7 +228,7 @@ argument_list|,
 name|text
 argument_list|)
 expr_stmt|;
-name|te
+name|endpoint
 operator|.
 name|getProperties
 argument_list|()

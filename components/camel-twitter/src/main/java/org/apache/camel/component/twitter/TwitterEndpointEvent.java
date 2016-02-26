@@ -68,7 +68,7 @@ name|twitter
 operator|.
 name|consumer
 operator|.
-name|Twitter4JConsumer
+name|TwitterConsumer
 import|;
 end_import
 
@@ -179,12 +179,12 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Twitter4JConsumer
+name|TwitterConsumer
 name|twitter4jConsumer
 init|=
-name|Twitter4JFactory
+name|TwitterHelper
 operator|.
-name|getConsumer
+name|createConsumer
 argument_list|(
 name|this
 argument_list|,

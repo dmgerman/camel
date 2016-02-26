@@ -59,43 +59,42 @@ comment|/**  * Consumes the filter stream  */
 end_comment
 
 begin_class
-DECL|class|FilterConsumer
+DECL|class|FilterStreamingConsumer
 specifier|public
 class|class
-name|FilterConsumer
+name|FilterStreamingConsumer
 extends|extends
-name|StreamingConsumer
+name|AbstractStreamingConsumer
 block|{
-DECL|method|FilterConsumer (TwitterEndpoint te)
+DECL|method|FilterStreamingConsumer (TwitterEndpoint endpoint)
 specifier|public
-name|FilterConsumer
+name|FilterStreamingConsumer
 parameter_list|(
 name|TwitterEndpoint
-name|te
+name|endpoint
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|te
+name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|startStreaming ()
-specifier|protected
+DECL|method|start ()
+specifier|public
 name|void
-name|startStreaming
+name|start
 parameter_list|()
 block|{
-name|twitterStream
+name|getTwitterStream
+argument_list|()
 operator|.
 name|filter
 argument_list|(
 name|createFilter
-argument_list|(
-name|te
-argument_list|)
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -112,14 +111,11 @@ parameter_list|)
 block|{
 comment|// noop
 block|}
-DECL|method|createFilter (TwitterEndpoint te)
+DECL|method|createFilter ()
 specifier|private
 name|FilterQuery
 name|createFilter
-parameter_list|(
-name|TwitterEndpoint
-name|te
-parameter_list|)
+parameter_list|()
 block|{
 name|FilterQuery
 name|filterQuery
@@ -131,7 +127,7 @@ decl_stmt|;
 name|String
 name|allLocationsString
 init|=
-name|te
+name|endpoint
 operator|.
 name|getProperties
 argument_list|()
@@ -252,7 +248,7 @@ block|}
 name|String
 name|keywords
 init|=
-name|te
+name|endpoint
 operator|.
 name|getProperties
 argument_list|()
@@ -290,7 +286,7 @@ block|}
 name|String
 name|userIds
 init|=
-name|te
+name|endpoint
 operator|.
 name|getProperties
 argument_list|()

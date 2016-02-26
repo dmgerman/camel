@@ -74,19 +74,19 @@ specifier|public
 class|class
 name|UserProducer
 extends|extends
-name|Twitter4JProducer
+name|TwitterProducer
 block|{
-DECL|method|UserProducer (TwitterEndpoint te)
+DECL|method|UserProducer (TwitterEndpoint endpoint)
 specifier|public
 name|UserProducer
 parameter_list|(
 name|TwitterEndpoint
-name|te
+name|endpoint
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|te
+name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
@@ -211,9 +211,9 @@ throws|throws
 name|Exception
 block|{
 name|Status
-name|reponse
+name|response
 init|=
-name|te
+name|endpoint
 operator|.
 name|getProperties
 argument_list|()
@@ -241,14 +241,14 @@ name|debug
 argument_list|(
 literal|"Status id: {}"
 argument_list|,
-name|reponse
+name|response
 operator|.
 name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
 return|return
-name|reponse
+name|response
 return|;
 block|}
 DECL|method|updateStatus (String status)
@@ -294,7 +294,7 @@ block|}
 name|Status
 name|response
 init|=
-name|te
+name|endpoint
 operator|.
 name|getProperties
 argument_list|()

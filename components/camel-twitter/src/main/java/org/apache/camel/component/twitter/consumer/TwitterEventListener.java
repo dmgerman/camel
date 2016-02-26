@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.twitter.consumer.streaming
+DECL|package|org.apache.camel.component.twitter.consumer
 package|package
 name|org
 operator|.
@@ -17,10 +17,18 @@ operator|.
 name|twitter
 operator|.
 name|consumer
-operator|.
-name|streaming
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|EventListener
+import|;
+end_import
 
 begin_import
 import|import
@@ -30,77 +38,28 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|twitter
-operator|.
-name|TwitterEndpoint
+name|Exchange
 import|;
 end_import
 
-begin_import
-import|import
-name|twitter4j
-operator|.
-name|StallWarning
-import|;
-end_import
-
-begin_comment
-comment|/**  * Consumes the sample stream  */
-end_comment
-
-begin_class
-DECL|class|SampleConsumer
+begin_interface
+DECL|interface|TwitterEventListener
 specifier|public
-class|class
-name|SampleConsumer
+interface|interface
+name|TwitterEventListener
 extends|extends
-name|StreamingConsumer
+name|EventListener
 block|{
-DECL|method|SampleConsumer (TwitterEndpoint te)
-specifier|public
-name|SampleConsumer
-parameter_list|(
-name|TwitterEndpoint
-name|te
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|te
-argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|startStreaming ()
-specifier|protected
+DECL|method|onEvent (Exchange exchange)
 name|void
-name|startStreaming
-parameter_list|()
-block|{
-name|twitterStream
-operator|.
-name|sample
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|onStallWarning (StallWarning stallWarning)
-specifier|public
-name|void
-name|onStallWarning
+name|onEvent
 parameter_list|(
-name|StallWarning
-name|stallWarning
+name|Exchange
+name|exchange
 parameter_list|)
-block|{
-comment|// noop
+function_decl|;
 block|}
-block|}
-end_class
+end_interface
 
 end_unit
 

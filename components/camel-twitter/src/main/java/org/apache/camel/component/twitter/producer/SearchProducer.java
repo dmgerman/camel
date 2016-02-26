@@ -138,7 +138,7 @@ specifier|public
 class|class
 name|SearchProducer
 extends|extends
-name|Twitter4JProducer
+name|TwitterProducer
 block|{
 DECL|field|lastId
 specifier|private
@@ -146,17 +146,17 @@ specifier|volatile
 name|long
 name|lastId
 decl_stmt|;
-DECL|method|SearchProducer (TwitterEndpoint te)
+DECL|method|SearchProducer (TwitterEndpoint endpoint)
 specifier|public
 name|SearchProducer
 parameter_list|(
 name|TwitterEndpoint
-name|te
+name|endpoint
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|te
+name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
@@ -208,7 +208,7 @@ condition|)
 block|{
 name|keywords
 operator|=
-name|te
+name|endpoint
 operator|.
 name|getProperties
 argument_list|()
@@ -246,7 +246,7 @@ decl_stmt|;
 comment|// filter of older tweets
 if|if
 condition|(
-name|te
+name|endpoint
 operator|.
 name|getProperties
 argument_list|()
@@ -296,7 +296,7 @@ condition|)
 block|{
 name|sinceId
 operator|=
-name|te
+name|endpoint
 operator|.
 name|getProperties
 argument_list|()
@@ -390,7 +390,7 @@ condition|)
 block|{
 name|lang
 operator|=
-name|te
+name|endpoint
 operator|.
 name|getProperties
 argument_list|()
@@ -417,7 +417,7 @@ name|lang
 argument_list|)
 expr_stmt|;
 block|}
-comment|// number of elemnt per page
+comment|// number of elements per page
 name|Integer
 name|count
 init|=
@@ -446,7 +446,7 @@ condition|)
 block|{
 name|count
 operator|=
-name|te
+name|endpoint
 operator|.
 name|getProperties
 argument_list|()
@@ -502,7 +502,7 @@ condition|)
 block|{
 name|numberOfPages
 operator|=
-name|te
+name|endpoint
 operator|.
 name|getProperties
 argument_list|()
@@ -514,7 +514,7 @@ block|}
 name|Twitter
 name|twitter
 init|=
-name|te
+name|endpoint
 operator|.
 name|getProperties
 argument_list|()
@@ -610,7 +610,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|te
+name|endpoint
 operator|.
 name|getProperties
 argument_list|()
