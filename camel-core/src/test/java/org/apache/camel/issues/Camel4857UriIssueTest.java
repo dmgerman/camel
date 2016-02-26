@@ -142,7 +142,6 @@ name|String
 name|remaining
 decl_stmt|;
 DECL|method|MyEndpoint (final String uri, final String remaining)
-specifier|public
 name|MyEndpoint
 parameter_list|(
 specifier|final

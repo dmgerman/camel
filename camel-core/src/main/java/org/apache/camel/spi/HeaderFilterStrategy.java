@@ -40,7 +40,6 @@ name|HeaderFilterStrategy
 block|{
 comment|/**      * The direction is either<tt>IN</tt> or<tt>OUT</tt>.      */
 DECL|enum|Direction
-specifier|public
 enum|enum
 name|Direction
 block|{

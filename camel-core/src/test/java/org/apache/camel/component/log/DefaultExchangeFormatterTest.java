@@ -1024,7 +1024,6 @@ name|String
 argument_list|>
 block|{
 DECL|method|MyFuture (Callable<String> callable)
-specifier|public
 name|MyFuture
 parameter_list|(
 name|Callable
@@ -1041,7 +1040,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|MyFuture (Runnable runnable, String o)
-specifier|public
 name|MyFuture
 parameter_list|(
 name|Runnable

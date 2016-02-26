@@ -216,7 +216,6 @@ name|String
 name|baseURI
 decl_stmt|;
 DECL|method|LSInputSource (String namespaceURI, String publicId, String systemId, String baseURI)
-specifier|public
 name|LSInputSource
 parameter_list|(
 name|String

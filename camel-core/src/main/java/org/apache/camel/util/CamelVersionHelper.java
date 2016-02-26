@@ -279,7 +279,6 @@ name|BIG_INTEGER_ZERO
 expr_stmt|;
 block|}
 DECL|method|IntegerItem (String str)
-specifier|public
 name|IntegerItem
 parameter_list|(
 name|String
@@ -539,7 +538,6 @@ name|String
 name|value
 decl_stmt|;
 DECL|method|StringItem (String value, boolean followedByDigit)
-specifier|public
 name|StringItem
 parameter_list|(
 name|String

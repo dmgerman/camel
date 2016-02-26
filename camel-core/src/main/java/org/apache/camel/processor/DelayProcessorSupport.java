@@ -239,7 +239,6 @@ name|AsyncCallback
 name|callback
 decl_stmt|;
 DECL|method|ProcessCall (Exchange exchange, AsyncCallback callback)
-specifier|public
 name|ProcessCall
 parameter_list|(
 name|Exchange

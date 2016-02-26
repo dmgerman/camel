@@ -475,7 +475,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|isGzip (String header , Exchange exchange)
+DECL|method|isGzip (String header, Exchange exchange)
 specifier|public
 specifier|static
 name|boolean

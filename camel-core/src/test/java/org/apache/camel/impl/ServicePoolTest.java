@@ -188,7 +188,6 @@ name|boolean
 name|stop
 decl_stmt|;
 DECL|method|MyProducer (Endpoint endpoint)
-specifier|public
 name|MyProducer
 parameter_list|(
 name|Endpoint

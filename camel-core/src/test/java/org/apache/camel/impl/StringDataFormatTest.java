@@ -614,7 +614,6 @@ name|String
 name|title
 decl_stmt|;
 DECL|method|MyBookProcessor (String encoding, String title)
-specifier|public
 name|MyBookProcessor
 parameter_list|(
 name|String

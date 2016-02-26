@@ -315,7 +315,6 @@ literal|1
 argument_list|)
 decl_stmt|;
 DECL|method|MyAsyncProcessor ()
-specifier|public
 name|MyAsyncProcessor
 parameter_list|()
 block|{

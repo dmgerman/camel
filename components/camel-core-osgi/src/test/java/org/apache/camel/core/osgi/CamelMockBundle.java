@@ -197,7 +197,6 @@ name|int
 name|index
 decl_stmt|;
 DECL|method|ListEnumeration (List<E> list)
-specifier|public
 name|ListEnumeration
 parameter_list|(
 name|List

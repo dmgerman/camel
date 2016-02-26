@@ -86,8 +86,6 @@ name|Container
 block|{
 comment|/**      * The<code>Instance</code> class holds a<code>Container</code> singleton.      */
 DECL|class|Instance
-specifier|public
-specifier|static
 specifier|final
 class|class
 name|Instance

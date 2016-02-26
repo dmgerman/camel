@@ -1189,7 +1189,6 @@ name|Object
 name|result
 decl_stmt|;
 DECL|method|OgnlInvokeProcessor (BeanHolder beanHolder, String ognl)
-specifier|public
 name|OgnlInvokeProcessor
 parameter_list|(
 name|BeanHolder

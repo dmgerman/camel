@@ -1127,7 +1127,6 @@ argument_list|>
 name|type
 decl_stmt|;
 DECL|method|FlexibleAggregationStrategyInjector (Class<E> type)
-specifier|public
 name|FlexibleAggregationStrategyInjector
 parameter_list|(
 name|Class
@@ -1239,7 +1238,6 @@ name|String
 name|propertyName
 decl_stmt|;
 DECL|method|PropertyInjector (Class<E> type, String propertyName)
-specifier|public
 name|PropertyInjector
 parameter_list|(
 name|Class
@@ -1402,7 +1400,6 @@ name|String
 name|headerName
 decl_stmt|;
 DECL|method|HeaderInjector (Class<E> type, String headerName)
-specifier|public
 name|HeaderInjector
 parameter_list|(
 name|Class
@@ -1575,7 +1572,6 @@ extends|extends
 name|FlexibleAggregationStrategyInjector
 block|{
 DECL|method|BodyInjector (Class<E> type)
-specifier|public
 name|BodyInjector
 parameter_list|(
 name|Class

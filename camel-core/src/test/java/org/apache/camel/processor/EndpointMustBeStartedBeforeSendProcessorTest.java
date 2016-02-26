@@ -624,7 +624,6 @@ extends|extends
 name|DefaultProducer
 block|{
 DECL|method|MyProducer (Endpoint endpoint)
-specifier|public
 name|MyProducer
 parameter_list|(
 name|Endpoint
@@ -689,7 +688,6 @@ extends|extends
 name|DefaultConsumer
 block|{
 DECL|method|MyConsumer (Endpoint endpoint, Processor processor)
-specifier|public
 name|MyConsumer
 parameter_list|(
 name|Endpoint

@@ -718,7 +718,6 @@ name|Random
 name|random
 decl_stmt|;
 DECL|method|Sender (ProducerTemplate template, int start, int end, int increment)
-specifier|public
 name|Sender
 parameter_list|(
 name|ProducerTemplate

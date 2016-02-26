@@ -211,7 +211,6 @@ name|TraceInterceptorSubclassFactory
 name|factory
 decl_stmt|;
 DECL|method|TracerInterceptorSubclass (ProcessorDefinition<?> node, Processor target, TraceFormatter formatter, Tracer tracer, List<StringBuilder> eventMessages, TraceInterceptorSubclassFactory factory)
-specifier|public
 name|TracerInterceptorSubclass
 parameter_list|(
 name|ProcessorDefinition

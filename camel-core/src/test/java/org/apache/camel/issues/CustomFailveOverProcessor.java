@@ -300,7 +300,6 @@ name|ProducerTemplate
 name|template
 decl_stmt|;
 DECL|method|MyFailOverProcessor (ProducerTemplate template, String... uris)
-specifier|public
 name|MyFailOverProcessor
 parameter_list|(
 name|ProducerTemplate

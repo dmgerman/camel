@@ -1435,7 +1435,6 @@ name|newCondition
 argument_list|()
 decl_stmt|;
 DECL|method|BatchSender ()
-specifier|public
 name|BatchSender
 parameter_list|()
 block|{

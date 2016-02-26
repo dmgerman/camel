@@ -320,7 +320,6 @@ name|String
 name|routeId
 decl_stmt|;
 DECL|method|TempRouteBuilder (String routeId)
-specifier|public
 name|TempRouteBuilder
 parameter_list|(
 name|String

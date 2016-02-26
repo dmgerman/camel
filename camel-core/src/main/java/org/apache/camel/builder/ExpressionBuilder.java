@@ -8023,7 +8023,6 @@ name|KeyedEntityRetrievalStrategy
 name|keyedEntityRetrievalStrategy
 decl_stmt|;
 DECL|method|KeyedOgnlExpressionAdapter (String ognl, String toStringValue, KeyedEntityRetrievalStrategy keyedEntityRetrievalStrategy)
-specifier|public
 name|KeyedOgnlExpressionAdapter
 parameter_list|(
 name|String

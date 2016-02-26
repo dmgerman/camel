@@ -278,7 +278,6 @@ extends|extends
 name|DefaultUnitOfWork
 block|{
 DECL|method|MyUnitOfWork (Exchange exchange)
-specifier|public
 name|MyUnitOfWork
 parameter_list|(
 name|Exchange

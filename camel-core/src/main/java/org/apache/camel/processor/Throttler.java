@@ -1504,7 +1504,6 @@ name|long
 name|scheduledTime
 decl_stmt|;
 DECL|method|ThrottlePermit (final long delayMs)
-specifier|public
 name|ThrottlePermit
 parameter_list|(
 specifier|final

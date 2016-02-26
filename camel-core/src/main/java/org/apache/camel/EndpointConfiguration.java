@@ -90,7 +90,6 @@ literal|"fragment"
 decl_stmt|;
 comment|/**      * {@link org.apache.camel.spi.DataFormat} operations.      */
 DECL|enum|UriFormat
-specifier|public
 enum|enum
 name|UriFormat
 block|{

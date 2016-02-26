@@ -46,7 +46,6 @@ name|timeout
 decl_stmt|;
 comment|/**      * Creates a new container instance.      *       * @param object contained object.      */
 DECL|method|Element (E object)
-specifier|public
 name|Element
 parameter_list|(
 name|E

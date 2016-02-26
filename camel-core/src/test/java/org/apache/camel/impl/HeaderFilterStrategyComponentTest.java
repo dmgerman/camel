@@ -133,7 +133,6 @@ extends|extends
 name|HeaderFilterStrategyComponent
 block|{
 DECL|method|MyComponent (Class<? extends Endpoint> endpointClass)
-specifier|public
 name|MyComponent
 parameter_list|(
 name|Class

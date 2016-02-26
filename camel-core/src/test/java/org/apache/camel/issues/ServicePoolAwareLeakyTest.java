@@ -350,7 +350,6 @@ name|String
 name|uri
 decl_stmt|;
 DECL|method|LeakySieveEndpoint (String uri)
-specifier|public
 name|LeakySieveEndpoint
 parameter_list|(
 name|String
@@ -438,7 +437,6 @@ implements|implements
 name|ServicePoolAware
 block|{
 DECL|method|LeakySieveProducer (Endpoint endpoint)
-specifier|public
 name|LeakySieveProducer
 parameter_list|(
 name|Endpoint

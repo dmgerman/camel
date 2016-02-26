@@ -426,7 +426,6 @@ name|int
 name|grade
 decl_stmt|;
 DECL|method|Student (int grade)
-specifier|public
 name|Student
 parameter_list|(
 name|int

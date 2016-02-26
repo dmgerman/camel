@@ -341,7 +341,6 @@ name|boolean
 name|fallbackToUnaugmentedProperty
 decl_stmt|;
 DECL|method|ParsingContext (Properties properties, String prefixToken, String suffixToken, String propertyPrefix, String propertySuffix, boolean fallbackToUnaugmentedProperty)
-specifier|public
 name|ParsingContext
 parameter_list|(
 name|Properties

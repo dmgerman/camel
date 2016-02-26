@@ -561,7 +561,6 @@ name|String
 name|syntax
 decl_stmt|;
 DECL|method|EndpointPathComparator (String syntax)
-specifier|public
 name|EndpointPathComparator
 parameter_list|(
 name|String

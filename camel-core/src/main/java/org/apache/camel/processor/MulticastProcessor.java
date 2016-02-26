@@ -910,7 +910,6 @@ name|Processor
 argument_list|>
 block|{
 DECL|method|PreparedErrorHandler (RouteContext key, Processor value)
-specifier|public
 name|PreparedErrorHandler
 parameter_list|(
 name|RouteContext

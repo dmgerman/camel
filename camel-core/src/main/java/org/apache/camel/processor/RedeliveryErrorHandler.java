@@ -740,7 +740,6 @@ name|RedeliveryData
 name|data
 decl_stmt|;
 DECL|method|AsyncRedeliveryTask (Exchange exchange, AsyncCallback callback, RedeliveryData data)
-specifier|public
 name|AsyncRedeliveryTask
 parameter_list|(
 name|Exchange

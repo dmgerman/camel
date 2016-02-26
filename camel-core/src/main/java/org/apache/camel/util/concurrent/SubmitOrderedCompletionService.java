@@ -213,7 +213,6 @@ name|long
 name|id
 decl_stmt|;
 DECL|method|SubmitOrderFutureTask (long id, Callable<V> voidCallable)
-specifier|public
 name|SubmitOrderFutureTask
 parameter_list|(
 name|long
@@ -239,7 +238,6 @@ name|id
 expr_stmt|;
 block|}
 DECL|method|SubmitOrderFutureTask (long id, Runnable runnable, V result)
-specifier|public
 name|SubmitOrderFutureTask
 parameter_list|(
 name|long

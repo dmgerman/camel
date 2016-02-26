@@ -1217,7 +1217,6 @@ name|boolean
 name|completionEager
 decl_stmt|;
 DECL|method|IdempotentConsumerCallback (Exchange exchange, Synchronization onCompletion, AsyncCallback callback, boolean completionEager)
-specifier|public
 name|IdempotentConsumerCallback
 parameter_list|(
 name|Exchange

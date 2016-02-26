@@ -1011,7 +1011,6 @@ extends|extends
 name|DefaultProducer
 block|{
 DECL|method|MyProducer (Endpoint endpoint)
-specifier|public
 name|MyProducer
 parameter_list|(
 name|Endpoint

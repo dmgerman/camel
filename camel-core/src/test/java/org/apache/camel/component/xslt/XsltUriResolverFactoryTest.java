@@ -719,7 +719,6 @@ argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|method|CustomXsltUriResolver (ClassResolver resolver, String location)
-specifier|public
 name|CustomXsltUriResolver
 parameter_list|(
 name|ClassResolver

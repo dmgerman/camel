@@ -1076,7 +1076,6 @@ name|Properties
 name|properties
 decl_stmt|;
 DECL|method|BridgePropertyPlaceholderResolver (Properties properties)
-specifier|public
 name|BridgePropertyPlaceholderResolver
 parameter_list|(
 name|Properties

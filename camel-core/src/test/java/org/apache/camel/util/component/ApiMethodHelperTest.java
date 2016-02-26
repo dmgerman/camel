@@ -1337,7 +1337,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|enum|TestMethod
-specifier|static
 enum|enum
 name|TestMethod
 implements|implements
@@ -1494,7 +1493,6 @@ name|ApiMethod
 name|apiMethod
 decl_stmt|;
 DECL|method|TestMethod (Class<?> resultType, String name, Object... args)
-specifier|private
 name|TestMethod
 parameter_list|(
 name|Class

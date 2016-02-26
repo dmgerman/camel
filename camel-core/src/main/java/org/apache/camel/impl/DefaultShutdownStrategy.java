@@ -2257,7 +2257,6 @@ name|AtomicBoolean
 name|timeoutOccurred
 decl_stmt|;
 DECL|method|ShutdownTask (CamelContext context, List<RouteStartupOrder> routes, long timeout, TimeUnit timeUnit, boolean suspendOnly, boolean abortAfterTimeout, AtomicBoolean timeoutOccurred)
-specifier|public
 name|ShutdownTask
 parameter_list|(
 name|CamelContext

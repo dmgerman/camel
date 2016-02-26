@@ -1070,7 +1070,6 @@ name|newCondition
 argument_list|()
 decl_stmt|;
 DECL|method|Delivery ()
-specifier|public
 name|Delivery
 parameter_list|()
 block|{

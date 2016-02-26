@@ -50,7 +50,6 @@ name|comparator
 decl_stmt|;
 comment|/**      * Creates a new element comparator instance.      *       * @param comparator a sequence element comparator this comparator delegates to.      */
 DECL|method|ElementComparator (SequenceElementComparator<E> comparator)
-specifier|public
 name|ElementComparator
 parameter_list|(
 name|SequenceElementComparator

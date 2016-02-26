@@ -123,7 +123,6 @@ extends|extends
 name|CollectionProducer
 block|{
 DECL|method|MyProducer (Endpoint endpoint, Collection<Exchange> queue)
-specifier|public
 name|MyProducer
 parameter_list|(
 name|Endpoint

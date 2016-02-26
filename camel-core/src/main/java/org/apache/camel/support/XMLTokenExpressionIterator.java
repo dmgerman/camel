@@ -961,7 +961,6 @@ name|Object
 name|nextToken
 decl_stmt|;
 DECL|method|XMLTokenIterator (String path, Map<String, String> nsmap, char mode, InputStream in, String charset)
-specifier|public
 name|XMLTokenIterator
 parameter_list|(
 name|String
@@ -1017,7 +1016,6 @@ name|in
 expr_stmt|;
 block|}
 DECL|method|XMLTokenIterator (String path, Map<String, String> nsmap, char mode, int group, InputStream in, String charset)
-specifier|public
 name|XMLTokenIterator
 parameter_list|(
 name|String
@@ -1076,7 +1074,6 @@ name|in
 expr_stmt|;
 block|}
 DECL|method|XMLTokenIterator (String path, Map<String, String> nsmap, char mode, Reader in)
-specifier|public
 name|XMLTokenIterator
 parameter_list|(
 name|String
@@ -1114,7 +1111,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|XMLTokenIterator (String path, Map<String, String> nsmap, char mode, int group, Reader in)
-specifier|public
 name|XMLTokenIterator
 parameter_list|(
 name|String
@@ -3507,7 +3503,6 @@ name|boolean
 name|nsany
 decl_stmt|;
 DECL|method|AttributedQName (String localPart)
-specifier|public
 name|AttributedQName
 parameter_list|(
 name|String
@@ -3528,7 +3523,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|AttributedQName (String namespaceURI, String localPart, String prefix)
-specifier|public
 name|AttributedQName
 parameter_list|(
 name|String
@@ -3559,7 +3553,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|AttributedQName (String namespaceURI, String localPart)
-specifier|public
 name|AttributedQName
 parameter_list|(
 name|String

@@ -2350,7 +2350,6 @@ name|in
 decl_stmt|;
 comment|/**          * @param in file to read          * @param charset character set to use          */
 DECL|method|EncodingFileReader (FileInputStream in, String charset)
-specifier|public
 name|EncodingFileReader
 parameter_list|(
 name|FileInputStream
@@ -2423,7 +2422,6 @@ name|out
 decl_stmt|;
 comment|/**          * @param out file to write          * @param charset character set to use          */
 DECL|method|EncodingFileWriter (FileOutputStream out, String charset)
-specifier|public
 name|EncodingFileWriter
 parameter_list|(
 name|FileOutputStream
