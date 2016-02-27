@@ -70,8 +70,8 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// configure we want to use spark-rest as the component for the rest DSL
-comment|// and we enable json binding mode
+comment|// configure we want to use spark-rest on port 8080 as the component for the rest DSL
+comment|// and for the swagger api-doc as well
 name|restConfiguration
 argument_list|()
 operator|.
@@ -79,6 +79,17 @@ name|component
 argument_list|(
 literal|"spark-rest"
 argument_list|)
+operator|.
+name|apiContextPath
+argument_list|(
+literal|"api-doc"
+argument_list|)
+operator|.
+name|port
+argument_list|(
+literal|8080
+argument_list|)
+comment|// and we enable json binding mode
 operator|.
 name|bindingMode
 argument_list|(
