@@ -255,6 +255,13 @@ specifier|private
 name|SparkBinding
 name|sparkBinding
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|matchOnUriPrefix
+specifier|private
+name|boolean
+name|matchOnUriPrefix
+decl_stmt|;
 DECL|method|SparkEndpoint (String endpointUri, Component component)
 specifier|public
 name|SparkEndpoint
@@ -409,6 +416,33 @@ operator|=
 name|accept
 expr_stmt|;
 block|}
+DECL|method|isMatchOnUriPrefix ()
+specifier|public
+name|boolean
+name|isMatchOnUriPrefix
+parameter_list|()
+block|{
+return|return
+name|matchOnUriPrefix
+return|;
+block|}
+comment|/**      * Whether or not the consumer should try to find a target consumer by matching the URI prefix if no exact match is found.      */
+DECL|method|setMatchOnUriPrefix (boolean matchOnUriPrefix)
+specifier|public
+name|void
+name|setMatchOnUriPrefix
+parameter_list|(
+name|boolean
+name|matchOnUriPrefix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|matchOnUriPrefix
+operator|=
+name|matchOnUriPrefix
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|createProducer ()
@@ -522,13 +556,31 @@ argument_list|,
 name|this
 argument_list|)
 expr_stmt|;
-comment|// verb must be supported by Spark
+comment|// verb must be supported by Spark and lets convert to the actual name
+name|HttpMethod
+name|method
+init|=
+name|getCamelContext
+argument_list|()
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|mandatoryConvertTo
+argument_list|(
 name|HttpMethod
 operator|.
-name|valueOf
-argument_list|(
+name|class
+argument_list|,
 name|verb
 argument_list|)
+decl_stmt|;
+name|verb
+operator|=
+name|method
+operator|.
+name|name
+argument_list|()
 expr_stmt|;
 block|}
 block|}
