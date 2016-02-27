@@ -705,6 +705,8 @@ operator|=
 name|createExchange
 argument_list|(
 name|result
+argument_list|,
+name|entityManager
 argument_list|)
 expr_stmt|;
 name|answer
@@ -2449,13 +2451,16 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|createExchange (Object result)
+DECL|method|createExchange (Object result, EntityManager entityManager)
 specifier|protected
 name|Exchange
 name|createExchange
 parameter_list|(
 name|Object
 name|result
+parameter_list|,
+name|EntityManager
+name|entityManager
 parameter_list|)
 block|{
 name|Exchange
@@ -2486,7 +2491,7 @@ name|setHeader
 argument_list|(
 name|JpaConstants
 operator|.
-name|ENTITYMANAGER
+name|ENTITY_MANAGER
 argument_list|,
 name|entityManager
 argument_list|)
