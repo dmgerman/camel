@@ -125,14 +125,14 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// configure we want to use servlet as the component for the rest DSL
+comment|// configure we want to use undertow as the component for the rest DSL
 comment|// and we enable json binding mode
 name|restConfiguration
 argument_list|()
 operator|.
 name|component
 argument_list|(
-literal|"netty4-http"
+literal|"undertow"
 argument_list|)
 comment|// use json binding mode so Camel automatic binds json<--> pojo
 operator|.
