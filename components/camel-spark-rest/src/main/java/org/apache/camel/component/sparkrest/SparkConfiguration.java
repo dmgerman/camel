@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p/>  * http://www.apache.org/licenses/LICENSE-2.0  *<p/>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,18 @@ operator|.
 name|sparkrest
 package|;
 end_package
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
+import|;
+end_import
 
 begin_import
 import|import
@@ -53,6 +65,8 @@ DECL|class|SparkConfiguration
 specifier|public
 class|class
 name|SparkConfiguration
+implements|implements
+name|Cloneable
 block|{
 annotation|@
 name|UriParam
@@ -89,6 +103,18 @@ specifier|private
 name|boolean
 name|transferException
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|matchOnUriPrefix
+specifier|private
+name|boolean
+name|matchOnUriPrefix
+decl_stmt|;
 DECL|method|isMapHeaders ()
 specifier|public
 name|boolean
@@ -98,6 +124,43 @@ block|{
 return|return
 name|mapHeaders
 return|;
+block|}
+comment|/**      * Returns a copy of this configuration      */
+DECL|method|copy ()
+specifier|public
+name|SparkConfiguration
+name|copy
+parameter_list|()
+block|{
+try|try
+block|{
+name|SparkConfiguration
+name|copy
+init|=
+operator|(
+name|SparkConfiguration
+operator|)
+name|clone
+argument_list|()
+decl_stmt|;
+return|return
+name|copy
+return|;
+block|}
+catch|catch
+parameter_list|(
+name|CloneNotSupportedException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 comment|/**      * If this option is enabled, then during binding from Spark to Camel Message then the headers will be mapped as well      * (eg added as header to the Camel Message as well). You can turn off this option to disable this.      * The headers can still be accessed from the org.apache.camel.component.sparkrest.SparkMessage message with the      * method getRequest() that returns the Spark HTTP request instance.      */
 DECL|method|setMapHeaders (boolean mapHeaders)
@@ -195,6 +258,33 @@ operator|.
 name|transferException
 operator|=
 name|transferException
+expr_stmt|;
+block|}
+DECL|method|isMatchOnUriPrefix ()
+specifier|public
+name|boolean
+name|isMatchOnUriPrefix
+parameter_list|()
+block|{
+return|return
+name|matchOnUriPrefix
+return|;
+block|}
+comment|/**      * Whether or not the consumer should try to find a target consumer by matching the URI prefix if no exact match is found.      */
+DECL|method|setMatchOnUriPrefix (boolean matchOnUriPrefix)
+specifier|public
+name|void
+name|setMatchOnUriPrefix
+parameter_list|(
+name|boolean
+name|matchOnUriPrefix
+parameter_list|)
+block|{
+name|this
+operator|.
+name|matchOnUriPrefix
+operator|=
+name|matchOnUriPrefix
 expr_stmt|;
 block|}
 block|}

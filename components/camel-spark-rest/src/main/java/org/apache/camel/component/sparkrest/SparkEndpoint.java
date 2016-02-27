@@ -250,17 +250,15 @@ name|sparkConfiguration
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|sparkBinding
 specifier|private
 name|SparkBinding
 name|sparkBinding
-decl_stmt|;
-annotation|@
-name|UriParam
-DECL|field|matchOnUriPrefix
-specifier|private
-name|boolean
-name|matchOnUriPrefix
 decl_stmt|;
 DECL|method|SparkEndpoint (String endpointUri, Component component)
 specifier|public
@@ -414,33 +412,6 @@ operator|.
 name|accept
 operator|=
 name|accept
-expr_stmt|;
-block|}
-DECL|method|isMatchOnUriPrefix ()
-specifier|public
-name|boolean
-name|isMatchOnUriPrefix
-parameter_list|()
-block|{
-return|return
-name|matchOnUriPrefix
-return|;
-block|}
-comment|/**      * Whether or not the consumer should try to find a target consumer by matching the URI prefix if no exact match is found.      */
-DECL|method|setMatchOnUriPrefix (boolean matchOnUriPrefix)
-specifier|public
-name|void
-name|setMatchOnUriPrefix
-parameter_list|(
-name|boolean
-name|matchOnUriPrefix
-parameter_list|)
-block|{
-name|this
-operator|.
-name|matchOnUriPrefix
-operator|=
-name|matchOnUriPrefix
 expr_stmt|;
 block|}
 annotation|@
