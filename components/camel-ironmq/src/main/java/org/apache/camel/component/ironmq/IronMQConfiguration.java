@@ -178,7 +178,7 @@ literal|"consumer"
 argument_list|)
 DECL|field|concurrentConsumers
 specifier|private
-name|Integer
+name|int
 name|concurrentConsumers
 init|=
 literal|1
@@ -272,7 +272,7 @@ expr_stmt|;
 block|}
 DECL|method|getConcurrentConsumers ()
 specifier|public
-name|Integer
+name|int
 name|getConcurrentConsumers
 parameter_list|()
 block|{
@@ -281,12 +281,12 @@ name|concurrentConsumers
 return|;
 block|}
 comment|/**      * The number of concurrent consumers.      */
-DECL|method|setConcurrentConsumers (Integer concurrentConsumers)
+DECL|method|setConcurrentConsumers (int concurrentConsumers)
 specifier|public
 name|void
 name|setConcurrentConsumers
 parameter_list|(
-name|Integer
+name|int
 name|concurrentConsumers
 parameter_list|)
 block|{
@@ -307,7 +307,7 @@ return|return
 name|projectId
 return|;
 block|}
-comment|/**      * IronMq projectId      */
+comment|/**      * IronMQ projectId      */
 DECL|method|setProjectId (String projectId)
 specifier|public
 name|void
@@ -334,7 +334,7 @@ return|return
 name|token
 return|;
 block|}
-comment|/**      * IronMq token      */
+comment|/**      * IronMQ token      */
 DECL|method|setToken (String token)
 specifier|public
 name|void
@@ -415,7 +415,7 @@ return|return
 name|timeout
 return|;
 block|}
-comment|/**      * sets the timeout      */
+comment|/**      * After timeout (in seconds), item will be placed back onto the queue.      */
 DECL|method|setTimeout (int timeout)
 specifier|public
 name|void
@@ -442,7 +442,7 @@ return|return
 name|maxMessagesPerPoll
 return|;
 block|}
-comment|/**      * Number of messages to poll pr. call      */
+comment|/**      * Number of messages to poll pr. call. Maximum is 100.      */
 DECL|method|setMaxMessagesPerPoll (int maxMessagesPerPoll)
 specifier|public
 name|void
@@ -469,7 +469,7 @@ return|return
 name|visibilityDelay
 return|;
 block|}
-comment|/**      * Set's the visibility delay in seconds.      */
+comment|/**      * The item will not be available on the queue until this many seconds have passed.       * Default is 0 seconds.      */
 DECL|method|setVisibilityDelay (int visibilityDelay)
 specifier|public
 name|void
@@ -496,7 +496,7 @@ return|return
 name|preserveHeaders
 return|;
 block|}
-comment|/**      * Should camel message headers be preserved when publishing messages      */
+comment|/**      * Should message headers be preserved when publishing messages.      * This will add the Camel headers to the Iron MQ message as a json payload with a header list, and a message body.      * Useful when Camel is both consumer and producer.      */
 DECL|method|setPreserveHeaders (boolean preserveHeaders)
 specifier|public
 name|void
@@ -523,7 +523,7 @@ return|return
 name|batchDelete
 return|;
 block|}
-comment|/**      * Shold messages be deleted in one batch or one at the time      */
+comment|/**      * Should messages be deleted in one batch.       * This will limit the number of api requests since messages are deleted in one request, instead of one pr. exchange.       * If enabled care should be taken that the consumer is idempotent when processing exchanges.      */
 DECL|method|setBatchDelete (boolean batchDelete)
 specifier|public
 name|void
@@ -550,7 +550,7 @@ return|return
 name|wait
 return|;
 block|}
-comment|/**      * Sets the wait      */
+comment|/**      * Time in seconds to wait for a message to become available.       * This enables long polling. Default is 0 (does not wait), maximum is 30.      */
 DECL|method|setWait (int wait)
 specifier|public
 name|void
