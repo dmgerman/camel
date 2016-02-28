@@ -652,6 +652,11 @@ name|MethodInfo
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|publicConstructors
+specifier|private
+name|boolean
+name|publicConstructors
+decl_stmt|;
 static|static
 block|{
 comment|// exclude all java.lang.Object methods as we dont want to invoke them
@@ -941,6 +946,12 @@ operator|=
 name|beanInfo
 operator|.
 name|methodMap
+expr_stmt|;
+name|publicConstructors
+operator|=
+name|beanInfo
+operator|.
+name|publicConstructors
 expr_stmt|;
 return|return;
 block|}
@@ -1926,6 +1937,18 @@ literal|"Introspecting class: {}"
 argument_list|,
 name|clazz
 argument_list|)
+expr_stmt|;
+comment|// does the class have any public constructors?
+name|publicConstructors
+operator|=
+name|clazz
+operator|.
+name|getConstructors
+argument_list|()
+operator|.
+name|length
+operator|>
+literal|0
 expr_stmt|;
 comment|// favor declared methods, and then filter out duplicate interface methods
 name|List
@@ -6243,6 +6266,17 @@ block|}
 block|}
 return|return
 literal|false
+return|;
+block|}
+comment|/**      * Returns whether the bean class has any public constructors.      */
+DECL|method|hasPublicConstructors ()
+specifier|public
+name|boolean
+name|hasPublicConstructors
+parameter_list|()
+block|{
+return|return
+name|publicConstructors
 return|;
 block|}
 comment|/**      * Gets the list of methods sorted by A..Z method name.      *      * @return the methods.      */

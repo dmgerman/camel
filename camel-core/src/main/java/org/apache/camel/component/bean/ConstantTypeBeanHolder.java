@@ -235,6 +235,15 @@ name|Object
 name|getBean
 parameter_list|()
 block|{
+comment|// only create a bean if we have constructors
+if|if
+condition|(
+name|beanInfo
+operator|.
+name|hasPublicConstructors
+argument_list|()
+condition|)
+block|{
 return|return
 name|getBeanInfo
 argument_list|()
@@ -250,6 +259,13 @@ argument_list|(
 name|type
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 DECL|method|getProcessor ()
 specifier|public

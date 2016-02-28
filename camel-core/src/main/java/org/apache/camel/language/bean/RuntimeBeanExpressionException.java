@@ -135,6 +135,57 @@ operator|=
 name|method
 expr_stmt|;
 block|}
+DECL|method|RuntimeBeanExpressionException (Exchange exchange, String beanName, String method, String message)
+specifier|public
+name|RuntimeBeanExpressionException
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|String
+name|beanName
+parameter_list|,
+name|String
+name|method
+parameter_list|,
+name|String
+name|message
+parameter_list|)
+block|{
+name|super
+argument_list|(
+literal|"Failed to invoke method: "
+operator|+
+name|method
+operator|+
+literal|" on "
+operator|+
+name|beanName
+operator|+
+literal|" due "
+operator|+
+name|message
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|exchange
+operator|=
+name|exchange
+expr_stmt|;
+name|this
+operator|.
+name|beanName
+operator|=
+name|beanName
+expr_stmt|;
+name|this
+operator|.
+name|method
+operator|=
+name|method
+expr_stmt|;
+block|}
 DECL|method|getBeanName ()
 specifier|public
 name|String

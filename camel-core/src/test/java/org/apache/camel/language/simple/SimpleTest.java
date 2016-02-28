@@ -6882,9 +6882,6 @@ name|e
 operator|.
 name|getCause
 argument_list|()
-operator|.
-name|getCause
-argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -6996,9 +6993,6 @@ operator|.
 name|class
 argument_list|,
 name|e
-operator|.
-name|getCause
-argument_list|()
 operator|.
 name|getCause
 argument_list|()
@@ -7123,23 +7117,13 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Failed to invoke method: .getFriend.getFriend.getName on null due to: java.lang.NullPointerException"
+literal|"Failed to invoke method: .getFriend.getFriend.getName on org.apache.camel.language.simple.SimpleTest.Animal"
+operator|+
+literal|" due last method returned null and therefore cannot continue to invoke method .getName on a null instance"
 argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertIsInstanceOf
-argument_list|(
-name|NullPointerException
-operator|.
-name|class
-argument_list|,
-name|e
-operator|.
-name|getCause
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -7253,23 +7237,13 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Failed to invoke method: .friend.friend.name on null due to: java.lang.NullPointerException"
+literal|"Failed to invoke method: .friend.friend.name on org.apache.camel.language.simple.SimpleTest.Animal"
+operator|+
+literal|" due last method returned null and therefore cannot continue to invoke method .name on a null instance"
 argument_list|,
 name|e
 operator|.
 name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertIsInstanceOf
-argument_list|(
-name|NullPointerException
-operator|.
-name|class
-argument_list|,
-name|e
-operator|.
-name|getCause
 argument_list|()
 argument_list|)
 expr_stmt|;
