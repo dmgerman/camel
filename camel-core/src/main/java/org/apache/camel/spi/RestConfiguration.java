@@ -97,8 +97,11 @@ specifier|public
 enum|enum
 name|RestHostNameResolver
 block|{
+DECL|enumConstant|allLocalIp
 DECL|enumConstant|localIp
 DECL|enumConstant|localHostName
+name|allLocalIp
+block|,
 name|localIp
 block|,
 name|localHostName
@@ -160,7 +163,7 @@ name|restHostNameResolver
 init|=
 name|RestHostNameResolver
 operator|.
-name|localHostName
+name|allLocalIp
 decl_stmt|;
 DECL|field|bindingMode
 specifier|private
