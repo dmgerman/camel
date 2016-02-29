@@ -85,10 +85,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|GridFsConsumerOperationsTest
+DECL|class|GridFsProducerOperationsTest
 specifier|public
 class|class
-name|GridFsConsumerOperationsTest
+name|GridFsProducerOperationsTest
 extends|extends
 name|AbstractMongoDbTest
 block|{
@@ -119,7 +119,10 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"gridfs:myDb?database={{mongodb.testDb}}&operation=create"
+literal|"gridfs:myDb?database={{mongodb.testDb}}&operation=create&bucket="
+operator|+
+name|getBucket
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|from
@@ -129,7 +132,10 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"gridfs:myDb?database={{mongodb.testDb}}&operation=remove"
+literal|"gridfs:myDb?database={{mongodb.testDb}}&operation=remove&bucket="
+operator|+
+name|getBucket
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|from
@@ -139,7 +145,10 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"gridfs:myDb?database={{mongodb.testDb}}&operation=findOne"
+literal|"gridfs:myDb?database={{mongodb.testDb}}&operation=findOne&bucket="
+operator|+
+name|getBucket
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|from
@@ -149,7 +158,10 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"gridfs:myDb?database={{mongodb.testDb}}&operation=listAll"
+literal|"gridfs:myDb?database={{mongodb.testDb}}&operation=listAll&bucket="
+operator|+
+name|getBucket
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|from
@@ -159,7 +171,10 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"gridfs:myDb?database={{mongodb.testDb}}&operation=count"
+literal|"gridfs:myDb?database={{mongodb.testDb}}&operation=count&bucket="
+operator|+
+name|getBucket
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|from
@@ -169,7 +184,10 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"gridfs:myDb?database={{mongodb.testDb}}"
+literal|"gridfs:myDb?database={{mongodb.testDb}}&bucket="
+operator|+
+name|getBucket
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
