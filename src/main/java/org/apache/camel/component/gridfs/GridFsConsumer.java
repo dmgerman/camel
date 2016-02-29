@@ -57,6 +57,7 @@ extends|extends
 name|DefaultConsumer
 block|{
 DECL|field|ep
+specifier|final
 name|GridFsEndpoint
 name|ep
 decl_stmt|;
