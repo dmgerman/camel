@@ -313,6 +313,13 @@ name|connectionBean
 decl_stmt|;
 annotation|@
 name|UriParam
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|database
 specifier|private
 name|String
@@ -320,6 +327,13 @@ name|database
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+name|GridFS
+operator|.
+name|DEFAULT_BUCKET
+argument_list|)
 DECL|field|bucket
 specifier|private
 name|String
@@ -353,6 +367,11 @@ name|readPreference
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|operation
 specifier|private
 name|String
@@ -360,6 +379,11 @@ name|operation
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|query
 specifier|private
 name|String
@@ -367,6 +391,15 @@ name|query
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"1000"
+argument_list|)
 DECL|field|initialDelay
 specifier|private
 name|long
@@ -376,6 +409,15 @@ literal|1000
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"500"
+argument_list|)
 DECL|field|delay
 specifier|private
 name|long
@@ -385,6 +427,15 @@ literal|500
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"TimeStamp"
+argument_list|)
 DECL|field|queryStrategy
 specifier|private
 name|QueryStrategy
@@ -396,6 +447,15 @@ name|TimeStamp
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"camel-timestamps"
+argument_list|)
 DECL|field|persistentTSCollection
 specifier|private
 name|String
@@ -405,6 +465,15 @@ literal|"camel-timestamps"
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"camel-timestamp"
+argument_list|)
 DECL|field|persistentTSObject
 specifier|private
 name|String
@@ -414,6 +483,15 @@ literal|"camel-timestamp"
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"camel-processed"
+argument_list|)
 DECL|field|fileAttributeName
 specifier|private
 name|String
@@ -757,6 +835,7 @@ return|return
 name|mongoConnection
 return|;
 block|}
+comment|/**      * Sets the Mongo instance that represents the backing connection      *       * @param mongoConnection the connection to the database      */
 DECL|method|setMongoConnection (Mongo mongoConnection)
 specifier|public
 name|void
@@ -793,6 +872,7 @@ return|return
 name|database
 return|;
 block|}
+comment|/**      * Sets the name of the MongoDB database to target      *       * @param database name of the MongoDB database      */
 DECL|method|setDatabase (String database)
 specifier|public
 name|void
@@ -809,6 +889,7 @@ operator|=
 name|database
 expr_stmt|;
 block|}
+comment|/**      * Sets the name of the GridFS bucket within the database.   Default is "fs".      *       * @param database name of the MongoDB database      */
 DECL|method|getBucket ()
 specifier|public
 name|String
@@ -845,6 +926,7 @@ return|return
 name|query
 return|;
 block|}
+comment|/**      * Additional query parameters (in JSON) that are used to configure the query used for finding      * files in the GridFsConsumer      * @param query      */
 DECL|method|setQuery (String query)
 specifier|public
 name|void
@@ -871,6 +953,7 @@ return|return
 name|delay
 return|;
 block|}
+comment|/**      * Sets the delay between polls within the Consumer.  Default is 500ms      * @param delay      */
 DECL|method|setDelay (long delay)
 specifier|public
 name|void
@@ -897,6 +980,7 @@ return|return
 name|initialDelay
 return|;
 block|}
+comment|/**      * Sets the initialDelay before the consumer will start polling.  Default is 1000ms      * @param initialDelay      */
 DECL|method|setInitialDelay (long initialDelay)
 specifier|public
 name|void
@@ -913,6 +997,7 @@ operator|=
 name|delay
 expr_stmt|;
 block|}
+comment|/**      * Sets the QueryStrategy that is used for polling for new files.  Default is Timestamp      * @see QueryStrategy      * @param s      */
 DECL|method|setQueryStrategy (String s)
 specifier|public
 name|void
@@ -942,6 +1027,7 @@ return|return
 name|queryStrategy
 return|;
 block|}
+comment|/**      * If the QueryType uses a persistent timestamp, this sets the name of the collection within      * the DB to store the timestamp.      * @param s      */
 DECL|method|setPersistentTSCollection (String s)
 specifier|public
 name|void
@@ -966,18 +1052,19 @@ return|return
 name|persistentTSCollection
 return|;
 block|}
-DECL|method|setPersistentTSObject (String s)
+comment|/**      * If the QueryType uses a persistent timestamp, this is the ID of the object in the collection      * to store the timestamp.         * @param s      */
+DECL|method|setPersistentTSObject (String id)
 specifier|public
 name|void
 name|setPersistentTSObject
 parameter_list|(
 name|String
-name|s
+name|id
 parameter_list|)
 block|{
 name|persistentTSObject
 operator|=
-name|s
+name|id
 expr_stmt|;
 block|}
 DECL|method|getPersistentTSObject ()
@@ -990,6 +1077,7 @@ return|return
 name|persistentTSObject
 return|;
 block|}
+comment|/**      * If the QueryType uses a FileAttribute, this sets the name of the attribute that is used. Default is "camel-processed".      * @param f      */
 DECL|method|setFileAttributeName (String f)
 specifier|public
 name|void
