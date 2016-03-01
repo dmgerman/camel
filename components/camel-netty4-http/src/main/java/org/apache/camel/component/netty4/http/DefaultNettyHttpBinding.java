@@ -946,7 +946,7 @@ name|path
 init|=
 name|uri
 operator|.
-name|getPath
+name|getRawPath
 argument_list|()
 decl_stmt|;
 if|if
