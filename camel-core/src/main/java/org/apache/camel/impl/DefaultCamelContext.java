@@ -2939,16 +2939,6 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-comment|// [TODO] Remove in 3.0
-name|Container
-operator|.
-name|Instance
-operator|.
-name|manage
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 block|}
 comment|/**      * Creates the {@link CamelContext} using the given JNDI context as the registry      *      * @param jndiContext the JNDI context      */
 DECL|method|DefaultCamelContext (Context jndiContext)
@@ -15906,6 +15896,18 @@ name|getName
 argument_list|()
 operator|+
 literal|") is starting"
+argument_list|)
+expr_stmt|;
+comment|// Note: This is done on context start as we want to avoid doing it during object construction
+comment|// where we could be dealing with CDI proxied camel contexts which may never be started (CAMEL-9657)
+comment|// [TODO] Remove in 3.0
+name|Container
+operator|.
+name|Instance
+operator|.
+name|manage
+argument_list|(
+name|this
 argument_list|)
 expr_stmt|;
 name|doNotStartRoutesOnFirstStart

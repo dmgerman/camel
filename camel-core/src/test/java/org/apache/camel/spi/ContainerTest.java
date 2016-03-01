@@ -180,6 +180,17 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+comment|// Must call start to make contexts 'managed'
+name|camel1
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|camel2
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|0
@@ -221,6 +232,11 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+name|camel3
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|3
@@ -329,6 +345,16 @@ operator|new
 name|DefaultCamelContext
 argument_list|()
 decl_stmt|;
+name|camel1
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+name|camel2
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|0
