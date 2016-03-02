@@ -2355,6 +2355,16 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// in case the URI string contains unsafe characters
+name|uriString
+operator|=
+name|UnsafeUriCharactersEncoder
+operator|.
+name|encodeHttpURI
+argument_list|(
+name|uriString
+argument_list|)
+expr_stmt|;
 name|URI
 name|uri
 init|=

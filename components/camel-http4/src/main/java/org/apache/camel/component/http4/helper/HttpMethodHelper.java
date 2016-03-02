@@ -100,19 +100,13 @@ begin_import
 import|import
 name|org
 operator|.
-name|slf4j
+name|apache
 operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|camel
 operator|.
-name|slf4j
+name|util
 operator|.
-name|LoggerFactory
+name|UnsafeUriCharactersEncoder
 import|;
 end_import
 
@@ -123,22 +117,6 @@ specifier|final
 class|class
 name|HttpMethodHelper
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|HttpMethodHelper
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|HttpMethodHelper ()
 specifier|private
 name|HttpMethodHelper
@@ -249,6 +227,16 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// in case the URI string contains unsafe characters
+name|uriString
+operator|=
+name|UnsafeUriCharactersEncoder
+operator|.
+name|encodeHttpURI
+argument_list|(
+name|uriString
+argument_list|)
+expr_stmt|;
 name|URI
 name|uri
 init|=
