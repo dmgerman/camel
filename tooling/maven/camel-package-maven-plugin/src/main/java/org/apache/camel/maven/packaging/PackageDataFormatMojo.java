@@ -1762,6 +1762,21 @@ return|return
 literal|"zipFile"
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+literal|"yaml-snakeyaml"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+literal|"yaml"
+return|;
+block|}
 return|return
 name|name
 return|;
@@ -1867,6 +1882,21 @@ condition|)
 block|{
 return|return
 literal|"Bindy Key Value Pair"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"yaml-snakeyaml"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+literal|"YAML SnakeYAML"
 return|;
 block|}
 return|return
