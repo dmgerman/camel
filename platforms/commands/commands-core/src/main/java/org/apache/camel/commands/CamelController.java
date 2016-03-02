@@ -502,6 +502,22 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Collects information about a Camel component from catalog      *      * @param name the component name      * @return a map of key/value pairs with component information      * @throws java.lang.Exception can be thrown      */
+DECL|method|componentInfo (String name)
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|componentInfo
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Lists all components from the Camel components catalog      *      * @param filter optional filter to filter by labels      * @return a list of key/value pairs with component information      * @throws java.lang.Exception can be thrown      */
 DECL|method|listComponentsCatalog (String filter)
 name|List
