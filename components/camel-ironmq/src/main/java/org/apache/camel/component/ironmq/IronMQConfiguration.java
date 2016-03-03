@@ -128,14 +128,14 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"https://mq-aws-us-east-1.iron.io"
+literal|"https://mq-aws-us-east-1-1.iron.io"
 argument_list|)
 DECL|field|ironMQCloud
 specifier|private
 name|String
 name|ironMQCloud
 init|=
-literal|"https://mq-aws-us-east-1.iron.io"
+literal|"https://mq-aws-us-east-1-1.iron.io"
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -378,7 +378,7 @@ return|return
 name|queueName
 return|;
 block|}
-comment|/**      * IronMq Cloud url. See http://dev.iron.io/mq/reference/clouds/ for valid options      */
+comment|/**      * IronMq Cloud url. Urls for public clusters: mq-aws-us-east-1-1.iron.io (US), mq-aws-eu-west-1-1.iron.io (EU)      */
 DECL|method|setIronMQCloud (String ironMQCloud)
 specifier|public
 name|void
