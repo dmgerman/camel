@@ -149,6 +149,8 @@ comment|/**  * A helper class for loading route definitions from a file, URL or 
 end_comment
 
 begin_class
+annotation|@
+name|Vetoed
 DECL|class|RoutesXml
 specifier|public
 specifier|final

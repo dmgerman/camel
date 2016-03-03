@@ -183,6 +183,8 @@ operator|new
 name|ExcludedLiteral
 argument_list|()
 decl_stmt|;
+annotation|@
+name|Vetoed
 DECL|class|ExcludedLiteral
 specifier|final
 class|class
