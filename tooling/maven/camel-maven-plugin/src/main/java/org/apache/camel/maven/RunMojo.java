@@ -1539,7 +1539,6 @@ name|uncaughtException
 decl_stmt|;
 comment|// synchronize access to this
 DECL|method|IsolatedThreadGroup (String name)
-specifier|public
 name|IsolatedThreadGroup
 parameter_list|(
 name|String
