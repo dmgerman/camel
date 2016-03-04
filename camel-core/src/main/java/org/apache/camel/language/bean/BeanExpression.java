@@ -1471,11 +1471,6 @@ argument_list|(
 name|ognl
 argument_list|)
 decl_stmt|;
-name|String
-name|methodChain
-init|=
-literal|""
-decl_stmt|;
 for|for
 control|(
 name|String
@@ -1701,12 +1696,6 @@ name|invoke
 operator|.
 name|getResult
 argument_list|()
-expr_stmt|;
-name|methodChain
-operator|+=
-literal|"."
-operator|+
-name|methodName
 expr_stmt|;
 block|}
 comment|// if there was a key then we need to lookup using the key
