@@ -106,6 +106,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -156,6 +170,20 @@ name|org
 operator|.
 name|springframework
 operator|.
+name|integration
+operator|.
+name|channel
+operator|.
+name|DirectChannel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
 name|messaging
 operator|.
 name|Message
@@ -182,21 +210,7 @@ name|springframework
 operator|.
 name|messaging
 operator|.
-name|MessageHeaders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|integration
-operator|.
-name|channel
-operator|.
-name|DirectChannel
+name|MessageHandler
 import|;
 end_import
 
@@ -208,7 +222,7 @@ name|springframework
 operator|.
 name|messaging
 operator|.
-name|MessageHandler
+name|MessageHeaders
 import|;
 end_import
 
@@ -426,7 +440,7 @@ argument_list|,
 name|replyChannel
 argument_list|)
 expr_stmt|;
-comment|//TODO set the corralationID
+comment|//TODO set the correlationID
 name|SpringIntegrationBinding
 operator|.
 name|storeToCamelMessage
@@ -494,10 +508,12 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|consumer
+name|ServiceHelper
 operator|.
-name|stop
-argument_list|()
+name|stopAndShutdownService
+argument_list|(
+name|consumer
+argument_list|)
 expr_stmt|;
 block|}
 block|}
@@ -532,10 +548,12 @@ name|ConsumerProcessor
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|consumer
+name|ServiceHelper
 operator|.
-name|start
-argument_list|()
+name|startService
+argument_list|(
+name|consumer
+argument_list|)
 expr_stmt|;
 block|}
 block|}

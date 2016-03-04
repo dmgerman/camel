@@ -128,6 +128,20 @@ name|org
 operator|.
 name|springframework
 operator|.
+name|integration
+operator|.
+name|channel
+operator|.
+name|DirectChannel
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
 name|messaging
 operator|.
 name|Message
@@ -154,21 +168,7 @@ name|springframework
 operator|.
 name|messaging
 operator|.
-name|MessageHeaders
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|integration
-operator|.
-name|channel
-operator|.
-name|DirectChannel
+name|MessageHandler
 import|;
 end_import
 
@@ -180,7 +180,7 @@ name|springframework
 operator|.
 name|messaging
 operator|.
-name|MessageHandler
+name|MessageHeaders
 import|;
 end_import
 

@@ -160,7 +160,7 @@ name|springframework
 operator|.
 name|messaging
 operator|.
-name|MessageHeaders
+name|MessageHandler
 import|;
 end_import
 
@@ -172,7 +172,7 @@ name|springframework
 operator|.
 name|messaging
 operator|.
-name|MessageHandler
+name|MessageHeaders
 import|;
 end_import
 

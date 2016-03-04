@@ -92,9 +92,11 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|messaging
+name|integration
 operator|.
-name|Message
+name|channel
+operator|.
+name|DirectChannel
 import|;
 end_import
 
@@ -104,11 +106,9 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|integration
+name|messaging
 operator|.
-name|channel
-operator|.
-name|DirectChannel
+name|Message
 import|;
 end_import
 
