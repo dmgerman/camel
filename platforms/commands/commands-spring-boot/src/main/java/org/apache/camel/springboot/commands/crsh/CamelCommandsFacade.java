@@ -639,7 +639,7 @@ name|error
 operator|.
 name|append
 argument_list|(
-literal|"Cannot infer Camel Context. Please provide manually."
+literal|"Cannot infer CamelContext. Please provide manually."
 argument_list|)
 expr_stmt|;
 if|if
@@ -703,12 +703,12 @@ name|Exception
 block|{
 if|if
 condition|(
-literal|null
-operator|==
 name|camelController
 operator|.
 name|getLocalCamelContexts
 argument_list|()
+operator|==
+literal|null
 operator|||
 name|camelController
 operator|.
@@ -733,7 +733,7 @@ name|impl
 operator|.
 name|SyntaxException
 argument_list|(
-literal|"No camel contexts available"
+literal|"No CamelContexts available"
 argument_list|)
 throw|;
 block|}
