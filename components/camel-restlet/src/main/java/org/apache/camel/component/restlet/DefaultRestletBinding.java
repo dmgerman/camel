@@ -952,6 +952,8 @@ argument_list|(
 name|MediaType
 operator|.
 name|APPLICATION_WWW_FORM
+argument_list|,
+literal|true
 argument_list|)
 condition|)
 block|{
@@ -1217,11 +1219,16 @@ operator|==
 name|method
 operator|)
 operator|&&
-name|mediaType
-operator|==
 name|MediaType
 operator|.
 name|APPLICATION_WWW_FORM
+operator|.
+name|equals
+argument_list|(
+name|mediaType
+argument_list|,
+literal|true
+argument_list|)
 condition|)
 block|{
 name|form
