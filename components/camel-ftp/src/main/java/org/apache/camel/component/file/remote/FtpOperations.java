@@ -1143,7 +1143,7 @@ operator|!
 name|login
 condition|)
 block|{
-comment|// store replyString, because disconnect() will reset ist
+comment|// store replyString, because disconnect() will reset it
 name|String
 name|replyString
 init|=
