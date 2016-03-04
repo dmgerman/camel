@@ -1143,6 +1143,23 @@ operator|!
 name|login
 condition|)
 block|{
+comment|// store replyString, because disconnect() will reset ist
+name|String
+name|replyString
+init|=
+name|client
+operator|.
+name|getReplyString
+argument_list|()
+decl_stmt|;
+name|int
+name|replyCode
+init|=
+name|client
+operator|.
+name|getReplyCode
+argument_list|()
+decl_stmt|;
 comment|// disconnect to prevent connection leaks
 name|client
 operator|.
@@ -1153,15 +1170,9 @@ throw|throw
 operator|new
 name|GenericFileOperationFailedException
 argument_list|(
-name|client
-operator|.
-name|getReplyCode
-argument_list|()
+name|replyCode
 argument_list|,
-name|client
-operator|.
-name|getReplyString
-argument_list|()
+name|replyString
 argument_list|)
 throw|;
 block|}
