@@ -42,6 +42,16 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -634,6 +644,11 @@ name|lazySessionCreation
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"proxy"
+argument_list|)
 DECL|field|httpProxyHost
 specifier|private
 name|String
@@ -642,6 +657,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"proxy"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"3128"
@@ -655,6 +674,11 @@ literal|3128
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"proxy"
+argument_list|)
 DECL|field|httpProxyUsername
 specifier|private
 name|String
@@ -662,6 +686,11 @@ name|httpProxyUsername
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"proxy"
+argument_list|)
 DECL|field|httpProxyPassword
 specifier|private
 name|String
@@ -669,6 +698,11 @@ name|httpProxyPassword
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|sessionStateListener
 specifier|private
 name|SessionStateListener
@@ -689,6 +723,23 @@ init|=
 name|SmppSplittingPolicy
 operator|.
 name|ALLOW
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"proxy"
+argument_list|)
+DECL|field|proxyHeaders
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|proxyHeaders
 decl_stmt|;
 comment|/**      * A POJO which contains all necessary configuration parameters for the SMPP connection      *       * @param uri the full URI of the endpoint      */
 DECL|method|configureFromURI (URI uri)
@@ -1714,6 +1765,43 @@ operator|=
 name|splittingPolicy
 expr_stmt|;
 block|}
+comment|/**      * These headers will be passed to the proxy server while establishing the connection.      */
+DECL|method|setProxyHeaders (Map<String, String> proxyHeaders)
+specifier|public
+name|void
+name|setProxyHeaders
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|proxyHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|proxyHeaders
+operator|=
+name|proxyHeaders
+expr_stmt|;
+block|}
+DECL|method|getProxyHeaders ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getProxyHeaders
+parameter_list|()
+block|{
+return|return
+name|proxyHeaders
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -1854,6 +1942,10 @@ operator|+
 literal|", splittingPolicy="
 operator|+
 name|splittingPolicy
+operator|+
+literal|", proxyHeaders="
+operator|+
+name|proxyHeaders
 operator|+
 literal|"]"
 return|;
