@@ -55,6 +55,7 @@ end_comment
 begin_class
 DECL|class|WidgetMain
 specifier|public
+specifier|final
 class|class
 name|WidgetMain
 block|{
@@ -69,6 +70,13 @@ operator|new
 name|Main
 argument_list|()
 decl_stmt|;
+DECL|method|WidgetMain ()
+specifier|private
+name|WidgetMain
+parameter_list|()
+block|{
+comment|// to comply with checkstyle
+block|}
 DECL|method|main (String[] args)
 specifier|public
 specifier|static

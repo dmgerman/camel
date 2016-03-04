@@ -53,9 +53,17 @@ end_comment
 begin_class
 DECL|class|WidgetApplication
 specifier|public
+specifier|final
 class|class
 name|WidgetApplication
 block|{
+DECL|method|WidgetApplication ()
+specifier|private
+name|WidgetApplication
+parameter_list|()
+block|{
+comment|// to comply with checkstyle
+block|}
 comment|/**      * Factory to create the {@link ActiveMQComponent} which is used in this application      * to connect to the remote ActiveMQ broker.      */
 annotation|@
 name|Produces

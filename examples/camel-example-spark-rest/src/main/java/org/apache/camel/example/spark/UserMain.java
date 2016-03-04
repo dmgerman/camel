@@ -35,9 +35,17 @@ end_import
 begin_class
 DECL|class|UserMain
 specifier|public
+specifier|final
 class|class
 name|UserMain
 block|{
+DECL|method|UserMain ()
+specifier|private
+name|UserMain
+parameter_list|()
+block|{
+comment|// to comply with checkstyle rule
+block|}
 DECL|method|main (String[] args)
 specifier|public
 specifier|static
