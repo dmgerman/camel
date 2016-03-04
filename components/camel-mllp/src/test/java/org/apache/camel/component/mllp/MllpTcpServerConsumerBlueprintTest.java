@@ -226,12 +226,6 @@ name|MllpTcpServerConsumerBlueprintTest
 extends|extends
 name|CamelBlueprintTestSupport
 block|{
-DECL|field|mllpHost
-name|String
-name|mllpHost
-init|=
-literal|"localhost"
-decl_stmt|;
 annotation|@
 name|Rule
 DECL|field|mllpClient
@@ -249,6 +243,13 @@ name|String
 name|receivedUri
 init|=
 literal|"mock://received"
+decl_stmt|;
+DECL|field|mllpHost
+specifier|final
+name|String
+name|mllpHost
+init|=
+literal|"localhost"
 decl_stmt|;
 annotation|@
 name|EndpointInject

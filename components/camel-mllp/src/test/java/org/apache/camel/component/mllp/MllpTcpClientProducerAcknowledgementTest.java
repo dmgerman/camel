@@ -218,12 +218,6 @@ name|MllpTcpClientProducerAcknowledgementTest
 extends|extends
 name|CamelTestSupport
 block|{
-DECL|field|mllpHost
-name|String
-name|mllpHost
-init|=
-literal|"localhost"
-decl_stmt|;
 annotation|@
 name|Rule
 DECL|field|mllpServer
@@ -241,6 +235,12 @@ operator|.
 name|getNextAvailable
 argument_list|()
 argument_list|)
+decl_stmt|;
+DECL|field|mllpHost
+name|String
+name|mllpHost
+init|=
+literal|"localhost"
 decl_stmt|;
 annotation|@
 name|EndpointInject
