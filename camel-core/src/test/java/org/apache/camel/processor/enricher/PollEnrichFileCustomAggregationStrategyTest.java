@@ -144,10 +144,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|testPollEnrichDefaultAggregationStrategyBody ()
+DECL|method|testPollEnrichCustomAggregationStrategyBody ()
 specifier|public
 name|void
-name|testPollEnrichDefaultAggregationStrategyBody
+name|testPollEnrichCustomAggregationStrategyBody
 parameter_list|()
 throws|throws
 name|Exception
@@ -245,8 +245,11 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-comment|// With Custom Aggregation Strategy The readLock continues to exist even if it should be deleted
-comment|// assertFileDoesNotExists("target/enrichdata/AAA.dat.camelLock");
+name|assertFileDoesNotExists
+argument_list|(
+literal|"target/enrichdata/AAA.dat.camelLock"
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -386,6 +389,19 @@ argument_list|(
 name|resourceResponse
 argument_list|)
 expr_stmt|;
+name|original
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|putAll
+argument_list|(
+name|resource
+operator|.
+name|getProperties
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
@@ -397,6 +413,19 @@ operator|.
 name|setBody
 argument_list|(
 name|resourceResponse
+argument_list|)
+expr_stmt|;
+name|original
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|putAll
+argument_list|(
+name|resource
+operator|.
+name|getProperties
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
