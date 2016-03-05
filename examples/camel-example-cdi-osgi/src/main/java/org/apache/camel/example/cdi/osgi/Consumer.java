@@ -55,6 +55,7 @@ argument_list|(
 literal|"osgi-example"
 argument_list|)
 DECL|class|Consumer
+specifier|public
 class|class
 name|Consumer
 extends|extends

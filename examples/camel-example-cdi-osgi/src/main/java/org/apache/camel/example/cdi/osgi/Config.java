@@ -72,6 +72,7 @@ end_import
 
 begin_class
 DECL|class|Config
+specifier|public
 class|class
 name|Config
 block|{

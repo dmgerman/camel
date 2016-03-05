@@ -96,6 +96,7 @@ end_import
 
 begin_class
 DECL|class|Jms
+specifier|public
 class|class
 name|Jms
 block|{

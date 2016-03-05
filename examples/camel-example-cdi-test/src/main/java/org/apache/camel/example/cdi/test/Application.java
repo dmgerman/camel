@@ -128,8 +128,13 @@ name|CamelContextStoppingEvent
 import|;
 end_import
 
+begin_comment
+comment|/**  * Our CDI Camel application  */
+end_comment
+
 begin_class
 DECL|class|Application
+specifier|public
 class|class
 name|Application
 block|{
