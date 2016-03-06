@@ -183,6 +183,13 @@ operator|.
 name|getBody
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|message
+operator|!=
+literal|null
+condition|)
+block|{
 name|log
 operator|.
 name|debug
@@ -192,13 +199,6 @@ argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|message
-operator|!=
-literal|null
-condition|)
-block|{
 if|if
 condition|(
 name|message

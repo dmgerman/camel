@@ -24,16 +24,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|io
-operator|.
-name|IOException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|HashSet
@@ -47,18 +37,6 @@ operator|.
 name|util
 operator|.
 name|Set
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|ExecutionException
 import|;
 end_import
 
@@ -658,12 +636,26 @@ name|void
 name|connect
 parameter_list|()
 throws|throws
-name|InterruptedException
-throws|,
-name|ExecutionException
-throws|,
-name|IOException
+name|Exception
 block|{
+name|String
+name|uri
+init|=
+name|getHttpUri
+argument_list|()
+operator|.
+name|toASCIIString
+argument_list|()
+decl_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Connecting to {}"
+argument_list|,
+name|uri
+argument_list|)
+expr_stmt|;
 name|websocket
 operator|=
 name|getClient
@@ -671,11 +663,7 @@ argument_list|()
 operator|.
 name|prepareGet
 argument_list|(
-name|getHttpUri
-argument_list|()
-operator|.
-name|toASCIIString
-argument_list|()
+name|uri
 argument_list|)
 operator|.
 name|execute
@@ -723,6 +711,28 @@ name|isOpen
 argument_list|()
 condition|)
 block|{
+if|if
+condition|(
+name|LOG
+operator|.
+name|isDebugEnabled
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Disconnecting from {}"
+argument_list|,
+name|getHttpUri
+argument_list|()
+operator|.
+name|toASCIIString
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 name|websocket
 operator|.
 name|close
@@ -746,6 +756,8 @@ parameter_list|(
 name|WsConsumer
 name|wsConsumer
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|consumers
 operator|.
@@ -754,6 +766,23 @@ argument_list|(
 name|wsConsumer
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|websocket
+operator|==
+literal|null
+operator|||
+operator|!
+name|websocket
+operator|.
+name|isOpen
+argument_list|()
+condition|)
+block|{
+name|connect
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 DECL|method|disconnect (WsConsumer wsConsumer)
 name|void
@@ -854,7 +883,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"received message --> {}"
+literal|"Received message --> {}"
 argument_list|,
 name|message
 argument_list|)
@@ -891,7 +920,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"received message --> {}"
+literal|"Received message --> {}"
 argument_list|,
 name|message
 argument_list|)
