@@ -74,7 +74,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|FilterDefinition
+name|ExpressionNode
 import|;
 end_import
 
@@ -119,7 +119,7 @@ specifier|final
 name|FilterProcessor
 name|processor
 decl_stmt|;
-DECL|method|ManagedFilter (CamelContext context, FilterProcessor processor, FilterDefinition definition)
+DECL|method|ManagedFilter (CamelContext context, FilterProcessor processor, ExpressionNode definition)
 specifier|public
 name|ManagedFilter
 parameter_list|(
@@ -129,7 +129,7 @@ parameter_list|,
 name|FilterProcessor
 name|processor
 parameter_list|,
-name|FilterDefinition
+name|ExpressionNode
 name|definition
 parameter_list|)
 block|{
@@ -153,13 +153,13 @@ annotation|@
 name|Override
 DECL|method|getDefinition ()
 specifier|public
-name|FilterDefinition
+name|ExpressionNode
 name|getDefinition
 parameter_list|()
 block|{
 return|return
 operator|(
-name|FilterDefinition
+name|ExpressionNode
 operator|)
 name|super
 operator|.
