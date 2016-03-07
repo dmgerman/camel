@@ -201,7 +201,7 @@ argument_list|)
 decl_stmt|;
 name|assertTrue
 argument_list|(
-literal|"We should get the schemaLocation here"
+literal|"We should get the noNamespaceSchemaLocation here"
 argument_list|,
 name|body
 operator|.

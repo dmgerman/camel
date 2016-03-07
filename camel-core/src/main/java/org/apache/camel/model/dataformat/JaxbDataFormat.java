@@ -288,6 +288,13 @@ specifier|private
 name|String
 name|schemaLocation
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|noNamespaceSchemaLocation
+specifier|private
+name|String
+name|noNamespaceSchemaLocation
+decl_stmt|;
 DECL|method|JaxbDataFormat ()
 specifier|public
 name|JaxbDataFormat
@@ -663,6 +670,33 @@ block|{
 name|this
 operator|.
 name|schemaLocation
+operator|=
+name|schemaLocation
+expr_stmt|;
+block|}
+DECL|method|getNoNamespaceSchemaLocation ()
+specifier|public
+name|String
+name|getNoNamespaceSchemaLocation
+parameter_list|()
+block|{
+return|return
+name|noNamespaceSchemaLocation
+return|;
+block|}
+comment|/**      * To define the location of the namespaceless schema      */
+DECL|method|setNoNamespaceSchemaLocation (String schemaLocation)
+specifier|public
+name|void
+name|setNoNamespaceSchemaLocation
+parameter_list|(
+name|String
+name|schemaLocation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|noNamespaceSchemaLocation
 operator|=
 name|schemaLocation
 expr_stmt|;
@@ -1080,6 +1114,25 @@ argument_list|,
 literal|"schemaLocation"
 argument_list|,
 name|schemaLocation
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|noNamespaceSchemaLocation
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"noNamespaceSchemaLocation"
+argument_list|,
+name|noNamespaceSchemaLocation
 argument_list|)
 expr_stmt|;
 block|}
