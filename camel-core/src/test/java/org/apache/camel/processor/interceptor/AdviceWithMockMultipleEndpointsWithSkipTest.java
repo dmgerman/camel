@@ -87,6 +87,7 @@ extends|extends
 name|ContextTestSupport
 block|{
 comment|// START SNIPPET: e1
+comment|// tag::e1[]
 DECL|method|testAdvisedMockEndpointsWithSkip ()
 specifier|public
 name|void
@@ -204,8 +205,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// end::e1[]
 comment|// END SNIPPET: e1
 comment|// START SNIPPET: route
+comment|// tag::route[]
 annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
@@ -290,6 +293,7 @@ block|}
 block|}
 return|;
 block|}
+comment|// end::route[]
 comment|// END SNIPPET: route
 block|}
 end_class

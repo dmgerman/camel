@@ -82,6 +82,10 @@ begin_comment
 comment|// START SNIPPET: e1
 end_comment
 
+begin_comment
+comment|// tag::e1[]
+end_comment
+
 begin_class
 DECL|class|IsMockEndpointsAndSkipJUnit4Test
 specifier|public
@@ -236,6 +240,10 @@ return|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// end::e1[]
+end_comment
 
 begin_comment
 comment|// END SNIPPET: e1

@@ -102,6 +102,7 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// START SNIPPET: e1
+comment|// tag::e1[]
 DECL|method|testAdvisedMockEndpoints ()
 specifier|public
 name|void
@@ -272,8 +273,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// end::e1[]
 comment|// END SNIPPET: e1
 comment|// START SNIPPET: e2
+comment|// tag::e2[]
 DECL|method|testAdvisedMockEndpointsWithPattern ()
 specifier|public
 name|void
@@ -427,8 +430,10 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+comment|// end::e2[]
 comment|// END SNIPPET: e2
 comment|// START SNIPPET: route
+comment|// tag::route[]
 annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
@@ -490,6 +495,7 @@ block|}
 block|}
 return|;
 block|}
+comment|// end::route[]
 comment|// END SNIPPET: route
 block|}
 end_class
