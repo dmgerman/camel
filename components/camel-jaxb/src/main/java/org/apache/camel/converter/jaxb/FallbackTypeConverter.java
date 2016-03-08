@@ -484,7 +484,6 @@ name|TypeConverterAware
 implements|,
 name|CamelContextAware
 block|{
-comment|/**      * Whether the JAXB converter should use pretty print or not (default is true)      */
 DECL|field|PRETTY_PRINT
 specifier|public
 specifier|static
@@ -493,6 +492,15 @@ name|String
 name|PRETTY_PRINT
 init|=
 literal|"CamelJaxbPrettyPrint"
+decl_stmt|;
+DECL|field|OBJECT_FACTORY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|OBJECT_FACTORY
+init|=
+literal|"CamelJaxbObjectFactory"
 decl_stmt|;
 DECL|field|LOG
 specifier|private
@@ -548,6 +556,13 @@ name|prettyPrint
 init|=
 literal|true
 decl_stmt|;
+DECL|field|objectFactory
+specifier|private
+name|boolean
+name|objectFactory
+init|=
+literal|true
+decl_stmt|;
 DECL|field|camelContext
 specifier|private
 name|CamelContext
@@ -563,6 +578,7 @@ return|return
 name|prettyPrint
 return|;
 block|}
+comment|/**      * Whether the JAXB converter should use pretty print or not (default is true)      */
 DECL|method|setPrettyPrint (boolean prettyPrint)
 specifier|public
 name|void
@@ -577,6 +593,33 @@ operator|.
 name|prettyPrint
 operator|=
 name|prettyPrint
+expr_stmt|;
+block|}
+DECL|method|isObjectFactory ()
+specifier|public
+name|boolean
+name|isObjectFactory
+parameter_list|()
+block|{
+return|return
+name|objectFactory
+return|;
+block|}
+comment|/**      * Whether the JAXB converter supports using ObjectFactory classes to create the POJO classes during conversion.      * This only applies to POJO classes that has not been annotated with JAXB and providing jaxb.index descriptor files.      */
+DECL|method|setObjectFactory (boolean objectFactory)
+specifier|public
+name|void
+name|setObjectFactory
+parameter_list|(
+name|boolean
+name|objectFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|objectFactory
+operator|=
+name|objectFactory
 expr_stmt|;
 block|}
 DECL|method|allowNull ()
@@ -667,6 +710,48 @@ block|}
 else|else
 block|{
 name|setPrettyPrint
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// configure object factory
+name|property
+operator|=
+name|camelContext
+operator|.
+name|getProperty
+argument_list|(
+name|OBJECT_FACTORY
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|property
+operator|!=
+literal|null
+condition|)
+block|{
+if|if
+condition|(
+name|property
+operator|.
+name|equalsIgnoreCase
+argument_list|(
+literal|"false"
+argument_list|)
+condition|)
+block|{
+name|setObjectFactory
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|setObjectFactory
 argument_list|(
 literal|true
 argument_list|)
@@ -808,6 +893,20 @@ literal|null
 argument_list|)
 return|;
 block|}
+name|CamelContext
+name|context
+init|=
+name|exchange
+operator|!=
+literal|null
+condition|?
+name|exchange
+operator|.
+name|getContext
+argument_list|()
+else|:
+name|camelContext
+decl_stmt|;
 name|Method
 name|objectFactoryMethod
 init|=
@@ -815,7 +914,7 @@ name|JaxbHelper
 operator|.
 name|getJaxbElementFactoryMethod
 argument_list|(
-name|camelContext
+name|context
 argument_list|,
 name|value
 operator|.
@@ -1052,7 +1151,17 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Jaxb FallbackTypeConverter[prettyPrint={}, objectFactory={}]"
+argument_list|,
+name|prettyPrint
+argument_list|,
+name|objectFactory
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
