@@ -168,7 +168,12 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Money talks"
+literal|"Money talks says "
+operator|+
+name|context
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|money
 argument_list|)
@@ -224,7 +229,12 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Money talks"
+literal|"Money talks says "
+operator|+
+name|context
+operator|.
+name|getName
+argument_list|()
 argument_list|,
 name|money
 argument_list|)

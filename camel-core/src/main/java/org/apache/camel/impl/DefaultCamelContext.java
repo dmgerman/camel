@@ -19821,6 +19821,13 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|answer
+operator|.
+name|setCamelContext
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
 name|setTypeConverterRegistry
 argument_list|(
 name|answer
