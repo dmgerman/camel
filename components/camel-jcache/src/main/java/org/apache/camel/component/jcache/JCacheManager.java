@@ -537,6 +537,27 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+operator|!
+name|configuration
+operator|.
+name|isCreateCacheIfNotExists
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"Cache "
+operator|+
+name|cacheName
+operator|+
+literal|" does not exist and should not be created (createCacheIfNotExists=false)"
+argument_list|)
+throw|;
+block|}
 name|cache
 operator|=
 name|manager
