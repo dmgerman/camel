@@ -2292,7 +2292,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Creating JAXBContext with contextPath: "
 operator|+
@@ -2318,7 +2318,7 @@ else|else
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Creating JAXBContext with contextPath: "
 operator|+
@@ -2339,7 +2339,7 @@ else|else
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Creating JAXBContext"
 argument_list|)
