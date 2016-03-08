@@ -648,6 +648,13 @@ name|prettyPrint
 init|=
 literal|true
 decl_stmt|;
+DECL|field|objectFactory
+specifier|private
+name|boolean
+name|objectFactory
+init|=
+literal|true
+decl_stmt|;
 DECL|field|ignoreJAXBElement
 specifier|private
 name|boolean
@@ -1140,6 +1147,8 @@ block|}
 elseif|else
 if|if
 condition|(
+name|objectFactory
+operator|&&
 name|element
 operator|!=
 literal|null
@@ -1816,6 +1825,32 @@ operator|=
 name|prettyPrint
 expr_stmt|;
 block|}
+DECL|method|isObjectFactory ()
+specifier|public
+name|boolean
+name|isObjectFactory
+parameter_list|()
+block|{
+return|return
+name|objectFactory
+return|;
+block|}
+DECL|method|setObjectFactory (boolean objectFactory)
+specifier|public
+name|void
+name|setObjectFactory
+parameter_list|(
+name|boolean
+name|objectFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|objectFactory
+operator|=
+name|objectFactory
+expr_stmt|;
+block|}
 DECL|method|isFragment ()
 specifier|public
 name|boolean
@@ -2246,6 +2281,17 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"JaxbDataFormat [prettyPrint={}, objectFactory={}]"
+argument_list|,
+name|prettyPrint
+argument_list|,
+name|objectFactory
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override
