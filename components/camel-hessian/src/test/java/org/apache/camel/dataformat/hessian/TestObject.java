@@ -236,9 +236,11 @@ name|this
 operator|==
 name|o
 condition|)
+block|{
 return|return
 literal|true
 return|;
+block|}
 if|if
 condition|(
 name|o
@@ -253,9 +255,11 @@ operator|.
 name|getClass
 argument_list|()
 condition|)
+block|{
 return|return
 literal|false
 return|;
+block|}
 specifier|final
 name|TestObject
 name|that
@@ -338,13 +342,11 @@ name|temp
 decl_stmt|;
 name|result
 operator|=
-operator|(
 name|bool
 condition|?
 literal|1
 else|:
 literal|0
-operator|)
 expr_stmt|;
 name|result
 operator|=

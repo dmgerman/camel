@@ -262,7 +262,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|HessianDataFormat
+name|HL7DataFormat
 import|;
 end_import
 
@@ -278,7 +278,7 @@ name|model
 operator|.
 name|dataformat
 operator|.
-name|HL7DataFormat
+name|HessianDataFormat
 import|;
 end_import
 

@@ -131,7 +131,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The<a href="http://camel.apache.org/data-format.html">data format</a>  * using<a href="http://hessian.caucho.com/doc/hessian-serialization.html">Hessian Serialization</a>.  * @since 2.17  */
+comment|/**  * The<a href="http://camel.apache.org/data-format.html">data format</a>  * using<a href="http://hessian.caucho.com/doc/hessian-serialization.html">Hessian Serialization</a>.  *  * @since 2.17  */
 end_comment
 
 begin_class
