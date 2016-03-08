@@ -39,7 +39,7 @@ import|;
 end_import
 
 begin_comment
-comment|/** A simple object used used by {@link HessianDataFormatTest}. */
+comment|/** A simple object used used by {@link HessianDataFormatMarshallingTest}. */
 end_comment
 
 begin_class

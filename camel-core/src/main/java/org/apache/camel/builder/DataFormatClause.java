@@ -262,6 +262,22 @@ name|model
 operator|.
 name|dataformat
 operator|.
+name|HessianDataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
 name|HL7DataFormat
 import|;
 end_import
@@ -1296,6 +1312,22 @@ return|return
 name|dataFormat
 argument_list|(
 name|gzdf
+argument_list|)
+return|;
+block|}
+comment|/**      * Uses the Hessian data format      */
+DECL|method|hessian ()
+specifier|public
+name|T
+name|hessian
+parameter_list|()
+block|{
+return|return
+name|dataFormat
+argument_list|(
+operator|new
+name|HessianDataFormat
+argument_list|()
 argument_list|)
 return|;
 block|}

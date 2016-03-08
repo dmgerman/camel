@@ -113,10 +113,10 @@ comment|/**  * Test for {@link HessianDataFormat}.  */
 end_comment
 
 begin_class
-DECL|class|HessianDataFormatTest
+DECL|class|HessianDataFormatMarshallingTest
 specifier|public
 class|class
-name|HessianDataFormatTest
+name|HessianDataFormatMarshallingTest
 extends|extends
 name|CamelTestSupport
 block|{
