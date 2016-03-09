@@ -90,22 +90,6 @@ name|exam
 operator|.
 name|CoreOptions
 operator|.
-name|junitBundles
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|ops4j
-operator|.
-name|pax
-operator|.
-name|exam
-operator|.
-name|CoreOptions
-operator|.
 name|maven
 import|;
 end_import
@@ -313,11 +297,6 @@ name|LogLevel
 operator|.
 name|INFO
 argument_list|)
-argument_list|,
-comment|// JUnit and Hamcrest
-DECL|enumConstant|junitBundles
-name|junitBundles
-argument_list|()
 argument_list|)
 block|,
 DECL|enumConstant|CAMEL_COMMANDS
