@@ -334,6 +334,8 @@ block|,
 literal|"camel.springboot.jmxEnabled=true"
 block|,
 literal|"camel.springboot.name=customName"
+block|,
+literal|"camel.springboot.typeConversion=true"
 block|}
 argument_list|)
 DECL|class|CamelAutoConfigurationTest

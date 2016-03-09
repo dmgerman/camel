@@ -187,6 +187,9 @@ name|class
 argument_list|)
 annotation|@
 name|IntegrationTest
+argument_list|(
+literal|"camel.springboot.typeConversion=true"
+argument_list|)
 DECL|class|SpringConverterDelegationTest
 specifier|public
 class|class
