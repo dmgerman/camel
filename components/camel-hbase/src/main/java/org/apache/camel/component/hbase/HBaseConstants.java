@@ -66,6 +66,12 @@ name|FROM_ROW
 init|=
 literal|"CamelHBaseStartRow"
 decl_stmt|;
+DECL|field|STOP_ROW
+name|String
+name|STOP_ROW
+init|=
+literal|"CamelHBaseStopRow"
+decl_stmt|;
 block|}
 end_interface
 

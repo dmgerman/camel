@@ -517,6 +517,24 @@ operator|.
 name|FROM_ROW
 argument_list|)
 decl_stmt|;
+name|String
+name|stopRowId
+init|=
+operator|(
+name|String
+operator|)
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|HBaseConstants
+operator|.
+name|STOP_ROW
+argument_list|)
+decl_stmt|;
 name|CellMappingStrategy
 name|mappingStrategy
 init|=
@@ -708,6 +726,8 @@ argument_list|,
 name|hRow
 argument_list|,
 name|fromRowId
+argument_list|,
+name|stopRowId
 argument_list|,
 name|maxScanResult
 argument_list|,
@@ -1422,7 +1442,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Performs an HBase {@link Get} on a specific row, using a collection of values (family/column/value pairs).      * The result is<p>the most recent entry</p> for each column.      */
-DECL|method|scanCells (Table table, HBaseRow model, String start, Integer maxRowScan, List<Filter> filters)
+DECL|method|scanCells (Table table, HBaseRow model, String start, String stop, Integer maxRowScan, List<Filter> filters)
 specifier|private
 name|List
 argument_list|<
@@ -1438,6 +1458,9 @@ name|model
 parameter_list|,
 name|String
 name|start
+parameter_list|,
+name|String
+name|stop
 parameter_list|,
 name|Integer
 name|maxRowScan
@@ -1512,6 +1535,29 @@ operator|=
 operator|new
 name|Scan
 argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|stop
+argument_list|)
+condition|)
+block|{
+name|scan
+operator|.
+name|setStopRow
+argument_list|(
+name|Bytes
+operator|.
+name|toBytes
+argument_list|(
+name|stop
+argument_list|)
+argument_list|)
 expr_stmt|;
 block|}
 if|if
