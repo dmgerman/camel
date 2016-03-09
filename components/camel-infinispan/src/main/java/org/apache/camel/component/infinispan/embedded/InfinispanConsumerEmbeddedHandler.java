@@ -182,7 +182,7 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|isCustom
+name|hasCustomListener
 argument_list|()
 condition|)
 block|{

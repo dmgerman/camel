@@ -80,7 +80,7 @@ name|component
 operator|.
 name|infinispan
 operator|.
-name|InfinispanCustomListener
+name|InfinispanEventListener
 import|;
 end_import
 
@@ -96,7 +96,7 @@ name|component
 operator|.
 name|infinispan
 operator|.
-name|InfinispanEventListener
+name|InfinispanUtil
 import|;
 end_import
 
@@ -177,18 +177,15 @@ name|?
 argument_list|>
 name|remoteCache
 init|=
-operator|(
-name|RemoteCache
-argument_list|<
-name|?
-argument_list|,
-name|?
-argument_list|>
-operator|)
+name|InfinispanUtil
+operator|.
+name|asRemote
+argument_list|(
 name|consumer
 operator|.
 name|getCache
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|InfinispanConfiguration
 name|configuration
@@ -205,7 +202,7 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|isCustom
+name|hasCustomListener
 argument_list|()
 condition|)
 block|{
@@ -216,12 +213,7 @@ operator|.
 name|getCustomListener
 argument_list|()
 expr_stmt|;
-operator|(
-operator|(
-name|InfinispanCustomListener
-operator|)
 name|listener
-operator|)
 operator|.
 name|setInfinispanConsumer
 argument_list|(

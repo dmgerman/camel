@@ -108,6 +108,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|infinispan
 operator|.
 name|commons
@@ -241,6 +255,18 @@ specifier|private
 name|boolean
 name|clustered
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|queryBuilder
+specifier|private
+name|InfinispanQueryBuilder
+name|queryBuilder
+decl_stmt|;
 DECL|method|getCommand ()
 specifier|public
 name|String
@@ -267,6 +293,21 @@ name|command
 operator|=
 name|command
 expr_stmt|;
+block|}
+DECL|method|hasCommand ()
+specifier|public
+name|boolean
+name|hasCommand
+parameter_list|()
+block|{
+return|return
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|command
+argument_list|)
+return|;
 block|}
 comment|/**      * Specifies the host of the cache on Infinispan instance      */
 DECL|method|getHost ()
@@ -497,14 +538,53 @@ operator|=
 name|customListener
 expr_stmt|;
 block|}
-DECL|method|isCustom ()
+DECL|method|hasCustomListener ()
 specifier|public
 name|boolean
-name|isCustom
+name|hasCustomListener
 parameter_list|()
 block|{
 return|return
 name|customListener
+operator|!=
+literal|null
+return|;
+block|}
+DECL|method|getQueryBuilder ()
+specifier|public
+name|InfinispanQueryBuilder
+name|getQueryBuilder
+parameter_list|()
+block|{
+return|return
+name|queryBuilder
+return|;
+block|}
+comment|/**      * Specifies the query builder.      */
+DECL|method|setQueryBuilder (InfinispanQueryBuilder queryBuilder)
+specifier|public
+name|void
+name|setQueryBuilder
+parameter_list|(
+name|InfinispanQueryBuilder
+name|queryBuilder
+parameter_list|)
+block|{
+name|this
+operator|.
+name|queryBuilder
+operator|=
+name|queryBuilder
+expr_stmt|;
+block|}
+DECL|method|hasQueryBuilder ()
+specifier|public
+name|boolean
+name|hasQueryBuilder
+parameter_list|()
+block|{
+return|return
+name|queryBuilder
 operator|!=
 literal|null
 return|;
