@@ -18,10 +18,6 @@ name|kafka
 package|;
 end_package
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|KafkaConstants
 specifier|public
@@ -29,15 +25,6 @@ specifier|final
 class|class
 name|KafkaConstants
 block|{
-DECL|field|DEFAULT_GROUP
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|DEFAULT_GROUP
-init|=
-literal|"group1"
-decl_stmt|;
 DECL|field|PARTITION_KEY
 specifier|public
 specifier|static
@@ -54,7 +41,7 @@ specifier|final
 name|String
 name|PARTITION
 init|=
-literal|"kafka.PARTITION"
+literal|"kafka.EXCHANGE_NAME"
 decl_stmt|;
 DECL|field|KEY
 specifier|public
@@ -63,7 +50,7 @@ specifier|final
 name|String
 name|KEY
 init|=
-literal|"kafka.KEY"
+literal|"kafka.CONTENT_TYPE"
 decl_stmt|;
 DECL|field|TOPIC
 specifier|public
@@ -100,6 +87,42 @@ name|String
 name|KAFKA_STRING_ENCODER
 init|=
 literal|"kafka.serializer.StringEncoder"
+decl_stmt|;
+DECL|field|KAFKA_DEFAULT_SERIALIZER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|KAFKA_DEFAULT_SERIALIZER
+init|=
+literal|"org.apache.kafka.common.serialization.StringSerializer"
+decl_stmt|;
+DECL|field|KAFKA_DEFAULT_DESERIALIZER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|KAFKA_DEFAULT_DESERIALIZER
+init|=
+literal|"org.apache.kafka.common.serialization.StringDeserializer"
+decl_stmt|;
+DECL|field|KAFKA_DEFAULT_PARTITIONER
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|KAFKA_DEFAULT_PARTITIONER
+init|=
+literal|"org.apache.kafka.clients.producer.internals.DefaultPartitioner"
+decl_stmt|;
+DECL|field|PARTITIONER_RANGE_ASSIGNOR
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|PARTITIONER_RANGE_ASSIGNOR
+init|=
+literal|"org.apache.kafka.clients.consumer.RangeAssignor"
 decl_stmt|;
 DECL|method|KafkaConstants ()
 specifier|private

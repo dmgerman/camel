@@ -122,26 +122,6 @@ end_import
 
 begin_import
 import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
-begin_import
-import|import
 name|scala
 operator|.
 name|Option
@@ -154,22 +134,6 @@ specifier|public
 class|class
 name|EmbeddedKafkaCluster
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|EmbeddedKafkaCluster
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|ports
 specifier|private
 specifier|final
@@ -357,7 +321,7 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|createTopics (String...topics)
+DECL|method|createTopics (String... topics)
 specifier|public
 name|void
 name|createTopics
@@ -687,6 +651,20 @@ name|TRUE
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"EmbeddedKafkaCluster: local directory: "
+operator|+
+name|logDir
+operator|.
+name|getAbsolutePath
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|properties
 operator|.
 name|setProperty
@@ -699,18 +677,6 @@ name|valueOf
 argument_list|(
 literal|1
 argument_list|)
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"EmbeddedKafkaCluster: local directory: "
-operator|+
-name|logDir
-operator|.
-name|getAbsolutePath
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|KafkaServer

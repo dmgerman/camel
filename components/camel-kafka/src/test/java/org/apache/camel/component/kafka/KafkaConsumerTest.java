@@ -101,10 +101,10 @@ name|IllegalArgumentException
 operator|.
 name|class
 argument_list|)
-DECL|method|consumerRequiresZookeeperConnect ()
+DECL|method|consumerRequiresBootstrapServers ()
 specifier|public
 name|void
-name|consumerRequiresZookeeperConnect
+name|consumerRequiresBootstrapServers
 parameter_list|()
 throws|throws
 name|Exception
@@ -156,13 +156,13 @@ name|when
 argument_list|(
 name|endpoint
 operator|.
-name|getZookeeperConnect
+name|getBrokers
 argument_list|()
 argument_list|)
 operator|.
 name|thenReturn
 argument_list|(
-literal|"localhost:2181/chroot"
+literal|"localhost:1234"
 argument_list|)
 expr_stmt|;
 operator|new
@@ -176,10 +176,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|consumerOnlyRequiresZookeeperConnectAndGroupId ()
+DECL|method|consumerOnlyRequiresBootstrapServersAndGroupId ()
 specifier|public
 name|void
-name|consumerOnlyRequiresZookeeperConnectAndGroupId
+name|consumerOnlyRequiresBootstrapServersAndGroupId
 parameter_list|()
 throws|throws
 name|Exception
@@ -205,13 +205,13 @@ name|when
 argument_list|(
 name|endpoint
 operator|.
-name|getZookeeperConnect
+name|getBrokers
 argument_list|()
 argument_list|)
 operator|.
 name|thenReturn
 argument_list|(
-literal|"localhost:2181/chroot"
+literal|"localhost:2181"
 argument_list|)
 expr_stmt|;
 operator|new
