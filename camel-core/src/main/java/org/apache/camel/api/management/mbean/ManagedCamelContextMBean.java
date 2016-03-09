@@ -773,12 +773,46 @@ name|ManagedOperation
 argument_list|(
 name|description
 operator|=
+literal|"Dumps the rests as XML"
+argument_list|)
+DECL|method|dumpRestsAsXml (boolean resolvePlaceholders)
+name|String
+name|dumpRestsAsXml
+parameter_list|(
+name|boolean
+name|resolvePlaceholders
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
 literal|"Dumps the routes as XML"
 argument_list|)
 DECL|method|dumpRoutesAsXml ()
 name|String
 name|dumpRoutesAsXml
 parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Dumps the routes as XML"
+argument_list|)
+DECL|method|dumpRoutesAsXml (boolean resolvePlaceholders)
+name|String
+name|dumpRoutesAsXml
+parameter_list|(
+name|boolean
+name|resolvePlaceholders
+parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
