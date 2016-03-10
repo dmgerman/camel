@@ -2698,7 +2698,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Creates an iterator over the value if the value is a collection, an      * Object[], a String with values separated by the given delimiter,      * or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      *      *</p> In case of primitive type arrays the returned {@code Iterator} iterates      * over the corresponding Java primitive wrapper objects of the given elements      * inside the {@code value} array. That's we get an autoboxing of the primitive      * types here for free as it's also the case in Java language itself.      *      * @param value             the value      * @param delimiter         delimiter for separating String values      * @param allowEmptyValues  whether to allow empty values      * @return the iterator      */
-DECL|method|createIterator (Object value, String delimiter, final boolean allowEmptyValues)
+DECL|method|createIterator (Object value, String delimiter, boolean allowEmptyValues)
 specifier|public
 specifier|static
 name|Iterator
@@ -2706,6 +2706,81 @@ argument_list|<
 name|Object
 argument_list|>
 name|createIterator
+parameter_list|(
+name|Object
+name|value
+parameter_list|,
+name|String
+name|delimiter
+parameter_list|,
+name|boolean
+name|allowEmptyValues
+parameter_list|)
+block|{
+return|return
+name|createIterable
+argument_list|(
+name|value
+argument_list|,
+name|delimiter
+argument_list|,
+name|allowEmptyValues
+argument_list|,
+literal|false
+argument_list|)
+operator|.
+name|iterator
+argument_list|()
+return|;
+block|}
+comment|/**      * Creates an iterator over the value if the value is a collection, an      * Object[], a String with values separated by the given delimiter,      * or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      *      *</p> In case of primitive type arrays the returned {@code Iterator} iterates      * over the corresponding Java primitive wrapper objects of the given elements      * inside the {@code value} array. That's we get an autoboxing of the primitive      * types here for free as it's also the case in Java language itself.      *      * @param value             the value      * @param delimiter         delimiter for separating String values      * @param allowEmptyValues  whether to allow empty values      * @param pattern           whether the delimiter is a pattern      * @return the iterator      */
+DECL|method|createIterator (Object value, String delimiter, boolean allowEmptyValues, boolean pattern)
+specifier|public
+specifier|static
+name|Iterator
+argument_list|<
+name|Object
+argument_list|>
+name|createIterator
+parameter_list|(
+name|Object
+name|value
+parameter_list|,
+name|String
+name|delimiter
+parameter_list|,
+name|boolean
+name|allowEmptyValues
+parameter_list|,
+name|boolean
+name|pattern
+parameter_list|)
+block|{
+return|return
+name|createIterable
+argument_list|(
+name|value
+argument_list|,
+name|delimiter
+argument_list|,
+name|allowEmptyValues
+argument_list|,
+name|pattern
+argument_list|)
+operator|.
+name|iterator
+argument_list|()
+return|;
+block|}
+comment|/**      * Creates an iterable over the value if the value is a collection, an      * Object[], a String with values separated by the given delimiter,      * or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      *       *</p> In case of primitive type arrays the returned {@code Iterable} iterates      * over the corresponding Java primitive wrapper objects of the given elements      * inside the {@code value} array. That's we get an autoboxing of the primitive      * types here for free as it's also the case in Java language itself.      *       * @param value             the value      * @param delimiter         delimiter for separating String values      * @param allowEmptyValues  whether to allow empty values      * @return the iterable      * @see java.lang.Iterable      */
+DECL|method|createIterable (Object value, String delimiter, final boolean allowEmptyValues)
+specifier|public
+specifier|static
+name|Iterable
+argument_list|<
+name|Object
+argument_list|>
+name|createIterable
 parameter_list|(
 name|Object
 name|value
@@ -2726,19 +2801,18 @@ argument_list|,
 name|delimiter
 argument_list|,
 name|allowEmptyValues
+argument_list|,
+literal|false
 argument_list|)
-operator|.
-name|iterator
-argument_list|()
 return|;
 block|}
-comment|/**      * Creates an iterable over the value if the value is a collection, an      * Object[], a String with values separated by the given delimiter,      * or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      *       *</p> In case of primitive type arrays the returned {@code Iterable} iterates      * over the corresponding Java primitive wrapper objects of the given elements      * inside the {@code value} array. That's we get an autoboxing of the primitive      * types here for free as it's also the case in Java language itself.      *       * @param value             the value      * @param delimiter         delimiter for separating String values      * @param allowEmptyValues  whether to allow empty values      * @return the iterable      * @see java.lang.Iterable      */
+comment|/**      * Creates an iterable over the value if the value is a collection, an      * Object[], a String with values separated by the given delimiter,      * or a primitive type array; otherwise to simplify the caller's      * code, we just create a singleton collection iterator over a single value      *      *</p> In case of primitive type arrays the returned {@code Iterable} iterates      * over the corresponding Java primitive wrapper objects of the given elements      * inside the {@code value} array. That's we get an autoboxing of the primitive      * types here for free as it's also the case in Java language itself.      *      * @param value             the value      * @param delimiter         delimiter for separating String values      * @param allowEmptyValues  whether to allow empty values      * @param pattern           whether the delimiter is a pattern      * @return the iterable      * @see java.lang.Iterable      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|createIterable (Object value, String delimiter, final boolean allowEmptyValues)
+DECL|method|createIterable (Object value, String delimiter, final boolean allowEmptyValues, final boolean pattern)
 specifier|public
 specifier|static
 name|Iterable
@@ -2756,6 +2830,10 @@ parameter_list|,
 specifier|final
 name|boolean
 name|allowEmptyValues
+parameter_list|,
+specifier|final
+name|boolean
+name|pattern
 parameter_list|)
 block|{
 comment|// if its a message than we want to iterate its body
@@ -3144,15 +3222,19 @@ name|delimiter
 operator|!=
 literal|null
 operator|&&
+operator|(
+name|pattern
+operator|||
 name|s
 operator|.
 name|contains
 argument_list|(
 name|delimiter
 argument_list|)
+operator|)
 condition|)
 block|{
-comment|// use a scanner if it contains the delimiter
+comment|// use a scanner if it contains the delimiter or is a pattern
 specifier|final
 name|Scanner
 name|scanner
