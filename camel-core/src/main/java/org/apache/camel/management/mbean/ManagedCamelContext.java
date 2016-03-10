@@ -1960,6 +1960,7 @@ argument_list|,
 name|def
 argument_list|)
 decl_stmt|;
+comment|// if resolving placeholders we parse the xml, and resolve the property placeholders during parsing
 if|if
 condition|(
 name|resolvePlaceholders
@@ -2201,6 +2202,7 @@ argument_list|,
 name|def
 argument_list|)
 decl_stmt|;
+comment|// if resolving placeholders we parse the xml, and resolve the property placeholders during parsing
 if|if
 condition|(
 name|resolvePlaceholders
