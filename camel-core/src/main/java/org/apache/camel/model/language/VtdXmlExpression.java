@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For VTD-XML (fast and efficient XPath) expressions and predicates  *  * @version   */
+comment|/**  * For VTD-XML (fast and efficient XPath) expressions and predicates (requires using camel-vtdxml from Camel-Extra)  *  * @deprecated will be removed in next release  *  * @version   */
 end_comment
 
 begin_class
@@ -104,6 +104,8 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|class|VtdXmlExpression
 specifier|public
 class|class
