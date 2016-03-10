@@ -222,6 +222,18 @@ name|QUERY_BUILDER
 init|=
 literal|"CamelInfinispanQueryBuilder"
 decl_stmt|;
+DECL|field|CACHE_ENTRY_JOINING
+name|String
+name|CACHE_ENTRY_JOINING
+init|=
+literal|"CacheEntryJoining"
+decl_stmt|;
+DECL|field|CACHE_ENTRY_LEAVING
+name|String
+name|CACHE_ENTRY_LEAVING
+init|=
+literal|"CacheEntryLeaving"
+decl_stmt|;
 block|}
 end_interface
 
