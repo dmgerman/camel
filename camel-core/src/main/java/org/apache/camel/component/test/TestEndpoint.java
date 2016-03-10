@@ -284,12 +284,15 @@ name|String
 name|name
 decl_stmt|;
 annotation|@
+name|UriPath
+DECL|field|anyOrder
+specifier|private
+name|boolean
+name|anyOrder
+decl_stmt|;
+annotation|@
 name|UriParam
 argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|,
 name|defaultValue
 operator|=
 literal|"2000"
@@ -445,7 +448,7 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|debug
+name|info
 argument_list|(
 literal|"Received: {} expected message(s) from: {}"
 argument_list|,
@@ -457,11 +460,25 @@ argument_list|,
 name|expectedMessageEndpoint
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|anyOrder
+condition|)
+block|{
+name|expectedBodiesReceivedInAnyOrder
+argument_list|(
+name|expectedBodies
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|expectedBodiesReceived
 argument_list|(
 name|expectedBodies
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 comment|/**      * This method allows us to convert or coerce the expected message body into some other type      */
 DECL|method|getInBody (Exchange exchange)
@@ -508,6 +525,33 @@ operator|.
 name|timeout
 operator|=
 name|timeout
+expr_stmt|;
+block|}
+DECL|method|isAnyOrder ()
+specifier|public
+name|boolean
+name|isAnyOrder
+parameter_list|()
+block|{
+return|return
+name|anyOrder
+return|;
+block|}
+comment|/**      * Whether the expected messages should arrive in the same order or can be in any order.      */
+DECL|method|setAnyOrder (boolean anyOrder)
+specifier|public
+name|void
+name|setAnyOrder
+parameter_list|(
+name|boolean
+name|anyOrder
+parameter_list|)
+block|{
+name|this
+operator|.
+name|anyOrder
+operator|=
+name|anyOrder
 expr_stmt|;
 block|}
 block|}
