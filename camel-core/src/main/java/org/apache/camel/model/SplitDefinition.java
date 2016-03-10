@@ -694,12 +694,6 @@ argument_list|,
 name|isParallelAggregate
 argument_list|)
 decl_stmt|;
-comment|//        if (isShareUnitOfWork) {
-comment|// wrap answer in a sub unit of work, since we share the unit of work
-comment|//            CamelInternalProcessor internalProcessor = new CamelInternalProcessor(answer);
-comment|//            internalProcessor.addAdvice(new CamelInternalProcessor.SubUnitOfWorkProcessorAdvice());
-comment|//            return internalProcessor;
-comment|//        }
 return|return
 name|answer
 return|;
