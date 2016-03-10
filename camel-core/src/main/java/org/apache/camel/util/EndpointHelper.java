@@ -400,10 +400,12 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
-name|consumer
+name|ServiceHelper
 operator|.
-name|start
-argument_list|()
+name|startService
+argument_list|(
+name|consumer
+argument_list|)
 expr_stmt|;
 while|while
 condition|(
@@ -445,10 +447,12 @@ finally|finally
 block|{
 try|try
 block|{
-name|consumer
+name|ServiceHelper
 operator|.
-name|stop
-argument_list|()
+name|stopAndShutdownService
+argument_list|(
+name|consumer
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch
@@ -463,7 +467,9 @@ name|warn
 argument_list|(
 literal|"Failed to stop PollingConsumer: "
 operator|+
-name|e
+name|consumer
+operator|+
+literal|". This example is ignored."
 argument_list|,
 name|e
 argument_list|)

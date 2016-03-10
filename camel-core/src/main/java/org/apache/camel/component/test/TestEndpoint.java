@@ -94,6 +94,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|WrappedFile
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|mock
@@ -249,7 +261,6 @@ argument_list|)
 decl_stmt|;
 DECL|field|expectedMessageEndpoint
 specifier|private
-specifier|final
 name|Endpoint
 name|expectedMessageEndpoint
 decl_stmt|;
@@ -290,7 +301,7 @@ name|timeout
 init|=
 literal|2000L
 decl_stmt|;
-DECL|method|TestEndpoint (String endpointUri, Component component, Endpoint expectedMessageEndpoint)
+DECL|method|TestEndpoint (String endpointUri, Component component)
 specifier|public
 name|TestEndpoint
 parameter_list|(
@@ -299,9 +310,6 @@ name|endpointUri
 parameter_list|,
 name|Component
 name|component
-parameter_list|,
-name|Endpoint
-name|expectedMessageEndpoint
 parameter_list|)
 block|{
 name|super
@@ -311,6 +319,16 @@ argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|setExpectedMessageEndpoint (Endpoint expectedMessageEndpoint)
+specifier|public
+name|void
+name|setExpectedMessageEndpoint
+parameter_list|(
+name|Endpoint
+name|expectedMessageEndpoint
+parameter_list|)
+block|{
 name|this
 operator|.
 name|expectedMessageEndpoint
@@ -371,6 +389,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// if file based we need to load the file into memory as the file may be deleted/moved afterwards
 name|Object
 name|body
 init|=
@@ -379,6 +398,29 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|body
+operator|instanceof
+name|WrappedFile
+condition|)
+block|{
+name|body
+operator|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|byte
+index|[]
+operator|.
+expr|class
+argument_list|)
+expr_stmt|;
+block|}
 name|LOG
 operator|.
 name|trace

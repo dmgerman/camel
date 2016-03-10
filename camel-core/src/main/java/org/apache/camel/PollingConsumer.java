@@ -38,7 +38,7 @@ name|Exchange
 name|receiveNoWait
 parameter_list|()
 function_decl|;
-comment|/**      * Attempts to receive a message exchange, waiting up to the given timeout      * to expire if a message is not yet available.      *<p/>      *<b>Important:</b> See the class javadoc about the need for done the {@link org.apache.camel.spi.UnitOfWork}      * on the returned {@link Exchange}      *       * @param timeout the amount of time in milliseconds to wait for a message      *                before timing out and returning<tt>null</tt>      *       * @return the message exchange if one iwas available within the timeout      *         period, or<tt>null</tt> if the timeout expired      */
+comment|/**      * Attempts to receive a message exchange, waiting up to the given timeout      * to expire if a message is not yet available.      *<p/>      *<b>Important:</b> See the class javadoc about the need for done the {@link org.apache.camel.spi.UnitOfWork}      * on the returned {@link Exchange}      *       * @param timeout the amount of time in milliseconds to wait for a message      *                before timing out and returning<tt>null</tt>      *       * @return the message exchange if one was available within the timeout      *         period, or<tt>null</tt> if the timeout expired      */
 DECL|method|receive (long timeout)
 name|Exchange
 name|receive
