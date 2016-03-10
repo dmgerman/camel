@@ -181,9 +181,21 @@ literal|"put"
 argument_list|,
 name|enums
 operator|=
-literal|"put,putAll,putIfAbsent,putAsync,putAllAsync,putIfAbsentAsync,get,containsKey,containsValue,remove,removeAsync,"
+literal|"put,putAll,putIfAbsent,putAsync,putAllAsync,putIfAbsentAsync,"
 operator|+
-literal|"replace,replaceAsync,clear,clearAsync,size"
+literal|"get,"
+operator|+
+literal|"containsKey,containsValue,"
+operator|+
+literal|"remove,removeAsync,"
+operator|+
+literal|"replace,replaceAsync,"
+operator|+
+literal|"size,"
+operator|+
+literal|"clear,clearAsync,"
+operator|+
+literal|"query"
 argument_list|)
 DECL|field|command
 specifier|private
@@ -250,18 +262,13 @@ name|defaultValue
 operator|=
 literal|"false"
 argument_list|)
-DECL|field|clustered
+DECL|field|clusteredListener
 specifier|private
 name|boolean
-name|clustered
+name|clusteredListener
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"advanced"
-argument_list|)
 DECL|field|queryBuilder
 specifier|private
 name|InfinispanQueryBuilder
@@ -418,30 +425,30 @@ name|sync
 expr_stmt|;
 block|}
 comment|/**      * If true, the listener will be installed for the entire cluster      */
-DECL|method|isClustered ()
+DECL|method|isClusteredListener ()
 specifier|public
 name|boolean
-name|isClustered
+name|isClusteredListener
 parameter_list|()
 block|{
 return|return
-name|clustered
+name|clusteredListener
 return|;
 block|}
-DECL|method|setClustered (boolean clustered)
+DECL|method|setClusteredListener (boolean clusteredListener)
 specifier|public
 name|void
-name|setClustered
+name|setClusteredListener
 parameter_list|(
 name|boolean
-name|clustered
+name|clusteredListener
 parameter_list|)
 block|{
 name|this
 operator|.
-name|clustered
+name|clusteredListener
 operator|=
-name|clustered
+name|clusteredListener
 expr_stmt|;
 block|}
 DECL|method|getEventTypes ()
