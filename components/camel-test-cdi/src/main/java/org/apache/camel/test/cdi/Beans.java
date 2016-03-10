@@ -130,6 +130,30 @@ argument_list|()
 expr|default
 block|{}
 expr_stmt|;
+comment|/**      * Returns the list of classes to be added as beans in the application.      *      * That can be used to add classes to the deployment for test purpose      * in addition to the test class which is automatically added as bean.      *      */
+DECL|method|classes ()
+name|Class
+argument_list|<
+name|?
+argument_list|>
+index|[]
+name|classes
+argument_list|()
+expr|default
+block|{}
+expr_stmt|;
+comment|/**      * Returns the list of classes whose packages are to be added for beans      * discovery.      *      * That can be used to add packages to the deployment for test purpose      * in addition to the test class which is automatically added as bean.      */
+DECL|method|packages ()
+name|Class
+argument_list|<
+name|?
+argument_list|>
+index|[]
+name|packages
+argument_list|()
+expr|default
+block|{}
+expr_stmt|;
 block|}
 end_annotation_defn
 
