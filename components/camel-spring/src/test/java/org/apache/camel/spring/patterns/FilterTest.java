@@ -130,6 +130,10 @@ begin_comment
 comment|// START SNIPPET: example
 end_comment
 
+begin_comment
+comment|// tag::example[]
+end_comment
+
 begin_class
 annotation|@
 name|ContextConfiguration
@@ -243,6 +247,10 @@ expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// end::example[]
+end_comment
 
 begin_comment
 comment|// END SNIPPET: example

@@ -59,6 +59,10 @@ comment|// START SNIPPET: example
 end_comment
 
 begin_comment
+comment|// tag::example[]
+end_comment
+
+begin_comment
 comment|// to use camel-test-blueprint, then extend the CamelBlueprintTestSupport class,
 end_comment
 
@@ -275,6 +279,10 @@ expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// end::example[]
+end_comment
 
 begin_comment
 comment|// END SNIPPET: example

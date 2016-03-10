@@ -118,6 +118,10 @@ begin_comment
 comment|// START SNIPPET: example
 end_comment
 
+begin_comment
+comment|// tag::example[]
+end_comment
+
 begin_class
 DECL|class|FilterTest
 specifier|public
@@ -282,6 +286,10 @@ return|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|// end::example[]
+end_comment
 
 begin_comment
 comment|// END SNIPPET: example
