@@ -647,6 +647,7 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// do not include null values
 name|IntrospectionSupport
 operator|.
 name|getProperties
@@ -656,6 +657,8 @@ argument_list|,
 name|params
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 name|setProperties
