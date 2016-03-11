@@ -92,18 +92,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Expression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -133,22 +121,6 @@ operator|.
 name|mock
 operator|.
 name|MockEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|model
-operator|.
-name|language
-operator|.
-name|TokenizerExpression
 import|;
 end_import
 
@@ -363,6 +335,15 @@ specifier|private
 name|boolean
 name|split
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|delimiter
+specifier|private
+name|String
+name|delimiter
+init|=
+literal|"\\n|\\r"
+decl_stmt|;
 DECL|method|TestEndpoint (String endpointUri, Component component)
 specifier|public
 name|TestEndpoint
@@ -497,7 +478,7 @@ name|createIterator
 argument_list|(
 name|body
 argument_list|,
-literal|"\\n|\\r"
+name|delimiter
 argument_list|,
 literal|false
 argument_list|,
@@ -687,6 +668,33 @@ operator|.
 name|split
 operator|=
 name|split
+expr_stmt|;
+block|}
+DECL|method|getDelimiter ()
+specifier|public
+name|String
+name|getDelimiter
+parameter_list|()
+block|{
+return|return
+name|delimiter
+return|;
+block|}
+comment|/**      * The split delimiter to use when split is enabled.      * By default the delimiter is new line based.      * The delimiter can be a regular expression.      */
+DECL|method|setDelimiter (String delimiter)
+specifier|public
+name|void
+name|setDelimiter
+parameter_list|(
+name|String
+name|delimiter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|delimiter
+operator|=
+name|delimiter
 expr_stmt|;
 block|}
 block|}
