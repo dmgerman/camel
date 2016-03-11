@@ -581,9 +581,12 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+comment|// do not copy as we already did the copy
 name|addToQueue
 argument_list|(
 name|copy
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
@@ -754,31 +757,13 @@ block|}
 else|else
 block|{
 comment|// no wait, eg its a InOnly then just add to queue and return
-comment|// handover the completion so its the copy which performs that, as we do not wait
-name|Exchange
-name|copy
-init|=
-name|prepareCopy
-argument_list|(
-name|exchange
-argument_list|,
-literal|true
-argument_list|)
-decl_stmt|;
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"Adding Exchange to queue: {}"
-argument_list|,
-name|copy
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 name|addToQueue
 argument_list|(
-name|copy
+name|exchange
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -905,14 +890,17 @@ name|doStop
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Strategy method for adding the exchange to the queue.      *<p>      * Will perform a blocking "put" if blockWhenFull is true, otherwise it will      * simply add which will throw exception if the queue is full      *       * @param exchange the exchange to add to the queue      */
-DECL|method|addToQueue (Exchange exchange)
+comment|/**      * Strategy method for adding the exchange to the queue.      *<p>      * Will perform a blocking "put" if blockWhenFull is true, otherwise it will      * simply add which will throw exception if the queue is full      *       * @param exchange the exchange to add to the queue      * @param copy     whether to create a copy of the exchange to use for adding to the queue      */
+DECL|method|addToQueue (Exchange exchange, boolean copy)
 specifier|protected
 name|void
 name|addToQueue
 parameter_list|(
 name|Exchange
 name|exchange
+parameter_list|,
+name|boolean
+name|copy
 parameter_list|)
 throws|throws
 name|SedaConsumerNotAvailableException
@@ -1022,6 +1010,36 @@ expr_stmt|;
 return|return;
 block|}
 block|}
+name|Exchange
+name|target
+init|=
+name|exchange
+decl_stmt|;
+comment|// handover the completion so its the copy which performs that, as we do not wait
+if|if
+condition|(
+name|copy
+condition|)
+block|{
+name|target
+operator|=
+name|prepareCopy
+argument_list|(
+name|exchange
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"Adding Exchange to queue: {}"
+argument_list|,
+name|target
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|blockWhenFull
@@ -1033,7 +1051,7 @@ name|queue
 operator|.
 name|put
 argument_list|(
-name|exchange
+name|target
 argument_list|)
 expr_stmt|;
 block|}
@@ -1065,7 +1083,7 @@ name|queue
 operator|.
 name|add
 argument_list|(
-name|exchange
+name|target
 argument_list|)
 expr_stmt|;
 block|}
