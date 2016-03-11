@@ -24,6 +24,17 @@ specifier|public
 interface|interface
 name|InfinispanConstants
 block|{
+DECL|field|OPERATION_LEN
+name|int
+name|OPERATION_LEN
+init|=
+name|InfinispanConstants
+operator|.
+name|OPERATION
+operator|.
+name|length
+argument_list|()
+decl_stmt|;
 DECL|field|EVENT_TYPE
 name|String
 name|EVENT_TYPE

@@ -172,8 +172,19 @@ name|cacheContainer
 decl_stmt|;
 DECL|field|isManagedCacheContainer
 specifier|private
+specifier|final
 name|boolean
 name|isManagedCacheContainer
+decl_stmt|;
+DECL|field|cache
+specifier|private
+name|BasicCache
+argument_list|<
+name|Object
+argument_list|,
+name|Boolean
+argument_list|>
+name|cache
 decl_stmt|;
 DECL|method|InfinispanIdempotentRepository (BasicCacheContainer cacheContainer, String cacheName)
 specifier|public
@@ -198,6 +209,12 @@ name|cacheName
 operator|=
 name|cacheName
 expr_stmt|;
+name|this
+operator|.
+name|isManagedCacheContainer
+operator|=
+literal|false
+expr_stmt|;
 block|}
 DECL|method|InfinispanIdempotentRepository (String cacheName)
 specifier|public
@@ -207,6 +224,8 @@ name|String
 name|cacheName
 parameter_list|)
 block|{
+name|this
+operator|.
 name|cacheContainer
 operator|=
 operator|new
@@ -219,6 +238,8 @@ name|cacheName
 operator|=
 name|cacheName
 expr_stmt|;
+name|this
+operator|.
 name|isManagedCacheContainer
 operator|=
 literal|true
@@ -472,11 +493,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|doShutdown
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|isManagedCacheContainer
@@ -488,6 +504,11 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+name|super
+operator|.
+name|doShutdown
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|getCache ()
 specifier|private
@@ -500,7 +521,15 @@ argument_list|>
 name|getCache
 parameter_list|()
 block|{
-return|return
+if|if
+condition|(
+name|cache
+operator|==
+literal|null
+condition|)
+block|{
+name|cache
+operator|=
 name|cacheName
 operator|!=
 literal|null
@@ -526,6 +555,10 @@ name|Boolean
 operator|>
 name|getCache
 argument_list|()
+expr_stmt|;
+block|}
+return|return
+name|cache
 return|;
 block|}
 block|}

@@ -28,7 +28,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
+name|Message
 import|;
 end_import
 
@@ -164,7 +164,7 @@ specifier|private
 name|InfinispanRemoteOperation
 parameter_list|()
 block|{     }
-DECL|method|buildQuery (InfinispanConfiguration configuration, BasicCache<Object, Object> cache, Exchange exchange)
+DECL|method|buildQuery (InfinispanConfiguration configuration, BasicCache<Object, Object> cache, Message message)
 specifier|public
 specifier|static
 name|Query
@@ -181,17 +181,14 @@ name|Object
 argument_list|>
 name|cache
 parameter_list|,
-name|Exchange
-name|exchange
+name|Message
+name|message
 parameter_list|)
 block|{
 name|InfinispanQueryBuilder
 name|queryBuilder
 init|=
-name|exchange
-operator|.
-name|getIn
-argument_list|()
+name|message
 operator|.
 name|getHeader
 argument_list|(

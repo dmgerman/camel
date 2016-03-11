@@ -234,26 +234,6 @@ name|CacheEntryEvent
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_class
 annotation|@
 name|Listener
@@ -273,23 +253,6 @@ name|InfinispanSyncLocalEventListener
 extends|extends
 name|InfinispanEventListener
 block|{
-DECL|field|logger
-specifier|private
-specifier|final
-specifier|transient
-name|Logger
-name|logger
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|this
-operator|.
-name|getClass
-argument_list|()
-argument_list|)
-decl_stmt|;
 DECL|method|InfinispanSyncLocalEventListener (InfinispanConsumer infinispanConsumer, Set<String> eventTypes)
 specifier|public
 name|InfinispanSyncLocalEventListener
@@ -344,15 +307,6 @@ argument_list|>
 name|event
 parameter_list|)
 block|{
-name|logger
-operator|.
-name|trace
-argument_list|(
-literal|"Received CacheEntryEvent [{}]"
-argument_list|,
-name|event
-argument_list|)
-expr_stmt|;
 name|dispatch
 argument_list|(
 name|event

@@ -514,6 +514,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|tearDown
+argument_list|()
+expr_stmt|;
+comment|// Has to be done later, maybe CamelTestSupport should
 for|for
 control|(
 name|BasicCacheContainer
@@ -528,11 +534,6 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
-name|super
-operator|.
-name|tearDown
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Override
