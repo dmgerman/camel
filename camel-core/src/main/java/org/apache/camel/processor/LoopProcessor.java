@@ -26,6 +26,20 @@ name|concurrent
 operator|.
 name|atomic
 operator|.
+name|AtomicBoolean
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
 name|AtomicInteger
 import|;
 end_import
@@ -74,7 +88,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|NoTypeConversionAvailableException
+name|Predicate
 import|;
 end_import
 
@@ -209,13 +223,19 @@ specifier|final
 name|Expression
 name|expression
 decl_stmt|;
+DECL|field|predicate
+specifier|private
+specifier|final
+name|Predicate
+name|predicate
+decl_stmt|;
 DECL|field|copy
 specifier|private
 specifier|final
 name|boolean
 name|copy
 decl_stmt|;
-DECL|method|LoopProcessor (Processor processor, Expression expression, boolean copy)
+DECL|method|LoopProcessor (Processor processor, Expression expression, Predicate predicate, boolean copy)
 specifier|public
 name|LoopProcessor
 parameter_list|(
@@ -224,6 +244,9 @@ name|processor
 parameter_list|,
 name|Expression
 name|expression
+parameter_list|,
+name|Predicate
+name|predicate
 parameter_list|,
 name|boolean
 name|copy
@@ -239,6 +262,12 @@ operator|.
 name|expression
 operator|=
 name|expression
+expr_stmt|;
+name|this
+operator|.
+name|predicate
+operator|=
+name|predicate
 expr_stmt|;
 name|this
 operator|.
@@ -276,6 +305,22 @@ operator|new
 name|AtomicInteger
 argument_list|()
 decl_stmt|;
+name|AtomicBoolean
+name|doWhile
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|()
+decl_stmt|;
+try|try
+block|{
+if|if
+condition|(
+name|expression
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// Intermediate conversion to String is needed when direct conversion to Integer is not available
 comment|// but evaluation result is a textual representation of a numeric value.
 name|String
@@ -292,8 +337,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|int
 name|num
 init|=
@@ -318,9 +361,30 @@ name|num
 argument_list|)
 expr_stmt|;
 block|}
+else|else
+block|{
+name|boolean
+name|result
+init|=
+name|predicate
+operator|.
+name|matches
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+name|doWhile
+operator|.
+name|set
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 catch|catch
 parameter_list|(
-name|NoTypeConversionAvailableException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -356,6 +420,13 @@ init|=
 name|exchange
 decl_stmt|;
 comment|// set the size before we start
+if|if
+condition|(
+name|predicate
+operator|==
+literal|null
+condition|)
+block|{
 name|exchange
 operator|.
 name|setProperty
@@ -367,9 +438,22 @@ argument_list|,
 name|count
 argument_list|)
 expr_stmt|;
+block|}
 comment|// loop synchronously
 while|while
 condition|(
+operator|(
+name|predicate
+operator|!=
+literal|null
+operator|&&
+name|doWhile
+operator|.
+name|get
+argument_list|()
+operator|)
+operator|||
+operator|(
 name|index
 operator|.
 name|get
@@ -379,6 +463,7 @@ name|count
 operator|.
 name|get
 argument_list|()
+operator|)
 condition|)
 block|{
 comment|// and prepare for next iteration
@@ -409,6 +494,8 @@ argument_list|,
 name|index
 argument_list|,
 name|count
+argument_list|,
+name|doWhile
 argument_list|,
 name|original
 argument_list|)
@@ -471,6 +558,57 @@ operator|.
 name|getAndIncrement
 argument_list|()
 expr_stmt|;
+comment|// evaluate predicate
+if|if
+condition|(
+name|predicate
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+name|boolean
+name|result
+init|=
+name|predicate
+operator|.
+name|matches
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+name|doWhile
+operator|.
+name|set
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// break out looping due that exception
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+name|doWhile
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 comment|// we are done so prepare the result
 name|ExchangeHelper
@@ -507,7 +645,7 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|process (final Exchange exchange, final AsyncCallback callback, final AtomicInteger index, final AtomicInteger count, final Exchange original)
+DECL|method|process (final Exchange exchange, final AsyncCallback callback, final AtomicInteger index, final AtomicInteger count, final AtomicBoolean doWhile, final Exchange original)
 specifier|protected
 name|boolean
 name|process
@@ -527,6 +665,10 @@ parameter_list|,
 specifier|final
 name|AtomicInteger
 name|count
+parameter_list|,
+specifier|final
+name|AtomicBoolean
+name|doWhile
 parameter_list|,
 specifier|final
 name|Exchange
@@ -603,6 +745,18 @@ expr_stmt|;
 comment|// continue looping asynchronously
 while|while
 condition|(
+operator|(
+name|predicate
+operator|!=
+literal|null
+operator|&&
+name|doWhile
+operator|.
+name|get
+argument_list|()
+operator|)
+operator|||
+operator|(
 name|index
 operator|.
 name|get
@@ -612,6 +766,7 @@ name|count
 operator|.
 name|get
 argument_list|()
+operator|)
 condition|)
 block|{
 comment|// and prepare for next iteration
@@ -642,6 +797,8 @@ argument_list|,
 name|index
 argument_list|,
 name|count
+argument_list|,
+name|doWhile
 argument_list|,
 name|original
 argument_list|)
@@ -690,6 +847,57 @@ operator|.
 name|getAndIncrement
 argument_list|()
 expr_stmt|;
+comment|// evaluate predicate
+if|if
+condition|(
+name|predicate
+operator|!=
+literal|null
+condition|)
+block|{
+try|try
+block|{
+name|boolean
+name|result
+init|=
+name|predicate
+operator|.
+name|matches
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+name|doWhile
+operator|.
+name|set
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// break out looping due that exception
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+name|doWhile
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 comment|// we are done so prepare the result
 name|ExchangeHelper
@@ -788,6 +996,16 @@ return|return
 name|expression
 return|;
 block|}
+DECL|method|getPredicate ()
+specifier|public
+name|Predicate
+name|getPredicate
+parameter_list|()
+block|{
+return|return
+name|predicate
+return|;
+block|}
 DECL|method|isCopy ()
 specifier|public
 name|boolean
@@ -804,6 +1022,23 @@ name|String
 name|getTraceLabel
 parameter_list|()
 block|{
+if|if
+condition|(
+name|predicate
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+literal|"loopWhile["
+operator|+
+name|predicate
+operator|+
+literal|"]"
+return|;
+block|}
+else|else
+block|{
 return|return
 literal|"loop["
 operator|+
@@ -811,6 +1046,7 @@ name|expression
 operator|+
 literal|"]"
 return|;
+block|}
 block|}
 DECL|method|getId ()
 specifier|public
@@ -846,6 +1082,28 @@ name|String
 name|toString
 parameter_list|()
 block|{
+if|if
+condition|(
+name|predicate
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+literal|"Loop[while: "
+operator|+
+name|predicate
+operator|+
+literal|" do: "
+operator|+
+name|getProcessor
+argument_list|()
+operator|+
+literal|"]"
+return|;
+block|}
+else|else
+block|{
 return|return
 literal|"Loop[for: "
 operator|+
@@ -858,6 +1116,7 @@ argument_list|()
 operator|+
 literal|"]"
 return|;
+block|}
 block|}
 block|}
 end_class

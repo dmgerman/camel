@@ -6429,7 +6429,7 @@ name|loop
 argument_list|)
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/loop.html">Loop EIP:</a>      * Creates a loop allowing to process the a message a number of times and possibly process them      * in a different way. Useful mostly for testing.      *      * @param expression the loop expression      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/loop.html">Loop EIP:</a>      * Creates a loop allowing to process the a message a number of times and possibly process them      * in a different way.      *      * @param expression the loop expression      * @return the builder      */
 DECL|method|loop (Expression expression)
 specifier|public
 name|LoopDefinition
@@ -6457,7 +6457,35 @@ return|return
 name|loop
 return|;
 block|}
-comment|/**      *<a href="http://camel.apache.org/loop.html">Loop EIP:</a>      * Creates a loop allowing to process the a message a number of times and possibly process them      * in a different way. Useful mostly for testing.      *      * @param count  the number of times      * @return the builder      */
+comment|/**      *<a href="http://camel.apache.org/loop.html">Loop EIP:</a>      * Creates a while loop allowing to process the a message while the predicate matches      * and possibly process them in a different way.      *      * @param predicate the while loop predicate      * @return the builder      */
+DECL|method|loopDoWhile (Predicate predicate)
+specifier|public
+name|LoopDefinition
+name|loopDoWhile
+parameter_list|(
+name|Predicate
+name|predicate
+parameter_list|)
+block|{
+name|LoopDefinition
+name|loop
+init|=
+operator|new
+name|LoopDefinition
+argument_list|(
+name|predicate
+argument_list|)
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|loop
+argument_list|)
+expr_stmt|;
+return|return
+name|loop
+return|;
+block|}
+comment|/**      *<a href="http://camel.apache.org/loop.html">Loop EIP:</a>      * Creates a loop allowing to process the a message a number of times and possibly process them      * in a different way.      *      * @param count  the number of times      * @return the builder      */
 DECL|method|loop (int count)
 specifier|public
 name|LoopDefinition
