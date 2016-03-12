@@ -108,7 +108,7 @@ name|COMPONENT
 init|=
 name|extractName
 argument_list|(
-name|CamelCxfTest
+name|CamelCmisTest
 operator|.
 name|class
 argument_list|)
