@@ -200,6 +200,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// wait a little bit before next as the connection was closed when denied
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|500
+argument_list|)
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:input"
