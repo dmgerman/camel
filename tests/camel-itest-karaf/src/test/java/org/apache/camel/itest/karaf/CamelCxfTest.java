@@ -153,6 +153,8 @@ return|return
 name|configure
 argument_list|(
 name|COMPONENT
+argument_list|,
+literal|"cxf-jaxb"
 argument_list|)
 return|;
 block|}
