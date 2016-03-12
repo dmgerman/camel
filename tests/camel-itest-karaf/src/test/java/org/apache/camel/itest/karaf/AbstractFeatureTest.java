@@ -433,15 +433,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Calling the setUp method "
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"The BundleContext is "
-operator|+
+literal|"setUp() using BundleContext: {}"
+argument_list|,
 name|bundleContext
 argument_list|)
 expr_stmt|;
@@ -467,7 +460,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Calling the tearDown method "
+literal|"tearDown()"
 argument_list|)
 expr_stmt|;
 block|}
@@ -959,64 +952,6 @@ literal|"xml/features"
 argument_list|)
 return|;
 block|}
-DECL|method|getKarafFeatureUrl ()
-specifier|public
-specifier|static
-name|UrlReference
-name|getKarafFeatureUrl
-parameter_list|()
-block|{
-name|String
-name|karafVersion
-init|=
-name|System
-operator|.
-name|getProperty
-argument_list|(
-literal|"karafVersion"
-argument_list|)
-decl_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"*** The karaf version is "
-operator|+
-name|karafVersion
-operator|+
-literal|" ***"
-argument_list|)
-expr_stmt|;
-name|String
-name|type
-init|=
-literal|"xml/features"
-decl_stmt|;
-return|return
-name|mavenBundle
-argument_list|()
-operator|.
-name|groupId
-argument_list|(
-literal|"org.apache.karaf.assemblies.features"
-argument_list|)
-operator|.
-name|artifactId
-argument_list|(
-literal|"standard"
-argument_list|)
-operator|.
-name|version
-argument_list|(
-name|karafVersion
-argument_list|)
-operator|.
-name|type
-argument_list|(
-name|type
-argument_list|)
-return|;
-block|}
 DECL|method|switchPlatformEncodingToUTF8 ()
 specifier|private
 specifier|static
@@ -1121,7 +1056,7 @@ name|Throwable
 name|t
 parameter_list|)
 block|{
-comment|//
+comment|// ignore
 block|}
 name|String
 name|karafVersion
@@ -1237,7 +1172,7 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"*** The karaf version is "
+literal|"*** Apache Karaf version is "
 operator|+
 name|karafVersion
 operator|+
@@ -1425,7 +1360,7 @@ argument_list|(
 literal|"-Dfile.encoding=UTF-8"
 argument_list|)
 block|,
-comment|// install the unit test
+comment|// install junit
 name|getJUnitBundle
 argument_list|()
 block|,
