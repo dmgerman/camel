@@ -438,6 +438,14 @@ argument_list|,
 name|bundleContext
 argument_list|)
 expr_stmt|;
+comment|// give time for karaf to install
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|3000
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|After
