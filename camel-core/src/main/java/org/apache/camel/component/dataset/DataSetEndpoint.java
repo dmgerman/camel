@@ -736,9 +736,9 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-literal|null
-operator|==
 name|disableDataSetIndex
+operator|==
+literal|null
 operator|||
 operator|!
 name|disableDataSetIndex
@@ -1070,8 +1070,6 @@ condition|)
 block|{
 if|if
 condition|(
-literal|null
-operator|!=
 name|copy
 operator|.
 name|getIn
@@ -1083,6 +1081,8 @@ name|Exchange
 operator|.
 name|DATASET_INDEX
 argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
 name|log
@@ -1182,9 +1182,9 @@ name|Exception
 block|{
 if|if
 condition|(
-literal|null
-operator|==
 name|disableDataSetIndex
+operator|==
+literal|null
 condition|)
 block|{
 name|Long
@@ -1208,9 +1208,9 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-literal|null
-operator|!=
 name|dataSetIndexHeaderValue
+operator|!=
+literal|null
 condition|)
 block|{
 name|assertEquals
