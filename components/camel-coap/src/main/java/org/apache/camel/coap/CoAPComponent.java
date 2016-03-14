@@ -641,6 +641,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// allow HTTP Options as we want to handle CORS in rest-dsl
+name|boolean
+name|cors
+init|=
+name|config
+operator|.
+name|isEnableCORS
+argument_list|()
+decl_stmt|;
 name|String
 name|query
 init|=
@@ -707,6 +716,16 @@ operator|.
 name|US
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|cors
+condition|)
+block|{
+name|restrict
+operator|+=
+literal|",OPTIONS"
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|uriTemplate
@@ -839,7 +858,7 @@ argument_list|,
 literal|true
 argument_list|)
 decl_stmt|;
-comment|// configure additional options on spark configuration
+comment|// configure additional options on coap configuration
 if|if
 condition|(
 name|config

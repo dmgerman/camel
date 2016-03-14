@@ -100,6 +100,8 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|class|OptionsVerbDefinition
 specifier|public
 class|class

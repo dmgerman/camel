@@ -3804,6 +3804,15 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// allow HTTP Options as we want to handle CORS in rest-dsl
+name|boolean
+name|cors
+init|=
+name|config
+operator|.
+name|isEnableCORS
+argument_list|()
+decl_stmt|;
 name|String
 name|query
 init|=
@@ -3832,6 +3841,16 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
+name|cors
+condition|)
+block|{
+name|restrict
+operator|+=
+literal|",OPTIONS"
+expr_stmt|;
+block|}
+if|if
+condition|(
 name|port
 operator|>
 literal|0
@@ -3839,7 +3858,7 @@ condition|)
 block|{
 name|url
 operator|=
-literal|"restlet:%s://%s:%s/%s?restletMethod=%s"
+literal|"restlet:%s://%s:%s/%s?restletMethods=%s"
 expr_stmt|;
 name|url
 operator|=
@@ -3866,7 +3885,7 @@ block|{
 comment|// It could use the restlet servlet transport
 name|url
 operator|=
-literal|"restlet:/%s?restletMethod=%s"
+literal|"restlet:/%s?restletMethods=%s"
 expr_stmt|;
 name|url
 operator|=

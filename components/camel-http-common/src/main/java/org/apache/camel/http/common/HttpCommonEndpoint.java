@@ -250,7 +250,7 @@ literal|"true"
 argument_list|,
 name|description
 operator|=
-literal|"If this option is false Jetty servlet will disable the HTTP streaming and set the content-length header on the response"
+literal|"If this option is false the Servlet will disable the HTTP streaming and set the content-length header on the response"
 argument_list|)
 DECL|field|chunked
 name|boolean
@@ -267,11 +267,11 @@ literal|"common"
 argument_list|,
 name|description
 operator|=
-literal|"Determines whether or not the raw input stream from Jetty is cached or not"
+literal|"Determines whether or not the raw input stream from Servlet is cached or not"
 operator|+
 literal|" (Camel will read the stream into a in memory/overflow to file, Stream caching) cache."
 operator|+
-literal|" By default Camel will cache the Jetty input stream to support reading it multiple times to ensure it Camel"
+literal|" By default Camel will cache the Servlet input stream to support reading it multiple times to ensure it Camel"
 operator|+
 literal|" can retrieve all data from the stream. However you can set this option to true when you for example need"
 operator|+
@@ -281,7 +281,7 @@ literal|" DefaultHttpBinding will copy the request input stream into a stream ca
 operator|+
 literal|" if this option is false to support reading the stream multiple times."
 operator|+
-literal|" If you use Jetty to bridge/proxy an endpoint then consider enabling this option to improve performance,"
+literal|" If you use Servlet to bridge/proxy an endpoint then consider enabling this option to improve performance,"
 operator|+
 literal|" in case you do not need to read the message payload multiple times."
 operator|+
@@ -372,11 +372,26 @@ literal|"consumer"
 argument_list|,
 name|description
 operator|=
-literal|"Specifies whether to enable HTTP TRACE for this Jetty consumer. By default TRACE is turned off."
+literal|"Specifies whether to enable HTTP TRACE for this Servlet consumer. By default TRACE is turned off."
 argument_list|)
 DECL|field|traceEnabled
 name|boolean
 name|traceEnabled
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Specifies whether to enable HTTP OPTIONS for this Servlet consumer. By default OPTIONS is turned off."
+argument_list|)
+DECL|field|optionsEnabled
+name|boolean
+name|optionsEnabled
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -972,7 +987,7 @@ operator|.
 name|disableStreamCache
 return|;
 block|}
-comment|/**      * Determines whether or not the raw input stream from Jetty is cached or not      * (Camel will read the stream into a in memory/overflow to file, Stream caching) cache.      * By default Camel will cache the Jetty input stream to support reading it multiple times to ensure it Camel      * can retrieve all data from the stream. However you can set this option to true when you for example need      * to access the raw stream, such as streaming it directly to a file or other persistent store.      * DefaultHttpBinding will copy the request input stream into a stream cache and put it into message body      * if this option is false to support reading the stream multiple times.      * If you use Jetty to bridge/proxy an endpoint then consider enabling this option to improve performance,      * in case you do not need to read the message payload multiple times.      + The http/http4 producer will by default cache the response body stream. If setting this option to true,      + then the producers will not cache the response body stream but use the response stream as-is as the message body.      */
+comment|/**      * Determines whether or not the raw input stream from Servlet is cached or not      * (Camel will read the stream into a in memory/overflow to file, Stream caching) cache.      * By default Camel will cache the Servlet input stream to support reading it multiple times to ensure it Camel      * can retrieve all data from the stream. However you can set this option to true when you for example need      * to access the raw stream, such as streaming it directly to a file or other persistent store.      * DefaultHttpBinding will copy the request input stream into a stream cache and put it into message body      * if this option is false to support reading the stream multiple times.      * If you use Servlet to bridge/proxy an endpoint then consider enabling this option to improve performance,      * in case you do not need to read the message payload multiple times.      + The http/http4 producer will by default cache the response body stream. If setting this option to true,      + then the producers will not cache the response body stream but use the response stream as-is as the message body.      */
 DECL|method|setDisableStreamCache (boolean disable)
 specifier|public
 name|void
@@ -1001,7 +1016,7 @@ operator|.
 name|chunked
 return|;
 block|}
-comment|/**      * If this option is false Jetty servlet will disable the HTTP streaming and set the content-length header on the response      */
+comment|/**      * If this option is false Servlet will disable the HTTP streaming and set the content-length header on the response      */
 DECL|method|setChunked (boolean chunked)
 specifier|public
 name|void
@@ -1138,7 +1153,7 @@ operator|.
 name|traceEnabled
 return|;
 block|}
-comment|/**      * Specifies whether to enable HTTP TRACE for this Jetty consumer. By default TRACE is turned off.      */
+comment|/**      * Specifies whether to enable HTTP TRACE for this Servlet consumer. By default TRACE is turned off.      */
 DECL|method|setTraceEnabled (boolean traceEnabled)
 specifier|public
 name|void
@@ -1153,6 +1168,33 @@ operator|.
 name|traceEnabled
 operator|=
 name|traceEnabled
+expr_stmt|;
+block|}
+DECL|method|isOptionsEnabled ()
+specifier|public
+name|boolean
+name|isOptionsEnabled
+parameter_list|()
+block|{
+return|return
+name|optionsEnabled
+return|;
+block|}
+comment|/**      * Specifies whether to enable HTTP OPTIONS for this Servlet consumer. By default OPTIONS is turned off.      */
+DECL|method|setOptionsEnabled (boolean optionsEnabled)
+specifier|public
+name|void
+name|setOptionsEnabled
+parameter_list|(
+name|boolean
+name|optionsEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|optionsEnabled
+operator|=
+name|optionsEnabled
 expr_stmt|;
 block|}
 DECL|method|getHttpMethodRestrict ()

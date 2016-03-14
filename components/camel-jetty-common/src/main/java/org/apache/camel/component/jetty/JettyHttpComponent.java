@@ -5570,6 +5570,30 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+name|boolean
+name|cors
+init|=
+name|config
+operator|.
+name|isEnableCORS
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|cors
+condition|)
+block|{
+comment|// allow HTTP Options as we want to handle CORS in rest-dsl
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"optionsEnabled"
+argument_list|,
+literal|"true"
+argument_list|)
+expr_stmt|;
+block|}
 name|String
 name|query
 init|=
@@ -5613,6 +5637,16 @@ operator|.
 name|US
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|cors
+condition|)
+block|{
+name|restrict
+operator|+=
+literal|",OPTIONS"
+expr_stmt|;
+block|}
 comment|// get the endpoint
 name|url
 operator|=

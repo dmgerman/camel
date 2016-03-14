@@ -838,6 +838,8 @@ name|uri
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|options ()
 specifier|public
 name|RestDefinition
@@ -853,6 +855,8 @@ literal|null
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|options (String uri)
 specifier|public
 name|RestDefinition

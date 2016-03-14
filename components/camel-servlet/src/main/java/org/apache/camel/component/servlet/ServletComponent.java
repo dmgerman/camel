@@ -1190,6 +1190,27 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
+comment|// build query string, and append any endpoint configuration properties
+if|if
+condition|(
+name|config
+operator|.
+name|getComponent
+argument_list|()
+operator|==
+literal|null
+operator|||
+name|config
+operator|.
+name|getComponent
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"servlet"
+argument_list|)
+condition|)
+block|{
 comment|// setup endpoint options
 if|if
 condition|(
@@ -1218,6 +1239,31 @@ name|config
 operator|.
 name|getEndpointProperties
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+name|boolean
+name|cors
+init|=
+name|config
+operator|.
+name|isEnableCORS
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|cors
+condition|)
+block|{
+comment|// allow HTTP Options as we want to handle CORS in rest-dsl
+name|map
+operator|.
+name|put
+argument_list|(
+literal|"optionsEnabled"
+argument_list|,
+literal|"true"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1265,6 +1311,16 @@ operator|.
 name|US
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|cors
+condition|)
+block|{
+name|restrict
+operator|+=
+literal|",OPTIONS"
+expr_stmt|;
+block|}
 comment|// get the endpoint
 name|url
 operator|=
@@ -1318,7 +1374,18 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
-comment|// use the rest binding
+if|if
+condition|(
+operator|!
+name|map
+operator|.
+name|containsKey
+argument_list|(
+literal|"httpBindingRef"
+argument_list|)
+condition|)
+block|{
+comment|// use the rest binding, if not using a custom http binding
 name|HttpBinding
 name|binding
 init|=
@@ -1358,11 +1425,12 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
-name|setBinding
+name|setHttpBinding
 argument_list|(
 name|binding
 argument_list|)
 expr_stmt|;
+block|}
 comment|// configure consumer properties
 name|Consumer
 name|consumer

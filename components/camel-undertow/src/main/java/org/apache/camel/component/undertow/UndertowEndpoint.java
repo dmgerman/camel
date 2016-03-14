@@ -576,6 +576,21 @@ name|Object
 argument_list|>
 name|options
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|description
+operator|=
+literal|"Specifies whether to enable HTTP OPTIONS for this Servlet consumer. By default OPTIONS is turned off."
+argument_list|)
+DECL|field|optionsEnabled
+name|boolean
+name|optionsEnabled
+decl_stmt|;
 DECL|method|UndertowEndpoint (String uri, UndertowComponent component)
 specifier|public
 name|UndertowEndpoint
@@ -1120,6 +1135,33 @@ operator|.
 name|options
 operator|=
 name|options
+expr_stmt|;
+block|}
+DECL|method|isOptionsEnabled ()
+specifier|public
+name|boolean
+name|isOptionsEnabled
+parameter_list|()
+block|{
+return|return
+name|optionsEnabled
+return|;
+block|}
+comment|/**      * Specifies whether to enable HTTP OPTIONS for this Servlet consumer. By default OPTIONS is turned off.      */
+DECL|method|setOptionsEnabled (boolean optionsEnabled)
+specifier|public
+name|void
+name|setOptionsEnabled
+parameter_list|(
+name|boolean
+name|optionsEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|optionsEnabled
+operator|=
+name|optionsEnabled
 expr_stmt|;
 block|}
 annotation|@

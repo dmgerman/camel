@@ -77,6 +77,11 @@ specifier|private
 name|boolean
 name|traceEnabled
 decl_stmt|;
+DECL|field|optionsEnabled
+specifier|private
+name|boolean
+name|optionsEnabled
+decl_stmt|;
 DECL|method|HttpConsumer (HttpCommonEndpoint endpoint, Processor processor)
 specifier|public
 name|HttpConsumer
@@ -104,6 +109,20 @@ argument_list|()
 condition|)
 block|{
 name|setTraceEnabled
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isOptionsEnabled
+argument_list|()
+condition|)
+block|{
+name|setOptionsEnabled
 argument_list|(
 literal|true
 argument_list|)
@@ -288,6 +307,32 @@ operator|.
 name|traceEnabled
 operator|=
 name|traceEnabled
+expr_stmt|;
+block|}
+DECL|method|isOptionsEnabled ()
+specifier|public
+name|boolean
+name|isOptionsEnabled
+parameter_list|()
+block|{
+return|return
+name|optionsEnabled
+return|;
+block|}
+DECL|method|setOptionsEnabled (boolean optionsEnabled)
+specifier|public
+name|void
+name|setOptionsEnabled
+parameter_list|(
+name|boolean
+name|optionsEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|optionsEnabled
+operator|=
+name|optionsEnabled
 expr_stmt|;
 block|}
 block|}

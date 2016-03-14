@@ -391,6 +391,12 @@ operator|.
 name|getMethod
 argument_list|()
 argument_list|)
+operator|&&
+operator|!
+name|consumer
+operator|.
+name|isOptionsEnabled
+argument_list|()
 condition|)
 block|{
 name|String
@@ -1096,7 +1102,7 @@ name|consumers
 argument_list|)
 return|;
 block|}
-comment|/**      * Override the Thread Context ClassLoader if need be.      *      * @param exchange      * @return old classloader if overridden; otherwise returns null      */
+comment|/**      * Override the Thread Context ClassLoader if need be.      * @return old classloader if overridden; otherwise returns null      */
 DECL|method|overrideTccl (final Exchange exchange)
 specifier|protected
 name|ClassLoader

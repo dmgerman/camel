@@ -359,6 +359,15 @@ name|equals
 argument_list|(
 name|requestMethod
 argument_list|)
+operator|&&
+operator|!
+name|consumer
+operator|.
+name|getEndpoint
+argument_list|()
+operator|.
+name|isOptionsEnabled
+argument_list|()
 condition|)
 block|{
 name|String
@@ -379,7 +388,7 @@ condition|)
 block|{
 name|allowedMethods
 operator|=
-literal|"OPTIONS"
+literal|"OPTIONS,"
 operator|+
 name|consumer
 operator|.
