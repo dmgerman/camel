@@ -36,6 +36,7 @@ begin_class
 annotation|@
 name|Deprecated
 DECL|class|CamelMultipartFilter
+specifier|public
 class|class
 name|CamelMultipartFilter
 extends|extends

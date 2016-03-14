@@ -247,7 +247,6 @@ extends|extends
 name|DefaultHeaderFilterStrategy
 block|{
 DECL|method|MultipartHeaderFilterStrategy ()
-specifier|public
 name|MultipartHeaderFilterStrategy
 parameter_list|()
 block|{

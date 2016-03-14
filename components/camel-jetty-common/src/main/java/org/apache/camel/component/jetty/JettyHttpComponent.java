@@ -1223,7 +1223,6 @@ name|int
 name|refCount
 decl_stmt|;
 DECL|method|ConnectorRef (Server server, Connector connector, CamelServlet servlet)
-specifier|public
 name|ConnectorRef
 parameter_list|(
 name|Server

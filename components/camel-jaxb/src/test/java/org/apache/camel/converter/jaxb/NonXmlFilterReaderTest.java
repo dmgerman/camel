@@ -612,7 +612,6 @@ index|[]
 name|constant
 decl_stmt|;
 DECL|method|ConstantReader (char[] constant)
-specifier|public
 name|ConstantReader
 parameter_list|(
 name|char

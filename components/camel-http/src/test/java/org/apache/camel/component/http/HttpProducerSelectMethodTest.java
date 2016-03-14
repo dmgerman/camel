@@ -964,7 +964,6 @@ name|String
 name|queryString
 decl_stmt|;
 DECL|method|MyHttpProducer (HttpEndpoint endpoint, String name, String queryString)
-specifier|public
 name|MyHttpProducer
 parameter_list|(
 name|HttpEndpoint
