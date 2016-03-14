@@ -834,18 +834,20 @@ range|:
 name|verbs
 control|)
 block|{
+comment|// check if the Verb Definition must be excluded from documentation
 if|if
 condition|(
 name|verb
 operator|.
-name|getExcludeFromDocs
+name|getApiDocs
 argument_list|()
 operator|!=
 literal|null
 operator|&&
+operator|!
 name|verb
 operator|.
-name|getExcludeFromDocs
+name|getApiDocs
 argument_list|()
 condition|)
 block|{
@@ -1129,18 +1131,20 @@ range|:
 name|verbs
 control|)
 block|{
+comment|// check if the Verb Definition must be excluded from documentation
 if|if
 condition|(
 name|verb
 operator|.
-name|getExcludeFromDocs
+name|getApiDocs
 argument_list|()
 operator|!=
 literal|null
 operator|&&
+operator|!
 name|verb
 operator|.
-name|getExcludeFromDocs
+name|getApiDocs
 argument_list|()
 condition|)
 block|{

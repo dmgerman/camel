@@ -468,10 +468,10 @@ name|routeId
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-DECL|field|excludeFromDocs
+DECL|field|apiDocs
 specifier|private
 name|Boolean
-name|excludeFromDocs
+name|apiDocs
 decl_stmt|;
 annotation|@
 name|Override
@@ -1287,30 +1287,31 @@ name|uri
 argument_list|)
 return|;
 block|}
-DECL|method|getExcludeFromDocs ()
+DECL|method|getApiDocs ()
 specifier|public
 name|Boolean
-name|getExcludeFromDocs
+name|getApiDocs
 parameter_list|()
 block|{
 return|return
-name|excludeFromDocs
+name|apiDocs
 return|;
 block|}
-DECL|method|setExcludeFromDocs (Boolean excludeFromDocs)
+comment|/**      * Whether to include or exclude the VerbDefinition in API documentation.      * The default value is true.      */
+DECL|method|setApiDocs (Boolean apiDocs)
 specifier|public
 name|void
-name|setExcludeFromDocs
+name|setApiDocs
 parameter_list|(
 name|Boolean
-name|excludeFromDocs
+name|apiDocs
 parameter_list|)
 block|{
 name|this
 operator|.
-name|excludeFromDocs
+name|apiDocs
 operator|=
-name|excludeFromDocs
+name|apiDocs
 expr_stmt|;
 block|}
 DECL|method|asVerb ()

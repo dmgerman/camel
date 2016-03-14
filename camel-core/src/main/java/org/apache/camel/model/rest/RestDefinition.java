@@ -2155,11 +2155,15 @@ return|return
 name|this
 return|;
 block|}
-DECL|method|excludeFromDocs ()
+comment|/**      * Include or exclude the current Rest Definition in API documentation      */
+DECL|method|apiDocs (Boolean apiDocs)
 specifier|public
 name|RestDefinition
-name|excludeFromDocs
-parameter_list|()
+name|apiDocs
+parameter_list|(
+name|Boolean
+name|apiDocs
+parameter_list|)
 block|{
 name|VerbDefinition
 name|verb
@@ -2180,9 +2184,9 @@ argument_list|)
 decl_stmt|;
 name|verb
 operator|.
-name|setExcludeFromDocs
+name|setApiDocs
 argument_list|(
-literal|true
+name|apiDocs
 argument_list|)
 expr_stmt|;
 return|return
