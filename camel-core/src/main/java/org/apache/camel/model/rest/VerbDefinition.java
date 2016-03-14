@@ -467,6 +467,13 @@ name|String
 name|routeId
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+DECL|field|excludeFromDocs
+specifier|private
+name|Boolean
+name|excludeFromDocs
+decl_stmt|;
+annotation|@
 name|Override
 DECL|method|getLabel ()
 specifier|public
@@ -1279,6 +1286,32 @@ argument_list|,
 name|uri
 argument_list|)
 return|;
+block|}
+DECL|method|getExcludeFromDocs ()
+specifier|public
+name|Boolean
+name|getExcludeFromDocs
+parameter_list|()
+block|{
+return|return
+name|excludeFromDocs
+return|;
+block|}
+DECL|method|setExcludeFromDocs (Boolean excludeFromDocs)
+specifier|public
+name|void
+name|setExcludeFromDocs
+parameter_list|(
+name|Boolean
+name|excludeFromDocs
+parameter_list|)
+block|{
+name|this
+operator|.
+name|excludeFromDocs
+operator|=
+name|excludeFromDocs
+expr_stmt|;
 block|}
 DECL|method|asVerb ()
 specifier|public
