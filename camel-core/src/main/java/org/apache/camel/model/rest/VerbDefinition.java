@@ -835,6 +835,33 @@ operator|=
 name|routeId
 expr_stmt|;
 block|}
+DECL|method|getApiDocs ()
+specifier|public
+name|Boolean
+name|getApiDocs
+parameter_list|()
+block|{
+return|return
+name|apiDocs
+return|;
+block|}
+comment|/**      * Whether to include or exclude the VerbDefinition in API documentation.      *<p/>      * The default value is true.      */
+DECL|method|setApiDocs (Boolean apiDocs)
+specifier|public
+name|void
+name|setApiDocs
+parameter_list|(
+name|Boolean
+name|apiDocs
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiDocs
+operator|=
+name|apiDocs
+expr_stmt|;
+block|}
 DECL|method|getRest ()
 specifier|public
 name|RestDefinition
@@ -1286,33 +1313,6 @@ argument_list|,
 name|uri
 argument_list|)
 return|;
-block|}
-DECL|method|getApiDocs ()
-specifier|public
-name|Boolean
-name|getApiDocs
-parameter_list|()
-block|{
-return|return
-name|apiDocs
-return|;
-block|}
-comment|/**      * Whether to include or exclude the VerbDefinition in API documentation.      * The default value is true.      */
-DECL|method|setApiDocs (Boolean apiDocs)
-specifier|public
-name|void
-name|setApiDocs
-parameter_list|(
-name|Boolean
-name|apiDocs
-parameter_list|)
-block|{
-name|this
-operator|.
-name|apiDocs
-operator|=
-name|apiDocs
-expr_stmt|;
 block|}
 DECL|method|asVerb ()
 specifier|public

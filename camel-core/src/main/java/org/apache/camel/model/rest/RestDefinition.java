@@ -403,6 +403,13 @@ name|Boolean
 name|enableCORS
 decl_stmt|;
 annotation|@
+name|XmlAttribute
+DECL|field|apiDocs
+specifier|private
+name|Boolean
+name|apiDocs
+decl_stmt|;
+annotation|@
 name|XmlElementRef
 DECL|field|verbs
 specifier|private
@@ -651,6 +658,33 @@ operator|.
 name|enableCORS
 operator|=
 name|enableCORS
+expr_stmt|;
+block|}
+DECL|method|getApiDocs ()
+specifier|public
+name|Boolean
+name|getApiDocs
+parameter_list|()
+block|{
+return|return
+name|apiDocs
+return|;
+block|}
+comment|/**      * Whether to include or exclude the VerbDefinition in API documentation.      * This option will override what may be configured on a parent level      *<p/>      * The default value is true.      */
+DECL|method|setApiDocs (Boolean apiDocs)
+specifier|public
+name|void
+name|setApiDocs
+parameter_list|(
+name|Boolean
+name|apiDocs
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiDocs
+operator|=
+name|apiDocs
 expr_stmt|;
 block|}
 comment|// Fluent API
@@ -2025,6 +2059,64 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Include or exclude the current Rest Definition in API documentation.      *<p/>      * The default value is true.      */
+DECL|method|apiDocs (Boolean apiDocs)
+specifier|public
+name|RestDefinition
+name|apiDocs
+parameter_list|(
+name|Boolean
+name|apiDocs
+parameter_list|)
+block|{
+if|if
+condition|(
+name|getVerbs
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+name|this
+operator|.
+name|apiDocs
+operator|=
+name|apiDocs
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// add on last verb as that is how the Java DSL works
+name|VerbDefinition
+name|verb
+init|=
+name|getVerbs
+argument_list|()
+operator|.
+name|get
+argument_list|(
+name|getVerbs
+argument_list|()
+operator|.
+name|size
+argument_list|()
+operator|-
+literal|1
+argument_list|)
+decl_stmt|;
+name|verb
+operator|.
+name|setApiDocs
+argument_list|(
+name|apiDocs
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Routes directly to the given static endpoint.      *<p/>      * If you need additional routing capabilities, then use {@link #route()} instead.      *      * @param uri the uri of the endpoint      * @return this builder      */
 DECL|method|to (String uri)
 specifier|public
@@ -2149,44 +2241,6 @@ operator|.
 name|setToD
 argument_list|(
 name|to
-argument_list|)
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Include or exclude the current Rest Definition in API documentation      */
-DECL|method|apiDocs (Boolean apiDocs)
-specifier|public
-name|RestDefinition
-name|apiDocs
-parameter_list|(
-name|Boolean
-name|apiDocs
-parameter_list|)
-block|{
-name|VerbDefinition
-name|verb
-init|=
-name|getVerbs
-argument_list|()
-operator|.
-name|get
-argument_list|(
-name|getVerbs
-argument_list|()
-operator|.
-name|size
-argument_list|()
-operator|-
-literal|1
-argument_list|)
-decl_stmt|;
-name|verb
-operator|.
-name|setApiDocs
-argument_list|(
-name|apiDocs
 argument_list|)
 expr_stmt|;
 return|return
