@@ -415,7 +415,6 @@ name|boolean
 name|fault
 decl_stmt|;
 DECL|method|FinallyAsyncCallback (Exchange exchange, AsyncCallback callback, Exception exception, boolean fault)
-specifier|public
 name|FinallyAsyncCallback
 parameter_list|(
 name|Exchange
