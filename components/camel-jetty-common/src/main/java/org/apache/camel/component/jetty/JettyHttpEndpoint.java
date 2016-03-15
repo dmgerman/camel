@@ -257,10 +257,27 @@ name|JettyHttpEndpoint
 extends|extends
 name|HttpCommonEndpoint
 block|{
-DECL|field|client
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Sets a shared HttpClient to use for all producers created by this endpoint. By default each producer will"
+operator|+
+literal|" use a new http client, and not share. Important: Make sure to handle the lifecycle of the shared"
+operator|+
+literal|" client, such as stopping the client, when it is no longer in use. Camel will call the start method on the client to ensure"
+operator|+
+literal|" its started when this endpoint creates a producer. This options should only be used in special circumstances."
+argument_list|)
+DECL|field|httpClient
 specifier|private
 name|HttpClient
-name|client
+name|httpClient
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -761,13 +778,13 @@ argument_list|)
 decl_stmt|;
 if|if
 condition|(
-name|client
+name|httpClient
 operator|!=
 literal|null
 condition|)
 block|{
 comment|// use shared client, and ensure its started so we can use it
-name|client
+name|httpClient
 operator|.
 name|start
 argument_list|()
@@ -776,7 +793,7 @@ name|answer
 operator|.
 name|setSharedClient
 argument_list|(
-name|client
+name|httpClient
 argument_list|)
 expr_stmt|;
 name|answer
@@ -785,7 +802,7 @@ name|setBinding
 argument_list|(
 name|getJettyBinding
 argument_list|(
-name|client
+name|httpClient
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1072,33 +1089,33 @@ operator|=
 name|handlers
 expr_stmt|;
 block|}
-DECL|method|getClient ()
+DECL|method|getHttpClient ()
 specifier|public
 name|HttpClient
-name|getClient
+name|getHttpClient
 parameter_list|()
 throws|throws
 name|Exception
 block|{
 return|return
-name|client
+name|httpClient
 return|;
 block|}
 comment|/**      * Sets a shared {@link HttpClient} to use for all producers      * created by this endpoint. By default each producer will      * use a new http client, and not share.      *<p/>      *<b>Important:</b> Make sure to handle the lifecycle of the shared      * client, such as stopping the client, when it is no longer in use.      * Camel will call the<tt>start</tt> method on the client to ensure      * its started when this endpoint creates a producer.      *<p/>      * This options should only be used in special circumstances.      */
-DECL|method|setClient (HttpClient client)
+DECL|method|setHttpClient (HttpClient httpClient)
 specifier|public
 name|void
-name|setClient
+name|setHttpClient
 parameter_list|(
 name|HttpClient
-name|client
+name|httpClient
 parameter_list|)
 block|{
 name|this
 operator|.
-name|client
+name|httpClient
 operator|=
-name|client
+name|httpClient
 expr_stmt|;
 block|}
 DECL|method|getJettyBinding (HttpClient httpClient)
