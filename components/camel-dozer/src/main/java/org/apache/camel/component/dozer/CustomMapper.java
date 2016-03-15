@@ -592,8 +592,6 @@ name|customObj
 decl_stmt|;
 name|Method
 name|method
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -605,7 +603,7 @@ name|customClass
 init|=
 name|resolver
 operator|.
-name|resolveClass
+name|resolveMandatoryClass
 argument_list|(
 name|className
 argument_list|)
