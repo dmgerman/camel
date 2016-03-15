@@ -160,6 +160,8 @@ return|return
 name|mapCustom
 argument_list|(
 name|sourceFieldValue
+argument_list|,
+name|sourceClass
 argument_list|)
 return|;
 block|}
@@ -411,25 +413,20 @@ name|methodPrms
 argument_list|)
 return|;
 block|}
-DECL|method|mapCustom (Object source)
+DECL|method|mapCustom (Object source, Class<?> sourceClass)
 name|Object
 name|mapCustom
 parameter_list|(
 name|Object
 name|source
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|sourceClass
 parameter_list|)
 block|{
-if|if
-condition|(
-name|source
-operator|==
-literal|null
-condition|)
-block|{
-return|return
-literal|null
-return|;
-block|}
 comment|// The converter parameter is stored in a thread local variable, so
 comment|// we need to parse the parameter on each invocation
 comment|// ex: custom-converter-param="org.example.MyMapping,map"
@@ -646,7 +643,7 @@ name|customClass
 argument_list|,
 name|operation
 argument_list|,
-name|source
+name|sourceClass
 argument_list|,
 name|prmTypesAndValues
 argument_list|)
@@ -668,10 +665,7 @@ name|getMethod
 argument_list|(
 name|operation
 argument_list|,
-name|source
-operator|.
-name|getClass
-argument_list|()
+name|sourceClass
 argument_list|)
 expr_stmt|;
 block|}
@@ -683,7 +677,7 @@ name|selectMethod
 argument_list|(
 name|customClass
 argument_list|,
-name|source
+name|sourceClass
 argument_list|)
 expr_stmt|;
 block|}
@@ -967,7 +961,7 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|selectMethod (Class<?> customClass, Object source)
+DECL|method|selectMethod (Class<?> customClass, Class<?> sourceClass)
 name|Method
 name|selectMethod
 parameter_list|(
@@ -977,8 +971,11 @@ name|?
 argument_list|>
 name|customClass
 parameter_list|,
-name|Object
-name|source
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|sourceClass
 parameter_list|)
 block|{
 name|Method
@@ -1025,10 +1022,7 @@ index|]
 operator|.
 name|isAssignableFrom
 argument_list|(
-name|source
-operator|.
-name|getClass
-argument_list|()
+name|sourceClass
 argument_list|)
 condition|)
 block|{
@@ -1045,7 +1039,7 @@ return|;
 block|}
 comment|// Assumes source is a separate parameter in method even if it has var args and that there are no
 comment|// ambiguous calls based upon number and types of parameters
-DECL|method|selectMethod (Class<?> customClass, String operation, Object source, String[][] parameters)
+DECL|method|selectMethod (Class<?> customClass, String operation, Class<?> sourceClass, String[][] parameters)
 specifier|private
 name|Method
 name|selectMethod
@@ -1059,8 +1053,11 @@ parameter_list|,
 name|String
 name|operation
 parameter_list|,
-name|Object
-name|source
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|sourceClass
 parameter_list|,
 name|String
 index|[]
@@ -1168,10 +1165,7 @@ index|]
 operator|.
 name|isAssignableFrom
 argument_list|(
-name|source
-operator|.
-name|getClass
-argument_list|()
+name|sourceClass
 argument_list|)
 condition|)
 block|{

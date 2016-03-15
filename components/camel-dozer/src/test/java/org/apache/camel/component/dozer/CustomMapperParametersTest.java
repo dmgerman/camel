@@ -124,6 +124,10 @@ operator|.
 name|mapCustom
 argument_list|(
 literal|"JeremiahWasABullfrog"
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|Assert
@@ -168,6 +172,10 @@ operator|.
 name|mapCustom
 argument_list|(
 literal|"JeremiahWasABullfrog"
+argument_list|,
+name|String
+operator|.
+name|class
 argument_list|)
 decl_stmt|;
 name|Assert
