@@ -419,6 +419,17 @@ name|Object
 name|source
 parameter_list|)
 block|{
+if|if
+condition|(
+name|source
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|null
+return|;
+block|}
 comment|// The converter parameter is stored in a thread local variable, so
 comment|// we need to parse the parameter on each invocation
 comment|// ex: custom-converter-param="org.example.MyMapping,map"
