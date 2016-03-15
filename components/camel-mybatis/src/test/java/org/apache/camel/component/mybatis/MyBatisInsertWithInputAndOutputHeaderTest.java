@@ -128,7 +128,7 @@ operator|.
 name|body
 argument_list|()
 operator|.
-name|equals
+name|isEqualTo
 argument_list|(
 name|RETAINED_BODY
 argument_list|)
@@ -145,7 +145,7 @@ argument_list|(
 name|TEST_CASE_OUTPUT_HEADER_NAME
 argument_list|)
 operator|.
-name|equals
+name|isEqualTo
 argument_list|(
 literal|1
 argument_list|)

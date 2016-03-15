@@ -123,7 +123,7 @@ operator|.
 name|body
 argument_list|()
 operator|.
-name|equals
+name|isEqualTo
 argument_list|(
 literal|"***Camel rocks ?=)"
 operator|.

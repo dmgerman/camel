@@ -156,7 +156,7 @@ argument_list|(
 literal|"sample.name"
 argument_list|)
 operator|.
-name|equals
+name|isEqualTo
 argument_list|(
 literal|"myValue"
 argument_list|)

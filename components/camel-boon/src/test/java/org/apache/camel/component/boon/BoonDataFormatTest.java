@@ -210,7 +210,7 @@ operator|.
 name|body
 argument_list|()
 operator|.
-name|equals
+name|isEqualTo
 argument_list|(
 name|in
 argument_list|)
@@ -332,7 +332,7 @@ operator|.
 name|body
 argument_list|()
 operator|.
-name|equals
+name|isEqualTo
 argument_list|(
 name|in
 argument_list|)
@@ -474,7 +474,7 @@ operator|.
 name|body
 argument_list|()
 operator|.
-name|equals
+name|isEqualTo
 argument_list|(
 name|in
 argument_list|)
@@ -631,7 +631,7 @@ operator|.
 name|body
 argument_list|()
 operator|.
-name|equals
+name|isEqualTo
 argument_list|(
 name|map
 argument_list|)

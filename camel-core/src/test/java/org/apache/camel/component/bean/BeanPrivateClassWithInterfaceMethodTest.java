@@ -245,7 +245,7 @@ operator|.
 name|body
 argument_list|()
 operator|.
-name|equals
+name|isEqualTo
 argument_list|(
 name|EXPECTED_OUTPUT
 argument_list|)
@@ -298,7 +298,7 @@ operator|.
 name|body
 argument_list|()
 operator|.
-name|equals
+name|isEqualTo
 argument_list|(
 name|EXPECTED_OUTPUT
 argument_list|)
