@@ -119,7 +119,7 @@ name|equals
 argument_list|(
 operator|(
 operator|(
-name|TestPojo
+name|TestJAXBPojo
 operator|)
 name|obj
 operator|)

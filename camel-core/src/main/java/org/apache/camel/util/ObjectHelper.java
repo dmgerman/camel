@@ -1095,6 +1095,26 @@ argument_list|)
 return|;
 block|}
 block|}
+if|if
+condition|(
+name|a
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|isArray
+argument_list|()
+operator|&&
+name|b
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|isArray
+argument_list|()
+condition|)
+block|{
+comment|// uses array based equals
 return|return
 name|Objects
 operator|.
@@ -1105,6 +1125,19 @@ argument_list|,
 name|b
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+comment|// use regular equals
+return|return
+name|a
+operator|.
+name|equals
+argument_list|(
+name|b
+argument_list|)
+return|;
+block|}
 block|}
 comment|/**      * A helper method for comparing byte arrays for equality while handling      * nulls      */
 DECL|method|equalByteArray (byte[] a, byte[] b)
