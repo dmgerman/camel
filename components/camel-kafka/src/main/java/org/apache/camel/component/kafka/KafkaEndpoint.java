@@ -227,6 +227,13 @@ specifier|private
 name|boolean
 name|bridgeEndpoint
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|seekToBeginning
+specifier|private
+name|boolean
+name|seekToBeginning
+decl_stmt|;
 DECL|method|KafkaEndpoint ()
 specifier|public
 name|KafkaEndpoint
@@ -2625,6 +2632,33 @@ operator|.
 name|bridgeEndpoint
 operator|=
 name|bridgeEndpoint
+expr_stmt|;
+block|}
+DECL|method|isSeekToBeginning ()
+specifier|public
+name|boolean
+name|isSeekToBeginning
+parameter_list|()
+block|{
+return|return
+name|seekToBeginning
+return|;
+block|}
+comment|/**      * If the option is true, then KafkaConsumer will read from beginning on startup.      */
+DECL|method|setSeekToBeginning (boolean seekToBeginning)
+specifier|public
+name|void
+name|setSeekToBeginning
+parameter_list|(
+name|boolean
+name|seekToBeginning
+parameter_list|)
+block|{
+name|this
+operator|.
+name|seekToBeginning
+operator|=
+name|seekToBeginning
 expr_stmt|;
 block|}
 block|}
