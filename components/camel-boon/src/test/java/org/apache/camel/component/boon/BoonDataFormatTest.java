@@ -34,16 +34,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|LinkedHashMap
 import|;
 end_import
@@ -554,7 +544,7 @@ argument_list|(
 literal|"Camel"
 argument_list|)
 expr_stmt|;
-name|HashMap
+name|Map
 argument_list|<
 name|String
 argument_list|,
@@ -616,7 +606,7 @@ argument_list|()
 operator|.
 name|isInstanceOf
 argument_list|(
-name|HashMap
+name|Map
 operator|.
 name|class
 argument_list|)
@@ -631,9 +621,30 @@ operator|.
 name|body
 argument_list|()
 operator|.
-name|isEqualTo
+name|matches
+argument_list|()
+operator|.
+name|simple
 argument_list|(
-name|map
+literal|"${body[test1].name} == 'Camel'"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|message
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|body
+argument_list|()
+operator|.
+name|matches
+argument_list|()
+operator|.
+name|simple
+argument_list|(
+literal|"${body[test2].name} == 'Camel'"
 argument_list|)
 expr_stmt|;
 name|Object
