@@ -536,6 +536,12 @@ name|LOG_DEBUG_BODY_STREAMS
 init|=
 literal|"CamelLogDebugStreams"
 decl_stmt|;
+DECL|field|LOG_EIP_NAME
+name|String
+name|LOG_EIP_NAME
+init|=
+literal|"CamelLogEipName"
+decl_stmt|;
 DECL|field|LOOP_INDEX
 name|String
 name|LOOP_INDEX
