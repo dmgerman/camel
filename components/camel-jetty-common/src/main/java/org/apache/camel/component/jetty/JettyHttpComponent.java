@@ -1562,6 +1562,20 @@ operator|.
 name|httpClientMaxThreads
 argument_list|)
 decl_stmt|;
+name|HttpClient
+name|httpClient
+init|=
+name|resolveAndRemoveReferenceParameter
+argument_list|(
+name|parameters
+argument_list|,
+literal|"httpClient"
+argument_list|,
+name|HttpClient
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 comment|// extract httpClient. parameters
 name|Map
 argument_list|<
@@ -1721,6 +1735,7 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 block|}
+comment|// setup the proxy host and proxy port
 if|if
 condition|(
 name|proxyHost
@@ -2058,6 +2073,21 @@ operator|.
 name|setHttpClientMaxThreads
 argument_list|(
 name|httpClientMaxThreads
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|httpClient
+operator|!=
+literal|null
+condition|)
+block|{
+name|endpoint
+operator|.
+name|setHttpClient
+argument_list|(
+name|httpClient
 argument_list|)
 expr_stmt|;
 block|}
