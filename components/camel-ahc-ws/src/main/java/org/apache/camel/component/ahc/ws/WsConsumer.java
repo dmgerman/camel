@@ -198,6 +198,21 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|sendMessage (Throwable throwable)
+specifier|public
+name|void
+name|sendMessage
+parameter_list|(
+name|Throwable
+name|throwable
+parameter_list|)
+block|{
+name|sendMessageInternal
+argument_list|(
+name|throwable
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|sendMessage (byte[] message)
 specifier|public
 name|void
@@ -265,6 +280,26 @@ argument_list|()
 decl_stmt|;
 comment|//TODO may set some headers with some meta info (e.g., socket info, unique-id for correlation purpose, etc0
 comment|// set the body
+if|if
+condition|(
+name|message
+operator|instanceof
+name|Throwable
+condition|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+operator|(
+name|Throwable
+operator|)
+name|message
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|exchange
 operator|.
 name|getIn
@@ -275,6 +310,7 @@ argument_list|(
 name|message
 argument_list|)
 expr_stmt|;
+block|}
 comment|// send exchange using the async routing engine
 name|getAsyncProcessor
 argument_list|()
