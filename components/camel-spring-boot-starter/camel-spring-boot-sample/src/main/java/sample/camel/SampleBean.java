@@ -40,6 +40,10 @@ name|Component
 import|;
 end_import
 
+begin_comment
+comment|/**  * A bean that returns a message when you call the {@link #saySomething()} method.  *<p/>  * Uses<tt>@Component("myBean")</tt> to register this bean with the name<tt>myBean</tt>  * that we use in the Camel route to lookup this bean.  */
+end_comment
+
 begin_class
 annotation|@
 name|Component

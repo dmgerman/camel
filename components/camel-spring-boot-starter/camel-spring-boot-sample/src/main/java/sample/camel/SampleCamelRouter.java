@@ -26,7 +26,25 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|stereotype
+operator|.
+name|Component
+import|;
+end_import
+
+begin_comment
+comment|/**  * A simple Camel route that triggers from a timer and calls a bean and prints to system out.  *<p/>  * Use<tt>@Component</tt> to make Camel auto detect this route when starting.  */
+end_comment
+
 begin_class
+annotation|@
+name|Component
 DECL|class|SampleCamelRouter
 specifier|public
 class|class

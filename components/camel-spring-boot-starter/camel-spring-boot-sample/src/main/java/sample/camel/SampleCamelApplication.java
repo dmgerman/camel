@@ -40,6 +40,10 @@ name|SpringApplicationBuilder
 import|;
 end_import
 
+begin_comment
+comment|/**  * A sample Spring Boot application that starts the Camel routes.  *<p/>  * See the<tt>application.properties</tt> where the  */
+end_comment
+
 begin_class
 annotation|@
 name|SpringBootApplication
@@ -48,6 +52,7 @@ specifier|public
 class|class
 name|SampleCamelApplication
 block|{
+comment|/**      * A main method to start this application.      */
 DECL|method|main (String[] args)
 specifier|public
 specifier|static
@@ -74,9 +79,6 @@ name|run
 argument_list|(
 name|args
 argument_list|)
-operator|.
-name|registerShutdownHook
-argument_list|()
 expr_stmt|;
 block|}
 block|}
