@@ -58,7 +58,7 @@ block|{
 annotation|@
 name|Value
 argument_list|(
-literal|"greeting"
+literal|"${greeting}"
 argument_list|)
 DECL|field|say
 specifier|private
