@@ -80,7 +80,7 @@ name|jsmpp
 operator|.
 name|bean
 operator|.
-name|DataCoding
+name|DataCodings
 import|;
 end_import
 
@@ -431,7 +431,7 @@ name|getRegisteredDelivery
 argument_list|()
 argument_list|)
 argument_list|,
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(
@@ -443,7 +443,7 @@ argument_list|)
 argument_list|,
 name|dataSm
 operator|.
-name|getOptionalParametes
+name|getOptionalParameters
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1709,7 +1709,7 @@ argument_list|)
 decl_stmt|;
 name|dataSm
 operator|.
-name|setOptionalParametes
+name|setOptionalParameters
 argument_list|(
 name|optParams
 operator|.
@@ -1770,7 +1770,7 @@ argument_list|)
 decl_stmt|;
 name|dataSm
 operator|.
-name|setOptionalParametes
+name|setOptionalParameters
 argument_list|(
 name|optParams
 operator|.
@@ -1792,7 +1792,7 @@ else|else
 block|{
 name|dataSm
 operator|.
-name|setOptionalParametes
+name|setOptionalParameters
 argument_list|()
 expr_stmt|;
 block|}

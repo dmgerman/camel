@@ -190,6 +190,18 @@ name|jsmpp
 operator|.
 name|session
 operator|.
+name|Session
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jsmpp
+operator|.
+name|session
+operator|.
 name|SessionStateListener
 import|;
 end_import
@@ -320,6 +332,8 @@ operator|new
 name|SessionStateListener
 argument_list|()
 block|{
+annotation|@
+name|Override
 specifier|public
 name|void
 name|onStateChange
@@ -330,7 +344,7 @@ parameter_list|,
 name|SessionState
 name|oldState
 parameter_list|,
-name|Object
+name|Session
 name|source
 parameter_list|)
 block|{

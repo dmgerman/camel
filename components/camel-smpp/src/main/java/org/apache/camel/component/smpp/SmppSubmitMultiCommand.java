@@ -122,7 +122,7 @@ name|jsmpp
 operator|.
 name|bean
 operator|.
-name|DataCoding
+name|DataCodings
 import|;
 end_import
 
@@ -474,7 +474,7 @@ name|getReplaceIfPresentFlag
 argument_list|()
 argument_list|)
 argument_list|,
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(

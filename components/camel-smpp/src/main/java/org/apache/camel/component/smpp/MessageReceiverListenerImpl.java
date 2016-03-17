@@ -620,7 +620,7 @@ name|newMessageId
 argument_list|,
 name|dataSm
 operator|.
-name|getOptionalParametes
+name|getOptionalParameters
 argument_list|()
 argument_list|)
 return|;

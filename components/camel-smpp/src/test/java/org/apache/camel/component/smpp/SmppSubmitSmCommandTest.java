@@ -140,7 +140,7 @@ name|jsmpp
 operator|.
 name|bean
 operator|.
-name|DataCoding
+name|DataCodings
 import|;
 end_import
 
@@ -697,7 +697,7 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(
@@ -1331,7 +1331,7 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(
@@ -1469,7 +1469,7 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(
@@ -2120,7 +2120,7 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(
@@ -2258,7 +2258,7 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(
@@ -2859,7 +2859,7 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(
@@ -3331,7 +3331,7 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(
@@ -3891,7 +3891,7 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(
@@ -3923,31 +3923,12 @@ argument_list|(
 operator|new
 name|OptionalParameter
 operator|.
-name|OctetString
+name|Source_subaddress
 argument_list|(
-name|Tag
-operator|.
-name|SOURCE_SUBADDRESS
-argument_list|,
 literal|"1292"
-argument_list|)
-argument_list|)
-argument_list|,
-name|eq
-argument_list|(
-operator|new
-name|OptionalParameter
 operator|.
-name|COctetString
-argument_list|(
-name|Tag
-operator|.
-name|ADDITIONAL_STATUS_INFO_TEXT
-operator|.
-name|code
+name|getBytes
 argument_list|()
-argument_list|,
-literal|"urgent"
 argument_list|)
 argument_list|)
 argument_list|,
@@ -3956,12 +3937,22 @@ argument_list|(
 operator|new
 name|OptionalParameter
 operator|.
-name|Byte
+name|Additional_status_info_text
 argument_list|(
-name|Tag
+literal|"urgent"
 operator|.
-name|DEST_ADDR_SUBUNIT
+name|getBytes
+argument_list|()
+argument_list|)
+argument_list|)
 argument_list|,
+name|eq
+argument_list|(
+operator|new
+name|OptionalParameter
+operator|.
+name|Dest_addr_subunit
+argument_list|(
 operator|(
 name|byte
 operator|)
@@ -3974,15 +3965,8 @@ argument_list|(
 operator|new
 name|OptionalParameter
 operator|.
-name|Short
+name|Dest_telematics_id
 argument_list|(
-name|Tag
-operator|.
-name|DEST_TELEMATICS_ID
-operator|.
-name|code
-argument_list|()
-argument_list|,
 operator|(
 name|short
 operator|)
@@ -3995,12 +3979,8 @@ argument_list|(
 operator|new
 name|OptionalParameter
 operator|.
-name|Int
+name|Qos_time_to_live
 argument_list|(
-name|Tag
-operator|.
-name|QOS_TIME_TO_LIVE
-argument_list|,
 literal|3600000
 argument_list|)
 argument_list|)
@@ -4010,11 +3990,12 @@ argument_list|(
 operator|new
 name|OptionalParameter
 operator|.
-name|Null
+name|Alert_on_message_delivery
 argument_list|(
-name|Tag
-operator|.
-name|ALERT_ON_MESSAGE_DELIVERY
+operator|(
+name|byte
+operator|)
+literal|0
 argument_list|)
 argument_list|)
 argument_list|)
@@ -4749,7 +4730,7 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(
@@ -5423,7 +5404,7 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(
@@ -5528,6 +5509,9 @@ specifier|final
 name|byte
 name|incorrectDataCoding
 init|=
+operator|(
+name|byte
+operator|)
 literal|0x00
 decl_stmt|;
 name|byte
@@ -5709,7 +5693,7 @@ name|not
 argument_list|(
 name|eq
 argument_list|(
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(
@@ -5767,9 +5751,12 @@ throws|throws
 name|Exception
 block|{
 specifier|final
-name|int
+name|byte
 name|dataCoding
 init|=
+operator|(
+name|byte
+operator|)
 literal|0x00
 decl_stmt|;
 comment|/* SMSC-default */
@@ -5995,7 +5982,7 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(
@@ -6052,9 +6039,12 @@ throws|throws
 name|Exception
 block|{
 specifier|final
-name|int
+name|byte
 name|dataCoding
 init|=
+operator|(
+name|byte
+operator|)
 literal|0x03
 decl_stmt|;
 comment|/* ISO-8859-1 (Latin1) */
@@ -6280,7 +6270,7 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(
@@ -6337,9 +6327,12 @@ throws|throws
 name|Exception
 block|{
 specifier|final
-name|int
+name|byte
 name|dataCoding
 init|=
+operator|(
+name|byte
+operator|)
 literal|0x04
 decl_stmt|;
 comment|/* SMPP 8-bit */
@@ -6540,7 +6533,7 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(
@@ -6597,9 +6590,12 @@ throws|throws
 name|Exception
 block|{
 specifier|final
-name|int
+name|byte
 name|dataCoding
 init|=
+operator|(
+name|byte
+operator|)
 literal|0xF7
 decl_stmt|;
 comment|/* GSM 8-bit class 3 */
@@ -6800,7 +6796,7 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(
@@ -6857,9 +6853,12 @@ throws|throws
 name|Exception
 block|{
 specifier|final
-name|int
+name|byte
 name|binDataCoding
 init|=
+operator|(
+name|byte
+operator|)
 literal|0x04
 decl_stmt|;
 comment|/* SMPP 8-bit */
@@ -7079,7 +7078,7 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(
@@ -7136,9 +7135,12 @@ throws|throws
 name|Exception
 block|{
 specifier|final
-name|int
+name|byte
 name|latin1DataCoding
 init|=
+operator|(
+name|byte
+operator|)
 literal|0x03
 decl_stmt|;
 comment|/* ISO-8859-1 (Latin1) */
@@ -7383,7 +7385,7 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(

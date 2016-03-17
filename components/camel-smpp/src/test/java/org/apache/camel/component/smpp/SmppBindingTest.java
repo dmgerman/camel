@@ -914,7 +914,7 @@ argument_list|)
 expr_stmt|;
 name|deliverSm
 operator|.
-name|setOptionalParametes
+name|setOptionalParameters
 argument_list|(
 operator|new
 name|OptionalParameter
@@ -1166,7 +1166,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"COctetStrin"
+literal|"COctetString"
 argument_list|,
 name|optionalParameters
 operator|.
@@ -1307,7 +1307,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"COctetStrin"
+literal|"COctetString"
 argument_list|,
 name|optionalParameter
 operator|.
@@ -1449,7 +1449,7 @@ argument_list|()
 expr_stmt|;
 name|deliverSm
 operator|.
-name|setOptionalParametes
+name|setOptionalParameters
 argument_list|(
 operator|new
 name|OctetString
@@ -1611,6 +1611,8 @@ specifier|public
 name|void
 name|createSmppMessageFromDeliveryReceiptWithoutShortMessageShouldNotThrowException
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|DeliverSm
 name|deliverSm
@@ -1626,7 +1628,7 @@ argument_list|()
 expr_stmt|;
 name|deliverSm
 operator|.
-name|setOptionalParametes
+name|setOptionalParameters
 argument_list|(
 operator|new
 name|OptionalParameter
@@ -1972,7 +1974,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-literal|20
+literal|14
 argument_list|,
 name|smppMessage
 operator|.
@@ -2179,7 +2181,7 @@ argument_list|)
 expr_stmt|;
 name|deliverSm
 operator|.
-name|setOptionalParametes
+name|setOptionalParameters
 argument_list|(
 operator|new
 name|OctetString
@@ -2322,7 +2324,7 @@ argument_list|(
 operator|(
 name|byte
 operator|)
-literal|20
+literal|14
 argument_list|,
 name|smppMessage
 operator|.

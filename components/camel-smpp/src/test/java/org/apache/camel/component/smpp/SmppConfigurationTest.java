@@ -114,6 +114,18 @@ name|jsmpp
 operator|.
 name|session
 operator|.
+name|Session
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|jsmpp
+operator|.
+name|session
+operator|.
 name|SessionStateListener
 import|;
 end_import
@@ -1693,7 +1705,7 @@ parameter_list|,
 name|SessionState
 name|arg1
 parameter_list|,
-name|Object
+name|Session
 name|arg2
 parameter_list|)
 block|{             }

@@ -90,7 +90,7 @@ name|jsmpp
 operator|.
 name|bean
 operator|.
-name|DataCoding
+name|DataCodings
 import|;
 end_import
 
@@ -437,7 +437,7 @@ operator|.
 name|getReplaceIfPresent
 argument_list|()
 argument_list|,
-name|DataCoding
+name|DataCodings
 operator|.
 name|newInstance
 argument_list|(
@@ -459,7 +459,7 @@ argument_list|()
 argument_list|,
 name|submitSm
 operator|.
-name|getOptionalParametes
+name|getOptionalParameters
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1468,7 +1468,7 @@ argument_list|)
 decl_stmt|;
 name|submitSm
 operator|.
-name|setOptionalParametes
+name|setOptionalParameters
 argument_list|(
 name|optParams
 operator|.
@@ -1529,7 +1529,7 @@ argument_list|)
 decl_stmt|;
 name|submitSm
 operator|.
-name|setOptionalParametes
+name|setOptionalParameters
 argument_list|(
 name|optParams
 operator|.
@@ -1551,7 +1551,7 @@ else|else
 block|{
 name|submitSm
 operator|.
-name|setOptionalParametes
+name|setOptionalParameters
 argument_list|()
 expr_stmt|;
 block|}
