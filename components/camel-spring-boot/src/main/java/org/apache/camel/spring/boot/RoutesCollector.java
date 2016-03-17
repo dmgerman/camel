@@ -317,19 +317,19 @@ block|}
 comment|// Overridden
 annotation|@
 name|Override
-DECL|method|onApplicationEvent (ContextRefreshedEvent contextRefreshedEvent)
+DECL|method|onApplicationEvent (ContextRefreshedEvent event)
 specifier|public
 name|void
 name|onApplicationEvent
 parameter_list|(
 name|ContextRefreshedEvent
-name|contextRefreshedEvent
+name|event
 parameter_list|)
 block|{
 name|ApplicationContext
 name|applicationContext
 init|=
-name|contextRefreshedEvent
+name|event
 operator|.
 name|getApplicationContext
 argument_list|()
@@ -350,7 +350,7 @@ block|{
 name|CamelContext
 name|camelContext
 init|=
-name|contextRefreshedEvent
+name|event
 operator|.
 name|getApplicationContext
 argument_list|()
@@ -559,7 +559,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"CamelContextConfiguration found. Invoking: {}"
+literal|"CamelContextConfiguration found. Invoking beforeApplicationStart: {}"
 argument_list|,
 name|camelContextConfiguration
 argument_list|)
@@ -572,11 +572,48 @@ name|camelContext
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|configurationProperties
+operator|.
+name|isMainRunController
+argument_list|()
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Starting CamelMainRunController to ensure the main thread keeps running"
+argument_list|)
+expr_stmt|;
+name|CamelMainRunController
+name|controller
+init|=
+operator|new
+name|CamelMainRunController
+argument_list|(
+name|applicationContext
+argument_list|,
+name|camelContext
+argument_list|)
+decl_stmt|;
+comment|// controller will start Camel
+name|controller
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// start camel manually
 name|camelContext
 operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
 for|for
 control|(
 name|CamelContextConfiguration
@@ -585,6 +622,15 @@ range|:
 name|camelContextConfigurations
 control|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"CamelContextConfiguration found. Invoking afterApplicationStart: {}"
+argument_list|,
+name|camelContextConfiguration
+argument_list|)
+expr_stmt|;
 name|camelContextConfiguration
 operator|.
 name|afterApplicationStart
@@ -628,7 +674,7 @@ name|debug
 argument_list|(
 literal|"Ignore ContextRefreshedEvent: {}"
 argument_list|,
-name|contextRefreshedEvent
+name|event
 argument_list|)
 expr_stmt|;
 block|}

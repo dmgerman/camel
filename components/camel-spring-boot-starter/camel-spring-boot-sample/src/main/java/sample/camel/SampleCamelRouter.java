@@ -46,7 +46,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer:{{timer.name}}?period={{timer.period}}"
+literal|"timer:hello?period={{timer.period}}"
 argument_list|)
 operator|.
 name|transform

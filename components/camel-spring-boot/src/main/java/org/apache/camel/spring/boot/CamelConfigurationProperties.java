@@ -102,6 +102,12 @@ name|xmlRests
 init|=
 literal|"classpath:camel-rest/*.xml"
 decl_stmt|;
+comment|/**      * Whether to use the main run controller to ensure the Spring-Boot application      * keeps running until being stopped or the JVM terminated.      */
+DECL|field|mainRunController
+specifier|private
+name|boolean
+name|mainRunController
+decl_stmt|;
 comment|// Getters& setters
 DECL|method|isJmxEnabled ()
 specifier|public
@@ -283,6 +289,32 @@ operator|.
 name|xmlRests
 operator|=
 name|xmlRests
+expr_stmt|;
+block|}
+DECL|method|isMainRunController ()
+specifier|public
+name|boolean
+name|isMainRunController
+parameter_list|()
+block|{
+return|return
+name|mainRunController
+return|;
+block|}
+DECL|method|setMainRunController (boolean mainRunController)
+specifier|public
+name|void
+name|setMainRunController
+parameter_list|(
+name|boolean
+name|mainRunController
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mainRunController
+operator|=
+name|mainRunController
 expr_stmt|;
 block|}
 block|}
