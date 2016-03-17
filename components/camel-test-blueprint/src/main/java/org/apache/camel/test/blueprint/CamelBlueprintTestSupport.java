@@ -1369,7 +1369,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Staring CamelContext: {}"
+literal|"Starting CamelContext: {}"
 argument_list|,
 name|context
 operator|.
