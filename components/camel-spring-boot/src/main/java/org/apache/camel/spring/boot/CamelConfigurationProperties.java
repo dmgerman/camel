@@ -48,7 +48,13 @@ class|class
 name|CamelConfigurationProperties
 block|{
 comment|// Properties
-comment|/**      * Enable JMX support for the CamelContext.      */
+comment|/**      * Sets the name of the CamelContext.      */
+DECL|field|name
+specifier|private
+name|String
+name|name
+decl_stmt|;
+comment|/**      * Enable JMX in your Camel application.      */
 DECL|field|jmxEnabled
 specifier|private
 name|boolean
@@ -80,12 +86,6 @@ name|typeConversion
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Sets the name of the this CamelContext.      */
-DECL|field|name
-specifier|private
-name|String
-name|name
-decl_stmt|;
 comment|/**      * Directory to scan for adding additional XML routes.      * You can turn this off by setting the value to<tt>false</tt>      */
 DECL|field|xmlRoutes
 specifier|private
@@ -102,13 +102,39 @@ name|xmlRests
 init|=
 literal|"classpath:camel-rest/*.xml"
 decl_stmt|;
-comment|/**      * Whether to use the main run controller to ensure the Spring-Boot application      * keeps running until being stopped or the JVM terminated.      */
+comment|/**      * Whether to use the main run controller to ensure the Spring-Boot application      * keeps running until being stopped or the JVM terminated.      * You typically only need this if you run Spring-Boot standalone.      * If you run Spring-Boot with spring-boot-starter-web then the web container keeps the JVM running.      */
 DECL|field|mainRunController
 specifier|private
 name|boolean
 name|mainRunController
 decl_stmt|;
 comment|// Getters& setters
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|name
+return|;
+block|}
+DECL|method|setName (String name)
+specifier|public
+name|void
+name|setName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|this
+operator|.
+name|name
+operator|=
+name|name
+expr_stmt|;
+block|}
 DECL|method|isJmxEnabled ()
 specifier|public
 name|boolean
@@ -211,32 +237,6 @@ operator|.
 name|typeConversion
 operator|=
 name|typeConversion
-expr_stmt|;
-block|}
-DECL|method|getName ()
-specifier|public
-name|String
-name|getName
-parameter_list|()
-block|{
-return|return
-name|name
-return|;
-block|}
-DECL|method|setName (String name)
-specifier|public
-name|void
-name|setName
-parameter_list|(
-name|String
-name|name
-parameter_list|)
-block|{
-name|this
-operator|.
-name|name
-operator|=
-name|name
 expr_stmt|;
 block|}
 DECL|method|getXmlRoutes ()

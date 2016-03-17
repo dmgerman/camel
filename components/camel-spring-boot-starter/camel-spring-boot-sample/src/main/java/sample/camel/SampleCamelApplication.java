@@ -20,9 +20,7 @@ name|springframework
 operator|.
 name|boot
 operator|.
-name|autoconfigure
-operator|.
-name|SpringBootApplication
+name|SpringApplication
 import|;
 end_import
 
@@ -34,14 +32,14 @@ name|springframework
 operator|.
 name|boot
 operator|.
-name|builder
+name|autoconfigure
 operator|.
-name|SpringApplicationBuilder
+name|SpringBootApplication
 import|;
 end_import
 
 begin_comment
-comment|/**  * A sample Spring Boot application that starts the Camel routes.  *<p/>  * See the<tt>application.properties</tt> where the  */
+comment|/**  * A sample Spring Boot application that starts the Camel routes.  */
 end_comment
 
 begin_class
@@ -64,19 +62,14 @@ index|[]
 name|args
 parameter_list|)
 block|{
-operator|new
-name|SpringApplicationBuilder
-argument_list|()
+name|SpringApplication
 operator|.
-name|sources
+name|run
 argument_list|(
 name|SampleCamelApplication
 operator|.
 name|class
-argument_list|)
-operator|.
-name|run
-argument_list|(
+argument_list|,
 name|args
 argument_list|)
 expr_stmt|;
