@@ -498,6 +498,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Currently there is a bug in kafka which leads to an uninterruptable thread so a resub take too long (works manually)"
+argument_list|)
 DECL|method|kaftMessageIsConsumedByCamelSeekedToBeginning ()
 specifier|public
 name|void
