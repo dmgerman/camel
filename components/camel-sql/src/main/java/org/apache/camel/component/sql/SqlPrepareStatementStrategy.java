@@ -70,8 +70,8 @@ specifier|public
 interface|interface
 name|SqlPrepareStatementStrategy
 block|{
-comment|/**      * Prepares the query to be executed.      *      * @param query                 the query which may contain named query parameters      * @param allowNamedParameters  whether named parameters is allowed      * @return the query to actually use, which must be accepted by the JDBC driver.      */
-DECL|method|prepareQuery (String query, boolean allowNamedParameters)
+comment|/**      * Prepares the query to be executed.      *      * @param query                 the query which may contain named query parameters      * @param allowNamedParameters  whether named parameters is allowed      * @param exchange              the current exchange      * @return the query to actually use, which must be accepted by the JDBC driver.      */
+DECL|method|prepareQuery (String query, boolean allowNamedParameters, Exchange exchange)
 name|String
 name|prepareQuery
 parameter_list|(
@@ -80,6 +80,9 @@ name|query
 parameter_list|,
 name|boolean
 name|allowNamedParameters
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|SQLException

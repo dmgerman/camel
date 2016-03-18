@@ -465,6 +465,8 @@ argument_list|()
 operator|.
 name|isAllowNamedParameters
 argument_list|()
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 comment|// CAMEL-7313 - check whether to return generated keys

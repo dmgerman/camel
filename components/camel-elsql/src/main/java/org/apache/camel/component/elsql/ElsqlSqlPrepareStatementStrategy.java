@@ -84,7 +84,7 @@ name|ElsqlSqlPrepareStatementStrategy
 implements|implements
 name|SqlPrepareStatementStrategy
 block|{
-DECL|method|prepareQuery (String query, boolean allowNamedParameters)
+DECL|method|prepareQuery (String query, boolean allowNamedParameters, Exchange exchange)
 specifier|public
 name|String
 name|prepareQuery
@@ -94,6 +94,9 @@ name|query
 parameter_list|,
 name|boolean
 name|allowNamedParameters
+parameter_list|,
+name|Exchange
+name|exchange
 parameter_list|)
 throws|throws
 name|SQLException

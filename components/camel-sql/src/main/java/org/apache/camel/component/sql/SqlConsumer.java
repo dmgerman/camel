@@ -619,6 +619,8 @@ argument_list|()
 operator|.
 name|isAllowNamedParameters
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 specifier|final

@@ -201,6 +201,8 @@ name|endpoint
 operator|.
 name|isAllowNamedParameters
 argument_list|()
+argument_list|,
+name|exchange
 argument_list|)
 decl_stmt|;
 return|return
@@ -366,6 +368,8 @@ name|endpoint
 operator|.
 name|isAllowNamedParameters
 argument_list|()
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 return|return
