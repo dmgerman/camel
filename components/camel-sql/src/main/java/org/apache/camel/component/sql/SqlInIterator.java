@@ -117,8 +117,9 @@ name|remove
 argument_list|()
 expr_stmt|;
 block|}
-annotation|@
-name|Override
+comment|// This method should not have @Override as its a new method in Java 1.8
+comment|// and we need to compile for Java 1.7 also. TODO: enable again in Camel 2.18 onwards
+comment|// @Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
