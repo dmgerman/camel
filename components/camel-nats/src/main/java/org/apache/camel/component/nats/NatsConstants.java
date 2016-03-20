@@ -28,13 +28,13 @@ DECL|field|NATS_MESSAGE_TIMESTAMP
 name|String
 name|NATS_MESSAGE_TIMESTAMP
 init|=
-literal|"natsMessageTimestamp"
+literal|"CamelNatsMessageTimestamp"
 decl_stmt|;
-DECL|field|NATS_SUBSCRIBE_SID
+DECL|field|NATS_SUBSCRIPTION_ID
 name|String
-name|NATS_SUBSCRIBE_SID
+name|NATS_SUBSCRIPTION_ID
 init|=
-literal|"natsSubscribeSid"
+literal|"CamelNatsSubscriptionId"
 decl_stmt|;
 block|}
 end_interface

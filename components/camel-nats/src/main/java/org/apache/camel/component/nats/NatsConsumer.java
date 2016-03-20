@@ -583,7 +583,7 @@ name|setHeader
 argument_list|(
 name|NatsConstants
 operator|.
-name|NATS_SUBSCRIBE_SID
+name|NATS_SUBSCRIPTION_ID
 argument_list|,
 name|sid
 argument_list|)
