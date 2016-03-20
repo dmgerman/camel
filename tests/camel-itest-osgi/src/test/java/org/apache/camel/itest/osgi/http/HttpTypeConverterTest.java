@@ -608,6 +608,14 @@ parameter_list|)
 block|{         }
 specifier|public
 name|void
+name|setContentLengthLong
+parameter_list|(
+name|long
+name|len
+parameter_list|)
+block|{         }
+specifier|public
+name|void
 name|setContentType
 parameter_list|(
 name|String
