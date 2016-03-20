@@ -238,6 +238,18 @@ name|ArgumentPreparedStatementSetter
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|util
+operator|.
+name|CompositeIterator
+import|;
+end_import
+
 begin_comment
 comment|/**  * Default {@link SqlPrepareStatementStrategy} that supports named query parameters as well index based.  */
 end_comment
@@ -789,7 +801,7 @@ if|if
 condition|(
 name|value
 operator|instanceof
-name|SqlInIterator
+name|CompositeIterator
 condition|)
 block|{
 name|Iterator
@@ -1271,10 +1283,15 @@ else|:
 name|map
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|createInParameterIterator (Object value)
 specifier|protected
 specifier|static
-name|Iterator
+name|CompositeIterator
 name|createInParameterIterator
 parameter_list|(
 name|Object
@@ -1345,12 +1362,22 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-return|return
+name|CompositeIterator
+name|ci
+init|=
 operator|new
-name|SqlInIterator
+name|CompositeIterator
+argument_list|()
+decl_stmt|;
+name|ci
+operator|.
+name|add
 argument_list|(
 name|it
 argument_list|)
+expr_stmt|;
+return|return
+name|ci
 return|;
 block|}
 DECL|class|PopulateIterator
@@ -1490,6 +1517,7 @@ name|NoSuchElementException
 argument_list|()
 throw|;
 block|}
+comment|// is it a SQL in parameter
 name|boolean
 name|in
 init|=
@@ -1546,6 +1574,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// if SQL IN we need to return an iterator that can iterate the parameter values
 name|next
 operator|=
 name|createInParameterIterator
