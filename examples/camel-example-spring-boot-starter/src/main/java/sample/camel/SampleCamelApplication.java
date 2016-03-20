@@ -39,6 +39,10 @@ import|;
 end_import
 
 begin_comment
+comment|//CHECKSTYLE:OFF
+end_comment
+
+begin_comment
 comment|/**  * A sample Spring Boot application that starts the Camel routes.  */
 end_comment
 
@@ -76,6 +80,10 @@ expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//CHECKSTYLE:ON
+end_comment
 
 end_unit
 
