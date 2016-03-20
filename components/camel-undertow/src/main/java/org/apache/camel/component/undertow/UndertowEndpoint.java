@@ -588,6 +588,7 @@ operator|=
 literal|"Specifies whether to enable HTTP OPTIONS for this Servlet consumer. By default OPTIONS is turned off."
 argument_list|)
 DECL|field|optionsEnabled
+specifier|private
 name|boolean
 name|optionsEnabled
 decl_stmt|;
