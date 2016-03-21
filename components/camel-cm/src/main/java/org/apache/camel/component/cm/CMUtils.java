@@ -48,7 +48,7 @@ name|matches
 argument_list|(
 name|CMConstants
 operator|.
-name|GSM_CHARACTERS_REGEX
+name|GSM_0338_REGEX
 argument_list|)
 return|;
 block|}

@@ -60,7 +60,7 @@ name|MAX_GSM_MESSAGE_LENGTH_PER_PART_IF_MULTIPART
 init|=
 literal|153
 decl_stmt|;
-comment|// status code 200 - Error substrings - checkk it contains.
+comment|// status code 200 - Error substrings - check it contains.
 DECL|field|ERROR_UNKNOWN
 name|String
 name|ERROR_UNKNOWN
@@ -91,13 +91,16 @@ name|ERROR_INVALID_PRODUCT_TOKEN
 init|=
 literal|"Invalid product token"
 decl_stmt|;
-DECL|field|GSM_CHARACTERS_REGEX
+comment|// TODO: Review this pattern.
+comment|// or it should be foundnd an alternative to jcharset to check if a message is GSM 03.38 encodable
+comment|// See:
+comment|// https://en.wikipedia.org/wiki/GSM_03.38
+comment|// http://frightanic.com/software-development/regex-for-gsm-03-38-7bit-character-set/
+DECL|field|GSM_0338_REGEX
 name|String
-name|GSM_CHARACTERS_REGEX
+name|GSM_0338_REGEX
 init|=
-literal|"^[A-Za-z0-9 \\r\\n@Â£$Â¥Ã¨Ã©Ã¹Ã¬Ã²ÃÃÃ¸ÃÃ¥\u0394_\u03A6\u0393\u039B\u03A9"
-operator|+
-literal|"\u03A0\u03A8\u03A3\u0398\u039EÃÃ¦ÃÃ!\"#$%&amp;'()*+,\\-./:;&lt;=&gt;?Â¡ÃÃÃÃÂ§Â¿Ã¤Ã¶Ã±Ã¼Ã ^{}\\\\\\[~\\]|\u20AC]*$"
+literal|"^[A-Za-z0-9 \\r\\n@Â£$Â¥Ã¨Ã©Ã¹Ã¬Ã²ÃÃÃ¸ÃÃ¥\u0394_\u03A6\u0393\u039B\u03A9\u03A0\u03A8\u03A3\u0398\u039EÃÃ¦ÃÃ!\"#$%&amp;'()*+,\\-./:;&lt;=&gt;?Â¡ÃÃÃÃÂ§Â¿Ã¤Ã¶Ã±Ã¼Ã ^{}\\\\\\[~\\]|\u20AC]*$"
 decl_stmt|;
 block|}
 end_interface
