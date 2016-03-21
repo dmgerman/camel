@@ -145,7 +145,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Builds a SimpleRoute to send a message to CM GW and CM Uri is built based on properties in a file.  */
+comment|/**  * Builds a SimpleRoute to send a message to CM GW and CM Uri is built based on  * properties in a file.  */
 end_comment
 
 begin_class
@@ -211,7 +211,7 @@ argument_list|)
 expr_stmt|;
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"\nCM Component is an URI based component\nCM URI: {}"
 argument_list|,
@@ -283,7 +283,7 @@ block|}
 comment|/**      * Build the URI of the CM Component based on Environmental properties      */
 annotation|@
 name|Override
-DECL|method|setApplicationContext (final ApplicationContext applicationContext)
+DECL|method|setApplicationContext ( final ApplicationContext applicationContext)
 specifier|public
 specifier|final
 name|void
