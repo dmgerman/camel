@@ -281,7 +281,7 @@ name|Exception
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Creating CM Endpoint ... "
 argument_list|)
@@ -327,7 +327,7 @@ throw|;
 block|}
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Uri=[{}], path=[{}], parameters=[{}]"
 argument_list|,
@@ -372,7 +372,7 @@ expr_stmt|;
 comment|// Validate configuration
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Validating uri based configuration"
 argument_list|)
@@ -450,16 +450,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|LOG
-operator|.
-name|error
-argument_list|(
-name|msg
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-expr_stmt|;
 throw|throw
 operator|new
 name|InvalidUriEndpointException
@@ -473,7 +463,7 @@ throw|;
 block|}
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"CMConfiguration - OK!"
 argument_list|)
@@ -482,7 +472,7 @@ comment|// Component is an Endpoint factory. So far, just one Endpoint type.
 comment|// Endpoint construction and configuration.
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Creating CMEndpoint"
 argument_list|)
