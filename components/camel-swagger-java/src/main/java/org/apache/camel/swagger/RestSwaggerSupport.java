@@ -1383,7 +1383,7 @@ name|Exchange
 operator|.
 name|CONTENT_TYPE
 argument_list|,
-literal|"text/json"
+literal|"application/json"
 argument_list|)
 expr_stmt|;
 comment|// read the rest-dsl into swagger model
@@ -1786,7 +1786,7 @@ name|Exchange
 operator|.
 name|CONTENT_TYPE
 argument_list|,
-literal|"text/json"
+literal|"application/json"
 argument_list|)
 expr_stmt|;
 name|sb
