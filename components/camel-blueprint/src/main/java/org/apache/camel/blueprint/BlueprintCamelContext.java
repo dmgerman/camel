@@ -924,6 +924,8 @@ name|OsgiTypeConverter
 argument_list|(
 name|ctx
 argument_list|,
+name|this
+argument_list|,
 name|getInjector
 argument_list|()
 argument_list|,

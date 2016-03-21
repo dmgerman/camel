@@ -673,6 +673,13 @@ name|camelContext
 operator|=
 name|camelContext
 expr_stmt|;
+if|if
+condition|(
+name|camelContext
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// configure pretty print
 name|String
 name|property
@@ -756,6 +763,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}

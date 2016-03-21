@@ -2590,14 +2590,21 @@ name|CamelContextAware
 operator|)
 name|typeConverter
 decl_stmt|;
+if|if
+condition|(
+name|camelContext
+operator|!=
+literal|null
+condition|)
+block|{
 name|camelContextAware
 operator|.
 name|setCamelContext
 argument_list|(
-name|getCamelContext
-argument_list|()
+name|camelContext
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getTypeConverter (Class<?> toType, Class<?> fromType)

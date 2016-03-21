@@ -76,6 +76,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -379,6 +391,12 @@ specifier|final
 name|BundleContext
 name|bundleContext
 decl_stmt|;
+DECL|field|camelContext
+specifier|private
+specifier|final
+name|CamelContext
+name|camelContext
+decl_stmt|;
 DECL|field|injector
 specifier|private
 specifier|final
@@ -408,12 +426,15 @@ specifier|volatile
 name|DefaultTypeConverter
 name|delegate
 decl_stmt|;
-DECL|method|OsgiTypeConverter (BundleContext bundleContext, Injector injector, FactoryFinder factoryFinder)
+DECL|method|OsgiTypeConverter (BundleContext bundleContext, CamelContext camelContext, Injector injector, FactoryFinder factoryFinder)
 specifier|public
 name|OsgiTypeConverter
 parameter_list|(
 name|BundleContext
 name|bundleContext
+parameter_list|,
+name|CamelContext
+name|camelContext
 parameter_list|,
 name|Injector
 name|injector
@@ -427,6 +448,12 @@ operator|.
 name|bundleContext
 operator|=
 name|bundleContext
+expr_stmt|;
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
 expr_stmt|;
 name|this
 operator|.
@@ -1204,6 +1231,14 @@ argument_list|,
 name|factoryFinder
 argument_list|)
 decl_stmt|;
+comment|// inject CamelContext
+name|answer
+operator|.
+name|setCamelContext
+argument_list|(
+name|camelContext
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 comment|// only load the core type converters, as OSGi activator will keep track on bundles
