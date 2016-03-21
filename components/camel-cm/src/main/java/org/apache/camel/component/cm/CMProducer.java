@@ -160,26 +160,6 @@ name|HttpClientBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_comment
 comment|/**  * is the exchange processor. Sends a validated sms message to CM Endpoints.  */
 end_comment
@@ -192,22 +172,6 @@ name|CMProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|CMProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|validator
 specifier|private
 name|Validator
@@ -244,7 +208,7 @@ operator|=
 name|sender
 expr_stmt|;
 block|}
-comment|/**      * Producer is a exchange processor. This process is built in several steps. 1. Validate message receive from client 2. Send validated message to CM endpoints. 3. Process response from CM      * endpoints.      */
+comment|/**      * Producer is a exchange processor. This process is built in several steps.      * 1. Validate message receive from client 2. Send validated message to CM      * endpoints. 3. Process response from CM endpoints.      */
 annotation|@
 name|Override
 DECL|method|process (final Exchange exchange)
@@ -256,10 +220,11 @@ specifier|final
 name|Exchange
 name|exchange
 parameter_list|)
+throws|throws
+name|Exception
 block|{
-try|try
-block|{
-comment|// Immutable message receive from clients.
+comment|// Immutable message receive from clients. Throws camel ' s
+comment|// InvalidPayloadException
 specifier|final
 name|SMSMessage
 name|smsMessage
@@ -269,28 +234,15 @@ operator|.
 name|getIn
 argument_list|()
 operator|.
-name|getBody
+name|getMandatoryBody
 argument_list|(
 name|SMSMessage
 operator|.
 name|class
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-name|smsMessage
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|NullPointerException
-argument_list|()
-throw|;
-block|}
 comment|// Validates Payload - SMSMessage
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -387,7 +339,7 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-name|LOG
+name|log
 operator|.
 name|trace
 argument_list|(
@@ -399,7 +351,8 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// We have a valid (immutable) SMSMessage instance, lets extend to CMMessage
+comment|// We have a valid (immutable) SMSMessage instance, lets extend to
+comment|// CMMessage
 comment|// This is the instance we will use to build the XML document to be
 comment|// sent to CM SMS GW.
 specifier|final
@@ -420,7 +373,7 @@ name|getMessage
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -461,7 +414,7 @@ argument_list|(
 name|df
 argument_list|)
 expr_stmt|;
-name|LOG
+name|log
 operator|.
 name|debug
 argument_list|(
@@ -515,66 +468,6 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-specifier|final
-name|NullPointerException
-name|e
-parameter_list|)
-block|{
-comment|// Body hast to be an instance of SMSMessage
-specifier|final
-name|String
-name|m
-init|=
-literal|"Check Message body - Has to be an SMSMessage instance"
-decl_stmt|;
-name|log
-operator|.
-name|error
-argument_list|(
-name|m
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|setException
-argument_list|(
-operator|new
-name|InvalidPayloadException
-argument_list|(
-name|m
-argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-specifier|final
-name|RuntimeException
-name|e
-parameter_list|)
-block|{
-name|log
-operator|.
-name|error
-argument_list|(
-literal|"Message cannot be sent "
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
@@ -648,7 +541,7 @@ argument_list|)
 expr_stmt|;
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Connection to {}: OK"
 argument_list|,
@@ -669,7 +562,7 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Connection to {}: NOT AVAILABLE"
 argument_list|,
@@ -697,7 +590,7 @@ argument_list|()
 expr_stmt|;
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"CMProducer started"
 argument_list|)
