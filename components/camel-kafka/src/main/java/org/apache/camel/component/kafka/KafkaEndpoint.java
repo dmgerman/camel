@@ -2600,6 +2600,36 @@ name|getSslProtocol
 argument_list|()
 return|;
 block|}
+DECL|method|isSeekToBeginning ()
+specifier|public
+name|boolean
+name|isSeekToBeginning
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|isSeekToBeginning
+argument_list|()
+return|;
+block|}
+DECL|method|setSeekToBeginning (boolean seekToBeginning)
+specifier|public
+name|void
+name|setSeekToBeginning
+parameter_list|(
+name|boolean
+name|seekToBeginning
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setSeekToBeginning
+argument_list|(
+name|seekToBeginning
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|isBridgeEndpoint ()
 specifier|public
 name|boolean

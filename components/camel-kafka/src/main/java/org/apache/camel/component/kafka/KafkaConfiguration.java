@@ -547,6 +547,18 @@ name|fetchWaitMaxMs
 init|=
 literal|500
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|seekToBeginning
+specifier|private
+name|boolean
+name|seekToBeginning
+decl_stmt|;
 comment|//Consumer configuration properties
 annotation|@
 name|UriParam
@@ -4429,6 +4441,33 @@ operator|.
 name|valueDeserializer
 operator|=
 name|valueDeserializer
+expr_stmt|;
+block|}
+DECL|method|isSeekToBeginning ()
+specifier|public
+name|boolean
+name|isSeekToBeginning
+parameter_list|()
+block|{
+return|return
+name|seekToBeginning
+return|;
+block|}
+comment|/**      * If the option is true, then KafkaConsumer will read from beginning on startup.      */
+DECL|method|setSeekToBeginning (boolean seekToBeginning)
+specifier|public
+name|void
+name|setSeekToBeginning
+parameter_list|(
+name|boolean
+name|seekToBeginning
+parameter_list|)
+block|{
+name|this
+operator|.
+name|seekToBeginning
+operator|=
+name|seekToBeginning
 expr_stmt|;
 block|}
 block|}
