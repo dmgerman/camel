@@ -1044,6 +1044,13 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|part
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// create a correlated copy as the new exchange to be routed in the splitter from the copy
 comment|// and do not share the unit of work
 name|Exchange
@@ -1163,6 +1170,13 @@ argument_list|,
 name|routeContext
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 specifier|public
 name|void
@@ -1305,6 +1319,13 @@ range|:
 name|pairs
 control|)
 block|{
+if|if
+condition|(
+name|pair
+operator|!=
+literal|null
+condition|)
+block|{
 name|result
 operator|.
 name|add
@@ -1312,6 +1333,7 @@ argument_list|(
 name|pair
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 finally|finally

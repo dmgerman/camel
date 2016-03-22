@@ -64,16 +64,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -109,11 +99,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"CAMEL-9735: There are 3 files in the .tar file but the TarIterator has a bug causing +1 extra"
-argument_list|)
 DECL|method|testSplitter ()
 specifier|public
 name|void

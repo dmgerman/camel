@@ -1780,6 +1780,16 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+comment|// in case the iterator returns null then continue to next
+if|if
+condition|(
+name|pair
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 specifier|final
 name|Exchange
 name|subExchange
@@ -3176,6 +3186,16 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
+comment|// in case the iterator returns null then continue to next
+if|if
+condition|(
+name|pair
+operator|==
+literal|null
+condition|)
+block|{
+continue|continue;
+block|}
 name|Exchange
 name|subExchange
 init|=
