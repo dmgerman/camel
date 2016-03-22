@@ -100,7 +100,9 @@ DECL|field|GSM_0338_REGEX
 name|String
 name|GSM_0338_REGEX
 init|=
-literal|"^[A-Za-z0-9 \\r\\n@Â£$Â¥Ã¨Ã©Ã¹Ã¬Ã²ÃÃÃ¸ÃÃ¥\u0394_\u03A6\u0393\u039B\u03A9\u03A0\u03A8\u03A3\u0398\u039EÃÃ¦ÃÃ!\"#$%&amp;'()*+,\\-./:;&lt;=&gt;?Â¡ÃÃÃÃÂ§Â¿Ã¤Ã¶Ã±Ã¼Ã ^{}\\\\\\[~\\]|\u20AC]*$"
+literal|"^[A-Za-z0-9 \\r\\n@Â£$\u0394_\u03A6\u0393\u039B\u03A9\u03A0\u03A8\u03A3\u0398\u039E!\"#$%&amp;'()*+,\\-./:;&lt;=&gt;?Â¡Â¿^{}\\\\\\[~\\]|"
+operator|+
+literal|"\u20AC\u00a5\u00e8\u00e9\u00f9\u00ec\u00f2\u00c7\u00d8\u00f8\u00c5\u00e5\u00c6\u00e6\u00df\u00c9\u00c4\u00d6\u00d1\u00dc\u00a7\u00e4\u00f6\u00f1\u00fc\u00e0]*$"
 decl_stmt|;
 block|}
 end_interface
