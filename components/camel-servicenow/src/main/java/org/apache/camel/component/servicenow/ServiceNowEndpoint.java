@@ -216,7 +216,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"ServiceNow"
+literal|"api,cloud,management"
 argument_list|)
 DECL|class|ServiceNowEndpoint
 specifier|public
