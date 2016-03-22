@@ -197,7 +197,7 @@ parameter_list|()
 throws|throws
 name|InterruptedException
 block|{
-comment|// we expect that one or more messages is automatic done by the Camel
+comment|// we expect that a number of messages is automatic done by the Camel
 comment|// route as it uses a timer to trigger
 name|NotifyBuilder
 name|notify
@@ -210,7 +210,7 @@ argument_list|)
 operator|.
 name|whenDone
 argument_list|(
-literal|1
+literal|4
 argument_list|)
 operator|.
 name|create

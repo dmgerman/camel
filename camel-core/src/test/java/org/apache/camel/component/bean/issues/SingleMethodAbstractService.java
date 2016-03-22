@@ -21,33 +21,32 @@ package|;
 end_package
 
 begin_class
-DECL|class|SingleMethodServiceImpl
+DECL|class|SingleMethodAbstractService
 specifier|public
+specifier|abstract
 class|class
-name|SingleMethodServiceImpl
-extends|extends
 name|SingleMethodAbstractService
+parameter_list|<
+name|S
+parameter_list|,
+name|T
+parameter_list|>
+implements|implements
+name|SingleMethodService
 argument_list|<
-name|String
+name|S
 argument_list|,
-name|String
+name|T
 argument_list|>
 block|{
-annotation|@
-name|Override
-DECL|method|doSomething (String foo)
+DECL|method|hello ()
 specifier|public
 name|String
-name|doSomething
-parameter_list|(
-name|String
-name|foo
-parameter_list|)
+name|hello
+parameter_list|()
 block|{
 return|return
-literal|"You said "
-operator|+
-name|foo
+literal|"Hello World"
 return|;
 block|}
 block|}

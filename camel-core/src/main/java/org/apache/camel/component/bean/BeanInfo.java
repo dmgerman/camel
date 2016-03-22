@@ -1265,42 +1265,20 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Iterator
-argument_list|<
-name|List
-argument_list|<
-name|MethodInfo
-argument_list|>
-argument_list|>
-name|it
-init|=
-name|operations
-operator|.
-name|values
-argument_list|()
-operator|.
-name|iterator
-argument_list|()
-decl_stmt|;
-while|while
-condition|(
-name|it
-operator|.
-name|hasNext
-argument_list|()
-condition|)
-block|{
+for|for
+control|(
 name|List
 argument_list|<
 name|MethodInfo
 argument_list|>
 name|infos
-init|=
-name|it
+range|:
+name|operations
 operator|.
-name|next
+name|values
 argument_list|()
-decl_stmt|;
+control|)
+block|{
 for|for
 control|(
 name|MethodInfo
@@ -1692,7 +1670,7 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|// validate that if we want an explict no-arg method, then that's what we get
+comment|// validate that if we want an explicit no-arg method, then that's what we get
 if|if
 condition|(
 name|emptyParameters
@@ -1780,6 +1758,11 @@ name|methodInfo
 operator|==
 literal|null
 operator|||
+operator|(
+name|name
+operator|!=
+literal|null
+operator|&&
 operator|!
 name|name
 operator|.
@@ -1793,6 +1776,7 @@ operator|.
 name|getName
 argument_list|()
 argument_list|)
+operator|)
 condition|)
 block|{
 throw|throw
@@ -2055,6 +2039,19 @@ name|Method
 argument_list|>
 argument_list|()
 decl_stmt|;
+name|Set
+argument_list|<
+name|Method
+argument_list|>
+name|bridges
+init|=
+operator|new
+name|HashSet
+argument_list|<
+name|Method
+argument_list|>
+argument_list|()
+decl_stmt|;
 comment|// do not remove duplicates form class from the Java itself as they have some "duplicates" we need
 name|boolean
 name|javaClass
@@ -2094,17 +2091,6 @@ range|:
 name|methods
 control|)
 block|{
-comment|// skip bridge methods in duplicate checks (as the bridge method is inserted by the compiler due to type erasure)
-if|if
-condition|(
-name|source
-operator|.
-name|isBridge
-argument_list|()
-condition|)
-block|{
-continue|continue;
-block|}
 for|for
 control|(
 name|Method
@@ -2416,15 +2402,6 @@ argument_list|,
 name|methodInfo
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|hasMethod
-argument_list|(
-name|opName
-argument_list|)
-condition|)
-block|{
-comment|// we have an overloaded method so add the method info to the same key
 name|List
 argument_list|<
 name|MethodInfo
@@ -2436,6 +2413,14 @@ argument_list|(
 name|opName
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|existing
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// we have an overloaded method so add the method info to the same key
 name|existing
 operator|.
 name|add
@@ -5859,6 +5844,10 @@ block|}
 comment|// must match name
 if|if
 condition|(
+name|name
+operator|!=
+literal|null
+operator|&&
 operator|!
 name|name
 operator|.
@@ -6487,6 +6476,10 @@ decl_stmt|;
 comment|// if the two names matches then see if we can find it using that name
 if|if
 condition|(
+name|methodName
+operator|!=
+literal|null
+operator|&&
 name|methodName
 operator|.
 name|equals
