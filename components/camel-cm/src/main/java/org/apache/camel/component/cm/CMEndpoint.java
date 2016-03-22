@@ -284,9 +284,9 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"CM Endpoint created - (IN/OUT)"
+literal|"CM Endpoint created"
 argument_list|)
 expr_stmt|;
 block|}
