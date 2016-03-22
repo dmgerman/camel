@@ -278,7 +278,7 @@ name|cm
 operator|.
 name|exceptions
 operator|.
-name|MessagingException
+name|CMDirectException
 import|;
 end_import
 
@@ -296,7 +296,7 @@ name|cm
 operator|.
 name|exceptions
 operator|.
-name|ProviderException
+name|MessagingException
 import|;
 end_import
 
@@ -1301,7 +1301,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ProviderException
+name|CMDirectException
 argument_list|(
 literal|"CM Component and CM API show some kind of inconsistency. "
 operator|+
@@ -1318,7 +1318,7 @@ condition|)
 block|{
 throw|throw
 operator|new
-name|ProviderException
+name|CMDirectException
 argument_list|(
 literal|"CM Component and CM API show some kind of inconsistency. The component expects the status code to be 200 or 400. New api released? "
 argument_list|)
@@ -1538,7 +1538,7 @@ parameter_list|)
 block|{
 throw|throw
 operator|new
-name|ProviderException
+name|CMDirectException
 argument_list|(
 name|io
 argument_list|)
