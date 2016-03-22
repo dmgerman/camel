@@ -168,6 +168,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriPath
 import|;
 end_import
@@ -208,11 +222,9 @@ name|syntax
 operator|=
 literal|"servicenow:instanceName"
 argument_list|,
-name|consumerClass
+name|producerOnly
 operator|=
-name|ServiceNowConsumer
-operator|.
-name|class
+literal|true
 argument_list|,
 name|label
 operator|=
@@ -245,6 +257,8 @@ specifier|final
 name|String
 name|instanceName
 decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|configuration
 specifier|private
 specifier|final
@@ -420,7 +434,7 @@ throw|throw
 operator|new
 name|UnsupportedOperationException
 argument_list|(
-literal|"Consumer interface is not supported"
+literal|"Consumer is not supported"
 argument_list|)
 throw|;
 block|}
@@ -433,7 +447,7 @@ name|isSingleton
 parameter_list|()
 block|{
 return|return
-literal|false
+literal|true
 return|;
 block|}
 DECL|method|getConfiguration ()
