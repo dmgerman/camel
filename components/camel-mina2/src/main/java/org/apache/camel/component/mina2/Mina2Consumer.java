@@ -22,6 +22,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|InetSocketAddress
@@ -561,7 +571,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.Consumer Consumer} implementation for Apache MINA.  *  * @version   */
+comment|/**  * A {@link org.apache.camel.Consumer Consumer} implementation for Apache MINA.  *  * @version  */
 end_comment
 
 begin_class
@@ -610,6 +620,7 @@ name|acceptor
 decl_stmt|;
 DECL|field|configuration
 specifier|private
+specifier|final
 name|Mina2Configuration
 name|configuration
 decl_stmt|;
@@ -2467,6 +2478,22 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|cause
+operator|instanceof
+name|IOException
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"IOExceptions are automatically handled by MINA"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 comment|// close invalid session
 if|if
 condition|(
