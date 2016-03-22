@@ -608,8 +608,6 @@ throws|throws
 name|MessagingException
 block|{
 comment|// See: Check https://dashboard.onlinesmsgateway.com/docs for responses
-try|try
-block|{
 comment|// 1.Construct XML. Throws XMLConstructionException
 specifier|final
 name|String
@@ -628,30 +626,6 @@ argument_list|,
 name|xml
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-specifier|final
-name|RuntimeException
-name|e
-parameter_list|)
-block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Failed to send SMS: {}"
-argument_list|,
-name|cmMessage
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-throw|throw
-name|e
-throw|;
-comment|// XMLConstrucion o
-block|}
 block|}
 DECL|method|createXml (final CMMessage message)
 specifier|private
@@ -1158,21 +1132,19 @@ name|TransformerException
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Cant serialize CMMessage {}: "
-argument_list|,
-name|message
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
 throw|throw
 operator|new
 name|XMLConstructionException
 argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"Cant serialize CMMessage %s"
+argument_list|,
+name|message
+argument_list|)
+argument_list|,
 name|e
 argument_list|)
 throw|;
@@ -1184,21 +1156,19 @@ name|ParserConfigurationException
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Cant serialize CMMessage {}: "
-argument_list|,
-name|message
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
 throw|throw
 operator|new
 name|XMLConstructionException
 argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"Cant serialize CMMessage %s"
+argument_list|,
+name|message
+argument_list|)
+argument_list|,
 name|e
 argument_list|)
 throw|;
