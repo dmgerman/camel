@@ -553,6 +553,9 @@ operator|new
 name|TarIterator
 argument_list|(
 name|exchange
+operator|.
+name|getIn
+argument_list|()
 argument_list|,
 name|stream
 argument_list|)

@@ -102,7 +102,7 @@ return|return
 operator|new
 name|TarIterator
 argument_list|(
-name|exchange
+name|inputMessage
 argument_list|,
 name|inputMessage
 operator|.
