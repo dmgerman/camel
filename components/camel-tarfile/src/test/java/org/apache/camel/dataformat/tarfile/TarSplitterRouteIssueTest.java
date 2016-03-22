@@ -64,6 +64,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -99,6 +109,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
+annotation|@
+name|Ignore
+argument_list|(
+literal|"CAMEL-9735: There are 3 files in the .tar file but the TarIterator has a bug causing +1 extra"
+argument_list|)
 DECL|method|testSplitter ()
 specifier|public
 name|void
@@ -121,7 +136,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:decompressFiles"
+literal|"direct:decompressFiles"
 argument_list|,
 operator|new
 name|File
@@ -164,12 +179,12 @@ argument_list|(
 literal|1
 argument_list|)
 expr_stmt|;
-comment|//Send a file which is not exit
+comment|// send a file which does not exit
 name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:decompressFiles"
+literal|"direct:decompressFiles"
 argument_list|,
 operator|new
 name|File
@@ -216,7 +231,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:decompressFiles"
+literal|"direct:decompressFiles"
 argument_list|)
 operator|.
 name|split

@@ -164,11 +164,6 @@ operator|.
 name|streaming
 argument_list|()
 operator|.
-name|to
-argument_list|(
-literal|"log:entry"
-argument_list|)
-operator|.
 name|convertBodyTo
 argument_list|(
 name|String
@@ -179,6 +174,11 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:processTarEntry"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:entry"
 argument_list|)
 operator|.
 name|end
