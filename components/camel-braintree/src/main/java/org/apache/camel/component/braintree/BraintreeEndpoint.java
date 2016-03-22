@@ -194,6 +194,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriPath
 import|;
 end_import
@@ -274,7 +288,7 @@ name|class
 argument_list|,
 name|label
 operator|=
-literal|"Braintree"
+literal|"api,cloud,payment"
 argument_list|)
 DECL|class|BraintreeEndpoint
 specifier|public
@@ -289,17 +303,12 @@ name|BraintreeConfiguration
 argument_list|>
 block|{
 annotation|@
-name|UriPath
-argument_list|(
-name|description
-operator|=
-literal|"the method name"
-argument_list|)
-DECL|field|name
+name|UriParam
+DECL|field|configuration
 specifier|private
 specifier|final
-name|String
-name|name
+name|BraintreeConfiguration
+name|configuration
 decl_stmt|;
 DECL|field|apiProxy
 specifier|private
@@ -312,7 +321,7 @@ specifier|final
 name|BraintreeGateway
 name|gateway
 decl_stmt|;
-DECL|method|BraintreeEndpoint (String uri, BraintreeComponent component, BraintreeApiName apiName, String methodName, BraintreeConfiguration endpointConfiguration, BraintreeGateway gateway)
+DECL|method|BraintreeEndpoint (String uri, BraintreeComponent component, BraintreeApiName apiName, String methodName, BraintreeConfiguration configuration, BraintreeGateway gateway)
 specifier|public
 name|BraintreeEndpoint
 parameter_list|(
@@ -329,7 +338,7 @@ name|String
 name|methodName
 parameter_list|,
 name|BraintreeConfiguration
-name|endpointConfiguration
+name|configuration
 parameter_list|,
 name|BraintreeGateway
 name|gateway
@@ -355,20 +364,20 @@ argument_list|(
 name|apiName
 argument_list|)
 argument_list|,
-name|endpointConfiguration
+name|configuration
 argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|gateway
+name|configuration
 operator|=
-name|gateway
+name|configuration
 expr_stmt|;
 name|this
 operator|.
-name|name
+name|gateway
 operator|=
-name|methodName
+name|gateway
 expr_stmt|;
 block|}
 annotation|@
