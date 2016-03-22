@@ -18,24 +18,6 @@ name|cm
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|cm
-operator|.
-name|exceptions
-operator|.
-name|MessagingException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Sends a validated sms message to CM endpoints  */
 end_comment
@@ -54,8 +36,6 @@ parameter_list|(
 name|CMMessage
 name|cmMessage
 parameter_list|)
-throws|throws
-name|MessagingException
 function_decl|;
 block|}
 end_interface

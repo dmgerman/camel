@@ -26,7 +26,7 @@ specifier|public
 class|class
 name|XMLConstructionException
 extends|extends
-name|MessagingException
+name|CMDirectException
 block|{
 DECL|method|XMLConstructionException ()
 specifier|public

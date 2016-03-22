@@ -296,24 +296,6 @@ name|cm
 operator|.
 name|exceptions
 operator|.
-name|MessagingException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|cm
-operator|.
-name|exceptions
-operator|.
 name|XMLConstructionException
 import|;
 end_import
@@ -592,7 +574,7 @@ operator|=
 name|productToken
 expr_stmt|;
 block|}
-comment|/**      * Sends a previously validated SMSMessage to CM endpoint      */
+comment|/**      * Sends a message to CM endpoints. 1. CMMessage instance is going to be marshalled to xml. 2. Post request xml string to CMEndpoint.      */
 annotation|@
 name|Override
 DECL|method|send (final CMMessage cmMessage)
@@ -604,8 +586,6 @@ specifier|final
 name|CMMessage
 name|cmMessage
 parameter_list|)
-throws|throws
-name|MessagingException
 block|{
 comment|// See: Check https://dashboard.onlinesmsgateway.com/docs for responses
 comment|// 1.Construct XML. Throws XMLConstructionException
@@ -618,7 +598,7 @@ argument_list|(
 name|cmMessage
 argument_list|)
 decl_stmt|;
-comment|// 2. Try to send to CM SMS Provider ...Throws CMResponse
+comment|// 2. Try to send to CM SMS Provider ...Throws CMResponseException
 name|doHttpPost
 argument_list|(
 name|url
@@ -1526,7 +1506,7 @@ operator|!
 operator|(
 name|t
 operator|instanceof
-name|MessagingException
+name|CMDirectException
 operator|)
 condition|)
 block|{
@@ -1534,7 +1514,7 @@ comment|// Chain it
 name|t
 operator|=
 operator|new
-name|MessagingException
+name|CMDirectException
 argument_list|(
 name|t
 argument_list|)
@@ -1542,7 +1522,7 @@ expr_stmt|;
 block|}
 throw|throw
 operator|(
-name|MessagingException
+name|CMDirectException
 operator|)
 name|t
 throw|;

@@ -36,7 +36,7 @@ name|cm
 operator|.
 name|exceptions
 operator|.
-name|MessagingException
+name|CMDirectException
 import|;
 end_import
 
@@ -46,7 +46,7 @@ specifier|public
 class|class
 name|CMResponseException
 extends|extends
-name|MessagingException
+name|CMDirectException
 block|{
 DECL|method|CMResponseException ()
 specifier|public

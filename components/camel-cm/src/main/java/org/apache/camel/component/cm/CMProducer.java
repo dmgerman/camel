@@ -202,7 +202,7 @@ operator|=
 name|sender
 expr_stmt|;
 block|}
-comment|/**      * Producer is a exchange processor. This process is built in several steps.      * 1. Validate message receive from client 2. Send validated message to CM      * endpoints. 3. Process response from CM endpoints.      */
+comment|/**      * Producer is a exchange processor. This process is built in several steps. 1. Validate message receive from client 2. Send validated message to CM endpoints. 3. Process response from CM      * endpoints.      */
 annotation|@
 name|Override
 DECL|method|process (final Exchange exchange)
@@ -453,7 +453,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// 2. Send a validated sms message to CM endpoints
-comment|// throws MessagingException for abnormal situations.
+comment|//  for abnormal situations.
 name|sender
 operator|.
 name|send
@@ -565,11 +565,15 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-name|log
-operator|.
-name|debug
+throw|throw
+operator|new
+name|HostUnavailableException
 argument_list|(
-literal|"Connection to {}: NOT AVAILABLE"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"Connection to %s: NOT AVAILABLE"
 argument_list|,
 name|getEndpoint
 argument_list|()
@@ -577,11 +581,7 @@ operator|.
 name|getCMUrl
 argument_list|()
 argument_list|)
-expr_stmt|;
-throw|throw
-operator|new
-name|HostUnavailableException
-argument_list|(
+argument_list|,
 name|e
 argument_list|)
 throw|;

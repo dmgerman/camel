@@ -26,7 +26,7 @@ specifier|public
 class|class
 name|HostUnavailableException
 extends|extends
-name|MessagingException
+name|CMDirectException
 block|{
 DECL|method|HostUnavailableException ()
 specifier|public
