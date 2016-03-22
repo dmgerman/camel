@@ -136,6 +136,24 @@ name|bindy
 operator|.
 name|annotation
 operator|.
+name|BindyConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|annotation
+operator|.
 name|DataField
 import|;
 end_import
@@ -416,6 +434,8 @@ name|initFixedLengthRecordParameters
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|initAnnotatedFields ()
 specifier|public
 name|void
@@ -1214,6 +1234,15 @@ name|getLocale
 argument_list|()
 argument_list|,
 name|dataField
+argument_list|,
+name|field
+operator|.
+name|getAnnotation
+argument_list|(
+name|BindyConverter
+operator|.
+name|class
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// field object to be set
@@ -1432,6 +1461,8 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|unbind (Map<String, Object> model)
 specifier|public
 name|String
@@ -1644,7 +1675,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      *       * Generate a table containing the data formatted and sorted with their position/offset      * The result is placed in the Map<Integer, List> results      */
+comment|/**      *      * Generate a table containing the data formatted and sorted with their position/offset      * The result is placed in the Map<Integer, List> results      */
 DECL|method|generateFixedLengthPositionMap (Class<?> clazz, Object obj, Map<Integer, List<String>> results)
 specifier|private
 name|void
@@ -1751,6 +1782,15 @@ name|getLocale
 argument_list|()
 argument_list|,
 name|datafield
+argument_list|,
+name|field
+operator|.
+name|getAnnotation
+argument_list|(
+name|BindyConverter
+operator|.
+name|class
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// Get field value
@@ -2639,7 +2679,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-comment|/**      *       * @return      */
+comment|/**      *      * @return      */
 DECL|method|header ()
 specifier|public
 name|Class
@@ -2664,7 +2704,7 @@ return|return
 name|hasHeader
 return|;
 block|}
-comment|/**      *       * @return      */
+comment|/**      *      * @return      */
 DECL|method|footer ()
 specifier|public
 name|Class

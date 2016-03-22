@@ -136,6 +136,24 @@ name|bindy
 operator|.
 name|annotation
 operator|.
+name|BindyConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|annotation
+operator|.
 name|CsvRecord
 import|;
 end_import
@@ -819,6 +837,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|bind (List<String> tokens, Map<String, Object> model, int line)
 specifier|public
 name|void
@@ -1015,6 +1035,15 @@ name|getLocale
 argument_list|()
 argument_list|,
 name|dataField
+argument_list|,
+name|field
+operator|.
+name|getAnnotation
+argument_list|(
+name|BindyConverter
+operator|.
+name|class
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// field object to be set
@@ -1207,6 +1236,8 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|unbind (Map<String, Object> model)
 specifier|public
 name|String
@@ -2138,6 +2169,15 @@ name|getLocale
 argument_list|()
 argument_list|,
 name|datafield
+argument_list|,
+name|field
+operator|.
+name|getAnnotation
+argument_list|(
+name|BindyConverter
+operator|.
+name|class
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// Get field value
@@ -3055,6 +3095,15 @@ name|getLocale
 argument_list|()
 argument_list|,
 name|dataField
+argument_list|,
+name|field
+operator|.
+name|getAnnotation
+argument_list|(
+name|BindyConverter
+operator|.
+name|class
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|Object

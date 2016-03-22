@@ -124,6 +124,24 @@ name|bindy
 operator|.
 name|annotation
 operator|.
+name|BindyConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|annotation
+operator|.
 name|KeyValuePairField
 import|;
 end_import
@@ -377,7 +395,7 @@ name|initKeyValuePairModel
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * method uses to initialize the model representing the classes who will      * bind the data This process will scan for classes according to the package      * name provided, check the annotated classes and fields. Next, we retrieve      * the parameters required like : Pair Separator& key value pair separator      *       * @throws Exception      */
+comment|/**      * method uses to initialize the model representing the classes who will      * bind the data This process will scan for classes according to the package      * name provided, check the annotated classes and fields. Next, we retrieve      * the parameters required like : Pair Separator& key value pair separator      *      * @throws Exception      */
 DECL|method|initKeyValuePairModel ()
 specifier|public
 name|void
@@ -395,6 +413,8 @@ name|initMessageParameters
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Override
 DECL|method|initAnnotatedFields ()
 specifier|public
 name|void
@@ -1345,6 +1365,15 @@ name|getLocale
 argument_list|()
 argument_list|,
 name|keyValuePairField
+argument_list|,
+name|field
+operator|.
+name|getAnnotation
+argument_list|(
+name|BindyConverter
+operator|.
+name|class
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// format the value of the key received
@@ -1536,6 +1565,15 @@ name|getLocale
 argument_list|()
 argument_list|,
 name|keyValuePairField
+argument_list|,
+name|field
+operator|.
+name|getAnnotation
+argument_list|(
+name|BindyConverter
+operator|.
+name|class
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// format the value of the key received
@@ -1924,7 +1962,9 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      *       */
+comment|/**      *      */
+annotation|@
+name|Override
 DECL|method|unbind (Map<String, Object> model)
 specifier|public
 name|String
@@ -2185,6 +2225,15 @@ name|getLocale
 argument_list|()
 argument_list|,
 name|keyValuePairField
+argument_list|,
+name|field
+operator|.
+name|getAnnotation
+argument_list|(
+name|BindyConverter
+operator|.
+name|class
+argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// Get object to be formatted
@@ -2726,7 +2775,7 @@ return|return
 name|keyValuePairSeparator
 return|;
 block|}
-comment|/**      * Flag indicating if the message must be ordered      *       * @return boolean      */
+comment|/**      * Flag indicating if the message must be ordered      *      * @return boolean      */
 DECL|method|isMessageOrdered ()
 specifier|public
 name|boolean

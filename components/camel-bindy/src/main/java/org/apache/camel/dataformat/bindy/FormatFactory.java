@@ -72,6 +72,24 @@ name|bindy
 operator|.
 name|annotation
 operator|.
+name|BindyConverter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|annotation
+operator|.
 name|DataField
 import|;
 end_import
@@ -987,7 +1005,7 @@ throw|;
 block|}
 block|}
 comment|/**      * Retrieves the format to use for the given type      *      * @param clazz represents the type of the format (String, Integer, Byte)      * @param locale optional locale for NumberFormat and DateFormat parsing.      * @return Format the formatter      * @throws IllegalArgumentException if not suitable formatter is found      */
-DECL|method|getFormat (Class<?> clazz, String locale, DataField data)
+DECL|method|getFormat (Class<?> clazz, String locale, DataField data, BindyConverter converter)
 specifier|public
 specifier|static
 name|Format
@@ -1007,10 +1025,30 @@ name|locale
 parameter_list|,
 name|DataField
 name|data
+parameter_list|,
+name|BindyConverter
+name|converter
 parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|converter
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|converter
+operator|.
+name|value
+argument_list|()
+operator|.
+name|newInstance
+argument_list|()
+return|;
+block|}
 name|String
 name|pattern
 init|=
@@ -1086,7 +1124,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Retrieves the format to use for the given type      *      * @param clazz represents the type of the format (String, Integer, Byte)      * @param locale optional locale for NumberFormat and DateFormat parsing.      * @return Format the formatter      * @throws IllegalArgumentException if not suitable formatter is found      * TODO : Check if KeyValuePair could also use decimal/groupingSeparator/rounding for BigDecimal      */
-DECL|method|getFormat (Class<?> clazz, String locale, KeyValuePairField data)
+DECL|method|getFormat (Class<?> clazz, String locale, KeyValuePairField data, BindyConverter converter)
 specifier|public
 specifier|static
 name|Format
@@ -1106,10 +1144,30 @@ name|locale
 parameter_list|,
 name|KeyValuePairField
 name|data
+parameter_list|,
+name|BindyConverter
+name|converter
 parameter_list|)
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|converter
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|converter
+operator|.
+name|value
+argument_list|()
+operator|.
+name|newInstance
+argument_list|()
+return|;
+block|}
 name|String
 name|pattern
 init|=
