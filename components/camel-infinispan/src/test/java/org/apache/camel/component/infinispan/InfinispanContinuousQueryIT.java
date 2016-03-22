@@ -314,6 +314,8 @@ name|component
 operator|.
 name|infinispan
 operator|.
+name|util
+operator|.
 name|UserUtils
 operator|.
 name|CQ_USERS
@@ -331,6 +333,8 @@ operator|.
 name|component
 operator|.
 name|infinispan
+operator|.
+name|util
 operator|.
 name|UserUtils
 operator|.
