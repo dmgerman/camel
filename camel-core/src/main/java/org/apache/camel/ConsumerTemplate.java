@@ -55,6 +55,12 @@ name|int
 name|getCurrentCacheSize
 parameter_list|()
 function_decl|;
+comment|/**      * Cleanup the cache (purging stale entries)      */
+DECL|method|cleanUp ()
+name|void
+name|cleanUp
+parameter_list|()
+function_decl|;
 comment|// Synchronous methods
 comment|// -----------------------------------------------------------------------
 comment|/**      * Receives from the endpoint, waiting until there is a response      *<p/>      *<b>Important:</b> See {@link #doneUoW(Exchange)}      *      * @param endpointUri the endpoint to receive from      * @return the returned exchange      */

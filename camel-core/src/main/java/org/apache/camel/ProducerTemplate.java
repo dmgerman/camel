@@ -166,6 +166,12 @@ name|boolean
 name|isEventNotifierEnabled
 parameter_list|()
 function_decl|;
+comment|/**      * Cleanup the cache (purging stale entries)      */
+DECL|method|cleanUp ()
+name|void
+name|cleanUp
+parameter_list|()
+function_decl|;
 comment|// Synchronous methods
 comment|// -----------------------------------------------------------------------
 comment|/**      * Sends the exchange to the default endpoint      *<br/><br/>      *<b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param exchange the exchange to send      * @return the returned exchange      */

@@ -82,6 +82,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|PollingConsumer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Synchronization
@@ -113,6 +125,20 @@ operator|.
 name|util
 operator|.
 name|CamelContextHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|LRUCache
 import|;
 end_import
 
@@ -290,6 +316,26 @@ operator|.
 name|size
 argument_list|()
 return|;
+block|}
+DECL|method|cleanUp ()
+specifier|public
+name|void
+name|cleanUp
+parameter_list|()
+block|{
+if|if
+condition|(
+name|consumerCache
+operator|!=
+literal|null
+condition|)
+block|{
+name|consumerCache
+operator|.
+name|cleanUp
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 comment|/**      * @deprecated use {@link #getCamelContext()}      */
 annotation|@

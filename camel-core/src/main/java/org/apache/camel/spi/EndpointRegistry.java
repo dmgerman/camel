@@ -114,6 +114,12 @@ name|String
 name|key
 parameter_list|)
 function_decl|;
+comment|/**      * Cleanup the cache (purging stale entries)      */
+DECL|method|cleanUp ()
+name|void
+name|cleanUp
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 

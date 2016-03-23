@@ -484,6 +484,26 @@ return|return
 name|eventNotifierEnabled
 return|;
 block|}
+DECL|method|cleanUp ()
+specifier|public
+name|void
+name|cleanUp
+parameter_list|()
+block|{
+if|if
+condition|(
+name|producerCache
+operator|!=
+literal|null
+condition|)
+block|{
+name|producerCache
+operator|.
+name|cleanUp
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 DECL|method|setEventNotifierEnabled (boolean eventNotifierEnabled)
 specifier|public
 name|void

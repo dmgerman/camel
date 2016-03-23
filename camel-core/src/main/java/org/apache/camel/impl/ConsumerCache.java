@@ -1430,6 +1430,45 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
+comment|/**      * Cleanup the cache (purging stale entries)      */
+DECL|method|cleanUp ()
+specifier|public
+name|void
+name|cleanUp
+parameter_list|()
+block|{
+if|if
+condition|(
+name|consumers
+operator|instanceof
+name|LRUCache
+condition|)
+block|{
+name|LRUCache
+argument_list|<
+name|String
+argument_list|,
+name|PollingConsumer
+argument_list|>
+name|cache
+init|=
+operator|(
+name|LRUCache
+argument_list|<
+name|String
+argument_list|,
+name|PollingConsumer
+argument_list|>
+operator|)
+name|consumers
+decl_stmt|;
+name|cache
+operator|.
+name|cleanUp
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 DECL|method|getEndpointUtilizationStatistics ()
 specifier|public
 name|EndpointUtilizationStatistics

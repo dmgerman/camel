@@ -70,6 +70,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// for testing use sync listener
 name|cache
 operator|=
 operator|new
@@ -81,6 +82,16 @@ name|Service
 argument_list|>
 argument_list|(
 literal|10
+argument_list|,
+literal|10
+argument_list|,
+literal|true
+argument_list|,
+literal|false
+argument_list|,
+literal|false
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -162,6 +173,8 @@ specifier|public
 name|void
 name|testLRUCacheEviction
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|MyService
 name|service1
@@ -445,10 +458,24 @@ name|getStopped
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// the eviction is async so force cleanup
+name|cache
+operator|.
+name|cleanUp
+argument_list|()
+expr_stmt|;
 comment|// should evict the eldest, and stop the service
 name|assertTrue
 argument_list|(
 name|service1
+operator|.
+name|getStopped
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertNull
+argument_list|(
+name|service12
 operator|.
 name|getStopped
 argument_list|()
@@ -463,13 +490,11 @@ argument_list|,
 name|service12
 argument_list|)
 expr_stmt|;
-name|assertNull
-argument_list|(
-name|service12
+comment|// the eviction is async so force cleanup
+name|cache
 operator|.
-name|getStopped
+name|cleanUp
 argument_list|()
-argument_list|)
 expr_stmt|;
 comment|// should evict the eldest, and stop the service
 name|assertTrue

@@ -242,6 +242,12 @@ name|p
 argument_list|)
 expr_stmt|;
 block|}
+comment|// the eviction is async so force cleanup
+name|cache
+operator|.
+name|cleanUp
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Size should be 1000"
@@ -344,6 +350,12 @@ name|p
 argument_list|)
 expr_stmt|;
 block|}
+comment|// the eviction is async so force cleanup
+name|cache
+operator|.
+name|cleanUp
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Size should be 5"
@@ -354,6 +366,14 @@ name|cache
 operator|.
 name|size
 argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// the eviction listener is async so sleep a bit
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|1000
 argument_list|)
 expr_stmt|;
 comment|// should have stopped the 3 evicted
