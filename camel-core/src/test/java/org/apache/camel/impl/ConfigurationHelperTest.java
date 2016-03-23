@@ -430,8 +430,13 @@ name|assertEquals
 argument_list|(
 literal|"URNs don't set the port field"
 argument_list|,
+name|Integer
+operator|.
+name|valueOf
+argument_list|(
 operator|-
 literal|1
+argument_list|)
 argument_list|,
 name|cfg
 operator|.
@@ -599,8 +604,13 @@ name|assertEquals
 argument_list|(
 literal|"URNs don't set the port field"
 argument_list|,
+name|Integer
+operator|.
+name|valueOf
+argument_list|(
 operator|-
 literal|1
+argument_list|)
 argument_list|,
 name|cfg
 operator|.
@@ -760,8 +770,13 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|Integer
+operator|.
+name|valueOf
+argument_list|(
 operator|-
 literal|1
+argument_list|)
 argument_list|,
 name|cfg
 operator|.
@@ -915,8 +930,13 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|Integer
+operator|.
+name|valueOf
+argument_list|(
 operator|-
 literal|1
+argument_list|)
 argument_list|,
 name|cfg
 operator|.
@@ -1070,7 +1090,12 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|Integer
+operator|.
+name|valueOf
+argument_list|(
 literal|9001
+argument_list|)
 argument_list|,
 name|cfg
 operator|.
@@ -1265,7 +1290,12 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+name|Integer
+operator|.
+name|valueOf
+argument_list|(
 literal|2
+argument_list|)
 argument_list|,
 name|config
 operator|.
