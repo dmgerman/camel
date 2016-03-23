@@ -1114,37 +1114,6 @@ argument_list|()
 throw|;
 block|}
 block|}
-annotation|@
-name|Test
-argument_list|(
-name|expected
-operator|=
-name|ResolveEndpointFailedException
-operator|.
-name|class
-argument_list|)
-DECL|method|testInvalidUriEndpoint ()
-specifier|public
-name|void
-name|testInvalidUriEndpoint
-parameter_list|()
-throws|throws
-name|Throwable
-block|{
-comment|// cm-sms://sgw01.cm.nl/gateway.ashx?defaultFrom=MyBusiness&defaultMaxNumberOfParts=8&productToken=ea723fd7-da81-4826-89bc-fa7144e71c40&testConnectionOnStartup=true
-name|String
-name|noHostUri
-init|=
-literal|"cm-sms://gateway.ashx?defaultFrom=MyBusiness&defaultMaxNumberOfParts=8&productToken=ea723fd7-da81-4826-89bc-fa7144e71c40&testConnectionOnStartup=true"
-decl_stmt|;
-name|camelContext
-operator|.
-name|getEndpoint
-argument_list|(
-name|noHostUri
-argument_list|)
-expr_stmt|;
-block|}
 comment|/*      * 2. Invalid Payload      */
 annotation|@
 name|Test
