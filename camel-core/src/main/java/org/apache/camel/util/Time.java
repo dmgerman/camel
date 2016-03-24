@@ -161,7 +161,7 @@ argument_list|)
 argument_list|,
 name|TimeUnit
 operator|.
-name|MILLISECONDS
+name|SECONDS
 argument_list|)
 return|;
 block|}
@@ -186,7 +186,7 @@ argument_list|)
 argument_list|,
 name|TimeUnit
 operator|.
-name|MILLISECONDS
+name|SECONDS
 argument_list|)
 return|;
 block|}
@@ -211,7 +211,7 @@ argument_list|)
 argument_list|,
 name|TimeUnit
 operator|.
-name|MILLISECONDS
+name|SECONDS
 argument_list|)
 return|;
 block|}
