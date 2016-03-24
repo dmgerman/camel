@@ -76,6 +76,16 @@ name|org
 operator|.
 name|quartz
 operator|.
+name|DisallowConcurrentExecution
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|quartz
+operator|.
 name|JobExecutionContext
 import|;
 end_import
@@ -111,6 +121,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|DisallowConcurrentExecution
 DECL|class|QuartzScheduledPollConsumerJob
 specifier|public
 class|class
