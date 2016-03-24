@@ -114,14 +114,14 @@ argument_list|)
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|3
+literal|2
 argument_list|)
 expr_stmt|;
 name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:decompressFiles"
+literal|"direct:decompressFiles"
 argument_list|,
 operator|new
 name|File
@@ -169,7 +169,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:decompressFiles"
+literal|"direct:decompressFiles"
 argument_list|,
 operator|new
 name|File
@@ -216,7 +216,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:decompressFiles"
+literal|"direct:decompressFiles"
 argument_list|)
 operator|.
 name|split
@@ -232,9 +232,9 @@ operator|.
 name|shareUnitOfWork
 argument_list|()
 operator|.
-name|log
+name|to
 argument_list|(
-literal|"we are splitting"
+literal|"log:entry"
 argument_list|)
 operator|.
 name|to
@@ -242,7 +242,6 @@ argument_list|(
 literal|"mock:entry"
 argument_list|)
 expr_stmt|;
-comment|//.to("file:target/zip/?fileName=decompressed.txt&fileExist=Append");
 block|}
 block|}
 return|;
