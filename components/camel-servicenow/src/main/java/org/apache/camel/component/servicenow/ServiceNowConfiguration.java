@@ -251,6 +251,13 @@ name|apiUrl
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|resource
+specifier|private
+name|String
+name|resource
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|table
 specifier|private
 name|String
@@ -586,6 +593,33 @@ argument_list|(
 name|oauthClientSecret
 argument_list|)
 return|;
+block|}
+DECL|method|getResource ()
+specifier|public
+name|String
+name|getResource
+parameter_list|()
+block|{
+return|return
+name|resource
+return|;
+block|}
+comment|/**      * The default resource, can be overridden by header CamelServiceNowResource      */
+DECL|method|setResource (String resource)
+specifier|public
+name|void
+name|setResource
+parameter_list|(
+name|String
+name|resource
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resource
+operator|=
+name|resource
+expr_stmt|;
 block|}
 DECL|method|getTable ()
 specifier|public

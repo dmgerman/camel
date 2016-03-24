@@ -64,7 +64,7 @@ DECL|field|RESOURCE_IMPORT
 name|String
 name|RESOURCE_IMPORT
 init|=
-literal|"aggregate"
+literal|"import"
 decl_stmt|;
 DECL|field|ACTION_RETRIEVE
 name|String

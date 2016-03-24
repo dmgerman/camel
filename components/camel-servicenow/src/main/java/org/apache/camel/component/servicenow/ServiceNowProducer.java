@@ -256,7 +256,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-specifier|final
 name|String
 name|resource
 init|=
@@ -270,6 +269,11 @@ argument_list|(
 name|ServiceNowConstants
 operator|.
 name|RESOURCE
+argument_list|,
+name|configuration
+operator|.
+name|getResource
+argument_list|()
 argument_list|,
 name|String
 operator|.
