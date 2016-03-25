@@ -100,6 +100,20 @@ name|HttpServletResponse
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|RestConfiguration
+import|;
+end_import
+
 begin_comment
 comment|/**  * A simple CORS filter that can used to allow the swagger ui or other API browsers from remote origins to access the  * Rest services exposes by this Camel swagger component.  */
 end_comment
@@ -172,7 +186,9 @@ name|setHeader
 argument_list|(
 literal|"Access-Control-Allow-Origin"
 argument_list|,
-literal|"*"
+name|RestConfiguration
+operator|.
+name|CORS_ACCESS_CONTROL_ALLOW_ORIGIN
 argument_list|)
 expr_stmt|;
 name|res
@@ -181,16 +197,9 @@ name|setHeader
 argument_list|(
 literal|"Access-Control-Allow-Methods"
 argument_list|,
-literal|"GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT, PATCH"
-argument_list|)
-expr_stmt|;
-name|res
+name|RestConfiguration
 operator|.
-name|setHeader
-argument_list|(
-literal|"Access-Control-Max-Age"
-argument_list|,
-literal|"3600"
+name|CORS_ACCESS_CONTROL_ALLOW_METHODS
 argument_list|)
 expr_stmt|;
 name|res
@@ -199,7 +208,20 @@ name|setHeader
 argument_list|(
 literal|"Access-Control-Allow-Headers"
 argument_list|,
-literal|"Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
+name|RestConfiguration
+operator|.
+name|CORS_ACCESS_CONTROL_ALLOW_HEADERS
+argument_list|)
+expr_stmt|;
+name|res
+operator|.
+name|setHeader
+argument_list|(
+literal|"Access-Control-Max-Age"
+argument_list|,
+name|RestConfiguration
+operator|.
+name|CORS_ACCESS_CONTROL_MAX_AGE
 argument_list|)
 expr_stmt|;
 name|chain
