@@ -565,6 +565,13 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|nickPassword
+specifier|private
+name|String
+name|nickPassword
+decl_stmt|;
 DECL|method|IrcConfiguration ()
 specifier|public
 name|IrcConfiguration
@@ -1736,6 +1743,33 @@ operator|.
 name|sslContextParameters
 operator|=
 name|sslContextParameters
+expr_stmt|;
+block|}
+comment|/**      * Your IRC server nickname password.      */
+DECL|method|getNickPassword ()
+specifier|public
+name|String
+name|getNickPassword
+parameter_list|()
+block|{
+return|return
+name|nickPassword
+return|;
+block|}
+DECL|method|setNickPassword (String nickPassword)
+specifier|public
+name|void
+name|setNickPassword
+parameter_list|(
+name|String
+name|nickPassword
+parameter_list|)
+block|{
+name|this
+operator|.
+name|nickPassword
+operator|=
+name|nickPassword
 expr_stmt|;
 block|}
 DECL|method|toString ()

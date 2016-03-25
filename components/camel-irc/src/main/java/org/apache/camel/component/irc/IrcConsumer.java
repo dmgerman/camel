@@ -60,6 +60,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|schwering
 operator|.
 name|irc
@@ -314,6 +328,78 @@ argument_list|(
 name|listener
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|configuration
+operator|.
+name|getNickPassword
+argument_list|()
+argument_list|)
+condition|)
+block|{
+try|try
+block|{
+comment|// TODO : sleep before joinChannels() may be another useful config param (even when not identifying)
+comment|// sleep for a few seconds as the server sometimes takes a moment to fully connect, print banners, etc after connection established
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Sleeping for 5 seconds before identifying to NickServ."
+argument_list|)
+expr_stmt|;
+name|Thread
+operator|.
+name|sleep
+argument_list|(
+literal|5000
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|InterruptedException
+name|ex
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Identifying and enforcing nick with NickServ."
+argument_list|)
+expr_stmt|;
+comment|// Identify nick and enforce, https://meta.wikimedia.org/wiki/IRC/Instructions#Register_your_nickname.2C_identify.2C_and_enforce
+name|connection
+operator|.
+name|doPrivmsg
+argument_list|(
+literal|"nickserv"
+argument_list|,
+literal|"identify "
+operator|+
+name|configuration
+operator|.
+name|getNickPassword
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|connection
+operator|.
+name|doPrivmsg
+argument_list|(
+literal|"nickserv"
+argument_list|,
+literal|"set enforce on"
+argument_list|)
+expr_stmt|;
+block|}
 name|endpoint
 operator|.
 name|joinChannels
