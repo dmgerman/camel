@@ -258,10 +258,7 @@ argument_list|()
 decl_stmt|;
 name|cipherSuitesInstance
 operator|.
-name|getCipherSuite
-argument_list|()
-operator|.
-name|addAll
+name|setCipherSuite
 argument_list|(
 name|cipherSuites
 operator|.
@@ -311,10 +308,7 @@ argument_list|()
 decl_stmt|;
 name|secureSocketProtocolsInstance
 operator|.
-name|getSecureSocketProtocol
-argument_list|()
-operator|.
-name|addAll
+name|setSecureSocketProtocol
 argument_list|(
 name|secureSocketProtocols
 operator|.
