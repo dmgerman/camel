@@ -94,6 +94,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|HeaderFilterStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Metadata
 import|;
 end_import
@@ -239,6 +253,34 @@ name|boolean
 name|failIfNoConsumers
 init|=
 literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"headerFilterStrategy"
+argument_list|)
+DECL|field|headerFilterStrategy
+specifier|private
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"propagateProperties"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|propagateProperties
+specifier|private
+name|Boolean
+name|propagateProperties
 decl_stmt|;
 DECL|method|DirectVmEndpoint (String endpointUri, DirectVmComponent component)
 specifier|public
@@ -442,7 +484,7 @@ return|return
 name|failIfNoConsumers
 return|;
 block|}
-comment|/**      * Whether the producer should fail by throwing an exception, when sending to a DIRECT-VM endpoint with no active consumers.      */
+comment|/**      * Whether the producer should fail by throwing an exception, when sending to a Direct-VM endpoint with no active consumers.      */
 DECL|method|setFailIfNoConsumers (boolean failIfNoConsumers)
 specifier|public
 name|void
@@ -457,6 +499,80 @@ operator|.
 name|failIfNoConsumers
 operator|=
 name|failIfNoConsumers
+expr_stmt|;
+block|}
+DECL|method|getHeaderFilterStrategy ()
+specifier|public
+name|HeaderFilterStrategy
+name|getHeaderFilterStrategy
+parameter_list|()
+block|{
+return|return
+name|headerFilterStrategy
+operator|==
+literal|null
+condition|?
+name|getComponent
+argument_list|()
+operator|.
+name|getHeaderFilterStrategy
+argument_list|()
+else|:
+name|headerFilterStrategy
+return|;
+block|}
+comment|/**      * Sets a {@link HeaderFilterStrategy} that will only be applied on producer endpoints (on both directions: request and response).      *<p>Default value: none.</p>      * @param headerFilterStrategy      */
+DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
+specifier|public
+name|void
+name|setHeaderFilterStrategy
+parameter_list|(
+name|HeaderFilterStrategy
+name|headerFilterStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|headerFilterStrategy
+operator|=
+name|headerFilterStrategy
+expr_stmt|;
+block|}
+DECL|method|isPropagateProperties ()
+specifier|public
+name|Boolean
+name|isPropagateProperties
+parameter_list|()
+block|{
+return|return
+name|propagateProperties
+operator|==
+literal|null
+condition|?
+name|getComponent
+argument_list|()
+operator|.
+name|isPropagateProperties
+argument_list|()
+else|:
+name|propagateProperties
+return|;
+block|}
+comment|/**      * Whether to propagate or not properties from the producer side to the consumer side, and viceversa.      *<p>Default value: true.</p>      * @param propagateProperties      */
+DECL|method|setPropagateProperties (Boolean propagateProperties)
+specifier|public
+name|void
+name|setPropagateProperties
+parameter_list|(
+name|Boolean
+name|propagateProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|propagateProperties
+operator|=
+name|propagateProperties
 expr_stmt|;
 block|}
 block|}
