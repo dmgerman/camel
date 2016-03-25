@@ -294,7 +294,7 @@ literal|"REST API"
 argument_list|,
 name|syntax
 operator|=
-literal|"rest-api:path/contextId"
+literal|"rest-api:path/contextIdPattern"
 argument_list|,
 name|consumerOnly
 operator|=
