@@ -82,6 +82,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|RestConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|EndpointHelper
@@ -170,12 +184,18 @@ specifier|final
 name|boolean
 name|contextIdListing
 decl_stmt|;
+DECL|field|configuration
+specifier|private
+specifier|final
+name|RestConfiguration
+name|configuration
+decl_stmt|;
 annotation|@
 name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|RestSwaggerProcessor (String contextIdPattern, boolean contextIdListing, Map<String, Object> parameters)
+DECL|method|RestSwaggerProcessor (String contextIdPattern, boolean contextIdListing, Map<String, Object> parameters, RestConfiguration configuration)
 specifier|public
 name|RestSwaggerProcessor
 parameter_list|(
@@ -192,6 +212,9 @@ argument_list|,
 name|Object
 argument_list|>
 name|parameters
+parameter_list|,
+name|RestConfiguration
+name|configuration
 parameter_list|)
 block|{
 name|this
@@ -205,6 +228,12 @@ operator|.
 name|contextIdListing
 operator|=
 name|contextIdListing
+expr_stmt|;
+name|this
+operator|.
+name|configuration
+operator|=
+name|configuration
 expr_stmt|;
 name|this
 operator|.
@@ -483,6 +512,8 @@ argument_list|,
 name|json
 argument_list|,
 name|yaml
+argument_list|,
+name|configuration
 argument_list|)
 expr_stmt|;
 block|}
@@ -684,6 +715,8 @@ argument_list|()
 operator|.
 name|getClassResolver
 argument_list|()
+argument_list|,
+name|configuration
 argument_list|)
 expr_stmt|;
 block|}

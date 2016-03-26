@@ -503,6 +503,34 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
+comment|// when using servlet then use the cors filter to enable cors
+if|if
+condition|(
+name|parameters
+operator|.
+name|get
+argument_list|(
+literal|"cors"
+argument_list|)
+operator|!=
+literal|null
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Use RestSwaggerCorsFilter when uisng this Servlet to enable CORS"
+argument_list|)
+expr_stmt|;
+name|parameters
+operator|.
+name|remove
+argument_list|(
+literal|"cors"
+argument_list|)
+expr_stmt|;
+block|}
 name|support
 operator|.
 name|initSwagger
@@ -799,6 +827,8 @@ argument_list|,
 name|json
 argument_list|,
 name|yaml
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
@@ -1025,6 +1055,8 @@ argument_list|,
 name|yaml
 argument_list|,
 name|classResolver
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 block|}
