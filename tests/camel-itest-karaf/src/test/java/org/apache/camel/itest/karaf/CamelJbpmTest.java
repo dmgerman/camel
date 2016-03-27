@@ -24,6 +24,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -64,6 +74,8 @@ name|PaxExam
 operator|.
 name|class
 argument_list|)
+annotation|@
+name|Ignore
 DECL|class|CamelJbpmTest
 specifier|public
 class|class
@@ -95,6 +107,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// TODO: need to expose com.sun.tools.xjc in jre.properties
 name|testComponent
 argument_list|(
 name|COMPONENT

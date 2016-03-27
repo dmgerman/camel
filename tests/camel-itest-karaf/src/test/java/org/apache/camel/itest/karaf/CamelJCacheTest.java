@@ -78,12 +78,7 @@ specifier|final
 name|String
 name|COMPONENT
 init|=
-name|extractName
-argument_list|(
-name|CamelJCacheTest
-operator|.
-name|class
-argument_list|)
+literal|"jcache"
 decl_stmt|;
 annotation|@
 name|Test

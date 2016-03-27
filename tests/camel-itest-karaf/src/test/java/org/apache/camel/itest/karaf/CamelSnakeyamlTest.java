@@ -81,7 +81,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|testComponent
+name|testDataFormat
 argument_list|(
 literal|"camel-snakeyaml"
 argument_list|,

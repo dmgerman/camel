@@ -95,6 +95,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// TODO: the lucene bundle do not work - a new SMX bundle is on the way
 name|testComponent
 argument_list|(
 name|COMPONENT

@@ -95,6 +95,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// TODO: need to expose com.sun.source.tree in jre.properties
 name|testComponent
 argument_list|(
 name|COMPONENT

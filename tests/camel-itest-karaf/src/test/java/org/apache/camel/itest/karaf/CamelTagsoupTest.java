@@ -98,6 +98,8 @@ block|{
 name|testDataFormat
 argument_list|(
 name|COMPONENT
+argument_list|,
+literal|"tidyMarkup"
 argument_list|)
 expr_stmt|;
 block|}

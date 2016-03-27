@@ -99,14 +99,14 @@ name|testDataFormat
 argument_list|(
 name|COMPONENT
 argument_list|,
-literal|"xstream"
+literal|"json-xstream"
 argument_list|)
 expr_stmt|;
 name|testDataFormat
 argument_list|(
 name|COMPONENT
 argument_list|,
-literal|"json"
+literal|"xstream"
 argument_list|)
 expr_stmt|;
 block|}
