@@ -125,6 +125,8 @@ name|Exception
 block|{
 name|testComponent
 argument_list|(
+name|COMPONENT
+argument_list|,
 literal|"cql"
 argument_list|)
 expr_stmt|;
