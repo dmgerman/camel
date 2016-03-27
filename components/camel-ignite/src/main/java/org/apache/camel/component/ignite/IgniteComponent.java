@@ -871,13 +871,21 @@ condition|)
 block|{
 return|return;
 block|}
+if|if
+condition|(
+name|ignite
+operator|!=
+literal|null
+condition|)
+block|{
 name|ignite
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Returns the {@link Ignite} instance.      *       * @return      */
+block|}
+comment|/**      * Returns the {@link Ignite} instance.      */
 DECL|method|getIgnite ()
 specifier|public
 name|Ignite
@@ -888,7 +896,7 @@ return|return
 name|ignite
 return|;
 block|}
-comment|/**      * Sets the {@link Ignite} instance.      *       * @param ignite      */
+comment|/**      * Sets the {@link Ignite} instance.      */
 DECL|method|setIgnite (Ignite ignite)
 specifier|public
 name|void
@@ -905,7 +913,7 @@ operator|=
 name|ignite
 expr_stmt|;
 block|}
-comment|/**      * Gets the resource from where to load the configuration. It can be a: {@link URI}, {@link String} (URI)       * or an {@link InputStream}.      *       * @return      */
+comment|/**      * Gets the resource from where to load the configuration. It can be a: {@link URI}, {@link String} (URI)       * or an {@link InputStream}.      */
 DECL|method|getConfigurationResource ()
 specifier|public
 name|Object
@@ -916,7 +924,7 @@ return|return
 name|configurationResource
 return|;
 block|}
-comment|/**      * Sets the resource from where to load the configuration. It can be a: {@link URI}, {@link String} (URI)       * or an {@link InputStream}.      *       * @param configurationResource      */
+comment|/**      * Sets the resource from where to load the configuration. It can be a: {@link URI}, {@link String} (URI)       * or an {@link InputStream}.      */
 DECL|method|setConfigurationResource (Object configurationResource)
 specifier|public
 name|void
@@ -933,7 +941,7 @@ operator|=
 name|configurationResource
 expr_stmt|;
 block|}
-comment|/**      * Gets the {@link IgniteConfiguration} if the user set it explicitly.      * @return      */
+comment|/**      * Gets the {@link IgniteConfiguration} if the user set it explicitly.      */
 DECL|method|getIgniteConfiguration ()
 specifier|public
 name|IgniteConfiguration
@@ -944,7 +952,7 @@ return|return
 name|igniteConfiguration
 return|;
 block|}
-comment|/**      * Allows the user to set a programmatic {@link IgniteConfiguration}.      *       * @param igniteConfiguration      */
+comment|/**      * Allows the user to set a programmatic {@link IgniteConfiguration}.      */
 DECL|method|setIgniteConfiguration (IgniteConfiguration igniteConfiguration)
 specifier|public
 name|void

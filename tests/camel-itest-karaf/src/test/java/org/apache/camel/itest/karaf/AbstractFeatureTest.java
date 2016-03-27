@@ -540,7 +540,7 @@ class|class
 name|AbstractFeatureTest
 block|{
 DECL|field|LOG
-specifier|private
+specifier|protected
 specifier|static
 specifier|final
 name|Logger

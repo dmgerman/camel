@@ -20,11 +20,11 @@ end_package
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|junit
+name|net
 operator|.
-name|Ignore
+name|URI
 import|;
 end_import
 
@@ -74,8 +74,6 @@ name|PaxExam
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
 DECL|class|CamelIgniteTest
 specifier|public
 class|class
@@ -107,7 +105,55 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: we need to install some ignite stuff first (see the info of camel feature)
+comment|// install ignite first
+name|String
+name|version
+init|=
+literal|"1.5.0.final"
+decl_stmt|;
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Using Apache Ignite version: {}"
+argument_list|,
+name|version
+argument_list|)
+expr_stmt|;
+name|URI
+name|url
+init|=
+operator|new
+name|URI
+argument_list|(
+literal|"mvn:org.apache.ignite/ignite-osgi-karaf/"
+operator|+
+name|version
+operator|+
+literal|"/xml/features"
+argument_list|)
+decl_stmt|;
+name|featuresService
+operator|.
+name|addRepository
+argument_list|(
+name|url
+argument_list|)
+expr_stmt|;
+name|featuresService
+operator|.
+name|installFeature
+argument_list|(
+literal|"ignite-core"
+argument_list|)
+expr_stmt|;
+name|featuresService
+operator|.
+name|installFeature
+argument_list|(
+literal|"ignite-camel"
+argument_list|)
+expr_stmt|;
 name|testComponent
 argument_list|(
 name|COMPONENT
