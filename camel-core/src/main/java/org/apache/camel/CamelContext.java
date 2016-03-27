@@ -989,7 +989,7 @@ name|String
 name|componentName
 parameter_list|)
 function_decl|;
-comment|/**      * Gets a component from the context by name.      *      * @param componentName the name of the component      * @return the component      */
+comment|/**      * Gets a component from the context by name.      *<p/>      * Notice the returned component will be auto-started. If you do not intend to do that      * then use {@link #getComponent(String, boolean, boolean)}.      *      * @param componentName the name of the component      * @return the component      */
 DECL|method|getComponent (String componentName)
 name|Component
 name|getComponent
@@ -998,7 +998,7 @@ name|String
 name|componentName
 parameter_list|)
 function_decl|;
-comment|/**      * Gets a component from the context by name.      *      * @param name                 the name of the component      * @param autoCreateComponents whether or not the component should      *                             be lazily created if it does not already exist      * @return the component      */
+comment|/**      * Gets a component from the context by name.      *<p/>      * Notice the returned component will be auto-started. If you do not intend to do that      * then use {@link #getComponent(String, boolean, boolean)}.      *      * @param name                 the name of the component      * @param autoCreateComponents whether or not the component should      *                             be lazily created if it does not already exist      * @return the component      */
 DECL|method|getComponent (String name, boolean autoCreateComponents)
 name|Component
 name|getComponent
@@ -1008,6 +1008,21 @@ name|name
 parameter_list|,
 name|boolean
 name|autoCreateComponents
+parameter_list|)
+function_decl|;
+comment|/**      * Gets a component from the context by name.      *      * @param name                 the name of the component      * @param autoCreateComponents whether or not the component should      *                             be lazily created if it does not already exist      * @param autoStart            whether to auto start the component if {@link CamelContext} is already started.      * @return the component      */
+DECL|method|getComponent (String name, boolean autoCreateComponents, boolean autoStart)
+name|Component
+name|getComponent
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|boolean
+name|autoCreateComponents
+parameter_list|,
+name|boolean
+name|autoStart
 parameter_list|)
 function_decl|;
 comment|/**      * Gets a component from the context by name and specifying the expected type of component.      *      * @param name          the name to lookup      * @param componentType the expected type      * @return the component      */
