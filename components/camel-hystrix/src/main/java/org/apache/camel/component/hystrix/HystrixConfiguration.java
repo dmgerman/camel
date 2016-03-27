@@ -187,10 +187,10 @@ specifier|private
 name|String
 name|fallbackEndpointId
 decl_stmt|;
-DECL|field|corePoolSize
+DECL|field|coreSize
 specifier|private
 name|Integer
-name|corePoolSize
+name|coreSize
 decl_stmt|;
 DECL|field|keepAliveTime
 specifier|private
@@ -207,15 +207,15 @@ specifier|private
 name|Integer
 name|queueSizeRejectionThreshold
 decl_stmt|;
-DECL|field|threadPoolRollingNumberStatisticalWindowInMilliseconds
+DECL|field|threadPoolMetricsRollingStatisticalWindowInMilliseconds
 specifier|private
 name|Integer
-name|threadPoolRollingNumberStatisticalWindowInMilliseconds
+name|threadPoolMetricsRollingStatisticalWindowInMilliseconds
 decl_stmt|;
-DECL|field|threadPoolRollingNumberStatisticalWindowBuckets
+DECL|field|threadPoolMetricsRollingStatisticalWindowBuckets
 specifier|private
 name|Integer
-name|threadPoolRollingNumberStatisticalWindowBuckets
+name|threadPoolMetricsRollingStatisticalWindowBuckets
 decl_stmt|;
 DECL|field|circuitBreakerEnabled
 specifier|private
@@ -521,30 +521,30 @@ operator|=
 name|threadPoolKey
 expr_stmt|;
 block|}
-DECL|method|getCorePoolSize ()
+DECL|method|getCoreSize ()
 specifier|public
 name|Integer
-name|getCorePoolSize
+name|getCoreSize
 parameter_list|()
 block|{
 return|return
-name|corePoolSize
+name|coreSize
 return|;
 block|}
-DECL|method|setCorePoolSize (Integer corePoolSize)
+DECL|method|setCoreSize (Integer coreSize)
 specifier|public
 name|void
-name|setCorePoolSize
+name|setCoreSize
 parameter_list|(
 name|Integer
-name|corePoolSize
+name|coreSize
 parameter_list|)
 block|{
 name|this
 operator|.
-name|corePoolSize
+name|coreSize
 operator|=
-name|corePoolSize
+name|coreSize
 expr_stmt|;
 block|}
 DECL|method|getKeepAliveTime ()
@@ -625,56 +625,56 @@ operator|=
 name|queueSizeRejectionThreshold
 expr_stmt|;
 block|}
-DECL|method|getThreadPoolRollingNumberStatisticalWindowInMilliseconds ()
+DECL|method|getThreadPoolMetricsRollingStatisticalWindowInMilliseconds ()
 specifier|public
 name|Integer
-name|getThreadPoolRollingNumberStatisticalWindowInMilliseconds
+name|getThreadPoolMetricsRollingStatisticalWindowInMilliseconds
 parameter_list|()
 block|{
 return|return
-name|threadPoolRollingNumberStatisticalWindowInMilliseconds
+name|threadPoolMetricsRollingStatisticalWindowInMilliseconds
 return|;
 block|}
-DECL|method|setThreadPoolRollingNumberStatisticalWindowInMilliseconds (Integer threadPoolRollingNumberStatisticalWindowInMilliseconds)
+DECL|method|setThreadPoolMetricsRollingStatisticalWindowInMilliseconds (Integer threadPoolMetricsRollingStatisticalWindowInMilliseconds)
 specifier|public
 name|void
-name|setThreadPoolRollingNumberStatisticalWindowInMilliseconds
+name|setThreadPoolMetricsRollingStatisticalWindowInMilliseconds
 parameter_list|(
 name|Integer
-name|threadPoolRollingNumberStatisticalWindowInMilliseconds
+name|threadPoolMetricsRollingStatisticalWindowInMilliseconds
 parameter_list|)
 block|{
 name|this
 operator|.
-name|threadPoolRollingNumberStatisticalWindowInMilliseconds
+name|threadPoolMetricsRollingStatisticalWindowInMilliseconds
 operator|=
-name|threadPoolRollingNumberStatisticalWindowInMilliseconds
+name|threadPoolMetricsRollingStatisticalWindowInMilliseconds
 expr_stmt|;
 block|}
-DECL|method|getThreadPoolRollingNumberStatisticalWindowBuckets ()
+DECL|method|getThreadPoolMetricsRollingStatisticalWindowBuckets ()
 specifier|public
 name|Integer
-name|getThreadPoolRollingNumberStatisticalWindowBuckets
+name|getThreadPoolMetricsRollingStatisticalWindowBuckets
 parameter_list|()
 block|{
 return|return
-name|threadPoolRollingNumberStatisticalWindowBuckets
+name|threadPoolMetricsRollingStatisticalWindowBuckets
 return|;
 block|}
-DECL|method|setThreadPoolRollingNumberStatisticalWindowBuckets (Integer threadPoolRollingNumberStatisticalWindowBuckets)
+DECL|method|setThreadPoolMetricsRollingStatisticalWindowBuckets (Integer threadPoolMetricsRollingStatisticalWindowBuckets)
 specifier|public
 name|void
-name|setThreadPoolRollingNumberStatisticalWindowBuckets
+name|setThreadPoolMetricsRollingStatisticalWindowBuckets
 parameter_list|(
 name|Integer
-name|threadPoolRollingNumberStatisticalWindowBuckets
+name|threadPoolMetricsRollingStatisticalWindowBuckets
 parameter_list|)
 block|{
 name|this
 operator|.
-name|threadPoolRollingNumberStatisticalWindowBuckets
+name|threadPoolMetricsRollingStatisticalWindowBuckets
 operator|=
-name|threadPoolRollingNumberStatisticalWindowBuckets
+name|threadPoolMetricsRollingStatisticalWindowBuckets
 expr_stmt|;
 block|}
 DECL|method|getCircuitBreakerEnabled ()
