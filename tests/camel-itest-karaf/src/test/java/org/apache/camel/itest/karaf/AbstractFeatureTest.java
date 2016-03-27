@@ -1464,6 +1464,20 @@ operator|.
 name|keepRuntimeFolder
 argument_list|()
 block|,
+comment|// need to modify the jre.properties to export some com.sun packages that some features rely on
+name|KarafDistributionOption
+operator|.
+name|replaceConfigurationFile
+argument_list|(
+literal|"etc/jre.properties"
+argument_list|,
+operator|new
+name|File
+argument_list|(
+literal|"src/test/resources/jre.properties"
+argument_list|)
+argument_list|)
+block|,
 name|vmOption
 argument_list|(
 literal|"-Dfile.encoding=UTF-8"
