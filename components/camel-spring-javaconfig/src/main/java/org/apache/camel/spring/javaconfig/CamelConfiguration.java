@@ -259,7 +259,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for writing  *<a  * href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html#beans-annotation-config">  * Spring annotation-based</a> configurations for working with Camel. Unless {@link #routes()} method is overridden, this configuration  * automagically load all the {@link org.apache.camel.builder.RouteBuilder} instances available in the Spring context.  */
+comment|/**  * A useful base class for writing  *<a  * href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html#beans-annotation-config">  * Spring annotation-based</a> configurations for working with Camel. Unless {@link #routes()} method is overridden, this configuration  * automatically load all the {@link org.apache.camel.builder.RouteBuilder} instances available in the Spring context.  */
 end_comment
 
 begin_class
@@ -616,7 +616,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Returns the CamelContext      */
+comment|/**      * Get's the {@link CamelContext} to be used.      */
 annotation|@
 name|Bean
 DECL|method|camelContext ()
@@ -667,7 +667,7 @@ return|return
 name|camelContext
 return|;
 block|}
-comment|// Can register the camel component, language here
+comment|/**      * Callback to setup {@link CamelContext} before its started      */
 DECL|method|setupCamelContext (CamelContext camelContext)
 specifier|protected
 name|void
@@ -678,7 +678,9 @@ name|camelContext
 parameter_list|)
 throws|throws
 name|Exception
-block|{              }
+block|{
+comment|// noop
+block|}
 comment|/**      * Factory method returning {@link CamelContext} used by this configuration.      *      * @return {@link CamelContext} used by this configuration. By default {@link SpringCamelContext} instance is      * created, to fully integrate Spring application context and Camel registry.      */
 DECL|method|createCamelContext ()
 specifier|protected

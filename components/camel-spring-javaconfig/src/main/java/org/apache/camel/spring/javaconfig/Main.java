@@ -127,10 +127,16 @@ specifier|private
 name|String
 name|basedPackages
 decl_stmt|;
-DECL|field|configClassesString
+DECL|field|configClasses
 specifier|private
 name|String
-name|configClassesString
+name|configClasses
+decl_stmt|;
+DECL|field|configClass
+specifier|private
+name|Class
+index|[]
+name|configClass
 decl_stmt|;
 DECL|method|Main ()
 specifier|public
@@ -146,7 +152,7 @@ literal|"bp"
 argument_list|,
 literal|"basedPackages"
 argument_list|,
-literal|"Sets the based packages of spring java config ApplicationContext"
+literal|"Sets the based packages of Spring java config ApplicationContext"
 argument_list|,
 literal|"basedPackages"
 argument_list|)
@@ -186,7 +192,7 @@ literal|"cc"
 argument_list|,
 literal|"configClasses"
 argument_list|,
-literal|"Sets the config Class of spring java config ApplicationContext"
+literal|"Sets the config of Spring java config ApplicationContext"
 argument_list|,
 literal|"configureClasses"
 argument_list|)
@@ -208,7 +214,7 @@ argument_list|>
 name|remainingArgs
 parameter_list|)
 block|{
-name|setConfigClassesString
+name|setConfigClasses
 argument_list|(
 name|parameter
 argument_list|)
@@ -250,6 +256,7 @@ name|args
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Sets the base packages where Spring annotation scanning is performed.      * You can separate multiple packages using comma or semi colon.      */
 DECL|method|setBasedPackages (String config)
 specifier|public
 name|void
@@ -274,6 +281,34 @@ return|return
 name|basedPackages
 return|;
 block|}
+comment|/**      * Sets the name of Spring<tt>@Configuration</tt> classes to use.      * You can separate multiple classes using comma or semi colon.      */
+DECL|method|setConfigClasses (String config)
+specifier|public
+name|void
+name|setConfigClasses
+parameter_list|(
+name|String
+name|config
+parameter_list|)
+block|{
+name|configClasses
+operator|=
+name|config
+expr_stmt|;
+block|}
+DECL|method|getConfigClasses ()
+specifier|public
+name|String
+name|getConfigClasses
+parameter_list|()
+block|{
+return|return
+name|configClasses
+return|;
+block|}
+comment|/**      * @deprecated use {@link #setConfigClasses(String)}      */
+annotation|@
+name|Deprecated
 DECL|method|setConfigClassesString (String config)
 specifier|public
 name|void
@@ -283,11 +318,15 @@ name|String
 name|config
 parameter_list|)
 block|{
-name|configClassesString
-operator|=
+name|setConfigClasses
+argument_list|(
 name|config
+argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * @deprecated use {@link #getConfigClasses()}      */
+annotation|@
+name|Deprecated
 DECL|method|getConfigClassesString ()
 specifier|public
 name|String
@@ -295,8 +334,38 @@ name|getConfigClassesString
 parameter_list|()
 block|{
 return|return
-name|configClassesString
+name|getConfigClasses
+argument_list|()
 return|;
+block|}
+DECL|method|getConfigClass ()
+specifier|public
+name|Class
+index|[]
+name|getConfigClass
+parameter_list|()
+block|{
+return|return
+name|configClass
+return|;
+block|}
+comment|/**      * Sets the Spring<tt>@Configuration</tt> classes to use.      */
+DECL|method|setConfigClass (Class... configClass)
+specifier|public
+name|void
+name|setConfigClass
+parameter_list|(
+name|Class
+modifier|...
+name|configClass
+parameter_list|)
+block|{
+name|this
+operator|.
+name|configClass
+operator|=
+name|configClass
+expr_stmt|;
 block|}
 DECL|method|getConfigClasses (String configureClasses)
 specifier|private
@@ -338,7 +407,7 @@ name|configureClasses
 operator|.
 name|split
 argument_list|(
-literal|";"
+literal|"(;|,)"
 argument_list|)
 decl_stmt|;
 for|for
@@ -349,6 +418,13 @@ range|:
 name|classes
 control|)
 block|{
+name|className
+operator|=
+name|className
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
 name|Class
 argument_list|<
 name|?
@@ -433,7 +509,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|getConfigClassesString
+name|getConfigClasses
 argument_list|()
 operator|!=
 literal|null
@@ -448,7 +524,7 @@ name|configClasses
 init|=
 name|getConfigClasses
 argument_list|(
-name|getConfigClassesString
+name|getConfigClasses
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -461,6 +537,35 @@ argument_list|>
 name|cls
 range|:
 name|configClasses
+control|)
+block|{
+name|acApplicationContext
+operator|.
+name|register
+argument_list|(
+name|cls
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+if|if
+condition|(
+name|getConfigClass
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+for|for
+control|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|cls
+range|:
+name|getConfigClass
+argument_list|()
 control|)
 block|{
 name|acApplicationContext
@@ -489,7 +594,7 @@ argument_list|()
 operator|.
 name|split
 argument_list|(
-literal|";"
+literal|"(;|,)"
 argument_list|)
 decl_stmt|;
 for|for
@@ -500,6 +605,13 @@ range|:
 name|basePackages
 control|)
 block|{
+name|basePackage
+operator|=
+name|basePackage
+operator|.
+name|trim
+argument_list|()
+expr_stmt|;
 name|acApplicationContext
 operator|.
 name|scan
