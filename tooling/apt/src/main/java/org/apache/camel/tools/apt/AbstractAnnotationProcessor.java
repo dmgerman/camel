@@ -1649,6 +1649,7 @@ name|toString
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// do not check the classes from JDK itself
 if|if
 condition|(
 name|isNullOrEmpty
@@ -1656,11 +1657,18 @@ argument_list|(
 name|aRootName
 argument_list|)
 operator|||
-literal|"java.lang.Object"
-operator|.
-name|equals
-argument_list|(
 name|aRootName
+operator|.
+name|startsWith
+argument_list|(
+literal|"java."
+argument_list|)
+operator|||
+name|aRootName
+operator|.
+name|startsWith
+argument_list|(
+literal|"javax."
 argument_list|)
 condition|)
 block|{
