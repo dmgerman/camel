@@ -497,13 +497,6 @@ operator|)
 name|context
 argument_list|)
 expr_stmt|;
-name|logger
-operator|.
-name|info
-argument_list|(
-literal|">>>> I was here<<<<<"
-argument_list|)
-expr_stmt|;
 comment|// Post CamelContext(s) instantiation but pre CamelContext(s) start setup
 name|handleProvidesBreakpoint
 argument_list|(
