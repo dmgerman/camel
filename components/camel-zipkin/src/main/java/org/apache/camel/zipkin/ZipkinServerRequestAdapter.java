@@ -304,7 +304,9 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-literal|"CamelZipkinTraceId"
+name|ZipkinConstants
+operator|.
+name|TRACE_ID
 argument_list|,
 name|String
 operator|.
@@ -321,7 +323,9 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-literal|"CamelZipkinSpanId"
+name|ZipkinConstants
+operator|.
+name|SPAN_ID
 argument_list|,
 name|String
 operator|.
@@ -338,7 +342,9 @@ argument_list|()
 operator|.
 name|getHeader
 argument_list|(
-literal|"CamelZipkinParentSpanId"
+name|ZipkinConstants
+operator|.
+name|PARENT_SPAN_ID
 argument_list|,
 name|String
 operator|.

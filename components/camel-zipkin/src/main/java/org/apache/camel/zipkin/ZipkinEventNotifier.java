@@ -887,7 +887,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Auto-configuring ZipkinScribeSpanCollector using host: {} and port: {}"
+literal|"Auto-configuring Zipkin ScribeSpanCollector using host: {} and port: {}"
 argument_list|,
 name|host
 argument_list|,
