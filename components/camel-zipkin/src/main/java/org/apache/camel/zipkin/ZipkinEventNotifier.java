@@ -290,6 +290,38 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|properties
+operator|.
+name|ServiceHostPropertiesFunction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|properties
+operator|.
+name|ServicePortPropertiesFunction
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|management
 operator|.
 name|event
@@ -449,7 +481,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To use zipkin with Camel then setup this {@link org.apache.camel.spi.EventNotifier} in your Camel application.  *<p/>  * Events (span) are captured for incoming and outgoing messages being sent to/from Camel.  * This means you need to configure which which Camel endpoints that maps to zipkin service names.  * The mapping can be configured using  *<ul>  *<li>route id - A Camel route id</li>  *<li>endpoint url - A Camel endpoint url</li>  *</ul>  * For both kinds you can use wildcards and regular expressions to match, which is using the rules from  * {@link EndpointHelper#matchPattern(String, String)} and {@link EndpointHelper#matchEndpoint(CamelContext, String, String)}  *<p/>  * To match all Camel messages you can use<tt>*</tt> in the pattern and configure that to the same service name.  *<br/>  * If no mapping has been configured then Camel will fallback and use endpoint uri's as service names.  * However its recommended to configure service mappings so you can use human logic names instead of Camel  * endpoint uris in the names.  *<p/>  * Camel will auto-configure a {@link ScribeSpanCollector} if no SpanCollector has explict been configured, and  * if the hostname and port has been configured as environment variables  *<ul>  *<li>ZIPKIN_SERVICE_HOST - The hostname</li>  *<li>ZIPKIN_SERVICE_PORT - The port number</li>  *</ul>  */
+comment|/**  * To use zipkin with Camel then setup this {@link org.apache.camel.spi.EventNotifier} in your Camel application.  *<p/>  * Events (span) are captured for incoming and outgoing messages being sent to/from Camel.  * This means you need to configure which which Camel endpoints that maps to zipkin service names.  * The mapping can be configured using  *<ul>  *<li>route id - A Camel route id</li>  *<li>endpoint url - A Camel endpoint url</li>  *</ul>  * For both kinds you can use wildcards and regular expressions to match, which is using the rules from  * {@link EndpointHelper#matchPattern(String, String)} and {@link EndpointHelper#matchEndpoint(CamelContext, String, String)}  *<p/>  * To match all Camel messages you can use<tt>*</tt> in the pattern and configure that to the same service name.  *<br/>  * If no mapping has been configured then Camel will fallback and use endpoint uri's as service names.  * However its recommended to configure service mappings so you can use human logic names instead of Camel  * endpoint uris in the names.  *<p/>  * Camel will auto-configure a {@link ScribeSpanCollector} if no SpanCollector explicit has been configured, and  * if the hostname and port has been configured as environment variables  *<ul>  *<li>ZIPKIN_SERVICE_HOST - The hostname</li>  *<li>ZIPKIN_SERVICE_PORT - The port number</li>  *</ul>  */
 end_comment
 
 begin_class
@@ -475,6 +507,16 @@ DECL|field|camelContext
 specifier|private
 name|CamelContext
 name|camelContext
+decl_stmt|;
+DECL|field|hostName
+specifier|private
+name|String
+name|hostName
+decl_stmt|;
+DECL|field|port
+specifier|private
+name|int
+name|port
 decl_stmt|;
 DECL|field|rate
 specifier|private
@@ -572,6 +614,60 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+DECL|method|getHostName ()
+specifier|public
+name|String
+name|getHostName
+parameter_list|()
+block|{
+return|return
+name|hostName
+return|;
+block|}
+comment|/**      * Sets a hostname for the remote zipkin server to use.      */
+DECL|method|setHostName (String hostName)
+specifier|public
+name|void
+name|setHostName
+parameter_list|(
+name|String
+name|hostName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|hostName
+operator|=
+name|hostName
+expr_stmt|;
+block|}
+DECL|method|getPort ()
+specifier|public
+name|int
+name|getPort
+parameter_list|()
+block|{
+return|return
+name|port
+return|;
+block|}
+comment|/**      * Sets the port number for the remote zipkin server to use.      */
+DECL|method|setPort (int port)
+specifier|public
+name|void
+name|setPort
+parameter_list|(
+name|int
+name|port
+parameter_list|)
+block|{
+name|this
+operator|.
+name|port
+operator|=
+name|port
+expr_stmt|;
+block|}
 DECL|method|getRate ()
 specifier|public
 name|float
@@ -582,7 +678,7 @@ return|return
 name|rate
 return|;
 block|}
-comment|/**      * Configures a rate that decides how many events should be traced by zpkin.      * The rate is expressed as a percentage (1.0f = 100%, 0.5f is 50%, 0.1f is 10%).      *      * @param rate minimum sample rate is 0.0001, or 0.01% of traces      */
+comment|/**      * Configures a rate that decides how many events should be traced by zipkin.      * The rate is expressed as a percentage (1.0f = 100%, 0.5f is 50%, 0.1f is 10%).      *      * @param rate minimum sample rate is 0.0001, or 0.01% of traces      */
 DECL|method|setRate (float rate)
 specifier|public
 name|void
@@ -697,7 +793,7 @@ operator|=
 name|serviceMappings
 expr_stmt|;
 block|}
-comment|/**      * Adds a service mapping that matches Camel events to the given zipkin serivce name.      * See more details at the class javadoc.      *      * @param pattern  the pattern such as route id, endpoint url      * @param serviceName the zipkin service name      */
+comment|/**      * Adds a service mapping that matches Camel events to the given zipkin service name.      * See more details at the class javadoc.      *      * @param pattern  the pattern such as route id, endpoint url      * @param serviceName the zipkin service name      */
 DECL|method|addServiceMapping (String pattern, String serviceName)
 specifier|public
 name|void
@@ -844,26 +940,64 @@ operator|==
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|hostName
+operator|!=
+literal|null
+operator|&&
+name|port
+operator|>
+literal|0
+condition|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Configuring Zipkin ScribeSpanCollector using host: {} and port: {}"
+argument_list|,
+name|hostName
+argument_list|,
+name|port
+argument_list|)
+expr_stmt|;
+name|spanCollector
+operator|=
+operator|new
+name|ScribeSpanCollector
+argument_list|(
+name|hostName
+argument_list|,
+name|port
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// is there a zipkin service setup as ENV variable to auto register a scribe span collector
-comment|// use the {{service:name}} function that resolves this for us
 name|String
 name|host
 init|=
-name|camelContext
+operator|new
+name|ServiceHostPropertiesFunction
+argument_list|()
 operator|.
-name|resolvePropertyPlaceholders
+name|apply
 argument_list|(
-literal|"{{service.host:zipkin}}"
+literal|"zipkin"
 argument_list|)
 decl_stmt|;
 name|String
 name|port
 init|=
-name|camelContext
+operator|new
+name|ServicePortPropertiesFunction
+argument_list|()
 operator|.
-name|resolvePropertyPlaceholders
+name|apply
 argument_list|(
-literal|"{{service.port:zipkin}}"
+literal|"zipkin"
 argument_list|)
 decl_stmt|;
 if|if
@@ -921,6 +1055,7 @@ argument_list|,
 name|num
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 name|ObjectHelper

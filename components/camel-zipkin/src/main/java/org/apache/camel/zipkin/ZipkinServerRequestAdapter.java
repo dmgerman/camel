@@ -308,6 +308,8 @@ name|ZipkinConstants
 operator|.
 name|SAMPLED
 argument_list|,
+literal|"0"
+argument_list|,
 name|String
 operator|.
 name|class
