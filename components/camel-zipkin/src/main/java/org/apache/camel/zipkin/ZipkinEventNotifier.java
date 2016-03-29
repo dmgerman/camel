@@ -198,6 +198,50 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|StatefulService
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|management
 operator|.
 name|event
@@ -347,12 +391,21 @@ comment|/**  * To use zipkin with Camel then setup this {@link org.apache.camel.
 end_comment
 
 begin_class
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Managing ZipkinEventNotifier"
+argument_list|)
 DECL|class|ZipkinEventNotifier
 specifier|public
 class|class
 name|ZipkinEventNotifier
 extends|extends
 name|EventNotifierSupport
+implements|implements
+name|StatefulService
 block|{
 DECL|field|rate
 specifier|private
@@ -395,6 +448,11 @@ operator|new
 name|HashMap
 argument_list|<>
 argument_list|()
+decl_stmt|;
+DECL|field|includeMessageBody
+specifier|private
+name|boolean
+name|includeMessageBody
 decl_stmt|;
 DECL|method|ZipkinEventNotifier ()
 specifier|public
@@ -547,6 +605,47 @@ name|pattern
 argument_list|,
 name|serviceName
 argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to include the Camel message body in the zipkin traces"
+argument_list|)
+DECL|method|isIncludeMessageBody ()
+specifier|public
+name|boolean
+name|isIncludeMessageBody
+parameter_list|()
+block|{
+return|return
+name|includeMessageBody
+return|;
+block|}
+comment|/**      * Whether to include the Camel message body in the zipkin traces.      *<p/>      * This is not recommended for production usage, or when having big payloads. You can limit the size by      * configuring the<a href="http://camel.apache.org/how-do-i-set-the-max-chars-when-debug-logging-messages-in-camel.html">max debug log size</a>.      */
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to include the Camel message body in the zipkin traces"
+argument_list|)
+DECL|method|setIncludeMessageBody (boolean includeMessageBody)
+specifier|public
+name|void
+name|setIncludeMessageBody
+parameter_list|(
+name|boolean
+name|includeMessageBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeMessageBody
+operator|=
+name|includeMessageBody
 expr_stmt|;
 block|}
 annotation|@
@@ -1467,6 +1566,8 @@ argument_list|(
 operator|new
 name|ZipkinClientRequestAdapter
 argument_list|(
+name|this
+argument_list|,
 name|serviceName
 argument_list|,
 name|event
@@ -1602,6 +1703,8 @@ argument_list|(
 operator|new
 name|ZipkinClientResponseAdaptor
 argument_list|(
+name|this
+argument_list|,
 name|event
 operator|.
 name|getExchange
@@ -1684,6 +1787,8 @@ argument_list|(
 operator|new
 name|ZipkinServerRequestAdapter
 argument_list|(
+name|this
+argument_list|,
 name|event
 operator|.
 name|getExchange
@@ -1815,6 +1920,8 @@ argument_list|(
 operator|new
 name|ZipkinServerResponseAdapter
 argument_list|(
+name|this
+argument_list|,
 name|event
 operator|.
 name|getExchange
@@ -1841,7 +1948,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"serverResponse: service={}, spanId={} "
+literal|"serverResponse[service={}, spanId={}, status=exchangeCompleted]"
 argument_list|,
 name|serviceName
 argument_list|,
@@ -1926,6 +2033,8 @@ argument_list|(
 operator|new
 name|ZipkinServerResponseAdapter
 argument_list|(
+name|this
+argument_list|,
 name|event
 operator|.
 name|getExchange
@@ -1952,7 +2061,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"serverResponse[service={}, spanId={}]"
+literal|"serverResponse[service={}, spanId={}, status=exchangeFailed]"
 argument_list|,
 name|serviceName
 argument_list|,

@@ -179,6 +179,14 @@ argument_list|,
 literal|"dog"
 argument_list|)
 expr_stmt|;
+comment|// capture message body as well
+name|zipkin
+operator|.
+name|setIncludeMessageBody
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|zipkin
 operator|.
 name|setSpanCollector
@@ -222,7 +230,7 @@ name|requestBody
 argument_list|(
 literal|"direct:start"
 argument_list|,
-literal|"Hello Cat and Dog"
+literal|"Camel say hello Cat"
 argument_list|)
 expr_stmt|;
 block|}
@@ -283,6 +291,14 @@ literal|"${random(1000,2000)}"
 argument_list|)
 argument_list|)
 operator|.
+name|setBody
+argument_list|()
+operator|.
+name|constant
+argument_list|(
+literal|"Cat says hello Dog"
+argument_list|)
+operator|.
 name|to
 argument_list|(
 literal|"seda:dog"
@@ -309,6 +325,14 @@ name|simple
 argument_list|(
 literal|"${random(0,500)}"
 argument_list|)
+argument_list|)
+operator|.
+name|setBody
+argument_list|()
+operator|.
+name|constant
+argument_list|(
+literal|"Dog say hello Cat and Camel"
 argument_list|)
 expr_stmt|;
 block|}
