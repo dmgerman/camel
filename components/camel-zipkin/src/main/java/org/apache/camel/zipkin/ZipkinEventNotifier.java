@@ -164,6 +164,22 @@ begin_import
 import|import
 name|com
 operator|.
+name|github
+operator|.
+name|kristofa
+operator|.
+name|brave
+operator|.
+name|scribe
+operator|.
+name|ScribeSpanCollector
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
 name|twitter
 operator|.
 name|zipkin
@@ -183,6 +199,18 @@ operator|.
 name|camel
 operator|.
 name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContextAware
 import|;
 end_import
 
@@ -386,6 +414,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ServiceHelper
 import|;
 end_import
@@ -407,7 +449,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To use zipkin with Camel then setup this {@link org.apache.camel.spi.EventNotifier} in your Camel application.  *<p/>  * Events (span) are captured for incoming and outgoing messages being sent to/from Camel.  * This means you need to configure which which Camel endpoints that maps to zipkin service names.  * The mapping can be configured using  *<ul>  *<li>route id - A Camel route id</li>  *<li>endpoint url - A Camel endpoint url</li>  *</ul>  * For both kinds you can use wildcards and regular expressions to match, which is using the rules from  * {@link EndpointHelper#matchPattern(String, String)} and {@link EndpointHelper#matchEndpoint(CamelContext, String, String)}  *<p/>  * To match all Camel messages you can use<tt>*</tt> in the pattern and configure that to the same service name.  *<br/>  * If no mapping has been configured then Camel will fallback and use endpoint uri's as service names.  * However its recommended to configure service mappings so you can use human logic names instead of Camel  * endpoint uris in the names.  */
+comment|/**  * To use zipkin with Camel then setup this {@link org.apache.camel.spi.EventNotifier} in your Camel application.  *<p/>  * Events (span) are captured for incoming and outgoing messages being sent to/from Camel.  * This means you need to configure which which Camel endpoints that maps to zipkin service names.  * The mapping can be configured using  *<ul>  *<li>route id - A Camel route id</li>  *<li>endpoint url - A Camel endpoint url</li>  *</ul>  * For both kinds you can use wildcards and regular expressions to match, which is using the rules from  * {@link EndpointHelper#matchPattern(String, String)} and {@link EndpointHelper#matchEndpoint(CamelContext, String, String)}  *<p/>  * To match all Camel messages you can use<tt>*</tt> in the pattern and configure that to the same service name.  *<br/>  * If no mapping has been configured then Camel will fallback and use endpoint uri's as service names.  * However its recommended to configure service mappings so you can use human logic names instead of Camel  * endpoint uris in the names.  *<p/>  * Camel will auto-configure a {@link ScribeSpanCollector} if no SpanCollector has explict been configured, and  * if the hostname and port has been configured as environment variables  *<ul>  *<li>ZIPKIN_SERVICE_HOST - The hostname</li>  *<li>ZIPKIN_SERVICE_PORT - The port number</li>  *</ul>  */
 end_comment
 
 begin_class
@@ -426,7 +468,14 @@ extends|extends
 name|EventNotifierSupport
 implements|implements
 name|StatefulService
+implements|,
+name|CamelContextAware
 block|{
+DECL|field|camelContext
+specifier|private
+name|CamelContext
+name|camelContext
+decl_stmt|;
 DECL|field|rate
 specifier|private
 name|float
@@ -497,6 +546,32 @@ specifier|public
 name|ZipkinEventNotifier
 parameter_list|()
 block|{     }
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|camelContext
+return|;
+block|}
+DECL|method|setCamelContext (CamelContext camelContext)
+specifier|public
+name|void
+name|setCamelContext
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|)
+block|{
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
+expr_stmt|;
+block|}
 DECL|method|getRate ()
 specifier|public
 name|float
@@ -622,7 +697,7 @@ operator|=
 name|serviceMappings
 expr_stmt|;
 block|}
-comment|/**      * Adds a service mapping that matches Camel events to the given zipkin serivce name.      * See more details at the class javadoc.      *      * @param pattern  the pattern such as route id, endpoint url      * @param serviceName the zpkin service name      */
+comment|/**      * Adds a service mapping that matches Camel events to the given zipkin serivce name.      * See more details at the class javadoc.      *      * @param pattern  the pattern such as route id, endpoint url      * @param serviceName the zipkin service name      */
 DECL|method|addServiceMapping (String pattern, String serviceName)
 specifier|public
 name|void
@@ -677,7 +752,7 @@ operator|=
 name|excludePatterns
 expr_stmt|;
 block|}
-comment|/**      * Adds an exclude pattern that will disable tracing with zipkin for Camel messages that matches the pattern.      */
+comment|/**      * Adds an exclude pattern that will disable tracing with zipkin for Camel messages that matches the pattern.      *      * @param pattern  the pattern such as route id, endpoint url      */
 DECL|method|addExcludePattern (String pattern)
 specifier|public
 name|void
@@ -750,6 +825,114 @@ name|super
 operator|.
 name|doStart
 argument_list|()
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|camelContext
+argument_list|,
+literal|"CamelContext"
+argument_list|,
+name|this
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|spanCollector
+operator|==
+literal|null
+condition|)
+block|{
+comment|// is there a zipkin service setup as ENV variable to auto register a scribe span collector
+comment|// use the {{service:name}} function that resolves this for us
+name|String
+name|host
+init|=
+name|camelContext
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+literal|"{{service.host:zipkin}}"
+argument_list|)
+decl_stmt|;
+name|String
+name|port
+init|=
+name|camelContext
+operator|.
+name|resolvePropertyPlaceholders
+argument_list|(
+literal|"{{service.port:zipkin}}"
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|host
+argument_list|)
+operator|&&
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|port
+argument_list|)
+condition|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"Auto-configuring ZipkinScribeSpanCollector using host: {} and port: {}"
+argument_list|,
+name|host
+argument_list|,
+name|port
+argument_list|)
+expr_stmt|;
+name|int
+name|num
+init|=
+name|camelContext
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|mandatoryConvertTo
+argument_list|(
+name|Integer
+operator|.
+name|class
+argument_list|,
+name|port
+argument_list|)
+decl_stmt|;
+name|spanCollector
+operator|=
+operator|new
+name|ScribeSpanCollector
+argument_list|(
+name|host
+argument_list|,
+name|num
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|spanCollector
+argument_list|,
+literal|"SpanCollector"
+argument_list|,
+name|this
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
