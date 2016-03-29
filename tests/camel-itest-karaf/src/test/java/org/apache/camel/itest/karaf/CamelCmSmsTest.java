@@ -24,16 +24,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -74,11 +64,6 @@ name|PaxExam
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"The CmSmsComponent need to not requires @Inject"
-argument_list|)
 DECL|class|CamelCmSmsTest
 specifier|public
 class|class
@@ -110,7 +95,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// TODO: fails as javax bean validator must be installed also
 name|testComponent
 argument_list|(
 name|COMPONENT
