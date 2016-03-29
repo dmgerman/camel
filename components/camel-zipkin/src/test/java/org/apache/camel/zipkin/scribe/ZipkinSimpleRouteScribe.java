@@ -139,7 +139,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Integration test requires running Zipkin/Scribe running  *  * The easiest way is to run using zipkin-docker: https://github.com/openzipkin/docker-zipkin  */
+comment|/**  * Integration test requires running Zipkin/Scribe running  *  * The easiest way is to run using zipkin-docker: https://github.com/openzipkin/docker-zipkin  *  * Adjust the IP address to what IP docker-machines have assigned, you can use  *<tt>docker-machines ls</tt>  */
 end_comment
 
 begin_class
@@ -150,6 +150,13 @@ name|ZipkinSimpleRouteScribe
 extends|extends
 name|CamelTestSupport
 block|{
+DECL|field|ip
+specifier|private
+name|String
+name|ip
+init|=
+literal|"192.168.99.100"
+decl_stmt|;
 DECL|field|zipkin
 specifier|private
 name|ZipkinEventNotifier
@@ -195,7 +202,7 @@ argument_list|(
 operator|new
 name|ScribeSpanCollector
 argument_list|(
-literal|"192.168.99.101"
+name|ip
 argument_list|,
 literal|9410
 argument_list|)
@@ -236,7 +243,7 @@ argument_list|)
 operator|.
 name|whenDone
 argument_list|(
-literal|10
+literal|5
 argument_list|)
 operator|.
 name|create

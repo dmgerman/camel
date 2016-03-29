@@ -143,10 +143,10 @@ comment|/**  * Integration test requires running Zipkin/Scribe running  *  * The
 end_comment
 
 begin_class
-DECL|class|ZipkinRouteConcurrentScribe
+DECL|class|ZipkinOneRouteScribe
 specifier|public
 class|class
-name|ZipkinRouteConcurrentScribe
+name|ZipkinOneRouteScribe
 extends|extends
 name|CamelTestSupport
 block|{
@@ -162,6 +162,8 @@ specifier|private
 name|ZipkinEventNotifier
 name|zipkin
 decl_stmt|;
+comment|// TODO: producer template also
+comment|// TODO: message id added x2
 annotation|@
 name|Override
 DECL|method|createCamelContext ()
@@ -190,18 +192,9 @@ name|zipkin
 operator|.
 name|addServiceMapping
 argument_list|(
-literal|"seda:foo"
+literal|"seda:cat"
 argument_list|,
-literal|"foo"
-argument_list|)
-expr_stmt|;
-name|zipkin
-operator|.
-name|addServiceMapping
-argument_list|(
-literal|"seda:bar"
-argument_list|,
-literal|"bar"
+literal|"cat"
 argument_list|)
 expr_stmt|;
 name|zipkin
@@ -252,7 +245,7 @@ argument_list|)
 operator|.
 name|whenDone
 argument_list|(
-literal|5
+literal|1
 argument_list|)
 operator|.
 name|create
@@ -267,7 +260,7 @@ literal|0
 init|;
 name|i
 operator|<
-literal|5
+literal|1
 condition|;
 name|i
 operator|++
@@ -277,9 +270,9 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:foo"
+literal|"seda:cat"
 argument_list|,
-literal|"Hello World"
+literal|"Hello Cat"
 argument_list|)
 expr_stmt|;
 block|}
@@ -289,7 +282,7 @@ name|notify
 operator|.
 name|matches
 argument_list|(
-literal|60
+literal|30
 argument_list|,
 name|TimeUnit
 operator|.
@@ -324,12 +317,12 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"seda:foo?concurrentConsumers=5"
+literal|"seda:cat"
 argument_list|)
 operator|.
 name|routeId
 argument_list|(
-literal|"foo"
+literal|"cat"
 argument_list|)
 operator|.
 name|log
@@ -342,34 +335,6 @@ argument_list|(
 name|simple
 argument_list|(
 literal|"${random(1000,2000)}"
-argument_list|)
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"seda:bar"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"seda:bar?concurrentConsumers=5"
-argument_list|)
-operator|.
-name|routeId
-argument_list|(
-literal|"bar"
-argument_list|)
-operator|.
-name|log
-argument_list|(
-literal|"routing at ${routeId}"
-argument_list|)
-operator|.
-name|delay
-argument_list|(
-name|simple
-argument_list|(
-literal|"${random(0,500)}"
 argument_list|)
 argument_list|)
 expr_stmt|;
