@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p/>  * http://www.apache.org/licenses/LICENSE-2.0  *<p/>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -132,20 +132,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|URISupport
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -227,7 +213,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Endpoints factory      */
 annotation|@
 name|Override
 DECL|method|createEndpoint (final String uri, final String remaining, final Map<String, Object> parameters)
@@ -255,41 +240,6 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Creating CM Endpoint ... "
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Uri=[{}], path=[{}], parameters=[{}]"
-argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
-name|URISupport
-operator|.
-name|sanitizeUri
-argument_list|(
-name|uri
-argument_list|)
-block|,
-name|URISupport
-operator|.
-name|sanitizePath
-argument_list|(
-name|remaining
-argument_list|)
-block|,
-name|parameters
-block|}
-argument_list|)
-expr_stmt|;
 comment|// Set configuration based on uri parameters
 specifier|final
 name|CMConfiguration
@@ -401,22 +351,8 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"CMConfiguration - OK!"
-argument_list|)
-expr_stmt|;
 comment|// Component is an Endpoint factory. So far, just one Endpoint type.
 comment|// Endpoint construction and configuration.
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Creating CMEndpoint"
-argument_list|)
-expr_stmt|;
 specifier|final
 name|CMEndpoint
 name|endpoint
