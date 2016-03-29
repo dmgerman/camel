@@ -411,6 +411,7 @@ return|return
 name|rate
 return|;
 block|}
+comment|/**      * Configures a rate that decides how many events should be traced by zpkin.      * The rate is expressed as a percentage (1.0f = 100%, 0.5f is 50%, 0.1f is 10%).      *      * @param rate minimum sample rate is 0.0001, or 0.01% of traces      */
 DECL|method|setRate (float rate)
 specifier|public
 name|void
@@ -437,6 +438,7 @@ return|return
 name|spanCollector
 return|;
 block|}
+comment|/**      * The collector to use for sending zipkin span events to the zipkin server.      */
 DECL|method|setSpanCollector (SpanCollector spanCollector)
 specifier|public
 name|void
@@ -468,6 +470,7 @@ literal|"*"
 argument_list|)
 return|;
 block|}
+comment|/**      * To use a global service name that matches all Camel events      */
 DECL|method|setServiceName (String serviceName)
 specifier|public
 name|void
@@ -523,6 +526,7 @@ operator|=
 name|serviceMappings
 expr_stmt|;
 block|}
+comment|/**      * Adds a service mapping that matches Camel events to the given zipkin serivce name.      * See more details at the class javadoc.      *      * @param pattern  the pattern such as route id, endpoint url      * @param serviceName the zpkin service name      */
 DECL|method|addServiceMapping (String pattern, String serviceName)
 specifier|public
 name|void
@@ -1516,7 +1520,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"clientRequest: service={}, id={} "
+literal|"clientRequest[service={}, spanId={}]"
 argument_list|,
 name|serviceName
 argument_list|,
@@ -1629,7 +1633,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"clientResponse: service={}, id={} "
+literal|"clientResponse[service={}, spanId={}]"
 argument_list|,
 name|serviceName
 argument_list|,
@@ -1726,7 +1730,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"serverRequest: service={}, id={} "
+literal|"serverRequest[service={}, spanId={}]"
 argument_list|,
 name|serviceName
 argument_list|,
@@ -1837,7 +1841,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"serverResponse: service={}, id={} "
+literal|"serverResponse: service={}, spanId={} "
 argument_list|,
 name|serviceName
 argument_list|,
@@ -1948,7 +1952,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"serverResponse: service={}, id={} "
+literal|"serverResponse[service={}, spanId={}]"
 argument_list|,
 name|serviceName
 argument_list|,
