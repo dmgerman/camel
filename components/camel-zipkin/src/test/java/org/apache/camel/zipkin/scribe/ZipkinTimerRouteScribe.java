@@ -174,7 +174,6 @@ specifier|private
 name|ZipkinEventNotifier
 name|zipkin
 decl_stmt|;
-comment|// TODO: producer template also (add a skip flag)
 annotation|@
 name|Override
 DECL|method|createCamelContext ()
@@ -267,6 +266,15 @@ operator|.
 name|create
 argument_list|()
 decl_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Hello Timer"
+argument_list|)
+expr_stmt|;
 name|assertTrue
 argument_list|(
 name|notify
@@ -308,15 +316,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer:trigger?repeatCount=1"
-argument_list|)
-operator|.
-name|setBody
-argument_list|()
-operator|.
-name|constant
-argument_list|(
-literal|"Hello Cat"
+literal|"direct:start"
 argument_list|)
 operator|.
 name|to

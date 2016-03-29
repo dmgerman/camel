@@ -162,7 +162,7 @@ name|KeyValueAnnotation
 operator|.
 name|create
 argument_list|(
-literal|"camel.failure"
+literal|"camel.server.failure"
 argument_list|,
 name|exchange
 operator|.
