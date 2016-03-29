@@ -162,7 +162,7 @@ name|KeyValueAnnotation
 operator|.
 name|create
 argument_list|(
-literal|"CamelZipkinFailed"
+literal|"camel.failure"
 argument_list|,
 name|exchange
 operator|.

@@ -385,7 +385,7 @@ name|KeyValueAnnotation
 operator|.
 name|create
 argument_list|(
-literal|"CamelMessageId"
+literal|"camel.message.id"
 argument_list|,
 name|msgId
 argument_list|)

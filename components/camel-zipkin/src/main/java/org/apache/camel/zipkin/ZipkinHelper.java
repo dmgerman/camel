@@ -44,6 +44,10 @@ name|SpanId
 import|;
 end_import
 
+begin_comment
+comment|/**  * Helper class.  */
+end_comment
+
 begin_class
 DECL|class|ZipkinHelper
 specifier|public

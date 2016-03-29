@@ -124,6 +124,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -263,6 +275,10 @@ operator|.
 name|routeIdExpression
 import|;
 end_import
+
+begin_comment
+comment|/**  * To use zipkin with Camel then setup this {@link org.apache.camel.spi.EventNotifier} in your Camel application.  *<p/>  * Events (span) are captured for incoming and outgoing messages being sent to/from Camel.  * This means you need to configure which which Camel endpoints that maps to zipkin service names.  * The mapping can be configured using  *<ul>  *<li>route id - A Camel route id</li>  *<li>endpoint url - A Camel endpoint url</li>  *</ul>  * For both kinds you can use wildcards and regular expressions to match, which is using the rules from  * {@link EndpointHelper#matchPattern(String, String)} and {@link EndpointHelper#matchEndpoint(CamelContext, String, String)}  *<p/>  * At least one mapping must be configured, you can use<tt>*</tt> to match all incoming and outgoing messages.  */
+end_comment
 
 begin_class
 DECL|class|ZipkinEventNotifier
@@ -441,13 +457,13 @@ operator|=
 name|serviceMappings
 expr_stmt|;
 block|}
-DECL|method|addServiceMapping (String routeId, String serviceName)
+DECL|method|addServiceMapping (String pattern, String serviceName)
 specifier|public
 name|void
 name|addServiceMapping
 parameter_list|(
 name|String
-name|routeId
+name|pattern
 parameter_list|,
 name|String
 name|serviceName
@@ -457,7 +473,7 @@ name|serviceMappings
 operator|.
 name|put
 argument_list|(
-name|routeId
+name|pattern
 argument_list|,
 name|serviceName
 argument_list|)

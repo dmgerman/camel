@@ -20,26 +20,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|text
-operator|.
-name|SimpleDateFormat
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|util
 operator|.
 name|LinkedHashSet
@@ -131,6 +111,10 @@ operator|.
 name|LoggerFactory
 import|;
 end_import
+
+begin_comment
+comment|/**  * To collect zipkin span's using a logger.  */
+end_comment
 
 begin_class
 DECL|class|ZipkinLoggingSpanCollector

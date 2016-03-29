@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.zipkin
+DECL|package|org.apache.camel.zipkin.scribe
 package|package
 name|org
 operator|.
@@ -13,6 +13,8 @@ operator|.
 name|camel
 operator|.
 name|zipkin
+operator|.
+name|scribe
 package|;
 end_package
 
@@ -116,17 +118,35 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|zipkin
+operator|.
+name|ZipkinEventNotifier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
 import|;
 end_import
 
+begin_comment
+comment|/**  * Integration test requires running Zipkin/Scribe running  *  * The easiest way is to run using zipkin-docker: https://github.com/openzipkin/docker-zipkin  */
+end_comment
+
 begin_class
-DECL|class|ZipkinRouteScribeTest
+DECL|class|ZipkinSimpleRouteScribe
 specifier|public
 class|class
-name|ZipkinRouteScribeTest
+name|ZipkinSimpleRouteScribe
 extends|extends
 name|CamelTestSupport
 block|{
@@ -163,18 +183,9 @@ name|zipkin
 operator|.
 name|addServiceMapping
 argument_list|(
-literal|"seda:foo"
+literal|"seda:dude"
 argument_list|,
-literal|"foo"
-argument_list|)
-expr_stmt|;
-name|zipkin
-operator|.
-name|addServiceMapping
-argument_list|(
-literal|"seda:bar"
-argument_list|,
-literal|"bar"
+literal|"dude"
 argument_list|)
 expr_stmt|;
 name|zipkin
@@ -250,7 +261,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"seda:foo"
+literal|"seda:dude"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -262,7 +273,7 @@ name|notify
 operator|.
 name|matches
 argument_list|(
-literal|60
+literal|30
 argument_list|,
 name|TimeUnit
 operator|.
@@ -297,12 +308,12 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"seda:foo"
+literal|"seda:dude"
 argument_list|)
 operator|.
 name|routeId
 argument_list|(
-literal|"foo"
+literal|"dude"
 argument_list|)
 operator|.
 name|log
@@ -315,34 +326,6 @@ argument_list|(
 name|simple
 argument_list|(
 literal|"${random(1000,2000)}"
-argument_list|)
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"seda:bar"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"seda:bar"
-argument_list|)
-operator|.
-name|routeId
-argument_list|(
-literal|"bar"
-argument_list|)
-operator|.
-name|log
-argument_list|(
-literal|"routing at ${routeId}"
-argument_list|)
-operator|.
-name|delay
-argument_list|(
-name|simple
-argument_list|(
-literal|"${random(0,500)}"
 argument_list|)
 argument_list|)
 expr_stmt|;
