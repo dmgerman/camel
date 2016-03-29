@@ -186,6 +186,7 @@ operator|new
 name|ZipkinEventNotifier
 argument_list|()
 expr_stmt|;
+comment|// we have 2 routes as services
 name|zipkin
 operator|.
 name|addServiceMapping
@@ -250,6 +251,11 @@ argument_list|(
 name|context
 argument_list|)
 operator|.
+name|from
+argument_list|(
+literal|"seda:foo"
+argument_list|)
+operator|.
 name|whenDone
 argument_list|(
 literal|5
@@ -275,9 +281,9 @@ control|)
 block|{
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
-literal|"seda:foo"
+literal|"direct:foo"
 argument_list|,
 literal|"Hello World"
 argument_list|)
@@ -324,7 +330,17 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"seda:foo?concurrentConsumers=5"
+literal|"direct:start"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"sed:foo"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"seda:foo?concurrentConsumers=2"
 argument_list|)
 operator|.
 name|routeId
@@ -352,7 +368,7 @@ argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
-literal|"seda:bar?concurrentConsumers=5"
+literal|"seda:bar?concurrentConsumers=2"
 argument_list|)
 operator|.
 name|routeId

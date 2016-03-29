@@ -20,18 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|concurrent
-operator|.
-name|TimeUnit
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|github
@@ -67,20 +55,6 @@ operator|.
 name|camel
 operator|.
 name|RoutesBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|builder
-operator|.
-name|NotifyBuilder
 import|;
 end_import
 
@@ -162,8 +136,6 @@ specifier|private
 name|ZipkinEventNotifier
 name|zipkin
 decl_stmt|;
-comment|// TODO: producer template also
-comment|// TODO: message id added x2
 annotation|@
 name|Override
 DECL|method|createCamelContext ()
@@ -188,6 +160,7 @@ operator|new
 name|ZipkinEventNotifier
 argument_list|()
 expr_stmt|;
+comment|// we have one route as service
 name|zipkin
 operator|.
 name|addServiceMapping
@@ -234,60 +207,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|NotifyBuilder
-name|notify
-init|=
-operator|new
-name|NotifyBuilder
-argument_list|(
-name|context
-argument_list|)
-operator|.
-name|whenDone
-argument_list|(
-literal|1
-argument_list|)
-operator|.
-name|create
-argument_list|()
-decl_stmt|;
-for|for
-control|(
-name|int
-name|i
-init|=
-literal|0
-init|;
-name|i
-operator|<
-literal|1
-condition|;
-name|i
-operator|++
-control|)
-block|{
 name|template
 operator|.
-name|sendBody
+name|requestBody
 argument_list|(
-literal|"seda:cat"
+literal|"direct:start"
 argument_list|,
 literal|"Hello Cat"
-argument_list|)
-expr_stmt|;
-block|}
-name|assertTrue
-argument_list|(
-name|notify
-operator|.
-name|matches
-argument_list|(
-literal|30
-argument_list|,
-name|TimeUnit
-operator|.
-name|SECONDS
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -315,6 +241,16 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|from
+argument_list|(
+literal|"direct:start"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"seda:cat"
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"seda:cat"
