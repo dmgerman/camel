@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p/>  * http://www.apache.org/licenses/LICENSE-2.0  *<p/>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,26 @@ operator|.
 name|starter
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Set
+import|;
+end_import
 
 begin_import
 import|import
@@ -74,10 +94,23 @@ specifier|private
 name|String
 name|serviceName
 decl_stmt|;
-DECL|field|excludePattern
+DECL|field|excludePatterns
 specifier|private
+name|Set
+argument_list|<
 name|String
-name|excludePattern
+argument_list|>
+name|excludePatterns
+decl_stmt|;
+DECL|field|serviceMappings
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|serviceMappings
 decl_stmt|;
 DECL|method|getHostName ()
 specifier|public
@@ -214,31 +247,74 @@ operator|=
 name|serviceName
 expr_stmt|;
 block|}
-DECL|method|getExcludePattern ()
+DECL|method|getExcludePatterns ()
 specifier|public
+name|Set
+argument_list|<
 name|String
-name|getExcludePattern
+argument_list|>
+name|getExcludePatterns
 parameter_list|()
 block|{
 return|return
-name|excludePattern
+name|excludePatterns
 return|;
 block|}
-comment|/**      * Sets an exclude pattern that will disable tracing with zipkin for Camel messages that matches the pattern.      */
-DECL|method|setExcludePattern (String excludePattern)
+comment|/**      * Sets exclude pattern(s) that will disable tracing with zipkin for Camel messages that matches the pattern.      */
+DECL|method|setExcludePatterns (Set<String> excludePatterns)
 specifier|public
 name|void
-name|setExcludePattern
+name|setExcludePatterns
 parameter_list|(
+name|Set
+argument_list|<
 name|String
-name|excludePattern
+argument_list|>
+name|excludePatterns
 parameter_list|)
 block|{
 name|this
 operator|.
-name|excludePattern
+name|excludePatterns
 operator|=
-name|excludePattern
+name|excludePatterns
+expr_stmt|;
+block|}
+DECL|method|getServiceMappings ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getServiceMappings
+parameter_list|()
+block|{
+return|return
+name|serviceMappings
+return|;
+block|}
+comment|/**      * Sets service mapping(s) that matches Camel events to the given zipkin service name.      * The key is the pattern, the value is the service name.      */
+DECL|method|setServiceMappings (Map<String, String> serviceMappings)
+specifier|public
+name|void
+name|setServiceMappings
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|serviceMappings
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serviceMappings
+operator|=
+name|serviceMappings
 expr_stmt|;
 block|}
 block|}

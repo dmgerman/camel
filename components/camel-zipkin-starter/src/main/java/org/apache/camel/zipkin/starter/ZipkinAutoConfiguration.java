@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p/>  * http://www.apache.org/licenses/LICENSE-2.0  *<p/>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -179,7 +179,7 @@ name|ZipkinEventNotifier
 operator|.
 name|class
 argument_list|)
-DECL|method|zipkinEventNotifier (CamelContext camelContext, ZipkinConfigurationProperties configurationProperties)
+DECL|method|zipkinEventNotifier (CamelContext camelContext, ZipkinConfigurationProperties config)
 name|ZipkinEventNotifier
 name|zipkinEventNotifier
 parameter_list|(
@@ -187,7 +187,7 @@ name|CamelContext
 name|camelContext
 parameter_list|,
 name|ZipkinConfigurationProperties
-name|configurationProperties
+name|config
 parameter_list|)
 block|{
 name|ZipkinEventNotifier
@@ -201,7 +201,7 @@ name|notifier
 operator|.
 name|setHostName
 argument_list|(
-name|configurationProperties
+name|config
 operator|.
 name|getHostName
 argument_list|()
@@ -211,7 +211,7 @@ name|notifier
 operator|.
 name|setPort
 argument_list|(
-name|configurationProperties
+name|config
 operator|.
 name|getPort
 argument_list|()
@@ -221,7 +221,7 @@ name|notifier
 operator|.
 name|setRate
 argument_list|(
-name|configurationProperties
+name|config
 operator|.
 name|getRate
 argument_list|()
@@ -233,7 +233,7 @@ name|ObjectHelper
 operator|.
 name|isNotEmpty
 argument_list|(
-name|configurationProperties
+name|config
 operator|.
 name|getServiceName
 argument_list|()
@@ -244,7 +244,7 @@ name|notifier
 operator|.
 name|setServiceName
 argument_list|(
-name|configurationProperties
+name|config
 operator|.
 name|getServiceName
 argument_list|()
@@ -253,24 +253,42 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|ObjectHelper
+name|config
 operator|.
-name|isNotEmpty
-argument_list|(
-name|configurationProperties
-operator|.
-name|getExcludePattern
+name|getExcludePatterns
 argument_list|()
-argument_list|)
+operator|!=
+literal|null
 condition|)
 block|{
 name|notifier
 operator|.
-name|addExcludePattern
+name|setExcludePatterns
 argument_list|(
-name|configurationProperties
+name|config
 operator|.
-name|getExcludePattern
+name|getExcludePatterns
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|config
+operator|.
+name|getServiceMappings
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|notifier
+operator|.
+name|setServiceMappings
+argument_list|(
+name|config
+operator|.
+name|getServiceMappings
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -279,7 +297,7 @@ name|notifier
 operator|.
 name|setIncludeMessageBody
 argument_list|(
-name|configurationProperties
+name|config
 operator|.
 name|isIncludeMessageBody
 argument_list|()
