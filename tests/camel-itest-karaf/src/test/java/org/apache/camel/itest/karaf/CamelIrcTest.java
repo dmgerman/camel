@@ -56,6 +56,22 @@ name|PaxExam
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|karaf
+operator|.
+name|AbstractFeatureTest
+import|;
+end_import
+
 begin_class
 annotation|@
 name|RunWith
