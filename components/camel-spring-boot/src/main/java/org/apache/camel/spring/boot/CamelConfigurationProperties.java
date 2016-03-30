@@ -86,7 +86,7 @@ name|typeConversion
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Directory to scan for adding additional XML routes.      * You can turn this off by setting the value to<tt>false</tt>      */
+comment|/**      * Directory to scan for adding additional XML routes.      * You can turn this off by setting the value to false.      */
 DECL|field|xmlRoutes
 specifier|private
 name|String
@@ -94,7 +94,7 @@ name|xmlRoutes
 init|=
 literal|"classpath:camel/*.xml"
 decl_stmt|;
-comment|/**      * Directory to scan for adding additional XML rests.      * You can turn this off by setting the value to<tt>false</tt>      */
+comment|/**      * Directory to scan for adding additional XML rests.      * You can turn this off by setting the value to false.      */
 DECL|field|xmlRests
 specifier|private
 name|String
@@ -107,6 +107,12 @@ DECL|field|mainRunController
 specifier|private
 name|boolean
 name|mainRunController
+decl_stmt|;
+comment|/**      * Is used to limit the maximum length of the logging Camel message bodies. If the message body      * is longer than the limit, the log message is clipped. Use a value of 0 or negative to have unlimited length.      * Use for example 1000 to log at at most 1000 chars.      */
+DECL|field|logDebugMaxChars
+specifier|private
+name|int
+name|logDebugMaxChars
 decl_stmt|;
 comment|// Getters& setters
 DECL|method|getName ()
@@ -315,6 +321,32 @@ operator|.
 name|mainRunController
 operator|=
 name|mainRunController
+expr_stmt|;
+block|}
+DECL|method|getLogDebugMaxChars ()
+specifier|public
+name|int
+name|getLogDebugMaxChars
+parameter_list|()
+block|{
+return|return
+name|logDebugMaxChars
+return|;
+block|}
+DECL|method|setLogDebugMaxChars (int logDebugMaxChars)
+specifier|public
+name|void
+name|setLogDebugMaxChars
+parameter_list|(
+name|int
+name|logDebugMaxChars
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logDebugMaxChars
+operator|=
+name|logDebugMaxChars
 expr_stmt|;
 block|}
 block|}

@@ -70,6 +70,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|ProducerTemplate
 import|;
 end_import
@@ -252,7 +264,7 @@ name|CamelContext
 operator|.
 name|class
 argument_list|)
-DECL|method|camelContext (ApplicationContext applicationContext, CamelConfigurationProperties configurationProperties)
+DECL|method|camelContext (ApplicationContext applicationContext, CamelConfigurationProperties config)
 name|CamelContext
 name|camelContext
 parameter_list|(
@@ -260,7 +272,7 @@ name|ApplicationContext
 name|applicationContext
 parameter_list|,
 name|CamelConfigurationProperties
-name|configurationProperties
+name|config
 parameter_list|)
 block|{
 name|CamelContext
@@ -282,7 +294,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|configurationProperties
+name|config
 operator|.
 name|isJmxEnabled
 argument_list|()
@@ -296,7 +308,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|configurationProperties
+name|config
 operator|.
 name|getName
 argument_list|()
@@ -313,9 +325,39 @@ operator|)
 operator|.
 name|setName
 argument_list|(
-name|configurationProperties
+name|config
 operator|.
 name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|config
+operator|.
+name|getLogDebugMaxChars
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+name|camelContext
+operator|.
+name|getProperties
+argument_list|()
+operator|.
+name|put
+argument_list|(
+name|Exchange
+operator|.
+name|LOG_DEBUG_BODY_MAX_CHARS
+argument_list|,
+literal|""
+operator|+
+name|config
+operator|.
+name|getLogDebugMaxChars
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -356,7 +398,7 @@ name|RoutesCollector
 operator|.
 name|class
 argument_list|)
-DECL|method|routesCollector (ApplicationContext applicationContext, CamelConfigurationProperties configurationProperties)
+DECL|method|routesCollector (ApplicationContext applicationContext, CamelConfigurationProperties config)
 name|RoutesCollector
 name|routesCollector
 parameter_list|(
@@ -364,7 +406,7 @@ name|ApplicationContext
 name|applicationContext
 parameter_list|,
 name|CamelConfigurationProperties
-name|configurationProperties
+name|config
 parameter_list|)
 block|{
 name|Collection
@@ -400,7 +442,7 @@ argument_list|(
 name|configurations
 argument_list|)
 argument_list|,
-name|configurationProperties
+name|config
 argument_list|)
 return|;
 block|}
@@ -424,7 +466,7 @@ name|ProducerTemplate
 operator|.
 name|class
 argument_list|)
-DECL|method|producerTemplate (CamelContext camelContext, CamelConfigurationProperties configurationProperties)
+DECL|method|producerTemplate (CamelContext camelContext, CamelConfigurationProperties config)
 name|ProducerTemplate
 name|producerTemplate
 parameter_list|(
@@ -432,7 +474,7 @@ name|CamelContext
 name|camelContext
 parameter_list|,
 name|CamelConfigurationProperties
-name|configurationProperties
+name|config
 parameter_list|)
 block|{
 return|return
@@ -440,7 +482,7 @@ name|camelContext
 operator|.
 name|createProducerTemplate
 argument_list|(
-name|configurationProperties
+name|config
 operator|.
 name|getProducerTemplateCacheSize
 argument_list|()
@@ -467,7 +509,7 @@ name|ConsumerTemplate
 operator|.
 name|class
 argument_list|)
-DECL|method|consumerTemplate (CamelContext camelContext, CamelConfigurationProperties configurationProperties)
+DECL|method|consumerTemplate (CamelContext camelContext, CamelConfigurationProperties config)
 name|ConsumerTemplate
 name|consumerTemplate
 parameter_list|(
@@ -475,7 +517,7 @@ name|CamelContext
 name|camelContext
 parameter_list|,
 name|CamelConfigurationProperties
-name|configurationProperties
+name|config
 parameter_list|)
 block|{
 return|return
@@ -483,7 +525,7 @@ name|camelContext
 operator|.
 name|createConsumerTemplate
 argument_list|(
-name|configurationProperties
+name|config
 operator|.
 name|getConsumerTemplateCacheSize
 argument_list|()
