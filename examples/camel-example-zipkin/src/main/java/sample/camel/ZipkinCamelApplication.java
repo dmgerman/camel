@@ -59,7 +59,7 @@ comment|//CHECKSTYLE:OFF
 end_comment
 
 begin_comment
-comment|/**  * A sample Spring Boot application that starts the Camel routes.  */
+comment|/**  * A Spring Boot application that starts the Camel Zipkin application.  *<p/>  * Notice we use the `@CamelZipkin` annotation to enable Camel with Zipkin.  * The configuration of Zipkin is in the<tt>application.properties</tt> file.  */
 end_comment
 
 begin_class
