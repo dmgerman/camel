@@ -67,16 +67,19 @@ specifier|public
 class|class
 name|ZipkinConfigurationProperties
 block|{
+comment|/**      * Sets a hostname for the remote zipkin server to use.      */
 DECL|field|hostName
 specifier|private
 name|String
 name|hostName
 decl_stmt|;
+comment|/**      * Sets the port number for the remote zipkin server to use.      */
 DECL|field|port
 specifier|private
 name|int
 name|port
 decl_stmt|;
+comment|/**      * Configures a rate that decides how many events should be traced by zipkin.      * The rate is expressed as a percentage (1.0f = 100%, 0.5f is 50%, 0.1f is 10%).      */
 DECL|field|rate
 specifier|private
 name|float
@@ -84,16 +87,19 @@ name|rate
 init|=
 literal|1.0f
 decl_stmt|;
+comment|/**      * Whether to include the Camel message body in the zipkin traces.      *      * This is not recommended for production usage, or when having big payloads.      * You can limit the size by configuring camel.springboot.log-debug-max-chars option.      */
 DECL|field|includeMessageBody
 specifier|private
 name|boolean
 name|includeMessageBody
 decl_stmt|;
+comment|/**      * To use a global service name that matches all Camel events      */
 DECL|field|serviceName
 specifier|private
 name|String
 name|serviceName
 decl_stmt|;
+comment|/**      * Sets exclude pattern(s) that will disable tracing with zipkin for Camel messages that matches the pattern.      */
 DECL|field|excludePatterns
 specifier|private
 name|Set
@@ -102,6 +108,7 @@ name|String
 argument_list|>
 name|excludePatterns
 decl_stmt|;
+comment|/**      * Sets service mapping(s) that matches Camel events to the given zipkin service name.      * The key is the pattern, the value is the service name.      */
 DECL|field|serviceMappings
 specifier|private
 name|Map
@@ -112,6 +119,7 @@ name|String
 argument_list|>
 name|serviceMappings
 decl_stmt|;
+comment|// Getters& setters
 DECL|method|getHostName ()
 specifier|public
 name|String
@@ -122,7 +130,6 @@ return|return
 name|hostName
 return|;
 block|}
-comment|/**      * Sets a hostname for the remote zipkin server to use.      */
 DECL|method|setHostName (String hostName)
 specifier|public
 name|void
@@ -149,7 +156,6 @@ return|return
 name|port
 return|;
 block|}
-comment|/**      * Sets the port number for the remote zipkin server to use.      */
 DECL|method|setPort (int port)
 specifier|public
 name|void
@@ -176,7 +182,6 @@ return|return
 name|rate
 return|;
 block|}
-comment|/**      * Configures a rate that decides how many events should be traced by zipkin.      * The rate is expressed as a percentage (1.0f = 100%, 0.5f is 50%, 0.1f is 10%).      *      * @param rate minimum sample rate is 0.0001, or 0.01% of traces      */
 DECL|method|setRate (float rate)
 specifier|public
 name|void
@@ -203,7 +208,6 @@ return|return
 name|includeMessageBody
 return|;
 block|}
-comment|/**      * Whether to include the Camel message body in the zipkin traces.      *<p/>      * This is not recommended for production usage, or when having big payloads. You can limit the size by      * configuring the<a href="http://camel.apache.org/how-do-i-set-the-max-chars-when-debug-logging-messages-in-camel.html">max debug log size</a>.      */
 DECL|method|setIncludeMessageBody (boolean includeMessageBody)
 specifier|public
 name|void
@@ -230,7 +234,6 @@ return|return
 name|serviceName
 return|;
 block|}
-comment|/**      * To use a global service name that matches all Camel events      */
 DECL|method|setServiceName (String serviceName)
 specifier|public
 name|void
@@ -260,7 +263,6 @@ return|return
 name|excludePatterns
 return|;
 block|}
-comment|/**      * Sets exclude pattern(s) that will disable tracing with zipkin for Camel messages that matches the pattern.      */
 DECL|method|setExcludePatterns (Set<String> excludePatterns)
 specifier|public
 name|void
@@ -295,7 +297,6 @@ return|return
 name|serviceMappings
 return|;
 block|}
-comment|/**      * Sets service mapping(s) that matches Camel events to the given zipkin service name.      * The key is the pattern, the value is the service name.      */
 DECL|method|setServiceMappings (Map<String, String> serviceMappings)
 specifier|public
 name|void
