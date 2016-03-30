@@ -247,6 +247,12 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+specifier|final
+name|boolean
+name|chgd
+init|=
+name|changed
+decl_stmt|;
 return|return
 name|processor
 operator|.
@@ -270,6 +276,32 @@ parameter_list|)
 block|{
 try|try
 block|{
+comment|// restore TCCL if it was changed during processing
+if|if
+condition|(
+name|chgd
+condition|)
+block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Restoring Thread ContextClassLoader to {}"
+argument_list|,
+name|current
+argument_list|)
+expr_stmt|;
+name|Thread
+operator|.
+name|currentThread
+argument_list|()
+operator|.
+name|setContextClassLoader
+argument_list|(
+name|current
+argument_list|)
+expr_stmt|;
+block|}
 comment|// make sure to copy results back
 name|ExchangeHelper
 operator|.
