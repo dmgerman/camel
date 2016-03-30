@@ -74,6 +74,11 @@ specifier|private
 name|String
 name|serviceName
 decl_stmt|;
+DECL|field|excludePattern
+specifier|private
+name|String
+name|excludePattern
+decl_stmt|;
 DECL|method|getHostName ()
 specifier|public
 name|String
@@ -207,6 +212,33 @@ operator|.
 name|serviceName
 operator|=
 name|serviceName
+expr_stmt|;
+block|}
+DECL|method|getExcludePattern ()
+specifier|public
+name|String
+name|getExcludePattern
+parameter_list|()
+block|{
+return|return
+name|excludePattern
+return|;
+block|}
+comment|/**      * Sets an exclude pattern that will disable tracing with zipkin for Camel messages that matches the pattern.      */
+DECL|method|setExcludePattern (String excludePattern)
+specifier|public
+name|void
+name|setExcludePattern
+parameter_list|(
+name|String
+name|excludePattern
+parameter_list|)
+block|{
+name|this
+operator|.
+name|excludePattern
+operator|=
+name|excludePattern
 expr_stmt|;
 block|}
 block|}
