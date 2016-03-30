@@ -243,7 +243,16 @@ specifier|final
 name|String
 name|PAYLOAD
 init|=
-literal|"<foo>bar</foo>"
+literal|"<foo>bar<![CDATA[& a cdata section ]]></foo>"
+decl_stmt|;
+DECL|field|PAYLOAD_AMPED
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|PAYLOAD_AMPED
+init|=
+literal|"<foo>bar&amp; a cdata section</foo>"
 decl_stmt|;
 annotation|@
 name|Test
@@ -276,9 +285,13 @@ argument_list|,
 name|PAYLOAD
 argument_list|)
 decl_stmt|;
+comment|// this conversion uses org.apache.camel.converter.jaxp.XmlConverter.toDOMNodeFromSAX which uses Transformer
+comment|// to convert SAXSource to DOM. This conversion preserves the content but loses its original representation.
 name|doTest
 argument_list|(
 name|source
+argument_list|,
+name|PAYLOAD_AMPED
 argument_list|)
 expr_stmt|;
 block|}
@@ -316,6 +329,8 @@ decl_stmt|;
 name|doTest
 argument_list|(
 name|source
+argument_list|,
+name|PAYLOAD
 argument_list|)
 expr_stmt|;
 block|}
@@ -363,6 +378,8 @@ decl_stmt|;
 name|doTest
 argument_list|(
 name|source
+argument_list|,
+name|PAYLOAD
 argument_list|)
 expr_stmt|;
 block|}
@@ -400,6 +417,8 @@ decl_stmt|;
 name|doTest
 argument_list|(
 name|source
+argument_list|,
+name|PAYLOAD
 argument_list|)
 expr_stmt|;
 block|}
@@ -437,6 +456,8 @@ decl_stmt|;
 name|doTest
 argument_list|(
 name|source
+argument_list|,
+name|PAYLOAD
 argument_list|)
 expr_stmt|;
 block|}
@@ -449,13 +470,16 @@ block|,
 literal|"rawtypes"
 block|}
 argument_list|)
-DECL|method|doTest (Object source)
+DECL|method|doTest (Object source, String payload)
 specifier|private
 name|void
 name|doTest
 parameter_list|(
 name|Object
 name|source
+parameter_list|,
+name|String
+name|payload
 parameter_list|)
 throws|throws
 name|IOException
@@ -539,7 +563,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-name|PAYLOAD
+name|payload
 argument_list|,
 name|s
 argument_list|)
@@ -593,7 +617,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|PAYLOAD
+name|payload
 argument_list|,
 name|s
 argument_list|)
@@ -626,7 +650,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|PAYLOAD
+name|payload
 argument_list|,
 name|s
 argument_list|)
@@ -649,7 +673,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|PAYLOAD
+name|payload
 argument_list|,
 name|s
 argument_list|)
