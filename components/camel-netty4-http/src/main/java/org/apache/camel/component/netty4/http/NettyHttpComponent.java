@@ -872,6 +872,13 @@ argument_list|()
 operator|==
 operator|-
 literal|1
+operator|||
+name|config
+operator|.
+name|getPort
+argument_list|()
+operator|==
+literal|0
 condition|)
 block|{
 if|if

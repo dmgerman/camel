@@ -1112,6 +1112,17 @@ name|getHost
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|uri
+operator|.
+name|getPort
+argument_list|()
+operator|!=
+operator|-
+literal|1
+condition|)
+block|{
 name|setPort
 argument_list|(
 name|uri
@@ -1120,6 +1131,7 @@ name|getPort
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|ssl
 operator|=
 name|component

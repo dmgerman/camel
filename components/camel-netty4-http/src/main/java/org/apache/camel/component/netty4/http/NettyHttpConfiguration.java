@@ -185,10 +185,15 @@ name|host
 decl_stmt|;
 annotation|@
 name|UriPath
-DECL|field|port
+argument_list|(
+name|name
+operator|=
+literal|"port"
+argument_list|)
+DECL|field|dummy
 specifier|private
 name|int
-name|port
+name|dummy
 decl_stmt|;
 annotation|@
 name|UriPath
