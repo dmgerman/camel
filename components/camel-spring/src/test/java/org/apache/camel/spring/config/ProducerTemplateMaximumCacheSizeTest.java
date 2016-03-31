@@ -237,6 +237,12 @@ literal|"Hello"
 argument_list|)
 expr_stmt|;
 block|}
+comment|// the eviction is async so force cleanup
+name|template
+operator|.
+name|cleanUp
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"Size should be 50"
