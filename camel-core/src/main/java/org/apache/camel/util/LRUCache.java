@@ -155,7 +155,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Least Recently Used Cache.  *<p/>  * If this cache stores {@link org.apache.camel.Service} then this implementation will on eviction  * invoke the {@link org.apache.camel.Service#stop()} method, to auto-stop the service.  *  * @see LRUSoftCache  * @see LRUWeakCache  */
+comment|/**  * A cache that uses a near optional LRU Cache.  *<p/>  * The Cache is implemented by Caffeine which provides an<a href="https://github.com/ben-manes/caffeine/wiki/Efficiency">efficient cache</a>.  *<p/>  * If this cache stores {@link org.apache.camel.Service} then this implementation will on eviction  * invoke the {@link org.apache.camel.Service#stop()} method, to auto-stop the service.  *  * @see LRUSoftCache  * @see LRUWeakCache  */
 end_comment
 
 begin_class
@@ -185,16 +185,6 @@ argument_list|>
 implements|,
 name|Serializable
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|342098639681884414L
-decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -753,6 +743,14 @@ name|RemovalCause
 name|cause
 parameter_list|)
 block|{
+if|if
+condition|(
+name|cause
+operator|.
+name|wasEvicted
+argument_list|()
+condition|)
+block|{
 name|evicted
 operator|.
 name|incrementAndGet
@@ -804,6 +802,7 @@ argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 block|}
