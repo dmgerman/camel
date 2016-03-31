@@ -606,6 +606,26 @@ name|keepRuntimeFolder
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|ops4j
+operator|.
+name|pax
+operator|.
+name|exam
+operator|.
+name|karaf
+operator|.
+name|options
+operator|.
+name|KarafDistributionOption
+operator|.
+name|logLevel
+import|;
+end_import
+
 begin_class
 DECL|class|AbstractFeatureTest
 specifier|public
@@ -1530,6 +1550,15 @@ name|File
 argument_list|(
 literal|"target/paxexam/unpack/"
 argument_list|)
+argument_list|)
+block|,
+name|logLevel
+argument_list|(
+name|LogLevelOption
+operator|.
+name|LogLevel
+operator|.
+name|WARN
 argument_list|)
 block|,
 comment|// keep the folder so we can look inside when something fails
