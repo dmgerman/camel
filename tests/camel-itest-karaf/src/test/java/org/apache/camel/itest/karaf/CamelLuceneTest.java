@@ -74,11 +74,6 @@ name|PaxExam
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Need new version of lucene bundle"
-argument_list|)
 DECL|class|CamelLuceneTest
 specifier|public
 class|class
