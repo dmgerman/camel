@@ -66,22 +66,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|mock
-operator|.
-name|MockEndpoint
-import|;
-end_import
-
 begin_comment
 comment|/**  * @version   */
 end_comment
@@ -111,7 +95,12 @@ specifier|final
 name|String
 name|testPayload
 init|=
-literal|"Line 1\nLine 2\nLine 3\nLine 4\nLine 5\nLine 6\nLine 7\nLine 8\nLine 9\nLine 10\n"
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"Line 1%nLine 2%nLine 3%nLine 4%nLine 5%nLine 6%nLine 7%nLine 8%nLine 9%nLine 10%n"
+argument_list|)
 decl_stmt|;
 DECL|field|sourceUri
 specifier|final
