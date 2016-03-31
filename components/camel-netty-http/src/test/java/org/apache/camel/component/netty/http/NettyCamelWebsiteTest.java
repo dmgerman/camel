@@ -40,18 +40,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RoutesBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -144,7 +132,7 @@ annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
-name|RoutesBuilder
+name|RouteBuilder
 name|createRouteBuilder
 parameter_list|()
 throws|throws
