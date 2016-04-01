@@ -481,7 +481,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To use zipkin with Camel then setup this {@link org.apache.camel.spi.EventNotifier} in your Camel application.  *<p/>  * Events (span) are captured for incoming and outgoing messages being sent to/from Camel.  * This means you need to configure which which Camel endpoints that maps to zipkin service names.  * The mapping can be configured using  *<ul>  *<li>route id - A Camel route id</li>  *<li>endpoint url - A Camel endpoint url</li>  *</ul>  * For both kinds you can use wildcards and regular expressions to match, which is using the rules from  * {@link EndpointHelper#matchPattern(String, String)} and {@link EndpointHelper#matchEndpoint(CamelContext, String, String)}  *<p/>  * To match all Camel messages you can use<tt>*</tt> in the pattern and configure that to the same service name.  *<br/>  * If no mapping has been configured then Camel will fallback and use endpoint uri's as service names.  * However its recommended to configure service mappings so you can use human logic names instead of Camel  * endpoint uris in the names.  *<p/>  * Camel will auto-configure a {@link ScribeSpanCollector} if no SpanCollector explicit has been configured, and  * if the hostname and port has been configured as environment variables  *<ul>  *<li>ZIPKIN_SERVICE_HOST - The hostname</li>  *<li>ZIPKIN_SERVICE_PORT - The port number</li>  *</ul>  */
+comment|/**  * To use zipkin with Camel then setup this {@link org.apache.camel.spi.EventNotifier} in your Camel application.  *<p/>  * Events (span) are captured for incoming and outgoing messages being sent to/from Camel.  * This means you need to configure which which Camel endpoints that maps to zipkin service names.  * The mapping can be configured using  *<ul>  *<li>route id - A Camel route id</li>  *<li>endpoint url - A Camel endpoint url</li>  *</ul>  * For both kinds you can use wildcards and regular expressions to match, which is using the rules from  * {@link EndpointHelper#matchPattern(String, String)} and {@link EndpointHelper#matchEndpoint(CamelContext, String, String)}  *<p/>  * To match all Camel messages you can use<tt>*</tt> in the pattern and configure that to the same service name.  *<br/>  * If no mapping has been configured then Camel will fallback and use endpoint uri's as service names.  * However its recommended to configure service mappings so you can use human logic names instead of Camel  * endpoint uris in the names.  *<p/>  * Camel will auto-configure a {@link ScribeSpanCollector} if no SpanCollector explicit has been configured, and  * if the hostname and port to the span collector has been configured as environment variables  *<ul>  *<li>ZIPKIN_COLLECTOR_SERVICE_HOST - The hostname</li>  *<li>ZIPKIN_COLLECTOR_SERVICE_PORT - The port number</li>  *</ul>  */
 end_comment
 
 begin_class
@@ -503,6 +503,28 @@ name|StatefulService
 implements|,
 name|CamelContextAware
 block|{
+DECL|field|braves
+specifier|private
+specifier|final
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Brave
+argument_list|>
+name|braves
+init|=
+operator|new
+name|HashMap
+argument_list|<>
+argument_list|()
+decl_stmt|;
+DECL|field|useFallbackServiceNames
+specifier|private
+specifier|transient
+name|boolean
+name|useFallbackServiceNames
+decl_stmt|;
 DECL|field|camelContext
 specifier|private
 name|CamelContext
@@ -573,30 +595,10 @@ name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|field|braves
-specifier|private
-name|Map
-argument_list|<
-name|String
-argument_list|,
-name|Brave
-argument_list|>
-name|braves
-init|=
-operator|new
-name|HashMap
-argument_list|<>
-argument_list|()
-decl_stmt|;
 DECL|field|includeMessageBody
 specifier|private
 name|boolean
 name|includeMessageBody
-decl_stmt|;
-DECL|field|useFallbackServiceNames
-specifier|private
-name|boolean
-name|useFallbackServiceNames
 decl_stmt|;
 DECL|method|ZipkinEventNotifier ()
 specifier|public
@@ -1068,7 +1070,7 @@ argument_list|()
 operator|.
 name|apply
 argument_list|(
-literal|"zipkin"
+literal|"zipkin-collector"
 argument_list|)
 decl_stmt|;
 name|String
@@ -1080,7 +1082,7 @@ argument_list|()
 operator|.
 name|apply
 argument_list|(
-literal|"zipkin"
+literal|"zipkin-collector"
 argument_list|)
 decl_stmt|;
 if|if
@@ -1306,6 +1308,11 @@ name|spanCollector
 argument_list|)
 expr_stmt|;
 block|}
+name|braves
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
