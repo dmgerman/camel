@@ -3483,7 +3483,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"serverResponse[service={}, traceId={}, spanId={}, parentId={}] [status=exchangeFailed]"
+literal|"serverResponse[service={}, traceId={}, spanId={}, parentId={}] [status=exchangeCompleted]"
 argument_list|,
 name|serviceName
 argument_list|,
