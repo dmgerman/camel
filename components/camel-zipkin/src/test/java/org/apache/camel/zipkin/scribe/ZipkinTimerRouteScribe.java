@@ -201,7 +201,16 @@ expr_stmt|;
 comment|// we have one route as service
 name|zipkin
 operator|.
-name|addServiceMapping
+name|addClientServiceMapping
+argument_list|(
+literal|"seda:timer"
+argument_list|,
+literal|"timer"
+argument_list|)
+expr_stmt|;
+name|zipkin
+operator|.
+name|addServerServiceMapping
 argument_list|(
 literal|"seda:timer"
 argument_list|,

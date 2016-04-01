@@ -145,7 +145,7 @@ argument_list|()
 expr_stmt|;
 name|zipkin
 operator|.
-name|addServiceMapping
+name|addClientServiceMapping
 argument_list|(
 literal|"seda:foo"
 argument_list|,
@@ -154,7 +154,7 @@ argument_list|)
 expr_stmt|;
 name|zipkin
 operator|.
-name|addServiceMapping
+name|addServerServiceMapping
 argument_list|(
 literal|"seda:bar"
 argument_list|,

@@ -120,7 +120,7 @@ expr_stmt|;
 comment|// we have 2 routes as services
 name|zipkin
 operator|.
-name|addServiceMapping
+name|addClientServiceMapping
 argument_list|(
 literal|"seda:cat"
 argument_list|,
@@ -129,7 +129,25 @@ argument_list|)
 expr_stmt|;
 name|zipkin
 operator|.
-name|addServiceMapping
+name|addServerServiceMapping
+argument_list|(
+literal|"seda:cat"
+argument_list|,
+literal|"cat"
+argument_list|)
+expr_stmt|;
+name|zipkin
+operator|.
+name|addClientServiceMapping
+argument_list|(
+literal|"seda:dog"
+argument_list|,
+literal|"dog"
+argument_list|)
+expr_stmt|;
+name|zipkin
+operator|.
+name|addServerServiceMapping
 argument_list|(
 literal|"seda:dog"
 argument_list|,

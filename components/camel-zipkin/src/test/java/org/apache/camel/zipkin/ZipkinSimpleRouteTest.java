@@ -145,10 +145,8 @@ argument_list|()
 expr_stmt|;
 name|zipkin
 operator|.
-name|addServiceMapping
+name|setServiceName
 argument_list|(
-literal|"seda:dude"
-argument_list|,
 literal|"dude"
 argument_list|)
 expr_stmt|;

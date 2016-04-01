@@ -108,8 +108,8 @@ name|String
 argument_list|>
 name|excludePatterns
 decl_stmt|;
-comment|/**      * Sets service mapping(s) that matches Camel events to the given zipkin service name.      * The key is the pattern, the value is the service name.      */
-DECL|field|serviceMappings
+comment|/**      * Sets client service mapping(s) that matches Camel events to the given zipkin service name.      * The key is the pattern, the value is the service name.      */
+DECL|field|clientServiceMappings
 specifier|private
 name|Map
 argument_list|<
@@ -117,7 +117,18 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-name|serviceMappings
+name|clientServiceMappings
+decl_stmt|;
+comment|/**      * Sets server service mapping(s) that matches Camel events to the given zipkin service name.      * The key is the pattern, the value is the service name.      */
+DECL|field|serverServiceMappings
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|serverServiceMappings
 decl_stmt|;
 comment|// Getters& setters
 DECL|method|getHostName ()
@@ -282,7 +293,7 @@ operator|=
 name|excludePatterns
 expr_stmt|;
 block|}
-DECL|method|getServiceMappings ()
+DECL|method|getClientServiceMappings ()
 specifier|public
 name|Map
 argument_list|<
@@ -290,17 +301,17 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-name|getServiceMappings
+name|getClientServiceMappings
 parameter_list|()
 block|{
 return|return
-name|serviceMappings
+name|clientServiceMappings
 return|;
 block|}
-DECL|method|setServiceMappings (Map<String, String> serviceMappings)
+DECL|method|setClientServiceMappings (Map<String, String> clientServiceMappings)
 specifier|public
 name|void
-name|setServiceMappings
+name|setClientServiceMappings
 parameter_list|(
 name|Map
 argument_list|<
@@ -308,14 +319,50 @@ name|String
 argument_list|,
 name|String
 argument_list|>
-name|serviceMappings
+name|clientServiceMappings
 parameter_list|)
 block|{
 name|this
 operator|.
-name|serviceMappings
+name|clientServiceMappings
 operator|=
-name|serviceMappings
+name|clientServiceMappings
+expr_stmt|;
+block|}
+DECL|method|getServerServiceMappings ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getServerServiceMappings
+parameter_list|()
+block|{
+return|return
+name|serverServiceMappings
+return|;
+block|}
+DECL|method|setServerServiceMappings (Map<String, String> serverServiceMappings)
+specifier|public
+name|void
+name|setServerServiceMappings
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|serverServiceMappings
+parameter_list|)
+block|{
+name|this
+operator|.
+name|serverServiceMappings
+operator|=
+name|serverServiceMappings
 expr_stmt|;
 block|}
 block|}
