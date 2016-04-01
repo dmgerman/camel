@@ -60,12 +60,17 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://0.0.0.0:{{jetty.port}}/service2"
+literal|"jetty:http://0.0.0.0:{{service2.port}}/service2"
 argument_list|)
 operator|.
 name|routeId
 argument_list|(
 literal|"service2"
+argument_list|)
+operator|.
+name|removeHeaders
+argument_list|(
+literal|"CamelHttp*"
 argument_list|)
 operator|.
 name|convertBodyTo
@@ -89,6 +94,11 @@ name|simple
 argument_list|(
 literal|"Hello: ${body}"
 argument_list|)
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"http://0.0.0.0:{{service3.port}}/service3"
 argument_list|)
 expr_stmt|;
 block|}

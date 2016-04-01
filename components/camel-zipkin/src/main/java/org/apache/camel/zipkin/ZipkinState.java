@@ -54,9 +54,26 @@ name|Span
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_comment
+comment|/**  * The state of the zipkin trace which we store on the {@link Exchange}  *<p/>  * This is needed to keep track of of correlating when an existing span  * is calling downstream service(s) and therefore must be able to correlate  * those service calls with the parent span.  */
+end_comment
+
 begin_class
 DECL|class|ZipkinState
 specifier|public
+specifier|final
 class|class
 name|ZipkinState
 block|{

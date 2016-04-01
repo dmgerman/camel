@@ -2600,11 +2600,19 @@ name|event
 parameter_list|)
 block|{
 name|ClientSpanThreadBinder
-name|binder
+name|clientBinder
 init|=
 name|brave
 operator|.
 name|clientSpanThreadBinder
+argument_list|()
+decl_stmt|;
+name|ServerSpanThreadBinder
+name|serverBinder
+init|=
+name|brave
+operator|.
+name|serverSpanThreadBinder
 argument_list|()
 decl_stmt|;
 comment|// reuse existing span if we do multiple requests from the same
@@ -2655,6 +2663,7 @@ name|state
 argument_list|)
 expr_stmt|;
 block|}
+comment|// need to store the last span in use whether it was a server or client based span
 name|Object
 name|last
 init|=
@@ -2674,7 +2683,7 @@ operator|instanceof
 name|Span
 condition|)
 block|{
-name|binder
+name|clientBinder
 operator|.
 name|setCurrentSpan
 argument_list|(
@@ -2697,24 +2706,14 @@ operator|instanceof
 name|ServerSpan
 condition|)
 block|{
-name|Span
-name|span
-init|=
-operator|(
+name|serverBinder
+operator|.
+name|setCurrentSpan
+argument_list|(
 operator|(
 name|ServerSpan
 operator|)
 name|last
-operator|)
-operator|.
-name|getSpan
-argument_list|()
-decl_stmt|;
-name|binder
-operator|.
-name|setCurrentSpan
-argument_list|(
-name|span
 argument_list|)
 expr_stmt|;
 block|}
@@ -2748,7 +2747,7 @@ comment|// store span after request
 name|Span
 name|span
 init|=
-name|binder
+name|clientBinder
 operator|.
 name|getCurrentClientSpan
 argument_list|()
@@ -2761,7 +2760,14 @@ name|span
 argument_list|)
 expr_stmt|;
 comment|// and reset binder
-name|binder
+name|clientBinder
+operator|.
+name|setCurrentSpan
+argument_list|(
+literal|null
+argument_list|)
+expr_stmt|;
+name|serverBinder
 operator|.
 name|setCurrentSpan
 argument_list|(
@@ -2905,6 +2911,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// only process if it was a zipkin client event
 name|span
 operator|=
 name|state
@@ -2920,16 +2927,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// only process if it was a zipkin client event
 name|ClientSpanThreadBinder
-name|binder
+name|clientBinder
 init|=
 name|brave
 operator|.
 name|clientSpanThreadBinder
 argument_list|()
 decl_stmt|;
-name|binder
+name|clientBinder
 operator|.
 name|setCurrentSpan
 argument_list|(
@@ -2961,7 +2967,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// and reset binder
-name|binder
+name|clientBinder
 operator|.
 name|setCurrentSpan
 argument_list|(
@@ -3040,7 +3046,7 @@ name|event
 parameter_list|)
 block|{
 name|ServerSpanThreadBinder
-name|binder
+name|serverBinder
 init|=
 name|brave
 operator|.
@@ -3114,7 +3120,7 @@ operator|instanceof
 name|ServerSpan
 condition|)
 block|{
-name|binder
+name|serverBinder
 operator|.
 name|setCurrentSpan
 argument_list|(
@@ -3148,7 +3154,7 @@ comment|// store span after request
 name|ServerSpan
 name|span
 init|=
-name|binder
+name|serverBinder
 operator|.
 name|getCurrentServerSpan
 argument_list|()
@@ -3161,7 +3167,7 @@ name|span
 argument_list|)
 expr_stmt|;
 comment|// and reset binder
-name|binder
+name|serverBinder
 operator|.
 name|setCurrentSpan
 argument_list|(
@@ -3323,6 +3329,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// only process if it was a zipkin server event
 name|span
 operator|=
 name|state
@@ -3338,16 +3345,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// only process if it was a zipkin server event
 name|ServerSpanThreadBinder
-name|binder
+name|serverBinder
 init|=
 name|brave
 operator|.
 name|serverSpanThreadBinder
 argument_list|()
 decl_stmt|;
-name|binder
+name|serverBinder
 operator|.
 name|setCurrentSpan
 argument_list|(
@@ -3374,7 +3380,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// and reset binder
-name|binder
+name|serverBinder
 operator|.
 name|setCurrentSpan
 argument_list|(
@@ -3537,6 +3543,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// only process if it was a zipkin server event
 name|span
 operator|=
 name|state
@@ -3552,16 +3559,15 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// only process if it was a zipkin server event
 name|ServerSpanThreadBinder
-name|binder
+name|serverBinder
 init|=
 name|brave
 operator|.
 name|serverSpanThreadBinder
 argument_list|()
 decl_stmt|;
-name|binder
+name|serverBinder
 operator|.
 name|setCurrentSpan
 argument_list|(
@@ -3588,7 +3594,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// and reset binder
-name|binder
+name|serverBinder
 operator|.
 name|setCurrentSpan
 argument_list|(

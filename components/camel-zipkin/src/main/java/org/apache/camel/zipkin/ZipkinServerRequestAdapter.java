@@ -176,7 +176,7 @@ name|zipkin
 operator|.
 name|ZipkinHelper
 operator|.
-name|getSpanId
+name|createSpanId
 import|;
 end_import
 
@@ -423,7 +423,7 @@ block|{
 name|SpanId
 name|span
 init|=
-name|getSpanId
+name|createSpanId
 argument_list|(
 name|traceId
 argument_list|,

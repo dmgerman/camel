@@ -60,11 +60,11 @@ specifier|private
 name|ZipkinHelper
 parameter_list|()
 block|{     }
-DECL|method|getSpanId (String traceId, String spanId, String parentSpanId)
+DECL|method|createSpanId (String traceId, String spanId, String parentSpanId)
 specifier|public
 specifier|static
 name|SpanId
-name|getSpanId
+name|createSpanId
 parameter_list|(
 name|String
 name|traceId

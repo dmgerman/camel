@@ -89,15 +89,7 @@ argument_list|,
 literal|"service2"
 argument_list|)
 expr_stmt|;
-name|zipkin
-operator|.
-name|addClientServiceMapping
-argument_list|(
-literal|"http://localhost:7070/service3"
-argument_list|,
-literal|"service3"
-argument_list|)
-expr_stmt|;
+comment|//        zipkin.addClientServiceMapping("http://localhost:7070/service3", "service3");
 comment|// add zipkin to CamelContext
 name|getContext
 argument_list|()
@@ -124,11 +116,7 @@ name|to
 argument_list|(
 literal|"http://localhost:9090/service2"
 argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"http://localhost:7070/service3"
-argument_list|)
+comment|//            .to("http://localhost:7070/service3")
 operator|.
 name|log
 argument_list|(
