@@ -2017,7 +2017,7 @@ return|return
 name|answer
 return|;
 block|}
-comment|/**      * Extracts the response from the method as a InputStream.      *      * @param httpRequest the method that was executed      * @return the response either as a stream, or as a deserialized java object      * @throws IOException can be thrown      */
+comment|/**      * Extracts the response from the method as a InputStream.      */
 DECL|method|extractResponseBody (HttpRequestBase httpRequest, HttpResponse httpResponse, Exchange exchange, boolean ignoreResponseBody)
 specifier|protected
 name|Object
@@ -2145,7 +2145,7 @@ literal|null
 decl_stmt|;
 name|header
 operator|=
-name|httpRequest
+name|httpResponse
 operator|.
 name|getFirstHeader
 argument_list|(
