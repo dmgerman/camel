@@ -92,7 +92,7 @@ name|Exchange
 name|newExchange
 parameter_list|)
 block|{
-comment|// aggreagate using the actual strategy first
+comment|// aggregate using the actual strategy first
 name|Exchange
 name|answer
 init|=
