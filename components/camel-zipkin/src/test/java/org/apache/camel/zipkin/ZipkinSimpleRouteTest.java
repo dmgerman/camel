@@ -159,14 +159,14 @@ name|ZipkinLoggingSpanCollector
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|context
-operator|.
-name|addService
-argument_list|(
+comment|// attaching ourself to CamelContext
 name|zipkin
+operator|.
+name|init
+argument_list|(
+name|context
 argument_list|)
 expr_stmt|;
-comment|//        context.getManagementStrategy().addEventNotifier(zipkin);
 return|return
 name|context
 return|;

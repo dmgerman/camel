@@ -207,21 +207,11 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// attaching ourself to CamelContext
-name|context
-operator|.
-name|getManagementStrategy
-argument_list|()
-operator|.
-name|addEventNotifier
-argument_list|(
 name|zipkin
-argument_list|)
-expr_stmt|;
-name|context
 operator|.
-name|addRoutePolicyFactory
+name|init
 argument_list|(
-name|zipkin
+name|context
 argument_list|)
 expr_stmt|;
 return|return

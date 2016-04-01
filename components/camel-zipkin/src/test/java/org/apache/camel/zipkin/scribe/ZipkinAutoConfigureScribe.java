@@ -157,14 +157,12 @@ literal|"cat"
 argument_list|)
 expr_stmt|;
 comment|// should auto configure as we have not setup a spanCollector
-name|context
-operator|.
-name|getManagementStrategy
-argument_list|()
-operator|.
-name|addEventNotifier
-argument_list|(
+comment|// attaching ourself to CamelContext
 name|zipkin
+operator|.
+name|init
+argument_list|(
+name|context
 argument_list|)
 expr_stmt|;
 return|return
