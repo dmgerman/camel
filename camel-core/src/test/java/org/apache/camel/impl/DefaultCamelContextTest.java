@@ -2058,6 +2058,11 @@ argument_list|(
 name|my
 argument_list|)
 expr_stmt|;
+name|ctx
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|ctx

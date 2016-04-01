@@ -1868,6 +1868,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|OrderedComparator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ServiceHelper
 import|;
 end_import
@@ -2121,14 +2135,14 @@ decl_stmt|;
 DECL|field|startupListeners
 specifier|private
 specifier|final
-name|Set
+name|List
 argument_list|<
 name|StartupListener
 argument_list|>
 name|startupListeners
 init|=
 operator|new
-name|LinkedHashSet
+name|CopyOnWriteArrayList
 argument_list|<
 name|StartupListener
 argument_list|>
@@ -2860,7 +2874,7 @@ argument_list|(
 name|this
 argument_list|)
 expr_stmt|;
-comment|// add the derfer service startup listener
+comment|// add the defer service startup listener
 name|this
 operator|.
 name|startupListeners
@@ -7626,6 +7640,33 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|doAddService
+argument_list|(
+name|object
+argument_list|,
+name|stopOnShutdown
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|doAddService (Object object, boolean stopOnShutdown, boolean forceStart)
+specifier|private
+name|void
+name|doAddService
+parameter_list|(
+name|Object
+name|object
+parameter_list|,
+name|boolean
+name|stopOnShutdown
+parameter_list|,
+name|boolean
+name|forceStart
+parameter_list|)
+throws|throws
+name|Exception
+block|{
 comment|// inject CamelContext
 if|if
 condition|(
@@ -7707,6 +7748,23 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+operator|!
+name|forceStart
+condition|)
+block|{
+comment|// now start the service (and defer starting if CamelContext is starting up itself)
+name|deferStartService
+argument_list|(
+name|object
+argument_list|,
+name|stopOnShutdown
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 comment|// only add to services to close if its a singleton
 comment|// otherwise we could for example end up with a lot of prototype scope endpoints
 name|boolean
@@ -7717,7 +7775,7 @@ decl_stmt|;
 comment|// assume singleton by default
 if|if
 condition|(
-name|service
+name|object
 operator|instanceof
 name|IsSingleton
 condition|)
@@ -7769,46 +7827,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
-comment|// and then ensure service is started (as stated in the javadoc)
-if|if
-condition|(
-name|object
-operator|instanceof
-name|Service
-condition|)
-block|{
+name|ServiceHelper
+operator|.
 name|startService
 argument_list|(
-operator|(
-name|Service
-operator|)
-name|object
+name|service
 argument_list|)
 expr_stmt|;
 block|}
-elseif|else
-if|if
-condition|(
-name|object
-operator|instanceof
-name|Collection
-argument_list|<
-name|?
-argument_list|>
-condition|)
-block|{
-name|startServices
-argument_list|(
-operator|(
-name|Collection
-argument_list|<
-name|?
-argument_list|>
-operator|)
-name|object
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 DECL|method|removeService (Object object)
@@ -13917,10 +13943,14 @@ argument_list|()
 expr_stmt|;
 try|try
 block|{
-comment|// must add service eager
-name|addService
+comment|// must add service eager and force start it
+name|doAddService
 argument_list|(
 name|typeConverter
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -13963,9 +13993,13 @@ expr_stmt|;
 try|try
 block|{
 comment|// must add service eager
-name|addService
+name|doAddService
 argument_list|(
 name|typeConverter
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -16896,9 +16930,14 @@ argument_list|,
 name|endpoints
 argument_list|)
 expr_stmt|;
-name|addService
+comment|// add this as service and force pre-start them
+name|doAddService
 argument_list|(
 name|endpoints
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// special for executorServiceManager as want to stop it manually
@@ -16907,46 +16946,80 @@ argument_list|(
 name|executorServiceManager
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
-name|addService
+name|doAddService
 argument_list|(
 name|producerServicePool
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
-name|addService
+name|doAddService
 argument_list|(
 name|pollingConsumerServicePool
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
-name|addService
+name|doAddService
 argument_list|(
 name|inflightRepository
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
-name|addService
+name|doAddService
 argument_list|(
 name|asyncProcessorAwaitManager
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
-name|addService
+name|doAddService
 argument_list|(
 name|shutdownStrategy
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
-name|addService
+name|doAddService
 argument_list|(
 name|packageScanClassResolver
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
-name|addService
+name|doAddService
 argument_list|(
 name|restRegistry
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
-name|addService
+name|doAddService
 argument_list|(
 name|messageHistoryFactory
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 if|if
@@ -16975,9 +17048,13 @@ name|runtimeEndpointRegistry
 argument_list|)
 expr_stmt|;
 block|}
-name|addService
+name|doAddService
 argument_list|(
 name|runtimeEndpointRegistry
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -17139,10 +17216,14 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|addService
+name|doAddService
 argument_list|(
 name|getStreamCachingStrategy
 argument_list|()
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
@@ -17754,17 +17835,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-operator|!
-name|filtered
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-comment|// the context is now considered started (i.e. isStarted() == true))
-comment|// starting routes is done after, not during context startup
+comment|// the context is in last phase of staring, so lets start the routes
 name|safelyStartRouteServices
 argument_list|(
 name|checkClash
@@ -17781,34 +17852,6 @@ name|values
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
-comment|// we are finished starting routes, so remove flag before we emit the startup listeners below
-name|isStartingRoutes
-operator|.
-name|remove
-argument_list|()
-expr_stmt|;
-comment|// now notify any startup aware listeners as all the routes etc has been started,
-comment|// allowing the listeners to do custom work after routes has been started
-for|for
-control|(
-name|StartupListener
-name|startup
-range|:
-name|startupListeners
-control|)
-block|{
-name|startup
-operator|.
-name|onCamelContextStarted
-argument_list|(
-name|this
-argument_list|,
-name|isStarted
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 finally|finally
 block|{
@@ -18763,6 +18806,60 @@ argument_list|,
 name|startConsumer
 argument_list|)
 expr_stmt|;
+comment|// sort the startup listeners so they are started in the right order
+name|Collections
+operator|.
+name|sort
+argument_list|(
+name|startupListeners
+argument_list|,
+operator|new
+name|OrderedComparator
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// now call the startup listeners where the routes has been warmed up
+comment|// (only the actual route consumer has not yet been started)
+for|for
+control|(
+name|StartupListener
+name|startup
+range|:
+name|startupListeners
+control|)
+block|{
+name|startup
+operator|.
+name|onCamelContextStarted
+argument_list|(
+name|this
+argument_list|,
+name|isStarted
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// because the consumers may also register startup listeners we need to reset
+comment|// the already started listeners
+name|List
+argument_list|<
+name|StartupListener
+argument_list|>
+name|backup
+init|=
+operator|new
+name|ArrayList
+argument_list|<>
+argument_list|(
+name|startupListeners
+argument_list|)
+decl_stmt|;
+name|startupListeners
+operator|.
+name|clear
+argument_list|()
+expr_stmt|;
+comment|// now start the consumers
 if|if
 condition|(
 name|startConsumer
@@ -18795,6 +18892,49 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// sort the startup listeners so they are started in the right order
+name|Collections
+operator|.
+name|sort
+argument_list|(
+name|startupListeners
+argument_list|,
+operator|new
+name|OrderedComparator
+argument_list|()
+argument_list|)
+expr_stmt|;
+comment|// now the consumers that was just started may also add new StartupListeners (such as timer)
+comment|// so we need to ensure they get started as well
+for|for
+control|(
+name|StartupListener
+name|startup
+range|:
+name|startupListeners
+control|)
+block|{
+name|startup
+operator|.
+name|onCamelContextStarted
+argument_list|(
+name|this
+argument_list|,
+name|isStarted
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+comment|// and add the previous started startup listeners to the list so we have them all
+name|startupListeners
+operator|.
+name|addAll
+argument_list|(
+literal|0
+argument_list|,
+name|backup
+argument_list|)
+expr_stmt|;
 comment|// inputs no longer needed
 name|inputs
 operator|.

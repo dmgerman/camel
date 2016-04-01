@@ -348,12 +348,17 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
-comment|// add the endpoint as a service so Camel can manage the endpoint and enlist the endpoint in JMX etc.
+comment|// add the endpoint to the endpoint registry
 name|getCamelContext
 argument_list|()
 operator|.
-name|addService
+name|addEndpoint
 argument_list|(
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
+argument_list|,
 name|endpoint
 argument_list|)
 expr_stmt|;

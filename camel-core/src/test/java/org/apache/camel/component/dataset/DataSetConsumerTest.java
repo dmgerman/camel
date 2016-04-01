@@ -817,15 +817,6 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Place for Breakpoint"
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

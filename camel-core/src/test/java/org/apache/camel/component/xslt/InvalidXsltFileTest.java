@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|TransformerConfigurationException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -156,7 +168,7 @@ block|{
 comment|// expected
 name|assertIsInstanceOf
 argument_list|(
-name|ResolveEndpointFailedException
+name|TransformerConfigurationException
 operator|.
 name|class
 argument_list|,

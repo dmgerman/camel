@@ -198,6 +198,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// must start context as we do not use route builder that auto-start
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|PollingConsumer
 name|consumer
 init|=

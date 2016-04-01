@@ -157,7 +157,12 @@ name|alreadyStarted
 operator|=
 name|alreadyStarted
 expr_stmt|;
-comment|// the route should have been started
+if|if
+condition|(
+name|alreadyStarted
+condition|)
+block|{
+comment|// the routes should already been started as we add the listener afterwards
 name|assertTrue
 argument_list|(
 name|context
@@ -171,6 +176,24 @@ name|isStarted
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
+else|else
+block|{
+comment|// the routes should not have been started as they start afterwards
+name|assertTrue
+argument_list|(
+name|context
+operator|.
+name|getRouteStatus
+argument_list|(
+literal|"foo"
+argument_list|)
+operator|.
+name|isStopped
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|getInvoked ()
 specifier|public
@@ -201,6 +224,20 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// and now the routes are started
+name|assertTrue
+argument_list|(
+name|context
+operator|.
+name|getRouteStatus
+argument_list|(
+literal|"foo"
+argument_list|)
+operator|.
+name|isStarted
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
@@ -250,6 +287,20 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// and now the routes are started
+name|assertTrue
+argument_list|(
+name|context
+operator|.
+name|getRouteStatus
+argument_list|(
+literal|"foo"
+argument_list|)
+operator|.
+name|isStarted
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|MyStartupListener
 name|other
 init|=

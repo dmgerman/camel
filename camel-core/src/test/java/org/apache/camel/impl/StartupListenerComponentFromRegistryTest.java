@@ -144,6 +144,33 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// and now the routes are started
+name|assertTrue
+argument_list|(
+name|context
+operator|.
+name|getRouteStatus
+argument_list|(
+literal|"foo"
+argument_list|)
+operator|.
+name|isStarted
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|context
+operator|.
+name|getRouteStatus
+argument_list|(
+literal|"bar"
+argument_list|)
+operator|.
+name|isStarted
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
@@ -209,7 +236,7 @@ block|{
 name|invoked
 operator|++
 expr_stmt|;
-comment|// the routes should have been started
+comment|// the routes should not have been started as they start afterwards
 name|assertTrue
 argument_list|(
 name|context
@@ -219,7 +246,7 @@ argument_list|(
 literal|"foo"
 argument_list|)
 operator|.
-name|isStarted
+name|isStopped
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -232,7 +259,7 @@ argument_list|(
 literal|"bar"
 argument_list|)
 operator|.
-name|isStarted
+name|isStopped
 argument_list|()
 argument_list|)
 expr_stmt|;
