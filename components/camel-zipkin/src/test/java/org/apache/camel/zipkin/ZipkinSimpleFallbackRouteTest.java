@@ -143,15 +143,6 @@ operator|new
 name|ZipkinTracer
 argument_list|()
 expr_stmt|;
-comment|// no service so should use fallback naming style
-comment|// we do not want to trace any direct endpoints
-name|zipkin
-operator|.
-name|addExcludePattern
-argument_list|(
-literal|"direct:*"
-argument_list|)
-expr_stmt|;
 name|zipkin
 operator|.
 name|setSpanCollector

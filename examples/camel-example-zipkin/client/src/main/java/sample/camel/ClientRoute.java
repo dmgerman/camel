@@ -26,20 +26,6 @@ name|RouteBuilder
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|zipkin
-operator|.
-name|ZipkinEventNotifier
-import|;
-end_import
-
 begin_class
 DECL|class|ClientRoute
 specifier|public
@@ -57,50 +43,6 @@ name|configure
 parameter_list|()
 block|{
 comment|// you can configure the route rule with Java DSL here
-comment|// TODO: use CDI to setup Camel instead of here in the route
-comment|// create zipkin
-name|ZipkinEventNotifier
-name|zipkin
-init|=
-operator|new
-name|ZipkinEventNotifier
-argument_list|()
-decl_stmt|;
-name|zipkin
-operator|.
-name|setHostName
-argument_list|(
-literal|"192.168.99.100"
-argument_list|)
-expr_stmt|;
-name|zipkin
-operator|.
-name|setPort
-argument_list|(
-literal|9410
-argument_list|)
-expr_stmt|;
-name|zipkin
-operator|.
-name|addClientServiceMapping
-argument_list|(
-literal|"http://localhost:9090/service1"
-argument_list|,
-literal|"service1"
-argument_list|)
-expr_stmt|;
-comment|// add zipkin to CamelContext
-name|getContext
-argument_list|()
-operator|.
-name|getManagementStrategy
-argument_list|()
-operator|.
-name|addEventNotifier
-argument_list|(
-name|zipkin
-argument_list|)
-expr_stmt|;
 name|from
 argument_list|(
 literal|"timer:trigger?exchangePattern=InOut&period=30s"

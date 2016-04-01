@@ -36,7 +36,7 @@ name|camel
 operator|.
 name|zipkin
 operator|.
-name|ZipkinEventNotifier
+name|ZipkinTracer
 import|;
 end_import
 
@@ -58,11 +58,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ZipkinEventNotifier
+name|ZipkinTracer
 name|zipkin
 init|=
 operator|new
-name|ZipkinEventNotifier
+name|ZipkinTracer
 argument_list|()
 decl_stmt|;
 name|zipkin
@@ -87,15 +87,12 @@ literal|"service2"
 argument_list|)
 expr_stmt|;
 comment|// add zipkin to CamelContext
+name|zipkin
+operator|.
+name|init
+argument_list|(
 name|getContext
 argument_list|()
-operator|.
-name|getManagementStrategy
-argument_list|()
-operator|.
-name|addEventNotifier
-argument_list|(
-name|zipkin
 argument_list|)
 expr_stmt|;
 name|from
@@ -127,7 +124,7 @@ name|transform
 argument_list|(
 name|simple
 argument_list|(
-literal|"Bye: ${body}"
+literal|"Service2: ${body}"
 argument_list|)
 argument_list|)
 expr_stmt|;

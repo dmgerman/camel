@@ -54,7 +54,7 @@ name|camel
 operator|.
 name|zipkin
 operator|.
-name|ZipkinEventNotifier
+name|ZipkinTracer
 import|;
 end_import
 
@@ -175,12 +175,12 @@ comment|// Camel handles the lifecycle of this bean
 annotation|@
 name|ConditionalOnMissingBean
 argument_list|(
-name|ZipkinEventNotifier
+name|ZipkinTracer
 operator|.
 name|class
 argument_list|)
 DECL|method|zipkinEventNotifier (CamelContext camelContext, ZipkinConfigurationProperties config)
-name|ZipkinEventNotifier
+name|ZipkinTracer
 name|zipkinEventNotifier
 parameter_list|(
 name|CamelContext
@@ -190,14 +190,14 @@ name|ZipkinConfigurationProperties
 name|config
 parameter_list|)
 block|{
-name|ZipkinEventNotifier
-name|notifier
+name|ZipkinTracer
+name|zipkin
 init|=
 operator|new
-name|ZipkinEventNotifier
+name|ZipkinTracer
 argument_list|()
 decl_stmt|;
-name|notifier
+name|zipkin
 operator|.
 name|setHostName
 argument_list|(
@@ -207,7 +207,7 @@ name|getHostName
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|notifier
+name|zipkin
 operator|.
 name|setPort
 argument_list|(
@@ -217,7 +217,7 @@ name|getPort
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|notifier
+name|zipkin
 operator|.
 name|setRate
 argument_list|(
@@ -240,7 +240,7 @@ argument_list|()
 argument_list|)
 condition|)
 block|{
-name|notifier
+name|zipkin
 operator|.
 name|setServiceName
 argument_list|(
@@ -261,7 +261,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|notifier
+name|zipkin
 operator|.
 name|setExcludePatterns
 argument_list|(
@@ -282,7 +282,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|notifier
+name|zipkin
 operator|.
 name|setClientServiceMappings
 argument_list|(
@@ -303,7 +303,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|notifier
+name|zipkin
 operator|.
 name|setServerServiceMappings
 argument_list|(
@@ -314,7 +314,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-name|notifier
+name|zipkin
 operator|.
 name|setIncludeMessageBody
 argument_list|(
@@ -325,18 +325,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// register the bean into CamelContext
-name|camelContext
+name|zipkin
 operator|.
-name|getManagementStrategy
-argument_list|()
-operator|.
-name|addEventNotifier
+name|init
 argument_list|(
-name|notifier
+name|camelContext
 argument_list|)
 expr_stmt|;
 return|return
-name|notifier
+name|zipkin
 return|;
 block|}
 block|}
