@@ -90,7 +90,7 @@ name|CamelTestSupport
 block|{
 DECL|field|zipkin
 specifier|private
-name|ZipkinEventNotifier
+name|ZipkinTracer
 name|zipkin
 decl_stmt|;
 annotation|@
@@ -114,7 +114,7 @@ decl_stmt|;
 name|zipkin
 operator|=
 operator|new
-name|ZipkinEventNotifier
+name|ZipkinTracer
 argument_list|()
 expr_stmt|;
 comment|// we have 2 routes as services

@@ -136,7 +136,7 @@ name|camel
 operator|.
 name|zipkin
 operator|.
-name|ZipkinEventNotifier
+name|ZipkinTracer
 import|;
 end_import
 
@@ -171,7 +171,7 @@ literal|"192.168.99.100"
 decl_stmt|;
 DECL|field|zipkin
 specifier|private
-name|ZipkinEventNotifier
+name|ZipkinTracer
 name|zipkin
 decl_stmt|;
 annotation|@
@@ -195,7 +195,7 @@ decl_stmt|;
 name|zipkin
 operator|=
 operator|new
-name|ZipkinEventNotifier
+name|ZipkinTracer
 argument_list|()
 expr_stmt|;
 comment|// we have one route as service

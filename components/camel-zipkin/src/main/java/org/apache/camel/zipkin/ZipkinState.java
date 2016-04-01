@@ -114,11 +114,6 @@ name|Stack
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|field|last
-specifier|private
-name|Object
-name|last
-decl_stmt|;
 DECL|method|pushClientSpan (Span span)
 specifier|public
 name|void
@@ -134,10 +129,6 @@ name|push
 argument_list|(
 name|span
 argument_list|)
-expr_stmt|;
-name|last
-operator|=
-name|span
 expr_stmt|;
 block|}
 DECL|method|popClientSpan ()
@@ -155,20 +146,11 @@ name|empty
 argument_list|()
 condition|)
 block|{
-name|Span
-name|answer
-init|=
+return|return
 name|clientSpans
 operator|.
 name|pop
 argument_list|()
-decl_stmt|;
-name|last
-operator|=
-name|answer
-expr_stmt|;
-return|return
-name|answer
 return|;
 block|}
 else|else
@@ -194,10 +176,6 @@ argument_list|(
 name|span
 argument_list|)
 expr_stmt|;
-name|last
-operator|=
-name|span
-expr_stmt|;
 block|}
 DECL|method|popServerSpan ()
 specifier|public
@@ -214,20 +192,11 @@ name|empty
 argument_list|()
 condition|)
 block|{
-name|ServerSpan
-name|answer
-init|=
+return|return
 name|serverSpans
 operator|.
 name|pop
 argument_list|()
-decl_stmt|;
-name|last
-operator|=
-name|answer
-expr_stmt|;
-return|return
-name|answer
 return|;
 block|}
 else|else
@@ -237,15 +206,34 @@ literal|null
 return|;
 block|}
 block|}
-DECL|method|getLast ()
+DECL|method|peekServerSpan ()
 specifier|public
-name|Object
-name|getLast
+name|ServerSpan
+name|peekServerSpan
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|serverSpans
+operator|.
+name|empty
+argument_list|()
+condition|)
+block|{
 return|return
-name|last
+name|serverSpans
+operator|.
+name|peek
+argument_list|()
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 block|}
 end_class

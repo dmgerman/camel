@@ -191,7 +191,7 @@ block|{
 DECL|field|eventNotifier
 specifier|private
 specifier|final
-name|ZipkinEventNotifier
+name|ZipkinTracer
 name|eventNotifier
 decl_stmt|;
 DECL|field|exchange
@@ -218,11 +218,11 @@ specifier|final
 name|String
 name|url
 decl_stmt|;
-DECL|method|ZipkinServerRequestAdapter (ZipkinEventNotifier eventNotifier, Exchange exchange)
+DECL|method|ZipkinServerRequestAdapter (ZipkinTracer eventNotifier, Exchange exchange)
 specifier|public
 name|ZipkinServerRequestAdapter
 parameter_list|(
-name|ZipkinEventNotifier
+name|ZipkinTracer
 name|eventNotifier
 parameter_list|,
 name|Exchange
