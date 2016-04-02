@@ -680,6 +680,9 @@ operator|=
 name|allowableValues
 expr_stmt|;
 block|}
+comment|/**      * Gets the Swagger Parameter paramAccess flag.      *      * @deprecated is not in use in swagger specification 2.0      */
+annotation|@
+name|Deprecated
 DECL|method|getAccess ()
 specifier|public
 name|String
@@ -696,7 +699,9 @@ else|:
 literal|""
 return|;
 block|}
-comment|/**      * Sets the Swagger Parameter paramAccess flag.      */
+comment|/**      * Sets the Swagger Parameter paramAccess flag.      *      * @deprecated is not in use in swagger specification 2.0      */
+annotation|@
+name|Deprecated
 DECL|method|setAccess (String access)
 specifier|public
 name|void
@@ -912,7 +917,9 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Parameter access. Use<tt>false</tt> or<tt>internal</tt> to indicate the parameter      * should be hidden for the public.      */
+comment|/**      * Parameter access. Use<tt>false</tt> or<tt>internal</tt> to indicate the parameter      * should be hidden for the public.      *      * @deprecated is not in use in swagger specification 2.0      */
+annotation|@
+name|Deprecated
 DECL|method|access (String paramAccess)
 specifier|public
 name|RestOperationParamDefinition

@@ -1610,16 +1610,6 @@ argument_list|)
 expr_stmt|;
 name|parameter
 operator|.
-name|setAccess
-argument_list|(
-name|param
-operator|.
-name|getAccess
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|parameter
-operator|.
 name|setDescription
 argument_list|(
 name|param

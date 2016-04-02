@@ -410,7 +410,7 @@ name|contains
 argument_list|(
 literal|"<param name=\"header_letter\" type=\"query\" description=\"header param description2\""
 operator|+
-literal|" defaultValue=\"b\" required=\"false\" collectionFormat=\"multi\" dataType=\"string\" access=\"acc2\">"
+literal|" defaultValue=\"b\" required=\"false\" collectionFormat=\"multi\" dataType=\"string\">"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -422,7 +422,7 @@ name|contains
 argument_list|(
 literal|"<param name=\"header_count\" type=\"header\" description=\"header param description1\" "
 operator|+
-literal|"defaultValue=\"1\" required=\"true\" dataType=\"integer\" access=\"acc1\">"
+literal|"defaultValue=\"1\" required=\"true\" dataType=\"integer\">"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -619,11 +619,6 @@ argument_list|(
 literal|true
 argument_list|)
 operator|.
-name|access
-argument_list|(
-literal|"acc1"
-argument_list|)
-operator|.
 name|endParam
 argument_list|()
 operator|.
@@ -683,11 +678,6 @@ operator|.
 name|required
 argument_list|(
 literal|false
-argument_list|)
-operator|.
-name|access
-argument_list|(
-literal|"acc2"
 argument_list|)
 operator|.
 name|endParam
