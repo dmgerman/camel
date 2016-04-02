@@ -1108,6 +1108,15 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"DumpRestAsXml:\n{}"
+argument_list|,
+name|xml
+argument_list|)
+expr_stmt|;
 name|RestsDefinition
 name|rests
 init|=
