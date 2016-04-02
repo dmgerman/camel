@@ -148,9 +148,7 @@ name|rulesDir
 operator|.
 name|concat
 argument_list|(
-name|File
-operator|.
-name|separator
+literal|"/"
 argument_list|)
 operator|.
 name|concat
