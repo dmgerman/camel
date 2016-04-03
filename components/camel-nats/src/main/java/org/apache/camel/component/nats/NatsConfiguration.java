@@ -779,47 +779,12 @@ return|return
 name|props
 return|;
 block|}
-DECL|method|createSubProperties ()
-specifier|public
-name|Properties
-name|createSubProperties
-parameter_list|()
-block|{
-name|Properties
-name|props
-init|=
-operator|new
-name|Properties
-argument_list|()
-decl_stmt|;
-name|addPropertyIfNotNull
-argument_list|(
-name|props
-argument_list|,
-name|NatsPropertiesConstants
-operator|.
-name|NATS_PROPERTY_QUEUE
-argument_list|,
-name|getQueueName
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|addPropertyIfNotNull
-argument_list|(
-name|props
-argument_list|,
-name|NatsPropertiesConstants
-operator|.
-name|NATS_PROPERTY_MAX_MESSAGES
-argument_list|,
-name|getMaxMessages
-argument_list|()
-argument_list|)
-expr_stmt|;
-return|return
-name|props
-return|;
-block|}
+comment|//    public Properties createSubProperties() {
+comment|//        Properties props = new Properties();
+comment|//        addPropertyIfNotNull(props, NatsPropertiesConstants.NATS_PROPERTY_QUEUE, getQueueName());
+comment|//        addPropertyIfNotNull(props, NatsPropertiesConstants.NATS_PROPERTY_MAX_MESSAGES, getMaxMessages());
+comment|//        return props;
+comment|//    }
 DECL|method|splitServers ()
 specifier|private
 name|String

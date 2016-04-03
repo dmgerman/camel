@@ -154,7 +154,7 @@ name|mockResultEndpoint
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"test"
+literal|"{Subject=test;Reply=null;Payload=<test>}"
 argument_list|)
 expr_stmt|;
 name|template

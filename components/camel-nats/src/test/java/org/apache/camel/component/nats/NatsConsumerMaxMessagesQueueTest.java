@@ -147,9 +147,9 @@ name|mockResultEndpoint
 operator|.
 name|expectedBodiesReceivedInAnyOrder
 argument_list|(
-literal|"test"
+literal|"{Subject=test;Reply=null;Payload=<test>}"
 argument_list|,
-literal|"test1"
+literal|"{Subject=test;Reply=null;Payload=<test1>}"
 argument_list|)
 expr_stmt|;
 name|mockResultEndpoint
