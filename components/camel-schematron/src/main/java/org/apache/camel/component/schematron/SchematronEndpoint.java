@@ -34,6 +34,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|FileNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|InputStream
 import|;
 end_import
@@ -661,7 +671,7 @@ block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|e
+name|classPathException
 parameter_list|)
 block|{
 comment|// Attempts from the file system.
@@ -669,11 +679,13 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Schamatron rules not found in class path, attempting file system {}"
+literal|"Error loading schematron rules from class path, attempting file system {}"
 argument_list|,
 name|path
 argument_list|)
 expr_stmt|;
+try|try
+block|{
 name|InputStream
 name|schRules
 init|=
@@ -702,6 +714,27 @@ argument_list|,
 name|transformerFactory
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|FileNotFoundException
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Schematron rules not found in the file system {}"
+argument_list|,
+name|path
+argument_list|)
+expr_stmt|;
+throw|throw
+name|classPathException
+throw|;
+comment|// Can be more meaningful, for example, xslt compilation error.
+block|}
 block|}
 comment|// rules not found in class path nor in file system.
 if|if
