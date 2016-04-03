@@ -24,11 +24,11 @@ specifier|public
 interface|interface
 name|NatsPropertiesConstants
 block|{
-DECL|field|NATS_PROPERTY_URI
+DECL|field|NATS_PROPERTY_URL
 name|String
-name|NATS_PROPERTY_URI
+name|NATS_PROPERTY_URL
 init|=
-literal|"uri"
+literal|"io.nats.client.url"
 decl_stmt|;
 DECL|field|NATS_PROPERTY_VERBOSE
 name|String

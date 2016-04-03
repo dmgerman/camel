@@ -673,7 +673,7 @@ name|props
 argument_list|,
 name|NatsPropertiesConstants
 operator|.
-name|NATS_PROPERTY_URI
+name|NATS_PROPERTY_URL
 argument_list|,
 name|splitServers
 argument_list|()
@@ -779,12 +779,6 @@ return|return
 name|props
 return|;
 block|}
-comment|//    public Properties createSubProperties() {
-comment|//        Properties props = new Properties();
-comment|//        addPropertyIfNotNull(props, NatsPropertiesConstants.NATS_PROPERTY_QUEUE, getQueueName());
-comment|//        addPropertyIfNotNull(props, NatsPropertiesConstants.NATS_PROPERTY_MAX_MESSAGES, getMaxMessages());
-comment|//        return props;
-comment|//    }
 DECL|method|splitServers ()
 specifier|private
 name|String
