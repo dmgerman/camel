@@ -1292,8 +1292,9 @@ argument_list|>
 operator|)
 name|value
 decl_stmt|;
-if|if
-condition|(
+name|int
+name|size
+init|=
 name|payload
 operator|.
 name|getBodySources
@@ -1301,6 +1302,10 @@ argument_list|()
 operator|.
 name|size
 argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|size
 operator|==
 literal|1
 condition|)
@@ -1659,6 +1664,26 @@ block|}
 else|else
 block|{
 comment|// no we could not do it currently
+return|return
+operator|(
+name|T
+operator|)
+name|Void
+operator|.
+name|TYPE
+return|;
+block|}
+block|}
+else|else
+block|{
+if|if
+condition|(
+name|size
+operator|==
+literal|0
+condition|)
+block|{
+comment|// empty size so we cannot convert
 return|return
 operator|(
 name|T
