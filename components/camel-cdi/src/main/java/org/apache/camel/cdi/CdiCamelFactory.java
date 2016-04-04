@@ -820,9 +820,6 @@ comment|// Maintained for backward compatibility reason though this is redundant
 comment|// see https://issues.apache.org/jira/browse/CAMEL-5553?focusedCommentId=13445936&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-13445936
 annotation|@
 name|Mock
-argument_list|(
-literal|""
-argument_list|)
 annotation|@
 name|Produces
 annotation|@
