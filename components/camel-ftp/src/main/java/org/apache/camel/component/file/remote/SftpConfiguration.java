@@ -319,6 +319,22 @@ name|LoggingLevel
 operator|.
 name|WARN
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Specifies how many requests may be outstanding at any one time."
+argument_list|)
+DECL|field|bulkRequests
+specifier|private
+name|Integer
+name|bulkRequests
+decl_stmt|;
 DECL|method|SftpConfiguration ()
 specifier|public
 name|SftpConfiguration
@@ -823,6 +839,33 @@ name|jschLoggingLevel
 operator|=
 name|jschLoggingLevel
 expr_stmt|;
+block|}
+comment|/**      * Specifies how many requests may be outstanding at any one time. Increasing this value may      * slightly improve file transfer speed but will increase memory usage.      */
+DECL|method|setBulkRequests (Integer bulkRequests)
+specifier|public
+name|void
+name|setBulkRequests
+parameter_list|(
+name|Integer
+name|bulkRequests
+parameter_list|)
+block|{
+name|this
+operator|.
+name|bulkRequests
+operator|=
+name|bulkRequests
+expr_stmt|;
+block|}
+DECL|method|getBulkRequests ()
+specifier|public
+name|Integer
+name|getBulkRequests
+parameter_list|()
+block|{
+return|return
+name|bulkRequests
+return|;
 block|}
 block|}
 end_class
