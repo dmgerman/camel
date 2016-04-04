@@ -36,6 +36,12 @@ name|CAMEL_FOP_ENCRYPT
 init|=
 literal|"CamelFop.Encrypt."
 decl_stmt|;
+DECL|field|CAMEL_FOP_RENDERER_OPTIONS
+name|String
+name|CAMEL_FOP_RENDERER_OPTIONS
+init|=
+literal|"CamelFop.RendererOptions."
+decl_stmt|;
 DECL|field|CAMEL_FOP_OUTPUT_FORMAT
 name|String
 name|CAMEL_FOP_OUTPUT_FORMAT
