@@ -325,10 +325,6 @@ argument_list|(
 name|label
 operator|=
 literal|"advanced"
-argument_list|,
-name|description
-operator|=
-literal|"Specifies how many requests may be outstanding at any one time."
 argument_list|)
 DECL|field|bulkRequests
 specifier|private
