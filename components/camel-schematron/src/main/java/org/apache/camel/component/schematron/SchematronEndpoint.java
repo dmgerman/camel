@@ -630,7 +630,7 @@ condition|)
 block|{
 try|try
 block|{
-comment|// Attempt to read the schematron rules  from the class path first.
+comment|// Attempt to read the schematron rules from the class path first.
 name|LOG
 operator|.
 name|debug
