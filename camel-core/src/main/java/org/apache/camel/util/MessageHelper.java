@@ -835,6 +835,39 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|return
+name|extractBodyForLogging
+argument_list|(
+name|message
+argument_list|,
+name|prepend
+argument_list|,
+name|streams
+argument_list|,
+literal|false
+argument_list|)
+return|;
+block|}
+comment|/**      * Extracts the body for logging purpose.      *<p/>      * Will clip the body if its too big for logging.      *      * @see org.apache.camel.Exchange#LOG_DEBUG_BODY_STREAMS      * @see org.apache.camel.Exchange#LOG_DEBUG_BODY_MAX_CHARS      * @param message the message      * @param prepend a message to prepend      * @param allowStreams whether or not streams is allowed      * @param allowFiles whether or not files is allowed (currently not in use)      * @return the logging message      */
+DECL|method|extractBodyForLogging (Message message, String prepend, boolean allowStreams, boolean allowFiles)
+specifier|public
+specifier|static
+name|String
+name|extractBodyForLogging
+parameter_list|(
+name|Message
+name|message
+parameter_list|,
+name|String
+name|prepend
+parameter_list|,
+name|boolean
+name|allowStreams
+parameter_list|,
+name|boolean
+name|allowFiles
+parameter_list|)
+block|{
 comment|// default to 1000 chars
 name|int
 name|maxChars
@@ -907,9 +940,9 @@ name|message
 argument_list|,
 name|prepend
 argument_list|,
-name|streams
+name|allowStreams
 argument_list|,
-literal|false
+name|allowFiles
 argument_list|,
 name|maxChars
 argument_list|)

@@ -544,7 +544,7 @@ name|ManagedResource
 argument_list|(
 name|description
 operator|=
-literal|"Managing ZipkinTracer"
+literal|"ZipkinTracer"
 argument_list|)
 DECL|class|ZipkinTracer
 specifier|public
@@ -658,11 +658,17 @@ specifier|private
 name|boolean
 name|includeMessageBody
 decl_stmt|;
+DECL|field|includeMessageBodyStreams
+specifier|private
+name|boolean
+name|includeMessageBodyStreams
+decl_stmt|;
 DECL|method|ZipkinTracer ()
 specifier|public
 name|ZipkinTracer
 parameter_list|()
 block|{     }
+comment|/**      * Registers this {@link ZipkinTracer} on the {@link CamelContext}.      */
 DECL|method|init (CamelContext camelContext)
 specifier|public
 name|void
@@ -749,6 +755,13 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The hostname for the remote zipkin server to use."
+argument_list|)
 DECL|method|getHostName ()
 specifier|public
 name|String
@@ -776,6 +789,13 @@ operator|=
 name|hostName
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"The port number for the remote zipkin server to use."
+argument_list|)
 DECL|method|getPort ()
 specifier|public
 name|int
@@ -803,6 +823,13 @@ operator|=
 name|port
 expr_stmt|;
 block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Rates how many events should be traced by zipkin. The rate is expressed as a percentage (1.0f = 100%, 0.5f is 50%, 0.1f is 10%)."
+argument_list|)
 DECL|method|getRate ()
 specifier|public
 name|float
@@ -1086,7 +1113,7 @@ return|return
 name|includeMessageBody
 return|;
 block|}
-comment|/**      * Whether to include the Camel message body in the zipkin traces.      *<p/>      * This is not recommended for production usage, or when having big payloads. You can limit the size by      * configuring the<a href="http://camel.apache.org/how-do-i-set-the-max-chars-when-debug-logging-messages-in-camel.html">max debug log size</a>.      */
+comment|/**      * Whether to include the Camel message body in the zipkin traces.      *<p/>      * This is not recommended for production usage, or when having big payloads. You can limit the size by      * configuring the<a href="http://camel.apache.org/how-do-i-set-the-max-chars-when-debug-logging-messages-in-camel.html">max debug log size</a>.      *<p/>      * By default message bodies that are stream based are<b>not</b> included. You can use the option {@link #setIncludeMessageBodyStreams(boolean)} to      * turn that on.      */
 annotation|@
 name|ManagedAttribute
 argument_list|(
@@ -1108,6 +1135,47 @@ operator|.
 name|includeMessageBody
 operator|=
 name|includeMessageBody
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to include stream based Camel message bodies in the zipkin traces"
+argument_list|)
+DECL|method|isIncludeMessageBodyStreams ()
+specifier|public
+name|boolean
+name|isIncludeMessageBodyStreams
+parameter_list|()
+block|{
+return|return
+name|includeMessageBodyStreams
+return|;
+block|}
+comment|/**      * Whether to include message bodies that are stream based in the zipkin traces.      *<p/>      * This is not recommended for production usage, or when having big payloads. You can limit the size by      * configuring the<a href="http://camel.apache.org/how-do-i-set-the-max-chars-when-debug-logging-messages-in-camel.html">max debug log size</a>.      */
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Whether to include stream based Camel message bodies in the zipkin traces"
+argument_list|)
+DECL|method|setIncludeMessageBodyStreams (boolean includeMessageBodyStreams)
+specifier|public
+name|void
+name|setIncludeMessageBodyStreams
+parameter_list|(
+name|boolean
+name|includeMessageBodyStreams
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeMessageBodyStreams
+operator|=
+name|includeMessageBodyStreams
 expr_stmt|;
 block|}
 annotation|@
@@ -1278,13 +1346,18 @@ name|clientServiceMappings
 operator|.
 name|isEmpty
 argument_list|()
+operator|&&
+name|serverServiceMappings
+operator|.
+name|isEmpty
+argument_list|()
 condition|)
 block|{
 name|log
 operator|.
 name|warn
 argument_list|(
-literal|"No service name(s) has been configured. Camel will fallback and use endpoint uris as service names."
+literal|"No service name(s) has been mapped in clientServiceMappings or serverServiceMappings. Camel will fallback and use endpoint uris as service names."
 argument_list|)
 expr_stmt|;
 name|useFallbackServiceNames
