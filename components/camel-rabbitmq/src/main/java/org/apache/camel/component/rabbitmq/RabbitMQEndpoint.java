@@ -590,6 +590,13 @@ name|skipQueueDeclare
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|skipExchangeDeclare
+specifier|private
+name|boolean
+name|skipExchangeDeclare
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|addresses
 specifier|private
 name|Address
@@ -1802,6 +1809,33 @@ parameter_list|()
 block|{
 return|return
 name|skipQueueDeclare
+return|;
+block|}
+comment|/**      * If true the producer will not declare the exchange.      * This can be used if we need to declare the queue but not the exchange      */
+DECL|method|setSkipExchangeDeclare (boolean skipExchangeDeclare)
+specifier|public
+name|void
+name|setSkipExchangeDeclare
+parameter_list|(
+name|boolean
+name|skipExchangeDeclare
+parameter_list|)
+block|{
+name|this
+operator|.
+name|skipExchangeDeclare
+operator|=
+name|skipExchangeDeclare
+expr_stmt|;
+block|}
+DECL|method|isSkipExchangeDeclare ()
+specifier|public
+name|boolean
+name|isSkipExchangeDeclare
+parameter_list|()
+block|{
+return|return
+name|skipExchangeDeclare
 return|;
 block|}
 comment|/**      * If the bridgeEndpoint is true, the producer will ignore the message header of "rabbitmq.EXCHANGE_NAME" and "rabbitmq.ROUTING_KEY"      */

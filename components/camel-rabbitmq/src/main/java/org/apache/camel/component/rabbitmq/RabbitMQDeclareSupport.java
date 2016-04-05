@@ -204,6 +204,12 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
+if|if
+condition|(
+name|shouldDeclareExchange
+argument_list|()
+condition|)
+block|{
 name|declareExchange
 argument_list|(
 name|channel
@@ -222,6 +228,7 @@ name|resolvedExchangeArguments
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|shouldDeclareQueue
@@ -423,6 +430,20 @@ name|getQueue
 argument_list|()
 operator|!=
 literal|null
+return|;
+block|}
+DECL|method|shouldDeclareExchange ()
+specifier|private
+name|boolean
+name|shouldDeclareExchange
+parameter_list|()
+block|{
+return|return
+operator|!
+name|endpoint
+operator|.
+name|isSkipExchangeDeclare
+argument_list|()
 return|;
 block|}
 DECL|method|populateQueueArgumentsFromConfigurer (final Map<String, Object> queueArgs)
