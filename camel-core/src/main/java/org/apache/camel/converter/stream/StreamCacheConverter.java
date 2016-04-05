@@ -390,6 +390,30 @@ return|;
 block|}
 annotation|@
 name|Converter
+DECL|method|convertToStreamCache (CachedOutputStream cos, Exchange exchange)
+specifier|public
+specifier|static
+name|StreamCache
+name|convertToStreamCache
+parameter_list|(
+name|CachedOutputStream
+name|cos
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+throws|throws
+name|IOException
+block|{
+return|return
+name|cos
+operator|.
+name|newStreamCache
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Converter
 DECL|method|convertToStreamCache (Reader reader, Exchange exchange)
 specifier|public
 specifier|static
