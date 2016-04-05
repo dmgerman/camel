@@ -816,6 +816,20 @@ operator|.
 name|unsubscribe
 argument_list|()
 expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Closing {} "
+argument_list|,
+name|threadId
+argument_list|)
+expr_stmt|;
+name|consumer
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -870,6 +884,23 @@ literal|" from kafka topic"
 argument_list|,
 name|e
 argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Closing {} "
+argument_list|,
+name|threadId
+argument_list|)
+expr_stmt|;
+name|consumer
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 block|}
 block|}
