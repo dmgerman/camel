@@ -176,11 +176,14 @@ argument_list|(
 name|on
 argument_list|)
 expr_stmt|;
+name|assertTrue
+argument_list|(
 name|mbeanServer
 operator|.
 name|isRegistered
 argument_list|(
 name|on
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|Boolean
