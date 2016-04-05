@@ -86,6 +86,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|NoSuchBeanException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -896,6 +908,18 @@ return|return
 name|processor
 return|;
 block|}
+DECL|method|getBeanHolder ()
+specifier|protected
+name|BeanHolder
+name|getBeanHolder
+parameter_list|()
+block|{
+return|return
+name|this
+operator|.
+name|beanHolder
+return|;
+block|}
 DECL|method|getBean ()
 specifier|public
 name|Object
@@ -1033,6 +1057,38 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+name|beanHolder
+operator|instanceof
+name|ConstantBeanHolder
+condition|)
+block|{
+try|try
+block|{
+comment|// Start the bean if it implements Service interface and if cached
+comment|// so meant to be reused
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|beanHolder
+operator|.
+name|getBean
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoSuchBeanException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+block|}
 block|}
 DECL|method|doStop ()
 specifier|protected
@@ -1042,6 +1098,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|processor
+operator|!=
+literal|null
+condition|)
+block|{
 name|ServiceHelper
 operator|.
 name|stopService
@@ -1049,6 +1112,39 @@ argument_list|(
 name|processor
 argument_list|)
 expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|beanHolder
+operator|instanceof
+name|ConstantBeanHolder
+condition|)
+block|{
+try|try
+block|{
+comment|// Stop the bean if it implements Service interface and if cached
+comment|// so meant to be reused
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|beanHolder
+operator|.
+name|getBean
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|NoSuchBeanException
+name|e
+parameter_list|)
+block|{
+comment|// ignore
+block|}
+block|}
 block|}
 DECL|method|allowProcessor (String explicitMethodName, BeanInfo info)
 specifier|private
