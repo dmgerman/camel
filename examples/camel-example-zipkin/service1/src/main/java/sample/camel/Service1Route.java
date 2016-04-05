@@ -68,16 +68,17 @@ argument_list|(
 literal|"service1"
 argument_list|)
 operator|.
+name|streamCaching
+argument_list|()
+operator|.
 name|removeHeaders
 argument_list|(
 literal|"CamelHttp*"
 argument_list|)
 operator|.
-name|convertBodyTo
+name|log
 argument_list|(
-name|String
-operator|.
-name|class
+literal|"Service1 request: ${body}"
 argument_list|)
 operator|.
 name|delay
@@ -92,13 +93,18 @@ name|transform
 argument_list|(
 name|simple
 argument_list|(
-literal|"Service1: ${body}"
+literal|"Service1-${body}"
 argument_list|)
 argument_list|)
 operator|.
 name|to
 argument_list|(
 literal|"http://0.0.0.0:{{service2.port}}/service2"
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"Service1 response: ${body}"
 argument_list|)
 expr_stmt|;
 block|}

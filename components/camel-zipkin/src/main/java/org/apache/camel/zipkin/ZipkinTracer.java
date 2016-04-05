@@ -470,6 +470,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
+name|SynchronizationAdapter
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|EndpointHelper
@@ -1154,7 +1168,7 @@ return|return
 name|includeMessageBodyStreams
 return|;
 block|}
-comment|/**      * Whether to include message bodies that are stream based in the zipkin traces.      *<p/>      * This is not recommended for production usage, or when having big payloads. You can limit the size by      * configuring the<a href="http://camel.apache.org/how-do-i-set-the-max-chars-when-debug-logging-messages-in-camel.html">max debug log size</a>.      */
+comment|/**      * Whether to include message bodies that are stream based in the zipkin traces.      *<p/>      * This requires enabling<a href="http://camel.apache.org/stream-caching.html">stream caching</a> on the routes or globally on the CamelContext.      *<p/>      * This is not recommended for production usage, or when having big payloads. You can limit the size by      * configuring the<a href="http://camel.apache.org/how-do-i-set-the-max-chars-when-debug-logging-messages-in-camel.html">max debug log size</a>.      */
 annotation|@
 name|ManagedAttribute
 argument_list|(
@@ -3587,13 +3601,21 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-block|}
+comment|// add on completion after the route is done, but before the consumer writes the response
+comment|// this allows us to track the zipkin event before returning the response which is the right time
+name|exchange
+operator|.
+name|addOnCompletion
+argument_list|(
+operator|new
+name|SynchronizationAdapter
+argument_list|()
+block|{
 annotation|@
 name|Override
-DECL|method|onExchangeDone (Route route, Exchange exchange)
 specifier|public
 name|void
-name|onExchangeDone
+name|onAfterRoute
 parameter_list|(
 name|Route
 name|route
@@ -3644,6 +3666,37 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"ZipkinTracerOnCompletion"
+return|;
+block|}
+block|}
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|onExchangeDone (Route route, Exchange exchange)
+specifier|public
+name|void
+name|onExchangeDone
+parameter_list|(
+name|Route
+name|route
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+comment|// noop
 block|}
 annotation|@
 name|Override

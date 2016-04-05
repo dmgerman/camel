@@ -3418,8 +3418,6 @@ name|Exception
 block|{
 name|Object
 name|body
-init|=
-literal|null
 decl_stmt|;
 if|if
 condition|(

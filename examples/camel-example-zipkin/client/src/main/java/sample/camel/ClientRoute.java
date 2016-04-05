@@ -48,9 +48,17 @@ argument_list|(
 literal|"timer:trigger?exchangePattern=InOut&period=30s"
 argument_list|)
 operator|.
+name|streamCaching
+argument_list|()
+operator|.
 name|bean
 argument_list|(
 literal|"counterBean"
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|" Client request: ${body}"
 argument_list|)
 operator|.
 name|to
@@ -60,7 +68,7 @@ argument_list|)
 operator|.
 name|log
 argument_list|(
-literal|"Result: ${body}"
+literal|"Client response: ${body}"
 argument_list|)
 expr_stmt|;
 block|}

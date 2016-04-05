@@ -123,11 +123,12 @@ argument_list|(
 literal|"service2"
 argument_list|)
 operator|.
-name|convertBodyTo
-argument_list|(
-name|String
+name|streamCaching
+argument_list|()
 operator|.
-name|class
+name|log
+argument_list|(
+literal|" Service2 request: ${body}"
 argument_list|)
 operator|.
 name|delay
@@ -142,8 +143,13 @@ name|transform
 argument_list|(
 name|simple
 argument_list|(
-literal|"Service2: ${body}"
+literal|"Service2-${body}"
 argument_list|)
+argument_list|)
+operator|.
+name|log
+argument_list|(
+literal|"Service2 response: ${body}"
 argument_list|)
 expr_stmt|;
 block|}
