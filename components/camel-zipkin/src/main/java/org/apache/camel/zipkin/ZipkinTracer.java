@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p/>  * http://www.apache.org/licenses/LICENSE-2.0  *<p/>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -535,7 +535,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To use zipkin with Camel then setup this {@link org.apache.camel.spi.EventNotifier} in your Camel application.  *<p/>  * Events (span) are captured for incoming and outgoing messages being sent to/from Camel.  * This means you need to configure which which Camel endpoints that maps to zipkin service names.  * The mapping can be configured using  *<ul>  *<li>route id - A Camel route id</li>  *<li>endpoint url - A Camel endpoint url</li>  *</ul>  * For both kinds you can use wildcards and regular expressions to match, which is using the rules from  * {@link EndpointHelper#matchPattern(String, String)} and {@link EndpointHelper#matchEndpoint(CamelContext, String, String)}  *<p/>  * To match all Camel messages you can use<tt>*</tt> in the pattern and configure that to the same service name.  *<br/>  * If no mapping has been configured then Camel will fallback and use endpoint uri's as service names.  * However its recommended to configure service mappings so you can use human logic names instead of Camel  * endpoint uris in the names.  *<p/>  * Camel will auto-configure a {@link ScribeSpanCollector} if no SpanCollector explicit has been configured, and  * if the hostname and port to the span collector has been configured as environment variables  *<ul>  *<li>ZIPKIN_COLLECTOR_SERVICE_HOST - The hostname</li>  *<li>ZIPKIN_COLLECTOR_SERVICE_PORT - The port number</li>  *</ul>  */
+comment|/**  * To use zipkin with Camel then setup this {@link ZipkinTracer} in your Camel application.  *<p/>  * Events (span) are captured for incoming and outgoing messages being sent to/from Camel.  * This means you need to configure which which Camel endpoints that maps to zipkin service names.  * The mapping can be configured using  *<ul>  *<li>route id - A Camel route id</li>  *<li>endpoint url - A Camel endpoint url</li>  *</ul>  * For both kinds you can use wildcards and regular expressions to match, which is using the rules from  * {@link EndpointHelper#matchPattern(String, String)} and {@link EndpointHelper#matchEndpoint(CamelContext, String, String)}  *<p/>  * To match all Camel messages you can use<tt>*</tt> in the pattern and configure that to the same service name.  *<br/>  * If no mapping has been configured then Camel will fallback and use endpoint uri's as service names.  * However its recommended to configure service mappings so you can use human logic names instead of Camel  * endpoint uris in the names.  *<p/>  * Camel will auto-configure a {@link ScribeSpanCollector} if no SpanCollector explicit has been configured, and  * if the hostname and port to the span collector has been configured as environment variables  *<ul>  *<li>ZIPKIN_COLLECTOR_SERVICE_HOST - The hostname</li>  *<li>ZIPKIN_COLLECTOR_SERVICE_PORT - The port number</li>  *</ul>  *<p/>  * This class is implemented as both an {@link org.apache.camel.spi.EventNotifier} and {@link RoutePolicy} that allows  * to trap when Camel starts/ends an {@link Exchange} being routed using the {@link RoutePolicy} and during the routing  * if the {@link Exchange} sends messages, then we track them using the {@link org.apache.camel.spi.EventNotifier}.  */
 end_comment
 
 begin_class
@@ -2241,6 +2241,8 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// use event notifier to track events when Camel messages to endpoints
+comment|// these events corresponds to Zipkin client events
 comment|// client events
 if|if
 condition|(
@@ -2784,7 +2786,7 @@ block|}
 block|}
 DECL|method|serverRequest (Brave brave, String serviceName, Exchange exchange)
 specifier|private
-name|void
+name|ServerSpan
 name|serverRequest
 parameter_list|(
 name|Brave
@@ -3019,6 +3021,9 @@ name|parentId
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|span
+return|;
 block|}
 DECL|method|serverResponse (Brave brave, String serviceName, Exchange exchange)
 specifier|private
@@ -3346,6 +3351,8 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+comment|// use route policy to track events when Camel a Camel route begins/end the lifecycle of an Exchange
+comment|// these events corresponds to Zipkin server events
 if|if
 condition|(
 name|hasZipkinTraceId

@@ -157,10 +157,10 @@ comment|/**  * Integration test requires running Zipkin/Scribe running  *  * The
 end_comment
 
 begin_class
-DECL|class|ZipkinABCRouteScribe
+DECL|class|ZipkinMulticastRouteScribe
 specifier|public
 class|class
-name|ZipkinABCRouteScribe
+name|ZipkinMulticastRouteScribe
 extends|extends
 name|CamelTestSupport
 block|{
@@ -384,20 +384,21 @@ argument_list|(
 literal|"routing at ${routeId}"
 argument_list|)
 operator|.
+name|multicast
+argument_list|()
+operator|.
 name|to
 argument_list|(
 literal|"seda:b"
-argument_list|)
-operator|.
-name|delay
-argument_list|(
-literal|2000
 argument_list|)
 operator|.
 name|to
 argument_list|(
 literal|"seda:c"
 argument_list|)
+operator|.
+name|end
+argument_list|()
 operator|.
 name|log
 argument_list|(
