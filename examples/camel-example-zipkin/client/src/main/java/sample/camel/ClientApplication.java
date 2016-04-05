@@ -121,7 +121,23 @@ argument_list|,
 literal|"service1"
 argument_list|)
 expr_stmt|;
-comment|// add zipkin to CamelContext
+comment|// capture 100% of all the events
+name|zipkin
+operator|.
+name|setRate
+argument_list|(
+literal|1.0f
+argument_list|)
+expr_stmt|;
+comment|// include message bodies in the traces (not recommended for production)
+name|zipkin
+operator|.
+name|setIncludeMessageBodyStreams
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// register zipkin to CamelContext
 name|zipkin
 operator|.
 name|init

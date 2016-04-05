@@ -58,6 +58,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// create zipkin
 name|ZipkinTracer
 name|zipkin
 init|=
@@ -79,11 +80,28 @@ argument_list|(
 literal|9410
 argument_list|)
 expr_stmt|;
+comment|// set the service name
 name|zipkin
 operator|.
 name|setServiceName
 argument_list|(
 literal|"service2"
+argument_list|)
+expr_stmt|;
+comment|// capture 100% of all the events
+name|zipkin
+operator|.
+name|setRate
+argument_list|(
+literal|1.0f
+argument_list|)
+expr_stmt|;
+comment|// include message bodies in the traces (not recommended for production)
+name|zipkin
+operator|.
+name|setIncludeMessageBodyStreams
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 comment|// add zipkin to CamelContext

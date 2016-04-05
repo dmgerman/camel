@@ -93,6 +93,12 @@ specifier|private
 name|boolean
 name|includeMessageBody
 decl_stmt|;
+comment|/**      * Whether to include message bodies that are stream based in the zipkin traces.      *      * This is not recommended for production usage, or when having big payloads.      * You can limit the size by configuring camel.springboot.log-debug-max-chars option.      */
+DECL|field|includeMessageBodyStreams
+specifier|private
+name|boolean
+name|includeMessageBodyStreams
+decl_stmt|;
 comment|/**      * To use a global service name that matches all Camel events      */
 DECL|field|serviceName
 specifier|private
@@ -233,6 +239,32 @@ operator|.
 name|includeMessageBody
 operator|=
 name|includeMessageBody
+expr_stmt|;
+block|}
+DECL|method|isIncludeMessageBodyStreams ()
+specifier|public
+name|boolean
+name|isIncludeMessageBodyStreams
+parameter_list|()
+block|{
+return|return
+name|includeMessageBodyStreams
+return|;
+block|}
+DECL|method|setIncludeMessageBodyStreams (boolean includeMessageBodyStreams)
+specifier|public
+name|void
+name|setIncludeMessageBodyStreams
+parameter_list|(
+name|boolean
+name|includeMessageBodyStreams
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeMessageBodyStreams
+operator|=
+name|includeMessageBodyStreams
 expr_stmt|;
 block|}
 DECL|method|getServiceName ()
