@@ -199,6 +199,16 @@ control|)
 block|{
 try|try
 block|{
+if|if
+condition|(
+name|tracker
+operator|.
+name|accept
+argument_list|(
+name|camelContext
+argument_list|)
+condition|)
+block|{
 name|tracker
 operator|.
 name|contextCreated
@@ -206,6 +216,7 @@ argument_list|(
 name|camelContext
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
