@@ -156,6 +156,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FailedToCreateRouteException
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -835,7 +847,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|FailedToCreateRouteException
 name|ex
 parameter_list|)
 block|{
@@ -844,6 +856,9 @@ argument_list|(
 literal|"Get a wrong exception."
 argument_list|,
 name|ex
+operator|.
+name|getCause
+argument_list|()
 operator|instanceof
 name|FailedToCreateProducerException
 argument_list|)
@@ -853,6 +868,9 @@ argument_list|(
 literal|"Get a wrong cause of exception."
 argument_list|,
 name|ex
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getCause
 argument_list|()
