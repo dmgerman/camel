@@ -1858,6 +1858,18 @@ name|Object
 argument_list|>
 name|properties
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|name
+operator|=
+literal|"mep"
+argument_list|)
+DECL|field|mep
+specifier|private
+name|String
+name|mep
+decl_stmt|;
 DECL|method|CxfEndpoint ()
 specifier|public
 name|CxfEndpoint
@@ -2406,6 +2418,36 @@ operator|new
 name|RAWDataFormatFeature
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|this
+operator|.
+name|getMep
+argument_list|()
+operator|!=
+literal|null
+operator|&&
+name|this
+operator|.
+name|getMep
+argument_list|()
+operator|.
+name|equals
+argument_list|(
+literal|"InOnly"
+argument_list|)
+condition|)
+block|{
+comment|//if DataFormat is RAW|MESSAGE, can't read message so can't
+comment|//determine it's oneway so need get the MEP from URI explicitly
+name|feature
+operator|.
+name|setOneway
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 name|feature
 operator|.
 name|addInIntercepters
@@ -5783,6 +5825,33 @@ operator|.
 name|username
 operator|=
 name|username
+expr_stmt|;
+block|}
+DECL|method|getMep ()
+specifier|public
+name|String
+name|getMep
+parameter_list|()
+block|{
+return|return
+name|mep
+return|;
+block|}
+comment|/**      * The Message Exchange Pattern      */
+DECL|method|setMep (String mep)
+specifier|public
+name|void
+name|setMep
+parameter_list|(
+name|String
+name|mep
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mep
+operator|=
+name|mep
 expr_stmt|;
 block|}
 comment|/**      * We need to override the {@link ClientImpl#setParameters} method      * to insert parameters into CXF Message for {@link DataFormat#PAYLOAD} mode.      */
