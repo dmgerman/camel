@@ -174,6 +174,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|impl
+operator|.
+name|DeferServiceStartupListener
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|DataFormatDefinition
@@ -906,6 +920,23 @@ parameter_list|)
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Adds a service to this context.      *<p/>      * The service will also have {@link CamelContext} injected if its {@link CamelContextAware}.      * The service will also be enlisted in JMX for management (if JMX is enabled).      * The service will be started, if its not already started.      *<p/>      * If the option<tt>closeOnShutdown</tt> is<tt>true</tt> then this context will control the lifecycle, ensuring      * the service is stopped when the context stops.      * If the option<tt>closeOnShutdown</tt> is<tt>false</tt> then this context will not stop the service when the context stops.      *      * @param object the service      * @param stopOnShutdown whether to stop the service when this CamelContext shutdown.      * @param forceStart whether to force starting the service right now, as otherwise the service may be deferred being started      *                   to later using {@link #deferStartService(Object, boolean)}      * @throws Exception can be thrown when starting the service      */
+DECL|method|addService (Object object, boolean stopOnShutdown, boolean forceStart)
+name|void
+name|addService
+parameter_list|(
+name|Object
+name|object
+parameter_list|,
+name|boolean
+name|stopOnShutdown
+parameter_list|,
+name|boolean
+name|forceStart
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 comment|/**      * Removes a service from this context.      *<p/>      * The service is assumed to have been previously added using {@link #addService(Object)} method.      * This method will<b>not</b> change the service lifecycle.      *      * @param object the service      * @throws Exception can be thrown if error removing the service      * @return<tt>true</tt> if the service was removed,<tt>false</tt> if no service existed      */
 DECL|method|removeService (Object object)
 name|boolean
@@ -941,7 +972,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Defers starting the service until {@link CamelContext} is started and has initialized all its prior services and routes.      *<p/>      * If {@link CamelContext} is already started then the service is started immediately.      *      * @param object the service      * @param stopOnShutdown whether to stop the service when this CamelContext shutdown. Setting this to<tt>true</tt> will keep a reference to the service in      *                       this {@link CamelContext} until the context is stopped. So do not use it for short lived services.      * @throws Exception can be thrown when starting the service, which is only attempted if {@link CamelContext} has already been started when calling this method.      */
+comment|/**      * Defers starting the service until {@link CamelContext} is (almost started) or started and has initialized all its prior services and routes.      *<p/>      * If {@link CamelContext} is already started then the service is started immediately.      *      * @param object the service      * @param stopOnShutdown whether to stop the service when this CamelContext shutdown. Setting this to<tt>true</tt> will keep a reference to the service in      *                       this {@link CamelContext} until the context is stopped. So do not use it for short lived services.      * @throws Exception can be thrown when starting the service, which is only attempted if {@link CamelContext} has already been started when calling this method.      */
 DECL|method|deferStartService (Object object, boolean stopOnShutdown)
 name|void
 name|deferStartService

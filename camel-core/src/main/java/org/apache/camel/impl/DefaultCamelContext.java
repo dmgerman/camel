@@ -7623,19 +7623,26 @@ argument_list|(
 name|object
 argument_list|,
 name|stopOnShutdown
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|doAddService (Object object, boolean stopOnShutdown)
-specifier|private
+annotation|@
+name|Override
+DECL|method|addService (Object object, boolean stopOnShutdown, boolean forceStart)
+specifier|public
 name|void
-name|doAddService
+name|addService
 parameter_list|(
 name|Object
 name|object
 parameter_list|,
 name|boolean
 name|stopOnShutdown
+parameter_list|,
+name|boolean
+name|forceStart
 parameter_list|)
 throws|throws
 name|Exception
@@ -7646,7 +7653,7 @@ name|object
 argument_list|,
 name|stopOnShutdown
 argument_list|,
-literal|false
+name|forceStart
 argument_list|)
 expr_stmt|;
 block|}
@@ -13944,7 +13951,7 @@ expr_stmt|;
 try|try
 block|{
 comment|// must add service eager and force start it
-name|doAddService
+name|addService
 argument_list|(
 name|typeConverter
 argument_list|,
@@ -13992,8 +13999,8 @@ name|typeConverter
 expr_stmt|;
 try|try
 block|{
-comment|// must add service eager
-name|doAddService
+comment|// must add service eager and force start it
+name|addService
 argument_list|(
 name|typeConverter
 argument_list|,
@@ -16931,7 +16938,7 @@ name|endpoints
 argument_list|)
 expr_stmt|;
 comment|// add this as service and force pre-start them
-name|doAddService
+name|addService
 argument_list|(
 name|endpoints
 argument_list|,
@@ -16940,8 +16947,8 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// special for executorServiceManager as want to stop it manually
-name|doAddService
+comment|// special for executorServiceManager as want to stop it manually so false in stopOnShutdown
+name|addService
 argument_list|(
 name|executorServiceManager
 argument_list|,
@@ -16950,7 +16957,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|doAddService
+name|addService
 argument_list|(
 name|producerServicePool
 argument_list|,
@@ -16959,7 +16966,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|doAddService
+name|addService
 argument_list|(
 name|pollingConsumerServicePool
 argument_list|,
@@ -16968,7 +16975,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|doAddService
+name|addService
 argument_list|(
 name|inflightRepository
 argument_list|,
@@ -16977,7 +16984,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|doAddService
+name|addService
 argument_list|(
 name|asyncProcessorAwaitManager
 argument_list|,
@@ -16986,7 +16993,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|doAddService
+name|addService
 argument_list|(
 name|shutdownStrategy
 argument_list|,
@@ -16995,7 +17002,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|doAddService
+name|addService
 argument_list|(
 name|packageScanClassResolver
 argument_list|,
@@ -17004,7 +17011,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|doAddService
+name|addService
 argument_list|(
 name|restRegistry
 argument_list|,
@@ -17013,7 +17020,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-name|doAddService
+name|addService
 argument_list|(
 name|messageHistoryFactory
 argument_list|,
@@ -17048,7 +17055,7 @@ name|runtimeEndpointRegistry
 argument_list|)
 expr_stmt|;
 block|}
-name|doAddService
+name|addService
 argument_list|(
 name|runtimeEndpointRegistry
 argument_list|,
@@ -17216,7 +17223,7 @@ argument_list|(
 literal|true
 argument_list|)
 expr_stmt|;
-name|doAddService
+name|addService
 argument_list|(
 name|getStreamCachingStrategy
 argument_list|()
