@@ -1355,6 +1355,13 @@ condition|(
 name|httpResponse
 operator|!=
 literal|null
+operator|&&
+operator|!
+name|getEndpoint
+argument_list|()
+operator|.
+name|isDisableStreamCache
+argument_list|()
 condition|)
 block|{
 try|try
