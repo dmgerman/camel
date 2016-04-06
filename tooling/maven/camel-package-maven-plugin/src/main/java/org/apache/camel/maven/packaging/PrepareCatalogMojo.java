@@ -3677,6 +3677,17 @@ operator|.
 name|getName
 argument_list|()
 argument_list|)
+operator|&&
+operator|!
+name|dir
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"."
+argument_list|)
 condition|)
 block|{
 name|File
@@ -3720,7 +3731,7 @@ decl_stmt|;
 if|if
 condition|(
 name|before
-operator|!=
+operator|==
 name|after
 condition|)
 block|{
