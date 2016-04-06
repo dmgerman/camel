@@ -1811,7 +1811,7 @@ return|return
 name|skipQueueDeclare
 return|;
 block|}
-comment|/**      * If true the producer will not declare the exchange.      * This can be used if we need to declare the queue but not the exchange      */
+comment|/**      * This can be used if we need to declare the queue but not the exchange      */
 DECL|method|setSkipExchangeDeclare (boolean skipExchangeDeclare)
 specifier|public
 name|void
