@@ -535,6 +535,8 @@ argument_list|()
 operator|.
 name|getMTime
 argument_list|()
+operator|*
+literal|1000
 expr_stmt|;
 name|newLength
 operator|=
