@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|FailedToCreateProducerException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -146,7 +134,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|FailedToCreateProducerException
+name|Exception
 name|e
 parameter_list|)
 block|{
@@ -160,6 +148,9 @@ name|e
 operator|.
 name|getCause
 argument_list|()
+operator|.
+name|getCause
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -167,6 +158,9 @@ argument_list|(
 literal|"statementType must be specified on: Endpoint[mybatis://selectAllAccounts]"
 argument_list|,
 name|e
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getCause
 argument_list|()

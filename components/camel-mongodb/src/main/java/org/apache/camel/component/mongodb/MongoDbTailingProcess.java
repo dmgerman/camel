@@ -20,6 +20,30 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|CountDownLatch
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|TimeUnit
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|mongodb
@@ -151,13 +175,18 @@ name|keepRunning
 init|=
 literal|true
 decl_stmt|;
-DECL|field|stopped
-specifier|public
-specifier|volatile
-name|boolean
-name|stopped
+DECL|field|latch
+specifier|private
+specifier|final
+name|CountDownLatch
+name|latch
+init|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|1
+argument_list|)
 decl_stmt|;
-comment|// = false
 DECL|field|dbCol
 specifier|private
 specifier|final
@@ -366,7 +395,7 @@ throw|throw
 operator|new
 name|CamelMongoDbException
 argument_list|(
-literal|"Exception ocurred while initializing tailable cursor"
+literal|"Exception occurred while initializing tailable cursor"
 argument_list|,
 name|e
 argument_list|)
@@ -396,6 +425,8 @@ specifier|public
 name|void
 name|run
 parameter_list|()
+block|{
+try|try
 block|{
 while|while
 condition|(
@@ -459,15 +490,7 @@ name|InterruptedException
 name|e
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Thread was interrupted"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
+comment|// ignore
 block|}
 block|}
 name|cursor
@@ -477,10 +500,15 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-name|stopped
-operator|=
-literal|true
+block|}
+finally|finally
+block|{
+name|latch
+operator|.
+name|countDown
+argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|stop ()
 specifier|protected
@@ -539,12 +567,22 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// wait until the main loop acknowledges the stop
-while|while
-condition|(
-operator|!
-name|stopped
-condition|)
-block|{ }
+comment|// TODO: yikes this is not good with a endless while loop
+comment|// wait for stop latch
+name|boolean
+name|zero
+init|=
+name|latch
+operator|.
+name|await
+argument_list|(
+literal|30
+argument_list|,
+name|TimeUnit
+operator|.
+name|SECONDS
+argument_list|)
+decl_stmt|;
 if|if
 condition|(
 name|LOG
@@ -572,6 +610,20 @@ name|dbCol
 operator|.
 name|getName
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+operator|!
+name|zero
+condition|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"Waited 30 seconds for MongoDB Tailable Cursor consumer to stop cleanly. Will now force stop."
 argument_list|)
 expr_stmt|;
 block|}

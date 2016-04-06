@@ -52,18 +52,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|FailedToCreateProducerException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|FailedToCreateRouteException
 import|;
 end_import
@@ -434,7 +422,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|IllegalArgumentException
+name|FailedToCreateRouteException
 operator|.
 name|class
 argument_list|)
@@ -488,7 +476,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|IllegalArgumentException
+name|FailedToCreateRouteException
 operator|.
 name|class
 argument_list|)

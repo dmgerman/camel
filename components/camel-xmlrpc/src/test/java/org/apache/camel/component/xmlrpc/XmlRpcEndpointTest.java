@@ -180,6 +180,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|camelContext
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|XmlRpcEndpoint
 name|endpoint
 init|=
@@ -272,6 +277,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|camelContext
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|XmlRpcEndpoint
 name|endpoint
 init|=

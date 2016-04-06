@@ -588,7 +588,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|UnsupportedOperationException
+name|FailedToCreateRouteException
 operator|.
 name|class
 argument_list|)

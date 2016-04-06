@@ -26,7 +26,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|FailedToCreateProducerException
+name|FailedToCreateRouteException
 import|;
 end_import
 
@@ -146,7 +146,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|FailedToCreateProducerException
+name|FailedToCreateRouteException
 name|e
 parameter_list|)
 block|{
@@ -160,6 +160,9 @@ name|e
 operator|.
 name|getCause
 argument_list|()
+operator|.
+name|getCause
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|assertEquals
@@ -167,6 +170,9 @@ argument_list|(
 literal|"statementType must be specified on: Endpoint[ibatis://selectAllAccounts]"
 argument_list|,
 name|e
+operator|.
+name|getCause
+argument_list|()
 operator|.
 name|getCause
 argument_list|()

@@ -132,6 +132,20 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A {@link org.apache.camel.spi.RoutePolicy} which gathers statistics and reports them using {@link com.codahale.metrics.MetricRegistry}.  *<p/>  * The metrics is reported in JMX by default, but this can be configured.  */
 end_comment
@@ -631,6 +645,32 @@ name|registryService
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
+comment|// ensure registry service is started
+try|try
+block|{
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|registryService
+argument_list|)
+expr_stmt|;
 block|}
 catch|catch
 parameter_list|(

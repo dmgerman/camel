@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|TransformerException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -27,30 +39,6 @@ operator|.
 name|camel
 operator|.
 name|CamelContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|FailedToCreateRouteException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|ResolveEndpointFailedException
 import|;
 end_import
 
@@ -161,14 +149,14 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|FailedToCreateRouteException
+name|Exception
 name|e
 parameter_list|)
 block|{
 comment|// expected
 name|assertIsInstanceOf
 argument_list|(
-name|ResolveEndpointFailedException
+name|TransformerException
 operator|.
 name|class
 argument_list|,
@@ -207,7 +195,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"xslt:org/apache/camel/component/xslt/invalid.xsl?transformerFactoryClass=net.sf.saxon.TransformerFactoryImpl"
+literal|"xslt:org/apache/camel/component/xslt/notfound.xsl?transformerFactoryClass=net.sf.saxon.TransformerFactoryImpl"
 argument_list|)
 expr_stmt|;
 block|}

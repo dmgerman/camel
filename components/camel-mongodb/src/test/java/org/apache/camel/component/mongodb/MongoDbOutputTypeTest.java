@@ -512,25 +512,14 @@ name|Exception
 name|exception
 parameter_list|)
 block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Exception raised during initialization"
-argument_list|,
-name|exception
-argument_list|)
-expr_stmt|;
-name|exception
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"Exception is not of type IllegalArgumentException"
 argument_list|,
 name|exception
+operator|.
+name|getCause
+argument_list|()
 operator|instanceof
 name|IllegalArgumentException
 argument_list|)
@@ -608,25 +597,14 @@ name|Exception
 name|exception
 parameter_list|)
 block|{
-name|log
-operator|.
-name|debug
-argument_list|(
-literal|"Exception raised during initialization"
-argument_list|,
-name|exception
-argument_list|)
-expr_stmt|;
-name|exception
-operator|.
-name|printStackTrace
-argument_list|()
-expr_stmt|;
 name|assertTrue
 argument_list|(
 literal|"Exception is not of type IllegalArgumentException"
 argument_list|,
 name|exception
+operator|.
+name|getCause
+argument_list|()
 operator|instanceof
 name|IllegalArgumentException
 argument_list|)
