@@ -237,6 +237,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// must start CamelContext because use route builder is false
+name|context
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 comment|// send request to foo, set replyTo to bar, but actually expect reply at baz
 name|Thread
 name|sender
