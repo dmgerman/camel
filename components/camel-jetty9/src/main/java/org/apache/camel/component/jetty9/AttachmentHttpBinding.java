@@ -160,6 +160,10 @@ name|MultiPartInputStreamParser
 import|;
 end_import
 
+begin_comment
+comment|/**  * To handle attachments with Jetty 9.  *<p/>  * This implementation is needed to deal with attachments when using Jetty 9.  */
+end_comment
+
 begin_class
 DECL|class|AttachmentHttpBinding
 specifier|final
