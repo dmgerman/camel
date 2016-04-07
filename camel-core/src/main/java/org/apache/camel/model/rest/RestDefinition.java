@@ -3206,12 +3206,15 @@ operator|.
 name|getType
 argument_list|()
 operator|&&
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
 name|param
 operator|.
 name|getDefaultValue
 argument_list|()
-operator|!=
-literal|null
+argument_list|)
 condition|)
 block|{
 name|binding
