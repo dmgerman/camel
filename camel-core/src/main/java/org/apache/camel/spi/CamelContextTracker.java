@@ -104,6 +104,7 @@ name|camelContext
 parameter_list|)
 block|{
 return|return
+operator|!
 name|camelContext
 operator|.
 name|getClass
@@ -116,8 +117,6 @@ name|contains
 argument_list|(
 literal|"Proxy"
 argument_list|)
-operator|==
-literal|false
 return|;
 block|}
 block|}
@@ -150,17 +149,15 @@ parameter_list|)
 block|{
 return|return
 name|filter
-operator|!=
+operator|==
 literal|null
-condition|?
+operator|||
 name|filter
 operator|.
 name|accept
 argument_list|(
 name|camelContext
 argument_list|)
-else|:
-literal|true
 return|;
 block|}
 comment|/**      * Called when a context is created.      */
