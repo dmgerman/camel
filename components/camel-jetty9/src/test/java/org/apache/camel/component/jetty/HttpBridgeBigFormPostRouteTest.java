@@ -578,7 +578,7 @@ literal|"http://localhost:"
 operator|+
 name|port1
 operator|+
-literal|"?bridgeEndpoint=true&mapHttpMessageHeaders=false"
+literal|"?bridgeEndpoint=true"
 argument_list|)
 expr_stmt|;
 block|}

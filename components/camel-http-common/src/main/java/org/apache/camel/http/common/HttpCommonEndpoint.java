@@ -483,46 +483,6 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"200-299"
-argument_list|,
-name|description
-operator|=
-literal|"The status codes which is considered a success response. The values are inclusive. The range must be defined as from-to with the dash included."
-argument_list|)
-DECL|field|okStatusCodeRange
-specifier|private
-name|String
-name|okStatusCodeRange
-init|=
-literal|"200-299"
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"producer,advanced"
-argument_list|,
-name|description
-operator|=
-literal|"Refers to a custom org.apache.camel.component.http.UrlRewrite which allows you to rewrite urls when you bridge/proxy endpoints."
-operator|+
-literal|" See more details at http://camel.apache.org/urlrewrite.html"
-argument_list|)
-DECL|field|urlRewrite
-specifier|private
-name|UrlRewrite
-name|urlRewrite
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
 literal|"advanced"
 argument_list|,
 name|defaultValue
@@ -563,6 +523,46 @@ name|boolean
 name|mapHttpMessageHeaders
 init|=
 literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"200-299"
+argument_list|,
+name|description
+operator|=
+literal|"The status codes which is considered a success response. The values are inclusive. The range must be defined as from-to with the dash included."
+argument_list|)
+DECL|field|okStatusCodeRange
+specifier|private
+name|String
+name|okStatusCodeRange
+init|=
+literal|"200-299"
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Refers to a custom org.apache.camel.component.http.UrlRewrite which allows you to rewrite urls when you bridge/proxy endpoints."
+operator|+
+literal|" See more details at http://camel.apache.org/urlrewrite.html"
+argument_list|)
+DECL|field|urlRewrite
+specifier|private
+name|UrlRewrite
+name|urlRewrite
 decl_stmt|;
 DECL|method|HttpCommonEndpoint ()
 specifier|public
