@@ -475,6 +475,22 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|useSystemProperties
+specifier|private
+name|boolean
+name|useSystemProperties
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"producer"
 argument_list|)
 DECL|field|cookieStore
@@ -848,6 +864,12 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+operator|!
+name|useSystemProperties
+condition|)
+block|{
 comment|// configure http proxy from camelContext
 if|if
 condition|(
@@ -976,6 +998,15 @@ name|setProxy
 argument_list|(
 name|proxy
 argument_list|)
+expr_stmt|;
+block|}
+block|}
+else|else
+block|{
+name|clientBuilder
+operator|.
+name|useSystemProperties
+argument_list|()
 expr_stmt|;
 block|}
 if|if
@@ -1350,6 +1381,33 @@ operator|.
 name|httpClientOptions
 operator|=
 name|httpClientOptions
+expr_stmt|;
+block|}
+DECL|method|isUseSystemProperties ()
+specifier|public
+name|boolean
+name|isUseSystemProperties
+parameter_list|()
+block|{
+return|return
+name|useSystemProperties
+return|;
+block|}
+comment|/**      * To use System Properties as fallback for configuration      */
+DECL|method|setUseSystemProperties (boolean useSystemProperties)
+specifier|public
+name|void
+name|setUseSystemProperties
+parameter_list|(
+name|boolean
+name|useSystemProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useSystemProperties
+operator|=
+name|useSystemProperties
 expr_stmt|;
 block|}
 block|}
