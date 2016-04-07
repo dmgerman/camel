@@ -69,6 +69,7 @@ DECL|enumConstant|IS
 DECL|enumConstant|NOT_IS
 DECL|enumConstant|RANGE
 DECL|enumConstant|NOT_RANGE
+DECL|enumConstant|ENDS_WITH
 name|IN
 block|,
 name|NOT_IN
@@ -80,6 +81,8 @@ block|,
 name|RANGE
 block|,
 name|NOT_RANGE
+block|,
+name|ENDS_WITH
 block|;
 DECL|method|asOperator (String text)
 specifier|public
@@ -345,6 +348,21 @@ return|return
 name|NOT_RANGE
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+literal|"ends with"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+return|return
+name|ENDS_WITH
+return|;
+block|}
 throw|throw
 operator|new
 name|IllegalArgumentException
@@ -566,6 +584,18 @@ condition|)
 block|{
 return|return
 literal|"not range"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|operator
+operator|==
+name|ENDS_WITH
+condition|)
+block|{
+return|return
+literal|"ends with"
 return|;
 block|}
 return|return
@@ -948,6 +978,18 @@ name|ParameterType
 operator|.
 name|Function
 block|}
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|operator
+operator|==
+name|ENDS_WITH
+condition|)
+block|{
+return|return
+literal|null
 return|;
 block|}
 return|return

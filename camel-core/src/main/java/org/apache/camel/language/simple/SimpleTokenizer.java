@@ -591,6 +591,21 @@ literal|"not range"
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|KNOWN_TOKENS
+operator|.
+name|add
+argument_list|(
+operator|new
+name|SimpleTokenType
+argument_list|(
+name|TokenType
+operator|.
+name|binaryOperator
+argument_list|,
+literal|"ends with"
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// unary operators
 name|KNOWN_TOKENS
 operator|.
