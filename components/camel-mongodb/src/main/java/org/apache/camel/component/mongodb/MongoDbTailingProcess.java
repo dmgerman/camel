@@ -175,18 +175,13 @@ name|keepRunning
 init|=
 literal|true
 decl_stmt|;
-DECL|field|latch
-specifier|private
-specifier|final
-name|CountDownLatch
-name|latch
-init|=
-operator|new
-name|CountDownLatch
-argument_list|(
-literal|1
-argument_list|)
+DECL|field|stopped
+specifier|public
+specifier|volatile
+name|boolean
+name|stopped
 decl_stmt|;
+comment|// = false
 DECL|field|dbCol
 specifier|private
 specifier|final
@@ -426,8 +421,6 @@ name|void
 name|run
 parameter_list|()
 block|{
-try|try
-block|{
 while|while
 condition|(
 name|keepRunning
@@ -500,15 +493,10 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-block|}
-finally|finally
-block|{
-name|latch
-operator|.
-name|countDown
-argument_list|()
+name|stopped
+operator|=
+literal|true
 expr_stmt|;
-block|}
 block|}
 DECL|method|stop ()
 specifier|protected
@@ -567,22 +555,12 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// wait until the main loop acknowledges the stop
-comment|// TODO: yikes this is not good with a endless while loop
-comment|// wait for stop latch
-name|boolean
-name|zero
-init|=
-name|latch
-operator|.
-name|await
-argument_list|(
-literal|30
-argument_list|,
-name|TimeUnit
-operator|.
-name|SECONDS
-argument_list|)
-decl_stmt|;
+while|while
+condition|(
+operator|!
+name|stopped
+condition|)
+block|{ }
 if|if
 condition|(
 name|LOG
@@ -610,20 +588,6 @@ name|dbCol
 operator|.
 name|getName
 argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-operator|!
-name|zero
-condition|)
-block|{
-name|LOG
-operator|.
-name|warn
-argument_list|(
-literal|"Waited 30 seconds for MongoDB Tailable Cursor consumer to stop cleanly. Will now force stop."
 argument_list|)
 expr_stmt|;
 block|}
