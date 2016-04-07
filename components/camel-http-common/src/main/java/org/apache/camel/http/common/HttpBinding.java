@@ -218,6 +218,18 @@ name|boolean
 name|isEagerCheckContentAvailable
 parameter_list|()
 function_decl|;
+comment|/**      * Whether to allow Exchange Body HTTP mapping      */
+DECL|method|isMapHttpMessageBody ()
+name|boolean
+name|isMapHttpMessageBody
+parameter_list|()
+function_decl|;
+comment|/**      * Whether to allow Exchange Headers HTTP mapping      */
+DECL|method|isMapHttpMessageHeaders ()
+name|boolean
+name|isMapHttpMessageHeaders
+parameter_list|()
+function_decl|;
 comment|/**      * Whether to eager check whether the HTTP requests has content if the content-length header is 0 or not present.      * This can be turned on in case HTTP clients do not send streamed data.      */
 DECL|method|setEagerCheckContentAvailable (boolean eagerCheckContentAvailable)
 name|void
@@ -258,6 +270,24 @@ name|setHeaderFilterStrategy
 parameter_list|(
 name|HeaderFilterStrategy
 name|headerFilterStrategy
+parameter_list|)
+function_decl|;
+comment|/**      * Whether to allow Exchange Body HTTP mapping      *<p/>      * This is by default turned on. If you disable this then be aware that the Exchange body won't be mapped to HTTP      */
+DECL|method|setMapHttpMessageBody (boolean mapHttpMessageBody)
+name|void
+name|setMapHttpMessageBody
+parameter_list|(
+name|boolean
+name|mapHttpMessageBody
+parameter_list|)
+function_decl|;
+comment|/**      * Whether to allow Exchange Headers HTTP mapping      *<p/>      * This is by default turned on. If you disable this then be aware that the Exchange headers won't be mapped to HTTP      */
+DECL|method|setMapHttpMessageHeaders (boolean mapHttpMessageHeaders)
+name|void
+name|setMapHttpMessageHeaders
+parameter_list|(
+name|boolean
+name|mapHttpMessageHeaders
 parameter_list|)
 function_decl|;
 block|}

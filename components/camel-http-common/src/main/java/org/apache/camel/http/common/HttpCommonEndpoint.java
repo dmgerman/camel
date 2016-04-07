@@ -518,6 +518,52 @@ specifier|private
 name|UrlRewrite
 name|urlRewrite
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"If this option is true then IN exchange Body of the exchange will be mapped to HTTP body."
+operator|+
+literal|" Setting this to false will avoid the HTTP mapping."
+argument_list|)
+DECL|field|mapHttpMessageBody
+name|boolean
+name|mapHttpMessageBody
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"If this option is true then IN exchange Headers of the exchange will be mapped to HTTP headers."
+operator|+
+literal|" Setting this to false will avoid the HTTP Headers mapping."
+argument_list|)
+DECL|field|mapHttpMessageHeaders
+name|boolean
+name|mapHttpMessageHeaders
+init|=
+literal|true
+decl_stmt|;
 DECL|method|HttpCommonEndpoint ()
 specifier|public
 name|HttpCommonEndpoint
@@ -730,6 +776,22 @@ operator|.
 name|setEagerCheckContentAvailable
 argument_list|(
 name|isEagerCheckContentAvailable
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|httpBinding
+operator|.
+name|setMapHttpMessageBody
+argument_list|(
+name|isMapHttpMessageBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|httpBinding
+operator|.
+name|setMapHttpMessageHeaders
+argument_list|(
+name|isMapHttpMessageHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1384,6 +1446,60 @@ operator|.
 name|okStatusCodeRange
 operator|=
 name|okStatusCodeRange
+expr_stmt|;
+block|}
+DECL|method|isMapHttpMessageBody ()
+specifier|public
+name|boolean
+name|isMapHttpMessageBody
+parameter_list|()
+block|{
+return|return
+name|mapHttpMessageBody
+return|;
+block|}
+comment|/**      * If this option is true, the IN exchange body will be mapped to HTTP      */
+DECL|method|setMapHttpMessageBody (boolean mapHttpMessageBody)
+specifier|public
+name|void
+name|setMapHttpMessageBody
+parameter_list|(
+name|boolean
+name|mapHttpMessageBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mapHttpMessageBody
+operator|=
+name|mapHttpMessageBody
+expr_stmt|;
+block|}
+DECL|method|isMapHttpMessageHeaders ()
+specifier|public
+name|boolean
+name|isMapHttpMessageHeaders
+parameter_list|()
+block|{
+return|return
+name|mapHttpMessageHeaders
+return|;
+block|}
+comment|/**      * If this option is true, the IN exchange headers will be mapped to HTTP Headers      */
+DECL|method|setMapHttpMessageHeaders (boolean mapHttpMessageHeaders)
+specifier|public
+name|void
+name|setMapHttpMessageHeaders
+parameter_list|(
+name|boolean
+name|mapHttpMessageHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mapHttpMessageHeaders
+operator|=
+name|mapHttpMessageHeaders
 expr_stmt|;
 block|}
 block|}

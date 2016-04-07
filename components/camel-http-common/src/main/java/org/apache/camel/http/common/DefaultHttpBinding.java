@@ -472,6 +472,20 @@ specifier|private
 name|boolean
 name|allowJavaSerializedObject
 decl_stmt|;
+DECL|field|mapHttpMessageBody
+specifier|private
+name|boolean
+name|mapHttpMessageBody
+init|=
+literal|true
+decl_stmt|;
+DECL|field|mapHttpMessageHeaders
+specifier|private
+name|boolean
+name|mapHttpMessageHeaders
+init|=
+literal|true
+decl_stmt|;
 DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
@@ -576,13 +590,19 @@ argument_list|,
 name|request
 argument_list|)
 expr_stmt|;
-comment|// lets force a parse of the body and headers
+comment|// lets parse the body if mapHttpMessageBody is true
+if|if
+condition|(
+name|mapHttpMessageBody
+condition|)
+block|{
 name|message
 operator|.
 name|getBody
 argument_list|()
 expr_stmt|;
-comment|// populate the headers from the request
+block|}
+comment|// populate the headers from the request if mapHttpHeaders is true
 name|Map
 argument_list|<
 name|String
@@ -596,6 +616,11 @@ operator|.
 name|getHeaders
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|mapHttpMessageHeaders
+condition|)
+block|{
 comment|//apply the headerFilterStrategy
 name|Enumeration
 argument_list|<
@@ -702,6 +727,7 @@ argument_list|,
 name|extracted
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if
@@ -3320,6 +3346,58 @@ operator|.
 name|headerFilterStrategy
 operator|=
 name|headerFilterStrategy
+expr_stmt|;
+block|}
+DECL|method|isMapHttpMessageBody ()
+specifier|public
+name|boolean
+name|isMapHttpMessageBody
+parameter_list|()
+block|{
+return|return
+name|mapHttpMessageBody
+return|;
+block|}
+DECL|method|setMapHttpMessageBody (boolean mapHttpMessageBody)
+specifier|public
+name|void
+name|setMapHttpMessageBody
+parameter_list|(
+name|boolean
+name|mapHttpMessageBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mapHttpMessageBody
+operator|=
+name|mapHttpMessageBody
+expr_stmt|;
+block|}
+DECL|method|isMapHttpMessageHeaders ()
+specifier|public
+name|boolean
+name|isMapHttpMessageHeaders
+parameter_list|()
+block|{
+return|return
+name|mapHttpMessageHeaders
+return|;
+block|}
+DECL|method|setMapHttpMessageHeaders (boolean mapHttpMessageHeaders)
+specifier|public
+name|void
+name|setMapHttpMessageHeaders
+parameter_list|(
+name|boolean
+name|mapHttpMessageHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mapHttpMessageHeaders
+operator|=
+name|mapHttpMessageHeaders
 expr_stmt|;
 block|}
 DECL|method|getHttpDateFormat ()
