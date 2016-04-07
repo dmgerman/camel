@@ -236,6 +236,39 @@ name|this
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|HttpMessage (HttpServletRequest request, HttpServletResponse response, Exchange exchange)
+specifier|private
+name|HttpMessage
+parameter_list|(
+name|HttpServletRequest
+name|request
+parameter_list|,
+name|HttpServletResponse
+name|response
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|this
+operator|.
+name|request
+operator|=
+name|request
+expr_stmt|;
+name|this
+operator|.
+name|response
+operator|=
+name|response
+expr_stmt|;
+name|setExchange
+argument_list|(
+name|getExchange
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|getRequest ()
 specifier|public
 name|HttpServletRequest
@@ -293,6 +326,27 @@ name|e
 argument_list|)
 throw|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|newInstance ()
+specifier|public
+name|HttpMessage
+name|newInstance
+parameter_list|()
+block|{
+return|return
+operator|new
+name|HttpMessage
+argument_list|(
+name|request
+argument_list|,
+name|response
+argument_list|,
+name|getExchange
+argument_list|()
+argument_list|)
+return|;
 block|}
 DECL|method|getEndpoint ()
 specifier|private
