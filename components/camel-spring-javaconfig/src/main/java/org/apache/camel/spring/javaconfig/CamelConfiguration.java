@@ -104,18 +104,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|RoutesBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -283,7 +271,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A useful base class for writing  *<a  * href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html#beans-annotation-config">  * Spring annotation-based</a> configurations for working with Camel. Unless {@link #routes()} method is overridden, this configuration  * automatically load all the {@link org.apache.camel.builder.RouteBuilder} instances available in the Spring context.  */
+comment|/**  * A useful base class for writing  *<a  * href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/beans.html#beans-annotation-config">  * Spring annotation-based</a> configurations for working with Camel.  */
 end_comment
 
 begin_class
@@ -672,6 +660,7 @@ name|createConsumerTemplate
 argument_list|()
 return|;
 block|}
+comment|/**      * Camel post processor - required to support Camel annotations.      */
 annotation|@
 name|Bean
 DECL|method|camelBeanPostProcessor ()
@@ -719,38 +708,40 @@ init|=
 name|createCamelContext
 argument_list|()
 decl_stmt|;
+name|SpringCamelContext
+operator|.
+name|setNoStart
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 name|setupCamelContext
 argument_list|(
 name|camelContext
 argument_list|)
 expr_stmt|;
-name|List
-argument_list|<
-name|RouteBuilder
-argument_list|>
-name|routes
-init|=
-name|routes
-argument_list|()
-decl_stmt|;
-for|for
-control|(
-name|RoutesBuilder
-name|route
-range|:
-name|routes
-control|)
-block|{
-name|camelContext
-operator|.
-name|addRoutes
-argument_list|(
-name|route
-argument_list|)
-expr_stmt|;
-block|}
 return|return
 name|camelContext
+return|;
+block|}
+annotation|@
+name|Bean
+DECL|method|routesCollector (ApplicationContext applicationContext)
+name|RoutesCollector
+name|routesCollector
+parameter_list|(
+name|ApplicationContext
+name|applicationContext
+parameter_list|)
+block|{
+return|return
+operator|new
+name|RoutesCollector
+argument_list|(
+name|applicationContext
+argument_list|,
+name|this
+argument_list|)
 return|;
 block|}
 comment|/**      * Callback to setup {@link CamelContext} before its started      */
