@@ -162,6 +162,24 @@ specifier|private
 name|Long
 name|timeout
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advance"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"0"
+argument_list|)
+DECL|field|fromIndex
+specifier|private
+name|Long
+name|fromIndex
+init|=
+literal|0L
+decl_stmt|;
 DECL|method|getUris ()
 specifier|public
 name|String
@@ -376,6 +394,33 @@ operator|.
 name|timeout
 operator|=
 name|timeout
+expr_stmt|;
+block|}
+DECL|method|getFromIndex ()
+specifier|public
+name|Long
+name|getFromIndex
+parameter_list|()
+block|{
+return|return
+name|fromIndex
+return|;
+block|}
+comment|/**      * The index to watch from      */
+DECL|method|setFromIndex (Long fromIndex)
+specifier|public
+name|void
+name|setFromIndex
+parameter_list|(
+name|Long
+name|fromIndex
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fromIndex
+operator|=
+name|fromIndex
 expr_stmt|;
 block|}
 block|}

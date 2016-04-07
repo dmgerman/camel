@@ -142,26 +142,15 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
 
+begin_comment
+comment|//@Ignore("Etcd must be started manually")
+end_comment
+
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Etcd must be started manually"
-argument_list|)
 DECL|class|EtcdKeysTest
 specifier|public
 class|class
