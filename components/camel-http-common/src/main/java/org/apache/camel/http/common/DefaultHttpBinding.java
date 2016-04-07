@@ -134,6 +134,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
 import|;
 end_import
@@ -611,9 +621,13 @@ name|Object
 argument_list|>
 name|headers
 init|=
-name|message
-operator|.
-name|getHeaders
+operator|new
+name|HashMap
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 argument_list|()
 decl_stmt|;
 if|if
@@ -621,6 +635,14 @@ condition|(
 name|mapHttpMessageHeaders
 condition|)
 block|{
+name|headers
+operator|=
+name|message
+operator|.
+name|getHeaders
+argument_list|()
+expr_stmt|;
+block|}
 comment|//apply the headerFilterStrategy
 name|Enumeration
 argument_list|<
@@ -727,7 +749,6 @@ argument_list|,
 name|extracted
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 if|if
