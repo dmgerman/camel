@@ -911,20 +911,6 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
-comment|// Need to remove the Host key as it should be not used
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|getHeaders
-argument_list|()
-operator|.
-name|remove
-argument_list|(
-literal|"host"
-argument_list|)
-expr_stmt|;
 block|}
 name|HttpRequestBase
 name|httpRequest
@@ -1215,6 +1201,53 @@ name|s
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+comment|//In reverse proxy applications it can be desirable for the downstream service to see the original Host header
+comment|//if this option is set, and the exchange Host header is not null, we will set it's current value on the httpRequest
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|isPreserveHostHeader
+argument_list|()
+condition|)
+block|{
+name|String
+name|hostHeader
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+literal|"Host"
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|hostHeader
+operator|!=
+literal|null
+condition|)
+block|{
+comment|//HttpClient 4 will check to see if the Host header is present, and use it if it is, see org.apache.http.protocol.RequestTargetHost in httpcore
+name|httpRequest
+operator|.
+name|setHeader
+argument_list|(
+literal|"Host"
+argument_list|,
+name|hostHeader
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|// lets store the result in the output message.

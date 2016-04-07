@@ -231,6 +231,25 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"producer"
+argument_list|,
+name|description
+operator|=
+literal|"If the option is true, HttpProducer will set the Host header to the value contained in the current exchange Host header, "
+operator|+
+literal|"useful in reverse proxy applications where you want the Host header received by the downstream server to reflect the URL called by the upstream client, "
+operator|+
+literal|"this allows applications which use the Host header to generate accurate URL's for a proxied service"
+argument_list|)
+DECL|field|preserveHostHeader
+name|boolean
+name|preserveHostHeader
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"consumer"
 argument_list|,
 name|description
@@ -1008,6 +1027,33 @@ operator|.
 name|bridgeEndpoint
 operator|=
 name|bridge
+expr_stmt|;
+block|}
+DECL|method|isPreserveHostHeader ()
+specifier|public
+name|boolean
+name|isPreserveHostHeader
+parameter_list|()
+block|{
+return|return
+name|preserveHostHeader
+return|;
+block|}
+comment|/**      * If the option is true, HttpProducer will set the Host header to the value contained in the current exchange Host header,      * useful in reverse proxy applications where you want the Host header received by the downstream server to reflect the URL called by the upstream client,      * this allows applications which use the Host header to generate accurate URL's for a proxied service      */
+DECL|method|setPreserveHostHeader (boolean preserveHostHeader)
+specifier|public
+name|void
+name|setPreserveHostHeader
+parameter_list|(
+name|boolean
+name|preserveHostHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|preserveHostHeader
+operator|=
+name|preserveHostHeader
 expr_stmt|;
 block|}
 DECL|method|isMatchOnUriPrefix ()
