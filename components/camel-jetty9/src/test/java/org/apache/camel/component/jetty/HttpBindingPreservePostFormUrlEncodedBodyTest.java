@@ -213,7 +213,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"jetty:http://localhost:{{port}}/myapp/myservice"
+literal|"jetty:http://localhost:{{port}}/myapp/myservice?map"
 argument_list|)
 operator|.
 name|process
