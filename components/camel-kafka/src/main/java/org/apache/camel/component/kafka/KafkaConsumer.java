@@ -611,6 +611,11 @@ operator|.
 name|asList
 argument_list|(
 name|topicName
+operator|.
+name|split
+argument_list|(
+literal|","
+argument_list|)
 argument_list|)
 argument_list|)
 expr_stmt|;
