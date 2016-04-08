@@ -2645,7 +2645,7 @@ return|return
 name|topic
 return|;
 block|}
-comment|/**      * Name of the topic to use.      */
+comment|/**      * Name of the topic to use. When used on a consumer endpoint the topic can be a comma separated list of topics.      */
 DECL|method|setTopic (String topic)
 specifier|public
 name|void
