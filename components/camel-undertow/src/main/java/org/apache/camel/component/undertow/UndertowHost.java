@@ -59,25 +59,25 @@ name|URI
 name|httpURI
 parameter_list|)
 function_decl|;
-comment|/**      * Register a handler on the given path      */
-DECL|method|registerHandler (String path, HttpHandler handler)
+comment|/**      * Register a handler with the given {@link HttpHandlerRegistrationInfo}      */
+DECL|method|registerHandler (HttpHandlerRegistrationInfo registrationInfo, HttpHandler handler)
 name|void
 name|registerHandler
 parameter_list|(
-name|String
-name|path
+name|HttpHandlerRegistrationInfo
+name|registrationInfo
 parameter_list|,
 name|HttpHandler
 name|handler
 parameter_list|)
 function_decl|;
-comment|/**      * Unregister a handler on the given path      */
-DECL|method|unregisterHandler (String path)
+comment|/**      * Unregister a handler with the given {@link HttpHandlerRegistrationInfo}      */
+DECL|method|unregisterHandler (HttpHandlerRegistrationInfo registrationInfo)
 name|void
 name|unregisterHandler
 parameter_list|(
-name|String
-name|path
+name|HttpHandlerRegistrationInfo
+name|registrationInfo
 parameter_list|)
 function_decl|;
 block|}
