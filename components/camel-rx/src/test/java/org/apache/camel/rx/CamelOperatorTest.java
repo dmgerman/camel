@@ -78,16 +78,6 @@ begin_import
 import|import
 name|rx
 operator|.
-name|functions
-operator|.
-name|Func1
-import|;
-end_import
-
-begin_import
-import|import
-name|rx
-operator|.
 name|observables
 operator|.
 name|ConnectableObservable
@@ -119,10 +109,6 @@ operator|.
 name|containsString
 import|;
 end_import
-
-begin_comment
-comment|/**  */
-end_comment
 
 begin_class
 DECL|class|CamelOperatorTest
@@ -340,25 +326,8 @@ argument_list|)
 operator|.
 name|map
 argument_list|(
-operator|new
-name|Func1
-argument_list|<
-name|Exchange
-argument_list|,
-name|Exchange
-argument_list|>
-argument_list|()
-block|{
-comment|// Convert body to String
-annotation|@
-name|Override
-specifier|public
-name|Exchange
-name|call
-parameter_list|(
-name|Exchange
 name|exchange
-parameter_list|)
+lambda|->
 block|{
 name|exchange
 operator|.
@@ -384,7 +353,6 @@ return|return
 name|exchange
 return|;
 block|}
-block|}
 argument_list|)
 operator|.
 name|lift
@@ -399,25 +367,8 @@ argument_list|)
 operator|.
 name|map
 argument_list|(
-operator|new
-name|Func1
-argument_list|<
-name|Exchange
-argument_list|,
-name|Exchange
-argument_list|>
-argument_list|()
-block|{
-comment|// Change body for response
-annotation|@
-name|Override
-specifier|public
-name|Exchange
-name|call
-parameter_list|(
-name|Exchange
 name|exchange
-parameter_list|)
+lambda|->
 block|{
 name|exchange
 operator|.
@@ -444,7 +395,6 @@ expr_stmt|;
 return|return
 name|exchange
 return|;
-block|}
 block|}
 argument_list|)
 operator|.

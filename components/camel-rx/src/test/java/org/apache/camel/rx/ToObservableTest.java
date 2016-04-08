@@ -82,20 +82,6 @@ name|Observable
 import|;
 end_import
 
-begin_import
-import|import
-name|rx
-operator|.
-name|functions
-operator|.
-name|Action1
-import|;
-end_import
-
-begin_comment
-comment|/**  */
-end_comment
-
 begin_class
 DECL|class|ToObservableTest
 specifier|public
@@ -174,22 +160,8 @@ argument_list|)
 operator|.
 name|subscribe
 argument_list|(
-operator|new
-name|Action1
-argument_list|<
-name|Message
-argument_list|>
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|call
-parameter_list|(
-name|Message
 name|message
-parameter_list|)
+lambda|->
 block|{
 name|String
 name|body
@@ -217,7 +189,6 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 argument_list|)
 expr_stmt|;
