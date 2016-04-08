@@ -1185,23 +1185,6 @@ name|brokers
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|setMetadataFetchTimeoutMs (Integer metadataFetchTimeoutMs)
-specifier|public
-name|void
-name|setMetadataFetchTimeoutMs
-parameter_list|(
-name|Integer
-name|metadataFetchTimeoutMs
-parameter_list|)
-block|{
-name|configuration
-operator|.
-name|setMetadataFetchTimeoutMs
-argument_list|(
-name|metadataFetchTimeoutMs
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|getValueDeserializer ()
 specifier|public
 name|String
@@ -1520,19 +1503,6 @@ name|sslKeystorePassword
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|getBlockOnBufferFull ()
-specifier|public
-name|Boolean
-name|getBlockOnBufferFull
-parameter_list|()
-block|{
-return|return
-name|configuration
-operator|.
-name|getBlockOnBufferFull
-argument_list|()
-return|;
-block|}
 DECL|method|setCheckCrcs (Boolean checkCrcs)
 specifier|public
 name|void
@@ -1667,23 +1637,6 @@ operator|.
 name|setSslKeyPassword
 argument_list|(
 name|sslKeyPassword
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|setBlockOnBufferFull (Boolean blockOnBufferFull)
-specifier|public
-name|void
-name|setBlockOnBufferFull
-parameter_list|(
-name|Boolean
-name|blockOnBufferFull
-parameter_list|)
-block|{
-name|configuration
-operator|.
-name|setBlockOnBufferFull
-argument_list|(
-name|blockOnBufferFull
 argument_list|)
 expr_stmt|;
 block|}
@@ -1970,23 +1923,6 @@ name|getSslTruststorePassword
 argument_list|()
 return|;
 block|}
-DECL|method|setTimeoutMs (Integer timeoutMs)
-specifier|public
-name|void
-name|setTimeoutMs
-parameter_list|(
-name|Integer
-name|timeoutMs
-parameter_list|)
-block|{
-name|configuration
-operator|.
-name|setTimeoutMs
-argument_list|(
-name|timeoutMs
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|setConsumerStreams (int consumerStreams)
 specifier|public
 name|void
@@ -2181,19 +2117,6 @@ return|return
 name|configuration
 operator|.
 name|getPartitionAssignor
-argument_list|()
-return|;
-block|}
-DECL|method|getMetadataFetchTimeoutMs ()
-specifier|public
-name|Integer
-name|getMetadataFetchTimeoutMs
-parameter_list|()
-block|{
-return|return
-name|configuration
-operator|.
-name|getMetadataFetchTimeoutMs
 argument_list|()
 return|;
 block|}
@@ -2571,19 +2494,6 @@ return|return
 name|configuration
 operator|.
 name|getSendBufferBytes
-argument_list|()
-return|;
-block|}
-DECL|method|getTimeoutMs ()
-specifier|public
-name|Integer
-name|getTimeoutMs
-parameter_list|()
-block|{
-return|return
-name|configuration
-operator|.
-name|getTimeoutMs
 argument_list|()
 return|;
 block|}
