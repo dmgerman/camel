@@ -607,6 +607,15 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+DECL|method|getFactory ()
+name|StreamFactory
+name|getFactory
+parameter_list|()
+block|{
+return|return
+name|factory
+return|;
+block|}
 DECL|method|marshal (Exchange exchange, Object body, OutputStream stream)
 specifier|public
 name|void

@@ -406,6 +406,46 @@ argument_list|()
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Employee{"
+operator|+
+literal|"firstName='"
+operator|+
+name|firstName
+operator|+
+literal|'\''
+operator|+
+literal|", lastName='"
+operator|+
+name|lastName
+operator|+
+literal|'\''
+operator|+
+literal|", title='"
+operator|+
+name|title
+operator|+
+literal|'\''
+operator|+
+literal|", salary="
+operator|+
+name|salary
+operator|+
+literal|", hireDate="
+operator|+
+name|hireDate
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 
