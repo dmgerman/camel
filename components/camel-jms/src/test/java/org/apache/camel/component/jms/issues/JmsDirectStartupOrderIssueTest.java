@@ -60,18 +60,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ProducerTemplate
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -188,6 +176,50 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// send messages to queue so there is messages on the queue before we start the route
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"activemq:queue:foo"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"activemq:queue:foo"
+argument_list|,
+literal|"Hello Camel"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"activemq:queue:foo"
+argument_list|,
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"activemq:queue:foo"
+argument_list|,
+literal|"Bye Camel"
+argument_list|)
+expr_stmt|;
+name|context
+operator|.
+name|startRoute
+argument_list|(
+literal|"amq"
+argument_list|)
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:result"
@@ -333,56 +365,6 @@ name|connectionFactory
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|ProducerTemplate
-name|producer
-init|=
-name|camelContext
-operator|.
-name|createProducerTemplate
-argument_list|()
-decl_stmt|;
-comment|// send messages to queue so there is messages on the queue when we start
-name|producer
-operator|.
-name|sendBody
-argument_list|(
-literal|"activemq:queue:foo"
-argument_list|,
-literal|"Hello World"
-argument_list|)
-expr_stmt|;
-name|producer
-operator|.
-name|sendBody
-argument_list|(
-literal|"activemq:queue:foo"
-argument_list|,
-literal|"Hello Camel"
-argument_list|)
-expr_stmt|;
-name|producer
-operator|.
-name|sendBody
-argument_list|(
-literal|"activemq:queue:foo"
-argument_list|,
-literal|"Bye World"
-argument_list|)
-expr_stmt|;
-name|producer
-operator|.
-name|sendBody
-argument_list|(
-literal|"activemq:queue:foo"
-argument_list|,
-literal|"Bye Camel"
-argument_list|)
-expr_stmt|;
-name|producer
-operator|.
-name|stop
-argument_list|()
-expr_stmt|;
 return|return
 name|camelContext
 return|;
@@ -420,6 +402,11 @@ operator|.
 name|startupOrder
 argument_list|(
 literal|100
+argument_list|)
+operator|.
+name|autoStartup
+argument_list|(
+literal|false
 argument_list|)
 operator|.
 name|to
