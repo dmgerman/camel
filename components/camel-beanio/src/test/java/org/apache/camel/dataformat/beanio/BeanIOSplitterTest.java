@@ -217,23 +217,26 @@ throws|throws
 name|Exception
 block|{
 comment|// START SNIPPET: e1
-comment|// setup beanio data format using the mapping file, loaded from the classpath
-name|BeanIODataFormat
-name|format
+comment|// setup beanio splitter using the mapping file, loaded from the classpath
+name|BeanIOSplitter
+name|splitter
 init|=
 operator|new
-name|BeanIODataFormat
+name|BeanIOSplitter
+argument_list|()
+decl_stmt|;
+name|splitter
+operator|.
+name|setMapping
 argument_list|(
 literal|"org/apache/camel/dataformat/beanio/mappings.xml"
-argument_list|,
-literal|"employeeFile"
 argument_list|)
-decl_stmt|;
-name|format
+expr_stmt|;
+name|splitter
 operator|.
-name|setCamelContext
+name|setStreamName
 argument_list|(
-name|context
+literal|"employeeFile"
 argument_list|)
 expr_stmt|;
 comment|// a route which uses the bean io data format to format a CSV data
@@ -246,11 +249,7 @@ comment|// and then split the message body so we get a message for each row
 operator|.
 name|split
 argument_list|(
-operator|new
-name|BeanIOSplitter
-argument_list|(
-name|format
-argument_list|)
+name|splitter
 argument_list|)
 operator|.
 name|streaming
