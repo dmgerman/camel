@@ -427,6 +427,14 @@ literal|true
 decl_stmt|;
 try|try
 block|{
+comment|// need to start endpoint before we create producer
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
 name|producer
 operator|=
 name|endpoint
@@ -434,11 +442,16 @@ operator|.
 name|createProducer
 argument_list|()
 expr_stmt|;
-name|ServiceHelper
+comment|// add and start producer
+name|camelContext
 operator|.
-name|startService
+name|addService
 argument_list|(
 name|producer
+argument_list|,
+literal|true
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
 name|serviceProxy
@@ -483,13 +496,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|ServiceHelper
-operator|.
-name|stopService
-argument_list|(
-name|producer
-argument_list|)
-expr_stmt|;
+comment|// we let CamelContext manage the lifecycle of the producer and shut it down when Camel stops
 block|}
 DECL|method|getServiceInterface ()
 specifier|public

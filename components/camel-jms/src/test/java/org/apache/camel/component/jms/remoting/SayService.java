@@ -40,10 +40,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|SayService
 specifier|public
@@ -69,6 +65,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|message
+specifier|private
 name|String
 name|message
 init|=
@@ -79,38 +76,30 @@ specifier|public
 name|SayService
 parameter_list|()
 block|{     }
-DECL|method|SayService (String message)
-specifier|public
-name|SayService
-parameter_list|(
-name|String
-name|message
-parameter_list|)
-block|{
-name|this
-operator|.
-name|message
-operator|=
-name|message
-expr_stmt|;
-block|}
-DECL|method|say ()
+DECL|method|say (String name)
 specifier|public
 name|String
 name|say
-parameter_list|()
+parameter_list|(
+name|String
+name|name
+parameter_list|)
 block|{
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Invoking say() method with message: "
-operator|+
-name|message
+literal|"Invoking say() method with {}"
+argument_list|,
+name|name
 argument_list|)
 expr_stmt|;
 return|return
 name|message
+operator|+
+literal|" "
+operator|+
+name|name
 return|;
 block|}
 DECL|method|getMessage ()

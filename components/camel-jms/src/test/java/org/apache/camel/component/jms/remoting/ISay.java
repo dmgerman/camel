@@ -40,10 +40,6 @@ name|RemoteException
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_interface
 DECL|interface|ISay
 specifier|public
@@ -52,10 +48,13 @@ name|ISay
 extends|extends
 name|Remote
 block|{
-DECL|method|say ()
+DECL|method|say (String name)
 name|String
 name|say
-parameter_list|()
+parameter_list|(
+name|String
+name|name
+parameter_list|)
 throws|throws
 name|RemoteException
 function_decl|;

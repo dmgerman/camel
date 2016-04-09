@@ -116,11 +116,13 @@ init|=
 name|proxy
 operator|.
 name|say
-argument_list|()
+argument_list|(
+literal|"Camel"
+argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|"Hello"
+literal|"Hello Camel"
 argument_list|,
 name|rc
 argument_list|)
