@@ -69,6 +69,7 @@ DECL|enumConstant|IS
 DECL|enumConstant|NOT_IS
 DECL|enumConstant|RANGE
 DECL|enumConstant|NOT_RANGE
+DECL|enumConstant|STARTS_WITH
 DECL|enumConstant|ENDS_WITH
 name|IN
 block|,
@@ -81,6 +82,8 @@ block|,
 name|RANGE
 block|,
 name|NOT_RANGE
+block|,
+name|STARTS_WITH
 block|,
 name|ENDS_WITH
 block|;
@@ -351,6 +354,21 @@ block|}
 elseif|else
 if|if
 condition|(
+literal|"starts with"
+operator|.
+name|equals
+argument_list|(
+name|text
+argument_list|)
+condition|)
+block|{
+return|return
+name|STARTS_WITH
+return|;
+block|}
+elseif|else
+if|if
+condition|(
 literal|"ends with"
 operator|.
 name|equals
@@ -584,6 +602,18 @@ condition|)
 block|{
 return|return
 literal|"not range"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|operator
+operator|==
+name|STARTS_WITH
+condition|)
+block|{
+return|return
+literal|"starts with"
 return|;
 block|}
 elseif|else
@@ -978,6 +1008,18 @@ name|ParameterType
 operator|.
 name|Function
 block|}
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+name|operator
+operator|==
+name|STARTS_WITH
+condition|)
+block|{
+return|return
+literal|null
 return|;
 block|}
 elseif|else

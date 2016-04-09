@@ -2466,6 +2466,67 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testStartsWith ()
+specifier|public
+name|void
+name|testStartsWith
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setBody
+argument_list|(
+literal|"Hello there"
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.body} starts with 'Hello'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.body} starts with 'H'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.body} starts with 'Hello there'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.body} starts with 'Hello ther'"
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.body} starts with 'ello there'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|assertPredicate
+argument_list|(
+literal|"${in.body} starts with 'Hi'"
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testEndsWith ()
 specifier|public
 name|void
