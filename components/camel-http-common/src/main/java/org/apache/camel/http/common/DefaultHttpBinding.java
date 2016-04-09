@@ -1358,6 +1358,15 @@ block|}
 block|}
 block|}
 block|}
+comment|// should we extract key=value pairs from form bodies (application/x-www-form-urlencoded)
+comment|// and map those to Camel headers
+if|if
+condition|(
+name|mapHttpMessageBody
+operator|&&
+name|mapHttpMessageHeaders
+condition|)
+block|{
 name|LOG
 operator|.
 name|trace
@@ -1457,9 +1466,37 @@ operator|=
 literal|"UTF-8"
 expr_stmt|;
 block|}
+comment|// lets parse the body
+name|Object
+name|body
+init|=
+name|message
+operator|.
+name|getBody
+argument_list|()
+decl_stmt|;
+comment|// reset the stream cache if the body is the instance of StreamCache
+if|if
+condition|(
+name|body
+operator|instanceof
+name|StreamCache
+condition|)
+block|{
+operator|(
+operator|(
+name|StreamCache
+operator|)
+name|body
+operator|)
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
 comment|// Push POST form params into the headers to retain compatibility with DefaultHttpBinding
 name|String
-name|body
+name|text
 init|=
 name|message
 operator|.
@@ -1476,7 +1513,7 @@ name|ObjectHelper
 operator|.
 name|isNotEmpty
 argument_list|(
-name|body
+name|text
 argument_list|)
 condition|)
 block|{
@@ -1485,7 +1522,7 @@ control|(
 name|String
 name|param
 range|:
-name|body
+name|text
 operator|.
 name|split
 argument_list|(
@@ -1592,6 +1629,26 @@ name|param
 argument_list|)
 throw|;
 block|}
+block|}
+block|}
+comment|// reset the stream cache if the body is the instance of StreamCache
+if|if
+condition|(
+name|body
+operator|instanceof
+name|StreamCache
+condition|)
+block|{
+operator|(
+operator|(
+name|StreamCache
+operator|)
+name|body
+operator|)
+operator|.
+name|reset
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 block|}
