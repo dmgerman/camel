@@ -600,12 +600,13 @@ argument_list|,
 name|request
 argument_list|)
 expr_stmt|;
+comment|// must read body before headers
 if|if
 condition|(
-name|mapHttpMessageHeaders
+name|mapHttpMessageBody
 condition|)
 block|{
-name|readHeaders
+name|readBody
 argument_list|(
 name|request
 argument_list|,
@@ -615,10 +616,10 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|mapHttpMessageBody
+name|mapHttpMessageHeaders
 condition|)
 block|{
-name|readBody
+name|readHeaders
 argument_list|(
 name|request
 argument_list|,
