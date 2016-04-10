@@ -191,6 +191,36 @@ operator|=
 name|camelContext
 expr_stmt|;
 block|}
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|camelContext
+return|;
+block|}
+DECL|method|endpoint (String endpointUri)
+specifier|public
+name|Endpoint
+name|endpoint
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+block|{
+return|return
+name|CamelContextHelper
+operator|.
+name|getMandatoryEndpoint
+argument_list|(
+name|camelContext
+argument_list|,
+name|endpointUri
+argument_list|)
+return|;
+block|}
 comment|/**      * Returns an {@link rx.Observable< org.apache.camel.Message>} to allow the messages sent on the endpoint      * to be processed using<a href="https://rx.codeplex.com/">Reactive Extensions</a>      */
 DECL|method|toObservable (String uri)
 specifier|public
@@ -486,39 +516,9 @@ name|endpoint
 argument_list|)
 return|;
 block|}
-DECL|method|getCamelContext ()
-specifier|public
-name|CamelContext
-name|getCamelContext
-parameter_list|()
-block|{
-return|return
-name|camelContext
-return|;
-block|}
-DECL|method|endpoint (String endpointUri)
-specifier|public
-name|Endpoint
-name|endpoint
-parameter_list|(
-name|String
-name|endpointUri
-parameter_list|)
-block|{
-return|return
-name|CamelContextHelper
-operator|.
-name|getMandatoryEndpoint
-argument_list|(
-name|camelContext
-argument_list|,
-name|endpointUri
-argument_list|)
-return|;
-block|}
 comment|/**      * Returns a newly created {@link Observable} given a function which converts      * the {@link Exchange} from the Camel consumer to the required type      */
 DECL|method|createEndpointObservable (final Endpoint endpoint, final Func1<Exchange, T> converter)
-specifier|protected
+specifier|private
 parameter_list|<
 name|T
 parameter_list|>
@@ -576,7 +576,7 @@ return|;
 block|}
 comment|/**      * Return a newly created {@link Observable} without conversion      */
 DECL|method|createEndpointObservable (final Endpoint endpoint)
-specifier|protected
+specifier|private
 name|Observable
 argument_list|<
 name|Exchange
