@@ -245,13 +245,15 @@ annotation|@
 name|Override
 DECL|method|doStop ()
 specifier|protected
+specifier|synchronized
 name|void
 name|doStop
 parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// shutdown cache manager when stopping
+comment|// only shutdown cache manager if no longer in use
+comment|// (it may be reused when running in app servers like Karaf)
 if|if
 condition|(
 name|cacheManager
@@ -259,6 +261,30 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|int
+name|size
+init|=
+name|cacheManager
+operator|.
+name|getCacheNames
+argument_list|()
+operator|.
+name|length
+decl_stmt|;
+if|if
+condition|(
+name|size
+operator|<=
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Shutting down CacheManager as its no longer in use"
+argument_list|)
+expr_stmt|;
 name|cacheManager
 operator|.
 name|shutdown
@@ -268,6 +294,19 @@ name|cacheManager
 operator|=
 literal|null
 expr_stmt|;
+block|}
+else|else
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Cannot stop CacheManager as its still in use by {} clients"
+argument_list|,
+name|size
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 block|}
 block|}
