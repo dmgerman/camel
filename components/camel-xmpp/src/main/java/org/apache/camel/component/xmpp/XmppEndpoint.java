@@ -603,6 +603,13 @@ operator|new
 name|DefaultHeaderFilterStrategy
 argument_list|()
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|connectionConfig
+specifier|private
+name|ConnectionConfiguration
+name|connectionConfig
+decl_stmt|;
 DECL|method|XmppEndpoint ()
 specifier|public
 name|XmppEndpoint
@@ -1138,6 +1145,21 @@ name|XMPPTCPConnection
 name|createConnectionInternal
 parameter_list|()
 block|{
+if|if
+condition|(
+name|connectionConfig
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|XMPPTCPConnection
+argument_list|(
+name|connectionConfig
+argument_list|)
+return|;
+block|}
 if|if
 condition|(
 name|port
@@ -1749,6 +1771,33 @@ operator|.
 name|headerFilterStrategy
 operator|=
 name|headerFilterStrategy
+expr_stmt|;
+block|}
+DECL|method|getConnectionConfig ()
+specifier|public
+name|ConnectionConfiguration
+name|getConnectionConfig
+parameter_list|()
+block|{
+return|return
+name|connectionConfig
+return|;
+block|}
+comment|/**      * To use an existing connection configuration      */
+DECL|method|setConnectionConfig (ConnectionConfiguration connectionConfig)
+specifier|public
+name|void
+name|setConnectionConfig
+parameter_list|(
+name|ConnectionConfiguration
+name|connectionConfig
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectionConfig
+operator|=
+name|connectionConfig
 expr_stmt|;
 block|}
 DECL|method|isTestConnectionOnStartup ()
