@@ -2402,6 +2402,15 @@ name|Boolean
 operator|.
 name|TRUE
 decl_stmt|;
+DECL|field|logExhaustedMessageBody
+specifier|private
+name|Boolean
+name|logExhaustedMessageBody
+init|=
+name|Boolean
+operator|.
+name|FALSE
+decl_stmt|;
 DECL|field|streamCache
 specifier|private
 name|Boolean
@@ -15087,6 +15096,32 @@ operator|.
 name|messageHistory
 operator|=
 name|messageHistory
+expr_stmt|;
+block|}
+DECL|method|isLogExhaustedMessageBody ()
+specifier|public
+name|Boolean
+name|isLogExhaustedMessageBody
+parameter_list|()
+block|{
+return|return
+name|logExhaustedMessageBody
+return|;
+block|}
+DECL|method|setLogExhaustedMessageBody (Boolean logExhaustedMessageBody)
+specifier|public
+name|void
+name|setLogExhaustedMessageBody
+parameter_list|(
+name|Boolean
+name|logExhaustedMessageBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logExhaustedMessageBody
+operator|=
+name|logExhaustedMessageBody
 expr_stmt|;
 block|}
 DECL|method|isHandleFault ()

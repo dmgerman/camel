@@ -5500,6 +5500,11 @@ name|currentRedeliveryPolicy
 operator|.
 name|isLogExhaustedMessageBody
 argument_list|()
+operator|||
+name|camelContext
+operator|.
+name|isLogExhaustedMessageBody
+argument_list|()
 condition|?
 name|exchangeFormatter
 else|:
@@ -5606,6 +5611,11 @@ operator|(
 name|data
 operator|.
 name|currentRedeliveryPolicy
+operator|.
+name|isLogExhaustedMessageBody
+argument_list|()
+operator|||
+name|camelContext
 operator|.
 name|isLogExhaustedMessageBody
 argument_list|()

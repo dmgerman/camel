@@ -69,6 +69,21 @@ name|Boolean
 name|isMessageHistory
 parameter_list|()
 function_decl|;
+comment|/**      * Sets whether the message body should be logged (default is disabled).      *      * @param logExhaustedMessageBody whether message body should be logged      */
+DECL|method|setLogExhaustedMessageBody (Boolean logExhaustedMessageBody)
+name|void
+name|setLogExhaustedMessageBody
+parameter_list|(
+name|Boolean
+name|logExhaustedMessageBody
+parameter_list|)
+function_decl|;
+comment|/**      * Returns whether the message body should be logged      *       * @return<tt>true</tt> if logging of message body is enabled      */
+DECL|method|isLogExhaustedMessageBody ()
+name|Boolean
+name|isLogExhaustedMessageBody
+parameter_list|()
+function_decl|;
 comment|/**      * Sets whether fault handling is enabled or not (default is disabled).      *      * @param handleFault whether to enable fault handling.      */
 DECL|method|setHandleFault (Boolean handleFault)
 name|void

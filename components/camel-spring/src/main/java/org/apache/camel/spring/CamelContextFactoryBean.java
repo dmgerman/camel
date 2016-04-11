@@ -17,6 +17,22 @@ package|;
 end_package
 
 begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|wrapRuntimeCamelException
+import|;
+end_import
+
+begin_import
 import|import
 name|java
 operator|.
@@ -770,22 +786,6 @@ name|ContextRefreshedEvent
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-operator|.
-name|wrapRuntimeCamelException
-import|;
-end_import
-
 begin_comment
 comment|/**  * A Spring {@link FactoryBean} to create and initialize a  * {@link SpringCamelContext} and install routes either explicitly configured in  * Spring XML or found by searching the classpath for Java classes which extend  * {@link RouteBuilder} using the nested {@link #setPackages(String[])}.  *  * @version   */
 end_comment
@@ -886,6 +886,18 @@ DECL|field|messageHistory
 specifier|private
 name|String
 name|messageHistory
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
+DECL|field|logExhaustedMessageBody
+specifier|private
+name|String
+name|logExhaustedMessageBody
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -3232,6 +3244,32 @@ operator|.
 name|messageHistory
 operator|=
 name|messageHistory
+expr_stmt|;
+block|}
+DECL|method|getLogExhaustedMessageBody ()
+specifier|public
+name|String
+name|getLogExhaustedMessageBody
+parameter_list|()
+block|{
+return|return
+name|logExhaustedMessageBody
+return|;
+block|}
+DECL|method|setLogExhaustedMessageBody (String logExhaustedMessageBody)
+specifier|public
+name|void
+name|setLogExhaustedMessageBody
+parameter_list|(
+name|String
+name|logExhaustedMessageBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logExhaustedMessageBody
+operator|=
+name|logExhaustedMessageBody
 expr_stmt|;
 block|}
 DECL|method|getStreamCache ()
