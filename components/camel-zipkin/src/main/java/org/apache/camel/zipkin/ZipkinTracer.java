@@ -802,11 +802,14 @@ condition|)
 block|{
 try|try
 block|{
+comment|// start this service eager so we init before Camel is starting up
 name|camelContext
 operator|.
 name|addService
 argument_list|(
 name|this
+argument_list|,
+literal|true
 argument_list|,
 literal|true
 argument_list|)
