@@ -833,7 +833,7 @@ argument_list|,
 operator|new
 name|URL
 argument_list|(
-literal|"http://freegeoip.net/json/"
+literal|"http://freegeoip.io/json/"
 argument_list|)
 argument_list|)
 decl_stmt|;
