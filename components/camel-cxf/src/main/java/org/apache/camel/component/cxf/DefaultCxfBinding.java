@@ -4421,6 +4421,19 @@ argument_list|)
 expr_stmt|;
 continue|continue;
 block|}
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|entry
+operator|.
+name|getValue
+argument_list|()
+argument_list|)
+condition|)
+block|{
 comment|// things that are not filtered and not specifically copied will be put in transport headers
 if|if
 condition|(
@@ -4494,6 +4507,7 @@ argument_list|,
 name|listValue
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 if|if
