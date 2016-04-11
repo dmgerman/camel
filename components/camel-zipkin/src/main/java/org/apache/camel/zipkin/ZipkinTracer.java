@@ -597,7 +597,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To use Zipkin with Camel then setup this {@link ZipkinTracer} in your Camel application.  *<p/>  * Events (span) are captured for incoming and outgoing messages being sent to/from Camel.  * This means you need to configure which which Camel endpoints that maps to zipkin service names.  * The mapping can be configured using  *<ul>  *<li>route id - A Camel route id</li>  *<li>endpoint url - A Camel endpoint url</li>  *</ul>  * For both kinds you can use wildcards and regular expressions to match, which is using the rules from  * {@link EndpointHelper#matchPattern(String, String)} and {@link EndpointHelper#matchEndpoint(CamelContext, String, String)}  *<p/>  * To match all Camel messages you can use<tt>*</tt> in the pattern and configure that to the same service name.  *<br/>  * If no mapping has been configured then Camel will fallback and use endpoint uri's as service names.  * However its recommended to configure service mappings so you can use human logic names instead of Camel  * endpoint uris in the names.  *<p/>  * Camel will auto-configure a {@link ScribeSpanCollector} if no SpanCollector explicit has been configured, and  * if the hostname and port to the span collector has been configured as environment variables  *<ul>  *<li>ZIPKIN_COLLECTOR_SERVICE_HOST - The hostname</li>  *<li>ZIPKIN_COLLECTOR_SERVICE_PORT - The port number</li>  *</ul>  *<p/>  * This class is implemented as both an {@link org.apache.camel.spi.EventNotifier} and {@link RoutePolicy} that allows  * to trap when Camel starts/ends an {@link Exchange} being routed using the {@link RoutePolicy} and during the routing  * if the {@link Exchange} sends messages, then we track them using the {@link org.apache.camel.spi.EventNotifier}.  */
+comment|/**  * To use Zipkin with Camel then setup this {@link ZipkinTracer} in your Camel application.  *<p/>  * Events (span) are captured for incoming and outgoing messages being sent to/from Camel.  * This means you need to configure which which Camel endpoints that maps to zipkin service names.  * The mapping can be configured using  *<ul>  *<li>route id - A Camel route id</li>  *<li>endpoint url - A Camel endpoint url</li>  *</ul>  * For both kinds you can use wildcards and regular expressions to match, which is using the rules from  * {@link EndpointHelper#matchPattern(String, String)} and {@link EndpointHelper#matchEndpoint(CamelContext, String, String)}  *<p/>  * To match all Camel messages you can use<tt>*</tt> in the pattern and configure that to the same service name.  *<br/>  * If no mapping has been configured then Camel will fallback and use endpoint uri's as service names.  * However its recommended to configure service mappings so you can use human logic names instead of Camel  * endpoint uris in the names.  *<p/>  * Camel will auto-configure a {@link ScribeSpanCollector} if no SpanCollector explicit has been configured, and  * if the hostname and port to the span collector has been configured as environment variables  *<ul>  *<li>ZIPKIN_COLLECTOR_THRIFT_SERVICE_HOST - The hostname</li>  *<li>ZIPKIN_COLLECTOR_THRIFT_SERVICE_PORT - The port number</li>  *</ul>  *<p/>  * This class is implemented as both an {@link org.apache.camel.spi.EventNotifier} and {@link RoutePolicy} that allows  * to trap when Camel starts/ends an {@link Exchange} being routed using the {@link RoutePolicy} and during the routing  * if the {@link Exchange} sends messages, then we track them using the {@link org.apache.camel.spi.EventNotifier}.  */
 end_comment
 
 begin_class
@@ -636,6 +636,15 @@ name|ZipkinTracer
 operator|.
 name|class
 argument_list|)
+decl_stmt|;
+DECL|field|ZIPKIN_COLLECTOR_THRIFT_SERVICE
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|ZIPKIN_COLLECTOR_THRIFT_SERVICE
+init|=
+literal|"zipkin-collector-thrift"
 decl_stmt|;
 DECL|field|eventNotifier
 specifier|private
@@ -1386,7 +1395,7 @@ argument_list|()
 operator|.
 name|apply
 argument_list|(
-literal|"zipkin-collector"
+name|ZIPKIN_COLLECTOR_THRIFT_SERVICE
 argument_list|)
 decl_stmt|;
 name|String
@@ -1398,7 +1407,7 @@ argument_list|()
 operator|.
 name|apply
 argument_list|(
-literal|"zipkin-collector"
+name|ZIPKIN_COLLECTOR_THRIFT_SERVICE
 argument_list|)
 decl_stmt|;
 if|if
