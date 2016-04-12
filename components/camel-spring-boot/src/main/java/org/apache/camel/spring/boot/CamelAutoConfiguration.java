@@ -394,6 +394,16 @@ argument_list|)
 expr_stmt|;
 name|camelContext
 operator|.
+name|setLogExhaustedMessageBody
+argument_list|(
+name|config
+operator|.
+name|isLogExhaustedMessageBody
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|camelContext
+operator|.
 name|setHandleFault
 argument_list|(
 name|config

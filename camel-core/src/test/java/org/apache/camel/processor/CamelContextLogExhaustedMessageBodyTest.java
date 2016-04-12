@@ -118,9 +118,7 @@ name|context
 operator|.
 name|setLogExhaustedMessageBody
 argument_list|(
-name|Boolean
-operator|.
-name|TRUE
+literal|true
 argument_list|)
 expr_stmt|;
 return|return

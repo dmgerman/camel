@@ -146,6 +146,12 @@ name|messageHistory
 init|=
 literal|true
 decl_stmt|;
+comment|/**      * Sets whether to log exhausted message body with message history.      *      * Default is false.      */
+DECL|field|logExhaustedMessageBody
+specifier|private
+name|boolean
+name|logExhaustedMessageBody
+decl_stmt|;
 comment|/**      * Sets whether fault handling is enabled or not.      *      * Default is false.      */
 DECL|field|handleFault
 specifier|private
@@ -511,6 +517,32 @@ operator|.
 name|messageHistory
 operator|=
 name|messageHistory
+expr_stmt|;
+block|}
+DECL|method|isLogExhaustedMessageBody ()
+specifier|public
+name|boolean
+name|isLogExhaustedMessageBody
+parameter_list|()
+block|{
+return|return
+name|logExhaustedMessageBody
+return|;
+block|}
+DECL|method|setLogExhaustedMessageBody (boolean logExhaustedMessageBody)
+specifier|public
+name|void
+name|setLogExhaustedMessageBody
+parameter_list|(
+name|boolean
+name|logExhaustedMessageBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logExhaustedMessageBody
+operator|=
+name|logExhaustedMessageBody
 expr_stmt|;
 block|}
 DECL|method|isHandleFault ()

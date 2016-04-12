@@ -784,6 +784,18 @@ name|required
 operator|=
 literal|false
 argument_list|)
+DECL|field|logExhaustedMessageBody
+specifier|private
+name|String
+name|logExhaustedMessageBody
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|)
 DECL|field|streamCache
 specifier|private
 name|String
@@ -3001,6 +3013,32 @@ operator|.
 name|messageHistory
 operator|=
 name|messageHistory
+expr_stmt|;
+block|}
+DECL|method|getLogExhaustedMessageBody ()
+specifier|public
+name|String
+name|getLogExhaustedMessageBody
+parameter_list|()
+block|{
+return|return
+name|logExhaustedMessageBody
+return|;
+block|}
+DECL|method|setLogExhaustedMessageBody (String logExhaustedMessageBody)
+specifier|public
+name|void
+name|setLogExhaustedMessageBody
+parameter_list|(
+name|String
+name|logExhaustedMessageBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logExhaustedMessageBody
+operator|=
+name|logExhaustedMessageBody
 expr_stmt|;
 block|}
 DECL|method|getStreamCache ()

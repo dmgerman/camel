@@ -69,7 +69,7 @@ name|Boolean
 name|isMessageHistory
 parameter_list|()
 function_decl|;
-comment|/**      * Sets whether the message body should be logged (default is disabled).      *      * @param logExhaustedMessageBody whether message body should be logged      */
+comment|/**      * Sets whether to log exhausted message body with message history.      *      * @param logExhaustedMessageBody whether message body should be logged      */
 DECL|method|setLogExhaustedMessageBody (Boolean logExhaustedMessageBody)
 name|void
 name|setLogExhaustedMessageBody
@@ -78,7 +78,7 @@ name|Boolean
 name|logExhaustedMessageBody
 parameter_list|)
 function_decl|;
-comment|/**      * Returns whether the message body should be logged      *       * @return<tt>true</tt> if logging of message body is enabled      */
+comment|/**      * Returns whether to log exhausted message body with message history.      *       * @return<tt>true</tt> if logging of message body is enabled      */
 DECL|method|isLogExhaustedMessageBody ()
 name|Boolean
 name|isLogExhaustedMessageBody
