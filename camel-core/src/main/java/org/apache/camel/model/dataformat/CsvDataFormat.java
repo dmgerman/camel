@@ -354,6 +354,13 @@ specifier|private
 name|Boolean
 name|skipHeaderRecord
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|quoteMode
+specifier|private
+name|String
+name|quoteMode
+decl_stmt|;
 comment|// Unmarshall options
 annotation|@
 name|XmlAttribute
@@ -851,6 +858,25 @@ argument_list|,
 literal|"skipHeaderRecord"
 argument_list|,
 name|skipHeaderRecord
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|quoteMode
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"quoteMode"
+argument_list|,
+name|quoteMode
 argument_list|)
 expr_stmt|;
 block|}
@@ -1492,6 +1518,33 @@ operator|.
 name|skipHeaderRecord
 operator|=
 name|skipHeaderRecord
+expr_stmt|;
+block|}
+DECL|method|getQuoteMode ()
+specifier|public
+name|String
+name|getQuoteMode
+parameter_list|()
+block|{
+return|return
+name|quoteMode
+return|;
+block|}
+comment|/**      * Sets the quote mode      */
+DECL|method|setQuoteMode (String quoteMode)
+specifier|public
+name|void
+name|setQuoteMode
+parameter_list|(
+name|String
+name|quoteMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|quoteMode
+operator|=
+name|quoteMode
 expr_stmt|;
 block|}
 DECL|method|getLazyLoad ()
