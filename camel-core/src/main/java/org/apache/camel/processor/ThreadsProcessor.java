@@ -48,6 +48,30 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|RejectedExecutionHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ThreadPoolExecutor
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|atomic
 operator|.
 name|AtomicBoolean
@@ -251,6 +275,12 @@ specifier|final
 name|ExecutorService
 name|executorService
 decl_stmt|;
+DECL|field|rejectedPolicy
+specifier|private
+specifier|final
+name|ThreadPoolRejectedPolicy
+name|rejectedPolicy
+decl_stmt|;
 DECL|field|shutdownExecutorService
 specifier|private
 specifier|volatile
@@ -268,18 +298,6 @@ name|AtomicBoolean
 argument_list|(
 literal|true
 argument_list|)
-decl_stmt|;
-DECL|field|callerRunsWhenRejected
-specifier|private
-name|boolean
-name|callerRunsWhenRejected
-init|=
-literal|true
-decl_stmt|;
-DECL|field|rejectedPolicy
-specifier|private
-name|ThreadPoolRejectedPolicy
-name|rejectedPolicy
 decl_stmt|;
 DECL|class|ProcessCall
 specifier|private
@@ -303,7 +321,13 @@ specifier|final
 name|AsyncCallback
 name|callback
 decl_stmt|;
-DECL|method|ProcessCall (Exchange exchange, AsyncCallback callback)
+DECL|field|done
+specifier|private
+specifier|final
+name|boolean
+name|done
+decl_stmt|;
+DECL|method|ProcessCall (Exchange exchange, AsyncCallback callback, boolean done)
 name|ProcessCall
 parameter_list|(
 name|Exchange
@@ -311,6 +335,9 @@ name|exchange
 parameter_list|,
 name|AsyncCallback
 name|callback
+parameter_list|,
+name|boolean
+name|done
 parameter_list|)
 block|{
 name|this
@@ -325,6 +352,12 @@ name|callback
 operator|=
 name|callback
 expr_stmt|;
+name|this
+operator|.
+name|done
+operator|=
+name|done
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -338,7 +371,7 @@ name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"Continue routing exchange {} "
+literal|"Continue routing exchange {}"
 argument_list|,
 name|exchange
 argument_list|)
@@ -367,7 +400,7 @@ name|callback
 operator|.
 name|done
 argument_list|(
-literal|false
+name|done
 argument_list|)
 expr_stmt|;
 block|}
@@ -379,21 +412,7 @@ name|void
 name|reject
 parameter_list|()
 block|{
-comment|// abort should mark the exchange with an rejected exception
-name|boolean
-name|abort
-init|=
-name|ThreadPoolRejectedPolicy
-operator|.
-name|Abort
-operator|==
-name|rejectedPolicy
-decl_stmt|;
-if|if
-condition|(
-name|abort
-condition|)
-block|{
+comment|// reject should mark the exchange with an rejected exception and mark not to route anymore
 name|exchange
 operator|.
 name|setException
@@ -403,18 +422,11 @@ name|RejectedExecutionException
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"{} routing exchange {} "
-argument_list|,
-name|abort
-condition|?
-literal|"Aborted"
-else|:
-literal|"Rejected"
+literal|"Rejected routing exchange {}"
 argument_list|,
 name|exchange
 argument_list|)
@@ -443,7 +455,7 @@ name|callback
 operator|.
 name|done
 argument_list|(
-literal|false
+name|done
 argument_list|)
 expr_stmt|;
 block|}
@@ -464,7 +476,7 @@ literal|"]"
 return|;
 block|}
 block|}
-DECL|method|ThreadsProcessor (CamelContext camelContext, ExecutorService executorService, boolean shutdownExecutorService)
+DECL|method|ThreadsProcessor (CamelContext camelContext, ExecutorService executorService, boolean shutdownExecutorService, ThreadPoolRejectedPolicy rejectedPolicy)
 specifier|public
 name|ThreadsProcessor
 parameter_list|(
@@ -476,6 +488,9 @@ name|executorService
 parameter_list|,
 name|boolean
 name|shutdownExecutorService
+parameter_list|,
+name|ThreadPoolRejectedPolicy
+name|rejectedPolicy
 parameter_list|)
 block|{
 name|ObjectHelper
@@ -496,6 +511,15 @@ argument_list|,
 literal|"executorService"
 argument_list|)
 expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|rejectedPolicy
+argument_list|,
+literal|"rejectedPolicy"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|camelContext
@@ -513,6 +537,12 @@ operator|.
 name|shutdownExecutorService
 operator|=
 name|shutdownExecutorService
+expr_stmt|;
+name|this
+operator|.
+name|rejectedPolicy
+operator|=
+name|rejectedPolicy
 expr_stmt|;
 block|}
 DECL|method|process (final Exchange exchange)
@@ -600,6 +630,9 @@ return|return
 literal|true
 return|;
 block|}
+try|try
+block|{
+comment|// process the call in asynchronous mode
 name|ProcessCall
 name|call
 init|=
@@ -609,10 +642,10 @@ argument_list|(
 name|exchange
 argument_list|,
 name|callback
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
-try|try
-block|{
 name|LOG
 operator|.
 name|trace
@@ -636,21 +669,56 @@ return|;
 block|}
 catch|catch
 parameter_list|(
-name|RejectedExecutionException
+name|Throwable
 name|e
 parameter_list|)
 block|{
-name|boolean
-name|callerRuns
-init|=
-name|isCallerRunsWhenRejected
-argument_list|()
-decl_stmt|;
 if|if
 condition|(
-operator|!
-name|callerRuns
+name|executorService
+operator|instanceof
+name|ThreadPoolExecutor
 condition|)
+block|{
+name|ThreadPoolExecutor
+name|tpe
+init|=
+operator|(
+name|ThreadPoolExecutor
+operator|)
+name|executorService
+decl_stmt|;
+comment|// process the call in synchronous mode
+name|ProcessCall
+name|call
+init|=
+operator|new
+name|ProcessCall
+argument_list|(
+name|exchange
+argument_list|,
+name|callback
+argument_list|,
+literal|true
+argument_list|)
+decl_stmt|;
+name|rejectedPolicy
+operator|.
+name|asRejectedExecutionHandler
+argument_list|()
+operator|.
+name|rejectedExecution
+argument_list|(
+name|call
+argument_list|,
+name|tpe
+argument_list|)
+expr_stmt|;
+return|return
+literal|true
+return|;
+block|}
+else|else
 block|{
 name|exchange
 operator|.
@@ -659,40 +727,6 @@ argument_list|(
 name|e
 argument_list|)
 expr_stmt|;
-block|}
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"{} executing task {}"
-argument_list|,
-name|callerRuns
-condition|?
-literal|"CallerRuns"
-else|:
-literal|"Aborted"
-argument_list|,
-name|call
-argument_list|)
-expr_stmt|;
-if|if
-condition|(
-name|shutdown
-operator|.
-name|get
-argument_list|()
-condition|)
-block|{
-name|exchange
-operator|.
-name|setException
-argument_list|(
-operator|new
-name|RejectedExecutionException
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 name|callback
 operator|.
 name|done
@@ -705,57 +739,6 @@ literal|true
 return|;
 block|}
 block|}
-DECL|method|isCallerRunsWhenRejected ()
-specifier|public
-name|boolean
-name|isCallerRunsWhenRejected
-parameter_list|()
-block|{
-return|return
-name|callerRunsWhenRejected
-return|;
-block|}
-DECL|method|setCallerRunsWhenRejected (boolean callerRunsWhenRejected)
-specifier|public
-name|void
-name|setCallerRunsWhenRejected
-parameter_list|(
-name|boolean
-name|callerRunsWhenRejected
-parameter_list|)
-block|{
-name|this
-operator|.
-name|callerRunsWhenRejected
-operator|=
-name|callerRunsWhenRejected
-expr_stmt|;
-block|}
-DECL|method|getRejectedPolicy ()
-specifier|public
-name|ThreadPoolRejectedPolicy
-name|getRejectedPolicy
-parameter_list|()
-block|{
-return|return
-name|rejectedPolicy
-return|;
-block|}
-DECL|method|setRejectedPolicy (ThreadPoolRejectedPolicy rejectedPolicy)
-specifier|public
-name|void
-name|setRejectedPolicy
-parameter_list|(
-name|ThreadPoolRejectedPolicy
-name|rejectedPolicy
-parameter_list|)
-block|{
-name|this
-operator|.
-name|rejectedPolicy
-operator|=
-name|rejectedPolicy
-expr_stmt|;
 block|}
 DECL|method|getExecutorService ()
 specifier|public
@@ -802,6 +785,16 @@ name|id
 operator|=
 name|id
 expr_stmt|;
+block|}
+DECL|method|getRejectedPolicy ()
+specifier|public
+name|ThreadPoolRejectedPolicy
+name|getRejectedPolicy
+parameter_list|()
+block|{
+return|return
+name|rejectedPolicy
+return|;
 block|}
 DECL|method|doStart ()
 specifier|protected
