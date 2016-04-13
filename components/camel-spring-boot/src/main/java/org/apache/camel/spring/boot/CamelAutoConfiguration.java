@@ -758,15 +758,6 @@ argument_list|(
 name|parser
 argument_list|)
 expr_stmt|;
-name|camelContext
-operator|.
-name|addComponent
-argument_list|(
-literal|"properties"
-argument_list|,
-name|pc
-argument_list|)
-expr_stmt|;
 return|return
 name|pc
 return|;
