@@ -20,26 +20,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URI
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|net
-operator|.
-name|URISyntaxException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -62,63 +42,27 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|HeaderFilterStrategy
+name|*
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|net
 operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|HeaderFilterStrategyAware
+name|URI
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|net
 operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Metadata
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|UriParam
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|UriPath
+name|URISyntaxException
 import|;
 end_import
 
@@ -605,6 +549,26 @@ DECL|field|urlRewrite
 specifier|private
 name|UrlRewrite
 name|urlRewrite
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|description
+operator|=
+literal|"Configure the consumer to work in async mode"
+argument_list|)
+DECL|field|async
+specifier|private
+name|boolean
+name|async
 decl_stmt|;
 DECL|method|HttpCommonEndpoint ()
 specifier|public
@@ -1589,7 +1553,7 @@ return|return
 name|mapHttpMessageFormUrlEncodedBody
 return|;
 block|}
-comment|/**      * If this option is true then IN exchange Form Encoded body will be mapped to HTTP       */
+comment|/**      * If this option is true then IN exchange Form Encoded body will be mapped to HTTP      */
 DECL|method|setMapHttpMessageFormUrlEncodedBody (boolean mapHttpMessageFormUrlEncodedBody)
 specifier|public
 name|void
@@ -1604,6 +1568,33 @@ operator|.
 name|mapHttpMessageFormUrlEncodedBody
 operator|=
 name|mapHttpMessageFormUrlEncodedBody
+expr_stmt|;
+block|}
+DECL|method|isAsync ()
+specifier|public
+name|boolean
+name|isAsync
+parameter_list|()
+block|{
+return|return
+name|async
+return|;
+block|}
+comment|/**      * If this option is true, the consumer will work in async mode      * @param async      */
+DECL|method|setAsync (boolean async)
+specifier|public
+name|void
+name|setAsync
+parameter_list|(
+name|boolean
+name|async
+parameter_list|)
+block|{
+name|this
+operator|.
+name|async
+operator|=
+name|async
 expr_stmt|;
 block|}
 block|}

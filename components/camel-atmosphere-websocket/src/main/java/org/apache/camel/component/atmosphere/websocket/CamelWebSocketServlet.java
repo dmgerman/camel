@@ -22,11 +22,33 @@ end_package
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|io
+name|apache
 operator|.
-name|IOException
+name|camel
+operator|.
+name|component
+operator|.
+name|servlet
+operator|.
+name|CamelHttpTransportServlet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|http
+operator|.
+name|common
+operator|.
+name|HttpConsumer
 import|;
 end_import
 
@@ -76,33 +98,11 @@ end_import
 
 begin_import
 import|import
-name|org
+name|java
 operator|.
-name|apache
+name|io
 operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|servlet
-operator|.
-name|CamelHttpTransportServlet
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|http
-operator|.
-name|common
-operator|.
-name|HttpConsumer
+name|IOException
 import|;
 end_import
 
@@ -196,10 +196,10 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|service (HttpServletRequest request, HttpServletResponse response)
+DECL|method|doService (HttpServletRequest request, HttpServletResponse response)
 specifier|protected
 name|void
-name|service
+name|doService
 parameter_list|(
 name|HttpServletRequest
 name|request
