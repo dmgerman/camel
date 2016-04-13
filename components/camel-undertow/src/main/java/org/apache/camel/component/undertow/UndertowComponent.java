@@ -1561,7 +1561,6 @@ name|port
 argument_list|)
 condition|)
 block|{
-comment|//server listens on port, we need add configuration for path
 name|UndertowRegistry
 name|undertowRegistry
 init|=
@@ -1582,7 +1581,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|//create new server to listen on specified port
+comment|// Create a new server to listen on the specified port
 name|serversRegistry
 operator|.
 name|put
@@ -1633,35 +1632,8 @@ name|port
 argument_list|)
 condition|)
 block|{
-name|serversRegistry
-operator|.
-name|get
-argument_list|(
-name|port
-argument_list|)
-operator|.
-name|unregisterConsumer
-argument_list|(
-name|consumer
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
-name|serversRegistry
-operator|.
-name|get
-argument_list|(
-name|port
-argument_list|)
-operator|.
-name|isEmpty
-argument_list|()
-condition|)
-block|{
-comment|//if there no Consumer left, we can shut down server
-name|Undertow
-name|server
+name|UndertowRegistry
+name|undertowRegistry
 init|=
 name|serversRegistry
 operator|.
@@ -1669,6 +1641,27 @@ name|get
 argument_list|(
 name|port
 argument_list|)
+decl_stmt|;
+name|undertowRegistry
+operator|.
+name|unregisterConsumer
+argument_list|(
+name|consumer
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|undertowRegistry
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|// If there are no consumers left, we can shut down the server
+name|Undertow
+name|server
+init|=
+name|undertowRegistry
 operator|.
 name|getServer
 argument_list|()
@@ -1696,12 +1689,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|//call startServer to rebuild otherwise
+comment|// Else, rebuild the server
 name|startServer
 argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|startServer (UndertowConsumer consumer)
