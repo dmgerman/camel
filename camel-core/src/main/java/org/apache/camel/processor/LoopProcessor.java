@@ -482,6 +482,8 @@ argument_list|,
 name|original
 argument_list|)
 expr_stmt|;
+comment|// the following process method will in the done method re-evaluate the predicate
+comment|// so we do not need to do it here as well
 name|boolean
 name|sync
 init|=
@@ -518,7 +520,7 @@ name|getExchangeId
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// the remainder of the routing slip will be completed async
+comment|// the remainder of the loop will be completed async
 comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
 return|return
 literal|false
@@ -551,63 +553,6 @@ argument_list|)
 condition|)
 block|{
 break|break;
-block|}
-comment|// increment counter before next loop
-name|index
-operator|.
-name|getAndIncrement
-argument_list|()
-expr_stmt|;
-comment|// evaluate predicate
-if|if
-condition|(
-name|predicate
-operator|!=
-literal|null
-condition|)
-block|{
-try|try
-block|{
-name|boolean
-name|result
-init|=
-name|predicate
-operator|.
-name|matches
-argument_list|(
-name|exchange
-argument_list|)
-decl_stmt|;
-name|doWhile
-operator|.
-name|set
-argument_list|(
-name|result
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// break out looping due that exception
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
-name|doWhile
-operator|.
-name|set
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 comment|// we are done so prepare the result
@@ -723,7 +668,72 @@ name|boolean
 name|doneSync
 parameter_list|)
 block|{
-comment|// we only have to handle async completion of the routing slip
+comment|// increment counter after done
+name|index
+operator|.
+name|getAndIncrement
+argument_list|()
+expr_stmt|;
+comment|// evaluate predicate for next loop
+if|if
+condition|(
+name|predicate
+operator|!=
+literal|null
+operator|&&
+name|index
+operator|.
+name|get
+argument_list|()
+operator|>
+literal|0
+condition|)
+block|{
+try|try
+block|{
+name|boolean
+name|result
+init|=
+name|predicate
+operator|.
+name|matches
+argument_list|(
+name|exchange
+argument_list|)
+decl_stmt|;
+name|doWhile
+operator|.
+name|set
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+comment|// break out looping due that exception
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+name|doWhile
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+comment|// we only have to handle async completion of the loop
+comment|// (as the sync is done in the outer processor)
 if|if
 condition|(
 name|doneSync
@@ -736,12 +746,6 @@ name|target
 init|=
 name|exchange
 decl_stmt|;
-comment|// increment index as we have just processed once
-name|index
-operator|.
-name|getAndIncrement
-argument_list|()
-expr_stmt|;
 comment|// continue looping asynchronously
 while|while
 condition|(
@@ -769,6 +773,22 @@ argument_list|()
 operator|)
 condition|)
 block|{
+comment|// check for error if so we should break out
+if|if
+condition|(
+operator|!
+name|continueProcessing
+argument_list|(
+name|target
+argument_list|,
+literal|"so breaking out of loop"
+argument_list|,
+name|LOG
+argument_list|)
+condition|)
+block|{
+break|break;
+block|}
 comment|// and prepare for next iteration
 name|target
 operator|=
@@ -824,79 +844,6 @@ expr_stmt|;
 comment|// the remainder of the routing slip will be completed async
 comment|// so we break out now, then the callback will be invoked which then continue routing from where we left here
 return|return;
-block|}
-comment|// check for error if so we should break out
-if|if
-condition|(
-operator|!
-name|continueProcessing
-argument_list|(
-name|target
-argument_list|,
-literal|"so breaking out of loop"
-argument_list|,
-name|LOG
-argument_list|)
-condition|)
-block|{
-break|break;
-block|}
-comment|// increment counter before next loop
-name|index
-operator|.
-name|getAndIncrement
-argument_list|()
-expr_stmt|;
-comment|// evaluate predicate
-if|if
-condition|(
-name|predicate
-operator|!=
-literal|null
-condition|)
-block|{
-try|try
-block|{
-name|boolean
-name|result
-init|=
-name|predicate
-operator|.
-name|matches
-argument_list|(
-name|exchange
-argument_list|)
-decl_stmt|;
-name|doWhile
-operator|.
-name|set
-argument_list|(
-name|result
-argument_list|)
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Exception
-name|e
-parameter_list|)
-block|{
-comment|// break out looping due that exception
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
-name|doWhile
-operator|.
-name|set
-argument_list|(
-literal|false
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 comment|// we are done so prepare the result
