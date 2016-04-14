@@ -139,13 +139,13 @@ specifier|final
 name|Endpoint
 name|fallbackEndpoint
 decl_stmt|;
-DECL|field|cache
+DECL|field|producerCache
 specifier|private
 specifier|final
 name|ProducerCache
-name|cache
+name|producerCache
 decl_stmt|;
-DECL|method|CamelHystrixCommand (Setter setter, Exchange exchange, String cacheKey, ProducerCache cache, Endpoint runEndpoint, Endpoint fallbackEndpoint)
+DECL|method|CamelHystrixCommand (Setter setter, Exchange exchange, String cacheKey, ProducerCache producerCache, Endpoint runEndpoint, Endpoint fallbackEndpoint)
 specifier|protected
 name|CamelHystrixCommand
 parameter_list|(
@@ -159,7 +159,7 @@ name|String
 name|cacheKey
 parameter_list|,
 name|ProducerCache
-name|cache
+name|producerCache
 parameter_list|,
 name|Endpoint
 name|runEndpoint
@@ -187,9 +187,9 @@ name|cacheKey
 expr_stmt|;
 name|this
 operator|.
-name|cache
+name|producerCache
 operator|=
-name|cache
+name|producerCache
 expr_stmt|;
 name|this
 operator|.
@@ -280,7 +280,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-name|cache
+name|producerCache
 operator|.
 name|doInProducer
 argument_list|(
@@ -378,7 +378,7 @@ parameter_list|()
 block|{
 try|try
 block|{
-name|cache
+name|producerCache
 operator|.
 name|doInProducer
 argument_list|(
