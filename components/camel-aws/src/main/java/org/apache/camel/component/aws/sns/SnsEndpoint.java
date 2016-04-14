@@ -284,7 +284,7 @@ literal|"AWS Simple Notification System"
 argument_list|,
 name|syntax
 operator|=
-literal|"aws-sns:topicName"
+literal|"aws-sns:topicNameOrArn"
 argument_list|,
 name|producerOnly
 operator|=
@@ -501,6 +501,16 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|configuration
+operator|.
+name|getTopicArn
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
 comment|// creates a new topic, or returns the URL of an existing one
 name|CreateTopicRequest
 name|request
@@ -560,6 +570,7 @@ name|getTopicArn
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 if|if
 condition|(
 name|ObjectHelper

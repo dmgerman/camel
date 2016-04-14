@@ -356,7 +356,7 @@ literal|"AWS S3 Storage Service"
 argument_list|,
 name|syntax
 operator|=
-literal|"aws-s3:bucketName"
+literal|"aws-s3:bucketNameOrArn"
 argument_list|,
 name|consumerClass
 operator|=

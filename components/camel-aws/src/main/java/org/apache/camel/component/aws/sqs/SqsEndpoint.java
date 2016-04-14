@@ -440,7 +440,7 @@ literal|"AWS Simple Queue Service"
 argument_list|,
 name|syntax
 operator|=
-literal|"aws-sqs:queueName"
+literal|"aws-sqs:queueNameOrArn"
 argument_list|,
 name|consumerClass
 operator|=
