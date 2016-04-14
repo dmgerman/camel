@@ -44,20 +44,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|Metadata
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|UriParam
 import|;
 end_import
@@ -73,20 +59,6 @@ operator|.
 name|spi
 operator|.
 name|UriParams
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|UriPath
 import|;
 end_import
 
@@ -106,15 +78,6 @@ name|String
 name|topicArn
 decl_stmt|;
 comment|// Common properties
-annotation|@
-name|UriPath
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
 DECL|field|topicName
 specifier|private
 name|String

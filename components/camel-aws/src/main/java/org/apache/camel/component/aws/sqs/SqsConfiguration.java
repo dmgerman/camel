@@ -22,16 +22,6 @@ end_package
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|amazonaws
@@ -41,20 +31,6 @@ operator|.
 name|sqs
 operator|.
 name|AmazonSQS
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Metadata
 import|;
 end_import
 
@@ -86,20 +62,6 @@ name|UriParams
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|UriPath
-import|;
-end_import
-
 begin_class
 annotation|@
 name|UriParams
@@ -109,15 +71,6 @@ class|class
 name|SqsConfiguration
 block|{
 comment|// common properties
-annotation|@
-name|UriPath
-annotation|@
-name|Metadata
-argument_list|(
-name|required
-operator|=
-literal|"true"
-argument_list|)
 DECL|field|queueName
 specifier|private
 name|String

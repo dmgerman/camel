@@ -286,6 +286,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriEndpoint
 import|;
 end_import
@@ -301,6 +315,20 @@ operator|.
 name|spi
 operator|.
 name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|UriPath
 import|;
 end_import
 
@@ -339,7 +367,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The aws-s3 component is used for storing and retrieving objetc from Amazon S3 Storage Service.  */
+comment|/**  * The aws-s3 component is used for storing and retrieving objecct from Amazon S3 Storage Service.  */
 end_comment
 
 begin_class
@@ -396,6 +424,26 @@ specifier|private
 name|AmazonS3
 name|s3Client
 decl_stmt|;
+annotation|@
+name|UriPath
+argument_list|(
+name|description
+operator|=
+literal|"Bucket name or ARN"
+argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|bucketNameOrArn
+specifier|private
+name|String
+name|bucketNameOrArn
+decl_stmt|;
+comment|// to support component docs
 annotation|@
 name|UriParam
 DECL|field|configuration
