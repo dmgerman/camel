@@ -123,7 +123,7 @@ specifier|private
 name|String
 name|threadPoolKey
 decl_stmt|;
-comment|/**      * Specifies the cache key to use      */
+comment|/**      * Specifies the cache key to use.      * Uses the simple language as the expression. But you can refer to an existing expression using # lookup.      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -190,10 +190,10 @@ name|label
 operator|=
 literal|"producer"
 argument_list|)
-DECL|field|metrics
+DECL|field|metricsEnabled
 specifier|private
 name|boolean
-name|metrics
+name|metricsEnabled
 decl_stmt|;
 DECL|field|coreSize
 specifier|private
@@ -1257,30 +1257,30 @@ operator|=
 name|requestLogEnabled
 expr_stmt|;
 block|}
-DECL|method|isMetrics ()
+DECL|method|isMetricsEnabled ()
 specifier|public
 name|boolean
-name|isMetrics
+name|isMetricsEnabled
 parameter_list|()
 block|{
 return|return
-name|metrics
+name|metricsEnabled
 return|;
 block|}
-DECL|method|setMetrics (boolean metrics)
+DECL|method|setMetricsEnabled (boolean metricsEnabled)
 specifier|public
 name|void
-name|setMetrics
+name|setMetricsEnabled
 parameter_list|(
 name|boolean
-name|metrics
+name|metricsEnabled
 parameter_list|)
 block|{
 name|this
 operator|.
-name|metrics
+name|metricsEnabled
 operator|=
-name|metrics
+name|metricsEnabled
 expr_stmt|;
 block|}
 block|}

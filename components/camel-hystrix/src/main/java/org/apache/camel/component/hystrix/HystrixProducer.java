@@ -532,7 +532,7 @@ if|if
 condition|(
 name|configuration
 operator|.
-name|isMetrics
+name|isMetricsEnabled
 argument_list|()
 condition|)
 block|{
