@@ -501,7 +501,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hystrix:testKey?runEndpoint=direct:run&fallbackEndpoint=direct:fallback&cacheKeyExpression=#headerExpression"
+literal|"hystrix:testKey?runEndpoint=direct:run&fallbackEndpoint=direct:fallback&cacheKey=header.key"
 argument_list|)
 expr_stmt|;
 block|}

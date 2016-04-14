@@ -26,18 +26,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Expression
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|Metadata
@@ -135,7 +123,7 @@ specifier|private
 name|String
 name|threadPoolKey
 decl_stmt|;
-comment|/**      * Specifies the cacheKeyExpression to use      */
+comment|/**      * Specifies the cache key to use      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -143,10 +131,10 @@ name|label
 operator|=
 literal|"producer"
 argument_list|)
-DECL|field|cacheKeyExpression
+DECL|field|cacheKey
 specifier|private
-name|Expression
-name|cacheKeyExpression
+name|String
+name|cacheKey
 decl_stmt|;
 comment|/**      * Specifies the initializeRequestContext to use      */
 annotation|@
@@ -411,30 +399,30 @@ operator|=
 name|fallbackEndpoint
 expr_stmt|;
 block|}
-DECL|method|getCacheKeyExpression ()
+DECL|method|getCacheKey ()
 specifier|public
-name|Expression
-name|getCacheKeyExpression
+name|String
+name|getCacheKey
 parameter_list|()
 block|{
 return|return
-name|cacheKeyExpression
+name|cacheKey
 return|;
 block|}
-DECL|method|setCacheKeyExpression (Expression cacheKeyExpression)
+DECL|method|setCacheKey (String cacheKey)
 specifier|public
 name|void
-name|setCacheKeyExpression
+name|setCacheKey
 parameter_list|(
-name|Expression
-name|cacheKeyExpression
+name|String
+name|cacheKey
 parameter_list|)
 block|{
 name|this
 operator|.
-name|cacheKeyExpression
+name|cacheKey
 operator|=
-name|cacheKeyExpression
+name|cacheKey
 expr_stmt|;
 block|}
 DECL|method|getInitializeRequestContext ()
