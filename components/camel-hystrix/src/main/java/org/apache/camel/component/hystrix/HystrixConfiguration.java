@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p/>  * http://www.apache.org/licenses/LICENSE-2.0  *<p/>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -20,6 +20,30 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Future
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|netflix
+operator|.
+name|hystrix
+operator|.
+name|HystrixCircuitBreaker
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|netflix
@@ -27,6 +51,30 @@ operator|.
 name|hystrix
 operator|.
 name|HystrixCommand
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|netflix
+operator|.
+name|hystrix
+operator|.
+name|HystrixCommandGroupKey
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|netflix
+operator|.
+name|hystrix
+operator|.
+name|HystrixCommandMetrics
 import|;
 end_import
 
@@ -51,6 +99,74 @@ operator|.
 name|hystrix
 operator|.
 name|HystrixRequestLog
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|netflix
+operator|.
+name|hystrix
+operator|.
+name|HystrixThreadPool
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|netflix
+operator|.
+name|hystrix
+operator|.
+name|HystrixThreadPoolKey
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|netflix
+operator|.
+name|hystrix
+operator|.
+name|strategy
+operator|.
+name|concurrency
+operator|.
+name|HystrixRequestVariableDefault
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|netflix
+operator|.
+name|hystrix
+operator|.
+name|util
+operator|.
+name|HystrixRollingNumber
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|netflix
+operator|.
+name|hystrix
+operator|.
+name|util
+operator|.
+name|HystrixRollingPercentile
 import|;
 end_import
 
@@ -118,7 +234,6 @@ specifier|public
 class|class
 name|HystrixConfiguration
 block|{
-comment|/**      * Specifies the groupKey to use      */
 annotation|@
 name|UriPath
 annotation|@
@@ -133,66 +248,20 @@ specifier|private
 name|String
 name|groupKey
 decl_stmt|;
-comment|/**      * Specifies the commandKey to use      */
 annotation|@
 name|UriParam
 argument_list|(
-name|label
+name|defaultValue
 operator|=
-literal|"producer"
+literal|"CamelHystrixCommand"
 argument_list|)
 DECL|field|commandKey
 specifier|private
 name|String
 name|commandKey
 decl_stmt|;
-comment|/**      * Specifies the threadPoolKey to use      */
 annotation|@
 name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|)
-DECL|field|threadPoolKey
-specifier|private
-name|String
-name|threadPoolKey
-decl_stmt|;
-comment|/**      * Specifies the cache key to use.      * Uses the simple language as the expression. But you can refer to an existing expression using # lookup.      */
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|)
-DECL|field|cacheKey
-specifier|private
-name|String
-name|cacheKey
-decl_stmt|;
-comment|/**      * Specifies the initializeRequestContext to use      */
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|)
-DECL|field|initializeRequestContext
-specifier|private
-name|Boolean
-name|initializeRequestContext
-decl_stmt|;
-comment|/**      * Specifies the endpoint to use.      * Specify either an url or name of existing endpoint.      */
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
@@ -205,104 +274,281 @@ specifier|private
 name|String
 name|runEndpoint
 decl_stmt|;
-comment|/**      * Specifies the fallback endpoint to use      * Specify either an url or name of existing endpoint.      */
+annotation|@
+name|UriParam
+DECL|field|cacheKey
+specifier|private
+name|String
+name|cacheKey
+decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|label
+name|defaultValue
 operator|=
-literal|"producer"
+literal|"true"
 argument_list|)
+DECL|field|requestCacheEnabled
+specifier|private
+name|Boolean
+name|requestCacheEnabled
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|fallbackEndpoint
 specifier|private
 name|String
 name|fallbackEndpoint
 decl_stmt|;
-comment|/**      * Whether to include a number of headers with metrics details of the circuit breaker utilization      */
 annotation|@
 name|UriParam
 argument_list|(
-name|label
+name|defaultValue
 operator|=
-literal|"producer"
+literal|"true"
 argument_list|)
+DECL|field|fallbackEnabled
+specifier|private
+name|Boolean
+name|fallbackEnabled
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|metricsEnabled
 specifier|private
 name|boolean
 name|metricsEnabled
 decl_stmt|;
-DECL|field|coreSize
-specifier|private
-name|Integer
-name|coreSize
-decl_stmt|;
-DECL|field|keepAliveTime
-specifier|private
-name|Integer
-name|keepAliveTime
-decl_stmt|;
-DECL|field|maxQueueSize
-specifier|private
-name|Integer
-name|maxQueueSize
-decl_stmt|;
-DECL|field|queueSizeRejectionThreshold
-specifier|private
-name|Integer
-name|queueSizeRejectionThreshold
-decl_stmt|;
-DECL|field|threadPoolMetricsRollingStatisticalWindowInMilliseconds
-specifier|private
-name|Integer
-name|threadPoolMetricsRollingStatisticalWindowInMilliseconds
-decl_stmt|;
-DECL|field|threadPoolMetricsRollingStatisticalWindowBuckets
-specifier|private
-name|Integer
-name|threadPoolMetricsRollingStatisticalWindowBuckets
-decl_stmt|;
-DECL|field|circuitBreakerEnabled
-specifier|private
-name|Boolean
-name|circuitBreakerEnabled
-decl_stmt|;
-DECL|field|circuitBreakerErrorThresholdPercentage
-specifier|private
-name|Integer
-name|circuitBreakerErrorThresholdPercentage
-decl_stmt|;
-DECL|field|circuitBreakerForceClosed
-specifier|private
-name|Boolean
-name|circuitBreakerForceClosed
-decl_stmt|;
-DECL|field|circuitBreakerForceOpen
-specifier|private
-name|Boolean
-name|circuitBreakerForceOpen
-decl_stmt|;
-DECL|field|circuitBreakerRequestVolumeThreshold
-specifier|private
-name|Integer
-name|circuitBreakerRequestVolumeThreshold
-decl_stmt|;
-DECL|field|circuitBreakerSleepWindowInMilliseconds
-specifier|private
-name|Integer
-name|circuitBreakerSleepWindowInMilliseconds
-decl_stmt|;
-DECL|field|executionIsolationSemaphoreMaxConcurrentRequests
-specifier|private
-name|Integer
-name|executionIsolationSemaphoreMaxConcurrentRequests
-decl_stmt|;
-comment|/**      * Specifies the isolation strategy (thread or semaphore) to use      */
 annotation|@
 name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"threadpool"
+argument_list|)
+DECL|field|threadPoolKey
+specifier|private
+name|String
+name|threadPoolKey
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"threadpool"
+argument_list|)
+DECL|field|initializeRequestContext
+specifier|private
+name|Boolean
+name|initializeRequestContext
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"threadpool"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"10"
+argument_list|)
+DECL|field|coreSize
+specifier|private
+name|Integer
+name|coreSize
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"threadpool"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"1"
+argument_list|)
+DECL|field|keepAliveTime
+specifier|private
+name|Integer
+name|keepAliveTime
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"threadpool"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"-1"
+argument_list|)
+DECL|field|maxQueueSize
+specifier|private
+name|Integer
+name|maxQueueSize
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"threadpool"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"5"
+argument_list|)
+DECL|field|queueSizeRejectionThreshold
+specifier|private
+name|Integer
+name|queueSizeRejectionThreshold
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"threadpool"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"10000"
+argument_list|)
+DECL|field|threadPoolMetricsRollingStatisticalWindowInMilliseconds
+specifier|private
+name|Integer
+name|threadPoolMetricsRollingStatisticalWindowInMilliseconds
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"threadpool"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"10"
+argument_list|)
+DECL|field|threadPoolMetricsRollingStatisticalWindowBuckets
+specifier|private
+name|Integer
+name|threadPoolMetricsRollingStatisticalWindowBuckets
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"circuitbreaker"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|circuitBreakerEnabled
+specifier|private
+name|Boolean
+name|circuitBreakerEnabled
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"circuitbreaker"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"50"
+argument_list|)
+DECL|field|circuitBreakerErrorThresholdPercentage
+specifier|private
+name|Integer
+name|circuitBreakerErrorThresholdPercentage
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"circuitbreaker"
+argument_list|)
+DECL|field|circuitBreakerForceClosed
+specifier|private
+name|Boolean
+name|circuitBreakerForceClosed
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"circuitbreaker"
+argument_list|)
+DECL|field|circuitBreakerForceOpen
+specifier|private
+name|Boolean
+name|circuitBreakerForceOpen
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"circuitbreaker"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"20"
+argument_list|)
+DECL|field|circuitBreakerRequestVolumeThreshold
+specifier|private
+name|Integer
+name|circuitBreakerRequestVolumeThreshold
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"circuitbreaker"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"5000"
+argument_list|)
+DECL|field|circuitBreakerSleepWindowInMilliseconds
+specifier|private
+name|Integer
+name|circuitBreakerSleepWindowInMilliseconds
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"circuitbreaker"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"10"
+argument_list|)
+DECL|field|executionIsolationSemaphoreMaxConcurrentRequests
+specifier|private
+name|Integer
+name|executionIsolationSemaphoreMaxConcurrentRequests
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"circuitbreaker"
 argument_list|,
 name|defaultValue
 operator|=
@@ -317,102 +563,188 @@ specifier|private
 name|String
 name|executionIsolationStrategy
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"circuitbreaker"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|executionIsolationThreadInterruptOnTimeout
 specifier|private
 name|Boolean
 name|executionIsolationThreadInterruptOnTimeout
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"circuitbreaker"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"1000"
+argument_list|)
 DECL|field|executionTimeoutInMilliseconds
 specifier|private
 name|Integer
 name|executionTimeoutInMilliseconds
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"circuitbreaker"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|executionTimeoutEnabled
 specifier|private
 name|Boolean
 name|executionTimeoutEnabled
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"circuitbreaker"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"10"
+argument_list|)
 DECL|field|fallbackIsolationSemaphoreMaxConcurrentRequests
 specifier|private
 name|Integer
 name|fallbackIsolationSemaphoreMaxConcurrentRequests
 decl_stmt|;
-comment|/**      * Whether fallback should be attempted when failure occurs.      */
 annotation|@
 name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"monitoring"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"true"
+literal|"500"
 argument_list|)
-DECL|field|fallbackEnabled
-specifier|private
-name|Boolean
-name|fallbackEnabled
-decl_stmt|;
 DECL|field|metricsHealthSnapshotIntervalInMilliseconds
 specifier|private
 name|Integer
 name|metricsHealthSnapshotIntervalInMilliseconds
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"monitoring"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"100"
+argument_list|)
 DECL|field|metricsRollingPercentileBucketSize
 specifier|private
 name|Integer
 name|metricsRollingPercentileBucketSize
 decl_stmt|;
-DECL|field|metricsRollingPercentileEnabled
-specifier|private
-name|Boolean
-name|metricsRollingPercentileEnabled
-decl_stmt|;
-DECL|field|metricsRollingPercentileWindowInMilliseconds
-specifier|private
-name|Integer
-name|metricsRollingPercentileWindowInMilliseconds
-decl_stmt|;
-DECL|field|metricsRollingPercentileWindowBuckets
-specifier|private
-name|Integer
-name|metricsRollingPercentileWindowBuckets
-decl_stmt|;
-DECL|field|metricsRollingStatisticalWindowInMilliseconds
-specifier|private
-name|Integer
-name|metricsRollingStatisticalWindowInMilliseconds
-decl_stmt|;
-DECL|field|metricsRollingStatisticalWindowBuckets
-specifier|private
-name|Integer
-name|metricsRollingStatisticalWindowBuckets
-decl_stmt|;
-comment|/**      * Whether cacheKey should be used with HystrixRequestCache to provide de-duplication functionality via request-scoped caching.      * Cache is automatic in use if the cacheKey option has been configured.      */
 annotation|@
 name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"monitoring"
 argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
 argument_list|)
-DECL|field|requestCacheEnabled
+DECL|field|metricsRollingPercentileEnabled
 specifier|private
 name|Boolean
-name|requestCacheEnabled
+name|metricsRollingPercentileEnabled
 decl_stmt|;
-comment|/**      *  Whether HystrixCommand execution and events should be logged to HystrixRequestLog.      */
 annotation|@
 name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"producer"
+literal|"monitoring"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"60000"
+argument_list|)
+DECL|field|metricsRollingPercentileWindowInMilliseconds
+specifier|private
+name|Integer
+name|metricsRollingPercentileWindowInMilliseconds
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"monitoring"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"6"
+argument_list|)
+DECL|field|metricsRollingPercentileWindowBuckets
+specifier|private
+name|Integer
+name|metricsRollingPercentileWindowBuckets
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"monitoring"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"10000"
+argument_list|)
+DECL|field|metricsRollingStatisticalWindowInMilliseconds
+specifier|private
+name|Integer
+name|metricsRollingStatisticalWindowInMilliseconds
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"monitoring"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"10"
+argument_list|)
+DECL|field|metricsRollingStatisticalWindowBuckets
+specifier|private
+name|Integer
+name|metricsRollingStatisticalWindowBuckets
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"monitoring"
 argument_list|,
 name|defaultValue
 operator|=
@@ -433,6 +765,7 @@ return|return
 name|runEndpoint
 return|;
 block|}
+comment|/**      * Specifies the endpoint to use.      * Specify either an url or name of existing endpoint.      */
 DECL|method|setRunEndpoint (String runEndpoint)
 specifier|public
 name|void
@@ -459,6 +792,7 @@ return|return
 name|fallbackEndpoint
 return|;
 block|}
+comment|/**      * Specifies the fallback endpoint to use      * Specify either an url or name of existing endpoint.      */
 DECL|method|setFallbackEndpoint (String fallbackEndpoint)
 specifier|public
 name|void
@@ -485,6 +819,7 @@ return|return
 name|cacheKey
 return|;
 block|}
+comment|/**      * Specifies the cache key to use.      * Uses the simple language as the expression. But you can refer to an existing expression using # lookup.      */
 DECL|method|setCacheKey (String cacheKey)
 specifier|public
 name|void
@@ -511,6 +846,7 @@ return|return
 name|initializeRequestContext
 return|;
 block|}
+comment|/**      * Call this at the beginning of each request (from parent thread)      * to initialize the underlying context so that {@link HystrixRequestVariableDefault} can be used on any children threads and be accessible from      * the parent thread.      */
 DECL|method|setInitializeRequestContext (Boolean initializeRequestContext)
 specifier|public
 name|void
@@ -537,6 +873,7 @@ return|return
 name|groupKey
 return|;
 block|}
+comment|/**      * Specifies the group key to use      */
 DECL|method|setGroupKey (String groupKey)
 specifier|public
 name|void
@@ -563,6 +900,7 @@ return|return
 name|commandKey
 return|;
 block|}
+comment|/**      * Used to identify a HystrixCommand instance for statistics, circuit-breaker, properties, etc.      * By default this will be derived from the instance class name.      */
 DECL|method|setCommandKey (String commandKey)
 specifier|public
 name|void
@@ -589,6 +927,7 @@ return|return
 name|threadPoolKey
 return|;
 block|}
+comment|/**      * Used to define which thread-pool this command should run in. By default this is derived from the HystrixCommandGroupKey.      */
 DECL|method|setThreadPoolKey (String threadPoolKey)
 specifier|public
 name|void
@@ -615,6 +954,7 @@ return|return
 name|coreSize
 return|;
 block|}
+comment|/**      * This property sets the core thread-pool size. This is the maximum number of HystrixCommands that can execute concurrently.      */
 DECL|method|setCoreSize (Integer coreSize)
 specifier|public
 name|void
@@ -641,6 +981,7 @@ return|return
 name|keepAliveTime
 return|;
 block|}
+comment|/**      * This property sets the keep-alive time, in minutes.      */
 DECL|method|setKeepAliveTime (Integer keepAliveTime)
 specifier|public
 name|void
@@ -667,6 +1008,7 @@ return|return
 name|maxQueueSize
 return|;
 block|}
+comment|/**      * This property sets the maximum queue size of the BlockingQueue implementation.      */
 DECL|method|setMaxQueueSize (Integer maxQueueSize)
 specifier|public
 name|void
@@ -693,6 +1035,7 @@ return|return
 name|queueSizeRejectionThreshold
 return|;
 block|}
+comment|/**      * This property sets the queue size rejection threshold â an artificial maximum queue size at which rejections will occur even if maxQueueSize has not been reached.      */
 DECL|method|setQueueSizeRejectionThreshold (Integer queueSizeRejectionThreshold)
 specifier|public
 name|void
@@ -719,6 +1062,7 @@ return|return
 name|threadPoolMetricsRollingStatisticalWindowInMilliseconds
 return|;
 block|}
+comment|/**      * This property sets the duration of the statistical rolling window, in milliseconds. This is how long metrics are kept for the thread pool.      */
 DECL|method|setThreadPoolMetricsRollingStatisticalWindowInMilliseconds (Integer threadPoolMetricsRollingStatisticalWindowInMilliseconds)
 specifier|public
 name|void
@@ -745,6 +1089,7 @@ return|return
 name|threadPoolMetricsRollingStatisticalWindowBuckets
 return|;
 block|}
+comment|/**      * This property sets the number of buckets the rolling statistical window is divided into.      */
 DECL|method|setThreadPoolMetricsRollingStatisticalWindowBuckets (Integer threadPoolMetricsRollingStatisticalWindowBuckets)
 specifier|public
 name|void
@@ -771,6 +1116,7 @@ return|return
 name|circuitBreakerEnabled
 return|;
 block|}
+comment|/**      * Whether to use a {@link HystrixCircuitBreaker} or not. If false no circuit-breaker logic will be used and all requests permitted.      *<p>      * This is similar in effect to {@link #setCircuitBreakerForceClosed(Boolean)} except that continues tracking metrics and knowing whether it      * should be open/closed, this property results in not even instantiating a circuit-breaker.      */
 DECL|method|setCircuitBreakerEnabled (Boolean circuitBreakerEnabled)
 specifier|public
 name|void
@@ -797,6 +1143,7 @@ return|return
 name|circuitBreakerErrorThresholdPercentage
 return|;
 block|}
+comment|/**      * Error percentage threshold (as whole number such as 50) at which point the circuit breaker will trip open and reject requests.      *<p>      * It will stay tripped for the duration defined in {@link #getCircuitBreakerSleepWindowInMilliseconds()};      *<p>      * The error percentage this is compared against comes from {@link HystrixCommandMetrics#getHealthCounts()}.      */
 DECL|method|setCircuitBreakerErrorThresholdPercentage (Integer circuitBreakerErrorThresholdPercentage)
 specifier|public
 name|void
@@ -823,6 +1170,7 @@ return|return
 name|circuitBreakerForceClosed
 return|;
 block|}
+comment|/**      * If true the {@link HystrixCircuitBreaker#allowRequest()} will always return true to allow requests regardless of the error percentage from {@link HystrixCommandMetrics#getHealthCounts()}.      *<p>      * The circuitBreakerForceOpen property takes precedence so if it set to true this property does nothing.      */
 DECL|method|setCircuitBreakerForceClosed (Boolean circuitBreakerForceClosed)
 specifier|public
 name|void
@@ -849,6 +1197,7 @@ return|return
 name|circuitBreakerForceOpen
 return|;
 block|}
+comment|/**      * If true the {@link HystrixCircuitBreaker#allowRequest()} will always return false, causing the circuit to be open (tripped) and reject all requests.      *<p>      * This property takes precedence over circuitBreakerForceClosed      */
 DECL|method|setCircuitBreakerForceOpen (Boolean circuitBreakerForceOpen)
 specifier|public
 name|void
@@ -875,6 +1224,7 @@ return|return
 name|circuitBreakerRequestVolumeThreshold
 return|;
 block|}
+comment|/**      * Minimum number of requests in the {@link #setMetricsRollingStatisticalWindowInMilliseconds(Integer)} that must exist before the {@link HystrixCircuitBreaker} will trip.      *<p>      * If below this number the circuit will not trip regardless of error percentage.      */
 DECL|method|setCircuitBreakerRequestVolumeThreshold (Integer circuitBreakerRequestVolumeThreshold)
 specifier|public
 name|void
@@ -901,6 +1251,7 @@ return|return
 name|circuitBreakerSleepWindowInMilliseconds
 return|;
 block|}
+comment|/**      * The time in milliseconds after a {@link HystrixCircuitBreaker} trips open that it should wait before trying requests again.      */
 DECL|method|setCircuitBreakerSleepWindowInMilliseconds (Integer circuitBreakerSleepWindowInMilliseconds)
 specifier|public
 name|void
@@ -927,6 +1278,7 @@ return|return
 name|executionIsolationSemaphoreMaxConcurrentRequests
 return|;
 block|}
+comment|/**      * Number of concurrent requests permitted to {@link HystrixCommand#run()}. Requests beyond the concurrent limit will be rejected.      *<p>      * Applicable only when {@link #getExecutionIsolationStrategy()} == SEMAPHORE.      */
 DECL|method|setExecutionIsolationSemaphoreMaxConcurrentRequests (Integer executionIsolationSemaphoreMaxConcurrentRequests)
 specifier|public
 name|void
@@ -953,6 +1305,7 @@ return|return
 name|executionIsolationStrategy
 return|;
 block|}
+comment|/**      * What isolation strategy {@link HystrixCommand#run()} will be executed with.      *<p>      * If THREAD then it will be executed on a separate thread and concurrent requests limited by the number of threads in the thread-pool.      *<p>      * If SEMAPHORE then it will be executed on the calling thread and concurrent requests limited by the semaphore count.      */
 DECL|method|setExecutionIsolationStrategy (String executionIsolationStrategy)
 specifier|public
 name|void
@@ -979,6 +1332,7 @@ return|return
 name|executionIsolationThreadInterruptOnTimeout
 return|;
 block|}
+comment|/**      * Whether the execution thread should attempt an interrupt (using {@link Future#cancel}) when a thread times out.      *<p>      * Applicable only when executionIsolationStrategy == THREAD.      */
 DECL|method|setExecutionIsolationThreadInterruptOnTimeout (Boolean executionIsolationThreadInterruptOnTimeout)
 specifier|public
 name|void
@@ -1005,6 +1359,7 @@ return|return
 name|executionTimeoutInMilliseconds
 return|;
 block|}
+comment|/**      * Allow a dynamic override of the {@link HystrixThreadPoolKey} that will dynamically change which {@link HystrixThreadPool} a {@link HystrixCommand} executes on.      *<p>      * Typically this should return NULL which will cause it to use the {@link HystrixThreadPoolKey} injected into a {@link HystrixCommand} or derived from the {@link HystrixCommandGroupKey}.      *<p>      * When set the injected or derived values will be ignored and a new {@link HystrixThreadPool} created (if necessary) and the {@link HystrixCommand} will begin using the newly defined pool.      */
 DECL|method|setExecutionTimeoutInMilliseconds (Integer executionTimeoutInMilliseconds)
 specifier|public
 name|void
@@ -1031,6 +1386,7 @@ return|return
 name|executionTimeoutEnabled
 return|;
 block|}
+comment|/**      * Whether the timeout mechanism is enabled for this command      */
 DECL|method|setExecutionTimeoutEnabled (Boolean executionTimeoutEnabled)
 specifier|public
 name|void
@@ -1057,6 +1413,7 @@ return|return
 name|fallbackIsolationSemaphoreMaxConcurrentRequests
 return|;
 block|}
+comment|/**      * Number of concurrent requests permitted to {@link HystrixCommand#getFallback()}. Requests beyond the concurrent limit will fail-fast and not attempt retrieving a fallback.      */
 DECL|method|setFallbackIsolationSemaphoreMaxConcurrentRequests (Integer fallbackIsolationSemaphoreMaxConcurrentRequests)
 specifier|public
 name|void
@@ -1083,6 +1440,7 @@ return|return
 name|fallbackEnabled
 return|;
 block|}
+comment|/**      * Whether {@link HystrixCommand#getFallback()} should be attempted when failure occurs.      */
 DECL|method|setFallbackEnabled (Boolean fallbackEnabled)
 specifier|public
 name|void
@@ -1109,6 +1467,7 @@ return|return
 name|metricsHealthSnapshotIntervalInMilliseconds
 return|;
 block|}
+comment|/**      * Time in milliseconds to wait between allowing health snapshots to be taken that calculate success and error percentages and affect {@link HystrixCircuitBreaker#isOpen()} status.      *<p>      * On high-volume circuits the continual calculation of error percentage can become CPU intensive thus this controls how often it is calculated.      */
 DECL|method|setMetricsHealthSnapshotIntervalInMilliseconds (Integer metricsHealthSnapshotIntervalInMilliseconds)
 specifier|public
 name|void
@@ -1135,6 +1494,7 @@ return|return
 name|metricsRollingPercentileBucketSize
 return|;
 block|}
+comment|/**      * Maximum number of values stored in each bucket of the rolling percentile. This is passed into {@link HystrixRollingPercentile} inside {@link HystrixCommandMetrics}.      */
 DECL|method|setMetricsRollingPercentileBucketSize (Integer metricsRollingPercentileBucketSize)
 specifier|public
 name|void
@@ -1161,6 +1521,7 @@ return|return
 name|metricsRollingPercentileEnabled
 return|;
 block|}
+comment|/**      * Whether percentile metrics should be captured using {@link HystrixRollingPercentile} inside {@link HystrixCommandMetrics}.      */
 DECL|method|setMetricsRollingPercentileEnabled (Boolean metricsRollingPercentileEnabled)
 specifier|public
 name|void
@@ -1177,6 +1538,7 @@ operator|=
 name|metricsRollingPercentileEnabled
 expr_stmt|;
 block|}
+comment|/**      * Duration of percentile rolling window in milliseconds. This is passed into {@link HystrixRollingPercentile} inside {@link HystrixCommandMetrics}.      */
 DECL|method|getMetricsRollingPercentileWindowInMilliseconds ()
 specifier|public
 name|Integer
@@ -1213,6 +1575,7 @@ return|return
 name|metricsRollingPercentileWindowBuckets
 return|;
 block|}
+comment|/**      * Number of buckets the rolling percentile window is broken into. This is passed into {@link HystrixRollingPercentile} inside {@link HystrixCommandMetrics}.      */
 DECL|method|setMetricsRollingPercentileWindowBuckets (Integer metricsRollingPercentileWindowBuckets)
 specifier|public
 name|void
@@ -1239,6 +1602,7 @@ return|return
 name|metricsRollingStatisticalWindowInMilliseconds
 return|;
 block|}
+comment|/**      * Duration of statistical rolling window in milliseconds. This is passed into {@link HystrixRollingNumber} inside {@link HystrixCommandMetrics}.      */
 DECL|method|setMetricsRollingStatisticalWindowInMilliseconds (Integer metricsRollingStatisticalWindowInMilliseconds)
 specifier|public
 name|void
@@ -1265,6 +1629,7 @@ return|return
 name|metricsRollingStatisticalWindowBuckets
 return|;
 block|}
+comment|/**      * Number of buckets the rolling statistical window is broken into. This is passed into {@link HystrixRollingNumber} inside {@link HystrixCommandMetrics}.      */
 DECL|method|setMetricsRollingStatisticalWindowBuckets (Integer metricsRollingStatisticalWindowBuckets)
 specifier|public
 name|void
@@ -1291,6 +1656,7 @@ return|return
 name|requestCacheEnabled
 return|;
 block|}
+comment|/**      * Whether {@link HystrixCommand#getCacheKey()} should be used with {@link HystrixRequestCache} to provide de-duplication functionality via request-scoped caching.      */
 DECL|method|setRequestCacheEnabled (Boolean requestCacheEnabled)
 specifier|public
 name|void
@@ -1317,6 +1683,7 @@ return|return
 name|requestLogEnabled
 return|;
 block|}
+comment|/**      * Whether {@link HystrixCommand} execution and events should be logged to {@link HystrixRequestLog}.      */
 DECL|method|setRequestLogEnabled (Boolean requestLogEnabled)
 specifier|public
 name|void
@@ -1343,6 +1710,7 @@ return|return
 name|metricsEnabled
 return|;
 block|}
+comment|/**      * Whether to include a number of headers with metrics details of the circuit breaker utilization      */
 DECL|method|setMetricsEnabled (boolean metricsEnabled)
 specifier|public
 name|void
