@@ -161,7 +161,7 @@ specifier|private
 name|Boolean
 name|initializeRequestContext
 decl_stmt|;
-comment|/**      * Specifies the endpoint to use      */
+comment|/**      * Specifies the endpoint to use.      * Specify either an url or name of existing endpoint.      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -169,12 +169,19 @@ name|label
 operator|=
 literal|"producer"
 argument_list|)
-DECL|field|runEndpointId
+annotation|@
+name|Metadata
+argument_list|(
+name|required
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|runEndpoint
 specifier|private
 name|String
-name|runEndpointId
+name|runEndpoint
 decl_stmt|;
-comment|/**      * Specifies the fallbackEndpointId to use      */
+comment|/**      * Specifies the fallback endpoint to use      * Specify either an url or name of existing endpoint.      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -182,10 +189,23 @@ name|label
 operator|=
 literal|"producer"
 argument_list|)
-DECL|field|fallbackEndpointId
+DECL|field|fallbackEndpoint
 specifier|private
 name|String
-name|fallbackEndpointId
+name|fallbackEndpoint
+decl_stmt|;
+comment|/**      * Whether to include a number of headers with metrics details of the circuit breaker utilization      */
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|metrics
+specifier|private
+name|boolean
+name|metrics
 decl_stmt|;
 DECL|field|coreSize
 specifier|private
@@ -339,56 +359,56 @@ specifier|private
 name|Boolean
 name|requestLogEnabled
 decl_stmt|;
-DECL|method|getRunEndpointId ()
+DECL|method|getRunEndpoint ()
 specifier|public
 name|String
-name|getRunEndpointId
+name|getRunEndpoint
 parameter_list|()
 block|{
 return|return
-name|runEndpointId
+name|runEndpoint
 return|;
 block|}
-DECL|method|setRunEndpointId (String runEndpointId)
+DECL|method|setRunEndpoint (String runEndpoint)
 specifier|public
 name|void
-name|setRunEndpointId
+name|setRunEndpoint
 parameter_list|(
 name|String
-name|runEndpointId
+name|runEndpoint
 parameter_list|)
 block|{
 name|this
 operator|.
-name|runEndpointId
+name|runEndpoint
 operator|=
-name|runEndpointId
+name|runEndpoint
 expr_stmt|;
 block|}
-DECL|method|getFallbackEndpointId ()
+DECL|method|getFallbackEndpoint ()
 specifier|public
 name|String
-name|getFallbackEndpointId
+name|getFallbackEndpoint
 parameter_list|()
 block|{
 return|return
-name|fallbackEndpointId
+name|fallbackEndpoint
 return|;
 block|}
-DECL|method|setFallbackEndpointId (String fallbackEndpointId)
+DECL|method|setFallbackEndpoint (String fallbackEndpoint)
 specifier|public
 name|void
-name|setFallbackEndpointId
+name|setFallbackEndpoint
 parameter_list|(
 name|String
-name|fallbackEndpointId
+name|fallbackEndpoint
 parameter_list|)
 block|{
 name|this
 operator|.
-name|fallbackEndpointId
+name|fallbackEndpoint
 operator|=
-name|fallbackEndpointId
+name|fallbackEndpoint
 expr_stmt|;
 block|}
 DECL|method|getCacheKeyExpression ()
@@ -1247,6 +1267,32 @@ operator|.
 name|requestLogEnabled
 operator|=
 name|requestLogEnabled
+expr_stmt|;
+block|}
+DECL|method|isMetrics ()
+specifier|public
+name|boolean
+name|isMetrics
+parameter_list|()
+block|{
+return|return
+name|metrics
+return|;
+block|}
+DECL|method|setMetrics (boolean metrics)
+specifier|public
+name|void
+name|setMetrics
+parameter_list|(
+name|boolean
+name|metrics
+parameter_list|)
+block|{
+name|this
+operator|.
+name|metrics
+operator|=
+name|metrics
 expr_stmt|;
 block|}
 block|}

@@ -322,7 +322,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hystrix:testKey?runEndpointId=run&fallbackEndpointId=fallback&cacheKeyExpression=#headerExpression&initializeRequestContext=true"
+literal|"hystrix:testKey?runEndpoint=direct:run&fallbackEndpoint=direct:fallback&cacheKeyExpression=#headerExpression&initializeRequestContext=true"
 argument_list|)
 expr_stmt|;
 block|}

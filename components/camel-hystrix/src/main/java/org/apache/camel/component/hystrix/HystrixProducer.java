@@ -395,6 +395,14 @@ operator|.
 name|execute
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|configuration
+operator|.
+name|isMetrics
+argument_list|()
+condition|)
+block|{
 name|populateWithMetrics
 argument_list|(
 name|exchange
@@ -402,6 +410,7 @@ argument_list|,
 name|camelHystrixCommand
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|setCommandPropertiesDefaults (HystrixCommand.Setter setter, Exchange exchange)
 specifier|private
@@ -2645,7 +2654,7 @@ name|getEndpoint
 argument_list|(
 name|configuration
 operator|.
-name|getRunEndpointId
+name|getRunEndpoint
 argument_list|()
 argument_list|)
 decl_stmt|;
@@ -2662,7 +2671,7 @@ name|isNotEmpty
 argument_list|(
 name|configuration
 operator|.
-name|getFallbackEndpointId
+name|getFallbackEndpoint
 argument_list|()
 argument_list|)
 condition|)
@@ -2679,8 +2688,39 @@ name|getEndpoint
 argument_list|(
 name|configuration
 operator|.
-name|getFallbackEndpointId
+name|getFallbackEndpoint
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|fallbackEndpoint
+operator|!=
+literal|null
+condition|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Endpoint run: {}, fallback: {}"
+argument_list|,
+name|runEndpoint
+argument_list|,
+name|fallbackEndpoint
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Endpoint run: {}"
+argument_list|,
+name|runEndpoint
 argument_list|)
 expr_stmt|;
 block|}

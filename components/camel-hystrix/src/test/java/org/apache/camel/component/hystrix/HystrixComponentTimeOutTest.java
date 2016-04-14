@@ -460,7 +460,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hystrix:testKey?runEndpointId=run&fallbackEndpointId=fallback&executionTimeoutInMilliseconds=100"
+literal|"hystrix:testKey?runEndpoint=direct:run&fallbackEndpoint=direct:fallback&executionTimeoutInMilliseconds=100"
 argument_list|)
 expr_stmt|;
 block|}

@@ -245,7 +245,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"hystrix:testKey?runEndpointId=run&fallbackEndpointId=fallback&circuitBreakerRequestVolumeThreshold=2"
+literal|"hystrix:testKey?runEndpoint=direct:run&fallbackEndpoint=direct:fallback&circuitBreakerRequestVolumeThreshold=2"
 argument_list|)
 expr_stmt|;
 block|}
