@@ -25,6 +25,18 @@ interface|interface
 name|HystrixConstants
 block|{
 comment|// in message header
+DECL|field|CAMEL_HYSTRIX_RUN_ENDPOINT
+name|String
+name|CAMEL_HYSTRIX_RUN_ENDPOINT
+init|=
+literal|"CamelHystrixRunEndpoint"
+decl_stmt|;
+DECL|field|CAMEL_HYSTRIX_FALLBACK_ENDPOINT
+name|String
+name|CAMEL_HYSTRIX_FALLBACK_ENDPOINT
+init|=
+literal|"CamelHystrixFallbackEndpoint"
+decl_stmt|;
 DECL|field|CAMEL_HYSTRIX_CLEAR_CACHE_FIRST
 name|String
 name|CAMEL_HYSTRIX_CLEAR_CACHE_FIRST
