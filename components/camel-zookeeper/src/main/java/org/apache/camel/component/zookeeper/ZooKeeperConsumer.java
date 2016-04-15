@@ -426,12 +426,9 @@ argument_list|()
 operator|.
 name|newFixedThreadPool
 argument_list|(
-name|configuration
-operator|.
-name|getPath
-argument_list|()
+name|this
 argument_list|,
-literal|"Camel-Zookeeper Ops executor"
+literal|"Camel-Zookeeper OperationsExecutor"
 argument_list|,
 literal|1
 argument_list|)
@@ -959,7 +956,9 @@ parameter_list|(
 name|Exception
 name|e
 parameter_list|)
-block|{             }
+block|{
+comment|// ignore
+block|}
 block|}
 block|}
 DECL|method|addBasicDataConsumeSequence (String node)

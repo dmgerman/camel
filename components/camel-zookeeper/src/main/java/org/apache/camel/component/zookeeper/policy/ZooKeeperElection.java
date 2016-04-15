@@ -802,7 +802,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"Error setting up election node "
 operator|+
@@ -828,13 +828,6 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-if|if
-condition|(
-name|zep
-operator|!=
-literal|null
-condition|)
-block|{
 name|camelContext
 operator|.
 name|addRoutes
@@ -847,7 +840,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-block|}
 catch|catch
 parameter_list|(
 name|Exception
@@ -856,7 +848,7 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"Error configuring ZookeeperElection"
 argument_list|,
