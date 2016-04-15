@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To boostrap Camel for testing with Spring 4.1 onwards.  */
+comment|/**  * To bootstrap Camel for testing with Spring 4.1 onwards.  */
 end_comment
 
 begin_class
