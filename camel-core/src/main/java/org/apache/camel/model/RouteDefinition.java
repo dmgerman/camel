@@ -1129,8 +1129,6 @@ name|uri
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Deprecated
 DECL|method|adviceWith (CamelContext camelContext, RouteBuilder builder)
 specifier|public
 name|RouteDefinition
