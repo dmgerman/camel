@@ -548,6 +548,29 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"If this option is true then IN exchange Form Encoded body of the exchange will be mapped to HTTP."
+operator|+
+literal|" Setting this to false will avoid the HTTP Form Encoded body mapping."
+argument_list|)
+DECL|field|mapHttpMessageFormUrlEncodedBody
+name|boolean
+name|mapHttpMessageFormUrlEncodedBody
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"producer"
 argument_list|,
 name|defaultValue
@@ -811,6 +834,14 @@ operator|.
 name|setMapHttpMessageHeaders
 argument_list|(
 name|isMapHttpMessageHeaders
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|httpBinding
+operator|.
+name|setMapHttpMessageFormUrlEncodedBody
+argument_list|(
+name|isMapHttpMessageFormUrlEncodedBody
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -1546,6 +1577,33 @@ operator|.
 name|mapHttpMessageHeaders
 operator|=
 name|mapHttpMessageHeaders
+expr_stmt|;
+block|}
+DECL|method|isMapHttpMessageFormUrlEncodedBody ()
+specifier|public
+name|boolean
+name|isMapHttpMessageFormUrlEncodedBody
+parameter_list|()
+block|{
+return|return
+name|mapHttpMessageFormUrlEncodedBody
+return|;
+block|}
+comment|/**      * If this option is true then IN exchange Form Encoded body will be mapped to HTTP       */
+DECL|method|setMapHttpMessageFormUrlEncodedBody (boolean mapHttpMessageFormUrlEncodedBody)
+specifier|public
+name|void
+name|setMapHttpMessageFormUrlEncodedBody
+parameter_list|(
+name|boolean
+name|mapHttpMessageFormUrlEncodedBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mapHttpMessageFormUrlEncodedBody
+operator|=
+name|mapHttpMessageFormUrlEncodedBody
 expr_stmt|;
 block|}
 block|}

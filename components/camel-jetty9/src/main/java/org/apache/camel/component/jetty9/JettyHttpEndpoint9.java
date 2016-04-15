@@ -298,6 +298,16 @@ name|isMapHttpMessageHeaders
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|binding
+operator|.
+name|setMapHttpMessageFormUrlEncodedBody
+argument_list|(
+name|isMapHttpMessageFormUrlEncodedBody
+argument_list|()
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|this

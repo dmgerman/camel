@@ -230,6 +230,12 @@ name|boolean
 name|isMapHttpMessageHeaders
 parameter_list|()
 function_decl|;
+comment|/**      * Whether to allow Exchange Form URL Encoded Body HTTP mapping      */
+DECL|method|isMapHttpMessageFormUrlEncodedBody ()
+name|boolean
+name|isMapHttpMessageFormUrlEncodedBody
+parameter_list|()
+function_decl|;
 comment|/**      * Whether to eager check whether the HTTP requests has content if the content-length header is 0 or not present.      * This can be turned on in case HTTP clients do not send streamed data.      */
 DECL|method|setEagerCheckContentAvailable (boolean eagerCheckContentAvailable)
 name|void
@@ -288,6 +294,15 @@ name|setMapHttpMessageHeaders
 parameter_list|(
 name|boolean
 name|mapHttpMessageHeaders
+parameter_list|)
+function_decl|;
+comment|/**      * Whether to allow Exchange Form URL Encoded Body HTTP mapping      *<p/>      * This is by default turned on. If you disable this then be aware that the Exchange Form URL Encoded Body won't be mapped to HTTP      */
+DECL|method|setMapHttpMessageFormUrlEncodedBody (boolean mapHttpMessageFormUrlEncodedBody)
+name|void
+name|setMapHttpMessageFormUrlEncodedBody
+parameter_list|(
+name|boolean
+name|mapHttpMessageFormUrlEncodedBody
 parameter_list|)
 function_decl|;
 block|}
