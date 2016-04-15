@@ -31,18 +31,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|java
-operator|.
-name|lang
-operator|.
-name|String
-operator|.
-name|format
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -105,6 +93,18 @@ operator|.
 name|data
 operator|.
 name|Stat
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|lang
+operator|.
+name|String
+operator|.
+name|format
 import|;
 end_import
 
@@ -203,6 +203,22 @@ parameter_list|()
 block|{
 try|try
 block|{
+comment|// ensure parent nodes is created first as persistent (cannot be ephemeral without children)
+name|ZooKeeperHelper
+operator|.
+name|mkdirs
+argument_list|(
+name|connection
+argument_list|,
+name|node
+argument_list|,
+literal|false
+argument_list|,
+name|CreateMode
+operator|.
+name|PERSISTENT
+argument_list|)
+expr_stmt|;
 name|String
 name|created
 init|=
