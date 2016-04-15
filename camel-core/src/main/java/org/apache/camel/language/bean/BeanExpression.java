@@ -258,6 +258,20 @@ name|StringHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringQuoteHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Evaluates an expression using a bean method invocation  */
 end_comment
@@ -627,6 +641,9 @@ name|cause
 argument_list|)
 throw|;
 block|}
+comment|//        if (method != null) {
+comment|//            OgnlHelper.validateMethodName(method);
+comment|//        }
 if|if
 condition|(
 name|OgnlHelper
@@ -1455,6 +1472,22 @@ argument_list|(
 literal|"Bean instance and bean type is null. OGNL bean expressions requires to have either a bean instance of the class name of the bean to use."
 argument_list|)
 throw|;
+block|}
+if|if
+condition|(
+name|ognl
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// must be a valid method name according to java identifier ruling
+name|OgnlHelper
+operator|.
+name|validateMethodName
+argument_list|(
+name|ognl
+argument_list|)
+expr_stmt|;
 block|}
 comment|// Split ognl except when this is not a Map, Array
 comment|// and we would like to keep the dots within the key name

@@ -1395,6 +1395,28 @@ argument_list|,
 literal|"("
 argument_list|)
 expr_stmt|;
+comment|// the must be a ending parenthesis
+if|if
+condition|(
+operator|!
+name|methodName
+operator|.
+name|endsWith
+argument_list|(
+literal|")"
+argument_list|)
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Method should end with parenthesis, was "
+operator|+
+name|methodName
+argument_list|)
+throw|;
+block|}
 block|}
 name|boolean
 name|emptyParameters

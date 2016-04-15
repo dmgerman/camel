@@ -96,6 +96,34 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|StringQuoteHelper
+import|;
+end_import
+
 begin_comment
 comment|/**  * A<a href="http://camel.apache.org/bean-language.html">bean language</a>  * which uses a simple text notation to invoke methods on beans to evaluate predicates or expressions  *<p/>  * The notation is essentially<code>beanName.methodName</code> which is then invoked using the  * beanName to lookup in the<a href="http://camel.apache.org/registry.html>registry</a>  * then the method is invoked to evaluate the expression using the  *<a href="http://camel.apache.org/bean-integration.html">bean integration</a> to bind the  * {@link org.apache.camel.Exchange} to the method arguments.  *<p/>  * As of Camel 1.5 the bean language also supports invoking a provided bean by  * its classname or the bean itself.  *  * @version   */
 end_comment
