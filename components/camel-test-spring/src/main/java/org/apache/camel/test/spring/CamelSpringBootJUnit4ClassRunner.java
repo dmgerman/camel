@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * An implementation bringing the functionality of {@link CamelSpringTestSupport} to  * Spring Test based test cases.  This approach allows developers to implement tests  * for their Spring based applications/routes using the typical Spring Test conventions  * for test development.  */
+comment|/**  * An implementation bringing the functionality of {@link CamelSpringTestSupport} to  * Spring Boot Test based test cases.  This approach allows developers to implement tests  * for their Spring Boot based applications/routes using the typical Spring Test conventions  * for test development.  */
 end_comment
 
 begin_class
