@@ -641,36 +641,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
-annotation|@
-name|Test
-DECL|method|testLazyLoadTypeConverters ()
-specifier|public
-name|void
-name|testLazyLoadTypeConverters
-parameter_list|()
-block|{
-name|assertTrue
-argument_list|(
-name|camelContext
-operator|.
-name|isLazyLoadTypeConverters
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|camelContext2
-operator|.
-name|isLazyLoadTypeConverters
-argument_list|()
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 end_class
 
