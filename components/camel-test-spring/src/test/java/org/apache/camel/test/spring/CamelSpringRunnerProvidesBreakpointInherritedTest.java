@@ -19,13 +19,13 @@ package|;
 end_package
 
 begin_class
-DECL|class|CamelSpringJUnit4ClassRunnerLazyLoadTypeConvertersInheritedTest
+DECL|class|CamelSpringRunnerProvidesBreakpointInherritedTest
 specifier|public
 class|class
-name|CamelSpringJUnit4ClassRunnerLazyLoadTypeConvertersInheritedTest
+name|CamelSpringRunnerProvidesBreakpointInherritedTest
 extends|extends
-name|CamelSpringJUnit4ClassRunnerLazyLoadTypeConvertersTest
-block|{ }
+name|CamelSpringRunnerProvidesBreakpointTest
+block|{  }
 end_class
 
 end_unit

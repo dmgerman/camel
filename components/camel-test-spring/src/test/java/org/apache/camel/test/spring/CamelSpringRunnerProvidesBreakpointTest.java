@@ -131,12 +131,12 @@ import|;
 end_import
 
 begin_class
-DECL|class|CamelSpringJUnit4ClassRunnerProvidesBreakpointTest
+DECL|class|CamelSpringRunnerProvidesBreakpointTest
 specifier|public
 class|class
-name|CamelSpringJUnit4ClassRunnerProvidesBreakpointTest
+name|CamelSpringRunnerProvidesBreakpointTest
 extends|extends
-name|CamelSpringJUnit4ClassRunnerPlainTest
+name|CamelSpringRunnerPlainTest
 block|{
 annotation|@
 name|ProvidesBreakpoint

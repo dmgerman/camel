@@ -19,12 +19,12 @@ package|;
 end_package
 
 begin_class
-DECL|class|CamelSpringJUnit4ClassRunnerDisableJmxInheritedTest
+DECL|class|CamelSpringRunnerDisableJmxInheritedTest
 specifier|public
 class|class
-name|CamelSpringJUnit4ClassRunnerDisableJmxInheritedTest
+name|CamelSpringRunnerDisableJmxInheritedTest
 extends|extends
-name|CamelSpringJUnit4ClassRunnerDisableJmxTest
+name|CamelSpringRunnerDisableJmxTest
 block|{ }
 end_class
 

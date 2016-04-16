@@ -290,7 +290,7 @@ begin_class
 annotation|@
 name|RunWith
 argument_list|(
-name|CamelSpringJUnit4ClassRunner
+name|CamelSpringRunner
 operator|.
 name|class
 argument_list|)
@@ -317,10 +317,10 @@ name|ClassMode
 operator|.
 name|AFTER_EACH_TEST_METHOD
 argument_list|)
-DECL|class|CamelSpringJUnit4ClassRunnerPlainTest
+DECL|class|CamelSpringRunnerPlainTest
 specifier|public
 class|class
-name|CamelSpringJUnit4ClassRunnerPlainTest
+name|CamelSpringRunnerPlainTest
 block|{
 annotation|@
 name|Autowired

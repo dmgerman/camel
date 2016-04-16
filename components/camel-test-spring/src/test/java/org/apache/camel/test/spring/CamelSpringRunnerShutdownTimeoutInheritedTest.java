@@ -19,12 +19,12 @@ package|;
 end_package
 
 begin_class
-DECL|class|CamelSpringJUnit4ClassRunnerShutdownTimeoutInheritedTest
+DECL|class|CamelSpringRunnerShutdownTimeoutInheritedTest
 specifier|public
 class|class
-name|CamelSpringJUnit4ClassRunnerShutdownTimeoutInheritedTest
+name|CamelSpringRunnerShutdownTimeoutInheritedTest
 extends|extends
-name|CamelSpringJUnit4ClassRunnerShutdownTimeoutTest
+name|CamelSpringRunnerShutdownTimeoutTest
 block|{  }
 end_class
 

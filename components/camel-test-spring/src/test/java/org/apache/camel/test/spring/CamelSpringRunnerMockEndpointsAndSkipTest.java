@@ -128,12 +128,12 @@ name|MockEndpointsAndSkip
 argument_list|(
 literal|"{{mock.skip}}"
 argument_list|)
-DECL|class|CamelSpringJUnit4ClassRunnerMockEndpointsAndSkipTest
+DECL|class|CamelSpringRunnerMockEndpointsAndSkipTest
 specifier|public
 class|class
-name|CamelSpringJUnit4ClassRunnerMockEndpointsAndSkipTest
+name|CamelSpringRunnerMockEndpointsAndSkipTest
 extends|extends
-name|CamelSpringJUnit4ClassRunnerPlainTest
+name|CamelSpringRunnerPlainTest
 block|{
 annotation|@
 name|EndpointInject

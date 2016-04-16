@@ -148,7 +148,7 @@ begin_class
 annotation|@
 name|RunWith
 argument_list|(
-name|CamelSpringJUnit4ClassRunner
+name|CamelSpringRunner
 operator|.
 name|class
 argument_list|)

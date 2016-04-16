@@ -66,12 +66,12 @@ name|TimeUnit
 operator|.
 name|MILLISECONDS
 argument_list|)
-DECL|class|CamelSpringJUnit4ClassRunnerShutdownTimeoutTest
+DECL|class|CamelSpringRunnerShutdownTimeoutTest
 specifier|public
 class|class
-name|CamelSpringJUnit4ClassRunnerShutdownTimeoutTest
+name|CamelSpringRunnerShutdownTimeoutTest
 extends|extends
-name|CamelSpringJUnit4ClassRunnerPlainTest
+name|CamelSpringRunnerPlainTest
 block|{
 annotation|@
 name|Test
