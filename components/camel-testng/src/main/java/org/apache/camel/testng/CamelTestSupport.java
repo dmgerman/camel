@@ -1483,19 +1483,6 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Whether or not type converters should be lazy loaded (notice core converters is always loaded)      *      * @return<tt>false</tt> by default.      */
-annotation|@
-name|Deprecated
-DECL|method|isLazyLoadingTypeConverter ()
-specifier|protected
-name|boolean
-name|isLazyLoadingTypeConverter
-parameter_list|()
-block|{
-return|return
-literal|false
-return|;
-block|}
 comment|/**      * Lets post process this test instance to process any Camel annotations.      * Note that using Spring Test or Guice is a more powerful approach.      */
 DECL|method|postProcessTest ()
 specifier|protected
@@ -1840,14 +1827,6 @@ name|createRegistry
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|context
-operator|.
-name|setLazyLoadTypeConverters
-argument_list|(
-name|isLazyLoadingTypeConverter
-argument_list|()
-argument_list|)
-expr_stmt|;
 return|return
 name|context
 return|;
