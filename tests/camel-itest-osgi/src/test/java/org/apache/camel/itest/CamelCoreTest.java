@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p>  * http://www.apache.org/licenses/LICENSE-2.0  *<p>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -35,6 +35,38 @@ operator|.
 name|camel
 operator|.
 name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|mock
+operator|.
+name|MockEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|karaf
+operator|.
+name|AbstractFeatureTest
 import|;
 end_import
 
@@ -147,7 +179,7 @@ specifier|public
 class|class
 name|CamelCoreTest
 extends|extends
-name|CamelKarafTestSupport
+name|AbstractFeatureTest
 block|{
 annotation|@
 name|Test
@@ -176,27 +208,67 @@ name|getClassLoader
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|">>>> "
-operator|+
-name|url
-argument_list|)
-expr_stmt|;
 name|installBlueprintAsBundle
 argument_list|(
 literal|"CamelCoreTest"
 argument_list|,
 name|url
+argument_list|,
+literal|true
 argument_list|)
 expr_stmt|;
-comment|// wait for Camel to be ready
-comment|//        CamelContext camel = getOsgiService(CamelContext.class);
-comment|//        System.out.println(">>> " + camel);
+comment|// lookup Camel from OSGi
+name|CamelContext
+name|camel
+init|=
+name|getOsgiService
+argument_list|(
+name|bundleContext
+argument_list|,
+name|CamelContext
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+comment|// test camel
+name|MockEndpoint
+name|mock
+init|=
+name|camel
+operator|.
+name|getEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|,
+name|MockEndpoint
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
+name|camel
+operator|.
+name|createProducerTemplate
+argument_list|()
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"World"
+argument_list|)
+expr_stmt|;
+name|mock
+operator|.
+name|assertIsSatisfied
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Configuration
