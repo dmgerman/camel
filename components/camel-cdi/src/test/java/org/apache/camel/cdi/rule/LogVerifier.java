@@ -205,6 +205,28 @@ name|LoggingEvent
 name|event
 parameter_list|)
 block|{
+name|LogVerifier
+operator|.
+name|this
+operator|.
+name|append
+argument_list|(
+name|event
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+expr_stmt|;
+block|}
+DECL|method|append (LoggingEvent event)
+specifier|protected
+name|void
+name|append
+parameter_list|(
+name|LoggingEvent
+name|event
+parameter_list|)
+block|{
 name|messages
 operator|.
 name|add
@@ -214,9 +236,6 @@ operator|.
 name|getRenderedMessage
 argument_list|()
 argument_list|)
-expr_stmt|;
-block|}
-block|}
 expr_stmt|;
 block|}
 DECL|method|getMessages ()
