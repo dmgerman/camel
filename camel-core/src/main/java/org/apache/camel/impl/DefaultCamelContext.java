@@ -2702,6 +2702,10 @@ DECL|field|processorFactory
 specifier|private
 name|ProcessorFactory
 name|processorFactory
+init|=
+operator|new
+name|DefaultProcessorFactory
+argument_list|()
 decl_stmt|;
 DECL|field|messageHistoryFactory
 specifier|private
