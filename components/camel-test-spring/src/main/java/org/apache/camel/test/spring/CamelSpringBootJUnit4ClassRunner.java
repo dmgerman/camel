@@ -42,7 +42,7 @@ specifier|public
 class|class
 name|CamelSpringBootJUnit4ClassRunner
 extends|extends
-name|CamelSpringRunner
+name|CamelSpringBootRunner
 block|{
 DECL|method|CamelSpringBootJUnit4ClassRunner (Class<?> clazz)
 specifier|public
