@@ -83,7 +83,7 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello World"
+literal|"Fallback message"
 argument_list|)
 expr_stmt|;
 name|template
@@ -131,9 +131,13 @@ operator|.
 name|hystrixCircuitBreaker
 argument_list|()
 operator|.
-name|to
+name|throwException
 argument_list|(
-literal|"direct:foo"
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Forced"
+argument_list|)
 argument_list|)
 operator|.
 name|fallback
@@ -153,20 +157,6 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:result"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"direct:foo"
-argument_list|)
-operator|.
-name|throwException
-argument_list|(
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Forced"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

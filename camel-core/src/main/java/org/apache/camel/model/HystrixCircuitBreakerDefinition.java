@@ -331,6 +331,32 @@ name|end
 argument_list|()
 return|;
 block|}
+DECL|method|getFallback ()
+specifier|public
+name|FallbackDefinition
+name|getFallback
+parameter_list|()
+block|{
+return|return
+name|fallback
+return|;
+block|}
+DECL|method|setFallback (FallbackDefinition fallback)
+specifier|public
+name|void
+name|setFallback
+parameter_list|(
+name|FallbackDefinition
+name|fallback
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fallback
+operator|=
+name|fallback
+expr_stmt|;
+block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
 comment|/**      * Sets the otherwise node      *      * @return the builder      */
@@ -345,6 +371,13 @@ operator|=
 operator|new
 name|FallbackDefinition
 argument_list|()
+expr_stmt|;
+name|fallback
+operator|.
+name|setParent
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 return|return
 name|this
