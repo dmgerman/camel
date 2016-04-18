@@ -72,7 +72,7 @@ name|test
 operator|.
 name|spring
 operator|.
-name|CamelSpringBootJUnit4ClassRunner
+name|CamelSpringBootRunner
 import|;
 end_import
 
@@ -162,7 +162,7 @@ begin_class
 annotation|@
 name|RunWith
 argument_list|(
-name|CamelSpringBootJUnit4ClassRunner
+name|CamelSpringBootRunner
 operator|.
 name|class
 argument_list|)
