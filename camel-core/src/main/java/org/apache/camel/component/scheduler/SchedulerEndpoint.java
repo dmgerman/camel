@@ -38,6 +38,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Consumer
 import|;
 end_import
@@ -176,6 +188,8 @@ class|class
 name|SchedulerEndpoint
 extends|extends
 name|ScheduledPollEndpoint
+implements|implements
+name|AsyncEndpoint
 block|{
 annotation|@
 name|UriPath

@@ -102,6 +102,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Component
 import|;
 end_import
@@ -428,6 +440,8 @@ name|SedaEndpoint
 extends|extends
 name|DefaultEndpoint
 implements|implements
+name|AsyncEndpoint
+implements|,
 name|BrowsableEndpoint
 implements|,
 name|MultipleConsumersSupport

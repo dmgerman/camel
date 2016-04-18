@@ -102,6 +102,11 @@ specifier|private
 name|boolean
 name|lenientProperties
 decl_stmt|;
+DECL|field|async
+specifier|private
+name|boolean
+name|async
+decl_stmt|;
 DECL|method|ComponentModel (String scheme)
 specifier|public
 name|ComponentModel
@@ -489,6 +494,32 @@ operator|.
 name|lenientProperties
 operator|=
 name|lenientProperties
+expr_stmt|;
+block|}
+DECL|method|isAsync ()
+specifier|public
+name|boolean
+name|isAsync
+parameter_list|()
+block|{
+return|return
+name|async
+return|;
+block|}
+DECL|method|setAsync (boolean async)
+specifier|public
+name|void
+name|setAsync
+parameter_list|(
+name|boolean
+name|async
+parameter_list|)
+block|{
+name|this
+operator|.
+name|async
+operator|=
+name|async
 expr_stmt|;
 block|}
 block|}
