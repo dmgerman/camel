@@ -175,25 +175,6 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Moved from "
-operator|+
-name|configuration
-operator|.
-name|getRemotePath
-argument_list|()
-operator|+
-literal|" to "
-operator|+
-name|configuration
-operator|.
-name|getNewRemotePath
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

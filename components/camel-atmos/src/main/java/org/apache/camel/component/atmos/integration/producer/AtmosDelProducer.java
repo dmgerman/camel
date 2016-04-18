@@ -170,18 +170,6 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"Deleted: "
-operator|+
-name|configuration
-operator|.
-name|getRemotePath
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 end_class

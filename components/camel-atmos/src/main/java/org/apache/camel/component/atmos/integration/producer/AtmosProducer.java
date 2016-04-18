@@ -68,26 +68,6 @@ name|DefaultProducer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_class
 DECL|class|AtmosProducer
 specifier|public
@@ -97,23 +77,6 @@ name|AtmosProducer
 extends|extends
 name|DefaultProducer
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-specifier|transient
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|AtmosProducer
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|endpoint
 specifier|protected
 name|AtmosEndpoint
@@ -179,13 +142,6 @@ operator|.
 name|createClient
 argument_list|()
 expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"producer atmos client created"
-argument_list|)
-expr_stmt|;
 block|}
 name|super
 operator|.
@@ -209,7 +165,7 @@ name|configuration
 operator|.
 name|getClient
 argument_list|()
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
@@ -218,13 +174,6 @@ operator|.
 name|setClient
 argument_list|(
 literal|null
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"producer atmos client deleted"
 argument_list|)
 expr_stmt|;
 block|}

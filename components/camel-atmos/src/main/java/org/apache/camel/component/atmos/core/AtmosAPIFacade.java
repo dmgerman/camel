@@ -537,7 +537,7 @@ name|AtmosException
 argument_list|(
 name|atmosPath
 operator|+
-literal|" does not exist or can't obtain metadata"
+literal|" does not exist or cannot obtain metadata"
 argument_list|)
 throw|;
 block|}
@@ -760,7 +760,7 @@ name|AtmosException
 argument_list|(
 name|localPath
 operator|+
-literal|" doesn't contain any files"
+literal|" does not contain any files"
 argument_list|)
 throw|;
 block|}
@@ -840,14 +840,12 @@ try|try
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"uploading:"
-operator|+
+literal|"uploading: {} to {}"
+argument_list|,
 name|fileLocalPath
-operator|+
-literal|","
-operator|+
+argument_list|,
 name|atmosPath
 argument_list|)
 expr_stmt|;
@@ -1242,7 +1240,7 @@ name|AtmosException
 argument_list|(
 name|atmosPath
 operator|+
-literal|" does not exist or can't obtain metadata"
+literal|" does not exist or cannot obtain metadata"
 argument_list|)
 throw|;
 block|}
@@ -1257,7 +1255,7 @@ condition|)
 block|{
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"downloading a single file..."
 argument_list|)
@@ -1351,7 +1349,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"can't download from "
+literal|"Cannot download from "
 operator|+
 name|entry
 operator|.
@@ -1459,7 +1457,7 @@ name|AtmosException
 argument_list|(
 name|path
 operator|+
-literal|" can't obtain a stream"
+literal|" cannot obtain a stream"
 argument_list|,
 name|e
 argument_list|)
@@ -1483,14 +1481,12 @@ argument_list|)
 expr_stmt|;
 name|LOG
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"downloaded path:"
-operator|+
+literal|"Downloaded path: {} size:"
+argument_list|,
 name|path
-operator|+
-literal|" - baos size:"
-operator|+
+argument_list|,
 name|baos
 operator|.
 name|size

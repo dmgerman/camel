@@ -208,13 +208,6 @@ operator|.
 name|createClient
 argument_list|()
 expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"consumer atmos client created"
-argument_list|)
-expr_stmt|;
 block|}
 name|super
 operator|.
@@ -239,7 +232,7 @@ name|configuration
 operator|.
 name|getClient
 argument_list|()
-operator|==
+operator|!=
 literal|null
 condition|)
 block|{
@@ -248,13 +241,6 @@ operator|.
 name|setClient
 argument_list|(
 literal|null
-argument_list|)
-expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"consumer atmos client deleted"
 argument_list|)
 expr_stmt|;
 block|}

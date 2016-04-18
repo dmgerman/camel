@@ -193,18 +193,6 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-name|LOG
-operator|.
-name|info
-argument_list|(
-literal|"consumer --> downloaded: "
-operator|+
-name|result
-operator|.
-name|toString
-argument_list|()
-argument_list|)
-expr_stmt|;
 try|try
 block|{
 comment|// send message to next processor in the route
