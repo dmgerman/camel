@@ -50,6 +50,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Component
 import|;
 end_import
@@ -181,6 +193,8 @@ class|class
 name|AvroEndpoint
 extends|extends
 name|DefaultEndpoint
+implements|implements
+name|AsyncEndpoint
 block|{
 annotation|@
 name|UriParam

@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|jetty
@@ -176,6 +188,8 @@ class|class
 name|JettyHttpEndpoint9
 extends|extends
 name|JettyHttpEndpoint
+implements|implements
+name|AsyncEndpoint
 block|{
 DECL|field|binding
 specifier|private

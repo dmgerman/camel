@@ -164,6 +164,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -614,6 +626,8 @@ name|JmsEndpoint
 extends|extends
 name|DefaultEndpoint
 implements|implements
+name|AsyncEndpoint
+implements|,
 name|HeaderFilterStrategyAware
 implements|,
 name|MultipleConsumersSupport

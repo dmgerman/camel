@@ -186,6 +186,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Consumer
 import|;
 end_import
@@ -340,6 +352,8 @@ class|class
 name|RabbitMQEndpoint
 extends|extends
 name|DefaultEndpoint
+implements|implements
+name|AsyncEndpoint
 block|{
 comment|// header to indicate that the message body needs to be de-serialized
 DECL|field|SERIALIZE_HEADER

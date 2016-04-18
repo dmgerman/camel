@@ -46,6 +46,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|jetty
@@ -160,6 +172,8 @@ class|class
 name|JettyHttpEndpoint8
 extends|extends
 name|JettyHttpEndpoint
+implements|implements
+name|AsyncEndpoint
 block|{
 DECL|method|JettyHttpEndpoint8 (JettyHttpComponent component, String uri, URI httpURL)
 specifier|public

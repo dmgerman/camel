@@ -66,6 +66,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Consumer
 import|;
 end_import
@@ -317,6 +329,8 @@ name|NettyHttpEndpoint
 extends|extends
 name|NettyEndpoint
 implements|implements
+name|AsyncEndpoint
+implements|,
 name|HeaderFilterStrategyAware
 block|{
 DECL|field|LOG

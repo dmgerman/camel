@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|AsyncEndpoint
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|component
 operator|.
 name|jms
@@ -104,6 +116,8 @@ class|class
 name|AMQPEndpoint
 extends|extends
 name|JmsEndpoint
+implements|implements
+name|AsyncEndpoint
 block|{  }
 end_class
 
