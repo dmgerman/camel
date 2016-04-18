@@ -175,9 +175,9 @@ DECL|annotation|Excluded
 annotation_defn|@interface
 name|Excluded
 block|{
-DECL|field|INSTANCE
+DECL|field|EXCLUDED
 name|Excluded
-name|INSTANCE
+name|EXCLUDED
 init|=
 operator|new
 name|ExcludedLiteral

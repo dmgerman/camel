@@ -242,6 +242,38 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
+name|AnyLiteral
+operator|.
+name|ANY
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
+name|DefaultLiteral
+operator|.
+name|DEFAULT
+import|;
+end_import
+
 begin_class
 annotation|@
 name|Vetoed
@@ -927,9 +959,7 @@ name|qualifiers
 operator|.
 name|add
 argument_list|(
-name|DefaultLiteral
-operator|.
-name|INSTANCE
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 block|}
@@ -937,9 +967,7 @@ name|qualifiers
 operator|.
 name|add
 argument_list|(
-name|AnyLiteral
-operator|.
-name|INSTANCE
+name|ANY
 argument_list|)
 expr_stmt|;
 return|return

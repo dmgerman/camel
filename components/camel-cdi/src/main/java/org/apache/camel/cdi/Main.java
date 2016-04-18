@@ -176,6 +176,22 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
+name|AnyLiteral
+operator|.
+name|ANY
+import|;
+end_import
+
 begin_comment
 comment|/**  * Camel CDI boot integration. Allows Camel and CDI to be booted up on the command line as a JVM process.  * See http://camel.apache.org/camel-boot.html.  */
 end_comment
@@ -415,9 +431,7 @@ name|CamelContext
 operator|.
 name|class
 argument_list|,
-name|AnyLiteral
-operator|.
-name|INSTANCE
+name|ANY
 argument_list|)
 control|)
 block|{

@@ -138,6 +138,22 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
+name|AnyLiteral
+operator|.
+name|ANY
+import|;
+end_import
+
 begin_comment
 comment|/**  * The {@link Registry} used by Camel to perform lookup into the CDI {@link BeanManager}.  */
 end_comment
@@ -413,9 +429,7 @@ name|getBeans
 argument_list|(
 name|type
 argument_list|,
-name|AnyLiteral
-operator|.
-name|INSTANCE
+name|ANY
 argument_list|)
 control|)
 block|{
@@ -503,9 +517,7 @@ name|manager
 argument_list|,
 name|type
 argument_list|,
-name|AnyLiteral
-operator|.
-name|INSTANCE
+name|ANY
 argument_list|)
 return|;
 block|}

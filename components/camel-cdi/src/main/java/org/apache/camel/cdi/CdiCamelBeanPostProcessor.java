@@ -204,6 +204,22 @@ name|getReferenceByType
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
+name|DefaultLiteral
+operator|.
+name|DEFAULT
+import|;
+end_import
+
 begin_class
 annotation|@
 name|Vetoed
@@ -815,9 +831,7 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|?
-name|DefaultLiteral
-operator|.
-name|INSTANCE
+name|DEFAULT
 else|:
 name|ContextName
 operator|.

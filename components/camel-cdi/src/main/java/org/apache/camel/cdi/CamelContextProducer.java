@@ -256,6 +256,38 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
+name|AnyLiteral
+operator|.
+name|ANY
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
+name|DefaultLiteral
+operator|.
+name|DEFAULT
+import|;
+end_import
+
 begin_class
 DECL|class|CamelContextProducer
 specifier|final
@@ -488,9 +520,7 @@ name|qualifiers
 operator|.
 name|add
 argument_list|(
-name|AnyLiteral
-operator|.
-name|INSTANCE
+name|ANY
 argument_list|)
 expr_stmt|;
 if|if
@@ -507,9 +537,7 @@ name|qualifiers
 operator|.
 name|add
 argument_list|(
-name|DefaultLiteral
-operator|.
-name|INSTANCE
+name|DEFAULT
 argument_list|)
 expr_stmt|;
 block|}

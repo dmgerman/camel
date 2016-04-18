@@ -55,11 +55,11 @@ argument_list|>
 implements|implements
 name|Default
 block|{
-DECL|field|INSTANCE
+DECL|field|DEFAULT
 specifier|static
 specifier|final
 name|Default
-name|INSTANCE
+name|DEFAULT
 init|=
 operator|new
 name|DefaultLiteral
