@@ -823,6 +823,20 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+comment|// copy the header of in message to the out message
+name|exchange
+operator|.
+name|getOut
+argument_list|()
+operator|.
+name|copyFrom
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|ResultSet
 name|resultSet
 init|=
