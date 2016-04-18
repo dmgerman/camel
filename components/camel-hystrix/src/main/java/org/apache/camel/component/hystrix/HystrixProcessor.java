@@ -403,6 +403,18 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
+comment|// run this as if we run inside try .. catch so there is no regular Camel error handler
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|Exchange
+operator|.
+name|TRY_ROUTE_BLOCK
+argument_list|,
+literal|true
+argument_list|)
+expr_stmt|;
 name|HystrixCommandGroupKey
 name|key
 init|=
@@ -454,6 +466,15 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+name|exchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|TRY_ROUTE_BLOCK
+argument_list|)
+expr_stmt|;
 name|callback
 operator|.
 name|done

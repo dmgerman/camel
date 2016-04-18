@@ -59,10 +59,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|HystrixCircuitBreakerTest
+DECL|class|HystrixCircuitBreakerOkTest
 specifier|public
 class|class
-name|HystrixCircuitBreakerTest
+name|HystrixCircuitBreakerOkTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -83,7 +83,7 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Fallback message"
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|template
@@ -131,13 +131,9 @@ operator|.
 name|hystrixCircuitBreaker
 argument_list|()
 operator|.
-name|throwException
+name|to
 argument_list|(
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Forced"
-argument_list|)
+literal|"direct:foo"
 argument_list|)
 operator|.
 name|fallback
@@ -157,6 +153,19 @@ operator|.
 name|to
 argument_list|(
 literal|"mock:result"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"direct:foo"
+argument_list|)
+operator|.
+name|transform
+argument_list|()
+operator|.
+name|constant
+argument_list|(
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 block|}
