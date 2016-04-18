@@ -252,6 +252,11 @@ name|PropertiesComponent
 operator|.
 name|class
 argument_list|)
+operator|.
+name|orElse
+argument_list|(
+literal|null
+argument_list|)
 return|;
 block|}
 return|return
@@ -266,6 +271,11 @@ argument_list|,
 name|Object
 operator|.
 name|class
+argument_list|)
+operator|.
+name|orElse
+argument_list|(
+literal|null
 argument_list|)
 return|;
 block|}
@@ -328,6 +338,11 @@ argument_list|,
 name|name
 argument_list|,
 name|type
+argument_list|)
+operator|.
+name|orElse
+argument_list|(
+literal|null
 argument_list|)
 return|;
 block|}

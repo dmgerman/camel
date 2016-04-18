@@ -188,6 +188,22 @@ name|ReflectionHelper
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
+name|BeanManagerHelper
+operator|.
+name|getReferenceByType
+import|;
+end_import
+
 begin_class
 annotation|@
 name|Vetoed
@@ -786,8 +802,6 @@ parameter_list|)
 block|{
 comment|// TODO: proper support for custom context qualifiers
 return|return
-name|BeanManagerHelper
-operator|.
 name|getReferenceByType
 argument_list|(
 name|manager
@@ -814,6 +828,21 @@ argument_list|(
 name|contextName
 argument_list|)
 argument_list|)
+operator|.
+name|orElseThrow
+argument_list|(
+parameter_list|()
+lambda|->
+operator|new
+name|UnsatisfiedResolutionException
+argument_list|(
+literal|"No Camel context with name ["
+operator|+
+name|contextName
+operator|+
+literal|"] is deployed!"
+argument_list|)
+argument_list|)
 return|;
 block|}
 annotation|@
@@ -825,8 +854,6 @@ name|getOrLookupCamelContext
 parameter_list|()
 block|{
 return|return
-name|BeanManagerHelper
-operator|.
 name|getReferenceByType
 argument_list|(
 name|manager
@@ -834,6 +861,11 @@ argument_list|,
 name|CamelContext
 operator|.
 name|class
+argument_list|)
+operator|.
+name|orElse
+argument_list|(
+literal|null
 argument_list|)
 return|;
 block|}
