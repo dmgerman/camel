@@ -4866,6 +4866,29 @@ name|answer
 argument_list|)
 return|;
 block|}
+comment|/**      * Creates a Circuit Breaker EIP that is using Hystrix.      *      * @return  the builder      */
+DECL|method|hystrixCircuitBreaker ()
+specifier|public
+name|HystrixCircuitBreakerDefinition
+name|hystrixCircuitBreaker
+parameter_list|()
+block|{
+name|HystrixCircuitBreakerDefinition
+name|answer
+init|=
+operator|new
+name|HystrixCircuitBreakerDefinition
+argument_list|()
+decl_stmt|;
+name|addOutput
+argument_list|(
+name|answer
+argument_list|)
+expr_stmt|;
+return|return
+name|answer
+return|;
+block|}
 comment|/**      *<a href="http://camel.apache.org/load-balancer.html">Load Balancer EIP:</a>      * Creates a loadbalance      *      * @return  the builder      */
 DECL|method|loadBalance ()
 specifier|public
