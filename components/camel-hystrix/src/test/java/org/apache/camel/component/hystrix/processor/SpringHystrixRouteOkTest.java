@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.hystrix
+DECL|package|org.apache.camel.component.hystrix.processor
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|component
 operator|.
 name|hystrix
+operator|.
+name|processor
 package|;
 end_package
 
@@ -92,7 +94,7 @@ return|return
 operator|new
 name|ClassPathXmlApplicationContext
 argument_list|(
-literal|"org/apache/camel/component/hystrix/SpringHystrixRouteOkTest.xml"
+literal|"org/apache/camel/component/hystrix/processor/SpringHystrixRouteOkTest.xml"
 argument_list|)
 return|;
 block|}

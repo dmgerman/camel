@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.hystrix
+DECL|package|org.apache.camel.component.hystrix.processor
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|component
 operator|.
 name|hystrix
+operator|.
+name|processor
 package|;
 end_package
 
@@ -59,10 +61,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|HystrixRouteFallbackTest
+DECL|class|HystrixRouteOkTest
 specifier|public
 class|class
-name|HystrixRouteFallbackTest
+name|HystrixRouteOkTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -83,7 +85,7 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Fallback message"
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 name|template
@@ -160,19 +162,12 @@ argument_list|(
 literal|"direct:foo"
 argument_list|)
 operator|.
-name|errorHandler
-argument_list|(
-name|noErrorHandler
+name|transform
 argument_list|()
-argument_list|)
 operator|.
-name|throwException
+name|constant
 argument_list|(
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Forced"
-argument_list|)
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
 block|}
