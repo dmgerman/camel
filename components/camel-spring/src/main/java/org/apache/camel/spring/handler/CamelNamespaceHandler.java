@@ -110,6 +110,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|HystrixConfigurationDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|w3c
 operator|.
 name|dom
@@ -1160,7 +1174,7 @@ argument_list|,
 literal|true
 argument_list|)
 expr_stmt|;
-comment|// jmx agent, stream caching, and property placeholder cannot be used outside of the camel context
+comment|// jmx agent, stream caching, hystrix configuration and property placeholder cannot be used outside of the camel context
 name|addBeanDefinitionParser
 argument_list|(
 literal|"jmxAgent"
@@ -1192,6 +1206,19 @@ argument_list|(
 literal|"propertyPlaceholder"
 argument_list|,
 name|CamelPropertyPlaceholderDefinition
+operator|.
+name|class
+argument_list|,
+literal|false
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+name|addBeanDefinitionParser
+argument_list|(
+literal|"hystrixConfiguration"
+argument_list|,
+name|HystrixConfigurationDefinition
 operator|.
 name|class
 argument_list|,

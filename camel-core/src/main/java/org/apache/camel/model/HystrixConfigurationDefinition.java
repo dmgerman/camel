@@ -174,6 +174,8 @@ DECL|class|HystrixConfigurationDefinition
 specifier|public
 class|class
 name|HystrixConfigurationDefinition
+extends|extends
+name|IdentifiedType
 block|{
 annotation|@
 name|XmlTransient
