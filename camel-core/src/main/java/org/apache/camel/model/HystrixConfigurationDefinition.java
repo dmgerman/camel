@@ -594,24 +594,6 @@ name|defaultValue
 operator|=
 literal|"true"
 argument_list|)
-DECL|field|requestCacheEnabled
-specifier|private
-name|Boolean
-name|requestCacheEnabled
-decl_stmt|;
-annotation|@
-name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|label
-operator|=
-literal|"command"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
 DECL|field|requestLogEnabled
 specifier|private
 name|Boolean
@@ -1320,32 +1302,6 @@ operator|=
 name|metricsRollingStatisticalWindowBuckets
 expr_stmt|;
 block|}
-DECL|method|getRequestCacheEnabled ()
-specifier|public
-name|Boolean
-name|getRequestCacheEnabled
-parameter_list|()
-block|{
-return|return
-name|requestCacheEnabled
-return|;
-block|}
-DECL|method|setRequestCacheEnabled (Boolean requestCacheEnabled)
-specifier|public
-name|void
-name|setRequestCacheEnabled
-parameter_list|(
-name|Boolean
-name|requestCacheEnabled
-parameter_list|)
-block|{
-name|this
-operator|.
-name|requestCacheEnabled
-operator|=
-name|requestCacheEnabled
-expr_stmt|;
-block|}
 DECL|method|getRequestLogEnabled ()
 specifier|public
 name|Boolean
@@ -1963,26 +1919,6 @@ operator|.
 name|metricsRollingStatisticalWindowBuckets
 operator|=
 name|metricsRollingStatisticalWindowBuckets
-expr_stmt|;
-return|return
-name|this
-return|;
-block|}
-comment|/**      * Whether HystrixCommand.getCacheKey() should be used with HystrixRequestCache      * to provide de-duplication functionality via request-scoped caching.      */
-DECL|method|requestCacheEnabled (Boolean requestCacheEnabled)
-specifier|public
-name|HystrixConfigurationDefinition
-name|requestCacheEnabled
-parameter_list|(
-name|Boolean
-name|requestCacheEnabled
-parameter_list|)
-block|{
-name|this
-operator|.
-name|requestCacheEnabled
-operator|=
-name|requestCacheEnabled
 expr_stmt|;
 return|return
 name|this

@@ -141,7 +141,7 @@ argument_list|(
 literal|"myCamelApp"
 argument_list|)
 operator|.
-name|requestCacheEnabled
+name|requestLogEnabled
 argument_list|(
 literal|false
 argument_list|)

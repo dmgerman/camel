@@ -167,13 +167,7 @@ specifier|final
 name|AsyncProcessor
 name|fallback
 decl_stmt|;
-DECL|field|cacheKey
-specifier|private
-specifier|final
-name|Expression
-name|cacheKey
-decl_stmt|;
-DECL|method|HystrixProcessorCommand (Setter setter, Exchange exchange, AsyncCallback callback, AsyncProcessor processor, AsyncProcessor fallback, Expression cacheKey)
+DECL|method|HystrixProcessorCommand (Setter setter, Exchange exchange, AsyncCallback callback, AsyncProcessor processor, AsyncProcessor fallback)
 specifier|public
 name|HystrixProcessorCommand
 parameter_list|(
@@ -191,9 +185,6 @@ name|processor
 parameter_list|,
 name|AsyncProcessor
 name|fallback
-parameter_list|,
-name|Expression
-name|cacheKey
 parameter_list|)
 block|{
 name|super
@@ -225,65 +216,6 @@ name|fallback
 operator|=
 name|fallback
 expr_stmt|;
-name|this
-operator|.
-name|cacheKey
-operator|=
-name|cacheKey
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|getCacheKey ()
-specifier|protected
-name|String
-name|getCacheKey
-parameter_list|()
-block|{
-comment|// TODO: require https://github.com/Netflix/Hystrix/wiki/How-To-Use#Caching
-if|if
-condition|(
-name|cacheKey
-operator|!=
-literal|null
-condition|)
-block|{
-try|try
-block|{
-return|return
-name|cacheKey
-operator|.
-name|evaluate
-argument_list|(
-name|exchange
-argument_list|,
-name|String
-operator|.
-name|class
-argument_list|)
-return|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
-block|{
-comment|// ignore
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Error evaluating cache key. This exception is ignored."
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-return|return
-literal|null
-return|;
 block|}
 annotation|@
 name|Override
