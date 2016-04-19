@@ -240,6 +240,26 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Error occurred processing. Will now run fallback. Exception class: {} message: {}."
+argument_list|,
+name|exception
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+argument_list|,
+name|exception
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// store the last to endpoint as the failure endpoint
 if|if
 condition|(
@@ -321,7 +341,9 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Running fallback: {}"
+literal|"Running fallback: {} with exchange: {}"
+argument_list|,
+name|fallback
 argument_list|,
 name|exchange
 argument_list|)
@@ -358,9 +380,20 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Running fallback: {} success"
+literal|"Running fallback: {} with exchange: {} done"
+argument_list|,
+name|fallback
 argument_list|,
 name|exchange
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|TRY_ROUTE_BLOCK
 argument_list|)
 expr_stmt|;
 name|callback
@@ -389,22 +422,14 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Running processor: {}"
+literal|"Running processor: {} with exchange: {}"
+argument_list|,
+name|processor
 argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
-name|exchange
-operator|.
-name|setProperty
-argument_list|(
-name|Exchange
-operator|.
-name|EXCEPTION_HANDLED
-argument_list|,
-literal|null
-argument_list|)
-expr_stmt|;
+comment|// run this as if we run inside try .. catch so there is no regular Camel error handler
 name|exchange
 operator|.
 name|setProperty
@@ -467,9 +492,20 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Running processor: {} success"
+literal|"Running processor: {} with exchange: {} done"
+argument_list|,
+name|processor
 argument_list|,
 name|exchange
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|removeProperty
+argument_list|(
+name|Exchange
+operator|.
+name|TRY_ROUTE_BLOCK
 argument_list|)
 expr_stmt|;
 name|callback
