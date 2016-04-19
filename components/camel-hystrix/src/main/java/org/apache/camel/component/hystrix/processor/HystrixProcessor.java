@@ -96,6 +96,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Navigate
 import|;
 end_import
@@ -222,7 +234,13 @@ specifier|final
 name|AsyncProcessor
 name|fallback
 decl_stmt|;
-DECL|method|HystrixProcessor (String id, HystrixCommand.Setter setter, Processor processor, Processor fallback)
+DECL|field|cacheKey
+specifier|private
+specifier|final
+name|Expression
+name|cacheKey
+decl_stmt|;
+DECL|method|HystrixProcessor (String id, HystrixCommand.Setter setter, Processor processor, Processor fallback, Expression cacheKey)
 specifier|public
 name|HystrixProcessor
 parameter_list|(
@@ -239,6 +257,9 @@ name|processor
 parameter_list|,
 name|Processor
 name|fallback
+parameter_list|,
+name|Expression
+name|cacheKey
 parameter_list|)
 block|{
 name|this
@@ -274,6 +295,12 @@ name|convert
 argument_list|(
 name|fallback
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|cacheKey
+operator|=
+name|cacheKey
 expr_stmt|;
 block|}
 annotation|@
@@ -443,6 +470,8 @@ argument_list|,
 name|processor
 argument_list|,
 name|fallback
+argument_list|,
+name|cacheKey
 argument_list|)
 decl_stmt|;
 try|try

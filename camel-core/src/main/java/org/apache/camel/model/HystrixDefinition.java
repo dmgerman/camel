@@ -138,6 +138,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -208,6 +220,13 @@ DECL|field|hystrixConfiguration
 specifier|private
 name|HystrixConfigurationDefinition
 name|hystrixConfiguration
+decl_stmt|;
+annotation|@
+name|XmlElement
+DECL|field|cacheKey
+specifier|private
+name|ExpressionSubElementDefinition
+name|cacheKey
 decl_stmt|;
 annotation|@
 name|XmlElementRef
@@ -529,32 +548,6 @@ block|}
 block|}
 comment|// Getter/Setter
 comment|// -------------------------------------------------------------------------
-DECL|method|getFallback ()
-specifier|public
-name|FallbackDefinition
-name|getFallback
-parameter_list|()
-block|{
-return|return
-name|fallback
-return|;
-block|}
-DECL|method|setFallback (FallbackDefinition fallback)
-specifier|public
-name|void
-name|setFallback
-parameter_list|(
-name|FallbackDefinition
-name|fallback
-parameter_list|)
-block|{
-name|this
-operator|.
-name|fallback
-operator|=
-name|fallback
-expr_stmt|;
-block|}
 DECL|method|getHystrixConfiguration ()
 specifier|public
 name|HystrixConfigurationDefinition
@@ -607,32 +600,60 @@ operator|=
 name|hystrixConfigurationRef
 expr_stmt|;
 block|}
-comment|// Fluent API
-comment|// -------------------------------------------------------------------------
-comment|/**      * Sets the fallback node      */
-DECL|method|fallback ()
+DECL|method|getCacheKey ()
 specifier|public
-name|HystrixDefinition
-name|fallback
+name|ExpressionSubElementDefinition
+name|getCacheKey
 parameter_list|()
 block|{
-name|fallback
-operator|=
-operator|new
-name|FallbackDefinition
-argument_list|()
-expr_stmt|;
-name|fallback
-operator|.
-name|setParent
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
 return|return
-name|this
+name|cacheKey
 return|;
 block|}
+DECL|method|setCacheKey (ExpressionSubElementDefinition cacheKey)
+specifier|public
+name|void
+name|setCacheKey
+parameter_list|(
+name|ExpressionSubElementDefinition
+name|cacheKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cacheKey
+operator|=
+name|cacheKey
+expr_stmt|;
+block|}
+DECL|method|getFallback ()
+specifier|public
+name|FallbackDefinition
+name|getFallback
+parameter_list|()
+block|{
+return|return
+name|fallback
+return|;
+block|}
+DECL|method|setFallback (FallbackDefinition fallback)
+specifier|public
+name|void
+name|setFallback
+parameter_list|(
+name|FallbackDefinition
+name|fallback
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fallback
+operator|=
+name|fallback
+expr_stmt|;
+block|}
+comment|// Fluent API
+comment|// -------------------------------------------------------------------------
 comment|/**      * Configures the Hystrix EIP      *<p/>      * Use<tt>end</tt> when configuration is complete, to return back to the Hystrix EIP.      */
 DECL|method|configure ()
 specifier|public
@@ -683,6 +704,53 @@ block|{
 name|hystrixConfigurationRef
 operator|=
 name|ref
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the expression to use for generating the cache key.      *<p/>      * Key to be used for request caching.      * By default this returns null which means "do not cache".      * To enable caching set an expression that returns a string key uniquely representing the state of a command instance.      * If multiple command instances in the same request scope match keys then only the first will be executed and all others returned from cache.      */
+DECL|method|cacheKey (Expression expression)
+specifier|public
+name|HystrixDefinition
+name|cacheKey
+parameter_list|(
+name|Expression
+name|expression
+parameter_list|)
+block|{
+name|setCacheKey
+argument_list|(
+operator|new
+name|ExpressionSubElementDefinition
+argument_list|(
+name|expression
+argument_list|)
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the fallback node      */
+DECL|method|fallback ()
+specifier|public
+name|HystrixDefinition
+name|fallback
+parameter_list|()
+block|{
+name|fallback
+operator|=
+operator|new
+name|FallbackDefinition
+argument_list|()
+expr_stmt|;
+name|fallback
+operator|.
+name|setParent
+argument_list|(
+name|this
+argument_list|)
 expr_stmt|;
 return|return
 name|this

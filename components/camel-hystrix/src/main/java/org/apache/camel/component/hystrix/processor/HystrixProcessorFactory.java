@@ -76,6 +76,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Expression
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -253,7 +265,7 @@ name|getNodeIdFactory
 argument_list|()
 argument_list|)
 decl_stmt|;
-comment|// create the regular processor
+comment|// create the regular and fallback processors
 name|Processor
 name|processor
 init|=
@@ -422,6 +434,35 @@ name|config
 argument_list|)
 expr_stmt|;
 block|}
+comment|// optional cache-key from expression
+name|Expression
+name|cacheKey
+init|=
+literal|null
+decl_stmt|;
+if|if
+condition|(
+name|cb
+operator|.
+name|getCacheKey
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|cacheKey
+operator|=
+name|cb
+operator|.
+name|getCacheKey
+argument_list|()
+operator|.
+name|createExpression
+argument_list|(
+name|routeContext
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 operator|new
 name|HystrixProcessor
@@ -433,6 +474,8 @@ argument_list|,
 name|processor
 argument_list|,
 name|fallback
+argument_list|,
+name|cacheKey
 argument_list|)
 return|;
 block|}
