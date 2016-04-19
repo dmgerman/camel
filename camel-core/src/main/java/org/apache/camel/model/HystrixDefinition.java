@@ -84,6 +84,20 @@ name|bind
 operator|.
 name|annotation
 operator|.
+name|XmlAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
 name|XmlElement
 import|;
 end_import
@@ -224,6 +238,13 @@ DECL|field|fallback
 specifier|private
 name|FallbackDefinition
 name|fallback
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|hystrixConfigurationRef
+specifier|private
+name|String
+name|hystrixConfigurationRef
 decl_stmt|;
 DECL|method|HystrixDefinition ()
 specifier|public
@@ -560,6 +581,32 @@ operator|=
 name|hystrixConfiguration
 expr_stmt|;
 block|}
+DECL|method|getHystrixConfigurationRef ()
+specifier|public
+name|String
+name|getHystrixConfigurationRef
+parameter_list|()
+block|{
+return|return
+name|hystrixConfigurationRef
+return|;
+block|}
+DECL|method|setHystrixConfigurationRef (String hystrixConfigurationRef)
+specifier|public
+name|void
+name|setHystrixConfigurationRef
+parameter_list|(
+name|String
+name|hystrixConfigurationRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|hystrixConfigurationRef
+operator|=
+name|hystrixConfigurationRef
+expr_stmt|;
+block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
 comment|/**      * Sets the fallback node      */
@@ -603,6 +650,42 @@ argument_list|)
 expr_stmt|;
 return|return
 name|hystrixConfiguration
+return|;
+block|}
+comment|/**      * Configures the Hystrix EIP using the given configuration      */
+DECL|method|configure (HystrixConfigurationDefinition configuration)
+specifier|public
+name|HystrixDefinition
+name|configure
+parameter_list|(
+name|HystrixConfigurationDefinition
+name|configuration
+parameter_list|)
+block|{
+name|hystrixConfiguration
+operator|=
+name|configuration
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Refers to a hystrix configuration to use for configuring the Hystrix EIP.      */
+DECL|method|configure (String ref)
+specifier|public
+name|HystrixDefinition
+name|configure
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|hystrixConfigurationRef
+operator|=
+name|ref
+expr_stmt|;
+return|return
+name|this
 return|;
 block|}
 block|}
