@@ -469,9 +469,28 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-comment|// if we failed then throw an exception
+comment|// is fallback enabled
+name|Boolean
+name|fallbackEnabled
+init|=
+name|getProperties
+argument_list|()
+operator|.
+name|fallbackEnabled
+argument_list|()
+operator|.
+name|get
+argument_list|()
+decl_stmt|;
+comment|// if we failed then throw an exception if fallback is enabled
 if|if
 condition|(
+name|fallbackEnabled
+operator|==
+literal|null
+operator|||
+name|fallbackEnabled
+operator|&&
 name|exchange
 operator|.
 name|getException
@@ -487,7 +506,7 @@ name|getException
 argument_list|()
 throw|;
 block|}
-comment|// no errors we are done
+comment|// no fallback then we are done
 try|try
 block|{
 name|LOG
