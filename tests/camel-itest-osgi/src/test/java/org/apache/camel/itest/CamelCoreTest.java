@@ -191,6 +191,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// install the camel blueprint xml file we use in this test
 name|URL
 name|url
 init|=
@@ -283,7 +284,9 @@ return|return
 name|CamelKarafTestSupport
 operator|.
 name|configure
-argument_list|()
+argument_list|(
+literal|"camel-test-karaf"
+argument_list|)
 return|;
 block|}
 block|}
