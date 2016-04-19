@@ -96,6 +96,10 @@ name|RouteContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * Default {@link ProcessorFactory} that supports using 3rd party Camel components to implement the EIP {@link Processor}.  *<p/>  * The component should use the {@link FactoryFinder} SPI to specify a file with the name of the EIP model in the  * directory of {@link #RESOURCE_PATH}. The file should contain a property with key<tt>class</tt> that refers  * to the name of the {@link ProcessorFactory} the Camel component implement, which gets called for creating  * the {@link Processor}s for the EIP.  *<p/>  * The Hystrix EIP is such an example where {@link org.apache.camel.model.HystrixDefinition} is implemented  * in the<tt>camel-hystrix</tt> component.  */
+end_comment
+
 begin_class
 DECL|class|DefaultProcessorFactory
 specifier|public
