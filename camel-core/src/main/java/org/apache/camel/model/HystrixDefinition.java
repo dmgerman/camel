@@ -22,7 +22,27 @@ name|java
 operator|.
 name|util
 operator|.
+name|ArrayList
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Iterator
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -65,6 +85,20 @@ operator|.
 name|annotation
 operator|.
 name|XmlElement
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlElementRef
 import|;
 end_import
 
@@ -156,6 +190,36 @@ argument_list|>
 block|{
 annotation|@
 name|XmlElement
+DECL|field|hystrixConfiguration
+specifier|private
+name|HystrixConfigurationDefinition
+name|hystrixConfiguration
+decl_stmt|;
+annotation|@
+name|XmlElementRef
+DECL|field|outputs
+specifier|protected
+name|List
+argument_list|<
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|outputs
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+argument_list|()
+decl_stmt|;
+annotation|@
+name|XmlElement
 DECL|field|fallback
 specifier|private
 name|FallbackDefinition
@@ -215,6 +279,79 @@ argument_list|(
 literal|"Cannot find camel-hystrix on the classpath."
 argument_list|)
 throw|;
+block|}
+DECL|method|getOutputs ()
+specifier|public
+name|List
+argument_list|<
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|getOutputs
+parameter_list|()
+block|{
+return|return
+name|outputs
+return|;
+block|}
+DECL|method|isOutputSupported ()
+specifier|public
+name|boolean
+name|isOutputSupported
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+DECL|method|setOutputs (List<ProcessorDefinition<?>> outputs)
+specifier|public
+name|void
+name|setOutputs
+parameter_list|(
+name|List
+argument_list|<
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+argument_list|>
+name|outputs
+parameter_list|)
+block|{
+name|this
+operator|.
+name|outputs
+operator|=
+name|outputs
+expr_stmt|;
+if|if
+condition|(
+name|outputs
+operator|!=
+literal|null
+condition|)
+block|{
+for|for
+control|(
+name|ProcessorDefinition
+argument_list|<
+name|?
+argument_list|>
+name|output
+range|:
+name|outputs
+control|)
+block|{
+name|configureChild
+argument_list|(
+name|output
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 annotation|@
 name|Override
@@ -306,32 +443,6 @@ name|end
 argument_list|()
 return|;
 block|}
-DECL|method|getFallback ()
-specifier|public
-name|FallbackDefinition
-name|getFallback
-parameter_list|()
-block|{
-return|return
-name|fallback
-return|;
-block|}
-DECL|method|setFallback (FallbackDefinition fallback)
-specifier|public
-name|void
-name|setFallback
-parameter_list|(
-name|FallbackDefinition
-name|fallback
-parameter_list|)
-block|{
-name|this
-operator|.
-name|fallback
-operator|=
-name|fallback
-expr_stmt|;
-block|}
 DECL|method|preCreateProcessor ()
 specifier|protected
 name|void
@@ -395,9 +506,63 @@ expr_stmt|;
 block|}
 block|}
 block|}
+comment|// Getter/Setter
+comment|// -------------------------------------------------------------------------
+DECL|method|getFallback ()
+specifier|public
+name|FallbackDefinition
+name|getFallback
+parameter_list|()
+block|{
+return|return
+name|fallback
+return|;
+block|}
+DECL|method|setFallback (FallbackDefinition fallback)
+specifier|public
+name|void
+name|setFallback
+parameter_list|(
+name|FallbackDefinition
+name|fallback
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fallback
+operator|=
+name|fallback
+expr_stmt|;
+block|}
+DECL|method|getHystrixConfiguration ()
+specifier|public
+name|HystrixConfigurationDefinition
+name|getHystrixConfiguration
+parameter_list|()
+block|{
+return|return
+name|hystrixConfiguration
+return|;
+block|}
+DECL|method|setHystrixConfiguration (HystrixConfigurationDefinition hystrixConfiguration)
+specifier|public
+name|void
+name|setHystrixConfiguration
+parameter_list|(
+name|HystrixConfigurationDefinition
+name|hystrixConfiguration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|hystrixConfiguration
+operator|=
+name|hystrixConfiguration
+expr_stmt|;
+block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
-comment|/**      * Sets the otherwise node      *      * @return the builder      */
+comment|/**      * Sets the fallback node      */
 DECL|method|fallback ()
 specifier|public
 name|HystrixDefinition
@@ -419,6 +584,25 @@ argument_list|)
 expr_stmt|;
 return|return
 name|this
+return|;
+block|}
+comment|/**      * Configures the Hystrix EIP      *<p/>      * Use<tt>end</tt> when configuration is complete, to return back to the Hystrix EIP.      */
+DECL|method|configure ()
+specifier|public
+name|HystrixConfigurationDefinition
+name|configure
+parameter_list|()
+block|{
+name|hystrixConfiguration
+operator|=
+operator|new
+name|HystrixConfigurationDefinition
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+return|return
+name|hystrixConfiguration
 return|;
 block|}
 block|}

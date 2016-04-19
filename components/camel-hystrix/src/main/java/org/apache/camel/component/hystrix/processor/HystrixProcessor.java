@@ -48,7 +48,7 @@ name|netflix
 operator|.
 name|hystrix
 operator|.
-name|HystrixCommandGroupKey
+name|HystrixCommand
 import|;
 end_import
 
@@ -202,6 +202,14 @@ specifier|private
 name|String
 name|id
 decl_stmt|;
+DECL|field|setter
+specifier|private
+specifier|final
+name|HystrixCommand
+operator|.
+name|Setter
+name|setter
+decl_stmt|;
 DECL|field|processor
 specifier|private
 specifier|final
@@ -214,12 +222,17 @@ specifier|final
 name|AsyncProcessor
 name|fallback
 decl_stmt|;
-DECL|method|HystrixProcessor (String id, Processor processor, Processor fallback)
+DECL|method|HystrixProcessor (String id, HystrixCommand.Setter setter, Processor processor, Processor fallback)
 specifier|public
 name|HystrixProcessor
 parameter_list|(
 name|String
 name|id
+parameter_list|,
+name|HystrixCommand
+operator|.
+name|Setter
+name|setter
 parameter_list|,
 name|Processor
 name|processor
@@ -233,6 +246,12 @@ operator|.
 name|id
 operator|=
 name|id
+expr_stmt|;
+name|this
+operator|.
+name|setter
+operator|=
+name|setter
 expr_stmt|;
 name|this
 operator|.
@@ -409,25 +428,13 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-name|HystrixCommandGroupKey
-name|key
-init|=
-name|HystrixCommandGroupKey
-operator|.
-name|Factory
-operator|.
-name|asKey
-argument_list|(
-name|id
-argument_list|)
-decl_stmt|;
 name|HystrixProcessorCommand
 name|command
 init|=
 operator|new
 name|HystrixProcessorCommand
 argument_list|(
-name|key
+name|setter
 argument_list|,
 name|exchange
 argument_list|,

@@ -155,12 +155,12 @@ specifier|final
 name|AsyncProcessor
 name|fallback
 decl_stmt|;
-DECL|method|HystrixProcessorCommand (HystrixCommandGroupKey group, Exchange exchange, AsyncCallback callback, AsyncProcessor processor, AsyncProcessor fallback)
+DECL|method|HystrixProcessorCommand (Setter setter, Exchange exchange, AsyncCallback callback, AsyncProcessor processor, AsyncProcessor fallback)
 specifier|public
 name|HystrixProcessorCommand
 parameter_list|(
-name|HystrixCommandGroupKey
-name|group
+name|Setter
+name|setter
 parameter_list|,
 name|Exchange
 name|exchange
@@ -177,7 +177,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|group
+name|setter
 argument_list|)
 expr_stmt|;
 name|this
