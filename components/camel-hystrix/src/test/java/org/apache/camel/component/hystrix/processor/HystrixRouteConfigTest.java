@@ -136,6 +136,11 @@ operator|.
 name|configure
 argument_list|()
 operator|.
+name|groupKey
+argument_list|(
+literal|"myCamelApp"
+argument_list|)
+operator|.
 name|requestCacheEnabled
 argument_list|(
 literal|false

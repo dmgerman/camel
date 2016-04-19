@@ -177,12 +177,49 @@ name|HystrixConfigurationDefinition
 extends|extends
 name|IdentifiedType
 block|{
+DECL|field|DEFAULT_GROUP_KEY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_GROUP_KEY
+init|=
+literal|"CamelHystrix"
+decl_stmt|;
 annotation|@
 name|XmlTransient
 DECL|field|parent
 specifier|private
 name|HystrixDefinition
 name|parent
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"CamelHystrix"
+argument_list|)
+DECL|field|groupKey
+specifier|private
+name|String
+name|groupKey
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"CamelHystrix"
+argument_list|)
+DECL|field|threadPoolKey
+specifier|private
+name|String
+name|threadPoolKey
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -711,6 +748,58 @@ expr_stmt|;
 block|}
 comment|// Getter/Setter
 comment|// -------------------------------------------------------------------------
+DECL|method|getGroupKey ()
+specifier|public
+name|String
+name|getGroupKey
+parameter_list|()
+block|{
+return|return
+name|groupKey
+return|;
+block|}
+DECL|method|setGroupKey (String groupKey)
+specifier|public
+name|void
+name|setGroupKey
+parameter_list|(
+name|String
+name|groupKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|groupKey
+operator|=
+name|groupKey
+expr_stmt|;
+block|}
+DECL|method|getThreadPoolKey ()
+specifier|public
+name|String
+name|getThreadPoolKey
+parameter_list|()
+block|{
+return|return
+name|threadPoolKey
+return|;
+block|}
+DECL|method|setThreadPoolKey (String threadPoolKey)
+specifier|public
+name|void
+name|setThreadPoolKey
+parameter_list|(
+name|String
+name|threadPoolKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|threadPoolKey
+operator|=
+name|threadPoolKey
+expr_stmt|;
+block|}
 DECL|method|getCircuitBreakerEnabled ()
 specifier|public
 name|Boolean
@@ -1441,6 +1530,44 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
+comment|/**      * Sets the group key to use. The default value is CamelHystrix.      */
+DECL|method|groupKey (String groupKey)
+specifier|public
+name|HystrixConfigurationDefinition
+name|groupKey
+parameter_list|(
+name|String
+name|groupKey
+parameter_list|)
+block|{
+name|setGroupKey
+argument_list|(
+name|groupKey
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the thread pool key to use. Will by default use the same value as groupKey has been configured to use.      */
+DECL|method|threadPoolKey (String threadPoolKey)
+specifier|public
+name|HystrixConfigurationDefinition
+name|threadPoolKey
+parameter_list|(
+name|String
+name|threadPoolKey
+parameter_list|)
+block|{
+name|setThreadPoolKey
+argument_list|(
+name|threadPoolKey
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Whether to use a HystrixCircuitBreaker or not. If false no circuit-breaker logic will be used and all requests permitted.      *<p>      * This is similar in effect to circuitBreakerForceClosed() except that continues tracking metrics and knowing whether it      * should be open/closed, this property results in not even instantiating a circuit-breaker.      */
 DECL|method|circuitBreakerEnabled (Boolean circuitBreakerEnabled)
 specifier|public
