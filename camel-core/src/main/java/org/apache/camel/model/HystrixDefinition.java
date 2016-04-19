@@ -183,7 +183,7 @@ specifier|public
 class|class
 name|HystrixDefinition
 extends|extends
-name|OutputDefinition
+name|ProcessorDefinition
 argument_list|<
 name|HystrixDefinition
 argument_list|>
