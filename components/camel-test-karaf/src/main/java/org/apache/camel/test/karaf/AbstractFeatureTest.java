@@ -1178,7 +1178,7 @@ name|class
 argument_list|,
 literal|"(camel.context.name=myCamel)"
 argument_list|,
-literal|20000
+name|SERVICE_TIMEOUT
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -1298,7 +1298,7 @@ name|class
 argument_list|,
 literal|"(camel.context.name=myCamel)"
 argument_list|,
-literal|20000
+name|SERVICE_TIMEOUT
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -1801,13 +1801,6 @@ argument_list|(
 literal|"camel"
 argument_list|)
 expr_stmt|;
-name|camel
-operator|.
-name|add
-argument_list|(
-literal|"camel-test-karaf"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|extra
@@ -1996,7 +1989,24 @@ argument_list|()
 argument_list|,
 name|camelFeatures
 argument_list|)
-block|,         }
+block|,
+comment|// install camel-test-karaf as bundle (not feature as the feature causes a bundle refresh that invalidates the @Inject bundleContext)
+name|mavenBundle
+argument_list|()
+operator|.
+name|groupId
+argument_list|(
+literal|"org.apache.camel"
+argument_list|)
+operator|.
+name|artifactId
+argument_list|(
+literal|"camel-test-karaf"
+argument_list|)
+operator|.
+name|versionAsInProject
+argument_list|()
+block|}
 decl_stmt|;
 return|return
 name|options
