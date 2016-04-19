@@ -328,16 +328,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|hamcrest
-operator|.
-name|Matchers
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|jboss
 operator|.
 name|arquillian
@@ -477,6 +467,18 @@ operator|.
 name|MockEndpoint
 operator|.
 name|assertIsSatisfied
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|hamcrest
+operator|.
+name|Matchers
+operator|.
+name|contains
 import|;
 end_import
 
@@ -761,11 +763,6 @@ literal|"Events fired are incorrect"
 argument_list|,
 name|events
 argument_list|,
-name|Matchers
-operator|.
-expr|<
-name|Class
-operator|>
 name|contains
 argument_list|(
 name|CamelContextStartingEvent
@@ -838,11 +835,6 @@ literal|"Events fired are incorrect"
 argument_list|,
 name|events
 argument_list|,
-name|Matchers
-operator|.
-expr|<
-name|Class
-operator|>
 name|contains
 argument_list|(
 name|CamelContextStartingEvent
@@ -915,11 +907,6 @@ literal|"Events fired are incorrect"
 argument_list|,
 name|events
 argument_list|,
-name|Matchers
-operator|.
-expr|<
-name|Class
-operator|>
 name|contains
 argument_list|(
 name|CamelContextStartingEvent

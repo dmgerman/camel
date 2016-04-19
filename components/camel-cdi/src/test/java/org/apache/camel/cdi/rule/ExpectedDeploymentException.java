@@ -44,7 +44,7 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|CoreMatchers
+name|Matcher
 import|;
 end_import
 
@@ -54,7 +54,7 @@ name|org
 operator|.
 name|hamcrest
 operator|.
-name|Matcher
+name|Matchers
 import|;
 end_import
 
@@ -376,11 +376,8 @@ name|exceptions
 operator|.
 name|add
 argument_list|(
-name|CoreMatchers
+name|Matchers
 operator|.
-expr|<
-name|Throwable
-operator|>
 name|instanceOf
 argument_list|(
 name|type
