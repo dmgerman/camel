@@ -59,19 +59,19 @@ import|;
 end_import
 
 begin_class
-DECL|class|HystrixRouteFallbackTest
+DECL|class|TryCatchTest
 specifier|public
 class|class
-name|HystrixRouteFallbackTest
+name|TryCatchTest
 extends|extends
 name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testHystrix ()
+DECL|method|testTryCatch ()
 specifier|public
 name|void
-name|testHystrix
+name|testTryCatch
 parameter_list|()
 throws|throws
 name|Exception
@@ -128,7 +128,7 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|hystrix
+name|doTry
 argument_list|()
 operator|.
 name|to
@@ -136,8 +136,12 @@ argument_list|(
 literal|"direct:foo"
 argument_list|)
 operator|.
-name|fallback
-argument_list|()
+name|doCatch
+argument_list|(
+name|Exception
+operator|.
+name|class
+argument_list|)
 operator|.
 name|transform
 argument_list|()
