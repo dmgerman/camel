@@ -40,7 +40,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|HystrixCircuitBreakerDefinition
+name|HystrixDefinition
 import|;
 end_import
 
@@ -85,6 +85,10 @@ operator|.
 name|RouteContext
 import|;
 end_import
+
+begin_comment
+comment|/**  * To integrate camel-hystrix with the Camel routes using the Hystrix EIP.  */
+end_comment
 
 begin_class
 DECL|class|HystrixProcessorFactory
@@ -144,14 +148,14 @@ if|if
 condition|(
 name|definition
 operator|instanceof
-name|HystrixCircuitBreakerDefinition
+name|HystrixDefinition
 condition|)
 block|{
-name|HystrixCircuitBreakerDefinition
+name|HystrixDefinition
 name|cb
 init|=
 operator|(
-name|HystrixCircuitBreakerDefinition
+name|HystrixDefinition
 operator|)
 name|definition
 decl_stmt|;

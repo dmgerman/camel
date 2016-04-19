@@ -1590,13 +1590,13 @@ if|if
 condition|(
 name|defn
 operator|instanceof
-name|HystrixCircuitBreakerDefinition
+name|HystrixDefinition
 operator|||
 name|ProcessorDefinitionHelper
 operator|.
 name|isParentOfType
 argument_list|(
-name|HystrixCircuitBreakerDefinition
+name|HystrixDefinition
 operator|.
 name|class
 argument_list|,
@@ -4898,18 +4898,18 @@ name|answer
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Circuit Breaker EIP that is using Hystrix.      *      * @return  the builder      */
-DECL|method|hystrixCircuitBreaker ()
+comment|/**      * Creates a Hystrix Circuit Breaker EIP.      *<p/>      * This requires having camel-hystrix on the classpath.      *      * @return  the builder      */
+DECL|method|hystrix ()
 specifier|public
-name|HystrixCircuitBreakerDefinition
-name|hystrixCircuitBreaker
+name|HystrixDefinition
+name|hystrix
 parameter_list|()
 block|{
-name|HystrixCircuitBreakerDefinition
+name|HystrixDefinition
 name|answer
 init|=
 operator|new
-name|HystrixCircuitBreakerDefinition
+name|HystrixDefinition
 argument_list|()
 decl_stmt|;
 name|addOutput

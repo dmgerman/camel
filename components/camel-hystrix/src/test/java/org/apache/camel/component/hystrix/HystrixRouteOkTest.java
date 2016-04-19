@@ -59,19 +59,19 @@ import|;
 end_import
 
 begin_class
-DECL|class|HystrixCircuitBreakerOkTest
+DECL|class|HystrixRouteOkTest
 specifier|public
 class|class
-name|HystrixCircuitBreakerOkTest
+name|HystrixRouteOkTest
 extends|extends
 name|CamelTestSupport
 block|{
 annotation|@
 name|Test
-DECL|method|testHystrixCircuitBreaker ()
+DECL|method|testHystrix ()
 specifier|public
 name|void
-name|testHystrixCircuitBreaker
+name|testHystrix
 parameter_list|()
 throws|throws
 name|Exception
@@ -128,7 +128,7 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|hystrixCircuitBreaker
+name|hystrix
 argument_list|()
 operator|.
 name|to

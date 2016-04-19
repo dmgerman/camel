@@ -92,20 +92,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|HystrixCircuitBreakerProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|Metadata
@@ -139,7 +125,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"hystrixCircuitBreaker"
+literal|"hystrix"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -148,19 +134,16 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|HystrixCircuitBreakerDefinition
+DECL|class|HystrixDefinition
 specifier|public
 class|class
-name|HystrixCircuitBreakerDefinition
+name|HystrixDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
-name|HystrixCircuitBreakerDefinition
+name|HystrixDefinition
 argument_list|>
 block|{
-comment|// TODO: we can rename to circuitBreaker and then deprecated the CB in the load balancer
-comment|// the trick is to avoid a clash in the generated xml schema
-comment|// so for know we call it hystrixCircuitBreaker
 annotation|@
 name|XmlElement
 DECL|field|fallback
@@ -168,9 +151,9 @@ specifier|private
 name|FallbackDefinition
 name|fallback
 decl_stmt|;
-DECL|method|HystrixCircuitBreakerDefinition ()
+DECL|method|HystrixDefinition ()
 specifier|public
-name|HystrixCircuitBreakerDefinition
+name|HystrixDefinition
 parameter_list|()
 block|{     }
 annotation|@
@@ -182,7 +165,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"HystrixCircuitBreaker["
+literal|"Hystrix["
 operator|+
 name|getOutputs
 argument_list|()
@@ -199,7 +182,7 @@ name|getLabel
 parameter_list|()
 block|{
 return|return
-literal|"hystrixCircuitBreaker"
+literal|"hystrix"
 return|;
 block|}
 annotation|@
@@ -215,49 +198,13 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|Processor
-name|children
-init|=
-name|this
-operator|.
-name|createChildProcessor
-argument_list|(
-name|routeContext
-argument_list|,
-literal|true
-argument_list|)
-decl_stmt|;
-name|Processor
-name|fallbackProcessor
-init|=
-literal|null
-decl_stmt|;
-if|if
-condition|(
-name|fallback
-operator|!=
-literal|null
-condition|)
-block|{
-name|fallbackProcessor
-operator|=
-name|createProcessor
-argument_list|(
-name|routeContext
-argument_list|,
-name|fallback
-argument_list|)
-expr_stmt|;
-block|}
-return|return
+throw|throw
 operator|new
-name|HystrixCircuitBreakerProcessor
+name|IllegalStateException
 argument_list|(
-name|children
-argument_list|,
-name|fallbackProcessor
+literal|"Cannot find camel-hystrix on the classpath."
 argument_list|)
-return|;
+throw|;
 block|}
 annotation|@
 name|Override
@@ -362,7 +309,7 @@ comment|// ---------------------------------------------------------------------
 comment|/**      * Sets the otherwise node      *      * @return the builder      */
 DECL|method|fallback ()
 specifier|public
-name|HystrixCircuitBreakerDefinition
+name|HystrixDefinition
 name|fallback
 parameter_list|()
 block|{

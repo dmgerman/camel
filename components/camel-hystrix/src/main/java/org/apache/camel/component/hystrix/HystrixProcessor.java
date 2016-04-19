@@ -166,6 +166,10 @@ name|AsyncProcessorHelper
 import|;
 end_import
 
+begin_comment
+comment|/**  * Implementation of the Hystrix EIP.  */
+end_comment
+
 begin_class
 DECL|class|HystrixProcessor
 specifier|public
@@ -290,7 +294,7 @@ name|getTraceLabel
 parameter_list|()
 block|{
 return|return
-literal|"hystrixCircuitBreaker"
+literal|"hystrix"
 return|;
 block|}
 annotation|@
