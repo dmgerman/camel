@@ -316,22 +316,6 @@ name|cdi
 operator|.
 name|xml
 operator|.
-name|ProxyFactoryDefinition
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|cdi
-operator|.
-name|xml
-operator|.
 name|RestContextDefinition
 import|;
 end_import
@@ -360,11 +344,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|cdi
+name|core
 operator|.
 name|xml
 operator|.
-name|ServiceExporterDefinition
+name|AbstractCamelFactoryBean
 import|;
 end_import
 
@@ -380,7 +364,23 @@ name|core
 operator|.
 name|xml
 operator|.
-name|AbstractCamelFactoryBean
+name|CamelProxyFactoryDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|core
+operator|.
+name|xml
+operator|.
+name|CamelServiceExporterDefinition
 import|;
 end_import
 
@@ -1967,7 +1967,7 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-DECL|method|proxyFactoryBean (Bean<?> context, ProxyFactoryDefinition proxy, URL url)
+DECL|method|proxyFactoryBean (Bean<?> context, CamelProxyFactoryDefinition proxy, URL url)
 specifier|private
 name|SyntheticBean
 argument_list|<
@@ -1981,7 +1981,7 @@ name|?
 argument_list|>
 name|context
 parameter_list|,
-name|ProxyFactoryDefinition
+name|CamelProxyFactoryDefinition
 name|proxy
 parameter_list|,
 name|URL
@@ -2111,7 +2111,7 @@ name|proxy
 argument_list|)
 return|;
 block|}
-DECL|method|serviceExporterBean (Bean<?> context, ServiceExporterDefinition exporter, URL url)
+DECL|method|serviceExporterBean (Bean<?> context, CamelServiceExporterDefinition exporter, URL url)
 specifier|private
 name|SyntheticBean
 argument_list|<
@@ -2125,7 +2125,7 @@ name|?
 argument_list|>
 name|context
 parameter_list|,
-name|ServiceExporterDefinition
+name|CamelServiceExporterDefinition
 name|exporter
 parameter_list|,
 name|URL

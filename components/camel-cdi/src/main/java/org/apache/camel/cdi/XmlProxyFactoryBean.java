@@ -150,11 +150,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|cdi
+name|component
 operator|.
-name|xml
+name|bean
 operator|.
-name|ProxyFactoryDefinition
+name|ProxyHelper
 import|;
 end_import
 
@@ -166,11 +166,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|core
 operator|.
-name|bean
+name|xml
 operator|.
-name|ProxyHelper
+name|CamelProxyFactoryDefinition
 import|;
 end_import
 
@@ -282,10 +282,10 @@ decl_stmt|;
 DECL|field|proxy
 specifier|private
 specifier|final
-name|ProxyFactoryDefinition
+name|CamelProxyFactoryDefinition
 name|proxy
 decl_stmt|;
-DECL|method|XmlProxyFactoryBean (BeanManager manager, SyntheticAnnotated annotated, Class<?> type, Function<Bean<T>, String> toString, Bean<?> context, ProxyFactoryDefinition proxy)
+DECL|method|XmlProxyFactoryBean (BeanManager manager, SyntheticAnnotated annotated, Class<?> type, Function<Bean<T>, String> toString, Bean<?> context, CamelProxyFactoryDefinition proxy)
 name|XmlProxyFactoryBean
 parameter_list|(
 name|BeanManager
@@ -317,7 +317,7 @@ name|?
 argument_list|>
 name|context
 parameter_list|,
-name|ProxyFactoryDefinition
+name|CamelProxyFactoryDefinition
 name|proxy
 parameter_list|)
 block|{

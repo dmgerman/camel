@@ -150,11 +150,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|cdi
+name|component
 operator|.
-name|xml
+name|bean
 operator|.
-name|ServiceExporterDefinition
+name|BeanProcessor
 import|;
 end_import
 
@@ -166,11 +166,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|core
 operator|.
-name|bean
+name|xml
 operator|.
-name|BeanProcessor
+name|CamelServiceExporterDefinition
 import|;
 end_import
 
@@ -284,7 +284,7 @@ decl_stmt|;
 DECL|field|exporter
 specifier|private
 specifier|final
-name|ServiceExporterDefinition
+name|CamelServiceExporterDefinition
 name|exporter
 decl_stmt|;
 DECL|field|type
@@ -296,7 +296,7 @@ name|?
 argument_list|>
 name|type
 decl_stmt|;
-DECL|method|XmlServiceExporterBean (BeanManager manager, SyntheticAnnotated annotated, Class<?> type, Function<Bean<T>, String> toString, Bean<?> context, ServiceExporterDefinition exporter)
+DECL|method|XmlServiceExporterBean (BeanManager manager, SyntheticAnnotated annotated, Class<?> type, Function<Bean<T>, String> toString, Bean<?> context, CamelServiceExporterDefinition exporter)
 name|XmlServiceExporterBean
 parameter_list|(
 name|BeanManager
@@ -328,7 +328,7 @@ name|?
 argument_list|>
 name|context
 parameter_list|,
-name|ServiceExporterDefinition
+name|CamelServiceExporterDefinition
 name|exporter
 parameter_list|)
 block|{

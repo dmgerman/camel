@@ -326,6 +326,38 @@ name|core
 operator|.
 name|xml
 operator|.
+name|CamelProxyFactoryDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|core
+operator|.
+name|xml
+operator|.
+name|CamelServiceExporterDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|core
+operator|.
+name|xml
+operator|.
 name|CamelStreamCachingStrategyDefinition
 import|;
 end_import
@@ -995,7 +1027,7 @@ literal|"export"
 argument_list|,
 name|type
 operator|=
-name|ServiceExporterDefinition
+name|CamelServiceExporterDefinition
 operator|.
 name|class
 argument_list|)
@@ -1003,7 +1035,7 @@ DECL|field|exports
 specifier|private
 name|List
 argument_list|<
-name|ServiceExporterDefinition
+name|CamelServiceExporterDefinition
 argument_list|>
 name|exports
 decl_stmt|;
@@ -1018,7 +1050,7 @@ DECL|field|proxies
 specifier|private
 name|List
 argument_list|<
-name|ProxyFactoryDefinition
+name|CamelProxyFactoryDefinition
 argument_list|>
 name|proxies
 decl_stmt|;
@@ -2912,7 +2944,7 @@ DECL|method|getProxies ()
 specifier|public
 name|List
 argument_list|<
-name|ProxyFactoryDefinition
+name|CamelProxyFactoryDefinition
 argument_list|>
 name|getProxies
 parameter_list|()
@@ -2921,14 +2953,14 @@ return|return
 name|proxies
 return|;
 block|}
-DECL|method|setProxies (List<ProxyFactoryDefinition> proxies)
+DECL|method|setProxies (List<CamelProxyFactoryDefinition> proxies)
 specifier|public
 name|void
 name|setProxies
 parameter_list|(
 name|List
 argument_list|<
-name|ProxyFactoryDefinition
+name|CamelProxyFactoryDefinition
 argument_list|>
 name|proxies
 parameter_list|)
@@ -2944,7 +2976,7 @@ DECL|method|getExports ()
 specifier|public
 name|List
 argument_list|<
-name|ServiceExporterDefinition
+name|CamelServiceExporterDefinition
 argument_list|>
 name|getExports
 parameter_list|()
@@ -2953,14 +2985,14 @@ return|return
 name|exports
 return|;
 block|}
-DECL|method|setExports (List<ServiceExporterDefinition> exports)
+DECL|method|setExports (List<CamelServiceExporterDefinition> exports)
 specifier|public
 name|void
 name|setExports
 parameter_list|(
 name|List
 argument_list|<
-name|ServiceExporterDefinition
+name|CamelServiceExporterDefinition
 argument_list|>
 name|exports
 parameter_list|)
