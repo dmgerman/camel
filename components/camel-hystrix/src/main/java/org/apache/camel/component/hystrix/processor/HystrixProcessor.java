@@ -240,13 +240,10 @@ specifier|final
 name|Expression
 name|cacheKey
 decl_stmt|;
-DECL|method|HystrixProcessor (String id, HystrixCommand.Setter setter, Processor processor, Processor fallback, Expression cacheKey)
+DECL|method|HystrixProcessor (HystrixCommand.Setter setter, Processor processor, Processor fallback, Expression cacheKey)
 specifier|public
 name|HystrixProcessor
 parameter_list|(
-name|String
-name|id
-parameter_list|,
 name|HystrixCommand
 operator|.
 name|Setter
@@ -262,12 +259,6 @@ name|Expression
 name|cacheKey
 parameter_list|)
 block|{
-name|this
-operator|.
-name|id
-operator|=
-name|id
-expr_stmt|;
 name|this
 operator|.
 name|setter

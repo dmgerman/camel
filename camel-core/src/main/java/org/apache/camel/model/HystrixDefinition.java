@@ -214,6 +214,52 @@ argument_list|<
 name|HystrixDefinition
 argument_list|>
 block|{
+DECL|field|DEFAULT_GROUP_KEY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_GROUP_KEY
+init|=
+literal|"CamelHystrix"
+decl_stmt|;
+DECL|field|DEFAULT_THREAD_POOL_KEY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_THREAD_POOL_KEY
+init|=
+literal|"CamelHystrix"
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"CamelHystrix"
+argument_list|)
+DECL|field|groupKey
+specifier|private
+name|String
+name|groupKey
+decl_stmt|;
+annotation|@
+name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"CamelHystrix"
+argument_list|)
+DECL|field|threadPoolKey
+specifier|private
+name|String
+name|threadPoolKey
+decl_stmt|;
 annotation|@
 name|XmlElement
 DECL|field|hystrixConfiguration
@@ -548,6 +594,58 @@ block|}
 block|}
 comment|// Getter/Setter
 comment|// -------------------------------------------------------------------------
+DECL|method|getGroupKey ()
+specifier|public
+name|String
+name|getGroupKey
+parameter_list|()
+block|{
+return|return
+name|groupKey
+return|;
+block|}
+DECL|method|setGroupKey (String groupKey)
+specifier|public
+name|void
+name|setGroupKey
+parameter_list|(
+name|String
+name|groupKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|groupKey
+operator|=
+name|groupKey
+expr_stmt|;
+block|}
+DECL|method|getThreadPoolKey ()
+specifier|public
+name|String
+name|getThreadPoolKey
+parameter_list|()
+block|{
+return|return
+name|threadPoolKey
+return|;
+block|}
+DECL|method|setThreadPoolKey (String threadPoolKey)
+specifier|public
+name|void
+name|setThreadPoolKey
+parameter_list|(
+name|String
+name|threadPoolKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|threadPoolKey
+operator|=
+name|threadPoolKey
+expr_stmt|;
+block|}
 DECL|method|getHystrixConfiguration ()
 specifier|public
 name|HystrixConfigurationDefinition
@@ -654,6 +752,44 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
+comment|/**      * Sets the group key to use. The default value is CamelHystrix.      */
+DECL|method|groupKey (String groupKey)
+specifier|public
+name|HystrixDefinition
+name|groupKey
+parameter_list|(
+name|String
+name|groupKey
+parameter_list|)
+block|{
+name|setGroupKey
+argument_list|(
+name|groupKey
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Sets the thread pool key to use. The default value is CamelHystrix.      */
+DECL|method|threadPoolKey (String threadPoolKey)
+specifier|public
+name|HystrixDefinition
+name|threadPoolKey
+parameter_list|(
+name|String
+name|threadPoolKey
+parameter_list|)
+block|{
+name|setThreadPoolKey
+argument_list|(
+name|threadPoolKey
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Configures the Hystrix EIP      *<p/>      * Use<tt>end</tt> when configuration is complete, to return back to the Hystrix EIP.      */
 DECL|method|configure ()
 specifier|public
