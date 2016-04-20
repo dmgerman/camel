@@ -138,7 +138,7 @@ argument_list|(
 literal|"direct:foo"
 argument_list|)
 operator|.
-name|fallback
+name|onFallback
 argument_list|()
 operator|.
 name|transform

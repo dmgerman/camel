@@ -123,7 +123,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Route to be executed when circuit breaker executes fallback  */
+comment|/**  * Route to be executed when Hystrix EIP executes fallback  */
 end_comment
 
 begin_class
@@ -139,7 +139,7 @@ name|XmlRootElement
 argument_list|(
 name|name
 operator|=
-literal|"fallback"
+literal|"onFallback"
 argument_list|)
 annotation|@
 name|XmlAccessorType
@@ -148,19 +148,19 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|FallbackDefinition
+DECL|class|OnFallbackDefinition
 specifier|public
 class|class
-name|FallbackDefinition
+name|OnFallbackDefinition
 extends|extends
 name|OutputDefinition
 argument_list|<
-name|FallbackDefinition
+name|OnFallbackDefinition
 argument_list|>
 block|{
-DECL|method|FallbackDefinition ()
+DECL|method|OnFallbackDefinition ()
 specifier|public
-name|FallbackDefinition
+name|OnFallbackDefinition
 parameter_list|()
 block|{     }
 annotation|@
@@ -172,7 +172,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"Fallback["
+literal|"OnFallback["
 operator|+
 name|getOutputs
 argument_list|()
@@ -218,7 +218,7 @@ init|=
 operator|new
 name|CollectionStringBuffer
 argument_list|(
-literal|"fallback["
+literal|"onFallback["
 argument_list|)
 decl_stmt|;
 name|List

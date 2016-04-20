@@ -132,6 +132,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlTransient
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -233,11 +247,11 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 annotation|@
-name|XmlElement
-DECL|field|fallback
+name|XmlTransient
+DECL|field|onFallback
 specifier|private
-name|FallbackDefinition
-name|fallback
+name|OnFallbackDefinition
+name|onFallback
 decl_stmt|;
 annotation|@
 name|XmlAttribute
@@ -392,13 +406,13 @@ if|if
 condition|(
 name|output
 operator|instanceof
-name|FallbackDefinition
+name|OnFallbackDefinition
 condition|)
 block|{
-name|fallback
+name|onFallback
 operator|=
 operator|(
-name|FallbackDefinition
+name|OnFallbackDefinition
 operator|)
 name|output
 expr_stmt|;
@@ -407,12 +421,12 @@ else|else
 block|{
 if|if
 condition|(
-name|fallback
+name|onFallback
 operator|!=
 literal|null
 condition|)
 block|{
-name|fallback
+name|onFallback
 operator|.
 name|addOutput
 argument_list|(
@@ -445,13 +459,13 @@ parameter_list|()
 block|{
 if|if
 condition|(
-name|fallback
+name|onFallback
 operator|!=
 literal|null
 condition|)
 block|{
 comment|// end fallback as well
-name|fallback
+name|onFallback
 operator|.
 name|end
 argument_list|()
@@ -509,13 +523,13 @@ if|if
 condition|(
 name|out
 operator|instanceof
-name|FallbackDefinition
+name|OnFallbackDefinition
 condition|)
 block|{
-name|fallback
+name|onFallback
 operator|=
 operator|(
-name|FallbackDefinition
+name|OnFallbackDefinition
 operator|)
 name|out
 expr_stmt|;
@@ -581,30 +595,30 @@ operator|=
 name|hystrixConfigurationRef
 expr_stmt|;
 block|}
-DECL|method|getFallback ()
+DECL|method|getOnFallback ()
 specifier|public
-name|FallbackDefinition
-name|getFallback
+name|OnFallbackDefinition
+name|getOnFallback
 parameter_list|()
 block|{
 return|return
-name|fallback
+name|onFallback
 return|;
 block|}
-DECL|method|setFallback (FallbackDefinition fallback)
+DECL|method|setOnFallback (OnFallbackDefinition onFallback)
 specifier|public
 name|void
-name|setFallback
+name|setOnFallback
 parameter_list|(
-name|FallbackDefinition
-name|fallback
+name|OnFallbackDefinition
+name|onFallback
 parameter_list|)
 block|{
 name|this
 operator|.
-name|fallback
+name|onFallback
 operator|=
-name|fallback
+name|onFallback
 expr_stmt|;
 block|}
 comment|// Fluent API
@@ -619,7 +633,7 @@ name|String
 name|groupKey
 parameter_list|)
 block|{
-name|configure
+name|hystrixConfiguration
 argument_list|()
 operator|.
 name|groupKey
@@ -641,7 +655,7 @@ name|String
 name|threadPoolKey
 parameter_list|)
 block|{
-name|configure
+name|hystrixConfiguration
 argument_list|()
 operator|.
 name|threadPoolKey
@@ -654,10 +668,10 @@ name|this
 return|;
 block|}
 comment|/**      * Configures the Hystrix EIP      *<p/>      * Use<tt>end</tt> when configuration is complete, to return back to the Hystrix EIP.      */
-DECL|method|configure ()
+DECL|method|hystrixConfiguration ()
 specifier|public
 name|HystrixConfigurationDefinition
-name|configure
+name|hystrixConfiguration
 parameter_list|()
 block|{
 name|hystrixConfiguration
@@ -673,10 +687,10 @@ name|hystrixConfiguration
 return|;
 block|}
 comment|/**      * Configures the Hystrix EIP using the given configuration      */
-DECL|method|configure (HystrixConfigurationDefinition configuration)
+DECL|method|hystrixConfiguration (HystrixConfigurationDefinition configuration)
 specifier|public
 name|HystrixDefinition
-name|configure
+name|hystrixConfiguration
 parameter_list|(
 name|HystrixConfigurationDefinition
 name|configuration
@@ -690,11 +704,11 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Refers to a hystrix configuration to use for configuring the Hystrix EIP.      */
-DECL|method|configure (String ref)
+comment|/**      * Refers to a Hystrix configuration to use for configuring the Hystrix EIP.      */
+DECL|method|hystrixConfiguration (String ref)
 specifier|public
 name|HystrixDefinition
-name|configure
+name|hystrixConfiguration
 parameter_list|(
 name|String
 name|ref
@@ -708,20 +722,20 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Sets the fallback node      */
-DECL|method|fallback ()
+comment|/**      * The Hystrix fallback route path to execute.      */
+DECL|method|onFallback ()
 specifier|public
 name|HystrixDefinition
-name|fallback
+name|onFallback
 parameter_list|()
 block|{
-name|fallback
+name|onFallback
 operator|=
 operator|new
-name|FallbackDefinition
+name|OnFallbackDefinition
 argument_list|()
 expr_stmt|;
-name|fallback
+name|onFallback
 operator|.
 name|setParent
 argument_list|(

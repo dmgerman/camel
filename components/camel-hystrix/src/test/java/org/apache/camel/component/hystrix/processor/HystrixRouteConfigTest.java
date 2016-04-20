@@ -133,7 +133,7 @@ operator|.
 name|hystrix
 argument_list|()
 operator|.
-name|configure
+name|hystrixConfiguration
 argument_list|()
 operator|.
 name|groupKey
@@ -159,7 +159,7 @@ argument_list|(
 literal|"direct:foo"
 argument_list|)
 operator|.
-name|fallback
+name|onFallback
 argument_list|()
 operator|.
 name|transform
