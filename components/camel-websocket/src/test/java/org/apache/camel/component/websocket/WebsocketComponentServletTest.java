@@ -392,7 +392,7 @@ argument_list|(
 name|consumer
 argument_list|)
 expr_stmt|;
-name|WebSocket
+name|DefaultWebsocket
 name|webSocket
 init|=
 name|websocketComponentServlet
@@ -488,7 +488,7 @@ name|void
 name|testDoWebSocketConnectConsumerIsNull
 parameter_list|()
 block|{
-name|WebSocket
+name|DefaultWebsocket
 name|webSocket
 init|=
 name|websocketComponentServlet

@@ -370,7 +370,7 @@ expr_stmt|;
 block|}
 DECL|method|doWebSocketConnect (ServletUpgradeRequest request, String protocol)
 specifier|public
-name|WebSocket
+name|DefaultWebsocket
 name|doWebSocketConnect
 parameter_list|(
 name|ServletUpgradeRequest

@@ -2357,7 +2357,7 @@ name|Server
 argument_list|()
 decl_stmt|;
 name|HttpConfiguration
-name|http_config
+name|httpConfig
 init|=
 operator|new
 name|HttpConfiguration
@@ -2374,7 +2374,7 @@ argument_list|,
 operator|new
 name|HttpConnectionFactory
 argument_list|(
-name|http_config
+name|httpConfig
 argument_list|)
 argument_list|)
 decl_stmt|;
