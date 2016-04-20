@@ -219,7 +219,7 @@ name|getAttribute
 argument_list|(
 name|on
 argument_list|,
-literal|"CommandKey"
+literal|"HystrixCommandKey"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -241,7 +241,7 @@ name|getAttribute
 argument_list|(
 name|on
 argument_list|,
-literal|"GroupKey"
+literal|"HystrixGroupKey"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -271,7 +271,7 @@ name|getAttribute
 argument_list|(
 name|on
 argument_list|,
-literal|"TotalRequests"
+literal|"HystrixTotalRequests"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -296,7 +296,7 @@ name|getAttribute
 argument_list|(
 name|on
 argument_list|,
-literal|"ErrorCount"
+literal|"HystrixErrorCount"
 argument_list|)
 decl_stmt|;
 name|assertEquals

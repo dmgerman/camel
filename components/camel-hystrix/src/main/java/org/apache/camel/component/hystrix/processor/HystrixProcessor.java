@@ -386,10 +386,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|ManagedAttribute
-DECL|method|getCommandKey ()
+DECL|method|getHystrixCommandKey ()
 specifier|public
 name|String
-name|getCommandKey
+name|getHystrixCommandKey
 parameter_list|()
 block|{
 return|return
@@ -401,10 +401,10 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
-DECL|method|getGroupKey ()
+DECL|method|getHystrixGroupKey ()
 specifier|public
 name|String
-name|getGroupKey
+name|getHystrixGroupKey
 parameter_list|()
 block|{
 return|return
@@ -416,10 +416,10 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
-DECL|method|getTotalTimeMean ()
+DECL|method|getHystrixTotalTimeMean ()
 specifier|public
 name|int
-name|getTotalTimeMean
+name|getHystrixTotalTimeMean
 parameter_list|()
 block|{
 name|HystrixCommandMetrics
@@ -452,10 +452,10 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
-DECL|method|getExecutionTimeMean ()
+DECL|method|getHystrixExecutionTimeMean ()
 specifier|public
 name|int
-name|getExecutionTimeMean
+name|getHystrixExecutionTimeMean
 parameter_list|()
 block|{
 name|HystrixCommandMetrics
@@ -488,10 +488,10 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
-DECL|method|getCurrentConcurrentExecutionCount ()
+DECL|method|getHystrixCurrentConcurrentExecutionCount ()
 specifier|public
 name|int
-name|getCurrentConcurrentExecutionCount
+name|getHystrixCurrentConcurrentExecutionCount
 parameter_list|()
 block|{
 name|HystrixCommandMetrics
@@ -524,10 +524,10 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
-DECL|method|getTotalRequests ()
+DECL|method|getHystrixTotalRequests ()
 specifier|public
 name|long
-name|getTotalRequests
+name|getHystrixTotalRequests
 parameter_list|()
 block|{
 name|HystrixCommandMetrics
@@ -563,10 +563,10 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
-DECL|method|getErrorCount ()
+DECL|method|getHystrixErrorCount ()
 specifier|public
 name|long
-name|getErrorCount
+name|getHystrixErrorCount
 parameter_list|()
 block|{
 name|HystrixCommandMetrics
@@ -602,10 +602,10 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
-DECL|method|getErrorPercentage ()
+DECL|method|getHystrixErrorPercentage ()
 specifier|public
 name|int
-name|getErrorPercentage
+name|getHystrixErrorPercentage
 parameter_list|()
 block|{
 name|HystrixCommandMetrics
