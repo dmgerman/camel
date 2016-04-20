@@ -108,6 +108,22 @@ name|Named
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
+name|CdiSpiHelper
+operator|.
+name|isAnnotationType
+import|;
+end_import
+
 begin_class
 DECL|class|SyntheticBeanAttributes
 class|class
@@ -276,18 +292,11 @@ argument_list|()
 operator|.
 name|filter
 argument_list|(
-name|a
-lambda|->
+name|isAnnotationType
+argument_list|(
 name|Named
 operator|.
 name|class
-operator|.
-name|equals
-argument_list|(
-name|a
-operator|.
-name|annotationType
-argument_list|()
 argument_list|)
 argument_list|)
 operator|.
