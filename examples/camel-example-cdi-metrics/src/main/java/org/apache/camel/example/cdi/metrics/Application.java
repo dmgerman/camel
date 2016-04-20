@@ -123,6 +123,8 @@ operator|.
 name|metrics
 operator|.
 name|RatioGauge
+operator|.
+name|Ratio
 import|;
 end_import
 
@@ -431,50 +433,23 @@ operator|=
 literal|"success-ratio"
 argument_list|)
 comment|// Register a custom gauge that's the ratio of the 'success' meter on the 'generated' meter
-comment|// TODO: use a lambda expression and parameter names when Java 8 is a pre-requisite
-DECL|method|successRatio (@etricname = R) final Meter success, @Metric(name = R) final Meter generated)
+DECL|method|successRatio (Meter success, Meter generated)
 name|Gauge
 argument_list|<
 name|Double
 argument_list|>
 name|successRatio
 parameter_list|(
-annotation|@
-name|Metric
-argument_list|(
-name|name
-operator|=
-literal|"success"
-argument_list|)
-specifier|final
 name|Meter
 name|success
 parameter_list|,
-annotation|@
-name|Metric
-argument_list|(
-name|name
-operator|=
-literal|"generated"
-argument_list|)
-specifier|final
 name|Meter
 name|generated
 parameter_list|)
 block|{
 return|return
-operator|new
-name|RatioGauge
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|protected
-name|Ratio
-name|getRatio
 parameter_list|()
-block|{
-return|return
+lambda|->
 name|Ratio
 operator|.
 name|of
@@ -489,9 +464,9 @@ operator|.
 name|getOneMinuteRate
 argument_list|()
 argument_list|)
-return|;
-block|}
-block|}
+operator|.
+name|getValue
+argument_list|()
 return|;
 block|}
 annotation|@
