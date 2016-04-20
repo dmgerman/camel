@@ -130,6 +130,11 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
+name|to
+argument_list|(
+literal|"log:start"
+argument_list|)
+operator|.
 name|hystrix
 argument_list|()
 operator|.
@@ -155,6 +160,11 @@ argument_list|)
 operator|.
 name|end
 argument_list|()
+operator|.
+name|to
+argument_list|(
+literal|"log:result"
+argument_list|)
 operator|.
 name|to
 argument_list|(

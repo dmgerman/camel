@@ -14,29 +14,19 @@ end_package
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|inject
+name|springframework
 operator|.
-name|Named
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
+name|stereotype
 operator|.
-name|inject
-operator|.
-name|Singleton
+name|Component
 import|;
 end_import
 
 begin_class
 annotation|@
-name|Singleton
-annotation|@
-name|Named
+name|Component
 argument_list|(
 literal|"counterBean"
 argument_list|)

@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p/>  * http://www.apache.org/licenses/LICENSE-2.0  *<p/>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -40,30 +40,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncCallback
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|AsyncProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 import|;
 end_import
@@ -77,6 +53,18 @@ operator|.
 name|camel
 operator|.
 name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Processor
 import|;
 end_import
 
@@ -111,9 +99,6 @@ class|class
 name|HystrixProcessorCommand
 extends|extends
 name|HystrixCommand
-argument_list|<
-name|Message
-argument_list|>
 block|{
 DECL|field|LOG
 specifier|private
@@ -137,25 +122,25 @@ specifier|final
 name|Exchange
 name|exchange
 decl_stmt|;
-DECL|field|callback
-specifier|private
-specifier|final
-name|AsyncCallback
-name|callback
-decl_stmt|;
 DECL|field|processor
 specifier|private
 specifier|final
-name|AsyncProcessor
+name|Processor
 name|processor
 decl_stmt|;
 DECL|field|fallback
 specifier|private
 specifier|final
-name|AsyncProcessor
+name|Processor
 name|fallback
 decl_stmt|;
-DECL|method|HystrixProcessorCommand (Setter setter, Exchange exchange, AsyncCallback callback, AsyncProcessor processor, AsyncProcessor fallback)
+DECL|field|fallbackCommand
+specifier|private
+specifier|final
+name|HystrixProcessorCommandFallbackViaNetwork
+name|fallbackCommand
+decl_stmt|;
+DECL|method|HystrixProcessorCommand (Setter setter, Exchange exchange, Processor processor, Processor fallback, HystrixProcessorCommandFallbackViaNetwork fallbackCommand)
 specifier|public
 name|HystrixProcessorCommand
 parameter_list|(
@@ -165,14 +150,14 @@ parameter_list|,
 name|Exchange
 name|exchange
 parameter_list|,
-name|AsyncCallback
-name|callback
-parameter_list|,
-name|AsyncProcessor
+name|Processor
 name|processor
 parameter_list|,
-name|AsyncProcessor
+name|Processor
 name|fallback
+parameter_list|,
+name|HystrixProcessorCommandFallbackViaNetwork
+name|fallbackCommand
 parameter_list|)
 block|{
 name|super
@@ -188,12 +173,6 @@ name|exchange
 expr_stmt|;
 name|this
 operator|.
-name|callback
-operator|=
-name|callback
-expr_stmt|;
-name|this
-operator|.
 name|processor
 operator|=
 name|processor
@@ -203,6 +182,12 @@ operator|.
 name|fallback
 operator|=
 name|fallback
+expr_stmt|;
+name|this
+operator|.
+name|fallbackCommand
+operator|=
+name|fallbackCommand
 expr_stmt|;
 block|}
 annotation|@
@@ -246,11 +231,13 @@ name|getIn
 argument_list|()
 return|;
 block|}
-try|try
-block|{
 if|if
 condition|(
 name|fallback
+operator|!=
+literal|null
+operator|||
+name|fallbackCommand
 operator|!=
 literal|null
 condition|)
@@ -352,6 +339,23 @@ expr_stmt|;
 comment|// run the fallback processor
 try|try
 block|{
+comment|// use fallback command if provided (fallback via network)
+if|if
+condition|(
+name|fallbackCommand
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|fallbackCommand
+operator|.
+name|execute
+argument_list|()
+return|;
+block|}
+else|else
+block|{
 name|LOG
 operator|.
 name|debug
@@ -363,15 +367,27 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+comment|// process the fallback until its fully done
+comment|// (we do not hav any hystrix callback to leverage so we need to complete all work in this run method)
 name|fallback
 operator|.
 name|process
 argument_list|(
 name|exchange
-argument_list|,
-name|callback
 argument_list|)
 expr_stmt|;
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Running fallback: {} with exchange: {} done"
+argument_list|,
+name|fallback
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -387,30 +403,6 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-block|}
-finally|finally
-block|{
-name|LOG
-operator|.
-name|debug
-argument_list|(
-literal|"Running fallback: {} with exchange: {} done"
-argument_list|,
-name|fallback
-argument_list|,
-name|exchange
-argument_list|)
-expr_stmt|;
-name|exchange
-operator|.
-name|removeProperty
-argument_list|(
-name|Exchange
-operator|.
-name|TRY_ROUTE_BLOCK
-argument_list|)
-expr_stmt|;
 block|}
 return|return
 name|exchange
@@ -452,13 +444,13 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+comment|// process the processor until its fully done
+comment|// (we do not hav any hystrix callback to leverage so we need to complete all work in this run method)
 name|processor
 operator|.
 name|process
 argument_list|(
 name|exchange
-argument_list|,
-name|callback
 argument_list|)
 expr_stmt|;
 block|}

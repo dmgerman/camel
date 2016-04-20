@@ -722,7 +722,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * The Hystrix fallback route path to execute.      */
+comment|/**      * The Hystrix fallback route path to execute that does<b>not</b> go over the network.      *<p>      * This should be a static or cached result that can immediately be returned upon failure.      * If the fallback requires network connection then use {@link #onFallbackViaNetwork()}.      */
 DECL|method|onFallback ()
 specifier|public
 name|HystrixDefinition
@@ -734,6 +734,37 @@ operator|=
 operator|new
 name|OnFallbackDefinition
 argument_list|()
+expr_stmt|;
+name|onFallback
+operator|.
+name|setParent
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * The Hystrix fallback route path to execute that will go over the network.      *<p/>      * If the fallback will go over the network it is another possible point of failure and so it also needs to be      * wrapped by a HystrixCommand. It is important to execute the fallback command on a separate thread-pool,      * otherwise if the main command were to become latent and fill the thread-pool      * this would prevent the fallback from running if the two commands share the same pool.      */
+DECL|method|onFallbackViaNetwork ()
+specifier|public
+name|HystrixDefinition
+name|onFallbackViaNetwork
+parameter_list|()
+block|{
+name|onFallback
+operator|=
+operator|new
+name|OnFallbackDefinition
+argument_list|()
+expr_stmt|;
+name|onFallback
+operator|.
+name|setFallbackViaNetwork
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|onFallback
 operator|.

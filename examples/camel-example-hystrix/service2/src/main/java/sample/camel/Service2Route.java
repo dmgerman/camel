@@ -62,14 +62,6 @@ argument_list|(
 literal|" Service2 request: ${body}"
 argument_list|)
 operator|.
-name|delay
-argument_list|(
-name|simple
-argument_list|(
-literal|"${random(1000,2000)}"
-argument_list|)
-argument_list|)
-operator|.
 name|transform
 argument_list|(
 name|simple
