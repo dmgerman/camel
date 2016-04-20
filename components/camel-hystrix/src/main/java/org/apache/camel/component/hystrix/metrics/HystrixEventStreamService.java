@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p/>  * http://www.apache.org/licenses/LICENSE-2.0  *<p/>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -19,6 +19,40 @@ operator|.
 name|metrics
 package|;
 end_package
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Queue
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|LinkedBlockingQueue
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Stream
+import|;
+end_import
 
 begin_import
 import|import
@@ -106,6 +140,26 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|hystrix
+operator|.
+name|metrics
+operator|.
+name|servlet
+operator|.
+name|HystrixEventStreamServlet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|support
 operator|.
 name|ServiceSupport
@@ -132,6 +186,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * To gather hystrix metrics and offer the metrics over JMX and Java APIs.  *<p/>  * If you want to expose the metrics over HTTP then you can use the {@link HystrixEventStreamServlet} servlet which  * provides such functionality.  */
+end_comment
+
 begin_class
 annotation|@
 name|ManagedResource
@@ -153,8 +211,15 @@ name|HystrixMetricsPoller
 operator|.
 name|MetricsAsJsonPollerListener
 block|{
-comment|// TODO: need for command and thread pool
-comment|// or use some queue to store in backlog
+DECL|field|METRICS_QUEUE_SIZE
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|METRICS_QUEUE_SIZE
+init|=
+literal|1000
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static
@@ -178,16 +243,26 @@ name|delay
 init|=
 literal|500
 decl_stmt|;
+DECL|field|queueSize
+specifier|private
+name|int
+name|queueSize
+init|=
+name|METRICS_QUEUE_SIZE
+decl_stmt|;
 DECL|field|poller
 specifier|private
 name|HystrixMetricsPoller
 name|poller
 decl_stmt|;
-DECL|field|latest
+comment|// use a queue with a upper limit to avoid storing too many metrics
+DECL|field|queue
 specifier|private
-specifier|transient
+name|Queue
+argument_list|<
 name|String
-name|latest
+argument_list|>
+name|queue
 decl_stmt|;
 DECL|method|getDelay ()
 specifier|public
@@ -216,22 +291,97 @@ operator|=
 name|delay
 expr_stmt|;
 block|}
+DECL|method|getQueueSize ()
+specifier|public
+name|int
+name|getQueueSize
+parameter_list|()
+block|{
+return|return
+name|queueSize
+return|;
+block|}
+comment|/**      * Sets the queue size for how many metrics collected are stored in-memory in a backlog      */
+DECL|method|setQueueSize (int queueSize)
+specifier|public
+name|void
+name|setQueueSize
+parameter_list|(
+name|int
+name|queueSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|queueSize
+operator|=
+name|queueSize
+expr_stmt|;
+block|}
+comment|/**      * Return a stream of the JSon metrics.      */
+DECL|method|streamMetrics ()
+specifier|public
+name|Stream
+argument_list|<
+name|String
+argument_list|>
+name|streamMetrics
+parameter_list|()
+block|{
+if|if
+condition|(
+name|queue
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|queue
+operator|.
+name|stream
+argument_list|()
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
+block|}
 annotation|@
 name|ManagedOperation
 argument_list|(
 name|description
 operator|=
-literal|"Returns the latest metrics as JSon format"
+literal|"Returns the oldest metrics as JSon format"
 argument_list|)
-DECL|method|latestMetricsAsJSon ()
+DECL|method|oldestMetricsAsJSon ()
 specifier|public
 name|String
-name|latestMetricsAsJSon
+name|oldestMetricsAsJSon
 parameter_list|()
 block|{
+if|if
+condition|(
+name|queue
+operator|!=
+literal|null
+condition|)
+block|{
 return|return
-name|latest
+name|queue
+operator|.
+name|peek
+argument_list|()
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 annotation|@
 name|ManagedOperation
@@ -322,9 +472,22 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Starting HystrixMetricsPoller with delay: {}"
+literal|"Starting HystrixMetricsPoller with delay: {} and queue size: {}"
 argument_list|,
 name|delay
+argument_list|,
+name|queueSize
+argument_list|)
+expr_stmt|;
+name|queue
+operator|=
+operator|new
+name|LinkedBlockingQueue
+argument_list|<
+name|String
+argument_list|>
+argument_list|(
+name|queueSize
 argument_list|)
 expr_stmt|;
 name|poller
@@ -394,11 +557,63 @@ argument_list|,
 name|json
 argument_list|)
 expr_stmt|;
-name|this
+comment|// ensure there is space on the queue by polling until at least single slot is free
+name|int
+name|drain
+init|=
+name|queue
 operator|.
-name|latest
-operator|=
+name|size
+argument_list|()
+operator|-
+name|queueSize
+operator|+
+literal|1
+decl_stmt|;
+if|if
+condition|(
+name|drain
+operator|>
+literal|0
+condition|)
+block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Draining queue to make room: {}"
+argument_list|,
+name|drain
+argument_list|)
+expr_stmt|;
+for|for
+control|(
+name|int
+name|i
+init|=
+literal|0
+init|;
+name|i
+operator|<
+name|drain
+condition|;
+name|i
+operator|++
+control|)
+block|{
+name|queue
+operator|.
+name|poll
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+name|queue
+operator|.
+name|add
+argument_list|(
 name|json
+argument_list|)
 expr_stmt|;
 block|}
 block|}
