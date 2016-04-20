@@ -106,7 +106,7 @@ parameter_list|()
 block|{
 name|daemon
 operator|.
-name|run
+name|start
 argument_list|()
 expr_stmt|;
 block|}
