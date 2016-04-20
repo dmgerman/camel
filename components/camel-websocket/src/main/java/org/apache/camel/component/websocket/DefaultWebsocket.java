@@ -48,7 +48,9 @@ name|jetty
 operator|.
 name|websocket
 operator|.
-name|WebSocket
+name|api
+operator|.
+name|Session
 import|;
 end_import
 
@@ -62,9 +64,11 @@ name|jetty
 operator|.
 name|websocket
 operator|.
-name|WebSocket
+name|api
 operator|.
-name|OnBinaryMessage
+name|annotations
+operator|.
+name|OnWebSocketClose
 import|;
 end_import
 
@@ -78,9 +82,47 @@ name|jetty
 operator|.
 name|websocket
 operator|.
-name|WebSocket
+name|api
 operator|.
-name|OnTextMessage
+name|annotations
+operator|.
+name|OnWebSocketConnect
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
+name|websocket
+operator|.
+name|api
+operator|.
+name|annotations
+operator|.
+name|OnWebSocketMessage
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
+name|websocket
+operator|.
+name|api
+operator|.
+name|annotations
+operator|.
+name|WebSocket
 import|;
 end_import
 
@@ -105,17 +147,13 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|WebSocket
 DECL|class|DefaultWebsocket
 specifier|public
 class|class
 name|DefaultWebsocket
 implements|implements
-name|WebSocket
-implements|,
-name|OnTextMessage
-implements|,
-name|OnBinaryMessage
-implements|,
 name|Serializable
 block|{
 DECL|field|serialVersionUID
@@ -155,10 +193,10 @@ specifier|final
 name|NodeSynchronization
 name|sync
 decl_stmt|;
-DECL|field|connection
+DECL|field|session
 specifier|private
-name|Connection
-name|connection
+name|Session
+name|session
 decl_stmt|;
 DECL|field|connectionKey
 specifier|private
@@ -190,7 +228,7 @@ name|consumer
 expr_stmt|;
 block|}
 annotation|@
-name|Override
+name|OnWebSocketClose
 DECL|method|onClose (int closeCode, String message)
 specifier|public
 name|void
@@ -223,30 +261,30 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Override
-DECL|method|onOpen (Connection connection)
+name|OnWebSocketConnect
+DECL|method|onConnect (Session session)
 specifier|public
 name|void
-name|onOpen
+name|onConnect
 parameter_list|(
-name|Connection
-name|connection
+name|Session
+name|session
 parameter_list|)
 block|{
 name|LOG
 operator|.
 name|trace
 argument_list|(
-literal|"onOpen {}"
+literal|"onConnect {}"
 argument_list|,
-name|connection
+name|session
 argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|connection
+name|session
 operator|=
-name|connection
+name|session
 expr_stmt|;
 name|this
 operator|.
@@ -269,7 +307,7 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Override
+name|OnWebSocketMessage
 DECL|method|onMessage (String message)
 specifier|public
 name|void
@@ -325,7 +363,7 @@ expr_stmt|;
 block|}
 block|}
 annotation|@
-name|Override
+name|OnWebSocketMessage
 DECL|method|onMessage (byte[] data, int offset, int length)
 specifier|public
 name|void
@@ -408,30 +446,30 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|getConnection ()
+DECL|method|getSession ()
 specifier|public
-name|Connection
-name|getConnection
+name|Session
+name|getSession
 parameter_list|()
 block|{
 return|return
-name|connection
+name|session
 return|;
 block|}
-DECL|method|setConnection (Connection connection)
+DECL|method|setSession (Session session)
 specifier|public
 name|void
-name|setConnection
+name|setSession
 parameter_list|(
-name|Connection
-name|connection
+name|Session
+name|session
 parameter_list|)
 block|{
 name|this
 operator|.
-name|connection
+name|session
 operator|=
-name|connection
+name|session
 expr_stmt|;
 block|}
 DECL|method|getConnectionKey ()

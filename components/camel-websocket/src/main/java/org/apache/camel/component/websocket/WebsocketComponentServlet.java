@@ -74,6 +74,10 @@ name|jetty
 operator|.
 name|websocket
 operator|.
+name|api
+operator|.
+name|annotations
+operator|.
 name|WebSocket
 import|;
 end_import
@@ -88,7 +92,25 @@ name|jetty
 operator|.
 name|websocket
 operator|.
+name|servlet
+operator|.
 name|WebSocketServlet
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
+name|websocket
+operator|.
+name|servlet
+operator|.
+name|WebSocketServletFactory
 import|;
 end_import
 
@@ -298,8 +320,6 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-annotation|@
-name|Override
 DECL|method|doWebSocketConnect (HttpServletRequest request, String protocol)
 specifier|public
 name|WebSocket
@@ -406,6 +426,19 @@ name|socketFactory
 operator|=
 name|socketFactory
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|configure (WebSocketServletFactory factory)
+specifier|public
+name|void
+name|configure
+parameter_list|(
+name|WebSocketServletFactory
+name|factory
+parameter_list|)
+block|{
+comment|// TODO Auto-generated method stub
 block|}
 block|}
 end_class
