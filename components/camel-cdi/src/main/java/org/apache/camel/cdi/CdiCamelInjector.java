@@ -44,6 +44,22 @@ name|Injector
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
+name|BeanManagerHelper
+operator|.
+name|getReferenceByType
+import|;
+end_import
+
 begin_class
 DECL|class|CdiCamelInjector
 specifier|final
@@ -105,8 +121,6 @@ name|type
 parameter_list|)
 block|{
 return|return
-name|BeanManagerHelper
-operator|.
 name|getReferenceByType
 argument_list|(
 name|manager

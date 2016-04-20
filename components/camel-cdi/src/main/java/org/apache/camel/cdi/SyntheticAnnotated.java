@@ -46,27 +46,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Collections
 import|;
 end_import
 
@@ -87,6 +67,30 @@ operator|.
 name|util
 operator|.
 name|Set
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Arrays
+operator|.
+name|asList
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|unmodifiableSet
 import|;
 end_import
 
@@ -183,8 +187,6 @@ name|type
 argument_list|,
 name|types
 argument_list|,
-name|Arrays
-operator|.
 name|asList
 argument_list|(
 name|annotations
@@ -283,8 +285,6 @@ name|getTypeClosure
 parameter_list|()
 block|{
 return|return
-name|Collections
-operator|.
 name|unmodifiableSet
 argument_list|(
 name|types
@@ -303,8 +303,6 @@ name|getAnnotations
 parameter_list|()
 block|{
 return|return
-name|Collections
-operator|.
 name|unmodifiableSet
 argument_list|(
 name|annotations

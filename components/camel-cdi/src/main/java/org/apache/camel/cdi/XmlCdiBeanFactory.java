@@ -76,16 +76,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collections
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|HashSet
 import|;
 end_import
@@ -128,18 +118,6 @@ name|util
 operator|.
 name|stream
 operator|.
-name|Collectors
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|stream
-operator|.
 name|Stream
 import|;
 end_import
@@ -153,6 +131,68 @@ operator|.
 name|String
 operator|.
 name|format
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|addAll
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|emptySet
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Collections
+operator|.
+name|singleton
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|Objects
+operator|.
+name|requireNonNull
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
+operator|.
+name|toSet
 import|;
 end_import
 
@@ -446,20 +486,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|slf4j
 operator|.
 name|Logger
@@ -534,11 +560,43 @@ name|camel
 operator|.
 name|cdi
 operator|.
+name|ResourceHelper
+operator|.
+name|getResource
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
 name|Startup
 operator|.
 name|Literal
 operator|.
 name|STARTUP
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|isEmpty
 import|;
 end_import
 
@@ -678,8 +736,6 @@ block|{
 name|URL
 name|url
 init|=
-name|ResourceHelper
-operator|.
 name|getResource
 argument_list|(
 name|path
@@ -702,8 +758,6 @@ name|path
 argument_list|)
 expr_stmt|;
 return|return
-name|Collections
-operator|.
 name|emptySet
 argument_list|()
 return|;
@@ -778,8 +832,6 @@ operator|)
 name|node
 decl_stmt|;
 return|return
-name|Collections
-operator|.
 name|singleton
 argument_list|(
 name|routesDefinitionBean
@@ -1138,8 +1190,6 @@ operator|)
 name|node
 decl_stmt|;
 return|return
-name|Collections
-operator|.
 name|singleton
 argument_list|(
 name|restContextBean
@@ -1168,8 +1218,6 @@ operator|)
 name|node
 decl_stmt|;
 return|return
-name|Collections
-operator|.
 name|singleton
 argument_list|(
 name|routeContextBean
@@ -1183,8 +1231,6 @@ return|;
 block|}
 block|}
 return|return
-name|Collections
-operator|.
 name|emptySet
 argument_list|()
 return|;
@@ -1232,8 +1278,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Collections
-operator|.
 name|addAll
 argument_list|(
 name|annotations
@@ -1990,8 +2034,6 @@ parameter_list|)
 block|{
 if|if
 condition|(
-name|ObjectHelper
-operator|.
 name|isEmpty
 argument_list|(
 name|proxy
@@ -2000,8 +2042,6 @@ name|getServiceRef
 argument_list|()
 argument_list|)
 operator|&&
-name|ObjectHelper
-operator|.
 name|isEmpty
 argument_list|(
 name|proxy
@@ -2133,8 +2173,6 @@ name|url
 parameter_list|)
 block|{
 comment|// TODO: replace with CreationException
-name|Objects
-operator|.
 name|requireNonNull
 argument_list|(
 name|exporter
@@ -2230,8 +2268,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|Objects
-operator|.
 name|requireNonNull
 argument_list|(
 name|exporter
@@ -2399,8 +2435,6 @@ name|URL
 name|url
 parameter_list|)
 block|{
-name|Objects
-operator|.
 name|requireNonNull
 argument_list|(
 name|definition
@@ -2455,8 +2489,6 @@ argument_list|)
 operator|.
 name|collect
 argument_list|(
-name|Collectors
-operator|.
 name|toSet
 argument_list|()
 argument_list|)
@@ -2530,8 +2562,6 @@ name|URL
 name|url
 parameter_list|)
 block|{
-name|Objects
-operator|.
 name|requireNonNull
 argument_list|(
 name|definition
@@ -2586,8 +2616,6 @@ argument_list|)
 operator|.
 name|collect
 argument_list|(
-name|Collectors
-operator|.
 name|toSet
 argument_list|()
 argument_list|)

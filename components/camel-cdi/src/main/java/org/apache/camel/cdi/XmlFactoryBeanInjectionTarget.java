@@ -97,20 +97,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ObjectHelper
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -123,6 +109,22 @@ operator|.
 name|BeanManagerHelper
 operator|.
 name|getReference
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+operator|.
+name|isEmpty
 import|;
 end_import
 
@@ -168,8 +170,6 @@ try|try
 block|{
 if|if
 condition|(
-name|ObjectHelper
-operator|.
 name|isEmpty
 argument_list|(
 name|factory

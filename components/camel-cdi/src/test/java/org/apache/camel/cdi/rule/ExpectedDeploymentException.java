@@ -231,35 +231,18 @@ argument_list|)
 operator|.
 name|around
 argument_list|(
-operator|new
-name|TestRule
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|Statement
-name|apply
 parameter_list|(
-specifier|final
-name|Statement
 name|base
 parameter_list|,
-name|Description
 name|description
 parameter_list|)
-block|{
-return|return
+lambda|->
 operator|new
 name|Statement
 argument_list|()
 block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|evaluate
-parameter_list|()
+block|@Override                 public void evaluate(
+argument_list|)
 throws|throws
 name|Throwable
 block|{
@@ -339,14 +322,16 @@ block|}
 block|}
 block|}
 block|}
-return|;
-block|}
-block|}
-argument_list|)
-expr_stmt|;
-block|}
+end_class
+
+begin_empty_stmt
+unit|)
+empty_stmt|;
+end_empty_stmt
+
+begin_function
+unit|}      public
 DECL|method|none ()
-specifier|public
 specifier|static
 name|ExpectedDeploymentException
 name|none
@@ -358,6 +343,9 @@ name|ExpectedDeploymentException
 argument_list|()
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|expect (Class<? extends Throwable> type)
 specifier|public
 name|ExpectedDeploymentException
@@ -388,6 +376,9 @@ return|return
 name|this
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|expectMessage (Matcher<String> matcher)
 specifier|public
 name|ExpectedDeploymentException
@@ -411,6 +402,9 @@ return|return
 name|this
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -458,6 +452,9 @@ name|matchers
 argument_list|)
 return|;
 block|}
+end_function
+
+begin_function
 DECL|method|hasItems (List<Matcher<T>> matchers)
 specifier|private
 parameter_list|<
@@ -548,6 +545,9 @@ return|return
 name|items
 return|;
 block|}
+end_function
+
+begin_function
 annotation|@
 name|Override
 DECL|method|apply (Statement base, Description description)
@@ -573,8 +573,8 @@ name|description
 argument_list|)
 return|;
 block|}
-block|}
-end_class
+end_function
 
+unit|}
 end_unit
 

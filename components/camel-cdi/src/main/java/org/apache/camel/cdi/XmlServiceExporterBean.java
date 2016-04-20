@@ -175,20 +175,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|ServiceHelper
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -249,6 +235,22 @@ operator|.
 name|ObjectHelper
 operator|.
 name|isNotEmpty
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+operator|.
+name|startService
 import|;
 end_import
 
@@ -513,8 +515,6 @@ decl_stmt|;
 try|try
 block|{
 comment|// need to start endpoint before we create consumer
-name|ServiceHelper
-operator|.
 name|startService
 argument_list|(
 name|endpoint

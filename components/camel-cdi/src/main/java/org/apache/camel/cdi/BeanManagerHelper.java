@@ -49,7 +49,7 @@ import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|java
 operator|.
 name|util
@@ -57,6 +57,8 @@ operator|.
 name|stream
 operator|.
 name|Collectors
+operator|.
+name|toSet
 import|;
 end_import
 
@@ -155,8 +157,6 @@ argument_list|)
 operator|.
 name|collect
 argument_list|(
-name|Collectors
-operator|.
 name|toSet
 argument_list|()
 argument_list|)

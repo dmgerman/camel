@@ -32,6 +32,18 @@ begin_import
 import|import static
 name|java
 operator|.
+name|lang
+operator|.
+name|String
+operator|.
+name|format
+import|;
+end_import
+
+begin_import
+import|import static
+name|java
+operator|.
 name|util
 operator|.
 name|Objects
@@ -556,8 +568,6 @@ lambda|->
 operator|new
 name|UnsatisfiedResolutionException
 argument_list|(
-name|String
-operator|.
 name|format
 argument_list|(
 literal|"No bean with name [%s] to satisfy attribute [%s]"
@@ -615,8 +625,6 @@ lambda|->
 operator|new
 name|UnsatisfiedResolutionException
 argument_list|(
-name|String
-operator|.
 name|format
 argument_list|(
 literal|"No bean with name [%s] to satisfy attribute [%s]"
@@ -674,8 +682,6 @@ lambda|->
 operator|new
 name|UnsatisfiedResolutionException
 argument_list|(
-name|String
-operator|.
 name|format
 argument_list|(
 literal|"No bean with name [%s] to satisfy attribute [%s]"
@@ -770,8 +776,6 @@ lambda|->
 operator|new
 name|UnsatisfiedResolutionException
 argument_list|(
-name|String
-operator|.
 name|format
 argument_list|(
 literal|"No bean with name [%s] to satisfy attribute [%s]"

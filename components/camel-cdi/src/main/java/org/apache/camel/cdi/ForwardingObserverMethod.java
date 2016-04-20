@@ -114,11 +114,6 @@ name|CamelContext
 import|;
 end_import
 
-begin_comment
-DECL|class|ForwardingObserverMethod
-comment|/* package-private */
-end_comment
-
 begin_class
 DECL|class|ForwardingObserverMethod
 specifier|final
@@ -133,7 +128,6 @@ argument_list|<
 name|T
 argument_list|>
 block|{
-comment|// Should be replaced with the Java 8 functional interface Consumer<T>
 DECL|field|observer
 specifier|private
 specifier|final
