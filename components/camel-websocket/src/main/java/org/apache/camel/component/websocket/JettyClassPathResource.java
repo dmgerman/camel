@@ -80,6 +80,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|channels
+operator|.
+name|ReadableByteChannel
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -218,16 +230,6 @@ block|{
 return|return
 literal|false
 return|;
-block|}
-annotation|@
-name|Override
-DECL|method|release ()
-specifier|public
-name|void
-name|release
-parameter_list|()
-block|{
-comment|// noop
 block|}
 annotation|@
 name|Override
@@ -400,22 +402,6 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|getOutputStream ()
-specifier|public
-name|OutputStream
-name|getOutputStream
-parameter_list|()
-throws|throws
-name|IOException
-throws|,
-name|SecurityException
-block|{
-return|return
-literal|null
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|delete ()
 specifier|public
 name|boolean
@@ -491,6 +477,30 @@ literal|"/"
 operator|+
 name|path
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|close ()
+specifier|public
+name|void
+name|close
+parameter_list|()
+block|{
+comment|// noop
+block|}
+annotation|@
+name|Override
+DECL|method|getReadableByteChannel ()
+specifier|public
+name|ReadableByteChannel
+name|getReadableByteChannel
+parameter_list|()
+throws|throws
+name|IOException
+block|{
+return|return
+literal|null
 return|;
 block|}
 block|}

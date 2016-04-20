@@ -473,6 +473,20 @@ argument_list|(
 name|port
 argument_list|)
 expr_stmt|;
+name|websocketComponent
+operator|.
+name|setMinThreads
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
+name|websocketComponent
+operator|.
+name|setMaxThreads
+argument_list|(
+literal|11
+argument_list|)
+expr_stmt|;
 comment|// START SNIPPET: e1
 comment|// expose a echo websocket client, that sends back an echo
 name|from

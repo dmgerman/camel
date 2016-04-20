@@ -2021,12 +2021,7 @@ name|setName
 argument_list|(
 literal|"CamelJettyWebSocketServer("
 operator|+
-name|ObjectHelper
-operator|.
-name|getIdentityHashCode
-argument_list|(
-name|server
-argument_list|)
+literal|"test"
 operator|+
 literal|")"
 argument_list|)

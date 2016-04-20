@@ -40,7 +40,27 @@ name|jetty
 operator|.
 name|websocket
 operator|.
+name|api
+operator|.
+name|annotations
+operator|.
 name|WebSocket
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
+name|websocket
+operator|.
+name|servlet
+operator|.
+name|ServletUpgradeRequest
 import|;
 end_import
 
@@ -58,12 +78,12 @@ name|WebSocketFactory
 block|{
 annotation|@
 name|Override
-DECL|method|newInstance (HttpServletRequest request, String protocol, NodeSynchronization sync, WebsocketConsumer consumer)
+DECL|method|newInstance (ServletUpgradeRequest request, String protocol, NodeSynchronization sync, WebsocketConsumer consumer)
 specifier|public
-name|WebSocket
+name|DefaultWebsocket
 name|newInstance
 parameter_list|(
-name|HttpServletRequest
+name|ServletUpgradeRequest
 name|request
 parameter_list|,
 name|String

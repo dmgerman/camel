@@ -60,7 +60,27 @@ name|jetty
 operator|.
 name|websocket
 operator|.
+name|api
+operator|.
+name|annotations
+operator|.
 name|WebSocket
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
+name|websocket
+operator|.
+name|servlet
+operator|.
+name|ServletUpgradeRequest
 import|;
 end_import
 
@@ -250,7 +270,7 @@ annotation|@
 name|Mock
 DECL|field|request
 specifier|private
-name|HttpServletRequest
+name|ServletUpgradeRequest
 name|request
 decl_stmt|;
 DECL|field|websocketComponentServlet

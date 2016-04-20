@@ -32,9 +32,37 @@ begin_import
 import|import
 name|java
 operator|.
+name|lang
+operator|.
+name|annotation
+operator|.
+name|Annotation
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|UUID
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
+name|websocket
+operator|.
+name|api
+operator|.
+name|BatchMode
 import|;
 end_import
 
@@ -155,6 +183,8 @@ class|class
 name|DefaultWebsocket
 implements|implements
 name|Serializable
+implements|,
+name|WebSocket
 block|{
 DECL|field|serialVersionUID
 specifier|private
@@ -497,6 +527,89 @@ name|connectionKey
 operator|=
 name|connectionKey
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|annotationType ()
+specifier|public
+name|Class
+argument_list|<
+name|?
+extends|extends
+name|Annotation
+argument_list|>
+name|annotationType
+parameter_list|()
+block|{
+comment|// TODO Auto-generated method stub
+return|return
+literal|null
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|inputBufferSize ()
+specifier|public
+name|int
+name|inputBufferSize
+parameter_list|()
+block|{
+comment|// TODO Auto-generated method stub
+return|return
+literal|0
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|maxBinaryMessageSize ()
+specifier|public
+name|int
+name|maxBinaryMessageSize
+parameter_list|()
+block|{
+comment|// TODO Auto-generated method stub
+return|return
+literal|0
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|maxIdleTime ()
+specifier|public
+name|int
+name|maxIdleTime
+parameter_list|()
+block|{
+comment|// TODO Auto-generated method stub
+return|return
+literal|0
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|maxTextMessageSize ()
+specifier|public
+name|int
+name|maxTextMessageSize
+parameter_list|()
+block|{
+comment|// TODO Auto-generated method stub
+return|return
+literal|0
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|batchMode ()
+specifier|public
+name|BatchMode
+name|batchMode
+parameter_list|()
+block|{
+comment|// TODO Auto-generated method stub
+return|return
+literal|null
+return|;
 block|}
 block|}
 end_class
