@@ -215,6 +215,18 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|replySubject
+specifier|private
+name|String
+name|replySubject
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
 name|defaultValue
 operator|=
 literal|"false"
@@ -507,6 +519,33 @@ operator|.
 name|pingInterval
 operator|=
 name|pingInterval
+expr_stmt|;
+block|}
+comment|/**      * the subject to which subscribers should send response      */
+DECL|method|getReplySubject ()
+specifier|public
+name|String
+name|getReplySubject
+parameter_list|()
+block|{
+return|return
+name|replySubject
+return|;
+block|}
+DECL|method|setReplySubject (String replySubject)
+specifier|public
+name|void
+name|setReplySubject
+parameter_list|(
+name|String
+name|replySubject
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replySubject
+operator|=
+name|replySubject
 expr_stmt|;
 block|}
 comment|/**      * Whether or not randomizing the order of servers for the connection attempts      */
