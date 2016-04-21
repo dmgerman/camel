@@ -1253,6 +1253,26 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+elseif|else
+if|if
+condition|(
+literal|'}'
+operator|==
+name|next
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|"}"
+argument_list|)
+expr_stmt|;
+name|special
+operator|=
+literal|true
+expr_stmt|;
+block|}
 else|else
 block|{
 comment|// not special just a regular character
