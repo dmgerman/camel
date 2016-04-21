@@ -26,6 +26,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|atomic
 operator|.
 name|AtomicBoolean
@@ -201,6 +213,12 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|workerPool
+specifier|private
+specifier|final
+name|ExecutorService
+name|workerPool
+decl_stmt|;
 DECL|field|endpoint
 specifier|private
 specifier|final
@@ -235,10 +253,13 @@ argument_list|(
 literal|false
 argument_list|)
 decl_stmt|;
-DECL|method|EndpointSubscription (Endpoint endpoint, final Observer<? super T> observer, final Func1<Exchange, T> func)
+DECL|method|EndpointSubscription (ExecutorService workerPool, Endpoint endpoint, final Observer<? super T> observer, final Func1<Exchange, T> func)
 specifier|public
 name|EndpointSubscription
 parameter_list|(
+name|ExecutorService
+name|workerPool
+parameter_list|,
 name|Endpoint
 name|endpoint
 parameter_list|,
@@ -261,6 +282,12 @@ argument_list|>
 name|func
 parameter_list|)
 block|{
+name|this
+operator|.
+name|workerPool
+operator|=
+name|workerPool
+expr_stmt|;
 name|this
 operator|.
 name|endpoint
@@ -410,6 +437,22 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// must stop the consumer from the worker pool as we should not stop ourself from a thread from ourself
+name|workerPool
+operator|.
+name|submit
+argument_list|(
+operator|new
+name|Runnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
 try|try
 block|{
 name|ServiceHelper
@@ -447,6 +490,10 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}

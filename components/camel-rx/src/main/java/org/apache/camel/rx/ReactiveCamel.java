@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -176,6 +188,15 @@ specifier|final
 name|CamelContext
 name|camelContext
 decl_stmt|;
+comment|// a worker pool for running tasks such as stopping consumers which should not use the event loop
+comment|// thread from rx-java but use our own thread to process such tasks
+DECL|field|workerPool
+specifier|private
+specifier|final
+name|ExecutorService
+name|workerPool
+decl_stmt|;
+comment|/**      * Wrap the CamelContext as reactive.      *<p/>      * Uses a default value of 10 as maximum number of threads in the worker pool used for reactive background tasks.      *      * @param camelContext  the CamelContext      */
 DECL|method|ReactiveCamel (CamelContext camelContext)
 specifier|public
 name|ReactiveCamel
@@ -185,10 +206,50 @@ name|camelContext
 parameter_list|)
 block|{
 name|this
+argument_list|(
+name|camelContext
+argument_list|,
+literal|10
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Wrap the CamelContext as reactive.      *      * @param camelContext  the CamelContext      * @param maxWorkerPoolSize  maximum number of threads in the worker pool used for reactive background tasks      */
+DECL|method|ReactiveCamel (CamelContext camelContext, int maxWorkerPoolSize)
+specifier|public
+name|ReactiveCamel
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|int
+name|maxWorkerPoolSize
+parameter_list|)
+block|{
+name|this
 operator|.
 name|camelContext
 operator|=
 name|camelContext
+expr_stmt|;
+name|this
+operator|.
+name|workerPool
+operator|=
+name|camelContext
+operator|.
+name|getExecutorServiceManager
+argument_list|()
+operator|.
+name|newThreadPool
+argument_list|(
+name|this
+argument_list|,
+literal|"ReactiveCamelWorker"
+argument_list|,
+literal|0
+argument_list|,
+name|maxWorkerPoolSize
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|getCamelContext ()
@@ -556,6 +617,8 @@ argument_list|<
 name|T
 argument_list|>
 argument_list|(
+name|workerPool
+argument_list|,
 name|endpoint
 argument_list|,
 name|converter
@@ -603,6 +666,8 @@ argument_list|<
 name|Exchange
 argument_list|>
 argument_list|(
+name|workerPool
+argument_list|,
 name|endpoint
 argument_list|,
 name|exchange

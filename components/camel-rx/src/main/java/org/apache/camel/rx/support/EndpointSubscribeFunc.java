@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -84,6 +96,12 @@ argument_list|<
 name|T
 argument_list|>
 block|{
+DECL|field|workerPool
+specifier|private
+specifier|final
+name|ExecutorService
+name|workerPool
+decl_stmt|;
 DECL|field|endpoint
 specifier|private
 specifier|final
@@ -101,10 +119,13 @@ name|T
 argument_list|>
 name|converter
 decl_stmt|;
-DECL|method|EndpointSubscribeFunc (Endpoint endpoint, Func1<Exchange, T> converter)
+DECL|method|EndpointSubscribeFunc (ExecutorService workerPool, Endpoint endpoint, Func1<Exchange, T> converter)
 specifier|public
 name|EndpointSubscribeFunc
 parameter_list|(
+name|ExecutorService
+name|workerPool
+parameter_list|,
 name|Endpoint
 name|endpoint
 parameter_list|,
@@ -117,6 +138,12 @@ argument_list|>
 name|converter
 parameter_list|)
 block|{
+name|this
+operator|.
+name|workerPool
+operator|=
+name|workerPool
+expr_stmt|;
 name|this
 operator|.
 name|endpoint
@@ -156,6 +183,8 @@ argument_list|<
 name|T
 argument_list|>
 argument_list|(
+name|workerPool
+argument_list|,
 name|endpoint
 argument_list|,
 name|subscriber
