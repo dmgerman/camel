@@ -840,6 +840,25 @@ name|acceptMessagesWhileStopping
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Whether the DefaultMessageListenerContainer used in the reply managers for request-reply messaging allow       * the DefaultMessageListenerContainer.runningAllowed flag to quick stop in case JmsConfiguration#isAcceptMessagesWhileStopping      * is enabled, and org.apache.camel.CamelContext is currently being stopped. This quick stop ability is enabled by      * default in the regular JMS consumers but to enable for reply managers you must enable this flag.       */
+DECL|method|setAllowReplyManagerQuickStop (boolean allowReplyManagerQuickStop)
+specifier|public
+name|void
+name|setAllowReplyManagerQuickStop
+parameter_list|(
+name|boolean
+name|allowReplyManagerQuickStop
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setAllowReplyManagerQuickStop
+argument_list|(
+name|allowReplyManagerQuickStop
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * The JMS acknowledgement mode defined as an Integer.      * Allows you to set vendor-specific extensions to the acknowledgment mode.      * For the regular modes, it is preferable to use the acknowledgementModeName instead.      */
 DECL|method|setAcknowledgementMode (int consumerAcknowledgementMode)
 specifier|public

@@ -136,12 +136,14 @@ name|String
 name|fixedMessageSelector
 parameter_list|)
 block|{
-comment|// request-reply listener container should not allow quick-stop so we can keep listening for reply messages
 name|super
 argument_list|(
 name|endpoint
 argument_list|,
-literal|false
+name|endpoint
+operator|.
+name|isAllowReplyManagerQuickStop
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this
@@ -167,7 +169,10 @@ name|super
 argument_list|(
 name|endpoint
 argument_list|,
-literal|false
+name|endpoint
+operator|.
+name|isAllowReplyManagerQuickStop
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|this

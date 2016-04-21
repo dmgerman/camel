@@ -683,6 +683,28 @@ literal|"consumer,advanced"
 argument_list|,
 name|description
 operator|=
+literal|"Whether the DefaultMessageListenerContainer used in the reply managers for request-reply messaging allow "
+operator|+
+literal|" the DefaultMessageListenerContainer.runningAllowed flag to quick stop in case JmsConfiguration#isAcceptMessagesWhileStopping"
+operator|+
+literal|" is enabled, and org.apache.camel.CamelContext is currently being stopped. This quick stop ability is enabled by"
+operator|+
+literal|" default in the regular JMS consumers but to enable for reply managers you must enable this flag."
+argument_list|)
+DECL|field|allowReplyManagerQuickStop
+specifier|private
+name|boolean
+name|allowReplyManagerQuickStop
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|,
+name|description
+operator|=
 literal|"Specifies whether the consumer accept messages while it is stopping."
 operator|+
 literal|" You may consider enabling this option, if you start and stop JMS routes at runtime, while there are still messages"
@@ -3532,6 +3554,33 @@ operator|.
 name|acceptMessagesWhileStopping
 operator|=
 name|acceptMessagesWhileStopping
+expr_stmt|;
+block|}
+comment|/**      * Whether the {@link DefaultMessageListenerContainer} used in the reply managers for request-reply messaging allow       * the {@link DefaultMessageListenerContainer.runningAllowed} flag to quick stop in case {@link JmsConfiguration#isAcceptMessagesWhileStopping()}       * is enabled, and {@link org.apache.camel.CamelContext} is currently being stopped. This quick stop ability is enabled by      * default in the regular JMS consumers but to enable for reply managers you must enable this flag.      */
+DECL|method|isAllowReplyManagerQuickStop ()
+specifier|public
+name|boolean
+name|isAllowReplyManagerQuickStop
+parameter_list|()
+block|{
+return|return
+name|allowReplyManagerQuickStop
+return|;
+block|}
+DECL|method|setAllowReplyManagerQuickStop (boolean allowReplyManagerQuickStop)
+specifier|public
+name|void
+name|setAllowReplyManagerQuickStop
+parameter_list|(
+name|boolean
+name|allowReplyManagerQuickStop
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowReplyManagerQuickStop
+operator|=
+name|allowReplyManagerQuickStop
 expr_stmt|;
 block|}
 DECL|method|getClientId ()

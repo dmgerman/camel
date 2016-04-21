@@ -3079,6 +3079,22 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
+DECL|method|isAllowReplyManagerQuickStop ()
+specifier|public
+name|boolean
+name|isAllowReplyManagerQuickStop
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|isAllowReplyManagerQuickStop
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|isAlwaysCopyMessage ()
 specifier|public
 name|boolean
@@ -3386,6 +3402,26 @@ operator|.
 name|setAcceptMessagesWhileStopping
 argument_list|(
 name|acceptMessagesWhileStopping
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|ManagedAttribute
+DECL|method|setAllowReplyManagerQuickStop (boolean allowReplyManagerQuickStop)
+specifier|public
+name|void
+name|setAllowReplyManagerQuickStop
+parameter_list|(
+name|boolean
+name|allowReplyManagerQuickStop
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setAllowReplyManagerQuickStop
+argument_list|(
+name|allowReplyManagerQuickStop
 argument_list|)
 expr_stmt|;
 block|}
