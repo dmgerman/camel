@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|javax
+operator|.
+name|servlet
+operator|.
+name|http
+operator|.
+name|HttpServletRequest
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -63,18 +75,6 @@ operator|.
 name|junit
 operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|servlet
-operator|.
-name|http
-operator|.
-name|HttpServletRequest
 import|;
 end_import
 
