@@ -506,7 +506,7 @@ name|Boolean
 name|transferException
 decl_stmt|;
 annotation|@
-name|UriPath
+name|UriParam
 argument_list|(
 name|label
 operator|=
@@ -526,7 +526,7 @@ operator|.
 name|TRUE
 decl_stmt|;
 annotation|@
-name|UriPath
+name|UriParam
 argument_list|(
 name|label
 operator|=
@@ -546,7 +546,7 @@ operator|.
 name|TRUE
 decl_stmt|;
 annotation|@
-name|UriPath
+name|UriParam
 argument_list|(
 name|label
 operator|=

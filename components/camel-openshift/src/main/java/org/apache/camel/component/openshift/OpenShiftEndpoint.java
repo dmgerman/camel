@@ -226,7 +226,7 @@ name|String
 name|clientId
 decl_stmt|;
 annotation|@
-name|UriPath
+name|UriParam
 annotation|@
 name|Metadata
 argument_list|(
@@ -240,7 +240,7 @@ name|String
 name|username
 decl_stmt|;
 annotation|@
-name|UriPath
+name|UriParam
 annotation|@
 name|Metadata
 argument_list|(
