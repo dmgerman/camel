@@ -83,12 +83,20 @@ argument_list|(
 literal|"mock:result"
 argument_list|)
 operator|.
-name|expectedMinimumMessageCount
+name|expectedBodiesReceived
 argument_list|(
-literal|2
+literal|"Bye World"
 argument_list|)
 expr_stmt|;
-comment|//        template.sendBody("direct:start", "Hello World");
+name|template
+operator|.
+name|sendBody
+argument_list|(
+literal|"direct:start"
+argument_list|,
+literal|"Hello World"
+argument_list|)
+expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
@@ -119,12 +127,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer:trigger"
-argument_list|)
-operator|.
-name|to
-argument_list|(
-literal|"log:trigger"
+literal|"direct:start"
 argument_list|)
 operator|.
 name|hystrix

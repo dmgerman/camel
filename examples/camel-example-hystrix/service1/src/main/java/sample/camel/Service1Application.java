@@ -43,7 +43,7 @@ comment|//CHECKSTYLE:OFF
 end_comment
 
 begin_comment
-comment|/**  * A Spring Boot application that starts the Camel Hystrix application.  */
+comment|/**  * A Spring Boot application that runs Camel service 1  */
 end_comment
 
 begin_class

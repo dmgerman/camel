@@ -26,6 +26,14 @@ name|Main
 import|;
 end_import
 
+begin_comment
+comment|//CHECKSTYLE:OFF
+end_comment
+
+begin_comment
+comment|/**  * A Java main that runs Camel service 2  */
+end_comment
+
 begin_class
 DECL|class|Service2Application
 specifier|public
@@ -69,6 +77,10 @@ expr_stmt|;
 block|}
 block|}
 end_class
+
+begin_comment
+comment|//CHECKSTYLE:ON
+end_comment
 
 end_unit
 
