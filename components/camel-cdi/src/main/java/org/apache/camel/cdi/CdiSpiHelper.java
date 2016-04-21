@@ -1004,7 +1004,7 @@ comment|/**      * Generates a unique signature of a collection of types.      *
 end_comment
 
 begin_function
-DECL|method|createTypeCollectionId (Collection<? extends Type> types)
+DECL|method|createTypeCollectionId (Collection<Type> types)
 specifier|private
 specifier|static
 name|String
@@ -1012,8 +1012,6 @@ name|createTypeCollectionId
 parameter_list|(
 name|Collection
 argument_list|<
-name|?
-extends|extends
 name|Type
 argument_list|>
 name|types
