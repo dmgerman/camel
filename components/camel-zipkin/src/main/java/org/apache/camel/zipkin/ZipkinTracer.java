@@ -1591,9 +1591,11 @@ expr_stmt|;
 block|}
 name|ServiceHelper
 operator|.
-name|startService
+name|startServices
 argument_list|(
 name|spanCollector
+argument_list|,
+name|eventNotifier
 argument_list|)
 expr_stmt|;
 block|}
@@ -1607,6 +1609,24 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// stop event notifier
+name|camelContext
+operator|.
+name|getManagementStrategy
+argument_list|()
+operator|.
+name|removeEventNotifier
+argument_list|(
+name|eventNotifier
+argument_list|)
+expr_stmt|;
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|eventNotifier
+argument_list|)
+expr_stmt|;
 comment|// stop and close collector
 name|ServiceHelper
 operator|.
@@ -1633,21 +1653,13 @@ name|spanCollector
 argument_list|)
 expr_stmt|;
 block|}
+comment|// clear braves
 name|braves
 operator|.
 name|clear
 argument_list|()
 expr_stmt|;
-name|camelContext
-operator|.
-name|getManagementStrategy
-argument_list|()
-operator|.
-name|removeEventNotifier
-argument_list|(
-name|eventNotifier
-argument_list|)
-expr_stmt|;
+comment|// remove route policy
 name|camelContext
 operator|.
 name|getRoutePolicyFactories
