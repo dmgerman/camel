@@ -446,11 +446,10 @@ operator|==
 literal|null
 condition|)
 block|{
+comment|// by default use the thread pool from the group
 name|threadPoolKey
 operator|=
-name|id
-operator|+
-literal|"-threadpool"
+name|groupKey
 expr_stmt|;
 block|}
 comment|// use the node id as the command key
@@ -631,6 +630,7 @@ condition|(
 name|fallbackViaNetwork
 condition|)
 block|{
+comment|// use a different thread pool that is for fallback (should never use the same thread pool as the regular command)
 name|HystrixThreadPoolKey
 name|tpFallbackKey
 init|=
