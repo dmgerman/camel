@@ -282,18 +282,6 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Matchers
-operator|.
-name|anyObject
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|mockito
-operator|.
 name|Mockito
 operator|.
 name|mock
