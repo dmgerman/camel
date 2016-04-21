@@ -336,6 +336,12 @@ specifier|final
 name|CometdBinding
 name|binding
 decl_stmt|;
+DECL|field|channelName
+specifier|private
+specifier|final
+name|String
+name|channelName
+decl_stmt|;
 DECL|method|ConsumerService (String channel, BayeuxServerImpl bayeux, CometdConsumer consumer)
 specifier|public
 name|ConsumerService
@@ -381,6 +387,12 @@ name|consumer
 operator|=
 name|consumer
 expr_stmt|;
+name|this
+operator|.
+name|channelName
+operator|=
+name|channel
+expr_stmt|;
 name|addService
 argument_list|(
 name|channel
@@ -422,7 +434,7 @@ name|enableSessionHeaders
 argument_list|)
 return|;
 block|}
-DECL|method|push (ServerSession remote, String channelName, ServerMessage cometdMessage, String messageId)
+DECL|method|push (ServerSession remote, ServerMessage cometdMessage)
 specifier|public
 name|void
 name|push
@@ -430,14 +442,8 @@ parameter_list|(
 name|ServerSession
 name|remote
 parameter_list|,
-name|String
-name|channelName
-parameter_list|,
 name|ServerMessage
 name|cometdMessage
-parameter_list|,
-name|String
-name|messageId
 parameter_list|)
 throws|throws
 name|Exception
