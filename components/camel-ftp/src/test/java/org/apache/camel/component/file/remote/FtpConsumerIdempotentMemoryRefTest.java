@@ -338,7 +338,7 @@ argument_list|)
 operator|.
 name|whenDone
 argument_list|(
-literal|4
+literal|2
 argument_list|)
 operator|.
 name|create
@@ -447,6 +447,11 @@ name|from
 argument_list|(
 name|getFtpUrl
 argument_list|()
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:result"
 argument_list|)
 operator|.
 name|to
