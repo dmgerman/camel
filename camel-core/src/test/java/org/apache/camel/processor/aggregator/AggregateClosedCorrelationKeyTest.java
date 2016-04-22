@@ -441,7 +441,15 @@ argument_list|,
 literal|3
 argument_list|)
 expr_stmt|;
+comment|// 2 of them should now be closed
+name|int
+name|closed
+init|=
+literal|0
+decl_stmt|;
 comment|// should NOT be closed because only 2 and 3 is remembered as they are the two last used
+try|try
+block|{
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -455,6 +463,55 @@ argument_list|,
 literal|1
 argument_list|)
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|CamelExecutionException
+name|e
+parameter_list|)
+block|{
+name|closed
+operator|++
+expr_stmt|;
+name|ClosedCorrelationKeyException
+name|cause
+init|=
+name|assertIsInstanceOf
+argument_list|(
+name|ClosedCorrelationKeyException
+operator|.
+name|class
+argument_list|,
+name|e
+operator|.
+name|getCause
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"1"
+argument_list|,
+name|cause
+operator|.
+name|getCorrelationKey
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertTrue
+argument_list|(
+name|cause
+operator|.
+name|getMessage
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"The correlation key [1] has been closed."
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|// should be closed
 try|try
 block|{
@@ -471,11 +528,6 @@ argument_list|,
 literal|2
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should throw an exception"
-argument_list|)
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -483,6 +535,9 @@ name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
+name|closed
+operator|++
+expr_stmt|;
 name|ClosedCorrelationKeyException
 name|cause
 init|=
@@ -538,11 +593,6 @@ argument_list|,
 literal|3
 argument_list|)
 expr_stmt|;
-name|fail
-argument_list|(
-literal|"Should throw an exception"
-argument_list|)
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -550,6 +600,9 @@ name|CamelExecutionException
 name|e
 parameter_list|)
 block|{
+name|closed
+operator|++
+expr_stmt|;
 name|ClosedCorrelationKeyException
 name|cause
 init|=
@@ -591,6 +644,15 @@ expr_stmt|;
 block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"There should be 2 closed"
+argument_list|,
+literal|2
+argument_list|,
+name|closed
+argument_list|)
 expr_stmt|;
 block|}
 block|}
