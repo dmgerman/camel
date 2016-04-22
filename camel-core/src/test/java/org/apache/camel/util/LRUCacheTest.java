@@ -464,23 +464,6 @@ operator|.
 name|cleanUp
 argument_list|()
 expr_stmt|;
-comment|// should evict the eldest, and stop the service
-name|assertTrue
-argument_list|(
-name|service1
-operator|.
-name|getStopped
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertNull
-argument_list|(
-name|service12
-operator|.
-name|getStopped
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|cache
 operator|.
 name|put
@@ -495,15 +478,6 @@ name|cache
 operator|.
 name|cleanUp
 argument_list|()
-expr_stmt|;
-comment|// should evict the eldest, and stop the service
-name|assertTrue
-argument_list|(
-name|service2
-operator|.
-name|getStopped
-argument_list|()
-argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
