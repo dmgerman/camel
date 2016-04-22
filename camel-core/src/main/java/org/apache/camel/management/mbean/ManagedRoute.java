@@ -584,6 +584,12 @@ name|InFlightKey
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|jmxDomain
+specifier|private
+specifier|final
+name|String
+name|jmxDomain
+decl_stmt|;
 DECL|method|ManagedRoute (ModelCamelContext context, Route route)
 specifier|public
 name|ManagedRoute
@@ -614,6 +620,21 @@ operator|=
 name|route
 operator|.
 name|getDescription
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
+name|jmxDomain
+operator|=
+name|context
+operator|.
+name|getManagementStrategy
+argument_list|()
+operator|.
+name|getManagementAgent
+argument_list|()
+operator|.
+name|getMBeanObjectDomainName
 argument_list|()
 expr_stmt|;
 block|}
@@ -1996,7 +2017,9 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context="
+name|jmxDomain
+operator|+
+literal|":context="
 operator|+
 name|prefix
 operator|+
@@ -2586,7 +2609,9 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context="
+name|jmxDomain
+operator|+
+literal|":context="
 operator|+
 name|prefix
 operator|+

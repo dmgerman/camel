@@ -685,6 +685,12 @@ operator|new
 name|LoadTriplet
 argument_list|()
 decl_stmt|;
+DECL|field|jmxDomain
+specifier|private
+specifier|final
+name|String
+name|jmxDomain
+decl_stmt|;
 DECL|method|ManagedCamelContext (ModelCamelContext context)
 specifier|public
 name|ManagedCamelContext
@@ -698,6 +704,21 @@ operator|.
 name|context
 operator|=
 name|context
+expr_stmt|;
+name|this
+operator|.
+name|jmxDomain
+operator|=
+name|context
+operator|.
+name|getManagementStrategy
+argument_list|()
+operator|.
+name|getManagementAgent
+argument_list|()
+operator|.
+name|getMBeanObjectDomainName
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
@@ -2652,7 +2673,9 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context="
+name|jmxDomain
+operator|+
+literal|":context="
 operator|+
 name|prefix
 operator|+
@@ -2705,7 +2728,9 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context="
+name|jmxDomain
+operator|+
+literal|":context="
 operator|+
 name|prefix
 operator|+
@@ -4650,7 +4675,9 @@ name|ObjectName
 operator|.
 name|getInstance
 argument_list|(
-literal|"org.apache.camel:context="
+name|jmxDomain
+operator|+
+literal|":context="
 operator|+
 name|prefix
 operator|+
