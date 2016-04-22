@@ -220,7 +220,7 @@ name|component
 operator|.
 name|setMaxThreads
 argument_list|(
-literal|11
+literal|20
 argument_list|)
 expr_stmt|;
 name|Consumer

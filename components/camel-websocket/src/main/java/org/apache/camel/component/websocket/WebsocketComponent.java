@@ -2019,11 +2019,7 @@ name|qtp
 operator|.
 name|setName
 argument_list|(
-literal|"CamelJettyWebSocketServer("
-operator|+
-literal|"test"
-operator|+
-literal|")"
+literal|"CamelJettyWebSocketServer"
 argument_list|)
 expr_stmt|;
 try|try
