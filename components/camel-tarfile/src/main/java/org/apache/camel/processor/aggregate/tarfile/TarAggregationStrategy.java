@@ -322,6 +322,26 @@ name|IOUtils
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|Logger
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|slf4j
+operator|.
+name|LoggerFactory
+import|;
+end_import
+
 begin_comment
 comment|/**  * This aggregation strategy will aggregate all incoming messages into a TAR file.  *<p>If the incoming exchanges contain {@link GenericFileMessage} file name will   * be taken from the body otherwise the body content will be treated as a byte   * array and the TAR entry will be named using the message id (unless the flag  * useFilenameHeader is set to true.</p>  *<p><b>NOTE 1:</b> Please note that this aggregation strategy requires eager  * completion check to work properly.</p>  *  *<p><b>NOTE 2:</b> This implementation is very inefficient especially on big files since the tar  * file is completely rewritten for each file that is added to it. Investigate if the  * files can be collected and at completion stored to tar file.</p>  */
 end_comment
@@ -334,6 +354,22 @@ name|TarAggregationStrategy
 implements|implements
 name|AggregationStrategy
 block|{
+DECL|field|LOG
+specifier|private
+specifier|static
+specifier|final
+name|Logger
+name|LOG
+init|=
+name|LoggerFactory
+operator|.
+name|getLogger
+argument_list|(
+name|TarAggregationStrategy
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 DECL|field|filePrefix
 specifier|private
 name|String
@@ -355,6 +391,22 @@ DECL|field|useFilenameHeader
 specifier|private
 name|boolean
 name|useFilenameHeader
+decl_stmt|;
+DECL|field|parentDir
+specifier|private
+name|File
+name|parentDir
+init|=
+operator|new
+name|File
+argument_list|(
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"java.io.tmpdir"
+argument_list|)
+argument_list|)
 decl_stmt|;
 DECL|method|TarAggregationStrategy ()
 specifier|public
@@ -411,7 +463,6 @@ operator|=
 name|useFilenameHeader
 expr_stmt|;
 block|}
-comment|/**      * Gets the prefix used when creating the TAR file name.      * @return the prefix      */
 DECL|method|getFilePrefix ()
 specifier|public
 name|String
@@ -422,7 +473,7 @@ return|return
 name|filePrefix
 return|;
 block|}
-comment|/**      * Sets the prefix that will be used when creating the TAR filename.      * @param filePrefix prefix to use on TAR file.      */
+comment|/**      * Sets the prefix that will be used when creating the TAR filename.      */
 DECL|method|setFilePrefix (String filePrefix)
 specifier|public
 name|void
@@ -439,7 +490,6 @@ operator|=
 name|filePrefix
 expr_stmt|;
 block|}
-comment|/**      * Gets the suffix used when creating the TAR file name.      * @return the suffix      */
 DECL|method|getFileSuffix ()
 specifier|public
 name|String
@@ -450,7 +500,7 @@ return|return
 name|fileSuffix
 return|;
 block|}
-comment|/**      * Sets the suffix that will be used when creating the ZIP filename.      * @param fileSuffix suffix to use on ZIP file.      */
+comment|/**      * Sets the suffix that will be used when creating the ZIP filename.      */
 DECL|method|setFileSuffix (String fileSuffix)
 specifier|public
 name|void
@@ -465,6 +515,54 @@ operator|.
 name|fileSuffix
 operator|=
 name|fileSuffix
+expr_stmt|;
+block|}
+DECL|method|getParentDir ()
+specifier|public
+name|File
+name|getParentDir
+parameter_list|()
+block|{
+return|return
+name|parentDir
+return|;
+block|}
+comment|/**      * Sets the parent directory to use for writing temporary files.      */
+DECL|method|setParentDir (File parentDir)
+specifier|public
+name|void
+name|setParentDir
+parameter_list|(
+name|File
+name|parentDir
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parentDir
+operator|=
+name|parentDir
+expr_stmt|;
+block|}
+comment|/**      * Sets the parent directory to use for writing temporary files.      */
+DECL|method|setParentDir (String parentDir)
+specifier|public
+name|void
+name|setParentDir
+parameter_list|(
+name|String
+name|parentDir
+parameter_list|)
+block|{
+name|this
+operator|.
+name|parentDir
+operator|=
+operator|new
+name|File
+argument_list|(
+name|parentDir
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -525,16 +623,16 @@ name|this
 operator|.
 name|fileSuffix
 argument_list|,
-operator|new
-name|File
-argument_list|(
-name|System
+name|parentDir
+argument_list|)
+expr_stmt|;
+name|LOG
 operator|.
-name|getProperty
+name|trace
 argument_list|(
-literal|"java.io.tmpdir"
-argument_list|)
-argument_list|)
+literal|"Created temporary file: {}"
+argument_list|,
+name|tarFile
 argument_list|)
 expr_stmt|;
 block|}
@@ -672,9 +770,11 @@ argument_list|,
 name|tarFile
 argument_list|,
 literal|null
+argument_list|,
+comment|// Do not set charset here, that will cause the tar file to be handled as ASCII later which breaks it..
+literal|false
 argument_list|)
 decl_stmt|;
-comment|// Do not set charset here, that will cause the tar file to be handled as ASCII later which breaks it..
 name|genericFile
 operator|.
 name|bindToExchange
@@ -786,6 +886,8 @@ argument_list|,
 name|tarFile
 argument_list|,
 literal|null
+argument_list|,
+literal|false
 argument_list|)
 decl_stmt|;
 name|genericFile
@@ -822,7 +924,6 @@ return|;
 block|}
 DECL|method|addFileToTar (File source, File file, String fileName)
 specifier|private
-specifier|static
 name|void
 name|addFileToTar
 parameter_list|(
@@ -853,6 +954,8 @@ name|getName
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+name|parentDir
 argument_list|)
 decl_stmt|;
 name|tmpTar
@@ -886,6 +989,15 @@ literal|")"
 argument_list|)
 throw|;
 block|}
+name|FileInputStream
+name|fis
+init|=
+operator|new
+name|FileInputStream
+argument_list|(
+name|tmpTar
+argument_list|)
+decl_stmt|;
 name|TarArchiveInputStream
 name|tin
 init|=
@@ -902,11 +1014,7 @@ name|ArchiveStreamFactory
 operator|.
 name|TAR
 argument_list|,
-operator|new
-name|FileInputStream
-argument_list|(
-name|tmpTar
-argument_list|)
+name|fis
 argument_list|)
 decl_stmt|;
 name|TarArchiveOutputStream
@@ -1043,27 +1151,34 @@ name|IOHelper
 operator|.
 name|close
 argument_list|(
+name|fis
+argument_list|,
 name|in
-argument_list|)
-expr_stmt|;
-name|IOHelper
-operator|.
-name|close
-argument_list|(
+argument_list|,
 name|tin
+argument_list|,
+name|tos
 argument_list|)
 expr_stmt|;
-name|IOHelper
+name|LOG
 operator|.
-name|close
+name|trace
 argument_list|(
-name|tos
+literal|"Deleting temporary file: {}"
+argument_list|,
+name|tmpTar
+argument_list|)
+expr_stmt|;
+name|FileUtil
+operator|.
+name|deleteFile
+argument_list|(
+name|tmpTar
 argument_list|)
 expr_stmt|;
 block|}
 DECL|method|addEntryToTar (File source, String entryName, byte[] buffer, int length)
 specifier|private
-specifier|static
 name|void
 name|addEntryToTar
 parameter_list|(
@@ -1098,6 +1213,8 @@ name|getName
 argument_list|()
 argument_list|,
 literal|null
+argument_list|,
+name|parentDir
 argument_list|)
 decl_stmt|;
 name|tmpTar
@@ -1129,6 +1246,15 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+name|FileInputStream
+name|fis
+init|=
+operator|new
+name|FileInputStream
+argument_list|(
+name|tmpTar
+argument_list|)
+decl_stmt|;
 name|TarArchiveInputStream
 name|tin
 init|=
@@ -1145,11 +1271,7 @@ name|ArchiveStreamFactory
 operator|.
 name|TAR
 argument_list|,
-operator|new
-name|FileInputStream
-argument_list|(
-name|tmpTar
-argument_list|)
+name|fis
 argument_list|)
 decl_stmt|;
 name|TarArchiveOutputStream
@@ -1267,14 +1389,27 @@ name|IOHelper
 operator|.
 name|close
 argument_list|(
+name|fis
+argument_list|,
 name|tin
+argument_list|,
+name|tos
 argument_list|)
 expr_stmt|;
-name|IOHelper
+name|LOG
 operator|.
-name|close
+name|trace
 argument_list|(
-name|tos
+literal|"Deleting temporary file: {}"
+argument_list|,
+name|tmpTar
+argument_list|)
+expr_stmt|;
+name|FileUtil
+operator|.
+name|deleteFile
+argument_list|(
+name|tmpTar
 argument_list|)
 expr_stmt|;
 block|}
@@ -1331,6 +1466,17 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Deleting tar file on completion: {} "
+argument_list|,
+name|this
+operator|.
+name|fileToDelete
+argument_list|)
+expr_stmt|;
 name|FileUtil
 operator|.
 name|deleteFile

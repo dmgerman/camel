@@ -163,6 +163,15 @@ name|EXPECTED_NO_FILES
 init|=
 literal|3
 decl_stmt|;
+DECL|field|tar
+specifier|private
+name|TarAggregationStrategy
+name|tar
+init|=
+operator|new
+name|TarAggregationStrategy
+argument_list|()
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|setUp ()
@@ -173,6 +182,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|tar
+operator|.
+name|setParentDir
+argument_list|(
+literal|"target/temp"
+argument_list|)
+expr_stmt|;
+name|deleteDirectory
+argument_list|(
+literal|"target/temp"
+argument_list|)
+expr_stmt|;
 name|deleteDirectory
 argument_list|(
 literal|"target/out"
@@ -387,9 +408,7 @@ argument_list|)
 operator|.
 name|aggregate
 argument_list|(
-operator|new
-name|TarAggregationStrategy
-argument_list|()
+name|tar
 argument_list|)
 operator|.
 name|constant
