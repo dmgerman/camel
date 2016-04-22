@@ -419,6 +419,37 @@ specifier|private
 name|CdiSpiHelper
 parameter_list|()
 block|{     }
+DECL|method|hasType (Type type)
+specifier|static
+name|Predicate
+argument_list|<
+name|Bean
+argument_list|>
+name|hasType
+parameter_list|(
+name|Type
+name|type
+parameter_list|)
+block|{
+name|requireNonNull
+argument_list|(
+name|type
+argument_list|)
+expr_stmt|;
+return|return
+name|bean
+lambda|->
+name|bean
+operator|.
+name|getTypes
+argument_list|()
+operator|.
+name|contains
+argument_list|(
+name|type
+argument_list|)
+return|;
+block|}
 DECL|method|isAnnotationType (Class<? extends Annotation> clazz)
 specifier|static
 name|Predicate

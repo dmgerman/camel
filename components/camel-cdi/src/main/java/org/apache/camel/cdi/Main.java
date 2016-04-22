@@ -531,37 +531,14 @@ argument_list|(
 name|CamelContext
 operator|.
 name|class
+argument_list|,
+name|ANY
 argument_list|)
 decl_stmt|;
-comment|// Warn if the default CDI Camel context has no routes
+comment|// Warn if there is no CDI Camel contexts
 if|if
 condition|(
 name|contexts
-operator|.
-name|size
-argument_list|()
-operator|==
-literal|1
-operator|&&
-name|getReference
-argument_list|(
-name|manager
-argument_list|,
-name|CamelContext
-operator|.
-name|class
-argument_list|,
-name|contexts
-operator|.
-name|iterator
-argument_list|()
-operator|.
-name|next
-argument_list|()
-argument_list|)
-operator|.
-name|getRoutes
-argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
@@ -571,9 +548,7 @@ name|LOG
 operator|.
 name|warn
 argument_list|(
-literal|"Camel CDI main has started with no Camel routes! "
-operator|+
-literal|"You may add some RouteBuilder beans to your project."
+literal|"Camel CDI main has started with no Camel context!"
 argument_list|)
 expr_stmt|;
 block|}
