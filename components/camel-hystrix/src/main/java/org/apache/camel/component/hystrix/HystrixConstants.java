@@ -24,6 +24,37 @@ specifier|public
 interface|interface
 name|HystrixConstants
 block|{
+comment|// Hystrix EIP response properties
+DECL|field|HYSTRIX_RESPONSE_SUCCESSFUL_EXECUTION
+name|String
+name|HYSTRIX_RESPONSE_SUCCESSFUL_EXECUTION
+init|=
+literal|"CamelHystrixSuccessfulExecution"
+decl_stmt|;
+DECL|field|HYSTRIX_RESPONSE_FROM_FALLBACK
+name|String
+name|HYSTRIX_RESPONSE_FROM_FALLBACK
+init|=
+literal|"CamelHystrixResponseFromFallback"
+decl_stmt|;
+DECL|field|HYSTRIX_RESPONSE_SHORT_CIRCUITED
+name|String
+name|HYSTRIX_RESPONSE_SHORT_CIRCUITED
+init|=
+literal|"CamelHystrixResponseShortCircuited"
+decl_stmt|;
+DECL|field|HYSTRIX_RESPONSE_TIMED_OUT
+name|String
+name|HYSTRIX_RESPONSE_TIMED_OUT
+init|=
+literal|"CamelHystrixResponseTimedOut"
+decl_stmt|;
+DECL|field|HYSTRIX_RESPONSE_REJECTED
+name|String
+name|HYSTRIX_RESPONSE_REJECTED
+init|=
+literal|"CamelHystrixResponseRejected"
+decl_stmt|;
 comment|// in message header
 DECL|field|CAMEL_HYSTRIX_RUN_ENDPOINT
 name|String
