@@ -4108,9 +4108,23 @@ name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-comment|// is the a failure processor to process the Exchange
+comment|// we should allow using the failure processor if we should not continue
+comment|// or in case of continue then the failure processor is NOT a dead letter channel
+comment|// because you can continue and still let the failure processor do some routing
+comment|// before continue in the main route.
+name|boolean
+name|allowFailureProcessor
+init|=
+operator|!
+name|shouldContinue
+operator|||
+operator|!
+name|isDeadLetterChannel
+decl_stmt|;
 if|if
 condition|(
+name|allowFailureProcessor
+operator|&&
 name|processor
 operator|!=
 literal|null
