@@ -193,10 +193,10 @@ comment|/**  * Unite test for {@link InfinispanLocalAggregationRepository}  */
 end_comment
 
 begin_class
-DECL|class|InfinispanAggregationRepositoryOperationsTest
+DECL|class|InfinispanLocalAggregationRepositoryOperationsTest
 specifier|public
 class|class
-name|InfinispanAggregationRepositoryOperationsTest
+name|InfinispanLocalAggregationRepositoryOperationsTest
 block|{
 DECL|field|aggregationRepository
 specifier|private
@@ -283,10 +283,11 @@ name|holder
 operator|==
 literal|null
 condition|)
+block|{
 return|return
 literal|false
 return|;
-else|else
+block|}
 return|return
 literal|true
 return|;
