@@ -154,11 +154,11 @@ name|org
 operator|.
 name|infinispan
 operator|.
-name|commons
+name|client
 operator|.
-name|api
+name|hotrod
 operator|.
-name|BasicCache
+name|RemoteCacheManager
 import|;
 end_import
 
@@ -168,11 +168,27 @@ name|org
 operator|.
 name|infinispan
 operator|.
+name|client
+operator|.
+name|hotrod
+operator|.
 name|configuration
 operator|.
-name|cache
-operator|.
 name|Configuration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|infinispan
+operator|.
+name|commons
+operator|.
+name|api
+operator|.
+name|BasicCache
 import|;
 end_import
 
@@ -209,10 +225,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|InfinispanLocalAggregationRepository
+DECL|class|InfinispanRemoteAggregationRepository
 specifier|public
 class|class
-name|InfinispanLocalAggregationRepository
+name|InfinispanRemoteAggregationRepository
 extends|extends
 name|ServiceSupport
 implements|implements
@@ -229,7 +245,7 @@ name|LoggerFactory
 operator|.
 name|getLogger
 argument_list|(
-name|InfinispanLocalAggregationRepository
+name|InfinispanRemoteAggregationRepository
 operator|.
 name|class
 operator|.
@@ -246,7 +262,7 @@ literal|true
 decl_stmt|;
 DECL|field|manager
 specifier|private
-name|DefaultCacheManager
+name|RemoteCacheManager
 name|manager
 decl_stmt|;
 DECL|field|cacheName
@@ -293,16 +309,16 @@ specifier|private
 name|Configuration
 name|configuration
 decl_stmt|;
-comment|/**      * Creates new {@link InfinispanLocalAggregationRepository} that defaults to non-optimistic locking      * with recoverable behavior and a local Infinispan cache.       */
-DECL|method|InfinispanLocalAggregationRepository ()
+comment|/**      * Creates new {@link InfinispanRemoteAggregationRepository} that defaults to non-optimistic locking      * with recoverable behavior and a local Infinispan cache.       */
+DECL|method|InfinispanRemoteAggregationRepository ()
 specifier|public
-name|InfinispanLocalAggregationRepository
+name|InfinispanRemoteAggregationRepository
 parameter_list|()
 block|{     }
-comment|/**      * Creates new {@link InfinispanLocalAggregationRepository} that defaults to non-optimistic locking      * with recoverable behavior and a local Infinispan cache.       * @param cacheName cache name      */
-DECL|method|InfinispanLocalAggregationRepository (final String cacheName)
+comment|/**      * Creates new {@link InfinispanRemoteAggregationRepository} that defaults to non-optimistic locking      * with recoverable behavior and a local Infinispan cache.       * @param cacheName cache name      */
+DECL|method|InfinispanRemoteAggregationRepository (final String cacheName)
 specifier|public
-name|InfinispanLocalAggregationRepository
+name|InfinispanRemoteAggregationRepository
 parameter_list|(
 specifier|final
 name|String
@@ -815,7 +831,7 @@ block|{
 name|manager
 operator|=
 operator|new
-name|DefaultCacheManager
+name|RemoteCacheManager
 argument_list|()
 expr_stmt|;
 name|manager
@@ -829,7 +845,7 @@ block|{
 name|manager
 operator|=
 operator|new
-name|DefaultCacheManager
+name|RemoteCacheManager
 argument_list|(
 name|configuration
 argument_list|)
@@ -935,7 +951,7 @@ return|;
 block|}
 DECL|method|getManager ()
 specifier|public
-name|DefaultCacheManager
+name|RemoteCacheManager
 name|getManager
 parameter_list|()
 block|{
@@ -943,12 +959,12 @@ return|return
 name|manager
 return|;
 block|}
-DECL|method|setManager (DefaultCacheManager manager)
+DECL|method|setManager (RemoteCacheManager manager)
 specifier|public
 name|void
 name|setManager
 parameter_list|(
-name|DefaultCacheManager
+name|RemoteCacheManager
 name|manager
 parameter_list|)
 block|{
