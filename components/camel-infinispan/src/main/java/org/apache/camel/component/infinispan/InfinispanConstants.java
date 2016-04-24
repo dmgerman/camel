@@ -233,6 +233,12 @@ name|QUERY_BUILDER
 init|=
 literal|"CamelInfinispanQueryBuilder"
 decl_stmt|;
+DECL|field|STATS
+name|String
+name|STATS
+init|=
+literal|"CamelInfinispanOperationStats"
+decl_stmt|;
 DECL|field|CACHE_ENTRY_JOINING
 name|String
 name|CACHE_ENTRY_JOINING
