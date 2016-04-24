@@ -412,6 +412,22 @@ name|processor
 operator|.
 name|aggregate
 operator|.
+name|DelegateAggregationStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
 name|TimeoutAwareAggregationStrategy
 import|;
 end_import
@@ -711,7 +727,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implements the Multicast pattern to send a message exchange to a number of  * endpoints, each endpoint receiving a copy of the message exchange.  *  * @version   * @see Pipeline  */
+comment|/**  * Implements the Multicast pattern to send a message exchange to a number of  * endpoints, each endpoint receiving a copy of the message exchange.  *  * @version  * @see Pipeline  */
 end_comment
 
 begin_class
@@ -3009,6 +3025,26 @@ if|if
 condition|(
 name|strategy
 operator|instanceof
+name|DelegateAggregationStrategy
+condition|)
+block|{
+name|strategy
+operator|=
+operator|(
+operator|(
+name|DelegateAggregationStrategy
+operator|)
+name|strategy
+operator|)
+operator|.
+name|getDelegate
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|strategy
+operator|instanceof
 name|TimeoutAwareAggregationStrategy
 condition|)
 block|{
@@ -4452,6 +4488,26 @@ argument_list|(
 name|subExchange
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|strategy
+operator|instanceof
+name|DelegateAggregationStrategy
+condition|)
+block|{
+name|strategy
+operator|=
+operator|(
+operator|(
+name|DelegateAggregationStrategy
+operator|)
+name|strategy
+operator|)
+operator|.
+name|getDelegate
+argument_list|()
+expr_stmt|;
+block|}
 comment|// invoke the on completion callback
 if|if
 condition|(

@@ -58,6 +58,8 @@ class|class
 name|ShareUnitOfWorkAggregationStrategy
 implements|implements
 name|AggregationStrategy
+implements|,
+name|DelegateAggregationStrategy
 block|{
 DECL|field|strategy
 specifier|private
@@ -79,6 +81,16 @@ name|strategy
 operator|=
 name|strategy
 expr_stmt|;
+block|}
+DECL|method|getDelegate ()
+specifier|public
+name|AggregationStrategy
+name|getDelegate
+parameter_list|()
+block|{
+return|return
+name|strategy
+return|;
 block|}
 DECL|method|aggregate (Exchange oldExchange, Exchange newExchange)
 specifier|public
