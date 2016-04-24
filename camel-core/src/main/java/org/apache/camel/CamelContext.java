@@ -817,6 +817,12 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
+comment|/**      * If CamelContext during the start procedure was vetoed, and therefore causing Camel to not start.      */
+DECL|method|isVetoStarted ()
+name|boolean
+name|isVetoStarted
+parameter_list|()
+function_decl|;
 comment|/**      * Starts the {@link CamelContext} (<b>important:</b> the start method is not blocked, see more details      *<a href="http://camel.apache.org/running-camel-standalone-and-have-it-keep-running.html">here</a>)</li>.      *<p/>      * See more details at the class-level javadoc of this class.      *      * @throws Exception is thrown if starting failed      */
 DECL|method|start ()
 name|void

@@ -256,6 +256,20 @@ name|concurrent
 operator|.
 name|atomic
 operator|.
+name|AtomicBoolean
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|atomic
+operator|.
 name|AtomicInteger
 import|;
 end_import
@@ -2011,6 +2025,16 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
+DECL|field|vetoStated
+specifier|private
+specifier|final
+name|AtomicBoolean
+name|vetoStated
+init|=
+operator|new
+name|AtomicBoolean
+argument_list|()
+decl_stmt|;
 DECL|field|jaxbContext
 specifier|private
 name|JAXBContext
@@ -3027,6 +3051,19 @@ name|cast
 argument_list|(
 name|this
 argument_list|)
+return|;
+block|}
+DECL|method|isVetoStarted ()
+specifier|public
+name|boolean
+name|isVetoStarted
+parameter_list|()
+block|{
+return|return
+name|vetoStated
+operator|.
+name|get
+argument_list|()
 return|;
 block|}
 DECL|method|getName ()
@@ -16044,6 +16081,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|vetoStated
+operator|.
+name|set
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
 name|startDate
 operator|=
 operator|new
@@ -16141,6 +16185,14 @@ name|VetoCamelContextStartException
 name|e
 parameter_list|)
 block|{
+comment|// mark we veto against starting Camel
+name|vetoStated
+operator|.
+name|set
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|e
@@ -16842,7 +16894,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Lifecycle strategy vetoed starting CamelContext ({}) due {}"
+literal|"Lifecycle strategy vetoed starting CamelContext ({}) due: {}"
 argument_list|,
 name|getName
 argument_list|()
@@ -16871,7 +16923,7 @@ literal|"Lifecycle strategy "
 operator|+
 name|strategy
 operator|+
-literal|" failed starting CamelContext ({}) due {}"
+literal|" failed starting CamelContext ({}) due: {}"
 argument_list|,
 name|getName
 argument_list|()

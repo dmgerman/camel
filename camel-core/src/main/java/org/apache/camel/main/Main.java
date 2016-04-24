@@ -389,6 +389,8 @@ operator|>
 literal|0
 condition|)
 block|{
+try|try
+block|{
 name|getCamelContexts
 argument_list|()
 operator|.
@@ -400,6 +402,29 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+comment|// if we were veto started then mark as completed
+block|}
+finally|finally
+block|{
+if|if
+condition|(
+name|getCamelContexts
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|isVetoStarted
+argument_list|()
+condition|)
+block|{
+name|completed
+argument_list|()
+expr_stmt|;
+block|}
+block|}
 block|}
 block|}
 DECL|method|doStop ()
