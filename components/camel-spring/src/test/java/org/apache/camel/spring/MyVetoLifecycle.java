@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.spring.processor
+DECL|package|org.apache.camel.spring
 package|package
 name|org
 operator|.
@@ -13,8 +13,6 @@ operator|.
 name|camel
 operator|.
 name|spring
-operator|.
-name|processor
 package|;
 end_package
 
@@ -38,54 +36,56 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
-operator|.
-name|CamelContextLogExhaustedMessageBodyTest
+name|VetoCamelContextStartException
 import|;
 end_import
 
 begin_import
-import|import static
+import|import
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
 operator|.
-name|spring
+name|support
 operator|.
-name|processor
-operator|.
-name|SpringTestHelper
-operator|.
-name|createSpringCamelContext
+name|LifecycleStrategySupport
 import|;
 end_import
 
 begin_class
-DECL|class|SpringCamelContextLogExhaustedMessageBodyTest
+DECL|class|MyVetoLifecycle
 specifier|public
 class|class
-name|SpringCamelContextLogExhaustedMessageBodyTest
+name|MyVetoLifecycle
 extends|extends
-name|CamelContextLogExhaustedMessageBodyTest
+name|LifecycleStrategySupport
 block|{
-DECL|method|createCamelContext ()
-specifier|protected
+annotation|@
+name|Override
+DECL|method|onContextStart (CamelContext context)
+specifier|public
+name|void
+name|onContextStart
+parameter_list|(
 name|CamelContext
-name|createCamelContext
-parameter_list|()
+name|context
+parameter_list|)
 throws|throws
-name|Exception
+name|VetoCamelContextStartException
 block|{
-return|return
-name|createSpringCamelContext
+throw|throw
+operator|new
+name|VetoCamelContextStartException
 argument_list|(
-name|this
+literal|"We do not like this route"
 argument_list|,
-literal|"org/apache/camel/spring/processor/SpringCamelContextLogExhaustedMessageBodyTest.xml"
+name|context
+argument_list|,
+literal|false
 argument_list|)
-return|;
+throw|;
 block|}
 block|}
 end_class
