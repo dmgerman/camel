@@ -103,10 +103,24 @@ name|String
 name|getNodeId
 parameter_list|()
 function_decl|;
-comment|/**          * The id of the route where the exchange currently is being processed          *<p/>          * Is<tt>null</tt> if message history is disabled.          */
+comment|/**          * The id of the route where the exchange originates (started)          */
+DECL|method|getFromRouteId ()
+name|String
+name|getFromRouteId
+parameter_list|()
+function_decl|;
+comment|/**          * The id of the route where the exchange currently is being processed          *<p/>          * Is<tt>null</tt> if message history is disabled.          * @deprecated use {@link #getAtRouteId()}          */
+annotation|@
+name|Deprecated
 DECL|method|getRouteId ()
 name|String
 name|getRouteId
+parameter_list|()
+function_decl|;
+comment|/**          * The id of the route where the exchange currently is being processed          *<p/>          * Is<tt>null</tt> if message history is disabled.          */
+DECL|method|getAtRouteId ()
+name|String
+name|getAtRouteId
 parameter_list|()
 function_decl|;
 block|}
@@ -196,6 +210,18 @@ argument_list|>
 name|browse
 parameter_list|()
 function_decl|;
+comment|/**      * A<i>read-only</i> browser of the {@link InflightExchange}s that are currently inflight that started from the given route.      *      * @param fromRouteId  the route id, or<tt>null</tt> for all routes.      */
+DECL|method|browse (String fromRouteId)
+name|Collection
+argument_list|<
+name|InflightExchange
+argument_list|>
+name|browse
+parameter_list|(
+name|String
+name|fromRouteId
+parameter_list|)
+function_decl|;
 comment|/**      * A<i>read-only</i> browser of the {@link InflightExchange}s that are currently inflight.      *      * @param limit maximum number of entries to return      * @param sortByLongestDuration to sort by the longest duration. Set to<tt>true</tt> to include the exchanges that has been inflight the longest time,      *                              set to<tt>false</tt> to sort by exchange id      */
 DECL|method|browse (int limit, boolean sortByLongestDuration)
 name|Collection
@@ -204,6 +230,24 @@ name|InflightExchange
 argument_list|>
 name|browse
 parameter_list|(
+name|int
+name|limit
+parameter_list|,
+name|boolean
+name|sortByLongestDuration
+parameter_list|)
+function_decl|;
+comment|/**      * A<i>read-only</i> browser of the {@link InflightExchange}s that are currently inflight that started from the given route.      *      * @param fromRouteId  the route id, or<tt>null</tt> for all routes.      * @param limit maximum number of entries to return      * @param sortByLongestDuration to sort by the longest duration. Set to<tt>true</tt> to include the exchanges that has been inflight the longest time,      *                              set to<tt>false</tt> to sort by exchange id      */
+DECL|method|browse (String fromRouteId, int limit, boolean sortByLongestDuration)
+name|Collection
+argument_list|<
+name|InflightExchange
+argument_list|>
+name|browse
+parameter_list|(
+name|String
+name|fromRouteId
+parameter_list|,
 name|int
 name|limit
 parameter_list|,

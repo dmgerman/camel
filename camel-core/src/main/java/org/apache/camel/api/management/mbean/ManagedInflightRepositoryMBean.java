@@ -129,6 +129,27 @@ name|boolean
 name|sortByLongestDuration
 parameter_list|)
 function_decl|;
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"List all the exchanges that origins from the given route, which are currently inflight, limited and sorted"
+argument_list|)
+DECL|method|browse (String fromRouteId, int limit, boolean sortByLongestDuration)
+name|TabularData
+name|browse
+parameter_list|(
+name|String
+name|fromRouteId
+parameter_list|,
+name|int
+name|limit
+parameter_list|,
+name|boolean
+name|sortByLongestDuration
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
