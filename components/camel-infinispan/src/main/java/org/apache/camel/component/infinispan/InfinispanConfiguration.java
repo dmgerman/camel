@@ -207,7 +207,7 @@ literal|"size,"
 operator|+
 literal|"clear,clearAsync,"
 operator|+
-literal|"query"
+literal|"query,stats"
 argument_list|)
 DECL|field|command
 specifier|private
