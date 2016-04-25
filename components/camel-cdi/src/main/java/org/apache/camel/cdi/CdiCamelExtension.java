@@ -3145,6 +3145,16 @@ argument_list|)
 operator|.
 name|or
 argument_list|(
+name|isAnnotationType
+argument_list|(
+name|Mock
+operator|.
+name|class
+argument_list|)
+argument_list|)
+operator|.
+name|or
+argument_list|(
 name|isEqual
 argument_list|(
 name|DEFAULT
