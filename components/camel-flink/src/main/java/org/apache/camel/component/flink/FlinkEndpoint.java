@@ -140,28 +140,6 @@ name|DataSet
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-operator|.
-name|getLogger
-import|;
-end_import
-
 begin_comment
 comment|/**  * The flink component can be used to send DataSet jobs to Apache Flink cluster.  */
 end_comment
@@ -172,7 +150,7 @@ name|UriEndpoint
 argument_list|(
 name|scheme
 operator|=
-literal|"META-INF/services/org/apache/camel/component/flink"
+literal|"flink"
 argument_list|,
 name|title
 operator|=
@@ -188,7 +166,7 @@ literal|true
 argument_list|,
 name|label
 operator|=
-literal|"flink engine, hadoop"
+literal|"hadoop"
 argument_list|)
 DECL|class|FlinkEndpoint
 specifier|public
@@ -197,20 +175,6 @@ name|FlinkEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|getLogger
-argument_list|(
-name|FlinkEndpoint
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -225,7 +189,6 @@ specifier|private
 name|EndpointType
 name|endpointType
 decl_stmt|;
-comment|// DataSet to compute against.
 annotation|@
 name|UriParam
 DECL|field|dataSet
@@ -340,15 +303,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Creating {} Flink Producer."
-argument_list|,
-name|endpointType
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|endpointType
@@ -358,13 +312,6 @@ operator|.
 name|dataset
 condition|)
 block|{
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"About to create Dataset Producer."
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
 name|DataSetFlinkProducer
@@ -374,9 +321,15 @@ argument_list|)
 return|;
 block|}
 else|else
-return|return
-literal|null
-return|;
+block|{
+throw|throw
+operator|new
+name|UnsupportedOperationException
+argument_list|(
+literal|"datastream not yet supported"
+argument_list|)
+throw|;
+block|}
 block|}
 annotation|@
 name|Override

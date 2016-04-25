@@ -45,7 +45,7 @@ DECL|method|Flinks ()
 specifier|private
 name|Flinks
 parameter_list|()
-block|{      }
+block|{     }
 DECL|method|createExecutionEnvironment ()
 specifier|public
 specifier|static

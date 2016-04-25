@@ -21,6 +21,7 @@ end_package
 begin_class
 DECL|class|FlinkConstants
 specifier|public
+specifier|final
 class|class
 name|FlinkConstants
 block|{
@@ -31,7 +32,7 @@ specifier|final
 name|String
 name|FLINK_DATASET_HEADER
 init|=
-literal|"CAMEL_FLINK_DATASET"
+literal|"CamelFlinkDataSet"
 decl_stmt|;
 DECL|field|FLINK_DATASET_CALLBACK_HEADER
 specifier|public
@@ -40,8 +41,13 @@ specifier|final
 name|String
 name|FLINK_DATASET_CALLBACK_HEADER
 init|=
-literal|"CAMEL_FLINK_RDD_CALLBACK"
+literal|"CamelFlinkDataSetCallback"
 decl_stmt|;
+DECL|method|FlinkConstants ()
+specifier|private
+name|FlinkConstants
+parameter_list|()
+block|{     }
 block|}
 end_class
 
