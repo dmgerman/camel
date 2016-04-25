@@ -162,8 +162,12 @@ name|dcAwareRoundRobinPolicy
 case|:
 name|loadBalancingPolicy
 operator|=
-operator|new
 name|DCAwareRoundRobinPolicy
+operator|.
+name|builder
+argument_list|()
+operator|.
+name|build
 argument_list|()
 expr_stmt|;
 break|break;
