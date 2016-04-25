@@ -3184,9 +3184,9 @@ literal|false
 argument_list|,
 literal|false
 argument_list|,
-name|isDeadLetterChannel
-argument_list|,
 literal|true
+argument_list|,
+name|isDeadLetterChannel
 argument_list|,
 name|exchange
 argument_list|,
