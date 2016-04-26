@@ -281,6 +281,8 @@ argument_list|(
 literal|"/camel-cassandra.yaml"
 argument_list|,
 literal|"target/camel-cassandra"
+argument_list|,
+literal|30000
 argument_list|)
 expr_stmt|;
 block|}
