@@ -508,6 +508,22 @@ name|model
 operator|.
 name|dataformat
 operator|.
+name|TarFileDataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
+name|dataformat
+operator|.
 name|TidyMarkupDataFormat
 import|;
 end_import
@@ -729,7 +745,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Converts the message data received from the wire into a format that Apache Camel processors can consume  *  * @version   */
+comment|/**  * Converts the message data received from the wire into a format that Apache Camel processors can consume  *  * @version  */
 end_comment
 
 begin_class
@@ -1198,6 +1214,24 @@ argument_list|,
 name|type
 operator|=
 name|SyslogDataFormat
+operator|.
+name|class
+argument_list|)
+block|,
+annotation|@
+name|XmlElement
+argument_list|(
+name|required
+operator|=
+literal|false
+argument_list|,
+name|name
+operator|=
+literal|"tarfile"
+argument_list|,
+name|type
+operator|=
+name|TarFileDataFormat
 operator|.
 name|class
 argument_list|)
