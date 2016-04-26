@@ -314,7 +314,7 @@ name|class
 argument_list|)
 decl_stmt|;
 DECL|field|PORT
-specifier|protected
+specifier|private
 specifier|static
 specifier|final
 name|int
