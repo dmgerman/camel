@@ -258,7 +258,7 @@ name|Exception
 block|{
 return|return
 operator|new
-name|ZookeeperProducer
+name|ZooKeeperProducer
 argument_list|(
 name|this
 argument_list|)

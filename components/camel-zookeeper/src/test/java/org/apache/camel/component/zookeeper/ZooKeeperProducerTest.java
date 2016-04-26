@@ -203,10 +203,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|ZookeeperProducerTest
+DECL|class|ZooKeeperProducerTest
 specifier|public
 class|class
-name|ZookeeperProducerTest
+name|ZooKeeperProducerTest
 extends|extends
 name|ZooKeeperTestSupport
 block|{

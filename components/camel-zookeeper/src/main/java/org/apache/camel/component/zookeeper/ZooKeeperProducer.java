@@ -361,7 +361,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  *<code>ZookeeperProducer</code> attempts to set the content of nodes in the  * {@link ZooKeeper} cluster with the payloads of the of the exchanges it  * receives.  */
+comment|/**  *<code>ZooKeeperProducer</code> attempts to set the content of nodes in the  * {@link ZooKeeper} cluster with the payloads of the of the exchanges it  * receives.  */
 end_comment
 
 begin_class
@@ -370,10 +370,10 @@ name|SuppressWarnings
 argument_list|(
 literal|"rawtypes"
 argument_list|)
-DECL|class|ZookeeperProducer
+DECL|class|ZooKeeperProducer
 specifier|public
 class|class
-name|ZookeeperProducer
+name|ZooKeeperProducer
 extends|extends
 name|DefaultProducer
 block|{
@@ -411,9 +411,9 @@ specifier|private
 name|ZooKeeper
 name|connection
 decl_stmt|;
-DECL|method|ZookeeperProducer (ZooKeeperEndpoint endpoint)
+DECL|method|ZooKeeperProducer (ZooKeeperEndpoint endpoint)
 specifier|public
-name|ZookeeperProducer
+name|ZooKeeperProducer
 parameter_list|(
 name|ZooKeeperEndpoint
 name|endpoint
