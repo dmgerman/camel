@@ -34,6 +34,24 @@ name|ExecutionEnvironment
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|flink
+operator|.
+name|streaming
+operator|.
+name|api
+operator|.
+name|environment
+operator|.
+name|StreamExecutionEnvironment
+import|;
+end_import
+
 begin_class
 DECL|class|Flinks
 specifier|public
@@ -45,7 +63,7 @@ DECL|method|Flinks ()
 specifier|private
 name|Flinks
 parameter_list|()
-block|{     }
+block|{      }
 DECL|method|createExecutionEnvironment ()
 specifier|public
 specifier|static
@@ -55,6 +73,20 @@ parameter_list|()
 block|{
 return|return
 name|ExecutionEnvironment
+operator|.
+name|getExecutionEnvironment
+argument_list|()
+return|;
+block|}
+DECL|method|createStreamExecutionEnvironment ()
+specifier|public
+specifier|static
+name|StreamExecutionEnvironment
+name|createStreamExecutionEnvironment
+parameter_list|()
+block|{
+return|return
+name|StreamExecutionEnvironment
 operator|.
 name|getExecutionEnvironment
 argument_list|()

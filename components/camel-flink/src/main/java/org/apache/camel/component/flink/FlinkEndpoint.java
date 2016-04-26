@@ -140,6 +140,24 @@ name|DataSet
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|flink
+operator|.
+name|streaming
+operator|.
+name|api
+operator|.
+name|datastream
+operator|.
+name|DataStream
+import|;
+end_import
+
 begin_comment
 comment|/**  * The flink component can be used to send DataSet jobs to Apache Flink cluster.  */
 end_comment
@@ -202,6 +220,20 @@ DECL|field|dataSetCallback
 specifier|private
 name|DataSetCallback
 name|dataSetCallback
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|dataStream
+specifier|private
+name|DataStream
+name|dataStream
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|dataStreamCallback
+specifier|private
+name|DataStreamCallback
+name|dataStreamCallback
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -320,15 +352,29 @@ name|this
 argument_list|)
 return|;
 block|}
+elseif|else
+if|if
+condition|(
+name|endpointType
+operator|==
+name|EndpointType
+operator|.
+name|datastream
+condition|)
+block|{
+return|return
+operator|new
+name|DataStreamFlinkProducer
+argument_list|(
+name|this
+argument_list|)
+return|;
+block|}
 else|else
 block|{
-throw|throw
-operator|new
-name|UnsupportedOperationException
-argument_list|(
-literal|"datastream not yet supported"
-argument_list|)
-throw|;
+return|return
+literal|null
+return|;
 block|}
 block|}
 annotation|@
@@ -409,6 +455,16 @@ return|return
 name|dataSet
 return|;
 block|}
+DECL|method|getDataStream ()
+specifier|public
+name|DataStream
+name|getDataStream
+parameter_list|()
+block|{
+return|return
+name|dataStream
+return|;
+block|}
 comment|/**      * DataSet to compute against.      */
 DECL|method|setDataSet (DataSet ds)
 specifier|public
@@ -426,6 +482,23 @@ operator|=
 name|ds
 expr_stmt|;
 block|}
+comment|/**      * DataStream to compute against.      */
+DECL|method|setDataStream (DataStream ds)
+specifier|public
+name|void
+name|setDataStream
+parameter_list|(
+name|DataStream
+name|ds
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dataStream
+operator|=
+name|ds
+expr_stmt|;
+block|}
 DECL|method|getDataSetCallback ()
 specifier|public
 name|DataSetCallback
@@ -434,6 +507,16 @@ parameter_list|()
 block|{
 return|return
 name|dataSetCallback
+return|;
+block|}
+DECL|method|getDataStreamCallback ()
+specifier|public
+name|DataStreamCallback
+name|getDataStreamCallback
+parameter_list|()
+block|{
+return|return
+name|dataStreamCallback
 return|;
 block|}
 comment|/**      * Function performing action against a DataSet.      */
@@ -451,6 +534,23 @@ operator|.
 name|dataSetCallback
 operator|=
 name|dataSetCallback
+expr_stmt|;
+block|}
+comment|/**      * Function performing action against a DataStream.      */
+DECL|method|setDataStreamCallback (DataStreamCallback dataStreamCallback)
+specifier|public
+name|void
+name|setDataStreamCallback
+parameter_list|(
+name|DataStreamCallback
+name|dataStreamCallback
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dataStreamCallback
+operator|=
+name|dataStreamCallback
 expr_stmt|;
 block|}
 DECL|method|isCollect ()
