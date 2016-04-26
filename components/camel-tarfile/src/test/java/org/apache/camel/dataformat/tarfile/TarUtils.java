@@ -150,6 +150,13 @@ literal|"For lust towards the kings that came \n"
 operator|+
 literal|"With horsemen riding royally."
 decl_stmt|;
+DECL|method|TarUtils ()
+specifier|private
+name|TarUtils
+parameter_list|()
+block|{
+comment|// Prevent instantiation
+block|}
 DECL|method|getTaredText (String entryName)
 specifier|static
 name|byte
@@ -312,13 +319,6 @@ operator|.
 name|toByteArray
 argument_list|()
 return|;
-block|}
-DECL|method|TarUtils ()
-specifier|private
-name|TarUtils
-parameter_list|()
-block|{
-comment|// Prevent instantiation
 block|}
 block|}
 end_class
