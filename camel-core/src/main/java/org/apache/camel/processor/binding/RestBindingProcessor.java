@@ -957,7 +957,7 @@ operator|||
 name|isJson
 condition|)
 block|{
-comment|// we have binding enabled, so we need to know if there body is empty or not\
+comment|// we have binding enabled, so we need to know if there body is empty or not
 comment|// so force reading the body as a String which we can work with
 name|body
 operator|=

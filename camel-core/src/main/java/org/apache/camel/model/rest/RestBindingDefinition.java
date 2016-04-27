@@ -327,7 +327,7 @@ name|Metadata
 argument_list|(
 name|defaultValue
 operator|=
-literal|"auto"
+literal|"off"
 argument_list|)
 DECL|field|bindingMode
 specifier|private
@@ -1621,7 +1621,7 @@ return|return
 name|bindingMode
 return|;
 block|}
-comment|/**      * Sets the binding mode to use.      *<p/>      * The default value is auto      */
+comment|/**      * Sets the binding mode to use.      *<p/>      * The default value is off      */
 DECL|method|setBindingMode (RestBindingMode bindingMode)
 specifier|public
 name|void
