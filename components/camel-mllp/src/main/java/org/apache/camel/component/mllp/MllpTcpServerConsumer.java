@@ -1258,6 +1258,22 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
+name|SocketTimeoutException
+name|timeoutEx
+parameter_list|)
+block|{
+comment|// Didn't get a new connection - keep waiting for one
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"Timeout waiting for client connection - keep listening"
+argument_list|)
+expr_stmt|;
+continue|continue;
+block|}
+catch|catch
+parameter_list|(
 name|SocketException
 name|socketEx
 parameter_list|)
