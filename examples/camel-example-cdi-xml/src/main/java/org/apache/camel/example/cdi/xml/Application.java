@@ -299,32 +299,20 @@ operator|+
 name|body
 return|;
 block|}
-DECL|method|logout (@bserves RouteStoppedEvent event)
+DECL|method|logout (@bserves @amedR) RouteStoppedEvent event)
 name|void
 name|logout
 parameter_list|(
 annotation|@
 name|Observes
-name|RouteStoppedEvent
-name|event
-parameter_list|)
-block|{
-comment|// TODO: being able to filter event by id with @Named
-if|if
-condition|(
-name|event
-operator|.
-name|getRoute
-argument_list|()
-operator|.
-name|getId
-argument_list|()
-operator|.
-name|equals
+annotation|@
+name|Named
 argument_list|(
 literal|"terminal"
 argument_list|)
-condition|)
+name|RouteStoppedEvent
+name|event
+parameter_list|)
 block|{
 name|System
 operator|.
@@ -332,20 +320,19 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"                                     __ \n"
+literal|"                                     __    \n"
 operator|+
-literal|" _____         _                   _|  |\n"
+literal|" _____         _                   _|  |   \n"
 operator|+
-literal|"|  |  |___ ___| |_ _ ___ ___ ___ _| |  |\n"
+literal|"|  |  |___ ___| |_ _ ___ ___ ___ _| |  |   \n"
 operator|+
-literal|"|  |  |   | . | | | | . | . | -_| . |__|\n"
+literal|"|  |  |   | . | | | | . | . | -_| . |__|   \n"
 operator|+
-literal|"|_____|_|_|  _|_|___|_  |_  |___|___|__|\n"
+literal|"|_____|_|_|  _|_|___|_  |_  |___|___|__|   \n"
 operator|+
-literal|"          |_|       |___|___|           "
+literal|"          |_|       |___|___|              "
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 DECL|method|shutdown (@bserves @estroyedApplicationScoped.class) Object event)
 name|void
