@@ -754,12 +754,10 @@ name|Class
 argument_list|>
 name|events
 parameter_list|)
-throws|throws
-name|Exception
 block|{
 name|assertThat
 argument_list|(
-literal|"Events fired are incorrect"
+literal|"Events fired are incorrect!"
 argument_list|,
 name|events
 argument_list|,
@@ -831,7 +829,7 @@ argument_list|)
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"Events fired are incorrect"
+literal|"Events fired are incorrect!"
 argument_list|,
 name|events
 argument_list|,
@@ -903,7 +901,7 @@ argument_list|()
 expr_stmt|;
 name|assertThat
 argument_list|(
-literal|"Events fired are incorrect"
+literal|"Events fired are incorrect!"
 argument_list|,
 name|events
 argument_list|,
