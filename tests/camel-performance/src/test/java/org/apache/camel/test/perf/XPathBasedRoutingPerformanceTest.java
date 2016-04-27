@@ -197,7 +197,7 @@ name|log
 operator|.
 name|warn
 argument_list|(
-literal|"Ran {} tests in {} ms"
+literal|"Ran {} tests in {}ms"
 argument_list|,
 name|count
 argument_list|,
