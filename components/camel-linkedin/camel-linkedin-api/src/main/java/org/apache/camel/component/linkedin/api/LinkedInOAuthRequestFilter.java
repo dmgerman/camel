@@ -651,7 +651,7 @@ name|WebClient
 argument_list|(
 name|BrowserVersion
 operator|.
-name|FIREFOX_24
+name|FIREFOX_38
 argument_list|)
 expr_stmt|;
 specifier|final
@@ -1487,7 +1487,7 @@ parameter_list|()
 block|{
 name|webClient
 operator|.
-name|closeAllWindows
+name|close
 argument_list|()
 expr_stmt|;
 block|}
