@@ -256,7 +256,7 @@ name|getString
 argument_list|(
 name|SpringBatchComponent
 operator|.
-name|DYNAMIC_JOBNAME
+name|JOB_NAME
 argument_list|)
 decl_stmt|;
 name|Job
@@ -273,9 +273,8 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|Job
-name|dynamicJob
-init|=
+name|job2run
+operator|=
 name|CamelContextHelper
 operator|.
 name|mandatoryLookup
@@ -292,43 +291,7 @@ name|Job
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
-name|job2run
-operator|=
-name|dynamicJob
 expr_stmt|;
-if|if
-condition|(
-name|job2run
-operator|==
-literal|null
-condition|)
-block|{
-name|exchange
-operator|.
-name|setException
-argument_list|(
-operator|new
-name|CamelExchangeException
-argument_list|(
-literal|"Found header "
-operator|+
-name|SpringBatchComponent
-operator|.
-name|DYNAMIC_JOBNAME
-operator|+
-literal|" with value "
-operator|+
-name|messageJobName
-operator|+
-literal|" but could not find a Job in camel context"
-argument_list|,
-name|exchange
-argument_list|)
-argument_list|)
-expr_stmt|;
-return|return;
-block|}
 block|}
 if|if
 condition|(
@@ -350,7 +313,7 @@ literal|" and header "
 operator|+
 name|SpringBatchComponent
 operator|.
-name|DYNAMIC_JOBNAME
+name|JOB_NAME
 operator|+
 literal|" could not be found"
 argument_list|,

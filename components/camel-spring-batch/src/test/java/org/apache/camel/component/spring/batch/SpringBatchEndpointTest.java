@@ -80,18 +80,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExchangeException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|EndpointInject
 import|;
 end_import
@@ -596,7 +584,7 @@ name|header
 argument_list|(
 name|SpringBatchComponent
 operator|.
-name|DYNAMIC_JOBNAME
+name|JOB_NAME
 argument_list|)
 operator|.
 name|append
@@ -684,7 +672,7 @@ name|put
 argument_list|(
 name|SpringBatchComponent
 operator|.
-name|DYNAMIC_JOBNAME
+name|JOB_NAME
 argument_list|,
 literal|"dynamicMockjob"
 argument_list|)
