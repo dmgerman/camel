@@ -648,7 +648,7 @@ name|WebClient
 argument_list|(
 name|BrowserVersion
 operator|.
-name|FIREFOX_24
+name|FIREFOX_38
 argument_list|)
 decl_stmt|;
 specifier|final
