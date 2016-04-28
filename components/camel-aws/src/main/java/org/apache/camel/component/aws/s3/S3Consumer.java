@@ -293,7 +293,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Consumer of messages from the Amazon Web Service Simple Storage Service  *<a href="http://aws.amazon.com/s3/">AWS S3</a>  *   */
+comment|/**  * A Consumer of messages from the Amazon Web Service Simple Storage Service  *<a href="http://aws.amazon.com/s3/">AWS S3</a>  */
 end_comment
 
 begin_class
@@ -324,11 +324,6 @@ DECL|field|marker
 specifier|private
 name|String
 name|marker
-decl_stmt|;
-DECL|field|filesConsumed
-specifier|private
-name|boolean
-name|filesConsumed
 decl_stmt|;
 DECL|field|s3ConsumerToString
 specifier|private
@@ -402,23 +397,6 @@ name|exchanges
 decl_stmt|;
 if|if
 condition|(
-name|filesConsumed
-condition|)
-block|{
-name|exchanges
-operator|=
-operator|new
-name|LinkedList
-argument_list|<
-name|Exchange
-argument_list|>
-argument_list|()
-expr_stmt|;
-block|}
-else|else
-block|{
-if|if
-condition|(
 name|fileName
 operator|!=
 literal|null
@@ -459,21 +437,6 @@ argument_list|(
 name|s3Object
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-operator|!
-name|getConfiguration
-argument_list|()
-operator|.
-name|isDeleteAfterRead
-argument_list|()
-condition|)
-block|{
-name|filesConsumed
-operator|=
-literal|true
-expr_stmt|;
-block|}
 block|}
 else|else
 block|{
@@ -526,20 +489,23 @@ name|maxMessagesPerPoll
 argument_list|)
 expr_stmt|;
 block|}
+comment|// if there was a marker from previous poll then use that to continue from where we left last time
 if|if
 condition|(
 name|marker
 operator|!=
 literal|null
-operator|&&
-operator|!
-name|getConfiguration
-argument_list|()
-operator|.
-name|isDeleteAfterRead
-argument_list|()
 condition|)
 block|{
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Resuming from marker: {}"
+argument_list|,
+name|marker
+argument_list|)
+expr_stmt|;
 name|listObjectsRequest
 operator|.
 name|setMarker
@@ -559,26 +525,12 @@ argument_list|(
 name|listObjectsRequest
 argument_list|)
 decl_stmt|;
-comment|// we only setup the marker if the file is not deleted
-if|if
-condition|(
-operator|!
-name|getConfiguration
-argument_list|()
-operator|.
-name|isDeleteAfterRead
-argument_list|()
-condition|)
-block|{
-comment|// if the marker is truncated, the nextMarker should not be null
 if|if
 condition|(
 name|listObjects
 operator|.
-name|getNextMarker
+name|isTruncated
 argument_list|()
-operator|!=
-literal|null
 condition|)
 block|{
 name|marker
@@ -588,15 +540,23 @@ operator|.
 name|getNextMarker
 argument_list|()
 expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Returned list is truncated, so setting next marker: {}"
+argument_list|,
+name|marker
+argument_list|)
+expr_stmt|;
 block|}
 else|else
 block|{
-comment|// if there is no marker, the files are consumed, we should not pull it again
-name|filesConsumed
+comment|// no more data so clear marker
+name|marker
 operator|=
-literal|true
+literal|null
 expr_stmt|;
-block|}
 block|}
 if|if
 condition|(
@@ -634,7 +594,6 @@ name|getObjectSummaries
 argument_list|()
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 return|return
 name|processBatch
