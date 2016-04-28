@@ -437,6 +437,7 @@ argument_list|)
 decl_stmt|;
 DECL|field|connection
 specifier|private
+specifier|volatile
 name|XMPPConnection
 name|connection
 decl_stmt|;
@@ -900,29 +901,35 @@ name|isConnected
 argument_list|()
 condition|)
 block|{
+comment|// use existing working connection
 return|return
 name|connection
 return|;
 block|}
-if|if
-condition|(
-name|connection
-operator|==
-literal|null
-condition|)
-block|{
+comment|// prepare for creating new connection
 name|connection
 operator|=
+literal|null
+expr_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Creating new connection ..."
+argument_list|)
+expr_stmt|;
+name|XMPPConnection
+name|newConnection
+init|=
 name|createConnectionInternal
 argument_list|()
-expr_stmt|;
-block|}
-name|connection
+decl_stmt|;
+name|newConnection
 operator|.
 name|connect
 argument_list|()
 expr_stmt|;
-name|connection
+name|newConnection
 operator|.
 name|addPacketListener
 argument_list|(
@@ -951,7 +958,7 @@ block|}
 block|}
 argument_list|)
 expr_stmt|;
-name|connection
+name|newConnection
 operator|.
 name|addPacketSendingListener
 argument_list|(
@@ -983,7 +990,7 @@ expr_stmt|;
 if|if
 condition|(
 operator|!
-name|connection
+name|newConnection
 operator|.
 name|isAuthenticated
 argument_list|()
@@ -1014,7 +1021,7 @@ name|user
 argument_list|,
 name|getConnectionMessage
 argument_list|(
-name|connection
+name|newConnection
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1036,7 +1043,7 @@ name|user
 argument_list|,
 name|getConnectionMessage
 argument_list|(
-name|connection
+name|newConnection
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1053,7 +1060,7 @@ name|AccountManager
 operator|.
 name|getInstance
 argument_list|(
-name|connection
+name|newConnection
 argument_list|)
 decl_stmt|;
 name|accountManager
@@ -1078,7 +1085,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|connection
+name|newConnection
 operator|.
 name|login
 argument_list|(
@@ -1092,7 +1099,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|connection
+name|newConnection
 operator|.
 name|login
 argument_list|(
@@ -1122,12 +1129,12 @@ literal|"Logging in anonymously to XMPP on connection: {}"
 argument_list|,
 name|getConnectionMessage
 argument_list|(
-name|connection
+name|newConnection
 argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-name|connection
+name|newConnection
 operator|.
 name|loginAnonymously
 argument_list|()
@@ -1135,6 +1142,20 @@ expr_stmt|;
 block|}
 comment|// presence is not needed to be sent after login
 block|}
+comment|// okay new connection was created successfully so assign it as the connection
+name|LOG
+operator|.
+name|debug
+argument_list|(
+literal|"Created new connection successfully: {}"
+argument_list|,
+name|newConnection
+argument_list|)
+expr_stmt|;
+name|connection
+operator|=
+name|newConnection
+expr_stmt|;
 return|return
 name|connection
 return|;
