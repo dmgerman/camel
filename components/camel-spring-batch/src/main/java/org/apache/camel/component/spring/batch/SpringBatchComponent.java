@@ -89,6 +89,15 @@ name|DEFAULT_JOB_LAUNCHER_REF_NAME
 init|=
 literal|"jobLauncher"
 decl_stmt|;
+DECL|field|DYNAMIC_JOBNAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DYNAMIC_JOBNAME
+init|=
+literal|"DYNAMIC_JOBNAME_HEADER"
+decl_stmt|;
 DECL|field|jobLauncher
 specifier|private
 name|JobLauncher

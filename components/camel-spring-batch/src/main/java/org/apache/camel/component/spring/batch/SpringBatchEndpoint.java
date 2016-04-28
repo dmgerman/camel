@@ -229,6 +229,7 @@ name|DefaultEndpoint
 block|{
 annotation|@
 name|UriPath
+argument_list|()
 annotation|@
 name|Metadata
 argument_list|(
@@ -423,6 +424,15 @@ operator|&&
 name|jobName
 operator|!=
 literal|null
+operator|&&
+name|jobName
+operator|.
+name|compareTo
+argument_list|(
+literal|"dynamic"
+argument_list|)
+operator|!=
+literal|0
 condition|)
 block|{
 name|job
