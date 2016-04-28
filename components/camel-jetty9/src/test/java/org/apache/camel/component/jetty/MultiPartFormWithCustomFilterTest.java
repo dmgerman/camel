@@ -711,7 +711,7 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong attachement size"
 argument_list|,
-literal|1
+literal|2
 argument_list|,
 name|in
 operator|.
@@ -829,7 +829,7 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong attachement size"
 argument_list|,
-literal|1
+literal|2
 argument_list|,
 name|in
 operator|.
