@@ -90,6 +90,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -107,20 +119,6 @@ operator|.
 name|jsse
 operator|.
 name|SSLContextParameters
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
-name|httpclient
-operator|.
-name|ConnectTimeoutException
 import|;
 end_import
 
@@ -210,13 +208,35 @@ operator|=
 name|factory
 expr_stmt|;
 block|}
-comment|/**      * Creates a new instance using a factory created by the provided client configuration      * parameters.      *      * @param params the configuration parameters to use when creating the socket factory      */
+comment|/**      * Creates a new instance using a factory created by the provided client configuration      * parameters.      *      * @param params the configuration parameters to use when creating the socket factory      * @deprecated use {@link #SSLContextParametersSecureProtocolSocketFactory(SSLContextParameters, CamelContext)}      */
+annotation|@
+name|Deprecated
 DECL|method|SSLContextParametersSecureProtocolSocketFactory (SSLContextParameters params)
 specifier|public
 name|SSLContextParametersSecureProtocolSocketFactory
 parameter_list|(
 name|SSLContextParameters
 name|params
+parameter_list|)
+block|{
+name|this
+argument_list|(
+name|params
+argument_list|,
+literal|null
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Creates a new instance using a factory created by the provided client configuration      * parameters.      *      * @param params the configuration parameters to use when creating the socket factory      * @param camelContext the Camel context      */
+DECL|method|SSLContextParametersSecureProtocolSocketFactory (SSLContextParameters params, CamelContext camelContext)
+specifier|public
+name|SSLContextParametersSecureProtocolSocketFactory
+parameter_list|(
+name|SSLContextParameters
+name|params
+parameter_list|,
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 try|try
@@ -228,7 +248,9 @@ operator|=
 name|params
 operator|.
 name|createSSLContext
-argument_list|()
+argument_list|(
+name|camelContext
+argument_list|)
 expr_stmt|;
 name|this
 operator|.
@@ -280,8 +302,6 @@ name|localPort
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|UnknownHostException
 block|{
 return|return
 name|this
@@ -324,10 +344,6 @@ name|params
 parameter_list|)
 throws|throws
 name|IOException
-throws|,
-name|UnknownHostException
-throws|,
-name|ConnectTimeoutException
 block|{
 if|if
 condition|(

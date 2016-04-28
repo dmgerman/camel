@@ -122,6 +122,8 @@ operator|new
 name|SSLContextParametersSecureProtocolSocketFactory
 argument_list|(
 name|params
+argument_list|,
+name|context
 argument_list|)
 decl_stmt|;
 name|Protocol

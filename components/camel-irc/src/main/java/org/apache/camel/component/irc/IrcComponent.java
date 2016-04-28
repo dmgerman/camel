@@ -461,6 +461,9 @@ name|configuration
 operator|.
 name|getSslContextParameters
 argument_list|()
+argument_list|,
+name|getCamelContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

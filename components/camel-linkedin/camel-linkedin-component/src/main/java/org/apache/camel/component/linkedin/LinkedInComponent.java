@@ -464,7 +464,6 @@ block|}
 block|}
 DECL|method|createRequestFilter (LinkedInConfiguration configuration)
 specifier|private
-specifier|static
 name|LinkedInOAuthRequestFilter
 name|createRequestFilter
 parameter_list|(
@@ -495,7 +494,10 @@ name|SSLContextParameters
 argument_list|()
 operator|.
 name|createSSLContext
+argument_list|(
+name|getCamelContext
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|enabledProtocols
 operator|=

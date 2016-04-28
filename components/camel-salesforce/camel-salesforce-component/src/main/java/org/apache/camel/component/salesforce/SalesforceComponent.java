@@ -1140,7 +1140,10 @@ argument_list|(
 name|contextParameters
 operator|.
 name|createSSLContext
+argument_list|(
+name|getCamelContext
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// set HTTP client parameters

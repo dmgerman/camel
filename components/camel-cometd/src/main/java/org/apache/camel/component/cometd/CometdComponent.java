@@ -1418,7 +1418,10 @@ argument_list|(
 name|sslContextParameters
 operator|.
 name|createSSLContext
+argument_list|(
+name|getCamelContext
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|sslSocketConnector

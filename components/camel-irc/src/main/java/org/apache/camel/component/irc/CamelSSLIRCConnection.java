@@ -92,6 +92,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -161,6 +173,11 @@ specifier|private
 name|SSLContextParameters
 name|sslContextParameters
 decl_stmt|;
+DECL|field|camelContext
+specifier|private
+name|CamelContext
+name|camelContext
+decl_stmt|;
 DECL|method|CamelSSLIRCConnection (String host, int portMin, int portMax, String pass, String nick, String username, String realname, SSLContextParameters sslContextParameters)
 specifier|public
 name|CamelSSLIRCConnection
@@ -214,7 +231,7 @@ operator|=
 name|sslContextParameters
 expr_stmt|;
 block|}
-DECL|method|CamelSSLIRCConnection (String host, int[] ports, String pass, String nick, String username, String realname, SSLContextParameters sslContextParameters)
+DECL|method|CamelSSLIRCConnection (String host, int[] ports, String pass, String nick, String username, String realname, SSLContextParameters sslContextParameters, CamelContext camelContext)
 specifier|public
 name|CamelSSLIRCConnection
 parameter_list|(
@@ -239,6 +256,9 @@ name|realname
 parameter_list|,
 name|SSLContextParameters
 name|sslContextParameters
+parameter_list|,
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 name|super
@@ -261,6 +281,12 @@ operator|.
 name|sslContextParameters
 operator|=
 name|sslContextParameters
+expr_stmt|;
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
 expr_stmt|;
 block|}
 annotation|@
@@ -323,7 +349,9 @@ operator|=
 name|sslContextParameters
 operator|.
 name|createSSLContext
-argument_list|()
+argument_list|(
+name|camelContext
+argument_list|)
 expr_stmt|;
 block|}
 catch|catch

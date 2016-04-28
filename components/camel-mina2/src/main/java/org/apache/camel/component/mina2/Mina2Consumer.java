@@ -1401,7 +1401,13 @@ name|getSslContextParameters
 argument_list|()
 operator|.
 name|createSSLContext
+argument_list|(
+name|getEndpoint
 argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|)
 argument_list|,
 name|configuration
 operator|.
@@ -1611,7 +1617,13 @@ name|getSslContextParameters
 argument_list|()
 operator|.
 name|createSSLContext
+argument_list|(
+name|getEndpoint
 argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|)
 argument_list|,
 name|configuration
 operator|.

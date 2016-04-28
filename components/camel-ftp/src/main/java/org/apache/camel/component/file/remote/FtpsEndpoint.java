@@ -436,7 +436,10 @@ init|=
 name|sslContextParameters
 operator|.
 name|createSSLContext
+argument_list|(
+name|getCamelContext
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|client
 operator|=

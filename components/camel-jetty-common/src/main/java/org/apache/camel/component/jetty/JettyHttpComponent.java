@@ -3735,7 +3735,10 @@ argument_list|(
 name|ssl
 operator|.
 name|createSSLContext
+argument_list|(
+name|getCamelContext
 argument_list|()
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}

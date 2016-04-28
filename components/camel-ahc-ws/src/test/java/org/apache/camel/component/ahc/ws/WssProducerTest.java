@@ -235,7 +235,9 @@ name|defineSSLContextServerParameters
 argument_list|()
 operator|.
 name|createSSLContext
-argument_list|()
+argument_list|(
+name|camelContext
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|ServerConnector

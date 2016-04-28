@@ -463,7 +463,10 @@ name|getSslContextParameters
 argument_list|()
 operator|.
 name|createSSLContext
+argument_list|(
+name|getCamelContext
 argument_list|()
+argument_list|)
 return|;
 block|}
 return|return

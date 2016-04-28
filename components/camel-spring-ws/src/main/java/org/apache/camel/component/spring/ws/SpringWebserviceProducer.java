@@ -116,6 +116,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Endpoint
 import|;
 end_import
@@ -817,7 +829,6 @@ block|}
 block|}
 DECL|method|prepareMessageSenders (SpringWebserviceConfiguration configuration)
 specifier|private
-specifier|static
 name|void
 name|prepareMessageSenders
 parameter_list|(
@@ -1010,6 +1021,12 @@ operator|)
 name|messageSender
 argument_list|,
 name|configuration
+argument_list|,
+name|getEndpoint
+argument_list|()
+operator|.
+name|getCamelContext
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1052,12 +1069,18 @@ specifier|final
 name|SpringWebserviceConfiguration
 name|configuration
 decl_stmt|;
+DECL|field|camelContext
+specifier|private
+specifier|final
+name|CamelContext
+name|camelContext
+decl_stmt|;
 DECL|field|sslContext
 specifier|private
 name|SSLContext
 name|sslContext
 decl_stmt|;
-DECL|method|AbstractHttpWebServiceMessageSenderDecorator (AbstractHttpWebServiceMessageSender delegate, SpringWebserviceConfiguration configuration)
+DECL|method|AbstractHttpWebServiceMessageSenderDecorator (AbstractHttpWebServiceMessageSender delegate, SpringWebserviceConfiguration configuration, CamelContext camelContext)
 specifier|public
 name|AbstractHttpWebServiceMessageSenderDecorator
 parameter_list|(
@@ -1066,6 +1089,9 @@ name|delegate
 parameter_list|,
 name|SpringWebserviceConfiguration
 name|configuration
+parameter_list|,
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 name|this
@@ -1079,6 +1105,12 @@ operator|.
 name|configuration
 operator|=
 name|configuration
+expr_stmt|;
+name|this
+operator|.
+name|camelContext
+operator|=
+name|camelContext
 expr_stmt|;
 block|}
 annotation|@
@@ -1182,7 +1214,9 @@ name|getSslContextParameters
 argument_list|()
 operator|.
 name|createSSLContext
-argument_list|()
+argument_list|(
+name|camelContext
+argument_list|)
 expr_stmt|;
 block|}
 block|}

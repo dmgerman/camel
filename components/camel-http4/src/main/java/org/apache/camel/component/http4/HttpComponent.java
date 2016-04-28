@@ -1825,7 +1825,10 @@ argument_list|(
 name|sslContextParams
 operator|.
 name|createSSLContext
+argument_list|(
+name|getCamelContext
 argument_list|()
+argument_list|)
 argument_list|,
 name|x509HostnameVerifier
 argument_list|)
@@ -1843,7 +1846,10 @@ argument_list|(
 name|sslContextParams
 operator|.
 name|createSSLContext
+argument_list|(
+name|getCamelContext
 argument_list|()
+argument_list|)
 argument_list|,
 name|x509HostnameVerifier
 argument_list|)
