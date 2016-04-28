@@ -281,6 +281,15 @@ name|GRIDFS_CHUNKSIZE
 init|=
 literal|"gridfs.chunksize"
 decl_stmt|;
+DECL|field|GRIDFS_FILE_ID_PRODUCED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|GRIDFS_FILE_ID_PRODUCED
+init|=
+literal|"gridfs.fileid"
+decl_stmt|;
 DECL|field|LOG
 specifier|private
 specifier|static

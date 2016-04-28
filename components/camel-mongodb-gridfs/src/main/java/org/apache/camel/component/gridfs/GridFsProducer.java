@@ -411,6 +411,7 @@ operator|.
 name|save
 argument_list|()
 expr_stmt|;
+comment|//add headers with the id and file name produced by the driver.
 name|exchange
 operator|.
 name|getIn
@@ -425,6 +426,23 @@ argument_list|,
 name|gfsFile
 operator|.
 name|getFilename
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+name|GridFsEndpoint
+operator|.
+name|GRIDFS_FILE_ID_PRODUCED
+argument_list|,
+name|gfsFile
+operator|.
+name|getId
 argument_list|()
 argument_list|)
 expr_stmt|;
