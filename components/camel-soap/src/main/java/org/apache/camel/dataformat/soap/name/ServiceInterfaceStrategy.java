@@ -625,19 +625,6 @@ operator|==
 literal|0
 condition|)
 block|{
-name|typeInfos
-operator|.
-name|add
-argument_list|(
-operator|new
-name|TypeInfo
-argument_list|(
-literal|null
-argument_list|,
-literal|null
-argument_list|)
-argument_list|)
-expr_stmt|;
 return|return
 name|typeInfos
 return|;
@@ -846,7 +833,7 @@ return|return
 name|typeInfos
 return|;
 block|}
-comment|/**      * Determines how the parameter object of the service method will be named      * in xml. It will use either the RequestWrapper annotation of the method if      * present or the WebParam method of the parameter.      *       * @param method      */
+comment|/**      * Determines how the parameter object of the service method will be named      * in xml. It will use either the RequestWrapper annotation of the method if      * present or the WebParam method of the parameter.      *      * @param method      */
 DECL|method|analyzeMethod (Method method)
 specifier|private
 name|MethodInfo
