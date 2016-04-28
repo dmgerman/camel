@@ -20,6 +20,28 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|Map
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -360,6 +382,61 @@ operator|.
 name|isSingleton
 argument_list|()
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|start ()
+specifier|public
+name|void
+name|start
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop by purpose
+block|}
+annotation|@
+name|Override
+DECL|method|stop ()
+specifier|public
+name|void
+name|stop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop by purpose
+block|}
+annotation|@
+name|Override
+DECL|method|configureProperties (Map<String, Object> options)
+specifier|public
+name|void
+name|configureProperties
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|options
+parameter_list|)
+block|{
+comment|// noop by purpose
+block|}
+annotation|@
+name|Override
+DECL|method|setCamelContext (CamelContext context)
+specifier|public
+name|void
+name|setCamelContext
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|)
+block|{
+comment|// noop by purpose
 block|}
 block|}
 end_class

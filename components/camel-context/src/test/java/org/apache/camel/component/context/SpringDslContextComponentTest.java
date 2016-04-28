@@ -163,7 +163,7 @@ name|EndpointInject
 argument_list|(
 name|uri
 operator|=
-literal|"tester:results"
+literal|"mock:results"
 argument_list|,
 name|context
 operator|=

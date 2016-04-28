@@ -372,8 +372,17 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 return|return
+operator|new
+name|ContextEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|this
+argument_list|,
 name|endpoint
+argument_list|)
 return|;
+comment|//return new ExportedEndpoint(endpoint);
 block|}
 comment|// look to see if there is an endpoint of name 'remaining' using one of the local endpoints within
 comment|// the black box CamelContext
@@ -436,8 +445,17 @@ name|endpoint
 argument_list|)
 expr_stmt|;
 return|return
+operator|new
+name|ContextEndpoint
+argument_list|(
+name|uri
+argument_list|,
+name|this
+argument_list|,
 name|endpoint
+argument_list|)
 return|;
+comment|//return new ExportedEndpoint(endpoint);
 block|}
 block|}
 block|}
