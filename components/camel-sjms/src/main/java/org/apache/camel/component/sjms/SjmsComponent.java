@@ -314,6 +314,12 @@ specifier|private
 name|ConnectionResource
 name|connectionResource
 decl_stmt|;
+DECL|field|closeConnectionResource
+specifier|private
+specifier|volatile
+name|boolean
+name|closeConnectionResource
+decl_stmt|;
 DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
@@ -686,6 +692,11 @@ argument_list|(
 name|connections
 argument_list|)
 expr_stmt|;
+comment|// we created the resource so we should close it when stopping
+name|closeConnectionResource
+operator|=
+literal|true
+expr_stmt|;
 block|}
 elseif|else
 if|if
@@ -731,7 +742,16 @@ operator|.
 name|cancelTasks
 argument_list|()
 expr_stmt|;
+name|timedTaskManager
+operator|=
+literal|null
+expr_stmt|;
 block|}
+if|if
+condition|(
+name|closeConnectionResource
+condition|)
+block|{
 if|if
 condition|(
 name|getConnectionResource
@@ -760,6 +780,11 @@ name|drainPool
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+name|connectionResource
+operator|=
+literal|null
+expr_stmt|;
 block|}
 name|super
 operator|.
