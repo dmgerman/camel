@@ -1383,7 +1383,6 @@ argument_list|>
 name|parameters
 decl_stmt|;
 DECL|method|DockerOperation (String text, boolean canConsume, boolean canProduce, Object... params)
-specifier|private
 name|DockerOperation
 parameter_list|(
 name|String

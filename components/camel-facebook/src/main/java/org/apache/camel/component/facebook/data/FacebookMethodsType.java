@@ -10222,7 +10222,6 @@ name|Method
 name|method
 decl_stmt|;
 DECL|method|FacebookMethodsType (Class<?> resultType, String name, Object... args)
-specifier|private
 name|FacebookMethodsType
 parameter_list|(
 name|Class

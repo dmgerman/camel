@@ -45,7 +45,6 @@ name|String
 name|text
 decl_stmt|;
 DECL|method|DropboxUploadMode (final String text)
-specifier|private
 name|DropboxUploadMode
 parameter_list|(
 specifier|final

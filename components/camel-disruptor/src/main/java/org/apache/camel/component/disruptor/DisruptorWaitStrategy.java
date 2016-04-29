@@ -204,12 +204,11 @@ name|waitStrategyClass
 decl_stmt|;
 end_decl_stmt
 
-begin_constructor
+begin_expr_stmt
 DECL|method|DisruptorWaitStrategy (final Class<? extends WaitStrategy> waitStrategyClass)
-specifier|private
 name|DisruptorWaitStrategy
-parameter_list|(
-specifier|final
+argument_list|(
+name|final
 name|Class
 argument_list|<
 name|?
@@ -217,26 +216,25 @@ extends|extends
 name|WaitStrategy
 argument_list|>
 name|waitStrategyClass
-parameter_list|)
+argument_list|)
 block|{
 name|this
 operator|.
 name|waitStrategyClass
 operator|=
 name|waitStrategyClass
-expr_stmt|;
-block|}
-end_constructor
-
-begin_function
+block|;     }
 DECL|method|createWaitStrategyInstance ()
 specifier|public
 name|WaitStrategy
 name|createWaitStrategyInstance
-parameter_list|()
+argument_list|()
 throws|throws
 name|Exception
 block|{
+end_expr_stmt
+
+begin_return
 return|return
 name|waitStrategyClass
 operator|.
@@ -246,9 +244,8 @@ operator|.
 name|newInstance
 argument_list|()
 return|;
-block|}
-end_function
+end_return
 
-unit|}
+unit|} }
 end_unit
 

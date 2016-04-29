@@ -506,7 +506,6 @@ name|int
 name|refCount
 decl_stmt|;
 DECL|method|ConnectorRef (Connector connector, CometDServlet servlet, Server server)
-specifier|public
 name|ConnectorRef
 parameter_list|(
 name|Connector

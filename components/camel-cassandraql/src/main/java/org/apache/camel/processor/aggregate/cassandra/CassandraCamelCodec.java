@@ -552,7 +552,6 @@ name|ByteBuffer
 name|buffer
 decl_stmt|;
 DECL|method|ByteBufferInputStream (ByteBuffer buffer)
-specifier|public
 name|ByteBufferInputStream
 parameter_list|(
 name|ByteBuffer

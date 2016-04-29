@@ -98,7 +98,6 @@ extends|extends
 name|ExpressionDefinition
 block|{
 DECL|method|TerserExpression (String expression)
-specifier|public
 name|TerserExpression
 parameter_list|(
 name|String

@@ -101,7 +101,6 @@ name|String
 name|value
 decl_stmt|;
 DECL|method|OAuthScope (String value)
-specifier|private
 name|OAuthScope
 parameter_list|(
 name|String

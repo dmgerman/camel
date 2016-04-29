@@ -229,7 +229,6 @@ name|int
 name|rowMax
 decl_stmt|;
 DECL|method|LimitResultSetConversionStrategy (int rowMax)
-specifier|public
 name|LimitResultSetConversionStrategy
 parameter_list|(
 name|int

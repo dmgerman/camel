@@ -483,7 +483,6 @@ extends|extends
 name|FileInputStream
 block|{
 DECL|method|MyFileInputStream (File file)
-specifier|public
 name|MyFileInputStream
 parameter_list|(
 name|File

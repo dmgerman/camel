@@ -513,7 +513,6 @@ name|Properties
 name|kafkaProps
 decl_stmt|;
 DECL|method|KafkaFetchRecords (String topicName, String id, Properties kafkaProps)
-specifier|public
 name|KafkaFetchRecords
 parameter_list|(
 name|String

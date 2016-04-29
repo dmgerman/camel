@@ -123,7 +123,6 @@ argument_list|>
 name|filteredEvents
 decl_stmt|;
 DECL|method|Named (Collection<EventType> filteredEventNames)
-specifier|public
 name|Named
 parameter_list|(
 name|Collection
@@ -231,7 +230,6 @@ name|int
 name|filteredEventsSize
 decl_stmt|;
 DECL|method|Chained (List<CacheEntryEventFilter> filteredEvents)
-specifier|public
 name|Chained
 parameter_list|(
 name|List

@@ -426,7 +426,6 @@ index|[]
 name|content
 decl_stmt|;
 DECL|method|MyObject (String name, byte[] content)
-specifier|public
 name|MyObject
 parameter_list|(
 name|String

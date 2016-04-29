@@ -142,7 +142,6 @@ expr_stmt|;
 block|}
 block|}
 DECL|method|MetricsType (String name)
-specifier|private
 name|MetricsType
 parameter_list|(
 name|String

@@ -725,7 +725,6 @@ name|Entry
 name|template
 decl_stmt|;
 DECL|method|Task (JavaSpaceEndpoint endpoint, Processor processor, JavaSpace javaSpace, TransactionHelper transactionHelper, long transactionTimeout, int verb, String templateId)
-specifier|public
 name|Task
 parameter_list|(
 name|JavaSpaceEndpoint

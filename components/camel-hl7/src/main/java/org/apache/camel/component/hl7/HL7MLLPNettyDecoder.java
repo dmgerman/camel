@@ -160,7 +160,6 @@ name|config
 decl_stmt|;
 comment|/**      * Creates a decoder instance using a default HL7MLLPConfig      */
 DECL|method|HL7MLLPNettyDecoder ()
-specifier|public
 name|HL7MLLPNettyDecoder
 parameter_list|()
 block|{
@@ -174,7 +173,6 @@ expr_stmt|;
 block|}
 comment|/**      * Creates a decoder instance      *      * @param config HL7MLLPConfig to be used for decoding      * @throws java.lang.NullPointerException is config is null      */
 DECL|method|HL7MLLPNettyDecoder (HL7MLLPConfig config)
-specifier|public
 name|HL7MLLPNettyDecoder
 parameter_list|(
 name|HL7MLLPConfig

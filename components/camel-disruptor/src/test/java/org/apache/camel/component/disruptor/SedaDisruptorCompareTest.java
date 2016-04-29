@@ -1951,7 +1951,6 @@ argument_list|>
 argument_list|()
 decl_stmt|;
 DECL|method|ExchangeAwaiter (final int count)
-specifier|public
 name|ExchangeAwaiter
 parameter_list|(
 specifier|final
@@ -2234,7 +2233,6 @@ name|int
 name|producedMessageCount
 decl_stmt|;
 DECL|method|ProducerThread (final int totalMessageCount)
-specifier|public
 name|ProducerThread
 parameter_list|(
 specifier|final

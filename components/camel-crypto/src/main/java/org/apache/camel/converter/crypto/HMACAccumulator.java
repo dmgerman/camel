@@ -517,7 +517,6 @@ name|int
 name|available
 decl_stmt|;
 DECL|method|CircularBuffer (int bufferSize)
-specifier|public
 name|CircularBuffer
 parameter_list|(
 name|int

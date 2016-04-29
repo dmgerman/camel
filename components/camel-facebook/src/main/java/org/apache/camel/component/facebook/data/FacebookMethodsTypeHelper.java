@@ -1994,7 +1994,6 @@ block|}
 block|}
 DECL|enum|MatchType
 specifier|public
-specifier|static
 enum|enum
 name|MatchType
 block|{

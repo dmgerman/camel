@@ -855,7 +855,6 @@ name|int
 name|concurrentConsumers
 decl_stmt|;
 DECL|method|ConsumerEventHandler (final int ordinal, final int concurrentConsumers)
-specifier|public
 name|ConsumerEventHandler
 parameter_list|(
 specifier|final

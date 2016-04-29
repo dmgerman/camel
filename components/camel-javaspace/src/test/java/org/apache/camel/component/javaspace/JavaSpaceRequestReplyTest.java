@@ -645,7 +645,6 @@ name|Request
 name|request
 decl_stmt|;
 DECL|method|PojoCallable (Request request, ITestPojo proxy)
-specifier|public
 name|PojoCallable
 parameter_list|(
 name|Request

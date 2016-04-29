@@ -320,7 +320,6 @@ name|IoAcceptor
 name|acceptor
 decl_stmt|;
 DECL|method|Server (int port)
-specifier|public
 name|Server
 parameter_list|(
 name|int

@@ -538,7 +538,6 @@ name|NatsConfiguration
 name|configuration
 decl_stmt|;
 DECL|method|NatsConsumingTask (Connection connection, NatsConfiguration configuration)
-specifier|public
 name|NatsConsumingTask
 parameter_list|(
 name|Connection

@@ -115,7 +115,6 @@ name|String
 name|body
 decl_stmt|;
 DECL|method|IronMqMessage (String body, Map<String, Object> headers)
-specifier|public
 name|IronMqMessage
 parameter_list|(
 name|String

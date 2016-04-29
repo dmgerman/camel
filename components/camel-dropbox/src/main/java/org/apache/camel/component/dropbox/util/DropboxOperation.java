@@ -63,7 +63,6 @@ name|String
 name|text
 decl_stmt|;
 DECL|method|DropboxOperation (final String text)
-specifier|private
 name|DropboxOperation
 parameter_list|(
 specifier|final

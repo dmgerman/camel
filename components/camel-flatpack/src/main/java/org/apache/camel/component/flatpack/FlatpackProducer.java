@@ -85,7 +85,6 @@ name|FlatpackEndpoint
 name|endpoint
 decl_stmt|;
 DECL|method|FlatpackProducer (FlatpackEndpoint endpoint)
-specifier|public
 name|FlatpackProducer
 parameter_list|(
 name|FlatpackEndpoint

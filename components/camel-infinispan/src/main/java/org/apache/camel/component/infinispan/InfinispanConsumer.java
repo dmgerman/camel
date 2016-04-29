@@ -783,7 +783,6 @@ name|String
 name|cacheName
 decl_stmt|;
 DECL|method|ContinuousQueryEventListener (String cacheName)
-specifier|public
 name|ContinuousQueryEventListener
 parameter_list|(
 name|String

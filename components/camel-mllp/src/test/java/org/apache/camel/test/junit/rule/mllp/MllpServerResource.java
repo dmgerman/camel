@@ -1963,7 +1963,6 @@ name|boolean
 name|raiseExceptionOnAcceptTimeout
 decl_stmt|;
 DECL|method|ServerSocketThread ()
-specifier|public
 name|ServerSocketThread
 parameter_list|()
 throws|throws
@@ -1974,7 +1973,6 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|ServerSocketThread (int listenPort)
-specifier|public
 name|ServerSocketThread
 parameter_list|(
 name|int
@@ -1994,7 +1992,6 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|ServerSocketThread (int listenPort, int backlog)
-specifier|public
 name|ServerSocketThread
 parameter_list|(
 name|int
@@ -2023,7 +2020,6 @@ argument_list|()
 expr_stmt|;
 block|}
 DECL|method|ServerSocketThread (String listenHost, int listenPort, int backlog)
-specifier|public
 name|ServerSocketThread
 parameter_list|(
 name|String

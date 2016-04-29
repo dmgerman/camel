@@ -51,9 +51,15 @@ end_import
 begin_class
 DECL|class|EtcdRoutePolicyMain
 specifier|public
+specifier|final
 class|class
 name|EtcdRoutePolicyMain
 block|{
+DECL|method|EtcdRoutePolicyMain ()
+specifier|private
+name|EtcdRoutePolicyMain
+parameter_list|()
+block|{     }
 DECL|method|main (final String[] args)
 specifier|public
 specifier|static

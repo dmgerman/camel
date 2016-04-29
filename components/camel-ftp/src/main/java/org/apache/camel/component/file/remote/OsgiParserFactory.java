@@ -830,7 +830,7 @@ return|return
 name|parser
 return|;
 block|}
-comment|/**      * Creates an NT FTP parser: if the config exists, and the system key equals      * {@link FTPClientConfig.SYST_NT} then a plain {@link NTFTPEntryParser} is used,      * otherwise a composite of {@link NTFTPEntryParser} and {@link UnixFTPEntryParser} is used.      * @param config the config to use, may be {@code null}      * @return the parser      */
+comment|/**      * Creates an NT FTP parser: if the config exists, and the system key equals      * {@link FTPClientConfig#SYST_NT} then a plain {@link NTFTPEntryParser} is used,      * otherwise a composite of {@link NTFTPEntryParser} and {@link UnixFTPEntryParser} is used.      * @param config the config to use, may be {@code null}      * @return the parser      */
 DECL|method|createNTFTPEntryParser (FTPClientConfig config)
 specifier|private
 name|FTPFileEntryParser
@@ -893,7 +893,7 @@ argument_list|)
 return|;
 block|}
 block|}
-comment|/**      * Creates an OS400 FTP parser: if the config exists, and the system key equals      * {@link FTPClientConfig.SYST_OS400} then a plain {@link OS400FTPEntryParser} is used,      * otherwise a composite of {@link OS400FTPEntryParser} and {@link UnixFTPEntryParser} is used.      * @param config the config to use, may be {@code null}      * @return the parser      */
+comment|/**      * Creates an OS400 FTP parser: if the config exists, and the system key equals      * {@link FTPClientConfig#SYST_OS400} then a plain {@link OS400FTPEntryParser} is used,      * otherwise a composite of {@link OS400FTPEntryParser} and {@link UnixFTPEntryParser} is used.      * @param config the config to use, may be {@code null}      * @return the parser      */
 DECL|method|createOS400FTPEntryParser (FTPClientConfig config)
 specifier|private
 name|FTPFileEntryParser

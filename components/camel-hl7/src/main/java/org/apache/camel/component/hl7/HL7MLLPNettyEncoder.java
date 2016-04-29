@@ -91,7 +91,6 @@ name|HL7MLLPConfig
 name|config
 decl_stmt|;
 DECL|method|HL7MLLPNettyEncoder ()
-specifier|public
 name|HL7MLLPNettyEncoder
 parameter_list|()
 block|{
@@ -104,7 +103,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|HL7MLLPNettyEncoder (HL7MLLPConfig config)
-specifier|public
 name|HL7MLLPNettyEncoder
 parameter_list|(
 name|HL7MLLPConfig
