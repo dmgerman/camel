@@ -393,7 +393,6 @@ literal|0
 argument_list|)
 decl_stmt|;
 DECL|method|DummyAmazonS3Client ()
-specifier|public
 name|DummyAmazonS3Client
 parameter_list|()
 block|{

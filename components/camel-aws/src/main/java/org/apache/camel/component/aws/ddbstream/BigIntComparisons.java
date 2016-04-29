@@ -48,7 +48,6 @@ name|second
 parameter_list|)
 function_decl|;
 DECL|enum|Conditions
-specifier|static
 enum|enum
 name|Conditions
 implements|implements

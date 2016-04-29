@@ -331,7 +331,6 @@ name|boolean
 name|hasLoggedAsyncWarning
 decl_stmt|;
 DECL|method|CamelOutputStream (String targetCamelEndpointUri, Producer producer, HeaderFilterStrategy headerFilterStrategy, MessageObserver observer, Message m)
-specifier|public
 name|CamelOutputStream
 parameter_list|(
 name|String

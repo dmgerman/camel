@@ -63,7 +63,6 @@ name|String
 name|text
 decl_stmt|;
 DECL|method|AtmosOperation (final String text)
-specifier|private
 name|AtmosOperation
 parameter_list|(
 specifier|final

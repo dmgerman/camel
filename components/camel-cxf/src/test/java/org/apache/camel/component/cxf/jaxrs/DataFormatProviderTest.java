@@ -721,12 +721,10 @@ argument_list|(
 literal|"unused"
 argument_list|)
 DECL|method|Book ()
-specifier|public
 name|Book
 parameter_list|()
-block|{          }
+block|{         }
 DECL|method|Book (String name)
-specifier|public
 name|Book
 parameter_list|(
 name|String

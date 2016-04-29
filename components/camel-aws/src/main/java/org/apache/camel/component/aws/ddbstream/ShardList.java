@@ -689,7 +689,6 @@ return|;
 block|}
 DECL|enum|StartingSequenceNumberComparator
 specifier|private
-specifier|static
 enum|enum
 name|StartingSequenceNumberComparator
 implements|implements

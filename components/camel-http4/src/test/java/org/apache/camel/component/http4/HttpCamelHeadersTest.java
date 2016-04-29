@@ -544,6 +544,7 @@ literal|""
 return|;
 block|}
 DECL|class|MyHeaderValidationHandler
+specifier|private
 class|class
 name|MyHeaderValidationHandler
 extends|extends
@@ -555,7 +556,6 @@ name|String
 name|expectProtocolVersion
 decl_stmt|;
 DECL|method|MyHeaderValidationHandler (String expectedMethod, String protocolVersion, String responseContent, Map<String, String> expectedHeaders)
-specifier|public
 name|MyHeaderValidationHandler
 parameter_list|(
 name|String

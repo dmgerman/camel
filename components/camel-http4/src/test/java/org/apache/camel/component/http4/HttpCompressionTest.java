@@ -929,7 +929,6 @@ extends|extends
 name|HttpEntityWrapper
 block|{
 DECL|method|GzipDecompressingEntity (final HttpEntity entity)
-specifier|public
 name|GzipDecompressingEntity
 parameter_list|(
 specifier|final
@@ -1058,7 +1057,6 @@ extends|extends
 name|HttpEntityWrapper
 block|{
 DECL|method|GzipCompressingEntity (final HttpEntity entity)
-specifier|public
 name|GzipCompressingEntity
 parameter_list|(
 specifier|final

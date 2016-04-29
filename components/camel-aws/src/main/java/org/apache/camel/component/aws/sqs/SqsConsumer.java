@@ -1765,7 +1765,6 @@ name|int
 name|repeatSeconds
 decl_stmt|;
 DECL|method|TimeoutExtender (Exchange exchange, int repeatSeconds)
-specifier|public
 name|TimeoutExtender
 parameter_list|(
 name|Exchange

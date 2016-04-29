@@ -89,7 +89,6 @@ name|BeanstalkEndpoint
 name|endpoint
 decl_stmt|;
 DECL|method|DefaultCommand (BeanstalkEndpoint endpoint)
-specifier|public
 name|DefaultCommand
 parameter_list|(
 name|BeanstalkEndpoint

@@ -1067,7 +1067,6 @@ name|Command
 name|failureCommand
 decl_stmt|;
 DECL|method|Sync ()
-specifier|public
 name|Sync
 parameter_list|()
 block|{
@@ -1312,7 +1311,6 @@ name|Exchange
 name|exchange
 decl_stmt|;
 DECL|method|RunCommand (final Command command, final Exchange exchange)
-specifier|public
 name|RunCommand
 parameter_list|(
 specifier|final

@@ -550,7 +550,6 @@ name|Long
 name|timeout
 decl_stmt|;
 DECL|method|OverridingTestSupport (Long timeout)
-specifier|public
 name|OverridingTestSupport
 parameter_list|(
 name|Long

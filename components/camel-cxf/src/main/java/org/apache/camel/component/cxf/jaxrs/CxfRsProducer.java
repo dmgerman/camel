@@ -3058,7 +3058,6 @@ argument_list|>
 name|cache
 decl_stmt|;
 DECL|method|ClientFactoryBeanCache (final int maxCacheSize)
-specifier|public
 name|ClientFactoryBeanCache
 parameter_list|(
 specifier|final

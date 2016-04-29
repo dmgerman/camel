@@ -141,7 +141,6 @@ name|int
 name|depth
 decl_stmt|;
 DECL|method|DelegatingXMLStreamReader (XMLStreamReader reader, Map<String, String> nsmap)
-specifier|public
 name|DelegatingXMLStreamReader
 parameter_list|(
 name|XMLStreamReader

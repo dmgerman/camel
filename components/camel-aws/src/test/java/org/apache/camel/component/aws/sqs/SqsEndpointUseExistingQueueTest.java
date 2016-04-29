@@ -400,7 +400,6 @@ extends|extends
 name|AmazonSQSClient
 block|{
 DECL|method|AmazonSQSClientMock ()
-specifier|public
 name|AmazonSQSClientMock
 parameter_list|()
 block|{

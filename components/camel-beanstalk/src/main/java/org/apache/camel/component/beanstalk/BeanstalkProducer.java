@@ -467,7 +467,6 @@ name|AsyncCallback
 name|callback
 decl_stmt|;
 DECL|method|RunCommand (final Exchange exchange)
-specifier|public
 name|RunCommand
 parameter_list|(
 specifier|final
@@ -484,7 +483,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|RunCommand (final Exchange exchange, final AsyncCallback callback)
-specifier|public
 name|RunCommand
 parameter_list|(
 specifier|final

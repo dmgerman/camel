@@ -656,7 +656,6 @@ name|boolean
 name|called
 decl_stmt|;
 DECL|method|VerifyInboundInterceptor ()
-specifier|public
 name|VerifyInboundInterceptor
 parameter_list|()
 block|{

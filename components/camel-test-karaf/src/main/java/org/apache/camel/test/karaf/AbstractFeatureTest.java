@@ -740,6 +740,7 @@ class|class
 name|AbstractFeatureTest
 block|{
 DECL|field|SERVICE_TIMEOUT
+specifier|public
 specifier|static
 specifier|final
 name|Long

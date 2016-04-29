@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Endings for the supported image types.  *  */
+comment|/**  * Endings for the supported image types.  */
 end_comment
 
 begin_enum
@@ -28,15 +28,12 @@ specifier|public
 enum|enum
 name|BarcodeImageType
 block|{
-comment|/**      * JPEG image.      */
 DECL|enumConstant|JPG
-name|JPG
-comment|/**      * GIF image.      */
 DECL|enumConstant|GIF
+DECL|enumConstant|PNG
+name|JPG
 block|,
 name|GIF
-comment|/**      * PNG image.      */
-DECL|enumConstant|PNG
 block|,
 name|PNG
 block|}

@@ -892,8 +892,8 @@ name|result
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Helper to check the saved parameters.      *       * @param imageType      * @param width      * @param height      * @param encoding      * @param format      * @param params       */
-DECL|method|checkParams (BarcodeImageType imageType, int width, int height , BarcodeFormat format, BarcodeParameters params)
+comment|/**      * Helper to check the saved parameters.      */
+DECL|method|checkParams (BarcodeImageType imageType, int width, int height, BarcodeFormat format, BarcodeParameters params)
 specifier|private
 name|void
 name|checkParams

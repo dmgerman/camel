@@ -284,18 +284,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|AsyncEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|w3c
 operator|.
 name|dom
@@ -325,6 +313,18 @@ operator|.
 name|dom
 operator|.
 name|Node
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|AsyncEndpoint
 import|;
 end_import
 
@@ -5873,7 +5873,6 @@ extends|extends
 name|ClientImpl
 block|{
 DECL|method|CamelCxfClientImpl (Bus bus, Endpoint ep)
-specifier|public
 name|CamelCxfClientImpl
 parameter_list|(
 name|Bus

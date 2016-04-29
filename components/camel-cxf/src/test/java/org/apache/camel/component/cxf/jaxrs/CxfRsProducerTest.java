@@ -2355,7 +2355,6 @@ name|void
 name|testProducerWithQueryParameters
 parameter_list|()
 block|{
-comment|// START SNIPPET: QueryExample
 name|Exchange
 name|exchange
 init|=
@@ -2377,7 +2376,6 @@ name|getSimpleName
 argument_list|()
 operator|+
 literal|"/testQuery?httpClientAPI=true&q1=12&q2=13"
-comment|// END SNIPPET: QueryExample
 argument_list|,
 operator|new
 name|Processor

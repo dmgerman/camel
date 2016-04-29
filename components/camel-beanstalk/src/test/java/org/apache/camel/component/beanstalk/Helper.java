@@ -298,7 +298,6 @@ name|Client
 name|client
 decl_stmt|;
 DECL|method|MockConnectionSettings (Client client)
-specifier|public
 name|MockConnectionSettings
 parameter_list|(
 name|Client

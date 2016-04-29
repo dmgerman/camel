@@ -584,7 +584,6 @@ name|Message
 name|outMessage
 decl_stmt|;
 DECL|method|WrappedOutputStream (Message m)
-specifier|public
 name|WrappedOutputStream
 parameter_list|(
 name|Message
@@ -672,7 +671,7 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-comment|// TODO Auto-generated method stub
+comment|// noop
 block|}
 block|}
 block|}

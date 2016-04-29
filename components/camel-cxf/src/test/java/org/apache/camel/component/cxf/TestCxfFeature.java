@@ -221,7 +221,6 @@ name|Message
 argument_list|>
 block|{
 DECL|method|EndpointCheckInterceptor ()
-specifier|public
 name|EndpointCheckInterceptor
 parameter_list|()
 block|{

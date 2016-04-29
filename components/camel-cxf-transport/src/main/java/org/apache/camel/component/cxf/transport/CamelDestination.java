@@ -1344,7 +1344,6 @@ name|Message
 name|outMessage
 decl_stmt|;
 DECL|method|CamelOutputStream (Message m)
-specifier|public
 name|CamelOutputStream
 parameter_list|(
 name|Message

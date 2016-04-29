@@ -509,7 +509,6 @@ name|Destination
 name|destination
 decl_stmt|;
 DECL|method|DestinationResolverDelegate (DestinationResolver delegate)
-specifier|public
 name|DestinationResolverDelegate
 parameter_list|(
 name|DestinationResolver
