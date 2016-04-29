@@ -449,7 +449,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default {@link org.apache.camel.spi.ExecutorServiceManager}.  *  * @version   */
+comment|/**  * Default {@link org.apache.camel.spi.ExecutorServiceManager}.  *  */
 end_comment
 
 begin_class
@@ -504,9 +504,7 @@ name|executorServices
 init|=
 operator|new
 name|CopyOnWriteArrayList
-argument_list|<
-name|ExecutorService
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|threadNamePattern
@@ -541,11 +539,7 @@ name|threadPoolProfiles
 init|=
 operator|new
 name|ConcurrentHashMap
-argument_list|<
-name|String
-argument_list|,
-name|ThreadPoolProfile
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 DECL|field|defaultProfile
@@ -833,9 +827,10 @@ name|threadNamePattern
 parameter_list|)
 block|{
 comment|// must set camel id here in the pattern and let the other placeholders be resolved on demand
-name|String
-name|name
-init|=
+name|this
+operator|.
+name|threadNamePattern
+operator|=
 name|threadNamePattern
 operator|.
 name|replaceFirst
@@ -849,12 +844,6 @@ operator|.
 name|getName
 argument_list|()
 argument_list|)
-decl_stmt|;
-name|this
-operator|.
-name|threadNamePattern
-operator|=
-name|name
 expr_stmt|;
 block|}
 annotation|@
@@ -1142,16 +1131,11 @@ name|debug
 argument_list|(
 literal|"Created new ThreadPool for source: {} with name: {}. -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|source
-block|,
+argument_list|,
 name|sanitizedName
-block|,
+argument_list|,
 name|executorService
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1300,16 +1284,11 @@ name|debug
 argument_list|(
 literal|"Created new CachedThreadPool for source: {} with name: {}. -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|source
-block|,
+argument_list|,
 name|sanitizedName
-block|,
+argument_list|,
 name|answer
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1475,16 +1454,11 @@ name|debug
 argument_list|(
 literal|"Created new ScheduledThreadPool for source: {} with name: {}. -> {}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|source
-block|,
+argument_list|,
 name|sanitizedName
-block|,
+argument_list|,
 name|answer
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1822,22 +1796,18 @@ name|info
 argument_list|(
 literal|"Shutdown of ExecutorService: {} is shutdown: {} and terminated: {} took: {}."
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|executorService
-block|,
+argument_list|,
 name|executorService
 operator|.
 name|isShutdown
 argument_list|()
-block|,
+argument_list|,
 name|executorService
 operator|.
 name|isTerminated
 argument_list|()
-block|,
+argument_list|,
 name|TimeUtils
 operator|.
 name|printDuration
@@ -1847,7 +1817,6 @@ operator|.
 name|taken
 argument_list|()
 argument_list|)
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1866,22 +1835,18 @@ name|debug
 argument_list|(
 literal|"Shutdown of ExecutorService: {} is shutdown: {} and terminated: {} took: {}."
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|executorService
-block|,
+argument_list|,
 name|executorService
 operator|.
 name|isShutdown
 argument_list|()
-block|,
+argument_list|,
 name|executorService
 operator|.
 name|isTerminated
 argument_list|()
-block|,
+argument_list|,
 name|TimeUtils
 operator|.
 name|printDuration
@@ -1891,7 +1856,6 @@ operator|.
 name|taken
 argument_list|()
 argument_list|)
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2099,22 +2063,17 @@ name|trace
 argument_list|(
 literal|"Shutdown of ExecutorService: {} is shutdown: {} and terminated: {}."
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|executorService
-block|,
+argument_list|,
 name|executorService
 operator|.
 name|isShutdown
 argument_list|()
-block|,
+argument_list|,
 name|executorService
 operator|.
 name|isTerminated
 argument_list|()
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -2400,9 +2359,7 @@ name|forced
 init|=
 operator|new
 name|LinkedHashSet
-argument_list|<
-name|ExecutorService
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 if|if
@@ -2920,9 +2877,7 @@ name|boolean
 name|isDaemon
 parameter_list|)
 block|{
-name|ThreadFactory
-name|threadFactory
-init|=
+return|return
 operator|new
 name|CamelThreadFactory
 argument_list|(
@@ -2932,9 +2887,6 @@ name|name
 argument_list|,
 name|isDaemon
 argument_list|)
-decl_stmt|;
-return|return
-name|threadFactory
 return|;
 block|}
 block|}
