@@ -583,7 +583,6 @@ name|Object
 name|instance
 decl_stmt|;
 DECL|method|MappingProcessor (Object obj)
-specifier|public
 name|MappingProcessor
 parameter_list|(
 name|Object

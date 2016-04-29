@@ -159,7 +159,6 @@ argument_list|)
 decl_stmt|;
 DECL|enum|MONTHS
 specifier|private
-specifier|static
 enum|enum
 name|MONTHS
 block|{

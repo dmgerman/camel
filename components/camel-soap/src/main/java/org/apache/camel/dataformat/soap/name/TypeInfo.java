@@ -54,9 +54,8 @@ specifier|final
 name|QName
 name|elName
 decl_stmt|;
-comment|/**      * Initialize TypeInfo with given name and resolved element name for a type      *       * @param typeName      * @param elName      */
+comment|/**      * Initialize TypeInfo with given name and resolved element name for a type      */
 DECL|method|TypeInfo (final String typeName, final QName elName)
-specifier|public
 name|TypeInfo
 parameter_list|(
 specifier|final

@@ -3624,7 +3624,6 @@ name|String
 name|routeId
 decl_stmt|;
 DECL|method|ZipkinRoutePolicy (String routeId)
-specifier|public
 name|ZipkinRoutePolicy
 parameter_list|(
 name|String

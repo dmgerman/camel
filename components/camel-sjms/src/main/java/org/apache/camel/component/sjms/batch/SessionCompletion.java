@@ -117,7 +117,6 @@ name|session
 decl_stmt|;
 comment|// TODO: add more details in the commit/rollback eg such as message id
 DECL|method|SessionCompletion (Session session)
-specifier|public
 name|SessionCompletion
 parameter_list|(
 name|Session

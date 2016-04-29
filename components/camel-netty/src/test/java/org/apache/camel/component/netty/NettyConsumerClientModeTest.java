@@ -588,7 +588,6 @@ name|ServerBootstrap
 name|bootstrap
 decl_stmt|;
 DECL|method|MyServer (int port)
-specifier|public
 name|MyServer
 parameter_list|(
 name|int

@@ -745,7 +745,6 @@ literal|true
 argument_list|)
 decl_stmt|;
 DECL|method|StartConsumerCallable (long connectionRetryInterval)
-specifier|public
 name|StartConsumerCallable
 parameter_list|(
 name|long

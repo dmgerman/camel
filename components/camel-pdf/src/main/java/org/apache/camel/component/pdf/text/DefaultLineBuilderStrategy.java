@@ -682,12 +682,10 @@ name|int
 name|wordsCount
 decl_stmt|;
 DECL|method|LineBuilder ()
-specifier|public
 name|LineBuilder
 parameter_list|()
 block|{ }
 DECL|method|LineBuilder (String line, int wordsCount)
-specifier|public
 name|LineBuilder
 parameter_list|(
 name|String

@@ -129,7 +129,6 @@ index|[]
 name|buffer
 decl_stmt|;
 DECL|method|PrintDocument (InputStream stream, DocFlavor docFlavor)
-specifier|public
 name|PrintDocument
 parameter_list|(
 name|InputStream

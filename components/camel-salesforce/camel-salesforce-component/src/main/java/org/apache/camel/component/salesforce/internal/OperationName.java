@@ -246,7 +246,6 @@ name|String
 name|value
 decl_stmt|;
 DECL|method|OperationName (String value)
-specifier|private
 name|OperationName
 parameter_list|(
 name|String

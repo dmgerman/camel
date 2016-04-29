@@ -66,7 +66,6 @@ name|int
 name|direction
 decl_stmt|;
 DECL|method|Order (int direction)
-specifier|private
 name|Order
 parameter_list|(
 name|int

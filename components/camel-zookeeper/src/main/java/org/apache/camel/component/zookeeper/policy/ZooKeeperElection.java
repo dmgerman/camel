@@ -1036,7 +1036,6 @@ name|ZooKeeperEndpoint
 name|zep
 decl_stmt|;
 DECL|method|ElectoralMonitorRoute (ZooKeeperEndpoint zep)
-specifier|public
 name|ElectoralMonitorRoute
 parameter_list|(
 name|ZooKeeperEndpoint

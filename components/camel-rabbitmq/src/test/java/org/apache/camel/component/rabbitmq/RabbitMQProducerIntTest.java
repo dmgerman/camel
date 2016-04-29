@@ -794,7 +794,6 @@ argument_list|>
 name|received
 decl_stmt|;
 DECL|method|ArrayPopulatingConsumer (final List<String> received)
-specifier|public
 name|ArrayPopulatingConsumer
 parameter_list|(
 specifier|final

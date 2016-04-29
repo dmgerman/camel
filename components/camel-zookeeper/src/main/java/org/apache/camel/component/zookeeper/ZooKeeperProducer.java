@@ -994,7 +994,6 @@ name|String
 name|node
 decl_stmt|;
 DECL|method|ProductionContext (ZooKeeper connection, Exchange exchange)
-specifier|public
 name|ProductionContext
 parameter_list|(
 name|ZooKeeper

@@ -81,36 +81,31 @@ literal|1
 decl_stmt|;
 end_decl_stmt
 
-begin_constructor
+begin_expr_stmt
 DECL|method|SessionAcknowledgementType (int intValue)
-specifier|private
 name|SessionAcknowledgementType
-parameter_list|(
+argument_list|(
 name|int
 name|intValue
-parameter_list|)
+argument_list|)
 block|{
 name|this
 operator|.
 name|intValue
 operator|=
 name|intValue
-expr_stmt|;
-block|}
-end_constructor
-
-begin_function
+block|;     }
 DECL|method|intValue ()
 specifier|public
 name|int
 name|intValue
-parameter_list|()
+argument_list|()
 block|{
 return|return
 name|intValue
 return|;
 block|}
-end_function
+end_expr_stmt
 
 unit|}
 end_unit

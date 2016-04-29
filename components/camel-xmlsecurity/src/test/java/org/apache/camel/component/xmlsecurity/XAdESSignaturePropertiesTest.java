@@ -5536,7 +5536,6 @@ init|=
 literal|"bob"
 decl_stmt|;
 DECL|method|CertChainXAdESSignatureProperties ()
-specifier|public
 name|CertChainXAdESSignatureProperties
 parameter_list|()
 block|{

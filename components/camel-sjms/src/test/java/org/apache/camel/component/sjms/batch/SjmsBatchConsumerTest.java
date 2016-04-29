@@ -415,7 +415,6 @@ name|String
 name|queueName
 decl_stmt|;
 DECL|method|TransactedSendHarness (String queueName)
-specifier|public
 name|TransactedSendHarness
 parameter_list|(
 name|String

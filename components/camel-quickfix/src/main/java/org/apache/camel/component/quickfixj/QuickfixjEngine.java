@@ -2986,7 +2986,6 @@ init|=
 literal|1L
 decl_stmt|;
 DECL|method|DispatcherException (Throwable cause)
-specifier|public
 name|DispatcherException
 parameter_list|(
 name|Throwable

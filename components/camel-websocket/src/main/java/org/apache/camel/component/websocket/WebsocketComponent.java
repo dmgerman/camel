@@ -697,7 +697,6 @@ name|int
 name|refCount
 decl_stmt|;
 DECL|method|ConnectorRef (Server server, ServerConnector connector, WebsocketComponentServlet servlet, MemoryWebsocketStore memoryStore)
-specifier|public
 name|ConnectorRef
 parameter_list|(
 name|Server

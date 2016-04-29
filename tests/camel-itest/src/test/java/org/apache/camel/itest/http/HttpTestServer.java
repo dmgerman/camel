@@ -1455,7 +1455,6 @@ name|Exception
 name|exception
 decl_stmt|;
 DECL|method|Worker (final HttpServerConnection conn)
-specifier|public
 name|Worker
 parameter_list|(
 specifier|final

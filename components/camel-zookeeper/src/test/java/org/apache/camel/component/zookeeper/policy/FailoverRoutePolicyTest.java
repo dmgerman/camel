@@ -324,7 +324,6 @@ name|String
 name|routename
 decl_stmt|;
 DECL|method|ZookeeperPolicyEnforcedContext (String name)
-specifier|public
 name|ZookeeperPolicyEnforcedContext
 parameter_list|(
 name|String

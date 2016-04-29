@@ -810,7 +810,6 @@ extends|extends
 name|ShiroSecurityTokenInjector
 block|{
 DECL|method|TestShiroSecurityTokenInjector (ShiroSecurityToken shiroSecurityToken, byte[] bytes)
-specifier|public
 name|TestShiroSecurityTokenInjector
 parameter_list|(
 name|ShiroSecurityToken

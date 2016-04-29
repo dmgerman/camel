@@ -29,9 +29,17 @@ end_import
 begin_class
 DECL|class|Service2Application
 specifier|public
+specifier|final
 class|class
 name|Service2Application
 block|{
+DECL|method|Service2Application ()
+specifier|private
+name|Service2Application
+parameter_list|()
+block|{
+comment|// noop
+block|}
 DECL|method|main (String[] args)
 specifier|public
 specifier|static

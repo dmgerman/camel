@@ -98,7 +98,6 @@ name|String
 name|value
 decl_stmt|;
 DECL|method|FormatEnum (String value)
-specifier|private
 name|FormatEnum
 parameter_list|(
 name|String

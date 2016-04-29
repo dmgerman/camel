@@ -240,7 +240,6 @@ expr_stmt|;
 block|}
 DECL|enum|EventType
 specifier|public
-specifier|static
 enum|enum
 name|EventType
 block|{

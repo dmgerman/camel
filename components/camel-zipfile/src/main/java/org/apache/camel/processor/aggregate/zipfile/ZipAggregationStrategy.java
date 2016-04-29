@@ -1242,7 +1242,6 @@ name|File
 name|fileToDelete
 decl_stmt|;
 DECL|method|DeleteZipFileOnCompletion (File fileToDelete)
-specifier|public
 name|DeleteZipFileOnCompletion
 parameter_list|(
 name|File

@@ -558,7 +558,6 @@ extends|extends
 name|BufferingResponseListener
 block|{
 DECL|method|SecurityListener (int maxLength)
-specifier|public
 name|SecurityListener
 parameter_list|(
 name|int

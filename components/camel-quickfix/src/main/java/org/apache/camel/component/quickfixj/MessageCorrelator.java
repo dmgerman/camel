@@ -390,7 +390,6 @@ name|Message
 name|replyMessage
 decl_stmt|;
 DECL|method|MessageCorrelationRule (Exchange exchange, SessionID sessionID, MessagePredicate messageCriteria)
-specifier|public
 name|MessageCorrelationRule
 parameter_list|(
 name|Exchange

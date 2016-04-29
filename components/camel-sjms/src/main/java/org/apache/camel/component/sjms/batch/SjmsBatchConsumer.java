@@ -1132,7 +1132,6 @@ argument_list|>
 name|triggers
 decl_stmt|;
 DECL|method|CompletionIntervalTask (List<AtomicBoolean> triggers)
-specifier|public
 name|CompletionIntervalTask
 parameter_list|(
 name|List
@@ -1491,7 +1490,6 @@ name|Exchange
 name|aggregatedExchange
 decl_stmt|;
 DECL|method|BatchConsumptionTask (AtomicBoolean timeoutInterval)
-specifier|public
 name|BatchConsumptionTask
 parameter_list|(
 name|AtomicBoolean

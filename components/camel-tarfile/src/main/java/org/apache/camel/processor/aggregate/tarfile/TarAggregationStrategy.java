@@ -1428,7 +1428,6 @@ name|File
 name|fileToDelete
 decl_stmt|;
 DECL|method|DeleteTarFileOnCompletion (File fileToDelete)
-specifier|public
 name|DeleteTarFileOnCompletion
 parameter_list|(
 name|File

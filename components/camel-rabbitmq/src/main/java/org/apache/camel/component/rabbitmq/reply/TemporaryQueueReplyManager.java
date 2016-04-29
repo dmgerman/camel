@@ -557,7 +557,6 @@ name|tag
 decl_stmt|;
 comment|/**          * Constructs a new instance and records its association to the          * passed-in channel.          *          * @param channel the channel to which this consumer is attached          */
 DECL|method|RabbitConsumer (TemporaryQueueReplyManager consumer, Channel channel)
-specifier|public
 name|RabbitConsumer
 parameter_list|(
 name|TemporaryQueueReplyManager

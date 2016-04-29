@@ -2508,7 +2508,6 @@ name|ResponseCallback
 name|callback
 decl_stmt|;
 DECL|method|DelegatingClientCallback (ResponseCallback callback)
-specifier|public
 name|DelegatingClientCallback
 parameter_list|(
 name|ResponseCallback

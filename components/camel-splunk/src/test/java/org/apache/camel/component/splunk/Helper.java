@@ -250,7 +250,6 @@ name|Socket
 name|socket
 decl_stmt|;
 DECL|method|MockConnectionSettings (Service service, Socket socket)
-specifier|public
 name|MockConnectionSettings
 parameter_list|(
 name|Service
@@ -467,7 +466,6 @@ name|Service
 name|service
 decl_stmt|;
 DECL|method|MockConnectionFactory (Service service)
-specifier|public
 name|MockConnectionFactory
 parameter_list|(
 name|Service

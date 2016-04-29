@@ -440,7 +440,6 @@ name|CloudComputer
 name|removingComputer
 decl_stmt|;
 DECL|method|RemoveComputerChange (CloudComputer removingComputer)
-specifier|public
 name|RemoveComputerChange
 parameter_list|(
 name|CloudComputer

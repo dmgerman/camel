@@ -416,7 +416,6 @@ name|Supplier
 name|supplier
 decl_stmt|;
 DECL|method|WeakThreadLocal (ServiceNowProducerProcessor.Supplier supplier)
-specifier|public
 name|WeakThreadLocal
 parameter_list|(
 name|ServiceNowProducerProcessor

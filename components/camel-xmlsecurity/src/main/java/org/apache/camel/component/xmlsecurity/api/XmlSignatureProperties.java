@@ -207,8 +207,6 @@ parameter_list|()
 function_decl|;
 block|}
 DECL|class|Output
-specifier|public
-specifier|static
 class|class
 name|Output
 block|{

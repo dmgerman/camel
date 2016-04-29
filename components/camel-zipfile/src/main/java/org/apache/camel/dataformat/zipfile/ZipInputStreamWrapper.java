@@ -56,7 +56,6 @@ extends|extends
 name|BufferedInputStream
 block|{
 DECL|method|ZipInputStreamWrapper (InputStream in, int size)
-specifier|public
 name|ZipInputStreamWrapper
 parameter_list|(
 name|InputStream
@@ -75,7 +74,6 @@ argument_list|)
 expr_stmt|;
 block|}
 DECL|method|ZipInputStreamWrapper (InputStream in)
-specifier|public
 name|ZipInputStreamWrapper
 parameter_list|(
 name|InputStream

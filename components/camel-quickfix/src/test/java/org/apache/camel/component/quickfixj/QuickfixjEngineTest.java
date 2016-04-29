@@ -3603,7 +3603,6 @@ name|Message
 name|message
 decl_stmt|;
 DECL|method|EventRecord (QuickfixjEventCategory eventCategory, SessionID sessionID, Message message)
-specifier|public
 name|EventRecord
 parameter_list|(
 name|QuickfixjEventCategory

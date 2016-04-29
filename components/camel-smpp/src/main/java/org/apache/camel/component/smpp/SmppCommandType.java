@@ -252,7 +252,6 @@ name|String
 name|commandName
 decl_stmt|;
 DECL|method|SmppCommandType (String commandName)
-specifier|private
 name|SmppCommandType
 parameter_list|(
 name|String

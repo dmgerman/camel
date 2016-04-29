@@ -86,7 +86,6 @@ name|String
 name|prefix
 decl_stmt|;
 DECL|method|EndpointMappingType (String prefix)
-specifier|private
 name|EndpointMappingType
 parameter_list|(
 name|String

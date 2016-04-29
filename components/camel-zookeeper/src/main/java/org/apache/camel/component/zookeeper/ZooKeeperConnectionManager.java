@@ -148,7 +148,6 @@ name|ZooKeeperConfiguration
 name|configuration
 decl_stmt|;
 DECL|method|DefaultZookeeperConnectionStrategy (ZooKeeperEndpoint endpoint)
-specifier|public
 name|DefaultZookeeperConnectionStrategy
 parameter_list|(
 name|ZooKeeperEndpoint

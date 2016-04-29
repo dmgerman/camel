@@ -648,7 +648,6 @@ name|int
 name|right
 decl_stmt|;
 DECL|method|Pair (int left, int right)
-specifier|public
 name|Pair
 parameter_list|(
 name|int

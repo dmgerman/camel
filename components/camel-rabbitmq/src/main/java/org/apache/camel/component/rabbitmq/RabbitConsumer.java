@@ -236,9 +236,8 @@ specifier|volatile
 name|boolean
 name|stopping
 decl_stmt|;
-comment|/**      * Constructs a new instance and records its association to the passed-in      * channel.      *      * @param channel      *            the channel to which this consumer is attached      */
+comment|/**      * Constructs a new instance and records its association to the passed-in      * channel.      */
 DECL|method|RabbitConsumer (RabbitMQConsumer consumer)
-specifier|public
 name|RabbitConsumer
 parameter_list|(
 name|RabbitMQConsumer

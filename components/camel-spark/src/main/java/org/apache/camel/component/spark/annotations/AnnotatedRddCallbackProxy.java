@@ -165,7 +165,6 @@ name|CamelContext
 name|camelContext
 decl_stmt|;
 DECL|method|AnnotatedRddCallbackProxy (Object objectWithCallback, CamelContext camelContext)
-specifier|public
 name|AnnotatedRddCallbackProxy
 parameter_list|(
 name|Object
@@ -235,7 +234,6 @@ throw|;
 block|}
 block|}
 DECL|method|AnnotatedRddCallbackProxy (Object objectWithCallback)
-specifier|public
 name|AnnotatedRddCallbackProxy
 parameter_list|(
 name|Object

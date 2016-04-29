@@ -840,7 +840,6 @@ name|AsyncCallback
 name|callback
 decl_stmt|;
 DECL|method|UndertowProducerCallback (ClientConnection connection, ByteBuffer body, Exchange camelExchange, AsyncCallback callback)
-specifier|public
 name|UndertowProducerCallback
 parameter_list|(
 name|ClientConnection

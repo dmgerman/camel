@@ -125,7 +125,6 @@ extends|extends
 name|TwitterConsumer
 block|{
 DECL|method|AbstractStatusConsumer (TwitterEndpoint endpoint)
-specifier|public
 name|AbstractStatusConsumer
 parameter_list|(
 name|TwitterEndpoint

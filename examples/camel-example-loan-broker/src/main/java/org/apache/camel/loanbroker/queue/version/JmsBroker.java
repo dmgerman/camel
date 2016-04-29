@@ -173,7 +173,6 @@ name|Exception
 name|exception
 decl_stmt|;
 DECL|method|JMSEmbeddedBroker (String url)
-specifier|public
 name|JMSEmbeddedBroker
 parameter_list|(
 name|String

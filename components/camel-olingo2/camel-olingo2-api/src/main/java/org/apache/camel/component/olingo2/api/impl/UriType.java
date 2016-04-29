@@ -376,16 +376,15 @@ argument_list|()
 decl_stmt|;
 end_decl_stmt
 
-begin_constructor
+begin_expr_stmt
 DECL|method|UriType (final SystemQueryOption... compatibleQueryOptions)
-specifier|private
 name|UriType
-parameter_list|(
-specifier|final
+argument_list|(
+name|final
 name|SystemQueryOption
-modifier|...
+operator|...
 name|compatibleQueryOptions
-parameter_list|)
+argument_list|)
 block|{
 for|for
 control|(
@@ -403,12 +402,11 @@ name|queryOption
 argument_list|)
 expr_stmt|;
 block|}
-block|}
-end_constructor
+end_expr_stmt
 
 begin_function
+unit|}      public
 DECL|method|isCompatible (final SystemQueryOption queryOption)
-specifier|public
 name|boolean
 name|isCompatible
 parameter_list|(

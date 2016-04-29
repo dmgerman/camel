@@ -3291,7 +3291,6 @@ name|double
 name|defaultMarketPrice
 decl_stmt|;
 DECL|method|DefaultMarketQuoteProvider (double defaultMarketPrice)
-specifier|public
 name|DefaultMarketQuoteProvider
 parameter_list|(
 name|double

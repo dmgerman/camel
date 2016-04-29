@@ -333,7 +333,6 @@ name|Message
 argument_list|>
 block|{
 DECL|method|HeaderChecker (String phase)
-specifier|public
 name|HeaderChecker
 parameter_list|(
 name|String

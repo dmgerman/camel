@@ -94,7 +94,6 @@ name|String
 name|value
 decl_stmt|;
 DECL|method|NotifyForOperationsEnum (String value)
-specifier|private
 name|NotifyForOperationsEnum
 parameter_list|(
 name|String
