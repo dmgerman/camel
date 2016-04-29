@@ -1017,7 +1017,7 @@ operator|=
 literal|"camelSalesforce.isHttpProxySocks4"
 argument_list|)
 DECL|field|isHttpProxySocks4
-specifier|private
+specifier|protected
 name|boolean
 name|isHttpProxySocks4
 decl_stmt|;
@@ -1030,7 +1030,7 @@ operator|=
 literal|"camelSalesforce.isHttpProxySecure"
 argument_list|)
 DECL|field|isHttpProxySecure
-specifier|private
+specifier|protected
 name|boolean
 name|isHttpProxySecure
 init|=
@@ -1045,7 +1045,7 @@ operator|=
 literal|"camelSalesforce.httpProxyIncludedAddresses"
 argument_list|)
 DECL|field|httpProxyIncludedAddresses
-specifier|private
+specifier|protected
 name|Set
 argument_list|<
 name|String
@@ -1061,7 +1061,7 @@ operator|=
 literal|"camelSalesforce.httpProxyIncludedAddresses"
 argument_list|)
 DECL|field|httpProxyExcludedAddresses
-specifier|private
+specifier|protected
 name|Set
 argument_list|<
 name|String

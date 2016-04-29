@@ -489,7 +489,7 @@ parameter_list|)
 block|{
 specifier|final
 name|Request
-name|Request
+name|request
 init|=
 name|getRequest
 argument_list|(
@@ -503,7 +503,7 @@ argument_list|)
 decl_stmt|;
 name|doHttpRequest
 argument_list|(
-name|Request
+name|request
 argument_list|,
 operator|new
 name|ClientResponseCallback
@@ -550,7 +550,7 @@ name|unmarshalResponse
 argument_list|(
 name|response
 argument_list|,
-name|Request
+name|request
 argument_list|,
 operator|new
 name|TypeReference
@@ -608,7 +608,7 @@ parameter_list|)
 block|{
 specifier|final
 name|Request
-name|Request
+name|request
 init|=
 name|getRequest
 argument_list|(
@@ -624,7 +624,7 @@ argument_list|)
 decl_stmt|;
 name|doHttpRequest
 argument_list|(
-name|Request
+name|request
 argument_list|,
 operator|new
 name|ClientResponseCallback
@@ -656,7 +656,7 @@ name|unmarshalResponse
 argument_list|(
 name|response
 argument_list|,
-name|Request
+name|request
 argument_list|,
 name|ReportDescription
 operator|.
@@ -720,7 +720,7 @@ literal|null
 decl_stmt|;
 specifier|final
 name|Request
-name|Request
+name|request
 init|=
 name|getRequest
 argument_list|(
@@ -759,7 +759,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|request
+name|input
 init|=
 operator|new
 name|HashMap
@@ -770,7 +770,7 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|request
+name|input
 operator|.
 name|put
 argument_list|(
@@ -781,9 +781,9 @@ argument_list|)
 expr_stmt|;
 name|marshalRequest
 argument_list|(
-name|request
+name|input
 argument_list|,
-name|Request
+name|request
 argument_list|)
 expr_stmt|;
 block|}
@@ -807,7 +807,7 @@ block|}
 block|}
 name|doHttpRequest
 argument_list|(
-name|Request
+name|request
 argument_list|,
 operator|new
 name|ClientResponseCallback
@@ -839,7 +839,7 @@ name|unmarshalResponse
 argument_list|(
 name|response
 argument_list|,
-name|Request
+name|request
 argument_list|,
 name|SyncReportResults
 operator|.
@@ -895,7 +895,7 @@ parameter_list|)
 block|{
 specifier|final
 name|Request
-name|Request
+name|request
 init|=
 name|getRequest
 argument_list|(
@@ -929,7 +929,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|request
+name|input
 init|=
 operator|new
 name|HashMap
@@ -940,7 +940,7 @@ name|Object
 argument_list|>
 argument_list|()
 decl_stmt|;
-name|request
+name|input
 operator|.
 name|put
 argument_list|(
@@ -951,9 +951,9 @@ argument_list|)
 expr_stmt|;
 name|marshalRequest
 argument_list|(
-name|request
+name|input
 argument_list|,
-name|Request
+name|request
 argument_list|)
 expr_stmt|;
 block|}
@@ -977,7 +977,7 @@ block|}
 block|}
 name|doHttpRequest
 argument_list|(
-name|Request
+name|request
 argument_list|,
 operator|new
 name|ClientResponseCallback
@@ -1009,7 +1009,7 @@ name|unmarshalResponse
 argument_list|(
 name|response
 argument_list|,
-name|Request
+name|request
 argument_list|,
 name|ReportInstance
 operator|.
@@ -1059,7 +1059,7 @@ parameter_list|)
 block|{
 specifier|final
 name|Request
-name|Request
+name|request
 init|=
 name|getRequest
 argument_list|(
@@ -1075,7 +1075,7 @@ argument_list|)
 decl_stmt|;
 name|doHttpRequest
 argument_list|(
-name|Request
+name|request
 argument_list|,
 operator|new
 name|ClientResponseCallback
@@ -1122,7 +1122,7 @@ name|unmarshalResponse
 argument_list|(
 name|response
 argument_list|,
-name|Request
+name|request
 argument_list|,
 operator|new
 name|TypeReference
@@ -1183,7 +1183,7 @@ parameter_list|)
 block|{
 specifier|final
 name|Request
-name|Request
+name|request
 init|=
 name|getRequest
 argument_list|(
@@ -1201,7 +1201,7 @@ argument_list|)
 decl_stmt|;
 name|doHttpRequest
 argument_list|(
-name|Request
+name|request
 argument_list|,
 operator|new
 name|ClientResponseCallback
@@ -1233,7 +1233,7 @@ name|unmarshalResponse
 argument_list|(
 name|response
 argument_list|,
-name|Request
+name|request
 argument_list|,
 name|AsyncReportResults
 operator|.

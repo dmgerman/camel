@@ -734,7 +734,7 @@ name|String
 argument_list|>
 argument_list|>
 argument_list|()
-block|{}
+block|{ }
 argument_list|)
 expr_stmt|;
 block|}
