@@ -922,7 +922,6 @@ name|Socket
 name|socket
 decl_stmt|;
 DECL|method|ClosingClientRunnable (Socket socket)
-specifier|public
 name|ClosingClientRunnable
 parameter_list|(
 name|Socket
