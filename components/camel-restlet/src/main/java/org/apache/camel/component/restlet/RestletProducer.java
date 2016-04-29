@@ -571,7 +571,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -583,6 +583,13 @@ name|e
 argument_list|)
 expr_stmt|;
 block|}
+name|callback
+operator|.
+name|done
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 return|return
 literal|true
 return|;
@@ -643,7 +650,7 @@ expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
-name|CamelExchangeException
+name|Throwable
 name|e
 parameter_list|)
 block|{
@@ -778,7 +785,7 @@ block|}
 block|}
 catch|catch
 parameter_list|(
-name|Exception
+name|Throwable
 name|e
 parameter_list|)
 block|{
