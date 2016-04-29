@@ -458,13 +458,19 @@ argument_list|(
 literal|"first:in"
 argument_list|)
 expr_stmt|;
-comment|// FIXME: The context component does not support multiple logical endpoints
-comment|// with the same remaining defined in two distinct Camel contexts.
-comment|// See https://issues.apache.org/jira/browse/CAMEL-9200.
-comment|// from("first:out").to("second:in");
 name|from
 argument_list|(
 literal|"first:out"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"second:in"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"second:out"
 argument_list|)
 operator|.
 name|to
@@ -519,7 +525,7 @@ name|outbound
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"first-test"
+literal|"second-first-test"
 argument_list|)
 expr_stmt|;
 name|inbound
