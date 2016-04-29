@@ -563,7 +563,6 @@ name|Properties
 name|kafkaProps
 decl_stmt|;
 DECL|method|KafkaFetchRecords (String topicName, String id, Properties kafkaProps)
-specifier|public
 name|KafkaFetchRecords
 parameter_list|(
 name|String
@@ -729,7 +728,6 @@ operator|.
 name|MAX_VALUE
 argument_list|)
 decl_stmt|;
-comment|// START : CAMEL-9823
 for|for
 control|(
 name|TopicPartition
@@ -905,7 +903,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// END : CAMEL-9823
 block|}
 name|LOG
 operator|.
