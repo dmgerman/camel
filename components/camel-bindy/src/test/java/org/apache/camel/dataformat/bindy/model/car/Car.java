@@ -857,7 +857,6 @@ expr_stmt|;
 block|}
 DECL|enum|Colour
 specifier|public
-specifier|static
 enum|enum
 name|Colour
 block|{

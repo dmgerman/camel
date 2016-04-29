@@ -1131,7 +1131,6 @@ return|;
 block|}
 DECL|enum|ParserState
 specifier|private
-specifier|static
 enum|enum
 name|ParserState
 block|{

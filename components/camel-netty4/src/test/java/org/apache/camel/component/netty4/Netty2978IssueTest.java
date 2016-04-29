@@ -598,7 +598,6 @@ name|ProducerTemplate
 name|producerTemplate
 decl_stmt|;
 DECL|method|CamelClient (CamelContext camelContext)
-specifier|public
 name|CamelClient
 parameter_list|(
 name|CamelContext

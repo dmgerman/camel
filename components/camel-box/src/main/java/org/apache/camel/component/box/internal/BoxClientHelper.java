@@ -1564,7 +1564,6 @@ name|HttpHost
 name|proxyHost
 decl_stmt|;
 DECL|method|SocksSSLSocketFactory (SSLContext sslContext, HttpHost proxyHost)
-specifier|public
 name|SocksSSLSocketFactory
 parameter_list|(
 name|SSLContext

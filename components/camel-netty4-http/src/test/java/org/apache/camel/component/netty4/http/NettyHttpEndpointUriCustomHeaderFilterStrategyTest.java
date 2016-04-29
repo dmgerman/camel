@@ -289,7 +289,6 @@ extends|extends
 name|DefaultHeaderFilterStrategy
 block|{
 DECL|method|CustomHeaderFilterStrategy ()
-specifier|public
 name|CustomHeaderFilterStrategy
 parameter_list|()
 block|{

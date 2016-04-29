@@ -927,6 +927,7 @@ literal|"Missing required property sharedLink"
 argument_list|)
 throw|;
 block|}
+break|break;
 default|default:
 block|}
 specifier|final

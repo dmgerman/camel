@@ -91,7 +91,6 @@ name|String
 name|refreshToken
 decl_stmt|;
 DECL|method|OAuthHelperListener (IAuthSecureStorage authSecureStorage, OAuthRefreshListener configListener)
-specifier|public
 name|OAuthHelperListener
 parameter_list|(
 name|IAuthSecureStorage
