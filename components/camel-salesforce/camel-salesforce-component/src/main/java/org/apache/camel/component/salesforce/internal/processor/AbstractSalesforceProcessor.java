@@ -170,13 +170,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|eclipse
+name|apache
 operator|.
-name|jetty
+name|camel
 operator|.
-name|client
+name|component
 operator|.
-name|HttpClient
+name|salesforce
+operator|.
+name|SalesforceHttpClient
 import|;
 end_import
 
@@ -293,7 +295,7 @@ decl_stmt|;
 DECL|field|httpClient
 specifier|protected
 specifier|final
-name|HttpClient
+name|SalesforceHttpClient
 name|httpClient
 decl_stmt|;
 DECL|method|AbstractSalesforceProcessor (SalesforceEndpoint endpoint)

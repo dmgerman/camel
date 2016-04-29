@@ -69,6 +69,11 @@ specifier|private
 name|String
 name|street
 decl_stmt|;
+DECL|field|geocodeAccuracy
+specifier|private
+name|String
+name|geocodeAccuracy
+decl_stmt|;
 DECL|method|getCity ()
 specifier|public
 name|String
@@ -249,6 +254,32 @@ operator|.
 name|street
 operator|=
 name|street
+expr_stmt|;
+block|}
+DECL|method|getGeocodeAccuracy ()
+specifier|public
+name|String
+name|getGeocodeAccuracy
+parameter_list|()
+block|{
+return|return
+name|geocodeAccuracy
+return|;
+block|}
+DECL|method|setGeocodeAccuracy (String geocodeAccuracy)
+specifier|public
+name|void
+name|setGeocodeAccuracy
+parameter_list|(
+name|String
+name|geocodeAccuracy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|geocodeAccuracy
+operator|=
+name|geocodeAccuracy
 expr_stmt|;
 block|}
 block|}

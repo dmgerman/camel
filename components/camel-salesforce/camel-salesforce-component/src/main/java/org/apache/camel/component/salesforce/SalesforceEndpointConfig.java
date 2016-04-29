@@ -192,20 +192,6 @@ name|UriParams
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|jetty
-operator|.
-name|client
-operator|.
-name|HttpClient
-import|;
-end_import
-
 begin_comment
 comment|/**  * Salesforce Endpoint configuration.  */
 end_comment
@@ -433,6 +419,16 @@ name|INSTANCE_ID
 init|=
 literal|"instanceId"
 decl_stmt|;
+comment|// default maximum authentication retries on failed authentication or expired session
+DECL|field|DEFAULT_MAX_AUTHENTICATION_RETRIES
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|DEFAULT_MAX_AUTHENTICATION_RETRIES
+init|=
+literal|4
+decl_stmt|;
 comment|// general properties
 annotation|@
 name|UriParam
@@ -652,12 +648,12 @@ specifier|private
 name|String
 name|instanceId
 decl_stmt|;
-comment|// Jetty HttpClient, set using reference
+comment|// Salesforce Jetty9 HttpClient, set using reference
 annotation|@
 name|UriParam
 DECL|field|httpClient
 specifier|private
-name|HttpClient
+name|SalesforceHttpClient
 name|httpClient
 decl_stmt|;
 DECL|method|copy ()
@@ -1507,12 +1503,12 @@ name|instanceId
 expr_stmt|;
 block|}
 comment|/**      * Custom Jetty Http Client to use to connect to Salesforce.      */
-DECL|method|setHttpClient (HttpClient httpClient)
+DECL|method|setHttpClient (SalesforceHttpClient httpClient)
 specifier|public
 name|void
 name|setHttpClient
 parameter_list|(
-name|HttpClient
+name|SalesforceHttpClient
 name|httpClient
 parameter_list|)
 block|{
@@ -1525,7 +1521,7 @@ expr_stmt|;
 block|}
 DECL|method|getHttpClient ()
 specifier|public
-name|HttpClient
+name|SalesforceHttpClient
 name|getHttpClient
 parameter_list|()
 block|{

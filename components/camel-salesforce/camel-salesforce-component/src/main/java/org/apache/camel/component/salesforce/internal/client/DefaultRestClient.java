@@ -116,6 +116,22 @@ name|component
 operator|.
 name|salesforce
 operator|.
+name|SalesforceHttpClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|salesforce
+operator|.
 name|api
 operator|.
 name|SalesforceException
@@ -302,7 +318,9 @@ name|jetty
 operator|.
 name|client
 operator|.
-name|ContentExchange
+name|api
+operator|.
+name|Request
 import|;
 end_import
 
@@ -316,7 +334,9 @@ name|jetty
 operator|.
 name|client
 operator|.
-name|HttpClient
+name|api
+operator|.
+name|Response
 import|;
 end_import
 
@@ -330,7 +350,9 @@ name|jetty
 operator|.
 name|client
 operator|.
-name|HttpExchange
+name|util
+operator|.
+name|InputStreamContentProvider
 import|;
 end_import
 
@@ -344,7 +366,7 @@ name|jetty
 operator|.
 name|http
 operator|.
-name|HttpHeaders
+name|HttpHeader
 import|;
 end_import
 
@@ -358,7 +380,7 @@ name|jetty
 operator|.
 name|http
 operator|.
-name|HttpMethods
+name|HttpMethod
 import|;
 end_import
 
@@ -451,11 +473,11 @@ specifier|private
 name|XStream
 name|xStream
 decl_stmt|;
-DECL|method|DefaultRestClient (HttpClient httpClient, String version, PayloadFormat format, SalesforceSession session)
+DECL|method|DefaultRestClient (SalesforceHttpClient httpClient, String version, PayloadFormat format, SalesforceSession session)
 specifier|public
 name|DefaultRestClient
 parameter_list|(
-name|HttpClient
+name|SalesforceHttpClient
 name|httpClient
 parameter_list|,
 name|String
@@ -530,12 +552,12 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doHttpRequest (ContentExchange request, ClientResponseCallback callback)
+DECL|method|doHttpRequest (Request request, ClientResponseCallback callback)
 specifier|protected
 name|void
 name|doHttpRequest
 parameter_list|(
-name|ContentExchange
+name|Request
 name|request
 parameter_list|,
 name|ClientResponseCallback
@@ -562,9 +584,9 @@ name|APPLICATION_XML_UTF8
 decl_stmt|;
 name|request
 operator|.
-name|setRequestHeader
+name|header
 argument_list|(
-name|HttpHeaders
+name|HttpHeader
 operator|.
 name|ACCEPT
 argument_list|,
@@ -573,9 +595,9 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|setRequestHeader
+name|header
 argument_list|(
-name|HttpHeaders
+name|HttpHeader
 operator|.
 name|ACCEPT_CHARSET
 argument_list|,
@@ -597,16 +619,16 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createRestException (ContentExchange httpExchange, String reason)
+DECL|method|createRestException (Response response, InputStream responseContent)
 specifier|protected
 name|SalesforceException
 name|createRestException
 parameter_list|(
-name|ContentExchange
-name|httpExchange
+name|Response
+name|response
 parameter_list|,
-name|String
-name|reason
+name|InputStream
+name|responseContent
 parameter_list|)
 block|{
 comment|// get status code and reason phrase
@@ -614,9 +636,17 @@ specifier|final
 name|int
 name|statusCode
 init|=
-name|httpExchange
+name|response
 operator|.
-name|getResponseStatus
+name|getStatus
+argument_list|()
+decl_stmt|;
+name|String
+name|reason
+init|=
+name|response
+operator|.
+name|getReason
 argument_list|()
 decl_stmt|;
 if|if
@@ -642,31 +672,20 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// try parsing response according to format
-name|String
-name|responseContent
-init|=
-literal|null
-decl_stmt|;
 try|try
 block|{
-name|responseContent
-operator|=
-name|httpExchange
-operator|.
-name|getResponseContent
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|responseContent
 operator|!=
 literal|null
 operator|&&
-operator|!
 name|responseContent
 operator|.
-name|isEmpty
+name|available
 argument_list|()
+operator|>
+literal|0
 condition|)
 block|{
 specifier|final
@@ -715,7 +734,7 @@ name|String
 argument_list|>
 argument_list|>
 argument_list|()
-block|{                             }
+block|{}
 argument_list|)
 expr_stmt|;
 block|}
@@ -936,12 +955,12 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 block|{
-name|ContentExchange
+name|Request
 name|get
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|GET
 argument_list|,
@@ -973,12 +992,12 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 block|{
-name|ContentExchange
+name|Request
 name|get
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|GET
 argument_list|,
@@ -1015,12 +1034,12 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 block|{
-name|ContentExchange
+name|Request
 name|get
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|GET
 argument_list|,
@@ -1062,12 +1081,12 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 block|{
-name|ContentExchange
+name|Request
 name|get
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|GET
 argument_list|,
@@ -1111,12 +1130,12 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 block|{
-name|ContentExchange
+name|Request
 name|get
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|GET
 argument_list|,
@@ -1252,12 +1271,12 @@ name|toString
 argument_list|()
 expr_stmt|;
 block|}
-name|ContentExchange
+name|Request
 name|get
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|GET
 argument_list|,
@@ -1310,12 +1329,12 @@ parameter_list|)
 block|{
 comment|// post the sObject
 specifier|final
-name|ContentExchange
+name|Request
 name|post
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|POST
 argument_list|,
@@ -1334,15 +1353,23 @@ expr_stmt|;
 comment|// input stream as entity content
 name|post
 operator|.
-name|setRequestContentSource
+name|content
+argument_list|(
+operator|new
+name|InputStreamContentProvider
 argument_list|(
 name|sObject
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|post
 operator|.
-name|setRequestContentType
+name|header
 argument_list|(
+name|HttpHeader
+operator|.
+name|CONTENT_TYPE
+argument_list|,
 name|PayloadFormat
 operator|.
 name|JSON
@@ -1390,10 +1417,10 @@ name|callback
 parameter_list|)
 block|{
 specifier|final
-name|ContentExchange
+name|Request
 name|patch
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
 literal|"PATCH"
 argument_list|,
@@ -1416,15 +1443,23 @@ expr_stmt|;
 comment|// input stream as entity content
 name|patch
 operator|.
-name|setRequestContentSource
+name|content
+argument_list|(
+operator|new
+name|InputStreamContentProvider
 argument_list|(
 name|sObject
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|patch
 operator|.
-name|setRequestContentType
+name|header
 argument_list|(
+name|HttpHeader
+operator|.
+name|CONTENT_TYPE
+argument_list|,
 name|PayloadFormat
 operator|.
 name|JSON
@@ -1469,12 +1504,12 @@ name|callback
 parameter_list|)
 block|{
 specifier|final
-name|ContentExchange
+name|Request
 name|delete
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|DELETE
 argument_list|,
@@ -1527,12 +1562,12 @@ name|callback
 parameter_list|)
 block|{
 specifier|final
-name|ContentExchange
+name|Request
 name|get
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|GET
 argument_list|,
@@ -1588,10 +1623,10 @@ name|callback
 parameter_list|)
 block|{
 specifier|final
-name|ContentExchange
+name|Request
 name|patch
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
 literal|"PATCH"
 argument_list|,
@@ -1614,16 +1649,24 @@ expr_stmt|;
 comment|// input stream as entity content
 name|patch
 operator|.
-name|setRequestContentSource
+name|content
+argument_list|(
+operator|new
+name|InputStreamContentProvider
 argument_list|(
 name|sObject
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// TODO will the encoding always be UTF-8??
 name|patch
 operator|.
-name|setRequestContentType
+name|header
 argument_list|(
+name|HttpHeader
+operator|.
+name|CONTENT_TYPE
+argument_list|,
 name|PayloadFormat
 operator|.
 name|JSON
@@ -1671,12 +1714,12 @@ name|callback
 parameter_list|)
 block|{
 specifier|final
-name|ContentExchange
+name|Request
 name|delete
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|DELETE
 argument_list|,
@@ -1729,12 +1772,12 @@ name|callback
 parameter_list|)
 block|{
 specifier|final
-name|ContentExchange
+name|Request
 name|get
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|GET
 argument_list|,
@@ -1753,7 +1796,7 @@ argument_list|)
 argument_list|)
 decl_stmt|;
 comment|// TODO this doesn't seem to be required, the response is always the content binary stream
-comment|//get.setRequestHeader(HttpHeaders.ACCEPT_ENCODING, "base64");
+comment|//get.header(HttpHeader.ACCEPT_ENCODING, "base64");
 comment|// requires authorization token
 name|setAccessToken
 argument_list|(
@@ -1797,12 +1840,12 @@ name|soqlQuery
 argument_list|)
 decl_stmt|;
 specifier|final
-name|ContentExchange
+name|Request
 name|get
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|GET
 argument_list|,
@@ -1880,12 +1923,12 @@ name|callback
 parameter_list|)
 block|{
 specifier|final
-name|ContentExchange
+name|Request
 name|get
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|GET
 argument_list|,
@@ -1937,12 +1980,12 @@ name|soslQuery
 argument_list|)
 decl_stmt|;
 specifier|final
-name|ContentExchange
+name|Request
 name|get
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|GET
 argument_list|,
@@ -2033,16 +2076,16 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 block|{
-comment|// create APEX call exchange
+comment|// create APEX call request
 specifier|final
-name|ContentExchange
-name|exchange
+name|Request
+name|request
 decl_stmt|;
 try|try
 block|{
-name|exchange
+name|request
 operator|=
-name|getContentExchange
+name|getRequest
 argument_list|(
 name|httpMethod
 argument_list|,
@@ -2062,17 +2105,25 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|exchange
+name|request
 operator|.
-name|setRequestContentSource
+name|content
+argument_list|(
+operator|new
+name|InputStreamContentProvider
 argument_list|(
 name|requestDto
 argument_list|)
+argument_list|)
 expr_stmt|;
-name|exchange
+name|request
 operator|.
-name|setRequestContentType
+name|header
 argument_list|(
+name|HttpHeader
+operator|.
+name|CONTENT_TYPE
+argument_list|,
 name|PayloadFormat
 operator|.
 name|JSON
@@ -2091,12 +2142,12 @@ block|}
 comment|// requires authorization token
 name|setAccessToken
 argument_list|(
-name|exchange
+name|request
 argument_list|)
 expr_stmt|;
 name|doHttpRequest
 argument_list|(
-name|exchange
+name|request
 argument_list|,
 operator|new
 name|DelegatingClientCallback
@@ -2376,18 +2427,22 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|setAccessToken (HttpExchange httpExchange)
+DECL|method|setAccessToken (Request request)
 specifier|protected
 name|void
 name|setAccessToken
 parameter_list|(
-name|HttpExchange
-name|httpExchange
+name|Request
+name|request
 parameter_list|)
 block|{
-name|httpExchange
+comment|// replace old token
+name|request
 operator|.
-name|setRequestHeader
+name|getHeaders
+argument_list|()
+operator|.
+name|put
 argument_list|(
 name|TOKEN_HEADER
 argument_list|,
@@ -2419,10 +2474,7 @@ name|query
 argument_list|,
 name|StringUtil
 operator|.
-name|__UTF8_CHARSET
-operator|.
-name|toString
-argument_list|()
+name|__UTF8
 argument_list|)
 decl_stmt|;
 comment|// URLEncoder likes to use '+' for spaces

@@ -117,7 +117,7 @@ specifier|final
 name|String
 name|PERMISSIONS_PROPERTY_DEFAULT
 init|=
-literal|"-*,java.lang.*,java.util.*"
+literal|"java.lang.*,java.util.*"
 decl_stmt|;
 DECL|method|XStreamUtils ()
 specifier|private

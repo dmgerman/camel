@@ -755,7 +755,7 @@ name|getBytes
 argument_list|(
 name|StringUtil
 operator|.
-name|__UTF8_CHARSET
+name|__UTF8
 argument_list|)
 argument_list|)
 expr_stmt|;

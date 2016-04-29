@@ -271,20 +271,6 @@ import|;
 end_import
 
 begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|jetty
-operator|.
-name|http
-operator|.
-name|HttpMethods
-import|;
-end_import
-
-begin_import
 import|import static
 name|org
 operator|.
@@ -3048,9 +3034,7 @@ condition|)
 block|{
 name|apexMethod
 operator|=
-name|HttpMethods
-operator|.
-name|GET
+literal|"GET"
 expr_stmt|;
 name|log
 operator|.

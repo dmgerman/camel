@@ -84,6 +84,22 @@ name|component
 operator|.
 name|salesforce
 operator|.
+name|SalesforceHttpClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|salesforce
+operator|.
 name|api
 operator|.
 name|SalesforceException
@@ -310,7 +326,9 @@ name|jetty
 operator|.
 name|client
 operator|.
-name|ContentExchange
+name|api
+operator|.
+name|Request
 import|;
 end_import
 
@@ -324,7 +342,9 @@ name|jetty
 operator|.
 name|client
 operator|.
-name|HttpClient
+name|api
+operator|.
+name|Response
 import|;
 end_import
 
@@ -338,7 +358,9 @@ name|jetty
 operator|.
 name|client
 operator|.
-name|HttpExchange
+name|util
+operator|.
+name|BytesContentProvider
 import|;
 end_import
 
@@ -352,7 +374,7 @@ name|jetty
 operator|.
 name|http
 operator|.
-name|HttpHeaders
+name|HttpHeader
 import|;
 end_import
 
@@ -366,21 +388,7 @@ name|jetty
 operator|.
 name|http
 operator|.
-name|HttpMethods
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|eclipse
-operator|.
-name|jetty
-operator|.
-name|io
-operator|.
-name|ByteArrayBuffer
+name|HttpMethod
 import|;
 end_import
 
@@ -435,7 +443,7 @@ specifier|private
 name|ObjectMapper
 name|objectMapper
 decl_stmt|;
-DECL|method|DefaultAnalyticsApiClient (String version, SalesforceSession session, HttpClient httpClient)
+DECL|method|DefaultAnalyticsApiClient (String version, SalesforceSession session, SalesforceHttpClient httpClient)
 specifier|public
 name|DefaultAnalyticsApiClient
 parameter_list|(
@@ -445,7 +453,7 @@ parameter_list|,
 name|SalesforceSession
 name|session
 parameter_list|,
-name|HttpClient
+name|SalesforceHttpClient
 name|httpClient
 parameter_list|)
 throws|throws
@@ -480,12 +488,12 @@ name|callback
 parameter_list|)
 block|{
 specifier|final
-name|ContentExchange
-name|contentExchange
+name|Request
+name|Request
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|GET
 argument_list|,
@@ -495,7 +503,7 @@ argument_list|)
 decl_stmt|;
 name|doHttpRequest
 argument_list|(
-name|contentExchange
+name|Request
 argument_list|,
 operator|new
 name|ClientResponseCallback
@@ -542,7 +550,7 @@ name|unmarshalResponse
 argument_list|(
 name|response
 argument_list|,
-name|contentExchange
+name|Request
 argument_list|,
 operator|new
 name|TypeReference
@@ -599,12 +607,12 @@ name|callback
 parameter_list|)
 block|{
 specifier|final
-name|ContentExchange
-name|contentExchange
+name|Request
+name|Request
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|GET
 argument_list|,
@@ -616,7 +624,7 @@ argument_list|)
 decl_stmt|;
 name|doHttpRequest
 argument_list|(
-name|contentExchange
+name|Request
 argument_list|,
 operator|new
 name|ClientResponseCallback
@@ -648,7 +656,7 @@ name|unmarshalResponse
 argument_list|(
 name|response
 argument_list|,
-name|contentExchange
+name|Request
 argument_list|,
 name|ReportDescription
 operator|.
@@ -711,18 +719,18 @@ operator|==
 literal|null
 decl_stmt|;
 specifier|final
-name|ContentExchange
-name|contentExchange
+name|Request
+name|Request
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
 name|useGet
 condition|?
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|GET
 else|:
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|POST
 argument_list|,
@@ -775,7 +783,7 @@ name|marshalRequest
 argument_list|(
 name|request
 argument_list|,
-name|contentExchange
+name|Request
 argument_list|)
 expr_stmt|;
 block|}
@@ -799,7 +807,7 @@ block|}
 block|}
 name|doHttpRequest
 argument_list|(
-name|contentExchange
+name|Request
 argument_list|,
 operator|new
 name|ClientResponseCallback
@@ -831,7 +839,7 @@ name|unmarshalResponse
 argument_list|(
 name|response
 argument_list|,
-name|contentExchange
+name|Request
 argument_list|,
 name|SyncReportResults
 operator|.
@@ -886,12 +894,12 @@ name|callback
 parameter_list|)
 block|{
 specifier|final
-name|ContentExchange
-name|contentExchange
+name|Request
+name|Request
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|POST
 argument_list|,
@@ -945,7 +953,7 @@ name|marshalRequest
 argument_list|(
 name|request
 argument_list|,
-name|contentExchange
+name|Request
 argument_list|)
 expr_stmt|;
 block|}
@@ -969,7 +977,7 @@ block|}
 block|}
 name|doHttpRequest
 argument_list|(
-name|contentExchange
+name|Request
 argument_list|,
 operator|new
 name|ClientResponseCallback
@@ -1001,7 +1009,7 @@ name|unmarshalResponse
 argument_list|(
 name|response
 argument_list|,
-name|contentExchange
+name|Request
 argument_list|,
 name|ReportInstance
 operator|.
@@ -1050,12 +1058,12 @@ name|callback
 parameter_list|)
 block|{
 specifier|final
-name|ContentExchange
-name|contentExchange
+name|Request
+name|Request
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|GET
 argument_list|,
@@ -1067,7 +1075,7 @@ argument_list|)
 decl_stmt|;
 name|doHttpRequest
 argument_list|(
-name|contentExchange
+name|Request
 argument_list|,
 operator|new
 name|ClientResponseCallback
@@ -1114,7 +1122,7 @@ name|unmarshalResponse
 argument_list|(
 name|response
 argument_list|,
-name|contentExchange
+name|Request
 argument_list|,
 operator|new
 name|TypeReference
@@ -1174,12 +1182,12 @@ name|callback
 parameter_list|)
 block|{
 specifier|final
-name|ContentExchange
-name|contentExchange
+name|Request
+name|Request
 init|=
-name|getContentExchange
+name|getRequest
 argument_list|(
-name|HttpMethods
+name|HttpMethod
 operator|.
 name|GET
 argument_list|,
@@ -1193,7 +1201,7 @@ argument_list|)
 decl_stmt|;
 name|doHttpRequest
 argument_list|(
-name|contentExchange
+name|Request
 argument_list|,
 operator|new
 name|ClientResponseCallback
@@ -1225,7 +1233,7 @@ name|unmarshalResponse
 argument_list|(
 name|response
 argument_list|,
-name|contentExchange
+name|Request
 argument_list|,
 name|AsyncReportResults
 operator|.
@@ -1418,20 +1426,24 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|setAccessToken (HttpExchange httpExchange)
+DECL|method|setAccessToken (Request request)
 specifier|protected
 name|void
 name|setAccessToken
 parameter_list|(
-name|HttpExchange
-name|httpExchange
+name|Request
+name|request
 parameter_list|)
 block|{
-name|httpExchange
+comment|// replace old token
+name|request
 operator|.
-name|setRequestHeader
+name|getHeaders
+argument_list|()
+operator|.
+name|put
 argument_list|(
-name|HttpHeaders
+name|HttpHeader
 operator|.
 name|AUTHORIZATION
 argument_list|,
@@ -1443,41 +1455,29 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|createRestException (ContentExchange httpExchange, String reason)
+DECL|method|createRestException (Response response, InputStream responseContent)
 specifier|protected
 name|SalesforceException
 name|createRestException
 parameter_list|(
-name|ContentExchange
-name|httpExchange
+name|Response
+name|response
 parameter_list|,
-name|String
-name|reason
+name|InputStream
+name|responseContent
 parameter_list|)
 block|{
 specifier|final
 name|int
 name|statusCode
 init|=
-name|httpExchange
+name|response
 operator|.
-name|getResponseStatus
+name|getStatus
 argument_list|()
-decl_stmt|;
-name|String
-name|responseContent
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
-name|responseContent
-operator|=
-name|httpExchange
-operator|.
-name|getResponseContent
-argument_list|()
-expr_stmt|;
 if|if
 condition|(
 name|responseContent
@@ -1585,17 +1585,28 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|// just report HTTP status info
+name|String
+name|message
+init|=
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"Unexpected error: %s, with content: %s"
+argument_list|,
+name|response
+operator|.
+name|getReason
+argument_list|()
+argument_list|,
+name|responseContent
+argument_list|)
+decl_stmt|;
 return|return
 operator|new
 name|SalesforceException
 argument_list|(
-literal|"Unexpected error: "
-operator|+
-name|reason
-operator|+
-literal|", with content: "
-operator|+
-name|responseContent
+name|message
 argument_list|,
 name|statusCode
 argument_list|)
@@ -1603,12 +1614,12 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|doHttpRequest (ContentExchange request, ClientResponseCallback callback)
+DECL|method|doHttpRequest (Request request, ClientResponseCallback callback)
 specifier|protected
 name|void
 name|doHttpRequest
 parameter_list|(
-name|ContentExchange
+name|Request
 name|request
 parameter_list|,
 name|ClientResponseCallback
@@ -1624,9 +1635,9 @@ expr_stmt|;
 comment|// set request and response content type and charset, which is always JSON for analytics API
 name|request
 operator|.
-name|setRequestHeader
+name|header
 argument_list|(
-name|HttpHeaders
+name|HttpHeader
 operator|.
 name|CONTENT_TYPE
 argument_list|,
@@ -1635,9 +1646,9 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|setRequestHeader
+name|header
 argument_list|(
-name|HttpHeaders
+name|HttpHeader
 operator|.
 name|ACCEPT
 argument_list|,
@@ -1646,9 +1657,9 @@ argument_list|)
 expr_stmt|;
 name|request
 operator|.
-name|setRequestHeader
+name|header
 argument_list|(
-name|HttpHeaders
+name|HttpHeader
 operator|.
 name|ACCEPT_CHARSET
 argument_list|,
@@ -1667,7 +1678,7 @@ name|callback
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|marshalRequest (Object input, ContentExchange request)
+DECL|method|marshalRequest (Object input, Request request)
 specifier|private
 name|void
 name|marshalRequest
@@ -1675,7 +1686,7 @@ parameter_list|(
 name|Object
 name|input
 parameter_list|,
-name|ContentExchange
+name|Request
 name|request
 parameter_list|)
 throws|throws
@@ -1685,10 +1696,10 @@ try|try
 block|{
 name|request
 operator|.
-name|setRequestContent
+name|content
 argument_list|(
 operator|new
-name|ByteArrayBuffer
+name|BytesContentProvider
 argument_list|(
 name|objectMapper
 operator|.
@@ -1723,7 +1734,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getRequestURI
+name|getURI
 argument_list|()
 argument_list|,
 name|e
@@ -1737,7 +1748,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|unmarshalResponse (InputStream response, ContentExchange request, TypeReference<T> responseTypeReference)
+DECL|method|unmarshalResponse (InputStream response, Request request, TypeReference<T> responseTypeReference)
 specifier|private
 parameter_list|<
 name|T
@@ -1748,7 +1759,7 @@ parameter_list|(
 name|InputStream
 name|response
 parameter_list|,
-name|ContentExchange
+name|Request
 name|request
 parameter_list|,
 name|TypeReference
@@ -1796,7 +1807,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getRequestURI
+name|getURI
 argument_list|()
 argument_list|,
 name|e
@@ -1810,7 +1821,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|unmarshalResponse (InputStream response, ContentExchange request, Class<T> responseClass)
+DECL|method|unmarshalResponse (InputStream response, Request request, Class<T> responseClass)
 specifier|private
 parameter_list|<
 name|T
@@ -1821,7 +1832,7 @@ parameter_list|(
 name|InputStream
 name|response
 parameter_list|,
-name|ContentExchange
+name|Request
 name|request
 parameter_list|,
 name|Class
@@ -1880,7 +1891,7 @@ argument_list|()
 argument_list|,
 name|request
 operator|.
-name|getRequestURI
+name|getURI
 argument_list|()
 argument_list|,
 name|e

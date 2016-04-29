@@ -148,8 +148,6 @@ parameter_list|(
 name|JobInfo
 name|jobInfo
 parameter_list|)
-throws|throws
-name|InterruptedException
 block|{
 name|jobInfo
 operator|=
@@ -383,8 +381,6 @@ parameter_list|(
 name|BatchInfo
 name|batchInfo
 parameter_list|)
-throws|throws
-name|InterruptedException
 block|{
 name|batchInfo
 operator|=
