@@ -145,12 +145,14 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A helper class for loading route definitions from a file, URL or the classpath  */
+comment|/**  * A helper class for loading route definitions from a file, URL or the classpath.  *  * @deprecated Use {@link org.apache.camel.cdi.ImportResource} instead:  *  *<pre><code>  * {@literal @}ImportResource("foo-camel-context.xml")  *  class BarBean {  *  *  };  *</code></pre>  */
 end_comment
 
 begin_class
 annotation|@
 name|Vetoed
+annotation|@
+name|Deprecated
 DECL|class|RoutesXml
 specifier|public
 specifier|final
