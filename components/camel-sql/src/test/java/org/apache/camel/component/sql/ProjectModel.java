@@ -114,6 +114,34 @@ return|return
 name|license
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"ProjectModel{id="
+operator|+
+name|id
+operator|+
+literal|", project='"
+operator|+
+name|project
+operator|+
+literal|'\''
+operator|+
+literal|", license='"
+operator|+
+name|license
+operator|+
+literal|'\''
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 
