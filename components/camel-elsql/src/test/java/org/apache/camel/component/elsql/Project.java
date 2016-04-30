@@ -117,6 +117,34 @@ operator|=
 name|name
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|toString ()
+specifier|public
+name|String
+name|toString
+parameter_list|()
+block|{
+return|return
+literal|"Project{id="
+operator|+
+name|id
+operator|+
+literal|", name='"
+operator|+
+name|name
+operator|+
+literal|'\''
+operator|+
+literal|", license='"
+operator|+
+name|license
+operator|+
+literal|'\''
+operator|+
+literal|'}'
+return|;
+block|}
 block|}
 end_class
 

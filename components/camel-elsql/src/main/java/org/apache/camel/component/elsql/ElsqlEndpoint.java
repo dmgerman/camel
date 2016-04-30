@@ -50,6 +50,16 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|sql
+operator|.
+name|DataSource
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|opengamma
@@ -395,6 +405,11 @@ specifier|private
 name|NamedParameterJdbcTemplate
 name|namedJdbcTemplate
 decl_stmt|;
+DECL|field|dataSource
+specifier|private
+name|DataSource
+name|dataSource
+decl_stmt|;
 annotation|@
 name|UriPath
 annotation|@
@@ -430,7 +445,7 @@ specifier|private
 name|ElSqlConfig
 name|elSqlConfig
 decl_stmt|;
-DECL|method|ElsqlEndpoint (String uri, Component component, NamedParameterJdbcTemplate namedJdbcTemplate, String elsqlName, String resourceUri)
+DECL|method|ElsqlEndpoint (String uri, Component component, NamedParameterJdbcTemplate namedJdbcTemplate, DataSource dataSource, String elsqlName, String resourceUri)
 specifier|public
 name|ElsqlEndpoint
 parameter_list|(
@@ -442,6 +457,9 @@ name|component
 parameter_list|,
 name|NamedParameterJdbcTemplate
 name|namedJdbcTemplate
+parameter_list|,
+name|DataSource
+name|dataSource
 parameter_list|,
 name|String
 name|elsqlName
@@ -476,6 +494,12 @@ operator|.
 name|namedJdbcTemplate
 operator|=
 name|namedJdbcTemplate
+expr_stmt|;
+name|this
+operator|.
+name|dataSource
+operator|=
+name|dataSource
 expr_stmt|;
 block|}
 annotation|@
@@ -660,6 +684,8 @@ argument_list|,
 name|elsqlName
 argument_list|,
 name|namedJdbcTemplate
+argument_list|,
+name|dataSource
 argument_list|)
 decl_stmt|;
 return|return
