@@ -517,14 +517,35 @@ name|msg
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: add support for async callback in the send
+comment|// TODO: add support for async callback
+comment|// requires a thread pool for processing outgoing routing
+try|try
+block|{
 name|kafkaProducer
 operator|.
 name|send
 argument_list|(
 name|record
 argument_list|)
+operator|.
+name|get
+argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|CamelException
+argument_list|(
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 end_class
