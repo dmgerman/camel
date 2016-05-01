@@ -24,16 +24,6 @@ name|java
 operator|.
 name|sql
 operator|.
-name|Connection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|sql
-operator|.
 name|PreparedStatement
 import|;
 end_import
@@ -55,16 +45,6 @@ operator|.
 name|sql
 operator|.
 name|SQLException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|sql
-operator|.
-name|Statement
 import|;
 end_import
 
@@ -284,39 +264,7 @@ name|support
 operator|.
 name|JdbcUtils
 operator|.
-name|closeConnection
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|springframework
-operator|.
-name|jdbc
-operator|.
-name|support
-operator|.
-name|JdbcUtils
-operator|.
 name|closeResultSet
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|springframework
-operator|.
-name|jdbc
-operator|.
-name|support
-operator|.
-name|JdbcUtils
-operator|.
-name|closeStatement
 import|;
 end_import
 
@@ -675,11 +623,6 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
-comment|// special for processing stream list (batch not supported)
-comment|//        SqlOutputType outputType = getEndpoint().getOutputType();
-comment|//        if (outputType == SqlOutputType.StreamList) {
-comment|//            return pollStreamList(resolvedQuery, preparedQuery);
-comment|//        }
 name|log
 operator|.
 name|trace
