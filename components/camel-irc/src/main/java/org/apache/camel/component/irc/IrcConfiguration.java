@@ -560,7 +560,7 @@ name|autoRejoin
 init|=
 literal|true
 decl_stmt|;
-comment|/** 	 * Sends<code>NAMES</code> command to channel after joining it.<br> 	 * {@link #onReply} has to be<code>true</code> in order to process the 	 * result which will have the header value<code>irc.num = '353'</code>. 	 */
+comment|/**      * Sends<code>NAMES</code> command to channel after joining it.<br>      * {@link #onReply} has to be<code>true</code> in order to process the      * result which will have the header value<code>irc.num = '353'</code>.      */
 annotation|@
 name|UriParam
 argument_list|(
@@ -572,8 +572,6 @@ DECL|field|namesOnJoin
 specifier|private
 name|boolean
 name|namesOnJoin
-init|=
-literal|false
 decl_stmt|;
 DECL|field|sslContextParameters
 specifier|private

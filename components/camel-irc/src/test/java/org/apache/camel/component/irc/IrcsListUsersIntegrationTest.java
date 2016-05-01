@@ -178,7 +178,7 @@ argument_list|)
 decl_stmt|;
 comment|/** message code for a reply to a<code>NAMES</code> command. */
 DECL|field|IRC_RPL_NAMREPLY
-specifier|public
+specifier|private
 specifier|static
 specifier|final
 name|String
