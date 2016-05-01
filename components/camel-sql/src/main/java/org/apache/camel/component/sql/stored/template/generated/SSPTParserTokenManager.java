@@ -1352,7 +1352,7 @@ case|:
 if|if
 condition|(
 operator|(
-literal|0x2ffffffe87fffffeL
+literal|0x2ffffffeaffffffeL
 operator|&
 name|l
 operator|)
@@ -1397,7 +1397,7 @@ case|:
 if|if
 condition|(
 operator|(
-literal|0x2ffffffe87fffffeL
+literal|0x2ffffffeaffffffeL
 operator|&
 name|l
 operator|)
@@ -1436,7 +1436,7 @@ case|:
 if|if
 condition|(
 operator|(
-literal|0x2ffffffe87fffffeL
+literal|0x2ffffffeaffffffeL
 operator|&
 name|l
 operator|)
