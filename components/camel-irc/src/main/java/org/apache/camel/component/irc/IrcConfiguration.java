@@ -560,6 +560,21 @@ name|autoRejoin
 init|=
 literal|true
 decl_stmt|;
+comment|/** 	 * Sends<code>NAMES</code> command to channel after joining it.<br> 	 * {@link #onReply} has to be<code>true</code> in order to process the 	 * result which will have the header value<code>irc.num = '353'</code>. 	 */
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|namesOnJoin
+specifier|private
+name|boolean
+name|namesOnJoin
+init|=
+literal|false
+decl_stmt|;
 DECL|field|sslContextParameters
 specifier|private
 name|SSLContextParameters
@@ -1770,6 +1785,32 @@ operator|.
 name|nickPassword
 operator|=
 name|nickPassword
+expr_stmt|;
+block|}
+DECL|method|isNamesOnJoin ()
+specifier|public
+name|boolean
+name|isNamesOnJoin
+parameter_list|()
+block|{
+return|return
+name|namesOnJoin
+return|;
+block|}
+DECL|method|setNamesOnJoin (boolean namesOnJoin)
+specifier|public
+name|void
+name|setNamesOnJoin
+parameter_list|(
+name|boolean
+name|namesOnJoin
+parameter_list|)
+block|{
+name|this
+operator|.
+name|namesOnJoin
+operator|=
+name|namesOnJoin
 expr_stmt|;
 block|}
 DECL|method|toString ()
