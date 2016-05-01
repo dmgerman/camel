@@ -540,9 +540,7 @@ literal|"It will assume your class has a default constructor to create instance 
 operator|+
 literal|"d) If the query resulted in more than one rows, it throws an non-unique result exception."
 operator|+
-literal|"StreamList can only be used by the producer that streams the result of the query using an Iterator. This can be used with the Splitter EIP in streaming"
-operator|+
-literal|" mode to process the ResultSet in streaming fashion."
+literal|"StreamList streams the result of the query using an Iterator. This can be used with the Splitter EIP in streaming mode to process the ResultSet in streaming fashion."
 argument_list|)
 DECL|field|outputType
 specifier|private

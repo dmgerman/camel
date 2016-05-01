@@ -24,6 +24,16 @@ name|java
 operator|.
 name|sql
 operator|.
+name|Connection
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|sql
+operator|.
 name|PreparedStatement
 import|;
 end_import
@@ -45,6 +55,16 @@ operator|.
 name|sql
 operator|.
 name|SQLException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|sql
+operator|.
+name|Statement
 import|;
 end_import
 
@@ -264,7 +284,39 @@ name|support
 operator|.
 name|JdbcUtils
 operator|.
+name|closeConnection
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|springframework
+operator|.
+name|jdbc
+operator|.
+name|support
+operator|.
+name|JdbcUtils
+operator|.
 name|closeResultSet
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|springframework
+operator|.
+name|jdbc
+operator|.
+name|support
+operator|.
+name|JdbcUtils
+operator|.
+name|closeStatement
 import|;
 end_import
 
@@ -623,6 +675,20 @@ argument_list|,
 literal|null
 argument_list|)
 decl_stmt|;
+comment|// special for processing stream list (batch not supported)
+comment|//        SqlOutputType outputType = getEndpoint().getOutputType();
+comment|//        if (outputType == SqlOutputType.StreamList) {
+comment|//            return pollStreamList(resolvedQuery, preparedQuery);
+comment|//        }
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"poll: {}"
+argument_list|,
+name|preparedQuery
+argument_list|)
+expr_stmt|;
 specifier|final
 name|PreparedStatementCallback
 argument_list|<
@@ -644,7 +710,7 @@ name|Integer
 name|doInPreparedStatement
 parameter_list|(
 name|PreparedStatement
-name|preparedStatement
+name|ps
 parameter_list|)
 throws|throws
 name|SQLException
@@ -676,7 +742,7 @@ expr_stmt|;
 name|ResultSet
 name|rs
 init|=
-name|preparedStatement
+name|ps
 operator|.
 name|executeQuery
 argument_list|()
@@ -689,6 +755,11 @@ argument_list|()
 operator|.
 name|getOutputType
 argument_list|()
+decl_stmt|;
+name|boolean
+name|closeEager
+init|=
+literal|true
 decl_stmt|;
 try|try
 block|{
@@ -703,6 +774,56 @@ argument_list|,
 name|outputType
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|outputType
+operator|==
+name|SqlOutputType
+operator|.
+name|StreamList
+condition|)
+block|{
+name|ResultSetIterator
+name|data
+init|=
+name|getEndpoint
+argument_list|()
+operator|.
+name|queryForStreamList
+argument_list|(
+name|ps
+operator|.
+name|getConnection
+argument_list|()
+argument_list|,
+name|ps
+argument_list|,
+name|rs
+argument_list|)
+decl_stmt|;
+comment|// only process if we have data
+if|if
+condition|(
+name|data
+operator|.
+name|hasNext
+argument_list|()
+condition|)
+block|{
+name|addListToQueue
+argument_list|(
+name|data
+argument_list|,
+name|answer
+argument_list|)
+expr_stmt|;
+name|closeEager
+operator|=
+literal|false
+expr_stmt|;
+block|}
+block|}
+elseif|else
 if|if
 condition|(
 name|outputType
@@ -788,14 +909,35 @@ block|}
 block|}
 finally|finally
 block|{
+if|if
+condition|(
+name|closeEager
+condition|)
+block|{
 name|closeResultSet
 argument_list|(
 name|rs
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 comment|// process all the exchanges in this batch
 try|try
+block|{
+if|if
+condition|(
+name|answer
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
+comment|// no data
+return|return
+literal|0
+return|;
+block|}
+else|else
 block|{
 name|int
 name|rows
@@ -814,6 +956,7 @@ return|return
 name|rows
 return|;
 block|}
+block|}
 catch|catch
 parameter_list|(
 name|Exception
@@ -828,6 +971,14 @@ argument_list|(
 name|e
 argument_list|)
 throw|;
+block|}
+finally|finally
+block|{
+name|closeResultSet
+argument_list|(
+name|rs
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 block|}
