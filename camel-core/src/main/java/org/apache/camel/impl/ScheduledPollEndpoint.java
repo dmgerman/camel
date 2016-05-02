@@ -1507,7 +1507,7 @@ return|return
 name|initialDelay
 return|;
 block|}
-comment|/**      * Milliseconds before the first poll starts.      */
+comment|/**      * Milliseconds before the first poll starts.      *<p/>      * The default value is 1000.      * You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour).      * @see<a href="http://camel.apache.org/how-do-i-specify-time-period-in-a-human-friendly-syntax.html">human friendly syntax</a>      */
 DECL|method|setInitialDelay (long initialDelay)
 specifier|public
 name|void
