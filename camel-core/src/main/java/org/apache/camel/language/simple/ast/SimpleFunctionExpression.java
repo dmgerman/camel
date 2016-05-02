@@ -150,6 +150,7 @@ name|token
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Creates a Camel {@link Expression} based on this model.      *      * @param expression not in use      */
 annotation|@
 name|Override
 DECL|method|createExpression (String expression)
@@ -178,7 +179,7 @@ literal|true
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a Camel {@link Expression} based on this model.      *      * @param expression the input string      * @param strict whether to throw exception if the expression was not a function,      *          otherwise<tt>null</tt> is returned      * @return the created {@link Expression}      * @throws org.apache.camel.language.simple.types.SimpleParserException      *          should be thrown if error parsing the model      */
+comment|/**      * Creates a Camel {@link Expression} based on this model.      *      * @param expression not in use      * @param strict whether to throw exception if the expression was not a function,      *          otherwise<tt>null</tt> is returned      * @return the created {@link Expression}      * @throws org.apache.camel.language.simple.types.SimpleParserException      *          should be thrown if error parsing the model      */
 DECL|method|createExpression (String expression, boolean strict)
 specifier|public
 name|Expression
@@ -2477,12 +2478,10 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-name|int
-name|min
-init|=
-name|Integer
+return|return
+name|ExpressionBuilder
 operator|.
-name|parseInt
+name|randomExpression
 argument_list|(
 name|tokens
 index|[
@@ -2491,15 +2490,7 @@ index|]
 operator|.
 name|trim
 argument_list|()
-argument_list|)
-decl_stmt|;
-name|int
-name|max
-init|=
-name|Integer
-operator|.
-name|parseInt
-argument_list|(
+argument_list|,
 name|tokens
 index|[
 literal|1
@@ -2508,39 +2499,21 @@ operator|.
 name|trim
 argument_list|()
 argument_list|)
-decl_stmt|;
-return|return
-name|ExpressionBuilder
-operator|.
-name|randomExpression
-argument_list|(
-name|min
-argument_list|,
-name|max
-argument_list|)
 return|;
 block|}
 else|else
 block|{
-name|int
-name|max
-init|=
-name|Integer
-operator|.
-name|parseInt
-argument_list|(
-name|values
-operator|.
-name|trim
-argument_list|()
-argument_list|)
-decl_stmt|;
 return|return
 name|ExpressionBuilder
 operator|.
 name|randomExpression
 argument_list|(
-name|max
+literal|"0"
+argument_list|,
+name|values
+operator|.
+name|trim
+argument_list|()
 argument_list|)
 return|;
 block|}

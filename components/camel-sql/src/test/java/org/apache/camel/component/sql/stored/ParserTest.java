@@ -371,12 +371,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-name|Integer
-operator|.
-name|valueOf
-argument_list|(
 literal|1
-argument_list|)
 argument_list|,
 name|param1
 operator|.
@@ -646,9 +641,21 @@ argument_list|()
 operator|.
 name|setHeader
 argument_list|(
-literal|"body"
+literal|"foo"
 argument_list|,
-literal|"body"
+literal|1
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|setHeader
+argument_list|(
+literal|"bar"
+argument_list|,
+literal|3
 argument_list|)
 expr_stmt|;
 name|Template
@@ -658,7 +665,7 @@ name|parser
 operator|.
 name|parseTemplate
 argument_list|(
-literal|"ADDNUMBERS2(INTEGER ${${header.body}})"
+literal|"ADDNUMBERS2(INTEGER ${header.foo},INTEGER ${header.bar})"
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -691,6 +698,36 @@ literal|null
 argument_list|)
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|3
+argument_list|,
+operator|(
+operator|(
+name|InputParameter
+operator|)
+name|template
+operator|.
+name|getParameterList
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|1
+argument_list|)
+operator|)
+operator|.
+name|getValueExtractor
+argument_list|()
+operator|.
+name|eval
+argument_list|(
+name|exchange
+argument_list|,
+literal|null
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -707,7 +744,7 @@ name|parser
 operator|.
 name|parseTemplate
 argument_list|(
-literal|"ADDNUMBERS2(1342 ${${header.body}})"
+literal|"ADDNUMBERS2(1342 ${header.foo})"
 argument_list|)
 decl_stmt|;
 name|assertEquals

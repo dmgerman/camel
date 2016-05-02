@@ -387,15 +387,11 @@ operator|.
 name|quoteEmbeddedNodes
 argument_list|()
 expr_stmt|;
-comment|// if its a function or quoted literal, then embed that as text
+comment|// if its quoted literal then embed that as text
 block|}
 elseif|else
 if|if
 condition|(
-name|child
-operator|instanceof
-name|SimpleFunctionStart
-operator|||
 name|child
 operator|instanceof
 name|SingleQuoteStart
@@ -509,6 +505,23 @@ name|e
 argument_list|)
 throw|;
 block|}
+comment|// if its an inlined function then embed that function as text so it can be evaluated lazy
+block|}
+elseif|else
+if|if
+condition|(
+name|child
+operator|instanceof
+name|SimpleFunctionStart
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+name|child
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 comment|// we have now concat the block as a String which contains the function expression

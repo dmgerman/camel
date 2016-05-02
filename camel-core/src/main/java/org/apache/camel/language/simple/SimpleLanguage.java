@@ -135,6 +135,25 @@ specifier|public
 name|SimpleLanguage
 parameter_list|()
 block|{     }
+DECL|method|hasSimpleFunction (String expression)
+specifier|public
+specifier|static
+name|boolean
+name|hasSimpleFunction
+parameter_list|(
+name|String
+name|expression
+parameter_list|)
+block|{
+return|return
+name|SimpleTokenizer
+operator|.
+name|hasFunctionStartToken
+argument_list|(
+name|expression
+argument_list|)
+return|;
+block|}
 DECL|method|createPredicate (String expression)
 specifier|public
 name|Predicate

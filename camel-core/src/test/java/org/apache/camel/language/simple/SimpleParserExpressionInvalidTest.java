@@ -258,9 +258,10 @@ name|SimpleIllegalSyntaxException
 name|e
 parameter_list|)
 block|{
+comment|// its a nested function is it reset the index
 name|assertEquals
 argument_list|(
-literal|15
+literal|0
 argument_list|,
 name|e
 operator|.
