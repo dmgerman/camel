@@ -722,6 +722,7 @@ parameter_list|()
 block|{
 comment|// static methods
 block|}
+comment|/**      * Does the expression include a simple function.      *      * @param expression the expression      * @return<tt>true</tt> if one or more simple function is included in the expression      */
 DECL|method|hasFunctionStartToken (String expression)
 specifier|public
 specifier|static
@@ -776,6 +777,13 @@ return|return
 literal|true
 return|;
 block|}
+block|}
+else|else
+block|{
+comment|// function start are always first
+return|return
+literal|false
+return|;
 block|}
 block|}
 block|}
@@ -893,7 +901,38 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// add in start of list as its a more common token to be used
+comment|// add after the start tokens
+name|int
+name|pos
+init|=
+literal|0
+decl_stmt|;
+for|for
+control|(
+name|SimpleTokenType
+name|type
+range|:
+name|KNOWN_TOKENS
+control|)
+block|{
+if|if
+condition|(
+name|type
+operator|.
+name|getType
+argument_list|()
+operator|==
+name|TokenType
+operator|.
+name|functionStart
+condition|)
+block|{
+name|pos
+operator|++
+expr_stmt|;
+block|}
+block|}
+comment|// add after function start of list as its a more common token to be used
 for|for
 control|(
 name|String
@@ -906,7 +945,7 @@ name|KNOWN_TOKENS
 operator|.
 name|add
 argument_list|(
-literal|0
+name|pos
 argument_list|,
 operator|new
 name|SimpleTokenType
