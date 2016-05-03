@@ -40,26 +40,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|netty4
-operator|.
-name|http
-operator|.
-name|handlers
-operator|.
-name|HttpServerChannelHandler
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|support
 operator|.
 name|SynchronizationAdapter
@@ -67,7 +47,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link org.apache.camel.spi.Synchronization} to keep track of the unit of work on the current {@link Exchange}  * that has the {@link NettyChannelBufferStreamCache} as message body. This cache is wrapping the raw original  * Netty {@link io.netty.buffer.ByteBuf}. Because the Netty HTTP server ({@link HttpServerChannelHandler}) will  * close the {@link io.netty.buffer.ByteBuf} when Netty is complete processing the HttpMessage, then any further  * access to the cache will cause in a buffer unreadable. In the case of Camel async routing engine will  * handover the processing of the {@link Exchange} to another thread, then we need to keep track of this event  * so we can do a defensive copy of the netty {@link io.netty.buffer.ByteBuf} so Camel is able to read  * the content from other threads, while Netty has closed the original {@link io.netty.buffer.ByteBuf}.  */
+comment|/**  * A {@link org.apache.camel.spi.Synchronization} to handle the lifecycle of the {@link NettyChannelBufferStreamCache}  * so the cache is released when the unit of work of the Exchange is done.  */
 end_comment
 
 begin_class
@@ -110,25 +90,12 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// okay netty is no longer being active, so we need to signal to the cache that its to preserve the buffer if still in need.
+comment|// release the cache when we are done routing the Exchange
 name|cache
 operator|.
-name|defensiveCopyBuffer
+name|release
 argument_list|()
 expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|allowHandover ()
-specifier|public
-name|boolean
-name|allowHandover
-parameter_list|()
-block|{
-comment|// do not allow handover, so we can do the defensive copy in the onDone method
-return|return
-literal|false
-return|;
 block|}
 block|}
 end_class

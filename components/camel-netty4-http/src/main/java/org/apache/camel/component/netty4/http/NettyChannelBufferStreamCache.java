@@ -117,6 +117,7 @@ name|StreamCache
 block|{
 DECL|field|buffer
 specifier|private
+specifier|final
 name|ByteBuf
 name|buffer
 decl_stmt|;
@@ -128,12 +129,18 @@ name|ByteBuf
 name|buffer
 parameter_list|)
 block|{
+comment|// retain the buffer so we keep it in use until we release it when we are done
 name|this
 operator|.
 name|buffer
 operator|=
 name|buffer
+operator|.
+name|retain
+argument_list|()
 expr_stmt|;
+name|this
+operator|.
 name|buffer
 operator|.
 name|markReaderIndex
@@ -400,19 +407,16 @@ name|readableBytes
 argument_list|()
 return|;
 block|}
-DECL|method|defensiveCopyBuffer ()
+comment|/**      * Release the buffer when we are done using it.      */
+DECL|method|release ()
+specifier|public
 name|void
-name|defensiveCopyBuffer
+name|release
 parameter_list|()
 block|{
-comment|// make a defensive copy of the buffer
-name|this
-operator|.
-name|buffer
-operator|=
 name|buffer
 operator|.
-name|copy
+name|release
 argument_list|()
 expr_stmt|;
 block|}
