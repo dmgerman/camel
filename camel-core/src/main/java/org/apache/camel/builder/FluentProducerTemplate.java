@@ -318,7 +318,7 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-comment|/**      * Set the header      *      * @param key the key of the header      * @param value the value of the header      * @return ProducerTemplate builder      */
+comment|/**      * Set the header      *      * @param key the key of the header      * @param value the value of the header      * @return this FluentProducerTemplate instance      */
 DECL|method|withHeader (String key, Object value)
 specifier|public
 name|FluentProducerTemplate
@@ -359,7 +359,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Remove the headers.      *      * @return ProducerTemplate builder      */
+comment|/**      * Remove the headers.      *      * @return this FluentProducerTemplate instance      */
 DECL|method|clearHeaders ()
 specifier|public
 name|FluentProducerTemplate
@@ -383,7 +383,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the message body      *      * @param body the body      * @return ProducerTemplate builder      */
+comment|/**      * Set the message body      *      * @param body the body      * @return this FluentProducerTemplate instance      */
 DECL|method|withBody (Object body)
 specifier|public
 name|FluentProducerTemplate
@@ -403,7 +403,49 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Remove the body.      *      * @return ProducerTemplate builder      */
+comment|/**      * Set the message body after converting it to the given type      *      * @param body the body      * @param type the type which the body should be converted to      * @return this FluentProducerTemplate instance      */
+DECL|method|withBodyAs (Object body, Class<?> type)
+specifier|public
+name|FluentProducerTemplate
+name|withBodyAs
+parameter_list|(
+name|Object
+name|body
+parameter_list|,
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|type
+parameter_list|)
+block|{
+name|this
+operator|.
+name|body
+operator|=
+name|type
+operator|!=
+literal|null
+condition|?
+name|context
+operator|.
+name|getTypeConverter
+argument_list|()
+operator|.
+name|convertTo
+argument_list|(
+name|type
+argument_list|,
+name|body
+argument_list|)
+else|:
+name|body
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * Remove the body.      *      * @return this FluentProducerTemplate instance      */
 DECL|method|clearBody ()
 specifier|public
 name|FluentProducerTemplate
@@ -532,7 +574,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the message body      *      * @param endpointUri the endpoint URI to send to      * @return ProducerTemplate builder      */
+comment|/**      * Set the message body      *      * @param endpointUri the endpoint URI to send to      * @return this FluentProducerTemplate instance      */
 DECL|method|to (String endpointUri)
 specifier|public
 name|FluentProducerTemplate
@@ -554,7 +596,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the message body      *      * @param endpoint the endpoint to send to      * @return ProducerTemplate builder      */
+comment|/**      * Set the message body      *      * @param endpoint the endpoint to send to      * @return this FluentProducerTemplate instance      */
 DECL|method|to (Endpoint endpoint)
 specifier|public
 name|FluentProducerTemplate
@@ -851,9 +893,7 @@ parameter_list|()
 throws|throws
 name|CamelExecutionException
 block|{
-name|Exchange
-name|result
-init|=
+return|return
 name|exchangeSupplier
 operator|!=
 literal|null
@@ -883,12 +923,6 @@ operator|.
 name|get
 argument_list|()
 argument_list|)
-decl_stmt|;
-comment|// TODO: validate
-comment|// must invoke extract result body in case of exception to be rethrown
-comment|//ExchangeHelper.extractResultBody(result, null);
-return|return
-name|result
 return|;
 block|}
 comment|/**      * Sends asynchronously to the given endpoint.      *      * @return a handle to be used to get the response in the future      */
@@ -936,7 +970,7 @@ block|}
 comment|// ************************
 comment|// HELPERS
 comment|// ************************
-comment|/**      * Create the FluentProducerTemplate by setting the camel context      *      * @param context the camel context      * @return ProducerTemplate builder      */
+comment|/**      * Create the FluentProducerTemplate by setting the camel context      *      * @param context the camel context      * @return this FluentProducerTemplate instance      */
 DECL|method|on (CamelContext context)
 specifier|public
 specifier|static
