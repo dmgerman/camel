@@ -282,6 +282,12 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"1000"
+argument_list|,
+name|description
+operator|=
+literal|"If greater than 0, generate periodic events every period milliseconds."
+operator|+
+literal|" You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour)."
 argument_list|)
 DECL|field|period
 specifier|private
