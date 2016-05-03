@@ -102,6 +102,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -289,6 +301,11 @@ DECL|field|httpRegistry
 specifier|private
 name|HttpRegistry
 name|httpRegistry
+decl_stmt|;
+DECL|field|attachmentMultipartBinding
+specifier|private
+name|boolean
+name|attachmentMultipartBinding
 decl_stmt|;
 DECL|method|ServletComponent ()
 specifier|public
@@ -958,6 +975,33 @@ operator|.
 name|httpRegistry
 operator|=
 name|httpRegistry
+expr_stmt|;
+block|}
+DECL|method|isAttachmentMultipartBinding ()
+specifier|public
+name|boolean
+name|isAttachmentMultipartBinding
+parameter_list|()
+block|{
+return|return
+name|attachmentMultipartBinding
+return|;
+block|}
+comment|/**      * Whether to automatic bind multipart/form-data as attachments on the Camel {@link Exchange}.      *<p/>      * This is turn off by default as this may require servet specific configuration to enable this when using Servlet's.      */
+DECL|method|setAttachmentMultipartBinding (boolean attachmentMultipartBinding)
+specifier|public
+name|void
+name|setAttachmentMultipartBinding
+parameter_list|(
+name|boolean
+name|attachmentMultipartBinding
+parameter_list|)
+block|{
+name|this
+operator|.
+name|attachmentMultipartBinding
+operator|=
+name|attachmentMultipartBinding
 expr_stmt|;
 block|}
 annotation|@

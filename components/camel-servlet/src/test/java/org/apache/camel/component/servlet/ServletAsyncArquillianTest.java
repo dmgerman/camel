@@ -208,10 +208,6 @@ name|equalTo
 import|;
 end_import
 
-begin_comment
-comment|/**  * @author arnaud.deprez  * @since 18/04/16  */
-end_comment
-
 begin_class
 annotation|@
 name|RunWith
