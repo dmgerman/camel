@@ -117,7 +117,6 @@ name|StreamCache
 block|{
 DECL|field|buffer
 specifier|private
-specifier|final
 name|ByteBuf
 name|buffer
 decl_stmt|;
@@ -400,6 +399,22 @@ operator|.
 name|readableBytes
 argument_list|()
 return|;
+block|}
+DECL|method|defensiveCopyBuffer ()
+name|void
+name|defensiveCopyBuffer
+parameter_list|()
+block|{
+comment|// make a defensive copy of the buffer
+name|this
+operator|.
+name|buffer
+operator|=
+name|buffer
+operator|.
+name|copy
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class

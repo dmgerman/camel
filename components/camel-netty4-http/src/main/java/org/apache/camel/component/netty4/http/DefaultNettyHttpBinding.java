@@ -706,6 +706,18 @@ name|content
 argument_list|()
 argument_list|)
 decl_stmt|;
+comment|// add on completion to the cache which is needed for Camel to keep track of the lifecycle of the cache
+name|exchange
+operator|.
+name|addOnCompletion
+argument_list|(
+operator|new
+name|NettyChannelBufferStreamCacheOnCompletion
+argument_list|(
+name|cache
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|answer
 operator|.
 name|setBody
