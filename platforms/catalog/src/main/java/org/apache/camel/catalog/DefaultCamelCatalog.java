@@ -4097,6 +4097,24 @@ return|;
 block|}
 annotation|@
 name|Override
+DECL|method|validateTimePattern (String pattern)
+specifier|public
+name|boolean
+name|validateTimePattern
+parameter_list|(
+name|String
+name|pattern
+parameter_list|)
+block|{
+return|return
+name|validateInteger
+argument_list|(
+name|pattern
+argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|validateEndpointProperties (String uri)
 specifier|public
 name|EndpointValidationResult
