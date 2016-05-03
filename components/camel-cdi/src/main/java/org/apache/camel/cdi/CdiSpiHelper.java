@@ -375,6 +375,18 @@ import|;
 end_import
 
 begin_import
+import|import
+name|javax
+operator|.
+name|enterprise
+operator|.
+name|util
+operator|.
+name|Nonbinding
+import|;
+end_import
+
+begin_import
 import|import static
 name|org
 operator|.
@@ -1335,7 +1347,6 @@ end_comment
 
 begin_function
 DECL|method|createAnnotationId (Annotation annotation)
-specifier|private
 specifier|static
 name|String
 name|createAnnotationId
@@ -1374,6 +1385,21 @@ operator|.
 name|of
 argument_list|(
 name|methods
+argument_list|)
+operator|.
+name|filter
+argument_list|(
+name|method
+lambda|->
+operator|!
+name|method
+operator|.
+name|isAnnotationPresent
+argument_list|(
+name|Nonbinding
+operator|.
+name|class
+argument_list|)
 argument_list|)
 operator|.
 name|sorted

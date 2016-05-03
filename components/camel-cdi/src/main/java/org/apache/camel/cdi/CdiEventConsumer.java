@@ -102,11 +102,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_comment
-DECL|class|CdiEventConsumer
-comment|/* package-private */
-end_comment
-
 begin_class
 DECL|class|CdiEventConsumer
 specifier|final
@@ -186,7 +181,7 @@ argument_list|()
 expr_stmt|;
 name|endpoint
 operator|.
-name|registerConsumer
+name|addConsumer
 argument_list|(
 name|this
 argument_list|)
@@ -204,7 +199,7 @@ name|Exception
 block|{
 name|endpoint
 operator|.
-name|unregisterConsumer
+name|removeConsumer
 argument_list|(
 name|this
 argument_list|)

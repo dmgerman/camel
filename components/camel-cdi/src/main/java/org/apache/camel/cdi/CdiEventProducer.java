@@ -74,11 +74,6 @@ name|LoggerFactory
 import|;
 end_import
 
-begin_comment
-DECL|class|CdiEventProducer
-comment|/* package-private */
-end_comment
-
 begin_class
 DECL|class|CdiEventProducer
 specifier|final

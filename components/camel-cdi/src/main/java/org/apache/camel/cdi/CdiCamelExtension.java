@@ -802,6 +802,22 @@ name|camel
 operator|.
 name|cdi
 operator|.
+name|CdiEventEndpoint
+operator|.
+name|eventEndpointUri
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|cdi
+operator|.
 name|CdiSpiHelper
 operator|.
 name|getQualifiers
@@ -1036,9 +1052,9 @@ specifier|private
 specifier|final
 name|Map
 argument_list|<
-name|InjectionPoint
+name|String
 argument_list|,
-name|ForwardingObserverMethod
+name|CdiEventEndpoint
 argument_list|<
 name|?
 argument_list|>
@@ -1159,15 +1175,15 @@ argument_list|<>
 argument_list|()
 argument_list|)
 decl_stmt|;
-DECL|method|getObserverMethod (InjectionPoint ip)
-name|ForwardingObserverMethod
+DECL|method|getEventEndpoint (String uri)
+name|CdiEventEndpoint
 argument_list|<
 name|?
 argument_list|>
-name|getObserverMethod
+name|getEventEndpoint
 parameter_list|(
-name|InjectionPoint
-name|ip
+name|String
+name|uri
 parameter_list|)
 block|{
 return|return
@@ -1175,7 +1191,7 @@ name|cdiEventEndpoints
 operator|.
 name|get
 argument_list|(
-name|ip
+name|uri
 argument_list|)
 return|;
 block|}
@@ -2048,7 +2064,7 @@ block|}
 end_function
 
 begin_function
-DECL|method|beans (@bserves ProcessBean<?> pb)
+DECL|method|beans (@bserves ProcessBean<?> pb, BeanManager manager)
 specifier|private
 name|void
 name|beans
@@ -2060,6 +2076,9 @@ argument_list|<
 name|?
 argument_list|>
 name|pb
+parameter_list|,
+name|BeanManager
+name|manager
 parameter_list|)
 block|{
 name|cdiBeans
@@ -2072,7 +2091,7 @@ name|getBean
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// TODO: refine the key to the type and qualifiers instead of the whole injection point as it leads to registering redundant observers
+comment|// Lookup for CDI event endpoint injection points
 name|pb
 operator|.
 name|getBean
@@ -2109,23 +2128,16 @@ argument_list|(
 name|ip
 lambda|->
 block|{
-comment|// TODO: refine the key to the type and qualifiers instead of the whole injection point as it leads to registering redundant observers
-lambda|if (ip.getType(
-argument_list|)
+name|Type
+name|type
+operator|=
+name|ip
+operator|.
+name|getType
+argument_list|()
 operator|instanceof
 name|ParameterizedType
-block|)
-block|{
-name|cdiEventEndpoints
-operator|.
-name|put
-argument_list|(
-name|ip
-argument_list|,
-operator|new
-name|ForwardingObserverMethod
-argument_list|<>
-argument_list|(
+condition|?
 operator|(
 operator|(
 name|ParameterizedType
@@ -2141,55 +2153,52 @@ argument_list|()
 index|[
 literal|0
 index|]
+else|:
+name|Object
+operator|.
+name|class
+argument_list|;
+name|String
+name|uri
+operator|=
+name|eventEndpointUri
+argument_list|(
+name|type
 argument_list|,
 name|ip
 operator|.
 name|getQualifiers
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
-block|}
-end_function
-
-begin_elseif
-elseif|else
-if|if
-condition|(
-name|ip
-operator|.
-name|getType
-argument_list|()
-operator|instanceof
-name|Class
-condition|)
-block|{
+argument_list|;
 name|cdiEventEndpoints
 operator|.
 name|put
 argument_list|(
-name|ip
+name|uri
 argument_list|,
 operator|new
-name|ForwardingObserverMethod
+name|CdiEventEndpoint
 argument_list|<>
 argument_list|(
-name|Object
-operator|.
-name|class
+name|uri
+argument_list|,
+name|type
 argument_list|,
 name|ip
 operator|.
 name|getQualifiers
 argument_list|()
+argument_list|,
+name|manager
 argument_list|)
 argument_list|)
-expr_stmt|;
+argument_list|;
 block|}
-end_elseif
+end_function
 
 begin_empty_stmt
-unit|})
+unit|)
 empty_stmt|;
 end_empty_stmt
 
@@ -2639,7 +2648,7 @@ name|endpointQualifiers
 init|=
 name|cdiEventEndpoints
 operator|.
-name|keySet
+name|values
 argument_list|()
 operator|.
 name|stream
@@ -2647,7 +2656,7 @@ argument_list|()
 operator|.
 name|map
 argument_list|(
-name|InjectionPoint
+name|CdiEventEndpoint
 operator|::
 name|getQualifiers
 argument_list|)
@@ -2770,6 +2779,16 @@ name|cdiEventEndpoints
 operator|.
 name|values
 argument_list|()
+operator|.
+name|stream
+argument_list|()
+operator|.
+name|map
+argument_list|(
+name|ForwardingObserverMethod
+operator|::
+operator|new
+argument_list|)
 operator|.
 name|forEach
 argument_list|(
