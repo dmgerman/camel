@@ -500,6 +500,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|FileUtil
@@ -1188,6 +1202,13 @@ DECL|field|proxyPort
 specifier|private
 name|Integer
 name|proxyPort
+decl_stmt|;
+DECL|field|sendServerVersion
+specifier|private
+name|boolean
+name|sendServerVersion
+init|=
+literal|true
 decl_stmt|;
 DECL|method|JettyHttpComponent ()
 specifier|public
@@ -2120,6 +2141,14 @@ name|httpClient
 argument_list|)
 expr_stmt|;
 block|}
+name|endpoint
+operator|.
+name|setSendServerVersion
+argument_list|(
+name|isSendServerVersion
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|setProperties
 argument_list|(
 name|endpoint
@@ -5110,6 +5139,42 @@ operator|.
 name|proxyPort
 operator|=
 name|proxyPort
+expr_stmt|;
+block|}
+DECL|method|isSendServerVersion ()
+specifier|public
+name|boolean
+name|isSendServerVersion
+parameter_list|()
+block|{
+return|return
+name|sendServerVersion
+return|;
+block|}
+comment|/**      * If the option is true, jetty will send the server header with the jetty version information to the client which sends the request.      * NOTE please make sure there is no any other camel-jetty endpoint is share the same port, otherwise this option may not work as expected.      */
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"If the option is true, jetty server will send the date header to the client which sends the request."
+operator|+
+literal|" NOTE please make sure there is no any other camel-jetty endpoint is share the same port, otherwise this option may not work as expected."
+argument_list|)
+DECL|method|setSendServerVersion (boolean sendServerVersion)
+specifier|public
+name|void
+name|setSendServerVersion
+parameter_list|(
+name|boolean
+name|sendServerVersion
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sendServerVersion
+operator|=
+name|sendServerVersion
 expr_stmt|;
 block|}
 comment|// Implementation methods
