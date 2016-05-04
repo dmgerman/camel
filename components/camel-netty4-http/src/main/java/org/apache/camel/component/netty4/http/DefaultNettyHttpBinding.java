@@ -26,6 +26,16 @@ name|java
 operator|.
 name|io
 operator|.
+name|ByteArrayInputStream
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
 name|ByteArrayOutputStream
 import|;
 end_import
@@ -436,6 +446,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|converter
+operator|.
+name|stream
+operator|.
+name|ByteArrayInputStreamCache
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|HeaderFilterStrategy
@@ -715,7 +741,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// turn the body into stream cached
+comment|// turn the body into stream cached (on the client/consumer side we can facade the netty stream instead of converting to byte array)
 name|NettyChannelBufferStreamCache
 name|cache
 init|=
@@ -1874,8 +1900,8 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|// stores as byte array as the netty ByteBuf will be freedy when the producer is done, and then we
-comment|// can no longer access the message body
+comment|// stores as byte array as the netty ByteBuf will be freed when the producer is done,
+comment|// and then we can no longer access the message body
 name|response
 operator|.
 name|retain
@@ -1914,10 +1940,17 @@ name|answer
 operator|.
 name|setBody
 argument_list|(
+operator|new
+name|ByteArrayInputStreamCache
+argument_list|(
+operator|new
+name|ByteArrayInputStream
+argument_list|(
 name|bytes
 argument_list|)
+argument_list|)
+argument_list|)
 expr_stmt|;
-comment|// TODO: use stream caching
 block|}
 finally|finally
 block|{

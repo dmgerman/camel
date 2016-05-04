@@ -513,15 +513,6 @@ literal|false
 argument_list|)
 expr_stmt|;
 block|}
-name|super
-operator|.
-name|exceptionCaught
-argument_list|(
-name|ctx
-argument_list|,
-name|cause
-argument_list|)
-expr_stmt|;
 block|}
 annotation|@
 name|Override
