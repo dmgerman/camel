@@ -1069,6 +1069,10 @@ argument_list|,
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Interval in millis to sleep each time while waiting for provisional correlation id to be updated."
 argument_list|)
 DECL|field|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 specifier|private
@@ -1087,6 +1091,12 @@ argument_list|,
 name|label
 operator|=
 literal|"advanced"
+argument_list|,
+name|description
+operator|=
+literal|"Number of times to wait for provisional correlation id to be updated to the actual correlation id when doing request/reply over JMS"
+operator|+
+literal|" and when the option useMessageIDAsCorrelationID is enabled."
 argument_list|)
 DECL|field|waitForProvisionCorrelationToBeUpdatedCounter
 specifier|private
@@ -4269,7 +4279,6 @@ operator|=
 name|idleConsumerLimit
 expr_stmt|;
 block|}
-comment|/**      * Receives a counter that is used in conjunction with {@code waitForProvisionCorrelationToBeUpdatedThreadSleepingTime}      * @return waitForProvisionCorrelationToBeUpdatedCounter      */
 DECL|method|getWaitForProvisionCorrelationToBeUpdatedCounter ()
 specifier|public
 name|int
@@ -4280,7 +4289,7 @@ return|return
 name|waitForProvisionCorrelationToBeUpdatedCounter
 return|;
 block|}
-comment|/**      * Sets a counter that is used in conjunction with {@code waitForProvisionCorrelationToBeUpdatedThreadSleepingTime}      * @param counter      */
+comment|/**      * Number of times to wait for provisional correlation id to be updated to the actual correlation id when doing request/reply over JMS      * and when the option useMessageIDAsCorrelationID is enabled.      */
 DECL|method|setWaitForProvisionCorrelationToBeUpdatedCounter (int counter)
 specifier|public
 name|void
@@ -4297,7 +4306,6 @@ operator|=
 name|counter
 expr_stmt|;
 block|}
-comment|/**      * Gets the sleeping time of the Thread when waiting for provision correlation to be updated.      * @return      */
 DECL|method|getWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime ()
 specifier|public
 name|long
@@ -4308,7 +4316,7 @@ return|return
 name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 return|;
 block|}
-comment|/**      * Sets the sleeping time of the Thread when waiting for provision correlation to be updated.      * @param sleepingTime      */
+comment|/**      * Interval in millis to sleep each time while waiting for provisional correlation id to be updated.      */
 DECL|method|setWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime (long sleepingTime)
 specifier|public
 name|void

@@ -1107,40 +1107,6 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
-comment|/**      * @return waitForProvisionCorrelationToBeUpdated counter      */
-DECL|method|getWaitForProvisionCorrelationToBeUpdatedCounter ()
-specifier|private
-name|int
-name|getWaitForProvisionCorrelationToBeUpdatedCounter
-parameter_list|()
-block|{
-return|return
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|getWaitForProvisionCorrelationToBeUpdatedCounter
-argument_list|()
-return|;
-block|}
-comment|/**      * @return waitForProvisionCorrelationToBeUpdated thread sleeping time      */
-DECL|method|getWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime ()
-specifier|private
-name|long
-name|getWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime
-parameter_list|()
-block|{
-return|return
-name|endpoint
-operator|.
-name|getConfiguration
-argument_list|()
-operator|.
-name|getWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime
-argument_list|()
-return|;
-block|}
 comment|/**      *<b>IMPORTANT:</b> This logic is only being used due to high performance in-memory only      * testing using InOut over JMS. Its unlikely to happen in a real life situation with communication      * to a remote broker, which always will be slower to send back reply, before Camel had a chance      * to update it's internal correlation map.      */
 DECL|method|waitForProvisionCorrelationToBeUpdated (String correlationID, Message message)
 specifier|protected
@@ -1202,6 +1168,11 @@ operator|&&
 name|counter
 operator|++
 operator|<
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getWaitForProvisionCorrelationToBeUpdatedCounter
 argument_list|()
 condition|)
@@ -1221,6 +1192,11 @@ name|Thread
 operator|.
 name|sleep
 argument_list|(
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 argument_list|()
 argument_list|)
