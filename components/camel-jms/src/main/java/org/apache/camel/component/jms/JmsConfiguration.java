@@ -1062,6 +1062,42 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|defaultValue
+operator|=
+literal|"100"
+argument_list|,
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+specifier|private
+name|long
+name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+init|=
+literal|100L
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"50"
+argument_list|,
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|waitForProvisionCorrelationToBeUpdatedCounter
+specifier|private
+name|int
+name|waitForProvisionCorrelationToBeUpdatedCounter
+init|=
+literal|50
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
 name|label
 operator|=
 literal|"consumer"
@@ -4231,6 +4267,62 @@ operator|.
 name|idleConsumerLimit
 operator|=
 name|idleConsumerLimit
+expr_stmt|;
+block|}
+comment|/**      * Receives a counter that is used in conjunction with {@code waitForProvisionCorrelationToBeUpdatedThreadSleepingTime}      * @return waitForProvisionCorrelationToBeUpdatedCounter      */
+DECL|method|getWaitForProvisionCorrelationToBeUpdatedCounter ()
+specifier|public
+name|int
+name|getWaitForProvisionCorrelationToBeUpdatedCounter
+parameter_list|()
+block|{
+return|return
+name|waitForProvisionCorrelationToBeUpdatedCounter
+return|;
+block|}
+comment|/**      * Sets a counter that is used in conjunction with {@code waitForProvisionCorrelationToBeUpdatedThreadSleepingTime}      * @param counter      */
+DECL|method|setWaitForProvisionCorrelationToBeUpdatedCounter (int counter)
+specifier|public
+name|void
+name|setWaitForProvisionCorrelationToBeUpdatedCounter
+parameter_list|(
+name|int
+name|counter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|waitForProvisionCorrelationToBeUpdatedCounter
+operator|=
+name|counter
+expr_stmt|;
+block|}
+comment|/**      * Gets the sleeping time of the Thread when waiting for provision correlation to be updated.      * @return      */
+DECL|method|getWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime ()
+specifier|public
+name|long
+name|getWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+parameter_list|()
+block|{
+return|return
+name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+return|;
+block|}
+comment|/**      * Sets the sleeping time of the Thread when waiting for provision correlation to be updated.      * @param sleepingTime      */
+DECL|method|setWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime (long sleepingTime)
+specifier|public
+name|void
+name|setWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+parameter_list|(
+name|long
+name|sleepingTime
+parameter_list|)
+block|{
+name|this
+operator|.
+name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+operator|=
+name|sleepingTime
 expr_stmt|;
 block|}
 DECL|method|getMaxConcurrentConsumers ()
