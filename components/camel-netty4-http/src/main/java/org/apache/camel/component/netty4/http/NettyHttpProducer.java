@@ -505,7 +505,6 @@ name|getHttpResponse
 argument_list|()
 decl_stmt|;
 comment|// Need to retain the ByteBuffer for producer to consumer
-comment|// TODO Remove this part of ByteBuffer right away
 if|if
 condition|(
 name|response
