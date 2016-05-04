@@ -177,6 +177,17 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
+name|cause
+operator|.
+name|getHttpContent
+argument_list|()
+operator|.
+name|content
+argument_list|()
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 annotation|@

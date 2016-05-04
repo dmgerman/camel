@@ -205,6 +205,15 @@ literal|"UTF-8"
 argument_list|)
 argument_list|)
 decl_stmt|;
+comment|// release as no longer in use
+name|request
+operator|.
+name|content
+argument_list|()
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
 return|return
 literal|"Bye "
 operator|+

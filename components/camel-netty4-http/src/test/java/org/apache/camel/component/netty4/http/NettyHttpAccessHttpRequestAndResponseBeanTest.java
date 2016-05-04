@@ -334,6 +334,14 @@ literal|"Bye "
 operator|+
 name|in
 decl_stmt|;
+name|request
+operator|.
+name|content
+argument_list|()
+operator|.
+name|release
+argument_list|()
+expr_stmt|;
 name|HttpResponse
 name|response
 init|=
