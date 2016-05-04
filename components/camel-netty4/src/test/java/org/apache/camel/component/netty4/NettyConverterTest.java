@@ -78,6 +78,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|After
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Before
 import|;
 end_import
@@ -155,6 +165,20 @@ name|writeBytes
 argument_list|(
 name|bytes
 argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|After
+DECL|method|tearDown ()
+specifier|public
+name|void
+name|tearDown
+parameter_list|()
+block|{
+name|buf
+operator|.
+name|release
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@
