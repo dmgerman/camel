@@ -103,10 +103,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|SpringInfinispanIdempotentRpoositoryIT
+DECL|class|SpringInfinispanIdempotentRepositoryIT
 specifier|public
 class|class
-name|SpringInfinispanIdempotentRpoositoryIT
+name|SpringInfinispanIdempotentRepositoryIT
 extends|extends
 name|CamelSpringTestSupport
 block|{
