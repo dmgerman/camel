@@ -164,25 +164,10 @@ name|assertEquals
 argument_list|(
 literal|"Camel cannot do this"
 argument_list|,
-name|context
-operator|.
-name|getTypeConverter
-argument_list|()
-operator|.
-name|convertTo
-argument_list|(
-name|String
-operator|.
-name|class
-argument_list|,
 name|cause
 operator|.
-name|getHttpContent
+name|getContentAsString
 argument_list|()
-operator|.
-name|content
-argument_list|()
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
