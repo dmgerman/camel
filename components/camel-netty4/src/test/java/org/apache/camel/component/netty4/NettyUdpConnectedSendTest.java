@@ -670,13 +670,6 @@ block|{
 name|receivedCount
 operator|++
 expr_stmt|;
-name|assertEquals
-argument_list|(
-name|SEND_STRING
-argument_list|,
-name|s
-argument_list|)
-expr_stmt|;
 block|}
 block|}
 block|}
