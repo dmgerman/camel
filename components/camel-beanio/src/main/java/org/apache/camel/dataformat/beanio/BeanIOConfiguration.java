@@ -40,6 +40,16 @@ name|Properties
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|beanio
+operator|.
+name|BeanReaderErrorHandler
+import|;
+end_import
+
 begin_comment
 comment|/**  * To configure the BeanIO data format, or BeanIO splitter.  */
 end_comment
@@ -89,6 +99,11 @@ DECL|field|properties
 specifier|private
 name|Properties
 name|properties
+decl_stmt|;
+DECL|field|beanReaderErrorHandler
+specifier|private
+name|BeanReaderErrorHandler
+name|beanReaderErrorHandler
 decl_stmt|;
 DECL|method|getMapping ()
 specifier|public
@@ -270,6 +285,32 @@ operator|.
 name|properties
 operator|=
 name|properties
+expr_stmt|;
+block|}
+DECL|method|getBeanReaderErrorHandler ()
+specifier|public
+name|BeanReaderErrorHandler
+name|getBeanReaderErrorHandler
+parameter_list|()
+block|{
+return|return
+name|beanReaderErrorHandler
+return|;
+block|}
+DECL|method|setBeanReaderErrorHandler (BeanReaderErrorHandler beanReaderErrorHandler)
+specifier|public
+name|void
+name|setBeanReaderErrorHandler
+parameter_list|(
+name|BeanReaderErrorHandler
+name|beanReaderErrorHandler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|beanReaderErrorHandler
+operator|=
+name|beanReaderErrorHandler
 expr_stmt|;
 block|}
 block|}
