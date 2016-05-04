@@ -74,11 +74,6 @@ name|PaxExam
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Does not yet work in OSGi: https://issues.apache.org/jira/browse/SMX4-1983"
-argument_list|)
 DECL|class|CamelZipkinTest
 specifier|public
 class|class
