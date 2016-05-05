@@ -219,11 +219,6 @@ specifier|private
 name|ClassLoader
 name|applicationClassLoader
 decl_stmt|;
-DECL|field|session
-specifier|private
-name|Session
-name|session
-decl_stmt|;
 DECL|field|javaMailProperties
 specifier|private
 name|Properties
@@ -333,6 +328,18 @@ DECL|field|javaMailSender
 specifier|private
 name|JavaMailSender
 name|javaMailSender
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|session
+specifier|private
+name|Session
+name|session
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1949,6 +1956,7 @@ return|return
 name|session
 return|;
 block|}
+comment|/**      * Specifies the mail session that camel should use for all mail interactions. Useful in scenarios where      * mail sessions are created and managed by some other resource, such as a JavaEE container.      * If this is not specified, Camel automatically creates the mail session for you.      */
 DECL|method|setSession (Session session)
 specifier|public
 name|void
