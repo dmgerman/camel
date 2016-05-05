@@ -302,6 +302,12 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"1000"
+argument_list|,
+name|description
+operator|=
+literal|"Miliseconds before first event is triggered."
+operator|+
+literal|" You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour)."
 argument_list|)
 DECL|field|delay
 specifier|private
@@ -677,7 +683,7 @@ return|return
 name|delay
 return|;
 block|}
-comment|/**      * The number of milliseconds to wait before the first event is generated. Should not be used in conjunction with the time option.      *<p/>      * The default value is 1000.      */
+comment|/**      * The number of milliseconds to wait before the first event is generated. Should not be used in conjunction with the time option.      *<p/>      * The default value is 1000.      * You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour).      * @see<a href="http://camel.apache.org/how-do-i-specify-time-period-in-a-human-friendly-syntax.html">human friendly syntax</a>      */
 annotation|@
 name|ManagedAttribute
 argument_list|(

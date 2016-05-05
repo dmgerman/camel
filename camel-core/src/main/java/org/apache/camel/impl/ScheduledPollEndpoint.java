@@ -308,6 +308,8 @@ argument_list|,
 name|description
 operator|=
 literal|"Milliseconds before the next poll."
+operator|+
+literal|" You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour)."
 argument_list|)
 DECL|field|delay
 specifier|private
@@ -1536,7 +1538,7 @@ return|return
 name|delay
 return|;
 block|}
-comment|/**      * Milliseconds before the next poll.      */
+comment|/**      * Milliseconds before the next poll.      *<p/>      * The default value is 500.      * You can also specify time values using units, such as 60s (60 seconds), 5m30s (5 minutes and 30 seconds), and 1h (1 hour).      * @see<a href="http://camel.apache.org/how-do-i-specify-time-period-in-a-human-friendly-syntax.html">human friendly syntax</a>      */
 DECL|method|setDelay (long delay)
 specifier|public
 name|void
