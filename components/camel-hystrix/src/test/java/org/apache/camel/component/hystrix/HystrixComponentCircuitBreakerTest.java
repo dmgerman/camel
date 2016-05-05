@@ -94,7 +94,7 @@ name|resultEndpoint
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|2
+literal|3
 argument_list|)
 expr_stmt|;
 name|errorEndpoint
@@ -157,6 +157,8 @@ operator|.
 name|sendBody
 argument_list|(
 literal|"test"
+operator|+
+name|i
 argument_list|)
 expr_stmt|;
 block|}
@@ -165,7 +167,9 @@ parameter_list|(
 name|Exception
 name|e
 parameter_list|)
-block|{              }
+block|{
+comment|// ignore
+block|}
 block|}
 name|assertMockEndpointsSatisfied
 argument_list|()
@@ -192,6 +196,11 @@ block|{
 name|from
 argument_list|(
 literal|"direct:fallback"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:fallback"
 argument_list|)
 operator|.
 name|to
@@ -231,6 +240,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:result"
 argument_list|)
 operator|.
 name|to
