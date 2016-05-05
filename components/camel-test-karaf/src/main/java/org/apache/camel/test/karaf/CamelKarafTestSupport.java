@@ -627,7 +627,7 @@ name|extra
 argument_list|)
 return|;
 block|}
-comment|/**      * Executes a shell command and returns output as a String.      * Commands have a default timeout of 10 seconds.      *      * @param command The command to execute      * @param principals The principals (e.g. RolePrincipal objects) to run the command under      * @return      */
+comment|/**      * Executes a shell command and returns output as a String.      * Commands have a default timeout of 10 seconds.      *      * @param command The command to execute      * @param principals The principals (e.g. RolePrincipal objects) to run the command under      */
 DECL|method|executeCommand (final String command, Principal ... principals)
 specifier|protected
 name|String
@@ -655,7 +655,7 @@ name|principals
 argument_list|)
 return|;
 block|}
-comment|/**      * Executes a shell command and returns output as a String.      * Commands have a default timeout of 10 seconds.      *      * @param command    The command to execute.      * @param timeout    The amount of time in millis to wait for the command to execute.      * @param silent     Specifies if the command should be displayed in the screen.      * @param principals The principals (e.g. RolePrincipal objects) to run the command under      * @return      */
+comment|/**      * Executes a shell command and returns output as a String.      * Commands have a default timeout of 10 seconds.      *      * @param command    The command to execute.      * @param timeout    The amount of time in millis to wait for the command to execute.      * @param silent     Specifies if the command should be displayed in the screen.      * @param principals The principals (e.g. RolePrincipal objects) to run the command under      */
 DECL|method|executeCommand (final String command, final Long timeout, final Boolean silent, final Principal ... principals)
 specifier|protected
 name|String
@@ -1124,6 +1124,11 @@ argument_list|)
 throw|;
 block|}
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|waitForService (String filter, long timeout)
 specifier|private
 name|void
@@ -1237,6 +1242,11 @@ name|SERVICE_TIMEOUT
 argument_list|)
 return|;
 block|}
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|getOsgiService (Class<T> type, String filter, long timeout)
 specifier|protected
 parameter_list|<
@@ -1559,11 +1569,11 @@ operator|.
 name|keys
 argument_list|()
 decl_stmt|;
-name|StringBuffer
-name|result
+name|StringBuilder
+name|sb
 init|=
 operator|new
-name|StringBuffer
+name|StringBuilder
 argument_list|()
 decl_stmt|;
 while|while
@@ -1582,7 +1592,7 @@ operator|.
 name|nextElement
 argument_list|()
 decl_stmt|;
-name|result
+name|sb
 operator|.
 name|append
 argument_list|(
@@ -1611,7 +1621,7 @@ name|hasMoreElements
 argument_list|()
 condition|)
 block|{
-name|result
+name|sb
 operator|.
 name|append
 argument_list|(
@@ -1621,7 +1631,7 @@ expr_stmt|;
 block|}
 block|}
 return|return
-name|result
+name|sb
 operator|.
 name|toString
 argument_list|()
@@ -1704,10 +1714,16 @@ literal|"service:jmx:rmi:///jndi/rmi://localhost:1099/karaf-root"
 argument_list|)
 decl_stmt|;
 name|Hashtable
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
 name|env
 init|=
 operator|new
 name|Hashtable
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|String
@@ -2115,7 +2131,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * The feature service does not uninstall feature dependencies when uninstalling a single feature.      * So we need to make sure we uninstall all features that were newly installed.      *      * @param featuresBefore      */
+comment|/**      * The feature service does not uninstall feature dependencies when uninstalling a single feature.      * So we need to make sure we uninstall all features that were newly installed.      */
 DECL|method|uninstallNewFeatures (Set<Feature> featuresBefore)
 specifier|protected
 name|void
@@ -2194,7 +2210,7 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// e.printStackTrace();
+comment|// ignore
 block|}
 block|}
 block|}
