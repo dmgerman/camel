@@ -312,6 +312,37 @@ name|GET_NODE_OPERATION
 init|=
 literal|"getNode"
 decl_stmt|;
+comment|// Config Maps
+DECL|field|LIST_CONFIGMAPS
+name|String
+name|LIST_CONFIGMAPS
+init|=
+literal|"listConfigMaps"
+decl_stmt|;
+DECL|field|LIST_CONFIGMAPS_BY_LABELS_OPERATION
+name|String
+name|LIST_CONFIGMAPS_BY_LABELS_OPERATION
+init|=
+literal|"listConfigMapsByLabels"
+decl_stmt|;
+DECL|field|GET_CONFIGMAP_OPERATION
+name|String
+name|GET_CONFIGMAP_OPERATION
+init|=
+literal|"getConfigMap"
+decl_stmt|;
+DECL|field|CREATE_CONFIGMAP_OPERATION
+name|String
+name|CREATE_CONFIGMAP_OPERATION
+init|=
+literal|"createConfigMap"
+decl_stmt|;
+DECL|field|DELETE_CONFIGMAP_OPERATION
+name|String
+name|DELETE_CONFIGMAP_OPERATION
+init|=
+literal|"deleteConfigMap"
+decl_stmt|;
 comment|// Builds
 DECL|field|LIST_BUILD
 name|String

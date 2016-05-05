@@ -84,6 +84,12 @@ name|NODES
 init|=
 literal|"nodes"
 decl_stmt|;
+DECL|field|CONFIGMAPS
+name|String
+name|CONFIGMAPS
+init|=
+literal|"configMaps"
+decl_stmt|;
 DECL|field|BUILDS
 name|String
 name|BUILDS
