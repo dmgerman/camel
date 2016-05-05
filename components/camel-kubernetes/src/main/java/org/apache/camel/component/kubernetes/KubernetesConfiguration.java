@@ -115,7 +115,7 @@ name|UriParam
 argument_list|(
 name|enums
 operator|=
-literal|"namespaces,services,replicationControllers,pods,persistentVolumes,persistentVolumesClaims,secrets,resourcesQuota,serviceAccounts,nodes,builds,buildConfigs"
+literal|"namespaces,services,replicationControllers,pods,persistentVolumes,persistentVolumesClaims,secrets,resourcesQuota,serviceAccounts,nodes,configMaps,builds,buildConfigs"
 argument_list|)
 annotation|@
 name|Metadata
@@ -179,7 +179,9 @@ literal|"getPersistentVolumeClaim,createPersistentVolumeClaim,deletePersistentVo
 operator|+
 literal|"listResourcesQuotaByLabels,getResourceQuota,createResourceQuota,deleteResourceQuota,listServiceAccounts,listServiceAccountsByLabels,getServiceAccount,createServiceAccount,"
 operator|+
-literal|"deleteServiceAccount,listNodes,listNodesByLabels,getNode,listBuilds,listBuildsByLabels,getBuild,listBuildConfigs,listBuildConfigsByLabels,getBuildConfig"
+literal|"deleteServiceAccount,listNodes,listNodesByLabels,getNode,listConfigMaps,listConfigMapsByLabels,getConfigMap,createConfigMap,deleteConfigMap,listBuilds,listBuildsByLabels,"
+operator|+
+literal|"getBuild,listBuildConfigs,listBuildConfigsByLabels,getBuildConfig"
 argument_list|)
 DECL|field|operation
 specifier|private
