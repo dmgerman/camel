@@ -359,7 +359,7 @@ argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"40"
+literal|"110"
 argument_list|)
 argument_list|)
 expr_stmt|;
