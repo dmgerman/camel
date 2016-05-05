@@ -2203,6 +2203,72 @@ operator|=
 name|messageCreatedStrategy
 expr_stmt|;
 block|}
+DECL|method|getWaitForProvisionCorrelationToBeUpdatedCounter ()
+specifier|public
+name|int
+name|getWaitForProvisionCorrelationToBeUpdatedCounter
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getWaitForProvisionCorrelationToBeUpdatedCounter
+argument_list|()
+return|;
+block|}
+comment|/**      * Number of times to wait for provisional correlation id to be updated to the actual correlation id when doing request/reply over JMS      * and when the option useMessageIDAsCorrelationID is enabled.      */
+DECL|method|setWaitForProvisionCorrelationToBeUpdatedCounter (int counter)
+specifier|public
+name|void
+name|setWaitForProvisionCorrelationToBeUpdatedCounter
+parameter_list|(
+name|int
+name|counter
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setWaitForProvisionCorrelationToBeUpdatedCounter
+argument_list|(
+name|counter
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime ()
+specifier|public
+name|long
+name|getWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+argument_list|()
+return|;
+block|}
+comment|/**      * Interval in millis to sleep each time while waiting for provisional correlation id to be updated.      */
+DECL|method|setWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime (long sleepingTime)
+specifier|public
+name|void
+name|setWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+parameter_list|(
+name|long
+name|sleepingTime
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+argument_list|(
+name|sleepingTime
+argument_list|)
+expr_stmt|;
+block|}
 comment|// Implementation methods
 comment|// -------------------------------------------------------------------------
 annotation|@
