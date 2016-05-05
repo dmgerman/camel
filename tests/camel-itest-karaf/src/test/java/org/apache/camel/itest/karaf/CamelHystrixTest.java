@@ -74,11 +74,6 @@ name|PaxExam
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Need a new hystrix SMX bundle"
-argument_list|)
 DECL|class|CamelHystrixTest
 specifier|public
 class|class
