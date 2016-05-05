@@ -75,13 +75,6 @@ name|assertStringContains
 argument_list|(
 name|weather
 argument_list|,
-literal|"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
-argument_list|)
-expr_stmt|;
-name|assertStringContains
-argument_list|(
-name|weather
-argument_list|,
 literal|"<coord"
 argument_list|)
 expr_stmt|;
