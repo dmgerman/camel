@@ -764,6 +764,18 @@ specifier|private
 name|Properties
 name|additionalJavaMailProperties
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|attachmentsContentTransferEncodingResolver
+specifier|private
+name|AttachmentsContentTransferEncodingResolver
+name|attachmentsContentTransferEncodingResolver
+decl_stmt|;
 DECL|method|MailConfiguration ()
 specifier|public
 name|MailConfiguration
@@ -2773,6 +2785,33 @@ operator|.
 name|handleFailedMessage
 operator|=
 name|handleFailedMessage
+expr_stmt|;
+block|}
+DECL|method|getAttachmentsContentTransferEncodingResolver ()
+specifier|public
+name|AttachmentsContentTransferEncodingResolver
+name|getAttachmentsContentTransferEncodingResolver
+parameter_list|()
+block|{
+return|return
+name|attachmentsContentTransferEncodingResolver
+return|;
+block|}
+comment|/**      * To use a custom AttachmentsContentTransferEncodingResolver to resolve what content-type-encoding to use for attachments.      */
+DECL|method|setAttachmentsContentTransferEncodingResolver (AttachmentsContentTransferEncodingResolver attachmentsContentTransferEncodingResolver)
+specifier|public
+name|void
+name|setAttachmentsContentTransferEncodingResolver
+parameter_list|(
+name|AttachmentsContentTransferEncodingResolver
+name|attachmentsContentTransferEncodingResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|attachmentsContentTransferEncodingResolver
+operator|=
+name|attachmentsContentTransferEncodingResolver
 expr_stmt|;
 block|}
 block|}

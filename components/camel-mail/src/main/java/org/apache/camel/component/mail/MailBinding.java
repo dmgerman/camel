@@ -2750,6 +2750,14 @@ name|Part
 operator|.
 name|ATTACHMENT
 decl_stmt|;
+name|AttachmentsContentTransferEncodingResolver
+name|contentTransferEncodingResolver
+init|=
+name|configuration
+operator|.
+name|getAttachmentsContentTransferEncodingResolver
+argument_list|()
+decl_stmt|;
 if|if
 condition|(
 name|exchange
@@ -2767,6 +2775,8 @@ name|multipart
 argument_list|,
 name|partDisposition
 argument_list|,
+name|contentTransferEncodingResolver
+argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
@@ -2775,7 +2785,7 @@ return|return
 name|multipart
 return|;
 block|}
-DECL|method|addAttachmentsToMultipart (MimeMultipart multipart, String partDisposition, Exchange exchange)
+DECL|method|addAttachmentsToMultipart (MimeMultipart multipart, String partDisposition, AttachmentsContentTransferEncodingResolver encodingResolver, Exchange exchange)
 specifier|protected
 name|void
 name|addAttachmentsToMultipart
@@ -2785,6 +2795,9 @@ name|multipart
 parameter_list|,
 name|String
 name|partDisposition
+parameter_list|,
+name|AttachmentsContentTransferEncodingResolver
+name|encodingResolver
 parameter_list|,
 name|Exchange
 name|exchange
@@ -3072,6 +3085,16 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+comment|// set Content-Transfer-Encoding using resolver if possible
+name|resolveContentTransferEncoding
+argument_list|(
+name|encodingResolver
+argument_list|,
+name|i
+argument_list|,
+name|messageBodyPart
+argument_list|)
+expr_stmt|;
 comment|// Set Disposition
 name|messageBodyPart
 operator|.
@@ -3125,6 +3148,72 @@ argument_list|(
 literal|"Adding attachments +++ done +++"
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|resolveContentTransferEncoding (AttachmentsContentTransferEncodingResolver resolver, int i, BodyPart messageBodyPart)
+specifier|protected
+name|void
+name|resolveContentTransferEncoding
+parameter_list|(
+name|AttachmentsContentTransferEncodingResolver
+name|resolver
+parameter_list|,
+name|int
+name|i
+parameter_list|,
+name|BodyPart
+name|messageBodyPart
+parameter_list|)
+throws|throws
+name|MessagingException
+block|{
+if|if
+condition|(
+name|resolver
+operator|!=
+literal|null
+condition|)
+block|{
+name|String
+name|contentTransferEncoding
+init|=
+name|resolver
+operator|.
+name|resolveContentTransferEncoding
+argument_list|(
+name|messageBodyPart
+argument_list|)
+decl_stmt|;
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"Attachment #{}: Using content transfer encoding resolver: {} resolved content transfer encoding as: {}"
+argument_list|,
+name|i
+argument_list|,
+name|resolver
+argument_list|,
+name|contentTransferEncoding
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|contentTransferEncoding
+operator|!=
+literal|null
+condition|)
+block|{
+name|messageBodyPart
+operator|.
+name|setHeader
+argument_list|(
+literal|"Content-Transfer-Encoding"
+argument_list|,
+name|contentTransferEncoding
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 block|}
 DECL|method|createMultipartAlternativeMessage (MimeMessage mimeMessage, MailConfiguration configuration, Exchange exchange)
 specifier|protected
@@ -3314,6 +3403,14 @@ argument_list|,
 name|exchange
 argument_list|)
 expr_stmt|;
+name|AttachmentsContentTransferEncodingResolver
+name|resolver
+init|=
+name|configuration
+operator|.
+name|getAttachmentsContentTransferEncodingResolver
+argument_list|()
+decl_stmt|;
 name|addAttachmentsToMultipart
 argument_list|(
 name|multipartRelated
@@ -3321,6 +3418,8 @@ argument_list|,
 name|Part
 operator|.
 name|INLINE
+argument_list|,
+name|resolver
 argument_list|,
 name|exchange
 argument_list|)
