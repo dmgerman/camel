@@ -286,7 +286,7 @@ return|return
 name|token
 return|;
 block|}
-comment|/**      * The (start) token to use as tokenizer, for example \n for a new line token      */
+comment|/**      * The (start) token to use as tokenizer, for example \n for a new line token.      * You can use simple language as the token to support dynamic tokens.      */
 DECL|method|setToken (String token)
 specifier|public
 name|void
@@ -313,7 +313,7 @@ return|return
 name|endToken
 return|;
 block|}
-comment|/**      * The end token to use as tokenizer if using start/end token pairs.      */
+comment|/**      * The end token to use as tokenizer if using start/end token pairs.      * You can use simple language as the token to support dynamic tokens.      */
 DECL|method|setEndToken (String endToken)
 specifier|public
 name|void
@@ -394,7 +394,7 @@ return|return
 name|inheritNamespaceTagName
 return|;
 block|}
-comment|/**      * To inherit namepaces from a root/parent tag name when using XML      */
+comment|/**      * To inherit namespaces from a root/parent tag name when using XML      * You can use simple language as the tag name to support dynamic names.      */
 DECL|method|setInheritNamespaceTagName (String inheritNamespaceTagName)
 specifier|public
 name|void
