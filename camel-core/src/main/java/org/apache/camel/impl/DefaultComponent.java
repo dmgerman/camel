@@ -271,7 +271,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default component to use for base for components implementations.  *  * @version   */
+comment|/**  * Default component to use for base for components implementations.  */
 end_comment
 
 begin_class
@@ -564,26 +564,21 @@ name|trace
 argument_list|(
 literal|"Creating endpoint uri=[{}], path=[{}], parameters=[{}]"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|URISupport
 operator|.
 name|sanitizeUri
 argument_list|(
 name|uri
 argument_list|)
-block|,
+argument_list|,
 name|URISupport
 operator|.
 name|sanitizePath
 argument_list|(
 name|path
 argument_list|)
-block|,
+argument_list|,
 name|parameters
-block|}
 argument_list|)
 expr_stmt|;
 block|}
@@ -1487,9 +1482,6 @@ name|getCamelContext
 argument_list|()
 argument_list|,
 name|value
-operator|.
-name|toString
-argument_list|()
 argument_list|,
 name|type
 argument_list|)
@@ -1537,9 +1529,7 @@ name|elementType
 argument_list|,
 operator|new
 name|ArrayList
-argument_list|<
-name|T
-argument_list|>
+argument_list|<>
 argument_list|(
 literal|0
 argument_list|)
@@ -1618,9 +1608,6 @@ name|getCamelContext
 argument_list|()
 argument_list|,
 name|value
-operator|.
-name|toString
-argument_list|()
 argument_list|,
 name|elementType
 argument_list|)
