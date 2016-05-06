@@ -42,6 +42,53 @@ name|BaseWeatherConsumerTest
 block|{
 annotation|@
 name|Override
+DECL|method|checkWeatherContent (String weather)
+specifier|protected
+name|void
+name|checkWeatherContent
+parameter_list|(
+name|String
+name|weather
+parameter_list|)
+block|{
+name|log
+operator|.
+name|debug
+argument_list|(
+literal|"The weather in {} format is {}{}"
+argument_list|,
+operator|new
+name|Object
+index|[]
+block|{
+name|WeatherMode
+operator|.
+name|XML
+block|,
+name|LS
+block|,
+name|weather
+block|}
+argument_list|)
+expr_stmt|;
+comment|//assertStringContains(weather, "<?xml version=\"1.0\" encoding=\"utf-8\"?>");
+name|assertStringContains
+argument_list|(
+name|weather
+argument_list|,
+literal|"<coord"
+argument_list|)
+expr_stmt|;
+name|assertStringContains
+argument_list|(
+name|weather
+argument_list|,
+literal|"<temperature"
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
 name|RouteBuilder
@@ -66,7 +113,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"weather:foo?appid=9162755b2efa555823cfe0451d7fff38"
+literal|"weather:foo?appid=9162755b2efa555823cfe0451d7fff38&lon=4&lat=52&rightLon=6&topLat=54"
 argument_list|)
 operator|.
 name|to
