@@ -1940,6 +1940,30 @@ name|server
 init|=
 literal|null
 decl_stmt|;
+if|if
+condition|(
+name|minThreads
+operator|==
+literal|null
+operator|&&
+name|maxThreads
+operator|==
+literal|null
+operator|&&
+name|getThreadPool
+argument_list|()
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+literal|"Error creating JettyWebSocketServer. MinThreads/MaxThreads or ThreadPool must be defined"
+argument_list|)
+throw|;
+block|}
 comment|// configure thread pool if min/max given
 if|if
 condition|(
