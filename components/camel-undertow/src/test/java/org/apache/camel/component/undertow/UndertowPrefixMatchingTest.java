@@ -82,26 +82,6 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_class
 DECL|class|UndertowPrefixMatchingTest
 specifier|public
@@ -110,22 +90,6 @@ name|UndertowPrefixMatchingTest
 extends|extends
 name|BaseUndertowTest
 block|{
-DECL|field|LOG
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOG
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|UndertowComponentTest
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 annotation|@
 name|Test
 DECL|method|passOnExactPath ()
@@ -136,9 +100,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Exchange
-name|response
-init|=
 name|template
 operator|.
 name|requestBody
@@ -146,12 +107,8 @@ argument_list|(
 literal|"http://localhost:{{port}}/myapp/suffix"
 argument_list|,
 literal|"Hello Camel!"
-argument_list|,
-name|Exchange
-operator|.
-name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:myapp"
@@ -179,9 +136,6 @@ name|Exception
 block|{
 try|try
 block|{
-name|String
-name|response
-init|=
 name|template
 operator|.
 name|requestBody
@@ -189,12 +143,8 @@ argument_list|(
 literal|"http://localhost:{{port}}/myapp"
 argument_list|,
 literal|"Hello Camel!"
-argument_list|,
-name|String
-operator|.
-name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|fail
 argument_list|(
 literal|"Should fail, something is wrong"
@@ -244,9 +194,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|Exchange
-name|response
-init|=
 name|template
 operator|.
 name|requestBody
@@ -254,12 +201,8 @@ argument_list|(
 literal|"http://localhost:{{port}}/bar/somethingNotImportant"
 argument_list|,
 literal|"Hello Camel!"
-argument_list|,
-name|Exchange
-operator|.
-name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 name|getMockEndpoint
 argument_list|(
 literal|"mock:myapp"
