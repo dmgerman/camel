@@ -638,6 +638,20 @@ name|this
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|original
+condition|)
+block|{
+comment|// ensure allow original is turned on
+name|routeContext
+operator|.
+name|setAllowUseOriginalMessage
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 name|String
 name|routeId
 init|=

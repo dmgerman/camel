@@ -512,10 +512,7 @@ name|isAllowUseOriginalMessage
 argument_list|()
 condition|)
 block|{
-comment|// TODO: Camel 3.0: the copy on facade strategy will help us here in the future
-comment|// TODO: optimize to only copy original message if enabled to do so in the route
 comment|// special for JmsMessage as it can cause it to loose headers later.
-comment|// This will be resolved when we get the message facade with copy on write implemented
 if|if
 condition|(
 name|exchange
@@ -593,7 +590,6 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|// TODO: Optimize to only copy if useOriginalMessage has been enabled
 comment|// mark the creation time when this Exchange was created
 if|if
 condition|(
@@ -1486,6 +1482,27 @@ name|Message
 name|getOriginalInMessage
 parameter_list|()
 block|{
+if|if
+condition|(
+name|originalInMessage
+operator|==
+literal|null
+operator|&&
+operator|!
+name|context
+operator|.
+name|isAllowUseOriginalMessage
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalStateException
+argument_list|(
+literal|"AllowUseOriginalMessage is disabled. Cannot access the original message."
+argument_list|)
+throw|;
+block|}
 return|return
 name|originalInMessage
 return|;

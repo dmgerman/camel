@@ -2527,7 +2527,7 @@ name|allowUseOriginalMessage
 init|=
 name|Boolean
 operator|.
-name|TRUE
+name|FALSE
 decl_stmt|;
 DECL|field|delay
 specifier|private
@@ -17308,22 +17308,6 @@ block|}
 block|}
 if|if
 condition|(
-name|isAllowUseOriginalMessage
-argument_list|()
-condition|)
-block|{
-name|log
-operator|.
-name|info
-argument_list|(
-literal|"AllowUseOriginalMessage is enabled. If access to the original message is not needed,"
-operator|+
-literal|" then its recommended to turn this option off as it may improve performance."
-argument_list|)
-expr_stmt|;
-block|}
-if|if
-condition|(
 name|streamCachingInUse
 condition|)
 block|{
@@ -17357,6 +17341,20 @@ argument_list|(
 literal|"StreamCaching is not in use. If using streams then its recommended to enable stream caching."
 operator|+
 literal|" See more details at http://camel.apache.org/stream-caching.html"
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|isAllowUseOriginalMessage
+argument_list|()
+condition|)
+block|{
+name|log
+operator|.
+name|info
+argument_list|(
+literal|"AllowUseOriginalMessage enabled because UseOriginalMessage is in use"
 argument_list|)
 expr_stmt|;
 block|}

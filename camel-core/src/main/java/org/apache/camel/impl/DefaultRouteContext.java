@@ -1803,13 +1803,15 @@ name|Boolean
 name|allowUseOriginalMessage
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
+comment|// can only be configured on CamelContext
+name|getCamelContext
+argument_list|()
+operator|.
+name|setAllowUseOriginalMessage
 argument_list|(
-literal|"This option can only be configured on CamelContext"
+name|allowUseOriginalMessage
 argument_list|)
-throw|;
+expr_stmt|;
 block|}
 DECL|method|isAllowUseOriginalMessage ()
 specifier|public
@@ -1817,6 +1819,7 @@ name|Boolean
 name|isAllowUseOriginalMessage
 parameter_list|()
 block|{
+comment|// can only be configured on CamelContext
 return|return
 name|getCamelContext
 argument_list|()
