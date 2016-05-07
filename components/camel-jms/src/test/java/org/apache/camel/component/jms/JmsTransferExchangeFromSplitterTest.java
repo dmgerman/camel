@@ -209,7 +209,7 @@ operator|.
 name|allMessages
 argument_list|()
 operator|.
-name|property
+name|exchangeProperty
 argument_list|(
 literal|"bar"
 argument_list|)
