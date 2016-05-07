@@ -1060,6 +1060,24 @@ comment|// must validate configuration before creating processor
 name|validateConfiguration
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|useOriginalMessagePolicy
+operator|!=
+literal|null
+operator|&&
+name|useOriginalMessagePolicy
+condition|)
+block|{
+comment|// ensure allow original is turned on
+name|routeContext
+operator|.
+name|setAllowUseOriginalMessage
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+block|}
 comment|// lets attach this on exception to the route error handler
 name|Processor
 name|child
@@ -1171,6 +1189,24 @@ argument_list|()
 operator|.
 name|getClassResolver
 argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|useOriginalMessagePolicy
+operator|!=
+literal|null
+operator|&&
+name|useOriginalMessagePolicy
+condition|)
+block|{
+comment|// ensure allow original is turned on
+name|routeContext
+operator|.
+name|setAllowUseOriginalMessage
+argument_list|(
+literal|true
 argument_list|)
 expr_stmt|;
 block|}
