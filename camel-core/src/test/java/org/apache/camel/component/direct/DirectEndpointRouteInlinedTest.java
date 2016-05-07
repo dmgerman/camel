@@ -206,7 +206,7 @@ parameter_list|)
 block|{
 name|assertEquals
 argument_list|(
-literal|"Failed to start route route2 because of Multiple consumers for the same endpoint is not allowed: Endpoint[direct://start]"
+literal|"Failed to start route route2 because of Multiple consumers for the same endpoint is not allowed: direct://start"
 argument_list|,
 name|e
 operator|.

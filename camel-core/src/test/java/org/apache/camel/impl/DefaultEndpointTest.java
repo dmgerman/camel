@@ -208,12 +208,10 @@ operator|.
 name|toString
 argument_list|()
 operator|.
-name|indexOf
+name|contains
 argument_list|(
 name|epstr
 argument_list|)
-operator|>
-literal|0
 argument_list|)
 expr_stmt|;
 block|}

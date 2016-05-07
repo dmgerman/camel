@@ -234,7 +234,7 @@ argument_list|()
 operator|.
 name|endsWith
 argument_list|(
-literal|"Multiple consumers for the same endpoint is not allowed: Endpoint[my:endpoint]"
+literal|"Multiple consumers for the same endpoint is not allowed: my:endpoint"
 argument_list|)
 argument_list|)
 expr_stmt|;

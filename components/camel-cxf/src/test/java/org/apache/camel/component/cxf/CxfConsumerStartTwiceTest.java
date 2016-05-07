@@ -217,7 +217,7 @@ argument_list|()
 operator|.
 name|endsWith
 argument_list|(
-literal|"Multiple consumers for the same endpoint is not allowed: Endpoint[cxf://http://localhost:"
+literal|"Multiple consumers for the same endpoint is not allowed: cxf://http://localhost:"
 operator|+
 name|PORT
 operator|+
@@ -229,7 +229,7 @@ operator|.
 name|getSimpleName
 argument_list|()
 operator|+
-literal|"/test?serviceClass=org.apache.camel.component.cxf.HelloService]"
+literal|"/test?serviceClass=org.apache.camel.component.cxf.HelloService"
 argument_list|)
 argument_list|)
 expr_stmt|;

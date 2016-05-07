@@ -144,7 +144,7 @@ name|assertEquals
 argument_list|(
 literal|"Failed to start route first because of Multiple consumers for the same endpoint is not allowed:"
 operator|+
-literal|" Endpoint[seda://foo?concurrentConsumers=5]"
+literal|" seda://foo?concurrentConsumers=5"
 argument_list|,
 name|e
 operator|.
@@ -222,7 +222,7 @@ name|assertEquals
 argument_list|(
 literal|"Failed to start route first because of Multiple consumers for the same endpoint is not allowed:"
 operator|+
-literal|" Endpoint[seda://foo?concurrentConsumers=5]"
+literal|" seda://foo?concurrentConsumers=5"
 argument_list|,
 name|e
 operator|.

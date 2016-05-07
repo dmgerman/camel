@@ -167,7 +167,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"statementType must be specified on: Endpoint[ibatis://selectAllAccounts]"
+literal|"statementType must be specified on: ibatis://selectAllAccounts"
 argument_list|,
 name|e
 operator|.
