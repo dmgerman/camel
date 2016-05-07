@@ -1369,23 +1369,6 @@ operator|=
 name|snmpContextEngineId
 expr_stmt|;
 block|}
-annotation|@
-name|Override
-DECL|method|toString ()
-specifier|public
-name|String
-name|toString
-parameter_list|()
-block|{
-comment|// only show address to avoid user and password details to be shown
-return|return
-literal|"SnmpEndpoint["
-operator|+
-name|address
-operator|+
-literal|"]"
-return|;
-block|}
 block|}
 end_class
 
