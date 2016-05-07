@@ -17352,7 +17352,7 @@ condition|)
 block|{
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"AllowUseOriginalMessage enabled because UseOriginalMessage is in use"
 argument_list|)
