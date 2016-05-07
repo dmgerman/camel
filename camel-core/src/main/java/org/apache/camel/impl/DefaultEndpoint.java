@@ -726,20 +726,14 @@ parameter_list|)
 block|{
 comment|// ignore any exception and use null for building the string value
 block|}
+comment|// ensure to sanitize uri so we do not show sensitive information such as passwords
 name|endpointUriToString
 operator|=
-name|String
-operator|.
-name|format
-argument_list|(
-literal|"Endpoint[%s]"
-argument_list|,
 name|URISupport
 operator|.
 name|sanitizeUri
 argument_list|(
 name|value
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
