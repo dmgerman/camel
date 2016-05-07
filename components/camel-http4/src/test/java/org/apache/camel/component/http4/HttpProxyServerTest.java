@@ -435,11 +435,7 @@ name|expectedHeaders
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|expectedHeaders
@@ -646,7 +642,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"http4://www.google.com?proxyAuthHost=myproxy&proxyAuthPort=1234"
+literal|"http4://www.google.com?proxyAuthHost=www.myproxy.com&proxyAuthPort=1234"
 argument_list|,
 name|HttpEndpoint
 operator|.
@@ -660,7 +656,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"http4://www.google.com?test=parameter&proxyAuthHost=myotherproxy&proxyAuthPort=2345"
+literal|"http4://www.google.com?test=parameter&proxyAuthHost=www.myotherproxy.com&proxyAuthPort=2345"
 argument_list|,
 name|HttpEndpoint
 operator|.
@@ -673,7 +669,7 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong endpoint uri of http1"
 argument_list|,
-literal|"http4://www.google.com?proxyAuthHost=myproxy&proxyAuthPort=1234"
+literal|"http4://www.google.com?proxyAuthHost=www.myproxy.com&proxyAuthPort=1234"
 argument_list|,
 name|URISupport
 operator|.
@@ -690,7 +686,7 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong endpoint uri of http2"
 argument_list|,
-literal|"http4://www.google.com?proxyAuthHost=myotherproxy&proxyAuthPort=2345&test=parameter"
+literal|"http4://www.google.com?proxyAuthHost=www.myotherproxy.com&proxyAuthPort=2345&test=parameter"
 argument_list|,
 name|URISupport
 operator|.
@@ -797,11 +793,13 @@ return|;
 block|}
 DECL|method|getProxyPort ()
 specifier|private
-name|int
+name|String
 name|getProxyPort
 parameter_list|()
 block|{
 return|return
+literal|""
+operator|+
 name|proxy
 operator|.
 name|getLocalPort
@@ -809,6 +807,8 @@ argument_list|()
 return|;
 block|}
 DECL|class|RequestProxyBasicAuth
+specifier|private
+specifier|static
 class|class
 name|RequestProxyBasicAuth
 implements|implements
@@ -1047,6 +1047,8 @@ block|}
 block|}
 block|}
 DECL|class|ResponseProxyBasicUnauthorized
+specifier|private
+specifier|static
 class|class
 name|ResponseProxyBasicUnauthorized
 implements|implements
