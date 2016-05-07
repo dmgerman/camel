@@ -36,7 +36,7 @@ block|,
 name|JSON
 block|,
 name|XML
-block|;  }
+block|}
 end_enum
 
 end_unit

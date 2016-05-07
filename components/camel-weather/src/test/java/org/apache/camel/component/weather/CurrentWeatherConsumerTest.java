@@ -57,18 +57,13 @@ name|debug
 argument_list|(
 literal|"The weather in {} format is {}{}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|WeatherMode
 operator|.
 name|XML
-block|,
+argument_list|,
 name|LS
-block|,
+argument_list|,
 name|weather
-block|}
 argument_list|)
 expr_stmt|;
 comment|//assertStringContains(weather, "<?xml version=\"1.0\" encoding=\"utf-8\"?>");

@@ -96,7 +96,7 @@ name|hr
 block|,
 DECL|enumConstant|ca
 name|ca
-block|; }
+block|}
 end_enum
 
 end_unit

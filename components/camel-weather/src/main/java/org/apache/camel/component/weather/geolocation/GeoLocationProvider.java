@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.weather
+DECL|package|org.apache.camel.component.weather.geolocation
 package|package
 name|org
 operator|.
@@ -15,26 +15,26 @@ operator|.
 name|component
 operator|.
 name|weather
+operator|.
+name|geolocation
 package|;
 end_package
 
-begin_comment
-comment|/**  * The possible units for temperature measurement  */
-end_comment
-
-begin_enum
-DECL|enum|WeatherUnits
+begin_interface
+DECL|interface|GeoLocationProvider
 specifier|public
-enum|enum
-name|WeatherUnits
+interface|interface
+name|GeoLocationProvider
 block|{
-DECL|enumConstant|IMPERIAL
-DECL|enumConstant|METRIC
-name|IMPERIAL
-block|,
-name|METRIC
+DECL|method|getCurrentGeoLocation ()
+name|GeoLocation
+name|getCurrentGeoLocation
+parameter_list|()
+throws|throws
+name|Exception
+function_decl|;
 block|}
-end_enum
+end_interface
 
 end_unit
 

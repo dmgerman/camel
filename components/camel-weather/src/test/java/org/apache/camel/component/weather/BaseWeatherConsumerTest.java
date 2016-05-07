@@ -121,18 +121,13 @@ name|debug
 argument_list|(
 literal|"The weather in {} format is {}{}"
 argument_list|,
-operator|new
-name|Object
-index|[]
-block|{
 name|WeatherMode
 operator|.
 name|JSON
-block|,
+argument_list|,
 name|LS
-block|,
+argument_list|,
 name|weather
-block|}
 argument_list|)
 expr_stmt|;
 name|assertStringContains

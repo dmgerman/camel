@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.weather
+DECL|package|org.apache.camel.component.weather.geolocation
 package|package
 name|org
 operator|.
@@ -15,26 +15,75 @@ operator|.
 name|component
 operator|.
 name|weather
+operator|.
+name|geolocation
 package|;
 end_package
 
-begin_comment
-comment|/**  * The possible units for temperature measurement  */
-end_comment
-
-begin_enum
-DECL|enum|WeatherUnits
+begin_class
+DECL|class|GeoLocation
 specifier|public
-enum|enum
-name|WeatherUnits
+class|class
+name|GeoLocation
 block|{
-DECL|enumConstant|IMPERIAL
-DECL|enumConstant|METRIC
-name|IMPERIAL
-block|,
-name|METRIC
+DECL|field|longitude
+specifier|private
+specifier|final
+name|String
+name|longitude
+decl_stmt|;
+DECL|field|latitude
+specifier|private
+specifier|final
+name|String
+name|latitude
+decl_stmt|;
+DECL|method|GeoLocation (String longitude, String latitude)
+specifier|public
+name|GeoLocation
+parameter_list|(
+name|String
+name|longitude
+parameter_list|,
+name|String
+name|latitude
+parameter_list|)
+block|{
+name|this
+operator|.
+name|longitude
+operator|=
+name|longitude
+expr_stmt|;
+name|this
+operator|.
+name|latitude
+operator|=
+name|latitude
+expr_stmt|;
 block|}
-end_enum
+DECL|method|getLongitude ()
+specifier|public
+name|String
+name|getLongitude
+parameter_list|()
+block|{
+return|return
+name|longitude
+return|;
+block|}
+DECL|method|getLatitude ()
+specifier|public
+name|String
+name|getLatitude
+parameter_list|()
+block|{
+return|return
+name|latitude
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 
