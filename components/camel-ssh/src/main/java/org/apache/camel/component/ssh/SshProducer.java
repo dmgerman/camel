@@ -128,11 +128,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|super
-operator|.
-name|doStart
-argument_list|()
-expr_stmt|;
 name|client
 operator|=
 name|SshClient
@@ -143,6 +138,11 @@ expr_stmt|;
 name|client
 operator|.
 name|start
+argument_list|()
+expr_stmt|;
+name|super
+operator|.
+name|doStart
 argument_list|()
 expr_stmt|;
 block|}
@@ -156,6 +156,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|client
@@ -173,11 +178,6 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Override
