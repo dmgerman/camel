@@ -656,7 +656,7 @@ name|context
 operator|.
 name|getEndpoint
 argument_list|(
-literal|"http4://www.google.com?test=parameter&proxyAuthHost=www.myotherproxy.com&proxyAuthPort=2345"
+literal|"http4://www.google.com?test=parameter&proxyAuthHost=www.otherproxy.com&proxyAuthPort=2345"
 argument_list|,
 name|HttpEndpoint
 operator|.
@@ -686,7 +686,7 @@ name|assertEquals
 argument_list|(
 literal|"Get a wrong endpoint uri of http2"
 argument_list|,
-literal|"http4://www.google.com?proxyAuthHost=www.myotherproxy.com&proxyAuthPort=2345&test=parameter"
+literal|"http4://www.google.com?proxyAuthHost=www.otherproxy.com&proxyAuthPort=2345&test=parameter"
 argument_list|,
 name|URISupport
 operator|.
