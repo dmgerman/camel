@@ -1324,7 +1324,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// Test if models list is empty or not
+comment|// BigIntegerFormatFactory if models list is empty or not
 comment|// If this is the case (correspond to an empty stream, ...)
 if|if
 condition|(

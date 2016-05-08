@@ -300,6 +300,17 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|formatFactory
+specifier|private
+specifier|final
+name|FormatFactory
+name|formatFactory
+init|=
+name|FormatFactory
+operator|.
+name|getInstance
+argument_list|()
+decl_stmt|;
 DECL|field|keyValuePairFields
 specifier|private
 name|Map
@@ -1153,7 +1164,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// Test if object exist
+comment|// BigIntegerFormatFactory if object exist
 if|if
 condition|(
 operator|!
@@ -1346,25 +1357,19 @@ literal|null
 condition|)
 block|{
 comment|// Create format object to format the field
-name|Format
-argument_list|<
-name|?
-argument_list|>
-name|format
+name|FormattingOptions
+name|formattingOptions
 init|=
-name|FormatFactory
+name|ConverterUtils
 operator|.
-name|getFormat
+name|convert
 argument_list|(
+name|keyValuePairField
+argument_list|,
 name|field
 operator|.
 name|getType
 argument_list|()
-argument_list|,
-name|getLocale
-argument_list|()
-argument_list|,
-name|keyValuePairField
 argument_list|,
 name|field
 operator|.
@@ -1374,6 +1379,22 @@ name|BindyConverter
 operator|.
 name|class
 argument_list|)
+argument_list|,
+name|getLocale
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|Format
+argument_list|<
+name|?
+argument_list|>
+name|format
+init|=
+name|formatFactory
+operator|.
+name|getFormat
+argument_list|(
+name|formattingOptions
 argument_list|)
 decl_stmt|;
 comment|// format the value of the key received
@@ -1495,7 +1516,7 @@ name|i
 operator|++
 control|)
 block|{
-comment|// Test if object exist
+comment|// BigIntegerFormatFactory if object exist
 if|if
 condition|(
 operator|(
@@ -1546,25 +1567,19 @@ name|i
 argument_list|)
 expr_stmt|;
 comment|// Create format object to format the field
-name|Format
-argument_list|<
-name|?
-argument_list|>
-name|format
+name|FormattingOptions
+name|formattingOptions
 init|=
-name|FormatFactory
+name|ConverterUtils
 operator|.
-name|getFormat
+name|convert
 argument_list|(
+name|keyValuePairField
+argument_list|,
 name|field
 operator|.
 name|getType
 argument_list|()
-argument_list|,
-name|getLocale
-argument_list|()
-argument_list|,
-name|keyValuePairField
 argument_list|,
 name|field
 operator|.
@@ -1574,6 +1589,22 @@ name|BindyConverter
 operator|.
 name|class
 argument_list|)
+argument_list|,
+name|getLocale
+argument_list|()
+argument_list|)
+decl_stmt|;
+name|Format
+argument_list|<
+name|?
+argument_list|>
+name|format
+init|=
+name|formatFactory
+operator|.
+name|getFormat
+argument_list|(
+name|formattingOptions
 argument_list|)
 decl_stmt|;
 comment|// format the value of the key received
@@ -2203,6 +2234,33 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+name|FormattingOptions
+name|formattingOptions
+init|=
+name|ConverterUtils
+operator|.
+name|convert
+argument_list|(
+name|keyValuePairField
+argument_list|,
+name|field
+operator|.
+name|getType
+argument_list|()
+argument_list|,
+name|field
+operator|.
+name|getAnnotation
+argument_list|(
+name|BindyConverter
+operator|.
+name|class
+argument_list|)
+argument_list|,
+name|getLocale
+argument_list|()
+argument_list|)
+decl_stmt|;
 name|Format
 argument_list|<
 name|Object
@@ -2215,25 +2273,11 @@ argument_list|<
 name|Object
 argument_list|>
 operator|)
-name|FormatFactory
+name|formatFactory
 operator|.
 name|getFormat
 argument_list|(
-name|type
-argument_list|,
-name|getLocale
-argument_list|()
-argument_list|,
-name|keyValuePairField
-argument_list|,
-name|field
-operator|.
-name|getAnnotation
-argument_list|(
-name|BindyConverter
-operator|.
-name|class
-argument_list|)
+name|formattingOptions
 argument_list|)
 decl_stmt|;
 comment|// Get object to be formatted
@@ -2952,7 +2996,7 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// Test if section number is not null
+comment|// BigIntegerFormatFactory if section number is not null
 name|ObjectHelper
 operator|.
 name|notNull

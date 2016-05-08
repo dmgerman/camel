@@ -207,6 +207,17 @@ argument_list|>
 argument_list|>
 argument_list|()
 decl_stmt|;
+DECL|field|formatFactory
+specifier|protected
+specifier|final
+name|FormatFactory
+name|formatFactory
+init|=
+name|FormatFactory
+operator|.
+name|getInstance
+argument_list|()
+decl_stmt|;
 DECL|field|models
 specifier|protected
 name|Set
@@ -722,7 +733,7 @@ decl_stmt|;
 name|String
 name|keyGenerated
 decl_stmt|;
-comment|// Test added for ticket - camel-2773
+comment|// BigIntegerFormatFactory added for ticket - camel-2773
 if|if
 condition|(
 operator|(

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.dataformat.bindy.format
+DECL|package|org.apache.camel.dataformat.bindy.format.factories
 package|package
 name|org
 operator|.
@@ -17,6 +17,8 @@ operator|.
 name|bindy
 operator|.
 name|format
+operator|.
+name|factories
 package|;
 end_package
 
@@ -74,7 +76,57 @@ name|dataformat
 operator|.
 name|bindy
 operator|.
+name|Format
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|FormattingOptions
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
 name|PatternFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|format
+operator|.
+name|FormatException
 import|;
 end_import
 
@@ -93,8 +145,62 @@ import|;
 end_import
 
 begin_class
-DECL|class|LocalTimePatternFormat
+DECL|class|LocalTimeFormatFactory
 specifier|public
+class|class
+name|LocalTimeFormatFactory
+extends|extends
+name|AbstractFormatFactory
+block|{
+block|{
+name|supportedClasses
+operator|.
+name|add
+parameter_list|(
+name|LocalTime
+operator|.
+name|class
+parameter_list|)
+constructor_decl|;
+block|}
+annotation|@
+name|Override
+DECL|method|build (FormattingOptions formattingOptions)
+specifier|public
+name|Format
+argument_list|<
+name|?
+argument_list|>
+name|build
+parameter_list|(
+name|FormattingOptions
+name|formattingOptions
+parameter_list|)
+block|{
+return|return
+operator|new
+name|LocalTimePatternFormat
+argument_list|(
+name|formattingOptions
+operator|.
+name|getPattern
+argument_list|()
+argument_list|,
+name|formattingOptions
+operator|.
+name|getTimezone
+argument_list|()
+argument_list|,
+name|formattingOptions
+operator|.
+name|getLocale
+argument_list|()
+argument_list|)
+return|;
+block|}
+DECL|class|LocalTimePatternFormat
+specifier|private
+specifier|static
 class|class
 name|LocalTimePatternFormat
 implements|implements
@@ -118,13 +224,7 @@ specifier|private
 name|ZoneId
 name|zone
 decl_stmt|;
-DECL|method|LocalTimePatternFormat ()
-specifier|public
-name|LocalTimePatternFormat
-parameter_list|()
-block|{     }
 DECL|method|LocalTimePatternFormat (String pattern, String timezone, Locale locale)
-specifier|public
 name|LocalTimePatternFormat
 parameter_list|(
 name|String
@@ -307,7 +407,6 @@ argument_list|()
 return|;
 block|}
 DECL|method|getDateFormat ()
-specifier|protected
 name|DateTimeFormatter
 name|getDateFormat
 parameter_list|()
@@ -370,7 +469,7 @@ return|return
 name|pattern
 return|;
 block|}
-comment|/**      * Sets the pattern      *      * @param pattern the pattern      */
+comment|/**          * Sets the pattern          *          * @param pattern the pattern          */
 DECL|method|setPattern (String pattern)
 specifier|public
 name|void
@@ -386,6 +485,7 @@ name|pattern
 operator|=
 name|pattern
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

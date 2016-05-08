@@ -307,7 +307,7 @@ name|Exception
 block|{
 name|expected
 operator|=
-literal|"10,Christian,Mueller,12-24-2013,12-26-2015,01-06-2016 12:14:49,13:15:01"
+literal|"10,Christian,Mueller,12-24-2013,12-26-2015,01-06-2016 12:14:49,13:15:01,broken"
 expr_stmt|;
 name|result
 operator|.
@@ -499,6 +499,18 @@ DECL|field|receivedTime
 specifier|private
 name|LocalTime
 name|receivedTime
+decl_stmt|;
+annotation|@
+name|DataField
+argument_list|(
+name|pos
+operator|=
+literal|8
+argument_list|)
+DECL|field|returnReason
+specifier|private
+name|ReturnReason
+name|returnReason
 decl_stmt|;
 DECL|method|getOrderNr ()
 specifier|public
@@ -730,6 +742,43 @@ operator|=
 name|receivedTime
 expr_stmt|;
 block|}
+DECL|method|getReturnReason ()
+specifier|public
+name|ReturnReason
+name|getReturnReason
+parameter_list|()
+block|{
+return|return
+name|returnReason
+return|;
+block|}
+DECL|method|setReturnReason (ReturnReason returnReason)
+specifier|public
+name|void
+name|setReturnReason
+parameter_list|(
+name|ReturnReason
+name|returnReason
+parameter_list|)
+block|{
+name|this
+operator|.
+name|returnReason
+operator|=
+name|returnReason
+expr_stmt|;
+block|}
+block|}
+DECL|enum|ReturnReason
+specifier|public
+enum|enum
+name|ReturnReason
+block|{
+DECL|enumConstant|broken
+name|broken
+block|,
+DECL|enumConstant|other
+name|other
 block|}
 block|}
 end_class
