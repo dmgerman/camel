@@ -271,7 +271,7 @@ name|testBinding
 argument_list|,
 name|endpoint1
 operator|.
-name|getBinding
+name|getHttpBinding
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -281,7 +281,7 @@ name|testBinding
 argument_list|,
 name|endpoint2
 operator|.
-name|getBinding
+name|getHttpBinding
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -437,11 +437,6 @@ block|}
 block|}
 return|;
 block|}
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"deprecation"
-argument_list|)
 DECL|class|TestHttpBinding
 specifier|private
 specifier|static
