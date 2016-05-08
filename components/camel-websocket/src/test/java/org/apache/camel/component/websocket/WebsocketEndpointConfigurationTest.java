@@ -161,11 +161,11 @@ name|Processor
 name|processor
 decl_stmt|;
 annotation|@
-name|Override
-DECL|method|setUp ()
+name|Test
+DECL|method|testSetServletInitalparameters ()
 specifier|public
 name|void
-name|setUp
+name|testSetServletInitalparameters
 parameter_list|()
 throws|throws
 name|Exception
@@ -179,22 +179,6 @@ argument_list|(
 literal|16330
 argument_list|)
 expr_stmt|;
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Test
-DECL|method|testSetServletInitalparameters ()
-specifier|public
-name|void
-name|testSetServletInitalparameters
-parameter_list|()
-throws|throws
-name|Exception
-block|{
 name|String
 name|uri
 init|=
@@ -363,6 +347,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|port
+operator|=
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|(
+literal|16331
+argument_list|)
+expr_stmt|;
 name|String
 name|uri
 init|=
@@ -510,6 +503,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|port
+operator|=
+name|AvailablePortFinder
+operator|.
+name|getNextAvailable
+argument_list|(
+literal|16332
+argument_list|)
+expr_stmt|;
 name|String
 name|uri
 init|=
