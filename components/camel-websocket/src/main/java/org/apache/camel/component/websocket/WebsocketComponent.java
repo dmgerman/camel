@@ -3605,7 +3605,7 @@ return|return
 name|minThreads
 return|;
 block|}
-comment|/**      * To set a value for minimum number of threads in server thread pool. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9.      */
+comment|/**      * To set a value for minimum number of threads in server thread pool. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9.      * The default values for minThreads is 1.      */
 DECL|method|setMinThreads (Integer minThreads)
 specifier|public
 name|void
@@ -3632,7 +3632,7 @@ return|return
 name|maxThreads
 return|;
 block|}
-comment|/**      * To set a value for maximum number of threads in server thread pool. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9.      */
+comment|/**      * To set a value for maximum number of threads in server thread pool. MaxThreads/minThreads or threadPool fields are required due to switch to Jetty9.      * The default values for maxThreads is 1 + 2 * noCores.      */
 DECL|method|setMaxThreads (Integer maxThreads)
 specifier|public
 name|void
