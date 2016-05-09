@@ -211,10 +211,7 @@ argument_list|()
 expr_stmt|;
 name|System
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|put
+name|setProperty
 argument_list|(
 literal|"java.security.policy"
 argument_list|,

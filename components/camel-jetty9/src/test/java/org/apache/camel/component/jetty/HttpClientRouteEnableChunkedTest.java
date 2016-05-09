@@ -161,10 +161,7 @@ name|Exception
 block|{
 name|System
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|put
+name|setProperty
 argument_list|(
 literal|"HTTPClient.dontChunkRequests"
 argument_list|,
@@ -308,10 +305,7 @@ expr_stmt|;
 comment|// remove the system property
 name|System
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|remove
+name|clearProperty
 argument_list|(
 literal|"HTTPClient.dontChunkRequests"
 argument_list|)

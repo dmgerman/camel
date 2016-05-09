@@ -201,9 +201,6 @@ name|defaultSystemHttpAgent
 operator|=
 name|System
 operator|.
-name|getProperties
-argument_list|()
-operator|.
 name|setProperty
 argument_list|(
 literal|"http.agent"
@@ -232,9 +229,6 @@ condition|)
 block|{
 name|System
 operator|.
-name|getProperties
-argument_list|()
-operator|.
 name|setProperty
 argument_list|(
 literal|"http.agent"
@@ -252,10 +246,7 @@ else|else
 block|{
 name|System
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|remove
+name|clearProperty
 argument_list|(
 literal|"http.agent"
 argument_list|)

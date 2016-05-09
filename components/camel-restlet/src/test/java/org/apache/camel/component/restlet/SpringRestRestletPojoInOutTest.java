@@ -132,9 +132,6 @@ argument_list|()
 expr_stmt|;
 name|System
 operator|.
-name|getProperties
-argument_list|()
-operator|.
 name|setProperty
 argument_list|(
 literal|"test.port"

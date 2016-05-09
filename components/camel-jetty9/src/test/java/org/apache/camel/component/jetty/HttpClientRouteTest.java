@@ -197,10 +197,7 @@ name|Exception
 block|{
 name|System
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|put
+name|setProperty
 argument_list|(
 literal|"HTTPClient.dontChunkRequests"
 argument_list|,

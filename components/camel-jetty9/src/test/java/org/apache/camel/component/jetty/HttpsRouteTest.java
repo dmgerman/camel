@@ -476,11 +476,11 @@ condition|)
 block|{
 name|System
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|remove
+name|clearProperty
 argument_list|(
+operator|(
+name|String
+operator|)
 name|key
 argument_list|)
 expr_stmt|;

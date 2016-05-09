@@ -174,10 +174,7 @@ argument_list|()
 expr_stmt|;
 name|System
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|remove
+name|clearProperty
 argument_list|(
 literal|"FOO"
 argument_list|)
@@ -275,10 +272,7 @@ argument_list|()
 expr_stmt|;
 name|System
 operator|.
-name|getProperties
-argument_list|()
-operator|.
-name|remove
+name|clearProperty
 argument_list|(
 literal|"FOO2"
 argument_list|)
