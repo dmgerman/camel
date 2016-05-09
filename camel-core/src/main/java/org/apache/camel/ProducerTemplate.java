@@ -336,6 +336,24 @@ name|Processor
 name|processor
 parameter_list|)
 function_decl|;
+comment|/**      * Sends an exchange to an endpoint using a supplied processor      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is<b>not</b> thrown from this method, but you can access it from the returned exchange using      * {@link org.apache.camel.Exchange#getException()}.      *      * @param endpoint  the endpoint to send the exchange to      * @param pattern   the message {@link ExchangePattern} such as      *                  {@link ExchangePattern#InOnly} or {@link ExchangePattern#InOut}      * @param processor the transformer used to populate the new exchange      * @param resultProcessor a processor to process the exchange when the send is complete.      * {@link Processor} to populate the exchange      * @return the returned exchange      */
+DECL|method|send (Endpoint endpoint, ExchangePattern pattern, Processor processor, Processor resultProcessor)
+name|Exchange
+name|send
+parameter_list|(
+name|Endpoint
+name|endpoint
+parameter_list|,
+name|ExchangePattern
+name|pattern
+parameter_list|,
+name|Processor
+name|processor
+parameter_list|,
+name|Processor
+name|resultProcessor
+parameter_list|)
+function_decl|;
 comment|/**      * Send the body to an endpoint      *<br/><br/>      *<p/><b>Notice:</b> that if the processing of the exchange failed with an Exception      * it is thrown from this method as a {@link org.apache.camel.CamelExecutionException} with      * the caused exception wrapped.      *      * @param endpoint   the endpoint to send the exchange to      * @param body       the payload      * @throws CamelExecutionException if the processing of the exchange failed      */
 DECL|method|sendBody (Endpoint endpoint, Object body)
 name|void
