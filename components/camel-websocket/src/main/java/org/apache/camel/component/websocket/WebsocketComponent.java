@@ -1956,13 +1956,25 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
-argument_list|(
-literal|"Error creating JettyWebSocketServer. MinThreads/MaxThreads or ThreadPool must be defined"
-argument_list|)
-throw|;
+name|minThreads
+operator|=
+literal|1
+expr_stmt|;
+comment|// 1+selectors+acceptors
+name|maxThreads
+operator|=
+literal|1
+operator|+
+name|Runtime
+operator|.
+name|getRuntime
+argument_list|()
+operator|.
+name|availableProcessors
+argument_list|()
+operator|*
+literal|2
+expr_stmt|;
 block|}
 comment|// configure thread pool if min/max given
 if|if

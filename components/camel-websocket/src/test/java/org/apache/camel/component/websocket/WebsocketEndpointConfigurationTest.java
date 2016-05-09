@@ -332,13 +332,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-argument_list|(
-name|expected
-operator|=
-name|RuntimeException
-operator|.
-name|class
-argument_list|)
 DECL|method|testSetServletNoMinThreadsNoMaxThreadsNoThreadPool ()
 specifier|public
 name|void

@@ -510,20 +510,8 @@ argument_list|(
 name|port
 argument_list|)
 expr_stmt|;
-name|websocketComponent
-operator|.
-name|setMaxThreads
-argument_list|(
-literal|20
-argument_list|)
-expr_stmt|;
-name|websocketComponent
-operator|.
-name|setMinThreads
-argument_list|(
-literal|1
-argument_list|)
-expr_stmt|;
+comment|//                websocketComponent.setMaxThreads(20);
+comment|//                websocketComponent.setMinThreads(1);
 name|from
 argument_list|(
 literal|"websocket://echo"
