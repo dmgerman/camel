@@ -113,7 +113,6 @@ end_import
 begin_class
 DECL|class|EhcacheProducer
 specifier|public
-specifier|final
 class|class
 name|EhcacheProducer
 extends|extends
