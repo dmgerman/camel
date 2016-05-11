@@ -338,6 +338,20 @@ name|camel
 operator|.
 name|builder
 operator|.
+name|FluentProducerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|builder
+operator|.
 name|RouteBuilder
 import|;
 end_import
@@ -738,6 +752,12 @@ specifier|volatile
 name|ProducerTemplate
 name|template
 decl_stmt|;
+DECL|field|fluentTemplate
+specifier|protected
+specifier|volatile
+name|FluentProducerTemplate
+name|fluentTemplate
+decl_stmt|;
 DECL|field|consumer
 specifier|protected
 specifier|volatile
@@ -964,6 +984,16 @@ parameter_list|()
 block|{
 return|return
 name|template
+return|;
+block|}
+DECL|method|fluentTemplate ()
+specifier|public
+name|FluentProducerTemplate
+name|fluentTemplate
+parameter_list|()
+block|{
+return|return
+name|fluentTemplate
 return|;
 block|}
 DECL|method|consumer ()
@@ -1281,6 +1311,16 @@ name|consumer
 operator|.
 name|start
 argument_list|()
+expr_stmt|;
+name|fluentTemplate
+operator|=
+name|FluentProducerTemplate
+operator|.
+name|on
+argument_list|(
+name|context
+argument_list|()
+argument_list|)
 expr_stmt|;
 name|threadTemplate
 operator|.
