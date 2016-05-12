@@ -646,9 +646,13 @@ operator|.
 name|getApiVersion
 argument_list|()
 argument_list|,
-name|PayloadFormat
+name|endpoint
 operator|.
-name|JSON
+name|getConfiguration
+argument_list|()
+operator|.
+name|getFormat
+argument_list|()
 argument_list|,
 name|component
 operator|.
