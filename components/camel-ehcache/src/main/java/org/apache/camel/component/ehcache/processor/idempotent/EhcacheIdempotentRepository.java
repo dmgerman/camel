@@ -30,6 +30,54 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedAttribute
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedOperation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|api
+operator|.
+name|management
+operator|.
+name|ManagedResource
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|IdempotentRepository
@@ -71,6 +119,13 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|ManagedResource
+argument_list|(
+name|description
+operator|=
+literal|"Ehcache based message id repository"
+argument_list|)
 DECL|class|EhcacheIdempotentRepository
 specifier|public
 class|class
@@ -83,10 +138,10 @@ argument_list|<
 name|String
 argument_list|>
 block|{
-DECL|field|repositoryName
+DECL|field|cacheName
 specifier|private
 name|String
-name|repositoryName
+name|cacheName
 decl_stmt|;
 DECL|field|cache
 specifier|private
@@ -137,7 +192,7 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|repositoryName
+name|cacheName
 operator|=
 name|repositoryName
 expr_stmt|;
@@ -149,47 +204,31 @@ name|cacheManager
 expr_stmt|;
 block|}
 annotation|@
-name|Override
-DECL|method|doStart ()
-specifier|protected
-name|void
-name|doStart
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|cache
-operator|=
-name|cacheManager
-operator|.
-name|getCache
+name|ManagedAttribute
 argument_list|(
-name|repositoryName
-argument_list|,
-name|String
-operator|.
-name|class
-argument_list|,
-name|Boolean
-operator|.
-name|class
+name|description
+operator|=
+literal|"The processor name"
 argument_list|)
-expr_stmt|;
-block|}
-annotation|@
-name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
+DECL|method|getCacheName ()
+specifier|public
+name|String
+name|getCacheName
 parameter_list|()
-throws|throws
-name|Exception
 block|{
-comment|// noop
+return|return
+name|cacheName
+return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Adds the key to the store"
+argument_list|)
 DECL|method|add (String key)
 specifier|public
 name|boolean
@@ -238,6 +277,13 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Does the store contain the given key"
+argument_list|)
 DECL|method|contains (String key)
 specifier|public
 name|boolean
@@ -260,6 +306,13 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Remove the key from the store"
+argument_list|)
 DECL|method|remove (String key)
 specifier|public
 name|boolean
@@ -282,6 +335,13 @@ return|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|ManagedOperation
+argument_list|(
+name|description
+operator|=
+literal|"Clear the store"
+argument_list|)
 DECL|method|clear ()
 specifier|public
 name|void
@@ -294,15 +354,45 @@ name|clear
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|getRepositoryName ()
-specifier|public
-name|String
-name|getRepositoryName
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
 parameter_list|()
+throws|throws
+name|Exception
 block|{
-return|return
-name|repositoryName
-return|;
+name|cache
+operator|=
+name|cacheManager
+operator|.
+name|getCache
+argument_list|(
+name|cacheName
+argument_list|,
+name|String
+operator|.
+name|class
+argument_list|,
+name|Boolean
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+comment|// noop
 block|}
 block|}
 end_class
