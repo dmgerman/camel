@@ -409,7 +409,11 @@ argument_list|(
 name|Mockito
 operator|.
 name|any
-argument_list|()
+argument_list|(
+name|ProducerRecord
+operator|.
+name|class
+argument_list|)
 argument_list|)
 argument_list|)
 operator|.
