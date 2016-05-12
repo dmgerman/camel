@@ -1201,6 +1201,21 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// propagate body
+name|String
+name|encoding
+init|=
+operator|(
+name|String
+operator|)
+name|camelExchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|CHARSET_NAME
+argument_list|)
+decl_stmt|;
 name|camelExchange
 operator|.
 name|getOut
@@ -1226,6 +1241,8 @@ name|DataFormat
 operator|.
 name|class
 argument_list|)
+argument_list|,
+name|encoding
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1899,6 +1916,21 @@ name|camelExchange
 argument_list|)
 expr_stmt|;
 comment|// set body
+name|String
+name|encoding
+init|=
+operator|(
+name|String
+operator|)
+name|camelExchange
+operator|.
+name|getProperty
+argument_list|(
+name|Exchange
+operator|.
+name|CHARSET_NAME
+argument_list|)
+decl_stmt|;
 name|Object
 name|body
 init|=
@@ -1920,6 +1952,8 @@ name|DataFormat
 operator|.
 name|class
 argument_list|)
+argument_list|,
+name|encoding
 argument_list|)
 decl_stmt|;
 if|if
@@ -4547,7 +4581,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|getContentFromCxf (Message message, DataFormat dataFormat)
+DECL|method|getContentFromCxf (Message message, DataFormat dataFormat, String encoding)
 specifier|protected
 specifier|static
 name|Object
@@ -4558,6 +4592,9 @@ name|message
 parameter_list|,
 name|DataFormat
 name|dataFormat
+parameter_list|,
+name|String
+name|encoding
 parameter_list|)
 block|{
 name|Set
@@ -4802,6 +4839,27 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|encoding
+operator|==
+literal|null
+condition|)
+block|{
+name|encoding
+operator|=
+literal|"UTF-8"
+expr_stmt|;
+block|}
+name|LOG
+operator|.
+name|trace
+argument_list|(
+literal|"file encoding is = {}"
+argument_list|,
+name|encoding
+argument_list|)
+expr_stmt|;
 name|answer
 operator|=
 operator|new
@@ -4811,6 +4869,13 @@ operator|(
 name|Reader
 operator|)
 name|answer
+argument_list|,
+name|Charset
+operator|.
+name|forName
+argument_list|(
+name|encoding
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
