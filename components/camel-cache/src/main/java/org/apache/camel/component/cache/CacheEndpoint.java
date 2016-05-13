@@ -278,6 +278,11 @@ name|config
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|cacheManagerFactory
 specifier|private
 name|CacheManagerFactory

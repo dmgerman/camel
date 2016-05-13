@@ -239,6 +239,11 @@ name|objectCache
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|eventListenerRegistry
 specifier|private
 name|CacheEventListenerRegistry
@@ -250,6 +255,11 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|cacheLoaderRegistry
 specifier|private
 name|CacheLoaderRegistry

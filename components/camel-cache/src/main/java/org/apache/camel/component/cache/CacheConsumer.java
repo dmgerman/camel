@@ -180,7 +180,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// unregisty the listenser when the consumer is stopped
+comment|// unregisty the listener when the consumer is stopped
 name|cache
 operator|.
 name|getCacheEventNotificationService
