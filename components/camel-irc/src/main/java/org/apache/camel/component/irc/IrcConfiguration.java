@@ -302,6 +302,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|usingSSL
+specifier|private
+name|boolean
+name|usingSSL
+decl_stmt|;
 DECL|field|channels
 specifier|private
 name|List
@@ -385,6 +390,13 @@ specifier|private
 name|String
 name|username
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|trustManager
 specifier|private
 name|SSLTrustManager
@@ -394,11 +406,6 @@ operator|new
 name|SSLDefaultTrustManager
 argument_list|()
 decl_stmt|;
-DECL|field|usingSSL
-specifier|private
-name|boolean
-name|usingSSL
-decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
@@ -406,6 +413,8 @@ name|defaultValue
 operator|=
 literal|"true"
 argument_list|)
+annotation|@
+name|Deprecated
 DECL|field|persistent
 specifier|private
 name|boolean
@@ -419,6 +428,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|label
+operator|=
+literal|"advanced"
 argument_list|)
 DECL|field|colors
 specifier|private
@@ -433,6 +446,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|label
+operator|=
+literal|"filter"
 argument_list|)
 DECL|field|onNick
 specifier|private
@@ -447,6 +464,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|label
+operator|=
+literal|"filter"
 argument_list|)
 DECL|field|onQuit
 specifier|private
@@ -461,6 +482,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|label
+operator|=
+literal|"filter"
 argument_list|)
 DECL|field|onJoin
 specifier|private
@@ -475,6 +500,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|label
+operator|=
+literal|"filter"
 argument_list|)
 DECL|field|onKick
 specifier|private
@@ -489,6 +518,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|label
+operator|=
+literal|"filter"
 argument_list|)
 DECL|field|onMode
 specifier|private
@@ -503,6 +536,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|label
+operator|=
+literal|"filter"
 argument_list|)
 DECL|field|onPart
 specifier|private
@@ -513,6 +550,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"filter"
+argument_list|)
 DECL|field|onReply
 specifier|private
 name|boolean
@@ -524,6 +566,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|label
+operator|=
+literal|"filter"
 argument_list|)
 DECL|field|onTopic
 specifier|private
@@ -538,6 +584,10 @@ argument_list|(
 name|defaultValue
 operator|=
 literal|"true"
+argument_list|,
+name|label
+operator|=
+literal|"filter"
 argument_list|)
 DECL|field|onPrivmsg
 specifier|private
@@ -560,19 +610,20 @@ name|autoRejoin
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Sends<code>NAMES</code> command to channel after joining it.<br>      * {@link #onReply} has to be<code>true</code> in order to process the      * result which will have the header value<code>irc.num = '353'</code>.      */
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|namesOnJoin
 specifier|private
 name|boolean
 name|namesOnJoin
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|sslContextParameters
 specifier|private
 name|SSLContextParameters
@@ -1795,6 +1846,7 @@ return|return
 name|namesOnJoin
 return|;
 block|}
+comment|/**      * Sends<code>NAMES</code> command to channel after joining it.<br>      * {@link #onReply} has to be<code>true</code> in order to process the      * result which will have the header value<code>irc.num = '353'</code>.      */
 DECL|method|setNamesOnJoin (boolean namesOnJoin)
 specifier|public
 name|void

@@ -311,6 +311,11 @@ name|task
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|entities
 specifier|private
 name|List
@@ -321,6 +326,11 @@ name|entities
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"filter"
+argument_list|)
 DECL|field|statuses
 specifier|private
 name|List

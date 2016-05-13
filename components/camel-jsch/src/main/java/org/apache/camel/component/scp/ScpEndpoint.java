@@ -171,6 +171,14 @@ argument_list|,
 name|label
 operator|=
 literal|"file"
+argument_list|,
+name|excludeProperties
+operator|=
+literal|"binary,charset,doneFileName,download,fastExistsCheck,fileExist,moveExisting,passiveMode"
+operator|+
+literal|",separator,tempFileName,tempPrefix,eagerDeleteTargetFile,keepLastModified,sendNoop"
+operator|+
+literal|",maximumReconnectAttempts,reconnectDelay,autoCreate,bufferSize,siteCommand,stepwise,throwExceptionOnConnectFailed"
 argument_list|)
 DECL|class|ScpEndpoint
 specifier|public

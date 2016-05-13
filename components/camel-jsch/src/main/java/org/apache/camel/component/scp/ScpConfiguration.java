@@ -109,6 +109,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -122,6 +126,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|knownHostsFile
 specifier|private
 name|String
@@ -129,6 +138,11 @@ name|knownHostsFile
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|privateKeyFile
 specifier|private
 name|String
@@ -136,6 +150,11 @@ name|privateKeyFile
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|)
 DECL|field|privateKeyFilePassphrase
 specifier|private
 name|String
@@ -175,6 +194,11 @@ comment|// comma separated list of ciphers.
 comment|// null means default jsch list will be used
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security,advanced"
+argument_list|)
 DECL|field|ciphers
 specifier|private
 name|String

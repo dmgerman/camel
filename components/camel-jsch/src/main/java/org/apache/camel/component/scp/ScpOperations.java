@@ -495,7 +495,6 @@ parameter_list|)
 throws|throws
 name|GenericFileOperationFailedException
 block|{
-comment|// TODO: implement
 return|return
 literal|false
 return|;
