@@ -285,6 +285,11 @@ name|defaultMethodName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|clientConfigurer
 specifier|private
 name|XmlRpcClientConfigurer
@@ -292,6 +297,11 @@ name|clientConfigurer
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|clientConfig
 specifier|private
 name|XmlRpcClientConfigImpl
