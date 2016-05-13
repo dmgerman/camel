@@ -579,6 +579,7 @@ return|return
 name|hystrixConfigurationRef
 return|;
 block|}
+comment|/**      * Refers to a Hystrix configuration to use for configuring the Hystrix EIP.      */
 DECL|method|setHystrixConfigurationRef (String hystrixConfigurationRef)
 specifier|public
 name|void
