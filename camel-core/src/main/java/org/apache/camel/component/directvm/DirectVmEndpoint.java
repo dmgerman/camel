@@ -273,7 +273,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"headerFilterStrategy"
+literal|"producer,advanced"
 argument_list|)
 DECL|field|headerFilterStrategy
 specifier|private
@@ -285,7 +285,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"propagateProperties"
+literal|"advanced"
 argument_list|,
 name|defaultValue
 operator|=
@@ -535,7 +535,7 @@ else|:
 name|headerFilterStrategy
 return|;
 block|}
-comment|/**      * Sets a {@link HeaderFilterStrategy} that will only be applied on producer endpoints (on both directions: request and response).      *<p>Default value: none.</p>      * @param headerFilterStrategy      */
+comment|/**      * Sets a {@link HeaderFilterStrategy} that will only be applied on producer endpoints (on both directions: request and response).      *<p>Default value: none.</p>      */
 DECL|method|setHeaderFilterStrategy (HeaderFilterStrategy headerFilterStrategy)
 specifier|public
 name|void
@@ -572,7 +572,7 @@ else|:
 name|propagateProperties
 return|;
 block|}
-comment|/**      * Whether to propagate or not properties from the producer side to the consumer side, and viceversa.      *<p>Default value: true.</p>      * @param propagateProperties      */
+comment|/**      * Whether to propagate or not properties from the producer side to the consumer side, and viceversa.      *<p>Default value: true.</p>      */
 DECL|method|setPropagateProperties (Boolean propagateProperties)
 specifier|public
 name|void

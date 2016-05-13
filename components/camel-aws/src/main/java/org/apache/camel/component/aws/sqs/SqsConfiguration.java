@@ -120,6 +120,11 @@ name|region
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"proxy"
+argument_list|)
 DECL|field|proxyHost
 specifier|private
 name|String
@@ -127,6 +132,11 @@ name|proxyHost
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"proxy"
+argument_list|)
 DECL|field|proxyPort
 specifier|private
 name|Integer
@@ -275,6 +285,11 @@ decl_stmt|;
 comment|// queue properties
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"queue"
+argument_list|)
 DECL|field|maximumMessageSize
 specifier|private
 name|Integer
@@ -282,6 +297,11 @@ name|maximumMessageSize
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"queue"
+argument_list|)
 DECL|field|messageRetentionPeriod
 specifier|private
 name|Integer
@@ -289,6 +309,11 @@ name|messageRetentionPeriod
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"queue"
+argument_list|)
 DECL|field|receiveMessageWaitTimeSeconds
 specifier|private
 name|Integer
@@ -296,6 +321,11 @@ name|receiveMessageWaitTimeSeconds
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"queue"
+argument_list|)
 DECL|field|policy
 specifier|private
 name|String
@@ -304,6 +334,11 @@ decl_stmt|;
 comment|// dead letter queue properties
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"queue"
+argument_list|)
 DECL|field|redrivePolicy
 specifier|private
 name|String
