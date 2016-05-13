@@ -30,6 +30,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -37,6 +49,18 @@ operator|.
 name|camel
 operator|.
 name|CamelContext
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
 import|;
 end_import
 
@@ -93,6 +117,11 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
+DECL|field|workerPool
+specifier|private
+name|ExecutorService
+name|workerPool
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> params)
@@ -159,6 +188,17 @@ name|brokers
 argument_list|)
 expr_stmt|;
 block|}
+comment|// configure component options before endpoint properties which can override from params
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|setWorkerPool
+argument_list|(
+name|workerPool
+argument_list|)
+expr_stmt|;
 name|setProperties
 argument_list|(
 name|endpoint
@@ -169,6 +209,33 @@ expr_stmt|;
 return|return
 name|endpoint
 return|;
+block|}
+DECL|method|getWorkerPool ()
+specifier|public
+name|ExecutorService
+name|getWorkerPool
+parameter_list|()
+block|{
+return|return
+name|workerPool
+return|;
+block|}
+comment|/**      * To use a shared custom worker pool for continue routing {@link Exchange} after kafka server has acknowledge      * the message that was sent to it from {@link KafkaProducer} using asynchronous non-blocking processing.      * If using this option then you must handle the lifecycle of the thread pool to shut the pool down when no longer needed.      */
+DECL|method|setWorkerPool (ExecutorService workerPool)
+specifier|public
+name|void
+name|setWorkerPool
+parameter_list|(
+name|ExecutorService
+name|workerPool
+parameter_list|)
+block|{
+name|this
+operator|.
+name|workerPool
+operator|=
+name|workerPool
+expr_stmt|;
 block|}
 block|}
 end_class
