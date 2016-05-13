@@ -548,7 +548,7 @@ name|Test
 argument_list|(
 name|expected
 operator|=
-name|CamelException
+name|Exception
 operator|.
 name|class
 argument_list|)
