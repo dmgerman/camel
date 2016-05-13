@@ -308,15 +308,44 @@ name|ID_PROPERTY
 argument_list|)
 return|;
 block|}
-annotation|@
-name|Override
 DECL|method|getUptime ()
 specifier|public
 name|String
 name|getUptime
 parameter_list|()
 block|{
-comment|// compute and log uptime
+name|long
+name|delta
+init|=
+name|getUptimeMillis
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|delta
+operator|==
+literal|0
+condition|)
+block|{
+return|return
+literal|""
+return|;
+block|}
+return|return
+name|TimeUtils
+operator|.
+name|printDuration
+argument_list|(
+name|delta
+argument_list|)
+return|;
+block|}
+DECL|method|getUptimeMillis ()
+specifier|public
+name|long
+name|getUptimeMillis
+parameter_list|()
+block|{
 if|if
 condition|(
 name|startDate
@@ -325,12 +354,10 @@ literal|null
 condition|)
 block|{
 return|return
-literal|""
+literal|0
 return|;
 block|}
-name|long
-name|delta
-init|=
+return|return
 operator|new
 name|Date
 argument_list|()
@@ -342,14 +369,6 @@ name|startDate
 operator|.
 name|getTime
 argument_list|()
-decl_stmt|;
-return|return
-name|TimeUtils
-operator|.
-name|printDuration
-argument_list|(
-name|delta
-argument_list|)
 return|;
 block|}
 DECL|method|getEndpoint ()

@@ -102,6 +102,12 @@ name|String
 name|getUptime
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the uptime in milli seconds      *      * @return the uptime in millis seconds      */
+DECL|method|getUptimeMillis ()
+name|long
+name|getUptimeMillis
+parameter_list|()
+function_decl|;
 comment|/**      * Gets the inbound {@link Consumer}      *      * @return the inbound consumer      */
 DECL|method|getConsumer ()
 name|Consumer

@@ -837,6 +837,19 @@ name|getUptime
 argument_list|()
 return|;
 block|}
+DECL|method|getUptimeMillis ()
+specifier|public
+name|long
+name|getUptimeMillis
+parameter_list|()
+block|{
+return|return
+name|route
+operator|.
+name|getUptimeMillis
+argument_list|()
+return|;
+block|}
 DECL|method|getInflightExchanges ()
 specifier|public
 name|Integer

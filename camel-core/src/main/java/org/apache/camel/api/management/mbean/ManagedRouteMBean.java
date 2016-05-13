@@ -117,11 +117,23 @@ name|ManagedAttribute
 argument_list|(
 name|description
 operator|=
-literal|"Route Uptime"
+literal|"Route Uptime [human readable text]"
 argument_list|)
 DECL|method|getUptime ()
 name|String
 name|getUptime
+parameter_list|()
+function_decl|;
+annotation|@
+name|ManagedAttribute
+argument_list|(
+name|description
+operator|=
+literal|"Route Uptime [milliseconds]"
+argument_list|)
+DECL|method|getUptimeMillis ()
+name|long
+name|getUptimeMillis
 parameter_list|()
 function_decl|;
 comment|/**      * @deprecated use {@link #getExchangesInflight()}      */

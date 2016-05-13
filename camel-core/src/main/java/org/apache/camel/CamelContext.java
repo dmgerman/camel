@@ -899,6 +899,12 @@ name|String
 name|getUptime
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the uptime in milli seconds      *      * @return the uptime in millis seconds      */
+DECL|method|getUptimeMillis ()
+name|long
+name|getUptimeMillis
+parameter_list|()
+function_decl|;
 comment|// Service Methods
 comment|//-----------------------------------------------------------------------
 comment|/**      * Adds a service to this context, which allows this context to control the lifecycle, ensuring      * the service is stopped when the context stops.      *<p/>      * The service will also have {@link CamelContext} injected if its {@link CamelContextAware}.      * The service will also be enlisted in JMX for management (if JMX is enabled).      * The service will be started, if its not already started.      *      * @param object the service      * @throws Exception can be thrown when starting the service      */
