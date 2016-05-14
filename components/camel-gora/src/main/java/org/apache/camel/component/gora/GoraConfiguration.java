@@ -160,7 +160,6 @@ specifier|private
 name|String
 name|name
 decl_stmt|;
-comment|/**      * key type      */
 annotation|@
 name|UriParam
 DECL|field|keyClass
@@ -168,15 +167,6 @@ specifier|private
 name|String
 name|keyClass
 decl_stmt|;
-comment|/**      * configuration      */
-annotation|@
-name|UriParam
-DECL|field|hadoopConfiguration
-specifier|private
-name|Configuration
-name|hadoopConfiguration
-decl_stmt|;
-comment|/**      * value type      */
 annotation|@
 name|UriParam
 DECL|field|valueClass
@@ -184,7 +174,6 @@ specifier|private
 name|String
 name|valueClass
 decl_stmt|;
-comment|/**      *  dataStore type      */
 annotation|@
 name|UriParam
 DECL|field|dataStoreClass
@@ -192,99 +181,157 @@ specifier|private
 name|String
 name|dataStoreClass
 decl_stmt|;
-comment|/** Consumer only properties! */
-comment|/**      *  Gora Query Start Time attribute      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|hadoopConfiguration
+specifier|private
+name|Configuration
+name|hadoopConfiguration
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|startTime
 specifier|private
 name|long
 name|startTime
 decl_stmt|;
-comment|/**      * Gora Query End Time attribute      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|endTime
 specifier|private
 name|long
 name|endTime
 decl_stmt|;
-comment|/**      * Gora Query Time Range From attribute      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|timeRangeFrom
 specifier|private
 name|long
 name|timeRangeFrom
 decl_stmt|;
-comment|/**      * Gora Query Key Range To attribute      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|timeRangeTo
 specifier|private
 name|long
 name|timeRangeTo
 decl_stmt|;
-comment|/**      * Gora Query Limit attribute      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|limit
 specifier|private
 name|long
 name|limit
 decl_stmt|;
-comment|/**      * Gora Query Timestamp attribute      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|timestamp
 specifier|private
 name|long
 name|timestamp
 decl_stmt|;
-comment|/**      * Gora Query Start Key attribute      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|startKey
 specifier|private
 name|Object
 name|startKey
 decl_stmt|;
-comment|/**      * Gora Query End Key attribute      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|endKey
 specifier|private
 name|Object
 name|endKey
 decl_stmt|;
-comment|/**      * Gora Query Key Range From attribute      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|keyRangeFrom
 specifier|private
 name|Object
 name|keyRangeFrom
 decl_stmt|;
-comment|/**      * Gora Query Key Range To attribute      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|keyRangeTo
 specifier|private
 name|Object
 name|keyRangeTo
 decl_stmt|;
-comment|/**      * Gora Query Fields attribute      */
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
 DECL|field|fields
 specifier|private
 name|Strings
 name|fields
 decl_stmt|;
-comment|/**      * Concurrent Consumers      *      *<b>NOTE:<b/> used only by consumer      */
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"1"
@@ -296,10 +343,13 @@ name|concurrentConsumers
 init|=
 literal|1
 decl_stmt|;
-comment|/**      * Flush on every operation      *      *<b>NOTE:<b/> used only by producer      */
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -311,7 +361,6 @@ name|flushOnEveryOperation
 init|=
 literal|true
 decl_stmt|;
-comment|/**      * Default Constructor      */
 DECL|method|GoraConfiguration ()
 specifier|public
 name|GoraConfiguration
@@ -326,7 +375,6 @@ name|Configuration
 argument_list|()
 expr_stmt|;
 block|}
-comment|/**      * Get type of the key (i.e clients)      *      * @return key class      */
 DECL|method|getKeyClass ()
 specifier|public
 name|String
@@ -337,7 +385,7 @@ return|return
 name|keyClass
 return|;
 block|}
-comment|/**      * Set type class of the key      */
+comment|/**      * The type class of the key      */
 DECL|method|setKeyClass (final String keyClass)
 specifier|public
 name|void
@@ -371,7 +419,6 @@ operator|=
 name|keyClass
 expr_stmt|;
 block|}
-comment|/**      * Get type of the value      */
 DECL|method|getValueClass ()
 specifier|public
 name|String
@@ -382,7 +429,7 @@ return|return
 name|valueClass
 return|;
 block|}
-comment|/**      * Set type of the value      */
+comment|/**      * The type of the value      */
 DECL|method|setValueClass (final String valueClass)
 specifier|public
 name|void
@@ -416,7 +463,6 @@ operator|=
 name|valueClass
 expr_stmt|;
 block|}
-comment|/**      * Get type of the dataStore      */
 DECL|method|getDataStoreClass ()
 specifier|public
 name|String
@@ -427,7 +473,7 @@ return|return
 name|dataStoreClass
 return|;
 block|}
-comment|/**      * Set type of the dataStore      */
+comment|/**      * The type of the dataStore      */
 DECL|method|setDataStoreClass (String dataStoreClass)
 specifier|public
 name|void
@@ -460,7 +506,6 @@ operator|=
 name|dataStoreClass
 expr_stmt|;
 block|}
-comment|/**      * Get Hadoop Configuration      */
 DECL|method|getHadoopConfiguration ()
 specifier|public
 name|Configuration
@@ -471,7 +516,6 @@ return|return
 name|hadoopConfiguration
 return|;
 block|}
-comment|/**      * Get Start Time      */
 DECL|method|getStartTime ()
 specifier|public
 name|long
@@ -482,7 +526,7 @@ return|return
 name|startTime
 return|;
 block|}
-comment|/**      * Set Start Time      */
+comment|/**      * The Start Time      */
 DECL|method|setStartTime (long startTime)
 specifier|public
 name|void
@@ -499,7 +543,6 @@ operator|=
 name|startTime
 expr_stmt|;
 block|}
-comment|/**      * Get End Time      */
 DECL|method|getEndTime ()
 specifier|public
 name|long
@@ -510,7 +553,7 @@ return|return
 name|endTime
 return|;
 block|}
-comment|/**      * Set End Time      */
+comment|/**      * The End Time      */
 DECL|method|setEndTime (long endTime)
 specifier|public
 name|void
@@ -527,7 +570,6 @@ operator|=
 name|endTime
 expr_stmt|;
 block|}
-comment|/**      * Get Time Range From      */
 DECL|method|getTimeRangeFrom ()
 specifier|public
 name|long
@@ -538,7 +580,7 @@ return|return
 name|timeRangeFrom
 return|;
 block|}
-comment|/**      * Set Time Range From      */
+comment|/**      * The Time Range From      */
 DECL|method|setTimeRangeFrom (long timeRangeFrom)
 specifier|public
 name|void
@@ -555,7 +597,6 @@ operator|=
 name|timeRangeFrom
 expr_stmt|;
 block|}
-comment|/**      * Get Time Range To      */
 DECL|method|getTimeRangeTo ()
 specifier|public
 name|long
@@ -566,7 +607,7 @@ return|return
 name|timeRangeTo
 return|;
 block|}
-comment|/**      * Set Time Range To      */
+comment|/**      * The Time Range To      */
 DECL|method|setTimeRangeTo (long timeRangeTo)
 specifier|public
 name|void
@@ -583,7 +624,6 @@ operator|=
 name|timeRangeTo
 expr_stmt|;
 block|}
-comment|/**      * Get Limit      */
 DECL|method|getLimit ()
 specifier|public
 name|long
@@ -594,7 +634,7 @@ return|return
 name|limit
 return|;
 block|}
-comment|/**      * Set Limit      */
+comment|/**      * The Limit      */
 DECL|method|setLimit (long limit)
 specifier|public
 name|void
@@ -611,7 +651,6 @@ operator|=
 name|limit
 expr_stmt|;
 block|}
-comment|/**      * Get Timestamp      */
 DECL|method|getTimestamp ()
 specifier|public
 name|long
@@ -622,7 +661,7 @@ return|return
 name|timestamp
 return|;
 block|}
-comment|/**      * Set Timestamp      */
+comment|/**      * The Timestamp      */
 DECL|method|setTimestamp (long timestamp)
 specifier|public
 name|void
@@ -639,7 +678,6 @@ operator|=
 name|timestamp
 expr_stmt|;
 block|}
-comment|/**      * Get Start Key      */
 DECL|method|getStartKey ()
 specifier|public
 name|Object
@@ -650,7 +688,7 @@ return|return
 name|startKey
 return|;
 block|}
-comment|/**      * Set Start Key      */
+comment|/**      * The Start Key      */
 DECL|method|setStartKey (Object startKey)
 specifier|public
 name|void
@@ -667,7 +705,6 @@ operator|=
 name|startKey
 expr_stmt|;
 block|}
-comment|/**      * Get End Key      */
 DECL|method|getEndKey ()
 specifier|public
 name|Object
@@ -678,7 +715,7 @@ return|return
 name|endKey
 return|;
 block|}
-comment|/**      * Set End Key      */
+comment|/**      * The End Key      */
 DECL|method|setEndKey (Object endKey)
 specifier|public
 name|void
@@ -695,7 +732,6 @@ operator|=
 name|endKey
 expr_stmt|;
 block|}
-comment|/**      * Get Key Range From      */
 DECL|method|getKeyRangeFrom ()
 specifier|public
 name|Object
@@ -706,7 +742,7 @@ return|return
 name|keyRangeFrom
 return|;
 block|}
-comment|/**      * Set Key Range From      */
+comment|/**      * The Key Range From      */
 DECL|method|setKeyRangeFrom (Object keyRangeFrom)
 specifier|public
 name|void
@@ -723,7 +759,6 @@ operator|=
 name|keyRangeFrom
 expr_stmt|;
 block|}
-comment|/**      * Get Key Range To      */
 DECL|method|getKeyRangeTo ()
 specifier|public
 name|Object
@@ -734,7 +769,7 @@ return|return
 name|keyRangeTo
 return|;
 block|}
-comment|/**      * Set Key Range To      */
+comment|/**      * The Key Range To      */
 DECL|method|setKeyRangeTo (Object keyRangeTo)
 specifier|public
 name|void
@@ -751,7 +786,6 @@ operator|=
 name|keyRangeTo
 expr_stmt|;
 block|}
-comment|/**      * Get Fields      */
 DECL|method|getFields ()
 specifier|public
 name|Strings
@@ -762,7 +796,7 @@ return|return
 name|fields
 return|;
 block|}
-comment|/**      * Set Fields      */
+comment|/**      * The Fields      */
 DECL|method|setFields (Strings fields)
 specifier|public
 name|void
@@ -779,7 +813,6 @@ operator|=
 name|fields
 expr_stmt|;
 block|}
-comment|/**      * Get Concurrent Consumers      */
 DECL|method|getConcurrentConsumers ()
 specifier|public
 name|int
@@ -790,7 +823,7 @@ return|return
 name|concurrentConsumers
 return|;
 block|}
-comment|/**      * Set Concurrent Consumers      */
+comment|/**      * Number of concurrent consumers      */
 DECL|method|setConcurrentConsumers (int concurrentConsumers)
 specifier|public
 name|void
@@ -807,7 +840,6 @@ operator|=
 name|concurrentConsumers
 expr_stmt|;
 block|}
-comment|/**      * Get flush on every operation      */
 DECL|method|isFlushOnEveryOperation ()
 specifier|public
 name|boolean
@@ -818,7 +850,7 @@ return|return
 name|flushOnEveryOperation
 return|;
 block|}
-comment|/**      * Set flush on every operation      */
+comment|/**      * Flush on every operation      */
 DECL|method|setFlushOnEveryOperation (boolean flushOnEveryOperation)
 specifier|public
 name|void
@@ -835,7 +867,7 @@ operator|=
 name|flushOnEveryOperation
 expr_stmt|;
 block|}
-comment|/**      * Set Hadoop Configuration      */
+comment|/**      * Hadoop Configuration      */
 DECL|method|setHadoopConfiguration (Configuration hadoopConfiguration)
 specifier|public
 name|void

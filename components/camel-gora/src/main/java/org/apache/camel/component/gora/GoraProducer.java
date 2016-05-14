@@ -277,7 +277,6 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
-comment|/**      * {@inheritDoc}      */
 annotation|@
 name|Override
 DECL|method|process (final Exchange exchange)

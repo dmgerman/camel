@@ -199,7 +199,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Implementation of Camel-Gora {@link Consumer}.  *  */
+comment|/**  * Implementation of Camel-Gora {@link Consumer}.  */
 end_comment
 
 begin_class
@@ -251,12 +251,6 @@ DECL|field|query
 specifier|private
 name|Query
 name|query
-decl_stmt|;
-comment|/**      * executor service      */
-DECL|field|executor
-specifier|private
-name|ExecutorService
-name|executor
 decl_stmt|;
 comment|/**      * Poll run      */
 DECL|field|firstRun
