@@ -338,6 +338,11 @@ literal|true
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"codec"
+argument_list|)
 DECL|field|textline
 specifier|private
 name|boolean
@@ -346,6 +351,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"codec"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"LINE"
@@ -362,6 +371,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"codec"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -376,6 +389,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"codec"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"1024"
@@ -389,6 +406,11 @@ literal|1024
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"codec"
+argument_list|)
 DECL|field|encoding
 specifier|private
 name|String
@@ -397,6 +419,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"codec"
+argument_list|,
 name|description
 operator|=
 literal|"To use a single encoder. This options is deprecated use encoders instead."
@@ -411,6 +437,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"codec"
+argument_list|,
 name|javaType
 operator|=
 literal|"java.lang.String"
@@ -433,6 +463,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"codec"
+argument_list|,
 name|description
 operator|=
 literal|"To use a single decoder. This options is deprecated use encoders instead."
@@ -447,6 +481,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"codec"
+argument_list|,
 name|javaType
 operator|=
 literal|"java.lang.String"
@@ -584,6 +622,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"codec"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
