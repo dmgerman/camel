@@ -108,7 +108,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"weather:foo?appid=9162755b2efa555823cfe0451d7fff38&lon=4&lat=52&rightLon=6&topLat=54"
+literal|"weather:foo?appid=9162755b2efa555823cfe0451d7fff38&lon=4&lat=52&mode=xml"
 argument_list|)
 operator|.
 name|to
