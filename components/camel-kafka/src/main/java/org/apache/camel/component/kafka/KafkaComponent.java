@@ -86,6 +86,11 @@ name|KafkaComponent
 extends|extends
 name|UriEndpointComponent
 block|{
+DECL|field|workerPool
+specifier|private
+name|ExecutorService
+name|workerPool
+decl_stmt|;
 DECL|method|KafkaComponent ()
 specifier|public
 name|KafkaComponent
@@ -117,11 +122,6 @@ name|class
 argument_list|)
 expr_stmt|;
 block|}
-DECL|field|workerPool
-specifier|private
-name|ExecutorService
-name|workerPool
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|createEndpoint (String uri, String remaining, Map<String, Object> params)

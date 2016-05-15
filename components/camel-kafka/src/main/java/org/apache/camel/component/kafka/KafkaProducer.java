@@ -60,18 +60,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|AsyncProcessor
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|CamelException
 import|;
 end_import
@@ -110,7 +98,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultProducer
+name|DefaultAsyncProducer
 import|;
 end_import
 
@@ -184,9 +172,7 @@ specifier|public
 class|class
 name|KafkaProducer
 extends|extends
-name|DefaultProducer
-implements|implements
-name|AsyncProcessor
+name|DefaultAsyncProducer
 block|{
 DECL|field|kafkaProducer
 specifier|private
@@ -419,6 +405,11 @@ name|endpoint
 operator|.
 name|createProducerExecutor
 argument_list|()
+expr_stmt|;
+comment|// we create a thread pool so we should also shut it down
+name|shutdownWorkerPool
+operator|=
+literal|true
 expr_stmt|;
 block|}
 block|}
@@ -700,7 +691,6 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
-comment|// Just send out the record in the sync way
 name|kafkaProducer
 operator|.
 name|send
@@ -714,6 +704,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|process (Exchange exchange, AsyncCallback callback)
 specifier|public
 name|boolean
@@ -726,7 +721,8 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-comment|// force processing synchronously using different api
+try|try
+block|{
 if|if
 condition|(
 name|endpoint
@@ -735,40 +731,14 @@ name|isSynchronous
 argument_list|()
 condition|)
 block|{
-try|try
-block|{
+comment|// force process using synchronous call on kafka
 name|process
 argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
 block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
-block|{
-name|exchange
-operator|.
-name|setException
-argument_list|(
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-name|callback
-operator|.
-name|done
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-return|return
-literal|true
-return|;
-block|}
-try|try
+else|else
 block|{
 name|ProducerRecord
 name|record
@@ -793,10 +763,11 @@ name|callback
 argument_list|)
 argument_list|)
 expr_stmt|;
-comment|// Finishing the processing in an async way
+comment|// return false to process asynchronous
 return|return
 literal|false
 return|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -804,7 +775,6 @@ name|Exception
 name|ex
 parameter_list|)
 block|{
-comment|// Just set the exception back to the client
 name|exchange
 operator|.
 name|setException
@@ -812,6 +782,7 @@ argument_list|(
 name|ex
 argument_list|)
 expr_stmt|;
+block|}
 name|callback
 operator|.
 name|done
@@ -822,7 +793,6 @@ expr_stmt|;
 return|return
 literal|true
 return|;
-block|}
 block|}
 DECL|class|KafkaProducerCallBack
 specifier|private
@@ -888,7 +858,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// Just set the exception back
 name|exchange
 operator|.
 name|setException
