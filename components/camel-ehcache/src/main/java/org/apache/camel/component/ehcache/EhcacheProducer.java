@@ -134,13 +134,13 @@ DECL|field|cache
 specifier|private
 specifier|final
 name|Cache
-argument_list|<
-name|Object
-argument_list|,
-name|Object
-argument_list|>
 name|cache
 decl_stmt|;
+annotation|@
+name|SuppressWarnings
+argument_list|(
+literal|"unchecked"
+argument_list|)
 DECL|method|EhcacheProducer (EhcacheEndpoint endpoint, EhcacheConfiguration configuration)
 specifier|public
 name|EhcacheProducer
@@ -425,9 +425,10 @@ name|getValue
 argument_list|(
 name|message
 argument_list|,
-name|Object
+name|configuration
 operator|.
-name|class
+name|getValueType
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -458,6 +459,9 @@ name|cache
 operator|.
 name|putAll
 argument_list|(
+operator|(
+name|Map
+operator|)
 name|getValue
 argument_list|(
 name|message
@@ -507,9 +511,10 @@ name|getValue
 argument_list|(
 name|message
 argument_list|,
-name|Object
+name|configuration
 operator|.
-name|class
+name|getValueType
+argument_list|()
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -749,9 +754,10 @@ name|getValue
 argument_list|(
 name|message
 argument_list|,
-name|Object
+name|configuration
 operator|.
-name|class
+name|getValueType
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|Object
@@ -824,7 +830,7 @@ comment|// Helpers
 comment|// ****************************
 DECL|method|getKey (final Message message)
 specifier|private
-name|String
+name|Object
 name|getKey
 parameter_list|(
 specifier|final
@@ -834,7 +840,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|String
+name|Object
 name|value
 init|=
 name|message
@@ -845,9 +851,10 @@ name|EhcacheConstants
 operator|.
 name|KEY
 argument_list|,
-name|String
+name|configuration
 operator|.
-name|class
+name|getKeyType
+argument_list|()
 argument_list|)
 decl_stmt|;
 if|if
@@ -895,12 +902,9 @@ return|return
 name|value
 return|;
 block|}
-DECL|method|getValue (final Message message, final Class<T> type)
+DECL|method|getValue (final Message message, final Class<?> type)
 specifier|private
-parameter_list|<
-name|T
-parameter_list|>
-name|T
+name|Object
 name|getValue
 parameter_list|(
 specifier|final
@@ -910,14 +914,14 @@ parameter_list|,
 specifier|final
 name|Class
 argument_list|<
-name|T
+name|?
 argument_list|>
 name|type
 parameter_list|)
 throws|throws
 name|Exception
 block|{
-name|T
+name|Object
 name|value
 init|=
 name|message

@@ -78,6 +78,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|ehcache
+operator|.
+name|EhcacheManager
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|IdempotentRepository
@@ -155,7 +171,7 @@ name|cache
 decl_stmt|;
 DECL|field|cacheManager
 specifier|private
-name|CacheManager
+name|EhcacheManager
 name|cacheManager
 decl_stmt|;
 DECL|method|EhcacheIdempotentRepository (CacheManager cacheManager)
@@ -200,7 +216,11 @@ name|this
 operator|.
 name|cacheManager
 operator|=
+operator|new
+name|EhcacheManager
+argument_list|(
 name|cacheManager
+argument_list|)
 expr_stmt|;
 block|}
 annotation|@
@@ -364,6 +384,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|cacheManager
+operator|.
+name|start
+argument_list|()
+expr_stmt|;
 name|cache
 operator|=
 name|cacheManager
@@ -392,7 +417,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// noop
+name|cacheManager
+operator|.
+name|stop
+argument_list|()
+expr_stmt|;
 block|}
 block|}
 end_class
