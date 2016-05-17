@@ -26,6 +26,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|EndpointInject
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Exchange
 import|;
 end_import
@@ -170,18 +182,6 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|EndpointInject
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test that show custom header filter useful to send Connection Close header  *  * @version   */
 end_comment
@@ -194,11 +194,6 @@ name|HttpProducerConnectioCloseTest
 extends|extends
 name|BaseHttpTest
 block|{
-DECL|field|localServer
-specifier|private
-name|HttpServer
-name|localServer
-decl_stmt|;
 annotation|@
 name|EndpointInject
 argument_list|(
@@ -210,6 +205,11 @@ DECL|field|mockResultEndpoint
 specifier|protected
 name|MockEndpoint
 name|mockResultEndpoint
+decl_stmt|;
+DECL|field|localServer
+specifier|private
+name|HttpServer
+name|localServer
 decl_stmt|;
 annotation|@
 name|Before
