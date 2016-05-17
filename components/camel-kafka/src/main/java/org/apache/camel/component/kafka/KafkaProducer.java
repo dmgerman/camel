@@ -672,6 +672,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
+comment|// Camel calls this method if the endpoint isSynchronous(), as the KafkaEndpoint creates a SynchronousDelegateProducer for it
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
@@ -723,23 +724,6 @@ parameter_list|)
 block|{
 try|try
 block|{
-if|if
-condition|(
-name|endpoint
-operator|.
-name|isSynchronous
-argument_list|()
-condition|)
-block|{
-comment|// force process using synchronous call on kafka
-name|process
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
 name|ProducerRecord
 name|record
 init|=
@@ -767,7 +751,6 @@ comment|// return false to process asynchronous
 return|return
 literal|false
 return|;
-block|}
 block|}
 catch|catch
 parameter_list|(
