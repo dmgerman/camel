@@ -461,11 +461,19 @@ expr_stmt|;
 block|}
 finally|finally
 block|{
+if|if
+condition|(
+name|dirContext
+operator|!=
+literal|null
+condition|)
+block|{
 name|dirContext
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|getDirContext ()
