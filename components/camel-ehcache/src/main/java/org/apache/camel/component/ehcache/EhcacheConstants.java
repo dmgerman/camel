@@ -70,7 +70,7 @@ DECL|field|EVENT_TYPE
 name|String
 name|EVENT_TYPE
 init|=
-literal|"CamelEhcacheEventValue"
+literal|"CamelEhcacheEventType"
 decl_stmt|;
 DECL|field|ACTION_CLEAR
 name|String
