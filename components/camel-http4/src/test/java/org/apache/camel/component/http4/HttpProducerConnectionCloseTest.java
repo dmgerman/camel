@@ -187,10 +187,10 @@ comment|/**  * Unit test that show custom header filter useful to send Connectio
 end_comment
 
 begin_class
-DECL|class|HttpProducerConnectioCloseTest
+DECL|class|HttpProducerConnectionCloseTest
 specifier|public
 class|class
-name|HttpProducerConnectioCloseTest
+name|HttpProducerConnectionCloseTest
 extends|extends
 name|BaseHttpTest
 block|{

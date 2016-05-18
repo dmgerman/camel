@@ -387,6 +387,25 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|description
+operator|=
+literal|"Specifies whether a Connection Close header must be added to HTTP Request. By default connectionClose is false."
+argument_list|)
+DECL|field|connectionClose
+name|boolean
+name|connectionClose
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"consumer"
 argument_list|,
 name|description
@@ -1282,6 +1301,33 @@ block|{
 return|return
 name|transferException
 return|;
+block|}
+DECL|method|isConnectionClose ()
+specifier|public
+name|boolean
+name|isConnectionClose
+parameter_list|()
+block|{
+return|return
+name|connectionClose
+return|;
+block|}
+comment|/**      * If this option is true, the producer will add a Connection Close header to HTTP Request      */
+DECL|method|setConnectionClose (boolean connectionClose)
+specifier|public
+name|void
+name|setConnectionClose
+parameter_list|(
+name|boolean
+name|connectionClose
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectionClose
+operator|=
+name|connectionClose
+expr_stmt|;
 block|}
 comment|/**      * If enabled and an Exchange failed processing on the consumer side, and if the caused Exception was send back serialized      * in the response as a application/x-java-serialized-object content type.      * On the producer side the exception will be deserialized and thrown as is, instead of the HttpOperationFailedException.      * The caused exception is required to be serialized.      *<p/>      * This is by default turned off. If you enable this then be aware that Java will deserialize the incoming      * data from the request to Java and that can be a potential security risk.      */
 DECL|method|setTransferException (boolean transferException)
