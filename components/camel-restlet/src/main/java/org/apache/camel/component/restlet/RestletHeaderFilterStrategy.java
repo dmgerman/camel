@@ -108,6 +108,17 @@ operator|.
 name|TRANSFER_ENCODING
 argument_list|)
 expr_stmt|;
+comment|//Don't add the content-length it's added automatically
+name|getOutFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+name|Exchange
+operator|.
+name|CONTENT_LENGTH
+argument_list|)
+expr_stmt|;
 name|setCaseInsensitive
 argument_list|(
 literal|true
