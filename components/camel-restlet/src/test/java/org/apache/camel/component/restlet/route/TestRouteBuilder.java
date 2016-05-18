@@ -144,7 +144,11 @@ name|getIn
 argument_list|()
 operator|.
 name|getBody
-argument_list|()
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
 operator|+
 literal|"] as an order id = "
 operator|+
