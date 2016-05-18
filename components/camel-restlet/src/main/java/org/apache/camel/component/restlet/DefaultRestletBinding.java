@@ -876,6 +876,7 @@ argument_list|,
 name|exchange
 argument_list|)
 condition|)
+block|{
 name|inMessage
 operator|.
 name|setHeader
@@ -891,6 +892,7 @@ name|getValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 else|else
