@@ -1326,6 +1326,43 @@ expr_stmt|;
 block|}
 block|}
 block|}
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"Adding close"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|isConnectionClose
+argument_list|()
+condition|)
+block|{
+name|System
+operator|.
+name|out
+operator|.
+name|println
+argument_list|(
+literal|"in If"
+argument_list|)
+expr_stmt|;
+name|httpExchange
+operator|.
+name|addRequestHeader
+argument_list|(
+literal|"Connection"
+argument_list|,
+literal|"close"
+argument_list|)
+expr_stmt|;
+block|}
 comment|//In reverse proxy applications it can be desirable for the downstream service to see the original Host header
 comment|//if this option is set, and the exchange Host header is not null, we will set it's current value on the httpExchange
 if|if
