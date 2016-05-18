@@ -1058,6 +1058,25 @@ expr_stmt|;
 block|}
 block|}
 block|}
+if|if
+condition|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|isConnectionClose
+argument_list|()
+condition|)
+block|{
+name|method
+operator|.
+name|addRequestHeader
+argument_list|(
+literal|"Connection"
+argument_list|,
+literal|"close"
+argument_list|)
+expr_stmt|;
+block|}
 comment|// lets store the result in the output message.
 try|try
 block|{
