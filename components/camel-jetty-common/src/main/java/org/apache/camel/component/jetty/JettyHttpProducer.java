@@ -1326,15 +1326,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"Adding close"
-argument_list|)
-expr_stmt|;
 if|if
 condition|(
 name|getEndpoint
@@ -1344,15 +1335,6 @@ name|isConnectionClose
 argument_list|()
 condition|)
 block|{
-name|System
-operator|.
-name|out
-operator|.
-name|println
-argument_list|(
-literal|"in If"
-argument_list|)
-expr_stmt|;
 name|httpExchange
 operator|.
 name|addRequestHeader
