@@ -431,6 +431,22 @@ name|Object
 argument_list|>
 name|clientConfigOptions
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|connectionClose
+specifier|private
+name|boolean
+name|connectionClose
+decl_stmt|;
 DECL|method|AhcEndpoint (String endpointUri, AhcComponent component, URI httpUri)
 specifier|public
 name|AhcEndpoint
@@ -879,6 +895,33 @@ operator|.
 name|clientConfigOptions
 operator|=
 name|clientConfigOptions
+expr_stmt|;
+block|}
+DECL|method|isConnectionClose ()
+specifier|public
+name|boolean
+name|isConnectionClose
+parameter_list|()
+block|{
+return|return
+name|connectionClose
+return|;
+block|}
+comment|/**      * Define if the Connection Close header has to be added to HTTP Request. This parameter is false by default      */
+DECL|method|setConnectionClose (boolean connectionClose)
+specifier|public
+name|void
+name|setConnectionClose
+parameter_list|(
+name|boolean
+name|connectionClose
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectionClose
+operator|=
+name|connectionClose
 expr_stmt|;
 block|}
 annotation|@

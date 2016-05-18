@@ -806,6 +806,24 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+if|if
+condition|(
+name|endpoint
+operator|.
+name|isConnectionClose
+argument_list|()
+condition|)
+block|{
+name|builder
+operator|.
+name|addHeader
+argument_list|(
+literal|"Connection"
+argument_list|,
+literal|"close"
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|populateBody (RequestBuilder builder, AhcEndpoint endpoint, Exchange exchange)
 specifier|protected
