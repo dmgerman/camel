@@ -74,6 +74,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|security
+operator|.
+name|InvalidParameterException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|text
 operator|.
 name|ParseException
@@ -1392,9 +1402,9 @@ name|Exception
 name|ex
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|error
+throw|throw
+operator|new
+name|InvalidParameterException
 argument_list|(
 literal|"body for "
 operator|+
@@ -1402,11 +1412,9 @@ name|MediaType
 operator|.
 name|APPLICATION_WWW_FORM
 operator|+
-literal|" must be Map<String,String> or string format like name=bob&password=secRet"
-argument_list|,
-name|ex
+literal|" request must be Map<String,String> or string format like name=bob&password=secRet"
 argument_list|)
-expr_stmt|;
+throw|;
 block|}
 block|}
 else|else
