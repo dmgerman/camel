@@ -74,16 +74,6 @@ begin_import
 import|import
 name|java
 operator|.
-name|security
-operator|.
-name|InvalidParameterException
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
 name|text
 operator|.
 name|ParseException
@@ -235,6 +225,18 @@ operator|.
 name|camel
 operator|.
 name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|RuntimeCamelException
 import|;
 end_import
 
@@ -1399,12 +1401,12 @@ block|}
 catch|catch
 parameter_list|(
 name|Exception
-name|ex
+name|e
 parameter_list|)
 block|{
 throw|throw
 operator|new
-name|InvalidParameterException
+name|RuntimeCamelException
 argument_list|(
 literal|"body for "
 operator|+
@@ -1413,6 +1415,8 @@ operator|.
 name|APPLICATION_WWW_FORM
 operator|+
 literal|" request must be Map<String,String> or string format like name=bob&password=secRet"
+argument_list|,
+name|e
 argument_list|)
 throw|;
 block|}
