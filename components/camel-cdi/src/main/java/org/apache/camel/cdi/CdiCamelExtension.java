@@ -3166,9 +3166,6 @@ name|getType
 argument_list|()
 argument_list|)
 operator|.
-name|getPackage
-argument_list|()
-operator|.
 name|getName
 argument_list|()
 operator|.
