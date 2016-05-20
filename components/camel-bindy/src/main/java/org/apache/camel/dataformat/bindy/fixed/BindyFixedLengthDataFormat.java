@@ -206,6 +206,22 @@ name|dataformat
 operator|.
 name|bindy
 operator|.
+name|FormatFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
 name|util
 operator|.
 name|ConverterUtils
@@ -1579,11 +1595,14 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createModelFactory ()
+DECL|method|createModelFactory (FormatFactory formatFactory)
 specifier|protected
 name|BindyAbstractFactory
 name|createModelFactory
-parameter_list|()
+parameter_list|(
+name|FormatFactory
+name|formatFactory
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -1597,6 +1616,13 @@ name|getClassType
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|factory
+operator|.
+name|setFormatFactory
+argument_list|(
+name|formatFactory
+argument_list|)
+expr_stmt|;
 comment|// Optionally initialize the header factory... using header model classes
 if|if
 condition|(
@@ -1617,6 +1643,15 @@ name|factory
 operator|.
 name|header
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|headerFactory
+operator|.
+name|setFormatFactory
+argument_list|(
+name|formatFactory
 argument_list|)
 expr_stmt|;
 block|}
@@ -1640,6 +1675,15 @@ name|factory
 operator|.
 name|footer
 argument_list|()
+argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|footerFactory
+operator|.
+name|setFormatFactory
+argument_list|(
+name|formatFactory
 argument_list|)
 expr_stmt|;
 block|}

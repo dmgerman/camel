@@ -177,7 +177,7 @@ argument_list|)
 decl_stmt|;
 name|assertNotNull
 argument_list|(
-literal|"The find classes should not be null "
+literal|"The findForFormattingOptions classes should not be null "
 argument_list|,
 name|classes
 argument_list|)

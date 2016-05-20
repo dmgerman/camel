@@ -94,12 +94,11 @@ name|IntegerFormatFactory
 extends|extends
 name|AbstractFormatFactory
 block|{
-DECL|field|INTEGER_FORMAT
+DECL|field|integerFormat
 specifier|private
-specifier|static
 specifier|final
 name|IntegerFormat
-name|INTEGER_FORMAT
+name|integerFormat
 init|=
 operator|new
 name|IntegerFormat
@@ -170,7 +169,7 @@ name|formattingOptions
 parameter_list|)
 block|{
 return|return
-name|INTEGER_FORMAT
+name|integerFormat
 return|;
 block|}
 DECL|class|IntegerFormat

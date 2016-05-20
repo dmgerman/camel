@@ -300,17 +300,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|formatFactory
-specifier|private
-specifier|final
-name|FormatFactory
-name|formatFactory
-init|=
-name|FormatFactory
-operator|.
-name|getInstance
-argument_list|()
-decl_stmt|;
 DECL|field|keyValuePairFields
 specifier|private
 name|Map

@@ -90,12 +90,11 @@ name|BigIntegerFormatFactory
 extends|extends
 name|AbstractFormatFactory
 block|{
-DECL|field|BIG_INTEGER_FORMAT
+DECL|field|bigIntegerFormat
 specifier|private
-specifier|static
 specifier|final
 name|BigIntegerFormat
-name|BIG_INTEGER_FORMAT
+name|bigIntegerFormat
 init|=
 operator|new
 name|BigIntegerFormat
@@ -147,7 +146,7 @@ name|formattingOptions
 parameter_list|)
 block|{
 return|return
-name|BIG_INTEGER_FORMAT
+name|bigIntegerFormat
 return|;
 block|}
 DECL|class|BigIntegerFormat

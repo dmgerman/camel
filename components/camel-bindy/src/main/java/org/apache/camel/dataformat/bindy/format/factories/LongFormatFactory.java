@@ -94,12 +94,11 @@ name|LongFormatFactory
 extends|extends
 name|AbstractFormatFactory
 block|{
-DECL|field|LONG_FORMAT
+DECL|field|longFormat
 specifier|private
-specifier|static
 specifier|final
 name|LongFormat
-name|LONG_FORMAT
+name|longFormat
 init|=
 operator|new
 name|LongFormat
@@ -170,7 +169,7 @@ name|formattingOptions
 parameter_list|)
 block|{
 return|return
-name|LONG_FORMAT
+name|longFormat
 return|;
 block|}
 DECL|class|LongFormat

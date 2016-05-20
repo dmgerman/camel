@@ -62,12 +62,11 @@ name|BooleanFormatFactory
 extends|extends
 name|AbstractFormatFactory
 block|{
-DECL|field|BOOLEAN_FORMAT
+DECL|field|booleanFormat
 specifier|private
-specifier|static
 specifier|final
 name|BooleanFormat
-name|BOOLEAN_FORMAT
+name|booleanFormat
 init|=
 operator|new
 name|BooleanFormat
@@ -108,7 +107,7 @@ name|formattingOptions
 parameter_list|)
 block|{
 return|return
-name|BOOLEAN_FORMAT
+name|booleanFormat
 return|;
 block|}
 DECL|class|BooleanFormat

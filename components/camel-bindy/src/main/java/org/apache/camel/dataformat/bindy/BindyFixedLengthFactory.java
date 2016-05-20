@@ -284,17 +284,6 @@ DECL|field|isOneToMany
 name|boolean
 name|isOneToMany
 decl_stmt|;
-DECL|field|formatFactory
-specifier|private
-specifier|final
-name|FormatFactory
-name|formatFactory
-init|=
-name|FormatFactory
-operator|.
-name|getInstance
-argument_list|()
-decl_stmt|;
 DECL|field|dataFields
 specifier|private
 name|Map

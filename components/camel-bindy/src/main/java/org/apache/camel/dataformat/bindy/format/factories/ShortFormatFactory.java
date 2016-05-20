@@ -94,12 +94,11 @@ name|ShortFormatFactory
 extends|extends
 name|AbstractFormatFactory
 block|{
-DECL|field|SHORT_FORMAT
+DECL|field|shortFormat
 specifier|private
-specifier|static
 specifier|final
 name|ShortFormat
-name|SHORT_FORMAT
+name|shortFormat
 init|=
 operator|new
 name|ShortFormat
@@ -170,7 +169,7 @@ name|formattingOptions
 parameter_list|)
 block|{
 return|return
-name|SHORT_FORMAT
+name|shortFormat
 return|;
 block|}
 DECL|class|ShortFormat

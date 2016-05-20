@@ -72,12 +72,11 @@ name|CharacterFormatFactory
 extends|extends
 name|AbstractFormatFactory
 block|{
-DECL|field|CHARACTER_FORMAT
+DECL|field|characterFormat
 specifier|private
-specifier|static
 specifier|final
 name|CharacterFormat
-name|CHARACTER_FORMAT
+name|characterFormat
 init|=
 operator|new
 name|CharacterFormat
@@ -118,7 +117,7 @@ name|formattingOptions
 parameter_list|)
 block|{
 return|return
-name|CHARACTER_FORMAT
+name|characterFormat
 return|;
 block|}
 DECL|class|CharacterFormat

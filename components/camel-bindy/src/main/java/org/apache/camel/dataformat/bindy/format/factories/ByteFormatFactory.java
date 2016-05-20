@@ -76,12 +76,11 @@ name|ByteFormatFactory
 extends|extends
 name|AbstractFormatFactory
 block|{
-DECL|field|BYTE_FORMAT
+DECL|field|byteFormat
 specifier|private
-specifier|static
 specifier|final
 name|ByteFormat
-name|BYTE_FORMAT
+name|byteFormat
 init|=
 operator|new
 name|ByteFormat
@@ -152,7 +151,7 @@ name|formattingOptions
 parameter_list|)
 block|{
 return|return
-name|BYTE_FORMAT
+name|byteFormat
 return|;
 block|}
 DECL|class|ByteFormat

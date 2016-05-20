@@ -209,14 +209,8 @@ argument_list|()
 decl_stmt|;
 DECL|field|formatFactory
 specifier|protected
-specifier|final
 name|FormatFactory
 name|formatFactory
-init|=
-name|FormatFactory
-operator|.
-name|getInstance
-argument_list|()
 decl_stmt|;
 DECL|field|models
 specifier|protected
@@ -1088,6 +1082,22 @@ operator|.
 name|locale
 operator|=
 name|locale
+expr_stmt|;
+block|}
+DECL|method|setFormatFactory (FormatFactory formatFactory)
+specifier|public
+name|void
+name|setFormatFactory
+parameter_list|(
+name|FormatFactory
+name|formatFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|formatFactory
+operator|=
+name|formatFactory
 expr_stmt|;
 block|}
 block|}
