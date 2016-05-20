@@ -122,6 +122,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Message
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Processor
 import|;
 end_import
@@ -1629,6 +1641,18 @@ argument_list|(
 name|exchange
 argument_list|)
 decl_stmt|;
+comment|// we can begin processing the file so update file headers on the Camel message
+comment|// in case it took some time to acquire read lock, and file size/timestamp has been updated since etc
+name|updateFileHeaders
+argument_list|(
+name|target
+argument_list|,
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+argument_list|)
+expr_stmt|;
 comment|// must use full name when downloading so we have the correct path
 specifier|final
 name|String
@@ -1967,6 +1991,23 @@ return|return
 literal|true
 return|;
 block|}
+comment|/**      * Updates the information on {@link Message} after we have acquired read-lock and      * can begin process the file.      *      * @param file    the file      * @param message the Camel message to update its headers      */
+DECL|method|updateFileHeaders (GenericFile<T> file, Message message)
+specifier|protected
+specifier|abstract
+name|void
+name|updateFileHeaders
+parameter_list|(
+name|GenericFile
+argument_list|<
+name|T
+argument_list|>
+name|file
+parameter_list|,
+name|Message
+name|message
+parameter_list|)
+function_decl|;
 comment|/**      * Override if required.  Files are retrieved / returns true by default      *      * @return<tt>true</tt> to retrieve files,<tt>false</tt> to skip retrieval of files.      */
 DECL|method|isRetrieveFile ()
 specifier|protected
