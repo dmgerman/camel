@@ -128,7 +128,7 @@ block|{
 comment|// fail fast
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Received exchange with empty body, skipping"
 argument_list|)
@@ -193,8 +193,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Resolved chat id is "
-operator|+
+literal|"Resolved chat id is {}"
+argument_list|,
 name|chatId
 argument_list|)
 expr_stmt|;
@@ -219,17 +219,10 @@ argument_list|()
 decl_stmt|;
 name|log
 operator|.
-name|info
-argument_list|(
-literal|"Sending text message to Telegram service"
-argument_list|)
-expr_stmt|;
-name|log
-operator|.
 name|debug
 argument_list|(
-literal|"Message being sent is: "
-operator|+
+literal|"Message being sent is: {}"
+argument_list|,
 name|message
 argument_list|)
 expr_stmt|;
@@ -237,8 +230,8 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Headers of message being sent are: "
-operator|+
+literal|"Headers of message being sent are: {}"
+argument_list|,
 name|exchange
 operator|.
 name|getIn

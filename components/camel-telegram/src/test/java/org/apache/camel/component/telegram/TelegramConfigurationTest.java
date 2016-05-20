@@ -164,14 +164,9 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-name|Long
-operator|.
-name|valueOf
-argument_list|(
 literal|2000L
-argument_list|)
 argument_list|,
-name|config
+name|endpoint
 operator|.
 name|getDelay
 argument_list|()
