@@ -1728,7 +1728,7 @@ expr_stmt|;
 block|}
 DECL|method|getRequestRequiredAcks ()
 specifier|public
-name|Integer
+name|String
 name|getRequestRequiredAcks
 parameter_list|()
 block|{
@@ -1949,12 +1949,12 @@ name|getSslCipherSuites
 argument_list|()
 return|;
 block|}
-DECL|method|setRequestRequiredAcks (Integer requestRequiredAcks)
+DECL|method|setRequestRequiredAcks (String requestRequiredAcks)
 specifier|public
 name|void
 name|setRequestRequiredAcks
 parameter_list|(
-name|Integer
+name|String
 name|requestRequiredAcks
 parameter_list|)
 block|{

@@ -737,10 +737,10 @@ literal|"1"
 argument_list|)
 DECL|field|requestRequiredAcks
 specifier|private
-name|Integer
+name|String
 name|requestRequiredAcks
 init|=
-literal|1
+literal|"1"
 decl_stmt|;
 comment|//buffer.memory
 annotation|@
@@ -3747,7 +3747,7 @@ expr_stmt|;
 block|}
 DECL|method|getRequestRequiredAcks ()
 specifier|public
-name|Integer
+name|String
 name|getRequestRequiredAcks
 parameter_list|()
 block|{
@@ -3756,12 +3756,12 @@ name|requestRequiredAcks
 return|;
 block|}
 comment|/**      * The number of acknowledgments the producer requires the leader to have received before considering a request complete.      * This controls the durability of records that are sent. The following settings are common:      * acks=0 If set to zero then the producer will not wait for any acknowledgment from the server at all.      * The record will be immediately added to the socket buffer and considered sent. No guarantee can be made that the server      * has received the record in this case, and the retries configuration will not take effect (as the client won't generally      * know of any failures). The offset given back for each record will always be set to -1.      * acks=1 This will mean the leader will write the record to its local log but will respond without awaiting full acknowledgement      * from all followers. In this case should the leader fail immediately after acknowledging the record but before the followers have      * replicated it then the record will be lost.      * acks=all This means the leader will wait for the full set of in-sync replicas to acknowledge the record. This guarantees that the      * record will not be lost as long as at least one in-sync replica remains alive. This is the strongest available guarantee.      */
-DECL|method|setRequestRequiredAcks (Integer requestRequiredAcks)
+DECL|method|setRequestRequiredAcks (String requestRequiredAcks)
 specifier|public
 name|void
 name|setRequestRequiredAcks
 parameter_list|(
-name|Integer
+name|String
 name|requestRequiredAcks
 parameter_list|)
 block|{

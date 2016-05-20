@@ -340,11 +340,7 @@ argument_list|)
 decl_stmt|;
 name|assertEquals
 argument_list|(
-operator|new
-name|Integer
-argument_list|(
-literal|0
-argument_list|)
+literal|"1"
 argument_list|,
 name|endpoint
 operator|.
@@ -1325,7 +1321,7 @@ name|put
 argument_list|(
 literal|"requestRequiredAcks"
 argument_list|,
-literal|0
+literal|"1"
 argument_list|)
 expr_stmt|;
 name|params
