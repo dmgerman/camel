@@ -174,7 +174,7 @@ name|results
 operator|.
 name|expectedMessageCount
 argument_list|(
-literal|2
+literal|3
 argument_list|)
 expr_stmt|;
 name|dataset
