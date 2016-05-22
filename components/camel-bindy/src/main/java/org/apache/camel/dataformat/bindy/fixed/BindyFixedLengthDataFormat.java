@@ -536,6 +536,16 @@ argument_list|,
 name|model
 argument_list|)
 expr_stmt|;
+name|row
+operator|.
+name|putAll
+argument_list|(
+name|createLinkedFieldsModel
+argument_list|(
+name|model
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|models
 operator|.
 name|add
