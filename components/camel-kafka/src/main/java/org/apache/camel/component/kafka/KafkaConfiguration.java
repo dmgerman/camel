@@ -731,6 +731,10 @@ name|label
 operator|=
 literal|"producer"
 argument_list|,
+name|enums
+operator|=
+literal|"0,1,all"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"1"
