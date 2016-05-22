@@ -641,9 +641,6 @@ name|cause
 argument_list|)
 throw|;
 block|}
-comment|//        if (method != null) {
-comment|//            OgnlHelper.validateMethodName(method);
-comment|//        }
 if|if
 condition|(
 name|OgnlHelper
