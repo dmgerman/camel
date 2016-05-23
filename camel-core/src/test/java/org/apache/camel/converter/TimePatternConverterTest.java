@@ -187,6 +187,37 @@ name|milliseconds
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|testSecsTimePattern ()
+specifier|public
+name|void
+name|testSecsTimePattern
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|source
+init|=
+literal|"35secs"
+decl_stmt|;
+name|long
+name|milliseconds
+init|=
+name|TimePatternConverter
+operator|.
+name|toMilliSeconds
+argument_list|(
+name|source
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|35000
+argument_list|,
+name|milliseconds
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testSecondTimePattern ()
 specifier|public
 name|void
@@ -963,6 +994,29 @@ name|String
 name|source
 init|=
 literal|"5ssegegegegqergerg"
+decl_stmt|;
+name|checkForIllegalArgument
+argument_list|(
+name|source
+argument_list|,
+literal|"Illegal characters: "
+operator|+
+name|source
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|testSsCharacters ()
+specifier|public
+name|void
+name|testSsCharacters
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|String
+name|source
+init|=
+literal|"5ss"
 decl_stmt|;
 name|checkForIllegalArgument
 argument_list|(

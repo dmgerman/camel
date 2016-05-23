@@ -85,7 +85,7 @@ specifier|final
 name|String
 name|SECONDS_REGEX_PATTERN
 init|=
-literal|"((\\d)*(\\d))s(ec(ond(s)?)?)?"
+literal|"((\\d)*(\\d))s(ec(ond)?(s)?)?"
 decl_stmt|;
 comment|/**      * Utility classes should not have a public constructor.      */
 DECL|method|TimePatternConverter ()
