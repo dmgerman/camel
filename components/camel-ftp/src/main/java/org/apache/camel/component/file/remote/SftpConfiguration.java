@@ -118,6 +118,20 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|useUserKnownHostsFile
+specifier|private
+name|boolean
+name|useUserKnownHostsFile
+init|=
+literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
 name|label
 operator|=
 literal|"security"
@@ -406,6 +420,32 @@ block|{
 return|return
 name|knownHostsUri
 return|;
+block|}
+DECL|method|isUseUserKnownHostsFile ()
+specifier|public
+name|boolean
+name|isUseUserKnownHostsFile
+parameter_list|()
+block|{
+return|return
+name|useUserKnownHostsFile
+return|;
+block|}
+DECL|method|setUseUserKnownHostsFile (boolean useUserKnownHostsFile)
+specifier|public
+name|void
+name|setUseUserKnownHostsFile
+parameter_list|(
+name|boolean
+name|useUserKnownHostsFile
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useUserKnownHostsFile
+operator|=
+name|useUserKnownHostsFile
+expr_stmt|;
 block|}
 comment|/**      * Sets the known_hosts file (loaded from classpath by default), so that the SFTP endpoint can do host key verification.      */
 DECL|method|setKnownHostsUri (String knownHostsUri)
