@@ -448,27 +448,6 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|doStop ()
-specifier|protected
-name|void
-name|doStop
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|doStop
-argument_list|()
-expr_stmt|;
-name|handlers
-operator|.
-name|clear
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
-name|Override
 DECL|method|getProcessor (Exchange exchange)
 specifier|protected
 name|Processor
