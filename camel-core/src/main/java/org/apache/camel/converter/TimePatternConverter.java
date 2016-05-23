@@ -73,7 +73,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Converter from String syntax to milli seconds.  */
+comment|/**  * Converter from String syntax to milli seconds.  * Code is copied to org.apache.camel.catalog.TimePatternConverter in camel-catalog  */
 end_comment
 
 begin_class
@@ -110,7 +110,6 @@ name|NUMBERS_ONLY_STRING_PATTERN
 init|=
 literal|"^[-]?(\\d)+$"
 decl_stmt|;
-comment|//private static final String REPLACEMENT_PATTERN = "[our|inute|econd](s)?";
 DECL|field|HOUR_REGEX_PATTERN
 specifier|private
 specifier|static
@@ -207,18 +206,6 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|//matcher = createMatcher(REPLACEMENT_PATTERN, source);
-name|LOG
-operator|.
-name|trace
-argument_list|(
-literal|"Replaced original source {} to {}"
-argument_list|,
-name|source
-argument_list|,
-name|source
-argument_list|)
-expr_stmt|;
 name|matcher
 operator|=
 name|createMatcher
