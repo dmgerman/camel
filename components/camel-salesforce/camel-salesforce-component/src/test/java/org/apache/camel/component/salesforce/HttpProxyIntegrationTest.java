@@ -228,16 +228,6 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
@@ -299,11 +289,6 @@ comment|/**  * Test HTTP proxy configuration for Salesforce component.  */
 end_comment
 
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Bug in Jetty9 causes java.lang.IllegalArgumentException: Invalid protocol login.salesforce.com"
-argument_list|)
 DECL|class|HttpProxyIntegrationTest
 specifier|public
 class|class
@@ -731,6 +716,13 @@ argument_list|)
 expr_stmt|;
 name|salesforce
 operator|.
+name|setIsHttpProxySecure
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|salesforce
+operator|.
 name|setHttpProxyUsername
 argument_list|(
 name|HTTP_PROXY_USER_NAME
@@ -751,7 +743,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"https://%s:%s"
+literal|"http://%s:%s"
 argument_list|,
 name|HTTP_PROXY_HOST
 argument_list|,
