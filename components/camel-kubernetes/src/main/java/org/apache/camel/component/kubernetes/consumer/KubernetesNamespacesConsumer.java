@@ -428,7 +428,7 @@ operator|.
 name|getKubernetesConfiguration
 argument_list|()
 operator|.
-name|getNamespaceName
+name|getNamespace
 argument_list|()
 argument_list|)
 condition|)
@@ -450,7 +450,7 @@ operator|.
 name|getKubernetesConfiguration
 argument_list|()
 operator|.
-name|getNamespaceName
+name|getNamespace
 argument_list|()
 argument_list|)
 operator|.

@@ -322,10 +322,10 @@ name|label
 operator|=
 literal|"consumer"
 argument_list|)
-DECL|field|namespaceName
+DECL|field|namespace
 specifier|private
 name|String
-name|namespaceName
+name|namespace
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -804,7 +804,36 @@ operator|=
 name|trustCerts
 expr_stmt|;
 block|}
-comment|/**      * The namespace name      */
+comment|/**      * The namespace      */
+DECL|method|getNamespace ()
+specifier|public
+name|String
+name|getNamespace
+parameter_list|()
+block|{
+return|return
+name|namespace
+return|;
+block|}
+DECL|method|setNamespace (String namespace)
+specifier|public
+name|void
+name|setNamespace
+parameter_list|(
+name|String
+name|namespace
+parameter_list|)
+block|{
+name|this
+operator|.
+name|namespace
+operator|=
+name|namespace
+expr_stmt|;
+block|}
+comment|/**      * @deprecated use {@link #getNamespace()}      */
+annotation|@
+name|Deprecated
 DECL|method|getNamespaceName ()
 specifier|public
 name|String
@@ -812,23 +841,26 @@ name|getNamespaceName
 parameter_list|()
 block|{
 return|return
-name|namespaceName
+name|getNamespace
+argument_list|()
 return|;
 block|}
-DECL|method|setNamespaceName (String namespaceName)
+comment|/**      * @deprecated use {@link #setNamespace(String)}      */
+annotation|@
+name|Deprecated
+DECL|method|setNamespaceName (String namespace)
 specifier|public
 name|void
 name|setNamespaceName
 parameter_list|(
 name|String
-name|namespaceName
+name|namespace
 parameter_list|)
 block|{
-name|this
-operator|.
-name|namespaceName
-operator|=
-name|namespaceName
+name|setNamespace
+argument_list|(
+name|namespace
+argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * The Consumer pool size      */
@@ -937,7 +969,7 @@ name|trustCerts
 operator|+
 literal|", namespaceName="
 operator|+
-name|namespaceName
+name|namespace
 operator|+
 literal|"]"
 return|;

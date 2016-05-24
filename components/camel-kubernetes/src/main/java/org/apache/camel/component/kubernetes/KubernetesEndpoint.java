@@ -74,6 +74,20 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|fabric8
+operator|.
+name|kubernetes
+operator|.
+name|client
+operator|.
+name|KubernetesClient
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -564,7 +578,8 @@ name|configuration
 decl_stmt|;
 DECL|field|client
 specifier|private
-name|DefaultKubernetesClient
+specifier|transient
+name|KubernetesClient
 name|client
 decl_stmt|;
 DECL|method|KubernetesEndpoint (String uri, KubernetesComponent component, KubernetesConfiguration config)
@@ -1006,11 +1021,19 @@ operator|.
 name|doStop
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|client
+operator|!=
+literal|null
+condition|)
+block|{
 name|client
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|createExecutor ()
 specifier|public
@@ -1040,7 +1063,7 @@ return|;
 block|}
 DECL|method|getKubernetesClient ()
 specifier|public
-name|DefaultKubernetesClient
+name|KubernetesClient
 name|getKubernetesClient
 parameter_list|()
 block|{
@@ -1061,7 +1084,7 @@ return|;
 block|}
 DECL|method|createKubernetesClient ()
 specifier|private
-name|DefaultKubernetesClient
+name|KubernetesClient
 name|createKubernetesClient
 parameter_list|()
 block|{
@@ -1077,13 +1100,6 @@ name|toString
 argument_list|()
 argument_list|)
 expr_stmt|;
-name|DefaultKubernetesClient
-name|kubeClient
-init|=
-operator|new
-name|DefaultKubernetesClient
-argument_list|()
-decl_stmt|;
 name|ConfigBuilder
 name|builder
 init|=
@@ -1418,16 +1434,12 @@ operator|.
 name|build
 argument_list|()
 decl_stmt|;
-name|kubeClient
-operator|=
+return|return
 operator|new
 name|DefaultKubernetesClient
 argument_list|(
 name|conf
 argument_list|)
-expr_stmt|;
-return|return
-name|kubeClient
 return|;
 block|}
 block|}

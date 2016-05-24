@@ -184,6 +184,10 @@ name|RouteContext
 import|;
 end_import
 
+begin_comment
+comment|/**  * Hystrix Circuit Breaker EIP  */
+end_comment
+
 begin_class
 annotation|@
 name|Metadata

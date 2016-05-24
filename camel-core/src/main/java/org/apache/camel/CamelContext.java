@@ -246,6 +246,22 @@ name|camel
 operator|.
 name|model
 operator|.
+name|remote
+operator|.
+name|ServiceCallConfigurationDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|model
+operator|.
 name|rest
 operator|.
 name|RestDefinition
@@ -1319,6 +1335,47 @@ name|RestConfiguration
 argument_list|>
 name|getRestConfigurations
 parameter_list|()
+function_decl|;
+comment|/**      * Gets the service call configuration by the given name. If no name is given and there is only one configuration      * which matches the type then this configuration is returned.      *      * @param serviceName name of service, or<tt>null</tt> to return the default configuration      * @param type implementation of the configuration such as kubernetes, ribbon etc.      * @return the configuration, or<tt>null</tt> if no configuration has been registered      */
+DECL|method|getServiceCallConfiguration (String serviceName, Class<T> type)
+parameter_list|<
+name|T
+extends|extends
+name|ServiceCallConfigurationDefinition
+parameter_list|>
+name|T
+name|getServiceCallConfiguration
+parameter_list|(
+name|String
+name|serviceName
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the default service call configuration      *      * @param configuration the configuration      */
+DECL|method|setServiceCallConfiguration (ServiceCallConfigurationDefinition configuration)
+name|void
+name|setServiceCallConfiguration
+parameter_list|(
+name|ServiceCallConfigurationDefinition
+name|configuration
+parameter_list|)
+function_decl|;
+comment|/**      * Adds the service call configuration      *      * @param serviceName name of the service      * @param configuration the configuration      */
+DECL|method|addServiceCallConfiguration (String serviceName, ServiceCallConfigurationDefinition configuration)
+name|void
+name|addServiceCallConfiguration
+parameter_list|(
+name|String
+name|serviceName
+parameter_list|,
+name|ServiceCallConfigurationDefinition
+name|configuration
+parameter_list|)
 function_decl|;
 comment|/**      * Returns the order in which the route inputs was started.      *<p/>      * The order may not be according to the startupOrder defined on the route.      * For example a route could be started manually later, or new routes added at runtime.      *      * @return a list in the order how routes was started      */
 DECL|method|getRouteStartupOrder ()

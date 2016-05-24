@@ -48,6 +48,8 @@ literal|"org.apache.camel.model.language:"
 operator|+
 literal|"org.apache.camel.model.loadbalancer:"
 operator|+
+literal|"org.apache.camel.model.remote:"
+operator|+
 literal|"org.apache.camel.model.rest"
 decl_stmt|;
 DECL|field|PLACEHOLDER_QNAME

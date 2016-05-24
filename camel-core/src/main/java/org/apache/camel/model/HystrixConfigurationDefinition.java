@@ -148,6 +148,10 @@ name|Metadata
 import|;
 end_import
 
+begin_comment
+comment|/**  * Hystrix Circuit Breaker EIP configuration  */
+end_comment
+
 begin_class
 annotation|@
 name|Metadata
