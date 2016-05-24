@@ -1758,19 +1758,6 @@ operator|.
 name|getContentType
 argument_list|()
 expr_stmt|;
-block|}
-else|else
-block|{
-comment|// Last fallback: I don't see how this can happen, but we do this
-comment|// just to be safe
-name|camelMessage
-operator|.
-name|setBody
-argument_list|(
-name|content
-argument_list|)
-expr_stmt|;
-block|}
 if|if
 condition|(
 name|contentType
@@ -1838,6 +1825,18 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+block|}
+else|else
+block|{
+comment|// If we find no body part, try to leave the message alone
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"no MIME part found"
+argument_list|)
+expr_stmt|;
 block|}
 return|return
 name|camelMessage
