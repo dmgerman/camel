@@ -107,7 +107,7 @@ block|{
 DECL|field|endpoint
 specifier|private
 specifier|final
-name|AbstractConsulEndpoint
+name|ConsulEndpoint
 name|endpoint
 decl_stmt|;
 DECL|field|configuration
@@ -132,11 +132,11 @@ specifier|private
 name|C
 name|client
 decl_stmt|;
-DECL|method|AbstractConsulProducer (AbstractConsulEndpoint endpoint, ConsulConfiguration configuration, Function<Consul, C> clientSupplier)
+DECL|method|AbstractConsulProducer (ConsulEndpoint endpoint, ConsulConfiguration configuration, Function<Consul, C> clientSupplier)
 specifier|protected
 name|AbstractConsulProducer
 parameter_list|(
-name|AbstractConsulEndpoint
+name|ConsulEndpoint
 name|endpoint
 parameter_list|,
 name|ConsulConfiguration

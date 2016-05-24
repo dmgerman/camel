@@ -125,7 +125,7 @@ block|{
 DECL|field|endpoint
 specifier|protected
 specifier|final
-name|AbstractConsulEndpoint
+name|ConsulEndpoint
 name|endpoint
 decl_stmt|;
 DECL|field|configuration
@@ -165,11 +165,11 @@ specifier|private
 name|Runnable
 name|watcher
 decl_stmt|;
-DECL|method|AbstractConsulConsumer (AbstractConsulEndpoint endpoint, ConsulConfiguration configuration, Processor processor, Function<Consul, C> clientSupplier)
+DECL|method|AbstractConsulConsumer (ConsulEndpoint endpoint, ConsulConfiguration configuration, Processor processor, Function<Consul, C> clientSupplier)
 specifier|protected
 name|AbstractConsulConsumer
 parameter_list|(
-name|AbstractConsulEndpoint
+name|ConsulEndpoint
 name|endpoint
 parameter_list|,
 name|ConsulConfiguration

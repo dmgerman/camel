@@ -491,22 +491,6 @@ name|writeTimeoutMillis
 return|;
 block|}
 comment|/**      * Write timeout for OkHttpClient      */
-DECL|method|setWritTeimeoutMillis (Long writeTimeoutMillis)
-specifier|public
-name|void
-name|setWritTeimeoutMillis
-parameter_list|(
-name|Long
-name|writeTimeoutMillis
-parameter_list|)
-block|{
-name|this
-operator|.
-name|writeTimeoutMillis
-operator|=
-name|writeTimeoutMillis
-expr_stmt|;
-block|}
 DECL|method|setWriteTimeoutMillis (Long writeTimeoutMillis)
 specifier|public
 name|void
@@ -604,7 +588,7 @@ return|return
 name|key
 return|;
 block|}
-comment|/**      * The default action. Can be overridden by CamelConsulKey      */
+comment|/**      * The default key. Can be overridden by CamelConsulKey      */
 DECL|method|setKey (String key)
 specifier|public
 name|void

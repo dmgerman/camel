@@ -96,22 +96,6 @@ name|component
 operator|.
 name|consul
 operator|.
-name|AbstractConsulEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|consul
-operator|.
 name|AbstractConsulProducer
 import|;
 end_import
@@ -148,6 +132,22 @@ name|ConsulConstants
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|consul
+operator|.
+name|ConsulEndpoint
+import|;
+end_import
+
 begin_class
 DECL|class|ConsulKeyValueProducer
 specifier|public
@@ -159,10 +159,11 @@ argument_list|<
 name|KeyValueClient
 argument_list|>
 block|{
-DECL|method|ConsulKeyValueProducer (AbstractConsulEndpoint endpoint, ConsulConfiguration configuration)
+DECL|method|ConsulKeyValueProducer (ConsulEndpoint endpoint, ConsulConfiguration configuration)
+specifier|public
 name|ConsulKeyValueProducer
 parameter_list|(
-name|AbstractConsulEndpoint
+name|ConsulEndpoint
 name|endpoint
 parameter_list|,
 name|ConsulConfiguration

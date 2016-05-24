@@ -198,6 +198,22 @@ name|ConsulConstants
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|consul
+operator|.
+name|ConsulEndpoint
+import|;
+end_import
+
 begin_class
 DECL|class|ConsulKeyValueConsumer
 specifier|public
@@ -209,11 +225,11 @@ argument_list|<
 name|KeyValueClient
 argument_list|>
 block|{
-DECL|method|ConsulKeyValueConsumer (ConsulKeyValueEndpoint endpoint, ConsulConfiguration configuration, Processor processor)
-specifier|protected
+DECL|method|ConsulKeyValueConsumer (ConsulEndpoint endpoint, ConsulConfiguration configuration, Processor processor)
+specifier|public
 name|ConsulKeyValueConsumer
 parameter_list|(
-name|ConsulKeyValueEndpoint
+name|ConsulEndpoint
 name|endpoint
 parameter_list|,
 name|ConsulConfiguration
@@ -497,6 +513,17 @@ name|getModifyIndex
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|value
+operator|.
+name|getSession
+argument_list|()
+operator|.
+name|isPresent
+argument_list|()
+condition|)
+block|{
 name|message
 operator|.
 name|setHeader
@@ -510,10 +537,11 @@ operator|.
 name|getSession
 argument_list|()
 operator|.
-name|orNull
+name|get
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 name|message
 operator|.
 name|setBody

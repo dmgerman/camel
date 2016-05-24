@@ -96,22 +96,6 @@ name|component
 operator|.
 name|consul
 operator|.
-name|AbstractConsulEndpoint
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|consul
-operator|.
 name|AbstractConsulProducer
 import|;
 end_import
@@ -132,6 +116,22 @@ name|ConsulConfiguration
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|consul
+operator|.
+name|ConsulEndpoint
+import|;
+end_import
+
 begin_class
 DECL|class|ConsulEventProducer
 specifier|public
@@ -143,10 +143,11 @@ argument_list|<
 name|EventClient
 argument_list|>
 block|{
-DECL|method|ConsulEventProducer (AbstractConsulEndpoint endpoint, ConsulConfiguration configuration)
+DECL|method|ConsulEventProducer (ConsulEndpoint endpoint, ConsulConfiguration configuration)
+specifier|public
 name|ConsulEventProducer
 parameter_list|(
-name|AbstractConsulEndpoint
+name|ConsulEndpoint
 name|endpoint
 parameter_list|,
 name|ConsulConfiguration
