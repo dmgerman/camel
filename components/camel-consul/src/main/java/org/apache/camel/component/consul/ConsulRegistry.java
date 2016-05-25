@@ -122,22 +122,6 @@ name|apache
 operator|.
 name|commons
 operator|.
-name|codec
-operator|.
-name|binary
-operator|.
-name|Base64
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|commons
-operator|.
 name|lang
 operator|.
 name|SerializationUtils
@@ -150,9 +134,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|log4j
+name|commons
 operator|.
-name|Logger
+name|codec
+operator|.
+name|binary
+operator|.
+name|Base64
 import|;
 end_import
 
@@ -276,22 +264,6 @@ name|ConsulRegistry
 implements|implements
 name|Registry
 block|{
-DECL|field|logger
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|logger
-init|=
-name|Logger
-operator|.
-name|getLogger
-argument_list|(
-name|ConsulRegistry
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|field|hostname
 specifier|private
 name|String
@@ -360,19 +332,6 @@ name|port
 operator|=
 name|port
 expr_stmt|;
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"get consul client for: "
-operator|+
-name|hostname
-operator|+
-literal|":"
-operator|+
-name|port
-argument_list|)
-expr_stmt|;
 name|HostAndPort
 name|hostAndPort
 init|=
@@ -428,19 +387,6 @@ name|builder
 operator|.
 name|port
 expr_stmt|;
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"get consul client for: "
-operator|+
-name|hostname
-operator|+
-literal|":"
-operator|+
-name|port
-argument_list|)
-expr_stmt|;
 name|HostAndPort
 name|hostAndPort
 init|=
@@ -494,15 +440,6 @@ argument_list|,
 literal|"/"
 argument_list|)
 expr_stmt|;
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"lookup by name: "
-operator|+
-name|key
-argument_list|)
-expr_stmt|;
 name|kvClient
 operator|=
 name|consul
@@ -545,15 +482,6 @@ name|get
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"got result: "
-operator|+
-name|postDecodedValue
-argument_list|)
-expr_stmt|;
 return|return
 name|SerializationUtils
 operator|.
@@ -587,19 +515,6 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"lookup by name: "
-operator|+
-name|name
-operator|+
-literal|" and type: "
-operator|+
-name|type
-argument_list|)
-expr_stmt|;
 name|Object
 name|object
 init|=
@@ -694,15 +609,6 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"find by type with name: "
-operator|+
-name|type
-argument_list|)
-expr_stmt|;
 name|Object
 name|obj
 init|=
@@ -741,15 +647,6 @@ argument_list|,
 literal|"/"
 argument_list|)
 decl_stmt|;
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"keyPrefix: "
-operator|+
-name|keyPrefix
-argument_list|)
-expr_stmt|;
 name|kvClient
 operator|=
 name|consul
@@ -901,15 +798,6 @@ argument_list|,
 literal|"/"
 argument_list|)
 decl_stmt|;
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"find by type using keyPrefix: "
-operator|+
-name|keyPrefix
-argument_list|)
-expr_stmt|;
 name|Object
 name|object
 init|=
@@ -954,13 +842,6 @@ name|ConsulException
 name|e
 parameter_list|)
 block|{
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"no keys found"
-argument_list|)
-expr_stmt|;
 return|return
 name|result
 return|;
@@ -997,15 +878,6 @@ argument_list|)
 operator|+
 literal|1
 operator|)
-argument_list|)
-expr_stmt|;
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"now going for key :"
-operator|+
-name|key
 argument_list|)
 expr_stmt|;
 name|object
@@ -1370,19 +1242,6 @@ name|preEncodedValue
 argument_list|)
 decl_stmt|;
 comment|// store the actual class
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"store value: "
-operator|+
-name|value
-operator|+
-literal|" ,under key: "
-operator|+
-name|key
-argument_list|)
-expr_stmt|;
 name|kvClient
 operator|.
 name|putValue
@@ -1393,36 +1252,6 @@ name|value
 argument_list|)
 expr_stmt|;
 comment|// store just as a bookmark
-name|logger
-operator|.
-name|debug
-argument_list|(
-literal|"store bookmark: "
-operator|+
-literal|1
-operator|+
-literal|" ,under key: "
-operator|+
-name|object
-operator|.
-name|getClass
-argument_list|()
-operator|.
-name|getName
-argument_list|()
-operator|.
-name|replaceAll
-argument_list|(
-literal|"\\$"
-argument_list|,
-literal|"/"
-argument_list|)
-operator|+
-literal|"/"
-operator|+
-name|key
-argument_list|)
-expr_stmt|;
 name|kvClient
 operator|.
 name|putValue
