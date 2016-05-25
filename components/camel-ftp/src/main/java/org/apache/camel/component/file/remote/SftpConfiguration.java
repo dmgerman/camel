@@ -118,6 +118,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
 name|defaultValue
 operator|=
 literal|"true"
@@ -431,6 +435,7 @@ return|return
 name|useUserKnownHostsFile
 return|;
 block|}
+comment|/**      * If knownHostFile has not been explicit configured then use the host file from System.getProperty(user.home)/.ssh/known_hosts      */
 DECL|method|setUseUserKnownHostsFile (boolean useUserKnownHostsFile)
 specifier|public
 name|void

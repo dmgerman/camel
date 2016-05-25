@@ -1851,8 +1851,8 @@ name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Known host file not configured, using user known host file: "
-operator|+
+literal|"Known host file not configured, using user known host file: {}"
+argument_list|,
 name|knownHostsFile
 argument_list|)
 expr_stmt|;
