@@ -1087,9 +1087,7 @@ name|weatherConfiguration
 operator|.
 name|setIds
 argument_list|(
-literal|"524901"
-argument_list|,
-literal|"703448"
+literal|"524901,703448"
 argument_list|)
 expr_stmt|;
 name|weatherConfiguration

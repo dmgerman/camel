@@ -214,24 +214,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|weather
-operator|.
-name|WeatherUnits
-operator|.
-name|METRIC
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -397,6 +379,11 @@ name|zip
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|javaType
+operator|=
+literal|"java.lang.String"
+argument_list|)
 DECL|field|ids
 specifier|private
 name|List
@@ -1263,10 +1250,11 @@ operator|)
 name|ids
 return|;
 block|}
-DECL|method|addId (String id)
+comment|/**      * List of id's of city/stations. You can separate multiple ids by comma.      */
+DECL|method|setIds (String id)
 specifier|public
 name|void
-name|addId
+name|setIds
 parameter_list|(
 name|String
 name|id
@@ -1287,28 +1275,6 @@ argument_list|<>
 argument_list|()
 expr_stmt|;
 block|}
-name|ids
-operator|.
-name|add
-argument_list|(
-name|id
-argument_list|)
-expr_stmt|;
-block|}
-comment|/**      * List of id's of city/stations      */
-DECL|method|setIds (String id, String... ids)
-specifier|public
-name|void
-name|setIds
-parameter_list|(
-name|String
-name|id
-parameter_list|,
-name|String
-modifier|...
-name|ids
-parameter_list|)
-block|{
 name|Iterator
 argument_list|<
 name|?
@@ -1341,25 +1307,15 @@ operator|.
 name|next
 argument_list|()
 decl_stmt|;
-name|addId
+name|ids
+operator|.
+name|add
 argument_list|(
 name|myId
 argument_list|)
 expr_stmt|;
 block|}
-name|this
-operator|.
-name|ids
-operator|=
-name|Arrays
-operator|.
-name|asList
-argument_list|(
-name|ids
-argument_list|)
-expr_stmt|;
 block|}
-comment|/**      * List of id's of city/stations      */
 DECL|method|setIds (List<String> ids)
 specifier|public
 name|void
@@ -1416,7 +1372,7 @@ return|return
 name|weatherApi
 return|;
 block|}
-comment|/**      * The API to be use (current, forecast/3 hour, forecast daily, station      */
+comment|/**      * The API to be use (current, forecast/3 hour, forecast daily, station)      */
 DECL|method|setWeatherApi (WeatherApi weatherApi)
 specifier|public
 name|void
