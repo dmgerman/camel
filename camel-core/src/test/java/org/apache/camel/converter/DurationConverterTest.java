@@ -28,26 +28,6 @@ end_import
 
 begin_import
 import|import
-name|java
-operator|.
-name|util
-operator|.
-name|Date
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
-name|TimeZone
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -187,6 +167,11 @@ operator|.
 name|class
 argument_list|,
 name|duration
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should throw exception"
 argument_list|)
 expr_stmt|;
 block|}
