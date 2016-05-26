@@ -278,6 +278,8 @@ operator|.
 name|send
 argument_list|(
 name|testQueueEndpointA
+operator|+
+literal|"?includeAllJMSXProperties=false"
 argument_list|,
 name|ExchangePattern
 operator|.
@@ -639,7 +641,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// should be filtered by default
-name|assertNull
+name|assertNotNull
 argument_list|(
 name|message
 operator|.

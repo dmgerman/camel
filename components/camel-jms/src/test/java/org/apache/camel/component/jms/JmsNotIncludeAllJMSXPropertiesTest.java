@@ -171,7 +171,7 @@ name|expectedHeaderReceived
 argument_list|(
 literal|"JMSXUserID"
 argument_list|,
-literal|null
+literal|"Donald"
 argument_list|)
 expr_stmt|;
 name|getMockEndpoint

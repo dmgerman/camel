@@ -82,7 +82,7 @@ parameter_list|()
 block|{
 comment|// ignore provider specified JMS extension headers see page 39 of JMS 1.1 specification
 comment|// added "JMSXRecvTimestamp" as a workaround for an Oracle bug/typo in AqjmsMessage
-name|getOutFilter
+name|getInFilter
 argument_list|()
 operator|.
 name|add
@@ -90,7 +90,15 @@ argument_list|(
 literal|"JMSXUserID"
 argument_list|)
 expr_stmt|;
-name|getOutFilter
+name|getInFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"JMSXGroupID"
+argument_list|)
+expr_stmt|;
+name|getInFilter
 argument_list|()
 operator|.
 name|add
@@ -98,7 +106,7 @@ argument_list|(
 literal|"JMSXAppID"
 argument_list|)
 expr_stmt|;
-name|getOutFilter
+name|getInFilter
 argument_list|()
 operator|.
 name|add
@@ -106,7 +114,7 @@ argument_list|(
 literal|"JMSXDeliveryCount"
 argument_list|)
 expr_stmt|;
-name|getOutFilter
+name|getInFilter
 argument_list|()
 operator|.
 name|add
@@ -114,7 +122,7 @@ argument_list|(
 literal|"JMSXProducerTXID"
 argument_list|)
 expr_stmt|;
-name|getOutFilter
+name|getInFilter
 argument_list|()
 operator|.
 name|add
@@ -122,7 +130,7 @@ argument_list|(
 literal|"JMSXConsumerTXID"
 argument_list|)
 expr_stmt|;
-name|getOutFilter
+name|getInFilter
 argument_list|()
 operator|.
 name|add
@@ -130,7 +138,7 @@ argument_list|(
 literal|"JMSXRcvTimestamp"
 argument_list|)
 expr_stmt|;
-name|getOutFilter
+name|getInFilter
 argument_list|()
 operator|.
 name|add
@@ -138,12 +146,20 @@ argument_list|(
 literal|"JMSXRecvTimestamp"
 argument_list|)
 expr_stmt|;
-name|getOutFilter
+name|getInFilter
 argument_list|()
 operator|.
 name|add
 argument_list|(
 literal|"JMSXState"
+argument_list|)
+expr_stmt|;
+name|getInFilter
+argument_list|()
+operator|.
+name|add
+argument_list|(
+literal|"JMSXGroupSeq"
 argument_list|)
 expr_stmt|;
 block|}
