@@ -467,6 +467,28 @@ operator|)
 name|serviceCallConfiguration
 return|;
 block|}
+comment|/**      * Configures the Service Call EIP using Consul      *<p/>      * Use<tt>end</tt> when configuration is complete, to return back to the Service Call EIP.      */
+DECL|method|consulConfiguration ()
+specifier|public
+name|ConsulConfigurationDefinition
+name|consulConfiguration
+parameter_list|()
+block|{
+name|serviceCallConfiguration
+operator|=
+operator|new
+name|ConsulConfigurationDefinition
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|ConsulConfigurationDefinition
+operator|)
+name|serviceCallConfiguration
+return|;
+block|}
 comment|/**      * Configures the ServiceCall using the given configuration      */
 DECL|method|serviceCallConfiguration (ServiceCallConfigurationDefinition configuration)
 specifier|public

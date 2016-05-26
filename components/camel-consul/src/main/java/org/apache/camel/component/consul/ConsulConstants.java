@@ -24,6 +24,19 @@ specifier|public
 interface|interface
 name|ConsulConstants
 block|{
+comment|// Service Call EIP
+DECL|field|CONSUL_SERVER_IP
+name|String
+name|CONSUL_SERVER_IP
+init|=
+literal|"CamelConsulServerIp"
+decl_stmt|;
+DECL|field|CONSUL_SERVER_PORT
+name|String
+name|CONSUL_SERVER_PORT
+init|=
+literal|"CamelConsulServerPort"
+decl_stmt|;
 DECL|field|CONSUL_ACTION
 name|String
 name|CONSUL_ACTION

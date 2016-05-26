@@ -267,7 +267,10 @@ name|configuration
 init|=
 operator|new
 name|ConsulConfiguration
+argument_list|(
+name|getCamelContext
 argument_list|()
+argument_list|)
 decl_stmt|;
 name|setProperties
 argument_list|(
