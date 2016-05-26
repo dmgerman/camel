@@ -122,6 +122,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|xml
+operator|.
+name|sax
+operator|.
+name|EntityResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -647,6 +659,18 @@ DECL|field|deleteOutputFile
 specifier|private
 name|boolean
 name|deleteOutputFile
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|entityResolver
+specifier|private
+name|EntityResolver
+name|entityResolver
 decl_stmt|;
 annotation|@
 name|Deprecated
@@ -1372,6 +1396,33 @@ operator|=
 name|deleteOutputFile
 expr_stmt|;
 block|}
+DECL|method|getEntityResolver ()
+specifier|public
+name|EntityResolver
+name|getEntityResolver
+parameter_list|()
+block|{
+return|return
+name|entityResolver
+return|;
+block|}
+comment|/**      * To use a custom org.xml.sax.EntityResolver with javax.xml.transform.sax.SAXSource.      */
+DECL|method|setEntityResolver (EntityResolver entityResolver)
+specifier|public
+name|void
+name|setEntityResolver
+parameter_list|(
+name|EntityResolver
+name|entityResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|entityResolver
+operator|=
+name|entityResolver
+expr_stmt|;
+block|}
 DECL|method|getParameters ()
 specifier|public
 name|Map
@@ -1732,6 +1783,13 @@ operator|.
 name|setUriResolver
 argument_list|(
 name|uriResolver
+argument_list|)
+expr_stmt|;
+name|xslt
+operator|.
+name|setEntityResolver
+argument_list|(
+name|entityResolver
 argument_list|)
 expr_stmt|;
 name|xslt

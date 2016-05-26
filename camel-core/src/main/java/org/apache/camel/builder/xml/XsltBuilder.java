@@ -292,6 +292,18 @@ begin_import
 import|import
 name|org
 operator|.
+name|xml
+operator|.
+name|sax
+operator|.
+name|EntityResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|apache
 operator|.
 name|camel
@@ -591,6 +603,11 @@ name|boolean
 name|allowStAX
 init|=
 literal|true
+decl_stmt|;
+DECL|field|entityResolver
+specifier|private
+name|EntityResolver
+name|entityResolver
 decl_stmt|;
 DECL|method|XsltBuilder ()
 specifier|public
@@ -1642,6 +1659,22 @@ operator|=
 name|uriResolver
 expr_stmt|;
 block|}
+DECL|method|setEntityResolver (EntityResolver entityResolver)
+specifier|public
+name|void
+name|setEntityResolver
+parameter_list|(
+name|EntityResolver
+name|entityResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|entityResolver
+operator|=
+name|entityResolver
+expr_stmt|;
+block|}
 DECL|method|isDeleteOutputFile ()
 specifier|public
 name|boolean
@@ -2013,6 +2046,14 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
+name|tryAddEntityResolver
+argument_list|(
+operator|(
+name|SAXSource
+operator|)
+name|source
+argument_list|)
+expr_stmt|;
 block|}
 if|if
 condition|(
@@ -2192,6 +2233,43 @@ block|}
 return|return
 name|source
 return|;
+block|}
+DECL|method|tryAddEntityResolver (SAXSource source)
+specifier|private
+name|void
+name|tryAddEntityResolver
+parameter_list|(
+name|SAXSource
+name|source
+parameter_list|)
+block|{
+comment|//expecting source to have not null XMLReader
+if|if
+condition|(
+name|this
+operator|.
+name|entityResolver
+operator|!=
+literal|null
+operator|&&
+name|source
+operator|!=
+literal|null
+condition|)
+block|{
+name|source
+operator|.
+name|getXMLReader
+argument_list|()
+operator|.
+name|setEntityResolver
+argument_list|(
+name|this
+operator|.
+name|entityResolver
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 comment|/**      * Configures the transformer with exchange specific parameters      */
 DECL|method|configureTransformer (Transformer transformer, Exchange exchange)
