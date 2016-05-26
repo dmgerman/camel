@@ -96,10 +96,6 @@ name|assertThat
 import|;
 end_import
 
-begin_comment
-comment|/**  *  */
-end_comment
-
 begin_class
 DECL|class|DurationConverterTest
 specifier|public
@@ -213,21 +209,6 @@ argument_list|()
 operator|.
 name|getCause
 argument_list|()
-argument_list|)
-expr_stmt|;
-name|assertThat
-argument_list|(
-name|e
-operator|.
-name|getMessage
-argument_list|()
-argument_list|,
-name|is
-argument_list|(
-literal|"Error during type conversion from type: java.time.Duration to the required type: "
-operator|+
-literal|"long with value PT1440000000000000H due java.lang.ArithmeticException: long overflow"
-argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
