@@ -122,9 +122,11 @@ name|apache
 operator|.
 name|commons
 operator|.
-name|lang
+name|codec
 operator|.
-name|SerializationUtils
+name|binary
+operator|.
+name|Base64
 import|;
 end_import
 
@@ -136,11 +138,9 @@ name|apache
 operator|.
 name|commons
 operator|.
-name|codec
+name|lang
 operator|.
-name|binary
-operator|.
-name|Base64
+name|SerializationUtils
 import|;
 end_import
 
