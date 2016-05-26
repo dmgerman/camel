@@ -273,6 +273,16 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+if|if
+condition|(
+name|os
+operator|==
+literal|null
+condition|)
+block|{
+comment|//InOny
+return|return;
+block|}
 try|try
 block|{
 if|if
