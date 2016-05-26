@@ -464,20 +464,9 @@ name|createClient
 argument_list|()
 expr_stmt|;
 block|}
-comment|// Apply the server configurer if it is possible
-if|if
-condition|(
 name|endpoint
 operator|.
-name|getCxfEndpointConfigurer
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|endpoint
-operator|.
-name|getCxfEndpointConfigurer
+name|getChainedCxfEndpointConfigurer
 argument_list|()
 operator|.
 name|configureClient
@@ -485,7 +474,6 @@ argument_list|(
 name|client
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 annotation|@
 name|Override
