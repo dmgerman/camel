@@ -120,22 +120,6 @@ name|org
 operator|.
 name|apache
 operator|.
-name|camel
-operator|.
-name|util
-operator|.
-name|jsse
-operator|.
-name|SSLContextParameters
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
 name|cxf
 operator|.
 name|BusFactory
@@ -245,7 +229,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A unit test for spring configured cxf endpoint.  *   * @version   */
+comment|/**  * A unit test for spring configured cxf endpoint.  *  * @version  */
 end_comment
 
 begin_class
@@ -622,18 +606,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|SSLContextParameters
-name|sslContextParameters
-init|=
-name|EasyMock
-operator|.
-name|createMock
-argument_list|(
-name|SSLContextParameters
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 name|Processor
 name|processor
 init|=
@@ -653,15 +625,6 @@ argument_list|(
 literal|"myConfigurer"
 argument_list|,
 name|configurer
-argument_list|)
-expr_stmt|;
-name|registry
-operator|.
-name|put
-argument_list|(
-literal|"sslContextParameters"
-argument_list|,
-name|sslContextParameters
 argument_list|)
 expr_stmt|;
 name|CamelContext
@@ -694,7 +657,7 @@ name|createEndpoint
 argument_list|(
 name|routerEndpointURI
 operator|+
-literal|"&cxfEndpointConfigurer=#myConfigurer&sslContextParameters=sslContextParameters"
+literal|"&cxfEndpointConfigurer=#myConfigurer"
 argument_list|)
 decl_stmt|;
 name|configurer
