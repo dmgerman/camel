@@ -644,7 +644,6 @@ argument_list|(
 literal|0
 argument_list|)
 expr_stmt|;
-comment|//dynamic job work if header is present and the job exists
 specifier|final
 name|Map
 argument_list|<
