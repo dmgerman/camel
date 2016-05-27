@@ -433,7 +433,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"spring-batch:mockJob?jobFromHeader=true"
+literal|"spring-batch:fake?jobFromHeader=true"
 argument_list|)
 operator|.
 name|errorHandler
