@@ -433,7 +433,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"spring-batch:dynamic"
+literal|"spring-batch:mockJob?jobFromHeader=true"
 argument_list|)
 operator|.
 name|errorHandler
@@ -557,10 +557,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|dynamicJobWorksIfHeaderWithInvalidJobName ()
+DECL|method|dynamicJobFailsIfHeaderWithInvalidJobName ()
 specifier|public
 name|void
-name|dynamicJobWorksIfHeaderWithInvalidJobName
+name|dynamicJobFailsIfHeaderWithInvalidJobName
 parameter_list|()
 throws|throws
 name|Exception
@@ -622,10 +622,10 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-DECL|method|dynamicJobWorksIfHeaderPressentWithvalidJob ()
+DECL|method|dynamicJobWorksIfHeaderPressentWithValidJob ()
 specifier|public
 name|void
-name|dynamicJobWorksIfHeaderPressentWithvalidJob
+name|dynamicJobWorksIfHeaderPressentWithValidJob
 parameter_list|()
 throws|throws
 name|Exception
@@ -642,13 +642,6 @@ operator|.
 name|expectedMessageCount
 argument_list|(
 literal|0
-argument_list|)
-expr_stmt|;
-name|Thread
-operator|.
-name|sleep
-argument_list|(
-literal|5000
 argument_list|)
 expr_stmt|;
 comment|//dynamic job work if header is present and the job exists
