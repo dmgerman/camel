@@ -253,7 +253,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Apache Camel Plug-in for Consul Registry (Objects stored under kv/key as well  * as bookmarked under kv/[type]/key to avoid iteration over types)  *   */
+comment|/**  * Apache Camel Plug-in for Consul Registry (Objects stored under kv/key as well  * as bookmarked under kv/[type]/key to avoid iteration over types)  */
 end_comment
 
 begin_class
@@ -661,8 +661,6 @@ argument_list|<
 name|String
 argument_list|>
 name|keys
-init|=
-literal|null
 decl_stmt|;
 try|try
 block|{
@@ -930,8 +928,7 @@ name|String
 name|key
 parameter_list|)
 block|{
-comment|// create session to avoid conflicts (not sure if that is safe
-comment|// enough)
+comment|// create session to avoid conflicts (not sure if that is safe enough)
 name|SessionClient
 name|sessionClient
 init|=
@@ -953,7 +950,6 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
-comment|//
 name|SessionCreatedResponse
 name|response
 init|=

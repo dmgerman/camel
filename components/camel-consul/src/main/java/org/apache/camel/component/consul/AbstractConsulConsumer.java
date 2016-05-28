@@ -106,10 +106,6 @@ name|ObjectHelper
 import|;
 end_import
 
-begin_comment
-comment|/**  * @author lburgazzoli  */
-end_comment
-
 begin_class
 DECL|class|AbstractConsulConsumer
 specifier|public
