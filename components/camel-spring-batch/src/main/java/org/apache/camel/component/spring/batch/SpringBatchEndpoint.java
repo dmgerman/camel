@@ -243,11 +243,6 @@ name|jobName
 decl_stmt|;
 annotation|@
 name|UriParam
-argument_list|(
-name|defaultValue
-operator|=
-literal|"false"
-argument_list|)
 DECL|field|jobFromHeader
 specifier|private
 name|Boolean

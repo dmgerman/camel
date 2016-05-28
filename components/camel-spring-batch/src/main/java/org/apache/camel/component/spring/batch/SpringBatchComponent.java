@@ -80,15 +80,6 @@ name|SpringBatchComponent
 extends|extends
 name|UriEndpointComponent
 block|{
-DECL|field|JOB_NAME
-specifier|public
-specifier|static
-specifier|final
-name|String
-name|JOB_NAME
-init|=
-literal|"CamelSpringBatch.jobName"
-decl_stmt|;
 DECL|field|DEFAULT_JOB_LAUNCHER_REF_NAME
 specifier|private
 specifier|static

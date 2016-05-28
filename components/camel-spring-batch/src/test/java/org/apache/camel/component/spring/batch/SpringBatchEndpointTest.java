@@ -582,7 +582,7 @@ expr_stmt|;
 comment|//dynamic job should fail as header is present but the job does not exists
 name|header
 argument_list|(
-name|SpringBatchComponent
+name|SpringBatchConstants
 operator|.
 name|JOB_NAME
 argument_list|)
@@ -662,7 +662,7 @@ name|headers
 operator|.
 name|put
 argument_list|(
-name|SpringBatchComponent
+name|SpringBatchConstants
 operator|.
 name|JOB_NAME
 argument_list|,

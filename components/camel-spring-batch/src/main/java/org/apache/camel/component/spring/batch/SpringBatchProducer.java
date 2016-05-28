@@ -254,7 +254,7 @@ name|jobParameters
 operator|.
 name|getString
 argument_list|(
-name|SpringBatchComponent
+name|SpringBatchConstants
 operator|.
 name|JOB_NAME
 argument_list|)
@@ -311,7 +311,7 @@ literal|"jobName was not specified in the endpoint construction "
 operator|+
 literal|" and header "
 operator|+
-name|SpringBatchComponent
+name|SpringBatchConstants
 operator|.
 name|JOB_NAME
 operator|+
