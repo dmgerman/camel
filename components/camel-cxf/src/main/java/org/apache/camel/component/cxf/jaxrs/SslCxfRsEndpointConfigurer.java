@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.cxf
+DECL|package|org.apache.camel.component.cxf.jaxrs
 package|package
 name|org
 operator|.
@@ -15,18 +15,20 @@ operator|.
 name|component
 operator|.
 name|cxf
+operator|.
+name|jaxrs
 package|;
 end_package
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|net
+name|apache
 operator|.
-name|ssl
+name|camel
 operator|.
-name|HostnameVerifier
+name|CamelContext
 import|;
 end_import
 
@@ -44,7 +46,7 @@ name|cxf
 operator|.
 name|common
 operator|.
-name|AbstractHostnameVerifierEndpointConfigurer
+name|AbstractSslEndpointConfigurer
 import|;
 end_import
 
@@ -54,11 +56,13 @@ name|org
 operator|.
 name|apache
 operator|.
-name|cxf
+name|camel
 operator|.
-name|endpoint
+name|util
 operator|.
-name|Client
+name|jsse
+operator|.
+name|SSLContextParameters
 import|;
 end_import
 
@@ -84,9 +88,41 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|frontend
+name|jaxrs
 operator|.
-name|AbstractWSDLBasedEndpointFactory
+name|AbstractJAXRSFactoryBean
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|jaxrs
+operator|.
+name|client
+operator|.
+name|Client
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|jaxrs
+operator|.
+name|client
+operator|.
+name|WebClient
 import|;
 end_import
 
@@ -107,52 +143,60 @@ import|;
 end_import
 
 begin_class
-DECL|class|HostnameVerifierCxfEndpointConfigurer
+DECL|class|SslCxfRsEndpointConfigurer
 specifier|public
 specifier|final
 class|class
-name|HostnameVerifierCxfEndpointConfigurer
+name|SslCxfRsEndpointConfigurer
 extends|extends
-name|AbstractHostnameVerifierEndpointConfigurer
+name|AbstractSslEndpointConfigurer
 implements|implements
-name|CxfEndpointConfigurer
+name|CxfRsEndpointConfigurer
 block|{
-DECL|method|HostnameVerifierCxfEndpointConfigurer (HostnameVerifier hostnameVerifier)
+DECL|method|SslCxfRsEndpointConfigurer (SSLContextParameters sslContextParameters, CamelContext camelContext)
 specifier|private
-name|HostnameVerifierCxfEndpointConfigurer
+name|SslCxfRsEndpointConfigurer
 parameter_list|(
-name|HostnameVerifier
-name|hostnameVerifier
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|,
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|hostnameVerifier
+name|sslContextParameters
+argument_list|,
+name|camelContext
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|create (HostnameVerifier hostnameVerifier)
+DECL|method|create (SSLContextParameters sslContextParameters, CamelContext camelContext)
 specifier|public
 specifier|static
-name|CxfEndpointConfigurer
+name|CxfRsEndpointConfigurer
 name|create
 parameter_list|(
-name|HostnameVerifier
-name|hostnameVerifier
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|,
+name|CamelContext
+name|camelContext
 parameter_list|)
 block|{
 if|if
 condition|(
-name|hostnameVerifier
+name|sslContextParameters
 operator|==
 literal|null
 condition|)
 block|{
 return|return
 operator|new
-name|ChainedCxfEndpointConfigurer
+name|ChainedCxfRsEndpointConfigurer
 operator|.
-name|NullCxfEndpointConfigurer
+name|NullCxfRsEndpointConfigurer
 argument_list|()
 return|;
 block|}
@@ -160,21 +204,23 @@ else|else
 block|{
 return|return
 operator|new
-name|HostnameVerifierCxfEndpointConfigurer
+name|SslCxfRsEndpointConfigurer
 argument_list|(
-name|hostnameVerifier
+name|sslContextParameters
+argument_list|,
+name|camelContext
 argument_list|)
 return|;
 block|}
 block|}
 annotation|@
 name|Override
-DECL|method|configure (AbstractWSDLBasedEndpointFactory factoryBean)
+DECL|method|configure (AbstractJAXRSFactoryBean factoryBean)
 specifier|public
 name|void
 name|configure
 parameter_list|(
-name|AbstractWSDLBasedEndpointFactory
+name|AbstractJAXRSFactoryBean
 name|factoryBean
 parameter_list|)
 block|{     }
@@ -195,7 +241,12 @@ init|=
 operator|(
 name|HTTPConduit
 operator|)
+name|WebClient
+operator|.
+name|getConfig
+argument_list|(
 name|client
+argument_list|)
 operator|.
 name|getConduit
 argument_list|()

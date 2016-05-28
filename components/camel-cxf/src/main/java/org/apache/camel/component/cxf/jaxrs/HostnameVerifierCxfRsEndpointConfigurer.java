@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.cxf
+DECL|package|org.apache.camel.component.cxf.jaxrs
 package|package
 name|org
 operator|.
@@ -15,6 +15,8 @@ operator|.
 name|component
 operator|.
 name|cxf
+operator|.
+name|jaxrs
 package|;
 end_package
 
@@ -58,20 +60,6 @@ name|cxf
 operator|.
 name|endpoint
 operator|.
-name|Client
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|cxf
-operator|.
-name|endpoint
-operator|.
 name|Server
 import|;
 end_import
@@ -84,9 +72,41 @@ name|apache
 operator|.
 name|cxf
 operator|.
-name|frontend
+name|jaxrs
 operator|.
-name|AbstractWSDLBasedEndpointFactory
+name|AbstractJAXRSFactoryBean
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|jaxrs
+operator|.
+name|client
+operator|.
+name|Client
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|cxf
+operator|.
+name|jaxrs
+operator|.
+name|client
+operator|.
+name|WebClient
 import|;
 end_import
 
@@ -107,19 +127,19 @@ import|;
 end_import
 
 begin_class
-DECL|class|HostnameVerifierCxfEndpointConfigurer
+DECL|class|HostnameVerifierCxfRsEndpointConfigurer
 specifier|public
 specifier|final
 class|class
-name|HostnameVerifierCxfEndpointConfigurer
+name|HostnameVerifierCxfRsEndpointConfigurer
 extends|extends
 name|AbstractHostnameVerifierEndpointConfigurer
 implements|implements
-name|CxfEndpointConfigurer
+name|CxfRsEndpointConfigurer
 block|{
-DECL|method|HostnameVerifierCxfEndpointConfigurer (HostnameVerifier hostnameVerifier)
+DECL|method|HostnameVerifierCxfRsEndpointConfigurer (HostnameVerifier hostnameVerifier)
 specifier|private
-name|HostnameVerifierCxfEndpointConfigurer
+name|HostnameVerifierCxfRsEndpointConfigurer
 parameter_list|(
 name|HostnameVerifier
 name|hostnameVerifier
@@ -134,7 +154,7 @@ block|}
 DECL|method|create (HostnameVerifier hostnameVerifier)
 specifier|public
 specifier|static
-name|CxfEndpointConfigurer
+name|CxfRsEndpointConfigurer
 name|create
 parameter_list|(
 name|HostnameVerifier
@@ -150,9 +170,9 @@ condition|)
 block|{
 return|return
 operator|new
-name|ChainedCxfEndpointConfigurer
+name|ChainedCxfRsEndpointConfigurer
 operator|.
-name|NullCxfEndpointConfigurer
+name|NullCxfRsEndpointConfigurer
 argument_list|()
 return|;
 block|}
@@ -160,7 +180,7 @@ else|else
 block|{
 return|return
 operator|new
-name|HostnameVerifierCxfEndpointConfigurer
+name|HostnameVerifierCxfRsEndpointConfigurer
 argument_list|(
 name|hostnameVerifier
 argument_list|)
@@ -169,12 +189,12 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|configure (AbstractWSDLBasedEndpointFactory factoryBean)
+DECL|method|configure (AbstractJAXRSFactoryBean factoryBean)
 specifier|public
 name|void
 name|configure
 parameter_list|(
-name|AbstractWSDLBasedEndpointFactory
+name|AbstractJAXRSFactoryBean
 name|factoryBean
 parameter_list|)
 block|{     }
@@ -195,7 +215,12 @@ init|=
 operator|(
 name|HTTPConduit
 operator|)
+name|WebClient
+operator|.
+name|getConfig
+argument_list|(
 name|client
+argument_list|)
 operator|.
 name|getConduit
 argument_list|()

@@ -92,6 +92,18 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|net
+operator|.
+name|ssl
+operator|.
+name|HostnameVerifier
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -287,6 +299,22 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
 import|;
 end_import
 
@@ -834,6 +862,30 @@ literal|10
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|sslContextParameters
+specifier|private
+name|SSLContextParameters
+name|sslContextParameters
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|hostnameVerifier
+specifier|private
+name|HostnameVerifier
+name|hostnameVerifier
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|loggingFeatureEnabled
 specifier|private
 name|boolean
@@ -906,6 +958,18 @@ DECL|field|propagateContexts
 specifier|private
 name|boolean
 name|propagateContexts
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|cxfRsEndpointConfigurer
+specifier|private
+name|CxfRsEndpointConfigurer
+name|cxfRsEndpointConfigurer
 decl_stmt|;
 DECL|method|CxfRsEndpoint ()
 specifier|public
@@ -1187,6 +1251,42 @@ return|return
 name|skipFaultLogging
 return|;
 block|}
+DECL|method|getChainedCxfRsEndpointConfigurer ()
+specifier|public
+name|CxfRsEndpointConfigurer
+name|getChainedCxfRsEndpointConfigurer
+parameter_list|()
+block|{
+return|return
+name|ChainedCxfRsEndpointConfigurer
+operator|.
+name|create
+argument_list|(
+name|getNullSafeCxfRsEndpointConfigurer
+argument_list|()
+argument_list|,
+name|SslCxfRsEndpointConfigurer
+operator|.
+name|create
+argument_list|(
+name|sslContextParameters
+argument_list|,
+name|getCamelContext
+argument_list|()
+argument_list|)
+argument_list|)
+operator|.
+name|addChild
+argument_list|(
+name|HostnameVerifierCxfRsEndpointConfigurer
+operator|.
+name|create
+argument_list|(
+name|hostnameVerifier
+argument_list|)
+argument_list|)
+return|;
+block|}
 comment|/**      * This option controls whether the PhaseInterceptorChain skips logging the Fault that it catches.      */
 DECL|method|setSkipFaultLogging (boolean skipFaultLogging)
 specifier|public
@@ -1364,6 +1464,39 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
+name|getNullSafeCxfRsEndpointConfigurer
+argument_list|()
+operator|.
+name|configure
+argument_list|(
+name|sfb
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getNullSafeCxfRsEndpointConfigurer ()
+specifier|private
+name|CxfRsEndpointConfigurer
+name|getNullSafeCxfRsEndpointConfigurer
+parameter_list|()
+block|{
+if|if
+condition|(
+name|cxfRsEndpointConfigurer
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+operator|new
+name|ChainedCxfRsEndpointConfigurer
+operator|.
+name|NullCxfRsEndpointConfigurer
+argument_list|()
+return|;
+block|}
+return|return
+name|cxfRsEndpointConfigurer
+return|;
 block|}
 DECL|method|processResourceModel (JAXRSServerFactoryBean sfb)
 specifier|private
@@ -1563,6 +1696,14 @@ operator|.
 name|setThreadSafe
 argument_list|(
 literal|true
+argument_list|)
+expr_stmt|;
+name|getNullSafeCxfRsEndpointConfigurer
+argument_list|()
+operator|.
+name|configure
+argument_list|(
+name|cfb
 argument_list|)
 expr_stmt|;
 block|}
@@ -3122,6 +3263,87 @@ name|InterceptorHolder
 extends|extends
 name|AbstractBasicInterceptorProvider
 block|{     }
+DECL|method|getSslContextParameters ()
+specifier|public
+name|SSLContextParameters
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|sslContextParameters
+return|;
+block|}
+comment|/**      * The Camel SSL setting reference. Use the # notation to reference the SSL Context.      */
+DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
+expr_stmt|;
+block|}
+DECL|method|getHostnameVerifier ()
+specifier|public
+name|HostnameVerifier
+name|getHostnameVerifier
+parameter_list|()
+block|{
+return|return
+name|hostnameVerifier
+return|;
+block|}
+comment|/**      * The hostname verifier to be used. Use the # notation to reference a HostnameVerifier      * from the registry.      */
+DECL|method|setHostnameVerifier (HostnameVerifier hostnameVerifier)
+specifier|public
+name|void
+name|setHostnameVerifier
+parameter_list|(
+name|HostnameVerifier
+name|hostnameVerifier
+parameter_list|)
+block|{
+name|this
+operator|.
+name|hostnameVerifier
+operator|=
+name|hostnameVerifier
+expr_stmt|;
+block|}
+DECL|method|getCxfRsEndpointConfigurer ()
+specifier|public
+name|CxfRsEndpointConfigurer
+name|getCxfRsEndpointConfigurer
+parameter_list|()
+block|{
+return|return
+name|cxfRsEndpointConfigurer
+return|;
+block|}
+comment|/**      * This option could apply the implementation of org.apache.camel.component.cxf.jaxrs.CxfRsEndpointConfigurer which supports to configure the CXF endpoint      * in  programmatic way. User can configure the CXF server and client by implementing configure{Server/Client} method of CxfEndpointConfigurer.      */
+DECL|method|setCxfRsEndpointConfigurer (CxfRsEndpointConfigurer configurer)
+specifier|public
+name|void
+name|setCxfRsEndpointConfigurer
+parameter_list|(
+name|CxfRsEndpointConfigurer
+name|configurer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cxfRsEndpointConfigurer
+operator|=
+name|configurer
+expr_stmt|;
+block|}
 block|}
 end_class
 

@@ -339,6 +339,17 @@ return|return
 name|PORT6
 return|;
 block|}
+DECL|method|getSslPort ()
+specifier|public
+specifier|static
+name|int
+name|getSslPort
+parameter_list|()
+block|{
+return|return
+name|SSL_PORT
+return|;
+block|}
 block|}
 end_class
 

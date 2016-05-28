@@ -2845,15 +2845,7 @@ argument_list|(
 literal|false
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|getCxfEndpointConfigurer
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|getCxfEndpointConfigurer
+name|getNullSafeCxfEndpointConfigurer
 argument_list|()
 operator|.
 name|configure
@@ -2861,7 +2853,6 @@ argument_list|(
 name|sfb
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|/**      * Create a client factory bean object.  Notice that the serviceClass<b>must</b> be      * an interface.      */
 DECL|method|createClientFactoryBean (Class<?> cls)
@@ -3919,15 +3910,7 @@ name|getBus
 argument_list|()
 argument_list|)
 expr_stmt|;
-if|if
-condition|(
-name|getCxfEndpointConfigurer
-argument_list|()
-operator|!=
-literal|null
-condition|)
-block|{
-name|getCxfEndpointConfigurer
+name|getNullSafeCxfEndpointConfigurer
 argument_list|()
 operator|.
 name|configure
@@ -3935,7 +3918,6 @@ argument_list|(
 name|factoryBean
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 comment|// Package private methods
 comment|// -------------------------------------------------------------------------
@@ -6461,12 +6443,7 @@ argument_list|()
 expr_stmt|;
 block|}
 return|return
-operator|(
-operator|(
-name|Element
-operator|)
 name|nd
-operator|)
 operator|.
 name|getLocalName
 argument_list|()
