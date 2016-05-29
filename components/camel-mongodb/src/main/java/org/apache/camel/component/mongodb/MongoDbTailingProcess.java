@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/*  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -46,27 +46,7 @@ name|com
 operator|.
 name|mongodb
 operator|.
-name|Bytes
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|mongodb
-operator|.
-name|DBCollection
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|mongodb
-operator|.
-name|DBCursor
+name|CursorType
 import|;
 end_import
 
@@ -87,6 +67,30 @@ operator|.
 name|mongodb
 operator|.
 name|MongoCursorNotFoundException
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|mongodb
+operator|.
+name|client
+operator|.
+name|MongoCollection
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|mongodb
+operator|.
+name|client
+operator|.
+name|MongoCursor
 import|;
 end_import
 
@@ -179,7 +183,10 @@ decl_stmt|;
 DECL|field|dbCol
 specifier|private
 specifier|final
-name|DBCollection
+name|MongoCollection
+argument_list|<
+name|BasicDBObject
+argument_list|>
 name|dbCol
 decl_stmt|;
 DECL|field|endpoint
@@ -209,7 +216,10 @@ name|cursorRegenerationDelayEnabled
 decl_stmt|;
 DECL|field|cursor
 specifier|private
-name|DBCursor
+name|MongoCursor
+argument_list|<
+name|BasicDBObject
+argument_list|>
 name|cursor
 decl_stmt|;
 DECL|field|tailTracking
@@ -249,7 +259,7 @@ name|dbCol
 operator|=
 name|endpoint
 operator|.
-name|getDbCollection
+name|getMongoCollection
 argument_list|()
 expr_stmt|;
 name|this
@@ -283,7 +293,10 @@ expr_stmt|;
 block|}
 DECL|method|getCursor ()
 specifier|public
-name|DBCursor
+name|MongoCursor
+argument_list|<
+name|BasicDBObject
+argument_list|>
 name|getCursor
 parameter_list|()
 block|{
@@ -291,7 +304,7 @@ return|return
 name|cursor
 return|;
 block|}
-comment|/**      * Initialise the tailing process, the cursor and if persistent tail tracking is enabled, recover the cursor from the persisted point.      * As part of the initialisation process, the component will validate that the collection we are targeting is 'capped'.      * @throws Exception      */
+comment|/**      * Initialise the tailing process, the cursor and if persistent tail tracking is enabled, recover the cursor from the persisted point.      * As part of the initialisation process, the component will validate that the collection we are targeting is 'capped'.      *      * @throws Exception      */
 DECL|method|initializeProcess ()
 specifier|public
 name|void
@@ -316,33 +329,25 @@ literal|"Starting MongoDB Tailable Cursor consumer, binding to collection: {}"
 argument_list|,
 literal|"db: "
 operator|+
-name|dbCol
+name|endpoint
 operator|.
-name|getDB
+name|getMongoDatabase
 argument_list|()
 operator|+
 literal|", col: "
 operator|+
-name|dbCol
+name|endpoint
 operator|.
-name|getName
+name|getCollection
 argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
 if|if
 condition|(
-name|dbCol
-operator|.
-name|getStats
+operator|!
+name|isCollectionCapped
 argument_list|()
-operator|.
-name|getInt
-argument_list|(
-name|CAPPED_KEY
-argument_list|)
-operator|!=
-literal|1
 condition|)
 block|{
 throw|throw
@@ -351,9 +356,9 @@ name|CamelMongoDbException
 argument_list|(
 literal|"Tailable cursors are only compatible with capped collections, and collection "
 operator|+
-name|dbCol
+name|endpoint
 operator|.
-name|getName
+name|getCollection
 argument_list|()
 operator|+
 literal|" is not capped"
@@ -405,6 +410,49 @@ literal|"Tailable cursor was not initialized, or cursor returned is dead on arri
 argument_list|)
 throw|;
 block|}
+block|}
+DECL|method|isCollectionCapped ()
+specifier|private
+name|Boolean
+name|isCollectionCapped
+parameter_list|()
+block|{
+return|return
+name|endpoint
+operator|.
+name|getMongoDatabase
+argument_list|()
+operator|.
+name|runCommand
+argument_list|(
+name|createCollStatsCommand
+argument_list|()
+argument_list|)
+operator|.
+name|getBoolean
+argument_list|(
+name|CAPPED_KEY
+argument_list|)
+return|;
+block|}
+DECL|method|createCollStatsCommand ()
+specifier|private
+name|BasicDBObject
+name|createCollStatsCommand
+parameter_list|()
+block|{
+return|return
+operator|new
+name|BasicDBObject
+argument_list|(
+literal|"collStats"
+argument_list|,
+name|endpoint
+operator|.
+name|getCollection
+argument_list|()
+argument_list|)
+return|;
 block|}
 comment|/**      * The heart of the tailing process.      */
 annotation|@
@@ -529,16 +577,16 @@ literal|"Stopping MongoDB Tailable Cursor consumer, bound to collection: {}"
 argument_list|,
 literal|"db: "
 operator|+
-name|dbCol
+name|endpoint
 operator|.
-name|getDB
+name|getDatabase
 argument_list|()
 operator|+
 literal|", col: "
 operator|+
-name|dbCol
+name|endpoint
 operator|.
-name|getName
+name|getCollection
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -580,16 +628,16 @@ literal|"Stopped MongoDB Tailable Cursor consumer, bound to collection: {}"
 argument_list|,
 literal|"db: "
 operator|+
-name|dbCol
+name|endpoint
 operator|.
-name|getDB
+name|getDatabase
 argument_list|()
 operator|+
 literal|", col: "
 operator|+
-name|dbCol
+name|endpoint
 operator|.
-name|getName
+name|getCollection
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -612,16 +660,10 @@ operator|.
 name|hasNext
 argument_list|()
 operator|&&
-name|cursor
-operator|.
-name|getCursorId
-argument_list|()
-operator|!=
-literal|0
-operator|&&
 name|keepRunning
 condition|)
 block|{
+comment|//cursor.getCursorId() != 0&&
 name|DBObject
 name|dbObj
 init|=
@@ -730,7 +772,10 @@ block|}
 comment|// no arguments, will ask DB what the last updated Id was (checking persistent storage)
 DECL|method|initializeCursor ()
 specifier|private
-name|DBCursor
+name|MongoCursor
+argument_list|<
+name|BasicDBObject
+argument_list|>
 name|initializeCursor
 parameter_list|()
 block|{
@@ -742,7 +787,10 @@ operator|.
 name|lastVal
 decl_stmt|;
 comment|// lastVal can be null if we are initializing and there is no persistence enabled
-name|DBCursor
+name|MongoCursor
+argument_list|<
+name|BasicDBObject
+argument_list|>
 name|answer
 decl_stmt|;
 if|if
@@ -759,24 +807,20 @@ operator|.
 name|find
 argument_list|()
 operator|.
-name|addOption
+name|cursorType
 argument_list|(
-name|Bytes
+name|CursorType
 operator|.
-name|QUERYOPTION_TAILABLE
+name|TailableAwait
 argument_list|)
 operator|.
-name|addOption
-argument_list|(
-name|Bytes
-operator|.
-name|QUERYOPTION_AWAITDATA
-argument_list|)
+name|iterator
+argument_list|()
 expr_stmt|;
 block|}
 else|else
 block|{
-name|DBObject
+name|BasicDBObject
 name|queryObj
 init|=
 operator|new
@@ -805,19 +849,15 @@ argument_list|(
 name|queryObj
 argument_list|)
 operator|.
-name|addOption
+name|cursorType
 argument_list|(
-name|Bytes
+name|CursorType
 operator|.
-name|QUERYOPTION_TAILABLE
+name|TailableAwait
 argument_list|)
 operator|.
-name|addOption
-argument_list|(
-name|Bytes
-operator|.
-name|QUERYOPTION_AWAITDATA
-argument_list|)
+name|iterator
+argument_list|()
 expr_stmt|;
 block|}
 return|return
