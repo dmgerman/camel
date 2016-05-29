@@ -70,6 +70,16 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|mongodb
+operator|.
+name|MongoClient
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -197,7 +207,7 @@ decl_stmt|;
 DECL|field|db
 specifier|private
 specifier|volatile
-name|Mongo
+name|MongoClient
 name|db
 decl_stmt|;
 DECL|method|MongoDbComponent ()
@@ -255,7 +265,7 @@ argument_list|()
 argument_list|,
 name|remaining
 argument_list|,
-name|Mongo
+name|MongoClient
 operator|.
 name|class
 argument_list|)
