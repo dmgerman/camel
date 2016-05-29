@@ -182,6 +182,12 @@ name|boolean
 name|stopped
 decl_stmt|;
 comment|// = false
+DECL|field|stoppedLatch
+specifier|private
+specifier|volatile
+name|CountDownLatch
+name|stoppedLatch
+decl_stmt|;
 DECL|field|dbCol
 specifier|private
 specifier|final
@@ -421,6 +427,14 @@ name|void
 name|run
 parameter_list|()
 block|{
+name|stoppedLatch
+operator|=
+operator|new
+name|CountDownLatch
+argument_list|(
+literal|1
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 name|keepRunning
@@ -497,6 +511,11 @@ name|stopped
 operator|=
 literal|true
 expr_stmt|;
+name|stoppedLatch
+operator|.
+name|countDown
+argument_list|()
+expr_stmt|;
 block|}
 DECL|method|stop ()
 specifier|protected
@@ -554,13 +573,9 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-comment|// wait until the main loop acknowledges the stop
-while|while
-condition|(
-operator|!
-name|stopped
-condition|)
-block|{ }
+name|awaitStopped
+argument_list|()
+expr_stmt|;
 if|if
 condition|(
 name|LOG
@@ -820,6 +835,34 @@ block|}
 return|return
 name|answer
 return|;
+block|}
+DECL|method|awaitStopped ()
+specifier|private
+name|void
+name|awaitStopped
+parameter_list|()
+throws|throws
+name|InterruptedException
+block|{
+if|if
+condition|(
+operator|!
+name|stopped
+condition|)
+block|{
+name|LOG
+operator|.
+name|info
+argument_list|(
+literal|"Going to wait for stopping"
+argument_list|)
+expr_stmt|;
+name|stoppedLatch
+operator|.
+name|await
+argument_list|()
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
