@@ -1145,6 +1145,28 @@ specifier|private
 name|int
 name|replyToMaxConcurrentConsumers
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"1"
+argument_list|,
+name|description
+operator|=
+literal|"Specifies the maximum number of concurrent consumers for continue routing when timeout occurred when using request/reply over JMS."
+argument_list|)
+DECL|field|replyToOnTimeoutMaxConcurrentConsumers
+specifier|private
+name|int
+name|replyToOnTimeoutMaxConcurrentConsumers
+init|=
+literal|1
+decl_stmt|;
 comment|// JmsTemplate only
 annotation|@
 name|UriParam
@@ -4385,6 +4407,33 @@ operator|.
 name|replyToMaxConcurrentConsumers
 operator|=
 name|replyToMaxConcurrentConsumers
+expr_stmt|;
+block|}
+DECL|method|getReplyToOnTimeoutMaxConcurrentConsumers ()
+specifier|public
+name|int
+name|getReplyToOnTimeoutMaxConcurrentConsumers
+parameter_list|()
+block|{
+return|return
+name|replyToOnTimeoutMaxConcurrentConsumers
+return|;
+block|}
+comment|/**      * Specifies the maximum number of concurrent consumers for continue routing when timeout occurred when using request/reply over JMS.      */
+DECL|method|setReplyToOnTimeoutMaxConcurrentConsumers (int replyToOnTimeoutMaxConcurrentConsumers)
+specifier|public
+name|void
+name|setReplyToOnTimeoutMaxConcurrentConsumers
+parameter_list|(
+name|int
+name|replyToOnTimeoutMaxConcurrentConsumers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyToOnTimeoutMaxConcurrentConsumers
+operator|=
+name|replyToOnTimeoutMaxConcurrentConsumers
 expr_stmt|;
 block|}
 DECL|method|isExplicitQosEnabled ()

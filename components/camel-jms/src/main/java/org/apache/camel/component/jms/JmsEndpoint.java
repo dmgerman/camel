@@ -2780,6 +2780,22 @@ return|;
 block|}
 annotation|@
 name|ManagedAttribute
+DECL|method|getReplyToOnTimeoutMaxConcurrentConsumers ()
+specifier|public
+name|int
+name|getReplyToOnTimeoutMaxConcurrentConsumers
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getReplyToOnTimeoutMaxConcurrentConsumers
+argument_list|()
+return|;
+block|}
+annotation|@
+name|ManagedAttribute
 DECL|method|getMaxMessagesPerTask ()
 specifier|public
 name|int

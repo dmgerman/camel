@@ -28,6 +28,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ScheduledExecutorService
 import|;
 end_import
@@ -68,7 +80,12 @@ specifier|private
 name|CorrelationListener
 name|listener
 decl_stmt|;
-DECL|method|CorrelationTimeoutMap (ScheduledExecutorService executor, long requestMapPollTimeMillis)
+DECL|field|executorService
+specifier|private
+name|ExecutorService
+name|executorService
+decl_stmt|;
+DECL|method|CorrelationTimeoutMap (ScheduledExecutorService executor, long requestMapPollTimeMillis, ExecutorService executorService)
 specifier|public
 name|CorrelationTimeoutMap
 parameter_list|(
@@ -77,6 +94,9 @@ name|executor
 parameter_list|,
 name|long
 name|requestMapPollTimeMillis
+parameter_list|,
+name|ExecutorService
+name|executorService
 parameter_list|)
 block|{
 name|super
@@ -85,6 +105,12 @@ name|executor
 argument_list|,
 name|requestMapPollTimeMillis
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|executorService
+operator|=
+name|executorService
 expr_stmt|;
 block|}
 DECL|method|setListener (CorrelationListener listener)
@@ -142,6 +168,21 @@ parameter_list|)
 block|{
 comment|// ignore
 block|}
+specifier|final
+name|Runnable
+name|task
+init|=
+operator|new
+name|Runnable
+argument_list|()
+block|{
+annotation|@
+name|Override
+specifier|public
+name|void
+name|run
+parameter_list|()
+block|{
 comment|// trigger timeout
 try|try
 block|{
@@ -179,6 +220,33 @@ literal|". This exception is ignored."
 argument_list|,
 name|e
 argument_list|)
+expr_stmt|;
+block|}
+block|}
+block|}
+decl_stmt|;
+if|if
+condition|(
+name|executorService
+operator|!=
+literal|null
+condition|)
+block|{
+name|executorService
+operator|.
+name|submit
+argument_list|(
+name|task
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// run task synchronously
+name|task
+operator|.
+name|run
+argument_list|()
 expr_stmt|;
 block|}
 comment|// return true to remove the element

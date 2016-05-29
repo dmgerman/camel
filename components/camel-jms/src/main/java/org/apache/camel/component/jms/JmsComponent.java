@@ -1315,6 +1315,25 @@ name|maxConcurrentConsumers
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Specifies the maximum number of concurrent consumers for continue routing when timeout occurred when using request/reply over JMS.      */
+DECL|method|setReplyOnTimeoutToMaxConcurrentConsumers (int maxConcurrentConsumers)
+specifier|public
+name|void
+name|setReplyOnTimeoutToMaxConcurrentConsumers
+parameter_list|(
+name|int
+name|maxConcurrentConsumers
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setReplyToOnTimeoutMaxConcurrentConsumers
+argument_list|(
+name|maxConcurrentConsumers
+argument_list|)
+expr_stmt|;
+block|}
 comment|/**      * The number of messages per task. -1 is unlimited.      * If you use a range for concurrent consumers (eg min< max), then this option can be used to set      * a value to eg 100 to control how fast the consumers will shrink when less work is required.      */
 DECL|method|setMaxMessagesPerTask (int maxMessagesPerTask)
 specifier|public

@@ -28,6 +28,18 @@ name|util
 operator|.
 name|concurrent
 operator|.
+name|ExecutorService
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
 name|ScheduledExecutorService
 import|;
 end_import
@@ -146,12 +158,21 @@ name|Destination
 name|replyTo
 parameter_list|)
 function_decl|;
-comment|/**      * Sets the scheduled to use when checking for timeouts (no reply received within a given time period)      */
+comment|/**      * Sets the scheduled thread pool to use when checking for timeouts (no reply received within a given time period)      */
 DECL|method|setScheduledExecutorService (ScheduledExecutorService executorService)
 name|void
 name|setScheduledExecutorService
 parameter_list|(
 name|ScheduledExecutorService
+name|executorService
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the thread pool to use for continue routing {@link Exchange} when a timeout was triggered      * when doing request/reply over JMS.      */
+DECL|method|setOnTimeoutExecutorService (ExecutorService executorService)
+name|void
+name|setOnTimeoutExecutorService
+parameter_list|(
+name|ExecutorService
 name|executorService
 parameter_list|)
 function_decl|;
