@@ -166,7 +166,7 @@ parameter_list|()
 block|{
 name|assertEquals
 argument_list|(
-literal|"-300101000000000-"
+literal|"-300101000000000+"
 argument_list|,
 name|SmppUtils
 operator|.
@@ -182,7 +182,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"-300101024640000-"
+literal|"-300101024640000+"
 argument_list|,
 name|SmppUtils
 operator|.

@@ -845,7 +845,7 @@ name|RegisteredDelivery
 argument_list|(
 name|SMSCDeliveryReceipt
 operator|.
-name|SUCCESS
+name|FAILURE
 argument_list|)
 operator|.
 name|value

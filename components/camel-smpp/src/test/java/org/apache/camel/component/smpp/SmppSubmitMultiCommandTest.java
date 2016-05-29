@@ -1113,7 +1113,7 @@ name|RegisteredDelivery
 argument_list|(
 name|SMSCDeliveryReceipt
 operator|.
-name|SUCCESS
+name|FAILURE
 argument_list|)
 operator|.
 name|value
@@ -1226,12 +1226,12 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-literal|"-300101001831100-"
+literal|"-300101001831100+"
 argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-literal|"-300101003702200-"
+literal|"-300101003702200+"
 argument_list|)
 argument_list|,
 name|eq
@@ -1241,7 +1241,7 @@ name|RegisteredDelivery
 argument_list|(
 name|SMSCDeliveryReceipt
 operator|.
-name|SUCCESS
+name|FAILURE
 argument_list|)
 argument_list|)
 argument_list|,
@@ -1609,7 +1609,7 @@ name|RegisteredDelivery
 argument_list|(
 name|SMSCDeliveryReceipt
 operator|.
-name|SUCCESS
+name|FAILURE
 argument_list|)
 operator|.
 name|value
@@ -1722,7 +1722,7 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-literal|"-300101001831100-"
+literal|"-300101001831100+"
 argument_list|)
 argument_list|,
 name|eq
@@ -1737,7 +1737,7 @@ name|RegisteredDelivery
 argument_list|(
 name|SMSCDeliveryReceipt
 operator|.
-name|SUCCESS
+name|FAILURE
 argument_list|)
 argument_list|)
 argument_list|,
@@ -3859,7 +3859,7 @@ name|RegisteredDelivery
 argument_list|(
 name|SMSCDeliveryReceipt
 operator|.
-name|SUCCESS
+name|FAILURE
 argument_list|)
 operator|.
 name|value
@@ -4057,12 +4057,12 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-literal|"-300101001831100-"
+literal|"-300101001831100+"
 argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-literal|"-300101003702200-"
+literal|"-300101003702200+"
 argument_list|)
 argument_list|,
 name|eq
@@ -4072,7 +4072,7 @@ name|RegisteredDelivery
 argument_list|(
 name|SMSCDeliveryReceipt
 operator|.
-name|SUCCESS
+name|FAILURE
 argument_list|)
 argument_list|)
 argument_list|,
@@ -4524,7 +4524,7 @@ name|RegisteredDelivery
 argument_list|(
 name|SMSCDeliveryReceipt
 operator|.
-name|SUCCESS
+name|FAILURE
 argument_list|)
 operator|.
 name|value
@@ -4920,12 +4920,12 @@ argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-literal|"-300101001831100-"
+literal|"-300101001831100+"
 argument_list|)
 argument_list|,
 name|eq
 argument_list|(
-literal|"-300101003702200-"
+literal|"-300101003702200+"
 argument_list|)
 argument_list|,
 name|eq
@@ -4935,7 +4935,7 @@ name|RegisteredDelivery
 argument_list|(
 name|SMSCDeliveryReceipt
 operator|.
-name|SUCCESS
+name|FAILURE
 argument_list|)
 argument_list|)
 argument_list|,
