@@ -256,11 +256,6 @@ name|FIRST
 init|=
 literal|0
 decl_stmt|;
-DECL|field|name
-specifier|private
-name|String
-name|name
-decl_stmt|;
 DECL|field|namespace
 specifier|private
 name|String
@@ -276,13 +271,10 @@ specifier|private
 name|AutoAdaptableKubernetesClient
 name|client
 decl_stmt|;
-DECL|method|KubernetesServiceCallServerListStrategy (String name, String namespace, String portName, AutoAdaptableKubernetesClient client)
+DECL|method|KubernetesServiceCallServerListStrategy (String namespace, String portName, AutoAdaptableKubernetesClient client)
 specifier|public
 name|KubernetesServiceCallServerListStrategy
 parameter_list|(
-name|String
-name|name
-parameter_list|,
 name|String
 name|namespace
 parameter_list|,
@@ -293,12 +285,6 @@ name|AutoAdaptableKubernetesClient
 name|client
 parameter_list|)
 block|{
-name|this
-operator|.
-name|name
-operator|=
-name|name
-expr_stmt|;
 name|this
 operator|.
 name|namespace
@@ -325,14 +311,17 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|getInitialListOfServers ()
+DECL|method|getInitialListOfServers (String name)
 specifier|public
 name|Collection
 argument_list|<
 name|KubernetesServer
 argument_list|>
 name|getInitialListOfServers
-parameter_list|()
+parameter_list|(
+name|String
+name|name
+parameter_list|)
 block|{
 return|return
 name|Collections
@@ -340,14 +329,17 @@ operator|.
 name|EMPTY_LIST
 return|;
 block|}
-DECL|method|getUpdatedListOfServers ()
+DECL|method|getUpdatedListOfServers (String name)
 specifier|public
 name|Collection
 argument_list|<
 name|KubernetesServer
 argument_list|>
 name|getUpdatedListOfServers
-parameter_list|()
+parameter_list|(
+name|String
+name|name
+parameter_list|)
 block|{
 name|LOG
 operator|.

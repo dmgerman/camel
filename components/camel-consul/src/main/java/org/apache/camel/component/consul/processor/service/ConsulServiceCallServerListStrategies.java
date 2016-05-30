@@ -143,22 +143,6 @@ specifier|final
 class|class
 name|ConsulServiceCallServerListStrategies
 block|{
-DECL|field|LOGGER
-specifier|private
-specifier|static
-specifier|final
-name|Logger
-name|LOGGER
-init|=
-name|LoggerFactory
-operator|.
-name|getLogger
-argument_list|(
-name|ConsulServiceCallServerListStrategies
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 DECL|method|ConsulServiceCallServerListStrategies ()
 specifier|private
 name|ConsulServiceCallServerListStrategies
@@ -173,15 +157,12 @@ name|OnDemand
 extends|extends
 name|ConsulServiceCallServerListStrategy
 block|{
-DECL|method|OnDemand (ConsulConfiguration configuration, String name)
+DECL|method|OnDemand (ConsulConfiguration configuration)
 specifier|public
 name|OnDemand
 parameter_list|(
 name|ConsulConfiguration
 name|configuration
-parameter_list|,
-name|String
-name|name
 parameter_list|)
 throws|throws
 name|Exception
@@ -189,21 +170,22 @@ block|{
 name|super
 argument_list|(
 name|configuration
-argument_list|,
-name|name
 argument_list|)
 expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getUpdatedListOfServers ()
+DECL|method|getUpdatedListOfServers (String name)
 specifier|public
 name|Collection
 argument_list|<
 name|ServiceCallServer
 argument_list|>
 name|getUpdatedListOfServers
-parameter_list|()
+parameter_list|(
+name|String
+name|name
+parameter_list|)
 block|{
 name|List
 argument_list|<
@@ -216,8 +198,7 @@ argument_list|()
 operator|.
 name|getService
 argument_list|(
-name|getName
-argument_list|()
+name|name
 argument_list|,
 name|getCatalogOptions
 argument_list|()
@@ -237,8 +218,7 @@ argument_list|()
 operator|.
 name|getAllServiceInstances
 argument_list|(
-name|getName
-argument_list|()
+name|name
 argument_list|,
 name|getCatalogOptions
 argument_list|()
@@ -298,7 +278,7 @@ block|}
 comment|// *************************************************************************
 comment|// Helpers
 comment|// *************************************************************************
-DECL|method|onDemand (ConsulConfiguration configuration, String name)
+DECL|method|onDemand (ConsulConfiguration configuration)
 specifier|public
 specifier|static
 name|ConsulServiceCallServerListStrategy
@@ -306,9 +286,6 @@ name|onDemand
 parameter_list|(
 name|ConsulConfiguration
 name|configuration
-parameter_list|,
-name|String
-name|name
 parameter_list|)
 throws|throws
 name|Exception
@@ -318,8 +295,6 @@ operator|new
 name|OnDemand
 argument_list|(
 name|configuration
-argument_list|,
-name|name
 argument_list|)
 return|;
 block|}

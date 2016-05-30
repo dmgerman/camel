@@ -533,8 +533,6 @@ argument_list|(
 name|context
 argument_list|()
 argument_list|)
-argument_list|,
-name|SERVICE_NAME
 argument_list|)
 argument_list|)
 expr_stmt|;

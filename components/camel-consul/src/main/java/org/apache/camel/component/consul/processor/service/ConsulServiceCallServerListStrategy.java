@@ -271,26 +271,17 @@ specifier|final
 name|Consul
 name|client
 decl_stmt|;
-DECL|field|name
-specifier|private
-specifier|final
-name|String
-name|name
-decl_stmt|;
 DECL|field|catalogOptions
 specifier|private
 specifier|final
 name|CatalogOptions
 name|catalogOptions
 decl_stmt|;
-DECL|method|ConsulServiceCallServerListStrategy (ConsulConfiguration configuration, String name)
+DECL|method|ConsulServiceCallServerListStrategy (ConsulConfiguration configuration)
 name|ConsulServiceCallServerListStrategy
 parameter_list|(
 name|ConsulConfiguration
 name|configuration
-parameter_list|,
-name|String
-name|name
 parameter_list|)
 throws|throws
 name|Exception
@@ -303,12 +294,6 @@ name|configuration
 operator|.
 name|createConsulClient
 argument_list|()
-expr_stmt|;
-name|this
-operator|.
-name|name
-operator|=
-name|name
 expr_stmt|;
 name|ImmutableCatalogOptions
 operator|.
@@ -380,14 +365,17 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|getInitialListOfServers ()
+DECL|method|getInitialListOfServers (String name)
 specifier|public
 name|Collection
 argument_list|<
 name|ServiceCallServer
 argument_list|>
 name|getInitialListOfServers
-parameter_list|()
+parameter_list|(
+name|String
+name|name
+parameter_list|)
 block|{
 return|return
 name|Collections
@@ -469,16 +457,6 @@ name|client
 operator|.
 name|healthClient
 argument_list|()
-return|;
-block|}
-DECL|method|getName ()
-specifier|protected
-name|String
-name|getName
-parameter_list|()
-block|{
-return|return
-name|name
 return|;
 block|}
 DECL|method|getCatalogOptions ()
