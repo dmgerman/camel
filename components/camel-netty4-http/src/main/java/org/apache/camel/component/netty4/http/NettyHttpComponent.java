@@ -1817,8 +1817,7 @@ condition|)
 block|{
 name|config
 operator|=
-name|getCamelContext
-argument_list|()
+name|camelContext
 operator|.
 name|getRestConfiguration
 argument_list|(
@@ -2204,6 +2203,8 @@ argument_list|)
 decl_stmt|;
 name|setProperties
 argument_list|(
+name|camelContext
+argument_list|,
 name|endpoint
 argument_list|,
 name|parameters
@@ -2241,6 +2242,8 @@ condition|)
 block|{
 name|setProperties
 argument_list|(
+name|camelContext
+argument_list|,
 name|consumer
 argument_list|,
 name|config
