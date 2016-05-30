@@ -130,14 +130,16 @@ operator|=
 name|listener
 expr_stmt|;
 block|}
-DECL|method|onEviction (String key, ReplyHandler value)
+DECL|method|onEviction (final String key, final ReplyHandler value)
 specifier|public
 name|boolean
 name|onEviction
 parameter_list|(
+specifier|final
 name|String
 name|key
 parameter_list|,
+specifier|final
 name|ReplyHandler
 name|value
 parameter_list|)
