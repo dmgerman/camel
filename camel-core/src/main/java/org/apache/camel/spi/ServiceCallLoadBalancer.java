@@ -22,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
+name|List
 import|;
 end_import
 
@@ -42,11 +42,11 @@ name|ServiceCallServer
 parameter_list|>
 block|{
 comment|/**      * Chooses one of the servers to use using the implemented strategy.      *      * @param servers  list of servers      * @return the chosen server to use.      */
-DECL|method|chooseServer (Collection<T> servers)
+DECL|method|chooseServer (List<T> servers)
 name|T
 name|chooseServer
 parameter_list|(
-name|Collection
+name|List
 argument_list|<
 name|T
 argument_list|>

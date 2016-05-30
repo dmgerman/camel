@@ -329,6 +329,20 @@ name|namespace
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|portName
+specifier|private
+name|String
+name|portName
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|dnsDomain
+specifier|private
+name|String
+name|dnsDomain
+decl_stmt|;
+annotation|@
+name|UriParam
 argument_list|(
 name|label
 operator|=
@@ -829,6 +843,60 @@ operator|.
 name|namespace
 operator|=
 name|namespace
+expr_stmt|;
+block|}
+DECL|method|getPortName ()
+specifier|public
+name|String
+name|getPortName
+parameter_list|()
+block|{
+return|return
+name|portName
+return|;
+block|}
+comment|/**      * The port name, used for ServiceCall EIP      */
+DECL|method|setPortName (String portName)
+specifier|public
+name|void
+name|setPortName
+parameter_list|(
+name|String
+name|portName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|portName
+operator|=
+name|portName
+expr_stmt|;
+block|}
+DECL|method|getDnsDomain ()
+specifier|public
+name|String
+name|getDnsDomain
+parameter_list|()
+block|{
+return|return
+name|dnsDomain
+return|;
+block|}
+comment|/**      * The dns domain, used for ServiceCall EIP      */
+DECL|method|setDnsDomain (String dnsDomain)
+specifier|public
+name|void
+name|setDnsDomain
+parameter_list|(
+name|String
+name|dnsDomain
+parameter_list|)
+block|{
+name|this
+operator|.
+name|dnsDomain
+operator|=
+name|dnsDomain
 expr_stmt|;
 block|}
 comment|/**      * @deprecated use {@link #getNamespace()}      */

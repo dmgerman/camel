@@ -28,7 +28,7 @@ DECL|field|SERVICE_NAME
 name|String
 name|SERVICE_NAME
 init|=
-literal|"CamelServiceCallServiceNa,e"
+literal|"CamelServiceCallServiceName"
 decl_stmt|;
 DECL|field|SERVER_IP
 name|String

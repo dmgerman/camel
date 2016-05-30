@@ -22,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
+name|List
 import|;
 end_import
 
@@ -43,7 +43,7 @@ parameter_list|>
 block|{
 comment|/**      * Gets the initial list of servers.      *<p/>      * This method may return<tt>null</tt> or an empty list.      *      * @param name the service name      */
 DECL|method|getInitialListOfServers (String name)
-name|Collection
+name|List
 argument_list|<
 name|T
 argument_list|>
@@ -55,7 +55,7 @@ parameter_list|)
 function_decl|;
 comment|/**      * Gets the updated list of servers.      *<p/>      * This method can either be called on-demand prior to a service call, or have      * a background job that is scheduled to update the list, or a watcher      * that triggers when the list of servers changes.      *      * @param name the service name      */
 DECL|method|getUpdatedListOfServers (String name)
-name|Collection
+name|List
 argument_list|<
 name|T
 argument_list|>

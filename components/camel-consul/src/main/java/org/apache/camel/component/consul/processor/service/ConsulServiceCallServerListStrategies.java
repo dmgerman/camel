@@ -28,16 +28,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Collection
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|List
 import|;
 end_import
@@ -116,26 +106,6 @@ name|ServiceCallServer
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|Logger
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|slf4j
-operator|.
-name|LoggerFactory
-import|;
-end_import
-
 begin_class
 DECL|class|ConsulServiceCallServerListStrategies
 specifier|public
@@ -177,7 +147,7 @@ annotation|@
 name|Override
 DECL|method|getUpdatedListOfServers (String name)
 specifier|public
-name|Collection
+name|List
 argument_list|<
 name|ServiceCallServer
 argument_list|>

@@ -24,19 +24,6 @@ specifier|public
 interface|interface
 name|KubernetesConstants
 block|{
-comment|// Service Call EIP
-DECL|field|KUBERNETES_SERVER_IP
-name|String
-name|KUBERNETES_SERVER_IP
-init|=
-literal|"CamelKubernetesServerIp"
-decl_stmt|;
-DECL|field|KUBERNETES_SERVER_PORT
-name|String
-name|KUBERNETES_SERVER_PORT
-init|=
-literal|"CamelKubernetesServerPort"
-decl_stmt|;
 comment|// Producer
 DECL|field|KUBERNETES_OPERATION
 name|String
