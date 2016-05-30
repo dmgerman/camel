@@ -211,20 +211,6 @@ argument_list|,
 name|headers
 argument_list|)
 decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Response isn't of type WriteResult"
-argument_list|,
-name|WriteResult
-operator|.
-name|class
-argument_list|,
-name|result
-operator|.
-name|getClass
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|DBObject
 name|b
 init|=
@@ -257,20 +243,6 @@ argument_list|,
 name|body
 argument_list|,
 name|headers
-argument_list|)
-expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Response isn't of type WriteResult"
-argument_list|,
-name|WriteResult
-operator|.
-name|class
-argument_list|,
-name|result
-operator|.
-name|getClass
-argument_list|()
 argument_list|)
 expr_stmt|;
 name|b
@@ -405,20 +377,6 @@ argument_list|,
 name|headers
 argument_list|)
 decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Response isn't of type WriteResult"
-argument_list|,
-name|WriteResult
-operator|.
-name|class
-argument_list|,
-name|result
-operator|.
-name|getClass
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|DBCollection
 name|dynamicCollection
 init|=
@@ -586,20 +544,6 @@ argument_list|,
 name|headers
 argument_list|)
 decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Response isn't of type WriteResult"
-argument_list|,
-name|WriteResult
-operator|.
-name|class
-argument_list|,
-name|result
-operator|.
-name|getClass
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|DBCollection
 name|dynamicCollection
 init|=
@@ -770,20 +714,6 @@ argument_list|,
 name|headers
 argument_list|)
 decl_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Response isn't of type WriteResult"
-argument_list|,
-name|WriteResult
-operator|.
-name|class
-argument_list|,
-name|result
-operator|.
-name|getClass
-argument_list|()
-argument_list|)
-expr_stmt|;
 name|DBCollection
 name|dynamicCollection
 init|=

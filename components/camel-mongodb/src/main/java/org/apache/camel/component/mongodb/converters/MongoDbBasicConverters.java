@@ -267,7 +267,7 @@ name|Converter
 DECL|method|fromMapToDBObject (Map<?, ?> map)
 specifier|public
 specifier|static
-name|DBObject
+name|BasicDBObject
 name|fromMapToDBObject
 parameter_list|(
 name|Map
@@ -362,10 +362,62 @@ return|;
 block|}
 annotation|@
 name|Converter
+DECL|method|fromStringToBasicDBObject (String s)
+specifier|public
+specifier|static
+name|BasicDBObject
+name|fromStringToBasicDBObject
+parameter_list|(
+name|String
+name|s
+parameter_list|)
+block|{
+name|BasicDBObject
+name|answer
+init|=
+literal|null
+decl_stmt|;
+try|try
+block|{
+name|answer
+operator|=
+operator|(
+name|BasicDBObject
+operator|)
+name|JSON
+operator|.
+name|parse
+argument_list|(
+name|s
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Exception
+name|e
+parameter_list|)
+block|{
+name|LOG
+operator|.
+name|warn
+argument_list|(
+literal|"String -> DBObject conversion selected, but the following exception occurred. Returning null."
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+return|return
+name|answer
+return|;
+block|}
+annotation|@
+name|Converter
 DECL|method|fromFileToDBObject (File f, Exchange exchange)
 specifier|public
 specifier|static
-name|DBObject
+name|BasicDBObject
 name|fromFileToDBObject
 parameter_list|(
 name|File
@@ -395,7 +447,7 @@ name|Converter
 DECL|method|fromInputStreamToDBObject (InputStream is, Exchange exchange)
 specifier|public
 specifier|static
-name|DBObject
+name|BasicDBObject
 name|fromInputStreamToDBObject
 parameter_list|(
 name|InputStream
@@ -405,7 +457,7 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-name|DBObject
+name|BasicDBObject
 name|answer
 init|=
 literal|null
@@ -452,7 +504,7 @@ expr_stmt|;
 name|answer
 operator|=
 operator|(
-name|DBObject
+name|BasicDBObject
 operator|)
 name|callback
 operator|.
@@ -465,7 +517,7 @@ block|{
 name|answer
 operator|=
 operator|(
-name|DBObject
+name|BasicDBObject
 operator|)
 name|JSON
 operator|.

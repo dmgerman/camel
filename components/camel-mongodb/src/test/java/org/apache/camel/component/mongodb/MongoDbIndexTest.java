@@ -326,7 +326,7 @@ name|assertEquals
 argument_list|(
 literal|"Response isn't of type WriteResult"
 argument_list|,
-name|WriteResult
+name|BasicDBObject
 operator|.
 name|class
 argument_list|,
@@ -670,7 +670,7 @@ name|assertEquals
 argument_list|(
 literal|"Response isn't of type WriteResult"
 argument_list|,
-name|WriteResult
+name|BasicDBObject
 operator|.
 name|class
 argument_list|,
@@ -938,7 +938,7 @@ name|assertEquals
 argument_list|(
 literal|"Response isn't of type WriteResult"
 argument_list|,
-name|WriteResult
+name|BasicDBObject
 operator|.
 name|class
 argument_list|,

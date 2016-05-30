@@ -264,13 +264,6 @@ argument_list|,
 name|m1
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|result
-operator|instanceof
-name|WriteResult
-argument_list|)
-expr_stmt|;
 name|DBObject
 name|b
 init|=
@@ -321,13 +314,6 @@ name|MyPojoTest
 argument_list|()
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|result
-operator|instanceof
-name|WriteResult
-argument_list|)
-expr_stmt|;
 name|DBObject
 name|b
 init|=
@@ -376,13 +362,7 @@ argument_list|,
 literal|"{\"fruits\": [\"apple\", \"banana\", \"papaya\"], \"veggie\": \"broccoli\", \"_id\": \"testInsertJsonString\"}"
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|result
-operator|instanceof
-name|WriteResult
-argument_list|)
-expr_stmt|;
+comment|//assertTrue(result instanceof WriteResult);
 name|DBObject
 name|b
 init|=
@@ -440,13 +420,6 @@ literal|null
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|result
-operator|instanceof
-name|WriteResult
-argument_list|)
-expr_stmt|;
 name|DBObject
 name|b
 init|=
@@ -527,13 +500,6 @@ argument_list|)
 argument_list|)
 argument_list|)
 decl_stmt|;
-name|assertTrue
-argument_list|(
-name|result
-operator|instanceof
-name|WriteResult
-argument_list|)
-expr_stmt|;
 name|DBObject
 name|b
 init|=
