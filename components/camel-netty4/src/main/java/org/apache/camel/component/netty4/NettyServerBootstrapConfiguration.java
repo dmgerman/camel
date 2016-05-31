@@ -595,6 +595,18 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|nativeTransport
+specifier|protected
+name|boolean
+name|nativeTransport
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"consumer,advanced"
 argument_list|)
 DECL|field|bossGroup
@@ -1534,6 +1546,33 @@ operator|.
 name|options
 operator|=
 name|options
+expr_stmt|;
+block|}
+DECL|method|isNativeTransport ()
+specifier|public
+name|boolean
+name|isNativeTransport
+parameter_list|()
+block|{
+return|return
+name|nativeTransport
+return|;
+block|}
+comment|/**      * Whether to use native transport instead of NIO. Native transport takes advantage of the host operating system and is only supported on some platforms.      * You need to add the netty JAR for the host operating system you are using. See more details at: http://netty.io/wiki/native-transports.html      */
+DECL|method|setNativeTransport (boolean nativeTransport)
+specifier|public
+name|void
+name|setNativeTransport
+parameter_list|(
+name|boolean
+name|nativeTransport
+parameter_list|)
+block|{
+name|this
+operator|.
+name|nativeTransport
+operator|=
+name|nativeTransport
 expr_stmt|;
 block|}
 DECL|method|getBossGroup ()
