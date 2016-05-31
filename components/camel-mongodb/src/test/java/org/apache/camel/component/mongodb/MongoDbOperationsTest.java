@@ -228,10 +228,10 @@ expr_stmt|;
 comment|// Insert a record and test that the endpoint now returns 1
 name|testCollection
 operator|.
-name|insert
+name|insertOne
 argument_list|(
 operator|(
-name|DBObject
+name|BasicDBObject
 operator|)
 name|JSON
 operator|.
@@ -272,7 +272,7 @@ argument_list|)
 expr_stmt|;
 name|testCollection
 operator|.
-name|remove
+name|deleteOne
 argument_list|(
 operator|new
 name|BasicDBObject
@@ -282,10 +282,10 @@ expr_stmt|;
 comment|// test dynamicity
 name|dynamicCollection
 operator|.
-name|insert
+name|insertOne
 argument_list|(
 operator|(
-name|DBObject
+name|BasicDBObject
 operator|)
 name|JSON
 operator|.
@@ -375,10 +375,19 @@ name|b
 init|=
 name|testCollection
 operator|.
-name|findOne
+name|find
 argument_list|(
+operator|new
+name|BasicDBObject
+argument_list|(
+literal|"_id"
+argument_list|,
 literal|"testInsertString"
 argument_list|)
+argument_list|)
+operator|.
+name|first
+argument_list|()
 decl_stmt|;
 name|assertNotNull
 argument_list|(
@@ -584,10 +593,19 @@ name|record1
 init|=
 name|testCollection
 operator|.
-name|findOne
+name|find
 argument_list|(
+operator|new
+name|BasicDBObject
+argument_list|(
+literal|"_id"
+argument_list|,
 literal|"testSave1"
 argument_list|)
+argument_list|)
+operator|.
+name|first
+argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
@@ -634,10 +652,19 @@ name|record1
 operator|=
 name|testCollection
 operator|.
-name|findOne
+name|find
 argument_list|(
+operator|new
+name|BasicDBObject
+argument_list|(
+literal|"_id"
+argument_list|,
 literal|"testSave1"
 argument_list|)
+argument_list|)
+operator|.
+name|first
+argument_list|()
 expr_stmt|;
 name|assertEquals
 argument_list|(
@@ -815,7 +842,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Testing the update logic
-name|DBObject
+name|BasicDBObject
 name|extraField
 init|=
 operator|new
@@ -1045,7 +1072,7 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 comment|// Testing the update logic
-name|DBObject
+name|BasicDBObject
 name|extraField
 init|=
 operator|new
