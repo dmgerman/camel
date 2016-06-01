@@ -100,26 +100,6 @@ name|com
 operator|.
 name|mongodb
 operator|.
-name|DB
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|mongodb
-operator|.
-name|DBCollection
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|mongodb
-operator|.
 name|DBObject
 import|;
 end_import
@@ -469,6 +449,10 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
+name|defaultValue
+operator|=
+literal|"ACKNOWLEDGED"
+argument_list|,
 name|enums
 operator|=
 literal|"ACKNOWLEDGED,W1,W2,W3,UNACKNOWLEDGED,JOURNALED,MAJORITY,SAFE"
@@ -477,6 +461,10 @@ DECL|field|writeConcern
 specifier|private
 name|WriteConcern
 name|writeConcern
+init|=
+name|WriteConcern
+operator|.
+name|ACKNOWLEDGED
 decl_stmt|;
 DECL|field|writeConcernRef
 specifier|private
@@ -996,18 +984,6 @@ argument_list|(
 name|operation
 argument_list|)
 operator|||
-operator|!
-name|ObjectHelper
-operator|.
-name|isEmpty
-argument_list|(
-name|writeConcern
-argument_list|)
-operator|||
-name|writeConcernRef
-operator|!=
-literal|null
-operator|||
 name|dynamicity
 operator|||
 name|outputType
@@ -1019,7 +995,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"operation, writeConcern, writeConcernRef, dynamicity, outputType "
+literal|"operation, dynamicity, outputType "
 operator|+
 literal|"options cannot appear on a consumer endpoint"
 argument_list|)
