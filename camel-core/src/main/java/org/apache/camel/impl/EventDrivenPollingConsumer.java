@@ -823,6 +823,16 @@ operator|=
 name|interruptedExceptionHandler
 expr_stmt|;
 block|}
+DECL|method|getDelegateConsumer ()
+specifier|public
+name|Consumer
+name|getDelegateConsumer
+parameter_list|()
+block|{
+return|return
+name|consumer
+return|;
+block|}
 DECL|method|handleInterruptedException (InterruptedException e)
 specifier|protected
 name|void
