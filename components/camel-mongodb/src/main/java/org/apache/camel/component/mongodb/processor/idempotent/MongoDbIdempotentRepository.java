@@ -132,6 +132,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|bson
 operator|.
 name|BsonDocument
@@ -171,10 +185,10 @@ argument_list|<
 name|E
 argument_list|>
 block|{
-DECL|field|cli
+DECL|field|mongoClient
 specifier|private
 name|MongoClient
-name|cli
+name|mongoClient
 decl_stmt|;
 DECL|field|collectionName
 specifier|private
@@ -194,12 +208,17 @@ name|Document
 argument_list|>
 name|collection
 decl_stmt|;
-DECL|method|MongoDbIdempotentRepository (MongoClient cli, String collectionName, String dbName)
+DECL|method|MongoDbIdempotentRepository ()
+specifier|public
+name|MongoDbIdempotentRepository
+parameter_list|()
+block|{     }
+DECL|method|MongoDbIdempotentRepository (MongoClient mongoClient, String collectionName, String dbName)
 specifier|public
 name|MongoDbIdempotentRepository
 parameter_list|(
 name|MongoClient
-name|cli
+name|mongoClient
 parameter_list|,
 name|String
 name|collectionName
@@ -210,9 +229,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|cli
+name|mongoClient
 operator|=
-name|cli
+name|mongoClient
 expr_stmt|;
 name|this
 operator|.
@@ -226,9 +245,11 @@ name|dbName
 operator|=
 name|dbName
 expr_stmt|;
+name|this
+operator|.
 name|collection
 operator|=
-name|cli
+name|mongoClient
 operator|.
 name|getDatabase
 argument_list|(
@@ -459,7 +480,59 @@ name|doStart
 parameter_list|()
 throws|throws
 name|Exception
-block|{      }
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|mongoClient
+argument_list|,
+literal|"cli"
+argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|dbName
+argument_list|,
+literal|"dbName"
+argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|collectionName
+argument_list|,
+literal|"collectionName"
+argument_list|)
+expr_stmt|;
+if|if
+condition|(
+name|collection
+operator|==
+literal|null
+condition|)
+block|{
+name|this
+operator|.
+name|collection
+operator|=
+name|mongoClient
+operator|.
+name|getDatabase
+argument_list|(
+name|dbName
+argument_list|)
+operator|.
+name|getCollection
+argument_list|(
+name|collectionName
+argument_list|)
+expr_stmt|;
+block|}
+block|}
 annotation|@
 name|Override
 DECL|method|doStop ()
@@ -469,31 +542,33 @@ name|doStop
 parameter_list|()
 throws|throws
 name|Exception
-block|{      }
-DECL|method|getCli ()
+block|{
+comment|// noop
+block|}
+DECL|method|getMongoClient ()
 specifier|public
 name|MongoClient
-name|getCli
+name|getMongoClient
 parameter_list|()
 block|{
 return|return
-name|cli
+name|mongoClient
 return|;
 block|}
-DECL|method|setCli (MongoClient cli)
+DECL|method|setMongoClient (MongoClient mongoClient)
 specifier|public
 name|void
-name|setCli
+name|setMongoClient
 parameter_list|(
 name|MongoClient
-name|cli
+name|mongoClient
 parameter_list|)
 block|{
 name|this
 operator|.
-name|cli
+name|mongoClient
 operator|=
-name|cli
+name|mongoClient
 expr_stmt|;
 block|}
 DECL|method|getCollectionName ()
