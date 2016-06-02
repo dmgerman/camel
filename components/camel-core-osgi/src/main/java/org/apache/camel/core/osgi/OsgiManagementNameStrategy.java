@@ -128,9 +128,9 @@ name|super
 argument_list|(
 name|camelContext
 argument_list|,
-literal|"#symbolicName#"
+literal|"#symbolicName#-#name#"
 argument_list|,
-literal|"#symbolicName#-#counter#"
+literal|"#symbolicName#-#name#-#counter#"
 argument_list|)
 expr_stmt|;
 name|this
