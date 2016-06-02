@@ -24,7 +24,7 @@ specifier|public
 class|class
 name|CamelMongoDbException
 extends|extends
-name|Exception
+name|RuntimeException
 block|{
 DECL|field|serialVersionUID
 specifier|private

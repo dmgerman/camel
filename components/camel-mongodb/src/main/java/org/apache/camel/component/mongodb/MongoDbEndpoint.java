@@ -22,6 +22,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|ArrayList
@@ -1378,8 +1388,8 @@ name|BasicDBObject
 argument_list|>
 name|createIndex
 parameter_list|()
-throws|throws
-name|Exception
+block|{
+try|try
 block|{
 name|List
 argument_list|<
@@ -1479,6 +1489,23 @@ block|}
 return|return
 name|indexList
 return|;
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+throw|throw
+operator|new
+name|CamelMongoDbException
+argument_list|(
+literal|"createIndex failed"
+argument_list|,
+name|e
+argument_list|)
+throw|;
+block|}
 block|}
 comment|/**      * Applies validation logic specific to this endpoint type. If everything succeeds, continues initialization      */
 annotation|@
