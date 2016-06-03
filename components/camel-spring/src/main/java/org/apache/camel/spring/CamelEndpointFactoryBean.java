@@ -218,6 +218,16 @@ specifier|private
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
+comment|// ref is needed as transient as namespace parser registerEndpointsWithIdsDefinedInFromOrToTypes
+comment|// will discover<endpoint>,<to> etc and parse those eager and would attempt to call setRef on
+comment|// this factory bean for a<to id="foo" ref="bar"/> that is using both id and ref.
+annotation|@
+name|XmlTransient
+DECL|field|ref
+specifier|private
+name|String
+name|ref
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|getCamelContextWithId (String camelContextId)
@@ -279,6 +289,32 @@ decl_stmt|;
 return|return
 name|answer
 return|;
+block|}
+DECL|method|getRef ()
+specifier|public
+name|String
+name|getRef
+parameter_list|()
+block|{
+return|return
+name|ref
+return|;
+block|}
+DECL|method|setRef (String ref)
+specifier|public
+name|void
+name|setRef
+parameter_list|(
+name|String
+name|ref
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ref
+operator|=
+name|ref
+expr_stmt|;
 block|}
 block|}
 end_class
