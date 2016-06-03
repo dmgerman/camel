@@ -228,7 +228,7 @@ literal|"ironmq"
 argument_list|,
 name|syntax
 operator|=
-literal|"ironmq:queue"
+literal|"ironmq:queueName"
 argument_list|,
 name|title
 operator|=
