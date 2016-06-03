@@ -2476,7 +2476,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"elasticsearch://local?operation=INDEX"
+literal|"elasticsearch://local?operation=INDEX&pathHome=target/home"
 argument_list|)
 expr_stmt|;
 name|from
@@ -2486,7 +2486,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"elasticsearch://local?operation=INDEX&indexName=twitter&indexType=tweet"
+literal|"elasticsearch://local?operation=INDEX&indexName=twitter&indexType=tweet&pathHome=target/home"
 argument_list|)
 expr_stmt|;
 name|from
@@ -2496,7 +2496,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"elasticsearch://local?operation=GET_BY_ID&indexName=twitter&indexType=tweet"
+literal|"elasticsearch://local?operation=GET_BY_ID&indexName=twitter&indexType=tweet&pathHome=target/home"
 argument_list|)
 expr_stmt|;
 name|from
@@ -2506,7 +2506,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"elasticsearch://local?operation=MULTIGET&indexName=twitter&indexType=tweet"
+literal|"elasticsearch://local?operation=MULTIGET&indexName=twitter&indexType=tweet&pathHome=target/home"
 argument_list|)
 expr_stmt|;
 name|from
@@ -2516,7 +2516,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"elasticsearch://local?operation=DELETE&indexName=twitter&indexType=tweet"
+literal|"elasticsearch://local?operation=DELETE&indexName=twitter&indexType=tweet&pathHome=target/home"
 argument_list|)
 expr_stmt|;
 name|from
@@ -2526,7 +2526,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"elasticsearch://local?operation=SEARCH&indexName=twitter&indexType=tweet"
+literal|"elasticsearch://local?operation=SEARCH&indexName=twitter&indexType=tweet&pathHome=target/home"
 argument_list|)
 expr_stmt|;
 name|from
@@ -2536,7 +2536,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"elasticsearch://local?operation=UPDATE&indexName=twitter&indexType=tweet"
+literal|"elasticsearch://local?operation=UPDATE&indexName=twitter&indexType=tweet&pathHome=target/home"
 argument_list|)
 expr_stmt|;
 name|from
@@ -2546,7 +2546,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"elasticsearch://local?operation=EXISTS"
+literal|"elasticsearch://local?operation=EXISTS&pathHome=target/home"
 argument_list|)
 expr_stmt|;
 name|from
@@ -2556,7 +2556,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"elasticsearch://local?operation=MULTISEARCH&indexName=test"
+literal|"elasticsearch://local?operation=MULTISEARCH&indexName=test&pathHome=target/home"
 argument_list|)
 expr_stmt|;
 block|}

@@ -238,6 +238,20 @@ name|clientTransportSniff
 init|=
 literal|true
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"/usr/share/elasticsearch"
+argument_list|)
+DECL|field|pathHome
+specifier|private
+name|String
+name|pathHome
+init|=
+literal|"/usr/share/elasticsearch"
+decl_stmt|;
 comment|/**      * Name of cluster or use local for local mode      */
 DECL|method|getClusterName ()
 specifier|public
@@ -564,6 +578,33 @@ operator|.
 name|transportAddressesList
 operator|=
 name|transportAddressesList
+expr_stmt|;
+block|}
+comment|/**      * The path.home property of ElasticSearch configuration. You need to provide a valid path, otherwise the default, /usr/share/elasticsearch, will be used.      */
+DECL|method|getPathHome ()
+specifier|public
+name|String
+name|getPathHome
+parameter_list|()
+block|{
+return|return
+name|pathHome
+return|;
+block|}
+DECL|method|setPathHome (String pathHome)
+specifier|public
+name|void
+name|setPathHome
+parameter_list|(
+name|String
+name|pathHome
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pathHome
+operator|=
+name|pathHome
 expr_stmt|;
 block|}
 block|}
