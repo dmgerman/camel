@@ -278,7 +278,7 @@ literal|"Braintree"
 argument_list|,
 name|syntax
 operator|=
-literal|"braintree:name"
+literal|"braintree:apiName/methodName"
 argument_list|,
 name|consumerClass
 operator|=
