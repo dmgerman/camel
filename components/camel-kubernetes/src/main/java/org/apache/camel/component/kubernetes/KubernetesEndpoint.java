@@ -540,7 +540,7 @@ literal|"Kubernetes"
 argument_list|,
 name|syntax
 operator|=
-literal|"kubernetes:master"
+literal|"kubernetes:masterUrl"
 argument_list|,
 name|label
 operator|=
