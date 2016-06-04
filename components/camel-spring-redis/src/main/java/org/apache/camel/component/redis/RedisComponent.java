@@ -66,6 +66,16 @@ name|RedisComponent
 extends|extends
 name|UriEndpointComponent
 block|{
+DECL|field|exchangeConverter
+specifier|private
+specifier|final
+name|ExchangeConverter
+name|exchangeConverter
+init|=
+operator|new
+name|ExchangeConverter
+argument_list|()
+decl_stmt|;
 DECL|method|RedisComponent ()
 specifier|public
 name|RedisComponent
@@ -227,6 +237,16 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|getExchangeConverter ()
+specifier|public
+name|ExchangeConverter
+name|getExchangeConverter
+parameter_list|()
+block|{
+return|return
+name|exchangeConverter
+return|;
 block|}
 block|}
 end_class
