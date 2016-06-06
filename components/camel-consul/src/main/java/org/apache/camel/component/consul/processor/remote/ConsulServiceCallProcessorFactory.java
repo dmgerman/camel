@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.consul.processor.service
+DECL|package|org.apache.camel.component.consul.processor.remote
 package|package
 name|org
 operator|.
@@ -18,7 +18,7 @@ name|consul
 operator|.
 name|processor
 operator|.
-name|service
+name|remote
 package|;
 end_package
 
@@ -177,10 +177,10 @@ comment|/**  * {@link ProcessorFactory} that creates the Consul implementation o
 end_comment
 
 begin_class
-DECL|class|ConsulProcessorFactory
+DECL|class|ConsulServiceCallProcessorFactory
 specifier|public
 class|class
-name|ConsulProcessorFactory
+name|ConsulServiceCallProcessorFactory
 extends|extends
 name|DefaultServiceCallProcessorFactory
 argument_list|<

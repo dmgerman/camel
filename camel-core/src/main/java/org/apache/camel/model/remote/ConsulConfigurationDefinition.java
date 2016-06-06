@@ -135,10 +135,6 @@ specifier|private
 name|String
 name|dc
 decl_stmt|;
-comment|//@XmlAttribute
-comment|//private Set<String> tags;
-comment|//@XmlAttribute @Metadata(label = "security")
-comment|//private SSLContextParameters sslContextParameters;
 annotation|@
 name|XmlAttribute
 annotation|@
@@ -292,7 +288,6 @@ operator|=
 name|dc
 expr_stmt|;
 block|}
-comment|/*     public Set<String> getTags() {         return tags;     }      public void setTags(Set<String> tags) {         this.tags = tags;     }      public SSLContextParameters getSslContextParameters() {         return sslContextParameters;     }      public void setSslContextParameters(SSLContextParameters sslContextParameters) {         this.sslContextParameters = sslContextParameters;     }     */
 DECL|method|getAclToken ()
 specifier|public
 name|String
@@ -514,7 +509,6 @@ return|return
 name|this
 return|;
 block|}
-comment|/*     public ConsulConfigurationDefinition tags(Set<String> tags) {         setTags(tags);         return this;     }      public ConsulConfigurationDefinition sslContextParameters(SSLContextParameters sslContextParameters) {         setSslContextParameters(sslContextParameters);         return this;     }     */
 DECL|method|aclToken (String aclToken)
 specifier|public
 name|ConsulConfigurationDefinition

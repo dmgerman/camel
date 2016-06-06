@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.consul.processor.service
+DECL|package|org.apache.camel.component.consul.processor.remote
 package|package
 name|org
 operator|.
@@ -18,7 +18,7 @@ name|consul
 operator|.
 name|processor
 operator|.
-name|service
+name|remote
 package|;
 end_package
 
@@ -151,10 +151,10 @@ end_import
 begin_class
 annotation|@
 name|Ignore
-DECL|class|ServiceCallClientRouteTest
+DECL|class|ConsulServiceCallRouteTest
 specifier|public
 class|class
-name|ServiceCallClientRouteTest
+name|ConsulServiceCallRouteTest
 extends|extends
 name|ConsulTestSupport
 block|{
