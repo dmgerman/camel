@@ -190,6 +190,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|sqs
+operator|.
+name|model
+operator|.
+name|SetQueueAttributesResult
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -495,7 +511,7 @@ annotation|@
 name|Override
 DECL|method|setQueueAttributes (SetQueueAttributesRequest setQueueAttributesRequest)
 specifier|public
-name|void
+name|SetQueueAttributesResult
 name|setQueueAttributes
 parameter_list|(
 name|SetQueueAttributesRequest
@@ -506,7 +522,11 @@ name|AmazonServiceException
 throws|,
 name|AmazonClientException
 block|{
-comment|// noop
+return|return
+operator|new
+name|SetQueueAttributesResult
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override

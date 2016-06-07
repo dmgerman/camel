@@ -114,6 +114,22 @@ name|sns
 operator|.
 name|model
 operator|.
+name|AddPermissionResult
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|sns
+operator|.
+name|model
+operator|.
 name|ConfirmSubscriptionRequest
 import|;
 end_import
@@ -179,6 +195,22 @@ operator|.
 name|model
 operator|.
 name|DeleteTopicRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|sns
+operator|.
+name|model
+operator|.
+name|DeleteTopicResult
 import|;
 end_import
 
@@ -370,7 +402,39 @@ name|sns
 operator|.
 name|model
 operator|.
+name|RemovePermissionResult
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|sns
+operator|.
+name|model
+operator|.
 name|SetTopicAttributesRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|sns
+operator|.
+name|model
+operator|.
+name|SetTopicAttributesResult
 import|;
 end_import
 
@@ -419,6 +483,22 @@ operator|.
 name|model
 operator|.
 name|UnsubscribeRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|sns
+operator|.
+name|model
+operator|.
+name|UnsubscribeResult
 import|;
 end_import
 
@@ -566,7 +646,7 @@ annotation|@
 name|Override
 DECL|method|setTopicAttributes (SetTopicAttributesRequest setTopicAttributesRequest)
 specifier|public
-name|void
+name|SetTopicAttributesResult
 name|setTopicAttributes
 parameter_list|(
 name|SetTopicAttributesRequest
@@ -613,12 +693,17 @@ name|getAttributeValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+return|return
+operator|new
+name|SetTopicAttributesResult
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override
 DECL|method|deleteTopic (DeleteTopicRequest deleteTopicRequest)
 specifier|public
-name|void
+name|DeleteTopicResult
 name|deleteTopic
 parameter_list|(
 name|DeleteTopicRequest
@@ -639,7 +724,7 @@ annotation|@
 name|Override
 DECL|method|removePermission (RemovePermissionRequest removePermissionRequest)
 specifier|public
-name|void
+name|RemovePermissionResult
 name|removePermission
 parameter_list|(
 name|RemovePermissionRequest
@@ -681,7 +766,7 @@ annotation|@
 name|Override
 DECL|method|addPermission (AddPermissionRequest addPermissionRequest)
 specifier|public
-name|void
+name|AddPermissionResult
 name|addPermission
 parameter_list|(
 name|AddPermissionRequest
@@ -756,7 +841,7 @@ annotation|@
 name|Override
 DECL|method|unsubscribe (UnsubscribeRequest unsubscribeRequest)
 specifier|public
-name|void
+name|UnsubscribeResult
 name|unsubscribe
 parameter_list|(
 name|UnsubscribeRequest

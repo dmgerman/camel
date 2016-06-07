@@ -212,6 +212,22 @@ name|sqs
 operator|.
 name|model
 operator|.
+name|ChangeMessageVisibilityResult
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|sqs
+operator|.
+name|model
+operator|.
 name|CreateQueueRequest
 import|;
 end_import
@@ -245,6 +261,22 @@ operator|.
 name|model
 operator|.
 name|DeleteMessageRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|sqs
+operator|.
+name|model
+operator|.
+name|DeleteMessageResult
 import|;
 end_import
 
@@ -357,6 +389,22 @@ operator|.
 name|model
 operator|.
 name|SetQueueAttributesRequest
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|amazonaws
+operator|.
+name|services
+operator|.
+name|sqs
+operator|.
+name|model
+operator|.
+name|SetQueueAttributesResult
 import|;
 end_import
 
@@ -964,7 +1012,7 @@ annotation|@
 name|Override
 DECL|method|deleteMessage (DeleteMessageRequest deleteMessageRequest)
 specifier|public
-name|void
+name|DeleteMessageResult
 name|deleteMessage
 parameter_list|(
 name|DeleteMessageRequest
@@ -1009,12 +1057,17 @@ literal|true
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+operator|new
+name|DeleteMessageResult
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override
 DECL|method|setQueueAttributes (SetQueueAttributesRequest setQueueAttributesRequest)
 specifier|public
-name|void
+name|SetQueueAttributesResult
 name|setQueueAttributes
 parameter_list|(
 name|SetQueueAttributesRequest
@@ -1111,12 +1164,17 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
+return|return
+operator|new
+name|SetQueueAttributesResult
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override
 DECL|method|changeMessageVisibility (ChangeMessageVisibilityRequest changeMessageVisibilityRequest)
 specifier|public
-name|void
+name|ChangeMessageVisibilityResult
 name|changeMessageVisibility
 parameter_list|(
 name|ChangeMessageVisibilityRequest
@@ -1136,6 +1194,11 @@ argument_list|(
 name|changeMessageVisibilityRequest
 argument_list|)
 expr_stmt|;
+return|return
+operator|new
+name|ChangeMessageVisibilityResult
+argument_list|()
+return|;
 block|}
 block|}
 end_class
