@@ -511,6 +511,28 @@ operator|)
 name|serviceCallConfiguration
 return|;
 block|}
+comment|/**      * Configures the Service Call EIP using Dns      *<p/>      * Use<tt>end</tt> when configuration is complete, to return back to the Service Call EIP.      */
+DECL|method|dnsConfiguration ()
+specifier|public
+name|DnsConfigurationDefinition
+name|dnsConfiguration
+parameter_list|()
+block|{
+name|serviceCallConfiguration
+operator|=
+operator|new
+name|DnsConfigurationDefinition
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|DnsConfigurationDefinition
+operator|)
+name|serviceCallConfiguration
+return|;
+block|}
 comment|/**      * Configures the ServiceCall using the given configuration      */
 DECL|method|serviceCallConfiguration (ServiceCallConfigurationDefinition configuration)
 specifier|public
