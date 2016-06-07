@@ -476,7 +476,7 @@ parameter_list|()
 block|{
 name|this
 argument_list|(
-name|HashMap
+name|Object
 operator|.
 name|class
 argument_list|)
