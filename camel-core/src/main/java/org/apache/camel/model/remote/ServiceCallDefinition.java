@@ -489,6 +489,28 @@ operator|)
 name|serviceCallConfiguration
 return|;
 block|}
+comment|/**      * Configures the Service Call EIP using Etcd      *<p/>      * Use<tt>end</tt> when configuration is complete, to return back to the Service Call EIP.      */
+DECL|method|etcdConfiguration ()
+specifier|public
+name|EtcdConfigurationDefinition
+name|etcdConfiguration
+parameter_list|()
+block|{
+name|serviceCallConfiguration
+operator|=
+operator|new
+name|EtcdConfigurationDefinition
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+return|return
+operator|(
+name|EtcdConfigurationDefinition
+operator|)
+name|serviceCallConfiguration
+return|;
+block|}
 comment|/**      * Configures the ServiceCall using the given configuration      */
 DECL|method|serviceCallConfiguration (ServiceCallConfigurationDefinition configuration)
 specifier|public

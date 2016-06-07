@@ -102,7 +102,7 @@ specifier|public
 class|class
 name|EtcdWatchTest
 extends|extends
-name|EtcdTest
+name|EtcdTestSupport
 block|{
 annotation|@
 name|Test

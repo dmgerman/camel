@@ -128,7 +128,7 @@ specifier|public
 class|class
 name|EtcdStatsTest
 extends|extends
-name|EtcdTest
+name|EtcdTestSupport
 block|{
 annotation|@
 name|Test

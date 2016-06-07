@@ -220,7 +220,10 @@ name|loadConfiguration
 argument_list|(
 operator|new
 name|EtcdConfiguration
+argument_list|(
+name|getCamelContext
 argument_list|()
+argument_list|)
 argument_list|,
 name|parameters
 argument_list|)

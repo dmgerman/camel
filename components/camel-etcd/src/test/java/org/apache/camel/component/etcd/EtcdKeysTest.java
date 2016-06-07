@@ -156,7 +156,7 @@ specifier|public
 class|class
 name|EtcdKeysTest
 extends|extends
-name|EtcdTest
+name|EtcdTestSupport
 block|{
 annotation|@
 name|Test

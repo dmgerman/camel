@@ -572,6 +572,13 @@ literal|" must be configured before it can be used."
 argument_list|)
 throw|;
 block|}
+if|if
+condition|(
+name|cfg
+operator|!=
+literal|null
+condition|)
+block|{
 comment|// extract the properties from the configuration from the model
 name|Map
 argument_list|<
@@ -624,13 +631,6 @@ literal|null
 argument_list|)
 expr_stmt|;
 block|}
-if|if
-condition|(
-name|cfg
-operator|!=
-literal|null
-condition|)
-block|{
 name|IntrospectionSupport
 operator|.
 name|setProperties
@@ -928,7 +928,7 @@ name|processor
 operator|.
 name|getServerListStrategy
 argument_list|()
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{
@@ -950,7 +950,7 @@ name|processor
 operator|.
 name|getLoadBalancer
 argument_list|()
-operator|!=
+operator|==
 literal|null
 condition|)
 block|{

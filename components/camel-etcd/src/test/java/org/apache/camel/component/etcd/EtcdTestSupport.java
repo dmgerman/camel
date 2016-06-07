@@ -91,10 +91,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|EtcdTest
+DECL|class|EtcdTestSupport
 specifier|public
 class|class
-name|EtcdTest
+name|EtcdTestSupport
 extends|extends
 name|CamelTestSupport
 block|{
@@ -193,7 +193,7 @@ name|URI
 operator|.
 name|create
 argument_list|(
-literal|"http://localhost:4001"
+literal|"http://localhost:2379"
 argument_list|)
 argument_list|)
 return|;
