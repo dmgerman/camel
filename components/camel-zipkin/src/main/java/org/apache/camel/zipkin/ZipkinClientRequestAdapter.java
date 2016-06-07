@@ -472,8 +472,6 @@ expr_stmt|;
 block|}
 block|}
 block|}
-annotation|@
-name|Override
 DECL|method|getClientServiceName ()
 specifier|public
 name|String
