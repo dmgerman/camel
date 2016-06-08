@@ -885,6 +885,7 @@ name|elprop
 operator|!=
 literal|null
 condition|)
+block|{
 name|System
 operator|.
 name|setProperty
@@ -894,7 +895,9 @@ argument_list|,
 name|elprop
 argument_list|)
 expr_stmt|;
+block|}
 else|else
+block|{
 name|System
 operator|.
 name|clearProperty
@@ -902,6 +905,7 @@ argument_list|(
 literal|"javax.el.ExpressionFactory"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|createDozerBeanMapper ()
