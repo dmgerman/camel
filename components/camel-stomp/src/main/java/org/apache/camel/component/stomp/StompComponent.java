@@ -62,14 +62,35 @@ name|StompComponent
 extends|extends
 name|UriEndpointComponent
 block|{
+comment|/**      * To use the shared stomp configuration      */
 DECL|field|configuration
 specifier|private
 name|StompConfiguration
 name|configuration
-init|=
-operator|new
-name|StompConfiguration
-argument_list|()
+decl_stmt|;
+comment|/**      * The URI of the Stomp broker to connect to      */
+DECL|field|brokerUrl
+specifier|private
+name|String
+name|brokerUrl
+decl_stmt|;
+comment|/**      * The username      */
+DECL|field|login
+specifier|private
+name|String
+name|login
+decl_stmt|;
+comment|/**      * The password      */
+DECL|field|passcode
+specifier|private
+name|String
+name|passcode
+decl_stmt|;
+comment|/**      * The virtual host      */
+DECL|field|host
+specifier|private
+name|String
+name|host
 decl_stmt|;
 DECL|method|StompComponent ()
 specifier|public
@@ -165,6 +186,29 @@ expr_stmt|;
 return|return
 name|endpoint
 return|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
+name|configuration
+operator|.
+name|setBrokerURL
+argument_list|(
+name|brokerUrl
+argument_list|)
+expr_stmt|;
 block|}
 DECL|method|getConfiguration ()
 specifier|public
