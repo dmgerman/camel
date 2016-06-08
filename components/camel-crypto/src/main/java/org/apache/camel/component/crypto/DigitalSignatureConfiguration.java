@@ -220,7 +220,7 @@ name|CryptoOperation
 name|cryptoOperation
 decl_stmt|;
 annotation|@
-name|UriParam
+name|UriPath
 annotation|@
 name|Metadata
 argument_list|(
