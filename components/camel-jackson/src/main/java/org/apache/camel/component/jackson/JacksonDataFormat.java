@@ -468,7 +468,7 @@ specifier|private
 name|boolean
 name|enableJacksonTypeConverter
 decl_stmt|;
-comment|/**      * Use the default Jackson {@link ObjectMapper} and {@link Map}      */
+comment|/**      * Use the default Jackson {@link ObjectMapper} and {@link Object}      */
 DECL|method|JacksonDataFormat ()
 specifier|public
 name|JacksonDataFormat
