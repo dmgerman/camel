@@ -193,10 +193,10 @@ name|PaxLoggingComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, PaxLoggingComponentConfiguration configuration)
+DECL|method|configurePaxLoggingComponent ( CamelContext camelContext, PaxLoggingComponentConfiguration configuration)
 specifier|public
 name|PaxLoggingComponent
-name|configureComponent
+name|configurePaxLoggingComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

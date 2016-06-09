@@ -193,10 +193,10 @@ name|StompComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, StompComponentConfiguration configuration)
+DECL|method|configureStompComponent (CamelContext camelContext, StompComponentConfiguration configuration)
 specifier|public
 name|StompComponent
-name|configureComponent
+name|configureStompComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

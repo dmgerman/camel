@@ -193,10 +193,10 @@ name|VmComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, VmComponentConfiguration configuration)
+DECL|method|configureVmComponent (CamelContext camelContext, VmComponentConfiguration configuration)
 specifier|public
 name|VmComponent
-name|configureComponent
+name|configureVmComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

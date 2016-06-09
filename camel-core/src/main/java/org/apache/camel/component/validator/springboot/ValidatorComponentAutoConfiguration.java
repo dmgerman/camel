@@ -193,10 +193,10 @@ name|ValidatorComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, ValidatorComponentConfiguration configuration)
+DECL|method|configureValidatorComponent ( CamelContext camelContext, ValidatorComponentConfiguration configuration)
 specifier|public
 name|ValidatorComponent
-name|configureComponent
+name|configureValidatorComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

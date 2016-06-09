@@ -193,10 +193,10 @@ name|LuceneComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, LuceneComponentConfiguration configuration)
+DECL|method|configureLuceneComponent (CamelContext camelContext, LuceneComponentConfiguration configuration)
 specifier|public
 name|LuceneComponent
-name|configureComponent
+name|configureLuceneComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

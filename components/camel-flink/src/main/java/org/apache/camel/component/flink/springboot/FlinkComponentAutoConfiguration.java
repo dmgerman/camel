@@ -193,10 +193,10 @@ name|FlinkComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, FlinkComponentConfiguration configuration)
+DECL|method|configureFlinkComponent (CamelContext camelContext, FlinkComponentConfiguration configuration)
 specifier|public
 name|FlinkComponent
-name|configureComponent
+name|configureFlinkComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

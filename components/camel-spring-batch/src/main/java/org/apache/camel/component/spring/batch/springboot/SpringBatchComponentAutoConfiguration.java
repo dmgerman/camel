@@ -197,10 +197,10 @@ name|SpringBatchComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, SpringBatchComponentConfiguration configuration)
+DECL|method|configureSpringBatchComponent ( CamelContext camelContext, SpringBatchComponentConfiguration configuration)
 specifier|public
 name|SpringBatchComponent
-name|configureComponent
+name|configureSpringBatchComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

@@ -193,10 +193,10 @@ name|QuickfixjComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, QuickfixjComponentConfiguration configuration)
+DECL|method|configureQuickfixjComponent ( CamelContext camelContext, QuickfixjComponentConfiguration configuration)
 specifier|public
 name|QuickfixjComponent
-name|configureComponent
+name|configureQuickfixjComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

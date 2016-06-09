@@ -193,10 +193,10 @@ name|HdfsComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, HdfsComponentConfiguration configuration)
+DECL|method|configureHdfsComponent (CamelContext camelContext, HdfsComponentConfiguration configuration)
 specifier|public
 name|HdfsComponent
-name|configureComponent
+name|configureHdfsComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

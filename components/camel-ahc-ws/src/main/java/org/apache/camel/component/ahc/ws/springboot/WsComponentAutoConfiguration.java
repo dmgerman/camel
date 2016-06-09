@@ -197,10 +197,10 @@ name|WsComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, WsComponentConfiguration configuration)
+DECL|method|configureWsComponent (CamelContext camelContext, WsComponentConfiguration configuration)
 specifier|public
 name|WsComponent
-name|configureComponent
+name|configureWsComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

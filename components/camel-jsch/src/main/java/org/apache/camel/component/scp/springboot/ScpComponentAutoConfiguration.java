@@ -193,10 +193,10 @@ name|ScpComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, ScpComponentConfiguration configuration)
+DECL|method|configureScpComponent (CamelContext camelContext, ScpComponentConfiguration configuration)
 specifier|public
 name|ScpComponent
-name|configureComponent
+name|configureScpComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

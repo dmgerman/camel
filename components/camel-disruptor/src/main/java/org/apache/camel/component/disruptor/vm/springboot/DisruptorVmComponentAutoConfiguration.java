@@ -197,10 +197,10 @@ name|DisruptorVmComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, DisruptorVmComponentConfiguration configuration)
+DECL|method|configureDisruptorVmComponent ( CamelContext camelContext, DisruptorVmComponentConfiguration configuration)
 specifier|public
 name|DisruptorVmComponent
-name|configureComponent
+name|configureDisruptorVmComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

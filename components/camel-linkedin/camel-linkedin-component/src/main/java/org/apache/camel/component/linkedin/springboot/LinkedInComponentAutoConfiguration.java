@@ -193,10 +193,10 @@ name|LinkedInComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, LinkedInComponentConfiguration configuration)
+DECL|method|configureLinkedInComponent ( CamelContext camelContext, LinkedInComponentConfiguration configuration)
 specifier|public
 name|LinkedInComponent
-name|configureComponent
+name|configureLinkedInComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

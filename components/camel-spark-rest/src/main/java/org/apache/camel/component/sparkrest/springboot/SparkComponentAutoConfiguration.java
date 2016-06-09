@@ -193,10 +193,10 @@ name|SparkComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, SparkComponentConfiguration configuration)
+DECL|method|configureSparkComponent (CamelContext camelContext, SparkComponentConfiguration configuration)
 specifier|public
 name|SparkComponent
-name|configureComponent
+name|configureSparkComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

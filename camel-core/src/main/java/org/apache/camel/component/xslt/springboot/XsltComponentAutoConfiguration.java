@@ -193,10 +193,10 @@ name|XsltComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, XsltComponentConfiguration configuration)
+DECL|method|configureXsltComponent (CamelContext camelContext, XsltComponentConfiguration configuration)
 specifier|public
 name|XsltComponent
-name|configureComponent
+name|configureXsltComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

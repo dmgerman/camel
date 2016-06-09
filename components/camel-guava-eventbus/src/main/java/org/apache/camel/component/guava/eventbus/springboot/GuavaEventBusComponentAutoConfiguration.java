@@ -197,10 +197,10 @@ name|GuavaEventBusComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, GuavaEventBusComponentConfiguration configuration)
+DECL|method|configureGuavaEventBusComponent ( CamelContext camelContext, GuavaEventBusComponentConfiguration configuration)
 specifier|public
 name|GuavaEventBusComponent
-name|configureComponent
+name|configureGuavaEventBusComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

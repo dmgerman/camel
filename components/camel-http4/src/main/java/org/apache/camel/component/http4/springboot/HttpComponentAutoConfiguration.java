@@ -193,10 +193,10 @@ name|HttpComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, HttpComponentConfiguration configuration)
+DECL|method|configureHttpComponent (CamelContext camelContext, HttpComponentConfiguration configuration)
 specifier|public
 name|HttpComponent
-name|configureComponent
+name|configureHttpComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

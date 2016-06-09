@@ -193,10 +193,10 @@ name|Jt400Component
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, Jt400ComponentConfiguration configuration)
+DECL|method|configureJt400Component (CamelContext camelContext, Jt400ComponentConfiguration configuration)
 specifier|public
 name|Jt400Component
-name|configureComponent
+name|configureJt400Component
 parameter_list|(
 name|CamelContext
 name|camelContext

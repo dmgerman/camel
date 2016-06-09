@@ -193,10 +193,10 @@ name|QuartzComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, QuartzComponentConfiguration configuration)
+DECL|method|configureQuartzComponent (CamelContext camelContext, QuartzComponentConfiguration configuration)
 specifier|public
 name|QuartzComponent
-name|configureComponent
+name|configureQuartzComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

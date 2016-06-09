@@ -193,10 +193,10 @@ name|DirectComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, DirectComponentConfiguration configuration)
+DECL|method|configureDirectComponent (CamelContext camelContext, DirectComponentConfiguration configuration)
 specifier|public
 name|DirectComponent
-name|configureComponent
+name|configureDirectComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

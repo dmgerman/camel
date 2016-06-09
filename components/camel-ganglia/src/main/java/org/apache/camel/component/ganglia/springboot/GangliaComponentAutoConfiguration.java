@@ -193,10 +193,10 @@ name|GangliaComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, GangliaComponentConfiguration configuration)
+DECL|method|configureGangliaComponent ( CamelContext camelContext, GangliaComponentConfiguration configuration)
 specifier|public
 name|GangliaComponent
-name|configureComponent
+name|configureGangliaComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

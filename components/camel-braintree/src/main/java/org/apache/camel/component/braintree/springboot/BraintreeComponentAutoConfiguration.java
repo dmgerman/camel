@@ -193,10 +193,10 @@ name|BraintreeComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, BraintreeComponentConfiguration configuration)
+DECL|method|configureBraintreeComponent ( CamelContext camelContext, BraintreeComponentConfiguration configuration)
 specifier|public
 name|BraintreeComponent
-name|configureComponent
+name|configureBraintreeComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

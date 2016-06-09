@@ -193,10 +193,10 @@ name|SlackComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, SlackComponentConfiguration configuration)
+DECL|method|configureSlackComponent (CamelContext camelContext, SlackComponentConfiguration configuration)
 specifier|public
 name|SlackComponent
-name|configureComponent
+name|configureSlackComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

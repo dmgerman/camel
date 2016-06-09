@@ -193,10 +193,10 @@ name|CxfComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, CxfComponentConfiguration configuration)
+DECL|method|configureCxfComponent (CamelContext camelContext, CxfComponentConfiguration configuration)
 specifier|public
 name|CxfComponent
-name|configureComponent
+name|configureCxfComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

@@ -193,10 +193,10 @@ name|FacebookComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, FacebookComponentConfiguration configuration)
+DECL|method|configureFacebookComponent ( CamelContext camelContext, FacebookComponentConfiguration configuration)
 specifier|public
 name|FacebookComponent
-name|configureComponent
+name|configureFacebookComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

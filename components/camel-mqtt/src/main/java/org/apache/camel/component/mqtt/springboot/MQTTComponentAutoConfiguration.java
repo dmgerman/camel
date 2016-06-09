@@ -193,10 +193,10 @@ name|MQTTComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, MQTTComponentConfiguration configuration)
+DECL|method|configureMQTTComponent (CamelContext camelContext, MQTTComponentConfiguration configuration)
 specifier|public
 name|MQTTComponent
-name|configureComponent
+name|configureMQTTComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

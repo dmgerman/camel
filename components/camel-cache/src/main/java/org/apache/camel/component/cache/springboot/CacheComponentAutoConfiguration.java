@@ -193,10 +193,10 @@ name|CacheComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, CacheComponentConfiguration configuration)
+DECL|method|configureCacheComponent (CamelContext camelContext, CacheComponentConfiguration configuration)
 specifier|public
 name|CacheComponent
-name|configureComponent
+name|configureCacheComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

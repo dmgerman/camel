@@ -193,10 +193,10 @@ name|DirectVmComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, DirectVmComponentConfiguration configuration)
+DECL|method|configureDirectVmComponent ( CamelContext camelContext, DirectVmComponentConfiguration configuration)
 specifier|public
 name|DirectVmComponent
-name|configureComponent
+name|configureDirectVmComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

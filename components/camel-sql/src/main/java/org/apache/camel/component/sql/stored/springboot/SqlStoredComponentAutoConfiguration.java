@@ -197,10 +197,10 @@ name|SqlStoredComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, SqlStoredComponentConfiguration configuration)
+DECL|method|configureSqlStoredComponent ( CamelContext camelContext, SqlStoredComponentConfiguration configuration)
 specifier|public
 name|SqlStoredComponent
-name|configureComponent
+name|configureSqlStoredComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

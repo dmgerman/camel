@@ -193,10 +193,10 @@ name|JmsComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, JmsComponentConfiguration configuration)
+DECL|method|configureJmsComponent (CamelContext camelContext, JmsComponentConfiguration configuration)
 specifier|public
 name|JmsComponent
-name|configureComponent
+name|configureJmsComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

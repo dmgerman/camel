@@ -193,10 +193,10 @@ name|SedaComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, SedaComponentConfiguration configuration)
+DECL|method|configureSedaComponent (CamelContext camelContext, SedaComponentConfiguration configuration)
 specifier|public
 name|SedaComponent
-name|configureComponent
+name|configureSedaComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

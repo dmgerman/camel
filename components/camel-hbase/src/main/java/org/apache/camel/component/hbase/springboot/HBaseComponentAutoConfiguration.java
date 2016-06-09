@@ -193,10 +193,10 @@ name|HBaseComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, HBaseComponentConfiguration configuration)
+DECL|method|configureHBaseComponent (CamelContext camelContext, HBaseComponentConfiguration configuration)
 specifier|public
 name|HBaseComponent
-name|configureComponent
+name|configureHBaseComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

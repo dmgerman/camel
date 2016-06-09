@@ -193,10 +193,10 @@ name|AMQPComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, AMQPComponentConfiguration configuration)
+DECL|method|configureAMQPComponent (CamelContext camelContext, AMQPComponentConfiguration configuration)
 specifier|public
 name|AMQPComponent
-name|configureComponent
+name|configureAMQPComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

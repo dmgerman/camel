@@ -193,10 +193,10 @@ name|Olingo2Component
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, Olingo2ComponentConfiguration configuration)
+DECL|method|configureOlingo2Component ( CamelContext camelContext, Olingo2ComponentConfiguration configuration)
 specifier|public
 name|Olingo2Component
-name|configureComponent
+name|configureOlingo2Component
 parameter_list|(
 name|CamelContext
 name|camelContext

@@ -193,10 +193,10 @@ name|Mina2Component
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, Mina2ComponentConfiguration configuration)
+DECL|method|configureMina2Component (CamelContext camelContext, Mina2ComponentConfiguration configuration)
 specifier|public
 name|Mina2Component
-name|configureComponent
+name|configureMina2Component
 parameter_list|(
 name|CamelContext
 name|camelContext

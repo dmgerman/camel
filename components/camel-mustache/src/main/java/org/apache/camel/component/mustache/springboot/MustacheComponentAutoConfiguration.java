@@ -193,10 +193,10 @@ name|MustacheComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, MustacheComponentConfiguration configuration)
+DECL|method|configureMustacheComponent ( CamelContext camelContext, MustacheComponentConfiguration configuration)
 specifier|public
 name|MustacheComponent
-name|configureComponent
+name|configureMustacheComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

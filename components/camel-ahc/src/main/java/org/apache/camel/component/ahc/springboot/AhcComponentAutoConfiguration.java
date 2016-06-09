@@ -193,10 +193,10 @@ name|AhcComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, AhcComponentConfiguration configuration)
+DECL|method|configureAhcComponent (CamelContext camelContext, AhcComponentConfiguration configuration)
 specifier|public
 name|AhcComponent
-name|configureComponent
+name|configureAhcComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

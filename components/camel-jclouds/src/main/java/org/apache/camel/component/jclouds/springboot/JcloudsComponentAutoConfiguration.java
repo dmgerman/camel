@@ -193,10 +193,10 @@ name|JcloudsComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, JcloudsComponentConfiguration configuration)
+DECL|method|configureJcloudsComponent ( CamelContext camelContext, JcloudsComponentConfiguration configuration)
 specifier|public
 name|JcloudsComponent
-name|configureComponent
+name|configureJcloudsComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

@@ -193,10 +193,10 @@ name|ElsqlComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, ElsqlComponentConfiguration configuration)
+DECL|method|configureElsqlComponent (CamelContext camelContext, ElsqlComponentConfiguration configuration)
 specifier|public
 name|ElsqlComponent
-name|configureComponent
+name|configureElsqlComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

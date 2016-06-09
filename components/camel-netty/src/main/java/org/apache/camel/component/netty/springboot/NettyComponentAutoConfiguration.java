@@ -193,10 +193,10 @@ name|NettyComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, NettyComponentConfiguration configuration)
+DECL|method|configureNettyComponent (CamelContext camelContext, NettyComponentConfiguration configuration)
 specifier|public
 name|NettyComponent
-name|configureComponent
+name|configureNettyComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

@@ -193,10 +193,10 @@ name|BeanstalkComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, BeanstalkComponentConfiguration configuration)
+DECL|method|configureBeanstalkComponent ( CamelContext camelContext, BeanstalkComponentConfiguration configuration)
 specifier|public
 name|BeanstalkComponent
-name|configureComponent
+name|configureBeanstalkComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

@@ -193,10 +193,10 @@ name|JoltComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, JoltComponentConfiguration configuration)
+DECL|method|configureJoltComponent (CamelContext camelContext, JoltComponentConfiguration configuration)
 specifier|public
 name|JoltComponent
-name|configureComponent
+name|configureJoltComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

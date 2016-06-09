@@ -197,10 +197,10 @@ name|CxfRsComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, CxfRsComponentConfiguration configuration)
+DECL|method|configureCxfRsComponent (CamelContext camelContext, CxfRsComponentConfiguration configuration)
 specifier|public
 name|CxfRsComponent
-name|configureComponent
+name|configureCxfRsComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

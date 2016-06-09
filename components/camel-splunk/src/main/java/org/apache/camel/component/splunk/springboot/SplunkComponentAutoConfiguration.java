@@ -193,10 +193,10 @@ name|SplunkComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, SplunkComponentConfiguration configuration)
+DECL|method|configureSplunkComponent (CamelContext camelContext, SplunkComponentConfiguration configuration)
 specifier|public
 name|SplunkComponent
-name|configureComponent
+name|configureSplunkComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

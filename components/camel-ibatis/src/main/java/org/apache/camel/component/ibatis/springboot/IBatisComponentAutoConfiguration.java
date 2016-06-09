@@ -193,10 +193,10 @@ name|IBatisComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, IBatisComponentConfiguration configuration)
+DECL|method|configureIBatisComponent (CamelContext camelContext, IBatisComponentConfiguration configuration)
 specifier|public
 name|IBatisComponent
-name|configureComponent
+name|configureIBatisComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

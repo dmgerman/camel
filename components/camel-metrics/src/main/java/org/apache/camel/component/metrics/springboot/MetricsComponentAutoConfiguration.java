@@ -193,10 +193,10 @@ name|MetricsComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, MetricsComponentConfiguration configuration)
+DECL|method|configureMetricsComponent ( CamelContext camelContext, MetricsComponentConfiguration configuration)
 specifier|public
 name|MetricsComponent
-name|configureComponent
+name|configureMetricsComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

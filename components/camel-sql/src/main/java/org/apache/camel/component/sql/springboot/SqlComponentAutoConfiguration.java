@@ -193,10 +193,10 @@ name|SqlComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, SqlComponentConfiguration configuration)
+DECL|method|configureSqlComponent (CamelContext camelContext, SqlComponentConfiguration configuration)
 specifier|public
 name|SqlComponent
-name|configureComponent
+name|configureSqlComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

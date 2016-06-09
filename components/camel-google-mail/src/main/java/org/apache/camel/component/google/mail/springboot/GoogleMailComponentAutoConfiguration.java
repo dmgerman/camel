@@ -197,10 +197,10 @@ name|GoogleMailComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, GoogleMailComponentConfiguration configuration)
+DECL|method|configureGoogleMailComponent ( CamelContext camelContext, GoogleMailComponentConfiguration configuration)
 specifier|public
 name|GoogleMailComponent
-name|configureComponent
+name|configureGoogleMailComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

@@ -193,10 +193,10 @@ name|StubComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, StubComponentConfiguration configuration)
+DECL|method|configureStubComponent (CamelContext camelContext, StubComponentConfiguration configuration)
 specifier|public
 name|StubComponent
-name|configureComponent
+name|configureStubComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

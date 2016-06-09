@@ -193,10 +193,10 @@ name|AvroComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, AvroComponentConfiguration configuration)
+DECL|method|configureAvroComponent (CamelContext camelContext, AvroComponentConfiguration configuration)
 specifier|public
 name|AvroComponent
-name|configureComponent
+name|configureAvroComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

@@ -193,10 +193,10 @@ name|EjbComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, EjbComponentConfiguration configuration)
+DECL|method|configureEjbComponent (CamelContext camelContext, EjbComponentConfiguration configuration)
 specifier|public
 name|EjbComponent
-name|configureComponent
+name|configureEjbComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

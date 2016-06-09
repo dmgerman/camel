@@ -193,10 +193,10 @@ name|KafkaComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, KafkaComponentConfiguration configuration)
+DECL|method|configureKafkaComponent (CamelContext camelContext, KafkaComponentConfiguration configuration)
 specifier|public
 name|KafkaComponent
-name|configureComponent
+name|configureKafkaComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

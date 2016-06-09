@@ -193,10 +193,10 @@ name|SalesforceComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, SalesforceComponentConfiguration configuration)
+DECL|method|configureSalesforceComponent ( CamelContext camelContext, SalesforceComponentConfiguration configuration)
 specifier|public
 name|SalesforceComponent
-name|configureComponent
+name|configureSalesforceComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

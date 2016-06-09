@@ -193,10 +193,10 @@ name|XQueryComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, XQueryComponentConfiguration configuration)
+DECL|method|configureXQueryComponent (CamelContext camelContext, XQueryComponentConfiguration configuration)
 specifier|public
 name|XQueryComponent
-name|configureComponent
+name|configureXQueryComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

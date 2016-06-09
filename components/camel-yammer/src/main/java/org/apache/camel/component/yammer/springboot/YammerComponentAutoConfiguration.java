@@ -193,10 +193,10 @@ name|YammerComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, YammerComponentConfiguration configuration)
+DECL|method|configureYammerComponent (CamelContext camelContext, YammerComponentConfiguration configuration)
 specifier|public
 name|YammerComponent
-name|configureComponent
+name|configureYammerComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

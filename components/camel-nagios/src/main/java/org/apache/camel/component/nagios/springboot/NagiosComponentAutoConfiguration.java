@@ -193,10 +193,10 @@ name|NagiosComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, NagiosComponentConfiguration configuration)
+DECL|method|configureNagiosComponent (CamelContext camelContext, NagiosComponentConfiguration configuration)
 specifier|public
 name|NagiosComponent
-name|configureComponent
+name|configureNagiosComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

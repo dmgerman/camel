@@ -193,10 +193,10 @@ name|WebsocketComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, WebsocketComponentConfiguration configuration)
+DECL|method|configureWebsocketComponent ( CamelContext camelContext, WebsocketComponentConfiguration configuration)
 specifier|public
 name|WebsocketComponent
-name|configureComponent
+name|configureWebsocketComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

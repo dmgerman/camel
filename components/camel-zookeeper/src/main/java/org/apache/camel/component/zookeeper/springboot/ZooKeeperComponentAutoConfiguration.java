@@ -193,10 +193,10 @@ name|ZooKeeperComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, ZooKeeperComponentConfiguration configuration)
+DECL|method|configureZooKeeperComponent ( CamelContext camelContext, ZooKeeperComponentConfiguration configuration)
 specifier|public
 name|ZooKeeperComponent
-name|configureComponent
+name|configureZooKeeperComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

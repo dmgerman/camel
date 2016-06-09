@@ -193,10 +193,10 @@ name|FreemarkerComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, FreemarkerComponentConfiguration configuration)
+DECL|method|configureFreemarkerComponent ( CamelContext camelContext, FreemarkerComponentConfiguration configuration)
 specifier|public
 name|FreemarkerComponent
-name|configureComponent
+name|configureFreemarkerComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

@@ -197,10 +197,10 @@ name|SjmsBatchComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, SjmsBatchComponentConfiguration configuration)
+DECL|method|configureSjmsBatchComponent ( CamelContext camelContext, SjmsBatchComponentConfiguration configuration)
 specifier|public
 name|SjmsBatchComponent
-name|configureComponent
+name|configureSjmsBatchComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

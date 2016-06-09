@@ -193,10 +193,10 @@ name|UndertowComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, UndertowComponentConfiguration configuration)
+DECL|method|configureUndertowComponent ( CamelContext camelContext, UndertowComponentConfiguration configuration)
 specifier|public
 name|UndertowComponent
-name|configureComponent
+name|configureUndertowComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

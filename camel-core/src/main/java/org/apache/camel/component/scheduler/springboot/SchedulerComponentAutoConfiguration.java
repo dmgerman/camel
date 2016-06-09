@@ -193,10 +193,10 @@ name|SchedulerComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, SchedulerComponentConfiguration configuration)
+DECL|method|configureSchedulerComponent ( CamelContext camelContext, SchedulerComponentConfiguration configuration)
 specifier|public
 name|SchedulerComponent
-name|configureComponent
+name|configureSchedulerComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

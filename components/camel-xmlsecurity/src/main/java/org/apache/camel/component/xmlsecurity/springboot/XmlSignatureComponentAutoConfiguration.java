@@ -193,10 +193,10 @@ name|XmlSignatureComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, XmlSignatureComponentConfiguration configuration)
+DECL|method|configureXmlSignatureComponent ( CamelContext camelContext, XmlSignatureComponentConfiguration configuration)
 specifier|public
 name|XmlSignatureComponent
-name|configureComponent
+name|configureXmlSignatureComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

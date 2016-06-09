@@ -193,10 +193,10 @@ name|KestrelComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, KestrelComponentConfiguration configuration)
+DECL|method|configureKestrelComponent ( CamelContext camelContext, KestrelComponentConfiguration configuration)
 specifier|public
 name|KestrelComponent
-name|configureComponent
+name|configureKestrelComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

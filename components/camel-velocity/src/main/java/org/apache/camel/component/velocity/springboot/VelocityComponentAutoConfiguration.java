@@ -193,10 +193,10 @@ name|VelocityComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, VelocityComponentConfiguration configuration)
+DECL|method|configureVelocityComponent ( CamelContext camelContext, VelocityComponentConfiguration configuration)
 specifier|public
 name|VelocityComponent
-name|configureComponent
+name|configureVelocityComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

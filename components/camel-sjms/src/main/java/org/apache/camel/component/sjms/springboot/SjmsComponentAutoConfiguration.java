@@ -193,10 +193,10 @@ name|SjmsComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, SjmsComponentConfiguration configuration)
+DECL|method|configureSjmsComponent (CamelContext camelContext, SjmsComponentConfiguration configuration)
 specifier|public
 name|SjmsComponent
-name|configureComponent
+name|configureSjmsComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

@@ -193,10 +193,10 @@ name|PropertiesComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, PropertiesComponentConfiguration configuration)
+DECL|method|configurePropertiesComponent ( CamelContext camelContext, PropertiesComponentConfiguration configuration)
 specifier|public
 name|PropertiesComponent
-name|configureComponent
+name|configurePropertiesComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

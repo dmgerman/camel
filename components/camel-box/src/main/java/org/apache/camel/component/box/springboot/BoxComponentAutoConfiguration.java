@@ -193,10 +193,10 @@ name|BoxComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, BoxComponentConfiguration configuration)
+DECL|method|configureBoxComponent (CamelContext camelContext, BoxComponentConfiguration configuration)
 specifier|public
 name|BoxComponent
-name|configureComponent
+name|configureBoxComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

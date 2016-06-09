@@ -193,10 +193,10 @@ name|LogComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, LogComponentConfiguration configuration)
+DECL|method|configureLogComponent (CamelContext camelContext, LogComponentConfiguration configuration)
 specifier|public
 name|LogComponent
-name|configureComponent
+name|configureLogComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

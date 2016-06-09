@@ -193,10 +193,10 @@ name|HazelcastComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, HazelcastComponentConfiguration configuration)
+DECL|method|configureHazelcastComponent ( CamelContext camelContext, HazelcastComponentConfiguration configuration)
 specifier|public
 name|HazelcastComponent
-name|configureComponent
+name|configureHazelcastComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

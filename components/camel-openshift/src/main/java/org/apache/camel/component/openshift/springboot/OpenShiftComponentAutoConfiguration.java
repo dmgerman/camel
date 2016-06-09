@@ -193,10 +193,10 @@ name|OpenShiftComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, OpenShiftComponentConfiguration configuration)
+DECL|method|configureOpenShiftComponent ( CamelContext camelContext, OpenShiftComponentConfiguration configuration)
 specifier|public
 name|OpenShiftComponent
-name|configureComponent
+name|configureOpenShiftComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

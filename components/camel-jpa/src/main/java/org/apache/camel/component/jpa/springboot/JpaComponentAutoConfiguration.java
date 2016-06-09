@@ -193,10 +193,10 @@ name|JpaComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, JpaComponentConfiguration configuration)
+DECL|method|configureJpaComponent (CamelContext camelContext, JpaComponentConfiguration configuration)
 specifier|public
 name|JpaComponent
-name|configureComponent
+name|configureJpaComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

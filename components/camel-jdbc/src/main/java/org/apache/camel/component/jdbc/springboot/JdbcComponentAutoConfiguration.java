@@ -193,10 +193,10 @@ name|JdbcComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, JdbcComponentConfiguration configuration)
+DECL|method|configureJdbcComponent (CamelContext camelContext, JdbcComponentConfiguration configuration)
 specifier|public
 name|JdbcComponent
-name|configureComponent
+name|configureJdbcComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

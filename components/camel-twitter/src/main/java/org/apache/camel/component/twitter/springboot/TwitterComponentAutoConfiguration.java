@@ -193,10 +193,10 @@ name|TwitterComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, TwitterComponentConfiguration configuration)
+DECL|method|configureTwitterComponent ( CamelContext camelContext, TwitterComponentConfiguration configuration)
 specifier|public
 name|TwitterComponent
-name|configureComponent
+name|configureTwitterComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

@@ -197,10 +197,10 @@ name|GoogleDriveComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, GoogleDriveComponentConfiguration configuration)
+DECL|method|configureGoogleDriveComponent ( CamelContext camelContext, GoogleDriveComponentConfiguration configuration)
 specifier|public
 name|GoogleDriveComponent
-name|configureComponent
+name|configureGoogleDriveComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

@@ -193,10 +193,10 @@ name|EventComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, EventComponentConfiguration configuration)
+DECL|method|configureEventComponent (CamelContext camelContext, EventComponentConfiguration configuration)
 specifier|public
 name|EventComponent
-name|configureComponent
+name|configureEventComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

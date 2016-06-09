@@ -193,10 +193,10 @@ name|VertxComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, VertxComponentConfiguration configuration)
+DECL|method|configureVertxComponent (CamelContext camelContext, VertxComponentConfiguration configuration)
 specifier|public
 name|VertxComponent
-name|configureComponent
+name|configureVertxComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

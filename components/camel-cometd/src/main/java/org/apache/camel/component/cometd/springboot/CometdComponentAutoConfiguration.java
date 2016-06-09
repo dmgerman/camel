@@ -193,10 +193,10 @@ name|CometdComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, CometdComponentConfiguration configuration)
+DECL|method|configureCometdComponent (CamelContext camelContext, CometdComponentConfiguration configuration)
 specifier|public
 name|CometdComponent
-name|configureComponent
+name|configureCometdComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

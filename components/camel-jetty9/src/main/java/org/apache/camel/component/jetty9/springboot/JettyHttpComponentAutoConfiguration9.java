@@ -193,10 +193,10 @@ name|JettyHttpComponent9
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, JettyHttpComponentConfiguration9 configuration)
+DECL|method|configureJettyHttpComponent9 ( CamelContext camelContext, JettyHttpComponentConfiguration9 configuration)
 specifier|public
 name|JettyHttpComponent9
-name|configureComponent
+name|configureJettyHttpComponent9
 parameter_list|(
 name|CamelContext
 name|camelContext

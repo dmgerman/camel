@@ -193,10 +193,10 @@ name|ServletComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, ServletComponentConfiguration configuration)
+DECL|method|configureServletComponent ( CamelContext camelContext, ServletComponentConfiguration configuration)
 specifier|public
 name|ServletComponent
-name|configureComponent
+name|configureServletComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

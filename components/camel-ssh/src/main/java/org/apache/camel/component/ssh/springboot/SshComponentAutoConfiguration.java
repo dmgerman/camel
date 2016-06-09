@@ -193,10 +193,10 @@ name|SshComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, SshComponentConfiguration configuration)
+DECL|method|configureSshComponent (CamelContext camelContext, SshComponentConfiguration configuration)
 specifier|public
 name|SshComponent
-name|configureComponent
+name|configureSshComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

@@ -193,10 +193,10 @@ name|EventAdminComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, EventAdminComponentConfiguration configuration)
+DECL|method|configureEventAdminComponent ( CamelContext camelContext, EventAdminComponentConfiguration configuration)
 specifier|public
 name|EventAdminComponent
-name|configureComponent
+name|configureEventAdminComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

@@ -193,10 +193,10 @@ name|ApnsComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, ApnsComponentConfiguration configuration)
+DECL|method|configureApnsComponent (CamelContext camelContext, ApnsComponentConfiguration configuration)
 specifier|public
 name|ApnsComponent
-name|configureComponent
+name|configureApnsComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

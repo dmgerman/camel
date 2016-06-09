@@ -193,10 +193,10 @@ name|DockerComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, DockerComponentConfiguration configuration)
+DECL|method|configureDockerComponent (CamelContext camelContext, DockerComponentConfiguration configuration)
 specifier|public
 name|DockerComponent
-name|configureComponent
+name|configureDockerComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

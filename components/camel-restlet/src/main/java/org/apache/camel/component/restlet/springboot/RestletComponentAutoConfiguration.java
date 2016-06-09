@@ -193,10 +193,10 @@ name|RestletComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, RestletComponentConfiguration configuration)
+DECL|method|configureRestletComponent ( CamelContext camelContext, RestletComponentConfiguration configuration)
 specifier|public
 name|RestletComponent
-name|configureComponent
+name|configureRestletComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

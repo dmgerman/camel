@@ -193,10 +193,10 @@ name|DigitalSignatureComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent ( CamelContext camelContext, DigitalSignatureComponentConfiguration configuration)
+DECL|method|configureDigitalSignatureComponent ( CamelContext camelContext, DigitalSignatureComponentConfiguration configuration)
 specifier|public
 name|DigitalSignatureComponent
-name|configureComponent
+name|configureDigitalSignatureComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

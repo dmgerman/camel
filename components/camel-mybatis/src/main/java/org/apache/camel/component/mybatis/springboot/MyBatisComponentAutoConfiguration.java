@@ -193,10 +193,10 @@ name|MyBatisComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, MyBatisComponentConfiguration configuration)
+DECL|method|configureMyBatisComponent ( CamelContext camelContext, MyBatisComponentConfiguration configuration)
 specifier|public
 name|MyBatisComponent
-name|configureComponent
+name|configureMyBatisComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

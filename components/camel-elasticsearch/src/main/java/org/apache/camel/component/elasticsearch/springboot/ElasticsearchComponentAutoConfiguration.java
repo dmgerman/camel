@@ -193,10 +193,10 @@ name|ElasticsearchComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, ElasticsearchComponentConfiguration configuration)
+DECL|method|configureElasticsearchComponent ( CamelContext camelContext, ElasticsearchComponentConfiguration configuration)
 specifier|public
 name|ElasticsearchComponent
-name|configureComponent
+name|configureElasticsearchComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

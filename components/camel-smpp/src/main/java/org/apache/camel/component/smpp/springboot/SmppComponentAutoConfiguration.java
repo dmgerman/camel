@@ -193,10 +193,10 @@ name|SmppComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, SmppComponentConfiguration configuration)
+DECL|method|configureSmppComponent (CamelContext camelContext, SmppComponentConfiguration configuration)
 specifier|public
 name|SmppComponent
-name|configureComponent
+name|configureSmppComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

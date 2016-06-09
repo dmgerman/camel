@@ -193,10 +193,10 @@ name|JGroupsComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, JGroupsComponentConfiguration configuration)
+DECL|method|configureJGroupsComponent ( CamelContext camelContext, JGroupsComponentConfiguration configuration)
 specifier|public
 name|JGroupsComponent
-name|configureComponent
+name|configureJGroupsComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

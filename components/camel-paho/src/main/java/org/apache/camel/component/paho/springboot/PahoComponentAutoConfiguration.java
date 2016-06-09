@@ -193,10 +193,10 @@ name|PahoComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, PahoComponentConfiguration configuration)
+DECL|method|configurePahoComponent (CamelContext camelContext, PahoComponentConfiguration configuration)
 specifier|public
 name|PahoComponent
-name|configureComponent
+name|configurePahoComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

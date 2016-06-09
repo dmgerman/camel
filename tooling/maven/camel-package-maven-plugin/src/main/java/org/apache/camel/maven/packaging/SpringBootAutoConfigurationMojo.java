@@ -1359,6 +1359,16 @@ name|getShortJavaType
 argument_list|()
 argument_list|)
 decl_stmt|;
+name|String
+name|methodName
+init|=
+literal|"configure"
+operator|+
+name|model
+operator|.
+name|getShortJavaType
+argument_list|()
+decl_stmt|;
 name|MethodSource
 argument_list|<
 name|JavaClassSource
@@ -1372,7 +1382,7 @@ argument_list|()
 operator|.
 name|setName
 argument_list|(
-literal|"configureComponent"
+name|methodName
 argument_list|)
 operator|.
 name|setPublic

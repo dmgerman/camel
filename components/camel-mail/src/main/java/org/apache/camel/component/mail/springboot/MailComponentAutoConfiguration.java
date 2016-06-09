@@ -193,10 +193,10 @@ name|MailComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, MailComponentConfiguration configuration)
+DECL|method|configureMailComponent (CamelContext camelContext, MailComponentConfiguration configuration)
 specifier|public
 name|MailComponent
-name|configureComponent
+name|configureMailComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

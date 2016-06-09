@@ -197,10 +197,10 @@ name|MsvComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent (CamelContext camelContext, MsvComponentConfiguration configuration)
+DECL|method|configureMsvComponent (CamelContext camelContext, MsvComponentConfiguration configuration)
 specifier|public
 name|MsvComponent
-name|configureComponent
+name|configureMsvComponent
 parameter_list|(
 name|CamelContext
 name|camelContext

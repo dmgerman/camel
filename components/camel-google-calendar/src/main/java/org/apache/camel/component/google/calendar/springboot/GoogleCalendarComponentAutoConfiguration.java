@@ -197,10 +197,10 @@ name|GoogleCalendarComponent
 operator|.
 name|class
 argument_list|)
-DECL|method|configureComponent ( CamelContext camelContext, GoogleCalendarComponentConfiguration configuration)
+DECL|method|configureGoogleCalendarComponent ( CamelContext camelContext, GoogleCalendarComponentConfiguration configuration)
 specifier|public
 name|GoogleCalendarComponent
-name|configureComponent
+name|configureGoogleCalendarComponent
 parameter_list|(
 name|CamelContext
 name|camelContext
