@@ -142,6 +142,15 @@ begin_class
 annotation|@
 name|Configuration
 annotation|@
+name|ConditionalOnClass
+argument_list|(
+block|{
+name|HealthIndicator
+operator|.
+name|class
+block|}
+argument_list|)
+annotation|@
 name|AutoConfigureAfter
 argument_list|(
 name|CamelAutoConfiguration
@@ -153,8 +162,6 @@ specifier|public
 class|class
 name|CamelHealthAutoConfiguration
 block|{
-annotation|@
-name|Bean
 annotation|@
 name|ConditionalOnClass
 argument_list|(
@@ -171,6 +178,14 @@ name|CamelHealthIndicator
 operator|.
 name|class
 argument_list|)
+DECL|class|CamelHealthIndicatorInitializer
+specifier|protected
+specifier|static
+class|class
+name|CamelHealthIndicatorInitializer
+block|{
+annotation|@
+name|Bean
 DECL|method|camelHealthIndicator (CamelContext camelContext)
 specifier|public
 name|HealthIndicator
@@ -187,6 +202,7 @@ argument_list|(
 name|camelContext
 argument_list|)
 return|;
+block|}
 block|}
 block|}
 end_class
