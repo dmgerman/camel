@@ -300,6 +300,8 @@ literal|"camel-core-xml"
 block|,
 literal|"camel-http-common"
 block|,
+literal|"camel-jetty"
+block|,
 literal|"camel-jetty-common"
 block|}
 decl_stmt|;
