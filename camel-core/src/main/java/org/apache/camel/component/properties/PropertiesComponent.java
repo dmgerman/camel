@@ -1096,6 +1096,13 @@ name|String
 name|location
 parameter_list|)
 block|{
+if|if
+condition|(
+name|location
+operator|!=
+literal|null
+condition|)
+block|{
 name|setLocations
 argument_list|(
 name|location
@@ -1106,6 +1113,7 @@ literal|","
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|getEncoding ()
 specifier|public
