@@ -404,7 +404,7 @@ block|{
 name|getLog
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Found "
 operator|+
@@ -558,7 +558,7 @@ block|{
 name|getLog
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"No changes to doc file: "
 operator|+
@@ -571,7 +571,7 @@ block|{
 name|getLog
 argument_list|()
 operator|.
-name|info
+name|warn
 argument_list|(
 literal|"No component doc file: "
 operator|+
