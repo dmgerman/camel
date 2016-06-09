@@ -82,6 +82,22 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
+name|GroupedExchangeAggregationStrategy
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for aggregate grouped exchanges completed by size  */
 end_comment
@@ -409,14 +425,15 @@ comment|// must use eagerCheckCompletion so we can check the groupSize header on
 operator|.
 name|aggregate
 argument_list|(
+operator|new
+name|GroupedExchangeAggregationStrategy
+argument_list|()
+argument_list|)
+operator|.
 name|constant
 argument_list|(
 literal|true
 argument_list|)
-argument_list|)
-operator|.
-name|groupExchanges
-argument_list|()
 operator|.
 name|eagerCheckCompletion
 argument_list|()

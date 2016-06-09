@@ -82,6 +82,22 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
+name|GroupedExchangeAggregationStrategy
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for aggregate grouped exchanges.  */
 end_comment
@@ -454,7 +470,7 @@ name|from
 argument_list|(
 literal|"direct:start"
 argument_list|)
-comment|// aggregate all using the foo header
+comment|// aggregate all using the foo header and group the exchanges so we get one single exchange containing all the others
 operator|.
 name|aggregate
 argument_list|(
@@ -462,11 +478,11 @@ name|header
 argument_list|(
 literal|"foo"
 argument_list|)
-argument_list|)
-comment|// group the exchanges so we get one single exchange containing all the others
-operator|.
-name|groupExchanges
+argument_list|,
+operator|new
+name|GroupedExchangeAggregationStrategy
 argument_list|()
+argument_list|)
 comment|// wait for 1 seconds to aggregate
 operator|.
 name|completionTimeout

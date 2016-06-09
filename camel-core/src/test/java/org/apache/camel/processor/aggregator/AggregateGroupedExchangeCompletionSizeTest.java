@@ -60,6 +60,22 @@ name|MockEndpoint
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
+name|GroupedExchangeAggregationStrategy
+import|;
+end_import
+
 begin_comment
 comment|/**  * Unit test for aggregate grouped exchanges.  */
 end_comment
@@ -182,19 +198,20 @@ argument_list|)
 operator|.
 name|aggregate
 argument_list|(
+operator|new
+name|GroupedExchangeAggregationStrategy
+argument_list|()
+argument_list|)
+operator|.
 name|constant
 argument_list|(
 literal|true
-argument_list|)
 argument_list|)
 operator|.
 name|completionSize
 argument_list|(
 literal|3
 argument_list|)
-operator|.
-name|groupExchanges
-argument_list|()
 operator|.
 name|to
 argument_list|(

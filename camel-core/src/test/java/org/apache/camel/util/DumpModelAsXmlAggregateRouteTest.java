@@ -56,6 +56,22 @@ name|ModelHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|aggregate
+operator|.
+name|GroupedExchangeAggregationStrategy
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -176,15 +192,16 @@ literal|"log:input"
 argument_list|)
 operator|.
 name|aggregate
-argument_list|()
-operator|.
+argument_list|(
 name|header
 argument_list|(
 literal|"userId"
 argument_list|)
-operator|.
-name|groupExchanges
+argument_list|,
+operator|new
+name|GroupedExchangeAggregationStrategy
 argument_list|()
+argument_list|)
 operator|.
 name|completionSize
 argument_list|(
