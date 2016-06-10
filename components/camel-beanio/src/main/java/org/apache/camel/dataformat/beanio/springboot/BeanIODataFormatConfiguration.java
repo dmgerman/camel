@@ -89,12 +89,6 @@ specifier|private
 name|String
 name|encoding
 decl_stmt|;
-comment|/**      * Sets the value of the id property.      */
-DECL|field|id
-specifier|private
-name|String
-name|id
-decl_stmt|;
 DECL|method|getMapping ()
 specifier|public
 name|String
@@ -249,32 +243,6 @@ operator|.
 name|encoding
 operator|=
 name|encoding
-expr_stmt|;
-block|}
-DECL|method|getId ()
-specifier|public
-name|String
-name|getId
-parameter_list|()
-block|{
-return|return
-name|id
-return|;
-block|}
-DECL|method|setId (String id)
-specifier|public
-name|void
-name|setId
-parameter_list|(
-name|String
-name|id
-parameter_list|)
-block|{
-name|this
-operator|.
-name|id
-operator|=
-name|id
 expr_stmt|;
 block|}
 block|}

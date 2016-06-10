@@ -59,12 +59,6 @@ specifier|private
 name|String
 name|instanceClass
 decl_stmt|;
-comment|/**      * Sets the value of the id property.      */
-DECL|field|id
-specifier|private
-name|String
-name|id
-decl_stmt|;
 DECL|method|getInstanceClass ()
 specifier|public
 name|String
@@ -89,32 +83,6 @@ operator|.
 name|instanceClass
 operator|=
 name|instanceClass
-expr_stmt|;
-block|}
-DECL|method|getId ()
-specifier|public
-name|String
-name|getId
-parameter_list|()
-block|{
-return|return
-name|id
-return|;
-block|}
-DECL|method|setId (String id)
-specifier|public
-name|void
-name|setId
-parameter_list|(
-name|String
-name|id
-parameter_list|)
-block|{
-name|this
-operator|.
-name|id
-operator|=
-name|id
 expr_stmt|;
 block|}
 block|}
