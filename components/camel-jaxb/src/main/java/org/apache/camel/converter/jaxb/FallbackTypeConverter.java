@@ -560,8 +560,6 @@ DECL|field|objectFactory
 specifier|private
 name|boolean
 name|objectFactory
-init|=
-literal|false
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
