@@ -80,6 +80,8 @@ DECL|field|commentMarkerDisabled
 specifier|private
 name|Boolean
 name|commentMarkerDisabled
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Sets the comment marker of the reference format.      */
 DECL|field|commentMarker
@@ -98,6 +100,8 @@ DECL|field|escapeDisabled
 specifier|private
 name|Boolean
 name|escapeDisabled
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Sets the escape character to use      */
 DECL|field|escape
@@ -110,6 +114,8 @@ DECL|field|headerDisabled
 specifier|private
 name|Boolean
 name|headerDisabled
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * To configure the CSV headers      */
 DECL|field|header
@@ -129,24 +135,32 @@ DECL|field|allowMissingColumnNames
 specifier|private
 name|Boolean
 name|allowMissingColumnNames
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether to ignore empty lines.      */
 DECL|field|ignoreEmptyLines
 specifier|private
 name|Boolean
 name|ignoreEmptyLines
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether to ignore surrounding spaces      */
 DECL|field|ignoreSurroundingSpaces
 specifier|private
 name|Boolean
 name|ignoreSurroundingSpaces
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Used to disable null strings      */
 DECL|field|nullStringDisabled
 specifier|private
 name|Boolean
 name|nullStringDisabled
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Sets the null string      */
 DECL|field|nullString
@@ -159,6 +173,8 @@ DECL|field|quoteDisabled
 specifier|private
 name|Boolean
 name|quoteDisabled
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Sets the quote which by default is      */
 DECL|field|quote
@@ -183,6 +199,8 @@ DECL|field|skipHeaderRecord
 specifier|private
 name|Boolean
 name|skipHeaderRecord
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Sets the quote mode      */
 DECL|field|quoteMode
@@ -195,12 +213,16 @@ DECL|field|lazyLoad
 specifier|private
 name|Boolean
 name|lazyLoad
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether the unmarshalling should produce maps for the lines values      * instead of lists. It requires to have header (either defined or      * collected).      */
 DECL|field|useMaps
 specifier|private
 name|Boolean
 name|useMaps
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Refers to a custom CsvRecordConverter to lookup from the registry to use.      */
 DECL|field|recordConverterRef

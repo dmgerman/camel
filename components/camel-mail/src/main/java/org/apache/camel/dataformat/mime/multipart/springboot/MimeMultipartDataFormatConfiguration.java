@@ -66,12 +66,16 @@ DECL|field|multipartWithoutAttachment
 specifier|private
 name|Boolean
 name|multipartWithoutAttachment
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Defines whether the MIME-Multipart headers are part of the message body      * (true) or are set as Camel headers (false). Default is false.      */
 DECL|field|headersInline
 specifier|private
 name|Boolean
 name|headersInline
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * A regex that defines which Camel headers are also included as MIME      * headers into the MIME multipart. This will only work if headersInline is      * set to true. Default is to include no headers      */
 DECL|field|includeHeaders
@@ -84,6 +88,8 @@ DECL|field|binaryContent
 specifier|private
 name|Boolean
 name|binaryContent
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getMultipartSubType ()
 specifier|public

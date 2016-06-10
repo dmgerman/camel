@@ -58,6 +58,8 @@ DECL|field|lineLength
 specifier|private
 name|Integer
 name|lineLength
+init|=
+literal|76
 decl_stmt|;
 comment|/**      * The line separators to use. By default \r\n is used.      */
 DECL|field|lineSeparator
@@ -70,6 +72,8 @@ DECL|field|urlSafe
 specifier|private
 name|Boolean
 name|urlSafe
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getLineLength ()
 specifier|public

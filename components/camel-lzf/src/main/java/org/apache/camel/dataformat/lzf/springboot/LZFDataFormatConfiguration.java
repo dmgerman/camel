@@ -58,6 +58,8 @@ DECL|field|usingParallelCompression
 specifier|private
 name|Boolean
 name|usingParallelCompression
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getUsingParallelCompression ()
 specifier|public

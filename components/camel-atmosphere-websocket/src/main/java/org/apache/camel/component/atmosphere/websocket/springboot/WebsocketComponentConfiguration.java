@@ -132,8 +132,10 @@ decl_stmt|;
 comment|/**      * Whether to automatic bind multipart/form-data as attachments on the Camel      * Exchange. This is turn off by default as this may require servet specific      * configuration to enable this when using Servlet's.      */
 DECL|field|attachmentMultipartBinding
 specifier|private
-name|boolean
+name|Boolean
 name|attachmentMultipartBinding
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * To use a custom HttpBinding to control the mapping between Camel message      * and HttpClient.      */
 DECL|field|httpBinding
@@ -150,8 +152,10 @@ decl_stmt|;
 comment|/**      * Whether to allow java serialization when a request uses      * context-type=application/x-java-serialized-object This is by default      * turned off. If you enable this then be aware that Java will deserialize      * the incoming data from the request to Java and that can be a potential      * security risk.      */
 DECL|field|allowJavaSerializedObject
 specifier|private
-name|boolean
+name|Boolean
 name|allowJavaSerializedObject
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel      * message.      */
 DECL|field|headerFilterStrategy
@@ -211,22 +215,22 @@ operator|=
 name|httpRegistry
 expr_stmt|;
 block|}
-DECL|method|isAttachmentMultipartBinding ()
+DECL|method|getAttachmentMultipartBinding ()
 specifier|public
-name|boolean
-name|isAttachmentMultipartBinding
+name|Boolean
+name|getAttachmentMultipartBinding
 parameter_list|()
 block|{
 return|return
 name|attachmentMultipartBinding
 return|;
 block|}
-DECL|method|setAttachmentMultipartBinding (boolean attachmentMultipartBinding)
+DECL|method|setAttachmentMultipartBinding (Boolean attachmentMultipartBinding)
 specifier|public
 name|void
 name|setAttachmentMultipartBinding
 parameter_list|(
-name|boolean
+name|Boolean
 name|attachmentMultipartBinding
 parameter_list|)
 block|{
@@ -289,22 +293,22 @@ operator|=
 name|httpConfiguration
 expr_stmt|;
 block|}
-DECL|method|isAllowJavaSerializedObject ()
+DECL|method|getAllowJavaSerializedObject ()
 specifier|public
-name|boolean
-name|isAllowJavaSerializedObject
+name|Boolean
+name|getAllowJavaSerializedObject
 parameter_list|()
 block|{
 return|return
 name|allowJavaSerializedObject
 return|;
 block|}
-DECL|method|setAllowJavaSerializedObject (boolean allowJavaSerializedObject)
+DECL|method|setAllowJavaSerializedObject (Boolean allowJavaSerializedObject)
 specifier|public
 name|void
 name|setAllowJavaSerializedObject
 parameter_list|(
-name|boolean
+name|Boolean
 name|allowJavaSerializedObject
 parameter_list|)
 block|{

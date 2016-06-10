@@ -185,14 +185,18 @@ decl_stmt|;
 comment|/**      * Enable for Socks4 proxy false by default      */
 DECL|field|isHttpProxySocks4
 specifier|private
-name|boolean
+name|Boolean
 name|isHttpProxySocks4
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Enable for TLS connections true by default      */
 DECL|field|isHttpProxySecure
 specifier|private
-name|boolean
+name|Boolean
 name|isHttpProxySecure
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * HTTP proxy included addresses      */
 DECL|field|httpProxyIncludedAddresses
@@ -235,8 +239,10 @@ decl_stmt|;
 comment|/**      * Use HTTP proxy Digest authentication false by default      */
 DECL|field|httpProxyUseDigestAuth
 specifier|private
-name|boolean
+name|Boolean
 name|httpProxyUseDigestAuth
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Package names to scan for DTO classes (multiple packages can be separated      * by comma).      */
 DECL|field|packages
@@ -463,22 +469,22 @@ operator|=
 name|httpProxyPassword
 expr_stmt|;
 block|}
-DECL|method|isIsHttpProxySocks4 ()
+DECL|method|getIsHttpProxySocks4 ()
 specifier|public
-name|boolean
-name|isIsHttpProxySocks4
+name|Boolean
+name|getIsHttpProxySocks4
 parameter_list|()
 block|{
 return|return
 name|isHttpProxySocks4
 return|;
 block|}
-DECL|method|setIsHttpProxySocks4 (boolean isHttpProxySocks4)
+DECL|method|setIsHttpProxySocks4 (Boolean isHttpProxySocks4)
 specifier|public
 name|void
 name|setIsHttpProxySocks4
 parameter_list|(
-name|boolean
+name|Boolean
 name|isHttpProxySocks4
 parameter_list|)
 block|{
@@ -489,22 +495,22 @@ operator|=
 name|isHttpProxySocks4
 expr_stmt|;
 block|}
-DECL|method|isIsHttpProxySecure ()
+DECL|method|getIsHttpProxySecure ()
 specifier|public
-name|boolean
-name|isIsHttpProxySecure
+name|Boolean
+name|getIsHttpProxySecure
 parameter_list|()
 block|{
 return|return
 name|isHttpProxySecure
 return|;
 block|}
-DECL|method|setIsHttpProxySecure (boolean isHttpProxySecure)
+DECL|method|setIsHttpProxySecure (Boolean isHttpProxySecure)
 specifier|public
 name|void
 name|setIsHttpProxySecure
 parameter_list|(
-name|boolean
+name|Boolean
 name|isHttpProxySecure
 parameter_list|)
 block|{
@@ -631,22 +637,22 @@ operator|=
 name|httpProxyRealm
 expr_stmt|;
 block|}
-DECL|method|isHttpProxyUseDigestAuth ()
+DECL|method|getHttpProxyUseDigestAuth ()
 specifier|public
-name|boolean
-name|isHttpProxyUseDigestAuth
+name|Boolean
+name|getHttpProxyUseDigestAuth
 parameter_list|()
 block|{
 return|return
 name|httpProxyUseDigestAuth
 return|;
 block|}
-DECL|method|setHttpProxyUseDigestAuth (boolean httpProxyUseDigestAuth)
+DECL|method|setHttpProxyUseDigestAuth (Boolean httpProxyUseDigestAuth)
 specifier|public
 name|void
 name|setHttpProxyUseDigestAuth
 parameter_list|(
-name|boolean
+name|Boolean
 name|httpProxyUseDigestAuth
 parameter_list|)
 block|{

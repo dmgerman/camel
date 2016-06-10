@@ -129,8 +129,10 @@ decl_stmt|;
 comment|/**      * Whether or not to cache loaded properties. The default value is true.      */
 DECL|field|cache
 specifier|private
-name|boolean
+name|Boolean
 name|cache
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Optional prefix prepended to property names before resolution.      */
 DECL|field|propertyPrefix
@@ -147,14 +149,18 @@ decl_stmt|;
 comment|/**      * If true first attempt resolution of property name augmented with      * propertyPrefix and propertySuffix before falling back the plain property      * name specified. If false only the augmented property name is searched.      */
 DECL|field|fallbackToUnaugmentedProperty
 specifier|private
-name|boolean
+name|Boolean
 name|fallbackToUnaugmentedProperty
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether to silently ignore if a location cannot be located such as a      * properties file not found.      */
 DECL|field|ignoreMissingLocation
 specifier|private
-name|boolean
+name|Boolean
 name|ignoreMissingLocation
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Sets the value of the prefix token used to identify properties to      * replace. Setting a value of null restores the default token (link link      * DEFAULT_PREFIX_TOKEN).      */
 DECL|field|prefixToken
@@ -318,22 +324,22 @@ operator|=
 name|propertiesParser
 expr_stmt|;
 block|}
-DECL|method|isCache ()
+DECL|method|getCache ()
 specifier|public
-name|boolean
-name|isCache
+name|Boolean
+name|getCache
 parameter_list|()
 block|{
 return|return
 name|cache
 return|;
 block|}
-DECL|method|setCache (boolean cache)
+DECL|method|setCache (Boolean cache)
 specifier|public
 name|void
 name|setCache
 parameter_list|(
-name|boolean
+name|Boolean
 name|cache
 parameter_list|)
 block|{
@@ -396,22 +402,22 @@ operator|=
 name|propertySuffix
 expr_stmt|;
 block|}
-DECL|method|isFallbackToUnaugmentedProperty ()
+DECL|method|getFallbackToUnaugmentedProperty ()
 specifier|public
-name|boolean
-name|isFallbackToUnaugmentedProperty
+name|Boolean
+name|getFallbackToUnaugmentedProperty
 parameter_list|()
 block|{
 return|return
 name|fallbackToUnaugmentedProperty
 return|;
 block|}
-DECL|method|setFallbackToUnaugmentedProperty ( boolean fallbackToUnaugmentedProperty)
+DECL|method|setFallbackToUnaugmentedProperty ( Boolean fallbackToUnaugmentedProperty)
 specifier|public
 name|void
 name|setFallbackToUnaugmentedProperty
 parameter_list|(
-name|boolean
+name|Boolean
 name|fallbackToUnaugmentedProperty
 parameter_list|)
 block|{
@@ -422,22 +428,22 @@ operator|=
 name|fallbackToUnaugmentedProperty
 expr_stmt|;
 block|}
-DECL|method|isIgnoreMissingLocation ()
+DECL|method|getIgnoreMissingLocation ()
 specifier|public
-name|boolean
-name|isIgnoreMissingLocation
+name|Boolean
+name|getIgnoreMissingLocation
 parameter_list|()
 block|{
 return|return
 name|ignoreMissingLocation
 return|;
 block|}
-DECL|method|setIgnoreMissingLocation (boolean ignoreMissingLocation)
+DECL|method|setIgnoreMissingLocation (Boolean ignoreMissingLocation)
 specifier|public
 name|void
 name|setIgnoreMissingLocation
 parameter_list|(
-name|boolean
+name|Boolean
 name|ignoreMissingLocation
 parameter_list|)
 block|{

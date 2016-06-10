@@ -300,14 +300,18 @@ decl_stmt|;
 comment|/**      * Specifies whether the consumer accept messages while it is stopping. You      * may consider enabling this option if you start and stop JMS routes at      * runtime while there are still messages enqued on the queue. If this      * option is false and you stop the JMS route then messages may be rejected      * and the JMS broker would have to attempt redeliveries which yet again may      * be rejected and eventually the message may be moved at a dead letter      * queue on the JMS broker. To avoid this its recommended to enable this      * option.      */
 DECL|field|acceptMessagesWhileStopping
 specifier|private
-name|boolean
+name|Boolean
 name|acceptMessagesWhileStopping
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether the DefaultMessageListenerContainer used in the reply managers      * for request-reply messaging allow the      * DefaultMessageListenerContainer.runningAllowed flag to quick stop in case      * JmsConfigurationisAcceptMessagesWhileStopping is enabled and      * org.apache.camel.CamelContext is currently being stopped. This quick stop      * ability is enabled by default in the regular JMS consumers but to enable      * for reply managers you must enable this flag.      */
 DECL|field|allowReplyManagerQuickStop
 specifier|private
-name|boolean
+name|Boolean
 name|allowReplyManagerQuickStop
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * The JMS acknowledgement mode defined as an Integer. Allows you to set      * vendor-specific extensions to the acknowledgment mode. For the regular      * modes it is preferable to use the acknowledgementModeName instead.      */
 DECL|field|acknowledgementMode
@@ -318,8 +322,10 @@ decl_stmt|;
 comment|/**      * Enables eager loading of JMS properties as soon as a message is loaded      * which generally is inefficient as the JMS properties may not be required      * but sometimes can catch early any issues with the underlying JMS provider      * and the use of JMS properties      */
 DECL|field|eagerLoadingOfProperties
 specifier|private
-name|boolean
+name|Boolean
 name|eagerLoadingOfProperties
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * The JMS acknowledgement name which is one of: SESSION_TRANSACTED      * CLIENT_ACKNOWLEDGE AUTO_ACKNOWLEDGE DUPS_OK_ACKNOWLEDGE      */
 DECL|field|acknowledgementModeName
@@ -330,8 +336,10 @@ decl_stmt|;
 comment|/**      * Specifies whether the consumer container should auto-startup.      */
 DECL|field|autoStartup
 specifier|private
-name|boolean
+name|Boolean
 name|autoStartup
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Sets the cache level by ID for the underlying JMS resources. See      * cacheLevelName option for more details.      */
 DECL|field|cacheLevel
@@ -378,8 +386,10 @@ decl_stmt|;
 comment|/**      * Specifies whether persistent delivery is used by default.      */
 DECL|field|deliveryPersistent
 specifier|private
-name|boolean
+name|Boolean
 name|deliveryPersistent
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Specifies the delivery mode to be used. Possible values are Possibles      * values are those defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1      * and PERSISTENT = 2.      */
 DECL|field|deliveryMode
@@ -414,20 +424,26 @@ decl_stmt|;
 comment|/**      * Allows to control whether stacktraces should be logged or not by the      * default errorHandler.      */
 DECL|field|errorHandlerLogStackTrace
 specifier|private
-name|boolean
+name|Boolean
 name|errorHandlerLogStackTrace
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Set if the deliveryMode priority or timeToLive qualities of service      * should be used when sending messages. This option is based on Spring's      * JmsTemplate. The deliveryMode priority and timeToLive options are applied      * to the current endpoint. This contrasts with the preserveMessageQos      * option which operates at message granularity reading QoS properties      * exclusively from the Camel In message headers.      */
 DECL|field|explicitQosEnabled
 specifier|private
-name|boolean
+name|Boolean
 name|explicitQosEnabled
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Specifies whether the listener session should be exposed when consuming      * messages.      */
 DECL|field|exposeListenerSession
 specifier|private
-name|boolean
+name|Boolean
 name|exposeListenerSession
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Specifies the limit for idle executions of a receive task not having      * received any message within its execution. If this limit is reached the      * task will shut down and leave receiving to other executing tasks (in the      * case of dynamic scheduling; see the maxConcurrentConsumers setting).      * There is additional doc available from Spring.      */
 DECL|field|idleTaskExecutionLimit
@@ -474,32 +490,42 @@ decl_stmt|;
 comment|/**      * Specifies whether Camel should auto map the received JMS message to a      * suited payload type such as javax.jms.TextMessage to a String etc. See      * section about how mapping works below for more details.      */
 DECL|field|mapJmsMessage
 specifier|private
-name|boolean
+name|Boolean
 name|mapJmsMessage
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * When sending specifies whether message IDs should be added.      */
 DECL|field|messageIdEnabled
 specifier|private
-name|boolean
+name|Boolean
 name|messageIdEnabled
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Specifies whether timestamps should be enabled by default on sending      * messages.      */
 DECL|field|messageTimestampEnabled
 specifier|private
-name|boolean
+name|Boolean
 name|messageTimestampEnabled
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * If true Camel will always make a JMS message copy of the message when it      * is passed to the producer for sending. Copying the message is needed in      * some situations such as when a replyToDestinationSelectorName is set      * (incidentally Camel will set the alwaysCopyMessage option to true if a      * replyToDestinationSelectorName is set)      */
 DECL|field|alwaysCopyMessage
 specifier|private
-name|boolean
+name|Boolean
 name|alwaysCopyMessage
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Specifies whether JMSMessageID should always be used as JMSCorrelationID      * for InOut messages.      */
 DECL|field|useMessageIDAsCorrelationID
 specifier|private
-name|boolean
+name|Boolean
 name|useMessageIDAsCorrelationID
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Values greater than 1 specify the message priority when sending (where 0      * is the lowest priority and 9 is the highest). The explicitQosEnabled      * option must also be enabled in order for this option to have any effect.      */
 DECL|field|priority
@@ -510,8 +536,10 @@ decl_stmt|;
 comment|/**      * Specifies whether to inhibit the delivery of messages published by its      * own connection.      */
 DECL|field|pubSubNoLocal
 specifier|private
-name|boolean
+name|Boolean
 name|pubSubNoLocal
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * The timeout for receiving messages (in milliseconds).      */
 DECL|field|receiveTimeout
@@ -530,8 +558,10 @@ annotation|@
 name|Deprecated
 DECL|field|subscriptionDurable
 specifier|private
-name|boolean
+name|Boolean
 name|subscriptionDurable
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Allows you to specify a custom task executor for consuming messages.      */
 DECL|field|taskExecutor
@@ -548,14 +578,18 @@ decl_stmt|;
 comment|/**      * Specifies whether to use transacted mode      */
 DECL|field|transacted
 specifier|private
-name|boolean
+name|Boolean
 name|transacted
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * If true Camel will create a JmsTransactionManager if there is no      * transactionManager injected when option transacted=true.      */
 DECL|field|lazyCreateTransactionManager
 specifier|private
-name|boolean
+name|Boolean
 name|lazyCreateTransactionManager
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * The Spring transaction manager to use.      */
 DECL|field|transactionManager
@@ -578,26 +612,34 @@ decl_stmt|;
 comment|/**      * Specifies whether to test the connection on startup. This ensures that      * when Camel starts that all the JMS consumers have a valid connection to      * the JMS broker. If a connection cannot be granted then Camel throws an      * exception on startup. This ensures that Camel is not started with failed      * connections. The JMS producers is tested as well.      */
 DECL|field|testConnectionOnStartup
 specifier|private
-name|boolean
+name|Boolean
 name|testConnectionOnStartup
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether to startup the JmsConsumer message listener asynchronously when      * starting a route. For example if a JmsConsumer cannot get a connection to      * a remote JMS broker then it may block while retrying and/or failover.      * This will cause Camel to block while starting routes. By setting this      * option to true you will let routes startup while the JmsConsumer connects      * to the JMS broker using a dedicated thread in asynchronous mode. If this      * option is used then beware that if the connection could not be      * established then an exception is logged at WARN level and the consumer      * will not be able to receive messages; You can then restart the route to      * retry.      */
 DECL|field|asyncStartListener
 specifier|private
-name|boolean
+name|Boolean
 name|asyncStartListener
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether to stop the JmsConsumer message listener asynchronously when      * stopping a route.      */
 DECL|field|asyncStopListener
 specifier|private
-name|boolean
+name|Boolean
 name|asyncStopListener
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * When using mapJmsMessage=false Camel will create a new JMS message to      * send to a new JMS destination if you touch the headers (get or set)      * during the route. Set this option to true to force Camel to send the      * original JMS message that was received.      */
 DECL|field|forceSendOriginalMessage
 specifier|private
-name|boolean
+name|Boolean
 name|forceSendOriginalMessage
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * The timeout for waiting for a reply when using the InOut Exchange Pattern      * (in milliseconds). The default is 20 seconds. You can include the header      * CamelJmsRequestTimeout to override this endpoint configured timeout value      * and thus have per message individual timeout values. See also the      * requestTimeoutCheckerInterval option.      */
 DECL|field|requestTimeout
@@ -614,20 +656,26 @@ decl_stmt|;
 comment|/**      * You can transfer the exchange over the wire instead of just the body and      * headers. The following fields are transferred: In body Out body Fault      * body In headers Out headers Fault headers exchange properties exchange      * exception. This requires that the objects are serializable. Camel will      * exclude any non-serializable objects and log it at WARN level. You must      * enable this option on both the producer and consumer side so Camel knows      * the payloads is an Exchange and not a regular payload.      */
 DECL|field|transferExchange
 specifier|private
-name|boolean
+name|Boolean
 name|transferExchange
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * If enabled and you are using Request Reply messaging (InOut) and an      * Exchange failed on the consumer side then the caused Exception will be      * send back in response as a javax.jms.ObjectMessage. If the client is      * Camel the returned Exception is rethrown. This allows you to use Camel      * JMS as a bridge in your routing - for example using persistent queues to      * enable robust routing. Notice that if you also have transferExchange      * enabled this option takes precedence. The caught exception is required to      * be serializable. The original Exception on the consumer side can be      * wrapped in an outer exception such as      * org.apache.camel.RuntimeCamelException when returned to the producer.      */
 DECL|field|transferException
 specifier|private
-name|boolean
+name|Boolean
 name|transferException
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * If enabled and you are using Request Reply messaging (InOut) and an      * Exchange failed with a SOAP fault (not exception) on the consumer side      * then the fault flag on link org.apache.camel.MessageisFault() will be      * send back in the response as a JMS header with the key link      * JmsConstantsJMS_TRANSFER_FAULT. If the client is Camel the returned fault      * flag will be set on the link org.apache.camel.MessagesetFault(boolean).      * You may want to enable this when using Camel components that support      * faults such as SOAP based such as cxf or spring-ws.      */
 DECL|field|transferFault
 specifier|private
-name|boolean
+name|Boolean
 name|transferFault
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Allows you to use your own implementation of the      * org.springframework.jms.core.JmsOperations interface. Camel uses      * JmsTemplate as default. Can be used for testing purpose but not used much      * as stated in the spring API docs.      */
 DECL|field|jmsOperations
@@ -650,32 +698,42 @@ decl_stmt|;
 comment|/**      * Set to true if you want to send message using the QoS settings specified      * on the message instead of the QoS settings on the JMS endpoint. The      * following three headers are considered JMSPriority JMSDeliveryMode and      * JMSExpiration. You can provide all or only some of them. If not provided      * Camel will fall back to use the values from the endpoint instead. So when      * using this option the headers override the values from the endpoint. The      * explicitQosEnabled option by contrast will only use options set on the      * endpoint and not values from the message header.      */
 DECL|field|preserveMessageQos
 specifier|private
-name|boolean
+name|Boolean
 name|preserveMessageQos
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether the JmsConsumer processes the Exchange asynchronously. If enabled      * then the JmsConsumer may pickup the next message from the JMS queue while      * the previous message is being processed asynchronously (by the      * Asynchronous Routing Engine). This means that messages may be processed      * not 100 strictly in order. If disabled (as default) then the Exchange is      * fully processed before the JmsConsumer will pickup the next message from      * the JMS queue. Note if transacted has been enabled then      * asyncConsumer=true does not run asynchronously as transaction must be      * executed synchronously (Camel 3.0 may support async transactions).      */
 DECL|field|asyncConsumer
 specifier|private
-name|boolean
+name|Boolean
 name|asyncConsumer
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether to allow sending messages with no body. If this option is false      * and the message body is null then an JMSException is thrown.      */
 DECL|field|allowNullBody
 specifier|private
-name|boolean
+name|Boolean
 name|allowNullBody
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Only applicable when sending to JMS destination using InOnly (eg fire and      * forget). Enabling this option will enrich the Camel Exchange with the      * actual JMSMessageID that was used by the JMS client when the message was      * sent to the JMS destination.      */
 DECL|field|includeSentJMSMessageID
 specifier|private
-name|boolean
+name|Boolean
 name|includeSentJMSMessageID
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether to include all JMSXxxx properties when mapping from JMS to Camel      * Message. Setting this to true will include properties such as JMSXAppID      * and JMSXUserID etc. Note: If you are using a custom headerFilterStrategy      * then this option does not apply.      */
 DECL|field|includeAllJMSXProperties
 specifier|private
-name|boolean
+name|Boolean
 name|includeAllJMSXProperties
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Specifies what default TaskExecutor type to use in the      * DefaultMessageListenerContainer for both consumer endpoints and the      * ReplyTo consumer of producer endpoints. Possible values: SimpleAsync      * (uses Spring's SimpleAsyncTaskExecutor) or ThreadPool (uses Spring's      * ThreadPoolTaskExecutor with optimal values - cached threadpool-like). If      * not set it defaults to the previous behaviour which uses a cached thread      * pool for consumer endpoints and SimpleAsync for reply consumers. The use      * of ThreadPool is recommended to reduce thread trash in elastic      * configurations with dynamically increasing and decreasing concurrent      * consumers.      */
 DECL|field|defaultTaskExecutorType
@@ -751,22 +809,22 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
-DECL|method|isAcceptMessagesWhileStopping ()
+DECL|method|getAcceptMessagesWhileStopping ()
 specifier|public
-name|boolean
-name|isAcceptMessagesWhileStopping
+name|Boolean
+name|getAcceptMessagesWhileStopping
 parameter_list|()
 block|{
 return|return
 name|acceptMessagesWhileStopping
 return|;
 block|}
-DECL|method|setAcceptMessagesWhileStopping ( boolean acceptMessagesWhileStopping)
+DECL|method|setAcceptMessagesWhileStopping ( Boolean acceptMessagesWhileStopping)
 specifier|public
 name|void
 name|setAcceptMessagesWhileStopping
 parameter_list|(
-name|boolean
+name|Boolean
 name|acceptMessagesWhileStopping
 parameter_list|)
 block|{
@@ -777,22 +835,22 @@ operator|=
 name|acceptMessagesWhileStopping
 expr_stmt|;
 block|}
-DECL|method|isAllowReplyManagerQuickStop ()
+DECL|method|getAllowReplyManagerQuickStop ()
 specifier|public
-name|boolean
-name|isAllowReplyManagerQuickStop
+name|Boolean
+name|getAllowReplyManagerQuickStop
 parameter_list|()
 block|{
 return|return
 name|allowReplyManagerQuickStop
 return|;
 block|}
-DECL|method|setAllowReplyManagerQuickStop (boolean allowReplyManagerQuickStop)
+DECL|method|setAllowReplyManagerQuickStop (Boolean allowReplyManagerQuickStop)
 specifier|public
 name|void
 name|setAllowReplyManagerQuickStop
 parameter_list|(
-name|boolean
+name|Boolean
 name|allowReplyManagerQuickStop
 parameter_list|)
 block|{
@@ -829,22 +887,22 @@ operator|=
 name|acknowledgementMode
 expr_stmt|;
 block|}
-DECL|method|isEagerLoadingOfProperties ()
+DECL|method|getEagerLoadingOfProperties ()
 specifier|public
-name|boolean
-name|isEagerLoadingOfProperties
+name|Boolean
+name|getEagerLoadingOfProperties
 parameter_list|()
 block|{
 return|return
 name|eagerLoadingOfProperties
 return|;
 block|}
-DECL|method|setEagerLoadingOfProperties (boolean eagerLoadingOfProperties)
+DECL|method|setEagerLoadingOfProperties (Boolean eagerLoadingOfProperties)
 specifier|public
 name|void
 name|setEagerLoadingOfProperties
 parameter_list|(
-name|boolean
+name|Boolean
 name|eagerLoadingOfProperties
 parameter_list|)
 block|{
@@ -881,22 +939,22 @@ operator|=
 name|acknowledgementModeName
 expr_stmt|;
 block|}
-DECL|method|isAutoStartup ()
+DECL|method|getAutoStartup ()
 specifier|public
-name|boolean
-name|isAutoStartup
+name|Boolean
+name|getAutoStartup
 parameter_list|()
 block|{
 return|return
 name|autoStartup
 return|;
 block|}
-DECL|method|setAutoStartup (boolean autoStartup)
+DECL|method|setAutoStartup (Boolean autoStartup)
 specifier|public
 name|void
 name|setAutoStartup
 parameter_list|(
-name|boolean
+name|Boolean
 name|autoStartup
 parameter_list|)
 block|{
@@ -1089,22 +1147,22 @@ operator|=
 name|connectionFactory
 expr_stmt|;
 block|}
-DECL|method|isDeliveryPersistent ()
+DECL|method|getDeliveryPersistent ()
 specifier|public
-name|boolean
-name|isDeliveryPersistent
+name|Boolean
+name|getDeliveryPersistent
 parameter_list|()
 block|{
 return|return
 name|deliveryPersistent
 return|;
 block|}
-DECL|method|setDeliveryPersistent (boolean deliveryPersistent)
+DECL|method|setDeliveryPersistent (Boolean deliveryPersistent)
 specifier|public
 name|void
 name|setDeliveryPersistent
 parameter_list|(
-name|boolean
+name|Boolean
 name|deliveryPersistent
 parameter_list|)
 block|{
@@ -1245,22 +1303,22 @@ operator|=
 name|errorHandlerLoggingLevel
 expr_stmt|;
 block|}
-DECL|method|isErrorHandlerLogStackTrace ()
+DECL|method|getErrorHandlerLogStackTrace ()
 specifier|public
-name|boolean
-name|isErrorHandlerLogStackTrace
+name|Boolean
+name|getErrorHandlerLogStackTrace
 parameter_list|()
 block|{
 return|return
 name|errorHandlerLogStackTrace
 return|;
 block|}
-DECL|method|setErrorHandlerLogStackTrace (boolean errorHandlerLogStackTrace)
+DECL|method|setErrorHandlerLogStackTrace (Boolean errorHandlerLogStackTrace)
 specifier|public
 name|void
 name|setErrorHandlerLogStackTrace
 parameter_list|(
-name|boolean
+name|Boolean
 name|errorHandlerLogStackTrace
 parameter_list|)
 block|{
@@ -1271,22 +1329,22 @@ operator|=
 name|errorHandlerLogStackTrace
 expr_stmt|;
 block|}
-DECL|method|isExplicitQosEnabled ()
+DECL|method|getExplicitQosEnabled ()
 specifier|public
-name|boolean
-name|isExplicitQosEnabled
+name|Boolean
+name|getExplicitQosEnabled
 parameter_list|()
 block|{
 return|return
 name|explicitQosEnabled
 return|;
 block|}
-DECL|method|setExplicitQosEnabled (boolean explicitQosEnabled)
+DECL|method|setExplicitQosEnabled (Boolean explicitQosEnabled)
 specifier|public
 name|void
 name|setExplicitQosEnabled
 parameter_list|(
-name|boolean
+name|Boolean
 name|explicitQosEnabled
 parameter_list|)
 block|{
@@ -1297,22 +1355,22 @@ operator|=
 name|explicitQosEnabled
 expr_stmt|;
 block|}
-DECL|method|isExposeListenerSession ()
+DECL|method|getExposeListenerSession ()
 specifier|public
-name|boolean
-name|isExposeListenerSession
+name|Boolean
+name|getExposeListenerSession
 parameter_list|()
 block|{
 return|return
 name|exposeListenerSession
 return|;
 block|}
-DECL|method|setExposeListenerSession (boolean exposeListenerSession)
+DECL|method|setExposeListenerSession (Boolean exposeListenerSession)
 specifier|public
 name|void
 name|setExposeListenerSession
 parameter_list|(
-name|boolean
+name|Boolean
 name|exposeListenerSession
 parameter_list|)
 block|{
@@ -1505,22 +1563,22 @@ operator|=
 name|messageConverter
 expr_stmt|;
 block|}
-DECL|method|isMapJmsMessage ()
+DECL|method|getMapJmsMessage ()
 specifier|public
-name|boolean
-name|isMapJmsMessage
+name|Boolean
+name|getMapJmsMessage
 parameter_list|()
 block|{
 return|return
 name|mapJmsMessage
 return|;
 block|}
-DECL|method|setMapJmsMessage (boolean mapJmsMessage)
+DECL|method|setMapJmsMessage (Boolean mapJmsMessage)
 specifier|public
 name|void
 name|setMapJmsMessage
 parameter_list|(
-name|boolean
+name|Boolean
 name|mapJmsMessage
 parameter_list|)
 block|{
@@ -1531,22 +1589,22 @@ operator|=
 name|mapJmsMessage
 expr_stmt|;
 block|}
-DECL|method|isMessageIdEnabled ()
+DECL|method|getMessageIdEnabled ()
 specifier|public
-name|boolean
-name|isMessageIdEnabled
+name|Boolean
+name|getMessageIdEnabled
 parameter_list|()
 block|{
 return|return
 name|messageIdEnabled
 return|;
 block|}
-DECL|method|setMessageIdEnabled (boolean messageIdEnabled)
+DECL|method|setMessageIdEnabled (Boolean messageIdEnabled)
 specifier|public
 name|void
 name|setMessageIdEnabled
 parameter_list|(
-name|boolean
+name|Boolean
 name|messageIdEnabled
 parameter_list|)
 block|{
@@ -1557,22 +1615,22 @@ operator|=
 name|messageIdEnabled
 expr_stmt|;
 block|}
-DECL|method|isMessageTimestampEnabled ()
+DECL|method|getMessageTimestampEnabled ()
 specifier|public
-name|boolean
-name|isMessageTimestampEnabled
+name|Boolean
+name|getMessageTimestampEnabled
 parameter_list|()
 block|{
 return|return
 name|messageTimestampEnabled
 return|;
 block|}
-DECL|method|setMessageTimestampEnabled (boolean messageTimestampEnabled)
+DECL|method|setMessageTimestampEnabled (Boolean messageTimestampEnabled)
 specifier|public
 name|void
 name|setMessageTimestampEnabled
 parameter_list|(
-name|boolean
+name|Boolean
 name|messageTimestampEnabled
 parameter_list|)
 block|{
@@ -1583,22 +1641,22 @@ operator|=
 name|messageTimestampEnabled
 expr_stmt|;
 block|}
-DECL|method|isAlwaysCopyMessage ()
+DECL|method|getAlwaysCopyMessage ()
 specifier|public
-name|boolean
-name|isAlwaysCopyMessage
+name|Boolean
+name|getAlwaysCopyMessage
 parameter_list|()
 block|{
 return|return
 name|alwaysCopyMessage
 return|;
 block|}
-DECL|method|setAlwaysCopyMessage (boolean alwaysCopyMessage)
+DECL|method|setAlwaysCopyMessage (Boolean alwaysCopyMessage)
 specifier|public
 name|void
 name|setAlwaysCopyMessage
 parameter_list|(
-name|boolean
+name|Boolean
 name|alwaysCopyMessage
 parameter_list|)
 block|{
@@ -1609,22 +1667,22 @@ operator|=
 name|alwaysCopyMessage
 expr_stmt|;
 block|}
-DECL|method|isUseMessageIDAsCorrelationID ()
+DECL|method|getUseMessageIDAsCorrelationID ()
 specifier|public
-name|boolean
-name|isUseMessageIDAsCorrelationID
+name|Boolean
+name|getUseMessageIDAsCorrelationID
 parameter_list|()
 block|{
 return|return
 name|useMessageIDAsCorrelationID
 return|;
 block|}
-DECL|method|setUseMessageIDAsCorrelationID ( boolean useMessageIDAsCorrelationID)
+DECL|method|setUseMessageIDAsCorrelationID ( Boolean useMessageIDAsCorrelationID)
 specifier|public
 name|void
 name|setUseMessageIDAsCorrelationID
 parameter_list|(
-name|boolean
+name|Boolean
 name|useMessageIDAsCorrelationID
 parameter_list|)
 block|{
@@ -1661,22 +1719,22 @@ operator|=
 name|priority
 expr_stmt|;
 block|}
-DECL|method|isPubSubNoLocal ()
+DECL|method|getPubSubNoLocal ()
 specifier|public
-name|boolean
-name|isPubSubNoLocal
+name|Boolean
+name|getPubSubNoLocal
 parameter_list|()
 block|{
 return|return
 name|pubSubNoLocal
 return|;
 block|}
-DECL|method|setPubSubNoLocal (boolean pubSubNoLocal)
+DECL|method|setPubSubNoLocal (Boolean pubSubNoLocal)
 specifier|public
 name|void
 name|setPubSubNoLocal
 parameter_list|(
-name|boolean
+name|Boolean
 name|pubSubNoLocal
 parameter_list|)
 block|{
@@ -1739,22 +1797,22 @@ operator|=
 name|recoveryInterval
 expr_stmt|;
 block|}
-DECL|method|isSubscriptionDurable ()
+DECL|method|getSubscriptionDurable ()
 specifier|public
-name|boolean
-name|isSubscriptionDurable
+name|Boolean
+name|getSubscriptionDurable
 parameter_list|()
 block|{
 return|return
 name|subscriptionDurable
 return|;
 block|}
-DECL|method|setSubscriptionDurable (boolean subscriptionDurable)
+DECL|method|setSubscriptionDurable (Boolean subscriptionDurable)
 specifier|public
 name|void
 name|setSubscriptionDurable
 parameter_list|(
-name|boolean
+name|Boolean
 name|subscriptionDurable
 parameter_list|)
 block|{
@@ -1817,22 +1875,22 @@ operator|=
 name|timeToLive
 expr_stmt|;
 block|}
-DECL|method|isTransacted ()
+DECL|method|getTransacted ()
 specifier|public
-name|boolean
-name|isTransacted
+name|Boolean
+name|getTransacted
 parameter_list|()
 block|{
 return|return
 name|transacted
 return|;
 block|}
-DECL|method|setTransacted (boolean transacted)
+DECL|method|setTransacted (Boolean transacted)
 specifier|public
 name|void
 name|setTransacted
 parameter_list|(
-name|boolean
+name|Boolean
 name|transacted
 parameter_list|)
 block|{
@@ -1843,22 +1901,22 @@ operator|=
 name|transacted
 expr_stmt|;
 block|}
-DECL|method|isLazyCreateTransactionManager ()
+DECL|method|getLazyCreateTransactionManager ()
 specifier|public
-name|boolean
-name|isLazyCreateTransactionManager
+name|Boolean
+name|getLazyCreateTransactionManager
 parameter_list|()
 block|{
 return|return
 name|lazyCreateTransactionManager
 return|;
 block|}
-DECL|method|setLazyCreateTransactionManager ( boolean lazyCreateTransactionManager)
+DECL|method|setLazyCreateTransactionManager ( Boolean lazyCreateTransactionManager)
 specifier|public
 name|void
 name|setLazyCreateTransactionManager
 parameter_list|(
-name|boolean
+name|Boolean
 name|lazyCreateTransactionManager
 parameter_list|)
 block|{
@@ -1947,22 +2005,22 @@ operator|=
 name|transactionTimeout
 expr_stmt|;
 block|}
-DECL|method|isTestConnectionOnStartup ()
+DECL|method|getTestConnectionOnStartup ()
 specifier|public
-name|boolean
-name|isTestConnectionOnStartup
+name|Boolean
+name|getTestConnectionOnStartup
 parameter_list|()
 block|{
 return|return
 name|testConnectionOnStartup
 return|;
 block|}
-DECL|method|setTestConnectionOnStartup (boolean testConnectionOnStartup)
+DECL|method|setTestConnectionOnStartup (Boolean testConnectionOnStartup)
 specifier|public
 name|void
 name|setTestConnectionOnStartup
 parameter_list|(
-name|boolean
+name|Boolean
 name|testConnectionOnStartup
 parameter_list|)
 block|{
@@ -1973,22 +2031,22 @@ operator|=
 name|testConnectionOnStartup
 expr_stmt|;
 block|}
-DECL|method|isAsyncStartListener ()
+DECL|method|getAsyncStartListener ()
 specifier|public
-name|boolean
-name|isAsyncStartListener
+name|Boolean
+name|getAsyncStartListener
 parameter_list|()
 block|{
 return|return
 name|asyncStartListener
 return|;
 block|}
-DECL|method|setAsyncStartListener (boolean asyncStartListener)
+DECL|method|setAsyncStartListener (Boolean asyncStartListener)
 specifier|public
 name|void
 name|setAsyncStartListener
 parameter_list|(
-name|boolean
+name|Boolean
 name|asyncStartListener
 parameter_list|)
 block|{
@@ -1999,22 +2057,22 @@ operator|=
 name|asyncStartListener
 expr_stmt|;
 block|}
-DECL|method|isAsyncStopListener ()
+DECL|method|getAsyncStopListener ()
 specifier|public
-name|boolean
-name|isAsyncStopListener
+name|Boolean
+name|getAsyncStopListener
 parameter_list|()
 block|{
 return|return
 name|asyncStopListener
 return|;
 block|}
-DECL|method|setAsyncStopListener (boolean asyncStopListener)
+DECL|method|setAsyncStopListener (Boolean asyncStopListener)
 specifier|public
 name|void
 name|setAsyncStopListener
 parameter_list|(
-name|boolean
+name|Boolean
 name|asyncStopListener
 parameter_list|)
 block|{
@@ -2025,22 +2083,22 @@ operator|=
 name|asyncStopListener
 expr_stmt|;
 block|}
-DECL|method|isForceSendOriginalMessage ()
+DECL|method|getForceSendOriginalMessage ()
 specifier|public
-name|boolean
-name|isForceSendOriginalMessage
+name|Boolean
+name|getForceSendOriginalMessage
 parameter_list|()
 block|{
 return|return
 name|forceSendOriginalMessage
 return|;
 block|}
-DECL|method|setForceSendOriginalMessage (boolean forceSendOriginalMessage)
+DECL|method|setForceSendOriginalMessage (Boolean forceSendOriginalMessage)
 specifier|public
 name|void
 name|setForceSendOriginalMessage
 parameter_list|(
-name|boolean
+name|Boolean
 name|forceSendOriginalMessage
 parameter_list|)
 block|{
@@ -2103,22 +2161,22 @@ operator|=
 name|requestTimeoutCheckerInterval
 expr_stmt|;
 block|}
-DECL|method|isTransferExchange ()
+DECL|method|getTransferExchange ()
 specifier|public
-name|boolean
-name|isTransferExchange
+name|Boolean
+name|getTransferExchange
 parameter_list|()
 block|{
 return|return
 name|transferExchange
 return|;
 block|}
-DECL|method|setTransferExchange (boolean transferExchange)
+DECL|method|setTransferExchange (Boolean transferExchange)
 specifier|public
 name|void
 name|setTransferExchange
 parameter_list|(
-name|boolean
+name|Boolean
 name|transferExchange
 parameter_list|)
 block|{
@@ -2129,22 +2187,22 @@ operator|=
 name|transferExchange
 expr_stmt|;
 block|}
-DECL|method|isTransferException ()
+DECL|method|getTransferException ()
 specifier|public
-name|boolean
-name|isTransferException
+name|Boolean
+name|getTransferException
 parameter_list|()
 block|{
 return|return
 name|transferException
 return|;
 block|}
-DECL|method|setTransferException (boolean transferException)
+DECL|method|setTransferException (Boolean transferException)
 specifier|public
 name|void
 name|setTransferException
 parameter_list|(
-name|boolean
+name|Boolean
 name|transferException
 parameter_list|)
 block|{
@@ -2155,22 +2213,22 @@ operator|=
 name|transferException
 expr_stmt|;
 block|}
-DECL|method|isTransferFault ()
+DECL|method|getTransferFault ()
 specifier|public
-name|boolean
-name|isTransferFault
+name|Boolean
+name|getTransferFault
 parameter_list|()
 block|{
 return|return
 name|transferFault
 return|;
 block|}
-DECL|method|setTransferFault (boolean transferFault)
+DECL|method|setTransferFault (Boolean transferFault)
 specifier|public
 name|void
 name|setTransferFault
 parameter_list|(
-name|boolean
+name|Boolean
 name|transferFault
 parameter_list|)
 block|{
@@ -2259,22 +2317,22 @@ operator|=
 name|replyToType
 expr_stmt|;
 block|}
-DECL|method|isPreserveMessageQos ()
+DECL|method|getPreserveMessageQos ()
 specifier|public
-name|boolean
-name|isPreserveMessageQos
+name|Boolean
+name|getPreserveMessageQos
 parameter_list|()
 block|{
 return|return
 name|preserveMessageQos
 return|;
 block|}
-DECL|method|setPreserveMessageQos (boolean preserveMessageQos)
+DECL|method|setPreserveMessageQos (Boolean preserveMessageQos)
 specifier|public
 name|void
 name|setPreserveMessageQos
 parameter_list|(
-name|boolean
+name|Boolean
 name|preserveMessageQos
 parameter_list|)
 block|{
@@ -2285,22 +2343,22 @@ operator|=
 name|preserveMessageQos
 expr_stmt|;
 block|}
-DECL|method|isAsyncConsumer ()
+DECL|method|getAsyncConsumer ()
 specifier|public
-name|boolean
-name|isAsyncConsumer
+name|Boolean
+name|getAsyncConsumer
 parameter_list|()
 block|{
 return|return
 name|asyncConsumer
 return|;
 block|}
-DECL|method|setAsyncConsumer (boolean asyncConsumer)
+DECL|method|setAsyncConsumer (Boolean asyncConsumer)
 specifier|public
 name|void
 name|setAsyncConsumer
 parameter_list|(
-name|boolean
+name|Boolean
 name|asyncConsumer
 parameter_list|)
 block|{
@@ -2311,22 +2369,22 @@ operator|=
 name|asyncConsumer
 expr_stmt|;
 block|}
-DECL|method|isAllowNullBody ()
+DECL|method|getAllowNullBody ()
 specifier|public
-name|boolean
-name|isAllowNullBody
+name|Boolean
+name|getAllowNullBody
 parameter_list|()
 block|{
 return|return
 name|allowNullBody
 return|;
 block|}
-DECL|method|setAllowNullBody (boolean allowNullBody)
+DECL|method|setAllowNullBody (Boolean allowNullBody)
 specifier|public
 name|void
 name|setAllowNullBody
 parameter_list|(
-name|boolean
+name|Boolean
 name|allowNullBody
 parameter_list|)
 block|{
@@ -2337,22 +2395,22 @@ operator|=
 name|allowNullBody
 expr_stmt|;
 block|}
-DECL|method|isIncludeSentJMSMessageID ()
+DECL|method|getIncludeSentJMSMessageID ()
 specifier|public
-name|boolean
-name|isIncludeSentJMSMessageID
+name|Boolean
+name|getIncludeSentJMSMessageID
 parameter_list|()
 block|{
 return|return
 name|includeSentJMSMessageID
 return|;
 block|}
-DECL|method|setIncludeSentJMSMessageID (boolean includeSentJMSMessageID)
+DECL|method|setIncludeSentJMSMessageID (Boolean includeSentJMSMessageID)
 specifier|public
 name|void
 name|setIncludeSentJMSMessageID
 parameter_list|(
-name|boolean
+name|Boolean
 name|includeSentJMSMessageID
 parameter_list|)
 block|{
@@ -2363,22 +2421,22 @@ operator|=
 name|includeSentJMSMessageID
 expr_stmt|;
 block|}
-DECL|method|isIncludeAllJMSXProperties ()
+DECL|method|getIncludeAllJMSXProperties ()
 specifier|public
-name|boolean
-name|isIncludeAllJMSXProperties
+name|Boolean
+name|getIncludeAllJMSXProperties
 parameter_list|()
 block|{
 return|return
 name|includeAllJMSXProperties
 return|;
 block|}
-DECL|method|setIncludeAllJMSXProperties (boolean includeAllJMSXProperties)
+DECL|method|setIncludeAllJMSXProperties (Boolean includeAllJMSXProperties)
 specifier|public
 name|void
 name|setIncludeAllJMSXProperties
 parameter_list|(
-name|boolean
+name|Boolean
 name|includeAllJMSXProperties
 parameter_list|)
 block|{

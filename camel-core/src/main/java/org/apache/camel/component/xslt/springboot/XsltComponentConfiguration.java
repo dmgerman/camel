@@ -118,14 +118,18 @@ decl_stmt|;
 comment|/**      * Cache for the resource content (the stylesheet file) when it is loaded.      * If set to false Camel will reload the stylesheet file on each message      * processing. This is good for development. A cached stylesheet can be      * forced to reload at runtime via JMX using the clearCachedStylesheet      * operation.      */
 DECL|field|contentCache
 specifier|private
-name|boolean
+name|Boolean
 name|contentCache
+init|=
+literal|true
 decl_stmt|;
 comment|/**      * Whether to use Saxon as the transformerFactoryClass. If enabled then the      * class net.sf.saxon.TransformerFactoryImpl. You would need to add Saxon to      * the classpath.      */
 DECL|field|saxon
 specifier|private
-name|boolean
+name|Boolean
 name|saxon
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getXmlConverter ()
 specifier|public
@@ -205,22 +209,22 @@ operator|=
 name|uriResolver
 expr_stmt|;
 block|}
-DECL|method|isContentCache ()
+DECL|method|getContentCache ()
 specifier|public
-name|boolean
-name|isContentCache
+name|Boolean
+name|getContentCache
 parameter_list|()
 block|{
 return|return
 name|contentCache
 return|;
 block|}
-DECL|method|setContentCache (boolean contentCache)
+DECL|method|setContentCache (Boolean contentCache)
 specifier|public
 name|void
 name|setContentCache
 parameter_list|(
-name|boolean
+name|Boolean
 name|contentCache
 parameter_list|)
 block|{
@@ -231,22 +235,22 @@ operator|=
 name|contentCache
 expr_stmt|;
 block|}
-DECL|method|isSaxon ()
+DECL|method|getSaxon ()
 specifier|public
-name|boolean
-name|isSaxon
+name|Boolean
+name|getSaxon
 parameter_list|()
 block|{
 return|return
 name|saxon
 return|;
 block|}
-DECL|method|setSaxon (boolean saxon)
+DECL|method|setSaxon (Boolean saxon)
 specifier|public
 name|void
 name|setSaxon
 parameter_list|(
-name|boolean
+name|Boolean
 name|saxon
 parameter_list|)
 block|{

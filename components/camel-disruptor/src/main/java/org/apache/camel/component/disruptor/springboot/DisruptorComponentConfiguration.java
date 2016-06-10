@@ -94,8 +94,10 @@ decl_stmt|;
 comment|/**      * To configure the default value for multiple consumers      */
 DECL|field|defaultMultipleConsumers
 specifier|private
-name|boolean
+name|Boolean
 name|defaultMultipleConsumers
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * To configure the default value for DisruptorProducerType The default      * value is Multi.      */
 DECL|field|defaultProducerType
@@ -112,8 +114,10 @@ decl_stmt|;
 comment|/**      * To configure the default value for block when full The default value is      * true.      */
 DECL|field|defaultBlockWhenFull
 specifier|private
-name|boolean
+name|Boolean
 name|defaultBlockWhenFull
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * To configure the ring buffer size      */
 annotation|@
@@ -155,22 +159,22 @@ operator|=
 name|defaultConcurrentConsumers
 expr_stmt|;
 block|}
-DECL|method|isDefaultMultipleConsumers ()
+DECL|method|getDefaultMultipleConsumers ()
 specifier|public
-name|boolean
-name|isDefaultMultipleConsumers
+name|Boolean
+name|getDefaultMultipleConsumers
 parameter_list|()
 block|{
 return|return
 name|defaultMultipleConsumers
 return|;
 block|}
-DECL|method|setDefaultMultipleConsumers (boolean defaultMultipleConsumers)
+DECL|method|setDefaultMultipleConsumers (Boolean defaultMultipleConsumers)
 specifier|public
 name|void
 name|setDefaultMultipleConsumers
 parameter_list|(
-name|boolean
+name|Boolean
 name|defaultMultipleConsumers
 parameter_list|)
 block|{
@@ -233,22 +237,22 @@ operator|=
 name|defaultWaitStrategy
 expr_stmt|;
 block|}
-DECL|method|isDefaultBlockWhenFull ()
+DECL|method|getDefaultBlockWhenFull ()
 specifier|public
-name|boolean
-name|isDefaultBlockWhenFull
+name|Boolean
+name|getDefaultBlockWhenFull
 parameter_list|()
 block|{
 return|return
 name|defaultBlockWhenFull
 return|;
 block|}
-DECL|method|setDefaultBlockWhenFull (boolean defaultBlockWhenFull)
+DECL|method|setDefaultBlockWhenFull (Boolean defaultBlockWhenFull)
 specifier|public
 name|void
 name|setDefaultBlockWhenFull
 parameter_list|(
-name|boolean
+name|Boolean
 name|defaultBlockWhenFull
 parameter_list|)
 block|{

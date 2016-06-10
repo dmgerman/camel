@@ -56,31 +56,35 @@ block|{
 comment|/**      * If sending a message to a direct endpoint which has no active consumer      * then we can tell the producer to block and wait for the consumer to      * become active.      */
 DECL|field|block
 specifier|private
-name|boolean
+name|Boolean
 name|block
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * The timeout value to use if block is enabled.      */
 DECL|field|timeout
 specifier|private
 name|long
 name|timeout
+init|=
+literal|30000
 decl_stmt|;
-DECL|method|isBlock ()
+DECL|method|getBlock ()
 specifier|public
-name|boolean
-name|isBlock
+name|Boolean
+name|getBlock
 parameter_list|()
 block|{
 return|return
 name|block
 return|;
 block|}
-DECL|method|setBlock (boolean block)
+DECL|method|setBlock (Boolean block)
 specifier|public
 name|void
 name|setBlock
 parameter_list|(
-name|boolean
+name|Boolean
 name|block
 parameter_list|)
 block|{

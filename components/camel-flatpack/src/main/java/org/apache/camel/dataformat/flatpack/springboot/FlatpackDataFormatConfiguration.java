@@ -70,12 +70,16 @@ DECL|field|fixed
 specifier|private
 name|Boolean
 name|fixed
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether the first line is ignored for delimited files (for the column      * headers). Is by default true.      */
 DECL|field|ignoreFirstRecord
 specifier|private
 name|Boolean
 name|ignoreFirstRecord
+init|=
+literal|true
 decl_stmt|;
 comment|/**      * If the text is qualified with a char such as "      */
 DECL|field|textQualifier
@@ -94,12 +98,16 @@ DECL|field|allowShortLines
 specifier|private
 name|Boolean
 name|allowShortLines
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Allows for lines to be longer than expected and ignores the extra      * characters.      */
 DECL|field|ignoreExtraColumns
 specifier|private
 name|Boolean
 name|ignoreExtraColumns
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getParserFactoryRef ()
 specifier|public

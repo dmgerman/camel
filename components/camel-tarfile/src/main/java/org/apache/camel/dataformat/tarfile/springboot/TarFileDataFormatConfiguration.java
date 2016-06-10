@@ -58,6 +58,8 @@ DECL|field|usingIterator
 specifier|private
 name|Boolean
 name|usingIterator
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getUsingIterator ()
 specifier|public

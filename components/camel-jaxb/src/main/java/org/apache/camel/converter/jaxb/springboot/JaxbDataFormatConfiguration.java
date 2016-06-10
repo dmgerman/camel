@@ -70,30 +70,40 @@ DECL|field|prettyPrint
 specifier|private
 name|Boolean
 name|prettyPrint
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether to allow using ObjectFactory classes to create the POJO classes      * during marshalling. This only applies to POJO classes that has not been      * annotated with JAXB and providing jaxb.index descriptor files.      */
 DECL|field|objectFactory
 specifier|private
 name|Boolean
 name|objectFactory
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether to ignore JAXBElement elements - only needed to be set to false      * in very special use-cases.      */
 DECL|field|ignoreJAXBElement
 specifier|private
 name|Boolean
 name|ignoreJAXBElement
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether marhsalling must be java objects with JAXB annotations. And if      * not then it fails. This option can be set to false to relax that such as      * when the data is already in XML format.      */
 DECL|field|mustBeJAXBElement
 specifier|private
 name|Boolean
 name|mustBeJAXBElement
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * To ignore non xml characheters and replace them with an empty space.      */
 DECL|field|filterNonXmlChars
 specifier|private
 name|Boolean
 name|filterNonXmlChars
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * To overrule and use a specific encoding      */
 DECL|field|encoding
@@ -106,6 +116,8 @@ DECL|field|fragment
 specifier|private
 name|Boolean
 name|fragment
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Name of class used for fragment parsing. See more details at the fragment      * option.      */
 DECL|field|partClass

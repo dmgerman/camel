@@ -70,18 +70,24 @@ DECL|field|ignoreUnidentifiedRecords
 specifier|private
 name|Boolean
 name|ignoreUnidentifiedRecords
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether to ignore unexpected records.      */
 DECL|field|ignoreUnexpectedRecords
 specifier|private
 name|Boolean
 name|ignoreUnexpectedRecords
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether to ignore invalid records.      */
 DECL|field|ignoreInvalidRecords
 specifier|private
 name|Boolean
 name|ignoreInvalidRecords
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * The charset to use. Is by default the JVM platform default charset.      */
 DECL|field|encoding

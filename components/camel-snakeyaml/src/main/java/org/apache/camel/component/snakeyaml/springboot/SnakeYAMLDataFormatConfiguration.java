@@ -110,12 +110,16 @@ DECL|field|useApplicationContextClassLoader
 specifier|private
 name|Boolean
 name|useApplicationContextClassLoader
+init|=
+literal|true
 decl_stmt|;
 comment|/**      * Force the emitter to produce a pretty YAML document when using the flow      * style.      */
 DECL|field|prettyFlow
 specifier|private
 name|Boolean
 name|prettyFlow
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getLibrary ()
 specifier|public

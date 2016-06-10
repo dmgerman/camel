@@ -76,6 +76,8 @@ DECL|field|secureTagContents
 specifier|private
 name|Boolean
 name|secureTagContents
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * The cipher algorithm to be used for encryption/decryption of the      * asymmetric key. The available choices are: XMLCipher.RSA_v1dot5      * XMLCipher.RSA_OAEP XMLCipher.RSA_OAEP_11 The default value is      * XMLCipher.RSA_OAEP      */
 DECL|field|keyCipherAlgorithm
@@ -118,6 +120,8 @@ DECL|field|addKeyValueForEncryptedKey
 specifier|private
 name|Boolean
 name|addKeyValueForEncryptedKey
+init|=
+literal|true
 decl_stmt|;
 DECL|method|getXmlCipherAlgorithm ()
 specifier|public

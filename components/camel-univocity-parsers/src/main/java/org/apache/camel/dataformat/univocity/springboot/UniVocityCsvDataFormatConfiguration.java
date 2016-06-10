@@ -58,6 +58,8 @@ DECL|field|quoteAllFields
 specifier|private
 name|Boolean
 name|quoteAllFields
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * The quote symbol.      */
 DECL|field|quote
@@ -88,30 +90,40 @@ DECL|field|skipEmptyLines
 specifier|private
 name|Boolean
 name|skipEmptyLines
+init|=
+literal|true
 decl_stmt|;
 comment|/**      * Whether or not the trailing white spaces must ignored. The default value      * is true      */
 DECL|field|ignoreTrailingWhitespaces
 specifier|private
 name|Boolean
 name|ignoreTrailingWhitespaces
+init|=
+literal|true
 decl_stmt|;
 comment|/**      * Whether or not the leading white spaces must be ignored. The default      * value is true      */
 DECL|field|ignoreLeadingWhitespaces
 specifier|private
 name|Boolean
 name|ignoreLeadingWhitespaces
+init|=
+literal|true
 decl_stmt|;
 comment|/**      * Whether or not the headers are disabled. When defined this option      * explicitly sets the headers as null which indicates that there is no      * header. The default value is false      */
 DECL|field|headersDisabled
 specifier|private
 name|Boolean
 name|headersDisabled
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether or not the header must be read in the first line of the test      * document The default value is false      */
 DECL|field|headerExtractionEnabled
 specifier|private
 name|Boolean
 name|headerExtractionEnabled
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * The maximum number of record to read.      */
 DECL|field|numberOfRecordsToRead
@@ -148,12 +160,16 @@ DECL|field|lazyLoad
 specifier|private
 name|Boolean
 name|lazyLoad
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether the unmarshalling should produce maps for the lines values      * instead of lists. It requires to have header (either defined or      * collected). The default value is false      */
 DECL|field|asMap
 specifier|private
 name|Boolean
 name|asMap
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getQuoteAllFields ()
 specifier|public

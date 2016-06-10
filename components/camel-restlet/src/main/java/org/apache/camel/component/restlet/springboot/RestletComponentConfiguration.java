@@ -170,8 +170,10 @@ decl_stmt|;
 comment|/**      * Determines whether or not the raw input stream from Restlet is cached or      * not (Camel will read the stream into a in memory/overflow to file Stream      * caching) cache. By default Camel will cache the Restlet input stream to      * support reading it multiple times to ensure Camel can retrieve all data      * from the stream. However you can set this option to true when you for      * example need to access the raw stream such as streaming it directly to a      * file or other persistent store. DefaultRestletBinding will copy the      * request input stream into a stream cache and put it into message body if      * this option is false to support reading the stream multiple times.      */
 DECL|field|disableStreamCache
 specifier|private
-name|boolean
+name|Boolean
 name|disableStreamCache
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * To configure the port number for the restlet consumer routes. This allows      * to configure this once to reuse the same port for these consumers.      */
 DECL|field|port
@@ -594,22 +596,22 @@ operator|=
 name|maxQueued
 expr_stmt|;
 block|}
-DECL|method|isDisableStreamCache ()
+DECL|method|getDisableStreamCache ()
 specifier|public
-name|boolean
-name|isDisableStreamCache
+name|Boolean
+name|getDisableStreamCache
 parameter_list|()
 block|{
 return|return
 name|disableStreamCache
 return|;
 block|}
-DECL|method|setDisableStreamCache (boolean disableStreamCache)
+DECL|method|setDisableStreamCache (Boolean disableStreamCache)
 specifier|public
 name|void
 name|setDisableStreamCache
 parameter_list|(
-name|boolean
+name|Boolean
 name|disableStreamCache
 parameter_list|)
 block|{

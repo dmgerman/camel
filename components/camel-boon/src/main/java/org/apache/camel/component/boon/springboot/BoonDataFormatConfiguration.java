@@ -64,6 +64,8 @@ DECL|field|useList
 specifier|private
 name|Boolean
 name|useList
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getUnmarshalTypeName ()
 specifier|public

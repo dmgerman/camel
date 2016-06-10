@@ -100,12 +100,16 @@ DECL|field|shouldAppendHMAC
 specifier|private
 name|Boolean
 name|shouldAppendHMAC
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Flag indicating that the configured IV should be inlined into the      * encrypted data stream. Is by default false.      */
 DECL|field|inline
 specifier|private
 name|Boolean
 name|inline
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getAlgorithm ()
 specifier|public

@@ -86,12 +86,16 @@ DECL|field|forceTopLevelObject
 specifier|private
 name|Boolean
 name|forceTopLevelObject
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Flag to be tolerant to incomplete namespace prefixes. Used for      * unmarshalling (JSON to XML conversion). In most cases json-lib      * automatically changes this flag at runtime to match the processing.      */
 DECL|field|namespaceLenient
 specifier|private
 name|Boolean
 name|namespaceLenient
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Specifies the name of the top-level element. Used for unmarshalling (JSON      * to XML conversion). If not set json-lib will use arrayName or objectName      * (default value: 'o' at the current time it is not configurable in this      * data format). If set to 'root' the JSON string 'x': 'value1' 'y' :      * 'value2' would turn into value1value2 otherwise the 'root' element would      * be named 'o'.      */
 DECL|field|rootName
@@ -104,24 +108,32 @@ DECL|field|skipWhitespace
 specifier|private
 name|Boolean
 name|skipWhitespace
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Determines whether leading and trailing white spaces will be omitted from      * String values. Used for marshalling (XML to JSon conversion).      */
 DECL|field|trimSpaces
 specifier|private
 name|Boolean
 name|trimSpaces
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Signals whether namespaces should be ignored. By default they will be      * added to the JSON output using xmlns elements. Used for marshalling (XML      * to JSon conversion).      */
 DECL|field|skipNamespaces
 specifier|private
 name|Boolean
 name|skipNamespaces
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Removes the namespace prefixes from XML qualified elements so that the      * resulting JSON string does not contain them. Used for marshalling (XML to      * JSon conversion).      */
 DECL|field|removeNamespacePrefixes
 specifier|private
 name|Boolean
 name|removeNamespacePrefixes
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * With expandable properties JSON array elements are converted to XML as a      * sequence of repetitive XML elements with the local name equal to the JSON      * key for example: number: 123 normally converted to: 123 (where e can be      * modified by setting elementName) would instead translate to 123 if number      * is set as an expandable property Used for unmarshalling (JSON to XML      * conversion).      */
 DECL|field|expandableProperties

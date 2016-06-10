@@ -78,8 +78,10 @@ decl_stmt|;
 comment|/**      * If set to true the consumer endpoint will receive org.jgroups.View      * messages as well (not only org.jgroups.Message instances). By default      * only regular messages are consumed by the endpoint.      */
 DECL|field|enableViewMessages
 specifier|private
-name|boolean
+name|Boolean
 name|enableViewMessages
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getChannel ()
 specifier|public
@@ -133,22 +135,22 @@ operator|=
 name|channelProperties
 expr_stmt|;
 block|}
-DECL|method|isEnableViewMessages ()
+DECL|method|getEnableViewMessages ()
 specifier|public
-name|boolean
-name|isEnableViewMessages
+name|Boolean
+name|getEnableViewMessages
 parameter_list|()
 block|{
 return|return
 name|enableViewMessages
 return|;
 block|}
-DECL|method|setEnableViewMessages (boolean enableViewMessages)
+DECL|method|setEnableViewMessages (Boolean enableViewMessages)
 specifier|public
 name|void
 name|setEnableViewMessages
 parameter_list|(
-name|boolean
+name|Boolean
 name|enableViewMessages
 parameter_list|)
 block|{

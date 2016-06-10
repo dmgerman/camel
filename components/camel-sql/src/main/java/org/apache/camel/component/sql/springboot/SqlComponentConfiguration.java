@@ -72,8 +72,10 @@ decl_stmt|;
 comment|/**      * Sets whether to use placeholder and replace all placeholder characters      * with sign in the SQL queries. This option is default true      */
 DECL|field|usePlaceholder
 specifier|private
-name|boolean
+name|Boolean
 name|usePlaceholder
+init|=
+literal|true
 decl_stmt|;
 DECL|method|getDataSource ()
 specifier|public
@@ -101,22 +103,22 @@ operator|=
 name|dataSource
 expr_stmt|;
 block|}
-DECL|method|isUsePlaceholder ()
+DECL|method|getUsePlaceholder ()
 specifier|public
-name|boolean
-name|isUsePlaceholder
+name|Boolean
+name|getUsePlaceholder
 parameter_list|()
 block|{
 return|return
 name|usePlaceholder
 return|;
 block|}
-DECL|method|setUsePlaceholder (boolean usePlaceholder)
+DECL|method|setUsePlaceholder (Boolean usePlaceholder)
 specifier|public
 name|void
 name|setUsePlaceholder
 parameter_list|(
-name|boolean
+name|Boolean
 name|usePlaceholder
 parameter_list|)
 block|{

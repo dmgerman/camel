@@ -58,6 +58,8 @@ DECL|field|request
 specifier|private
 name|Boolean
 name|request
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getRequest ()
 specifier|public

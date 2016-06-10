@@ -56,25 +56,27 @@ block|{
 comment|/**      * JSCH is verbose logging out of the box. Therefore we turn the logging      * down to DEBUG logging by default. But setting this option to true turns      * on the verbose logging again.      */
 DECL|field|verboseLogging
 specifier|private
-name|boolean
+name|Boolean
 name|verboseLogging
+init|=
+literal|false
 decl_stmt|;
-DECL|method|isVerboseLogging ()
+DECL|method|getVerboseLogging ()
 specifier|public
-name|boolean
-name|isVerboseLogging
+name|Boolean
+name|getVerboseLogging
 parameter_list|()
 block|{
 return|return
 name|verboseLogging
 return|;
 block|}
-DECL|method|setVerboseLogging (boolean verboseLogging)
+DECL|method|setVerboseLogging (Boolean verboseLogging)
 specifier|public
 name|void
 name|setVerboseLogging
 parameter_list|(
-name|boolean
+name|Boolean
 name|verboseLogging
 parameter_list|)
 block|{

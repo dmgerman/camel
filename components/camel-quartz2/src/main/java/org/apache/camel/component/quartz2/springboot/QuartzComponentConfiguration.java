@@ -86,8 +86,10 @@ block|{
 comment|/**      * Whether or not the scheduler should be auto started. This options is      * default true      */
 DECL|field|autoStartScheduler
 specifier|private
-name|boolean
+name|Boolean
 name|autoStartScheduler
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Seconds to wait before starting the quartz scheduler.      */
 DECL|field|startDelayedSeconds
@@ -98,14 +100,18 @@ decl_stmt|;
 comment|/**      * Whether to prefix the quartz job with the endpoint id. This option is      * default false.      */
 DECL|field|prefixJobNameWithEndpointId
 specifier|private
-name|boolean
+name|Boolean
 name|prefixJobNameWithEndpointId
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether to enable Quartz JMX which allows to manage the Quartz scheduler      * from JMX. This options is default true      */
 DECL|field|enableJmx
 specifier|private
-name|boolean
+name|Boolean
 name|enableJmx
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Properties to configure the Quartz scheduler.      */
 DECL|field|properties
@@ -122,8 +128,10 @@ decl_stmt|;
 comment|/**      * Whether to prefix the Quartz Scheduler instance name with the      * CamelContext name. This is enabled by default to let each CamelContext      * use its own Quartz scheduler instance by default. You can set this option      * to false to reuse Quartz scheduler instances between multiple      * CamelContext's.      */
 DECL|field|prefixInstanceName
 specifier|private
-name|boolean
+name|Boolean
 name|prefixInstanceName
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * To use the custom SchedulerFactory which is used to create the Scheduler.      */
 DECL|field|schedulerFactory
@@ -137,22 +145,22 @@ specifier|private
 name|Scheduler
 name|scheduler
 decl_stmt|;
-DECL|method|isAutoStartScheduler ()
+DECL|method|getAutoStartScheduler ()
 specifier|public
-name|boolean
-name|isAutoStartScheduler
+name|Boolean
+name|getAutoStartScheduler
 parameter_list|()
 block|{
 return|return
 name|autoStartScheduler
 return|;
 block|}
-DECL|method|setAutoStartScheduler (boolean autoStartScheduler)
+DECL|method|setAutoStartScheduler (Boolean autoStartScheduler)
 specifier|public
 name|void
 name|setAutoStartScheduler
 parameter_list|(
-name|boolean
+name|Boolean
 name|autoStartScheduler
 parameter_list|)
 block|{
@@ -189,22 +197,22 @@ operator|=
 name|startDelayedSeconds
 expr_stmt|;
 block|}
-DECL|method|isPrefixJobNameWithEndpointId ()
+DECL|method|getPrefixJobNameWithEndpointId ()
 specifier|public
-name|boolean
-name|isPrefixJobNameWithEndpointId
+name|Boolean
+name|getPrefixJobNameWithEndpointId
 parameter_list|()
 block|{
 return|return
 name|prefixJobNameWithEndpointId
 return|;
 block|}
-DECL|method|setPrefixJobNameWithEndpointId ( boolean prefixJobNameWithEndpointId)
+DECL|method|setPrefixJobNameWithEndpointId ( Boolean prefixJobNameWithEndpointId)
 specifier|public
 name|void
 name|setPrefixJobNameWithEndpointId
 parameter_list|(
-name|boolean
+name|Boolean
 name|prefixJobNameWithEndpointId
 parameter_list|)
 block|{
@@ -215,22 +223,22 @@ operator|=
 name|prefixJobNameWithEndpointId
 expr_stmt|;
 block|}
-DECL|method|isEnableJmx ()
+DECL|method|getEnableJmx ()
 specifier|public
-name|boolean
-name|isEnableJmx
+name|Boolean
+name|getEnableJmx
 parameter_list|()
 block|{
 return|return
 name|enableJmx
 return|;
 block|}
-DECL|method|setEnableJmx (boolean enableJmx)
+DECL|method|setEnableJmx (Boolean enableJmx)
 specifier|public
 name|void
 name|setEnableJmx
 parameter_list|(
-name|boolean
+name|Boolean
 name|enableJmx
 parameter_list|)
 block|{
@@ -293,22 +301,22 @@ operator|=
 name|propertiesFile
 expr_stmt|;
 block|}
-DECL|method|isPrefixInstanceName ()
+DECL|method|getPrefixInstanceName ()
 specifier|public
-name|boolean
-name|isPrefixInstanceName
+name|Boolean
+name|getPrefixInstanceName
 parameter_list|()
 block|{
 return|return
 name|prefixInstanceName
 return|;
 block|}
-DECL|method|setPrefixInstanceName (boolean prefixInstanceName)
+DECL|method|setPrefixInstanceName (Boolean prefixInstanceName)
 specifier|public
 name|void
 name|setPrefixInstanceName
 parameter_list|(
-name|boolean
+name|Boolean
 name|prefixInstanceName
 parameter_list|)
 block|{

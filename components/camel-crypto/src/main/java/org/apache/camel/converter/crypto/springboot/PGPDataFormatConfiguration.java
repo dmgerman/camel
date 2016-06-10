@@ -100,12 +100,16 @@ DECL|field|armored
 specifier|private
 name|Boolean
 name|armored
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Adds an integrity check/sign into the encryption file. The default value      * is true.      */
 DECL|field|integrity
 specifier|private
 name|Boolean
 name|integrity
+init|=
+literal|true
 decl_stmt|;
 comment|/**      * Java Cryptography Extension (JCE) provider default is Bouncy Castle (BC).      * Alternatively you can use for example the IAIK JCE provider; in this case      * the provider must be registered beforehand and the Bouncy Castle provider      * must not be registered beforehand. The Sun JCE provider does not work.      */
 DECL|field|provider

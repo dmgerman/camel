@@ -80,6 +80,8 @@ DECL|field|prettyPrint
 specifier|private
 name|Boolean
 name|prettyPrint
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Which json library to use such. Is by default xstream      */
 DECL|field|library
@@ -110,6 +112,8 @@ DECL|field|allowJmsType
 specifier|private
 name|Boolean
 name|allowJmsType
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Refers to a custom collection type to lookup in the registry to use. This      * option should rarely be used but allows to use different collection types      * than java.util.Collection based as default.      */
 DECL|field|collectionTypeName
@@ -122,12 +126,16 @@ DECL|field|useList
 specifier|private
 name|Boolean
 name|useList
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether to enable the JAXB annotations module when using jackson. When      * enabled then JAXB annotations can be used by Jackson.      */
 DECL|field|enableJaxbAnnotationModule
 specifier|private
 name|Boolean
 name|enableJaxbAnnotationModule
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * To use custom Jackson modules com.fasterxml.jackson.databind.Module      * specified as a String with FQN class names. Multiple classes can be      * separated by comma.      */
 DECL|field|moduleClassNames

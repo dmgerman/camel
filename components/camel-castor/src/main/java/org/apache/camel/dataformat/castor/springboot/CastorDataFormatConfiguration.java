@@ -64,6 +64,8 @@ DECL|field|validation
 specifier|private
 name|Boolean
 name|validation
+init|=
+literal|true
 decl_stmt|;
 comment|/**      * Encoding to use when marshalling an Object to XML. Is by default UTF-8      */
 DECL|field|encoding

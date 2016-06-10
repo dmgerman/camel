@@ -58,6 +58,8 @@ DECL|field|validate
 specifier|private
 name|Boolean
 name|validate
+init|=
+literal|true
 decl_stmt|;
 DECL|method|getValidate ()
 specifier|public

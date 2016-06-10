@@ -56,6 +56,9 @@ DECL|field|compressionLevel
 specifier|private
 name|Integer
 name|compressionLevel
+init|=
+operator|-
+literal|1
 decl_stmt|;
 DECL|method|getCompressionLevel ()
 specifier|public

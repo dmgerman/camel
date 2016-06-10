@@ -70,14 +70,18 @@ block|{
 comment|/**      * If sending a message to a direct endpoint which has no active consumer      * then we can tell the producer to block and wait for the consumer to      * become active.      */
 DECL|field|block
 specifier|private
-name|boolean
+name|Boolean
 name|block
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * The timeout value to use if block is enabled.      */
 DECL|field|timeout
 specifier|private
 name|long
 name|timeout
+init|=
+literal|30000
 decl_stmt|;
 comment|/**      * Sets a HeaderFilterStrategy that will only be applied on producer      * endpoints (on both directions: request and response). Default value:      * none.      */
 DECL|field|headerFilterStrategy
@@ -88,25 +92,27 @@ decl_stmt|;
 comment|/**      * Whether to propagate or not properties from the producer side to the      * consumer side and viceversa. Default value: true.      */
 DECL|field|propagateProperties
 specifier|private
-name|boolean
+name|Boolean
 name|propagateProperties
+init|=
+literal|true
 decl_stmt|;
-DECL|method|isBlock ()
+DECL|method|getBlock ()
 specifier|public
-name|boolean
-name|isBlock
+name|Boolean
+name|getBlock
 parameter_list|()
 block|{
 return|return
 name|block
 return|;
 block|}
-DECL|method|setBlock (boolean block)
+DECL|method|setBlock (Boolean block)
 specifier|public
 name|void
 name|setBlock
 parameter_list|(
-name|boolean
+name|Boolean
 name|block
 parameter_list|)
 block|{
@@ -169,22 +175,22 @@ operator|=
 name|headerFilterStrategy
 expr_stmt|;
 block|}
-DECL|method|isPropagateProperties ()
+DECL|method|getPropagateProperties ()
 specifier|public
-name|boolean
-name|isPropagateProperties
+name|Boolean
+name|getPropagateProperties
 parameter_list|()
 block|{
 return|return
 name|propagateProperties
 return|;
 block|}
-DECL|method|setPropagateProperties (boolean propagateProperties)
+DECL|method|setPropagateProperties (Boolean propagateProperties)
 specifier|public
 name|void
 name|setPropagateProperties
 parameter_list|(
-name|boolean
+name|Boolean
 name|propagateProperties
 parameter_list|)
 block|{

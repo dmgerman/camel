@@ -116,14 +116,18 @@ decl_stmt|;
 comment|/**      * Whether or not the scheduler should be auto started. This options is      * default true      */
 DECL|field|autoStartScheduler
 specifier|private
-name|boolean
+name|Boolean
 name|autoStartScheduler
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether to enable Quartz JMX which allows to manage the Quartz scheduler      * from JMX. This options is default true      */
 DECL|field|enableJmx
 specifier|private
-name|boolean
+name|Boolean
 name|enableJmx
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getFactory ()
 specifier|public
@@ -255,22 +259,22 @@ operator|=
 name|startDelayedSeconds
 expr_stmt|;
 block|}
-DECL|method|isAutoStartScheduler ()
+DECL|method|getAutoStartScheduler ()
 specifier|public
-name|boolean
-name|isAutoStartScheduler
+name|Boolean
+name|getAutoStartScheduler
 parameter_list|()
 block|{
 return|return
 name|autoStartScheduler
 return|;
 block|}
-DECL|method|setAutoStartScheduler (boolean autoStartScheduler)
+DECL|method|setAutoStartScheduler (Boolean autoStartScheduler)
 specifier|public
 name|void
 name|setAutoStartScheduler
 parameter_list|(
-name|boolean
+name|Boolean
 name|autoStartScheduler
 parameter_list|)
 block|{
@@ -281,22 +285,22 @@ operator|=
 name|autoStartScheduler
 expr_stmt|;
 block|}
-DECL|method|isEnableJmx ()
+DECL|method|getEnableJmx ()
 specifier|public
-name|boolean
-name|isEnableJmx
+name|Boolean
+name|getEnableJmx
 parameter_list|()
 block|{
 return|return
 name|enableJmx
 return|;
 block|}
-DECL|method|setEnableJmx (boolean enableJmx)
+DECL|method|setEnableJmx (Boolean enableJmx)
 specifier|public
 name|void
 name|setEnableJmx
 parameter_list|(
-name|boolean
+name|Boolean
 name|enableJmx
 parameter_list|)
 block|{

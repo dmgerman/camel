@@ -90,14 +90,18 @@ decl_stmt|;
 comment|/**      * The camel-jpa component will join transaction by default. You can use      * this option to turn this off for example if you use LOCAL_RESOURCE and      * join transaction doesn't work with your JPA provider. This option can      * also be set globally on the JpaComponent instead of having to set it on      * all endpoints.      */
 DECL|field|joinTransaction
 specifier|private
-name|boolean
+name|Boolean
 name|joinTransaction
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether to use Spring's SharedEntityManager for the consumer/producer.      * Note in most cases joinTransaction should be set to false as this is not      * an EXTENDED EntityManager.      */
 DECL|field|sharedEntityManager
 specifier|private
-name|boolean
+name|Boolean
 name|sharedEntityManager
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getEntityManagerFactory ()
 specifier|public
@@ -151,22 +155,22 @@ operator|=
 name|transactionManager
 expr_stmt|;
 block|}
-DECL|method|isJoinTransaction ()
+DECL|method|getJoinTransaction ()
 specifier|public
-name|boolean
-name|isJoinTransaction
+name|Boolean
+name|getJoinTransaction
 parameter_list|()
 block|{
 return|return
 name|joinTransaction
 return|;
 block|}
-DECL|method|setJoinTransaction (boolean joinTransaction)
+DECL|method|setJoinTransaction (Boolean joinTransaction)
 specifier|public
 name|void
 name|setJoinTransaction
 parameter_list|(
-name|boolean
+name|Boolean
 name|joinTransaction
 parameter_list|)
 block|{
@@ -177,22 +181,22 @@ operator|=
 name|joinTransaction
 expr_stmt|;
 block|}
-DECL|method|isSharedEntityManager ()
+DECL|method|getSharedEntityManager ()
 specifier|public
-name|boolean
-name|isSharedEntityManager
+name|Boolean
+name|getSharedEntityManager
 parameter_list|()
 block|{
 return|return
 name|sharedEntityManager
 return|;
 block|}
-DECL|method|setSharedEntityManager (boolean sharedEntityManager)
+DECL|method|setSharedEntityManager (Boolean sharedEntityManager)
 specifier|public
 name|void
 name|setSharedEntityManager
 parameter_list|(
-name|boolean
+name|Boolean
 name|sharedEntityManager
 parameter_list|)
 block|{

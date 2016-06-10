@@ -82,8 +82,10 @@ decl_stmt|;
 comment|/**      * Whether to use transactions. This option is by default true.      */
 DECL|field|useTransactions
 specifier|private
-name|boolean
+name|Boolean
 name|useTransactions
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getSqlMapClient ()
 specifier|public
@@ -137,22 +139,22 @@ operator|=
 name|sqlMapConfig
 expr_stmt|;
 block|}
-DECL|method|isUseTransactions ()
+DECL|method|getUseTransactions ()
 specifier|public
-name|boolean
-name|isUseTransactions
+name|Boolean
+name|getUseTransactions
 parameter_list|()
 block|{
 return|return
 name|useTransactions
 return|;
 block|}
-DECL|method|setUseTransactions (boolean useTransactions)
+DECL|method|setUseTransactions (Boolean useTransactions)
 specifier|public
 name|void
 name|setUseTransactions
 parameter_list|(
-name|boolean
+name|Boolean
 name|useTransactions
 parameter_list|)
 block|{

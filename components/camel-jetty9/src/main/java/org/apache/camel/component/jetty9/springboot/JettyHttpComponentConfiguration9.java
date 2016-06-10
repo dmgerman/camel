@@ -304,8 +304,10 @@ decl_stmt|;
 comment|/**      * If this option is true Jetty JMX support will be enabled for this      * endpoint.      */
 DECL|field|enableJmx
 specifier|private
-name|boolean
+name|Boolean
 name|enableJmx
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * To use a custom org.apache.camel.component.jetty.JettyHttpBinding which      * are used to customize how a response should be written for the producer.      */
 DECL|field|jettyHttpBinding
@@ -378,8 +380,10 @@ decl_stmt|;
 comment|/**      * Whether or not to use Jetty continuations for the Jetty Server.      */
 DECL|field|useContinuation
 specifier|private
-name|boolean
+name|Boolean
 name|useContinuation
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * To configure security using SSLContextParameters      */
 DECL|field|sslContextParameters
@@ -426,14 +430,18 @@ decl_stmt|;
 comment|/**      * If the option is true jetty server will send the date header to the      * client which sends the request. NOTE please make sure there is no any      * other camel-jetty endpoint is share the same port otherwise this option      * may not work as expected.      */
 DECL|field|sendServerVersion
 specifier|private
-name|boolean
+name|Boolean
 name|sendServerVersion
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * Whether to allow java serialization when a request uses      * context-type=application/x-java-serialized-object This is by default      * turned off. If you enable this then be aware that Java will deserialize      * the incoming data from the request to Java and that can be a potential      * security risk.      */
 DECL|field|allowJavaSerializedObject
 specifier|private
-name|boolean
+name|Boolean
 name|allowJavaSerializedObject
+init|=
+literal|false
 decl_stmt|;
 comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel      * message.      */
 DECL|field|headerFilterStrategy
@@ -747,22 +755,22 @@ operator|=
 name|threadPool
 expr_stmt|;
 block|}
-DECL|method|isEnableJmx ()
+DECL|method|getEnableJmx ()
 specifier|public
-name|boolean
-name|isEnableJmx
+name|Boolean
+name|getEnableJmx
 parameter_list|()
 block|{
 return|return
 name|enableJmx
 return|;
 block|}
-DECL|method|setEnableJmx (boolean enableJmx)
+DECL|method|setEnableJmx (Boolean enableJmx)
 specifier|public
 name|void
 name|setEnableJmx
 parameter_list|(
-name|boolean
+name|Boolean
 name|enableJmx
 parameter_list|)
 block|{
@@ -975,22 +983,22 @@ operator|=
 name|continuationTimeout
 expr_stmt|;
 block|}
-DECL|method|isUseContinuation ()
+DECL|method|getUseContinuation ()
 specifier|public
-name|boolean
-name|isUseContinuation
+name|Boolean
+name|getUseContinuation
 parameter_list|()
 block|{
 return|return
 name|useContinuation
 return|;
 block|}
-DECL|method|setUseContinuation (boolean useContinuation)
+DECL|method|setUseContinuation (Boolean useContinuation)
 specifier|public
 name|void
 name|setUseContinuation
 parameter_list|(
-name|boolean
+name|Boolean
 name|useContinuation
 parameter_list|)
 block|{
@@ -1183,22 +1191,22 @@ operator|=
 name|proxyPort
 expr_stmt|;
 block|}
-DECL|method|isSendServerVersion ()
+DECL|method|getSendServerVersion ()
 specifier|public
-name|boolean
-name|isSendServerVersion
+name|Boolean
+name|getSendServerVersion
 parameter_list|()
 block|{
 return|return
 name|sendServerVersion
 return|;
 block|}
-DECL|method|setSendServerVersion (boolean sendServerVersion)
+DECL|method|setSendServerVersion (Boolean sendServerVersion)
 specifier|public
 name|void
 name|setSendServerVersion
 parameter_list|(
-name|boolean
+name|Boolean
 name|sendServerVersion
 parameter_list|)
 block|{
@@ -1209,22 +1217,22 @@ operator|=
 name|sendServerVersion
 expr_stmt|;
 block|}
-DECL|method|isAllowJavaSerializedObject ()
+DECL|method|getAllowJavaSerializedObject ()
 specifier|public
-name|boolean
-name|isAllowJavaSerializedObject
+name|Boolean
+name|getAllowJavaSerializedObject
 parameter_list|()
 block|{
 return|return
 name|allowJavaSerializedObject
 return|;
 block|}
-DECL|method|setAllowJavaSerializedObject (boolean allowJavaSerializedObject)
+DECL|method|setAllowJavaSerializedObject (Boolean allowJavaSerializedObject)
 specifier|public
 name|void
 name|setAllowJavaSerializedObject
 parameter_list|(
-name|boolean
+name|Boolean
 name|allowJavaSerializedObject
 parameter_list|)
 block|{

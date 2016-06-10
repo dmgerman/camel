@@ -149,8 +149,10 @@ decl_stmt|;
 comment|/**      * If set to true the engines will be created and started when needed (when      * first message is send)      */
 DECL|field|lazyCreateEngines
 specifier|private
-name|boolean
+name|Boolean
 name|lazyCreateEngines
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getMessageFactory ()
 specifier|public
@@ -266,22 +268,22 @@ operator|=
 name|configurations
 expr_stmt|;
 block|}
-DECL|method|isLazyCreateEngines ()
+DECL|method|getLazyCreateEngines ()
 specifier|public
-name|boolean
-name|isLazyCreateEngines
+name|Boolean
+name|getLazyCreateEngines
 parameter_list|()
 block|{
 return|return
 name|lazyCreateEngines
 return|;
 block|}
-DECL|method|setLazyCreateEngines (boolean lazyCreateEngines)
+DECL|method|setLazyCreateEngines (Boolean lazyCreateEngines)
 specifier|public
 name|void
 name|setLazyCreateEngines
 parameter_list|(
-name|boolean
+name|Boolean
 name|lazyCreateEngines
 parameter_list|)
 block|{
