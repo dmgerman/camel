@@ -561,7 +561,7 @@ specifier|private
 name|boolean
 name|objectFactory
 init|=
-literal|true
+literal|false
 decl_stmt|;
 DECL|field|camelContext
 specifier|private
@@ -901,6 +901,12 @@ literal|null
 argument_list|)
 return|;
 block|}
+if|if
+condition|(
+name|isObjectFactory
+argument_list|()
+condition|)
+block|{
 name|CamelContext
 name|context
 init|=
@@ -949,6 +955,7 @@ argument_list|,
 name|objectFactoryMethod
 argument_list|)
 return|;
+block|}
 block|}
 block|}
 block|}
@@ -1230,6 +1237,12 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
+if|if
+condition|(
+name|isObjectFactory
+argument_list|()
+condition|)
+block|{
 return|return
 name|hasXmlRootElement
 argument_list|(
@@ -1247,6 +1260,16 @@ argument_list|)
 operator|!=
 literal|null
 return|;
+block|}
+else|else
+block|{
+return|return
+name|hasXmlRootElement
+argument_list|(
+name|type
+argument_list|)
+return|;
+block|}
 block|}
 DECL|method|castJaxbType (Object o, Class<T> type)
 specifier|private
