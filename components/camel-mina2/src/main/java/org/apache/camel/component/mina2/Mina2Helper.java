@@ -188,6 +188,12 @@ init|=
 literal|"Cannot write body: "
 operator|+
 name|body
+operator|.
+name|getClass
+argument_list|()
+operator|.
+name|getCanonicalName
+argument_list|()
 operator|+
 literal|" using session: "
 operator|+
