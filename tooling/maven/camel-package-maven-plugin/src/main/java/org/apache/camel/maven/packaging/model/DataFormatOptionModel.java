@@ -56,6 +56,11 @@ specifier|private
 name|String
 name|description
 decl_stmt|;
+DECL|field|defaultValue
+specifier|private
+name|String
+name|defaultValue
+decl_stmt|;
 DECL|method|getName ()
 specifier|public
 name|String
@@ -210,6 +215,32 @@ operator|.
 name|description
 operator|=
 name|description
+expr_stmt|;
+block|}
+DECL|method|getDefaultValue ()
+specifier|public
+name|String
+name|getDefaultValue
+parameter_list|()
+block|{
+return|return
+name|defaultValue
+return|;
+block|}
+DECL|method|setDefaultValue (String defaultValue)
+specifier|public
+name|void
+name|setDefaultValue
+parameter_list|(
+name|String
+name|defaultValue
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultValue
+operator|=
+name|defaultValue
 expr_stmt|;
 block|}
 DECL|method|getShortJavaType ()
