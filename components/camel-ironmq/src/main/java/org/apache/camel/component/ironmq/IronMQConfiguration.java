@@ -378,7 +378,7 @@ return|return
 name|queueName
 return|;
 block|}
-comment|/**      * IronMq Cloud url. Urls for public clusters: mq-aws-us-east-1-1.iron.io (US), mq-aws-eu-west-1-1.iron.io (EU)      */
+comment|/**      * IronMq Cloud url. Urls for public clusters: https://mq-aws-us-east-1-1.iron.io (US) and https://mq-aws-eu-west-1-1.iron.io (EU)      */
 DECL|method|setIronMQCloud (String ironMQCloud)
 specifier|public
 name|void
