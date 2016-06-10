@@ -652,8 +652,6 @@ DECL|field|objectFactory
 specifier|private
 name|boolean
 name|objectFactory
-init|=
-literal|true
 decl_stmt|;
 DECL|field|ignoreJAXBElement
 specifier|private
