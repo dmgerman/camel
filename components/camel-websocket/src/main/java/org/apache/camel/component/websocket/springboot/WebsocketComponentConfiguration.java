@@ -150,10 +150,8 @@ decl_stmt|;
 comment|/**      * If this option is true Jetty JMX support will be enabled for this      * endpoint. See Jetty JMX support for more details.      */
 DECL|field|enableJmx
 specifier|private
-name|Boolean
+name|boolean
 name|enableJmx
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * To set a value for minimum number of threads in server thread pool.      * MaxThreads/minThreads or threadPool fields are required due to switch to      * Jetty9. The default values for minThreads is 1.      */
 DECL|field|minThreads
@@ -360,22 +358,22 @@ operator|=
 name|sslKeystore
 expr_stmt|;
 block|}
-DECL|method|getEnableJmx ()
+DECL|method|isEnableJmx ()
 specifier|public
-name|Boolean
-name|getEnableJmx
+name|boolean
+name|isEnableJmx
 parameter_list|()
 block|{
 return|return
 name|enableJmx
 return|;
 block|}
-DECL|method|setEnableJmx (Boolean enableJmx)
+DECL|method|setEnableJmx (boolean enableJmx)
 specifier|public
 name|void
 name|setEnableJmx
 parameter_list|(
-name|Boolean
+name|boolean
 name|enableJmx
 parameter_list|)
 block|{
