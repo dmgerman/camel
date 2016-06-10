@@ -2531,7 +2531,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Transforms this REST definition into a list of {@link org.apache.camel.model.RouteDefinition} which      * Camel routing engine can add and run. This allows us to define REST services using this      * REST DSL and turn those into regular Camel routes.      */
+comment|/**      * Transforms this REST definition into a list of {@link org.apache.camel.model.RouteDefinition} which      * Camel routing engine can add and run. This allows us to define REST services using this      * REST DSL and turn those into regular Camel routes.      *      * @param camelContext The Camel context      */
 DECL|method|asRouteDefinition (CamelContext camelContext)
 specifier|public
 name|List
@@ -2544,6 +2544,15 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|camelContext
+argument_list|,
+literal|"CamelContext"
+argument_list|)
+expr_stmt|;
 comment|// sanity check this rest definition do not have duplicates
 name|validateUniquePaths
 argument_list|()
@@ -2602,6 +2611,73 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+return|return
+name|answer
+return|;
+block|}
+comment|/**      * Transforms this REST definition into a list of {@link org.apache.camel.model.RouteDefinition} which      * Camel routing engine can add and run. This allows us to define REST services using this      * REST DSL and turn those into regular Camel routes.      *      * @param camelContext        The Camel context      * @param restConfiguration   The rest configuration to use      */
+DECL|method|asRouteDefinition (CamelContext camelContext, RestConfiguration restConfiguration)
+specifier|public
+name|List
+argument_list|<
+name|RouteDefinition
+argument_list|>
+name|asRouteDefinition
+parameter_list|(
+name|CamelContext
+name|camelContext
+parameter_list|,
+name|RestConfiguration
+name|restConfiguration
+parameter_list|)
+block|{
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|camelContext
+argument_list|,
+literal|"CamelContext"
+argument_list|)
+expr_stmt|;
+name|ObjectHelper
+operator|.
+name|notNull
+argument_list|(
+name|restConfiguration
+argument_list|,
+literal|"RestConfiguration"
+argument_list|)
+expr_stmt|;
+comment|// sanity check this rest definition do not have duplicates
+name|validateUniquePaths
+argument_list|()
+expr_stmt|;
+name|List
+argument_list|<
+name|RouteDefinition
+argument_list|>
+name|answer
+init|=
+operator|new
+name|ArrayList
+argument_list|<
+name|RouteDefinition
+argument_list|>
+argument_list|()
+decl_stmt|;
+name|addRouteDefinition
+argument_list|(
+name|camelContext
+argument_list|,
+name|answer
+argument_list|,
+name|restConfiguration
+operator|.
+name|getComponent
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|answer
 return|;
