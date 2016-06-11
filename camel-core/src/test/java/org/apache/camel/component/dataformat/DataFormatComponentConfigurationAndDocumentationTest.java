@@ -219,7 +219,7 @@ name|contains
 argument_list|(
 literal|"\"name\": { \"kind\": \"path\", \"group\": \"producer\", \"required\": \"true\", \"type\": \"string\", \"javaType\": \"java.lang.String\","
 operator|+
-literal|" \"deprecated\": \"false\", \"description\": \"Name of data format\" }"
+literal|" \"deprecated\": \"false\", \"secret\": \"false\", \"description\": \"Name of data format\" }"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -330,7 +330,7 @@ name|contains
 argument_list|(
 literal|"\"textQualifier\": { \"kind\": \"attribute\", \"required\": \"false\", \"type\": \"string\""
 operator|+
-literal|", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\", \"defaultValue\": \"\\\"\""
+literal|", \"javaType\": \"java.lang.String\", \"deprecated\": \"false\", \"secret\": \"false\", \"defaultValue\": \"\\\"\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -490,6 +490,18 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
+literal|"false"
+argument_list|,
+name|found
+operator|.
+name|get
+argument_list|(
+literal|"secret"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
 literal|"\""
 argument_list|,
 name|found
@@ -564,7 +576,7 @@ name|contains
 argument_list|(
 literal|"\"escapeChar\": { \"kind\": \"attribute\", \"required\": \"false\", \"type\": \"string\", \"javaType\": \"java.lang.String\","
 operator|+
-literal|" \"deprecated\": \"false\", \"defaultValue\": \"\\\\\", \"description\": \"The escape character.\""
+literal|" \"deprecated\": \"false\", \"secret\": \"false\", \"defaultValue\": \"\\\\\", \"description\": \"The escape character.\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -719,6 +731,18 @@ operator|.
 name|get
 argument_list|(
 literal|"deprecated"
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"false"
+argument_list|,
+name|found
+operator|.
+name|get
+argument_list|(
+literal|"secret"
 argument_list|)
 argument_list|)
 expr_stmt|;

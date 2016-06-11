@@ -1777,7 +1777,7 @@ name|contains
 argument_list|(
 literal|"\"groupSize\": { \"kind\": \"parameter\", \"group\": \"producer\", \"type\": \"integer\","
 operator|+
-literal|" \"javaType\": \"java.lang.Integer\", \"deprecated\": \"false\", \"value\": \"5\""
+literal|" \"javaType\": \"java.lang.Integer\", \"deprecated\": \"false\", \"secret\": \"false\", \"value\": \"5\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1963,7 +1963,7 @@ name|contains
 argument_list|(
 literal|"\"groupSize\": { \"kind\": \"parameter\", \"group\": \"producer\", \"type\": \"integer\","
 operator|+
-literal|" \"javaType\": \"java.lang.Integer\", \"deprecated\": \"false\", \"value\": \"5\""
+literal|" \"javaType\": \"java.lang.Integer\", \"deprecated\": \"false\", \"secret\": \"false\", \"value\": \"5\""
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -2419,7 +2419,7 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"queueSize\": { \"kind\": \"property\", \"type\": \"integer\", \"javaType\": \"int\", \"deprecated\": \"false\", \"value\": \"0\""
+literal|"\"queueSize\": { \"kind\": \"property\", \"type\": \"integer\", \"javaType\": \"int\", \"deprecated\": \"false\", \"secret\": \"false\", \"value\": \"0\""
 argument_list|)
 argument_list|)
 expr_stmt|;

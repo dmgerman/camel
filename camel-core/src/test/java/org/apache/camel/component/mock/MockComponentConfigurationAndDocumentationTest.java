@@ -243,7 +243,7 @@ name|contains
 argument_list|(
 literal|"\"retainFirst\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\", \"type\": \"integer\","
 operator|+
-literal|" \"javaType\": \"int\", \"deprecated\": \"false\", \"value\": \"10\""
+literal|" \"javaType\": \"int\", \"deprecated\": \"false\", \"secret\": \"false\", \"value\": \"10\""
 argument_list|)
 argument_list|)
 expr_stmt|;
