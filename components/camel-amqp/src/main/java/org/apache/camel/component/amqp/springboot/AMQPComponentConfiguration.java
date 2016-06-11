@@ -184,6 +184,22 @@ name|org
 operator|.
 name|springframework
 operator|.
+name|boot
+operator|.
+name|context
+operator|.
+name|properties
+operator|.
+name|DeprecatedConfigurationProperty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
 name|context
 operator|.
 name|ApplicationContext
@@ -1797,6 +1813,10 @@ operator|=
 name|recoveryInterval
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
+annotation|@
+name|DeprecatedConfigurationProperty
 DECL|method|getSubscriptionDurable ()
 specifier|public
 name|Boolean
@@ -1807,6 +1827,8 @@ return|return
 name|subscriptionDurable
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setSubscriptionDurable (Boolean subscriptionDurable)
 specifier|public
 name|void

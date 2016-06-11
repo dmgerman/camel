@@ -61,6 +61,11 @@ specifier|private
 name|String
 name|defaultValue
 decl_stmt|;
+DECL|field|enumValues
+specifier|private
+name|String
+name|enumValues
+decl_stmt|;
 DECL|method|getName ()
 specifier|public
 name|String
@@ -241,6 +246,32 @@ operator|.
 name|defaultValue
 operator|=
 name|defaultValue
+expr_stmt|;
+block|}
+DECL|method|getEnumValues ()
+specifier|public
+name|String
+name|getEnumValues
+parameter_list|()
+block|{
+return|return
+name|enumValues
+return|;
+block|}
+DECL|method|setEnumValues (String enumValues)
+specifier|public
+name|void
+name|setEnumValues
+parameter_list|(
+name|String
+name|enumValues
+parameter_list|)
+block|{
+name|this
+operator|.
+name|enumValues
+operator|=
+name|enumValues
 expr_stmt|;
 block|}
 DECL|method|getShortJavaType ()

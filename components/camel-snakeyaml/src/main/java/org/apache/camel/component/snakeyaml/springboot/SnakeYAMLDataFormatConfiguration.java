@@ -28,6 +28,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|component
+operator|.
+name|snakeyaml
+operator|.
+name|SnakeYAMLDataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|dataformat
@@ -74,6 +90,10 @@ DECL|field|library
 specifier|private
 name|YAMLLibrary
 name|library
+init|=
+name|YAMLLibrary
+operator|.
+name|SnakeYAML
 decl_stmt|;
 comment|/**      * Class name of the java type to use when unarmshalling      */
 DECL|field|unmarshalTypeName
