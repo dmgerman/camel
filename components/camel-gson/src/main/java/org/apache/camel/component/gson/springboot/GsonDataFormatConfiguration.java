@@ -107,7 +107,7 @@ name|library
 init|=
 name|JsonLibrary
 operator|.
-name|XStream
+name|Gson
 decl_stmt|;
 comment|/**      * Class name of the java type to use when unarmshalling      */
 DECL|field|unmarshalTypeName
