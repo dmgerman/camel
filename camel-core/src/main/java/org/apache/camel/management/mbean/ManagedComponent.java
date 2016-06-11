@@ -705,6 +705,27 @@ else|:
 literal|""
 decl_stmt|;
 name|String
+name|secret
+init|=
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"secret"
+argument_list|)
+operator|!=
+literal|null
+condition|?
+name|row
+operator|.
+name|get
+argument_list|(
+literal|"secret"
+argument_list|)
+else|:
+literal|""
+decl_stmt|;
+name|String
 name|value
 init|=
 name|row
@@ -801,6 +822,8 @@ literal|"java type"
 block|,
 literal|"deprecated"
 block|,
+literal|"secret"
+block|,
 literal|"value"
 block|,
 literal|"default value"
@@ -825,6 +848,8 @@ block|,
 name|javaType
 block|,
 name|deprecated
+block|,
+name|secret
 block|,
 name|value
 block|,

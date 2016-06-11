@@ -152,6 +152,15 @@ parameter_list|()
 default|default
 literal|""
 function_decl|;
+comment|/**      * Whether the option is secret/sensitive information such as a password.      */
+DECL|method|secret ()
+DECL|field|false
+name|boolean
+name|secret
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 block|}
 end_annotation_defn
 

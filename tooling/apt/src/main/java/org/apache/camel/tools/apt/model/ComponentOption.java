@@ -110,6 +110,11 @@ specifier|private
 name|boolean
 name|deprecated
 decl_stmt|;
+DECL|field|secret
+specifier|private
+name|boolean
+name|secret
+decl_stmt|;
 DECL|field|group
 specifier|private
 name|String
@@ -133,7 +138,7 @@ name|String
 argument_list|>
 name|enums
 decl_stmt|;
-DECL|method|ComponentOption (String name, String type, String required, String defaultValue, String defaultValueNote, String documentation, boolean deprecated, String group, String label, boolean enumType, Set<String> enums)
+DECL|method|ComponentOption (String name, String type, String required, String defaultValue, String defaultValueNote, String documentation, boolean deprecated, boolean secret, String group, String label, boolean enumType, Set<String> enums)
 specifier|public
 name|ComponentOption
 parameter_list|(
@@ -157,6 +162,9 @@ name|documentation
 parameter_list|,
 name|boolean
 name|deprecated
+parameter_list|,
+name|boolean
+name|secret
 parameter_list|,
 name|String
 name|group
@@ -215,6 +223,12 @@ operator|.
 name|deprecated
 operator|=
 name|deprecated
+expr_stmt|;
+name|this
+operator|.
+name|secret
+operator|=
+name|secret
 expr_stmt|;
 name|this
 operator|.
@@ -299,6 +313,16 @@ parameter_list|()
 block|{
 return|return
 name|deprecated
+return|;
+block|}
+DECL|method|isSecret ()
+specifier|public
+name|boolean
+name|isSecret
+parameter_list|()
+block|{
+return|return
+name|secret
 return|;
 block|}
 DECL|method|getEnumValuesAsHtml ()

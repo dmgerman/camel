@@ -188,8 +188,8 @@ specifier|private
 name|JsonSchemaHelper
 parameter_list|()
 block|{     }
-DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, String optionalPrefix, String prefix, boolean multiValue)
-DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, String optionalPrefix, String prefix, boolean multiValue)
+DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, Boolean secret, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, String optionalPrefix, String prefix, boolean multiValue)
+DECL|method|toJson (String name, String kind, Boolean required, String type, String defaultValue, String description, Boolean deprecated, Boolean secret, String group, String label, boolean enumType, Set<String> enums, boolean oneOfType, Set<String> oneOffTypes, String optionalPrefix, String prefix, boolean multiValue)
 specifier|public
 specifier|static
 name|String
@@ -215,6 +215,9 @@ name|description
 parameter_list|,
 name|Boolean
 name|deprecated
+parameter_list|,
+name|Boolean
+name|secret
 parameter_list|,
 name|String
 name|group
@@ -762,6 +765,36 @@ operator|.
 name|doubleQuote
 argument_list|(
 name|deprecated
+operator|.
+name|toString
+argument_list|()
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|secret
+operator|!=
+literal|null
+condition|)
+block|{
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", \"secret\": "
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+name|Strings
+operator|.
+name|doubleQuote
+argument_list|(
+name|secret
 operator|.
 name|toString
 argument_list|()
