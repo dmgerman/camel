@@ -109,6 +109,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|knownHostsFile
 specifier|private
@@ -139,6 +143,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|knownHostsUri
 specifier|private
@@ -151,6 +159,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|knownHosts
 specifier|private
@@ -164,6 +176,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|privateKeyFile
 specifier|private
@@ -176,6 +192,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|privateKeyUri
 specifier|private
@@ -188,6 +208,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|privateKey
 specifier|private
@@ -201,6 +225,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|privateKeyPassphrase
 specifier|private
@@ -213,6 +241,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|keyPair
 specifier|private

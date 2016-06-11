@@ -54,6 +54,20 @@ name|UriEndpointComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_class
 DECL|class|StompComponent
 specifier|public
@@ -75,12 +89,34 @@ name|String
 name|brokerUrl
 decl_stmt|;
 comment|/**      * The username      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|login
 specifier|private
 name|String
 name|login
 decl_stmt|;
 comment|/**      * The password      */
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|passcode
 specifier|private
 name|String

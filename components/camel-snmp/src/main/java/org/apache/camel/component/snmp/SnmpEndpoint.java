@@ -486,6 +486,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|securityName
 specifier|private
@@ -514,6 +518,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|authenticationPassphrase
 specifier|private
@@ -526,6 +534,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|privacyProtocol
 specifier|private
@@ -538,6 +550,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|privacyPassphrase
 specifier|private

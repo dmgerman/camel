@@ -130,6 +130,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|knownHostsFile
 specifier|private
@@ -142,6 +146,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|privateKeyFile
 specifier|private
@@ -154,6 +162,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|privateKeyFilePassphrase
 specifier|private

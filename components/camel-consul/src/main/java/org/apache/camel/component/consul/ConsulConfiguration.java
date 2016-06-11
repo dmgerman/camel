@@ -185,6 +185,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|aclToken
 specifier|private
@@ -197,6 +201,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|userName
 specifier|private
@@ -209,6 +217,10 @@ argument_list|(
 name|label
 operator|=
 literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|password
 specifier|private
@@ -435,7 +447,6 @@ return|return
 name|tags
 return|;
 block|}
-comment|/**      * Set tags      */
 DECL|method|setTags (Set<String> tags)
 specifier|public
 name|void
@@ -455,7 +466,7 @@ operator|=
 name|tags
 expr_stmt|;
 block|}
-comment|/**      * Set tags      */
+comment|/**      * Set tags. You can separate multiple tags by comma.      */
 DECL|method|setTags (String tagsAsString)
 specifier|public
 name|void

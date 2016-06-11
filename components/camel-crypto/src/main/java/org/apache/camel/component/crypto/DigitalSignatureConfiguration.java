@@ -235,6 +235,11 @@ name|name
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|privateKey
 specifier|private
 name|PrivateKey
@@ -256,6 +261,11 @@ name|keystore
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|secureRandom
 specifier|private
 name|SecureRandom
@@ -318,6 +328,10 @@ argument_list|(
 name|javaType
 operator|=
 literal|"java.lang.String"
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|password
 specifier|private
@@ -356,6 +370,11 @@ name|certificateName
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|privateKeyName
 specifier|private
 name|String

@@ -424,6 +424,10 @@ operator|=
 name|ConnectionFactory
 operator|.
 name|DEFAULT_USER
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|username
 specifier|private
@@ -446,6 +450,10 @@ operator|=
 name|ConnectionFactory
 operator|.
 name|DEFAULT_PASS
+argument_list|,
+name|secret
+operator|=
+literal|true
 argument_list|)
 DECL|field|password
 specifier|private
