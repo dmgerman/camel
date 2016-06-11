@@ -510,7 +510,7 @@ return|return
 name|library
 return|;
 block|}
-comment|/**      * Which json library to use such.      *<p/>      * Is by default xstream      */
+comment|/**      * Which json library to use such.      */
 DECL|method|setLibrary (JsonLibrary library)
 specifier|public
 name|void
