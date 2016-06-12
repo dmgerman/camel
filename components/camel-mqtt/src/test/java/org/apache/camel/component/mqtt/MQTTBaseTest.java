@@ -194,7 +194,10 @@ name|brokerService
 operator|.
 name|addConnector
 argument_list|(
-literal|"mqtt://127.0.0.1:1883"
+name|MQTTTestSupport
+operator|.
+name|getConnection
+argument_list|()
 argument_list|)
 expr_stmt|;
 name|brokerService
