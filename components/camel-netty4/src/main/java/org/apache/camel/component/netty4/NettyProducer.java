@@ -1738,6 +1738,8 @@ name|isReuseChannel
 argument_list|()
 condition|)
 block|{
+comment|// use callback as-is because we should not put it back in the pool as NettyProducerCallback would do
+comment|// as when reuse channel is enabled it will put the channel back in the pool when exchange is done using on completion
 name|producerCallback
 operator|=
 name|callback
