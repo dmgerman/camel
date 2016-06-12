@@ -447,6 +447,7 @@ return|return
 name|tags
 return|;
 block|}
+comment|/**      * Set tags. You can separate multiple tags by comma.      */
 DECL|method|setTags (Set<String> tags)
 specifier|public
 name|void
