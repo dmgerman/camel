@@ -237,6 +237,16 @@ operator|+
 literal|"]"
 return|;
 block|}
+DECL|method|getDeadLetterProcessor ()
+specifier|public
+name|Processor
+name|getDeadLetterProcessor
+parameter_list|()
+block|{
+return|return
+name|deadLetter
+return|;
+block|}
 block|}
 end_class
 
