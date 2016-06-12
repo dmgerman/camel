@@ -339,6 +339,22 @@ name|processor
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|doShutdown ()
+specifier|protected
+name|void
+name|doShutdown
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|stopAndShutdownServices
+argument_list|(
+name|processor
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|process (Exchange exchange)
 specifier|public
 name|void
