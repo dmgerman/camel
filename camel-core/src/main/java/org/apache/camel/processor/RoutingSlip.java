@@ -568,15 +568,15 @@ name|PreparedErrorHandler
 extends|extends
 name|KeyValueHolder
 argument_list|<
-name|RouteContext
+name|String
 argument_list|,
 name|Processor
 argument_list|>
 block|{
-DECL|method|PreparedErrorHandler (RouteContext key, Processor value)
+DECL|method|PreparedErrorHandler (String key, Processor value)
 name|PreparedErrorHandler
 parameter_list|(
-name|RouteContext
+name|String
 name|key
 parameter_list|,
 name|Processor
@@ -1522,7 +1522,7 @@ return|return
 name|copy
 return|;
 block|}
-DECL|method|createErrorHandler (RouteContext routeContext, Exchange exchange, AsyncProcessor processor)
+DECL|method|createErrorHandler (RouteContext routeContext, Exchange exchange, AsyncProcessor processor, Endpoint endpoint)
 specifier|protected
 name|AsyncProcessor
 name|createErrorHandler
@@ -1535,6 +1535,9 @@ name|exchange
 parameter_list|,
 name|AsyncProcessor
 name|processor
+parameter_list|,
+name|Endpoint
+name|endpoint
 parameter_list|)
 block|{
 name|AsyncProcessor
@@ -1583,7 +1586,10 @@ init|=
 operator|new
 name|PreparedErrorHandler
 argument_list|(
-name|routeContext
+name|endpoint
+operator|.
+name|getEndpointUri
+argument_list|()
 argument_list|,
 name|processor
 argument_list|)
@@ -1807,6 +1813,8 @@ argument_list|,
 name|exchange
 argument_list|,
 name|asyncProducer
+argument_list|,
+name|endpoint
 argument_list|)
 expr_stmt|;
 comment|// set property which endpoint we send to
