@@ -399,6 +399,18 @@ specifier|private
 name|ConnectionFactory
 name|connectionFactory
 decl_stmt|;
+comment|/**      * Username to use with the ConnectionFactory. You can also configure      * username/password directly on the ConnectionFactory.      */
+DECL|field|username
+specifier|private
+name|String
+name|username
+decl_stmt|;
+comment|/**      * Password to use with the ConnectionFactory. You can also configure      * username/password directly on the ConnectionFactory.      */
+DECL|field|password
+specifier|private
+name|String
+name|password
+decl_stmt|;
 comment|/**      * Specifies whether persistent delivery is used by default.      */
 DECL|field|deliveryPersistent
 specifier|private
@@ -1161,6 +1173,58 @@ operator|.
 name|connectionFactory
 operator|=
 name|connectionFactory
+expr_stmt|;
+block|}
+DECL|method|getUsername ()
+specifier|public
+name|String
+name|getUsername
+parameter_list|()
+block|{
+return|return
+name|username
+return|;
+block|}
+DECL|method|setUsername (String username)
+specifier|public
+name|void
+name|setUsername
+parameter_list|(
+name|String
+name|username
+parameter_list|)
+block|{
+name|this
+operator|.
+name|username
+operator|=
+name|username
+expr_stmt|;
+block|}
+DECL|method|getPassword ()
+specifier|public
+name|String
+name|getPassword
+parameter_list|()
+block|{
+return|return
+name|password
+return|;
+block|}
+DECL|method|setPassword (String password)
+specifier|public
+name|void
+name|setPassword
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|this
+operator|.
+name|password
+operator|=
+name|password
 expr_stmt|;
 block|}
 DECL|method|getDeliveryPersistent ()

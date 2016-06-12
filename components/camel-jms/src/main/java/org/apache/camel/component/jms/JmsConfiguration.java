@@ -478,20 +478,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+comment|// these are too advanced and seldom used, we should consider removing those as there is plenty of options already
 DECL|field|jmsOperations
 specifier|private
 name|JmsOperations
 name|jmsOperations
-decl_stmt|;
-DECL|field|destinationResolver
-specifier|private
-name|DestinationResolver
-name|destinationResolver
-decl_stmt|;
-DECL|field|connectionFactory
-specifier|private
-name|ConnectionFactory
-name|connectionFactory
 decl_stmt|;
 DECL|field|templateConnectionFactory
 specifier|private
@@ -502,6 +493,58 @@ DECL|field|listenerConnectionFactory
 specifier|private
 name|ConnectionFactory
 name|listenerConnectionFactory
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"The connection factory to be use. A connection factory must be configured either on the component or endpoint."
+argument_list|)
+DECL|field|connectionFactory
+specifier|private
+name|ConnectionFactory
+name|connectionFactory
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|,
+name|description
+operator|=
+literal|"Username to use with the ConnectionFactory. You can also configure username/password directly on the ConnectionFactory."
+argument_list|)
+DECL|field|username
+specifier|private
+name|String
+name|username
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"security"
+argument_list|,
+name|secret
+operator|=
+literal|true
+argument_list|,
+name|description
+operator|=
+literal|"Password to use with the ConnectionFactory. You can also configure username/password directly on the ConnectionFactory."
+argument_list|)
+DECL|field|password
+specifier|private
+name|String
+name|password
 decl_stmt|;
 DECL|field|acknowledgementMode
 specifier|private
@@ -534,6 +577,18 @@ DECL|field|acknowledgementModeName
 specifier|private
 name|String
 name|acknowledgementModeName
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|destinationResolver
+specifier|private
+name|DestinationResolver
+name|destinationResolver
 decl_stmt|;
 comment|// Used to configure the spring Container
 annotation|@
@@ -3488,6 +3543,60 @@ operator|.
 name|connectionFactory
 operator|=
 name|connectionFactory
+expr_stmt|;
+block|}
+DECL|method|getUsername ()
+specifier|public
+name|String
+name|getUsername
+parameter_list|()
+block|{
+return|return
+name|username
+return|;
+block|}
+comment|/**      * Username to use with the ConnectionFactory. You can also configure username/password directly on the ConnectionFactory.      */
+DECL|method|setUsername (String username)
+specifier|public
+name|void
+name|setUsername
+parameter_list|(
+name|String
+name|username
+parameter_list|)
+block|{
+name|this
+operator|.
+name|username
+operator|=
+name|username
+expr_stmt|;
+block|}
+DECL|method|getPassword ()
+specifier|public
+name|String
+name|getPassword
+parameter_list|()
+block|{
+return|return
+name|password
+return|;
+block|}
+comment|/**      * Password to use with the ConnectionFactory. You can also configure username/password directly on the ConnectionFactory.      */
+DECL|method|setPassword (String password)
+specifier|public
+name|void
+name|setPassword
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|this
+operator|.
+name|password
+operator|=
+name|password
 expr_stmt|;
 block|}
 DECL|method|getListenerConnectionFactory ()
