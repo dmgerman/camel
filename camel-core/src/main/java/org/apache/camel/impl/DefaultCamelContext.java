@@ -12348,6 +12348,7 @@ literal|null
 return|;
 block|}
 block|}
+comment|// CHECKSTYLE:OFF
 DECL|method|explainEndpointJson (String uri, boolean includeAllOptions)
 specifier|public
 name|String
@@ -13471,6 +13472,7 @@ literal|null
 return|;
 block|}
 block|}
+comment|// CHECKSTYLE:ON
 DECL|method|createRouteStaticEndpointJson (String routeId)
 specifier|public
 name|String
