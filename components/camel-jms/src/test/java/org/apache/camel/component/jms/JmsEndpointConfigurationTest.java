@@ -561,16 +561,7 @@ name|ResolveEndpointFailedException
 name|refe
 parameter_list|)
 block|{
-name|assertEquals
-argument_list|(
-literal|"Failed to resolve endpoint: jms://topic:Foo.Bar?username=James due to: The JmsComponent's username or password is null"
-argument_list|,
-name|refe
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// expected
 block|}
 try|try
 block|{
@@ -591,16 +582,7 @@ name|ResolveEndpointFailedException
 name|refe
 parameter_list|)
 block|{
-name|assertEquals
-argument_list|(
-literal|"Failed to resolve endpoint: jms://topic:Foo.Bar?password=ABC due to: The JmsComponent's username or password is null"
-argument_list|,
-name|refe
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
+comment|// expected
 block|}
 block|}
 annotation|@
