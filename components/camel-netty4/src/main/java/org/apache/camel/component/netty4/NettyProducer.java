@@ -1729,7 +1729,24 @@ decl_stmt|;
 specifier|final
 name|AsyncCallback
 name|producerCallback
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|configuration
+operator|.
+name|isReuseChannel
+argument_list|()
+condition|)
+block|{
+name|producerCallback
+operator|=
+name|callback
+expr_stmt|;
+block|}
+else|else
+block|{
+name|producerCallback
+operator|=
 operator|new
 name|NettyProducerCallback
 argument_list|(
@@ -1737,7 +1754,8 @@ name|channel
 argument_list|,
 name|callback
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// setup state as attachment on the channel, so we can access the state later when needed
 name|putState
 argument_list|(
