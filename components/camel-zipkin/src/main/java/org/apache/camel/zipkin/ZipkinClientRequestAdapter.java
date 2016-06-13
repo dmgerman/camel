@@ -410,8 +410,7 @@ name|convertToString
 argument_list|(
 name|spanId
 operator|.
-name|getTraceId
-argument_list|()
+name|traceId
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -432,8 +431,7 @@ name|convertToString
 argument_list|(
 name|spanId
 operator|.
-name|getSpanId
-argument_list|()
+name|spanId
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -441,7 +439,7 @@ if|if
 condition|(
 name|spanId
 operator|.
-name|getParentSpanId
+name|nullableParentId
 argument_list|()
 operator|!=
 literal|null
@@ -464,7 +462,7 @@ name|convertToString
 argument_list|(
 name|spanId
 operator|.
-name|getParentSpanId
+name|nullableParentId
 argument_list|()
 argument_list|)
 argument_list|)
