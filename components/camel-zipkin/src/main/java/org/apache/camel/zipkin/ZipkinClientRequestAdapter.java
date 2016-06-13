@@ -679,6 +679,26 @@ return|return
 name|list
 return|;
 block|}
+annotation|@
+name|Override
+DECL|method|serverAddress ()
+specifier|public
+name|com
+operator|.
+name|twitter
+operator|.
+name|zipkin
+operator|.
+name|gen
+operator|.
+name|Endpoint
+name|serverAddress
+parameter_list|()
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 end_class
 
