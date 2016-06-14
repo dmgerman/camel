@@ -62,6 +62,20 @@ name|UriParams
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ObjectHelper
+import|;
+end_import
+
 begin_class
 annotation|@
 name|UriParams
@@ -273,6 +287,13 @@ name|boolean
 name|includeBody
 init|=
 literal|true
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|pathStyleAccess
+specifier|private
+name|boolean
+name|pathStyleAccess
 decl_stmt|;
 DECL|method|getPartSize ()
 specifier|public
@@ -759,6 +780,57 @@ name|proxyPort
 operator|=
 name|proxyPort
 expr_stmt|;
+block|}
+comment|/**      * Whether or not the S3 client should use path style access      */
+DECL|method|setPathStyleAccess (final boolean pathStyleAccess)
+specifier|public
+name|void
+name|setPathStyleAccess
+parameter_list|(
+specifier|final
+name|boolean
+name|pathStyleAccess
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pathStyleAccess
+operator|=
+name|pathStyleAccess
+expr_stmt|;
+block|}
+DECL|method|isPathStyleAccess ()
+specifier|public
+name|boolean
+name|isPathStyleAccess
+parameter_list|()
+block|{
+return|return
+name|pathStyleAccess
+return|;
+block|}
+DECL|method|hasProxyConfiguration ()
+name|boolean
+name|hasProxyConfiguration
+parameter_list|()
+block|{
+return|return
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|getProxyHost
+argument_list|()
+argument_list|)
+operator|&&
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|getProxyPort
+argument_list|()
+argument_list|)
+return|;
 block|}
 block|}
 end_class
