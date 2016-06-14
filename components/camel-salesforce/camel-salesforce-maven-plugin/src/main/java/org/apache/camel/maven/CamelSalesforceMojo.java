@@ -3902,20 +3902,12 @@ name|useStringsForPicklists
 condition|)
 block|{
 return|return
-name|description
+name|String
+operator|.
+name|class
 operator|.
 name|getName
 argument_list|()
-operator|+
-literal|"_"
-operator|+
-name|enumTypeName
-argument_list|(
-name|field
-operator|.
-name|getName
-argument_list|()
-argument_list|)
 operator|+
 literal|"[]"
 return|;
@@ -3924,6 +3916,13 @@ else|else
 block|{
 comment|// use a pick list enum array, enum will be created after generating the SObject class
 return|return
+name|description
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|"_"
+operator|+
 name|enumTypeName
 argument_list|(
 name|field
