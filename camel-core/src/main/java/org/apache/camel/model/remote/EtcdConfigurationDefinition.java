@@ -76,6 +76,20 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|bind
+operator|.
+name|annotation
+operator|.
+name|XmlTransient
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -85,6 +99,22 @@ operator|.
 name|spi
 operator|.
 name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
 import|;
 end_import
 
@@ -178,6 +208,13 @@ name|String
 name|servicePath
 init|=
 literal|"/services/"
+decl_stmt|;
+annotation|@
+name|XmlTransient
+DECL|field|sslContextParameters
+specifier|private
+name|SSLContextParameters
+name|sslContextParameters
 decl_stmt|;
 DECL|method|EtcdConfigurationDefinition ()
 specifier|public
@@ -331,6 +368,32 @@ operator|=
 name|servicePath
 expr_stmt|;
 block|}
+DECL|method|getSslContextParameters ()
+specifier|public
+name|SSLContextParameters
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|sslContextParameters
+return|;
+block|}
+DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
+expr_stmt|;
+block|}
 comment|// -------------------------------------------------------------------------
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
@@ -423,6 +486,25 @@ block|{
 name|setServicePath
 argument_list|(
 name|servicePath
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * To configure security using SSLContextParameters.      */
+DECL|method|sslContextParameters (SSLContextParameters sslContextParameters)
+specifier|public
+name|EtcdConfigurationDefinition
+name|sslContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+block|{
+name|setSslContextParameters
+argument_list|(
+name|sslContextParameters
 argument_list|)
 expr_stmt|;
 return|return
