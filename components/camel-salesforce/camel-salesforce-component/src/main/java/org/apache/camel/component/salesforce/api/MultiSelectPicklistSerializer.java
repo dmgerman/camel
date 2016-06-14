@@ -56,11 +56,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|codehaus
+name|fasterxml
 operator|.
 name|jackson
+operator|.
+name|core
 operator|.
 name|JsonGenerationException
 import|;
@@ -68,11 +70,13 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|codehaus
+name|fasterxml
 operator|.
 name|jackson
+operator|.
+name|core
 operator|.
 name|JsonGenerator
 import|;
@@ -80,29 +84,33 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|codehaus
+name|fasterxml
 operator|.
 name|jackson
 operator|.
-name|map
+name|databind
 operator|.
-name|JsonSerializer
+name|SerializerProvider
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|codehaus
+name|fasterxml
 operator|.
 name|jackson
 operator|.
-name|map
+name|databind
 operator|.
-name|SerializerProvider
+name|ser
+operator|.
+name|std
+operator|.
+name|StdSerializer
 import|;
 end_import
 
@@ -116,20 +124,33 @@ specifier|public
 class|class
 name|MultiSelectPicklistSerializer
 extends|extends
-name|JsonSerializer
+name|StdSerializer
 argument_list|<
 name|Object
 argument_list|>
 block|{
-DECL|field|FACTORY_METHOD
+DECL|field|serialVersionUID
 specifier|private
 specifier|static
 specifier|final
-name|String
-name|FACTORY_METHOD
+name|long
+name|serialVersionUID
 init|=
-literal|"fromValue"
+literal|3064638196900557354L
 decl_stmt|;
+DECL|method|MultiSelectPicklistSerializer ()
+specifier|protected
+name|MultiSelectPicklistSerializer
+parameter_list|()
+block|{
+name|super
+argument_list|(
+name|Object
+operator|.
+name|class
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|serialize (Object value, JsonGenerator jgen, SerializerProvider provider)
@@ -305,7 +326,7 @@ name|getMessage
 argument_list|()
 argument_list|)
 argument_list|,
-name|e
+name|jgen
 argument_list|)
 throw|;
 block|}

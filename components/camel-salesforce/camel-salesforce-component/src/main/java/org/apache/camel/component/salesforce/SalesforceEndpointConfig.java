@@ -192,6 +192,20 @@ name|UriParams
 import|;
 end_import
 
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|databind
+operator|.
+name|ObjectMapper
+import|;
+end_import
+
 begin_comment
 comment|/**  * Salesforce Endpoint configuration.  */
 end_comment
@@ -655,6 +669,14 @@ DECL|field|httpClient
 specifier|private
 name|SalesforceHttpClient
 name|httpClient
+decl_stmt|;
+comment|// To allow custom ObjectMapper (for registering extra datatype modules)
+annotation|@
+name|UriParam
+DECL|field|objectMapper
+specifier|private
+name|ObjectMapper
+name|objectMapper
 decl_stmt|;
 DECL|method|copy ()
 specifier|public
@@ -1528,6 +1550,33 @@ block|{
 return|return
 name|httpClient
 return|;
+block|}
+DECL|method|getObjectMapper ()
+specifier|public
+name|ObjectMapper
+name|getObjectMapper
+parameter_list|()
+block|{
+return|return
+name|objectMapper
+return|;
+block|}
+comment|/**      * Custom Jackson ObjectMapper to use when serializing/deserializing Salesforce objects.      */
+DECL|method|setObjectMapper (ObjectMapper objectMapper)
+specifier|public
+name|void
+name|setObjectMapper
+parameter_list|(
+name|ObjectMapper
+name|objectMapper
+parameter_list|)
+block|{
+name|this
+operator|.
+name|objectMapper
+operator|=
+name|objectMapper
+expr_stmt|;
 block|}
 DECL|method|toValueMap ()
 specifier|public

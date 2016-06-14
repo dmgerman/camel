@@ -44,31 +44,29 @@ end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|codehaus
+name|fasterxml
 operator|.
 name|jackson
 operator|.
-name|map
+name|annotation
 operator|.
-name|ObjectMapper
+name|JsonInclude
 import|;
 end_import
 
 begin_import
 import|import
-name|org
+name|com
 operator|.
-name|codehaus
+name|fasterxml
 operator|.
 name|jackson
 operator|.
-name|map
+name|databind
 operator|.
-name|annotate
-operator|.
-name|JsonSerialize
+name|ObjectMapper
 import|;
 end_import
 
@@ -78,13 +76,11 @@ end_comment
 
 begin_class
 annotation|@
-name|JsonSerialize
+name|JsonInclude
 argument_list|(
-name|include
-operator|=
-name|JsonSerialize
+name|JsonInclude
 operator|.
-name|Inclusion
+name|Include
 operator|.
 name|NON_NULL
 argument_list|)
