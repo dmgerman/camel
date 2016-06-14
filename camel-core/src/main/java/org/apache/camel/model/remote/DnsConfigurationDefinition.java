@@ -219,6 +219,7 @@ block|}
 comment|// -------------------------------------------------------------------------
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
+comment|/**      * The transport protocol of the desired service.      */
 DECL|method|proto (String proto)
 specifier|public
 name|DnsConfigurationDefinition
@@ -237,6 +238,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The domain name;      */
 DECL|method|domain (String domain)
 specifier|public
 name|DnsConfigurationDefinition

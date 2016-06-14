@@ -434,6 +434,7 @@ return|return
 name|loadBalancerRef
 return|;
 block|}
+comment|/**      * Sets a reference to a custom {@link org.apache.camel.spi.ServiceCallLoadBalancer} to use.      */
 DECL|method|setLoadBalancerRef (String loadBalancerRef)
 specifier|public
 name|void
@@ -486,6 +487,7 @@ return|return
 name|serverListStrategyRef
 return|;
 block|}
+comment|/**      * Sets a reference to a custom {@link org.apache.camel.spi.ServiceCallServerListStrategy} to use.      */
 DECL|method|setServerListStrategyRef (String serverListStrategyRef)
 specifier|public
 name|void
@@ -541,6 +543,7 @@ return|return
 name|properties
 return|;
 block|}
+comment|/**      * Set client properties to use.      *<p/>      * These properties are specific to what service call implementation are in       * use. For example if using ribbon, then the client properties are define       * in com.netflix.client.config.CommonClientConfigKey.      */
 DECL|method|setProperties (List<PropertyDefinition> properties)
 specifier|public
 name|void

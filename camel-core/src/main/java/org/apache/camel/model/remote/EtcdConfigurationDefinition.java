@@ -334,6 +334,7 @@ block|}
 comment|// -------------------------------------------------------------------------
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
+comment|/**      * The URIs the client can connect to.      */
 DECL|method|uris (String uris)
 specifier|public
 name|EtcdConfigurationDefinition
@@ -352,6 +353,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The user name to use for basic authentication.      */
 DECL|method|userName (String userName)
 specifier|public
 name|EtcdConfigurationDefinition
@@ -370,6 +372,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The password to use for basic authentication.      */
 DECL|method|password (String password)
 specifier|public
 name|EtcdConfigurationDefinition
@@ -388,6 +391,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * To set the maximum time an action could take to complete.      */
 DECL|method|timeout (Long timeout)
 specifier|public
 name|EtcdConfigurationDefinition
@@ -406,6 +410,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The path to look for for service discovery      */
 DECL|method|servicePath (String servicePath)
 specifier|public
 name|EtcdConfigurationDefinition

@@ -473,6 +473,7 @@ block|}
 comment|// -------------------------------------------------------------------------
 comment|// Fluent API
 comment|// -------------------------------------------------------------------------
+comment|/**      * The Consul agent URL      */
 DECL|method|url (String url)
 specifier|public
 name|ConsulConfigurationDefinition
@@ -491,6 +492,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The data center      */
 DECL|method|dc (String dc)
 specifier|public
 name|ConsulConfigurationDefinition
@@ -509,6 +511,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the ACL token to be used with Consul      */
 DECL|method|aclToken (String aclToken)
 specifier|public
 name|ConsulConfigurationDefinition
@@ -527,6 +530,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the username to be used for basic authentication      */
 DECL|method|userName (String userName)
 specifier|public
 name|ConsulConfigurationDefinition
@@ -545,6 +549,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the password to be used for basic authentication      */
 DECL|method|password (String password)
 specifier|public
 name|ConsulConfigurationDefinition
@@ -563,6 +568,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Connect timeout for OkHttpClient      */
 DECL|method|connectTimeoutMillis (Long connectTimeoutMillis)
 specifier|public
 name|ConsulConfigurationDefinition
@@ -581,6 +587,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Read timeout for OkHttpClient      */
 DECL|method|readTimeoutMillis (Long readTimeoutMillis)
 specifier|public
 name|ConsulConfigurationDefinition
@@ -599,6 +606,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Write timeout for OkHttpClient      */
 DECL|method|writeTimeoutMillis (Long writeTimeoutMillis)
 specifier|public
 name|ConsulConfigurationDefinition
@@ -617,6 +625,7 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * The second to wait for a watch event, default 10 seconds      */
 DECL|method|blockSeconds (Integer blockSeconds)
 specifier|public
 name|ConsulConfigurationDefinition

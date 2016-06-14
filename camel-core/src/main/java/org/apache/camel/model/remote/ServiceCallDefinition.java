@@ -735,6 +735,7 @@ return|return
 name|serviceCallConfigurationRef
 return|;
 block|}
+comment|/**      * Refers to a ServiceCall configuration to use      */
 DECL|method|setServiceCallConfigurationRef (String serviceCallConfigurationRef)
 specifier|public
 name|void
@@ -788,6 +789,7 @@ return|return
 name|loadBalancerRef
 return|;
 block|}
+comment|/**      * Sets a reference to a custom {@link org.apache.camel.spi.ServiceCallLoadBalancer} to use.      */
 DECL|method|setLoadBalancerRef (String loadBalancerRef)
 specifier|public
 name|void
@@ -840,6 +842,7 @@ return|return
 name|serverListStrategyRef
 return|;
 block|}
+comment|/**      * Sets a reference to a custom {@link org.apache.camel.spi.ServiceCallServerListStrategy} to use.      */
 DECL|method|setServerListStrategyRef (String serverListStrategyRef)
 specifier|public
 name|void
