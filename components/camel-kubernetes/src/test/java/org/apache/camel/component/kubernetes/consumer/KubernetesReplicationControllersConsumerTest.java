@@ -62,7 +62,7 @@ name|api
 operator|.
 name|model
 operator|.
-name|EditablePodTemplateSpec
+name|PodTemplateSpec
 import|;
 end_import
 
@@ -423,7 +423,7 @@ operator|new
 name|PodTemplateSpecBuilder
 argument_list|()
 decl_stmt|;
-name|EditablePodTemplateSpec
+name|PodTemplateSpec
 name|t
 init|=
 name|builder
