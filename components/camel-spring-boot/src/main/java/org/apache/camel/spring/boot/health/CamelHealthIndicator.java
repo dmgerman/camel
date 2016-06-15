@@ -80,25 +80,11 @@ name|HealthIndicator
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|stereotype
-operator|.
-name|Component
-import|;
-end_import
-
 begin_comment
 comment|/**  * Camel {@link HealthIndicator}.  */
 end_comment
 
 begin_class
-annotation|@
-name|Component
 DECL|class|CamelHealthIndicator
 specifier|public
 class|class
