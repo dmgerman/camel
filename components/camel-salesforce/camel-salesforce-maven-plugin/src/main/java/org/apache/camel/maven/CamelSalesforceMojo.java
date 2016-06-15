@@ -1076,7 +1076,7 @@ name|Parameter
 argument_list|(
 name|property
 operator|=
-literal|"camelSalesforce.httpProxyIncludedAddresses"
+literal|"camelSalesforce.httpProxyExcludedAddresses"
 argument_list|)
 DECL|field|httpProxyExcludedAddresses
 specifier|protected
