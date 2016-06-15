@@ -28,6 +28,20 @@ end_package
 
 begin_import
 import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|annotation
+operator|.
+name|JsonAnySetter
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -43,20 +57,6 @@ operator|.
 name|dto
 operator|.
 name|AbstractDTOBase
-import|;
-end_import
-
-begin_import
-import|import
-name|com
-operator|.
-name|fasterxml
-operator|.
-name|jackson
-operator|.
-name|annotation
-operator|.
-name|JsonAnySetter
 import|;
 end_import
 

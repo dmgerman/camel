@@ -24,18 +24,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|DateTime
-import|;
-end_import
-
-begin_import
-import|import
 name|com
 operator|.
 name|fasterxml
@@ -45,6 +33,18 @@ operator|.
 name|annotation
 operator|.
 name|JsonProperty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|joda
+operator|.
+name|time
+operator|.
+name|DateTime
 import|;
 end_import
 
