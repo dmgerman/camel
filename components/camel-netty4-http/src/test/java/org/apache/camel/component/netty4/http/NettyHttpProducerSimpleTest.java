@@ -237,7 +237,7 @@ operator|.
 name|getHttpResponse
 argument_list|()
 operator|.
-name|getStatus
+name|status
 argument_list|()
 operator|.
 name|code
@@ -271,7 +271,7 @@ literal|200
 argument_list|,
 name|body
 operator|.
-name|getStatus
+name|status
 argument_list|()
 operator|.
 name|code

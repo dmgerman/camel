@@ -390,7 +390,7 @@ literal|"/myapp/myservice?query1=a&query2=b"
 argument_list|,
 name|request
 operator|.
-name|getUri
+name|uri
 argument_list|()
 argument_list|)
 expr_stmt|;

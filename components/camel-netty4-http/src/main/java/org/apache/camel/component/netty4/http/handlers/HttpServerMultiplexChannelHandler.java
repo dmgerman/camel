@@ -618,6 +618,9 @@ name|attr
 init|=
 name|ctx
 operator|.
+name|channel
+argument_list|()
+operator|.
 name|attr
 argument_list|(
 name|SERVER_HANDLER_KEY
@@ -745,6 +748,9 @@ argument_list|>
 name|attr
 init|=
 name|ctx
+operator|.
+name|channel
+argument_list|()
 operator|.
 name|attr
 argument_list|(
@@ -887,7 +893,7 @@ name|method
 init|=
 name|request
 operator|.
-name|getMethod
+name|method
 argument_list|()
 operator|.
 name|name
@@ -909,7 +915,7 @@ name|path
 init|=
 name|request
 operator|.
-name|getUri
+name|uri
 argument_list|()
 decl_stmt|;
 name|int

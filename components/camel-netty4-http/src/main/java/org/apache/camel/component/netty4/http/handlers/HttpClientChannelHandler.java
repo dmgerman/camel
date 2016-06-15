@@ -68,6 +68,22 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|handler
+operator|.
+name|codec
+operator|.
+name|http
+operator|.
+name|HttpUtil
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -210,7 +226,7 @@ decl_stmt|;
 if|if
 condition|(
 operator|!
-name|HttpHeaders
+name|HttpUtil
 operator|.
 name|isKeepAlive
 argument_list|(

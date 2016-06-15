@@ -203,7 +203,7 @@ name|path
 init|=
 name|request
 operator|.
-name|getUri
+name|uri
 argument_list|()
 decl_stmt|;
 if|if

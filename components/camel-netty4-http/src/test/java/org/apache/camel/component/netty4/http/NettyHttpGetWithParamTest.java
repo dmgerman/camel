@@ -337,7 +337,7 @@ operator|.
 name|getHttpRequest
 argument_list|()
 operator|.
-name|getUri
+name|uri
 argument_list|()
 decl_stmt|;
 name|assertTrue

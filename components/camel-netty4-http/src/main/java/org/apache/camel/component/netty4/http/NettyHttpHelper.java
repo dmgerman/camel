@@ -629,7 +629,7 @@ name|statusText
 init|=
 name|response
 operator|.
-name|getStatus
+name|status
 argument_list|()
 operator|.
 name|reasonPhrase
