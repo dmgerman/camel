@@ -412,7 +412,9 @@ name|getComponent
 argument_list|()
 operator|.
 name|getSubscriptionHelper
-argument_list|()
+argument_list|(
+name|topicName
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|configureConsumer

@@ -1742,11 +1742,14 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|getSubscriptionHelper ()
+DECL|method|getSubscriptionHelper (String topicName)
 specifier|public
 name|SubscriptionHelper
 name|getSubscriptionHelper
-parameter_list|()
+parameter_list|(
+name|String
+name|topicName
+parameter_list|)
 throws|throws
 name|Exception
 block|{
@@ -1764,6 +1767,8 @@ operator|new
 name|SubscriptionHelper
 argument_list|(
 name|this
+argument_list|,
+name|topicName
 argument_list|)
 expr_stmt|;
 comment|// also start the helper to connect to Salesforce

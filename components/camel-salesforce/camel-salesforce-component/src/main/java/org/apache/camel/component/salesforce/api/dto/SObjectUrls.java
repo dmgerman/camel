@@ -95,6 +95,11 @@ specifier|private
 name|String
 name|push
 decl_stmt|;
+DECL|field|defaultValues
+specifier|private
+name|String
+name|defaultValues
+decl_stmt|;
 DECL|method|getSobject ()
 specifier|public
 name|String
@@ -431,6 +436,32 @@ operator|.
 name|push
 operator|=
 name|push
+expr_stmt|;
+block|}
+DECL|method|getDefaultValues ()
+specifier|public
+name|String
+name|getDefaultValues
+parameter_list|()
+block|{
+return|return
+name|defaultValues
+return|;
+block|}
+DECL|method|setDefaultValues (String defaultValues)
+specifier|public
+name|void
+name|setDefaultValues
+parameter_list|(
+name|String
+name|defaultValues
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultValues
+operator|=
+name|defaultValues
 expr_stmt|;
 block|}
 block|}

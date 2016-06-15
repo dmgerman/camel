@@ -433,6 +433,25 @@ name|INSTANCE_ID
 init|=
 literal|"instanceId"
 decl_stmt|;
+comment|// parameters for Streaming API
+DECL|field|DEFAULT_REPLAY_ID
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_REPLAY_ID
+init|=
+literal|"defaultReplayId"
+decl_stmt|;
+DECL|field|INITIAL_REPLAY_ID_MAP
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|INITIAL_REPLAY_ID_MAP
+init|=
+literal|"initialReplayIdMap"
+decl_stmt|;
 comment|// default maximum authentication retries on failed authentication or expired session
 DECL|field|DEFAULT_MAX_AUTHENTICATION_RETRIES
 specifier|public
@@ -661,6 +680,26 @@ DECL|field|instanceId
 specifier|private
 name|String
 name|instanceId
+decl_stmt|;
+comment|// Streaming API properties
+annotation|@
+name|UriParam
+DECL|field|defaultReplayId
+specifier|private
+name|Integer
+name|defaultReplayId
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|initialReplayIdMap
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Integer
+argument_list|>
+name|initialReplayIdMap
 decl_stmt|;
 comment|// Salesforce Jetty9 HttpClient, set using reference
 annotation|@
@@ -1816,6 +1855,25 @@ argument_list|,
 name|instanceId
 argument_list|)
 expr_stmt|;
+comment|// add streaming API properties
+name|valueMap
+operator|.
+name|put
+argument_list|(
+name|DEFAULT_REPLAY_ID
+argument_list|,
+name|defaultReplayId
+argument_list|)
+expr_stmt|;
+name|valueMap
+operator|.
+name|put
+argument_list|(
+name|INITIAL_REPLAY_ID_MAP
+argument_list|,
+name|initialReplayIdMap
+argument_list|)
+expr_stmt|;
 return|return
 name|Collections
 operator|.
@@ -1824,6 +1882,70 @@ argument_list|(
 name|valueMap
 argument_list|)
 return|;
+block|}
+DECL|method|getDefaultReplayId ()
+specifier|public
+name|Integer
+name|getDefaultReplayId
+parameter_list|()
+block|{
+return|return
+name|defaultReplayId
+return|;
+block|}
+comment|/**      * Default replayId setting if no value is found in {@link #initialReplayIdMap}      * @param defaultReplayId      */
+DECL|method|setDefaultReplayId (Integer defaultReplayId)
+specifier|public
+name|void
+name|setDefaultReplayId
+parameter_list|(
+name|Integer
+name|defaultReplayId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultReplayId
+operator|=
+name|defaultReplayId
+expr_stmt|;
+block|}
+DECL|method|getInitialReplayIdMap ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Integer
+argument_list|>
+name|getInitialReplayIdMap
+parameter_list|()
+block|{
+return|return
+name|initialReplayIdMap
+return|;
+block|}
+comment|/**      * Replay IDs to start from per channel name.      */
+DECL|method|setInitialReplayIdMap (Map<String, Integer> initialReplayIdMap)
+specifier|public
+name|void
+name|setInitialReplayIdMap
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Integer
+argument_list|>
+name|initialReplayIdMap
+parameter_list|)
+block|{
+name|this
+operator|.
+name|initialReplayIdMap
+operator|=
+name|initialReplayIdMap
+expr_stmt|;
 block|}
 block|}
 end_class
