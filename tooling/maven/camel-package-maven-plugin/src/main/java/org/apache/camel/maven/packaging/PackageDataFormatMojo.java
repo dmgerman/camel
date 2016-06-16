@@ -1682,6 +1682,13 @@ name|equals
 argument_list|(
 name|name
 argument_list|)
+operator|||
+literal|"json-johnzon"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
 condition|)
 block|{
 return|return
@@ -1808,6 +1815,21 @@ condition|)
 block|{
 return|return
 literal|"JSon XStream"
+return|;
+block|}
+elseif|else
+if|if
+condition|(
+literal|"json-johnzon"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+return|return
+literal|"JSon Johnzon"
 return|;
 block|}
 elseif|else
