@@ -510,6 +510,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+name|camelContext
+operator|.
+name|setPackageScanClassResolver
+argument_list|(
+operator|new
+name|FatJarPackageScanClassResolver
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|camelContext
 return|;

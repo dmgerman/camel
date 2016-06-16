@@ -2263,7 +2263,7 @@ expr_stmt|;
 block|}
 comment|/**      * Loads all the class entries from the JAR.      *      * @param stream  the inputstream of the jar file to be examined for classes      * @param urlPath the url of the jar file to be examined for classes      * @return all the .class entries from the JAR      */
 DECL|method|doLoadJarClassEntries (InputStream stream, String urlPath)
-specifier|private
+specifier|protected
 name|List
 argument_list|<
 name|String
