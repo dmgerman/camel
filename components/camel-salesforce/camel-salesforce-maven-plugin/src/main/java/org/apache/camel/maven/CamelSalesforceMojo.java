@@ -907,7 +907,7 @@ specifier|final
 name|String
 name|PACKAGE_NAME_PATTERN
 init|=
-literal|"^[a-z]+(\\.[a-z][a-z0-9]*)*$"
+literal|"(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)+\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*"
 decl_stmt|;
 DECL|field|SOBJECT_POJO_VM
 specifier|private
