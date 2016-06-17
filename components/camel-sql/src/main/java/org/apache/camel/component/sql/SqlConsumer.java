@@ -1201,7 +1201,6 @@ operator|.
 name|size
 argument_list|()
 decl_stmt|;
-comment|// limit if needed
 if|if
 condition|(
 name|maxMessagesPerPoll
@@ -1217,11 +1216,11 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Limiting to maximum messages to poll "
-operator|+
+literal|"Maximum messages to poll is {} and there were exactly {} messages in this poll."
+argument_list|,
 name|maxMessagesPerPoll
-operator|+
-literal|" as there was more messages in this poll."
+argument_list|,
+name|total
 argument_list|)
 expr_stmt|;
 block|}
