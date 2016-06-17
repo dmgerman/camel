@@ -266,7 +266,7 @@ decl_stmt|;
 name|Exchange
 name|exchange
 init|=
-name|producer
+name|endpoint
 operator|.
 name|createExchange
 argument_list|()

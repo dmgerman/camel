@@ -925,10 +925,8 @@ name|closeFuture
 init|=
 name|session
 operator|.
-name|close
-argument_list|(
-literal|true
-argument_list|)
+name|closeNow
+argument_list|()
 decl_stmt|;
 name|closeFuture
 operator|.
@@ -2523,10 +2521,8 @@ argument_list|)
 expr_stmt|;
 name|session
 operator|.
-name|close
-argument_list|(
-literal|true
-argument_list|)
+name|closeNow
+argument_list|()
 expr_stmt|;
 block|}
 comment|// must wrap and rethrow since cause can be of Throwable and we must only throw Exception
@@ -2925,10 +2921,8 @@ argument_list|)
 expr_stmt|;
 name|session
 operator|.
-name|close
-argument_list|(
-literal|true
-argument_list|)
+name|closeNow
+argument_list|()
 expr_stmt|;
 block|}
 block|}

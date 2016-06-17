@@ -472,10 +472,8 @@ argument_list|)
 expr_stmt|;
 name|session
 operator|.
-name|close
-argument_list|(
-literal|true
-argument_list|)
+name|closeNow
+argument_list|()
 expr_stmt|;
 block|}
 block|}
