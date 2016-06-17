@@ -119,6 +119,22 @@ name|CamelKubernetesTest
 extends|extends
 name|AbstractSpringBootTestSupport
 block|{
+DECL|field|HIBERNATE_VALIDATOR_VERSION
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|HIBERNATE_VALIDATOR_VERSION
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"hibernateValidatorVersion"
+argument_list|,
+literal|"5.2.4.Final"
+argument_list|)
+decl_stmt|;
 annotation|@
 name|Deployment
 DECL|method|createSpringBootPackage ()
@@ -163,6 +179,13 @@ name|CamelKubernetesTest
 operator|.
 name|class
 argument_list|)
+argument_list|)
+operator|.
+name|dependency
+argument_list|(
+literal|"org.hibernate:hibernate-validator:"
+operator|+
+name|HIBERNATE_VALIDATOR_VERSION
 argument_list|)
 operator|.
 name|build

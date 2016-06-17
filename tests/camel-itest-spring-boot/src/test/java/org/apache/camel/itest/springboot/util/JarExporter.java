@@ -126,7 +126,7 @@ argument_list|()
 operator|.
 name|module
 argument_list|(
-literal|"camel-jetty9"
+literal|"camel-box"
 argument_list|)
 operator|.
 name|build

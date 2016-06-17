@@ -205,7 +205,10 @@ name|component
 argument_list|,
 literal|true
 argument_list|,
-literal|false
+name|config
+operator|.
+name|getAutoStartComponent
+argument_list|()
 argument_list|)
 decl_stmt|;
 name|assertNotNull

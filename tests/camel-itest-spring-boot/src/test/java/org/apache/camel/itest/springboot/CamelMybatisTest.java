@@ -165,6 +165,13 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|resource
+argument_list|(
+literal|"components/mybatis-SqlMapConfig.xml"
+argument_list|,
+literal|"SqlMapConfig.xml"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 return|;

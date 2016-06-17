@@ -165,6 +165,12 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|autostart
+argument_list|(
+literal|false
+argument_list|)
+comment|// needs configuration
+operator|.
 name|build
 argument_list|()
 return|;

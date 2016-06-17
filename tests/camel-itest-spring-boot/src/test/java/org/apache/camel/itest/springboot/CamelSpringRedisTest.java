@@ -119,6 +119,22 @@ name|CamelSpringRedisTest
 extends|extends
 name|AbstractSpringBootTestSupport
 block|{
+DECL|field|SPRING_DATA_REDIS_VERSION
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|SPRING_DATA_REDIS_VERSION
+init|=
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"springDataRedisVersion"
+argument_list|,
+literal|"1.6.4.RELEASE"
+argument_list|)
+decl_stmt|;
 annotation|@
 name|Deployment
 DECL|method|createSpringBootPackage ()
@@ -163,6 +179,13 @@ name|CamelSpringRedisTest
 operator|.
 name|class
 argument_list|)
+argument_list|)
+operator|.
+name|dependency
+argument_list|(
+literal|"org.springframework.data:spring-data-redis:"
+operator|+
+name|SPRING_DATA_REDIS_VERSION
 argument_list|)
 operator|.
 name|build
