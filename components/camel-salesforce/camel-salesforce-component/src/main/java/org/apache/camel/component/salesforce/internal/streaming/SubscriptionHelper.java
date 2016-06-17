@@ -487,15 +487,6 @@ name|EXCEPTION_FIELD
 init|=
 literal|"exception"
 decl_stmt|;
-DECL|field|MINIMUM_REPLAY_VERSION
-specifier|private
-specifier|static
-specifier|final
-name|double
-name|MINIMUM_REPLAY_VERSION
-init|=
-literal|36.0
-decl_stmt|;
 DECL|field|component
 specifier|private
 specifier|final
@@ -2208,6 +2199,7 @@ name|String
 name|getEndpointUrl
 parameter_list|()
 block|{
+comment|// In version 36.0 replay is only enabled on a separate endpoint
 if|if
 condition|(
 name|Double
@@ -2222,10 +2214,13 @@ operator|.
 name|getApiVersion
 argument_list|()
 argument_list|)
-operator|>=
-name|MINIMUM_REPLAY_VERSION
-operator|&&
-operator|(
+operator|==
+literal|36.0
+condition|)
+block|{
+name|boolean
+name|replayOptionsPresent
+init|=
 name|component
 operator|.
 name|getConfig
@@ -2247,7 +2242,10 @@ argument_list|()
 operator|.
 name|isEmpty
 argument_list|()
-operator|)
+decl_stmt|;
+if|if
+condition|(
+name|replayOptionsPresent
 condition|)
 block|{
 return|return
@@ -2270,8 +2268,7 @@ name|getApiVersion
 argument_list|()
 return|;
 block|}
-else|else
-block|{
+block|}
 return|return
 name|component
 operator|.
@@ -2291,7 +2288,6 @@ operator|.
 name|getApiVersion
 argument_list|()
 return|;
-block|}
 block|}
 block|}
 end_class

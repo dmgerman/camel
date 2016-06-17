@@ -155,6 +155,11 @@ specifier|private
 name|Boolean
 name|compactLayoutable
 decl_stmt|;
+DECL|field|mruEnabled
+specifier|private
+name|Boolean
+name|mruEnabled
+decl_stmt|;
 DECL|method|getName ()
 specifier|public
 name|String
@@ -803,6 +808,32 @@ operator|.
 name|compactLayoutable
 operator|=
 name|compactLayoutable
+expr_stmt|;
+block|}
+DECL|method|getMruEnabled ()
+specifier|public
+name|Boolean
+name|getMruEnabled
+parameter_list|()
+block|{
+return|return
+name|mruEnabled
+return|;
+block|}
+DECL|method|setMruEnabled (Boolean mruEnabled)
+specifier|public
+name|void
+name|setMruEnabled
+parameter_list|(
+name|Boolean
+name|mruEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mruEnabled
+operator|=
+name|mruEnabled
 expr_stmt|;
 block|}
 block|}
