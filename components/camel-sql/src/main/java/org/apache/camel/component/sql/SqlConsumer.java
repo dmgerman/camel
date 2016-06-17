@@ -1221,7 +1221,7 @@ literal|"Limiting to maximum messages to poll "
 operator|+
 name|maxMessagesPerPoll
 operator|+
-literal|" as there was more messages in this poll."
+literal|" as there were more messages in this poll."
 argument_list|)
 expr_stmt|;
 block|}

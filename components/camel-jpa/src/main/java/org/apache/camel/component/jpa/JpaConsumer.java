@@ -922,7 +922,7 @@ literal|"Limiting to maximum messages to poll "
 operator|+
 name|maxMessagesPerPoll
 operator|+
-literal|" as there was "
+literal|" as there were "
 operator|+
 name|total
 operator|+
