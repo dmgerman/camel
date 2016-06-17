@@ -588,6 +588,15 @@ operator|.
 name|CONTAINS_VALUE_OPERATION
 argument_list|)
 expr_stmt|;
+name|addMapping
+argument_list|(
+literal|"keySet"
+argument_list|,
+name|HazelcastConstants
+operator|.
+name|GET_KEYS_OPERATION
+argument_list|)
+expr_stmt|;
 comment|// multimap
 name|addMapping
 argument_list|(

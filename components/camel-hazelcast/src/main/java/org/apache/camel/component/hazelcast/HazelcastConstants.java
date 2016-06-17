@@ -416,6 +416,15 @@ name|CONTAINS_VALUE_OPERATION
 init|=
 literal|16
 decl_stmt|;
+DECL|field|GET_KEYS_OPERATION
+specifier|public
+specifier|static
+specifier|final
+name|int
+name|GET_KEYS_OPERATION
+init|=
+literal|41
+decl_stmt|;
 comment|// multimap
 DECL|field|REMOVEVALUE_OPERATION
 specifier|public
