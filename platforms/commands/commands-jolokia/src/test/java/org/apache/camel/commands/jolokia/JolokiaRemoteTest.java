@@ -1186,6 +1186,8 @@ name|browseInflightExchanges
 argument_list|(
 literal|"camel-1"
 argument_list|,
+literal|"route1"
+argument_list|,
 literal|500
 argument_list|,
 literal|false

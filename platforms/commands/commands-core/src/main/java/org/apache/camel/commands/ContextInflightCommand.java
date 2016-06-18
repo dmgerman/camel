@@ -201,17 +201,25 @@ specifier|private
 name|int
 name|limit
 decl_stmt|;
+DECL|field|route
+specifier|private
+name|String
+name|route
+decl_stmt|;
 DECL|field|sortByLongestDuration
 specifier|private
 name|boolean
 name|sortByLongestDuration
 decl_stmt|;
-DECL|method|ContextInflightCommand (String context, int limit, boolean sortByLongestDuration)
+DECL|method|ContextInflightCommand (String context, String route, int limit, boolean sortByLongestDuration)
 specifier|public
 name|ContextInflightCommand
 parameter_list|(
 name|String
 name|context
+parameter_list|,
+name|String
+name|route
 parameter_list|,
 name|int
 name|limit
@@ -224,6 +232,12 @@ name|super
 argument_list|(
 name|context
 argument_list|)
+expr_stmt|;
+name|this
+operator|.
+name|route
+operator|=
+name|route
 expr_stmt|;
 name|this
 operator|.
@@ -276,6 +290,8 @@ operator|.
 name|browseInflightExchanges
 argument_list|(
 name|contextName
+argument_list|,
+name|route
 argument_list|,
 name|limit
 argument_list|,

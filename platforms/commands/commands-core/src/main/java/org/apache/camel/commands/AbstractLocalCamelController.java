@@ -1575,7 +1575,7 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|method|browseInflightExchanges (String camelContextName, int limit, boolean sortByLongestDuration)
+DECL|method|browseInflightExchanges (String camelContextName, String route, int limit, boolean sortByLongestDuration)
 specifier|public
 name|List
 argument_list|<
@@ -1590,6 +1590,9 @@ name|browseInflightExchanges
 parameter_list|(
 name|String
 name|camelContextName
+parameter_list|,
+name|String
+name|route
 parameter_list|,
 name|int
 name|limit
@@ -1717,6 +1720,8 @@ operator|new
 name|Object
 index|[]
 block|{
+name|route
+block|,
 name|limit
 block|,
 name|sortByLongestDuration
@@ -1726,6 +1731,8 @@ operator|new
 name|String
 index|[]
 block|{
+literal|"java.lang.String"
+block|,
 literal|"int"
 block|,
 literal|"boolean"

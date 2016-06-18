@@ -1582,7 +1582,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|browseInflightExchanges (String camelContextName, int limit, boolean sortByLongestDuration)
+DECL|method|browseInflightExchanges (String camelContextName, String route, int limit, boolean sortByLongestDuration)
 specifier|public
 name|List
 argument_list|<
@@ -1597,6 +1597,9 @@ name|browseInflightExchanges
 parameter_list|(
 name|String
 name|camelContextName
+parameter_list|,
+name|String
+name|route
 parameter_list|,
 name|int
 name|limit
@@ -1704,7 +1707,9 @@ name|J4pExecRequest
 argument_list|(
 name|on
 argument_list|,
-literal|"browse(int,boolean)"
+literal|"browse(String,int,boolean)"
+argument_list|,
+name|route
 argument_list|,
 name|limit
 argument_list|,
