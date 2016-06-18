@@ -390,7 +390,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Limiting to maximum messages to poll {} as there was more messages in this poll."
+literal|"Limiting to maximum messages to poll {} as there were more messages in this poll."
 argument_list|,
 name|max
 argument_list|)
