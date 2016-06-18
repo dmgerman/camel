@@ -172,7 +172,6 @@ name|int
 name|bpos
 decl_stmt|;
 DECL|method|XMLStreamReaderInputStream (XMLStreamReader reader, String charset, XMLOutputFactory outfactory)
-specifier|public
 name|XMLStreamReaderInputStream
 parameter_list|(
 name|XMLStreamReader
@@ -247,7 +246,6 @@ comment|//ignore
 block|}
 block|}
 DECL|method|XMLStreamReaderInputStream (XMLStreamReader reader, XMLOutputFactory outfactory)
-specifier|public
 name|XMLStreamReaderInputStream
 parameter_list|(
 name|XMLStreamReader

@@ -167,7 +167,6 @@ name|int
 name|bpos
 decl_stmt|;
 DECL|method|XMLStreamReaderReader (XMLStreamReader reader, XMLOutputFactory outfactory)
-specifier|public
 name|XMLStreamReaderReader
 parameter_list|(
 name|XMLStreamReader
