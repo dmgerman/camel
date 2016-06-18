@@ -621,10 +621,15 @@ specifier|private
 name|IoSession
 name|session
 decl_stmt|;
-DECL|field|latch
+DECL|field|responseLatch
 specifier|private
 name|CountDownLatch
-name|latch
+name|responseLatch
+decl_stmt|;
+DECL|field|closeLatch
+specifier|private
+name|CountDownLatch
+name|closeLatch
 decl_stmt|;
 DECL|field|lazySessionCreation
 specifier|private
@@ -670,11 +675,6 @@ DECL|field|workerPool
 specifier|private
 name|ExecutorService
 name|workerPool
-decl_stmt|;
-DECL|field|closeLatch
-specifier|private
-name|CountDownLatch
-name|closeLatch
 decl_stmt|;
 DECL|method|Mina2Producer (Mina2Endpoint endpoint)
 specifier|public
@@ -1037,8 +1037,8 @@ condition|(
 name|sync
 condition|)
 block|{
-comment|// only initialize latch if we should get a response
-name|latch
+comment|// only initialize responseLatch if we should get a response
+name|responseLatch
 operator|=
 operator|new
 name|CountDownLatch
@@ -1136,7 +1136,7 @@ expr_stmt|;
 name|boolean
 name|done
 init|=
-name|latch
+name|responseLatch
 operator|.
 name|await
 argument_list|(
@@ -2594,62 +2594,12 @@ operator|.
 name|DEFAULT
 return|;
 block|}
-switch|switch
-condition|(
+return|return
 name|delimiter
-condition|)
-block|{
-case|case
-name|DEFAULT
-case|:
-return|return
-name|LineDelimiter
 operator|.
-name|DEFAULT
+name|getLineDelimiter
+argument_list|()
 return|;
-case|case
-name|AUTO
-case|:
-return|return
-name|LineDelimiter
-operator|.
-name|AUTO
-return|;
-case|case
-name|UNIX
-case|:
-return|return
-name|LineDelimiter
-operator|.
-name|UNIX
-return|;
-case|case
-name|WINDOWS
-case|:
-return|return
-name|LineDelimiter
-operator|.
-name|WINDOWS
-return|;
-case|case
-name|MAC
-case|:
-return|return
-name|LineDelimiter
-operator|.
-name|MAC
-return|;
-default|default:
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Unknown textline delimiter: "
-operator|+
-name|delimiter
-argument_list|)
-throw|;
-block|}
 block|}
 DECL|method|getEncodingParameter (String type, Mina2Configuration configuration)
 specifier|private
@@ -2975,20 +2925,20 @@ name|cause
 operator|=
 literal|null
 expr_stmt|;
-name|countDown
+name|notifyResultAvailable
 argument_list|()
 expr_stmt|;
 block|}
-DECL|method|countDown ()
+DECL|method|notifyResultAvailable ()
 specifier|protected
 name|void
-name|countDown
+name|notifyResultAvailable
 parameter_list|()
 block|{
 name|CountDownLatch
 name|downLatch
 init|=
-name|latch
+name|responseLatch
 decl_stmt|;
 if|if
 condition|(
@@ -3037,15 +2987,33 @@ argument_list|)
 expr_stmt|;
 comment|// session was closed but no message received. This could be because the remote server had an internal error
 comment|// and could not return a response. We should count down to stop waiting for a response
-name|countDown
+name|notifyResultAvailable
 argument_list|()
 expr_stmt|;
 block|}
+name|notifySessionClosed
+argument_list|()
+expr_stmt|;
+block|}
+DECL|method|notifySessionClosed ()
+specifier|private
+name|void
+name|notifySessionClosed
+parameter_list|()
+block|{
+if|if
+condition|(
+name|closeLatch
+operator|!=
+literal|null
+condition|)
+block|{
 name|closeLatch
 operator|.
 name|countDown
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override
