@@ -302,11 +302,12 @@ argument_list|(
 literal|7000
 argument_list|)
 decl_stmt|;
+comment|// using quote character to make the plain characters comparison work with the generated xml
 name|sb
 operator|.
 name|append
 argument_list|(
-literal|"<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+literal|"<?xml version='1.0' encoding='utf-8'?>"
 argument_list|)
 operator|.
 name|append
