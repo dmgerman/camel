@@ -146,10 +146,6 @@ name|Test
 import|;
 end_import
 
-begin_comment
-comment|//@Ignore("Etcd must be started manually")
-end_comment
-
 begin_class
 DECL|class|EtcdKeysTest
 specifier|public

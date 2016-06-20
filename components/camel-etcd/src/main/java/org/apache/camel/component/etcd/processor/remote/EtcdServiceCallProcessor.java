@@ -90,20 +90,6 @@ name|camel
 operator|.
 name|spi
 operator|.
-name|ServiceCallServer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
 name|ServiceCallServerListStrategy
 import|;
 end_import
@@ -120,7 +106,7 @@ name|EtcdServiceCallProcessor
 extends|extends
 name|DefaultServiceCallProcessor
 argument_list|<
-name|ServiceCallServer
+name|EtcdServiceCallServer
 argument_list|>
 block|{
 DECL|method|EtcdServiceCallProcessor (String name, String scheme, String uri, ExchangePattern exchangePattern, EtcdConfiguration conf)
@@ -157,14 +143,14 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|setServerListStrategy (ServiceCallServerListStrategy<ServiceCallServer> serverListStrategy)
+DECL|method|setServerListStrategy (ServiceCallServerListStrategy<EtcdServiceCallServer> serverListStrategy)
 specifier|public
 name|void
 name|setServerListStrategy
 parameter_list|(
 name|ServiceCallServerListStrategy
 argument_list|<
-name|ServiceCallServer
+name|EtcdServiceCallServer
 argument_list|>
 name|serverListStrategy
 parameter_list|)
