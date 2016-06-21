@@ -270,6 +270,13 @@ argument_list|(
 literal|"public final String[] greetTimes(String name, int times);"
 argument_list|)
 expr_stmt|;
+name|signatures
+operator|.
+name|add
+argument_list|(
+literal|"public final String greetInnerChild(org.apache.camel.util.component.TestProxy.InnerChild child);"
+argument_list|)
+expr_stmt|;
 name|parser
 operator|.
 name|setSignatures
@@ -293,7 +300,7 @@ argument_list|()
 decl_stmt|;
 name|assertEquals
 argument_list|(
-literal|8
+literal|9
 argument_list|,
 name|methodModels
 operator|.
@@ -311,7 +318,7 @@ name|methodModels
 operator|.
 name|get
 argument_list|(
-literal|7
+literal|8
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -352,7 +359,7 @@ name|methodModels
 operator|.
 name|get
 argument_list|(
-literal|3
+literal|4
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -383,7 +390,7 @@ name|methodModels
 operator|.
 name|get
 argument_list|(
-literal|5
+literal|6
 argument_list|)
 decl_stmt|;
 name|assertEquals
@@ -502,6 +509,37 @@ argument_list|(
 literal|"stringArray"
 argument_list|,
 name|greetAll2
+operator|.
+name|getArguments
+argument_list|()
+operator|.
+name|get
+argument_list|(
+literal|0
+argument_list|)
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
+specifier|final
+name|ApiMethodParser
+operator|.
+name|ApiMethodModel
+name|greetInnerChild
+init|=
+name|methodModels
+operator|.
+name|get
+argument_list|(
+literal|3
+argument_list|)
+decl_stmt|;
+name|assertEquals
+argument_list|(
+literal|"child"
+argument_list|,
+name|greetInnerChild
 operator|.
 name|getArguments
 argument_list|()
