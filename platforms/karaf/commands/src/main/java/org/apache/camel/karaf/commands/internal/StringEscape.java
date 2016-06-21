@@ -20,20 +20,6 @@ name|internal
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|karaf
-operator|.
-name|util
-operator|.
-name|StringEscapeUtils
-import|;
-end_import
-
 begin_class
 DECL|class|StringEscape
 specifier|public
@@ -62,7 +48,7 @@ name|str
 parameter_list|)
 block|{
 return|return
-name|StringEscapeUtils
+name|KarafStringEscapeUtils
 operator|.
 name|unescapeJava
 argument_list|(
@@ -82,7 +68,7 @@ name|str
 parameter_list|)
 block|{
 return|return
-name|StringEscapeUtils
+name|KarafStringEscapeUtils
 operator|.
 name|escapeJava
 argument_list|(
@@ -102,7 +88,7 @@ name|ch
 parameter_list|)
 block|{
 return|return
-name|StringEscapeUtils
+name|KarafStringEscapeUtils
 operator|.
 name|hex
 argument_list|(
