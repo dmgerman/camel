@@ -1633,7 +1633,7 @@ block|{
 name|String
 name|json
 init|=
-literal|"\"enum\": [ \"Gson\", \"Jackson\", \"Johnzon\", \"XStream\" ], \"deprecated\": \"false\", \"secret\": \"false\""
+literal|"\"enum\": [ \"Gson\", \"Jackson\", \"Johnzon\", \"XStream\" ], \"deprecated\": \"false\", \"secret\": \"false\", \"defaultValue\": \"XStream\""
 decl_stmt|;
 name|String
 name|jsonGson

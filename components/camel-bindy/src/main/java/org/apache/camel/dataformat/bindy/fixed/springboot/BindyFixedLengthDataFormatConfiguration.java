@@ -30,6 +30,24 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|dataformat
+operator|.
+name|bindy
+operator|.
+name|fixed
+operator|.
+name|BindyFixedLengthDataFormat
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|model
 operator|.
 name|dataformat
@@ -76,6 +94,10 @@ DECL|field|type
 specifier|private
 name|BindyType
 name|type
+init|=
+name|BindyType
+operator|.
+name|Fixed
 decl_stmt|;
 comment|/**      * Name of model class to use.      */
 DECL|field|classType
