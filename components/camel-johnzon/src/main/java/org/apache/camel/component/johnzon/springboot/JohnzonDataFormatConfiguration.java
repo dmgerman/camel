@@ -99,7 +99,7 @@ name|prettyPrint
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Which json library to use such.      */
+comment|/**      * Which json library to use.      */
 DECL|field|library
 specifier|private
 name|JsonLibrary
@@ -107,7 +107,7 @@ name|library
 init|=
 name|JsonLibrary
 operator|.
-name|XStream
+name|Johnzon
 decl_stmt|;
 comment|/**      * Class name of the java type to use when unarmshalling      */
 DECL|field|unmarshalTypeName

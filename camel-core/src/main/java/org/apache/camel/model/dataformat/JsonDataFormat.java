@@ -510,7 +510,7 @@ return|return
 name|library
 return|;
 block|}
-comment|/**      * Which json library to use such.      */
+comment|/**      * Which json library to use.      */
 DECL|method|setLibrary (JsonLibrary library)
 specifier|public
 name|void
