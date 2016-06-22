@@ -99,7 +99,7 @@ name|prettyPrint
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Which json library to use.      */
+comment|/**      * Which json library to use such.      */
 DECL|field|library
 specifier|private
 name|JsonLibrary
