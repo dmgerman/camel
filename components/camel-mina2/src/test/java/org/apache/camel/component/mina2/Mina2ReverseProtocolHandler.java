@@ -114,10 +114,8 @@ expr_stmt|;
 comment|// Close connection when unexpected exception is caught.
 name|session
 operator|.
-name|close
-argument_list|(
-literal|true
-argument_list|)
+name|closeNow
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|messageReceived (IoSession session, Object message)
