@@ -751,7 +751,7 @@ annotation|@
 name|Override
 DECL|method|createRouteBuilder ()
 specifier|protected
-name|RoutesBuilder
+name|RouteBuilder
 name|createRouteBuilder
 parameter_list|()
 throws|throws
