@@ -117,6 +117,12 @@ argument_list|(
 literal|"queryMore"
 argument_list|)
 block|,
+DECL|enumConstant|QUERY_ALL
+name|QUERY_ALL
+argument_list|(
+literal|"queryAll"
+argument_list|)
+block|,
 DECL|enumConstant|SEARCH
 name|SEARCH
 argument_list|(

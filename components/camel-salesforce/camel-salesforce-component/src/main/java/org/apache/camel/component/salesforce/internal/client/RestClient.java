@@ -301,6 +301,18 @@ name|ResponseCallback
 name|callback
 parameter_list|)
 function_decl|;
+comment|/**      * Executes the specified SOQL query including deleted records.      *      * @param soqlQuery SOQL query      * @param callback  {@link ResponseCallback} to handle response or exception      */
+DECL|method|queryAll (String soqlQuery, ResponseCallback callback)
+name|void
+name|queryAll
+parameter_list|(
+name|String
+name|soqlQuery
+parameter_list|,
+name|ResponseCallback
+name|callback
+parameter_list|)
+function_decl|;
 comment|/**      * Executes the specified SOSL search.      *      * @param soslQuery SOSL query      * @param callback  {@link ResponseCallback} to handle response or exception      */
 DECL|method|search (String soslQuery, ResponseCallback callback)
 name|void
