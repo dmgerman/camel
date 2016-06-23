@@ -111,7 +111,7 @@ name|XmlType
 argument_list|(
 name|name
 operator|=
-literal|"SNIHostNames"
+literal|"sniHostNames"
 argument_list|,
 name|propOrder
 operator|=
@@ -129,7 +129,7 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
-literal|"SNIHostName"
+literal|"sniHostName"
 argument_list|)
 DECL|field|sniHostName
 specifier|private

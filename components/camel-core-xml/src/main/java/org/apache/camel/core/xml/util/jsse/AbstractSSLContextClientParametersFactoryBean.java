@@ -120,7 +120,7 @@ name|XmlElement
 argument_list|(
 name|name
 operator|=
-literal|"SNIHostNamesDefinition"
+literal|"sniHostNames"
 argument_list|)
 DECL|field|sniHostNamesDefinition
 specifier|private
@@ -152,7 +152,7 @@ argument_list|)
 expr_stmt|;
 name|newInstance
 operator|.
-name|setSniHostNames
+name|addAllSniHostNames
 argument_list|(
 name|sniHostNamesDefinition
 operator|.
@@ -183,20 +183,6 @@ return|;
 block|}
 DECL|method|getSniHostNamesDefinition ()
 specifier|public
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|core
-operator|.
-name|xml
-operator|.
-name|util
-operator|.
-name|jsse
-operator|.
 name|SNIHostNamesDefinition
 name|getSniHostNamesDefinition
 parameter_list|()

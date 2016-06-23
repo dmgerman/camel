@@ -179,10 +179,10 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|method|setSniHostNames (List<String> sniHostNames)
+DECL|method|addAllSniHostNames (List<String> sniHostNames)
 specifier|public
 name|void
-name|setSniHostNames
+name|addAllSniHostNames
 parameter_list|(
 name|List
 argument_list|<
@@ -213,6 +213,29 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+DECL|method|setSniHostName (String sniHostName)
+specifier|public
+name|void
+name|setSniHostName
+parameter_list|(
+name|String
+name|sniHostName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sniHostNames
+operator|.
+name|add
+argument_list|(
+operator|new
+name|SNIHostName
+argument_list|(
+name|sniHostName
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

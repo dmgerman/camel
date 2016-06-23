@@ -1796,6 +1796,16 @@ name|SSLSocket
 name|socket
 parameter_list|)
 block|{
+if|if
+condition|(
+operator|!
+name|getSNIHostNames
+argument_list|()
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|SSLParameters
 name|sslParameters
 init|=
@@ -1819,6 +1829,7 @@ argument_list|(
 name|sslParameters
 argument_list|)
 expr_stmt|;
+block|}
 name|Collection
 argument_list|<
 name|String
