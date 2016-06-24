@@ -374,7 +374,7 @@ operator|.
 name|getParent
 argument_list|()
 operator|.
-name|remove
+name|delete
 argument_list|(
 name|r
 argument_list|)
