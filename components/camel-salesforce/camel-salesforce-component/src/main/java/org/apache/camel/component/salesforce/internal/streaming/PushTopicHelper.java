@@ -484,7 +484,11 @@ name|query
 argument_list|(
 literal|"SELECT Id, Name, Query, ApiVersion, IsActive, "
 operator|+
-literal|"NotifyForFields, NotifyForOperations, Description "
+literal|"NotifyForFields, NotifyForOperations, NotifyForOperationCreate, "
+operator|+
+literal|"NotifyForOperationDelete, NotifyForOperationUndelete, "
+operator|+
+literal|"NotifyForOperationUpdate, Description "
 operator|+
 literal|"FROM PushTopic WHERE Name = '"
 operator|+
