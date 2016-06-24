@@ -303,6 +303,12 @@ block|,
 literal|"camel-jetty"
 block|,
 literal|"camel-jetty-common"
+block|,
+literal|"camel-linkedin"
+block|,
+literal|"camel-olingo2"
+block|,
+literal|"camel-salesforce"
 block|}
 decl_stmt|;
 DECL|field|LABEL_PATTERN
