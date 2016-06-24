@@ -208,6 +208,13 @@ name|disconnect
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|disconnectOnBatchComplete
+specifier|private
+name|boolean
+name|disconnectOnBatchComplete
+decl_stmt|;
+annotation|@
+name|UriParam
 DECL|field|fastExistsCheck
 specifier|private
 name|boolean
@@ -829,6 +836,33 @@ operator|.
 name|disconnect
 operator|=
 name|disconnect
+expr_stmt|;
+block|}
+DECL|method|isDisconnectOnBatchComplete ()
+specifier|public
+name|boolean
+name|isDisconnectOnBatchComplete
+parameter_list|()
+block|{
+return|return
+name|disconnectOnBatchComplete
+return|;
+block|}
+comment|/**      * Whether or not to disconnect from remote FTP server right after a Batch is complete.      * disconnectOnBatchComplete will only disconnect the current connection to the FTP server.      * If you have a consumer which you want to stop, then you need to stop the consumer/route instead.      */
+DECL|method|setDisconnectOnBatchComplete (boolean disconnectOnBatchComplete)
+specifier|public
+name|void
+name|setDisconnectOnBatchComplete
+parameter_list|(
+name|boolean
+name|disconnectOnBatchComplete
+parameter_list|)
+block|{
+name|this
+operator|.
+name|disconnectOnBatchComplete
+operator|=
+name|disconnectOnBatchComplete
 expr_stmt|;
 block|}
 DECL|method|isFastExistsCheck ()
