@@ -282,7 +282,7 @@ operator|.
 name|getClassResolver
 argument_list|()
 operator|.
-name|resolveClass
+name|resolveMandatoryClass
 argument_list|(
 name|endpoint
 operator|.
