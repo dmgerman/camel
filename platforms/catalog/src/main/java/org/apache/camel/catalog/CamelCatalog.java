@@ -67,7 +67,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Catalog of components, data formats, models (EIPs), languages, and more  from this Apache Camel release.  */
+comment|/**  * Catalog of components, data formats, models (EIPs), languages, and more from this Apache Camel release.  */
 end_comment
 
 begin_interface
@@ -91,6 +91,15 @@ name|setSuggestionStrategy
 parameter_list|(
 name|SuggestionStrategy
 name|suggestionStrategy
+parameter_list|)
+function_decl|;
+comment|/**      * To plugin a custom {@link VersionManager} to load other versions of Camel the catalog should use.      */
+DECL|method|setVersionManager (VersionManager versionManager)
+name|void
+name|setVersionManager
+parameter_list|(
+name|VersionManager
+name|versionManager
 parameter_list|)
 function_decl|;
 comment|/**      * Adds a 3rd party component to this catalog.      *      * @param name      the component name      * @param className the fully qualified class name for the component class      */
@@ -121,6 +130,21 @@ comment|/**      * The version of this Camel Catalog      */
 DECL|method|getCatalogVersion ()
 name|String
 name|getCatalogVersion
+parameter_list|()
+function_decl|;
+comment|/**      * Attempt to load the Camel version to be used by the catalog.      *<p/>      * Loading the camel-catalog JAR of the given version of choice may require internet access      * to download the JAR from Maven central. You can pre download the JAR and install in a local      * Maven repository to avoid internet access for offline environments.      *      * @param version  the Camel version such as<tt>2.17.1</tt>      * @return<tt>true</tt> if the version was loaded,<tt>false</tt> if not.      */
+DECL|method|loadVersion (String version)
+name|boolean
+name|loadVersion
+parameter_list|(
+name|String
+name|version
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the current loaded Camel version used by the catalog.      */
+DECL|method|getLoadedVersion ()
+name|String
+name|getLoadedVersion
 parameter_list|()
 function_decl|;
 comment|/**      * Find all the component names from the Camel catalog      */
