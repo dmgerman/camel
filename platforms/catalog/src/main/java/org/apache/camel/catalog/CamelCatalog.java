@@ -132,7 +132,7 @@ name|String
 name|getCatalogVersion
 parameter_list|()
 function_decl|;
-comment|/**      * Attempt to load the Camel version to be used by the catalog.      *<p/>      * Loading the camel-catalog JAR of the given version of choice may require internet access      * to download the JAR from Maven central. You can pre download the JAR and install in a local      * Maven repository to avoid internet access for offline environments.      *      * @param version  the Camel version such as<tt>2.17.1</tt>      * @return<tt>true</tt> if the version was loaded,<tt>false</tt> if not.      */
+comment|/**      * Attempt to load the Camel version to be used by the catalog.      *<p/>      * Loading the camel-catalog JAR of the given version of choice may require internet access      * to download the JAR from Maven central. You can pre download the JAR and install in a local      * Maven repository to avoid internet access for offline environments.      *<p/>      * When loading a new version the cache will be invalidated.      *      * @param version  the Camel version such as<tt>2.17.1</tt>      * @return<tt>true</tt> if the version was loaded,<tt>false</tt> if not.      */
 DECL|method|loadVersion (String version)
 name|boolean
 name|loadVersion
