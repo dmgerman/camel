@@ -968,11 +968,22 @@ throw|;
 block|}
 finally|finally
 block|{
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|result
+argument_list|)
+condition|)
+block|{
 name|result
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|doInit (Exchange exchange, String operation)
@@ -1072,11 +1083,22 @@ throw|;
 block|}
 finally|finally
 block|{
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|isNotEmpty
+argument_list|(
+name|result
+argument_list|)
+condition|)
+block|{
 name|result
 operator|.
 name|close
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|doAdd (Exchange exchange, String operation)
