@@ -1351,6 +1351,21 @@ name|getQuery
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|redirectQuery
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Redirect Query is null cannot use it as input"
+argument_list|)
+throw|;
+block|}
 specifier|final
 name|Map
 argument_list|<
