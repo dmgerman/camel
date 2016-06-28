@@ -32,6 +32,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Collections
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Date
 import|;
 end_import
@@ -103,6 +113,18 @@ operator|.
 name|camel
 operator|.
 name|MessageHistory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Ordered
 import|;
 end_import
 
@@ -384,6 +406,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|OrderedComparator
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|StopWatch
 import|;
 end_import
@@ -423,7 +459,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Internal {@link Processor} that Camel routing engine used during routing for cross cutting functionality such as:  *<ul>  *<li>Execute {@link UnitOfWork}</li>  *<li>Keeping track which route currently is being routed</li>  *<li>Execute {@link RoutePolicy}</li>  *<li>Gather JMX performance statics</li>  *<li>Tracing</li>  *<li>Debugging</li>  *<li>Message History</li>  *<li>Stream Caching</li>  *</ul>  * ... and more.  *<p/>  * This implementation executes this cross cutting functionality as a {@link CamelInternalProcessorAdvice} advice (before and after advice)  * by executing the {@link CamelInternalProcessorAdvice#before(org.apache.camel.Exchange)} and  * {@link CamelInternalProcessorAdvice#after(org.apache.camel.Exchange, Object)} callbacks in correct order during routing.  * This reduces number of stack frames needed during routing, and reduce the number of lines in stacktraces, as well  * makes debugging the routing engine easier for end users.  *<p/>  *<b>Debugging tips:</b> Camel end users whom want to debug their Camel applications with the Camel source code, then make sure to  * read the source code of this class about the debugging tips, which you can find in the  * {@link #process(org.apache.camel.Exchange, org.apache.camel.AsyncCallback)} method.  */
+comment|/**  * Internal {@link Processor} that Camel routing engine used during routing for cross cutting functionality such as:  *<ul>  *<li>Execute {@link UnitOfWork}</li>  *<li>Keeping track which route currently is being routed</li>  *<li>Execute {@link RoutePolicy}</li>  *<li>Gather JMX performance statics</li>  *<li>Tracing</li>  *<li>Debugging</li>  *<li>Message History</li>  *<li>Stream Caching</li>  *</ul>  * ... and more.  *<p/>  * This implementation executes this cross cutting functionality as a {@link CamelInternalProcessorAdvice} advice (before and after advice)  * by executing the {@link CamelInternalProcessorAdvice#before(org.apache.camel.Exchange)} and  * {@link CamelInternalProcessorAdvice#after(org.apache.camel.Exchange, Object)} callbacks in correct order during routing.  * This reduces number of stack frames needed during routing, and reduce the number of lines in stacktraces, as well  * makes debugging the routing engine easier for end users.  *<p/>  *<b>Debugging tips:</b> Camel end users whom want to debug their Camel applications with the Camel source code, then make sure to  * read the source code of this class about the debugging tips, which you can find in the  * {@link #process(org.apache.camel.Exchange, org.apache.camel.AsyncCallback)} method.  *<p/>  * The added advices can implement {@link Ordered} to control in which order the advices are executed.  */
 end_comment
 
 begin_class
@@ -500,6 +536,18 @@ operator|.
 name|add
 argument_list|(
 name|advice
+argument_list|)
+expr_stmt|;
+comment|// ensure advices are sorted so they are in the order we want
+name|Collections
+operator|.
+name|sort
+argument_list|(
+name|advices
+argument_list|,
+operator|new
+name|OrderedComparator
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -2229,6 +2277,8 @@ class|class
 name|BacklogTracerAdvice
 implements|implements
 name|CamelInternalProcessorAdvice
+implements|,
+name|Ordered
 block|{
 DECL|field|backlogTracer
 specifier|private
@@ -2508,6 +2558,23 @@ name|Exception
 block|{
 comment|// noop
 block|}
+annotation|@
+name|Override
+DECL|method|getOrder ()
+specifier|public
+name|int
+name|getOrder
+parameter_list|()
+block|{
+comment|// we want tracer just before calling the processor
+return|return
+name|Ordered
+operator|.
+name|LOWEST
+operator|-
+literal|1
+return|;
+block|}
 block|}
 comment|/**      * Advice to execute the {@link org.apache.camel.processor.interceptor.BacklogDebugger} if enabled.      */
 DECL|class|BacklogDebuggerAdvice
@@ -2521,6 +2588,8 @@ name|CamelInternalProcessorAdvice
 argument_list|<
 name|StopWatch
 argument_list|>
+implements|,
+name|Ordered
 block|{
 DECL|field|backlogDebugger
 specifier|private
@@ -2698,6 +2767,21 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getOrder ()
+specifier|public
+name|int
+name|getOrder
+parameter_list|()
+block|{
+comment|// we want debugger just before calling the processor
+return|return
+name|Ordered
+operator|.
+name|LOWEST
+return|;
 block|}
 block|}
 comment|/**      * Advice to inject new {@link UnitOfWork} to the {@link Exchange} if needed, and as well to ensure      * the {@link UnitOfWork} is done and stopped.      */
@@ -3283,6 +3367,8 @@ name|CamelInternalProcessorAdvice
 argument_list|<
 name|StreamCache
 argument_list|>
+implements|,
+name|Ordered
 block|{
 DECL|field|strategy
 specifier|private
@@ -3474,6 +3560,21 @@ name|reset
 argument_list|()
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|getOrder ()
+specifier|public
+name|int
+name|getOrder
+parameter_list|()
+block|{
+comment|// we want stream caching first
+return|return
+name|Ordered
+operator|.
+name|HIGHEST
+return|;
 block|}
 block|}
 comment|/**      * Advice for delaying      */
