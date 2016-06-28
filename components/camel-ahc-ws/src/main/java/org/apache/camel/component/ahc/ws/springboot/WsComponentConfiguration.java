@@ -133,7 +133,7 @@ specifier|private
 name|AhcBinding
 name|binding
 decl_stmt|;
-comment|/**      * To configure the AsyncHttpClient to use a custom      * org.asynchttpclient.AsyncHttpClientConfig instance.      */
+comment|/**      * To configure the AsyncHttpClient to use a custom      * com.ning.http.client.AsyncHttpClientConfig instance.      */
 DECL|field|clientConfig
 specifier|private
 name|AsyncHttpClientConfig
