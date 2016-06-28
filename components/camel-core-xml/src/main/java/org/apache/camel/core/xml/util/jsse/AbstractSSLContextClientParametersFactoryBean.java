@@ -150,6 +150,13 @@ name|getCamelContext
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|sniHostNamesDefinition
+operator|!=
+literal|null
+condition|)
+block|{
 name|newInstance
 operator|.
 name|addAllSniHostNames
@@ -160,6 +167,7 @@ name|getSniHostName
 argument_list|()
 argument_list|)
 expr_stmt|;
+block|}
 return|return
 name|newInstance
 return|;
