@@ -836,7 +836,7 @@ name|httpUri
 argument_list|)
 return|;
 block|}
-comment|/**      * Creates a new client configuration builder using {@code clientConfig} as a template for      * the builder.      *      * @param clientConfig the instance to serve as a template for the builder      * @return a builder configured with the same options as the supplied config      */
+comment|/**      * Creates a new client configuration builder using {@code DefaultAsyncHttpClientConfig} as a template for      * the builder.      *      * @param clientConfig the instance to serve as a template for the builder      * @return a builder configured with the same options as the supplied config      */
 DECL|method|cloneConfig (AsyncHttpClientConfig clientConfig)
 specifier|static
 name|DefaultAsyncHttpClientConfig
