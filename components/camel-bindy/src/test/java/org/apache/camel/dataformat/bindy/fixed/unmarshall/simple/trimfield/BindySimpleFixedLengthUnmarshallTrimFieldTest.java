@@ -301,7 +301,7 @@ name|Exception
 block|{
 name|expected
 operator|=
-literal|"10A9  PaulineM    ISINXD12345678BUYShare000002500.45USD01-08-2009  Hello   "
+literal|"10A9  PaulineM    ISINXD12345678BUYShare000002500.45USD01-08-2009  Hello###"
 expr_stmt|;
 name|template
 operator|.
@@ -392,7 +392,7 @@ name|Assert
 operator|.
 name|assertEquals
 argument_list|(
-literal|"Hello"
+literal|"  Hello"
 argument_list|,
 name|order
 operator|.
@@ -667,6 +667,14 @@ argument_list|,
 name|trim
 operator|=
 literal|true
+argument_list|,
+name|align
+operator|=
+literal|"L"
+argument_list|,
+name|paddingChar
+operator|=
+literal|'#'
 argument_list|)
 DECL|field|comment
 specifier|private

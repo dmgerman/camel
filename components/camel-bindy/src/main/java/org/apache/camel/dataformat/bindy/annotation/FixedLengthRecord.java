@@ -162,6 +162,15 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+comment|/**      * Indicates whether too short lines will be ignored      */
+DECL|method|ignoreMissingChars ()
+DECL|field|false
+name|boolean
+name|ignoreMissingChars
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 block|}
 end_annotation_defn
 
