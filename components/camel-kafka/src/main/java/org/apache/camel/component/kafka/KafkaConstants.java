@@ -124,6 +124,15 @@ name|PARTITIONER_RANGE_ASSIGNOR
 init|=
 literal|"org.apache.kafka.clients.consumer.RangeAssignor"
 decl_stmt|;
+DECL|field|KAFKA_RECORDMETA
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|KAFKA_RECORDMETA
+init|=
+literal|"kafka.RECORDMETA"
+decl_stmt|;
 DECL|method|KafkaConstants ()
 specifier|private
 name|KafkaConstants
