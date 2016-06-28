@@ -2921,6 +2921,22 @@ name|String
 name|name
 parameter_list|)
 block|{
+comment|// if we try to look method then its in the bean.json file
+if|if
+condition|(
+literal|"method"
+operator|.
+name|equals
+argument_list|(
+name|name
+argument_list|)
+condition|)
+block|{
+name|name
+operator|=
+literal|"bean"
+expr_stmt|;
+block|}
 name|String
 name|file
 init|=
