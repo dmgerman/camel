@@ -444,12 +444,14 @@ name|result
 operator|.
 name|length
 argument_list|()
+operator|<=
+literal|48
 argument_list|,
 name|Is
 operator|.
 name|is
 argument_list|(
-literal|48
+literal|true
 argument_list|)
 argument_list|)
 expr_stmt|;
