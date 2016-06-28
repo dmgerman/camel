@@ -20,20 +20,6 @@ end_package
 
 begin_import
 import|import
-name|com
-operator|.
-name|ning
-operator|.
-name|http
-operator|.
-name|client
-operator|.
-name|AsyncHttpClientConfig
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -74,6 +60,16 @@ begin_import
 import|import
 name|org
 operator|.
+name|asynchttpclient
+operator|.
+name|DefaultAsyncHttpClientConfig
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|junit
 operator|.
 name|Test
@@ -96,20 +92,20 @@ parameter_list|()
 block|{
 comment|// START SNIPPET: e1
 comment|// create a client config builder
-name|AsyncHttpClientConfig
+name|DefaultAsyncHttpClientConfig
 operator|.
 name|Builder
 name|builder
 init|=
 operator|new
-name|AsyncHttpClientConfig
+name|DefaultAsyncHttpClientConfig
 operator|.
 name|Builder
 argument_list|()
 decl_stmt|;
 comment|// use the builder to set the options we want, in this case we want to follow redirects and try
 comment|// at most 3 retries to send a request to the host
-name|AsyncHttpClientConfig
+name|DefaultAsyncHttpClientConfig
 name|config
 init|=
 name|builder

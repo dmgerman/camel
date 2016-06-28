@@ -70,7 +70,7 @@ argument_list|(
 name|getAhcEndpointUri
 argument_list|()
 operator|+
-literal|"?clientConfig.IOThreadMultiplier=4"
+literal|"?clientConfig.maxRedirects=4"
 argument_list|,
 literal|null
 argument_list|,
