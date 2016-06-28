@@ -130,6 +130,23 @@ expr_stmt|;
 name|assertMockEndpointsSatisfied
 argument_list|()
 expr_stmt|;
+name|Object
+name|stub
+init|=
+name|context
+operator|.
+name|hasEndpoint
+argument_list|(
+literal|"stub:GET    /v1/phonebook/companies/{companyCode}?oauth=OPTIONAL"
+argument_list|)
+decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"Should have stub endpoint with double spaces"
+argument_list|,
+name|stub
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
