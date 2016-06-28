@@ -98,13 +98,9 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|ning
-operator|.
-name|http
-operator|.
-name|client
+name|asynchttpclient
 operator|.
 name|AsyncHttpClient
 import|;
@@ -112,13 +108,9 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|ning
-operator|.
-name|http
-operator|.
-name|client
+name|asynchttpclient
 operator|.
 name|AsyncHttpClientConfig
 import|;
@@ -126,13 +118,19 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|ning
+name|asynchttpclient
 operator|.
-name|http
+name|DefaultAsyncHttpClient
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|client
+name|asynchttpclient
 operator|.
 name|ws
 operator|.
@@ -142,13 +140,9 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|ning
-operator|.
-name|http
-operator|.
-name|client
+name|asynchttpclient
 operator|.
 name|ws
 operator|.
@@ -158,13 +152,9 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|ning
-operator|.
-name|http
-operator|.
-name|client
+name|asynchttpclient
 operator|.
 name|ws
 operator|.
@@ -174,13 +164,9 @@ end_import
 
 begin_import
 import|import
-name|com
+name|org
 operator|.
-name|ning
-operator|.
-name|http
-operator|.
-name|client
+name|asynchttpclient
 operator|.
 name|ws
 operator|.
@@ -362,11 +348,11 @@ operator|==
 literal|null
 condition|?
 operator|new
-name|AsyncHttpClient
+name|DefaultAsyncHttpClient
 argument_list|()
 else|:
 operator|new
-name|AsyncHttpClient
+name|DefaultAsyncHttpClient
 argument_list|(
 name|conf
 argument_list|)
@@ -703,6 +689,8 @@ specifier|public
 name|void
 name|close
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 name|websocket
 operator|.

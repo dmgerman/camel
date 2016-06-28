@@ -42,22 +42,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|ning
-operator|.
-name|http
-operator|.
-name|client
-operator|.
-name|ws
-operator|.
-name|WebSocket
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -91,6 +75,18 @@ operator|.
 name|impl
 operator|.
 name|DefaultProducer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|asynchttpclient
+operator|.
+name|ws
+operator|.
+name|WebSocket
 import|;
 end_import
 
