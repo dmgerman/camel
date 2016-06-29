@@ -58,16 +58,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Arrays
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Collection
 import|;
 end_import
@@ -153,6 +143,18 @@ operator|.
 name|regex
 operator|.
 name|Pattern
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|stream
+operator|.
+name|Collectors
 import|;
 end_import
 
@@ -1309,8 +1311,33 @@ name|length
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * Gets methods that match the given name and arguments.<p/>      * Note that the args list is a required subset of arguments for returned methods.      *      * @param name case sensitive method name or alias to lookup      * @return non-null unmodifiable list of methods that take all of the given arguments, empty if there is no match      */
+DECL|method|getCandidateMethods (String name)
+specifier|public
+name|List
+argument_list|<
+name|ApiMethod
+argument_list|>
+name|getCandidateMethods
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+return|return
+name|getCandidateMethods
+argument_list|(
+name|name
+argument_list|,
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+argument_list|)
+return|;
+block|}
 comment|/**      * Gets methods that match the given name and arguments.<p/>      * Note that the args list is a required subset of arguments for returned methods.      *      * @param name case sensitive method name or alias to lookup      * @param argNames unordered required argument names      * @return non-null unmodifiable list of methods that take all of the given arguments, empty if there is no match      */
-DECL|method|getCandidateMethods (String name, String... argNames)
+DECL|method|getCandidateMethods (String name, Collection<String> argNames)
 specifier|public
 name|List
 argument_list|<
@@ -1321,8 +1348,10 @@ parameter_list|(
 name|String
 name|name
 parameter_list|,
+name|Collection
+argument_list|<
 name|String
-modifier|...
+argument_list|>
 name|argNames
 parameter_list|)
 block|{
@@ -1358,30 +1387,23 @@ condition|)
 block|{
 name|methods
 operator|=
-operator|new
-name|ArrayList
-argument_list|<
-name|T
-argument_list|>
-argument_list|()
-expr_stmt|;
-for|for
-control|(
-name|String
-name|method
-range|:
 name|aliasesMap
 operator|.
 name|get
 argument_list|(
 name|name
 argument_list|)
-control|)
-block|{
-name|methods
 operator|.
-name|addAll
+name|stream
+argument_list|()
+operator|.
+name|map
 argument_list|(
+name|method
+lambda|->
+operator|(
+name|T
+operator|)
 name|methodMap
 operator|.
 name|get
@@ -1389,8 +1411,15 @@ argument_list|(
 name|method
 argument_list|)
 argument_list|)
+operator|.
+name|collect
+argument_list|(
+name|Collectors
+operator|.
+name|toList
+argument_list|()
+argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 if|if
@@ -1425,7 +1454,8 @@ literal|null
 condition|?
 name|argNames
 operator|.
-name|length
+name|size
+argument_list|()
 else|:
 literal|0
 decl_stmt|;
@@ -1453,9 +1483,6 @@ expr_stmt|;
 return|return
 name|Collections
 operator|.
-expr|<
-name|ApiMethod
-operator|>
 name|unmodifiableList
 argument_list|(
 name|methods
@@ -1503,12 +1530,10 @@ argument_list|()
 argument_list|,
 name|name
 operator|+
-name|Arrays
+name|argNames
 operator|.
 name|toString
-argument_list|(
-name|argNames
-argument_list|)
+argument_list|()
 operator|.
 name|replace
 argument_list|(
@@ -1531,8 +1556,43 @@ name|filteredSet
 return|;
 block|}
 block|}
+comment|/**      * Filters a list of methods to those that take the given set of arguments.      *      * @param methods list of methods to filter      * @param matchType whether the arguments are an exact match, a subset or a super set of method args      * @return methods with arguments that satisfy the match type.<p/>      * For SUPER_SET match, if methods with exact match are found, methods that take a subset are ignored      */
+DECL|method|filterMethods (List<? extends ApiMethod> methods, MatchType matchType)
+specifier|public
+name|List
+argument_list|<
+name|ApiMethod
+argument_list|>
+name|filterMethods
+parameter_list|(
+name|List
+argument_list|<
+name|?
+extends|extends
+name|ApiMethod
+argument_list|>
+name|methods
+parameter_list|,
+name|MatchType
+name|matchType
+parameter_list|)
+block|{
+return|return
+name|filterMethods
+argument_list|(
+name|methods
+argument_list|,
+name|matchType
+argument_list|,
+name|Collections
+operator|.
+name|emptyList
+argument_list|()
+argument_list|)
+return|;
+block|}
 comment|/**      * Filters a list of methods to those that take the given set of arguments.      *      * @param methods list of methods to filter      * @param matchType whether the arguments are an exact match, a subset or a super set of method args      * @param argNames argument names to filter the list      * @return methods with arguments that satisfy the match type.<p/>      * For SUPER_SET match, if methods with exact match are found, methods that take a subset are ignored      */
-DECL|method|filterMethods (List<? extends ApiMethod> methods, MatchType matchType, String... argNames)
+DECL|method|filterMethods (List<? extends ApiMethod> methods, MatchType matchType, Collection<String> argNames)
 specifier|public
 name|List
 argument_list|<
@@ -1551,26 +1611,14 @@ parameter_list|,
 name|MatchType
 name|matchType
 parameter_list|,
+name|Collection
+argument_list|<
 name|String
-modifier|...
+argument_list|>
 name|argNames
 parameter_list|)
 block|{
 comment|// original arguments
-specifier|final
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|argsList
-init|=
-name|Arrays
-operator|.
-name|asList
-argument_list|(
-name|argNames
-argument_list|)
-decl_stmt|;
 comment|// supplied arguments with missing nullable arguments
 specifier|final
 name|List
@@ -1592,11 +1640,9 @@ name|withNullableArgsList
 operator|=
 operator|new
 name|ArrayList
-argument_list|<
-name|String
-argument_list|>
+argument_list|<>
 argument_list|(
-name|argsList
+name|argNames
 argument_list|)
 expr_stmt|;
 name|withNullableArgsList
@@ -1692,10 +1738,10 @@ name|methodArgs
 operator|.
 name|containsAll
 argument_list|(
-name|argsList
+name|argNames
 argument_list|)
 operator|&&
-name|argsList
+name|argNames
 operator|.
 name|containsAll
 argument_list|(
@@ -1722,7 +1768,7 @@ name|methodArgs
 operator|.
 name|containsAll
 argument_list|(
-name|argsList
+name|argNames
 argument_list|)
 condition|)
 block|{
@@ -1742,7 +1788,7 @@ case|:
 comment|// all method args must be present
 if|if
 condition|(
-name|argsList
+name|argNames
 operator|.
 name|containsAll
 argument_list|(
@@ -1756,7 +1802,7 @@ name|methodArgs
 operator|.
 name|containsAll
 argument_list|(
-name|argsList
+name|argNames
 argument_list|)
 condition|)
 block|{
