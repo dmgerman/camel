@@ -131,7 +131,7 @@ specifier|final
 name|String
 name|KAFKA_RECORDMETA
 init|=
-literal|"kafka.RECORDMETA"
+literal|"org.apache.kafka.clients.producer.RecordMetadata"
 decl_stmt|;
 DECL|method|KafkaConstants ()
 specifier|private
