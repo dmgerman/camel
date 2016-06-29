@@ -40,7 +40,7 @@ specifier|public
 interface|interface
 name|ResultInterceptor
 block|{
-comment|/**      * Split a complex result into result elements.      * @param result API method invocation result      * @return either the same result if it cannot be split, or an array object with split results      */
+comment|/**      * Split a complex result into result elements.      * @param result API method invocation result      * @return either the same result if it cannot be split, an array or collection object with split results      */
 DECL|method|splitResult (Object result)
 name|Object
 name|splitResult
