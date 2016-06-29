@@ -28,6 +28,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|time
+operator|.
+name|ZonedDateTime
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|fasterxml
@@ -148,13 +158,7 @@ decl_stmt|;
 comment|// LastRunDate
 DECL|field|LastRunDate
 specifier|private
-name|org
-operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|DateTime
+name|ZonedDateTime
 name|LastRunDate
 decl_stmt|;
 comment|// Format
@@ -291,13 +295,7 @@ literal|"LastRunDate"
 argument_list|)
 DECL|method|getLastRunDate ()
 specifier|public
-name|org
-operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|DateTime
+name|ZonedDateTime
 name|getLastRunDate
 parameter_list|()
 block|{
@@ -312,18 +310,12 @@ name|JsonProperty
 argument_list|(
 literal|"LastRunDate"
 argument_list|)
-DECL|method|setLastRunDate (org.joda.time.DateTime LastRunDate)
+DECL|method|setLastRunDate (ZonedDateTime LastRunDate)
 specifier|public
 name|void
 name|setLastRunDate
 parameter_list|(
-name|org
-operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|DateTime
+name|ZonedDateTime
 name|LastRunDate
 parameter_list|)
 block|{

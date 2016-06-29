@@ -24,6 +24,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|time
+operator|.
+name|ZonedDateTime
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|fasterxml
@@ -33,18 +43,6 @@ operator|.
 name|annotation
 operator|.
 name|JsonProperty
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|DateTime
 import|;
 end_import
 
@@ -90,7 +88,7 @@ name|Name
 decl_stmt|;
 DECL|field|CreatedDate
 specifier|private
-name|DateTime
+name|ZonedDateTime
 name|CreatedDate
 decl_stmt|;
 DECL|field|CreatedById
@@ -100,7 +98,7 @@ name|CreatedById
 decl_stmt|;
 DECL|field|LastModifiedDate
 specifier|private
-name|DateTime
+name|ZonedDateTime
 name|LastModifiedDate
 decl_stmt|;
 DECL|field|LastModifiedById
@@ -110,7 +108,7 @@ name|LastModifiedById
 decl_stmt|;
 DECL|field|SystemModstamp
 specifier|private
-name|DateTime
+name|ZonedDateTime
 name|SystemModstamp
 decl_stmt|;
 DECL|field|LastActivityDate
@@ -120,12 +118,12 @@ name|LastActivityDate
 decl_stmt|;
 DECL|field|LastViewedDate
 specifier|private
-name|DateTime
+name|ZonedDateTime
 name|LastViewedDate
 decl_stmt|;
 DECL|field|LastReferencedDate
 specifier|private
-name|DateTime
+name|ZonedDateTime
 name|LastReferencedDate
 decl_stmt|;
 comment|/**      * Utility method to clear all system {@link AbstractSObjectBase} fields.      *<p>Useful when reusing a DTO for a new record, or for update/upsert.</p>      *<p>This method does not clear {@code Name} to allow updating it, so it must be explicitly set to {@code null} if needed.</p>      */
@@ -354,7 +352,7 @@ literal|"CreatedDate"
 argument_list|)
 DECL|method|getCreatedDate ()
 specifier|public
-name|DateTime
+name|ZonedDateTime
 name|getCreatedDate
 parameter_list|()
 block|{
@@ -367,12 +365,12 @@ name|JsonProperty
 argument_list|(
 literal|"CreatedDate"
 argument_list|)
-DECL|method|setCreatedDate (DateTime createdDate)
+DECL|method|setCreatedDate (ZonedDateTime createdDate)
 specifier|public
 name|void
 name|setCreatedDate
 parameter_list|(
-name|DateTime
+name|ZonedDateTime
 name|createdDate
 parameter_list|)
 block|{
@@ -426,7 +424,7 @@ literal|"LastModifiedDate"
 argument_list|)
 DECL|method|getLastModifiedDate ()
 specifier|public
-name|DateTime
+name|ZonedDateTime
 name|getLastModifiedDate
 parameter_list|()
 block|{
@@ -439,12 +437,12 @@ name|JsonProperty
 argument_list|(
 literal|"LastModifiedDate"
 argument_list|)
-DECL|method|setLastModifiedDate (DateTime lastModifiedDate)
+DECL|method|setLastModifiedDate (ZonedDateTime lastModifiedDate)
 specifier|public
 name|void
 name|setLastModifiedDate
 parameter_list|(
-name|DateTime
+name|ZonedDateTime
 name|lastModifiedDate
 parameter_list|)
 block|{
@@ -498,7 +496,7 @@ literal|"SystemModstamp"
 argument_list|)
 DECL|method|getSystemModstamp ()
 specifier|public
-name|DateTime
+name|ZonedDateTime
 name|getSystemModstamp
 parameter_list|()
 block|{
@@ -511,12 +509,12 @@ name|JsonProperty
 argument_list|(
 literal|"SystemModstamp"
 argument_list|)
-DECL|method|setSystemModstamp (DateTime systemModstamp)
+DECL|method|setSystemModstamp (ZonedDateTime systemModstamp)
 specifier|public
 name|void
 name|setSystemModstamp
 parameter_list|(
-name|DateTime
+name|ZonedDateTime
 name|systemModstamp
 parameter_list|)
 block|{
@@ -570,7 +568,7 @@ literal|"LastViewedDate"
 argument_list|)
 DECL|method|getLastViewedDate ()
 specifier|public
-name|DateTime
+name|ZonedDateTime
 name|getLastViewedDate
 parameter_list|()
 block|{
@@ -583,12 +581,12 @@ name|JsonProperty
 argument_list|(
 literal|"LastViewedDate"
 argument_list|)
-DECL|method|setLastViewedDate (DateTime lastViewedDate)
+DECL|method|setLastViewedDate (ZonedDateTime lastViewedDate)
 specifier|public
 name|void
 name|setLastViewedDate
 parameter_list|(
-name|DateTime
+name|ZonedDateTime
 name|lastViewedDate
 parameter_list|)
 block|{
@@ -604,7 +602,7 @@ literal|"LastReferencedDate"
 argument_list|)
 DECL|method|getLastReferencedDate ()
 specifier|public
-name|DateTime
+name|ZonedDateTime
 name|getLastReferencedDate
 parameter_list|()
 block|{
@@ -617,12 +615,12 @@ name|JsonProperty
 argument_list|(
 literal|"LastReferencedDate"
 argument_list|)
-DECL|method|setLastReferencedDate (DateTime lastReferencedDate)
+DECL|method|setLastReferencedDate (ZonedDateTime lastReferencedDate)
 specifier|public
 name|void
 name|setLastReferencedDate
 parameter_list|(
-name|DateTime
+name|ZonedDateTime
 name|lastReferencedDate
 parameter_list|)
 block|{

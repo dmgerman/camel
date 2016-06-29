@@ -28,6 +28,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|time
+operator|.
+name|ZonedDateTime
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -43,18 +53,6 @@ operator|.
 name|dto
 operator|.
 name|AbstractDTOBase
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|DateTime
 import|;
 end_import
 
@@ -97,12 +95,12 @@ name|hasDetailRows
 decl_stmt|;
 DECL|field|completionDate
 specifier|private
-name|DateTime
+name|ZonedDateTime
 name|completionDate
 decl_stmt|;
 DECL|field|requestDate
 specifier|private
-name|DateTime
+name|ZonedDateTime
 name|requestDate
 decl_stmt|;
 DECL|method|getId ()
@@ -237,7 +235,7 @@ expr_stmt|;
 block|}
 DECL|method|getCompletionDate ()
 specifier|public
-name|DateTime
+name|ZonedDateTime
 name|getCompletionDate
 parameter_list|()
 block|{
@@ -245,12 +243,12 @@ return|return
 name|completionDate
 return|;
 block|}
-DECL|method|setCompletionDate (DateTime completionDate)
+DECL|method|setCompletionDate (ZonedDateTime completionDate)
 specifier|public
 name|void
 name|setCompletionDate
 parameter_list|(
-name|DateTime
+name|ZonedDateTime
 name|completionDate
 parameter_list|)
 block|{
@@ -263,7 +261,7 @@ expr_stmt|;
 block|}
 DECL|method|getRequestDate ()
 specifier|public
-name|DateTime
+name|ZonedDateTime
 name|getRequestDate
 parameter_list|()
 block|{
@@ -271,12 +269,12 @@ return|return
 name|requestDate
 return|;
 block|}
-DECL|method|setRequestDate (DateTime requestDate)
+DECL|method|setRequestDate (ZonedDateTime requestDate)
 specifier|public
 name|void
 name|setRequestDate
 parameter_list|(
-name|DateTime
+name|ZonedDateTime
 name|requestDate
 parameter_list|)
 block|{

@@ -3825,11 +3825,10 @@ literal|"Byte"
 block|}
 block|,
 comment|//                {"QName", "javax.xml.namespace.QName"},
-comment|//                {"dateTime", "javax.xml.datatype.XMLGregorianCalendar"},
 block|{
 literal|"dateTime"
 block|,
-literal|"org.joda.time.DateTime"
+literal|"java.time.ZonedDateTime"
 block|}
 block|,
 comment|// the blob base64Binary type is mapped to String URL for retrieving the blob
@@ -3862,21 +3861,21 @@ comment|//                {"time", "javax.xml.datatype.XMLGregorianCalendar"},
 block|{
 literal|"time"
 block|,
-literal|"org.joda.time.DateTime"
+literal|"java.time.ZonedDateTime"
 block|}
 block|,
 comment|//                {"date", "javax.xml.datatype.XMLGregorianCalendar"},
 block|{
 literal|"date"
 block|,
-literal|"org.joda.time.DateTime"
+literal|"java.time.ZonedDateTime"
 block|}
 block|,
 comment|//                {"g", "javax.xml.datatype.XMLGregorianCalendar"},
 block|{
 literal|"g"
 block|,
-literal|"org.joda.time.DateTime"
+literal|"java.time.ZonedDateTime"
 block|}
 block|,
 comment|// Salesforce maps any types like string, picklist, reference, etc. to string

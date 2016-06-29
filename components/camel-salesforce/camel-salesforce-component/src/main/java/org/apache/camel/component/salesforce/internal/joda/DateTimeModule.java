@@ -24,6 +24,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|time
+operator|.
+name|ZonedDateTime
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|fasterxml
@@ -35,18 +45,6 @@ operator|.
 name|module
 operator|.
 name|SimpleModule
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|DateTime
 import|;
 end_import
 
@@ -68,7 +66,7 @@ argument_list|()
 expr_stmt|;
 name|addSerializer
 argument_list|(
-name|DateTime
+name|ZonedDateTime
 operator|.
 name|class
 argument_list|,
@@ -79,7 +77,7 @@ argument_list|)
 expr_stmt|;
 name|addDeserializer
 argument_list|(
-name|DateTime
+name|ZonedDateTime
 operator|.
 name|class
 argument_list|,

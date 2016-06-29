@@ -78,6 +78,26 @@ begin_import
 import|import
 name|java
 operator|.
+name|time
+operator|.
+name|ZoneId
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|time
+operator|.
+name|ZonedDateTime
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|HashMap
@@ -585,18 +605,6 @@ operator|.
 name|ssl
 operator|.
 name|SslContextFactory
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|DateTime
 import|;
 end_import
 
@@ -1613,11 +1621,7 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Depends on a Task object with a datetime field"
-argument_list|)
+comment|//@Ignore("Depends on a Task object with a datetime field")
 DECL|method|testCreateUpdateDeleteTasks ()
 specifier|public
 name|void
@@ -1666,8 +1670,9 @@ name|taken
 operator|.
 name|setStart__c
 argument_list|(
-operator|new
-name|DateTime
+name|ZonedDateTime
+operator|.
+name|of
 argument_list|(
 literal|1700
 argument_list|,
@@ -1682,6 +1687,11 @@ argument_list|,
 literal|5
 argument_list|,
 literal|6
+argument_list|,
+name|ZoneId
+operator|.
+name|systemDefault
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -1744,8 +1754,9 @@ name|taken
 operator|.
 name|setStart__c
 argument_list|(
-operator|new
-name|DateTime
+name|ZonedDateTime
+operator|.
+name|of
 argument_list|(
 literal|1991
 argument_list|,
@@ -1760,6 +1771,11 @@ argument_list|,
 literal|5
 argument_list|,
 literal|6
+argument_list|,
+name|ZoneId
+operator|.
+name|systemDefault
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

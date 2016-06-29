@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|time
+operator|.
+name|ZonedDateTime
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -124,18 +134,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|joda
-operator|.
-name|time
-operator|.
-name|DateTime
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Test
@@ -214,8 +212,9 @@ name|setDescription__c
 argument_list|(
 literal|"Merchandise for testing Streaming API updated on "
 operator|+
-operator|new
-name|DateTime
+name|ZonedDateTime
+operator|.
+name|now
 argument_list|()
 operator|.
 name|toString
