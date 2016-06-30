@@ -619,6 +619,7 @@ argument_list|()
 decl_stmt|;
 try|try
 block|{
+comment|//Fix for running camel-kafka in OSGI see KAFKA-3218
 name|Thread
 operator|.
 name|currentThread
