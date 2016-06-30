@@ -312,6 +312,8 @@ literal|"camel-linkedin"
 block|,
 literal|"camel-olingo2"
 block|,
+literal|"camel-ribbon"
+block|,
 literal|"camel-salesforce"
 block|,
 literal|"camel-spring-boot-starter"
