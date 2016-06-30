@@ -102,6 +102,22 @@ name|util
 operator|.
 name|component
 operator|.
+name|ApiMethodArg
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|component
+operator|.
 name|ApiMethodParser
 import|;
 end_import
@@ -900,9 +916,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|ApiMethodParser
-operator|.
-name|Argument
+name|ApiMethodArg
 argument_list|>
 name|parameters
 init|=
@@ -911,9 +925,7 @@ name|TreeMap
 argument_list|<
 name|String
 argument_list|,
-name|ApiMethodParser
-operator|.
-name|Argument
+name|ApiMethodArg
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -929,9 +941,7 @@ control|)
 block|{
 for|for
 control|(
-name|ApiMethodParser
-operator|.
-name|Argument
+name|ApiMethodArg
 name|argument
 range|:
 name|model
@@ -1193,9 +1203,7 @@ argument_list|(
 name|name
 argument_list|,
 operator|new
-name|ApiMethodParser
-operator|.
-name|Argument
+name|ApiMethodArg
 argument_list|(
 name|name
 argument_list|,
@@ -1928,14 +1936,12 @@ name|toString
 argument_list|()
 return|;
 block|}
-DECL|method|getCanonicalName (ApiMethodParser.Argument argument)
+DECL|method|getCanonicalName (ApiMethodArg argument)
 specifier|public
 name|String
 name|getCanonicalName
 parameter_list|(
-name|ApiMethodParser
-operator|.
-name|Argument
+name|ApiMethodArg
 name|argument
 parameter_list|)
 throws|throws

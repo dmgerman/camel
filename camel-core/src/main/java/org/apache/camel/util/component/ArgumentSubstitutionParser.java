@@ -562,14 +562,14 @@ comment|// look for arg name matches
 specifier|final
 name|List
 argument_list|<
-name|Argument
+name|ApiMethodArg
 argument_list|>
 name|updatedArguments
 init|=
 operator|new
 name|ArrayList
 argument_list|<
-name|Argument
+name|ApiMethodArg
 argument_list|>
 argument_list|()
 decl_stmt|;
@@ -592,7 +592,7 @@ argument_list|()
 decl_stmt|;
 for|for
 control|(
-name|Argument
+name|ApiMethodArg
 name|argument
 range|:
 name|model
@@ -727,7 +727,7 @@ decl_stmt|;
 name|argument
 operator|=
 operator|new
-name|Argument
+name|ApiMethodArg
 argument_list|(
 name|newName
 argument_list|,
@@ -788,7 +788,7 @@ decl_stmt|;
 name|argument
 operator|=
 operator|new
-name|Argument
+name|ApiMethodArg
 argument_list|(
 name|newName
 argument_list|,
@@ -820,7 +820,7 @@ decl_stmt|;
 name|argument
 operator|=
 operator|new
-name|Argument
+name|ApiMethodArg
 argument_list|(
 name|newName
 argument_list|,

@@ -884,6 +884,15 @@ argument_list|,
 name|outPackage
 argument_list|)
 expr_stmt|;
+name|context
+operator|.
+name|put
+argument_list|(
+literal|"newLine"
+argument_list|,
+literal|"\n"
+argument_list|)
+expr_stmt|;
 comment|// load velocity template
 specifier|final
 name|Template

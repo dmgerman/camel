@@ -1893,13 +1893,8 @@ name|isEmpty
 argument_list|()
 operator|&&
 name|extraArgs
-operator|!=
+operator|==
 literal|null
-operator|&&
-name|extraArgs
-operator|.
-name|isEmpty
-argument_list|()
 condition|)
 block|{
 comment|// avoid looking for nullable args by checking for empty result and extraArgs
@@ -1955,16 +1950,9 @@ operator|.
 name|isEmpty
 argument_list|()
 condition|?
-operator|(
 name|extraArgs
-operator|!=
+operator|==
 literal|null
-operator|&&
-name|extraArgs
-operator|.
-name|isEmpty
-argument_list|()
-operator|)
 condition|?
 name|nullArgs
 else|:
