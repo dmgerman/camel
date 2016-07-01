@@ -264,7 +264,7 @@ operator|=
 name|m
 expr_stmt|;
 block|}
-comment|/**      * The CoAP method this endpoint binds to. Default is to bind to all ("*") but can      * be restricted to GET, POST, PUT, DELETE       * @return      */
+comment|/**      * The CoAP method this endpoint binds to. Default is to bind to all ("*") but can      * be restricted to GET, POST, PUT, DELETE, PING       * @return      */
 DECL|method|getCoapMethod ()
 specifier|public
 name|String
