@@ -1500,6 +1500,8 @@ name|convertTo
 argument_list|(
 name|type
 argument_list|,
+name|exchange
+argument_list|,
 name|r
 argument_list|)
 return|;
@@ -1616,6 +1618,8 @@ name|convertTo
 argument_list|(
 name|type
 argument_list|,
+name|exchange
+argument_list|,
 name|s
 argument_list|)
 return|;
@@ -1650,6 +1654,8 @@ operator|.
 name|convertTo
 argument_list|(
 name|type
+argument_list|,
+name|exchange
 argument_list|,
 name|cxfPayloadToNodeList
 argument_list|(
@@ -1746,6 +1752,8 @@ operator|.
 name|convertTo
 argument_list|(
 name|type
+argument_list|,
+name|exchange
 argument_list|,
 name|nodeList
 operator|.

@@ -232,6 +232,8 @@ name|createXMLStreamWriter
 argument_list|(
 name|chunk
 argument_list|,
+name|this
+operator|.
 name|charset
 argument_list|)
 expr_stmt|;
