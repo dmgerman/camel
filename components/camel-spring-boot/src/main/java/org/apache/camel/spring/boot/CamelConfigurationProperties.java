@@ -132,11 +132,75 @@ specifier|private
 name|int
 name|logDebugMaxChars
 decl_stmt|;
-comment|/**      * Sets whether stream caching is enabled or not.      *      * Default is false.      */
+comment|/**      * Sets whether stream caching is enabled or not.      *      * Default is false.      *      * @deprecated use {@link #streamCachingEnabled}      */
+annotation|@
+name|Deprecated
 DECL|field|streamCaching
 specifier|private
 name|boolean
 name|streamCaching
+decl_stmt|;
+comment|/**      * Sets whether stream caching is enabled or not.      *      * Default is false.      */
+DECL|field|streamCachingEnabled
+specifier|private
+name|boolean
+name|streamCachingEnabled
+decl_stmt|;
+comment|/**      * Sets the stream caching spool (temporary) directory to use for overflow and spooling to disk.      *<p/>      * If no spool directory has been explicit configured, then a temporary directory      * is created in the<tt>java.io.tmpdir</tt> directory.      */
+DECL|field|streamCachingSpoolDirectory
+specifier|private
+name|String
+name|streamCachingSpoolDirectory
+decl_stmt|;
+comment|/**      * Sets a stream caching chiper name to use when spooling to disk to write with encryption.      *<p/>      * By default the data is not encrypted.      */
+DECL|field|streamCachingSpoolChiper
+specifier|private
+name|String
+name|streamCachingSpoolChiper
+decl_stmt|;
+comment|/**      * Stream caching threshold in bytes when overflow to disk is activated.      *<p/>      * The default threshold is {@link org.apache.camel.StreamCache#DEFAULT_SPOOL_THRESHOLD} bytes (eg 128kb).      * Use<tt>-1</tt> to disable overflow to disk.      */
+DECL|field|streamCachingSpoolThreshold
+specifier|private
+name|long
+name|streamCachingSpoolThreshold
+decl_stmt|;
+comment|/**      * Sets a percentage (1-99) of used heap memory threshold to activate stream caching spooling to disk.      */
+DECL|field|streamCachingSpoolUsedHeapMemoryThreshold
+specifier|private
+name|int
+name|streamCachingSpoolUsedHeapMemoryThreshold
+decl_stmt|;
+comment|/**      * Sets what the upper bounds should be when streamCachingSpoolUsedHeapMemoryThreshold is in use.      */
+DECL|field|streamCachingSpoolUsedHeapMemoryLimit
+specifier|private
+name|String
+name|streamCachingSpoolUsedHeapMemoryLimit
+decl_stmt|;
+comment|/**      * Sets whether if just any of the {@link org.apache.camel.spi.StreamCachingStrategy.SpoolRule} rules      * returns<tt>true</tt> then shouldSpoolCache(long) returns<tt>true</tt>.      * If this option is<tt>false</tt>, then<b>all</b> the {@link org.apache.camel.spi.StreamCachingStrategy.SpoolRule} must      * return<tt>true</tt>.      *<p/>      * The default value is<tt>false</tt> which means that all the rules must return<tt>true</tt>.      */
+DECL|field|streamCachingAnySpoolRules
+specifier|private
+name|boolean
+name|streamCachingAnySpoolRules
+decl_stmt|;
+comment|/**      * Sets the stream caching buffer size to use when allocating in-memory buffers used for in-memory stream caches.      *<p/>      * The default size is {@link org.apache.camel.util.IOHelper#DEFAULT_BUFFER_SIZE}      */
+DECL|field|streamCachingBufferSize
+specifier|private
+name|int
+name|streamCachingBufferSize
+decl_stmt|;
+comment|/**      * Whether to remove stream caching temporary directory when stopping.      *<p/>      * This option is default<tt>true</tt>      */
+DECL|field|streamCachingRemoveSpoolDirectoryWhenStopping
+specifier|private
+name|boolean
+name|streamCachingRemoveSpoolDirectoryWhenStopping
+init|=
+literal|true
+decl_stmt|;
+comment|/**      * Sets whether stream caching statistics is enabled.      */
+DECL|field|streamCachingStatisticsEnabled
+specifier|private
+name|boolean
+name|streamCachingStatisticsEnabled
 decl_stmt|;
 comment|/**      * Sets whether tracing is enabled or not.      *      * Default is false.      */
 DECL|field|tracing
@@ -447,6 +511,8 @@ operator|=
 name|logDebugMaxChars
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|isStreamCaching ()
 specifier|public
 name|boolean
@@ -454,9 +520,11 @@ name|isStreamCaching
 parameter_list|()
 block|{
 return|return
-name|streamCaching
+name|streamCachingEnabled
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|setStreamCaching (boolean streamCaching)
 specifier|public
 name|void
@@ -468,9 +536,269 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|streamCaching
+name|streamCachingEnabled
 operator|=
 name|streamCaching
+expr_stmt|;
+block|}
+DECL|method|isStreamCachingEnabled ()
+specifier|public
+name|boolean
+name|isStreamCachingEnabled
+parameter_list|()
+block|{
+return|return
+name|streamCachingEnabled
+return|;
+block|}
+DECL|method|setStreamCachingEnabled (boolean streamCachingEnabled)
+specifier|public
+name|void
+name|setStreamCachingEnabled
+parameter_list|(
+name|boolean
+name|streamCachingEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamCachingEnabled
+operator|=
+name|streamCachingEnabled
+expr_stmt|;
+block|}
+DECL|method|getStreamCachingSpoolDirectory ()
+specifier|public
+name|String
+name|getStreamCachingSpoolDirectory
+parameter_list|()
+block|{
+return|return
+name|streamCachingSpoolDirectory
+return|;
+block|}
+DECL|method|setStreamCachingSpoolDirectory (String streamCachingSpoolDirectory)
+specifier|public
+name|void
+name|setStreamCachingSpoolDirectory
+parameter_list|(
+name|String
+name|streamCachingSpoolDirectory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamCachingSpoolDirectory
+operator|=
+name|streamCachingSpoolDirectory
+expr_stmt|;
+block|}
+DECL|method|getStreamCachingSpoolChiper ()
+specifier|public
+name|String
+name|getStreamCachingSpoolChiper
+parameter_list|()
+block|{
+return|return
+name|streamCachingSpoolChiper
+return|;
+block|}
+DECL|method|setStreamCachingSpoolChiper (String streamCachingSpoolChiper)
+specifier|public
+name|void
+name|setStreamCachingSpoolChiper
+parameter_list|(
+name|String
+name|streamCachingSpoolChiper
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamCachingSpoolChiper
+operator|=
+name|streamCachingSpoolChiper
+expr_stmt|;
+block|}
+DECL|method|getStreamCachingSpoolThreshold ()
+specifier|public
+name|long
+name|getStreamCachingSpoolThreshold
+parameter_list|()
+block|{
+return|return
+name|streamCachingSpoolThreshold
+return|;
+block|}
+DECL|method|setStreamCachingSpoolThreshold (long streamCachingSpoolThreshold)
+specifier|public
+name|void
+name|setStreamCachingSpoolThreshold
+parameter_list|(
+name|long
+name|streamCachingSpoolThreshold
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamCachingSpoolThreshold
+operator|=
+name|streamCachingSpoolThreshold
+expr_stmt|;
+block|}
+DECL|method|getStreamCachingSpoolUsedHeapMemoryThreshold ()
+specifier|public
+name|int
+name|getStreamCachingSpoolUsedHeapMemoryThreshold
+parameter_list|()
+block|{
+return|return
+name|streamCachingSpoolUsedHeapMemoryThreshold
+return|;
+block|}
+DECL|method|setStreamCachingSpoolUsedHeapMemoryThreshold (int streamCachingSpoolUsedHeapMemoryThreshold)
+specifier|public
+name|void
+name|setStreamCachingSpoolUsedHeapMemoryThreshold
+parameter_list|(
+name|int
+name|streamCachingSpoolUsedHeapMemoryThreshold
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamCachingSpoolUsedHeapMemoryThreshold
+operator|=
+name|streamCachingSpoolUsedHeapMemoryThreshold
+expr_stmt|;
+block|}
+DECL|method|getStreamCachingSpoolUsedHeapMemoryLimit ()
+specifier|public
+name|String
+name|getStreamCachingSpoolUsedHeapMemoryLimit
+parameter_list|()
+block|{
+return|return
+name|streamCachingSpoolUsedHeapMemoryLimit
+return|;
+block|}
+DECL|method|setStreamCachingSpoolUsedHeapMemoryLimit (String streamCachingSpoolUsedHeapMemoryLimit)
+specifier|public
+name|void
+name|setStreamCachingSpoolUsedHeapMemoryLimit
+parameter_list|(
+name|String
+name|streamCachingSpoolUsedHeapMemoryLimit
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamCachingSpoolUsedHeapMemoryLimit
+operator|=
+name|streamCachingSpoolUsedHeapMemoryLimit
+expr_stmt|;
+block|}
+DECL|method|isStreamCachingAnySpoolRules ()
+specifier|public
+name|boolean
+name|isStreamCachingAnySpoolRules
+parameter_list|()
+block|{
+return|return
+name|streamCachingAnySpoolRules
+return|;
+block|}
+DECL|method|setStreamCachingAnySpoolRules (boolean streamCachingAnySpoolRules)
+specifier|public
+name|void
+name|setStreamCachingAnySpoolRules
+parameter_list|(
+name|boolean
+name|streamCachingAnySpoolRules
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamCachingAnySpoolRules
+operator|=
+name|streamCachingAnySpoolRules
+expr_stmt|;
+block|}
+DECL|method|getStreamCachingBufferSize ()
+specifier|public
+name|int
+name|getStreamCachingBufferSize
+parameter_list|()
+block|{
+return|return
+name|streamCachingBufferSize
+return|;
+block|}
+DECL|method|setStreamCachingBufferSize (int streamCachingBufferSize)
+specifier|public
+name|void
+name|setStreamCachingBufferSize
+parameter_list|(
+name|int
+name|streamCachingBufferSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamCachingBufferSize
+operator|=
+name|streamCachingBufferSize
+expr_stmt|;
+block|}
+DECL|method|isStreamCachingRemoveSpoolDirectoryWhenStopping ()
+specifier|public
+name|boolean
+name|isStreamCachingRemoveSpoolDirectoryWhenStopping
+parameter_list|()
+block|{
+return|return
+name|streamCachingRemoveSpoolDirectoryWhenStopping
+return|;
+block|}
+DECL|method|setStreamCachingRemoveSpoolDirectoryWhenStopping (boolean streamCachingRemoveSpoolDirectoryWhenStopping)
+specifier|public
+name|void
+name|setStreamCachingRemoveSpoolDirectoryWhenStopping
+parameter_list|(
+name|boolean
+name|streamCachingRemoveSpoolDirectoryWhenStopping
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamCachingRemoveSpoolDirectoryWhenStopping
+operator|=
+name|streamCachingRemoveSpoolDirectoryWhenStopping
+expr_stmt|;
+block|}
+DECL|method|isStreamCachingStatisticsEnabled ()
+specifier|public
+name|boolean
+name|isStreamCachingStatisticsEnabled
+parameter_list|()
+block|{
+return|return
+name|streamCachingStatisticsEnabled
+return|;
+block|}
+DECL|method|setStreamCachingStatisticsEnabled (boolean streamCachingStatisticsEnabled)
+specifier|public
+name|void
+name|setStreamCachingStatisticsEnabled
+parameter_list|(
+name|boolean
+name|streamCachingStatisticsEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|streamCachingStatisticsEnabled
+operator|=
+name|streamCachingStatisticsEnabled
 expr_stmt|;
 block|}
 DECL|method|isTracing ()
