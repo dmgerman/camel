@@ -1983,13 +1983,12 @@ name|RecordMetadata
 argument_list|>
 name|recordMetaData1
 init|=
-call|(
+operator|(
 name|List
 argument_list|<
 name|RecordMetadata
 argument_list|>
-call|)
-argument_list|(
+operator|)
 name|in
 operator|.
 name|getHeader
@@ -1997,7 +1996,6 @@ argument_list|(
 name|KafkaConstants
 operator|.
 name|KAFKA_RECORDMETA
-argument_list|)
 argument_list|)
 decl_stmt|;
 name|assertTrue
