@@ -4001,7 +4001,7 @@ argument_list|()
 argument_list|,
 name|streamCaching
 operator|.
-name|getAnySpoolRules
+name|getSpoolRules
 argument_list|()
 argument_list|)
 decl_stmt|;
