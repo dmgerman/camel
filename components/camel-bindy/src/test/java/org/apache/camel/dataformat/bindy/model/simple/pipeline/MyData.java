@@ -71,6 +71,10 @@ argument_list|(
 name|separator
 operator|=
 literal|"\\|"
+argument_list|,
+name|generateHeaderColumns
+operator|=
+literal|true
 argument_list|)
 DECL|class|MyData
 specifier|public

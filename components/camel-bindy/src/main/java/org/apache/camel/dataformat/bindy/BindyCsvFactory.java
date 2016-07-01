@@ -2717,7 +2717,12 @@ name|builderHeader
 operator|.
 name|append
 argument_list|(
+name|ConverterUtils
+operator|.
+name|getCharDelimiter
+argument_list|(
 name|separator
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
