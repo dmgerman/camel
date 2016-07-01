@@ -114,6 +114,12 @@ name|xmlRests
 init|=
 literal|"classpath:camel-rest/*.xml"
 decl_stmt|;
+comment|/**      * Directory to load additional configuration files that contains      * configuration values that takes precedence over any other configuration.      * This can be used to refer to files that may have secret configuration that      * has been mounted on the file system for containers.      *<p/>      * You must use either<tt>file:</tt> or<tt>classpath:</tt> as prefix to load      * from file system or classpath. Then you can specify a pattern to load      * from sub directories and a name pattern such as<tt>file:/var/app/secret/*.properties</tt>      */
+DECL|field|fileConfigurations
+specifier|private
+name|String
+name|fileConfigurations
+decl_stmt|;
 comment|/**      * Whether to use the main run controller to ensure the Spring-Boot application      * keeps running until being stopped or the JVM terminated.      * You typically only need this if you run Spring-Boot standalone.      * If you run Spring-Boot with spring-boot-starter-web then the web container keeps the JVM running.      */
 DECL|field|mainRunController
 specifier|private
@@ -725,6 +731,32 @@ operator|.
 name|jmxCreateConnector
 operator|=
 name|jmxCreateConnector
+expr_stmt|;
+block|}
+DECL|method|getFileConfigurations ()
+specifier|public
+name|String
+name|getFileConfigurations
+parameter_list|()
+block|{
+return|return
+name|fileConfigurations
+return|;
+block|}
+DECL|method|setFileConfigurations (String fileConfigurations)
+specifier|public
+name|void
+name|setFileConfigurations
+parameter_list|(
+name|String
+name|fileConfigurations
+parameter_list|)
+block|{
+name|this
+operator|.
+name|fileConfigurations
+operator|=
+name|fileConfigurations
 expr_stmt|;
 block|}
 block|}
