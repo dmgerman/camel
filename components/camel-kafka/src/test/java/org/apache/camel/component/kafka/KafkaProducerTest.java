@@ -1990,7 +1990,7 @@ name|RecordMetadata
 argument_list|>
 call|)
 argument_list|(
-name|out
+name|in
 operator|.
 name|getHeader
 argument_list|(
