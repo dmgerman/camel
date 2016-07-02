@@ -112,6 +112,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|itest
+operator|.
+name|ITestSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|IdempotentRepository
@@ -236,6 +250,11 @@ name|AbstractApplicationContext
 name|createApplicationContext
 parameter_list|()
 block|{
+name|ITestSupport
+operator|.
+name|getPort2
+argument_list|()
+expr_stmt|;
 return|return
 operator|new
 name|ClassPathXmlApplicationContext
@@ -379,7 +398,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"activemq:queue:inbox"
+literal|"activemq2:queue:inbox"
 argument_list|,
 literal|"A"
 argument_list|,
@@ -430,7 +449,7 @@ name|consumer
 operator|.
 name|receiveBody
 argument_list|(
-literal|"activemq:queue:outbox"
+literal|"activemq2:queue:outbox"
 argument_list|,
 literal|3000
 argument_list|)
@@ -539,7 +558,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"activemq:queue:inbox"
+literal|"activemq2:queue:inbox"
 argument_list|,
 literal|"A"
 argument_list|,
@@ -589,7 +608,7 @@ name|consumer
 operator|.
 name|receiveBody
 argument_list|(
-literal|"activemq:queue:outbox"
+literal|"activemq2:queue:outbox"
 argument_list|,
 literal|3000
 argument_list|)
@@ -604,7 +623,7 @@ name|consumer
 operator|.
 name|receiveBody
 argument_list|(
-literal|"activemq:queue:ActiveMQ.DLQ"
+literal|"activemq2:queue:ActiveMQ.DLQ"
 argument_list|,
 literal|3000
 argument_list|)
@@ -707,7 +726,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"activemq:queue:inbox"
+literal|"activemq2:queue:inbox"
 argument_list|,
 literal|"B"
 argument_list|,
@@ -757,7 +776,7 @@ name|consumer
 operator|.
 name|receiveBody
 argument_list|(
-literal|"activemq:queue:outbox"
+literal|"activemq2:queue:outbox"
 argument_list|,
 literal|3000
 argument_list|)
@@ -772,7 +791,7 @@ name|consumer
 operator|.
 name|receiveBody
 argument_list|(
-literal|"activemq:queue:ActiveMQ.DLQ"
+literal|"activemq2:queue:ActiveMQ.DLQ"
 argument_list|,
 literal|3000
 argument_list|)
@@ -836,7 +855,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"activemq:queue:inbox"
+literal|"activemq2:queue:inbox"
 argument_list|,
 literal|"D"
 argument_list|,
@@ -849,7 +868,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"activemq:queue:inbox"
+literal|"activemq2:queue:inbox"
 argument_list|,
 literal|"E"
 argument_list|,
@@ -862,7 +881,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"activemq:queue:inbox"
+literal|"activemq2:queue:inbox"
 argument_list|,
 literal|"D"
 argument_list|,
@@ -914,7 +933,7 @@ name|consumer
 operator|.
 name|receiveBody
 argument_list|(
-literal|"activemq:queue:outbox"
+literal|"activemq2:queue:outbox"
 argument_list|,
 literal|3000
 argument_list|)
@@ -928,7 +947,7 @@ name|consumer
 operator|.
 name|receiveBody
 argument_list|(
-literal|"activemq:queue:outbox"
+literal|"activemq2:queue:outbox"
 argument_list|,
 literal|3000
 argument_list|)
@@ -1045,7 +1064,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"activemq:queue:inbox"
+literal|"activemq2:queue:inbox"
 argument_list|,
 literal|"D"
 argument_list|,
@@ -1058,7 +1077,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"activemq:queue:inbox"
+literal|"activemq2:queue:inbox"
 argument_list|,
 literal|"E"
 argument_list|,
@@ -1071,7 +1090,7 @@ name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
-literal|"activemq:queue:inbox"
+literal|"activemq2:queue:inbox"
 argument_list|,
 literal|"F"
 argument_list|,
@@ -1123,7 +1142,7 @@ name|consumer
 operator|.
 name|receiveBody
 argument_list|(
-literal|"activemq:queue:outbox"
+literal|"activemq2:queue:outbox"
 argument_list|,
 literal|3000
 argument_list|)
@@ -1137,7 +1156,7 @@ name|consumer
 operator|.
 name|receiveBody
 argument_list|(
-literal|"activemq:queue:outbox"
+literal|"activemq2:queue:outbox"
 argument_list|,
 literal|3000
 argument_list|)
@@ -1151,7 +1170,7 @@ name|consumer
 operator|.
 name|receiveBody
 argument_list|(
-literal|"activemq:queue:outbox"
+literal|"activemq2:queue:outbox"
 argument_list|,
 literal|3000
 argument_list|)
@@ -1191,7 +1210,7 @@ name|consumer
 operator|.
 name|receiveBody
 argument_list|(
-literal|"activemq:queue:outbox"
+literal|"activemq2:queue:outbox"
 argument_list|,
 literal|2000
 argument_list|)
@@ -1244,7 +1263,7 @@ argument_list|)
 decl_stmt|;
 name|from
 argument_list|(
-literal|"activemq:queue:inbox"
+literal|"activemq2:queue:inbox"
 argument_list|)
 operator|.
 name|transacted
@@ -1282,7 +1301,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"activemq:queue:outbox"
+literal|"activemq2:queue:outbox"
 argument_list|)
 expr_stmt|;
 block|}
