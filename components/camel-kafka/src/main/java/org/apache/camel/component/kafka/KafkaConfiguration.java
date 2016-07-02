@@ -309,42 +309,6 @@ name|consumersCount
 init|=
 literal|1
 decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"100"
-argument_list|)
-DECL|field|batchSize
-specifier|private
-name|int
-name|batchSize
-init|=
-literal|100
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"consumer"
-argument_list|,
-name|defaultValue
-operator|=
-literal|"10000"
-argument_list|)
-DECL|field|barrierAwaitTimeoutMs
-specifier|private
-name|int
-name|barrierAwaitTimeoutMs
-init|=
-literal|10000
-decl_stmt|;
 comment|//Common configuration properties
 annotation|@
 name|UriParam
@@ -2712,60 +2676,6 @@ operator|.
 name|consumerStreams
 operator|=
 name|consumerStreams
-expr_stmt|;
-block|}
-DECL|method|getBatchSize ()
-specifier|public
-name|int
-name|getBatchSize
-parameter_list|()
-block|{
-return|return
-name|batchSize
-return|;
-block|}
-comment|/**      * The batchSize that the BatchingConsumerTask processes once.      */
-DECL|method|setBatchSize (int batchSize)
-specifier|public
-name|void
-name|setBatchSize
-parameter_list|(
-name|int
-name|batchSize
-parameter_list|)
-block|{
-name|this
-operator|.
-name|batchSize
-operator|=
-name|batchSize
-expr_stmt|;
-block|}
-DECL|method|getBarrierAwaitTimeoutMs ()
-specifier|public
-name|int
-name|getBarrierAwaitTimeoutMs
-parameter_list|()
-block|{
-return|return
-name|barrierAwaitTimeoutMs
-return|;
-block|}
-comment|/**      * If the BatchingConsumerTask processes exchange exceed the batchSize, it will wait for barrierAwaitTimeoutMs.      */
-DECL|method|setBarrierAwaitTimeoutMs (int barrierAwaitTimeoutMs)
-specifier|public
-name|void
-name|setBarrierAwaitTimeoutMs
-parameter_list|(
-name|int
-name|barrierAwaitTimeoutMs
-parameter_list|)
-block|{
-name|this
-operator|.
-name|barrierAwaitTimeoutMs
-operator|=
-name|barrierAwaitTimeoutMs
 expr_stmt|;
 block|}
 DECL|method|getConsumersCount ()

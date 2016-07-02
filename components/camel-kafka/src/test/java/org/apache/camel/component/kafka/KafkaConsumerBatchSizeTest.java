@@ -176,11 +176,7 @@ literal|"&autoOffsetReset=earliest"
 operator|+
 literal|"&autoCommitEnable=false"
 operator|+
-literal|"&batchSize=3"
-operator|+
 literal|"&consumerStreams=10"
-operator|+
-literal|"&barrierAwaitTimeoutMs=1000"
 argument_list|)
 DECL|field|from
 specifier|private

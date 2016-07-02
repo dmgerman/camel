@@ -1845,23 +1845,6 @@ name|getSslTruststoreLocation
 argument_list|()
 return|;
 block|}
-DECL|method|setBarrierAwaitTimeoutMs (int barrierAwaitTimeoutMs)
-specifier|public
-name|void
-name|setBarrierAwaitTimeoutMs
-parameter_list|(
-name|int
-name|barrierAwaitTimeoutMs
-parameter_list|)
-block|{
-name|configuration
-operator|.
-name|setBarrierAwaitTimeoutMs
-argument_list|(
-name|barrierAwaitTimeoutMs
-argument_list|)
-expr_stmt|;
-block|}
 DECL|method|getSslProvider ()
 specifier|public
 name|String
@@ -1936,19 +1919,6 @@ return|return
 name|configuration
 operator|.
 name|getTopic
-argument_list|()
-return|;
-block|}
-DECL|method|getBarrierAwaitTimeoutMs ()
-specifier|public
-name|int
-name|getBarrierAwaitTimeoutMs
-parameter_list|()
-block|{
-return|return
-name|configuration
-operator|.
-name|getBarrierAwaitTimeoutMs
 argument_list|()
 return|;
 block|}
@@ -2170,19 +2140,6 @@ argument_list|(
 name|consumersCount
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|getBatchSize ()
-specifier|public
-name|int
-name|getBatchSize
-parameter_list|()
-block|{
-return|return
-name|configuration
-operator|.
-name|getBatchSize
-argument_list|()
-return|;
 block|}
 DECL|method|setAutoCommitIntervalMs (Integer autoCommitIntervalMs)
 specifier|public
@@ -2787,23 +2744,6 @@ operator|.
 name|getSaslKerberosServiceName
 argument_list|()
 return|;
-block|}
-DECL|method|setBatchSize (int batchSize)
-specifier|public
-name|void
-name|setBatchSize
-parameter_list|(
-name|int
-name|batchSize
-parameter_list|)
-block|{
-name|configuration
-operator|.
-name|setBatchSize
-argument_list|(
-name|batchSize
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|getLingerMs ()
 specifier|public
