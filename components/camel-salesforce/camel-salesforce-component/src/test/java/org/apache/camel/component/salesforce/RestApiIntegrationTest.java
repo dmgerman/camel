@@ -1621,7 +1621,11 @@ expr_stmt|;
 block|}
 annotation|@
 name|Test
-comment|//@Ignore("Depends on a Task object with a datetime field")
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Depends on a Task object with a datetime field"
+argument_list|)
 DECL|method|testCreateUpdateDeleteTasks ()
 specifier|public
 name|void
