@@ -263,6 +263,12 @@ specifier|final
 name|Processor
 name|processor
 decl_stmt|;
+DECL|field|pollTimeoutMs
+specifier|private
+specifier|final
+name|Long
+name|pollTimeoutMs
+decl_stmt|;
 DECL|method|KafkaConsumer (KafkaEndpoint endpoint, Processor processor)
 specifier|public
 name|KafkaConsumer
@@ -292,6 +298,18 @@ operator|.
 name|processor
 operator|=
 name|processor
+expr_stmt|;
+name|this
+operator|.
+name|pollTimeoutMs
+operator|=
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|getPollTimeoutMs
+argument_list|()
 expr_stmt|;
 if|if
 condition|(
@@ -773,9 +791,7 @@ name|consumer
 operator|.
 name|poll
 argument_list|(
-name|Long
-operator|.
-name|MAX_VALUE
+name|pollTimeoutMs
 argument_list|)
 decl_stmt|;
 for|for

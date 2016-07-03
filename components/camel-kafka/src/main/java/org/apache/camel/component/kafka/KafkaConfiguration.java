@@ -439,7 +439,25 @@ name|sessionTimeoutMs
 init|=
 literal|30000
 decl_stmt|;
-comment|//auto.offset.reset
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"5000"
+argument_list|)
+DECL|field|pollTimeoutMs
+specifier|private
+name|Long
+name|pollTimeoutMs
+init|=
+literal|5000L
+decl_stmt|;
+comment|//auto.offset.reset1
 annotation|@
 name|UriParam
 argument_list|(
@@ -4160,6 +4178,33 @@ operator|.
 name|sessionTimeoutMs
 operator|=
 name|sessionTimeoutMs
+expr_stmt|;
+block|}
+DECL|method|getPollTimeoutMs ()
+specifier|public
+name|Long
+name|getPollTimeoutMs
+parameter_list|()
+block|{
+return|return
+name|pollTimeoutMs
+return|;
+block|}
+comment|/**      * The timeout used when polling the KafkaConsumer.      */
+DECL|method|setPollTimeoutMs (Long pollTimeoutMs)
+specifier|public
+name|void
+name|setPollTimeoutMs
+parameter_list|(
+name|Long
+name|pollTimeoutMs
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pollTimeoutMs
+operator|=
+name|pollTimeoutMs
 expr_stmt|;
 block|}
 DECL|method|getPartitionAssignor ()
