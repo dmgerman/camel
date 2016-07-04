@@ -78,7 +78,7 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.dataformat.json"
+literal|"camel.dataformat.json-xstream"
 argument_list|)
 DECL|class|JsonDataFormatConfiguration
 specifier|public

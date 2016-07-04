@@ -1776,7 +1776,7 @@ literal|"camel.dataformat."
 operator|+
 name|model
 operator|.
-name|getModelName
+name|getName
 argument_list|()
 decl_stmt|;
 name|javaClass

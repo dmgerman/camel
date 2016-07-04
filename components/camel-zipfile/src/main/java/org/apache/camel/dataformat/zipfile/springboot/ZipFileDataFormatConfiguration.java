@@ -46,7 +46,7 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.dataformat.zipFile"
+literal|"camel.dataformat.zipfile"
 argument_list|)
 DECL|class|ZipFileDataFormatConfiguration
 specifier|public

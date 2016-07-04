@@ -82,7 +82,7 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.dataformat.bindy"
+literal|"camel.dataformat.bindy-kvp"
 argument_list|)
 DECL|class|BindyKeyValuePairDataFormatConfiguration
 specifier|public

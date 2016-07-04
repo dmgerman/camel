@@ -82,7 +82,7 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.dataformat.bindy"
+literal|"camel.dataformat.bindy-csv"
 argument_list|)
 DECL|class|BindyCsvDataFormatConfiguration
 specifier|public

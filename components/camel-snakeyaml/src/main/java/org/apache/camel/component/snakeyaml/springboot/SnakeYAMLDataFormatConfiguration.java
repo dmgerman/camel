@@ -78,7 +78,7 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.dataformat.yaml"
+literal|"camel.dataformat.yaml-snakeyaml"
 argument_list|)
 DECL|class|SnakeYAMLDataFormatConfiguration
 specifier|public
