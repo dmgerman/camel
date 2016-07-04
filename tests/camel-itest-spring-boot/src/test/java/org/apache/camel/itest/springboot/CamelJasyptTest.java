@@ -165,6 +165,11 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|unitTestExclusionPattern
+argument_list|(
+literal|".*(\\.integration\\..*|IntegrationTest$|\\.Test$|\\.SpringTest$|Blueprint.*Test$)"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 return|;

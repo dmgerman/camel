@@ -165,6 +165,16 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|basePath
+argument_list|(
+literal|"../../components/camel-linkedin/camel-linkedin-component"
+argument_list|)
+operator|.
+name|unitTestExpectedNumber
+argument_list|(
+literal|0
+argument_list|)
+operator|.
 name|build
 argument_list|()
 return|;

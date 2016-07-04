@@ -18,6 +18,18 @@ name|springboot
 package|;
 end_package
 
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Future
+import|;
+end_import
+
 begin_comment
 comment|/**  * Represents a generic command that can be executed in the spring-boot context.  */
 end_comment
@@ -29,7 +41,10 @@ interface|interface
 name|Command
 block|{
 DECL|method|execute (Object[] parameters)
+name|Future
+argument_list|<
 name|Object
+argument_list|>
 name|execute
 parameter_list|(
 name|Object

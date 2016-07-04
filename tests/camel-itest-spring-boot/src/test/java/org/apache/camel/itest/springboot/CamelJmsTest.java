@@ -165,6 +165,14 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|unitTestExclusionPattern
+argument_list|(
+literal|".*(\\.integration\\..*|IntegrationTest$|ManagedJmsEndpointTopicTest$|ManagedJmsEndpointTest$|JMSTransactionIsTransactedRedeliveredTest$"
+operator|+
+literal|"|JmsToJmsTransactedTest$|JmsRequestReplyProcessRepliesConcurrentUsingThreadsTest$|JmsRouteUsingSpringWithAutoWireTest$|JmsRouteUsingSpringTest$)"
+argument_list|)
+comment|// excluded tests that use JMX heavily and tests that pass when run separately
+operator|.
 name|build
 argument_list|()
 return|;

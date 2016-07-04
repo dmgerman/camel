@@ -168,6 +168,7 @@ operator|.
 name|build
 argument_list|()
 return|;
+comment|// sometimes the arquillian test fails, but the unit tests don't.
 block|}
 annotation|@
 name|Test

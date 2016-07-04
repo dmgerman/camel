@@ -20,6 +20,26 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -149,6 +169,8 @@ specifier|static
 name|ITestConfig
 name|createTestConfig
 parameter_list|()
+throws|throws
+name|IOException
 block|{
 return|return
 operator|new
@@ -165,12 +187,27 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|systemProperty
+argument_list|(
+literal|"javax.net.ssl.trustStore"
+argument_list|,
+operator|new
+name|File
+argument_list|(
+literal|"../../components/camel-xmpp/src/test/resources/xmppServer.jks"
+argument_list|)
+operator|.
+name|getCanonicalPath
+argument_list|()
+argument_list|)
+operator|.
 name|build
 argument_list|()
 return|;
 block|}
 annotation|@
 name|Test
+comment|//    @Ignore
 DECL|method|componentTests ()
 specifier|public
 name|void

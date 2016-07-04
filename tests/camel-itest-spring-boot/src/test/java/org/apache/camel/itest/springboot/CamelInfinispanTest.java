@@ -165,6 +165,12 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|disableJmx
+argument_list|(
+literal|"org.infinispan:*"
+argument_list|)
+comment|// arquillian fails, bu the tests pass
+operator|.
 name|build
 argument_list|()
 return|;

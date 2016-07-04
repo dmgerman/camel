@@ -164,6 +164,13 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+comment|//                .dependency(DependencyResolver.withVersion("org.springframework.boot:spring-boot-starter-web"))
+comment|//                .dependency(DependencyResolver.withVersion("org.springframework:spring-webmvc"))
+operator|.
+name|unitTestExclusionPattern
+argument_list|(
+literal|".*ExposedServletEndpointURIToJMXTest"
+argument_list|)
 operator|.
 name|build
 argument_list|()

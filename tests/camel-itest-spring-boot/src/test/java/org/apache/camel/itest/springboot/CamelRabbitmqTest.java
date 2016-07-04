@@ -165,6 +165,12 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|unitTestExclusionPattern
+argument_list|(
+literal|".*(\\.integration\\..*|IntegrationTest$|IntTest$)"
+argument_list|)
+comment|// different suffix
+operator|.
 name|build
 argument_list|()
 return|;

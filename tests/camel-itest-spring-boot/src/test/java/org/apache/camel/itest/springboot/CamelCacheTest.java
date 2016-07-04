@@ -165,6 +165,11 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|unitTestExclusionPattern
+argument_list|(
+literal|".*(\\.integration\\..*|XXXTest$|BaseCacheTest$)"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 return|;

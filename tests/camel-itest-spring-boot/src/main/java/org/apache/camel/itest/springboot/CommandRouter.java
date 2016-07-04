@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Future
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|springframework
@@ -169,8 +181,11 @@ name|params
 argument_list|)
 expr_stmt|;
 block|}
+name|Future
+argument_list|<
 name|Object
-name|result
+argument_list|>
+name|futResult
 init|=
 name|command
 operator|.
@@ -178,6 +193,14 @@ name|execute
 argument_list|(
 name|args
 argument_list|)
+decl_stmt|;
+name|Object
+name|result
+init|=
+name|futResult
+operator|.
+name|get
+argument_list|()
 decl_stmt|;
 return|return
 name|marshal

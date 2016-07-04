@@ -22,6 +22,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|concurrent
+operator|.
+name|Future
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -62,6 +74,34 @@ name|Assert
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|scheduling
+operator|.
+name|annotation
+operator|.
+name|Async
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|scheduling
+operator|.
+name|annotation
+operator|.
+name|AsyncResult
+import|;
+end_import
+
 begin_comment
 comment|/**  * An abstract class for commands that need standard test parameters.  */
 end_comment
@@ -76,10 +116,16 @@ implements|implements
 name|Command
 block|{
 annotation|@
+name|Async
+comment|// needs to run on a spring background thread
+annotation|@
 name|Override
 DECL|method|execute (Object[] parameters)
 specifier|public
+name|Future
+argument_list|<
 name|Object
+argument_list|>
 name|execute
 parameter_list|(
 name|Object
@@ -199,6 +245,9 @@ name|ITestConfig
 operator|)
 name|configObj
 decl_stmt|;
+name|Object
+name|result
+init|=
 name|this
 operator|.
 name|executeTest
@@ -207,9 +256,14 @@ name|config
 argument_list|,
 name|compName
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 return|return
-literal|true
+operator|new
+name|AsyncResult
+argument_list|<>
+argument_list|(
+name|result
+argument_list|)
 return|;
 block|}
 DECL|method|executeTest (ITestConfig config, String component)

@@ -165,6 +165,12 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|unitTestExclusionPattern
+argument_list|(
+literal|".*(\\.integration\\..*|IntegrationTest$|LoopTest$|IdempotentConsumerEagerTest$|AutoStartupTest$)"
+argument_list|)
+comment|// no runnable methods on these tests
+operator|.
 name|build
 argument_list|()
 return|;

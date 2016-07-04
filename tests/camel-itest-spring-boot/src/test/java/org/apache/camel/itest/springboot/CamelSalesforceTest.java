@@ -165,6 +165,16 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|basePath
+argument_list|(
+literal|"../../components/camel-salesforce/camel-salesforce-component"
+argument_list|)
+operator|.
+name|unitTestExclusionPattern
+argument_list|(
+literal|".*(\\.integration\\..*|IntegrationTest.*|MSPTest$)"
+argument_list|)
+operator|.
 name|autostart
 argument_list|(
 literal|false

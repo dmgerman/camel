@@ -126,7 +126,7 @@ argument_list|()
 operator|.
 name|module
 argument_list|(
-literal|"camel-box"
+literal|"camel-ahc-ws"
 argument_list|)
 operator|.
 name|build

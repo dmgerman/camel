@@ -165,6 +165,12 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|basePath
+argument_list|(
+literal|"../../components/camel-olingo2/camel-olingo2-component"
+argument_list|)
+comment|//                .dependency(DependencyResolver.withVersion("javax.ws.rs:javax.ws.rs-api"))
+operator|.
 name|build
 argument_list|()
 return|;

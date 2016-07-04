@@ -165,6 +165,12 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|unitTestExclusionPattern
+argument_list|(
+literal|".*(\\.integration\\..*|IntegrationTest$|ExecJavaProcessRecipientListTest$|ExecJavaProcessTest$)"
+argument_list|)
+comment|// these tests are not written to work wit a fat jar, we just skip them
+operator|.
 name|build
 argument_list|()
 return|;

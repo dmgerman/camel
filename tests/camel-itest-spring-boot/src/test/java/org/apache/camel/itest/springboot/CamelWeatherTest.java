@@ -165,6 +165,11 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|unitTestExclusionPattern
+argument_list|(
+literal|".*(\\.integration\\..*|IntegrationTest$|BaseUndertowTest$)"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 return|;
@@ -186,13 +191,7 @@ argument_list|(
 name|config
 argument_list|)
 expr_stmt|;
-name|this
-operator|.
-name|runModuleUnitTestsIfEnabled
-argument_list|(
-name|config
-argument_list|)
-expr_stmt|;
+comment|// skip tests
 block|}
 block|}
 end_class

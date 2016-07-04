@@ -164,6 +164,7 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+comment|// arquillian fails, but the tests are ok
 operator|.
 name|build
 argument_list|()

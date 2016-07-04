@@ -165,6 +165,17 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|unitTestInclusionPattern
+argument_list|(
+literal|"^$"
+argument_list|)
+operator|.
+name|unitTestExpectedNumber
+argument_list|(
+literal|0
+argument_list|)
+comment|// The only unit test that can be run has a log-level dependent outcome...
+operator|.
 name|build
 argument_list|()
 return|;

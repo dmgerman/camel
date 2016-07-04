@@ -44,6 +44,20 @@ name|SpringBootApplication
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|scheduling
+operator|.
+name|annotation
+operator|.
+name|EnableAsync
+import|;
+end_import
+
 begin_comment
 comment|/**  * Contains the main class of the sample spring-boot application created for the module under test.  *  */
 end_comment
@@ -51,6 +65,8 @@ end_comment
 begin_class
 annotation|@
 name|SpringBootApplication
+annotation|@
+name|EnableAsync
 DECL|class|ITestApplication
 specifier|public
 class|class

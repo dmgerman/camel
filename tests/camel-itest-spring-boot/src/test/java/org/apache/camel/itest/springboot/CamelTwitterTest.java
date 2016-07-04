@@ -165,9 +165,9 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
-name|unitTestExclusionPattern
+name|unitTestInclusionPattern
 argument_list|(
-literal|".*(DirectMessageDirectTest|DirectMessagePollingTest)$"
+literal|".*UriConfigurationTest$"
 argument_list|)
 operator|.
 name|build

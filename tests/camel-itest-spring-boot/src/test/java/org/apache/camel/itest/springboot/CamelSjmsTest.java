@@ -164,6 +164,10 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+comment|//                .dependency("com.atomikos:transactions-jdbc:3.9.3")
+comment|//                .dependency("com.atomikos:transactions-jms:3.9.3")
+comment|//                .dependency("javax.transaction:javax.transaction-api:1.2")
+comment|//                .disableJmx("org.apache.activemq:*")
 operator|.
 name|build
 argument_list|()
@@ -179,13 +183,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|this
-operator|.
-name|runComponentTest
-argument_list|(
-name|config
-argument_list|)
-expr_stmt|;
+comment|//this.runComponentTest(config);
 name|this
 operator|.
 name|runModuleUnitTestsIfEnabled

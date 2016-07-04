@@ -165,6 +165,11 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|unitTestExclusionPattern
+argument_list|(
+literal|".*(\\.integration\\..*|IntegrationTest$|ManagedRefEndpointTest$|SpringLogProcessorWithProvidedLoggerTest$|SpringManagedCamelContextTest$)"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 return|;

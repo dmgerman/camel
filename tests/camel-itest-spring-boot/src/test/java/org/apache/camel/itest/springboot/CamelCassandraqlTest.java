@@ -40,6 +40,24 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|itest
+operator|.
+name|springboot
+operator|.
+name|util
+operator|.
+name|DependencyResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|jboss
 operator|.
 name|arquillian
@@ -164,6 +182,24 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+operator|.
+name|dependency
+argument_list|(
+name|DependencyResolver
+operator|.
+name|withVersion
+argument_list|(
+literal|"io.netty:netty-all"
+argument_list|)
+argument_list|)
+comment|//                .dependency(DependencyResolver.withVersion("io.dropwizard.metrics:metrics-core"))
+comment|//                .exclusion("com.codahale.metrics:*")
+operator|.
+name|unitTestExclusionPattern
+argument_list|(
+literal|".*(\\.integration\\..*|IntegrationTest$|CassandraComponentProducerTest$|CassandraComponentBeanRefTest$|CassandraComponentConsumerTest$)"
+argument_list|)
+comment|// excluded tests have been checked manually (they need to run on their own JDK)
 operator|.
 name|build
 argument_list|()

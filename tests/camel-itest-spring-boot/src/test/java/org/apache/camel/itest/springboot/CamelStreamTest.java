@@ -165,6 +165,17 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|customLog
+argument_list|(
+literal|false
+argument_list|)
+operator|.
+name|unitTestExclusionPattern
+argument_list|(
+literal|".*(\\.integration\\..*|IntegrationTest$|StreamToUrlTest$)"
+argument_list|)
+comment|// Spring provides its own URL handlers for schema "mock:"
+operator|.
 name|build
 argument_list|()
 return|;
