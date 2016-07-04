@@ -165,6 +165,11 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|customLog
+argument_list|(
+literal|true
+argument_list|)
+operator|.
 name|build
 argument_list|()
 return|;
