@@ -139,7 +139,7 @@ specifier|private
 name|DependencyResolver
 parameter_list|()
 block|{     }
-comment|/**      * Gets a groupId and artifactId in the form "groupId:artifactId" and returns the current version from the pom.      * Uses {@link DependencyResolver#withVersion(String, String)} using a default prefix.      *      * @param groupArtifact the groupId and artifactId in the form "groupId:artifactId"      * @return the maven canonical form of the artifact "groupId:artifactId:version"      * @throws RuntimeException if the version cannot be resolved      */
+comment|/**      * Gets a groupId and artifactId in the form "groupId:artifactId" and returns the current version from the pom.      * Uses {@link DependencyResolver#withVersion(String, String)} using a default prefix.      *      * @param groupArtifact the groupId and artifactId in the form "groupId:artifactId"      * @return the maven canonical form of the artifact "groupId:artifactId:version"      */
 DECL|method|withVersion (String groupArtifact)
 specifier|public
 specifier|static
@@ -159,7 +159,7 @@ name|groupArtifact
 argument_list|)
 return|;
 block|}
-comment|/**      * Gets a groupId and artifactId in the form "groupId:artifactId" and returns the current version from the pom.      * Versions are resolved from system properties when using surefire, and by looking at the poms when running from IDE.      *      * @param prefix the prefix to use to lookup the property from surefire      * @param groupArtifact the groupId and artifactId in the form "groupId:artifactId"      * @return the maven canonical form of the artifact "groupId:artifactId:version"      * @throws RuntimeException if the version cannot be resolved      */
+comment|/**      * Gets a groupId and artifactId in the form "groupId:artifactId" and returns the current version from the pom.      * Versions are resolved from system properties when using surefire, and by looking at the poms when running from IDE.      *      * @param prefix the prefix to use to lookup the property from surefire      * @param groupArtifact the groupId and artifactId in the form "groupId:artifactId"      * @return the maven canonical form of the artifact "groupId:artifactId:version"      */
 DECL|method|withVersion (String prefix, String groupArtifact)
 specifier|public
 specifier|static
@@ -212,17 +212,26 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-throw|throw
-operator|new
-name|IllegalStateException
+comment|// cannot use logging libs
+name|System
+operator|.
+name|out
+operator|.
+name|println
 argument_list|(
-literal|"Error while retrieving version for artifact: "
+literal|"RESOLVER ERROR>> Error while retrieving version for artifact: "
 operator|+
 name|groupArtifact
-argument_list|,
-name|e
 argument_list|)
-throw|;
+expr_stmt|;
+name|e
+operator|.
+name|printStackTrace
+argument_list|()
+expr_stmt|;
+return|return
+name|groupArtifact
+return|;
 block|}
 if|if
 condition|(
@@ -231,15 +240,20 @@ operator|==
 literal|null
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalStateException
+name|System
+operator|.
+name|out
+operator|.
+name|println
 argument_list|(
-literal|"Cannot determine version for maven artifact: "
+literal|"RESOLVER ERROR>> Cannot determine version for maven artifact: "
 operator|+
 name|groupArtifact
 argument_list|)
-throw|;
+expr_stmt|;
+return|return
+name|groupArtifact
+return|;
 block|}
 elseif|else
 if|if
@@ -251,11 +265,13 @@ name|version
 argument_list|)
 condition|)
 block|{
-throw|throw
-operator|new
-name|IllegalStateException
+name|System
+operator|.
+name|out
+operator|.
+name|println
 argument_list|(
-literal|"Cannot resolve version for maven artifact: "
+literal|"RESOLVER ERROR>> Cannot resolve version for maven artifact: "
 operator|+
 name|groupArtifact
 operator|+
@@ -263,7 +279,10 @@ literal|". Missing property value: "
 operator|+
 name|version
 argument_list|)
-throw|;
+expr_stmt|;
+return|return
+name|groupArtifact
+return|;
 block|}
 return|return
 name|groupArtifact
