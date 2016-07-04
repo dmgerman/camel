@@ -22,6 +22,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|List
@@ -243,14 +253,25 @@ name|UriParam
 argument_list|(
 name|defaultValue
 operator|=
-literal|"/usr/share/elasticsearch"
+literal|"${user.home}/.elasticsearch"
 argument_list|)
 DECL|field|pathHome
 specifier|private
 name|String
 name|pathHome
 init|=
-literal|"/usr/share/elasticsearch"
+name|System
+operator|.
+name|getProperty
+argument_list|(
+literal|"user.home"
+argument_list|)
+operator|+
+name|File
+operator|.
+name|separator
+operator|+
+literal|".elasticsearch"
 decl_stmt|;
 comment|/**      * Name of cluster or use local for local mode      */
 DECL|method|getClusterName ()
@@ -580,7 +601,7 @@ operator|=
 name|transportAddressesList
 expr_stmt|;
 block|}
-comment|/**      * The path.home property of ElasticSearch configuration. You need to provide a valid path, otherwise the default, /usr/share/elasticsearch, will be used.      */
+comment|/**      * The path.home property of ElasticSearch configuration. You need to provide a valid path, otherwise the default, ${user.home}/.elasticsearch, will be used.      */
 DECL|method|getPathHome ()
 specifier|public
 name|String
