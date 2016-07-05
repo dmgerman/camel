@@ -22,7 +22,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|HashMap
 import|;
 end_import
 
@@ -32,7 +32,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|HashMap
+name|LinkedList
 import|;
 end_import
 
@@ -3460,10 +3460,8 @@ operator|.
 name|MESSAGE_HISTORY
 argument_list|,
 operator|new
-name|ArrayList
-argument_list|<
-name|MessageHistory
-argument_list|>
+name|LinkedList
+argument_list|<>
 argument_list|(
 name|history
 argument_list|)

@@ -414,9 +414,10 @@ name|getRouteId
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|//assertEquals("myAsync", thread.getNodeId());
 name|assertEquals
 argument_list|(
-literal|"myAsync"
+literal|"process1"
 argument_list|,
 name|thread
 operator|.
