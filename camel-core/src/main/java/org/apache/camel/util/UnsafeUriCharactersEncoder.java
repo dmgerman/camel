@@ -147,11 +147,12 @@ block|,
 literal|'f'
 block|}
 decl_stmt|;
-DECL|field|rawPattern
+DECL|field|RAW_PATTERN
 specifier|private
 specifier|static
+specifier|final
 name|Pattern
-name|rawPattern
+name|RAW_PATTERN
 init|=
 name|Pattern
 operator|.
@@ -511,7 +512,7 @@ block|{
 name|Matcher
 name|matcher
 init|=
-name|rawPattern
+name|RAW_PATTERN
 operator|.
 name|matcher
 argument_list|(
