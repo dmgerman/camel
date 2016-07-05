@@ -207,7 +207,6 @@ return|;
 block|}
 annotation|@
 name|Test
-comment|//    @Ignore
 DECL|method|componentTests ()
 specifier|public
 name|void
