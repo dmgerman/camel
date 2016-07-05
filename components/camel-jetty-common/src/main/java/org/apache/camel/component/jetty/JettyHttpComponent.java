@@ -6632,6 +6632,8 @@ operator|.
 name|addBean
 argument_list|(
 name|eh
+argument_list|,
+literal|false
 argument_list|)
 expr_stmt|;
 block|}
