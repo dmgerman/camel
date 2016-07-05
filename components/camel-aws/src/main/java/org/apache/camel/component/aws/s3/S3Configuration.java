@@ -301,6 +301,10 @@ argument_list|(
 name|label
 operator|=
 literal|"producer"
+argument_list|,
+name|enums
+operator|=
+literal|"copyObject"
 argument_list|)
 DECL|field|operation
 specifier|private
