@@ -297,6 +297,11 @@ name|pathStyleAccess
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|operation
 specifier|private
 name|S3Operations
