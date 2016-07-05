@@ -295,6 +295,13 @@ specifier|private
 name|boolean
 name|pathStyleAccess
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|operation
+specifier|private
+name|S3Operations
+name|operation
+decl_stmt|;
 DECL|method|getPartSize ()
 specifier|public
 name|long
@@ -808,6 +815,33 @@ block|{
 return|return
 name|pathStyleAccess
 return|;
+block|}
+DECL|method|getOperation ()
+specifier|public
+name|S3Operations
+name|getOperation
+parameter_list|()
+block|{
+return|return
+name|operation
+return|;
+block|}
+comment|/**      * *Camel 2.18*: The operation to do in case the user don't want to do only an upload      */
+DECL|method|setOperation (S3Operations operation)
+specifier|public
+name|void
+name|setOperation
+parameter_list|(
+name|S3Operations
+name|operation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|operation
+operator|=
+name|operation
+expr_stmt|;
 block|}
 DECL|method|hasProxyConfiguration ()
 name|boolean
