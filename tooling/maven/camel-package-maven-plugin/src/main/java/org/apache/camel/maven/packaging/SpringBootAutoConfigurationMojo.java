@@ -570,19 +570,6 @@ name|SpringBootAutoConfigurationMojo
 extends|extends
 name|AbstractMojo
 block|{
-comment|// xml beans does not work with Spring Boot APT compiler plugin
-DECL|field|EXCLUDE_DATAFORMATS
-specifier|private
-specifier|static
-specifier|final
-name|String
-index|[]
-name|EXCLUDE_DATAFORMATS
-init|=
-block|{
-literal|"xmlBeans"
-block|}
-decl_stmt|;
 comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
 DECL|field|project
 specifier|protected
@@ -922,31 +909,6 @@ argument_list|,
 name|json
 argument_list|)
 decl_stmt|;
-comment|// should we skip the data format?
-for|for
-control|(
-name|String
-name|exclude
-range|:
-name|EXCLUDE_DATAFORMATS
-control|)
-block|{
-if|if
-condition|(
-name|exclude
-operator|.
-name|equals
-argument_list|(
-name|model
-operator|.
-name|getName
-argument_list|()
-argument_list|)
-condition|)
-block|{
-return|return;
-block|}
-block|}
 comment|// only create source code if the component has options that can be used in auto configuration
 if|if
 condition|(
