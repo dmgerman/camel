@@ -3029,21 +3029,6 @@ name|Throwable
 name|cause
 parameter_list|)
 block|{
-name|LOG
-operator|.
-name|error
-argument_list|(
-literal|"Exception on receiving message from address: "
-operator|+
-name|address
-operator|+
-literal|" using connector: "
-operator|+
-name|connector
-argument_list|,
-name|cause
-argument_list|)
-expr_stmt|;
 name|this
 operator|.
 name|message
