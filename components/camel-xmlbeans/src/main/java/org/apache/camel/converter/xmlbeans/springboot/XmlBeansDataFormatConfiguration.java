@@ -46,7 +46,7 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.dataformat.xmlBeans"
+literal|"camel.dataformat.xmlbeans"
 argument_list|)
 DECL|class|XmlBeansDataFormatConfiguration
 specifier|public

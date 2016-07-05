@@ -94,6 +94,16 @@ name|java
 operator|.
 name|util
 operator|.
+name|Locale
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
 name|Map
 import|;
 end_import
@@ -1109,6 +1119,18 @@ operator|.
 name|getScheme
 argument_list|()
 decl_stmt|;
+comment|// make sure prefix is in lower case
+name|prefix
+operator|=
+name|prefix
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+expr_stmt|;
 name|javaClass
 operator|.
 name|addAnnotation
@@ -1741,6 +1763,18 @@ operator|.
 name|getName
 argument_list|()
 decl_stmt|;
+comment|// make sure prefix is in lower case
+name|prefix
+operator|=
+name|prefix
+operator|.
+name|toLowerCase
+argument_list|(
+name|Locale
+operator|.
+name|US
+argument_list|)
+expr_stmt|;
 name|javaClass
 operator|.
 name|addAnnotation
