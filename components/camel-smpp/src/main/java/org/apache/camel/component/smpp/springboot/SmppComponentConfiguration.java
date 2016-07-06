@@ -62,7 +62,7 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.component.smpps"
+literal|"camel.component.smpp"
 argument_list|)
 DECL|class|SmppComponentConfiguration
 specifier|public

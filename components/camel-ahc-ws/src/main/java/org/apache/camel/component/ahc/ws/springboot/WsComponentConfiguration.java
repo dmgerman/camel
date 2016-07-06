@@ -114,7 +114,7 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.component.ahc-wss"
+literal|"camel.component.ahc-ws"
 argument_list|)
 DECL|class|WsComponentConfiguration
 specifier|public

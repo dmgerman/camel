@@ -122,7 +122,7 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.component.https"
+literal|"camel.component.http"
 argument_list|)
 DECL|class|HttpComponentConfiguration
 specifier|public

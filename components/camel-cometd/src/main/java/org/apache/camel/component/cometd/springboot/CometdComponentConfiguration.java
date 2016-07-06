@@ -102,7 +102,7 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.component.cometds"
+literal|"camel.component.cometd"
 argument_list|)
 DECL|class|CometdComponentConfiguration
 specifier|public

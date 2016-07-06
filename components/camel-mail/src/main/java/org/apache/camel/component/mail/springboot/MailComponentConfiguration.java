@@ -78,7 +78,7 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.component.smtps"
+literal|"camel.component.mail"
 argument_list|)
 DECL|class|MailComponentConfiguration
 specifier|public
