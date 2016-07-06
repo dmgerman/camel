@@ -46,7 +46,7 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.dataformat.tidyMarkup"
+literal|"camel.dataformat.tidymarkup"
 argument_list|)
 DECL|class|TidyMarkupDataFormatConfiguration
 specifier|public

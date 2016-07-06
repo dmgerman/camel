@@ -46,7 +46,7 @@ name|ConfigurationProperties
 argument_list|(
 name|prefix
 operator|=
-literal|"camel.dataformat.secureXML"
+literal|"camel.dataformat.securexml"
 argument_list|)
 DECL|class|XMLSecurityDataFormatConfiguration
 specifier|public
