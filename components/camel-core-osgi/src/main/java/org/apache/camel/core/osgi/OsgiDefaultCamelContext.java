@@ -196,7 +196,11 @@ name|this
 argument_list|(
 name|bundleContext
 argument_list|,
-literal|null
+operator|new
+name|OsgiServiceRegistry
+argument_list|(
+name|bundleContext
+argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
@@ -211,6 +215,11 @@ name|Registry
 name|registry
 parameter_list|)
 block|{
+name|super
+argument_list|(
+name|registry
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|bundleContext
