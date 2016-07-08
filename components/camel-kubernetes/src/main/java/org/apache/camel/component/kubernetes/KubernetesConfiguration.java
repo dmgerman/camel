@@ -177,17 +177,33 @@ literal|"producer"
 argument_list|,
 name|enums
 operator|=
-literal|"listNamespaces,listNamespacesByLabels,getNamespace,createNamespace,deleteNamespace,listServices,listServicesByLabels,getService,createService,"
+literal|"listNamespaces,listNamespacesByLabels,getNamespace,createNamespace,deleteNamespace,"
 operator|+
-literal|"deleteService,listReplicationControllers,listReplicationControllersByLabels,getReplicationController,createReplicationController,deleteReplicationController,scaleReplicationController,"
+literal|"listServices,listServicesByLabels,getService,createService,"
 operator|+
-literal|"listPods,listPodsByLabels,getPod,createPod,deletePod,listPersistentVolumes,listPersistentVolumesByLabels,getPersistentVolume,listPersistentVolumesClaims,listPersistentVolumesClaimsByLabels,"
+literal|"deleteService,listReplicationControllers,listReplicationControllersByLabels,getReplicationController,"
 operator|+
-literal|"getPersistentVolumeClaim,createPersistentVolumeClaim,deletePersistentVolumeClaim,listSecrets,listSecretsByLabels,getSecret,createSecret,deleteSecret,listResourcesQuota,"
+literal|"createReplicationController,deleteReplicationController,scaleReplicationController,"
 operator|+
-literal|"listResourcesQuotaByLabels,getResourceQuota,createResourceQuota,deleteResourceQuota,listServiceAccounts,listServiceAccountsByLabels,getServiceAccount,createServiceAccount,"
+literal|"listPods,listPodsByLabels,getPod,createPod,deletePod,listPersistentVolumes,"
 operator|+
-literal|"deleteServiceAccount,listNodes,listNodesByLabels,getNode,listConfigMaps,listConfigMapsByLabels,getConfigMap,createConfigMap,deleteConfigMap,listBuilds,listBuildsByLabels,"
+literal|"listPersistentVolumesByLabels,getPersistentVolume,listPersistentVolumesClaims,"
+operator|+
+literal|"listPersistentVolumesClaimsByLabels,"
+operator|+
+literal|"getPersistentVolumeClaim,createPersistentVolumeClaim,deletePersistentVolumeClaim,listSecrets,"
+operator|+
+literal|"listSecretsByLabels,getSecret,createSecret,deleteSecret,"
+operator|+
+literal|"listResourcesQuota,listResourcesQuotaByLabels,getResourceQuota,"
+operator|+
+literal|"createResourceQuota,deleteResourceQuota,listServiceAccounts,listServiceAccountsByLabels,"
+operator|+
+literal|"getServiceAccount,createServiceAccount,"
+operator|+
+literal|"deleteServiceAccount,listNodes,listNodesByLabels,getNode,listConfigMaps,"
+operator|+
+literal|"listConfigMapsByLabels,getConfigMap,createConfigMap,deleteConfigMap,listBuilds,listBuildsByLabels,"
 operator|+
 literal|"getBuild,listBuildConfigs,listBuildConfigsByLabels,getBuildConfig"
 argument_list|)
@@ -374,6 +390,42 @@ DECL|field|namespace
 specifier|private
 name|String
 name|namespace
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|labelKey
+specifier|private
+name|String
+name|labelKey
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|labelValue
+specifier|private
+name|String
+name|labelValue
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|)
+DECL|field|resourceName
+specifier|private
+name|String
+name|resourceName
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -1006,6 +1058,87 @@ operator|=
 name|poolSize
 expr_stmt|;
 block|}
+comment|/**      * The Consumer Label key when watching at some resources      */
+DECL|method|getLabelKey ()
+specifier|public
+name|String
+name|getLabelKey
+parameter_list|()
+block|{
+return|return
+name|labelKey
+return|;
+block|}
+DECL|method|setLabelKey (String labelKey)
+specifier|public
+name|void
+name|setLabelKey
+parameter_list|(
+name|String
+name|labelKey
+parameter_list|)
+block|{
+name|this
+operator|.
+name|labelKey
+operator|=
+name|labelKey
+expr_stmt|;
+block|}
+comment|/**      * The Consumer Label value when watching at some resources      */
+DECL|method|getLabelValue ()
+specifier|public
+name|String
+name|getLabelValue
+parameter_list|()
+block|{
+return|return
+name|labelValue
+return|;
+block|}
+DECL|method|setLabelValue (String labelValue)
+specifier|public
+name|void
+name|setLabelValue
+parameter_list|(
+name|String
+name|labelValue
+parameter_list|)
+block|{
+name|this
+operator|.
+name|labelValue
+operator|=
+name|labelValue
+expr_stmt|;
+block|}
+comment|/**      * The Consumer Resource Name we would like to watch      */
+DECL|method|getResourceName ()
+specifier|public
+name|String
+name|getResourceName
+parameter_list|()
+block|{
+return|return
+name|resourceName
+return|;
+block|}
+DECL|method|setResourceName (String resourceName)
+specifier|public
+name|void
+name|setResourceName
+parameter_list|(
+name|String
+name|resourceName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|resourceName
+operator|=
+name|resourceName
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -1083,9 +1216,33 @@ literal|", trustCerts="
 operator|+
 name|trustCerts
 operator|+
-literal|", namespaceName="
+literal|", namespace="
 operator|+
 name|namespace
+operator|+
+literal|", labelKey="
+operator|+
+name|labelKey
+operator|+
+literal|", labelValue="
+operator|+
+name|labelValue
+operator|+
+literal|", resourceName="
+operator|+
+name|resourceName
+operator|+
+literal|", portName="
+operator|+
+name|portName
+operator|+
+literal|", dnsDomain="
+operator|+
+name|dnsDomain
+operator|+
+literal|", poolSize="
+operator|+
+name|poolSize
 operator|+
 literal|"]"
 return|;

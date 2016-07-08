@@ -550,21 +550,6 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
-name|Pod
-name|pod
-init|=
-name|ex
-operator|.
-name|getOut
-argument_list|()
-operator|.
-name|getBody
-argument_list|(
-name|Pod
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
 name|ex
 operator|=
 name|template
@@ -750,7 +735,7 @@ argument_list|)
 expr_stmt|;
 name|fromF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=pods"
+literal|"kubernetes://%s?oauthToken=%s&category=pods&namespace=default&labelKey=this&labelValue=rocks"
 argument_list|,
 name|host
 argument_list|,
@@ -801,15 +786,33 @@ operator|.
 name|getIn
 argument_list|()
 decl_stmt|;
+name|Pod
+name|pod
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|Pod
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
 name|log
 operator|.
 name|info
 argument_list|(
-literal|"Got event with body: "
+literal|"Got event with pod name: "
 operator|+
-name|in
+name|pod
 operator|.
-name|getBody
+name|getMetadata
+argument_list|()
+operator|.
+name|getName
 argument_list|()
 operator|+
 literal|" and action "
