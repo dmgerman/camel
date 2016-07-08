@@ -79,6 +79,12 @@ name|KUBERNETES_REPLICATION_CONTROLLER_SPEC
 init|=
 literal|"CamelKubernetesReplicationControllerSpec"
 decl_stmt|;
+DECL|field|KUBERNETES_REPLICATION_CONTROLLER_REPLICAS
+name|String
+name|KUBERNETES_REPLICATION_CONTROLLER_REPLICAS
+init|=
+literal|"CamelKubernetesReplicationControllerReplicas"
+decl_stmt|;
 DECL|field|KUBERNETES_PODS_LABELS
 name|String
 name|KUBERNETES_PODS_LABELS

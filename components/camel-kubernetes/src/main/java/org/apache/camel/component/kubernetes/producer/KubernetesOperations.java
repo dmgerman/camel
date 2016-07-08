@@ -119,6 +119,12 @@ name|DELETE_REPLICATION_CONTROLLER_OPERATION
 init|=
 literal|"deleteReplicationController"
 decl_stmt|;
+DECL|field|SCALE_REPLICATION_CONTROLLER_OPERATION
+name|String
+name|SCALE_REPLICATION_CONTROLLER_OPERATION
+init|=
+literal|"scaleReplicationController"
+decl_stmt|;
 comment|// Pods
 DECL|field|LIST_PODS_OPERATION
 name|String
