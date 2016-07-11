@@ -1413,7 +1413,7 @@ name|log
 operator|.
 name|trace
 argument_list|(
-literal|"UnitOfWork afterRouteL: {} for ExchangeId: {} with {}"
+literal|"UnitOfWork afterRoute: {} for ExchangeId: {} with {}"
 argument_list|,
 operator|new
 name|Object
