@@ -1,6 +1,6 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p>  * http://www.apache.org/licenses/LICENSE-2.0  *<p>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
@@ -17,6 +17,18 @@ operator|.
 name|lumberjack
 package|;
 end_package
+
+begin_import
+import|import
+name|javax
+operator|.
+name|net
+operator|.
+name|ssl
+operator|.
+name|SSLContext
+import|;
+end_import
 
 begin_import
 import|import
@@ -94,7 +106,37 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|UriParam
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|UriPath
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
 import|;
 end_import
 
@@ -125,6 +167,7 @@ operator|=
 literal|"log"
 argument_list|)
 DECL|class|LumberjackEndpoint
+specifier|final
 class|class
 name|LumberjackEndpoint
 extends|extends
@@ -145,6 +188,7 @@ operator|=
 literal|"true"
 argument_list|)
 DECL|field|host
+specifier|private
 specifier|final
 name|String
 name|host
@@ -165,9 +209,22 @@ operator|.
 name|DEFAULT_PORT
 argument_list|)
 DECL|field|port
+specifier|private
 specifier|final
 name|int
 name|port
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|description
+operator|=
+literal|"SSL configuration"
+argument_list|)
+DECL|field|sslContextParameters
+specifier|private
+name|SSLContextParameters
+name|sslContextParameters
 decl_stmt|;
 DECL|method|LumberjackEndpoint (String endpointUri, LumberjackComponent component, String host, int port)
 name|LumberjackEndpoint
@@ -236,6 +293,23 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
+name|SSLContext
+name|sslContext
+init|=
+name|sslContextParameters
+operator|!=
+literal|null
+condition|?
+name|sslContextParameters
+operator|.
+name|createSSLContext
+argument_list|(
+name|getCamelContext
+argument_list|()
+argument_list|)
+else|:
+literal|null
+decl_stmt|;
 return|return
 operator|new
 name|LumberjackConsumer
@@ -248,7 +322,7 @@ name|host
 argument_list|,
 name|port
 argument_list|,
-literal|null
+name|sslContext
 argument_list|)
 return|;
 block|}
@@ -263,6 +337,22 @@ block|{
 return|return
 literal|true
 return|;
+block|}
+DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
+expr_stmt|;
 block|}
 block|}
 end_class

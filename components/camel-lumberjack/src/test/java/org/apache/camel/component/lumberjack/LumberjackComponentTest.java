@@ -308,8 +308,6 @@ expr_stmt|;
 comment|// And we should have replied with 2 acknowledgments for each window frame
 name|assertEquals
 argument_list|(
-name|responses
-argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -318,6 +316,8 @@ literal|10
 argument_list|,
 literal|15
 argument_list|)
+argument_list|,
+name|responses
 argument_list|)
 expr_stmt|;
 block|}

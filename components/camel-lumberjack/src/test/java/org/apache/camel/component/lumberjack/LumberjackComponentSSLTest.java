@@ -212,10 +212,10 @@ name|SuppressWarnings
 argument_list|(
 literal|"unchecked"
 argument_list|)
-DECL|class|LumberjacksComponentTest
+DECL|class|LumberjackComponentSSLTest
 specifier|public
 class|class
-name|LumberjacksComponentTest
+name|LumberjackComponentSSLTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -295,7 +295,7 @@ block|{
 comment|// Lumberjack configured with SSL
 name|from
 argument_list|(
-literal|"lumberjacks:0.0.0.0:"
+literal|"lumberjack:0.0.0.0:"
 operator|+
 name|port
 operator|+
@@ -378,8 +378,6 @@ expr_stmt|;
 comment|// And we should have replied with 2 acknowledgments for each window frame
 name|assertEquals
 argument_list|(
-name|responses
-argument_list|,
 name|Arrays
 operator|.
 name|asList
@@ -388,6 +386,8 @@ literal|10
 argument_list|,
 literal|15
 argument_list|)
+argument_list|,
+name|responses
 argument_list|)
 expr_stmt|;
 block|}

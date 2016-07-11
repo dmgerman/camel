@@ -134,6 +134,7 @@ end_import
 
 begin_class
 DECL|class|LumberjackConsumer
+specifier|final
 class|class
 name|LumberjackConsumer
 extends|extends
