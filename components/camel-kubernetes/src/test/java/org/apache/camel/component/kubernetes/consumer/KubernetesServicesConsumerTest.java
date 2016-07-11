@@ -743,7 +743,7 @@ argument_list|)
 expr_stmt|;
 name|fromF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=services"
+literal|"kubernetes://%s?oauthToken=%s&category=services&labelKey=this&labelValue=rocks"
 argument_list|,
 name|host
 argument_list|,

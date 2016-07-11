@@ -36,16 +36,6 @@ name|java
 operator|.
 name|util
 operator|.
-name|Iterator
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|util
-operator|.
 name|Map
 import|;
 end_import
@@ -753,7 +743,7 @@ argument_list|)
 expr_stmt|;
 name|fromF
 argument_list|(
-literal|"kubernetes://%s?oauthToken=%s&category=replicationControllers"
+literal|"kubernetes://%s?oauthToken=%s&category=replicationControllers&resourceName=wildfly"
 argument_list|,
 name|host
 argument_list|,
