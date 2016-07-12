@@ -245,7 +245,7 @@ parameter_list|()
 block|{
 name|from
 argument_list|(
-literal|"timer:stream?repeatCount=1"
+literal|"timer:stream?repeatCount=3"
 argument_list|)
 operator|.
 name|to
