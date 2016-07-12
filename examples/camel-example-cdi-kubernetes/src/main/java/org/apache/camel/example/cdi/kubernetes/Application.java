@@ -86,6 +86,22 @@ end_import
 
 begin_import
 import|import
+name|io
+operator|.
+name|fabric8
+operator|.
+name|kubernetes
+operator|.
+name|api
+operator|.
+name|model
+operator|.
+name|Pod
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -199,22 +215,6 @@ operator|.
 name|config
 operator|.
 name|ConfigResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|io
-operator|.
-name|fabric8
-operator|.
-name|kubernetes
-operator|.
-name|api
-operator|.
-name|model
-operator|.
-name|Pod
 import|;
 end_import
 
