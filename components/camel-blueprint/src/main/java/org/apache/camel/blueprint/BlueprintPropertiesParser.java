@@ -816,25 +816,6 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-if|if
-condition|(
-name|answer
-operator|==
-literal|null
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"Property placeholder key: "
-operator|+
-name|key
-operator|+
-literal|" not found"
-argument_list|)
-throw|;
-block|}
 name|log
 operator|.
 name|trace
