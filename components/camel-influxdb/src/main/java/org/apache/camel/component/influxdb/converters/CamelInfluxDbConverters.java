@@ -143,14 +143,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Unable to find the header for the measurement "
-operator|+
-name|map
-operator|.
-name|size
-argument_list|()
-operator|+
-literal|" to:"
+literal|"Unable to find the header for the measurement in:"
 operator|+
 name|map
 operator|.
