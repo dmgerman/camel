@@ -113,7 +113,7 @@ name|SystemModstamp
 decl_stmt|;
 DECL|field|LastActivityDate
 specifier|private
-name|String
+name|ZonedDateTime
 name|LastActivityDate
 decl_stmt|;
 DECL|field|LastViewedDate
@@ -532,7 +532,7 @@ literal|"LastActivityDate"
 argument_list|)
 DECL|method|getLastActivityDate ()
 specifier|public
-name|String
+name|ZonedDateTime
 name|getLastActivityDate
 parameter_list|()
 block|{
@@ -545,12 +545,12 @@ name|JsonProperty
 argument_list|(
 literal|"LastActivityDate"
 argument_list|)
-DECL|method|setLastActivityDate (String lastActivityDate)
+DECL|method|setLastActivityDate (ZonedDateTime lastActivityDate)
 specifier|public
 name|void
 name|setLastActivityDate
 parameter_list|(
-name|String
+name|ZonedDateTime
 name|lastActivityDate
 parameter_list|)
 block|{
