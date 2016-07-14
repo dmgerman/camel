@@ -581,6 +581,11 @@ block|}
 block|}
 argument_list|)
 decl_stmt|;
+name|result
+operator|.
+name|ignoreUnknownElements
+argument_list|()
+expr_stmt|;
 name|XStreamUtils
 operator|.
 name|addDefaultPermissions

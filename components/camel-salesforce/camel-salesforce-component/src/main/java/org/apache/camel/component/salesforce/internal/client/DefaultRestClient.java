@@ -544,6 +544,11 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+name|xStream
+operator|.
+name|ignoreUnknownElements
+argument_list|()
+expr_stmt|;
 name|XStreamUtils
 operator|.
 name|addDefaultPermissions

@@ -3965,7 +3965,7 @@ literal|"picklist"
 decl_stmt|;
 DECL|field|useStringsForPicklists
 specifier|private
-name|Boolean
+name|boolean
 name|useStringsForPicklists
 decl_stmt|;
 DECL|method|GeneratorUtility (Boolean useStringsForPicklists)
@@ -3980,7 +3980,14 @@ name|this
 operator|.
 name|useStringsForPicklists
 operator|=
+name|Boolean
+operator|.
+name|TRUE
+operator|.
+name|equals
+argument_list|(
 name|useStringsForPicklists
+argument_list|)
 expr_stmt|;
 block|}
 DECL|method|isBlobField (SObjectField field)

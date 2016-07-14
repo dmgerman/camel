@@ -52,6 +52,20 @@ name|jackson
 operator|.
 name|annotation
 operator|.
+name|JsonIgnoreProperties
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|fasterxml
+operator|.
+name|jackson
+operator|.
+name|annotation
+operator|.
 name|JsonInclude
 import|;
 end_import
@@ -83,6 +97,14 @@ operator|.
 name|Include
 operator|.
 name|NON_NULL
+argument_list|)
+comment|// avoid running into Salesforce backward compatibility breaks
+annotation|@
+name|JsonIgnoreProperties
+argument_list|(
+name|ignoreUnknown
+operator|=
+literal|true
 argument_list|)
 DECL|class|AbstractDTOBase
 specifier|public
