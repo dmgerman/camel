@@ -2439,11 +2439,18 @@ name|getId
 argument_list|()
 expr_stmt|;
 comment|// we need to avoid leak the sensible information here
+comment|// the sanitizeUri takes a very long time for very long string and the format cuts this to
+comment|// 78 characters, anyway. Cut this to 100 characters. This will give enough space for removing
+comment|// characters in the sanitizeUri method and will be reasonably fast
 name|label
 operator|=
 name|URISupport
 operator|.
 name|sanitizeUri
+argument_list|(
+name|StringHelper
+operator|.
+name|limitLenght
 argument_list|(
 name|history
 operator|.
@@ -2452,6 +2459,9 @@ argument_list|()
 operator|.
 name|getLabel
 argument_list|()
+argument_list|,
+literal|100
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|elapsed
