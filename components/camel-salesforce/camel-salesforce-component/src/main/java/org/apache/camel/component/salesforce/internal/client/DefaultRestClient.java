@@ -514,8 +514,9 @@ name|this
 operator|.
 name|objectMapper
 operator|=
-operator|new
-name|ObjectMapper
+name|JsonUtils
+operator|.
+name|createObjectMapper
 argument_list|()
 expr_stmt|;
 name|this

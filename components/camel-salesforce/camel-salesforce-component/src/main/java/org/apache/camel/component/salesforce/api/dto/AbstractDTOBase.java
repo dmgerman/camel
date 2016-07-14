@@ -84,6 +84,26 @@ name|ObjectMapper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|salesforce
+operator|.
+name|internal
+operator|.
+name|client
+operator|.
+name|JsonUtils
+import|;
+end_import
+
 begin_comment
 comment|// disable null values in json output
 end_comment
@@ -119,8 +139,9 @@ specifier|final
 name|ObjectMapper
 name|MAPPER
 init|=
-operator|new
-name|ObjectMapper
+name|JsonUtils
+operator|.
+name|createObjectMapper
 argument_list|()
 decl_stmt|;
 annotation|@
