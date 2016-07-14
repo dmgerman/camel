@@ -86,9 +86,7 @@ end_import
 
 begin_import
 import|import static
-name|com
-operator|.
-name|jayway
+name|io
 operator|.
 name|restassured
 operator|.
