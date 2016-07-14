@@ -316,6 +316,21 @@ name|configuration
 argument_list|)
 expr_stmt|;
 block|}
+annotation|@
+name|Override
+DECL|method|getConfiguration ()
+specifier|public
+name|GoogleMailConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|super
+operator|.
+name|getConfiguration
+argument_list|()
+return|;
+block|}
 comment|/**      * To use the GoogleCalendarClientFactory as factory for creating the client.      * Will by default use {@link BatchGoogleMailClientFactory}      */
 DECL|method|setClientFactory (GoogleMailClientFactory clientFactory)
 specifier|public

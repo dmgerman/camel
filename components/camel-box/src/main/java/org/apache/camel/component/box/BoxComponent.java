@@ -305,6 +305,22 @@ name|configuration
 argument_list|)
 expr_stmt|;
 block|}
+comment|/**      * To use the shared configuration      */
+annotation|@
+name|Override
+DECL|method|getConfiguration ()
+specifier|public
+name|BoxConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|super
+operator|.
+name|getConfiguration
+argument_list|()
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doStart ()
