@@ -312,6 +312,13 @@ name|remotePath
 decl_stmt|;
 annotation|@
 name|UriParam
+DECL|field|remoteName
+specifier|private
+name|String
+name|remoteName
+decl_stmt|;
+annotation|@
+name|UriParam
 argument_list|(
 name|enums
 operator|=
@@ -674,6 +681,33 @@ operator|.
 name|tagName
 operator|=
 name|tagName
+expr_stmt|;
+block|}
+comment|/**      * The remote repository name to use in particular operation like pull      */
+DECL|method|getRemoteName ()
+specifier|public
+name|String
+name|getRemoteName
+parameter_list|()
+block|{
+return|return
+name|remoteName
+return|;
+block|}
+DECL|method|setRemoteName (String remoteName)
+specifier|public
+name|void
+name|setRemoteName
+parameter_list|(
+name|String
+name|remoteName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|remoteName
+operator|=
+name|remoteName
 expr_stmt|;
 block|}
 block|}

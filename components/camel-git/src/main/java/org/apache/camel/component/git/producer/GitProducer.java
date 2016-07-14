@@ -2322,7 +2322,7 @@ name|isEmpty
 argument_list|(
 name|endpoint
 operator|.
-name|getRemotePath
+name|getRemoteName
 argument_list|()
 argument_list|)
 condition|)
@@ -2331,7 +2331,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Remote path must be specified to execute "
+literal|"Remote name must be specified to execute "
 operator|+
 name|operation
 argument_list|)
@@ -2428,7 +2428,7 @@ name|setRemote
 argument_list|(
 name|endpoint
 operator|.
-name|getRemotePath
+name|getRemoteName
 argument_list|()
 argument_list|)
 operator|.
@@ -2449,7 +2449,7 @@ name|setRemote
 argument_list|(
 name|endpoint
 operator|.
-name|getRemotePath
+name|getRemoteName
 argument_list|()
 argument_list|)
 operator|.
@@ -2519,7 +2519,7 @@ name|isEmpty
 argument_list|(
 name|endpoint
 operator|.
-name|getRemotePath
+name|getRemoteName
 argument_list|()
 argument_list|)
 condition|)
@@ -2528,7 +2528,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Remote path must be specified to execute "
+literal|"Remote name must be specified to execute "
 operator|+
 name|operation
 argument_list|)
@@ -2625,7 +2625,7 @@ name|setRemote
 argument_list|(
 name|endpoint
 operator|.
-name|getRemotePath
+name|getRemoteName
 argument_list|()
 argument_list|)
 operator|.
@@ -2646,7 +2646,7 @@ name|setRemote
 argument_list|(
 name|endpoint
 operator|.
-name|getRemotePath
+name|getRemoteName
 argument_list|()
 argument_list|)
 operator|.
