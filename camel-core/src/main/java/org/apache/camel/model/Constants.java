@@ -50,7 +50,9 @@ literal|"org.apache.camel.model.loadbalancer:"
 operator|+
 literal|"org.apache.camel.model.remote:"
 operator|+
-literal|"org.apache.camel.model.rest"
+literal|"org.apache.camel.model.rest:"
+operator|+
+literal|"org.apache.camel.model.transformer"
 decl_stmt|;
 DECL|field|PLACEHOLDER_QNAME
 specifier|public

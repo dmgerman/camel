@@ -690,6 +690,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|transformer
+operator|.
+name|TransformersDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|Metadata
@@ -1629,6 +1645,18 @@ DECL|field|dataFormats
 specifier|private
 name|DataFormatsDefinition
 name|dataFormats
+decl_stmt|;
+annotation|@
+name|XmlElement
+argument_list|(
+name|name
+operator|=
+literal|"transformers"
+argument_list|)
+DECL|field|transformers
+specifier|private
+name|TransformersDefinition
+name|transformers
 decl_stmt|;
 annotation|@
 name|XmlElement
@@ -3883,6 +3911,33 @@ parameter_list|()
 block|{
 return|return
 name|dataFormats
+return|;
+block|}
+comment|/**      * Configuration of transformers.      */
+DECL|method|setTransformers (TransformersDefinition transformers)
+specifier|public
+name|void
+name|setTransformers
+parameter_list|(
+name|TransformersDefinition
+name|transformers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transformers
+operator|=
+name|transformers
+expr_stmt|;
+block|}
+DECL|method|getTransformers ()
+specifier|public
+name|TransformersDefinition
+name|getTransformers
+parameter_list|()
+block|{
+return|return
+name|transformers
 return|;
 block|}
 comment|/**      * Configuration of redelivery settings.      */

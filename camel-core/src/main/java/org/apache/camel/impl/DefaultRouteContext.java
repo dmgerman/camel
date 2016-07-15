@@ -256,6 +256,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Contract
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|InterceptStrategy
 import|;
 end_import
@@ -488,6 +502,11 @@ DECL|field|shutdownRunningTask
 specifier|private
 name|ShutdownRunningTask
 name|shutdownRunningTask
+decl_stmt|;
+DECL|field|contract
+specifier|private
+name|Contract
+name|contract
 decl_stmt|;
 DECL|method|DefaultRouteContext (CamelContext camelContext, RouteDefinition route, FromDefinition from, Collection<Route> routes)
 specifier|public
@@ -1113,6 +1132,28 @@ name|RouteLifecycleAdvice
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// wrap in contract
+if|if
+condition|(
+name|contract
+operator|!=
+literal|null
+condition|)
+block|{
+name|internal
+operator|.
+name|addAdvice
+argument_list|(
+operator|new
+name|CamelInternalProcessor
+operator|.
+name|ContractAdvice
+argument_list|(
+name|contract
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
 comment|// and create the route that wraps the UoW
 name|Route
 name|edcr
@@ -1985,6 +2026,22 @@ block|{
 return|return
 name|routePolicyList
 return|;
+block|}
+DECL|method|setContract (Contract contract)
+specifier|public
+name|void
+name|setContract
+parameter_list|(
+name|Contract
+name|contract
+parameter_list|)
+block|{
+name|this
+operator|.
+name|contract
+operator|=
+name|contract
+expr_stmt|;
 block|}
 block|}
 end_class

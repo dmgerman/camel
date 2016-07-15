@@ -278,6 +278,22 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|model
+operator|.
+name|transformer
+operator|.
+name|TransformerDefinition
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spi
 operator|.
 name|AsyncProcessorAwaitManager
@@ -337,6 +353,20 @@ operator|.
 name|spi
 operator|.
 name|DataFormatResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|DataType
 import|;
 end_import
 
@@ -729,6 +759,20 @@ operator|.
 name|spi
 operator|.
 name|StreamCachingStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Transformer
 import|;
 end_import
 
@@ -2021,6 +2065,48 @@ name|setDataFormatResolver
 parameter_list|(
 name|DataFormatResolver
 name|dataFormatResolver
+parameter_list|)
+function_decl|;
+comment|/**      * Sets the transformers that can be referenced in the routes.      *      * @param transformers the transformers      */
+DECL|method|setTransformers (List<TransformerDefinition> transformers)
+name|void
+name|setTransformers
+parameter_list|(
+name|List
+argument_list|<
+name|TransformerDefinition
+argument_list|>
+name|transformers
+parameter_list|)
+function_decl|;
+comment|/**      * Gets the transformers that can be referenced in the routes.      *      * @return the transformers available      */
+DECL|method|getTransformers ()
+name|List
+argument_list|<
+name|TransformerDefinition
+argument_list|>
+name|getTransformers
+parameter_list|()
+function_decl|;
+comment|/**      * Resolve a transformer given a scheme      *      * @param model data model name.      * @return the resolved transformer, or<tt>null</tt> if not found      */
+DECL|method|resolveTransformer (String model)
+name|Transformer
+name|resolveTransformer
+parameter_list|(
+name|String
+name|model
+parameter_list|)
+function_decl|;
+comment|/**      * Resolve a transformer given from/to data type.      *      * @param from from data type      * @param to to data type      * @return the resolved data format, or<tt>null</tt> if not found      */
+DECL|method|resolveTransformer (DataType from, DataType to)
+name|Transformer
+name|resolveTransformer
+parameter_list|(
+name|DataType
+name|from
+parameter_list|,
+name|DataType
+name|to
 parameter_list|)
 function_decl|;
 comment|/**      * Sets the properties that can be referenced in the camel context      *<p/>      *<b>Important:</b> This has nothing to do with property placeholders, and is just a plain set of key/value pairs      * which are used to configure global settings on CamelContext, such as a maximum debug logging length etc.      * For property placeholders use {@link #resolvePropertyPlaceholders(String)} method and see more details      * at the<a href="http://camel.apache.org/using-propertyplaceholder.html">property placeholder</a> documentation.      *      * @param properties properties      */

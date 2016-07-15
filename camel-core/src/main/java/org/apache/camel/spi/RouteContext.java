@@ -355,6 +355,15 @@ argument_list|>
 name|node
 parameter_list|)
 function_decl|;
+comment|/**      *       * @param contract      */
+DECL|method|setContract (Contract contract)
+name|void
+name|setContract
+parameter_list|(
+name|Contract
+name|contract
+parameter_list|)
+function_decl|;
 block|}
 end_interface
 
