@@ -61,7 +61,6 @@ end_comment
 begin_class
 DECL|class|LumberjackComponent
 specifier|public
-specifier|final
 class|class
 name|LumberjackComponent
 extends|extends

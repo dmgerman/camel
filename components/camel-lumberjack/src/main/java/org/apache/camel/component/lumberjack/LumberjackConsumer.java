@@ -134,7 +134,7 @@ end_import
 
 begin_class
 DECL|class|LumberjackConsumer
-specifier|final
+specifier|public
 class|class
 name|LumberjackConsumer
 extends|extends
@@ -147,6 +147,7 @@ name|LumberjackServer
 name|lumberjackServer
 decl_stmt|;
 DECL|method|LumberjackConsumer (LumberjackEndpoint endpoint, Processor processor, String host, int port, SSLContext sslContext)
+specifier|public
 name|LumberjackConsumer
 parameter_list|(
 name|LumberjackEndpoint
