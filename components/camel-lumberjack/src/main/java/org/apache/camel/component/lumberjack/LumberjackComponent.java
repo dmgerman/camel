@@ -54,6 +54,22 @@ name|UriEndpointComponent
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|SSLContextParameters
+import|;
+end_import
+
 begin_comment
 comment|/**  * The class is the Camel component for the Lumberjack server  */
 end_comment
@@ -73,6 +89,11 @@ name|int
 name|DEFAULT_PORT
 init|=
 literal|5044
+decl_stmt|;
+DECL|field|sslContextParameters
+specifier|private
+name|SSLContextParameters
+name|sslContextParameters
 decl_stmt|;
 DECL|method|LumberjackComponent ()
 specifier|public
@@ -219,6 +240,33 @@ expr_stmt|;
 return|return
 name|answer
 return|;
+block|}
+DECL|method|getSslContextParameters ()
+specifier|public
+name|SSLContextParameters
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|sslContextParameters
+return|;
+block|}
+comment|/**      * Sets the default SSL configuration to use for all the endpoints. You can also configure it directly at      * the endpoint level.      */
+DECL|method|setSslContextParameters (SSLContextParameters sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
+expr_stmt|;
 block|}
 block|}
 end_class
