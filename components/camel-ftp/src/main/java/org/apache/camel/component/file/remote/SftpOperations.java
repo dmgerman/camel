@@ -5727,7 +5727,7 @@ try|try
 block|{
 name|session
 operator|.
-name|sendIgnore
+name|sendKeepAliveMsg
 argument_list|()
 expr_stmt|;
 return|return
