@@ -18,10 +18,6 @@ name|influxdb
 package|;
 end_package
 
-begin_comment
-comment|/**  * Created by jose on 18/06/16.  */
-end_comment
-
 begin_class
 DECL|class|InfluxDbConstants
 specifier|public

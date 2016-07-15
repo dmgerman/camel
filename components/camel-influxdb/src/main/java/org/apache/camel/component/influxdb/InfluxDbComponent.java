@@ -50,20 +50,6 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultComponent
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|impl
-operator|.
 name|UriEndpointComponent
 import|;
 end_import
@@ -111,10 +97,6 @@ operator|.
 name|LoggerFactory
 import|;
 end_import
-
-begin_comment
-comment|/**  * Created by jose on 18/06/16.  */
-end_comment
 
 begin_class
 DECL|class|InfluxDbComponent

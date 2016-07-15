@@ -26,6 +26,15 @@ name|CamelInfluxDbException
 extends|extends
 name|RuntimeException
 block|{
+DECL|field|serialVersionUID
+specifier|private
+specifier|static
+specifier|final
+name|long
+name|serialVersionUID
+init|=
+literal|1L
+decl_stmt|;
 DECL|method|CamelInfluxDbException (String message, Throwable cause)
 specifier|public
 name|CamelInfluxDbException
