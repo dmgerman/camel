@@ -504,6 +504,15 @@ argument_list|()
 decl_stmt|;
 comment|//
 comment|// Send the 2 window frames
+name|TimeUnit
+operator|.
+name|MILLISECONDS
+operator|.
+name|sleep
+argument_list|(
+literal|100
+argument_list|)
+expr_stmt|;
 name|channel
 operator|.
 name|writeAndFlush
