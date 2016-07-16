@@ -192,10 +192,6 @@ DECL|field|enabledConverters
 specifier|private
 name|List
 argument_list|<
-name|java
-operator|.
-name|lang
-operator|.
 name|String
 argument_list|>
 name|enabledConverters

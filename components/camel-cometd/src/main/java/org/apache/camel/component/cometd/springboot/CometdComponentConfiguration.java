@@ -138,16 +138,6 @@ DECL|field|extensions
 specifier|private
 name|List
 argument_list|<
-name|org
-operator|.
-name|cometd
-operator|.
-name|bayeux
-operator|.
-name|server
-operator|.
-name|BayeuxServer
-operator|.
 name|Extension
 argument_list|>
 name|extensions

@@ -98,12 +98,6 @@ DECL|field|defaultQueueFactory
 specifier|private
 name|BlockingQueueFactory
 argument_list|<
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Exchange
 argument_list|>
 name|defaultQueueFactory

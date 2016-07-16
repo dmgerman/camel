@@ -92,12 +92,6 @@ DECL|field|blobStores
 specifier|private
 name|List
 argument_list|<
-name|org
-operator|.
-name|jclouds
-operator|.
-name|blobstore
-operator|.
 name|BlobStore
 argument_list|>
 name|blobStores
@@ -107,12 +101,6 @@ DECL|field|computeServices
 specifier|private
 name|List
 argument_list|<
-name|org
-operator|.
-name|jclouds
-operator|.
-name|compute
-operator|.
 name|ComputeService
 argument_list|>
 name|computeServices
