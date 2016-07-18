@@ -1559,7 +1559,7 @@ operator|.
 name|getIn
 argument_list|()
 operator|.
-name|setAttachments
+name|setAttachmentObjects
 argument_list|(
 literal|null
 argument_list|)

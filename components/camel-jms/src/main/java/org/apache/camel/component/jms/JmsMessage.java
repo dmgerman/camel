@@ -462,14 +462,14 @@ name|hasAttachments
 argument_list|()
 condition|)
 block|{
-name|getAttachments
+name|getAttachmentObjects
 argument_list|()
 operator|.
 name|putAll
 argument_list|(
 name|that
 operator|.
-name|getAttachments
+name|getAttachmentObjects
 argument_list|()
 argument_list|)
 expr_stmt|;

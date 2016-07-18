@@ -75,7 +75,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Marks a parameter as being Map of attachments as  * {@link javax.activation.DataHandler} objects of an inbound {@link Message}  *   * @version  */
+comment|/**  * Marks a parameter as being Map of attachments as {@link Attachment} objects  * of an inbound {@link Message}  *   * @version  */
 end_comment
 
 begin_annotation_defn
@@ -97,10 +97,10 @@ operator|.
 name|PARAMETER
 block|}
 argument_list|)
-DECL|annotation|Attachments
+DECL|annotation|AttachmentObjects
 specifier|public
 annotation_defn|@interface
-name|Attachments
+name|AttachmentObjects
 block|{ }
 end_annotation_defn
 

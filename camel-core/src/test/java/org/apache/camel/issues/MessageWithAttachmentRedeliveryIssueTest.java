@@ -108,6 +108,20 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|DefaultAttachment
+import|;
+end_import
+
 begin_comment
 comment|/**  *  */
 end_comment
@@ -199,12 +213,12 @@ operator|.
 name|getIn
 argument_list|()
 operator|.
-name|addAttachment
+name|addAttachmentObject
 argument_list|(
 literal|"message2.xml"
 argument_list|,
 operator|new
-name|DataHandler
+name|DefaultAttachment
 argument_list|(
 operator|new
 name|FileDataSource

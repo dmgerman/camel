@@ -70,11 +70,13 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|activation
+name|apache
 operator|.
-name|DataHandler
+name|camel
+operator|.
+name|Attachment
 import|;
 end_import
 
@@ -263,13 +265,13 @@ name|Entry
 argument_list|<
 name|String
 argument_list|,
-name|DataHandler
+name|Attachment
 argument_list|>
 name|entry
 range|:
 name|inMessage
 operator|.
-name|getAttachments
+name|getAttachmentObjects
 argument_list|()
 operator|.
 name|entrySet
@@ -354,7 +356,7 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|splitAttachment (Message inMessage, String attachmentName, DataHandler attachmentHandler)
+DECL|method|splitAttachment (Message inMessage, String attachmentName, Attachment attachmentHandler)
 specifier|private
 name|Message
 name|splitAttachment
@@ -365,7 +367,7 @@ parameter_list|,
 name|String
 name|attachmentName
 parameter_list|,
-name|DataHandler
+name|Attachment
 name|attachmentHandler
 parameter_list|)
 block|{
@@ -382,13 +384,13 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|DataHandler
+name|Attachment
 argument_list|>
 name|attachments
 init|=
 name|copy
 operator|.
-name|getAttachments
+name|getAttachmentObjects
 argument_list|()
 decl_stmt|;
 name|attachments

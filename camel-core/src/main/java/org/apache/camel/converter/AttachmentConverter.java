@@ -4,105 +4,93 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel
+DECL|package|org.apache.camel.converter
 package|package
 name|org
 operator|.
 name|apache
 operator|.
 name|camel
+operator|.
+name|converter
 package|;
 end_package
 
 begin_import
 import|import
-name|java
+name|javax
 operator|.
-name|lang
+name|activation
 operator|.
-name|annotation
-operator|.
-name|Documented
+name|DataHandler
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|lang
+name|apache
 operator|.
-name|annotation
+name|camel
 operator|.
-name|ElementType
+name|Attachment
 import|;
 end_import
 
 begin_import
 import|import
-name|java
+name|org
 operator|.
-name|lang
+name|apache
 operator|.
-name|annotation
+name|camel
 operator|.
-name|Retention
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|annotation
-operator|.
-name|RetentionPolicy
-import|;
-end_import
-
-begin_import
-import|import
-name|java
-operator|.
-name|lang
-operator|.
-name|annotation
-operator|.
-name|Target
+name|Converter
 import|;
 end_import
 
 begin_comment
-comment|/**  * Marks a parameter as being Map of attachments as  * {@link javax.activation.DataHandler} objects of an inbound {@link Message}  *   * @version  */
+comment|/**  * Some useful converters for {@link Attachment}  * to a {@link DataHandler}  *  * @version   */
 end_comment
 
-begin_annotation_defn
+begin_class
 annotation|@
-name|Retention
-argument_list|(
-name|RetentionPolicy
-operator|.
-name|RUNTIME
-argument_list|)
-annotation|@
-name|Documented
-annotation|@
-name|Target
-argument_list|(
-block|{
-name|ElementType
-operator|.
-name|PARAMETER
-block|}
-argument_list|)
-DECL|annotation|Attachments
+name|Converter
+DECL|class|AttachmentConverter
 specifier|public
-annotation_defn|@interface
-name|Attachments
-block|{ }
-end_annotation_defn
+specifier|final
+class|class
+name|AttachmentConverter
+block|{
+comment|/**      * Utility classes should not have a public constructor.      */
+DECL|method|AttachmentConverter ()
+specifier|private
+name|AttachmentConverter
+parameter_list|()
+block|{     }
+annotation|@
+name|Converter
+DECL|method|toDataHandler (final Attachment attachment)
+specifier|public
+specifier|static
+name|DataHandler
+name|toDataHandler
+parameter_list|(
+specifier|final
+name|Attachment
+name|attachment
+parameter_list|)
+block|{
+return|return
+name|attachment
+operator|.
+name|getDataHandler
+argument_list|()
+return|;
+block|}
+block|}
+end_class
 
 end_unit
 

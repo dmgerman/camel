@@ -330,6 +330,15 @@ name|String
 name|id
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the attachment specified by the id      *      * @param id the id under which the attachment is stored      * @return the attachment or<tt>null</tt>      */
+DECL|method|getAttachmentObject (String id)
+name|Attachment
+name|getAttachmentObject
+parameter_list|(
+name|String
+name|id
+parameter_list|)
+function_decl|;
 comment|/**      * Returns a set of attachment names of the message      *      * @return a set of attachment names      */
 DECL|method|getAttachmentNames ()
 name|Set
@@ -360,6 +369,18 @@ name|DataHandler
 name|content
 parameter_list|)
 function_decl|;
+comment|/**      * Adds an attachment to the message using the id      *      * @param id        the id to store the attachment under      * @param content   the attachment      */
+DECL|method|addAttachmentObject (String id, Attachment content)
+name|void
+name|addAttachmentObject
+parameter_list|(
+name|String
+name|id
+parameter_list|,
+name|Attachment
+name|content
+parameter_list|)
+function_decl|;
 comment|/**      * Returns all attachments of the message      *      * @return the attachments in a map or<tt>null</tt>      */
 DECL|method|getAttachments ()
 name|Map
@@ -369,6 +390,17 @@ argument_list|,
 name|DataHandler
 argument_list|>
 name|getAttachments
+parameter_list|()
+function_decl|;
+comment|/**      * Returns all attachments of the message      *      * @return the attachments in a map or<tt>null</tt>      */
+DECL|method|getAttachmentObjects ()
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Attachment
+argument_list|>
+name|getAttachmentObjects
 parameter_list|()
 function_decl|;
 comment|/**      * Set all the attachments associated with this message      *      * @param attachments the attachments      */
@@ -381,6 +413,20 @@ argument_list|<
 name|String
 argument_list|,
 name|DataHandler
+argument_list|>
+name|attachments
+parameter_list|)
+function_decl|;
+comment|/**      * Set all the attachments associated with this message      *      * @param attachments the attachments      */
+DECL|method|setAttachmentObjects (Map<String, Attachment> attachments)
+name|void
+name|setAttachmentObjects
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Attachment
 argument_list|>
 name|attachments
 parameter_list|)

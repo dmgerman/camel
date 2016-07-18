@@ -820,7 +820,7 @@ name|expression
 argument_list|(
 name|ExpressionBuilder
 operator|.
-name|attachmentValuesExpression
+name|attachmentObjectValuesExpression
 argument_list|()
 argument_list|)
 return|;

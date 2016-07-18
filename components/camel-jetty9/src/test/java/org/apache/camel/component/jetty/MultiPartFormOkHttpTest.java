@@ -341,6 +341,26 @@ argument_list|(
 name|is
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"form-data; name=\"test\""
+argument_list|,
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getAttachmentObject
+argument_list|(
+literal|"test"
+argument_list|)
+operator|.
+name|getHeader
+argument_list|(
+literal|"content-disposition"
+argument_list|)
+argument_list|)
+expr_stmt|;
 name|String
 name|data
 init|=

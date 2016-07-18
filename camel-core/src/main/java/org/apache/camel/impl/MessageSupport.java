@@ -721,12 +721,12 @@ operator|.
 name|hasAttachments
 argument_list|()
 operator|&&
-name|getAttachments
+name|getAttachmentObjects
 argument_list|()
 operator|==
 name|that
 operator|.
-name|getAttachments
+name|getAttachmentObjects
 argument_list|()
 condition|)
 block|{
@@ -748,7 +748,7 @@ argument_list|()
 condition|)
 block|{
 comment|// okay its safe to clear the attachments
-name|getAttachments
+name|getAttachmentObjects
 argument_list|()
 operator|.
 name|clear
@@ -763,14 +763,14 @@ name|hasAttachments
 argument_list|()
 condition|)
 block|{
-name|getAttachments
+name|getAttachmentObjects
 argument_list|()
 operator|.
 name|putAll
 argument_list|(
 name|that
 operator|.
-name|getAttachments
+name|getAttachmentObjects
 argument_list|()
 argument_list|)
 expr_stmt|;

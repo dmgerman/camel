@@ -2591,7 +2591,7 @@ argument_list|)
 expr_stmt|;
 name|out
 operator|.
-name|getAttachments
+name|getAttachmentObjects
 argument_list|()
 operator|.
 name|putAll
@@ -2601,7 +2601,7 @@ operator|.
 name|getIn
 argument_list|()
 operator|.
-name|getAttachments
+name|getAttachmentObjects
 argument_list|()
 argument_list|)
 expr_stmt|;

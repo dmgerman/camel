@@ -66,6 +66,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Attachment
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -470,7 +482,7 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|populateInitialAttachments (Map<String, DataHandler> map)
+DECL|method|populateInitialAttachments (Map<String, Attachment> map)
 specifier|protected
 name|void
 name|populateInitialAttachments
@@ -479,7 +491,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|DataHandler
+name|Attachment
 argument_list|>
 name|map
 parameter_list|)

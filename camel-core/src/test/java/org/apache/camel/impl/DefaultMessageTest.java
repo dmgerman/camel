@@ -38,11 +38,13 @@ end_import
 
 begin_import
 import|import
-name|javax
+name|org
 operator|.
-name|activation
+name|apache
 operator|.
-name|DataHandler
+name|camel
+operator|.
+name|Attachment
 import|;
 end_import
 
@@ -105,7 +107,7 @@ name|Map
 argument_list|<
 name|String
 argument_list|,
-name|DataHandler
+name|Attachment
 argument_list|>
 name|attachments
 init|=
