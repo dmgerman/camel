@@ -6099,6 +6099,15 @@ range|:
 name|lines
 control|)
 block|{
+if|if
+condition|(
+operator|!
+name|line
+operator|.
+name|isEmpty
+argument_list|()
+condition|)
+block|{
 name|int
 name|idx
 init|=
@@ -6160,6 +6169,7 @@ argument_list|,
 name|value
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|answer
