@@ -96,7 +96,7 @@ argument_list|()
 argument_list|,
 name|equalTo
 argument_list|(
-literal|"Property placeholder key: destination not found"
+literal|"Property with key [destination] not found in properties from text: {{destination}}"
 argument_list|)
 argument_list|)
 expr_stmt|;
