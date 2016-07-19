@@ -885,6 +885,13 @@ argument_list|,
 literal|"version"
 argument_list|,
 literal|null
+argument_list|,
+name|Collections
+operator|.
+name|singletonList
+argument_list|(
+literal|"camelTest"
+argument_list|)
 argument_list|)
 decl_stmt|;
 name|verify

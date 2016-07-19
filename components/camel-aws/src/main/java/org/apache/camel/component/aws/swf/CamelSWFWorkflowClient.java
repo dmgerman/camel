@@ -473,7 +473,7 @@ name|policy
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|startWorkflowExecution (String workflowId, String runId, String eventName, String version, Object arguments)
+DECL|method|startWorkflowExecution (String workflowId, String runId, String eventName, String version, Object arguments, List<String> tags)
 specifier|public
 name|String
 index|[]
@@ -493,6 +493,12 @@ name|version
 parameter_list|,
 name|Object
 name|arguments
+parameter_list|,
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|tags
 parameter_list|)
 block|{
 name|DynamicWorkflowClientExternalImpl
@@ -571,6 +577,13 @@ operator|.
 name|getExecutionStartToCloseTimeout
 argument_list|()
 argument_list|)
+argument_list|)
+expr_stmt|;
+name|startWorkflowOptions
+operator|.
+name|setTagList
+argument_list|(
+name|tags
 argument_list|)
 expr_stmt|;
 name|dynamicWorkflowClientExternal

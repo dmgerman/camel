@@ -62,6 +62,12 @@ name|VERSION
 init|=
 literal|"CamelSWFVersion"
 decl_stmt|;
+DECL|field|TAGS
+name|String
+name|TAGS
+init|=
+literal|"CamelSWFTags"
+decl_stmt|;
 DECL|field|SIGNAL_NAME
 name|String
 name|SIGNAL_NAME
