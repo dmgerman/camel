@@ -241,7 +241,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"filter"
+literal|"consumer,filter"
 argument_list|)
 DECL|field|keywords
 specifier|private
@@ -253,7 +253,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"filter"
+literal|"consumer,filter"
 argument_list|)
 DECL|field|userIds
 specifier|private
@@ -265,7 +265,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"filter"
+literal|"consumer,filter"
 argument_list|,
 name|defaultValue
 operator|=
@@ -283,7 +283,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"filter"
+literal|"consumer,filter"
 argument_list|,
 name|defaultValue
 operator|=
@@ -301,7 +301,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"filter"
+literal|"consumer,filter"
 argument_list|)
 DECL|field|lang
 specifier|private
@@ -313,7 +313,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"filter"
+literal|"consumer,filter"
 argument_list|)
 DECL|field|count
 specifier|private
@@ -325,7 +325,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"filter"
+literal|"consumer,filter"
 argument_list|,
 name|defaultValue
 operator|=
