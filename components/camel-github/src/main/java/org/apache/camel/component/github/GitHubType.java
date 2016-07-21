@@ -44,9 +44,12 @@ name|PULLREQUESTSTATE
 block|,
 DECL|enumConstant|PULLREQUESTFILES
 DECL|enumConstant|GETCOMMITFILE
+DECL|enumConstant|CREATEISSUE
 name|PULLREQUESTFILES
 block|,
 name|GETCOMMITFILE
+block|,
+name|CREATEISSUE
 block|}
 end_enum
 
