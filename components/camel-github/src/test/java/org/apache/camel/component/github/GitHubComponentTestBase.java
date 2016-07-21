@@ -227,7 +227,9 @@ name|registry
 operator|.
 name|bind
 argument_list|(
-literal|"githubCommitService"
+name|GitHubConstants
+operator|.
+name|GITHUB_COMMIT_SERVICE
 argument_list|,
 name|commitService
 argument_list|)
@@ -242,7 +244,9 @@ name|registry
 operator|.
 name|bind
 argument_list|(
-literal|"githubRepositoryService"
+name|GitHubConstants
+operator|.
+name|GITHUB_REPOSITORY_SERVICE
 argument_list|,
 name|repositoryService
 argument_list|)
@@ -257,7 +261,9 @@ name|registry
 operator|.
 name|bind
 argument_list|(
-literal|"githubPullRequestService"
+name|GitHubConstants
+operator|.
+name|GITHUB_PULL_REQUEST_SERVICE
 argument_list|,
 name|pullRequestService
 argument_list|)
@@ -274,7 +280,9 @@ name|registry
 operator|.
 name|bind
 argument_list|(
-literal|"githbIssueService"
+name|GitHubConstants
+operator|.
+name|GITHUB_ISSUE_SERVICE
 argument_list|,
 name|issueService
 argument_list|)
