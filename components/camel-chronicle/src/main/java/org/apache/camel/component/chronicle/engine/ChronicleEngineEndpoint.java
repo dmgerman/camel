@@ -186,10 +186,10 @@ name|label
 operator|=
 literal|"Chronicle"
 argument_list|)
-DECL|class|ChronicleEngineEnpoint
+DECL|class|ChronicleEngineEndpoint
 specifier|public
 class|class
-name|ChronicleEngineEnpoint
+name|ChronicleEngineEndpoint
 extends|extends
 name|DefaultEndpoint
 block|{
@@ -219,9 +219,9 @@ specifier|final
 name|String
 name|path
 decl_stmt|;
-DECL|method|ChronicleEngineEnpoint (String uri, ChronicleEngineComponent component, ChronicleEngineConfiguration configuration)
+DECL|method|ChronicleEngineEndpoint (String uri, ChronicleEngineComponent component, ChronicleEngineConfiguration configuration)
 specifier|public
-name|ChronicleEngineEnpoint
+name|ChronicleEngineEndpoint
 parameter_list|(
 name|String
 name|uri

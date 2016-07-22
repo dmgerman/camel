@@ -231,11 +231,11 @@ specifier|private
 name|AssetTree
 name|client
 decl_stmt|;
-DECL|method|ChronicleEngineConsumer (ChronicleEngineEnpoint endpoint, Processor processor)
+DECL|method|ChronicleEngineConsumer (ChronicleEngineEndpoint endpoint, Processor processor)
 specifier|public
 name|ChronicleEngineConsumer
 parameter_list|(
-name|ChronicleEngineEnpoint
+name|ChronicleEngineEndpoint
 name|endpoint
 parameter_list|,
 name|Processor
@@ -284,11 +284,11 @@ literal|"AssetTree already configured"
 argument_list|)
 throw|;
 block|}
-name|ChronicleEngineEnpoint
+name|ChronicleEngineEndpoint
 name|endpoint
 init|=
 operator|(
-name|ChronicleEngineEnpoint
+name|ChronicleEngineEndpoint
 operator|)
 name|getEndpoint
 argument_list|()

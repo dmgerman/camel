@@ -299,11 +299,11 @@ specifier|private
 name|AssetTree
 name|client
 decl_stmt|;
-DECL|method|ChronicleEngineProducer (ChronicleEngineEnpoint endpoint)
+DECL|method|ChronicleEngineProducer (ChronicleEngineEndpoint endpoint)
 specifier|public
 name|ChronicleEngineProducer
 parameter_list|(
-name|ChronicleEngineEnpoint
+name|ChronicleEngineEndpoint
 name|endpoint
 parameter_list|)
 block|{
@@ -471,7 +471,7 @@ name|client
 operator|=
 operator|(
 operator|(
-name|ChronicleEngineEnpoint
+name|ChronicleEngineEndpoint
 operator|)
 name|getEndpoint
 argument_list|()

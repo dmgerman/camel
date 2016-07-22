@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the component that manages {@link ChronicleEngineEnpoint}.  */
+comment|/**  * Represents the component that manages {@link ChronicleEngineEndpoint}.  */
 end_comment
 
 begin_class
@@ -101,7 +101,7 @@ parameter_list|()
 block|{
 name|super
 argument_list|(
-name|ChronicleEngineEnpoint
+name|ChronicleEngineEndpoint
 operator|.
 name|class
 argument_list|)
@@ -119,7 +119,7 @@ name|super
 argument_list|(
 name|context
 argument_list|,
-name|ChronicleEngineEnpoint
+name|ChronicleEngineEndpoint
 operator|.
 name|class
 argument_list|)
@@ -202,7 +202,7 @@ argument_list|)
 expr_stmt|;
 return|return
 operator|new
-name|ChronicleEngineEnpoint
+name|ChronicleEngineEndpoint
 argument_list|(
 name|uri
 argument_list|,
