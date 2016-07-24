@@ -129,8 +129,6 @@ argument_list|,
 name|Object
 argument_list|>
 name|headers
-init|=
-literal|null
 decl_stmt|;
 DECL|field|dataHandler
 specifier|private
@@ -553,12 +551,10 @@ name|hashCode
 parameter_list|()
 block|{
 return|return
-operator|(
 name|dataHandler
 operator|.
 name|hashCode
 argument_list|()
-operator|)
 return|;
 block|}
 block|}

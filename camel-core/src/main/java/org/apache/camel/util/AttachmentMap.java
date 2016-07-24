@@ -278,7 +278,6 @@ argument_list|>
 name|set
 decl_stmt|;
 DECL|method|AttachmentEntrySet (Set<Map.Entry<String, Attachment>> set)
-specifier|public
 name|AttachmentEntrySet
 parameter_list|(
 name|Set
@@ -381,7 +380,6 @@ argument_list|>
 name|iter
 decl_stmt|;
 DECL|method|AttachmentEntrySetIterator (Iterator<Map.Entry<String, Attachment>> origIterator)
-specifier|public
 name|AttachmentEntrySetIterator
 parameter_list|(
 name|Iterator
@@ -485,7 +483,6 @@ argument_list|>
 name|entry
 decl_stmt|;
 DECL|method|AttachmentEntry (Map.Entry<String, Attachment> backingEntry)
-specifier|public
 name|AttachmentEntry
 parameter_list|(
 name|Map
@@ -543,12 +540,14 @@ name|value
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 name|value
 operator|.
 name|getDataHandler
 argument_list|()
 return|;
+block|}
 return|return
 literal|null
 return|;
@@ -584,18 +583,19 @@ name|oldValue
 operator|!=
 literal|null
 condition|)
+block|{
 return|return
 name|oldValue
 operator|.
 name|getDataHandler
 argument_list|()
 return|;
+block|}
 return|return
 literal|null
 return|;
 block|}
-comment|// two AttachmentEntry objects are equal if the backing entries are
-comment|// equal
+comment|// two AttachmentEntry objects are equal if the backing entries are equal
 DECL|method|equals (Object o)
 specifier|public
 name|boolean
@@ -625,9 +625,11 @@ operator|.
 name|entry
 argument_list|)
 condition|)
+block|{
 return|return
 literal|true
 return|;
+block|}
 return|return
 literal|false
 return|;
