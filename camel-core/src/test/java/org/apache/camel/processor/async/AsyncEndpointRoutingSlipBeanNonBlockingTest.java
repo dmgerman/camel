@@ -522,7 +522,6 @@ name|SendProcessor
 name|asyncSender
 decl_stmt|;
 DECL|method|ExchangeSubmitter (Endpoint startEndpoint, SendProcessor asyncSender)
-specifier|public
 name|ExchangeSubmitter
 parameter_list|(
 name|Endpoint
