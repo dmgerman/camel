@@ -70,15 +70,11 @@ name|RouteDefinition
 import|;
 end_import
 
-begin_comment
-comment|/**  * @version   */
-end_comment
-
 begin_class
-DECL|class|AdviceWithWeaveByToStringCBRTest
+DECL|class|AdviceWithWeaveByToUriCBRTest
 specifier|public
 class|class
-name|AdviceWithWeaveByToStringCBRTest
+name|AdviceWithWeaveByToUriCBRTest
 extends|extends
 name|ContextTestSupport
 block|{
@@ -122,9 +118,9 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|weaveByToString
+name|weaveByToUri
 argument_list|(
-literal|"direct:branch.*"
+literal|"direct:branch*"
 argument_list|)
 operator|.
 name|replace
