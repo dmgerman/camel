@@ -1500,7 +1500,7 @@ block|}
 block|}
 block|}
 block|}
-comment|//Get outgoing custom http headers from the exchange if they exists
+comment|// get outgoing custom http headers from the exchange if they exists
 name|Series
 argument_list|<
 name|Header
@@ -1534,7 +1534,9 @@ name|restletHeaders
 operator|=
 operator|new
 name|Series
-argument_list|<>
+argument_list|<
+name|Header
+argument_list|>
 argument_list|(
 name|Header
 operator|.
@@ -1558,7 +1560,7 @@ expr_stmt|;
 block|}
 else|else
 block|{
-comment|//If the restlet headers already exists on the exchange, we need to filter them
+comment|// if the restlet headers already exists on the exchange, we need to filter them
 for|for
 control|(
 name|String
@@ -1612,8 +1614,8 @@ argument_list|,
 name|restletHeaders
 argument_list|)
 expr_stmt|;
-comment|//Since the restlet headers already exists remove them from the exchange so they don't get added again below
-comment|//We will get a new set of restlet headers on the response
+comment|// since the restlet headers already exists remove them from the exchange so they don't get added again below
+comment|// we will get a new set of restlet headers on the response
 name|exchange
 operator|.
 name|getIn
