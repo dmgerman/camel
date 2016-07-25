@@ -701,27 +701,9 @@ name|String
 name|toString
 parameter_list|()
 block|{
+comment|// when and otherwise has detailed output in their toString so keep this toString short
 return|return
-literal|"Choice["
-operator|+
-name|getWhenClauses
-argument_list|()
-operator|+
-operator|(
-name|getOtherwise
-argument_list|()
-operator|!=
-literal|null
-condition|?
-literal|" "
-operator|+
-name|getOtherwise
-argument_list|()
-else|:
-literal|""
-operator|)
-operator|+
-literal|"]"
+literal|"Choice"
 return|;
 block|}
 annotation|@
