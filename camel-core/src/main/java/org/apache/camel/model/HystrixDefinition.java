@@ -681,11 +681,17 @@ parameter_list|()
 block|{
 name|hystrixConfiguration
 operator|=
+name|hystrixConfiguration
+operator|==
+literal|null
+condition|?
 operator|new
 name|HystrixConfigurationDefinition
 argument_list|(
 name|this
 argument_list|)
+else|:
+name|hystrixConfiguration
 expr_stmt|;
 return|return
 name|hystrixConfiguration
