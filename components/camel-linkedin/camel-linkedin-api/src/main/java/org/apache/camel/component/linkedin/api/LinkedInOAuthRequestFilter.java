@@ -1362,7 +1362,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Redirect Query is null cannot use it as input"
+literal|"Redirect response query is null, check username, password and permissions"
 argument_list|)
 throw|;
 block|}
