@@ -577,7 +577,9 @@ block|,
 literal|"org.apache.camel.model.InterceptDefinition"
 block|,
 literal|"org.apache.camel.model.WhenDefinition"
-block|,     }
+block|,
+literal|"org.apache.camel.model.ToDynamicDefinition"
+block|}
 decl_stmt|;
 comment|// special for verbs (these classes have sub classes, so we use this to find all classes)
 DECL|field|ONE_OF_VERBS
