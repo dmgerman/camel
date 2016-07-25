@@ -480,10 +480,6 @@ DECL|field|undertowHttpBinding
 specifier|private
 name|UndertowHttpBinding
 name|undertowHttpBinding
-init|=
-operator|new
-name|DefaultUndertowHttpBinding
-argument_list|()
 decl_stmt|;
 DECL|field|serversRegistry
 specifier|private
@@ -610,6 +606,28 @@ argument_list|(
 name|sslContextParameters
 argument_list|)
 expr_stmt|;
+comment|// Prefer endpoint configured over component configured
+if|if
+condition|(
+name|undertowHttpBinding
+operator|==
+literal|null
+condition|)
+block|{
+comment|// fallback to component configured
+name|undertowHttpBinding
+operator|=
+name|getUndertowHttpBinding
+argument_list|()
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|undertowHttpBinding
+operator|!=
+literal|null
+condition|)
+block|{
 name|endpoint
 operator|.
 name|setUndertowHttpBinding
@@ -617,6 +635,7 @@ argument_list|(
 name|undertowHttpBinding
 argument_list|)
 expr_stmt|;
+block|}
 comment|// set options from parameters
 name|setProperties
 argument_list|(

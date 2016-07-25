@@ -443,6 +443,10 @@ DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
+init|=
+operator|new
+name|UndertowHeaderFilterStrategy
+argument_list|()
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -918,13 +922,6 @@ name|headerFilterStrategy
 operator|=
 name|headerFilterStrategy
 expr_stmt|;
-name|undertowHttpBinding
-operator|.
-name|setHeaderFilterStrategy
-argument_list|(
-name|headerFilterStrategy
-argument_list|)
-expr_stmt|;
 block|}
 DECL|method|getSslContextParameters ()
 specifier|public
@@ -1013,6 +1010,29 @@ name|UndertowHttpBinding
 name|getUndertowHttpBinding
 parameter_list|()
 block|{
+if|if
+condition|(
+name|undertowHttpBinding
+operator|==
+literal|null
+condition|)
+block|{
+comment|// create a new binding and use the options from this endpoint
+name|undertowHttpBinding
+operator|=
+operator|new
+name|DefaultUndertowHttpBinding
+argument_list|()
+expr_stmt|;
+name|undertowHttpBinding
+operator|.
+name|setHeaderFilterStrategy
+argument_list|(
+name|getHeaderFilterStrategy
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 return|return
 name|undertowHttpBinding
 return|;
