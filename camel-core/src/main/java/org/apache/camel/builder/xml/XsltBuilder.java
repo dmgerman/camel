@@ -497,7 +497,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Creates a<a href="http://camel.apache.org/processor.html">Processor</a>  * which performs an XSLT transformation of the IN message body.  *<p/>  * Will by default output the result as a String. You can chose which kind of output  * you want using the<tt>outputXXX</tt> methods.  *<p/>  * If using the static<tt>xslt</tt> methods to create a {@link org.apache.camel.builder.xml.XsltBuilder} its recommended  * to inject the {@link org.apache.camel.CamelContext} using the {@link #setCamelContext(org.apache.camel.CamelContext)}  * and call {@link #start()} to properly initialize the builder before using.  *  * @version   */
+comment|/**  * Creates a<a href="http://camel.apache.org/processor.html">Processor</a>  * which performs an XSLT transformation of the IN message body.  *<p/>  * Will by default output the result as a String. You can chose which kind of output  * you want using the<tt>outputXXX</tt> methods.  *  * @version   */
 end_comment
 
 begin_class
