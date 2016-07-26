@@ -446,6 +446,20 @@ name|isSkipExchangeDeclare
 argument_list|()
 return|;
 block|}
+DECL|method|shouldBindQueue ()
+specifier|private
+name|boolean
+name|shouldBindQueue
+parameter_list|()
+block|{
+return|return
+operator|!
+name|endpoint
+operator|.
+name|isSkipQueueBind
+argument_list|()
+return|;
+block|}
 DECL|method|populateQueueArgumentsFromConfigurer (final Map<String, Object> queueArgs)
 specifier|private
 name|void
@@ -588,6 +602,12 @@ argument_list|,
 name|arguments
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|shouldBindQueue
+argument_list|()
+condition|)
+block|{
 name|channel
 operator|.
 name|queueBind
@@ -602,6 +622,7 @@ name|routingKey
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 DECL|method|emptyIfNull (final String routingKey)
 specifier|private

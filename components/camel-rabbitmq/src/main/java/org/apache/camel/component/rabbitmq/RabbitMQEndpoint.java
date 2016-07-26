@@ -647,6 +647,18 @@ name|label
 operator|=
 literal|"common"
 argument_list|)
+DECL|field|skipQueueBind
+specifier|private
+name|boolean
+name|skipQueueBind
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|)
 DECL|field|skipExchangeDeclare
 specifier|private
 name|boolean
@@ -1963,6 +1975,33 @@ block|{
 return|return
 name|skipQueueDeclare
 return|;
+block|}
+comment|/**      * If true the queue will not be bound to the exchange after declaring it      * @return       */
+DECL|method|isSkipQueueBind ()
+specifier|public
+name|boolean
+name|isSkipQueueBind
+parameter_list|()
+block|{
+return|return
+name|skipQueueBind
+return|;
+block|}
+DECL|method|setSkipQueueBind (boolean skipQueueBind)
+specifier|public
+name|void
+name|setSkipQueueBind
+parameter_list|(
+name|boolean
+name|skipQueueBind
+parameter_list|)
+block|{
+name|this
+operator|.
+name|skipQueueBind
+operator|=
+name|skipQueueBind
+expr_stmt|;
 block|}
 comment|/**      * This can be used if we need to declare the queue but not the exchange      */
 DECL|method|setSkipExchangeDeclare (boolean skipExchangeDeclare)
