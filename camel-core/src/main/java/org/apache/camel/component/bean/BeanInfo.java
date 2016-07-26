@@ -1429,6 +1429,34 @@ name|methodName
 argument_list|)
 throw|;
 block|}
+comment|// and there must be an even number of parenthesis in the syntax
+comment|// (we can use betweenOuterPair as it return null if the syntax is invalid)
+if|if
+condition|(
+name|ObjectHelper
+operator|.
+name|betweenOuterPair
+argument_list|(
+name|methodName
+argument_list|,
+literal|'('
+argument_list|,
+literal|')'
+argument_list|)
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Method should have even pair of parenthesis, was "
+operator|+
+name|methodName
+argument_list|)
+throw|;
+block|}
 block|}
 name|boolean
 name|emptyParameters
