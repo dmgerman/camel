@@ -28,6 +28,15 @@ name|S3Operations
 block|{
 DECL|enumConstant|copyObject
 name|copyObject
+block|,
+DECL|enumConstant|createBucket
+name|createBucket
+block|,
+DECL|enumConstant|deleteBucket
+name|deleteBucket
+block|,
+DECL|enumConstant|listBuckets
+name|listBuckets
 block|}
 end_enum
 
