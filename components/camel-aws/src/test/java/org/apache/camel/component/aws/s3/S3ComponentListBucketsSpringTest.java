@@ -177,7 +177,7 @@ name|EndpointInject
 argument_list|(
 name|uri
 operator|=
-literal|"direct:start"
+literal|"direct:listBuckets"
 argument_list|)
 DECL|field|template
 specifier|private
@@ -222,7 +222,7 @@ name|template
 operator|.
 name|sendBody
 argument_list|(
-literal|"direct:start"
+literal|"direct:listBuckets"
 argument_list|,
 name|ExchangePattern
 operator|.

@@ -304,7 +304,7 @@ literal|"producer"
 argument_list|,
 name|enums
 operator|=
-literal|"copyObject"
+literal|"copyObject,deleteBucket,listBuckets"
 argument_list|)
 DECL|field|operation
 specifier|private
