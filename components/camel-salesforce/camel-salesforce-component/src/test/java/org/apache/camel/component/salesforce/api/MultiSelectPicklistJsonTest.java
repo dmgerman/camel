@@ -46,11 +46,11 @@ name|component
 operator|.
 name|salesforce
 operator|.
-name|dto
+name|api
 operator|.
-name|generated
+name|utils
 operator|.
-name|MSPTest
+name|JsonUtils
 import|;
 end_import
 
@@ -66,11 +66,11 @@ name|component
 operator|.
 name|salesforce
 operator|.
-name|internal
+name|dto
 operator|.
-name|client
+name|generated
 operator|.
-name|JsonUtils
+name|MSPTest
 import|;
 end_import
 

@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.salesforce.internal.client
+DECL|package|org.apache.camel.component.salesforce.api.utils
 package|package
 name|org
 operator|.
@@ -16,9 +16,9 @@ name|component
 operator|.
 name|salesforce
 operator|.
-name|internal
+name|api
 operator|.
-name|client
+name|utils
 package|;
 end_package
 
@@ -47,26 +47,6 @@ operator|.
 name|databind
 operator|.
 name|SerializationFeature
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|salesforce
-operator|.
-name|internal
-operator|.
-name|datetime
-operator|.
-name|DateTimeModule
 import|;
 end_import
 

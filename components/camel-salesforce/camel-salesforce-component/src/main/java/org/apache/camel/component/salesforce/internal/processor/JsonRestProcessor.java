@@ -344,9 +344,9 @@ name|component
 operator|.
 name|salesforce
 operator|.
-name|internal
+name|api
 operator|.
-name|client
+name|utils
 operator|.
 name|JsonUtils
 import|;
