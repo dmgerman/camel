@@ -272,7 +272,9 @@ name|salesforce
 operator|.
 name|api
 operator|.
-name|JodaTimeConverter
+name|utils
+operator|.
+name|DateTimeConverter
 import|;
 end_import
 
@@ -598,7 +600,7 @@ operator|.
 name|registerConverter
 argument_list|(
 operator|new
-name|JodaTimeConverter
+name|DateTimeConverter
 argument_list|()
 argument_list|)
 expr_stmt|;
