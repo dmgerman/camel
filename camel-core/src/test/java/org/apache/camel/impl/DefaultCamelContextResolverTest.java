@@ -835,7 +835,6 @@ name|boolean
 name|fallback
 decl_stmt|;
 DECL|method|SampleComponent (boolean fallback)
-specifier|public
 name|SampleComponent
 parameter_list|(
 name|boolean
@@ -922,7 +921,6 @@ name|boolean
 name|fallback
 decl_stmt|;
 DECL|method|SampleDataFormat (boolean fallback)
-specifier|public
 name|SampleDataFormat
 parameter_list|(
 name|boolean
@@ -1028,7 +1026,6 @@ name|boolean
 name|fallback
 decl_stmt|;
 DECL|method|SampleLanguage (boolean fallback)
-specifier|public
 name|SampleLanguage
 parameter_list|(
 name|boolean

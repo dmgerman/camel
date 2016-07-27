@@ -320,7 +320,6 @@ name|boolean
 name|fallback
 decl_stmt|;
 DECL|method|SampleDataFormat (boolean fallback)
-specifier|public
 name|SampleDataFormat
 parameter_list|(
 name|boolean

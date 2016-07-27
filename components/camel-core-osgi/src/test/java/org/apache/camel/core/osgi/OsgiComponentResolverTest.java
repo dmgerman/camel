@@ -394,7 +394,6 @@ name|boolean
 name|fallback
 decl_stmt|;
 DECL|method|SampleComponent (boolean fallback)
-specifier|public
 name|SampleComponent
 parameter_list|(
 name|boolean

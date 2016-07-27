@@ -366,7 +366,6 @@ name|boolean
 name|fallback
 decl_stmt|;
 DECL|method|SampleLanguage (boolean fallback)
-specifier|public
 name|SampleLanguage
 parameter_list|(
 name|boolean
