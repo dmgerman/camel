@@ -245,7 +245,7 @@ annotation|@
 name|UriParam
 DECL|field|jobFromHeader
 specifier|private
-name|Boolean
+name|boolean
 name|jobFromHeader
 decl_stmt|;
 comment|/**      * @deprecated will be removed in Camel 3.0      * use jobLauncher instead      */
@@ -433,7 +433,7 @@ literal|null
 operator|&&
 name|jobFromHeader
 operator|==
-literal|null
+literal|false
 condition|)
 block|{
 name|job
@@ -663,12 +663,12 @@ name|jobLauncher
 expr_stmt|;
 block|}
 comment|/**      * Explicitly defines if the jobName shouls be taken from the headers instead of the URI.      */
-DECL|method|setJobFromHeader (Boolean jobFromHeader)
+DECL|method|setJobFromHeader (boolean jobFromHeader)
 specifier|public
 name|void
 name|setJobFromHeader
 parameter_list|(
-name|Boolean
+name|boolean
 name|jobFromHeader
 parameter_list|)
 block|{
@@ -681,7 +681,7 @@ expr_stmt|;
 block|}
 DECL|method|getJobFromHeader ()
 specifier|public
-name|Boolean
+name|boolean
 name|getJobFromHeader
 parameter_list|()
 block|{
