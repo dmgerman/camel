@@ -467,11 +467,13 @@ operator|!=
 literal|null
 condition|)
 block|{
-break|break;
+return|return
+name|bean
+return|;
 block|}
 block|}
 return|return
-name|bean
+literal|null
 return|;
 block|}
 DECL|method|findComponent (String name, CamelContext context)
