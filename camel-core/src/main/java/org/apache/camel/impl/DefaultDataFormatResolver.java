@@ -83,7 +83,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Default data format resolver  *  * @version   */
+comment|/**  * Default data format resolver  *  * @version  */
 end_comment
 
 begin_class
@@ -102,15 +102,6 @@ name|String
 name|DATAFORMAT_RESOURCE_PATH
 init|=
 literal|"META-INF/services/org/apache/camel/dataformat/"
-decl_stmt|;
-DECL|field|FALLBACK_DATA_FORMAT_BEAN_SUFFIX
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|FALLBACK_DATA_FORMAT_BEAN_SUFFIX
-init|=
-literal|"-dataformat"
 decl_stmt|;
 DECL|field|dataformatFactory
 specifier|protected
@@ -144,7 +135,7 @@ name|name
 argument_list|,
 name|name
 operator|+
-name|FALLBACK_DATA_FORMAT_BEAN_SUFFIX
+literal|"-dataformat"
 argument_list|)
 decl_stmt|;
 if|if

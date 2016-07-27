@@ -125,7 +125,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The default implementation of {@link ComponentResolver} which tries to find  * components by using the URI scheme prefix and searching for a file of the URI  * scheme name in the<b>META-INF/services/org/apache/camel/component/</b>  * directory on the classpath.  *  * @version   */
+comment|/**  * The default implementation of {@link ComponentResolver} which tries to find  * components by using the URI scheme prefix and searching for a file of the URI  * scheme name in the<b>META-INF/services/org/apache/camel/component/</b>  * directory on the classpath.  *  * @version  */
 end_comment
 
 begin_class
@@ -161,15 +161,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|FALLBACK_COMPONENT_BEAN_SUFFIX
-specifier|private
-specifier|static
-specifier|final
-name|String
-name|FALLBACK_COMPONENT_BEAN_SUFFIX
-init|=
-literal|"-component"
-decl_stmt|;
 DECL|field|factoryFinder
 specifier|private
 name|FactoryFinder
@@ -199,7 +190,7 @@ name|name
 argument_list|,
 name|name
 operator|+
-name|FALLBACK_COMPONENT_BEAN_SUFFIX
+literal|"-component"
 argument_list|)
 decl_stmt|;
 if|if
