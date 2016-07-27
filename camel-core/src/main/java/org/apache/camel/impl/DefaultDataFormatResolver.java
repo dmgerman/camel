@@ -103,6 +103,15 @@ name|DATAFORMAT_RESOURCE_PATH
 init|=
 literal|"META-INF/services/org/apache/camel/dataformat/"
 decl_stmt|;
+DECL|field|FALLBACK_DATA_FORMAT_BEAN_SUFFIX
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|FALLBACK_DATA_FORMAT_BEAN_SUFFIX
+init|=
+literal|"-dataformat"
+decl_stmt|;
 DECL|field|dataformatFactory
 specifier|protected
 name|FactoryFinder
@@ -127,11 +136,15 @@ name|lookup
 argument_list|(
 name|context
 argument_list|,
-name|name
-argument_list|,
 name|DataFormat
 operator|.
 name|class
+argument_list|,
+name|name
+argument_list|,
+name|name
+operator|+
+name|FALLBACK_DATA_FORMAT_BEAN_SUFFIX
 argument_list|)
 decl_stmt|;
 if|if
@@ -284,7 +297,7 @@ return|return
 name|dataFormat
 return|;
 block|}
-DECL|method|lookup (CamelContext context, String ref, Class<T> type)
+DECL|method|lookup (CamelContext context, Class<T> type, String... names)
 specifier|private
 specifier|static
 parameter_list|<
@@ -296,19 +309,30 @@ parameter_list|(
 name|CamelContext
 name|context
 parameter_list|,
-name|String
-name|ref
-parameter_list|,
 name|Class
 argument_list|<
 name|T
 argument_list|>
 name|type
+parameter_list|,
+name|String
+modifier|...
+name|names
 parameter_list|)
+block|{
+for|for
+control|(
+name|String
+name|name
+range|:
+name|names
+control|)
 block|{
 try|try
 block|{
-return|return
+name|T
+name|bean
+init|=
 name|context
 operator|.
 name|getRegistry
@@ -316,11 +340,22 @@ argument_list|()
 operator|.
 name|lookupByNameAndType
 argument_list|(
-name|ref
+name|name
 argument_list|,
 name|type
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|bean
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|bean
 return|;
+block|}
 block|}
 catch|catch
 parameter_list|(
@@ -328,11 +363,13 @@ name|Exception
 name|e
 parameter_list|)
 block|{
-comment|// need to ignore not same type and return it as null
+comment|// need to ignore not same type
+block|}
+block|}
+comment|// return null if anything goes wrong
 return|return
 literal|null
 return|;
-block|}
 block|}
 block|}
 end_class
