@@ -431,9 +431,8 @@ name|jobName
 operator|!=
 literal|null
 operator|&&
+operator|!
 name|jobFromHeader
-operator|==
-literal|false
 condition|)
 block|{
 name|job
