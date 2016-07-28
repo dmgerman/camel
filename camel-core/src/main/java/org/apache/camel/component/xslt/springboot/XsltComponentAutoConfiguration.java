@@ -179,6 +179,11 @@ name|XsltComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"xslt-component"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

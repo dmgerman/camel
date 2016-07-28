@@ -187,6 +187,11 @@ name|SerializationDataFormatAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"serialization-dataformat"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(
