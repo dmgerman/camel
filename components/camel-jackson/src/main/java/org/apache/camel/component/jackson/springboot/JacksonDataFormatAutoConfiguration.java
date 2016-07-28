@@ -194,7 +194,7 @@ name|Bean
 argument_list|(
 name|name
 operator|=
-literal|"json-dataformat"
+literal|"json-jackson-dataformat"
 argument_list|)
 annotation|@
 name|ConditionalOnClass

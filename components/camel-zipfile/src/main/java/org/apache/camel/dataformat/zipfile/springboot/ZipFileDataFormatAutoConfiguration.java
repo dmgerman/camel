@@ -194,7 +194,7 @@ name|Bean
 argument_list|(
 name|name
 operator|=
-literal|"zipFile-dataformat"
+literal|"zipfile-dataformat"
 argument_list|)
 annotation|@
 name|ConditionalOnClass

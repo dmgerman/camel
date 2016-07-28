@@ -198,7 +198,7 @@ name|Bean
 argument_list|(
 name|name
 operator|=
-literal|"bindy-dataformat"
+literal|"bindy-csv-dataformat"
 argument_list|)
 annotation|@
 name|ConditionalOnClass

@@ -194,7 +194,7 @@ name|Bean
 argument_list|(
 name|name
 operator|=
-literal|"yaml-dataformat"
+literal|"yaml-snakeyaml-dataformat"
 argument_list|)
 annotation|@
 name|ConditionalOnClass
