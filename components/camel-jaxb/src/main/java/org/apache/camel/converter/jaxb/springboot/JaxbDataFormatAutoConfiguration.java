@@ -191,6 +191,11 @@ name|JaxbDataFormatAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"jaxb-dataformat"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

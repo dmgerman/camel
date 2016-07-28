@@ -179,6 +179,11 @@ name|ApnsComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"apns-component"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

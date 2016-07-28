@@ -179,6 +179,11 @@ name|ElasticsearchComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"elasticsearch-component"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

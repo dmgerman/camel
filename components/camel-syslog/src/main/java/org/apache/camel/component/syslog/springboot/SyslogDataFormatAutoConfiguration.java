@@ -191,6 +191,11 @@ name|SyslogDataFormatAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"syslog-dataformat"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

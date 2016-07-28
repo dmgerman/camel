@@ -183,6 +183,11 @@ name|GoogleCalendarComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"google-calendar-component"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

@@ -183,6 +183,11 @@ name|MsvComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"msv-component"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

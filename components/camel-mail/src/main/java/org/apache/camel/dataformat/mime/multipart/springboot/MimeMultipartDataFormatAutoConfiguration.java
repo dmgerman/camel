@@ -195,6 +195,11 @@ name|MimeMultipartDataFormatAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"mime-multipart-dataformat"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

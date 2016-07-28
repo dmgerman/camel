@@ -183,6 +183,11 @@ name|GuavaEventBusComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"guava-eventbus-component"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

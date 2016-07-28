@@ -191,6 +191,11 @@ name|JibxDataFormatAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"jibx-dataformat"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

@@ -179,6 +179,11 @@ name|TwitterComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"twitter-component"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

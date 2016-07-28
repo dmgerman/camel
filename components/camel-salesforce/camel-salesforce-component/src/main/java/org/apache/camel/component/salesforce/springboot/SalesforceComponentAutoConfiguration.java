@@ -179,6 +179,11 @@ name|SalesforceComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"salesforce-component"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

@@ -179,6 +179,11 @@ name|IBatisComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"ibatis-component"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

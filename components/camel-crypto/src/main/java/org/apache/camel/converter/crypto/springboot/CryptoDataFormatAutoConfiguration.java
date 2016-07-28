@@ -191,6 +191,11 @@ name|CryptoDataFormatAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"crypto-dataformat"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

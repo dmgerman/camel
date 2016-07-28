@@ -179,6 +179,11 @@ name|VertxComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"vertx-component"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

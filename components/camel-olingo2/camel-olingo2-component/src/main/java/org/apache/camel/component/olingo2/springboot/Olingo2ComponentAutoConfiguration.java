@@ -179,6 +179,11 @@ name|Olingo2ComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"olingo2-component"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

@@ -179,6 +179,11 @@ name|EventAdminComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"eventadmin-component"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

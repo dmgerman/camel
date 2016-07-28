@@ -183,6 +183,11 @@ name|WsComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"ahc-ws-component"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

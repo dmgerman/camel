@@ -179,6 +179,11 @@ name|WebsocketComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"websocket-component"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

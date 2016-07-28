@@ -179,6 +179,11 @@ name|LinkedInComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"linkedin-component"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

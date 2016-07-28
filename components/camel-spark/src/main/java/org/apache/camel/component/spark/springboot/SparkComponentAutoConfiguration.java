@@ -179,6 +179,11 @@ name|SparkComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"spark-component"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

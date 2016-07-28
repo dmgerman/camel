@@ -183,6 +183,11 @@ name|GoogleDriveComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"google-drive-component"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

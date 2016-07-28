@@ -179,6 +179,11 @@ name|NettyComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"netty4-component"
+argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(
