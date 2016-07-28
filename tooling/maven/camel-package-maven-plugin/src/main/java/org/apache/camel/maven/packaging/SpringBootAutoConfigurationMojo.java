@@ -868,6 +868,9 @@ name|getScheme
 argument_list|()
 argument_list|)
 operator|.
+name|sorted
+argument_list|()
+operator|.
 name|collect
 argument_list|(
 name|Collectors
