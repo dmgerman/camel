@@ -182,7 +182,11 @@ name|Bean
 argument_list|(
 name|name
 operator|=
+block|{
+literal|"smpps-component"
+block|,
 literal|"smpp-component"
+block|}
 argument_list|)
 annotation|@
 name|ConditionalOnClass

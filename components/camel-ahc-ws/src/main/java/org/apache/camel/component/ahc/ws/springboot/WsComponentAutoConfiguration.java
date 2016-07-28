@@ -186,7 +186,11 @@ name|Bean
 argument_list|(
 name|name
 operator|=
+block|{
 literal|"ahc-ws-component"
+block|,
+literal|"ahc-wss-component"
+block|}
 argument_list|)
 annotation|@
 name|ConditionalOnClass

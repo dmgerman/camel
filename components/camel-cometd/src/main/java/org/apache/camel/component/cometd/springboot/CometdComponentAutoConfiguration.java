@@ -182,7 +182,11 @@ name|Bean
 argument_list|(
 name|name
 operator|=
+block|{
+literal|"cometds-component"
+block|,
 literal|"cometd-component"
+block|}
 argument_list|)
 annotation|@
 name|ConditionalOnClass
