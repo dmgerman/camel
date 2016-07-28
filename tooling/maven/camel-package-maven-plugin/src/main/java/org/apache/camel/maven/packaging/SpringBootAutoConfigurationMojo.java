@@ -1003,7 +1003,7 @@ operator|.
 name|size
 argument_list|()
 operator|>
-literal|0
+literal|1
 condition|)
 block|{
 comment|// determine component name when there are multiple ones
