@@ -150,6 +150,7 @@ decl_stmt|;
 DECL|field|RAW_PATTERN
 specifier|private
 specifier|static
+specifier|final
 name|Pattern
 name|RAW_PATTERN
 init|=

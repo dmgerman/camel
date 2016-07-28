@@ -132,11 +132,11 @@ name|component
 operator|.
 name|salesforce
 operator|.
-name|internal
+name|api
 operator|.
-name|client
+name|utils
 operator|.
-name|DefaultRestClient
+name|JsonUtils
 import|;
 end_import
 
@@ -152,11 +152,11 @@ name|component
 operator|.
 name|salesforce
 operator|.
-name|api
+name|internal
 operator|.
-name|utils
+name|client
 operator|.
-name|JsonUtils
+name|DefaultRestClient
 import|;
 end_import
 

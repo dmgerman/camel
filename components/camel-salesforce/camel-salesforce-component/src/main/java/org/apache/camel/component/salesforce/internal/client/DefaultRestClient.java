@@ -164,26 +164,6 @@ name|salesforce
 operator|.
 name|api
 operator|.
-name|utils
-operator|.
-name|JsonUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|salesforce
-operator|.
-name|api
-operator|.
 name|SalesforceException
 import|;
 end_import
@@ -223,6 +203,26 @@ operator|.
 name|dto
 operator|.
 name|RestError
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|salesforce
+operator|.
+name|api
+operator|.
+name|utils
+operator|.
+name|JsonUtils
 import|;
 end_import
 
@@ -762,7 +762,7 @@ name|String
 argument_list|>
 argument_list|>
 argument_list|()
-block|{ }
+block|{                         }
 argument_list|)
 expr_stmt|;
 block|}
@@ -842,7 +842,7 @@ name|RestError
 argument_list|>
 argument_list|>
 argument_list|()
-block|{                             }
+block|{                                 }
 argument_list|)
 expr_stmt|;
 block|}

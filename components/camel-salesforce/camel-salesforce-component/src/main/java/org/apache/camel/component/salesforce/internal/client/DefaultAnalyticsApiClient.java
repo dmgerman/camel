@@ -132,26 +132,6 @@ name|salesforce
 operator|.
 name|api
 operator|.
-name|utils
-operator|.
-name|JsonUtils
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|salesforce
-operator|.
-name|api
-operator|.
 name|SalesforceException
 import|;
 end_import
@@ -317,6 +297,26 @@ operator|.
 name|reports
 operator|.
 name|SyncReportResults
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|salesforce
+operator|.
+name|api
+operator|.
+name|utils
+operator|.
+name|JsonUtils
 import|;
 end_import
 
@@ -584,7 +584,7 @@ name|RecentReport
 argument_list|>
 argument_list|>
 argument_list|()
-block|{                             }
+block|{                                 }
 argument_list|)
 expr_stmt|;
 block|}
@@ -1156,7 +1156,7 @@ name|ReportInstance
 argument_list|>
 argument_list|>
 argument_list|()
-block|{                             }
+block|{                                 }
 argument_list|)
 expr_stmt|;
 block|}
@@ -1531,7 +1531,7 @@ name|RestError
 argument_list|>
 argument_list|>
 argument_list|()
-block|{                     }
+block|{                         }
 argument_list|)
 decl_stmt|;
 return|return
