@@ -631,7 +631,7 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
-literal|"consumer,advanced"
+literal|"advanced"
 argument_list|)
 DECL|field|channelGroup
 specifier|protected
