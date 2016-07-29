@@ -189,7 +189,7 @@ decl_stmt|;
 comment|/**      * Sets the system property mode.      */
 DECL|field|systemPropertiesMode
 specifier|private
-name|int
+name|Integer
 name|systemPropertiesMode
 decl_stmt|;
 DECL|method|getLocations ()
@@ -560,7 +560,7 @@ expr_stmt|;
 block|}
 DECL|method|getSystemPropertiesMode ()
 specifier|public
-name|int
+name|Integer
 name|getSystemPropertiesMode
 parameter_list|()
 block|{
@@ -568,12 +568,12 @@ return|return
 name|systemPropertiesMode
 return|;
 block|}
-DECL|method|setSystemPropertiesMode (int systemPropertiesMode)
+DECL|method|setSystemPropertiesMode (Integer systemPropertiesMode)
 specifier|public
 name|void
 name|setSystemPropertiesMode
 parameter_list|(
-name|int
+name|Integer
 name|systemPropertiesMode
 parameter_list|)
 block|{

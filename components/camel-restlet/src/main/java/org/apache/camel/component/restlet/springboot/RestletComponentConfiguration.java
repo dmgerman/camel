@@ -178,7 +178,7 @@ decl_stmt|;
 comment|/**      * To configure the port number for the restlet consumer routes. This allows      * to configure this once to reuse the same port for these consumers.      */
 DECL|field|port
 specifier|private
-name|int
+name|Integer
 name|port
 decl_stmt|;
 comment|/**      * Whether to use synchronous Restlet Client for the producer. Setting this      * option to true can yield faster performance as it seems the Restlet      * synchronous Client works better.      */
@@ -620,7 +620,7 @@ expr_stmt|;
 block|}
 DECL|method|getPort ()
 specifier|public
-name|int
+name|Integer
 name|getPort
 parameter_list|()
 block|{
@@ -628,12 +628,12 @@ return|return
 name|port
 return|;
 block|}
-DECL|method|setPort (int port)
+DECL|method|setPort (Integer port)
 specifier|public
 name|void
 name|setPort
 parameter_list|(
-name|int
+name|Integer
 name|port
 parameter_list|)
 block|{

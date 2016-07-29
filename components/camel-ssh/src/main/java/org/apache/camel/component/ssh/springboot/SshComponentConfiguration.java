@@ -114,7 +114,7 @@ decl_stmt|;
 comment|/**      * Sets the port number for the remote SSH server.      */
 DECL|field|port
 specifier|private
-name|int
+name|Integer
 name|port
 decl_stmt|;
 comment|/**      * Sets the username to use in logging into the remote SSH server.      */
@@ -221,7 +221,7 @@ expr_stmt|;
 block|}
 DECL|method|getPort ()
 specifier|public
-name|int
+name|Integer
 name|getPort
 parameter_list|()
 block|{
@@ -229,12 +229,12 @@ return|return
 name|port
 return|;
 block|}
-DECL|method|setPort (int port)
+DECL|method|setPort (Integer port)
 specifier|public
 name|void
 name|setPort
 parameter_list|(
-name|int
+name|Integer
 name|port
 parameter_list|)
 block|{

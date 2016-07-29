@@ -88,7 +88,7 @@ block|{
 comment|/**      * Port number. Will by default use 4567      */
 DECL|field|port
 specifier|private
-name|int
+name|Integer
 name|port
 decl_stmt|;
 comment|/**      * Set the IP address that Spark should listen on. If not called the default      * address is '0.0.0.0'.      */
@@ -100,19 +100,19 @@ decl_stmt|;
 comment|/**      * Minimum number of threads in Spark thread-pool (shared globally)      */
 DECL|field|minThreads
 specifier|private
-name|int
+name|Integer
 name|minThreads
 decl_stmt|;
 comment|/**      * Maximum number of threads in Spark thread-pool (shared globally)      */
 DECL|field|maxThreads
 specifier|private
-name|int
+name|Integer
 name|maxThreads
 decl_stmt|;
 comment|/**      * Thread idle timeout in millis where threads that has been idle for a      * longer period will be terminated from the thread pool      */
 DECL|field|timeOutMillis
 specifier|private
-name|int
+name|Integer
 name|timeOutMillis
 decl_stmt|;
 comment|/**      * Configures connection to be secure to use the keystore file      */
@@ -153,7 +153,7 @@ name|sparkBinding
 decl_stmt|;
 DECL|method|getPort ()
 specifier|public
-name|int
+name|Integer
 name|getPort
 parameter_list|()
 block|{
@@ -161,12 +161,12 @@ return|return
 name|port
 return|;
 block|}
-DECL|method|setPort (int port)
+DECL|method|setPort (Integer port)
 specifier|public
 name|void
 name|setPort
 parameter_list|(
-name|int
+name|Integer
 name|port
 parameter_list|)
 block|{
@@ -205,7 +205,7 @@ expr_stmt|;
 block|}
 DECL|method|getMinThreads ()
 specifier|public
-name|int
+name|Integer
 name|getMinThreads
 parameter_list|()
 block|{
@@ -213,12 +213,12 @@ return|return
 name|minThreads
 return|;
 block|}
-DECL|method|setMinThreads (int minThreads)
+DECL|method|setMinThreads (Integer minThreads)
 specifier|public
 name|void
 name|setMinThreads
 parameter_list|(
-name|int
+name|Integer
 name|minThreads
 parameter_list|)
 block|{
@@ -231,7 +231,7 @@ expr_stmt|;
 block|}
 DECL|method|getMaxThreads ()
 specifier|public
-name|int
+name|Integer
 name|getMaxThreads
 parameter_list|()
 block|{
@@ -239,12 +239,12 @@ return|return
 name|maxThreads
 return|;
 block|}
-DECL|method|setMaxThreads (int maxThreads)
+DECL|method|setMaxThreads (Integer maxThreads)
 specifier|public
 name|void
 name|setMaxThreads
 parameter_list|(
-name|int
+name|Integer
 name|maxThreads
 parameter_list|)
 block|{
@@ -257,7 +257,7 @@ expr_stmt|;
 block|}
 DECL|method|getTimeOutMillis ()
 specifier|public
-name|int
+name|Integer
 name|getTimeOutMillis
 parameter_list|()
 block|{
@@ -265,12 +265,12 @@ return|return
 name|timeOutMillis
 return|;
 block|}
-DECL|method|setTimeOutMillis (int timeOutMillis)
+DECL|method|setTimeOutMillis (Integer timeOutMillis)
 specifier|public
 name|void
 name|setTimeOutMillis
 parameter_list|(
-name|int
+name|Integer
 name|timeOutMillis
 parameter_list|)
 block|{

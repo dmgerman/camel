@@ -78,7 +78,7 @@ decl_stmt|;
 comment|/**      * The core pool size for the ordered thread pool if its in use. The default      * value is 16.      */
 DECL|field|maximumPoolSize
 specifier|private
-name|int
+name|Integer
 name|maximumPoolSize
 decl_stmt|;
 DECL|method|getConfiguration ()
@@ -109,7 +109,7 @@ expr_stmt|;
 block|}
 DECL|method|getMaximumPoolSize ()
 specifier|public
-name|int
+name|Integer
 name|getMaximumPoolSize
 parameter_list|()
 block|{
@@ -117,12 +117,12 @@ return|return
 name|maximumPoolSize
 return|;
 block|}
-DECL|method|setMaximumPoolSize (int maximumPoolSize)
+DECL|method|setMaximumPoolSize (Integer maximumPoolSize)
 specifier|public
 name|void
 name|setMaximumPoolSize
 parameter_list|(
-name|int
+name|Integer
 name|maximumPoolSize
 parameter_list|)
 block|{

@@ -104,7 +104,7 @@ block|{
 comment|/**      * To configure the default number of concurrent consumers      */
 DECL|field|defaultConcurrentConsumers
 specifier|private
-name|int
+name|Integer
 name|defaultConcurrentConsumers
 decl_stmt|;
 comment|/**      * To configure the default value for multiple consumers      */
@@ -140,18 +140,18 @@ annotation|@
 name|Deprecated
 DECL|field|queueSize
 specifier|private
-name|int
+name|Integer
 name|queueSize
 decl_stmt|;
 comment|/**      * To configure the ring buffer size      */
 DECL|field|bufferSize
 specifier|private
-name|int
+name|Integer
 name|bufferSize
 decl_stmt|;
 DECL|method|getDefaultConcurrentConsumers ()
 specifier|public
-name|int
+name|Integer
 name|getDefaultConcurrentConsumers
 parameter_list|()
 block|{
@@ -159,12 +159,12 @@ return|return
 name|defaultConcurrentConsumers
 return|;
 block|}
-DECL|method|setDefaultConcurrentConsumers (int defaultConcurrentConsumers)
+DECL|method|setDefaultConcurrentConsumers (Integer defaultConcurrentConsumers)
 specifier|public
 name|void
 name|setDefaultConcurrentConsumers
 parameter_list|(
-name|int
+name|Integer
 name|defaultConcurrentConsumers
 parameter_list|)
 block|{
@@ -285,7 +285,7 @@ annotation|@
 name|DeprecatedConfigurationProperty
 DECL|method|getQueueSize ()
 specifier|public
-name|int
+name|Integer
 name|getQueueSize
 parameter_list|()
 block|{
@@ -295,12 +295,12 @@ return|;
 block|}
 annotation|@
 name|Deprecated
-DECL|method|setQueueSize (int queueSize)
+DECL|method|setQueueSize (Integer queueSize)
 specifier|public
 name|void
 name|setQueueSize
 parameter_list|(
-name|int
+name|Integer
 name|queueSize
 parameter_list|)
 block|{
@@ -313,7 +313,7 @@ expr_stmt|;
 block|}
 DECL|method|getBufferSize ()
 specifier|public
-name|int
+name|Integer
 name|getBufferSize
 parameter_list|()
 block|{
@@ -321,12 +321,12 @@ return|return
 name|bufferSize
 return|;
 block|}
-DECL|method|setBufferSize (int bufferSize)
+DECL|method|setBufferSize (Integer bufferSize)
 specifier|public
 name|void
 name|setBufferSize
 parameter_list|(
-name|int
+name|Integer
 name|bufferSize
 parameter_list|)
 block|{

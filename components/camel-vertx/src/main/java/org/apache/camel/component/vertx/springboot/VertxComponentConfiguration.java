@@ -106,7 +106,7 @@ decl_stmt|;
 comment|/**      * Port for creating an embedded clustered EventBus      */
 DECL|field|port
 specifier|private
-name|int
+name|Integer
 name|port
 decl_stmt|;
 comment|/**      * Options to use for creating vertx      */
@@ -124,7 +124,7 @@ decl_stmt|;
 comment|/**      * Timeout in seconds to wait for clustered Vertx EventBus to be ready. The      * default value is 60.      */
 DECL|field|timeout
 specifier|private
-name|int
+name|Integer
 name|timeout
 decl_stmt|;
 DECL|method|getVertxFactory ()
@@ -181,7 +181,7 @@ expr_stmt|;
 block|}
 DECL|method|getPort ()
 specifier|public
-name|int
+name|Integer
 name|getPort
 parameter_list|()
 block|{
@@ -189,12 +189,12 @@ return|return
 name|port
 return|;
 block|}
-DECL|method|setPort (int port)
+DECL|method|setPort (Integer port)
 specifier|public
 name|void
 name|setPort
 parameter_list|(
-name|int
+name|Integer
 name|port
 parameter_list|)
 block|{
@@ -259,7 +259,7 @@ expr_stmt|;
 block|}
 DECL|method|getTimeout ()
 specifier|public
-name|int
+name|Integer
 name|getTimeout
 parameter_list|()
 block|{
@@ -267,12 +267,12 @@ return|return
 name|timeout
 return|;
 block|}
-DECL|method|setTimeout (int timeout)
+DECL|method|setTimeout (Integer timeout)
 specifier|public
 name|void
 name|setTimeout
 parameter_list|(
-name|int
+name|Integer
 name|timeout
 parameter_list|)
 block|{

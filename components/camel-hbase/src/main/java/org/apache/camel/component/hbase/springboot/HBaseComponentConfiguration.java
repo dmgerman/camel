@@ -76,7 +76,7 @@ decl_stmt|;
 comment|/**      * Maximum number of references to keep for each table in the HTable pool.      * The default value is 10.      */
 DECL|field|poolMaxSize
 specifier|private
-name|int
+name|Integer
 name|poolMaxSize
 decl_stmt|;
 DECL|method|getConfiguration ()
@@ -107,7 +107,7 @@ expr_stmt|;
 block|}
 DECL|method|getPoolMaxSize ()
 specifier|public
-name|int
+name|Integer
 name|getPoolMaxSize
 parameter_list|()
 block|{
@@ -115,12 +115,12 @@ return|return
 name|poolMaxSize
 return|;
 block|}
-DECL|method|setPoolMaxSize (int poolMaxSize)
+DECL|method|setPoolMaxSize (Integer poolMaxSize)
 specifier|public
 name|void
 name|setPoolMaxSize
 parameter_list|(
-name|int
+name|Integer
 name|poolMaxSize
 parameter_list|)
 block|{

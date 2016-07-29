@@ -332,7 +332,7 @@ decl_stmt|;
 comment|/**      * The JMS acknowledgement mode defined as an Integer. Allows you to set      * vendor-specific extensions to the acknowledgment mode. For the regular      * modes it is preferable to use the acknowledgementModeName instead.      */
 DECL|field|acknowledgementMode
 specifier|private
-name|int
+name|Integer
 name|acknowledgementMode
 decl_stmt|;
 comment|/**      * Enables eager loading of JMS properties as soon as a message is loaded      * which generally is inefficient as the JMS properties may not be required      * but sometimes can catch early any issues with the underlying JMS provider      * and the use of JMS properties      */
@@ -360,7 +360,7 @@ decl_stmt|;
 comment|/**      * Sets the cache level by ID for the underlying JMS resources. See      * cacheLevelName option for more details.      */
 DECL|field|cacheLevel
 specifier|private
-name|int
+name|Integer
 name|cacheLevel
 decl_stmt|;
 comment|/**      * Sets the cache level by name for the underlying JMS resources. Possible      * values are: CACHE_AUTO CACHE_CONNECTION CACHE_CONSUMER CACHE_NONE and      * CACHE_SESSION. The default setting is CACHE_AUTO. See the Spring      * documentation and Transactions Cache Levels for more information.      */
@@ -384,13 +384,13 @@ decl_stmt|;
 comment|/**      * Specifies the default number of concurrent consumers when consuming from      * JMS (not for request/reply over JMS). See also the maxMessagesPerTask      * option to control dynamic scaling up/down of threads. When doing      * request/reply over JMS then the option replyToConcurrentConsumers is used      * to control number of concurrent consumers on the reply message listener.      */
 DECL|field|concurrentConsumers
 specifier|private
-name|int
+name|Integer
 name|concurrentConsumers
 decl_stmt|;
 comment|/**      * Specifies the default number of concurrent consumers when doing      * request/reply over JMS. See also the maxMessagesPerTask option to control      * dynamic scaling up/down of threads.      */
 DECL|field|replyToConcurrentConsumers
 specifier|private
-name|int
+name|Integer
 name|replyToConcurrentConsumers
 decl_stmt|;
 comment|/**      * Sets the default connection factory to be use      */
@@ -476,37 +476,37 @@ decl_stmt|;
 comment|/**      * Specifies the limit for idle executions of a receive task not having      * received any message within its execution. If this limit is reached the      * task will shut down and leave receiving to other executing tasks (in the      * case of dynamic scheduling; see the maxConcurrentConsumers setting).      * There is additional doc available from Spring.      */
 DECL|field|idleTaskExecutionLimit
 specifier|private
-name|int
+name|Integer
 name|idleTaskExecutionLimit
 decl_stmt|;
 comment|/**      * Specify the limit for the number of consumers that are allowed to be idle      * at any given time.      */
 DECL|field|idleConsumerLimit
 specifier|private
-name|int
+name|Integer
 name|idleConsumerLimit
 decl_stmt|;
 comment|/**      * Specifies the maximum number of concurrent consumers when consuming from      * JMS (not for request/reply over JMS). See also the maxMessagesPerTask      * option to control dynamic scaling up/down of threads. When doing      * request/reply over JMS then the option replyToMaxConcurrentConsumers is      * used to control number of concurrent consumers on the reply message      * listener.      */
 DECL|field|maxConcurrentConsumers
 specifier|private
-name|int
+name|Integer
 name|maxConcurrentConsumers
 decl_stmt|;
 comment|/**      * Specifies the maximum number of concurrent consumers when using      * request/reply over JMS. See also the maxMessagesPerTask option to control      * dynamic scaling up/down of threads.      */
 DECL|field|replyToMaxConcurrentConsumers
 specifier|private
-name|int
+name|Integer
 name|replyToMaxConcurrentConsumers
 decl_stmt|;
 comment|/**      * Specifies the maximum number of concurrent consumers for continue routing      * when timeout occurred when using request/reply over JMS.      */
 DECL|field|replyOnTimeoutToMaxConcurrentConsumers
 specifier|private
-name|int
+name|Integer
 name|replyOnTimeoutToMaxConcurrentConsumers
 decl_stmt|;
 comment|/**      * The number of messages per task. -1 is unlimited. If you use a range for      * concurrent consumers (eg min max) then this option can be used to set a      * value to eg 100 to control how fast the consumers will shrink when less      * work is required.      */
 DECL|field|maxMessagesPerTask
 specifier|private
-name|int
+name|Integer
 name|maxMessagesPerTask
 decl_stmt|;
 comment|/**      * To use a custom Spring      * org.springframework.jms.support.converter.MessageConverter so you can be      * in control how to map to/from a javax.jms.Message.      */
@@ -558,7 +558,7 @@ decl_stmt|;
 comment|/**      * Values greater than 1 specify the message priority when sending (where 0      * is the lowest priority and 9 is the highest). The explicitQosEnabled      * option must also be enabled in order for this option to have any effect.      */
 DECL|field|priority
 specifier|private
-name|int
+name|Integer
 name|priority
 decl_stmt|;
 comment|/**      * Specifies whether to inhibit the delivery of messages published by its      * own connection.      */
@@ -634,7 +634,7 @@ decl_stmt|;
 comment|/**      * The timeout value of the transaction (in seconds) if using transacted      * mode.      */
 DECL|field|transactionTimeout
 specifier|private
-name|int
+name|Integer
 name|transactionTimeout
 decl_stmt|;
 comment|/**      * Specifies whether to test the connection on startup. This ensures that      * when Camel starts that all the JMS consumers have a valid connection to      * the JMS broker. If a connection cannot be granted then Camel throws an      * exception on startup. This ensures that Camel is not started with failed      * connections. The JMS producers is tested as well.      */
@@ -802,7 +802,7 @@ decl_stmt|;
 comment|/**      * Number of times to wait for provisional correlation id to be updated to      * the actual correlation id when doing request/reply over JMS and when the      * option useMessageIDAsCorrelationID is enabled.      */
 DECL|field|waitForProvisionCorrelationToBeUpdatedCounter
 specifier|private
-name|int
+name|Integer
 name|waitForProvisionCorrelationToBeUpdatedCounter
 decl_stmt|;
 comment|/**      * Interval in millis to sleep each time while waiting for provisional      * correlation id to be updated.      */
@@ -891,7 +891,7 @@ expr_stmt|;
 block|}
 DECL|method|getAcknowledgementMode ()
 specifier|public
-name|int
+name|Integer
 name|getAcknowledgementMode
 parameter_list|()
 block|{
@@ -899,12 +899,12 @@ return|return
 name|acknowledgementMode
 return|;
 block|}
-DECL|method|setAcknowledgementMode (int acknowledgementMode)
+DECL|method|setAcknowledgementMode (Integer acknowledgementMode)
 specifier|public
 name|void
 name|setAcknowledgementMode
 parameter_list|(
-name|int
+name|Integer
 name|acknowledgementMode
 parameter_list|)
 block|{
@@ -995,7 +995,7 @@ expr_stmt|;
 block|}
 DECL|method|getCacheLevel ()
 specifier|public
-name|int
+name|Integer
 name|getCacheLevel
 parameter_list|()
 block|{
@@ -1003,12 +1003,12 @@ return|return
 name|cacheLevel
 return|;
 block|}
-DECL|method|setCacheLevel (int cacheLevel)
+DECL|method|setCacheLevel (Integer cacheLevel)
 specifier|public
 name|void
 name|setCacheLevel
 parameter_list|(
-name|int
+name|Integer
 name|cacheLevel
 parameter_list|)
 block|{
@@ -1099,7 +1099,7 @@ expr_stmt|;
 block|}
 DECL|method|getConcurrentConsumers ()
 specifier|public
-name|int
+name|Integer
 name|getConcurrentConsumers
 parameter_list|()
 block|{
@@ -1107,12 +1107,12 @@ return|return
 name|concurrentConsumers
 return|;
 block|}
-DECL|method|setConcurrentConsumers (int concurrentConsumers)
+DECL|method|setConcurrentConsumers (Integer concurrentConsumers)
 specifier|public
 name|void
 name|setConcurrentConsumers
 parameter_list|(
-name|int
+name|Integer
 name|concurrentConsumers
 parameter_list|)
 block|{
@@ -1125,7 +1125,7 @@ expr_stmt|;
 block|}
 DECL|method|getReplyToConcurrentConsumers ()
 specifier|public
-name|int
+name|Integer
 name|getReplyToConcurrentConsumers
 parameter_list|()
 block|{
@@ -1133,12 +1133,12 @@ return|return
 name|replyToConcurrentConsumers
 return|;
 block|}
-DECL|method|setReplyToConcurrentConsumers (int replyToConcurrentConsumers)
+DECL|method|setReplyToConcurrentConsumers (Integer replyToConcurrentConsumers)
 specifier|public
 name|void
 name|setReplyToConcurrentConsumers
 parameter_list|(
-name|int
+name|Integer
 name|replyToConcurrentConsumers
 parameter_list|)
 block|{
@@ -1463,7 +1463,7 @@ expr_stmt|;
 block|}
 DECL|method|getIdleTaskExecutionLimit ()
 specifier|public
-name|int
+name|Integer
 name|getIdleTaskExecutionLimit
 parameter_list|()
 block|{
@@ -1471,12 +1471,12 @@ return|return
 name|idleTaskExecutionLimit
 return|;
 block|}
-DECL|method|setIdleTaskExecutionLimit (int idleTaskExecutionLimit)
+DECL|method|setIdleTaskExecutionLimit (Integer idleTaskExecutionLimit)
 specifier|public
 name|void
 name|setIdleTaskExecutionLimit
 parameter_list|(
-name|int
+name|Integer
 name|idleTaskExecutionLimit
 parameter_list|)
 block|{
@@ -1489,7 +1489,7 @@ expr_stmt|;
 block|}
 DECL|method|getIdleConsumerLimit ()
 specifier|public
-name|int
+name|Integer
 name|getIdleConsumerLimit
 parameter_list|()
 block|{
@@ -1497,12 +1497,12 @@ return|return
 name|idleConsumerLimit
 return|;
 block|}
-DECL|method|setIdleConsumerLimit (int idleConsumerLimit)
+DECL|method|setIdleConsumerLimit (Integer idleConsumerLimit)
 specifier|public
 name|void
 name|setIdleConsumerLimit
 parameter_list|(
-name|int
+name|Integer
 name|idleConsumerLimit
 parameter_list|)
 block|{
@@ -1515,7 +1515,7 @@ expr_stmt|;
 block|}
 DECL|method|getMaxConcurrentConsumers ()
 specifier|public
-name|int
+name|Integer
 name|getMaxConcurrentConsumers
 parameter_list|()
 block|{
@@ -1523,12 +1523,12 @@ return|return
 name|maxConcurrentConsumers
 return|;
 block|}
-DECL|method|setMaxConcurrentConsumers (int maxConcurrentConsumers)
+DECL|method|setMaxConcurrentConsumers (Integer maxConcurrentConsumers)
 specifier|public
 name|void
 name|setMaxConcurrentConsumers
 parameter_list|(
-name|int
+name|Integer
 name|maxConcurrentConsumers
 parameter_list|)
 block|{
@@ -1541,7 +1541,7 @@ expr_stmt|;
 block|}
 DECL|method|getReplyToMaxConcurrentConsumers ()
 specifier|public
-name|int
+name|Integer
 name|getReplyToMaxConcurrentConsumers
 parameter_list|()
 block|{
@@ -1549,12 +1549,12 @@ return|return
 name|replyToMaxConcurrentConsumers
 return|;
 block|}
-DECL|method|setReplyToMaxConcurrentConsumers ( int replyToMaxConcurrentConsumers)
+DECL|method|setReplyToMaxConcurrentConsumers ( Integer replyToMaxConcurrentConsumers)
 specifier|public
 name|void
 name|setReplyToMaxConcurrentConsumers
 parameter_list|(
-name|int
+name|Integer
 name|replyToMaxConcurrentConsumers
 parameter_list|)
 block|{
@@ -1567,7 +1567,7 @@ expr_stmt|;
 block|}
 DECL|method|getReplyOnTimeoutToMaxConcurrentConsumers ()
 specifier|public
-name|int
+name|Integer
 name|getReplyOnTimeoutToMaxConcurrentConsumers
 parameter_list|()
 block|{
@@ -1575,12 +1575,12 @@ return|return
 name|replyOnTimeoutToMaxConcurrentConsumers
 return|;
 block|}
-DECL|method|setReplyOnTimeoutToMaxConcurrentConsumers ( int replyOnTimeoutToMaxConcurrentConsumers)
+DECL|method|setReplyOnTimeoutToMaxConcurrentConsumers ( Integer replyOnTimeoutToMaxConcurrentConsumers)
 specifier|public
 name|void
 name|setReplyOnTimeoutToMaxConcurrentConsumers
 parameter_list|(
-name|int
+name|Integer
 name|replyOnTimeoutToMaxConcurrentConsumers
 parameter_list|)
 block|{
@@ -1593,7 +1593,7 @@ expr_stmt|;
 block|}
 DECL|method|getMaxMessagesPerTask ()
 specifier|public
-name|int
+name|Integer
 name|getMaxMessagesPerTask
 parameter_list|()
 block|{
@@ -1601,12 +1601,12 @@ return|return
 name|maxMessagesPerTask
 return|;
 block|}
-DECL|method|setMaxMessagesPerTask (int maxMessagesPerTask)
+DECL|method|setMaxMessagesPerTask (Integer maxMessagesPerTask)
 specifier|public
 name|void
 name|setMaxMessagesPerTask
 parameter_list|(
-name|int
+name|Integer
 name|maxMessagesPerTask
 parameter_list|)
 block|{
@@ -1775,7 +1775,7 @@ expr_stmt|;
 block|}
 DECL|method|getPriority ()
 specifier|public
-name|int
+name|Integer
 name|getPriority
 parameter_list|()
 block|{
@@ -1783,12 +1783,12 @@ return|return
 name|priority
 return|;
 block|}
-DECL|method|setPriority (int priority)
+DECL|method|setPriority (Integer priority)
 specifier|public
 name|void
 name|setPriority
 parameter_list|(
-name|int
+name|Integer
 name|priority
 parameter_list|)
 block|{
@@ -2067,7 +2067,7 @@ expr_stmt|;
 block|}
 DECL|method|getTransactionTimeout ()
 specifier|public
-name|int
+name|Integer
 name|getTransactionTimeout
 parameter_list|()
 block|{
@@ -2075,12 +2075,12 @@ return|return
 name|transactionTimeout
 return|;
 block|}
-DECL|method|setTransactionTimeout (int transactionTimeout)
+DECL|method|setTransactionTimeout (Integer transactionTimeout)
 specifier|public
 name|void
 name|setTransactionTimeout
 parameter_list|(
-name|int
+name|Integer
 name|transactionTimeout
 parameter_list|)
 block|{
@@ -2691,7 +2691,7 @@ expr_stmt|;
 block|}
 DECL|method|getWaitForProvisionCorrelationToBeUpdatedCounter ()
 specifier|public
-name|int
+name|Integer
 name|getWaitForProvisionCorrelationToBeUpdatedCounter
 parameter_list|()
 block|{
@@ -2699,12 +2699,12 @@ return|return
 name|waitForProvisionCorrelationToBeUpdatedCounter
 return|;
 block|}
-DECL|method|setWaitForProvisionCorrelationToBeUpdatedCounter ( int waitForProvisionCorrelationToBeUpdatedCounter)
+DECL|method|setWaitForProvisionCorrelationToBeUpdatedCounter ( Integer waitForProvisionCorrelationToBeUpdatedCounter)
 specifier|public
 name|void
 name|setWaitForProvisionCorrelationToBeUpdatedCounter
 parameter_list|(
-name|int
+name|Integer
 name|waitForProvisionCorrelationToBeUpdatedCounter
 parameter_list|)
 block|{

@@ -84,13 +84,13 @@ block|{
 comment|/**      * Sets the default maximum capacity of the SEDA queue (i.e. the number of      * messages it can hold).      */
 DECL|field|queueSize
 specifier|private
-name|int
+name|Integer
 name|queueSize
 decl_stmt|;
 comment|/**      * Sets the default number of concurrent threads processing exchanges.      */
 DECL|field|concurrentConsumers
 specifier|private
-name|int
+name|Integer
 name|concurrentConsumers
 decl_stmt|;
 comment|/**      * Sets the default queue factory.      */
@@ -104,7 +104,7 @@ name|defaultQueueFactory
 decl_stmt|;
 DECL|method|getQueueSize ()
 specifier|public
-name|int
+name|Integer
 name|getQueueSize
 parameter_list|()
 block|{
@@ -112,12 +112,12 @@ return|return
 name|queueSize
 return|;
 block|}
-DECL|method|setQueueSize (int queueSize)
+DECL|method|setQueueSize (Integer queueSize)
 specifier|public
 name|void
 name|setQueueSize
 parameter_list|(
-name|int
+name|Integer
 name|queueSize
 parameter_list|)
 block|{
@@ -130,7 +130,7 @@ expr_stmt|;
 block|}
 DECL|method|getConcurrentConsumers ()
 specifier|public
-name|int
+name|Integer
 name|getConcurrentConsumers
 parameter_list|()
 block|{
@@ -138,12 +138,12 @@ return|return
 name|concurrentConsumers
 return|;
 block|}
-DECL|method|setConcurrentConsumers (int concurrentConsumers)
+DECL|method|setConcurrentConsumers (Integer concurrentConsumers)
 specifier|public
 name|void
 name|setConcurrentConsumers
 parameter_list|(
-name|int
+name|Integer
 name|concurrentConsumers
 parameter_list|)
 block|{

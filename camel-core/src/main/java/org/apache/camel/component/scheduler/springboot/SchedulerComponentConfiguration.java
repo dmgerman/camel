@@ -56,12 +56,12 @@ block|{
 comment|/**      * Number of threads used by the scheduling thread pool. Is by default using      * a single thread      */
 DECL|field|concurrentTasks
 specifier|private
-name|int
+name|Integer
 name|concurrentTasks
 decl_stmt|;
 DECL|method|getConcurrentTasks ()
 specifier|public
-name|int
+name|Integer
 name|getConcurrentTasks
 parameter_list|()
 block|{
@@ -69,12 +69,12 @@ return|return
 name|concurrentTasks
 return|;
 block|}
-DECL|method|setConcurrentTasks (int concurrentTasks)
+DECL|method|setConcurrentTasks (Integer concurrentTasks)
 specifier|public
 name|void
 name|setConcurrentTasks
 parameter_list|(
-name|int
+name|Integer
 name|concurrentTasks
 parameter_list|)
 block|{

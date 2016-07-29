@@ -242,13 +242,13 @@ decl_stmt|;
 comment|/**      * The maximum number of connections.      */
 DECL|field|maxTotalConnections
 specifier|private
-name|int
+name|Integer
 name|maxTotalConnections
 decl_stmt|;
 comment|/**      * The maximum number of connections per route.      */
 DECL|field|connectionsPerRoute
 specifier|private
-name|int
+name|Integer
 name|connectionsPerRoute
 decl_stmt|;
 comment|/**      * The time for connection to live the time unit is millisecond the default      * value is always keep alive.      */
@@ -479,7 +479,7 @@ expr_stmt|;
 block|}
 DECL|method|getMaxTotalConnections ()
 specifier|public
-name|int
+name|Integer
 name|getMaxTotalConnections
 parameter_list|()
 block|{
@@ -487,12 +487,12 @@ return|return
 name|maxTotalConnections
 return|;
 block|}
-DECL|method|setMaxTotalConnections (int maxTotalConnections)
+DECL|method|setMaxTotalConnections (Integer maxTotalConnections)
 specifier|public
 name|void
 name|setMaxTotalConnections
 parameter_list|(
-name|int
+name|Integer
 name|maxTotalConnections
 parameter_list|)
 block|{
@@ -505,7 +505,7 @@ expr_stmt|;
 block|}
 DECL|method|getConnectionsPerRoute ()
 specifier|public
-name|int
+name|Integer
 name|getConnectionsPerRoute
 parameter_list|()
 block|{
@@ -513,12 +513,12 @@ return|return
 name|connectionsPerRoute
 return|;
 block|}
-DECL|method|setConnectionsPerRoute (int connectionsPerRoute)
+DECL|method|setConnectionsPerRoute (Integer connectionsPerRoute)
 specifier|public
 name|void
 name|setConnectionsPerRoute
 parameter_list|(
-name|int
+name|Integer
 name|connectionsPerRoute
 parameter_list|)
 block|{

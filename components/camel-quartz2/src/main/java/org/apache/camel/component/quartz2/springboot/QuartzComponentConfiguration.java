@@ -94,7 +94,7 @@ decl_stmt|;
 comment|/**      * Seconds to wait before starting the quartz scheduler.      */
 DECL|field|startDelayedSeconds
 specifier|private
-name|int
+name|Integer
 name|startDelayedSeconds
 decl_stmt|;
 comment|/**      * Whether to prefix the quartz job with the endpoint id. This option is      * default false.      */
@@ -173,7 +173,7 @@ expr_stmt|;
 block|}
 DECL|method|getStartDelayedSeconds ()
 specifier|public
-name|int
+name|Integer
 name|getStartDelayedSeconds
 parameter_list|()
 block|{
@@ -181,12 +181,12 @@ return|return
 name|startDelayedSeconds
 return|;
 block|}
-DECL|method|setStartDelayedSeconds (int startDelayedSeconds)
+DECL|method|setStartDelayedSeconds (Integer startDelayedSeconds)
 specifier|public
 name|void
 name|setStartDelayedSeconds
 parameter_list|(
-name|int
+name|Integer
 name|startDelayedSeconds
 parameter_list|)
 block|{

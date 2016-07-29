@@ -98,7 +98,7 @@ decl_stmt|;
 comment|/**      * The http proxy port which can be used for the camel-twitter.      */
 DECL|field|httpProxyPort
 specifier|private
-name|int
+name|Integer
 name|httpProxyPort
 decl_stmt|;
 DECL|method|getAccessToken ()
@@ -285,7 +285,7 @@ expr_stmt|;
 block|}
 DECL|method|getHttpProxyPort ()
 specifier|public
-name|int
+name|Integer
 name|getHttpProxyPort
 parameter_list|()
 block|{
@@ -293,12 +293,12 @@ return|return
 name|httpProxyPort
 return|;
 block|}
-DECL|method|setHttpProxyPort (int httpProxyPort)
+DECL|method|setHttpProxyPort (Integer httpProxyPort)
 specifier|public
 name|void
 name|setHttpProxyPort
 parameter_list|(
-name|int
+name|Integer
 name|httpProxyPort
 parameter_list|)
 block|{
