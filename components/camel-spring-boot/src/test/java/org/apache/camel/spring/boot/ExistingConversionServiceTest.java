@@ -72,6 +72,22 @@ name|org
 operator|.
 name|springframework
 operator|.
+name|beans
+operator|.
+name|factory
+operator|.
+name|annotation
+operator|.
+name|Qualifier
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
 name|boot
 operator|.
 name|autoconfigure
@@ -90,21 +106,9 @@ name|boot
 operator|.
 name|test
 operator|.
-name|IntegrationTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|context
 operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|test
-operator|.
-name|SpringApplicationConfiguration
+name|SpringBootTest
 import|;
 end_import
 
@@ -178,7 +182,7 @@ name|context
 operator|.
 name|junit4
 operator|.
-name|SpringJUnit4ClassRunner
+name|SpringRunner
 import|;
 end_import
 
@@ -204,14 +208,14 @@ begin_class
 annotation|@
 name|RunWith
 argument_list|(
-name|SpringJUnit4ClassRunner
+name|SpringRunner
 operator|.
 name|class
 argument_list|)
 annotation|@
 name|EnableAutoConfiguration
 annotation|@
-name|SpringApplicationConfiguration
+name|SpringBootTest
 argument_list|(
 name|classes
 operator|=
@@ -219,8 +223,6 @@ name|ConversionServiceConfig
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|IntegrationTest
 DECL|class|ExistingConversionServiceTest
 specifier|public
 class|class
@@ -230,6 +232,11 @@ name|Assert
 block|{
 annotation|@
 name|Autowired
+annotation|@
+name|Qualifier
+argument_list|(
+literal|"myService"
+argument_list|)
 DECL|field|conversionService
 name|ConversionService
 name|conversionService
@@ -271,6 +278,11 @@ argument_list|()
 decl_stmt|;
 annotation|@
 name|Bean
+argument_list|(
+name|name
+operator|=
+literal|"myService"
+argument_list|)
 DECL|method|providedConversionService ()
 name|ConversionService
 name|providedConversionService

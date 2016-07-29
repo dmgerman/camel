@@ -170,7 +170,9 @@ name|boot
 operator|.
 name|test
 operator|.
-name|SpringApplicationConfiguration
+name|context
+operator|.
+name|SpringBootTest
 import|;
 end_import
 
@@ -187,13 +189,13 @@ name|UseAdviceWith
 annotation|@
 name|SpringBootApplication
 annotation|@
-name|SpringApplicationConfiguration
+name|SpringBootTest
 argument_list|(
-block|{
+name|classes
+operator|=
 name|AdviceWithTest
 operator|.
 name|class
-block|}
 argument_list|)
 DECL|class|AdviceWithTest
 specifier|public

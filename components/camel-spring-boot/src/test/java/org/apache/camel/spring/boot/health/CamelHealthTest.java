@@ -150,7 +150,9 @@ name|boot
 operator|.
 name|test
 operator|.
-name|SpringApplicationConfiguration
+name|context
+operator|.
+name|SpringBootTest
 import|;
 end_import
 
@@ -166,7 +168,7 @@ name|context
 operator|.
 name|junit4
 operator|.
-name|SpringJUnit4ClassRunner
+name|SpringRunner
 import|;
 end_import
 
@@ -174,7 +176,7 @@ begin_class
 annotation|@
 name|RunWith
 argument_list|(
-name|SpringJUnit4ClassRunner
+name|SpringRunner
 operator|.
 name|class
 argument_list|)
@@ -183,7 +185,7 @@ name|EnableAutoConfiguration
 annotation|@
 name|SpringBootApplication
 annotation|@
-name|SpringApplicationConfiguration
+name|SpringBootTest
 argument_list|(
 name|classes
 operator|=

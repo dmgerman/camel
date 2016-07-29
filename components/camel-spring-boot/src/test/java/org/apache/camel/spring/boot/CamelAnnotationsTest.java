@@ -156,21 +156,9 @@ name|boot
 operator|.
 name|test
 operator|.
-name|IntegrationTest
-import|;
-end_import
-
-begin_import
-import|import
-name|org
+name|context
 operator|.
-name|springframework
-operator|.
-name|boot
-operator|.
-name|test
-operator|.
-name|SpringApplicationConfiguration
+name|SpringBootTest
 import|;
 end_import
 
@@ -214,7 +202,7 @@ name|context
 operator|.
 name|junit4
 operator|.
-name|SpringJUnit4ClassRunner
+name|SpringRunner
 import|;
 end_import
 
@@ -222,14 +210,14 @@ begin_class
 annotation|@
 name|RunWith
 argument_list|(
-name|SpringJUnit4ClassRunner
+name|SpringRunner
 operator|.
 name|class
 argument_list|)
 annotation|@
 name|EnableAutoConfiguration
 annotation|@
-name|SpringApplicationConfiguration
+name|SpringBootTest
 argument_list|(
 name|classes
 operator|=
@@ -243,8 +231,6 @@ operator|.
 name|class
 block|}
 argument_list|)
-annotation|@
-name|IntegrationTest
 DECL|class|CamelAnnotationsTest
 specifier|public
 class|class
