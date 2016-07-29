@@ -34,6 +34,20 @@ name|JarLauncher
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|boot
+operator|.
+name|loader
+operator|.
+name|MainMethodRunner
+import|;
+end_import
+
 begin_comment
 comment|/**  * A Spring-boot jar launcher that uses the current thread instead of creating a new thread for spring-boot.  */
 end_comment
@@ -65,6 +79,8 @@ name|String
 index|[]
 name|args
 parameter_list|)
+throws|throws
+name|Exception
 block|{
 name|this
 operator|.
@@ -100,7 +116,7 @@ name|classLoader
 operator|=
 name|classLoader
 expr_stmt|;
-name|Runnable
+name|MainMethodRunner
 name|runner
 init|=
 name|createMainMethodRunner
