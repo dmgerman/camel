@@ -66,6 +66,22 @@ name|batch
 operator|.
 name|core
 operator|.
+name|configuration
+operator|.
+name|JobRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|batch
+operator|.
+name|core
+operator|.
 name|launch
 operator|.
 name|JobLauncher
@@ -108,6 +124,11 @@ argument_list|,
 name|JobLauncher
 argument_list|>
 name|allResolvedJobLaunchers
+decl_stmt|;
+DECL|field|jobRegistry
+specifier|private
+name|JobRegistry
+name|jobRegistry
 decl_stmt|;
 DECL|method|SpringBatchComponent ()
 specifier|public
@@ -163,6 +184,8 @@ argument_list|,
 name|allResolvedJobLaunchers
 argument_list|,
 name|remaining
+argument_list|,
+name|jobRegistry
 argument_list|)
 decl_stmt|;
 name|setProperties
@@ -244,6 +267,33 @@ operator|.
 name|jobLauncher
 operator|=
 name|jobLauncher
+expr_stmt|;
+block|}
+DECL|method|getJobRegistry ()
+specifier|public
+name|JobRegistry
+name|getJobRegistry
+parameter_list|()
+block|{
+return|return
+name|jobRegistry
+return|;
+block|}
+comment|/**      * Explicitly specifies a JobRegistry to be used.      */
+DECL|method|setJobRegistry (JobRegistry jobRegistry)
+specifier|public
+name|void
+name|setJobRegistry
+parameter_list|(
+name|JobRegistry
+name|jobRegistry
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jobRegistry
+operator|=
+name|jobRegistry
 expr_stmt|;
 block|}
 block|}

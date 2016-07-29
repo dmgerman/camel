@@ -183,11 +183,6 @@ name|SpringBatchComponentAutoConfiguration
 block|{
 annotation|@
 name|Bean
-argument_list|(
-name|name
-operator|=
-literal|"spring-batch-component"
-argument_list|)
 annotation|@
 name|ConditionalOnClass
 argument_list|(

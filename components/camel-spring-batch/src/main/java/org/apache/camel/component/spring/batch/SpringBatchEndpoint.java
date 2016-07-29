@@ -186,6 +186,22 @@ name|batch
 operator|.
 name|core
 operator|.
+name|configuration
+operator|.
+name|JobRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|batch
+operator|.
+name|core
+operator|.
 name|launch
 operator|.
 name|JobLauncher
@@ -283,7 +299,14 @@ specifier|private
 name|Job
 name|job
 decl_stmt|;
-DECL|method|SpringBatchEndpoint (String endpointUri, Component component, JobLauncher jobLauncher, JobLauncher defaultResolvedJobLauncher, Map<String, JobLauncher> allResolvedJobLaunchers, String jobName)
+annotation|@
+name|UriParam
+DECL|field|jobRegistry
+specifier|private
+name|JobRegistry
+name|jobRegistry
+decl_stmt|;
+DECL|method|SpringBatchEndpoint (String endpointUri, Component component, JobLauncher jobLauncher, JobLauncher defaultResolvedJobLauncher, Map<String, JobLauncher> allResolvedJobLaunchers, String jobName, JobRegistry jobRegistry)
 specifier|public
 name|SpringBatchEndpoint
 parameter_list|(
@@ -309,6 +332,9 @@ name|allResolvedJobLaunchers
 parameter_list|,
 name|String
 name|jobName
+parameter_list|,
+name|JobRegistry
+name|jobRegistry
 parameter_list|)
 block|{
 name|super
@@ -342,6 +368,12 @@ name|jobName
 operator|=
 name|jobName
 expr_stmt|;
+name|this
+operator|.
+name|jobRegistry
+operator|=
+name|jobRegistry
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -362,6 +394,8 @@ argument_list|,
 name|jobLauncher
 argument_list|,
 name|job
+argument_list|,
+name|jobRegistry
 argument_list|)
 return|;
 block|}
@@ -435,6 +469,25 @@ operator|!
 name|jobFromHeader
 condition|)
 block|{
+if|if
+condition|(
+name|jobRegistry
+operator|!=
+literal|null
+condition|)
+block|{
+name|job
+operator|=
+name|jobRegistry
+operator|.
+name|getJob
+argument_list|(
+name|jobName
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
 name|job
 operator|=
 name|CamelContextHelper
@@ -451,6 +504,7 @@ operator|.
 name|class
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|resolveJobLauncher ()
@@ -661,7 +715,7 @@ operator|=
 name|jobLauncher
 expr_stmt|;
 block|}
-comment|/**      * Explicitly defines if the jobName shouls be taken from the headers instead of the URI.      */
+comment|/**      * Explicitly defines if the jobName should be taken from the headers instead of the URI.      */
 DECL|method|setJobFromHeader (boolean jobFromHeader)
 specifier|public
 name|void
@@ -687,6 +741,33 @@ block|{
 return|return
 name|jobFromHeader
 return|;
+block|}
+DECL|method|getJobRegistry ()
+specifier|public
+name|JobRegistry
+name|getJobRegistry
+parameter_list|()
+block|{
+return|return
+name|jobRegistry
+return|;
+block|}
+comment|/**      * Explicitly specifies a JobRegistry to be used.      */
+DECL|method|setJobRegistry (JobRegistry jobRegistry)
+specifier|public
+name|void
+name|setJobRegistry
+parameter_list|(
+name|JobRegistry
+name|jobRegistry
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jobRegistry
+operator|=
+name|jobRegistry
+expr_stmt|;
 block|}
 block|}
 end_class
