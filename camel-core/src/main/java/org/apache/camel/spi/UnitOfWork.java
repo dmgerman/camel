@@ -127,7 +127,7 @@ name|Synchronization
 name|synchronization
 parameter_list|)
 function_decl|;
-comment|/**     /**      * Handover all the registered synchronizations to the target {@link org.apache.camel.Exchange}.      *<p/>      * This is used when a route turns into asynchronous and the {@link org.apache.camel.Exchange} that      * is continued and routed in the async thread should do the on completion callbacks instead of the      * original synchronous thread.      *      * @param target the target exchange      */
+comment|/**      * Handover all the registered synchronizations to the target {@link org.apache.camel.Exchange}.      *<p/>      * This is used when a route turns into asynchronous and the {@link org.apache.camel.Exchange} that      * is continued and routed in the async thread should do the on completion callbacks instead of the      * original synchronous thread.      *      * @param target the target exchange      */
 DECL|method|handoverSynchronization (Exchange target)
 name|void
 name|handoverSynchronization
