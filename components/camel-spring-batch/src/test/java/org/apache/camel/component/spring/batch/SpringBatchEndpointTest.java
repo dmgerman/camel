@@ -201,18 +201,6 @@ import|;
 end_import
 
 begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertSame
-import|;
-end_import
-
-begin_import
 import|import
 name|org
 operator|.
@@ -318,6 +306,22 @@ name|batch
 operator|.
 name|core
 operator|.
+name|configuration
+operator|.
+name|JobRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|batch
+operator|.
+name|core
+operator|.
 name|launch
 operator|.
 name|JobLauncher
@@ -332,23 +336,55 @@ name|mockito
 operator|.
 name|BDDMockito
 operator|.
-name|*
+name|any
 import|;
 end_import
 
 begin_import
-import|import
+import|import static
 name|org
 operator|.
-name|springframework
+name|mockito
 operator|.
-name|batch
+name|BDDMockito
 operator|.
-name|core
+name|eq
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
 operator|.
-name|configuration
+name|mockito
 operator|.
-name|JobRegistry
+name|BDDMockito
+operator|.
+name|mock
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|BDDMockito
+operator|.
+name|verify
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|mockito
+operator|.
+name|BDDMockito
+operator|.
+name|when
 import|;
 end_import
 
