@@ -165,6 +165,15 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+comment|/**      * Whether to allow in inlined simple exceptions in the json path expression      */
+DECL|method|allowSimple ()
+DECL|field|true
+name|boolean
+name|allowSimple
+parameter_list|()
+default|default
+literal|true
+function_decl|;
 comment|/**      * To configure the json path options to use      */
 DECL|method|options ()
 name|Option

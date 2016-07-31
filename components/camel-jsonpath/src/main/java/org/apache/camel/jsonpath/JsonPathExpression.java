@@ -136,6 +136,13 @@ specifier|private
 name|boolean
 name|suppressExceptions
 decl_stmt|;
+DECL|field|allowSimple
+specifier|private
+name|boolean
+name|allowSimple
+init|=
+literal|true
+decl_stmt|;
 DECL|field|options
 specifier|private
 name|Option
@@ -215,6 +222,33 @@ operator|.
 name|suppressExceptions
 operator|=
 name|suppressExceptions
+expr_stmt|;
+block|}
+DECL|method|isAllowSimple ()
+specifier|public
+name|boolean
+name|isAllowSimple
+parameter_list|()
+block|{
+return|return
+name|allowSimple
+return|;
+block|}
+comment|/**      * Whether to allow in inlined simple exceptions in the json path expression      */
+DECL|method|setAllowSimple (boolean allowSimple)
+specifier|public
+name|void
+name|setAllowSimple
+parameter_list|(
+name|boolean
+name|allowSimple
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowSimple
+operator|=
+name|allowSimple
 expr_stmt|;
 block|}
 DECL|method|getOptions ()
@@ -352,6 +386,8 @@ argument_list|(
 name|expression
 argument_list|,
 name|suppressExceptions
+argument_list|,
+name|allowSimple
 argument_list|,
 name|options
 argument_list|)

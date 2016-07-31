@@ -182,6 +182,16 @@ name|suppressExceptions
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|answer
+operator|.
+name|setAllowSimple
+argument_list|(
+name|jsonPathAnnotation
+operator|.
+name|allowSimple
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Option
 index|[]
 name|options

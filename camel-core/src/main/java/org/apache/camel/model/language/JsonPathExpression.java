@@ -225,6 +225,20 @@ specifier|private
 name|Boolean
 name|suppressExceptions
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|allowSimple
+specifier|private
+name|Boolean
+name|allowSimple
+decl_stmt|;
 DECL|method|JsonPathExpression ()
 specifier|public
 name|JsonPathExpression
@@ -313,6 +327,33 @@ block|{
 return|return
 name|suppressExceptions
 return|;
+block|}
+DECL|method|getAllowSimple ()
+specifier|public
+name|Boolean
+name|getAllowSimple
+parameter_list|()
+block|{
+return|return
+name|allowSimple
+return|;
+block|}
+comment|/**      * Whether to allow in inlined simple exceptions in the json path expression      */
+DECL|method|setAllowSimple (Boolean allowSimple)
+specifier|public
+name|void
+name|setAllowSimple
+parameter_list|(
+name|Boolean
+name|allowSimple
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowSimple
+operator|=
+name|allowSimple
+expr_stmt|;
 block|}
 comment|/**      * Whether to suppress exceptions such as PathNotFoundException.      */
 DECL|method|setSuppressExceptions (Boolean suppressExceptions)
@@ -451,6 +492,23 @@ name|suppressExceptions
 argument_list|)
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|allowSimple
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|expression
+argument_list|,
+literal|"allowSimple"
+argument_list|,
+name|allowSimple
+argument_list|)
+expr_stmt|;
+block|}
 name|super
 operator|.
 name|configureExpression
@@ -506,6 +564,23 @@ argument_list|,
 literal|"suppressExceptions"
 argument_list|,
 name|suppressExceptions
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|allowSimple
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|predicate
+argument_list|,
+literal|"allowSimple"
+argument_list|,
+name|allowSimple
 argument_list|)
 expr_stmt|;
 block|}
