@@ -137,7 +137,7 @@ specifier|private
 name|CacheManagerFactory
 name|cacheManagerFactory
 decl_stmt|;
-comment|/**      * Sets the Cache configuration      */
+comment|/**      * Sets the Cache configuration. Properties of the shared configuration can      * also be set individually.      */
 DECL|field|configuration
 specifier|private
 name|CacheConfiguration
