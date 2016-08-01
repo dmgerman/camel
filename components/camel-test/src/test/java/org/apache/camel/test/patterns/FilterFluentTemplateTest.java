@@ -38,7 +38,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Produce
+name|FluentProducerTemplate
 import|;
 end_import
 
@@ -50,7 +50,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ProducerTemplate
+name|Produce
 import|;
 end_import
 
@@ -143,6 +143,18 @@ name|MockEndpoint
 name|resultEndpoint
 decl_stmt|;
 annotation|@
+name|Produce
+argument_list|(
+name|uri
+operator|=
+literal|"direct:start"
+argument_list|)
+DECL|field|fluentTemplate
+specifier|protected
+name|FluentProducerTemplate
+name|fluentTemplate
+decl_stmt|;
+annotation|@
 name|Override
 DECL|method|isDumpRouteCoverage ()
 specifier|public
@@ -190,11 +202,6 @@ argument_list|,
 literal|"bar"
 argument_list|)
 operator|.
-name|to
-argument_list|(
-literal|"direct:start"
-argument_list|)
-operator|.
 name|send
 argument_list|()
 expr_stmt|;
@@ -235,15 +242,9 @@ argument_list|,
 literal|"notMatchedHeaderValue"
 argument_list|)
 operator|.
-name|to
-argument_list|(
-literal|"direct:start"
-argument_list|)
-operator|.
 name|send
 argument_list|()
 expr_stmt|;
-empty_stmt|;
 name|resultEndpoint
 operator|.
 name|assertIsSatisfied
