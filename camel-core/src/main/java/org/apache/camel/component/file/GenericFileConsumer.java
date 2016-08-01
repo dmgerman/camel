@@ -606,7 +606,7 @@ operator|.
 name|getDirectory
 argument_list|()
 decl_stmt|;
-comment|// time how long time it takes to poll
+comment|// time how long it takes to poll
 name|StopWatch
 name|stop
 init|=

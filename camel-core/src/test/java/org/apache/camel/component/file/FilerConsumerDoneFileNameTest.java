@@ -132,7 +132,7 @@ argument_list|,
 literal|"hello.txt"
 argument_list|)
 expr_stmt|;
-comment|// wait a bit and it should not pickup the written file as there are no done file
+comment|// wait a bit and it should not pickup the written file as there is no done file
 name|Thread
 operator|.
 name|sleep
