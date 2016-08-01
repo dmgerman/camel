@@ -301,10 +301,10 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|testFileConsumseDynamicDoneFileName ()
+DECL|method|testFileConsumeDynamicDoneFileName ()
 specifier|public
 name|void
-name|testFileConsumseDynamicDoneFileName
+name|testFileConsumeDynamicDoneFileName
 parameter_list|()
 throws|throws
 name|Exception
