@@ -53,23 +53,11 @@ specifier|public
 class|class
 name|XMLTokenizeLanguageConfiguration
 block|{
-comment|/**      * Name of header to tokenize instead of using the message body.      */
-DECL|field|headerName
-specifier|private
-name|String
-name|headerName
-decl_stmt|;
 comment|/**      * The extraction mode. The available extraction modes are: i - injecting      * the contextual namespace bindings into the extracted token (default) w -      * wrapping the extracted token in its ancestor context u - unwrapping the      * extracted token to its child content t - extracting the text content of      * the specified element      */
 DECL|field|mode
 specifier|private
 name|String
 name|mode
-decl_stmt|;
-comment|/**      * To group N parts together      */
-DECL|field|group
-specifier|private
-name|Integer
-name|group
 decl_stmt|;
 comment|/**      * Whether to trim the value to remove leading and trailing whitespaces and      * line breaks      */
 DECL|field|trim
@@ -79,32 +67,6 @@ name|trim
 init|=
 literal|true
 decl_stmt|;
-DECL|method|getHeaderName ()
-specifier|public
-name|String
-name|getHeaderName
-parameter_list|()
-block|{
-return|return
-name|headerName
-return|;
-block|}
-DECL|method|setHeaderName (String headerName)
-specifier|public
-name|void
-name|setHeaderName
-parameter_list|(
-name|String
-name|headerName
-parameter_list|)
-block|{
-name|this
-operator|.
-name|headerName
-operator|=
-name|headerName
-expr_stmt|;
-block|}
 DECL|method|getMode ()
 specifier|public
 name|String
@@ -129,32 +91,6 @@ operator|.
 name|mode
 operator|=
 name|mode
-expr_stmt|;
-block|}
-DECL|method|getGroup ()
-specifier|public
-name|Integer
-name|getGroup
-parameter_list|()
-block|{
-return|return
-name|group
-return|;
-block|}
-DECL|method|setGroup (Integer group)
-specifier|public
-name|void
-name|setGroup
-parameter_list|(
-name|Integer
-name|group
-parameter_list|)
-block|{
-name|this
-operator|.
-name|group
-operator|=
-name|group
 expr_stmt|;
 block|}
 DECL|method|getTrim ()
