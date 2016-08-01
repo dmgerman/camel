@@ -38,6 +38,10 @@ name|*
 import|;
 end_import
 
+begin_comment
+comment|/**  * Template for working with Camel and sending {@link Message} instances in an  * {@link Exchange} to an {@link Endpoint} using a<i>fluent</i> build style.  *<br/>  *<p/><b>Important:</b> Read the javadoc of each method carefully to ensure the behavior of the method is understood.  * Some methods is for<tt>InOnly</tt>, others for<tt>InOut</tt> MEP. And some methods throws  * {@link org.apache.camel.CamelExecutionException} while others stores any thrown exception on the returned  * {@link Exchange}.  *<br/>  *<p/>The {@link FluentProducerTemplate} is<b>thread safe</b>.  *<br/>  *<p/>All the methods which sends a message may throw {@link FailedToCreateProducerException} in  * case the {@link Producer} could not be created. Or a {@link NoSuchEndpointException} if the endpoint could  * not be resolved. There may be other related exceptions being thrown which occurs<i>before</i> the {@link Producer}  * has started sending the message.  *<br/>  *<p/>All the send or request methods will return the content according to this strategy:  *<ul>  *<li>throws {@link org.apache.camel.CamelExecutionException} if processing failed<i>during</i> routing  *       with the caused exception wrapped</li>  *<li>The<tt>fault.body</tt> if there is a fault message set and its not<tt>null</tt></li>  *<li>Either<tt>IN</tt> or<tt>OUT</tt> body according to the message exchange pattern. If the pattern is  *   Out capable then the<tt>OUT</tt> body is returned, otherwise<tt>IN</tt>.  *</ul>  *<br/>  *<p/>Before using the template it must be started.  * And when you are done using the template, make sure to {@link #stop()} the template.  *<br/>  *<p/><b>Important note on usage:</b> See this  *<a href="http://camel.apache.org/why-does-camel-use-too-many-threads-with-producertemplate.html">FAQ entry</a>  * before using.  *  * @see ProducerTemplate  * @see ConsumerTemplate  */
+end_comment
+
 begin_interface
 DECL|interface|FluentProducerTemplate
 specifier|public
@@ -230,7 +234,7 @@ argument_list|>
 name|processorSupplier
 parameter_list|)
 function_decl|;
-comment|/**      * Set the message body      *      * @param endpointUri the endpoint URI to send to      */
+comment|/**      * Endpoint to send to      *      * @param endpointUri the endpoint URI to send to      */
 DECL|method|to (String endpointUri)
 name|FluentProducerTemplate
 name|to
@@ -239,7 +243,7 @@ name|String
 name|endpointUri
 parameter_list|)
 function_decl|;
-comment|/**      * Set the message body      *      * @param endpoint the endpoint to send to      */
+comment|/**      * Endpoint to send to      *      * @param endpoint the endpoint to send to      */
 DECL|method|to (Endpoint endpoint)
 name|FluentProducerTemplate
 name|to
@@ -248,7 +252,7 @@ name|Endpoint
 name|endpoint
 parameter_list|)
 function_decl|;
-comment|/**      * Send to an endpoint returning any result output body.      *      * @return the result      * @throws CamelExecutionException is thrown if error occurred      */
+comment|/**      * Send to an endpoint (InOut) returning any result output body.      *      * @return the result      * @throws CamelExecutionException is thrown if error occurred      */
 DECL|method|request ()
 name|Object
 name|request
@@ -256,12 +260,7 @@ parameter_list|()
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Send to an endpoint.      *      * @param type the expected response type      * @return the result      * @throws CamelExecutionException is thrown if error occurred      */
-annotation|@
-name|SuppressWarnings
-argument_list|(
-literal|"unchecked"
-argument_list|)
+comment|/**      * Send to an endpoint (InOut).      *      * @param type the expected response type      * @return the result      * @throws CamelExecutionException is thrown if error occurred      */
 DECL|method|request (Class<T> type)
 parameter_list|<
 name|T
@@ -278,7 +277,7 @@ parameter_list|)
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends asynchronously to the given endpoint.      *      * @return a handle to be used to get the response in the future      */
+comment|/**      * Sends asynchronously to the given endpoint (InOut).      *      * @return a handle to be used to get the response in the future      */
 DECL|method|asyncRequest ()
 name|Future
 argument_list|<
@@ -287,7 +286,7 @@ argument_list|>
 name|asyncRequest
 parameter_list|()
 function_decl|;
-comment|/**      * Sends asynchronously to the given endpoint.      *      * @param type the expected response type      * @return a handle to be used to get the response in the future      */
+comment|/**      * Sends asynchronously to the given endpoint (InOut).      *      * @param type the expected response type      * @return a handle to be used to get the response in the future      */
 DECL|method|asyncRequest (Class<T> type)
 parameter_list|<
 name|T
@@ -305,7 +304,7 @@ argument_list|>
 name|type
 parameter_list|)
 function_decl|;
-comment|/**      * Send to an endpoint      *      * @throws CamelExecutionException is thrown if error occurred      */
+comment|/**      * Send to an endpoint (InOnly)      *      * @throws CamelExecutionException is thrown if error occurred      */
 DECL|method|send ()
 name|Exchange
 name|send
@@ -313,7 +312,7 @@ parameter_list|()
 throws|throws
 name|CamelExecutionException
 function_decl|;
-comment|/**      * Sends asynchronously to the given endpoint.      *      * @return a handle to be used to get the response in the future      */
+comment|/**      * Sends asynchronously to the given endpoint (InOnly).      *      * @return a handle to be used to get the response in the future      */
 DECL|method|asyncSend ()
 name|Future
 argument_list|<
