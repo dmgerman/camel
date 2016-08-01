@@ -185,7 +185,7 @@ name|runLanguageTest
 argument_list|(
 name|config
 argument_list|,
-literal|"js"
+literal|"javaScript"
 argument_list|)
 expr_stmt|;
 name|this
