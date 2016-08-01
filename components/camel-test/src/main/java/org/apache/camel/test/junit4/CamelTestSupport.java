@@ -208,6 +208,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FluentProducerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Message
 import|;
 end_import
@@ -325,18 +337,6 @@ operator|.
 name|builder
 operator|.
 name|AdviceWithRouteBuilder
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|FluentProducerTemplate
 import|;
 end_import
 
