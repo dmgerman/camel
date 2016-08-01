@@ -419,7 +419,7 @@ block|}
 comment|//return list of allowed methods in response headers
 name|httpExchange
 operator|.
-name|setResponseCode
+name|setStatusCode
 argument_list|(
 name|StatusCodes
 operator|.
@@ -518,7 +518,7 @@ condition|)
 block|{
 name|httpExchange
 operator|.
-name|setResponseCode
+name|setStatusCode
 argument_list|(
 name|StatusCodes
 operator|.
