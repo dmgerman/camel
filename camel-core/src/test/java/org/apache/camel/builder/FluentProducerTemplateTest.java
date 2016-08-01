@@ -72,6 +72,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FluentProducerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -93,7 +105,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Unit test for DefaultProducerTemplate  */
+comment|/**  * Unit test for FluentProducerTemplate  */
 end_comment
 
 begin_class
@@ -104,6 +116,76 @@ name|FluentProducerTemplateTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|method|testFromCamelContext ()
+specifier|public
+name|void
+name|testFromCamelContext
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|MockEndpoint
+name|mock
+init|=
+name|getMockEndpoint
+argument_list|(
+literal|"mock:result"
+argument_list|)
+decl_stmt|;
+name|mock
+operator|.
+name|expectedBodiesReceived
+argument_list|(
+literal|"Bye World"
+argument_list|)
+expr_stmt|;
+name|FluentProducerTemplate
+name|fluent
+init|=
+name|context
+operator|.
+name|createFluentProducerTemplate
+argument_list|()
+decl_stmt|;
+name|Object
+name|result
+init|=
+name|fluent
+operator|.
+name|withBody
+argument_list|(
+literal|"Hello World"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"direct:in"
+argument_list|)
+operator|.
+name|request
+argument_list|()
+decl_stmt|;
+name|assertMockEndpointsSatisfied
+argument_list|()
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|"Bye World"
+argument_list|,
+name|result
+argument_list|)
+expr_stmt|;
+name|assertSame
+argument_list|(
+name|context
+argument_list|,
+name|fluent
+operator|.
+name|getCamelContext
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 DECL|method|testIn ()
 specifier|public
 name|void
@@ -130,7 +212,7 @@ expr_stmt|;
 name|Object
 name|result
 init|=
-name|FluentProducerTemplate
+name|DefaultFluentProducerTemplate
 operator|.
 name|on
 argument_list|(
@@ -197,7 +279,7 @@ expr_stmt|;
 name|Object
 name|result
 init|=
-name|FluentProducerTemplate
+name|DefaultFluentProducerTemplate
 operator|.
 name|on
 argument_list|(
@@ -254,7 +336,7 @@ expr_stmt|;
 name|Object
 name|result
 init|=
-name|FluentProducerTemplate
+name|DefaultFluentProducerTemplate
 operator|.
 name|on
 argument_list|(
@@ -314,7 +396,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|FluentProducerTemplate
+name|DefaultFluentProducerTemplate
 operator|.
 name|on
 argument_list|(
@@ -399,7 +481,7 @@ expr_stmt|;
 name|Object
 name|result
 init|=
-name|FluentProducerTemplate
+name|DefaultFluentProducerTemplate
 operator|.
 name|on
 argument_list|(
@@ -456,7 +538,7 @@ expr_stmt|;
 name|Exchange
 name|out
 init|=
-name|FluentProducerTemplate
+name|DefaultFluentProducerTemplate
 operator|.
 name|on
 argument_list|(
@@ -537,7 +619,7 @@ expr_stmt|;
 name|Exchange
 name|out
 init|=
-name|FluentProducerTemplate
+name|DefaultFluentProducerTemplate
 operator|.
 name|on
 argument_list|(
@@ -618,7 +700,7 @@ expr_stmt|;
 name|Exchange
 name|out
 init|=
-name|FluentProducerTemplate
+name|DefaultFluentProducerTemplate
 operator|.
 name|on
 argument_list|(
@@ -717,7 +799,7 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
-name|FluentProducerTemplate
+name|DefaultFluentProducerTemplate
 operator|.
 name|on
 argument_list|(
@@ -803,7 +885,7 @@ expr_stmt|;
 name|Exchange
 name|out
 init|=
-name|FluentProducerTemplate
+name|DefaultFluentProducerTemplate
 operator|.
 name|on
 argument_list|(
@@ -888,7 +970,7 @@ expr_stmt|;
 name|Exchange
 name|out
 init|=
-name|FluentProducerTemplate
+name|DefaultFluentProducerTemplate
 operator|.
 name|on
 argument_list|(
@@ -978,7 +1060,7 @@ comment|// with endpoint as string uri
 name|FluentProducerTemplate
 name|template
 init|=
-name|FluentProducerTemplate
+name|DefaultFluentProducerTemplate
 operator|.
 name|on
 argument_list|(

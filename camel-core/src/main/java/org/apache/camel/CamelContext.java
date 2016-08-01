@@ -1908,6 +1908,21 @@ name|int
 name|maximumCacheSize
 parameter_list|)
 function_decl|;
+comment|/**      * Creates a new {@link FluentProducerTemplate} which is<b>started</b> and therefore ready to use right away.      *<p/>      * See this FAQ before use:<a href="http://camel.apache.org/why-does-camel-use-too-many-threads-with-producertemplate.html">      * Why does Camel use too many threads with ProducerTemplate?</a>      *<p/>      *<b>Important:</b> Make sure to call {@link org.apache.camel.ProducerTemplate#stop()} when you are done using the template,      * to clean up any resources.      *<p/>      * Will use cache size defined in Camel property with key {@link Exchange#MAXIMUM_CACHE_POOL_SIZE}.      * If no key was defined then it will fallback to a default size of 1000.      * You can also use the {@link org.apache.camel.FluentProducerTemplate#setMaximumCacheSize(int)} method to use a custom value      * before starting the template.      *      * @return the template      * @throws RuntimeCamelException is thrown if error starting the template      */
+DECL|method|createFluentProducerTemplate ()
+name|FluentProducerTemplate
+name|createFluentProducerTemplate
+parameter_list|()
+function_decl|;
+comment|/**      * Creates a new {@link FluentProducerTemplate} which is<b>started</b> and therefore ready to use right away.      *<p/>      * See this FAQ before use:<a href="http://camel.apache.org/why-does-camel-use-too-many-threads-with-producertemplate.html">      * Why does Camel use too many threads with ProducerTemplate?</a>      *<p/>      *<b>Important:</b> Make sure to call {@link FluentProducerTemplate#stop()} when you are done using the template,      * to clean up any resources.      *      * @param maximumCacheSize the maximum cache size      * @return the template      * @throws RuntimeCamelException is thrown if error starting the template      */
+DECL|method|createFluentProducerTemplate (int maximumCacheSize)
+name|FluentProducerTemplate
+name|createFluentProducerTemplate
+parameter_list|(
+name|int
+name|maximumCacheSize
+parameter_list|)
+function_decl|;
 comment|/**      * Creates a new {@link ConsumerTemplate} which is<b>started</b> and therefore ready to use right away.      *<p/>      * See this FAQ before use:<a href="http://camel.apache.org/why-does-camel-use-too-many-threads-with-producertemplate.html">      * Why does Camel use too many threads with ProducerTemplate?</a> as it also applies for ConsumerTemplate.      *<p/>      *<b>Important:</b> Make sure to call {@link ConsumerTemplate#stop()} when you are done using the template,      * to clean up any resources.      *<p/>      * Will use cache size defined in Camel property with key {@link Exchange#MAXIMUM_CACHE_POOL_SIZE}.      * If no key was defined then it will fallback to a default size of 1000.      * You can also use the {@link org.apache.camel.ConsumerTemplate#setMaximumCacheSize(int)} method to use a custom value      * before starting the template.      *      * @return the template      * @throws RuntimeCamelException is thrown if error starting the template      */
 DECL|method|createConsumerTemplate ()
 name|ConsumerTemplate

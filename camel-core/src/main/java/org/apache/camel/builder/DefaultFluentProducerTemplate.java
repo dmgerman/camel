@@ -140,6 +140,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|FluentProducerTemplate
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|Message
 import|;
 end_import
@@ -190,6 +202,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|support
+operator|.
+name|ServiceSupport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ExchangeHelper
@@ -210,10 +236,28 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|ServiceHelper
+import|;
+end_import
+
 begin_class
-DECL|class|FluentProducerTemplate
+DECL|class|DefaultFluentProducerTemplate
 specifier|public
 class|class
+name|DefaultFluentProducerTemplate
+extends|extends
+name|ServiceSupport
+implements|implements
 name|FluentProducerTemplate
 block|{
 DECL|field|context
@@ -277,12 +321,30 @@ name|processorSupplier
 decl_stmt|;
 DECL|field|template
 specifier|private
+specifier|volatile
 name|ProducerTemplate
 name|template
 decl_stmt|;
-DECL|method|FluentProducerTemplate (CamelContext context)
+DECL|field|defaultEndpoint
+specifier|private
+name|Endpoint
+name|defaultEndpoint
+decl_stmt|;
+DECL|field|maximumCacheSize
+specifier|private
+name|int
+name|maximumCacheSize
+decl_stmt|;
+DECL|field|eventNotifierEnabled
+specifier|private
+name|boolean
+name|eventNotifierEnabled
+init|=
+literal|true
+decl_stmt|;
+DECL|method|DefaultFluentProducerTemplate (CamelContext context)
 specifier|public
-name|FluentProducerTemplate
+name|DefaultFluentProducerTemplate
 parameter_list|(
 name|CamelContext
 name|context
@@ -375,7 +437,181 @@ block|}
 block|}
 expr_stmt|;
 block|}
-comment|/**      * Set the header      *      * @param key the key of the header      * @param value the value of the header      */
+annotation|@
+name|Override
+DECL|method|getCamelContext ()
+specifier|public
+name|CamelContext
+name|getCamelContext
+parameter_list|()
+block|{
+return|return
+name|context
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|getCurrentCacheSize ()
+specifier|public
+name|int
+name|getCurrentCacheSize
+parameter_list|()
+block|{
+if|if
+condition|(
+name|template
+operator|==
+literal|null
+condition|)
+block|{
+return|return
+literal|0
+return|;
+block|}
+return|return
+name|template
+operator|.
+name|getCurrentCacheSize
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|cleanUp ()
+specifier|public
+name|void
+name|cleanUp
+parameter_list|()
+block|{
+if|if
+condition|(
+name|template
+operator|!=
+literal|null
+condition|)
+block|{
+name|template
+operator|.
+name|cleanUp
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+annotation|@
+name|Override
+DECL|method|setDefaultEndpointUri (String endpointUri)
+specifier|public
+name|void
+name|setDefaultEndpointUri
+parameter_list|(
+name|String
+name|endpointUri
+parameter_list|)
+block|{
+name|setDefaultEndpoint
+argument_list|(
+name|getCamelContext
+argument_list|()
+operator|.
+name|getEndpoint
+argument_list|(
+name|endpointUri
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getDefaultEndpoint ()
+specifier|public
+name|Endpoint
+name|getDefaultEndpoint
+parameter_list|()
+block|{
+return|return
+name|defaultEndpoint
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setDefaultEndpoint (Endpoint defaultEndpoint)
+specifier|public
+name|void
+name|setDefaultEndpoint
+parameter_list|(
+name|Endpoint
+name|defaultEndpoint
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultEndpoint
+operator|=
+name|defaultEndpoint
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getMaximumCacheSize ()
+specifier|public
+name|int
+name|getMaximumCacheSize
+parameter_list|()
+block|{
+return|return
+name|maximumCacheSize
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setMaximumCacheSize (int maximumCacheSize)
+specifier|public
+name|void
+name|setMaximumCacheSize
+parameter_list|(
+name|int
+name|maximumCacheSize
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maximumCacheSize
+operator|=
+name|maximumCacheSize
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|isEventNotifierEnabled ()
+specifier|public
+name|boolean
+name|isEventNotifierEnabled
+parameter_list|()
+block|{
+return|return
+name|eventNotifierEnabled
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|setEventNotifierEnabled (boolean eventNotifierEnabled)
+specifier|public
+name|void
+name|setEventNotifierEnabled
+parameter_list|(
+name|boolean
+name|eventNotifierEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|eventNotifierEnabled
+operator|=
+name|eventNotifierEnabled
+expr_stmt|;
+block|}
+annotation|@
+name|Override
 DECL|method|withHeader (String key, Object value)
 specifier|public
 name|FluentProducerTemplate
@@ -416,7 +652,8 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Remove the headers.      */
+annotation|@
+name|Override
 DECL|method|clearHeaders ()
 specifier|public
 name|FluentProducerTemplate
@@ -440,7 +677,8 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the message body      *      * @param body the body      */
+annotation|@
+name|Override
 DECL|method|withBody (Object body)
 specifier|public
 name|FluentProducerTemplate
@@ -460,7 +698,8 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the message body after converting it to the given type      *      * @param body the body      * @param type the type which the body should be converted to      */
+annotation|@
+name|Override
 DECL|method|withBodyAs (Object body, Class<?> type)
 specifier|public
 name|FluentProducerTemplate
@@ -502,7 +741,8 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Remove the body.      */
+annotation|@
+name|Override
 DECL|method|clearBody ()
 specifier|public
 name|FluentProducerTemplate
@@ -519,7 +759,8 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * To customize the producer template for advanced usage like to set the      * executor service to use.      *      *<pre>      * {@code      * FluentProducerTemplate.on(context)      *     .withTemplateCustomizer(      *         template -> {      *             template.setExecutorService(myExecutor);      *             template.setMaximumCacheSize(10);      *         }      *      )      *     .withBody("the body")      *     .to("direct:start")      *     .request()      *</pre>      *      * Note that it is invoked only once.      *      * @param templateCustomizer the customizer      */
+annotation|@
+name|Override
 DECL|method|withTemplateCustomizer (final Consumer<ProducerTemplate> templateCustomizer)
 specifier|public
 name|FluentProducerTemplate
@@ -543,7 +784,8 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the exchange to use for send.      *      * @param exchange the exchange      */
+annotation|@
+name|Override
 DECL|method|withExchange (final Exchange exchange)
 specifier|public
 name|FluentProducerTemplate
@@ -563,7 +805,8 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the exchangeSupplier which will be invoke to get the exchange to be      * used for send.      *      * @param exchangeSupplier the supplier      */
+annotation|@
+name|Override
 DECL|method|withExchange (final Supplier<Exchange> exchangeSupplier)
 specifier|public
 name|FluentProducerTemplate
@@ -587,7 +830,8 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the processor to use for send/request.      *      *<pre>      * {@code      * FluentProducerTemplate.on(context)      *     .withProcessor(      *         exchange -> {      *             exchange.getIn().setHeader("Key1", "Val1")      *             exchange.getIn().setHeader("Key2", "Val2")      *             exchange.getIn().setBody("the body")      *         }      *      )      *     .to("direct:start")      *     .request()      *</pre>      *      * @param processor      * @return      */
+annotation|@
+name|Override
 DECL|method|withProcessor (final Processor processor)
 specifier|public
 name|FluentProducerTemplate
@@ -607,7 +851,8 @@ name|processor
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the processorSupplier which will be invoke to get the processor to be      * used for send/request.      *      * @param processorSupplier the supplier      */
+annotation|@
+name|Override
 DECL|method|withProcessor (final Supplier<Processor> processorSupplier)
 specifier|public
 name|FluentProducerTemplate
@@ -631,7 +876,8 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the message body      *      * @param endpointUri the endpoint URI to send to      */
+annotation|@
+name|Override
 DECL|method|to (String endpointUri)
 specifier|public
 name|FluentProducerTemplate
@@ -653,7 +899,8 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the message body      *      * @param endpoint the endpoint to send to      */
+annotation|@
+name|Override
 DECL|method|to (Endpoint endpoint)
 specifier|public
 name|FluentProducerTemplate
@@ -676,7 +923,8 @@ block|}
 comment|// ************************
 comment|// REQUEST
 comment|// ************************
-comment|/**      * Send to an endpoint returning any result output body.      *      * @return the result      * @throws CamelExecutionException is thrown if error occurred      */
+annotation|@
+name|Override
 DECL|method|request ()
 specifier|public
 name|Object
@@ -694,7 +942,8 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Send to an endpoint.      *      * @param type the expected response type      * @return the result      * @throws CamelExecutionException is thrown if error occurred      */
+annotation|@
+name|Override
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -720,6 +969,17 @@ block|{
 name|T
 name|result
 decl_stmt|;
+name|Endpoint
+name|target
+init|=
+name|endpoint
+operator|!=
+literal|null
+condition|?
+name|endpoint
+else|:
+name|defaultEndpoint
+decl_stmt|;
 if|if
 condition|(
 name|type
@@ -739,7 +999,7 @@ argument_list|()
 operator|.
 name|request
 argument_list|(
-name|endpoint
+name|target
 argument_list|,
 name|processorSupplier
 operator|.
@@ -766,7 +1026,7 @@ argument_list|()
 operator|.
 name|request
 argument_list|(
-name|endpoint
+name|target
 argument_list|,
 name|processorSupplier
 operator|.
@@ -808,7 +1068,7 @@ argument_list|()
 operator|.
 name|send
 argument_list|(
-name|endpoint
+name|target
 argument_list|,
 name|ExchangePattern
 operator|.
@@ -856,7 +1116,8 @@ return|return
 name|result
 return|;
 block|}
-comment|/**      * Sends asynchronously to the given endpoint.      *      * @return a handle to be used to get the response in the future      */
+annotation|@
+name|Override
 DECL|method|asyncRequest ()
 specifier|public
 name|Future
@@ -875,7 +1136,8 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends asynchronously to the given endpoint.      *      * @param type the expected response type      * @return a handle to be used to get the response in the future      */
+annotation|@
+name|Override
 DECL|method|asyncRequest (Class<T> type)
 specifier|public
 parameter_list|<
@@ -894,6 +1156,17 @@ argument_list|>
 name|type
 parameter_list|)
 block|{
+name|Endpoint
+name|target
+init|=
+name|endpoint
+operator|!=
+literal|null
+condition|?
+name|endpoint
+else|:
+name|defaultEndpoint
+decl_stmt|;
 name|Future
 argument_list|<
 name|T
@@ -914,7 +1187,7 @@ argument_list|()
 operator|.
 name|asyncRequestBodyAndHeaders
 argument_list|(
-name|endpoint
+name|target
 argument_list|,
 name|body
 argument_list|,
@@ -933,7 +1206,7 @@ argument_list|()
 operator|.
 name|asyncRequestBody
 argument_list|(
-name|endpoint
+name|target
 argument_list|,
 name|body
 argument_list|,
@@ -948,7 +1221,8 @@ block|}
 comment|// ************************
 comment|// SEND
 comment|// ************************
-comment|/**      * Send to an endpoint      *      * @throws CamelExecutionException is thrown if error occurred      */
+annotation|@
+name|Override
 DECL|method|send ()
 specifier|public
 name|Exchange
@@ -957,6 +1231,17 @@ parameter_list|()
 throws|throws
 name|CamelExecutionException
 block|{
+name|Endpoint
+name|target
+init|=
+name|endpoint
+operator|!=
+literal|null
+condition|?
+name|endpoint
+else|:
+name|defaultEndpoint
+decl_stmt|;
 return|return
 name|exchangeSupplier
 operator|!=
@@ -967,7 +1252,7 @@ argument_list|()
 operator|.
 name|send
 argument_list|(
-name|endpoint
+name|target
 argument_list|,
 name|exchangeSupplier
 operator|.
@@ -980,7 +1265,7 @@ argument_list|()
 operator|.
 name|send
 argument_list|(
-name|endpoint
+name|target
 argument_list|,
 name|processorSupplier
 operator|.
@@ -989,7 +1274,8 @@ argument_list|()
 argument_list|)
 return|;
 block|}
-comment|/**      * Sends asynchronously to the given endpoint.      *      * @return a handle to be used to get the response in the future      */
+annotation|@
+name|Override
 DECL|method|asyncSend ()
 specifier|public
 name|Future
@@ -999,6 +1285,17 @@ argument_list|>
 name|asyncSend
 parameter_list|()
 block|{
+name|Endpoint
+name|target
+init|=
+name|endpoint
+operator|!=
+literal|null
+condition|?
+name|endpoint
+else|:
+name|defaultEndpoint
+decl_stmt|;
 return|return
 name|exchangeSupplier
 operator|!=
@@ -1009,7 +1306,7 @@ argument_list|()
 operator|.
 name|asyncSend
 argument_list|(
-name|endpoint
+name|target
 argument_list|,
 name|exchangeSupplier
 operator|.
@@ -1022,7 +1319,7 @@ argument_list|()
 operator|.
 name|asyncSend
 argument_list|(
-name|endpoint
+name|target
 argument_list|,
 name|processorSupplier
 operator|.
@@ -1047,7 +1344,7 @@ parameter_list|)
 block|{
 return|return
 operator|new
-name|FluentProducerTemplate
+name|DefaultFluentProducerTemplate
 argument_list|(
 name|context
 argument_list|)
@@ -1065,22 +1362,11 @@ name|notNull
 argument_list|(
 name|context
 argument_list|,
-literal|"camel-context"
-argument_list|)
-expr_stmt|;
-name|ObjectHelper
-operator|.
-name|notNull
-argument_list|(
-name|endpoint
-argument_list|,
-literal|"endpoint"
+literal|"CamelContext"
 argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|this
-operator|.
 name|template
 operator|==
 literal|null
@@ -1088,10 +1374,43 @@ condition|)
 block|{
 name|template
 operator|=
+name|maximumCacheSize
+operator|>
+literal|0
+condition|?
+name|context
+operator|.
+name|createProducerTemplate
+argument_list|(
+name|maximumCacheSize
+argument_list|)
+else|:
 name|context
 operator|.
 name|createProducerTemplate
 argument_list|()
+expr_stmt|;
+if|if
+condition|(
+name|defaultEndpoint
+operator|!=
+literal|null
+condition|)
+block|{
+name|template
+operator|.
+name|setDefaultEndpoint
+argument_list|(
+name|defaultEndpoint
+argument_list|)
+expr_stmt|;
+block|}
+name|template
+operator|.
+name|setEventNotifierEnabled
+argument_list|(
+name|eventNotifierEnabled
+argument_list|)
 expr_stmt|;
 if|if
 condition|(
@@ -1169,6 +1488,55 @@ name|body
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+annotation|@
+name|Override
+DECL|method|doStart ()
+specifier|protected
+name|void
+name|doStart
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+if|if
+condition|(
+name|template
+operator|==
+literal|null
+condition|)
+block|{
+name|template
+operator|=
+name|template
+argument_list|()
+expr_stmt|;
+block|}
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|template
+argument_list|)
+expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|doStop ()
+specifier|protected
+name|void
+name|doStop
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|ServiceHelper
+operator|.
+name|stopService
+argument_list|(
+name|template
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
