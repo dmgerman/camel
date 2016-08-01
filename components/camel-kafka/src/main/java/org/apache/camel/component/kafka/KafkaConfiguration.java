@@ -448,6 +448,22 @@ literal|"consumer"
 argument_list|,
 name|defaultValue
 operator|=
+literal|"2147483647"
+argument_list|)
+DECL|field|maxPollRecords
+specifier|private
+name|Integer
+name|maxPollRecords
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
 literal|"5000"
 argument_list|)
 DECL|field|pollTimeoutMs
@@ -2124,6 +2140,18 @@ operator|.
 name|SESSION_TIMEOUT_MS_CONFIG
 argument_list|,
 name|getSessionTimeoutMs
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|addPropertyIfNotNull
+argument_list|(
+name|props
+argument_list|,
+name|ConsumerConfig
+operator|.
+name|MAX_POLL_RECORDS_CONFIG
+argument_list|,
+name|getMaxPollRecords
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -4250,6 +4278,33 @@ operator|.
 name|sessionTimeoutMs
 operator|=
 name|sessionTimeoutMs
+expr_stmt|;
+block|}
+DECL|method|getMaxPollRecords ()
+specifier|public
+name|Integer
+name|getMaxPollRecords
+parameter_list|()
+block|{
+return|return
+name|maxPollRecords
+return|;
+block|}
+comment|/**      * A unique string that identifies the consumer group this consumer belongs to.      * This property is required if the consumer uses either the group management functionality by using      *<code>subscribe(topic)</code> or the Kafka-based offset management strategy.      */
+DECL|method|setMaxPollRecords (Integer maxPollRecords)
+specifier|public
+name|void
+name|setMaxPollRecords
+parameter_list|(
+name|Integer
+name|maxPollRecords
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxPollRecords
+operator|=
+name|maxPollRecords
 expr_stmt|;
 block|}
 DECL|method|getPollTimeoutMs ()
