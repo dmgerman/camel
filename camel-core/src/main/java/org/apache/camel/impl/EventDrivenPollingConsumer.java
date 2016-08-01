@@ -564,6 +564,12 @@ name|isRunAllowed
 argument_list|()
 condition|)
 block|{
+comment|// CAMEL-10215 - Synchronizing the ordering of beforePoll, poll and afterPoll as an atomic activity
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 try|try
 block|{
 name|beforePoll
@@ -596,6 +602,7 @@ block|{
 name|afterPoll
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 name|LOG
@@ -646,6 +653,12 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
+comment|// CAMEL-10215 - Synchronizing the ordering of beforePoll, poll and afterPoll as an atomic activity
+synchronized|synchronized
+init|(
+name|this
+init|)
+block|{
 try|try
 block|{
 comment|// use the timeout value returned from beforePoll
@@ -689,6 +702,7 @@ block|{
 name|afterPoll
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 DECL|method|process (Exchange exchange)
