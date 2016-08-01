@@ -375,7 +375,7 @@ block|}
 block|}
 expr_stmt|;
 block|}
-comment|/**      * Set the header      *      * @param key the key of the header      * @param value the value of the header      * @return this FluentProducerTemplate instance      */
+comment|/**      * Set the header      *      * @param key the key of the header      * @param value the value of the header      */
 DECL|method|withHeader (String key, Object value)
 specifier|public
 name|FluentProducerTemplate
@@ -416,7 +416,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Remove the headers.      *      * @return this FluentProducerTemplate instance      */
+comment|/**      * Remove the headers.      */
 DECL|method|clearHeaders ()
 specifier|public
 name|FluentProducerTemplate
@@ -440,7 +440,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the message body      *      * @param body the body      * @return this FluentProducerTemplate instance      */
+comment|/**      * Set the message body      *      * @param body the body      */
 DECL|method|withBody (Object body)
 specifier|public
 name|FluentProducerTemplate
@@ -460,7 +460,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the message body after converting it to the given type      *      * @param body the body      * @param type the type which the body should be converted to      * @return this FluentProducerTemplate instance      */
+comment|/**      * Set the message body after converting it to the given type      *      * @param body the body      * @param type the type which the body should be converted to      */
 DECL|method|withBodyAs (Object body, Class<?> type)
 specifier|public
 name|FluentProducerTemplate
@@ -502,7 +502,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Remove the body.      *      * @return this FluentProducerTemplate instance      */
+comment|/**      * Remove the body.      */
 DECL|method|clearBody ()
 specifier|public
 name|FluentProducerTemplate
@@ -519,7 +519,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * To customize the producer template for advanced usage like to set the      * executor service to use.      *      *<pre>      * {@code      * FluentProducerTemplate.on(context)      *     .withTemplateCustomizer(      *         template -> {      *             template.setExecutorService(myExecutor);      *             template.setMaximumCacheSize(10);      *         }      *      )      *     .withBody("the body")      *     .to("direct:start")      *     .request()      *</pre>      *      * Note that it is invoked only once.      *      * @param templateCustomizer      * @return      */
+comment|/**      * To customize the producer template for advanced usage like to set the      * executor service to use.      *      *<pre>      * {@code      * FluentProducerTemplate.on(context)      *     .withTemplateCustomizer(      *         template -> {      *             template.setExecutorService(myExecutor);      *             template.setMaximumCacheSize(10);      *         }      *      )      *     .withBody("the body")      *     .to("direct:start")      *     .request()      *</pre>      *      * Note that it is invoked only once.      *      * @param templateCustomizer the customizer      */
 DECL|method|withTemplateCustomizer (final Consumer<ProducerTemplate> templateCustomizer)
 specifier|public
 name|FluentProducerTemplate
@@ -543,7 +543,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the exchange to use for send.      *      * @param exchange      * @return      */
+comment|/**      * Set the exchange to use for send.      *      * @param exchange the exchange      */
 DECL|method|withExchange (final Exchange exchange)
 specifier|public
 name|FluentProducerTemplate
@@ -563,7 +563,7 @@ name|exchange
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the exchangeSupplier which will be invoke to get the exchange to be      * used for send.      *      * @param exchangeSupplier      * @return      */
+comment|/**      * Set the exchangeSupplier which will be invoke to get the exchange to be      * used for send.      *      * @param exchangeSupplier the supplier      */
 DECL|method|withExchange (final Supplier<Exchange> exchangeSupplier)
 specifier|public
 name|FluentProducerTemplate
@@ -607,7 +607,7 @@ name|processor
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the processorSupplier which will be invoke to get the processor to be      * used for send/request.      *      * @param processorSupplier      * @return      */
+comment|/**      * Set the processorSupplier which will be invoke to get the processor to be      * used for send/request.      *      * @param processorSupplier the supplier      */
 DECL|method|withProcessor (final Supplier<Processor> processorSupplier)
 specifier|public
 name|FluentProducerTemplate
@@ -631,7 +631,7 @@ return|return
 name|this
 return|;
 block|}
-comment|/**      * Set the message body      *      * @param endpointUri the endpoint URI to send to      * @return this FluentProducerTemplate instance      */
+comment|/**      * Set the message body      *      * @param endpointUri the endpoint URI to send to      */
 DECL|method|to (String endpointUri)
 specifier|public
 name|FluentProducerTemplate
@@ -653,7 +653,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Set the message body      *      * @param endpoint the endpoint to send to      * @return this FluentProducerTemplate instance      */
+comment|/**      * Set the message body      *      * @param endpoint the endpoint to send to      */
 DECL|method|to (Endpoint endpoint)
 specifier|public
 name|FluentProducerTemplate
@@ -676,7 +676,7 @@ block|}
 comment|// ************************
 comment|// REQUEST
 comment|// ************************
-comment|/**      * Send to an endpoint returning any result output body.      *      * @return the result      * @throws CamelExecutionException      */
+comment|/**      * Send to an endpoint returning any result output body.      *      * @return the result      * @throws CamelExecutionException is thrown if error occurred      */
 DECL|method|request ()
 specifier|public
 name|Object
@@ -694,7 +694,7 @@ name|class
 argument_list|)
 return|;
 block|}
-comment|/**      * Send to an endpoint.      *      * @param type the expected response type      * @return the result      * @throws CamelExecutionException      */
+comment|/**      * Send to an endpoint.      *      * @param type the expected response type      * @return the result      * @throws CamelExecutionException is thrown if error occurred      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -948,7 +948,7 @@ block|}
 comment|// ************************
 comment|// SEND
 comment|// ************************
-comment|/**      * Send to an endpoint      *      * @throws CamelExecutionException      */
+comment|/**      * Send to an endpoint      *      * @throws CamelExecutionException is thrown if error occurred      */
 DECL|method|send ()
 specifier|public
 name|Exchange
@@ -1034,7 +1034,7 @@ block|}
 comment|// ************************
 comment|// HELPERS
 comment|// ************************
-comment|/**      * Create the FluentProducerTemplate by setting the camel context      *      * @param context the camel context      * @return this FluentProducerTemplate instance      */
+comment|/**      * Create the FluentProducerTemplate by setting the camel context      *      * @param context the camel context      */
 DECL|method|on (CamelContext context)
 specifier|public
 specifier|static
