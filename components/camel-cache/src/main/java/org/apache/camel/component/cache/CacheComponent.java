@@ -118,6 +118,20 @@ name|ServiceHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|net
+operator|.
+name|sf
+operator|.
+name|ehcache
+operator|.
+name|store
+operator|.
+name|MemoryStoreEvictionPolicy
+import|;
+end_import
+
 begin_class
 DECL|class|CacheComponent
 specifier|public
@@ -314,7 +328,7 @@ return|return
 name|configuration
 return|;
 block|}
-comment|/**      * Sets the Cache configuration      *      * @param configuration the configuration to use by default for endpoints      */
+comment|/**      * Sets the Cache configuration. Properties of the shared configuration can also be set individually.      *      * @param configuration the configuration to use by default for endpoints      */
 DECL|method|setConfiguration (CacheConfiguration configuration)
 specifier|public
 name|void
@@ -450,6 +464,378 @@ name|super
 operator|.
 name|doStop
 argument_list|()
+expr_stmt|;
+block|}
+DECL|method|getCacheName ()
+specifier|public
+name|String
+name|getCacheName
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getCacheName
+argument_list|()
+return|;
+block|}
+comment|/**      * Name of the cache      * @param cacheName      */
+DECL|method|setCacheName (String cacheName)
+specifier|public
+name|void
+name|setCacheName
+parameter_list|(
+name|String
+name|cacheName
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setCacheName
+argument_list|(
+name|cacheName
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getMaxElementsInMemory ()
+specifier|public
+name|int
+name|getMaxElementsInMemory
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getMaxElementsInMemory
+argument_list|()
+return|;
+block|}
+comment|/**      * The number of elements that may be stored in the defined cache in memory.      * @param maxElementsInMemory      */
+DECL|method|setMaxElementsInMemory (int maxElementsInMemory)
+specifier|public
+name|void
+name|setMaxElementsInMemory
+parameter_list|(
+name|int
+name|maxElementsInMemory
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setMaxElementsInMemory
+argument_list|(
+name|maxElementsInMemory
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getMemoryStoreEvictionPolicy ()
+specifier|public
+name|MemoryStoreEvictionPolicy
+name|getMemoryStoreEvictionPolicy
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getMemoryStoreEvictionPolicy
+argument_list|()
+return|;
+block|}
+comment|/**      * Which eviction strategy to use when maximum number of elements in memory is reached. The strategy defines      * which elements to be removed.      *<ul>      *<li>LRU - Lest Recently Used</li>      *<li>LFU - Lest Frequently Used</li>      *<li>FIFO - First In First Out</li>      *</ul>      * @param memoryStoreEvictionPolicy      */
+DECL|method|setMemoryStoreEvictionPolicy (MemoryStoreEvictionPolicy memoryStoreEvictionPolicy)
+specifier|public
+name|void
+name|setMemoryStoreEvictionPolicy
+parameter_list|(
+name|MemoryStoreEvictionPolicy
+name|memoryStoreEvictionPolicy
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setMemoryStoreEvictionPolicy
+argument_list|(
+name|memoryStoreEvictionPolicy
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isOverflowToDisk ()
+specifier|public
+name|boolean
+name|isOverflowToDisk
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|isOverflowToDisk
+argument_list|()
+return|;
+block|}
+comment|/**      * Specifies whether cache may overflow to disk      * @param overflowToDisk      */
+DECL|method|setOverflowToDisk (boolean overflowToDisk)
+specifier|public
+name|void
+name|setOverflowToDisk
+parameter_list|(
+name|boolean
+name|overflowToDisk
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setOverflowToDisk
+argument_list|(
+name|overflowToDisk
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isEternal ()
+specifier|public
+name|boolean
+name|isEternal
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|isEternal
+argument_list|()
+return|;
+block|}
+comment|/**      * Sets whether elements are eternal. If eternal, timeouts are ignored and the element never expires.      * @param eternal      */
+DECL|method|setEternal (boolean eternal)
+specifier|public
+name|void
+name|setEternal
+parameter_list|(
+name|boolean
+name|eternal
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setEternal
+argument_list|(
+name|eternal
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getTimeToLiveSeconds ()
+specifier|public
+name|long
+name|getTimeToLiveSeconds
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getTimeToLiveSeconds
+argument_list|()
+return|;
+block|}
+comment|/**      * The maximum time between creation time and when an element expires. Is used only if the element is not eternal      * @param timeToLiveSeconds      */
+DECL|method|setTimeToLiveSeconds (long timeToLiveSeconds)
+specifier|public
+name|void
+name|setTimeToLiveSeconds
+parameter_list|(
+name|long
+name|timeToLiveSeconds
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setTimeToLiveSeconds
+argument_list|(
+name|timeToLiveSeconds
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getTimeToIdleSeconds ()
+specifier|public
+name|long
+name|getTimeToIdleSeconds
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getTimeToIdleSeconds
+argument_list|()
+return|;
+block|}
+comment|/**      * The maximum amount of time between accesses before an element expires      * @param timeToIdleSeconds      */
+DECL|method|setTimeToIdleSeconds (long timeToIdleSeconds)
+specifier|public
+name|void
+name|setTimeToIdleSeconds
+parameter_list|(
+name|long
+name|timeToIdleSeconds
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setTimeToIdleSeconds
+argument_list|(
+name|timeToIdleSeconds
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isDiskPersistent ()
+specifier|public
+name|boolean
+name|isDiskPersistent
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|isDiskPersistent
+argument_list|()
+return|;
+block|}
+comment|/**      * Whether the disk store persists between restarts of the application.      * @param diskPersistent      */
+DECL|method|setDiskPersistent (boolean diskPersistent)
+specifier|public
+name|void
+name|setDiskPersistent
+parameter_list|(
+name|boolean
+name|diskPersistent
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setDiskPersistent
+argument_list|(
+name|diskPersistent
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getDiskExpiryThreadIntervalSeconds ()
+specifier|public
+name|long
+name|getDiskExpiryThreadIntervalSeconds
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getDiskExpiryThreadIntervalSeconds
+argument_list|()
+return|;
+block|}
+comment|/**      * The number of seconds between runs of the disk expiry thread.      * @param diskExpiryThreadIntervalSeconds      */
+DECL|method|setDiskExpiryThreadIntervalSeconds (long diskExpiryThreadIntervalSeconds)
+specifier|public
+name|void
+name|setDiskExpiryThreadIntervalSeconds
+parameter_list|(
+name|long
+name|diskExpiryThreadIntervalSeconds
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setDiskExpiryThreadIntervalSeconds
+argument_list|(
+name|diskExpiryThreadIntervalSeconds
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * To configure event listeners using the CacheEventListenerRegistry      * @param eventListenerRegistry      */
+DECL|method|setEventListenerRegistry (CacheEventListenerRegistry eventListenerRegistry)
+specifier|public
+name|void
+name|setEventListenerRegistry
+parameter_list|(
+name|CacheEventListenerRegistry
+name|eventListenerRegistry
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setEventListenerRegistry
+argument_list|(
+name|eventListenerRegistry
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getEventListenerRegistry ()
+specifier|public
+name|CacheEventListenerRegistry
+name|getEventListenerRegistry
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getEventListenerRegistry
+argument_list|()
+return|;
+block|}
+comment|/**      * To configure cache loader using the CacheLoaderRegistry      * @param cacheLoaderRegistry      */
+DECL|method|setCacheLoaderRegistry (CacheLoaderRegistry cacheLoaderRegistry)
+specifier|public
+name|void
+name|setCacheLoaderRegistry
+parameter_list|(
+name|CacheLoaderRegistry
+name|cacheLoaderRegistry
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setCacheLoaderRegistry
+argument_list|(
+name|cacheLoaderRegistry
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getCacheLoaderRegistry ()
+specifier|public
+name|CacheLoaderRegistry
+name|getCacheLoaderRegistry
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getCacheLoaderRegistry
+argument_list|()
+return|;
+block|}
+DECL|method|isObjectCache ()
+specifier|public
+name|boolean
+name|isObjectCache
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|isObjectCache
+argument_list|()
+return|;
+block|}
+comment|/**      * Whether to turn on allowing to store non serializable objects in the cache.      * If this option is enabled then overflow to disk cannot be enabled as well.      * @param objectCache      */
+DECL|method|setObjectCache (boolean objectCache)
+specifier|public
+name|void
+name|setObjectCache
+parameter_list|(
+name|boolean
+name|objectCache
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setObjectCache
+argument_list|(
+name|objectCache
+argument_list|)
 expr_stmt|;
 block|}
 block|}

@@ -22,6 +22,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|net
 operator|.
 name|URI
@@ -73,6 +83,20 @@ operator|.
 name|impl
 operator|.
 name|UriEndpointComponent
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|Analyzer
 import|;
 end_import
 
@@ -208,7 +232,7 @@ return|return
 name|config
 return|;
 block|}
-comment|/**      * To use a shared lucene configuration      */
+comment|/**      * To use a shared lucene configuration. Properties of the shared configuration can also be set individually.      */
 DECL|method|setConfig (LuceneConfiguration config)
 specifier|public
 name|void
@@ -223,6 +247,192 @@ operator|.
 name|config
 operator|=
 name|config
+expr_stmt|;
+block|}
+DECL|method|getHost ()
+specifier|public
+name|String
+name|getHost
+parameter_list|()
+block|{
+return|return
+name|config
+operator|.
+name|getHost
+argument_list|()
+return|;
+block|}
+comment|/**      * The URL to the lucene server      * @param host      */
+DECL|method|setHost (String host)
+specifier|public
+name|void
+name|setHost
+parameter_list|(
+name|String
+name|host
+parameter_list|)
+block|{
+name|config
+operator|.
+name|setHost
+argument_list|(
+name|host
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getOperation ()
+specifier|public
+name|LuceneOperation
+name|getOperation
+parameter_list|()
+block|{
+return|return
+name|config
+operator|.
+name|getOperation
+argument_list|()
+return|;
+block|}
+comment|/**      * Operation to do such as insert or query.      * @param operation      */
+DECL|method|setOperation (LuceneOperation operation)
+specifier|public
+name|void
+name|setOperation
+parameter_list|(
+name|LuceneOperation
+name|operation
+parameter_list|)
+block|{
+name|config
+operator|.
+name|setOperation
+argument_list|(
+name|operation
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getSourceDirectory ()
+specifier|public
+name|File
+name|getSourceDirectory
+parameter_list|()
+block|{
+return|return
+name|config
+operator|.
+name|getSourceDirectory
+argument_list|()
+return|;
+block|}
+comment|/**      * An optional directory containing files to be used to be analyzed and added to the index at producer startup.      * @param sourceDirectory      */
+DECL|method|setSourceDirectory (File sourceDirectory)
+specifier|public
+name|void
+name|setSourceDirectory
+parameter_list|(
+name|File
+name|sourceDirectory
+parameter_list|)
+block|{
+name|config
+operator|.
+name|setSourceDirectory
+argument_list|(
+name|sourceDirectory
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getIndexDirectory ()
+specifier|public
+name|File
+name|getIndexDirectory
+parameter_list|()
+block|{
+return|return
+name|config
+operator|.
+name|getIndexDirectory
+argument_list|()
+return|;
+block|}
+comment|/**      * A file system directory in which index files are created upon analysis of the document by the specified analyzer      * @param indexDirectory      */
+DECL|method|setIndexDirectory (File indexDirectory)
+specifier|public
+name|void
+name|setIndexDirectory
+parameter_list|(
+name|File
+name|indexDirectory
+parameter_list|)
+block|{
+name|config
+operator|.
+name|setIndexDirectory
+argument_list|(
+name|indexDirectory
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getAnalyzer ()
+specifier|public
+name|Analyzer
+name|getAnalyzer
+parameter_list|()
+block|{
+return|return
+name|config
+operator|.
+name|getAnalyzer
+argument_list|()
+return|;
+block|}
+comment|/**      * An Analyzer builds TokenStreams, which analyze text. It thus represents a policy for extracting index terms from text.      * The value for analyzer can be any class that extends the abstract class org.apache.lucene.analysis.Analyzer.      * Lucene also offers a rich set of analyzers out of the box      * @param analyzer      */
+DECL|method|setAnalyzer (Analyzer analyzer)
+specifier|public
+name|void
+name|setAnalyzer
+parameter_list|(
+name|Analyzer
+name|analyzer
+parameter_list|)
+block|{
+name|config
+operator|.
+name|setAnalyzer
+argument_list|(
+name|analyzer
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getMaxHits ()
+specifier|public
+name|int
+name|getMaxHits
+parameter_list|()
+block|{
+return|return
+name|config
+operator|.
+name|getMaxHits
+argument_list|()
+return|;
+block|}
+comment|/**      * An integer value that limits the result set of the search operation      * @param maxHits      */
+DECL|method|setMaxHits (int maxHits)
+specifier|public
+name|void
+name|setMaxHits
+parameter_list|(
+name|int
+name|maxHits
+parameter_list|)
+block|{
+name|config
+operator|.
+name|setMaxHits
+argument_list|(
+name|maxHits
+argument_list|)
 expr_stmt|;
 block|}
 block|}

@@ -75,6 +75,25 @@ specifier|private
 name|KestrelConfiguration
 name|configuration
 decl_stmt|;
+comment|/**      * The addresses      */
+DECL|field|addresses
+specifier|private
+name|String
+index|[]
+name|addresses
+decl_stmt|;
+comment|/**      * The wait time in milliseconds      */
+DECL|field|waitTimeMs
+specifier|private
+name|Integer
+name|waitTimeMs
+decl_stmt|;
+comment|/**      * The number of concurrent consumers      */
+DECL|field|concurrentConsumers
+specifier|private
+name|Integer
+name|concurrentConsumers
+decl_stmt|;
 DECL|method|getConfiguration ()
 specifier|public
 name|KestrelConfiguration
@@ -99,6 +118,86 @@ operator|.
 name|configuration
 operator|=
 name|configuration
+expr_stmt|;
+block|}
+DECL|method|getAddresses ()
+specifier|public
+name|String
+index|[]
+name|getAddresses
+parameter_list|()
+block|{
+return|return
+name|addresses
+return|;
+block|}
+DECL|method|setAddresses (String[] addresses)
+specifier|public
+name|void
+name|setAddresses
+parameter_list|(
+name|String
+index|[]
+name|addresses
+parameter_list|)
+block|{
+name|this
+operator|.
+name|addresses
+operator|=
+name|addresses
+expr_stmt|;
+block|}
+DECL|method|getWaitTimeMs ()
+specifier|public
+name|Integer
+name|getWaitTimeMs
+parameter_list|()
+block|{
+return|return
+name|waitTimeMs
+return|;
+block|}
+DECL|method|setWaitTimeMs (Integer waitTimeMs)
+specifier|public
+name|void
+name|setWaitTimeMs
+parameter_list|(
+name|Integer
+name|waitTimeMs
+parameter_list|)
+block|{
+name|this
+operator|.
+name|waitTimeMs
+operator|=
+name|waitTimeMs
+expr_stmt|;
+block|}
+DECL|method|getConcurrentConsumers ()
+specifier|public
+name|Integer
+name|getConcurrentConsumers
+parameter_list|()
+block|{
+return|return
+name|concurrentConsumers
+return|;
+block|}
+DECL|method|setConcurrentConsumers (Integer concurrentConsumers)
+specifier|public
+name|void
+name|setConcurrentConsumers
+parameter_list|(
+name|Integer
+name|concurrentConsumers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|concurrentConsumers
+operator|=
+name|concurrentConsumers
 expr_stmt|;
 block|}
 block|}

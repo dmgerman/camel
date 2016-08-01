@@ -24,6 +24,16 @@ name|java
 operator|.
 name|net
 operator|.
+name|InetSocketAddress
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|net
+operator|.
 name|URI
 import|;
 end_import
@@ -35,6 +45,16 @@ operator|.
 name|util
 operator|.
 name|HashMap
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
 import|;
 end_import
 
@@ -927,6 +947,101 @@ name|super
 operator|.
 name|doStop
 argument_list|()
+expr_stmt|;
+block|}
+DECL|method|getAddresses ()
+specifier|public
+name|String
+index|[]
+name|getAddresses
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getAddresses
+argument_list|()
+return|;
+block|}
+comment|/**      * The addresses      * @param addresses      */
+DECL|method|setAddresses (String[] addresses)
+specifier|public
+name|void
+name|setAddresses
+parameter_list|(
+name|String
+index|[]
+name|addresses
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setAddresses
+argument_list|(
+name|addresses
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getWaitTimeMs ()
+specifier|public
+name|int
+name|getWaitTimeMs
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getWaitTimeMs
+argument_list|()
+return|;
+block|}
+comment|/**      * The wait time in milliseconds      * @param waitTimeMs      */
+DECL|method|setWaitTimeMs (int waitTimeMs)
+specifier|public
+name|void
+name|setWaitTimeMs
+parameter_list|(
+name|int
+name|waitTimeMs
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setWaitTimeMs
+argument_list|(
+name|waitTimeMs
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getConcurrentConsumers ()
+specifier|public
+name|int
+name|getConcurrentConsumers
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getConcurrentConsumers
+argument_list|()
+return|;
+block|}
+comment|/**      * The number of concurrent consumers      * @param concurrentConsumers      */
+DECL|method|setConcurrentConsumers (int concurrentConsumers)
+specifier|public
+name|void
+name|setConcurrentConsumers
+parameter_list|(
+name|int
+name|concurrentConsumers
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setConcurrentConsumers
+argument_list|(
+name|concurrentConsumers
+argument_list|)
 expr_stmt|;
 block|}
 block|}

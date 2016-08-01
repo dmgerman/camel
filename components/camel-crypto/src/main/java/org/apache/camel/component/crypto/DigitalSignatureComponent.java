@@ -42,6 +42,58 @@ begin_import
 import|import
 name|java
 operator|.
+name|security
+operator|.
+name|KeyStore
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|PrivateKey
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|PublicKey
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|SecureRandom
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
+name|security
+operator|.
+name|cert
+operator|.
+name|Certificate
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -97,6 +149,22 @@ operator|.
 name|util
 operator|.
 name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
+name|jsse
+operator|.
+name|KeyStoreParameters
 import|;
 end_import
 
@@ -276,7 +344,7 @@ return|return
 name|configuration
 return|;
 block|}
-comment|/**      * To use the shared DigitalSignatureConfiguration as configuration      */
+comment|/**      * To use the shared DigitalSignatureConfiguration as configuration. Properties of the shared configuration can also be set individually.      */
 DECL|method|setConfiguration (DigitalSignatureConfiguration configuration)
 specifier|public
 name|void
@@ -292,6 +360,707 @@ name|configuration
 operator|=
 name|configuration
 expr_stmt|;
+block|}
+DECL|method|getName ()
+specifier|public
+name|String
+name|getName
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getName
+argument_list|()
+return|;
+block|}
+comment|/**      * The logical name of this operation.      * @param name      */
+DECL|method|setName (String name)
+specifier|public
+name|void
+name|setName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setName
+argument_list|(
+name|name
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Gets the JCE name of the Algorithm that should be used for the signer.      */
+DECL|method|getAlgorithm ()
+specifier|public
+name|String
+name|getAlgorithm
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getAlgorithm
+argument_list|()
+return|;
+block|}
+comment|/**      * Sets the JCE name of the Algorithm that should be used for the signer.      * @param algorithm      */
+DECL|method|setAlgorithm (String algorithm)
+specifier|public
+name|void
+name|setAlgorithm
+parameter_list|(
+name|String
+name|algorithm
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setAlgorithm
+argument_list|(
+name|algorithm
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Gets the alias used to query the KeyStore for keys and {@link Certificate Certificates}      * to be used in signing and verifying exchanges. This value can be provided at runtime via the message header      * {@link DigitalSignatureConstants#KEYSTORE_ALIAS}      */
+DECL|method|getAlias ()
+specifier|public
+name|String
+name|getAlias
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getAlias
+argument_list|()
+return|;
+block|}
+comment|/**      * Sets the alias used to query the KeyStore for keys and {@link Certificate Certificates}      * to be used in signing and verifying exchanges. This value can be provided at runtime via the message header      * {@link DigitalSignatureConstants#KEYSTORE_ALIAS}      * @param alias      */
+DECL|method|setAlias (String alias)
+specifier|public
+name|void
+name|setAlias
+parameter_list|(
+name|String
+name|alias
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setAlias
+argument_list|(
+name|alias
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Get the PrivateKey that should be used to sign the exchange      */
+DECL|method|getPrivateKey ()
+specifier|public
+name|PrivateKey
+name|getPrivateKey
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getPrivateKey
+argument_list|()
+return|;
+block|}
+comment|/**      * Get the PrivateKey that should be used to sign the signature in the      * exchange using the supplied alias.      *      * @param alias the alias used to retrieve the Certificate from the keystore.      */
+DECL|method|getPrivateKey (String alias)
+specifier|public
+name|PrivateKey
+name|getPrivateKey
+parameter_list|(
+name|String
+name|alias
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getPrivateKey
+argument_list|(
+name|alias
+argument_list|)
+return|;
+block|}
+comment|/**      * Get the PrivateKey that should be used to sign the signature in the      * exchange using the supplied alias.      *      * @param alias the alias used to retrieve the Certificate from the keystore.      * @param password      */
+DECL|method|getPrivateKey (String alias, char[] password)
+specifier|public
+name|PrivateKey
+name|getPrivateKey
+parameter_list|(
+name|String
+name|alias
+parameter_list|,
+name|char
+index|[]
+name|password
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getPrivateKey
+argument_list|(
+name|alias
+argument_list|,
+name|password
+argument_list|)
+return|;
+block|}
+comment|/**      * Set the PrivateKey that should be used to sign the exchange      *      * @param privateKey the key with with to sign the exchange.      */
+DECL|method|setPrivateKey (PrivateKey privateKey)
+specifier|public
+name|void
+name|setPrivateKey
+parameter_list|(
+name|PrivateKey
+name|privateKey
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setPrivateKey
+argument_list|(
+name|privateKey
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sets the reference name for a PrivateKey that can be fond in the registry.      * @param privateKeyName      */
+DECL|method|setPrivateKeyName (String privateKeyName)
+specifier|public
+name|void
+name|setPrivateKeyName
+parameter_list|(
+name|String
+name|privateKeyName
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setPrivateKeyName
+argument_list|(
+name|privateKeyName
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Set the PublicKey that should be used to verify the signature in the exchange.      * @param publicKey      */
+DECL|method|setPublicKey (PublicKey publicKey)
+specifier|public
+name|void
+name|setPublicKey
+parameter_list|(
+name|PublicKey
+name|publicKey
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setPublicKey
+argument_list|(
+name|publicKey
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sets the reference name for a publicKey that can be fond in the registry.      * @param publicKeyName      */
+DECL|method|setPublicKeyName (String publicKeyName)
+specifier|public
+name|void
+name|setPublicKeyName
+parameter_list|(
+name|String
+name|publicKeyName
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setPublicKeyName
+argument_list|(
+name|publicKeyName
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * get the PublicKey that should be used to verify the signature in the exchange.      */
+DECL|method|getPublicKey ()
+specifier|public
+name|PublicKey
+name|getPublicKey
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getPublicKey
+argument_list|()
+return|;
+block|}
+comment|/**      * Set the Certificate that should be used to verify the signature in the      * exchange. If a {@link KeyStore} has been configured then this will      * attempt to retrieve the {@link Certificate}from it using hte supplied      * alias. If either the alias or the Keystore is invalid then the configured      * certificate will be returned      *      * @param alias the alias used to retrieve the Certificate from the keystore.      */
+DECL|method|getCertificate (String alias)
+specifier|public
+name|Certificate
+name|getCertificate
+parameter_list|(
+name|String
+name|alias
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getCertificate
+argument_list|(
+name|alias
+argument_list|)
+return|;
+block|}
+comment|/**      * Get the explicitly configured {@link Certificate} that should be used to      * verify the signature in the exchange.      */
+DECL|method|getCertificate ()
+specifier|public
+name|Certificate
+name|getCertificate
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getCertificate
+argument_list|()
+return|;
+block|}
+comment|/**      * Set the Certificate that should be used to verify the signature in the      * exchange based on its payload.      * @param certificate      */
+DECL|method|setCertificate (Certificate certificate)
+specifier|public
+name|void
+name|setCertificate
+parameter_list|(
+name|Certificate
+name|certificate
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setCertificate
+argument_list|(
+name|certificate
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sets the reference name for a PrivateKey that can be fond in the registry.      * @param certificateName      */
+DECL|method|setCertificateName (String certificateName)
+specifier|public
+name|void
+name|setCertificateName
+parameter_list|(
+name|String
+name|certificateName
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setCertificateName
+argument_list|(
+name|certificateName
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Gets the KeyStore that can contain keys and Certficates for use in      * signing and verifying exchanges. A {@link KeyStore} is typically used      * with an alias, either one supplied in the Route definition or dynamically      * via the message header "CamelSignatureKeyStoreAlias". If no alias is      * supplied and there is only a single entry in the Keystore, then this      * single entry will be used.      */
+DECL|method|getKeystore ()
+specifier|public
+name|KeyStore
+name|getKeystore
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getKeystore
+argument_list|()
+return|;
+block|}
+comment|/**      * Sets the KeyStore that can contain keys and Certficates for use in      * signing and verifying exchanges. A {@link KeyStore} is typically used      * with an alias, either one supplied in the Route definition or dynamically      * via the message header "CamelSignatureKeyStoreAlias". If no alias is      * supplied and there is only a single entry in the Keystore, then this      * single entry will be used.      * @param keystore      */
+DECL|method|setKeystore (KeyStore keystore)
+specifier|public
+name|void
+name|setKeystore
+parameter_list|(
+name|KeyStore
+name|keystore
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setKeystore
+argument_list|(
+name|keystore
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Sets the reference name for a Keystore that can be fond in the registry.      * @param keystoreName      */
+DECL|method|setKeystoreName (String keystoreName)
+specifier|public
+name|void
+name|setKeystoreName
+parameter_list|(
+name|String
+name|keystoreName
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setKeystoreName
+argument_list|(
+name|keystoreName
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Gets the password used to access an aliased {@link PrivateKey} in the KeyStore.      */
+DECL|method|getPassword ()
+specifier|public
+name|char
+index|[]
+name|getPassword
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getPassword
+argument_list|()
+return|;
+block|}
+comment|/**      * Sets the password used to access an aliased {@link PrivateKey} in the KeyStore.      * @param password      */
+DECL|method|setPassword (char[] password)
+specifier|public
+name|void
+name|setPassword
+parameter_list|(
+name|char
+index|[]
+name|password
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setPassword
+argument_list|(
+name|password
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getKeyStoreParameters ()
+specifier|public
+name|KeyStoreParameters
+name|getKeyStoreParameters
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getKeyStoreParameters
+argument_list|()
+return|;
+block|}
+comment|/**      * Sets the KeyStore that can contain keys and Certficates for use in      * signing and verifying exchanges based on the given KeyStoreParameters.      * A {@link KeyStore} is typically used      * with an alias, either one supplied in the Route definition or dynamically      * via the message header "CamelSignatureKeyStoreAlias". If no alias is      * supplied and there is only a single entry in the Keystore, then this      * single entry will be used.      * @param keyStoreParameters      */
+DECL|method|setKeyStoreParameters (KeyStoreParameters keyStoreParameters)
+specifier|public
+name|void
+name|setKeyStoreParameters
+parameter_list|(
+name|KeyStoreParameters
+name|keyStoreParameters
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setKeyStoreParameters
+argument_list|(
+name|keyStoreParameters
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Get the SecureRandom used to initialize the Signature service      */
+DECL|method|getSecureRandom ()
+specifier|public
+name|SecureRandom
+name|getSecureRandom
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getSecureRandom
+argument_list|()
+return|;
+block|}
+comment|/**      * Sets the reference name for a SecureRandom that can be fond in the registry.      * @param randomName      */
+DECL|method|setSecureRandomName (String randomName)
+specifier|public
+name|void
+name|setSecureRandomName
+parameter_list|(
+name|String
+name|randomName
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setSecureRandomName
+argument_list|(
+name|randomName
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Set the SecureRandom used to initialize the Signature service      *      * @param secureRandom the random used to init the Signature service      */
+DECL|method|setSecureRandom (SecureRandom secureRandom)
+specifier|public
+name|void
+name|setSecureRandom
+parameter_list|(
+name|SecureRandom
+name|secureRandom
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setSecureRandom
+argument_list|(
+name|secureRandom
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Get the size of the buffer used to read in the Exchange payload data.      */
+DECL|method|getBufferSize ()
+specifier|public
+name|Integer
+name|getBufferSize
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getBufferSize
+argument_list|()
+return|;
+block|}
+comment|/**      * Set the size of the buffer used to read in the Exchange payload data.      * @param bufferSize      */
+DECL|method|setBufferSize (Integer bufferSize)
+specifier|public
+name|void
+name|setBufferSize
+parameter_list|(
+name|Integer
+name|bufferSize
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setBufferSize
+argument_list|(
+name|bufferSize
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Get the id of the security provider that provides the configured      * {@link Signature} algorithm.      */
+DECL|method|getProvider ()
+specifier|public
+name|String
+name|getProvider
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getProvider
+argument_list|()
+return|;
+block|}
+comment|/**      * Set the id of the security provider that provides the configured      * {@link Signature} algorithm.      *      * @param provider the id of the security provider      */
+DECL|method|setProvider (String provider)
+specifier|public
+name|void
+name|setProvider
+parameter_list|(
+name|String
+name|provider
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setProvider
+argument_list|(
+name|provider
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Get the name of the message header that should be used to store the      * base64 encoded signature. This defaults to 'CamelDigitalSignature'      */
+DECL|method|getSignatureHeaderName ()
+specifier|public
+name|String
+name|getSignatureHeaderName
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getSignatureHeaderName
+argument_list|()
+return|;
+block|}
+comment|/**      * Set the name of the message header that should be used to store the      * base64 encoded signature. This defaults to 'CamelDigitalSignature'      * @param signatureHeaderName      */
+DECL|method|setSignatureHeaderName (String signatureHeaderName)
+specifier|public
+name|void
+name|setSignatureHeaderName
+parameter_list|(
+name|String
+name|signatureHeaderName
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setSignatureHeaderName
+argument_list|(
+name|signatureHeaderName
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Determines if the Signature specific headers be cleared after signing and      * verification. Defaults to true, and should only be made otherwise at your      * extreme peril as vital private information such as Keys and passwords may      * escape if unset.      *      * @return true if the Signature headers should be unset, false otherwise      */
+DECL|method|isClearHeaders ()
+specifier|public
+name|boolean
+name|isClearHeaders
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|isClearHeaders
+argument_list|()
+return|;
+block|}
+comment|/**      * Determines if the Signature specific headers be cleared after signing and      * verification. Defaults to true, and should only be made otherwise at your      * extreme peril as vital private information such as Keys and passwords may      * escape if unset.      * @param clearHeaders      */
+DECL|method|setClearHeaders (boolean clearHeaders)
+specifier|public
+name|void
+name|setClearHeaders
+parameter_list|(
+name|boolean
+name|clearHeaders
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setClearHeaders
+argument_list|(
+name|clearHeaders
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Set the Crypto operation from that supplied after the crypto scheme in the      * endpoint uri e.g. crypto:sign sets sign as the operation.      *      * @param operation the operation supplied after the crypto scheme      */
+DECL|method|setCryptoOperation (String operation)
+specifier|public
+name|void
+name|setCryptoOperation
+parameter_list|(
+name|String
+name|operation
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setCryptoOperation
+argument_list|(
+name|operation
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|setCryptoOperation (CryptoOperation operation)
+specifier|public
+name|void
+name|setCryptoOperation
+parameter_list|(
+name|CryptoOperation
+name|operation
+parameter_list|)
+block|{
+name|getConfiguration
+argument_list|()
+operator|.
+name|setCryptoOperation
+argument_list|(
+name|operation
+argument_list|)
+expr_stmt|;
+block|}
+comment|/**      * Gets the Crypto operation that was supplied in the the crypto scheme in the endpoint uri      */
+DECL|method|getCryptoOperation ()
+specifier|public
+name|CryptoOperation
+name|getCryptoOperation
+parameter_list|()
+block|{
+return|return
+name|getConfiguration
+argument_list|()
+operator|.
+name|getCryptoOperation
+argument_list|()
+return|;
 block|}
 block|}
 end_class

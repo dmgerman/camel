@@ -706,7 +706,7 @@ block|}
 block|}
 block|}
 block|}
-comment|/**      * Registers new responder with uri as key. Registers consumer in responder.      * In case if responder is already registered by this uri then just      * registers consumer.      *       * @param uri URI of the endpoint without message name      * @param messageName message name      * @param consumer consumer that will be registered in providers` registry      * @throws Exception      */
+comment|/**      * Registers new responder with uri as key. Registers consumer in responder.      * In case if responder is already registered by this uri then just      * registers consumer.      *      * @param uri URI of the endpoint without message name      * @param messageName message name      * @param consumer consumer that will be registered in providers` registry      * @throws Exception      */
 DECL|method|register (String uri, String messageName, AvroConsumer consumer)
 specifier|public
 name|void
@@ -819,7 +819,7 @@ return|return
 name|configuration
 return|;
 block|}
-comment|/**      * To use a shared {@link AvroConfiguration} to configure options once      */
+comment|/**      * To use a shared {@link AvroConfiguration} to configure options once. Properties of the shared configuration can also be set individually.      */
 DECL|method|setConfiguration (AvroConfiguration configuration)
 specifier|public
 name|void
@@ -834,6 +834,333 @@ operator|.
 name|configuration
 operator|=
 name|configuration
+expr_stmt|;
+block|}
+DECL|method|getHost ()
+specifier|public
+name|String
+name|getHost
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getHost
+argument_list|()
+return|;
+block|}
+comment|/**      * Hostname to use      * @param host      */
+DECL|method|setHost (String host)
+specifier|public
+name|void
+name|setHost
+parameter_list|(
+name|String
+name|host
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setHost
+argument_list|(
+name|host
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getPort ()
+specifier|public
+name|int
+name|getPort
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getPort
+argument_list|()
+return|;
+block|}
+comment|/**      * Port number to use      * @param port      */
+DECL|method|setPort (int port)
+specifier|public
+name|void
+name|setPort
+parameter_list|(
+name|int
+name|port
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setPort
+argument_list|(
+name|port
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getProtocol ()
+specifier|public
+name|Protocol
+name|getProtocol
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getProtocol
+argument_list|()
+return|;
+block|}
+comment|/**      * Avro protocol to use      * @param protocol      */
+DECL|method|setProtocol (Protocol protocol)
+specifier|public
+name|void
+name|setProtocol
+parameter_list|(
+name|Protocol
+name|protocol
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setProtocol
+argument_list|(
+name|protocol
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getTransport ()
+specifier|public
+name|AvroTransport
+name|getTransport
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getTransport
+argument_list|()
+return|;
+block|}
+comment|/**      * Transport to use      * @param transport      */
+DECL|method|setTransport (String transport)
+specifier|public
+name|void
+name|setTransport
+parameter_list|(
+name|String
+name|transport
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setTransport
+argument_list|(
+name|transport
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|setTransport (AvroTransport transport)
+specifier|public
+name|void
+name|setTransport
+parameter_list|(
+name|AvroTransport
+name|transport
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setTransport
+argument_list|(
+name|transport
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getProtocolLocation ()
+specifier|public
+name|String
+name|getProtocolLocation
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getProtocolLocation
+argument_list|()
+return|;
+block|}
+comment|/**      * Avro protocol location      * @param protocolLocation      */
+DECL|method|setProtocolLocation (String protocolLocation)
+specifier|public
+name|void
+name|setProtocolLocation
+parameter_list|(
+name|String
+name|protocolLocation
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setProtocolLocation
+argument_list|(
+name|protocolLocation
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getProtocolClassName ()
+specifier|public
+name|String
+name|getProtocolClassName
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getProtocolClassName
+argument_list|()
+return|;
+block|}
+comment|/**      * Avro protocol to use defined by the FQN class name      * @param protocolClassName      */
+DECL|method|setProtocolClassName (String protocolClassName)
+specifier|public
+name|void
+name|setProtocolClassName
+parameter_list|(
+name|String
+name|protocolClassName
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setProtocolClassName
+argument_list|(
+name|protocolClassName
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getMessageName ()
+specifier|public
+name|String
+name|getMessageName
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getMessageName
+argument_list|()
+return|;
+block|}
+comment|/**      * The name of the message to send.      * @param messageName      */
+DECL|method|setMessageName (String messageName)
+specifier|public
+name|void
+name|setMessageName
+parameter_list|(
+name|String
+name|messageName
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setMessageName
+argument_list|(
+name|messageName
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getUriAuthority ()
+specifier|public
+name|String
+name|getUriAuthority
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getUriAuthority
+argument_list|()
+return|;
+block|}
+comment|/**      * Authority to use (username and password)      * @param uriAuthority      */
+DECL|method|setUriAuthority (String uriAuthority)
+specifier|public
+name|void
+name|setUriAuthority
+parameter_list|(
+name|String
+name|uriAuthority
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setUriAuthority
+argument_list|(
+name|uriAuthority
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isReflectionProtocol ()
+specifier|public
+name|boolean
+name|isReflectionProtocol
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|isReflectionProtocol
+argument_list|()
+return|;
+block|}
+comment|/**      * If protocol object provided is reflection protocol. Should be used only with protocol parameter because for protocolClassName protocol type will be auto detected      * @param isReflectionProtocol      */
+DECL|method|setReflectionProtocol (boolean isReflectionProtocol)
+specifier|public
+name|void
+name|setReflectionProtocol
+parameter_list|(
+name|boolean
+name|isReflectionProtocol
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setReflectionProtocol
+argument_list|(
+name|isReflectionProtocol
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isSingleParameter ()
+specifier|public
+name|boolean
+name|isSingleParameter
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|isSingleParameter
+argument_list|()
+return|;
+block|}
+comment|/**      * If true, consumer parameter won't be wrapped into array. Will fail if protocol specifies more then 1 parameter for the message      * @param singleParameter      */
+DECL|method|setSingleParameter (boolean singleParameter)
+specifier|public
+name|void
+name|setSingleParameter
+parameter_list|(
+name|boolean
+name|singleParameter
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setSingleParameter
+argument_list|(
+name|singleParameter
+argument_list|)
 expr_stmt|;
 block|}
 block|}

@@ -294,7 +294,7 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
-comment|/**      * To use the shared docker configuration      */
+comment|/**      * To use the shared docker configuration. Properties of the shared configuration can also be set individually.      */
 DECL|method|getConfiguration ()
 specifier|protected
 name|DockerConfiguration
@@ -345,6 +345,481 @@ argument_list|(
 name|clientProfile
 argument_list|,
 name|client
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getHost ()
+specifier|public
+name|String
+name|getHost
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getHost
+argument_list|()
+return|;
+block|}
+comment|/**      * Docker host      * @param host      */
+DECL|method|setHost (String host)
+specifier|public
+name|void
+name|setHost
+parameter_list|(
+name|String
+name|host
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setHost
+argument_list|(
+name|host
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getPort ()
+specifier|public
+name|Integer
+name|getPort
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getPort
+argument_list|()
+return|;
+block|}
+comment|/**      * Docker port      * @param port      */
+DECL|method|setPort (Integer port)
+specifier|public
+name|void
+name|setPort
+parameter_list|(
+name|Integer
+name|port
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setPort
+argument_list|(
+name|port
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getUsername ()
+specifier|public
+name|String
+name|getUsername
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getUsername
+argument_list|()
+return|;
+block|}
+comment|/**      * User name to authenticate with      * @param username      */
+DECL|method|setUsername (String username)
+specifier|public
+name|void
+name|setUsername
+parameter_list|(
+name|String
+name|username
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setUsername
+argument_list|(
+name|username
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getPassword ()
+specifier|public
+name|String
+name|getPassword
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getPassword
+argument_list|()
+return|;
+block|}
+comment|/**      * Password to authenticate with      * @param password      */
+DECL|method|setPassword (String password)
+specifier|public
+name|void
+name|setPassword
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setPassword
+argument_list|(
+name|password
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getEmail ()
+specifier|public
+name|String
+name|getEmail
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getEmail
+argument_list|()
+return|;
+block|}
+comment|/**      * Email address associated with the user      * @param email      */
+DECL|method|setEmail (String email)
+specifier|public
+name|void
+name|setEmail
+parameter_list|(
+name|String
+name|email
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setEmail
+argument_list|(
+name|email
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getServerAddress ()
+specifier|public
+name|String
+name|getServerAddress
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getServerAddress
+argument_list|()
+return|;
+block|}
+comment|/**      * Server address for docker registry.      * @param serverAddress      */
+DECL|method|setServerAddress (String serverAddress)
+specifier|public
+name|void
+name|setServerAddress
+parameter_list|(
+name|String
+name|serverAddress
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setServerAddress
+argument_list|(
+name|serverAddress
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getRequestTimeout ()
+specifier|public
+name|Integer
+name|getRequestTimeout
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getRequestTimeout
+argument_list|()
+return|;
+block|}
+comment|/**      * Request timeout for response (in seconds)      * @param requestTimeout      */
+DECL|method|setRequestTimeout (Integer requestTimeout)
+specifier|public
+name|void
+name|setRequestTimeout
+parameter_list|(
+name|Integer
+name|requestTimeout
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setRequestTimeout
+argument_list|(
+name|requestTimeout
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isSecure ()
+specifier|public
+name|boolean
+name|isSecure
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|isSecure
+argument_list|()
+return|;
+block|}
+comment|/**      * Use HTTPS communication      * @param secure      */
+DECL|method|setSecure (boolean secure)
+specifier|public
+name|void
+name|setSecure
+parameter_list|(
+name|boolean
+name|secure
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setSecure
+argument_list|(
+name|secure
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getCertPath ()
+specifier|public
+name|String
+name|getCertPath
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getCertPath
+argument_list|()
+return|;
+block|}
+comment|/**      * Location containing the SSL certificate chain      * @param certPath      */
+DECL|method|setCertPath (String certPath)
+specifier|public
+name|void
+name|setCertPath
+parameter_list|(
+name|String
+name|certPath
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setCertPath
+argument_list|(
+name|certPath
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getMaxTotalConnections ()
+specifier|public
+name|Integer
+name|getMaxTotalConnections
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getMaxTotalConnections
+argument_list|()
+return|;
+block|}
+comment|/**      * Maximum total connections      * @param maxTotalConnections      */
+DECL|method|setMaxTotalConnections (Integer maxTotalConnections)
+specifier|public
+name|void
+name|setMaxTotalConnections
+parameter_list|(
+name|Integer
+name|maxTotalConnections
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setMaxTotalConnections
+argument_list|(
+name|maxTotalConnections
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getMaxPerRouteConnections ()
+specifier|public
+name|Integer
+name|getMaxPerRouteConnections
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getMaxPerRouteConnections
+argument_list|()
+return|;
+block|}
+comment|/**      * Maximum route connections      * @param maxPerRouteConnections      */
+DECL|method|setMaxPerRouteConnections (Integer maxPerRouteConnections)
+specifier|public
+name|void
+name|setMaxPerRouteConnections
+parameter_list|(
+name|Integer
+name|maxPerRouteConnections
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setMaxPerRouteConnections
+argument_list|(
+name|maxPerRouteConnections
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isLoggingFilterEnabled ()
+specifier|public
+name|boolean
+name|isLoggingFilterEnabled
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|isLoggingFilterEnabled
+argument_list|()
+return|;
+block|}
+comment|/**      * Whether to use logging filter      * @param loggingFilterEnabled      */
+DECL|method|setLoggingFilter (boolean loggingFilterEnabled)
+specifier|public
+name|void
+name|setLoggingFilter
+parameter_list|(
+name|boolean
+name|loggingFilterEnabled
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setLoggingFilter
+argument_list|(
+name|loggingFilterEnabled
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|isFollowRedirectFilterEnabled ()
+specifier|public
+name|boolean
+name|isFollowRedirectFilterEnabled
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|isFollowRedirectFilterEnabled
+argument_list|()
+return|;
+block|}
+comment|/**      * Whether to follow redirect filter      * @param followRedirectFilterEnabled      */
+DECL|method|setFollowRedirectFilter (boolean followRedirectFilterEnabled)
+specifier|public
+name|void
+name|setFollowRedirectFilter
+parameter_list|(
+name|boolean
+name|followRedirectFilterEnabled
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setFollowRedirectFilter
+argument_list|(
+name|followRedirectFilterEnabled
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getParameters ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|getParameters
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getParameters
+argument_list|()
+return|;
+block|}
+comment|/**      * Additional configuration parameters as key/value pairs      * @param parameters      */
+DECL|method|setParameters (Map<String, Object> parameters)
+specifier|public
+name|void
+name|setParameters
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|Object
+argument_list|>
+name|parameters
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setParameters
+argument_list|(
+name|parameters
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getOperation ()
+specifier|public
+name|DockerOperation
+name|getOperation
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getOperation
+argument_list|()
+return|;
+block|}
+comment|/**      * Which operation to use      * @param operation      */
+DECL|method|setOperation (DockerOperation operation)
+specifier|public
+name|void
+name|setOperation
+parameter_list|(
+name|DockerOperation
+name|operation
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setOperation
+argument_list|(
+name|operation
 argument_list|)
 expr_stmt|;
 block|}

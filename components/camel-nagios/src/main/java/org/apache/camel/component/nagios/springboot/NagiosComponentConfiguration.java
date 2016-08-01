@@ -40,6 +40,22 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|nagios
+operator|.
+name|NagiosEncryptionMethod
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|boot
@@ -69,11 +85,47 @@ specifier|public
 class|class
 name|NagiosComponentConfiguration
 block|{
-comment|/**      * To use a shared NagiosConfiguration      */
+comment|/**      * To use a shared configuraiton. Properties of the shared configuration can      * also be set individually.      */
 DECL|field|configuration
 specifier|private
 name|NagiosConfiguration
 name|configuration
+decl_stmt|;
+comment|/**      * This is the address of the Nagios host where checks should be send.      */
+DECL|field|host
+specifier|private
+name|String
+name|host
+decl_stmt|;
+comment|/**      * The port number of the host.      */
+DECL|field|port
+specifier|private
+name|Integer
+name|port
+decl_stmt|;
+comment|/**      * Connection timeout in millis.      */
+DECL|field|connectionTimeout
+specifier|private
+name|Integer
+name|connectionTimeout
+decl_stmt|;
+comment|/**      * Sending timeout in millis.      */
+DECL|field|timeout
+specifier|private
+name|Integer
+name|timeout
+decl_stmt|;
+comment|/**      * Password to be authenticated when sending checks to Nagios.      */
+DECL|field|password
+specifier|private
+name|String
+name|password
+decl_stmt|;
+comment|/**      * To specify an encryption method.      */
+DECL|field|encryptionMethod
+specifier|private
+name|NagiosEncryptionMethod
+name|encryptionMethod
 decl_stmt|;
 DECL|method|getConfiguration ()
 specifier|public
@@ -99,6 +151,162 @@ operator|.
 name|configuration
 operator|=
 name|configuration
+expr_stmt|;
+block|}
+DECL|method|getHost ()
+specifier|public
+name|String
+name|getHost
+parameter_list|()
+block|{
+return|return
+name|host
+return|;
+block|}
+DECL|method|setHost (String host)
+specifier|public
+name|void
+name|setHost
+parameter_list|(
+name|String
+name|host
+parameter_list|)
+block|{
+name|this
+operator|.
+name|host
+operator|=
+name|host
+expr_stmt|;
+block|}
+DECL|method|getPort ()
+specifier|public
+name|Integer
+name|getPort
+parameter_list|()
+block|{
+return|return
+name|port
+return|;
+block|}
+DECL|method|setPort (Integer port)
+specifier|public
+name|void
+name|setPort
+parameter_list|(
+name|Integer
+name|port
+parameter_list|)
+block|{
+name|this
+operator|.
+name|port
+operator|=
+name|port
+expr_stmt|;
+block|}
+DECL|method|getConnectionTimeout ()
+specifier|public
+name|Integer
+name|getConnectionTimeout
+parameter_list|()
+block|{
+return|return
+name|connectionTimeout
+return|;
+block|}
+DECL|method|setConnectionTimeout (Integer connectionTimeout)
+specifier|public
+name|void
+name|setConnectionTimeout
+parameter_list|(
+name|Integer
+name|connectionTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectionTimeout
+operator|=
+name|connectionTimeout
+expr_stmt|;
+block|}
+DECL|method|getTimeout ()
+specifier|public
+name|Integer
+name|getTimeout
+parameter_list|()
+block|{
+return|return
+name|timeout
+return|;
+block|}
+DECL|method|setTimeout (Integer timeout)
+specifier|public
+name|void
+name|setTimeout
+parameter_list|(
+name|Integer
+name|timeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timeout
+operator|=
+name|timeout
+expr_stmt|;
+block|}
+DECL|method|getPassword ()
+specifier|public
+name|String
+name|getPassword
+parameter_list|()
+block|{
+return|return
+name|password
+return|;
+block|}
+DECL|method|setPassword (String password)
+specifier|public
+name|void
+name|setPassword
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|this
+operator|.
+name|password
+operator|=
+name|password
+expr_stmt|;
+block|}
+DECL|method|getEncryptionMethod ()
+specifier|public
+name|NagiosEncryptionMethod
+name|getEncryptionMethod
+parameter_list|()
+block|{
+return|return
+name|encryptionMethod
+return|;
+block|}
+DECL|method|setEncryptionMethod (NagiosEncryptionMethod encryptionMethod)
+specifier|public
+name|void
+name|setEncryptionMethod
+parameter_list|(
+name|NagiosEncryptionMethod
+name|encryptionMethod
+parameter_list|)
+block|{
+name|this
+operator|.
+name|encryptionMethod
+operator|=
+name|encryptionMethod
 expr_stmt|;
 block|}
 block|}

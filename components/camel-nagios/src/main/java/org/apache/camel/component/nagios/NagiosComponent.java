@@ -40,6 +40,20 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|googlecode
+operator|.
+name|jsendnsca
+operator|.
+name|core
+operator|.
+name|NagiosSettings
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -218,7 +232,7 @@ return|return
 name|configuration
 return|;
 block|}
-comment|/**      * To use a shared {@link NagiosConfiguration}      */
+comment|/**      * To use a shared configuraiton. Properties of the shared configuration can also be set individually.      */
 DECL|method|setConfiguration (NagiosConfiguration configuration)
 specifier|public
 name|void
@@ -233,6 +247,192 @@ operator|.
 name|configuration
 operator|=
 name|configuration
+expr_stmt|;
+block|}
+DECL|method|getHost ()
+specifier|public
+name|String
+name|getHost
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getHost
+argument_list|()
+return|;
+block|}
+comment|/**      * This is the address of the Nagios host where checks should be send.      * @param host      */
+DECL|method|setHost (String host)
+specifier|public
+name|void
+name|setHost
+parameter_list|(
+name|String
+name|host
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setHost
+argument_list|(
+name|host
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getPort ()
+specifier|public
+name|int
+name|getPort
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getPort
+argument_list|()
+return|;
+block|}
+comment|/**      * The port number of the host.      * @param port      */
+DECL|method|setPort (int port)
+specifier|public
+name|void
+name|setPort
+parameter_list|(
+name|int
+name|port
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setPort
+argument_list|(
+name|port
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getConnectionTimeout ()
+specifier|public
+name|int
+name|getConnectionTimeout
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getConnectionTimeout
+argument_list|()
+return|;
+block|}
+comment|/**      * Connection timeout in millis.      * @param connectionTimeout      */
+DECL|method|setConnectionTimeout (int connectionTimeout)
+specifier|public
+name|void
+name|setConnectionTimeout
+parameter_list|(
+name|int
+name|connectionTimeout
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setConnectionTimeout
+argument_list|(
+name|connectionTimeout
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getTimeout ()
+specifier|public
+name|int
+name|getTimeout
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getTimeout
+argument_list|()
+return|;
+block|}
+comment|/**      * Sending timeout in millis.      * @param timeout      */
+DECL|method|setTimeout (int timeout)
+specifier|public
+name|void
+name|setTimeout
+parameter_list|(
+name|int
+name|timeout
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setTimeout
+argument_list|(
+name|timeout
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getPassword ()
+specifier|public
+name|String
+name|getPassword
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getPassword
+argument_list|()
+return|;
+block|}
+comment|/**      * Password to be authenticated when sending checks to Nagios.      * @param password      */
+DECL|method|setPassword (String password)
+specifier|public
+name|void
+name|setPassword
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setPassword
+argument_list|(
+name|password
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getEncryptionMethod ()
+specifier|public
+name|NagiosEncryptionMethod
+name|getEncryptionMethod
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getEncryptionMethod
+argument_list|()
+return|;
+block|}
+comment|/**      * To specify an encryption method.      * @param encryptionMethod      */
+DECL|method|setEncryptionMethod (NagiosEncryptionMethod encryptionMethod)
+specifier|public
+name|void
+name|setEncryptionMethod
+parameter_list|(
+name|NagiosEncryptionMethod
+name|encryptionMethod
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setEncryptionMethod
+argument_list|(
+name|encryptionMethod
+argument_list|)
 expr_stmt|;
 block|}
 block|}

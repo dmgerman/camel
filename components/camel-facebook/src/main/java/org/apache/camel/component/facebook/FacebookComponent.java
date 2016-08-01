@@ -360,7 +360,7 @@ return|return
 name|configuration
 return|;
 block|}
-comment|/**      * To use the shared configuration      */
+comment|/**      * To use the shared configuration. Properties of the shared configuration can also be set individually.      */
 DECL|method|setConfiguration (FacebookConfiguration configuration)
 specifier|public
 name|void
@@ -375,6 +375,843 @@ operator|.
 name|configuration
 operator|=
 name|configuration
+expr_stmt|;
+block|}
+DECL|method|getOAuthAccessToken ()
+specifier|public
+name|String
+name|getOAuthAccessToken
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getOAuthAccessToken
+argument_list|()
+return|;
+block|}
+comment|/**      * The user access token      * @param oAuthAccessToken      */
+DECL|method|setOAuthAccessToken (String oAuthAccessToken)
+specifier|public
+name|void
+name|setOAuthAccessToken
+parameter_list|(
+name|String
+name|oAuthAccessToken
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setOAuthAccessToken
+argument_list|(
+name|oAuthAccessToken
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getOAuthAccessTokenURL ()
+specifier|public
+name|String
+name|getOAuthAccessTokenURL
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getOAuthAccessTokenURL
+argument_list|()
+return|;
+block|}
+comment|/**      * OAuth access token URL      * @param oAuthAccessTokenURL      */
+DECL|method|setOAuthAccessTokenURL (String oAuthAccessTokenURL)
+specifier|public
+name|void
+name|setOAuthAccessTokenURL
+parameter_list|(
+name|String
+name|oAuthAccessTokenURL
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setOAuthAccessTokenURL
+argument_list|(
+name|oAuthAccessTokenURL
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getOAuthAppId ()
+specifier|public
+name|String
+name|getOAuthAppId
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getOAuthAppId
+argument_list|()
+return|;
+block|}
+comment|/**      * The application Id      * @param oAuthAppId      */
+DECL|method|setOAuthAppId (String oAuthAppId)
+specifier|public
+name|void
+name|setOAuthAppId
+parameter_list|(
+name|String
+name|oAuthAppId
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setOAuthAppId
+argument_list|(
+name|oAuthAppId
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getOAuthAppSecret ()
+specifier|public
+name|String
+name|getOAuthAppSecret
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getOAuthAppSecret
+argument_list|()
+return|;
+block|}
+comment|/**      * The application Secret      * @param oAuthAppSecret      */
+DECL|method|setOAuthAppSecret (String oAuthAppSecret)
+specifier|public
+name|void
+name|setOAuthAppSecret
+parameter_list|(
+name|String
+name|oAuthAppSecret
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setOAuthAppSecret
+argument_list|(
+name|oAuthAppSecret
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getOAuthAuthorizationURL ()
+specifier|public
+name|String
+name|getOAuthAuthorizationURL
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getOAuthAuthorizationURL
+argument_list|()
+return|;
+block|}
+comment|/**      * OAuth authorization URL      * @param oAuthAuthorizationURL      */
+DECL|method|setOAuthAuthorizationURL (String oAuthAuthorizationURL)
+specifier|public
+name|void
+name|setOAuthAuthorizationURL
+parameter_list|(
+name|String
+name|oAuthAuthorizationURL
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setOAuthAuthorizationURL
+argument_list|(
+name|oAuthAuthorizationURL
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getClientURL ()
+specifier|public
+name|String
+name|getClientURL
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getClientURL
+argument_list|()
+return|;
+block|}
+comment|/**      * Facebook4J API client URL      * @param clientURL      */
+DECL|method|setClientURL (String clientURL)
+specifier|public
+name|void
+name|setClientURL
+parameter_list|(
+name|String
+name|clientURL
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setClientURL
+argument_list|(
+name|clientURL
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getClientVersion ()
+specifier|public
+name|String
+name|getClientVersion
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getClientVersion
+argument_list|()
+return|;
+block|}
+comment|/**      * Facebook4J client API version      * @param clientVersion      */
+DECL|method|setClientVersion (String clientVersion)
+specifier|public
+name|void
+name|setClientVersion
+parameter_list|(
+name|String
+name|clientVersion
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setClientVersion
+argument_list|(
+name|clientVersion
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getDebugEnabled ()
+specifier|public
+name|Boolean
+name|getDebugEnabled
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getDebugEnabled
+argument_list|()
+return|;
+block|}
+comment|/**      * Enables deubg output. Effective only with the embedded logger      * @param debugEnabled      */
+DECL|method|setDebugEnabled (Boolean debugEnabled)
+specifier|public
+name|void
+name|setDebugEnabled
+parameter_list|(
+name|Boolean
+name|debugEnabled
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setDebugEnabled
+argument_list|(
+name|debugEnabled
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getGzipEnabled ()
+specifier|public
+name|Boolean
+name|getGzipEnabled
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getGzipEnabled
+argument_list|()
+return|;
+block|}
+comment|/**      * Use Facebook GZIP encoding      * @param gzipEnabled      */
+DECL|method|setGzipEnabled (Boolean gzipEnabled)
+specifier|public
+name|void
+name|setGzipEnabled
+parameter_list|(
+name|Boolean
+name|gzipEnabled
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setGzipEnabled
+argument_list|(
+name|gzipEnabled
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getHttpConnectionTimeout ()
+specifier|public
+name|Integer
+name|getHttpConnectionTimeout
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getHttpConnectionTimeout
+argument_list|()
+return|;
+block|}
+comment|/**      * Http connection timeout in milliseconds      * @param httpConnectionTimeout      */
+DECL|method|setHttpConnectionTimeout (Integer httpConnectionTimeout)
+specifier|public
+name|void
+name|setHttpConnectionTimeout
+parameter_list|(
+name|Integer
+name|httpConnectionTimeout
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setHttpConnectionTimeout
+argument_list|(
+name|httpConnectionTimeout
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getHttpDefaultMaxPerRoute ()
+specifier|public
+name|Integer
+name|getHttpDefaultMaxPerRoute
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getHttpDefaultMaxPerRoute
+argument_list|()
+return|;
+block|}
+comment|/**      * HTTP maximum connections per route      * @param httpDefaultMaxPerRoute      */
+DECL|method|setHttpDefaultMaxPerRoute (Integer httpDefaultMaxPerRoute)
+specifier|public
+name|void
+name|setHttpDefaultMaxPerRoute
+parameter_list|(
+name|Integer
+name|httpDefaultMaxPerRoute
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setHttpDefaultMaxPerRoute
+argument_list|(
+name|httpDefaultMaxPerRoute
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getHttpMaxTotalConnections ()
+specifier|public
+name|Integer
+name|getHttpMaxTotalConnections
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getHttpMaxTotalConnections
+argument_list|()
+return|;
+block|}
+comment|/**      * HTTP maximum total connections      * @param httpMaxTotalConnections      */
+DECL|method|setHttpMaxTotalConnections (Integer httpMaxTotalConnections)
+specifier|public
+name|void
+name|setHttpMaxTotalConnections
+parameter_list|(
+name|Integer
+name|httpMaxTotalConnections
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setHttpMaxTotalConnections
+argument_list|(
+name|httpMaxTotalConnections
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getHttpProxyHost ()
+specifier|public
+name|String
+name|getHttpProxyHost
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getHttpProxyHost
+argument_list|()
+return|;
+block|}
+comment|/**      * HTTP proxy server host name      * @param httpProxyHost      */
+DECL|method|setHttpProxyHost (String httpProxyHost)
+specifier|public
+name|void
+name|setHttpProxyHost
+parameter_list|(
+name|String
+name|httpProxyHost
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setHttpProxyHost
+argument_list|(
+name|httpProxyHost
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getHttpProxyPassword ()
+specifier|public
+name|String
+name|getHttpProxyPassword
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getHttpProxyPassword
+argument_list|()
+return|;
+block|}
+comment|/**      * HTTP proxy server password      * @param httpProxyPassword      */
+DECL|method|setHttpProxyPassword (String httpProxyPassword)
+specifier|public
+name|void
+name|setHttpProxyPassword
+parameter_list|(
+name|String
+name|httpProxyPassword
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setHttpProxyPassword
+argument_list|(
+name|httpProxyPassword
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getHttpProxyPort ()
+specifier|public
+name|Integer
+name|getHttpProxyPort
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getHttpProxyPort
+argument_list|()
+return|;
+block|}
+comment|/**      * HTTP proxy server port      * @param httpProxyPort      */
+DECL|method|setHttpProxyPort (Integer httpProxyPort)
+specifier|public
+name|void
+name|setHttpProxyPort
+parameter_list|(
+name|Integer
+name|httpProxyPort
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setHttpProxyPort
+argument_list|(
+name|httpProxyPort
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getHttpProxyUser ()
+specifier|public
+name|String
+name|getHttpProxyUser
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getHttpProxyUser
+argument_list|()
+return|;
+block|}
+comment|/**      * HTTP proxy server user name      * @param httpProxyUser      */
+DECL|method|setHttpProxyUser (String httpProxyUser)
+specifier|public
+name|void
+name|setHttpProxyUser
+parameter_list|(
+name|String
+name|httpProxyUser
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setHttpProxyUser
+argument_list|(
+name|httpProxyUser
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getHttpReadTimeout ()
+specifier|public
+name|Integer
+name|getHttpReadTimeout
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getHttpReadTimeout
+argument_list|()
+return|;
+block|}
+comment|/**      * Http read timeout in milliseconds      * @param httpReadTimeout      */
+DECL|method|setHttpReadTimeout (Integer httpReadTimeout)
+specifier|public
+name|void
+name|setHttpReadTimeout
+parameter_list|(
+name|Integer
+name|httpReadTimeout
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setHttpReadTimeout
+argument_list|(
+name|httpReadTimeout
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getHttpRetryCount ()
+specifier|public
+name|Integer
+name|getHttpRetryCount
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getHttpRetryCount
+argument_list|()
+return|;
+block|}
+comment|/**      * Number of HTTP retries      * @param httpRetryCount      */
+DECL|method|setHttpRetryCount (Integer httpRetryCount)
+specifier|public
+name|void
+name|setHttpRetryCount
+parameter_list|(
+name|Integer
+name|httpRetryCount
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setHttpRetryCount
+argument_list|(
+name|httpRetryCount
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getHttpRetryIntervalSeconds ()
+specifier|public
+name|Integer
+name|getHttpRetryIntervalSeconds
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getHttpRetryIntervalSeconds
+argument_list|()
+return|;
+block|}
+comment|/**      * HTTP retry interval in seconds      * @param httpRetryIntervalSeconds      */
+DECL|method|setHttpRetryIntervalSeconds (Integer httpRetryIntervalSeconds)
+specifier|public
+name|void
+name|setHttpRetryIntervalSeconds
+parameter_list|(
+name|Integer
+name|httpRetryIntervalSeconds
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setHttpRetryIntervalSeconds
+argument_list|(
+name|httpRetryIntervalSeconds
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getHttpStreamingReadTimeout ()
+specifier|public
+name|Integer
+name|getHttpStreamingReadTimeout
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getHttpStreamingReadTimeout
+argument_list|()
+return|;
+block|}
+comment|/**      * HTTP streaming read timeout in milliseconds      * @param httpStreamingReadTimeout      */
+DECL|method|setHttpStreamingReadTimeout (Integer httpStreamingReadTimeout)
+specifier|public
+name|void
+name|setHttpStreamingReadTimeout
+parameter_list|(
+name|Integer
+name|httpStreamingReadTimeout
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setHttpStreamingReadTimeout
+argument_list|(
+name|httpStreamingReadTimeout
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getJsonStoreEnabled ()
+specifier|public
+name|Boolean
+name|getJsonStoreEnabled
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getJsonStoreEnabled
+argument_list|()
+return|;
+block|}
+comment|/**      * If set to true, raw JSON forms will be stored in DataObjectFactory      * @param jsonStoreEnabled      */
+DECL|method|setJsonStoreEnabled (Boolean jsonStoreEnabled)
+specifier|public
+name|void
+name|setJsonStoreEnabled
+parameter_list|(
+name|Boolean
+name|jsonStoreEnabled
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setJsonStoreEnabled
+argument_list|(
+name|jsonStoreEnabled
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getMbeanEnabled ()
+specifier|public
+name|Boolean
+name|getMbeanEnabled
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getMbeanEnabled
+argument_list|()
+return|;
+block|}
+comment|/**      * If set to true, Facebook4J mbean will be registerd      * @param mbeanEnabled      */
+DECL|method|setMbeanEnabled (Boolean mbeanEnabled)
+specifier|public
+name|void
+name|setMbeanEnabled
+parameter_list|(
+name|Boolean
+name|mbeanEnabled
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setMbeanEnabled
+argument_list|(
+name|mbeanEnabled
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getOAuthPermissions ()
+specifier|public
+name|String
+name|getOAuthPermissions
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getOAuthPermissions
+argument_list|()
+return|;
+block|}
+comment|/**      * Default OAuth permissions. Comma separated permission names.      * See https://developers.facebook.com/docs/reference/login/#permissions for the detail      * @param oAuthPermissions      */
+DECL|method|setOAuthPermissions (String oAuthPermissions)
+specifier|public
+name|void
+name|setOAuthPermissions
+parameter_list|(
+name|String
+name|oAuthPermissions
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setOAuthPermissions
+argument_list|(
+name|oAuthPermissions
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getPrettyDebugEnabled ()
+specifier|public
+name|Boolean
+name|getPrettyDebugEnabled
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getPrettyDebugEnabled
+argument_list|()
+return|;
+block|}
+comment|/**      * Prettify JSON debug output if set to true      * @param prettyDebugEnabled      */
+DECL|method|setPrettyDebugEnabled (Boolean prettyDebugEnabled)
+specifier|public
+name|void
+name|setPrettyDebugEnabled
+parameter_list|(
+name|Boolean
+name|prettyDebugEnabled
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setPrettyDebugEnabled
+argument_list|(
+name|prettyDebugEnabled
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getRestBaseURL ()
+specifier|public
+name|String
+name|getRestBaseURL
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getRestBaseURL
+argument_list|()
+return|;
+block|}
+comment|/**      * API base URL      * @param restBaseURL      */
+DECL|method|setRestBaseURL (String restBaseURL)
+specifier|public
+name|void
+name|setRestBaseURL
+parameter_list|(
+name|String
+name|restBaseURL
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setRestBaseURL
+argument_list|(
+name|restBaseURL
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getUseSSL ()
+specifier|public
+name|Boolean
+name|getUseSSL
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getUseSSL
+argument_list|()
+return|;
+block|}
+comment|/**      * Use SSL      * @param useSSL      */
+DECL|method|setUseSSL (Boolean useSSL)
+specifier|public
+name|void
+name|setUseSSL
+parameter_list|(
+name|Boolean
+name|useSSL
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setUseSSL
+argument_list|(
+name|useSSL
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getVideoBaseURL ()
+specifier|public
+name|String
+name|getVideoBaseURL
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getVideoBaseURL
+argument_list|()
+return|;
+block|}
+comment|/**      * Video API base URL      * @param videoBaseURL      */
+DECL|method|setVideoBaseURL (String videoBaseURL)
+specifier|public
+name|void
+name|setVideoBaseURL
+parameter_list|(
+name|String
+name|videoBaseURL
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setVideoBaseURL
+argument_list|(
+name|videoBaseURL
+argument_list|)
 expr_stmt|;
 block|}
 block|}

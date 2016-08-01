@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -69,11 +79,76 @@ specifier|public
 class|class
 name|ZooKeeperComponentConfiguration
 block|{
-comment|/**      * To use a shared ZooKeeperConfiguration      */
+comment|/**      * To use a shared ZooKeeperConfiguration. Properties of the shared      * configuration can also be set individually.      */
 DECL|field|configuration
 specifier|private
 name|ZooKeeperConfiguration
 name|configuration
+decl_stmt|;
+comment|/**      * The zookeeper server hosts      */
+DECL|field|servers
+specifier|private
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|servers
+decl_stmt|;
+comment|/**      * The time interval to wait on connection before timing out.      */
+DECL|field|timeout
+specifier|private
+name|Integer
+name|timeout
+decl_stmt|;
+comment|/**      * Whether the children of the node should be listed      */
+DECL|field|listChildren
+specifier|private
+name|Boolean
+name|listChildren
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * The node in the ZooKeeper server (aka znode)      */
+DECL|field|path
+specifier|private
+name|String
+name|path
+decl_stmt|;
+comment|/**      * Should changes to the znode be 'watched' and repeatedly processed.      */
+DECL|field|repeat
+specifier|private
+name|Boolean
+name|repeat
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * The time interval to backoff for after an error before retrying.      */
+DECL|field|backoff
+specifier|private
+name|long
+name|backoff
+decl_stmt|;
+comment|/**      * Should the endpoint create the node if it does not currently exist.      */
+DECL|field|create
+specifier|private
+name|Boolean
+name|create
+init|=
+literal|false
+decl_stmt|;
+comment|/**      * The create mode that should be used for the newly created node      */
+DECL|field|createMode
+specifier|private
+name|String
+name|createMode
+decl_stmt|;
+comment|/**      * Upon the delete of a znode should an empty message be send to the      * consumer      */
+DECL|field|sendEmptyMessageOnDelete
+specifier|private
+name|Boolean
+name|sendEmptyMessageOnDelete
+init|=
+literal|false
 decl_stmt|;
 DECL|method|getConfiguration ()
 specifier|public
@@ -99,6 +174,246 @@ operator|.
 name|configuration
 operator|=
 name|configuration
+expr_stmt|;
+block|}
+DECL|method|getServers ()
+specifier|public
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|getServers
+parameter_list|()
+block|{
+return|return
+name|servers
+return|;
+block|}
+DECL|method|setServers (List<String> servers)
+specifier|public
+name|void
+name|setServers
+parameter_list|(
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|servers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|servers
+operator|=
+name|servers
+expr_stmt|;
+block|}
+DECL|method|getTimeout ()
+specifier|public
+name|Integer
+name|getTimeout
+parameter_list|()
+block|{
+return|return
+name|timeout
+return|;
+block|}
+DECL|method|setTimeout (Integer timeout)
+specifier|public
+name|void
+name|setTimeout
+parameter_list|(
+name|Integer
+name|timeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timeout
+operator|=
+name|timeout
+expr_stmt|;
+block|}
+DECL|method|getListChildren ()
+specifier|public
+name|Boolean
+name|getListChildren
+parameter_list|()
+block|{
+return|return
+name|listChildren
+return|;
+block|}
+DECL|method|setListChildren (Boolean listChildren)
+specifier|public
+name|void
+name|setListChildren
+parameter_list|(
+name|Boolean
+name|listChildren
+parameter_list|)
+block|{
+name|this
+operator|.
+name|listChildren
+operator|=
+name|listChildren
+expr_stmt|;
+block|}
+DECL|method|getPath ()
+specifier|public
+name|String
+name|getPath
+parameter_list|()
+block|{
+return|return
+name|path
+return|;
+block|}
+DECL|method|setPath (String path)
+specifier|public
+name|void
+name|setPath
+parameter_list|(
+name|String
+name|path
+parameter_list|)
+block|{
+name|this
+operator|.
+name|path
+operator|=
+name|path
+expr_stmt|;
+block|}
+DECL|method|getRepeat ()
+specifier|public
+name|Boolean
+name|getRepeat
+parameter_list|()
+block|{
+return|return
+name|repeat
+return|;
+block|}
+DECL|method|setRepeat (Boolean repeat)
+specifier|public
+name|void
+name|setRepeat
+parameter_list|(
+name|Boolean
+name|repeat
+parameter_list|)
+block|{
+name|this
+operator|.
+name|repeat
+operator|=
+name|repeat
+expr_stmt|;
+block|}
+DECL|method|getBackoff ()
+specifier|public
+name|long
+name|getBackoff
+parameter_list|()
+block|{
+return|return
+name|backoff
+return|;
+block|}
+DECL|method|setBackoff (long backoff)
+specifier|public
+name|void
+name|setBackoff
+parameter_list|(
+name|long
+name|backoff
+parameter_list|)
+block|{
+name|this
+operator|.
+name|backoff
+operator|=
+name|backoff
+expr_stmt|;
+block|}
+DECL|method|getCreate ()
+specifier|public
+name|Boolean
+name|getCreate
+parameter_list|()
+block|{
+return|return
+name|create
+return|;
+block|}
+DECL|method|setCreate (Boolean create)
+specifier|public
+name|void
+name|setCreate
+parameter_list|(
+name|Boolean
+name|create
+parameter_list|)
+block|{
+name|this
+operator|.
+name|create
+operator|=
+name|create
+expr_stmt|;
+block|}
+DECL|method|getCreateMode ()
+specifier|public
+name|String
+name|getCreateMode
+parameter_list|()
+block|{
+return|return
+name|createMode
+return|;
+block|}
+DECL|method|setCreateMode (String createMode)
+specifier|public
+name|void
+name|setCreateMode
+parameter_list|(
+name|String
+name|createMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|createMode
+operator|=
+name|createMode
+expr_stmt|;
+block|}
+DECL|method|getSendEmptyMessageOnDelete ()
+specifier|public
+name|Boolean
+name|getSendEmptyMessageOnDelete
+parameter_list|()
+block|{
+return|return
+name|sendEmptyMessageOnDelete
+return|;
+block|}
+DECL|method|setSendEmptyMessageOnDelete (Boolean sendEmptyMessageOnDelete)
+specifier|public
+name|void
+name|setSendEmptyMessageOnDelete
+parameter_list|(
+name|Boolean
+name|sendEmptyMessageOnDelete
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sendEmptyMessageOnDelete
+operator|=
+name|sendEmptyMessageOnDelete
 expr_stmt|;
 block|}
 block|}

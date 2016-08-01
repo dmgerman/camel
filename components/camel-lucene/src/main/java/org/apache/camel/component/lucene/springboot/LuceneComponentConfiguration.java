@@ -22,6 +22,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|io
+operator|.
+name|File
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -33,6 +43,36 @@ operator|.
 name|lucene
 operator|.
 name|LuceneConfiguration
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|lucene
+operator|.
+name|LuceneOperation
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|lucene
+operator|.
+name|analysis
+operator|.
+name|Analyzer
 import|;
 end_import
 
@@ -69,11 +109,47 @@ specifier|public
 class|class
 name|LuceneComponentConfiguration
 block|{
-comment|/**      * To use a shared lucene configuration      */
+comment|/**      * To use a shared lucene configuration. Properties of the shared      * configuration can also be set individually.      */
 DECL|field|config
 specifier|private
 name|LuceneConfiguration
 name|config
+decl_stmt|;
+comment|/**      * The URL to the lucene server      */
+DECL|field|host
+specifier|private
+name|String
+name|host
+decl_stmt|;
+comment|/**      * Operation to do such as insert or query.      */
+DECL|field|operation
+specifier|private
+name|LuceneOperation
+name|operation
+decl_stmt|;
+comment|/**      * An optional directory containing files to be used to be analyzed and      * added to the index at producer startup.      */
+DECL|field|sourceDirectory
+specifier|private
+name|File
+name|sourceDirectory
+decl_stmt|;
+comment|/**      * A file system directory in which index files are created upon analysis of      * the document by the specified analyzer      */
+DECL|field|indexDirectory
+specifier|private
+name|File
+name|indexDirectory
+decl_stmt|;
+comment|/**      * An Analyzer builds TokenStreams which analyze text. It thus represents a      * policy for extracting index terms from text. The value for analyzer can      * be any class that extends the abstract class      * org.apache.lucene.analysis.Analyzer. Lucene also offers a rich set of      * analyzers out of the box      */
+DECL|field|analyzer
+specifier|private
+name|Analyzer
+name|analyzer
+decl_stmt|;
+comment|/**      * An integer value that limits the result set of the search operation      */
+DECL|field|maxHits
+specifier|private
+name|Integer
+name|maxHits
 decl_stmt|;
 DECL|method|getConfig ()
 specifier|public
@@ -99,6 +175,162 @@ operator|.
 name|config
 operator|=
 name|config
+expr_stmt|;
+block|}
+DECL|method|getHost ()
+specifier|public
+name|String
+name|getHost
+parameter_list|()
+block|{
+return|return
+name|host
+return|;
+block|}
+DECL|method|setHost (String host)
+specifier|public
+name|void
+name|setHost
+parameter_list|(
+name|String
+name|host
+parameter_list|)
+block|{
+name|this
+operator|.
+name|host
+operator|=
+name|host
+expr_stmt|;
+block|}
+DECL|method|getOperation ()
+specifier|public
+name|LuceneOperation
+name|getOperation
+parameter_list|()
+block|{
+return|return
+name|operation
+return|;
+block|}
+DECL|method|setOperation (LuceneOperation operation)
+specifier|public
+name|void
+name|setOperation
+parameter_list|(
+name|LuceneOperation
+name|operation
+parameter_list|)
+block|{
+name|this
+operator|.
+name|operation
+operator|=
+name|operation
+expr_stmt|;
+block|}
+DECL|method|getSourceDirectory ()
+specifier|public
+name|File
+name|getSourceDirectory
+parameter_list|()
+block|{
+return|return
+name|sourceDirectory
+return|;
+block|}
+DECL|method|setSourceDirectory (File sourceDirectory)
+specifier|public
+name|void
+name|setSourceDirectory
+parameter_list|(
+name|File
+name|sourceDirectory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sourceDirectory
+operator|=
+name|sourceDirectory
+expr_stmt|;
+block|}
+DECL|method|getIndexDirectory ()
+specifier|public
+name|File
+name|getIndexDirectory
+parameter_list|()
+block|{
+return|return
+name|indexDirectory
+return|;
+block|}
+DECL|method|setIndexDirectory (File indexDirectory)
+specifier|public
+name|void
+name|setIndexDirectory
+parameter_list|(
+name|File
+name|indexDirectory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|indexDirectory
+operator|=
+name|indexDirectory
+expr_stmt|;
+block|}
+DECL|method|getAnalyzer ()
+specifier|public
+name|Analyzer
+name|getAnalyzer
+parameter_list|()
+block|{
+return|return
+name|analyzer
+return|;
+block|}
+DECL|method|setAnalyzer (Analyzer analyzer)
+specifier|public
+name|void
+name|setAnalyzer
+parameter_list|(
+name|Analyzer
+name|analyzer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|analyzer
+operator|=
+name|analyzer
+expr_stmt|;
+block|}
+DECL|method|getMaxHits ()
+specifier|public
+name|Integer
+name|getMaxHits
+parameter_list|()
+block|{
+return|return
+name|maxHits
+return|;
+block|}
+DECL|method|setMaxHits (Integer maxHits)
+specifier|public
+name|void
+name|setMaxHits
+parameter_list|(
+name|Integer
+name|maxHits
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxHits
+operator|=
+name|maxHits
 expr_stmt|;
 block|}
 block|}
