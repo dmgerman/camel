@@ -22,6 +22,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|io
+operator|.
+name|IOException
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -202,6 +212,8 @@ parameter_list|,
 name|Message
 name|message
 parameter_list|)
+throws|throws
+name|IOException
 function_decl|;
 DECL|method|toHttpRequest (ClientRequest clientRequest, Message message)
 name|Object
@@ -220,6 +232,14 @@ name|setHeaderFilterStrategy
 parameter_list|(
 name|HeaderFilterStrategy
 name|headerFilterStrategy
+parameter_list|)
+function_decl|;
+DECL|method|setTransferException (Boolean transferException)
+name|void
+name|setTransferException
+parameter_list|(
+name|Boolean
+name|transferException
 parameter_list|)
 function_decl|;
 block|}
