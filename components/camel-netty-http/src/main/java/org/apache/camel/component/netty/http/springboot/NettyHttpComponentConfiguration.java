@@ -130,22 +130,6 @@ name|component
 operator|.
 name|netty
 operator|.
-name|TextLineDelimiter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|component
-operator|.
-name|netty
-operator|.
 name|http
 operator|.
 name|NettyHttpBinding
@@ -385,22 +369,6 @@ name|producerPoolEnabled
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * This option supports connection less udp sending which is a real fire and      * forget. A connected udp send receive the PortUnreachableException if no      * one is listen on the receiving port.      */
-DECL|field|udpConnectionlessSending
-specifier|private
-name|Boolean
-name|udpConnectionlessSending
-init|=
-literal|false
-decl_stmt|;
-comment|/**      * If the clientMode is true netty consumer will connect the address as a      * TCP client.      */
-DECL|field|clientMode
-specifier|private
-name|Boolean
-name|clientMode
-init|=
-literal|false
-decl_stmt|;
 comment|/**      * If the useChannelBuffer is true netty producer will turn the message body      * into ChannelBuffer before sending it out.      */
 DECL|field|useChannelBuffer
 specifier|private
@@ -438,14 +406,6 @@ DECL|field|port
 specifier|private
 name|Integer
 name|port
-decl_stmt|;
-comment|/**      * Setting to choose Multicast over UDP      */
-DECL|field|broadcast
-specifier|private
-name|Boolean
-name|broadcast
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * The TCP/UDP buffer sizes to be used during outbound communication. Size      * is bytes.      */
 DECL|field|sendBufferSize
@@ -605,14 +565,6 @@ name|sync
 init|=
 literal|false
 decl_stmt|;
-comment|/**      * Only used for TCP. If no codec is specified you can use this flag to      * indicate a text line based codec; if not specified or the value is false      * then Object Serialization is assumed over TCP.      */
-DECL|field|textline
-specifier|private
-name|Boolean
-name|textline
-init|=
-literal|false
-decl_stmt|;
 comment|/**      * Allows to configure additional netty options using option. as prefix. For      * example option.child.keepAlive=false to set the netty option      * child.keepAlive=false. See the Netty documentation for possible options      * that can be used.      */
 DECL|field|options
 specifier|private
@@ -624,31 +576,11 @@ name|Object
 argument_list|>
 name|options
 decl_stmt|;
-comment|/**      * The max line length to use for the textline codec.      */
-DECL|field|decoderMaxLineLength
-specifier|private
-name|Integer
-name|decoderMaxLineLength
-decl_stmt|;
 comment|/**      * To use a explicit org.jboss.netty.channel.socket.nio.BossPool as the boss      * thread pool. For example to share a thread pool with multiple consumers.      * By default each consumer has their own boss pool with 1 core thread.      */
 DECL|field|bossPool
 specifier|private
 name|BossPool
 name|bossPool
-decl_stmt|;
-comment|/**      * The delimiter to use for the textline codec. Possible values are LINE and      * NULL.      */
-DECL|field|delimiter
-specifier|private
-name|TextLineDelimiter
-name|delimiter
-decl_stmt|;
-comment|/**      * Whether or not to auto append missing end delimiter when sending using      * the textline codec.      */
-DECL|field|autoAppendDelimiter
-specifier|private
-name|Boolean
-name|autoAppendDelimiter
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * To use a explicit org.jboss.netty.channel.socket.nio.WorkerPool as the      * worker thread pool. For example to share a thread pool with multiple      * consumers. By default each consumer has their own worker pool with 2 x      * cpu count core threads.      */
 DECL|field|workerPool
@@ -661,18 +593,6 @@ DECL|field|channelGroup
 specifier|private
 name|ChannelGroup
 name|channelGroup
-decl_stmt|;
-comment|/**      * The encoding (a charset name) to use for the textline codec. If not      * provided Camel will use the JVM default Charset.      */
-DECL|field|encoding
-specifier|private
-name|String
-name|encoding
-decl_stmt|;
-comment|/**      * When using UDP then this option can be used to specify a network      * interface by its name such as eth0 to join a multicast group.      */
-DECL|field|networkInterface
-specifier|private
-name|String
-name|networkInterface
 decl_stmt|;
 comment|/**      * A list of decoders to be used. You can use a String which have values      * separated by comma and have the values be looked up in the Registry. Just      * remember to prefix the value with so Camel knows it should lookup.      */
 DECL|field|decoders
@@ -759,14 +679,6 @@ DECL|field|serverClosedChannelExceptionCaughtLogLevel
 specifier|private
 name|LoggingLevel
 name|serverClosedChannelExceptionCaughtLogLevel
-decl_stmt|;
-comment|/**      * The netty component installs a default codec if both encoder/deocder is      * null and textline is false. Setting allowDefaultCodec to false prevents      * the netty component from installing a default codec as the first element      * in the filter chain.      */
-DECL|field|allowDefaultCodec
-specifier|private
-name|Boolean
-name|allowDefaultCodec
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * To use a custom ClientPipelineFactory      */
 DECL|field|clientPipelineFactory
@@ -1060,58 +972,6 @@ operator|=
 name|producerPoolEnabled
 expr_stmt|;
 block|}
-DECL|method|getUdpConnectionlessSending ()
-specifier|public
-name|Boolean
-name|getUdpConnectionlessSending
-parameter_list|()
-block|{
-return|return
-name|udpConnectionlessSending
-return|;
-block|}
-DECL|method|setUdpConnectionlessSending (Boolean udpConnectionlessSending)
-specifier|public
-name|void
-name|setUdpConnectionlessSending
-parameter_list|(
-name|Boolean
-name|udpConnectionlessSending
-parameter_list|)
-block|{
-name|this
-operator|.
-name|udpConnectionlessSending
-operator|=
-name|udpConnectionlessSending
-expr_stmt|;
-block|}
-DECL|method|getClientMode ()
-specifier|public
-name|Boolean
-name|getClientMode
-parameter_list|()
-block|{
-return|return
-name|clientMode
-return|;
-block|}
-DECL|method|setClientMode (Boolean clientMode)
-specifier|public
-name|void
-name|setClientMode
-parameter_list|(
-name|Boolean
-name|clientMode
-parameter_list|)
-block|{
-name|this
-operator|.
-name|clientMode
-operator|=
-name|clientMode
-expr_stmt|;
-block|}
 DECL|method|getUseChannelBuffer ()
 specifier|public
 name|Boolean
@@ -1266,32 +1126,6 @@ operator|.
 name|port
 operator|=
 name|port
-expr_stmt|;
-block|}
-DECL|method|getBroadcast ()
-specifier|public
-name|Boolean
-name|getBroadcast
-parameter_list|()
-block|{
-return|return
-name|broadcast
-return|;
-block|}
-DECL|method|setBroadcast (Boolean broadcast)
-specifier|public
-name|void
-name|setBroadcast
-parameter_list|(
-name|Boolean
-name|broadcast
-parameter_list|)
-block|{
-name|this
-operator|.
-name|broadcast
-operator|=
-name|broadcast
 expr_stmt|;
 block|}
 DECL|method|getSendBufferSize ()
@@ -1918,32 +1752,6 @@ operator|=
 name|sync
 expr_stmt|;
 block|}
-DECL|method|getTextline ()
-specifier|public
-name|Boolean
-name|getTextline
-parameter_list|()
-block|{
-return|return
-name|textline
-return|;
-block|}
-DECL|method|setTextline (Boolean textline)
-specifier|public
-name|void
-name|setTextline
-parameter_list|(
-name|Boolean
-name|textline
-parameter_list|)
-block|{
-name|this
-operator|.
-name|textline
-operator|=
-name|textline
-expr_stmt|;
-block|}
 DECL|method|getOptions ()
 specifier|public
 name|Map
@@ -1980,32 +1788,6 @@ operator|=
 name|options
 expr_stmt|;
 block|}
-DECL|method|getDecoderMaxLineLength ()
-specifier|public
-name|Integer
-name|getDecoderMaxLineLength
-parameter_list|()
-block|{
-return|return
-name|decoderMaxLineLength
-return|;
-block|}
-DECL|method|setDecoderMaxLineLength (Integer decoderMaxLineLength)
-specifier|public
-name|void
-name|setDecoderMaxLineLength
-parameter_list|(
-name|Integer
-name|decoderMaxLineLength
-parameter_list|)
-block|{
-name|this
-operator|.
-name|decoderMaxLineLength
-operator|=
-name|decoderMaxLineLength
-expr_stmt|;
-block|}
 DECL|method|getBossPool ()
 specifier|public
 name|BossPool
@@ -2030,58 +1812,6 @@ operator|.
 name|bossPool
 operator|=
 name|bossPool
-expr_stmt|;
-block|}
-DECL|method|getDelimiter ()
-specifier|public
-name|TextLineDelimiter
-name|getDelimiter
-parameter_list|()
-block|{
-return|return
-name|delimiter
-return|;
-block|}
-DECL|method|setDelimiter (TextLineDelimiter delimiter)
-specifier|public
-name|void
-name|setDelimiter
-parameter_list|(
-name|TextLineDelimiter
-name|delimiter
-parameter_list|)
-block|{
-name|this
-operator|.
-name|delimiter
-operator|=
-name|delimiter
-expr_stmt|;
-block|}
-DECL|method|getAutoAppendDelimiter ()
-specifier|public
-name|Boolean
-name|getAutoAppendDelimiter
-parameter_list|()
-block|{
-return|return
-name|autoAppendDelimiter
-return|;
-block|}
-DECL|method|setAutoAppendDelimiter (Boolean autoAppendDelimiter)
-specifier|public
-name|void
-name|setAutoAppendDelimiter
-parameter_list|(
-name|Boolean
-name|autoAppendDelimiter
-parameter_list|)
-block|{
-name|this
-operator|.
-name|autoAppendDelimiter
-operator|=
-name|autoAppendDelimiter
 expr_stmt|;
 block|}
 DECL|method|getWorkerPool ()
@@ -2134,58 +1864,6 @@ operator|.
 name|channelGroup
 operator|=
 name|channelGroup
-expr_stmt|;
-block|}
-DECL|method|getEncoding ()
-specifier|public
-name|String
-name|getEncoding
-parameter_list|()
-block|{
-return|return
-name|encoding
-return|;
-block|}
-DECL|method|setEncoding (String encoding)
-specifier|public
-name|void
-name|setEncoding
-parameter_list|(
-name|String
-name|encoding
-parameter_list|)
-block|{
-name|this
-operator|.
-name|encoding
-operator|=
-name|encoding
-expr_stmt|;
-block|}
-DECL|method|getNetworkInterface ()
-specifier|public
-name|String
-name|getNetworkInterface
-parameter_list|()
-block|{
-return|return
-name|networkInterface
-return|;
-block|}
-DECL|method|setNetworkInterface (String networkInterface)
-specifier|public
-name|void
-name|setNetworkInterface
-parameter_list|(
-name|String
-name|networkInterface
-parameter_list|)
-block|{
-name|this
-operator|.
-name|networkInterface
-operator|=
-name|networkInterface
 expr_stmt|;
 block|}
 DECL|method|getDecoders ()
@@ -2510,32 +2188,6 @@ operator|.
 name|serverClosedChannelExceptionCaughtLogLevel
 operator|=
 name|serverClosedChannelExceptionCaughtLogLevel
-expr_stmt|;
-block|}
-DECL|method|getAllowDefaultCodec ()
-specifier|public
-name|Boolean
-name|getAllowDefaultCodec
-parameter_list|()
-block|{
-return|return
-name|allowDefaultCodec
-return|;
-block|}
-DECL|method|setAllowDefaultCodec (Boolean allowDefaultCodec)
-specifier|public
-name|void
-name|setAllowDefaultCodec
-parameter_list|(
-name|Boolean
-name|allowDefaultCodec
-parameter_list|)
-block|{
-name|this
-operator|.
-name|allowDefaultCodec
-operator|=
-name|allowDefaultCodec
 expr_stmt|;
 block|}
 DECL|method|getClientPipelineFactory ()
