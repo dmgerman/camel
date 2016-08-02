@@ -1218,6 +1218,10 @@ decl_stmt|;
 if|if
 condition|(
 name|propertiesComponent
+operator|==
+literal|null
+operator|||
+name|propertiesComponent
 operator|.
 name|isDefaultCreated
 argument_list|()
