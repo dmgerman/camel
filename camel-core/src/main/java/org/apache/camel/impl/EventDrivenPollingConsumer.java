@@ -564,7 +564,7 @@ name|isRunAllowed
 argument_list|()
 condition|)
 block|{
-comment|// CAMEL-10215 - Synchronizing the ordering of beforePoll, poll and afterPoll as an atomic activity
+comment|// synchronizing the ordering of beforePoll, poll and afterPoll as an atomic activity
 synchronized|synchronized
 init|(
 name|this
@@ -653,7 +653,7 @@ argument_list|()
 argument_list|)
 throw|;
 block|}
-comment|// CAMEL-10215 - Synchronizing the ordering of beforePoll, poll and afterPoll as an atomic activity
+comment|// synchronizing the ordering of beforePoll, poll and afterPoll as an atomic activity
 synchronized|synchronized
 init|(
 name|this
