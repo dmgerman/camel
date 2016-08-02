@@ -32,9 +32,18 @@ name|Converter
 import|;
 end_import
 
+begin_comment
+comment|// Allow to ignore this type converter if the ddbstream JARs are not present on the classpath
+end_comment
+
 begin_class
 annotation|@
 name|Converter
+argument_list|(
+name|ignoreOnLoadError
+operator|=
+literal|true
+argument_list|)
 DECL|class|StringSequenceNumberConverter
 specifier|public
 specifier|final

@@ -115,6 +115,15 @@ parameter_list|()
 default|default
 literal|false
 function_decl|;
+comment|/**      * Whether to ignore the type converter if it cannot be loaded for some reason.      *<p/>      * This can be used if a Camel component provides multiple components      * where the end user can opt-out some of these components by excluding      * dependencies on the classpath, meaning the type converter would not      * be able to load due class not found errors. But in those cases its      * okay as the component is opted-out.      *<p/>      * Important this configuration must be set on the class-level, not on the method.      */
+DECL|method|ignoreOnLoadError ()
+DECL|field|false
+name|boolean
+name|ignoreOnLoadError
+parameter_list|()
+default|default
+literal|false
+function_decl|;
 block|}
 end_annotation_defn
 
