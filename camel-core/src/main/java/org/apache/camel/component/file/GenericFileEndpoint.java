@@ -514,6 +514,13 @@ specifier|protected
 name|Expression
 name|fileName
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|doneFileName
+specifier|protected
+name|String
+name|doneFileName
+decl_stmt|;
 comment|// producer options
 annotation|@
 name|UriParam
@@ -604,18 +611,6 @@ DECL|field|keepLastModified
 specifier|protected
 name|boolean
 name|keepLastModified
-decl_stmt|;
-annotation|@
-name|UriParam
-argument_list|(
-name|label
-operator|=
-literal|"producer"
-argument_list|)
-DECL|field|doneFileName
-specifier|protected
-name|String
-name|doneFileName
 decl_stmt|;
 annotation|@
 name|UriParam
