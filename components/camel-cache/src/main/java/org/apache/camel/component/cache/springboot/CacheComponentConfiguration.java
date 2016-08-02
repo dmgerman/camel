@@ -172,16 +172,12 @@ DECL|field|overflowToDisk
 specifier|private
 name|Boolean
 name|overflowToDisk
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Sets whether elements are eternal. If eternal timeouts are ignored and      * the element never expires.      */
 DECL|field|eternal
 specifier|private
 name|Boolean
 name|eternal
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * The maximum time between creation time and when an element expires. Is      * used only if the element is not eternal      */
 DECL|field|timeToLiveSeconds
@@ -200,8 +196,6 @@ DECL|field|diskPersistent
 specifier|private
 name|Boolean
 name|diskPersistent
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * The number of seconds between runs of the disk expiry thread.      */
 DECL|field|diskExpiryThreadIntervalSeconds
@@ -226,8 +220,6 @@ DECL|field|objectCache
 specifier|private
 name|Boolean
 name|objectCache
-init|=
-literal|false
 decl_stmt|;
 DECL|method|getCacheManagerFactory ()
 specifier|public

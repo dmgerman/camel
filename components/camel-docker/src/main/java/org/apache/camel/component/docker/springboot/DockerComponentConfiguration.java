@@ -148,8 +148,6 @@ DECL|field|secure
 specifier|private
 name|Boolean
 name|secure
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Location containing the SSL certificate chain      */
 DECL|field|certPath
@@ -174,16 +172,12 @@ DECL|field|loggingFilter
 specifier|private
 name|Boolean
 name|loggingFilter
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Whether to follow redirect filter      */
 DECL|field|followRedirectFilter
 specifier|private
 name|Boolean
 name|followRedirectFilter
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Additional configuration parameters as key/value pairs      */
 DECL|field|parameters

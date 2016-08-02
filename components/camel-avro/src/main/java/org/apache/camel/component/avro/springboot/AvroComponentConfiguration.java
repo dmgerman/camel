@@ -140,16 +140,12 @@ DECL|field|reflectionProtocol
 specifier|private
 name|Boolean
 name|reflectionProtocol
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * If true consumer parameter won't be wrapped into array. Will fail if      * protocol specifies more then 1 parameter for the message      */
 DECL|field|singleParameter
 specifier|private
 name|Boolean
 name|singleParameter
-init|=
-literal|false
 decl_stmt|;
 DECL|method|getConfiguration ()
 specifier|public

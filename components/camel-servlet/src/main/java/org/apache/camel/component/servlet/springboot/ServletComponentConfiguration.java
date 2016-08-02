@@ -132,8 +132,6 @@ DECL|field|attachmentMultipartBinding
 specifier|private
 name|Boolean
 name|attachmentMultipartBinding
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * To use a custom HttpBinding to control the mapping between Camel message      * and HttpClient.      */
 DECL|field|httpBinding
@@ -152,8 +150,6 @@ DECL|field|allowJavaSerializedObject
 specifier|private
 name|Boolean
 name|allowJavaSerializedObject
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel      * message.      */
 DECL|field|headerFilterStrategy

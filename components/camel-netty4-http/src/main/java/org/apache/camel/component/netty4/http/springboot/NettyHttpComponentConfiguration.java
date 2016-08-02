@@ -372,24 +372,18 @@ DECL|field|keepAlive
 specifier|private
 name|Boolean
 name|keepAlive
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Setting to improve TCP protocol performance      */
 DECL|field|tcpNoDelay
 specifier|private
 name|Boolean
 name|tcpNoDelay
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Setting to facilitate socket multiplexing      */
 DECL|field|reuseAddress
 specifier|private
 name|Boolean
 name|reuseAddress
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Time to wait for a socket connection to be available. Value is in millis.      */
 DECL|field|connectTimeout
@@ -408,16 +402,12 @@ DECL|field|ssl
 specifier|private
 name|Boolean
 name|ssl
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * When enabled and in SSL mode then the Netty consumer will enrich the      * Camel Message with headers having information about the client      * certificate such as subject name issuer name serial number and the valid      * date range.      */
 DECL|field|sslClientCertHeaders
 specifier|private
 name|Boolean
 name|sslClientCertHeaders
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Reference to a class that could be used to return an SSL Handler      */
 DECL|field|sslHandler
@@ -436,8 +426,6 @@ DECL|field|needClientAuth
 specifier|private
 name|Boolean
 name|needClientAuth
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Client side certificate keystore to be used for encryption. Is loaded by      * default from classpath but you can prefix with classpath: file: or http:      * to load the resource from different systems.      */
 DECL|field|keyStoreResource
@@ -492,8 +480,6 @@ DECL|field|sync
 specifier|private
 name|Boolean
 name|sync
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Allows to configure additional netty options using option. as prefix. For      * example option.child.keepAlive=false to set the netty option      * child.keepAlive=false. See the Netty documentation for possible options      * that can be used.      */
 DECL|field|options
@@ -511,8 +497,6 @@ DECL|field|nativeTransport
 specifier|private
 name|Boolean
 name|nativeTransport
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Set the BossGroup which could be used for handling the new connection of      * the server side across the NettyEndpoint      */
 DECL|field|bossGroup
@@ -573,32 +557,24 @@ DECL|field|disconnect
 specifier|private
 name|Boolean
 name|disconnect
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Channels can be lazily created to avoid exceptions if the remote server      * is not up and running when the Camel producer is started.      */
 DECL|field|lazyChannelCreation
 specifier|private
 name|Boolean
 name|lazyChannelCreation
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Only used for TCP. You can transfer the exchange over the wire instead of      * just the body. The following fields are transferred: In body Out body      * fault body In headers Out headers fault headers exchange properties      * exchange exception. This requires that the objects are serializable.      * Camel will exclude any non-serializable objects and log it at WARN level.      */
 DECL|field|transferExchange
 specifier|private
 name|Boolean
 name|transferExchange
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * If sync is enabled then this option dictates NettyConsumer if it should      * disconnect where there is no reply to send back.      */
 DECL|field|disconnectOnNoReply
 specifier|private
 name|Boolean
 name|disconnectOnNoReply
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * If sync is enabled this option dictates NettyConsumer which logging level      * to use when logging a there is no reply to send back.      */
 DECL|field|noReplyLogLevel
@@ -629,8 +605,6 @@ DECL|field|usingExecutorService
 specifier|private
 name|Boolean
 name|usingExecutorService
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Sets the cap on the number of objects that can be allocated by the pool      * (checked out to clients or idle awaiting checkout) at a given time. Use a      * negative value for no limit.      */
 DECL|field|producerPoolMaxActive
@@ -661,16 +635,12 @@ DECL|field|producerPoolEnabled
 specifier|private
 name|Boolean
 name|producerPoolEnabled
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * This option allows producers to reuse the same Netty Channel for the      * lifecycle of processing the Exchange. This is useable if you need to call      * a server multiple times in a Camel route and want to use the same network      * connection. When using this the channel is not returned to the connection      * pool until the Exchange is done; or disconnected if the disconnect option      * is set to true. The reused Channel is stored on the Exchange as an      * exchange property with the key link NettyConstantsNETTY_CHANNEL which      * allows you to obtain the channel during routing and use it as well.      */
 DECL|field|reuseChannel
 specifier|private
 name|Boolean
 name|reuseChannel
-init|=
-literal|false
 decl_stmt|;
 DECL|method|getNettyHttpBinding ()
 specifier|public

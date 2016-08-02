@@ -118,16 +118,12 @@ DECL|field|autoStartScheduler
 specifier|private
 name|Boolean
 name|autoStartScheduler
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Whether to enable Quartz JMX which allows to manage the Quartz scheduler      * from JMX. This options is default true      */
 DECL|field|enableJmx
 specifier|private
 name|Boolean
 name|enableJmx
-init|=
-literal|false
 decl_stmt|;
 DECL|method|getFactory ()
 specifier|public

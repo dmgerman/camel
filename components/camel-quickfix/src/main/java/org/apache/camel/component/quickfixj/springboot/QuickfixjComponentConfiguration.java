@@ -137,8 +137,6 @@ DECL|field|lazyCreateEngines
 specifier|private
 name|Boolean
 name|lazyCreateEngines
-init|=
-literal|false
 decl_stmt|;
 DECL|method|getMessageFactory ()
 specifier|public

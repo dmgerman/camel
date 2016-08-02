@@ -148,8 +148,6 @@ DECL|field|wireFormat31x
 specifier|private
 name|Boolean
 name|wireFormat31x
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Spoofing information IP:hostname      */
 DECL|field|spoofHostname

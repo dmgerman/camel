@@ -236,16 +236,12 @@ DECL|field|delete
 specifier|private
 name|Boolean
 name|delete
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Specifies whether Camel should map the received mail message to Camel      * body/headers. If set to true the body of the mail message is mapped to      * the body of the Camel IN message and the mail headers are mapped to IN      * headers. If this option is set to false then the IN message contains a      * raw javax.mail.Message. You can retrieve this raw message by calling      * exchange.getIn().getBody(javax.mail.Message.class).      */
 DECL|field|mapMailMessage
 specifier|private
 name|Boolean
 name|mapMailMessage
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * The folder to poll.      */
 DECL|field|folderName
@@ -258,16 +254,12 @@ DECL|field|ignoreUriScheme
 specifier|private
 name|Boolean
 name|ignoreUriScheme
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Whether to limit by unseen mails only.      */
 DECL|field|unseen
 specifier|private
 name|Boolean
 name|unseen
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Sets the To email address. Separate multiple email addresses with comma.      */
 DECL|field|to
@@ -304,8 +296,6 @@ DECL|field|debugMode
 specifier|private
 name|Boolean
 name|debugMode
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * The connection timeout in milliseconds.      */
 DECL|field|connectionTimeout
@@ -318,8 +308,6 @@ DECL|field|dummyTrustManager
 specifier|private
 name|Boolean
 name|dummyTrustManager
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * The mail message content type. Use text/html for HTML mails.      */
 DECL|field|contentType
@@ -338,32 +326,24 @@ DECL|field|useInlineAttachments
 specifier|private
 name|Boolean
 name|useInlineAttachments
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Option to let Camel ignore unsupported charset in the local JVM when      * sending mails. If the charset is unsupported then charset=XXX (where XXX      * represents the unsupported charset) is removed from the content-type and      * it relies on the platform default instead.      */
 DECL|field|ignoreUnsupportedCharset
 specifier|private
 name|Boolean
 name|ignoreUnsupportedCharset
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Whether the consumer should disconnect after polling. If enabled this      * forces Camel to connect on each poll.      */
 DECL|field|disconnect
 specifier|private
 name|Boolean
 name|disconnect
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Whether the consumer should close the folder after polling. Setting this      * option to false and having disconnect=false as well then the consumer      * keep the folder open between polls.      */
 DECL|field|closeFolder
 specifier|private
 name|Boolean
 name|closeFolder
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * To configure security using SSLContextParameters.      */
 DECL|field|sslContextParameters
@@ -382,24 +362,18 @@ DECL|field|peek
 specifier|private
 name|Boolean
 name|peek
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * If the mail consumer cannot retrieve a given mail message then this      * option allows to skip the message and move on to retrieve the next mail      * message. The default behavior would be the consumer throws an exception      * and no mails from the batch would be able to be routed by Camel.      */
 DECL|field|skipFailedMessage
 specifier|private
 name|Boolean
 name|skipFailedMessage
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * If the mail consumer cannot retrieve a given mail message then this      * option allows to handle the caused exception by the consumer's error      * handler. By enable the bridge error handler on the consumer then the      * Camel routing error handler can handle the exception instead. The default      * behavior would be the consumer throws an exception and no mails from the      * batch would be able to be routed by Camel.      */
 DECL|field|handleFailedMessage
 specifier|private
 name|Boolean
 name|handleFailedMessage
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * To use a custom AttachmentsContentTransferEncodingResolver to resolve      * what content-type-encoding to use for attachments.      */
 DECL|field|attachmentsContentTransferEncodingResolver

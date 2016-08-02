@@ -2254,32 +2254,7 @@ operator|.
 name|getDefaultValue
 argument_list|()
 decl_stmt|;
-if|if
-condition|(
-name|Strings
-operator|.
-name|isNullOrEmpty
-argument_list|(
-name|defaultValue
-argument_list|)
-operator|&&
-literal|"boolean"
-operator|.
-name|equals
-argument_list|(
-name|entry
-operator|.
-name|getType
-argument_list|()
-argument_list|)
-condition|)
-block|{
-comment|// fallback as false for boolean types
-name|defaultValue
-operator|=
-literal|"false"
-expr_stmt|;
-block|}
+comment|// component option do not have default value for boolean (as we dont really known if its true or false)
 comment|// component options do not have prefix
 name|String
 name|optionalPrefix

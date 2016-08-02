@@ -80,8 +80,6 @@ DECL|field|enableViewMessages
 specifier|private
 name|Boolean
 name|enableViewMessages
-init|=
-literal|false
 decl_stmt|;
 DECL|method|getChannel ()
 specifier|public

@@ -257,8 +257,6 @@ DECL|field|clearHeaders
 specifier|private
 name|Boolean
 name|clearHeaders
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Set the Crypto operation from that supplied after the crypto scheme in      * the endpoint uri e.g. crypto:sign sets sign as the operation.      */
 DECL|field|cryptoOperation

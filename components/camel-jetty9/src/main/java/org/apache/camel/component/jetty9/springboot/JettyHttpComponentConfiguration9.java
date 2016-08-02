@@ -282,8 +282,6 @@ DECL|field|enableJmx
 specifier|private
 name|Boolean
 name|enableJmx
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * To use a custom org.apache.camel.component.jetty.JettyHttpBinding which      * are used to customize how a response should be written for the producer.      */
 DECL|field|jettyHttpBinding
@@ -342,8 +340,6 @@ DECL|field|useContinuation
 specifier|private
 name|Boolean
 name|useContinuation
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * To configure security using SSLContextParameters      */
 DECL|field|sslContextParameters
@@ -392,16 +388,12 @@ DECL|field|sendServerVersion
 specifier|private
 name|Boolean
 name|sendServerVersion
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Whether to allow java serialization when a request uses      * context-type=application/x-java-serialized-object This is by default      * turned off. If you enable this then be aware that Java will deserialize      * the incoming data from the request to Java and that can be a potential      * security risk.      */
 DECL|field|allowJavaSerializedObject
 specifier|private
 name|Boolean
 name|allowJavaSerializedObject
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel      * message.      */
 DECL|field|headerFilterStrategy

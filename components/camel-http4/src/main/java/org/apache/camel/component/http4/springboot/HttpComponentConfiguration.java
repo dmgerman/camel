@@ -218,8 +218,6 @@ DECL|field|allowJavaSerializedObject
 specifier|private
 name|Boolean
 name|allowJavaSerializedObject
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * To use a custom org.apache.http.protocol.HttpContext when executing      * requests.      */
 DECL|field|httpContext

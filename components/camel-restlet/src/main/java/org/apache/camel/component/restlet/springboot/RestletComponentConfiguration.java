@@ -172,8 +172,6 @@ DECL|field|disableStreamCache
 specifier|private
 name|Boolean
 name|disableStreamCache
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * To configure the port number for the restlet consumer routes. This allows      * to configure this once to reuse the same port for these consumers.      */
 DECL|field|port

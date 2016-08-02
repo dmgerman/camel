@@ -256,8 +256,6 @@ DECL|field|usingSSL
 specifier|private
 name|Boolean
 name|usingSSL
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Defines the initial delay in milliseconds after the consumer/producer      * tries to reconnect to the SMSC after the connection was lost.      */
 DECL|field|initialReconnectDelay
@@ -276,8 +274,6 @@ DECL|field|lazySessionCreation
 specifier|private
 name|Boolean
 name|lazySessionCreation
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * If you need to tunnel SMPP through a HTTP proxy set this attribute to the      * hostname or ip address of your HTTP proxy.      */
 DECL|field|httpProxyHost

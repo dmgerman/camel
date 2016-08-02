@@ -210,8 +210,6 @@ DECL|field|lazyAuth
 specifier|private
 name|Boolean
 name|lazyAuth
-init|=
-literal|false
 decl_stmt|;
 DECL|method|getConfiguration ()
 specifier|public

@@ -84,8 +84,6 @@ DECL|field|useTransactions
 specifier|private
 name|Boolean
 name|useTransactions
-init|=
-literal|false
 decl_stmt|;
 DECL|method|getSqlMapClient ()
 specifier|public

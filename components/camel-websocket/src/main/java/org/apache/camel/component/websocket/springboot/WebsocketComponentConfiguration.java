@@ -152,8 +152,6 @@ DECL|field|enableJmx
 specifier|private
 name|Boolean
 name|enableJmx
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * To set a value for minimum number of threads in server thread pool.      * MaxThreads/minThreads or threadPool fields are required due to switch to      * Jetty9. The default values for minThreads is 1.      */
 DECL|field|minThreads

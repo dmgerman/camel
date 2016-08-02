@@ -280,8 +280,6 @@ DECL|field|orderedThreadPoolExecutor
 specifier|private
 name|Boolean
 name|orderedThreadPoolExecutor
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Sets the cap on the number of objects that can be allocated by the pool      * (checked out to clients or idle awaiting checkout) at a given time. Use a      * negative value for no limit.      */
 DECL|field|producerPoolMaxActive
@@ -312,32 +310,24 @@ DECL|field|producerPoolEnabled
 specifier|private
 name|Boolean
 name|producerPoolEnabled
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * This option supports connection less udp sending which is a real fire and      * forget. A connected udp send receive the PortUnreachableException if no      * one is listen on the receiving port.      */
 DECL|field|udpConnectionlessSending
 specifier|private
 name|Boolean
 name|udpConnectionlessSending
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * If the clientMode is true netty consumer will connect the address as a      * TCP client.      */
 DECL|field|clientMode
 specifier|private
 name|Boolean
 name|clientMode
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * If the useChannelBuffer is true netty producer will turn the message body      * into ChannelBuffer before sending it out.      */
 DECL|field|useChannelBuffer
 specifier|private
 name|Boolean
 name|useChannelBuffer
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * The maximum total size of the queued events per channel when using      * orderedThreadPoolExecutor. Specify 0 to disable.      */
 DECL|field|maxChannelMemorySize
@@ -374,8 +364,6 @@ DECL|field|broadcast
 specifier|private
 name|Boolean
 name|broadcast
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * The TCP/UDP buffer sizes to be used during outbound communication. Size      * is bytes.      */
 DECL|field|sendBufferSize
@@ -412,24 +400,18 @@ DECL|field|keepAlive
 specifier|private
 name|Boolean
 name|keepAlive
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Setting to improve TCP protocol performance      */
 DECL|field|tcpNoDelay
 specifier|private
 name|Boolean
 name|tcpNoDelay
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Setting to facilitate socket multiplexing      */
 DECL|field|reuseAddress
 specifier|private
 name|Boolean
 name|reuseAddress
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Time to wait for a socket connection to be available. Value is in millis.      */
 DECL|field|connectTimeout
@@ -448,16 +430,12 @@ DECL|field|ssl
 specifier|private
 name|Boolean
 name|ssl
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * When enabled and in SSL mode then the Netty consumer will enrich the      * Camel Message with headers having information about the client      * certificate such as subject name issuer name serial number and the valid      * date range.      */
 DECL|field|sslClientCertHeaders
 specifier|private
 name|Boolean
 name|sslClientCertHeaders
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Reference to a class that could be used to return an SSL Handler      */
 DECL|field|sslHandler
@@ -476,8 +454,6 @@ DECL|field|needClientAuth
 specifier|private
 name|Boolean
 name|needClientAuth
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Client side certificate keystore to be used for encryption. Is loaded by      * default from classpath but you can prefix with classpath: file: or http:      * to load the resource from different systems.      */
 DECL|field|keyStoreResource
@@ -532,16 +508,12 @@ DECL|field|sync
 specifier|private
 name|Boolean
 name|sync
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Only used for TCP. If no codec is specified you can use this flag to      * indicate a text line based codec; if not specified or the value is false      * then Object Serialization is assumed over TCP.      */
 DECL|field|textline
 specifier|private
 name|Boolean
 name|textline
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Allows to configure additional netty options using option. as prefix. For      * example option.child.keepAlive=false to set the netty option      * child.keepAlive=false. See the Netty documentation for possible options      * that can be used.      */
 DECL|field|options
@@ -577,8 +549,6 @@ DECL|field|autoAppendDelimiter
 specifier|private
 name|Boolean
 name|autoAppendDelimiter
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * To use a explicit org.jboss.netty.channel.socket.nio.WorkerPool as the      * worker thread pool. For example to share a thread pool with multiple      * consumers. By default each consumer has their own worker pool with 2 x      * cpu count core threads.      */
 DECL|field|workerPool
@@ -645,32 +615,24 @@ DECL|field|disconnect
 specifier|private
 name|Boolean
 name|disconnect
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Channels can be lazily created to avoid exceptions if the remote server      * is not up and running when the Camel producer is started.      */
 DECL|field|lazyChannelCreation
 specifier|private
 name|Boolean
 name|lazyChannelCreation
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Only used for TCP. You can transfer the exchange over the wire instead of      * just the body. The following fields are transferred: In body Out body      * fault body In headers Out headers fault headers exchange properties      * exchange exception. This requires that the objects are serializable.      * Camel will exclude any non-serializable objects and log it at WARN level.      */
 DECL|field|transferExchange
 specifier|private
 name|Boolean
 name|transferExchange
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * If sync is enabled then this option dictates NettyConsumer if it should      * disconnect where there is no reply to send back.      */
 DECL|field|disconnectOnNoReply
 specifier|private
 name|Boolean
 name|disconnectOnNoReply
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * If sync is enabled this option dictates NettyConsumer which logging level      * to use when logging a there is no reply to send back.      */
 DECL|field|noReplyLogLevel
@@ -695,8 +657,6 @@ DECL|field|allowDefaultCodec
 specifier|private
 name|Boolean
 name|allowDefaultCodec
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * To use a custom ClientPipelineFactory      */
 DECL|field|clientPipelineFactory

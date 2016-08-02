@@ -224,8 +224,6 @@ DECL|field|revokeOnShutdown
 specifier|private
 name|Boolean
 name|revokeOnShutdown
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Box shared link for shared endpoints can be a link for a shared comment      * file or folder      */
 DECL|field|sharedLink

@@ -313,16 +313,12 @@ DECL|field|isHttpProxySocks4
 specifier|private
 name|Boolean
 name|isHttpProxySocks4
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Enable for TLS connections true by default      */
 DECL|field|isHttpProxySecure
 specifier|private
 name|Boolean
 name|isHttpProxySecure
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * HTTP proxy included addresses      */
 DECL|field|httpProxyIncludedAddresses
@@ -359,8 +355,6 @@ DECL|field|httpProxyUseDigestAuth
 specifier|private
 name|Boolean
 name|httpProxyUseDigestAuth
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Package names to scan for DTO classes (multiple packages can be separated      * by comma).      */
 DECL|field|packages
@@ -404,8 +398,6 @@ DECL|field|lazyLogin
 specifier|private
 name|Boolean
 name|lazyLogin
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Payload format to use for Salesforce API calls either JSON or XML      * defaults to JSON      */
 DECL|field|format
@@ -525,8 +517,6 @@ DECL|field|updateTopic
 specifier|private
 name|Boolean
 name|updateTopic
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Notify for fields options are ALL REFERENCED SELECT WHERE      */
 DECL|field|notifyForFields

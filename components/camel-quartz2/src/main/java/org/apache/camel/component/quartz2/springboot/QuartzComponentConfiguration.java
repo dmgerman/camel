@@ -88,8 +88,6 @@ DECL|field|autoStartScheduler
 specifier|private
 name|Boolean
 name|autoStartScheduler
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Seconds to wait before starting the quartz scheduler.      */
 DECL|field|startDelayedSeconds
@@ -102,16 +100,12 @@ DECL|field|prefixJobNameWithEndpointId
 specifier|private
 name|Boolean
 name|prefixJobNameWithEndpointId
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Whether to enable Quartz JMX which allows to manage the Quartz scheduler      * from JMX. This options is default true      */
 DECL|field|enableJmx
 specifier|private
 name|Boolean
 name|enableJmx
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * Properties to configure the Quartz scheduler.      */
 DECL|field|properties
@@ -130,8 +124,6 @@ DECL|field|prefixInstanceName
 specifier|private
 name|Boolean
 name|prefixInstanceName
-init|=
-literal|false
 decl_stmt|;
 comment|/**      * To use the custom SchedulerFactory which is used to create the Scheduler.      */
 DECL|field|schedulerFactory
