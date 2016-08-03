@@ -511,6 +511,12 @@ specifier|final
 name|CamelContext
 name|camelContext
 decl_stmt|;
+DECL|field|awaitManager
+specifier|protected
+specifier|final
+name|AsyncProcessorAwaitManager
+name|awaitManager
+decl_stmt|;
 DECL|field|deadLetter
 specifier|protected
 specifier|final
@@ -1309,6 +1315,15 @@ name|camelContext
 expr_stmt|;
 name|this
 operator|.
+name|awaitManager
+operator|=
+name|camelContext
+operator|.
+name|getAsyncProcessorAwaitManager
+argument_list|()
+expr_stmt|;
+name|this
+operator|.
 name|redeliveryProcessor
 operator|=
 name|redeliveryProcessor
@@ -1907,18 +1922,6 @@ return|return;
 block|}
 comment|// inline org.apache.camel.util.AsyncProcessorHelper.process(org.apache.camel.AsyncProcessor, org.apache.camel.Exchange)
 comment|// to optimize and reduce stacktrace lengths
-specifier|final
-name|AsyncProcessorAwaitManager
-name|awaitManager
-init|=
-name|exchange
-operator|.
-name|getContext
-argument_list|()
-operator|.
-name|getAsyncProcessorAwaitManager
-argument_list|()
-decl_stmt|;
 specifier|final
 name|CountDownLatch
 name|latch
