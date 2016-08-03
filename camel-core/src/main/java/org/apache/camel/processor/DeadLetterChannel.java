@@ -201,26 +201,6 @@ name|exceptionPolicyStrategy
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// just to let the stack trace reveal that this is a dead letter channel
-name|super
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|toString ()

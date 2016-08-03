@@ -48,18 +48,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Exchange
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Predicate
 import|;
 end_import
@@ -189,26 +177,6 @@ name|exceptionPolicyStrategy
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|process (Exchange exchange)
-specifier|public
-name|void
-name|process
-parameter_list|(
-name|Exchange
-name|exchange
-parameter_list|)
-throws|throws
-name|Exception
-block|{
-comment|// just to let the stacktrace reveal that this is a default error handler
-name|super
-operator|.
-name|process
-argument_list|(
-name|exchange
-argument_list|)
-expr_stmt|;
-block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -235,16 +203,6 @@ operator|+
 name|output
 operator|+
 literal|"]"
-return|;
-block|}
-DECL|method|getDeadLetterProcessor ()
-specifier|public
-name|Processor
-name|getDeadLetterProcessor
-parameter_list|()
-block|{
-return|return
-name|deadLetter
 return|;
 block|}
 block|}
