@@ -193,16 +193,6 @@ name|json
 operator|.
 name|contains
 argument_list|(
-literal|"\"doneFileName\": { \"kind\": \"parameter\", \"group\": \"producer\", \"label\": \"producer\", \"type\": \"string\""
-argument_list|)
-argument_list|)
-expr_stmt|;
-name|assertTrue
-argument_list|(
-name|json
-operator|.
-name|contains
-argument_list|(
 literal|"\"autoCreate\": { \"kind\": \"parameter\", \"group\": \"advanced\", \"label\": \"advanced\", \"type\": \"boolean\""
 argument_list|)
 argument_list|)
