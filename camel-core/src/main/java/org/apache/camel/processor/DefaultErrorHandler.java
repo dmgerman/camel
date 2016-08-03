@@ -200,7 +200,7 @@ parameter_list|)
 throws|throws
 name|Exception
 block|{
-comment|// just to let the stacktrace reveal that this is a dead letter channel
+comment|// just to let the stacktrace reveal that this is a default error handler
 name|super
 operator|.
 name|process
