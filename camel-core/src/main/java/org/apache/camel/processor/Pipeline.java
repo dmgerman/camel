@@ -588,7 +588,6 @@ argument_list|)
 expr_stmt|;
 comment|// implement asynchronous routing logic in callback so we can have the callback being
 comment|// triggered and then continue routing where we left
-comment|//boolean sync = AsyncProcessorHelper.process(asyncProcessor, exchange,
 name|boolean
 name|sync
 init|=

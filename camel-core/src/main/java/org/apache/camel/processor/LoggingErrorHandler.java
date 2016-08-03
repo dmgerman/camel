@@ -70,27 +70,13 @@ name|CamelLogger
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
-name|context
-operator|.
-name|annotation
-operator|.
-name|DependsOn
-import|;
-end_import
-
 begin_comment
 comment|/**  * An {@link ErrorHandler} which uses commons-logging to dump the error  *  * @version  * @deprecated use {@link DeadLetterChannel} using a log endpoint instead  */
 end_comment
 
 begin_class
 annotation|@
-name|DependsOn
+name|Deprecated
 DECL|class|LoggingErrorHandler
 specifier|public
 class|class
