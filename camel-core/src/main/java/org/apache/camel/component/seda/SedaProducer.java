@@ -66,6 +66,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -137,6 +149,20 @@ operator|.
 name|spi
 operator|.
 name|Synchronization
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|SynchronizationVetoable
 import|;
 end_import
 
@@ -842,6 +868,8 @@ name|handover
 parameter_list|)
 block|{
 comment|// use a new copy of the exchange to route async (and use same message id)
+comment|// if handover we need to do special handover to avoid handing over
+comment|// RestBindingMarshalOnCompletion as it should not be handed over with SEDA
 name|Exchange
 name|copy
 init|=
@@ -851,47 +879,14 @@ name|createCorrelatedCopy
 argument_list|(
 name|exchange
 argument_list|,
-literal|false
+name|handover
 argument_list|,
 literal|true
-argument_list|)
-decl_stmt|;
-comment|// if handover we need to do special handover to avoid handing over
-comment|// RestBindingMarshalOnCompletion as it should not be handed over with SEDA
-if|if
-condition|(
-name|handover
-condition|)
-block|{
-name|List
-argument_list|<
-name|Synchronization
-argument_list|>
-name|completions
-init|=
-name|exchange
-operator|.
-name|handoverCompletions
-argument_list|()
-decl_stmt|;
-if|if
-condition|(
-name|completions
-operator|!=
-literal|null
-condition|)
-block|{
-for|for
-control|(
-name|Synchronization
-name|sync
-range|:
-name|completions
-control|)
-block|{
-if|if
-condition|(
-name|sync
+argument_list|,
+name|synchronization
+lambda|->
+operator|!
+name|synchronization
 operator|.
 name|getClass
 argument_list|()
@@ -903,31 +898,8 @@ name|contains
 argument_list|(
 literal|"RestBindingMarshalOnCompletion"
 argument_list|)
-condition|)
-block|{
-comment|// keep this one
-name|exchange
-operator|.
-name|addOnCompletion
-argument_list|(
-name|sync
 argument_list|)
-expr_stmt|;
-block|}
-else|else
-block|{
-comment|// handover
-name|copy
-operator|.
-name|addOnCompletion
-argument_list|(
-name|sync
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
-block|}
+decl_stmt|;
 comment|// set a new from endpoint to be the seda queue
 name|copy
 operator|.

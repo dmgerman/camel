@@ -18,6 +18,18 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|function
+operator|.
+name|Predicate
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -134,6 +146,21 @@ name|handoverSynchronization
 parameter_list|(
 name|Exchange
 name|target
+parameter_list|)
+function_decl|;
+comment|/**      * Handover all the registered synchronizations to the target {@link org.apache.camel.Exchange}.      *<p/>      * This is used when a route turns into asynchronous and the {@link org.apache.camel.Exchange} that      * is continued and routed in the async thread should do the on completion callbacks instead of the      * original synchronous thread.      *      * @param target the target exchange      * @param filter optional filter to only handover if filter returns<tt>true</tt>      */
+DECL|method|handoverSynchronization (Exchange target, Predicate<Synchronization> filter)
+name|void
+name|handoverSynchronization
+parameter_list|(
+name|Exchange
+name|target
+parameter_list|,
+name|Predicate
+argument_list|<
+name|Synchronization
+argument_list|>
+name|filter
 parameter_list|)
 function_decl|;
 comment|/**      * Invoked when this unit of work has been completed, whether it has failed or completed      *      * @param exchange the current exchange      */
