@@ -310,7 +310,7 @@ operator|.
 name|getTypeConverter
 argument_list|()
 operator|.
-name|convertTo
+name|mandatoryConvertTo
 argument_list|(
 name|byte
 index|[]
