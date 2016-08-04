@@ -767,6 +767,16 @@ name|isStoreByValue
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|mutableConfiguration
+operator|.
+name|setWriteThrough
+argument_list|(
+name|configuration
+operator|.
+name|isWriteThrough
+argument_list|()
+argument_list|)
+expr_stmt|;
 return|return
 name|mutableConfiguration
 return|;
