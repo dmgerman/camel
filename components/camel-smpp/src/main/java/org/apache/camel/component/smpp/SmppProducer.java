@@ -1034,6 +1034,13 @@ operator|.
 name|CLOSED
 argument_list|)
 operator|)
+operator|&&
+name|attempt
+operator|<
+name|configuration
+operator|.
+name|getMaxReconnect
+argument_list|()
 condition|)
 block|{
 try|try

@@ -753,6 +753,26 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"common"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"2147483647"
+argument_list|)
+DECL|field|maxReconnect
+specifier|private
+name|int
+name|maxReconnect
+init|=
+name|Integer
+operator|.
+name|MAX_VALUE
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"producer"
 argument_list|)
 DECL|field|lazySessionCreation
@@ -1667,6 +1687,33 @@ operator|=
 name|reconnectDelay
 expr_stmt|;
 block|}
+comment|/**      * CAMEL-6616      * Defines the maximum number of attempts to reconnect to the SMSC, if SMSC returns a negative bind response      */
+DECL|method|getMaxReconnect ()
+specifier|public
+name|int
+name|getMaxReconnect
+parameter_list|()
+block|{
+return|return
+name|maxReconnect
+return|;
+block|}
+DECL|method|setMaxReconnect (int maxReconnect)
+specifier|public
+name|void
+name|setMaxReconnect
+parameter_list|(
+name|int
+name|maxReconnect
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxReconnect
+operator|=
+name|maxReconnect
+expr_stmt|;
+block|}
 DECL|method|isLazySessionCreation ()
 specifier|public
 name|boolean
@@ -2036,6 +2083,10 @@ operator|+
 literal|", reconnectDelay="
 operator|+
 name|reconnectDelay
+operator|+
+literal|", maxReconnect="
+operator|+
+name|maxReconnect
 operator|+
 literal|", lazySessionCreation="
 operator|+
