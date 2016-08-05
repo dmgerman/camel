@@ -829,17 +829,6 @@ operator|=
 name|answer
 expr_stmt|;
 block|}
-comment|//        if (multiline) {
-comment|//            sb.insert(0, "Exchange[");
-comment|//            sb.append("]");
-comment|//        } else {
-comment|//            // get rid of the leading space comma if needed
-comment|//            if (sb.length()> 0&& sb.charAt(0) == ','&& sb.charAt(1) == ' ') {
-comment|//                sb.replace(0, 2, "");
-comment|//            }
-comment|//            sb.insert(0, "Exchange[");
-comment|//            sb.append("]");
-comment|//        }
 return|return
 name|sb
 operator|.
