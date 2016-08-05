@@ -53,7 +53,7 @@ specifier|public
 class|class
 name|XmlRpcDataFormatConfiguration
 block|{
-comment|/**      * Whether to unmarshal request or response Is by default false      */
+comment|/**      * Whether to marshal/unmarshal request or response Is by default false      */
 DECL|field|request
 specifier|private
 name|Boolean
