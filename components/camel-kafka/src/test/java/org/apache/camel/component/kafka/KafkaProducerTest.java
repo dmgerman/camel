@@ -356,6 +356,9 @@ argument_list|)
 expr_stmt|;
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|setBrokers
 argument_list|(
 literal|"broker1:1234,broker2:4567"
@@ -537,6 +540,9 @@ name|Exception
 block|{
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|setTopic
 argument_list|(
 literal|"sometopic"
@@ -642,6 +648,9 @@ name|Exception
 block|{
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|setTopic
 argument_list|(
 literal|"sometopic"
@@ -740,6 +749,9 @@ throws|throws
 name|Exception
 block|{
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|setTopic
 argument_list|(
@@ -878,6 +890,9 @@ throws|throws
 name|Exception
 block|{
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|setTopic
 argument_list|(
@@ -1107,6 +1122,9 @@ name|Exception
 block|{
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|setTopic
 argument_list|(
 literal|null
@@ -1180,6 +1198,9 @@ throws|throws
 name|Exception
 block|{
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|setTopic
 argument_list|(
@@ -1288,6 +1309,9 @@ name|Exception
 block|{
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|setTopic
 argument_list|(
 literal|null
@@ -1341,6 +1365,9 @@ throws|throws
 name|Exception
 block|{
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|setTopic
 argument_list|(
@@ -1399,6 +1426,9 @@ throws|throws
 name|Exception
 block|{
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|setTopic
 argument_list|(
@@ -1489,6 +1519,9 @@ name|Exception
 block|{
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|setTopic
 argument_list|(
 literal|"someTopic"
@@ -1564,6 +1597,9 @@ throws|throws
 name|Exception
 block|{
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|setTopic
 argument_list|(
@@ -1672,6 +1708,9 @@ throws|throws
 name|Exception
 block|{
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|setTopic
 argument_list|(

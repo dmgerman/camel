@@ -253,6 +253,9 @@ literal|"broker1:12345,broker2:12566"
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getBrokers
 argument_list|()
 argument_list|)
@@ -263,6 +266,9 @@ literal|"mytopic"
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getTopic
 argument_list|()
 argument_list|)
@@ -272,6 +278,9 @@ argument_list|(
 literal|"com.class.Party"
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getPartitioner
 argument_list|()
@@ -344,6 +353,9 @@ literal|"1"
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getRequestRequiredAcks
 argument_list|()
 argument_list|)
@@ -357,6 +369,9 @@ literal|1
 argument_list|)
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getBufferMemorySize
 argument_list|()
@@ -372,6 +387,9 @@ argument_list|)
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getProducerBatchSize
 argument_list|()
 argument_list|)
@@ -385,6 +403,9 @@ literal|12
 argument_list|)
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getConnectionMaxIdleMs
 argument_list|()
@@ -400,6 +421,9 @@ argument_list|)
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getMaxBlockMs
 argument_list|()
 argument_list|)
@@ -414,6 +438,9 @@ argument_list|)
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getBufferMemorySize
 argument_list|()
 argument_list|)
@@ -424,6 +451,9 @@ literal|"testing"
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getClientId
 argument_list|()
 argument_list|)
@@ -433,6 +463,9 @@ argument_list|(
 literal|"none"
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getCompressionCodec
 argument_list|()
@@ -448,6 +481,9 @@ argument_list|)
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getLingerMs
 argument_list|()
 argument_list|)
@@ -462,6 +498,9 @@ argument_list|)
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getMaxRequestSize
 argument_list|()
 argument_list|)
@@ -471,6 +510,9 @@ argument_list|(
 literal|100
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getRequestTimeoutMs
 argument_list|()
@@ -489,6 +531,9 @@ argument_list|)
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getMetadataMaxAgeMs
 argument_list|()
 argument_list|)
@@ -502,6 +547,9 @@ literal|23
 argument_list|)
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getReceiveBufferBytes
 argument_list|()
@@ -517,6 +565,9 @@ argument_list|)
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getReconnectBackoffMs
 argument_list|()
 argument_list|)
@@ -531,6 +582,9 @@ argument_list|)
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getRetries
 argument_list|()
 argument_list|)
@@ -540,6 +594,9 @@ argument_list|(
 literal|3782
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getRetryBackoffMs
 argument_list|()
@@ -553,6 +610,9 @@ argument_list|(
 literal|765
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getSendBufferBytes
 argument_list|()
@@ -571,6 +631,9 @@ argument_list|)
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getMaxInFlightRequest
 argument_list|()
 argument_list|)
@@ -580,6 +643,9 @@ argument_list|(
 literal|"org.apache.camel.reporters.TestReport,org.apache.camel.reporters.SampleReport"
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getMetricReporters
 argument_list|()
@@ -595,6 +661,9 @@ argument_list|)
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getNoOfMetricsSample
 argument_list|()
 argument_list|)
@@ -609,6 +678,9 @@ argument_list|)
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getMetricsSampleWindowMs
 argument_list|()
 argument_list|)
@@ -620,6 +692,9 @@ operator|.
 name|KAFKA_DEFAULT_SERIALIZER
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getSerializerClass
 argument_list|()
@@ -633,6 +708,9 @@ name|KAFKA_DEFAULT_SERIALIZER
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getKeySerializerClass
 argument_list|()
 argument_list|)
@@ -642,6 +720,9 @@ argument_list|(
 literal|"testing"
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getSslKeyPassword
 argument_list|()
@@ -653,6 +734,9 @@ literal|"/abc"
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getSslKeystoreLocation
 argument_list|()
 argument_list|)
@@ -662,6 +746,9 @@ argument_list|(
 literal|"testing"
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getSslKeystorePassword
 argument_list|()
@@ -673,6 +760,9 @@ literal|"/abc"
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getSslTruststoreLocation
 argument_list|()
 argument_list|)
@@ -682,6 +772,9 @@ argument_list|(
 literal|"testing"
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getSslTruststorePassword
 argument_list|()
@@ -693,6 +786,9 @@ literal|"test"
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getSaslKerberosServiceName
 argument_list|()
 argument_list|)
@@ -702,6 +798,9 @@ argument_list|(
 literal|"PLAINTEXT"
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getSecurityProtocol
 argument_list|()
@@ -713,6 +812,9 @@ literal|"TLSv1.2"
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getSslEnabledProtocols
 argument_list|()
 argument_list|)
@@ -722,6 +824,9 @@ argument_list|(
 literal|"JKS"
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getSslKeystoreType
 argument_list|()
@@ -733,6 +838,9 @@ literal|"TLS"
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getSslProtocol
 argument_list|()
 argument_list|)
@@ -742,6 +850,9 @@ argument_list|(
 literal|"test"
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getSslProvider
 argument_list|()
@@ -753,6 +864,9 @@ literal|"JKS"
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getSslTruststoreType
 argument_list|()
 argument_list|)
@@ -762,6 +876,9 @@ argument_list|(
 literal|"/usr/bin/kinit"
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getKerberosInitCmd
 argument_list|()
@@ -777,6 +894,9 @@ argument_list|)
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getKerberosBeforeReloginMinTime
 argument_list|()
 argument_list|)
@@ -790,6 +910,9 @@ literal|0.05
 argument_list|)
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getKerberosRenewJitter
 argument_list|()
@@ -805,6 +928,9 @@ argument_list|)
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getKerberosRenewWindowFactor
 argument_list|()
 argument_list|)
@@ -814,6 +940,9 @@ argument_list|(
 literal|"MAC"
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getSslCipherSuites
 argument_list|()
@@ -825,6 +954,9 @@ literal|"test"
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getSslEndpointAlgorithm
 argument_list|()
 argument_list|)
@@ -835,6 +967,9 @@ literal|"SunX509"
 argument_list|,
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getSslKeymanagerAlgorithm
 argument_list|()
 argument_list|)
@@ -844,6 +979,9 @@ argument_list|(
 literal|"PKIX"
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getSslTrustmanagerAlgorithm
 argument_list|()

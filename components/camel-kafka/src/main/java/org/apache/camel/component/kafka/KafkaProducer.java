@@ -328,6 +328,9 @@ if|if
 condition|(
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|getBrokers
 argument_list|()
 operator|!=
@@ -343,6 +346,9 @@ operator|.
 name|BOOTSTRAP_SERVERS_CONFIG
 argument_list|,
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getBrokers
 argument_list|()
@@ -608,6 +614,9 @@ name|String
 name|topic
 init|=
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|getTopic
 argument_list|()

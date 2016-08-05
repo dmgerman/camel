@@ -638,6 +638,9 @@ name|from
 decl_stmt|;
 name|kafkaEndpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|setSeekToBeginning
 argument_list|(
 literal|true

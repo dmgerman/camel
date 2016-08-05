@@ -202,6 +202,16 @@ expr_stmt|;
 name|setProperties
 argument_list|(
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+argument_list|,
+name|params
+argument_list|)
+expr_stmt|;
+name|setProperties
+argument_list|(
+name|endpoint
 argument_list|,
 name|params
 argument_list|)

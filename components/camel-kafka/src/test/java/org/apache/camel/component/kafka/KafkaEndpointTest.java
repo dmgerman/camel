@@ -121,6 +121,9 @@ argument_list|)
 decl_stmt|;
 name|endpoint
 operator|.
+name|getConfiguration
+argument_list|()
+operator|.
 name|setBrokers
 argument_list|(
 literal|"localhost"
@@ -256,6 +259,9 @@ argument_list|()
 argument_list|)
 decl_stmt|;
 name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
 operator|.
 name|setBrokers
 argument_list|(
