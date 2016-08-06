@@ -169,7 +169,7 @@ name|resolveMandatoryResourceAsInputStream
 argument_list|(
 name|context
 argument_list|,
-literal|"file:src/test/resources/log4j.properties"
+literal|"file:src/test/resources/log4j2.properties"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -252,13 +252,13 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"src/test/resources/log4j.properties"
+literal|"src/test/resources/log4j2.properties"
 argument_list|)
 argument_list|,
 operator|new
 name|File
 argument_list|(
-literal|"target/my space/log4j.properties"
+literal|"target/my space/log4j2.properties"
 argument_list|)
 argument_list|)
 expr_stmt|;
@@ -271,7 +271,7 @@ name|resolveMandatoryResourceAsInputStream
 argument_list|(
 name|context
 argument_list|,
-literal|"file:target/my%20space/log4j.properties"
+literal|"file:target/my%20space/log4j2.properties"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -351,7 +351,7 @@ name|resolveMandatoryResourceAsInputStream
 argument_list|(
 name|context
 argument_list|,
-literal|"classpath:log4j.properties"
+literal|"classpath:log4j2.properties"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -529,7 +529,7 @@ name|resolveMandatoryResourceAsInputStream
 argument_list|(
 name|context
 argument_list|,
-literal|"log4j.properties"
+literal|"log4j2.properties"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -735,7 +735,7 @@ operator|.
 name|getClassResolver
 argument_list|()
 argument_list|,
-literal|"file:src/test/resources/log4j.properties"
+literal|"file:src/test/resources/log4j2.properties"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -813,7 +813,7 @@ operator|.
 name|getClassResolver
 argument_list|()
 argument_list|,
-literal|"classpath:log4j.properties"
+literal|"classpath:log4j2.properties"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

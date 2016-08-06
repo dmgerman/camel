@@ -48,20 +48,6 @@ name|List
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|log4j
-operator|.
-name|spi
-operator|.
-name|LoggingEvent
-import|;
-end_import
-
 begin_class
 DECL|class|LogEventVerifier
 specifier|public
@@ -72,6 +58,7 @@ name|LogVerifier
 block|{
 DECL|field|events
 specifier|private
+specifier|final
 name|List
 argument_list|<
 name|LogEvent
@@ -83,12 +70,24 @@ name|ArrayList
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|method|append (LoggingEvent event)
+annotation|@
+name|Override
+DECL|method|doAppend (org.apache.logging.log4j.core.LogEvent event)
 specifier|protected
 name|void
-name|append
+name|doAppend
 parameter_list|(
-name|LoggingEvent
+name|org
+operator|.
+name|apache
+operator|.
+name|logging
+operator|.
+name|log4j
+operator|.
+name|core
+operator|.
+name|LogEvent
 name|event
 parameter_list|)
 block|{
@@ -114,7 +113,10 @@ argument_list|()
 argument_list|,
 name|event
 operator|.
-name|getRenderedMessage
+name|getMessage
+argument_list|()
+operator|.
+name|getFormattedMessage
 argument_list|()
 argument_list|)
 argument_list|)

@@ -249,7 +249,7 @@ init|=
 operator|new
 name|File
 argument_list|(
-literal|"src/test/resources/log4j.properties"
+literal|"src/test/resources/log4j2.properties"
 argument_list|)
 decl_stmt|;
 name|testingSendingFile

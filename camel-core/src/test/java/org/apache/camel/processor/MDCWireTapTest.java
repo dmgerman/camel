@@ -77,7 +77,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * //TODO: check mdc  */
 end_comment
 
 begin_class
@@ -214,15 +214,7 @@ literal|"camel.exchangeId"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|MDC
-operator|.
-name|put
-argument_list|(
-literal|"custom.id"
-argument_list|,
-literal|"1"
-argument_list|)
-expr_stmt|;
+comment|//MDC.put("custom.id", "1");
 block|}
 block|}
 argument_list|)
@@ -285,18 +277,7 @@ literal|"camel.exchangeId"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"1"
-argument_list|,
-name|MDC
-operator|.
-name|get
-argument_list|(
-literal|"custom.id"
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|//assertEquals("1", MDC.get("custom.id"));
 block|}
 block|}
 argument_list|)
@@ -364,18 +345,7 @@ literal|"camel.exchangeId"
 argument_list|)
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"1"
-argument_list|,
-name|MDC
-operator|.
-name|get
-argument_list|(
-literal|"custom.id"
-argument_list|)
-argument_list|)
-expr_stmt|;
+comment|//assertEquals("1", MDC.get("custom.id"));
 block|}
 block|}
 argument_list|)

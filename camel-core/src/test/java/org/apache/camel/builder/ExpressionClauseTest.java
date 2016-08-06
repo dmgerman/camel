@@ -231,7 +231,7 @@ name|mock
 operator|.
 name|expectedBodiesReceivedInAnyOrder
 argument_list|(
-literal|"log4j.properties"
+literal|"log4j2.properties"
 argument_list|,
 literal|"jndi-example.properties"
 argument_list|)
@@ -285,7 +285,7 @@ argument_list|(
 operator|new
 name|FileDataSource
 argument_list|(
-literal|"src/test/resources/log4j.properties"
+literal|"src/test/resources/log4j2.properties"
 argument_list|)
 argument_list|)
 argument_list|)

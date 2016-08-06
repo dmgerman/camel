@@ -688,7 +688,7 @@ name|resolver
 operator|.
 name|loadResourceAsURL
 argument_list|(
-literal|"log4j.properties"
+literal|"log4j2.properties"
 argument_list|)
 decl_stmt|;
 name|assertNotNull
@@ -717,7 +717,7 @@ name|resolver
 operator|.
 name|loadResourceAsStream
 argument_list|(
-literal|"log4j.properties"
+literal|"log4j2.properties"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

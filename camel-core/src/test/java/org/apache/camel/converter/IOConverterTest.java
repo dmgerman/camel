@@ -1208,7 +1208,7 @@ name|ObjectHelper
 operator|.
 name|loadResourceAsURL
 argument_list|(
-literal|"log4j.properties"
+literal|"log4j2.properties"
 argument_list|)
 decl_stmt|;
 name|InputStream
@@ -1246,7 +1246,7 @@ name|ObjectHelper
 operator|.
 name|loadResourceAsURL
 argument_list|(
-literal|"log4j.properties"
+literal|"log4j2.properties"
 argument_list|)
 decl_stmt|;
 name|String
@@ -1516,7 +1516,7 @@ argument_list|(
 operator|new
 name|File
 argument_list|(
-literal|"src/test/resources/log4j.properties"
+literal|"src/test/resources/log4j2.properties"
 argument_list|)
 argument_list|)
 decl_stmt|;
@@ -1552,7 +1552,7 @@ name|p
 operator|.
 name|get
 argument_list|(
-literal|"log4j.rootLogger"
+literal|"rootLogger.level"
 argument_list|)
 decl_stmt|;
 name|assertNotNull

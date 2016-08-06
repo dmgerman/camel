@@ -485,7 +485,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|"log4j.properties"
+literal|"log4j2.properties"
 argument_list|,
 name|dh
 operator|.
@@ -622,7 +622,7 @@ argument_list|()
 operator|.
 name|getResource
 argument_list|(
-literal|"/log4j.properties"
+literal|"/log4j2.properties"
 argument_list|)
 operator|.
 name|toURI
@@ -654,7 +654,7 @@ argument_list|()
 operator|.
 name|getResource
 argument_list|(
-literal|"/log4j.properties"
+literal|"/log4j2.properties"
 argument_list|)
 argument_list|)
 expr_stmt|;
