@@ -1397,6 +1397,8 @@ literal|"initialReconnectDelay=5000, "
 operator|+
 literal|"reconnectDelay=5000, "
 operator|+
+literal|"maxReconnect=2147483647, "
+operator|+
 literal|"lazySessionCreation=false, "
 operator|+
 literal|"httpProxyHost=null, "

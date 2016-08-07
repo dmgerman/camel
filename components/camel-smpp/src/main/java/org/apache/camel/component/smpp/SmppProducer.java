@@ -1045,26 +1045,22 @@ condition|)
 block|{
 try|try
 block|{
+name|attempt
+operator|++
+expr_stmt|;
 name|LOG
 operator|.
 name|info
 argument_list|(
-literal|"Trying to reconnect to "
-operator|+
+literal|"Trying to reconnect to {} - attempt #"
+argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.
 name|getConnectionString
 argument_list|()
-operator|+
-literal|" - attempt #"
-operator|+
-operator|(
-operator|++
+argument_list|,
 name|attempt
-operator|)
-operator|+
-literal|"..."
 argument_list|)
 expr_stmt|;
 name|session
@@ -1085,10 +1081,10 @@ parameter_list|)
 block|{
 name|LOG
 operator|.
-name|info
+name|warn
 argument_list|(
-literal|"Failed to reconnect to "
-operator|+
+literal|"Failed to reconnect to {}"
+argument_list|,
 name|getEndpoint
 argument_list|()
 operator|.

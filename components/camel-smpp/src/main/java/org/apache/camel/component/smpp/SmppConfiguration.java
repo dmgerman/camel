@@ -1687,7 +1687,7 @@ operator|=
 name|reconnectDelay
 expr_stmt|;
 block|}
-comment|/**      * CAMEL-6616      * Defines the maximum number of attempts to reconnect to the SMSC, if SMSC returns a negative bind response      */
+comment|/**      * Defines the maximum number of attempts to reconnect to the SMSC, if SMSC returns a negative bind response      */
 DECL|method|getMaxReconnect ()
 specifier|public
 name|int
