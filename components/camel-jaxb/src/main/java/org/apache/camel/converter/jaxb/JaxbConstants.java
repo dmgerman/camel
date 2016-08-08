@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Constants used by Camel Jaxb module  *   * @author Siddharth Sharma  * @since Aug 4, 2016  *  */
+comment|/**  * Constants used by Camel Jaxb module  *   *  */
 end_comment
 
 begin_interface
@@ -28,11 +28,12 @@ specifier|public
 interface|interface
 name|JaxbConstants
 block|{
-DECL|field|JAXB_ESCAPE_HANDLER
+comment|/** Key to identify marshaller properties in the exchange specific to JAX-RI implementation */
+DECL|field|JAXB_PROVIDER_PROPERTIES
 name|String
-name|JAXB_ESCAPE_HANDLER
+name|JAXB_PROVIDER_PROPERTIES
 init|=
-literal|"CamelJaxbCharacterEscapeHandler"
+literal|"CamelJaxbProviderCustomProperties"
 decl_stmt|;
 block|}
 end_interface
