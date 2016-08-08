@@ -842,7 +842,7 @@ operator|=
 name|managementEnabled
 expr_stmt|;
 block|}
-comment|/**      * Events a consumer should filter      */
+comment|/**      * Events a consumer should filter. If using filteredEvents option, then eventFilters one will be ignored      */
 DECL|method|getFilteredEvents ()
 specifier|public
 name|List
@@ -922,7 +922,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|/**      * The CacheEntryEventFilter      */
+comment|/**      * The CacheEntryEventFilter. If using eventFilters option, then filteredEvents one will be ignored      */
 DECL|method|getEventFilters ()
 specifier|public
 name|List
