@@ -155,6 +155,12 @@ specifier|private
 name|String
 name|noNamespaceSchemaLocation
 decl_stmt|;
+comment|/**      * Refers to a custom java.util.Map to lookup in the registry containing      * custom JAXB provider properties to be used with the JAXB marshaller.      */
+DECL|field|jaxbProviderProperties
+specifier|private
+name|String
+name|jaxbProviderProperties
+decl_stmt|;
 DECL|method|getContextPath ()
 specifier|public
 name|String
@@ -543,6 +549,32 @@ operator|.
 name|noNamespaceSchemaLocation
 operator|=
 name|noNamespaceSchemaLocation
+expr_stmt|;
+block|}
+DECL|method|getJaxbProviderProperties ()
+specifier|public
+name|String
+name|getJaxbProviderProperties
+parameter_list|()
+block|{
+return|return
+name|jaxbProviderProperties
+return|;
+block|}
+DECL|method|setJaxbProviderProperties (String jaxbProviderProperties)
+specifier|public
+name|void
+name|setJaxbProviderProperties
+parameter_list|(
+name|String
+name|jaxbProviderProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jaxbProviderProperties
+operator|=
+name|jaxbProviderProperties
 expr_stmt|;
 block|}
 block|}

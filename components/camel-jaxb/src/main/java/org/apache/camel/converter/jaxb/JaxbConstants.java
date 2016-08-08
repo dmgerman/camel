@@ -19,7 +19,7 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Constants used by Camel Jaxb module  *   *  */
+comment|/**  * Constants used by Camel Jaxb module  */
 end_comment
 
 begin_interface
@@ -28,12 +28,12 @@ specifier|public
 interface|interface
 name|JaxbConstants
 block|{
-comment|/** Key to identify marshaller properties in the exchange specific to JAX-RI implementation */
+comment|/**      * Key to identify custom marshaller properties in the exchange specific to JAX-RI implementation      */
 DECL|field|JAXB_PROVIDER_PROPERTIES
 name|String
 name|JAXB_PROVIDER_PROPERTIES
 init|=
-literal|"CamelJaxbProviderCustomProperties"
+literal|"CamelJaxbProviderProperties"
 decl_stmt|;
 block|}
 end_interface
