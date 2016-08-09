@@ -766,6 +766,12 @@ operator|!=
 literal|null
 condition|)
 block|{
+if|if
+condition|(
+name|getAllowAutoWiredConnectionFactory
+argument_list|()
+condition|)
+block|{
 name|Map
 argument_list|<
 name|String
@@ -814,6 +820,13 @@ name|cf
 argument_list|)
 expr_stmt|;
 block|}
+block|}
+if|if
+condition|(
+name|getAllowAutoWiredDestinationResolver
+argument_list|()
+condition|)
+block|{
 name|Map
 argument_list|<
 name|String
@@ -864,8 +877,31 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
 return|return
 name|configuration
+return|;
+block|}
+comment|/**      * Subclasses can override to prevent the jms configuration from being      * setup to use an auto-wired the connection factory that's found in the spring      * application context.      *      * @return true      */
+DECL|method|getAllowAutoWiredConnectionFactory ()
+specifier|public
+name|boolean
+name|getAllowAutoWiredConnectionFactory
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
+block|}
+comment|/**      * Subclasses can override to prevent the jms configuration from being      * setup to use an auto-wired the destination resolved that's found in the spring      * application context.      *      * @return true      */
+DECL|method|getAllowAutoWiredDestinationResolver ()
+specifier|public
+name|boolean
+name|getAllowAutoWiredDestinationResolver
+parameter_list|()
+block|{
+return|return
+literal|true
 return|;
 block|}
 comment|/**      * To use a shared JMS configuration      */
