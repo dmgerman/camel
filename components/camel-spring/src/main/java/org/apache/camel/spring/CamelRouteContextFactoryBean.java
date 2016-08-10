@@ -135,7 +135,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * @version   */
+comment|/**  * Configuration of routes using XML  *  * @version  */
 end_comment
 
 begin_class

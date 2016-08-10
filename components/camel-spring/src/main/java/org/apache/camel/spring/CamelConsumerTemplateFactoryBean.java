@@ -207,7 +207,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Spring {@link org.springframework.beans.factory.FactoryBean} for creating a new {@link org.apache.camel.ConsumerTemplate}  * instance with a minimum of XML  *  * @version   */
+comment|/**  * Configures a {@link ConsumerTemplate}  *  * @version  */
 end_comment
 
 begin_class

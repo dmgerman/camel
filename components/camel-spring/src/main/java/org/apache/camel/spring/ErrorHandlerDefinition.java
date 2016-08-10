@@ -112,8 +112,36 @@ name|IdentifiedType
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|RedeliveryPolicy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_comment
-comment|/**  * The&lt;errorHandler&gt; tag element.  *  * @version   */
+comment|/**  * Error handler settings  *  * @version   */
 end_comment
 
 begin_class
@@ -140,6 +168,17 @@ name|IdentifiedType
 block|{
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"DefaultErrorHandler"
+argument_list|,
+name|required
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|type
 specifier|private
 name|ErrorHandlerType
@@ -165,6 +204,13 @@ name|deadLetterHandleNewException
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"ERROR"
+argument_list|)
 DECL|field|level
 specifier|private
 name|LoggingLevel
@@ -172,6 +218,13 @@ name|level
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"WARN"
+argument_list|)
 DECL|field|rollbackLoggingLevel
 specifier|private
 name|LoggingLevel
@@ -254,6 +307,438 @@ specifier|private
 name|CamelRedeliveryPolicyFactoryBean
 name|redeliveryPolicy
 decl_stmt|;
+DECL|method|getType ()
+specifier|public
+name|ErrorHandlerType
+name|getType
+parameter_list|()
+block|{
+return|return
+name|type
+return|;
+block|}
+comment|/**      * The type of the error handler      */
+DECL|method|setType (ErrorHandlerType type)
+specifier|public
+name|void
+name|setType
+parameter_list|(
+name|ErrorHandlerType
+name|type
+parameter_list|)
+block|{
+name|this
+operator|.
+name|type
+operator|=
+name|type
+expr_stmt|;
+block|}
+DECL|method|getDeadLetterUri ()
+specifier|public
+name|String
+name|getDeadLetterUri
+parameter_list|()
+block|{
+return|return
+name|deadLetterUri
+return|;
+block|}
+comment|/**      * The dead letter endpoint uri for the Dead Letter error handler.      */
+DECL|method|setDeadLetterUri (String deadLetterUri)
+specifier|public
+name|void
+name|setDeadLetterUri
+parameter_list|(
+name|String
+name|deadLetterUri
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deadLetterUri
+operator|=
+name|deadLetterUri
+expr_stmt|;
+block|}
+DECL|method|getDeadLetterHandleNewException ()
+specifier|public
+name|String
+name|getDeadLetterHandleNewException
+parameter_list|()
+block|{
+return|return
+name|deadLetterHandleNewException
+return|;
+block|}
+comment|/**      * Whether the dead letter channel should handle (and ignore) any new exception that may been thrown during sending the      * message to the dead letter endpoint.      *<p/>      * The default value is<tt>true</tt> which means any such kind of exception is handled and ignored. Set this to<tt>false</tt>      * to let the exception be propagated back on the {@link org.apache.camel.Exchange}. This can be used in situations      * where you use transactions, and want to use Camel's dead letter channel to deal with exceptions during routing,      * but if the dead letter channel itself fails because of a new exception being thrown, then by setting this to<tt>false</tt>      * the new exceptions is propagated back and set on the {@link org.apache.camel.Exchange}, which allows the transaction      * to detect the exception, and rollback.      */
+DECL|method|setDeadLetterHandleNewException (String deadLetterHandleNewException)
+specifier|public
+name|void
+name|setDeadLetterHandleNewException
+parameter_list|(
+name|String
+name|deadLetterHandleNewException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deadLetterHandleNewException
+operator|=
+name|deadLetterHandleNewException
+expr_stmt|;
+block|}
+DECL|method|getLevel ()
+specifier|public
+name|LoggingLevel
+name|getLevel
+parameter_list|()
+block|{
+return|return
+name|level
+return|;
+block|}
+comment|/**      * Logging level to use when using the logging error handler type.      */
+DECL|method|setLevel (LoggingLevel level)
+specifier|public
+name|void
+name|setLevel
+parameter_list|(
+name|LoggingLevel
+name|level
+parameter_list|)
+block|{
+name|this
+operator|.
+name|level
+operator|=
+name|level
+expr_stmt|;
+block|}
+DECL|method|getRollbackLoggingLevel ()
+specifier|public
+name|LoggingLevel
+name|getRollbackLoggingLevel
+parameter_list|()
+block|{
+return|return
+name|rollbackLoggingLevel
+return|;
+block|}
+comment|/**      * Sets the logging level to use for logging transactional rollback.      *<p/>      * This option is default WARN.      */
+DECL|method|setRollbackLoggingLevel (LoggingLevel rollbackLoggingLevel)
+specifier|public
+name|void
+name|setRollbackLoggingLevel
+parameter_list|(
+name|LoggingLevel
+name|rollbackLoggingLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|rollbackLoggingLevel
+operator|=
+name|rollbackLoggingLevel
+expr_stmt|;
+block|}
+DECL|method|getLogName ()
+specifier|public
+name|String
+name|getLogName
+parameter_list|()
+block|{
+return|return
+name|logName
+return|;
+block|}
+comment|/**      * Name of the logger to use for the logging error handler      */
+DECL|method|setLogName (String logName)
+specifier|public
+name|void
+name|setLogName
+parameter_list|(
+name|String
+name|logName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|logName
+operator|=
+name|logName
+expr_stmt|;
+block|}
+DECL|method|getUseOriginalMessage ()
+specifier|public
+name|Boolean
+name|getUseOriginalMessage
+parameter_list|()
+block|{
+return|return
+name|useOriginalMessage
+return|;
+block|}
+comment|/**      * Will use the original input message when an {@link org.apache.camel.Exchange} is moved to the dead letter queue.      *<p/>      *<b>Notice:</b> this only applies when all redeliveries attempt have failed and the {@link org.apache.camel.Exchange} is doomed for failure.      *<br/>      * Instead of using the current inprogress {@link org.apache.camel.Exchange} IN body we use the original IN body instead. This allows      * you to store the original input in the dead letter queue instead of the inprogress snapshot of the IN body.      * For instance if you route transform the IN body during routing and then failed. With the original exchange      * store in the dead letter queue it might be easier to manually re submit the {@link org.apache.camel.Exchange} again as the IN body      * is the same as when Camel received it. So you should be able to send the {@link org.apache.camel.Exchange} to the same input.      *<p/>      * By default this feature is off.      */
+DECL|method|setUseOriginalMessage (Boolean useOriginalMessage)
+specifier|public
+name|void
+name|setUseOriginalMessage
+parameter_list|(
+name|Boolean
+name|useOriginalMessage
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useOriginalMessage
+operator|=
+name|useOriginalMessage
+expr_stmt|;
+block|}
+DECL|method|getTransactionTemplateRef ()
+specifier|public
+name|String
+name|getTransactionTemplateRef
+parameter_list|()
+block|{
+return|return
+name|transactionTemplateRef
+return|;
+block|}
+comment|/**      * References to the {@link org.springframework.transaction.support.TransactionTemplate} to use with the transaction error handler.      */
+DECL|method|setTransactionTemplateRef (String transactionTemplateRef)
+specifier|public
+name|void
+name|setTransactionTemplateRef
+parameter_list|(
+name|String
+name|transactionTemplateRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transactionTemplateRef
+operator|=
+name|transactionTemplateRef
+expr_stmt|;
+block|}
+DECL|method|getTransactionManagerRef ()
+specifier|public
+name|String
+name|getTransactionManagerRef
+parameter_list|()
+block|{
+return|return
+name|transactionManagerRef
+return|;
+block|}
+comment|/**      * References to the {@link org.springframework.transaction.PlatformTransactionManager} to use with the transaction error handler.      */
+DECL|method|setTransactionManagerRef (String transactionManagerRef)
+specifier|public
+name|void
+name|setTransactionManagerRef
+parameter_list|(
+name|String
+name|transactionManagerRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transactionManagerRef
+operator|=
+name|transactionManagerRef
+expr_stmt|;
+block|}
+DECL|method|getOnRedeliveryRef ()
+specifier|public
+name|String
+name|getOnRedeliveryRef
+parameter_list|()
+block|{
+return|return
+name|onRedeliveryRef
+return|;
+block|}
+comment|/**      * Sets a reference to a processor that should be processed<b>before</b> a redelivery attempt.      *<p/>      * Can be used to change the {@link org.apache.camel.Exchange}<b>before</b> its being redelivered.      */
+DECL|method|setOnRedeliveryRef (String onRedeliveryRef)
+specifier|public
+name|void
+name|setOnRedeliveryRef
+parameter_list|(
+name|String
+name|onRedeliveryRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onRedeliveryRef
+operator|=
+name|onRedeliveryRef
+expr_stmt|;
+block|}
+DECL|method|getOnExceptionOccurredRef ()
+specifier|public
+name|String
+name|getOnExceptionOccurredRef
+parameter_list|()
+block|{
+return|return
+name|onExceptionOccurredRef
+return|;
+block|}
+comment|/**      * Sets a reference to a processor that should be processed<b>just after</b> an exception occurred.      * Can be used to perform custom logging about the occurred exception at the exact time it happened.      *<p/>      * Important: Any exception thrown from this processor will be ignored.      */
+DECL|method|setOnExceptionOccurredRef (String onExceptionOccurredRef)
+specifier|public
+name|void
+name|setOnExceptionOccurredRef
+parameter_list|(
+name|String
+name|onExceptionOccurredRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onExceptionOccurredRef
+operator|=
+name|onExceptionOccurredRef
+expr_stmt|;
+block|}
+DECL|method|getOnPrepareFailureRef ()
+specifier|public
+name|String
+name|getOnPrepareFailureRef
+parameter_list|()
+block|{
+return|return
+name|onPrepareFailureRef
+return|;
+block|}
+comment|/**      * Sets a reference to a processor to prepare the {@link org.apache.camel.Exchange} before      * handled by the failure processor / dead letter channel. This allows for example to enrich the message      * before sending to a dead letter queue.      */
+DECL|method|setOnPrepareFailureRef (String onPrepareFailureRef)
+specifier|public
+name|void
+name|setOnPrepareFailureRef
+parameter_list|(
+name|String
+name|onPrepareFailureRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|onPrepareFailureRef
+operator|=
+name|onPrepareFailureRef
+expr_stmt|;
+block|}
+DECL|method|getRetryWhileRef ()
+specifier|public
+name|String
+name|getRetryWhileRef
+parameter_list|()
+block|{
+return|return
+name|retryWhileRef
+return|;
+block|}
+comment|/**      * Sets a reference to an retry while expression.      *<p/>      * Will continue retrying until expression evaluates to<tt>false</tt>.      */
+DECL|method|setRetryWhileRef (String retryWhileRef)
+specifier|public
+name|void
+name|setRetryWhileRef
+parameter_list|(
+name|String
+name|retryWhileRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|retryWhileRef
+operator|=
+name|retryWhileRef
+expr_stmt|;
+block|}
+DECL|method|getRedeliveryPolicyRef ()
+specifier|public
+name|String
+name|getRedeliveryPolicyRef
+parameter_list|()
+block|{
+return|return
+name|redeliveryPolicyRef
+return|;
+block|}
+comment|/**      * Sets a reference to a {@link RedeliveryPolicy} to be used for redelivery settings.      */
+DECL|method|setRedeliveryPolicyRef (String redeliveryPolicyRef)
+specifier|public
+name|void
+name|setRedeliveryPolicyRef
+parameter_list|(
+name|String
+name|redeliveryPolicyRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|redeliveryPolicyRef
+operator|=
+name|redeliveryPolicyRef
+expr_stmt|;
+block|}
+DECL|method|getExecutorServiceRef ()
+specifier|public
+name|String
+name|getExecutorServiceRef
+parameter_list|()
+block|{
+return|return
+name|executorServiceRef
+return|;
+block|}
+comment|/**      * Sets a reference to a thread pool to be used by the error handler      */
+DECL|method|setExecutorServiceRef (String executorServiceRef)
+specifier|public
+name|void
+name|setExecutorServiceRef
+parameter_list|(
+name|String
+name|executorServiceRef
+parameter_list|)
+block|{
+name|this
+operator|.
+name|executorServiceRef
+operator|=
+name|executorServiceRef
+expr_stmt|;
+block|}
+DECL|method|getRedeliveryPolicy ()
+specifier|public
+name|CamelRedeliveryPolicyFactoryBean
+name|getRedeliveryPolicy
+parameter_list|()
+block|{
+return|return
+name|redeliveryPolicy
+return|;
+block|}
+comment|/**      * Sets the redelivery settings      */
+DECL|method|setRedeliveryPolicy (CamelRedeliveryPolicyFactoryBean redeliveryPolicy)
+specifier|public
+name|void
+name|setRedeliveryPolicy
+parameter_list|(
+name|CamelRedeliveryPolicyFactoryBean
+name|redeliveryPolicy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|redeliveryPolicy
+operator|=
+name|redeliveryPolicy
+expr_stmt|;
+block|}
 block|}
 end_class
 
