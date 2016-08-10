@@ -665,15 +665,13 @@ literal|"camel-eventadmin"
 block|,
 literal|"camel-paxlogging"
 block|,
-comment|/* deprecated -> */
+comment|/* deprecated (and not working perfectly) -> */
 literal|"camel-swagger"
 block|,
 literal|"camel-mina"
 block|,
-comment|/* others -> */
+comment|/* others (not managed) -> */
 literal|"camel-zipkin"
-block|,
-literal|"camel-zipkin-starter"
 block|}
 decl_stmt|;
 DECL|field|IGNORE_TEST_MODULES
