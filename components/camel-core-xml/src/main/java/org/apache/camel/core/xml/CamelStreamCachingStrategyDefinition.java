@@ -88,8 +88,22 @@ name|IdentifiedType
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_comment
-comment|/**  * The JAXB type class for the configuration of stream caching  *  * @version   */
+comment|/**  * Stream caching configuration.  *  * @version   */
 end_comment
 
 begin_class
@@ -116,6 +130,13 @@ name|IdentifiedType
 block|{
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|enabled
 specifier|private
 name|String
@@ -172,6 +193,13 @@ name|bufferSize
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|removeSpoolDirectoryWhenStopping
 specifier|private
 name|String
@@ -186,6 +214,13 @@ name|statisticsEnabled
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|anySpoolRules
 specifier|private
 name|String
@@ -201,6 +236,7 @@ return|return
 name|enabled
 return|;
 block|}
+comment|/**      * Sets whether the stream caching is enabled.      *<p/>      *<b>Notice:</b> This cannot be changed at runtime.      */
 DECL|method|setEnabled (String enabled)
 specifier|public
 name|void
@@ -227,6 +263,7 @@ return|return
 name|spoolDirectory
 return|;
 block|}
+comment|/**      * Sets the spool (temporary) directory to use for overflow and spooling to disk.      *<p/>      * If no spool directory has been explicit configured, then a temporary directory      * is created in the<tt>java.io.tmpdir</tt> directory.      */
 DECL|method|setSpoolDirectory (String spoolDirectory)
 specifier|public
 name|void
@@ -253,6 +290,7 @@ return|return
 name|spoolChiper
 return|;
 block|}
+comment|/**      * Sets a chiper name to use when spooling to disk to write with encryption.      *<p/>      * By default the data is not encrypted.      */
 DECL|method|setSpoolChiper (String spoolChiper)
 specifier|public
 name|void
@@ -279,6 +317,7 @@ return|return
 name|spoolThreshold
 return|;
 block|}
+comment|/**      * Threshold in bytes when overflow to disk is activated.      *<p/>      * The default threshold is {@link org.apache.camel.StreamCache#DEFAULT_SPOOL_THRESHOLD} bytes (eg 128kb).      * Use<tt>-1</tt> to disable overflow to disk.      */
 DECL|method|setSpoolThreshold (String spoolThreshold)
 specifier|public
 name|void
@@ -305,6 +344,7 @@ return|return
 name|spoolUsedHeapMemoryThreshold
 return|;
 block|}
+comment|/**      * Sets a percentage (1-99) of used heap memory threshold to activate spooling to disk.      */
 DECL|method|setSpoolUsedHeapMemoryThreshold (String spoolUsedHeapMemoryThreshold)
 specifier|public
 name|void
@@ -331,6 +371,7 @@ return|return
 name|spoolUsedHeapMemoryLimit
 return|;
 block|}
+comment|/**      * Sets what the upper bounds should be when spoolUsedHeapMemoryThreshold      * is in use.      */
 DECL|method|setSpoolUsedHeapMemoryLimit (String spoolUsedHeapMemoryLimit)
 specifier|public
 name|void
@@ -357,6 +398,7 @@ return|return
 name|spoolRules
 return|;
 block|}
+comment|/**      * Reference to one or more custom {@link org.apache.camel.spi.StreamCachingStrategy.SpoolRule} to use.      * Multiple rules can be separated by comma.      */
 DECL|method|setSpoolRules (String spoolRules)
 specifier|public
 name|void
@@ -383,6 +425,7 @@ return|return
 name|bufferSize
 return|;
 block|}
+comment|/**      * Sets the buffer size to use when allocating in-memory buffers used for in-memory stream caches.      *<p/>      * The default size is {@link org.apache.camel.util.IOHelper#DEFAULT_BUFFER_SIZE}      */
 DECL|method|setBufferSize (String bufferSize)
 specifier|public
 name|void
@@ -409,6 +452,7 @@ return|return
 name|removeSpoolDirectoryWhenStopping
 return|;
 block|}
+comment|/**      * Whether to remove the temporary directory when stopping.      *<p/>      * This option is default<tt>true</tt>      */
 DECL|method|setRemoveSpoolDirectoryWhenStopping (String removeSpoolDirectoryWhenStopping)
 specifier|public
 name|void
@@ -435,6 +479,7 @@ return|return
 name|statisticsEnabled
 return|;
 block|}
+comment|/**      * Sets whether statistics is enabled.      */
 DECL|method|setStatisticsEnabled (String statisticsEnabled)
 specifier|public
 name|void
@@ -461,6 +506,7 @@ return|return
 name|anySpoolRules
 return|;
 block|}
+comment|/**      * Sets whether if just any of the {@link org.apache.camel.spi.StreamCachingStrategy.SpoolRule} rules      * returns<tt>true</tt> then shouldSpoolCache(long) returns<tt>true</tt>.      * If this option is<tt>false</tt>, then<b>all</b> the {@link org.apache.camel.spi.StreamCachingStrategy.SpoolRule} must      * return<tt>true</tt>.      *<p/>      * The default value is<tt>false</tt> which means that all the rules must return<tt>true</tt>.      */
 DECL|method|setAnySpoolRules (String anySpoolRules)
 specifier|public
 name|void

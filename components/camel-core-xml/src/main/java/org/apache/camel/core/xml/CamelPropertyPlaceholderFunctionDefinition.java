@@ -60,6 +60,10 @@ name|IdentifiedType
 import|;
 end_import
 
+begin_comment
+comment|/**  * Function to use with properties placeholder  */
+end_comment
+
 begin_class
 annotation|@
 name|XmlRootElement
@@ -97,6 +101,7 @@ return|return
 name|ref
 return|;
 block|}
+comment|/**      * Reference to the custom properties function to lookup in the registry      */
 DECL|method|setRef (String ref)
 specifier|public
 name|void

@@ -96,6 +96,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|CollectionStringBuffer
@@ -128,137 +142,239 @@ name|CamelJMXAgentDefinition
 extends|extends
 name|IdentifiedType
 block|{
-comment|/**      * Disable JMI (default false)      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|disabled
 specifier|private
 name|String
 name|disabled
 decl_stmt|;
-comment|/**      * Only register processor if a custom id was defined for it.      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|onlyRegisterProcessorWithCustomId
 specifier|private
 name|String
 name|onlyRegisterProcessorWithCustomId
 decl_stmt|;
-comment|/**      * RMI connector registry port (default 1099)      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"1099"
+argument_list|)
 DECL|field|registryPort
 specifier|private
 name|String
 name|registryPort
 decl_stmt|;
-comment|/**      * RMI connector server port (default -1 not used)      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"-1"
+argument_list|)
 DECL|field|connectorPort
 specifier|private
 name|String
 name|connectorPort
 decl_stmt|;
-comment|/**      * MBean server default domain name (default org.apache.camel)      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"org.apache.camel"
+argument_list|)
 DECL|field|mbeanServerDefaultDomain
 specifier|private
 name|String
 name|mbeanServerDefaultDomain
 decl_stmt|;
-comment|/**      * MBean object domain name (default org.apache.camel)      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"org.apache.camel"
+argument_list|)
 DECL|field|mbeanObjectDomainName
 specifier|private
 name|String
 name|mbeanObjectDomainName
 decl_stmt|;
-comment|/**      * JMX Service URL path (default /jmxrmi)      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"/jmxrmi"
+argument_list|)
 DECL|field|serviceUrlPath
 specifier|private
 name|String
 name|serviceUrlPath
 decl_stmt|;
-comment|/**      * A flag that indicates whether the agent should be created      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|createConnector
 specifier|private
 name|String
 name|createConnector
 decl_stmt|;
-comment|/**      * A flag that indicates whether the platform mbean server should be used      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|usePlatformMBeanServer
 specifier|private
 name|String
 name|usePlatformMBeanServer
 decl_stmt|;
-comment|/**      * A flag that indicates whether to register mbeans always      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|registerAlways
 specifier|private
 name|String
 name|registerAlways
 decl_stmt|;
-comment|/**      * A flag that indicates whether to register mbeans when starting new routes      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|registerNewRoutes
 specifier|private
 name|String
 name|registerNewRoutes
 decl_stmt|;
-comment|/**      * Level of granularity for performance statistics enabled      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"Default"
+argument_list|)
 DECL|field|statisticsLevel
 specifier|private
 name|String
 name|statisticsLevel
 decl_stmt|;
-comment|/**      * A flag that indicates whether Load statistics is enabled      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|loadStatisticsEnabled
 specifier|private
 name|String
 name|loadStatisticsEnabled
 decl_stmt|;
-comment|/**      * A flag that indicates whether endpoint runtime statistics is enabled      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|endpointRuntimeStatisticsEnabled
 specifier|private
 name|String
 name|endpointRuntimeStatisticsEnabled
 decl_stmt|;
-comment|/**      * A flag that indicates whether to include hostname in JMX MBean names.      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|includeHostName
 specifier|private
 name|String
 name|includeHostName
 decl_stmt|;
-comment|/**      * A flag that indicates whether to use hostname or IP Address in the service url.      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|useHostIPAddress
 specifier|private
 name|String
 name|useHostIPAddress
 decl_stmt|;
-comment|/**      * A flag that indicates whether to remove detected sensitive information (such as passwords) from MBean names and attributes.      */
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|mask
 specifier|private
 name|String
@@ -274,6 +390,7 @@ return|return
 name|disabled
 return|;
 block|}
+comment|/**      * Disable JMI (default false)      */
 DECL|method|setDisabled (String disabled)
 specifier|public
 name|void
@@ -300,6 +417,7 @@ return|return
 name|onlyRegisterProcessorWithCustomId
 return|;
 block|}
+comment|/**      * Only register processor if a custom id was defined for it.      */
 DECL|method|setOnlyRegisterProcessorWithCustomId (String onlyRegisterProcessorWithCustomId)
 specifier|public
 name|void
@@ -326,6 +444,7 @@ return|return
 name|registryPort
 return|;
 block|}
+comment|/**      * RMI connector registry port (default 1099)      */
 DECL|method|setRegistryPort (String registryPort)
 specifier|public
 name|void
@@ -352,6 +471,7 @@ return|return
 name|connectorPort
 return|;
 block|}
+comment|/**      * RMI connector server port (default -1 not used)      */
 DECL|method|setConnectorPort (String connectorPort)
 specifier|public
 name|void
@@ -378,6 +498,7 @@ return|return
 name|mbeanServerDefaultDomain
 return|;
 block|}
+comment|/**      * MBean server default domain name (default org.apache.camel)      */
 DECL|method|setMbeanServerDefaultDomain (String mbeanServerDefaultDomain)
 specifier|public
 name|void
@@ -404,6 +525,7 @@ return|return
 name|mbeanObjectDomainName
 return|;
 block|}
+comment|/**      * MBean object domain name (default org.apache.camel)      */
 DECL|method|setMbeanObjectDomainName (String mbeanObjectDomainName)
 specifier|public
 name|void
@@ -430,6 +552,7 @@ return|return
 name|serviceUrlPath
 return|;
 block|}
+comment|/**      * JMX Service URL path (default /jmxrmi)      */
 DECL|method|setServiceUrlPath (String serviceUrlPath)
 specifier|public
 name|void
@@ -456,6 +579,7 @@ return|return
 name|createConnector
 return|;
 block|}
+comment|/**      * A flag that indicates whether the agent should be created      */
 DECL|method|setCreateConnector (String createConnector)
 specifier|public
 name|void
@@ -482,6 +606,7 @@ return|return
 name|usePlatformMBeanServer
 return|;
 block|}
+comment|/**      * A flag that indicates whether the platform mbean server should be used      */
 DECL|method|setUsePlatformMBeanServer (String usePlatformMBeanServer)
 specifier|public
 name|void
@@ -508,6 +633,7 @@ return|return
 name|statisticsLevel
 return|;
 block|}
+comment|/**      * Level of granularity for performance statistics enabled      */
 DECL|method|setStatisticsLevel (String statisticsLevel)
 specifier|public
 name|void
@@ -534,6 +660,7 @@ return|return
 name|registerAlways
 return|;
 block|}
+comment|/**      * A flag that indicates whether to register mbeans always      */
 DECL|method|setRegisterAlways (String registerAlways)
 specifier|public
 name|void
@@ -560,6 +687,7 @@ return|return
 name|registerNewRoutes
 return|;
 block|}
+comment|/**      * A flag that indicates whether to register mbeans when starting new routes      */
 DECL|method|setRegisterNewRoutes (String registerNewRoutes)
 specifier|public
 name|void
@@ -586,6 +714,7 @@ return|return
 name|loadStatisticsEnabled
 return|;
 block|}
+comment|/**      * A flag that indicates whether Load statistics is enabled      */
 DECL|method|setLoadStatisticsEnabled (String loadStatisticsEnabled)
 specifier|public
 name|void
@@ -612,6 +741,7 @@ return|return
 name|endpointRuntimeStatisticsEnabled
 return|;
 block|}
+comment|/**      * A flag that indicates whether endpoint runtime statistics is enabled      */
 DECL|method|setEndpointRuntimeStatisticsEnabled (String endpointRuntimeStatisticsEnabled)
 specifier|public
 name|void
@@ -638,6 +768,7 @@ return|return
 name|includeHostName
 return|;
 block|}
+comment|/**      * A flag that indicates whether to include hostname in JMX MBean names.      */
 DECL|method|setIncludeHostName (String includeHostName)
 specifier|public
 name|void
@@ -664,6 +795,7 @@ return|return
 name|mask
 return|;
 block|}
+comment|/**      * A flag that indicates whether to remove detected sensitive information (such as passwords) from MBean names and attributes.      */
 DECL|method|setMask (String mask)
 specifier|public
 name|void
@@ -690,6 +822,7 @@ return|return
 name|useHostIPAddress
 return|;
 block|}
+comment|/**      * A flag that indicates whether to use hostname or IP Address in the service url.      */
 DECL|method|setUseHostIPAddress (String useHostIPAddress)
 specifier|public
 name|void

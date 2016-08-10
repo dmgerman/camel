@@ -61,7 +61,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The&lt;export&gt; tag element.  *  * @version  */
+comment|/**  * Used for export a service using Spring Remoting to hide the network call using an interface.  *  * @version  */
 end_comment
 
 begin_class
@@ -81,6 +81,11 @@ name|IdentifiedType
 block|{
 annotation|@
 name|XmlAttribute
+argument_list|(
+name|required
+operator|=
+literal|true
+argument_list|)
 DECL|field|uri
 specifier|private
 name|String
@@ -120,6 +125,7 @@ return|return
 name|uri
 return|;
 block|}
+comment|/**      * Camel endpoint uri to use a remote transport when calling the service      */
 DECL|method|setUri (String uri)
 specifier|public
 name|void
@@ -146,6 +152,7 @@ return|return
 name|serviceRef
 return|;
 block|}
+comment|/**      * Reference to the service name to lookup in the registry.      */
 DECL|method|setServiceRef (String serviceRef)
 specifier|public
 name|void
@@ -175,6 +182,7 @@ return|return
 name|serviceInterface
 return|;
 block|}
+comment|/**      * Java interfaces to use as facade for the service to be exported      */
 DECL|method|setServiceInterface (Class<?> serviceInterface)
 specifier|public
 name|void
@@ -204,6 +212,7 @@ return|return
 name|camelContextId
 return|;
 block|}
+comment|/**      * The id of the CamelContext to use, if there is multiple CamelContext in the same JVM.      */
 DECL|method|setCamelContextId (String camelContextId)
 specifier|public
 name|void

@@ -112,8 +112,22 @@ name|IdentifiedType
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_comment
-comment|/**  *<code>PropertyPlaceholderDefinition</code> represents a&lt;propertyPlaceholder/&gt element.  *  * @version   */
+comment|/**  * Properties placeholder  *  * @version   */
 end_comment
 
 begin_class
@@ -159,6 +173,13 @@ name|encoding
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|cache
 specifier|private
 name|Boolean
@@ -166,6 +187,13 @@ name|cache
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|ignoreMissingLocation
 specifier|private
 name|Boolean
@@ -201,6 +229,13 @@ name|propertySuffix
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|fallbackToUnaugmentedProperty
 specifier|private
 name|Boolean
@@ -208,6 +243,13 @@ name|fallbackToUnaugmentedProperty
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"{{"
+argument_list|)
 DECL|field|prefixToken
 specifier|private
 name|String
@@ -215,6 +257,13 @@ name|prefixToken
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"}}"
+argument_list|)
 DECL|field|suffixToken
 specifier|private
 name|String
@@ -245,6 +294,7 @@ return|return
 name|location
 return|;
 block|}
+comment|/**      * A list of locations to load properties. You can use comma to separate multiple locations.      * This option will override any default locations and only use the locations from this option.      */
 DECL|method|setLocation (String location)
 specifier|public
 name|void
@@ -271,6 +321,7 @@ return|return
 name|encoding
 return|;
 block|}
+comment|/**      * Encoding to use when loading properties file from the file system or classpath.      *<p/>      * If no encoding has been set, then the properties files is loaded using ISO-8859-1 encoding (latin-1)      * as documented by {@link java.util.Properties#load(java.io.InputStream)}      */
 DECL|method|setEncoding (String encoding)
 specifier|public
 name|void
@@ -297,6 +348,7 @@ return|return
 name|cache
 return|;
 block|}
+comment|/**      * Whether or not to cache loaded properties. The default value is true.      */
 DECL|method|setCache (Boolean cache)
 specifier|public
 name|void
@@ -323,6 +375,7 @@ return|return
 name|propertiesResolverRef
 return|;
 block|}
+comment|/**      * Reference to a custom PropertiesResolver to be used      */
 DECL|method|setPropertiesResolverRef (String propertiesResolverRef)
 specifier|public
 name|void
@@ -349,6 +402,7 @@ return|return
 name|propertiesParserRef
 return|;
 block|}
+comment|/**      * Reference to a custom PropertiesParser to be used      */
 DECL|method|setPropertiesParserRef (String propertiesParserRef)
 specifier|public
 name|void
@@ -375,6 +429,7 @@ return|return
 name|propertyPrefix
 return|;
 block|}
+comment|/**      * Optional prefix prepended to property names before resolution.      */
 DECL|method|setPropertyPrefix (String propertyPrefix)
 specifier|public
 name|void
@@ -401,6 +456,7 @@ return|return
 name|propertySuffix
 return|;
 block|}
+comment|/**      * Optional suffix appended to property names before resolution.      */
 DECL|method|setPropertySuffix (String propertySuffix)
 specifier|public
 name|void
@@ -427,6 +483,7 @@ return|return
 name|fallbackToUnaugmentedProperty
 return|;
 block|}
+comment|/**      * If true, first attempt resolution of property name augmented with propertyPrefix and propertySuffix      * before falling back the plain property name specified. If false, only the augmented property name is searched.      */
 DECL|method|setFallbackToUnaugmentedProperty (Boolean fallbackToUnaugmentedProperty)
 specifier|public
 name|void
@@ -453,6 +510,7 @@ return|return
 name|ignoreMissingLocation
 return|;
 block|}
+comment|/**      * Whether to silently ignore if a location cannot be located, such as a properties file not found.      */
 DECL|method|setIgnoreMissingLocation (Boolean ignoreMissingLocation)
 specifier|public
 name|void
@@ -479,6 +537,7 @@ return|return
 name|prefixToken
 return|;
 block|}
+comment|/**      * Sets the value of the prefix token used to identify properties to replace.  Setting a value of      * {@code null} restores the default token {{      */
 DECL|method|setPrefixToken (String prefixToken)
 specifier|public
 name|void
@@ -505,6 +564,7 @@ return|return
 name|suffixToken
 return|;
 block|}
+comment|/**      * Sets the value of the suffix token used to identify properties to replace.  Setting a value of      * {@code null} restores the default token }}      */
 DECL|method|setSuffixToken (String suffixToken)
 specifier|public
 name|void
@@ -534,6 +594,7 @@ return|return
 name|functions
 return|;
 block|}
+comment|/**      * List of custom properties function to use.      */
 DECL|method|setFunctions (List<CamelPropertyPlaceholderFunctionDefinition> functions)
 specifier|public
 name|void

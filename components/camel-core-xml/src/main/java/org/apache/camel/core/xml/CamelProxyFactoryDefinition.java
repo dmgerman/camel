@@ -60,8 +60,22 @@ name|IdentifiedType
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_comment
-comment|/**  * The&lt;proxy&gt; tag element.  *  * @version  */
+comment|/**  * To proxy a service call using a interface  *  * @version  */
 end_comment
 
 begin_comment
@@ -92,6 +106,8 @@ name|serviceUrl
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Deprecated
 DECL|field|serviceRef
 specifier|private
 name|String
@@ -116,6 +132,13 @@ name|camelContextId
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
 DECL|field|binding
 specifier|private
 name|Boolean
@@ -131,6 +154,7 @@ return|return
 name|serviceUrl
 return|;
 block|}
+comment|/**      * The camel endpoint uri used to send the message to when calling the service from the interface.      */
 DECL|method|setServiceUrl (String serviceUrl)
 specifier|public
 name|void
@@ -157,6 +181,7 @@ return|return
 name|serviceRef
 return|;
 block|}
+comment|/**      * The camel endpoint reference used to send the message to when calling the service from the interface.      *      * @deprecated use serviceUrl instead with the ref endpoint.      */
 DECL|method|setServiceRef (String serviceRef)
 specifier|public
 name|void
@@ -186,6 +211,7 @@ return|return
 name|serviceInterface
 return|;
 block|}
+comment|/**      * Java interfaces to use as facade for the service to be proxied      */
 DECL|method|setServiceInterface (Class<?> serviceInterface)
 specifier|public
 name|void
@@ -215,6 +241,7 @@ return|return
 name|camelContextId
 return|;
 block|}
+comment|/**      * The id of the CamelContext to use, if there is multiple CamelContext in the same JVM.      */
 DECL|method|setCamelContextId (String camelContextId)
 specifier|public
 name|void
@@ -241,6 +268,7 @@ return|return
 name|binding
 return|;
 block|}
+comment|/**      * Camel parameter binding is enabled by default, which will use binding information from the method signature      * parameters to bind to the Exchange/Message with the following annotations.      * If disabled then a {@link org.apache.camel.component.bean.CamelInvocationHandler} is used.      */
 DECL|method|setBinding (Boolean binding)
 specifier|public
 name|void
