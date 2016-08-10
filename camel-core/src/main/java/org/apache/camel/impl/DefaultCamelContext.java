@@ -21318,8 +21318,7 @@ condition|)
 block|{
 name|modelJAXBContextFactory
 operator|=
-operator|new
-name|DefaultModelJAXBContextFactory
+name|createModelJAXBContextFactory
 argument_list|()
 expr_stmt|;
 block|}
@@ -22486,6 +22485,18 @@ name|ActiveMQUuidGenerator
 argument_list|()
 return|;
 block|}
+block|}
+DECL|method|createModelJAXBContextFactory ()
+specifier|protected
+name|ModelJAXBContextFactory
+name|createModelJAXBContextFactory
+parameter_list|()
+block|{
+return|return
+operator|new
+name|DefaultModelJAXBContextFactory
+argument_list|()
+return|;
 block|}
 annotation|@
 name|Override

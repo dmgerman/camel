@@ -142,6 +142,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ModelJAXBContextFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Registry
 import|;
 end_import
@@ -458,13 +472,6 @@ block|{
 name|setApplicationContext
 argument_list|(
 name|applicationContext
-argument_list|)
-expr_stmt|;
-name|setModelJAXBContextFactory
-argument_list|(
-operator|new
-name|SpringModelJAXBContextFactory
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -1136,6 +1143,20 @@ argument_list|(
 name|getApplicationContext
 argument_list|()
 argument_list|)
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|createModelJAXBContextFactory ()
+specifier|protected
+name|ModelJAXBContextFactory
+name|createModelJAXBContextFactory
+parameter_list|()
+block|{
+return|return
+operator|new
+name|SpringModelJAXBContextFactory
+argument_list|()
 return|;
 block|}
 DECL|method|maybeStart ()
