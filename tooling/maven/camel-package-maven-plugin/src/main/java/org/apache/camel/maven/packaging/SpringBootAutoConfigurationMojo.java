@@ -486,22 +486,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|sonatype
-operator|.
-name|plexus
-operator|.
-name|build
-operator|.
-name|incremental
-operator|.
-name|BuildContext
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|springframework
 operator|.
 name|boot
@@ -638,6 +622,7 @@ name|SpringBootAutoConfigurationMojo
 extends|extends
 name|AbstractMojo
 block|{
+comment|/**      * Useful to move configuration towards starters.      * Warning: the spring.factories files sometimes are used also on the main artifacts.      * Make sure it is not the case before enabling this property.      */
 DECL|field|DELETE_FILES_ON_MAIN_ARTIFACTS
 specifier|private
 specifier|static
@@ -645,7 +630,7 @@ specifier|final
 name|boolean
 name|DELETE_FILES_ON_MAIN_ARTIFACTS
 init|=
-literal|true
+literal|false
 decl_stmt|;
 comment|/**      * The maven project.      *      * @parameter property="project"      * @required      * @readonly      */
 DECL|field|project
@@ -665,24 +650,6 @@ specifier|protected
 name|File
 name|baseDir
 decl_stmt|;
-comment|/**      * The source directory      *      * @parameter default-value="${basedir}/src/main/java"      */
-DECL|field|srcDir2222
-specifier|protected
-name|File
-name|srcDir2222
-decl_stmt|;
-comment|/**      * The resources directory      *      * @parameter default-value="${basedir}/src/main/resources"      */
-DECL|field|resourcesDir2222
-specifier|protected
-name|File
-name|resourcesDir2222
-decl_stmt|;
-comment|/**      * build context to check changed files and mark them for refresh (used for      * m2e compatibility)      *      * @component      * @readonly      */
-DECL|field|buildContext
-specifier|private
-name|BuildContext
-name|buildContext
-decl_stmt|;
 annotation|@
 name|Override
 DECL|method|execute ()
@@ -695,6 +662,42 @@ name|MojoExecutionException
 throws|,
 name|MojoFailureException
 block|{
+comment|// Spring-boot configuration has been moved on starters
+name|File
+name|starterDir
+init|=
+name|SpringBootHelper
+operator|.
+name|starterDir
+argument_list|(
+name|baseDir
+argument_list|,
+name|project
+operator|.
+name|getArtifactId
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+operator|!
+name|starterDir
+operator|.
+name|exists
+argument_list|()
+condition|)
+block|{
+comment|// If the starter does not exist, no configuration can be created
+name|getLog
+argument_list|()
+operator|.
+name|info
+argument_list|(
+literal|"Component auto-configuration will not be created: the starter dir does not exist"
+argument_list|)
+expr_stmt|;
+return|return;
+block|}
 name|executeComponent
 argument_list|()
 expr_stmt|;
@@ -7860,6 +7863,11 @@ operator|.
 name|starterSrcDir
 argument_list|(
 name|baseDir
+argument_list|,
+name|project
+operator|.
+name|getArtifactId
+argument_list|()
 argument_list|)
 argument_list|,
 name|fileName
@@ -8098,6 +8106,11 @@ operator|.
 name|starterResourceDir
 argument_list|(
 name|baseDir
+argument_list|,
+name|project
+operator|.
+name|getArtifactId
+argument_list|()
 argument_list|)
 argument_list|,
 name|fileName
@@ -8455,6 +8468,11 @@ operator|.
 name|starterDir
 argument_list|(
 name|baseDir
+argument_list|,
+name|project
+operator|.
+name|getArtifactId
+argument_list|()
 argument_list|)
 operator|.
 name|toPath

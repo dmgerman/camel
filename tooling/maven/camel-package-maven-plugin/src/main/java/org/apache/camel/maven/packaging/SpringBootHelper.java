@@ -63,7 +63,7 @@ specifier|private
 name|SpringBootHelper
 parameter_list|()
 block|{     }
-DECL|method|starterSrcDir (File baseDir)
+DECL|method|starterSrcDir (File baseDir, String artifactId)
 specifier|public
 specifier|static
 name|File
@@ -71,6 +71,9 @@ name|starterSrcDir
 parameter_list|(
 name|File
 name|baseDir
+parameter_list|,
+name|String
+name|artifactId
 parameter_list|)
 block|{
 return|return
@@ -80,13 +83,15 @@ argument_list|(
 name|starterDir
 argument_list|(
 name|baseDir
+argument_list|,
+name|artifactId
 argument_list|)
 argument_list|,
 literal|"src/main/java"
 argument_list|)
 return|;
 block|}
-DECL|method|starterResourceDir (File baseDir)
+DECL|method|starterResourceDir (File baseDir, String artifactId)
 specifier|public
 specifier|static
 name|File
@@ -94,6 +99,9 @@ name|starterResourceDir
 parameter_list|(
 name|File
 name|baseDir
+parameter_list|,
+name|String
+name|artifactId
 parameter_list|)
 block|{
 return|return
@@ -103,13 +111,15 @@ argument_list|(
 name|starterDir
 argument_list|(
 name|baseDir
+argument_list|,
+name|artifactId
 argument_list|)
 argument_list|,
 literal|"src/main/resources"
 argument_list|)
 return|;
 block|}
-DECL|method|starterDir (File baseDir)
+DECL|method|starterDir (File baseDir, String artifactId)
 specifier|public
 specifier|static
 name|File
@@ -117,15 +127,15 @@ name|starterDir
 parameter_list|(
 name|File
 name|baseDir
+parameter_list|,
+name|String
+name|artifactId
 parameter_list|)
 block|{
 name|String
 name|starterName
 init|=
-name|baseDir
-operator|.
-name|getName
-argument_list|()
+name|artifactId
 operator|+
 name|STARTER_SUFFIX
 decl_stmt|;
