@@ -120,6 +120,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ObjectHelper
@@ -149,6 +163,13 @@ name|CamelContextAware
 block|{
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Id of CamelContext to use if there are multiple CamelContexts in the same JVM"
+argument_list|)
 DECL|field|camelContextId
 specifier|private
 name|String

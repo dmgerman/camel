@@ -364,7 +364,7 @@ return|return
 name|allowCoreThreadTimeOut
 return|;
 block|}
-comment|/**      * Sets whethre to allow core threads to timeout      *      * @param allowCoreThreadTimeOut<tt>true</tt> to allow timeout      */
+comment|/**      * Sets whether to allow core threads to timeout      *      * @param allowCoreThreadTimeOut<tt>true</tt> to allow timeout      */
 DECL|method|setAllowCoreThreadTimeOut (Boolean allowCoreThreadTimeOut)
 specifier|public
 name|void

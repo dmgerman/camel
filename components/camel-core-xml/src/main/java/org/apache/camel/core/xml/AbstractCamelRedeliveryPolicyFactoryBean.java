@@ -106,6 +106,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|CamelContextHelper
@@ -137,6 +151,13 @@ argument_list|>
 block|{
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Sets the maximum number of times a message exchange will be redelivered. Setting a negative value will retry forever."
+argument_list|)
 DECL|field|maximumRedeliveries
 specifier|private
 name|String
@@ -144,6 +165,17 @@ name|maximumRedeliveries
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"1000"
+argument_list|,
+name|description
+operator|=
+literal|"Sets the maximum redelivery delay. Use -1 if you wish to have no maximum"
+argument_list|)
 DECL|field|redeliveryDelay
 specifier|private
 name|String
@@ -151,6 +183,21 @@ name|redeliveryDelay
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|description
+operator|=
+literal|"Sets whether asynchronous delayed redelivery is allowed. This is disabled by default. When enabled it allows Camel to schedule a future task for delayed"
+operator|+
+literal|" redelivery which prevents current thread from blocking while waiting. Exchange which is transacted will however always use synchronous delayed redelivery because"
+operator|+
+literal|" the transaction must execute in the same thread context."
+argument_list|)
 DECL|field|asyncDelayedRedelivery
 specifier|private
 name|String
@@ -158,6 +205,17 @@ name|asyncDelayedRedelivery
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"2"
+argument_list|,
+name|description
+operator|=
+literal|"Sets the multiplier used to increase the delay between redeliveries if useExponentialBackOff is enabled"
+argument_list|)
 DECL|field|backOffMultiplier
 specifier|private
 name|String
@@ -165,6 +223,17 @@ name|backOffMultiplier
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|description
+operator|=
+literal|"Enables/disables exponential backoff using the backOffMultiplier to increase the time between retries"
+argument_list|)
 DECL|field|useExponentialBackOff
 specifier|private
 name|String
@@ -172,6 +241,17 @@ name|useExponentialBackOff
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"0.15"
+argument_list|,
+name|description
+operator|=
+literal|"Sets the factor used for collision avoidance if enabled via useCollisionAvoidance."
+argument_list|)
 DECL|field|collisionAvoidanceFactor
 specifier|private
 name|String
@@ -179,6 +259,17 @@ name|collisionAvoidanceFactor
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|description
+operator|=
+literal|"Enables/disables collision avoidance which adds some randomization to the backoff timings to reduce contention probability"
+argument_list|)
 DECL|field|useCollisionAvoidance
 specifier|private
 name|String
@@ -186,6 +277,17 @@ name|useCollisionAvoidance
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"60000"
+argument_list|,
+name|description
+operator|=
+literal|"Sets the maximum redelivery delay. Use -1 if you wish to have no maximum"
+argument_list|)
 DECL|field|maximumRedeliveryDelay
 specifier|private
 name|String
@@ -193,6 +295,17 @@ name|maximumRedeliveryDelay
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"ERROR"
+argument_list|,
+name|description
+operator|=
+literal|"Sets the logging level to use for log messages when retries have been exhausted."
+argument_list|)
 DECL|field|retriesExhaustedLogLevel
 specifier|private
 name|LoggingLevel
@@ -200,6 +313,17 @@ name|retriesExhaustedLogLevel
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"DEBUG"
+argument_list|,
+name|description
+operator|=
+literal|"Sets the logging level to use for log messages when retries are attempted."
+argument_list|)
 DECL|field|retryAttemptedLogLevel
 specifier|private
 name|LoggingLevel
@@ -207,6 +331,17 @@ name|retryAttemptedLogLevel
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Sets whether to log retry attempts"
+argument_list|)
 DECL|field|logRetryAttempted
 specifier|private
 name|String
@@ -214,6 +349,17 @@ name|logRetryAttempted
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Sets whether stack traces should be logged or not"
+argument_list|)
 DECL|field|logStackTrace
 specifier|private
 name|String
@@ -221,6 +367,17 @@ name|logStackTrace
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|description
+operator|=
+literal|"Sets whether stack traces should be logged or not"
+argument_list|)
 DECL|field|logRetryStackTrace
 specifier|private
 name|String
@@ -228,6 +385,17 @@ name|logRetryStackTrace
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|description
+operator|=
+literal|"Sets whether errors should be logged even if its handled"
+argument_list|)
 DECL|field|logHandled
 specifier|private
 name|String
@@ -235,6 +403,17 @@ name|logHandled
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|description
+operator|=
+literal|"Sets whether errors should be logged even if its continued"
+argument_list|)
 DECL|field|logContinued
 specifier|private
 name|String
@@ -242,6 +421,17 @@ name|logContinued
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Sets whether exhausted exceptions should be logged or not"
+argument_list|)
 DECL|field|logExhausted
 specifier|private
 name|String
@@ -249,6 +439,17 @@ name|logExhausted
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|description
+operator|=
+literal|"Sets whether to log exhausted errors including message history"
+argument_list|)
 DECL|field|logExhaustedMessageHistory
 specifier|private
 name|String
@@ -256,6 +457,17 @@ name|logExhaustedMessageHistory
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|,
+name|description
+operator|=
+literal|"Disables redelivery by setting maximum redeliveries to 0."
+argument_list|)
 DECL|field|disableRedelivery
 specifier|private
 name|String
@@ -263,6 +475,13 @@ name|disableRedelivery
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Sets an optional delay pattern to use instead of fixed delay."
+argument_list|)
 DECL|field|delayPattern
 specifier|private
 name|String
@@ -270,6 +489,17 @@ name|delayPattern
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|,
+name|description
+operator|=
+literal|"Controls whether to allow redelivery while stopping/shutting down a route that uses error handling."
+argument_list|)
 DECL|field|allowRedeliveryWhileStopping
 specifier|private
 name|String
@@ -277,6 +507,13 @@ name|allowRedeliveryWhileStopping
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Sets the reference of the instance of {@link org.apache.camel.spi.ExchangeFormatter} to generate the log message from exchange."
+argument_list|)
 DECL|field|exchangeFormatterRef
 specifier|private
 name|String

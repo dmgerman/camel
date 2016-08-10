@@ -108,6 +108,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ServiceHelper
@@ -146,6 +160,13 @@ name|template
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Sets a custom maximum cache size to use in the backing cache pools."
+argument_list|)
 DECL|field|maximumCacheSize
 specifier|private
 name|Integer

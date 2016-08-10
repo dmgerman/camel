@@ -186,6 +186,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|URISupport
@@ -213,13 +227,15 @@ argument_list|>
 block|{
 annotation|@
 name|XmlAttribute
-argument_list|(
-name|required
-operator|=
-literal|false
-argument_list|)
 annotation|@
 name|Deprecated
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Not in use"
+argument_list|)
 DECL|field|singleton
 specifier|private
 name|Boolean
@@ -232,6 +248,13 @@ name|required
 operator|=
 literal|true
 argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Sets the URI to use to resolve the endpoint. Notice that additional options can be configured using a series of property."
+argument_list|)
 DECL|field|uri
 specifier|private
 name|String
@@ -241,6 +264,13 @@ annotation|@
 name|XmlAttribute
 annotation|@
 name|Deprecated
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Sets the exchange pattern of the endpoint"
+argument_list|)
 DECL|field|pattern
 specifier|private
 name|ExchangePattern
@@ -248,6 +278,13 @@ name|pattern
 decl_stmt|;
 annotation|@
 name|XmlElementRef
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"To configure additional endpoint options using a XML style which is similar as configuring Spring or Blueprint beans."
+argument_list|)
 DECL|field|properties
 specifier|private
 name|List

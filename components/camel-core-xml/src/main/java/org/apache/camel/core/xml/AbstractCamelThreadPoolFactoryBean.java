@@ -152,6 +152,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|ThreadPoolProfile
 import|;
 end_import
@@ -200,6 +214,13 @@ name|required
 operator|=
 literal|true
 argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Sets the core pool size (threads to keep minimum in pool)"
+argument_list|)
 DECL|field|poolSize
 specifier|private
 name|String
@@ -207,6 +228,13 @@ name|poolSize
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Sets the maximum pool size"
+argument_list|)
 DECL|field|maxPoolSize
 specifier|private
 name|String
@@ -214,6 +242,13 @@ name|maxPoolSize
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Sets the keep alive time for inactive threads"
+argument_list|)
 DECL|field|keepAliveTime
 specifier|private
 name|String
@@ -228,6 +263,17 @@ name|TimeUnitAdapter
 operator|.
 name|class
 argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Sets the time unit used for keep alive time"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"SECONDS"
+argument_list|)
 DECL|field|timeUnit
 specifier|private
 name|TimeUnit
@@ -239,6 +285,13 @@ name|SECONDS
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Sets the maximum number of tasks in the work queue. Use -1 for an unbounded queue"
+argument_list|)
 DECL|field|maxQueueSize
 specifier|private
 name|String
@@ -246,6 +299,13 @@ name|maxQueueSize
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Sets whether to allow core threads to timeout"
+argument_list|)
 DECL|field|allowCoreThreadTimeOut
 specifier|private
 name|String
@@ -253,6 +313,17 @@ name|allowCoreThreadTimeOut
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Sets the handler for tasks which cannot be executed by the thread pool."
+argument_list|,
+name|defaultValue
+operator|=
+literal|"CallerRuns"
+argument_list|)
 DECL|field|rejectedPolicy
 specifier|private
 name|ThreadPoolRejectedPolicy
@@ -269,6 +340,13 @@ name|required
 operator|=
 literal|true
 argument_list|)
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"To use a custom thread name / pattern"
+argument_list|)
 DECL|field|threadName
 specifier|private
 name|String
@@ -276,6 +354,17 @@ name|threadName
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Whether to use a scheduled thread pool"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|scheduled
 specifier|private
 name|Boolean

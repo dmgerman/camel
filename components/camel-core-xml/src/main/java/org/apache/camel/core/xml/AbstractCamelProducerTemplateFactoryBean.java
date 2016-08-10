@@ -132,6 +132,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|util
 operator|.
 name|ServiceHelper
@@ -170,10 +184,12 @@ name|template
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
 argument_list|(
-name|required
+name|description
 operator|=
-literal|false
+literal|"Sets the default endpoint URI used by default for sending message exchanges"
 argument_list|)
 DECL|field|defaultEndpoint
 specifier|private
@@ -182,6 +198,13 @@ name|defaultEndpoint
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"Sets a custom maximum cache size to use in the backing cache pools."
+argument_list|)
 DECL|field|maximumCacheSize
 specifier|private
 name|Integer
