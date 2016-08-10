@@ -1081,13 +1081,6 @@ name|allowUseOriginalMessage
 decl_stmt|;
 annotation|@
 name|XmlAttribute
-annotation|@
-name|Metadata
-argument_list|(
-name|defaultValue
-operator|=
-literal|"true"
-argument_list|)
 DECL|field|runtimeEndpointRegistryEnabled
 specifier|private
 name|String
