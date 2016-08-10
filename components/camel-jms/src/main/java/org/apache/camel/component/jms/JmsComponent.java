@@ -768,7 +768,7 @@ condition|)
 block|{
 if|if
 condition|(
-name|getAllowAutoWiredConnectionFactory
+name|isAllowAutoWiredConnectionFactory
 argument_list|()
 condition|)
 block|{
@@ -823,7 +823,7 @@ block|}
 block|}
 if|if
 condition|(
-name|getAllowAutoWiredDestinationResolver
+name|isAllowAutoWiredDestinationResolver
 argument_list|()
 condition|)
 block|{
@@ -882,22 +882,22 @@ return|return
 name|configuration
 return|;
 block|}
-comment|/**      * Subclasses can override to prevent the jms configuration from being      * setup to use an auto-wired the connection factory that's found in the spring      * application context.      *      * @return true      */
-DECL|method|getAllowAutoWiredConnectionFactory ()
+comment|/**      * Subclasses can override to prevent the jms configuration from being      * setup to use an auto-wired the connection factory that's found in the spring      * application context.      *      * @return true by default      */
+DECL|method|isAllowAutoWiredConnectionFactory ()
 specifier|public
 name|boolean
-name|getAllowAutoWiredConnectionFactory
+name|isAllowAutoWiredConnectionFactory
 parameter_list|()
 block|{
 return|return
 literal|true
 return|;
 block|}
-comment|/**      * Subclasses can override to prevent the jms configuration from being      * setup to use an auto-wired the destination resolved that's found in the spring      * application context.      *      * @return true      */
-DECL|method|getAllowAutoWiredDestinationResolver ()
+comment|/**      * Subclasses can override to prevent the jms configuration from being      * setup to use an auto-wired the destination resolved that's found in the spring      * application context.      *      * @return true by default      */
+DECL|method|isAllowAutoWiredDestinationResolver ()
 specifier|public
 name|boolean
-name|getAllowAutoWiredDestinationResolver
+name|isAllowAutoWiredDestinationResolver
 parameter_list|()
 block|{
 return|return
