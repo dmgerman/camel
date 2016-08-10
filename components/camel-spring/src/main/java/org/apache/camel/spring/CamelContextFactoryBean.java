@@ -895,7 +895,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A Spring {@link FactoryBean} to create and initialize a  * {@link SpringCamelContext} and install routes either explicitly configured in  * Spring XML or found by searching the classpath for Java classes which extend  * {@link RouteBuilder} using the nested {@link #setPackages(String[])}.  *  * @version   */
+comment|/**  * CamelContext using XML configuration.  *  * @version   */
 end_comment
 
 begin_class
@@ -1088,6 +1088,13 @@ name|runtimeEndpointRegistryEnabled
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"#name#"
+argument_list|)
 DECL|field|managementNamePattern
 specifier|private
 name|String
@@ -1095,6 +1102,13 @@ name|managementNamePattern
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+annotation|@
+name|Metadata
+argument_list|(
+name|defaultValue
+operator|=
+literal|"Camel (#camelId#) thread ##counter# - #name#"
+argument_list|)
 DECL|field|threadNamePattern
 specifier|private
 name|String
@@ -2872,6 +2886,7 @@ return|return
 name|routes
 return|;
 block|}
+comment|/**      * Contains the Camel routes      */
 DECL|method|setRoutes (List<RouteDefinition> routes)
 specifier|public
 name|void
@@ -2904,6 +2919,7 @@ return|return
 name|rests
 return|;
 block|}
+comment|/**      * Contains the rest services defined using the rest-dsl      */
 DECL|method|setRests (List<RestDefinition> rests)
 specifier|public
 name|void
@@ -2933,6 +2949,7 @@ return|return
 name|restConfiguration
 return|;
 block|}
+comment|/**      * Configuration for rest-dsl      */
 DECL|method|setRestConfiguration (RestConfigurationDefinition restConfiguration)
 specifier|public
 name|void
@@ -2962,6 +2979,7 @@ return|return
 name|endpoints
 return|;
 block|}
+comment|/**      * Configuration of endpoints      */
 DECL|method|setEndpoints (List<CamelEndpointFactoryBean> endpoints)
 specifier|public
 name|void
@@ -3007,6 +3025,7 @@ return|return
 name|intercepts
 return|;
 block|}
+comment|/**      * Configuration of interceptors.      */
 DECL|method|setIntercepts (List<InterceptDefinition> intercepts)
 specifier|public
 name|void
@@ -3039,6 +3058,7 @@ return|return
 name|interceptFroms
 return|;
 block|}
+comment|/**      * Configuration of interceptors that triggers from the beginning of routes.      */
 DECL|method|setInterceptFroms (List<InterceptFromDefinition> interceptFroms)
 specifier|public
 name|void
@@ -3071,6 +3091,7 @@ return|return
 name|interceptSendToEndpoints
 return|;
 block|}
+comment|/**      * Configuration of interceptors that triggers sending messages to endpoints.      */
 DECL|method|setInterceptSendToEndpoints (List<InterceptSendToEndpointDefinition> interceptSendToEndpoints)
 specifier|public
 name|void
@@ -3100,6 +3121,7 @@ return|return
 name|properties
 return|;
 block|}
+comment|/**      * Configuration of CamelContext properties such as limit of debug logging and other general options.      */
 DECL|method|setProperties (PropertiesDefinition properties)
 specifier|public
 name|void
@@ -3209,6 +3231,7 @@ return|return
 name|camelPropertyPlaceholder
 return|;
 block|}
+comment|/**      * Configuration of property placeholder      */
 DECL|method|setCamelPropertyPlaceholder (CamelPropertyPlaceholderDefinition camelPropertyPlaceholder)
 specifier|public
 name|void
@@ -3235,6 +3258,7 @@ return|return
 name|camelStreamCachingStrategy
 return|;
 block|}
+comment|/**      * Configuration of stream caching.      */
 DECL|method|setCamelStreamCachingStrategy (CamelStreamCachingStrategyDefinition camelStreamCachingStrategy)
 specifier|public
 name|void
@@ -3251,6 +3275,7 @@ operator|=
 name|camelStreamCachingStrategy
 expr_stmt|;
 block|}
+comment|/**      * Configuration of JMX.      */
 DECL|method|setCamelJMXAgent (CamelJMXAgentDefinition agent)
 specifier|public
 name|void
@@ -3275,6 +3300,7 @@ return|return
 name|trace
 return|;
 block|}
+comment|/**      * Sets whether tracing is enabled or not.      */
 DECL|method|setTrace (String trace)
 specifier|public
 name|void
@@ -3301,6 +3327,7 @@ return|return
 name|messageHistory
 return|;
 block|}
+comment|/**      * Sets whether message history is enabled or not.      */
 DECL|method|setMessageHistory (String messageHistory)
 specifier|public
 name|void
@@ -3327,6 +3354,7 @@ return|return
 name|logExhaustedMessageBody
 return|;
 block|}
+comment|/**      * Sets whether to log exhausted message body with message history.      */
 DECL|method|setLogExhaustedMessageBody (String logExhaustedMessageBody)
 specifier|public
 name|void
@@ -3353,6 +3381,7 @@ return|return
 name|streamCache
 return|;
 block|}
+comment|/**      * Sets whether stream caching is enabled or not.      */
 DECL|method|setStreamCache (String streamCache)
 specifier|public
 name|void
@@ -3379,6 +3408,7 @@ return|return
 name|delayer
 return|;
 block|}
+comment|/**      * Sets a delay value in millis that a message is delayed at every step it takes in the route path,      * slowing the process down to better observe what is occurring      */
 DECL|method|setDelayer (String delayer)
 specifier|public
 name|void
@@ -3405,6 +3435,7 @@ return|return
 name|handleFault
 return|;
 block|}
+comment|/**      * Sets whether fault handling is enabled or not (default is disabled).      */
 DECL|method|setHandleFault (String handleFault)
 specifier|public
 name|void
@@ -3431,6 +3462,7 @@ return|return
 name|autoStartup
 return|;
 block|}
+comment|/**      * Sets whether the object should automatically start when Camel starts.      *<p/>      *<b>Important:</b> Currently only routes can be disabled, as {@link CamelContext}s are always started.      *<br/>      *<b>Note:</b> When setting auto startup<tt>false</tt> on {@link CamelContext} then that takes precedence      * and<i>no</i> routes is started. You would need to start {@link CamelContext} explicit using      * the {@link org.apache.camel.CamelContext#start()} method, to start the context, and then      * you would need to start the routes manually using {@link CamelContext#startRoute(String)}.      */
 DECL|method|setAutoStartup (String autoStartup)
 specifier|public
 name|void
@@ -3457,6 +3489,7 @@ return|return
 name|shutdownEager
 return|;
 block|}
+comment|/**      * Whether to shutdown CamelContext eager when Spring is shutting down.      * This ensure a cleaner shutdown of Camel, as dependent bean's are not shutdown at this moment.      * The bean's will then be shutdown after camelContext.      */
 DECL|method|setShutdownEager (String shutdownEager)
 specifier|public
 name|void
@@ -3483,6 +3516,7 @@ return|return
 name|useMDCLogging
 return|;
 block|}
+comment|/**      * Set whether<a href="http://www.slf4j.org/api/org/slf4j/MDC.html">MDC</a> is enabled.      */
 DECL|method|setUseMDCLogging (String useMDCLogging)
 specifier|public
 name|void
@@ -3509,6 +3543,7 @@ return|return
 name|useBreadcrumb
 return|;
 block|}
+comment|/**      * Set whether breadcrumb is enabled.      */
 DECL|method|setUseBreadcrumb (String useBreadcrumb)
 specifier|public
 name|void
@@ -3535,6 +3570,7 @@ return|return
 name|allowUseOriginalMessage
 return|;
 block|}
+comment|/**      * Sets whether to allow access to the original message from Camel's error handler,      * or from {@link org.apache.camel.spi.UnitOfWork#getOriginalInMessage()}.      *<p/>      * Turning this off can optimize performance, as defensive copy of the original message is not needed.      */
 DECL|method|setAllowUseOriginalMessage (String allowUseOriginalMessage)
 specifier|public
 name|void
@@ -3561,6 +3597,7 @@ return|return
 name|runtimeEndpointRegistryEnabled
 return|;
 block|}
+comment|/**      * Sets whether {@link org.apache.camel.spi.RuntimeEndpointRegistry} is enabled.      */
 DECL|method|setRuntimeEndpointRegistryEnabled (String runtimeEndpointRegistryEnabled)
 specifier|public
 name|void
@@ -3587,6 +3624,7 @@ return|return
 name|managementNamePattern
 return|;
 block|}
+comment|/**      * The naming pattern for creating the CamelContext management name.      */
 DECL|method|setManagementNamePattern (String managementNamePattern)
 specifier|public
 name|void
@@ -3613,6 +3651,7 @@ return|return
 name|threadNamePattern
 return|;
 block|}
+comment|/**      * Sets the thread name pattern used for creating the full thread name.      *<p/>      * The default pattern is:<tt>Camel (#camelId#) thread ##counter# - #name#</tt>      *<p/>      * Where<tt>#camelId#</tt> is the name of the {@link org.apache.camel.CamelContext}      *<br/>and<tt>#counter#</tt> is a unique incrementing counter.      *<br/>and<tt>#name#</tt> is the regular thread name.      *<br/>You can also use<tt>#longName#</tt> is the long thread name which can includes endpoint parameters etc.      */
 DECL|method|setThreadNamePattern (String threadNamePattern)
 specifier|public
 name|void
@@ -3641,6 +3680,7 @@ return|return
 name|lazyLoadTypeConverters
 return|;
 block|}
+comment|/**      * Sets whether type converters should be loaded lazy      */
 annotation|@
 name|Deprecated
 DECL|method|setLazyLoadTypeConverters (Boolean lazyLoadTypeConverters)
@@ -3669,6 +3709,7 @@ return|return
 name|typeConverterStatisticsEnabled
 return|;
 block|}
+comment|/**      * Sets whether or not type converter statistics is enabled.      *<p/>      * By default the type converter utilization statistics is disabled.      *<b>Notice:</b> If enabled then there is a slight performance impact under very heavy load.      *<p/>      * You can enable/disable the statistics at runtime using the      * {@link org.apache.camel.spi.TypeConverterRegistry#getStatistics()#setTypeConverterStatisticsEnabled(Boolean)} method,      * or from JMX on the {@link org.apache.camel.api.management.mbean.ManagedTypeConverterRegistryMBean} mbean.      */
 DECL|method|setTypeConverterStatisticsEnabled (Boolean typeConverterStatisticsEnabled)
 specifier|public
 name|void
@@ -3695,6 +3736,7 @@ return|return
 name|typeConverterExists
 return|;
 block|}
+comment|/**      * What should happen when attempting to add a duplicate type converter.      *<p/>      * The default behavior is to override the existing.      */
 DECL|method|setTypeConverterExists (TypeConverterExists typeConverterExists)
 specifier|public
 name|void
@@ -3721,6 +3763,7 @@ return|return
 name|typeConverterExistsLoggingLevel
 return|;
 block|}
+comment|/**      * The logging level to use when logging that a type converter already exists when attempting to add a duplicate type converter.      *<p/>      * The default logging level is<tt>WARN</tt>      */
 DECL|method|setTypeConverterExistsLoggingLevel (LoggingLevel typeConverterExistsLoggingLevel)
 specifier|public
 name|void
@@ -3760,6 +3803,7 @@ return|return
 name|builderRefs
 return|;
 block|}
+comment|/**      * Refers to Java {@link RouteBuilder} instances to include as routes in this CamelContext.      */
 DECL|method|setBuilderRefs (List<RouteBuilderDefinition> builderRefs)
 specifier|public
 name|void
@@ -3792,6 +3836,7 @@ return|return
 name|routeRefs
 return|;
 block|}
+comment|/**      * Refers to XML routes to include as routes in this CamelContext.      */
 DECL|method|setRouteRefs (List<RouteContextRefDefinition> routeRefs)
 specifier|public
 name|void
@@ -3824,6 +3869,7 @@ return|return
 name|restRefs
 return|;
 block|}
+comment|/**      * Refers to XML rest-dsl to include as REST services in this CamelContext.      */
 DECL|method|setRestRefs (List<RestContextRefDefinition> restRefs)
 specifier|public
 name|void
@@ -3853,7 +3899,7 @@ return|return
 name|errorHandlerRef
 return|;
 block|}
-comment|/**      * Sets the name of the error handler object used to default the error handling strategy      *      * @param errorHandlerRef the Spring bean ref of the error handler      */
+comment|/**      * Sets the name of the error handler object used to default the error handling strategy      */
 DECL|method|setErrorHandlerRef (String errorHandlerRef)
 specifier|public
 name|void
@@ -3870,6 +3916,7 @@ operator|=
 name|errorHandlerRef
 expr_stmt|;
 block|}
+comment|/**      * Configuration of data formats.      */
 DECL|method|setDataFormats (DataFormatsDefinition dataFormats)
 specifier|public
 name|void
@@ -3896,6 +3943,60 @@ return|return
 name|dataFormats
 return|;
 block|}
+comment|/**      * Configuration of redelivery settings.      */
+DECL|method|setRedeliveryPolicies (List<CamelRedeliveryPolicyFactoryBean> redeliveryPolicies)
+specifier|public
+name|void
+name|setRedeliveryPolicies
+parameter_list|(
+name|List
+argument_list|<
+name|CamelRedeliveryPolicyFactoryBean
+argument_list|>
+name|redeliveryPolicies
+parameter_list|)
+block|{
+name|this
+operator|.
+name|redeliveryPolicies
+operator|=
+name|redeliveryPolicies
+expr_stmt|;
+block|}
+DECL|method|getBeans ()
+specifier|public
+name|List
+argument_list|<
+name|?
+argument_list|>
+name|getBeans
+parameter_list|()
+block|{
+return|return
+name|beans
+return|;
+block|}
+comment|/**      * Miscellaneous configurations      */
+DECL|method|setBeans (List<?> beans)
+specifier|public
+name|void
+name|setBeans
+parameter_list|(
+name|List
+argument_list|<
+name|?
+argument_list|>
+name|beans
+parameter_list|)
+block|{
+name|this
+operator|.
+name|beans
+operator|=
+name|beans
+expr_stmt|;
+block|}
+comment|/**      * Configuration of error handlers that triggers on exceptions thrown.      */
 DECL|method|setOnExceptions (List<OnExceptionDefinition> onExceptions)
 specifier|public
 name|void
@@ -3941,6 +4042,7 @@ return|return
 name|onCompletions
 return|;
 block|}
+comment|/**      * Configuration of sub routes to run at the completion of routing.      */
 DECL|method|setOnCompletions (List<OnCompletionDefinition> onCompletions)
 specifier|public
 name|void
@@ -3970,6 +4072,7 @@ return|return
 name|shutdownRoute
 return|;
 block|}
+comment|/**      * Sets the ShutdownRoute option for routes.      */
 DECL|method|setShutdownRoute (ShutdownRoute shutdownRoute)
 specifier|public
 name|void
@@ -3996,6 +4099,7 @@ return|return
 name|shutdownRunningTask
 return|;
 block|}
+comment|/**      * Sets the ShutdownRunningTask option to use when shutting down a route.      */
 DECL|method|setShutdownRunningTask (ShutdownRunningTask shutdownRunningTask)
 specifier|public
 name|void
@@ -4025,6 +4129,7 @@ return|return
 name|threadPoolProfiles
 return|;
 block|}
+comment|/**      * Configuration of thread pool profiles.      */
 DECL|method|setThreadPoolProfiles (List<ThreadPoolProfileDefinition> threadPoolProfiles)
 specifier|public
 name|void
@@ -4044,6 +4149,39 @@ operator|=
 name|threadPoolProfiles
 expr_stmt|;
 block|}
+DECL|method|getThreadPools ()
+specifier|public
+name|List
+argument_list|<
+name|CamelThreadPoolFactoryBean
+argument_list|>
+name|getThreadPools
+parameter_list|()
+block|{
+return|return
+name|threadPools
+return|;
+block|}
+comment|/**      * Configuration of thread pool      */
+DECL|method|setThreadPools (List<CamelThreadPoolFactoryBean> threadPools)
+specifier|public
+name|void
+name|setThreadPools
+parameter_list|(
+name|List
+argument_list|<
+name|CamelThreadPoolFactoryBean
+argument_list|>
+name|threadPools
+parameter_list|)
+block|{
+name|this
+operator|.
+name|threadPools
+operator|=
+name|threadPools
+expr_stmt|;
+block|}
 DECL|method|getDependsOn ()
 specifier|public
 name|String
@@ -4054,6 +4192,7 @@ return|return
 name|dependsOn
 return|;
 block|}
+comment|/**      * List of other bean id's this CamelContext depends up. Multiple bean id's can be separated by comma.      */
 DECL|method|setDependsOn (String dependsOn)
 specifier|public
 name|void

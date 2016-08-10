@@ -179,7 +179,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A {@link FactoryBean} which instantiates {@link Endpoint} objects  *  * @version   */
+comment|/**  * Camel endpoint configuration  *  * @version   */
 end_comment
 
 begin_class
