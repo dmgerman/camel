@@ -85,14 +85,9 @@ name|setConfiguration
 argument_list|(
 operator|new
 name|JCacheConfiguration
-argument_list|()
-argument_list|)
-expr_stmt|;
-name|repository
-operator|.
-name|setCacheName
 argument_list|(
 literal|"aggregation-repository"
+argument_list|)
 argument_list|)
 expr_stmt|;
 name|repository

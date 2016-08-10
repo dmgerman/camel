@@ -200,7 +200,7 @@ name|Object
 argument_list|>
 name|cacheManager
 decl_stmt|;
-DECL|method|JCacheEndpoint (String uri, JCacheComponent component, JCacheConfiguration configuration, String cacheName)
+DECL|method|JCacheEndpoint (String uri, JCacheComponent component, JCacheConfiguration configuration)
 specifier|public
 name|JCacheEndpoint
 parameter_list|(
@@ -212,9 +212,6 @@ name|component
 parameter_list|,
 name|JCacheConfiguration
 name|configuration
-parameter_list|,
-name|String
-name|cacheName
 parameter_list|)
 block|{
 name|super
@@ -228,7 +225,10 @@ name|this
 operator|.
 name|cacheName
 operator|=
-name|cacheName
+name|configuration
+operator|.
+name|getCacheName
+argument_list|()
 expr_stmt|;
 name|this
 operator|.
@@ -240,26 +240,11 @@ name|this
 operator|.
 name|cacheManager
 operator|=
-operator|new
-name|JCacheManager
-argument_list|<>
+name|JCacheHelper
+operator|.
+name|createManager
 argument_list|(
 name|configuration
-argument_list|,
-name|cacheName
-argument_list|,
-name|component
-operator|.
-name|getCamelContext
-argument_list|()
-operator|.
-name|getApplicationContextClassLoader
-argument_list|()
-argument_list|,
-name|component
-operator|.
-name|getCamelContext
-argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
