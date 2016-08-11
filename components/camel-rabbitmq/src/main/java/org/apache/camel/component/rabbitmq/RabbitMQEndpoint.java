@@ -1144,6 +1144,18 @@ specifier|private
 name|long
 name|publisherAcknowledgementsTimeout
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
+DECL|field|guaranteedDeliveries
+specifier|private
+name|boolean
+name|guaranteedDeliveries
+decl_stmt|;
 comment|// camel-jms supports this setting but it is not currently configurable in camel-rabbitmq
 DECL|field|useMessageIDAsCorrelationID
 specifier|private
@@ -1976,7 +1988,7 @@ return|return
 name|skipQueueDeclare
 return|;
 block|}
-comment|/**      * If true the queue will not be bound to the exchange after declaring it      * @return       */
+comment|/**      * If true the queue will not be bound to the exchange after declaring it      * @return      */
 DECL|method|isSkipQueueBind ()
 specifier|public
 name|boolean
@@ -2910,7 +2922,7 @@ return|return
 name|useMessageIDAsCorrelationID
 return|;
 block|}
-comment|/**      * When true and an inOut Exchange failed on the consumer side send the caused Exception back in the response       */
+comment|/**      * When true and an inOut Exchange failed on the consumer side send the caused Exception back in the response      */
 DECL|method|setTransferException (boolean transferException)
 specifier|public
 name|void
@@ -2991,6 +3003,33 @@ operator|.
 name|publisherAcknowledgementsTimeout
 operator|=
 name|publisherAcknowledgementsTimeout
+expr_stmt|;
+block|}
+comment|/**      * When true, an exception will be thrown when the message cannot be delivered (basic.return) and the message is      * marked as mandatory.      * PublisherAcknowledgement will also be activated in this case      *      * See also<a href=https://www.rabbitmq.com/confirms.html">publisher acknowledgements</a> - When will messages be      * confirmed?      */
+DECL|method|isGuaranteedDeliveries ()
+specifier|public
+name|boolean
+name|isGuaranteedDeliveries
+parameter_list|()
+block|{
+return|return
+name|guaranteedDeliveries
+return|;
+block|}
+DECL|method|setGuaranteedDeliveries (boolean guaranteedDeliveries)
+specifier|public
+name|void
+name|setGuaranteedDeliveries
+parameter_list|(
+name|boolean
+name|guaranteedDeliveries
+parameter_list|)
+block|{
+name|this
+operator|.
+name|guaranteedDeliveries
+operator|=
+name|guaranteedDeliveries
 expr_stmt|;
 block|}
 comment|/**      * Get replyToType for inOut exchange      */
