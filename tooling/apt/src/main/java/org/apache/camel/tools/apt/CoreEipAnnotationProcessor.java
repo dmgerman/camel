@@ -96,57 +96,19 @@ name|annotation
 operator|.
 name|processing
 operator|.
+name|ProcessingEnvironment
+import|;
+end_import
+
+begin_import
+import|import
+name|javax
+operator|.
+name|annotation
+operator|.
+name|processing
+operator|.
 name|RoundEnvironment
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|annotation
-operator|.
-name|processing
-operator|.
-name|SupportedAnnotationTypes
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|annotation
-operator|.
-name|processing
-operator|.
-name|SupportedSourceVersion
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|lang
-operator|.
-name|model
-operator|.
-name|SourceVersion
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|lang
-operator|.
-name|model
-operator|.
-name|element
-operator|.
-name|Element
 import|;
 end_import
 
@@ -408,6 +370,96 @@ name|tools
 operator|.
 name|apt
 operator|.
+name|AnnotationProcessorHelper
+operator|.
+name|findJavaDoc
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|tools
+operator|.
+name|apt
+operator|.
+name|AnnotationProcessorHelper
+operator|.
+name|findTypeElement
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|tools
+operator|.
+name|apt
+operator|.
+name|AnnotationProcessorHelper
+operator|.
+name|findTypeElementChildren
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|tools
+operator|.
+name|apt
+operator|.
+name|AnnotationProcessorHelper
+operator|.
+name|hasSuperClass
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|tools
+operator|.
+name|apt
+operator|.
+name|AnnotationProcessorHelper
+operator|.
+name|processFile
+import|;
+end_import
+
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|tools
+operator|.
+name|apt
+operator|.
 name|helper
 operator|.
 name|JsonSchemaHelper
@@ -481,28 +533,10 @@ comment|/**  * Process all camel-core's model classes (EIPs and DSL) and generat
 end_comment
 
 begin_class
-annotation|@
-name|SupportedAnnotationTypes
-argument_list|(
-block|{
-literal|"javax.xml.bind.annotation.*"
-block|,
-literal|"org.apache.camel.spi.Label"
-block|}
-argument_list|)
-annotation|@
-name|SupportedSourceVersion
-argument_list|(
-name|SourceVersion
-operator|.
-name|RELEASE_8
-argument_list|)
-DECL|class|EipAnnotationProcessor
+DECL|class|CoreEipAnnotationProcessor
 specifier|public
 class|class
-name|EipAnnotationProcessor
-extends|extends
-name|AbstractAnnotationProcessor
+name|CoreEipAnnotationProcessor
 block|{
 comment|// special when using expression/predicates in the model
 DECL|field|ONE_OF_TYPE_NAME
@@ -604,109 +638,15 @@ name|skipUnwanted
 init|=
 literal|true
 decl_stmt|;
-annotation|@
-name|Override
-DECL|method|process (Set<? extends TypeElement> annotations, RoundEnvironment roundEnv)
-specifier|public
-name|boolean
-name|process
-parameter_list|(
-name|Set
-argument_list|<
-name|?
-extends|extends
-name|TypeElement
-argument_list|>
-name|annotations
-parameter_list|,
-name|RoundEnvironment
-name|roundEnv
-parameter_list|)
-block|{
-try|try
-block|{
-if|if
-condition|(
-name|roundEnv
-operator|.
-name|processingOver
-argument_list|()
-condition|)
-block|{
-return|return
-literal|true
-return|;
-block|}
-name|Set
-argument_list|<
-name|?
-extends|extends
-name|Element
-argument_list|>
-name|elements
-init|=
-name|roundEnv
-operator|.
-name|getElementsAnnotatedWith
-argument_list|(
-name|XmlRootElement
-operator|.
-name|class
-argument_list|)
-decl_stmt|;
-for|for
-control|(
-name|Element
-name|element
-range|:
-name|elements
-control|)
-block|{
-if|if
-condition|(
-name|element
-operator|instanceof
-name|TypeElement
-condition|)
-block|{
-name|processModelClass
-argument_list|(
-name|roundEnv
-argument_list|,
-operator|(
-name|TypeElement
-operator|)
-name|element
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
-block|{
-name|dumpExceptionToErrorFile
-argument_list|(
-literal|"camel-apt-error.log"
-argument_list|,
-literal|"Error processing EIP model"
-argument_list|,
-name|e
-argument_list|)
-expr_stmt|;
-block|}
-return|return
-literal|true
-return|;
-block|}
-DECL|method|processModelClass (final RoundEnvironment roundEnv, final TypeElement classElement)
+DECL|method|processModelClass (final ProcessingEnvironment processingEnv, final RoundEnvironment roundEnv, final TypeElement classElement)
 specifier|protected
 name|void
 name|processModelClass
 parameter_list|(
+specifier|final
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 specifier|final
 name|RoundEnvironment
 name|roundEnv
@@ -716,7 +656,6 @@ name|TypeElement
 name|classElement
 parameter_list|)
 block|{
-comment|// must be from org.apache.camel.model
 specifier|final
 name|String
 name|javaTypeName
@@ -749,19 +688,6 @@ literal|"."
 argument_list|)
 argument_list|)
 decl_stmt|;
-if|if
-condition|(
-operator|!
-name|javaTypeName
-operator|.
-name|startsWith
-argument_list|(
-literal|"org.apache.camel.model"
-argument_list|)
-condition|)
-block|{
-return|return;
-block|}
 comment|// skip abstract classes
 if|if
 condition|(
@@ -947,6 +873,8 @@ parameter_list|)
 block|{
 name|writeJSonSchemeDocumentation
 argument_list|(
+name|processingEnv
+argument_list|,
 name|writer
 argument_list|,
 name|roundEnv
@@ -968,6 +896,8 @@ block|}
 decl_stmt|;
 name|processFile
 argument_list|(
+name|processingEnv
+argument_list|,
 name|packageName
 argument_list|,
 name|fileName
@@ -976,11 +906,14 @@ name|handler
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|writeJSonSchemeDocumentation (PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, XmlRootElement rootElement, String javaTypeName, String modelName)
+DECL|method|writeJSonSchemeDocumentation (ProcessingEnvironment processingEnv, PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, XmlRootElement rootElement, String javaTypeName, String modelName)
 specifier|protected
 name|void
 name|writeJSonSchemeDocumentation
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|PrintWriter
 name|writer
 parameter_list|,
@@ -1006,6 +939,8 @@ name|eipModel
 init|=
 name|findEipModelProperties
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|classElement
@@ -1037,6 +972,8 @@ argument_list|)
 decl_stmt|;
 name|findClassProperties
 argument_list|(
+name|processingEnv
+argument_list|,
 name|writer
 argument_list|,
 name|roundEnv
@@ -1059,6 +996,8 @@ name|setInput
 argument_list|(
 name|hasInput
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|classElement
@@ -1496,11 +1435,14 @@ name|toString
 argument_list|()
 return|;
 block|}
-DECL|method|findEipModelProperties (RoundEnvironment roundEnv, TypeElement classElement, String javaTypeName, String name)
+DECL|method|findEipModelProperties (ProcessingEnvironment processingEnv, RoundEnvironment roundEnv, TypeElement classElement, String javaTypeName, String name)
 specifier|protected
 name|EipModel
 name|findEipModelProperties
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|RoundEnvironment
 name|roundEnv
 parameter_list|,
@@ -1629,6 +1571,8 @@ name|typeElement
 init|=
 name|findTypeElement
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|model
@@ -1698,11 +1642,14 @@ return|return
 name|model
 return|;
 block|}
-DECL|method|findClassProperties (PrintWriter writer, RoundEnvironment roundEnv, Set<EipOption> eipOptions, TypeElement originalClassType, TypeElement classElement, String prefix, String modelName)
+DECL|method|findClassProperties (ProcessingEnvironment processingEnv, PrintWriter writer, RoundEnvironment roundEnv, Set<EipOption> eipOptions, TypeElement originalClassType, TypeElement classElement, String prefix, String modelName)
 specifier|protected
 name|void
 name|findClassProperties
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|PrintWriter
 name|writer
 parameter_list|,
@@ -1792,6 +1739,8 @@ name|skip
 init|=
 name|processAttribute
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|originalClassType
@@ -1840,6 +1789,8 @@ condition|)
 block|{
 name|processValue
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|originalClassType
@@ -1881,6 +1832,8 @@ condition|)
 block|{
 name|processElements
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|classElement
@@ -1916,6 +1869,8 @@ condition|)
 block|{
 name|processElement
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|classElement
@@ -1971,6 +1926,8 @@ expr_stmt|;
 comment|// special for outputs
 name|processOutputs
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|originalClassType
@@ -1989,6 +1946,8 @@ expr_stmt|;
 comment|// special for when clauses (choice eip)
 name|processRefWhenClauses
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|originalClassType
@@ -2025,6 +1984,8 @@ expr_stmt|;
 comment|// special for verbs (rest-dsl)
 name|processVerbs
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|originalClassType
@@ -2043,6 +2004,8 @@ expr_stmt|;
 comment|// special for expression
 name|processRefExpression
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|originalClassType
@@ -2081,6 +2044,8 @@ condition|)
 block|{
 name|processIdentified
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|originalClassType
@@ -2112,6 +2077,8 @@ condition|)
 block|{
 name|processRoute
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|originalClassType
@@ -2160,6 +2127,8 @@ name|baseTypeElement
 operator|=
 name|findTypeElement
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|superClassName
@@ -2184,11 +2153,14 @@ break|break;
 block|}
 block|}
 block|}
-DECL|method|processAttribute (RoundEnvironment roundEnv, TypeElement originalClassType, TypeElement classElement, VariableElement fieldElement, String fieldName, XmlAttribute attribute, Set<EipOption> eipOptions, String prefix, String modelName)
+DECL|method|processAttribute (ProcessingEnvironment processingEnv, RoundEnvironment roundEnv, TypeElement originalClassType, TypeElement classElement, VariableElement fieldElement, String fieldName, XmlAttribute attribute, Set<EipOption> eipOptions, String prefix, String modelName)
 specifier|private
 name|boolean
 name|processAttribute
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|RoundEnvironment
 name|roundEnv
 parameter_list|,
@@ -2324,6 +2296,8 @@ name|fieldTypeElement
 init|=
 name|findTypeElement
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|fieldTypeName
@@ -2415,6 +2389,8 @@ name|enumClass
 init|=
 name|findTypeElement
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|fieldTypeElement
@@ -2535,11 +2511,14 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|processValue (RoundEnvironment roundEnv, TypeElement originalClassType, TypeElement classElement, VariableElement fieldElement, String fieldName, XmlValue value, Set<EipOption> eipOptions, String prefix, String modelName)
+DECL|method|processValue (ProcessingEnvironment processingEnv, RoundEnvironment roundEnv, TypeElement originalClassType, TypeElement classElement, VariableElement fieldElement, String fieldName, XmlValue value, Set<EipOption> eipOptions, String prefix, String modelName)
 specifier|private
 name|void
 name|processValue
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|RoundEnvironment
 name|roundEnv
 parameter_list|,
@@ -2739,11 +2718,14 @@ name|ep
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|processElement (RoundEnvironment roundEnv, TypeElement classElement, XmlElement element, VariableElement fieldElement, Set<EipOption> eipOptions, String prefix)
+DECL|method|processElement (ProcessingEnvironment processingEnv, RoundEnvironment roundEnv, TypeElement classElement, XmlElement element, VariableElement fieldElement, Set<EipOption> eipOptions, String prefix)
 specifier|private
 name|void
 name|processElement
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|RoundEnvironment
 name|roundEnv
 parameter_list|,
@@ -2854,6 +2836,8 @@ name|fieldTypeElement
 init|=
 name|findTypeElement
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|fieldTypeName
@@ -2945,6 +2929,8 @@ name|enumClass
 init|=
 name|findTypeElement
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|fieldTypeElement
@@ -3062,6 +3048,8 @@ name|languages
 init|=
 name|findTypeElement
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|language
@@ -3094,6 +3082,8 @@ argument_list|()
 decl_stmt|;
 name|findTypeElementChildren
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|children
@@ -3230,11 +3220,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|processElements (RoundEnvironment roundEnv, TypeElement classElement, XmlElements elements, VariableElement fieldElement, Set<EipOption> eipOptions, String prefix)
+DECL|method|processElements (ProcessingEnvironment processingEnv, RoundEnvironment roundEnv, TypeElement classElement, XmlElements elements, VariableElement fieldElement, Set<EipOption> eipOptions, String prefix)
 specifier|private
 name|void
 name|processElements
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|RoundEnvironment
 name|roundEnv
 parameter_list|,
@@ -3438,11 +3431,14 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|processRoute (RoundEnvironment roundEnv, TypeElement originalClassType, TypeElement classElement, Set<EipOption> eipOptions, String prefix)
+DECL|method|processRoute (ProcessingEnvironment processingEnv, RoundEnvironment roundEnv, TypeElement originalClassType, TypeElement classElement, Set<EipOption> eipOptions, String prefix)
 specifier|private
 name|void
 name|processRoute
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|RoundEnvironment
 name|roundEnv
 parameter_list|,
@@ -4266,6 +4262,8 @@ control|)
 block|{
 name|findTypeElementChildren
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|children
@@ -4388,11 +4386,14 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * Special for process the OptionalIdentifiedDefinition      */
-DECL|method|processIdentified (RoundEnvironment roundEnv, TypeElement originalClassType, TypeElement classElement, Set<EipOption> eipOptions, String prefix)
+DECL|method|processIdentified (ProcessingEnvironment processingEnv, RoundEnvironment roundEnv, TypeElement originalClassType, TypeElement classElement, Set<EipOption> eipOptions, String prefix)
 specifier|private
 name|void
 name|processIdentified
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|RoundEnvironment
 name|roundEnv
 parameter_list|,
@@ -4821,11 +4822,14 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Special for processing an @XmlElementRef outputs field      */
-DECL|method|processOutputs (RoundEnvironment roundEnv, TypeElement originalClassType, XmlElementRef elementRef, VariableElement fieldElement, String fieldName, Set<EipOption> eipOptions, String prefix)
+DECL|method|processOutputs (ProcessingEnvironment processingEnv, RoundEnvironment roundEnv, TypeElement originalClassType, XmlElementRef elementRef, VariableElement fieldElement, String fieldName, Set<EipOption> eipOptions, String prefix)
 specifier|private
 name|void
 name|processOutputs
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|RoundEnvironment
 name|roundEnv
 parameter_list|,
@@ -4959,6 +4963,8 @@ control|)
 block|{
 name|findTypeElementChildren
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|children
@@ -5066,11 +5072,14 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Special for processing an @XmlElementRef verbs field (rest-dsl)      */
-DECL|method|processVerbs (RoundEnvironment roundEnv, TypeElement originalClassType, XmlElementRef elementRef, VariableElement fieldElement, String fieldName, Set<EipOption> eipOptions, String prefix)
+DECL|method|processVerbs (ProcessingEnvironment processingEnv, RoundEnvironment roundEnv, TypeElement originalClassType, XmlElementRef elementRef, VariableElement fieldElement, String fieldName, Set<EipOption> eipOptions, String prefix)
 specifier|private
 name|void
 name|processVerbs
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|RoundEnvironment
 name|roundEnv
 parameter_list|,
@@ -5230,6 +5239,8 @@ control|)
 block|{
 name|findTypeElementChildren
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|children
@@ -5329,11 +5340,14 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Special for processing an @XmlElementRef expression field      */
-DECL|method|processRefExpression (RoundEnvironment roundEnv, TypeElement originalClassType, TypeElement classElement, XmlElementRef elementRef, VariableElement fieldElement, String fieldName, Set<EipOption> eipOptions, String prefix)
+DECL|method|processRefExpression (ProcessingEnvironment processingEnv, RoundEnvironment roundEnv, TypeElement originalClassType, TypeElement classElement, XmlElementRef elementRef, VariableElement fieldElement, String fieldName, Set<EipOption> eipOptions, String prefix)
 specifier|private
 name|void
 name|processRefExpression
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|RoundEnvironment
 name|roundEnv
 parameter_list|,
@@ -5481,6 +5495,8 @@ name|languages
 init|=
 name|findTypeElement
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|language
@@ -5513,6 +5529,8 @@ argument_list|()
 decl_stmt|;
 name|findTypeElementChildren
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|children
@@ -5626,11 +5644,14 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Special for processing an @XmlElementRef when field      */
-DECL|method|processRefWhenClauses (RoundEnvironment roundEnv, TypeElement originalClassType, XmlElementRef elementRef, VariableElement fieldElement, String fieldName, Set<EipOption> eipOptions, String prefix)
+DECL|method|processRefWhenClauses (ProcessingEnvironment processingEnv, RoundEnvironment roundEnv, TypeElement originalClassType, XmlElementRef elementRef, VariableElement fieldElement, String fieldName, Set<EipOption> eipOptions, String prefix)
 specifier|private
 name|void
 name|processRefWhenClauses
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|RoundEnvironment
 name|roundEnv
 parameter_list|,
@@ -6126,11 +6147,14 @@ name|trim
 argument_list|()
 return|;
 block|}
-DECL|method|hasInput (RoundEnvironment roundEnv, TypeElement classElement)
+DECL|method|hasInput (ProcessingEnvironment processingEnv, RoundEnvironment roundEnv, TypeElement classElement)
 specifier|private
 name|boolean
 name|hasInput
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|RoundEnvironment
 name|roundEnv
 parameter_list|,
@@ -6150,6 +6174,8 @@ if|if
 condition|(
 name|hasSuperClass
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|classElement

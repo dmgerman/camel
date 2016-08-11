@@ -146,7 +146,7 @@ name|annotation
 operator|.
 name|processing
 operator|.
-name|AbstractProcessor
+name|Filer
 import|;
 end_import
 
@@ -158,7 +158,7 @@ name|annotation
 operator|.
 name|processing
 operator|.
-name|Filer
+name|ProcessingEnvironment
 import|;
 end_import
 
@@ -241,20 +241,6 @@ operator|.
 name|element
 operator|.
 name|VariableElement
-import|;
-end_import
-
-begin_import
-import|import
-name|javax
-operator|.
-name|lang
-operator|.
-name|model
-operator|.
-name|type
-operator|.
-name|DeclaredType
 import|;
 end_import
 
@@ -409,16 +395,20 @@ comment|/**  * Abstract class for Camel apt plugins.  */
 end_comment
 
 begin_class
-DECL|class|AbstractAnnotationProcessor
+DECL|class|AnnotationProcessorHelper
 specifier|public
-specifier|abstract
+specifier|final
 class|class
-name|AbstractAnnotationProcessor
-extends|extends
-name|AbstractProcessor
+name|AnnotationProcessorHelper
 block|{
+DECL|method|AnnotationProcessorHelper ()
+specifier|private
+name|AnnotationProcessorHelper
+parameter_list|()
+block|{     }
 DECL|method|findJavaDoc (Elements elementUtils, Element element, String fieldName, String name, TypeElement classElement, boolean builderPattern)
-specifier|protected
+specifier|public
+specifier|static
 name|String
 name|findJavaDoc
 parameter_list|(
@@ -875,7 +865,8 @@ name|answer
 return|;
 block|}
 DECL|method|findSetter (String fieldName, TypeElement classElement)
-specifier|protected
+specifier|public
+specifier|static
 name|ExecutableElement
 name|findSetter
 parameter_list|(
@@ -1004,7 +995,8 @@ literal|null
 return|;
 block|}
 DECL|method|findGetter (String fieldName, TypeElement classElement)
-specifier|protected
+specifier|public
+specifier|static
 name|ExecutableElement
 name|findGetter
 parameter_list|(
@@ -1164,7 +1156,8 @@ literal|null
 return|;
 block|}
 DECL|method|findFieldElement (TypeElement classElement, String fieldName)
-specifier|protected
+specifier|public
+specifier|static
 name|VariableElement
 name|findFieldElement
 parameter_list|(
@@ -1236,11 +1229,15 @@ return|return
 literal|null
 return|;
 block|}
-DECL|method|findTypeElement (RoundEnvironment roundEnv, String className)
-specifier|protected
+DECL|method|findTypeElement (ProcessingEnvironment processingEnv, RoundEnvironment roundEnv, String className)
+specifier|public
+specifier|static
 name|TypeElement
 name|findTypeElement
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|RoundEnvironment
 name|roundEnv
 parameter_list|,
@@ -1466,7 +1463,8 @@ argument_list|(
 literal|"unchecked"
 argument_list|)
 DECL|method|getEnclosedElements (PackageElement pe)
-specifier|private
+specifier|public
+specifier|static
 name|List
 argument_list|<
 name|?
@@ -1503,11 +1501,15 @@ operator|.
 name|EMPTY_LIST
 return|;
 block|}
-DECL|method|findTypeElementChildren (RoundEnvironment roundEnv, Set<TypeElement> found, String superClassName)
-specifier|protected
+DECL|method|findTypeElementChildren (ProcessingEnvironment processingEnv, RoundEnvironment roundEnv, Set<TypeElement> found, String superClassName)
+specifier|public
+specifier|static
 name|void
 name|findTypeElementChildren
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|RoundEnvironment
 name|roundEnv
 parameter_list|,
@@ -1648,11 +1650,15 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|hasSuperClass (RoundEnvironment roundEnv, TypeElement classElement, String superClassName)
-specifier|protected
+DECL|method|hasSuperClass (ProcessingEnvironment processingEnv, RoundEnvironment roundEnv, TypeElement classElement, String superClassName)
+specifier|public
+specifier|static
 name|boolean
 name|hasSuperClass
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|RoundEnvironment
 name|roundEnv
 parameter_list|,
@@ -1737,6 +1743,8 @@ name|aSuperClass
 init|=
 name|findTypeElement
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|aSuperClassName
@@ -1752,6 +1760,8 @@ block|{
 return|return
 name|hasSuperClass
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|aSuperClass
@@ -1767,11 +1777,15 @@ literal|false
 return|;
 block|}
 block|}
-DECL|method|implementsInterface (RoundEnvironment roundEnv, TypeElement classElement, String interfaceClassName)
-specifier|protected
+DECL|method|implementsInterface (ProcessingEnvironment processingEnv, RoundEnvironment roundEnv, TypeElement classElement, String interfaceClassName)
+specifier|public
+specifier|static
 name|boolean
 name|implementsInterface
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|RoundEnvironment
 name|roundEnv
 parameter_list|,
@@ -1894,6 +1908,8 @@ name|baseTypeElement
 operator|=
 name|findTypeElement
 argument_list|(
+name|processingEnv
+argument_list|,
 name|roundEnv
 argument_list|,
 name|superClassName
@@ -1922,11 +1938,15 @@ literal|false
 return|;
 block|}
 comment|/**      * Helper method to produce class output text file using the given handler      */
-DECL|method|processFile (String packageName, String fileName, Func1<PrintWriter, Void> handler)
-specifier|protected
+DECL|method|processFile (ProcessingEnvironment processingEnv, String packageName, String fileName, Func1<PrintWriter, Void> handler)
+specifier|public
+specifier|static
 name|void
 name|processFile
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|String
 name|packageName
 parameter_list|,
@@ -2045,6 +2065,8 @@ parameter_list|)
 block|{
 name|warning
 argument_list|(
+name|processingEnv
+argument_list|,
 literal|"Could not convert output directory resource URI to a file "
 operator|+
 name|e
@@ -2061,6 +2083,8 @@ condition|)
 block|{
 name|warning
 argument_list|(
+name|processingEnv
+argument_list|,
 literal|"No class output directory could be found!"
 argument_list|)
 expr_stmt|;
@@ -2108,6 +2132,8 @@ parameter_list|)
 block|{
 name|log
 argument_list|(
+name|processingEnv
+argument_list|,
 name|e
 argument_list|)
 expr_stmt|;
@@ -2129,11 +2155,15 @@ expr_stmt|;
 block|}
 block|}
 block|}
-DECL|method|log (String message)
-specifier|protected
+DECL|method|log (ProcessingEnvironment processingEnv, String message)
+specifier|public
+specifier|static
 name|void
 name|log
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|String
 name|message
 parameter_list|)
@@ -2155,11 +2185,15 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|warning (String message)
-specifier|protected
+DECL|method|warning (ProcessingEnvironment processingEnv, String message)
+specifier|public
+specifier|static
 name|void
 name|warning
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|String
 name|message
 parameter_list|)
@@ -2181,11 +2215,15 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|error (String message)
-specifier|protected
+DECL|method|error (ProcessingEnvironment processingEnv, String message)
+specifier|public
+specifier|static
 name|void
 name|error
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|String
 name|message
 parameter_list|)
@@ -2207,11 +2245,15 @@ name|message
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|log (Throwable e)
-specifier|protected
+DECL|method|log (ProcessingEnvironment processingEnv, Throwable e)
+specifier|public
+specifier|static
 name|void
 name|log
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|Throwable
 name|e
 parameter_list|)
@@ -2283,11 +2325,15 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|loadResource (String packageName, String fileName)
-specifier|protected
+DECL|method|loadResource (ProcessingEnvironment processingEnv, String packageName, String fileName)
+specifier|public
+specifier|static
 name|String
 name|loadResource
 parameter_list|(
+name|ProcessingEnvironment
+name|processingEnv
+parameter_list|,
 name|String
 name|packageName
 parameter_list|,
@@ -2381,7 +2427,9 @@ parameter_list|)
 block|{
 name|warning
 argument_list|(
-literal|"Could not load file"
+name|processingEnv
+argument_list|,
+literal|"Cannot load file"
 argument_list|)
 expr_stmt|;
 block|}
@@ -2390,7 +2438,8 @@ literal|null
 return|;
 block|}
 DECL|method|dumpExceptionToErrorFile (String fileName, String message, Throwable e)
-specifier|protected
+specifier|public
+specifier|static
 name|void
 name|dumpExceptionToErrorFile
 parameter_list|(
