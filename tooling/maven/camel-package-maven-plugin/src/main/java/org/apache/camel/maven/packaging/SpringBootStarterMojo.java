@@ -966,9 +966,9 @@ block|{
 name|getLog
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Spring-Boot-Starter: the following dependencies will be added to the starter: "
+literal|"The following dependencies will be added to the starter: "
 operator|+
 name|deps
 argument_list|)
@@ -1232,6 +1232,13 @@ operator|.
 name|add
 argument_list|(
 literal|"org.apache.logging.log4j:log4j"
+argument_list|)
+expr_stmt|;
+name|loggingImpl
+operator|.
+name|add
+argument_list|(
+literal|"org.apache.logging.log4j:log4j-slf4j-impl"
 argument_list|)
 expr_stmt|;
 name|loggingImpl
@@ -1563,14 +1570,6 @@ range|:
 name|nodes
 control|)
 block|{
-name|int
-name|state
-init|=
-name|dependencyNode
-operator|.
-name|getState
-argument_list|()
-decl_stmt|;
 name|Artifact
 name|artifact
 init|=
@@ -1579,18 +1578,59 @@ operator|.
 name|getArtifact
 argument_list|()
 decl_stmt|;
+name|getLog
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+literal|"Found dependency node: "
+operator|+
+name|artifact
+operator|.
+name|getGroupId
+argument_list|()
+operator|+
+literal|":"
+operator|+
+name|artifact
+operator|.
+name|getArtifactId
+argument_list|()
+operator|+
+literal|":"
+operator|+
+name|artifact
+operator|.
+name|getVersion
+argument_list|()
+operator|+
+literal|" - scope="
+operator|+
+name|artifact
+operator|.
+name|getScope
+argument_list|()
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
-name|state
-operator|==
-name|DependencyNode
-operator|.
-name|INCLUDED
-operator|&&
 operator|!
 name|Artifact
 operator|.
 name|SCOPE_TEST
+operator|.
+name|equals
+argument_list|(
+name|artifact
+operator|.
+name|getScope
+argument_list|()
+argument_list|)
+operator|&&
+operator|!
+name|Artifact
+operator|.
+name|SCOPE_PROVIDED
 operator|.
 name|equals
 argument_list|(
@@ -1626,6 +1666,16 @@ name|canonicalName
 argument_list|)
 condition|)
 block|{
+name|getLog
+argument_list|()
+operator|.
+name|debug
+argument_list|(
+name|canonicalName
+operator|+
+literal|" marked for exclusion"
+argument_list|)
+expr_stmt|;
 name|included
 operator|.
 name|add
@@ -2265,9 +2315,9 @@ block|{
 name|getLog
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Spring-Boot-Starter: component inside ignore list"
+literal|"Component inside ignore list"
 argument_list|)
 expr_stmt|;
 return|return
@@ -2293,9 +2343,9 @@ block|{
 name|getLog
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Spring-Boot-Starter: test components are ignored"
+literal|"Test components are ignored"
 argument_list|)
 expr_stmt|;
 return|return
@@ -2326,9 +2376,9 @@ block|{
 name|getLog
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Spring-Boot-Starter: ignored for wrong packaging"
+literal|"Ignored for wrong packaging"
 argument_list|)
 expr_stmt|;
 return|return
@@ -2387,9 +2437,9 @@ block|}
 name|getLog
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
-literal|"Spring-Boot-Starter: component directory mismatch"
+literal|"Component directory mismatch"
 argument_list|)
 expr_stmt|;
 return|return
@@ -2680,7 +2730,7 @@ block|{
 name|getLog
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"Writing new file "
 operator|+
@@ -2723,7 +2773,7 @@ block|{
 name|getLog
 argument_list|()
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"File "
 operator|+
