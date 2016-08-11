@@ -5645,6 +5645,19 @@ name|description
 argument_list|()
 expr_stmt|;
 block|}
+if|if
+condition|(
+name|isNullOrEmpty
+argument_list|(
+name|docComment
+argument_list|)
+condition|)
+block|{
+name|docComment
+operator|=
+literal|""
+expr_stmt|;
+block|}
 comment|// gather enums
 name|Set
 argument_list|<
