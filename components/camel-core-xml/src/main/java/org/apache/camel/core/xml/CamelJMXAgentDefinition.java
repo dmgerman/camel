@@ -117,7 +117,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The JAXB type class for the configuration of jmxAgent  */
+comment|/**  * JMX configuration.  */
 end_comment
 
 begin_class
