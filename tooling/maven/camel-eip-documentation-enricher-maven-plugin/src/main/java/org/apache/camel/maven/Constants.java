@@ -129,6 +129,15 @@ name|DESCRIPTION_ATTRIBUTE_NAME
 init|=
 literal|"description"
 decl_stmt|;
+DECL|field|DEFAULT_VALUE_ATTRIBUTE_NAME
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DEFAULT_VALUE_ATTRIBUTE_NAME
+init|=
+literal|"defaultValue"
+decl_stmt|;
 DECL|field|MODEL_ATTRIBUTE_NAME
 specifier|public
 specifier|static

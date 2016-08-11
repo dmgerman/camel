@@ -299,6 +299,27 @@ return|return
 name|xPath
 return|;
 block|}
+DECL|method|isNullOrEmpty (String text)
+specifier|public
+specifier|static
+name|boolean
+name|isNullOrEmpty
+parameter_list|(
+name|String
+name|text
+parameter_list|)
+block|{
+return|return
+name|text
+operator|==
+literal|null
+operator|||
+name|text
+operator|.
+name|isEmpty
+argument_list|()
+return|;
+block|}
 block|}
 end_class
 
