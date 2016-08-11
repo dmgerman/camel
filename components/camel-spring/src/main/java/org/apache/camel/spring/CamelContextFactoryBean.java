@@ -900,6 +900,13 @@ end_comment
 
 begin_class
 annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"spring,configuration"
+argument_list|)
+annotation|@
 name|XmlRootElement
 argument_list|(
 name|name

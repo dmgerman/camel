@@ -120,6 +120,20 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|spring
 operator|.
 name|util
@@ -171,6 +185,13 @@ comment|/**  * Configuration of thread pools  *  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"spring,configuration"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(

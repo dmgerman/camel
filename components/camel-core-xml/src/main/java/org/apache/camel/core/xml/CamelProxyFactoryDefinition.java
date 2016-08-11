@@ -75,14 +75,17 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * To proxy a service call using a interface  *  * @version  */
-end_comment
-
-begin_comment
-comment|// to fudge the XSD generation
+comment|/**  * To proxy a service call using a interface  *  * @version   */
 end_comment
 
 begin_class
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"spring,configuration"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(

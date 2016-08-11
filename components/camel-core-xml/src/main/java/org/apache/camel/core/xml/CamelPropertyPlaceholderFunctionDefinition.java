@@ -60,11 +60,32 @@ name|IdentifiedType
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_comment
 comment|/**  * Function to use with properties placeholder  */
 end_comment
 
 begin_class
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"spring,configuration"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(

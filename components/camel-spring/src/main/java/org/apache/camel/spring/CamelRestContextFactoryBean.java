@@ -126,6 +126,20 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|springframework
 operator|.
 name|beans
@@ -141,6 +155,13 @@ comment|/**  * Configuration of REST services using rest-dsl using XML  *  * @ve
 end_comment
 
 begin_class
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"spring,configuration,rest"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(

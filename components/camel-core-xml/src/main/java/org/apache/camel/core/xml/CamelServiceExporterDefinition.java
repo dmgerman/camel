@@ -60,11 +60,32 @@ name|IdentifiedType
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Metadata
+import|;
+end_import
+
 begin_comment
 comment|/**  * Used for export a service using Spring Remoting to hide the network call using an interface.  *  * @version  */
 end_comment
 
 begin_class
+annotation|@
+name|Metadata
+argument_list|(
+name|label
+operator|=
+literal|"spring,configuration"
+argument_list|)
 annotation|@
 name|XmlRootElement
 argument_list|(
