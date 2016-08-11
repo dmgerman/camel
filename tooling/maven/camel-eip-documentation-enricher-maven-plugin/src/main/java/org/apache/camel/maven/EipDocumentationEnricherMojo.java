@@ -981,6 +981,9 @@ name|documentationEnricher
 operator|.
 name|enrichTypeAttributesDocumentation
 argument_list|(
+name|getLog
+argument_list|()
+argument_list|,
 name|attributeElements
 argument_list|,
 name|jsonFile
