@@ -182,16 +182,7 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
-operator|.
-name|dependency
-argument_list|(
-name|DependencyResolver
-operator|.
-name|withVersion
-argument_list|(
-literal|"org.apache.camel:camel-netty4"
-argument_list|)
-argument_list|)
+comment|//.dependency(DependencyResolver.withVersion("org.apache.camel:camel-netty4"))
 operator|.
 name|build
 argument_list|()

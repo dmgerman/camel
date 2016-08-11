@@ -112,10 +112,10 @@ name|Arquillian
 operator|.
 name|class
 argument_list|)
-DECL|class|CamelSpringBootStarterTest
+DECL|class|CamelJohnzonTest
 specifier|public
 class|class
-name|CamelSpringBootStarterTest
+name|CamelJohnzonTest
 extends|extends
 name|AbstractSpringBootTestSupport
 block|{
@@ -159,7 +159,7 @@ name|module
 argument_list|(
 name|inferModuleName
 argument_list|(
-name|CamelSpringBootStarterTest
+name|CamelJohnzonTest
 operator|.
 name|class
 argument_list|)
@@ -179,7 +179,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// no component test
+name|this
+operator|.
+name|runDataformatTest
+argument_list|(
+name|config
+argument_list|,
+literal|"json-johnzon"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|runModuleUnitTestsIfEnabled

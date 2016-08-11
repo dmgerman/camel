@@ -182,16 +182,7 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
-operator|.
-name|dependency
-argument_list|(
-name|DependencyResolver
-operator|.
-name|withVersion
-argument_list|(
-literal|"org.apache.hadoop:hadoop-hdfs"
-argument_list|)
-argument_list|)
+comment|//.dependency(DependencyResolver.withVersion("org.apache.hadoop:hadoop-hdfs"))
 operator|.
 name|build
 argument_list|()

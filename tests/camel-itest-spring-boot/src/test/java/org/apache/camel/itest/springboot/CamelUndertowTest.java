@@ -182,16 +182,7 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
-operator|.
-name|dependency
-argument_list|(
-name|DependencyResolver
-operator|.
-name|withVersion
-argument_list|(
-literal|"org.hibernate:hibernate-validator"
-argument_list|)
-argument_list|)
+comment|//.dependency(DependencyResolver.withVersion("org.hibernate:hibernate-validator"))
 operator|.
 name|unitTestExclusionPattern
 argument_list|(

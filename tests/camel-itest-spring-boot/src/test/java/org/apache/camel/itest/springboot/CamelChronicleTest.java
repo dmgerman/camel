@@ -112,10 +112,10 @@ name|Arquillian
 operator|.
 name|class
 argument_list|)
-DECL|class|CamelCoreOsgiTest
+DECL|class|CamelChronicleTest
 specifier|public
 class|class
-name|CamelCoreOsgiTest
+name|CamelChronicleTest
 extends|extends
 name|AbstractSpringBootTestSupport
 block|{
@@ -159,7 +159,7 @@ name|module
 argument_list|(
 name|inferModuleName
 argument_list|(
-name|CamelCoreOsgiTest
+name|CamelChronicleTest
 operator|.
 name|class
 argument_list|)
@@ -179,7 +179,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// no component test
+name|this
+operator|.
+name|runComponentTest
+argument_list|(
+name|config
+argument_list|,
+literal|"chronicle-engine"
+argument_list|)
+expr_stmt|;
 name|this
 operator|.
 name|runModuleUnitTestsIfEnabled

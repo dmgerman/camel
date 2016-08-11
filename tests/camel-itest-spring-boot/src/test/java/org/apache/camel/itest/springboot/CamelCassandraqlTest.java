@@ -182,16 +182,7 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
-operator|.
-name|dependency
-argument_list|(
-name|DependencyResolver
-operator|.
-name|withVersion
-argument_list|(
-literal|"io.netty:netty-all"
-argument_list|)
-argument_list|)
+comment|//.dependency(DependencyResolver.withVersion("io.netty:netty-all"))
 comment|//                .dependency(DependencyResolver.withVersion("io.dropwizard.metrics:metrics-core"))
 comment|//                .exclusion("com.codahale.metrics:*")
 operator|.

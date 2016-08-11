@@ -639,6 +639,29 @@ operator|+
 name|version
 return|;
 block|}
+DECL|method|resolveParentProperty (String property)
+specifier|public
+specifier|static
+name|String
+name|resolveParentProperty
+parameter_list|(
+name|String
+name|property
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+return|return
+name|resolveProperty
+argument_list|(
+literal|"../../parent/pom.xml"
+argument_list|,
+name|property
+argument_list|,
+literal|0
+argument_list|)
+return|;
+block|}
 DECL|method|resolveSurefireProperty (String property)
 specifier|private
 specifier|static

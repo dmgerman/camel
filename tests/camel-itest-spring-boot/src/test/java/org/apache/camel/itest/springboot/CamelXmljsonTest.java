@@ -182,16 +182,7 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
-operator|.
-name|dependency
-argument_list|(
-name|DependencyResolver
-operator|.
-name|withVersion
-argument_list|(
-literal|"xom:xom"
-argument_list|)
-argument_list|)
+comment|//.dependency(DependencyResolver.withVersion("xom:xom"))
 operator|.
 name|build
 argument_list|()

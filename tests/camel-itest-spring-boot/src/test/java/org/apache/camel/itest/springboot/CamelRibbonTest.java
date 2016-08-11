@@ -112,10 +112,10 @@ name|Arquillian
 operator|.
 name|class
 argument_list|)
-DECL|class|CamelZipkinStarterTest
+DECL|class|CamelRibbonTest
 specifier|public
 class|class
-name|CamelZipkinStarterTest
+name|CamelRibbonTest
 extends|extends
 name|AbstractSpringBootTestSupport
 block|{
@@ -159,15 +159,10 @@ name|module
 argument_list|(
 name|inferModuleName
 argument_list|(
-name|CamelZipkinStarterTest
+name|CamelRibbonTest
 operator|.
 name|class
 argument_list|)
-argument_list|)
-operator|.
-name|unitTestExpectedNumber
-argument_list|(
-literal|0
 argument_list|)
 operator|.
 name|build
@@ -184,7 +179,7 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// no component test
+comment|// no components
 name|this
 operator|.
 name|runModuleUnitTestsIfEnabled
