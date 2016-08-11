@@ -226,6 +226,20 @@ name|camel
 operator|.
 name|spi
 operator|.
+name|ModelJAXBContextFactory
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
 name|Registry
 import|;
 end_import
@@ -488,9 +502,17 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|createModelJAXBContextFactory ()
+specifier|protected
+name|ModelJAXBContextFactory
+name|createModelJAXBContextFactory
+parameter_list|()
+block|{
 comment|// must use classloader of the namespace handler
-name|setModelJAXBContextFactory
-argument_list|(
+return|return
 operator|new
 name|BlueprintModelJAXBContextFactory
 argument_list|(
@@ -501,8 +523,7 @@ operator|.
 name|getClassLoader
 argument_list|()
 argument_list|)
-argument_list|)
-expr_stmt|;
+return|;
 block|}
 DECL|method|getBundleContext ()
 specifier|public
