@@ -106,7 +106,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|ProducerTemplate
+name|FluentProducerTemplate
 import|;
 end_import
 
@@ -118,9 +118,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|impl
+name|builder
 operator|.
-name|DefaultProducerTemplate
+name|DefaultFluentProducerTemplate
 import|;
 end_import
 
@@ -153,7 +153,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * A factory for creating a new {@link org.apache.camel.ProducerTemplate}  * instance with a minimum of XML  *  * @version   */
+comment|/**  * A factory for creating a new {@link org.apache.camel.FluentProducerTemplate}  * instance with a minimum of XML  *  * @version  */
 end_comment
 
 begin_class
@@ -164,22 +164,22 @@ name|XmlAccessType
 operator|.
 name|FIELD
 argument_list|)
-DECL|class|AbstractCamelProducerTemplateFactoryBean
+DECL|class|AbstractCamelFluentProducerTemplateFactoryBean
 specifier|public
 specifier|abstract
 class|class
-name|AbstractCamelProducerTemplateFactoryBean
+name|AbstractCamelFluentProducerTemplateFactoryBean
 extends|extends
 name|AbstractCamelFactoryBean
 argument_list|<
-name|ProducerTemplate
+name|FluentProducerTemplate
 argument_list|>
 block|{
 annotation|@
 name|XmlTransient
 DECL|field|template
 specifier|private
-name|ProducerTemplate
+name|FluentProducerTemplate
 name|template
 decl_stmt|;
 annotation|@
@@ -212,7 +212,7 @@ name|maximumCacheSize
 decl_stmt|;
 DECL|method|getObject ()
 specifier|public
-name|ProducerTemplate
+name|FluentProducerTemplate
 name|getObject
 parameter_list|()
 throws|throws
@@ -263,10 +263,15 @@ block|{
 name|template
 operator|=
 operator|new
-name|DefaultProducerTemplate
+name|DefaultFluentProducerTemplate
 argument_list|(
 name|context
-argument_list|,
+argument_list|)
+expr_stmt|;
+name|template
+operator|.
+name|setDefaultEndpoint
+argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
@@ -277,7 +282,7 @@ block|{
 name|template
 operator|=
 operator|new
-name|DefaultProducerTemplate
+name|DefaultFluentProducerTemplate
 argument_list|(
 name|context
 argument_list|)
@@ -315,13 +320,13 @@ DECL|method|getObjectType ()
 specifier|public
 name|Class
 argument_list|<
-name|DefaultProducerTemplate
+name|DefaultFluentProducerTemplate
 argument_list|>
 name|getObjectType
 parameter_list|()
 block|{
 return|return
-name|DefaultProducerTemplate
+name|DefaultFluentProducerTemplate
 operator|.
 name|class
 return|;
