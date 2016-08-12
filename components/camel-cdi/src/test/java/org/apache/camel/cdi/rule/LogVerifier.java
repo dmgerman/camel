@@ -344,7 +344,6 @@ extends|extends
 name|AbstractAppender
 block|{
 DECL|method|LogAppender (String name)
-specifier|public
 name|LogAppender
 parameter_list|(
 name|String

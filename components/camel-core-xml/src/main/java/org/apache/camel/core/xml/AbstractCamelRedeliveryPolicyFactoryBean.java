@@ -192,11 +192,11 @@ literal|"false"
 argument_list|,
 name|description
 operator|=
-literal|"Sets whether asynchronous delayed redelivery is allowed. This is disabled by default. When enabled it allows Camel to schedule a future task for delayed"
+literal|"Sets whether asynchronous delayed redelivery is allowed. This is disabled by default. "
 operator|+
-literal|" redelivery which prevents current thread from blocking while waiting. Exchange which is transacted will however always use synchronous delayed redelivery because"
+literal|"When enabled it allows Camel to schedule a future task for delayed redelivery which prevents current thread from blocking while waiting. "
 operator|+
-literal|" the transaction must execute in the same thread context."
+literal|"Exchange which is transacted will however always use synchronous delayed redelivery because the transaction must execute in the same thread context."
 argument_list|)
 DECL|field|asyncDelayedRedelivery
 specifier|private
