@@ -251,10 +251,10 @@ comment|/**  * Prints information about the libraries required by the module and
 end_comment
 
 begin_class
-DECL|class|LibraryVersionMismatchTest
+DECL|class|LibraryVersionMismatchChecker
 specifier|public
 class|class
-name|LibraryVersionMismatchTest
+name|LibraryVersionMismatchChecker
 block|{
 annotation|@
 name|Test
