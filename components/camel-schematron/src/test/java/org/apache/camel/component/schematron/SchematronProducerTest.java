@@ -233,6 +233,11 @@ argument_list|(
 name|Constants
 operator|.
 name|SCHEMATRON_TEMPLATES_ROOT_DIR
+argument_list|,
+name|endpoint
+operator|.
+name|getUriResolver
+argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;

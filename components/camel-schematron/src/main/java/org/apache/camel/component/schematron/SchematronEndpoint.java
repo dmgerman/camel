@@ -74,6 +74,18 @@ end_import
 
 begin_import
 import|import
+name|javax
+operator|.
+name|xml
+operator|.
+name|transform
+operator|.
+name|URIResolver
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -422,6 +434,13 @@ specifier|private
 name|Templates
 name|rules
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|uriResolver
+specifier|private
+name|URIResolver
+name|uriResolver
+decl_stmt|;
 DECL|method|SchematronEndpoint ()
 specifier|public
 name|SchematronEndpoint
@@ -594,6 +613,33 @@ name|rules
 operator|=
 name|rules
 expr_stmt|;
+block|}
+comment|/**      * Set the {@link URIResolver} to be used for resolving schematron includes in the rules file.      */
+DECL|method|setUriResolver (URIResolver uriResolver)
+specifier|public
+name|void
+name|setUriResolver
+parameter_list|(
+name|URIResolver
+name|uriResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|uriResolver
+operator|=
+name|uriResolver
+expr_stmt|;
+block|}
+DECL|method|getUriResolver ()
+specifier|public
+name|URIResolver
+name|getUriResolver
+parameter_list|()
+block|{
+return|return
+name|uriResolver
+return|;
 block|}
 annotation|@
 name|Override
@@ -834,6 +880,10 @@ argument_list|(
 name|Constants
 operator|.
 name|SCHEMATRON_TEMPLATES_ROOT_DIR
+argument_list|,
+name|this
+operator|.
+name|uriResolver
 argument_list|)
 argument_list|)
 expr_stmt|;
