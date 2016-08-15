@@ -321,11 +321,7 @@ name|sendBody
 argument_list|(
 literal|"direct:remove"
 argument_list|,
-operator|new
-name|SendEmail
-argument_list|(
-literal|"foo@beer.org"
-argument_list|)
+name|persistedEntity
 argument_list|)
 expr_stmt|;
 name|exchange
