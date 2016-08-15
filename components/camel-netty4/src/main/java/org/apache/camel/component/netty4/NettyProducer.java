@@ -3190,7 +3190,6 @@ name|Object
 name|body
 decl_stmt|;
 DECL|method|ChannelConnectedListener (Exchange exchange, AsyncCallback callback, Object body)
-specifier|public
 name|ChannelConnectedListener
 parameter_list|(
 name|Exchange
