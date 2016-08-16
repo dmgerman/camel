@@ -97,6 +97,18 @@ specifier|private
 name|String
 name|account
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
+DECL|field|activePortRange
+specifier|private
+name|String
+name|activePortRange
+decl_stmt|;
 DECL|method|FtpConfiguration ()
 specifier|public
 name|FtpConfiguration
@@ -161,6 +173,33 @@ operator|.
 name|account
 operator|=
 name|account
+expr_stmt|;
+block|}
+DECL|method|getActivePortRange ()
+specifier|public
+name|String
+name|getActivePortRange
+parameter_list|()
+block|{
+return|return
+name|activePortRange
+return|;
+block|}
+comment|/**      * Set the client side port range in active mode.      * The syntax is: minPort-maxPort      * Both port numbers are inclusive, eg 10000-19999 to include all 1xxxx ports.      */
+DECL|method|setActivePortRange (String activePortRange)
+specifier|public
+name|void
+name|setActivePortRange
+parameter_list|(
+name|String
+name|activePortRange
+parameter_list|)
+block|{
+name|this
+operator|.
+name|activePortRange
+operator|=
+name|activePortRange
 expr_stmt|;
 block|}
 block|}
