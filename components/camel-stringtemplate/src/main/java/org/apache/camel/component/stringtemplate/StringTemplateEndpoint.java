@@ -188,7 +188,7 @@ name|UriEndpoint
 argument_list|(
 name|scheme
 operator|=
-literal|"stringtemplate"
+literal|"string-template"
 argument_list|,
 name|title
 operator|=
@@ -196,7 +196,7 @@ literal|"String Template"
 argument_list|,
 name|syntax
 operator|=
-literal|"stringtemplate:resourceUri"
+literal|"string-template:resourceUri"
 argument_list|,
 name|producerOnly
 operator|=
