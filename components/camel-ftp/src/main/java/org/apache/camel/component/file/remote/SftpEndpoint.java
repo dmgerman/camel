@@ -149,6 +149,10 @@ argument_list|,
 name|label
 operator|=
 literal|"file"
+argument_list|,
+name|excludeProperties
+operator|=
+literal|"binary,passiveMode,receiveBufferSize,siteCommand,useList"
 argument_list|)
 DECL|class|SftpEndpoint
 specifier|public
