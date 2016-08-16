@@ -267,6 +267,33 @@ name|String
 name|name
 parameter_list|)
 function_decl|;
+comment|/**      * Returns the component documentation as Ascii doc format.      *      * @param name the component name      * @return component documentation in ascii doc format.      */
+DECL|method|componentAsciiDoc (String name)
+name|String
+name|componentAsciiDoc
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the data format documentation as Ascii doc format.      *      * @param name the data format name      * @return data format documentation in ascii doc format.      */
+DECL|method|dataFormatAsciiDoc (String name)
+name|String
+name|dataFormatAsciiDoc
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
+comment|/**      * Returns the language documentation as Ascii doc format.      *      * @param name the language name      * @return language documentation in ascii doc format.      */
+DECL|method|languageAsciiDoc (String name)
+name|String
+name|languageAsciiDoc
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+function_decl|;
 comment|/**      * Find all the unique label names all the components are using.      *      * @return a set of all the labels.      */
 DECL|method|findComponentLabels ()
 name|Set

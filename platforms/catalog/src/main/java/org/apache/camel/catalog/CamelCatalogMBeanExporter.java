@@ -102,7 +102,7 @@ specifier|private
 name|MBeanServer
 name|mBeanServer
 decl_stmt|;
-comment|/**      * Initializes and exports the {@link CamelCatalog} in JMX using the domain name,      * which can be obtained using {@link #getObjectName()}.      *      * @throws Exception      */
+comment|/**      * Initializes and exports the {@link CamelCatalog} in JMX using the domain name,      * which can be obtained using {@link #getObjectName()}.      *      * @throws Exception is thrown if error during registration      */
 DECL|method|init ()
 specifier|public
 name|void
@@ -216,7 +216,7 @@ expr_stmt|;
 block|}
 block|}
 block|}
-comment|/**      * Destroyes and unregisteres the {@link CamelCatalog} from JMX.      *      * @throws Exception is thrown if error during unregistration      */
+comment|/**      * Destroys and un-registers the {@link CamelCatalog} from JMX.      *      * @throws Exception is thrown if error during un-registration      */
 DECL|method|destroy ()
 specifier|public
 name|void
