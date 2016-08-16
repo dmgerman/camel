@@ -359,6 +359,18 @@ name|acquire
 argument_list|()
 expr_stmt|;
 block|}
+comment|//Channel might be open because while we were waiting for the lock, stop() has been succesfully called.
+if|if
+condition|(
+operator|!
+name|channel
+operator|.
+name|isOpen
+argument_list|()
+condition|)
+return|return;
+try|try
+block|{
 name|doHandleDelivery
 argument_list|(
 name|consumerTag
@@ -370,6 +382,9 @@ argument_list|,
 name|body
 argument_list|)
 expr_stmt|;
+block|}
+finally|finally
+block|{
 if|if
 condition|(
 operator|!
@@ -387,6 +402,7 @@ operator|.
 name|release
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 block|}
 catch|catch
@@ -1042,11 +1058,6 @@ name|close
 argument_list|()
 expr_stmt|;
 block|}
-name|lock
-operator|.
-name|release
-argument_list|()
-expr_stmt|;
 block|}
 catch|catch
 parameter_list|(
@@ -1077,6 +1088,14 @@ name|error
 argument_list|(
 literal|"Thread Interrupted!"
 argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|lock
+operator|.
+name|release
+argument_list|()
 expr_stmt|;
 block|}
 block|}
