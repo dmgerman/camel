@@ -1450,7 +1450,7 @@ return|return
 literal|false
 return|;
 block|}
-DECL|method|processWithConnectedChannel (final Exchange exchange, AsyncCallback callback, ChannelFuture channelFuture, Object body)
+DECL|method|processWithConnectedChannel (final Exchange exchange, final AsyncCallback callback, final ChannelFuture channelFuture, final Object body)
 specifier|public
 name|void
 name|processWithConnectedChannel
@@ -1459,12 +1459,15 @@ specifier|final
 name|Exchange
 name|exchange
 parameter_list|,
+specifier|final
 name|AsyncCallback
 name|callback
 parameter_list|,
+specifier|final
 name|ChannelFuture
 name|channelFuture
 parameter_list|,
+specifier|final
 name|Object
 name|body
 parameter_list|)
