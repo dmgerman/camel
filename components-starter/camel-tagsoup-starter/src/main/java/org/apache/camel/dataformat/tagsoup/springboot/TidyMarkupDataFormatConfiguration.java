@@ -59,6 +59,14 @@ specifier|private
 name|String
 name|dataObjectType
 decl_stmt|;
+comment|/**      * When returning a String do we omit the XML declaration in the top.      */
+DECL|field|omitXmlDeclaration
+specifier|private
+name|Boolean
+name|omitXmlDeclaration
+init|=
+literal|false
+decl_stmt|;
 DECL|method|getDataObjectType ()
 specifier|public
 name|String
@@ -83,6 +91,32 @@ operator|.
 name|dataObjectType
 operator|=
 name|dataObjectType
+expr_stmt|;
+block|}
+DECL|method|getOmitXmlDeclaration ()
+specifier|public
+name|Boolean
+name|getOmitXmlDeclaration
+parameter_list|()
+block|{
+return|return
+name|omitXmlDeclaration
+return|;
+block|}
+DECL|method|setOmitXmlDeclaration (Boolean omitXmlDeclaration)
+specifier|public
+name|void
+name|setOmitXmlDeclaration
+parameter_list|(
+name|Boolean
+name|omitXmlDeclaration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|omitXmlDeclaration
+operator|=
+name|omitXmlDeclaration
 expr_stmt|;
 block|}
 block|}

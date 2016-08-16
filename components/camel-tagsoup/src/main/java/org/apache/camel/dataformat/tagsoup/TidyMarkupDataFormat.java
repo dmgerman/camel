@@ -396,11 +396,11 @@ name|XML
 init|=
 literal|"xml"
 decl_stmt|;
-comment|/**      * When returning a String, do we omit the XML ?      */
-DECL|field|isOmitXmlDeclaration
+comment|/**      * When returning a String, do we omit the XML declaration in the top.      */
+DECL|field|omitXmlDeclaration
 specifier|private
 name|boolean
-name|isOmitXmlDeclaration
+name|omitXmlDeclaration
 decl_stmt|;
 comment|/**      * String or Node to return      */
 DECL|field|dataObjectType
@@ -435,7 +435,7 @@ argument_list|>
 name|parserFeatures
 decl_stmt|;
 comment|/**      * User supplied Parser properties      *<p>      * {@link http://home.ccil.org/~cowan/XML/tagsoup/#properties}      * {@link http://www.saxproject.org/apidoc/org/xml/sax/package-summary.html}      *</p>      */
-DECL|field|parserPropeties
+DECL|field|parserProperties
 specifier|private
 name|Map
 argument_list|<
@@ -443,7 +443,7 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|parserPropeties
+name|parserProperties
 decl_stmt|;
 annotation|@
 name|Override
@@ -849,7 +849,7 @@ block|}
 comment|/*              * set each parser feature that the user may have supplied. {@link              * http://home.ccil.org/~cowan/XML/tagsoup/#properties}              */
 if|if
 condition|(
-name|getParserPropeties
+name|getParserProperties
 argument_list|()
 operator|!=
 literal|null
@@ -865,7 +865,7 @@ name|Object
 argument_list|>
 name|e
 range|:
-name|getParserPropeties
+name|getParserProperties
 argument_list|()
 operator|.
 name|entrySet
@@ -991,7 +991,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|isOmitXmlDeclaration
+name|omitXmlDeclaration
 condition|)
 block|{
 name|xmlWriter
@@ -1066,6 +1066,32 @@ return|return
 name|parsingSchema
 return|;
 block|}
+DECL|method|isOmitXmlDeclaration ()
+specifier|public
+name|boolean
+name|isOmitXmlDeclaration
+parameter_list|()
+block|{
+return|return
+name|omitXmlDeclaration
+return|;
+block|}
+DECL|method|setOmitXmlDeclaration (boolean omitXmlDeclaration)
+specifier|public
+name|void
+name|setOmitXmlDeclaration
+parameter_list|(
+name|boolean
+name|omitXmlDeclaration
+parameter_list|)
+block|{
+name|this
+operator|.
+name|omitXmlDeclaration
+operator|=
+name|omitXmlDeclaration
+expr_stmt|;
+block|}
 DECL|method|setParserFeatures (Map<String, Boolean> parserFeatures)
 specifier|public
 name|void
@@ -1102,10 +1128,10 @@ return|return
 name|parserFeatures
 return|;
 block|}
-DECL|method|setParserPropeties (Map<String, Object> parserPropeties)
+DECL|method|setParserProperties (Map<String, Object> parserProperties)
 specifier|public
 name|void
-name|setParserPropeties
+name|setParserProperties
 parameter_list|(
 name|Map
 argument_list|<
@@ -1113,17 +1139,17 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|parserPropeties
+name|parserProperties
 parameter_list|)
 block|{
 name|this
 operator|.
-name|parserPropeties
+name|parserProperties
 operator|=
-name|parserPropeties
+name|parserProperties
 expr_stmt|;
 block|}
-DECL|method|getParserPropeties ()
+DECL|method|getParserProperties ()
 specifier|public
 name|Map
 argument_list|<
@@ -1131,11 +1157,11 @@ name|String
 argument_list|,
 name|Object
 argument_list|>
-name|getParserPropeties
+name|getParserProperties
 parameter_list|()
 block|{
 return|return
-name|parserPropeties
+name|parserProperties
 return|;
 block|}
 DECL|method|setMethod (String method)
