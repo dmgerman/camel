@@ -547,14 +547,13 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|error
+name|warn
 argument_list|(
-literal|"Timeout occured"
+literal|"Timeout occurred while stopping consumer. This exception is ignored"
+argument_list|,
+name|e
 argument_list|)
 expr_stmt|;
-throw|throw
-name|e
-throw|;
 block|}
 block|}
 name|this

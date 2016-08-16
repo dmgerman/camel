@@ -368,7 +368,9 @@ operator|.
 name|isOpen
 argument_list|()
 condition|)
+block|{
 return|return;
+block|}
 try|try
 block|{
 name|doHandleDelivery
@@ -413,7 +415,7 @@ parameter_list|)
 block|{
 name|log
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"Thread Interrupted!"
 argument_list|)
@@ -1099,7 +1101,7 @@ argument_list|()
 expr_stmt|;
 block|}
 block|}
-comment|/**      * Stores the most recently passed-in consumerTag - semantically, there      * should be only one.      *       * @see Consumer#handleConsumeOk      */
+comment|/**      * Stores the most recently passed-in consumerTag - semantically, there      * should be only one.      *      * @see Consumer#handleConsumeOk      */
 DECL|method|handleConsumeOk (String consumerTag)
 specifier|public
 name|void
@@ -1116,7 +1118,7 @@ operator|=
 name|consumerTag
 expr_stmt|;
 block|}
-comment|/**      * Retrieve the consumer tag.      *       * @return the most recently notified consumer tag.      */
+comment|/**      * Retrieve the consumer tag.      *      * @return the most recently notified consumer tag.      */
 DECL|method|getConsumerTag ()
 specifier|public
 name|String
@@ -1127,7 +1129,7 @@ return|return
 name|consumerTag
 return|;
 block|}
-comment|/**      * No-op implementation of {@link Consumer#handleCancelOk}.      *       * @param consumerTag      *            the defined consumer tag (client- or server-generated)      */
+comment|/**      * No-op implementation of {@link Consumer#handleCancelOk}.      *      * @param consumerTag      *            the defined consumer tag (client- or server-generated)      */
 DECL|method|handleCancelOk (String consumerTag)
 specifier|public
 name|void
@@ -1142,11 +1144,11 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Recieved cancelOk signal on the rabbitMQ channel"
+literal|"Received cancelOk signal on the rabbitMQ channel"
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * No-op implementation of {@link Consumer#handleCancel(String)}      *       * @param consumerTag      *            the defined consumer tag (client- or server-generated)      */
+comment|/**      * No-op implementation of {@link Consumer#handleCancel(String)}      *      * @param consumerTag      *            the defined consumer tag (client- or server-generated)      */
 DECL|method|handleCancel (String consumerTag)
 specifier|public
 name|void
@@ -1163,7 +1165,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Recieved cancel signal on the rabbitMQ channel"
+literal|"Received cancel signal on the rabbitMQ channel"
 argument_list|)
 expr_stmt|;
 block|}
@@ -1184,7 +1186,7 @@ name|log
 operator|.
 name|info
 argument_list|(
-literal|"Recieved shutdown signal on the rabbitMQ channel"
+literal|"Received shutdown signal on the rabbitMQ channel"
 argument_list|)
 expr_stmt|;
 comment|// Check if the consumer closed the connection or something else
@@ -1308,7 +1310,7 @@ name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Recieved recover ok signal on the rabbitMQ channel"
+literal|"Received recover ok signal on the rabbitMQ channel"
 argument_list|)
 expr_stmt|;
 block|}
