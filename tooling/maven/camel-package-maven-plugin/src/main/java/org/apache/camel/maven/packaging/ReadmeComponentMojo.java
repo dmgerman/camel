@@ -451,7 +451,7 @@ name|docDir
 argument_list|,
 name|componentName
 operator|+
-literal|".adoc"
+literal|"-component.adoc"
 argument_list|)
 decl_stmt|;
 name|ComponentModel
