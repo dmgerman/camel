@@ -382,6 +382,24 @@ name|apt
 operator|.
 name|helper
 operator|.
+name|CollectionStringBuffer
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|tools
+operator|.
+name|apt
+operator|.
+name|helper
+operator|.
 name|EndpointHelper
 import|;
 end_import
@@ -1145,6 +1163,8 @@ argument_list|,
 name|extendsAlias
 argument_list|,
 name|label
+argument_list|,
+name|schemes
 argument_list|)
 expr_stmt|;
 return|return
@@ -1209,6 +1229,8 @@ argument_list|,
 name|extendsAlias
 argument_list|,
 name|label
+argument_list|,
+name|schemes
 argument_list|)
 expr_stmt|;
 return|return
@@ -1232,7 +1254,7 @@ block|}
 block|}
 block|}
 block|}
-DECL|method|writeHtmlDocumentation (PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, UriEndpoint uriEndpoint, String title, String scheme, String extendsScheme, String label)
+DECL|method|writeHtmlDocumentation (PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, UriEndpoint uriEndpoint, String title, String scheme, String extendsScheme, String label, String[] schemes)
 specifier|protected
 name|void
 name|writeHtmlDocumentation
@@ -1260,6 +1282,10 @@ name|extendsScheme
 parameter_list|,
 name|String
 name|label
+parameter_list|,
+name|String
+index|[]
+name|schemes
 parameter_list|)
 block|{
 comment|// gather component information
@@ -1393,6 +1419,60 @@ argument_list|(
 literal|"<b>Alternative Syntax:</b> "
 operator|+
 name|alternativeSyntax
+operator|+
+literal|"<br/>"
+argument_list|)
+expr_stmt|;
+block|}
+comment|// the first scheme is the regular so only output if there is alternatives
+if|if
+condition|(
+name|schemes
+operator|!=
+literal|null
+operator|&&
+name|schemes
+operator|.
+name|length
+operator|>
+literal|1
+condition|)
+block|{
+name|CollectionStringBuffer
+name|csb
+init|=
+operator|new
+name|CollectionStringBuffer
+argument_list|(
+literal|","
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|String
+name|altScheme
+range|:
+name|schemes
+control|)
+block|{
+name|csb
+operator|.
+name|append
+argument_list|(
+name|altScheme
+argument_list|)
+expr_stmt|;
+block|}
+name|writer
+operator|.
+name|println
+argument_list|(
+literal|"<b>Alternative Schemes:</b> "
+operator|+
+name|csb
+operator|.
+name|toString
+argument_list|()
 operator|+
 literal|"<br/>"
 argument_list|)
@@ -1679,7 +1759,7 @@ literal|"</html>"
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|writeJSonSchemeDocumentation (PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, UriEndpoint uriEndpoint, String title, String scheme, String extendsScheme, String label)
+DECL|method|writeJSonSchemeDocumentation (PrintWriter writer, RoundEnvironment roundEnv, TypeElement classElement, UriEndpoint uriEndpoint, String title, String scheme, String extendsScheme, String label, String[] schemes)
 specifier|protected
 name|void
 name|writeJSonSchemeDocumentation
@@ -1707,6 +1787,10 @@ name|extendsScheme
 parameter_list|,
 name|String
 name|label
+parameter_list|,
+name|String
+index|[]
+name|schemes
 parameter_list|)
 block|{
 comment|// gather component information
@@ -1842,6 +1926,8 @@ argument_list|,
 name|endpointPaths
 argument_list|,
 name|endpointOptions
+argument_list|,
+name|schemes
 argument_list|)
 decl_stmt|;
 name|writer
@@ -1852,7 +1938,7 @@ name|json
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|createParameterJsonSchema (ComponentModel componentModel, Set<ComponentOption> componentOptions, Set<EndpointPath> endpointPaths, Set<EndpointOption> endpointOptions)
+DECL|method|createParameterJsonSchema (ComponentModel componentModel, Set<ComponentOption> componentOptions, Set<EndpointPath> endpointPaths, Set<EndpointOption> endpointOptions, String[] schemes)
 specifier|public
 name|String
 name|createParameterJsonSchema
@@ -1877,6 +1963,10 @@ argument_list|<
 name|EndpointOption
 argument_list|>
 name|endpointOptions
+parameter_list|,
+name|String
+index|[]
+name|schemes
 parameter_list|)
 block|{
 name|StringBuilder
@@ -1959,6 +2049,66 @@ argument_list|(
 name|componentModel
 operator|.
 name|getExtendsScheme
+argument_list|()
+argument_list|)
+operator|.
+name|append
+argument_list|(
+literal|"\","
+argument_list|)
+expr_stmt|;
+block|}
+comment|// the first scheme is the regular so only output if there is alternatives
+if|if
+condition|(
+name|schemes
+operator|!=
+literal|null
+operator|&&
+name|schemes
+operator|.
+name|length
+operator|>
+literal|1
+condition|)
+block|{
+name|CollectionStringBuffer
+name|csb
+init|=
+operator|new
+name|CollectionStringBuffer
+argument_list|(
+literal|","
+argument_list|)
+decl_stmt|;
+for|for
+control|(
+name|String
+name|altScheme
+range|:
+name|schemes
+control|)
+block|{
+name|csb
+operator|.
+name|append
+argument_list|(
+name|altScheme
+argument_list|)
+expr_stmt|;
+block|}
+name|buffer
+operator|.
+name|append
+argument_list|(
+literal|"\n    \"alternativeSchemes\": \""
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|csb
+operator|.
+name|toString
 argument_list|()
 argument_list|)
 operator|.

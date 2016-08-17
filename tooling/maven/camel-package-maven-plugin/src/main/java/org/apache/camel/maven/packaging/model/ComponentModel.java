@@ -66,6 +66,11 @@ specifier|private
 name|String
 name|alternativeSyntax
 decl_stmt|;
+DECL|field|alternativeSchemes
+specifier|private
+name|String
+name|alternativeSchemes
+decl_stmt|;
 DECL|field|title
 specifier|private
 name|String
@@ -250,6 +255,32 @@ operator|.
 name|alternativeSyntax
 operator|=
 name|alternativeSyntax
+expr_stmt|;
+block|}
+DECL|method|getAlternativeSchemes ()
+specifier|public
+name|String
+name|getAlternativeSchemes
+parameter_list|()
+block|{
+return|return
+name|alternativeSchemes
+return|;
+block|}
+DECL|method|setAlternativeSchemes (String alternativeSchemes)
+specifier|public
+name|void
+name|setAlternativeSchemes
+parameter_list|(
+name|String
+name|alternativeSchemes
+parameter_list|)
+block|{
+name|this
+operator|.
+name|alternativeSchemes
+operator|=
+name|alternativeSchemes
 expr_stmt|;
 block|}
 DECL|method|getTitle ()
