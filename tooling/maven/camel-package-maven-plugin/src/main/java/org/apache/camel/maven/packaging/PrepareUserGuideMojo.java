@@ -2218,7 +2218,7 @@ operator|.
 name|getTitle
 argument_list|()
 operator|.
-name|compareTo
+name|compareToIgnoreCase
 argument_list|(
 name|o2
 operator|.
@@ -2260,7 +2260,7 @@ operator|.
 name|getTitle
 argument_list|()
 operator|.
-name|compareTo
+name|compareToIgnoreCase
 argument_list|(
 name|o2
 operator|.
@@ -2302,7 +2302,7 @@ operator|.
 name|getTitle
 argument_list|()
 operator|.
-name|compareTo
+name|compareToIgnoreCase
 argument_list|(
 name|o2
 operator|.

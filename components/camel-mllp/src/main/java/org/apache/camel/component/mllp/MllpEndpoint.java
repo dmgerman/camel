@@ -182,7 +182,7 @@ literal|"mllp"
 argument_list|,
 name|title
 operator|=
-literal|"mllp"
+literal|"MLLP"
 argument_list|,
 name|syntax
 operator|=
