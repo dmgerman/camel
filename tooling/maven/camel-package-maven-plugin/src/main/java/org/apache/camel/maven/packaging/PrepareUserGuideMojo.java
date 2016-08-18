@@ -120,18 +120,6 @@ end_import
 
 begin_import
 import|import
-name|javax
-operator|.
-name|xml
-operator|.
-name|crypto
-operator|.
-name|Data
-import|;
-end_import
-
-begin_import
-import|import
 name|edu
 operator|.
 name|emory
@@ -198,43 +186,7 @@ name|packaging
 operator|.
 name|model
 operator|.
-name|DataFormatOptionModel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|maven
-operator|.
-name|packaging
-operator|.
-name|model
-operator|.
 name|LanguageModel
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|maven
-operator|.
-name|packaging
-operator|.
-name|model
-operator|.
-name|LanguageOptionModel
 import|;
 end_import
 
@@ -305,24 +257,6 @@ operator|.
 name|project
 operator|.
 name|MavenProjectHelper
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|maven
-operator|.
-name|packaging
-operator|.
-name|JSonSchemaHelper
-operator|.
-name|getSafeValue
 import|;
 end_import
 
@@ -955,7 +889,6 @@ argument_list|,
 literal|"SUMMARY.md"
 argument_list|)
 decl_stmt|;
-comment|// TODO: some dataformats reuse docs, such as bindy etc.
 comment|// update data formats
 name|StringBuilder
 name|dataFormats
@@ -2166,6 +2099,18 @@ name|DataFormatModel
 name|model
 parameter_list|)
 block|{
+comment|// special for some data formats
+name|String
+name|name
+init|=
+name|asDataFormatName
+argument_list|(
+name|model
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+decl_stmt|;
 return|return
 literal|"["
 operator|+
@@ -2176,10 +2121,7 @@ argument_list|()
 operator|+
 literal|"]("
 operator|+
-name|model
-operator|.
-name|getName
-argument_list|()
+name|name
 operator|+
 literal|"-dataformat.adoc)"
 return|;
@@ -2211,6 +2153,38 @@ argument_list|()
 operator|+
 literal|"-language.adoc)"
 return|;
+block|}
+DECL|method|asDataFormatName (String name)
+specifier|private
+specifier|static
+name|String
+name|asDataFormatName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+comment|// special for some dataformats which share the same readme file
+if|if
+condition|(
+name|name
+operator|.
+name|startsWith
+argument_list|(
+literal|"bindy"
+argument_list|)
+condition|)
+block|{
+return|return
+literal|"bindy"
+return|;
+block|}
+else|else
+block|{
+return|return
+name|name
+return|;
+block|}
 block|}
 DECL|class|ComponentComparator
 specifier|private

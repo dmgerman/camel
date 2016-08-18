@@ -4681,6 +4681,22 @@ range|:
 name|dataformats
 control|)
 block|{
+comment|// special for bindy
+if|if
+condition|(
+name|dataformat
+operator|.
+name|startsWith
+argument_list|(
+literal|"bindy"
+argument_list|)
+condition|)
+block|{
+name|dataformat
+operator|=
+literal|"bindy"
+expr_stmt|;
+block|}
 name|String
 name|name
 init|=

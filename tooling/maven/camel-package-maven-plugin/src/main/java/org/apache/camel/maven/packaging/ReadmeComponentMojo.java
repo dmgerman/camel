@@ -838,6 +838,14 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// special for some data formats
+name|dataFormatName
+operator|=
+name|asDataFormatName
+argument_list|(
+name|dataFormatName
+argument_list|)
+expr_stmt|;
 name|File
 name|file
 init|=
@@ -861,6 +869,28 @@ argument_list|,
 name|json
 argument_list|)
 decl_stmt|;
+comment|// special to reuse same title
+if|if
+condition|(
+name|model
+operator|.
+name|getName
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"bindy"
+argument_list|)
+condition|)
+block|{
+name|model
+operator|.
+name|setTitle
+argument_list|(
+literal|"Bindy"
+argument_list|)
+expr_stmt|;
+block|}
 name|boolean
 name|exists
 init|=
@@ -950,6 +980,38 @@ expr_stmt|;
 block|}
 block|}
 block|}
+block|}
+block|}
+DECL|method|asDataFormatName (String name)
+specifier|private
+specifier|static
+name|String
+name|asDataFormatName
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+block|{
+comment|// special for some dataformats which share the same readme file
+if|if
+condition|(
+name|name
+operator|.
+name|startsWith
+argument_list|(
+literal|"bindy"
+argument_list|)
+condition|)
+block|{
+return|return
+literal|"bindy"
+return|;
+block|}
+else|else
+block|{
+return|return
+name|name
+return|;
 block|}
 block|}
 DECL|method|executeLanguage ()
