@@ -190,6 +190,15 @@ argument_list|,
 literal|true
 argument_list|)
 operator|.
+name|property
+argument_list|(
+name|Weld
+operator|.
+name|SHUTDOWN_HOOK_SYSTEM_PROPERTY
+argument_list|,
+literal|false
+argument_list|)
+operator|.
 name|enableDiscovery
 argument_list|()
 operator|.
@@ -276,6 +285,8 @@ name|alternatives
 argument_list|()
 control|)
 block|{
+comment|// It is not necessary to add the alternative class with WELD-2218
+comment|// anymore, though it's kept for previous versions
 name|weld
 operator|.
 name|addBeanClass
