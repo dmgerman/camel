@@ -1328,7 +1328,7 @@ name|camelContext
 argument_list|,
 name|dataFormat
 argument_list|,
-literal|"modulesClassNames"
+literal|"moduleClassNames"
 argument_list|,
 name|moduleClassNames
 argument_list|)
