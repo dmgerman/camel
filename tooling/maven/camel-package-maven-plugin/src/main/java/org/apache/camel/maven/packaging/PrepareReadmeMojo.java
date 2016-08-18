@@ -383,21 +383,47 @@ name|MojoExecutionException
 throws|,
 name|MojoFailureException
 block|{
+comment|// update readme file in camel-core
 name|executeComponentsReadme
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|executeDataFormatsReadme
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
 expr_stmt|;
 name|executeLanguagesReadme
-argument_list|()
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+comment|// update readme file in components
+name|executeComponentsReadme
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|executeDataFormatsReadme
+argument_list|(
+literal|false
+argument_list|)
+expr_stmt|;
+name|executeLanguagesReadme
+argument_list|(
+literal|false
+argument_list|)
 expr_stmt|;
 block|}
-DECL|method|executeComponentsReadme ()
+DECL|method|executeComponentsReadme (boolean core)
 specifier|protected
 name|void
 name|executeComponentsReadme
-parameter_list|()
+parameter_list|(
+name|boolean
+name|core
+parameter_list|)
 throws|throws
 name|MojoExecutionException
 throws|,
@@ -577,7 +603,7 @@ name|ComponentComparator
 argument_list|()
 argument_list|)
 expr_stmt|;
-comment|// filter out camel-core
+comment|// filter out unwanted components
 name|List
 argument_list|<
 name|ComponentModel
@@ -599,6 +625,33 @@ control|)
 block|{
 if|if
 condition|(
+name|core
+operator|&&
+literal|"camel-core"
+operator|.
+name|equals
+argument_list|(
+name|model
+operator|.
+name|getArtifactId
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|components
+operator|.
+name|add
+argument_list|(
+name|model
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|core
+operator|&&
 operator|!
 literal|"camel-core"
 operator|.
@@ -620,10 +673,30 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// update the big readme file in the components dir
+comment|// update the big readme file in the core/components dir
 name|File
 name|file
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|core
+condition|)
+block|{
+name|file
+operator|=
+operator|new
+name|File
+argument_list|(
+name|readmeCoreDir
+argument_list|,
+literal|"readme.adoc"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|file
+operator|=
 operator|new
 name|File
 argument_list|(
@@ -631,7 +704,8 @@ name|readmeComponentsDir
 argument_list|,
 literal|"readme.adoc"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// update regular components
 name|boolean
 name|exists
@@ -669,7 +743,7 @@ argument_list|()
 operator|.
 name|info
 argument_list|(
-literal|"Updated components/readme.adoc file: "
+literal|"Updated readme.adoc file: "
 operator|+
 name|file
 argument_list|)
@@ -686,7 +760,7 @@ argument_list|()
 operator|.
 name|debug
 argument_list|(
-literal|"No changes to components/readme.adoc file: "
+literal|"No changes to readme.adoc file: "
 operator|+
 name|file
 argument_list|)
@@ -699,7 +773,7 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-literal|"No components/readme.adoc file: "
+literal|"No readme.adoc file: "
 operator|+
 name|file
 argument_list|)
@@ -728,11 +802,14 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|executeDataFormatsReadme ()
+DECL|method|executeDataFormatsReadme (boolean core)
 specifier|protected
 name|void
 name|executeDataFormatsReadme
-parameter_list|()
+parameter_list|(
+name|boolean
+name|core
+parameter_list|)
 throws|throws
 name|MojoExecutionException
 throws|,
@@ -874,6 +951,33 @@ control|)
 block|{
 if|if
 condition|(
+name|core
+operator|&&
+literal|"camel-core"
+operator|.
+name|equals
+argument_list|(
+name|model
+operator|.
+name|getArtifactId
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|dataFormats
+operator|.
+name|add
+argument_list|(
+name|model
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|core
+operator|&&
 operator|!
 literal|"camel-core"
 operator|.
@@ -895,10 +999,30 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// update the big readme file in the components dir
+comment|// update the big readme file in the core/components dir
 name|File
 name|file
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|core
+condition|)
+block|{
+name|file
+operator|=
+operator|new
+name|File
+argument_list|(
+name|readmeCoreDir
+argument_list|,
+literal|"readme.adoc"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|file
+operator|=
 operator|new
 name|File
 argument_list|(
@@ -906,7 +1030,8 @@ name|readmeComponentsDir
 argument_list|,
 literal|"readme.adoc"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// update regular data formats
 name|boolean
 name|exists
@@ -944,7 +1069,7 @@ argument_list|()
 operator|.
 name|info
 argument_list|(
-literal|"Updated components/readme.adoc file: "
+literal|"Updated readme.adoc file: "
 operator|+
 name|file
 argument_list|)
@@ -961,7 +1086,7 @@ argument_list|()
 operator|.
 name|debug
 argument_list|(
-literal|"No changes to components/readme.adoc file: "
+literal|"No changes to readme.adoc file: "
 operator|+
 name|file
 argument_list|)
@@ -974,7 +1099,7 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-literal|"No components/readme.adoc file: "
+literal|"No readme.adoc file: "
 operator|+
 name|file
 argument_list|)
@@ -1003,11 +1128,14 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|executeLanguagesReadme ()
+DECL|method|executeLanguagesReadme (boolean core)
 specifier|protected
 name|void
 name|executeLanguagesReadme
-parameter_list|()
+parameter_list|(
+name|boolean
+name|core
+parameter_list|)
 throws|throws
 name|MojoExecutionException
 throws|,
@@ -1149,6 +1277,33 @@ control|)
 block|{
 if|if
 condition|(
+name|core
+operator|&&
+literal|"camel-core"
+operator|.
+name|equals
+argument_list|(
+name|model
+operator|.
+name|getArtifactId
+argument_list|()
+argument_list|)
+condition|)
+block|{
+name|languages
+operator|.
+name|add
+argument_list|(
+name|model
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+operator|!
+name|core
+operator|&&
 operator|!
 literal|"camel-core"
 operator|.
@@ -1170,10 +1325,30 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-comment|// update the big readme file in the components dir
+comment|// update the big readme file in the core/components dir
 name|File
 name|file
-init|=
+decl_stmt|;
+if|if
+condition|(
+name|core
+condition|)
+block|{
+name|file
+operator|=
+operator|new
+name|File
+argument_list|(
+name|readmeCoreDir
+argument_list|,
+literal|"readme.adoc"
+argument_list|)
+expr_stmt|;
+block|}
+else|else
+block|{
+name|file
+operator|=
 operator|new
 name|File
 argument_list|(
@@ -1181,7 +1356,8 @@ name|readmeComponentsDir
 argument_list|,
 literal|"readme.adoc"
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// update regular data formats
 name|boolean
 name|exists
@@ -1219,7 +1395,7 @@ argument_list|()
 operator|.
 name|info
 argument_list|(
-literal|"Updated components/readme.adoc file: "
+literal|"Updated readme.adoc file: "
 operator|+
 name|file
 argument_list|)
@@ -1236,7 +1412,7 @@ argument_list|()
 operator|.
 name|debug
 argument_list|(
-literal|"No changes to components/readme.adoc file: "
+literal|"No changes to readme.adoc file: "
 operator|+
 name|file
 argument_list|)
@@ -1249,7 +1425,7 @@ argument_list|()
 operator|.
 name|warn
 argument_list|(
-literal|"No components/readme.adoc file: "
+literal|"No readme.adoc file: "
 operator|+
 name|file
 argument_list|)
