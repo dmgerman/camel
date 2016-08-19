@@ -72,6 +72,18 @@ end_import
 
 begin_import
 import|import
+name|java
+operator|.
+name|nio
+operator|.
+name|charset
+operator|.
+name|StandardCharsets
+import|;
+end_import
+
+begin_import
+import|import
 name|com
 operator|.
 name|splunk
@@ -268,6 +280,7 @@ expr_stmt|;
 block|}
 DECL|method|doWrite (String event)
 specifier|protected
+specifier|synchronized
 name|void
 name|doWrite
 parameter_list|(
@@ -302,7 +315,9 @@ name|OutputStreamWriter
 argument_list|(
 name|ostream
 argument_list|,
-literal|"UTF-8"
+name|StandardCharsets
+operator|.
+name|UTF_8
 argument_list|)
 decl_stmt|;
 name|writer
