@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * xml-rpc data format  */
+comment|/**  * XML-RPC data format  */
 end_comment
 
 begin_class

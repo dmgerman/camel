@@ -143,7 +143,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * zip data format (not for zip files)  */
+comment|/**  * Zip compression data format (not for zip files)  */
 end_comment
 
 begin_class

@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Represents the TAR file XML {@link org.apache.camel.spi.DataFormat}.  */
+comment|/**  * TAR file data format  */
 end_comment
 
 begin_class

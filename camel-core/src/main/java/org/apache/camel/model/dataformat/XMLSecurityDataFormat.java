@@ -193,7 +193,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * xml-security data format  */
+comment|/**  * XML-Security data format  */
 end_comment
 
 begin_class

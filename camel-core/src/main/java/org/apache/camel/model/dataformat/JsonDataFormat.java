@@ -185,7 +185,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Json data format  *  * @version   */
+comment|/**  * JSon data format  *  * @version   */
 end_comment
 
 begin_class

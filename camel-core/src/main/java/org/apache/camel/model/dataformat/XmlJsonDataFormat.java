@@ -173,7 +173,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * xml-json data format  *  * @version   */
+comment|/**  * XML-JSon data format  *  * @version   */
 end_comment
 
 begin_class

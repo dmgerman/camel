@@ -129,7 +129,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * zip-file data format  */
+comment|/**  * Zip-file data format  */
 end_comment
 
 begin_class

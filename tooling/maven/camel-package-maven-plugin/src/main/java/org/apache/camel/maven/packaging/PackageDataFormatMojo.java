@@ -1066,7 +1066,7 @@ condition|)
 block|{
 name|dataFormatModel
 operator|.
-name|setLabel
+name|setDescription
 argument_list|(
 name|row
 operator|.

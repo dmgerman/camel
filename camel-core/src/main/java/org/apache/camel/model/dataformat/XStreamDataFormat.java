@@ -321,7 +321,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * xstream data format  *  * @version   */
+comment|/**  * XStream data format  *  * @version   */
 end_comment
 
 begin_class
