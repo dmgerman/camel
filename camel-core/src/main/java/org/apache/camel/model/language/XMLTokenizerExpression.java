@@ -141,7 +141,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * For expressions and predicates using a body or header tokenizer.  *  * @see XMLTokenizeLanguage  */
+comment|/**  * For expressions and predicates using a body or header tokenizer  *  * @see XMLTokenizeLanguage  */
 end_comment
 
 begin_class
