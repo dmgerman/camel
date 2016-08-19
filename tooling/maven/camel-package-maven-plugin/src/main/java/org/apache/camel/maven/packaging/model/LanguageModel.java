@@ -519,6 +519,35 @@ name|javaType
 return|;
 block|}
 block|}
+DECL|method|getDocLink ()
+specifier|public
+name|String
+name|getDocLink
+parameter_list|()
+block|{
+if|if
+condition|(
+literal|"camel-core"
+operator|.
+name|equals
+argument_list|(
+name|artifactId
+argument_list|)
+condition|)
+block|{
+return|return
+literal|"src/main/docs"
+return|;
+block|}
+else|else
+block|{
+return|return
+name|artifactId
+operator|+
+literal|"/src/main/docs"
+return|;
+block|}
+block|}
 block|}
 end_class
 
