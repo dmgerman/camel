@@ -181,6 +181,8 @@ argument_list|(
 name|camelProjectRoot
 argument_list|(
 name|baseDir
+argument_list|,
+literal|"components-starter"
 argument_list|)
 argument_list|,
 literal|"components-starter"
@@ -190,7 +192,7 @@ return|return
 name|allStartersDir
 return|;
 block|}
-DECL|method|camelProjectRoot (File baseDir)
+DECL|method|camelProjectRoot (File baseDir, String expectedDirName)
 specifier|public
 specifier|static
 name|File
@@ -198,8 +200,13 @@ name|camelProjectRoot
 parameter_list|(
 name|File
 name|baseDir
+parameter_list|,
+name|String
+name|expectedDirName
 parameter_list|)
 block|{
+comment|// another solution could be to look for pom.xml file and see if that pom.xml is the camel root pom
+comment|// however looking for a dir named components-starter should be fine also (there is only 1 with such name)
 try|try
 block|{
 name|File
@@ -215,19 +222,44 @@ condition|(
 name|root
 operator|!=
 literal|null
-operator|&&
-operator|!
+condition|)
+block|{
+name|File
+index|[]
+name|names
+init|=
 name|root
+operator|.
+name|listFiles
+argument_list|(
+name|pathname
+lambda|->
+name|pathname
 operator|.
 name|getName
 argument_list|()
 operator|.
 name|equals
 argument_list|(
-literal|"camel"
+name|expectedDirName
 argument_list|)
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|names
+operator|!=
+literal|null
+operator|&&
+name|names
+operator|.
+name|length
+operator|==
+literal|1
 condition|)
 block|{
+break|break;
+block|}
 name|root
 operator|=
 name|root
@@ -247,7 +279,7 @@ throw|throw
 operator|new
 name|IllegalStateException
 argument_list|(
-literal|"Cannot find project root"
+literal|"Cannot find Apache Camel project root directory"
 argument_list|)
 throw|;
 block|}
