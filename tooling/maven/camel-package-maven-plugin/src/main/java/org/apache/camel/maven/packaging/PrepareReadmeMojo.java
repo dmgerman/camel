@@ -1879,11 +1879,11 @@ name|text
 operator|=
 name|before
 operator|+
-literal|"\n// components: START\n"
+literal|"// components: START\n"
 operator|+
 name|changed
 operator|+
-literal|"\n// components: END\n"
+literal|"\n// components: END"
 operator|+
 name|after
 expr_stmt|;
@@ -2084,11 +2084,11 @@ name|text
 operator|=
 name|before
 operator|+
-literal|"\n// dataformats: START\n"
+literal|"// dataformats: START\n"
 operator|+
 name|changed
 operator|+
-literal|"\n// dataformats: END\n"
+literal|"\n// dataformats: END"
 operator|+
 name|after
 expr_stmt|;
@@ -2289,11 +2289,11 @@ name|text
 operator|=
 name|before
 operator|+
-literal|"\n// languages: START\n"
+literal|"// languages: START\n"
 operator|+
 name|changed
 operator|+
-literal|"\n// languages: END\n"
+literal|"\n// languages: END"
 operator|+
 name|after
 expr_stmt|;

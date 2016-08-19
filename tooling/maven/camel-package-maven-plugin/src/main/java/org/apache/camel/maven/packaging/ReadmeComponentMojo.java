@@ -1552,11 +1552,11 @@ name|text
 operator|=
 name|before
 operator|+
-literal|"\n// component options: START\n"
+literal|"// component options: START\n"
 operator|+
 name|changed
 operator|+
-literal|"\n// component options: END\n"
+literal|"\n// component options: END"
 operator|+
 name|after
 expr_stmt|;
@@ -1757,11 +1757,11 @@ name|text
 operator|=
 name|before
 operator|+
-literal|"\n// endpoint options: START\n"
+literal|"// endpoint options: START\n"
 operator|+
 name|changed
 operator|+
-literal|"\n// endpoint options: END\n"
+literal|"\n// endpoint options: END"
 operator|+
 name|after
 expr_stmt|;
@@ -1962,11 +1962,11 @@ name|text
 operator|=
 name|before
 operator|+
-literal|"\n// dataformat options: START\n"
+literal|"// dataformat options: START\n"
 operator|+
 name|changed
 operator|+
-literal|"\n// dataformat options: END\n"
+literal|"\n// dataformat options: END"
 operator|+
 name|after
 expr_stmt|;
@@ -2167,11 +2167,11 @@ name|text
 operator|=
 name|before
 operator|+
-literal|"\n// language options: START\n"
+literal|"// language options: START\n"
 operator|+
 name|changed
 operator|+
-literal|"\n// language options: END\n"
+literal|"\n// language options: END"
 operator|+
 name|after
 expr_stmt|;
