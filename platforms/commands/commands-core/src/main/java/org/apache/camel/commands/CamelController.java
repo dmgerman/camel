@@ -626,6 +626,39 @@ parameter_list|()
 throws|throws
 name|Exception
 function_decl|;
+comment|/**      * Gets the component ascii documentation from the Camel catalog.      *      * @param name the name of the component      * @throws java.lang.Exception can be thrown      */
+DECL|method|catalogComponentAsciiDoc (String name)
+name|String
+name|catalogComponentAsciiDoc
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Gets the data format ascii documentation from the Camel catalog.      *      * @param name the name of the data format      * @throws java.lang.Exception can be thrown      */
+DECL|method|catalogDataFormatAsciiDoc (String name)
+name|String
+name|catalogDataFormatAsciiDoc
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
+comment|/**      * Gets the language ascii documentation from the Camel catalog.      *      * @param name the name of the language      * @throws java.lang.Exception can be thrown      */
+DECL|method|catalogLanguageAsciiDoc (String name)
+name|String
+name|catalogLanguageAsciiDoc
+parameter_list|(
+name|String
+name|name
+parameter_list|)
+throws|throws
+name|Exception
+function_decl|;
 block|}
 end_interface
 
