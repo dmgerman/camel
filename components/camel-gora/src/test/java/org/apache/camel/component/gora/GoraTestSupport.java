@@ -46,7 +46,7 @@ name|GoraTestSupport
 extends|extends
 name|CamelTestSupport
 block|{
-comment|//TODO
+comment|// currently empty
 block|}
 end_class
 

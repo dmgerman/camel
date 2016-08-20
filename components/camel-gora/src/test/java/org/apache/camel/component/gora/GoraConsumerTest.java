@@ -151,7 +151,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * GORA Consumer Tests  *  */
+comment|/**  * GORA Consumer Tests  */
 end_comment
 
 begin_class

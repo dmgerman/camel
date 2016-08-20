@@ -87,7 +87,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * GORA Utils Tests  *  */
+comment|/**  * GORA Utils Tests  */
 end_comment
 
 begin_class

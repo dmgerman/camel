@@ -159,7 +159,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * GoraUtil class contain utility methods for the  * camel component.  *  */
+comment|/**  * GoraUtil class contain utility methods for the  * camel component.  */
 end_comment
 
 begin_class
@@ -177,7 +177,7 @@ parameter_list|()
 block|{
 comment|// utility Class
 block|}
-comment|/**      * Utility method to construct a new query from the exchange      *      *<b>NOTE:</b> values used in order construct the query      * should be stored in the "in" message headers.      *      * @param dataStore      * @param conf      * @return      * @throws ClassNotFoundException      * @throws IllegalAccessException      * @throws NoSuchMethodException      * @throws InvocationTargetException      */
+comment|/**      * Utility method to construct a new query from the exchange      *      *<b>NOTE:</b> values used in order construct the query      * should be stored in the "in" message headers.      */
 DECL|method|constractQueryFromConfiguration (final DataStore<Object, Persistent> dataStore, final GoraConfiguration conf)
 specifier|public
 specifier|static
@@ -481,7 +481,7 @@ return|return
 name|query
 return|;
 block|}
-comment|/**      * Utility method to construct a new query from the exchange      *      *<b>NOTE:</b> values used in order construct the query      * should be stored in the "in" message headers.      *      * @param propertiesMap      * @param dataStore      * @param conf      * @return      * @throws ClassNotFoundException      */
+comment|/**      * Utility method to construct a new query from the exchange      *      *<b>NOTE:</b> values used in order construct the query      * should be stored in the "in" message headers.      */
 DECL|method|constractQueryFromPropertiesMap (final Map<String, ?> propertiesMap, final DataStore<Object, Persistent> dataStore, final GoraConfiguration conf)
 specifier|public
 specifier|static
@@ -788,7 +788,7 @@ return|return
 name|query
 return|;
 block|}
-comment|/**      * Utility method to check if a value exist in the configuration class      *      *<b>NOTE:</>      * Checks only if is not null      *      * @param attr      * @param conf      * @return      * @throws IllegalAccessException      * @throws NoSuchMethodException      * @throws InvocationTargetException      */
+comment|/**      * Utility method to check if a value exist in the configuration class      *      *<b>NOTE:</>      * Checks only if is not null      */
 DECL|method|configurationExist (final GoraAttribute attr, final GoraConfiguration conf)
 specifier|protected
 specifier|static
@@ -825,7 +825,7 @@ operator|!=
 literal|null
 return|;
 block|}
-comment|/**      * Utility method to check if a value exist in the properties map      *      * @param attr      * @param propertiesMap      * @return      */
+comment|/**      * Utility method to check if a value exist in the properties map      */
 DECL|method|propertyExist (final GoraAttribute attr, final Map<String, ?> propertiesMap)
 specifier|protected
 specifier|static
@@ -857,7 +857,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Utility method to extract value from configuration      *      * @param attr      * @param conf      * @return      * @throws IllegalAccessException      * @throws NoSuchMethodException      * @throws InvocationTargetException      */
+comment|/**      * Utility method to extract value from configuration      */
 DECL|method|getAttribute (final GoraAttribute attr, final GoraConfiguration conf)
 specifier|protected
 specifier|static
@@ -892,7 +892,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Utility method to extract value from configuration as String      *      * @param attr      * @param conf      * @return      * @throws IllegalAccessException      * @throws NoSuchMethodException      * @throws InvocationTargetException      */
+comment|/**      * Utility method to extract value from configuration as String      */
 DECL|method|getAttributeAsString (final GoraAttribute attr, final GoraConfiguration conf)
 specifier|protected
 specifier|static
@@ -928,7 +928,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Utility method to extract value from configuration as Long      *      * @param attr      * @param conf      * @return      * @throws IllegalAccessException      * @throws NoSuchMethodException      * @throws InvocationTargetException      */
+comment|/**      * Utility method to extract value from configuration as Long      */
 DECL|method|getAttributeAsLong (final GoraAttribute attr, final GoraConfiguration conf)
 specifier|protected
 specifier|static
@@ -964,7 +964,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Utility method to extract value of a map      *      * @param attr      * @param propertiesMap      * @return      */
+comment|/**      * Utility method to extract value of a map      */
 DECL|method|getProperty (final GoraAttribute attr, final Map<String, ?> propertiesMap)
 specifier|protected
 specifier|static
@@ -996,7 +996,7 @@ name|value
 argument_list|)
 return|;
 block|}
-comment|/**      * Utility method to extract value of a map as String      *      * @param attr      * @param propertiesMap      * @return      */
+comment|/**      * Utility method to extract value of a map as String      */
 DECL|method|getPropertyAsString (final GoraAttribute attr, final Map<String, ?> propertiesMap)
 specifier|protected
 specifier|static
@@ -1031,7 +1031,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/**      * Utility method to extract value of a map as long      *      * @param attr      * @param propertiesMap      * @return      */
+comment|/**      * Utility method to extract value of a map as long      */
 DECL|method|getPropertyAsLong (final GoraAttribute attr, final Map<String, ?> propertiesMap)
 specifier|protected
 specifier|static
