@@ -564,7 +564,7 @@ expr_stmt|;
 name|String
 name|ordereString
 init|=
-literal|"{\"purchase-order\":{\"@name\":\"Tiger\",\"@price\":\"99.95\",\"@amount\":\"1.0\"}}"
+literal|"{\"purchase-order\":{\"@name\":\"Tiger\",\"@price\":99.95,\"@amount\":1}}"
 decl_stmt|;
 name|mock
 operator|.
