@@ -164,6 +164,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -259,6 +269,11 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"TODO: ActiveMQ 5.14.1 or better, due AMQ-6402"
+argument_list|)
 annotation|@
 name|ContextConfiguration
 DECL|class|CamelGreeterTest
