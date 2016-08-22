@@ -246,13 +246,6 @@ argument_list|()
 decl_stmt|;
 name|setProperties
 argument_list|(
-name|this
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-name|setProperties
-argument_list|(
 name|config
 argument_list|,
 name|parameters
@@ -343,6 +336,9 @@ operator|.
 name|configuration
 operator|=
 name|configuration
+operator|.
+name|copy
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|getConfigurationFile ()
