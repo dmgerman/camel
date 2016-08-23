@@ -414,7 +414,7 @@ literal|"org.apache.camel:"
 operator|+
 name|moduleName
 operator|+
-literal|":2.18-SNAPSHOT"
+literal|":2.18.0-SNAPSHOT"
 argument_list|)
 operator|.
 name|withTransitivity
