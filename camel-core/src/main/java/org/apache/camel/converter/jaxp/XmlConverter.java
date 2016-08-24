@@ -1395,9 +1395,6 @@ name|toDOMSource
 argument_list|(
 name|source
 argument_list|,
-operator|(
-name|Exchange
-operator|)
 literal|null
 argument_list|)
 return|;
@@ -3944,9 +3941,6 @@ name|toDOMDocument
 argument_list|(
 name|in
 argument_list|,
-operator|(
-name|Exchange
-operator|)
 literal|null
 argument_list|)
 return|;
