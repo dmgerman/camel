@@ -6001,7 +6001,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createProducer (CamelContext camelContext, Exchange exchange, String scheme, String host, String verb, String basePath, String uriTemplate, String queryParameters, String consumes, String produces, Map<String, Object> parameters)
+DECL|method|createProducer (CamelContext camelContext, Exchange exchange, String scheme, String host, String verb, String basePath, String uriTemplate, String resolvedUriTemplate, String queryParameters, String consumes, String produces, Map<String, Object> parameters)
 specifier|public
 name|Producer
 name|createProducer
@@ -6026,6 +6026,9 @@ name|basePath
 parameter_list|,
 name|String
 name|uriTemplate
+parameter_list|,
+name|String
+name|resolvedUriTemplate
 parameter_list|,
 name|String
 name|queryParameters
@@ -6066,7 +6069,7 @@ argument_list|(
 name|uriTemplate
 argument_list|)
 expr_stmt|;
-comment|// does the uri template use placeholders?
+comment|// does the uri template use path parameters?
 if|if
 condition|(
 name|uriTemplate
@@ -6075,24 +6078,13 @@ name|contains
 argument_list|(
 literal|"{"
 argument_list|)
+operator|&&
+name|resolvedUriTemplate
+operator|!=
+literal|null
 condition|)
 block|{
-comment|// us a header for the dynamic uri template so we reuse same endpoint
-comment|// TODO: fix me later
-name|String
-name|path
-init|=
-name|StringHelper
-operator|.
-name|replaceAll
-argument_list|(
-name|uriTemplate
-argument_list|,
-literal|"{name}"
-argument_list|,
-literal|"Donald Duck"
-argument_list|)
-decl_stmt|;
+comment|// if so us a header for the dynamic uri template so we reuse same endpoint but the header overrides the actual url to use
 name|String
 name|overrideUri
 init|=
@@ -6108,7 +6100,7 @@ name|host
 argument_list|,
 name|basePath
 argument_list|,
-name|path
+name|resolvedUriTemplate
 argument_list|)
 decl_stmt|;
 name|exchange
