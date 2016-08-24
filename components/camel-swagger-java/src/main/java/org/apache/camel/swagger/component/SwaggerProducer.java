@@ -270,6 +270,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ObjectHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|ServiceHelper
 import|;
 end_import
@@ -1319,6 +1333,21 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// we need to remove the header as they are sent as query instead
+comment|// TODO: we could use a header filter strategy to skip these headers
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|param
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|query
 operator|.
 name|put
@@ -1395,6 +1424,21 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// we need to remove the header as they are sent as path instead
+comment|// TODO: we could use a header filter strategy to skip these headers
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|param
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|String
 name|token
 init|=

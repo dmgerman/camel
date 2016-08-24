@@ -350,6 +350,18 @@ specifier|private
 name|String
 name|host
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|multiValue
+operator|=
+literal|true
+argument_list|)
+DECL|field|queryParameters
+specifier|private
+name|String
+name|queryParameters
+decl_stmt|;
 DECL|method|SwaggerEndpoint (String endpointUri, Component component)
 specifier|public
 name|SwaggerEndpoint
@@ -419,6 +431,18 @@ argument_list|(
 literal|"Consumer not supported"
 argument_list|)
 throw|;
+block|}
+annotation|@
+name|Override
+DECL|method|isLenientProperties ()
+specifier|public
+name|boolean
+name|isLenientProperties
+parameter_list|()
+block|{
+return|return
+literal|true
+return|;
 block|}
 annotation|@
 name|Override
@@ -511,6 +535,33 @@ operator|.
 name|path
 operator|=
 name|path
+expr_stmt|;
+block|}
+DECL|method|getQueryParameters ()
+specifier|public
+name|String
+name|getQueryParameters
+parameter_list|()
+block|{
+return|return
+name|queryParameters
+return|;
+block|}
+comment|/**      * Query parameters for the HTTP service to call      */
+DECL|method|setQueryParameters (String queryParameters)
+specifier|public
+name|void
+name|setQueryParameters
+parameter_list|(
+name|String
+name|queryParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|queryParameters
+operator|=
+name|queryParameters
 expr_stmt|;
 block|}
 DECL|method|getComponentName ()
