@@ -253,24 +253,15 @@ name|isRunning
 argument_list|()
 decl_stmt|;
 comment|// log at trace level as otherwise this can be noisy during normal operation
-if|if
-condition|(
-name|logger
-operator|.
-name|isTraceEnabled
-argument_list|()
-condition|)
-block|{
 name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"runningAllowed() -> "
-operator|+
+literal|"runningAllowed() -> {}"
+argument_list|,
 name|answer
 argument_list|)
 expr_stmt|;
-block|}
 return|return
 name|answer
 return|;
