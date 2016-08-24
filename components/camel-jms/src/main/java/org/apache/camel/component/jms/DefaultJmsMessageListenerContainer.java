@@ -257,8 +257,8 @@ name|logger
 operator|.
 name|trace
 argument_list|(
-literal|"runningAllowed() -> {}"
-argument_list|,
+literal|"runningAllowed() -> "
+operator|+
 name|answer
 argument_list|)
 expr_stmt|;
