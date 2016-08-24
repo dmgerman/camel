@@ -293,6 +293,11 @@ name|swagger
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|enums
+operator|=
+literal|"http,https"
+argument_list|)
 DECL|field|schema
 specifier|private
 name|String
@@ -337,6 +342,13 @@ DECL|field|componentName
 specifier|private
 name|String
 name|componentName
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|host
+specifier|private
+name|String
+name|host
 decl_stmt|;
 DECL|method|SwaggerEndpoint (String endpointUri, Component component)
 specifier|public
@@ -430,6 +442,7 @@ return|return
 name|schema
 return|;
 block|}
+comment|/**      * Scheme to use when calling the REST service such as http or https      */
 DECL|method|setSchema (String schema)
 specifier|public
 name|void
@@ -456,6 +469,7 @@ return|return
 name|verb
 return|;
 block|}
+comment|/**      * Verb of the HTTP service such as get,post,put etc.      */
 DECL|method|setVerb (String verb)
 specifier|public
 name|void
@@ -482,6 +496,7 @@ return|return
 name|path
 return|;
 block|}
+comment|/**      * Uri template (context-path) of HTTP service to call      */
 DECL|method|setPath (String path)
 specifier|public
 name|void
@@ -523,6 +538,33 @@ operator|.
 name|componentName
 operator|=
 name|componentName
+expr_stmt|;
+block|}
+DECL|method|getHost ()
+specifier|public
+name|String
+name|getHost
+parameter_list|()
+block|{
+return|return
+name|host
+return|;
+block|}
+comment|/**      * Host and port of HTTP service to use (override host in swagger schema)      */
+DECL|method|setHost (String host)
+specifier|public
+name|void
+name|setHost
+parameter_list|(
+name|String
+name|host
+parameter_list|)
+block|{
+name|this
+operator|.
+name|host
+operator|=
+name|host
 expr_stmt|;
 block|}
 annotation|@

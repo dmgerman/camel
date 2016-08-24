@@ -74,6 +74,11 @@ specifier|private
 name|String
 name|schema
 decl_stmt|;
+DECL|field|host
+specifier|private
+name|String
+name|host
+decl_stmt|;
 DECL|method|SwaggerComponent ()
 specifier|public
 name|SwaggerComponent
@@ -261,14 +266,6 @@ argument_list|(
 name|path
 argument_list|)
 expr_stmt|;
-name|setProperties
-argument_list|(
-name|endpoint
-argument_list|,
-name|parameters
-argument_list|)
-expr_stmt|;
-comment|// any leftover parameters should be kept as additional uri parameters
 return|return
 name|endpoint
 return|;
@@ -325,6 +322,33 @@ operator|.
 name|componentName
 operator|=
 name|componentName
+expr_stmt|;
+block|}
+DECL|method|getHost ()
+specifier|public
+name|String
+name|getHost
+parameter_list|()
+block|{
+return|return
+name|host
+return|;
+block|}
+comment|/**      * Host and port of HTTP service to use (override host in swagger schema)      */
+DECL|method|setHost (String host)
+specifier|public
+name|void
+name|setHost
+parameter_list|(
+name|String
+name|host
+parameter_list|)
+block|{
+name|this
+operator|.
+name|host
+operator|=
+name|host
 expr_stmt|;
 block|}
 block|}

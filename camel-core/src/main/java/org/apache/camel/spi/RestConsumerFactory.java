@@ -63,7 +63,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Allows SPI to plugin a {@link RestConsumerFactory} that creates the Camel {@link Consumer} responsible  * for handling incoming HTTP requests from clients that request to access REST services which has been created using  * the<a href="http://camel.apache.org/rest-dsl">rest-dsl</a>.  */
+comment|/**  * Allows SPI to plugin a {@link RestConsumerFactory} that creates the Camel {@link Consumer} responsible  * for handling incoming HTTP requests from clients that request to access REST services which has been created using  * the<a href="http://camel.apache.org/rest-dsl">rest-dsl</a>.  *  * @see RestApiConsumerFactory  * @see RestApiProcessorFactory  */
 end_comment
 
 begin_interface
@@ -72,7 +72,7 @@ specifier|public
 interface|interface
 name|RestConsumerFactory
 block|{
-comment|/**      * Creates a new REST<a      * href="http://camel.apache.org/event-driven-consumer.html">Event      * Driven Consumer</a>, which consumes messages from the endpoint using the given processor      *      * @param camelContext the camel context      * @param processor    the processor      * @param verb         HTTP verb such as GET, POST      * @param basePath     base path      * @param uriTemplate  uri template      * @param consumes     media-types for what this REST service consume as input (accept-type), is<tt>null</tt> or<tt>&#42;/&#42;</tt> for anything      * @param produces     media-types for what this REST service produces as output, can be<tt>null</tt>      * @param parameters   additional parameters      * @return a newly created REST consumer      * @throws Exception can be thrown      */
+comment|/**      * Creates a new REST<a      * href="http://camel.apache.org/event-driven-consumer.html">Event      * Driven Consumer</a>, which consumes messages from the endpoint using the given processor      *      * @param camelContext  the camel context      * @param processor     the processor      * @param verb          HTTP verb such as GET, POST      * @param basePath      base path      * @param uriTemplate   uri template      * @param consumes      media-types for what this REST service consume as input (accept-type), is<tt>null</tt> or<tt>&#42;/&#42;</tt> for anything      * @param produces      media-types for what this REST service produces as output, can be<tt>null</tt>      * @param configuration REST configuration      * @param parameters    additional parameters      * @return a newly created REST consumer      * @throws Exception can be thrown      */
 DECL|method|createConsumer (CamelContext camelContext, Processor processor, String verb, String basePath, String uriTemplate, String consumes, String produces, RestConfiguration configuration, Map<String, Object> parameters)
 name|Consumer
 name|createConsumer
