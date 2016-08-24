@@ -125,6 +125,24 @@ name|doc
 argument_list|)
 return|;
 block|}
+DECL|method|remove (Object doc)
+specifier|public
+name|Response
+name|remove
+parameter_list|(
+name|Object
+name|doc
+parameter_list|)
+block|{
+return|return
+name|client
+operator|.
+name|remove
+argument_list|(
+name|doc
+argument_list|)
+return|;
+block|}
 DECL|method|changes ()
 specifier|public
 name|Changes
