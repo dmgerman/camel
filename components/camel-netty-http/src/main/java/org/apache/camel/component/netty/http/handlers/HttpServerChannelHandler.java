@@ -913,6 +913,17 @@ name|write
 argument_list|(
 name|response
 argument_list|)
+operator|.
+name|syncUninterruptibly
+argument_list|()
+expr_stmt|;
+name|messageEvent
+operator|.
+name|getChannel
+argument_list|()
+operator|.
+name|close
+argument_list|()
 expr_stmt|;
 return|return;
 block|}
