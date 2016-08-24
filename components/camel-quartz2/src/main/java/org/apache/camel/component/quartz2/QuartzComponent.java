@@ -1534,11 +1534,13 @@ block|{
 name|String
 name|camelContextName
 init|=
+name|QuartzHelper
+operator|.
+name|getQuartzContextName
+argument_list|(
 name|getCamelContext
 argument_list|()
-operator|.
-name|getManagementName
-argument_list|()
+argument_list|)
 decl_stmt|;
 name|group
 operator|=
