@@ -251,7 +251,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * The rest component is used for hosting REST services which has been defined using the rest-dsl in Camel.  */
+comment|/**  * The rest component is used for either hosting REST services (consumer) or calling external REST services (producer).  */
 end_comment
 
 begin_class
@@ -269,10 +269,6 @@ argument_list|,
 name|syntax
 operator|=
 literal|"rest:method:path:uriTemplate"
-argument_list|,
-name|consumerOnly
-operator|=
-literal|true
 argument_list|,
 name|label
 operator|=

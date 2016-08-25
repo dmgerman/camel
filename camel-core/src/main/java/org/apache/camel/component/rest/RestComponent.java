@@ -97,7 +97,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * REST-DSL component.  */
+comment|/**  * Rest component.  */
 end_comment
 
 begin_class

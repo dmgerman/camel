@@ -176,6 +176,10 @@ name|URISupport
 import|;
 end_import
 
+begin_comment
+comment|/**  * Rest producer for calling remote REST services.  */
+end_comment
+
 begin_class
 DECL|class|RestProducer
 specifier|public
@@ -184,6 +188,7 @@ name|RestProducer
 extends|extends
 name|DefaultAsyncProducer
 block|{
+comment|// the producer of the Camel component that is used as the HTTP client to call the REST service
 DECL|field|producer
 specifier|private
 name|AsyncProcessor
