@@ -1,10 +1,10 @@
 begin_unit|revision:0.9.5;language:Java;cregit-version:0.0.1
 begin_comment
-comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *<p>  * http://www.apache.org/licenses/LICENSE-2.0  *<p>  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
+comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or more  * contributor license agreements.  See the NOTICE file distributed with  * this work for additional information regarding copyright ownership.  * The ASF licenses this file to You under the Apache License, Version 2.0  * (the "License"); you may not use this file except in compliance with  * the License.  You may obtain a copy of the License at  *  *      http://www.apache.org/licenses/LICENSE-2.0  *  * Unless required by applicable law or agreed to in writing, software  * distributed under the License is distributed on an "AS IS" BASIS,  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  * See the License for the specific language governing permissions and  * limitations under the License.  */
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.jetty.rest.producer
+DECL|package|org.apache.camel.swagger.component
 package|package
 name|org
 operator|.
@@ -12,13 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|swagger
+operator|.
 name|component
-operator|.
-name|jetty
-operator|.
-name|rest
-operator|.
-name|producer
 package|;
 end_package
 
@@ -56,11 +52,25 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|impl
 operator|.
-name|jetty
+name|JndiRegistry
+import|;
+end_import
+
+begin_import
+import|import
+name|org
 operator|.
-name|BaseJettyTest
+name|apache
+operator|.
+name|camel
+operator|.
+name|test
+operator|.
+name|junit4
+operator|.
+name|CamelTestSupport
 import|;
 end_import
 
@@ -75,19 +85,52 @@ import|;
 end_import
 
 begin_class
-DECL|class|JettyRestProducerGetTest
+DECL|class|RestSwaggerGetUriParamTest
 specifier|public
 class|class
-name|JettyRestProducerGetTest
+name|RestSwaggerGetUriParamTest
 extends|extends
-name|BaseJettyTest
+name|CamelTestSupport
 block|{
 annotation|@
+name|Override
+DECL|method|createRegistry ()
+specifier|protected
+name|JndiRegistry
+name|createRegistry
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|JndiRegistry
+name|jndi
+init|=
+name|super
+operator|.
+name|createRegistry
+argument_list|()
+decl_stmt|;
+name|jndi
+operator|.
+name|bind
+argument_list|(
+literal|"dummy"
+argument_list|,
+operator|new
+name|DummyRestProducerFactory
+argument_list|()
+argument_list|)
+expr_stmt|;
+return|return
+name|jndi
+return|;
+block|}
+annotation|@
 name|Test
-DECL|method|testRestGet ()
+DECL|method|testSwaggerGet ()
 specifier|public
 name|void
-name|testRestGet
+name|testSwaggerGet
 parameter_list|()
 throws|throws
 name|Exception
@@ -99,7 +142,7 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello Donald Duck"
+literal|"Bye Donald+Duck"
 argument_list|)
 expr_stmt|;
 name|template
@@ -143,25 +186,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|String
-name|host
-init|=
-literal|"http://localhost:"
-operator|+
-name|getPort
-argument_list|()
-decl_stmt|;
 name|restConfiguration
 argument_list|()
 operator|.
-name|component
+name|setComponent
 argument_list|(
-literal|"jetty"
-argument_list|)
-operator|.
-name|host
-argument_list|(
-name|host
+literal|"dummy"
 argument_list|)
 expr_stmt|;
 name|from
@@ -171,25 +201,12 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"rest:get:api:hello/hi/{name}"
+literal|"rest:get:bye?name={name}&apiDoc=hello-api.json"
 argument_list|)
 operator|.
 name|to
 argument_list|(
 literal|"mock:result"
-argument_list|)
-expr_stmt|;
-name|from
-argument_list|(
-literal|"jetty:http://localhost:{{port}}/api/hello/hi/?matchOnUriPrefix=true"
-argument_list|)
-operator|.
-name|transform
-argument_list|()
-operator|.
-name|constant
-argument_list|(
-literal|"Hello Donald Duck"
 argument_list|)
 expr_stmt|;
 block|}

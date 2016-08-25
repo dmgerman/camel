@@ -22,6 +22,16 @@ begin_import
 import|import
 name|java
 operator|.
+name|net
+operator|.
+name|URLDecoder
+import|;
+end_import
+
+begin_import
+import|import
+name|java
+operator|.
 name|util
 operator|.
 name|Map
@@ -443,7 +453,6 @@ operator|=
 literal|true
 expr_stmt|;
 comment|// we need to remove the header as they are sent as path instead
-comment|// TODO: we could use a header filter strategy to skip these headers
 name|exchange
 operator|.
 name|getIn
@@ -458,10 +467,6 @@ name|csb
 operator|.
 name|append
 argument_list|(
-name|key
-operator|+
-literal|"="
-operator|+
 name|value
 argument_list|)
 expr_stmt|;
@@ -569,6 +574,18 @@ operator|.
 name|toString
 argument_list|()
 decl_stmt|;
+comment|// decode the key as { may be decoded to %NN
+name|a
+operator|=
+name|URLDecoder
+operator|.
+name|decode
+argument_list|(
+name|a
+argument_list|,
+literal|"UTF-8"
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|a
@@ -627,14 +644,22 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// we need to remove the header as they are sent in query parameter instead
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|key
+argument_list|)
+expr_stmt|;
 name|params
 operator|.
 name|put
 argument_list|(
-name|entry
-operator|.
-name|getKey
-argument_list|()
+name|key
 argument_list|,
 name|value
 argument_list|)
