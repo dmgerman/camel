@@ -331,7 +331,7 @@ specifier|final
 name|String
 name|RESOURCE_PATH
 init|=
-literal|"META-INF/services/org/apache/camel/rest/"
+literal|"META-INF/services/org/apache/camel/restapi/"
 decl_stmt|;
 annotation|@
 name|UriPath
