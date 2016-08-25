@@ -250,7 +250,7 @@ specifier|final
 name|String
 name|TEST_UPLOAD_FILE
 init|=
-literal|"src/test/resources/log4j.properties"
+literal|"src/test/resources/log4j2.properties"
 decl_stmt|;
 DECL|field|TEST_UPLOAD_IMG
 specifier|protected
