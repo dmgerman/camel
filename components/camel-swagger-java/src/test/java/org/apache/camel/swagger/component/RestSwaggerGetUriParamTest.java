@@ -189,7 +189,7 @@ block|{
 name|restConfiguration
 argument_list|()
 operator|.
-name|setComponent
+name|producerComponent
 argument_list|(
 literal|"dummy"
 argument_list|)

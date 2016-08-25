@@ -154,7 +154,7 @@ decl_stmt|;
 name|restConfiguration
 argument_list|()
 operator|.
-name|component
+name|producerComponent
 argument_list|(
 literal|"jetty"
 argument_list|)

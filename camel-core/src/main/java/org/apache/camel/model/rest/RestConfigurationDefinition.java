@@ -236,6 +236,13 @@ name|apiComponent
 decl_stmt|;
 annotation|@
 name|XmlAttribute
+DECL|field|producerComponent
+specifier|private
+name|String
+name|producerComponent
+decl_stmt|;
+annotation|@
+name|XmlAttribute
 DECL|field|scheme
 specifier|private
 name|String
@@ -481,7 +488,7 @@ return|return
 name|component
 return|;
 block|}
-comment|/**      * The Camel Rest component to use for the REST transport, such as restlet, spark-rest.      * If no component has been explicit configured, then Camel will lookup if there is a Camel component      * that integrates with the Rest DSL, or if a org.apache.camel.spi.RestConsumerFactory is registered in the registry.      * If either one is found, then that is being used.      */
+comment|/**      * The Camel Rest component to use for the REST transport (consumer), such as restlet, spark-rest.      * If no component has been explicit configured, then Camel will lookup if there is a Camel component      * that integrates with the Rest DSL, or if a org.apache.camel.spi.RestConsumerFactory is registered in the registry.      * If either one is found, then that is being used.      */
 DECL|method|setComponent (String component)
 specifier|public
 name|void
@@ -523,6 +530,33 @@ operator|.
 name|apiComponent
 operator|=
 name|apiComponent
+expr_stmt|;
+block|}
+DECL|method|getProducerComponent ()
+specifier|public
+name|String
+name|getProducerComponent
+parameter_list|()
+block|{
+return|return
+name|producerComponent
+return|;
+block|}
+comment|/**      * Sets the name of the Camel component to use as the REST producer      */
+DECL|method|setProducerComponent (String producerComponent)
+specifier|public
+name|void
+name|setProducerComponent
+parameter_list|(
+name|String
+name|producerComponent
+parameter_list|)
+block|{
+name|this
+operator|.
+name|producerComponent
+operator|=
+name|producerComponent
 expr_stmt|;
 block|}
 DECL|method|getScheme ()
@@ -1103,7 +1137,7 @@ expr_stmt|;
 block|}
 comment|// Fluent API
 comment|//-------------------------------------------------------------------------
-comment|/**      * To use a specific Camel rest component      */
+comment|/**      * To use a specific Camel rest component (consumer)      */
 DECL|method|component (String componentId)
 specifier|public
 name|RestConfigurationDefinition
@@ -1133,6 +1167,25 @@ name|componentId
 parameter_list|)
 block|{
 name|setApiComponent
+argument_list|(
+name|componentId
+argument_list|)
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
+comment|/**      * To use a specific Camel rest component (producer)      */
+DECL|method|producerComponent (String componentId)
+specifier|public
+name|RestConfigurationDefinition
+name|producerComponent
+parameter_list|(
+name|String
+name|componentId
+parameter_list|)
+block|{
+name|setProducerComponent
 argument_list|(
 name|componentId
 argument_list|)
@@ -1765,6 +1818,28 @@ argument_list|(
 name|context
 argument_list|,
 name|apiComponent
+argument_list|)
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|producerComponent
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|.
+name|setProducerComponent
+argument_list|(
+name|CamelContextHelper
+operator|.
+name|parseText
+argument_list|(
+name|context
+argument_list|,
+name|producerComponent
 argument_list|)
 argument_list|)
 expr_stmt|;

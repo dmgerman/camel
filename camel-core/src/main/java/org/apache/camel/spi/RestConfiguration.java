@@ -116,6 +116,11 @@ specifier|private
 name|String
 name|apiComponent
 decl_stmt|;
+DECL|field|producerComponent
+specifier|private
+name|String
+name|producerComponent
+decl_stmt|;
 DECL|field|scheme
 specifier|private
 name|String
@@ -310,6 +315,34 @@ operator|.
 name|apiComponent
 operator|=
 name|apiComponent
+expr_stmt|;
+block|}
+comment|/**      * Gets the name of the Camel component to use as the REST producer      *      * @return the component name, or<tt>null</tt> to let Camel search the {@link Registry} to find suitable implementation      */
+DECL|method|getProducerComponent ()
+specifier|public
+name|String
+name|getProducerComponent
+parameter_list|()
+block|{
+return|return
+name|producerComponent
+return|;
+block|}
+comment|/**      * Sets the name of the Camel component to use as the REST producer      *      * @param componentName the name of the component (such as restlet, jetty, etc.)      */
+DECL|method|setProducerComponent (String componentName)
+specifier|public
+name|void
+name|setProducerComponent
+parameter_list|(
+name|String
+name|componentName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|producerComponent
+operator|=
+name|componentName
 expr_stmt|;
 block|}
 comment|/**      * Gets the hostname to use by the REST consumer      *      * @return the hostname, or<tt>null</tt> to use default hostname      */
