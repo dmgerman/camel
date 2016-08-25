@@ -6001,16 +6001,13 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createProducer (CamelContext camelContext, String scheme, String host, String verb, String basePath, String uriTemplate, String consumes, String produces, Map<String, Object> parameters)
+DECL|method|createProducer (CamelContext camelContext, String host, String verb, String basePath, String uriTemplate, String consumes, String produces, Map<String, Object> parameters)
 specifier|public
 name|Producer
 name|createProducer
 parameter_list|(
 name|CamelContext
 name|camelContext
-parameter_list|,
-name|String
-name|scheme
 parameter_list|,
 name|String
 name|host
@@ -6064,7 +6061,7 @@ comment|// get the endpoint
 name|String
 name|url
 init|=
-literal|"jetty:%s://%s/%s/%s"
+literal|"jetty:%s/%s/%s"
 decl_stmt|;
 name|url
 operator|=
@@ -6073,8 +6070,6 @@ operator|.
 name|format
 argument_list|(
 name|url
-argument_list|,
-name|scheme
 argument_list|,
 name|host
 argument_list|,

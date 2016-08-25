@@ -236,6 +236,8 @@ end_import
 
 begin_class
 annotation|@
+name|Deprecated
+annotation|@
 name|UriEndpoint
 argument_list|(
 name|scheme

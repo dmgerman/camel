@@ -118,7 +118,21 @@ name|ObjectHelper
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
+name|Ignore
+import|;
+end_import
+
 begin_class
+annotation|@
+name|Deprecated
+annotation|@
+name|Ignore
 DECL|class|DummyRestProducerFactory
 specifier|public
 class|class
@@ -128,16 +142,13 @@ name|RestProducerFactory
 block|{
 annotation|@
 name|Override
-DECL|method|createProducer (CamelContext camelContext, String scheme, String host, String verb, String basePath, final String uriTemplate, String consumes, String produces, Map<String, Object> parameters)
+DECL|method|createProducer (CamelContext camelContext, String host, String verb, String basePath, final String uriTemplate, String consumes, String produces, Map<String, Object> parameters)
 specifier|public
 name|Producer
 name|createProducer
 parameter_list|(
 name|CamelContext
 name|camelContext
-parameter_list|,
-name|String
-name|scheme
 parameter_list|,
 name|String
 name|host

@@ -72,16 +72,13 @@ specifier|public
 interface|interface
 name|RestProducerFactory
 block|{
-comment|/**      * Creates a new REST producer.      *      * @param camelContext        the camel context      * @param scheme              scheme to use such as http or https      * @param host                host (incl port) of the REST service      * @param verb                HTTP verb such as GET, POST      * @param basePath            base path      * @param uriTemplate         uri template      * @param consumes            media-types for what the REST service consume as input (accept-type), is<tt>null</tt> or<tt>&#42;/&#42;</tt> for anything      * @param produces            media-types for what the REST service produces as output, can be<tt>null</tt>      * @param parameters          additional parameters      * @return a newly created REST producer      * @throws Exception can be thrown      */
-DECL|method|createProducer (CamelContext camelContext, String scheme, String host, String verb, String basePath, String uriTemplate, String consumes, String produces, Map<String, Object> parameters)
+comment|/**      * Creates a new REST producer.      *      * @param camelContext        the camel context      * @param host                host in the syntax scheme:hostname:port, such as http:myserver:8080      * @param verb                HTTP verb such as GET, POST      * @param basePath            base path      * @param uriTemplate         uri template      * @param consumes            media-types for what the REST service consume as input (accept-type), is<tt>null</tt> or<tt>&#42;/&#42;</tt> for anything      * @param produces            media-types for what the REST service produces as output, can be<tt>null</tt>      * @param parameters          additional parameters      * @return a newly created REST producer      * @throws Exception can be thrown      */
+DECL|method|createProducer (CamelContext camelContext, String host, String verb, String basePath, String uriTemplate, String consumes, String produces, Map<String, Object> parameters)
 name|Producer
 name|createProducer
 parameter_list|(
 name|CamelContext
 name|camelContext
-parameter_list|,
-name|String
-name|scheme
 parameter_list|,
 name|String
 name|host

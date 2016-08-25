@@ -69,6 +69,8 @@ import|;
 end_import
 
 begin_class
+annotation|@
+name|Deprecated
 DECL|class|SwaggerComponent
 specifier|public
 class|class

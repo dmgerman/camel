@@ -72,11 +72,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|swagger
-operator|.
 name|component
 operator|.
-name|SwaggerComponent
+name|rest
+operator|.
+name|RestComponent
 import|;
 end_import
 
@@ -100,10 +100,10 @@ name|BaseJettyTest
 block|{
 annotation|@
 name|Test
-DECL|method|testSwaggerGet ()
+DECL|method|testRestGet ()
 specifier|public
 name|void
-name|testSwaggerGet
+name|testRestGet
 parameter_list|()
 throws|throws
 name|Exception
@@ -162,16 +162,16 @@ block|{
 name|String
 name|host
 init|=
-literal|"localhost:"
+literal|"http://localhost:"
 operator|+
 name|getPort
 argument_list|()
 decl_stmt|;
-name|SwaggerComponent
+name|RestComponent
 name|sc
 init|=
 operator|new
-name|SwaggerComponent
+name|RestComponent
 argument_list|()
 decl_stmt|;
 name|sc
@@ -188,18 +188,11 @@ argument_list|(
 name|host
 argument_list|)
 expr_stmt|;
-name|sc
-operator|.
-name|setApiDoc
-argument_list|(
-literal|"hello-api.json"
-argument_list|)
-expr_stmt|;
 name|context
 operator|.
 name|addComponent
 argument_list|(
-literal|"swagger"
+literal|"rest"
 argument_list|,
 name|sc
 argument_list|)
@@ -211,7 +204,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"swagger:get:hello/hi/{name}"
+literal|"rest:get:api:hello/hi/{name}"
 argument_list|)
 operator|.
 name|to
