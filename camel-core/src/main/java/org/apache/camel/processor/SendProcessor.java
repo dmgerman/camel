@@ -561,18 +561,6 @@ literal|"sendTo("
 operator|+
 name|destination
 operator|+
-operator|(
-name|pattern
-operator|!=
-literal|null
-condition|?
-literal|" "
-operator|+
-name|pattern
-else|:
-literal|""
-operator|)
-operator|+
 literal|")"
 return|;
 block|}
