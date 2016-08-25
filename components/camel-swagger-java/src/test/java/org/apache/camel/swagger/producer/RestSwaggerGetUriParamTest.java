@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.swagger.component
+DECL|package|org.apache.camel.swagger.producer
 package|package
 name|org
 operator|.
@@ -14,7 +14,7 @@ name|camel
 operator|.
 name|swagger
 operator|.
-name|component
+name|producer
 package|;
 end_package
 
@@ -80,25 +80,15 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
 import|;
 end_import
 
 begin_class
-DECL|class|RestSwaggerGetTest
+DECL|class|RestSwaggerGetUriParamTest
 specifier|public
 class|class
-name|RestSwaggerGetTest
+name|RestSwaggerGetUriParamTest
 extends|extends
 name|CamelTestSupport
 block|{
@@ -152,7 +142,7 @@ argument_list|)
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello Donald Duck"
+literal|"Bye Donald+Duck"
 argument_list|)
 expr_stmt|;
 name|template
@@ -211,7 +201,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"rest:get:hello/hi/{name}?apiDoc=hello-api.json"
+literal|"rest:get:bye?name={name}&apiDoc=hello-api.json"
 argument_list|)
 operator|.
 name|to
