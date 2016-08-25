@@ -83,16 +83,19 @@ name|componentName
 init|=
 literal|"http"
 decl_stmt|;
-DECL|field|schema
+DECL|field|apiDoc
 specifier|private
 name|String
-name|schema
+name|apiDoc
 decl_stmt|;
 DECL|field|host
 specifier|private
 name|String
 name|host
 decl_stmt|;
+comment|// TODO: we could move this to rest component in camel-core
+comment|// and have its producer support using a swagger schema and use a factory to lookup
+comment|// the code in this component that creates the producer
 DECL|method|SwaggerComponent ()
 specifier|public
 name|SwaggerComponent
@@ -148,9 +151,20 @@ argument_list|(
 name|componentName
 argument_list|)
 expr_stmt|;
-name|String
-name|schema
-decl_stmt|;
+name|endpoint
+operator|.
+name|setApiDoc
+argument_list|(
+name|apiDoc
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setHost
+argument_list|(
+name|host
+argument_list|)
+expr_stmt|;
 name|String
 name|verb
 decl_stmt|;
@@ -177,12 +191,6 @@ operator|==
 literal|2
 condition|)
 block|{
-name|schema
-operator|=
-name|this
-operator|.
-name|schema
-expr_stmt|;
 name|verb
 operator|=
 name|parts
@@ -195,38 +203,6 @@ operator|=
 name|parts
 index|[
 literal|1
-index|]
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
-name|parts
-operator|.
-name|length
-operator|==
-literal|3
-condition|)
-block|{
-name|schema
-operator|=
-name|parts
-index|[
-literal|0
-index|]
-expr_stmt|;
-name|verb
-operator|=
-name|parts
-index|[
-literal|1
-index|]
-expr_stmt|;
-name|path
-operator|=
-name|parts
-index|[
-literal|2
 index|]
 expr_stmt|;
 block|}
@@ -236,17 +212,10 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Invalid syntax. Expected swagger:schema:verb:path?options"
+literal|"Invalid syntax. Expected swagger:verb:path?options"
 argument_list|)
 throw|;
 block|}
-name|endpoint
-operator|.
-name|setSchema
-argument_list|(
-name|schema
-argument_list|)
-expr_stmt|;
 name|endpoint
 operator|.
 name|setVerb
@@ -309,33 +278,6 @@ return|return
 name|endpoint
 return|;
 block|}
-DECL|method|getSchema ()
-specifier|public
-name|String
-name|getSchema
-parameter_list|()
-block|{
-return|return
-name|schema
-return|;
-block|}
-comment|/**      * The swagger schema to use in json format.      *<p/>      * The schema is loaded as a resource from the classpath or file system.      */
-DECL|method|setSchema (String schema)
-specifier|public
-name|void
-name|setSchema
-parameter_list|(
-name|String
-name|schema
-parameter_list|)
-block|{
-name|this
-operator|.
-name|schema
-operator|=
-name|schema
-expr_stmt|;
-block|}
 DECL|method|getComponentName ()
 specifier|public
 name|String
@@ -361,6 +303,33 @@ operator|.
 name|componentName
 operator|=
 name|componentName
+expr_stmt|;
+block|}
+DECL|method|getApiDoc ()
+specifier|public
+name|String
+name|getApiDoc
+parameter_list|()
+block|{
+return|return
+name|apiDoc
+return|;
+block|}
+comment|/**      * The swagger api doc resource to use.      * The resource is loaded from classpath by default and must be in JSon format.      */
+DECL|method|setApiDoc (String apiDoc)
+specifier|public
+name|void
+name|setApiDoc
+parameter_list|(
+name|String
+name|apiDoc
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiDoc
+operator|=
+name|apiDoc
 expr_stmt|;
 block|}
 DECL|method|getHost ()

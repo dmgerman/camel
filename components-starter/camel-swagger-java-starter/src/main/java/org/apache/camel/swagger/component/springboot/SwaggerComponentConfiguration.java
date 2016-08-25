@@ -53,17 +53,17 @@ specifier|public
 class|class
 name|SwaggerComponentConfiguration
 block|{
-comment|/**      * The swagger schema to use in json format. The schema is loaded as a      * resource from the classpath or file system.      */
-DECL|field|schema
-specifier|private
-name|String
-name|schema
-decl_stmt|;
 comment|/**      * The camel component to use as HTTP client for calling the REST service.      * The default value is: http      */
 DECL|field|componentName
 specifier|private
 name|String
 name|componentName
+decl_stmt|;
+comment|/**      * The swagger api doc resource to use. The resource is loaded from      * classpath by default and must be in JSon format.      */
+DECL|field|apiDoc
+specifier|private
+name|String
+name|apiDoc
 decl_stmt|;
 comment|/**      * Host and port of HTTP service to use (override host in swagger schema)      */
 DECL|field|host
@@ -71,32 +71,6 @@ specifier|private
 name|String
 name|host
 decl_stmt|;
-DECL|method|getSchema ()
-specifier|public
-name|String
-name|getSchema
-parameter_list|()
-block|{
-return|return
-name|schema
-return|;
-block|}
-DECL|method|setSchema (String schema)
-specifier|public
-name|void
-name|setSchema
-parameter_list|(
-name|String
-name|schema
-parameter_list|)
-block|{
-name|this
-operator|.
-name|schema
-operator|=
-name|schema
-expr_stmt|;
-block|}
 DECL|method|getComponentName ()
 specifier|public
 name|String
@@ -121,6 +95,32 @@ operator|.
 name|componentName
 operator|=
 name|componentName
+expr_stmt|;
+block|}
+DECL|method|getApiDoc ()
+specifier|public
+name|String
+name|getApiDoc
+parameter_list|()
+block|{
+return|return
+name|apiDoc
+return|;
+block|}
+DECL|method|setApiDoc (String apiDoc)
+specifier|public
+name|void
+name|setApiDoc
+parameter_list|(
+name|String
+name|apiDoc
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiDoc
+operator|=
+name|apiDoc
 expr_stmt|;
 block|}
 DECL|method|getHost ()

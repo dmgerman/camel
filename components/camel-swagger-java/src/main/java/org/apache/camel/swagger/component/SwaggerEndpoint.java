@@ -248,7 +248,7 @@ literal|"Swagger"
 argument_list|,
 name|syntax
 operator|=
-literal|"swagger:schema:verb:path"
+literal|"swagger:verb:path"
 argument_list|,
 name|producerOnly
 operator|=
@@ -296,18 +296,6 @@ name|UriPath
 argument_list|(
 name|enums
 operator|=
-literal|"http,https"
-argument_list|)
-DECL|field|schema
-specifier|private
-name|String
-name|schema
-decl_stmt|;
-annotation|@
-name|UriPath
-argument_list|(
-name|enums
-operator|=
 literal|"get,put,post,head,delete,patch,options"
 argument_list|)
 annotation|@
@@ -342,6 +330,13 @@ DECL|field|componentName
 specifier|private
 name|String
 name|componentName
+decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|apiDoc
+specifier|private
+name|String
+name|apiDoc
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -456,33 +451,6 @@ return|return
 literal|true
 return|;
 block|}
-DECL|method|getSchema ()
-specifier|public
-name|String
-name|getSchema
-parameter_list|()
-block|{
-return|return
-name|schema
-return|;
-block|}
-comment|/**      * Scheme to use when calling the REST service such as http or https      */
-DECL|method|setSchema (String schema)
-specifier|public
-name|void
-name|setSchema
-parameter_list|(
-name|String
-name|schema
-parameter_list|)
-block|{
-name|this
-operator|.
-name|schema
-operator|=
-name|schema
-expr_stmt|;
-block|}
 DECL|method|getVerb ()
 specifier|public
 name|String
@@ -591,6 +559,33 @@ operator|=
 name|componentName
 expr_stmt|;
 block|}
+DECL|method|getApiDoc ()
+specifier|public
+name|String
+name|getApiDoc
+parameter_list|()
+block|{
+return|return
+name|apiDoc
+return|;
+block|}
+comment|/**      * The swagger api doc resource to use.      * The resource is loaded from classpath by default and must be in JSon format.      */
+DECL|method|setApiDoc (String apiDoc)
+specifier|public
+name|void
+name|setApiDoc
+parameter_list|(
+name|String
+name|apiDoc
+parameter_list|)
+block|{
+name|this
+operator|.
+name|apiDoc
+operator|=
+name|apiDoc
+expr_stmt|;
+block|}
 DECL|method|getHost ()
 specifier|public
 name|String
@@ -601,7 +596,7 @@ return|return
 name|host
 return|;
 block|}
-comment|/**      * Host and port of HTTP service to use (override host in swagger schema)      */
+comment|/**      * Host and port of HTTP service to use (override host in swagger api-doc)      */
 DECL|method|setHost (String host)
 specifier|public
 name|void
@@ -634,15 +629,21 @@ name|doStart
 argument_list|()
 expr_stmt|;
 comment|// load json model
-name|ObjectHelper
-operator|.
-name|notEmpty
+if|if
+condition|(
+name|apiDoc
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
 argument_list|(
-name|schema
-argument_list|,
-literal|"schema"
+literal|"The swagger api-doc must be configured using the apiDoc option"
 argument_list|)
-expr_stmt|;
+throw|;
+block|}
 name|InputStream
 name|is
 init|=
@@ -651,7 +652,7 @@ argument_list|(
 name|getCamelContext
 argument_list|()
 argument_list|,
-name|schema
+name|apiDoc
 argument_list|)
 decl_stmt|;
 try|try
@@ -685,7 +686,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Loaded swagger schema:\n{}"
+literal|"Loaded swagger api-doc:\n{}"
 argument_list|,
 name|json
 argument_list|)

@@ -216,7 +216,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"swagger:hello-api.json:get:hello/hi/{name}"
+literal|"swagger:get:hello/hi/{name}?apiDoc=hello-api.json"
 argument_list|)
 operator|.
 name|to

@@ -202,7 +202,7 @@ argument_list|)
 expr_stmt|;
 name|sc
 operator|.
-name|setSchema
+name|setApiDoc
 argument_list|(
 literal|"hello-api.json"
 argument_list|)

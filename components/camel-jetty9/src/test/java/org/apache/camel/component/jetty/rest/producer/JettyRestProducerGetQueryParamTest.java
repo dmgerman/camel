@@ -195,11 +195,13 @@ argument_list|(
 literal|"direct:start"
 argument_list|)
 operator|.
-name|to
+name|toF
 argument_list|(
-literal|"swagger:hello-api.json:get:bye?host="
-operator|+
+literal|"swagger:get:bye?host=%s&apiDoc=%s"
+argument_list|,
 name|host
+argument_list|,
+literal|"hello-api.json"
 argument_list|)
 operator|.
 name|to
