@@ -1198,6 +1198,11 @@ specifier|protected
 name|ErrorHandler
 name|errorHandler
 decl_stmt|;
+DECL|field|useXForwardedForHeader
+specifier|protected
+name|boolean
+name|useXForwardedForHeader
+decl_stmt|;
 DECL|field|proxyPort
 specifier|private
 name|Integer
@@ -5150,6 +5155,48 @@ block|{
 return|return
 name|sendServerVersion
 return|;
+block|}
+comment|/**      * To use the X-Fowarded-For header in HttpServletRequest.getRemoteAddr.      */
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"To use the X-Fowarded-For header in HttpServletRequest.getRemoteAddr."
+argument_list|)
+DECL|method|isUseXForwardedForHeader ()
+specifier|public
+name|boolean
+name|isUseXForwardedForHeader
+parameter_list|()
+block|{
+return|return
+name|useXForwardedForHeader
+return|;
+block|}
+comment|/**      * To use a http proxy to configure the port number.      */
+annotation|@
+name|Metadata
+argument_list|(
+name|description
+operator|=
+literal|"To use the X-Fowarded-For header in HttpServletRequest.getRemoteAddr."
+argument_list|)
+DECL|method|setUseXForwardedForHeader (boolean useXForwardedForHeader)
+specifier|public
+name|void
+name|setUseXForwardedForHeader
+parameter_list|(
+name|boolean
+name|useXForwardedForHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useXForwardedForHeader
+operator|=
+name|useXForwardedForHeader
+expr_stmt|;
 block|}
 comment|/**      * If the option is true, jetty will send the server header with the jetty version information to the client which sends the request.      * NOTE please make sure there is no any other camel-jetty endpoint is share the same port, otherwise this option may not work as expected.      */
 annotation|@
