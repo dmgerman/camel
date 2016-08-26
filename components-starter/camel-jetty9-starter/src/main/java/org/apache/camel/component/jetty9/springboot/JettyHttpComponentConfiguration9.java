@@ -383,6 +383,12 @@ specifier|private
 name|Integer
 name|proxyPort
 decl_stmt|;
+comment|/**      * To use the X-Fowarded-For header in HttpServletRequest.getRemoteAddr.      */
+DECL|field|useXForwardedForHeader
+specifier|private
+name|Boolean
+name|useXForwardedForHeader
+decl_stmt|;
 comment|/**      * If the option is true jetty server will send the date header to the      * client which sends the request. NOTE please make sure there is no any      * other camel-jetty endpoint is share the same port otherwise this option      * may not work as expected.      */
 DECL|field|sendServerVersion
 specifier|private
@@ -1141,6 +1147,32 @@ operator|.
 name|proxyPort
 operator|=
 name|proxyPort
+expr_stmt|;
+block|}
+DECL|method|getUseXForwardedForHeader ()
+specifier|public
+name|Boolean
+name|getUseXForwardedForHeader
+parameter_list|()
+block|{
+return|return
+name|useXForwardedForHeader
+return|;
+block|}
+DECL|method|setUseXForwardedForHeader (Boolean useXForwardedForHeader)
+specifier|public
+name|void
+name|setUseXForwardedForHeader
+parameter_list|(
+name|Boolean
+name|useXForwardedForHeader
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useXForwardedForHeader
+operator|=
+name|useXForwardedForHeader
 expr_stmt|;
 block|}
 DECL|method|getSendServerVersion ()
