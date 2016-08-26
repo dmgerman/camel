@@ -1368,11 +1368,6 @@ argument_list|,
 name|factory
 argument_list|)
 expr_stmt|;
-name|String
-name|uriTemplate
-init|=
-name|path
-decl_stmt|;
 name|Producer
 name|producer
 init|=

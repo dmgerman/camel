@@ -204,6 +204,13 @@ specifier|private
 name|AsyncProcessor
 name|producer
 decl_stmt|;
+DECL|field|preapreUriTemplate
+specifier|private
+name|boolean
+name|preapreUriTemplate
+init|=
+literal|true
+decl_stmt|;
 DECL|method|RestProducer (Endpoint endpoint, Producer producer)
 specifier|public
 name|RestProducer
@@ -246,8 +253,9 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-comment|// TODO: bind to consumes context-type
-comment|// TODO: if binding is turned on/off/auto etc
+comment|// TODO: request bind to consumes context-type
+comment|// TODO: response bind to content-type returned in response
+comment|// TODO: binding
 try|try
 block|{
 name|prepareExchange
@@ -309,6 +317,33 @@ name|getEndpoint
 argument_list|()
 return|;
 block|}
+DECL|method|isPreapreUriTemplate ()
+specifier|public
+name|boolean
+name|isPreapreUriTemplate
+parameter_list|()
+block|{
+return|return
+name|preapreUriTemplate
+return|;
+block|}
+comment|/**      * Whether to prepare the uri template and replace {key} with values from the exchange, and set      * as {@link Exchange#HTTP_URI} header with the resolved uri to use instead of uri from endpoint.      */
+DECL|method|setPreapreUriTemplate (boolean preapreUriTemplate)
+specifier|public
+name|void
+name|setPreapreUriTemplate
+parameter_list|(
+name|boolean
+name|preapreUriTemplate
+parameter_list|)
+block|{
+name|this
+operator|.
+name|preapreUriTemplate
+operator|=
+name|preapreUriTemplate
+expr_stmt|;
+block|}
 DECL|method|prepareExchange (Exchange exchange)
 specifier|protected
 name|void
@@ -350,6 +385,11 @@ operator|.
 name|getPath
 argument_list|()
 decl_stmt|;
+if|if
+condition|(
+name|preapreUriTemplate
+condition|)
+block|{
 if|if
 condition|(
 name|resolvedUriTemplate
@@ -452,17 +492,6 @@ name|hasPath
 operator|=
 literal|true
 expr_stmt|;
-comment|// we need to remove the header as they are sent as path instead
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|removeHeader
-argument_list|(
-name|key
-argument_list|)
-expr_stmt|;
 name|csb
 operator|.
 name|append
@@ -500,6 +529,7 @@ operator|.
 name|toString
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 comment|// resolve uri parameters
 name|String
@@ -644,17 +674,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// we need to remove the header as they are sent in query parameter instead
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|removeHeader
-argument_list|(
-name|key
-argument_list|)
-expr_stmt|;
 name|params
 operator|.
 name|put
