@@ -128,7 +128,7 @@ name|RestProducerFactory
 block|{
 annotation|@
 name|Override
-DECL|method|createProducer (CamelContext camelContext, String host, String verb, String basePath, final String uriTemplate, String consumes, String produces, Map<String, Object> parameters)
+DECL|method|createProducer (CamelContext camelContext, String host, String verb, String basePath, final String uriTemplate, String queryParameters, String consumes, String produces, Map<String, Object> parameters)
 specifier|public
 name|Producer
 name|createProducer
@@ -148,6 +148,9 @@ parameter_list|,
 specifier|final
 name|String
 name|uriTemplate
+parameter_list|,
+name|String
+name|queryParameters
 parameter_list|,
 name|String
 name|consumes
@@ -208,7 +211,7 @@ name|getHeader
 argument_list|(
 name|Exchange
 operator|.
-name|HTTP_QUERY
+name|REST_HTTP_QUERY
 argument_list|,
 name|String
 operator|.
@@ -259,7 +262,7 @@ name|getHeader
 argument_list|(
 name|Exchange
 operator|.
-name|HTTP_URI
+name|REST_HTTP_URI
 argument_list|,
 name|String
 operator|.
