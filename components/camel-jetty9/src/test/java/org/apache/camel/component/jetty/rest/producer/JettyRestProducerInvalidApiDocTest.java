@@ -226,6 +226,11 @@ name|host
 argument_list|(
 literal|"localhost"
 argument_list|)
+operator|.
+name|producerApiDoc
+argument_list|(
+literal|"hello-api.json"
+argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
@@ -234,7 +239,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"rest:get:api/bye/?unknown={name}&apiDoc=hello-api.json"
+literal|"rest:get:api/bye/?unknown={name}"
 argument_list|)
 expr_stmt|;
 block|}

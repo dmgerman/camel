@@ -155,6 +155,11 @@ argument_list|(
 name|getPort
 argument_list|()
 argument_list|)
+operator|.
+name|producerApiDoc
+argument_list|(
+literal|"hello-api.json"
+argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
@@ -163,7 +168,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"rest:get:api/hello/hi/{name}?apiDoc=hello-api.json"
+literal|"rest:get:api:hello/hi/{name}"
 argument_list|)
 expr_stmt|;
 comment|// use the rest DSL to define the rest services

@@ -121,6 +121,11 @@ specifier|private
 name|String
 name|producerComponent
 decl_stmt|;
+DECL|field|producerApiDoc
+specifier|private
+name|String
+name|producerApiDoc
+decl_stmt|;
 DECL|field|scheme
 specifier|private
 name|String
@@ -343,6 +348,34 @@ operator|.
 name|producerComponent
 operator|=
 name|componentName
+expr_stmt|;
+block|}
+comment|/**      * Gets the location of the api document (swagger api) the REST producer will use      * to validate the REST uri and query parameters are valid accordingly to the api document.      */
+DECL|method|getProducerApiDoc ()
+specifier|public
+name|String
+name|getProducerApiDoc
+parameter_list|()
+block|{
+return|return
+name|producerApiDoc
+return|;
+block|}
+comment|/**      * Sets the location of the api document (swagger api) the REST producer will use      * to validate the REST uri and query parameters are valid accordingly to the api document.      * This requires adding camel-swagger-java to the classpath, and any miss configuration      * will let Camel fail on startup and report the error(s).      *<p/>      * The location of the api document is loaded from classpath by default, but you can use      *<tt>file:</tt> or<tt>http:</tt> to refer to resources to load from file or http url.      */
+DECL|method|setProducerApiDoc (String producerApiDoc)
+specifier|public
+name|void
+name|setProducerApiDoc
+parameter_list|(
+name|String
+name|producerApiDoc
+parameter_list|)
+block|{
+name|this
+operator|.
+name|producerApiDoc
+operator|=
+name|producerApiDoc
 expr_stmt|;
 block|}
 comment|/**      * Gets the hostname to use by the REST consumer      *      * @return the hostname, or<tt>null</tt> to use default hostname      */

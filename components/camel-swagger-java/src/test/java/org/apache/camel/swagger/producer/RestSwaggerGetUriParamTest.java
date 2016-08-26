@@ -193,6 +193,11 @@ name|producerComponent
 argument_list|(
 literal|"dummy"
 argument_list|)
+operator|.
+name|producerApiDoc
+argument_list|(
+literal|"hello-api.json"
+argument_list|)
 expr_stmt|;
 name|from
 argument_list|(
@@ -201,7 +206,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"rest:get:bye?name={name}&apiDoc=hello-api.json"
+literal|"rest:get:bye?name={name}"
 argument_list|)
 operator|.
 name|to
