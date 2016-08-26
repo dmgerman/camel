@@ -592,7 +592,10 @@ operator|.
 name|isDurable
 argument_list|()
 argument_list|,
-literal|false
+name|endpoint
+operator|.
+name|isExclusive
+argument_list|()
 argument_list|,
 name|endpoint
 operator|.
