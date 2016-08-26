@@ -1386,6 +1386,8 @@ name|path
 argument_list|,
 name|uriTemplate
 argument_list|,
+name|queryParameters
+argument_list|,
 name|consumes
 argument_list|,
 name|produces

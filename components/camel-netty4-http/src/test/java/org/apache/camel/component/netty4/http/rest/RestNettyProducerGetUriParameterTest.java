@@ -89,10 +89,10 @@ import|;
 end_import
 
 begin_class
-DECL|class|RestNettyProducerGetTest
+DECL|class|RestNettyProducerGetUriParameterTest
 specifier|public
 class|class
-name|RestNettyProducerGetTest
+name|RestNettyProducerGetUriParameterTest
 extends|extends
 name|BaseNettyTest
 block|{
@@ -194,7 +194,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"rest:get:users/{id}/basic"
+literal|"rest:get:users/basic/?id={id}"
 argument_list|)
 expr_stmt|;
 comment|// use the rest DSL to define the rest services
@@ -205,7 +205,7 @@ argument_list|)
 operator|.
 name|get
 argument_list|(
-literal|"{id}/basic"
+literal|"basic/?id={id}"
 argument_list|)
 operator|.
 name|route

@@ -4241,7 +4241,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createProducer (CamelContext camelContext, String host, String verb, String basePath, String uriTemplate, String consumes, String produces, Map<String, Object> parameters)
+DECL|method|createProducer (CamelContext camelContext, String host, String verb, String basePath, String uriTemplate, String queryParameters, String consumes, String produces, Map<String, Object> parameters)
 specifier|public
 name|Producer
 name|createProducer
@@ -4260,6 +4260,9 @@ name|basePath
 parameter_list|,
 name|String
 name|uriTemplate
+parameter_list|,
+name|String
+name|queryParameters
 parameter_list|,
 name|String
 name|consumes

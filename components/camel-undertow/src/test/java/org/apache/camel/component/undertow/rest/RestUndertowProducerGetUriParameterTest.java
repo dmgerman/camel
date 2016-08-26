@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.component.netty4.http.rest
+DECL|package|org.apache.camel.component.undertow.rest
 package|package
 name|org
 operator|.
@@ -14,9 +14,7 @@ name|camel
 operator|.
 name|component
 operator|.
-name|netty4
-operator|.
-name|http
+name|undertow
 operator|.
 name|rest
 package|;
@@ -70,11 +68,9 @@ name|camel
 operator|.
 name|component
 operator|.
-name|netty4
+name|undertow
 operator|.
-name|http
-operator|.
-name|BaseNettyTest
+name|BaseUndertowTest
 import|;
 end_import
 
@@ -89,19 +85,19 @@ import|;
 end_import
 
 begin_class
-DECL|class|RestNettyProducerGetTest
+DECL|class|RestUndertowProducerGetUriParameterTest
 specifier|public
 class|class
-name|RestNettyProducerGetTest
+name|RestUndertowProducerGetUriParameterTest
 extends|extends
-name|BaseNettyTest
+name|BaseUndertowTest
 block|{
 annotation|@
 name|Test
-DECL|method|testNettyProducerGet ()
+DECL|method|testUndertowProducerGet ()
 specifier|public
 name|void
-name|testNettyProducerGet
+name|testUndertowProducerGet
 parameter_list|()
 throws|throws
 name|Exception
@@ -130,11 +126,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-name|assertNotNull
-argument_list|(
-name|out
-argument_list|)
-expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"123;Donald Duck"
@@ -167,13 +158,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-comment|// configure to use netty on localhost with the given port
+comment|// configure to use undertow on localhost with the given port
 name|restConfiguration
 argument_list|()
 operator|.
 name|component
 argument_list|(
-literal|"netty4-http"
+literal|"undertow"
 argument_list|)
 operator|.
 name|host
@@ -194,7 +185,7 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"rest:get:users/{id}/basic"
+literal|"rest:get:users/basic?id={id}"
 argument_list|)
 expr_stmt|;
 comment|// use the rest DSL to define the rest services
@@ -205,7 +196,7 @@ argument_list|)
 operator|.
 name|get
 argument_list|(
-literal|"{id}/basic"
+literal|"basic/?id={id}"
 argument_list|)
 operator|.
 name|route

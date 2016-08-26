@@ -1513,7 +1513,7 @@ return|;
 block|}
 annotation|@
 name|Override
-DECL|method|createProducer (CamelContext camelContext, String host, String verb, String basePath, String uriTemplate, String consumes, String produces, Map<String, Object> parameters)
+DECL|method|createProducer (CamelContext camelContext, String host, String verb, String basePath, String uriTemplate, String queryParameters, String consumes, String produces, Map<String, Object> parameters)
 specifier|public
 name|Producer
 name|createProducer
@@ -1532,6 +1532,9 @@ name|basePath
 parameter_list|,
 name|String
 name|uriTemplate
+parameter_list|,
+name|String
+name|queryParameters
 parameter_list|,
 name|String
 name|consumes
@@ -1569,19 +1572,6 @@ argument_list|(
 name|uriTemplate
 argument_list|)
 expr_stmt|;
-comment|// restlet method must be in upper-case
-name|String
-name|restletMethod
-init|=
-name|verb
-operator|.
-name|toUpperCase
-argument_list|(
-name|Locale
-operator|.
-name|US
-argument_list|)
-decl_stmt|;
 comment|// get the endpoint
 name|String
 name|url
@@ -1599,15 +1589,13 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"undertow:%s/%s/%s?restletMethods=%s"
+literal|"undertow:%s/%s/%s"
 argument_list|,
 name|host
 argument_list|,
 name|basePath
 argument_list|,
 name|uriTemplate
-argument_list|,
-name|restletMethod
 argument_list|)
 expr_stmt|;
 block|}
@@ -1619,13 +1607,11 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"undertow:%s/%s?restletMethods=%s"
+literal|"undertow:%s/%s"
 argument_list|,
 name|host
 argument_list|,
 name|basePath
-argument_list|,
-name|restletMethod
 argument_list|)
 expr_stmt|;
 block|}
@@ -1666,6 +1652,30 @@ name|parameters
 argument_list|)
 expr_stmt|;
 block|}
+name|String
+name|path
+init|=
+name|uriTemplate
+operator|!=
+literal|null
+condition|?
+name|uriTemplate
+else|:
+name|basePath
+decl_stmt|;
+name|endpoint
+operator|.
+name|setHeaderFilterStrategy
+argument_list|(
+operator|new
+name|UndertowRestHeaderFilterStrategy
+argument_list|(
+name|path
+argument_list|,
+name|queryParameters
+argument_list|)
+argument_list|)
+expr_stmt|;
 comment|// the endpoint must be started before creating the producer
 name|ServiceHelper
 operator|.
