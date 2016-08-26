@@ -4394,6 +4394,14 @@ name|parameters
 argument_list|)
 expr_stmt|;
 block|}
+comment|// the endpoint must be started before creating the producer
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
 return|return
 name|endpoint
 operator|.
