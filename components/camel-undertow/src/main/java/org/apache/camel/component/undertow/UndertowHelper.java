@@ -174,23 +174,23 @@ name|UndertowEndpoint
 name|endpoint
 parameter_list|)
 block|{
+comment|// rest producer may provide an override url to be used which we should discard if using (hence the remove)
 name|String
 name|uri
 init|=
+operator|(
+name|String
+operator|)
 name|exchange
 operator|.
 name|getIn
 argument_list|()
 operator|.
-name|getHeader
+name|removeHeader
 argument_list|(
 name|Exchange
 operator|.
-name|HTTP_URI
-argument_list|,
-name|String
-operator|.
-name|class
+name|REST_HTTP_URI
 argument_list|)
 decl_stmt|;
 if|if
@@ -378,10 +378,35 @@ argument_list|(
 name|url
 argument_list|)
 decl_stmt|;
-comment|// is a query string provided in the endpoint URI or in a header (header overrules endpoint)
+comment|// rest producer may provide an override query string to be used which we should discard if using (hence the remove)
 name|String
 name|queryString
 init|=
+operator|(
+name|String
+operator|)
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|Exchange
+operator|.
+name|REST_HTTP_QUERY
+argument_list|)
+decl_stmt|;
+comment|// is a query string provided in the endpoint URI or in a header (header overrules endpoint)
+if|if
+condition|(
+name|queryString
+operator|==
+literal|null
+condition|)
+block|{
+name|queryString
+operator|=
 name|exchange
 operator|.
 name|getIn
@@ -397,7 +422,8 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|queryString
@@ -571,7 +597,7 @@ name|value
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Creates the HttpMethod to use to call the remote server, often either its GET or POST.      *      * @param exchange the exchange      * @return the created method      * @throws URISyntaxException      */
+comment|/**      * Creates the HttpMethod to use to call the remote server, often either its GET or POST.      */
 DECL|method|createMethod (Exchange exchange, UndertowEndpoint endpoint, boolean hasPayload)
 specifier|public
 specifier|static

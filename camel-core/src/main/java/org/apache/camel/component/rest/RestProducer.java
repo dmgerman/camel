@@ -740,6 +740,7 @@ operator|!=
 literal|null
 condition|)
 block|{
+comment|// the query parameters for the rest call to be used
 name|exchange
 operator|.
 name|getIn
@@ -749,7 +750,7 @@ name|setHeader
 argument_list|(
 name|Exchange
 operator|.
-name|HTTP_QUERY
+name|REST_HTTP_QUERY
 argument_list|,
 name|query
 argument_list|)
@@ -849,6 +850,7 @@ name|resolvedUriTemplate
 argument_list|)
 expr_stmt|;
 block|}
+comment|// the http uri for the rest call to be used
 name|exchange
 operator|.
 name|getIn
@@ -858,7 +860,7 @@ name|setHeader
 argument_list|(
 name|Exchange
 operator|.
-name|HTTP_URI
+name|REST_HTTP_URI
 argument_list|,
 name|overrideUri
 argument_list|)

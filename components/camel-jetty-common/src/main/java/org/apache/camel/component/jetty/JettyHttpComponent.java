@@ -596,6 +596,20 @@ name|camel
 operator|.
 name|util
 operator|.
+name|ServiceHelper
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|util
+operator|.
 name|StringHelper
 import|;
 end_import
@@ -5995,6 +6009,14 @@ argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
+comment|// the endpoint must be started before creating the producer
+name|ServiceHelper
+operator|.
+name|startService
+argument_list|(
+name|endpoint
+argument_list|)
+expr_stmt|;
 return|return
 name|consumer
 return|;

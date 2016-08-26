@@ -906,14 +906,40 @@ parameter_list|)
 throws|throws
 name|URISyntaxException
 block|{
+comment|// rest producer may provide an override url to be used which we should discard if using (hence the remove)
 name|String
 name|uri
 init|=
+operator|(
+name|String
+operator|)
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|Exchange
+operator|.
+name|REST_HTTP_URI
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|uri
+operator|==
+literal|null
+condition|)
+block|{
+name|uri
+operator|=
 name|endpoint
 operator|.
 name|getEndpointUri
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
 comment|// resolve placeholders in uri
 try|try
 block|{
@@ -1152,11 +1178,36 @@ argument_list|(
 name|url
 argument_list|)
 decl_stmt|;
-comment|// is a query string provided in the endpoint URI or in a header
-comment|// (header overrules endpoint, raw query header overrules query header)
+comment|// rest producer may provide an override query string to be used which we should discard if using (hence the remove)
 name|String
 name|queryString
 init|=
+operator|(
+name|String
+operator|)
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|removeHeader
+argument_list|(
+name|Exchange
+operator|.
+name|REST_HTTP_QUERY
+argument_list|)
+decl_stmt|;
+comment|// is a query string provided in the endpoint URI or in a header
+comment|// (header overrules endpoint, raw query header overrules query header)
+if|if
+condition|(
+name|queryString
+operator|==
+literal|null
+condition|)
+block|{
+name|queryString
+operator|=
 name|exchange
 operator|.
 name|getIn
@@ -1172,7 +1223,8 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|queryString

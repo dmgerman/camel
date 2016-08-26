@@ -135,7 +135,7 @@ argument_list|(
 name|out
 argument_list|)
 expr_stmt|;
-comment|// TODO: [123, {id}];Donald Duck
+comment|// TODO: [123, 123];Donald Duck
 comment|// assertEquals("123;Donald Duck", out);
 block|}
 annotation|@
