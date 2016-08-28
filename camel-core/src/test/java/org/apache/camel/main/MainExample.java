@@ -156,6 +156,14 @@ name|Events
 argument_list|()
 argument_list|)
 expr_stmt|;
+comment|// set the properties from a file
+name|main
+operator|.
+name|setPropertyPlaceholderLocations
+argument_list|(
+literal|"example.properties"
+argument_list|)
+expr_stmt|;
 comment|// run until you terminate the JVM
 name|System
 operator|.
@@ -192,7 +200,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"timer:foo?delay=2000"
+literal|"timer:foo?delay={{millisecs}}"
 argument_list|)
 operator|.
 name|process
