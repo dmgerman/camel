@@ -146,7 +146,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultPollingEndpoint
+name|DefaultEndpoint
 import|;
 end_import
 
@@ -241,7 +241,7 @@ specifier|public
 class|class
 name|Jt400Endpoint
 extends|extends
-name|DefaultPollingEndpoint
+name|DefaultEndpoint
 block|{
 DECL|field|KEY
 specifier|public
