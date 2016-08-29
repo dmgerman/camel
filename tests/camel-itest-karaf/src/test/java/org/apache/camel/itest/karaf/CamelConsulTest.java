@@ -74,11 +74,6 @@ name|PaxExam
 operator|.
 name|class
 argument_list|)
-annotation|@
-name|Ignore
-argument_list|(
-literal|"OSGi bundle not released yet"
-argument_list|)
 DECL|class|CamelConsulTest
 specifier|public
 class|class
