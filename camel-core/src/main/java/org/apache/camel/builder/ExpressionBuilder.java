@@ -8360,7 +8360,7 @@ name|str
 argument_list|)
 return|;
 block|}
-DECL|method|propertiesComponentExpression (final String key, final String locations)
+DECL|method|propertiesComponentExpression (final String key, final String locations, final String defaultValue)
 specifier|public
 specifier|static
 name|Expression
@@ -8373,6 +8373,10 @@ parameter_list|,
 specifier|final
 name|String
 name|locations
+parameter_list|,
+specifier|final
+name|String
+name|defaultValue
 parameter_list|)
 block|{
 return|return
@@ -8579,6 +8583,18 @@ name|Exception
 name|e
 parameter_list|)
 block|{
+comment|// property with key not found, use default value if provided
+if|if
+condition|(
+name|defaultValue
+operator|!=
+literal|null
+condition|)
+block|{
+return|return
+name|defaultValue
+return|;
+block|}
 throw|throw
 name|ObjectHelper
 operator|.

@@ -103,6 +103,10 @@ block|,
 name|ElementType
 operator|.
 name|CONSTRUCTOR
+block|,
+name|ElementType
+operator|.
+name|PARAMETER
 block|}
 argument_list|)
 DECL|annotation|PropertyInject

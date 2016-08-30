@@ -855,6 +855,8 @@ argument_list|(
 name|remainder
 argument_list|,
 literal|null
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
@@ -960,6 +962,8 @@ argument_list|(
 name|key
 argument_list|,
 name|locations
+argument_list|,
+literal|null
 argument_list|)
 return|;
 block|}
