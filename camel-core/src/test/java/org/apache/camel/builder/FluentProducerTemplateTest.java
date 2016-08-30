@@ -116,6 +116,75 @@ name|FluentProducerTemplateTest
 extends|extends
 name|ContextTestSupport
 block|{
+DECL|method|testNoEndpoint ()
+specifier|public
+name|void
+name|testNoEndpoint
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|FluentProducerTemplate
+name|fluent
+init|=
+name|context
+operator|.
+name|createFluentProducerTemplate
+argument_list|()
+decl_stmt|;
+try|try
+block|{
+name|fluent
+operator|.
+name|withBody
+argument_list|(
+literal|"Hello World"
+argument_list|)
+operator|.
+name|send
+argument_list|()
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+comment|// expected
+block|}
+try|try
+block|{
+name|fluent
+operator|.
+name|withBody
+argument_list|(
+literal|"Hello World"
+argument_list|)
+operator|.
+name|request
+argument_list|()
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should have thrown exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+comment|// expected
+block|}
+block|}
 DECL|method|testFromCamelContext ()
 specifier|public
 name|void

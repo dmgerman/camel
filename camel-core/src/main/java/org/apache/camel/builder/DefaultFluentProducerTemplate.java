@@ -980,6 +980,22 @@ name|endpoint
 else|:
 name|defaultEndpoint
 decl_stmt|;
+comment|// we must have an endpoint to send to
+if|if
+condition|(
+name|target
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"No endpoint configured on FluentProducerTemplate. You can configure an endpoint with to(uri)"
+argument_list|)
+throw|;
+block|}
 if|if
 condition|(
 name|type
@@ -1167,6 +1183,22 @@ name|endpoint
 else|:
 name|defaultEndpoint
 decl_stmt|;
+comment|// we must have an endpoint to send to
+if|if
+condition|(
+name|target
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"No endpoint configured on FluentProducerTemplate. You can configure an endpoint with to(uri)"
+argument_list|)
+throw|;
+block|}
 name|Future
 argument_list|<
 name|T
@@ -1242,6 +1274,22 @@ name|endpoint
 else|:
 name|defaultEndpoint
 decl_stmt|;
+comment|// we must have an endpoint to send to
+if|if
+condition|(
+name|target
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"No endpoint configured on FluentProducerTemplate. You can configure an endpoint with to(uri)"
+argument_list|)
+throw|;
+block|}
 return|return
 name|exchangeSupplier
 operator|!=
@@ -1296,6 +1344,22 @@ name|endpoint
 else|:
 name|defaultEndpoint
 decl_stmt|;
+comment|// we must have an endpoint to send to
+if|if
+condition|(
+name|target
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"No endpoint configured on FluentProducerTemplate. You can configure an endpoint with to(uri)"
+argument_list|)
+throw|;
+block|}
 return|return
 name|exchangeSupplier
 operator|!=
