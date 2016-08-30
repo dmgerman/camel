@@ -4183,6 +4183,72 @@ name|initialReplayIdMap
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|getBackoffIncrement ()
+specifier|public
+name|long
+name|getBackoffIncrement
+parameter_list|()
+block|{
+return|return
+name|getConfigOrCreate
+argument_list|()
+operator|.
+name|getBackoffIncrement
+argument_list|()
+return|;
+block|}
+comment|/**      * Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect.      * @param backoffIncrement      */
+DECL|method|setBackoffIncrement (long backoffIncrement)
+specifier|public
+name|void
+name|setBackoffIncrement
+parameter_list|(
+name|long
+name|backoffIncrement
+parameter_list|)
+block|{
+name|getConfigOrCreate
+argument_list|()
+operator|.
+name|setBackoffIncrement
+argument_list|(
+name|backoffIncrement
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getMaxBackoff ()
+specifier|public
+name|long
+name|getMaxBackoff
+parameter_list|()
+block|{
+return|return
+name|getConfigOrCreate
+argument_list|()
+operator|.
+name|getMaxBackoff
+argument_list|()
+return|;
+block|}
+comment|/**      * Maximum backoff interval for Streaming connection restart attempts for failures beyond CometD auto-reconnect.      * @param maxBackoff      */
+DECL|method|setMaxBackoff (long maxBackoff)
+specifier|public
+name|void
+name|setMaxBackoff
+parameter_list|(
+name|long
+name|maxBackoff
+parameter_list|)
+block|{
+name|getConfigOrCreate
+argument_list|()
+operator|.
+name|setMaxBackoff
+argument_list|(
+name|maxBackoff
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 end_class
 

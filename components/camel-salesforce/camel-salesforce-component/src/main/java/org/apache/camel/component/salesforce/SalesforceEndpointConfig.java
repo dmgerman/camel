@@ -462,6 +462,25 @@ name|DEFAULT_MAX_AUTHENTICATION_RETRIES
 init|=
 literal|4
 decl_stmt|;
+comment|// default increment and limit for Streaming connection restart attempts
+DECL|field|DEFAULT_BACKOFF_INCREMENT
+specifier|public
+specifier|static
+specifier|final
+name|long
+name|DEFAULT_BACKOFF_INCREMENT
+init|=
+literal|1000L
+decl_stmt|;
+DECL|field|DEFAULT_MAX_BACKOFF
+specifier|public
+specifier|static
+specifier|final
+name|long
+name|DEFAULT_MAX_BACKOFF
+init|=
+literal|30000L
+decl_stmt|;
 comment|// general properties
 annotation|@
 name|UriParam
@@ -716,6 +735,26 @@ DECL|field|objectMapper
 specifier|private
 name|ObjectMapper
 name|objectMapper
+decl_stmt|;
+comment|// Streaming connection restart attempt backoff interval increment
+annotation|@
+name|UriParam
+DECL|field|backoffIncrement
+specifier|private
+name|long
+name|backoffIncrement
+init|=
+name|DEFAULT_BACKOFF_INCREMENT
+decl_stmt|;
+comment|// Streaming connection restart attempt maximum backoff interval
+annotation|@
+name|UriParam
+DECL|field|maxBackoff
+specifier|private
+name|long
+name|maxBackoff
+init|=
+name|DEFAULT_MAX_BACKOFF
 decl_stmt|;
 DECL|method|copy ()
 specifier|public
@@ -1599,6 +1638,60 @@ block|{
 return|return
 name|objectMapper
 return|;
+block|}
+DECL|method|getBackoffIncrement ()
+specifier|public
+name|long
+name|getBackoffIncrement
+parameter_list|()
+block|{
+return|return
+name|backoffIncrement
+return|;
+block|}
+comment|/**      * Backoff interval increment for Streaming connection restart attempts for failures beyond CometD auto-reconnect.      */
+DECL|method|setBackoffIncrement (long backoffIncrement)
+specifier|public
+name|void
+name|setBackoffIncrement
+parameter_list|(
+name|long
+name|backoffIncrement
+parameter_list|)
+block|{
+name|this
+operator|.
+name|backoffIncrement
+operator|=
+name|backoffIncrement
+expr_stmt|;
+block|}
+DECL|method|getMaxBackoff ()
+specifier|public
+name|long
+name|getMaxBackoff
+parameter_list|()
+block|{
+return|return
+name|maxBackoff
+return|;
+block|}
+comment|/**      * Maximum backoff interval for Streaming connection restart attempts for failures beyond CometD auto-reconnect.      */
+DECL|method|setMaxBackoff (long maxBackoff)
+specifier|public
+name|void
+name|setMaxBackoff
+parameter_list|(
+name|long
+name|maxBackoff
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxBackoff
+operator|=
+name|maxBackoff
+expr_stmt|;
 block|}
 comment|/**      * Custom Jackson ObjectMapper to use when serializing/deserializing Salesforce objects.      */
 DECL|method|setObjectMapper (ObjectMapper objectMapper)
