@@ -607,6 +607,18 @@ name|Integer
 argument_list|>
 name|initialReplayIdMap
 decl_stmt|;
+comment|/**      * Backoff interval increment for Streaming connection restart attempts for      * failures beyond CometD auto-reconnect.      */
+DECL|field|backoffIncrement
+specifier|private
+name|long
+name|backoffIncrement
+decl_stmt|;
+comment|/**      * Maximum backoff interval for Streaming connection restart attempts for      * failures beyond CometD auto-reconnect.      */
+DECL|field|maxBackoff
+specifier|private
+name|long
+name|maxBackoff
+decl_stmt|;
 DECL|method|getLoginConfig ()
 specifier|public
 name|SalesforceLoginConfig
@@ -2079,6 +2091,58 @@ operator|.
 name|initialReplayIdMap
 operator|=
 name|initialReplayIdMap
+expr_stmt|;
+block|}
+DECL|method|getBackoffIncrement ()
+specifier|public
+name|long
+name|getBackoffIncrement
+parameter_list|()
+block|{
+return|return
+name|backoffIncrement
+return|;
+block|}
+DECL|method|setBackoffIncrement (long backoffIncrement)
+specifier|public
+name|void
+name|setBackoffIncrement
+parameter_list|(
+name|long
+name|backoffIncrement
+parameter_list|)
+block|{
+name|this
+operator|.
+name|backoffIncrement
+operator|=
+name|backoffIncrement
+expr_stmt|;
+block|}
+DECL|method|getMaxBackoff ()
+specifier|public
+name|long
+name|getMaxBackoff
+parameter_list|()
+block|{
+return|return
+name|maxBackoff
+return|;
+block|}
+DECL|method|setMaxBackoff (long maxBackoff)
+specifier|public
+name|void
+name|setMaxBackoff
+parameter_list|(
+name|long
+name|maxBackoff
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxBackoff
+operator|=
+name|maxBackoff
 expr_stmt|;
 block|}
 block|}
