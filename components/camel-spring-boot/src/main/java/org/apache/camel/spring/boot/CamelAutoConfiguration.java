@@ -1477,6 +1477,13 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
+name|SpringCamelContext
+operator|.
+name|setNoStart
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
 return|return
 operator|new
 name|CamelSpringBootApplicationController
