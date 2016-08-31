@@ -20,6 +20,18 @@ end_package
 
 begin_import
 import|import
+name|io
+operator|.
+name|netty
+operator|.
+name|buffer
+operator|.
+name|ByteBuf
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -170,20 +182,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|jboss
-operator|.
-name|netty
-operator|.
-name|buffer
-operator|.
-name|ChannelBuffer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|BeforeClass
@@ -269,7 +267,7 @@ argument_list|()
 expr_stmt|;
 name|uri
 operator|=
-literal|"netty:tcp://localhost:"
+literal|"netty4:tcp://localhost:"
 operator|+
 name|serverPort
 operator|+
@@ -501,7 +499,7 @@ argument_list|(
 literal|"mock:syslogReceiver2"
 argument_list|)
 expr_stmt|;
-comment|// Here we need to turn the request body into channelbuffer
+comment|// Here we need to turn the request body into ByteBuf
 name|from
 argument_list|(
 literal|"direct:start"
@@ -509,7 +507,7 @@ argument_list|)
 operator|.
 name|convertBodyTo
 argument_list|(
-name|ChannelBuffer
+name|ByteBuf
 operator|.
 name|class
 argument_list|)

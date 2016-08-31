@@ -260,7 +260,7 @@ argument_list|()
 expr_stmt|;
 name|uri
 operator|=
-literal|"netty:tcp://localhost:"
+literal|"netty4:tcp://localhost:"
 operator|+
 name|serverPort
 operator|+
@@ -270,7 +270,7 @@ name|uriClient
 operator|=
 name|uri
 operator|+
-literal|"&useChannelBuffer=true"
+literal|"&useByteBuf=true"
 expr_stmt|;
 block|}
 annotation|@
