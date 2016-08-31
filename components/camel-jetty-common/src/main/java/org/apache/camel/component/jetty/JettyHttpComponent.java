@@ -5200,13 +5200,13 @@ return|return
 name|sendServerVersion
 return|;
 block|}
-comment|/**      * To use the X-Fowarded-For header in HttpServletRequest.getRemoteAddr.      */
+comment|/**      * To use the X-Forwarded-For header in HttpServletRequest.getRemoteAddr.      */
 annotation|@
 name|Metadata
 argument_list|(
 name|description
 operator|=
-literal|"To use the X-Fowarded-For header in HttpServletRequest.getRemoteAddr."
+literal|"To use the X-Forwarded-For header in HttpServletRequest.getRemoteAddr."
 argument_list|)
 DECL|method|isUseXForwardedForHeader ()
 specifier|public
@@ -5218,13 +5218,13 @@ return|return
 name|useXForwardedForHeader
 return|;
 block|}
-comment|/**      * To use a http proxy to configure the port number.      */
+comment|/**      * To use the X-Forwarded-For header in HttpServletRequest.getRemoteAddr.      */
 annotation|@
 name|Metadata
 argument_list|(
 name|description
 operator|=
-literal|"To use the X-Fowarded-For header in HttpServletRequest.getRemoteAddr."
+literal|"To use the X-Forwarded-For header in HttpServletRequest.getRemoteAddr."
 argument_list|)
 DECL|method|setUseXForwardedForHeader (boolean useXForwardedForHeader)
 specifier|public

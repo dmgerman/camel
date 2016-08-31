@@ -383,7 +383,7 @@ specifier|private
 name|Integer
 name|proxyPort
 decl_stmt|;
-comment|/**      * To use the X-Fowarded-For header in HttpServletRequest.getRemoteAddr.      */
+comment|/**      * To use the X-Forwarded-For header in HttpServletRequest.getRemoteAddr.      */
 DECL|field|useXForwardedForHeader
 specifier|private
 name|Boolean
