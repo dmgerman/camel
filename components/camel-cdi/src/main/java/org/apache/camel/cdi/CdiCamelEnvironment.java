@@ -295,6 +295,16 @@ return|return
 literal|false
 return|;
 block|}
+catch|catch
+parameter_list|(
+name|NoClassDefFoundError
+name|cause
+parameter_list|)
+block|{
+return|return
+literal|false
+return|;
+block|}
 block|}
 DECL|method|hasBundleContext (Class clazz)
 specifier|private
