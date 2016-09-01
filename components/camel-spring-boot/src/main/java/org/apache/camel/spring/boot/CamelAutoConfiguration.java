@@ -1477,6 +1477,10 @@ name|CamelContext
 name|camelContext
 parameter_list|)
 block|{
+comment|// CAMEL-10279: We have to call setNoStart(true) here so that if a<camelContext> is imported via
+comment|// @ImportResource then it does not get started before the RoutesCollector gets a chance to add any
+comment|// routes found in RouteBuilders.  Even if no RouteBuilders are found, the RoutesCollector will handle
+comment|// starting the the Camel Context.
 name|SpringCamelContext
 operator|.
 name|setNoStart
