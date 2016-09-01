@@ -709,7 +709,7 @@ name|resolved
 init|=
 name|DependencyResolver
 operator|.
-name|resolveParentProperty
+name|resolveSpringBootParentProperty
 argument_list|(
 name|property
 argument_list|)

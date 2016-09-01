@@ -658,11 +658,18 @@ name|IGNORE_MODULES
 init|=
 block|{
 comment|/* OSGi -> */
+literal|"camel-blueprint"
+block|,
 literal|"camel-core-osgi"
 block|,
 literal|"camel-eventadmin"
 block|,
 literal|"camel-paxlogging"
+block|,
+comment|/* Java EE -> */
+literal|"camel-cdi"
+block|,
+literal|"camel-ejb"
 block|,
 comment|/* deprecated (and not working perfectly) -> */
 literal|"camel-swagger"
@@ -1417,6 +1424,13 @@ operator|.
 name|add
 argument_list|(
 literal|"org.apache.logging.log4j:log4j"
+argument_list|)
+expr_stmt|;
+name|loggingImpl
+operator|.
+name|add
+argument_list|(
+literal|"org.apache.logging.log4j:log4j-core"
 argument_list|)
 expr_stmt|;
 name|loggingImpl

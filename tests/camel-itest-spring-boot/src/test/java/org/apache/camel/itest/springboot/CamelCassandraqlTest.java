@@ -190,7 +190,8 @@ name|unitTestExclusionPattern
 argument_list|(
 literal|".*(\\.integration\\..*|IntegrationTest$|CassandraComponentProducerTest$|CassandraComponentBeanRefTest$|CassandraComponentConsumerTest$)"
 argument_list|)
-comment|// excluded tests have been checked manually (they need to run on their own JDK)
+comment|//.unitTestInclusionPattern(".*NamedCassandraAggregationRepositoryTest$")
+comment|// excluded tests have been checked manually (they need to run on their own JVM)
 operator|.
 name|build
 argument_list|()
