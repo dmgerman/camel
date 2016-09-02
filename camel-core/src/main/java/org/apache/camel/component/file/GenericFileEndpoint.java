@@ -2320,7 +2320,7 @@ operator|=
 name|filterDirectory
 expr_stmt|;
 block|}
-comment|/**      * @see #setFilterDirectory(Predicate)      */
+comment|/**      * Filters the directory based on Simple language.      * For example to filter on current date, you can use a simple date pattern such as ${date:now:yyyMMdd}      * @see #setFilterDirectory(Predicate)      */
 DECL|method|setFilterDirectory (String expression)
 specifier|public
 name|void
@@ -2367,7 +2367,7 @@ operator|=
 name|filterFile
 expr_stmt|;
 block|}
-comment|/**      * @see #setFilterFile(Predicate)      */
+comment|/**      * Filters the file based on Simple language.      * For example to filter on file size, you can use ${file:size}> 5000      * @see #setFilterFile(Predicate)      */
 DECL|method|setFilterFile (String expression)
 specifier|public
 name|void
