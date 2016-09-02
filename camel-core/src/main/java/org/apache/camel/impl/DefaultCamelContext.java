@@ -2180,7 +2180,7 @@ argument_list|>
 name|components
 init|=
 operator|new
-name|HashMap
+name|ConcurrentHashMap
 argument_list|<
 name|String
 argument_list|,
@@ -3299,19 +3299,30 @@ argument_list|,
 literal|"component"
 argument_list|)
 expr_stmt|;
-synchronized|synchronized
-init|(
-name|components
-init|)
-block|{
-if|if
-condition|(
+name|component
+operator|.
+name|setCamelContext
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+name|Component
+name|oldValue
+init|=
 name|components
 operator|.
-name|containsKey
+name|putIfAbsent
 argument_list|(
 name|componentName
+argument_list|,
+name|component
 argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|oldValue
+operator|!=
+literal|null
 condition|)
 block|{
 throw|throw
@@ -3324,22 +3335,27 @@ name|componentName
 argument_list|)
 throw|;
 block|}
-name|component
-operator|.
-name|setCamelContext
-argument_list|(
-name|this
-argument_list|)
-expr_stmt|;
-name|components
-operator|.
-name|put
+name|postInitComponent
 argument_list|(
 name|componentName
 argument_list|,
 name|component
 argument_list|)
 expr_stmt|;
+block|}
+DECL|method|postInitComponent (String componentName, final Component component)
+specifier|private
+name|void
+name|postInitComponent
+parameter_list|(
+name|String
+name|componentName
+parameter_list|,
+specifier|final
+name|Component
+name|component
+parameter_list|)
+block|{
 for|for
 control|(
 name|LifecycleStrategy
@@ -3380,7 +3396,6 @@ name|PropertiesComponent
 operator|)
 name|component
 expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|getComponent (String name)
@@ -3441,29 +3456,50 @@ name|boolean
 name|autoStart
 parameter_list|)
 block|{
-comment|// synchronize the look up and auto create so that 2 threads can't
-comment|// concurrently auto create the same component.
-synchronized|synchronized
-init|(
+comment|// CAMEL-10269 : Atomic operation to get/create a component. Avoid global locks.
+return|return
 name|components
-init|)
+operator|.
+name|computeIfAbsent
+argument_list|(
+name|name
+argument_list|,
+name|comp
+lambda|->
+name|initComponent
+argument_list|(
+name|name
+argument_list|,
+name|autoCreateComponents
+argument_list|,
+name|autoStart
+argument_list|)
+argument_list|)
+return|;
+block|}
+comment|/*      * CAMEL-10269      * Function to initialize a component and auto start. Returns null if the autoCreateComponents is disabled      */
+DECL|method|initComponent (String name, boolean autoCreateComponents, boolean autoStart)
+specifier|private
+name|Component
+name|initComponent
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|boolean
+name|autoCreateComponents
+parameter_list|,
+name|boolean
+name|autoStart
+parameter_list|)
 block|{
 name|Component
 name|component
 init|=
-name|components
-operator|.
-name|get
-argument_list|(
-name|name
-argument_list|)
+literal|null
 decl_stmt|;
 if|if
 condition|(
-name|component
-operator|==
-literal|null
-operator|&&
 name|autoCreateComponents
 condition|)
 block|{
@@ -3509,7 +3545,14 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|addComponent
+name|component
+operator|.
+name|setCamelContext
+argument_list|(
+name|this
+argument_list|)
+expr_stmt|;
+name|postInitComponent
 argument_list|(
 name|name
 argument_list|,
@@ -3568,21 +3611,9 @@ argument_list|)
 throw|;
 block|}
 block|}
-name|log
-operator|.
-name|trace
-argument_list|(
-literal|"getComponent({}) -> {}"
-argument_list|,
-name|name
-argument_list|,
-name|component
-argument_list|)
-expr_stmt|;
 return|return
 name|component
 return|;
-block|}
 block|}
 DECL|method|getComponent (String name, Class<T> componentType)
 specifier|public
@@ -3746,11 +3777,6 @@ name|String
 name|componentName
 parameter_list|)
 block|{
-synchronized|synchronized
-init|(
-name|components
-init|)
-block|{
 name|Component
 name|oldComponent
 init|=
@@ -3838,7 +3864,6 @@ block|}
 return|return
 name|oldComponent
 return|;
-block|}
 block|}
 comment|// Endpoint Management Methods
 comment|// -----------------------------------------------------------------------
@@ -21210,11 +21235,6 @@ argument_list|>
 name|getComponentNames
 parameter_list|()
 block|{
-synchronized|synchronized
-init|(
-name|components
-init|)
-block|{
 name|List
 argument_list|<
 name|String
@@ -21250,7 +21270,6 @@ block|}
 return|return
 name|answer
 return|;
-block|}
 block|}
 DECL|method|getLanguageNames ()
 specifier|public
