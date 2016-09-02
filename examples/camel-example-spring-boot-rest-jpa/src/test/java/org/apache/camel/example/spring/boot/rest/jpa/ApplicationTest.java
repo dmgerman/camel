@@ -350,7 +350,7 @@ name|restTemplate
 operator|.
 name|getForEntity
 argument_list|(
-literal|"/camel-rest-sql/books/order/1"
+literal|"/camel-rest-jpa/books/order/1"
 argument_list|,
 name|Order
 operator|.
@@ -477,7 +477,7 @@ name|restTemplate
 operator|.
 name|exchange
 argument_list|(
-literal|"/camel-rest-sql/books"
+literal|"/camel-rest-jpa/books"
 argument_list|,
 name|HttpMethod
 operator|.

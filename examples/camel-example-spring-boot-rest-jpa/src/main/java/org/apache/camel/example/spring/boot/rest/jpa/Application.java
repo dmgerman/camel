@@ -204,7 +204,7 @@ operator|new
 name|CamelHttpTransportServlet
 argument_list|()
 argument_list|,
-literal|"/camel-rest-sql/*"
+literal|"/camel-rest-jpa/*"
 argument_list|)
 decl_stmt|;
 name|servlet
@@ -239,7 +239,7 @@ argument_list|()
 operator|.
 name|contextPath
 argument_list|(
-literal|"/camel-rest-sql"
+literal|"/camel-rest-jpa"
 argument_list|)
 operator|.
 name|apiContextPath
