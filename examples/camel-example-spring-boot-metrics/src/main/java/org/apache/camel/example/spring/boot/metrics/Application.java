@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.example.springboot.metrics
+DECL|package|org.apache.camel.example.spring.boot.metrics
 package|package
 name|org
 operator|.
@@ -14,7 +14,9 @@ name|camel
 operator|.
 name|example
 operator|.
-name|springboot
+name|spring
+operator|.
+name|boot
 operator|.
 name|metrics
 package|;
