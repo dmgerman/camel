@@ -318,6 +318,24 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"producer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"60000"
+argument_list|)
+DECL|field|sendTimeout
+specifier|private
+name|Integer
+name|sendTimeout
+init|=
+literal|60000
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"monitoring"
 argument_list|)
 DECL|field|enableJmx
@@ -829,6 +847,33 @@ operator|.
 name|sendToAll
 operator|=
 name|sendToAll
+expr_stmt|;
+block|}
+DECL|method|getSendTimeout ()
+specifier|public
+name|Integer
+name|getSendTimeout
+parameter_list|()
+block|{
+return|return
+name|sendTimeout
+return|;
+block|}
+comment|/**      * Timeout in millise when sending to a websocket channel.      * The default timeout is 60000 (60 seconds).      */
+DECL|method|setSendTimeout (Integer sendTimeout)
+specifier|public
+name|void
+name|setSendTimeout
+parameter_list|(
+name|Integer
+name|sendTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sendTimeout
+operator|=
+name|sendTimeout
 expr_stmt|;
 block|}
 DECL|method|getProtocol ()
