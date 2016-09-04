@@ -322,14 +322,14 @@ literal|"producer"
 argument_list|,
 name|defaultValue
 operator|=
-literal|"60000"
+literal|"30000"
 argument_list|)
 DECL|field|sendTimeout
 specifier|private
 name|Integer
 name|sendTimeout
 init|=
-literal|60000
+literal|30000
 decl_stmt|;
 annotation|@
 name|UriParam
@@ -859,7 +859,7 @@ return|return
 name|sendTimeout
 return|;
 block|}
-comment|/**      * Timeout in millise when sending to a websocket channel.      * The default timeout is 60000 (60 seconds).      */
+comment|/**      * Timeout in millise when sending to a websocket channel.      * The default timeout is 30000 (30 seconds).      */
 DECL|method|setSendTimeout (Integer sendTimeout)
 specifier|public
 name|void
