@@ -204,19 +204,6 @@ operator|.
 name|newSingleThreadExecutor
 argument_list|()
 decl_stmt|;
-DECL|field|notValidConnectionKeys
-specifier|private
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|notValidConnectionKeys
-init|=
-operator|new
-name|ArrayList
-argument_list|<>
-argument_list|()
-decl_stmt|;
 DECL|method|WebsocketProducer (WebsocketEndpoint endpoint)
 specifier|public
 name|WebsocketProducer
@@ -553,13 +540,17 @@ literal|"Failed to send message to multiple connections; connetion key list is n
 argument_list|)
 throw|;
 block|}
+name|List
+argument_list|<
+name|String
+argument_list|>
 name|notValidConnectionKeys
-operator|=
+init|=
 operator|new
 name|ArrayList
 argument_list|<>
 argument_list|()
-expr_stmt|;
+decl_stmt|;
 for|for
 control|(
 specifier|final
@@ -585,6 +576,8 @@ argument_list|(
 name|getWebSocket
 argument_list|(
 name|connectionKey
+argument_list|,
+name|notValidConnectionKeys
 argument_list|)
 argument_list|,
 name|message
@@ -722,16 +715,10 @@ block|{
 comment|// this should not happen unless one of the supported types is missing above.
 name|LOG
 operator|.
-name|error
+name|warn
 argument_list|(
 literal|"unexpected message type {}"
 argument_list|,
-name|message
-operator|==
-literal|null
-condition|?
-literal|null
-else|:
 name|message
 operator|.
 name|getClass
@@ -762,7 +749,7 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|getWebSocket (final String connectionKey)
+DECL|method|getWebSocket (final String connectionKey, final List<String> notValidConnectionKeys)
 specifier|private
 name|WebSocket
 name|getWebSocket
@@ -770,6 +757,13 @@ parameter_list|(
 specifier|final
 name|String
 name|connectionKey
+parameter_list|,
+specifier|final
+name|List
+argument_list|<
+name|String
+argument_list|>
+name|notValidConnectionKeys
 parameter_list|)
 block|{
 name|WebSocket
@@ -786,7 +780,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Failed to send message to single connection; connetion key is not set."
+literal|"Failed to send message to single connection; connection key is not set."
 argument_list|)
 throw|;
 block|}
