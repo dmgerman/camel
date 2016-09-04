@@ -859,7 +859,7 @@ return|return
 name|sendTimeout
 return|;
 block|}
-comment|/**      * Timeout in millise when sending to a websocket channel.      * The default timeout is 30000 (30 seconds).      */
+comment|/**      * Timeout in millis when sending to a websocket channel.      * The default timeout is 30000 (30 seconds).      */
 DECL|method|setSendTimeout (Integer sendTimeout)
 specifier|public
 name|void
