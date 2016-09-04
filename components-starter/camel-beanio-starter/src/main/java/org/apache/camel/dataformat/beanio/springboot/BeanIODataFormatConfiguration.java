@@ -95,6 +95,12 @@ specifier|private
 name|String
 name|encoding
 decl_stmt|;
+comment|/**      * To use a custom org.apache.camel.dataformat.beanio.BeanIOErrorHandler as      * error handler while parsing. Configure the fully qualified class name of      * the error handler. Notice the options ignoreUnidentifiedRecords      * ignoreUnexpectedRecords and ignoreInvalidRecords may not be in use when      * you use a custom error handler.      */
+DECL|field|beanReaderErrorHandlerType
+specifier|private
+name|String
+name|beanReaderErrorHandlerType
+decl_stmt|;
 DECL|method|getMapping ()
 specifier|public
 name|String
@@ -249,6 +255,32 @@ operator|.
 name|encoding
 operator|=
 name|encoding
+expr_stmt|;
+block|}
+DECL|method|getBeanReaderErrorHandlerType ()
+specifier|public
+name|String
+name|getBeanReaderErrorHandlerType
+parameter_list|()
+block|{
+return|return
+name|beanReaderErrorHandlerType
+return|;
+block|}
+DECL|method|setBeanReaderErrorHandlerType (String beanReaderErrorHandlerType)
+specifier|public
+name|void
+name|setBeanReaderErrorHandlerType
+parameter_list|(
+name|String
+name|beanReaderErrorHandlerType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|beanReaderErrorHandlerType
+operator|=
+name|beanReaderErrorHandlerType
 expr_stmt|;
 block|}
 block|}

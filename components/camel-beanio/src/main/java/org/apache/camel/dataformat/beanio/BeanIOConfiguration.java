@@ -105,6 +105,11 @@ specifier|private
 name|BeanReaderErrorHandler
 name|beanReaderErrorHandler
 decl_stmt|;
+DECL|field|beanReaderErrorHandlerType
+specifier|private
+name|String
+name|beanReaderErrorHandlerType
+decl_stmt|;
 DECL|method|getMapping ()
 specifier|public
 name|String
@@ -311,6 +316,54 @@ operator|.
 name|beanReaderErrorHandler
 operator|=
 name|beanReaderErrorHandler
+expr_stmt|;
+block|}
+DECL|method|getBeanReaderErrorHandlerType ()
+specifier|public
+name|String
+name|getBeanReaderErrorHandlerType
+parameter_list|()
+block|{
+return|return
+name|beanReaderErrorHandlerType
+return|;
+block|}
+DECL|method|setBeanReaderErrorHandlerType (String beanReaderErrorHandlerType)
+specifier|public
+name|void
+name|setBeanReaderErrorHandlerType
+parameter_list|(
+name|String
+name|beanReaderErrorHandlerType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|beanReaderErrorHandlerType
+operator|=
+name|beanReaderErrorHandlerType
+expr_stmt|;
+block|}
+DECL|method|setBeanReaderErrorHandlerType (Class<?> beanReaderErrorHandlerType)
+specifier|public
+name|void
+name|setBeanReaderErrorHandlerType
+parameter_list|(
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|beanReaderErrorHandlerType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|beanReaderErrorHandlerType
+operator|=
+name|beanReaderErrorHandlerType
+operator|.
+name|getName
+argument_list|()
 expr_stmt|;
 block|}
 block|}

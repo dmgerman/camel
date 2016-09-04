@@ -22,6 +22,28 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|Exchange
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|beanio
+operator|.
+name|BeanReaderErrorHandler
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|beanio
 operator|.
 name|BeanReaderErrorHandlerSupport
@@ -78,6 +100,10 @@ name|LoggerFactory
 import|;
 end_import
 
+begin_comment
+comment|/**  * A {@link BeanReaderErrorHandler} to handle errors during parsing. This error handler is prototype scoped  * and provides access to the current {@link Exchange}.  * You can perform any custom initialization logic in the {@link #init()} method.  */
+end_comment
+
 begin_class
 DECL|class|BeanIOErrorHandler
 specifier|public
@@ -87,7 +113,6 @@ extends|extends
 name|BeanReaderErrorHandlerSupport
 block|{
 DECL|field|LOG_PREFIX
-specifier|private
 specifier|static
 specifier|final
 name|String
@@ -96,7 +121,6 @@ init|=
 literal|"BeanIO: "
 decl_stmt|;
 DECL|field|LOG
-specifier|private
 specifier|static
 specifier|final
 name|Logger
@@ -113,13 +137,41 @@ argument_list|)
 decl_stmt|;
 DECL|field|configuration
 specifier|private
-specifier|final
 name|BeanIOConfiguration
 name|configuration
 decl_stmt|;
-DECL|method|BeanIOErrorHandler (BeanIOConfiguration configuration)
+DECL|field|exchange
+specifier|private
+name|Exchange
+name|exchange
+decl_stmt|;
+DECL|method|BeanIOErrorHandler ()
 specifier|public
 name|BeanIOErrorHandler
+parameter_list|()
+block|{     }
+DECL|method|init ()
+specifier|public
+name|void
+name|init
+parameter_list|()
+block|{
+comment|// any custom init code here
+block|}
+DECL|method|getConfiguration ()
+specifier|public
+name|BeanIOConfiguration
+name|getConfiguration
+parameter_list|()
+block|{
+return|return
+name|configuration
+return|;
+block|}
+DECL|method|setConfiguration (BeanIOConfiguration configuration)
+specifier|public
+name|void
+name|setConfiguration
 parameter_list|(
 name|BeanIOConfiguration
 name|configuration
@@ -130,6 +182,32 @@ operator|.
 name|configuration
 operator|=
 name|configuration
+expr_stmt|;
+block|}
+DECL|method|getExchange ()
+specifier|public
+name|Exchange
+name|getExchange
+parameter_list|()
+block|{
+return|return
+name|exchange
+return|;
+block|}
+DECL|method|setExchange (Exchange exchange)
+specifier|public
+name|void
+name|setExchange
+parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exchange
+operator|=
+name|exchange
 expr_stmt|;
 block|}
 annotation|@
@@ -169,7 +247,8 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|configuration
+name|getConfiguration
+argument_list|()
 operator|.
 name|isIgnoreInvalidRecords
 argument_list|()
@@ -234,7 +313,8 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|configuration
+name|getConfiguration
+argument_list|()
 operator|.
 name|isIgnoreUnexpectedRecords
 argument_list|()
@@ -299,7 +379,8 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|configuration
+name|getConfiguration
+argument_list|()
 operator|.
 name|isIgnoreUnidentifiedRecords
 argument_list|()

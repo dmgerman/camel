@@ -217,6 +217,13 @@ specifier|private
 name|String
 name|encoding
 decl_stmt|;
+annotation|@
+name|XmlAttribute
+DECL|field|beanReaderErrorHandlerType
+specifier|private
+name|String
+name|beanReaderErrorHandlerType
+decl_stmt|;
 DECL|method|BeanioDataFormat ()
 specifier|public
 name|BeanioDataFormat
@@ -337,6 +344,25 @@ argument_list|,
 literal|"encoding"
 argument_list|,
 name|encoding
+argument_list|)
+expr_stmt|;
+block|}
+if|if
+condition|(
+name|beanReaderErrorHandlerType
+operator|!=
+literal|null
+condition|)
+block|{
+name|setProperty
+argument_list|(
+name|camelContext
+argument_list|,
+name|dataFormat
+argument_list|,
+literal|"beanReaderErrorHandlerType"
+argument_list|,
+name|beanReaderErrorHandlerType
 argument_list|)
 expr_stmt|;
 block|}
@@ -501,6 +527,33 @@ operator|.
 name|encoding
 operator|=
 name|encoding
+expr_stmt|;
+block|}
+DECL|method|getBeanReaderErrorHandlerType ()
+specifier|public
+name|String
+name|getBeanReaderErrorHandlerType
+parameter_list|()
+block|{
+return|return
+name|beanReaderErrorHandlerType
+return|;
+block|}
+comment|/**      * To use a custom org.apache.camel.dataformat.beanio.BeanIOErrorHandler as error handler      * while parsing. Configure the fully qualified class name of the error handler.      * Notice the options ignoreUnidentifiedRecords, ignoreUnexpectedRecords, and ignoreInvalidRecords      * may not be in use when you use a custom error handler.      */
+DECL|method|setBeanReaderErrorHandlerType (String beanReaderErrorHandlerType)
+specifier|public
+name|void
+name|setBeanReaderErrorHandlerType
+parameter_list|(
+name|String
+name|beanReaderErrorHandlerType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|beanReaderErrorHandlerType
+operator|=
+name|beanReaderErrorHandlerType
 expr_stmt|;
 block|}
 block|}
