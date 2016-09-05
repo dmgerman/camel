@@ -152,6 +152,20 @@ name|eclipse
 operator|.
 name|jetty
 operator|.
+name|client
+operator|.
+name|HttpClientTransport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
 name|server
 operator|.
 name|AbstractConnector
@@ -280,11 +294,14 @@ name|JettyHttpComponent9
 extends|extends
 name|JettyHttpComponent
 block|{
-DECL|method|createCamelHttpClient (SslContextFactory sslContextFactory)
+DECL|method|createCamelHttpClient (HttpClientTransport transport, SslContextFactory sslContextFactory)
 specifier|protected
 name|CamelHttpClient
 name|createCamelHttpClient
 parameter_list|(
+name|HttpClientTransport
+name|transport
+parameter_list|,
 name|SslContextFactory
 name|sslContextFactory
 parameter_list|)
@@ -293,6 +310,8 @@ return|return
 operator|new
 name|CamelHttpClient9
 argument_list|(
+name|transport
+argument_list|,
 name|sslContextFactory
 argument_list|)
 return|;

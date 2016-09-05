@@ -78,6 +78,20 @@ name|eclipse
 operator|.
 name|jetty
 operator|.
+name|client
+operator|.
+name|HttpClientTransport
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|eclipse
+operator|.
+name|jetty
+operator|.
 name|util
 operator|.
 name|ssl
@@ -130,6 +144,25 @@ name|sslContextFactory
 argument_list|)
 expr_stmt|;
 block|}
+DECL|method|CamelHttpClient (HttpClientTransport transport, SslContextFactory sslContextFactory)
+specifier|public
+name|CamelHttpClient
+parameter_list|(
+name|HttpClientTransport
+name|transport
+parameter_list|,
+name|SslContextFactory
+name|sslContextFactory
+parameter_list|)
+block|{
+name|super
+argument_list|(
+name|transport
+argument_list|,
+name|sslContextFactory
+argument_list|)
+expr_stmt|;
+block|}
 annotation|@
 name|Deprecated
 comment|/**      * It does nothing here, please setup SslContextFactory directly, it will be removed in Camel 2.16.0      * @param context      */
@@ -161,7 +194,7 @@ name|hasThreadPool
 argument_list|()
 condition|)
 block|{
-comment|// if there is no thread pool then create a default thread pool using daemon threads
+comment|// if there is no thread pool then create a default thread pool using daemon threads with default size (200)
 name|QueuedThreadPool
 name|qtp
 init|=
@@ -169,14 +202,6 @@ operator|new
 name|QueuedThreadPool
 argument_list|()
 decl_stmt|;
-comment|// 16 max threads is the default in the http client
-name|qtp
-operator|.
-name|setMaxThreads
-argument_list|(
-literal|16
-argument_list|)
-expr_stmt|;
 name|qtp
 operator|.
 name|setDaemon
