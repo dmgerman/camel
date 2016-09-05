@@ -170,7 +170,7 @@ name|processor
 operator|.
 name|binding
 operator|.
-name|RestBindingProcessor
+name|RestConsumerBindingProcessor
 import|;
 end_import
 
@@ -517,7 +517,7 @@ block|{
 comment|// binding mode is off, so create a off mode binding processor
 return|return
 operator|new
-name|RestBindingProcessor
+name|RestConsumerBindingProcessor
 argument_list|(
 name|context
 argument_list|,
@@ -1226,7 +1226,7 @@ expr_stmt|;
 block|}
 return|return
 operator|new
-name|RestBindingProcessor
+name|RestConsumerBindingProcessor
 argument_list|(
 name|context
 argument_list|,

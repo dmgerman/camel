@@ -281,10 +281,10 @@ comment|/**  * A {@link org.apache.camel.Processor} that binds the REST DSL inco
 end_comment
 
 begin_class
-DECL|class|RestBindingProcessor
+DECL|class|RestConsumerBindingProcessor
 specifier|public
 class|class
-name|RestBindingProcessor
+name|RestConsumerBindingProcessor
 extends|extends
 name|ServiceSupport
 implements|implements
@@ -372,9 +372,9 @@ name|String
 argument_list|>
 name|queryDefaultValues
 decl_stmt|;
-DECL|method|RestBindingProcessor (CamelContext camelContext, DataFormat jsonDataFormat, DataFormat xmlDataFormat, DataFormat outJsonDataFormat, DataFormat outXmlDataFormat, String consumes, String produces, String bindingMode, boolean skipBindingOnErrorCode, boolean enableCORS, Map<String, String> corsHeaders, Map<String, String> queryDefaultValues)
+DECL|method|RestConsumerBindingProcessor (CamelContext camelContext, DataFormat jsonDataFormat, DataFormat xmlDataFormat, DataFormat outJsonDataFormat, DataFormat outXmlDataFormat, String consumes, String produces, String bindingMode, boolean skipBindingOnErrorCode, boolean enableCORS, Map<String, String> corsHeaders, Map<String, String> queryDefaultValues)
 specifier|public
-name|RestBindingProcessor
+name|RestConsumerBindingProcessor
 parameter_list|(
 name|CamelContext
 name|camelContext
