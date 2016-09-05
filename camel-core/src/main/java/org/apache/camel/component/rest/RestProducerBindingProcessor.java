@@ -178,20 +178,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|support
-operator|.
-name|SynchronizationAdapter
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|util
 operator|.
 name|ExchangeHelper
@@ -225,6 +211,10 @@ operator|.
 name|ServiceHelper
 import|;
 end_import
+
+begin_comment
+comment|/**  * A {@link org.apache.camel.Processor} that binds the REST producer request and reply messages  * from sources of json or xml to Java Objects.  *<p/>  * The binding uses {@link org.apache.camel.spi.DataFormat} for the actual work to transform  * from xml/json to Java Objects and reverse again.  */
+end_comment
 
 begin_class
 DECL|class|RestProducerBindingProcessor
@@ -276,7 +266,19 @@ specifier|final
 name|boolean
 name|skipBindingOnErrorCode
 decl_stmt|;
-DECL|method|RestProducerBindingProcessor (AsyncProcessor processor, CamelContext camelContext, DataFormat jsonDataFormat, DataFormat xmlDataFormat, DataFormat outJsonDataFormat, DataFormat outXmlDataFormat, String bindingMode, boolean skipBindingOnErrorCode)
+DECL|field|type
+specifier|private
+specifier|final
+name|String
+name|type
+decl_stmt|;
+DECL|field|outType
+specifier|private
+specifier|final
+name|String
+name|outType
+decl_stmt|;
+DECL|method|RestProducerBindingProcessor (AsyncProcessor processor, CamelContext camelContext, DataFormat jsonDataFormat, DataFormat xmlDataFormat, DataFormat outJsonDataFormat, DataFormat outXmlDataFormat, String bindingMode, boolean skipBindingOnErrorCode, String type, String outType)
 specifier|public
 name|RestProducerBindingProcessor
 parameter_list|(
@@ -303,6 +305,12 @@ name|bindingMode
 parameter_list|,
 name|boolean
 name|skipBindingOnErrorCode
+parameter_list|,
+name|String
+name|type
+parameter_list|,
+name|String
+name|outType
 parameter_list|)
 block|{
 name|super
@@ -330,7 +338,7 @@ operator|=
 operator|new
 name|UnmarshalProcessor
 argument_list|(
-name|jsonDataFormat
+name|outJsonDataFormat
 argument_list|)
 expr_stmt|;
 block|}
@@ -357,7 +365,7 @@ operator|=
 operator|new
 name|MarshalProcessor
 argument_list|(
-name|outJsonDataFormat
+name|jsonDataFormat
 argument_list|)
 expr_stmt|;
 block|}
@@ -376,7 +384,7 @@ operator|=
 operator|new
 name|MarshalProcessor
 argument_list|(
-name|jsonDataFormat
+name|outJsonDataFormat
 argument_list|)
 expr_stmt|;
 block|}
@@ -403,7 +411,7 @@ operator|=
 operator|new
 name|UnmarshalProcessor
 argument_list|(
-name|xmlDataFormat
+name|outXmlDataFormat
 argument_list|)
 expr_stmt|;
 block|}
@@ -430,7 +438,7 @@ operator|=
 operator|new
 name|MarshalProcessor
 argument_list|(
-name|outXmlDataFormat
+name|xmlDataFormat
 argument_list|)
 expr_stmt|;
 block|}
@@ -449,7 +457,7 @@ operator|=
 operator|new
 name|MarshalProcessor
 argument_list|(
-name|xmlDataFormat
+name|outXmlDataFormat
 argument_list|)
 expr_stmt|;
 block|}
@@ -473,6 +481,18 @@ operator|.
 name|skipBindingOnErrorCode
 operator|=
 name|skipBindingOnErrorCode
+expr_stmt|;
+name|this
+operator|.
+name|type
+operator|=
+name|type
+expr_stmt|;
+name|this
+operator|.
+name|outType
+operator|=
+name|outType
 expr_stmt|;
 block|}
 annotation|@
@@ -640,7 +660,7 @@ name|isJson
 init|=
 literal|false
 decl_stmt|;
-comment|// skip binding for empty/null body
+comment|// skip before binding for empty/null body
 name|Object
 name|body
 init|=
@@ -662,7 +682,31 @@ name|body
 argument_list|)
 condition|)
 block|{
-comment|// TODO: add reverse operation to call before callback
+if|if
+condition|(
+name|outType
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// wrap callback to add reverse operation if we know the output type from the REST service
+name|callback
+operator|=
+operator|new
+name|RestProducerBindingUnmarshalCallback
+argument_list|(
+name|exchange
+argument_list|,
+name|callback
+argument_list|,
+name|jsonMarshal
+argument_list|,
+name|xmlMarshal
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
 comment|// okay now we can continue routing to the producer
 return|return
 name|getProcessor
@@ -676,7 +720,7 @@ name|callback
 argument_list|)
 return|;
 block|}
-comment|// we only need to perform binding if the message body is POJO based
+comment|// we only need to perform before binding if the message body is POJO based
 comment|// if its convertable to stream based then its not POJO based
 name|InputStream
 name|is
@@ -714,22 +758,31 @@ argument_list|(
 name|is
 argument_list|)
 expr_stmt|;
-comment|// add reverse operation
-name|exchange
-operator|.
-name|addOnCompletion
-argument_list|(
+if|if
+condition|(
+name|outType
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// wrap callback to add reverse operation if we know the output type from the REST service
+name|callback
+operator|=
 operator|new
-name|RestProducerBindingUnmarshalOnCompletion
+name|RestProducerBindingUnmarshalCallback
 argument_list|(
+name|exchange
+argument_list|,
+name|callback
+argument_list|,
 name|jsonMarshal
 argument_list|,
 name|xmlMarshal
 argument_list|,
 literal|false
 argument_list|)
-argument_list|)
 expr_stmt|;
+block|}
 comment|// okay now we can continue routing to the producer
 return|return
 name|getProcessor
@@ -879,7 +932,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// TODO: add reverse operation to call before callback
 try|try
 block|{
 name|jsonMarshal
@@ -923,22 +975,31 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// add reverse operation
-name|exchange
-operator|.
-name|addOnCompletion
-argument_list|(
+if|if
+condition|(
+name|outType
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// wrap callback to add reverse operation if we know the output type from the REST service
+name|callback
+operator|=
 operator|new
-name|RestProducerBindingUnmarshalOnCompletion
+name|RestProducerBindingUnmarshalCallback
 argument_list|(
+name|exchange
+argument_list|,
+name|callback
+argument_list|,
 name|jsonMarshal
 argument_list|,
 name|xmlMarshal
 argument_list|,
 literal|false
 argument_list|)
-argument_list|)
 expr_stmt|;
+block|}
 comment|// okay now we can continue routing to the producer
 return|return
 name|getProcessor
@@ -962,7 +1023,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-comment|// TODO: add reverse operation to call before callback
 try|try
 block|{
 name|xmlMarshal
@@ -1006,22 +1066,31 @@ argument_list|(
 name|exchange
 argument_list|)
 expr_stmt|;
-comment|// add reverse operation
-name|exchange
-operator|.
-name|addOnCompletion
-argument_list|(
+if|if
+condition|(
+name|outType
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// wrap callback to add reverse operation if we know the output type from the REST service
+name|callback
+operator|=
 operator|new
-name|RestProducerBindingUnmarshalOnCompletion
+name|RestProducerBindingUnmarshalCallback
 argument_list|(
+name|exchange
+argument_list|,
+name|callback
+argument_list|,
 name|jsonMarshal
 argument_list|,
 name|xmlMarshal
 argument_list|,
-literal|false
-argument_list|)
+literal|true
 argument_list|)
 expr_stmt|;
+block|}
 comment|// okay now we can continue routing to the producer
 return|return
 name|getProcessor
@@ -1053,22 +1122,31 @@ literal|"auto"
 argument_list|)
 condition|)
 block|{
-comment|// add reverse operation
-name|exchange
-operator|.
-name|addOnCompletion
-argument_list|(
+if|if
+condition|(
+name|outType
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// wrap callback to add reverse operation if we know the output type from the REST service
+name|callback
+operator|=
 operator|new
-name|RestProducerBindingUnmarshalOnCompletion
+name|RestProducerBindingUnmarshalCallback
 argument_list|(
+name|exchange
+argument_list|,
+name|callback
+argument_list|,
 name|jsonMarshal
 argument_list|,
 name|xmlMarshal
 argument_list|,
 literal|false
 argument_list|)
-argument_list|)
 expr_stmt|;
+block|}
 comment|// okay now we can continue routing to the producer
 return|return
 name|getProcessor
@@ -1137,14 +1215,26 @@ literal|true
 return|;
 block|}
 block|}
-DECL|class|RestProducerBindingUnmarshalOnCompletion
+DECL|class|RestProducerBindingUnmarshalCallback
 specifier|private
 specifier|final
 class|class
-name|RestProducerBindingUnmarshalOnCompletion
-extends|extends
-name|SynchronizationAdapter
+name|RestProducerBindingUnmarshalCallback
+implements|implements
+name|AsyncCallback
 block|{
+DECL|field|exchange
+specifier|private
+specifier|final
+name|Exchange
+name|exchange
+decl_stmt|;
+DECL|field|callback
+specifier|private
+specifier|final
+name|AsyncCallback
+name|callback
+decl_stmt|;
 DECL|field|jsonMarshal
 specifier|private
 specifier|final
@@ -1162,10 +1252,16 @@ specifier|private
 name|boolean
 name|wasXml
 decl_stmt|;
-DECL|method|RestProducerBindingUnmarshalOnCompletion (AsyncProcessor jsonMarshal, AsyncProcessor xmlMarshal, boolean wasXml)
+DECL|method|RestProducerBindingUnmarshalCallback (Exchange exchange, AsyncCallback callback, AsyncProcessor jsonMarshal, AsyncProcessor xmlMarshal, boolean wasXml)
 specifier|private
-name|RestProducerBindingUnmarshalOnCompletion
+name|RestProducerBindingUnmarshalCallback
 parameter_list|(
+name|Exchange
+name|exchange
+parameter_list|,
+name|AsyncCallback
+name|callback
+parameter_list|,
 name|AsyncProcessor
 name|jsonMarshal
 parameter_list|,
@@ -1176,6 +1272,18 @@ name|boolean
 name|wasXml
 parameter_list|)
 block|{
+name|this
+operator|.
+name|exchange
+operator|=
+name|exchange
+expr_stmt|;
+name|this
+operator|.
+name|callback
+operator|=
+name|callback
+expr_stmt|;
 name|this
 operator|.
 name|jsonMarshal
@@ -1197,14 +1305,52 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|onDone (Exchange exchange)
+DECL|method|done (boolean doneSync)
 specifier|public
 name|void
-name|onDone
+name|done
 parameter_list|(
-name|Exchange
-name|exchange
+name|boolean
+name|doneSync
 parameter_list|)
+block|{
+try|try
+block|{
+name|doDone
+argument_list|()
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+name|exchange
+operator|.
+name|setException
+argument_list|(
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+comment|// ensure callback is called
+name|callback
+operator|.
+name|done
+argument_list|(
+name|doneSync
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+DECL|method|doDone ()
+specifier|private
+name|void
+name|doDone
+parameter_list|()
 block|{
 comment|// only unmarshal if there was no exception
 if|if
@@ -1289,16 +1435,7 @@ name|isJson
 init|=
 literal|false
 decl_stmt|;
-comment|// fallback to content type if still undecided
-if|if
-condition|(
-operator|!
-name|isXml
-operator|&&
-operator|!
-name|isJson
-condition|)
-block|{
+comment|// check the content-type if its json or xml
 name|String
 name|contentType
 init|=
@@ -1348,22 +1485,6 @@ argument_list|(
 literal|"json"
 argument_list|)
 expr_stmt|;
-block|}
-block|}
-comment|// if content type could not tell us if it was json or xml, then fallback to if the binding was configured with
-comment|// that information in the consumes
-if|if
-condition|(
-operator|!
-name|isXml
-operator|&&
-operator|!
-name|isJson
-condition|)
-block|{
-comment|// TODO:
-comment|//                isXml = produces != null&& produces.toLowerCase(Locale.ENGLISH).contains("xml");
-comment|//                isJson = produces != null&& produces.toLowerCase(Locale.ENGLISH).contains("json");
 block|}
 comment|// only allow xml/json if the binding mode allows that (when off we still want to know if its xml or json)
 if|if
@@ -1490,8 +1611,15 @@ name|exchange
 argument_list|)
 expr_stmt|;
 comment|// ensure there is a content type header (even if binding is off)
-comment|// TODO:
-comment|// ensureHeaderContentType(produces, isXml, isJson, exchange);
+name|ensureHeaderContentType
+argument_list|(
+name|isXml
+argument_list|,
+name|isJson
+argument_list|,
+name|exchange
+argument_list|)
+expr_stmt|;
 if|if
 condition|(
 name|bindingMode
@@ -1564,9 +1692,8 @@ condition|)
 block|{
 return|return;
 block|}
-name|String
 name|contentType
-init|=
+operator|=
 name|exchange
 operator|.
 name|getIn
@@ -1582,7 +1709,7 @@ name|String
 operator|.
 name|class
 argument_list|)
-decl_stmt|;
+expr_stmt|;
 comment|// need to lower-case so the contains check below can match if using upper case
 name|contentType
 operator|=
@@ -1691,7 +1818,7 @@ argument_list|(
 operator|new
 name|BindingException
 argument_list|(
-literal|"Cannot bind to xml as message body is not xml compatible"
+literal|"Cannot bind from xml as message body is not xml compatible"
 argument_list|,
 name|exchange
 argument_list|)
@@ -1707,7 +1834,7 @@ argument_list|(
 operator|new
 name|BindingException
 argument_list|(
-literal|"Cannot bind to json as message body is not json compatible"
+literal|"Cannot bind from json as message body is not json compatible"
 argument_list|,
 name|exchange
 argument_list|)
@@ -1732,14 +1859,11 @@ argument_list|)
 expr_stmt|;
 block|}
 block|}
-DECL|method|ensureHeaderContentType (String contentType, boolean isXml, boolean isJson, Exchange exchange)
+DECL|method|ensureHeaderContentType (boolean isXml, boolean isJson, Exchange exchange)
 specifier|private
 name|void
 name|ensureHeaderContentType
 parameter_list|(
-name|String
-name|contentType
-parameter_list|,
 name|boolean
 name|isXml
 parameter_list|,
@@ -1750,47 +1874,6 @@ name|Exchange
 name|exchange
 parameter_list|)
 block|{
-comment|// favor given content type
-if|if
-condition|(
-name|contentType
-operator|!=
-literal|null
-condition|)
-block|{
-name|String
-name|type
-init|=
-name|ExchangeHelper
-operator|.
-name|getContentType
-argument_list|(
-name|exchange
-argument_list|)
-decl_stmt|;
-if|if
-condition|(
-name|type
-operator|==
-literal|null
-condition|)
-block|{
-name|exchange
-operator|.
-name|getIn
-argument_list|()
-operator|.
-name|setHeader
-argument_list|(
-name|Exchange
-operator|.
-name|CONTENT_TYPE
-argument_list|,
-name|contentType
-argument_list|)
-expr_stmt|;
-block|}
-block|}
 comment|// favor json over xml
 if|if
 condition|(
@@ -1881,7 +1964,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"RestProducerBindingUnmarshalOnCompletion"
+literal|"RestProducerBindingUnmarshalCallback"
 return|;
 block|}
 block|}

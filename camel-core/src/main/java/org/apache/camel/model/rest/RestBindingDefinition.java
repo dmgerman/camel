@@ -166,9 +166,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|component
 operator|.
-name|binding
+name|rest
 operator|.
 name|RestConsumerBindingProcessor
 import|;

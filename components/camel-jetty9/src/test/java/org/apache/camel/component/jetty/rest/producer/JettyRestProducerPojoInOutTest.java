@@ -366,6 +366,7 @@ argument_list|(
 literal|"Donald Duck"
 argument_list|)
 expr_stmt|;
+comment|// must provide outType parameter to tell Camel to bind the output from the REST service from json to POJO
 name|CountryPojo
 name|pojo
 init|=
@@ -373,7 +374,7 @@ name|fluentTemplate
 operator|.
 name|to
 argument_list|(
-literal|"rest:post:users/lives"
+literal|"rest:post:users/lives?outType=org.apache.camel.component.jetty.rest.CountryPojo"
 argument_list|)
 operator|.
 name|withHeader
@@ -513,11 +514,6 @@ argument_list|)
 operator|.
 name|route
 argument_list|()
-operator|.
-name|log
-argument_list|(
-literal|"Lives where"
-argument_list|)
 operator|.
 name|bean
 argument_list|(

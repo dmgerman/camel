@@ -4,7 +4,7 @@ comment|/**  * Licensed to the Apache Software Foundation (ASF) under one or mor
 end_comment
 
 begin_package
-DECL|package|org.apache.camel.processor.binding
+DECL|package|org.apache.camel.component.rest
 package|package
 name|org
 operator|.
@@ -12,9 +12,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|processor
+name|component
 operator|.
-name|binding
+name|rest
 package|;
 end_package
 
@@ -147,6 +147,22 @@ operator|.
 name|processor
 operator|.
 name|UnmarshalProcessor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|processor
+operator|.
+name|binding
+operator|.
+name|BindingException
 import|;
 end_import
 
@@ -666,7 +682,7 @@ operator|.
 name|addOnCompletion
 argument_list|(
 operator|new
-name|RestBindingCORSOnCompletion
+name|RestConsumerBindingCORSOnCompletion
 argument_list|(
 name|corsHeaders
 argument_list|)
@@ -1095,7 +1111,7 @@ operator|.
 name|addOnCompletion
 argument_list|(
 operator|new
-name|RestBindingMarshalOnCompletion
+name|RestConsumerBindingMarshalOnCompletion
 argument_list|(
 name|exchange
 operator|.
@@ -1163,7 +1179,7 @@ operator|.
 name|addOnCompletion
 argument_list|(
 operator|new
-name|RestBindingMarshalOnCompletion
+name|RestConsumerBindingMarshalOnCompletion
 argument_list|(
 name|exchange
 operator|.
@@ -1239,7 +1255,7 @@ operator|.
 name|addOnCompletion
 argument_list|(
 operator|new
-name|RestBindingMarshalOnCompletion
+name|RestConsumerBindingMarshalOnCompletion
 argument_list|(
 name|exchange
 operator|.
@@ -1330,7 +1346,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"RestBindingProcessor"
+literal|"RestConsumerBindingProcessor"
 return|;
 block|}
 annotation|@
@@ -1463,11 +1479,11 @@ argument_list|)
 expr_stmt|;
 block|}
 comment|/**      * An {@link org.apache.camel.spi.Synchronization} that does the reverse operation      * of marshalling from POJO to json/xml      */
-DECL|class|RestBindingMarshalOnCompletion
+DECL|class|RestConsumerBindingMarshalOnCompletion
 specifier|private
 specifier|final
 class|class
-name|RestBindingMarshalOnCompletion
+name|RestConsumerBindingMarshalOnCompletion
 extends|extends
 name|SynchronizationAdapter
 block|{
@@ -1499,9 +1515,9 @@ specifier|private
 name|String
 name|accept
 decl_stmt|;
-DECL|method|RestBindingMarshalOnCompletion (String routeId, AsyncProcessor jsonMarshal, AsyncProcessor xmlMarshal, boolean wasXml, String accept)
+DECL|method|RestConsumerBindingMarshalOnCompletion (String routeId, AsyncProcessor jsonMarshal, AsyncProcessor xmlMarshal, boolean wasXml, String accept)
 specifier|private
-name|RestBindingMarshalOnCompletion
+name|RestConsumerBindingMarshalOnCompletion
 parameter_list|(
 name|String
 name|routeId
@@ -2345,15 +2361,15 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"RestBindingMarshalOnCompletion"
+literal|"RestConsumerBindingMarshalOnCompletion"
 return|;
 block|}
 block|}
-DECL|class|RestBindingCORSOnCompletion
+DECL|class|RestConsumerBindingCORSOnCompletion
 specifier|private
 specifier|final
 class|class
-name|RestBindingCORSOnCompletion
+name|RestConsumerBindingCORSOnCompletion
 extends|extends
 name|SynchronizationAdapter
 block|{
@@ -2368,9 +2384,9 @@ name|String
 argument_list|>
 name|corsHeaders
 decl_stmt|;
-DECL|method|RestBindingCORSOnCompletion (Map<String, String> corsHeaders)
+DECL|method|RestConsumerBindingCORSOnCompletion (Map<String, String> corsHeaders)
 specifier|private
-name|RestBindingCORSOnCompletion
+name|RestConsumerBindingCORSOnCompletion
 parameter_list|(
 name|Map
 argument_list|<
@@ -2588,7 +2604,7 @@ name|toString
 parameter_list|()
 block|{
 return|return
-literal|"RestBindingCORSOnCompletion"
+literal|"RestConsumerBindingCORSOnCompletion"
 return|;
 block|}
 block|}
