@@ -116,7 +116,9 @@ name|boot
 operator|.
 name|test
 operator|.
-name|SpringApplicationConfiguration
+name|context
+operator|.
+name|SpringBootTest
 import|;
 end_import
 
@@ -159,7 +161,7 @@ operator|.
 name|class
 argument_list|)
 annotation|@
-name|SpringApplicationConfiguration
+name|SpringBootTest
 argument_list|(
 name|classes
 operator|=
