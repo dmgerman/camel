@@ -749,6 +749,26 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+comment|//shutdown workerPool if configured
+if|if
+condition|(
+name|configuration
+operator|.
+name|getWorkerGroup
+argument_list|()
+operator|!=
+literal|null
+condition|)
+block|{
+name|configuration
+operator|.
+name|getWorkerGroup
+argument_list|()
+operator|.
+name|shutdownGracefully
+argument_list|()
+expr_stmt|;
+block|}
 name|super
 operator|.
 name|doStop
