@@ -204,10 +204,10 @@ specifier|private
 name|AsyncProcessor
 name|producer
 decl_stmt|;
-DECL|field|preapreUriTemplate
+DECL|field|prepareUriTemplate
 specifier|private
 name|boolean
-name|preapreUriTemplate
+name|prepareUriTemplate
 init|=
 literal|true
 decl_stmt|;
@@ -317,31 +317,31 @@ name|getEndpoint
 argument_list|()
 return|;
 block|}
-DECL|method|isPreapreUriTemplate ()
+DECL|method|isPrepareUriTemplate ()
 specifier|public
 name|boolean
-name|isPreapreUriTemplate
+name|isPrepareUriTemplate
 parameter_list|()
 block|{
 return|return
-name|preapreUriTemplate
+name|prepareUriTemplate
 return|;
 block|}
 comment|/**      * Whether to prepare the uri template and replace {key} with values from the exchange, and set      * as {@link Exchange#HTTP_URI} header with the resolved uri to use instead of uri from endpoint.      */
-DECL|method|setPreapreUriTemplate (boolean preapreUriTemplate)
+DECL|method|setPrepareUriTemplate (boolean prepareUriTemplate)
 specifier|public
 name|void
-name|setPreapreUriTemplate
+name|setPrepareUriTemplate
 parameter_list|(
 name|boolean
-name|preapreUriTemplate
+name|prepareUriTemplate
 parameter_list|)
 block|{
 name|this
 operator|.
-name|preapreUriTemplate
+name|prepareUriTemplate
 operator|=
-name|preapreUriTemplate
+name|prepareUriTemplate
 expr_stmt|;
 block|}
 DECL|method|prepareExchange (Exchange exchange)
@@ -387,7 +387,7 @@ argument_list|()
 decl_stmt|;
 if|if
 condition|(
-name|preapreUriTemplate
+name|prepareUriTemplate
 condition|)
 block|{
 if|if
