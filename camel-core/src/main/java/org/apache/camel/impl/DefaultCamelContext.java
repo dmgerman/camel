@@ -3456,7 +3456,7 @@ name|boolean
 name|autoStart
 parameter_list|)
 block|{
-comment|// CAMEL-10269 : Atomic operation to get/create a component. Avoid global locks.
+comment|// atomic operation to get/create a component. Avoid global locks.
 return|return
 name|components
 operator|.
@@ -3477,7 +3477,7 @@ argument_list|)
 argument_list|)
 return|;
 block|}
-comment|/*      * CAMEL-10269      * Function to initialize a component and auto start. Returns null if the autoCreateComponents is disabled      */
+comment|/**      * Function to initialize a component and auto start. Returns null if the autoCreateComponents is disabled      */
 DECL|method|initComponent (String name, boolean autoCreateComponents, boolean autoStart)
 specifier|private
 name|Component
