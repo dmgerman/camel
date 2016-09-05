@@ -152,9 +152,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|model
+name|component
 operator|.
-name|NoOutputDefinition
+name|rest
+operator|.
+name|RestConsumerBindingProcessor
 import|;
 end_import
 
@@ -166,11 +168,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|model
 operator|.
-name|rest
-operator|.
-name|RestConsumerBindingProcessor
+name|NoOutputDefinition
 import|;
 end_import
 

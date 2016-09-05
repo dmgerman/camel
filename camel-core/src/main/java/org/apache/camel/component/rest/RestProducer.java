@@ -395,7 +395,6 @@ name|AsyncCallback
 name|callback
 parameter_list|)
 block|{
-comment|// TODO: binding get type/outType from api-doc if possible
 try|try
 block|{
 name|prepareExchange
@@ -1148,7 +1147,7 @@ operator|.
 name|doStart
 argument_list|()
 expr_stmt|;
-comment|// create binding processor
+comment|// create binding processor (returns null if binding is not in use)
 name|binding
 operator|=
 name|createBindingProcessor
