@@ -108,6 +108,18 @@ name|apache
 operator|.
 name|camel
 operator|.
+name|Processor
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
 name|RuntimeCamelException
 import|;
 end_import
@@ -122,12 +134,12 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|PollingConsumerSupport
+name|ScheduledPollConsumer
 import|;
 end_import
 
 begin_comment
-comment|/**  * {@link org.apache.camel.PollingConsumer} that polls a data queue for data  */
+comment|/**  * A scheduled {@link org.apache.camel.Consumer} that polls a data queue for data  */
 end_comment
 
 begin_class
@@ -136,14 +148,8 @@ specifier|public
 class|class
 name|Jt400DataQueueConsumer
 extends|extends
-name|PollingConsumerSupport
+name|ScheduledPollConsumer
 block|{
-DECL|field|endpoint
-specifier|private
-specifier|final
-name|Jt400Endpoint
-name|endpoint
-decl_stmt|;
 comment|/**      * Performs the lifecycle logic of this consumer.      */
 DECL|field|queueService
 specifier|private
@@ -152,24 +158,23 @@ name|Jt400DataQueueService
 name|queueService
 decl_stmt|;
 comment|/**      * Creates a new consumer instance      */
-DECL|method|Jt400DataQueueConsumer (Jt400Endpoint endpoint)
-specifier|protected
+DECL|method|Jt400DataQueueConsumer (Jt400Endpoint endpoint, Processor processor)
+specifier|public
 name|Jt400DataQueueConsumer
 parameter_list|(
 name|Jt400Endpoint
 name|endpoint
+parameter_list|,
+name|Processor
+name|processor
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|endpoint
+argument_list|,
+name|processor
 argument_list|)
-expr_stmt|;
-name|this
-operator|.
-name|endpoint
-operator|=
-name|endpoint
 expr_stmt|;
 name|this
 operator|.
@@ -181,6 +186,72 @@ argument_list|(
 name|endpoint
 argument_list|)
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getEndpoint ()
+specifier|public
+name|Jt400Endpoint
+name|getEndpoint
+parameter_list|()
+block|{
+return|return
+operator|(
+name|Jt400Endpoint
+operator|)
+name|super
+operator|.
+name|getEndpoint
+argument_list|()
+return|;
+block|}
+annotation|@
+name|Override
+DECL|method|poll ()
+specifier|protected
+name|int
+name|poll
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|Exchange
+name|exchange
+init|=
+name|receive
+argument_list|(
+name|getEndpoint
+argument_list|()
+operator|.
+name|getReadTimeout
+argument_list|()
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|exchange
+operator|!=
+literal|null
+condition|)
+block|{
+name|getProcessor
+argument_list|()
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|)
+expr_stmt|;
+return|return
+literal|1
+return|;
+block|}
+else|else
+block|{
+return|return
+literal|0
+return|;
+block|}
 block|}
 annotation|@
 name|Override
@@ -214,6 +285,8 @@ name|stop
 argument_list|()
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|receive ()
 specifier|public
 name|Exchange
@@ -229,6 +302,8 @@ literal|1
 argument_list|)
 return|;
 block|}
+annotation|@
+name|Deprecated
 DECL|method|receiveNoWait ()
 specifier|public
 name|Exchange
@@ -264,7 +339,8 @@ try|try
 block|{
 if|if
 condition|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|isKeyed
 argument_list|()
@@ -437,7 +513,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getFormat
 argument_list|()
@@ -504,7 +581,8 @@ block|{
 name|String
 name|key
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getSearchKey
 argument_list|()
@@ -512,7 +590,8 @@ decl_stmt|;
 name|String
 name|searchType
 init|=
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getSearchType
 argument_list|()
@@ -632,7 +711,8 @@ argument_list|)
 expr_stmt|;
 if|if
 condition|(
-name|endpoint
+name|getEndpoint
+argument_list|()
 operator|.
 name|getFormat
 argument_list|()

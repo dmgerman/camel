@@ -427,6 +427,24 @@ name|Integer
 index|[]
 name|outputFieldsLengthArray
 decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"30000"
+argument_list|)
+DECL|field|readTimeout
+specifier|private
+name|int
+name|readTimeout
+init|=
+literal|30000
+decl_stmt|;
 DECL|method|Jt400Configuration (String endpointUri, AS400ConnectionPool connectionPool)
 specifier|public
 name|Jt400Configuration
@@ -933,6 +951,33 @@ operator|.
 name|outputFieldsLengthArray
 operator|=
 name|outputFieldsLengthArray
+expr_stmt|;
+block|}
+DECL|method|getReadTimeout ()
+specifier|public
+name|int
+name|getReadTimeout
+parameter_list|()
+block|{
+return|return
+name|readTimeout
+return|;
+block|}
+comment|/**      * Timeout in millis the consumer will wait while trying to read a new message of the data queue.      */
+DECL|method|setReadTimeout (int readTimeout)
+specifier|public
+name|void
+name|setReadTimeout
+parameter_list|(
+name|int
+name|readTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|readTimeout
+operator|=
+name|readTimeout
 expr_stmt|;
 block|}
 DECL|method|setOutputFieldsIdx (String outputFieldsIdx)

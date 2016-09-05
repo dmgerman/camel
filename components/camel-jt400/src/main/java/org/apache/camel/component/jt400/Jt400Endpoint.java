@@ -108,18 +108,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|PollingConsumer
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|Processor
 import|;
 end_import
@@ -146,7 +134,7 @@ name|camel
 operator|.
 name|impl
 operator|.
-name|DefaultEndpoint
+name|ScheduledPollEndpoint
 import|;
 end_import
 
@@ -241,7 +229,7 @@ specifier|public
 class|class
 name|Jt400Endpoint
 extends|extends
-name|DefaultEndpoint
+name|ScheduledPollEndpoint
 block|{
 DECL|field|KEY
 specifier|public
@@ -368,34 +356,6 @@ block|}
 block|}
 annotation|@
 name|Override
-DECL|method|createPollingConsumer ()
-specifier|public
-name|PollingConsumer
-name|createPollingConsumer
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|Jt400DataQueueConsumer
-name|answer
-init|=
-operator|new
-name|Jt400DataQueueConsumer
-argument_list|(
-name|this
-argument_list|)
-decl_stmt|;
-name|configurePollingConsumer
-argument_list|(
-name|answer
-argument_list|)
-expr_stmt|;
-return|return
-name|answer
-return|;
-block|}
-annotation|@
-name|Override
 DECL|method|createProducer ()
 specifier|public
 name|Producer
@@ -467,6 +427,8 @@ operator|new
 name|Jt400DataQueueConsumer
 argument_list|(
 name|this
+argument_list|,
+name|processor
 argument_list|)
 decl_stmt|;
 name|configureConsumer
@@ -1051,6 +1013,36 @@ operator|.
 name|isSecured
 argument_list|()
 return|;
+block|}
+DECL|method|getReadTimeout ()
+specifier|public
+name|int
+name|getReadTimeout
+parameter_list|()
+block|{
+return|return
+name|configuration
+operator|.
+name|getReadTimeout
+argument_list|()
+return|;
+block|}
+DECL|method|setReadTimeout (int readTimeout)
+specifier|public
+name|void
+name|setReadTimeout
+parameter_list|(
+name|int
+name|readTimeout
+parameter_list|)
+block|{
+name|configuration
+operator|.
+name|setReadTimeout
+argument_list|(
+name|readTimeout
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
