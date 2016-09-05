@@ -197,12 +197,12 @@ name|Exchange
 operator|.
 name|FILE_NAME
 argument_list|,
-literal|"$simple{myfile-${date:now:yyyyMMdd}}.txt"
+literal|"$simple{myfile-${id}}.txt"
 argument_list|)
 expr_stmt|;
 name|assertFileExists
 argument_list|(
-literal|"target/filelanguage/$simple{myfile-${date:now:yyyyMMdd}}.txt"
+literal|"target/filelanguage/$simple{myfile-${id}}.txt"
 argument_list|)
 expr_stmt|;
 block|}
