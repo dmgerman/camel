@@ -268,6 +268,11 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+name|super
+operator|.
+name|doStart
+argument_list|()
+expr_stmt|;
 block|}
 annotation|@
 name|Override
@@ -279,6 +284,11 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+name|super
+operator|.
+name|doStop
+argument_list|()
+expr_stmt|;
 name|queueService
 operator|.
 name|stop
