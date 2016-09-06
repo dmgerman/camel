@@ -926,7 +926,7 @@ return|return
 name|acceptTimeout
 return|;
 block|}
-comment|/**      * Timeout value while waiting for a TCP connection      *<p/>      * TCP Server Only      *      * @param acceptTimeout timeout in milliseconds      */
+comment|/**      * Timeout (in milliseconds) while waiting for a TCP connection      *<p/>      * TCP Server Only      *      * @param acceptTimeout timeout in milliseconds      */
 DECL|method|setAcceptTimeout (int acceptTimeout)
 specifier|public
 name|void
@@ -953,7 +953,7 @@ return|return
 name|connectTimeout
 return|;
 block|}
-comment|/**      * Timeout value for establishing for a TCP connection      *<p/>      * TCP Client only      *      * @param connectTimeout timeout in milliseconds      */
+comment|/**      * Timeout (in milliseconds) for establishing for a TCP connection      *<p/>      * TCP Client only      *      * @param connectTimeout timeout in milliseconds      */
 DECL|method|setConnectTimeout (int connectTimeout)
 specifier|public
 name|void
@@ -980,7 +980,7 @@ return|return
 name|receiveTimeout
 return|;
 block|}
-comment|/**      * The SO_TIMEOUT value used when waiting for the start of an MLLP frame      *      * @param receiveTimeout timeout in milliseconds      */
+comment|/**      * The SO_TIMEOUT value (in milliseconds) used when waiting for the start of an MLLP frame      *      * @param receiveTimeout timeout in milliseconds      */
 DECL|method|setReceiveTimeout (int receiveTimeout)
 specifier|public
 name|void
@@ -1034,7 +1034,7 @@ return|return
 name|readTimeout
 return|;
 block|}
-comment|/**      * The SO_TIMEOUT value used after the start of an MLLP frame has been received      *      * @param readTimeout timeout in milliseconds      */
+comment|/**      * The SO_TIMEOUT value (in milliseconds) used after the start of an MLLP frame has been received      *      * @param readTimeout timeout in milliseconds      */
 DECL|method|setReadTimeout (int readTimeout)
 specifier|public
 name|void
@@ -1142,7 +1142,7 @@ return|return
 name|receiveBufferSize
 return|;
 block|}
-comment|/**      * Sets the SO_RCVBUF option to the specified value      *      * @param receiveBufferSize the SO_RCVBUF option value.  If null, the system default is used      */
+comment|/**      * Sets the SO_RCVBUF option to the specified value (in bytes)      *      * @param receiveBufferSize the SO_RCVBUF option value.  If null, the system default is used      */
 DECL|method|setReceiveBufferSize (Integer receiveBufferSize)
 specifier|public
 name|void
@@ -1169,7 +1169,7 @@ return|return
 name|sendBufferSize
 return|;
 block|}
-comment|/**      * Sets the SO_SNDBUF option to the specified value      *      * @param sendBufferSize the SO_SNDBUF option value.  If null, the system default is used      */
+comment|/**      * Sets the SO_SNDBUF option to the specified value (in bytes)      *      * @param sendBufferSize the SO_SNDBUF option value.  If null, the system default is used      */
 DECL|method|setSendBufferSize (Integer sendBufferSize)
 specifier|public
 name|void
