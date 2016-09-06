@@ -326,7 +326,7 @@ name|camelContext
 expr_stmt|;
 if|if
 condition|(
-name|jsonDataFormat
+name|outJsonDataFormat
 operator|!=
 literal|null
 condition|)
@@ -353,25 +353,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|outJsonDataFormat
-operator|!=
-literal|null
-condition|)
-block|{
-name|this
-operator|.
-name|jsonMarshal
-operator|=
-operator|new
-name|MarshalProcessor
-argument_list|(
-name|jsonDataFormat
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
 name|jsonDataFormat
 operator|!=
 literal|null
@@ -384,7 +365,7 @@ operator|=
 operator|new
 name|MarshalProcessor
 argument_list|(
-name|outJsonDataFormat
+name|jsonDataFormat
 argument_list|)
 expr_stmt|;
 block|}
@@ -399,7 +380,7 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|xmlDataFormat
+name|outXmlDataFormat
 operator|!=
 literal|null
 condition|)
@@ -426,25 +407,6 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-name|outXmlDataFormat
-operator|!=
-literal|null
-condition|)
-block|{
-name|this
-operator|.
-name|xmlMarshal
-operator|=
-operator|new
-name|MarshalProcessor
-argument_list|(
-name|xmlDataFormat
-argument_list|)
-expr_stmt|;
-block|}
-elseif|else
-if|if
-condition|(
 name|xmlDataFormat
 operator|!=
 literal|null
@@ -457,7 +419,7 @@ operator|=
 operator|new
 name|MarshalProcessor
 argument_list|(
-name|outXmlDataFormat
+name|xmlDataFormat
 argument_list|)
 expr_stmt|;
 block|}
@@ -721,6 +683,59 @@ argument_list|)
 return|;
 block|}
 comment|// we only need to perform before binding if the message body is POJO based
+if|if
+condition|(
+name|body
+operator|instanceof
+name|String
+operator|||
+name|body
+operator|instanceof
+name|byte
+index|[]
+condition|)
+block|{
+comment|// the body is text based and thus not POJO so no binding needed
+if|if
+condition|(
+name|outType
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// wrap callback to add reverse operation if we know the output type from the REST service
+name|callback
+operator|=
+operator|new
+name|RestProducerBindingUnmarshalCallback
+argument_list|(
+name|exchange
+argument_list|,
+name|callback
+argument_list|,
+name|jsonMarshal
+argument_list|,
+name|xmlMarshal
+argument_list|,
+literal|false
+argument_list|)
+expr_stmt|;
+block|}
+comment|// okay now we can continue routing to the producer
+return|return
+name|getProcessor
+argument_list|()
+operator|.
+name|process
+argument_list|(
+name|exchange
+argument_list|,
+name|callback
+argument_list|)
+return|;
+block|}
+else|else
+block|{
 comment|// if its convertable to stream based then its not POJO based
 name|InputStream
 name|is
@@ -796,6 +811,8 @@ name|callback
 argument_list|)
 return|;
 block|}
+block|}
+comment|// assume body is POJO based and binding needed
 name|String
 name|contentType
 init|=
@@ -1637,14 +1654,14 @@ block|{
 comment|// binding is off, so no message body binding
 return|return;
 block|}
-comment|// is there any marshaller at all
+comment|// is there any unmarshaller at all
 if|if
 condition|(
-name|jsonMarshal
+name|jsonUnmarshal
 operator|==
 literal|null
 operator|&&
-name|xmlMarshal
+name|xmlUnmarshal
 operator|==
 literal|null
 condition|)
