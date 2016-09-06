@@ -2205,6 +2205,25 @@ argument_list|,
 name|parameters
 argument_list|)
 expr_stmt|;
+comment|// re-create http uri after all parameters has been set on the endpoint, as the remainders are for http uri
+name|httpUri
+operator|=
+name|URISupport
+operator|.
+name|createRemainingURI
+argument_list|(
+name|addressUri
+argument_list|,
+name|parameters
+argument_list|)
+expr_stmt|;
+name|endpoint
+operator|.
+name|setHttpUri
+argument_list|(
+name|httpUri
+argument_list|)
+expr_stmt|;
 return|return
 name|endpoint
 return|;
