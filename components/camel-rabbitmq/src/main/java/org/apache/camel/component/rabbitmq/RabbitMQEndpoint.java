@@ -569,8 +569,6 @@ DECL|field|exclusive
 specifier|private
 name|boolean
 name|exclusive
-init|=
-literal|false
 decl_stmt|;
 annotation|@
 name|UriParam
