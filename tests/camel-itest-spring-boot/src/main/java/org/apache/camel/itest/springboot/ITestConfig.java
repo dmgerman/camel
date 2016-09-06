@@ -189,6 +189,14 @@ specifier|private
 name|Boolean
 name|useCustomLog
 decl_stmt|;
+DECL|field|ignoreLibraryMismatch
+specifier|private
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|ignoreLibraryMismatch
+decl_stmt|;
 DECL|method|ITestConfig ()
 specifier|public
 name|ITestConfig
@@ -752,6 +760,38 @@ operator|=
 name|useCustomLog
 expr_stmt|;
 block|}
+DECL|method|getIgnoreLibraryMismatch ()
+specifier|public
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|getIgnoreLibraryMismatch
+parameter_list|()
+block|{
+return|return
+name|ignoreLibraryMismatch
+return|;
+block|}
+DECL|method|setIgnoreLibraryMismatch (Set<String> ignoreLibraryMismatch)
+specifier|public
+name|void
+name|setIgnoreLibraryMismatch
+parameter_list|(
+name|Set
+argument_list|<
+name|String
+argument_list|>
+name|ignoreLibraryMismatch
+parameter_list|)
+block|{
+name|this
+operator|.
+name|ignoreLibraryMismatch
+operator|=
+name|ignoreLibraryMismatch
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -1048,6 +1088,18 @@ operator|.
 name|append
 argument_list|(
 name|useCustomLog
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", ignoreLibraryMismatch="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|ignoreLibraryMismatch
 argument_list|)
 expr_stmt|;
 name|sb

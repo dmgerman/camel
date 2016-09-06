@@ -165,6 +165,11 @@ name|class
 argument_list|)
 argument_list|)
 operator|.
+name|ignoreLibraryMismatch
+argument_list|(
+literal|"org.hamcrest"
+argument_list|)
+operator|.
 name|build
 argument_list|()
 return|;
