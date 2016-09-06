@@ -1813,6 +1813,7 @@ block|}
 block|}
 block|}
 block|}
+comment|/**      * Nested Class read the Socket      */
 DECL|class|ClientSocketThread
 class|class
 name|ClientSocketThread
@@ -1956,7 +1957,7 @@ operator|-
 literal|1
 argument_list|)
 expr_stmt|;
-comment|// Read Timeout
+comment|// Initial Read Timeout
 name|this
 operator|.
 name|clientSocket
@@ -2085,6 +2086,11 @@ name|void
 name|run
 parameter_list|()
 block|{
+name|int
+name|receiveTimeoutCounter
+init|=
+literal|0
+decl_stmt|;
 while|while
 condition|(
 operator|!
@@ -2141,6 +2147,14 @@ operator|.
 name|closeFrame
 argument_list|(
 name|clientSocket
+argument_list|,
+name|endpoint
+operator|.
+name|receiveTimeout
+argument_list|,
+name|endpoint
+operator|.
+name|readTimeout
 argument_list|)
 expr_stmt|;
 block|}
@@ -2156,10 +2170,29 @@ operator|.
 name|openFrame
 argument_list|(
 name|clientSocket
+argument_list|,
+name|endpoint
+operator|.
+name|receiveTimeout
+argument_list|,
+name|endpoint
+operator|.
+name|readTimeout
 argument_list|)
 condition|)
 block|{
+name|receiveTimeoutCounter
+operator|=
+literal|0
+expr_stmt|;
 continue|continue;
+block|}
+else|else
+block|{
+name|receiveTimeoutCounter
+operator|=
+literal|0
+expr_stmt|;
 block|}
 block|}
 catch|catch
@@ -2169,6 +2202,38 @@ name|timeoutEx
 parameter_list|)
 block|{
 comment|// When thrown by openFrame, it indicates that no data was available - but no error
+if|if
+condition|(
+name|endpoint
+operator|.
+name|maxReceiveTimeouts
+operator|>
+literal|0
+operator|&&
+operator|++
+name|receiveTimeoutCounter
+operator|>=
+name|endpoint
+operator|.
+name|maxReceiveTimeouts
+condition|)
+block|{
+comment|// TODO:  Enhance logging??
+name|log
+operator|.
+name|warn
+argument_list|(
+literal|"Idle Client - resetting connection"
+argument_list|)
+expr_stmt|;
+name|MllpUtil
+operator|.
+name|resetConnection
+argument_list|(
+name|clientSocket
+argument_list|)
+expr_stmt|;
+block|}
 continue|continue;
 block|}
 name|hl7MessageBytes
@@ -2178,6 +2243,14 @@ operator|.
 name|closeFrame
 argument_list|(
 name|clientSocket
+argument_list|,
+name|endpoint
+operator|.
+name|receiveTimeout
+argument_list|,
+name|endpoint
+operator|.
+name|readTimeout
 argument_list|)
 expr_stmt|;
 block|}
@@ -2892,6 +2965,24 @@ argument_list|,
 name|acknowledgementMessageType
 argument_list|)
 expr_stmt|;
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|MLLP_ACKNOWLEDGEMENT
+argument_list|,
+name|acknowledgementMessageBytes
+argument_list|)
+expr_stmt|;
+name|exchange
+operator|.
+name|setProperty
+argument_list|(
+name|MLLP_ACKNOWLEDGEMENT_TYPE
+argument_list|,
+name|acknowledgementMessageType
+argument_list|)
+expr_stmt|;
 comment|// Check AFTER_SEND Properties
 if|if
 condition|(
@@ -2957,7 +3048,7 @@ block|}
 block|}
 name|log
 operator|.
-name|info
+name|debug
 argument_list|(
 literal|"ClientSocketThread exiting"
 argument_list|)
@@ -3109,13 +3200,19 @@ literal|"Population of message headers failed - unable to find the end of the MS
 argument_list|)
 expr_stmt|;
 block|}
-else|else
+elseif|else
+if|if
+condition|(
+name|endpoint
+operator|.
+name|hl7Headers
+condition|)
 block|{
 name|log
 operator|.
 name|debug
 argument_list|(
-literal|"Populating the message headers"
+literal|"Populating the HL7 message headers"
 argument_list|)
 expr_stmt|;
 name|Charset
@@ -3407,6 +3504,16 @@ block|}
 block|}
 block|}
 block|}
+block|}
+else|else
+block|{
+name|log
+operator|.
+name|trace
+argument_list|(
+literal|"HL7 Message headers disabled"
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 annotation|@

@@ -305,7 +305,7 @@ name|MllpUtil
 parameter_list|()
 block|{     }
 comment|/**      * Open the MLLP frame by reading from the Socket until the begging of the frame is found.      *<p/>      * If any errors occur (including MLLP frame errors) while opening the frame, the socket will be closed and an      * Exception will be thrown.      *      * @param socket the Socket to read      * @throws SocketTimeoutException    thrown if a timeout occurs while looking for the beginning of the MLLP frame, but      *                                   nothing is yet available - this is NOT an error condition      * @throws MllpCorruptFrameException if the MLLP Frame is corrupted in some way      * @throws MllpException             for other unexpected error conditions      */
-DECL|method|openFrame (Socket socket)
+DECL|method|openFrame (Socket socket, int receiveTimeout, int readTimeout)
 specifier|public
 specifier|static
 name|boolean
@@ -313,6 +313,12 @@ name|openFrame
 parameter_list|(
 name|Socket
 name|socket
+parameter_list|,
+name|int
+name|receiveTimeout
+parameter_list|,
+name|int
+name|readTimeout
 parameter_list|)
 throws|throws
 name|SocketTimeoutException
@@ -353,6 +359,13 @@ literal|1
 decl_stmt|;
 try|try
 block|{
+name|socket
+operator|.
+name|setSoTimeout
+argument_list|(
+name|receiveTimeout
+argument_list|)
+expr_stmt|;
 name|readByte
 operator|=
 name|socketInputStream
@@ -498,6 +511,13 @@ argument_list|)
 expr_stmt|;
 try|try
 block|{
+name|socket
+operator|.
+name|setSoTimeout
+argument_list|(
+name|readTimeout
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 literal|true
@@ -771,7 +791,7 @@ literal|false
 return|;
 block|}
 comment|/**      * Close a MLLP frame by reading from the socket until the end of the frame is found.      *<p/>      * The method assumes the MLLP frame has already been opened and the first byte available      * will be the first byte of the framed message.      *<p/>      * The method consumes the END_OF_BLOCK and END_OF_DATA bytes from the stream before returning the payload      *<p/>      * If any errors occur (including MLLP frame errors) while opening the frame, the socket will be closed and an      * Exception will be thrown.      *      * @param socket the Socket to be read      * @return the payload of the MLLP-Enveloped message as a byte[]      * @throws MllpTimeoutException      thrown if a timeout occurs while closing the MLLP frame      * @throws MllpCorruptFrameException if the MLLP Frame is corrupted in some way      * @throws MllpException             for other unexpected error conditions      */
-DECL|method|closeFrame (Socket socket)
+DECL|method|closeFrame (Socket socket, int receiveTimeout, int readTimeout)
 specifier|public
 specifier|static
 name|byte
@@ -780,6 +800,12 @@ name|closeFrame
 parameter_list|(
 name|Socket
 name|socket
+parameter_list|,
+name|int
+name|receiveTimeout
+parameter_list|,
+name|int
+name|readTimeout
 parameter_list|)
 throws|throws
 name|MllpTimeoutException
@@ -824,6 +850,13 @@ argument_list|)
 decl_stmt|;
 try|try
 block|{
+name|socket
+operator|.
+name|setSoTimeout
+argument_list|(
+name|readTimeout
+argument_list|)
+expr_stmt|;
 while|while
 condition|(
 literal|true
@@ -1054,6 +1087,13 @@ literal|null
 argument_list|)
 throw|;
 block|}
+name|socket
+operator|.
+name|setSoTimeout
+argument_list|(
+name|receiveTimeout
+argument_list|)
+expr_stmt|;
 return|return
 name|payload
 operator|.
@@ -1260,6 +1300,24 @@ name|ioEx
 argument_list|)
 throw|;
 block|}
+block|}
+try|try
+block|{
+name|socket
+operator|.
+name|setSoTimeout
+argument_list|(
+name|receiveTimeout
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|SocketException
+name|e
+parameter_list|)
+block|{
+comment|// Eat this exception
 block|}
 return|return
 literal|null
