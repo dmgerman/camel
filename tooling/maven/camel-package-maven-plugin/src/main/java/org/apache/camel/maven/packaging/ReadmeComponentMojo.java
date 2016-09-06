@@ -430,6 +430,12 @@ specifier|private
 name|BuildContext
 name|buildContext
 decl_stmt|;
+comment|/**      * Whether to fail the build fast if any WARNINGS was detected.      *      * @parameter      */
+DECL|field|failFast
+specifier|protected
+name|Boolean
+name|failFast
+decl_stmt|;
 annotation|@
 name|Override
 DECL|method|execute ()
@@ -765,6 +771,20 @@ operator|+
 name|file
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isFailFast
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|MojoExecutionException
+argument_list|(
+literal|"Failed build due failFast=true"
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 block|}
@@ -1009,6 +1029,20 @@ operator|+
 name|file
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isFailFast
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|MojoExecutionException
+argument_list|(
+literal|"Failed build due failFast=true"
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 block|}
@@ -1426,6 +1460,20 @@ operator|+
 name|file
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isFailFast
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|MojoExecutionException
+argument_list|(
+literal|"Failed build due failFast=true"
+argument_list|)
+throw|;
+block|}
 block|}
 block|}
 block|}
@@ -1608,6 +1656,20 @@ argument_list|(
 literal|"\t// component options: END"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isFailFast
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|MojoExecutionException
+argument_list|(
+literal|"Failed build due failFast=true"
+argument_list|)
+throw|;
+block|}
 return|return
 literal|false
 return|;
@@ -1813,6 +1875,20 @@ argument_list|(
 literal|"\t// endpoint options: END"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isFailFast
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|MojoExecutionException
+argument_list|(
+literal|"Failed build due failFast=true"
+argument_list|)
+throw|;
+block|}
 return|return
 literal|false
 return|;
@@ -2018,6 +2094,20 @@ argument_list|(
 literal|"\t// dataformat options: END"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isFailFast
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|MojoExecutionException
+argument_list|(
+literal|"Failed build due failFast=true"
+argument_list|)
+throw|;
+block|}
 return|return
 literal|false
 return|;
@@ -2223,6 +2313,20 @@ argument_list|(
 literal|"\t// language options: END"
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|isFailFast
+argument_list|()
+condition|)
+block|{
+throw|throw
+operator|new
+name|MojoExecutionException
+argument_list|(
+literal|"Failed build due failFast=true"
+argument_list|)
+throw|;
+block|}
 return|return
 literal|false
 return|;
@@ -4689,6 +4793,20 @@ block|}
 block|}
 return|return
 name|languageNames
+return|;
+block|}
+DECL|method|isFailFast ()
+specifier|private
+name|boolean
+name|isFailFast
+parameter_list|()
+block|{
+return|return
+name|failFast
+operator|!=
+literal|null
+operator|&&
+name|failFast
 return|;
 block|}
 block|}
