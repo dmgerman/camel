@@ -7106,7 +7106,6 @@ operator|instanceof
 name|WrappedFile
 condition|)
 block|{
-comment|// generic file is just a wrapper for the real file so call again with the real file
 name|WrappedFile
 argument_list|<
 name|?
@@ -7121,6 +7120,30 @@ argument_list|>
 operator|)
 name|value
 decl_stmt|;
+name|Object
+name|body
+init|=
+name|gf
+operator|.
+name|getBody
+argument_list|()
+decl_stmt|;
+if|if
+condition|(
+name|body
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// we have loaded the file content into the body so use that
+name|value
+operator|=
+name|body
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// generic file is just a wrapper for the real file so call again with the real file
 return|return
 name|getScanner
 argument_list|(
@@ -7132,6 +7155,7 @@ name|getFile
 argument_list|()
 argument_list|)
 return|;
+block|}
 block|}
 name|String
 name|charset

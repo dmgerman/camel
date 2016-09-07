@@ -116,31 +116,8 @@ operator|+
 name|getPort
 argument_list|()
 operator|+
-literal|"/incoming/?password=admin"
-operator|+
-literal|"&recursive=false"
+literal|"/incoming/?password=admin&delete=true"
 return|;
-block|}
-annotation|@
-name|Override
-annotation|@
-name|Before
-DECL|method|setUp ()
-specifier|public
-name|void
-name|setUp
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|super
-operator|.
-name|setUp
-argument_list|()
-expr_stmt|;
-name|prepareFtpServer
-argument_list|()
-expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -162,56 +139,15 @@ argument_list|)
 decl_stmt|;
 name|resultEndpoint
 operator|.
-name|expectedMessageCount
-argument_list|(
-literal|3
-argument_list|)
-expr_stmt|;
-name|resultEndpoint
-operator|.
 name|expectedBodiesReceived
 argument_list|(
 literal|"line1"
 argument_list|,
 literal|"line2"
-argument_list|)
-expr_stmt|;
-name|resultEndpoint
-operator|.
-name|assertIsSatisfied
-argument_list|()
-expr_stmt|;
-comment|// assert the file
-name|File
-name|file
-init|=
-operator|new
-name|File
-argument_list|(
-literal|"target/ftptest/textexample.txt"
-argument_list|)
-decl_stmt|;
-name|assertTrue
-argument_list|(
-literal|"The text file should exists"
 argument_list|,
-name|file
-operator|.
-name|exists
-argument_list|()
+literal|"line3"
 argument_list|)
 expr_stmt|;
-block|}
-DECL|method|prepareFtpServer ()
-specifier|private
-name|void
-name|prepareFtpServer
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-comment|// prepares the FTP Server by creating a file on the server that we want to unit
-comment|// test that we can pool and store as a local file
 name|template
 operator|.
 name|sendBodyAndHeader
@@ -231,6 +167,11 @@ name|FILE_NAME
 argument_list|,
 literal|"textexample.txt"
 argument_list|)
+expr_stmt|;
+name|resultEndpoint
+operator|.
+name|assertIsSatisfied
+argument_list|()
 expr_stmt|;
 block|}
 DECL|method|createRouteBuilder ()
@@ -259,9 +200,9 @@ name|getFtpUrl
 argument_list|()
 argument_list|)
 operator|.
-name|log
+name|to
 argument_list|(
-literal|"${body}"
+literal|"log:file"
 argument_list|)
 operator|.
 name|split
@@ -273,6 +214,11 @@ name|tokenize
 argument_list|(
 literal|"\n"
 argument_list|)
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"log:line"
 argument_list|)
 operator|.
 name|to

@@ -33,6 +33,12 @@ name|T
 name|getFile
 parameter_list|()
 function_decl|;
+comment|/**      * Gets the content of the file.      *      * @return the content of the file.      */
+DECL|method|getBody ()
+name|Object
+name|getBody
+parameter_list|()
+function_decl|;
 block|}
 end_interface
 
