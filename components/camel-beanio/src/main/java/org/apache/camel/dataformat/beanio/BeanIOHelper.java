@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -72,7 +82,7 @@ parameter_list|()
 block|{
 comment|// utility class
 block|}
-DECL|method|getOrCreateBeanReaderErrorHandler (BeanIOConfiguration configuration, Exchange exchange)
+DECL|method|getOrCreateBeanReaderErrorHandler (BeanIOConfiguration configuration, Exchange exchange, List<Object> results)
 specifier|public
 specifier|static
 name|BeanReaderErrorHandler
@@ -83,6 +93,12 @@ name|configuration
 parameter_list|,
 name|Exchange
 name|exchange
+parameter_list|,
+name|List
+argument_list|<
+name|Object
+argument_list|>
+name|results
 parameter_list|)
 throws|throws
 name|Exception
@@ -219,6 +235,13 @@ operator|.
 name|setExchange
 argument_list|(
 name|exchange
+argument_list|)
+expr_stmt|;
+name|eh
+operator|.
+name|setResults
+argument_list|(
+name|results
 argument_list|)
 expr_stmt|;
 name|eh

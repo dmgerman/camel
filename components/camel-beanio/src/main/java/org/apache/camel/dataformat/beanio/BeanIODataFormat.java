@@ -829,6 +829,8 @@ argument_list|(
 name|configuration
 argument_list|,
 name|exchange
+argument_list|,
+name|results
 argument_list|)
 decl_stmt|;
 name|in

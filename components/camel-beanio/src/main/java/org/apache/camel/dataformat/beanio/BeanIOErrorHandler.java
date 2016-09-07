@@ -20,6 +20,16 @@ end_package
 
 begin_import
 import|import
+name|java
+operator|.
+name|util
+operator|.
+name|List
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -145,6 +155,14 @@ specifier|private
 name|Exchange
 name|exchange
 decl_stmt|;
+DECL|field|results
+specifier|private
+name|List
+argument_list|<
+name|Object
+argument_list|>
+name|results
+decl_stmt|;
 DECL|method|BeanIOErrorHandler ()
 specifier|public
 name|BeanIOErrorHandler
@@ -158,6 +176,7 @@ parameter_list|()
 block|{
 comment|// any custom init code here
 block|}
+comment|/**      * The configuration      */
 DECL|method|getConfiguration ()
 specifier|public
 name|BeanIOConfiguration
@@ -184,6 +203,7 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+comment|/**      * The current exchange      */
 DECL|method|getExchange ()
 specifier|public
 name|Exchange
@@ -208,6 +228,39 @@ operator|.
 name|exchange
 operator|=
 name|exchange
+expr_stmt|;
+block|}
+comment|/**      * Gets the current list of POJOs mapped when unmarshalling.      *      * @return the current list, or<tt>null</tt> if not unmarshalling      */
+DECL|method|getResults ()
+specifier|public
+name|List
+argument_list|<
+name|Object
+argument_list|>
+name|getResults
+parameter_list|()
+block|{
+return|return
+name|results
+return|;
+block|}
+DECL|method|setResults (List<Object> results)
+specifier|public
+name|void
+name|setResults
+parameter_list|(
+name|List
+argument_list|<
+name|Object
+argument_list|>
+name|results
+parameter_list|)
+block|{
+name|this
+operator|.
+name|results
+operator|=
+name|results
 expr_stmt|;
 block|}
 annotation|@

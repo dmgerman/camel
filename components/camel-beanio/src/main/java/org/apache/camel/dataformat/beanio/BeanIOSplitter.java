@@ -518,6 +518,8 @@ argument_list|(
 name|configuration
 argument_list|,
 name|exchange
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|beanReader
