@@ -2258,6 +2258,13 @@ argument_list|(
 literal|"org.apache.velocity"
 argument_list|)
 expr_stmt|;
+name|ignore
+operator|.
+name|add
+argument_list|(
+literal|"org.apache.cxf:cxf-api"
+argument_list|)
+expr_stmt|;
 name|Map
 argument_list|<
 name|String
