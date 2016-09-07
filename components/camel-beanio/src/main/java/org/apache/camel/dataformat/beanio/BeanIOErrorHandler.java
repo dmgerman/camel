@@ -163,6 +163,11 @@ name|Object
 argument_list|>
 name|results
 decl_stmt|;
+DECL|field|iterator
+specifier|private
+name|BeanIOIterator
+name|iterator
+decl_stmt|;
 DECL|method|BeanIOErrorHandler ()
 specifier|public
 name|BeanIOErrorHandler
@@ -230,22 +235,7 @@ operator|=
 name|exchange
 expr_stmt|;
 block|}
-comment|/**      * Gets the current list of POJOs mapped when unmarshalling.      *      * @return the current list, or<tt>null</tt> if not unmarshalling      */
-DECL|method|getResults ()
-specifier|public
-name|List
-argument_list|<
-name|Object
-argument_list|>
-name|getResults
-parameter_list|()
-block|{
-return|return
-name|results
-return|;
-block|}
 DECL|method|setResults (List<Object> results)
-specifier|public
 name|void
 name|setResults
 parameter_list|(
@@ -262,6 +252,63 @@ name|results
 operator|=
 name|results
 expr_stmt|;
+block|}
+DECL|method|setIterator (BeanIOIterator iterator)
+name|void
+name|setIterator
+parameter_list|(
+name|BeanIOIterator
+name|iterator
+parameter_list|)
+block|{
+name|this
+operator|.
+name|iterator
+operator|=
+name|iterator
+expr_stmt|;
+block|}
+comment|/**      * Sets a custom POJO as the result from handling an beanio error.      */
+DECL|method|handleErrorAndAddAsResult (Object result)
+specifier|public
+name|void
+name|handleErrorAndAddAsResult
+parameter_list|(
+name|Object
+name|result
+parameter_list|)
+block|{
+if|if
+condition|(
+name|results
+operator|!=
+literal|null
+condition|)
+block|{
+name|results
+operator|.
+name|add
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
+block|}
+elseif|else
+if|if
+condition|(
+name|iterator
+operator|!=
+literal|null
+condition|)
+block|{
+name|iterator
+operator|.
+name|setNext
+argument_list|(
+name|result
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 annotation|@
 name|Override

@@ -510,6 +510,15 @@ name|reader
 argument_list|)
 expr_stmt|;
 block|}
+name|BeanIOIterator
+name|iterator
+init|=
+operator|new
+name|BeanIOIterator
+argument_list|(
+name|beanReader
+argument_list|)
+decl_stmt|;
 name|BeanReaderErrorHandler
 name|errorHandler
 init|=
@@ -520,6 +529,8 @@ argument_list|,
 name|exchange
 argument_list|,
 literal|null
+argument_list|,
+name|iterator
 argument_list|)
 decl_stmt|;
 name|beanReader
@@ -530,11 +541,7 @@ name|errorHandler
 argument_list|)
 expr_stmt|;
 return|return
-operator|new
-name|BeanIOIterator
-argument_list|(
-name|beanReader
-argument_list|)
+name|iterator
 return|;
 block|}
 annotation|@

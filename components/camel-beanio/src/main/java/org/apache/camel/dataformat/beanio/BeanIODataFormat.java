@@ -831,6 +831,8 @@ argument_list|,
 name|exchange
 argument_list|,
 name|results
+argument_list|,
+literal|null
 argument_list|)
 decl_stmt|;
 name|in

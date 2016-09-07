@@ -82,7 +82,7 @@ parameter_list|()
 block|{
 comment|// utility class
 block|}
-DECL|method|getOrCreateBeanReaderErrorHandler (BeanIOConfiguration configuration, Exchange exchange, List<Object> results)
+DECL|method|getOrCreateBeanReaderErrorHandler (BeanIOConfiguration configuration, Exchange exchange, List<Object> results, BeanIOIterator iterator)
 specifier|public
 specifier|static
 name|BeanReaderErrorHandler
@@ -99,6 +99,9 @@ argument_list|<
 name|Object
 argument_list|>
 name|results
+parameter_list|,
+name|BeanIOIterator
+name|iterator
 parameter_list|)
 throws|throws
 name|Exception
@@ -242,6 +245,13 @@ operator|.
 name|setResults
 argument_list|(
 name|results
+argument_list|)
+expr_stmt|;
+name|eh
+operator|.
+name|setIterator
+argument_list|(
+name|iterator
 argument_list|)
 expr_stmt|;
 name|eh

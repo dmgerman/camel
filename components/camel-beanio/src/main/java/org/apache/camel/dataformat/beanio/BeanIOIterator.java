@@ -82,6 +82,12 @@ specifier|transient
 name|Object
 name|next
 decl_stmt|;
+DECL|field|forceNext
+specifier|private
+specifier|transient
+name|Object
+name|forceNext
+decl_stmt|;
 DECL|method|BeanIOIterator (BeanReader reader)
 specifier|public
 name|BeanIOIterator
@@ -173,6 +179,23 @@ operator|.
 name|read
 argument_list|()
 expr_stmt|;
+comment|// after read we may force a next
+if|if
+condition|(
+name|forceNext
+operator|!=
+literal|null
+condition|)
+block|{
+name|answer
+operator|=
+name|forceNext
+expr_stmt|;
+name|forceNext
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 else|else
 block|{
@@ -183,6 +206,23 @@ operator|.
 name|read
 argument_list|()
 expr_stmt|;
+comment|// after read we may force a next
+if|if
+condition|(
+name|forceNext
+operator|!=
+literal|null
+condition|)
+block|{
+name|next
+operator|=
+name|forceNext
+expr_stmt|;
+name|forceNext
+operator|=
+literal|null
+expr_stmt|;
+block|}
 block|}
 return|return
 name|answer
@@ -197,6 +237,23 @@ name|remove
 parameter_list|()
 block|{
 comment|// noop
+block|}
+comment|/**      * Sets a custom object as the next, such as from a custom error handler      */
+DECL|method|setNext (Object next)
+specifier|public
+name|void
+name|setNext
+parameter_list|(
+name|Object
+name|next
+parameter_list|)
+block|{
+name|this
+operator|.
+name|forceNext
+operator|=
+name|next
+expr_stmt|;
 block|}
 block|}
 end_class
