@@ -2182,24 +2182,14 @@ argument_list|(
 name|bos
 argument_list|)
 expr_stmt|;
-comment|// and then set the body as an input stream so we can read the content easily
-name|InputStream
-name|is
-init|=
-operator|new
-name|ByteArrayInputStream
+name|target
+operator|.
+name|setBody
 argument_list|(
 name|bos
 operator|.
 name|toByteArray
 argument_list|()
-argument_list|)
-decl_stmt|;
-name|target
-operator|.
-name|setBody
-argument_list|(
-name|is
 argument_list|)
 expr_stmt|;
 block|}
