@@ -323,6 +323,17 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|id
+specifier|private
+specifier|final
+name|String
+name|id
+init|=
+name|EndpointHelper
+operator|.
+name|createEndpointId
+argument_list|()
+decl_stmt|;
 DECL|field|endpointUriToString
 specifier|private
 specifier|transient
@@ -400,18 +411,15 @@ decl_stmt|;
 annotation|@
 name|UriParam
 argument_list|(
-name|defaultValue
-operator|=
-literal|"InOnly"
-argument_list|,
 name|label
 operator|=
-literal|"advanced"
+literal|"consumer,advanced"
 argument_list|,
 name|description
 operator|=
-literal|"Sets the default exchange pattern when creating an exchange"
+literal|"Sets the exchange pattern when the consumer creates an exchange."
 argument_list|)
+comment|// no default value set on @UriParam as the MEP is sometimes InOnly or InOut depending on the component in use
 DECL|field|exchangePattern
 specifier|private
 name|ExchangePattern
@@ -443,17 +451,8 @@ specifier|private
 name|boolean
 name|synchronous
 decl_stmt|;
-DECL|field|id
-specifier|private
-specifier|final
-name|String
-name|id
-init|=
-name|EndpointHelper
-operator|.
-name|createEndpointId
-argument_list|()
-decl_stmt|;
+comment|// these options are not really in use any option related to the consumer has a specific option on the endpoint
+comment|// and consumerProperties was added from the very start of Camel.
 DECL|field|consumerProperties
 specifier|private
 name|Map
@@ -464,6 +463,8 @@ name|Object
 argument_list|>
 name|consumerProperties
 decl_stmt|;
+comment|// pooling consumer options only related to EventDrivenPollingConsumer which are very seldom in use
+comment|// so lets not expose them in the component docs as it will be included in every component
 DECL|field|pollingConsumerQueueSize
 specifier|private
 name|int
