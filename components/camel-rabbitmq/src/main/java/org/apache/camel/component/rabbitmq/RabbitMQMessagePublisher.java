@@ -208,7 +208,6 @@ name|RabbitMQMessagePublisher
 block|{
 DECL|field|GUARANTEED_DELIVERY_RETURN_LISTENER
 specifier|private
-specifier|static
 specifier|final
 name|ReturnListener
 name|GUARANTEED_DELIVERY_RETURN_LISTENER
@@ -247,27 +246,25 @@ parameter_list|)
 throws|throws
 name|IOException
 block|{
-throw|throw
-operator|new
-name|RuntimeCamelException
+name|LOG
+operator|.
+name|warn
 argument_list|(
-literal|"Delivery failed for exchange "
-operator|+
+literal|"Delivery failed for exchange {} and routing key {}; replyCode = {}; replyText = {}"
+argument_list|,
 name|exchange
-operator|+
-literal|" and routing key "
-operator|+
+argument_list|,
 name|routingKey
-operator|+
-literal|"; replyCode = "
-operator|+
+argument_list|,
 name|replyCode
-operator|+
-literal|" replyText = "
-operator|+
+argument_list|,
 name|replyText
 argument_list|)
-throw|;
+expr_stmt|;
+name|basicReturnReceived
+operator|=
+literal|true
+expr_stmt|;
 block|}
 block|}
 decl_stmt|;
@@ -316,6 +313,13 @@ specifier|private
 specifier|final
 name|Message
 name|message
+decl_stmt|;
+DECL|field|basicReturnReceived
+specifier|private
+name|boolean
+name|basicReturnReceived
+init|=
+literal|false
 decl_stmt|;
 DECL|method|RabbitMQMessagePublisher (final Exchange camelExchange, final Channel channel, final String routingKey, final RabbitMQEndpoint endpoint)
 specifier|public
@@ -741,6 +745,10 @@ name|isGuaranteedDeliveries
 argument_list|()
 condition|)
 block|{
+name|basicReturnReceived
+operator|=
+literal|false
+expr_stmt|;
 name|channel
 operator|.
 name|addReturnListener
@@ -849,6 +857,19 @@ name|getPublisherAcknowledgementsTimeout
 argument_list|()
 argument_list|)
 expr_stmt|;
+if|if
+condition|(
+name|basicReturnReceived
+condition|)
+block|{
+throw|throw
+operator|new
+name|RuntimeCamelException
+argument_list|(
+literal|"Failed to deliver message; basic.return received"
+argument_list|)
+throw|;
+block|}
 block|}
 catch|catch
 parameter_list|(
