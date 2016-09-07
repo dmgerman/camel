@@ -1899,7 +1899,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|30
+literal|29
 argument_list|,
 name|StringHelper
 operator|.
@@ -1913,7 +1913,7 @@ argument_list|)
 expr_stmt|;
 name|assertEquals
 argument_list|(
-literal|30
+literal|29
 argument_list|,
 name|StringHelper
 operator|.
