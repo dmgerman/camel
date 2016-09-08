@@ -433,7 +433,7 @@ name|Exception
 block|{
 name|from
 argument_list|(
-literal|"file:target/changed/in?readLock=changed&readLockMinAge=3000"
+literal|"file:target/changed/in?readLock=changed&readLockMinAge=3000&readLockTimeout=1500"
 argument_list|)
 operator|.
 name|to

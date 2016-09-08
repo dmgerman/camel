@@ -4805,47 +4805,6 @@ name|readLockTimeout
 operator|>
 literal|0
 operator|&&
-name|readLockMinAge
-operator|>
-literal|0
-operator|&&
-name|readLockTimeout
-operator|<=
-name|readLockCheckInterval
-operator|+
-name|readLockMinAge
-condition|)
-block|{
-throw|throw
-operator|new
-name|IllegalArgumentException
-argument_list|(
-literal|"The option readLockTimeout must be higher than readLockCheckInterval + readLockMinAge"
-operator|+
-literal|", was readLockTimeout="
-operator|+
-name|readLockTimeout
-operator|+
-literal|", readLockCheckInterval+readLockMinAge="
-operator|+
-operator|(
-name|readLockCheckInterval
-operator|+
-name|readLockMinAge
-operator|)
-operator|+
-literal|". A good practice is to let the readLockTimeout be at least readLockMinAge + 2 times the readLockCheckInterval"
-operator|+
-literal|" to ensure that the read lock procedure has enough time to acquire the lock."
-argument_list|)
-throw|;
-block|}
-if|if
-condition|(
-name|readLockTimeout
-operator|>
-literal|0
-operator|&&
 name|readLockTimeout
 operator|<=
 name|readLockCheckInterval
