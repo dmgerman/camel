@@ -608,6 +608,8 @@ range|:
 name|testClasses
 control|)
 block|{
+try|try
+block|{
 name|Class
 argument_list|<
 name|?
@@ -643,6 +645,36 @@ operator|.
 name|add
 argument_list|(
 name|clazz
+argument_list|)
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|t
+parameter_list|)
+block|{
+name|logger
+operator|.
+name|warn
+argument_list|(
+literal|"Test class {} has thrown an exception during initialization"
+argument_list|,
+name|cn
+argument_list|)
+expr_stmt|;
+name|logger
+operator|.
+name|debug
+argument_list|(
+literal|"Exception for test cass "
+operator|+
+name|cn
+operator|+
+literal|" is:"
+argument_list|,
+name|t
 argument_list|)
 expr_stmt|;
 block|}

@@ -182,6 +182,18 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
+operator|.
+name|dependency
+argument_list|(
+literal|"io.netty:netty-all:"
+operator|+
+name|DependencyResolver
+operator|.
+name|resolveParentProperty
+argument_list|(
+literal|"${cassandra-netty-version-testing}"
+argument_list|)
+argument_list|)
 comment|//.dependency(DependencyResolver.withVersion("io.netty:netty-all"))
 comment|//                .dependency(DependencyResolver.withVersion("io.dropwizard.metrics:metrics-core"))
 comment|//                .exclusion("com.codahale.metrics:*")
