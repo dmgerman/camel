@@ -273,6 +273,46 @@ else|:
 literal|null
 return|;
 block|}
+comment|/**      * Fallback converter for any unlisted object, using String default mapping.      */
+annotation|@
+name|Converter
+DECL|method|toOutgoingMessage (Object message, Exchange exchange)
+specifier|public
+specifier|static
+name|OutgoingMessage
+name|toOutgoingMessage
+parameter_list|(
+name|Object
+name|message
+parameter_list|,
+name|Exchange
+name|exchange
+parameter_list|)
+block|{
+name|String
+name|content
+init|=
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getBody
+argument_list|(
+name|String
+operator|.
+name|class
+argument_list|)
+decl_stmt|;
+return|return
+name|toOutgoingMessage
+argument_list|(
+name|content
+argument_list|,
+name|exchange
+argument_list|)
+return|;
+block|}
 annotation|@
 name|Converter
 DECL|method|toOutgoingMessage (String message, Exchange exchange)

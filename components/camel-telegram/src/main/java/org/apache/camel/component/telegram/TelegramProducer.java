@@ -163,6 +163,21 @@ decl_stmt|;
 if|if
 condition|(
 name|message
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|IllegalArgumentException
+argument_list|(
+literal|"Cannot convert the content to a Telegram OutgoingMessage"
+argument_list|)
+throw|;
+block|}
+if|if
+condition|(
+name|message
 operator|.
 name|getChatId
 argument_list|()
