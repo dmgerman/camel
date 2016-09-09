@@ -430,9 +430,9 @@ specifier|private
 name|BuildContext
 name|buildContext
 decl_stmt|;
-comment|/**      * Whether to fail the build fast if any WARNINGS was detected.      *      * @parameter      */
+comment|/**      * Whether to fail the build fast if any warnings was detected.      *      * @parameter      */
 DECL|field|failFast
-specifier|protected
+specifier|private
 name|Boolean
 name|failFast
 decl_stmt|;
