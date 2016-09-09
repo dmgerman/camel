@@ -243,7 +243,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Resolves the currently used version of a library. Useful to run unit tests directly from the IDE, without passing additional parameters.  * It resolves surefire properties.  */
+comment|/**  * Resolves the currently used version of a library. Useful to run unit tests directly from the IDE, without passing additional parameters.  * It resolves properties present in spring-boot and camel parent.  */
 end_comment
 
 begin_class
