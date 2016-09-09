@@ -169,7 +169,7 @@ comment|//                .dependency(DependencyResolver.withVersion("org.spring
 operator|.
 name|unitTestExclusionPattern
 argument_list|(
-literal|".*ExposedServletEndpointURIToJMXTest"
+literal|".*(\\.integration\\..*|IntegrationTest$|ExposedServletEndpointURIToJMXTest$.*Arquillian.*)"
 argument_list|)
 operator|.
 name|build
