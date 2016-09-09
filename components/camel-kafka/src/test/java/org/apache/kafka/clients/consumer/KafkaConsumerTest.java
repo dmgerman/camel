@@ -78,16 +78,6 @@ name|org
 operator|.
 name|mockito
 operator|.
-name|Mockito
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|mockito
-operator|.
 name|runners
 operator|.
 name|MockitoJUnitRunner

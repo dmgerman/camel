@@ -401,7 +401,12 @@ name|ArrayList
 argument_list|<
 name|Integer
 argument_list|>
+argument_list|(
+name|ports
+operator|.
+name|size
 argument_list|()
+argument_list|)
 decl_stmt|;
 for|for
 control|(

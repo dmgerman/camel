@@ -34,7 +34,7 @@ name|java
 operator|.
 name|util
 operator|.
-name|ArrayList
+name|Collections
 import|;
 end_import
 
@@ -211,12 +211,12 @@ specifier|volatile
 name|int
 name|zookeeperPort
 decl_stmt|;
-DECL|field|karfkaPort
+DECL|field|kafkaPort
 specifier|private
 specifier|static
 specifier|volatile
 name|int
-name|karfkaPort
+name|kafkaPort
 decl_stmt|;
 annotation|@
 name|BeforeClass
@@ -238,7 +238,7 @@ literal|23000
 argument_list|)
 expr_stmt|;
 comment|// find another ports for proxy route test
-name|karfkaPort
+name|kafkaPort
 operator|=
 name|AvailablePortFinder
 operator|.
@@ -255,27 +255,20 @@ argument_list|(
 name|zookeeperPort
 argument_list|)
 expr_stmt|;
+comment|// -1 for any available port
 name|List
 argument_list|<
 name|Integer
 argument_list|>
 name|kafkaPorts
 init|=
-operator|new
-name|ArrayList
-argument_list|<
-name|Integer
-argument_list|>
-argument_list|()
-decl_stmt|;
-comment|// -1 for any available port
-name|kafkaPorts
+name|Collections
 operator|.
-name|add
+name|singletonList
 argument_list|(
-name|karfkaPort
+name|kafkaPort
 argument_list|)
-expr_stmt|;
+decl_stmt|;
 name|embeddedKafkaCluster
 operator|=
 operator|new
@@ -408,11 +401,11 @@ name|prop
 operator|.
 name|setProperty
 argument_list|(
-literal|"karfkaPort"
+literal|"kafkaPort"
 argument_list|,
 literal|""
 operator|+
-name|getKarfkaPort
+name|getKafkaPort
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -475,15 +468,15 @@ return|return
 name|zookeeperPort
 return|;
 block|}
-DECL|method|getKarfkaPort ()
+DECL|method|getKafkaPort ()
 specifier|protected
 specifier|static
 name|int
-name|getKarfkaPort
+name|getKafkaPort
 parameter_list|()
 block|{
 return|return
-name|karfkaPort
+name|kafkaPort
 return|;
 block|}
 block|}

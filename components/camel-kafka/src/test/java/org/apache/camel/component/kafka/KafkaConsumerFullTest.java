@@ -186,7 +186,7 @@ name|EndpointInject
 argument_list|(
 name|uri
 operator|=
-literal|"kafka:localhost:{{karfkaPort}}?topic="
+literal|"kafka:localhost:{{kafkaPort}}?topic="
 operator|+
 name|TOPIC
 operator|+
@@ -258,7 +258,7 @@ name|BOOTSTRAP_SERVERS_CONFIG
 argument_list|,
 literal|"localhost:"
 operator|+
-name|getKarfkaPort
+name|getKafkaPort
 argument_list|()
 argument_list|)
 expr_stmt|;
