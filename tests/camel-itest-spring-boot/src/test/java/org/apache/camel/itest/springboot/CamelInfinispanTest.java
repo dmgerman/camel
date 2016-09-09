@@ -40,6 +40,24 @@ begin_import
 import|import
 name|org
 operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|itest
+operator|.
+name|springboot
+operator|.
+name|util
+operator|.
+name|DependencyResolver
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
 name|jboss
 operator|.
 name|arquillian
@@ -169,7 +187,19 @@ name|disableJmx
 argument_list|(
 literal|"org.infinispan:*"
 argument_list|)
-comment|// arquillian fails, bu the tests pass
+comment|// arquillian fails, but the tests pass
+operator|.
+name|dependency
+argument_list|(
+literal|"org.apache.logging.log4j:log4j-jcl:"
+operator|+
+name|DependencyResolver
+operator|.
+name|resolveParentProperty
+argument_list|(
+literal|"${log4j2-version}"
+argument_list|)
+argument_list|)
 operator|.
 name|build
 argument_list|()

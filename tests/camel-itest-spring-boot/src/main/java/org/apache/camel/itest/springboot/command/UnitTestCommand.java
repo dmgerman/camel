@@ -752,6 +752,13 @@ name|logger
 operator|.
 name|info
 argument_list|(
+name|config
+operator|.
+name|getModuleName
+argument_list|()
+operator|+
+literal|" unit tests. "
+operator|+
 literal|"Success: "
 operator|+
 name|result

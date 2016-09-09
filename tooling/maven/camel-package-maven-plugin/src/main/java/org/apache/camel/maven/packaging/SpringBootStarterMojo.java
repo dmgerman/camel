@@ -676,6 +676,15 @@ literal|"camel-swagger"
 block|,
 literal|"camel-mina"
 block|,
+literal|"camel-ibatis"
+block|,
+literal|"camel-quartz"
+block|,
+comment|/* currently incompatible */
+literal|"camel-jclouds"
+block|,
+literal|"camel-spark-rest"
+block|,
 comment|/* others (not managed) -> */
 literal|"camel-zipkin"
 block|}

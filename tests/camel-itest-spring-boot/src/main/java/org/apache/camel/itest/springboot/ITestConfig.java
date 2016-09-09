@@ -197,6 +197,16 @@ name|String
 argument_list|>
 name|ignoreLibraryMismatch
 decl_stmt|;
+DECL|field|testLibraryVersions
+specifier|private
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|testLibraryVersions
+decl_stmt|;
 DECL|method|ITestConfig ()
 specifier|public
 name|ITestConfig
@@ -792,6 +802,42 @@ operator|=
 name|ignoreLibraryMismatch
 expr_stmt|;
 block|}
+DECL|method|getTestLibraryVersions ()
+specifier|public
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|getTestLibraryVersions
+parameter_list|()
+block|{
+return|return
+name|testLibraryVersions
+return|;
+block|}
+DECL|method|setTestLibraryVersions (Map<String, String> testLibraryVersions)
+specifier|public
+name|void
+name|setTestLibraryVersions
+parameter_list|(
+name|Map
+argument_list|<
+name|String
+argument_list|,
+name|String
+argument_list|>
+name|testLibraryVersions
+parameter_list|)
+block|{
+name|this
+operator|.
+name|testLibraryVersions
+operator|=
+name|testLibraryVersions
+expr_stmt|;
+block|}
 annotation|@
 name|Override
 DECL|method|toString ()
@@ -1100,6 +1146,18 @@ operator|.
 name|append
 argument_list|(
 name|ignoreLibraryMismatch
+argument_list|)
+expr_stmt|;
+name|sb
+operator|.
+name|append
+argument_list|(
+literal|", testLibraryVersions="
+argument_list|)
+operator|.
+name|append
+argument_list|(
+name|testLibraryVersions
 argument_list|)
 expr_stmt|;
 name|sb
