@@ -569,16 +569,16 @@ specifier|protected
 name|boolean
 name|logClasspath
 decl_stmt|;
-comment|/**      * Whether to use Blueprint when running, instead of Spring      *      * @parameter property="camel.useBlueprint"      *            default-value="false"      */
+comment|/**      * Whether to use Blueprint when running, instead of Spring      *      * @parameter property="camel.useBlueprint"      */
 DECL|field|useBlueprint
 specifier|protected
-name|boolean
+name|Boolean
 name|useBlueprint
 decl_stmt|;
-comment|/**      * Whether to use CDI when running, instead of Spring      *      * @parameter property="camel.useCDI"      *            default-value="false"      */
+comment|/**      * Whether to use CDI when running, instead of Spring      *      * @parameter property="camel.useCDI"      */
 DECL|field|useCDI
 specifier|protected
-name|boolean
+name|Boolean
 name|useCDI
 decl_stmt|;
 DECL|field|extendedPluginDependencyArtifactId
@@ -773,19 +773,57 @@ decl_stmt|;
 name|boolean
 name|useCdiMain
 init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
 name|useCDI
-operator|||
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// use configured value
+name|useCdiMain
+operator|=
+name|useCDI
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// auto detect if we have cdi
+name|useCdiMain
+operator|=
 name|detectCDIOnClassPath
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
 name|boolean
 name|usingBlueprintMain
 init|=
+literal|false
+decl_stmt|;
+if|if
+condition|(
 name|useBlueprint
-operator|||
+operator|!=
+literal|null
+condition|)
+block|{
+comment|// use configured value
+name|usingBlueprintMain
+operator|=
+name|useBlueprint
+expr_stmt|;
+block|}
+else|else
+block|{
+comment|// auto detect if we have blueprint
+name|usingBlueprintMain
+operator|=
 name|detectBlueprintOnClassPathOrBlueprintXMLFiles
 argument_list|()
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|killAfter
