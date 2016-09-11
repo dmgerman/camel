@@ -3359,6 +3359,9 @@ argument_list|(
 literal|400
 argument_list|)
 operator|.
+name|asyncDelayed
+argument_list|()
+operator|.
 name|transform
 argument_list|(
 name|body
@@ -3384,6 +3387,9 @@ name|delay
 argument_list|(
 literal|400
 argument_list|)
+operator|.
+name|asyncDelayed
+argument_list|()
 operator|.
 name|process
 argument_list|(

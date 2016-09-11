@@ -2664,7 +2664,7 @@ argument_list|)
 return|;
 block|}
 comment|/**      * Extracts the body from the given future, that represents a handle to an asynchronous exchange.      *<p/>      * Will wait until the future task is complete.      *      * @param context the camel context      * @param future  the future handle      * @param type    the expected body response type      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException is thrown if the processing of the exchange failed      */
-DECL|method|extractFutureBody (CamelContext context, Future<Object> future, Class<T> type)
+DECL|method|extractFutureBody (CamelContext context, Future<?> future, Class<T> type)
 specifier|public
 specifier|static
 parameter_list|<
@@ -2678,7 +2678,7 @@ name|context
 parameter_list|,
 name|Future
 argument_list|<
-name|Object
+name|?
 argument_list|>
 name|future
 parameter_list|,
@@ -2756,7 +2756,7 @@ expr_stmt|;
 block|}
 block|}
 comment|/**      * Extracts the body from the given future, that represents a handle to an asynchronous exchange.      *<p/>      * Will wait for the future task to complete, but waiting at most the timeout value.      *      * @param context the camel context      * @param future  the future handle      * @param timeout timeout value      * @param unit    timeout unit      * @param type    the expected body response type      * @return the result body, can be<tt>null</tt>.      * @throws CamelExecutionException is thrown if the processing of the exchange failed      * @throws java.util.concurrent.TimeoutException is thrown if a timeout triggered      */
-DECL|method|extractFutureBody (CamelContext context, Future<Object> future, long timeout, TimeUnit unit, Class<T> type)
+DECL|method|extractFutureBody (CamelContext context, Future<?> future, long timeout, TimeUnit unit, Class<T> type)
 specifier|public
 specifier|static
 parameter_list|<
@@ -2770,7 +2770,7 @@ name|context
 parameter_list|,
 name|Future
 argument_list|<
-name|Object
+name|?
 argument_list|>
 name|future
 parameter_list|,
