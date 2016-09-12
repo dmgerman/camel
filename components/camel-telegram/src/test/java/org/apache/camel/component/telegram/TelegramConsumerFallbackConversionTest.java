@@ -352,7 +352,6 @@ name|String
 name|message
 decl_stmt|;
 DECL|method|BrandNewType (String message)
-specifier|public
 name|BrandNewType
 parameter_list|(
 name|String
