@@ -645,10 +645,7 @@ name|debug
 argument_list|(
 literal|"Registering CamelContext [{}] of in OSGi registry"
 argument_list|,
-name|camelContext
-operator|.
-name|getName
-argument_list|()
+name|name
 argument_list|)
 expr_stmt|;
 block|}

@@ -465,9 +465,7 @@ name|out
 operator|.
 name|println
 argument_list|(
-literal|"Could not close Class scope as there is no Injector for module type "
-operator|+
-name|injector
+literal|"Could not close Class scope as there is no Injector for module type"
 argument_list|)
 expr_stmt|;
 block|}

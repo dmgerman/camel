@@ -3223,10 +3223,7 @@ name|toNode
 operator|+
 literal|" is waiting to continue for exchangeId: "
 operator|+
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
+name|exchangeId
 argument_list|)
 expr_stmt|;
 try|try
@@ -3264,10 +3261,7 @@ name|toNode
 operator|+
 literal|" timed out and is continued exchangeId: "
 operator|+
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
+name|exchangeId
 argument_list|,
 name|LoggingLevel
 operator|.
@@ -3287,10 +3281,7 @@ name|toNode
 operator|+
 literal|" is continued exchangeId: "
 operator|+
-name|exchange
-operator|.
-name|getExchangeId
-argument_list|()
+name|exchangeId
 argument_list|)
 expr_stmt|;
 block|}

@@ -1520,8 +1520,6 @@ literal|"Deferring creation of TaskExecutor for listener container: {} as per po
 argument_list|,
 name|listenerContainer
 argument_list|,
-name|configuration
-operator|.
 name|getDefaultTaskExecutorType
 argument_list|()
 argument_list|)

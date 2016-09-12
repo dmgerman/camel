@@ -1842,9 +1842,7 @@ literal|"Endpoint removed: {}, new total endpoints {}"
 argument_list|,
 name|disruptorEndpoint
 argument_list|,
-name|endpoints
-operator|.
-name|size
+name|getEndpointCount
 argument_list|()
 argument_list|)
 expr_stmt|;

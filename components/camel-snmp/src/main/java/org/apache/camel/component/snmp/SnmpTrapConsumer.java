@@ -798,9 +798,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"Received invalid trap PDU: "
-operator|+
-name|pdu
+literal|"Received invalid trap PDU"
 argument_list|)
 expr_stmt|;
 block|}

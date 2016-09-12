@@ -6806,9 +6806,7 @@ name|trace
 argument_list|(
 literal|"Waiting for {} inflight exchanges to complete"
 argument_list|,
-name|inProgressCompleteExchanges
-operator|.
-name|size
+name|getInProgressCompleteExchanges
 argument_list|()
 argument_list|)
 expr_stmt|;
@@ -6835,9 +6833,7 @@ name|warn
 argument_list|(
 literal|"Interrupted while waiting for {} inflight exchanges to complete."
 argument_list|,
-name|inProgressCompleteExchanges
-operator|.
-name|size
+name|getInProgressCompleteExchanges
 argument_list|()
 argument_list|)
 expr_stmt|;
