@@ -93,7 +93,7 @@ specifier|private
 name|int
 name|delay
 init|=
-literal|2
+literal|5000
 decl_stmt|;
 DECL|field|consumerKey
 specifier|private
