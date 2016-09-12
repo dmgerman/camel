@@ -241,6 +241,11 @@ name|charset
 decl_stmt|;
 annotation|@
 name|UriPath
+argument_list|(
+name|enums
+operator|=
+literal|"in,out,err,header,file,url"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
