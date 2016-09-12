@@ -66,6 +66,11 @@ name|TelegramComponent
 extends|extends
 name|UriEndpointComponent
 block|{
+DECL|field|authorizationToken
+specifier|private
+name|String
+name|authorizationToken
+decl_stmt|;
 DECL|method|TelegramComponent ()
 specifier|public
 name|TelegramComponent
@@ -122,6 +127,11 @@ operator|.
 name|updatePathConfig
 argument_list|(
 name|remaining
+argument_list|,
+name|this
+operator|.
+name|getAuthorizationToken
+argument_list|()
 argument_list|)
 expr_stmt|;
 if|if
@@ -164,6 +174,33 @@ operator|+
 name|remaining
 argument_list|)
 throw|;
+block|}
+DECL|method|getAuthorizationToken ()
+specifier|public
+name|String
+name|getAuthorizationToken
+parameter_list|()
+block|{
+return|return
+name|authorizationToken
+return|;
+block|}
+comment|/**      * The default Telegram authorization token to be used when the information is not provided in the endpoints.      */
+DECL|method|setAuthorizationToken (String authorizationToken)
+specifier|public
+name|void
+name|setAuthorizationToken
+parameter_list|(
+name|String
+name|authorizationToken
+parameter_list|)
+block|{
+name|this
+operator|.
+name|authorizationToken
+operator|=
+name|authorizationToken
+expr_stmt|;
 block|}
 block|}
 end_class

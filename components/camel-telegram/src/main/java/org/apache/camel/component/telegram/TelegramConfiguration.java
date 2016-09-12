@@ -214,14 +214,17 @@ specifier|public
 name|TelegramConfiguration
 parameter_list|()
 block|{     }
-comment|/**      * Sets the remaining configuration parameters available in the URI.      *      * @param remaining the URI part after the scheme      */
-DECL|method|updatePathConfig (String remaining)
+comment|/**      * Sets the remaining configuration parameters available in the URI.      *      * @param remaining the URI part after the scheme      * @param defaultAuthorizationToken the default authorization token to use if not present in the URI      */
+DECL|method|updatePathConfig (String remaining, String defaultAuthorizationToken)
 specifier|public
 name|void
 name|updatePathConfig
 parameter_list|(
 name|String
 name|remaining
+parameter_list|,
+name|String
+name|defaultAuthorizationToken
 parameter_list|)
 block|{
 name|String
@@ -240,7 +243,13 @@ condition|(
 name|parts
 operator|.
 name|length
-operator|!=
+operator|==
+literal|0
+operator|||
+name|parts
+operator|.
+name|length
+operator|>
 literal|2
 condition|)
 block|{
@@ -248,7 +257,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Unexpected URI format. Expected 'bots/<authorizationToken>', found '"
+literal|"Unexpected URI format. Expected 'bots' or 'bots/<authorizationToken>', found '"
 operator|+
 name|remaining
 operator|+
@@ -281,10 +290,7 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Unexpected endpoint type. Expected 'bots', found '"
 operator|+
-name|parts
-index|[
-literal|0
-index|]
+name|type
 operator|+
 literal|"'"
 argument_list|)
@@ -293,14 +299,35 @@ block|}
 name|String
 name|authorizationToken
 init|=
+name|defaultAuthorizationToken
+decl_stmt|;
+if|if
+condition|(
+name|parts
+operator|.
+name|length
+operator|>
+literal|1
+condition|)
+block|{
+name|authorizationToken
+operator|=
 name|parts
 index|[
 literal|1
 index|]
-decl_stmt|;
+expr_stmt|;
+block|}
 if|if
 condition|(
 name|authorizationToken
+operator|==
+literal|null
+operator|||
+name|authorizationToken
+operator|.
+name|trim
+argument_list|()
 operator|.
 name|length
 argument_list|()
@@ -312,7 +339,7 @@ throw|throw
 operator|new
 name|IllegalArgumentException
 argument_list|(
-literal|"Authorization token is required"
+literal|"The authorization token must be provided and cannot be empty"
 argument_list|)
 throw|;
 block|}
