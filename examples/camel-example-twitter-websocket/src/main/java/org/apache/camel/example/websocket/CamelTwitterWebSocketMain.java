@@ -200,6 +200,8 @@ name|consumerSecret
 argument_list|)
 expr_stmt|;
 comment|// poll for gaga, every 5nd second
+comment|// twitter rate limits 180 per 15 min, so that is 0.2/sec, eg 1/5sec.
+comment|// so to be safe we do 6 seconds
 name|route
 operator|.
 name|setSearchTerm
@@ -211,7 +213,7 @@ name|route
 operator|.
 name|setDelay
 argument_list|(
-literal|5000
+literal|6000
 argument_list|)
 expr_stmt|;
 comment|// web socket on port 9090
