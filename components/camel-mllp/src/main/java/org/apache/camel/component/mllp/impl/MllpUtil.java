@@ -128,7 +128,7 @@ name|component
 operator|.
 name|mllp
 operator|.
-name|MllpCorruptFrameException
+name|MllpException
 import|;
 end_import
 
@@ -144,7 +144,7 @@ name|component
 operator|.
 name|mllp
 operator|.
-name|MllpException
+name|MllpFrameException
 import|;
 end_import
 
@@ -304,7 +304,7 @@ specifier|private
 name|MllpUtil
 parameter_list|()
 block|{     }
-comment|/**      * Open the MLLP frame by reading from the Socket until the begging of the frame is found.      *<p/>      * If any errors occur (including MLLP frame errors) while opening the frame, the socket will be closed and an      * Exception will be thrown.      *      * @param socket the Socket to read      * @throws SocketTimeoutException    thrown if a timeout occurs while looking for the beginning of the MLLP frame, but      *                                   nothing is yet available - this is NOT an error condition      * @throws MllpCorruptFrameException if the MLLP Frame is corrupted in some way      * @throws MllpException             for other unexpected error conditions      */
+comment|/**      * Open the MLLP frame by reading from the Socket until the begging of the frame is found.      *<p/>      * If any errors occur (including MLLP frame errors) while opening the frame, the socket will be closed and an      * Exception will be thrown.      *      * @param socket the Socket to read      * @throws SocketTimeoutException    thrown if a timeout occurs while looking for the beginning of the MLLP frame, but      *                                   nothing is yet available - this is NOT an error condition      * @throws MllpFrameException if the MLLP Frame is corrupted in some way      * @throws MllpException             for other unexpected error conditions      */
 DECL|method|openFrame (Socket socket, int receiveTimeout, int readTimeout)
 specifier|public
 specifier|static
@@ -323,7 +323,7 @@ parameter_list|)
 throws|throws
 name|SocketTimeoutException
 throws|,
-name|MllpCorruptFrameException
+name|MllpFrameException
 throws|,
 name|MllpException
 block|{
@@ -585,7 +585,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|MllpCorruptFrameException
+name|MllpFrameException
 argument_list|(
 literal|"END_OF_STREAM read while looking for the beginning of the MLLP frame"
 argument_list|,
@@ -638,7 +638,7 @@ expr_stmt|;
 block|}
 throw|throw
 operator|new
-name|MllpCorruptFrameException
+name|MllpFrameException
 argument_list|(
 literal|"The beginning of the MLLP frame was preceded by out-of-frame data"
 argument_list|,
@@ -712,7 +712,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|MllpCorruptFrameException
+name|MllpFrameException
 argument_list|(
 literal|"Timeout looking for the beginning of the MLLP frame, and out-of-frame data had been read"
 argument_list|,
@@ -774,7 +774,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|MllpCorruptFrameException
+name|MllpFrameException
 argument_list|(
 literal|"Exception encountered looking for the beginning of the MLLP frame, and out-of-frame data had been read"
 argument_list|,
@@ -790,7 +790,7 @@ return|return
 literal|false
 return|;
 block|}
-comment|/**      * Close a MLLP frame by reading from the socket until the end of the frame is found.      *<p/>      * The method assumes the MLLP frame has already been opened and the first byte available      * will be the first byte of the framed message.      *<p/>      * The method consumes the END_OF_BLOCK and END_OF_DATA bytes from the stream before returning the payload      *<p/>      * If any errors occur (including MLLP frame errors) while opening the frame, the socket will be closed and an      * Exception will be thrown.      *      * @param socket the Socket to be read      * @return the payload of the MLLP-Enveloped message as a byte[]      * @throws MllpTimeoutException      thrown if a timeout occurs while closing the MLLP frame      * @throws MllpCorruptFrameException if the MLLP Frame is corrupted in some way      * @throws MllpException             for other unexpected error conditions      */
+comment|/**      * Close a MLLP frame by reading from the socket until the end of the frame is found.      *<p/>      * The method assumes the MLLP frame has already been opened and the first byte available      * will be the first byte of the framed message.      *<p/>      * The method consumes the END_OF_BLOCK and END_OF_DATA bytes from the stream before returning the payload      *<p/>      * If any errors occur (including MLLP frame errors) while opening the frame, the socket will be closed and an      * Exception will be thrown.      *      * @param socket the Socket to be read      * @return the payload of the MLLP-Enveloped message as a byte[]      * @throws MllpTimeoutException      thrown if a timeout occurs while closing the MLLP frame      * @throws MllpFrameException if the MLLP Frame is corrupted in some way      * @throws MllpException             for other unexpected error conditions      */
 DECL|method|closeFrame (Socket socket, int receiveTimeout, int readTimeout)
 specifier|public
 specifier|static
@@ -810,7 +810,7 @@ parameter_list|)
 throws|throws
 name|MllpTimeoutException
 throws|,
-name|MllpCorruptFrameException
+name|MllpFrameException
 throws|,
 name|MllpException
 block|{
@@ -923,7 +923,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|MllpCorruptFrameException
+name|MllpFrameException
 argument_list|(
 literal|"END_OF_STREAM read while looking for the end of the MLLP frame"
 argument_list|,
@@ -990,7 +990,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|MllpCorruptFrameException
+name|MllpFrameException
 argument_list|(
 literal|"A new MLLP frame was opened before the previous frame was closed"
 argument_list|,
@@ -1067,7 +1067,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|MllpCorruptFrameException
+name|MllpFrameException
 argument_list|(
 literal|"The MLLP frame was partially closed - END_OF_BLOCK was not followed by END_OF_DATA"
 argument_list|,
@@ -1184,7 +1184,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|MllpCorruptFrameException
+name|MllpFrameException
 argument_list|(
 literal|"Timeout looking for the end of the MLLP frame"
 argument_list|,
@@ -1278,7 +1278,7 @@ argument_list|)
 expr_stmt|;
 throw|throw
 operator|new
-name|MllpException
+name|MllpFrameException
 argument_list|(
 literal|"Exception encountered looking for the end of the MLLP frame"
 argument_list|,

@@ -194,7 +194,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Ignore
+name|BeforeClass
 import|;
 end_import
 
@@ -226,12 +226,19 @@ name|generateMessage
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|junit
+operator|.
+name|Assume
+operator|.
+name|assumeTrue
+import|;
+end_import
+
 begin_class
-annotation|@
-name|Ignore
-argument_list|(
-literal|"Fails sometimes on CI server with address already in use"
-argument_list|)
 DECL|class|MllpProducerConsumerLoopbackTest
 specifier|public
 class|class
@@ -320,6 +327,32 @@ expr_stmt|;
 return|return
 name|context
 return|;
+block|}
+annotation|@
+name|BeforeClass
+DECL|method|setUpClass ()
+specifier|public
+specifier|static
+name|void
+name|setUpClass
+parameter_list|()
+throws|throws
+name|Exception
+block|{
+name|assumeTrue
+argument_list|(
+literal|"Skipping test running in CI server - Fails sometimes on CI server with address already in use"
+argument_list|,
+name|System
+operator|.
+name|getenv
+argument_list|(
+literal|"BUILD_ID"
+argument_list|)
+operator|==
+literal|null
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Override

@@ -30,21 +30,7 @@ name|MllpInvalidAcknowledgementException
 extends|extends
 name|MllpAcknowledgementException
 block|{
-DECL|method|MllpInvalidAcknowledgementException (String message)
-specifier|public
-name|MllpInvalidAcknowledgementException
-parameter_list|(
-name|String
-name|message
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|message
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|MllpInvalidAcknowledgementException (String message, byte[] mllpPayload)
+DECL|method|MllpInvalidAcknowledgementException (String message, byte[] hl7Message, byte[] hl7Acknowledgement)
 specifier|public
 name|MllpInvalidAcknowledgementException
 parameter_list|(
@@ -53,23 +39,37 @@ name|message
 parameter_list|,
 name|byte
 index|[]
-name|mllpPayload
+name|hl7Message
+parameter_list|,
+name|byte
+index|[]
+name|hl7Acknowledgement
 parameter_list|)
 block|{
 name|super
 argument_list|(
 name|message
 argument_list|,
-name|mllpPayload
+name|hl7Message
+argument_list|,
+name|hl7Acknowledgement
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|MllpInvalidAcknowledgementException (String message, Throwable cause)
+DECL|method|MllpInvalidAcknowledgementException (String message, byte[] hl7Message, byte[] hl7Acknowledgement, Throwable cause)
 specifier|public
 name|MllpInvalidAcknowledgementException
 parameter_list|(
 name|String
 name|message
+parameter_list|,
+name|byte
+index|[]
+name|hl7Message
+parameter_list|,
+name|byte
+index|[]
+name|hl7Acknowledgement
 parameter_list|,
 name|Throwable
 name|cause
@@ -79,30 +79,9 @@ name|super
 argument_list|(
 name|message
 argument_list|,
-name|cause
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|MllpInvalidAcknowledgementException (String message, byte[] mllpPayload, Throwable cause)
-specifier|public
-name|MllpInvalidAcknowledgementException
-parameter_list|(
-name|String
-name|message
-parameter_list|,
-name|byte
-index|[]
-name|mllpPayload
-parameter_list|,
-name|Throwable
-name|cause
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|message
+name|hl7Message
 argument_list|,
-name|mllpPayload
+name|hl7Acknowledgement
 argument_list|,
 name|cause
 argument_list|)

@@ -258,6 +258,14 @@ name|tcpNoDelay
 init|=
 literal|true
 decl_stmt|;
+DECL|field|disconnectMethod
+name|DisconnectMethod
+name|disconnectMethod
+init|=
+name|DisconnectMethod
+operator|.
+name|CLOSE
+decl_stmt|;
 comment|/**      * Use this constructor to avoid having the connection started by JUnit (since the port is still -1)      */
 DECL|method|MllpClientResource ()
 specifier|public
@@ -347,9 +355,73 @@ argument_list|()
 expr_stmt|;
 name|this
 operator|.
-name|disconnect
+name|close
 argument_list|()
 expr_stmt|;
+block|}
+DECL|method|close ()
+specifier|public
+name|void
+name|close
+parameter_list|()
+block|{
+try|try
+block|{
+if|if
+condition|(
+literal|null
+operator|!=
+name|inputStream
+condition|)
+block|{
+name|clientSocket
+operator|.
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+catch|catch
+parameter_list|(
+name|IOException
+name|e
+parameter_list|)
+block|{
+name|log
+operator|.
+name|warn
+argument_list|(
+name|String
+operator|.
+name|format
+argument_list|(
+literal|"Exception encountered closing connection to {}:{}"
+argument_list|,
+name|mllpHost
+argument_list|,
+name|mllpPort
+argument_list|)
+argument_list|,
+name|e
+argument_list|)
+expr_stmt|;
+block|}
+finally|finally
+block|{
+name|inputStream
+operator|=
+literal|null
+expr_stmt|;
+name|outputStream
+operator|=
+literal|null
+expr_stmt|;
+name|clientSocket
+operator|=
+literal|null
+expr_stmt|;
+block|}
+return|return;
 block|}
 DECL|method|connect ()
 specifier|public
@@ -491,19 +563,6 @@ argument_list|)
 throw|;
 block|}
 block|}
-DECL|method|close ()
-specifier|public
-name|void
-name|close
-parameter_list|()
-block|{
-name|this
-operator|.
-name|disconnect
-argument_list|()
-expr_stmt|;
-return|return;
-block|}
 DECL|method|reset ()
 specifier|public
 name|void
@@ -538,19 +597,6 @@ name|socketEx
 argument_list|)
 expr_stmt|;
 block|}
-name|this
-operator|.
-name|disconnect
-argument_list|()
-expr_stmt|;
-return|return;
-block|}
-DECL|method|disconnect ()
-specifier|public
-name|void
-name|disconnect
-parameter_list|()
-block|{
 try|try
 block|{
 if|if
@@ -581,7 +627,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"Exception encountered closing connection to {}:{}"
+literal|"Exception encountered resetting connection to {}:{}"
 argument_list|,
 name|mllpHost
 argument_list|,
@@ -607,6 +653,43 @@ operator|=
 literal|null
 expr_stmt|;
 block|}
+return|return;
+block|}
+DECL|method|disconnect ()
+specifier|public
+name|void
+name|disconnect
+parameter_list|()
+block|{
+if|if
+condition|(
+name|DisconnectMethod
+operator|.
+name|RESET
+operator|==
+name|disconnectMethod
+condition|)
+block|{
+name|reset
+argument_list|()
+expr_stmt|;
+block|}
+else|else
+block|{
+name|close
+argument_list|()
+expr_stmt|;
+block|}
+block|}
+DECL|method|getDisconnectMethod ()
+specifier|public
+name|DisconnectMethod
+name|getDisconnectMethod
+parameter_list|()
+block|{
+return|return
+name|disconnectMethod
+return|;
 block|}
 DECL|method|isConnected ()
 specifier|public
@@ -2065,6 +2148,33 @@ name|tcpNoDelay
 operator|=
 name|tcpNoDelay
 expr_stmt|;
+block|}
+DECL|method|setDisconnectMethod (DisconnectMethod disconnectMethod)
+specifier|public
+name|void
+name|setDisconnectMethod
+parameter_list|(
+name|DisconnectMethod
+name|disconnectMethod
+parameter_list|)
+block|{
+name|this
+operator|.
+name|disconnectMethod
+operator|=
+name|disconnectMethod
+expr_stmt|;
+block|}
+DECL|enum|DisconnectMethod
+specifier|public
+enum|enum
+name|DisconnectMethod
+block|{
+DECL|enumConstant|CLOSE
+name|CLOSE
+block|,
+DECL|enumConstant|RESET
+name|RESET
 block|}
 block|}
 end_class

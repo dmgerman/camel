@@ -61,6 +61,24 @@ name|MLLP_ACKNOWLEDGEMENT_TYPE
 init|=
 literal|"CamelMllpAcknowledgementType"
 decl_stmt|;
+DECL|field|MLLP_ACKNOWLEDGEMENT_EXCEPTION
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MLLP_ACKNOWLEDGEMENT_EXCEPTION
+init|=
+literal|"CamelMllpAcknowledgementException"
+decl_stmt|;
+DECL|field|MLLP_AUTO_ACKNOWLEDGE
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|MLLP_AUTO_ACKNOWLEDGE
+init|=
+literal|"CamelMllpAutoAcknowledge"
+decl_stmt|;
 comment|/*      Connection Control Exchange Properties       - For Consumers, "SEND" => ACKNOWLEDGEMENT       - For Producers, "SEND" => MESSAGE       */
 DECL|field|MLLP_CLOSE_CONNECTION_BEFORE_SEND
 specifier|public

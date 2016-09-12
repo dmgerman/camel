@@ -19,57 +19,59 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Raised when a MLLP Producer or consumer encounters a corrupt MLLP Frame while attempting  * to read or write a MLLP payload.  */
+comment|/**  * Raised when a MLLP Consumer cannot deliver the MLLP Acknowledgement  */
 end_comment
 
 begin_class
-DECL|class|MllpCorruptFrameException
+DECL|class|MllpAcknowledgementDeliveryException
 specifier|public
 class|class
-name|MllpCorruptFrameException
+name|MllpAcknowledgementDeliveryException
 extends|extends
-name|MllpException
+name|MllpAcknowledgementException
 block|{
-DECL|method|MllpCorruptFrameException (String message)
-specifier|public
-name|MllpCorruptFrameException
-parameter_list|(
+DECL|field|EXCEPTION_MESSAGE
+specifier|static
+specifier|final
 name|String
-name|message
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|message
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|MllpCorruptFrameException (String message, byte[] mllpPayload)
+name|EXCEPTION_MESSAGE
+init|=
+literal|"HL7 Acknowledgment Delivery Failed"
+decl_stmt|;
+DECL|method|MllpAcknowledgementDeliveryException (byte[] hl7Message, byte[] hl7Acknowledgement)
 specifier|public
-name|MllpCorruptFrameException
+name|MllpAcknowledgementDeliveryException
 parameter_list|(
-name|String
-name|message
+name|byte
+index|[]
+name|hl7Message
 parameter_list|,
 name|byte
 index|[]
-name|mllpPayload
+name|hl7Acknowledgement
 parameter_list|)
 block|{
 name|super
 argument_list|(
-name|message
+name|EXCEPTION_MESSAGE
 argument_list|,
-name|mllpPayload
+name|hl7Message
+argument_list|,
+name|hl7Acknowledgement
 argument_list|)
 expr_stmt|;
 block|}
-DECL|method|MllpCorruptFrameException (String message, Throwable cause)
+DECL|method|MllpAcknowledgementDeliveryException (byte[] hl7Message, byte[] hl7Acknowledgement, Throwable cause)
 specifier|public
-name|MllpCorruptFrameException
+name|MllpAcknowledgementDeliveryException
 parameter_list|(
-name|String
-name|message
+name|byte
+index|[]
+name|hl7Message
+parameter_list|,
+name|byte
+index|[]
+name|hl7Acknowledgement
 parameter_list|,
 name|Throwable
 name|cause
@@ -77,32 +79,11 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|message
+name|EXCEPTION_MESSAGE
 argument_list|,
-name|cause
-argument_list|)
-expr_stmt|;
-block|}
-DECL|method|MllpCorruptFrameException (String message, byte[] mllpPayload, Throwable cause)
-specifier|public
-name|MllpCorruptFrameException
-parameter_list|(
-name|String
-name|message
-parameter_list|,
-name|byte
-index|[]
-name|mllpPayload
-parameter_list|,
-name|Throwable
-name|cause
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|message
+name|hl7Message
 argument_list|,
-name|mllpPayload
+name|hl7Acknowledgement
 argument_list|,
 name|cause
 argument_list|)

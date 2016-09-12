@@ -85,7 +85,7 @@ specifier|final
 name|String
 name|MLLP_LOG_PHI_PROPERTY
 init|=
-literal|"org.apache.camel.mllp.logPHI"
+literal|"org.apache.camel.component.mllp.logPHI"
 decl_stmt|;
 DECL|method|MllpComponent ()
 specifier|public

@@ -19,34 +19,34 @@ package|;
 end_package
 
 begin_comment
-comment|/**  * Raised when a MLLP Producer or Consumer encounter a timeout reading a message  */
+comment|/**  * Raised when a MLLP Producer or consumer encounters a corrupt MLLP Frame while attempting  * to read or write a MLLP payload.  */
 end_comment
 
 begin_class
-DECL|class|MllpTimeoutException
+DECL|class|MllpFrameException
 specifier|public
 class|class
-name|MllpTimeoutException
+name|MllpFrameException
 extends|extends
 name|MllpException
 block|{
-DECL|field|hl7Message
+DECL|field|mllpPayload
 specifier|private
 specifier|final
 name|byte
 index|[]
-name|hl7Message
+name|mllpPayload
 decl_stmt|;
-DECL|method|MllpTimeoutException (String message, byte[] hl7Message)
+DECL|method|MllpFrameException (String message, byte[] mllpPayload)
 specifier|public
-name|MllpTimeoutException
+name|MllpFrameException
 parameter_list|(
 name|String
 name|message
 parameter_list|,
 name|byte
 index|[]
-name|hl7Message
+name|mllpPayload
 parameter_list|)
 block|{
 name|super
@@ -56,21 +56,21 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|hl7Message
+name|mllpPayload
 operator|=
-name|hl7Message
+name|mllpPayload
 expr_stmt|;
 block|}
-DECL|method|MllpTimeoutException (String message, byte[] hl7Message, Throwable cause)
+DECL|method|MllpFrameException (String message, byte[] mllpPayload, Throwable cause)
 specifier|public
-name|MllpTimeoutException
+name|MllpFrameException
 parameter_list|(
 name|String
 name|message
 parameter_list|,
 name|byte
 index|[]
-name|hl7Message
+name|mllpPayload
 parameter_list|,
 name|Throwable
 name|cause
@@ -85,20 +85,20 @@ argument_list|)
 expr_stmt|;
 name|this
 operator|.
-name|hl7Message
+name|mllpPayload
 operator|=
-name|hl7Message
+name|mllpPayload
 expr_stmt|;
 block|}
-DECL|method|getHl7Message ()
+DECL|method|getMllpPayload ()
 specifier|public
 name|byte
 index|[]
-name|getHl7Message
+name|getMllpPayload
 parameter_list|()
 block|{
 return|return
-name|hl7Message
+name|mllpPayload
 return|;
 block|}
 annotation|@
@@ -120,7 +120,7 @@ name|String
 operator|.
 name|format
 argument_list|(
-literal|"%s:\n\tHL7 Message: %s"
+literal|"%s:\n\tMLLP Payload: %s"
 argument_list|,
 name|super
 operator|.
@@ -129,7 +129,7 @@ argument_list|()
 argument_list|,
 name|covertBytesToPrintFriendlyString
 argument_list|(
-name|hl7Message
+name|mllpPayload
 argument_list|)
 argument_list|)
 return|;
@@ -171,14 +171,14 @@ name|stringBuilder
 operator|.
 name|append
 argument_list|(
-literal|": {hl7Message="
+literal|": {mllpPayload="
 argument_list|)
 operator|.
 name|append
 argument_list|(
 name|covertBytesToPrintFriendlyString
 argument_list|(
-name|hl7Message
+name|mllpPayload
 argument_list|)
 argument_list|)
 operator|.
