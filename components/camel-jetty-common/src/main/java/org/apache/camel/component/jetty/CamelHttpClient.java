@@ -164,20 +164,6 @@ argument_list|)
 expr_stmt|;
 block|}
 annotation|@
-name|Deprecated
-comment|/**      * It does nothing here, please setup SslContextFactory directly, it will be removed in Camel 2.16.0      * @param context      */
-DECL|method|setSSLContext (SSLContext context)
-specifier|public
-name|void
-name|setSSLContext
-parameter_list|(
-name|SSLContext
-name|context
-parameter_list|)
-block|{
-comment|// do nothing here, please setup SslContextFactory directly.
-block|}
-annotation|@
 name|Override
 DECL|method|doStart ()
 specifier|protected
