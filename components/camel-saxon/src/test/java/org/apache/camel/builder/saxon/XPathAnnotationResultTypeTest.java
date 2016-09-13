@@ -42,6 +42,20 @@ end_import
 
 begin_import
 import|import
+name|net
+operator|.
+name|sf
+operator|.
+name|saxon
+operator|.
+name|lib
+operator|.
+name|NamespaceConstant
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -241,7 +255,9 @@ name|DEFAULT_PROPERTY_NAME
 operator|+
 literal|":"
 operator|+
-literal|"http://saxon.sf.net/jaxp/xpath/om"
+name|NamespaceConstant
+operator|.
+name|OBJECT_MODEL_SAXON
 argument_list|,
 literal|"net.sf.saxon.xpath.XPathFactoryImpl"
 argument_list|)

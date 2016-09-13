@@ -82,6 +82,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -326,6 +336,11 @@ argument_list|)
 expr_stmt|;
 comment|// END SNIPPET: e1
 block|}
+annotation|@
+name|Ignore
+argument_list|(
+literal|"See http://www.saxonica.com/documentation/index.html#!xpath-api/jaxp-xpath/factory"
+argument_list|)
 annotation|@
 name|Test
 DECL|method|testXPathFunctionTokenizeUsingObjectModel ()

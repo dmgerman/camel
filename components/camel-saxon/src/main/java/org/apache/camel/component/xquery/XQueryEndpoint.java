@@ -845,6 +845,8 @@ argument_list|(
 name|url
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
 name|xquery
 operator|.
 name|setConfiguration
@@ -853,6 +855,8 @@ name|getConfiguration
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
 name|xquery
 operator|.
 name|setStaticQueryContext
@@ -861,6 +865,8 @@ name|getStaticQueryContext
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
 name|xquery
 operator|.
 name|setParameters
@@ -869,6 +875,8 @@ name|getParameters
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
 name|xquery
 operator|.
 name|setNamespaces
@@ -876,6 +884,8 @@ argument_list|(
 name|namespacePrefixes
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
 name|xquery
 operator|.
 name|setResultsFormat
@@ -884,6 +894,8 @@ name|getResultsFormat
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
 name|xquery
 operator|.
 name|setProperties
@@ -892,6 +904,8 @@ name|getProperties
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
 name|xquery
 operator|.
 name|setResultType
@@ -900,6 +914,8 @@ name|getResultType
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
 name|xquery
 operator|.
 name|setStripsAllWhiteSpace
@@ -908,6 +924,8 @@ name|isStripsAllWhiteSpace
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
 name|xquery
 operator|.
 name|setAllowStAX
@@ -916,6 +934,8 @@ name|isAllowStAX
 argument_list|()
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
 name|xquery
 operator|.
 name|setHeaderName

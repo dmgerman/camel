@@ -96,9 +96,7 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|spi
-operator|.
-name|ClassResolver
+name|CamelContext
 import|;
 end_import
 
@@ -192,11 +190,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|resolver
+DECL|field|context
 specifier|private
 specifier|final
-name|ClassResolver
-name|resolver
+name|CamelContext
+name|context
 decl_stmt|;
 DECL|field|location
 specifier|private
@@ -210,12 +208,12 @@ specifier|final
 name|String
 name|baseScheme
 decl_stmt|;
-DECL|method|XsltUriResolver (ClassResolver resolver, String location)
+DECL|method|XsltUriResolver (CamelContext context, String location)
 specifier|public
 name|XsltUriResolver
 parameter_list|(
-name|ClassResolver
-name|resolver
+name|CamelContext
+name|context
 parameter_list|,
 name|String
 name|location
@@ -223,9 +221,9 @@ parameter_list|)
 block|{
 name|this
 operator|.
-name|resolver
+name|context
 operator|=
-name|resolver
+name|context
 expr_stmt|;
 name|this
 operator|.
@@ -262,6 +260,8 @@ literal|"classpath:"
 expr_stmt|;
 block|}
 block|}
+annotation|@
+name|Override
 DECL|method|resolve (String href, String base)
 specifier|public
 name|Source
@@ -406,7 +406,7 @@ name|ResourceHelper
 operator|.
 name|resolveMandatoryResourceAsInputStream
 argument_list|(
-name|resolver
+name|context
 argument_list|,
 name|href
 argument_list|)

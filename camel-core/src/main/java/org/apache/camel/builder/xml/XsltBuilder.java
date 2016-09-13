@@ -2302,9 +2302,6 @@ name|exchange
 operator|.
 name|getContext
 argument_list|()
-operator|.
-name|getClassResolver
-argument_list|()
 argument_list|,
 literal|null
 argument_list|)

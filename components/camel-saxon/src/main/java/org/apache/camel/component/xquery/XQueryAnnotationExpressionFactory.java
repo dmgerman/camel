@@ -52,7 +52,7 @@ name|saxon
 operator|.
 name|functions
 operator|.
-name|Collection
+name|CollectionFn
 import|;
 end_import
 
@@ -313,7 +313,7 @@ name|expressionReturnType
 operator|.
 name|isAssignableFrom
 argument_list|(
-name|Collection
+name|CollectionFn
 operator|.
 name|class
 argument_list|)

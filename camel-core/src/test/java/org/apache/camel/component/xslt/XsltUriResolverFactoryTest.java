@@ -204,20 +204,6 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|ClassResolver
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
 name|junit
 operator|.
 name|Assert
@@ -452,7 +438,7 @@ name|checkResourceUri
 argument_list|(
 name|resolver
 operator|.
-name|resolvedRsourceUris
+name|resolvedResourceUris
 argument_list|,
 literal|"xslt/staff/staff.xsl"
 argument_list|)
@@ -461,7 +447,7 @@ name|checkResourceUri
 argument_list|(
 name|resolver
 operator|.
-name|resolvedRsourceUris
+name|resolvedResourceUris
 argument_list|,
 literal|"../common/staff_template.xsl"
 argument_list|)
@@ -685,9 +671,6 @@ operator|new
 name|CustomXsltUriResolver
 argument_list|(
 name|camelContext
-operator|.
-name|getClassResolver
-argument_list|()
 argument_list|,
 name|resourceUri
 argument_list|)
@@ -704,25 +687,25 @@ name|CustomXsltUriResolver
 extends|extends
 name|XsltUriResolver
 block|{
-DECL|field|resolvedRsourceUris
+DECL|field|resolvedResourceUris
 specifier|private
 specifier|final
 name|Set
 argument_list|<
 name|String
 argument_list|>
-name|resolvedRsourceUris
+name|resolvedResourceUris
 init|=
 operator|new
 name|HashSet
 argument_list|<>
 argument_list|()
 decl_stmt|;
-DECL|method|CustomXsltUriResolver (ClassResolver resolver, String location)
+DECL|method|CustomXsltUriResolver (CamelContext context, String location)
 name|CustomXsltUriResolver
 parameter_list|(
-name|ClassResolver
-name|resolver
+name|CamelContext
+name|context
 parameter_list|,
 name|String
 name|location
@@ -730,7 +713,7 @@ parameter_list|)
 block|{
 name|super
 argument_list|(
-name|resolver
+name|context
 argument_list|,
 name|location
 argument_list|)
@@ -762,7 +745,7 @@ argument_list|,
 name|base
 argument_list|)
 decl_stmt|;
-name|resolvedRsourceUris
+name|resolvedResourceUris
 operator|.
 name|add
 argument_list|(

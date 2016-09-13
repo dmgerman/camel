@@ -360,7 +360,10 @@ name|doc
 operator|=
 name|evaluator
 operator|.
-name|setSource
+name|getConfiguration
+argument_list|()
+operator|.
+name|buildDocumentTree
 argument_list|(
 operator|new
 name|StringSource
@@ -368,6 +371,9 @@ argument_list|(
 name|CONTENT
 argument_list|)
 argument_list|)
+operator|.
+name|getRootNode
+argument_list|()
 expr_stmt|;
 block|}
 annotation|@

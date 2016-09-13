@@ -89,9 +89,6 @@ operator|new
 name|XsltUriResolver
 argument_list|(
 name|camelContext
-operator|.
-name|getClassResolver
-argument_list|()
 argument_list|,
 name|resourceUri
 argument_list|)

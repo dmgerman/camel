@@ -653,6 +653,15 @@ name|SAXON_OBJECT_MODEL_URI
 init|=
 literal|"http://saxon.sf.net/jaxp/xpath/om"
 decl_stmt|;
+DECL|field|SAXON_FACTORY_CLASS_NAME
+specifier|private
+specifier|static
+specifier|final
+name|String
+name|SAXON_FACTORY_CLASS_NAME
+init|=
+literal|"net.sf.saxon.xpath.XPathFactoryImpl"
+decl_stmt|;
 DECL|field|OBTAIN_ALL_NS_XPATH
 specifier|private
 specifier|static
@@ -802,6 +811,12 @@ specifier|private
 specifier|volatile
 name|String
 name|objectModelUri
+decl_stmt|;
+DECL|field|factoryClassName
+specifier|private
+specifier|volatile
+name|String
+name|factoryClassName
 decl_stmt|;
 DECL|field|namespaceContext
 specifier|private
@@ -1409,6 +1424,26 @@ return|return
 name|this
 return|;
 block|}
+comment|/**      * Sets the factory class name to use      *      * @return the current builder      */
+DECL|method|factoryClassName (String factoryClassName)
+specifier|public
+name|XPathBuilder
+name|factoryClassName
+parameter_list|(
+name|String
+name|factoryClassName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|factoryClassName
+operator|=
+name|factoryClassName
+expr_stmt|;
+return|return
+name|this
+return|;
+block|}
 comment|/**      * Configures to use Saxon as the XPathFactory which allows you to use XPath 2.0 functions      * which may not be part of the build in JDK XPath parser.      *      * @return the current builder      */
 DECL|method|saxon ()
 specifier|public
@@ -1421,6 +1456,12 @@ operator|.
 name|objectModelUri
 operator|=
 name|SAXON_OBJECT_MODEL_URI
+expr_stmt|;
+name|this
+operator|.
+name|factoryClassName
+operator|=
+name|SAXON_FACTORY_CLASS_NAME
 expr_stmt|;
 return|return
 name|this
@@ -2652,16 +2693,6 @@ return|return
 name|logNamespaces
 return|;
 block|}
-DECL|method|getObjectModelUri ()
-specifier|public
-name|String
-name|getObjectModelUri
-parameter_list|()
-block|{
-return|return
-name|objectModelUri
-return|;
-block|}
 comment|/**      * Enables Saxon on this particular XPath expression, as {@link #saxon()} sets the default static XPathFactory which may have already been initialised      * by previous XPath expressions      */
 DECL|method|enableSaxon ()
 specifier|public
@@ -2676,6 +2707,23 @@ argument_list|(
 name|SAXON_OBJECT_MODEL_URI
 argument_list|)
 expr_stmt|;
+name|this
+operator|.
+name|setFactoryClassName
+argument_list|(
+name|SAXON_FACTORY_CLASS_NAME
+argument_list|)
+expr_stmt|;
+block|}
+DECL|method|getObjectModelUri ()
+specifier|public
+name|String
+name|getObjectModelUri
+parameter_list|()
+block|{
+return|return
+name|objectModelUri
+return|;
 block|}
 DECL|method|setObjectModelUri (String objectModelUri)
 specifier|public
@@ -2691,6 +2739,32 @@ operator|.
 name|objectModelUri
 operator|=
 name|objectModelUri
+expr_stmt|;
+block|}
+DECL|method|getFactoryClassName ()
+specifier|public
+name|String
+name|getFactoryClassName
+parameter_list|()
+block|{
+return|return
+name|factoryClassName
+return|;
+block|}
+DECL|method|setFactoryClassName (String factoryClassName)
+specifier|public
+name|void
+name|setFactoryClassName
+parameter_list|(
+name|String
+name|factoryClassName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|factoryClassName
+operator|=
+name|factoryClassName
 expr_stmt|;
 block|}
 comment|// Implementation methods
@@ -4804,13 +4878,58 @@ operator|!=
 literal|null
 condition|)
 block|{
+name|String
+name|xpathFactoryClassName
+init|=
+name|factoryClassName
+decl_stmt|;
+if|if
+condition|(
+name|objectModelUri
+operator|.
+name|equals
+argument_list|(
+name|SAXON_OBJECT_MODEL_URI
+argument_list|)
+operator|&&
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|xpathFactoryClassName
+argument_list|)
+condition|)
+block|{
+name|xpathFactoryClassName
+operator|=
+name|SAXON_FACTORY_CLASS_NAME
+expr_stmt|;
+block|}
 name|xpathFactory
 operator|=
+name|ObjectHelper
+operator|.
+name|isEmpty
+argument_list|(
+name|xpathFactoryClassName
+argument_list|)
+condition|?
 name|XPathFactory
 operator|.
 name|newInstance
 argument_list|(
 name|objectModelUri
+argument_list|)
+else|:
+name|XPathFactory
+operator|.
+name|newInstance
+argument_list|(
+name|objectModelUri
+argument_list|,
+name|xpathFactoryClassName
+argument_list|,
+literal|null
 argument_list|)
 expr_stmt|;
 name|LOG

@@ -625,9 +625,6 @@ operator|new
 name|XsltUriResolver
 argument_list|(
 name|context
-operator|.
-name|getClassResolver
-argument_list|()
 argument_list|,
 name|xslFile
 argument_list|)

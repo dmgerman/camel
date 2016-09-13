@@ -75,13 +75,15 @@ import|;
 end_import
 
 begin_class
-DECL|class|SaxonXslIncludetEmptyHrefTest
+DECL|class|SaxonXslIncludeEmptyHrefTest
 specifier|public
 class|class
-name|SaxonXslIncludetEmptyHrefTest
+name|SaxonXslIncludeEmptyHrefTest
 extends|extends
 name|CamelTestSupport
 block|{
+comment|//TODO: fix
+comment|//@Ignore("To Fix")
 annotation|@
 name|Test
 DECL|method|testXsltOutput ()
