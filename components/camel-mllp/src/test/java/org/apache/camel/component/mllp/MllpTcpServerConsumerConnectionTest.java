@@ -512,16 +512,6 @@ argument_list|,
 name|cause
 argument_list|)
 expr_stmt|;
-name|assertEquals
-argument_list|(
-literal|"Broken pipe"
-argument_list|,
-name|cause
-operator|.
-name|getMessage
-argument_list|()
-argument_list|)
-expr_stmt|;
 block|}
 name|assertMockEndpointsSatisfied
 argument_list|(
