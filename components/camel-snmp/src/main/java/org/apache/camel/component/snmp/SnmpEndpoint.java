@@ -705,13 +705,13 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-throw|throw
+return|return
 operator|new
-name|UnsupportedOperationException
+name|SnmpProducer
 argument_list|(
-literal|"SnmpProducer is not implemented"
+name|this
 argument_list|)
-throw|;
+return|;
 block|}
 DECL|method|isSingleton ()
 specifier|public
