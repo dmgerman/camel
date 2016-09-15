@@ -38,18 +38,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelExecutionException
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|builder
 operator|.
 name|RouteBuilder
@@ -94,7 +82,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|Rule
+name|Ignore
 import|;
 end_import
 
@@ -108,19 +96,12 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|rules
-operator|.
-name|ExpectedException
-import|;
-end_import
-
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"CAMEL-10319: Set host, port and oids to test snmp producer."
+argument_list|)
 DECL|class|ProducerTest
 specifier|public
 class|class
@@ -128,18 +109,6 @@ name|ProducerTest
 extends|extends
 name|CamelTestSupport
 block|{
-annotation|@
-name|Rule
-DECL|field|thrown
-specifier|public
-name|ExpectedException
-name|thrown
-init|=
-name|ExpectedException
-operator|.
-name|none
-argument_list|()
-decl_stmt|;
 DECL|field|host
 specifier|private
 name|String
@@ -161,14 +130,6 @@ name|oids
 init|=
 literal|"1.3.6.1.2.1.1.3.0,1.3.6.1.2.1.25.3.2.1.5.1,1.3.6.1.2.1.25.3.5.1.1.1,1.3.6.1.2.1.43.5.1.1.11.1"
 decl_stmt|;
-DECL|field|timeout
-specifier|private
-name|Integer
-name|timeout
-init|=
-literal|5
-decl_stmt|;
-comment|// 5ms
 annotation|@
 name|Test
 DECL|method|testSnmpProducer ()
@@ -179,15 +140,6 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|thrown
-operator|.
-name|expect
-argument_list|(
-name|CamelExecutionException
-operator|.
-name|class
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBody
@@ -260,10 +212,6 @@ operator|+
 literal|"?oids="
 operator|+
 name|oids
-operator|+
-literal|"&timeout="
-operator|+
-name|timeout
 argument_list|)
 operator|.
 name|log
