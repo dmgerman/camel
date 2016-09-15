@@ -356,11 +356,22 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+try|try
+block|{
 name|CassandraUnitUtils
 operator|.
 name|cleanEmbeddedCassandra
 argument_list|()
 expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|Throwable
+name|e
+parameter_list|)
+block|{
+comment|// ignore shutdown errors
+block|}
 block|}
 annotation|@
 name|Override
