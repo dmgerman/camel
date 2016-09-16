@@ -273,11 +273,6 @@ argument_list|(
 literal|"doc-api"
 argument_list|)
 operator|.
-name|component
-argument_list|(
-literal|"servlet"
-argument_list|)
-operator|.
 name|bindingMode
 argument_list|(
 name|RestBindingMode
