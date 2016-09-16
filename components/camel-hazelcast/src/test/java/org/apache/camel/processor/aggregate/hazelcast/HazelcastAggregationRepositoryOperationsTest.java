@@ -202,6 +202,13 @@ argument_list|,
 name|theNewestEx
 argument_list|)
 expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"oldEx is null"
+argument_list|,
+name|oldEx
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|newEx
@@ -356,6 +363,13 @@ argument_list|,
 name|theNewestEx
 argument_list|)
 expr_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"oldEx is null"
+argument_list|,
+name|oldEx
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 name|newEx
@@ -432,12 +446,12 @@ try|try
 block|{
 name|repoOne
 operator|.
-name|doStart
+name|start
 argument_list|()
 expr_stmt|;
 name|repoTwo
 operator|.
-name|doStart
+name|start
 argument_list|()
 expr_stmt|;
 specifier|final
@@ -474,6 +488,38 @@ argument_list|,
 name|ex
 argument_list|)
 expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|getFirstInstance
+argument_list|()
+operator|.
+name|getMap
+argument_list|(
+name|THREAD_SAFE_REPO
+argument_list|)
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
+name|assertEquals
+argument_list|(
+literal|1
+argument_list|,
+name|getSecondInstance
+argument_list|()
+operator|.
+name|getMap
+argument_list|(
+name|THREAD_SAFE_REPO
+argument_list|)
+operator|.
+name|size
+argument_list|()
+argument_list|)
+expr_stmt|;
 name|Exchange
 name|gotEx
 init|=
@@ -487,6 +533,13 @@ argument_list|,
 name|key
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"gotEx is null"
+argument_list|,
+name|gotEx
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"ex and gotEx should be equal"
@@ -565,12 +618,12 @@ try|try
 block|{
 name|repoOne
 operator|.
-name|doStart
+name|start
 argument_list|()
 expr_stmt|;
 name|repoTwo
 operator|.
-name|doStart
+name|start
 argument_list|()
 expr_stmt|;
 specifier|final
@@ -618,6 +671,13 @@ argument_list|,
 name|key
 argument_list|)
 decl_stmt|;
+name|assertNotNull
+argument_list|(
+literal|"gotEx is null"
+argument_list|,
+name|gotEx
+argument_list|)
+expr_stmt|;
 name|assertEquals
 argument_list|(
 literal|"ex and gotEx should be equal"
