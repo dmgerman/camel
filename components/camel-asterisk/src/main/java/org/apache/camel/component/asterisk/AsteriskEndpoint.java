@@ -446,7 +446,7 @@ argument_list|)
 throw|;
 block|}
 comment|// validate action value
-name|ActionsEnum
+name|AsteriskActionEnum
 operator|.
 name|valueOf
 argument_list|(
