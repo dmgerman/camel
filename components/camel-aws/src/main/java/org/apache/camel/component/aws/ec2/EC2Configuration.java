@@ -147,6 +147,19 @@ name|amazonEc2Endpoint
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|,
+name|enums
+operator|=
+literal|"createAndRunInstances, startInstances, stopInstances, terminateInstances, "
+operator|+
+literal|"describeInstances, describeInstancesStatus, rebootInstances, monitorInstances, unmonitorInstances, "
+operator|+
+literal|"createTags, deleteTags"
+argument_list|)
 annotation|@
 name|Metadata
 argument_list|(
