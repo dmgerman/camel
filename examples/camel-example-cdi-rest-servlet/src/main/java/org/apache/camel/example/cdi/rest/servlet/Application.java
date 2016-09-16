@@ -121,14 +121,6 @@ name|void
 name|configure
 parameter_list|()
 block|{
-name|restConfiguration
-argument_list|()
-operator|.
-name|component
-argument_list|(
-literal|"servlet"
-argument_list|)
-expr_stmt|;
 name|rest
 argument_list|(
 literal|"/say/"
