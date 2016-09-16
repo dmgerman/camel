@@ -304,7 +304,7 @@ return|return
 name|operation
 return|;
 block|}
-comment|/**      * The operation to perform      */
+comment|/**      * The operation to perform. It can be createAndRunInstances, startInstances, stopInstances, terminateInstances,       * describeInstances, describeInstancesStatus, rebootInstances, monitorInstances, unmonitorInstances,        * createTags or deleteTags      */
 DECL|method|setOperation (EC2Operations operation)
 specifier|public
 name|void
