@@ -341,7 +341,7 @@ return|return
 name|wireType
 return|;
 block|}
-comment|/**      * Description      */
+comment|/**      * The Wire type to use, default to binary wire.      */
 DECL|method|setWireType (String wireType)
 specifier|public
 name|void
@@ -362,7 +362,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Description      */
+comment|/**      * The Wire type to use, default to binary wire.      */
 DECL|method|setWireType (WireType wireType)
 specifier|public
 name|void
@@ -392,7 +392,7 @@ return|return
 name|subscribeMapEvents
 return|;
 block|}
-comment|/**      * Description      */
+comment|/**      * Set if consumer should subscribe to Map events, default true.      */
 DECL|method|setSubscribeMapEvents (boolean subscribeMapEvents)
 specifier|public
 name|void
@@ -420,7 +420,7 @@ return|return
 name|filteredMapEvents
 return|;
 block|}
-comment|/**      * Description      */
+comment|/**      * A comma separated list of Map event type to filer, valid values are: INSERT, UPDATE, REMOVE.      */
 DECL|method|setFilteredMapEvents (String filteredMapEvents)
 specifier|public
 name|void
@@ -441,7 +441,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|/**      * Description      */
+comment|/**      * The list of Map event type to filer, valid values are: INSERT, UPDATE, REMOVE.      */
 DECL|method|setFilteredMapEvents (String[] filteredMapEvents)
 specifier|public
 name|void
@@ -472,7 +472,7 @@ return|return
 name|subscribeTopologicalEvents
 return|;
 block|}
-comment|/**      * Description      */
+comment|/**      * Set if consumer should subscribe to TopologicalEvents,d efault false.      */
 DECL|method|setSubscribeTopologicalEvents (boolean subscribeTopologicalEvents)
 specifier|public
 name|void
@@ -502,7 +502,7 @@ return|return
 name|subscribeTopicEvents
 return|;
 block|}
-comment|/**      * Description      */
+comment|/**      * Set if consumer should subscribe to TopicEvents,d efault false.      */
 DECL|method|setSubscribeTopicEvents (boolean subscribeTopicEvents)
 specifier|public
 name|void
@@ -532,7 +532,7 @@ return|return
 name|action
 return|;
 block|}
-comment|/**      * Description      */
+comment|/**      * The default action to perform, valid values are:      * - PUBLISH      * - PPUBLISH_AND_INDEX      * - PPUT      * - PGET_AND_PUT      * - PPUT_ALL      * - PPUT_IF_ABSENT      * - PGET      * - PGET_AND_REMOVE      * - PREMOVE      * - PIS_EMPTY      * - PSIZE      */
 DECL|method|setAction (String action)
 specifier|public
 name|void
@@ -559,7 +559,7 @@ return|return
 name|persistent
 return|;
 block|}
-comment|/**      * Description      */
+comment|/**      * Enable/disable data persistence      */
 DECL|method|setPersistent (boolean persistent)
 specifier|public
 name|void
