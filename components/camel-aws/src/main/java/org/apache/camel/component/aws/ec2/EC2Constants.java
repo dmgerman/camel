@@ -108,6 +108,12 @@ name|INSTANCES_PLACEMENT
 init|=
 literal|"CamelAwsEC2InstancesPlacement"
 decl_stmt|;
+DECL|field|INSTANCES_TAGS
+name|String
+name|INSTANCES_TAGS
+init|=
+literal|"CamelAwsEC2InstancesTags"
+decl_stmt|;
 block|}
 end_interface
 

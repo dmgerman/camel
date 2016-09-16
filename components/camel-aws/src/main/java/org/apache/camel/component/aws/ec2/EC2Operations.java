@@ -52,6 +52,12 @@ name|monitorInstances
 block|,
 DECL|enumConstant|unmonitorInstances
 name|unmonitorInstances
+block|,
+DECL|enumConstant|createTags
+name|createTags
+block|,
+DECL|enumConstant|deleteTags
+name|deleteTags
 block|}
 end_enum
 
