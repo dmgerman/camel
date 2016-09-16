@@ -279,9 +279,7 @@ name|action
 decl_stmt|;
 switch|switch
 condition|(
-name|AsteriskEndpoint
-operator|.
-name|ActionsEnum
+name|AsteriskActionEnum
 operator|.
 name|valueOf
 argument_list|(

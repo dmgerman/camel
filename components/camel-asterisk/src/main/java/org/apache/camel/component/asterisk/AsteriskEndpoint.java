@@ -302,20 +302,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|enum|ActionsEnum
-specifier|protected
-enum|enum
-name|ActionsEnum
-block|{
-DECL|enumConstant|QUEUE_STATUS
-DECL|enumConstant|SIP_PEERS
-DECL|enumConstant|EXTENSION_STATE
-name|QUEUE_STATUS
-block|,
-name|SIP_PEERS
-block|,
-name|EXTENSION_STATE
-block|;     }
 annotation|@
 name|UriPath
 argument_list|(

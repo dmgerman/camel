@@ -18,61 +18,22 @@ name|asterisk
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|CamelException
-import|;
-end_import
-
-begin_class
-DECL|class|CamelAsteriskException
+begin_enum
+DECL|enum|AsteriskActionEnum
 specifier|public
-class|class
-name|CamelAsteriskException
-extends|extends
-name|CamelException
+enum|enum
+name|AsteriskActionEnum
 block|{
-DECL|field|serialVersionUID
-specifier|private
-specifier|static
-specifier|final
-name|long
-name|serialVersionUID
-init|=
-operator|-
-literal|8873987361491963823L
-decl_stmt|;
-DECL|method|CamelAsteriskException ()
-specifier|public
-name|CamelAsteriskException
-parameter_list|()
-block|{
-name|super
-argument_list|()
-expr_stmt|;
-block|}
-DECL|method|CamelAsteriskException (String message)
-specifier|public
-name|CamelAsteriskException
-parameter_list|(
-name|String
-name|message
-parameter_list|)
-block|{
-name|super
-argument_list|(
-name|message
-argument_list|)
-expr_stmt|;
-block|}
-block|}
-end_class
+DECL|enumConstant|QUEUE_STATUS
+DECL|enumConstant|SIP_PEERS
+DECL|enumConstant|EXTENSION_STATE
+name|QUEUE_STATUS
+block|,
+name|SIP_PEERS
+block|,
+name|EXTENSION_STATE
+block|; }
+end_enum
 
 end_unit
 

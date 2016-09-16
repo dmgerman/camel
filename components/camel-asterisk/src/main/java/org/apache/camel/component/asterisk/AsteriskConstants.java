@@ -52,6 +52,11 @@ name|CONTEXT
 init|=
 literal|"AsteriskContext"
 decl_stmt|;
+DECL|method|AsteriskConstants ()
+specifier|private
+name|AsteriskConstants
+parameter_list|()
+block|{     }
 block|}
 end_class
 
