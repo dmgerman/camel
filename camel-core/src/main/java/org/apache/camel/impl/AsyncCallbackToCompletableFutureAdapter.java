@@ -18,18 +18,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|AsyncCallback
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -40,8 +28,20 @@ name|CompletableFuture
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|AsyncCallback
+import|;
+end_import
+
 begin_comment
-comment|/**  * AsyncCallback that provides a CompletableFuture when async action is done  */
+comment|/**  * AsyncCallback that provides a CompletableFuture completed when async action is done  */
 end_comment
 
 begin_class

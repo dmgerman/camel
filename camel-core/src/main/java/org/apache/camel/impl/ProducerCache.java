@@ -377,7 +377,7 @@ import|;
 end_import
 
 begin_comment
-comment|/**  * Cache containing created {@link Producer}.  *  * @version   */
+comment|/**  * Cache containing created {@link Producer}.  *  * @version  */
 end_comment
 
 begin_class
@@ -1214,20 +1214,8 @@ name|process
 argument_list|(
 name|innerExchange
 argument_list|,
-operator|new
-name|AsyncCallback
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|done
-parameter_list|(
-name|boolean
 name|doneSync
-parameter_list|)
-block|{
+lambda|->
 name|asyncDispatchExchange
 argument_list|(
 name|endpoint
@@ -1240,9 +1228,6 @@ name|finalExchange
 argument_list|,
 name|producerCallback
 argument_list|)
-expr_stmt|;
-block|}
-block|}
 argument_list|)
 expr_stmt|;
 return|return
@@ -1684,19 +1669,8 @@ name|exchange
 argument_list|,
 name|pattern
 argument_list|,
-operator|new
-name|AsyncCallback
-argument_list|()
-block|{
-annotation|@
-name|Override
-specifier|public
-name|void
-name|done
-parameter_list|(
-name|boolean
 name|doneSync
-parameter_list|)
+lambda|->
 block|{
 try|try
 block|{
@@ -1804,7 +1778,6 @@ argument_list|(
 name|doneSync
 argument_list|)
 expr_stmt|;
-block|}
 block|}
 block|}
 argument_list|)

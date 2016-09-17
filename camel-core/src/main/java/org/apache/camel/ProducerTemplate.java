@@ -16,20 +16,6 @@ end_package
 
 begin_import
 import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|spi
-operator|.
-name|Synchronization
-import|;
-end_import
-
-begin_import
-import|import
 name|java
 operator|.
 name|util
@@ -98,6 +84,20 @@ name|TimeoutException
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|spi
+operator|.
+name|Synchronization
+import|;
+end_import
+
 begin_comment
 comment|/**  * Template for working with Camel and sending {@link Message} instances in an  * {@link Exchange} to an {@link Endpoint}.  *<br/>  *<p/><b>Important:</b> Read the javadoc of each method carefully to ensure the behavior of the method is understood.  * Some methods is for<tt>InOnly</tt>, others for<tt>InOut</tt> MEP. And some methods throws  * {@link org.apache.camel.CamelExecutionException} while others stores any thrown exception on the returned  * {@link Exchange}.  *<br/>  *<p/>The {@link ProducerTemplate} is<b>thread safe</b>.  *<br/>  *<p/>All the methods which sends a message may throw {@link FailedToCreateProducerException} in  * case the {@link Producer} could not be created. Or a {@link NoSuchEndpointException} if the endpoint could  * not be resolved. There may be other related exceptions being thrown which occurs<i>before</i> the {@link Producer}  * has started sending the message.  *<br/>  *<p/>All the sendBody or requestBody methods will return the content according to this strategy:  *<ul>  *<li>throws {@link org.apache.camel.CamelExecutionException} if processing failed<i>during</i> routing  *       with the caused exception wrapped</li>  *<li>The<tt>fault.body</tt> if there is a fault message set and its not<tt>null</tt></li>  *<li>Either<tt>IN</tt> or<tt>OUT</tt> body according to the message exchange pattern. If the pattern is  *   Out capable then the<tt>OUT</tt> body is returned, otherwise<tt>IN</tt>.  *</ul>  *<br/>  *<p/>Before using the template it must be started.  * And when you are done using the template, make sure to {@link #stop()} the template.  *<br/>  *<p/><b>Important note on usage:</b> See this  *<a href="http://camel.apache.org/why-does-camel-use-too-many-threads-with-producertemplate.html">FAQ entry</a>  * before using.  *  * @see FluentProducerTemplate  * @see ConsumerTemplate  */
 end_comment
@@ -139,19 +139,19 @@ name|int
 name|getCurrentCacheSize
 parameter_list|()
 function_decl|;
-comment|/**      * Reports if async* methods will dispath processing from the calling thread (true) or through executor (false).      * They will still employ asynchronous engine, so this mode can be useful for high-speed non-blocking processing.      * @return if async* methods will run in the calling thread      */
-DECL|method|isSynchronous ()
+comment|/**      * Reports if async* methods will dispath processing from the calling thread (false) or through executor (true).      * In both cases asynchronous engine will be used, so this non-threaded can be useful for high-speed      * non-blocking processing.      * @return if async* methods will dipatch processing with the executor      */
+DECL|method|isThreadedAsyncMode ()
 name|boolean
-name|isSynchronous
+name|isThreadedAsyncMode
 parameter_list|()
 function_decl|;
-comment|/**      * Reports if async* methods will dispath processing from the calling thread (true) or through executor (false).      * In any case they would still employ asynchronous engine, so setting to true can be useful      * for high-speed non-blocking processing.      * @param synchronous if async* methods will run in the calling thread      */
-DECL|method|setSynchronous (boolean synchronous)
+comment|/**      * Reports if async* methods will dispath processing from the calling thread (false) or through executor (true).      * In both cases asynchronous engine will be used, so this non-threaded can be useful for high-speed      * non-blocking processing.      * @param useExecutor if async* methods will dipatch processing with the executor      */
+DECL|method|setThreadedAsyncMode (boolean useExecutor)
 name|void
-name|setSynchronous
+name|setThreadedAsyncMode
 parameter_list|(
 name|boolean
-name|synchronous
+name|useExecutor
 parameter_list|)
 function_decl|;
 comment|/**      * Get the default endpoint to use if none is specified      *       * @return the default endpoint instance      */

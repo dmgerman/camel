@@ -369,11 +369,13 @@ name|eventNotifierEnabled
 init|=
 literal|true
 decl_stmt|;
-DECL|field|synchronous
+DECL|field|threadedAsyncMode
 specifier|private
 specifier|volatile
 name|boolean
-name|synchronous
+name|threadedAsyncMode
+init|=
+literal|true
 decl_stmt|;
 DECL|method|DefaultProducerTemplate (CamelContext camelContext)
 specifier|public
@@ -500,32 +502,32 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
-DECL|method|isSynchronous ()
+DECL|method|isThreadedAsyncMode ()
 specifier|public
 name|boolean
-name|isSynchronous
+name|isThreadedAsyncMode
 parameter_list|()
 block|{
 return|return
-name|synchronous
+name|threadedAsyncMode
 return|;
 block|}
 annotation|@
 name|Override
-DECL|method|setSynchronous (boolean synchronous)
+DECL|method|setThreadedAsyncMode (boolean useExecutor)
 specifier|public
 name|void
-name|setSynchronous
+name|setThreadedAsyncMode
 parameter_list|(
 name|boolean
-name|synchronous
+name|useExecutor
 parameter_list|)
 block|{
 name|this
 operator|.
-name|synchronous
+name|threadedAsyncMode
 operator|=
-name|synchronous
+name|useExecutor
 expr_stmt|;
 block|}
 DECL|method|getCurrentCacheSize ()
@@ -4687,7 +4689,8 @@ return|;
 block|}
 if|if
 condition|(
-name|synchronous
+operator|!
+name|threadedAsyncMode
 condition|)
 block|{
 name|executor

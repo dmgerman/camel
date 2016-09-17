@@ -86,6 +86,7 @@ end_comment
 
 begin_class
 DECL|class|EventNotifierCallback
+specifier|public
 class|class
 name|EventNotifierCallback
 implements|implements
@@ -181,18 +182,6 @@ name|boolean
 name|doneSync
 parameter_list|)
 block|{
-try|try
-block|{
-name|originalCallback
-operator|.
-name|done
-argument_list|(
-name|doneSync
-argument_list|)
-expr_stmt|;
-block|}
-finally|finally
-block|{
 name|long
 name|timeTaken
 init|=
@@ -217,7 +206,13 @@ argument_list|,
 name|timeTaken
 argument_list|)
 expr_stmt|;
-block|}
+name|originalCallback
+operator|.
+name|done
+argument_list|(
+name|doneSync
+argument_list|)
+expr_stmt|;
 block|}
 block|}
 end_class
