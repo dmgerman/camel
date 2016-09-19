@@ -473,58 +473,6 @@ operator|+
 name|port
 return|;
 block|}
-DECL|method|isLoggingFilterEnabled ()
-specifier|public
-name|Boolean
-name|isLoggingFilterEnabled
-parameter_list|()
-block|{
-return|return
-name|loggingFilterEnabled
-return|;
-block|}
-DECL|method|setLoggingFilter (Boolean loggingFilterEnabled)
-specifier|public
-name|void
-name|setLoggingFilter
-parameter_list|(
-name|Boolean
-name|loggingFilterEnabled
-parameter_list|)
-block|{
-name|this
-operator|.
-name|loggingFilterEnabled
-operator|=
-name|loggingFilterEnabled
-expr_stmt|;
-block|}
-DECL|method|isFollowRedirectFilterEnabled ()
-specifier|public
-name|Boolean
-name|isFollowRedirectFilterEnabled
-parameter_list|()
-block|{
-return|return
-name|followRedirectFilterEnabled
-return|;
-block|}
-DECL|method|setFollowRedirectFilter (Boolean followRedirectFilterEnabled)
-specifier|public
-name|void
-name|setFollowRedirectFilter
-parameter_list|(
-name|Boolean
-name|followRedirectFilterEnabled
-parameter_list|)
-block|{
-name|this
-operator|.
-name|followRedirectFilterEnabled
-operator|=
-name|followRedirectFilterEnabled
-expr_stmt|;
-block|}
 DECL|method|isTlsVerify ()
 specifier|public
 name|Boolean

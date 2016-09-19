@@ -52,6 +52,22 @@ end_import
 
 begin_import
 import|import
+name|com
+operator|.
+name|github
+operator|.
+name|dockerjava
+operator|.
+name|api
+operator|.
+name|exception
+operator|.
+name|DockerClientException
+import|;
+end_import
+
+begin_import
+import|import
 name|org
 operator|.
 name|apache
@@ -90,22 +106,6 @@ name|BooleanUtils
 import|;
 end_import
 
-begin_import
-import|import
-name|com
-operator|.
-name|github
-operator|.
-name|dockerjava
-operator|.
-name|api
-operator|.
-name|exception
-operator|.
-name|DockerClientException
-import|;
-end_import
-
 begin_comment
 comment|/**  * Utility methods for Docker Component  */
 end_comment
@@ -131,7 +131,7 @@ specifier|private
 name|DockerHelper
 parameter_list|()
 block|{
-comment|//Helpser class
+comment|// Helpser class
 block|}
 comment|/**      * Validates the URI parameters for a given {@link DockerOperation}      *      * @param dockerOperation      * @param parameters      */
 DECL|method|validateParameters (DockerOperation dockerOperation, Map<String, Object> parameters)
@@ -349,7 +349,7 @@ throw|;
 block|}
 block|}
 block|}
-comment|/**      * Transforms a Docker Component header value to its' analogous URI parameter      *      * @param name      * @return      */
+comment|/**      * Transforms a Docker Component header value to its' analogous URI      * parameter      *      * @param name      * @return      */
 DECL|method|transformFromHeaderName (String name)
 specifier|public
 specifier|static
@@ -438,7 +438,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Transforms a Docker Component URI parameter to its' analogous header value      *      * @param name      * @return      */
+comment|/**      * Transforms a Docker Component URI parameter to its' analogous header      * value      *      * @param name      * @return      */
 DECL|method|transformToHeaderName (String name)
 specifier|public
 specifier|static
@@ -516,7 +516,7 @@ name|toString
 argument_list|()
 return|;
 block|}
-comment|/**      * Attempts to locate a given property name within a URI parameter or the message header.      * A found value in a message header takes precedence over a URI parameter.      *      * @param name      * @param configuration      * @param message      * @param clazz      * @return      */
+comment|/**      * Attempts to locate a given property name within a URI parameter or the      * message header. A found value in a message header takes precedence over a      * URI parameter.      *      * @param name      * @param configuration      * @param message      * @param clazz      * @return      */
 DECL|method|getProperty (String name, DockerConfiguration configuration, Message message, Class<T> clazz)
 specifier|public
 specifier|static
@@ -557,7 +557,7 @@ literal|null
 argument_list|)
 return|;
 block|}
-comment|/**      * Attempts to locate a given property name within a URI parameter or the message header.      * A found value in a message header takes precedence over a URI parameter. Returns a      * default value if given      *      * @param name      * @param configuration      * @param message      * @param clazz      * @param defaultValue      * @return      */
+comment|/**      * Attempts to locate a given property name within a URI parameter or the      * message header. A found value in a message header takes precedence over a      * URI parameter. Returns a default value if given      *      * @param name      * @param configuration      * @param message      * @param clazz      * @param defaultValue      * @return      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -591,7 +591,8 @@ name|T
 name|defaultValue
 parameter_list|)
 block|{
-comment|// First attempt to locate property from Message Header, then fallback to Endpoint property
+comment|// First attempt to locate property from Message Header, then fallback
+comment|// to Endpoint property
 if|if
 condition|(
 name|message
@@ -739,7 +740,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * Attempts to locate a given property which is an array by name within a URI parameter or the message header.      * A found value in a message header takes precedence over a URI parameter.      *      * @param name      * @param message      * @param clazz      * @return      */
+comment|/**      * Attempts to locate a given property which is an array by name within a      * URI parameter or the message header. A found value in a message header      * takes precedence over a URI parameter.      *      * @param name      * @param message      * @param clazz      * @return      */
 annotation|@
 name|SuppressWarnings
 argument_list|(
@@ -891,7 +892,7 @@ return|return
 literal|null
 return|;
 block|}
-comment|/**      * @param headerName name of the header      * @param message    the Camel message      * @return      */
+comment|/**      * @param headerName name of the header      * @param message the Camel message      * @return      */
 DECL|method|parseDelimitedStringHeader (String headerName, Message message)
 specifier|public
 specifier|static
