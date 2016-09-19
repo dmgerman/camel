@@ -177,6 +177,15 @@ name|DOCKER_LOGGING_FILTER
 init|=
 literal|"CamelDockerLoggingFilter"
 decl_stmt|;
+DECL|field|DOCKER_TLSVERIFY
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DOCKER_TLSVERIFY
+init|=
+literal|"CamelDockerTlsVerify"
+decl_stmt|;
 comment|/**      * List Images *      */
 DECL|field|DOCKER_FILTER
 specifier|public

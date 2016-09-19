@@ -150,6 +150,22 @@ name|Mockito
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|powermock
+operator|.
+name|core
+operator|.
+name|classloader
+operator|.
+name|annotations
+operator|.
+name|PowerMockIgnore
+import|;
+end_import
+
 begin_comment
 comment|/**  * Validates Authentication Request headers are parsed properly  */
 end_comment

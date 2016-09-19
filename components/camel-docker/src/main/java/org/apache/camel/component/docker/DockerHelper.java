@@ -52,20 +52,6 @@ end_import
 
 begin_import
 import|import
-name|com
-operator|.
-name|github
-operator|.
-name|dockerjava
-operator|.
-name|api
-operator|.
-name|DockerClientException
-import|;
-end_import
-
-begin_import
-import|import
 name|org
 operator|.
 name|apache
@@ -101,6 +87,22 @@ operator|.
 name|lang
 operator|.
 name|BooleanUtils
+import|;
+end_import
+
+begin_import
+import|import
+name|com
+operator|.
+name|github
+operator|.
+name|dockerjava
+operator|.
+name|api
+operator|.
+name|exception
+operator|.
+name|DockerClientException
 import|;
 end_import
 

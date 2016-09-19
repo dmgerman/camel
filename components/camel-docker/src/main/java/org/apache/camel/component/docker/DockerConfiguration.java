@@ -281,6 +281,13 @@ specifier|private
 name|boolean
 name|followRedirectFilter
 decl_stmt|;
+annotation|@
+name|UriParam
+DECL|field|tlsVerify
+specifier|private
+name|boolean
+name|tlsVerify
+decl_stmt|;
 DECL|field|parameters
 specifier|private
 name|Map
@@ -713,6 +720,33 @@ operator|.
 name|operation
 operator|=
 name|operation
+expr_stmt|;
+block|}
+DECL|method|isTlsVerify ()
+specifier|public
+name|boolean
+name|isTlsVerify
+parameter_list|()
+block|{
+return|return
+name|tlsVerify
+return|;
+block|}
+comment|/**      * Check TLS       */
+DECL|method|setTlsVerify (boolean tlsVerify)
+specifier|public
+name|void
+name|setTlsVerify
+parameter_list|(
+name|boolean
+name|tlsVerify
+parameter_list|)
+block|{
+name|this
+operator|.
+name|tlsVerify
+operator|=
+name|tlsVerify
 expr_stmt|;
 block|}
 DECL|method|copy ()

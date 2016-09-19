@@ -971,25 +971,7 @@ argument_list|(
 name|attachStdOut
 argument_list|)
 expr_stmt|;
-name|Mockito
-operator|.
-name|verify
-argument_list|(
-name|mockObject
-argument_list|,
-name|Mockito
-operator|.
-name|times
-argument_list|(
-literal|1
-argument_list|)
-argument_list|)
-operator|.
-name|withMemoryLimit
-argument_list|(
-name|memoryLimit
-argument_list|)
-expr_stmt|;
+comment|//        Mockito.verify(mockObject, Mockito.times(1)).withMemoryLimit(memoryLimit);
 name|Mockito
 operator|.
 name|verify

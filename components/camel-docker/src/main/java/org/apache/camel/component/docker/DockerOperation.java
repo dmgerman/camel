@@ -58,6 +58,8 @@ literal|false
 argument_list|,
 literal|true
 argument_list|,
+literal|false
+argument_list|,
 name|DockerConstants
 operator|.
 name|DOCKER_INITIAL_RANGE
@@ -77,6 +79,8 @@ literal|false
 argument_list|,
 literal|true
 argument_list|,
+literal|false
+argument_list|,
 name|DockerConstants
 operator|.
 name|DOCKER_CONTAINER_ID
@@ -95,6 +99,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 name|DockerConstants
 operator|.
@@ -137,6 +143,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 block|,
 DECL|enumConstant|PING
@@ -147,6 +155,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 block|,
 DECL|enumConstant|VERSION
@@ -157,6 +167,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|)
 block|,
 comment|/**      * Images *      */
@@ -166,6 +178,8 @@ argument_list|(
 literal|"imagebuild"
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|,
 literal|true
 argument_list|,
@@ -203,6 +217,8 @@ literal|false
 argument_list|,
 literal|true
 argument_list|,
+literal|false
+argument_list|,
 name|DockerConstants
 operator|.
 name|DOCKER_REPOSITORY
@@ -220,6 +236,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 name|DockerConstants
 operator|.
@@ -255,6 +273,8 @@ literal|false
 argument_list|,
 literal|true
 argument_list|,
+literal|false
+argument_list|,
 name|DockerConstants
 operator|.
 name|DOCKER_FILTER
@@ -278,6 +298,8 @@ argument_list|(
 literal|"imagepull"
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|,
 literal|true
 argument_list|,
@@ -315,6 +337,8 @@ literal|false
 argument_list|,
 literal|true
 argument_list|,
+literal|true
+argument_list|,
 name|DockerConstants
 operator|.
 name|DOCKER_NAME
@@ -340,6 +364,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 name|DockerConstants
 operator|.
@@ -375,6 +401,8 @@ literal|false
 argument_list|,
 literal|true
 argument_list|,
+literal|false
+argument_list|,
 name|DockerConstants
 operator|.
 name|DOCKER_TERM
@@ -392,6 +420,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 name|DockerConstants
 operator|.
@@ -425,6 +455,8 @@ argument_list|(
 literal|"containerattach"
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|,
 literal|true
 argument_list|,
@@ -485,6 +517,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 name|DockerConstants
 operator|.
@@ -680,6 +714,8 @@ literal|false
 argument_list|,
 literal|true
 argument_list|,
+literal|false
+argument_list|,
 name|DockerConstants
 operator|.
 name|DOCKER_CONTAINER_ID
@@ -713,6 +749,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 name|DockerConstants
 operator|.
@@ -924,6 +962,8 @@ literal|false
 argument_list|,
 literal|true
 argument_list|,
+literal|false
+argument_list|,
 name|DockerConstants
 operator|.
 name|DOCKER_CONTAINER_ID
@@ -942,6 +982,8 @@ literal|false
 argument_list|,
 literal|true
 argument_list|,
+literal|false
+argument_list|,
 name|DockerConstants
 operator|.
 name|DOCKER_CONTAINER_ID
@@ -959,6 +1001,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 name|DockerConstants
 operator|.
@@ -985,6 +1029,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 name|DockerConstants
 operator|.
@@ -1033,6 +1079,8 @@ argument_list|(
 literal|"containerlog"
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|,
 literal|true
 argument_list|,
@@ -1102,6 +1150,8 @@ literal|false
 argument_list|,
 literal|true
 argument_list|,
+literal|false
+argument_list|,
 name|DockerConstants
 operator|.
 name|DOCKER_CONTAINER_ID
@@ -1119,6 +1169,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 name|DockerConstants
 operator|.
@@ -1145,6 +1197,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 name|DockerConstants
 operator|.
@@ -1180,6 +1234,8 @@ literal|false
 argument_list|,
 literal|true
 argument_list|,
+literal|false
+argument_list|,
 name|DockerConstants
 operator|.
 name|DOCKER_CONTAINER_ID
@@ -1197,6 +1253,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 name|DockerConstants
 operator|.
@@ -1224,6 +1282,8 @@ literal|false
 argument_list|,
 literal|true
 argument_list|,
+literal|false
+argument_list|,
 name|DockerConstants
 operator|.
 name|DOCKER_CONTAINER_ID
@@ -1250,6 +1310,8 @@ literal|false
 argument_list|,
 literal|true
 argument_list|,
+literal|false
+argument_list|,
 name|DockerConstants
 operator|.
 name|DOCKER_CONTAINER_ID
@@ -1265,6 +1327,8 @@ argument_list|(
 literal|"containerwait"
 argument_list|,
 literal|false
+argument_list|,
+literal|true
 argument_list|,
 literal|true
 argument_list|,
@@ -1286,6 +1350,8 @@ argument_list|,
 literal|false
 argument_list|,
 literal|true
+argument_list|,
+literal|false
 argument_list|,
 name|DockerConstants
 operator|.
@@ -1329,6 +1395,8 @@ literal|false
 argument_list|,
 literal|true
 argument_list|,
+literal|true
+argument_list|,
 name|DockerConstants
 operator|.
 name|DOCKER_DETACH
@@ -1369,6 +1437,11 @@ specifier|private
 name|boolean
 name|canProduce
 decl_stmt|;
+DECL|field|async
+specifier|private
+name|boolean
+name|async
+decl_stmt|;
 DECL|field|parameters
 specifier|private
 name|Map
@@ -1382,7 +1455,7 @@ argument_list|>
 argument_list|>
 name|parameters
 decl_stmt|;
-DECL|method|DockerOperation (String text, boolean canConsume, boolean canProduce, Object... params)
+DECL|method|DockerOperation (String text, boolean canConsume, boolean canProduce, boolean async, Object... params)
 name|DockerOperation
 parameter_list|(
 name|String
@@ -1393,6 +1466,9 @@ name|canConsume
 parameter_list|,
 name|boolean
 name|canProduce
+parameter_list|,
+name|boolean
+name|async
 parameter_list|,
 name|Object
 modifier|...
@@ -1416,6 +1492,12 @@ operator|.
 name|canProduce
 operator|=
 name|canProduce
+expr_stmt|;
+name|this
+operator|.
+name|async
+operator|=
+name|async
 expr_stmt|;
 name|parameters
 operator|=
@@ -1548,6 +1630,16 @@ parameter_list|()
 block|{
 return|return
 name|canProduce
+return|;
+block|}
+DECL|method|isAsync ()
+specifier|public
+name|boolean
+name|isAsync
+parameter_list|()
+block|{
+return|return
+name|async
 return|;
 block|}
 DECL|method|getParameters ()
