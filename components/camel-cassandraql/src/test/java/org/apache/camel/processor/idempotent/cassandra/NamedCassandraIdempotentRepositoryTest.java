@@ -60,6 +60,22 @@ name|component
 operator|.
 name|cassandra
 operator|.
+name|BaseCassandraTest
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|cassandra
+operator|.
 name|CassandraUnitUtils
 import|;
 end_import
@@ -90,27 +106,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|AfterClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Before
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
-name|BeforeClass
 import|;
 end_import
 
@@ -134,42 +130,6 @@ name|Test
 import|;
 end_import
 
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertFalse
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assert
-operator|.
-name|assertTrue
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assume
-operator|.
-name|assumeTrue
-import|;
-end_import
-
 begin_comment
 comment|/**  * Unit test for {@link CassandraIdempotentRepository}  */
 end_comment
@@ -179,6 +139,8 @@ DECL|class|NamedCassandraIdempotentRepositoryTest
 specifier|public
 class|class
 name|NamedCassandraIdempotentRepositoryTest
+extends|extends
+name|BaseCassandraTest
 block|{
 annotation|@
 name|Rule
@@ -213,37 +175,6 @@ argument_list|>
 name|idempotentRepository
 decl_stmt|;
 annotation|@
-name|BeforeClass
-DECL|method|setUpClass ()
-specifier|public
-specifier|static
-name|void
-name|setUpClass
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-name|assumeTrue
-argument_list|(
-literal|"Skipping test running in CI server - Fails sometimes on CI server with address already in use"
-argument_list|,
-name|System
-operator|.
-name|getenv
-argument_list|(
-literal|"BUILD_ID"
-argument_list|)
-operator|==
-literal|null
-argument_list|)
-expr_stmt|;
-name|CassandraUnitUtils
-operator|.
-name|startEmbeddedCassandra
-argument_list|()
-expr_stmt|;
-block|}
-annotation|@
 name|Before
 DECL|method|setUp ()
 specifier|public
@@ -252,6 +183,12 @@ name|setUp
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+if|if
+condition|(
+name|canTest
+argument_list|()
+condition|)
 block|{
 name|cluster
 operator|=
@@ -297,6 +234,7 @@ name|start
 argument_list|()
 expr_stmt|;
 block|}
+block|}
 annotation|@
 name|After
 DECL|method|tearDown ()
@@ -306,6 +244,12 @@ name|tearDown
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+if|if
+condition|(
+name|canTest
+argument_list|()
+condition|)
 block|{
 name|idempotentRepository
 operator|.
@@ -322,33 +266,6 @@ operator|.
 name|close
 argument_list|()
 expr_stmt|;
-block|}
-annotation|@
-name|AfterClass
-DECL|method|tearDownClass ()
-specifier|public
-specifier|static
-name|void
-name|tearDownClass
-parameter_list|()
-throws|throws
-name|Exception
-block|{
-try|try
-block|{
-name|CassandraUnitUtils
-operator|.
-name|cleanEmbeddedCassandra
-argument_list|()
-expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|Throwable
-name|e
-parameter_list|)
-block|{
-comment|// ignore shutdown errors
 block|}
 block|}
 DECL|method|exists (String key)
@@ -386,6 +303,15 @@ name|void
 name|testAddNotExists
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|canTest
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 comment|// Given
 name|String
 name|key
@@ -434,6 +360,15 @@ name|void
 name|testAddExists
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|canTest
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 comment|// Given
 name|String
 name|key
@@ -482,6 +417,15 @@ name|void
 name|testContainsNotExists
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|canTest
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 comment|// Given
 name|String
 name|key
@@ -522,6 +466,15 @@ name|void
 name|testContainsExists
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|canTest
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 comment|// Given
 name|String
 name|key
@@ -562,6 +515,15 @@ name|void
 name|testRemoveNotExists
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|canTest
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 comment|// Given
 name|String
 name|key
@@ -598,6 +560,15 @@ name|void
 name|testRemoveExists
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|canTest
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 comment|// Given
 name|String
 name|key
@@ -638,6 +609,15 @@ name|void
 name|testClear
 parameter_list|()
 block|{
+if|if
+condition|(
+operator|!
+name|canTest
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 comment|// Given
 name|String
 name|key

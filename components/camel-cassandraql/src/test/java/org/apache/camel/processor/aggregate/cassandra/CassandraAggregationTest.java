@@ -144,29 +144,7 @@ name|org
 operator|.
 name|junit
 operator|.
-name|AfterClass
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|junit
-operator|.
 name|Test
-import|;
-end_import
-
-begin_import
-import|import static
-name|org
-operator|.
-name|junit
-operator|.
-name|Assume
-operator|.
-name|assumeTrue
 import|;
 end_import
 
@@ -192,6 +170,25 @@ specifier|private
 name|CassandraAggregationRepository
 name|aggregationRepository
 decl_stmt|;
+DECL|method|canTest ()
+specifier|public
+specifier|static
+name|boolean
+name|canTest
+parameter_list|()
+block|{
+comment|// we cannot test on CI
+return|return
+name|System
+operator|.
+name|getenv
+argument_list|(
+literal|"BUILD_ID"
+argument_list|)
+operator|==
+literal|null
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|doPreSetup ()
@@ -202,20 +199,12 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
-name|assumeTrue
-argument_list|(
-literal|"Skipping test running in CI server - Fails sometimes on CI server with address already in use"
-argument_list|,
-name|System
-operator|.
-name|getenv
-argument_list|(
-literal|"BUILD_ID"
-argument_list|)
-operator|==
-literal|null
-argument_list|)
-expr_stmt|;
+if|if
+condition|(
+name|canTest
+argument_list|()
+condition|)
+block|{
 name|CassandraUnitUtils
 operator|.
 name|startEmbeddedCassandra
@@ -276,6 +265,7 @@ operator|.
 name|start
 argument_list|()
 expr_stmt|;
+block|}
 name|super
 operator|.
 name|doPreSetup
@@ -297,6 +287,12 @@ operator|.
 name|tearDown
 argument_list|()
 expr_stmt|;
+if|if
+condition|(
+name|canTest
+argument_list|()
+condition|)
+block|{
 name|aggregationRepository
 operator|.
 name|stop
@@ -322,6 +318,7 @@ name|e
 parameter_list|)
 block|{
 comment|// ignore shutdown errors
+block|}
 block|}
 block|}
 annotation|@
@@ -506,6 +503,15 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+operator|!
+name|canTest
+argument_list|()
+condition|)
+block|{
+return|return;
+block|}
 comment|// Given
 name|MockEndpoint
 name|mockOutput
