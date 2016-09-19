@@ -130,7 +130,7 @@ begin_class
 annotation|@
 name|Ignore
 argument_list|(
-literal|"CAMEL-10321: Set host, port and oids to test asterisk consumer."
+literal|"CAMEL-10321: Set host, username and password test asterisk consumer."
 argument_list|)
 DECL|class|AsteriskConsumerTest
 specifier|public
