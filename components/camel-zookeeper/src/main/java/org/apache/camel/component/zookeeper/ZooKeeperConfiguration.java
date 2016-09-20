@@ -415,6 +415,7 @@ return|return
 literal|null
 return|;
 block|}
+comment|/**      * The zookeeper server hosts      */
 DECL|method|setServers (List<String> servers)
 specifier|public
 name|void
