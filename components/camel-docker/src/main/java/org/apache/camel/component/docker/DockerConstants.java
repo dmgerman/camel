@@ -186,6 +186,15 @@ name|DOCKER_TLSVERIFY
 init|=
 literal|"CamelDockerTlsVerify"
 decl_stmt|;
+DECL|field|DOCKER_SOCKET_ENABLED
+specifier|public
+specifier|static
+specifier|final
+name|String
+name|DOCKER_SOCKET_ENABLED
+init|=
+literal|"CamelDockerSocketEnabled"
+decl_stmt|;
 comment|/**      * List Images *      */
 DECL|field|DOCKER_FILTER
 specifier|public

@@ -336,8 +336,10 @@ name|Exception
 block|{
 throw|throw
 operator|new
-name|CamelException
-argument_list|()
+name|UnsupportedOperationException
+argument_list|(
+literal|"DockerConsumer is not implemented"
+argument_list|)
 throw|;
 block|}
 annotation|@

@@ -283,10 +283,27 @@ name|followRedirectFilter
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
 DECL|field|tlsVerify
 specifier|private
 name|boolean
 name|tlsVerify
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|defaultValue
+operator|=
+literal|"true"
+argument_list|)
+DECL|field|socket
+specifier|private
+name|boolean
+name|socket
 decl_stmt|;
 DECL|field|parameters
 specifier|private
@@ -747,6 +764,33 @@ operator|.
 name|tlsVerify
 operator|=
 name|tlsVerify
+expr_stmt|;
+block|}
+DECL|method|isSocket ()
+specifier|public
+name|boolean
+name|isSocket
+parameter_list|()
+block|{
+return|return
+name|socket
+return|;
+block|}
+comment|/**      * Socket connection mode      */
+DECL|method|setSocket (boolean socket)
+specifier|public
+name|void
+name|setSocket
+parameter_list|(
+name|boolean
+name|socket
+parameter_list|)
+block|{
+name|this
+operator|.
+name|socket
+operator|=
+name|socket
 expr_stmt|;
 block|}
 DECL|method|copy ()
