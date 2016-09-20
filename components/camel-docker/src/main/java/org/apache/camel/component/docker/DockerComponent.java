@@ -330,7 +330,7 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
-comment|/**      * To use the shared docker configuration. Properties of the shared configuration can also be set individually.      */
+comment|/**      * To use the shared docker configuration      */
 DECL|method|getConfiguration ()
 specifier|protected
 name|DockerConfiguration

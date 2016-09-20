@@ -190,7 +190,6 @@ return|return
 name|addresses
 return|;
 block|}
-comment|/**      * The addresses      */
 DECL|method|setAddresses (String[] addresses)
 specifier|public
 name|void
@@ -218,7 +217,6 @@ return|return
 name|waitTimeMs
 return|;
 block|}
-comment|/**      * The wait time in milliseconds      */
 DECL|method|setWaitTimeMs (int waitTimeMs)
 specifier|public
 name|void
@@ -245,7 +243,6 @@ return|return
 name|concurrentConsumers
 return|;
 block|}
-comment|/**      * The number of concurrent consumers      */
 DECL|method|setConcurrentConsumers (int concurrentConsumers)
 specifier|public
 name|void
