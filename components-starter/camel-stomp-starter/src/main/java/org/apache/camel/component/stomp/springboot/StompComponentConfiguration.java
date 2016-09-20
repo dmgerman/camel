@@ -28,11 +28,11 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
+name|util
 operator|.
-name|stomp
+name|jsse
 operator|.
-name|StompConfiguration
+name|SSLContextParameters
 import|;
 end_import
 
@@ -49,6 +49,22 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|boot
+operator|.
+name|context
+operator|.
+name|properties
+operator|.
+name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -72,7 +88,7 @@ block|{
 comment|/**      * To use the shared stomp configuration      */
 DECL|field|configuration
 specifier|private
-name|StompConfiguration
+name|StompConfigurationNestedConfiguration
 name|configuration
 decl_stmt|;
 comment|/**      * The URI of the Stomp broker to connect to      */
@@ -101,7 +117,7 @@ name|host
 decl_stmt|;
 DECL|method|getConfiguration ()
 specifier|public
-name|StompConfiguration
+name|StompConfigurationNestedConfiguration
 name|getConfiguration
 parameter_list|()
 block|{
@@ -109,12 +125,12 @@ return|return
 name|configuration
 return|;
 block|}
-DECL|method|setConfiguration (StompConfiguration configuration)
+DECL|method|setConfiguration ( StompConfigurationNestedConfiguration configuration)
 specifier|public
 name|void
 name|setConfiguration
 parameter_list|(
-name|StompConfiguration
+name|StompConfigurationNestedConfiguration
 name|configuration
 parameter_list|)
 block|{
@@ -228,6 +244,198 @@ name|host
 operator|=
 name|host
 expr_stmt|;
+block|}
+DECL|class|StompConfigurationNestedConfiguration
+specifier|public
+specifier|static
+class|class
+name|StompConfigurationNestedConfiguration
+block|{
+DECL|field|CAMEL_NESTED_CLASS
+specifier|public
+specifier|static
+specifier|final
+name|Class
+name|CAMEL_NESTED_CLASS
+init|=
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|stomp
+operator|.
+name|StompConfiguration
+operator|.
+name|class
+decl_stmt|;
+comment|/**          * The URI of the Stomp broker to connect to          */
+DECL|field|brokerURL
+specifier|private
+name|String
+name|brokerURL
+init|=
+literal|"tcp://localhost:61613"
+decl_stmt|;
+comment|/**          * The virtual host name          */
+DECL|field|host
+specifier|private
+name|String
+name|host
+decl_stmt|;
+comment|/**          * The username          */
+DECL|field|login
+specifier|private
+name|String
+name|login
+decl_stmt|;
+comment|/**          * The password          */
+DECL|field|passcode
+specifier|private
+name|String
+name|passcode
+decl_stmt|;
+comment|/**          * To configure security using SSLContextParameters          */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|sslContextParameters
+specifier|private
+name|SSLContextParameters
+name|sslContextParameters
+decl_stmt|;
+DECL|method|getBrokerURL ()
+specifier|public
+name|String
+name|getBrokerURL
+parameter_list|()
+block|{
+return|return
+name|brokerURL
+return|;
+block|}
+DECL|method|setBrokerURL (String brokerURL)
+specifier|public
+name|void
+name|setBrokerURL
+parameter_list|(
+name|String
+name|brokerURL
+parameter_list|)
+block|{
+name|this
+operator|.
+name|brokerURL
+operator|=
+name|brokerURL
+expr_stmt|;
+block|}
+DECL|method|getHost ()
+specifier|public
+name|String
+name|getHost
+parameter_list|()
+block|{
+return|return
+name|host
+return|;
+block|}
+DECL|method|setHost (String host)
+specifier|public
+name|void
+name|setHost
+parameter_list|(
+name|String
+name|host
+parameter_list|)
+block|{
+name|this
+operator|.
+name|host
+operator|=
+name|host
+expr_stmt|;
+block|}
+DECL|method|getLogin ()
+specifier|public
+name|String
+name|getLogin
+parameter_list|()
+block|{
+return|return
+name|login
+return|;
+block|}
+DECL|method|setLogin (String login)
+specifier|public
+name|void
+name|setLogin
+parameter_list|(
+name|String
+name|login
+parameter_list|)
+block|{
+name|this
+operator|.
+name|login
+operator|=
+name|login
+expr_stmt|;
+block|}
+DECL|method|getPasscode ()
+specifier|public
+name|String
+name|getPasscode
+parameter_list|()
+block|{
+return|return
+name|passcode
+return|;
+block|}
+DECL|method|setPasscode (String passcode)
+specifier|public
+name|void
+name|setPasscode
+parameter_list|(
+name|String
+name|passcode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|passcode
+operator|=
+name|passcode
+expr_stmt|;
+block|}
+DECL|method|getSslContextParameters ()
+specifier|public
+name|SSLContextParameters
+name|getSslContextParameters
+parameter_list|()
+block|{
+return|return
+name|sslContextParameters
+return|;
+block|}
+DECL|method|setSslContextParameters ( SSLContextParameters sslContextParameters)
+specifier|public
+name|void
+name|setSslContextParameters
+parameter_list|(
+name|SSLContextParameters
+name|sslContextParameters
+parameter_list|)
+block|{
+name|this
+operator|.
+name|sslContextParameters
+operator|=
+name|sslContextParameters
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class

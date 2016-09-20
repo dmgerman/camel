@@ -76,7 +76,7 @@ name|component
 operator|.
 name|ganglia
 operator|.
-name|GangliaConfiguration
+name|GangliaComponent
 import|;
 end_import
 
@@ -113,99 +113,15 @@ specifier|public
 class|class
 name|GangliaComponentConfiguration
 block|{
-comment|/**      * To use the shared configuration. Properties of the shared configuration      * can also be set individually.      */
+comment|/**      * To use the shared configuration      */
 DECL|field|configuration
 specifier|private
-name|GangliaConfiguration
+name|GangliaConfigurationNestedConfiguration
 name|configuration
-decl_stmt|;
-comment|/**      * Host name for Ganglia server      */
-DECL|field|host
-specifier|private
-name|String
-name|host
-decl_stmt|;
-comment|/**      * Port for Ganglia server      */
-DECL|field|port
-specifier|private
-name|Integer
-name|port
-decl_stmt|;
-comment|/**      * Send the UDP metric packets using MULTICAST or UNICAST      */
-DECL|field|mode
-specifier|private
-name|UDPAddressingMode
-name|mode
-decl_stmt|;
-comment|/**      * If using multicast set the TTL of the packets      */
-DECL|field|ttl
-specifier|private
-name|Integer
-name|ttl
-decl_stmt|;
-comment|/**      * Use the wire format of Ganglia 3.1.0 and later versions. Set this to      * false to use Ganglia 3.0.x or earlier.      */
-DECL|field|wireFormat31x
-specifier|private
-name|Boolean
-name|wireFormat31x
-decl_stmt|;
-comment|/**      * Spoofing information IP:hostname      */
-DECL|field|spoofHostname
-specifier|private
-name|String
-name|spoofHostname
-decl_stmt|;
-comment|/**      * The group that the metric belongs to.      */
-DECL|field|groupName
-specifier|private
-name|String
-name|groupName
-decl_stmt|;
-comment|/**      * Prefix the metric name with this string and an underscore.      */
-DECL|field|prefix
-specifier|private
-name|String
-name|prefix
-decl_stmt|;
-comment|/**      * The name to use for the metric.      */
-DECL|field|metricName
-specifier|private
-name|String
-name|metricName
-decl_stmt|;
-comment|/**      * The type of value      */
-DECL|field|type
-specifier|private
-name|GMetricType
-name|type
-decl_stmt|;
-comment|/**      * The slope      */
-DECL|field|slope
-specifier|private
-name|GMetricSlope
-name|slope
-decl_stmt|;
-comment|/**      * Any unit of measurement that qualifies the metric e.g. widgets litres      * bytes. Do not include a prefix such as k (kilo) or m (milli) other tools      * may scale the units later. The value should be unscaled.      */
-DECL|field|units
-specifier|private
-name|String
-name|units
-decl_stmt|;
-comment|/**      * Maximum time in seconds that the value can be considered current. After      * this Ganglia considers the value to have expired.      */
-DECL|field|tmax
-specifier|private
-name|Integer
-name|tmax
-decl_stmt|;
-comment|/**      * Minumum time in seconds before Ganglia will purge the metric value if it      * expires. Set to 0 and the value will remain in Ganglia indefinitely until      * a gmond agent restart.      */
-DECL|field|dmax
-specifier|private
-name|Integer
-name|dmax
 decl_stmt|;
 DECL|method|getConfiguration ()
 specifier|public
-name|GangliaConfiguration
+name|GangliaConfigurationNestedConfiguration
 name|getConfiguration
 parameter_list|()
 block|{
@@ -213,12 +129,12 @@ return|return
 name|configuration
 return|;
 block|}
-DECL|method|setConfiguration (GangliaConfiguration configuration)
+DECL|method|setConfiguration ( GangliaConfigurationNestedConfiguration configuration)
 specifier|public
 name|void
 name|setConfiguration
 parameter_list|(
-name|GangliaConfiguration
+name|GangliaConfigurationNestedConfiguration
 name|configuration
 parameter_list|)
 block|{
@@ -229,6 +145,135 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+DECL|class|GangliaConfigurationNestedConfiguration
+specifier|public
+specifier|static
+class|class
+name|GangliaConfigurationNestedConfiguration
+block|{
+DECL|field|CAMEL_NESTED_CLASS
+specifier|public
+specifier|static
+specifier|final
+name|Class
+name|CAMEL_NESTED_CLASS
+init|=
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|ganglia
+operator|.
+name|GangliaConfiguration
+operator|.
+name|class
+decl_stmt|;
+comment|/**          * Host name for Ganglia server          */
+DECL|field|host
+specifier|private
+name|String
+name|host
+init|=
+literal|"DEFAULT_DESTINATION"
+decl_stmt|;
+comment|/**          * Port for Ganglia server          */
+DECL|field|port
+specifier|private
+name|Integer
+name|port
+decl_stmt|;
+comment|/**          * Send the UDP metric packets using MULTICAST or UNICAST          */
+DECL|field|mode
+specifier|private
+name|UDPAddressingMode
+name|mode
+init|=
+name|UDPAddressingMode
+operator|.
+name|MULTICAST
+decl_stmt|;
+comment|/**          * If using multicast, set the TTL of the packets          */
+DECL|field|ttl
+specifier|private
+name|Integer
+name|ttl
+decl_stmt|;
+comment|/**          * Use the wire format of Ganglia 3.1.0 and later versions. Set this to          * false to use Ganglia 3.0.x or earlier.          */
+DECL|field|wireFormat31x
+specifier|private
+name|Boolean
+name|wireFormat31x
+decl_stmt|;
+comment|/**          * Spoofing information IP:hostname          */
+DECL|field|spoofHostname
+specifier|private
+name|String
+name|spoofHostname
+decl_stmt|;
+comment|/**          * The group that the metric belongs to.          */
+DECL|field|groupName
+specifier|private
+name|String
+name|groupName
+init|=
+literal|"java"
+decl_stmt|;
+comment|/**          * Prefix the metric name with this string and an underscore.          */
+DECL|field|prefix
+specifier|private
+name|String
+name|prefix
+decl_stmt|;
+comment|/**          * The name to use for the metric.          */
+DECL|field|metricName
+specifier|private
+name|String
+name|metricName
+init|=
+literal|"metric"
+decl_stmt|;
+comment|/**          * The type of value          */
+DECL|field|type
+specifier|private
+name|GMetricType
+name|type
+init|=
+name|GMetricType
+operator|.
+name|STRING
+decl_stmt|;
+comment|/**          * The slope          */
+DECL|field|slope
+specifier|private
+name|GMetricSlope
+name|slope
+init|=
+name|GMetricSlope
+operator|.
+name|BOTH
+decl_stmt|;
+comment|/**          * Any unit of measurement that qualifies the metric, e.g. widgets,          * litres, bytes. Do not include a prefix such as k (kilo) or m (milli),          * other tools may scale the units later. The value should be unscaled.          */
+DECL|field|units
+specifier|private
+name|String
+name|units
+decl_stmt|;
+comment|/**          * Maximum time in seconds that the value can be considered current.          * After this, Ganglia considers the value to have expired.          */
+DECL|field|tmax
+specifier|private
+name|Integer
+name|tmax
+decl_stmt|;
+comment|/**          * Minumum time in seconds before Ganglia will purge the metric value if          * it expires. Set to 0 and the value will remain in Ganglia          * indefinitely until a gmond agent restart.          */
+DECL|field|dmax
+specifier|private
+name|Integer
+name|dmax
+decl_stmt|;
 DECL|method|getHost ()
 specifier|public
 name|String
@@ -592,6 +637,7 @@ name|dmax
 operator|=
 name|dmax
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

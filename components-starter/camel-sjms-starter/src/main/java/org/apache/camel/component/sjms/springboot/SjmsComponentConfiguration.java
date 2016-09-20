@@ -126,24 +126,6 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|component
-operator|.
-name|sjms
-operator|.
-name|taskmanager
-operator|.
-name|TimedTaskManager
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
 name|spi
 operator|.
 name|HeaderFilterStrategy
@@ -163,6 +145,22 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|boot
+operator|.
+name|context
+operator|.
+name|properties
+operator|.
+name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -190,12 +188,16 @@ name|ConnectionFactory
 name|connectionFactory
 decl_stmt|;
 comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel      * message.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
 decl_stmt|;
 comment|/**      * A ConnectionResource is an interface that allows for customization and      * container control of the ConnectionFactory. See Plugable Connection      * Resource Management for further details.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|connectionResource
 specifier|private
 name|ConnectionResource
@@ -208,18 +210,24 @@ name|Integer
 name|connectionCount
 decl_stmt|;
 comment|/**      * Pluggable strategy for encoding and decoding JMS keys so they can be      * compliant with the JMS specification. Camel provides one implementation      * out of the box: default. The default strategy will safely marshal dots      * and hyphens (. and -). Can be used for JMS brokers which do not care      * whether JMS header keys contain illegal characters. You can provide your      * own implementation of the      * org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it using      * the notation.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|jmsKeyFormatStrategy
 specifier|private
 name|JmsKeyFormatStrategy
 name|jmsKeyFormatStrategy
 decl_stmt|;
 comment|/**      * To configure which kind of commit strategy to use. Camel provides two      * implementations out of the box default and batch.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|transactionCommitStrategy
 specifier|private
 name|TransactionCommitStrategy
 name|transactionCommitStrategy
 decl_stmt|;
 comment|/**      * To use a custom DestinationCreationStrategy.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|destinationCreationStrategy
 specifier|private
 name|DestinationCreationStrategy
@@ -228,10 +236,12 @@ decl_stmt|;
 comment|/**      * To use a custom TimedTaskManager      */
 DECL|field|timedTaskManager
 specifier|private
-name|TimedTaskManager
+name|TimedTaskManagerNestedConfiguration
 name|timedTaskManager
 decl_stmt|;
 comment|/**      * To use the given MessageCreatedStrategy which are invoked when Camel      * creates new instances of javax.jms.Message objects when Camel is sending      * a JMS message.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|messageCreatedStrategy
 specifier|private
 name|MessageCreatedStrategy
@@ -421,7 +431,7 @@ expr_stmt|;
 block|}
 DECL|method|getTimedTaskManager ()
 specifier|public
-name|TimedTaskManager
+name|TimedTaskManagerNestedConfiguration
 name|getTimedTaskManager
 parameter_list|()
 block|{
@@ -429,12 +439,12 @@ return|return
 name|timedTaskManager
 return|;
 block|}
-DECL|method|setTimedTaskManager (TimedTaskManager timedTaskManager)
+DECL|method|setTimedTaskManager ( TimedTaskManagerNestedConfiguration timedTaskManager)
 specifier|public
 name|void
 name|setTimedTaskManager
 parameter_list|(
-name|TimedTaskManager
+name|TimedTaskManagerNestedConfiguration
 name|timedTaskManager
 parameter_list|)
 block|{
@@ -470,6 +480,36 @@ name|messageCreatedStrategy
 operator|=
 name|messageCreatedStrategy
 expr_stmt|;
+block|}
+DECL|class|TimedTaskManagerNestedConfiguration
+specifier|public
+specifier|static
+class|class
+name|TimedTaskManagerNestedConfiguration
+block|{
+DECL|field|CAMEL_NESTED_CLASS
+specifier|public
+specifier|static
+specifier|final
+name|Class
+name|CAMEL_NESTED_CLASS
+init|=
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|sjms
+operator|.
+name|taskmanager
+operator|.
+name|TimedTaskManager
+operator|.
+name|class
+decl_stmt|;
 block|}
 block|}
 end_class

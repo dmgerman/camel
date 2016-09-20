@@ -64,6 +64,22 @@ end_import
 
 begin_import
 import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|boot
+operator|.
+name|context
+operator|.
+name|properties
+operator|.
+name|NestedConfigurationProperty
+import|;
+end_import
+
+begin_import
+import|import
 name|quickfix
 operator|.
 name|LogFactory
@@ -104,18 +120,24 @@ class|class
 name|QuickfixjComponentConfiguration
 block|{
 comment|/**      * To use the given MessageFactory      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|messageFactory
 specifier|private
 name|MessageFactory
 name|messageFactory
 decl_stmt|;
 comment|/**      * To use the given LogFactory      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|logFactory
 specifier|private
 name|LogFactory
 name|logFactory
 decl_stmt|;
 comment|/**      * To use the given MessageStoreFactory      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|messageStoreFactory
 specifier|private
 name|MessageStoreFactory

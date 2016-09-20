@@ -52,6 +52,22 @@ name|org
 operator|.
 name|springframework
 operator|.
+name|boot
+operator|.
+name|context
+operator|.
+name|properties
+operator|.
+name|NestedConfigurationProperty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
 name|transaction
 operator|.
 name|PlatformTransactionManager
@@ -82,6 +98,8 @@ name|EntityManagerFactory
 name|entityManagerFactory
 decl_stmt|;
 comment|/**      * To use the PlatformTransactionManager for managing transactions.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|transactionManager
 specifier|private
 name|PlatformTransactionManager

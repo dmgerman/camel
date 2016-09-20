@@ -200,6 +200,22 @@ name|org
 operator|.
 name|springframework
 operator|.
+name|boot
+operator|.
+name|context
+operator|.
+name|properties
+operator|.
+name|NestedConfigurationProperty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
 name|context
 operator|.
 name|ApplicationContext
@@ -308,6 +324,8 @@ class|class
 name|AMQPComponentConfiguration
 block|{
 comment|/**      * To use a shared JMS configuration      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|configuration
 specifier|private
 name|JmsConfiguration
@@ -428,6 +446,8 @@ name|ExceptionListener
 name|exceptionListener
 decl_stmt|;
 comment|/**      * Specifies a org.springframework.util.ErrorHandler to be invoked in case      * of any uncaught exceptions thrown while processing a Message. By default      * these exceptions will be logged at the WARN level if no errorHandler has      * been configured. You can configure logging level and whether stack traces      * should be logged using errorHandlerLoggingLevel and      * errorHandlerLogStackTrace options. This makes it much easier to configure      * than having to code a custom errorHandler.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|errorHandler
 specifier|private
 name|ErrorHandler
@@ -494,6 +514,8 @@ name|Integer
 name|maxMessagesPerTask
 decl_stmt|;
 comment|/**      * To use a custom Spring      * org.springframework.jms.support.converter.MessageConverter so you can be      * in control how to map to/from a javax.jms.Message.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|messageConverter
 specifier|private
 name|MessageConverter
@@ -544,13 +566,13 @@ decl_stmt|;
 comment|/**      * The timeout for receiving messages (in milliseconds).      */
 DECL|field|receiveTimeout
 specifier|private
-name|long
+name|Long
 name|receiveTimeout
 decl_stmt|;
 comment|/**      * Specifies the interval between recovery attempts i.e. when a connection      * is being refreshed in milliseconds. The default is 5000 ms that is 5      * seconds.      */
 DECL|field|recoveryInterval
 specifier|private
-name|long
+name|Long
 name|recoveryInterval
 decl_stmt|;
 comment|/**      * Deprecated: Enabled by default if you specify a durableSubscriptionName      * and a clientId.      */
@@ -562,6 +584,8 @@ name|Boolean
 name|subscriptionDurable
 decl_stmt|;
 comment|/**      * Allows you to specify a custom task executor for consuming messages.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|taskExecutor
 specifier|private
 name|TaskExecutor
@@ -570,7 +594,7 @@ decl_stmt|;
 comment|/**      * When sending messages specifies the time-to-live of the message (in      * milliseconds).      */
 DECL|field|timeToLive
 specifier|private
-name|long
+name|Long
 name|timeToLive
 decl_stmt|;
 comment|/**      * Specifies whether to use transacted mode      */
@@ -586,6 +610,8 @@ name|Boolean
 name|lazyCreateTransactionManager
 decl_stmt|;
 comment|/**      * The Spring transaction manager to use.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|transactionManager
 specifier|private
 name|PlatformTransactionManager
@@ -630,13 +656,13 @@ decl_stmt|;
 comment|/**      * The timeout for waiting for a reply when using the InOut Exchange Pattern      * (in milliseconds). The default is 20 seconds. You can include the header      * CamelJmsRequestTimeout to override this endpoint configured timeout value      * and thus have per message individual timeout values. See also the      * requestTimeoutCheckerInterval option.      */
 DECL|field|requestTimeout
 specifier|private
-name|long
+name|Long
 name|requestTimeout
 decl_stmt|;
 comment|/**      * Configures how often Camel should check for timed out Exchanges when      * doing request/reply over JMS. By default Camel checks once per second.      * But if you must react faster when a timeout occurs then you can lower      * this interval to check more frequently. The timeout is determined by the      * option requestTimeout.      */
 DECL|field|requestTimeoutCheckerInterval
 specifier|private
-name|long
+name|Long
 name|requestTimeoutCheckerInterval
 decl_stmt|;
 comment|/**      * You can transfer the exchange over the wire instead of just the body and      * headers. The following fields are transferred: In body Out body Fault      * body In headers Out headers Fault headers exchange properties exchange      * exception. This requires that the objects are serializable. Camel will      * exclude any non-serializable objects and log it at WARN level. You must      * enable this option on both the producer and consumer side so Camel knows      * the payloads is an Exchange and not a regular payload.      */
@@ -658,12 +684,16 @@ name|Boolean
 name|transferFault
 decl_stmt|;
 comment|/**      * Allows you to use your own implementation of the      * org.springframework.jms.core.JmsOperations interface. Camel uses      * JmsTemplate as default. Can be used for testing purpose but not used much      * as stated in the spring API docs.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|jmsOperations
 specifier|private
 name|JmsOperations
 name|jmsOperations
 decl_stmt|;
 comment|/**      * A pluggable      * org.springframework.jms.support.destination.DestinationResolver that      * allows you to use your own resolver (for example to lookup the real      * destination in a JNDI registry).      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|destinationResolver
 specifier|private
 name|DestinationResolver
@@ -712,30 +742,40 @@ name|DefaultTaskExecutorType
 name|defaultTaskExecutorType
 decl_stmt|;
 comment|/**      * Pluggable strategy for encoding and decoding JMS keys so they can be      * compliant with the JMS specification. Camel provides two implementations      * out of the box: default and passthrough. The default strategy will safely      * marshal dots and hyphens (. and -). The passthrough strategy leaves the      * key as is. Can be used for JMS brokers which do not care whether JMS      * header keys contain illegal characters. You can provide your own      * implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy      * and refer to it using the notation.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|jmsKeyFormatStrategy
 specifier|private
 name|JmsKeyFormatStrategy
 name|jmsKeyFormatStrategy
 decl_stmt|;
 comment|/**      * Sets the Spring ApplicationContext to use      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|applicationContext
 specifier|private
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
 comment|/**      * To use a custom QueueBrowseStrategy when browsing queues      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|queueBrowseStrategy
 specifier|private
 name|QueueBrowseStrategy
 name|queueBrowseStrategy
 decl_stmt|;
 comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel      * message.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
 decl_stmt|;
 comment|/**      * To use the given MessageCreatedStrategy which are invoked when Camel      * creates new instances of javax.jms.Message objects when Camel is sending      * a JMS message.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|messageCreatedStrategy
 specifier|private
 name|MessageCreatedStrategy
@@ -750,7 +790,7 @@ decl_stmt|;
 comment|/**      * Interval in millis to sleep each time while waiting for provisional      * correlation id to be updated.      */
 DECL|field|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 specifier|private
-name|long
+name|Long
 name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 decl_stmt|;
 DECL|method|getConfiguration ()
@@ -1769,7 +1809,7 @@ expr_stmt|;
 block|}
 DECL|method|getReceiveTimeout ()
 specifier|public
-name|long
+name|Long
 name|getReceiveTimeout
 parameter_list|()
 block|{
@@ -1777,12 +1817,12 @@ return|return
 name|receiveTimeout
 return|;
 block|}
-DECL|method|setReceiveTimeout (long receiveTimeout)
+DECL|method|setReceiveTimeout (Long receiveTimeout)
 specifier|public
 name|void
 name|setReceiveTimeout
 parameter_list|(
-name|long
+name|Long
 name|receiveTimeout
 parameter_list|)
 block|{
@@ -1795,7 +1835,7 @@ expr_stmt|;
 block|}
 DECL|method|getRecoveryInterval ()
 specifier|public
-name|long
+name|Long
 name|getRecoveryInterval
 parameter_list|()
 block|{
@@ -1803,12 +1843,12 @@ return|return
 name|recoveryInterval
 return|;
 block|}
-DECL|method|setRecoveryInterval (long recoveryInterval)
+DECL|method|setRecoveryInterval (Long recoveryInterval)
 specifier|public
 name|void
 name|setRecoveryInterval
 parameter_list|(
-name|long
+name|Long
 name|recoveryInterval
 parameter_list|)
 block|{
@@ -1879,7 +1919,7 @@ expr_stmt|;
 block|}
 DECL|method|getTimeToLive ()
 specifier|public
-name|long
+name|Long
 name|getTimeToLive
 parameter_list|()
 block|{
@@ -1887,12 +1927,12 @@ return|return
 name|timeToLive
 return|;
 block|}
-DECL|method|setTimeToLive (long timeToLive)
+DECL|method|setTimeToLive (Long timeToLive)
 specifier|public
 name|void
 name|setTimeToLive
 parameter_list|(
-name|long
+name|Long
 name|timeToLive
 parameter_list|)
 block|{
@@ -2139,7 +2179,7 @@ expr_stmt|;
 block|}
 DECL|method|getRequestTimeout ()
 specifier|public
-name|long
+name|Long
 name|getRequestTimeout
 parameter_list|()
 block|{
@@ -2147,12 +2187,12 @@ return|return
 name|requestTimeout
 return|;
 block|}
-DECL|method|setRequestTimeout (long requestTimeout)
+DECL|method|setRequestTimeout (Long requestTimeout)
 specifier|public
 name|void
 name|setRequestTimeout
 parameter_list|(
-name|long
+name|Long
 name|requestTimeout
 parameter_list|)
 block|{
@@ -2165,7 +2205,7 @@ expr_stmt|;
 block|}
 DECL|method|getRequestTimeoutCheckerInterval ()
 specifier|public
-name|long
+name|Long
 name|getRequestTimeoutCheckerInterval
 parameter_list|()
 block|{
@@ -2173,12 +2213,12 @@ return|return
 name|requestTimeoutCheckerInterval
 return|;
 block|}
-DECL|method|setRequestTimeoutCheckerInterval ( long requestTimeoutCheckerInterval)
+DECL|method|setRequestTimeoutCheckerInterval ( Long requestTimeoutCheckerInterval)
 specifier|public
 name|void
 name|setRequestTimeoutCheckerInterval
 parameter_list|(
-name|long
+name|Long
 name|requestTimeoutCheckerInterval
 parameter_list|)
 block|{
@@ -2659,7 +2699,7 @@ expr_stmt|;
 block|}
 DECL|method|getWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime ()
 specifier|public
-name|long
+name|Long
 name|getWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 parameter_list|()
 block|{
@@ -2667,12 +2707,12 @@ return|return
 name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 return|;
 block|}
-DECL|method|setWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime ( long waitForProvisionCorrelationToBeUpdatedThreadSleepingTime)
+DECL|method|setWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime ( Long waitForProvisionCorrelationToBeUpdatedThreadSleepingTime)
 specifier|public
 name|void
 name|setWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 parameter_list|(
-name|long
+name|Long
 name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 parameter_list|)
 block|{

@@ -62,7 +62,7 @@ decl_stmt|;
 comment|/**      * The timeout value to use if block is enabled.      */
 DECL|field|timeout
 specifier|private
-name|long
+name|Long
 name|timeout
 init|=
 literal|30000
@@ -95,7 +95,7 @@ expr_stmt|;
 block|}
 DECL|method|getTimeout ()
 specifier|public
-name|long
+name|Long
 name|getTimeout
 parameter_list|()
 block|{
@@ -103,12 +103,12 @@ return|return
 name|timeout
 return|;
 block|}
-DECL|method|setTimeout (long timeout)
+DECL|method|setTimeout (Long timeout)
 specifier|public
 name|void
 name|setTimeout
 parameter_list|(
-name|long
+name|Long
 name|timeout
 parameter_list|)
 block|{

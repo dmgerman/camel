@@ -34,15 +34,15 @@ begin_import
 import|import
 name|org
 operator|.
-name|apache
+name|springframework
 operator|.
-name|camel
+name|boot
 operator|.
-name|component
+name|context
 operator|.
-name|zookeeper
+name|properties
 operator|.
-name|ZooKeeperConfiguration
+name|ConfigurationProperties
 import|;
 end_import
 
@@ -58,7 +58,7 @@ name|context
 operator|.
 name|properties
 operator|.
-name|ConfigurationProperties
+name|DeprecatedConfigurationProperty
 import|;
 end_import
 
@@ -79,72 +79,15 @@ specifier|public
 class|class
 name|ZooKeeperComponentConfiguration
 block|{
-comment|/**      * To use a shared ZooKeeperConfiguration. Properties of the shared      * configuration can also be set individually.      */
+comment|/**      * To use a shared ZooKeeperConfiguration      */
 DECL|field|configuration
 specifier|private
-name|ZooKeeperConfiguration
+name|ZooKeeperConfigurationNestedConfiguration
 name|configuration
-decl_stmt|;
-comment|/**      * The zookeeper server hosts      */
-DECL|field|servers
-specifier|private
-name|List
-argument_list|<
-name|String
-argument_list|>
-name|servers
-decl_stmt|;
-comment|/**      * The time interval to wait on connection before timing out.      */
-DECL|field|timeout
-specifier|private
-name|Integer
-name|timeout
-decl_stmt|;
-comment|/**      * Whether the children of the node should be listed      */
-DECL|field|listChildren
-specifier|private
-name|Boolean
-name|listChildren
-decl_stmt|;
-comment|/**      * The node in the ZooKeeper server (aka znode)      */
-DECL|field|path
-specifier|private
-name|String
-name|path
-decl_stmt|;
-comment|/**      * Should changes to the znode be 'watched' and repeatedly processed.      */
-DECL|field|repeat
-specifier|private
-name|Boolean
-name|repeat
-decl_stmt|;
-comment|/**      * The time interval to backoff for after an error before retrying.      */
-DECL|field|backoff
-specifier|private
-name|long
-name|backoff
-decl_stmt|;
-comment|/**      * Should the endpoint create the node if it does not currently exist.      */
-DECL|field|create
-specifier|private
-name|Boolean
-name|create
-decl_stmt|;
-comment|/**      * The create mode that should be used for the newly created node      */
-DECL|field|createMode
-specifier|private
-name|String
-name|createMode
-decl_stmt|;
-comment|/**      * Upon the delete of a znode should an empty message be send to the      * consumer      */
-DECL|field|sendEmptyMessageOnDelete
-specifier|private
-name|Boolean
-name|sendEmptyMessageOnDelete
 decl_stmt|;
 DECL|method|getConfiguration ()
 specifier|public
-name|ZooKeeperConfiguration
+name|ZooKeeperConfigurationNestedConfiguration
 name|getConfiguration
 parameter_list|()
 block|{
@@ -152,12 +95,12 @@ return|return
 name|configuration
 return|;
 block|}
-DECL|method|setConfiguration (ZooKeeperConfiguration configuration)
+DECL|method|setConfiguration ( ZooKeeperConfigurationNestedConfiguration configuration)
 specifier|public
 name|void
 name|setConfiguration
 parameter_list|(
-name|ZooKeeperConfiguration
+name|ZooKeeperConfigurationNestedConfiguration
 name|configuration
 parameter_list|)
 block|{
@@ -168,12 +111,100 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+DECL|class|ZooKeeperConfigurationNestedConfiguration
+specifier|public
+specifier|static
+class|class
+name|ZooKeeperConfigurationNestedConfiguration
+block|{
+DECL|field|CAMEL_NESTED_CLASS
+specifier|public
+specifier|static
+specifier|final
+name|Class
+name|CAMEL_NESTED_CLASS
+init|=
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|zookeeper
+operator|.
+name|ZooKeeperConfiguration
+operator|.
+name|class
+decl_stmt|;
+comment|/**          * The zookeeper server hosts          */
+DECL|field|servers
+specifier|private
+name|List
+name|servers
+decl_stmt|;
+comment|/**          * The time interval to wait on connection before timing out.          */
+DECL|field|timeout
+specifier|private
+name|Integer
+name|timeout
+decl_stmt|;
+comment|/**          * Whether the children of the node should be listed          */
+DECL|field|listChildren
+specifier|private
+name|Boolean
+name|listChildren
+decl_stmt|;
+comment|/**          * The node in the ZooKeeper server (aka znode)          */
+DECL|field|path
+specifier|private
+name|String
+name|path
+decl_stmt|;
+comment|/**          * Should changes to the znode be 'watched' and repeatedly processed.          */
+DECL|field|repeat
+specifier|private
+name|Boolean
+name|repeat
+decl_stmt|;
+comment|/**          * Not in use          *           * @deprecated The usage of this option has no effect at all.          */
+annotation|@
+name|Deprecated
+DECL|field|awaitExistence
+specifier|private
+name|Boolean
+name|awaitExistence
+decl_stmt|;
+comment|/**          * The time interval to backoff for after an error before retrying.          */
+DECL|field|backoff
+specifier|private
+name|Long
+name|backoff
+decl_stmt|;
+comment|/**          * Should the endpoint create the node if it does not currently exist.          */
+DECL|field|create
+specifier|private
+name|Boolean
+name|create
+decl_stmt|;
+comment|/**          * The create mode that should be used for the newly created node          */
+DECL|field|createMode
+specifier|private
+name|String
+name|createMode
+init|=
+literal|"EPHEMERAL"
+decl_stmt|;
+comment|/**          * Upon the delete of a znode, should an empty message be send to the          * consumer          */
+DECL|field|sendEmptyMessageOnDelete
+specifier|private
+name|Boolean
+name|sendEmptyMessageOnDelete
+decl_stmt|;
 DECL|method|getServers ()
 specifier|public
 name|List
-argument_list|<
-name|String
-argument_list|>
 name|getServers
 parameter_list|()
 block|{
@@ -181,15 +212,12 @@ return|return
 name|servers
 return|;
 block|}
-DECL|method|setServers (List<String> servers)
+DECL|method|setServers (List servers)
 specifier|public
 name|void
 name|setServers
 parameter_list|(
 name|List
-argument_list|<
-name|String
-argument_list|>
 name|servers
 parameter_list|)
 block|{
@@ -304,9 +332,41 @@ operator|=
 name|repeat
 expr_stmt|;
 block|}
+annotation|@
+name|Deprecated
+annotation|@
+name|DeprecatedConfigurationProperty
+DECL|method|getAwaitExistence ()
+specifier|public
+name|Boolean
+name|getAwaitExistence
+parameter_list|()
+block|{
+return|return
+name|awaitExistence
+return|;
+block|}
+annotation|@
+name|Deprecated
+DECL|method|setAwaitExistence (Boolean awaitExistence)
+specifier|public
+name|void
+name|setAwaitExistence
+parameter_list|(
+name|Boolean
+name|awaitExistence
+parameter_list|)
+block|{
+name|this
+operator|.
+name|awaitExistence
+operator|=
+name|awaitExistence
+expr_stmt|;
+block|}
 DECL|method|getBackoff ()
 specifier|public
-name|long
+name|Long
 name|getBackoff
 parameter_list|()
 block|{
@@ -314,12 +374,12 @@ return|return
 name|backoff
 return|;
 block|}
-DECL|method|setBackoff (long backoff)
+DECL|method|setBackoff (Long backoff)
 specifier|public
 name|void
 name|setBackoff
 parameter_list|(
-name|long
+name|Long
 name|backoff
 parameter_list|)
 block|{
@@ -407,6 +467,7 @@ name|sendEmptyMessageOnDelete
 operator|=
 name|sendEmptyMessageOnDelete
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

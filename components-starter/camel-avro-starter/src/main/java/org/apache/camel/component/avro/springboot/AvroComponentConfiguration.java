@@ -44,7 +44,7 @@ name|component
 operator|.
 name|avro
 operator|.
-name|AvroConfiguration
+name|AvroTransport
 import|;
 end_import
 
@@ -61,6 +61,22 @@ operator|.
 name|properties
 operator|.
 name|ConfigurationProperties
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|boot
+operator|.
+name|context
+operator|.
+name|properties
+operator|.
+name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -81,75 +97,15 @@ specifier|public
 class|class
 name|AvroComponentConfiguration
 block|{
-comment|/**      * To use a shared AvroConfiguration to configure options once. Properties      * of the shared configuration can also be set individually.      */
+comment|/**      * To use a shared AvroConfiguration to configure options once      */
 DECL|field|configuration
 specifier|private
-name|AvroConfiguration
+name|AvroConfigurationNestedConfiguration
 name|configuration
-decl_stmt|;
-comment|/**      * Hostname to use      */
-DECL|field|host
-specifier|private
-name|String
-name|host
-decl_stmt|;
-comment|/**      * Port number to use      */
-DECL|field|port
-specifier|private
-name|Integer
-name|port
-decl_stmt|;
-comment|/**      * Avro protocol to use      */
-DECL|field|protocol
-specifier|private
-name|Protocol
-name|protocol
-decl_stmt|;
-comment|/**      * Transport to use      */
-DECL|field|transport
-specifier|private
-name|String
-name|transport
-decl_stmt|;
-comment|/**      * Avro protocol location      */
-DECL|field|protocolLocation
-specifier|private
-name|String
-name|protocolLocation
-decl_stmt|;
-comment|/**      * Avro protocol to use defined by the FQN class name      */
-DECL|field|protocolClassName
-specifier|private
-name|String
-name|protocolClassName
-decl_stmt|;
-comment|/**      * The name of the message to send.      */
-DECL|field|messageName
-specifier|private
-name|String
-name|messageName
-decl_stmt|;
-comment|/**      * Authority to use (username and password)      */
-DECL|field|uriAuthority
-specifier|private
-name|String
-name|uriAuthority
-decl_stmt|;
-comment|/**      * If protocol object provided is reflection protocol. Should be used only      * with protocol parameter because for protocolClassName protocol type will      * be auto detected      */
-DECL|field|reflectionProtocol
-specifier|private
-name|Boolean
-name|reflectionProtocol
-decl_stmt|;
-comment|/**      * If true consumer parameter won't be wrapped into array. Will fail if      * protocol specifies more then 1 parameter for the message      */
-DECL|field|singleParameter
-specifier|private
-name|Boolean
-name|singleParameter
 decl_stmt|;
 DECL|method|getConfiguration ()
 specifier|public
-name|AvroConfiguration
+name|AvroConfigurationNestedConfiguration
 name|getConfiguration
 parameter_list|()
 block|{
@@ -157,12 +113,12 @@ return|return
 name|configuration
 return|;
 block|}
-DECL|method|setConfiguration (AvroConfiguration configuration)
+DECL|method|setConfiguration ( AvroConfigurationNestedConfiguration configuration)
 specifier|public
 name|void
 name|setConfiguration
 parameter_list|(
-name|AvroConfiguration
+name|AvroConfigurationNestedConfiguration
 name|configuration
 parameter_list|)
 block|{
@@ -173,6 +129,94 @@ operator|=
 name|configuration
 expr_stmt|;
 block|}
+DECL|class|AvroConfigurationNestedConfiguration
+specifier|public
+specifier|static
+class|class
+name|AvroConfigurationNestedConfiguration
+block|{
+DECL|field|CAMEL_NESTED_CLASS
+specifier|public
+specifier|static
+specifier|final
+name|Class
+name|CAMEL_NESTED_CLASS
+init|=
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|avro
+operator|.
+name|AvroConfiguration
+operator|.
+name|class
+decl_stmt|;
+comment|/**          * Hostname to use          */
+DECL|field|host
+specifier|private
+name|String
+name|host
+decl_stmt|;
+comment|/**          * Port number to use          */
+DECL|field|port
+specifier|private
+name|Integer
+name|port
+decl_stmt|;
+comment|/**          * Avro protocol to use          */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|protocol
+specifier|private
+name|Protocol
+name|protocol
+decl_stmt|;
+DECL|field|transport
+specifier|private
+name|AvroTransport
+name|transport
+decl_stmt|;
+comment|/**          * Avro protocol location          */
+DECL|field|protocolLocation
+specifier|private
+name|String
+name|protocolLocation
+decl_stmt|;
+comment|/**          * Avro protocol to use defined by the FQN class name          */
+DECL|field|protocolClassName
+specifier|private
+name|String
+name|protocolClassName
+decl_stmt|;
+comment|/**          * The name of the message to send.          */
+DECL|field|messageName
+specifier|private
+name|String
+name|messageName
+decl_stmt|;
+comment|/**          * Authority to use (username and password)          */
+DECL|field|uriAuthority
+specifier|private
+name|String
+name|uriAuthority
+decl_stmt|;
+comment|/**          * If protocol object provided is reflection protocol. Should be used          * only with protocol parameter because for protocolClassName protocol          * type will be auto detected          */
+DECL|field|reflectionProtocol
+specifier|private
+name|Boolean
+name|reflectionProtocol
+decl_stmt|;
+comment|/**          * If true, consumer parameter won't be wrapped into array. Will fail if          * protocol specifies more then 1 parameter for the message          */
+DECL|field|singleParameter
+specifier|private
+name|Boolean
+name|singleParameter
+decl_stmt|;
 DECL|method|getHost ()
 specifier|public
 name|String
@@ -253,7 +297,7 @@ expr_stmt|;
 block|}
 DECL|method|getTransport ()
 specifier|public
-name|String
+name|AvroTransport
 name|getTransport
 parameter_list|()
 block|{
@@ -261,12 +305,12 @@ return|return
 name|transport
 return|;
 block|}
-DECL|method|setTransport (String transport)
+DECL|method|setTransport (AvroTransport transport)
 specifier|public
 name|void
 name|setTransport
 parameter_list|(
-name|String
+name|AvroTransport
 name|transport
 parameter_list|)
 block|{
@@ -432,6 +476,7 @@ name|singleParameter
 operator|=
 name|singleParameter
 expr_stmt|;
+block|}
 block|}
 block|}
 end_class

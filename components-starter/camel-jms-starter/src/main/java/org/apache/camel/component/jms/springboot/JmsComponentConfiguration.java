@@ -64,6 +64,22 @@ name|component
 operator|.
 name|jms
 operator|.
+name|ConsumerType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jms
+operator|.
 name|DefaultTaskExecutorType
 import|;
 end_import
@@ -80,7 +96,7 @@ name|component
 operator|.
 name|jms
 operator|.
-name|JmsConfiguration
+name|JmsComponent
 import|;
 end_import
 
@@ -112,7 +128,55 @@ name|component
 operator|.
 name|jms
 operator|.
+name|JmsMessageType
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jms
+operator|.
+name|JmsProviderMetadata
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jms
+operator|.
 name|MessageCreatedStrategy
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jms
+operator|.
+name|MessageListenerContainerFactory
 import|;
 end_import
 
@@ -191,6 +255,22 @@ operator|.
 name|properties
 operator|.
 name|DeprecatedConfigurationProperty
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|springframework
+operator|.
+name|boot
+operator|.
+name|context
+operator|.
+name|properties
+operator|.
+name|NestedConfigurationProperty
 import|;
 end_import
 
@@ -310,7 +390,7 @@ block|{
 comment|/**      * To use a shared JMS configuration      */
 DECL|field|configuration
 specifier|private
-name|JmsConfiguration
+name|JmsConfigurationNestedConfiguration
 name|configuration
 decl_stmt|;
 comment|/**      * Specifies whether the consumer accept messages while it is stopping. You      * may consider enabling this option if you start and stop JMS routes at      * runtime while there are still messages enqued on the queue. If this      * option is false and you stop the JMS route then messages may be rejected      * and the JMS broker would have to attempt redeliveries which yet again may      * be rejected and eventually the message may be moved at a dead letter      * queue on the JMS broker. To avoid this its recommended to enable this      * option.      */
@@ -428,6 +508,8 @@ name|ExceptionListener
 name|exceptionListener
 decl_stmt|;
 comment|/**      * Specifies a org.springframework.util.ErrorHandler to be invoked in case      * of any uncaught exceptions thrown while processing a Message. By default      * these exceptions will be logged at the WARN level if no errorHandler has      * been configured. You can configure logging level and whether stack traces      * should be logged using errorHandlerLoggingLevel and      * errorHandlerLogStackTrace options. This makes it much easier to configure      * than having to code a custom errorHandler.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|errorHandler
 specifier|private
 name|ErrorHandler
@@ -494,6 +576,8 @@ name|Integer
 name|maxMessagesPerTask
 decl_stmt|;
 comment|/**      * To use a custom Spring      * org.springframework.jms.support.converter.MessageConverter so you can be      * in control how to map to/from a javax.jms.Message.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|messageConverter
 specifier|private
 name|MessageConverter
@@ -544,13 +628,13 @@ decl_stmt|;
 comment|/**      * The timeout for receiving messages (in milliseconds).      */
 DECL|field|receiveTimeout
 specifier|private
-name|long
+name|Long
 name|receiveTimeout
 decl_stmt|;
 comment|/**      * Specifies the interval between recovery attempts i.e. when a connection      * is being refreshed in milliseconds. The default is 5000 ms that is 5      * seconds.      */
 DECL|field|recoveryInterval
 specifier|private
-name|long
+name|Long
 name|recoveryInterval
 decl_stmt|;
 comment|/**      * Deprecated: Enabled by default if you specify a durableSubscriptionName      * and a clientId.      */
@@ -562,6 +646,8 @@ name|Boolean
 name|subscriptionDurable
 decl_stmt|;
 comment|/**      * Allows you to specify a custom task executor for consuming messages.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|taskExecutor
 specifier|private
 name|TaskExecutor
@@ -570,7 +656,7 @@ decl_stmt|;
 comment|/**      * When sending messages specifies the time-to-live of the message (in      * milliseconds).      */
 DECL|field|timeToLive
 specifier|private
-name|long
+name|Long
 name|timeToLive
 decl_stmt|;
 comment|/**      * Specifies whether to use transacted mode      */
@@ -586,6 +672,8 @@ name|Boolean
 name|lazyCreateTransactionManager
 decl_stmt|;
 comment|/**      * The Spring transaction manager to use.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|transactionManager
 specifier|private
 name|PlatformTransactionManager
@@ -630,13 +718,13 @@ decl_stmt|;
 comment|/**      * The timeout for waiting for a reply when using the InOut Exchange Pattern      * (in milliseconds). The default is 20 seconds. You can include the header      * CamelJmsRequestTimeout to override this endpoint configured timeout value      * and thus have per message individual timeout values. See also the      * requestTimeoutCheckerInterval option.      */
 DECL|field|requestTimeout
 specifier|private
-name|long
+name|Long
 name|requestTimeout
 decl_stmt|;
 comment|/**      * Configures how often Camel should check for timed out Exchanges when      * doing request/reply over JMS. By default Camel checks once per second.      * But if you must react faster when a timeout occurs then you can lower      * this interval to check more frequently. The timeout is determined by the      * option requestTimeout.      */
 DECL|field|requestTimeoutCheckerInterval
 specifier|private
-name|long
+name|Long
 name|requestTimeoutCheckerInterval
 decl_stmt|;
 comment|/**      * You can transfer the exchange over the wire instead of just the body and      * headers. The following fields are transferred: In body Out body Fault      * body In headers Out headers Fault headers exchange properties exchange      * exception. This requires that the objects are serializable. Camel will      * exclude any non-serializable objects and log it at WARN level. You must      * enable this option on both the producer and consumer side so Camel knows      * the payloads is an Exchange and not a regular payload.      */
@@ -658,12 +746,16 @@ name|Boolean
 name|transferFault
 decl_stmt|;
 comment|/**      * Allows you to use your own implementation of the      * org.springframework.jms.core.JmsOperations interface. Camel uses      * JmsTemplate as default. Can be used for testing purpose but not used much      * as stated in the spring API docs.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|jmsOperations
 specifier|private
 name|JmsOperations
 name|jmsOperations
 decl_stmt|;
 comment|/**      * A pluggable      * org.springframework.jms.support.destination.DestinationResolver that      * allows you to use your own resolver (for example to lookup the real      * destination in a JNDI registry).      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|destinationResolver
 specifier|private
 name|DestinationResolver
@@ -712,30 +804,40 @@ name|DefaultTaskExecutorType
 name|defaultTaskExecutorType
 decl_stmt|;
 comment|/**      * Pluggable strategy for encoding and decoding JMS keys so they can be      * compliant with the JMS specification. Camel provides two implementations      * out of the box: default and passthrough. The default strategy will safely      * marshal dots and hyphens (. and -). The passthrough strategy leaves the      * key as is. Can be used for JMS brokers which do not care whether JMS      * header keys contain illegal characters. You can provide your own      * implementation of the org.apache.camel.component.jms.JmsKeyFormatStrategy      * and refer to it using the notation.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|jmsKeyFormatStrategy
 specifier|private
 name|JmsKeyFormatStrategy
 name|jmsKeyFormatStrategy
 decl_stmt|;
 comment|/**      * Sets the Spring ApplicationContext to use      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|applicationContext
 specifier|private
 name|ApplicationContext
 name|applicationContext
 decl_stmt|;
 comment|/**      * To use a custom QueueBrowseStrategy when browsing queues      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|queueBrowseStrategy
 specifier|private
 name|QueueBrowseStrategy
 name|queueBrowseStrategy
 decl_stmt|;
 comment|/**      * To use a custom HeaderFilterStrategy to filter header to and from Camel      * message.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|headerFilterStrategy
 specifier|private
 name|HeaderFilterStrategy
 name|headerFilterStrategy
 decl_stmt|;
 comment|/**      * To use the given MessageCreatedStrategy which are invoked when Camel      * creates new instances of javax.jms.Message objects when Camel is sending      * a JMS message.      */
+annotation|@
+name|NestedConfigurationProperty
 DECL|field|messageCreatedStrategy
 specifier|private
 name|MessageCreatedStrategy
@@ -750,12 +852,12 @@ decl_stmt|;
 comment|/**      * Interval in millis to sleep each time while waiting for provisional      * correlation id to be updated.      */
 DECL|field|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 specifier|private
-name|long
+name|Long
 name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 decl_stmt|;
 DECL|method|getConfiguration ()
 specifier|public
-name|JmsConfiguration
+name|JmsConfigurationNestedConfiguration
 name|getConfiguration
 parameter_list|()
 block|{
@@ -763,12 +865,12 @@ return|return
 name|configuration
 return|;
 block|}
-DECL|method|setConfiguration (JmsConfiguration configuration)
+DECL|method|setConfiguration ( JmsConfigurationNestedConfiguration configuration)
 specifier|public
 name|void
 name|setConfiguration
 parameter_list|(
-name|JmsConfiguration
+name|JmsConfigurationNestedConfiguration
 name|configuration
 parameter_list|)
 block|{
@@ -1769,7 +1871,7 @@ expr_stmt|;
 block|}
 DECL|method|getReceiveTimeout ()
 specifier|public
-name|long
+name|Long
 name|getReceiveTimeout
 parameter_list|()
 block|{
@@ -1777,12 +1879,12 @@ return|return
 name|receiveTimeout
 return|;
 block|}
-DECL|method|setReceiveTimeout (long receiveTimeout)
+DECL|method|setReceiveTimeout (Long receiveTimeout)
 specifier|public
 name|void
 name|setReceiveTimeout
 parameter_list|(
-name|long
+name|Long
 name|receiveTimeout
 parameter_list|)
 block|{
@@ -1795,7 +1897,7 @@ expr_stmt|;
 block|}
 DECL|method|getRecoveryInterval ()
 specifier|public
-name|long
+name|Long
 name|getRecoveryInterval
 parameter_list|()
 block|{
@@ -1803,12 +1905,12 @@ return|return
 name|recoveryInterval
 return|;
 block|}
-DECL|method|setRecoveryInterval (long recoveryInterval)
+DECL|method|setRecoveryInterval (Long recoveryInterval)
 specifier|public
 name|void
 name|setRecoveryInterval
 parameter_list|(
-name|long
+name|Long
 name|recoveryInterval
 parameter_list|)
 block|{
@@ -1879,7 +1981,7 @@ expr_stmt|;
 block|}
 DECL|method|getTimeToLive ()
 specifier|public
-name|long
+name|Long
 name|getTimeToLive
 parameter_list|()
 block|{
@@ -1887,12 +1989,12 @@ return|return
 name|timeToLive
 return|;
 block|}
-DECL|method|setTimeToLive (long timeToLive)
+DECL|method|setTimeToLive (Long timeToLive)
 specifier|public
 name|void
 name|setTimeToLive
 parameter_list|(
-name|long
+name|Long
 name|timeToLive
 parameter_list|)
 block|{
@@ -2139,7 +2241,7 @@ expr_stmt|;
 block|}
 DECL|method|getRequestTimeout ()
 specifier|public
-name|long
+name|Long
 name|getRequestTimeout
 parameter_list|()
 block|{
@@ -2147,12 +2249,12 @@ return|return
 name|requestTimeout
 return|;
 block|}
-DECL|method|setRequestTimeout (long requestTimeout)
+DECL|method|setRequestTimeout (Long requestTimeout)
 specifier|public
 name|void
 name|setRequestTimeout
 parameter_list|(
-name|long
+name|Long
 name|requestTimeout
 parameter_list|)
 block|{
@@ -2165,7 +2267,7 @@ expr_stmt|;
 block|}
 DECL|method|getRequestTimeoutCheckerInterval ()
 specifier|public
-name|long
+name|Long
 name|getRequestTimeoutCheckerInterval
 parameter_list|()
 block|{
@@ -2173,12 +2275,12 @@ return|return
 name|requestTimeoutCheckerInterval
 return|;
 block|}
-DECL|method|setRequestTimeoutCheckerInterval ( long requestTimeoutCheckerInterval)
+DECL|method|setRequestTimeoutCheckerInterval ( Long requestTimeoutCheckerInterval)
 specifier|public
 name|void
 name|setRequestTimeoutCheckerInterval
 parameter_list|(
-name|long
+name|Long
 name|requestTimeoutCheckerInterval
 parameter_list|)
 block|{
@@ -2659,7 +2761,7 @@ expr_stmt|;
 block|}
 DECL|method|getWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime ()
 specifier|public
-name|long
+name|Long
 name|getWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 parameter_list|()
 block|{
@@ -2667,12 +2769,12 @@ return|return
 name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 return|;
 block|}
-DECL|method|setWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime ( long waitForProvisionCorrelationToBeUpdatedThreadSleepingTime)
+DECL|method|setWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime ( Long waitForProvisionCorrelationToBeUpdatedThreadSleepingTime)
 specifier|public
 name|void
 name|setWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 parameter_list|(
-name|long
+name|Long
 name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 parameter_list|)
 block|{
@@ -2682,6 +2784,2801 @@ name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 operator|=
 name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
 expr_stmt|;
+block|}
+DECL|class|JmsConfigurationNestedConfiguration
+specifier|public
+specifier|static
+class|class
+name|JmsConfigurationNestedConfiguration
+block|{
+DECL|field|CAMEL_NESTED_CLASS
+specifier|public
+specifier|static
+specifier|final
+name|Class
+name|CAMEL_NESTED_CLASS
+init|=
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|jms
+operator|.
+name|JmsConfiguration
+operator|.
+name|class
+decl_stmt|;
+comment|/**          * The consumer type to use, which can be one of: Simple, Default, or          * Custom. The consumer type determines which Spring JMS listener to          * use. Default will use          * org.springframework.jms.listener.DefaultMessageListenerContainer,          * Simple will use          * org.springframework.jms.listener.SimpleMessageListenerContainer. When          * Custom is specified, the MessageListenerContainerFactory defined by          * the messageListenerContainerFactory option will determine what          * org.springframework.jms.listener.AbstractMessageListenerContainer to          * use.          */
+DECL|field|consumerType
+specifier|private
+name|ConsumerType
+name|consumerType
+init|=
+name|ConsumerType
+operator|.
+name|Default
+decl_stmt|;
+comment|/**          * Sets the default connection factory to be used if a connection          * factory is not specified for either          * {@link #setTemplateConnectionFactory(ConnectionFactory)} or          * {@link #setListenerConnectionFactory(ConnectionFactory)}          */
+DECL|field|connectionFactory
+specifier|private
+name|ConnectionFactory
+name|connectionFactory
+decl_stmt|;
+comment|/**          * Username to use with the ConnectionFactory. You can also configure          * username/password directly on the ConnectionFactory.          */
+DECL|field|username
+specifier|private
+name|String
+name|username
+decl_stmt|;
+comment|/**          * Password to use with the ConnectionFactory. You can also configure          * username/password directly on the ConnectionFactory.          */
+DECL|field|password
+specifier|private
+name|String
+name|password
+decl_stmt|;
+comment|/**          * Sets the connection factory to be used for consuming messages          */
+DECL|field|listenerConnectionFactory
+specifier|private
+name|ConnectionFactory
+name|listenerConnectionFactory
+decl_stmt|;
+comment|/**          * Sets the connection factory to be used for sending messages via the          * {@link JmsTemplate} via          * {@link #createInOnlyTemplate(JmsEndpoint,boolean,String)}          */
+DECL|field|templateConnectionFactory
+specifier|private
+name|ConnectionFactory
+name|templateConnectionFactory
+decl_stmt|;
+comment|/**          * Specifies whether the consumer container should auto-startup.          */
+DECL|field|autoStartup
+specifier|private
+name|Boolean
+name|autoStartup
+decl_stmt|;
+comment|/**          * Specifies whether the consumer accept messages while it is stopping.          * You may consider enabling this option, if you start and stop JMS          * routes at runtime, while there are still messages enqued on the          * queue. If this option is false, and you stop the JMS route, then          * messages may be rejected, and the JMS broker would have to attempt          * redeliveries, which yet again may be rejected, and eventually the          * message may be moved at a dead letter queue on the JMS broker. To          * avoid this its recommended to enable this option.          */
+DECL|field|acceptMessagesWhileStopping
+specifier|private
+name|Boolean
+name|acceptMessagesWhileStopping
+decl_stmt|;
+DECL|field|allowReplyManagerQuickStop
+specifier|private
+name|Boolean
+name|allowReplyManagerQuickStop
+decl_stmt|;
+comment|/**          * Sets the JMS client ID to use. Note that this value, if specified,          * must be unique and can only be used by a single JMS connection          * instance. It is typically only required for durable topic          * subscriptions.          *<p>          * If using Apache ActiveMQ you may prefer to use Virtual Topics          * instead.          */
+DECL|field|clientId
+specifier|private
+name|String
+name|clientId
+decl_stmt|;
+comment|/**          * The durable subscriber name for specifying durable topic          * subscriptions. The clientId option must be configured as well.          */
+DECL|field|durableSubscriptionName
+specifier|private
+name|String
+name|durableSubscriptionName
+decl_stmt|;
+comment|/**          * Specifies the JMS Exception Listener that is to be notified of any          * underlying JMS exceptions.          */
+DECL|field|exceptionListener
+specifier|private
+name|ExceptionListener
+name|exceptionListener
+decl_stmt|;
+comment|/**          * Specifies a org.springframework.util.ErrorHandler to be invoked in          * case of any uncaught exceptions thrown while processing a Message. By          * default these exceptions will be logged at the WARN level, if no          * errorHandler has been configured. You can configure logging level and          * whether stack traces should be logged using errorHandlerLoggingLevel          * and errorHandlerLogStackTrace options. This makes it much easier to          * configure, than having to code a custom errorHandler.          */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|errorHandler
+specifier|private
+name|ErrorHandler
+name|errorHandler
+decl_stmt|;
+comment|/**          * Allows to configure the default errorHandler logging level for          * logging uncaught exceptions.          */
+DECL|field|errorHandlerLoggingLevel
+specifier|private
+name|LoggingLevel
+name|errorHandlerLoggingLevel
+init|=
+name|LoggingLevel
+operator|.
+name|WARN
+decl_stmt|;
+comment|/**          * Allows to control whether stacktraces should be logged or not, by the          * default errorHandler.          */
+DECL|field|errorHandlerLogStackTrace
+specifier|private
+name|Boolean
+name|errorHandlerLogStackTrace
+decl_stmt|;
+annotation|@
+name|Deprecated
+DECL|field|subscriptionDurable
+specifier|private
+name|Boolean
+name|subscriptionDurable
+decl_stmt|;
+comment|/**          * The JMS acknowledgement name, which is one of: SESSION_TRANSACTED,          * CLIENT_ACKNOWLEDGE, AUTO_ACKNOWLEDGE, DUPS_OK_ACKNOWLEDGE          */
+DECL|field|acknowledgementModeName
+specifier|private
+name|String
+name|acknowledgementModeName
+init|=
+literal|"AUTO_ACKNOWLEDGE"
+decl_stmt|;
+comment|/**          * Specifies whether the listener session should be exposed when          * consuming messages.          */
+DECL|field|exposeListenerSession
+specifier|private
+name|Boolean
+name|exposeListenerSession
+decl_stmt|;
+comment|/**          * Allows you to specify a custom task executor for consuming messages.          */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|taskExecutor
+specifier|private
+name|TaskExecutor
+name|taskExecutor
+decl_stmt|;
+comment|/**          * Specifies whether to inhibit the delivery of messages published by          * its own connection.          */
+DECL|field|pubSubNoLocal
+specifier|private
+name|Boolean
+name|pubSubNoLocal
+decl_stmt|;
+comment|/**          * Specifies the default number of concurrent consumers when consuming          * from JMS (not for request/reply over JMS). See also the          * maxMessagesPerTask option to control dynamic scaling up/down of          * threads.          *<p>          * When doing request/reply over JMS then the option          * replyToConcurrentConsumers is used to control number of concurrent          * consumers on the reply message listener.          */
+DECL|field|concurrentConsumers
+specifier|private
+name|Integer
+name|concurrentConsumers
+decl_stmt|;
+comment|/**          * Specifies the default number of concurrent consumers when doing          * request/reply over JMS. See also the maxMessagesPerTask option to          * control dynamic scaling up/down of threads.          */
+DECL|field|replyToConcurrentConsumers
+specifier|private
+name|Integer
+name|replyToConcurrentConsumers
+decl_stmt|;
+comment|/**          * The number of messages per task. -1 is unlimited. If you use a range          * for concurrent consumers (eg min< max), then this option can be used          * to set a value to eg 100 to control how fast the consumers will          * shrink when less work is required.          */
+DECL|field|maxMessagesPerTask
+specifier|private
+name|Integer
+name|maxMessagesPerTask
+decl_stmt|;
+comment|/**          * Sets the cache level by ID for the underlying JMS resources. See          * cacheLevelName option for more details.          */
+DECL|field|cacheLevel
+specifier|private
+name|Integer
+name|cacheLevel
+decl_stmt|;
+comment|/**          * Sets the cache level by name for the underlying JMS resources.          * Possible values are: CACHE_AUTO, CACHE_CONNECTION, CACHE_CONSUMER,          * CACHE_NONE, and CACHE_SESSION. The default setting is CACHE_AUTO. See          * the Spring documentation and Transactions Cache Levels for more          * information.          */
+DECL|field|cacheLevelName
+specifier|private
+name|String
+name|cacheLevelName
+init|=
+literal|"CACHE_AUTO"
+decl_stmt|;
+comment|/**          * Specifies the interval between recovery attempts, i.e. when a          * connection is being refreshed, in milliseconds. The default is 5000          * ms, that is, 5 seconds.          */
+DECL|field|recoveryInterval
+specifier|private
+name|Long
+name|recoveryInterval
+decl_stmt|;
+comment|/**          * The timeout for receiving messages (in milliseconds).          */
+DECL|field|receiveTimeout
+specifier|private
+name|Long
+name|receiveTimeout
+decl_stmt|;
+comment|/**          * The Spring transaction manager to use.          */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|transactionManager
+specifier|private
+name|PlatformTransactionManager
+name|transactionManager
+decl_stmt|;
+comment|/**          * The name of the transaction to use.          */
+DECL|field|transactionName
+specifier|private
+name|String
+name|transactionName
+decl_stmt|;
+comment|/**          * The timeout value of the transaction (in seconds), if using          * transacted mode.          */
+DECL|field|transactionTimeout
+specifier|private
+name|Integer
+name|transactionTimeout
+decl_stmt|;
+comment|/**          * Specifies the limit for idle executions of a receive task, not having          * received any message within its execution. If this limit is reached,          * the task will shut down and leave receiving to other executing tasks          * (in the case of dynamic scheduling; see the maxConcurrentConsumers          * setting). There is additional doc available from Spring.          */
+DECL|field|idleTaskExecutionLimit
+specifier|private
+name|Integer
+name|idleTaskExecutionLimit
+decl_stmt|;
+comment|/**          * Specify the limit for the number of consumers that are allowed to be          * idle at any given time.          */
+DECL|field|idleConsumerLimit
+specifier|private
+name|Integer
+name|idleConsumerLimit
+decl_stmt|;
+comment|/**          * Number of times to wait for provisional correlation id to be updated          * to the actual correlation id when doing request/reply over JMS and          * when the option useMessageIDAsCorrelationID is enabled.          */
+DECL|field|waitForProvisionCorrelationToBeUpdatedCounter
+specifier|private
+name|Integer
+name|waitForProvisionCorrelationToBeUpdatedCounter
+decl_stmt|;
+comment|/**          * Interval in millis to sleep each time while waiting for provisional          * correlation id to be updated.          */
+DECL|field|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+specifier|private
+name|Long
+name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+decl_stmt|;
+comment|/**          * Specifies the maximum number of concurrent consumers when consuming          * from JMS (not for request/reply over JMS). See also the          * maxMessagesPerTask option to control dynamic scaling up/down of          * threads.          *<p>          * When doing request/reply over JMS then the option          * replyToMaxConcurrentConsumers is used to control number of concurrent          * consumers on the reply message listener.          */
+DECL|field|maxConcurrentConsumers
+specifier|private
+name|Integer
+name|maxConcurrentConsumers
+decl_stmt|;
+comment|/**          * Specifies the maximum number of concurrent consumers when using          * request/reply over JMS. See also the maxMessagesPerTask option to          * control dynamic scaling up/down of threads.          */
+DECL|field|replyToMaxConcurrentConsumers
+specifier|private
+name|Integer
+name|replyToMaxConcurrentConsumers
+decl_stmt|;
+comment|/**          * Specifies the maximum number of concurrent consumers for continue          * routing when timeout occurred when using request/reply over JMS.          */
+DECL|field|replyToOnTimeoutMaxConcurrentConsumers
+specifier|private
+name|Integer
+name|replyToOnTimeoutMaxConcurrentConsumers
+decl_stmt|;
+comment|/**          * Specifies whether persistent delivery is used by default.          */
+DECL|field|deliveryPersistent
+specifier|private
+name|Boolean
+name|deliveryPersistent
+decl_stmt|;
+comment|/**          * Specifies the delivery mode to be used. Possibles values are those          * defined by javax.jms.DeliveryMode. NON_PERSISTENT = 1 and PERSISTENT          * = 2.          */
+DECL|field|deliveryMode
+specifier|private
+name|Integer
+name|deliveryMode
+decl_stmt|;
+comment|/**          * Specifies whether to use persistent delivery by default for replies.          */
+DECL|field|replyToDeliveryPersistent
+specifier|private
+name|Boolean
+name|replyToDeliveryPersistent
+decl_stmt|;
+comment|/**          * When sending messages, specifies the time-to-live of the message (in          * milliseconds).          */
+DECL|field|timeToLive
+specifier|private
+name|Long
+name|timeToLive
+decl_stmt|;
+comment|/**          * To use a custom Spring          * org.springframework.jms.support.converter.MessageConverter so you can          * be in control how to map to/from a javax.jms.Message.          */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|messageConverter
+specifier|private
+name|MessageConverter
+name|messageConverter
+decl_stmt|;
+comment|/**          * Specifies whether Camel should auto map the received JMS message to a          * suited payload type, such as javax.jms.TextMessage to a String etc.          */
+DECL|field|mapJmsMessage
+specifier|private
+name|Boolean
+name|mapJmsMessage
+decl_stmt|;
+comment|/**          * When sending, specifies whether message IDs should be added. This is          * just an hint to the JMS Broker. If the JMS provider accepts this          * hint, these messages must have the message ID set to null; if the          * provider ignores the hint, the message ID must be set to its normal          * unique value          */
+DECL|field|messageIdEnabled
+specifier|private
+name|Boolean
+name|messageIdEnabled
+decl_stmt|;
+comment|/**          * Specifies whether timestamps should be enabled by default on sending          * messages. This is just an hint to the JMS Broker. If the JMS provider          * accepts this hint, these messages must have the timestamp set to          * zero; if the provider ignores the hint, the timestamp must be set to          * its normal value          */
+DECL|field|messageTimestampEnabled
+specifier|private
+name|Boolean
+name|messageTimestampEnabled
+decl_stmt|;
+comment|/**          * Values greater than 1 specify the message priority when sending          * (where 0 is the lowest priority and 9 is the highest). The          * explicitQosEnabled option must also be enabled in order for this          * option to have any effect.          */
+DECL|field|priority
+specifier|private
+name|Integer
+name|priority
+decl_stmt|;
+comment|/**          * The JMS acknowledgement mode defined as an Integer. Allows you to set          * vendor-specific extensions to the acknowledgment mode. For the          * regular modes, it is preferable to use the acknowledgementModeName          * instead.          */
+DECL|field|acknowledgementMode
+specifier|private
+name|Integer
+name|acknowledgementMode
+decl_stmt|;
+comment|/**          * Specifies whether to use transacted mode          */
+DECL|field|transacted
+specifier|private
+name|Boolean
+name|transacted
+decl_stmt|;
+annotation|@
+name|Deprecated
+DECL|field|transactedInOut
+specifier|private
+name|Boolean
+name|transactedInOut
+decl_stmt|;
+comment|/**          * If true, Camel will create a JmsTransactionManager, if there is no          * transactionManager injected when option transacted=true.          */
+DECL|field|lazyCreateTransactionManager
+specifier|private
+name|Boolean
+name|lazyCreateTransactionManager
+decl_stmt|;
+comment|/**          * Enables eager loading of JMS properties as soon as a message is          * loaded which generally is inefficient as the JMS properties may not          * be required but sometimes can catch early any issues with the          * underlying JMS provider and the use of JMS properties          */
+DECL|field|eagerLoadingOfProperties
+specifier|private
+name|Boolean
+name|eagerLoadingOfProperties
+decl_stmt|;
+comment|/**          * If true, a producer will behave like a InOnly exchange with the          * exception that JMSReplyTo header is sent out and not be suppressed          * like in the case of InOnly. Like InOnly the producer will not wait          * for a reply. A consumer with this flag will behave like InOnly. This          * feature can be used to bridge InOut requests to another queue so that          * a route on the other queue will send itÂ´s response directly back to          * the original JMSReplyTo.          */
+DECL|field|disableReplyTo
+specifier|private
+name|Boolean
+name|disableReplyTo
+decl_stmt|;
+comment|/**          * Set to true, if you want to send message using the QoS settings          * specified on the message, instead of the QoS settings on the JMS          * endpoint. The following three headers are considered JMSPriority,          * JMSDeliveryMode, and JMSExpiration. You can provide all or only some          * of them. If not provided, Camel will fall back to use the values from          * the endpoint instead. So, when using this option, the headers          * override the values from the endpoint. The explicitQosEnabled option,          * by contrast, will only use options set on the endpoint, and not          * values from the message header.          */
+DECL|field|preserveMessageQos
+specifier|private
+name|Boolean
+name|preserveMessageQos
+decl_stmt|;
+comment|/**          * Allows you to use your own implementation of the          * org.springframework.jms.core.JmsOperations interface. Camel uses          * JmsTemplate as default. Can be used for testing purpose, but not used          * much as stated in the spring API docs.          */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|jmsOperations
+specifier|private
+name|JmsOperations
+name|jmsOperations
+decl_stmt|;
+comment|/**          * A pluggable          * org.springframework.jms.support.destination.DestinationResolver that          * allows you to use your own resolver (for example, to lookup the real          * destination in a JNDI registry).          */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|destinationResolver
+specifier|private
+name|DestinationResolver
+name|destinationResolver
+decl_stmt|;
+comment|/**          * Allows the provider metadata to be explicitly configured. Typically          * this is not required and Camel will auto-detect the provider metadata          * from the underlying provider.          */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|providerMetadata
+specifier|private
+name|JmsProviderMetadata
+name|providerMetadata
+decl_stmt|;
+comment|/**          * Sets the {@link JmsOperations} used to deduce the          * {@link JmsProviderMetadata} details which if none is customized one          * is lazily created on demand          */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|metadataJmsOperations
+specifier|private
+name|JmsOperations
+name|metadataJmsOperations
+decl_stmt|;
+comment|/**          * If true, Camel will always make a JMS message copy of the message          * when it is passed to the producer for sending. Copying the message is          * needed in some situations, such as when a          * replyToDestinationSelectorName is set (incidentally, Camel will set          * the alwaysCopyMessage option to true, if a          * replyToDestinationSelectorName is set)          */
+DECL|field|alwaysCopyMessage
+specifier|private
+name|Boolean
+name|alwaysCopyMessage
+decl_stmt|;
+comment|/**          * Specifies whether JMSMessageID should always be used as          * JMSCorrelationID for InOut messages.          */
+DECL|field|useMessageIDAsCorrelationID
+specifier|private
+name|Boolean
+name|useMessageIDAsCorrelationID
+decl_stmt|;
+comment|/**          * The timeout for waiting for a reply when using the InOut Exchange          * Pattern (in milliseconds). The default is 20 seconds. You can include          * the header "CamelJmsRequestTimeout" to override this endpoint          * configured timeout value, and thus have per message individual          * timeout values. See also the requestTimeoutCheckerInterval option.          */
+DECL|field|requestTimeout
+specifier|private
+name|Long
+name|requestTimeout
+decl_stmt|;
+comment|/**          * Configures how often Camel should check for timed out Exchanges when          * doing request/reply over JMS. By default Camel checks once per          * second. But if you must react faster when a timeout occurs, then you          * can lower this interval, to check more frequently. The timeout is          * determined by the option requestTimeout.          */
+DECL|field|requestTimeoutCheckerInterval
+specifier|private
+name|Long
+name|requestTimeoutCheckerInterval
+decl_stmt|;
+comment|/**          * Provides an explicit ReplyTo destination, which overrides any          * incoming value of Message.getJMSReplyTo().          */
+DECL|field|replyTo
+specifier|private
+name|String
+name|replyTo
+decl_stmt|;
+comment|/**          * Sets the JMS Selector using the fixed name to be used so you can          * filter out your own replies from the others when using a shared queue          * (that is, if you are not using a temporary reply queue).          */
+DECL|field|replyToDestinationSelectorName
+specifier|private
+name|String
+name|replyToDestinationSelectorName
+decl_stmt|;
+comment|/**          * Provides an explicit ReplyTo destination in the JMS message, which          * overrides the setting of replyTo. It is useful if you want to forward          * the message to a remote Queue and receive the reply message from the          * ReplyTo destination.          */
+DECL|field|replyToOverride
+specifier|private
+name|String
+name|replyToOverride
+decl_stmt|;
+comment|/**          * Whether a JMS consumer is allowed to send a reply message to the same          * destination that the consumer is using to consume from. This prevents          * an endless loop by consuming and sending back the same message to          * itself.          */
+DECL|field|replyToSameDestinationAllowed
+specifier|private
+name|Boolean
+name|replyToSameDestinationAllowed
+decl_stmt|;
+comment|/**          * Allows you to force the use of a specific javax.jms.Message          * implementation for sending JMS messages. Possible values are: Bytes,          * Map, Object, Stream, Text. By default, Camel would determine which          * JMS message type to use from the In body type. This option allows you          * to specify it.          */
+DECL|field|jmsMessageType
+specifier|private
+name|JmsMessageType
+name|jmsMessageType
+decl_stmt|;
+comment|/**          * Pluggable strategy for encoding and decoding JMS keys so they can be          * compliant with the JMS specification. Camel provides two          * implementations out of the box: default and passthrough. The default          * strategy will safely marshal dots and hyphens (. and -). The          * passthrough strategy leaves the key as is. Can be used for JMS          * brokers which do not care whether JMS header keys contain illegal          * characters. You can provide your own implementation of the          * org.apache.camel.component.jms.JmsKeyFormatStrategy and refer to it          * using the # notation.          */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|jmsKeyFormatStrategy
+specifier|private
+name|JmsKeyFormatStrategy
+name|jmsKeyFormatStrategy
+decl_stmt|;
+comment|/**          * You can transfer the exchange over the wire instead of just the body          * and headers. The following fields are transferred: In body, Out body,          * Fault body, In headers, Out headers, Fault headers, exchange          * properties, exchange exception. This requires that the objects are          * serializable. Camel will exclude any non-serializable objects and log          * it at WARN level. You must enable this option on both the producer          * and consumer side, so Camel knows the payloads is an Exchange and not          * a regular payload.          */
+DECL|field|transferExchange
+specifier|private
+name|Boolean
+name|transferExchange
+decl_stmt|;
+comment|/**          * If enabled and you are using Request Reply messaging (InOut) and an          * Exchange failed on the consumer side, then the caused Exception will          * be send back in response as a javax.jms.ObjectMessage. If the client          * is Camel, the returned Exception is rethrown. This allows you to use          * Camel JMS as a bridge in your routing - for example, using persistent          * queues to enable robust routing. Notice that if you also have          * transferExchange enabled, this option takes precedence. The caught          * exception is required to be serializable. The original Exception on          * the consumer side can be wrapped in an outer exception such as          * org.apache.camel.RuntimeCamelException when returned to the producer.          */
+DECL|field|transferException
+specifier|private
+name|Boolean
+name|transferException
+decl_stmt|;
+comment|/**          * If enabled and you are using Request Reply messaging (InOut) and an          * Exchange failed with a SOAP fault (not exception) on the consumer          * side, then the fault flag on          * {@link org.apache.camel.Message#isFault()} will be send back in the          * response as a JMS header with the key          * {@link JmsConstants#JMS_TRANSFER_FAULT} . If the client is Camel, the          * returned fault flag will be set on the          * {@link org.apache.camel.Message#setFault(boolean)} .          *<p>          * You may want to enable this when using Camel components that support          * faults such as SOAP based such as cxf or spring-ws.          */
+DECL|field|transferFault
+specifier|private
+name|Boolean
+name|transferFault
+decl_stmt|;
+comment|/**          * Whether to startup the JmsConsumer message listener asynchronously,          * when starting a route. For example if a JmsConsumer cannot get a          * connection to a remote JMS broker, then it may block while retrying          * and/or failover. This will cause Camel to block while starting          * routes. By setting this option to true, you will let routes startup,          * while the JmsConsumer connects to the JMS broker using a dedicated          * thread in asynchronous mode. If this option is used, then beware that          * if the connection could not be established, then an exception is          * logged at WARN level, and the consumer will not be able to receive          * messages; You can then restart the route to retry.          */
+DECL|field|asyncStartListener
+specifier|private
+name|Boolean
+name|asyncStartListener
+decl_stmt|;
+comment|/**          * Whether to stop the JmsConsumer message listener asynchronously, when          * stopping a route.          */
+DECL|field|asyncStopListener
+specifier|private
+name|Boolean
+name|asyncStopListener
+decl_stmt|;
+comment|/**          * Specifies whether to test the connection on startup. This ensures          * that when Camel starts that all the JMS consumers have a valid          * connection to the JMS broker. If a connection cannot be granted then          * Camel throws an exception on startup. This ensures that Camel is not          * started with failed connections. The JMS producers is tested as well.          */
+DECL|field|testConnectionOnStartup
+specifier|private
+name|Boolean
+name|testConnectionOnStartup
+decl_stmt|;
+comment|/**          * When using mapJmsMessage=false Camel will create a new JMS message to          * send to a new JMS destination if you touch the headers (get or set)          * during the route. Set this option to true to force Camel to send the          * original JMS message that was received.          */
+DECL|field|forceSendOriginalMessage
+specifier|private
+name|Boolean
+name|forceSendOriginalMessage
+decl_stmt|;
+comment|/**          * Use this option to force disabling time to live. For example when you          * do request/reply over JMS, then Camel will by default use the          * requestTimeout value as time to live on the message being sent. The          * problem is that the sender and receiver systems have to have their          * clocks synchronized, so they are in sync. This is not always so easy          * to archive. So you can use disableTimeToLive=true to not set a time          * to live value on the sent message. Then the message will not expire          * on the receiver system. See below in section About time to live for          * more details.          */
+DECL|field|disableTimeToLive
+specifier|private
+name|Boolean
+name|disableTimeToLive
+decl_stmt|;
+comment|/**          * Allows for explicitly specifying which kind of strategy to use for          * replyTo queues when doing request/reply over JMS. Possible values          * are: Temporary, Shared, or Exclusive. By default Camel will use          * temporary queues. However if replyTo has been configured, then Shared          * is used by default. This option allows you to use exclusive queues          * instead of shared ones. See Camel JMS documentation for more details,          * and especially the notes about the implications if running in a          * clustered environment, and the fact that Shared reply queues has          * lower performance than its alternatives Temporary and Exclusive.          */
+DECL|field|replyToType
+specifier|private
+name|ReplyToType
+name|replyToType
+decl_stmt|;
+comment|/**          * Whether the JmsConsumer processes the Exchange asynchronously. If          * enabled then the JmsConsumer may pickup the next message from the JMS          * queue, while the previous message is being processed asynchronously          * (by the Asynchronous Routing Engine). This means that messages may be          * processed not 100% strictly in order. If disabled (as default) then          * the Exchange is fully processed before the JmsConsumer will pickup          * the next message from the JMS queue. Note if transacted has been          * enabled, then asyncConsumer=true does not run asynchronously, as          * transaction must be executed synchronously (Camel 3.0 may support          * async transactions).          */
+DECL|field|asyncConsumer
+specifier|private
+name|Boolean
+name|asyncConsumer
+decl_stmt|;
+comment|/**          * Sets the cache level by name for the reply consumer when doing          * request/reply over JMS. This option only applies when using fixed          * reply queues (not temporary). Camel will by default use:          * CACHE_CONSUMER for exclusive or shared w/ replyToSelectorName. And          * CACHE_SESSION for shared without replyToSelectorName. Some JMS          * brokers such as IBM WebSphere may require to set the          * replyToCacheLevelName=CACHE_NONE to work. Note: If using temporary          * queues then CACHE_NONE is not allowed, and you must use a higher          * value such as CACHE_CONSUMER or CACHE_SESSION.          */
+DECL|field|replyToCacheLevelName
+specifier|private
+name|String
+name|replyToCacheLevelName
+decl_stmt|;
+comment|/**          * Whether to allow sending messages with no body. If this option is          * false and the message body is null, then an JMSException is thrown.          */
+DECL|field|allowNullBody
+specifier|private
+name|Boolean
+name|allowNullBody
+decl_stmt|;
+comment|/**          * Registry ID of the MessageListenerContainerFactory used to determine          * what          * org.springframework.jms.listener.AbstractMessageListenerContainer to          * use to consume messages. Setting this will automatically set          * consumerType to Custom.          */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|messageListenerContainerFactory
+specifier|private
+name|MessageListenerContainerFactory
+name|messageListenerContainerFactory
+decl_stmt|;
+comment|/**          * Only applicable when sending to JMS destination using InOnly (eg fire          * and forget). Enabling this option will enrich the Camel Exchange with          * the actual JMSMessageID that was used by the JMS client when the          * message was sent to the JMS destination.          */
+DECL|field|includeSentJMSMessageID
+specifier|private
+name|Boolean
+name|includeSentJMSMessageID
+decl_stmt|;
+comment|/**          * Specifies what default TaskExecutor type to use in the          * DefaultMessageListenerContainer, for both consumer endpoints and the          * ReplyTo consumer of producer endpoints. Possible values: SimpleAsync          * (uses Spring's SimpleAsyncTaskExecutor) or ThreadPool (uses Spring's          * ThreadPoolTaskExecutor with optimal values - cached threadpool-like).          * If not set, it defaults to the previous behaviour, which uses a          * cached thread pool for consumer endpoints and SimpleAsync for reply          * consumers. The use of ThreadPool is recommended to reduce          * "thread trash" in elastic configurations with dynamically increasing          * and decreasing concurrent consumers.          */
+DECL|field|defaultTaskExecutorType
+specifier|private
+name|DefaultTaskExecutorType
+name|defaultTaskExecutorType
+decl_stmt|;
+comment|/**          * Whether to include all JMSXxxx properties when mapping from JMS to          * Camel Message. Setting this to true will include properties such as          * JMSXAppID, and JMSXUserID etc. Note: If you are using a custom          * headerFilterStrategy then this option does not apply.          */
+DECL|field|includeAllJMSXProperties
+specifier|private
+name|Boolean
+name|includeAllJMSXProperties
+decl_stmt|;
+comment|/**          * To use the given MessageCreatedStrategy which are invoked when Camel          * creates new instances of<tt>javax.jms.Message</tt> objects when          * Camel is sending a JMS message.          */
+annotation|@
+name|NestedConfigurationProperty
+DECL|field|messageCreatedStrategy
+specifier|private
+name|MessageCreatedStrategy
+name|messageCreatedStrategy
+decl_stmt|;
+comment|/**          * Sets the JMS selector to use          */
+DECL|field|selector
+specifier|private
+name|String
+name|selector
+decl_stmt|;
+DECL|method|getConsumerType ()
+specifier|public
+name|ConsumerType
+name|getConsumerType
+parameter_list|()
+block|{
+return|return
+name|consumerType
+return|;
+block|}
+DECL|method|setConsumerType (ConsumerType consumerType)
+specifier|public
+name|void
+name|setConsumerType
+parameter_list|(
+name|ConsumerType
+name|consumerType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|consumerType
+operator|=
+name|consumerType
+expr_stmt|;
+block|}
+DECL|method|getConnectionFactory ()
+specifier|public
+name|ConnectionFactory
+name|getConnectionFactory
+parameter_list|()
+block|{
+return|return
+name|connectionFactory
+return|;
+block|}
+DECL|method|setConnectionFactory (ConnectionFactory connectionFactory)
+specifier|public
+name|void
+name|setConnectionFactory
+parameter_list|(
+name|ConnectionFactory
+name|connectionFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|connectionFactory
+operator|=
+name|connectionFactory
+expr_stmt|;
+block|}
+DECL|method|getUsername ()
+specifier|public
+name|String
+name|getUsername
+parameter_list|()
+block|{
+return|return
+name|username
+return|;
+block|}
+DECL|method|setUsername (String username)
+specifier|public
+name|void
+name|setUsername
+parameter_list|(
+name|String
+name|username
+parameter_list|)
+block|{
+name|this
+operator|.
+name|username
+operator|=
+name|username
+expr_stmt|;
+block|}
+DECL|method|getPassword ()
+specifier|public
+name|String
+name|getPassword
+parameter_list|()
+block|{
+return|return
+name|password
+return|;
+block|}
+DECL|method|setPassword (String password)
+specifier|public
+name|void
+name|setPassword
+parameter_list|(
+name|String
+name|password
+parameter_list|)
+block|{
+name|this
+operator|.
+name|password
+operator|=
+name|password
+expr_stmt|;
+block|}
+DECL|method|getListenerConnectionFactory ()
+specifier|public
+name|ConnectionFactory
+name|getListenerConnectionFactory
+parameter_list|()
+block|{
+return|return
+name|listenerConnectionFactory
+return|;
+block|}
+DECL|method|setListenerConnectionFactory ( ConnectionFactory listenerConnectionFactory)
+specifier|public
+name|void
+name|setListenerConnectionFactory
+parameter_list|(
+name|ConnectionFactory
+name|listenerConnectionFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|listenerConnectionFactory
+operator|=
+name|listenerConnectionFactory
+expr_stmt|;
+block|}
+DECL|method|getTemplateConnectionFactory ()
+specifier|public
+name|ConnectionFactory
+name|getTemplateConnectionFactory
+parameter_list|()
+block|{
+return|return
+name|templateConnectionFactory
+return|;
+block|}
+DECL|method|setTemplateConnectionFactory ( ConnectionFactory templateConnectionFactory)
+specifier|public
+name|void
+name|setTemplateConnectionFactory
+parameter_list|(
+name|ConnectionFactory
+name|templateConnectionFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|templateConnectionFactory
+operator|=
+name|templateConnectionFactory
+expr_stmt|;
+block|}
+DECL|method|getAutoStartup ()
+specifier|public
+name|Boolean
+name|getAutoStartup
+parameter_list|()
+block|{
+return|return
+name|autoStartup
+return|;
+block|}
+DECL|method|setAutoStartup (Boolean autoStartup)
+specifier|public
+name|void
+name|setAutoStartup
+parameter_list|(
+name|Boolean
+name|autoStartup
+parameter_list|)
+block|{
+name|this
+operator|.
+name|autoStartup
+operator|=
+name|autoStartup
+expr_stmt|;
+block|}
+DECL|method|getAcceptMessagesWhileStopping ()
+specifier|public
+name|Boolean
+name|getAcceptMessagesWhileStopping
+parameter_list|()
+block|{
+return|return
+name|acceptMessagesWhileStopping
+return|;
+block|}
+DECL|method|setAcceptMessagesWhileStopping ( Boolean acceptMessagesWhileStopping)
+specifier|public
+name|void
+name|setAcceptMessagesWhileStopping
+parameter_list|(
+name|Boolean
+name|acceptMessagesWhileStopping
+parameter_list|)
+block|{
+name|this
+operator|.
+name|acceptMessagesWhileStopping
+operator|=
+name|acceptMessagesWhileStopping
+expr_stmt|;
+block|}
+DECL|method|getAllowReplyManagerQuickStop ()
+specifier|public
+name|Boolean
+name|getAllowReplyManagerQuickStop
+parameter_list|()
+block|{
+return|return
+name|allowReplyManagerQuickStop
+return|;
+block|}
+DECL|method|setAllowReplyManagerQuickStop ( Boolean allowReplyManagerQuickStop)
+specifier|public
+name|void
+name|setAllowReplyManagerQuickStop
+parameter_list|(
+name|Boolean
+name|allowReplyManagerQuickStop
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowReplyManagerQuickStop
+operator|=
+name|allowReplyManagerQuickStop
+expr_stmt|;
+block|}
+DECL|method|getClientId ()
+specifier|public
+name|String
+name|getClientId
+parameter_list|()
+block|{
+return|return
+name|clientId
+return|;
+block|}
+DECL|method|setClientId (String clientId)
+specifier|public
+name|void
+name|setClientId
+parameter_list|(
+name|String
+name|clientId
+parameter_list|)
+block|{
+name|this
+operator|.
+name|clientId
+operator|=
+name|clientId
+expr_stmt|;
+block|}
+DECL|method|getDurableSubscriptionName ()
+specifier|public
+name|String
+name|getDurableSubscriptionName
+parameter_list|()
+block|{
+return|return
+name|durableSubscriptionName
+return|;
+block|}
+DECL|method|setDurableSubscriptionName (String durableSubscriptionName)
+specifier|public
+name|void
+name|setDurableSubscriptionName
+parameter_list|(
+name|String
+name|durableSubscriptionName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|durableSubscriptionName
+operator|=
+name|durableSubscriptionName
+expr_stmt|;
+block|}
+DECL|method|getExceptionListener ()
+specifier|public
+name|ExceptionListener
+name|getExceptionListener
+parameter_list|()
+block|{
+return|return
+name|exceptionListener
+return|;
+block|}
+DECL|method|setExceptionListener (ExceptionListener exceptionListener)
+specifier|public
+name|void
+name|setExceptionListener
+parameter_list|(
+name|ExceptionListener
+name|exceptionListener
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exceptionListener
+operator|=
+name|exceptionListener
+expr_stmt|;
+block|}
+DECL|method|getErrorHandler ()
+specifier|public
+name|ErrorHandler
+name|getErrorHandler
+parameter_list|()
+block|{
+return|return
+name|errorHandler
+return|;
+block|}
+DECL|method|setErrorHandler (ErrorHandler errorHandler)
+specifier|public
+name|void
+name|setErrorHandler
+parameter_list|(
+name|ErrorHandler
+name|errorHandler
+parameter_list|)
+block|{
+name|this
+operator|.
+name|errorHandler
+operator|=
+name|errorHandler
+expr_stmt|;
+block|}
+DECL|method|getErrorHandlerLoggingLevel ()
+specifier|public
+name|LoggingLevel
+name|getErrorHandlerLoggingLevel
+parameter_list|()
+block|{
+return|return
+name|errorHandlerLoggingLevel
+return|;
+block|}
+DECL|method|setErrorHandlerLoggingLevel ( LoggingLevel errorHandlerLoggingLevel)
+specifier|public
+name|void
+name|setErrorHandlerLoggingLevel
+parameter_list|(
+name|LoggingLevel
+name|errorHandlerLoggingLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|errorHandlerLoggingLevel
+operator|=
+name|errorHandlerLoggingLevel
+expr_stmt|;
+block|}
+DECL|method|getErrorHandlerLogStackTrace ()
+specifier|public
+name|Boolean
+name|getErrorHandlerLogStackTrace
+parameter_list|()
+block|{
+return|return
+name|errorHandlerLogStackTrace
+return|;
+block|}
+DECL|method|setErrorHandlerLogStackTrace ( Boolean errorHandlerLogStackTrace)
+specifier|public
+name|void
+name|setErrorHandlerLogStackTrace
+parameter_list|(
+name|Boolean
+name|errorHandlerLogStackTrace
+parameter_list|)
+block|{
+name|this
+operator|.
+name|errorHandlerLogStackTrace
+operator|=
+name|errorHandlerLogStackTrace
+expr_stmt|;
+block|}
+annotation|@
+name|Deprecated
+annotation|@
+name|DeprecatedConfigurationProperty
+DECL|method|getSubscriptionDurable ()
+specifier|public
+name|Boolean
+name|getSubscriptionDurable
+parameter_list|()
+block|{
+return|return
+name|subscriptionDurable
+return|;
+block|}
+annotation|@
+name|Deprecated
+DECL|method|setSubscriptionDurable (Boolean subscriptionDurable)
+specifier|public
+name|void
+name|setSubscriptionDurable
+parameter_list|(
+name|Boolean
+name|subscriptionDurable
+parameter_list|)
+block|{
+name|this
+operator|.
+name|subscriptionDurable
+operator|=
+name|subscriptionDurable
+expr_stmt|;
+block|}
+DECL|method|getAcknowledgementModeName ()
+specifier|public
+name|String
+name|getAcknowledgementModeName
+parameter_list|()
+block|{
+return|return
+name|acknowledgementModeName
+return|;
+block|}
+DECL|method|setAcknowledgementModeName (String acknowledgementModeName)
+specifier|public
+name|void
+name|setAcknowledgementModeName
+parameter_list|(
+name|String
+name|acknowledgementModeName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|acknowledgementModeName
+operator|=
+name|acknowledgementModeName
+expr_stmt|;
+block|}
+DECL|method|getExposeListenerSession ()
+specifier|public
+name|Boolean
+name|getExposeListenerSession
+parameter_list|()
+block|{
+return|return
+name|exposeListenerSession
+return|;
+block|}
+DECL|method|setExposeListenerSession (Boolean exposeListenerSession)
+specifier|public
+name|void
+name|setExposeListenerSession
+parameter_list|(
+name|Boolean
+name|exposeListenerSession
+parameter_list|)
+block|{
+name|this
+operator|.
+name|exposeListenerSession
+operator|=
+name|exposeListenerSession
+expr_stmt|;
+block|}
+DECL|method|getTaskExecutor ()
+specifier|public
+name|TaskExecutor
+name|getTaskExecutor
+parameter_list|()
+block|{
+return|return
+name|taskExecutor
+return|;
+block|}
+DECL|method|setTaskExecutor (TaskExecutor taskExecutor)
+specifier|public
+name|void
+name|setTaskExecutor
+parameter_list|(
+name|TaskExecutor
+name|taskExecutor
+parameter_list|)
+block|{
+name|this
+operator|.
+name|taskExecutor
+operator|=
+name|taskExecutor
+expr_stmt|;
+block|}
+DECL|method|getPubSubNoLocal ()
+specifier|public
+name|Boolean
+name|getPubSubNoLocal
+parameter_list|()
+block|{
+return|return
+name|pubSubNoLocal
+return|;
+block|}
+DECL|method|setPubSubNoLocal (Boolean pubSubNoLocal)
+specifier|public
+name|void
+name|setPubSubNoLocal
+parameter_list|(
+name|Boolean
+name|pubSubNoLocal
+parameter_list|)
+block|{
+name|this
+operator|.
+name|pubSubNoLocal
+operator|=
+name|pubSubNoLocal
+expr_stmt|;
+block|}
+DECL|method|getConcurrentConsumers ()
+specifier|public
+name|Integer
+name|getConcurrentConsumers
+parameter_list|()
+block|{
+return|return
+name|concurrentConsumers
+return|;
+block|}
+DECL|method|setConcurrentConsumers (Integer concurrentConsumers)
+specifier|public
+name|void
+name|setConcurrentConsumers
+parameter_list|(
+name|Integer
+name|concurrentConsumers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|concurrentConsumers
+operator|=
+name|concurrentConsumers
+expr_stmt|;
+block|}
+DECL|method|getReplyToConcurrentConsumers ()
+specifier|public
+name|Integer
+name|getReplyToConcurrentConsumers
+parameter_list|()
+block|{
+return|return
+name|replyToConcurrentConsumers
+return|;
+block|}
+DECL|method|setReplyToConcurrentConsumers ( Integer replyToConcurrentConsumers)
+specifier|public
+name|void
+name|setReplyToConcurrentConsumers
+parameter_list|(
+name|Integer
+name|replyToConcurrentConsumers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyToConcurrentConsumers
+operator|=
+name|replyToConcurrentConsumers
+expr_stmt|;
+block|}
+DECL|method|getMaxMessagesPerTask ()
+specifier|public
+name|Integer
+name|getMaxMessagesPerTask
+parameter_list|()
+block|{
+return|return
+name|maxMessagesPerTask
+return|;
+block|}
+DECL|method|setMaxMessagesPerTask (Integer maxMessagesPerTask)
+specifier|public
+name|void
+name|setMaxMessagesPerTask
+parameter_list|(
+name|Integer
+name|maxMessagesPerTask
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxMessagesPerTask
+operator|=
+name|maxMessagesPerTask
+expr_stmt|;
+block|}
+DECL|method|getCacheLevel ()
+specifier|public
+name|Integer
+name|getCacheLevel
+parameter_list|()
+block|{
+return|return
+name|cacheLevel
+return|;
+block|}
+DECL|method|setCacheLevel (Integer cacheLevel)
+specifier|public
+name|void
+name|setCacheLevel
+parameter_list|(
+name|Integer
+name|cacheLevel
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cacheLevel
+operator|=
+name|cacheLevel
+expr_stmt|;
+block|}
+DECL|method|getCacheLevelName ()
+specifier|public
+name|String
+name|getCacheLevelName
+parameter_list|()
+block|{
+return|return
+name|cacheLevelName
+return|;
+block|}
+DECL|method|setCacheLevelName (String cacheLevelName)
+specifier|public
+name|void
+name|setCacheLevelName
+parameter_list|(
+name|String
+name|cacheLevelName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|cacheLevelName
+operator|=
+name|cacheLevelName
+expr_stmt|;
+block|}
+DECL|method|getRecoveryInterval ()
+specifier|public
+name|Long
+name|getRecoveryInterval
+parameter_list|()
+block|{
+return|return
+name|recoveryInterval
+return|;
+block|}
+DECL|method|setRecoveryInterval (Long recoveryInterval)
+specifier|public
+name|void
+name|setRecoveryInterval
+parameter_list|(
+name|Long
+name|recoveryInterval
+parameter_list|)
+block|{
+name|this
+operator|.
+name|recoveryInterval
+operator|=
+name|recoveryInterval
+expr_stmt|;
+block|}
+DECL|method|getReceiveTimeout ()
+specifier|public
+name|Long
+name|getReceiveTimeout
+parameter_list|()
+block|{
+return|return
+name|receiveTimeout
+return|;
+block|}
+DECL|method|setReceiveTimeout (Long receiveTimeout)
+specifier|public
+name|void
+name|setReceiveTimeout
+parameter_list|(
+name|Long
+name|receiveTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|receiveTimeout
+operator|=
+name|receiveTimeout
+expr_stmt|;
+block|}
+DECL|method|getTransactionManager ()
+specifier|public
+name|PlatformTransactionManager
+name|getTransactionManager
+parameter_list|()
+block|{
+return|return
+name|transactionManager
+return|;
+block|}
+DECL|method|setTransactionManager ( PlatformTransactionManager transactionManager)
+specifier|public
+name|void
+name|setTransactionManager
+parameter_list|(
+name|PlatformTransactionManager
+name|transactionManager
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transactionManager
+operator|=
+name|transactionManager
+expr_stmt|;
+block|}
+DECL|method|getTransactionName ()
+specifier|public
+name|String
+name|getTransactionName
+parameter_list|()
+block|{
+return|return
+name|transactionName
+return|;
+block|}
+DECL|method|setTransactionName (String transactionName)
+specifier|public
+name|void
+name|setTransactionName
+parameter_list|(
+name|String
+name|transactionName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transactionName
+operator|=
+name|transactionName
+expr_stmt|;
+block|}
+DECL|method|getTransactionTimeout ()
+specifier|public
+name|Integer
+name|getTransactionTimeout
+parameter_list|()
+block|{
+return|return
+name|transactionTimeout
+return|;
+block|}
+DECL|method|setTransactionTimeout (Integer transactionTimeout)
+specifier|public
+name|void
+name|setTransactionTimeout
+parameter_list|(
+name|Integer
+name|transactionTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transactionTimeout
+operator|=
+name|transactionTimeout
+expr_stmt|;
+block|}
+DECL|method|getIdleTaskExecutionLimit ()
+specifier|public
+name|Integer
+name|getIdleTaskExecutionLimit
+parameter_list|()
+block|{
+return|return
+name|idleTaskExecutionLimit
+return|;
+block|}
+DECL|method|setIdleTaskExecutionLimit (Integer idleTaskExecutionLimit)
+specifier|public
+name|void
+name|setIdleTaskExecutionLimit
+parameter_list|(
+name|Integer
+name|idleTaskExecutionLimit
+parameter_list|)
+block|{
+name|this
+operator|.
+name|idleTaskExecutionLimit
+operator|=
+name|idleTaskExecutionLimit
+expr_stmt|;
+block|}
+DECL|method|getIdleConsumerLimit ()
+specifier|public
+name|Integer
+name|getIdleConsumerLimit
+parameter_list|()
+block|{
+return|return
+name|idleConsumerLimit
+return|;
+block|}
+DECL|method|setIdleConsumerLimit (Integer idleConsumerLimit)
+specifier|public
+name|void
+name|setIdleConsumerLimit
+parameter_list|(
+name|Integer
+name|idleConsumerLimit
+parameter_list|)
+block|{
+name|this
+operator|.
+name|idleConsumerLimit
+operator|=
+name|idleConsumerLimit
+expr_stmt|;
+block|}
+DECL|method|getWaitForProvisionCorrelationToBeUpdatedCounter ()
+specifier|public
+name|Integer
+name|getWaitForProvisionCorrelationToBeUpdatedCounter
+parameter_list|()
+block|{
+return|return
+name|waitForProvisionCorrelationToBeUpdatedCounter
+return|;
+block|}
+DECL|method|setWaitForProvisionCorrelationToBeUpdatedCounter ( Integer waitForProvisionCorrelationToBeUpdatedCounter)
+specifier|public
+name|void
+name|setWaitForProvisionCorrelationToBeUpdatedCounter
+parameter_list|(
+name|Integer
+name|waitForProvisionCorrelationToBeUpdatedCounter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|waitForProvisionCorrelationToBeUpdatedCounter
+operator|=
+name|waitForProvisionCorrelationToBeUpdatedCounter
+expr_stmt|;
+block|}
+DECL|method|getWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime ()
+specifier|public
+name|Long
+name|getWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+parameter_list|()
+block|{
+return|return
+name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+return|;
+block|}
+DECL|method|setWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime ( Long waitForProvisionCorrelationToBeUpdatedThreadSleepingTime)
+specifier|public
+name|void
+name|setWaitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+parameter_list|(
+name|Long
+name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+parameter_list|)
+block|{
+name|this
+operator|.
+name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+operator|=
+name|waitForProvisionCorrelationToBeUpdatedThreadSleepingTime
+expr_stmt|;
+block|}
+DECL|method|getMaxConcurrentConsumers ()
+specifier|public
+name|Integer
+name|getMaxConcurrentConsumers
+parameter_list|()
+block|{
+return|return
+name|maxConcurrentConsumers
+return|;
+block|}
+DECL|method|setMaxConcurrentConsumers (Integer maxConcurrentConsumers)
+specifier|public
+name|void
+name|setMaxConcurrentConsumers
+parameter_list|(
+name|Integer
+name|maxConcurrentConsumers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|maxConcurrentConsumers
+operator|=
+name|maxConcurrentConsumers
+expr_stmt|;
+block|}
+DECL|method|getReplyToMaxConcurrentConsumers ()
+specifier|public
+name|Integer
+name|getReplyToMaxConcurrentConsumers
+parameter_list|()
+block|{
+return|return
+name|replyToMaxConcurrentConsumers
+return|;
+block|}
+DECL|method|setReplyToMaxConcurrentConsumers ( Integer replyToMaxConcurrentConsumers)
+specifier|public
+name|void
+name|setReplyToMaxConcurrentConsumers
+parameter_list|(
+name|Integer
+name|replyToMaxConcurrentConsumers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyToMaxConcurrentConsumers
+operator|=
+name|replyToMaxConcurrentConsumers
+expr_stmt|;
+block|}
+DECL|method|getReplyToOnTimeoutMaxConcurrentConsumers ()
+specifier|public
+name|Integer
+name|getReplyToOnTimeoutMaxConcurrentConsumers
+parameter_list|()
+block|{
+return|return
+name|replyToOnTimeoutMaxConcurrentConsumers
+return|;
+block|}
+DECL|method|setReplyToOnTimeoutMaxConcurrentConsumers ( Integer replyToOnTimeoutMaxConcurrentConsumers)
+specifier|public
+name|void
+name|setReplyToOnTimeoutMaxConcurrentConsumers
+parameter_list|(
+name|Integer
+name|replyToOnTimeoutMaxConcurrentConsumers
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyToOnTimeoutMaxConcurrentConsumers
+operator|=
+name|replyToOnTimeoutMaxConcurrentConsumers
+expr_stmt|;
+block|}
+DECL|method|getDeliveryPersistent ()
+specifier|public
+name|Boolean
+name|getDeliveryPersistent
+parameter_list|()
+block|{
+return|return
+name|deliveryPersistent
+return|;
+block|}
+DECL|method|setDeliveryPersistent (Boolean deliveryPersistent)
+specifier|public
+name|void
+name|setDeliveryPersistent
+parameter_list|(
+name|Boolean
+name|deliveryPersistent
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deliveryPersistent
+operator|=
+name|deliveryPersistent
+expr_stmt|;
+block|}
+DECL|method|getDeliveryMode ()
+specifier|public
+name|Integer
+name|getDeliveryMode
+parameter_list|()
+block|{
+return|return
+name|deliveryMode
+return|;
+block|}
+DECL|method|setDeliveryMode (Integer deliveryMode)
+specifier|public
+name|void
+name|setDeliveryMode
+parameter_list|(
+name|Integer
+name|deliveryMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|deliveryMode
+operator|=
+name|deliveryMode
+expr_stmt|;
+block|}
+DECL|method|getReplyToDeliveryPersistent ()
+specifier|public
+name|Boolean
+name|getReplyToDeliveryPersistent
+parameter_list|()
+block|{
+return|return
+name|replyToDeliveryPersistent
+return|;
+block|}
+DECL|method|setReplyToDeliveryPersistent ( Boolean replyToDeliveryPersistent)
+specifier|public
+name|void
+name|setReplyToDeliveryPersistent
+parameter_list|(
+name|Boolean
+name|replyToDeliveryPersistent
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyToDeliveryPersistent
+operator|=
+name|replyToDeliveryPersistent
+expr_stmt|;
+block|}
+DECL|method|getTimeToLive ()
+specifier|public
+name|Long
+name|getTimeToLive
+parameter_list|()
+block|{
+return|return
+name|timeToLive
+return|;
+block|}
+DECL|method|setTimeToLive (Long timeToLive)
+specifier|public
+name|void
+name|setTimeToLive
+parameter_list|(
+name|Long
+name|timeToLive
+parameter_list|)
+block|{
+name|this
+operator|.
+name|timeToLive
+operator|=
+name|timeToLive
+expr_stmt|;
+block|}
+DECL|method|getMessageConverter ()
+specifier|public
+name|MessageConverter
+name|getMessageConverter
+parameter_list|()
+block|{
+return|return
+name|messageConverter
+return|;
+block|}
+DECL|method|setMessageConverter (MessageConverter messageConverter)
+specifier|public
+name|void
+name|setMessageConverter
+parameter_list|(
+name|MessageConverter
+name|messageConverter
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageConverter
+operator|=
+name|messageConverter
+expr_stmt|;
+block|}
+DECL|method|getMapJmsMessage ()
+specifier|public
+name|Boolean
+name|getMapJmsMessage
+parameter_list|()
+block|{
+return|return
+name|mapJmsMessage
+return|;
+block|}
+DECL|method|setMapJmsMessage (Boolean mapJmsMessage)
+specifier|public
+name|void
+name|setMapJmsMessage
+parameter_list|(
+name|Boolean
+name|mapJmsMessage
+parameter_list|)
+block|{
+name|this
+operator|.
+name|mapJmsMessage
+operator|=
+name|mapJmsMessage
+expr_stmt|;
+block|}
+DECL|method|getMessageIdEnabled ()
+specifier|public
+name|Boolean
+name|getMessageIdEnabled
+parameter_list|()
+block|{
+return|return
+name|messageIdEnabled
+return|;
+block|}
+DECL|method|setMessageIdEnabled (Boolean messageIdEnabled)
+specifier|public
+name|void
+name|setMessageIdEnabled
+parameter_list|(
+name|Boolean
+name|messageIdEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageIdEnabled
+operator|=
+name|messageIdEnabled
+expr_stmt|;
+block|}
+DECL|method|getMessageTimestampEnabled ()
+specifier|public
+name|Boolean
+name|getMessageTimestampEnabled
+parameter_list|()
+block|{
+return|return
+name|messageTimestampEnabled
+return|;
+block|}
+DECL|method|setMessageTimestampEnabled (Boolean messageTimestampEnabled)
+specifier|public
+name|void
+name|setMessageTimestampEnabled
+parameter_list|(
+name|Boolean
+name|messageTimestampEnabled
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageTimestampEnabled
+operator|=
+name|messageTimestampEnabled
+expr_stmt|;
+block|}
+DECL|method|getPriority ()
+specifier|public
+name|Integer
+name|getPriority
+parameter_list|()
+block|{
+return|return
+name|priority
+return|;
+block|}
+DECL|method|setPriority (Integer priority)
+specifier|public
+name|void
+name|setPriority
+parameter_list|(
+name|Integer
+name|priority
+parameter_list|)
+block|{
+name|this
+operator|.
+name|priority
+operator|=
+name|priority
+expr_stmt|;
+block|}
+DECL|method|getAcknowledgementMode ()
+specifier|public
+name|Integer
+name|getAcknowledgementMode
+parameter_list|()
+block|{
+return|return
+name|acknowledgementMode
+return|;
+block|}
+DECL|method|setAcknowledgementMode (Integer acknowledgementMode)
+specifier|public
+name|void
+name|setAcknowledgementMode
+parameter_list|(
+name|Integer
+name|acknowledgementMode
+parameter_list|)
+block|{
+name|this
+operator|.
+name|acknowledgementMode
+operator|=
+name|acknowledgementMode
+expr_stmt|;
+block|}
+DECL|method|getTransacted ()
+specifier|public
+name|Boolean
+name|getTransacted
+parameter_list|()
+block|{
+return|return
+name|transacted
+return|;
+block|}
+DECL|method|setTransacted (Boolean transacted)
+specifier|public
+name|void
+name|setTransacted
+parameter_list|(
+name|Boolean
+name|transacted
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transacted
+operator|=
+name|transacted
+expr_stmt|;
+block|}
+annotation|@
+name|Deprecated
+annotation|@
+name|DeprecatedConfigurationProperty
+DECL|method|getTransactedInOut ()
+specifier|public
+name|Boolean
+name|getTransactedInOut
+parameter_list|()
+block|{
+return|return
+name|transactedInOut
+return|;
+block|}
+annotation|@
+name|Deprecated
+DECL|method|setTransactedInOut (Boolean transactedInOut)
+specifier|public
+name|void
+name|setTransactedInOut
+parameter_list|(
+name|Boolean
+name|transactedInOut
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transactedInOut
+operator|=
+name|transactedInOut
+expr_stmt|;
+block|}
+DECL|method|getLazyCreateTransactionManager ()
+specifier|public
+name|Boolean
+name|getLazyCreateTransactionManager
+parameter_list|()
+block|{
+return|return
+name|lazyCreateTransactionManager
+return|;
+block|}
+DECL|method|setLazyCreateTransactionManager ( Boolean lazyCreateTransactionManager)
+specifier|public
+name|void
+name|setLazyCreateTransactionManager
+parameter_list|(
+name|Boolean
+name|lazyCreateTransactionManager
+parameter_list|)
+block|{
+name|this
+operator|.
+name|lazyCreateTransactionManager
+operator|=
+name|lazyCreateTransactionManager
+expr_stmt|;
+block|}
+DECL|method|getEagerLoadingOfProperties ()
+specifier|public
+name|Boolean
+name|getEagerLoadingOfProperties
+parameter_list|()
+block|{
+return|return
+name|eagerLoadingOfProperties
+return|;
+block|}
+DECL|method|setEagerLoadingOfProperties (Boolean eagerLoadingOfProperties)
+specifier|public
+name|void
+name|setEagerLoadingOfProperties
+parameter_list|(
+name|Boolean
+name|eagerLoadingOfProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|eagerLoadingOfProperties
+operator|=
+name|eagerLoadingOfProperties
+expr_stmt|;
+block|}
+DECL|method|getDisableReplyTo ()
+specifier|public
+name|Boolean
+name|getDisableReplyTo
+parameter_list|()
+block|{
+return|return
+name|disableReplyTo
+return|;
+block|}
+DECL|method|setDisableReplyTo (Boolean disableReplyTo)
+specifier|public
+name|void
+name|setDisableReplyTo
+parameter_list|(
+name|Boolean
+name|disableReplyTo
+parameter_list|)
+block|{
+name|this
+operator|.
+name|disableReplyTo
+operator|=
+name|disableReplyTo
+expr_stmt|;
+block|}
+DECL|method|getPreserveMessageQos ()
+specifier|public
+name|Boolean
+name|getPreserveMessageQos
+parameter_list|()
+block|{
+return|return
+name|preserveMessageQos
+return|;
+block|}
+DECL|method|setPreserveMessageQos (Boolean preserveMessageQos)
+specifier|public
+name|void
+name|setPreserveMessageQos
+parameter_list|(
+name|Boolean
+name|preserveMessageQos
+parameter_list|)
+block|{
+name|this
+operator|.
+name|preserveMessageQos
+operator|=
+name|preserveMessageQos
+expr_stmt|;
+block|}
+DECL|method|getJmsOperations ()
+specifier|public
+name|JmsOperations
+name|getJmsOperations
+parameter_list|()
+block|{
+return|return
+name|jmsOperations
+return|;
+block|}
+DECL|method|setJmsOperations (JmsOperations jmsOperations)
+specifier|public
+name|void
+name|setJmsOperations
+parameter_list|(
+name|JmsOperations
+name|jmsOperations
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jmsOperations
+operator|=
+name|jmsOperations
+expr_stmt|;
+block|}
+DECL|method|getDestinationResolver ()
+specifier|public
+name|DestinationResolver
+name|getDestinationResolver
+parameter_list|()
+block|{
+return|return
+name|destinationResolver
+return|;
+block|}
+DECL|method|setDestinationResolver ( DestinationResolver destinationResolver)
+specifier|public
+name|void
+name|setDestinationResolver
+parameter_list|(
+name|DestinationResolver
+name|destinationResolver
+parameter_list|)
+block|{
+name|this
+operator|.
+name|destinationResolver
+operator|=
+name|destinationResolver
+expr_stmt|;
+block|}
+DECL|method|getProviderMetadata ()
+specifier|public
+name|JmsProviderMetadata
+name|getProviderMetadata
+parameter_list|()
+block|{
+return|return
+name|providerMetadata
+return|;
+block|}
+DECL|method|setProviderMetadata (JmsProviderMetadata providerMetadata)
+specifier|public
+name|void
+name|setProviderMetadata
+parameter_list|(
+name|JmsProviderMetadata
+name|providerMetadata
+parameter_list|)
+block|{
+name|this
+operator|.
+name|providerMetadata
+operator|=
+name|providerMetadata
+expr_stmt|;
+block|}
+DECL|method|getMetadataJmsOperations ()
+specifier|public
+name|JmsOperations
+name|getMetadataJmsOperations
+parameter_list|()
+block|{
+return|return
+name|metadataJmsOperations
+return|;
+block|}
+DECL|method|setMetadataJmsOperations (JmsOperations metadataJmsOperations)
+specifier|public
+name|void
+name|setMetadataJmsOperations
+parameter_list|(
+name|JmsOperations
+name|metadataJmsOperations
+parameter_list|)
+block|{
+name|this
+operator|.
+name|metadataJmsOperations
+operator|=
+name|metadataJmsOperations
+expr_stmt|;
+block|}
+DECL|method|getAlwaysCopyMessage ()
+specifier|public
+name|Boolean
+name|getAlwaysCopyMessage
+parameter_list|()
+block|{
+return|return
+name|alwaysCopyMessage
+return|;
+block|}
+DECL|method|setAlwaysCopyMessage (Boolean alwaysCopyMessage)
+specifier|public
+name|void
+name|setAlwaysCopyMessage
+parameter_list|(
+name|Boolean
+name|alwaysCopyMessage
+parameter_list|)
+block|{
+name|this
+operator|.
+name|alwaysCopyMessage
+operator|=
+name|alwaysCopyMessage
+expr_stmt|;
+block|}
+DECL|method|getUseMessageIDAsCorrelationID ()
+specifier|public
+name|Boolean
+name|getUseMessageIDAsCorrelationID
+parameter_list|()
+block|{
+return|return
+name|useMessageIDAsCorrelationID
+return|;
+block|}
+DECL|method|setUseMessageIDAsCorrelationID ( Boolean useMessageIDAsCorrelationID)
+specifier|public
+name|void
+name|setUseMessageIDAsCorrelationID
+parameter_list|(
+name|Boolean
+name|useMessageIDAsCorrelationID
+parameter_list|)
+block|{
+name|this
+operator|.
+name|useMessageIDAsCorrelationID
+operator|=
+name|useMessageIDAsCorrelationID
+expr_stmt|;
+block|}
+DECL|method|getRequestTimeout ()
+specifier|public
+name|Long
+name|getRequestTimeout
+parameter_list|()
+block|{
+return|return
+name|requestTimeout
+return|;
+block|}
+DECL|method|setRequestTimeout (Long requestTimeout)
+specifier|public
+name|void
+name|setRequestTimeout
+parameter_list|(
+name|Long
+name|requestTimeout
+parameter_list|)
+block|{
+name|this
+operator|.
+name|requestTimeout
+operator|=
+name|requestTimeout
+expr_stmt|;
+block|}
+DECL|method|getRequestTimeoutCheckerInterval ()
+specifier|public
+name|Long
+name|getRequestTimeoutCheckerInterval
+parameter_list|()
+block|{
+return|return
+name|requestTimeoutCheckerInterval
+return|;
+block|}
+DECL|method|setRequestTimeoutCheckerInterval ( Long requestTimeoutCheckerInterval)
+specifier|public
+name|void
+name|setRequestTimeoutCheckerInterval
+parameter_list|(
+name|Long
+name|requestTimeoutCheckerInterval
+parameter_list|)
+block|{
+name|this
+operator|.
+name|requestTimeoutCheckerInterval
+operator|=
+name|requestTimeoutCheckerInterval
+expr_stmt|;
+block|}
+DECL|method|getReplyTo ()
+specifier|public
+name|String
+name|getReplyTo
+parameter_list|()
+block|{
+return|return
+name|replyTo
+return|;
+block|}
+DECL|method|setReplyTo (String replyTo)
+specifier|public
+name|void
+name|setReplyTo
+parameter_list|(
+name|String
+name|replyTo
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyTo
+operator|=
+name|replyTo
+expr_stmt|;
+block|}
+DECL|method|getReplyToDestinationSelectorName ()
+specifier|public
+name|String
+name|getReplyToDestinationSelectorName
+parameter_list|()
+block|{
+return|return
+name|replyToDestinationSelectorName
+return|;
+block|}
+DECL|method|setReplyToDestinationSelectorName ( String replyToDestinationSelectorName)
+specifier|public
+name|void
+name|setReplyToDestinationSelectorName
+parameter_list|(
+name|String
+name|replyToDestinationSelectorName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyToDestinationSelectorName
+operator|=
+name|replyToDestinationSelectorName
+expr_stmt|;
+block|}
+DECL|method|getReplyToOverride ()
+specifier|public
+name|String
+name|getReplyToOverride
+parameter_list|()
+block|{
+return|return
+name|replyToOverride
+return|;
+block|}
+DECL|method|setReplyToOverride (String replyToOverride)
+specifier|public
+name|void
+name|setReplyToOverride
+parameter_list|(
+name|String
+name|replyToOverride
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyToOverride
+operator|=
+name|replyToOverride
+expr_stmt|;
+block|}
+DECL|method|getReplyToSameDestinationAllowed ()
+specifier|public
+name|Boolean
+name|getReplyToSameDestinationAllowed
+parameter_list|()
+block|{
+return|return
+name|replyToSameDestinationAllowed
+return|;
+block|}
+DECL|method|setReplyToSameDestinationAllowed ( Boolean replyToSameDestinationAllowed)
+specifier|public
+name|void
+name|setReplyToSameDestinationAllowed
+parameter_list|(
+name|Boolean
+name|replyToSameDestinationAllowed
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyToSameDestinationAllowed
+operator|=
+name|replyToSameDestinationAllowed
+expr_stmt|;
+block|}
+DECL|method|getJmsMessageType ()
+specifier|public
+name|JmsMessageType
+name|getJmsMessageType
+parameter_list|()
+block|{
+return|return
+name|jmsMessageType
+return|;
+block|}
+DECL|method|setJmsMessageType (JmsMessageType jmsMessageType)
+specifier|public
+name|void
+name|setJmsMessageType
+parameter_list|(
+name|JmsMessageType
+name|jmsMessageType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jmsMessageType
+operator|=
+name|jmsMessageType
+expr_stmt|;
+block|}
+DECL|method|getJmsKeyFormatStrategy ()
+specifier|public
+name|JmsKeyFormatStrategy
+name|getJmsKeyFormatStrategy
+parameter_list|()
+block|{
+return|return
+name|jmsKeyFormatStrategy
+return|;
+block|}
+DECL|method|setJmsKeyFormatStrategy ( JmsKeyFormatStrategy jmsKeyFormatStrategy)
+specifier|public
+name|void
+name|setJmsKeyFormatStrategy
+parameter_list|(
+name|JmsKeyFormatStrategy
+name|jmsKeyFormatStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|jmsKeyFormatStrategy
+operator|=
+name|jmsKeyFormatStrategy
+expr_stmt|;
+block|}
+DECL|method|getTransferExchange ()
+specifier|public
+name|Boolean
+name|getTransferExchange
+parameter_list|()
+block|{
+return|return
+name|transferExchange
+return|;
+block|}
+DECL|method|setTransferExchange (Boolean transferExchange)
+specifier|public
+name|void
+name|setTransferExchange
+parameter_list|(
+name|Boolean
+name|transferExchange
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transferExchange
+operator|=
+name|transferExchange
+expr_stmt|;
+block|}
+DECL|method|getTransferException ()
+specifier|public
+name|Boolean
+name|getTransferException
+parameter_list|()
+block|{
+return|return
+name|transferException
+return|;
+block|}
+DECL|method|setTransferException (Boolean transferException)
+specifier|public
+name|void
+name|setTransferException
+parameter_list|(
+name|Boolean
+name|transferException
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transferException
+operator|=
+name|transferException
+expr_stmt|;
+block|}
+DECL|method|getTransferFault ()
+specifier|public
+name|Boolean
+name|getTransferFault
+parameter_list|()
+block|{
+return|return
+name|transferFault
+return|;
+block|}
+DECL|method|setTransferFault (Boolean transferFault)
+specifier|public
+name|void
+name|setTransferFault
+parameter_list|(
+name|Boolean
+name|transferFault
+parameter_list|)
+block|{
+name|this
+operator|.
+name|transferFault
+operator|=
+name|transferFault
+expr_stmt|;
+block|}
+DECL|method|getAsyncStartListener ()
+specifier|public
+name|Boolean
+name|getAsyncStartListener
+parameter_list|()
+block|{
+return|return
+name|asyncStartListener
+return|;
+block|}
+DECL|method|setAsyncStartListener (Boolean asyncStartListener)
+specifier|public
+name|void
+name|setAsyncStartListener
+parameter_list|(
+name|Boolean
+name|asyncStartListener
+parameter_list|)
+block|{
+name|this
+operator|.
+name|asyncStartListener
+operator|=
+name|asyncStartListener
+expr_stmt|;
+block|}
+DECL|method|getAsyncStopListener ()
+specifier|public
+name|Boolean
+name|getAsyncStopListener
+parameter_list|()
+block|{
+return|return
+name|asyncStopListener
+return|;
+block|}
+DECL|method|setAsyncStopListener (Boolean asyncStopListener)
+specifier|public
+name|void
+name|setAsyncStopListener
+parameter_list|(
+name|Boolean
+name|asyncStopListener
+parameter_list|)
+block|{
+name|this
+operator|.
+name|asyncStopListener
+operator|=
+name|asyncStopListener
+expr_stmt|;
+block|}
+DECL|method|getTestConnectionOnStartup ()
+specifier|public
+name|Boolean
+name|getTestConnectionOnStartup
+parameter_list|()
+block|{
+return|return
+name|testConnectionOnStartup
+return|;
+block|}
+DECL|method|setTestConnectionOnStartup (Boolean testConnectionOnStartup)
+specifier|public
+name|void
+name|setTestConnectionOnStartup
+parameter_list|(
+name|Boolean
+name|testConnectionOnStartup
+parameter_list|)
+block|{
+name|this
+operator|.
+name|testConnectionOnStartup
+operator|=
+name|testConnectionOnStartup
+expr_stmt|;
+block|}
+DECL|method|getForceSendOriginalMessage ()
+specifier|public
+name|Boolean
+name|getForceSendOriginalMessage
+parameter_list|()
+block|{
+return|return
+name|forceSendOriginalMessage
+return|;
+block|}
+DECL|method|setForceSendOriginalMessage (Boolean forceSendOriginalMessage)
+specifier|public
+name|void
+name|setForceSendOriginalMessage
+parameter_list|(
+name|Boolean
+name|forceSendOriginalMessage
+parameter_list|)
+block|{
+name|this
+operator|.
+name|forceSendOriginalMessage
+operator|=
+name|forceSendOriginalMessage
+expr_stmt|;
+block|}
+DECL|method|getDisableTimeToLive ()
+specifier|public
+name|Boolean
+name|getDisableTimeToLive
+parameter_list|()
+block|{
+return|return
+name|disableTimeToLive
+return|;
+block|}
+DECL|method|setDisableTimeToLive (Boolean disableTimeToLive)
+specifier|public
+name|void
+name|setDisableTimeToLive
+parameter_list|(
+name|Boolean
+name|disableTimeToLive
+parameter_list|)
+block|{
+name|this
+operator|.
+name|disableTimeToLive
+operator|=
+name|disableTimeToLive
+expr_stmt|;
+block|}
+DECL|method|getReplyToType ()
+specifier|public
+name|ReplyToType
+name|getReplyToType
+parameter_list|()
+block|{
+return|return
+name|replyToType
+return|;
+block|}
+DECL|method|setReplyToType (ReplyToType replyToType)
+specifier|public
+name|void
+name|setReplyToType
+parameter_list|(
+name|ReplyToType
+name|replyToType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyToType
+operator|=
+name|replyToType
+expr_stmt|;
+block|}
+DECL|method|getAsyncConsumer ()
+specifier|public
+name|Boolean
+name|getAsyncConsumer
+parameter_list|()
+block|{
+return|return
+name|asyncConsumer
+return|;
+block|}
+DECL|method|setAsyncConsumer (Boolean asyncConsumer)
+specifier|public
+name|void
+name|setAsyncConsumer
+parameter_list|(
+name|Boolean
+name|asyncConsumer
+parameter_list|)
+block|{
+name|this
+operator|.
+name|asyncConsumer
+operator|=
+name|asyncConsumer
+expr_stmt|;
+block|}
+DECL|method|getReplyToCacheLevelName ()
+specifier|public
+name|String
+name|getReplyToCacheLevelName
+parameter_list|()
+block|{
+return|return
+name|replyToCacheLevelName
+return|;
+block|}
+DECL|method|setReplyToCacheLevelName (String replyToCacheLevelName)
+specifier|public
+name|void
+name|setReplyToCacheLevelName
+parameter_list|(
+name|String
+name|replyToCacheLevelName
+parameter_list|)
+block|{
+name|this
+operator|.
+name|replyToCacheLevelName
+operator|=
+name|replyToCacheLevelName
+expr_stmt|;
+block|}
+DECL|method|getAllowNullBody ()
+specifier|public
+name|Boolean
+name|getAllowNullBody
+parameter_list|()
+block|{
+return|return
+name|allowNullBody
+return|;
+block|}
+DECL|method|setAllowNullBody (Boolean allowNullBody)
+specifier|public
+name|void
+name|setAllowNullBody
+parameter_list|(
+name|Boolean
+name|allowNullBody
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowNullBody
+operator|=
+name|allowNullBody
+expr_stmt|;
+block|}
+DECL|method|getMessageListenerContainerFactory ()
+specifier|public
+name|MessageListenerContainerFactory
+name|getMessageListenerContainerFactory
+parameter_list|()
+block|{
+return|return
+name|messageListenerContainerFactory
+return|;
+block|}
+DECL|method|setMessageListenerContainerFactory ( MessageListenerContainerFactory messageListenerContainerFactory)
+specifier|public
+name|void
+name|setMessageListenerContainerFactory
+parameter_list|(
+name|MessageListenerContainerFactory
+name|messageListenerContainerFactory
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageListenerContainerFactory
+operator|=
+name|messageListenerContainerFactory
+expr_stmt|;
+block|}
+DECL|method|getIncludeSentJMSMessageID ()
+specifier|public
+name|Boolean
+name|getIncludeSentJMSMessageID
+parameter_list|()
+block|{
+return|return
+name|includeSentJMSMessageID
+return|;
+block|}
+DECL|method|setIncludeSentJMSMessageID (Boolean includeSentJMSMessageID)
+specifier|public
+name|void
+name|setIncludeSentJMSMessageID
+parameter_list|(
+name|Boolean
+name|includeSentJMSMessageID
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeSentJMSMessageID
+operator|=
+name|includeSentJMSMessageID
+expr_stmt|;
+block|}
+DECL|method|getDefaultTaskExecutorType ()
+specifier|public
+name|DefaultTaskExecutorType
+name|getDefaultTaskExecutorType
+parameter_list|()
+block|{
+return|return
+name|defaultTaskExecutorType
+return|;
+block|}
+DECL|method|setDefaultTaskExecutorType ( DefaultTaskExecutorType defaultTaskExecutorType)
+specifier|public
+name|void
+name|setDefaultTaskExecutorType
+parameter_list|(
+name|DefaultTaskExecutorType
+name|defaultTaskExecutorType
+parameter_list|)
+block|{
+name|this
+operator|.
+name|defaultTaskExecutorType
+operator|=
+name|defaultTaskExecutorType
+expr_stmt|;
+block|}
+DECL|method|getIncludeAllJMSXProperties ()
+specifier|public
+name|Boolean
+name|getIncludeAllJMSXProperties
+parameter_list|()
+block|{
+return|return
+name|includeAllJMSXProperties
+return|;
+block|}
+DECL|method|setIncludeAllJMSXProperties (Boolean includeAllJMSXProperties)
+specifier|public
+name|void
+name|setIncludeAllJMSXProperties
+parameter_list|(
+name|Boolean
+name|includeAllJMSXProperties
+parameter_list|)
+block|{
+name|this
+operator|.
+name|includeAllJMSXProperties
+operator|=
+name|includeAllJMSXProperties
+expr_stmt|;
+block|}
+DECL|method|getMessageCreatedStrategy ()
+specifier|public
+name|MessageCreatedStrategy
+name|getMessageCreatedStrategy
+parameter_list|()
+block|{
+return|return
+name|messageCreatedStrategy
+return|;
+block|}
+DECL|method|setMessageCreatedStrategy ( MessageCreatedStrategy messageCreatedStrategy)
+specifier|public
+name|void
+name|setMessageCreatedStrategy
+parameter_list|(
+name|MessageCreatedStrategy
+name|messageCreatedStrategy
+parameter_list|)
+block|{
+name|this
+operator|.
+name|messageCreatedStrategy
+operator|=
+name|messageCreatedStrategy
+expr_stmt|;
+block|}
+DECL|method|getSelector ()
+specifier|public
+name|String
+name|getSelector
+parameter_list|()
+block|{
+return|return
+name|selector
+return|;
+block|}
+DECL|method|setSelector (String selector)
+specifier|public
+name|void
+name|setSelector
+parameter_list|(
+name|String
+name|selector
+parameter_list|)
+block|{
+name|this
+operator|.
+name|selector
+operator|=
+name|selector
+expr_stmt|;
+block|}
 block|}
 block|}
 end_class
