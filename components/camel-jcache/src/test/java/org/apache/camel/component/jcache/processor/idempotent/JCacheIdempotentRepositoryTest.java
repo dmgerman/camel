@@ -60,7 +60,7 @@ name|component
 operator|.
 name|jcache
 operator|.
-name|JCacheManager
+name|JCacheHelper
 import|;
 end_import
 
@@ -76,7 +76,7 @@ name|component
 operator|.
 name|jcache
 operator|.
-name|JCacheHelper
+name|JCacheManager
 import|;
 end_import
 
