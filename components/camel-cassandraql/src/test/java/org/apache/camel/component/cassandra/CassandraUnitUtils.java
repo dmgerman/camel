@@ -104,6 +104,24 @@ name|EmbeddedCassandraServerHelper
 import|;
 end_import
 
+begin_import
+import|import static
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|component
+operator|.
+name|cassandra
+operator|.
+name|BaseCassandraTest
+operator|.
+name|canTest
+import|;
+end_import
+
 begin_comment
 comment|/**  * Util methods to manage Cassandra in Unit tests  */
 end_comment
@@ -154,6 +172,12 @@ parameter_list|()
 block|{
 if|if
 condition|(
+name|canTest
+argument_list|()
+condition|)
+block|{
+if|if
+condition|(
 name|cassandraCQLUnit
 operator|==
 literal|null
@@ -166,6 +190,7 @@ argument_list|(
 literal|"BasicDataSet.cql"
 argument_list|)
 expr_stmt|;
+block|}
 block|}
 return|return
 name|cassandraCQLUnit
@@ -181,6 +206,12 @@ name|String
 name|dataSetCql
 parameter_list|)
 block|{
+if|if
+condition|(
+name|canTest
+argument_list|()
+condition|)
+block|{
 return|return
 name|cassandraCQLUnit
 argument_list|(
@@ -190,6 +221,13 @@ name|dataSetCql
 argument_list|)
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 DECL|method|cqlDataSet (String dataSetCql)
 specifier|public
@@ -201,6 +239,12 @@ name|String
 name|dataSetCql
 parameter_list|)
 block|{
+if|if
+condition|(
+name|canTest
+argument_list|()
+condition|)
+block|{
 return|return
 operator|new
 name|ClassPathCQLDataSet
@@ -210,6 +254,13 @@ argument_list|,
 name|KEYSPACE
 argument_list|)
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 DECL|method|loadCQLDataSet (Session session, String dataSetCql)
 specifier|public
@@ -223,6 +274,12 @@ parameter_list|,
 name|String
 name|dataSetCql
 parameter_list|)
+block|{
+if|if
+condition|(
+name|canTest
+argument_list|()
+condition|)
 block|{
 name|CQLDataLoader
 name|loader
@@ -244,6 +301,7 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 DECL|method|cassandraCQLUnit (CQLDataSet dataset)
 specifier|public
 specifier|static
@@ -253,6 +311,12 @@ parameter_list|(
 name|CQLDataSet
 name|dataset
 parameter_list|)
+block|{
+if|if
+condition|(
+name|canTest
+argument_list|()
+condition|)
 block|{
 return|return
 operator|new
@@ -264,6 +328,13 @@ literal|"/camel-cassandra.yaml"
 argument_list|)
 return|;
 block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
+block|}
 comment|/**      * Start embedded Cassandra.      */
 DECL|method|startEmbeddedCassandra ()
 specifier|public
@@ -273,6 +344,12 @@ name|startEmbeddedCassandra
 parameter_list|()
 throws|throws
 name|Exception
+block|{
+if|if
+condition|(
+name|canTest
+argument_list|()
+condition|)
 block|{
 name|EmbeddedCassandraServerHelper
 operator|.
@@ -286,6 +363,7 @@ literal|30000
 argument_list|)
 expr_stmt|;
 block|}
+block|}
 comment|/**      * Clean embedded Cassandra.      */
 DECL|method|cleanEmbeddedCassandra ()
 specifier|public
@@ -296,11 +374,18 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+if|if
+condition|(
+name|canTest
+argument_list|()
+condition|)
+block|{
 name|EmbeddedCassandraServerHelper
 operator|.
 name|cleanEmbeddedCassandra
 argument_list|()
 expr_stmt|;
+block|}
 block|}
 DECL|method|cassandraCluster ()
 specifier|public
@@ -308,6 +393,12 @@ specifier|static
 name|Cluster
 name|cassandraCluster
 parameter_list|()
+block|{
+if|if
+condition|(
+name|canTest
+argument_list|()
+condition|)
 block|{
 return|return
 name|Cluster
@@ -328,6 +419,13 @@ operator|.
 name|build
 argument_list|()
 return|;
+block|}
+else|else
+block|{
+return|return
+literal|null
+return|;
+block|}
 block|}
 block|}
 end_class
