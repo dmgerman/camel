@@ -424,17 +424,17 @@ specifier|protected
 name|File
 name|docDir
 decl_stmt|;
+comment|/**      * Whether to fail the build fast if any Warnings was detected.      *      * @parameter      */
+DECL|field|failFast
+specifier|protected
+name|Boolean
+name|failFast
+decl_stmt|;
 comment|/**      * build context to check changed files and mark them for refresh (used for      * m2e compatibility)      *      * @component      * @readonly      */
 DECL|field|buildContext
 specifier|private
 name|BuildContext
 name|buildContext
-decl_stmt|;
-comment|/**      * Whether to fail the build fast if any WARNINGS was detected.      *      * @parameter      */
-DECL|field|failFast
-specifier|protected
-name|Boolean
-name|failFast
 decl_stmt|;
 annotation|@
 name|Override

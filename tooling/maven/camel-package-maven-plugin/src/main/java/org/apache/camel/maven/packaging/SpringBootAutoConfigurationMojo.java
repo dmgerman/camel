@@ -3133,7 +3133,6 @@ argument_list|>
 name|propertySource
 decl_stmt|;
 DECL|method|ResolvedProperty (String propertyType, PropertySource<JavaClassSource> propertySource)
-specifier|public
 name|ResolvedProperty
 parameter_list|(
 name|String
