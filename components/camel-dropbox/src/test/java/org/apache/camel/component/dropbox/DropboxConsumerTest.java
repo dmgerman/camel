@@ -160,7 +160,17 @@ argument_list|)
 operator|.
 name|to
 argument_list|(
-literal|"mock:test"
+literal|"mock:test1"
+argument_list|)
+expr_stmt|;
+name|from
+argument_list|(
+literal|"dropbox://get?accessToken={{accessToken}}&clientIdentifier={{clientIdentifier}}&remotePath=/path with spaces/file"
+argument_list|)
+operator|.
+name|to
+argument_list|(
+literal|"mock:test2"
 argument_list|)
 expr_stmt|;
 block|}
@@ -179,7 +189,7 @@ name|Exception
 block|{
 comment|// Given
 name|Endpoint
-name|dropboxEndpoint
+name|dropboxEndpoint1
 init|=
 name|context
 operator|.
@@ -190,9 +200,9 @@ argument_list|)
 decl_stmt|;
 comment|// When
 name|Consumer
-name|consumer
+name|consumer1
 init|=
-name|dropboxEndpoint
+name|dropboxEndpoint1
 operator|.
 name|createConsumer
 argument_list|(
@@ -204,7 +214,39 @@ name|Assert
 operator|.
 name|assertTrue
 argument_list|(
-name|consumer
+name|consumer1
+operator|instanceof
+name|DropboxScheduledPollGetConsumer
+argument_list|)
+expr_stmt|;
+comment|// Given
+name|Endpoint
+name|dropboxEndpoint2
+init|=
+name|context
+operator|.
+name|getEndpoint
+argument_list|(
+literal|"dropbox://get?accessToken={{accessToken}}&clientIdentifier={{clientIdentifier}}&remotePath=/path with spaces/file"
+argument_list|)
+decl_stmt|;
+comment|// When
+name|Consumer
+name|consumer2
+init|=
+name|dropboxEndpoint2
+operator|.
+name|createConsumer
+argument_list|(
+literal|null
+argument_list|)
+decl_stmt|;
+comment|// Then
+name|Assert
+operator|.
+name|assertTrue
+argument_list|(
+name|consumer2
 operator|instanceof
 name|DropboxScheduledPollGetConsumer
 argument_list|)

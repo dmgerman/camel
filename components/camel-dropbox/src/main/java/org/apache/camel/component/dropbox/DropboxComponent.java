@@ -250,6 +250,7 @@ operator|.
 name|setRemotePath
 argument_list|(
 operator|(
+operator|(
 name|String
 operator|)
 name|parameters
@@ -257,6 +258,14 @@ operator|.
 name|get
 argument_list|(
 literal|"remotePath"
+argument_list|)
+operator|)
+operator|.
+name|replaceAll
+argument_list|(
+literal|"\\s"
+argument_list|,
+literal|"+"
 argument_list|)
 argument_list|)
 expr_stmt|;
