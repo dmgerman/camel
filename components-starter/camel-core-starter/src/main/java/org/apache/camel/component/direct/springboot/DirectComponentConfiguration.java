@@ -65,7 +65,7 @@ specifier|private
 name|Long
 name|timeout
 init|=
-literal|30000
+literal|30000L
 decl_stmt|;
 DECL|method|getBlock ()
 specifier|public

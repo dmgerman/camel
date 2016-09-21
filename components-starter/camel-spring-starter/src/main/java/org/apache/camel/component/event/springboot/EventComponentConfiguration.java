@@ -42,22 +42,6 @@ name|org
 operator|.
 name|springframework
 operator|.
-name|boot
-operator|.
-name|context
-operator|.
-name|properties
-operator|.
-name|NestedConfigurationProperty
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|springframework
-operator|.
 name|context
 operator|.
 name|ApplicationContext
@@ -82,8 +66,6 @@ class|class
 name|EventComponentConfiguration
 block|{
 comment|/**      * The Spring ApplicationContext      */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|applicationContext
 specifier|private
 name|ApplicationContext

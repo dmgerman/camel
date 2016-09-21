@@ -812,8 +812,6 @@ name|JmsKeyFormatStrategy
 name|jmsKeyFormatStrategy
 decl_stmt|;
 comment|/**      * Sets the Spring ApplicationContext to use      */
-annotation|@
-name|NestedConfigurationProperty
 DECL|field|applicationContext
 specifier|private
 name|ApplicationContext

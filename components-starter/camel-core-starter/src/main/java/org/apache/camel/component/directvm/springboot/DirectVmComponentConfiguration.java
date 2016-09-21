@@ -95,7 +95,7 @@ specifier|private
 name|Long
 name|timeout
 init|=
-literal|30000
+literal|30000L
 decl_stmt|;
 comment|/**      * Sets a HeaderFilterStrategy that will only be applied on producer      * endpoints (on both directions: request and response). Default value:      * none.      */
 annotation|@
