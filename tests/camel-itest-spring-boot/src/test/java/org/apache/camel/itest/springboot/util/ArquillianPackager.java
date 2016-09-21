@@ -2089,6 +2089,14 @@ name|ignore
 operator|.
 name|add
 argument_list|(
+literal|"com.fasterxml.jackson.module:jackson-module-scala_2.11"
+argument_list|)
+expr_stmt|;
+comment|// latest version not available
+name|ignore
+operator|.
+name|add
+argument_list|(
 literal|"com.github.jnr"
 argument_list|)
 expr_stmt|;
