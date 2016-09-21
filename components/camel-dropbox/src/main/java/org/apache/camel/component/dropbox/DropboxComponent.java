@@ -249,6 +249,15 @@ name|configuration
 operator|.
 name|setRemotePath
 argument_list|(
+name|parameters
+operator|.
+name|get
+argument_list|(
+literal|"remotePath"
+argument_list|)
+operator|!=
+literal|null
+condition|?
 operator|(
 operator|(
 name|String
@@ -267,6 +276,8 @@ literal|"\\s"
 argument_list|,
 literal|"+"
 argument_list|)
+else|:
+literal|null
 argument_list|)
 expr_stmt|;
 name|configuration
