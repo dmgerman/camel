@@ -658,16 +658,32 @@ name|IGNORE_MODULES
 init|=
 block|{
 comment|/* OSGi -> */
+literal|"camel-blueprint"
+block|,
 literal|"camel-core-osgi"
 block|,
 literal|"camel-eventadmin"
 block|,
 literal|"camel-paxlogging"
 block|,
+comment|/* Java EE -> */
+literal|"camel-cdi"
+block|,
+literal|"camel-ejb"
+block|,
 comment|/* deprecated (and not working perfectly) -> */
 literal|"camel-swagger"
 block|,
 literal|"camel-mina"
+block|,
+literal|"camel-ibatis"
+block|,
+literal|"camel-quartz"
+block|,
+comment|/* currently incompatible */
+literal|"camel-jclouds"
+block|,
+literal|"camel-spark-rest"
 block|,
 comment|/* others (not managed) -> */
 literal|"camel-zipkin"
@@ -1417,6 +1433,13 @@ operator|.
 name|add
 argument_list|(
 literal|"org.apache.logging.log4j:log4j"
+argument_list|)
+expr_stmt|;
+name|loggingImpl
+operator|.
+name|add
+argument_list|(
+literal|"org.apache.logging.log4j:log4j-core"
 argument_list|)
 expr_stmt|;
 name|loggingImpl
@@ -2649,6 +2672,7 @@ if|if
 condition|(
 name|IGNORE_TEST_MODULES
 operator|&&
+operator|(
 name|project
 operator|.
 name|getArtifactId
@@ -2656,8 +2680,19 @@ argument_list|()
 operator|.
 name|startsWith
 argument_list|(
-literal|"camel-test-"
+literal|"camel-test"
 argument_list|)
+operator|||
+name|project
+operator|.
+name|getArtifactId
+argument_list|()
+operator|.
+name|startsWith
+argument_list|(
+literal|"camel-testng"
+argument_list|)
+operator|)
 condition|)
 block|{
 name|getLog

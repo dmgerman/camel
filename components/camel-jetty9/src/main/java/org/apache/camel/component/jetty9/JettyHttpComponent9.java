@@ -640,11 +640,15 @@ argument_list|(
 name|scf
 argument_list|)
 expr_stmt|;
+comment|// The protocol name can be "SSL" or "SSL-HTTP/1.1" depending on the version of Jetty
 name|result
 operator|.
 name|setDefaultProtocol
 argument_list|(
-literal|"SSL-HTTP/1.1"
+name|scf
+operator|.
+name|getProtocol
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}

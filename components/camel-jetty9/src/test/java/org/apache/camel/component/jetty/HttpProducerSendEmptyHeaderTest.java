@@ -54,6 +54,16 @@ name|org
 operator|.
 name|junit
 operator|.
+name|Ignore
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|junit
+operator|.
 name|Test
 import|;
 end_import
@@ -63,6 +73,11 @@ comment|/**  *  */
 end_comment
 
 begin_class
+annotation|@
+name|Ignore
+argument_list|(
+literal|"Jetty 9.3 treats an empty header as an empty string, like Jetty 8"
+argument_list|)
 DECL|class|HttpProducerSendEmptyHeaderTest
 specifier|public
 class|class

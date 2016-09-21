@@ -182,7 +182,12 @@ operator|.
 name|class
 argument_list|)
 argument_list|)
-comment|//.dependency(DependencyResolver.withVersion("org.hibernate:hibernate-validator"))
+operator|.
+name|unitTestExclusionPattern
+argument_list|(
+literal|".*(\\.integration\\..*|IntegrationTest$|JettyHttpContentTypeTest$)"
+argument_list|)
+comment|// in JettyHttpContentTypeTest the case of the encoding string is different in Jetty 9.3
 operator|.
 name|build
 argument_list|()
