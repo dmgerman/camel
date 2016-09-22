@@ -981,6 +981,20 @@ name|starterDir
 operator|.
 name|exists
 argument_list|()
+operator|||
+operator|!
+operator|(
+operator|new
+name|File
+argument_list|(
+name|starterDir
+argument_list|,
+literal|"pom.xml"
+argument_list|)
+operator|.
+name|exists
+argument_list|()
+operator|)
 condition|)
 block|{
 comment|// If the starter does not exist, no configuration can be created
@@ -989,7 +1003,7 @@ argument_list|()
 operator|.
 name|info
 argument_list|(
-literal|"Component auto-configuration will not be created: the starter dir does not exist"
+literal|"Component auto-configuration will not be created: the starter does not exist"
 argument_list|)
 expr_stmt|;
 return|return;
