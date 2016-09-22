@@ -32,16 +32,16 @@ specifier|final
 name|String
 name|EVENT_NAME
 init|=
-literal|"AsteriskEventName"
+literal|"CamelAsteriskEventName"
 decl_stmt|;
-DECL|field|EXTEN
+DECL|field|EXTENSION
 specifier|public
 specifier|static
 specifier|final
 name|String
-name|EXTEN
+name|EXTENSION
 init|=
-literal|"AsteriskExtension"
+literal|"CamelAsteriskExtension"
 decl_stmt|;
 DECL|field|CONTEXT
 specifier|public
@@ -50,7 +50,7 @@ specifier|final
 name|String
 name|CONTEXT
 init|=
-literal|"AsteriskContext"
+literal|"CamelAsteriskContext"
 decl_stmt|;
 DECL|method|AsteriskConstants ()
 specifier|private

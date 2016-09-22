@@ -279,15 +279,10 @@ name|action
 decl_stmt|;
 switch|switch
 condition|(
-name|AsteriskActionEnum
-operator|.
-name|valueOf
-argument_list|(
 name|endpoint
 operator|.
 name|getAction
 argument_list|()
-argument_list|)
 condition|)
 block|{
 case|case
@@ -330,7 +325,7 @@ name|getHeader
 argument_list|(
 name|AsteriskConstants
 operator|.
-name|EXTEN
+name|EXTENSION
 argument_list|)
 argument_list|,
 operator|(

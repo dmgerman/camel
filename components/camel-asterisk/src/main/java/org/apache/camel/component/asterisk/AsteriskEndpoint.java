@@ -302,6 +302,11 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
+DECL|field|asteriskConnection
+specifier|private
+name|AsteriskConnection
+name|asteriskConnection
+decl_stmt|;
 annotation|@
 name|UriPath
 argument_list|(
@@ -330,13 +335,23 @@ name|hostname
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer"
+argument_list|)
 DECL|field|action
 specifier|private
-name|String
+name|AsteriskActionEnum
 name|action
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|username
 specifier|private
 name|String
@@ -344,15 +359,15 @@ name|username
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|secret
+operator|=
+literal|true
+argument_list|)
 DECL|field|password
 specifier|private
 name|String
 name|password
-decl_stmt|;
-DECL|field|asteriskConnection
-specifier|private
-name|AsteriskConnection
-name|asteriskConnection
 decl_stmt|;
 DECL|method|AsteriskEndpoint (String uri, AsteriskComponent component)
 specifier|public
@@ -445,14 +460,6 @@ literal|"Missing required action parameter"
 argument_list|)
 throw|;
 block|}
-comment|// validate action value
-name|AsteriskActionEnum
-operator|.
-name|valueOf
-argument_list|(
-name|action
-argument_list|)
-expr_stmt|;
 return|return
 operator|new
 name|AsteriskProducer
@@ -488,6 +495,8 @@ name|boolean
 name|isSingleton
 parameter_list|()
 block|{
+comment|// TODO: prefer to be singleton and do not have state on the endpoint
+comment|// the asteriskConnection should be createed on the consumer / producer instance and be private there
 return|return
 literal|false
 return|;
@@ -634,7 +643,7 @@ return|return
 name|username
 return|;
 block|}
-comment|/**      * AsteriskServer username      *       * @param host      */
+comment|/**      * Login username      */
 DECL|method|setUsername (String username)
 specifier|public
 name|void
@@ -661,7 +670,7 @@ return|return
 name|password
 return|;
 block|}
-comment|/**      * AsteriskServer password      *       * @param host      */
+comment|/**      * Login password      */
 DECL|method|setPassword (String password)
 specifier|public
 name|void
@@ -680,7 +689,7 @@ expr_stmt|;
 block|}
 DECL|method|getAction ()
 specifier|public
-name|String
+name|AsteriskActionEnum
 name|getAction
 parameter_list|()
 block|{
@@ -688,13 +697,13 @@ return|return
 name|action
 return|;
 block|}
-comment|/**      * action      *       * @param host      */
-DECL|method|setAction (String action)
+comment|/**      * What action to perform such as getting queue status, sip peers or extension state.      */
+DECL|method|setAction (AsteriskActionEnum action)
 specifier|public
 name|void
 name|setAction
 parameter_list|(
-name|String
+name|AsteriskActionEnum
 name|action
 parameter_list|)
 block|{
@@ -715,7 +724,7 @@ return|return
 name|hostname
 return|;
 block|}
-comment|/**      * Hostname       *       * @param hostname      */
+comment|/**      * The hostname of the asterix server      */
 DECL|method|setHostname (String hostname)
 specifier|public
 name|void
@@ -732,7 +741,7 @@ operator|=
 name|hostname
 expr_stmt|;
 block|}
-comment|/**      * name       *       * @return      */
+comment|/**      * Logical name      */
 DECL|method|getName ()
 specifier|public
 name|String

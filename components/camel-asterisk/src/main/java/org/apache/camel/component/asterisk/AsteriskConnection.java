@@ -276,7 +276,7 @@ name|LOG
 operator|.
 name|debug
 argument_list|(
-literal|"asterisk connection estabilished!"
+literal|"asterisk connection established!"
 argument_list|)
 expr_stmt|;
 block|}

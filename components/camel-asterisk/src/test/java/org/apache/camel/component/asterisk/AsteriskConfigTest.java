@@ -90,7 +90,7 @@ specifier|private
 name|String
 name|action
 init|=
-literal|"action"
+literal|"QUEUE_STATUS"
 decl_stmt|;
 annotation|@
 name|Test
@@ -182,6 +182,9 @@ argument_list|,
 name|asteriskEndpoint
 operator|.
 name|getAction
+argument_list|()
+operator|.
+name|name
 argument_list|()
 argument_list|)
 expr_stmt|;
