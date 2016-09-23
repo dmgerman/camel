@@ -804,7 +804,7 @@ throw|throw
 operator|new
 name|SimpleParserException
 argument_list|(
-literal|"Valid syntax: ${date:command:timezone:pattern} was: "
+literal|"Valid syntax: ${date-with-timezone:command:timezone:pattern} was: "
 operator|+
 name|function
 argument_list|,

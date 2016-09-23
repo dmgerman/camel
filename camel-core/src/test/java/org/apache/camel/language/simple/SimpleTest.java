@@ -3044,6 +3044,38 @@ argument_list|,
 literal|"19740421"
 argument_list|)
 expr_stmt|;
+try|try
+block|{
+name|assertExpression
+argument_list|(
+literal|"date:yyyyMMdd"
+argument_list|,
+literal|"19740420"
+argument_list|)
+expr_stmt|;
+name|fail
+argument_list|(
+literal|"Should thrown an exception"
+argument_list|)
+expr_stmt|;
+block|}
+catch|catch
+parameter_list|(
+name|IllegalArgumentException
+name|e
+parameter_list|)
+block|{
+name|assertEquals
+argument_list|(
+literal|"Command not supported for dateExpression: yyyyMMdd"
+argument_list|,
+name|e
+operator|.
+name|getMessage
+argument_list|()
+argument_list|)
+expr_stmt|;
+block|}
 block|}
 DECL|method|testDateAndTimeExpressions ()
 specifier|public
