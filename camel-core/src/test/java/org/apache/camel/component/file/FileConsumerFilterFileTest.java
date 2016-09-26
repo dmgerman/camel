@@ -263,7 +263,7 @@ name|mock
 operator|.
 name|expectedBodiesReceived
 argument_list|(
-literal|"Hello World"
+literal|"Something else"
 argument_list|)
 expr_stmt|;
 name|mock
@@ -273,20 +273,13 @@ argument_list|(
 literal|1500
 argument_list|)
 expr_stmt|;
-name|mock
-operator|.
-name|setResultWaitTime
-argument_list|(
-literal|5000
-argument_list|)
-expr_stmt|;
 name|template
 operator|.
 name|sendBodyAndHeader
 argument_list|(
 literal|"file:target/filefilter/"
 argument_list|,
-literal|"Hello World"
+literal|"Something else"
 argument_list|,
 name|Exchange
 operator|.
