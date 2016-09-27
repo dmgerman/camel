@@ -84,6 +84,12 @@ name|void
 name|enableCache
 parameter_list|()
 function_decl|;
+comment|/**      * Whether caching has been enabled.      */
+DECL|method|isCaching ()
+name|boolean
+name|isCaching
+parameter_list|()
+function_decl|;
 comment|/**      * To plugin a custom {@link SuggestionStrategy} to provide suggestion for unknown options      */
 DECL|method|setSuggestionStrategy (SuggestionStrategy suggestionStrategy)
 name|void
@@ -93,6 +99,12 @@ name|SuggestionStrategy
 name|suggestionStrategy
 parameter_list|)
 function_decl|;
+comment|/**      * Gets the {@link SuggestionStrategy} in use      */
+DECL|method|getSuggestionStrategy ()
+name|SuggestionStrategy
+name|getSuggestionStrategy
+parameter_list|()
+function_decl|;
 comment|/**      * To plugin a custom {@link VersionManager} to load other versions of Camel the catalog should use.      */
 DECL|method|setVersionManager (VersionManager versionManager)
 name|void
@@ -101,6 +113,12 @@ parameter_list|(
 name|VersionManager
 name|versionManager
 parameter_list|)
+function_decl|;
+comment|/**      * Gets the {@link VersionManager} in use      */
+DECL|method|getVersionManager ()
+name|VersionManager
+name|getVersionManager
+parameter_list|()
 function_decl|;
 comment|/**      * Adds a 3rd party component to this catalog.      *      * @param name      the component name      * @param className the fully qualified class name for the component class      */
 DECL|method|addComponent (String name, String className)

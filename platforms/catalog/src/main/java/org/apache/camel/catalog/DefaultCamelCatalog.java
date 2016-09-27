@@ -866,6 +866,16 @@ operator|=
 literal|true
 expr_stmt|;
 block|}
+DECL|method|isCaching ()
+specifier|public
+name|boolean
+name|isCaching
+parameter_list|()
+block|{
+return|return
+name|caching
+return|;
+block|}
 annotation|@
 name|Override
 DECL|method|setSuggestionStrategy (SuggestionStrategy suggestionStrategy)
@@ -886,6 +896,18 @@ expr_stmt|;
 block|}
 annotation|@
 name|Override
+DECL|method|getSuggestionStrategy ()
+specifier|public
+name|SuggestionStrategy
+name|getSuggestionStrategy
+parameter_list|()
+block|{
+return|return
+name|suggestionStrategy
+return|;
+block|}
+annotation|@
+name|Override
 DECL|method|setVersionManager (VersionManager versionManager)
 specifier|public
 name|void
@@ -901,6 +923,18 @@ name|versionManager
 operator|=
 name|versionManager
 expr_stmt|;
+block|}
+annotation|@
+name|Override
+DECL|method|getVersionManager ()
+specifier|public
+name|VersionManager
+name|getVersionManager
+parameter_list|()
+block|{
+return|return
+name|versionManager
+return|;
 block|}
 annotation|@
 name|Override
