@@ -183,6 +183,11 @@ argument_list|>
 block|{
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|maximumReconnectAttempts
 specifier|private
 name|int
@@ -192,6 +197,11 @@ literal|3
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"advanced"
+argument_list|)
 DECL|field|reconnectDelay
 specifier|private
 name|long
@@ -201,6 +211,11 @@ literal|1000
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common"
+argument_list|)
 DECL|field|disconnect
 specifier|private
 name|boolean
@@ -208,6 +223,11 @@ name|disconnect
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"producer,advanced"
+argument_list|)
 DECL|field|disconnectOnBatchComplete
 specifier|private
 name|boolean
@@ -215,6 +235,11 @@ name|disconnectOnBatchComplete
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"common,advanced"
+argument_list|)
 DECL|field|fastExistsCheck
 specifier|private
 name|boolean
@@ -222,6 +247,11 @@ name|fastExistsCheck
 decl_stmt|;
 annotation|@
 name|UriParam
+argument_list|(
+name|label
+operator|=
+literal|"consumer,advanced"
+argument_list|)
 DECL|field|download
 specifier|private
 name|boolean
@@ -848,7 +878,7 @@ return|return
 name|disconnectOnBatchComplete
 return|;
 block|}
-comment|/**      * Whether or not to disconnect from remote FTP server right after a Batch is complete.      * disconnectOnBatchComplete will only disconnect the current connection to the FTP server.      * If you have a consumer which you want to stop, then you need to stop the consumer/route instead.      */
+comment|/**      * Whether or not to disconnect from remote FTP server right after a Batch upload is complete.      * disconnectOnBatchComplete will only disconnect the current connection to the FTP server.      */
 DECL|method|setDisconnectOnBatchComplete (boolean disconnectOnBatchComplete)
 specifier|public
 name|void
