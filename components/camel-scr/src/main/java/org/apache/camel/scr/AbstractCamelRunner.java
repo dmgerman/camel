@@ -274,22 +274,6 @@ name|core
 operator|.
 name|osgi
 operator|.
-name|OsgiServiceRegistry
-import|;
-end_import
-
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|core
-operator|.
-name|osgi
-operator|.
 name|utils
 operator|.
 name|BundleDelegatingClassLoader
@@ -450,16 +434,6 @@ name|getClass
 argument_list|()
 argument_list|)
 decl_stmt|;
-DECL|field|context
-specifier|protected
-name|CamelContext
-name|context
-decl_stmt|;
-DECL|field|registry
-specifier|protected
-name|Registry
-name|registry
-decl_stmt|;
 comment|// Configured fields
 DECL|field|camelContextId
 specifier|private
@@ -470,6 +444,11 @@ DECL|field|active
 specifier|private
 name|boolean
 name|active
+decl_stmt|;
+DECL|field|context
+specifier|private
+name|CamelContext
+name|context
 decl_stmt|;
 DECL|field|executor
 specifier|private
@@ -500,6 +479,7 @@ name|started
 decl_stmt|;
 DECL|method|activate (final BundleContext bundleContext, final Map<String, String> props)
 specifier|public
+specifier|final
 specifier|synchronized
 name|void
 name|activate
@@ -553,6 +533,7 @@ expr_stmt|;
 block|}
 DECL|method|prepare (final BundleContext bundleContext, final Map<String, String> props)
 specifier|public
+specifier|final
 specifier|synchronized
 name|void
 name|prepare
@@ -626,14 +607,6 @@ operator|!=
 literal|null
 condition|)
 block|{
-name|registry
-operator|=
-operator|new
-name|OsgiServiceRegistry
-argument_list|(
-name|bundleContext
-argument_list|)
-expr_stmt|;
 name|context
 operator|=
 operator|new
@@ -641,7 +614,10 @@ name|OsgiDefaultCamelContext
 argument_list|(
 name|bundleContext
 argument_list|,
-name|registry
+name|createRegistry
+argument_list|(
+name|bundleContext
+argument_list|)
 argument_list|)
 expr_stmt|;
 comment|// Setup the application context classloader with the bundle classloader
@@ -676,18 +652,13 @@ expr_stmt|;
 block|}
 else|else
 block|{
-name|registry
-operator|=
-operator|new
-name|SimpleRegistry
-argument_list|()
-expr_stmt|;
 name|context
 operator|=
 operator|new
 name|DefaultCamelContext
 argument_list|(
-name|registry
+name|createRegistry
+argument_list|()
 argument_list|)
 expr_stmt|;
 block|}
@@ -737,21 +708,6 @@ argument_list|)
 argument_list|)
 expr_stmt|;
 block|}
-comment|// TODO: allow to configure these options and not hardcode
-name|context
-operator|.
-name|setUseMDCLogging
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
-name|context
-operator|.
-name|setUseBreadcrumb
-argument_list|(
-literal|true
-argument_list|)
-expr_stmt|;
 comment|// Add routes
 for|for
 control|(
@@ -929,8 +885,6 @@ argument_list|()
 argument_list|)
 argument_list|)
 expr_stmt|;
-try|try
-block|{
 name|pc
 operator|.
 name|setInitialProperties
@@ -938,29 +892,6 @@ argument_list|(
 name|initialProps
 argument_list|)
 expr_stmt|;
-block|}
-catch|catch
-parameter_list|(
-name|NoSuchMethodError
-name|e
-parameter_list|)
-block|{
-comment|// For Camel versions without setInitialProperties
-name|pc
-operator|.
-name|setOverrideProperties
-argument_list|(
-name|initialProps
-argument_list|)
-expr_stmt|;
-name|pc
-operator|.
-name|setLocation
-argument_list|(
-literal|"default.properties"
-argument_list|)
-expr_stmt|;
-block|}
 block|}
 block|}
 DECL|method|getRouteBuilders ()
@@ -972,6 +903,8 @@ name|RoutesBuilder
 argument_list|>
 name|getRouteBuilders
 parameter_list|()
+throws|throws
+name|Exception
 function_decl|;
 comment|// Run after a delay unless the method is called again
 DECL|method|runWithDelay (final Runnable runnable)
@@ -1038,6 +971,7 @@ block|}
 block|}
 DECL|method|run ()
 specifier|public
+specifier|final
 specifier|synchronized
 name|void
 name|run
@@ -1049,6 +983,7 @@ expr_stmt|;
 block|}
 DECL|method|deactivate ()
 specifier|public
+specifier|final
 specifier|synchronized
 name|void
 name|deactivate
@@ -1082,6 +1017,7 @@ expr_stmt|;
 block|}
 DECL|method|stop ()
 specifier|public
+specifier|final
 specifier|synchronized
 name|void
 name|stop
@@ -1197,6 +1133,7 @@ block|}
 block|}
 DECL|method|getContext ()
 specifier|public
+specifier|final
 name|CamelContext
 name|getContext
 parameter_list|()
@@ -1207,6 +1144,7 @@ return|;
 block|}
 DECL|method|gotCamelComponent (final ServiceReference serviceReference)
 specifier|protected
+specifier|final
 name|void
 name|gotCamelComponent
 parameter_list|(
@@ -1230,6 +1168,7 @@ expr_stmt|;
 block|}
 DECL|method|lostCamelComponent (final ServiceReference serviceReference)
 specifier|protected
+specifier|final
 name|void
 name|lostCamelComponent
 parameter_list|(
@@ -1606,37 +1545,35 @@ expr_stmt|;
 block|}
 if|if
 condition|(
-literal|null
+name|clazz
 operator|!=
+literal|null
+operator|&&
 name|value
+operator|!=
+literal|null
 condition|)
 block|{
 if|if
 condition|(
 name|clazz
 operator|.
-name|isInstance
+name|isAssignableFrom
 argument_list|(
 name|value
+operator|.
+name|getClass
+argument_list|()
 argument_list|)
 condition|)
 block|{
 return|return
-name|value
-return|;
-block|}
-elseif|else
-if|if
-condition|(
 name|clazz
-operator|==
-name|String
 operator|.
-name|class
-condition|)
-block|{
-return|return
+name|cast
+argument_list|(
 name|value
+argument_list|)
 return|;
 block|}
 elseif|else
@@ -1801,18 +1738,10 @@ name|IllegalArgumentException
 argument_list|(
 literal|"Unsupported type: "
 operator|+
-operator|(
-name|clazz
-operator|!=
-literal|null
-condition|?
 name|clazz
 operator|.
 name|getName
 argument_list|()
-else|:
-literal|null
-operator|)
 argument_list|)
 throw|;
 block|}
@@ -1823,6 +1752,94 @@ return|return
 literal|null
 return|;
 block|}
+block|}
+DECL|method|getRegistry (CamelContext context, Class<T> type)
+specifier|public
+specifier|static
+parameter_list|<
+name|T
+extends|extends
+name|Registry
+parameter_list|>
+name|T
+name|getRegistry
+parameter_list|(
+name|CamelContext
+name|context
+parameter_list|,
+name|Class
+argument_list|<
+name|T
+argument_list|>
+name|type
+parameter_list|)
+throws|throws
+name|Exception
+block|{
+name|T
+name|result
+init|=
+name|context
+operator|.
+name|getRegistry
+argument_list|(
+name|type
+argument_list|)
+decl_stmt|;
+if|if
+condition|(
+name|result
+operator|==
+literal|null
+condition|)
+block|{
+throw|throw
+operator|new
+name|Exception
+argument_list|(
+name|type
+operator|.
+name|getName
+argument_list|()
+operator|+
+literal|" not available in "
+operator|+
+name|context
+operator|.
+name|getName
+argument_list|()
+argument_list|)
+throw|;
+block|}
+return|return
+name|result
+return|;
+block|}
+DECL|method|createRegistry ()
+specifier|protected
+name|Registry
+name|createRegistry
+parameter_list|()
+block|{
+return|return
+operator|new
+name|SimpleRegistry
+argument_list|()
+return|;
+block|}
+DECL|method|createRegistry (BundleContext bundleContext)
+specifier|protected
+name|Registry
+name|createRegistry
+parameter_list|(
+name|BundleContext
+name|bundleContext
+parameter_list|)
+block|{
+return|return
+name|createRegistry
+argument_list|()
+return|;
 block|}
 block|}
 end_class

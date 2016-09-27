@@ -214,7 +214,23 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|CamelContext
+name|scr
+operator|.
+name|AbstractCamelRunner
+import|;
+end_import
+
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|scr
+operator|.
+name|ScrHelper
 import|;
 end_import
 
@@ -274,7 +290,7 @@ name|camel
 operator|.
 name|model
 operator|.
-name|RouteDefinition
+name|ModelCamelContext
 import|;
 end_import
 
@@ -286,9 +302,9 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|scr
+name|model
 operator|.
-name|ScrHelper
+name|RouteDefinition
 import|;
 end_import
 
@@ -435,7 +451,7 @@ name|className
 block|}
 name|integration
 block|;
-name|CamelContext
+name|ModelCamelContext
 name|context
 block|;      @
 name|Before
@@ -520,10 +536,25 @@ argument_list|)
 block|;
 name|context
 operator|=
+operator|(
+name|ModelCamelContext
+operator|)
 name|integration
 operator|.
 name|getContext
 argument_list|()
+block|;
+comment|// Configure this
+name|AbstractCamelRunner
+operator|.
+name|configure
+argument_list|(
+name|context
+argument_list|,
+name|this
+argument_list|,
+name|log
+argument_list|)
 block|;
 comment|// Disable JMX for test
 name|context

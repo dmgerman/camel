@@ -30,6 +30,20 @@ name|RouteBuilder
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|apache
+operator|.
+name|camel
+operator|.
+name|impl
+operator|.
+name|SimpleRegistry
+import|;
+end_import
+
 begin_class
 DECL|class|TestRouteBuilder2
 specifier|public
@@ -48,6 +62,26 @@ parameter_list|()
 throws|throws
 name|Exception
 block|{
+comment|// Add a bean to local registry
+name|AbstractCamelRunner
+operator|.
+name|getRegistry
+argument_list|(
+name|getContext
+argument_list|()
+argument_list|,
+name|SimpleRegistry
+operator|.
+name|class
+argument_list|)
+operator|.
+name|put
+argument_list|(
+literal|"testString"
+argument_list|,
+literal|"this is a test"
+argument_list|)
+expr_stmt|;
 name|from
 argument_list|(
 literal|"direct://start2"

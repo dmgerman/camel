@@ -228,7 +228,6 @@ end_import
 
 begin_class
 DECL|class|ConcreteCamelRunner
-specifier|public
 class|class
 name|ConcreteCamelRunner
 extends|extends
@@ -237,22 +236,18 @@ implements|implements
 name|LifecycleStrategy
 block|{
 DECL|field|camelContextStarted
-specifier|protected
 name|int
 name|camelContextStarted
 decl_stmt|;
 DECL|field|camelContextStopped
-specifier|protected
 name|int
 name|camelContextStopped
 decl_stmt|;
 DECL|field|routeAdded
-specifier|protected
 name|int
 name|routeAdded
 decl_stmt|;
 DECL|method|getDefaultProperties ()
-specifier|public
 name|Map
 argument_list|<
 name|String
@@ -273,11 +268,7 @@ name|defaultProps
 init|=
 operator|new
 name|HashMap
-argument_list|<
-name|String
-argument_list|,
-name|String
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|defaultProps
@@ -420,12 +411,14 @@ argument_list|,
 name|props
 argument_list|)
 expr_stmt|;
-name|context
+name|getContext
+argument_list|()
 operator|.
 name|disableJMX
 argument_list|()
 expr_stmt|;
-name|context
+name|getContext
+argument_list|()
 operator|.
 name|addLifecycleStrategy
 argument_list|(
@@ -443,6 +436,8 @@ name|RoutesBuilder
 argument_list|>
 name|getRouteBuilders
 parameter_list|()
+throws|throws
+name|Exception
 block|{
 name|List
 argument_list|<
@@ -452,9 +447,7 @@ name|routesBuilders
 init|=
 operator|new
 name|ArrayList
-argument_list|<
-name|RoutesBuilder
-argument_list|>
+argument_list|<>
 argument_list|()
 decl_stmt|;
 name|routesBuilders

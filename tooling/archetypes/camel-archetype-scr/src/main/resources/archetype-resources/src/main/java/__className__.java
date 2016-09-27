@@ -292,6 +292,18 @@ name|*
 import|;
 end_import
 
+begin_import
+import|import
+name|org
+operator|.
+name|osgi
+operator|.
+name|framework
+operator|.
+name|BundleContext
+import|;
+end_import
+
 begin_class
 annotation|@
 name|Component
@@ -499,8 +511,62 @@ return|return
 name|routesBuilders
 return|;
 block|}
+expr|@
+name|Override
+specifier|protected
+name|void
+name|setupCamelContext
+argument_list|(
+name|BundleContext
+name|bundleContext
+argument_list|,
+name|String
+name|camelContextId
+argument_list|)
+throws|throws
+name|Exception
+block|{
+name|super
+operator|.
+name|setupCamelContext
+argument_list|(
+name|bundleContext
+argument_list|,
+name|camelContextId
+argument_list|)
+expr_stmt|;
 end_expr_stmt
 
-unit|}
+begin_comment
+comment|// Use MDC logging
+end_comment
+
+begin_expr_stmt
+name|getContext
+argument_list|()
+operator|.
+name|setUseMDCLogging
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+
+begin_comment
+comment|// Use breadcrumb logging
+end_comment
+
+begin_expr_stmt
+name|getContext
+argument_list|()
+operator|.
+name|setUseBreadcrumb
+argument_list|(
+literal|true
+argument_list|)
+expr_stmt|;
+end_expr_stmt
+
+unit|} }
 end_unit
 
