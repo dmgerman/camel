@@ -546,6 +546,22 @@ name|UriParam
 argument_list|(
 name|label
 operator|=
+literal|"advanced"
+argument_list|,
+name|defaultValue
+operator|=
+literal|"false"
+argument_list|)
+DECL|field|allowSerializedHeaders
+specifier|private
+name|boolean
+name|allowSerializedHeaders
+decl_stmt|;
+annotation|@
+name|UriParam
+argument_list|(
+name|label
+operator|=
 literal|"consumer,advanced"
 argument_list|,
 name|defaultValue
@@ -2300,6 +2316,34 @@ operator|.
 name|transferExchange
 operator|=
 name|transferExchange
+expr_stmt|;
+block|}
+DECL|method|isAllowSerializedHeaders ()
+specifier|public
+name|boolean
+name|isAllowSerializedHeaders
+parameter_list|()
+block|{
+return|return
+name|allowSerializedHeaders
+return|;
+block|}
+comment|/**      * Only used for TCP when transferExchange is true. When set to true, serializable objects in headers and properties      * will be added to the exchange. Otherwise Camel will exclude any non-serializable objects and log it at WARN      * level.      */
+DECL|method|setAllowSerializedHeaders (final boolean allowSerializedHeaders)
+specifier|public
+name|void
+name|setAllowSerializedHeaders
+parameter_list|(
+specifier|final
+name|boolean
+name|allowSerializedHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowSerializedHeaders
+operator|=
+name|allowSerializedHeaders
 expr_stmt|;
 block|}
 DECL|method|isDisconnectOnNoReply ()

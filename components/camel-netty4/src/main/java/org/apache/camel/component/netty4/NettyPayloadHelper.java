@@ -127,6 +127,16 @@ operator|.
 name|marshal
 argument_list|(
 name|exchange
+argument_list|,
+literal|true
+argument_list|,
+name|endpoint
+operator|.
+name|getConfiguration
+argument_list|()
+operator|.
+name|isAllowSerializedHeaders
+argument_list|()
 argument_list|)
 return|;
 block|}
