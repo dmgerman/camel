@@ -259,6 +259,7 @@ throws|throws
 name|Exception
 block|{
 comment|// ask for a mandatory type conversion to avoid a possible NPE beforehand as we do copy from the InputStream
+specifier|final
 name|InputStream
 name|is
 init|=
@@ -281,6 +282,17 @@ argument_list|,
 name|graph
 argument_list|)
 decl_stmt|;
+specifier|final
+name|Deflater
+name|deflater
+init|=
+operator|new
+name|Deflater
+argument_list|(
+name|compressionLevel
+argument_list|)
+decl_stmt|;
+specifier|final
 name|DeflaterOutputStream
 name|zipOutput
 init|=
@@ -318,6 +330,12 @@ name|is
 argument_list|,
 name|zipOutput
 argument_list|)
+expr_stmt|;
+comment|/*             * As we create the Deflater our self and do not use the stream default             * (see {@link java.util.zip.DeflaterOutputStream#usesDefaultDeflater})             * we need to close the Deflater to not risk a OutOfMemoryException             * in native code parts (see {@link java.util.zip.Deflater#end})             */
+name|deflater
+operator|.
+name|end
+argument_list|()
 expr_stmt|;
 block|}
 block|}
