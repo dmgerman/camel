@@ -132,6 +132,21 @@ name|String
 name|className
 parameter_list|)
 function_decl|;
+comment|/**      * Adds a 3rd party component to this catalog.      *      * @param name       the component name      * @param className  the fully qualified class name for the component class      * @param jsonSchema the component JSon schema      */
+DECL|method|addComponent (String name, String className, String jsonSchema)
+name|void
+name|addComponent
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|className
+parameter_list|,
+name|String
+name|jsonSchema
+parameter_list|)
+function_decl|;
 comment|/**      * Adds a 3rd party data format to this catalog.      *      * @param name      the data format name      * @param className the fully qualified class name for the data format class      */
 DECL|method|addDataFormat (String name, String className)
 name|void
@@ -142,6 +157,21 @@ name|name
 parameter_list|,
 name|String
 name|className
+parameter_list|)
+function_decl|;
+comment|/**      * Adds a 3rd party data format to this catalog.      *      * @param name      the data format name      * @param className the fully qualified class name for the data format class      * @param jsonSchema the data format JSon schema      */
+DECL|method|addDataFormat (String name, String className, String jsonSchema)
+name|void
+name|addDataFormat
+parameter_list|(
+name|String
+name|name
+parameter_list|,
+name|String
+name|className
+parameter_list|,
+name|String
+name|jsonSchema
 parameter_list|)
 function_decl|;
 comment|/**      * The version of this Camel Catalog      */
