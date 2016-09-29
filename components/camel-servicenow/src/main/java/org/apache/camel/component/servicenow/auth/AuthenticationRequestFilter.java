@@ -171,15 +171,12 @@ specifier|final
 name|String
 name|authString
 decl_stmt|;
-DECL|method|AuthenticationRequestFilter (ServiceNowConfiguration configuration, OAuthToken token)
+DECL|method|AuthenticationRequestFilter (ServiceNowConfiguration configuration)
 specifier|public
 name|AuthenticationRequestFilter
 parameter_list|(
 name|ServiceNowConfiguration
 name|configuration
-parameter_list|,
-name|OAuthToken
-name|token
 parameter_list|)
 throws|throws
 name|IOException
@@ -194,7 +191,20 @@ name|this
 operator|.
 name|token
 operator|=
-name|token
+name|configuration
+operator|.
+name|hasOAuthAuthentication
+argument_list|()
+condition|?
+operator|new
+name|OAuthToken
+argument_list|(
+name|this
+operator|.
+name|configuration
+argument_list|)
+else|:
+literal|null
 expr_stmt|;
 name|this
 operator|.

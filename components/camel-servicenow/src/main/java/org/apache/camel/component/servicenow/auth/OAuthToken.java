@@ -188,12 +188,6 @@ operator|.
 name|class
 argument_list|)
 decl_stmt|;
-DECL|field|url
-specifier|private
-specifier|final
-name|String
-name|url
-decl_stmt|;
 DECL|field|configuration
 specifier|private
 specifier|final
@@ -215,23 +209,14 @@ specifier|private
 name|long
 name|expireAt
 decl_stmt|;
-DECL|method|OAuthToken (String url, ServiceNowConfiguration configuration)
+DECL|method|OAuthToken (ServiceNowConfiguration configuration)
 specifier|public
 name|OAuthToken
 parameter_list|(
-name|String
-name|url
-parameter_list|,
 name|ServiceNowConfiguration
 name|configuration
 parameter_list|)
 block|{
-name|this
-operator|.
-name|url
-operator|=
-name|url
-expr_stmt|;
 name|this
 operator|.
 name|configuration
@@ -288,7 +273,10 @@ name|WebClient
 operator|.
 name|create
 argument_list|(
-name|url
+name|configuration
+operator|.
+name|getOauthTokenUrl
+argument_list|()
 argument_list|)
 argument_list|,
 operator|new
@@ -429,7 +417,10 @@ name|WebClient
 operator|.
 name|create
 argument_list|(
-name|url
+name|configuration
+operator|.
+name|getOauthTokenUrl
+argument_list|()
 argument_list|)
 argument_list|,
 operator|new

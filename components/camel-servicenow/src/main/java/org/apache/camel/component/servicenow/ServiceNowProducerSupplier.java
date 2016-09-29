@@ -18,30 +18,21 @@ name|servicenow
 package|;
 end_package
 
-begin_import
-import|import
-name|org
-operator|.
-name|apache
-operator|.
-name|camel
-operator|.
-name|Producer
-import|;
-end_import
-
 begin_interface
-DECL|interface|ServiceNowProducer
+DECL|interface|ServiceNowProducerSupplier
 specifier|public
 interface|interface
-name|ServiceNowProducer
-extends|extends
-name|Producer
+name|ServiceNowProducerSupplier
 block|{
-DECL|method|getRelease ()
-name|ServiceNowRelease
-name|getRelease
-parameter_list|()
+DECL|method|get (ServiceNowEndpoint endpoint)
+name|ServiceNowProducer
+name|get
+parameter_list|(
+name|ServiceNowEndpoint
+name|endpoint
+parameter_list|)
+throws|throws
+name|Exception
 function_decl|;
 block|}
 end_interface

@@ -178,18 +178,18 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ServiceNowConstants
+name|ServiceNowParams
 operator|.
 name|SYSPARM_LIMIT
 argument_list|,
-literal|"10"
+literal|10
 argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ServiceNowConstants
+name|ServiceNowParams
 operator|.
-name|TABLE
+name|PARAM_TABLE_NAME
 argument_list|,
 literal|"incident"
 argument_list|)
@@ -249,6 +249,51 @@ operator|<=
 literal|10
 argument_list|)
 expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|ServiceNowConstants
+operator|.
+name|OFFSET_FIRST
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|ServiceNowConstants
+operator|.
+name|OFFSET_NEXT
+argument_list|)
+argument_list|)
+expr_stmt|;
+name|assertNotNull
+argument_list|(
+name|exchange
+operator|.
+name|getIn
+argument_list|()
+operator|.
+name|getHeader
+argument_list|(
+name|ServiceNowConstants
+operator|.
+name|OFFSET_LAST
+argument_list|)
+argument_list|)
+expr_stmt|;
 block|}
 annotation|@
 name|Test
@@ -301,11 +346,11 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ServiceNowConstants
+name|ServiceNowParams
 operator|.
 name|SYSPARM_LIMIT
 argument_list|,
-literal|"10"
+literal|10
 argument_list|)
 operator|.
 name|build
@@ -478,9 +523,9 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ServiceNowConstants
+name|ServiceNowParams
 operator|.
-name|TABLE
+name|PARAM_TABLE_NAME
 argument_list|,
 literal|"incident"
 argument_list|)
@@ -541,14 +586,14 @@ name|LOGGER
 operator|.
 name|info
 argument_list|(
-literal|"* Incident created"
+literal|" Incident created"
 argument_list|)
 expr_stmt|;
 name|LOGGER
 operator|.
 name|info
 argument_list|(
-literal|"*  sysid  = {}"
+literal|"  sysid  = {}"
 argument_list|,
 name|sysId
 argument_list|)
@@ -557,7 +602,7 @@ name|LOGGER
 operator|.
 name|info
 argument_list|(
-literal|"*  number = {}"
+literal|"  number = {}"
 argument_list|,
 name|number
 argument_list|)
@@ -574,6 +619,15 @@ comment|// ************************
 comment|// Search for the incident
 comment|// ************************
 block|{
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|"Search the record {}"
+argument_list|,
+name|sysId
+argument_list|)
+expr_stmt|;
 name|mock
 operator|.
 name|reset
@@ -621,16 +675,16 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ServiceNowConstants
+name|ServiceNowParams
 operator|.
-name|TABLE
+name|PARAM_TABLE_NAME
 argument_list|,
 literal|"incident"
 argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ServiceNowConstants
+name|ServiceNowParams
 operator|.
 name|SYSPARM_QUERY
 argument_list|,
@@ -719,6 +773,15 @@ comment|// ************************
 comment|// Modify the incident
 comment|// ************************
 block|{
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|"Update the record {}"
+argument_list|,
+name|sysId
+argument_list|)
+expr_stmt|;
 name|mock
 operator|.
 name|reset
@@ -800,18 +863,18 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ServiceNowConstants
+name|ServiceNowParams
 operator|.
-name|TABLE
+name|PARAM_TABLE_NAME
 argument_list|,
 literal|"incident"
 argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ServiceNowConstants
+name|ServiceNowParams
 operator|.
-name|SYSPARM_ID
+name|PARAM_SYS_ID
 argument_list|,
 name|sysId
 argument_list|)
@@ -892,6 +955,15 @@ comment|// ************************
 comment|// Retrieve it via query
 comment|// ************************
 block|{
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|"Retrieve the record {}"
+argument_list|,
+name|sysId
+argument_list|)
+expr_stmt|;
 name|mock
 operator|.
 name|reset
@@ -939,16 +1011,16 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ServiceNowConstants
+name|ServiceNowParams
 operator|.
-name|TABLE
+name|PARAM_TABLE_NAME
 argument_list|,
 literal|"incident"
 argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ServiceNowConstants
+name|ServiceNowParams
 operator|.
 name|SYSPARM_QUERY
 argument_list|,
@@ -1082,6 +1154,15 @@ comment|// ************************
 comment|// Retrieve by sys id
 comment|// ************************
 block|{
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|"Search the record {}"
+argument_list|,
+name|sysId
+argument_list|)
+expr_stmt|;
 name|mock
 operator|.
 name|reset
@@ -1129,18 +1210,18 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ServiceNowConstants
+name|ServiceNowParams
 operator|.
-name|TABLE
+name|PARAM_TABLE_NAME
 argument_list|,
 literal|"incident"
 argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ServiceNowConstants
+name|ServiceNowParams
 operator|.
-name|SYSPARM_ID
+name|PARAM_SYS_ID
 argument_list|,
 name|sysId
 argument_list|)
@@ -1221,6 +1302,15 @@ comment|// ************************
 comment|// Delete it
 comment|// ************************
 block|{
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|"Delete the record {}"
+argument_list|,
+name|sysId
+argument_list|)
+expr_stmt|;
 name|mock
 operator|.
 name|reset
@@ -1268,18 +1358,18 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ServiceNowConstants
+name|ServiceNowParams
 operator|.
-name|TABLE
+name|PARAM_TABLE_NAME
 argument_list|,
 literal|"incident"
 argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ServiceNowConstants
+name|ServiceNowParams
 operator|.
-name|SYSPARM_ID
+name|PARAM_SYS_ID
 argument_list|,
 name|sysId
 argument_list|)
@@ -1295,9 +1385,18 @@ argument_list|()
 expr_stmt|;
 block|}
 comment|// ************************
-comment|// Retrieve it via query, should fail
+comment|// Retrieve by id, should fail
 comment|// ************************
 block|{
+name|LOGGER
+operator|.
+name|info
+argument_list|(
+literal|"Find the record {}, should fail"
+argument_list|,
+name|sysId
+argument_list|)
+expr_stmt|;
 try|try
 block|{
 name|template
@@ -1335,20 +1434,18 @@ argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ServiceNowConstants
+name|ServiceNowParams
 operator|.
-name|SYSPARM_QUERY
+name|PARAM_SYS_ID
 argument_list|,
-literal|"number="
-operator|+
-name|number
+name|sysId
 argument_list|)
 operator|.
 name|put
 argument_list|(
-name|ServiceNowConstants
+name|ServiceNowParams
 operator|.
-name|TABLE
+name|PARAM_TABLE_NAME
 argument_list|,
 literal|"incident"
 argument_list|)
@@ -1359,7 +1456,7 @@ argument_list|)
 expr_stmt|;
 name|fail
 argument_list|(
-literal|"Record +"
+literal|"Record "
 operator|+
 name|number
 operator|+

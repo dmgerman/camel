@@ -26,22 +26,60 @@ name|apache
 operator|.
 name|camel
 operator|.
-name|Producer
+name|Message
 import|;
 end_import
 
 begin_interface
-DECL|interface|ServiceNowProducer
+DECL|interface|ServiceNowParam
 specifier|public
 interface|interface
-name|ServiceNowProducer
-extends|extends
-name|Producer
+name|ServiceNowParam
 block|{
-DECL|method|getRelease ()
-name|ServiceNowRelease
-name|getRelease
+DECL|method|getId ()
+name|String
+name|getId
 parameter_list|()
+function_decl|;
+DECL|method|getHeader ()
+name|String
+name|getHeader
+parameter_list|()
+function_decl|;
+DECL|method|getType ()
+name|Class
+argument_list|<
+name|?
+argument_list|>
+name|getType
+parameter_list|()
+function_decl|;
+DECL|method|getDefaultValue (ServiceNowConfiguration configuration)
+name|Object
+name|getDefaultValue
+parameter_list|(
+name|ServiceNowConfiguration
+name|configuration
+parameter_list|)
+function_decl|;
+DECL|method|getHeaderValue (Message message)
+name|Object
+name|getHeaderValue
+parameter_list|(
+name|Message
+name|message
+parameter_list|)
+function_decl|;
+DECL|method|getHeaderValue (Message message, ServiceNowConfiguration configuration)
+name|Object
+name|getHeaderValue
+parameter_list|(
+name|Message
+name|message
+parameter_list|,
+name|ServiceNowConfiguration
+name|configuration
+parameter_list|)
 function_decl|;
 block|}
 end_interface
