@@ -510,6 +510,12 @@ specifier|private
 name|Boolean
 name|transferExchange
 decl_stmt|;
+comment|/**          * Only used for TCP when transferExchange is true. When set to true,          * serializable objects in headers and properties will be added to the          * exchange. Otherwise Camel will exclude any non-serializable objects          * and log it at WARN level.          */
+DECL|field|allowSerializedHeaders
+specifier|private
+name|Boolean
+name|allowSerializedHeaders
+decl_stmt|;
 comment|/**          * If sync is enabled then this option dictates NettyConsumer if it          * should disconnect where there is no reply to send back.          */
 DECL|field|disconnectOnNoReply
 specifier|private
@@ -1260,6 +1266,32 @@ operator|.
 name|transferExchange
 operator|=
 name|transferExchange
+expr_stmt|;
+block|}
+DECL|method|getAllowSerializedHeaders ()
+specifier|public
+name|Boolean
+name|getAllowSerializedHeaders
+parameter_list|()
+block|{
+return|return
+name|allowSerializedHeaders
+return|;
+block|}
+DECL|method|setAllowSerializedHeaders (Boolean allowSerializedHeaders)
+specifier|public
+name|void
+name|setAllowSerializedHeaders
+parameter_list|(
+name|Boolean
+name|allowSerializedHeaders
+parameter_list|)
+block|{
+name|this
+operator|.
+name|allowSerializedHeaders
+operator|=
+name|allowSerializedHeaders
 expr_stmt|;
 block|}
 DECL|method|getDisconnectOnNoReply ()
