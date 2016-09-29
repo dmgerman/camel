@@ -197,7 +197,7 @@ name|Metadata
 argument_list|(
 name|defaultValue
 operator|=
-literal|"30000"
+literal|"30000L"
 argument_list|)
 DECL|field|timeout
 specifier|private
