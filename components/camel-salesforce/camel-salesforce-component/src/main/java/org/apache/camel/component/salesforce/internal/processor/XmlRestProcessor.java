@@ -858,6 +858,9 @@ case|case
 name|QUERY
 case|:
 case|case
+name|QUERY_ALL
+case|:
+case|case
 name|QUERY_MORE
 case|:
 comment|// need to add alias for Salesforce XML that uses SObject name as root element
